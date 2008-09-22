@@ -1,4 +1,4 @@
-<openerp>
+<terp>
 	<data>
 
 
@@ -27,6 +27,6 @@
 			id="menu_wizard_hr_holidays_Report"/>
 	
 	</data>
-</openerp>
+</terp>
 
 
