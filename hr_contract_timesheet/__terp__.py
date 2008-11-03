@@ -24,7 +24,7 @@
     "version" : "0.1",
     "author" : "Tiny",
     "category" : "Generic Modules/Human Resources",
-    "website" : "http://www.openerp.com",
+    "website" : "http://tinyerp.com/module_hr.html",
     "depends" : ["hr_contract","hr_timesheet"],
     "module": "",
     "description": """

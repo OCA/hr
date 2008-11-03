@@ -28,7 +28,7 @@
     "description": """Human Ressources: Holidays summary printing functionality 
 
 
-NOTICE: This Module is Deprecated. Please install hr_holidays in order to have latest functionalities.""",
+NOTICE: This Module is Deprecated. Please install hr_holidays in order to have latest functionnalities.""",
     "depends" : ["hr_holidays",],
     "init_xml" : [],
     "demo_xml" : [],
