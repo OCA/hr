@@ -24,7 +24,18 @@ import time
 import datetime
 
 from osv import osv, fields
+from tools.translate import _
 import pooler
+
+class hr_holidays(osv.osv):
+    _inherit = 'hr.holidays'
+    _columns = {
+        'auto_eval' : fields.boolean('Auto computed by wizard'),
+    }
+    _defaults = {
+        'auto_eval' : lambda *a: False,
+    }
+hr_holidays()
 
 class hr_holidays_note(osv.osv):
     _name='hr.holidays.note'
@@ -44,9 +55,9 @@ class hr_holidays_note(osv.osv):
 
 
     _columns = {
-        'holiday_per_user_id':fields.many2one('hr.holidays','Holiday Status', required=True),
+        'holiday_status_id':fields.many2one('hr.holidays.status','Holiday Status', required=True),
         'date' : fields.char('Date', size=64, required=True),
-        'employee_id': fields.related('holiday_per_user_id','user_id',type='many2one', relation='hr.employee', string='Employee Name'),
+        'employee_id': fields.many2one('hr.employee', string='Employee Name', required=True),
         'prev_number': fields.float('Previous Holiday Number'),
         'new_number': fields.float('New Holiday Number', required=True),
         'diff': fields.function(_compute_diff, method=True, string='Difference', type='float'),
@@ -60,7 +71,7 @@ class wizard_hr_holidays_evaluation(osv.osv_memory):
         'holiday_status_id':fields.many2one('hr.holidays.status','Holiday Status',required=True,help='This is where you specify the holiday type to synchronize. It will create the "holidays per employee" accordingly if necessary, or replace the value "Max leaves allowed" into the existing one.'),
         'hr_timesheet_group_id':fields.many2one('hr.timesheet.group','Timesheet Group',required=True,help='This field allow you to filter on only the employees that have a contract using this working hour.'),
         'float_time':fields.float('Time',required=True,help='''This time depicts the amount per day earned by an employee working a day.The computation is: total earned = time * number of working days'''),
-        'date_current' : fields.date('Date',help='This field allow you to choose the date to use, for forecast matter e.g')
+        'date_current' : fields.date('Date',help='This field allow you to choose the date to use, for forecast matter e.g. The start date is the starting date of the employee contract.') 
     }
     _defaults = {
         'date_current' : lambda *a: time.strftime('%Y-%m-%d'),
@@ -94,9 +105,7 @@ class wizard_hr_holidays_evaluation(osv.osv_memory):
             for k in alltime:
                 how += k
             hpd = how/nod
-
             cr.execute("""SELECT distinct(to_date(to_char(ha.name, 'YYYY-MM-dd'),'YYYY-MM-dd')) 
-
                         FROM hr_attendance ha, hr_attendance ha2 
                         WHERE ha.action='sign_in' 
                             AND ha2.action='sign_out' 
@@ -109,7 +118,7 @@ class wizard_hr_holidays_evaluation(osv.osv_memory):
             all_dates = map(lambda x: x[0],results)
             days = len(all_dates)
             hrss = days * evaluation_obj.float_time
-
+            
             if hrss < hpd:
                 x = 0
             else:
@@ -120,26 +129,32 @@ class wizard_hr_holidays_evaluation(osv.osv_memory):
                     x += 0.5
                     
             holiday_obj = self.pool.get('hr.holidays')
-            holiday_ids = holiday_obj.search(cr, uid, [('employee_id', '=', emp_id),('holiday_status_id', '=', evaluation_obj.holiday_status_id.id)])
-            if len(holiday_ids) == 0:
-                old_leave = False
-                data = {'employee_id': emp_id, 'holiday_status_id': evaluation_obj.holiday_status_id.id, 'number_of_days_temp' : x}
+            holiday_ids = holiday_obj.search(cr, uid, [('employee_id', '=', emp_id),('holiday_status_id', '=', evaluation_obj.holiday_status_id.id),('auto_eval','=',True)])
+            old_leave = 0
+            for holiday_id in holiday_obj.browse(cr, uid, holiday_ids, context):
+                old_leave += holiday_id.number_of_days_temp
+
+            if old_leave < x:
+                data = {
+                    'name': _('Automatically Created Holiday'),
+                    'employee_id': emp_id, 
+                    'holiday_status_id': evaluation_obj.holiday_status_id.id, 
+                    'number_of_days_temp' : x - old_leave, 
+                    'type': 'add', 
+                    'auto_eval': True
+                }
                 holiday_id = holiday_obj.create(cr, uid, data, context)
 
-            else:
-                holiday_id = holiday_ids[0]
-                old_leave = holiday_obj.browse(cr, uid, holiday_id, context).number_of_days_temp
-                holidays = holiday_obj.write(cr, uid, [holiday_id], {'number_of_days_temp':x})
+                value = {
+                    'date': str(DateTime.now()),
+                    'holiday_status_id': evaluation_obj.holiday_status_id.id,
+                    'prev_number': old_leave, 
+                    'new_number': x,
+                    'employee_id': emp_id,
+                }
 
-            value = {
-                'date': str(DateTime.now()),
-                'holiday_per_user_id': holiday_id,
-                'prev_number': old_leave, 
-                'new_number': x,
-            }
-
-            note_id = self.pool.get('hr.holidays.note').create(cr, uid, value, context)
-            bjs.append(note_id)
+                note_id = self.pool.get('hr.holidays.note').create(cr, uid, value, context)
+                bjs.append(note_id)
 
         return {
             'domain': "[('id','in', ["+','.join(map(str,bjs))+"])]",
