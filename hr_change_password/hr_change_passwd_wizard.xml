@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>		
+ 		<wizard id="change_pwd" 
+ 			model="res.users" 
+ 			name="change.passwd" 
+ 			string="Change Password"
+ 			menu="False"/>
+ 		
+ 		
+ 		<menuitem
+ 		    name="User Maintenance"
+ 		    id="user_maintan"
+	    />
+ 		
+ 		<menuitem
+        	action="change_pwd" 
+        	id="change_passwd_wizard" 
+        	name="Change My Password" 
+        	parent="user_maintan"
+        	type="wizard"
+        	icon="STOCK_EXECUTE"
+        	sequence="50"/>
+ 	</data>
+</openerp>
