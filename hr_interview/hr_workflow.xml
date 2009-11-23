@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+<openerp>
+<data>
+	<record model="workflow" id="wkf_hr_interview">
+		<field name="name">hr.interview</field>
+		<field name="osv">hr.interview</field>
+		<field name="on_create">True</field>
+	</record>
+
+	<record model="workflow.activity" id="act_draft">
+	        <field name="wkf_id" ref="wkf_hr_interview" />
+	        <field name="flow_start">True</field>
+	        <field name="name">draft</field>
+	</record>
+	<record model="workflow.activity" id="act_scheduled">
+	        <field name="wkf_id" ref="wkf_hr_interview" />
+	        <field name="name">scheduled</field>
+	        <field name="kind">function</field>
+	        <field name="action">state_scheduled()</field>
+	</record>
+	<record model="workflow.activity" id="act_cancel">
+	        <field name="wkf_id" ref="wkf_hr_interview" />
+	        <field name="name">cancel</field>
+	        <field name="kind">function</field>
+            <field name="flow_stop">True</field>
+	        <field name="action">state_cancel()</field>
+	</record>
+	
+	<record model="workflow.activity" id="act_re_scheduled">
+	        <field name="wkf_id" ref="wkf_hr_interview" />
+	        <field name="name">re_scheduled</field>
+	        <field name="kind">function</field>
+	        <field name="action">state_re_scheduled()</field>
+	</record>
+	<record model="workflow.activity" id="act_start_interview">
+	        <field name="wkf_id" ref="wkf_hr_interview" />
+	        <field name="name">start_interview</field>
+	        <field name="kind">function</field>
+	        <field name="action">state_start_interview()</field>
+	</record>
+	<record model="workflow.activity" id="act_end_interview">
+	        <field name="wkf_id" ref="wkf_hr_interview" />
+	        <field name="name">end_interview</field>
+	        <field name="kind">function</field>
+	        <field name="action">state_end_interview()</field>
+	</record>
+	<record model="workflow.activity" id="act_selected">
+	        <field name="wkf_id" ref="wkf_hr_interview" />
+	        <field name="name">selected</field>
+	        <field name="kind">function</field>
+	        <field name="flow_stop">True</field>
+	        <field name="action">state_selected()</field>
+	</record>
+	<record model="workflow.activity" id="act_rejected">
+	        <field name="wkf_id" ref="wkf_hr_interview" />
+	        <field name="name">rejected</field>
+	        <field name="kind">function</field>
+	        <field name="flow_stop">True</field>
+	        <field name="action">state_rejected()</field>
+	</record>
+
+		
+		
+		
+	<record model="workflow.transition" id="t1">
+        <field name="act_from" ref="act_draft" />
+        <field name="act_to" ref="act_scheduled" />
+        <field name="signal">state_scheduled</field>
+	</record>
+	<record model="workflow.transition" id="t2">
+        <field name="act_from" ref="act_scheduled" />
+        <field name="act_to" ref="act_re_scheduled" />
+        <field name="signal">state_re_scheduled</field>
+	</record>
+	
+	<record model="workflow.transition" id="t3">
+        <field name="act_from" ref="act_re_scheduled" />
+        <field name="act_to" ref="act_scheduled" />
+        <field name="signal">state_scheduled</field>
+	</record>
+	
+	<record model="workflow.transition" id="t4">
+        <field name="act_from" ref="act_scheduled" />
+        <field name="act_to" ref="act_cancel" />
+        <field name="signal">state_cancel</field>
+	</record>
+	
+	<record model="workflow.transition" id="t5">
+        <field name="act_from" ref="act_re_scheduled" />
+        <field name="act_to" ref="act_cancel" />
+        <field name="signal">state_cancel</field>
+	</record>
+	
+	<record model="workflow.transition" id="t7">
+        <field name="act_from" ref="act_scheduled" />
+        <field name="act_to" ref="act_start_interview" />
+        <field name="signal">state_start_interview</field>
+	</record>
+	<record model="workflow.transition" id="t8">
+        <field name="act_from" ref="act_start_interview" />
+        <field name="act_to" ref="act_cancel" />
+        <field name="signal">state_cancel</field>
+	</record>
+	<record model="workflow.transition" id="t9">
+        <field name="act_from" ref="act_start_interview" />
+        <field name="act_to" ref="act_end_interview" />
+        <field name="signal">state_end_interview</field>
+	</record>
+
+	<record model="workflow.transition" id="t10">
+        <field name="act_from" ref="act_end_interview" />
+        <field name="act_to" ref="act_selected" />
+        <field name="signal">state_selected</field>
+	</record>
+	<record model="workflow.transition" id="t11">
+        <field name="act_from" ref="act_end_interview" />
+        <field name="act_to" ref="act_rejected" />
+        <field name="signal">state_rejected</field>
+	</record>
+
+		
+</data>
+</openerp>

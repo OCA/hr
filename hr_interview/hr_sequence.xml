@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+        <!-- Sequences for hr.id -->
+        <record id="seq_type_hr_id" model="ir.sequence.type">
+            <field name="name">HR Interview</field>
+            <field name="code">hr.interview</field>
+        </record>
+        <record id="seq_hr_id" model="ir.sequence">
+            <field name="name">HR Interview</field>
+            <field name="code">hr.interview</field>
+            <field name="prefix">2009/</field>
+            <field name="padding">3</field>
+        </record>
+    </data>
+</openerp>

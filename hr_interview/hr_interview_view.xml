@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    	
+   		 <!--
+        ==========
+      	Candidate Category View
+        ==========
+        -->
+    	<record id="candidate_category_search" model="ir.ui.view">
+            <field name="name">cand.categ.search</field>
+            <field name="model">candidate.category</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Category Question">
+                    <field name="code" select="1" />
+                    <field name="name" select="1"/>
+                    <field name="question_ids" nolabel="1" colspan="4" />
+				</form>
+            </field>
+        </record>
+        <record id="candidate_category_tree" model="ir.ui.view">
+            <field name="name">cand.categ.tree</field>
+            <field name="model">candidate.category</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Category Questions">
+                    <field name="code" select="1"/>
+                    <field name="name" select="1"/>
+				</tree>
+            </field>
+        </record>
+        <record id="act_candidate_category_tree" model="ir.actions.act_window">
+            <field name="name">Candidate Category</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">candidate.category</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem  id="menu_act_candidate_category_form" name="Candidate Categories" action="act_candidate_category_tree" parent="hr.menu_hr_configuration" />
+    
+   		 <!--
+        ==========
+        HR Interview View
+        ==========
+        -->
+    
+        <record id="hr_interview_tree" model="ir.ui.view">
+            <field name="name">hr.interview.tree</field>
+            <field name="model">hr.interview</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree  string="Interview">
+                    <field name="hr_id" />
+                    <field name="name" select ="1"/>
+                    <field name="email" select="2"/>                    
+                    <field name="date" select ="1"/>
+                    <field name="education" select ="1" />  
+                    <field name="performance" select ="1" />
+		    		<field name="state" select ="1"/>
+		</tree>
+            </field>
+        </record>
+        <record id="hr_interview_form" model="ir.ui.view">
+            <field name="name">hr.interview.form</field>
+            <field name="model">hr.interview</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="HR Interview">
+	                <group colspan="4" col="6">
+	                  	<field name="hr_id"  select="1"/>
+	                    <field name="name" select="1"/>
+	                    <field name="crm_case_id"/>
+	                    <field name="email" widget="email"  select="2"/>
+	                    <field name="mobile_no" />
+                    	<field name="date" select="1"/>
+	                </group>
+                    <notebook colspan="4">
+                    	<page string="General">
+                    		<group col="6" colspan="4">
+	                   		    <field name="category_id"/>
+	                   		    <field name="education"/>
+    	               			<field name="experience_id" widget="selection"/>
+    	               			<field name="reference_id"  />
+    	               			<field name="exam_date"/>
+    	                	</group>
+    	                	<separator string="Notes / Remarks" colspan="4"/>
+        	            	<field name="remarks" colspan="4" nolabel="1"/>
+        	            	
+	        	        </page>
+	        	<page string="Technical">
+        	        	<separator string="Evaluator" colspan="4"/>
+        	         	<field name="evaluator_ids" colspan="4" nolabel="1"/>
+            			<field name="tech_skills_ids" colspan="4"  nolabel="1"/>
+                    		<button name="_eval_performance" string="Calculate Performance" type="object" />
+                    		<field name="performance"/>
+                    	</page>
+	        	        <page string="History">
+                    		<field name="history_log_ids" colspan="4" nolabel="1"/>
+                    	</page>
+
+	        	    </notebook>
+					<separator string="Workflow Actions" colspan="4"/>
+					<group col="9"  colspan="4">
+						<field name="state"/>
+						<button name="state_scheduled" string="Scheduled" states="draft,re-scheduled" type="workflow" icon="gtk-execute"/>
+						<button name="state_cancel" string="Cancel" states="draft,scheduled,re-scheduled,start-interview" type="workflow"  icon="gtk-cancel"/>
+
+						<button name="state_re_scheduled" string="Re-Scheduled" states="scheduled" type="workflow"  icon="gtk-execute" />
+
+						<button name="state_start_interview" string="Start-Interview" states="scheduled" type="workflow"  icon="gtk-yes" />
+						<button name="state_end_interview" string="End-Interview" states="start-interview" type="workflow"  icon="gtk-ok" />
+						<button name="state_selected" string="Selected" states="end-interview" type="workflow" icon="gtk-ok"  />
+						<button name="state_rejected" string="Rejected" states="end-interview" type="workflow" icon="gtk-cancel"  />						
+					</group>
+                </form>
+            </field>
+        </record>
+        
+        <record id="act_hr_interview_tree" model="ir.actions.act_window">
+            <field name="name">HR Interview</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr.interview</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+  		<record id="act_hr_interview_form" model="ir.actions.act_window">
+            <field name="name">HR Interview</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr.interview</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+        </record>
+        <menuitem  id="menu_act_hr_interview" name="Interview" parent="hr.menu_hr_root" />
+        <menuitem  id="menu_act_hr_interview_tree" name="All Interviews" action="act_hr_interview_tree" parent="menu_act_hr_interview" sequence="1"/>
+        <menuitem  id="menu_act_hr_interview_form" name="New Interview" action="act_hr_interview_form" parent="menu_act_hr_interview" sequence="2"/>
+ 		
+ 		<record id="act_hr_interview_tree_selected" model="ir.actions.act_window">
+            <field name="name">Selected Candidates</field>
+            <field name="res_model">hr.interview</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('state','=','selected')]</field>
+        </record>
+        <menuitem action="act_hr_interview_tree_selected" id="menu_act_hr_interview_tree4_selected" parent="menu_act_hr_interview_tree"/>
+ 	
+ 		<record id="act_hr_interview_tree_cancel" model="ir.actions.act_window">
+            <field name="name">Cancel Candidates</field>
+            <field name="res_model">hr.interview</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('state','=','cancel')]</field>
+        </record>
+        <menuitem action="act_hr_interview_tree_cancel" id="menu_act_hr_interview_tree4_cancel" parent="menu_act_hr_interview_tree"/>
+ 	
+ 		<record id="act_hr_interview_tree_rejected" model="ir.actions.act_window">
+            <field name="name">Rejected Candidates</field>
+            <field name="res_model">hr.interview</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('state','=','rejected')]</field>
+        </record>
+        <menuitem action="act_hr_interview_tree_rejected" id="menu_act_hr_interview_tree4_rejected" parent="menu_act_hr_interview_tree"/>
+ 	
+ 		<record id="act_hr_interview_tree_scheduled" model="ir.actions.act_window">
+            <field name="name">Scheduled Candidates</field>
+            <field name="res_model">hr.interview</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('state','=','scheduled')]</field>
+        </record>
+        <menuitem action="act_hr_interview_tree_scheduled" id="menu_act_hr_interview_tree4_scheduled" parent="menu_act_hr_interview_tree"/>
+
+  		<!--
+        ==========
+        Technical Skil
+        ==========
+        -->
+
+	 	<record id="technical_skill_form" model="ir.ui.view">
+            <field name="name">technical.skill.form</field>
+            <field name="model">technical.skill</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Technical Skill">
+                  	<field name="name" select="1" />
+                    <field name="tot_marks" select="1"/>
+                    <field name="obt_marks" select="1"/>
+                    <separator string="Notes / Remarks" colspan="4"/>
+                    <field name="remarks" colspan="4" nolabel="1"/>
+                </form>
+            </field>
+        </record>
+        <record id="technical_skill_tree" model="ir.ui.view">
+            <field name="name">technical.skill.tree</field>
+            <field name="model">technical.skill</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree editable="top" string="Skill Evaluation">
+                  	<field name="name"  select="1"/>
+                    <field name="tot_marks" select="1"/>
+                    <field name="obt_marks" select="1"/>
+                </tree>
+            </field>
+        </record>
+        
+   		 <!--
+        ==========
+        Candidate Experience
+        ==========
+        -->
+        
+        <record id="candidate_experience_form" model="ir.ui.view">
+            <field name="name">candidate.experience.form</field>
+            <field name="model">candidate.experience</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Experience">
+                    <field name="code" select="1"/>
+                  	<field name="name"  select="1"/>
+                  	<field name="special" select="2"/>                    
+                </form>
+            </field>
+        </record>
+       <record id="candidate_experience_tree" model="ir.ui.view">
+            <field name="name">candidate.experience.tree</field>
+            <field name="model">candidate.experience</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Experience">
+                    <field name="code" select="1"/>
+                  	<field name="name" select="1"/>
+                  	<field name="special" select="2"/>                    
+                </tree>
+            </field>
+        </record>
+        <record id="act_candidate_experience_tree" model="ir.actions.act_window">
+            <field name="name">Candidate Experience</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">candidate.experience</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem  id="menu_act_candidate_experience_form" name="Candidate Experience" action="act_candidate_experience_tree" parent="hr.menu_hr_configuration" />
+      
+         <!--
+        ==========
+      	Category Question View
+        ==========
+        -->
+ 		<record id="category_question_form" model="ir.ui.view">
+            <field name="name">category.question.form</field>
+            <field name="model">category.question</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Category Question">
+                    <field name="name" select="1"/>
+                    <field name="tot_marks" />
+				</form>
+            </field>
+		</record>
+        <record id="category_question_tree" model="ir.ui.view">
+            <field name="name">category.question.tree</field>
+            <field name="model">category.question</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree  editable="top" string="Category Question">
+                    <field name="name" select="1"/>
+                    <field name="tot_marks" select="1"/>
+				</tree>
+            </field>
+        </record>
+ 		    
+      <!--
+        ==========
+      	History log View
+        ==========
+        -->
+ 		<record id="hr_interview_log_form" model="ir.ui.view">
+            <field name="name">hr.interview.log.form</field>
+            <field name="model">hr.interview.log</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Histoory">
+                    <field name="date" select="1"/>
+                    <field name="state" select="2" />
+                    <field name="user_id" select ="2"/>
+				</form>
+            </field>
+		</record>
+        <record id="hr_interview_log_tree" model="ir.ui.view">
+            <field name="name">hr.interview.log.tree</field>
+            <field name="model">hr.interview.log</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Interview Logs">
+                    <field name="date"  select="1"/>
+                    <field name="state" select="2"/>
+                    <field name="user_id" select="2" />
+				</tree>
+            </field>
+        </record> 		    
+    </data>
+</openerp>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <report id="candidate_report" model="hr.interview" auto="False" name="candidate.summary" rml="addons/hr_interview/report/candidate_summary.rml" string="Candidate's Summary"/>
+    </data>
+</openerp>

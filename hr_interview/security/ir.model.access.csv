@@ -1,0 +1,6 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_candidate_category","candidate.category","model_candidate_category","base.group_user",1,1,1,1
+"access_category_question","category.question","model_category_question","base.group_user",1,1,1,1
+"access_candidate_experience","candidate.experience","model_candidate_experience","base.group_user",1,1,1,1
+"access_hr_interview","hr.interview","model_hr_interview","base.group_user",1,1,1,1
+"access_technical_skill","technical.skill","model_technical_skill","base.group_user",1,1,1,1
