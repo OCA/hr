@@ -20,7 +20,7 @@
 ##############################################################################
 
 {
-    "name" : "Human Resources Contracts",
+    "name" : "Human Resources Contracts - Human Ressources Reservations Management",
     "version" : "0.1",
     "author" : "Tiny",
     "category" : "Generic Modules/Human Resources",
