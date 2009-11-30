@@ -1,0 +1,648 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* hr_interview
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 5.0.6\n"
+"Report-Msgid-Bugs-To: support@openerp.com\n"
+"POT-Creation-Date: 2009-11-25 13:15:30+0000\n"
+"PO-Revision-Date: 2009-11-25 13:15:30+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hr_interview
+#: field:technical.skill,candidate_id:0
+msgid "Candidate ID"
+msgstr ""
+
+#. module: hr_interview
+#: field:candidate.experience,special:0
+msgid "Specialization"
+msgstr ""
+
+#. module: hr_interview
+#: selection:hr.interview,education:0
+msgid "MSc IT"
+msgstr ""
+
+#. module: hr_interview
+#: view:hr.interview:0
+#: selection:hr.interview,state:0
+msgid "Selected"
+msgstr ""
+
+#. module: hr_interview
+#: constraint:ir.actions.act_window:0
+msgid "Invalid model name in the action definition."
+msgstr ""
+
+#. module: hr_interview
+#: field:hr.interview,hr_id:0
+msgid "Interview ID"
+msgstr ""
+
+#. module: hr_interview
+#: view:hr.interview:0
+#: selection:hr.interview,state:0
+msgid "Scheduled"
+msgstr ""
+
+#. module: hr_interview
+#: selection:hr.interview,education:0
+msgid "MTech Computers"
+msgstr ""
+
+#. module: hr_interview
+#: view:hr.interview:0
+#: model:ir.actions.act_window,name:hr_interview.act_hr_interview_form
+#: model:ir.actions.act_window,name:hr_interview.act_hr_interview_tree
+msgid "HR Interview"
+msgstr ""
+
+#. module: hr_interview
+#: wizard_field:hr.email.interview,init,smtp_server:0
+msgid "SMTP Server"
+msgstr ""
+
+#. module: hr_interview
+#: rml:candidate.summary:0
+msgid "Scheduled Date :"
+msgstr ""
+
+#. module: hr_interview
+#: rml:candidate.summary:0
+msgid "Performances (in %) :"
+msgstr ""
+
+#. module: hr_interview
+#: code:addons/hr_interview/wizard/wiz_schedule.py:0
+#, python-format
+msgid "UserError"
+msgstr ""
+
+#. module: hr_interview
+#: rml:candidate.summary:0
+#: model:ir.actions.report.xml,name:hr_interview.candidate_report
+msgid "Candidate's Summary"
+msgstr ""
+
+#. module: hr_interview
+#: wizard_button:wiz_interview_scheduling,schedule,end:0
+msgid "Ok"
+msgstr ""
+
+#. module: hr_interview
+#: field:hr.interview,mobile_no:0
+msgid "Mobile"
+msgstr ""
+
+#. module: hr_interview
+#: rml:candidate.summary:0
+msgid "Evaluators:"
+msgstr ""
+
+#. module: hr_interview
+#: model:ir.model,name:hr_interview.model_hr_interview_log
+msgid "HR interview log"
+msgstr ""
+
+#. module: hr_interview
+#: rml:candidate.summary:0
+#: field:technical.skill,obt_marks:0
+msgid "Obtained Marks"
+msgstr ""
+
+#. module: hr_interview
+#: view:technical.skill:0
+msgid "Skill Evaluation"
+msgstr ""
+
+#. module: hr_interview
+#: wizard_view:wiz_interview_scheduling,init:0
+msgid "Interview Scheduling Of Candidate"
+msgstr ""
+
+#. module: hr_interview
+#: rml:candidate.summary:0
+msgid "Interview ID :"
+msgstr ""
+
+#. module: hr_interview
+#: field:hr.interview,reference_id:0
+msgid "Reference"
+msgstr ""
+
+#. module: hr_interview
+#: rml:candidate.summary:0
+msgid "Skills Evaluation"
+msgstr ""
+
+#. module: hr_interview
+#: field:hr.interview,education:0
+msgid "Education"
+msgstr ""
+
+#. module: hr_interview
+#: model:ir.actions.act_window,name:hr_interview.act_hr_interview_tree_selected
+#: model:ir.ui.menu,name:hr_interview.menu_act_hr_interview_tree4_selected
+msgid "Selected Candidates"
+msgstr ""
+
+#. module: hr_interview
+#: wizard_field:hr.email.interview,init,subject:0
+msgid "Subject"
+msgstr ""
+
+#. module: hr_interview
+#: view:candidate.category:0
+msgid "Category Questions"
+msgstr ""
+
+#. module: hr_interview
+#: field:candidate.category,question_ids:0
+#: field:category.question,name:0
+msgid "Question"
+msgstr ""
+
+#. module: hr_interview
+#: field:hr.interview,state:0
+#: field:hr.interview.log,state:0
+msgid "State"
+msgstr ""
+
+#. module: hr_interview
+#: field:hr.interview,history_log_ids:0
+#: view:hr.interview.log:0
+msgid "Interview Logs"
+msgstr ""
+
+#. module: hr_interview
+#: field:hr.interview.log,history_id:0
+msgid "History ID"
+msgstr ""
+
+#. module: hr_interview
+#: view:hr.interview:0
+#: selection:hr.interview,state:0
+msgid "End-Interview"
+msgstr ""
+
+#. module: hr_interview
+#: rml:candidate.summary:0
+#: field:category.question,tot_marks:0
+#: field:technical.skill,tot_marks:0
+msgid "Total Marks"
+msgstr ""
+
+#. module: hr_interview
+#: view:hr.interview:0
+#: view:technical.skill:0
+msgid "Notes / Remarks"
+msgstr ""
+
+#. module: hr_interview
+#: selection:hr.interview,education:0
+msgid "BE IT"
+msgstr ""
+
+#. module: hr_interview
+#: view:hr.interview:0
+#: selection:hr.interview,state:0
+msgid "Rejected"
+msgstr ""
+
+#. module: hr_interview
+#: rml:candidate.summary:0
+msgid "Applied For(Category) :"
+msgstr ""
+
+#. module: hr_interview
+#: model:ir.module.module,shortdesc:hr_interview.module_meta_information
+msgid "Human Resources (Interview Evaluation)"
+msgstr ""
+
+#. module: hr_interview
+#: view:hr.interview:0
+#: field:hr.interview,evaluator_ids:0
+msgid "Evaluator"
+msgstr ""
+
+#. module: hr_interview
+#: code:addons/hr_interview/wizard/wiz_schedule.py:0
+#, python-format
+msgid "The Scheduling is not Appropriate. Enter appropriate date and time "
+msgstr ""
+
+#. module: hr_interview
+#: wizard_field:hr.email.interview,init,mail_body:0
+msgid "Body"
+msgstr ""
+
+#. module: hr_interview
+#: constraint:ir.ui.view:0
+msgid "Invalid XML for View Architecture!"
+msgstr ""
+
+#. module: hr_interview
+#: wizard_field:wiz_interview_scheduling,init,end_interview:0
+msgid "End Interview Time"
+msgstr ""
+
+#. module: hr_interview
+#: view:hr.interview:0
+#: selection:hr.interview,state:0
+msgid "Re-Scheduled"
+msgstr ""
+
+#. module: hr_interview
+#: rml:candidate.summary:0
+msgid "Status:"
+msgstr ""
+
+#. module: hr_interview
+#: model:ir.actions.act_window,name:hr_interview.act_candidate_experience_tree
+#: model:ir.model,name:hr_interview.model_candidate_experience
+#: model:ir.ui.menu,name:hr_interview.menu_act_candidate_experience_form
+msgid "Candidate Experience"
+msgstr ""
+
+#. module: hr_interview
+#: rml:candidate.summary:0
+msgid "Signature"
+msgstr ""
+
+#. module: hr_interview
+#: code:addons/hr_interview/hr_interview.py:0
+#, python-format
+msgid "Obtained marks cannot be greater than Total marks!"
+msgstr ""
+
+#. module: hr_interview
+#: model:ir.actions.act_window,name:hr_interview.act_candidate_category_tree
+msgid "Candidate Category"
+msgstr ""
+
+#. module: hr_interview
+#: selection:hr.interview,education:0
+msgid "BTech IT"
+msgstr ""
+
+#. module: hr_interview
+#: view:hr.interview:0
+msgid "Calculate Performance"
+msgstr ""
+
+#. module: hr_interview
+#: wizard_button:wiz_interview_scheduling,init,schedule:0
+msgid "Schedule"
+msgstr ""
+
+#. module: hr_interview
+#: model:ir.actions.wizard,name:hr_interview.wizard_email_interview
+msgid "Send Mail for Interview"
+msgstr ""
+
+#. module: hr_interview
+#: model:ir.actions.act_window,name:hr_interview.act_hr_interview_tree_rejected
+#: model:ir.ui.menu,name:hr_interview.menu_act_hr_interview_tree4_rejected
+msgid "Rejected Candidates"
+msgstr ""
+
+#. module: hr_interview
+#: field:hr.interview,exam_date:0
+msgid "Exam On"
+msgstr ""
+
+#. module: hr_interview
+#: model:ir.actions.act_window,name:hr_interview.act_hr_interview_tree_cancel
+#: model:ir.ui.menu,name:hr_interview.menu_act_hr_interview_tree4_cancel
+msgid "Cancel Candidates"
+msgstr ""
+
+#. module: hr_interview
+#: code:addons/hr_interview/hr_interview.py:0
+#, python-format
+msgid "You cannot duplicate the resource!"
+msgstr ""
+
+#. module: hr_interview
+#: rml:candidate.summary:0
+#: field:category.question,category_id:0
+#: field:hr.interview,category_id:0
+#: field:technical.skill,name:0
+msgid "Category"
+msgstr ""
+
+#. module: hr_interview
+#: wizard_view:wiz_interview_scheduling,schedule:0
+msgid "Use Model"
+msgstr ""
+
+#. module: hr_interview
+#: rml:candidate.summary:0
+msgid "Mobile No :"
+msgstr ""
+
+#. module: hr_interview
+#: rml:candidate.summary:0
+msgid "Evaluators and Remarks"
+msgstr ""
+
+#. module: hr_interview
+#: selection:hr.interview,education:0
+msgid "BCA"
+msgstr ""
+
+#. module: hr_interview
+#: wizard_field:wiz_interview_scheduling,init,start_interview:0
+msgid "Start Interview Time"
+msgstr ""
+
+#. module: hr_interview
+#: selection:hr.interview,state:0
+msgid "Draft"
+msgstr ""
+
+#. module: hr_interview
+#: view:hr.interview:0
+#: selection:hr.interview,state:0
+msgid "Start-Interview"
+msgstr ""
+
+#. module: hr_interview
+#: code:addons/hr_interview/wizard/wiz_schedule.py:0
+#, python-format
+msgid "Insert appropriate interval time!!!"
+msgstr ""
+
+#. module: hr_interview
+#: view:hr.interview.log:0
+msgid "Histoory"
+msgstr ""
+
+#. module: hr_interview
+#: wizard_field:wiz_interview_scheduling,init,interval_time:0
+msgid "Interval(Approximate Evaluation Time) "
+msgstr ""
+
+#. module: hr_interview
+#: selection:hr.interview,education:0
+msgid "BSc IT"
+msgstr ""
+
+#. module: hr_interview
+#: field:hr.interview.log,user_id:0
+msgid "User Name"
+msgstr ""
+
+#. module: hr_interview
+#: model:ir.module.module,description:hr_interview.module_meta_information
+msgid "\n"
+"        This module stores all the educational as well as professional details of candidates who appears for interview.While taking an interview, the interviewers can evaluate the candidate's performance on the basis of categories.The Candidate is evaluated bases on different evaluations,which are related to categories.\n"
+"\n"
+"Example: Candidate X to be evaluated for Y Category(Category reflects to the recruitment criteria). Category Y has several question types:DBMS questions,OOP questions,Communication skills, etc.\n"
+"\n"
+"    "
+msgstr ""
+
+#. module: hr_interview
+#: rml:candidate.summary:0
+msgid "Final Remarks:"
+msgstr ""
+
+#. module: hr_interview
+#: model:ir.ui.menu,name:hr_interview.menu_act_hr_interview_form
+msgid "New Interview"
+msgstr ""
+
+#. module: hr_interview
+#: field:hr.interview,performance:0
+msgid "Performance (%)"
+msgstr ""
+
+#. module: hr_interview
+#: field:hr.interview.log,date:0
+msgid "Date"
+msgstr ""
+
+#. module: hr_interview
+#: view:technical.skill:0
+msgid "Technical Skill"
+msgstr ""
+
+#. module: hr_interview
+#: rml:candidate.summary:0
+msgid "Current Date:"
+msgstr ""
+
+#. module: hr_interview
+#: rml:candidate.summary:0
+msgid "Reference:"
+msgstr ""
+
+#. module: hr_interview
+#: field:hr.interview,name:0
+msgid "Candidate Name"
+msgstr ""
+
+#. module: hr_interview
+#: wizard_button:hr.email.interview,init,sendmail:0
+msgid "Send Mail"
+msgstr ""
+
+#. module: hr_interview
+#: model:ir.model,name:hr_interview.model_hr_interview
+msgid "Interview Evaluation"
+msgstr ""
+
+#. module: hr_interview
+#: view:candidate.experience:0
+#: field:hr.interview,experience_id:0
+msgid "Experience"
+msgstr ""
+
+#. module: hr_interview
+#: wizard_view:hr.email.interview,init:0
+msgid "Interview Mail"
+msgstr ""
+
+#. module: hr_interview
+#: rml:candidate.summary:0
+msgid "Education :"
+msgstr ""
+
+#. module: hr_interview
+#: view:candidate.category:0
+#: view:category.question:0
+msgid "Category Question"
+msgstr ""
+
+#. module: hr_interview
+#: view:hr.interview:0
+msgid "History"
+msgstr ""
+
+#. module: hr_interview
+#: field:candidate.category,code:0
+#: field:candidate.experience,code:0
+msgid "Code"
+msgstr ""
+
+#. module: hr_interview
+#: model:ir.model,name:hr_interview.model_technical_skill
+msgid "Technical Skill Of Candidate"
+msgstr ""
+
+#. module: hr_interview
+#: view:hr.interview:0
+msgid "General"
+msgstr ""
+
+#. module: hr_interview
+#: wizard_button:hr.email.interview,init,end:0
+#: view:hr.interview:0
+#: selection:hr.interview,state:0
+#: wizard_button:wiz_interview_scheduling,init,end:0
+msgid "Cancel"
+msgstr ""
+
+#. module: hr_interview
+#: constraint:ir.model:0
+msgid "The Object name must start with x_ and not contain any special character !"
+msgstr ""
+
+#. module: hr_interview
+#: rml:candidate.summary:0
+msgid "Email :"
+msgstr ""
+
+#. module: hr_interview
+#: field:hr.interview,email:0
+msgid "E-mail"
+msgstr ""
+
+#. module: hr_interview
+#: selection:hr.interview,education:0
+msgid "Other"
+msgstr ""
+
+#. module: hr_interview
+#: rml:candidate.summary:0
+msgid "Name :"
+msgstr ""
+
+#. module: hr_interview
+#: selection:hr.interview,education:0
+msgid "BTech Computers"
+msgstr ""
+
+#. module: hr_interview
+#: view:hr.interview:0
+#: model:ir.ui.menu,name:hr_interview.menu_act_hr_interview
+msgid "Interview"
+msgstr ""
+
+#. module: hr_interview
+#: selection:hr.interview,education:0
+msgid "BE Computers"
+msgstr ""
+
+#. module: hr_interview
+#: field:hr.interview,date:0
+msgid "Scheduled Date"
+msgstr ""
+
+#. module: hr_interview
+#: model:ir.ui.menu,name:hr_interview.menu_act_hr_interview_tree
+msgid "All Interviews"
+msgstr ""
+
+#. module: hr_interview
+#: wizard_view:wiz_interview_scheduling,schedule:0
+msgid "Some Candidate Still Remaining "
+msgstr ""
+
+#. module: hr_interview
+#: field:hr.interview,remarks:0
+#: field:technical.skill,remarks:0
+msgid "Remarks"
+msgstr ""
+
+#. module: hr_interview
+#: view:hr.interview:0
+msgid "Workflow Actions"
+msgstr ""
+
+#. module: hr_interview
+#: field:hr.interview,crm_case_id:0
+msgid "Case"
+msgstr ""
+
+#. module: hr_interview
+#: field:candidate.category,name:0
+#: field:candidate.experience,name:0
+msgid "Name"
+msgstr ""
+
+#. module: hr_interview
+#: view:hr.interview:0
+msgid "Technical"
+msgstr ""
+
+#. module: hr_interview
+#: wizard_view:wiz_interview_scheduling,schedule:0
+msgid "Scheduled Candidate List "
+msgstr ""
+
+#. module: hr_interview
+#: code:addons/hr_interview/hr_interview.py:0
+#, python-format
+msgid "Error !"
+msgstr ""
+
+#. module: hr_interview
+#: field:hr.interview,tech_skills_ids:0
+msgid "Technology Skills"
+msgstr ""
+
+#. module: hr_interview
+#: model:ir.actions.act_window,name:hr_interview.act_hr_interview_tree_scheduled
+#: model:ir.ui.menu,name:hr_interview.menu_act_hr_interview_tree4_scheduled
+msgid "Scheduled Candidates"
+msgstr ""
+
+#. module: hr_interview
+#: model:ir.ui.menu,name:hr_interview.menu_act_candidate_category_form
+msgid "Candidate Categories"
+msgstr ""
+
+#. module: hr_interview
+#: selection:hr.interview,education:0
+msgid "MCA"
+msgstr ""
+
+#. module: hr_interview
+#: model:ir.model,name:hr_interview.model_candidate_category
+msgid "Category Of Candidate"
+msgstr ""
+
+#. module: hr_interview
+#: rml:candidate.summary:0
+msgid "Experience :"
+msgstr ""
+
+#. module: hr_interview
+#: model:ir.model,name:hr_interview.model_category_question
+msgid "Question Category (Question Belongs to Which Category)"
+msgstr ""
+
+#. module: hr_interview
+#: model:ir.actions.wizard,name:hr_interview.wiz_scheduling
+msgid "Scheduling"
+msgstr ""
+
