@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="view_hr_payroll_declare_line_tree" model="ir.ui.view">
+            <field name="name">hr.payroll.declare.line.tree</field>
+            <field name="model">hr.payroll.declare.line</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Decleration Forms">
+                    <field name="name"/>
+                    <field name="income_id"/>
+                    <field name="invest_id"/>
+                    <field name="claim_id"/>
+                    <field name="amount"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="view_hr_payroll_declare_line_form" model="ir.ui.view">
+            <field name="name">hr.payroll.declare.line.form</field>
+            <field name="model">hr.payroll.declare.line</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Decleration Line">
+                    <group col="6" colspan="4">
+                        <field name="name" colspan="4"/>
+                        <field name="amount"/>
+                        
+                        <field name="income_id"/>
+                        <field name="invest_id"/>
+                        <field name="claim_id"/>
+                    </group>
+                    <field name="note" colspan="4" nolabel="1"/>
+                </form>
+            </field>
+        </record>
+        
+        <record id="view_hr_payroll_declare_tree" model="ir.ui.view">
+            <field name="name">hr.payroll.declare.tree</field>
+            <field name="model">hr.payroll.declare</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Decleration Forms">
+                    <field name="employee_id"/>
+                    <field name="date"/>
+                    <field name="name"/>
+                    <field name="income_sal"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="view_hr_payroll_declare_form" model="ir.ui.view">
+            <field name="name">hr.payroll.declare.form</field>
+            <field name="model">hr.payroll.declare</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Decleration Forms">
+                    <group col="6" colspan="4">
+                        <field name="name" colspan="4" select="1"/>
+                        <field name="employee_id" select="1"/>
+                        
+                        <field name="date"/>
+                        <field name="income_sal"/>
+                        <field name="company_id" select="1"/>
+                    </group>
+                    <notebook colspan="4">
+                        <page string="Source of Income">
+                            <field name="income_ids" colspan="4" nolabel="1"/>
+                        </page>
+                        <page string="Investments">
+                            <field name="investment_ids" colspan="4" nolabel="1"/>
+                        </page>
+                        <page string="Allowance to be Claime">
+                            <field name="claim_ids" colspan="4" nolabel="1"/>
+                        </page>
+                    </notebook>
+                    <group col="6" colspan="4">
+                        <field name="income"/>
+                        <field name="investment"/>
+                        <field name="claims"/>
+                    </group>
+                    <group col="6" colspan="4">
+                        <field name="state"/>
+                        <button string="Confirm Form"/>
+                        <button string="Validate Form"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+        
+        <record id="action_view_hr_decleration_form" model="ir.actions.act_window">
+            <field name="name">Decleration Form</field>
+            <field name="res_model">hr.payroll.declare</field>
+            <field name="view_type">form</field>
+            <field name="view_id" ref="view_hr_payroll_declare_tree"/>
+        </record>
+        <menuitem id="menu_hr_root_payroll_declare" parent="hr_payroll.menu_hr_root_payroll" name="Yearly Process"/>
+        <menuitem
+            action="action_view_hr_decleration_form" 
+            id="menu_action_view_hr_decleration_form" 
+            parent="menu_hr_root_payroll_declare"
+        />
+        
+    </data>
+</openerp>
