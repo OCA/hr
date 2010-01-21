@@ -26,6 +26,7 @@ import datetime
 import time
 from copy import deepcopy
 import netsvc
+from tools.translate import _
 
 _schedule_form = '''<?xml version="1.0"?>
 <form string="Interview Scheduling Of Candidate">

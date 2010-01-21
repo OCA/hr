@@ -127,6 +127,7 @@ import time
 import urlparse
 import bisect
 import cookielib
+from tools.translate import _
 
 try:
     from cStringIO import StringIO
