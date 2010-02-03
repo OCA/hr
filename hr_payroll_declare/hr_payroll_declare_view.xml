@@ -12,6 +12,7 @@
                     <field name="invest_id"/>
                     <field name="claim_id"/>
                     <field name="amount"/>
+                    <field name="allow_amount"/>
                 </tree>
             </field>
         </record>
@@ -66,13 +67,39 @@
                     </group>
                     <notebook colspan="4">
                         <page string="Source of Income">
-                            <field name="income_ids" colspan="4" nolabel="1"/>
+                            <field name="income_ids" colspan="4" nolabel="1">
+                                <form string="Decleration Line">
+                                    <group col="6" colspan="4">
+                                        <field name="name" colspan="4"/>
+                                        <field name="amount"/>
+                                    </group>
+                                    <field name="note" colspan="4" nolabel="1"/>
+                                </form>
+                            </field>
                         </page>
                         <page string="Investments">
-                            <field name="investment_ids" colspan="4" nolabel="1"/>
+                            <field name="investment_ids" colspan="4" nolabel="1">
+                                <form string="Decleration Line">
+                                    <group col="6" colspan="4">
+                                        <field name="name" colspan="4"/>
+                                        <field name="amount"/>
+                                    </group>
+                                    <field name="note" colspan="4" nolabel="1"/>
+                                </form>
+                            </field>
                         </page>
                         <page string="Allowance to be Claime">
-                            <field name="claim_ids" colspan="4" nolabel="1"/>
+                            <field name="claim_ids" colspan="4" nolabel="1">
+                                <form string="Decleration Line">
+                                    <group col="6" colspan="4">
+                                        <field name="name" colspan="4"/>
+                                        <field name="amount"/>
+                                        <field name="allow_amount"/>
+                                        <field name="head_id"/>
+                                    </group>
+                                    <field name="note" colspan="4" nolabel="1"/>
+                                </form>
+                            </field>
                         </page>
                     </notebook>
                     <group col="6" colspan="4">
@@ -102,5 +129,45 @@
             parent="menu_hr_root_payroll_declare"
         />
         
+        <record id="hr_allounce_deduction_categoty_form" model="ir.ui.view">
+            <field name="name">hr.allounce.deduction.categoty.form</field>
+            <field name="model">hr.allounce.deduction.categoty</field>
+            <field name="inherit_id" ref="hr_payroll.hr_allounce_deduction_categoty_form"/>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <field name="sequence" position="after">
+                    <field name="calc_type"/>
+                </field>
+            </field>
+        </record>
+        
+        <record id="hr_allounce_deduction_categoty_form_inherit" model="ir.ui.view">
+            <field name="name">hr.allounce.deduction.categoty.form</field>
+            <field name="model">hr.allounce.deduction.categoty</field>
+            <field name="inherit_id" ref="hr_allounce_deduction_categoty_form"/>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <notebook position="inside">
+                    <page string="Min/Max Calculation" attrs="{'invisible':[('calc_type','!=','min_max')]}">
+                        <field name="min"/>
+                        <field name="max"/>
+                    </page>
+                    
+                    <page string="List of Calculations" attrs="{'invisible':[('calc_type','!=','stmt')]}">
+                        <field name="stmt_select"/>
+                        <field name="stmt_ids" colspan="4" nolabel="1">
+                            <tree string="Expression" editable="bottom">
+                                <field name="sequence"/>
+                                <field name="name"/>
+                                <field name="active"/>
+                            </tree>
+                        </field>
+                    </page>
+                    
+                    <page string="Selection from Range" attrs="{'invisible':[('calc_type','!=','range')]}">
+                    </page>
+                </notebook>
+            </field>
+        </record>
     </data>
 </openerp>
