@@ -1,6 +1,6 @@
 # -*- encoding: utf-8 -*-
 ##############################################################################
-#    
+#
 #    OpenERP, Open Source Management Solution
 #    Copyright (C) 2004-2009 Tiny SPRL (<http://tiny.be>).
 #
@@ -15,7 +15,7 @@
 #    GNU Affero General Public License for more details.
 #
 #    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.     
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
 
@@ -61,7 +61,7 @@ class hr_holidays_note(osv.osv):
         'prev_number': fields.float('Previous Holiday Number'),
         'new_number': fields.float('New Holiday Number', required=True),
         'diff': fields.function(_compute_diff, method=True, string='Difference', type='float'),
-    } 
+    }
 hr_holidays_note()
 
 class wizard_hr_holidays_evaluation(osv.osv_memory):
@@ -71,12 +71,12 @@ class wizard_hr_holidays_evaluation(osv.osv_memory):
         'holiday_status_id':fields.many2one('hr.holidays.status','Holiday Status',required=True,help='This is where you specify the holiday type to synchronize. It will create the "holidays per employee" accordingly if necessary, or replace the value "Max leaves allowed" into the existing one.'),
         'hr_timesheet_group_id':fields.many2one('hr.timesheet.group','Timesheet Group',required=True,help='This field allow you to filter on only the employees that have a contract using this working hour.'),
         'float_time':fields.float('Time',required=True,help='''This time depicts the amount per day earned by an employee working a day.The computation is: total earned = time * number of working days'''),
-        'date_current' : fields.date('Date',help='This field allow you to choose the date to use, for forecast matter e.g. The start date is the starting date of the employee contract.') 
+        'date_current' : fields.date('Date',help='This field allow you to choose the date to use, for forecast matter e.g. The start date is the starting date of the employee contract.')
     }
     _defaults = {
         'date_current' : lambda *a: time.strftime('%Y-%m-%d'),
         }
-    
+
     def action_create(self, cr, uid, ids, context=None):
         data = {}
         objs = []
@@ -86,15 +86,15 @@ class wizard_hr_holidays_evaluation(osv.osv_memory):
         contract_obj = self.pool.get('hr.contract')
         evaluation_obj = self.browse(cr, uid, ids, context = context)[0]
         group_id = evaluation_obj.hr_timesheet_group_id.id
-        contract_ids = contract_obj.search(cr, uid, [('working_hours_per_day_id', '=', group_id)])
+        contract_ids = contract_obj.search(cr, uid, [('working_hours', '=', group_id)])
 
         for contract in contract_obj.browse(cr,uid,contract_ids):
             emp_id = contract.employee_id.id
             start_date = contract.date_start
 
-            cr.execute("""SELECT distinct(ht.dayofweek), sum(ht.hour_to - ht.hour_from) 
-                        FROM hr_timesheet_group as htg, hr_timesheet as ht 
-                        WHERE ht.tgroup_id = htg.id AND htg.id = %s 
+            cr.execute("""SELECT distinct(ht.dayofweek), sum(ht.hour_to - ht.hour_from)
+                        FROM hr_timesheet_group as htg, hr_timesheet as ht
+                        WHERE ht.tgroup_id = htg.id AND htg.id = %s
                         GROUP BY ht.dayofweek""" %evaluation_obj.hr_timesheet_group_id.id)
 
             timesheet_grp = cr.fetchall()
@@ -105,20 +105,20 @@ class wizard_hr_holidays_evaluation(osv.osv_memory):
             for k in alltime:
                 how += k
             hpd = how/nod
-            cr.execute("""SELECT distinct(to_date(to_char(ha.name, 'YYYY-MM-dd'),'YYYY-MM-dd')) 
-                        FROM hr_attendance ha, hr_attendance ha2 
-                        WHERE ha.action='sign_in' 
-                            AND ha2.action='sign_out' 
-                            AND (to_date(to_char(ha.name, 'YYYY-MM-dd'),'YYYY-MM-dd'))=(to_date(to_char(ha2.name, 'YYYY-MM-dd'),'YYYY-MM-dd')) 
-                            AND (to_date(to_char(ha.name, 'YYYY-MM-dd'),'YYYY-MM-dd') <= %s)  
-                            AND (to_date(to_char(ha.name, 'YYYY-MM-dd'),'YYYY-MM-dd') >= %s) 
+            cr.execute("""SELECT distinct(to_date(to_char(ha.name, 'YYYY-MM-dd'),'YYYY-MM-dd'))
+                        FROM hr_attendance ha, hr_attendance ha2
+                        WHERE ha.action='sign_in'
+                            AND ha2.action='sign_out'
+                            AND (to_date(to_char(ha.name, 'YYYY-MM-dd'),'YYYY-MM-dd'))=(to_date(to_char(ha2.name, 'YYYY-MM-dd'),'YYYY-MM-dd'))
+                            AND (to_date(to_char(ha.name, 'YYYY-MM-dd'),'YYYY-MM-dd') <= %s)
+                            AND (to_date(to_char(ha.name, 'YYYY-MM-dd'),'YYYY-MM-dd') >= %s)
                             AND ha.employee_id = %s """, (evaluation_obj.date_current, start_date, emp_id))
 
             results = cr.fetchall()
             all_dates = map(lambda x: x[0],results)
             days = len(all_dates)
             hrss = days * evaluation_obj.float_time
-            
+
             if hrss < hpd:
                 x = 0
             else:
@@ -127,7 +127,7 @@ class wizard_hr_holidays_evaluation(osv.osv_memory):
                 y = day - x
                 if y >= 0.5:
                     x += 0.5
-                    
+
             holiday_obj = self.pool.get('hr.holidays')
             holiday_ids = holiday_obj.search(cr, uid, [('employee_id', '=', emp_id),('holiday_status_id', '=', evaluation_obj.holiday_status_id.id),('auto_eval','=',True)])
             old_leave = 0
@@ -137,10 +137,10 @@ class wizard_hr_holidays_evaluation(osv.osv_memory):
             if old_leave < x:
                 data = {
                     'name': _('Automatically Created Holiday'),
-                    'employee_id': emp_id, 
-                    'holiday_status_id': evaluation_obj.holiday_status_id.id, 
-                    'number_of_days_temp' : x - old_leave, 
-                    'type': 'add', 
+                    'employee_id': emp_id,
+                    'holiday_status_id': evaluation_obj.holiday_status_id.id,
+                    'number_of_days_temp' : x - old_leave,
+                    'type': 'add',
                     'auto_eval': True
                 }
                 holiday_id = holiday_obj.create(cr, uid, data, context)
@@ -148,7 +148,7 @@ class wizard_hr_holidays_evaluation(osv.osv_memory):
                 value = {
                     'date': str(DateTime.now()),
                     'holiday_status_id': evaluation_obj.holiday_status_id.id,
-                    'prev_number': old_leave, 
+                    'prev_number': old_leave,
                     'new_number': x,
                     'employee_id': emp_id,
                 }
@@ -164,10 +164,10 @@ class wizard_hr_holidays_evaluation(osv.osv_memory):
             'res_model': 'hr.holidays.note',
             'type': 'ir.actions.act_window'
             }
-         
+
     def action_cancel(self,cr,uid,ids,context=None):
         return {}
-    
+
 wizard_hr_holidays_evaluation()
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
