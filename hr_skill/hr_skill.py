@@ -62,7 +62,7 @@ class hr_skill_skill(osv.osv):
         'weight': fields.float('Weight', required=True),
         'weight_category_id': fields.many2one('hr_skill.weight.category','Weight Category'),
         'parent_id': fields.many2one('hr_skill.skill', 'Parent', ondelete='cascade'),
-        'child_ids': fields.one2many('hr_skill.skill', 'parent_id', 'Childs'),
+        'child_ids': fields.one2many('hr_skill.skill', 'parent_id', 'Children'),
         'view': fields.selection([('view','View'), ('skill','Skill')], 'Skill', required=True),
     }
     _defaults = {
