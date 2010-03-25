@@ -15,7 +15,7 @@
 				<field name="employee_id" select="1"/>
 				<newline/>
 				<group col="6" colspan="4">
-					<field name="date_from1" on_change="_onchange_from_date(date_from1, date_to1)"/>
+					<field name="date_from1" on_change="onchange_from_date(date_from1, date_to1)"/>
 					<field name="date_to1"/>
 					<button string="Create Days" name="create_days" states="draft" type="object"/>
 				</group>
@@ -73,7 +73,7 @@
 			</group>
 				<newline/>
 				<group col="6" colspan="4">
-					<field name="date_from1" on_change="_onchange_from_date(date_from1, date_to1)"/>
+					<field name="date_from1" on_change="onchange_from_date(date_from1, date_to1)"/>
 					<field name="date_to1"/>
 					<button string="Create Days" name="create_days" states="draft" type="object"/>
 				</group>
@@ -99,7 +99,7 @@
 			</form>
 		</field>
 	</record>
- -->	
+ -->
 	<record model="ir.ui.view" id="holidays_days_list">
 			<field name="name">holidays.days.list</field>
 			<field name="model">days.holidays.days</field>
@@ -107,9 +107,9 @@
 			<field name="arch" type="xml">
 				<tree string="Holiday's days" editable="top">
 					<field name="date1"/>
-					<field name="half_day" on_change="_onchange_half_day(half_day,full_day,hourly_leave,public_h)"/>
-					<field name="full_day" on_change="_onchange_full_day(half_day,full_day,hourly_leave,public_h)"/>
-					<field name="hourly_leave" on_change="_onchange_hourly_leave(half_day,full_day,hourly_leave,public_h)"/>
+					<field name="half_day" on_change="onchange_half_day(half_day,full_day,hourly_leave,public_h)"/>
+					<field name="full_day" on_change="onchange_full_day(half_day,full_day,hourly_leave,public_h)"/>
+					<field name="hourly_leave" on_change="onchange_hourly_leave(half_day,full_day,hourly_leave,public_h)"/>
 					<field name="public_h"/>
 					<field name="holiday_status" readonly="1"/>
 					<field name="state" invisible="True"/>
@@ -129,7 +129,7 @@
 			</group>
 				<newline/>
 				<group col="6" colspan="4">
-					<field name="date_from1" on_change="_onchange_from_date(date_from1, date_to1)"/>
+					<field name="date_from1" on_change="onchange_from_date(date_from1, date_to1)"/>
 					<field name="date_to1"/>
 				</group>
 				<field name="holiday_id" mode="tree" colspan="4" nolabel="1">
