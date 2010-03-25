@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
-    	
+
    		 <!--
         ==========
       	Candidate Category View
@@ -38,13 +38,13 @@
             <field name="view_mode">tree,form</field>
         </record>
         <menuitem  id="menu_act_candidate_category_form" name="Candidate Categories" action="act_candidate_category_tree" parent="hr.menu_hr_configuration" />
-    
+
    		 <!--
         ==========
         HR Interview View
         ==========
         -->
-    
+
         <record id="hr_interview_tree" model="ir.ui.view">
             <field name="name">hr.interview.tree</field>
             <field name="model">hr.interview</field>
@@ -53,9 +53,9 @@
                 <tree  string="Interview">
                     <field name="hr_id" />
                     <field name="name" select ="1"/>
-                    <field name="email" select="2"/>                    
+                    <field name="email" select="2"/>
                     <field name="date" select ="1"/>
-                    <field name="education" select ="1" />  
+                    <field name="education" select ="1" />
                     <field name="performance" select ="1" />
 		    		<field name="state" select ="1"/>
 		</tree>
@@ -86,13 +86,13 @@
     	                	</group>
     	                	<separator string="Notes / Remarks" colspan="4"/>
         	            	<field name="remarks" colspan="4" nolabel="1"/>
-        	            	
+
 	        	        </page>
 	        	<page string="Technical">
         	        	<separator string="Evaluator" colspan="4"/>
         	         	<field name="evaluator_ids" colspan="4" nolabel="1"/>
             			<field name="tech_skills_ids" colspan="4"  nolabel="1"/>
-                    		<button name="_eval_performance" string="Calculate Performance" type="object" />
+                    		<button name="eval_performance" string="Calculate Performance" type="object" />
                     		<field name="performance"/>
                     	</page>
 	        	        <page string="History">
@@ -111,12 +111,12 @@
 						<button name="state_start_interview" string="Start-Interview" states="scheduled" type="workflow"  icon="gtk-yes" />
 						<button name="state_end_interview" string="End-Interview" states="start-interview" type="workflow"  icon="gtk-ok" />
 						<button name="state_selected" string="Selected" states="end-interview" type="workflow" icon="gtk-ok"  />
-						<button name="state_rejected" string="Rejected" states="end-interview" type="workflow" icon="gtk-cancel"  />						
+						<button name="state_rejected" string="Rejected" states="end-interview" type="workflow" icon="gtk-cancel"  />
 					</group>
                 </form>
             </field>
         </record>
-        
+
         <record id="act_hr_interview_tree" model="ir.actions.act_window">
             <field name="name">HR Interview</field>
             <field name="type">ir.actions.act_window</field>
@@ -134,7 +134,7 @@
         <menuitem  id="menu_act_hr_interview" name="Interview" parent="hr.menu_hr_root" />
         <menuitem  id="menu_act_hr_interview_tree" name="All Interviews" action="act_hr_interview_tree" parent="menu_act_hr_interview" sequence="1"/>
         <menuitem  id="menu_act_hr_interview_form" name="New Interview" action="act_hr_interview_form" parent="menu_act_hr_interview" sequence="2"/>
- 		
+
  		<record id="act_hr_interview_tree_selected" model="ir.actions.act_window">
             <field name="name">Selected Candidates</field>
             <field name="res_model">hr.interview</field>
@@ -143,7 +143,7 @@
             <field name="domain">[('state','=','selected')]</field>
         </record>
         <menuitem action="act_hr_interview_tree_selected" id="menu_act_hr_interview_tree4_selected" parent="menu_act_hr_interview_tree"/>
- 	
+
  		<record id="act_hr_interview_tree_cancel" model="ir.actions.act_window">
             <field name="name">Cancel Candidates</field>
             <field name="res_model">hr.interview</field>
@@ -152,7 +152,7 @@
             <field name="domain">[('state','=','cancel')]</field>
         </record>
         <menuitem action="act_hr_interview_tree_cancel" id="menu_act_hr_interview_tree4_cancel" parent="menu_act_hr_interview_tree"/>
- 	
+
  		<record id="act_hr_interview_tree_rejected" model="ir.actions.act_window">
             <field name="name">Rejected Candidates</field>
             <field name="res_model">hr.interview</field>
@@ -161,7 +161,7 @@
             <field name="domain">[('state','=','rejected')]</field>
         </record>
         <menuitem action="act_hr_interview_tree_rejected" id="menu_act_hr_interview_tree4_rejected" parent="menu_act_hr_interview_tree"/>
- 	
+
  		<record id="act_hr_interview_tree_scheduled" model="ir.actions.act_window">
             <field name="name">Scheduled Candidates</field>
             <field name="res_model">hr.interview</field>
@@ -203,13 +203,13 @@
                 </tree>
             </field>
         </record>
-        
+
    		 <!--
         ==========
         Candidate Experience
         ==========
         -->
-        
+
         <record id="candidate_experience_form" model="ir.ui.view">
             <field name="name">candidate.experience.form</field>
             <field name="model">candidate.experience</field>
@@ -218,7 +218,7 @@
                 <form string="Experience">
                     <field name="code" select="1"/>
                   	<field name="name"  select="1"/>
-                  	<field name="special" select="2"/>                    
+                  	<field name="special" select="2"/>
                 </form>
             </field>
         </record>
@@ -230,7 +230,7 @@
                 <tree string="Experience">
                     <field name="code" select="1"/>
                   	<field name="name" select="1"/>
-                  	<field name="special" select="2"/>                    
+                  	<field name="special" select="2"/>
                 </tree>
             </field>
         </record>
@@ -242,7 +242,7 @@
             <field name="view_mode">tree,form</field>
         </record>
         <menuitem  id="menu_act_candidate_experience_form" name="Candidate Experience" action="act_candidate_experience_tree" parent="hr.menu_hr_configuration" />
-      
+
          <!--
         ==========
       	Category Question View
@@ -270,7 +270,7 @@
 				</tree>
             </field>
         </record>
- 		    
+
       <!--
         ==========
       	History log View
@@ -299,6 +299,6 @@
                     <field name="user_id" select="2" />
 				</tree>
             </field>
-        </record> 		    
+        </record>
     </data>
 </openerp>

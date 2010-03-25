@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 ##############################################################################
 #
-#    OpenERP, Open Source Management Solution	
+#    OpenERP, Open Source Management Solution
 #    Copyright (C) 2004-2009 Tiny SPRL (<http://tiny.be>). All Rights Reserved
 #    $Id$
 #
@@ -30,7 +30,7 @@ class candidate_category(osv.osv):
 	_name="candidate.category"
 	_description="Category Of Candidate"
 	_columns={
-	    'code':fields.char("Code", size=64, required=True),	    
+	    'code':fields.char("Code", size=64, required=True),
 		'name' : fields.char("Name", size=64, required=True),
 		'question_ids':fields.one2many("category.question","category_id","Question")
 		}
@@ -45,7 +45,7 @@ class cateory_question(osv.osv):
 		'tot_marks':fields.integer("Total Marks",required=True),
 		'category_id':fields.many2one("candidate.category","Category")
 		}
-	
+
 cateory_question()
 
 
@@ -53,7 +53,7 @@ class candidate_experience(osv.osv):
 	_name="candidate.experience"
 	_description="Candidate Experience"
 	_columns={
-	    'code':fields.char("Code", size=64, required=True),	    
+	    'code':fields.char("Code", size=64, required=True),
 		'name' : fields.char("Name", size=64, required=True),
 		'special':fields.char("Specialization",size =128)
 		}
@@ -64,7 +64,7 @@ class hr_interview(osv.osv):
 	_name = "hr.interview"
 	_description = "Interview Evaluation"
 
-	def _eval_performance(self,cr, uid, ids, *args):
+	def eval_performance(self,cr, uid, ids, *args):
 		tech_obj=self.pool.get("technical.skill")
 		tot_marks=obt_marks=0
 		tech_id=tech_obj.search(cr,uid,[('candidate_id','=',ids[0])])
@@ -73,7 +73,7 @@ class hr_interview(osv.osv):
 				tot_marks += rec.tot_marks
 				obt_marks += rec.obt_marks
 			self.write(cr, uid, ids, { 'performance' : (obt_marks * 100) / tot_marks })
-		return True 
+		return True
 
 	def _constraint_obt_marks(self, cr, uid, ids):
 		tech_skill_obj=self.pool.get("technical.skill")
@@ -82,7 +82,7 @@ class hr_interview(osv.osv):
 			if rec['obt_marks'] > rec['tot_marks'] or rec['tot_marks'] <= 0 :
 			    return False
 		return True
-	
+
 	def _constraint_evaluator(self, cr, uid, ids):
 		rec = self.read(cr,uid,ids[0])
 		if rec['reference_id']:
@@ -113,62 +113,62 @@ class hr_interview(osv.osv):
          'state' : lambda *a: "draft",
 		 'hr_id': lambda obj, cr, uid, context: obj.pool.get('ir.sequence').get(cr, uid, 'hr.interview'),
 	}
-	
+
 	_constraints = [
         (_constraint_obt_marks, _('Obtained marks cannot be greater than Total marks!'), ['obt_marks']),
         (_constraint_evaluator, "Reference Person cannot be among Evaluators!", ['reference_id'])
     ]
-	
+
 	def state_scheduled(self, cr, uid, ids,*arg):
 		self.write(cr, uid, ids, { 'state' : 'scheduled'})
 		self._log(cr,uid,ids,'scheduled')
 		return True
-	
+
 	def state_cancel(self, cr, uid, ids,*arg):
 		self.write(cr, uid, ids, { 'state' : 'cancel' })
 		self._log(cr,uid,ids,'cancel')
 		return True
-	
+
 	def state_re_scheduled(self, cr, uid, ids,*arg):
 		self.write(cr, uid, ids, { 'state' : 're-scheduled' })
 		self._log(cr,uid,ids,'re-scheduled')
 		return True
-	
+
 	def state_start_interview(self, cr, uid, ids,*arg):
 		self.write(cr, uid, ids, { 'state' : 'start-interview' })
 		self._log(cr,uid,ids,'start-interview')
 		return True
-	
+
 	def state_end_interview(self, cr, uid, ids,*arg):
 		self.write(cr, uid, ids, { 'state' : 'end-interview' })
 		self._log(cr,uid,ids,'end-interview')
 		return True
-	
+
 	def state_selected(self, cr, uid, ids,*arg):
 		self.write(cr, uid, ids, { 'state' : 'selected' })
 		self._log(cr,uid,ids,'selected')
 		return True
-	
+
 	def state_rejected(self, cr, uid, ids,*arg):
 		self.write(cr, uid, ids, { 'state' : 'rejected' })
 		self._log(cr,uid,ids,'rejected')
 		return True
-	
+
 	def _log(self,cr,uid,ids,action):
 		his_obj = self.pool.get("hr.interview.log")
 		his_obj.create(cr,uid,{'state':action,'date':strftime("%Y-%m-%d %H:%M:%S"),"user_id":uid,'history_id':ids[0]})
 		return True
-	
+
 	def copy(self, cr, uid, id, default=None,context=None):
 		raise osv.except_osv(_('Error !'),_('You cannot duplicate the resource!'))
 		return False
-	
+
 	def create(self, cr, uid, vals, context=None):
 	    cate_id = vals.get('category_id', False)
 	    hr_id = super(hr_interview, self).create(cr, uid, vals, context=context)
 	    if not cate_id:
 	        cate_id = self.read(cr, uid, [hr_id], ['category_id'])[0]['category_id'][0]
-        
+
 		que_obj = self.pool.get("category.question")
 		que_ids= que_obj.search(cr,uid,[('category_id','=',int(cate_id))])
 		tech_skill_obj=self.pool.get("technical.skill")
@@ -176,7 +176,7 @@ class hr_interview(osv.osv):
 		for rec in que_obj.browse(cr, uid, que_ids):
 			tech_skill_obj.create(cr,uid,{'name':rec.name,'tot_marks':rec.tot_marks,'candidate_id':hr_id})
 	    return hr_id
-	
+
 	def write(self, cr, uid, ids, vals, context=None):
 		if 'category_id' in vals :
 			cate_id = vals['category_id']
@@ -209,7 +209,7 @@ technical_skill()
 class hr_interview_log(osv.osv):
 	_name="hr.interview.log"
 	_description="HR interview log"
-	_rec_name="history_id" 
+	_rec_name="history_id"
 	_columns={
 		'history_id':fields.many2one("hr.interview","History ID"),
 		'state' : fields.char("State",size=64),
