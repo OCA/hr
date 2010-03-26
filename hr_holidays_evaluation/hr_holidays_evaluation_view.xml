@@ -42,6 +42,7 @@
                    		<field name="holiday_status_id"/>
                     	<field name="hr_timesheet_group_id"/>
                     	<field name="float_time" widget="float_time"/>
+                        <field name="date_start"/>
                     	<field name="date_current"/>
                     	<newline/>
                     	<newline/>                 
