@@ -164,26 +164,24 @@ class hr_interview(osv.osv):
 		return False
 
 	def create(self, cr, uid, vals, context=None):
-	    cate_id = vals.get('category_id', False)
-	    hr_id = super(hr_interview, self).create(cr, uid, vals, context=context)
-	    if not cate_id:
-	        cate_id = self.read(cr, uid, [hr_id], ['category_id'])[0]['category_id'][0]
-
 		que_obj = self.pool.get("category.question")
-		que_ids= que_obj.search(cr,uid,[('category_id','=',int(cate_id))])
-		tech_skill_obj=self.pool.get("technical.skill")
-		self._log(cr,uid, [hr_id], 'draft')
-		for rec in que_obj.browse(cr, uid, que_ids):
-			tech_skill_obj.create(cr,uid,{'name':rec.name,'tot_marks':rec.tot_marks,'candidate_id':hr_id})
-	    return hr_id
+		tech_skill_obj = self.pool.get("technical.skill")
+		hr_id = super(hr_interview, self).create(cr, uid, vals, context=context)
+		if vals.get('category_id', False):
+			cate_id = vals.get('category_id')
+			que_ids = que_obj.search(cr, uid, [('category_id','=',int(cate_id))], context=context)
+			for rec in que_obj.browse(cr, uid, que_ids, context=context):
+				tech_skill_obj.create(cr, uid, {'name': rec.name, 'tot_marks': rec.tot_marks, 'candidate_id': hr_id})
+		self._log(cr, uid, [hr_id], 'draft')
+		return hr_id
 
 	def write(self, cr, uid, ids, vals, context=None):
+		que_obj = self.pool.get("category.question")
+		tech_skill_obj=self.pool.get("technical.skill")
 		if 'category_id' in vals :
 			cate_id = vals['category_id']
-			que_obj = self.pool.get("category.question")
-			que_ids= que_obj.search(cr,uid,[('category_id','=',int(cate_id))])
-			tech_skill_obj=self.pool.get("technical.skill")
-			tech_skill_ids=tech_skill_obj.search(cr,uid,[('candidate_id','=',ids[0])])
+			que_ids = que_obj.search(cr, uid, [('category_id', '=', int(cate_id))])
+			tech_skill_ids=tech_skill_obj.search(cr, uid, [('candidate_id','=',ids[0])])
 			if tech_skill_ids:
 				tech_skill_obj.unlink(cr,uid,tech_skill_ids)
 			for rec in que_obj.browse(cr,uid,que_ids):
