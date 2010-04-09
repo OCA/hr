@@ -300,5 +300,9 @@
 				</tree>
             </field>
         </record>
+
+       <!-- Interviews Button on Employee Form -->
+		<act_window domain="['|', ('evaluator_ids', 'in', active_id), ('reference_id', '=', active_id)]" id="act_hr_employee_2_hr_interview" name="Interviews" res_model="hr.interview" src_model="hr.employee"/>
+
     </data>
 </openerp>
