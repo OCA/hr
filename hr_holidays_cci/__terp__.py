@@ -1,6 +1,6 @@
 # -*- encoding: utf-8 -*-
 ##############################################################################
-#    
+#
 #    OpenERP, Open Source Management Solution
 #    Copyright (C) 2004-2009 Tiny SPRL (<http://tiny.be>).
 #
@@ -15,17 +15,17 @@
 #    GNU Affero General Public License for more details.
 #
 #    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.     
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
 
 {
     "name" : "Human Resources: Holidays management",
     "version" : "0.1",
-    "author" : "Axelor",
+    "author" : "Tiny",
     "category" : "Generic Modules/Human Resources",
-    "website" : "http://www.axelor.com/",
-    "description": """Human Ressources: Holidays summary printing functionality 
+    "website" : "http://www.openerp.com/",
+    "description": """Human Ressources: Holidays summary printing functionality
 
 
 NOTICE: This Module is Deprecated. Please install hr_holidays in order to have latest functionalities.""",
