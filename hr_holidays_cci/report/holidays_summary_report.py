@@ -1,6 +1,6 @@
 # -*- encoding: utf-8 -*-
 ##############################################################################
-#
+#    
 #    OpenERP, Open Source Management Solution
 #    Copyright (C) 2004-2009 Tiny SPRL (<http://tiny.be>).
 #
@@ -15,7 +15,7 @@
 #    GNU Affero General Public License for more details.
 #
 #    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.     
 #
 ##############################################################################
 
@@ -52,6 +52,7 @@ def emp_create_xml(self,cr,uid,dept,row_id,empid,name,som,eom):
             current=som+datetime.timedelta(diff)
 
             for item in ids_date:
+    #            print current,"from",item['date_from'],"to",item['date_to']
                 if current >= strToDate(item['date_from']) and current <= strToDate(item['date_to']):
                     if item['state']=='confirm' or item['state']=='validate':
                         display[index]=item['holiday_status'][0]
@@ -152,6 +153,7 @@ class report_custom(report_rml):
                     width_dict[j]=x
 
                 day_diff1=day_diff1-x
+#                print "now day_diff1 is..frst.",day_diff1
             else:
                 years=year+1
                 year=years
@@ -176,6 +178,7 @@ class report_custom(report_rml):
                     width_dict[j]=x
 
                 day_diff1=day_diff1-x
+#                print "now day_diff1 is..scnd.",day_diff1
 
         date_xml.append('</days>')
         date_xml.append('<cols>3.5cm%s</cols>\n' % (',0.7cm' * (day_diff.days+1)))
@@ -184,6 +187,7 @@ class report_custom(report_rml):
         for m in range(1,len(width_dict)+1):
             st+=',' + str(0.7 *width_dict[m])+'cm'
         st+='</cols_months>\n'
+#        print "dates...",date_xml
         months_xml =['<months  number="%d" name="%s" />' % (x,month_dict[x]) for x in range(1,len(month_dict)+1) ]
         months_xml.append(st)
         emp_xml=''
