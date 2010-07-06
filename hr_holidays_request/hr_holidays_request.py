@@ -133,8 +133,6 @@ class hr_holidays(osv.osv):
             return {'value':{}}
 
     def days_chaeck(self,cr,uid,ids,s1):
-        print s1
-
         seaobj=self.pool.get('days.holidays.days').browse(cr,uid,s1)
         if seaobj.holiday_id.id:
             if not seaobj.holiday_id.id==ids[0]:
