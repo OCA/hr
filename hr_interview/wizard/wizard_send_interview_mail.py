@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 ##############################################################################
 #
-#    OpenERP, Open Source Management Solution    
+#    OpenERP, Open Source Management Solution
 #    Copyright (C) 2004-2009 Tiny SPRL (<http://tiny.be>). All Rights Reserved
 #    $Id$
 #
@@ -42,22 +42,21 @@ mail_fields = {
 }
 
 class wizard_email_interview(wizard.interface):
-    
+
     def merge_message(self, cr, uid, id, keystr, context):
         obj_pool = pooler.get_pool(cr.dbname).get('hr.interview')
-        
+
         def merge(match):
             obj = obj_pool.browse(cr, uid, id)
             exp = str(match.group()[2:-2]).strip()
             result = eval(exp, {'object':obj, 'context': context,'time':time})
             if result in (None, False):
                 return str("--------")
-            print 'XXXXXXXXXXXXXXXXXXXX : ', result
             return str(result)
 
         com = re.compile('(\[\[.+?\]\])')
         message = com.sub(merge, keystr)
-        
+
         return message
 
     def _send_mail(self, cr, uid, data, context={}):
@@ -71,7 +70,7 @@ class wizard_email_interview(wizard.interface):
             msg = self.merge_message(cr, uid, hr_candidate.id, body, context)
             to = hr_candidate.email
             files = smtp_obj.send_email(cr, uid, data['form']['smtp_server'], to, subject, msg)
-        return {}     
+        return {}
 
     def _default_params(self, cr, uid, data, context={}):
         ids = data['ids']
@@ -86,12 +85,12 @@ class wizard_email_interview(wizard.interface):
             elif hr_candidate.state == 'selected':
                 body = body + "You have been selected .\n"\
                             + "Your date of joining is :  __date__\n\n"
-                subject = "Congratulations! A call for Joining!"           
-                
+                subject = "Congratulations! A call for Joining!"
+
         data['mail_body'] = body + "Regards,\n" + "Management\n"
-        data['subject'] = subject           
+        data['subject'] = subject
         return data
-        
+
     states = {
         'init': {
             'actions': [_default_params],
