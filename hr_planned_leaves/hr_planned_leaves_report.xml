@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+
+        <report auto="False"
+				id="report_hrself_planned_leaves"
+				model="hr.holidays"
+				name="hrself.planned.leaves"
+				string="Planned Leaves"/>
+
+    </data>
+</openerp>
+
