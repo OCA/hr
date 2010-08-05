@@ -122,6 +122,8 @@ class hr_holidays(osv.osv):
         'user_id': lambda obj, cr, uid, context: uid,
         'date_from1': lambda *a: time.strftime('%Y-%m-%d'),
         'date_to1': lambda *a: time.strftime('%Y-%m-%d'),
+        'date_from': lambda *a: time.strftime('%Y-%m-%d %H:%M:%S'),
+        'date_to': lambda *a: time.strftime('%Y-%m-%d %H:%M:%S'),
             }
     _order = 'date_from1 desc'
 
