@@ -93,8 +93,11 @@ class wizard_hr_holidays_evaluation(osv.osv_memory):
         for contract in contract_obj.browse(cr,uid,contract_ids):
             emp_id = contract.employee_id.id
             start_date = contract.date_start
+            stop_date = evaluation_obj.cate_current
             if evaluation_obj.date_start > start_date:
                 start_date = evaluation_obj.date_start
+            if contract.date_end < stop_date:
+                stop_date = contract.date_end
 
             cr.execute("""SELECT distinct(ht.dayofweek), sum(ht.hour_to - ht.hour_from)
                         FROM resource_calendar as htg, resource_calendar_week as ht
@@ -116,7 +119,7 @@ class wizard_hr_holidays_evaluation(osv.osv_memory):
                             AND (to_date(to_char(ha.name, 'YYYY-MM-dd'),'YYYY-MM-dd'))=(to_date(to_char(ha2.name, 'YYYY-MM-dd'),'YYYY-MM-dd'))
                             AND (to_date(to_char(ha.name, 'YYYY-MM-dd'),'YYYY-MM-dd') <= %s)
                             AND (to_date(to_char(ha.name, 'YYYY-MM-dd'),'YYYY-MM-dd') >= %s)
-                            AND ha.employee_id = %s """, (evaluation_obj.date_current, start_date, emp_id))
+                            AND ha.employee_id = %s """, (stop_date, start_date, emp_id))
 
             results = cr.fetchall()
             all_dates = map(lambda x: x[0],results)
