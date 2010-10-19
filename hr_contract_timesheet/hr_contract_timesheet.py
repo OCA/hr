@@ -50,7 +50,7 @@ class hr_timesheet(osv.osv):
             cr.execute(sql_req, (user_id,date,date))
             contract_info = cr.dictfetchone()
             if res and contract_info:
-                res['value']['amount'] = -contract_info['hourlywage'] * unit_amount
+                res['value']['amount'] = contract_info['hourlywage'] * unit_amount
 
         return res
 hr_timesheet()
