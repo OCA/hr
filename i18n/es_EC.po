@@ -1,4 +1,4 @@
-# Estonian translation for openobject-addons
+# Spanish translation for openobject-addons
 # Copyright (c) 2010 Rosetta Contributors and Canonical Ltd 2010
 # This file is distributed under the same license as the openobject-addons package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
@@ -8,9 +8,10 @@ msgstr ""
 "Project-Id-Version: openobject-addons\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2009-11-25 12:18+0000\n"
-"PO-Revision-Date: 2010-05-05 21:37+0000\n"
-"Last-Translator: lyyser <Unknown>\n"
-"Language-Team: Estonian <et@li.org>\n"
+"PO-Revision-Date: 2010-09-19 00:01+0000\n"
+"Last-Translator: Jordi Esteve (www.zikzakmedia.com) "
+"<jesteve@zikzakmedia.com>\n"
+"Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -21,46 +22,47 @@ msgstr ""
 #: view:hr_evaluation.type:0
 #: field:hr_evaluation.type,info:0
 msgid "Information"
-msgstr ""
+msgstr "Información"
 
 #. module: hr_evaluation
 #: constraint:ir.model:0
 msgid ""
 "The Object name must start with x_ and not contain any special character !"
 msgstr ""
-"Objekti nimi peab algama x_'ga ja ei tohi sisaldada ühtegi erisümbolit !"
+"¡El nombre del objeto debe empezar con  x_ y no puede contener ningún "
+"carácter especial!"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:0
 msgid "Schedule next evaluation"
-msgstr ""
+msgstr "Programar siguiente evaluación"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:0
 #: field:hr_evaluation.evaluation,info_bad:0
 msgid "Bad Points"
-msgstr ""
+msgstr "Puntos malos"
 
 #. module: hr_evaluation
 #: model:ir.actions.act_window,name:hr_evaluation.open_view_employee_evaluation_next_my_list
 msgid "My Next Evaluation"
-msgstr ""
+msgstr "Mi siguiente evaluación"
 
 #. module: hr_evaluation
 #: field:hr_evaluation.type,value_ids:0
 msgid "Values"
-msgstr "Väärtused"
+msgstr "Valores"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:0
 #: field:hr_evaluation.evaluation,info_good:0
 msgid "Good Points"
-msgstr ""
+msgstr "Puntos buenos"
 
 #. module: hr_evaluation
 #: field:hr_evaluation.evaluation,state:0
 msgid "State"
-msgstr "Olek"
+msgstr "Estado"
 
 #. module: hr_evaluation
 #: field:hr_evaluation.evaluation,score:0
@@ -68,63 +70,63 @@ msgstr "Olek"
 #: field:hr_evaluation.type,score:0
 #: field:hr_evaluation.type.value,score:0
 msgid "Score"
-msgstr ""
+msgstr "Puntuación"
 
 #. module: hr_evaluation
 #: selection:hr_evaluation.evaluation,state:0
 msgid "Draft"
-msgstr "Mustand"
+msgstr "Borrador"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:0
 msgid "Informal Data"
-msgstr "Mitteametlikud andmed"
+msgstr "Datos informales"
 
 #. module: hr_evaluation
 #: constraint:ir.actions.act_window:0
 msgid "Invalid model name in the action definition."
-msgstr "Vigane mudeli nimi toimingu definitsioonis."
+msgstr "Nombre de modelo no válido en la definición de la acción."
 
 #. module: hr_evaluation
 #: field:hr_evaluation.evaluation,employee_id:0
 msgid "Employee"
-msgstr "Töötaja"
+msgstr "Empleado"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:0
 #: field:hr_evaluation.evaluation,info_improve:0
 msgid "To Improve"
-msgstr ""
+msgstr "A mejorar"
 
 #. module: hr_evaluation
 #: field:hr_evaluation.quote,evaluation_id:0
 msgid "Evaluation"
-msgstr "Hinnang"
+msgstr "Evaluación"
 
 #. module: hr_evaluation
 #: field:hr_evaluation.type.value,type_id:0
 msgid "Evaluation Type"
-msgstr "Hinnangu tüüp"
+msgstr "Tipo de evaluación"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:0
 msgid "Status"
-msgstr "Olek"
+msgstr "Estado"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.type:0
 msgid "Apply to categories"
-msgstr "Rakenda ktegooriatele"
+msgstr "Aplicar a categorias"
 
 #. module: hr_evaluation
 #: model:ir.module.module,description:hr_evaluation.module_meta_information
 msgid "Ability to create employees evaluation."
-msgstr ""
+msgstr "Capacidad de crear evaluaciones de empleados"
 
 #. module: hr_evaluation
 #: field:hr_evaluation.quote,name:0
 msgid "Quote"
-msgstr "Tsitaat"
+msgstr "Cita"
 
 #. module: hr_evaluation
 #: field:hr_evaluation.type,category_ids:0
@@ -134,111 +136,111 @@ msgstr ""
 #. module: hr_evaluation
 #: field:hr_evaluation.evaluation,user_id:0
 msgid "Evaluation User"
-msgstr ""
+msgstr "Usuario evaluación"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.type:0
 msgid "Choices Results"
-msgstr ""
+msgstr "Resultados elecciones"
 
 #. module: hr_evaluation
 #: field:hr_evaluation.evaluation,date:0
 msgid "Date"
-msgstr "Kuupäev"
+msgstr "Fecha"
 
 #. module: hr_evaluation
 #: model:ir.ui.menu,name:hr_evaluation.menu_eval_hr
 #: model:ir.ui.menu,name:hr_evaluation.menu_open_view_employee_evaluation_form
 msgid "Evaluations"
-msgstr "Hinnangud"
+msgstr "Evaluaciones"
 
 #. module: hr_evaluation
 #: model:ir.ui.menu,name:hr_evaluation.menu_eval_config
 msgid "Configuration"
-msgstr "Seadistamine"
+msgstr "Configuración"
 
 #. module: hr_evaluation
 #: model:ir.ui.menu,name:hr_evaluation.menu_open_view_employee_evaluation_next_list
 msgid "Next Evaluations"
-msgstr "Järgmine hindamine"
+msgstr "Siguientes evaluaciones"
 
 #. module: hr_evaluation
 #: constraint:ir.ui.view:0
 msgid "Invalid XML for View Architecture!"
-msgstr "Vigane XML vaate arhitektuurile!"
+msgstr "¡XML inválido para la estructura de la vista!"
 
 #. module: hr_evaluation
 #: model:ir.ui.menu,name:hr_evaluation.menu_open_view_evaluation_type_form
 msgid "Evaluation Criterions"
-msgstr "Hindamise kriteeriumid"
+msgstr "Criterios de evaluación"
 
 #. module: hr_evaluation
 #: model:ir.ui.menu,name:hr_evaluation.menu_open_view_employee_my_old_evaluation_list
 msgid "My Preceeding Evaluations"
-msgstr ""
+msgstr "Mis evaluaciones previas"
 
 #. module: hr_evaluation
 #: model:ir.ui.menu,name:hr_evaluation.menu_resp_hr
 msgid "HR Responsible"
-msgstr ""
+msgstr "Responsable RRHH"
 
 #. module: hr_evaluation
 #: field:hr_evaluation.quote,value_id:0
 #: field:hr_evaluation.type.value,name:0
 msgid "Value"
-msgstr "Väärtus"
+msgstr "Valor"
 
 #. module: hr_evaluation
 #: field:hr_evaluation.evaluation,name:0
 msgid "Summary"
-msgstr "Summaarne"
+msgstr "Resúmen"
 
 #. module: hr_evaluation
 #: field:hr_evaluation.type,active:0
 msgid "Active"
-msgstr "Aktiivne"
+msgstr "Activo"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.type:0
 msgid "Notes"
-msgstr "Märkused"
+msgstr "Notas"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:0
 #: model:ir.model,name:hr_evaluation.model_hr_evaluation_evaluation
 msgid "Employee Evaluation"
-msgstr ""
+msgstr "Evaluación empleado"
 
 #. module: hr_evaluation
 #: model:ir.model,name:hr_evaluation.model_hr_evaluation_type
 msgid "Employee Evaluation Type"
-msgstr ""
+msgstr "Tipo evaluación empleado"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:0
 msgid "Quotations"
-msgstr "Tsitaadid"
+msgstr "Citas"
 
 #. module: hr_evaluation
 #: model:ir.actions.act_window,name:hr_evaluation.open_view_employee_evaluation_next_list
 msgid "Next Employee Evaluation"
-msgstr ""
+msgstr "Siguiente evaluación empleado"
 
 #. module: hr_evaluation
 #: field:hr_evaluation.quote,type_id:0
 msgid "Type"
-msgstr "Tüüp"
+msgstr "Tipo"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.type:0
 #: field:hr_evaluation.type,name:0
 msgid "Evaluation Criterion"
-msgstr "Hindamiskriteerium"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:ir.ui.menu,name:hr_evaluation.menu_open_view_employee_evaluation_next_my_list
 msgid "My Next Evaluations"
-msgstr "Minu järgmine hindamine"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr_evaluation.quote:0
@@ -253,13 +255,13 @@ msgstr ""
 #. module: hr_evaluation
 #: field:hr_evaluation.evaluation,quote_ids:0
 msgid "Quotes"
-msgstr "Tsitaadid"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:0
 #: selection:hr_evaluation.evaluation,state:0
 msgid "Done"
-msgstr "Valmis"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:ir.model,name:hr_evaluation.model_hr_evaluation_quote
