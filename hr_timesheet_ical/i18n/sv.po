@@ -6,17 +6,37 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 5.0.14\n"
 "Report-Msgid-Bugs-To: support@openerp.com\n"
-"POT-Creation-Date: 2010-11-22 10:19:32+0000\n"
-"PO-Revision-Date: 2010-11-22 10:19:32+0000\n"
-"Last-Translator: <>\n"
+"POT-Creation-Date: 2009-11-25 13:17+0000\n"
+"PO-Revision-Date: 2010-11-23 00:49+0000\n"
+"Last-Translator: Olivier Dony (OpenERP) <Unknown>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: \n"
-"Plural-Forms: \n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2010-11-23 05:12+0000\n"
+"X-Generator: Launchpad (build Unknown)\n"
+
+#. module: hr_timesheet_ical
+#: model:ir.actions.wizard,name:hr_timesheet_ical.ical_import
+msgid "Import iCalendar"
+msgstr ""
 
 #. module: hr_timesheet_ical
 #: model:ir.module.module,description:hr_timesheet_ical.module_meta_information
 msgid "Import iCal events (for eg, Outlook) to auto-complete timesheets."
 msgstr "Import iCal events (for eg, Outlook) to auto-complete timesheets."
 
+#. module: hr_timesheet_ical
+#: model:ir.ui.menu,name:hr_timesheet_ical.ical_import_menu
+msgid "Import Icalendar"
+msgstr ""
+
+#. module: hr_timesheet_ical
+#: model:ir.ui.menu,name:hr_timesheet_ical.menu_hr_hour_encod
+msgid "Hours Encoding"
+msgstr ""
+
+#. module: hr_timesheet_ical
+#: model:ir.module.module,shortdesc:hr_timesheet_ical.module_meta_information
+msgid "Complete timesheet from an iCal server"
+msgstr ""
