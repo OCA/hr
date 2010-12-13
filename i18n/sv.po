@@ -1,19 +1,21 @@
-# Translation of OpenERP Server.
-# This file contains the translation of the following modules:
-#	* hr_evaluation
+# Swedish translation for openobject-addons
+# Copyright (c) 2010 Rosetta Contributors and Canonical Ltd 2010
+# This file is distributed under the same license as the openobject-addons package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: OpenERP Server 6.0.0-rc1\n"
-"Report-Msgid-Bugs-To: support@openerp.com\n"
-"POT-Creation-Date: 2010-12-03 15:43:36+0000\n"
-"PO-Revision-Date: 2010-12-03 15:43:36+0000\n"
-"Last-Translator: <>\n"
-"Language-Team: \n"
+"Project-Id-Version: openobject-addons\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2010-12-03 15:43+0000\n"
+"PO-Revision-Date: 2010-12-09 09:19+0000\n"
+"Last-Translator: OpenERP Administrators <Unknown>\n"
+"Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: \n"
-"Plural-Forms: \n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2010-12-11 05:06+0000\n"
+"X-Generator: Launchpad (build Unknown)\n"
 
 #. module: hr_evaluation
 #: field:hr_evaluation.plan.phase,wait:0
@@ -25,7 +27,7 @@ msgstr ""
 #: view:hr.evaluation.report:0
 #: view:hr_evaluation.plan:0
 msgid "Group By..."
-msgstr ""
+msgstr "Gruppera efter"
 
 #. module: hr_evaluation
 #: field:hr.evaluation.interview,request_id:0
@@ -64,7 +66,7 @@ msgstr ""
 #. module: hr_evaluation
 #: selection:hr.evaluation.report,month:0
 msgid "March"
-msgstr ""
+msgstr "Mars"
 
 #. module: hr_evaluation
 #: field:hr.evaluation.report,delay_date:0
@@ -128,7 +130,8 @@ msgstr ""
 
 #. module: hr_evaluation
 #: constraint:hr.employee:0
-msgid "Error ! You cannot select a department for which the employee is the manager."
+msgid ""
+"Error ! You cannot select a department for which the employee is the manager."
 msgstr ""
 
 #. module: hr_evaluation
@@ -173,7 +176,9 @@ msgstr ""
 #. module: hr_evaluation
 #: code:addons/hr_evaluation/hr_evaluation.py:0
 #, python-format
-msgid "You cannot change state, because some appraisal in waiting answer or draft state"
+msgid ""
+"You cannot change state, because some appraisal in waiting answer or draft "
+"state"
 msgstr ""
 
 #. module: hr_evaluation
@@ -183,13 +188,19 @@ msgstr ""
 
 #. module: hr_evaluation
 #: model:ir.actions.act_window,help:hr_evaluation.open_view_hr_evaluation_tree
-msgid "Each employee can be assigned to an evaluation plan. These plans define the frequency and the way you manage your periodic personnal evaluation. You will be able to define steps and attach interview forms to each step. OpenERP manages all kind of evaluations: bottom-up, top-down, self evaluation and final evaluation by the manager."
+msgid ""
+"Each employee can be assigned to an evaluation plan. These plans define the "
+"frequency and the way you manage your periodic personnal evaluation. You "
+"will be able to define steps and attach interview forms to each step. "
+"OpenERP manages all kind of evaluations: bottom-up, top-down, self "
+"evaluation and final evaluation by the manager."
 msgstr ""
 
 #. module: hr_evaluation
 #: code:addons/hr_evaluation/hr_evaluation.py:0
 #, python-format
-msgid "\n"
+msgid ""
+"\n"
 "Date: %(date)s\n"
 "\n"
 "Dear %(employee_name)s,\n"
@@ -303,7 +314,8 @@ msgstr ""
 
 #. module: hr_evaluation
 #: help:hr_evaluation.plan.phase,mail_feature:0
-msgid "Check this box if you want to send mail to employees coming under this phase"
+msgid ""
+"Check this box if you want to send mail to employees coming under this phase"
 msgstr ""
 
 #. module: hr_evaluation
@@ -451,12 +463,17 @@ msgstr ""
 
 #. module: hr_evaluation
 #: help:hr_evaluation.plan.phase,wait:0
-msgid "Check this box if you want to wait that all preceding phases are finished before launching this phase."
+msgid ""
+"Check this box if you want to wait that all preceding phases are finished "
+"before launching this phase."
 msgstr ""
 
 #. module: hr_evaluation
 #: model:ir.actions.act_window,help:hr_evaluation.action_hr_evaluation_interview_tree
-msgid "Interview Requests are generated automatically by OpenERP according to employees evaluation plan. Each user receives automatic emails and requests to perform evaluation of their collegues periodically."
+msgid ""
+"Interview Requests are generated automatically by OpenERP according to "
+"employees evaluation plan. Each user receives automatic emails and requests "
+"to perform evaluation of their collegues periodically."
 msgstr ""
 
 #. module: hr_evaluation
@@ -466,7 +483,9 @@ msgstr ""
 
 #. module: hr_evaluation
 #: help:hr_evaluation.evaluation,note_action:0
-msgid "If the evaluation does not meet the expectations, you can proposean action plan"
+msgid ""
+"If the evaluation does not meet the expectations, you can proposean action "
+"plan"
 msgstr ""
 
 #. module: hr_evaluation
@@ -837,3 +856,5 @@ msgstr ""
 msgid "Year"
 msgstr ""
 
+#~ msgid "Invalid model name in the action definition."
+#~ msgstr "Felaktigt namn för modell i händelsedefinitionen."
