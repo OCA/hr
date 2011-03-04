@@ -20,14 +20,35 @@
 ##############################################################################
 
 import netsvc
-
+logger = netsvc.Logger()
 from osv import osv, fields
+from tools.translate import _
 
 class hr_expense_line(osv.osv):
     _inherit = 'hr.expense.line'
     _columns = {
-        'tax_id': fields.many2one('account.tax', 'Tax'),
+        'tax_id': fields.many2one('account.tax', 'Tax', domain=[('type_tax_use','=','purchase')]),
     }
+    
+    def onchange_product_id(self, cr, uid, ids, product_id, uom_id, employee_id, tax_id, context=None):
+        res = {}
+        logger.notifyChannel("",netsvc.LOG_INFO,"This is new OnChange")
+        if product_id:
+            product = self.pool.get('product.product').browse(cr, uid, product_id, context=context)
+            res['name'] = product.name
+            amount_unit = product.price_get('standard_price', context=context)[product.id]
+            res['unit_amount'] = amount_unit
+            if not uom_id:
+                res['uom_id'] = product.uom_id.id
+            logger.notifyChannel("",netsvc.LOG_INFO,"tax_id = " + str(tax_id))
+            if not tax_id:
+                logger.notifyChannel("",netsvc.LOG_INFO,"tax_id = " + str(tax_id))
+                if product.supplier_taxes_id:
+                    logger.notifyChannel("",netsvc.LOG_INFO,"product_name = " + product.name)
+                    logger.notifyChannel("",netsvc.LOG_INFO,"product_id = " + product.name)
+                    logger.notifyChannel("",netsvc.LOG_INFO,"supplier_taxes = " + str(len(product.supplier_taxes_id)))
+                    res['tax_id'] = product.supplier_taxes_id[0].id
+        return {'value': res}
 
 hr_expense_line()
 
@@ -45,11 +66,14 @@ class hr_expense_expense(osv.osv):
             lines = []
             for l in exp.line_ids:
                 tax_id = []
+                if l.tax_id:
+                   tax_id = [l.tax_id.id]
                 if l.product_id:
+                    if not tax_id:
+                        tax_id=[x.id for x in l.product_id.supplier_taxes_id]
                     acc = l.product_id.product_tmpl_id.property_account_expense
                     if not acc:
                         acc = l.product_id.categ_id.property_account_expense_categ
-                    tax_id = [l.tax_id.id]
                 else:
                     acc = property_obj.get(cr, uid, 'property_account_expense_categ', 'product.category')
                     if not acc:
@@ -66,7 +90,9 @@ class hr_expense_expense(osv.osv):
                     'account_analytic_id': l.analytic_account.id,
                 }))
             if not exp.employee_id.address_home_id:
-                raise osv.except_osv(_('Error !'), _('The employee must have a home address'))
+                raise osv.except_osv(_('Error !'), _('The employee must have a Home address.'))
+            if not exp.employee_id.address_home_id.partner_id:
+                raise osv.except_osv(_('Error !'), _("The employee's home address must have a partner linked."))
             acc = exp.employee_id.address_home_id.partner_id.property_account_payable.id
             payment_term_id = exp.employee_id.address_home_id.partner_id.property_payment_term.id
             inv = {
