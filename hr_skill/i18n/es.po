@@ -1,0 +1,593 @@
+# Spanish translation for openobject-addons
+# Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+# This file is distributed under the same license as the openobject-addons package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: openobject-addons\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2009-11-25 13:17+0000\n"
+"PO-Revision-Date: 2011-03-08 11:16+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Spanish <es@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2011-03-09 04:53+0000\n"
+"X-Generator: Launchpad (build 12351)\n"
+
+#. module: hr_skill
+#: field:hr_skill.skill,weight_category_id:0
+msgid "Weight Category"
+msgstr ""
+
+#. module: hr_skill
+#: field:hr.employee,leavedate:0
+msgid "Leaved on"
+msgstr ""
+
+#. module: hr_skill
+#: constraint:ir.actions.act_window:0
+msgid "Invalid model name in the action definition."
+msgstr ""
+
+#. module: hr_skill
+#: view:hr.scale:0
+#: model:ir.model,name:hr_skill.model_hr_scale
+msgid "Pay Scales"
+msgstr ""
+
+#. module: hr_skill
+#: model:ir.model,name:hr_skill.model_hr_skill_weight_category
+msgid "hr_skill.weight.category"
+msgstr ""
+
+#. module: hr_skill
+#: model:ir.module.module,description:hr_skill.module_meta_information
+msgid ""
+"Generic and powerfull skill management system. This module allows you to "
+"manage your company and employees skills, interviews, ..."
+msgstr ""
+
+#. module: hr_skill
+#: field:hr_skill.skill,parent_id:0
+msgid "Parent"
+msgstr ""
+
+#. module: hr_skill
+#: model:ir.model,name:hr_skill.model_hr_skill_weight
+msgid "hr_skill.weight"
+msgstr ""
+
+#. module: hr_skill
+#: view:hr_skill.evaluation:0
+msgid "Skill and experiences"
+msgstr ""
+
+#. module: hr_skill
+#: model:ir.model,name:hr_skill.model_hr_skill_evaluation_experience
+msgid "hr_skill.evaluation.experience"
+msgstr ""
+
+#. module: hr_skill
+#: model:ir.module.module,shortdesc:hr_skill.module_meta_information
+msgid "Skill Management"
+msgstr ""
+
+#. module: hr_skill
+#: model:ir.actions.act_window,name:hr_skill.act_hr_skill_weight_category_2_hr_skill_weight
+msgid "Skill weight"
+msgstr ""
+
+#. module: hr_skill
+#: model:ir.actions.report.xml,name:hr_skill.report_evaluation
+msgid "Evaluation report"
+msgstr ""
+
+#. module: hr_skill
+#: rml:hr_skill.evaluation.report:0
+msgid "Level"
+msgstr ""
+
+#. module: hr_skill
+#: field:hr_skill.evaluation,note:0
+msgid "Notes"
+msgstr ""
+
+#. module: hr_skill
+#: model:ir.actions.act_window,name:hr_skill.open_view_skill_tree
+msgid "Skills structure"
+msgstr ""
+
+#. module: hr_skill
+#: rml:hr_skill.evaluation.report:0
+msgid "Evaluated people :"
+msgstr ""
+
+#. module: hr_skill
+#: field:hr_skill.position.profile,position_id:0
+msgid "Position"
+msgstr ""
+
+#. module: hr_skill
+#: model:ir.ui.menu,name:hr_skill.menu_open_view_evaluation_form
+msgid "Evaluations"
+msgstr ""
+
+#. module: hr_skill
+#: wizard_view:employee.date.check,init:0
+#: wizard_view:empskill,init:0
+#: wizard_view:langget,init:0
+msgid "Select period"
+msgstr ""
+
+#. module: hr_skill
+#: rml:hr_skill.evaluation.report:0
+msgid "Note"
+msgstr ""
+
+#. module: hr_skill
+#: field:hr_skill.skill,child_ids:0
+msgid "Children"
+msgstr ""
+
+#. module: hr_skill
+#: view:hr.employee:0
+msgid "Pay Grade"
+msgstr ""
+
+#. module: hr_skill
+#: field:hr_skill.evaluation,reference:0
+msgid "Reference"
+msgstr ""
+
+#. module: hr_skill
+#: rml:hr_skill.evaluation.report:0
+msgid "level"
+msgstr ""
+
+#. module: hr_skill
+#: model:ir.ui.menu,name:hr_skill.menu_open_view_employee_status
+msgid "Employees Status"
+msgstr ""
+
+#. module: hr_skill
+#: model:ir.model,name:hr_skill.model_employee_status
+msgid "employee.status"
+msgstr ""
+
+#. module: hr_skill
+#: field:hr.employee,payscale:0
+msgid "Scale"
+msgstr ""
+
+#. module: hr_skill
+#: model:ir.model,name:hr_skill.model_hr_skill_experience_skill
+msgid "hr_skill.experience.skill"
+msgstr ""
+
+#. module: hr_skill
+#: model:ir.model,name:hr_skill.model_hr_skill_evaluation_category
+msgid "hr_skill.evaluation.category"
+msgstr ""
+
+#. module: hr_skill
+#: rml:hr_skill.evaluation.report:0
+msgid "Evaluated Peoples :"
+msgstr ""
+
+#. module: hr_skill
+#: wizard_button:employee.date.check,init,report:0
+#: wizard_button:empskill,init,report:0
+msgid "Print"
+msgstr ""
+
+#. module: hr_skill
+#: view:hr.employee:0
+#: field:hr.employee,status:0
+msgid "Employee Status"
+msgstr ""
+
+#. module: hr_skill
+#: view:hr_skill.evaluation:0
+#: rml:hr_skill.evaluation.report:0
+#: view:hr_skill.experience:0
+#: model:ir.ui.menu,name:hr_skill.menu_open_view_experience_form
+msgid "Experiences"
+msgstr ""
+
+#. module: hr_skill
+#: field:hr_skill.evaluation,employee_id:0
+msgid "Evaluated Employee"
+msgstr ""
+
+#. module: hr_skill
+#: wizard_button:langget,init,rpt:0
+msgid "Report"
+msgstr ""
+
+#. module: hr_skill
+#: field:hr_skill.evaluation,interviewer_name:0
+msgid "Evaluator"
+msgstr ""
+
+#. module: hr_skill
+#: model:ir.ui.menu,name:hr_skill.menu_open_view_skill_tree
+msgid "Skills Structure"
+msgstr ""
+
+#. module: hr_skill
+#: field:emp.lang,ii_id:0
+msgid "languages known"
+msgstr ""
+
+#. module: hr_skill
+#: view:hr_skill.evaluation:0
+msgid "General Informations"
+msgstr ""
+
+#. module: hr_skill
+#: constraint:ir.ui.view:0
+msgid "Invalid XML for View Architecture!"
+msgstr ""
+
+#. module: hr_skill
+#: view:hr_skill.position:0
+#: field:hr_skill.position,profile_ids:0
+#: model:ir.ui.menu,name:hr_skill.menu_open_view_profiles_form
+msgid "Profiles"
+msgstr ""
+
+#. module: hr_skill
+#: model:ir.ui.menu,name:hr_skill.menu_open_view_weight_form
+msgid "Weights"
+msgstr ""
+
+#. module: hr_skill
+#: rml:hr_skill.evaluation.report:0
+msgid "Specific skills"
+msgstr ""
+
+#. module: hr_skill
+#: view:hr_skill.experience.category:0
+#: model:ir.ui.menu,name:hr_skill.menu_open_view_experience_category_form
+msgid "Experience Categories"
+msgstr ""
+
+#. module: hr_skill
+#: field:hr_skill.evaluation.experience,weight_id:0
+#: field:hr_skill.evaluation.skill,weight_id:0
+#: field:hr_skill.experience.skill,weight_id:0
+#: field:hr_skill.position.profile,weight_id:0
+#: field:hr_skill.profile.skill,weight_id:0
+#: field:hr_skill.skill,weight:0
+#: view:hr_skill.weight:0
+msgid "Weight"
+msgstr ""
+
+#. module: hr_skill
+#: field:hr.scale,cur:0
+msgid "Currency"
+msgstr ""
+
+#. module: hr_skill
+#: field:hr.scale,min_sal:0
+msgid "Minimum Salary"
+msgstr ""
+
+#. module: hr_skill
+#: field:hr_skill.evaluation,name:0
+msgid "Evaluation name"
+msgstr ""
+
+#. module: hr_skill
+#: wizard_field:employee.date.check,init,sdate:0
+msgid "Start Date"
+msgstr ""
+
+#. module: hr_skill
+#: field:emp.lang,speak:0
+msgid "Speak"
+msgstr ""
+
+#. module: hr_skill
+#: field:hr_skill.evaluation,category_id:0
+#: field:hr_skill.experience,category_id:0
+#: field:hr_skill.weight,category_id:0
+msgid "Category"
+msgstr ""
+
+#. module: hr_skill
+#: field:hr.scale,max_sal:0
+msgid "Maximum Salary"
+msgstr ""
+
+#. module: hr_skill
+#: field:hr_skill.weight,value:0
+msgid "Numerical value"
+msgstr ""
+
+#. module: hr_skill
+#: model:ir.model,name:hr_skill.model_hr_skill_experience
+msgid "hr_skill.experience"
+msgstr ""
+
+#. module: hr_skill
+#: model:ir.model,name:hr_skill.model_emp_lang
+#: model:ir.model,name:hr_skill.model_hr_lang
+#: model:ir.ui.menu,name:hr_skill.menu_edit_lang
+msgid "Languages"
+msgstr ""
+
+#. module: hr_skill
+#: field:hr.scale,increase:0
+msgid "Step Increase"
+msgstr ""
+
+#. module: hr_skill
+#: view:hr_skill.evaluation:0
+#: field:hr_skill.evaluation.experience,evaluation_id:0
+#: field:hr_skill.evaluation.skill,evaluation_id:0
+msgid "Evaluation"
+msgstr ""
+
+#. module: hr_skill
+#: view:employee.status:0
+#: field:hr_skill.position,status:0
+msgid "Status"
+msgstr ""
+
+#. module: hr_skill
+#: model:ir.model,name:hr_skill.model_hr_skill_position
+msgid "hr_skill.position"
+msgstr ""
+
+#. module: hr_skill
+#: model:ir.actions.wizard,name:hr_skill.wizard_employee_date_check
+msgid "Job Duration"
+msgstr ""
+
+#. module: hr_skill
+#: selection:hr_skill.position,status:0
+msgid "Unused"
+msgstr ""
+
+#. module: hr_skill
+#: field:hr_skill.evaluation,date:0
+msgid "Date"
+msgstr ""
+
+#. module: hr_skill
+#: view:emp.lang:0
+#: field:emp.lang,name:0
+#: view:hr.lang:0
+#: field:hr.lang,name:0
+#: wizard_field:langget,init,lang:0
+msgid "Language"
+msgstr ""
+
+#. module: hr_skill
+#: view:hr_skill.position:0
+#: model:ir.ui.menu,name:hr_skill.menu_open_view_position_form
+msgid "Positions"
+msgstr ""
+
+#. module: hr_skill
+#: model:ir.model,name:hr_skill.model_hr_skill_evaluation
+msgid "hr_skill.evaluation"
+msgstr ""
+
+#. module: hr_skill
+#: field:hr_skill.evaluation,interviewee_name:0
+msgid "Evaluated People"
+msgstr ""
+
+#. module: hr_skill
+#: field:hr_skill.evaluation,experience_ids:0
+#: field:hr_skill.evaluation.experience,experience_id:0
+#: field:hr_skill.experience.skill,experience_id:0
+msgid "Experience"
+msgstr ""
+
+#. module: hr_skill
+#: field:hr_skill.skill,active:0
+msgid "Active"
+msgstr ""
+
+#. module: hr_skill
+#: field:hr.scale,code:0
+msgid "Code"
+msgstr ""
+
+#. module: hr_skill
+#: model:ir.model,name:hr_skill.model_hr_skill_skill
+msgid "hr_skill.skill"
+msgstr ""
+
+#. module: hr_skill
+#: rml:hr_skill.evaluation.report:0
+msgid "Expérience"
+msgstr ""
+
+#. module: hr_skill
+#: selection:hr_skill.position,status:0
+msgid "Assigned"
+msgstr ""
+
+#. module: hr_skill
+#: model:ir.actions.wizard,name:hr_skill.lang_id
+msgid " Language Report"
+msgstr ""
+
+#. module: hr_skill
+#: wizard_button:employee.date.check,init,end:0
+#: wizard_button:empskill,init,end:0
+#: wizard_button:langget,init,end:0
+msgid "Cancel"
+msgstr ""
+
+#. module: hr_skill
+#: selection:hr_skill.position,status:0
+msgid "Open"
+msgstr ""
+
+#. module: hr_skill
+#: rml:hr_skill.evaluation.report:0
+msgid "Evaluation Report"
+msgstr ""
+
+#. module: hr_skill
+#: model:ir.actions.wizard,name:hr_skill.skill_emp_id
+msgid "Employee Skill"
+msgstr ""
+
+#. module: hr_skill
+#: constraint:ir.model:0
+msgid ""
+"The Object name must start with x_ and not contain any special character !"
+msgstr ""
+
+#. module: hr_skill
+#: model:ir.ui.menu,name:hr_skill.menu_edit_scale
+msgid "Scale Grade "
+msgstr ""
+
+#. module: hr_skill
+#: field:employee.status,name:0
+msgid "Status Name"
+msgstr ""
+
+#. module: hr_skill
+#: field:emp.lang,write:0
+msgid "Write"
+msgstr ""
+
+#. module: hr_skill
+#: field:hr_skill.position.profile,profile_id:0
+#: view:hr_skill.profile:0
+#: field:hr_skill.profile.skill,profile_id:0
+msgid "Profile"
+msgstr ""
+
+#. module: hr_skill
+#: view:hr_skill.weight.category:0
+#: model:ir.ui.menu,name:hr_skill.menu_open_view_weight_category_form
+msgid "Weight Categories"
+msgstr ""
+
+#. module: hr_skill
+#: field:emp.lang,read:0
+msgid "Read"
+msgstr ""
+
+#. module: hr_skill
+#: model:ir.model,name:hr_skill.model_hr_skill_profile_skill
+msgid "hr_skill.profile.skill"
+msgstr ""
+
+#. module: hr_skill
+#: model:ir.model,name:hr_skill.model_hr_skill_position_profile
+msgid "hr_skill.position.profile"
+msgstr ""
+
+#. module: hr_skill
+#: model:ir.model,name:hr_skill.model_hr_skill_experience_category
+msgid "hr_skill.experience.category"
+msgstr ""
+
+#. module: hr_skill
+#: wizard_field:employee.date.check,init,edate:0
+msgid "End Date"
+msgstr ""
+
+#. module: hr_skill
+#: field:hr.scale,name:0
+#: field:hr_skill.evaluation.category,name:0
+#: field:hr_skill.evaluation.experience,name:0
+#: field:hr_skill.evaluation.skill,name:0
+#: field:hr_skill.experience,name:0
+#: field:hr_skill.experience.category,name:0
+#: field:hr_skill.experience.skill,name:0
+#: field:hr_skill.position,name:0
+#: field:hr_skill.position.profile,name:0
+#: field:hr_skill.profile,name:0
+#: field:hr_skill.profile.skill,name:0
+#: field:hr_skill.skill,name:0
+#: field:hr_skill.weight,name:0
+#: field:hr_skill.weight.category,name:0
+msgid "Name"
+msgstr ""
+
+#. module: hr_skill
+#: view:hr_skill.evaluation:0
+#: view:hr_skill.experience:0
+#: field:hr_skill.experience,skill_ids:0
+#: view:hr_skill.profile:0
+#: field:hr_skill.profile,skill_ids:0
+#: view:hr_skill.skill:0
+#: model:ir.ui.menu,name:hr_skill.menu_open_view_skill_form
+msgid "Skills"
+msgstr ""
+
+#. module: hr_skill
+#: field:hr_skill.position,employee_id:0
+msgid "Assigned Employee"
+msgstr ""
+
+#. module: hr_skill
+#: model:ir.model,name:hr_skill.model_hr_skill_profile
+msgid "hr_skill.profile"
+msgstr ""
+
+#. module: hr_skill
+#: rml:hr_skill.evaluation.report:0
+msgid "•"
+msgstr ""
+
+#. module: hr_skill
+#: model:ir.ui.menu,name:hr_skill.menu_hr_skill_mgt
+msgid "Skills Management"
+msgstr ""
+
+#. module: hr_skill
+#: view:hr.employee:0
+msgid "Employee Payment"
+msgstr ""
+
+#. module: hr_skill
+#: view:hr.employee:0
+msgid "Language Details"
+msgstr ""
+
+#. module: hr_skill
+#: selection:hr_skill.skill,view:0
+msgid "View"
+msgstr ""
+
+#. module: hr_skill
+#: field:hr_skill.experience,sequence:0
+msgid "Sequence"
+msgstr ""
+
+#. module: hr_skill
+#: model:ir.model,name:hr_skill.model_hr_skill_evaluation_skill
+msgid "hr_skill.evaluation.skill"
+msgstr ""
+
+#. module: hr_skill
+#: wizard_field:empskill,init,s_ids:0
+#: field:hr_skill.evaluation,skill_ids:0
+#: rml:hr_skill.evaluation.report:0
+#: field:hr_skill.evaluation.skill,skill_id:0
+#: field:hr_skill.experience.skill,skill_id:0
+#: field:hr_skill.profile.skill,skill_id:0
+#: field:hr_skill.skill,view:0
+#: selection:hr_skill.skill,view:0
+msgid "Skill"
+msgstr ""
+
+#. module: hr_skill
+#: field:hr.employee,lang_id:0
+msgid "Languages Known"
+msgstr ""
