@@ -25,8 +25,8 @@ from osv import fields,osv
 def _currency_get(self, cr, uid, context={}):
         obj = self.pool.get('res.currency')
         ids = obj.search(cr, uid, [])
-        res = obj.read(cr, uid, ids, ['code','name'], context)
-        return [(r['code'],r['name']) for r in res]
+        res = obj.read(cr, uid, ids, ['name'], context)
+        return [(r['name'],r['name']) for r in res]
 
 def _status_get(self, cr, uid, context={}):
         obj = self.pool.get('employee.status')
