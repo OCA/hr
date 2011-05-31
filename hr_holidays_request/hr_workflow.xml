@@ -4,14 +4,14 @@
 
 	<!-- Roles definition -->
 
-	<record model="res.roles" id="HR_holidays">
-		<field name="name">Manager</field>
-	</record>
+<!--	<record model="res.roles" id="HR_holidays">-->
+<!--		<field name="name">Manager</field>-->
+<!--	</record>-->
 
-	<record model="res.roles" id="HR_holidays1">
-		<field name="name">Director</field>
-	</record>
-	
+<!--	<record model="res.roles" id="HR_holidays1">-->
+<!--		<field name="name">Director</field>-->
+<!--	</record>-->
+<!--	-->
 	<!-- Workflow definition -->
 
 	<record model="workflow" id="wkf_holidays">
@@ -80,49 +80,49 @@
         <field name="act_from" ref="act_confirm2" />
         <field name="act_to" ref="act_validate" />
         <field name="signal">validate</field>
-        <field name="role_id" ref="HR_holidays1"/>
+<!--        <field name="role_id" ref="HR_holidays1"/>-->
     </record>
     <record model="workflow.transition" id="t2_67">
         <field name="act_from" ref="act_confirm1" />
         <field name="act_to" ref="act_validate" />
         <field name="signal">validate</field>
-        <field name="role_id" ref="HR_holidays"/>
+<!--        <field name="role_id" ref="HR_holidays"/>-->
     </record>
 	<record model="workflow.transition" id="t3">
 		<field name="act_from" ref="act_confirm1" />
 		<field name="act_to" ref="act_refuse" />
 		<field name="signal">refuse</field>
-		<field name="role_id" ref="HR_holidays"/>
+<!--		<field name="role_id" ref="HR_holidays"/>-->
 	</record>
 	<record model="workflow.transition" id="t3_76">
 		<field name="act_from" ref="act_confirm2" />
 		<field name="act_to" ref="act_refuse" />
 		<field name="signal">refuse</field>
-		<field name="role_id" ref="HR_holidays1"/>
+<!--		<field name="role_id" ref="HR_holidays1"/>-->
 	</record>
 	<record model="workflow.transition" id="t4">
 		<field name="act_from" ref="act_validate" />
 		<field name="act_to" ref="act_cancel" />
 		<field name="signal">cancel</field>
-		<field name="role_id" ref="HR_holidays"/>
+<!--		<field name="role_id" ref="HR_holidays"/>-->
 	</record>
 	<record model="workflow.transition" id="t4_1">
 		<field name="act_from" ref="act_validate" />
 		<field name="act_to" ref="act_cancel" />
 		<field name="signal">cancel</field>
-		<field name="role_id" ref="HR_holidays1"/>
+<!--		<field name="role_id" ref="HR_holidays1"/>-->
 	</record>
 	<record model="workflow.transition" id="t5">
 		<field name="act_from" ref="act_refuse" />
 		<field name="act_to" ref="act_cancel" />
 		<field name="signal">cancel</field>
-		<field name="role_id" ref="HR_holidays"/>
+<!--		<field name="role_id" ref="HR_holidays"/>-->
 	</record>
 	<record model="workflow.transition" id="t5_1">
 		<field name="act_from" ref="act_refuse" />
 		<field name="act_to" ref="act_cancel" />
 		<field name="signal">cancel</field>
-		<field name="role_id" ref="HR_holidays1"/>
+<!--		<field name="role_id" ref="HR_holidays1"/>-->
 	</record>
 	<record model="workflow.transition" id="t7">
 		<field name="act_from" ref="act_cancel" />
