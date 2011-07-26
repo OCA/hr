@@ -85,8 +85,6 @@
 <!-- defini l'entree position ds le menu principal -->
     <menuitem name="Positions" parent="menu_hr_skill_mgt" id="menu_open_view_position_form" action="open_view_position_form"/>
 
-
-
 <!-- defini le formulaire profile -->
     <record model="ir.ui.view" id="view_profile_form">
         <field name="name">hr_skill.profile.form</field>
@@ -101,17 +99,11 @@
                         <field name="weight_id"/>
                         <field name="name"/>
                     </tree>
-                    <form string="Skills" editable="top">
-                        <field name="skill_id" on_change="onchange_skill_id(skill_id)"/>
-                        <field name="weight_id"/>
-                        <field name="name"/>
-                    </form>
-
                 </field>
             </form>
         </field>
-
     </record>
+
 <!-- defini une action pr profile ds le menu principal -->
     <record model="ir.actions.act_window" id="open_view_profile_form">
         <field name="res_model">hr_skill.profile</field>
@@ -208,12 +200,6 @@
                         <field name="weight_id"/>
                         <field name="name"/>
                     </tree>
-                    <form string="Skills" editable="top">
-                        <field name="skill_id" on_change="onchange_skill_id(skill_id)"/>
-                        <field name="weight_id"/>
-                        <field name="name"/>
-                    </form>
-
                 </field>
             </form>
         </field>
@@ -260,12 +246,6 @@
                          <field name="weight_id"/>
                          <field name="name"/>
                       </tree>
-                      <form string="Experiences"
-                    editable="top">
-                         <field name="experience_id" on_change="onchange_experience_id(experience_id)"/>
-                         <field name="weight_id"/>
-                         <field name="name"/>
-                      </form>
                     </field>
                     <field name="skill_ids" colspan="4" nolabel="1">
                       <tree string="Skills"
@@ -274,12 +254,6 @@
                          <field name="weight_id"/>
                          <field name="name"/>
                       </tree>
-                      <form string="Skills"
-                         editable="top">
-                         <field name="skill_id" on_change="onchange_skill_id(skill_id)"/>
-                         <field name="weight_id"/>
-                         <field name="name"/>
-                      </form>
                     </field>
 
                </page>
