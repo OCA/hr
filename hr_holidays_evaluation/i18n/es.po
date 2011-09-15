@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-08-24 04:43+0000\n"
-"X-Generator: Launchpad (build 13697)\n"
+"X-Launchpad-Export-Date: 2011-09-15 04:52+0000\n"
+"X-Generator: Launchpad (build 13921)\n"
 
 #. module: hr_holidays_evaluation
 #: constraint:ir.model:0
@@ -170,6 +170,9 @@ msgid ""
 "This time depicts the amount per day earned by an employee working a day.The "
 "computation is: total earned = time * number of working days"
 msgstr ""
+"Este tiempo representa la cantidad por día obtenido por un empleado que "
+"trabaja un día. El cálculo es: total obtenido = tiempo * número de días "
+"laborables"
 
 #. module: hr_holidays_evaluation
 #: model:ir.module.module,description:hr_holidays_evaluation.module_meta_information
