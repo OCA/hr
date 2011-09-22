@@ -1,17 +1,16 @@
-# Spanish translation for openobject-addons
-# Copyright (c) 2010 Rosetta Contributors and Canonical Ltd 2010
+# Turkish translation for openobject-addons
+# Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
 # This file is distributed under the same license as the openobject-addons package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: openobject-addons\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-01-11 11:15+0000\n"
-"PO-Revision-Date: 2010-09-19 00:01+0000\n"
-"Last-Translator: Jordi Esteve (www.zikzakmedia.com) "
-"<jesteve@zikzakmedia.com>\n"
-"Language-Team: Spanish <es@li.org>\n"
+"PO-Revision-Date: 2011-08-23 11:09+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Turkish <tr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -131,7 +130,7 @@ msgstr ""
 #. module: hr_evaluation
 #: view:hr.employee:0
 msgid "Notes"
-msgstr "Notas"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:0
@@ -295,7 +294,7 @@ msgstr ""
 #: view:hr_evaluation.evaluation:0
 #: field:hr_evaluation.evaluation,state:0
 msgid "State"
-msgstr "Estado"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:ir.model,name:hr_evaluation.model_hr_evaluation_plan_phase
@@ -309,7 +308,7 @@ msgstr ""
 #: field:hr_evaluation.evaluation,employee_id:0
 #: model:ir.model,name:hr_evaluation.model_hr_employee
 msgid "Employee"
-msgstr "Empleado"
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr.evaluation.report,overpass_delay:0
@@ -381,7 +380,7 @@ msgstr ""
 #: model:ir.ui.menu,name:hr_evaluation.menu_eval_hr
 #: model:ir.ui.menu,name:hr_evaluation.menu_open_view_hr_evaluation_tree
 msgid "Evaluations"
-msgstr "Evaluaciones"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:ir.actions.act_window,help:hr_evaluation.open_view_hr_evaluation_tree
@@ -505,7 +504,7 @@ msgstr ""
 #: selection:hr.evaluation.report,state:0
 #: selection:hr_evaluation.evaluation,state:0
 msgid "Draft"
-msgstr "Borrador"
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr_evaluation.evaluation,note_summary:0
@@ -522,7 +521,7 @@ msgstr ""
 #: view:hr.employee:0
 #: view:hr_evaluation.evaluation:0
 msgid "Evaluation"
-msgstr "Evaluación"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:0
@@ -576,7 +575,7 @@ msgstr ""
 #. module: hr_evaluation
 #: field:hr_evaluation.plan,active:0
 msgid "Active"
-msgstr "Activo"
+msgstr ""
 
 #. module: hr_evaluation
 #: selection:hr.evaluation.report,month:0
@@ -628,7 +627,7 @@ msgstr ""
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:0
 msgid "Date"
-msgstr "Fecha"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:0
@@ -850,7 +849,7 @@ msgstr ""
 #. module: hr_evaluation
 #: model:ir.model,name:hr_evaluation.model_hr_evaluation_evaluation
 msgid "Employee Evaluation"
-msgstr "Evaluación empleado"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr_evaluation.plan:0
@@ -895,96 +894,3 @@ msgid ""
 "The date of the next evaluation is computed by the evaluation plan's dates "
 "(first evaluation + periodicity)."
 msgstr ""
-
-#~ msgid "Information"
-#~ msgstr "Información"
-
-#~ msgid ""
-#~ "The Object name must start with x_ and not contain any special character !"
-#~ msgstr ""
-#~ "¡El nombre del objeto debe empezar con  x_ y no puede contener ningún "
-#~ "carácter especial!"
-
-#~ msgid "Schedule next evaluation"
-#~ msgstr "Programar siguiente evaluación"
-
-#~ msgid "Bad Points"
-#~ msgstr "Puntos malos"
-
-#~ msgid "My Next Evaluation"
-#~ msgstr "Mi siguiente evaluación"
-
-#~ msgid "Values"
-#~ msgstr "Valores"
-
-#~ msgid "Good Points"
-#~ msgstr "Puntos buenos"
-
-#~ msgid "Score"
-#~ msgstr "Puntuación"
-
-#~ msgid "Informal Data"
-#~ msgstr "Datos informales"
-
-#~ msgid "Invalid model name in the action definition."
-#~ msgstr "Nombre de modelo no válido en la definición de la acción."
-
-#~ msgid "To Improve"
-#~ msgstr "A mejorar"
-
-#~ msgid "Evaluation Type"
-#~ msgstr "Tipo de evaluación"
-
-#~ msgid "Status"
-#~ msgstr "Estado"
-
-#~ msgid "Apply to categories"
-#~ msgstr "Aplicar a categorias"
-
-#~ msgid "Ability to create employees evaluation."
-#~ msgstr "Capacidad de crear evaluaciones de empleados"
-
-#~ msgid "Quote"
-#~ msgstr "Cita"
-
-#~ msgid "Evaluation User"
-#~ msgstr "Usuario evaluación"
-
-#~ msgid "Choices Results"
-#~ msgstr "Resultados elecciones"
-
-#~ msgid "Configuration"
-#~ msgstr "Configuración"
-
-#~ msgid "Next Evaluations"
-#~ msgstr "Siguientes evaluaciones"
-
-#~ msgid "Invalid XML for View Architecture!"
-#~ msgstr "¡XML inválido para la estructura de la vista!"
-
-#~ msgid "Evaluation Criterions"
-#~ msgstr "Criterios de evaluación"
-
-#~ msgid "My Preceeding Evaluations"
-#~ msgstr "Mis evaluaciones previas"
-
-#~ msgid "HR Responsible"
-#~ msgstr "Responsable RRHH"
-
-#~ msgid "Value"
-#~ msgstr "Valor"
-
-#~ msgid "Summary"
-#~ msgstr "Resúmen"
-
-#~ msgid "Employee Evaluation Type"
-#~ msgstr "Tipo evaluación empleado"
-
-#~ msgid "Quotations"
-#~ msgstr "Citas"
-
-#~ msgid "Next Employee Evaluation"
-#~ msgstr "Siguiente evaluación empleado"
-
-#~ msgid "Type"
-#~ msgstr "Tipo"
