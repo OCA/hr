@@ -1,19 +1,20 @@
-# Translation of OpenERP Server.
-# This file contains the translation of the following modules:
-#	* hr_performance
+# Spanish translation for openobject-addons
+# Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+# This file is distributed under the same license as the openobject-addons package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: OpenERP Server 5.0.14\n"
-"Report-Msgid-Bugs-To: support@openerp.com\n"
+"Project-Id-Version: openobject-addons\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2009-11-25 13:16+0000\n"
-"PO-Revision-Date: 2010-11-23 01:59+0000\n"
-"Last-Translator: Olivier Dony (OpenERP) <Unknown>\n"
-"Language-Team: \n"
+"PO-Revision-Date: 2011-08-27 13:20+0000\n"
+"Last-Translator: mgaja (GrupoIsep.com) <Unknown>\n"
+"Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-09-28 05:28+0000\n"
+"X-Launchpad-Export-Date: 2011-09-28 05:27+0000\n"
 "X-Generator: Launchpad (build 14049)\n"
 
 #. module: hr_performance
@@ -24,7 +25,7 @@ msgstr ""
 #. module: hr_performance
 #: selection:hr.performance,state:0
 msgid "Confirmed"
-msgstr ""
+msgstr "Confirmado"
 
 #. module: hr_performance
 #: field:hr.performance.line,performance:0
@@ -36,16 +37,18 @@ msgstr ""
 msgid ""
 "The Object name must start with x_ and not contain any special character !"
 msgstr ""
+"¡El nombre del objeto debe empezar con x_ y no contener ningún carácter "
+"especial!"
 
 #. module: hr_performance
 #: rml:hr_performance.report:0
 msgid "For"
-msgstr ""
+msgstr "Para"
 
 #. module: hr_performance
 #: view:hr.performance:0
 msgid "Confirm"
-msgstr ""
+msgstr "Confimar"
 
 #. module: hr_performance
 #: model:ir.module.module,description:hr_performance.module_meta_information
@@ -65,7 +68,7 @@ msgstr ""
 #. module: hr_performance
 #: field:hr.performance,state:0
 msgid "State"
-msgstr ""
+msgstr "Estado"
 
 #. module: hr_performance
 #: model:ir.model,name:hr_performance.model_hr_performance
@@ -75,28 +78,28 @@ msgstr ""
 #. module: hr_performance
 #: field:hr.performance,date_from:0
 msgid "Date From"
-msgstr ""
+msgstr "Fecha desde"
 
 #. module: hr_performance
 #: constraint:ir.actions.act_window:0
 msgid "Invalid model name in the action definition."
-msgstr ""
+msgstr "Nombre del modelo inválido en la definición de acción."
 
 #. module: hr_performance
 #: field:hr.performance,performance_id:0
 msgid "Performance"
-msgstr ""
+msgstr "Rendimiento"
 
 #. module: hr_performance
 #: field:hr.performance,reviewer_id:0
 #: field:hr.performance.line,employee_id:0
 msgid "Employee"
-msgstr ""
+msgstr "Trabajador"
 
 #. module: hr_performance
 #: selection:hr.performance,state:0
 msgid "New"
-msgstr ""
+msgstr "Nuevo"
 
 #. module: hr_performance
 #: model:ir.actions.report.xml,name:hr_performance.performance_report
@@ -125,17 +128,17 @@ msgstr ""
 #: field:hr.performance.line,name:0
 #: field:hr.performance.line.attribute,note:0
 msgid "Description"
-msgstr ""
+msgstr "Descripción"
 
 #. module: hr_performance
 #: field:attribute.line,total_marks:0
 msgid "Total Marks"
-msgstr ""
+msgstr "calificación total"
 
 #. module: hr_performance
 #: rml:hr_performance.report:0
 msgid ","
-msgstr ""
+msgstr ","
 
 #. module: hr_performance
 #: view:hr.performance.line.attribute:0
@@ -146,23 +149,23 @@ msgstr ""
 #. module: hr_performance
 #: field:hr.performance,user_id:0
 msgid "User"
-msgstr ""
+msgstr "Usuario"
 
 #. module: hr_performance
 #: rml:hr_performance.report:0
 msgid "Date"
-msgstr ""
+msgstr "Fecha"
 
 #. module: hr_performance
 #: rml:hr_performance.report:0
 msgid ":"
-msgstr ""
+msgstr ":"
 
 #. module: hr_performance
 #: rml:hr_performance.report:0
 #: model:ir.module.module,shortdesc:hr_performance.module_meta_information
 msgid "Performance Review"
-msgstr "Performance Review"
+msgstr ""
 
 #. module: hr_performance
 #: field:hr.performance.line,performance_id:0
@@ -172,7 +175,7 @@ msgstr ""
 #. module: hr_performance
 #: constraint:ir.ui.view:0
 msgid "Invalid XML for View Architecture!"
-msgstr ""
+msgstr "¡XML inválido para la definición de la vista!"
 
 #. module: hr_performance
 #: view:attribute.line:0
@@ -187,12 +190,12 @@ msgstr ""
 #. module: hr_performance
 #: field:hr.performance.line.attribute,name:0
 msgid "Attribute Name"
-msgstr ""
+msgstr "Nombre del atributo"
 
 #. module: hr_performance
 #: field:hr.performance,date_to:0
 msgid "Date To"
-msgstr ""
+msgstr "Fecha hasta"
 
 #. module: hr_performance
 #: view:hr.performance:0
@@ -202,17 +205,17 @@ msgstr ""
 #. module: hr_performance
 #: rml:hr_performance.report:0
 msgid "Points"
-msgstr ""
+msgstr "Puntos"
 
 #. module: hr_performance
 #: field:attribute.line,obtained_marks:0
 msgid "Obtained Marks"
-msgstr ""
+msgstr "Calificaciones obtenidas"
 
 #. module: hr_performance
 #: field:hr.performance.line,attribute_line:0
 msgid "Attributes"
-msgstr ""
+msgstr "Atributos"
 
 #. module: hr_performance
 #: model:ir.ui.menu,name:hr_performance.menu_hr_performance_attribute
@@ -232,7 +235,7 @@ msgstr ""
 #. module: hr_performance
 #: field:attribute.line,attribute_id:0
 msgid "Attribute"
-msgstr ""
+msgstr "Atributo"
 
 #. module: hr_performance
 #: model:ir.model,name:hr_performance.model_hr_performance_line
@@ -242,7 +245,7 @@ msgstr ""
 #. module: hr_performance
 #: field:hr.performance.line.attribute,total_point:0
 msgid "Total Point"
-msgstr ""
+msgstr "Puntuación total"
 
 #. module: hr_performance
 #: rml:hr_performance.report:0
@@ -252,14 +255,14 @@ msgstr ""
 #. module: hr_performance
 #: field:hr.performance.line,total:0
 msgid "Total"
-msgstr ""
+msgstr "Total"
 
 #. module: hr_performance
 #: selection:hr.performance,state:0
 msgid "Saved"
-msgstr ""
+msgstr "Guardado"
 
 #. module: hr_performance
 #: rml:hr_performance.report:0
 msgid "to :"
-msgstr ""
+msgstr "a :"
