@@ -1,0 +1,114 @@
+# Spanish translation for openobject-addons
+# Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+# This file is distributed under the same license as the openobject-addons package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: openobject-addons\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2009-11-25 12:00+0000\n"
+"PO-Revision-Date: 2011-08-23 16:25+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Spanish <es@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2011-09-28 05:27+0000\n"
+"X-Generator: Launchpad (build 14049)\n"
+
+#. module: hr_change_password
+#: model:ir.module.module,shortdesc:hr_change_password.module_meta_information
+msgid "Human Resources/Change password"
+msgstr "Recursos Humanos/ Cambiar contraseña"
+
+#. module: hr_change_password
+#: wizard_field:change.passwd,init,confirmpwd:0
+msgid "Confirm Password"
+msgstr "Confirmar contraseña"
+
+#. module: hr_change_password
+#: model:ir.actions.wizard,name:hr_change_password.change_pwd
+msgid "Change Password"
+msgstr "Cambiar contraseña"
+
+#. module: hr_change_password
+#: code:addons/hr_change_password/wizard/change_passwd_wizard.py:0
+#, python-format
+msgid "New Password and Confirm password does not match."
+msgstr "La nueva contraseña y Confirmar contraseña no coincide."
+
+#. module: hr_change_password
+#: model:ir.ui.menu,name:hr_change_password.user_maintan
+msgid "User Maintenance"
+msgstr "Administrar usuarios"
+
+#. module: hr_change_password
+#: wizard_field:change.passwd,init,oldpwd:0
+msgid "Old Password"
+msgstr "Contraseña antigua"
+
+#. module: hr_change_password
+#: wizard_view:change.passwd,init:0
+msgid "Confirm Passwords"
+msgstr "Confirmar contraseña"
+
+#. module: hr_change_password
+#: wizard_field:change.passwd,init,newpwd:0
+msgid "New Password"
+msgstr "Nueva contraseña"
+
+#. module: hr_change_password
+#: code:addons/hr_change_password/wizard/change_passwd_wizard.py:0
+#, python-format
+msgid "Your Old Password is not verified."
+msgstr "Su contraseña anterior no se verifica."
+
+#. module: hr_change_password
+#: wizard_field:change.passwd,init,user:0
+msgid "User"
+msgstr "Usuario"
+
+#. module: hr_change_password
+#: model:ir.module.module,description:hr_change_password.module_meta_information
+msgid ""
+"\n"
+"    Module for human resource management. You can manage:\n"
+"    * Change the password of user\n"
+"\n"
+"    Different reports are also provided, mainly for attendance statistics.\n"
+"    "
+msgstr ""
+"\n"
+"    Módulo para la gestión de recursos humanos. Usted puede manejar:\n"
+"    * Cambiar la contraseña del usuario\n"
+"\n"
+"    Distintos informes también se proporcionan, sobre todo para las "
+"estadísticas de asistencia.\n"
+"    "
+
+#. module: hr_change_password
+#: wizard_button:change.passwd,init,end:0
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: hr_change_password
+#: code:addons/hr_change_password/wizard/change_passwd_wizard.py:0
+#, python-format
+msgid "Verification Error !"
+msgstr "Error de verificación!"
+
+#. module: hr_change_password
+#: model:ir.ui.menu,name:hr_change_password.change_passwd_wizard
+msgid "Change My Password"
+msgstr "Cambiar mi contraseña"
+
+#. module: hr_change_password
+#: wizard_field:change.passwd,init,check:0
+msgid "Check"
+msgstr "Comprobar"
+
+#. module: hr_change_password
+#: wizard_button:change.passwd,init,process:0
+msgid "Change"
+msgstr "Cambiar"
