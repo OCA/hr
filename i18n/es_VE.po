@@ -278,7 +278,7 @@ msgstr "Evaluaciones periódicas"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.reminder:0
-msgid "Send Evaluation Reminder"
+msgid "Send evaluation reminder"
 msgstr "Enviar recordatorio de evaluación"
 
 #. module: hr_evaluation

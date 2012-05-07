@@ -1065,7 +1065,7 @@ msgstr "Fecha de próxima evaluación"
 #~ msgid "Evaluation Summary"
 #~ msgstr "Resumen de evaluación"
 
-#~ msgid "Send Evaluation Reminder"
+#~ msgid "Send evaluation reminder"
 #~ msgstr "Enviar recordatorio de evaluación"
 
 #~ msgid "Evaluation Deadline"
