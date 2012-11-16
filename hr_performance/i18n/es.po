@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-10-31 04:45+0000\n"
-"X-Generator: Launchpad (build 16218)\n"
+"X-Launchpad-Export-Date: 2012-11-16 04:42+0000\n"
+"X-Generator: Launchpad (build 16272)\n"
 
 #. module: hr_performance
 #: field:attribute.line,performance_line_id:0
