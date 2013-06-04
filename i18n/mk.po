@@ -1,16 +1,16 @@
-# Arabic translation for openobject-addons
-# Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
+# Macedonian translation for openobject-addons
+# Copyright (c) 2013 Rosetta Contributors and Canonical Ltd 2013
 # This file is distributed under the same license as the openobject-addons package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2013.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: openobject-addons\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2012-12-21 17:04+0000\n"
-"PO-Revision-Date: 2012-05-10 17:33+0000\n"
-"Last-Translator: Raphael Collet (OpenERP) <Unknown>\n"
-"Language-Team: Arabic <ar@li.org>\n"
+"PO-Revision-Date: 2013-03-04 14:12+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Macedonian <mk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -20,70 +20,70 @@ msgstr ""
 #. module: hr_evaluation
 #: help:hr_evaluation.plan.phase,send_anonymous_manager:0
 msgid "Send an anonymous summary to the manager"
-msgstr "ارسل ملخص مجهول للمدير"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:0
 msgid "Start Appraisal"
-msgstr "بدء التقييم"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:0
 #: view:hr.evaluation.report:0
 #: view:hr_evaluation.plan:0
 msgid "Group By..."
-msgstr "تجميع حسب..."
+msgstr "Групирај по..."
 
 #. module: hr_evaluation
 #: field:hr.evaluation.interview,request_id:0
 #: field:hr.evaluation.report,request_id:0
 msgid "Request_id"
-msgstr "Request_id"
+msgstr "Барање_id"
 
 #. module: hr_evaluation
 #: selection:hr.evaluation.report,month:0
 msgid "March"
-msgstr "مارس"
+msgstr "Март"
 
 #. module: hr_evaluation
 #: field:hr.evaluation.report,delay_date:0
 msgid "Delay to Start"
-msgstr "التأخر في البدء"
+msgstr "Оддолжување до почеток"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:0
 msgid "Appraisal that are in waiting appreciation state"
-msgstr "التقييم في انتظار حالة تقييم"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr_evaluation.plan:0
 #: field:hr_evaluation.plan,company_id:0
 #: field:hr_evaluation.plan.phase,company_id:0
 msgid "Company"
-msgstr "شركة"
+msgstr "Компанија"
 
 #. module: hr_evaluation
 #: field:hr.evaluation.interview,evaluation_id:0
 #: field:hr_evaluation.plan.phase,survey_id:0
 msgid "Appraisal Form"
-msgstr "نموذج تقييمي"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr.evaluation.report:0
 #: field:hr.evaluation.report,day:0
 msgid "Day"
-msgstr "يوم"
+msgstr "Ден"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.plan:0
 #: field:hr_evaluation.plan,phase_ids:0
 msgid "Appraisal Phases"
-msgstr "مراحل التقييم"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:0
 msgid "Send Request"
-msgstr "أرسل طلب"
+msgstr "Испрати барање"
 
 #. module: hr_evaluation
 #: help:hr_evaluation.plan,month_first:0
@@ -91,87 +91,85 @@ msgid ""
 "This number of months will be used to schedule the first evaluation date of "
 "the employee when selecting an evaluation plan. "
 msgstr ""
-"عدد الشهور هذا سيتم استخدامه لتحديد موعد أول تقييم للموظف عند اختيار خطة "
-"تقييم "
 
 #. module: hr_evaluation
 #: view:hr.employee:0
 #: model:ir.ui.menu,name:hr_evaluation.menu_open_view_hr_evaluation_tree
 msgid "Appraisals"
-msgstr "تقييمات"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr_evaluation.plan.phase:0
 msgid "(eval_name)s:Appraisal Name"
-msgstr "(eval_name)s:اسم التقييم"
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr.evaluation.interview,message_ids:0
 #: field:hr_evaluation.evaluation,message_ids:0
 msgid "Messages"
-msgstr "رسائل"
+msgstr "Пораки"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.plan.phase:0
 msgid "Mail Body"
-msgstr "هيئة البريد"
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr_evaluation.plan.phase,wait:0
 msgid "Wait Previous Phases"
-msgstr "انتظر المراحل السابقة"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:ir.model,name:hr_evaluation.model_hr_evaluation_evaluation
 msgid "Employee Appraisal"
-msgstr "تقييم الموظف"
+msgstr ""
 
 #. module: hr_evaluation
 #: selection:hr.evaluation.report,state:0
 #: selection:hr_evaluation.evaluation,state:0
 msgid "Cancelled"
-msgstr "ملغي"
+msgstr "Откажано"
 
 #. module: hr_evaluation
 #: selection:hr.evaluation.report,rating:0
 #: selection:hr_evaluation.evaluation,rating:0
 msgid "Did not meet expectations"
-msgstr "لم تلب التوقعات"
+msgstr "Не ги задоволува очекувањата"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:0
 #: model:ir.actions.act_window,name:hr_evaluation.open_view_hr_evaluation_tree
 #: model:ir.ui.menu,name:hr_evaluation.menu_eval_hr
 msgid "Appraisal"
-msgstr "تثمين"
+msgstr "Проценка"
 
 #. module: hr_evaluation
 #: help:hr.evaluation.interview,message_unread:0
 #: help:hr_evaluation.evaluation,message_unread:0
 msgid "If checked new messages require your attention."
-msgstr ""
+msgstr "Доколку е штиклирано, новите пораки го бараат вашето вниманите."
 
 #. module: hr_evaluation
 #: view:hr_evaluation.plan.phase:0
 msgid "Send to Managers"
-msgstr "ارسل للمديرين"
+msgstr "Испрати до менаџерите"
 
 #. module: hr_evaluation
 #: field:hr_evaluation.evaluation,date_close:0
 msgid "Ending Date"
-msgstr "تاريخ الانتهاء"
+msgstr "Датум на завршување"
 
 #. module: hr_evaluation
 #: help:hr_evaluation.evaluation,note_action:0
 msgid ""
 "If the evaluation does not meet the expectations, you can proposean action "
 "plan"
-msgstr "اذا لم تتوافق التقييم مع التوقعات, يمكنك اقتراح خطة اجرائية"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr_evaluation.plan.phase:0
 msgid "Send to Employees"
-msgstr "ارسل الى الموظفين"
+msgstr "Испрати до вработени"
 
 #. module: hr_evaluation
 #: code:addons/hr_evaluation/hr_evaluation.py:84
@@ -197,7 +195,7 @@ msgstr ""
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:0
 msgid "Appraisal that are in Plan In Progress state"
-msgstr "تقييم ان الخطة  في حالة متقدمة"
+msgstr ""
 
 #. module: hr_evaluation
 #: help:hr.evaluation.interview,message_summary:0
@@ -206,28 +204,30 @@ msgid ""
 "Holds the Chatter summary (number of messages, ...). This summary is "
 "directly in html format in order to be inserted in kanban views."
 msgstr ""
+"Прикажува резиме на конверзација (број на пораки, ...). Ова резиме е "
+"директно во html формат со цел да биде вметнато во kanban преглед."
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:0
 msgid "Reset to Draft"
-msgstr "أعادته للمسودة"
+msgstr "Ресетирај до нацрт"
 
 #. module: hr_evaluation
 #: field:hr.evaluation.report,deadline:0
 msgid "Deadline"
-msgstr "الموعد النهائي"
+msgstr "Краен рок"
 
 #. module: hr_evaluation
 #: code:addons/hr_evaluation/hr_evaluation.py:235
 #: code:addons/hr_evaluation/hr_evaluation.py:320
 #, python-format
 msgid "Warning!"
-msgstr "تحذير!"
+msgstr "Внимание!"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.report:0
 msgid "In progress Evaluations"
-msgstr "في مرحلة التقييم"
+msgstr "Евалуации во тек"
 
 #. module: hr_evaluation
 #: model:ir.model,name:hr_evaluation.model_survey_request
@@ -237,30 +237,30 @@ msgstr "survey.request"
 #. module: hr_evaluation
 #: view:hr_evaluation.plan.phase:0
 msgid "(date)s: Current Date"
-msgstr "(date)s: التاريخ الجاري"
+msgstr "(датум)и: Тековен датум"
 
 #. module: hr_evaluation
 #: model:ir.actions.act_window,name:hr_evaluation.act_hr_employee_2_hr__evaluation_interview
 msgid "Interviews"
-msgstr "مقابلات"
+msgstr "Интервјуа"
 
 #. module: hr_evaluation
 #: code:addons/hr_evaluation/hr_evaluation.py:83
 #, python-format
 msgid "Regarding "
-msgstr "متعلق "
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr.evaluation.interview,message_follower_ids:0
 #: field:hr_evaluation.evaluation,message_follower_ids:0
 msgid "Followers"
-msgstr "المتابعون"
+msgstr "Пратители"
 
 #. module: hr_evaluation
 #: field:hr.evaluation.interview,message_unread:0
 #: field:hr_evaluation.evaluation,message_unread:0
 msgid "Unread Messages"
-msgstr "رسائل غير مقروءة"
+msgstr "Непрочитани Пораки"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.report:0
@@ -269,90 +269,90 @@ msgstr "رسائل غير مقروءة"
 #: field:hr_evaluation.evaluation,employee_id:0
 #: model:ir.model,name:hr_evaluation.model_hr_employee
 msgid "Employee"
-msgstr "موظف"
+msgstr "Вработен"
 
 #. module: hr_evaluation
 #: selection:hr_evaluation.evaluation,state:0
 msgid "New"
-msgstr "جديد"
+msgstr "Ново"
 
 #. module: hr_evaluation
 #: field:hr_evaluation.plan.phase,mail_body:0
 msgid "Email"
-msgstr "بريد إلكتروني"
+msgstr "E-mail"
 
 #. module: hr_evaluation
 #: selection:hr.evaluation.report,rating:0
 #: selection:hr_evaluation.evaluation,rating:0
 msgid "Exceeds expectations"
-msgstr "يتجاوز التوقعات"
+msgstr "Надминати очекувања"
 
 #. module: hr_evaluation
 #: help:hr_evaluation.plan.phase,mail_feature:0
 msgid ""
 "Check this box if you want to send mail to employees coming under this phase"
 msgstr ""
-"تفحص هذه الخانة اذا كنت تريد ارسال بريد الي الموظفين المندرجين تحت هذه "
-"القائمة"
+"Означете го ова поле доколку сакате да им испратите маил на вработените кои "
+"доаѓаат во оваа фаза"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.report:0
 msgid "Creation Date"
-msgstr "تاريخ الإنشاء"
+msgstr "Датум на креирање"
 
 #. module: hr_evaluation
 #: help:hr_evaluation.plan.phase,send_answer_manager:0
 msgid "Send all answers to the manager"
-msgstr "ارسل جميع الاجوبة الى المدير"
+msgstr "Испрати ги сите одговори на менаџерот"
 
 #. module: hr_evaluation
 #: selection:hr.evaluation.report,state:0
 #: selection:hr_evaluation.evaluation,state:0
 msgid "Plan In Progress"
-msgstr "خطة في التقدم"
+msgstr "План во тек"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:0
 msgid "Public Notes"
-msgstr "ملاحظات عامة"
+msgstr "Јавни белешки"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:0
 msgid "Send Reminder Email"
-msgstr "ارسل بريد تذكير"
+msgstr "Испрати емаил за потсетување"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.report:0
 #: field:hr_evaluation.evaluation,rating:0
 msgid "Appreciation"
-msgstr "التقدير"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:0
 msgid "Print Interview"
-msgstr "اطبع المقابلة"
+msgstr "Испечати интервју"
 
 #. module: hr_evaluation
 #: field:hr.evaluation.report,closed:0
 msgid "closed"
-msgstr "مغلق"
+msgstr "затворено"
 
 #. module: hr_evaluation
 #: selection:hr.evaluation.report,rating:0
 #: selection:hr_evaluation.evaluation,rating:0
 msgid "Meet expectations"
-msgstr "قابل التوقعات"
+msgstr "Ги задоволува очекувањата"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.report:0
 #: field:hr.evaluation.report,nbr:0
 msgid "# of Requests"
-msgstr "# بشأن الطلبات"
+msgstr "# од барања"
 
 #. module: hr_evaluation
 #: selection:hr.evaluation.report,month:0
 msgid "July"
-msgstr "يوليو"
+msgstr "Јули"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:0
@@ -361,12 +361,12 @@ msgstr "يوليو"
 #: view:hr_evaluation.evaluation:0
 #: field:hr_evaluation.evaluation,state:0
 msgid "Status"
-msgstr "الحالة"
+msgstr "Статус"
 
 #. module: hr_evaluation
 #: model:ir.actions.act_window,name:hr_evaluation.action_evaluation_plans_installer
 msgid "Review Appraisal Plans"
-msgstr "خطط استعراض تقييم"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:ir.actions.act_window,help:hr_evaluation.action_evaluation_plans_installer
@@ -387,81 +387,81 @@ msgstr ""
 #. module: hr_evaluation
 #: view:hr_evaluation.plan.phase:0
 msgid "Action to Perform"
-msgstr "اجراءات للتنفيذ"
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr_evaluation.evaluation,note_action:0
 msgid "Action Plan"
-msgstr "خطة الاجراء"
+msgstr "Акционен план"
 
 #. module: hr_evaluation
 #: model:ir.ui.menu,name:hr_evaluation.menu_eval_hr_config
 msgid "Periodic Appraisal"
-msgstr "التقييم الدوري"
+msgstr "Периодично оценување"
 
 #. module: hr_evaluation
 #: field:hr_evaluation.plan,month_next:0
 msgid "Periodicity of Appraisal (months)"
-msgstr "التقييم دورياً (الشهور)"
+msgstr "Период на оценување (месеци)"
 
 #. module: hr_evaluation
 #: selection:hr.evaluation.report,rating:0
 #: selection:hr_evaluation.evaluation,rating:0
 msgid "Significantly exceeds expectations"
-msgstr "يتجاوز التوقعات بشكل كبير"
+msgstr "Значитело ги надминува очекувањата"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:0
 msgid "In progress"
-msgstr "جاري التقدم"
+msgstr "Во тек"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:0
 msgid "Interview Request"
-msgstr "طلب المقابلة"
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr_evaluation.plan.phase,send_answer_employee:0
 #: field:hr_evaluation.plan.phase,send_answer_manager:0
 msgid "All Answers"
-msgstr "كل الاجوبة"
+msgstr "Сите одговори"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:0
 #: view:hr_evaluation.evaluation:0
 msgid "Answer Survey"
-msgstr "أجب عن الاستفتاء"
+msgstr ""
 
 #. module: hr_evaluation
 #: selection:hr.evaluation.report,month:0
 msgid "September"
-msgstr "سبتمبر"
+msgstr "Септември"
 
 #. module: hr_evaluation
 #: selection:hr.evaluation.report,month:0
 msgid "December"
-msgstr "ديسمبر"
+msgstr "Декември"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.report:0
 #: field:hr.evaluation.report,month:0
 msgid "Month"
-msgstr "شهر"
+msgstr "Месец"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:0
 msgid "Group by..."
-msgstr "تجميع حسب..."
+msgstr "Групирај по..."
 
 #. module: hr_evaluation
 #: view:hr_evaluation.plan.phase:0
 msgid "Mail Settings"
-msgstr "ضوابط البريد"
+msgstr "Подесување на маил"
 
 #. module: hr_evaluation
 #: model:ir.actions.act_window,name:hr_evaluation.evaluation_reminders
 msgid "Appraisal Reminders"
-msgstr "تقييم التذكير"
+msgstr ""
 
 #. module: hr_evaluation
 #: help:hr_evaluation.plan.phase,wait:0
@@ -469,34 +469,32 @@ msgid ""
 "Check this box if you want to wait that all preceding phases are finished "
 "before launching this phase."
 msgstr ""
-"راجع هذه الخانة اذا كنت تريد كل المراحل السابقة التي أُنهت قبل بدء هذه "
-"المرحلة."
 
 #. module: hr_evaluation
 #: view:hr_evaluation.plan.phase:0
 msgid "Legend"
-msgstr "الدليل"
+msgstr "Легенда"
 
 #. module: hr_evaluation
 #: field:hr_evaluation.plan,month_first:0
 msgid "First Appraisal in (months)"
-msgstr "أول تقييم في (الأشهر)"
+msgstr "Прво оценување во (месеци)"
 
 #. module: hr_evaluation
 #: selection:hr.evaluation.report,state:0
 msgid "Draft"
-msgstr "مسودة"
+msgstr "Нацрт"
 
 #. module: hr_evaluation
 #: field:hr_evaluation.plan.phase,send_anonymous_employee:0
 #: field:hr_evaluation.plan.phase,send_anonymous_manager:0
 msgid "Anonymous Summary"
-msgstr "ملخص مجهول"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:0
 msgid "Pending"
-msgstr "معلّق"
+msgstr "Чекам"
 
 #. module: hr_evaluation
 #: field:hr.employee,evaluation_plan_id:0
@@ -506,44 +504,44 @@ msgstr "معلّق"
 #: field:hr_evaluation.plan.phase,plan_id:0
 #: model:ir.model,name:hr_evaluation.model_hr_evaluation_plan
 msgid "Appraisal Plan"
-msgstr "تقييم الخطة"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:0
 msgid "Print Survey"
-msgstr "طباعة الإستفتاء"
+msgstr "Печати резиме"
 
 #. module: hr_evaluation
 #: selection:hr.evaluation.report,month:0
 msgid "August"
-msgstr "أغسطس"
+msgstr "Август"
 
 #. module: hr_evaluation
 #: selection:hr.evaluation.report,month:0
 msgid "June"
-msgstr "يونيو"
+msgstr "Јуни"
 
 #. module: hr_evaluation
 #: selection:hr.evaluation.report,rating:0
 #: selection:hr_evaluation.evaluation,rating:0
 msgid "Significantly bellow expectations"
-msgstr "توقعات منخفضة بشكل ملحوظ"
+msgstr "Значително под очекувањата"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:0
 msgid "Validate Appraisal"
-msgstr "التحقق من صحة التقييم"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr_evaluation.plan.phase:0
 msgid " (employee_name)s: Partner name"
-msgstr " (الموظفين_اسماء): اسم الشريك"
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr.evaluation.interview,message_is_follower:0
 #: field:hr_evaluation.evaluation,message_is_follower:0
 msgid "Is a Follower"
-msgstr "متابع"
+msgstr "Пратител"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.report:0
@@ -551,107 +549,107 @@ msgstr "متابع"
 #: view:hr_evaluation.evaluation:0
 #: field:hr_evaluation.evaluation,plan_id:0
 msgid "Plan"
-msgstr "خطّة"
+msgstr "План"
 
 #. module: hr_evaluation
 #: field:hr_evaluation.plan,active:0
 msgid "Active"
-msgstr "نشط"
+msgstr "Активно"
 
 #. module: hr_evaluation
 #: selection:hr.evaluation.report,month:0
 msgid "November"
-msgstr "نوفمبر"
+msgstr "Ноември"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.report:0
 msgid "Extended Filters..."
-msgstr "مرشحات مفصلة..."
+msgstr "Проширени филтри..."
 
 #. module: hr_evaluation
 #: help:hr_evaluation.plan.phase,send_anonymous_employee:0
 msgid "Send an anonymous summary to the employee"
-msgstr "ارسل ملخص مجهول الى الموظف"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:ir.model,name:hr_evaluation.model_hr_evaluation_plan_phase
 msgid "Appraisal Plan Phase"
-msgstr "طور تقييم الخطة"
+msgstr ""
 
 #. module: hr_evaluation
 #: selection:hr.evaluation.report,month:0
 msgid "January"
-msgstr "يناير"
+msgstr "Јануари"
 
 #. module: hr_evaluation
 #: view:hr.employee:0
 msgid "Appraisal Interviews"
-msgstr "تقييم المقابلات"
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr.evaluation.interview,message_summary:0
 #: field:hr_evaluation.evaluation,message_summary:0
 msgid "Summary"
-msgstr "ملخّص"
+msgstr "Резиме"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:0
 msgid "Date"
-msgstr "تاريخ"
+msgstr "Датум"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:0
 msgid "Survey"
-msgstr "إستفتاء"
+msgstr "Истражување"
 
 #. module: hr_evaluation
 #: field:hr_evaluation.plan.phase,action:0
 msgid "Action"
-msgstr "إجراء"
+msgstr "Акција"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.report:0
 #: selection:hr.evaluation.report,state:0
 msgid "Final Validation"
-msgstr "الصلاحية النهائية"
+msgstr "Финална валидација"
 
 #. module: hr_evaluation
 #: selection:hr_evaluation.evaluation,state:0
 msgid "Waiting Appreciation"
-msgstr "انتظار التقدير"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr.evaluation.report:0
 #: model:ir.actions.act_window,name:hr_evaluation.action_evaluation_report_all
 #: model:ir.ui.menu,name:hr_evaluation.menu_evaluation_report_all
 msgid "Appraisal Analysis"
-msgstr "تحليل التقييم"
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr_evaluation.evaluation,date:0
 msgid "Appraisal Deadline"
-msgstr "الموعد النهائي للتقييم"
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr.evaluation.report,rating:0
 msgid "Overall Rating"
-msgstr "التقييم العام"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:0
 #: view:hr_evaluation.evaluation:0
 msgid "Interviewer"
-msgstr "المقابل"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:ir.model,name:hr_evaluation.model_hr_evaluation_report
 msgid "Evaluations Statistics"
-msgstr "احصائيات التقييمات"
+msgstr "Статистики од евалуација"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:0
 msgid "Deadline Date"
-msgstr "تاريخ الموعد النهائي"
+msgstr "Датум на краен рок"
 
 #. module: hr_evaluation
 #: help:hr_evaluation.evaluation,rating:0
@@ -661,17 +659,17 @@ msgstr ""
 #. module: hr_evaluation
 #: selection:hr_evaluation.plan.phase,action:0
 msgid "Top-Down Appraisal Requests"
-msgstr "طلبات التثمين من اعلى -لاسفل"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr_evaluation.plan.phase:0
 msgid "General"
-msgstr "عام"
+msgstr "Општо"
 
 #. module: hr_evaluation
 #: help:hr_evaluation.plan.phase,send_answer_employee:0
 msgid "Send all answers to the employee"
-msgstr "ارسل جميع الاجوبة للموظفين"
+msgstr "Испрати ги сите одговори до вработениот"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:0
@@ -680,90 +678,90 @@ msgstr "ارسل جميع الاجوبة للموظفين"
 #: view:hr_evaluation.evaluation:0
 #: selection:hr_evaluation.evaluation,state:0
 msgid "Done"
-msgstr "تم"
+msgstr "Завршено"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.plan:0
 #: model:ir.actions.act_window,name:hr_evaluation.open_view_hr_evaluation_plan_tree
 #: model:ir.ui.menu,name:hr_evaluation.menu_open_view_hr_evaluation_plan_tree
 msgid "Appraisal Plans"
-msgstr "خطط التقييم"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:ir.model,name:hr_evaluation.model_hr_evaluation_interview
 msgid "Appraisal Interview"
-msgstr "تقييم المقابلة"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:0
 #: view:hr_evaluation.evaluation:0
 msgid "Cancel"
-msgstr "إلغاء"
+msgstr "Откажи"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.report:0
 msgid "In Progress"
-msgstr "قيد التقدم"
+msgstr "Во тек"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:0
 msgid "To Do"
-msgstr "في انتظار التنفيذ"
+msgstr "Да се направи"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.report:0
 msgid "Final Validation Evaluations"
-msgstr "نهائي تصديق التقيمات"
+msgstr "Евалуации на финална валидација"
 
 #. module: hr_evaluation
 #: field:hr_evaluation.plan.phase,mail_feature:0
 msgid "Send mail for this phase"
-msgstr "ارسل بريد لهذه المرحلة"
+msgstr "Испрати маил за оваа фаза"
 
 #. module: hr_evaluation
 #: field:hr_evaluation.plan.phase,email_subject:0
 msgid "char"
-msgstr "حرف"
+msgstr ""
 
 #. module: hr_evaluation
 #: selection:hr.evaluation.report,month:0
 msgid "October"
-msgstr "أكتوبر"
+msgstr "Октомври"
 
 #. module: hr_evaluation
 #: help:hr.employee,evaluation_date:0
 msgid ""
 "The date of the next appraisal is computed by the appraisal plan's dates "
 "(first appraisal + periodicity)."
-msgstr "تاريخ التقييم التالي يحسب بتاريخ خطة التقييم (أول تقييم + دورياً)"
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr.evaluation.report,overpass_delay:0
 msgid "Overpassed Deadline"
-msgstr "تخطي الموعد النهائي"
+msgstr "Пречекорен краен рок"
 
 #. module: hr_evaluation
 #: help:hr_evaluation.plan,month_next:0
 msgid ""
 "The number of month that depicts the delay between each evaluation of this "
 "plan (after the first one)."
-msgstr "يبين عدد الشهر التأخير بين كل تقييم لتلك الخطة (قبل الخطة او بعدها)"
+msgstr ""
 
 #. module: hr_evaluation
 #: selection:hr_evaluation.plan.phase,action:0
 msgid "Self Appraisal Requests"
-msgstr "طلبات التثمين الذاتي"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:0
 #: field:hr_evaluation.evaluation,survey_request_ids:0
 msgid "Appraisal Forms"
-msgstr "نماذج التثمين"
+msgstr ""
 
 #. module: hr_evaluation
 #: selection:hr.evaluation.report,month:0
 msgid "May"
-msgstr "مايو"
+msgstr "Мај"
 
 #. module: hr_evaluation
 #: model:ir.actions.act_window,help:hr_evaluation.open_view_hr_evaluation_tree
@@ -786,49 +784,49 @@ msgstr ""
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:0
 msgid "Internal Notes"
-msgstr "ملاحظات داخلية"
+msgstr "Внатрешни белешки"
 
 #. module: hr_evaluation
 #: selection:hr_evaluation.plan.phase,action:0
 msgid "Final Interview"
-msgstr "المقابلة النهائية"
+msgstr "Фианлно интервју"
 
 #. module: hr_evaluation
 #: field:hr_evaluation.plan.phase,name:0
 msgid "Phase"
-msgstr "طور"
+msgstr "Фаза"
 
 #. module: hr_evaluation
 #: selection:hr_evaluation.plan.phase,action:0
 msgid "Bottom-Up Appraisal Requests"
-msgstr "طلبات التقييم من اسفل-لأعلى"
+msgstr ""
 
 #. module: hr_evaluation
 #: selection:hr.evaluation.report,month:0
 msgid "February"
-msgstr "فبراير"
+msgstr "Февруари"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:0
 #: view:hr_evaluation.evaluation:0
 msgid "Interview Appraisal"
-msgstr "تقييم المعاينة"
+msgstr ""
 
 #. module: hr_evaluation
 #: field:survey.request,is_evaluation:0
 msgid "Is Appraisal?"
-msgstr "هل هو تقييم؟"
+msgstr ""
 
 #. module: hr_evaluation
 #: code:addons/hr_evaluation/hr_evaluation.py:320
 #, python-format
 msgid "You cannot start evaluation without Appraisal."
-msgstr "لا يمكنك بدء التقييم بدون تقييم مسبق"
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr.evaluation.interview,user_to_review_id:0
 msgid "Employee to Interview"
-msgstr "الموظف الذي سيتم عمل له المقابلة"
+msgstr ""
 
 #. module: hr_evaluation
 #: code:addons/hr_evaluation/hr_evaluation.py:235
@@ -841,12 +839,12 @@ msgstr ""
 #. module: hr_evaluation
 #: selection:hr.evaluation.report,month:0
 msgid "April"
-msgstr "إبريل"
+msgstr "Април"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.plan.phase:0
 msgid "Appraisal Plan Phases"
-msgstr "أطوار خطة التقييم"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:ir.actions.act_window,help:hr_evaluation.action_hr_evaluation_interview_tree
@@ -868,23 +866,23 @@ msgstr ""
 #: help:hr.evaluation.interview,message_ids:0
 #: help:hr_evaluation.evaluation,message_ids:0
 msgid "Messages and communication history"
-msgstr "الرسائل و سجل التواصل"
+msgstr "Историја на пораки и комуникација"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:0
 #: view:hr_evaluation.evaluation:0
 msgid "Search Appraisal"
-msgstr "البحث عن تقييم"
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr_evaluation.plan.phase,sequence:0
 msgid "Sequence"
-msgstr "مسلسل"
+msgstr "Секвенца"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.plan.phase:0
 msgid "(user_signature)s: User name"
-msgstr "(توقيعات_المستخدمين): اسم المستخدم"
+msgstr "(корисник_потпис)и: Корисничко име"
 
 #. module: hr_evaluation
 #: view:board.board:0
@@ -892,295 +890,25 @@ msgstr "(توقيعات_المستخدمين): اسم المستخدم"
 #: model:ir.actions.act_window,name:hr_evaluation.action_hr_evaluation_interview_tree
 #: model:ir.ui.menu,name:hr_evaluation.menu_open_hr_evaluation_interview_requests
 msgid "Interview Requests"
-msgstr "طلبات المقابلة"
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr.evaluation.report,create_date:0
 msgid "Create Date"
-msgstr "إنشاء تاريخ"
+msgstr "Креирај датум"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.report:0
 #: field:hr.evaluation.report,year:0
 msgid "Year"
-msgstr "سنة"
+msgstr "Година"
 
 #. module: hr_evaluation
 #: field:hr_evaluation.evaluation,note_summary:0
 msgid "Appraisal Summary"
-msgstr "مختصر التقييم"
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr.employee,evaluation_date:0
 msgid "Next Appraisal Date"
-msgstr "تاريخ التقييم القادم"
-
-#~ msgid "Progress"
-#~ msgstr "تقدّم"
-
-#, python-format
-#~ msgid "Warning !"
-#~ msgstr "تحذير !"
-
-#~ msgid "Notes"
-#~ msgstr "ملاحظات"
-
-#~ msgid "State"
-#~ msgstr "الحالة"
-
-#~ msgid "    Month-1    "
-#~ msgstr "    شهر-1    "
-
-#~ msgid "Evaluation"
-#~ msgstr "تقييم"
-
-#~ msgid "Send Mail"
-#~ msgstr "أرسل بريد"
-
-#~ msgid "Current"
-#~ msgstr "الحالي"
-
-#~ msgid "My Evaluation Remaining"
-#~ msgstr "التقييم المتبقي الخاص بي"
-
-#, python-format
-#~ msgid "You cannot start evaluation without Evaluation."
-#~ msgstr "لا تستطيع بدء التقييم بدون تقييم"
-
-#~ msgid "Evaluation Form"
-#~ msgstr "نموذج التقييم"
-
-#~ msgid "Evaluation Interviews"
-#~ msgstr "مقابلات التقييم"
-
-#~ msgid "Evaluations Analysis"
-#~ msgstr "تحليل التقييمات"
-
-#~ msgid "Sends Reminders to employess to fill the evaluations"
-#~ msgstr "ويرسل مذكرات للمدير لملئ التقييمات"
-
-#~ msgid "Periodicity of Evaluations (months)"
-#~ msgstr "تواتر التقييمات (الشهور)"
-
-#, python-format
-#~ msgid ""
-#~ "You cannot change state, because some appraisal in waiting answer or draft "
-#~ "state"
-#~ msgstr "لايمكنك تغيير الحالة, لان بعض التثمينات منتظر ردها او حالة السحب"
-
-#~ msgid " Month "
-#~ msgstr " شهر "
-
-#~ msgid "Send evaluation reminder"
-#~ msgstr "ارسل مذكرة التقييم"
-
-#~ msgid "First Evaluation in (months)"
-#~ msgstr "اول تقييم في (الأشهر)"
-
-#~ msgid "Evaluation Deadline"
-#~ msgstr "اخر موعد التقييم"
-
-#~ msgid "Human Resources Evaluation"
-#~ msgstr "تقييم المواررد البشرية"
-
-#~ msgid "Evaluations"
-#~ msgstr "التقييمات"
-
-#~ msgid "(eval_name)s:Evaluation Name"
-#~ msgstr "(التقييمات_اسماء):اسم التقييم"
-
-#~ msgid "Ending Summary"
-#~ msgstr "ملخص الانهاء"
-
-#~ msgid "Evaluation Data"
-#~ msgstr "بيانات التقييم"
-
-#~ msgid "Is Evaluation?"
-#~ msgstr "هل هو تقييم؟"
-
-#~ msgid "Interview Question"
-#~ msgstr "سؤال المقابلة"
-
-#~ msgid "Evaluation Summary"
-#~ msgstr "ملخص التقييم"
-
-#~ msgid "Start Evaluation"
-#~ msgstr "ابدأ التقييم"
-
-#~ msgid " Year "
-#~ msgstr " سنة "
-
-#~ msgid "Interview Evaluation"
-#~ msgstr "تقييم المقابلة"
-
-#~ msgid "Evaluation Plans"
-#~ msgstr "خطط التقييم"
-
-#~ msgid "Late"
-#~ msgstr "متأخر"
-
-#~ msgid "This is the appreciation on that summarize the evaluation"
-#~ msgstr "هذا هو التقدير على تلخيص التقييم"
-
-#~ msgid "Evaluation Reminders"
-#~ msgstr "مذكرات التقييم"
-
-#~ msgid "Evaluation Phases"
-#~ msgstr "مراحل التقييم"
-
-#~ msgid "Evaluation Interview"
-#~ msgstr "مقابلة التقييم"
-
-#~ msgid "Evaluation Plan Phases"
-#~ msgstr "مراحل خطة التقييم"
-
-#~ msgid "Next Evaluation Date"
-#~ msgstr "موعد التقييم القادم"
-
-#~ msgid "Evaluation Plan"
-#~ msgstr "خطة التقييم"
-
-#~ msgid "Validate Evaluation"
-#~ msgstr "التحقق من صحة التقييم"
-
-#~ msgid "Search Evaluation"
-#~ msgstr "تقييم البحث"
-
-#~ msgid "Evaluation Send Mail"
-#~ msgstr "بريد ارسال التقييم"
-
-#~ msgid "Search Evaluation Plan"
-#~ msgstr "خطة تقييم البحث"
-
-#~ msgid "Employee Evaluation"
-#~ msgstr "تقييم الموظفين"
-
-#~ msgid "(months)"
-#~ msgstr "(الأشهر)"
-
-#~ msgid ""
-#~ "The date of the next evaluation is computed by the evaluation plan's dates "
-#~ "(first evaluation + periodicity)."
-#~ msgstr ""
-#~ "قد تم حساب تاريخ التقييم التالي بتواريخ خطة التقييم (اول تقييم+الدورية)."
-
-#~ msgid "Interview"
-#~ msgstr "المقابلة"
-
-#~ msgid "Periodic Evaluations"
-#~ msgstr "التقييمات الدورية"
-
-#~ msgid "Error ! You cannot create recursive Hierarchy of Employees."
-#~ msgstr "خطأ ! لايمكنك انشاء تسلسل هرمي عودي  للعاملين"
-
-#~ msgid ""
-#~ "Error ! You cannot select a department for which the employee is the manager."
-#~ msgstr "خطأ! لا يمكنك تحديد الادارة التي يديرها الموظف."
-
-#~ msgid "7 Days"
-#~ msgstr "٧ أيام"
-
-#~ msgid ""
-#~ "Each employee may be assigned an evaluation plan. Such a plan defines the "
-#~ "frequency and the way you manage your periodic personnel evaluation. You "
-#~ "will be able to define steps and attach interviews to each step. OpenERP "
-#~ "manages all kind of evaluations: bottom-up, top-down, self-evaluation and "
-#~ "final evaluation by the manager."
-#~ msgstr ""
-#~ "قد يعين كل موظف خطة التقييم. تحدد مثل هذه الخطة التكرار و الطريقة التي تدير "
-#~ "بها التقييم الشخصي الدوري. ستتمكن من تحديد الخطوات وارفاق المقابلات لكل "
-#~ "خطوة. يدير OpenERP كل انواع التقييمات: من اسفل الى اعلى, من اعلى الى اسفل, "
-#~ "التقييم الذاتي والتقييم النهائي بواسطة المدير."
-
-#~ msgid ""
-#~ "Interview Requests are generated automatically by OpenERP according to an "
-#~ "employee's evaluation plan. Each user receives automatic emails and requests "
-#~ "to evaluate their colleagues periodically."
-#~ msgstr ""
-#~ "تُنشأ طلبات المقابلة تلقائيًا بواسطة OpenERP بناءًا على خطة التقييم "
-#~ "للموظفين. يستقبل كل مستخدم تلقائيًا البريد الالكتروني و الطلبات لتقييم "
-#~ "زملائهم دوريًا."
-
-#~ msgid ""
-#~ "\n"
-#~ "          Ability to create employees evaluation.\n"
-#~ "          An evaluation can be created by employee for subordinates,\n"
-#~ "          juniors as well as his manager.The evaluation is done under a "
-#~ "plan\n"
-#~ "          in which various surveys can be created and it can be defined "
-#~ "which\n"
-#~ "          level of employee hierarchy fills what and final review and "
-#~ "evaluation\n"
-#~ "          is done by the manager.Every evaluation filled by the employees "
-#~ "can be viewed\n"
-#~ "          in the form of.Implements a dashboard for My Current Evaluations\n"
-#~ "         "
-#~ msgstr ""
-#~ "\n"
-#~ "          القدرة على انشاء تقييم الموظفين.\n"
-#~ "يمكن انشاء التقييم بواسطة الموظف للمرؤوسين,\n"
-#~ "الضغار بالاضافة الى المدير. تم عمل التقييم تحت الخطة\n"
-#~ "فيما يمكن انشاء دراسات مختلفة ويمكن ان تُحدد اي المستوى الترتيبي للموظف\n"
-#~ "يملأ استعراض ما والنهائي والتقييم\n"
-#~ "يمكن أن يتم ذلك عن طريق المدير. كل تقييم يُملأ بواسطة الموظف من الممكن "
-#~ "استعراضه\n"
-#~ "في شكل تنفيذ لوحة القيادة للتقيمات الجالة الخاصة بي.\n"
-#~ "         "
-
-#~ msgid "Evaluation Plan Phase"
-#~ msgstr "مرحلة خطة التقييم"
-
-#~ msgid "Appraisal that overpassed the deadline"
-#~ msgstr "التقييم تخطى الموعد النهائي"
-
-#~ msgid ""
-#~ "Each employee may be assigned an Appraisal Plan. Such a plan defines the "
-#~ "frequency and the way you manage your periodic personnel evaluation. You "
-#~ "will be able to define steps and attach interviews to each step. OpenERP "
-#~ "manages all kind of evaluations: bottom-up, top-down, self-evaluation and "
-#~ "final evaluation by the manager."
-#~ msgstr ""
-#~ "قد يتم تعيين لكل موظف خطة التقييم. مثل هذه الخطة تحدد وتيرة والطريقة التي "
-#~ "تدير تقييمكم لكل فرد دورياً. وسوف تكون قادرة على تحديد الخطوات ونعلق على "
-#~ "المقابلات لكل خطوة. OpenERP يدير كل أنواع التقييمات: من أسفل إلى أعلى، من "
-#~ "أعلى إلى أسفل، التقييم الذاتي والتقييم النهائي من قبل مدير"
-
-#~ msgid "Evaluation done in last month"
-#~ msgstr "التقيم تم في نهاية الشهر"
-
-#~ msgid "Evaluation done in current year"
-#~ msgstr "التقييم تم في السنة الحالية"
-
-#~ msgid ""
-#~ "You can define appraisal plans (ex: first interview after 6 months, then "
-#~ "every year). Then, each employee can be linked to an appraisal plan so that "
-#~ "OpenERP can automatically generate interview requests to managers and/or "
-#~ "subordinates."
-#~ msgstr ""
-#~ "يمكنك تحديد خطط تقييم (مثلا: المقابلة الأولى بعد 6 أشهر، ثم كل عام). ثم، "
-#~ "يمكن ربط كل موظف بخطة تقييم لذلك فإن  OpenERP يمكن أن يولد تلقائيا طلب "
-#~ "مقابلة للمديرين و / أو المرؤوسين"
-
-#~ msgid "Appraisal Data"
-#~ msgstr "تاريخ التقييم"
-
-#~ msgid ""
-#~ "Interview Requests are generated automatically by OpenERP according to an "
-#~ "employee's Appraisal Plan. Each user receives automatic emails and requests "
-#~ "to evaluate their colleagues periodically."
-#~ msgstr ""
-#~ "طلبات المعاينة تتولد تلقائيا بـ OpenERP وفقا لخطة تقييم الموظف.  كل مستخدم "
-#~ "يتلقى رسائل البريد الإلكتروني تلقائياً، طلبات لتقييم زملائهم دوريا"
-
-#~ msgid "Evaluation done in current month"
-#~ msgstr "التقييم تم للشهر الحالي"
-
-#~ msgid "Appraisal to close within the next 7 days"
-#~ msgstr "تقييم ليغلق في غضون ٧ ايام القادمة"
-
-#, python-format
-#~ msgid "Reminder to fill up Survey"
-#~ msgstr "تذكير لملئ الاستعراض"
-
-#~ msgid "E-mail composition wizard"
-#~ msgstr "مرشد تركيب البريد الإلكتروني"
+msgstr ""
