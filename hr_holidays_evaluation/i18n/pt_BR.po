@@ -1,0 +1,195 @@
+# Brazilian Portuguese translation for openobject-addons
+# Copyright (c) 2013 Rosetta Contributors and Canonical Ltd 2013
+# This file is distributed under the same license as the openobject-addons package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2013.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: openobject-addons\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2010-01-01 10:49+0000\n"
+"PO-Revision-Date: 2013-07-28 09:12+0000\n"
+"Last-Translator: Claudio de Araujo Santos <claudioaraujosantos@gmail.com>\n"
+"Language-Team: Brazilian Portuguese <pt_BR@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2013-07-29 05:29+0000\n"
+"X-Generator: Launchpad (build 16700)\n"
+
+#. module: hr_holidays_evaluation
+#: constraint:ir.model:0
+msgid ""
+"The Object name must start with x_ and not contain any special character !"
+msgstr ""
+"O nome do objeto precisa iniciar com x_ e não conter nenhum caracter "
+"especial!"
+
+#. module: hr_holidays_evaluation
+#: model:ir.model,name:hr_holidays_evaluation.model_hr_holidays_note
+msgid "Holidays note"
+msgstr "Feriados nota"
+
+#. module: hr_holidays_evaluation
+#: view:wizard.hr.holidays.evaluation:0
+msgid "Count The Holidays for the Employee"
+msgstr "Contar os feriados para o empregado"
+
+#. module: hr_holidays_evaluation
+#: help:wizard.hr.holidays.evaluation,hr_timesheet_group_id:0
+msgid ""
+"This field allow you to filter on only the employees that have a contract "
+"using this working hour."
+msgstr ""
+"Este campo permite filtrar apenas os funcionários que têm um contrato com "
+"esta hora de trabalho."
+
+#. module: hr_holidays_evaluation
+#: constraint:ir.actions.act_window:0
+msgid "Invalid model name in the action definition."
+msgstr "Nome de modelo inválido na definição da ação"
+
+#. module: hr_holidays_evaluation
+#: field:hr.holidays.note,employee_id:0
+msgid "Employee Name"
+msgstr "Nome do Funcionário"
+
+#. module: hr_holidays_evaluation
+#: model:ir.actions.act_window,name:hr_holidays_evaluation.action_wizard_hr_development
+msgid "Holidays Evaluation Wizard"
+msgstr "Feriados Assistente de Avaliação"
+
+#. module: hr_holidays_evaluation
+#: model:ir.ui.menu,name:hr_holidays_evaluation.menu_wizard_hr_development
+msgid "Count Holiday For Employee"
+msgstr "Conte férias para o empregado"
+
+#. module: hr_holidays_evaluation
+#: code:addons/hr_holidays_evaluation/hr_holidays_evaluation.py:0
+#, python-format
+msgid "Automatically Created Holiday"
+msgstr "Férias criado automaticamente"
+
+#. module: hr_holidays_evaluation
+#: field:hr.holidays.note,date:0
+#: field:wizard.hr.holidays.evaluation,date_current:0
+msgid "Date"
+msgstr "Date"
+
+#. module: hr_holidays_evaluation
+#: field:hr.holidays.note,diff:0
+msgid "Difference"
+msgstr "Diferença"
+
+#. module: hr_holidays_evaluation
+#: field:hr.holidays.note,holiday_status_id:0
+#: field:wizard.hr.holidays.evaluation,holiday_status_id:0
+msgid "Holiday Status"
+msgstr "Férias Estado"
+
+#. module: hr_holidays_evaluation
+#: field:hr.holidays.note,prev_number:0
+msgid "Previous Holiday Number"
+msgstr "Férias anterior Número"
+
+#. module: hr_holidays_evaluation
+#: constraint:ir.ui.view:0
+msgid "Invalid XML for View Architecture!"
+msgstr "Invalido XML para Arquitetura da View"
+
+#. module: hr_holidays_evaluation
+#: code:addons/hr_holidays_evaluation/hr_holidays_evaluation.py:0
+#, python-format
+msgid "Summary Report"
+msgstr "Relatório Resumido"
+
+#. module: hr_holidays_evaluation
+#: view:hr.holidays.note:0
+msgid "Notes"
+msgstr "Notas"
+
+#. module: hr_holidays_evaluation
+#: view:wizard.hr.holidays.evaluation:0
+msgid "Count Holidays For The Employee"
+msgstr "Conte Holidays para o empregado"
+
+#. module: hr_holidays_evaluation
+#: model:ir.ui.menu,name:hr_holidays_evaluation.menu_hr_holidays_evaluation
+msgid "Holidays Evaluation"
+msgstr "Holidays Avaliação"
+
+#. module: hr_holidays_evaluation
+#: help:wizard.hr.holidays.evaluation,holiday_status_id:0
+msgid ""
+"This is where you specify the holiday type to synchronize. It will create "
+"the \"holidays per employee\" accordingly if necessary, or replace the value "
+"\"Max leaves allowed\" into the existing one."
+msgstr ""
+"Isto é onde você especificar o tipo de férias para sincronizar. Ele vai "
+"criar as \"férias por funcionário\" de acordo, se necessário, ou substituir "
+"o valor de \"Max folhas permitido\" para o já existente."
+
+#. module: hr_holidays_evaluation
+#: help:wizard.hr.holidays.evaluation,date_current:0
+msgid ""
+"This field allow you to choose the date to use, for forecast matter e.g. The "
+"start date is the starting date of the employee contract."
+msgstr ""
+"Este campo permite que você escolha a data a ser usada, por exemplo, para a "
+"matéria previsão A data de início é a data de início do contrato do "
+"empregado."
+
+#. module: hr_holidays_evaluation
+#: field:wizard.hr.holidays.evaluation,hr_timesheet_group_id:0
+msgid "Timesheet Group"
+msgstr "Timesheet Grupo"
+
+#. module: hr_holidays_evaluation
+#: model:ir.model,name:hr_holidays_evaluation.model_wizard_hr_holidays_evaluation
+msgid "wizard.hr.holidays.evaluation"
+msgstr "wizard.hr.holidays.evaluation"
+
+#. module: hr_holidays_evaluation
+#: view:wizard.hr.holidays.evaluation:0
+msgid "Create"
+msgstr "Criar"
+
+#. module: hr_holidays_evaluation
+#: field:wizard.hr.holidays.evaluation,float_time:0
+msgid "Time"
+msgstr "Time"
+
+#. module: hr_holidays_evaluation
+#: field:hr.holidays.note,new_number:0
+msgid "New Holiday Number"
+msgstr "Novo número do feriado"
+
+#. module: hr_holidays_evaluation
+#: help:wizard.hr.holidays.evaluation,float_time:0
+msgid ""
+"This time depicts the amount per day earned by an employee working a day.The "
+"computation is: total earned = time * number of working days"
+msgstr ""
+"Desta vez, retrata a quantidade por dia auferidos por um funcionário que "
+"trabalha a computação day.The é: total auferida = tempo * número de dias "
+"úteis"
+
+#. module: hr_holidays_evaluation
+#: model:ir.module.module,description:hr_holidays_evaluation.module_meta_information
+msgid "Computation of holidays for employee"
+msgstr "Cálculo de férias para empregado"
+
+#. module: hr_holidays_evaluation
+#: model:ir.module.module,shortdesc:hr_holidays_evaluation.module_meta_information
+msgid "Hr holidays evaluation"
+msgstr "Hr feriados avaliação"
+
+#. module: hr_holidays_evaluation
+#: view:wizard.hr.holidays.evaluation:0
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: hr_holidays_evaluation
+#: field:hr.holidays,auto_eval:0
+msgid "Auto computed by wizard"
+msgstr "Auto computadorizada por assistente"
