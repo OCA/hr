@@ -1,0 +1,14 @@
+<openerp>
+    <data>
+        <record id="view_expenses_tree" model="ir.ui.view">
+            <field name="name">hr.expense.line.tree.inherit</field>
+            <field name="model">hr.expense.line</field>
+            <field name="inherit_id" ref="hr_expense.view_expenses_line_tree"/>
+            <field name="arch" type="xml">
+                <field name="date_value" position="before">
+                    <field name="sequence"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</openerp>
