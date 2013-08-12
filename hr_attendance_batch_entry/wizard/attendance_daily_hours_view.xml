@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+##############################################################################
+#
+#    Copyright (C) 2011 Michael Telahun Makonnen <mmakonnen@gmail.com>.
+#    All Rights Reserved.
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU Affero General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU Affero General Public License for more details.
+#
+#    You should have received a copy of the GNU Affero General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+##############################################################################
+-->
+
+<openerp>
+    <data>
+        
+        <record id="view_daily_hours_form" model="ir.ui.view">
+            <field name="name">hr.attendance.weekly.hours_wizard.form</field>
+            <field name="model">hr.attendance.weekly.hours_wizard</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Daily Hours">
+                    <field name="employee_id" domain="[('department_id', '=', department_id)]"/>
+                    <field name="department_id" invisible="1"/>
+                    <newline/>
+                    <group colspan="4" col="14">
+                        <label nolabel="1" string="Mon"/>
+                        <label nolabel="1" string="OT"/>
+                        <label nolabel="1" string="Tue"/>
+                        <label nolabel="1" string="OT"/>
+                        <label nolabel="1" string="Wed"/>
+                        <label nolabel="1" string="OT"/>
+                        <label nolabel="1" string="Thu"/>
+                        <label nolabel="1" string="OT"/>
+                        <label nolabel="1" string="Fri"/>
+                        <label nolabel="1" string="OT"/>
+                        <label nolabel="1" string="Sat"/>
+                        <label nolabel="1" string="OT"/>
+                        <label nolabel="1" string="Sun"/>
+                        <label nolabel="1" string="OT"/>
+                    </group>
+                    <group colspan="4" col="7">
+                        <field name="monAM" nolabel="1"/>
+                        <field name="monPM" nolabel="1"/>
+                        <group colspan="1" col="1">
+                            <field name="monOT1" nolabel="1"/>
+                        </group>
+                        <field name="tueAM" nolabel="1"/>
+                        <field name="tuePM" nolabel="1"/>
+                        <group colspan="1" col="1">
+                            <field name="tueOT1" nolabel="1"/>
+                        </group>
+                        <field name="wedAM" nolabel="1"/>
+                        <field name="wedPM" nolabel="1"/>
+                        <group colspan="1" col="1">
+                            <field name="wedOT1" nolabel="1"/>
+                        </group>
+                        <field name="thuAM" nolabel="1"/>
+                        <field name="thuPM" nolabel="1"/>
+                        <group colspan="1" col="1">
+                            <field name="thuOT1" nolabel="1"/>
+                        </group>
+                        <field name="friAM" nolabel="1"/>
+                        <field name="friPM" nolabel="1"/>
+                        <group colspan="1" col="1">
+                            <field name="friOT1" nolabel="1"/>
+                        </group>
+                        <field name="satAM" nolabel="1"/>
+                        <field name="satPM" nolabel="1"/>
+                        <group colspan="1" col="1">
+                            <field name="satOT1" nolabel="1"/>
+                        </group>
+                        <field name="sunAM" nolabel="1"/>
+                        <field name="sunPM" nolabel="1"/>
+                        <group colspan="1" col="1">
+                            <field name="sunOT1" nolabel="1"/>
+                        </group>
+                    </group>
+                </form>
+            </field>
+        </record>
+        
+        <record id="view_attendance_by_department_form" model="ir.ui.view">
+            <field name="name">hr.attendance.department.form</field>
+            <field name="model">hr.attendance.department</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Attendance Entries by Department">
+                    <field name="department_id" readonly="1"/>
+                    <newline/>
+                    <field name="line_ids" colspan="4" nolabel="1">
+                        <tree string="Daily Attendance Entries"  editable="top">
+                            <field name="employee_id" domain="[('department_id', '=', department_id)]"/>
+                            <field name="monAM"/>
+                            <field name="monPM"/>
+                            <field name="monOT1"/>
+                            <field name="tueAM"/>
+                            <field name="tuePM"/>
+                            <field name="tueOT1"/>
+                            <field name="wedAM"/>
+                            <field name="wedPM"/>
+                            <field name="wedOT1"/>
+                            <field name="thuAM"/>
+                            <field name="thuPM"/>
+                            <field name="thuOT1"/>
+                            <field name="friAM"/>
+                            <field name="friPM"/>
+                            <field name="friOT1"/>
+                            <field name="satAM"/>
+                            <field name="satPM"/>
+                            <field name="satOT1"/>
+                            <field name="sunAM"/>
+                            <field name="sunPM"/>
+                            <field name="sunOT1"/>
+                        </tree>
+                    </field>
+                    <group colspan="4" col="2">
+                        <button name="add_records" type="object" string="Save" icon="gtk-execute"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+        
+        <record id="action_daily_hours" model="ir.actions.act_window">
+            <field name="name">Add Attendance Records</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr.attendance.department</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+    </data>
+</openerp>

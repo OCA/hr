@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+    <data>
+        
+        <!-- Employee Workflow Definition -->
+        <record id="wkf_recruitment_request" model="workflow">
+            <field name="name">hr.recruitment.request.basic</field>
+            <field name="osv">hr.recruitment.request</field>
+            <field name="on_create">True</field>
+        </record>
+        
+        <!-- Workflow Activities (Stages) -->
+        
+        <record id="act_draft" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_recruitment_request"/>
+            <field name="name">draft</field>
+            <field name="kind">function</field>
+            <field name="action">write({'state': 'draft'})</field>
+            <field name="flow_start">True</field>
+        </record>
+        
+        <record id="act_confirm" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_recruitment_request"/>
+            <field name="name">confirm</field>
+            <field name="kind">function</field>
+            <field name="action">state_confirm()</field>
+        </record>
+        
+        <record id="act_exception" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_recruitment_request"/>
+            <field name="name">exception</field>
+            <field name="kind">function</field>
+            <field name="action">state_exception()</field>
+        </record>
+        
+        <record id="act_recruitment" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_recruitment_request"/>
+            <field name="name">recruitment</field>
+            <field name="kind">function</field>
+            <field name="action">state_recruitment()</field>
+        </record>
+        
+        <record id="act_decline" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_recruitment_request"/>
+            <field name="name">decline</field>
+            <field name="kind">function</field>
+            <field name="action">write({'state': 'decline'})</field>
+        </record>
+        
+        <record id="act_done" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_recruitment_request"/>
+            <field name="name">done</field>
+            <field name="kind">function</field>
+            <field name="action">state_done()</field>
+            <field name="flow_stop">True</field>
+        </record>
+        
+        <record id="act_cancel" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_recruitment_request"/>
+            <field name="name">cancel</field>
+            <field name="kind">function</field>
+            <field name="action">state_cancel()</field>
+            <field name="flow_stop">True</field>
+        </record>
+        
+        
+        <!-- Workflow Transitions -->
+        
+        <record id="draft2confirm" model="workflow.transition">
+            <field name="act_from" ref="act_draft"/>
+            <field name="act_to" ref="act_confirm"/>
+            <field name="condition">condition_exception() == False</field>
+            <field name="signal">signal_confirm</field>
+            <field name="group_id" ref="base.group_hr_user"/>
+        </record>
+        
+        <record id="draft2exception" model="workflow.transition">
+            <field name="act_from" ref="act_draft"/>
+            <field name="act_to" ref="act_exception"/>
+            <field name="condition">condition_exception() == True</field>
+            <field name="signal">signal_confirm</field>
+            <field name="group_id" ref="base.group_hr_user"/>
+        </record>
+        
+        <record id="confirm2recruitment" model="workflow.transition">
+            <field name="act_from" ref="act_confirm"/>
+            <field name="act_to" ref="act_recruitment"/>
+            <field name="signal">signal_approve</field>
+            <field name="group_id" ref="hr_security.group_hr_director"/>
+        </record>
+        
+        <record id="exception2recruitment" model="workflow.transition">
+            <field name="act_from" ref="act_exception"/>
+            <field name="act_to" ref="act_recruitment"/>
+            <field name="signal">signal_approve</field>
+            <field name="group_id" ref="hr_security.group_hr_director"/>
+        </record>
+        
+        <record id="confirm2decline" model="workflow.transition">
+            <field name="act_from" ref="act_confirm"/>
+            <field name="act_to" ref="act_decline"/>
+            <field name="signal">signal_decline</field>
+            <field name="group_id" ref="hr_security.group_hr_director"/>
+        </record>
+        
+        <record id="recruitment2done" model="workflow.transition">
+            <field name="act_from" ref="act_recruitment"/>
+            <field name="act_to" ref="act_done"/>
+            <field name="signal">signal_done</field>
+            <field name="group_id" ref="base.group_hr_manager"/>
+        </record>
+        
+        <record id="confirm2cancel" model="workflow.transition">
+            <field name="act_from" ref="act_confirm"/>
+            <field name="act_to" ref="act_cancel"/>
+            <field name="signal">signal_cancel</field>
+            <field name="group_id" ref="base.group_hr_user"/>
+        </record>
+        
+        <record id="recruitment2cancel" model="workflow.transition">
+            <field name="act_from" ref="act_recruitment"/>
+            <field name="act_to" ref="act_cancel"/>
+            <field name="signal">signal_cancel</field>
+            <field name="group_id" ref="base.group_hr_manager"/>
+        </record>
+    
+    </data>
+</openerp>

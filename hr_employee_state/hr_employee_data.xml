@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+        <!-- Alert-related subtypes for messaging / Chatter -->
+        
+        <record id="mt_alert_state_confirm" model="mail.message.subtype">
+            <field name="name">Employment Termination - Confirmed</field>
+            <field name="res_model">hr.infraction</field>
+            <field name="description">Employment Termination initiated</field>
+        </record>
+        
+        <record id="mt_alert_state_done" model="mail.message.subtype">
+            <field name="name">Employment Termination - Completed</field>
+            <field name="res_model">hr.infraction</field>
+            <field name="description">Completed</field>
+        </record>
+        
+        <record id="mt_alert_state_cancel" model="mail.message.subtype">
+            <field name="name">Employment Termination - Cancelled</field>
+            <field name="res_model">hr.infraction</field>
+            <field name="description">Cancelled</field>
+        </record>
+        
+        <!-- Employment Termination Reason -->
+        <record id="term_contract_end" model="hr.employee.termination.reason">
+            <field name="name">Contract Ended</field>
+        </record>
+        
+    </data>
+</openerp>

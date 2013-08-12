@@ -1,0 +1,16 @@
+USING THE SOFTWARE
+In order to use the pycalcal you need:
+   * a Python version equal to or greater than 2.5 and less than 3.0.
+   * mpmath (http://code.google.com/p/mpmath/)
+
+BUILDING THE SOFTWARE
+This project's software is generated following the literate
+programming paradigm.
+In order generate source code and documentation you need the
+following tools:
+   * noweb (http://www.cs.tufts.edu/~nr/noweb/)
+   * make
+   * sh (unix shell)
+
+Unit tests' line coverage metrics are gathered by 'coverage' from
+http://nedbatchelder.com/code/coverage/

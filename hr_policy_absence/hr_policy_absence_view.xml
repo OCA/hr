@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+        <!-- Policy Lines -->
+        
+        <record id="absence_policy_line_tree_view" model="ir.ui.view">
+            <field name="name">hr.policy.line.absence.tree</field>
+            <field name="model">hr.policy.line.absence</field>
+            <field name="arch" type="xml">
+                <tree string="Absence Lines">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="type"/>
+                    <field name="rate"/>
+                    <field name="holiday_status_id"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="absence_policy_line_form_view" model="ir.ui.view">
+            <field name="name">hr.policy.line.absence.form</field>
+            <field name="model">hr.policy.line.absence</field>
+            <field name="arch" type="xml">
+                <form string="Absence Policy" version="7.0">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="holiday_status_id" on_change="onchange_holiday(holiday_status_id)"/>
+                                <field name="rate"/>
+                                <field name="type"/>
+                                <field name="use_awol"/>
+                            </group>
+                            <group>
+                                <field name="name"/>
+                                <field name="code"/>
+                                <field name="policy_id"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <!-- Absence Policy -->
+        <record id="absence_policy_view_tree" model="ir.ui.view">
+            <field name="name">hr.policy.absence.tree</field>
+            <field name="model">hr.policy.absence</field>
+            <field name="arch" type="xml">
+                <tree string="Absence Policies">
+                    <field name="name"/>
+                    <field name="date"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="absence_policy_view_form" model="ir.ui.view">
+            <field name="name">hr.policy.absence.form</field>
+            <field name="model">hr.policy.absence</field>
+            <field name="arch" type="xml">
+                <form string="Absence Policy" version="7.0">
+                    <sheet>
+                        <h1>
+                            <label for="name" string="Name" class="oe_edit_only"/>
+                            <field name="name"/>
+                        </h1>
+                        <group>
+                            <group>
+                                <field name="date"/>
+                            </group>
+                            <group></group>
+                        </group>
+                        <group string="Absence Lines">
+                            <field name="line_ids" nolabel="1" editable="top"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <record id="open_absence_policy" model="ir.actions.act_window">
+            <field name="name">Absence Policies</field>
+            <field name="res_model">hr.policy.absence</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem action="open_absence_policy"
+            id="menu_hr_absence_policy"
+            parent="hr_policy_group.menu_hr_policy_configuration"
+            sequence="15"/>
+        
+        <!-- Policy Group -->
+        
+        <record id="policy_group_view_form" model="ir.ui.view">
+            <field name="name">hr.policy.group.form.absenceinherit</field>
+            <field name="model">hr.policy.group</field>
+            <field name="inherit_id" ref="hr_policy_group.policy_group_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group[@name='left']" position="inside">
+                    <field name="absence_policy_ids"/>
+                </xpath>
+            </field>
+        </record>
+        
+    </data>
+</openerp>

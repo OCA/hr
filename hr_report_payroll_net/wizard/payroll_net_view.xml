@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        
+        <record id="view_payroll_net_wizard" model="ir.ui.view">
+            <field name="name">hr.payroll.register.net.form</field>
+            <field name="model">hr.payroll.register.net</field>
+            <field name="arch" type="xml">
+                <form string="Net Payroll Register Selection" version="7.0">
+                    <header>
+                        <button name="print_report" type="object" string="Print" icon="gtk-print" class="oe_highlight"/>
+                    </header>
+                    <group>
+                        <group>
+                            <field name="register_id" nolabel="1"/>
+                        </group>
+                        <group></group>
+                    </group>
+                </form>
+            </field>
+        </record>
+        
+        <record id="open_payroll_net_wizard" model="ir.actions.act_window">
+            <field name="name">Excel - Net Payroll</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr.payroll.register.net</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+        
+        <menuitem
+            name="Excel - Net Payroll" 
+            id="menu_payroll_net_wizard" 
+            action="open_payroll_net_wizard" 
+            parent="hr.menu_hr_reporting_timesheet" sequence="52" groups="base.group_hr_user"/>
+        
+    </data>
+</openerp>

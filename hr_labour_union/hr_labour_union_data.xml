@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+    <data>
+        
+        <!-- Payroll Register -->
+        <record id="hr_register_labour_union" model="hr.contribution.register">
+            <field name="name">Register for Labour Union Dues</field>
+        </record>
+        
+        <record id="hr_payroll_rule_labour_union" model="hr.salary.rule">
+            <field name="code">LU</field>
+            <field name="name">Labour Union Contribution</field>
+            <field name="category_id" ref="hr_payroll.DED"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = contract.is_labour_union and categories.GROSS >= 0.01</field>
+            <field name="amount_select">fix</field>
+            <field eval="0" name="amount_fix"/>
+            <field name="register_id" ref="hr_register_labour_union"/>
+            <field name="sequence" eval="2200"/>
+            <field name="note"></field>
+        </record>
+        
+    </data>
+</openerp>

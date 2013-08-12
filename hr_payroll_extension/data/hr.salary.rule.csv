@@ -1,0 +1,13 @@
+id,code,name,condition_select,condition_range,condition_range_min,condition_range_max,amount_select,amount_percentage,amount_fix,amount_percentage_base,parent_rule_id/id,category_id/id,sequence
+fitw_10,2003FIT00,Exempt,range,TXBLINCOM,0,150,fix,0,0,,hr_payroll_rule_fit,hr_categ_fitcalc,1000
+fitw_11,2003FIT10,10.00%,range,TXBLINCOM,151,650,percentage,10,0,TXBLINCOM - 150,hr_payroll_rule_fit,hr_categ_fitcalc,1010
+fitw_12,2003FIT15A,15.00%,range,TXBLINCOM,650,1400,percentage,15,0,TXBLINCOM - 650,hr_payroll_rule_fit,hr_categ_fitcalc,1015
+fitw_13,2003FIT15B,15%-Fixed,range,TXBLINCOM,650,1400,fix,0,50,,hr_payroll_rule_fit,hr_categ_fitcalc,1016
+fitw_14,2003FIT20A,20.00%,range,TXBLINCOM,1400,2350,percentage,20,0,TXBLINCOM - 1400,hr_payroll_rule_fit,hr_categ_fitcalc,1020
+fitw_15,2003FIT20B,20%-Fixed,range,TXBLINCOM,1400,2350,fix,0,162.5,,hr_payroll_rule_fit,hr_categ_fitcalc,1021
+fitw_16,2003FIT25A,25.00%,range,TXBLINCOM,2350,3550,percentage,25,0,TXBLINCOM - 2350,hr_payroll_rule_fit,hr_categ_fitcalc,1025
+fitw_17,2003FIT25B,25%-Fixed,range,TXBLINCOM,2350,3550,fix,0,352.5,,hr_payroll_rule_fit,hr_categ_fitcalc,1026
+fitw_18,2003FIT30A,30.00%,range,TXBLINCOM,3550,5000,percentage,30,0,TXBLINCOM - 3550,hr_payroll_rule_fit,hr_categ_fitcalc,1030
+fitw_19,2003FIT30B,30%-Fixed,range,TXBLINCOM,3550,5000,fix,0,652.5,,hr_payroll_rule_fit,hr_categ_fitcalc,1031
+fitw_20,2003FIT35A,35.00%,range,TXBLINCOM,5000,1000000000,percentage,35,0,TXBLINCOM - 5000,hr_payroll_rule_fit,hr_categ_fitcalc,1035
+fitw_21,2003FIT35B,35%-Fixed,range,TXBLINCOM,5000,1000000000,fix,0,1087.5,,hr_payroll_rule_fit,hr_categ_fitcalc,1036

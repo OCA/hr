@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+        <!-- Infraction Category -->
+        <record id="infraction_category_care" model="hr.infraction.category">
+            <field name="code">CARE</field>
+            <field name="name">Improper care for Company equipment/materials</field>
+        </record>
+        <record id="infraction_category_life" model="hr.infraction.category">
+            <field name="code">ENDLIFE</field>
+            <field name="name">Intentional endangerment of life or property</field>
+        </record>
+        <record id="infraction_category_safety" model="hr.infraction.category">
+            <field name="code">SAFETY</field>
+            <field name="name">Disregard of safety and accident prevention rules</field>
+        </record>
+        <record id="infraction_category_rule" model="hr.infraction.category">
+            <field name="code">RULE</field>
+            <field name="name">Disregard for Company rules and regulations</field>
+        </record>
+        <record id="infraction_category_instruct" model="hr.infraction.category">
+            <field name="code">INSTRUCT</field>
+            <field name="name">Not following instructions</field>
+        </record>
+        <record id="infraction_category_abuse" model="hr.infraction.category">
+            <field name="code">ABUSE</field>
+            <field name="name">Abusive behaviour towards others</field>
+        </record>
+        <record id="infraction_category_harm" model="hr.infraction.category">
+            <field name="code">HARM</field>
+            <field name="name">Bodily harm to others</field>
+        </record>
+        <record id="infraction_category_theft" model="hr.infraction.category">
+            <field name="code">THEFT</field>
+            <field name="name">Theft of materials, equipment or property</field>
+        </record>
+        <record id="infraction_category_damage" model="hr.infraction.category">
+            <field name="code">DAMAGE</field>
+            <field name="name">Damage to Company materials, property or equipment</field>
+        </record>
+        <record id="infraction_category_intox" model="hr.infraction.category">
+            <field name="code">INTOX</field>
+            <field name="name">Reporting to work in a state of intoxication</field>
+        </record>
+        <record id="infraction_category_medical" model="hr.infraction.category">
+            <field name="code">MEDEXAM</field>
+            <field name="name">Refusal of lawful medical examination</field>
+        </record>
+        
+        <!-- Alert-related subtypes for messaging / Chatter -->
+        
+        <record id="mt_alert_infraction_confirmed" model="mail.message.subtype">
+            <field name="name">Infraction - Confirmed</field>
+            <field name="res_model">hr.infraction</field>
+            <field name="description">Infraction submitted</field>
+        </record>
+        
+        <record id="mt_alert_infraction_action" model="mail.message.subtype">
+            <field name="name">Infraction - Action Taken</field>
+            <field name="res_model">hr.infraction</field>
+            <field name="description">Action has been taken</field>
+        </record>
+        
+        <record id="mt_alert_infraction_noaction" model="mail.message.subtype">
+            <field name="name">Infraction - No Action Taken</field>
+            <field name="res_model">hr.infraction</field>
+            <field name="description">No further action necessary</field>
+        </record>
+        
+        <!-- Employment Termination Reason -->
+        <record id="term_dismissal" model="hr.employee.termination.reason">
+            <field name="name">Dismissal</field>
+        </record>
+        
+    </data>
+</openerp>

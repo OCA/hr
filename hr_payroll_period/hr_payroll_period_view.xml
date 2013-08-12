@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+        <!-- Submenu for advanced views -->
+        <menuitem name="Advanced"
+                  id="menu_payroll_advanced"
+                  parent="hr_payroll.menu_hr_root_payroll"
+                  sequence="100" groups="base.group_hr_manager,hr_security.group_payroll_manager"/>
+        
+        <!-- Move the following menu items from the payroll root menu to the advanced one -->
+        <menuitem action="hr_payroll.action_view_hr_payslip_form"
+            id="hr_payroll.menu_department_tree" parent="menu_payroll_advanced" groups="base.group_hr_manager,hr_security.group_payroll_manager" sequence="10"/>        
+        <menuitem action="hr_payroll.action_hr_payslip_run_tree"
+            id="hr_payroll.menu_hr_payslip_run" parent="menu_payroll_advanced" groups="base.group_hr_manager,hr_security.group_payroll_manager" sequence="20"/>
+        <!-- Move 'Payroll Register' from hr_payroll_register -->
+        <menuitem action="hr_payroll_register.open_payroll_registers"
+            id="hr_payroll_register.menu_payroll_register" parent="menu_payroll_advanced" groups="base.group_hr_manager,hr_security.group_payroll_manager" sequence="30"/>
+        
+        <!-- Payroll Period -->
+        
+        <record id="view_payroll_period_tree" model="ir.ui.view">
+            <field name="name">hr.payroll.period.tree</field>
+            <field name="model">hr.payroll.period</field>
+            <field name="arch" type="xml">
+                <tree string="Payroll Periods">
+                    <field name="name"/>
+                    <field name="date_start"/>
+                    <field name="date_end"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_payroll_period_form" model="ir.ui.view">
+            <field name="name">hr.payroll.period.form</field>
+            <field name="model">hr.payroll.period</field>
+            <field name="arch" type="xml">
+                <form string="Payroll Period" version="7.0">
+                    <header>
+                        <button name="%(action_payroll_period_end)d" type="action" states="open,ended,locked,generate,payment" class="oe_highlight" string="End of Pay Period Wizard"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <group>
+                        <group>
+                            <field name="schedule_id"/>
+                            <label for="date_start" string="Interval"/>
+                            <div>
+                                <field name="date_start" nolabel="1" class="oe_inline"/> - 
+                                <field name="date_end" nolabel="1" class="oe_inline"/>
+                            </div>
+                            <field name="name"/>
+                            <field name="register_id"/>
+                        </group>
+                    </group>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+        <record id="open_payroll_period_view" model="ir.actions.act_window">
+            <field name="name">Payroll Periods</field>
+            <field name="res_model">hr.payroll.period</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem action="open_payroll_period_view"
+                  id="menu_payroll_period_view"
+                  parent="hr_payroll.menu_hr_root_payroll"
+                  groups="hr_security.group_payroll_user,base.group_hr_manager"
+                  sequence="1"/>
+        
+        <!-- End of Pay Period -->
+        
+        <record id="action_pay_period_end" model="ir.actions.act_window">
+            <field name="name">End of Pay Period</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr.payroll.period</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('state','in',['ended','locked','generate','payment'])]</field>
+            <field name="help" type="html">
+              <p>
+                There are no current pay periods that are past their end date.
+              </p>
+            </field>
+        </record>
+        <menuitem action="action_pay_period_end"
+                  id="menu_pay_period_end"
+                  parent="hr_payroll.menu_hr_root_payroll"
+                  groups="hr_security.group_payroll_user,base.group_hr_manager"
+                  sequence="2"/>
+        
+        <!-- Payroll Period Schedule -->
+        
+        <record id="view_payperiod_schedule_tree" model="ir.ui.view">
+            <field name="name">hr.payroll.period.schedule.tree</field>
+            <field name="model">hr.payroll.period.schedule</field>
+            <field name="arch" type="xml">
+                <tree string="Pay Period Schedules">
+                    <field name="name"/>
+                    <field name="type"/>
+                    <field name="tz"/>
+                    <field name="ot_week_startday"/>
+                    <field name="ot_max_rollover_hours"/>
+                    <field name="ot_max_rollover_gap"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="view_payperiod_schedule_form" model="ir.ui.view">
+            <field name="name">hr.payroll.period.schedule.form</field>
+            <field name="model">hr.payroll.period.schedule</field>
+            <field name="arch" type="xml">
+                <form string="Pay Period Schedule" version="7.0">
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="tz"/>
+                            <field name="ot_week_startday"/>
+                            <field name="ot_max_rollover_hours"/>
+                            <field name="ot_max_rollover_gap"/>
+                            <field name="paydate_biz_day"/>
+                        </group>
+                        <group>
+                            <field name="type"/>
+                            <field name="mo_firstday" attrs="{'invisible': [('type','!=','monthly')]}"/>
+                            <field name="mo_paydate" attrs="{'invisible': [('type','!=','monthly')]}"/>
+                            <newline/>
+                            <field name="initial_period_date" attrs="{'invisible': [('type','!=','monthly')], 'required': [('type','=','monthly')]}"/>
+                        </group>
+                    </group>
+                    <group string="Pay Periods" colspan="4" col="1">
+                        <button name="add_pay_period" type="object" string="Add"/>
+                        <field name="pay_period_ids" nolabel="1"/>
+                    </group>
+                    <group string="Contracts" colspan="4" col="1">
+                        <field name="contract_ids" nolabel="1"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+        <record id="open_payroll_period_schedule_view" model="ir.actions.act_window">
+            <field name="name">Payroll Period Schedules</field>
+            <field name="res_model">hr.payroll.period.schedule</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem action="open_payroll_period_schedule_view"
+                  id="menu_payroll_period_schedule_view"
+                  parent="hr_payroll.payroll_configure"
+                  groups="hr_security.group_payroll_user,base.group_hr_manager"
+                  sequence="20"/>
+        
+        <!-- Payroll Exception -->
+        
+        <record id="view_payroll_exception_tree" model="ir.ui.view">
+            <field name="name">hr.payslip.exception.tree</field>
+            <field name="model">hr.payslip.exception</field>
+            <field name="arch" type="xml">
+                <tree string="Payroll Exceptions" colors="red:severity == 'critical';orange:severity == 'high';blue:severity == 'medium';black:severity == 'low';">
+                    <field name="name"/>
+                    <field name="slip_id"/>
+                    <field name="severity"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="view_payroll_exception_form" model="ir.ui.view">
+            <field name="name">hr.payslip.exception.form</field>
+            <field name="model">hr.payslip.exception</field>
+            <field name="arch" type="xml">
+                <form string="Payroll Exception" version="7.0">
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only"/>
+                        <h1><field name="name"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="rule_id"/>
+                            <field name="slip_id"/>
+                            <field name="severity"/>
+                        </group>
+                    </group>
+                </form>
+            </field>
+        </record>
+        <record id="open_payroll_exception_view" model="ir.actions.act_window">
+            <field name="name">Exceptions</field>
+            <field name="res_model">hr.payslip.exception</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem action="open_payroll_exception_view"
+                  id="menu_payroll_exception_view"
+                  parent="menu_payroll_advanced"
+                  groups="hr_security.group_payroll_user,base.group_hr_manager"
+                  sequence="40"/>
+        
+        <!-- Payroll Exception Rule -->
+        
+        <record id="view_exception_rule_tree" model="ir.ui.view">
+            <field name="name">hr.payslip.exception.rule.tree</field>
+            <field name="model">hr.payslip.exception.rule</field>
+            <field name="arch" type="xml">
+                <tree string="Payroll Exception Rules">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="severity"/>
+                    <field name="sequence"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="view_exception_rule_form" model="ir.ui.view">
+            <field name="name">hr.payslip.exception.rule.form</field>
+            <field name="model">hr.payslip.exception.rule</field>
+            <field name="arch" type="xml">
+                <form string="Payroll Exception Rule" version="7.0">
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only"/>
+                        <h1><field name="name"/></h1>
+                        <label for="code" class="oe_edit_only" string="Code"/>
+                        <h2>
+                            <field name="code"/>
+                        </h2>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="severity"/>
+                            <field name="condition_select"/>
+                        </group>
+                        <group>
+                            <field name="active"/>
+                            <field name="sequence"/>
+                            <field name="company_id" widget="selection" groups="base.group_multi_company"/>
+                        </group>
+                    </group>
+                    <group string="Conditions" colspan="4">
+                        <field name="condition_python" nolabel="1" colspan="4" attrs="{'invisible':[('condition_select','&lt;&gt;','python')], 'required': [('condition_select','=','python')]}"/>
+                    </group>
+                    <group string="Note" colspan="4">
+                        <field name="note" nolabel="1"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+        <record id="open_payroll_exception_rule_view" model="ir.actions.act_window">
+            <field name="name">Payroll Exception Rules</field>
+            <field name="res_model">hr.payslip.exception.rule</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem action="open_payroll_exception_rule_view"
+                  id="menu_payroll_exception_rule_view"
+                  parent="hr_payroll.payroll_configure"
+                  groups="hr_security.group_payroll_user,base.group_hr_manager"
+                  sequence="30"/>
+        
+        <!-- Employment Contracts -->
+        
+        <record id="view_hr_contract_form_inherit" model="ir.ui.view">
+            <field name="name">hr.contract.form.inherit</field>
+            <field name="model">hr.contract</field>
+            <field name="inherit_id" ref="hr_payroll.hr_contract_form_inherit"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//field[@name='struct_id']" position="after">
+                        <field name="pps_id"/>
+                    </xpath>
+                    <xpath expr="//field[@name='schedule_pay']" position="replace"/>
+                </data>
+            </field>
+        </record>
+        
+        <!-- Employee Records -->
+        <record id="hr_employee_view_form_inherit" model="ir.ui.view">
+            <field name="name">hr.employee.form.leave</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//group[@name='active_group']" position="after">
+                        <group string="Duration of Service">
+                            <field name="initial_employment_date"/>
+                        </group>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+        
+        <!-- Attendance Records -->
+        
+        <record id="view_hr_attendance_tree" model="ir.ui.view">
+            <field name="name">hr.attendance.tree.inherit</field>
+            <field name="model">hr.attendance</field>
+            <field name="inherit_id" ref="hr_attendance.view_attendance_tree"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//field[@name='action_desc']" position="after">
+                        <field name="state"/>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+        
+        <record id="view_hr_attendance_form" model="ir.ui.view">
+            <field name="name">hr.attendance.form.inherit</field>
+            <field name="model">hr.attendance</field>
+            <field name="inherit_id" ref="hr_attendance.view_attendance_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//form/sheet" position="before">
+                        <header>
+                            <field name="state" widget="statusbar"/>
+                        </header>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+        
+        <!-- Pay Slip Amendment -->
+        
+        <record id="view_hr_payslip_amendment_tree" model="ir.ui.view">
+            <field name="name">hr.payslip.amendment.tree.inherit</field>
+            <field name="model">hr.payslip.amendment</field>
+            <field name="inherit_id" ref="hr_payslip_amendment.view_payslip_amendment_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='employee_id']" position="after">
+                    <field name="pay_period_id"/>
+                </xpath>
+            </field>
+        </record>
+        <record id="view_hr_payslip_amendment_form" model="ir.ui.view">
+            <field name="name">hr.payslip.amendment.form.inherit</field>
+            <field name="model">hr.payslip.amendment</field>
+            <field name="inherit_id" ref="hr_payslip_amendment.view_payslip_amendment_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="after">
+                    <field name="pay_period_id" widget="selection"/>
+                </xpath>
+            </field>
+        </record>
+        
+        <!-- Leave Types -->
+        
+        <record id="view_hr_holidays_status_form" model="ir.ui.view">
+            <field name="name">hr.holidays.status.form.inherit</field>
+            <field name="model">hr.holidays.status</field>
+            <field name="inherit_id" ref="hr_holidays.edit_holiday_status_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="after">
+                    <field name="code"/>
+                </xpath>
+            </field>
+        </record>
+        
+        <!-- Pay Slips -->
+        <record id="view_payslip_form" model="ir.ui.view">
+            <field name="name">hr.payslip.form.exception</field>
+            <field name="model">hr.payslip</field>
+            <field name="inherit_id" ref="hr_payroll.view_hr_payslip_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group[@name='accounting']" position="after">
+                    <group name="exceptions" string="Payroll Exceptions" colspan="4" col="2">
+                        <field name="exception_ids" nolabel="1">
+                            <tree string="Payroll Exceptions" colors="red:severity == 'critical';orange:severity == 'high';blue:severity == 'medium';black:severity == 'low';">
+                                <field name="name"/>
+                                <field name="severity"/>
+                            </tree>
+                        </field>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+        
+    </data>
+</openerp>

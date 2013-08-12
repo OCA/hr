@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+        <!-- Schedule Workflow Definition -->
+        <record id="wkf_schedule" model="workflow">
+            <field name="name">hr.schedule.basic</field>
+            <field name="osv">hr.schedule</field>
+            <field name="on_create">True</field>
+        </record>
+        
+        <!-- Workflow Activities (Stages) -->
+        
+        <record id="act_draft" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_schedule"/>
+            <field name="name">draft</field>
+            <field name="kind">function</field>
+            <field name="action">write({'state': 'draft'})</field>
+            <field name="flow_start">True</field>
+        </record>
+        
+        <record id="act_validate" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_schedule"/>
+            <field name="name">confirmed</field>
+            <field name="kind">function</field>
+            <field name="action">workflow_validate()</field>
+        </record>
+        
+        <record id="act_locked" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_schedule"/>
+            <field name="name">locked</field>
+            <field name="kind">function</field>
+            <field name="action">workflow_lock()</field>
+        </record>
+        
+        <record id="act_unlocked" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_schedule"/>
+            <field name="name">unlocked</field>
+            <field name="kind">function</field>
+            <field name="action">workflow_unlock()</field>
+        </record>
+        
+        <!-- Workflow Transitions -->
+        
+        <record id="draft2validate" model="workflow.transition">
+            <field name="act_from" ref="act_draft"/>
+            <field name="act_to" ref="act_validate"/>
+            <field name="signal">signal_validate</field>
+            <field name="group_id" ref="base.group_hr_manager"/>
+        </record>
+        
+        <record id="draft2locked" model="workflow.transition">
+            <field name="act_from" ref="act_draft"/>
+            <field name="act_to" ref="act_locked"/>
+            <field name="condition">details_locked() == True</field>
+            <field name="signal">signal_lock</field>
+            <field name="group_id" ref="base.group_hr_manager"/>
+        </record>
+        
+        <record id="validate2locked" model="workflow.transition">
+            <field name="act_from" ref="act_validate"/>
+            <field name="act_to" ref="act_locked"/>
+            <field name="condition">details_locked() == True</field>
+            <field name="signal">signal_lock</field>
+            <field name="group_id" ref="base.group_hr_manager"/>
+        </record>
+        
+        <record id="locked2unlocked" model="workflow.transition">
+            <field name="act_from" ref="act_locked"/>
+            <field name="act_to" ref="act_unlocked"/>
+            <field name="condition">details_locked() == False</field>
+            <field name="signal">signal_unlock</field>
+            <field name="group_id" ref="base.group_hr_manager"/>
+        </record>
+        
+        <record id="unlocked2locked" model="workflow.transition">
+            <field name="act_from" ref="act_unlocked"/>
+            <field name="act_to" ref="act_locked"/>
+            <field name="condition">details_locked() == True</field>
+            <field name="signal">signal_lock</field>
+            <field name="group_id" ref="base.group_hr_manager"/>
+        </record>
+        
+        <!-- Schedule Detail -->
+        
+        <!-- Schedule Detail Workflow Definition -->
+        <record id="wkf_schedule_detail" model="workflow">
+            <field name="name">hr.schedule.detail.basic</field>
+            <field name="osv">hr.schedule.detail</field>
+            <field name="on_create">True</field>
+        </record>
+        
+        <!-- Workflow Activities (Stages) -->
+        
+        <record id="act_detdraft" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_schedule_detail"/>
+            <field name="name">draft</field>
+            <field name="kind">function</field>
+            <field name="action">write({'state': 'draft'})</field>
+            <field name="flow_start">True</field>
+        </record>
+        
+        <record id="act_detvalidate" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_schedule_detail"/>
+            <field name="name">confirmed</field>
+            <field name="kind">function</field>
+            <field name="action">write({'state': 'validate'})</field>
+        </record>
+        
+        <record id="act_detlocked" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_schedule_detail"/>
+            <field name="name">locked</field>
+            <field name="kind">function</field>
+            <field name="action">workflow_lock()</field>
+        </record>
+        
+        <record id="act_detunlocked" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_schedule_detail"/>
+            <field name="name">unlocked</field>
+            <field name="kind">function</field>
+            <field name="action">workflow_unlock()</field>
+        </record>
+        
+        <!-- Workflow Transitions -->
+        
+        <record id="det_draft2validate" model="workflow.transition">
+            <field name="act_from" ref="act_detdraft"/>
+            <field name="act_to" ref="act_detvalidate"/>
+            <field name="signal">signal_validate</field>
+            <field name="group_id" ref="base.group_hr_manager"/>
+        </record>
+        
+        <record id="det_draft2locked" model="workflow.transition">
+            <field name="act_from" ref="act_detdraft"/>
+            <field name="act_to" ref="act_detlocked"/>
+            <field name="signal">signal_lock</field>
+            <field name="group_id" ref="base.group_hr_manager"/>
+        </record>
+        
+        <record id="det_validate2locked" model="workflow.transition">
+            <field name="act_from" ref="act_detvalidate"/>
+            <field name="act_to" ref="act_detlocked"/>
+            <field name="signal">signal_lock</field>
+            <field name="group_id" ref="base.group_hr_manager"/>
+        </record>
+        
+        <record id="det_locked2unlocked" model="workflow.transition">
+            <field name="act_from" ref="act_detlocked"/>
+            <field name="act_to" ref="act_detunlocked"/>
+            <field name="signal">signal_unlock</field>
+            <field name="group_id" ref="base.group_hr_manager"/>
+        </record>
+        
+        <record id="det_unlocked2locked" model="workflow.transition">
+            <field name="act_from" ref="act_detunlocked"/>
+            <field name="act_to" ref="act_detlocked"/>
+            <field name="signal">signal_lock</field>
+            <field name="group_id" ref="base.group_hr_manager"/>
+        </record>
+        
+    </data>
+</openerp>

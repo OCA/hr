@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="view_bunching_sheet_report" model="ir.ui.view">
+            <field name="name">hr.bunching.sheet.report.wizard</field>
+            <field name="model">hr.bunching.sheet.report</field>
+            <field name="arch" type="xml">
+            <form string="Bunching Format" version="7.0">
+                <header>
+                    <button name="print_report" string="Print" type="object" icon="gtk-print" class="oe_highlight"/>
+                </header>
+                <group>
+                    <group>
+                        <field name="department_id" on_change="onchange_department(department_id)"/>
+                    </group>
+                    <group></group>
+                </group>
+                <group string="Employees">
+                    <field name="employee_ids" nolabel="1">
+                        <tree string="Employees">
+                            <field name="name"/>
+                            <field name="f_employee_no"/>
+                            <field name="ethiopic_name"/>
+                            <field name="department_id"/>
+                            <field name="job_id"/>
+                        </tree>
+                    </field>
+                </group>
+            </form>
+            </field>
+        </record>
+
+        <record id="action_bunching_sheet_report" model="ir.actions.act_window">
+            <field name="name">Print Bunching Format</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr.bunching.sheet.report</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+        <menuitem id="menu_bunching_sheet_report"
+            action="action_bunching_sheet_report"
+            parent="hr_attendance.menu_hr_attendance"
+            groups="base.group_hr_attendance"
+            icon="STOCK_PRINT"
+            sequence="60"/>
+    
+    </data>
+</openerp>

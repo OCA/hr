@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        
+        <record id="action_client_employees_menu" model="ir.actions.client">
+            <field name="name">Open Employees Menu</field>
+            <field name="tag">hr_webcam.menu</field>
+            <field name="params" eval="{'menu_id': ref('hr.menu_open_view_employee_list_my')}"/>
+        </record>
+        
+    </data>
+</openerp>

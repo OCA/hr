@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+    <data>
+    
+        <!-- Wage Adjustment Run Workflow Definition -->
+        <record id="wkf_wage_adjustment_run" model="workflow">
+            <field name="name">hr.contract.wage.increment.run.basic</field>
+            <field name="osv">hr.contract.wage.increment.run</field>
+            <field name="on_create">True</field>
+        </record>
+        
+        <!-- Workflow Activities (Stages) -->
+        
+        <record id="act_run_draft" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_wage_adjustment_run"/>
+            <field name="name">draft</field>
+            <field name="kind">function</field>
+            <field name="action">write({'state': 'draft'})</field>
+            <field name="flow_start">True</field>
+        </record>
+        
+        <record id="act_run_confirm" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_wage_adjustment_run"/>
+            <field name="name">confirm</field>
+            <field name="kind">function</field>
+            <field name="action">state_confirm()</field>
+        </record>
+        
+        <record id="act_run_approve" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_wage_adjustment_run"/>
+            <field name="name">approve</field>
+            <field name="kind">function</field>
+            <field name="action">state_approve()</field>
+            <field name="flow_stop">True</field>
+        </record>
+        
+        <record id="act_run_decline" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_wage_adjustment_run"/>
+            <field name="name">decline</field>
+            <field name="kind">function</field>
+            <field name="action">state_decline()</field>
+            <field name="flow_stop">True</field>
+        </record>
+        
+        <!-- Workflow Transitions -->
+        
+        <record id="run_draft2confirm" model="workflow.transition">
+            <field name="act_from" ref="act_run_draft"/>
+            <field name="act_to" ref="act_run_confirm"/>
+            <field name="signal">signal_confirm</field>
+            <field name="group_id" ref="base.group_hr_manager"/>
+        </record>
+        
+        <record id="run_confirm2approve" model="workflow.transition">
+            <field name="act_from" ref="act_run_confirm"/>
+            <field name="act_to" ref="act_run_approve"/>
+            <field name="signal">signal_approve</field>
+            <field name="group_id" ref="hr_security.group_hr_director"/>
+        </record>
+        
+        <record id="run_confirm2decline" model="workflow.transition">
+            <field name="act_from" ref="act_run_confirm"/>
+            <field name="act_to" ref="act_run_decline"/>
+            <field name="signal">signal_decline</field>
+            <field name="group_id" ref="hr_security.group_hr_director"/>
+        </record>
+        
+    </data>
+</openerp>

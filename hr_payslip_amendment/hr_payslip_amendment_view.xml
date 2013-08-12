@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+        <!-- Pay Slip Amendment -->
+        
+        <record id="view_payslip_amendment_tree" model="ir.ui.view">
+            <field name="name">hr.payslip.amendment.tree</field>
+            <field name="model">hr.payslip.amendment</field>
+            <field name="arch" type="xml">
+                <tree string="Pay Slip Amendments">
+                    <field name="name"/>
+                    <field name="employee_id"/>
+                    <field name="input_id"/>
+                    <field name="amount"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="view_payslip_amendment_form" model="ir.ui.view">
+            <field name="name">hr.payslip.amendment.form</field>
+            <field name="model">hr.payslip.amendment</field>
+            <field name="arch" type="xml">
+                <form string="Pay Slip Amendment" version="7.0">
+                    <header>
+                        <button name="validate" type="workflow" states="draft" class="oe_highlight" string="Confirm"/>
+                        <button name="cancel" type="workflow" states="draft,validate" class="oe_highlight" string="Cancel"/>
+                        <button name="reset" type="workflow" states="cancel" class="oe_highlight" string="Set to Draft"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <group>
+                        <group>
+                            <field name="employee_id" on_change="onchange_employee(employee_id)"/>
+                            <field name="input_id" widget="selection"/>
+                            <field name="amount"/>
+                        </group>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                        <newline/>
+                        <group string="Note">
+                            <field name="note" nolabel="1" placeholder="Explain the reason for the amendment..."/>
+                        </group>
+                    </group>
+                </form>
+            </field>
+        </record>
+        <record id="action_payslip_amendment" model="ir.actions.act_window">
+            <field name="name">Pay Slip Amendments</field>
+            <field name="res_model">hr.payslip.amendment</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem action="action_payslip_amendment"
+                  id="menu_payslip_amendment"
+                  parent="hr_payroll.menu_hr_root_payroll"
+                  sequence="20"/>
+        
+    </data>
+</openerp>

@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+##############################################################################
+#
+#    Copyright (C) 2011,2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
+#    All Rights Reserved.
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU Affero General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU Affero General Public License for more details.
+#
+#    You should have received a copy of the GNU Affero General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+##############################################################################
+-->
+<openerp>
+    <data>
+        
+        <!-- Top-level "Time and Attendance" menu from hr.schedule. Override. -->
+        <menuitem name="Time and Attendance"
+            id="menu_time_attendance" parent="hr.menu_hr_root" groups="base.group_hr_user,hr_attendance_batch_entry.group_hr_timekeeper" sequence="1"/>
+
+        <record id="view_hr_attendance_weekly_filter" model="ir.ui.view">
+            <field name="name">Weekly Attendance Search</field>
+            <field name="model">hr.attendance.weekly</field>
+            <field name="arch" type="xml">
+                <search string="Weekly Attendance">
+                    <field name="week_start" string="Employees"/>
+                    <field name="department_id" />
+                    <group expand="0" string="Group By...">
+                        <filter name="week" string="Week" icon="terp-personal+" domain="[]" context="{'group_by':'week_start'}"/>
+                        <filter name="department" string="Department" icon="terp-personal+" domain="[]" context="{'group_by':'department_id'}"/>
+                    </group>
+                </search>
+             </field>
+        </record>
+        
+        <record id="view_hr_attendance_weekly_tree" model="ir.ui.view">
+            <field name="name">hr.attendance.weekly.tree</field>
+            <field name="model">hr.attendance.weekly</field>
+            <field name="arch" type="xml">
+                <tree string="Weekly Attendance">
+                    <field name="week_start"/>
+                    <field name="department_id"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="view_hr_attendance_weekly_form" model="ir.ui.view">
+            <field name="name">hr.attendance.weekly.form</field>
+            <field name="model">hr.attendance.weekly</field>
+            <field name="arch" type="xml">
+                <form string="Weekly Attendance">
+                    <group>
+                        <group>
+                            <field name="department_id" on_change="onchange_department(department_id)"/>
+                            <field name="week_start" on_change="onchange_week_start(week_start)"/>
+                        </group>
+                        <group></group>
+                    </group>
+                    <newline/>
+                    <group>
+                        <group>
+                            <button name="%(action_daily_hours)d" type="action" string="Add Records"/>
+                            <button name="button_delete_hours" type="object" string="Remove All Records"
+                                    confirm="This will delete all records in this department for this week. Are you sure you want to continue?"/>
+                        </group>
+                        <group></group>
+                    </group>
+                    <newline/>
+                    <group>
+                        <group string="Over-Time Hours">
+                            <field name="ot_ids" context="{'weekly_id': id}" nolabel="1">
+                                <tree string="Over-Time Hours" editable="bottom">
+                                    <field name="employee_id" domain="[('department_id','=',parent.department_id)]"/>
+                                    <field name="weekly_id" invisible="1"/>
+                                    <field name="mon"/>
+                                    <field name="tue"/>
+                                    <field name="wed"/>
+                                    <field name="thu"/>
+                                    <field name="fri"/>
+                                    <field name="sat"/>
+                                    <field name="sun"/>
+                                </tree>
+                            </field>
+                        </group>
+                        <group string="Absentee Records">
+                            <field name="partial_ids" context="{'weekly_id': id}" nolabel="1">
+                                <tree string="Partial Attendance" editable="bottom">
+                                    <field name="weekly_id" invisible="1"/>
+                                    <field name="employee_id" domain="[('department_id','=',parent.department_id)]"/>
+                                    <field name="dayofweek" on_change="onchange_dayofweek(weekly_id, dayofweek, date)"/>
+                                    <field name="date" on_change="onchange_dayofweek(weekly_id, dayofweek, date)"/>
+                                    <field name="s1hours"/>
+                                    <field name="s2hours"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </group>
+                    <newline/>
+                    <group>
+                        <group string="Attendance Records">
+                            <field name="att_ids" nolabel="1"/>
+                        </group>
+                    </group>
+                </form>
+            </field>
+        </record>
+        
+        <record id="open_weekly_attendance" model="ir.actions.act_window">
+            <field name="name">Weekly Attendance</field>
+            <field name="res_model">hr.attendance.weekly</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{"search_default_week":1, "search_default_department":1}</field>
+            <field name="search_view_id" ref="view_hr_attendance_weekly_filter" />
+            <field name="view_id" ref="view_hr_attendance_weekly_tree"/>
+        </record>
+        
+        <menuitem id="menu_weekly_attendance"
+            action="open_weekly_attendance"
+            parent="hr_attendance.menu_hr_attendance"
+            groups="base.group_hr_attendance"
+            sequence="30"/>
+        
+        <!-- Partial Weekly Attendance -->
+        
+        <record id="view_weekly_partial_tree" model="ir.ui.view">
+            <field name="name">hr.attendance.weekly.partial.tree</field>
+            <field name="model">hr.attendance.weekly.partial</field>
+            <field name="arch" type="xml">
+                <tree string="Partial Attendance">
+                    <field name="employee_id"/>
+                    <field name="weekly_id"/>
+                    <field name="dayofweek"/>
+                    <field name="date"/>
+                    <field name="s1hours"/>
+                    <field name="s2hours"/>
+                </tree>
+            </field>
+        </record>
+        
+        <!-- OT hours -->
+        
+        <record id="view_weekly_ot_tree" model="ir.ui.view">
+            <field name="name">hr.attendance.weekly.ot.tree</field>
+            <field name="model">hr.attendance.weekly.ot</field>
+            <field name="arch" type="xml">
+                <tree string="Over-Time Hours">
+                    <field name="employee_id"/>
+                    <field name="weekly_id"/>
+                    <field name="mon"/>
+                    <field name="tue"/>
+                    <field name="wed"/>
+                    <field name="thu"/>
+                    <field name="fri"/>
+                    <field name="sat"/>
+                    <field name="sun"/>
+                </tree>
+            </field>
+        </record>
+        
+    </data>
+</openerp>

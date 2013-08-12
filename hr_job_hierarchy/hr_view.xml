@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+    <data>
+        
+        <!-- Job Form -->
+        
+        <record id="job_form_view" model="ir.ui.view">
+            <field name="name">hr.job.form.hierarchy</field>
+            <field name="model">hr.job</field>
+            <field name="inherit_id" ref="hr.view_hr_job_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//field[@name='department_id']" position="after">
+                        <field name="parent_id"/>
+                        <field name="department_manager"/>
+                    </xpath>
+                    <xpath expr="//sheet" position="inside">
+                        <group string="Immediate Subordinates">
+                            <field name="child_ids" nolabel="1"/>
+                        </group>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+        
+    </data>
+</openerp>

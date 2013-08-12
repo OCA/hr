@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+        <record model="ir.cron" id="hr_contract_ending_cron">
+            <field name="name">Contracts Nearing Completion</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field eval="(DateTime.now() + timedelta(days= +1)).strftime('%Y-%m-%d 2:30:00')" name="nextcall"/>
+            <field eval="True" name="doall"/>
+            <field eval="'hr.contract'" name="model"/>
+            <field eval="'try_signal_ending_contract'" name="function"/>
+            <field eval="'()'" name="args"/>
+        </record>
+        
+        <record model="ir.cron" id="hr_contract_completed_cron">
+            <field name="name">Contracts That Have Ended</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field eval="(DateTime.now() + timedelta(days= +1)).strftime('%Y-%m-%d 2:45:00')" name="nextcall"/>
+            <field eval="True" name="doall"/>
+            <field eval="'hr.contract'" name="model"/>
+            <field eval="'try_signal_contract_completed'" name="function"/>
+            <field eval="'()'" name="args"/>
+        </record>
+        
+        <record model="ir.cron" id="hr_trial_period_ending_cron">
+            <field name="name">Contracts Nearing the End of the Trial Period</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field eval="(DateTime.now() + timedelta(days= +1)).strftime('%Y-%m-%d 3:00:00')" name="nextcall"/>
+            <field eval="True" name="doall"/>
+            <field eval="'hr.contract'" name="model"/>
+            <field eval="'try_signal_ending_trial'" name="function"/>
+            <field eval="'()'" name="args"/>
+        </record>
+        
+        <record model="ir.cron" id="hr_trial_period_ended_cron">
+            <field name="name">Contracts Past the End of the Trial Period</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field eval="(DateTime.now() + timedelta(days= +1)).strftime('%Y-%m-%d 3:30:00')" name="nextcall"/>
+            <field eval="True" name="doall"/>
+            <field eval="'hr.contract'" name="model"/>
+            <field eval="'try_signal_open'" name="function"/>
+            <field eval="'()'" name="args"/>
+        </record>
+        
+    </data>
+</openerp>

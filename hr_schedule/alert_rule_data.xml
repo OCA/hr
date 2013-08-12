@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+        <record id="alert_rule_missing_punches" model="hr.schedule.alert.rule">
+            <field name="name">Missing Punches</field>
+            <field name="code">MISSPUNCH</field>
+            <field name="severity">critical</field>
+        </record>
+        
+        <record id="alert_rule_unscheduled_attendance" model="hr.schedule.alert.rule">
+            <field name="name">Unscheduled Attendance</field>
+            <field name="code">UNSCHEDATT</field>
+            <field name="severity">medium</field>
+            <field name="window">240</field>
+        </record>
+        
+        <record id="alert_rule_awol" model="hr.schedule.alert.rule">
+            <field name="name">Missing Attendance</field>
+            <field name="code">MISSATT</field>
+            <field name="severity">medium</field>
+            <field name="window">240</field>
+        </record>
+        
+        <record id="alert_rule_overtime" model="hr.schedule.alert.rule">
+            <field name="name">Unscheduled Overtime</field>
+            <field name="code">UNSCHEDOT</field>
+            <field name="severity">high</field>
+        </record>
+        
+        <record id="alert_rule_inearly" model="hr.schedule.alert.rule">
+            <field name="name">In Early</field>
+            <field name="code">INEARLY</field>
+            <field name="severity">low</field>
+            <field name="grace_period">10</field>
+            <field name="window">120</field>
+        </record>
+        
+        <record id="alert_rule_tardy" model="hr.schedule.alert.rule">
+            <field name="name">In Late</field>
+            <field name="code">TARDY</field>
+            <field name="severity">medium</field>
+            <field name="grace_period">10</field>
+            <field name="window">120</field>
+        </record>
+        
+        <record id="alert_rule_lvearly" model="hr.schedule.alert.rule">
+            <field name="name">Out Early</field>
+            <field name="code">OUTEARLY</field>
+            <field name="severity">medium</field>
+            <field name="grace_period">10</field>
+            <field name="window">120</field>
+        </record>
+        
+        <record id="alert_rule_outlate" model="hr.schedule.alert.rule">
+            <field name="name">Out Late</field>
+            <field name="code">OUTLATE</field>
+            <field name="severity">low</field>
+            <field name="grace_period">10</field>
+            <field name="window">120</field>
+        </record>
+        
+        <record id="alert_rule_overlap" model="hr.schedule.alert.rule">
+            <field name="name">Overlapping Attendance and Leave</field>
+            <field name="code">OVRLP</field>
+            <field name="severity">critical</field>
+        </record>
+        
+    </data>
+</openerp>

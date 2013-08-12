@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+        <!-- Bunching Sheet -->
+
+        <record id="view_bunching_sheet_filter" model="ir.ui.view">
+            <field name="name">Bunching Records Search</field>
+            <field name="model">hr.bunching.sheet</field>
+            <field name="arch" type="xml">
+                <search string="Bunching Records">
+                    <field name="name" string="Date"/>
+                    <field name="department_id" />
+                    <group expand="0" string="Group By...">
+                        <filter name="date" string="Date" icon="terp-personal+" domain="[]" context="{'group_by':'name'}"/>
+                        <filter name="department" string="Department" icon="terp-personal+" domain="[]" context="{'group_by':'department_id'}"/>
+                    </group>
+                </search>
+             </field>
+        </record>
+        
+        <record id="view_bunching_sheet_tree" model="ir.ui.view">
+            <field name="name">hr.bunching.sheet.tree</field>
+            <field name="model">hr.bunching.sheet</field>
+            <field name="arch" type="xml">
+                <tree string="Bunching Sheets">
+                    <field name="name"/>
+                    <field name="department_id"/>
+                    <field name="recorder_id"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="view_bunching_sheet_form" model="ir.ui.view">
+            <field name="name">hr.bunching.sheet.form</field>
+            <field name="model">hr.bunching.sheet</field>
+            <field name="arch" type="xml">
+                <form string="Bunching Sheet" version="7.0">
+                    <sheet>
+                        <header>
+                            <button name="signal_confirm" type="workflow" states="draft" class="oe_highlight" string="Confirm"/>
+                            <button name="signal_approve" type="workflow" states="confirm" class="oe_highlight" string="Approve"/>
+                            <field name="state" widget="statusbar"/>
+                        </header>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="department_id" on_change="onchange_department(department_id)"/>
+                                <field name="recorder_id"/>
+                            </group>
+                            <group></group>
+                        </group>
+                        <group>
+                            <group>
+                                <button name="%(action_bunching_sheet)d" type="action" string="Add Records"/>
+                                <button name="action_delete_lines" type="object" string="Remove All Records"
+                                        confirm="This will delete all records in this department for this date. Are you sure you want to continue?"/>
+                            </group>
+                            <group></group>
+                            <div class="oe_right">
+                                <h1><field name="total"/></h1>
+                            </div>
+                        </group>
+                        <group>
+                            <group string="Bunching Records">
+                                <field name="line_ids" nolabel="1"/>
+                            </group>
+                            <group></group>
+                        </group>
+                        <div class="oe_chatter">
+                            <field name="message_follower_ids" widget="mail_followers"/>
+                            <field name="message_ids" widget="mail_thread"/>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="open_bunching_sheet" model="ir.actions.act_window">
+            <field name="name">Bunching Records</field>
+            <field name="res_model">hr.bunching.sheet</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{"search_default_date":1, "search_default_department":1}</field>
+            <field name="search_view_id" ref="view_bunching_sheet_filter" />
+        </record>
+        <menuitem action="open_bunching_sheet"
+                  id="menu_bunching_sheet"
+                  parent="hr_attendance.menu_hr_attendance"
+                  groups="base.group_hr_user"
+                  sequence="45"/>
+        
+        <!-- Bunching Lines -->
+        
+        <record id="view_bunching_sheet_line_tree" model="ir.ui.view">
+            <field name="name">hr.bunching.sheet.line.tree</field>
+            <field name="model">hr.bunching.sheet.line</field>
+            <field name="arch" type="xml">
+                <tree string="Bunching Sheet Lines">
+                    <field name="employee_id"/>
+                    <field name="bunching_quota"/>
+                    <field name="total"/>
+                    <field name="difference"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="view_bunching_sheet_line_form" model="ir.ui.view">
+            <field name="name">hr.bunching.sheet.lineform</field>
+            <field name="model">hr.bunching.sheet.line</field>
+            <field name="arch" type="xml">
+                <form string="Bunching Sheet Line" version="7.0">
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="employee_id"/>
+                            <field name="total"/>
+                            <field name="difference"/>
+                        </group>
+                        <group>
+                            <field name="bunching_quota"/>
+                        </group>
+                    </group>
+                    <separator string="Rounds"/>
+                    <field name="round_ids" nolabel="1">
+                        <tree string="Rounds">
+                            <field name="round"/>
+                            <field name="qty"/>
+                        </tree>
+                    </field>
+                </form>
+            </field>
+        </record>
+        
+    </data>
+</openerp>

@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hr_infraction_user,access_hr_infraction,model_hr_infraction,base.group_hr_user,1,1,1,1
+access_hr_infraction_action_user,access_hr_infraction_action,model_hr_infraction_action,base.group_hr_user,1,0,0,0
+access_hr_infraction_action_manager,access_hr_infraction_action,model_hr_infraction_action,base.group_hr_manager,1,1,1,1
+access_hr_infraction_warning_user,access_hr_infraction_warning,model_hr_infraction_warning,base.group_hr_user,1,0,0,0
+access_hr_infraction_warning_manager,access_hr_infraction_warning,model_hr_infraction_warning,base.group_hr_manager,1,1,1,1
+access_hr_infraction_category_user,access_hr_infraction_category,model_hr_infraction_category,base.group_hr_user,1,0,0,0
+access_hr_infraction_category_manager,access_hr_infraction_category,model_hr_infraction_category,base.group_hr_manager,1,1,1,1

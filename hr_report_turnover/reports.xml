@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+        <!-- Employee Turnover Report -->
+        
+        <record id="report_employee_turnover" model="ir.actions.report.xml">
+            <field name="name">Employee Turnover by Department</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">hr.department</field>
+            <field name="report_name">hr_employee_turnover</field>
+            <field name="report_type">aeroo</field>
+            <field name="in_format">oo-odt</field>
+            <field name="parser_loc">hr_report_turnover/report/employee_turnover.py</field>
+            <field name="report_rml">hr_report_turnover/report/employee_turnover.odt</field>
+            <field name="parser_state">loc</field>
+            <field name="tml_source">file</field>
+        </record>
+        
+    </data>
+</openerp>

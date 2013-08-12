@@ -1,0 +1,13 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hr_attendance_weekly_tk,hr.attendance.weekly.tk,model_hr_attendance_weekly,group_hr_timekeeper,1,1,1,1
+access_hr_attendance_weekly_hro,hr.attendance.weekly.hro,model_hr_attendance_weekly,base.group_hr_user,1,1,1,1
+access_hr_attendance_weekly_partial_tk,hr.attendance.weekly.partial.tk,model_hr_attendance_weekly_partial,group_hr_timekeeper,1,1,1,1
+access_hr_attendance_weekly_partial_hro,hr.attendance.weekly.partial.hro,model_hr_attendance_weekly_partial,base.group_hr_user,1,1,1,1
+access_hr_attendance_weekly_ot_tk,hr.attendance.weekly.ot.tk,model_hr_attendance_weekly_ot,group_hr_timekeeper,1,1,1,1
+access_hr_attendance_weekly_ot_hro,hr.attendance.weekly.ot.hro,model_hr_attendance_weekly_ot,base.group_hr_user,1,1,1,1
+access_hr_attendance_tk,hr.attendance.tk,model_hr_attendance,group_hr_timekeeper,1,1,1,1
+access_hr_schedule_alert_tk,access_hr_schedule_alert,hr_schedule.model_hr_schedule_alert,group_hr_timekeeper,1,1,1,1
+access_hr_schedule_alert_rule_tk,access_hr_schedule_alert,hr_schedule.model_hr_schedule_alert_rule,group_hr_timekeeper,1,0,0,0
+access_hr_contract_tk,access_hr_contract,hr_contract.model_hr_contract,group_hr_timekeeper,1,0,0,0
+access_hr_payroll_period_tk,access_hr_payroll_period,hr_payroll_period.model_hr_payroll_period,group_hr_timekeeper,1,0,0,0
+access_hr_payroll_period_schedule_tk,access_hr_payroll_period_schedule,hr_payroll_period.model_hr_payroll_period_schedule,group_hr_timekeeper,1,0,0,0

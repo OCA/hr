@@ -1,0 +1,13 @@
+<templates>
+    <div t-name="photo.action" class="oe_hr_webcam oe_hr_webcam_stopped">
+        <div id="container">
+            <h4 class="oe_hr_webcam_heading">Photo Booth</h4>
+            <div id="webcam">
+                <span>Webcam</span>
+            </div>
+            <canvas id="canvas" width="320" height="240"></canvas>
+            <ul id="cams"></ul>
+            <div><a href="javascript:webcam.capture();void(0);">Take a Picture</a> | <span class="oe_hr_webcam_close"><a href="#">Close Window</a></span></div>
+        </div>
+    </div>
+</templates>

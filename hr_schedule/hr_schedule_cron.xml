@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+        <!-- Create tentative schedule for all employee en-masse -->
+        
+        <record model="ir.cron" id="mass_schedule_cron">
+            <field name="name">Mass Scheduling</field>
+            <field name="interval_number">2</field>
+            <field name="interval_type">weeks</field>
+            <field name="numbercall">-1</field>
+            <field eval="(DateTime.now() + timedelta(days= +(7-DateTime.now().weekday()))).strftime('%Y-%m-%d 0:25:00')" name="nextcall"/>
+            <field eval="True" name="doall"/>
+            <field eval="'hr.schedule'" name="model"/>
+            <field eval="'create_mass_schedule'" name="function"/>
+            <field eval="'()'" name="args"/>
+        </record>
+        
+        <!-- Check yesterday's schedule/attendance records against the alert rules -->
+        
+        <record model="ir.cron" id="check_attendance_cron">
+            <field name="name">Check Attendance Alerts</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field eval="(DateTime.now() + timedelta(hours= +(29-DateTime.now().hour))).strftime('%Y-%m-%d 0:15:00')" name="nextcall"/>
+            <field eval="True" name="doall"/>
+            <field eval="'hr.schedule.alert'" name="model"/>
+            <field eval="'check_for_alerts'" name="function"/>
+            <field eval="'()'" name="args"/>
+        </record>
+        
+    </data>
+</openerp>

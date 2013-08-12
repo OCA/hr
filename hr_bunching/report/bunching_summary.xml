@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+    
+        <record id="report_bunching_summary" model="ir.actions.report.xml">
+            <field name="name">Bunching Summary</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">hr.department</field>
+            <field name="report_name">hr_bunching_summary</field>
+            <field name="report_type">aeroo</field>
+            <field name="in_format">oo-odt</field>
+            <field name="parser_loc">hr_bunching/report/bunching_summary.py</field>
+            <field name="report_rml">hr_bunching/report/bunching_summary.odt</field>
+            <field name="parser_state">loc</field>
+            <field name="tml_source">file</field>
+        </record>
+    
+    </data>
+</openerp>

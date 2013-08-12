@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        
+        <record id="view_attendance_summary_payroll" model="ir.ui.view">
+            <field name="name">hr.attendance.summary.payroll.form</field>
+            <field name="model">hr.attendance.summary.payroll</field>
+            <field name="arch" type="xml">
+                <form string="Dates of Report" version="7.0">
+                    <header>
+                        <button name="print_report" type="object" string="Print" icon="gtk-print" class="oe_highlight"/>
+                    </header>
+                    <group>
+                        <group>
+                            <label for="start_date" string="Interval"/>
+                            <div>
+                                <field name="start_date" nolabel="1" class="oe_inline"/> - 
+                                <field name="end_date" nolabel="1" class="oe_inline"/>
+                            </div>
+                        </group>
+                        <group>
+                        </group>
+                    </group>
+                    <group string="Departments">
+                        <field name="department_ids" nolabel="1"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+        
+        <record id="open_attendance_summary_payroll" model="ir.actions.act_window">
+            <field name="name">Excel - Attendance Summary</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr.attendance.summary.payroll</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+        
+        <menuitem
+            name="Excel - Attendance Summary" 
+            id="menu_attendance_summary_payroll" 
+            action="open_attendance_summary_payroll" 
+            parent="hr.menu_hr_reporting_timesheet" sequence="50" groups="base.group_hr_user"/>
+        
+    </data>
+</openerp>

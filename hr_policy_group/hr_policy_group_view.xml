@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+        <!-- Policy Groups Configuration Submenu -->
+        <menuitem id="menu_hr_policy_configuration"
+            name="Policies"
+            parent="hr.menu_hr_configuration"
+            groups="hr_security.group_payroll_manager" sequence="40"/>
+        
+        <!-- Policy Group -->
+        
+        <record id="policy_group_view_tree" model="ir.ui.view">
+            <field name="name">hr.policy.group.tree</field>
+            <field name="model">hr.policy.group</field>
+            <field name="arch" type="xml">
+                <tree string="Policy Groups">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="policy_group_view_form" model="ir.ui.view">
+            <field name="name">hr.policy.group.form</field>
+            <field name="model">hr.policy.group</field>
+            <field name="arch" type="xml">
+                <form string="Policy Group" version="7.0">
+                    <h1>
+                        <label for="name" string="Name" class="oe_edit_only"/>
+                        <field name="name"/>
+                    </h1>
+                    <group>
+                        <group name="left"></group>
+                        <group name="right"></group>
+                    </group>
+                </form>
+            </field>
+        </record>
+        
+        <record id="open_policy_group" model="ir.actions.act_window">
+            <field name="name">Policy Groups</field>
+            <field name="res_model">hr.policy.group</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem action="open_policy_group"
+            id="menu_hr_policy_group"
+            parent="menu_hr_policy_configuration"
+            sequence="5"/>
+        
+        <!-- Contract -->
+        
+        <record id="hr_contract_view_form" model="ir.ui.view">
+            <field name="name">hr.contract.form.inherit</field>
+            <field name="model">hr.contract</field>
+            <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//field[@name='wage']" position="after">
+                        <field name="policy_group_id"/>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+         
+    </data>
+</openerp>

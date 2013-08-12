@@ -1,0 +1,26 @@
+PyCalCal implements all calendrica 3.0 algorithms.
+They are tested against some dates mentioned in
+the book and more importantly against the tables
+in Appendix C.
+All tests pass.
+
+
+The failing tests were:
+ testDynamicalFromUniversal          clarified by Profs's emails 2009/08/06
+ observational_hebrew_from_fixed     FIXED 2009/11/15: trig funcs values!
+ fixed_from_observational_islamic    FIXED 2009/11/15: trig funcs values!
+ astro_hindu_lunar_from_fixed        FIXED wrong reference data array
+ fixed_from_astro_hindu_lunar        FIXED 2009/11/17 wrong grouping in 's'
+                                         value correct is (mod.. - deg...)
+It has been quite difficult to find why observational Hebrew convertions
+were failing. I had to check the full chain of calls and compare results
+of pycalcal with calendrica 3.0 ones.
+I was put off track by the statement in the Errata (Jun 2009) about
+principal values of trigonometric funtions: Prof Dershowitz confirmed
+that calendrical 3.0 expects/returns angles in interval [0,360).
+
+
+Todo list
+=========
+see http://code.google.com/p/pycalcal/wiki/ToDoList
+

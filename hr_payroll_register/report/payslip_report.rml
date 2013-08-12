@@ -1,0 +1,303 @@
+<?xml version="1.0"?>
+<document filename="test.pdf">
+  <template pageSize="(595.0,842.0)" title="Test" author="Martin Simon" allowSplitting="20">
+    <pageTemplate id="first">
+      <frame id="first" x1="57.0" y1="21.0" width="481" height="800"/>
+    </pageTemplate>
+  </template>
+  <stylesheet>
+    <blockTableStyle id="Standard_Outline">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+    </blockTableStyle>
+    <blockTableStyle id="Table1">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+    </blockTableStyle>
+    <blockTableStyle id="Table2">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+      <lineStyle kind="LINEAFTER" colorName="#000000" start="0,1" stop="0,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#000000" start="2,1" stop="2,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#000000" start="0,2" stop="0,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#000000" start="2,2" stop="2,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#000000" start="0,3" stop="0,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#000000" start="2,3" stop="2,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#000000" start="0,4" stop="0,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#000000" start="2,4" stop="2,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#000000" start="0,5" stop="0,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#000000" start="2,5" stop="2,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#000000" start="0,6" stop="0,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#000000" start="2,6" stop="2,-1"/>
+    </blockTableStyle>
+    <initialize>
+      <paraStyle name="all" alignment="justify"/>
+    </initialize>
+    <paraStyle name="P1" fontName="Helvetica" fontSize="8.0" leading="10"/>
+    <paraStyle name="P2" fontName="Helvetica" fontSize="7.0" leading="9" alignment="LEFT"/>
+    <paraStyle name="P3" fontName="Helvetica" fontSize="7.0" leading="9" alignment="RIGHT"/>
+    <paraStyle name="P4" fontName="Helvetica" fontSize="7.0" leading="9" alignment="RIGHT"/>
+    <paraStyle name="P5" fontName="Helvetica" fontSize="6.0" leading="8" alignment="RIGHT"/>
+    <paraStyle name="P6" fontName="Helvetica" fontSize="7.0" leading="9" alignment="LEFT"/>
+    <paraStyle name="P7" fontName="Helvetica" fontSize="8.0" leading="10" alignment="LEFT"/>
+    <paraStyle name="P8" fontName="Helvetica" fontSize="8.0" leading="10" alignment="LEFT"/>
+    <paraStyle name="P9" fontName="Helvetica" fontSize="8.0" leading="10" alignment="CENTER"/>
+    <paraStyle name="P10" fontName="Helvetica" fontSize="9.0" leading="11" alignment="CENTER"/>
+    <paraStyle name="P11" fontName="Helvetica" fontSize="7.0" leading="9" alignment="LEFT"/>
+    <paraStyle name="P12" fontName="Helvetica" fontSize="7.0" leading="9" alignment="RIGHT"/>
+    <paraStyle name="P13" fontName="Helvetica" fontSize="7.0" leading="9" alignment="LEFT"/>
+    <paraStyle name="P14" fontName="Helvetica" fontSize="7.0" leading="9" alignment="RIGHT"/>
+    <paraStyle name="P15" fontName="Helvetica" fontSize="7.0" leading="9" alignment="LEFT"/>
+    <paraStyle name="P16" fontName="Helvetica" fontSize="7.0" leading="9" alignment="LEFT"/>
+    <paraStyle name="P17" fontName="Helvetica" fontSize="7.0" leading="9" alignment="LEFT"/>
+    <paraStyle name="P18" fontName="Helvetica" fontSize="7.0" leading="9" alignment="LEFT"/>
+    <paraStyle name="P19" fontName="Helvetica" fontSize="7.0" leading="9" alignment="RIGHT"/>
+    <paraStyle name="P20" fontName="Helvetica" fontSize="6.0" leading="8" alignment="RIGHT"/>
+    <paraStyle name="P21" fontName="Helvetica" fontSize="6.0" leading="8" alignment="RIGHT"/>
+    <paraStyle name="P22" fontName="Helvetica" fontSize="7.0" leading="9" alignment="LEFT" backColor="#c0c0c0"/>
+    <paraStyle name="Standard" fontName="Helvetica"/>
+    <paraStyle name="Heading" fontName="Helvetica" fontSize="14.0" leading="17" spaceBefore="12.0" spaceAfter="6.0"/>
+    <paraStyle name="Text body" fontName="Helvetica" spaceBefore="0.0" spaceAfter="6.0"/>
+    <paraStyle name="List" fontName="Helvetica" spaceBefore="0.0" spaceAfter="6.0"/>
+    <paraStyle name="Caption" fontName="Helvetica" fontSize="12.0" leading="15" spaceBefore="6.0" spaceAfter="6.0"/>
+    <paraStyle name="Index" fontName="Helvetica"/>
+    <paraStyle name="Table Contents" fontName="Helvetica"/>
+    <paraStyle name="Table Heading" fontName="Helvetica" alignment="CENTER"/>
+    <images/>
+  </stylesheet>
+  <story>
+    <para style="P1">[[repeatIn(objects, 'o')]]</para>
+    <section>
+      <para style="P7">[[repeatIn(o.run_ids, 'r')]]</para>
+      <section>
+        <para style="P8">[[repeatIn(get_details_by_payslip(r.slip_ids), 's')]]</para>
+        <para style="P10">[[company.name]] Pay Slip</para>
+        <section>
+          <blockTable colWidths="71.0,149.0,17.0,75.0,23.0,54.0,33.0,60.0" style="Table1">
+            <tr>
+              <td>
+                <para style="P11">Employee:</para>
+              </td>
+              <td>
+                <para style="P11">[[ s['name'] ]]</para>
+              </td>
+              <td>
+                <para style="P11">ID:</para>
+              </td>
+              <td>
+                <para style="P11">[[ s['id_no'] ]]</para>
+              </td>
+              <td>
+                <para style="P14">From:</para>
+              </td>
+              <td>
+                <para style="P15">[[ s['date_from'] ]]</para>
+              </td>
+              <td>
+                <para style="P14">To:</para>
+              </td>
+              <td>
+                <para style="P15">[[ s['date_to'] ]]</para>
+              </td>
+            </tr>
+          </blockTable>
+          <blockTable colWidths="58.0,77.0,74.0,106.0,95.0,73.0" style="Table2">
+            <tr>
+              <td>
+                <para style="P19">Earnings</para>
+              </td>
+              <td>
+                <para style="P3">
+                  <font color="white"> </font>
+                </para>
+              </td>
+              <td>
+                <para style="P19">Deductions</para>
+              </td>
+              <td>
+                <para style="P3">
+                  <font color="white"> </font>
+                </para>
+              </td>
+              <td>
+                <para style="P12">
+                  <font color="white"> </font>
+                </para>
+              </td>
+              <td>
+                <para style="P4">
+                  <font color="white"> </font>
+                </para>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <para style="P20">Basic</para>
+              </td>
+              <td>
+                <para style="P16">[[ s['salary'] and formatLang(s['salary']) or '–' ]]</para>
+              </td>
+              <td>
+                <para style="P20">FIT</para>
+              </td>
+              <td>
+                <para style="P17">[[ s['fit'] and formatLang(s['fit']) or '–' ]]</para>
+              </td>
+              <td>
+                <para style="P13">Net Pay:</para>
+              </td>
+              <td>
+                <para style="P22">[[ s['net'] and formatLang(s['net']) or '–' ]]</para>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <para style="P20">OT</para>
+              </td>
+              <td>
+                <para style="P16">[[ s['ot'] and formatLang(s['ot']) or '–' ]]</para>
+              </td>
+              <td>
+                <para style="P20">Pension Fund</para>
+              </td>
+              <td>
+                <para style="P17">[[ s['ee_pension'] and formatLang(s['ee_pension']) or '–' ]]</para>
+              </td>
+              <td>
+                <para style="P18">
+                  <font color="white"> </font>
+                </para>
+              </td>
+              <td>
+                <para style="P2">
+                  <font color="white"> </font>
+                </para>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <para style="P20">Transport</para>
+              </td>
+              <td>
+                <para style="P17">[[ s['transportation'] and formatLang(s['transportation']) or '–' ]]</para>
+              </td>
+              <td>
+                <para style="P20">Others</para>
+              </td>
+              <td>
+                <para style="P17">[[ s['deductions'] and formatLang(s['deductions']) or '–' ]]</para>
+              </td>
+              <td>
+                <para style="P18">Annual Leave:</para>
+              </td>
+              <td>
+                <para style="P6">
+                  <font face="Helvetica">[[ s['LVANNUAL'] and formatLang(s['LVANNUAL']) or '–' ]]</font>
+                </para>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <para style="P20">Bonus</para>
+              </td>
+              <td>
+                <para style="P17">[[ s['bonus'] and formatLang(s['bonus']) or '–' ]]</para>
+              </td>
+              <td>
+                <para style="P20">Total Deductions</para>
+              </td>
+              <td>
+                <para style="P17">[[ s['deductions_total'] and formatLang(s['deductions_total']) or '–' ]]</para>
+              </td>
+              <td>
+                <para style="P2">
+                  <font color="white"> </font>
+                </para>
+              </td>
+              <td>
+                <para style="P2">
+                  <font color="white"> </font>
+                </para>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <para style="P20">Other</para>
+              </td>
+              <td>
+                <para style="P17">[[ s['allowances'] and formatLang(s['allowances']) or '–' ]]</para>
+              </td>
+              <td>
+                <para style="P21">
+                  <font color="white"> </font>
+                </para>
+              </td>
+              <td>
+                <para style="P2">
+                  <font color="white"> </font>
+                </para>
+              </td>
+              <td>
+                <para style="P2">
+                  <font color="white"> </font>
+                </para>
+              </td>
+              <td>
+                <para style="P2">
+                  <font color="white"> </font>
+                </para>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <para style="P5">
+                  <font face="Helvetica">T</font>
+                  <font face="Helvetica">axable</font>
+                </para>
+              </td>
+              <td>
+                <para style="P17">[[ s['taxable_gross'] and formatLang(s['taxable_gross']) or '–' ]]</para>
+              </td>
+              <td>
+                <para style="P20">
+                  <font color="white"> </font>
+                </para>
+              </td>
+              <td>
+                <para style="P2">
+                  <font color="white"> </font>
+                </para>
+              </td>
+              <td>
+                <para style="P2">
+                  <font color="white"> </font>
+                </para>
+              </td>
+              <td>
+                <para style="P2">
+                  <font color="white"> </font>
+                </para>
+              </td>
+            </tr>
+          </blockTable>
+          <para style="P9">
+            <font color="white"> </font>
+          </para>
+        </section>
+        <para style="P7">
+          <font color="white"> </font>
+        </para>
+      </section>
+      <para style="P7">
+        <font color="white"> </font>
+      </para>
+      <para style="P7">
+        <font color="white"> </font>
+      </para>
+    </section>
+    <para style="P1">
+      <font color="white"> </font>
+    </para>
+  </story>
+</document>
+

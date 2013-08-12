@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+        
+        <!-- Main HR Working Group -->
+        <record model="mail.group" id="mail_group_hr_main">
+            <field name="name">HR Information</field>
+            <field name="description">Main point contact for HR related events, actions and discussions.</field>
+        </record>
+        
+    </data>
+</openerp>

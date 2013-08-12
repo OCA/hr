@@ -1,0 +1,20 @@
+This is a Python implementation by Enrico Spinielli of 'CALENDRICA 3.0';
+I named it PyCalCal.
+
+'CALENDRICA 3.0' is the Common Lisp implementation of the functions described in
+E. M. Reingold and N. Dershowitz "Calendrical Calculations", 3rd ed.,
+Cambridge University Press, 2008.
+http://www.cup.cam.ac.uk/catalogue/catalogue.asp?isbn=9780521702386
+
+'CALENDRICAL 3.0' is written and copyrighted by E. M. Reingold and
+N. Dershowitz as described in file 'COPYRIGHT_DERSHOWITZ_REINGOLD'
+
+The resource page of the book at Cambridge University Press
+    http://www.cup.cam.ac.uk/catalogue/catalogue.asp?isbn=9780521702386&ss=res
+provides a link to a zipped version of 'calendrica-3.0.cl' which I
+included in the project:
+	 http://www.cup.cam.ac.uk/resources/0521702380/5106_calendrica-3.0.cl.zip
+
+Files 'dates[1-5].tex' have been kindly provided by Prof. Reingold.
+
+See STATUS file for information of state of affais and todo list.

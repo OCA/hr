@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+                        
+        <!-- Alert-related subtypes for messaging / Chatter -->
+        
+        <record id="mt_alert_confirmed" model="mail.message.subtype">
+            <field name="name">Bunching Sheet Confirmed</field>
+            <field name="res_model">hr.bunching.sheet</field>
+            <field name="description">Bunching Sheet is awaiting approval</field>
+        </record>
+        <record id="mt_alert_approved" model="mail.message.subtype">
+            <field name="name">Bunching Sheet Approved</field>
+            <field name="res_model">hr.bunching.sheet</field>
+            <field name="description">Bunching Sheet has been approved</field>
+        </record>
+
+    </data>
+</openerp>

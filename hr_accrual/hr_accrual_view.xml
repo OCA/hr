@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+        <record id="hr_accrual_view_tree" model="ir.ui.view">
+            <field name="name">hr.accrual.tree</field>
+            <field name="model">hr.accrual</field>
+            <field name="arch" type="xml">
+                <tree string="Accruals">
+                    <field name="name"/>
+                    <field name="holiday_status_id"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="hr_accrual_view_form" model="ir.ui.view">
+            <field name="name">hr.accrual.form</field>
+            <field name="model">hr.accrual</field>
+            <field name="arch" type="xml">
+                <form string="Accrual" version="7.0">
+                    <label for="name" string="Name" class="oe_edit_only"/>
+                    <h1>
+                        <field name="name"/>
+                    </h1>
+                    <field name="holiday_status_id"/>
+                    <group string="Accrual Lines">
+                        <field name="line_ids" nolabel="1"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+        
+        <record id="open_accrual" model="ir.actions.act_window">
+            <field name="name">Accrual Time Banks</field>
+            <field name="res_model">hr.accrual</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem action="open_accrual"
+            id="menu_hr_accrual"
+            parent="hr.menu_hr_configuration"
+            sequence="45"/>
+        
+    </data>
+</openerp>

@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+##############################################################################
+#
+#    Copyright (C) 2011,2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
+#    All Rights Reserved.
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU Affero General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU Affero General Public License for more details.
+#
+#    You should have received a copy of the GNU Affero General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+##############################################################################
+-->
+
+<openerp>
+    <data>
+        
+        <!-- Menus -->
+        
+        <menuitem name="Wage Adustments"
+            id="submenu_hr_wageadjust"
+            parent="hr.menu_hr_main"
+            sequence="120" groups="base.group_hr_user"/>
+
+        <record id="view_hr_wage_increment_filter" model="ir.ui.view">
+            <field name="name">view_hr_wage_increment_filter</field>
+            <field name="model">hr.contract.wage.increment</field>
+            <field name="arch" type="xml">
+                <search string="Wage Adjustment Search">
+                    <field name="effective_date"/>
+                    <field name="employee_id"/>
+                    <field name="department_id"/>
+                    <group expand="0" string="Group By...">
+                        <filter name="department" string="Department" icon="terp-personal" domain="[]" context="{'group_by':'department_id'}"/>
+                        <filter name="employee" string="Employee" icon="terp-personal" domain="[]" context="{'group_by':'employee_id'}"/>
+                        <filter name="date" icon="terp-go-today" domain="[]" context="{'group_by':'effective_date'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+        
+        <record id="wage_increment_view_tree" model="ir.ui.view">
+            <field name="name">hr.contract.wage.increment.tree</field>
+            <field name="model">hr.contract.wage.increment</field>
+            <field name="arch" type="xml">
+                <tree string="Wage Adjustments">
+                    <field name="employee_id"/>
+                    <field name="department_id"/>
+                    <field name="current_wage"/>
+                    <field name="wage_difference"/>
+                    <field name="wage_difference_percent"/>
+                    <field name="wage"/>
+                    <field name="effective_date"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="wage_increment_view_form" model="ir.ui.view">
+            <field name="name">hr.contract.wage.increment.form</field>
+            <field name="model">hr.contract.wage.increment</field>
+            <field name="arch" type="xml">
+                <form string="Wage Adjustment" version="7.0">
+                    <header>
+                        <button name="signal_confirm" type="workflow" states="draft" string="Confirm" class="oe_highlight"/>
+                        <button name="signal_approve" type="workflow" states="confirm" groups="hr_security.group_hr_director" string="Approve" class="oe_highlight"/>
+                        <button name="signal_decline" type="workflow" states="confirm" groups="hr_security.group_hr_director" string="Decline" class="oe_highlight"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <group>
+                        <group string="New Contract">
+                            <field name="wage"/>
+                            <field name="effective_date"/>
+                            <field name="wage_difference"/>
+                        </group>
+                        <group string="Current Contract">
+                            <field name="employee_id"/>
+                            <field name="contract_id"/>
+                            <field name="current_wage"/>
+                        </group>
+                        <group string="Miscellaneous">
+                            <field name="run_id"/>
+                        </group>
+                    </group>
+                </form>
+            </field>
+        </record>
+        <record id="open_wage_increment" model="ir.actions.act_window">
+            <field name="name">Individual</field>
+            <field name="res_model">hr.contract.wage.increment</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="view_hr_wage_increment_filter" />
+        </record>
+        <menuitem action="open_wage_increment"
+                  id="menu_wage_increment"
+                  parent="submenu_hr_wageadjust"
+                  groups="base.group_hr_user"
+                  sequence="10"/>
+        
+        
+        <record id="wage_increment_view_popup" model="ir.ui.view">
+            <field name="name">hr.contract.wage.increment.form</field>
+            <field name="model">hr.contract.wage.increment</field>
+            <field name="arch" type="xml">
+                <form string="Wage Adjustment" version="7.0">
+                    <header>
+                        <button name="signal_confirm" type="workflow" states="draft" string="Confirm" class="oe_highlight"/>
+                        <button name="signal_approve" type="workflow" states="confirm" groups="hr_security.group_hr_director" string="Approve" class="oe_highlight"/>
+                        <button name="signal_decline" type="workflow" states="confirm" groups="hr_security.group_hr_director" string="Decline" class="oe_highlight"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <group>
+                        <group string="New Contract">
+                            <field name="wage"/>
+                            <field name="effective_date"/>
+                        </group>
+                        <group string="Current Contract">
+                            <field name="employee_id"/>
+                            <field name="contract_id"/>
+                            <field name="current_wage"/>
+                        </group>
+                    </group>
+                </form>
+            </field>
+        </record>
+        <act_window name="Wage Adjustment"
+            res_model="hr.contract.wage.increment"
+            src_model="hr.contract"
+            view_mode="form"
+            view_id="wage_increment_view_popup"
+            target="new"
+            id="wage_increment_act_window"/>
+
+        <!-- wage adjustment runs -->
+
+        <record id="wage_adjustment_run_filter" model="ir.ui.view">
+            <field name="name">hr.contract.wage.increment.run.search</field>
+            <field name="model">hr.contract.wage.increment.run</field>
+            <field name="arch" type="xml">
+                <search string="Search Wage Adjustment Batches">
+                    <field name="name" string="Adjustment Batches"/>
+                    <field name="effective_date"/>
+                    <filter icon="terp-document-new" string="Draft" domain="[('state','=','draft')]" help="Draft Adjustment Batches"/>
+                    <filter name="done_filter" icon="terp-camera_test" string="Done" domain="[('state','=','approve')]" help="Approved Adjustment Batches"/>
+                    <group expand="0" string="Group By...">
+                        <filter name="date" string="Date" icon="terp-go-today" domain="[]" context="{'group_by':'effective_date'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="wage_adjustment_run_tree" model="ir.ui.view">
+            <field name="name">hr.contract.wage.increment.run.tree</field>
+            <field name="model">hr.contract.wage.increment.run</field>
+            <field name="arch" type="xml">
+                <tree string="Wage Adjustment Batches">
+                    <field name="name"/>
+                    <field name="effective_date"/>
+                    <field name="type"/>
+                    <field name="adjustment_amount"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="wage_adjustment_run_form" model="ir.ui.view">
+            <field name="name">hr.contract.wage.increment.run.form</field>
+            <field name="model">hr.contract.wage.increment.run</field>
+            <field name="arch" type="xml">
+                <form string="Wage Adjustment Batch" version="7.0">
+                <header>
+                    <button name="%(action_wage_adjustment_by_employees)d" type="action" states="draft" string="Generate Adjustments" class="oe_highlight"/>
+                    <button name="signal_confirm" type="workflow" string="Confirm" states="draft" class="oe_highlight"/>
+                    <button name="signal_approve" type="workflow" string="Approve" groups="hr_security.group_hr_director" states="confirm" class="oe_highlight"/>
+                    <button name="signal_decline" type="workflow" string="Decline" groups="hr_security.group_hr_director" states="confirm" class="oe_highlight"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <label for="name" class="oe_edit_only"/>
+                    <h1>
+                        <field name="name"/>
+                    </h1>
+                    <h2>
+                        Effective Date 
+                        <field name="effective_date"/> 
+                    </h2>
+                    <group>
+                        <field name="type"/>
+                        <field name="adjustment_amount" attrs="{'invisible': [('type','=','manual')]}"/>
+                    </group>
+                    <separator string="Adjustments"/>
+                    <field name="increment_ids" nolabel="1">
+                        <tree string="Wage Adjustments"  editable="bottom">
+                            <field name="employee_id"/>
+                            <field name="department_id"/>
+                            <field name="current_wage"/>
+                            <field name="wage"/>
+                            <field name="wage_difference"/>
+                            <field name="wage_difference_percent"/>
+                            <field name="effective_date"/>
+                            <field name="state"/>
+                        </tree>
+                    </field>
+                </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_wage_adjustment_run" model="ir.actions.act_window">
+            <field name="name">Batch</field>
+            <field name="res_model">hr.contract.wage.increment.run</field>
+            <field name="view_type">form</field>
+            <field name="view_id" ref="wage_adjustment_run_tree"/>
+            <field name="search_view_id" ref="wage_adjustment_run_filter"/>
+        </record>
+        <menuitem action="action_wage_adjustment_run"
+            id="menu_wage_adjustment_run"
+            parent="submenu_hr_wageadjust"
+            groups="base.group_hr_user"
+            sequence="20"/>
+        
+    </data>
+</openerp>

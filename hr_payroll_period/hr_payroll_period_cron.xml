@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+        <record model="ir.cron" id="hr_payroll_period_ended_cron">
+            <field name="name">Payroll Periods Past End Date</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">hours</field>
+            <field name="numbercall">-1</field>
+            <field eval="(DateTime.now() + timedelta(minutes=60)).strftime('%Y-%m-%d %H:05:00')" name="nextcall"/>
+            <field eval="False" name="doall"/>
+            <field eval="'hr.payroll.period'" name="model"/>
+            <field eval="'try_signal_end_period'" name="function"/>
+            <field eval="'()'" name="args"/>
+        </record>
+        
+        <record model="ir.cron" id="hr_payroll_period_create_cron">
+            <field name="name">Create New Payroll Periods</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">hours</field>
+            <field name="numbercall">-1</field>
+            <field eval="(DateTime.now() + timedelta(minutes=60)).strftime('%Y-%m-%d %H:05:00')" name="nextcall"/>
+            <field eval="False" name="doall"/>
+            <field eval="'hr.payroll.period.schedule'" name="model"/>
+            <field eval="'try_create_new_period'" name="function"/>
+            <field eval="'()'" name="args"/>
+        </record>
+        
+    </data>
+</openerp>

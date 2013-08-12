@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+        <record id="view_edu_form" model="ir.ui.view">
+            <field name="name">hr.employee.edu.form</field>
+            <field name="model">hr.employee.edu</field>
+            <field name="arch" type="xml">
+                <form string="Employee Education by Department" version="7.0">
+                    <header>
+                        <button name="add_records" type="object" string="Save" class="oe_highlight"/>
+                    </header>
+                    <div>
+                        <h2>
+                            <field name="department_id" readonly="1"/>
+                        </h2>
+                    </div>
+                    <group>
+                        <group string="Employee Lines">
+                            <field name="line_ids" nolabel="1"/>
+                        </group>
+                        <group></group>
+                    </group>
+                </form>
+            </field>
+        </record>
+        
+        <record id="view_edu_line_tree" model="ir.ui.view">
+            <field name="name">hr.employee.edu.line.tree</field>
+            <field name="model">hr.employee.edu.line</field>
+            <field name="arch" type="xml">
+                <tree string="Employee Lines" editable="top">
+                    <field name="employee_id"/>
+                    <field name="education"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="view_edu_line_form" model="ir.ui.view">
+            <field name="name">hr.employee.edu.line.form</field>
+            <field name="model">hr.employee.edu.line</field>
+            <field name="arch" type="xml">
+                <form string="Employee Education Line">
+                    <field name="employee_id"/>
+                    <field name="education"/>
+                </form>
+            </field>
+        </record>
+
+        <act_window id="action_hr_employee_education_by_department"
+                name="Employee Education Level"
+                res_model="hr.employee.edu" 
+                src_model="hr.department"
+                view_mode="form" 
+                key2="client_action_multi"
+                target="new"
+        />
+        
+    </data>
+</openerp>

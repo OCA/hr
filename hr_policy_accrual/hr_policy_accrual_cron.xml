@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+        <record model="ir.cron" id="hr_accrual_policy_cron">
+            <field name="name">Accrual Policies</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field eval="(DateTime.now() + timedelta(hours= +(24-DateTime.now().hour))).strftime('%Y-%m-%d 2:12:00')" name="nextcall"/>
+            <field eval="True" name="doall"/>
+            <field eval="'hr.policy.accrual'" name="model"/>
+            <field eval="'try_calculate_accruals'" name="function"/>
+            <field eval="'()'" name="args"/>
+        </record>
+        
+    </data>
+</openerp>

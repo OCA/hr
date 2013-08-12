@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+    <data>
+        
+        <record id="reason_bulk_si" model="hr.action.reason">
+            <field name="name">Batch Sign-in based on Attendance Sheet</field>
+            <field name="action_type">sign_in</field>
+        </record>
+        <record id="reason_bulk_so" model="hr.action.reason">
+            <field name="name">Batch Sign-out based on Attendance Sheet</field>
+            <field name="action_type">sign_out</field>
+        </record>
+        <record id="reason_bulk_ot1si" model="hr.action.reason">
+            <field name="name">Batch OT1 Sign-in based on Attendance Sheet</field>
+            <field name="action_type">sign_in</field>
+        </record>
+        <record id="reason_bulk_ot1so" model="hr.action.reason">
+            <field name="name">Batch OT1 Sign-out based on Attendance Sheet</field>
+            <field name="action_type">sign_out</field>
+        </record>
+        <record id="reason_bulk_ot2si" model="hr.action.reason">
+            <field name="name">Batch OT2 Sign-in based on Attendance Sheet</field>
+            <field name="action_type">sign_in</field>
+        </record>
+        <record id="reason_bulk_ot2so" model="hr.action.reason">
+            <field name="name">Batch OT2 Sign-out based on Attendance Sheet</field>
+            <field name="action_type">sign_out</field>
+        </record>
+        
+    </data>
+</openerp>

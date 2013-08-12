@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+        <record id="view_alert_employee_selection" model="ir.ui.view">
+            <field name="name">hr.schedule.alert.compute.view</field>
+            <field name="model">hr.schedule.alert.compute</field>
+            <field name="arch" type="xml">
+                <form string="Check Exceptions" version="7.0">
+                    <label for="date_start" string="Interval"/>
+                    <div>
+                        <field name="date_start" nolabel="1" class="oe_inline"/> - 
+                        <field name="date_end" nolabel="1" class="oe_inline"/>
+                    </div>
+                    <group colspan="4" string="Employees">
+                        <field name="employee_ids" nolabel="1"/>
+                    </group>
+                    <newline/>
+                    <group colspan="4" cols="4">
+                        <button name="generate_alerts" type="object" string="Check" icon="gtk-execute" class="oe_highlight"/>
+                        <button special="cancel" string="Close" icon="gtk-cancel"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+        
+        <record id="action_alerts_by_employee" model="ir.actions.act_window">
+            <field name="name">Check Exceptions</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr.schedule.alert.compute</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+        <menuitem id="menu_alerts_by_employee"
+            action="action_alerts_by_employee"
+            parent="menu_hr_root_schedule"
+            sequence="30"/>
+            
+    </data>
+</openerp>

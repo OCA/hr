@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+                        
+        <!-- Alert-related subtypes for messaging / Chatter -->
+        
+        <record id="mt_alert_request_confirmed" model="mail.message.subtype">
+            <field name="name">Personnel Request Confirmed</field>
+            <field name="res_model">hr.recruitment.request</field>
+            <field name="description">Personnel Request is awaiting approval</field>
+        </record>
+        
+        <record id="mt_alert_request_exception" model="mail.message.subtype">
+            <field name="name">Personnel Request in Exception</field>
+            <field name="res_model">hr.recruitment.request</field>
+            <field name="description">Personnel Request exceeds maximum number of employees for the job. Awaiting approval.</field>
+        </record>
+        
+        <record id="mt_alert_request_approved" model="mail.message.subtype">
+            <field name="name">Personnel Request Approved</field>
+            <field name="res_model">hr.recruitment.request</field>
+            <field name="description">Personnel Request has been approved</field>
+        </record>
+        
+        <record id="mt_alert_request_declined" model="mail.message.subtype">
+            <field name="name">Personnel Request Declined</field>
+            <field name="res_model">hr.contract</field>
+            <field name="description">Personnel Request has been declined</field>
+        </record>
+
+    </data>
+</openerp>

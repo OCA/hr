@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+    <data>
+        
+        <record id="view_employee_form" model="ir.ui.view">
+            <field name="name">hr.employee.form.inherit.1</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//form/sheet/field[@name='image_medium']" position="before">
+                        <header>
+                            <button name="signal_confirm" type="workflow" string="Confirm"
+                                    attrs="{'invisible': [('status','!=','new')]}" groups="base.group_hr_manager" class="oe_highlight"/>
+                            <button name="signal_active" type="workflow" string="Finished Onboarding"
+                                    attrs="{'invisible': [('status','!=','onboarding')]}" groups="base.group_hr_manager" class="oe_highlight"/>
+                            <!--<button name="%(action_set_inactive)d" type="action" string="Set Inactive"
+                                    attrs="{'invisible': [('status','not in',['new', 'onboarding', 'active'])]}" groups="base.group_hr_manager" class="oe_highlight"/>-->
+                            <button name="signal_reactivate" type="object" string="Re-Activate"
+                                    attrs="{'invisible': [('status','!=','inactive')]}" groups="base.group_hr_manager" class="oe_highlight"/>
+                            <button name="signal_confirm_reactivate" type="workflow" string="Confirm"
+                                    attrs="{'invisible': [('status','!=','reactivated')]}" groups="base.group_hr_manager" class="oe_highlight"/>
+                            <field name="status" widget="statusbar"/>
+                        </header>
+                    </xpath>
+                    <xpath expr="//page[@string='HR Settings']" position="after">
+                        <page string="Deactivation">
+                            <group>
+                                <group string="Deactivation Records" colspan="4" col="4">
+                                    <field name="inactive_ids" nolabel="1">
+                                        <tree string="Inactive Records">
+                                            <field name="name"/>
+                                            <field name="reason_id"/>
+                                            <field name="state"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                            </group>
+                        </page>
+                    </xpath>
+                    <xpath expr="//field[@name='department_id']" position="replace">
+                        <field name="department_id" on_change="onchange_department_id(department_id)" attrs="{'invisible': [('status','=','pending_inactive')]}"/>
+                        <field name="saved_department_id" attrs="{'invisible': [('status','!=','pending_inactive')]}"/>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+        
+
+        <record id="view_termination_filter" model="ir.ui.view">
+            <field name="name">Employees</field>
+            <field name="model">hr.employee.termination</field>
+            <field name="arch" type="xml">
+                <search string="Employees">
+                    <field name="name" string="Employees"/>
+                    <field name="department_id" />
+                    <filter string="Draft, Confirmed" icon="terp-personal" name="draft_state" domain="[('state','in', ['draft','confirm'])]" help="To be processed"/>
+                    <group expand="0" string="Group By...">
+                        <filter string="Department" icon="terp-personal+" domain="[]" context="{'group_by':'department_id'}"/>
+                    </group>
+                </search>
+             </field>
+         </record>
+         
+        <record id="hr_employee_termination_tree_view" model="ir.ui.view">
+            <field name="name">hr.employee.termination.tree</field>
+            <field name="model">hr.employee.termination</field>
+            <field name="arch" type="xml">
+                <tree string="Employment Terminations">
+                    <field name="employee_id"/>
+                    <field name="department_id"/>
+                    <field name="name"/>
+                    <field name="reason_id"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="hr_employee_termination_form_view" model="ir.ui.view">
+            <field name="name">hr.employee.termination.form</field>
+            <field name="model">hr.employee.termination</field>
+            <field name="arch" type="xml">
+                <form string="Employment Termination" version="7.0">
+                    <sheet>
+                        <header>
+                            <button name="signal_confirmed" type="workflow" states="draft" string="Confirm" class="oe_highlight"/>
+                            <button name="signal_done" type="workflow" states="confirm" string="Deactivate" class="oe_highlight"/>
+                            <button name="signal_cancel" type="workflow" states="confirm" string="Cancel" class="oe_highlight"/>
+                            <field name="state" widget="statusbar"/>
+                        </header>
+                        <group>
+                            <group>
+                                <field name="employee_id"/>
+                                <field name="reason_id"/>
+                                <field name="name"/>
+                            </group>
+                            <group>
+                                <field name="department_id" attrs="{'invisible': [('state','!=','done')]}"/>
+                                <field name="saved_department_id" attrs="{'invisible': [('state','=','done')]}"/>
+                            </group>
+                        </group>
+                        <separator string="Notes"/>
+                        <field name="notes" nolabel="1"/>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+        
+        <record id="open_hr_employee_termination" model="ir.actions.act_window">
+            <field name="name">Employment Termination</field>
+            <field name="res_model">hr.employee.termination</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'search_default_draft_state': 1}</field>
+            <field name="search_view_id" ref="view_termination_filter"/>
+        </record>
+        <menuitem id="menu_hr_employee_termination"
+            action="open_hr_employee_termination"
+            parent="hr.menu_hr_main"
+            sequence="150"/>
+        
+        <!-- Termination Reason -->
+        
+        <record id="view_termination_reason_tree" model="ir.ui.view">
+            <field name="name">hr.employee.termination.reason.tree</field>
+            <field name="model">hr.employee.termination.reason</field>
+            <field name="arch" type="xml">
+                <tree string="Employment Termination Reasons">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="view_termination_reason_form" model="ir.ui.view">
+            <field name="name">hr.employee.termination.reason.form</field>
+            <field name="model">hr.employee.termination.reason</field>
+            <field name="arch" type="xml">
+                <form string="Employment Termination Reason">
+                    <field name="name"/>
+                </form>
+            </field>
+        </record>
+        
+        <record id="open_termination_reason" model="ir.actions.act_window">
+            <field name="name">Employment Termination Reasons</field>
+            <field name="res_model">hr.employee.termination.reason</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem id="menu_hr_employee_termination_reason"
+            action="open_termination_reason"
+            parent="hr.menu_hr_configuration"
+            sequence="5"/>
+
+        <!-- HR Contract -->
+        <record id="view_contract_form" model="ir.ui.view">
+            <field name="name">hr.contract.form.inherit.1</field>
+            <field name="model">hr.contract</field>
+            <field name="inherit_id" ref="hr_contract_state.view_contract_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//button[@name='signal_done']" position="replace">
+                        <button name="end_contract" type="object" string="End Contract"
+                                groups="base.group_hr_user" states="trial,trial_ending,open,contract_ending" class="oe_highlight"/>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+        
+    </data>
+</openerp>

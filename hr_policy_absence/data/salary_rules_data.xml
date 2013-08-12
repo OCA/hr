@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+        
+        <!-- Delete some default leave types from the database -->
+        <delete model="hr.holidays.status" search="[('name','like','Legal Leaves%')]"/>
+        <delete model="hr.holidays.status" search="[('name','=','Compensatory Days')]"/>
+        <delete model="hr.holidays.status" search="[('name','=','Unpaid')]"/>
+
+        <!--
+             DO NOT CHANGE THE CODES BELOW!!!
+             The codes are used in the payroll register module to print out
+             the payroll register.
+        -->
+
+        <!-- Basic Income based on paid Leaves -->
+        
+        <record id="hr_salary_rule_basic_pal" model="hr.salary.rule">
+            <field name="code">PAL</field>
+            <field name="name">Paid Annual Leave</field>
+            <field name="category_id" ref="hr_payroll.BASIC"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = worked_days.LVANNUAL.number_of_hours > 0</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = contract.wage_hourly * worked_days.LVANNUAL.rate</field>
+            <field name="quantity">worked_days.LVANNUAL.number_of_hours</field>
+            <field name="sequence" eval="5"/>
+            <field name="note">Annual Leave hours. Not applicable to salaried employees.</field>
+        </record>
+
+        <record id="hr_salary_rule_basic_pbl" model="hr.salary.rule">
+            <field name="code">PBL</field>
+            <field name="name">Paid Bereavement Leave</field>
+            <field name="category_id" ref="hr_payroll.BASIC"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = worked_days.LVBEREAVEMENT.number_of_hours > 0</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = contract.wage_hourly * worked_days.LVBEREAVEMENT.rate</field>
+            <field name="quantity">worked_days.LVBEREAVEMENT.number_of_hours</field>
+            <field name="sequence" eval="6"/>
+            <field name="note">Bereavement Leave hours. Not applicable to salaried employees.</field>
+        </record>
+
+        <record id="hr_salary_rule_basic_pcl" model="hr.salary.rule">
+            <field name="code">PCL</field>
+            <field name="name">Paid Civic/Legal/Union Leave</field>
+            <field name="category_id" ref="hr_payroll.BASIC"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = worked_days.LVCIVIC.number_of_hours > 0</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = contract.wage_hourly * worked_days.LVCIVIC.rate</field>
+            <field name="quantity">worked_days.LVCIVIC.number_of_hours</field>
+            <field name="sequence" eval="7"/>
+            <field name="note">Civic, Leagal, and Union Leave hours. Not applicable to salaried employees.</field>
+        </record>
+
+        <record id="hr_salary_rule_basic_pml" model="hr.salary.rule">
+            <field name="code">PML</field>
+            <field name="name">Paid Maternity/Paternity Leave</field>
+            <field name="category_id" ref="hr_payroll.BASIC"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = worked_days.LVMATERNITY.number_of_hours > 0</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = contract.wage_hourly * worked_days.LVMATERNITY.rate</field>
+            <field name="quantity">worked_days.LVMATERNITY.number_of_hours</field>
+            <field name="sequence" eval="8"/>
+            <field name="note">Maternity/Paternity Leave hours. Not applicable to salaried employees.</field>
+        </record>
+
+        <record id="hr_salary_rule_basic_pmmedl" model="hr.salary.rule">
+            <field name="code">PMMEDL</field>
+            <field name="name">Paid Maternity Medical Leave</field>
+            <field name="category_id" ref="hr_payroll.BASIC"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = worked_days.LVMMEDICAL.number_of_hours > 0</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = contract.wage_hourly * worked_days.LVMMEDICAL.rate</field>
+            <field name="quantity">worked_days.LVMMEDICAL.number_of_hours</field>
+            <field name="sequence" eval="8"/>
+            <field name="note">Maternity Related Medical Leave hours. Not applicable to salaried employees.</field>
+        </record>
+
+        <record id="hr_salary_rule_basic_psl" model="hr.salary.rule">
+            <field name="code">PSL</field>
+            <field name="name">Paid Sick Leave</field>
+            <field name="category_id" ref="hr_payroll.BASIC"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = worked_days.LVSICK.number_of_hours > 0</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = contract.wage_hourly * worked_days.LVSICK.rate</field>
+            <field name="quantity">worked_days.LVSICK.number_of_hours</field>
+            <field name="sequence" eval="9"/>
+            <field name="note">Sick Leave hours. Not applicable to salaried employees.</field>
+        </record>
+
+        <record id="hr_salary_rule_basic_psl50" model="hr.salary.rule">
+            <field name="code">PSL50</field>
+            <field name="name">Paid Sick Leave 50%</field>
+            <field name="category_id" ref="hr_payroll.BASIC"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = worked_days.LVSICK50.number_of_hours > 0</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = contract.wage_hourly * worked_days.LVSICK50.rate</field>
+            <field name="quantity">worked_days.LVSICK50.number_of_hours</field>
+            <field name="sequence" eval="10"/>
+            <field name="note">Sick Leave hours paid at 50%. Not applicable to salaried employees.</field>
+        </record>
+
+        <!-- Paid Sick Leave for Salaried Employees (Deduct half the amount due) -->
+        <record id="hr_salary_rule_basic_psl50_sal" model="hr.salary.rule">
+            <field name="code">SLDOCK50</field>
+            <field name="name">Sick Leave 50%</field>
+            <field name="category_id" ref="hr_payroll.BASIC"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = worked_days.LVSICK50.number_of_hours > 0</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = contract.wage_hourly * worked_days.LVSICK50.rate</field>
+            <field name="quantity">worked_days.LVSICK50.number_of_hours</field>
+            <field name="sequence" eval="10"/>
+            <field name="note">Sick Leave hours paid at 50%. Applies to salaried employees only.</field>
+        </record>
+
+        <record id="hr_salary_rule_basic_psl00" model="hr.salary.rule">
+            <field name="code">PSL00</field>
+            <field name="name">Sick Leave Without Pay</field>
+            <field name="category_id" ref="hr_payroll.BASIC"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = worked_days.LVSICK00.number_of_hours > 0</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = 0</field>
+            <field name="quantity">worked_days.LVSICK00.number_of_hours</field>
+            <field name="sequence" eval="11"/>
+            <field name="note">Sick Leave Without Pay. Not applicable to salaried employees.</field>
+        </record>
+
+        <!-- Unpaid Sick Leave for Salaried Employees (Deduct the entire amount due) -->
+        <record id="hr_salary_rule_basic_psl00_sal" model="hr.salary.rule">
+            <field name="code">SLDOCK100</field>
+            <field name="name">Sick Leave Without Pay</field>
+            <field name="category_id" ref="hr_payroll.BASIC"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = worked_days.LVSICK00.number_of_hours > 0</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = contract.wage_hourly * worked_days.LVSICK00.rate</field>
+            <field name="quantity">worked_days.LVSICK00.number_of_hours</field>
+            <field name="sequence" eval="11"/>
+            <field name="note">Sick Leave Without Pay. Applicable only to salaried employees.</field>
+        </record>
+
+        <record id="hr_salary_rule_basic_ptl" model="hr.salary.rule">
+            <field name="code">PTL</field>
+            <field name="name">Paid Time Off</field>
+            <field name="category_id" ref="hr_payroll.BASIC"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = worked_days.LVPTO.number_of_hours > 0</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = contract.wage_hourly * worked_days.LVPTO.rate</field>
+            <field name="quantity">worked_days.LVPTO.number_of_hours</field>
+            <field name="sequence" eval="12"/>
+            <field name="note">Paid Time Off hours paid at 100%. Not applicable to salaried employees.</field>
+        </record>
+
+        <record id="hr_salary_rule_basic_pwl" model="hr.salary.rule">
+            <field name="code">PWL</field>
+            <field name="name">Paid Wedding Leave</field>
+            <field name="category_id" ref="hr_payroll.BASIC"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = worked_days.LVWEDDING.number_of_hours > 0</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = contract.wage_hourly * worked_days.LVWEDDING.rate</field>
+            <field name="quantity">worked_days.LVWEDDING.number_of_hours</field>
+            <field name="sequence" eval="14"/>
+            <field name="note">Wedding Leave hours paid at 100%. Not applicable to salaried employees.</field>
+        </record>
+        
+    </data>
+</openerp>

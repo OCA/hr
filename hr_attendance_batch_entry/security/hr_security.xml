@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+        <record id="group_hr_timekeeper" model="res.groups">
+            <field name="name">Time Keeper</field>
+            <field name="category_id" ref="base.module_category_human_resources"/>
+            <field name="users" eval="[(4, ref('base.user_root'))]"/>
+            <field name="comment">the user will be able to fully access attendance records</field>
+        </record>
+        
+    </data>
+</openerp>

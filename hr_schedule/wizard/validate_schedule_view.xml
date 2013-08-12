@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+        <record id="view_department_selection" model="ir.ui.view">
+            <field name="name">hr.schedule.validate.departments.view</field>
+            <field name="model">hr.schedule.validate.departments</field>
+            <field name="arch" type="xml">
+                <form string="Departmet Selection">
+                    <group colspan="4" string="Departments">
+                        <field name="department_ids" nolabel="1"/>
+                    </group>
+                    <newline/>
+                    <group>
+                        <button name="view_schedules" type="object" string="View Schedules" class="oe_highlight"/>
+                        <button name="do_validate" type="object" string="Validate All" icon="gtk-execute" class="oe_highlight"/>
+                        <button special="cancel" string="Close" icon="gtk-cancel"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+        
+        <record id="action_schedules_by_department" model="ir.actions.act_window">
+            <field name="name">Validate by Department</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr.schedule.validate.departments</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+        <menuitem id="menu_schedules_by_department"
+            action="action_schedules_by_department"
+            parent="menu_hr_root_schedule"
+            sequence="30"/>
+        
+    </data>
+</openerp>

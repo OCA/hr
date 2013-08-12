@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+        <!-- Alert-related subtypes for messaging / Chatter -->
+        
+        <record id="mt_alert_xfer_confirmed" model="mail.message.subtype">
+            <field name="name">Department Transfer - Confirmed</field>
+            <field name="res_model">hr.department.transfer</field>
+            <field name="description">Transfer submitted</field>
+        </record>
+        
+        <record id="mt_alert_xfer_pending" model="mail.message.subtype">
+            <field name="name">Department Transfer - Pending</field>
+            <field name="res_model">hr.department.transfer</field>
+            <field name="description">Transfer pending effective date</field>
+        </record>
+        
+        <record id="mt_alert_xfer_done" model="mail.message.subtype">
+            <field name="name">Department Transfer - Completed</field>
+            <field name="res_model">hr.department.transfer</field>
+            <field name="description">Transfer complete</field>
+        </record>
+        
+    </data>
+</openerp>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+        <!-- Workflow Definition -->
+        <record id="wkf_attendance" model="workflow">
+            <field name="name">hr.attendance.basic</field>
+            <field name="osv">hr.attendance</field>
+            <field name="on_create">True</field>
+        </record>
+        
+        <!-- Workflow Activities (Stages) -->
+        
+        <record id="act_draft" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_attendance"/>
+            <field name="name">draft</field>
+            <field name="kind">function</field>
+            <field name="action">write({'state': 'draft'})</field>
+            <field name="flow_start">True</field>
+        </record>
+        
+        <record id="act_verified" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_attendance"/>
+            <field name="name">verified</field>
+            <field name="kind">function</field>
+            <field name="action">write({'state': 'verified'})</field>
+        </record>
+        
+        <record id="act_locked" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_attendance"/>
+            <field name="name">locked</field>
+            <field name="kind">function</field>
+            <field name="action">write({'state': 'locked'})</field>
+        </record>
+        
+        <!-- Workflow Transitions -->
+        
+        <record id="draft2locked" model="workflow.transition">
+            <field name="act_from" ref="act_draft"/>
+            <field name="act_to" ref="act_locked"/>
+            <field name="signal">signal_lock</field>
+            <field name="group_id" ref="base.group_hr_manager"/>
+        </record>
+        
+        <record id="locked2draft" model="workflow.transition">
+            <field name="act_from" ref="act_locked"/>
+            <field name="act_to" ref="act_draft"/>
+            <field name="signal">signal_unlock</field>
+            <field name="group_id" ref="base.group_hr_manager"/>
+        </record>
+        
+    </data>
+</openerp>

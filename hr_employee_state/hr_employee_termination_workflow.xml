@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+    <data>
+        
+        <!-- Workflow Definition -->
+        
+        <record id="wkf_employee_termination" model="workflow">
+            <field name="name">hr.employee.termination.basic</field>
+            <field name="osv">hr.employee.termination</field>
+            <field name="on_create">True</field>
+        </record>
+        
+        <!-- Workflow Activities (States) -->
+        
+        <record id="act_draft" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_employee_termination"/>
+            <field name="name">draft</field>
+            <field name="kind">function</field>
+            <field name="action">write({'state': 'draft'})</field>
+            <field name="flow_start">True</field>
+        </record>
+        
+        <record id="act_confirm" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_employee_termination"/>
+            <field name="name">confirm</field>
+            <field name="kind">function</field>
+            <field name="action">write({'state': 'confirm'})</field>
+        </record>
+        
+        <record id="act_done" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_employee_termination"/>
+            <field name="name">done</field>
+            <field name="kind">function</field>
+            <field name="action">state_done()</field>
+            <field name="flow_stop">True</field>
+        </record>
+        
+        <record id="act_cancel" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_employee_termination"/>
+            <field name="name">cancel</field>
+            <field name="kind">function</field>
+            <field name="action">state_cancel()</field>
+            <field name="flow_stop">True</field>
+        </record>
+        
+        <!-- Workflow Transitions -->
+        
+        <record id="draft2confirm" model="workflow.transition">
+            <field name="act_from" ref="act_draft"/>
+            <field name="act_to" ref="act_confirm"/>
+            <field name="signal">signal_confirmed</field>
+            <field name="group_id" ref="base.group_hr_user"/>
+        </record>
+        
+        <record id="confirm2cancel" model="workflow.transition">
+            <field name="act_from" ref="act_confirm"/>
+            <field name="act_to" ref="act_cancel"/>
+            <field name="signal">signal_cancel</field>
+            <field name="group_id" ref="base.group_hr_manager"/>
+        </record>
+        
+        <record id="confirm2done" model="workflow.transition">
+            <field name="act_from" ref="act_confirm"/>
+            <field name="act_to" ref="act_done"/>
+            <field name="signal">signal_done</field>
+            <field name="group_id" ref="base.group_hr_manager"/>
+        </record>
+
+    </data>
+</openerp>

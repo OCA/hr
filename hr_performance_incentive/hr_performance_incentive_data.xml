@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+    <data noupdate="1">
+        
+        <!-- Payroll Register -->
+        <record id="hr_register_pi" model="hr.contribution.register">
+            <field name="name">Register for Performance Incentive</field>
+        </record>
+        
+        <record id="hr_salary_rule_performance" model="hr.salary.rule">
+            <field name="code">PI</field>
+            <field name="name">Performance Incentive</field>
+            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = utils.PPF.amount > 0.99 and contract.wage &lt; 30000 and (worked_days.WORK100.number_of_days + worked_days.LVANNUAL.number_of_days + worked_days.LVMATERNITY.number_of_days) > 0 and worked_days.AWOL.number_of_days == 0 and worked_days.NFRA.number_of_days == 0 and worked_days.WARN.number_of_days == 0 and worked_days.TARDY.number_of_days == 0</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = contract.wage_monthly * 0.10</field>
+            <field name="register_id" ref="hr_register_pi"/>
+            <field name="sequence" eval="200"/>
+            <field name="note"></field>
+        </record>
+        
+    </data>
+</openerp>

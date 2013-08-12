@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+        <!-- Bunching Sheet -->
+        
+        <record id="view_bunching_sheet_sheet_form" model="ir.ui.view">
+            <field name="name">hr.bunching.sheet.sheet.form</field>
+            <field name="model">hr.bunching.sheet.sheet</field>
+            <field name="arch" type="xml">
+                <form string="Bunching Sheet Recording Form" version="7.0">
+                    <header>
+                        <button name="add_records" type="object" string="Save" icon="gtk-execute" class="oe_highlight"/>
+                    </header>
+                    <group>
+                        <field name="name"/>
+                        <field name="department_id"/>
+                        <field name="recorder_id"/>
+                    </group>
+                    <separator string="Bunching Records"/>
+                    <field name="line_ids" nolabel="1">
+                        <tree string="Line Items" editable="top">
+                            <field name="employee_id" domain="[('department_id', '=', department_id)]" readonly="True"/>
+                            <field name="round1_qty"/>
+                            <field name="round2_qty"/>
+                            <field name="round3_qty"/>
+                            <field name="round4_qty"/>
+                            <field name="round5_qty"/>
+                            <field name="round6_qty"/>
+                            <field name="round7_qty"/>
+                            <field name="round8_qty"/>
+                            <field name="round9_qty"/>
+                            <field name="round10_qty"/>
+                            <field name="round11_qty"/>
+                            <field name="round12_qty"/>
+                            <field name="round13_qty"/>
+                            <field name="round14_qty"/>
+                            <field name="round15_qty"/>
+                            <field name="round16_qty"/>
+                            <field name="round17_qty"/>
+                            <field name="round18_qty"/>
+                            <field name="round19_qty"/>
+                            <field name="round20_qty"/>
+                        </tree>
+                    </field>
+                </form>
+            </field>
+        </record>
+        
+        <record id="action_bunching_sheet" model="ir.actions.act_window">
+            <field name="name">Bunching Sheet Format</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr.bunching.sheet.sheet</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+         
+    </data>
+</openerp>

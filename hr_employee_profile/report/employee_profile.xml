@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+    
+        <record id="report_employee_profile" model="ir.actions.report.xml">
+            <field name="name">Employee Profile</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">hr.employee</field>
+            <field name="report_name">hr_employee_profile</field>
+            <field name="report_type">aeroo</field>
+            <field name="in_format">oo-odt</field>
+            <field name="parser_loc">hr_employee_profile/report/employee_profile.py</field>
+            <field name="report_rml">hr_employee_profile/report/employee_profile.odt</field>
+            <field name="parser_state">loc</field>
+            <field name="tml_source">file</field>
+        </record>
+    
+        <ir_set>
+            <field eval="'action'" name="key"/>
+            <field eval="'client_print_multi'" name="key2"/>
+            <field eval="['hr.employee']" name="models"/>
+            <field name="name">Employee Profile</field>
+            <field eval="'ir.actions.report.xml,'+str(report_employee_profile)" name="value"/>
+            <field eval="True" name="isobject"/>
+            <field eval="True" name="replace"/>
+        </ir_set>
+    
+    </data>
+</openerp>

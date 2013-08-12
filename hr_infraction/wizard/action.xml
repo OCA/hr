@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+    <data>
+        
+        <record id="hr_infraction_action_wizard_form" model="ir.ui.view">
+            <field name="name">hr.infraction.action.wizard.form</field>
+            <field name="model">hr.infraction.action.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Choose Action" version="7.0">
+                    <header>
+                        <button name="create_action" type="object" string="Take Action" class="oe_highlight"/>
+                    </header>
+                    <div>
+                        <h2>Please choose the appropriate action from the list below</h2>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="action_type"/>
+                        </group>
+                        <group></group>
+                    </group>
+                    <group string="Departmental Transfer" attrs="{'invisible': [('action_type','!=','transfer')]}">
+                        <group>
+                            <field name="new_job_id" widget="selection"/>
+                            <field name="xfer_effective_date"/>
+                        </group>
+                        <group></group>
+                    </group>
+                    <group string="Dismissal" attrs="{'invisible': [('action_type','!=','dismissal')]}">
+                        <group>
+                            <field name="effective_date"/>
+                        </group>
+                        <group></group>
+                    </group>
+                    <separator string="Notes"/>
+                    <field name="memo" nolabel="1" colspan="4"/>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_action_wizard" model="ir.actions.act_window">
+            <field name="name">Infraction Action</field>
+            <field name="res_model">hr.infraction.action.wizard</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="hr_infraction_action_wizard_form"/>
+            <field name="target">new</field>
+        </record>
+        
+    </data>
+</openerp>

@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+        <record id="action_payroll_period_end" model="ir.actions.act_window">
+            <field name="name">End of Pay Period Wizard</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr.payroll.period.end.1</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">inline</field>
+        </record>
+        
+        <record id="payroll_period_end_view" model="ir.ui.view">
+            <field name="name">hr.payroll.period.end.1.form</field>
+            <field name="model">hr.payroll.period.end.1</field>
+            <field name="arch" type="xml">
+                <form string="End of Payroll Period Wizard" version="7.0">
+                    <h2>1. Check Attendance Records</h2>
+                    <field name="is_ended" invisible="1"/>
+                    <group>
+                        <group string="Attendance Exceptions" colspan="4" col="8">
+                            <field name="alert_critical"/>
+                            <field name="alert_high"/>
+                            <field name="alert_medium"/>
+                            <field name="alert_low"/>
+                        </group>
+                        <group colspan="2" cols="1">
+                            <button name="view_alerts" type="object" string="View Alerts"/>
+                            <button name="recalc_alerts" type="object" groups="base.group_hr_manager" string="Re-check"/>
+                        </group>
+                    </group>
+                    <newline/>
+                    <h2>2. Public Holidays</h2>
+                    <p>If there are any public holidays during this pay period please review the
+                        dates on which they fall. Some holidays may depend on local conditions
+                        (such as siteings of the moon, etc.) and may therefor fall on a day
+                        different than previously scheduled.</p>
+                    <group>
+                        <group string="Public Holidays">
+                            <field name="public_holiday_ids" nolabel="1"/>
+                        </group>
+                    </group>
+                    <newline/>
+                    <h2>3. Lock Pay Period</h2>
+                    <group>
+                        <group>
+                            <field name="can_unlock" invisible="1"/>
+                            <field name="payslips" invisible="1"/>
+                            <field name="ps_generated" invisible="1"/>
+                            <field name="locked"/>
+                            <button name="lock_period" type="object" groups="base.group_hr_manager" string="Lock" attrs="{'invisible': [('locked','=',True)]}"/>
+                            <button name="unlock_period" type="object" groups="base.group_hr_manager" string="Unlock" attrs="{'invisible': [('can_unlock','=',False)]}"/>
+                        </group>
+                    </group>
+                    <h2>4. Review Pay Slip Amendments</h2>
+                    <p>Review pay slip amendments, if any, attached to this pay period. You can
+                        confirm, cancel or modify amendments directly from this wizard. Only
+                        confirmed amendments will be processed.
+                    </p>
+                    <group>
+                        <group string="Confirmed">
+                            <field name="ps_amendments_conf" nolabel="1"/>
+                        </group>
+                        <group string="Draft">
+                            <field name="ps_amendments_draft" nolabel="1"/>
+                        </group>
+                        <group>
+                            <button name="reload" type="object" groups="hr_security.group_payroll_manager" string="Reload"/>
+                        </group>
+                    </group>
+                    <h2>5. Generate and Review Pay Slips</h2>
+                    <group>
+                        <button name="create_payroll_register" type="object" groups="hr_security.group_payroll_manager" string="Generate Pay Slips" attrs="{'invisible': [('payment_started','=',True)]}"/>
+                        <button name="view_payroll_register" type="object" string="Review Pay Slips" attrs="{'invisible': [('payslips','!=',True)]}"/>
+                    </group>
+                    <h2>6. Review and Resolve Payroll Exceptions</h2>
+                    <p>Payroll exceptions denote possible abnormalities in the generated
+                        Pay Slips. While most types of exceptions should be reviewed, only
+                        "Critical" exceptions will block you from moving on to the next
+                        stage.  Critical exceptions must be resolved and the affected
+                        Pay Slips recomputed before the wizard will continue to the next
+                        stage.</p>
+                    <group>
+                        <group string="Payroll Exceptions" colspan="4" col="12">
+                            <field name="pex_critical"/>
+                            <field name="pex_high"/>
+                            <field name="pex_medium"/>
+                            <field name="pex_low"/>
+                        </group>
+                        <group colspan="2">
+                            <button name="view_payroll_exceptions" type="object" string="View Exceptions"/>
+                        </group>
+                    </group>
+                    <h2>7. Start Making Payments</h2>
+                    <p>Once you start making payments there is no way to go back to a previous
+                        state. Any modifications will have to be made as Pay Slip Amendments to
+                        the next pay period after this one is closed.
+                    </p>
+                    <group>
+                        <group>
+                            <field name="payment_started"/>
+                            <group colspan="4" col="8">
+                                <button name="start_payments" type="object" groups="hr_security.group_payroll_manager" string="Start Payments" attrs="{'invisible': [('ps_generated','=',False)]}"/>
+                                <button name="print_payslips" type="object" groups="hr_security.group_payroll_manager" string="Print Pay Slips" attrs="{'invisible': [('ps_generated','=',False)]}"/>
+                            </group>
+                        </group>
+                        <newline/>
+                        <group string="Exact Change">
+                            <group string="Bank Notes">
+                                <field name="br100"/>
+                                <field name="br50"/>
+                                <field name="br10"/>
+                                <field name="br5"/>
+                                <field name="br1"/>
+                            </group>
+                            <group string="Coins">
+                                <field name="cent50"/>
+                                <field name="cent25"/>
+                                <field name="cent10"/>
+                                <field name="cent05"/>
+                                <field name="cent01"/>
+                            </group>
+                            <group>
+                                <field name="exact_change"/>
+                            </group>
+                        </group>
+                    </group>
+                    <newline/>
+                    <h2>8. Print End-of-Period Reports</h2>
+                    <p>Print out the payroll and contribution registers belonging to this
+                        period. Keeping paper-copies of these reports can be useful for
+                        record-keeping and preservation purposes.</p>
+                    <group colspan="4" col="8">
+                        <button name="print_payroll_summary" type="object" string="Print Payroll Summary" attrs="{'invisible': [('ps_generated','=',False)]}"/>
+                        <button name="print_payroll_register" type="object" string="Print Payroll Register" attrs="{'invisible': [('ps_generated','=',False)]}"/>
+                        <button name="print_payslip_details" type="object" string="Print Pay Slip Details" attrs="{'invisible': [('ps_generated','=',False)]}"/>
+                        <button name="print_contribution_registers" type="object" string="Print Contribution Registers" attrs="{'invisible': [('ps_generated','=',False)]}"/>
+                    </group>
+                    <newline/>
+                    <h2>9. Close Pay Period</h2>
+                    <p>Once you close a pay period there is no way to alter the status of any
+                        pay slips.  Any modifications will have to be made as Pay Slip Amendments to
+                        the next pay period.
+                    </p>
+                    <group>
+                        <field name="closed"/>
+                        <button name="close_pay_period" type="object" groups="hr_security.group_payroll_manager" string="Close Pay Period" attrs="{'invisible': [('payment_started','=',False)]}"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+        
+    </data>
+</openerp>

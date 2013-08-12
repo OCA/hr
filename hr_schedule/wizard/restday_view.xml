@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+        <record id="view_restday_change_wizard" model="ir.ui.view">
+            <field name="name">hr.restday.wizard.form</field>
+            <field name="model">hr.restday.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Change Schedule Template" version="7.0">
+                    <header>
+                        <button name="change_restday" type="object" string="Change" class="oe_highlight"/>
+                    </header>
+                    <group>
+                        <group>
+                            <field name="employee_id" on_change="onchange_employee(employee_id)"/>
+                            <field name="temp_restday"/>
+                        </group>
+                        <group>
+                            <field name="st_current_id"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Temporary Rest Day" attrs="{'invisible': [('temp_restday','=', False)]}">
+                            <field name="dayofweek" attrs="{'required': [('temp_restday','=', True)]}"/>
+                            <field name="temp_week_start" on_change="onchange_temp_week(temp_week_start)" attrs="{'required': [('temp_restday','=', True)]}"/>
+                        </group>
+                        <group></group>
+                    </group>
+                    <group>
+                        <group string="Schedule Template" attrs="{'invisible': [('temp_restday','=', True)]}">
+                            <field name="st_new_id" widget="selection" attrs="{'required': [('temp_restday','=', False)]}"/>
+                            <field name="week_start" on_change="onchange_week(week_start)" attrs="{'required': [('permanent','=', False),('temp_restday','=', False)]}"/>
+                            <field name="permanent"/>
+                        </group>
+                        <group></group>
+                    </group>
+                </form>
+            </field>
+        </record>
+        
+        <record id="action_restday_change" model="ir.actions.act_window">
+            <field name="name">Change Schedule Template</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr.restday.wizard</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+        <menuitem id="menu_restday_change"
+            action="action_restday_change"
+            parent="hr.menu_hr_main"
+            groups="base.group_hr_user"
+            sequence="170"/>
+        
+    </data>
+</openerp>

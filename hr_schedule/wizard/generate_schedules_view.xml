@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+        <record id="view_schedule_employee_selection" model="ir.ui.view">
+            <field name="name">hr.schedule.generate.view</field>
+            <field name="model">hr.schedule.generate</field>
+            <field name="arch" type="xml">
+                <form string="Generate Schedules" version="7.0">
+                    <group>
+                        <field name="date_start" on_change="onchange_start_date(date_start)"/>
+                        <field name="no_weeks"/>
+                    </group>
+                    <group colspan="4" string="Employees">
+                        <field name="employee_ids" nolabel="1"/>
+                    </group>
+                    <newline/>
+                    <group colspan="4" cols="4">
+                        <button name="generate_schedules" type="object" string="Generate" icon="gtk-execute" class="oe_highlight"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+        
+        <record id="action_schedules_by_employee" model="ir.actions.act_window">
+            <field name="name">Generate Schedules</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr.schedule.generate</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+        <menuitem id="menu_schedules_by_employee"
+            action="action_schedules_by_employee"
+            parent="menu_hr_root_schedule"
+            sequence="30"/>
+        
+    </data>
+</openerp>

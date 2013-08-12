@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+        <!-- Workflow Definition -->
+        <record id="wkf_payroll_period" model="workflow">
+            <field name="name">hr.payroll.period.basic</field>
+            <field name="osv">hr.payroll.period</field>
+            <field name="on_create">True</field>
+        </record>
+        
+        <!-- Workflow Activities (Stages) -->
+        
+        <record id="act_open" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_payroll_period"/>
+            <field name="name">open</field>
+            <field name="kind">function</field>
+            <field name="action">write({'state': 'open'})</field>
+            <field name="flow_start">True</field>
+        </record>
+        
+        <record id="act_ended" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_payroll_period"/>
+            <field name="name">ended</field>
+            <field name="kind">function</field>
+            <field name="action">set_state_ended()</field>
+        </record>
+        
+        <record id="act_period_locked" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_payroll_period"/>
+            <field name="name">locked</field>
+            <field name="kind">function</field>
+            <field name="action">set_state_locked()</field>
+        </record>
+        
+        <record id="act_generate" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_payroll_period"/>
+            <field name="name">generate</field>
+            <field name="kind">function</field>
+            <field name="action">write({'state': 'generate'})</field>
+        </record>
+        
+        <record id="act_payment" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_payroll_period"/>
+            <field name="name">payment</field>
+            <field name="kind">function</field>
+            <field name="action">write({'state': 'payment'})</field>
+        </record>
+        
+        <record id="act_closed" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_payroll_period"/>
+            <field name="name">closed</field>
+            <field name="kind">function</field>
+            <field name="action">set_state_closed()</field>
+        </record>
+        
+        <!-- Workflow Transitions -->
+        
+        <record id="open2ended" model="workflow.transition">
+            <field name="act_from" ref="act_open"/>
+            <field name="act_to" ref="act_ended"/>
+            <field name="signal">end_period</field>
+        </record>
+        
+        <record id="ended2locked" model="workflow.transition">
+            <field name="act_from" ref="act_ended"/>
+            <field name="act_to" ref="act_period_locked"/>
+            <field name="signal">lock_period</field>
+            <field name="group_id" ref="base.group_hr_manager"/>
+        </record>
+        
+        <record id="locked2ended" model="workflow.transition">
+            <field name="act_from" ref="act_period_locked"/>
+            <field name="act_to" ref="act_ended"/>
+            <field name="signal">unlock_period</field>
+            <field name="group_id" ref="base.group_hr_manager"/>
+        </record>
+        
+        <record id="locked2generate" model="workflow.transition">
+            <field name="act_from" ref="act_period_locked"/>
+            <field name="act_to" ref="act_generate"/>
+            <field name="signal">generate_payslips</field>
+            <field name="group_id" ref="hr_security.group_payroll_manager"/>
+        </record>
+        
+        <record id="generate2ended" model="workflow.transition">
+            <field name="act_from" ref="act_generate"/>
+            <field name="act_to" ref="act_ended"/>
+            <field name="signal">unlock_period</field>
+            <field name="group_id" ref="base.group_hr_manager"/>
+        </record>
+        
+        <record id="generate2payment" model="workflow.transition">
+            <field name="act_from" ref="act_generate"/>
+            <field name="act_to" ref="act_payment"/>
+            <field name="signal">start_payments</field>
+            <field name="group_id" ref="hr_security.group_payroll_manager"/>
+        </record>
+        
+        <record id="payment2closed" model="workflow.transition">
+            <field name="act_from" ref="act_payment"/>
+            <field name="act_to" ref="act_closed"/>
+            <field name="signal">close_period</field>
+            <field name="group_id" ref="hr_security.group_payroll_manager"/>
+        </record>
+        
+    </data>
+</openerp>

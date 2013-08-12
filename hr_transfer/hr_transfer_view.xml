@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+    <data>
+        
+        <record id="department_transfer_tree_view" model="ir.ui.view">
+            <field name="name">hr.department.transfer.tree</field>
+            <field name="model">hr.department.transfer</field>
+            <field name="arch" type="xml">
+                <tree string="Departmental Transfers">
+                    <field name="employee_id"/>
+                    <field name="src_id"/>
+                    <field name="dst_id"/>
+                    <field name="date"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="department_transfer_form_view" model="ir.ui.view">
+            <field name="name">hr.department.transfer.form</field>
+            <field name="model">hr.department.transfer</field>
+            <field name="arch" type="xml">
+                <form string="Departmental Transfer" version="7.0">
+                    <sheet>
+                        <header>
+                            <button name="signal_confirm" type="workflow" states="draft" string="Confirm" class="oe_highlight"/>
+                            <button name="signal_pending" type="workflow" states="confirm" string="Transfer" class="oe_highlight"/>
+                            <button name="signal_cancel" type="workflow" states="confirm,pending" string="Cancel" class="oe_highlight"/>
+                            <field name="state" widget="statusbar"/>
+                        </header>
+                        <group>
+                            <group>
+                                <field name="employee_id" on_change="onchange_employee(employee_id)"/>
+                                <field name="src_id" widget="selection"/>
+                                <field name="dst_id" widget="selection"/>
+                                <field name="date"/>
+                            </group>
+                            <group>
+                                <field name="src_department_id"/>
+                                <field name="src_contract_id"/>
+                                <field name="dst_department_id"/>
+                                <field name="dst_contract_id"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+        
+        <record id="open_hr_department_transfer" model="ir.actions.act_window">
+            <field name="name">Departmental Transfers</field>
+            <field name="res_model">hr.department.transfer</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem id="menu_hr_department_transfer"
+            action="open_hr_department_transfer"
+            parent="hr.menu_hr_main"
+            sequence="140"/>
+        
+    </data>
+</openerp>

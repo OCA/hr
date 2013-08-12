@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        
+        <record id="view_daily_manpower" model="ir.ui.view">
+            <field name="name">hr.department.manpower.form</field>
+            <field name="model">hr.department.manpower</field>
+            <field name="arch" type="xml">
+                <form string="Choose Date" version="7.0">
+                    <header>
+                        <button name="print_report" type="object" string="Print" icon="gtk-print" class="oe_highlight"/>
+                    </header>
+                    <group>
+                        <group>
+                            <field name="date"/> 
+                        </group>
+                        <group></group>
+                    </group>
+                </form>
+            </field>
+        </record>
+        
+        <record id="open_daily_manpower" model="ir.actions.act_window">
+            <field name="name">Daily Manpower by Department</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr.department.manpower</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_daily_manpower"/>
+            <field name="target">new</field>
+        </record>
+        
+        <menuitem
+            name="Daily Manpower" 
+            id="menu_daily_manpower" 
+            action="open_daily_manpower" 
+            parent="hr.menu_hr_reporting_timesheet"
+            sequence="2" groups="base.group_hr_user"/>
+        
+    </data>
+</openerp>

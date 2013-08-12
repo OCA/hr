@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+        <!-- Daily Manpower by Department Report -->
+        
+        <record id="report_daily_manpower" model="ir.actions.report.xml">
+            <field name="name">Daily Manpower by Department</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">hr.department</field>
+            <field name="report_name">hr_daily_manpower</field>
+            <field name="report_type">aeroo</field>
+            <field name="in_format">oo-odt</field>
+            <field name="parser_loc">hr_report_manpower/report/daily_manpower.py</field>
+            <field name="report_rml">hr_report_manpower/report/daily_manpower.odt</field>
+            <field name="parser_state">loc</field>
+            <field name="tml_source">file</field>
+        </record>
+        
+    </data>
+</openerp>

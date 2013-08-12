@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+    <data>
+        
+        <!-- Employee Workflow Definition -->
+        <record id="wkf_employee" model="workflow">
+            <field name="name">hr.employee.basic</field>
+            <field name="osv">hr.employee</field>
+            <field name="on_create">True</field>
+        </record>
+        
+        <!-- Workflow Activities (Stages) -->
+        
+        <record id="act_new" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_employee"/>
+            <field name="name">new</field>
+            <field name="kind">function</field>
+            <field name="action">write({'status': 'new'})</field>
+            <field name="flow_start">True</field>
+        </record>
+        
+        <record id="act_onboarding" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_employee"/>
+            <field name="name">onboarding</field>
+            <field name="kind">function</field>
+            <field name="action">write({'status': 'onboarding'})</field>
+        </record>
+        
+        <record id="act_active" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_employee"/>
+            <field name="name">active</field>
+            <field name="kind">function</field>
+            <field name="action">state_active()</field>
+        </record>
+        
+        <record id="act_pending_inactive" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_employee"/>
+            <field name="name">pending_inactive</field>
+            <field name="kind">function</field>
+            <field name="action">state_pending_inactive()</field>
+        </record>
+        
+        <record id="act_inactive" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_employee"/>
+            <field name="name">inactive</field>
+            <field name="kind">function</field>
+            <field name="action">state_inactive()</field>
+        </record>
+        
+        <record id="act_reactivated" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_employee"/>
+            <field name="name">reactivated</field>
+            <field name="kind">function</field>
+            <field name="action">write({'status': 'reactivated'})</field>
+        </record>
+        
+        <!-- Workflow Transitions -->
+        
+        <record id="new2onboarding" model="workflow.transition">
+            <field name="act_from" ref="act_new"/>
+            <field name="act_to" ref="act_onboarding"/>
+            <field name="signal">signal_confirm</field>
+            <field name="group_id" ref="base.group_hr_manager"/>
+        </record>
+        
+        <record id="onboarding2active" model="workflow.transition">
+            <field name="act_from" ref="act_onboarding"/>
+            <field name="act_to" ref="act_active"/>
+            <field name="condition">condition_finished_onboarding() == True</field>
+            <field name="signal">signal_active</field>
+            <field name="group_id" ref="base.group_hr_manager"/>
+        </record>
+        
+        <record id="new2pendinginactive" model="workflow.transition">
+            <field name="act_from" ref="act_new"/>
+            <field name="act_to" ref="act_pending_inactive"/>
+            <field name="signal">signal_pending_inactive</field>
+            <field name="group_id" ref="base.group_hr_user"/>
+        </record>
+        
+        <record id="onboarding2pendinginactive" model="workflow.transition">
+            <field name="act_from" ref="act_onboarding"/>
+            <field name="act_to" ref="act_pending_inactive"/>
+            <field name="signal">signal_pending_inactive</field>
+            <field name="group_id" ref="base.group_hr_user"/>
+        </record>
+        
+        <record id="active2pendinginactive" model="workflow.transition">
+            <field name="act_from" ref="act_active"/>
+            <field name="act_to" ref="act_pending_inactive"/>
+            <field name="signal">signal_pending_inactive</field>
+            <field name="group_id" ref="base.group_hr_user"/>
+        </record>
+        
+        <record id="pendinginactive2active" model="workflow.transition">
+            <field name="act_from" ref="act_pending_inactive"/>
+            <field name="act_to" ref="act_active"/>
+            <field name="signal">signal_active</field>
+            <field name="group_id" ref="base.group_hr_user"/>
+        </record>
+        
+        <record id="pendinginactive2inactive" model="workflow.transition">
+            <field name="act_from" ref="act_pending_inactive"/>
+            <field name="act_to" ref="act_inactive"/>
+            <field name="signal">signal_inactive</field>
+            <field name="group_id" ref="base.group_hr_manager"/>
+        </record>
+        
+        <record id="inactive2reactivated" model="workflow.transition">
+            <field name="act_from" ref="act_inactive"/>
+            <field name="act_to" ref="act_reactivated"/>
+            <field name="signal">signal_reactivate</field>
+            <field name="group_id" ref="base.group_hr_manager"/>
+        </record>
+        
+        <record id="reactivated2onboarding" model="workflow.transition">
+            <field name="act_from" ref="act_reactivated"/>
+            <field name="act_to" ref="act_onboarding"/>
+            <field name="signal">signal_confirm_reactivate</field>
+            <field name="group_id" ref="base.group_hr_manager"/>
+        </record>
+        
+    </data>
+</openerp>

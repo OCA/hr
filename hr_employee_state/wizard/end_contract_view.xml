@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+        <record id="action_set_inactive" model="ir.actions.act_window">
+            <field name="name">Employee De-Activation Wizard</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr.contract.end</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+        
+        <record id="view_inactive_wizard" model="ir.ui.view">
+            <field name="name">hr.contract.end.form</field>
+            <field name="model">hr.contract.end</field>
+            <field name="arch" type="xml">
+                <form string="Employee De-Activation Wizard" version="7.0">
+                    <header>
+                        <button name="set_employee_inactive" type="object" string="End Employment" class="oe_highlight"/>
+                    </header>
+                    <newline/>
+                    <div>
+                        <b>
+                        This employee no longer has any valid contracts. In such a case it is
+                        customary for the employee record to be archived as an 'inactive' record.
+                        However, the record and all the employee's associated data such as contracts,
+                        leaves, attendances, etc will still be available. This is not a
+                        permanent removal of the employee record. Should you wish to you can
+                        easily re-activate it again at any time in the future.
+                        </b>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="contract_id" invisible="1"/>
+                            <field name="employee_id"/>
+                            <field name="date"/>
+                            <field name="reason_id"/>
+                        </group>
+                        <group></group>
+                    </group>
+                    <group string="Notes" colspan="4">
+                        <field name="notes" nolabel="1"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+    
+    </data>
+</openerp>

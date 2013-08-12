@@ -1,0 +1,27 @@
+id,name,date,holidays_id/id,variable
+ph_1,Ethiopian Christmas,2013-01-07,public_holidays_2013,FALSE
+ph_2,Timket,2013-01-19,public_holidays_2013,FALSE
+ph_3,The Prophet Mohammed's Birthday,2013-01-24,public_holidays_2013,TRUE
+ph_4,Victory of Adwa,2013-03-02,public_holidays_2013,FALSE
+ph_5,Labour Day,2013-05-01,public_holidays_2013,FALSE
+ph_6,Ethiopian Good Friday,2013-05-03,public_holidays_2013,FALSE
+ph_7,Ethiopian Easter,2013-05-05,public_holidays_2013,FALSE
+ph_8,Patriot's Victory Day,2013-05-05,public_holidays_2013,FALSE
+ph_9,Downfall of the Dergue,2013-05-28,public_holidays_2013,FALSE
+ph_10,Eid al- Fetr (End of Ramadan),2013-08-08,public_holidays_2013,TRUE
+ph_11,Ethiopian New Year,2013-09-11,public_holidays_2013,FALSE
+ph_12,Meskel (Finding of the True Cross),2013-09-27,public_holidays_2013,FALSE
+ph_13,Eid al-Adha,2013-10-15,public_holidays_2013,TRUE
+ph_14,Ethiopian Christmas,2014-01-07,public_holidays_2014,FALSE
+ph_15,The Prophet Mohammed's Birthday,2014-01-13,public_holidays_2014,TRUE
+ph_16,Timket,2014-01-19,public_holidays_2014,FALSE
+ph_17,Victory of Adwa,2014-03-02,public_holidays_2014,FALSE
+ph_18,Ethiopian Good Friday,2014-04-18,public_holidays_2014,FALSE
+ph_19,Ethiopian Easter,2014-04-20,public_holidays_2014,FALSE
+ph_20,Labour Day,2014-05-01,public_holidays_2014,FALSE
+ph_21,Patriot's Victory Day,2014-05-05,public_holidays_2014,FALSE
+ph_22,Downfall of the Dergue,2014-05-28,public_holidays_2014,FALSE
+ph_23,Eid al- Fetr (End of Ramadan),2014-07-28,public_holidays_2014,TRUE
+ph_24,Ethiopian New Year,2014-09-11,public_holidays_2014,FALSE
+ph_25,Meskel (Finding of the True Cross),2014-09-27,public_holidays_2014,FALSE
+ph_26,Eid al-Adha,2014-10-04,public_holidays_2014,TRUE

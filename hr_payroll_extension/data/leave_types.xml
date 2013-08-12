@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+        
+        <!-- Leave Types -->
+        
+        <record model="hr.holidays.status" id="holiday_status_bereavement">
+            <field name="name">Bereavement Leave</field>
+            <field name="code">LVBEREAVEMENT</field>
+            <field name="limit" eval="True"/>
+            <field name="color_name">blue</field>
+        </record>
+        
+        <record model="hr.holidays.status" id="holiday_status_civic">
+            <field name="name">Civic/Legal/Union Leave</field>
+            <field name="code">LVCIVIC</field>
+            <field name="limit" eval="True"/>
+            <field name="color_name">black</field>
+        </record>
+
+        <record model="hr.holidays.status" id="holiday_status_maternity">
+            <field name="name">Maternity/Paternity Leave</field>
+            <field name="code">LVMATERNITY</field>
+            <field name="limit" eval="True"/>
+            <field name="color_name">blue</field>
+        </record>
+        
+        <record model="hr.holidays.status" id="holiday_status_maternity_medical">
+            <field name="name">Maternity Medical Leave</field>
+            <field name="code">LVMMEDICAL</field>
+            <field name="limit" eval="True"/>
+            <field name="color_name">blue</field>
+        </record>
+        
+        <record model="hr.holidays.status" id="hr_holidays.holiday_status_sl">
+            <field name="name">Sick Leave</field>
+            <field name="code">LVSICK</field>
+            <field name="limit" eval="True"/>
+            <field name="color_name">magenta</field>
+        </record>
+
+        <record model="hr.holidays.status" id="hr_holidays.holiday_status_sl50">
+            <field name="name">Sick Leave at 50%</field>
+            <field name="code">LVSICK50</field>
+            <field name="limit" eval="True"/>
+            <field name="color_name">magenta</field>
+        </record>
+
+        <record model="hr.holidays.status" id="hr_holidays.holiday_status_sl00">
+            <field name="name">Sick Leave Without Pay</field>
+            <field name="code">LVSICK00</field>
+            <field name="limit" eval="True"/>
+            <field name="color_name">magenta</field>
+        </record>
+
+        <record model="hr.holidays.status" id="holiday_status_paid">
+            <field name="name">Paid Time Off</field>
+            <field name="code">LVPTO</field>
+            <field name="limit" eval="True"/>
+            <field name="color_name">blue</field>
+        </record>
+        
+        <record model="hr.holidays.status" id="holiday_status_wedding">
+            <field name="name">Wedding Leave</field>
+            <field name="code">LVWEDDING</field>
+            <field name="limit" eval="True"/>
+            <field name="color_name">blue</field>
+        </record>
+        
+        <record model="hr.holidays.status" id="holiday_status_unpaid">
+            <field name="name">Unpaid Time Off</field>
+            <field name="code">LVUTO</field>
+            <field name="limit" eval="True"/>
+            <field name="color_name">brown</field>
+        </record>
+        
+    </data>
+</openerp>

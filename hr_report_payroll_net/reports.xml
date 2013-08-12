@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+        <!-- Net Payroll -->
+        
+        <record id="report_payroll_net" model="ir.actions.report.xml">
+            <field name="name">Net Payroll Report</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">hr.payroll.register</field>
+            <field name="report_name">hr_payroll_net</field>
+            <field name="report_type">aeroo</field>
+            <field name="in_format">oo-ods</field>
+            <field name="parser_loc">hr_report_payroll_net/report/payroll_net.py</field>
+            <field name="report_rml">hr_report_payroll_net/report/payroll_net.ods</field>
+            <field name="parser_state">loc</field>
+            <field name="tml_source">file</field>
+        </record>
+        
+    </data>
+</openerp>

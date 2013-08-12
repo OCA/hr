@@ -1,0 +1,76 @@
+# ================================================================
+# 
+# The Functions (code, comments, and definitions) contained in this
+# file (the "Program") were written by Edward M. Reingold and Nachum
+# Dershowitz (the "Authors"), who retain all rights to them except as
+# granted in the License and subject to the warranty and liability
+# limitations below.  These Functions are explained in the Authors'
+# book, "Calendrical Calculations", 3rd ed. (Cambridge University
+# Press, 2008), and are subject to an international copyright.
+#
+# The Authors' public service intent is more liberal than suggested
+# by the License below, as are their licensing policies for otherwise
+# nonallowed uses such as--without limitation--those in commercial,
+# web-site, and large-scale academic contexts.  Please see the
+# web-site
+#
+#     http://www.calendarists.com
+#
+# for all uses not authorized below; in case there is cause for doubt
+# about whether a use you contemplate is authorized, please contact
+# the Authors (e-mail: reingold@iit.edu).  For commercial licensing
+# information, contact the first author at the Department of Computer
+# Science, Illinois Institute of Technology, Chicago, IL 60616-3729 USA.
+#
+# 1. LICENSE.  The Authors grant you a license for personal use.
+# This means that for strictly personal use you may copy and use the
+# code, and keep a backup or archival copy also.  The Authors grant you a 
+# license for re-use within non-commercial, non-profit softeare provided prominent
+# credit is given and the Authors' rights are preserved.  Any other uses,
+# including without limitation, allowing the code or its output to be
+# accessed, used, or available to others, is not permitted.
+#
+# 2. WARRANTY.
+#
+# (a) THE AUTHORS PROVIDE NO WARRANTIES OF ANY KIND, EITHER
+#     EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITING THE
+#     GENERALITY OF THE FOREGOING, ANY IMPLIED WARRANTY OF
+#     MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.
+#
+# (b) THE AUTHORS SHALL NOT BE LIABLE TO YOU OR ANY THIRD PARTIES
+#     FOR DAMAGES OF ANY KIND, INCLUDING WITHOUT LIMITATION, ANY LOST
+#     PROFITS, LOST SAVINGS, OR ANY OTHER INCIDENTAL OR CONSEQUENTIAL
+#     DAMAGES ARISING OUT OF OR RELATED TO THE USE, INABILITY TO USE,
+#     OR INACCURACY OF CALCULATIONS, OF THE CODE AND FUNCTIONS
+#     CONTAINED HEREIN, OR THE BREACH OF ANY EXPRESS OR IMPLIED
+#     WARRANTY, EVEN IF THE AUTHORS OR PUBLISHER HAVE BEEN ADVISED OF
+#     THE POSSIBILITY OF THOSE DAMAGES.
+#
+# (c) THE FOREGOING WARRANTY MAY GIVE YOU SPECIFIC LEGAL
+#     RIGHTS WHICH MAY VARY FROM STATE TO STATE IN THE U.S.A.
+#
+# 3. LIMITATION OF LICENSEE REMEDIES.  You acknowledge and agree that
+# your exclusive remedy (in law or in equity), and Authors' entire
+# liability with respect to the material herein, for any breach of
+# representation or for any inaccuracy shall be a refund of the license
+# fee or service and handling charge which you paid the Authors, if any.
+#
+# SOME STATES IN THE U.S.A. DO NOT ALLOW THE EXCLUSION OR LIMITATION OF
+# LIABILITY FOR INCIDENTAL OR CONSEQUENTIAL DAMAGES, SO THE ABOVE
+# EXCLUSIONS OR LIMITATION MAY NOT APPLY TO YOU.
+#
+# 4. DISCLAIMER.  Except as expressly set forth above, the Authors:
+#
+#   (a) make no other warranties with respect to the material in the
+#   Program and expressly disclaim any others;
+#
+#   (b) do not warrant that the material contained in the Program will
+#   meet your requirements or that their operation shall be
+#   uninterrupted or error-free;
+#
+#   (c) license this material on an "as is" basis, and the entire risk
+#   as to the quality, accuracy, and performance of the Program is
+#   yours, should the code prove defective (except as expressly
+#   warranted herein).  You alone assume the entire cost of all
+#   necessary corrections.
+#

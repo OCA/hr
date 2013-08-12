@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+        <!-- Simplify Leave allocation menu -->
+        <menuitem name="Leave Allocation"
+            id="menu_leave_allocation" parent="hr_holidays.menu_open_ask_holidays" sequence="100"/>
+        <menuitem id="hr_holidays.menu_open_allocation_holidays"
+            parent="menu_leave_allocation" action="hr_holidays.open_allocation_holidays"/>
+        <menuitem id="hr_holidays.menu_request_approve_allocation"
+            parent="menu_leave_allocation" action="hr_holidays.request_approve_allocation" groups="base.group_hr_manager"/>
+        
+        <!-- Policy Lines -->
+        
+        <record id="accr_policy_line_tree_view" model="ir.ui.view">
+            <field name="name">hr.policy.line.accrual.tree</field>
+            <field name="model">hr.policy.line.accrual</field>
+            <field name="arch" type="xml">
+                <tree string="Accrual Policy Lines">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="type"/>
+                    <field name="balance_on_payslip"/>
+                    <field name="calculation_frequency"/>
+                    <field name="accrual_rate"/>
+                    <field name="accrual_rate_premium_minimum"/>
+                    <field name="accrual_rate_premium"/>
+                    <field name="accrual_rate_premium_milestone"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="accr_policy_line_form_view" model="ir.ui.view">
+            <field name="name">hr.policy.line.accrual.form</field>
+            <field name="model">hr.policy.line.accrual</field>
+            <field name="arch" type="xml">
+                <form string="Accrual Policy Line" version="7.0">
+                    <sheet>
+                        <h1>
+                            <label for="name" string="Name" class="oe_edit_only"/>
+                            <field name="name"/>
+                        </h1>
+                        <h1>
+                            <label for="code" string="Code" class="oe_edit_only"/>
+                            <field name="code"/>
+                        </h1>
+                        <notebook>
+                            <page string="General">
+                                <group>
+                                    <group>
+                                        <field name="accrual_id"/>
+                                        <field name="policy_id"/>
+                                        <field name="type"/>
+                                        <field name="balance_on_payslip"/>
+                                        <field name="calculation_frequency"/>
+                                        <field name="frequency_on_hire_date"/>
+                                    </group>
+                                    <group>
+                                        <field name="minimum_employed_days"/>
+                                        <field name="accrual_rate"/>
+                                        <field name="accrual_rate_premium_minimum"/>
+                                        <field name="accrual_rate_premium"/>
+                                        <field name="accrual_rate_premium_milestone"/>
+                                        <field name="accrual_rate_max"/>
+                                    </group>
+                                </group>
+                                <group string="Weekly Frequency" attrs="{'invisible': ['|',('calculation_frequency','!=','weekly'),('frequency_on_hire_date','=',True)]}">
+                                    <field name="frequency_week_day" attrs="{'invisible': [('calculation_frequency','!=','weekly')], 'required': [('calculation_frequency', '=','weekly')]}"/>
+                                </group>
+                                <group string="Monthly Frequency" attrs="{'invisible': ['|',('calculation_frequency','!=','monthly'),('frequency_on_hire_date','=',True)]}">
+                                    <field name="frequency_month_day" attrs="{'invisible': [('calculation_frequency','!=','monthly')], 'required': [('calculation_frequency', '=','monthly'), ('frequency_on_hire_date', '=', False)]}"/>
+                                </group>
+                                <group string="Annual Frequency" attrs="{'invisible': ['|',('calculation_frequency','!=','annual'),('frequency_on_hire_date','=',True)]}">
+                                    <field name="frequency_annual_month" attrs="{'invisible': [('calculation_frequency','!=','annual')], 'required': [('calculation_frequency', '=','annual')]}"/>
+                                    <field name="frequency_annual_day" attrs="{'invisible': [('calculation_frequency','!=','annual')], 'required': [('calculation_frequency', '=','annual')]}"/>
+                                </group>
+                            </page>
+                            <page string="Jobs">
+                                <group string="List of Jobs">
+                                    <field name="job_ids" nolabel="1">
+                                        <tree string="Jobs">
+                                            <field name="name"/>
+                                            <field name="exec"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <record id="open_accr_policy_line" model="ir.actions.act_window">
+            <field name="name">Accrual Policy Lines</field>
+            <field name="res_model">hr.policy.line.accrual</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem action="open_accr_policy_line"
+            id="menu_hr_accr_policy_line"
+            parent="hr_policy_group.menu_hr_policy_configuration"
+            sequence="12"/>
+        
+        <!-- Policy -->
+        
+        <record id="accr_policy_view_tree" model="ir.ui.view">
+            <field name="name">hr.policy.accrual.tree</field>
+            <field name="model">hr.policy.accrual</field>
+            <field name="arch" type="xml">
+                <tree string="Accrual Policies">
+                    <field name="name"/>
+                    <field name="date"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="accr_policy_view_form" model="ir.ui.view">
+            <field name="name">hr.policy.accrual.form</field>
+            <field name="model">hr.policy.accrual</field>
+            <field name="arch" type="xml">
+                <form string="Accrual Policy" version="7.0">
+                    <sheet>
+                        <h1>
+                            <label for="name" string="Name" class="oe_edit_only"/>
+                            <field name="name"/>
+                        </h1>
+                        <group>
+                            <group>
+                                <field name="date"/>
+                            </group>
+                            <group></group>
+                        </group>
+                        <group string="Accrual Lines">
+                            <field name="line_ids" nolabel="1" editable="top"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <record id="open_accr_policy" model="ir.actions.act_window">
+            <field name="name">Accrual Policies</field>
+            <field name="res_model">hr.policy.accrual</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem action="open_accr_policy"
+            id="menu_hr_accr_policy"
+            parent="hr_policy_group.menu_hr_policy_configuration"
+            sequence="10"/>
+        
+        <!-- Policy Group -->
+        
+        <record id="policy_group_view_form" model="ir.ui.view">
+            <field name="name">hr.policy.group.form.accrinherit</field>
+            <field name="model">hr.policy.group</field>
+            <field name="inherit_id" ref="hr_policy_group.policy_group_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group[@name='right']" position="inside">
+                    <field name="accr_policy_ids"/>
+                </xpath>
+            </field>
+        </record>
+        
+        <!-- Accrual Line Job -->
+        
+        <record id="accrual_line_job_form_view" model="ir.ui.view">
+            <field name="name">hr.policy.line.accrual.job.form</field>
+            <field name="model">hr.policy.line.accrual.job</field>
+            <field name="arch" type="xml">
+                <form string="Accrual Line Job">
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="policy_line_id"/>
+                        </group>
+                        <group>
+                            <field name="exec"/>
+                        </group>
+                    </group>
+                    <newline/>
+                    <group>
+                        <group string="Accrual Lines">
+                            <field name="accrual_line_ids" nolabel="1">
+                                <tree string="Accrual Lines">
+                                    <field name="employee_id"/>
+                                    <field name="amount"/>
+                                </tree>
+                            </field>
+                        </group>
+                        <group string="Holiday Allocation Requests">
+                            <field name="holiday_ids" nolabel="1">
+                                <tree string="Holidays">
+                                    <field name="employee_id"/>
+                                    <field name="holiday_status_id"/>
+                                    <field name="number_of_days_temp"/>
+                                    <field name="state"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </group>
+                </form>
+            </field>
+        </record>
+        
+    </data>
+</openerp>

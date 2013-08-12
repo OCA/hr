@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+        <!-- Change admin user's time zone to Ethiopia -->
+        <record id="base.user_root" model="res.users">
+            <field name="tz">Africa/Addis_Ababa</field>
+        </record>
+        
+    </data>
+</openerp>

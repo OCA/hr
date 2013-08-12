@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<openerp>
+	<data>
+        
+        <record id="report_payroll_register" model="ir.actions.report.xml">
+            <field name="name">Payroll Register</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">hr.payroll.register</field>
+            <field name="report_name">hr_payroll_register_report</field>
+            <field name="report_type">aeroo</field>
+            <field name="in_format">oo-odt</field>
+            <field name="parser_loc">hr_payroll_register_report/report/payroll_register.py</field>
+            <field name="report_rml">hr_payroll_register_report/report/payroll_register.odt</field>
+            <field name="parser_state">loc</field>
+            <field name="tml_source">file</field>
+        </record>
+    
+        <ir_set>
+            <field eval="'action'" name="key"/>
+            <field eval="'client_print_multi'" name="key2"/>
+            <field eval="['hr.payroll.register']" name="models"/>
+            <field name="name">Payroll Register</field>
+            <field eval="'ir.actions.report.xml,'+str(report_payroll_register)" name="value"/>
+            <field eval="True" name="isobject"/>
+            <field eval="True" name="replace"/>
+        </ir_set>
+  
+	</data>
+</openerp>

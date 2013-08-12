@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+    <data>
+        
+        <record id="hr_employee_form_view" model="ir.ui.view">
+            <field name="name">hr.employee.inherit.form</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//field[@name='birthday']" position="before">
+                        <field name="use_ethiopic_dob"/>
+                        <label for="etcal_dob_month" string="Ethiopic Birthday"/>
+                        <div>
+                            <field name="etcal_dob_month" attrs="{'readonly': [('use_ethiopic_dob','=',False)]}" on_change="onchange_etdob(etcal_dob_year, etcal_dob_month, etcal_dob_day)" nolabel="1" class="oe_inline"/> 
+                            <field name="etcal_dob_day" attrs="{'readonly': [('use_ethiopic_dob','=',False)]}" on_change="onchange_etdob(etcal_dob_year, etcal_dob_month, etcal_dob_day)" nolabel="1" class="oe_inline"/>, 
+                            <field name="etcal_dob_year" attrs="{'readonly': [('use_ethiopic_dob','=',False)]}" on_change="onchange_etdob(etcal_dob_year, etcal_dob_month, etcal_dob_day)" nolabel="1" class="oe_inline"/>
+                        </div>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+        
+    </data>
+</openerp>

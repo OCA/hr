@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+        <!-- Alert-related subtypes for messaging / Chatter -->
+        
+        <record id="mt_alert_resolved" model="mail.message.subtype">
+            <field name="name">Resolved</field>
+            <field name="res_model">hr.schedule.alert</field>
+            <field name="description">Alert resolved</field>
+        </record>
+        
+        <record id="mt_alert_unresolved" model="mail.message.subtype">
+            <field name="name">Unresolved</field>
+            <field name="res_model">hr.schedule.alert</field>
+            <field name="description">Alert state is unresolved</field>
+        </record>
+        
+    </data>
+</openerp>

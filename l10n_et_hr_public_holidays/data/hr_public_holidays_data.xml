@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+        <!-- Calendar Years -->
+        <record id="public_holidays_2012" model="hr.holidays.public">
+            <field name="year">2012</field>
+        </record>
+        
+        <record id="public_holidays_2013" model="hr.holidays.public">
+            <field name="year">2013</field>
+        </record>
+        
+        <record id="public_holidays_2014" model="hr.holidays.public">
+            <field name="year">2014</field>
+        </record>
+        
+    </data>
+</openerp>
+        
