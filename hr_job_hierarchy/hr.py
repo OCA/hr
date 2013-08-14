@@ -97,7 +97,16 @@ class hr_job(osv.Model):
                     employee_id = False
                     for ee in job.employee_ids:
                         employee_id = ee.id
-                    dept_obj.write(cr, uid, dept_id, {'manager_id': employee_id}, context=context)
+                    dept_obj.write(cr, uid, vals['department_id'], {'manager_id': employee_id}, context=context)
+        elif vals.get('parent_id', False):
+            ee_obj = self.pool.get('hr.employee')
+            parent_job = self.browse(cr, uid, vals['parent_id'], context=context)
+            parent_id = False
+            for ee in parent_job.employee_ids:
+                parent_id = ee.id
+            for job in self.browse(cr, uid, ids, context=context):
+                for ee in job.employee_ids:
+                    ee_obj.write(cr, uid, ee.id, {'parent_id': parent_id}, context=context)
         
         return res
 
