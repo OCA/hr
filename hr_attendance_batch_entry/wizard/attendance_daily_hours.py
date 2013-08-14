@@ -397,7 +397,7 @@ class attendance_department(osv.osv_memory):
             return False
         return aid[0]
     
-    def add_AM(self, employee_id, delta, local_tz, dNextDay, sinDesc, soutDesc,
+    def add_AM(self, cr, uid, employee_id, delta, local_tz, dNextDay, sinDesc, soutDesc,
                hrStart, minStart, punches):
         if not delta or delta < 0.01:
             return punches
@@ -407,6 +407,15 @@ class attendance_department(osv.osv_memory):
         utcSinTime = (local_tz.localize(sinTime, is_dst=False)).astimezone(utc)
         soutTime = sinTime + timedelta(hours=delta)
         utcSoutTime = (local_tz.localize(soutTime, is_dst=False)).astimezone(utc)
+        
+        # Second attempt at catching attempts to modify attendance for locked periods.
+        # This will catch attendances erroneously inserted where there was no previous
+        # attendance data for the week.
+        #
+        att_obj = self.pool.get('hr.attendance')
+        if att_obj.is_locked(cr, uid, employee_id, utcSinTime.strftime(OE_DATETIME_FORMAT)):
+            return punches
+        
         recIn = {
                'name': utcSinTime.strftime("%Y-%m-%d %H:%M:%S"),
                'action': 'sign_in',
@@ -423,7 +432,7 @@ class attendance_department(osv.osv_memory):
         punches.append(recOut)
         return punches
     
-    def add_PM(self, employee_id, delta, deltaOT, local_tz, dNextDay, sinDesc, soutDesc,
+    def add_PM(self, cr, uid, employee_id, delta, deltaOT, local_tz, dNextDay, sinDesc, soutDesc,
                hrStart, minStart, amhrStart, amminStart, punches):
         if not delta or delta < 0.01:
             return punches
@@ -433,6 +442,15 @@ class attendance_department(osv.osv_memory):
                                     amhrStart + ":" + amminStart + ":00", "%Y-%m-%d %H:%M:%S")
         utcSinTime = (local_tz.localize(sinTime, is_dst=False)).astimezone(utc)
         utcSinTime += timedelta(seconds=deltaCalc.seconds)
+        
+        # Second attempt at catching attempts to modify attendance for locked periods.
+        # This will catch attendances erroneously inserted where there was no previous
+        # attendance data for the week.
+        #
+        att_obj = self.pool.get('hr.attendance')
+        if att_obj.is_locked(cr, uid, employee_id, utcSinTime.strftime(OE_DATETIME_FORMAT)):
+            return punches
+        
         if deltaOT < 0.01:
             utcSoutTime = utcSinTime + timedelta(hours=delta)
         else:
@@ -495,57 +513,57 @@ class attendance_department(osv.osv_memory):
             
             # Monday
             if 0 in days:
-                punches = self.add_AM(lid.employee_id.id, lid.monAM, local_tz,
+                punches = self.add_AM(cr, uid, lid.employee_id.id, lid.monAM, local_tz,
                                       dNextDay, sinDesc, soutDesc, lid.amhour, lid.ammin, punches)
-                punches = self.add_PM(lid.employee_id.id, lid.monPM, lid.monOT1, local_tz, dNextDay,
+                punches = self.add_PM(cr, uid, lid.employee_id.id, lid.monPM, lid.monOT1, local_tz, dNextDay,
                                       sinDesc, soutDesc, lid.pmhour, lid.pmmin, lid.amhour, lid.ammin, punches)
             dNextDay += timedelta(days=1)
             
             # Tuesday
             if 1 in days:
-                punches = self.add_AM(lid.employee_id.id, lid.tueAM, local_tz,
+                punches = self.add_AM(cr, uid, lid.employee_id.id, lid.tueAM, local_tz,
                                       dNextDay, sinDesc, soutDesc, lid.amhour, lid.ammin, punches)
-                punches = self.add_PM(lid.employee_id.id, lid.tuePM, lid.tueOT1, local_tz, dNextDay,
+                punches = self.add_PM(cr, uid, lid.employee_id.id, lid.tuePM, lid.tueOT1, local_tz, dNextDay,
                                       sinDesc, soutDesc, lid.pmhour, lid.pmmin, lid.amhour, lid.ammin, punches)
             dNextDay += timedelta(days=1)
             
             # Wednesday
             if 2 in days:
-                punches = self.add_AM(lid.employee_id.id, lid.wedAM, local_tz,
+                punches = self.add_AM(cr, uid, lid.employee_id.id, lid.wedAM, local_tz,
                                       dNextDay, sinDesc, soutDesc, lid.amhour, lid.ammin, punches)
-                punches = self.add_PM(lid.employee_id.id, lid.wedPM, lid.wedOT1, local_tz, dNextDay,
+                punches = self.add_PM(cr, uid, lid.employee_id.id, lid.wedPM, lid.wedOT1, local_tz, dNextDay,
                                       sinDesc, soutDesc, lid.pmhour, lid.pmmin, lid.amhour, lid.ammin, punches)
             dNextDay += timedelta(days=1)
             
             # Thursday
             if 3 in days:
-                punches = self.add_AM(lid.employee_id.id, lid.thuAM, local_tz,
+                punches = self.add_AM(cr, uid, lid.employee_id.id, lid.thuAM, local_tz,
                                       dNextDay, sinDesc, soutDesc, lid.amhour, lid.ammin, punches)
-                punches = self.add_PM(lid.employee_id.id, lid.thuPM, lid.thuOT1, local_tz, dNextDay,
+                punches = self.add_PM(cr, uid, lid.employee_id.id, lid.thuPM, lid.thuOT1, local_tz, dNextDay,
                                       sinDesc, soutDesc, lid.pmhour, lid.pmmin, lid.amhour, lid.ammin, punches)
             dNextDay += timedelta(days=1)
             
             # Friday
             if 4 in days:
-                punches = self.add_AM(lid.employee_id.id, lid.friAM, local_tz,
+                punches = self.add_AM(cr, uid, lid.employee_id.id, lid.friAM, local_tz,
                                       dNextDay, sinDesc, soutDesc, lid.amhour, lid.ammin, punches)
-                punches = self.add_PM(lid.employee_id.id, lid.friPM, lid.friOT1, local_tz, dNextDay,
+                punches = self.add_PM(cr, uid, lid.employee_id.id, lid.friPM, lid.friOT1, local_tz, dNextDay,
                                       sinDesc, soutDesc, lid.pmhour, lid.pmmin, lid.amhour, lid.ammin, punches)
             dNextDay += timedelta(days=1)
             
             # Saturday
             if 5 in days:
-                punches = self.add_AM(lid.employee_id.id, lid.satAM, local_tz,
+                punches = self.add_AM(cr, uid, lid.employee_id.id, lid.satAM, local_tz,
                                       dNextDay, sinDesc, soutDesc, lid.amhour, lid.ammin, punches)
-                punches = self.add_PM(lid.employee_id.id, lid.satPM, lid.satOT1, local_tz, dNextDay,
+                punches = self.add_PM(cr, uid, lid.employee_id.id, lid.satPM, lid.satOT1, local_tz, dNextDay,
                                       sinDesc, soutDesc, lid.pmhour, lid.pmmin, lid.amhour, lid.ammin, punches)
             dNextDay += timedelta(days=1)
             
             # Sunday
             if 6 in days:
-                punches = self.add_AM(lid.employee_id.id, lid.sunAM, local_tz,
+                punches = self.add_AM(cr, uid, lid.employee_id.id, lid.sunAM, local_tz,
                                       dNextDay, sinDesc, soutDesc, lid.amhour, lid.ammin, punches)
-                punches = self.add_PM(lid.employee_id.id, lid.sunPM, lid.sunOT1, local_tz, dNextDay,
+                punches = self.add_PM(cr, uid, lid.employee_id.id, lid.sunPM, lid.sunOT1, local_tz, dNextDay,
                                       sinDesc, soutDesc, lid.pmhour, lid.pmmin, lid.amhour, lid.ammin, punches)
             dNextDay += timedelta(days=1)
             
@@ -601,7 +619,7 @@ class attendance_department(osv.osv_memory):
             # do not remove *any* records for the day.
             #
             ids = att_obj.punch_ids_on_day(cr, uid, lid.employee_id.contract_id,
-                                            d + timedelta(days= count), context=context)
+                                           d + timedelta(days= count), context=context)
             unlocked_ids = []
             for att in att_obj.browse(cr, uid, ids, context=context):
                 if att.state != 'locked':

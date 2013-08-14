@@ -19,7 +19,6 @@
 #
 ##############################################################################
 
-from datetime import datetime
 from openerp.tools.translate import _
 from osv import fields, osv
 
@@ -38,20 +37,35 @@ class hr_attendance(osv.osv):
         'state': 'draft',
     }
     
+    def is_locked(self, cr, uid, employee_id, utcdt_str, context=None):
+        
+        res = False
+        pp_obj = self.pool.get('hr.payroll.period')
+        ee_data = self.pool.get('hr.employee').read(cr, uid, employee_id,
+                                                    ['contract_ids'], context=context)
+        pp_ids = pp_obj.search(cr, uid, [
+                                         ('state', 'in', ['locked','generate','payment','closed']),                                                            
+                                         '&', ('date_start', '<=', utcdt_str),
+                                              ('date_end', '>=', utcdt_str),
+                                        ], context=context)
+        for pp in pp_obj.browse(cr, uid, pp_ids, context=context):
+            pp_contract_ids = [c.id for c in pp.schedule_id.contract_ids]
+            for c_id in ee_data['contract_ids']:
+                if c_id in pp_contract_ids:
+                    res = True
+                    break
+            if res == True:
+                break
+        
+        return res
+    
     def create(self, cr, uid, vals, context=None):
         
-        ee_data = self.pool.get('hr.employee').read(cr, uid, vals['employee_id'],
-                                                    ['contract_ids'], context=context)
-        pp_ids = self.pool.get('hr.payroll.period').search(cr, uid,
-                                                           [
-                                                            ('state', 'in', ['locked','generate','payment','closed']),                                                            
-                                                            ('schedule_id.contract_ids', 'in', ee_data['contract_ids']),
-                                                            '&', ('date_start', '<=', vals['name']),
-                                                                 ('date_end', '>=', vals['name']),
-                                                           ], context=context)
-        if len(pp_ids) > 0:
+        if self.is_locked(cr, uid, vals['employee_id'], vals['name'], context=context):
+            ee_data = self.pool.get('hr.employee').read(cr, uid, vals['employee_id'], ['name'],
+                                                        context=context)
             raise osv.except_osv(_('The period is Locked!'),
-                                 _('You may not add an attendace record to a locked period.'))
+                                 _('You may not add an attendace record to a locked period.\nEmployee: %s\nTime: %s') %(ee_data['name'], vals['name']))
         
         return super(hr_attendance, self).create(cr, uid, vals, context=context)
     
@@ -62,7 +76,8 @@ class hr_attendance(osv.osv):
         
         for punch in self.browse(cr, uid, ids, context=context):
             if punch.state in ['verified', 'locked']:
-                raise osv.except_osv(_('The Record cannot be deleted!'), _('You may not delete a record that is in a %s state:\nEmployee: %s, Date: %s, Action: %s') %(punch.state, punch.employee_id.name, punch.name, punch.action))
+                raise osv.except_osv(_('The Record cannot be deleted!'),
+                                     _('You may not delete a record that is in a %s state:\nEmployee: %s, Date: %s, Action: %s') %(punch.state, punch.employee_id.name, punch.name, punch.action))
         
         return super(hr_attendance, self).unlink(cr, uid, ids, context=context)
     
