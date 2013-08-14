@@ -39,7 +39,9 @@ class hr_holidays(osv.osv):
     _inherit = ['hr.holidays', 'ir.needaction_mixin']
 
     _columns = {
-        'real_days': fields.float('Total Days'),
+        'real_days': fields.float('Total Days', digits=(16, 1)),
+        'rest_days': fields.float('Rest Days', digits=(16, 1)),
+        'public_holiday_days': fields.float('Public Holidays', digits=(16, 1)),
         'return_date': fields.char('Return Date', size=32),
         'return_date_et': fields.char('Ethiopic Return Date', size=128),
     }
@@ -115,18 +117,24 @@ class hr_holidays(osv.osv):
         
         count_days = no_days
         real_days = 1
+        ph_days = 0
+        r_days = 0
         next_dt = dt
         while count_days > 1:
             public_holiday = holiday_obj.is_public_holiday(cr, uid, next_dt.date(), context=context)
             rest_day = next_dt.weekday() in rest_days
             next_dt += timedelta(days= +1)
             if public_holiday or rest_day:
+                if public_holiday: ph_days += 1
+                elif rest_day: r_days += 1
                 real_days += 1
                 continue
             else:
                 count_days -= 1
                 real_days += 1
         while next_dt.weekday() in rest_days or holiday_obj.is_public_holiday(cr, uid, next_dt.date(), context=context):
+            if holiday_obj.is_public_holiday(cr, uid, next_dt.date(), context=context): ph_days += 1
+            elif next_dt.weekday() in rest_days: r_days += 1
             next_dt += timedelta(days=1)
             real_days += 1
 
@@ -143,19 +151,44 @@ class hr_holidays(osv.osv):
             time_part = dtEnd.strftime('%H:%M:%S')
         next_dt = datetime.strptime(next_dt.strftime(OE_DFORMAT) +' '+ time_part, OE_DTFORMAT)
 
-        return_date = next_dt + timedelta(days= +1)
-        while return_date.weekday() in rest_days or holiday_obj.is_public_holiday(cr, uid, return_date.date(), context=context):
-            return_date += timedelta(days=1)
         result['value'].update({'department_id': employee.department_id.id,
                                 'date_from': dt.strftime(OE_DTFORMAT),
                                 'date_to': next_dt.strftime(OE_DTFORMAT),
-                                'real_days': real_days,
-                                'return_date': return_date.strftime('%B %d, %Y'),
-                                'return_date_et': self.time2ethiopic(int(return_date.strftime('%Y')),
-                                                                     int(return_date.strftime('%m')),
-                                                                     int(return_date.strftime('%d')))})
+                                'rest_days': r_days,
+                                'public_holiday_days': ph_days,
+                                'real_days': real_days})
         return result
 
+    def onchange_enddate(self, cr, uid, ids, employee_id, date_to, context=None):
+        
+        ee_obj = self.pool.get('hr.employee')
+        holiday_obj = self.pool.get('hr.holidays.public')
+        sched_tpl_obj = self.pool.get('hr.schedule.template')
+        res = {'value': {'return_date': False, 'return_date_et': False}}
+
+        import logging
+        l = logging.getLogger(__name__)
+        l.warning('onchange_enddate')
+        if not employee_id or not date_to:
+            return res
+
+        rest_days = []
+        ee = ee_obj.browse(cr, uid, employee_id, context=context)
+        if ee.contract_id and ee.contract_id.schedule_template_id:
+            rest_days = sched_tpl_obj.get_rest_days(cr, uid,
+                                                    ee.contract_id.schedule_template_id.id,
+                                                    context=context)
+
+        dt = datetime.strptime(date_to, OE_DTFORMAT)
+        return_date = dt + timedelta(days= +1)
+        while return_date.weekday() in rest_days or holiday_obj.is_public_holiday(cr, uid, return_date.date(), context=context):
+            return_date += timedelta(days=1)
+        res['value']['return_date'] = return_date.strftime('%B %d, %Y')
+        res['value']['return_date_et'] = self.time2ethiopic(int(return_date.strftime('%Y')),
+                                                            int(return_date.strftime('%m')),
+                                                            int(return_date.strftime('%d')))
+        return res
+    
     def create(self, cr, uid, vals, context=None):
         
         att_obj = self.pool.get('hr.attendance')
