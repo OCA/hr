@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+        <!-- Leave Application -->
+        
+        <record id="report_leave_application" model="ir.actions.report.xml">
+            <field name="name">Leave Application</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">hr.holidays</field>
+            <field name="report_name">hr_leave_application</field>
+            <field name="report_type">aeroo</field>
+            <field name="in_format">oo-odt</field>
+            <field name="parser_loc">l10n_et_hr_holidays/report/leave_application.py</field>
+            <field name="report_rml">l10n_et_hr_holidays/report/leave_application.odt</field>
+            <field name="parser_state">loc</field>
+            <field name="tml_source">file</field>
+        </record>
+    
+        <ir_set>
+            <field eval="'action'" name="key"/>
+            <field eval="'client_print_multi'" name="key2"/>
+            <field eval="['hr.holidays']" name="models"/>
+            <field name="name">Leave Application</field>
+            <field eval="'ir.actions.report.xml,'+str(report_leave_application)" name="value"/>
+            <field eval="True" name="isobject"/>
+            <field eval="True" name="replace"/>
+        </ir_set>
+        
+    </data>
+</openerp>
