@@ -110,7 +110,12 @@ class hr_policy(osv.Model):
         if line.type != 'calendar':
             return
         
-        if line.minimum_employed_days > (dToday - dHire).days:
+        employed_days = 0
+        dCount = dHire
+        while dCount < dToday:
+            employed_days += 1
+            dCount += timedelta(days= +1)
+        if line.minimum_employed_days > employed_days:
             return
         
         if line.frequency_on_hire_date:
