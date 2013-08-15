@@ -38,14 +38,14 @@
                         <group>
                             <group>
                                 <field name="type"/>
-                                <field name="active_after" attrs="{'invisible': [('type','=','restday')], 'required': [('type','=','weekly')]}"/>
-                                <field name="active_after_units" attrs="{'invisible': [('type','=','restday')], 'required': [('type','=','weekly')]}"/>
+                                <field name="active_after" attrs="{'required': [('type','=','weekly')]}"/>
+                                <field name="active_after_units" attrs="{'required': [('type','=','weekly')]}"/>
                                 <field name="rate"/>
                             </group>
                             <group>
                                 <field name="active_start_time" attrs="{'invisible': [('type','!=','daily')]}"/>
                                 <field name="active_end_time" attrs="{'invisible': [('type','!=','daily')]}"/>
-                                <field name="tz" attrs="{'invisible': [('type','!=','daily')], 'required': [('active_start_time', '!=','')]}"/>
+                                <field name="tz" attrs="{'invisible': [('type','!=','daily')], 'required': ['&amp;', ('active_start_time', '!=',''), ('active_start_time', '!=', False)]}"/>
                                 <field name="policy_id"/>
                             </group>
                         </group>
