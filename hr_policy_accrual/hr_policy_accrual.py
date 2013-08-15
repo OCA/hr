@@ -79,75 +79,6 @@ class hr_policy(osv.Model):
                     res = policy
         
         return res
-
-    def _get_contracts_list(self, employee):        
-        '''Return list of contracts in chronological order'''
-        
-        contracts = []
-        for c in employee.contract_ids:
-            l = len(contracts)
-            if l == 0:
-                contracts.append(c)
-            else:
-                dCStart = datetime.strptime(c.date_start, OE_DATEFORMAT).date()
-                i = l - 1
-                while i >= 0:
-                    dContractStart = datetime.strptime(contracts[i].date_start, OE_DATEFORMAT).date()
-                    if dContractStart < dCStart:
-                        contracts = contracts[:i+1] + [c] + contracts[i+1:]
-                        break
-                    elif i == 0:
-                        contracts = [c] + contracts
-                    i -= 1
-        
-        return contracts
-        
-    def _get_months_service_to_date(self, cr, uid, ids, dToday=None, context=None):
-        '''Returns a dictionary of tuples. The key is the employee id, and the value is
-        a tuple consisting of the number of months of employment and the hire date.'''
-        
-        res = dict.fromkeys(ids, 0)
-        if dToday == None:
-            dToday = date.today()
-        
-        for ee in self.pool.get('hr.employee').browse(cr, uid, ids, context=context):
-            
-            delta = relativedelta(dToday, dToday)
-            contracts = self._get_contracts_list(ee)
-            dInitial = datetime.strptime(contracts[0].date_start, OE_DATEFORMAT).date()
-            
-            if ee.initial_employment_date:
-                dFirstContract = dInitial
-                dInitial = datetime.strptime(ee.initial_employment_date, '%Y-%m-%d').date()
-                if dFirstContract < dInitial:
-                    raise osv.except_osv(_('Employment Date mismatch!'),
-                                         _('The initial employment date cannot be after the first contract in the system.\nEmployee: %s', ee.name))
-                
-                delta = relativedelta(dFirstContract, dInitial)
-            
-            for c in contracts:
-                dStart = datetime.strptime(c.date_start, '%Y-%m-%d').date()
-                if dStart >= dToday:
-                    continue
-                
-                # If the contract doesn't have an end date, use today's date
-                # If the contract has finished consider the entire duration of
-                # the contract, otherwise consider only the months in the
-                # contract until today.
-                #
-                if c.date_end:
-                    dEnd = datetime.strptime(c.date_end, '%Y-%m-%d').date()
-                else:
-                    dEnd = dToday
-                if dEnd > dToday:
-                    dEnd = dToday
-                
-                delta += relativedelta(dEnd, dStart)
-        
-            # Set the number of months the employee has worked
-            res[ee.id] = ((delta.years * 12) + delta.months, dInitial)
-        
-        return res
     
     def _calculate_and_deposit(self, cr, uid, line, employee, job_id, dToday=None, context=None):
         
@@ -170,8 +101,9 @@ class hr_policy(osv.Model):
             12: 31,
         }
         
-        srvc_months, dHire = self._get_months_service_to_date(cr, uid, [employee.id], dToday=dToday,
-                                                              context=context)[employee.id]
+        srvc_months, dHire = self.pool.get('hr.employee').get_months_service_to_date(cr, uid, [employee.id], dToday=dToday,
+                                                                                     context=context)[employee.id]
+        srvc_months = int(srvc_months)
         if dToday == None:
             dToday = date.today()
         
@@ -418,16 +350,6 @@ class policy_group(osv.Model):
     _columns = {
         'accr_policy_ids': fields.many2many('hr.policy.accrual', 'hr_policy_group_accr_rel',
                                             'group_id', 'accr_id', 'Accrual Policy'),
-    }
-
-class hr_employee(osv.Model):
-    
-    _name = 'hr.employee'
-    _inherit = 'hr.employee'
-    
-    _columns = {
-        'initial_employment_date': fields.date('Initial Date of Employment',
-                                               help='Date of first employment if it was before the start of the first contract in the system.'),
     }
 
 class hr_holidays(osv.Model):

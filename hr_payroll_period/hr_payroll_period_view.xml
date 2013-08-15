@@ -274,22 +274,6 @@
             </field>
         </record>
         
-        <!-- Employee Records -->
-        <record id="hr_employee_view_form_inherit" model="ir.ui.view">
-            <field name="name">hr.employee.form.leave</field>
-            <field name="model">hr.employee</field>
-            <field name="inherit_id" ref="hr.view_employee_form"/>
-            <field name="arch" type="xml">
-                <data>
-                    <xpath expr="//group[@name='active_group']" position="after">
-                        <group string="Duration of Service">
-                            <field name="initial_employment_date"/>
-                        </group>
-                    </xpath>
-                </data>
-            </field>
-        </record>
-        
         <!-- Attendance Records -->
         
         <record id="view_hr_attendance_tree" model="ir.ui.view">
