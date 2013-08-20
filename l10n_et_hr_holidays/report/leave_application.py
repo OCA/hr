@@ -30,6 +30,7 @@ class Parser(report_sxw.rml_parse):
         super(Parser, self).__init__(cr, uid, name, context)
         self.localcontext.update({
             'format_date': self.format_date,
+            'get_remaining_leaves': self.get_remaining_leaves,
         })
 
     def format_date(self, date_str):
@@ -38,3 +39,13 @@ class Parser(report_sxw.rml_parse):
             return ''
         d = datetime.strptime(date_str, OE_DTFORMAT)
         return d.strftime(OE_DFORMAT)
+    
+    def get_remaining_leaves(self, leave):
+        
+        obj = self.pool.get('hr.holidays.status')
+        res = obj.get_remaining_days_by_employee(self.cr, self.uid, [leave.holiday_status_id.id],
+                                                 leave.employee_id.id)
+        days = res[leave.holiday_status_id.id]['remaining_leaves']
+        if leave.state not in ['validate', 'validate1']:
+            days = res[leave.holiday_status_id.id]['remaining_leaves'] - leave.number_of_days_temp
+        return days

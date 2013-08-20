@@ -28,3 +28,10 @@ class hr_holidays_status(osv.Model):
     _columns = {
         'ethiopic_name': fields.char('Ethiopic Name', size=512),
     }
+    
+    def get_remaining_days_by_employee(self, cr, uid, ids, employee_id, context=None):
+        
+        res = dict.fromkeys(ids, {'leaves_taken': 0, 'remaining_leaves': 0, 'max_leaves': 0})
+        if employee_id:
+            res = self.get_days(cr, uid, ids, employee_id, False, context=context)
+        return res
