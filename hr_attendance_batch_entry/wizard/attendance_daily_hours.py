@@ -291,6 +291,7 @@ class attendance_department(osv.osv_memory):
                     if not ispartial:
                         # Add OT hours to regular schedule
                         dt = datetime.strptime(s.date_start, OE_DATETIME_FORMAT)
+                        dtE = datetime.strptime(s.date_end, OE_DATETIME_FORMAT)
                         date_start = s.date_start
                         date_end = s.date_end
                         otHours = 0.0
@@ -322,8 +323,10 @@ class attendance_department(osv.osv_memory):
                                 dtE = datetime.strptime(data['date_end'], OE_DATETIME_FORMAT)
                                 dtE += timedelta(hours= otHours)
                                 date_end = dtE.strftime(OE_DATETIME_FORMAT)
-                        sin.append(date_start)
-                        sout.append(date_end)
+                        
+                        if not self.on_leave(cr, uid, eid, dt, context=context) and not self.on_leave(cr, uid, eid, dtE, context=context):
+                            sin.append(date_start)
+                            sout.append(date_end)
                 
                 if len(sched_ids) > 0:
                     # Add OT hours for any days not in the schedule
@@ -365,9 +368,10 @@ class attendance_department(osv.osv_memory):
                                 utcdtAMend = utcdtAM + timedelta(hours= otHours)
                                 utcdtPM = False
                                 utcdtPMend = False
-                            sin.append(utcdtAM.strftime(OE_DATETIME_FORMAT))
-                            sout.append(utcdtAMend.strftime(OE_DATETIME_FORMAT))
-                            if utcdtPM:
+                            if not self.on_leave(cr, uid, eid, utcdtAM, context=context) and not self.on_leave(cr, uid, eid, utcdtAMend, context=context):
+                                sin.append(utcdtAM.strftime(OE_DATETIME_FORMAT))
+                                sout.append(utcdtAMend.strftime(OE_DATETIME_FORMAT))
+                            if utcdtPM and (not self.on_leave(cr, uid, eid, utcdtPM, context=context) and not self.on_leave(cr, uid, eid, utcdtPMend, context=context)):
                                 sin.append(utcdtPM.strftime(OE_DATETIME_FORMAT))
                                 sout.append(utcdtPMend.strftime(OE_DATETIME_FORMAT))
                     
@@ -384,6 +388,16 @@ class attendance_department(osv.osv_memory):
                  'line_ids': _get_lines,
                  'initial_line_ids': _get_lines,
                  }
+    
+    def on_leave(self, cr, uid, employee_id, utcdt, context=None):
+        
+        str_dt = utcdt.strftime(OE_DATETIME_FORMAT)
+        leave_ids = self.pool.get('hr.holidays').search(cr, uid, [('employee_id', '=', employee_id),
+                                                                  ('date_from', '<=', str_dt),
+                                                                  ('date_to', '>=', str_dt),
+                                                                  ('state', 'in', ['validate', 'validate1'])],
+                                                        context=context)
+        return (len(leave_ids) > 0)
     
     def get_action_reason(self, cr, uid, reason, text, context=None):
         
