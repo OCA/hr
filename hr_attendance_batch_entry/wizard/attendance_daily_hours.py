@@ -240,7 +240,7 @@ class attendance_department(osv.osv_memory):
                 week_end = utcdtEnd.astimezone(local_tz).strftime(OE_DATE_FORMAT)
                 sched_ids = sched_obj.search(cr, uid, [('schedule_id.employee_id', '=', eid),
                                                        ('day', '>=', weekly.week_start),
-                                                       ('day', '<=', week_end)],
+                                                       ('day', '<', week_end)],
                                              order='date_start', context=context)
                 ee_data = e_obj.read(cr, uid, eid, ['status'], context=context)
                 term_ids = term_obj.search(cr, uid, [('employee_id', '=', eid),
@@ -393,6 +393,7 @@ class attendance_department(osv.osv_memory):
         
         str_dt = utcdt.strftime(OE_DATETIME_FORMAT)
         leave_ids = self.pool.get('hr.holidays').search(cr, uid, [('employee_id', '=', employee_id),
+                                                                  ('type', '=', 'remove'),
                                                                   ('date_from', '<=', str_dt),
                                                                   ('date_to', '>=', str_dt),
                                                                   ('state', 'in', ['validate', 'validate1'])],
