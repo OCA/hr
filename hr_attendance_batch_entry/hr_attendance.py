@@ -258,6 +258,14 @@ class hr_weekly_ot(osv.Model):
                 att_obj.write(cr, uid, attendance_list[-1].id,
                               {'name': dtEnd.strftime(OE_DTFORMAT)}, context=context)
         elif not subtract:
+            # Are there any attendances for the department in this week?
+            # If there aren't assume that the user will create attendance record in
+            # the future. No need for us to do it now.
+            #
+            att_data = self.pool.get('hr.attendance.weekly').read(cr, uid, wid, ['att_ids'], context=context)
+            if len(att_data['att_ids']) == 0:
+                return
+            
             if employee.department_id and employee.department_id.name.find('Coldroom') != -1:
                 times = ['21:00:00', '01:00:00', '02:00:00', '06:00:00']
                 shift1 = 4
