@@ -317,6 +317,15 @@ class hr_weekly_ot(osv.Model):
     def get_punch_dict(self, cr, uid, ot_id, context=None):
         
         att_obj = self.pool.get('hr.attendance')
+        weekly_punches = {
+            'mon': [],
+            'tue': [],
+            'wed': [],
+            'thu': [],
+            'fri': [],
+            'sat': [],
+            'sun': [],
+        }
         
         # Get attendance records for the day and sort them properly
         #
@@ -327,22 +336,13 @@ class hr_weekly_ot(osv.Model):
             if attendance.employee_id.id == ot.employee_id.id:
                 att_ids.append(attendance.id)
         if len(att_ids) == 0:
-            return None
+            return weekly_punches
         att_ids = att_obj.search(cr, uid, [('id', 'in', att_ids)], order='name', context=context)
         for attendance in att_obj.browse(cr, uid, att_ids, context=context):
             att_list.append(attendance)
         
         # Sort out which punches belong to which days
         #
-        weekly_punches = {
-            'mon': [],
-            'tue': [],
-            'wed': [],
-            'thu': [],
-            'fri': [],
-            'sat': [],
-            'sun': [],
-        }
         for att in att_list:
             dt = datetime.strptime(att.name, OE_DTFORMAT)
             if dt.weekday() == 0:
