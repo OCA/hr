@@ -90,7 +90,7 @@ class attendance_department(osv.osv_memory):
             if isColdroom:
                 midday = midnight
                 
-            if not dtCounter or dtCounter < midday:
+            if not dtCounter or dtCounter < midday or dtCounter.weekday() > midday.weekday():
                 dtCounter = midday
                 am_hours = 0
                 pm_hours = 0
@@ -108,7 +108,6 @@ class attendance_department(osv.osv_memory):
             if (am_hours + pm_hours) > 8:
                 ot_hours = am_hours + pm_hours - 8
                 pm_hours -= ot_hours
-            
             
             if midday.weekday() == 0:
                 vals['monAM'] = am_hours
