@@ -90,6 +90,7 @@ class hr_schedule(osv.osv):
     
     def get_rest_days(self, cr, uid, employee_id, dt, context=None):
         
+        res = []
         day = dt.strftime(OE_DTFORMAT)
         ids = self.search(cr, uid, [('employee_id', '=', employee_id),
                                     ('date_start', '<=', day),
@@ -108,6 +109,8 @@ class hr_schedule(osv.osv):
         # Set the boundaries of the week (i.e- start of current week and start of next week)
         #
         sched = self.browse(cr, uid, ids[0], context=context)
+        if not sched.detail_ids:
+            return res
         dtFirstDay = datetime.strptime(sched.detail_ids[0].date_start, OE_DTFORMAT)
         date_start = dtFirstDay.strftime(OE_DFORMAT) < week_start and week_start +' '+ dtFirstDay.strftime('%H:%M:%S') or dtFirstDay.strftime(OE_DTFORMAT)
         dtNextWeek = datetime.strptime(date_start, OE_DTFORMAT) + relativedelta(weeks= +1)
