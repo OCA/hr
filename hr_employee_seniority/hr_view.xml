@@ -12,7 +12,6 @@
             <field name="arch" type="xml">
                 <data>
                     <xpath expr="//field[@name='work_phone']" position="before">
-                        <field name="initial_employment_date"/>
                         <field name="length_of_service"/>
                     </xpath>
                 </data>
