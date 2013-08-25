@@ -137,9 +137,9 @@ class hr_employee(osv.Model):
         return [('id', '=', '0')]
     
     _columns = {
-        'initial_employment_date': fields.date('Initial Date of Employment', groups='base.group_hr_user,hr_security.group_payroll_manager',
+        'initial_employment_date': fields.date('Initial Date of Employment', groups=False,
                                                help='Date of first employment if it was before the start of the first contract in the system.'),
         'length_of_service': fields.function(_get_employed_months, type='float', method=True,
-                                             groups='base.group_hr_user,hr_security.group_payroll_manager',
+                                             groups=False,
                                              string='Lenght of Service'),
     }
