@@ -30,9 +30,6 @@ from openerp.tools import DEFAULT_SERVER_DATETIME_FORMAT as OE_DTFORMAT
 from openerp.tools import DEFAULT_SERVER_DATE_FORMAT as OE_DFORMAT
 from openerp.tools.translate import _
 
-from ethiopic_calendar.ethiopic_calendar import ET_MONTHS_SELECTION_AM, ET_DAYOFMONTH_SELECTION
-from ethiopic_calendar.pycalcal import pycalcal as pcc
-
 
 class hr_holidays_status(osv.Model):
     
@@ -55,7 +52,6 @@ class hr_holidays(osv.osv):
         'rest_days': fields.float('Rest Days', digits=(16, 1)),
         'public_holiday_days': fields.float('Public Holidays', digits=(16, 1)),
         'return_date': fields.char('Return Date', size=32),
-        'return_date_et': fields.char('Ethiopic Return Date', size=128),
     }
     
     _defaults = {
@@ -74,15 +70,6 @@ class hr_holidays(osv.osv):
             return domain
         
         return False
-    
-    def time2ethiopic(self, year, month, day):
-        
-        # Convert to Ethiopic calendar
-        pccDate = pcc.ethiopic_from_fixed(
-                    pcc.fixed_from_gregorian(
-                            pcc.gregorian_date(year, month, day)))
-        
-        return u'' + ET_MONTHS_SELECTION_AM[pccDate[1]-1]+' '+str(pccDate[2])+', '+str(pccDate[0])
 
     def onchange_bynumber(self, cr, uid, ids, no_days, date_from, employee_id, holiday_status_id, context=None):
         """
@@ -178,7 +165,7 @@ class hr_holidays(osv.osv):
         ee_obj = self.pool.get('hr.employee')
         holiday_obj = self.pool.get('hr.holidays.public')
         sched_tpl_obj = self.pool.get('hr.schedule.template')
-        res = {'value': {'return_date': False, 'return_date_et': False}}
+        res = {'value': {'return_date': False}}
 
         if not employee_id or not date_to:
             return res
@@ -201,9 +188,6 @@ class hr_holidays(osv.osv):
         while (return_date.weekday() in rest_days and ex_rd) or (holiday_obj.is_public_holiday(cr, uid, return_date.date(), context=context) and ex_ph):
             return_date += timedelta(days=1)
         res['value']['return_date'] = return_date.strftime('%B %d, %Y')
-        res['value']['return_date_et'] = self.time2ethiopic(int(return_date.strftime('%Y')),
-                                                            int(return_date.strftime('%m')),
-                                                            int(return_date.strftime('%d')))
         return res
     
     def create(self, cr, uid, vals, context=None):
