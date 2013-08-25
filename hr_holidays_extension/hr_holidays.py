@@ -33,6 +33,18 @@ from openerp.tools.translate import _
 from ethiopic_calendar.ethiopic_calendar import ET_MONTHS_SELECTION_AM, ET_DAYOFMONTH_SELECTION
 from ethiopic_calendar.pycalcal import pycalcal as pcc
 
+
+class hr_holidays_status(osv.Model):
+    
+    _inherit = 'hr.holidays.status'
+    
+    _columns = {
+        'ex_rest_days': fields.boolean('Exclude Rest Days',
+                                       help="If enabled, the employee's day off is skipped in leave days calculation."),
+        'ex_public_holidays': fields.boolean('Exclude Public Holidays',
+                                             help="If enabled, public holidays are skipped in leave days calculation."),
+    }
+
 class hr_holidays(osv.osv):
     
     _name = 'hr.holidays'
@@ -72,7 +84,7 @@ class hr_holidays(osv.osv):
         
         return u'' + ET_MONTHS_SELECTION_AM[pccDate[1]-1]+' '+str(pccDate[2])+', '+str(pccDate[0])
 
-    def onchange_bynumber(self, cr, uid, ids, no_days, date_from, employee_id, context=None):
+    def onchange_bynumber(self, cr, uid, ids, no_days, date_from, employee_id, holiday_status_id, context=None):
         """
         Update the dates based on the number of days requested.
         """
@@ -95,6 +107,11 @@ class hr_holidays(osv.osv):
         
         dt = datetime.strptime(date_from, OE_DTFORMAT)
         employee = ee_obj.browse(cr, uid, employee_id, context=context)
+        hs_data = self.pool.get('hr.holidays.status').read(cr, uid, holiday_status_id,
+                                                           ['ex_rest_days', 'ex_public_holidays'],
+                                                           context=context)
+        ex_rd = hs_data.get('ex_rest_days', False)
+        ex_ph = hs_data.get('ex_public_holidays', False)
         
         # Get rest day and the schedule start time on the date the leave begins
         #
@@ -108,12 +125,10 @@ class hr_holidays(osv.osv):
                                                                employee.contract_id.id, dt,
                                                                context=context)
         if len(times) > 0:
-            time_part = times[0][0].strftime('%H:%M:%S')
+            utcdtStart = times[0][0]
         else:
             dtStart = local_tz.localize(datetime.strptime(dt.strftime(OE_DFORMAT) +' 00:00:00',  OE_DTFORMAT), is_dst=False)
-            dtStart = dtStart.astimezone(utc)
-            time_part = dtStart.strftime('%H:%M:%S')
-        dt = datetime.strptime(dt.strftime(OE_DFORMAT) +' '+ time_part, OE_DTFORMAT)
+            utcdtStart = dtStart.astimezone(utc)
         
         count_days = no_days
         real_days = 1
@@ -122,7 +137,8 @@ class hr_holidays(osv.osv):
         next_dt = dt
         while count_days > 1:
             public_holiday = holiday_obj.is_public_holiday(cr, uid, next_dt.date(), context=context)
-            rest_day = next_dt.weekday() in rest_days
+            public_holiday = (public_holiday and ex_ph)
+            rest_day = (next_dt.weekday() in rest_days and ex_rd)
             next_dt += timedelta(days= +1)
             if public_holiday or rest_day:
                 if public_holiday: ph_days += 1
@@ -132,7 +148,7 @@ class hr_holidays(osv.osv):
             else:
                 count_days -= 1
                 real_days += 1
-        while next_dt.weekday() in rest_days or holiday_obj.is_public_holiday(cr, uid, next_dt.date(), context=context):
+        while (next_dt.weekday() in rest_days and ex_rd) or (holiday_obj.is_public_holiday(cr, uid, next_dt.date(), context=context) and ex_ph):
             if holiday_obj.is_public_holiday(cr, uid, next_dt.date(), context=context): ph_days += 1
             elif next_dt.weekday() in rest_days: r_days += 1
             next_dt += timedelta(days=1)
@@ -144,33 +160,34 @@ class hr_holidays(osv.osv):
                                                            employee.contract_id.id, next_dt,
                                                            context=context)
         if len(times) > 0:
-            time_part = times[-1][1].strftime('%H:%M:%S')
+            utcdtEnd = times[-1][1]
         else:
-            dtEnd = local_tz.localize(datetime.strptime(dt.strftime(OE_DFORMAT) +' 23:59:59',  OE_DTFORMAT), is_dst=False)
-            dtEnd = dtEnd.astimezone(utc)
-            time_part = dtEnd.strftime('%H:%M:%S')
-        next_dt = datetime.strptime(next_dt.strftime(OE_DFORMAT) +' '+ time_part, OE_DTFORMAT)
+            dtEnd = local_tz.localize(datetime.strptime(next_dt.strftime(OE_DFORMAT) +' 23:59:59',  OE_DTFORMAT), is_dst=False)
+            utcdtEnd = dtEnd.astimezone(utc)
 
         result['value'].update({'department_id': employee.department_id.id,
-                                'date_from': dt.strftime(OE_DTFORMAT),
-                                'date_to': next_dt.strftime(OE_DTFORMAT),
+                                'date_from': utcdtStart.strftime(OE_DTFORMAT),
+                                'date_to': utcdtEnd.strftime(OE_DTFORMAT),
                                 'rest_days': r_days,
                                 'public_holiday_days': ph_days,
                                 'real_days': real_days})
         return result
 
-    def onchange_enddate(self, cr, uid, ids, employee_id, date_to, context=None):
+    def onchange_enddate(self, cr, uid, ids, employee_id, date_to, holiday_status_id, context=None):
         
         ee_obj = self.pool.get('hr.employee')
         holiday_obj = self.pool.get('hr.holidays.public')
         sched_tpl_obj = self.pool.get('hr.schedule.template')
         res = {'value': {'return_date': False, 'return_date_et': False}}
 
-        import logging
-        l = logging.getLogger(__name__)
-        l.warning('onchange_enddate')
         if not employee_id or not date_to:
             return res
+
+        hs_data = self.pool.get('hr.holidays.status').read(cr, uid, holiday_status_id,
+                                                           ['ex_rest_days', 'ex_public_holidays'],
+                                                           context=context)
+        ex_rd = hs_data.get('ex_rest_days', False)
+        ex_ph = hs_data.get('ex_public_holidays', False)
 
         rest_days = []
         ee = ee_obj.browse(cr, uid, employee_id, context=context)
@@ -181,7 +198,7 @@ class hr_holidays(osv.osv):
 
         dt = datetime.strptime(date_to, OE_DTFORMAT)
         return_date = dt + timedelta(days= +1)
-        while return_date.weekday() in rest_days or holiday_obj.is_public_holiday(cr, uid, return_date.date(), context=context):
+        while (return_date.weekday() in rest_days and ex_rd) or (holiday_obj.is_public_holiday(cr, uid, return_date.date(), context=context) and ex_ph):
             return_date += timedelta(days=1)
         res['value']['return_date'] = return_date.strftime('%B %d, %Y')
         res['value']['return_date_et'] = self.time2ethiopic(int(return_date.strftime('%Y')),
