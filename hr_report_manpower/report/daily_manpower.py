@@ -49,6 +49,9 @@ class Parser(report_sxw.rml_parse):
             'get_tot_terminated': self.get_sum_terminated,
         })
         
+        self.LVCODES = ['LVBEREAVEMENT', 'LVWEDDING', 'LVMMEDICAL', 'LVPTO', 'LVCIVIC', 'LVSICK',
+                        'LVSICK50', 'LVSICK00', 'LVMATERNITY', 'LVANNUAL', 'LVTRAIN', 'LVUTO']
+
         self.date = False
         self.no = 0
         self._present = 0
@@ -77,8 +80,16 @@ class Parser(report_sxw.rml_parse):
     def get_present_employees(self, department_id):
         
         att_obj = self.pool.get('hr.attendance')
+        user = self.pool.get('res.users').browse(self.cr, self.uid, self.uid)
+        if user and user.tz:
+            local_tz = timezone(user.tz)
+        else:
+            local_tz = timezone('Africa/Addis_Ababa')
+        dt = datetime.strptime(self.date + ' 00:00:00', OE_DATETIMEFORMAT)
+        utcdt = (local_tz.localize(dt, is_dst=False)).astimezone(utc)
         att_ids = att_obj.search(self.cr, self.uid,
-                                 [('day', '=', self.date),
+                                 [('name', '>=', utcdt.strftime(OE_DATETIMEFORMAT)),
+                                  ('name', '<', (utcdt + timedelta(hours= +24)).strftime(OE_DATETIMEFORMAT)),
                                   ('action', '=', 'sign_in'),
                                   '|', ('employee_id.department_id.id', '=', department_id),
                                        ('employee_id.saved_department_id.id', '=', department_id)
@@ -87,18 +98,24 @@ class Parser(report_sxw.rml_parse):
         unique_ids = []
         data = att_obj.read(self.cr, self.uid, att_ids, ['employee_id'])
         for d in data:
+            # if this employee's employment was terminated skip it
+            term_ids = self.pool.get('hr.employee.termination').search(self.cr, self.uid,
+                                                                       [('name', '<=', self.date),
+                                                                        ('employee_id.id', '=', d['employee_id'][0]),
+                                                                        ('state', 'not in', ['cancel'])])
+            if len(term_ids) > 0:
+                continue
+            
             if d['employee_id'][0] not in unique_ids:
                 unique_ids.append(d['employee_id'][0])
-        
+
         return unique_ids
     
     def get_present(self, department_id):
         
         unique_ids = self.get_present_employees(department_id)
         
-        codes = ['LVBEREAVEMENT', 'LVWEDDING', 'LVMMEDICAL', 'LVPTO', 'LVCIVIC', 'LVSICK',
-                 'LVSICK50', 'LVSICK00', 'LVMATERNITY', 'LVANNUAL']
-        onleave_ids = self.get_employees_on_leave(department_id, codes)
+        onleave_ids = self.get_employees_on_leave(department_id, self.LVCODES)
         
         present_ids = [i for i in unique_ids if i not in onleave_ids]
         
@@ -109,18 +126,18 @@ class Parser(report_sxw.rml_parse):
     def get_absent(self, department_id):
         
         res = 0
-
-        # if the employee is on leave skip it
-        codes = ['LVBEREAVEMENT', 'LVWEDDING', 'LVMMEDICAL', 'LVPTO', 'LVCIVIC',
-                 'LVANNUAL', 'LVSICK', 'LVSICK50', 'LVSICK00', 'LVMATERNITY']
-        lvs = self.get_leave(department_id, codes) 
-        if lvs > 0:
-            return (res and res or '-')
+        ee_leave_ids = self.get_employees_on_leave(department_id, self.LVCODES) 
 
         ee_withsched_ids = []
         att_obj = self.pool.get('hr.attendance')
         sched_obj = self.pool.get('hr.schedule')
-        dt = datetime.strptime(self.date, OE_DATEFORMAT)
+        user = self.pool.get('res.users').browse(self.cr, self.uid, self.uid)
+        if user and user.tz:
+            local_tz = timezone(user.tz)
+        else:
+            local_tz = timezone('Africa/Addis_Ababa')
+        dt = datetime.strptime(self.date + ' 00:00:00', OE_DATETIMEFORMAT)
+        utcdt = (local_tz.localize(dt, is_dst=False)).astimezone(utc)
         sched_ids = sched_obj.search(self.cr, self.uid, [('date_start', '<=', self.date),
                                                          ('date_end', '>=', self.date),
                                                          '|', ('employee_id.department_id.id', '=', department_id),
@@ -131,6 +148,10 @@ class Parser(report_sxw.rml_parse):
             if sched.employee_id.id not in ee_withsched_ids:
                 ee_withsched_ids.append(sched.employee_id.id)
 
+            # skip if the employee is on leave
+            if sched.employee_id.id in ee_leave_ids:
+                continue 
+            
             rest_days = sched_obj.get_rest_days(self.cr, self.uid, sched.employee_id.id, dt)
             
             # if this is the employee's rest day skip it
@@ -146,7 +167,8 @@ class Parser(report_sxw.rml_parse):
                 continue
             
             # Did the employee punch in that day?
-            att_ids = att_obj.search(self.cr, self.uid, [('day', '=', self.date),
+            att_ids = att_obj.search(self.cr, self.uid, [('name', '>=', utcdt.strftime(OE_DATETIMEFORMAT)),
+                                                         ('name', '<', (utcdt + timedelta(hours= +24)).strftime(OE_DATETIMEFORMAT)),
                                                          ('action', '=', 'sign_in'),
                                                          ('employee_id.id', '=', sched.employee_id.id),
                                                         ])
@@ -159,7 +181,13 @@ class Parser(report_sxw.rml_parse):
                                                                    ('saved_department_id.id', '=', department_id),
                                                               ('id', 'not in', ee_withsched_ids)])
         for ee_id in ee_nosched_ids:
-            att_ids = att_obj.search(self.cr, self.uid, [('day', '=', self.date),
+
+            # skip if the employee is on leave
+            if ee_id in ee_leave_ids:
+                continue 
+
+            att_ids = att_obj.search(self.cr, self.uid, [('name', '>=', utcdt.strftime(OE_DATETIMEFORMAT)),
+                                                         ('name', '<', (utcdt + timedelta(hours= +24)).strftime(OE_DATETIMEFORMAT)),
                                                          ('action', '=', 'sign_in'),
                                                          ('employee_id.id', '=', ee_id),
                                                         ])
@@ -174,7 +202,13 @@ class Parser(report_sxw.rml_parse):
         res = 0
         otr = 0     # restday OT
         sched_obj = self.pool.get('hr.schedule')
-        dt = datetime.strptime(self.date, OE_DATEFORMAT)
+        user = self.pool.get('res.users').browse(self.cr, self.uid, self.uid)
+        if user and user.tz:
+            local_tz = timezone(user.tz)
+        else:
+            local_tz = timezone('Africa/Addis_Ababa')
+        dt = datetime.strptime(self.date + ' 00:00:00', OE_DATETIMEFORMAT)
+        utcdt = (local_tz.localize(dt, is_dst=False)).astimezone(utc)
         sched_ids = sched_obj.search(self.cr, self.uid, [('date_start', '<=', self.date),
                                                          ('date_end', '>=', self.date),
                                                          '|', ('employee_id.department_id.id', '=', department_id),
@@ -185,7 +219,8 @@ class Parser(report_sxw.rml_parse):
             if dt.weekday() in rest_days:
                 # Make sure the employee didn't punch in that day
                 att_ids = self.pool.get('hr.attendance').search(self.cr, self.uid,
-                                                                [('day', '=', self.date),
+                                                                [('name', '>=', utcdt.strftime(OE_DATETIMEFORMAT)),
+                                                                 ('name', '<', (utcdt + timedelta(hours= +24)).strftime(OE_DATETIMEFORMAT)),
                                                                  ('action', '=', 'sign_in'),
                                                                  ('employee_id.id', '=', sched.employee_id.id),
                                                                 ])
@@ -197,8 +232,8 @@ class Parser(report_sxw.rml_parse):
         self._restday += res
         res_str = otr > 0 and str(res) +'('+ str(otr) + ')' or str(res)
         return ((res or otr) and res_str or '-')
-    
-    def get_leave(self, department_id, codes):
+
+    def _get_leave_ids(self, department_id, codes):
         
         if isinstance(codes, str):
             codes = [codes]
@@ -213,40 +248,27 @@ class Parser(report_sxw.rml_parse):
         utcdtStart = (local_tz.localize(dtStart, is_dst=False)).astimezone(utc)
         utcdtNextStart = utcdtStart + timedelta(hours= +24)
         leave_ids = leave_obj.search(self.cr, self.uid, [('holiday_status_id.code', 'in', codes),
-                                                         ('date_from', '<', utcdtNextStart.strftime(OE_DATEFORMAT)),
-                                                         ('date_to', '>=', utcdtStart.strftime(OE_DATEFORMAT)),
+                                                         ('date_from', '<', utcdtNextStart.strftime(OE_DATETIMEFORMAT)),
+                                                         ('date_to', '>=', utcdtStart.strftime(OE_DATETIMEFORMAT)),
                                                          ('type', '=', 'remove'),
                                                          ('state', 'in', ['validate', 'validate1']),
                                                          '|', ('employee_id.department_id.id', '=', department_id),
                                                               ('employee_id.saved_department_id.id', '=', department_id)
                                                         ])
+        return leave_ids
+    
+    def get_leave(self, department_id, codes):
+        
+        leave_ids = self._get_leave_ids(department_id, codes)
         res = len(leave_ids)
         return res
     
     def get_employees_on_leave(self, department_id, codes):
         
-        if isinstance(codes, str):
-            codes = [codes]
+        leave_ids = self._get_leave_ids(department_id, codes)
         
-        leave_obj = self.pool.get('hr.holidays')
-        user = self.pool.get('res.users').browse(self.cr, self.uid, self.uid)
-        if user and user.tz:
-            local_tz = timezone(user.tz)
-        else:
-            local_tz = timezone('Africa/Addis_Ababa')
-        dtStart = datetime.strptime(self.date + ' 00:00:00', OE_DATETIMEFORMAT)
-        utcdtStart = (local_tz.localize(dtStart, is_dst=False)).astimezone(utc)
-        utcdtNextStart = utcdtStart + timedelta(hours= +24)
-        leave_ids = leave_obj.search(self.cr, self.uid, [('holiday_status_id.code', 'in', codes),
-                                                         ('date_from', '<', utcdtNextStart.strftime(OE_DATEFORMAT)),
-                                                         ('date_to', '>=', utcdtStart.strftime(OE_DATEFORMAT)),
-                                                         ('type', '=', 'remove'),
-                                                         ('state', 'in', ['validate', 'validate1']),
-                                                         '|', ('employee_id.department_id.id', '=', department_id),
-                                                              ('employee_id.saved_department_id.id', '=', department_id)
-                                                        ])
         employee_ids = []
-        data = leave_obj.read(self.cr, self.uid, leave_ids, ['employee_id'])
+        data = self.pool.get('hr.holidays').read(self.cr, self.uid, leave_ids, ['employee_id'])
         for d in data:
             if d.get('employee_id', False) and d['employee_id'][0] not in employee_ids:
                 employee_ids.append(d['employee_id'][0])
