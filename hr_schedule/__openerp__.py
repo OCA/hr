@@ -34,6 +34,7 @@ Easily create, manage, and track employee schedules.
     'depends': [
         'hr_attendance',
         'hr_contract',
+        'hr_employee_state',
         'hr_holidays',
     ],
     'init_xml': [
