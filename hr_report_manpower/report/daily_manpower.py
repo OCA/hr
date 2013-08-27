@@ -96,13 +96,13 @@ class Parser(report_sxw.rml_parse):
                                  ])
 
         unique_ids = []
+        term_obj = self.pool.get('hr.employee.termination')
         data = att_obj.read(self.cr, self.uid, att_ids, ['employee_id'])
         for d in data:
             # if this employee's employment was terminated skip it
-            term_ids = self.pool.get('hr.employee.termination').search(self.cr, self.uid,
-                                                                       [('name', '<=', self.date),
-                                                                        ('employee_id.id', '=', d['employee_id'][0]),
-                                                                        ('state', 'not in', ['cancel'])])
+            term_ids = term_obj.search(self.cr, self.uid, [('name', '<=', self.date),
+                                                           ('employee_id.id', '=', d['employee_id'][0]),
+                                                           ('state', 'not in', ['cancel'])])
             if len(term_ids) > 0:
                 continue
             
@@ -196,11 +196,33 @@ class Parser(report_sxw.rml_parse):
         
         self._absent += res
         return (res and res or '-')
+
+    def _on_leave(self, cr, uid, employee_id, d):
+        
+        import logging
+        _l = logging.getLogger(__name__)
+        _l.warning('_on_leave()')
+        leave_obj = self.pool.get('hr.holidays')
+        user = self.pool.get('res.users').browse(cr, uid, uid)
+        if user and user.tz:
+            local_tz = timezone(user.tz)
+        else:
+            local_tz = timezone('Africa/Addis_Ababa')
+        dtStart = datetime.strptime(d.strftime(OE_DATEFORMAT) + ' 00:00:00', OE_DATETIMEFORMAT)
+        utcdtStart = (local_tz.localize(dtStart, is_dst=False)).astimezone(utc)
+        utcdtNextStart = utcdtStart + timedelta(hours= +24)
+        _l.warning('dates: %s - %s', utcdtStart, utcdtNextStart)
+        leave_ids = leave_obj.search(self.cr, self.uid, [('employee_id', '=', employee_id),
+                                                         ('date_from', '<', utcdtNextStart.strftime(OE_DATETIMEFORMAT)),
+                                                         ('date_to', '>=', utcdtStart.strftime(OE_DATETIMEFORMAT)),
+                                                         ('type', '=', 'remove'),
+                                                         ('state', 'in', ['validate', 'validate1']),
+                                                        ])
+        _l.warning('leave_ids: %s', leave_ids)
+        return (len(leave_ids) > 0)
     
     def get_restday(self, department_id):
         
-        res = 0
-        otr = 0     # restday OT
         sched_obj = self.pool.get('hr.schedule')
         user = self.pool.get('res.users').browse(self.cr, self.uid, self.uid)
         if user and user.tz:
@@ -214,7 +236,19 @@ class Parser(report_sxw.rml_parse):
                                                          '|', ('employee_id.department_id.id', '=', department_id),
                                                               ('employee_id.saved_department_id.id', '=', department_id)
                                                         ])
+        import logging
+        _l = logging.getLogger(__name__)
+        res = 0
+        otr = 0     # restday OT
         for sched in sched_obj.browse(self.cr, self.uid, sched_ids):
+            
+            # If the employee is on leave, skip it
+            if self._on_leave(self.cr, self.uid, sched.employee_id.id,
+                              datetime.strptime(self.date, OE_DATEFORMAT).date()):
+                continue
+            
+            if sched.employee_id.department_id.name == 'Cleaning':
+                _l.warning('Clean: %s', sched.employee_id.name)
             rest_days = sched_obj.get_rest_days(self.cr, self.uid, sched.employee_id.id, dt)
             if dt.weekday() in rest_days:
                 # Make sure the employee didn't punch in that day
@@ -228,6 +262,10 @@ class Parser(report_sxw.rml_parse):
                     res += 1
                 else:
                     otr += 1
+                if sched.employee_id.department_id.name == 'Cleaning':
+                    _l.warning('wday, rd: %s, %s', dt.weekday(), rest_days)
+                    _l.warning('res, otr: %s, %s', res, otr)
+                    
         
         self._restday += res
         res_str = otr > 0 and str(res) +'('+ str(otr) + ')' or str(res)

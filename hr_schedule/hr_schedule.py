@@ -88,6 +88,10 @@ class hr_schedule(osv.osv):
         (_schedule_date, 'You cannot have schedules that overlap!', ['date_start','date_end']),
     ]
     
+    # XXX - This function is mis-spelled: it should be get_nonworking_days()
+    #       because the schedule reflects both rest days and leaves (and who knows what else).
+    #       Maybe someone should fix it.
+    #
     def get_rest_days(self, cr, uid, employee_id, dt, context=None):
         
         res = []
