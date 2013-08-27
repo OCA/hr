@@ -1328,6 +1328,9 @@ class hr_holidays(osv.Model):
         unlink_ids = []
         det_obj = self.pool.get('hr.schedule.detail')
         for leave in self.browse(cr, uid, ids, context=context):
+            if leave.type != 'remove':
+                continue
+
             det_ids = det_obj.search(cr, uid, [('schedule_id.employee_id', '=', leave.employee_id.id),
                                                ('date_start', '<=', leave.date_to),
                                                ('date_end', '>=', leave.date_from)],
@@ -1371,6 +1374,9 @@ class hr_holidays(osv.Model):
         
         sched_obj = self.pool.get('hr.schedule')
         for leave in self.browse(cr, uid, ids, context=context):
+            if leave.type != 'remove':
+                continue
+            
             dLvFrom = datetime.strptime(leave.date_from, OE_DTFORMAT).date()
             dLvTo = datetime.strptime(leave.date_to, OE_DTFORMAT).date()
             sched_ids = sched_obj.search(cr, uid, [('employee_id', '=', leave.employee_id.id),
