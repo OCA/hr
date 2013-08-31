@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<openerp>
+  <data>
+    
+    <!-- Record Rules: Schedules -->
+    
+    <record id="property_rule_schedule_employee" model="ir.rule">
+        <field name="name">Employee Own Schedule</field>
+        <field model="ir.model" name="model_id" ref="model_hr_schedule"/>
+        <field name="domain_force">[('employee_id.user_id','=',user.id)]</field>
+        <field name="groups" eval="[(4,ref('base.group_user'))]"/>
+    </record>
+    
+    <record id="property_rule_schedule_officer" model="ir.rule">
+        <field name="name">Schedule Officer</field>
+        <field model="ir.model" name="model_id" ref="model_hr_schedule"/>
+        <field name="domain_force">[(1,'=',1)]</field>
+        <field name="groups" eval="[(4,ref('base.group_hr_user'))]"/>
+    </record>
+    
+  </data>
+</openerp>
