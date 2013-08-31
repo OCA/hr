@@ -33,11 +33,14 @@ Human Resource Permission Groups
     "depends": [
         'base',
         'hr',
+        'hr_contract',
     ],
     "init_xml": [
     ],
     'update_xml': [
         'security/hr_security.xml',
+        'security/ir.model.access.csv',
+        'security/ir_rule.xml',
     ],
     'test': [
     ],
