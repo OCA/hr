@@ -14,7 +14,6 @@
                     <field name="type"/>
                     <field name="rate"/>
                     <field name="active_after"/>
-                    <field name="active_after_units"/>
                     <field name="active_start_time"/>
                     <field name="active_end_time"/>
                 </tree>
@@ -38,8 +37,8 @@
                         <group>
                             <group>
                                 <field name="type"/>
+                                <field name="weekly_working_days" attrs="{'invisible': [('type','!=','weekly')]}"/>
                                 <field name="active_after" attrs="{'required': [('type','=','weekly')]}"/>
-                                <field name="active_after_units" attrs="{'required': [('type','=','weekly')]}"/>
                                 <field name="rate"/>
                             </group>
                             <group>
