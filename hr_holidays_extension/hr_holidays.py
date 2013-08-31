@@ -53,9 +53,39 @@ class hr_holidays(osv.osv):
         'public_holiday_days': fields.float('Public Holidays', digits=(16, 1)),
         'return_date': fields.char('Return Date', size=32),
     }
+
+    def _employee_get(self, cr, uid, context=None):
+        
+        if context == None:
+            context = {}
+        
+        # If the user didn't enter from "My Leaves" don't pre-populate Employee field
+        import logging
+        _l = logging.getLogger(__name__)
+        _l.warning('context: %s', context)
+        if not context.get('search_default_my_leaves', False):
+            return False
+        
+        ids = self.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)], context=context)
+        if ids:
+            return ids[0]
+        return False
+
+    def _days_get(self, cr, uid, context=None):
+        
+        if context == None:
+            context = {}
+        
+        date_from = context.get('default_date_from')
+        date_to = context.get('default_date_to')
+        if date_from and date_to:
+            delta = datetime.strptime(date_to, OE_DTFORMAT) - datetime.strptime(date_from, OE_DTFORMAT)
+            return (delta.days and delta.days or 1)
+        return False
     
     _defaults = {
-        'employee_id': False,
+        'employee_id': _employee_get,
+        'number_of_days_temp': _days_get,
     }
 
     _order = 'date_from asc, type desc'
@@ -94,9 +124,12 @@ class hr_holidays(osv.osv):
         
         dt = datetime.strptime(date_from, OE_DTFORMAT)
         employee = ee_obj.browse(cr, uid, employee_id, context=context)
-        hs_data = self.pool.get('hr.holidays.status').read(cr, uid, holiday_status_id,
-                                                           ['ex_rest_days', 'ex_public_holidays'],
-                                                           context=context)
+        if holiday_status_id:
+            hs_data = self.pool.get('hr.holidays.status').read(cr, uid, holiday_status_id,
+                                                               ['ex_rest_days', 'ex_public_holidays'],
+                                                               context=context)
+        else:
+            hs_data = {}
         ex_rd = hs_data.get('ex_rest_days', False)
         ex_ph = hs_data.get('ex_public_holidays', False)
         
@@ -104,13 +137,14 @@ class hr_holidays(osv.osv):
         #
         rest_days = []
         times = tuple()
-        if employee.contract_id and employee.contract_id.schedule_template_id:
-            rest_days = sched_tpl_obj.get_rest_days(cr, uid,
-                                                    employee.contract_id.schedule_template_id.id,
-                                                    context=context)
-            times = sched_detail_obj.scheduled_begin_end_times(cr, uid, employee.id,
-                                                               employee.contract_id.id, dt,
-                                                               context=context)
+        if ex_rd:
+            if employee.contract_id and employee.contract_id.schedule_template_id:
+                rest_days = sched_tpl_obj.get_rest_days(cr, uid,
+                                                        employee.contract_id.schedule_template_id.id,
+                                                        context=context)
+                times = sched_detail_obj.scheduled_begin_end_times(cr, uid, employee.id,
+                                                                   employee.contract_id.id, dt,
+                                                                   context=context)
         if len(times) > 0:
             utcdtStart = times[0][0]
         else:
@@ -170,18 +204,22 @@ class hr_holidays(osv.osv):
         if not employee_id or not date_to:
             return res
 
-        hs_data = self.pool.get('hr.holidays.status').read(cr, uid, holiday_status_id,
-                                                           ['ex_rest_days', 'ex_public_holidays'],
-                                                           context=context)
+        if holiday_status_id:
+            hs_data = self.pool.get('hr.holidays.status').read(cr, uid, holiday_status_id,
+                                                               ['ex_rest_days', 'ex_public_holidays'],
+                                                               context=context)
+        else:
+            hs_data = {}
         ex_rd = hs_data.get('ex_rest_days', False)
         ex_ph = hs_data.get('ex_public_holidays', False)
 
         rest_days = []
-        ee = ee_obj.browse(cr, uid, employee_id, context=context)
-        if ee.contract_id and ee.contract_id.schedule_template_id:
-            rest_days = sched_tpl_obj.get_rest_days(cr, uid,
-                                                    ee.contract_id.schedule_template_id.id,
-                                                    context=context)
+        if ex_rd:
+            ee = ee_obj.browse(cr, uid, employee_id, context=context)
+            if ee.contract_id and ee.contract_id.schedule_template_id:
+                rest_days = sched_tpl_obj.get_rest_days(cr, uid,
+                                                        ee.contract_id.schedule_template_id.id,
+                                                        context=context)
 
         dt = datetime.strptime(date_to, OE_DTFORMAT)
         return_date = dt + timedelta(days= +1)

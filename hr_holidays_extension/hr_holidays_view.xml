@@ -20,6 +20,7 @@
                 <sheet string="Leave Request">
                     <group>
                         <group>
+                            <field name="holiday_type" invisible="1"/>
                             <field name="employee_id" attrs="{'required':[('holiday_type','=','employee')],'invisible':[('holiday_type','=','category')]}" on_change="onchange_bynumber(number_of_days_temp, date_from, employee_id, holiday_status_id)" groups="base.group_hr_user"/>
                             <field name="holiday_status_id" context="{'employee_id':employee_id}"/>
                             <field name="number_of_days_temp" on_change="onchange_bynumber(number_of_days_temp, date_from, employee_id, holiday_status_id)" string="Days Requested" required="1" readonly="0"/>
