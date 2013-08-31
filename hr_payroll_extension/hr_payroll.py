@@ -82,15 +82,46 @@ class hr_payslip(osv.osv):
         
         return self._get_policy(policy_group, policy_group.absence_policy_ids, dDay)
     
-    def _book_holiday_hours(self, cr, uid, contract, ot_policy, attendances, holiday_obj,
-                            dtDay, rest_days, lsd, worked_hours, context=None):
+    def _get_presence_policy(self, policy_group, dDay):
+        "Return a Presence Policy with an effective date before dDay but greater than all others"
+        
+        return self._get_policy(policy_group, policy_group.presence_policy_ids, dDay)
+    
+    def _get_applied_time(self, worked_hours, pol_active_after, pol_duration=None):
+        '''Returns worked time in hours according to pol_active_after and pol_duration.'''
+        
+        applied_min = (worked_hours * 60) - pol_active_after
+        if applied_min > 0.01:
+            applied_min = (pol_duration != None and applied_min > pol_duration) and pol_duration or applied_min
+        else:
+            applied_min = 0
+        applied_hours = float(applied_min) / 60.0
+        return applied_hours
+    
+    def _book_holiday_hours(self, cr, uid, contract, presence_policy, ot_policy, attendances,
+                            holiday_obj, dtDay, rest_days, lsd, worked_hours, context=None):
         
         done = False
         push_lsd = True
+        hours = worked_hours
+        
+        # Process normal working hours
+        for line in presence_policy.line_ids:
+            if line.type == 'holiday':
+                holiday_hours = self._get_applied_time(worked_hours, line.active_after,
+                                                            line.duration)
+                attendances[line.code]['number_of_hours'] += holiday_hours
+                attendances[line.code]['number_of_days'] += 1.0
+                hours -= holiday_hours
+                done = True
+        
+        # Process OT hours
         for line in ot_policy.line_ids:
             if line.type == 'holiday':
-                attendances[line.code]['number_of_hours'] += worked_hours
+                ot_hours = self._get_applied_time(worked_hours, line.active_after)
+                attendances[line.code]['number_of_hours'] += ot_hours
                 attendances[line.code]['number_of_days'] += 1.0
+                hours -= ot_hours
                 done = True
         
         if done and (dtDay.weekday() in rest_days or lsd.days_worked == 6):
@@ -99,7 +130,78 @@ class hr_payslip(osv.osv):
             lsd.push(False)
             push_lsd = False
         
-        return done, push_lsd
+        if hours > -0.01 and hours < 0.01: hours = 0
+        return hours, push_lsd
+    
+    def _book_restday_hours(self, cr, uid, contract, presence_policy, ot_policy, attendances,
+                            dtDay, rest_days, lsd, worked_hours, context=None):
+        
+        done = False
+        push_lsd = True
+        hours = worked_hours
+        
+        # Process normal working hours
+        for line in presence_policy.line_ids:
+            if line.type == 'restday' and dtDay.weekday() in rest_days:
+                rd_hours = self._get_applied_time(worked_hours, line.active_after, line.duration)
+                attendances[line.code]['number_of_hours'] += rd_hours
+                attendances[line.code]['number_of_days'] += 1.0
+                hours -= rd_hours
+                done = True
+        
+        # Process OT hours
+        for line in ot_policy.line_ids:
+            if line.type == 'restday' and dtDay.weekday() in rest_days:
+                ot_hours = self._get_applied_time(worked_hours, line.active_after)
+                attendances[line.code]['number_of_hours'] += ot_hours
+                attendances[line.code]['number_of_days'] += 1.0
+                hours -= ot_hours
+                done = True
+        
+        if done and (dtDay.weekday() in rest_days or lsd.days_worked == 6):
+            # Mark this day as *not* worked so that subsequent days
+            # are not treated as over-time.
+            lsd.push(False)
+            push_lsd = False
+        
+        if hours > -0.01 and hours < 0.01: hours = 0
+        return hours, push_lsd
+    
+    def _book_weekly_restday_hours(self, cr, uid, contract, presence_policy, ot_policy, attendances,
+                                   dtDay, rest_days, lsd, worked_hours, context=None):
+        
+        done = False
+        push_lsd = True
+        hours = worked_hours
+        
+        # Process normal working hours
+        for line in presence_policy.line_ids:
+            if line.type == 'restday':
+                if lsd.days_worked() == line.active_after:
+                    rd_hours = self._get_applied_time(worked_hours, line.active_after, line.duration)
+                    attendances[line.code]['number_of_hours'] += rd_hours
+                    attendances[line.code]['number_of_days'] += 1.0
+                    hours -= rd_hours
+                    done = True
+        
+        # Process OT hours
+        for line in ot_policy.line_ids:
+            if line.type == 'weekly' and line.weekly_working_days and line.weekly_working_days > 0:
+                if lsd.days_worked() == line.weekly_working_days:
+                    ot_hours = self._get_applied_time(worked_hours, line.active_after)
+                    attendances[line.code]['number_of_hours'] += ot_hours
+                    attendances[line.code]['number_of_days'] += 1.0
+                    hours -= ot_hours
+                    done = True
+        
+        if done and (dtDay.weekday() in rest_days or lsd.days_worked == 6):
+            # Mark this day as *not* worked so that subsequent days
+            # are not treated as over-time.
+            lsd.push(False)
+            push_lsd = False
+        
+        if hours > -0.01 and hours < 0.01: hours = 0
+        return hours, push_lsd
 
     def holidays_list_init(self, cr, uid, dFrom, dTo, context=None):
         
@@ -242,6 +344,7 @@ class hr_payslip(osv.osv):
         sched_obj = self.pool.get('hr.schedule')
         sched_detail_obj = self.pool.get('hr.schedule.detail')
         ot_obj = self.pool.get('hr.policy.ot')
+        presence_obj = self.pool.get('hr.policy.presence')
         absence_obj = self.pool.get('hr.policy.absence')
         holiday_obj = self.pool.get('hr.holidays.public')
         
@@ -304,6 +407,21 @@ class hr_payslip(osv.osv):
             data['policy'] = absence_policy
             return data
         
+        def get_presence_policies(policy_group_id, day, data):
+            
+            if data == None or not data['_reuse']:
+                data = {
+                    'policy': None,
+                    '_reuse': False,
+                }
+            elif data['_reuse']:
+                return data
+            
+            policy = self._get_presence_policy(policy_group_id, day)
+            
+            data['policy'] = policy
+            return data
+        
         res = []
         for contract in self.pool.get('hr.contract').browse(cr, uid, contract_ids, context=context):
             
@@ -349,6 +467,13 @@ class hr_payslip(osv.osv):
             if (absence_data['policy'] and data2['policy']) and absence_data['policy'].id == data2['policy'].id:
                 absence_data['_reuse'] = True
             
+            presence_data = None
+            data2 = None
+            presence_data = get_presence_policies(contract.policy_group_id, day_from, presence_data)
+            data2 = get_presence_policies(contract.policy_group_id, day_to, data2)
+            if (presence_data['policy'] and data2['policy']) and presence_data['policy'].id == data2['policy'].id:
+                presence_data['_reuse'] = True
+            
             # Calculate the number of days worked in the last week of
             # the previous month. Necessary to calculate Weekly Rest Day OT.
             #
@@ -379,23 +504,39 @@ class hr_payslip(osv.osv):
                      'number_of_hours': 0.0,
                      'contract_id': contract.id,
                 },
-                'WORK100': {
-                     'name': _("Normal Working Hours paid at 100%"),
-                     'sequence': 2,
-                     'code': 'WORK100',
-                     'number_of_days': 0.0,
-                     'number_of_hours': 0.0,
-                     'contract_id': contract.id,
-                },
             }
             leaves = {}
             att_obj = self.pool.get('hr.attendance')
-            ot_sequence = 3
             awol_code = False
-            absence_sequence = 50
+            import logging
+            _l = logging.getLogger(__name__)
             for day in range(0, nb_of_days):
                 dtDateTime = datetime.strptime((day_from + timedelta(days=day)).strftime('%Y-%m-%d'), '%Y-%m-%d')
                 rest_days = contract_rest_days
+                normal_working_hours = 0
+                
+                # Get Presence data
+                #
+                presence_data = get_presence_policies(contract.policy_group_id, dtDateTime.date(), presence_data)
+                presence_policy = presence_data['policy']
+                presence_codes = presence_policy and presence_obj.get_codes(cr, uid, presence_policy.id, context=context) or []
+                presence_sequence = 2
+                
+                for pcode, pname, ptype, prate, pduration in presence_codes:
+                    if attendances.get(pcode, False):
+                        continue
+                    if ptype == 'normal':
+                        normal_working_hours += float(pduration) / 60.0
+                    attendances[pcode] = {
+                         'name': pname,
+                         'code': pcode,
+                         'sequence': presence_sequence,
+                         'number_of_days': 0.0,
+                         'number_of_hours': 0.0,
+                         'rate': prate,
+                         'contract_id': contract.id,
+                    }
+                    presence_sequence += 1
                 
                 # Get OT data
                 #
@@ -405,8 +546,8 @@ class hr_payslip(osv.osv):
                 restday2_ot = ot_data['restday2']
                 restday_ot = ot_data['restday']
                 weekly_ot = ot_data['weekly']
-                holiday_ot = ot_data['holiday']
                 ot_codes = ot_policy and ot_obj.get_codes(cr, uid, ot_policy.id, context=context) or []
+                ot_sequence = 3
                 
                 for otcode, otname, ottype, otrate in ot_codes:
                     if attendances.get(otcode, False):
@@ -427,6 +568,7 @@ class hr_payslip(osv.osv):
                 absence_data = get_absence_policies(contract.policy_group_id, dtDateTime.date(), absence_data)
                 absence_policy = absence_data['policy']
                 absence_codes = absence_policy and absence_obj.get_codes(cr, uid, absence_policy.id, context=context) or []
+                absence_sequence = 50
                 
                 for abcode, abname, abtype, abrate, useawol in absence_codes:
                     if leaves.get(abcode, False):
@@ -479,43 +621,53 @@ class hr_payslip(osv.osv):
                 
                 # Is today a holiday?
                 public_holiday = self.holidays_list_contains(dtDateTime.date(), public_holidays_list)
+
+                # Keep count of the number of hours worked during the week for weekly OT
+                if dtDateTime.weekday() == contract.pps_id.ot_week_startday:
+                    worked_hours_in_week = working_hours_on_day
+                else:
+                    worked_hours_in_week += working_hours_on_day
                 
                 push_lsd = True
                 if working_hours_on_day:
                     done = False
                     
-                    if public_holiday and holiday_ot:
-                        done, push_lsd = self._book_holiday_hours(cr, uid, contract, ot_policy, attendances,
-                                                                  holiday_obj, dtDateTime, rest_days, lsd,
-                                                                  working_hours_on_day, context=context)
+                    if public_holiday:
+                        _hours, push_lsd = self._book_holiday_hours(cr, uid, contract, presence_policy, ot_policy, attendances,
+                                                                   holiday_obj, dtDateTime, rest_days, lsd,
+                                                                   working_hours_on_day, context=context)
+                        if _hours == 0:
+                            done = True
+                        else:
+                            working_hours_on_day = _hours
+                    
                     if not done and restday2_ot:
-                        for line in ot_policy.line_ids:
-                            if line.type == 'restday' and dtDateTime.weekday() in rest_days:
-                                attendances[line.code]['number_of_hours'] += working_hours_on_day
-                                attendances[line.code]['number_of_days'] += 1.0
-                                done = True
+                        _hours, push_lsd = self._book_restday_hours(cr, uid, contract, presence_policy, ot_policy,
+                                                                    attendances, dtDateTime, rest_days, lsd,
+                                                                    working_hours_on_day, context=context)
+                        if _hours == 0:
+                            done = True
+                        else:
+                            working_hours_on_day = _hours
                     
                     if not done and restday_ot:
-                        for line in ot_policy.line_ids:
-                            if line.type == 'weekly' and line.active_after_units == 'day':
-                                if lsd.days_worked() == line.active_after:
-                                    attendances[line.code]['number_of_hours'] += working_hours_on_day
-                                    attendances[line.code]['number_of_days'] += 1.0
-                        
-                                    # Mark this day as *not* worked so that subsequent days
-                                    # are not treated as over-time.
-                                    lsd.push(False)
-                                    push_lsd = False
-                                    
-                                    done = True
+                        _hours, push_lsd = self._book_weekly_restday_hours(cr, uid, contract, presence_policy, ot_policy,
+                                                                    attendances, dtDateTime, rest_days, lsd,
+                                                                    working_hours_on_day, context=context)
+                        if _hours == 0:
+                            done = True
+                        else:
+                            working_hours_on_day = _hours
                     
                     if not done and weekly_ot:
                         for line in ot_policy.line_ids:
-                            if line.type == 'weekly' and line.active_after_units == 'min':
+                            if line.type == 'weekly' and (not line.weekly_working_days or line.weekly_working_days == 0):
                                 _active_after = float(line.active_after) / 60.0
-                                _total_weekly_hours = worked_hours_in_week + working_hours_on_day
-                                if _total_weekly_hours > _active_after:
-                                    attendances[line.code]['number_of_hours'] += _total_weekly_hours - _active_after
+                                if worked_hours_in_week > _active_after:
+                                    if worked_hours_in_week - _active_after > working_hours_on_day:
+                                        attendances[line.code]['number_of_hours'] += working_hours_on_day
+                                    else:
+                                        attendances[line.code]['number_of_hours'] += worked_hours_in_week - _active_after
                                     attendances[line.code]['number_of_days'] += 1.0
                                     done = True
                     
@@ -524,8 +676,8 @@ class hr_payslip(osv.osv):
                         # Do the OT between specified times (partial OT) first, so that it
                         # doesn't get double-counted in the regular OT.
                         #
-                        active_after = -1
                         partial_hr = 0
+                        hours_after_ot = working_hours_on_day
                         for line in ot_policy.line_ids:
                             active_after_hrs = float(line.active_after) / 60.0
                             if line.type == 'daily' and working_hours_on_day > active_after_hrs and line.active_start_time:
@@ -539,37 +691,28 @@ class hr_payslip(osv.osv):
                                 if partial_hr > 0:
                                     attendances[line.code]['number_of_hours'] += partial_hr
                                     attendances[line.code]['number_of_days'] += 1.0
-                                    if active_after == -1 or line.active_after < active_after:
-                                        active_after = line.active_after
-                        
-                        working_hours_on_day -= partial_hr
-                        worked_hours_in_week += partial_hr
+                                    hours_after_ot -= partial_hr
                         
                         for line in ot_policy.line_ids:
                             active_after_hrs = float(line.active_after) / 60.0
-                            if line.type == 'daily' and working_hours_on_day > active_after_hrs and not line.active_start_time:
-                                attendances[line.code]['number_of_hours'] += working_hours_on_day - (float(line.active_after) / 60.0)
+                            if line.type == 'daily' and hours_after_ot > active_after_hrs and not line.active_start_time:
+                                attendances[line.code]['number_of_hours'] += hours_after_ot - (float(line.active_after) / 60.0)
                                 attendances[line.code]['number_of_days'] += 1.0
-                                if active_after == -1 or line.active_after < active_after:
-                                    active_after = line.active_after
-                        
-                        if active_after != -1:
-                            attendances['WORK100']['number_of_hours'] += float(active_after) / 60.0
-                            attendances['WORK100']['number_of_days'] += 1.0
-                            done = True
                     
                     if not done:
-                        attendances['WORK100']['number_of_hours'] += working_hours_on_day
-                        attendances['WORK100']['number_of_days'] += 1.0
-                        done = True
+                        for line in presence_policy.line_ids:
+                            if line.type == 'normal':
+                                normal_hours = self._get_applied_time(working_hours_on_day,
+                                                                      line.active_after,
+                                                                      line.duration)
+                                attendances[line.code]['number_of_hours'] += normal_hours
+                                attendances[line.code]['number_of_days'] += 1.0
+                                done = True
+                                _l.warning('nh: %s', normal_hours)
+                                _l.warning('att: %s', attendances[line.code])
                     
                     if push_lsd:
                         lsd.push(True)
-                    
-                    if dtDateTime.weekday() == contract.pps_id.ot_week_startday:
-                        worked_hours_in_week = 0
-                    else:
-                        worked_hours_in_week += working_hours_on_day
                 else:
                     lsd.push(False)
                 
@@ -594,13 +737,10 @@ class hr_payslip(osv.osv):
                     hours_diff = scheduled_hours - working_hours_on_day
                     leaves[awol_code]['number_of_days'] += 1.0
                     leaves[awol_code]['number_of_hours'] += hours_diff
-                elif (scheduled_hours > 0 and working_hours_on_day < scheduled_hours) and public_holiday:
-                    attendances['WORK100']['number_of_hours'] += scheduled_hours
-                    attendances['WORK100']['number_of_days'] += 1.0
                 
                 # Calculate total possible working hours in the month
                 if dtDateTime.weekday() not in rest_days:
-                    attendances['MAX']['number_of_hours'] += 8
+                    attendances['MAX']['number_of_hours'] += normal_working_hours
                     attendances['MAX']['number_of_days'] += 1
             
             leaves = [value for key,value in leaves.items()]
@@ -1062,7 +1202,9 @@ class hr_attendance(osv.osv):
             names.append(sin[i])
             names.append(sout[i])
         
-        return self.search(cr, uid, [('name', 'in', names)], context=context)
+        return self.search(cr, uid, [('employee_id', '=', contract.employee_id.id),
+                                     ('name', 'in', names)],
+                           order='name', context=context)
     
     def total_hours_on_day(self, cr, uid, contract, dDay, punches_list=None, context=None):
         '''Calculate the number of hours worked on specified date.'''

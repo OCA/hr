@@ -43,6 +43,7 @@ Extended set of Payroll Rules and Structures
         'hr_payroll_period',
         'hr_policy_absence',
         'hr_policy_ot',
+        'hr_policy_presence',
         'hr_public_holidays',
         'hr_schedule',
     ],
