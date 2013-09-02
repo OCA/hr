@@ -46,14 +46,14 @@
             <field name="color_name">magenta</field>
         </record>
 
-        <record model="hr.holidays.status" id="hr_holidays.holiday_status_sl50">
+        <record model="hr.holidays.status" id="holiday_status_sl50">
             <field name="name">Sick Leave at 50%</field>
             <field name="code">LVSICK50</field>
             <field name="limit" eval="True"/>
             <field name="color_name">magenta</field>
         </record>
 
-        <record model="hr.holidays.status" id="hr_holidays.holiday_status_sl00">
+        <record model="hr.holidays.status" id="holiday_status_sl00">
             <field name="name">Sick Leave Without Pay</field>
             <field name="code">LVSICK00</field>
             <field name="limit" eval="True"/>

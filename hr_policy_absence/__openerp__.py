@@ -42,7 +42,6 @@ Define properties of an absence policy, such as:
     'update_xml': [
         'security/ir.model.access.csv',
         'data/leave_types.xml',
-        'data/policy_data.xml',
         'data/salary_rules_data.xml',
         'hr_policy_absence_view.xml',
     ],
