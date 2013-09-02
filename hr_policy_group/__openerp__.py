@@ -33,6 +33,7 @@ Define a collection of policies, such as Overtime, that apply to a contract.
     'website':'http://miketelahun.wordpress.com',
     'depends': [
         'hr_contract',
+        'hr_security',
     ],
     'init_xml': [
     ],
