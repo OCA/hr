@@ -17,13 +17,6 @@
             parent="submenu_hr_recruitment"
             id="menu_crm_case_categ0_act_job" action="hr_recruitment.crm_case_categ0_act_job" sequence="1"/>
         
-        <!-- Daily Labour recruitment wizard -->
-        <menuitem action="action_new_labour"
-                  id="menu_new_labour"
-                  parent="submenu_hr_recruitment"
-                  groups="base.group_hr_user"
-                  sequence="10"/>
-        
         <!-- Recruitment Requests -->
 
         <record id="view_hr_recruitment_request_filter" model="ir.ui.view">

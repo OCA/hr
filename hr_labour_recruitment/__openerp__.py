@@ -20,19 +20,18 @@
 ##############################################################################
 
 {
-    'name': 'Daily Labour Recruitment',
+    'name': 'New Employee Recruitment and Personnel Requests',
     'version': '1.0',
     'category': 'Generic Modules/Human Resources',
     'description': """
-Recruitment for Daily (Unskilled) Labour
-========================================
+Recruitment of New Employees
+============================
     """,
     'author':'Michael Telahun Makonnen <mmakonnen@gmail.com>',
     'website':'http://miketelahun.wordpress.com',
     'depends': [
         'hr_contract',
         'hr_contract_state',
-        'hr_employee_education',
         'hr_recruitment',
         'hr_security',
     ],
@@ -40,7 +39,6 @@ Recruitment for Daily (Unskilled) Labour
     ],
     'update_xml': [
         'security/ir.model.access.csv',
-        'wizard/new_labour.xml',
         'hr_recruitment_data.xml',
         'hr_recruitment_view.xml',
         'hr_recruitment_workflow.xml',
