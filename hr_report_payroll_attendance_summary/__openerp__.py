@@ -33,6 +33,7 @@ Attendance Summary for the purposes of Payroll
     'depends': [
         'hr',
         'hr_attendance',
+        'hr_employee_state',
         'report_aeroo',
     ],
     'init_xml': [

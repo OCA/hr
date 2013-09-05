@@ -114,6 +114,16 @@ class Parser(report_sxw.rml_parse):
         
         return self.no
     
+    def get_employee_start_date(self, employee_id):
+        
+        first_day = False
+        c_obj = self.pool.get('hr.contract')
+        c_ids = c_obj.search(self.cr, self.uid, [('employee_id', '=', employee_id)])
+        for contract in c_obj.browse(self.cr, self.uid, c_ids):
+            if not first_day or contract.date_start < first_day:
+                first_day = contract.date_start
+        return first_day
+    
     def get_worked_days(self, employee_id):
         
         total = 0.0
@@ -125,9 +135,22 @@ class Parser(report_sxw.rml_parse):
                 maxw += float(line['number_of_hours']) / self.regular_hours
         total += self.get_paid_leave(employee_id)
         awol = self.get_awol(employee_id)
-        if total >= maxw:
-            total = 26
-        total = total - awol
+        
+        # Take care to identify and handle employee's who didn't work the
+        # full month: newly hired and terminated employees
+        #
+        hire_date = self.get_employee_start_date(employee_id)
+        term_ids = self.pool.get('hr.employee.termination').search(self.cr, self.uid,
+                                                                   [('name', '<', self.end_date),
+                                                                    ('name', '>=', self.start_date),
+                                                                    ('employee_id', '=', employee_id),
+                                                                    ('employee_id.status', 'in', ['pending_inactive', 'inactive']),
+                                                                    ('state', 'not in', ['cancel'])])
+
+        if hire_date <= self.start_date and len(term_ids) == 0:
+            if total >= maxw:
+                total = 26
+            total = total - awol
         return total
     
     def get_paid_leave(self, employee_id):
