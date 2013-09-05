@@ -123,6 +123,16 @@ class Parser(report_sxw.rml_parse):
         self._present += total
         return total
     
+    def get_employee_start_date(self, employee_id):
+        
+        first_day = False
+        c_obj = self.pool.get('hr.contract')
+        c_ids = c_obj.search(self.cr, self.uid, [('employee_id', '=', employee_id)])
+        for contract in c_obj.browse(self.cr, self.uid, c_ids):
+            if not first_day or contract.date_start < first_day:
+                first_day = contract.date_start
+        return first_day
+    
     def get_absent(self, department_id):
         
         res = 0
@@ -151,6 +161,11 @@ class Parser(report_sxw.rml_parse):
             # skip if the employee is on leave
             if sched.employee_id.id in ee_leave_ids:
                 continue 
+            
+            # Skip if the employee wasn't hired yet
+            hire_date = self.get_employee_start_date(sched.employee_id.id)
+            if not hire_date or (datetime.strptime(hire_date, OE_DATEFORMAT).date() > dt.date()):
+                continue
             
             rest_days = sched_obj.get_rest_days(self.cr, self.uid, sched.employee_id.id, dt)
             
@@ -185,6 +200,19 @@ class Parser(report_sxw.rml_parse):
             # skip if the employee is on leave
             if ee_id in ee_leave_ids:
                 continue 
+            
+            # Skip if the employee wasn't hired yet
+            hire_date = self.get_employee_start_date(ee_id)
+            if not hire_date or (datetime.strptime(hire_date, OE_DATEFORMAT).date() > dt.date()):
+                continue
+            
+            # if this employee's employment was terminated skip it
+            term_ids = self.pool.get('hr.employee.termination').search(self.cr, self.uid,
+                                                                       [('name', '<=', self.date),
+                                                                        ('employee_id.id', '=', ee_id),
+                                                                        ('state', 'not in', ['cancel'])])
+            if len(term_ids) > 0:
+                continue
 
             att_ids = att_obj.search(self.cr, self.uid, [('name', '>=', utcdt.strftime(OE_DATETIMEFORMAT)),
                                                          ('name', '<', (utcdt + timedelta(hours= +24)).strftime(OE_DATETIMEFORMAT)),
