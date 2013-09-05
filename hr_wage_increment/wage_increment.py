@@ -86,25 +86,27 @@ class wage_increment(osv.osv):
         
         if context == None:
             context = {}
-        contract_id = context.get('active_id', False)
-        
+        employee_id = self._get_employee(cr, uid, context=context)
+        ee_data = self.pool.get('hr.employee').read(cr, uid, employee_id, ['contract_id'], context=context)
+        contract_id = ee_data.get('contract_id', False)[0]
         if not contract_id: return False
         
-        data = self.pool.get('hr.contract').read(cr, uid, contract_id,
-                                                 field_list, context=context)
+        data = self.pool.get('hr.contract').read(cr, uid, contract_id, field_list, context=context)
         
         return data
     
     def _get_contract_id(self, cr, uid, context=None):
         
-        if context == None:
-            context = {}
-        return context.get('active_id', False)
+        data = self._get_contract_data(cr, uid, ['id'], context)
+        return data.get('id', False)
     
     def _get_employee(self, cr, uid, context=None):
         
-        data = self._get_contract_data(cr, uid, ['employee_id'], context=context)
-        return data and data['employee_id'][0] or False
+        if context == None:
+            context = {}
+        employee_id = context.get('active_id', False)
+        
+        return employee_id
     
     def _get_current_wage(self, cr, uid, context=None):
         
@@ -113,10 +115,7 @@ class wage_increment(osv.osv):
     
     def _get_effective_date(self, cr, uid, context=None):
         
-        if context == None:
-            context = {}
-        contract_id = context.get('active_id', False)
-        
+        contract_id = self._get_contract_id(cr, uid, context=context)
         if not contract_id: return False
         
         contract = self.pool.get('hr.contract').browse(cr, uid, contract_id, context=context)
@@ -184,6 +183,8 @@ class wage_increment(osv.osv):
             
             if wi.wage_difference > -0.01 and wi.wage_difference < 0.01:
                 continue
+
+            self._check_state(cr, uid, wi, context=context)
             
             default = {
                 'wage': wi.wage,
@@ -200,7 +201,6 @@ class wage_increment(osv.osv):
                 notes = ''
             notes = notes + '\nSupercedes (because of wage adjustment) previous contract: ' + wi.contract_id.name
             data['notes'] = notes
-            self._check_state(cr, uid, wi, context=context)
             
             c_id = hr_obj.create(cr, uid, data, context=context)
             if c_id:

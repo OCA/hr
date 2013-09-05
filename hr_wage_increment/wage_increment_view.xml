@@ -135,7 +135,7 @@
         </record>
         <act_window name="Wage Adjustment"
             res_model="hr.contract.wage.increment"
-            src_model="hr.contract"
+            src_model="hr.employee"
             view_mode="form"
             view_id="wage_increment_view_popup"
             target="new"
