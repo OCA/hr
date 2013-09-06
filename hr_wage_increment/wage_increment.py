@@ -320,6 +320,9 @@ class wage_increment_run(osv.osv):
     
     def unlink(self, cr, uid, ids, context=None):
         
+        if isinstance(ids, (int, long)):
+            ids = [ids]
+        
         for run in self.browse(cr, uid, ids, context=context):
             if run.state in ['approve']:
                 raise osv.except_osv(_('The adjustment run cannot be deleted!'), _('You may not delete a wage adjustment that is in the %s state.') %(run.state))
