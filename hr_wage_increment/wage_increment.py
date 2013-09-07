@@ -70,6 +70,8 @@ class wage_increment(osv.osv):
                 'employee_id': fields.related('contract_id', 'employee_id', relation='hr.employee',
                                               type='many2one', string='Employee', store=True,
                                               readonly=True),
+                'job_id': fields.related('contract_id', 'job_id', relation='hr.job',
+                                         type='many2one', string='Job', store=True, readonly=True),
                 'department_id': fields.related('employee_id', 'department_id', relation='hr.department',
                                                  type='many2one', string='Department', store=True, readonly=True),
                 'state': fields.selection([
@@ -108,11 +110,6 @@ class wage_increment(osv.osv):
         
         return employee_id
     
-    def _get_current_wage(self, cr, uid, context=None):
-        
-        data = self._get_contract_data(cr, uid, ['wage'], context=context)
-        return data and data['wage'] or False
-    
     def _get_effective_date(self, cr, uid, context=None):
         
         contract_id = self._get_contract_id(cr, uid, context=context)
@@ -134,7 +131,6 @@ class wage_increment(osv.osv):
 
     _defaults = {
         'contract_id': _get_contract_id,
-        'current_wage': _get_current_wage,
         'employee_id': _get_employee,
         'effective_date': _get_effective_date,
         'state': 'draft',

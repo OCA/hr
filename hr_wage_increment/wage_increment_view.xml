@@ -36,13 +36,21 @@
             <field name="model">hr.contract.wage.increment</field>
             <field name="arch" type="xml">
                 <search string="Wage Adjustment Search">
+                    <filter icon="terp-camera_test" domain="[('state','in',('draft', 'confirm'))]" string="To Approve" name="to_approve"/>
+                    <filter name="done" icon="terp-camera_test" string="Done" domain="[('state','=','approve')]"/>
+                    <newline/>
                     <field name="effective_date"/>
                     <field name="employee_id"/>
                     <field name="department_id"/>
+                    <field name="job_id"/>
+                    <newline/>
+                    <filter string="My Department Adjustments" icon="terp-personal+" domain="[('department_id.manager_id','=',uid)]"/>
                     <group expand="0" string="Group By...">
                         <filter name="department" string="Department" icon="terp-personal" domain="[]" context="{'group_by':'department_id'}"/>
+                        <filter name="job" string="Job" icon="terp-personal" domain="[]" context="{'group_by':'job_id'}"/>
                         <filter name="employee" string="Employee" icon="terp-personal" domain="[]" context="{'group_by':'employee_id'}"/>
                         <filter name="date" icon="terp-go-today" domain="[]" context="{'group_by':'effective_date'}"/>
+                        <filter name="state" string="State" icon="terp-go-today" domain="[]" context="{'group_by':'state'}"/>
                     </group>
                 </search>
             </field>
@@ -55,10 +63,11 @@
                 <tree string="Wage Adjustments">
                     <field name="employee_id"/>
                     <field name="department_id"/>
+                    <field name="job_id"/>
                     <field name="current_wage"/>
+                    <field name="wage"/>
                     <field name="wage_difference"/>
                     <field name="wage_difference_percent"/>
-                    <field name="wage"/>
                     <field name="effective_date"/>
                     <field name="state"/>
                 </tree>
@@ -88,6 +97,8 @@
                             <field name="current_wage"/>
                         </group>
                         <group string="Miscellaneous">
+                            <field name="department_id"/>
+                            <field name="job_id"/>
                             <field name="run_id"/>
                         </group>
                     </group>
@@ -100,6 +111,7 @@
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
             <field name="search_view_id" ref="view_hr_wage_increment_filter" />
+            <field name="context">{'default_type': 'to_approve', 'search_default_to_approve':1}</field>
         </record>
         <menuitem action="open_wage_increment"
                   id="menu_wage_increment"
@@ -150,9 +162,10 @@
                 <search string="Search Wage Adjustment Batches">
                     <field name="name" string="Adjustment Batches"/>
                     <field name="effective_date"/>
-                    <filter icon="terp-document-new" string="Draft" domain="[('state','=','draft')]" help="Draft Adjustment Batches"/>
+                    <filter icon="terp-camera_test" domain="[('state','in',('draft', 'confirm'))]" string="To Approve" name="to_approve"/>
                     <filter name="done_filter" icon="terp-camera_test" string="Done" domain="[('state','=','approve')]" help="Approved Adjustment Batches"/>
                     <group expand="0" string="Group By...">
+                        <filter name="state" string="State" icon="terp-go-today" domain="[]" context="{'group_by':'state'}"/>
                         <filter name="date" string="Date" icon="terp-go-today" domain="[]" context="{'group_by':'effective_date'}"/>
                     </group>
                 </search>
@@ -222,6 +235,7 @@
             <field name="view_type">form</field>
             <field name="view_id" ref="wage_adjustment_run_tree"/>
             <field name="search_view_id" ref="wage_adjustment_run_filter"/>
+            <field name="context">{'default_type': 'to_approve', 'search_default_to_approve':1}</field>
         </record>
         <menuitem action="action_wage_adjustment_run"
             id="menu_wage_adjustment_run"
