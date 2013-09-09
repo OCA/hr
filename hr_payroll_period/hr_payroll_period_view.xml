@@ -105,6 +105,7 @@
                     <field name="ot_week_startday"/>
                     <field name="ot_max_rollover_hours"/>
                     <field name="ot_max_rollover_gap"/>
+                    <field name="active"/>
                 </tree>
             </field>
         </record>
@@ -129,6 +130,7 @@
                             <field name="mo_paydate" attrs="{'invisible': [('type','!=','monthly')]}"/>
                             <newline/>
                             <field name="initial_period_date" attrs="{'invisible': [('type','!=','monthly')], 'required': [('type','=','monthly')]}"/>
+                            <field name="active"/>
                         </group>
                     </group>
                     <group string="Pay Periods" colspan="4" col="1">

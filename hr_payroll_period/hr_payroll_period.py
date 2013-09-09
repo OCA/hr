@@ -290,6 +290,7 @@ class hr_payperiod_schedule(osv.osv):
         'contract_ids': fields.one2many('hr.contract', 'pps_id', 'Contracts'),
         'pay_period_ids': fields.one2many('hr.payroll.period', 'schedule_id', 'Pay Periods'),
         'initial_period_date': fields.date('Initial Period Start Date'),
+        'active': fields.boolean('Active'),
     }
     
     _defaults = {
@@ -299,6 +300,7 @@ class hr_payperiod_schedule(osv.osv):
         'mo_firstday': '1',
         'mo_paydate': '3',
         'type': 'monthly',
+        'active': True,
     }
     
     def _check_initial_date(self, cr, uid, ids, context=None):
