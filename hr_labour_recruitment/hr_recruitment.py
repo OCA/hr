@@ -111,11 +111,11 @@ class hr_contract(osv.Model):
         # 1. Verify job is in recruitment
         if vals.get('job_id', False):
             data = self.pool.get('hr.job').read(cr, uid, vals['job_id'],
-                                                ['max_employees', 'max_employees_fuzz', 'no_of_employee', 'state'],
+                                                ['name', 'max_employees', 'max_employees_fuzz', 'no_of_employee', 'state'],
                                                 context=context)
             if data.get('state', False):
                 if data['state'] != 'recruit' and int(data['no_of_employee']) >= (int(data['max_employees']) + data['max_employees_fuzz']):
-                    raise osv.except_osv(_('Job is not in recruitment!'),
+                    raise osv.except_osv(_('The Job "%s" is not in recruitment!') %(data['name']),
                                          _('You may not create contracts for jobs that are not in recruitment state.'))
         
         # 2. Verify that the number of open contracts < total expected employees
@@ -127,7 +127,7 @@ class hr_contract(osv.Model):
                                        context=context)
             
             data = self.pool.get('hr.job').read(cr, uid, vals['job_id'],
-                                                ['expected_employees', 'max_employees', 'max_employees_fuzz'],
+                                                ['name', 'expected_employees', 'max_employees', 'max_employees_fuzz'],
                                                 context=context)
             expected_employees = data.get('expected_employees', False) and data['expected_employees'] or 0
             max_employees = data.get('max_employees', False) and data['max_employees'] or 0
@@ -135,7 +135,7 @@ class hr_contract(osv.Model):
             
             if len(contract_ids) >= max(expected_employees, max_employees + max_employees_fuzz):
                 raise osv.except_osv(_('Maximum Number of Employees Exceeded!'),
-                                     _('The maximum number of employees for this job position has been exceeded.'))
+                                     _('The maximum number of employees for "%s" has been exceeded.') %(data['name']))
         
         return super(hr_contract, self).create(cr, uid, vals, context=context)
 
