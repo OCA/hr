@@ -29,11 +29,16 @@
             <field name="model">hr.employee</field>
             <field name="inherit_id" ref="hr.view_employee_form"/>
             <field name="arch" type="xml">
-                <group string="Birth" position="after">
-                    <group string="Education">
-                        <field name="education"/>
-                    </group>
-                </group>
+                <data>
+                    <xpath expr="//group[@string='Birth']" position="after">
+                        <group string="Education">
+                            <field name="education"/>
+                        </group>
+                    </xpath>
+                    <xpath expr="//field[@name='birthday']" position="after">
+                        <field name="age"/>
+                    </xpath>
+                </data>
             </field>
         </record>
         
