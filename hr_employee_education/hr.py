@@ -50,5 +50,5 @@ class hr_employee(osv.osv):
     
     _columns = {
                 'education': fields.selection(EDUCATION_SELECTION, 'Education'),
-                'age': fields.function(_calculate_age, type='int', method=True, string='Age'),
+                'age': fields.function(_calculate_age, type='integer', method=True, string='Age'),
     }
