@@ -26,6 +26,7 @@ class hr_department(osv.Model):
     _inherit = 'hr.department'
     
     _columns = {
+        'code': fields.char('Code', size=64),
         'sequence': fields.integer('Sequence', select=True, help="Gives the sequence order when displaying a list of departments."),
         'parent_left': fields.integer('Left Parent', select=1),
         'parent_right': fields.integer('Right Parent', select=1),
