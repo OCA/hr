@@ -34,6 +34,7 @@ with the payroll system.
     'website':'http://miketelahun.wordpress.com',
     'depends': [
         'hr',
+        'hr_security',
         'l10n_et_hr',
         'report_aeroo',
     ],
