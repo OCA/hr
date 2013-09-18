@@ -32,6 +32,7 @@ Warning/Disciplinary Action Management
     'depends': [
         'hr',
         'hr_employee_state',
+        'hr_security',
         'hr_transfer',
     ],
     'init_xml': [
