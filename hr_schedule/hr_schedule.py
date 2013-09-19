@@ -1202,6 +1202,15 @@ class hr_schedule_working_times(osv.osv):
         'dayofweek' : '0'
     }
 
+class contract_init(osv.Model):
+    
+    _inherit = 'hr.contract.init'
+    
+    _columns = {
+        'sched_template_id': fields.many2one('hr.schedule.template', 'Schedule Template',
+                                             readonly=True, states={'draft': [('readonly', False)]}),
+    }
+
 class hr_contract(osv.osv):
     
     _name = 'hr.contract'
@@ -1209,6 +1218,18 @@ class hr_contract(osv.osv):
     
     _columns = {
         'schedule_template_id': fields.many2one('hr.schedule.template','Working Schedule Template', required=True),
+    }
+    
+    def _get_sched_template(self, cr, uid, context=None):
+        
+        res = False
+        init = self.get_latest_initial_values(cr, uid, context=context)
+        if init != None and init.sched_template_id:
+            res = init.sched_template_id.id
+        return res
+    
+    _defaults = {
+        'schedule_template_id': _get_sched_template,
     }
 
 class hr_attendance(osv.osv):

@@ -19,33 +19,4 @@
 #
 ##############################################################################
 
-{
-    'name': 'Human Resources Policy Groups',
-    'version': '1.0',
-    'category': 'Generic Modules/Human Resources',
-    'description': """
-HR Policy Groups
-================
-
-Define a collection of policies, such as Overtime, that apply to a contract.
-    """,
-    'author':'Michael Telahun Makonnen <mmakonnen@gmail.com>',
-    'website':'http://miketelahun.wordpress.com',
-    'depends': [
-        'hr_contract',
-        'hr_contract_init',
-        'hr_security',
-    ],
-    'init_xml': [
-    ],
-    'update_xml': [
-        'security/ir.model.access.csv',
-        'hr_policy_group_view.xml',
-    ],
-    'test': [
-    ],
-    'demo_xml': [
-    ],
-    'installable': True,
-    'active': False,
-}
+import hr_contract

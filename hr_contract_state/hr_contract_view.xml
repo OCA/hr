@@ -43,7 +43,7 @@
             </field>
         </record>
         <record id="open_expiring_contracts" model="ir.actions.act_window">
-            <field name="name">Ending Trials + Contracts</field>
+            <field name="name">Ending Trials &amp; Contracts</field>
             <field name="res_model">hr.contract</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
@@ -97,7 +97,7 @@
        
        <!-- HR Contract: Form View -->
        <record id="view_contract_form" model="ir.ui.view">
-           <field name="name">hr.contract.form.inherit</field>
+           <field name="name">hr.contract.form.inherit.state</field>
            <field name="model">hr.contract</field>
            <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
            <field name="arch" type="xml">
@@ -122,10 +122,6 @@
                    <xpath expr="//field[@name='trial_date_end']" position="replace">
                        <field name="trial_date_end" class="oe_inline" attrs="{'required':[('trial_date_start','!=',False)]}"/>
                    </xpath>
-                   <xpath expr="//field[@name='job_id']" position="replace">
-                        <field name="job_id" attrs="{'invisible': [('state','=','done')]}"/>
-                        <field name="end_job_id" attrs="{'invisible': [('state','!=','done')]}"/>
-                   </xpath>
                    <xpath expr="//sheet" position="after">
                         <div class="oe_chatter">
                             <field name="message_follower_ids" widget="mail_followers"/>
@@ -135,6 +131,18 @@
                </data>
            </field>
        </record>
+        
+       <record id="contract_view_init_form" model="ir.ui.view">
+            <field name="name">hr.contract.view.form.contract_init</field>
+            <field name="model">hr.contract</field>
+            <field name="inherit_id" ref="hr_contract_init.hr_contract_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='job_id']" position="replace">
+                    <field name="job_id" required="1" domain="[('department_id', '=', employee_dept_id)]" on_change="onchange_job(job_id)" attrs="{'invisible': [('state','=','done')]}"/>
+                    <field name="end_job_id" attrs="{'invisible': [('state','!=','done')]}"/>
+                </xpath>
+            </field>
+        </record>
         
         <record id="hr_hr_employee_view_form2" model="ir.ui.view">
             <field name="name">hr.employee.view.form.contract_state</field>

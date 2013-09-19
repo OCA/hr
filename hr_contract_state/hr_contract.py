@@ -110,6 +110,20 @@ class hr_contract(osv.osv):
         
         return False
     
+    def onchange_job(self, cr, uid, ids, job_id, context=None):
+        
+        import logging
+        _l = logging.getLogger(__name__)
+        _l.warning('hr_contract_state: onchange_job()')
+        res = False
+        if isinstance(ids, (int, long)):
+            ids = [ids]
+        if ids:
+            contract = self.browse(cr, uid, ids[0], context=None)
+            if contract.state != 'draft':
+                return res
+        return super(hr_contract, self).onchange_job(cr, uid, ids, job_id, context=context)
+    
     def condition_trial_period(self, cr, uid, ids, context=None):
         
         for contract in self.browse(cr, uid, ids, context=context):

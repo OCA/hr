@@ -37,6 +37,7 @@ example:
     'website':'http://miketelahun.wordpress.com',
     'depends': [
         'hr_contract',
+        'hr_contract_init',
         'hr_employee_state',
         'hr_payroll',
         'hr_payroll_register',

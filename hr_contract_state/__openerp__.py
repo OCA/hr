@@ -34,6 +34,7 @@ trial periods.
     'website':'http://miketelahun.wordpress.com',
     'depends': [
         'hr_contract',
+        'hr_contract_init',
     ],
     'init_xml': [
     ],

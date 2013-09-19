@@ -20,39 +20,31 @@
 ##############################################################################
 
 {
-    'name': 'Employee Shift Scheduling',
+    'name': 'Contracts - Initial Settings',
     'version': '1.0',
     'category': 'Generic Modules/Human Resources',
     'description': """
-Employee Shift Scheduling
-=========================
-
-Easily create, manage, and track employee schedules.
+Define Initial Settings on New Contracts
+========================================
+    - Starting Wages
+    - Salary Structure
+    - Trial Period Length
     """,
     'author':'Michael Telahun Makonnen <mmakonnen@gmail.com>',
     'website':'http://miketelahun.wordpress.com',
     'depends': [
-        'hr_attendance',
+        'hr',
         'hr_contract',
-        'hr_contract_init',
-        'hr_employee_state',
-        'hr_holidays',
+        'hr_payroll',
         'hr_security',
+        'hr_simplify',
     ],
     'init_xml': [
     ],
     'update_xml': [
         'security/ir.model.access.csv',
-        'security/ir_rule.xml',
-        'hr_schedule_view.xml',
-        'wizard/validate_schedule_view.xml',
-        'wizard/compute_alerts_view.xml',
-        'wizard/generate_schedules_view.xml',
-        'wizard/restday_view.xml',
-        'hr_schedule_data.xml',
-        'hr_schedule_workflow.xml',
-        'hr_schedule_cron.xml',
-        'alert_rule_data.xml',
+        'hr_contract_init_workflow.xml',
+        'hr_contract_view.xml',
     ],
     'test': [
     ],

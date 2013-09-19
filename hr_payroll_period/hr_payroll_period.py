@@ -444,6 +444,15 @@ class hr_payperiod_schedule(osv.osv):
                 latest_period = self._get_latest_period(cr, uid, sched.id, context=context)
                 utcDTStart = utc_tz.localize(datetime.strptime(latest_period.date_start, '%Y-%m-%d %H:%M:%S'), is_dst=False)
 
+class contract_init(osv.Model):
+    
+    _inherit = 'hr.contract.init'
+    
+    _columns = {
+        'pay_sched_id': fields.many2one('hr.payroll.period.schedule', 'Payroll Period Schedule',
+                                        readonly=True, states={'draft': [('readonly', False)]}),
+    }
+
 class hr_contract(osv.osv):
     
     _name = 'hr.contract'
@@ -451,6 +460,18 @@ class hr_contract(osv.osv):
     
     _columns = {
         'pps_id': fields.many2one('hr.payroll.period.schedule', 'Payroll Period Schedule', required=True),
+    }
+    
+    def _get_pay_sched(self, cr, uid, context=None):
+        
+        res = False
+        init = self.get_latest_initial_values(cr, uid, context=context)
+        if init != None and init.pay_sched_id:
+            res = init.pay_sched_id.id
+        return res
+    
+    _defaults = {
+        'pps_id': _get_pay_sched,
     }
 
 class hr_payslip(osv.osv):

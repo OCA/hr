@@ -497,5 +497,29 @@
             </field>
         </record>
         
+        <!-- Initial Contract Settings -->
+        
+        <record id="view_contract_init_tree" model="ir.ui.view">
+            <field name="name">hr.contract.init.tree.schedule</field>
+            <field name="model">hr.contract.init</field>
+            <field name="inherit_id" ref="hr_contract_init.view_contract_init_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='struct_id']" position="after">
+                    <field name="sched_template_id"/>
+                </xpath>
+            </field>
+        </record>
+        
+        <record id="view_contract_init_form" model="ir.ui.view">
+            <field name="name">hr.contract.init.form.schedule</field>
+            <field name="model">hr.contract.init</field>
+            <field name="inherit_id" ref="hr_contract_init.view_contract_init_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='struct_id']" position="after">
+                    <field name="sched_template_id"/>
+                </xpath>
+            </field>
+        </record>
+        
     </data>
 </openerp>
