@@ -116,9 +116,6 @@
                    <xpath expr="//field[@name='date_start']" position="replace">
                        <field name="date_start" class="oe_inline" on_change="onchange_start(date_start)"/> -
                    </xpath>
-                   <xpath expr="//field[@name='trial_date_start']" position="replace">
-                       <field name="trial_date_start" class="oe_inline" on_change="onchange_trial(trial_date_start)" attrs="{'required':[('trial_date_end','!=',False)]}"/> -
-                   </xpath>
                    <xpath expr="//field[@name='trial_date_end']" position="replace">
                        <field name="trial_date_end" class="oe_inline" attrs="{'required':[('trial_date_start','!=',False)]}"/>
                    </xpath>
@@ -140,6 +137,9 @@
                 <xpath expr="//field[@name='job_id']" position="replace">
                     <field name="job_id" required="1" domain="[('department_id', '=', employee_dept_id)]" on_change="onchange_job(job_id)" attrs="{'invisible': [('state','=','done')]}"/>
                     <field name="end_job_id" attrs="{'invisible': [('state','!=','done')]}"/>
+                </xpath>
+                <xpath expr="//field[@name='trial_date_start']" position="replace">
+                    <field name="trial_date_start" class="oe_inline" on_change="onchange_trial(trial_date_start)" attrs="{'required':[('trial_date_end','!=',False)]}"/> -
                 </xpath>
             </field>
         </record>

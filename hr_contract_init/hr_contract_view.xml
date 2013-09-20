@@ -104,6 +104,17 @@
         <record id="hr_contract_view_form" model="ir.ui.view">
             <field name="name">hr.contract.view.form.contract_init</field>
             <field name="model">hr.contract</field>
+            <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='trial_date_start']" position="replace">
+                    <field name="trial_date_start" class="oe_inline" on_change="onchange_trial(trial_date_start)"/> -
+                </xpath>
+            </field>
+        </record>
+        
+        <record id="hr_contract_view_form" model="ir.ui.view">
+            <field name="name">hr.contract.view.form.contract_init</field>
+            <field name="model">hr.contract</field>
             <field name="inherit_id" ref="hr_simplify.view_contract_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='job_id']" position="replace">

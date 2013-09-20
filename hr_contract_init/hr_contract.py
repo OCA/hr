@@ -20,6 +20,7 @@
 ##############################################################################
 
 from datetime import datetime, timedelta
+from dateutil.relativedelta import relativedelta
 
 from openerp import netsvc
 from openerp.addons import decimal_precision as dp
@@ -209,6 +210,18 @@ class hr_contract(osv.Model):
         if job_id:
             wage = self._get_wage(cr, uid, context=context, job_id=job_id)
             res = {'value': {'wage': wage}}
+        return res
+    
+    def onchange_trial(self, cr, uid, ids, trial_date_start, context=None):
+        
+        res = { 'value': {'trial_date_end': False} }
+        
+        init = self.get_latest_initial_values(cr, uid, context=context)
+        if init != None and init.trial_period and init.trial_period > 0:
+            dStart = datetime.strptime(trial_date_start, OE_DFORMAT)
+            dEnd = dStart + timedelta(days= init.trial_period)
+            res['value']['trial_date_end'] = dEnd.strftime(OE_DFORMAT)
+        
         return res
     
     def get_latest_initial_values(self, cr, uid, today_str=None, context=None):

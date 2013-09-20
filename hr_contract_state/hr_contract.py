@@ -194,16 +194,6 @@ class hr_contract(osv.osv):
         
         return res
     
-    def onchange_trial(self, cr, uid, ids, trial_date_start, context=None):
-        
-        res = { 'value': {} }
-        
-        d = datetime.strptime(trial_date_start, DEFAULT_SERVER_DATE_FORMAT)
-        d += relativedelta(days= +45)
-        res['value']['trial_date_end'] = d.strftime(DEFAULT_SERVER_DATE_FORMAT)
-        
-        return res
-    
     def state_trial(self, cr, uid, ids, context=None):
         
         self.write(cr, uid, ids, {'state': 'trial'}, context=context)
