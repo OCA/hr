@@ -35,6 +35,7 @@ Define Initial Settings on New Contracts
     'depends': [
         'hr',
         'hr_contract',
+        'hr_job_categories',
         'hr_payroll',
         'hr_security',
         'hr_simplify',
