@@ -110,12 +110,13 @@ class init_wage(osv.Model):
     _description = 'Starting Wages'
     
     _columns = {
-        'job_id': fields.many2one('hr.job', 'Job', required=True),
+        'job_id': fields.many2one('hr.job', 'Job'),
         'starting_wage': fields.float('Starting Wage', digits_compute=dp.get_precision('Payroll'),
                                       required=True),
         'is_default': fields.boolean('Use as Default',
                                      help="Use as default wage"),
         'contract_init_id': fields.many2one('hr.contract.init', 'Contract Settings'),
+        'category_ids': fields.many2many('hr.employee.category', 'contract_init_category_rel', 'contract_init_id', 'category_id', 'Tags'),
     }
     
     _sql_constraints = [('unique_job_cinit', 'UNIQUE(job_id,contract_init_id)', _('A Job Position cannot be referenced more than once in a Contract Settings record.'))]
@@ -128,12 +129,12 @@ class init_wage(osv.Model):
         for d in data:
             if not d.get('contract_init_id', False):
                 continue
-            d2 = self.pool.get('hr.contract.init').read(cr, uid, d['contract_init_id'],
+            d2 = self.pool.get('hr.contract.init').read(cr, uid, d['contract_init_id'][0],
                                                            ['state'], context=context)
             if d2['state'] in ['approve', 'decline']:
                 raise osv.except_osv(_('Error'),
                                     _('You may not a delete a record that is not in a "Draft" state'))
-        return super(contract_init, self).unlink(cr, uid, ids, context=context)
+        return super(init_wage, self).unlink(cr, uid, ids, context=context)
 
 class hr_contract(osv.Model):
     
@@ -144,12 +145,25 @@ class hr_contract(osv.Model):
         res = 0
         default = 0
         init = self.get_latest_initial_values(cr, uid, context=context)
+        if job_id:
+            catdata = self.pool.get('hr.job').read(cr, uid, job_id, ['category_ids'], context=context)
+        else:
+            catdata = False
         if init != None:
             for line in init.wage_ids:
                 if job_id != None and line.job_id.id == job_id:
                     res = line.starting_wage
+                elif catdata:
+                    cat_id = False
+                    category_ids = [c.id for c in line.category_ids]
+                    for ci in catdata['category_ids']:
+                        if ci in category_ids:
+                            cat_id = ci
+                            break
+                    if cat_id: res = line.starting_wage
                 if line.is_default and default == 0:
                     default = line.starting_wage
+                if res != 0: break
         if res == 0:
             res = default
         return res
