@@ -203,9 +203,6 @@ class hr_contract(osv.Model):
     
     def onchange_job(self, cr, uid, ids, job_id, context=None):
         
-        import logging
-        _l = logging.getLogger(__name__)
-        _l.warning('hr_contract_init: onchange_job()')
         res = False
         if job_id:
             wage = self._get_wage(cr, uid, context=context, job_id=job_id)
