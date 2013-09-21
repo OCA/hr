@@ -35,6 +35,9 @@ Extended Capabilities for HR Holidays (Leaves)
     * New way of entering leaves based on the number of days requested, rather
       than by specifying a start and end date. You tell it how many days to
       grant and it calculates the start and end dates based on the employee's schedule.
+    * Allow a manager to approve the leave requests of subordinates (manager must be
+      immediate superior of employee or manager of employee's department and have
+      leave approval rights)
     """,
     'author':'Michael Telahun Makonnen <mmakonnen@gmail.com>',
     'website':'http://miketelahun.wordpress.com',
@@ -46,6 +49,10 @@ Extended Capabilities for HR Holidays (Leaves)
     'init_xml': [
     ],
     'update_xml': [
+        'security/ir.model.access.csv',
+        'security/user_groups.xml',
+        'security/ir_rule.xml',
+        'hr_holidays_workflow.xml',
         'hr_holidays_view.xml',
     ],
     'test': [

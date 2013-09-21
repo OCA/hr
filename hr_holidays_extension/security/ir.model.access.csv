@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hr_holidays_approval,hr.holidays leave approval,model_hr_holidays,hr_holidays_extension.group_hr_leave,1,1,0,0
+access_hr_holydays_status_approval,hr.holidays.status leave approval,model_hr_holidays_status,hr_holidays_extension.group_hr_leave,1,1,0,0
+access_resource_calendar_leaves_approval_user,resource_calendar_leaves_approval_user,resource.model_resource_calendar_leaves,hr_holidays_extension.group_hr_leave,1,1,1,1
+access_crm_meeting_type_approval_user,crm.meeting.type.approval.user,base_calendar.model_crm_meeting_type,hr_holidays_extension.group_hr_leave,1,1,1,1

@@ -37,6 +37,7 @@ the basic framework for recording the data.
     'depends': [
         'hr',
         'hr_holidays',
+        'hr_holidays_extension',
     ],
     'init_xml': [
     ],

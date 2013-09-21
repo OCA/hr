@@ -99,6 +99,10 @@ class hr_holidays(osv.osv):
             domain = [('state', 'in', ['draft', 'confirm'])]
             return domain
         
+        elif users_obj.has_group(cr, uid, 'hr_holidays_extension.group_hr_leave'):
+            domain = [('state', 'in', ['confirm']), ('employee_id.user_id', '!=', uid)]
+            return domain
+        
         return False
 
     def onchange_bynumber(self, cr, uid, ids, no_days, date_from, employee_id, holiday_status_id, context=None):
@@ -241,6 +245,26 @@ class hr_holidays(osv.osv):
                                      _('There is already one or more attendance records for the date you have chosen.'))
         
         return super(hr_holidays, self).create(cr, uid, vals, context=context)
+
+    def holidays_first_validate(self, cr, uid, ids, context=None):
+        
+        self._check_validate(cr, uid, ids, context=context)
+        return super(hr_holidays, self).holidays_first_validate(cr, uid, ids, context=context)
+    
+    def holidays_validate(self, cr, uid, ids, context=None):
+        
+        self._check_validate(cr, uid, ids, context=context)
+        return super(hr_holidays, self).holidays_validate(cr, uid, ids, context=context)
+    
+    def _check_validate(self, cr, uid, ids, context=None):
+        
+        users_obj = self.pool.get('res.users')
+        
+        if not users_obj.has_group(cr, uid, 'base.group_hr_manager'):
+            for leave in self.browse(cr, uid, ids, context=context):
+                if leave.employee_id.user_id.id == uid:
+                    raise osv.except_osv(_('Warning!'), _('You cannot approve your own leave:\nHoliday Type: %s\nEmployee: %s') % (leave.holiday_status_id.name, leave.employee_id.name))
+        return
 
 class hr_attendance(osv.Model):
     

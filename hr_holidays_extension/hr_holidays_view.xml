@@ -2,6 +2,10 @@
 <openerp>
     <data>
 
+        <!-- Make Leave Requests to Approve viewable to managers with Leave Approval rights -->
+        <delete model="ir.ui.menu" id="hr_holidays.menu_request_approve_holidays"/>
+        <menuitem name="Leave Requests to Approve" parent="hr_holidays.menu_open_ask_holidays" id="hr_holidays.menu_request_approve_holidays" action="hr_holidays.request_approve_holidays" groups="base.group_hr_user,hr_holidays_extension.group_hr_leave"/>
+
         <record id="view_leave_request_form" model="ir.ui.view">
             <field name="name">Leave Request</field>
             <field name="model">hr.holidays</field>
@@ -11,10 +15,11 @@
                 <xpath expr="//form" position="replace">
                 <form string="Leave Request" version="7.0">
                 <header>
-                    <button string="Approve" name="validate" states="confirm" type="workflow" groups="base.group_hr_user" class="oe_highlight"/>
+                    <button string="Approve" name="validate" states="confirm" type="workflow" groups="hr_holidays_extension.group_hr_leave" class="oe_highlight"/>
                     <button string="Validate" name="second_validate" states="validate1" type="workflow" groups="base.group_hr_user" class="oe_highlight"/>
-                    <button string="Refuse" name="refuse" states="confirm,validate1,validate" type="workflow" groups="base.group_hr_user"/>
-                    <button string="Reset to New" name="set_to_draft" states="refuse" type="object" groups="base.group_hr_user"/>
+                    <button string="Refuse" name="refuse" states="confirm,validate" type="workflow" groups="hr_holidays_extension.group_hr_leave"/>
+                    <button string="Refuse" name="refuse" states="validate1" type="workflow" groups="base.group_hr_user"/>
+                    <button string="Reset to New" name="set_to_draft" states="refuse" type="object" groups="hr_holidays_extension.group_hr_leave"/>
                     <field name="state" widget="statusbar" statusbar_visible="draft,confirm,validate" statusbar_colors='{"confirm":"blue","validate1":"blue","refuse":"red"}'/>
                 </header>
                 <sheet string="Leave Request">
