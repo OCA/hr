@@ -1,6 +1,6 @@
 # -*- encoding: utf-8 -*-
 ##############################################################################
-#    
+# 
 #    OpenERP, Open Source Management Solution
 #    Copyright (C) 2010 Savoir-faire Linux (<http://www.savoirfairelinux.com>).
 #
@@ -15,7 +15,7 @@
 #    GNU General Public License for more details.
 #
 #    You should have received a copy of the GNU General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.     
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.  
 #
 ##############################################################################
 
@@ -29,7 +29,7 @@ class hr_expense_line(osv.osv):
     _columns = {
         'tax_id': fields.many2one('account.tax', 'Tax', domain=[('type_tax_use','=','purchase')]),
     }
-    
+ 
     def onchange_product_id(self, cr, uid, ids, product_id, uom_id, employee_id, tax_id, context=None):
         res = {}
         logger.notifyChannel("",netsvc.LOG_INFO,"This is new OnChange")

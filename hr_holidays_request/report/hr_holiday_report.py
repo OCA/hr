@@ -1,6 +1,6 @@
 # -*- encoding: utf-8 -*-
 ##############################################################################
-#    
+# 
 #    OpenERP, Open Source Management Solution
 #    Copyright (C) 2004-2009 Tiny SPRL (<http://tiny.be>).
 #
@@ -15,7 +15,7 @@
 #    GNU Affero General Public License for more details.
 #
 #    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.     
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.  
 #
 ##############################################################################
 import time
@@ -29,16 +29,16 @@ class hr_holiday_report(report_sxw.rml_parse):
         self.localcontext.update({
             'time': time,
             'line' : self._getShop,
-            
+         
         })
     def _getShop(self,form):
         if form['active1']:
             startdate=str(datetime.date(form['year'],form['month'],1))
             a=calendar.monthrange(form['year'],form['month'])
             enddate=str(datetime.date(form['year'],form['month'],a[1]))
-            
+         
         elif form['active2']:
-            
+         
             startdate=form['fromdate']
             enddate=form['todate']
         ls=[]
@@ -80,11 +80,11 @@ class hr_holiday_report(report_sxw.rml_parse):
             hl=0
             ls.append(res)
             res={}
-        
+     
         return ls
-                    
-                
-        
+                 
+             
+     
 report_sxw.report_sxw('report.hr.holiday.req.report', 'hr.holidays', 'addons/hr_holidays_request/report/hrreport.rml' ,parser=hr_holiday_report)
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
 

@@ -1,6 +1,6 @@
 # -*- encoding: utf-8 -*-
 ##############################################################################
-#    
+# 
 #    OpenERP, Open Source Management Solution
 #    Copyright (C) 2004-2009 Tiny SPRL (<http://tiny.be>).
 #
@@ -15,7 +15,7 @@
 #    GNU Affero General Public License for more details.
 #
 #    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.     
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.  
 #
 ##############################################################################
 import re
@@ -86,7 +86,7 @@ class wizard_import_icalendar(wizard.interface):
         employee_id = _employee_get(pooler.get_pool(cr.dbname).get('hr.attendance'), cr, data['form']['user_id'])
         if not employee_id:
             raise wizard.except_wizard('No employee found for the user', 'Login ID: %s' % data['form']['user_id'])
-        
+     
         first, end = [datetime.date(*(map(int, x.split('-')))) for x in [data['form']['startdate'], data['form']['enddate']]]
         end = min(end, datetime.date.today())
         try:
@@ -97,7 +97,7 @@ class wizard_import_icalendar(wizard.interface):
             raise wizard.except_wizard('Erreur HTTP', '%s - %s' % (e.code, e.msg))
         except IndexError:
             raise wizard.except_wizard('No user login found', 'Login ID: %s' % data['form']['user_id'])
-        
+     
         event_obj = pooler.get_pool(cr.dbname).get('res.partner.event')
         timesheet_line_obj = pooler.get_pool(cr.dbname).get('hr.analytic.timesheet')
         analytic_account_obj = pooler.get_pool(cr.dbname).get('account.analytic.account')
@@ -107,7 +107,7 @@ class wizard_import_icalendar(wizard.interface):
                 continue
             else:
                 project_code, summary = project_search.groups()
-            
+         
             account_id = analytic_account_obj.name_search(cr, uid, project_code)
             if account_id:
                 account_id = account_id[0][0]
@@ -135,7 +135,7 @@ class wizard_import_icalendar(wizard.interface):
                            'date' : event.dtstart.strftime('%Y-%m-%d %H:%M'),
                            'event_ical_id' : event.unique_id})
         return {}
-    
+ 
     states = {
         'init' : {
             'actions' : [],

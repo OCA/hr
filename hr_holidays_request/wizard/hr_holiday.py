@@ -1,6 +1,6 @@
 # -*- encoding: utf-8 -*-
 ##############################################################################
-#    
+# 
 #    OpenERP, Open Source Management Solution
 #    Copyright (C) 2004-2009 Tiny SPRL (<http://tiny.be>).
 #
@@ -15,7 +15,7 @@
 #    GNU Affero General Public License for more details.
 #
 #    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.     
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.  
 #
 ##############################################################################
 import time
@@ -78,15 +78,15 @@ class hr_holidays_report(wizard.interface):
         form=data['form']
         if not form['emp_ids'][0][2] :
             raise wizard.except_wizard('Error', 'You must select Employee(s) For report !')
-        
+     
         if form['active1'] and form['active2']:
             raise wizard.except_wizard('TyepError', 'You must select only one type For report !')
         if form['active1']:
             temp=form['year']
             if not form['month']:
                 raise wizard.except_wizard('MonthError', 'You must select month For month-wise report !')
-            
-                
+         
+             
         elif form['active2']:
             temp=0
             if not form['fromdate'] or not form['todate']:
@@ -114,7 +114,7 @@ class hr_holidays_report(wizard.interface):
             'actions': [_riase_error],
             'result': {'type':'print', 'report':'hr.holiday.req.report','state':'end'}
         }
-        
+     
     }
 hr_holidays_report('hr_holiday_req')
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

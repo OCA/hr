@@ -1,6 +1,6 @@
 # -*- encoding: utf-8 -*-
 ##############################################################################
-#    
+# 
 #    OpenERP, Open Source Management Solution
 #    Copyright (C) 2004-2009 Tiny SPRL (<http://tiny.be>).
 #
@@ -15,7 +15,7 @@
 #    GNU Affero General Public License for more details.
 #
 #    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.     
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.  
 #
 ##############################################################################
 import time
@@ -33,8 +33,8 @@ class hr_holiday_report_form(report_sxw.rml_parse):
             'total_days':self._total_days,
             'total_full':self._total_full,
             'total_half':self._total_half,
-            'total_hourly':self._total_hourly,       
-        
+            'total_hourly':self._total_hourly,    
+     
         })
     def _total_days(self,full,half,hours):
         total=0.0
@@ -44,7 +44,7 @@ class hr_holiday_report_form(report_sxw.rml_parse):
         return total
     def _total_full(self,object,emp):
         lst=object.date_from1.split('-')
-        
+     
         year=int(lst[0])
         month=int(lst[1])
         startdate=str(datetime.date(year,month,1))

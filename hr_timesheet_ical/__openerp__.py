@@ -1,6 +1,6 @@
 # -*- encoding: utf-8 -*-
 ##############################################################################
-#    
+# 
 #    OpenERP, Open Source Management Solution
 #    Copyright (C) 2004-2009 Tiny SPRL (<http://tiny.be>).
 #
@@ -15,26 +15,20 @@
 #    GNU Affero General Public License for more details.
 #
 #    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.     
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.  
 #
 ##############################################################################
-
 {
-    "name" : "Human Resources Timesheets on contracts",
+    "name" : "Complete timesheet from an iCal server",
     "version" : "0.1",
     "author" : "Tiny",
     "category" : "Generic Modules/Human Resources",
     "website" : "http://www.openerp.com",
-    "depends" : ["hr_contract","hr_timesheet"],
-    "module": "",
-    "description": """
-        Compute the cost of an employee for his timesheets according
-        to his contract definitions. If no contract are defined, it
-        uses the product costs linked to the employee.
-    """,
+    "description": "Import iCal events (for eg, Outlook) to auto-complete timesheets.",
+    "depends" : ["hr_timesheet"],
     "init_xml" : [],
     "demo_xml" : [],
-    "update_xml" : [],
+    "update_xml" : ["hr_timesheet_wizard.xml"],
     "active": False,
     "installable": True
 }

@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 ##############################################################################
 #
-#    OpenERP, Open Source Management Solution    
+#    OpenERP, Open Source Management Solution 
 #    Copyright (C) 2004-2009 Tiny SPRL (<http://tiny.be>). All Rights Reserved
 #    $Id$
 #
@@ -60,7 +60,7 @@ class wiz_schedule(wizard.interface):
     def _scheduling(self, cr, uid, data, context):
         pool = pooler.get_pool(cr.dbname)
         hr_int_obj = pool.get("hr.interview")
-        if time.strptime(str(data['form']['start_interview']),"%Y-%m-%d %H:%M:%S") < time.strptime(data['form']['end_interview'],"%Y-%m-%d %H:%M:%S") and time.strptime(str(data['form']['start_interview']),"%Y-%m-%d %H:%M:%S")[:3] ==time.strptime(str(data['form']['end_interview']),"%Y-%m-%d %H:%M:%S")[:3] :  
+        if time.strptime(str(data['form']['start_interview']),"%Y-%m-%d %H:%M:%S") < time.strptime(data['form']['end_interview'],"%Y-%m-%d %H:%M:%S") and time.strptime(str(data['form']['start_interview']),"%Y-%m-%d %H:%M:%S")[:3] ==time.strptime(str(data['form']['end_interview']),"%Y-%m-%d %H:%M:%S")[:3] :
             if datetime.datetime(*time.strptime(str(data['form']['end_interview']),"%Y-%m-%d %H:%M:%S")[:6]) >= datetime.datetime(*time.strptime(str(data['form']['start_interview']),"%Y-%m-%d %H:%M:%S")[:6]) + datetime.timedelta(minutes=int(data['form']['interval_time'])):
                 cur_time = data['form']['start_interview']
                 re_id = deepcopy(data['ids'])
@@ -69,7 +69,7 @@ class wiz_schedule(wizard.interface):
                     wf_service = netsvc.LocalService('workflow')
                     wf_service.trg_validate(uid, 'hr.interview', rec, 'state_scheduled', cr)
                     record = hr_int_obj.read(cr,uid,rec,['hr_id','name'])
-                    list_all +="\n" + record['hr_id']+"\t\t" + record['name'] 
+                    list_all +="\n" + record['hr_id']+"\t\t" + record['name']
                     id = hr_int_obj.write(cr,uid,rec,{'date':cur_time,'state':'scheduled'})
                     cur_time  = datetime.datetime(*time.strptime(str(cur_time),"%Y-%m-%d %H:%M:%S")[:6]) + datetime.timedelta(minutes=int(data['form']['interval_time']))
                     re_id.remove(rec)
@@ -77,7 +77,7 @@ class wiz_schedule(wizard.interface):
                     if len(re_id) > 0 and time.strptime(str(end_time),"%Y-%m-%d %H:%M:%S") > time.strptime(data['form']['end_interview'],"%Y-%m-%d %H:%M:%S") :
                         remain="Interview ID \t Name "
                         for record in hr_int_obj.read(cr,uid,re_id,['hr_id','name']):
-                            remain +="\n" + record['hr_id']+"\t\t" + record['name'] 
+                            remain +="\n" + record['hr_id']+"\t\t" + record['name']
                         data['form']['list']=remain
                         data['form']['list_all']=list_all
                         return data['form']
@@ -87,13 +87,13 @@ class wiz_schedule(wizard.interface):
         else :
             raise  wizard.except_wizard(_('UserError'),_('The Scheduling is not Appropriate. Enter appropriate date and time '))
             return {}
-        
+     
         data['form']['list_all']= list_all
         data['form']['list']= "None"
-        
+     
         return data['form']
-    
-    
+ 
+ 
     states = {
         'init': {
             'actions': [],
@@ -102,7 +102,7 @@ class wiz_schedule(wizard.interface):
             'schedule': {
             'actions': [_scheduling],
             'result': {'type': 'form','arch':form, 'fields':fields, 'state':[('end','Ok')]}
-                },                
+                },             
     }
 wiz_schedule('wiz_interview_scheduling')
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

@@ -1,6 +1,6 @@
 # -*- encoding: utf-8 -*-
 ##############################################################################
-#    
+# 
 #    OpenERP, Open Source Management Solution
 #    Copyright (C) 2004-2009 Tiny SPRL (<http://tiny.be>).
 #
@@ -15,7 +15,7 @@
 #    GNU Affero General Public License for more details.
 #
 #    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.     
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.  
 #
 ##############################################################################
 
@@ -43,7 +43,7 @@ class hr_skill_weight(osv.osv):
     _name ='hr_skill.weight'
     _columns = {
         'name': fields.char('Name', size=64,required=True),
-        'value': fields.float('Numerical value', required=True), 
+        'value': fields.float('Numerical value', required=True),
         'category_id': fields.many2one('hr_skill.weight.category', 'Category', required=True, ondelete='cascade'),
         }# hr_skill.category ne passe pas (cad creation des tables) la premiere fois (hr_skill_category bien)
 
@@ -51,14 +51,14 @@ hr_skill_weight()
 
 
 # Skill
-# eg : Spanish, OO programming (-> skill) 
-#      Langage, IT (->view)       
+# eg : Spanish, OO programming (-> skill)
+#      Langage, IT (->view)    
 # Categories of weight
 class hr_skill_skill(osv.osv):
     _name = 'hr_skill.skill'
     _columns = {
-        'name': fields.char('Name', size=64,required=True), 
-        'active': fields.boolean('Active'), 
+        'name': fields.char('Name', size=64,required=True),
+        'active': fields.boolean('Active'),
         'weight': fields.float('Weight', required=True),
         'weight_category_id': fields.many2one('hr_skill.weight.category','Weight Category'),
         'parent_id': fields.many2one('hr_skill.skill', 'Parent', ondelete='cascade'),
@@ -85,8 +85,8 @@ hr_skill_experience_category()
 
 
 # Experience
-# eg : a specific former job position or studies  
-# each experience is associated with several couple skill - weight 
+# eg : a specific former job position or studies
+# each experience is associated with several couple skill - weight
 class hr_skill_experience(osv.osv):
     _name ='hr_skill.experience'
     _columns = {
@@ -127,7 +127,7 @@ class hr_skill_evaluation(osv.osv):
             return {}
         empl = self.pool.get('hr.employee').browse(cr, uid, employee_id)
         return {'value': {'interviewee_name':empl.name} }
-    
+ 
 hr_skill_evaluation()
 
 # Profile
@@ -148,7 +148,7 @@ hr_skill_profile()
 class hr_skill_position(osv.osv):
     _name ='hr_skill.position'
     _columns = {
-        'name': fields.char('Name', size=64, required=True), 
+        'name': fields.char('Name', size=64, required=True),
         'employee_id': fields.many2one('hr.employee', 'Assigned Employee'),# ?? pq un many2one ?
         'profile_ids': fields.one2many('hr_skill.position.profile', 'position_id', 'Profiles'),
         'status': fields.selection([('open','Open'), ('assigned','Assigned'), ('unused','Unused')], 'Status'),
@@ -187,7 +187,7 @@ class hr_skill_experience_skill(osv.osv):
             return {}
         sk = self.pool.get('hr_skill.skill').browse(cr, uid, skill_id)
         return {'value': {'name':sk.name} }
-    
+ 
 hr_skill_experience_skill()
 
 
@@ -200,13 +200,13 @@ class hr_skill_profile_skill(osv.osv):
         'profile_id': fields.many2one('hr_skill.profile','Profile', ondelete='cascade',required=True),
         'skill_id': fields.many2one('hr_skill.skill','Skill', ondelete='cascade',required=True, domain=[('view','<>','view')]),
     }
-    
+ 
     def onchange_skill_id(self, cr, uid, ids, skill_id):
         if not skill_id:
             return {}
         sk = self.pool.get('hr_skill.skill').browse(cr, uid, skill_id)
         return {'value': {'name':sk.name} }
-    
+ 
 hr_skill_profile_skill()
 
 
@@ -231,8 +231,8 @@ class hr_skill_evaluation_experience(osv.osv):
         'evaluation_id': fields.many2one('hr_skill.evaluation','Evaluation', ondelete='cascade', required=True),
         'experience_id': fields.many2one('hr_skill.experience','Experience', ondelete='cascade', required=True),
     }
-    
-    def onchange_experience_id(self, cr, uid, ids, experience_id): 
+ 
+    def onchange_experience_id(self, cr, uid, ids, experience_id):
         if not experience_id:
             return {}
         exp = self.pool.get('hr_skill.experience').browse(cr, uid, experience_id)
@@ -250,7 +250,7 @@ class hr_skill_evaluation_skill(osv.osv):
         'evaluation_id': fields.many2one('hr_skill.evaluation','Evaluation', ondelete='cascade', required=True),
         'skill_id': fields.many2one('hr_skill.skill','Skill', ondelete='cascade', required=True),
     }
-    def onchange_skill_id(self, cr, uid, ids, skill_id): 
+    def onchange_skill_id(self, cr, uid, ids, skill_id):
         if not skill_id:
             return {}
         sk = self.pool.get('hr_skill.skill').browse(cr, uid, skill_id)

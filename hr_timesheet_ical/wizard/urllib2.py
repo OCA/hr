@@ -1,6 +1,6 @@
 # -*- encoding: utf-8 -*-
 ##############################################################################
-#    
+# 
 #    OpenERP, Open Source Management Solution
 #    Copyright (C) 2004-2009 Tiny SPRL (<http://tiny.be>).
 #
@@ -15,7 +15,7 @@
 #    GNU Affero General Public License for more details.
 #
 #    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.     
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.  
 #
 ##############################################################################
 
@@ -1086,7 +1086,7 @@ def parse_keqv_list(l):
 
 def parse_http_list(s):
     """Parse lists as described by RFC 2068 Section 2.
-    
+ 
     In particular, parse comma-separated lists where the elements of
     the list may include quoted-strings.  A quoted-string could
     contain a comma.  A non-quoted string could have quotes in the
@@ -1118,7 +1118,7 @@ def parse_http_list(s):
 
         if cur == '"':
             quote = True
-        
+     
         part += cur
 
     # append last part
