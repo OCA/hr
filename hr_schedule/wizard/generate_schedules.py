@@ -69,7 +69,7 @@ class hr_schedule_generate(osv.TransientModel):
                 if not ee.contract_id or not ee.contract_id.schedule_template_id:
                     continue
                 sched = {
-                    'name': ee.name,
+                    'name': ee.name +': '+ data['date_start'] +' Wk '+ str(dStart.isocalendar()[1]),
                     'employee_id': ee.id,
                     'template_id': ee.contract_id.schedule_template_id.id,
                     'date_start': dStart.strftime('%Y-%m-%d'),
