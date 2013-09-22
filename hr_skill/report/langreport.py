@@ -1,5 +1,5 @@
 # -*- encoding: utf-8 -*-
-##############################################################################
+#
 #
 #    OpenERP, Open Source Management Solution
 #    Copyright (C) 2004-2009 Tiny SPRL (<http://tiny.be>).
@@ -17,7 +17,7 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-##############################################################################
+#
 import datetime
 import operator
 import pooler
@@ -35,15 +35,17 @@ class langreport(report_sxw.rml_parse):
                 'time': time,
                 'get_data': self._getData,
                 'get_lang': self._getLang,
-                })
+            })
 
     def _getLang(self, id):
             lid = []
             lname = []
 
-            lid.append(pooler.get_pool(self.cr.dbname).get('emp.lang').search(self.cr, self.uid, [('ii_id', '=', id)]))
+            lid.append(pooler.get_pool(self.cr.dbname).get(
+                'emp.lang').search(self.cr, self.uid, [('ii_id', '=', id)]))
             for i in range(0, len(lid)):
-                lname.append(pooler.get_pool(self.cr.dbname).get('emp.lang').read(self.cr, self.uid, lid[i]))
+                lname.append(pooler.get_pool(self.cr.dbname).get(
+                    'emp.lang').read(self.cr, self.uid, lid[i]))
             res = lname[0]
             return res
 
@@ -60,7 +62,8 @@ class langreport(report_sxw.rml_parse):
         count = len(form['lang'])
 
         if count == 0:
-            self.cr.execute("select ii_id, name, read, write, speak from emp_lang")
+            self.cr.execute(
+                "select ii_id, name, read, write, speak from emp_lang")
             temp.append(self.cr.fetchall())
 
         else:
@@ -86,7 +89,8 @@ class langreport(report_sxw.rml_parse):
                     whr = whr + " and write = %s" % w
                 else:
                     w = False
-                self.cr.execute("select ii_id,name,read,write,speak from emp_lang where " + whr)
+                self.cr.execute(
+                    "select ii_id,name,read,write,speak from emp_lang where " + whr)
                 temp.append(self.cr.fetchall())
 
         # This loop is for extracting employee ids
@@ -101,13 +105,15 @@ class langreport(report_sxw.rml_parse):
                 if not v in sort_id:
                     sort_id.append(v)
         else:
-            sort_id.append(list(set([x for x in emp_id if emp_id.count(x) == count])))
+            sort_id.append(
+                list(set([x for x in emp_id if emp_id.count(x) == count])))
             temp = []
             temp = sort_id[0]
             sort_id = []
             sort_id = temp
         for i in sort_id:
-            emp_name.append(pooler.get_pool(self.cr.dbname).get('hr.employee').read(self.cr, self.uid, i, ['name']))
+            emp_name.append(pooler.get_pool(self.cr.dbname).get(
+                'hr.employee').read(self.cr, self.uid, i, ['name']))
         return emp_name
 
 report_sxw.report_sxw('report.langreport',

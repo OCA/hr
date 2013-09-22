@@ -1,5 +1,5 @@
 # -*- encoding: utf-8 -*-
-##############################################################################
+#
 #
 #    OpenERP, Open Source Management Solution
 #    Copyright (C) 2004-2009 Tiny SPRL (<http://tiny.be>).
@@ -17,7 +17,7 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-##############################################################################
+#
 
 # ON peut choisir lors de la definititon
 # d'un skill de lui associer des skills
@@ -33,7 +33,7 @@ class hr_skill_weight_category(osv.osv):
     _name = 'hr_skill.weight.category'
     _columns = {
         'name': fields.char('Name', size=64, required=True),
-        }
+    }
 hr_skill_weight_category()
 
 
@@ -45,7 +45,7 @@ class hr_skill_weight(osv.osv):
         'name': fields.char('Name', size=64, required=True),
         'value': fields.float('Numerical value', required=True),
         'category_id': fields.many2one('hr_skill.weight.category', 'Category', required=True, ondelete='cascade'),
-        }  # hr_skill.category ne passe pas (cad creation des tables) la premiere fois (hr_skill_category bien)
+    }  # hr_skill.category ne passe pas (cad creation des tables) la premiere fois (hr_skill_category bien)
 hr_skill_weight()
 
 
@@ -148,7 +148,8 @@ class hr_skill_position(osv.osv):
     _name = 'hr_skill.position'
     _columns = {
         'name': fields.char('Name', size=64, required=True),
-        'employee_id': fields.many2one('hr.employee', 'Assigned Employee'),  # ?? pq un many2one ?
+        # ?? pq un many2one ?
+        'employee_id': fields.many2one('hr.employee', 'Assigned Employee'),
         'profile_ids': fields.one2many('hr_skill.position.profile', 'position_id', 'Profiles'),
         'status': fields.selection([('open', 'Open'), ('assigned', 'Assigned'), ('unused', 'Unused')], 'Status'),
     }
@@ -230,7 +231,8 @@ class hr_skill_evaluation_experience(osv.osv):
     def onchange_experience_id(self, cr, uid, ids, experience_id):
         if not experience_id:
             return {}
-        exp = self.pool.get('hr_skill.experience').browse(cr, uid, experience_id)
+        exp = self.pool.get('hr_skill.experience').browse(
+            cr, uid, experience_id)
         return {'value': {'name': exp.name}}
 hr_skill_evaluation_experience()
 

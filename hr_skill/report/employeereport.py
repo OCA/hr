@@ -1,5 +1,5 @@
 # -*- encoding: utf-8 -*-
-##############################################################################
+#
 #
 #    OpenERP, Open Source Management Solution
 #    Copyright (C) 2004-2009 Tiny SPRL (<http://tiny.be>).
@@ -17,7 +17,7 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-##############################################################################
+#
 import datetime
 import operator
 import pooler
@@ -26,17 +26,20 @@ from report import report_sxw
 
 
 class employeereport(report_sxw.rml_parse):
+
     def __init__(self, cr, uid, name, context):
         super(employeereport, self).__init__(cr, uid, name, context)
         self.localcontext.update({
             'time': time,
             'get_data': self._getData,
             'get_duration': self._getDuration,
-            })
+        })
 
     def _getData(self, start_date, end_date):
-        employee_ids = self.pool.get('hr.employee').search(self.cr, self.uid, [('started', '>=', start_date), ('started', '<=', end_date)])
-        res = self.pool.get('hr.employee').browse(self.cr, self.uid, employee_ids)
+        employee_ids = self.pool.get('hr.employee').search(
+            self.cr, self.uid, [('started', '>=', start_date), ('started', '<=', end_date)])
+        res = self.pool.get('hr.employee').browse(
+            self.cr, self.uid, employee_ids)
         return res
 
     def _getDuration(self, eid):

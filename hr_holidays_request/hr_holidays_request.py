@@ -1,5 +1,5 @@
 # -*- encoding: utf-8 -*-
-##############################################################################
+#
 #
 #    OpenERP, Open Source Management Solution
 #    Copyright (C) 2004-2009 Tiny SPRL (<http://tiny.be>).
@@ -17,7 +17,7 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-##############################################################################
+#
 from mx import DateTime
 import time
 import pooler
@@ -45,32 +45,37 @@ class hr_holidays(osv.osv):
         if len(args) == 2:
             if (args[0] == ['state', '=', 'confirm'] and args[1] == ['employee_id', "=", []]) or (args[0] == ('state', '=', 'confirm') and args[1] == ('employee_id', "=", [])):
                 res = []
-                ids = self.pool.get('hr.employee').search(cr, uid, [('user_id', '=', uid)])
+                ids = self.pool.get('hr.employee').search(
+                    cr, uid, [('user_id', '=', uid)])
                 for id in ids:
-                    boss = self.pool.get('hr.employee').search(cr, uid, [('parent_id', '=', id)])
+                    boss = self.pool.get('hr.employee').search(
+                        cr, uid, [('parent_id', '=', id)])
                     for b in boss:
                         res.append(b)
-                        boss1 = self.pool.get('hr.employee').search(cr, uid, [('parent_id', '=', b)])
+                        boss1 = self.pool.get('hr.employee').search(
+                            cr, uid, [('parent_id', '=', b)])
                         for b1 in boss1:
                             boss.append(b1)
                 args[1] = ['employee_id', 'in', res]
 
-        return super(hr_holidays,self).search(cr, uid, args, offset, limit,
-                                              order, context=context, count=count)
+        return super(hr_holidays, self).search(cr, uid, args, offset, limit,
+                                               order, context=context, count=count)
 
     def copy(self, cr, uid, id, default=None, context={}):
-        raise osv.except_osv('Duplicate Error !', 'Can not create duplicate record')
+        raise osv.except_osv(
+            'Duplicate Error !', 'Can not create duplicate record')
         return False
 
     def unlink(self, cr, uid, ids, context={}, check=True):
         for id in ids:
             selfobj = self.browse(cr, uid, id)
             if selfobj.state == "validate" or selfobj.state == "refuse":
-                raise osv.except_osv('Data Error !', 'Can not delete validated or refused record')
+                raise osv.except_osv(
+                    'Data Error !', 'Can not delete validated or refused record')
         return super(hr_holidays, self).unlink(cr, uid, ids, context=context)
 
     def write(self, cr, uid, ids, vals, context=None, check=True, update_check=True):
-        slobj = self.browse(cr,uid,ids)
+        slobj = self.browse(cr, uid, ids)
         if vals.__contains__('date_from1'):
             d = vals['date_from1']
         else:
@@ -89,7 +94,8 @@ class hr_holidays(osv.osv):
         a = datetime.date(int(d1[0]), int(d1[1]), int(d1[2][0]))
         b = datetime.date(int(d2[0]), int(d2[1]), int(d2[2][0]))
         if b < a:
-            raise osv.except_osv('Date Error !', 'From date should be smaller than To date')
+            raise osv.except_osv(
+                'Date Error !', 'From date should be smaller than To date')
         return super(hr_holidays, self).write(cr, uid, ids, vals, context=context)
 
     def create(self, cr, uid, vals, context=None):
@@ -102,7 +108,8 @@ class hr_holidays(osv.osv):
         a = datetime.date(int(d1[0]), int(d1[1]), int(d1[2][0]))
         b = datetime.date(int(d2[0]), int(d2[1]), int(d2[2][0]))
         if b < a:
-            raise osv.except_osv('Date Error !', 'From date should be smaller than To date')
+            raise osv.except_osv(
+                'Date Error !', 'From date should be smaller than To date')
         else:
             return super(hr_holidays, self).create(cr, uid, vals, context=context)
     _columns = {
@@ -123,7 +130,7 @@ class hr_holidays(osv.osv):
         'total_hour': fields.integer("Total Hours", readonly=True),
         'number_of_days': fields.float('Number of Days in this Holiday Request'),
         'holiday_status': fields.many2one("hr.holidays.status", "Holiday's Status"),
-        }
+    }
     _defaults = {
         'manager_id': _manager_get,
         'state': lambda *a: 'draft',
@@ -132,7 +139,7 @@ class hr_holidays(osv.osv):
         'date_to1': lambda *a: time.strftime('%Y-%m-%d'),
         'date_from': lambda *a: time.strftime('%Y-%m-%d %H:%M:%S'),
         'date_to': lambda *a: time.strftime('%Y-%m-%d %H:%M:%S'),
-        }
+    }
     _order = 'date_from1 desc'
 
     def onchange_from_date(self, cr, uid, ids, date_from1, date_to1):
@@ -141,7 +148,7 @@ class hr_holidays(osv.osv):
         else:
             return {'value': {}}
 
-    def days_check(self,cr,uid,ids,s1):
+    def days_check(self, cr, uid, ids, s1):
         seaobj = self.pool.get('days.holidays.days').browse(cr, uid, s1)
         if seaobj.holiday_id.id:
             if not seaobj.holiday_id.id == ids[0]:
@@ -149,7 +156,8 @@ class hr_holidays(osv.osv):
                 if seaobj.holiday_id.state == 'refuse':
                     return True
                 else:
-                    raise osv.except_osv('Day Error !','Can not create more leaves for one day ')
+                    raise osv.except_osv(
+                        'Day Error !', 'Can not create more leaves for one day ')
             else:
                 return True
         else:
@@ -164,23 +172,25 @@ class hr_holidays(osv.osv):
             d2 = dd.split('-')
             d1[2] = d1[2].split(' ')
             d2[2] = d2[2].split(' ')
-            a=datetime.date(int(d1[0]),int(d1[1]),int(d1[2][0]))
+            a = datetime.date(int(d1[0]), int(d1[1]), int(d1[2][0]))
             b = datetime.date(int(d2[0]), int(d2[1]), int(d2[2][0]))
             temp = a
             if a > b:
-                raise osv.except_osv('Date Error !','From date should be smaller than To date')
-            t12 = datetime.timedelta(days = 1)
+                raise osv.except_osv(
+                    'Date Error !', 'From date should be smaller than To date')
+            t12 = datetime.timedelta(days=1)
             dobj = self.pool.get('days.holidays.days')
             delobject = dobj.search(cr, uid, [('holiday_id', '=', ids[0])])
             for d in delobject:
                 dobj.unlink(cr, uid, d)
-            cr.execute("select name from public_holidays_days" )
+            cr.execute("select name from public_holidays_days")
             t = []
             t = cr.fetchall()
             fd = 1
             pd = 0
             while (temp <= b):
-                searchobject = self.pool.get('days.holidays.days').search(cr, uid, [('date1', 'like', temp.strftime("%Y-%m-%d")), ('user_id', "=", uid)])
+                searchobject = self.pool.get('days.holidays.days').search(
+                    cr, uid, [('date1', 'like', temp.strftime("%Y-%m-%d")), ('user_id', "=", uid)])
 
                 for s1 in searchobject:
                     if self.days_check(cr, uid, ids, s1):
@@ -188,7 +198,8 @@ class hr_holidays(osv.osv):
                     else:
                         return False
                 for t1 in t:
-                    day = calendar.weekday(int(temp.strftime("%Y")), int(temp.strftime("%m")), int(temp.strftime("%d")))
+                    day = calendar.weekday(int(temp.strftime("%Y")), int(
+                        temp.strftime("%m")), int(temp.strftime("%d")))
 
                     if t1[0] == temp.strftime("%Y-%m-%d"):
                         if t1[0] == a.strftime("%Y-%m-%d") or t1[0] == b.strftime("%Y-%m-%d"):
@@ -209,16 +220,17 @@ class hr_holidays(osv.osv):
                             fd = 1
                             pd = 1
                 self.write(cr, uid, ids, {'state': 'draft1'})
-                self.pool.get('days.holidays.days').create(cr,uid,{'name': temp,
-                                                                   'date1': temp,
-                                                                   'half_day': 0,
-                                                                   'full_day': fd,
-                                                                   'hourly_leave': 0,
-                                                                   'holiday_id': ids[0],
-                                                                   'public_h': pd,
-                                                                   'holiday_status': 0,
-                                                                   'user_id': uid,
-                                                                   'state': 'draft'})
+                self.pool.get(
+                    'days.holidays.days').create(cr, uid, {'name': temp,
+                                                           'date1': temp,
+                                                           'half_day': 0,
+                                                           'full_day': fd,
+                                                           'hourly_leave': 0,
+                                                           'holiday_id': ids[0],
+                                                           'public_h': pd,
+                                                           'holiday_status': 0,
+                                                           'user_id': uid,
+                                                           'state': 'draft'})
                 temp += t12
         return True
 
@@ -244,11 +256,12 @@ class hr_holidays(osv.osv):
                 else:
                     return False
             else:
-                raise osv.except_osv('Date Error !','From date should be smaller than To date')
+                raise osv.except_osv(
+                    'Date Error !', 'From date should be smaller than To date')
 
     def set_to_draft(self, cr, uid, ids, *args):
-         self.write(cr, uid, ids, {'state': 'draft'})
-         return True
+        self.write(cr, uid, ids, {'state': 'draft'})
+        return True
 
     def write_data(self, cr, uid, ids, *args):
         selfobj = self.browse(cr, uid, ids, None)
@@ -256,21 +269,24 @@ class hr_holidays(osv.osv):
         half = 0
         hl = 0
         for s in selfobj:
-            sid = self.pool.get('hr.holidays.history').create(cr,uid,{'validated_id': uid,
-                                                                      'name': s.name,
-                                                                      'state': s.state,
-                                                                      'date_from1': s.date_from1,
-                                                                      'date_to1': s.date_to1,
-                                                                      'employee_id': s.employee_id.id,
-                                                                      'user_id': s.user_id.id,
-                                                                      'manager_id': s.manager_id.id,
-                                                                      'notes': s.notes,
-                                                                      'contactno': s.contactno,
-                                                                      'total_half': s.total_half,
-                                                                      'total_full': s.total_half})
+            sid = self.pool.get(
+                'hr.holidays.history').create(cr, uid, {'validated_id': uid,
+                                                        'name': s.name,
+                                                        'state': s.state,
+                                                        'date_from1': s.date_from1,
+                                                        'date_to1': s.date_to1,
+                                                        'employee_id': s.employee_id.id,
+                                                        'user_id': s.user_id.id,
+                                                        'manager_id': s.manager_id.id,
+                                                        'notes': s.notes,
+                                                        'contactno': s.contactno,
+                                                        'total_half': s.total_half,
+                                                        'total_full': s.total_half})
             for s1 in s.holiday_id:
-                self.pool.get('days.holidays.days').write(cr, uid, s1.id, {'state': s.state})
-                ss1=self.pool.get('days.holidays.days').browse(cr, uid, s1.id)
+                self.pool.get('days.holidays.days').write(
+                    cr, uid, s1.id, {'state': s.state})
+                ss1 = self.pool.get(
+                    'days.holidays.days').browse(cr, uid, s1.id)
 
                 if ss1.full_day:
                     full += 1
@@ -278,25 +294,29 @@ class hr_holidays(osv.osv):
                     half += 1
                 if ss1.hourly_leave > 0:
                     hl += ss1.hourly_leave
-                self.pool.get('days.holidays.days.history').create(cr, uid, {'user_id': ss1.user_id.id,
-                                                                             'state': ss1.state,
-                                                                             'name': ss1.name,
-                                                                             'date1': ss1.name,
-                                                                             'half_day': ss1.half_day,
-                                                                             'full_day': ss1.full_day,
-                                                                             'hourly_leave': ss1.hourly_leave,
-                                                                             'holiday_id': sid,
-                                                                             'public_h': ss1.public_h,
-                                                                             'holiday_status': ss1.holiday_status})
+                self.pool.get(
+                    'days.holidays.days.history').create(cr, uid, {'user_id': ss1.user_id.id,
+                                                                   'state': ss1.state,
+                                                                   'name': ss1.name,
+                                                                   'date1': ss1.name,
+                                                                   'half_day': ss1.half_day,
+                                                                   'full_day': ss1.full_day,
+                                                                   'hourly_leave': ss1.hourly_leave,
+                                                                   'holiday_id': sid,
+                                                                   'public_h': ss1.public_h,
+                                                                   'holiday_status': ss1.holiday_status})
             self.write(cr, uid, ids, {'total_hour': hl})
             self.write(cr, uid, ids, {'total_half': half})
             self.write(cr, uid, ids, {'total_full': full})
-            self.pool.get('hr.holidays.history').write(cr, uid, sid, {'total_half': half})
-            self.pool.get('hr.holidays.history').write(cr, uid, sid, {'total_full': full})
-            self.pool.get('hr.holidays.history').write(cr, uid, sid, {'total_hour': hl})
+            self.pool.get('hr.holidays.history').write(
+                cr, uid, sid, {'total_half': half})
+            self.pool.get('hr.holidays.history').write(
+                cr, uid, sid, {'total_full': full})
+            self.pool.get('hr.holidays.history').write(
+                cr, uid, sid, {'total_hour': hl})
 
     def holidays_validate(self, cr, uid, ids, *args):
-        self.write(cr, uid, ids, {'state':'validate'})
+        self.write(cr, uid, ids, {'state': 'validate'})
         self.write_data(cr, uid, ids)
         return True
 
@@ -307,14 +327,17 @@ class hr_holidays(osv.osv):
         hl = 0
         for selfobj in selfobject:
 
-            recids = self.pool.get('days.holidays.days').search(cr, uid, [('holiday_id', '=', selfobj.id)])
+            recids = self.pool.get('days.holidays.days').search(
+                cr, uid, [('holiday_id', '=', selfobj.id)])
 
             if recids == []:
                 raise osv.except_osv('Day Error !', 'Create Day list')
             for rec in recids:
                 if self.days_check(cr, uid, ids, rec):
-                    recobj = self.pool.get('days.holidays.days').browse(cr, uid, rec)
-                    self.pool.get('days.holidays.days').write(cr, uid, rec, {'state': 'confirm'})
+                    recobj = self.pool.get(
+                        'days.holidays.days').browse(cr, uid, rec)
+                    self.pool.get('days.holidays.days').write(
+                        cr, uid, rec, {'state': 'confirm'})
                     flg = 0
                     if recobj.half_day == 1:
                         half += 1
@@ -328,16 +351,17 @@ class hr_holidays(osv.osv):
                         hl += recobj.hourly_leave
                         flg = 1
                     if flg == 0:
-                        raise osv.except_osv('Leave Error !', 'Select Leave type')
+                        raise osv.except_osv(
+                            'Leave Error !', 'Select Leave type')
                 else:
                     return False
 
             self.write(cr, uid, ids, {
-                 'state': 'confirm',
-                 'total_half': half,
-                 'total_full': full,
-                 'total_hour': hl
-                 })
+                'state': 'confirm',
+                'total_half': half,
+                'total_full': full,
+                'total_hour': hl
+            })
             return True
 
     def holidays_refuse(self, cr, uid, ids, *args):
@@ -354,7 +378,8 @@ class hr_holidays(osv.osv):
         selfobj = self.browse(cr, uid, ids, None)
         for s in selfobj:
             for s1 in s.holiday_id:
-                self.pool.get('days.holidays.days').write(cr, uid, s1.id, {'state': draft})
+                self.pool.get('days.holidays.days').write(
+                    cr, uid, s1.id, {'state': draft})
         return True
 hr_holidays()
 
@@ -377,7 +402,7 @@ class holiday_history(osv.osv):
         'total_half': fields.integer("Total Half Leave", readonly=True),
         'total_full': fields.integer("Total Full Leave", readonly=True),
         'total_hour': fields.integer("Total Hours", readonly=True),
-        }
+    }
 holiday_history()
 
 
@@ -387,19 +412,19 @@ class holiday_days(osv.osv):
     _columns = {
         'name': fields.char("Date", size=64),
         'date1': fields.date('Date', readonly=True, required=True),
-        'half_day': fields.boolean('Half Leave', readonly=True, states= {'draft': [('readonly', False)]}),
-        'full_day': fields.boolean('Full Leave', readonly=True, states= {'draft': [('readonly', False)]}),
+        'half_day': fields.boolean('Half Leave', readonly=True, states={'draft': [('readonly', False)]}),
+        'full_day': fields.boolean('Full Leave', readonly=True, states={'draft': [('readonly', False)]}),
         'hourly_leave': fields.float("Hourly Leave", readonly=True, states={'draft': [('readonly', False)]}),
         'holiday_id': fields.many2one("hr.holidays", "Holiday Ref"),
         'public_h': fields.boolean('Public Holiday', readonly=True),
         'holiday_status': fields.many2one("hr.holidays.status", "Holiday's Status"),
         'user_id': fields.many2one('res.users', 'User_id', readonly=True),
         'state': fields.selection([('draft1', 'draft'), ('draft', 'draft'), ('confirm', 'Requested'), ('refuse', 'Refused'), ('validate', 'Validate'), ('cancel', 'Cancel')], 'State', readonly=True),
-        }
+    }
     _order = 'date1'
     _defaults = {
         'state': lambda *a: 'refuse',
-        }
+    }
 
     def onchange_half_day(self, cr, uid, ids, half_day, full_day, hourly_leave, public_h):
         if public_h == 1:
@@ -430,17 +455,17 @@ class holiday_days(osv.osv):
 holiday_days()
 
 
-class  public_holiday_days(osv.osv):
+class public_holiday_days(osv.osv):
     _name = 'public.holidays.days'
     _description = "Public Holidays"
     _columns = {
-         'name': fields.date('Date', required=True),
-         'reason': fields.text("Reason", required=True),
-         }
+        'name': fields.date('Date', required=True),
+        'reason': fields.text("Reason", required=True),
+    }
 public_holiday_days()
 
 
-class  holiday_days_history(osv.osv):
+class holiday_days_history(osv.osv):
 
     def _holidaystatus_get(self, cr, uid, context={}):
         obj = self.pool.get('hr.holidays.status')
@@ -449,20 +474,20 @@ class  holiday_days_history(osv.osv):
         res = [(r['id'], r['name']) for r in res]
         return res
 
-    _name= 'days.holidays.days.history'
+    _name = 'days.holidays.days.history'
     _description = "Holidays history"
     _columns = {
-         'name': fields.char("Date", size=64, readonly=True),
-         'date1': fields.date('Date', readonly=True),
-         'half_day': fields.boolean('Half Leave', readonly=True),
-         'full_day': fields.boolean('Full Leave', readonly=True),
-         'hourly_leave': fields.float("Hourly Leave", readonly=True),
-         'holiday_id': fields.many2one("hr.holidays.history", "Holiday Ref", readonly=True),
-         'public_h': fields.boolean('Public Holiday', readonly=True),
-         'holiday_status': fields.selection(_holidaystatus_get, "Holiday's Status", readonly=True),
-         'user_id': fields.many2one('res.users', 'User_id', readonly=True),
-         'state': fields.selection([('draft1', 'draft'),('draft', 'draft'), ('confirm', 'Requested'), ('refuse', 'Refused'), ('validate', 'Validate'), ('cancel', 'Cancel')], 'State', readonly=True),
-         }
+        'name': fields.char("Date", size=64, readonly=True),
+        'date1': fields.date('Date', readonly=True),
+        'half_day': fields.boolean('Half Leave', readonly=True),
+        'full_day': fields.boolean('Full Leave', readonly=True),
+        'hourly_leave': fields.float("Hourly Leave", readonly=True),
+        'holiday_id': fields.many2one("hr.holidays.history", "Holiday Ref", readonly=True),
+        'public_h': fields.boolean('Public Holiday', readonly=True),
+        'holiday_status': fields.selection(_holidaystatus_get, "Holiday's Status", readonly=True),
+        'user_id': fields.many2one('res.users', 'User_id', readonly=True),
+        'state': fields.selection([('draft1', 'draft'), ('draft', 'draft'), ('confirm', 'Requested'), ('refuse', 'Refused'), ('validate', 'Validate'), ('cancel', 'Cancel')], 'State', readonly=True),
+    }
 holiday_days_history()
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

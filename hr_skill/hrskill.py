@@ -1,5 +1,5 @@
 # -*- encoding: utf-8 -*-
-##############################################################################
+#
 #
 #    OpenERP, Open Source Management Solution
 #    Copyright (C) 2004-2009 Tiny SPRL (<http://tiny.be>).
@@ -17,7 +17,7 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-##############################################################################
+#
 from osv import fields, osv
 
 
@@ -40,7 +40,7 @@ class hr_lang(osv.osv):
     _name = 'hr.lang'
     _columns = {
         'name': fields.char('Language', size=64),
-        }
+    }
 hr_lang()
 
 
@@ -53,7 +53,7 @@ class emp_lang(osv.osv):
         'read': fields.boolean('Read'),
         'write': fields.boolean('Write'),
         'speak': fields.boolean('Speak'),
-        }
+    }
 emp_lang()
 
 
@@ -67,7 +67,7 @@ class hr_scale(osv.osv):
         'min_sal': fields.integer('Minimum Salary'),
         'max_sal': fields.integer('Maximum Salary'),
         'increase': fields.integer('Step Increase'),
-        }
+    }
 hr_scale()
 
 
@@ -80,7 +80,7 @@ class hr_employee(osv.osv):
         'leavedate': fields.date('Leaved on'),
         'status': fields.selection(_status_get, 'Employee Status', method=True),
         'payscale': fields.many2one('hr.scale', 'Scale')
-        }
+    }
 hr_employee()
 
 

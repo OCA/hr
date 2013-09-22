@@ -1,5 +1,5 @@
 # -*- encoding: utf-8 -*-
-##############################################################################
+#
 #
 #    OpenERP, Open Source Management Solution
 #    Copyright (C) 2004-2009 Tiny SPRL (<http://tiny.be>).
@@ -17,7 +17,7 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-##############################################################################
+#
 
 import time
 from osv import fields, osv
@@ -33,7 +33,8 @@ class hr_timesheet(osv.osv):
         if not user_id:
             user_id = uid
 
-        res = super(hr_timesheet, self).on_change_unit_amount(cr, uid, id, prod_id, unit_amount, unit, context)
+        res = super(hr_timesheet, self).on_change_unit_amount(
+            cr, uid, id, prod_id, unit_amount, unit, context)
         if user_id:
             sql_req = '''
             SELECT -c.wage * cwt.factor_type / p.factor_days as hourlywage
@@ -51,7 +52,8 @@ class hr_timesheet(osv.osv):
             cr.execute(sql_req, (user_id, date, date))
             contract_info = cr.dictfetchone()
             if res and contract_info:
-                res['value']['amount'] = contract_info['hourlywage'] * unit_amount
+                res['value']['amount'] = contract_info[
+                    'hourlywage'] * unit_amount
 
         return res
 

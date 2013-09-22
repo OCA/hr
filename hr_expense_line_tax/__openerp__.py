@@ -1,6 +1,6 @@
 # -*- encoding: utf-8 -*-
-##############################################################################
-# 
+#
+#
 #    OpenERP, Open Source Management Solution
 #    Copyright (C) 2010 Savoir-faire Linux (<http://www.savoirfairelinux.com>).
 #
@@ -15,28 +15,27 @@
 #    GNU General Public License for more details.
 #
 #    You should have received a copy of the GNU General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.  
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-##############################################################################
+#
 {
-    "name" : "Tax on expense line",
-    "version" : "1.0",
-    "author" : "Savoir-faire Linux",
-    "website" : "http://www.savoirfairelinux.com",
-    "category" : "Human Resources",
+    "name": "Tax on expense line",
+    "version": "1.0",
+    "author": "Savoir-faire Linux",
+    "website": "http://www.savoirfairelinux.com",
+    "category": "Human Resources",
     "description": """
 	This module adds a tax field on the expense line and set the taxes of
         the employee invoice based on this tax, discarding the ones set on the
         product.	
     """,
-    "depends" : ['hr_expense'],
-    "init_xml" : [],
-    "update_xml" : [
-	'hr_expense.xml',
+    "depends": ['hr_expense'],
+    "init_xml": [],
+    "update_xml": [
+        'hr_expense.xml',
     ],
-    "demo_xml" : [],
-    "installable" : True,
-    "certificate" : ''
+    "demo_xml": [],
+    "installable": True,
+    "certificate": ''
 }
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
-

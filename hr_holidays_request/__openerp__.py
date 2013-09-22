@@ -1,6 +1,6 @@
 # -*- encoding: utf-8 -*-
-##############################################################################
-# 
+#
+#
 #    OpenERP, Open Source Management Solution
 #    Copyright (C) 2004-2009 Tiny SPRL (<http://tiny.be>).
 #
@@ -15,21 +15,20 @@
 #    GNU Affero General Public License for more details.
 #
 #    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.  
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-##############################################################################
+#
 {
-    "name" : "HR Holiday Request",
-    "version" : "1.0",
-    "author" : "Tiny & Axelor",
-    "category" : "Generic Modules/Human Resources",
+    "name": "HR Holiday Request",
+    "version": "1.0",
+    "author": "Tiny & Axelor",
+    "category": "Generic Modules/Human Resources",
     "website": "http://www.axelor.com",
-    "depends" : ["base", "hr", "hr_holidays"],
-    "init_xml" : [],
-    "update_xml" : ["security/ir.model.access.csv","holiday_demo_data.xml","hr_holidays_request_view.xml","hr_holiday_wizard.xml","hr_workflow.xml"],
-    "demo_xml" : [],
+    "depends": ["base", "hr", "hr_holidays"],
+    "init_xml": [],
+    "update_xml": ["security/ir.model.access.csv", "holiday_demo_data.xml", "hr_holidays_request_view.xml", "hr_holiday_wizard.xml", "hr_workflow.xml"],
+    "demo_xml": [],
     "installable": True,
-    "active" : False,
+    "active": False,
 }
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
-

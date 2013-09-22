@@ -1,5 +1,5 @@
 # -*- encoding: utf-8 -*-
-##############################################################################
+#
 #
 #    OpenERP, Open Source Management Solution
 #    Copyright (C) 2004-2009 Tiny SPRL (<http://tiny.be>).
@@ -17,12 +17,13 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-##############################################################################
+#
 import time
 from report import report_sxw
 
 
 class performance_report(report_sxw.rml_parse):
+
     def __init__(self, cr, uid, name, context):
         super(performance_report, self).__init__(cr, uid, name, context)
         self.localcontext.update({'time': time})

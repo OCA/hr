@@ -1,5 +1,5 @@
 # -*- encoding: utf-8 -*-
-##############################################################################
+#
 #
 #    OpenERP, Open Source Management Solution
 #    Copyright (C) 2004-2009 Tiny SPRL (<http://tiny.be>).
@@ -17,7 +17,7 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-##############################################################################
+#
 import pooler
 import time
 from . import wizard
@@ -42,12 +42,12 @@ class datewisecheck(wizard.interface):
         'init': {
             'actions': [],
             'result': {'type': 'form', 'arch': dates_form, 'fields': dates_fields, 'state': [('end', 'Cancel'), ('report', 'Print')]}
-            },
+        },
         'report': {
             'actions': [],
             'result': {'type': 'print', 'report': 'datereport.print', 'state': 'end'}
-            }
         }
+    }
 
 datewisecheck('employee.date.check')
 

@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 #-*- coding:utf-8 -*-
-##############################################################################
+#
 #
 #    OpenERP, Open Source Management Solution
 #    Copyright (C) 2004-2009 Tiny SPRL (<http://tiny.be>). All Rights Reserved
@@ -19,7 +19,7 @@
 #    You should have received a copy of the GNU General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-##############################################################################
+#
 import time
 from datetime import datetime
 from datetime import timedelta
@@ -30,6 +30,7 @@ from tools.translate import _
 
 
 class hr_payroll_declar(osv.osv):
+
     '''
     Declaration Form
     '''
@@ -58,8 +59,10 @@ class hr_payroll_declar(osv.osv):
     def get_basic(self, cr, uid, ids, context):
         res = {}
         for rs in self.browse(cr, uid, ids, context):
-            period_id = self.pool.get('account.period').search(cr, uid, [('date_start', '<=', time.strftime('%Y-%m-%d')), ('date_stop', '>=', time.strftime('%Y-%m-%d'))])[0]
-            fiscalyear_id = self.pool.get('account.period').browse(cr, uid, period_id).fiscalyear_id
+            period_id = self.pool.get('account.period').search(
+                cr, uid, [('date_start', '<=', time.strftime('%Y-%m-%d')), ('date_stop', '>=', time.strftime('%Y-%m-%d'))])[0]
+            fiscalyear_id = self.pool.get('account.period').browse(
+                cr, uid, period_id).fiscalyear_id
             sql_req = '''
                 SELECT c.id as id, c.wage as wage, function as function, c.date_start as start, c.date_end as end
                 FROM hr_contract c
@@ -71,10 +74,12 @@ class hr_payroll_declar(osv.osv):
                   (date_start >= %s) AND
                   (date_end IS NULL OR date_end <= %s)
                 '''
-            cr.execute(sql_req, (rs.employee_id.id, fiscalyear_id.date_start, fiscalyear_id.date_stop))
+            cr.execute(
+                sql_req, (rs.employee_id.id, fiscalyear_id.date_start, fiscalyear_id.date_stop))
             contracts = cr.dictfetchall()
             if not contracts:
-                raise osv.except_osv(_('Contract Error !'), _('No Contract Defined for : %s ' % (rs.employee_id.name)))
+                raise osv.except_osv(_('Contract Error !'), _(
+                    'No Contract Defined for : %s ' % (rs.employee_id.name)))
             total = 0.0
 
             line_ids = []
@@ -85,7 +90,8 @@ class hr_payroll_declar(osv.osv):
                 # allow = 0.0
                 d1 = ct['start']
                 d2 = ct['end'] or fiscalyear_id.date_stop
-                td = datetime.fromtimestamp(time.mktime(time.strptime(d2, '%Y-%m-%d'))) - datetime.fromtimestamp(time.mktime(time.strptime(d1, '%Y-%m-%d')))
+                td = datetime.fromtimestamp(time.mktime(time.strptime(d2, '%Y-%m-%d'))) - datetime.fromtimestamp(
+                    time.mktime(time.strptime(d1, '%Y-%m-%d')))
                 total += (td.days / 30) * ct['wage']
 
 #                ct = self.pool.get('hr.contract').browse(cr, uid, ct['id'])
@@ -109,6 +115,7 @@ hr_payroll_declar()
 
 
 class hr_payroll_declare_line(osv.osv):
+
     '''
     Declaration Line
     '''
@@ -150,6 +157,7 @@ hr_payroll_declare_line()
 
 
 class payment_category(osv.osv):
+
     '''
     Allowance Deduction Categoty
     '''
@@ -177,6 +185,7 @@ payment_category()
 
 
 class payment_stmt(osv.osv):
+
     '''
     Open ERP Model
     '''

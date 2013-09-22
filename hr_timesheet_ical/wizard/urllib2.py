@@ -1,6 +1,6 @@
 # -*- encoding: utf-8 -*-
-##############################################################################
-# 
+#
+#
 #    OpenERP, Open Source Management Solution
 #    Copyright (C) 2004-2009 Tiny SPRL (<http://tiny.be>).
 #
@@ -15,9 +15,9 @@
 #    GNU Affero General Public License for more details.
 #
 #    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.  
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-##############################################################################
+#
 
 """An extensible library for opening URLs using a variety of protocols
 
@@ -136,8 +136,8 @@ except ImportError:
 
 # not sure how many of these need to be gotten rid of
 from urllib import unwrap, unquote, splittype, splithost, \
-     addinfourl, splitport, splitgophertype, splitquery, \
-     splitattr, ftpwrapper, noheaders, splituser, splitpasswd, splitvalue
+    addinfourl, splitport, splitgophertype, splitquery, \
+    splitattr, ftpwrapper, noheaders, splituser, splitpasswd, splitvalue
 
 # support for FileHandler, proxies via environment variables
 from urllib import localhost, url2pathname, getproxies
@@ -145,11 +145,14 @@ from urllib import localhost, url2pathname, getproxies
 __version__ = "2.4"
 
 _opener = None
+
+
 def urlopen(url, data=None):
     global _opener
     if _opener is None:
         _opener = build_opener()
     return _opener.open(url, data)
+
 
 def install_opener(opener):
     global _opener
@@ -159,12 +162,14 @@ def install_opener(opener):
 # make sure all of the IOError stuff is overridden.  we just want to be
 # subtypes.
 
+
 class URLError(IOError):
     # URLError is a sub-type of IOError, but it doesn't share any of
     # the implementation.  need to override __init__ and __str__.
     # It sets self.args for compatibility with other EnvironmentError
     # subclasses, but args doesn't have the typical format with errno in
     # slot 0 and strerror in slot 1.  This may be better than nothing.
+
     def __init__(self, reason):
         self.args = reason,
         self.reason = reason
@@ -172,7 +177,9 @@ class URLError(IOError):
     def __str__(self):
         return '<urlopen error %s>' % self.reason
 
+
 class HTTPError(URLError, addinfourl):
+
     """Raised when HTTP error occurs, but also acts like non-error return"""
     __super_init = addinfourl.__init__
 
@@ -191,6 +198,7 @@ class HTTPError(URLError, addinfourl):
 
     def __str__(self):
         return 'HTTP Error %s: %s' % (self.code, self.msg)
+
 
 class GopherError(URLError):
     pass
@@ -297,7 +305,9 @@ class Request:
         hdrs.update(self.headers)
         return hdrs.items()
 
+
 class OpenerDirector:
+
     def __init__(self):
         server_version = "Python-urllib/%s" % __version__
         self.addheaders = [('User-agent', server_version)]
@@ -313,11 +323,11 @@ class OpenerDirector:
         for meth in dir(handler):
             i = meth.find("_")
             protocol = meth[:i]
-            condition = meth[i+1:]
+            condition = meth[i + 1:]
 
             if condition.startswith("error"):
                 j = condition.find("_") + i + 1
-                kind = meth[j+1:]
+                kind = meth[j + 1:]
                 try:
                     kind = int(kind)
                 except ValueError:
@@ -326,10 +336,10 @@ class OpenerDirector:
                 self.handle_error[protocol] = lookup
             elif condition == "open":
                 kind = protocol
-                lookup = getattr(self, "handle_"+condition)
+                lookup = getattr(self, "handle_" + condition)
             elif condition in ["response", "request"]:
                 kind = protocol
-                lookup = getattr(self, "process_"+condition)
+                lookup = getattr(self, "process_" + condition)
             else:
                 continue
 
@@ -372,7 +382,7 @@ class OpenerDirector:
         protocol = req.get_type()
 
         # pre-process request
-        meth_name = protocol+"_request"
+        meth_name = protocol + "_request"
         for processor in self.process_request.get(protocol, []):
             meth = getattr(processor, meth_name)
             req = meth(req)
@@ -380,7 +390,7 @@ class OpenerDirector:
         response = self._open(req, data)
 
         # post-process response
-        meth_name = protocol+"_response"
+        meth_name = protocol + "_response"
         for processor in self.process_response.get(protocol, []):
             meth = getattr(processor, meth_name)
             response = meth(req, response)
@@ -405,7 +415,8 @@ class OpenerDirector:
     def error(self, proto, *args):
         if proto in ['http', 'https']:
             # XXX http[s] protocols are special-cased
-            dict = self.handle_error['http'] # https is not different than http
+            # https is not different than http
+            dict = self.handle_error['http']
             proto = args[2]  # YUCK!
             meth_name = 'http_error_%s' % proto
             http_err = 1
@@ -426,6 +437,7 @@ class OpenerDirector:
 # XXX probably also want an abstract factory that knows when it makes
 # sense to skip a superclass in favor of a subclass and when it might
 # make sense to include both
+
 
 def build_opener(*handlers):
     """Create an opener object from a list of handlers.
@@ -463,6 +475,7 @@ def build_opener(*handlers):
         opener.add_handler(h)
     return opener
 
+
 class BaseHandler:
     handler_order = 500
 
@@ -483,6 +496,7 @@ class BaseHandler:
 
 
 class HTTPErrorProcessor(BaseHandler):
+
     """Process HTTP error responses."""
     handler_order = 1000  # after all other processing
 
@@ -497,9 +511,12 @@ class HTTPErrorProcessor(BaseHandler):
 
     https_response = http_response
 
+
 class HTTPDefaultErrorHandler(BaseHandler):
+
     def http_error_default(self, req, fp, code, msg, hdrs):
         raise HTTPError(req.get_full_url(), code, msg, hdrs, fp)
+
 
 class HTTPRedirectHandler(BaseHandler):
     # maximum number of redirections to any single URL
@@ -521,7 +538,7 @@ class HTTPRedirectHandler(BaseHandler):
         """
         m = req.get_method()
         if (code in (301, 302, 303, 307) and m in ("GET", "HEAD")
-            or code in (301, 302, 303) and m == "POST"):
+                or code in (301, 302, 303) and m == "POST"):
             # Strictly (according to RFC 2616), 301 or 302 in response
             # to a POST MUST NOT cause a redirection without confirmation
             # from the user (of urllib2, in this case).  In practice,
@@ -561,7 +578,7 @@ class HTTPRedirectHandler(BaseHandler):
         if hasattr(req, 'redirect_dict'):
             visited = new.redirect_dict = req.redirect_dict
             if (visited.get(newurl, 0) >= self.max_repeats or
-                len(visited) >= self.max_redirections):
+                    len(visited) >= self.max_redirections):
                 raise HTTPError(req.get_full_url(), code,
                                 self.inf_msg + msg, headers, fp)
         else:
@@ -581,6 +598,7 @@ class HTTPRedirectHandler(BaseHandler):
               "lead to an infinite loop.\n" \
               "The last 30x error message was:\n"
 
+
 class ProxyHandler(BaseHandler):
     # Proxies must be in front
     handler_order = 100
@@ -592,7 +610,7 @@ class ProxyHandler(BaseHandler):
         self.proxies = proxies
         for type, url in proxies.items():
             setattr(self, '%s_open' % type,
-                    lambda r, proxy=url, type=type, meth=self.proxy_open: \
+                    lambda r, proxy=url, type=type, meth=self.proxy_open:
                     meth(r, proxy, type))
 
     def proxy_open(self, req, proxy, type):
@@ -620,8 +638,11 @@ class ProxyHandler(BaseHandler):
 
 # feature suggested by Duncan Booth
 # XXX custom is not a good name
+
+
 class CustomProxy:
     # either pass a function to the constructor or override handle
+
     def __init__(self, proto, func=None, proxy_addr=None):
         self.proto = proto
         self.func = func
@@ -633,6 +654,7 @@ class CustomProxy:
 
     def get_proxy(self):
         return self.addr
+
 
 class CustomProxyHandler(BaseHandler):
     # Proxies must be in front
@@ -662,7 +684,9 @@ class CustomProxyHandler(BaseHandler):
         else:
             self.proxies[cpo.proto] = [cpo]
 
+
 class HTTPPasswordMgr:
+
     def __init__(self):
         self.passwd = {}
 
@@ -742,7 +766,7 @@ class AbstractBasicAuthHandler:
                     return self.retry_http_basic_auth(host, req, realm)
 
     def retry_http_basic_auth(self, host, req, realm):
-        user,pw = self.passwd.find_user_password(realm, host)
+        user, pw = self.passwd.find_user_password(realm, host)
         if pw is not None:
             raw = "%s:%s" % (user, pw)
             auth = 'Basic %s' % base64.encodestring(raw).strip()
@@ -752,6 +776,7 @@ class AbstractBasicAuthHandler:
             return self.parent.open(req)
         else:
             return None
+
 
 class HTTPBasicAuthHandler(AbstractBasicAuthHandler, BaseHandler):
 
@@ -786,6 +811,7 @@ def randombytes(n):
     else:
         L = [chr(random.randrange(0, 256)) for i in range(n)]
         return "".join(L)
+
 
 class AbstractDigestAuthHandler:
     # Digest authentication is specified in RFC 2617.
@@ -827,7 +853,7 @@ class AbstractDigestAuthHandler:
                 return self.retry_http_digest_auth(req, authreq)
             else:
                 raise ValueError("AbstractDigestAuthHandler doesn't know "
-                                 "about %s"%(scheme))
+                                 "about %s" % (scheme))
 
     def retry_http_digest_auth(self, req, auth):
         token, challenge = auth.split(' ', 1)
@@ -924,6 +950,7 @@ class AbstractDigestAuthHandler:
 
 
 class HTTPDigestAuthHandler(BaseHandler, AbstractDigestAuthHandler):
+
     """An authentication protocol defined by RFC 2069
 
     Digest authentication improves on basic authentication because it
@@ -950,6 +977,7 @@ class ProxyDigestAuthHandler(BaseHandler, AbstractDigestAuthHandler):
                                            host, req, headers)
         self.reset_retry_count()
         return retry
+
 
 class AbstractHTTPHandler(BaseHandler):
 
@@ -999,7 +1027,7 @@ class AbstractHTTPHandler(BaseHandler):
         if not host:
             raise URLError('no host given')
 
-        h = http_class(host) # will parse host:port
+        h = http_class(host)  # will parse host:port
         h.set_debuglevel(self._debuglevel)
 
         headers = dict(req.headers)
@@ -1014,7 +1042,7 @@ class AbstractHTTPHandler(BaseHandler):
         try:
             h.request(req.get_method(), req.get_selector(), req.data, headers)
             r = h.getresponse()
-        except socket.error, err: # XXX what error?
+        except socket.error, err:  # XXX what error?
             raise URLError(err)
 
         # Pick apart the HTTPResponse object to get the addinfourl
@@ -1052,7 +1080,9 @@ if hasattr(httplib, 'HTTPS'):
 
         https_request = AbstractHTTPHandler.do_request_
 
+
 class HTTPCookieProcessor(BaseHandler):
+
     def __init__(self, cookiejar=None):
         if cookiejar is None:
             cookiejar = cookielib.CookieJar()
@@ -1069,10 +1099,13 @@ class HTTPCookieProcessor(BaseHandler):
     https_request = http_request
     https_response = http_response
 
+
 class UnknownHandler(BaseHandler):
+
     def unknown_open(self, req):
         type = req.get_type()
         raise URLError('unknown url type: %s' % type)
+
 
 def parse_keqv_list(l):
     """Parse list of key=value strings where keys are not duplicated."""
@@ -1083,6 +1116,7 @@ def parse_keqv_list(l):
             v = v[1:-1]
         parsed[k] = v
     return parsed
+
 
 def parse_http_list(s):
     """Parse lists as described by RFC 2068 Section 2.
@@ -1118,7 +1152,7 @@ def parse_http_list(s):
 
         if cur == '"':
             quote = True
-     
+
         part += cur
 
     # append last part
@@ -1127,8 +1161,10 @@ def parse_http_list(s):
 
     return [part.strip() for part in res]
 
+
 class FileHandler(BaseHandler):
     # Use local file or FTP depending on form of URL
+
     def file_open(self, req):
         url = req.get_selector()
         if url[:2] == '//' and url[2:3] != '/':
@@ -1139,6 +1175,7 @@ class FileHandler(BaseHandler):
 
     # names for the localhost
     names = None
+
     def get_names(self):
         if FileHandler.names is None:
             FileHandler.names = (socket.gethostbyname('localhost'),
@@ -1163,10 +1200,12 @@ class FileHandler(BaseHandler):
         if not host or \
            (not port and socket.gethostbyname(host) in self.get_names()):
             return addinfourl(open(localfile, 'rb'),
-                              headers, 'file:'+file)
+                              headers, 'file:' + file)
         raise URLError('file not on local host')
 
+
 class FTPHandler(BaseHandler):
+
     def ftp_open(self, req):
         host = req.get_host()
         if not host:
@@ -1220,12 +1259,14 @@ class FTPHandler(BaseHandler):
 
     def connect_ftp(self, user, passwd, host, port, dirs):
         fw = ftpwrapper(user, passwd, host, port, dirs)
-##        fw.ftp.set_debuglevel(1)
+# fw.ftp.set_debuglevel(1)
         return fw
+
 
 class CacheFTPHandler(FTPHandler):
     # XXX would be nice to have pluggable cache strategies
     # XXX this stuff is definitely not thread safe
+
     def __init__(self):
         self.cache = {}
         self.timeout = {}
@@ -1269,7 +1310,9 @@ class CacheFTPHandler(FTPHandler):
                     break
             self.soonest = min(self.timeout.values())
 
+
 class GopherHandler(BaseHandler):
+
     def gopher_open(self, req):
         host = req.get_host()
         if not host:
@@ -1286,7 +1329,9 @@ class GopherHandler(BaseHandler):
             fp = gopherlib.send_selector(selector, host)
         return addinfourl(fp, noheaders(), req.get_full_url())
 
-#bleck! don't use this yet
+# bleck! don't use this yet
+
+
 class OpenerFactory:
 
     default_handlers = [UnknownHandler, HTTPHandler,
@@ -1308,4 +1353,3 @@ class OpenerFactory:
                 ph = ph()
             opener.add_handler(ph)
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
-
