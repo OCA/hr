@@ -49,8 +49,8 @@ Extended Capabilities for HR Holidays (Leaves)
     'init_xml': [
     ],
     'update_xml': [
-        'security/ir.model.access.csv',
         'security/user_groups.xml',
+        'security/ir.model.access.csv',
         'security/ir_rule.xml',
         'hr_holidays_workflow.xml',
         'hr_holidays_view.xml',
