@@ -1,6 +1,6 @@
 # -*- encoding: utf-8 -*-
 ##############################################################################
-# 
+#
 #    OpenERP, Open Source Management Solution
 #    Copyright (C) 2004-2009 Tiny SPRL (<http://tiny.be>).
 #
@@ -15,17 +15,18 @@
 #    GNU Affero General Public License for more details.
 #
 #    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.  
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
 
-from osv import fields, osv
 import time
+from osv import fields, osv
+
 
 class hr_timesheet(osv.osv):
     _name = "hr.analytic.timesheet"
     _inherit = "hr.analytic.timesheet"
- 
+
     def on_change_unit_amount(self, cr, uid, id, prod_id, unit_amount, unit, user_id=False, date=False, context={}):
         if not date:
             date = time.strftime('%Y-%m-%d')
@@ -34,7 +35,7 @@ class hr_timesheet(osv.osv):
 
         res = super(hr_timesheet, self).on_change_unit_amount(cr, uid, id, prod_id, unit_amount, unit, context)
         if user_id:
-            sql_req= '''
+            sql_req = '''
             SELECT -c.wage * cwt.factor_type / p.factor_days as hourlywage
             FROM hr_contract c
               LEFT JOIN hr_employee emp on (c.employee_id=emp.id)
@@ -47,13 +48,13 @@ class hr_timesheet(osv.osv):
             LIMIT 1
             '''
 
-            cr.execute(sql_req, (user_id,date,date))
+            cr.execute(sql_req, (user_id, date, date))
             contract_info = cr.dictfetchone()
             if res and contract_info:
                 res['value']['amount'] = contract_info['hourlywage'] * unit_amount
 
         return res
+
 hr_timesheet()
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
-

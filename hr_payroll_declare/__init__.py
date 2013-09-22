@@ -2,7 +2,7 @@
 #-*- coding:utf-8 -*-
 ##############################################################################
 #
-#    OpenERP, Open Source Management Solution 
+#    OpenERP, Open Source Management Solution
 #    Copyright (C) 2004-2009 Tiny SPRL (<http://tiny.be>). All Rights Reserved
 #    d$
 #
@@ -20,5 +20,4 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-
-import hr_payroll_declare
+from . import hr_payroll_declare
