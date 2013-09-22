@@ -34,6 +34,15 @@ from openerp.tools.translate import _
 import logging
 _logger = logging.getLogger(__name__)
 
+DAYOFWEEK_SELECTION = [('0','Monday'),
+                       ('1','Tuesday'),
+                       ('2','Wednesday'),
+                       ('3','Thursday'),
+                       ('4','Friday'),
+                       ('5','Saturday'),
+                       ('6','Sunday'),
+]
+
 class hr_schedule(osv.osv):
     
     _name = 'hr.schedule'
@@ -421,7 +430,7 @@ class schedule_detail(osv.osv):
     
     _columns = {
         'name' : fields.char("Name", size=64, required=True),
-        'dayofweek': fields.selection([('0','Monday'),('1','Tuesday'),('2','Wednesday'),('3','Thursday'),('4','Friday'),('5','Saturday'),('6','Sunday')], 'Day of Week', required=True, select=True),
+        'dayofweek': fields.selection(DAYOFWEEK_SELECTION, 'Day of Week', required=True, select=True),
         'date_start' : fields.datetime('Start Date and Time', required=True),
         'date_end' : fields.datetime('End Date and Time', required=True),
         'day' : fields.date('Day', required=True, select=1),
@@ -1185,7 +1194,7 @@ class hr_schedule_working_times(osv.osv):
 
     _columns = {
         'name' : fields.char("Name", size=64, required=True),
-        'dayofweek': fields.selection([('0','Monday'),('1','Tuesday'),('2','Wednesday'),('3','Thursday'),('4','Friday'),('5','Saturday'),('6','Sunday')], 'Day of Week', required=True, select=True),
+        'dayofweek': fields.selection(DAYOFWEEK_SELECTION, 'Day of Week', required=True, select=True),
         'hour_from' : fields.char('Work From', size=5, required=True, select=True),
         'hour_to' : fields.char("Work To", size=5, required=True),
         'template_id' : fields.many2one('hr.schedule.template', 'Schedule Template', required=True),
