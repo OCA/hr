@@ -43,6 +43,16 @@ DAYOFWEEK_SELECTION = [('0','Monday'),
                        ('6','Sunday'),
 ]
 
+class week_days(osv.Model):
+    
+    _name = 'hr.schedule.weekday'
+    _description = 'Days of the Week'
+    
+    _columns = {
+        'name': fields.char('Name', size=64, required=True),
+        'sequence': fields.integer('Sequence', required=True),
+    }
+
 class hr_schedule(osv.osv):
     
     _name = 'hr.schedule'
@@ -70,6 +80,16 @@ class hr_schedule(osv.osv):
                                         relation='hr.department', string='Department', readonly=True,
                                         store={'hr.schedule': (lambda s, cr, u, ids, ctx: ids, ['employee_id'], 10)}),
         'alert_ids': fields.function(_compute_alerts, type='one2many', relation='hr.schedule.alert', string='Alerts', method=True, readonly=True),
+        'restday_ids1': fields.many2many('hr.schedule.weekday', 'schedule_restdays_rel1', 'sched_id',
+                                        'weekday_id', string='Rest Days Week 1'),
+        'restday_ids2': fields.many2many('hr.schedule.weekday', 'schedule_restdays_rel2', 'sched_id',
+                                        'weekday_id', string='Rest Days Week 2'),
+        'restday_ids3': fields.many2many('hr.schedule.weekday', 'schedule_restdays_rel3', 'sched_id',
+                                        'weekday_id', string='Rest Days Week 3'),
+        'restday_ids4': fields.many2many('hr.schedule.weekday', 'schedule_restdays_rel4', 'sched_id',
+                                        'weekday_id', string='Rest Days Week 4'),
+        'restday_ids5': fields.many2many('hr.schedule.weekday', 'schedule_restdays_rel5', 'sched_id',
+                                        'weekday_id', string='Rest Days Week 5'),
         'state': fields.selection((
                                    ('draft', 'Draft'), ('validate', 'Confirmed'),
                                    ('locked', 'Locked'), ('unlocked', 'Unlocked'),
@@ -97,13 +117,12 @@ class hr_schedule(osv.osv):
         (_schedule_date, 'You cannot have schedules that overlap!', ['date_start','date_end']),
     ]
     
-    # XXX - This function is mis-spelled: it should be get_nonworking_days()
-    #       because the schedule reflects both rest days and leaves (and who knows what else).
-    #       Maybe someone should fix it.
-    #
     def get_rest_days(self, cr, uid, employee_id, dt, context=None):
+        '''If the rest day(s) have been explicitly specified that's what is returned, otherwise
+        a guess is returned based on the week days that are not scheduled. If an explicit
+        rest day(s) has not been specified an empty list is returned. If it is able to figure
+        out the rest days it will return a list of week day integers with Monday being 0.'''
         
-        res = []
         day = dt.strftime(OE_DTFORMAT)
         ids = self.search(cr, uid, [('employee_id', '=', employee_id),
                                     ('date_start', '<=', day),
@@ -119,27 +138,55 @@ class hr_schedule(osv.osv):
         else:
             week_start = (dt + relativedelta(days= -dt.weekday())).strftime(OE_DFORMAT)
         
+        return self.get_rest_days_by_id(cr, uid, ids[0], week_start, context=context)
+    
+    def get_rest_days_by_id(self, cr, uid, Id, week_start, context=None):
+        '''If the rest day(s) have been explicitly specified that's what is returned, otherwise
+        a guess is returned based on the week days that are not scheduled. If an explicit
+        rest day(s) has not been specified an empty list is returned. If it is able to figure
+        out the rest days it will return a list of week day integers with Monday being 0.'''
+
+        res = []
+
         # Set the boundaries of the week (i.e- start of current week and start of next week)
         #
-        sched = self.browse(cr, uid, ids[0], context=context)
+        sched = self.browse(cr, uid, Id, context=context)
         if not sched.detail_ids:
             return res
         dtFirstDay = datetime.strptime(sched.detail_ids[0].date_start, OE_DTFORMAT)
         date_start = dtFirstDay.strftime(OE_DFORMAT) < week_start and week_start +' '+ dtFirstDay.strftime('%H:%M:%S') or dtFirstDay.strftime(OE_DTFORMAT)
         dtNextWeek = datetime.strptime(date_start, OE_DTFORMAT) + relativedelta(weeks= +1)
         
-        weekdays = ['0','1','2','3','4','5','6']
-        scheddays = []
-        for dtl in sched.detail_ids:
-            # Make sure the date we're examining isn't in the previous week or the next one
-            if dtl.date_start < week_start or datetime.strptime(dtl.date_start, OE_DTFORMAT) >= dtNextWeek:
-                continue
-            if dtl.dayofweek not in scheddays:
-                scheddays.append(dtl.dayofweek)
-        res = [int(d) for d in weekdays if d not in scheddays]
-        # If there are no sched.details return nothing instead of *ALL* the days in the week
-        if len(res) == 7:
-            res = []
+        # Determine the appropriate rest day list to use
+        #
+        restday_ids = False
+        dSchedStart = datetime.strptime(sched.date_start, OE_DFORMAT).date()
+        dWeekStart = datetime.strptime(week_start, OE_DFORMAT).date()
+        if dWeekStart == dSchedStart: restday_ids = sched.restday_ids1
+        elif dWeekStart == dSchedStart + relativedelta(days= +7): restday_ids = sched.restday_ids2
+        elif dWeekStart == dSchedStart + relativedelta(days= +14): restday_ids = sched.restday_ids3
+        elif dWeekStart == dSchedStart + relativedelta(days= +21): restday_ids = sched.restday_ids4
+        elif dWeekStart == dSchedStart + relativedelta(days= +28): restday_ids = sched.restday_ids5
+        
+        # If there is explicit rest day data use it, otherwise try to guess based on which
+        # days are not scheduled.
+        #
+        res = []
+        if restday_ids:
+            res = [rd.sequence for rd in restday_ids]
+        else:
+            weekdays = ['0','1','2','3','4','5','6']
+            scheddays = []
+            for dtl in sched.detail_ids:
+                # Make sure the date we're examining isn't in the previous week or the next one
+                if dtl.date_start < week_start or datetime.strptime(dtl.date_start, OE_DTFORMAT) >= dtNextWeek:
+                    continue
+                if dtl.dayofweek not in scheddays:
+                    scheddays.append(dtl.dayofweek)
+            res = [int(d) for d in weekdays if d not in scheddays]
+            # If there are no sched.details return nothing instead of *ALL* the days in the week
+            if len(res) == 7:
+                res = []
         
         return res
     
@@ -185,6 +232,24 @@ class hr_schedule(osv.osv):
         self.pool.get('hr.schedule.detail').unlink(cr, uid, unlink_ids, context=context)
         return
     
+    def add_restdays(self, cr, uid, schedule, field_name, rest_days=None, context=None):
+        
+        _logger.warning('field: %s', field_name)
+        _logger.warning('rest_days: %s', rest_days)
+        restday_ids = []
+        if rest_days == None:
+            for rd in schedule.template_id.restday_ids:
+                restday_ids.append(rd.id)
+        else:
+            restday_ids = self.pool.get('hr.schedule.weekday').search(cr, uid,
+                                                                      [('sequence', 'in', rest_days)],
+                                                                      context=context)
+        _logger.warning('restday_ids: %s', restday_ids)
+        if len(restday_ids) > 0:
+            self.write(cr, uid, schedule.id, {field_name: [(6, 0, restday_ids)]}, context=context)
+
+        return
+
     def create_details(self, cr, uid, sched_id, context=None):
         
         leave_obj = self.pool.get('hr.holidays')
@@ -206,8 +271,22 @@ class hr_schedule(osv.osv):
             dCount = datetime.strptime(schedule.date_start, '%Y-%m-%d').date()
             dCountEnd = datetime.strptime(schedule.date_end, '%Y-%m-%d').date()
             dWeekStart = dCount
+            dSchedStart = dCount
             while dCount <= dCountEnd:
                 
+                # Enter the rest day(s)
+                #
+                if dCount == dSchedStart:
+                    self.add_restdays(cr, uid, schedule, 'restday_ids1', context=context)
+                elif dCount == dSchedStart + relativedelta(days= +7):
+                    self.add_restdays(cr, uid, schedule, 'restday_ids2', context=context)
+                elif dCount == dSchedStart + relativedelta(days= +14):
+                    self.add_restdays(cr, uid, schedule, 'restday_ids3', context=context)
+                elif dCount == dSchedStart + relativedelta(days= +21):
+                    self.add_restdays(cr, uid, schedule, 'restday_ids4', context=context)
+                elif dCount == dSchedStart + relativedelta(days= +28):
+                    self.add_restdays(cr, uid, schedule, 'restday_ids5', context=context)
+
                 prevutcdtStart = False
                 prevDayofWeek = False
                 for worktime in schedule.template_id.worktime_ids:
@@ -1147,6 +1226,8 @@ class hr_schedule_template(osv.osv):
         'name' : fields.char("Name", size=64, required=True),
         'company_id' : fields.many2one('res.company', 'Company', required=False),
         'worktime_ids' : fields.one2many('hr.schedule.template.worktime', 'template_id', 'Working Time'),
+        'restday_ids': fields.many2many('hr.schedule.weekday', 'schedule_template_restdays_rel', 'sched_id',
+                                        'weekday_id', string='Rest Days'),
     }
     
     _defaults = {
@@ -1154,17 +1235,23 @@ class hr_schedule_template(osv.osv):
     }
     
     def get_rest_days(self, cr, uid, t_id, context=None):
-        '''Returns an array containing the day numbers of the week days on
-        which there are no scheduled hours. 0 is Monday.'''
+        '''If the rest day(s) have been explicitly specified that's what is returned, otherwise
+        a guess is returned based on the week days that are not scheduled. If an explicit
+        rest day(s) has not been specified an empty list is returned. If it is able to figure
+        out the rest days it will return a list of week day integers with Monday being 0.'''
         
+        res = []
         tpl =  self.browse(cr, uid, t_id, context=context)
-        weekdays = ['0','1','2','3','4','5','6']
-        scheddays = []
-        scheddays = [wt.dayofweek for wt in tpl.worktime_ids if wt.dayofweek not in scheddays]
-        res = [int(d) for d in weekdays if d not in scheddays]
-        # If there are no work days return nothing instead of *ALL* the days in the week
-        if len(res) == 7:
-            res = []
+        if tpl.restday_ids:
+            res = [rd.sequence for rd in tpl.restday_ids]
+        else:
+            weekdays = ['0','1','2','3','4','5','6']
+            scheddays = []
+            scheddays = [wt.dayofweek for wt in tpl.worktime_ids if wt.dayofweek not in scheddays]
+            res = [int(d) for d in weekdays if d not in scheddays]
+            # If there are no work days return nothing instead of *ALL* the days in the week
+            if len(res) == 7:
+                res = []
         
         return res
     

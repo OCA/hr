@@ -60,34 +60,54 @@
             <field name="model">hr.schedule</field>
             <field name="arch" type="xml">
                 <form string="Employee Schedule" version="7.0">
-                    <header>
-                        <button name="signal_validate" type="workflow" states="draft" class="oe_highlight" string="Validate"/>
-                        <field name="state" widget="statusbar"/>
-                    </header>
-                    <group col="4">
-                        <field name="employee_id" on_change="onchange_employee_start_date(employee_id, date_start)"/>
-                        <field name="template_id"/>
-                        <label for="date_start" string="Duration"/>
-                        <div>
-                            <field name="date_start" class="oe_inline" on_change="onchange_employee_start_date(employee_id, date_start)"/> to
-                            <field name="date_end" class="oe_inline"/>
-                        </div>
-                        <field name="name"/>
-                        <field name="department_id"/>
-                        <field name="company_id" groups="base.group_multi_company"/>
-                    </group>
-                    <field name="detail_ids">
-                        <tree string="Schedule Detail" editable="top">
+                    <sheet>
+                        <header>
+                            <button name="signal_validate" type="workflow" states="draft" class="oe_highlight" string="Validate"/>
+                            <field name="state" widget="statusbar"/>
+                        </header>
+                        <group col="4">
+                            <field name="employee_id" on_change="onchange_employee_start_date(employee_id, date_start)"/>
+                            <field name="template_id"/>
+                            <label for="date_start" string="Duration"/>
+                            <div>
+                                <field name="date_start" class="oe_inline" on_change="onchange_employee_start_date(employee_id, date_start)"/> to
+                                <field name="date_end" class="oe_inline"/>
+                            </div>
                             <field name="name"/>
-                            <field name="dayofweek"/>
-                            <field name="date_start"/>
-                            <field name="date_end"/>
-                            <field name="state"/>
-                        </tree>
-                    </field>
-                    <group string="Alerts" colspan="4" cols="5">
-                        <field name="alert_ids" nolabel="1"/>
-                    </group>
+                            <field name="department_id"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                        <notebook>
+                            <page string="Working Days">
+                                <field name="detail_ids">
+                                    <tree string="Schedule Detail" editable="top">
+                                        <field name="name"/>
+                                        <field name="dayofweek"/>
+                                        <field name="date_start"/>
+                                        <field name="date_end"/>
+                                        <field name="state"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Rest Days">
+                                <group>
+                                    <group>
+                                        <field name="restday_ids1" widget="many2many_tags"/>
+                                        <field name="restday_ids2" widget="many2many_tags"/>
+                                        <field name="restday_ids3" widget="many2many_tags"/>
+                                        <field name="restday_ids4" widget="many2many_tags"/>
+                                        <field name="restday_ids5" widget="many2many_tags"/>
+                                    </group>
+                                    <group></group>
+                                </group>
+                            </page>
+                            <page string="Alerts">
+                                <group string="Alerts" colspan="4" cols="5">
+                                    <field name="alert_ids" nolabel="1"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
                 </form>
             </field>
         </record>
@@ -385,6 +405,7 @@
                     <group col="4">
                         <field name="name"/>
                         <field name="company_id" groups="base.group_multi_company"/>
+                        <field name="restday_ids" widget="many2many_tags"/>
                     </group>
                     <field name="worktime_ids"/>
                     </sheet>

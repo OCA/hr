@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+        
+        <record id="wd_mon" model="hr.schedule.weekday">
+            <field name="name">Monday</field>
+            <field name="sequence" eval="0"/>
+        </record>
+        
+        <record id="wd_tue" model="hr.schedule.weekday">
+            <field name="name">Tuesday</field>
+            <field name="sequence" eval="1"/>
+        </record>
+        
+        <record id="wd_wed" model="hr.schedule.weekday">
+            <field name="name">Wednesday</field>
+            <field name="sequence" eval="2"/>
+        </record>
+        
+        <record id="wd_thu" model="hr.schedule.weekday">
+            <field name="name">Thursday</field>
+            <field name="sequence" eval="3"/>
+        </record>
+        
+        <record id="wd_fri" model="hr.schedule.weekday">
+            <field name="name">Friday</field>
+            <field name="sequence" eval="4"/>
+        </record>
+        
+        <record id="wd_sat" model="hr.schedule.weekday">
+            <field name="name">Saturday</field>
+            <field name="sequence" eval="5"/>
+        </record>
+        
+        <record id="wd_sun" model="hr.schedule.weekday">
+            <field name="name">Sunday</field>
+            <field name="sequence" eval="6"/>
+        </record>
+
+    </data>
+</openerp>

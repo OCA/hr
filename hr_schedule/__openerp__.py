@@ -44,6 +44,7 @@ Easily create, manage, and track employee schedules.
     'update_xml': [
         'security/ir.model.access.csv',
         'security/ir_rule.xml',
+        'data/hr_schedule_data.xml',
         'hr_schedule_view.xml',
         'wizard/validate_schedule_view.xml',
         'wizard/compute_alerts_view.xml',

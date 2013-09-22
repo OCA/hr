@@ -56,8 +56,9 @@ class restday(osv.TransientModel):
     def onchange_employee(self, cr, uid, ids, ee_id, context=None):
         
         res = {'value': {'st_current_id': False}}
-        ee = self.pool.get('hr.employee').browse(cr, uid, ee_id, context=None)
-        res['value']['st_current_id'] = ee.contract_id.schedule_template_id.id
+        if ee_id:
+            ee = self.pool.get('hr.employee').browse(cr, uid, ee_id, context=None)
+            res['value']['st_current_id'] = ee.contract_id.schedule_template_id.id
         
         return res
     
@@ -94,7 +95,9 @@ class restday(osv.TransientModel):
         prevDayofWeek = False
         user = self.pool.get('res.users').browse(cr, uid, uid, context=context)
         local_tz = timezone(user.tz)
-        dWeekStart = schedule.date_start < week_start and datetime.strptime(week_start, OE_DFORMAT).date() or datetime.strptime(schedule.date_start, OE_DFORMAT).date()
+        dSchedStart = datetime.strptime(schedule.date_start, OE_DFORMAT).date()
+        dWeekStart = schedule.date_start < week_start and datetime.strptime(week_start, OE_DFORMAT).date() or dSchedStart
+
         for worktime in schedule.template_id.worktime_ids:
             
             if worktime.dayofweek != template_dayofweek:
@@ -159,14 +162,8 @@ class restday(osv.TransientModel):
         dtNextWeek = datetime.strptime(date_start, OE_DTFORMAT) + relativedelta(weeks= +1)
         
         # First get the current rest days
-        weekdays = ['0','1','2','3','4','5','6']
-        scheddays = []
-        for dtl in sched.detail_ids:
-            if dtl.date_start < week_start or datetime.strptime(dtl.date_start, OE_DTFORMAT) >= dtNextWeek:
-                continue
-            if dtl.dayofweek not in scheddays:
-                scheddays.append(dtl.dayofweek)
-        rest_days = [d for d in weekdays if d not in scheddays]
+        rest_days = sched_obj.get_rest_days_by_id(cr, uid, sched.id, dtFirstDay.strftime(OE_DFORMAT),
+                                                  context=context)
         
         # Next, remove the schedule detail for the new rest day
         for dtl in sched.detail_ids:
@@ -174,12 +171,29 @@ class restday(osv.TransientModel):
                 continue
             if dtl.dayofweek == dayofweek:
                 sched_detail_obj.unlink(cr, uid, dtl.id, context=context)
+
+        # Enter the new rest day(s)
+        #
+        sched_obj = self.pool.get('hr.schedule')
+        nrest_days = [dayofweek] + rest_days[1:]
+        dSchedStart = datetime.strptime(sched.date_start, OE_DFORMAT).date()
+        dWeekStart = sched.date_start < week_start and datetime.strptime(week_start, OE_DFORMAT).date() or dSchedStart
+        if dWeekStart == dSchedStart:
+            sched_obj.add_restdays(cr, uid, sched, 'restday_ids1', rest_days=nrest_days, context=context)
+        elif dWeekStart == dSchedStart + relativedelta(days= +7):
+            sched_obj.add_restdays(cr, uid, sched, 'restday_ids2', rest_days=nrest_days, context=context)
+        elif dWeekStart == dSchedStart + relativedelta(days= +14):
+            sched_obj.add_restdays(cr, uid, sched, 'restday_ids3', rest_days=nrest_days, context=context)
+        elif dWeekStart == dSchedStart + relativedelta(days= +21):
+            sched_obj.add_restdays(cr, uid, sched, 'restday_ids4', rest_days=nrest_days, context=context)
+        elif dWeekStart == dSchedStart + relativedelta(days= +28):
+            sched_obj.add_restdays(cr, uid, sched, 'restday_ids5', rest_days=nrest_days, context=context)
         
         # Last, add a schedule detail for the first rest day in the week using the
         # template for the new (temp) rest day
         #
         if len(rest_days) > 0:
-            self._create_detail(cr, uid, sched, rest_days[0], dayofweek, week_start,
+            self._create_detail(cr, uid, sched, str(rest_days[0]), dayofweek, week_start,
                                 context=context)
     
     def _remove_add_schedule(self, cr, uid, schedule_id, week_start, tpl_id, context=None):
