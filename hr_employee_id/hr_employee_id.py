@@ -1,5 +1,5 @@
 #-*- coding:utf-8 -*-
-##############################################################################
+#
 #
 #    Copyright (C) 2011,2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
 #    All Rights Reserved.
@@ -17,14 +17,16 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-##############################################################################
+#
 
 import random
 import string
-from osv import fields,osv
+from osv import fields, osv
 from tools.translate import _
 
+
 class hr_employee(osv.osv):
+
     """Implement company wide unique identification number."""
 
     IDLEN = 8
@@ -34,26 +36,28 @@ class hr_employee(osv.osv):
 
     _columns = {
         'employee_no': fields.char('Employee ID',
-                       size=IDLEN,
-                       readonly=True),
+                                   size=IDLEN,
+                                   readonly=True),
         # Formatted version of employee ID
         'f_employee_no': fields.char('Employee ID',
-                                     size=IDLEN+2,
+                                     size=IDLEN + 2,
                                      readonly=True),
         'tin_no': fields.char('TIN No', size=10),
     }
 
     _sql_constraints = [
-        ('employeeno_uniq', 'unique(employee_no)', 'The Employee Number must be unique accross the company(s).'),
-        ('tinno_uniq', 'unique(tin_no)', 'There is already another employee with this TIN number.'),
+        ('employeeno_uniq', 'unique(employee_no)',
+         'The Employee Number must be unique accross the company(s).'),
+        ('tinno_uniq', 'unique(tin_no)',
+         'There is already another employee with this TIN number.'),
     ]
-    
+
     def _check_identification(self, cr, uid, ids, context=None):
         obj = self.browse(cr, uid, ids[0], context=context)
         if obj.identification_id or obj.tin_no:
             return True
         return False
-    
+
 #    _constraints = [
 #        (_check_identification, 'At least one of the identification fields must be filled in.', ['identification_id', 'tin_no']),
 #    ]
@@ -65,8 +69,10 @@ class hr_employee(osv.osv):
         max_tries = 50
         while tries < max_tries:
             rnd = random.SystemRandom()
-            eid = ''.join(rnd.choice(string.digits) for _ in xrange(self.IDLEN))
-            cr.execute('''SELECT employee_no FROM hr_employee WHERE employee_no=%s''', tuple((eid,)))
+            eid = ''.join(rnd.choice(string.digits)
+                          for _ in xrange(self.IDLEN))
+            cr.execute(
+                '''SELECT employee_no FROM hr_employee WHERE employee_no=%s''', tuple((eid,)))
             res = cr.fetchall()
             if len(res) == 0:
                 break
@@ -74,8 +80,9 @@ class hr_employee(osv.osv):
             tries += 1
 
         if tries == max_tries:
-            raise osv.except_osv(_('Error'), _('Unable to generate an Employee ID number that is unique.'))
-        
+            raise osv.except_osv(
+                _('Error'), _('Unable to generate an Employee ID number that is unique.'))
+
         return eid
 
     def create(self, cr, uid, vals, context={}):
