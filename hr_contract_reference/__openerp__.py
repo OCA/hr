@@ -1,5 +1,5 @@
 #-*- coding:utf-8 -*-
-##############################################################################
+#
 #
 #    Copyright (C) 2011,2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
 #    All Rights Reserved.
@@ -17,7 +17,7 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-##############################################################################
+#
 
 {
     "name": "HR Contract Reference",
@@ -35,9 +35,9 @@ This module provides :
     "depends": ["hr_contract"],
     "init_xml": [],
     'update_xml': [
-                   'hr_contract_view.xml',
-                   'hr_contract_sequence.xml',
-                  ],
+        'hr_contract_view.xml',
+        'hr_contract_sequence.xml',
+    ],
     'demo_xml': [],
     'installable': True,
     'active': False,
