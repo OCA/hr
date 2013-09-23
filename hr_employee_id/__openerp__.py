@@ -1,4 +1,4 @@
-# -*- coding:utf-8 -*-
+#-*- coding:utf-8 -*-
 #
 #
 #    Copyright (C) 2011,2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
@@ -28,9 +28,8 @@ Employee Identification Numbers
 ===============================
 Company wide unique employee ID
     """,
-    'author': "Michael Telahun Makonnen <mmakonnen@gmail.com>,Odoo Community Association (OCA)",
+    'author': 'Michael Telahun Makonnen <mmakonnen@gmail.com>',
     'website': 'http://miketelahun.wordpress.com',
-    'license': 'AGPL-3',
     'depends': [
         'hr',
     ],
