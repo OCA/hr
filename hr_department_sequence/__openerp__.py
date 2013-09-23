@@ -1,5 +1,5 @@
 #-*- coding:utf-8 -*-
-##############################################################################
+#
 #
 #    Copyrigth (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>
 #
@@ -16,7 +16,7 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-##############################################################################
+#
 
 {
     'name': 'Department Sequence',
@@ -26,8 +26,8 @@
 Order by Parent-Child Relationship and by Sequence Number
 =========================================================
     """,
-    'author':'Michael Telahun Makonnen <mmakonnen@gmail.com>',
-    'website':'http://www.openerp.com',
+    'author': 'Michael Telahun Makonnen <mmakonnen@gmail.com>',
+    'website': 'http://www.openerp.com',
     'depends': [
         'hr',
     ],

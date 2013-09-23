@@ -1,5 +1,5 @@
 #-*- coding:utf-8 -*-
-##############################################################################
+#
 #
 #    Copyright (C) 2011,2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
 #    All Rights Reserved.
@@ -17,7 +17,7 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-##############################################################################
+#
 
 {
     'name': 'Legacy Employee ID',
@@ -30,8 +30,8 @@ Employee Identification Numbers from Previous System
 When switching from a legacy HR system to a new one. It may be necessary
 to have a record of the ID No. used in the previous system.
     """,
-    'author':'Michael Telahun Makonnen <mmakonnen@gmail.com>',
-    'website':'http://miketelahun.wordpress.com',
+    'author': 'Michael Telahun Makonnen <mmakonnen@gmail.com>',
+    'website': 'http://miketelahun.wordpress.com',
     'depends': [
         'hr',
     ],

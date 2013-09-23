@@ -1,5 +1,5 @@
 #-*- coding:utf-8 -*-
-##############################################################################
+#
 #
 #    Copyright (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
 #    All Rights Reserved.
@@ -17,13 +17,13 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-##############################################################################
+#
 
 {
     'name': 'Payroll Extension',
     'category': 'Human Resources',
     'author': 'Michael Telahun Makonnen',
-    'website':'http://miketelahun.wordpress.com',
+    'website': 'http://miketelahun.wordpress.com',
     'version': '1.0',
     'description': """
 Extended set of Payroll Rules and Structures
@@ -52,7 +52,7 @@ Extended set of Payroll Rules and Structures
         'data/hr_payroll_extension_data.xml',
         'data/hr.salary.rule.csv',
         'hr_payroll_view.xml',
-     ],
+    ],
     'test': [
     ],
     'demo_xml': [],

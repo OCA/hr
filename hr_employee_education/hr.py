@@ -1,5 +1,5 @@
 #-*- coding:utf-8 -*-
-##############################################################################
+#
 #
 #    Copyright (C) 2011,2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
 #    All Rights Reserved.
@@ -17,7 +17,7 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-##############################################################################
+#
 
 from datetime import datetime
 
@@ -34,12 +34,13 @@ EDUCATION_SELECTION = [
     ('phd', 'PhD'),
 ]
 
+
 class hr_employee(osv.osv):
-    
+
     _inherit = 'hr.employee'
-    
+
     def _calculate_age(self, cr, uid, ids, field_name, arg, context=None):
-        
+
         res = dict.fromkeys(ids, False)
         for ee in self.browse(cr, uid, ids, context=context):
             if ee.birthday:
@@ -47,8 +48,8 @@ class hr_employee(osv.osv):
                 dToday = datetime.now().date()
                 res[ee.id] = (dToday - dBday).days / 365
         return res
-    
+
     _columns = {
-                'education': fields.selection(EDUCATION_SELECTION, 'Education'),
-                'age': fields.function(_calculate_age, type='integer', method=True, string='Age'),
+        'education': fields.selection(EDUCATION_SELECTION, 'Education'),
+        'age': fields.function(_calculate_age, type='integer', method=True, string='Age'),
     }

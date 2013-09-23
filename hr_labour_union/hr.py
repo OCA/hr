@@ -1,5 +1,5 @@
 #-*- coding:utf-8 -*-
-##############################################################################
+#
 #
 #    Copyright (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
 #    All Rights Reserved.
@@ -17,25 +17,27 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-##############################################################################
+#
 
 from openerp.osv import fields, osv
 
+
 class hr_employee(osv.Model):
-    
+
     _name = 'hr.employee'
     _inherit = 'hr.employee'
-    
+
     _columns = {
         'is_labour_union': fields.boolean('Labour Union Member'),
         'labour_union_date': fields.date('Date of Membership'),
     }
 
+
 class hr_contract(osv.Model):
-    
+
     _name = 'hr.contract'
     _inherit = 'hr.contract'
-    
+
     _columns = {
         'is_labour_union': fields.related('employee_id', 'is_labour_union', type='boolean',
                                           store=True, string='Labour Union Member'),

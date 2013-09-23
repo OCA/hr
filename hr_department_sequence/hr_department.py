@@ -1,5 +1,5 @@
 #-*- coding:utf-8 -*-
-##############################################################################
+#
 #
 #    Copyrigth (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>
 #
@@ -16,22 +16,23 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-##############################################################################
+#
 
-from openerp.osv import fields,osv
+from openerp.osv import fields, osv
+
 
 class hr_department(osv.Model):
-    
+
     _name = 'hr.department'
     _inherit = 'hr.department'
-    
+
     _columns = {
         'code': fields.char('Code', size=64),
         'sequence': fields.integer('Sequence', select=True, help="Gives the sequence order when displaying a list of departments."),
         'parent_left': fields.integer('Left Parent', select=1),
         'parent_right': fields.integer('Right Parent', select=1),
     }
-    
+
     _parent_name = "parent_id"
     _parent_store = True
     _parent_order = 'sequence, name'

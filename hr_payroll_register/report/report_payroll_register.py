@@ -1,5 +1,5 @@
 #-*- coding:utf-8 -*-
-##############################################################################
+#
 #
 #    OpenERP, Open Source Management Solution
 #    Copyrigth (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>
@@ -19,7 +19,7 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-##############################################################################
+#
 
 import time
 from datetime import datetime
@@ -27,24 +27,26 @@ from datetime import datetime
 from openerp.tools import DEFAULT_SERVER_DATE_FORMAT as OE_DATEFORMAT
 from report import report_sxw
 
+
 class report_payroll_summary(report_sxw.rml_parse):
+
     def __init__(self, cr, uid, name, context):
         super(report_payroll_summary, self).__init__(cr, uid, name, context)
 
         self.localcontext.update({
             'time': time,
             'get_no': self.get_no,
-            'get_basic':self.get_basic,
-            'get_ot':self.get_ot,
+            'get_basic': self.get_basic,
+            'get_ot': self.get_ot,
             'get_transportation': self.get_transportation,
             'get_allowances': self.get_allowances,
-            'get_gross':self.get_gross,
+            'get_gross': self.get_gross,
             'get_taxable_gross': self.get_taxable_gross,
             'get_ded_fit': self.get_ded_fit,
             'get_ded_pf_ee': self.get_ded_pf_ee,
             'get_deduct': self.get_deduct,
-            'get_total_deduct':self.get_total_deduct,
-            'get_net':self.get_net,
+            'get_total_deduct': self.get_total_deduct,
+            'get_net': self.get_net,
             'get_er_contributions': self.get_er_contributions,
             'get_details_by_run': self.get_details_by_run,
         })
@@ -64,7 +66,7 @@ class report_payroll_summary(report_sxw.rml_parse):
         self.saved_run_id = -1
 
     def get_details_by_run(self, runs):
-        
+
         res = []
         for run in runs:
             subtotal = self.get_subtotal_by_payslip(run.slip_ids)
@@ -73,7 +75,7 @@ class report_payroll_summary(report_sxw.rml_parse):
         return res
 
     def get_subtotal_by_payslip(self, payslips):
-        
+
         subtotal = {
             'name': '',
             'id_no': '',
@@ -91,8 +93,9 @@ class report_payroll_summary(report_sxw.rml_parse):
             'er_contributions': 0,
         }
         for slip in payslips:
-            tmp = self.get_details_by_rule_category(slip.details_by_salary_rule_category)
-            
+            tmp = self.get_details_by_rule_category(
+                slip.details_by_salary_rule_category)
+
             # Increase subtotal
             #
             subtotal['salary'] += tmp['salary']
@@ -107,9 +110,9 @@ class report_payroll_summary(report_sxw.rml_parse):
             subtotal['deductions_total'] += tmp['deductions_total']
             subtotal['net'] += tmp['net']
             subtotal['er_contributions'] += tmp['er_contributions']
-            
+
         return subtotal
-    
+
     # Most of this function (except at the end) is copied verbatim from
     # the Pay Slip Details Report
     #
@@ -148,7 +151,7 @@ class report_payroll_summary(report_sxw.rml_parse):
             'net': 0,
             'er_contributions': 0,
         }
-        
+
         # Arrange the Pay Slip Lines by category
         #
         for id in range(len(obj)):
@@ -158,12 +161,13 @@ class report_payroll_summary(report_sxw.rml_parse):
                 LEFT JOIN hr_salary_rule_category AS rc on (pl.category_id = rc.id) \
                 WHERE pl.id in %s \
                 GROUP BY rc.parent_id, pl.sequence, pl.id, pl.category_id \
-                ORDER BY pl.sequence, rc.parent_id''',(tuple(ids),))
+                ORDER BY pl.sequence, rc.parent_id''', (tuple(ids),))
             for x in self.cr.fetchall():
                 result.setdefault(x[1], [])
                 result[x[1]].append(x[0])
             for key, value in result.iteritems():
-                rule_categories = rule_cate_obj.browse(self.cr, self.uid, [key])
+                rule_categories = rule_cate_obj.browse(
+                    self.cr, self.uid, [key])
                 parents = get_recursive_parent(rule_categories)
                 category_total = 0
                 for line in payslip_line.browse(self.cr, self.uid, value):
@@ -186,7 +190,7 @@ class report_payroll_summary(report_sxw.rml_parse):
                         'total': line.total,
                         'level': level
                     })
-            
+
             for r in res:
                 # Level 0 is the category
                 if r['code'] == 'BASIC' and r['level'] == 0:
@@ -213,13 +217,13 @@ class report_payroll_summary(report_sxw.rml_parse):
                     regline['net'] = r['total']
                 elif r['code'] == 'ER':
                     regline['er_contributions'] = r['total']
-            
+
             # Make adjustments to subtract from the parent category's total the
             # amount of individual rules that we show separately on the sheet.
             #
             regline['allowances'] -= regline['transportation']
             regline['deductions'] -= regline['ee_pension']
-            
+
             # Increase running totals
             #
             self.salary += regline['salary']
@@ -234,40 +238,40 @@ class report_payroll_summary(report_sxw.rml_parse):
             self.total_deduct += regline['deductions_total']
             self.net += regline['net']
             self.er_contributions += regline['er_contributions']
-            
+
         return regline
-    
-    def get_basic(self,obj):
+
+    def get_basic(self, obj):
         return self.salary
 
-    def get_ot(self,obj):
+    def get_ot(self, obj):
         return self.ot
 
-    def get_transportation(self,obj):
+    def get_transportation(self, obj):
         return self.transportation
 
-    def get_allowances(self,obj):
+    def get_allowances(self, obj):
         return self.allowances
 
-    def get_gross(self,obj):
+    def get_gross(self, obj):
         return self.gross
 
-    def get_taxable_gross(self,obj):
+    def get_taxable_gross(self, obj):
         return self.taxable_gross
 
     def get_ded_fit(self, obj):
         return self.ded_fit
-    
+
     def get_ded_pf_ee(self, obj):
         return self.ded_pf_ee
-    
-    def get_deduct(self,obj):
+
+    def get_deduct(self, obj):
         return self.deduct
 
-    def get_total_deduct(self,obj):
+    def get_total_deduct(self, obj):
         return self.total_deduct
 
-    def get_net(self,obj):
+    def get_net(self, obj):
         return self.net
 
     def get_er_contributions(self, obj):
@@ -284,7 +288,9 @@ report_sxw.report_sxw(
     parser=report_payroll_summary
 )
 
+
 class report_payslips(report_sxw.rml_parse):
+
     def __init__(self, cr, uid, name, context):
         super(report_payslips, self).__init__(cr, uid, name, context)
 
@@ -294,48 +300,52 @@ class report_payslips(report_sxw.rml_parse):
         })
 
     def get_payslip_accruals(self, contract_ids, dToday):
-        
+
         accrual_policy_obj = self.pool.get('hr.policy.accrual')
         contract_obj = self.pool.get('hr.contract')
         res = []
 
         for c in contract_obj.browse(self.cr, self.uid, contract_ids):
-            policy = accrual_policy_obj.get_latest_policy(self.cr, self.uid, c.policy_group_id,
-                                                          dToday)
+            policy = accrual_policy_obj.get_latest_policy(
+                self.cr, self.uid, c.policy_group_id,
+                dToday)
             if policy == None:
                 continue
-            
+
             for accrual_policy_line in policy.line_ids:
                 if accrual_policy_line.balance_on_payslip and accrual_policy_line.accrual_id.id not in res:
-                    res.append((accrual_policy_line.accrual_id.id, accrual_policy_line.accrual_id.holiday_status_id.code))
-        
+                    res.append(
+                        (accrual_policy_line.accrual_id.id, accrual_policy_line.accrual_id.holiday_status_id.code))
+
         return res
-        
+
     def get_details_by_payslip(self, payslips):
-        
+
         accrual_obj = self.pool.get('hr.accrual')
-        
+
         res = []
         for slip in payslips:
-            tmp, contract_ids = self.get_details_by_rule_category(slip.details_by_salary_rule_category)
-            
+            tmp, contract_ids = self.get_details_by_rule_category(
+                slip.details_by_salary_rule_category)
+
             tmp['name'] = slip.employee_id.name
             tmp['id_no'] = slip.employee_id.f_employee_no
             tmp['date_from'] = slip.date_from
             tmp['date_to'] = slip.date_to
-            
+
             dToday = datetime.strptime(slip.date_from, OE_DATEFORMAT).date()
             accruals = self.get_payslip_accruals(contract_ids, dToday)
             if len(accruals) > 0:
                 for accrual_id, code in accruals:
-                    balance = accrual_obj.get_balance(self.cr, self.uid, [accrual_id],
-                                                             slip.employee_id.id, slip.date_to)
+                    balance = accrual_obj.get_balance(
+                        self.cr, self.uid, [accrual_id],
+                        slip.employee_id.id, slip.date_to)
                     tmp[str(code)] = balance
-            
+
             res.append(tmp)
-        
+
         return res
-    
+
     # Most of this function (except at the end) is copied verbatim from
     # the Pay Slip Details Report
     #
@@ -375,7 +385,7 @@ class report_payslips(report_sxw.rml_parse):
             'er_contributions': 0,
             'LVANNUAL': 0,
         }
-        
+
         # Arrange the Pay Slip Lines by category
         #
         for id in range(len(obj)):
@@ -385,12 +395,13 @@ class report_payslips(report_sxw.rml_parse):
                 LEFT JOIN hr_salary_rule_category AS rc on (pl.category_id = rc.id) \
                 WHERE pl.id in %s \
                 GROUP BY rc.parent_id, pl.sequence, pl.id, pl.category_id \
-                ORDER BY pl.sequence, rc.parent_id''',(tuple(ids),))
+                ORDER BY pl.sequence, rc.parent_id''', (tuple(ids),))
             for x in self.cr.fetchall():
                 result.setdefault(x[1], [])
                 result[x[1]].append(x[0])
             for key, value in result.iteritems():
-                rule_categories = rule_cate_obj.browse(self.cr, self.uid, [key])
+                rule_categories = rule_cate_obj.browse(
+                    self.cr, self.uid, [key])
                 parents = get_recursive_parent(rule_categories)
                 category_total = 0
                 for line in payslip_line.browse(self.cr, self.uid, value):
@@ -413,10 +424,10 @@ class report_payslips(report_sxw.rml_parse):
                         'total': line.total,
                         'level': level
                     })
-                    
+
                     if line.contract_id.id not in contract_ids:
                         contract_ids.append(line.contract_id.id)
-            
+
             for r in res:
                 # Level 0 is the category
                 if r['code'] == 'BASIC' and r['level'] == 0:
@@ -447,14 +458,14 @@ class report_payslips(report_sxw.rml_parse):
                     regline['er_contributions'] = r['total']
                 elif r['code'] == 'LVANNUAL':
                     regline['LVANNUAL'] = r['total']
-            
+
             # Make adjustments to subtract from the parent category's total the
             # amount of individual rules that we show separately on the sheet.
             #
             regline['allowances'] -= regline['transportation']
             regline['allowances'] -= regline['bonus']
             regline['deductions'] -= regline['ee_pension']
-        
+
         return regline, contract_ids
 
 report_sxw.report_sxw(

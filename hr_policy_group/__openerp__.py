@@ -1,5 +1,5 @@
 #-*- coding:utf-8 -*-
-##############################################################################
+#
 #
 #    Copyright (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
 #    All Rights Reserved.
@@ -17,7 +17,7 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-##############################################################################
+#
 
 {
     'name': 'Human Resources Policy Groups',
@@ -29,8 +29,8 @@ HR Policy Groups
 
 Define a collection of policies, such as Overtime, that apply to a contract.
     """,
-    'author':'Michael Telahun Makonnen <mmakonnen@gmail.com>',
-    'website':'http://miketelahun.wordpress.com',
+    'author': 'Michael Telahun Makonnen <mmakonnen@gmail.com>',
+    'website': 'http://miketelahun.wordpress.com',
     'depends': [
         'hr_contract',
         'hr_contract_init',

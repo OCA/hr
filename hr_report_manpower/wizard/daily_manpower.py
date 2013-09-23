@@ -1,5 +1,5 @@
 #-*- coding:utf-8 -*-
-##############################################################################
+#
 #
 #    Copyright (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
 #    All Rights Reserved.
@@ -17,24 +17,26 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-##############################################################################
+#
 
 from openerp.osv import fields, osv
 
+
 class hr_department_manpower(osv.TransientModel):
-    
+
     _name = 'hr.department.manpower'
-    
+
     _columns = {
         'date': fields.date('Start', required=True),
     }
-    
+
     def print_report(self, cr, uid, ids, context=None):
         if context is None:
             context = {}
         datas = {'form': self.read(cr, uid, ids)[0],
                  'model': 'hr.department'}
-        datas['ids'] = self.pool.get('hr.department').search(cr, uid, [], context=context)
+        datas['ids'] = self.pool.get(
+            'hr.department').search(cr, uid, [], context=context)
         return {
             'type': 'ir.actions.report.xml',
             'report_name': 'hr_daily_manpower',

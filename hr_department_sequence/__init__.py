@@ -1,5 +1,5 @@
 #-*- coding:utf-8 -*-
-##############################################################################
+#
 #
 #    Copyrigth (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>
 #
@@ -16,6 +16,6 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-##############################################################################
+#
 
-import hr_department
+from . import hr_department

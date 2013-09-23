@@ -1,5 +1,5 @@
 #-*- coding:utf-8 -*-
-##############################################################################
+#
 #
 #    Copyright (C) 013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
 #    All Rights Reserved.
@@ -17,15 +17,16 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-##############################################################################
+#
 
 from openerp.osv import fields, osv
 
+
 class hr_employee(osv.Model):
-    
+
     _name = 'hr.employee'
     _inherit = 'hr.employee'
-    
+
     _columns = {
         'legacy_no': fields.char('Legacy ID', size=16),
     }

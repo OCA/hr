@@ -1,5 +1,5 @@
 #-*- coding:utf-8 -*-
-##############################################################################
+#
 #
 #    Copyright (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
 #    All Rights Reserved.
@@ -17,18 +17,19 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-##############################################################################
+#
 
 from openerp.osv import fields, osv
 
+
 class payroll_net_wizard(osv.TransientModel):
-    
+
     _name = 'hr.payroll.register.net'
-    
+
     _columns = {
         'register_id': fields.many2one('hr.payroll.register', 'Register', required=True),
     }
-    
+
     def print_report(self, cr, uid, ids, context=None):
         if context is None:
             context = {}
