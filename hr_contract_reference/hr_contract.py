@@ -1,5 +1,5 @@
 #-*- coding:utf-8 -*-
-##############################################################################
+#
 #
 #    Copyright (C) 2011,2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
 #    All Rights Reserved.
@@ -17,22 +17,25 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-##############################################################################
+#
 
 from osv import fields, osv
 
+
 class hr_contract(osv.osv):
-    
+
     _inherit = 'hr.contract'
-    
+
     _columns = {
-                'name': fields.char('Contract Reference', size=32, required=False, readonly=True),
+        'name': fields.char('Contract Reference', size=32, required=False, readonly=True),
     }
-    
+
     def create(self, cr, uid, vals, context=None):
-        
+
         cid = super(hr_contract, self).create(cr, uid, vals, context)
         if cid:
-            ref = self.pool.get('ir.sequence').next_by_code(cr, uid, 'contract.ref', context=context)
-            self.pool.get('hr.contract').write(cr, uid, cid, {'name': ref}, context=context)
+            ref = self.pool.get('ir.sequence').next_by_code(
+                cr, uid, 'contract.ref', context=context)
+            self.pool.get('hr.contract').write(
+                cr, uid, cid, {'name': ref}, context=context)
         return cid
