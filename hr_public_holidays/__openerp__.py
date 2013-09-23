@@ -1,5 +1,5 @@
 #-*- coding:utf-8 -*-
-##############################################################################
+#
 #
 #    Copyright (C) 2011,2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
 #    All Rights Reserved.
@@ -17,18 +17,18 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-##############################################################################
+#
 
 {
     'name': 'Public Holidays',
     'version': '1.0',
     'category': 'Generic Modules/Human Resources',
-    'author':'Michael Telahun Makonnen <mmakonnen@gmail.com>',
+    'author': 'Michael Telahun Makonnen <mmakonnen@gmail.com>',
     'description': """
 Manage Public Holidays
 ======================
     """,
-    'website':'http://miketelahun.wordpress.com',
+    'website': 'http://miketelahun.wordpress.com',
     'depends': [
         'hr',
     ],
