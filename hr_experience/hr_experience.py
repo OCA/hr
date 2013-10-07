@@ -25,10 +25,10 @@ class hr_experience(osv.osv):
     _name = 'hr.experience'
     _columns = {
         'name': fields.char('Name', size=64, required=True),
-        'category': fields.selection(('professional', 'Professional'),
+        'category': fields.selection((('professional', 'Professional'),
                                      ('academic', 'Academic'),
-                                     ('certification', 'certification'))
-                                     , 'Category'),
+                                     ('certification', 'certification')),
+                                     'Category', required=True),
         'start_date': fields.date('Start date'),
         'end_date': fields.date('End date'),
         'description': fields.text('Description'),
@@ -37,9 +37,13 @@ class hr_experience(osv.osv):
         'diploma': fields.char('Diploma', size=64),
         'study_field': fields.char('Field of study', size=64),
         'result': fields.char('Result', size=64),
-	'activities': fields.text('Activities and associations'),
+        'activities': fields.text('Activities and associations'),
         'certification': fields.char('Certification Number', size=64),
         'expire': fields.boolean('Expire'),
+    }
+
+    _defaults = {
+        'category': 'professional',
     }
 hr_experience()
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

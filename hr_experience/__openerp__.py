@@ -32,9 +32,6 @@ This module allows you to manage your employee experiences:
 * Academic
 * Certification
     """,
-    "demo_xml": [
-        "hr_experience_demo.csv",
-    ],
     "update_xml": [
         "security/ir.model.access.csv",
         "hr_experience_view.xml",
