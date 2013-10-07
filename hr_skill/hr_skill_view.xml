@@ -5,37 +5,57 @@
               parent="hr.menu_hr_configuration"
               id="menu_hr_skill_mgt"/>
 
-    <!-- defini le formulaire skill -->
-    <record model="ir.ui.view" id="view_skill_form">
-        <field name="name">hr_skill.skill.form</field>
-        <field name="model">hr_skill.skill</field>
+    <!-- Employee -->
+
+    <record model="ir.ui.view" id="view_employee_skill_form">
+        <field name="name">hr.employee.skill.form</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
         <field name="type">form</field>
         <field name="arch" type="xml">
-            <form string="Skills">
+            <notebook position="inside">
+                <page string="Skills">
+                    <field name="skill_ids" nolabel="1" domain="[('view', '=', 'skill')]">
+                        <tree>
+                            <field name="name"/>
+                        </tree>
+                    </field>
+                </page>
+            </notebook>
+        </field>
+    </record>
+
+    <!-- Skill -->
+
+    <record model="ir.ui.view" id="view_skill_form">
+        <field name="name">hr.skill.form</field>
+        <field name="model">hr.skill</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Skill">
                 <field name="name" select="1" colspan="1"/>
                 <field name="active" select="1" />
                 <newline/>
                 <field name="parent_id" select="1"/>
-                <field name="weight_category_id" select="1"/>
                 <field name="view" select="1"/>
             </form>
         </field>
     </record>
 
-    <!-- defini une action pr skill ds le menu principal -->
     <record model="ir.actions.act_window" id="open_view_skill_form">
-        <field name="res_model">hr_skill.skill</field>
+        <field name="res_model">hr.skill</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
     </record>
 
-    <!-- defini l'entree skill ds le menu principal -->
-    <menuitem name="Skills" parent="menu_hr_skill_mgt" id="menu_open_view_skill_form" action="open_view_skill_form"/>
+    <menuitem name="Skills" 
+              parent="menu_hr_skill_mgt" 
+              id="menu_open_view_skill_form" 
+              action="open_view_skill_form"/>
 
-    <!-- defini la vue en arbre des skills-->
     <record model="ir.ui.view" id="view_hr_skill_tree">
-        <field name="name">hr_skill.skill.tree</field>
-        <field name="model">hr_skill.skill</field>
+        <field name="name">hr.skill.tree</field>
+        <field name="model">hr.skill</field>
         <field name="type">tree</field>
         <field name="field_parent">child_ids</field>
         <field name="arch" type="xml">
@@ -46,488 +66,34 @@
         </field>
     </record>
 
-    <!-- associe la vue en arbre des skills au bouton correspondant ds le menu principal -->
     <record model="ir.actions.act_window" id="open_view_skill_tree">
         <field name="name">Skills structure</field>
-        <field name="res_model">hr_skill.skill</field>
+        <field name="res_model">hr.skill</field>
         <field name="view_type">tree</field>
         <field name="view_id" ref="view_hr_skill_tree"/>
         <field name="domain">[('parent_id','=',False)]</field>
     </record>
 
-    <!-- ajoute une entree "skill tree" dans le menu principal -->
-    <menuitem name="Skills Structure" parent="menu_hr_skill_mgt" id="menu_open_view_skill_tree" action="open_view_skill_tree"/>
-
-    <!-- defini le formulaire position -->
-    <record model="ir.ui.view" id="view_position_form">
-        <field name="name">hr_skill.position.form</field>
-        <field name="model">hr_skill.position</field>
-        <field name="type">form</field>
-        <field name="arch" type="xml">
-            <form string="Positions">
-                <field name="name" select="1" colspan="4"/>
-                <field name="profile_ids" colspan="4">
-                    <tree string="Profiles" editable="top">
-                        <field name="profile_id" on_change="onchange_profile_id(profile_id)"/>
-                        <field name="weight_id"/>
-                        <field name="name"/>
-                    </tree>
-                </field>
-            </form>
-        </field>
-    </record>
-
-    <!-- defini une action pr position ds le menu principal -->
-    <record model="ir.actions.act_window" id="open_view_position_form">
-        <field name="res_model">hr_skill.position</field>
+    <record id="hr_employee_normal_action_tree" model="ir.actions.act_window">
+        <field name="name">Employees</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hr.employee</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
+        <field name="domain">[('skill_ids','=', active_ids)]</field>
     </record>
 
-    <!-- defini l'entree position ds le menu principal -->
-    <menuitem name="Positions" parent="menu_hr_skill_mgt" id="menu_open_view_position_form" action="open_view_position_form"/>
-
-    <!-- defini le formulaire profile -->
-    <record model="ir.ui.view" id="view_profile_form">
-        <field name="name">hr_skill.profile.form</field>
-        <field name="model">hr_skill.profile</field>
-        <field name="type">form</field>
-        <field name="arch" type="xml">
-            <form string="Profile">
-                <field name="name" select="1" colspan="4"/>
-                <field name="skill_ids" colspan="4">
-                    <tree string="Skills" editable="top">
-                        <field name="skill_id" on_change="onchange_skill_id(skill_id)"/>
-                        <field name="weight_id"/>
-                        <field name="name"/>
-                    </tree>
-                </field>
-            </form>
-        </field>
+    <record id="hr_employee_skill_open" model="ir.values">
+        <field eval="'tree_but_open'" name="key2"/>
+        <field eval="'hr.skill'" name="model"/>
+        <field name="name">Employees by Skills</field>
+        <field eval="'ir.actions.act_window,%d'%hr_employee_normal_action_tree" name="value"/>
     </record>
 
-    <!-- defini une action pr profile ds le menu principal -->
-    <record model="ir.actions.act_window" id="open_view_profile_form">
-        <field name="res_model">hr_skill.profile</field>
-        <field name="view_type">form</field>
-        <field name="view_mode">tree,form</field>
-    </record>
-
-    <!-- defini l'entree profiles ds le menu principal -->
-    <menuitem name="Profiles" parent="menu_hr_skill_mgt" id="menu_open_view_profiles_form" action="open_view_profile_form"/>
-
-    <!-- defini le formulaire weight categories -->
-    <record model="ir.ui.view" id="view_weight_category_form">
-        <field name="name">hr_skill.weight.category.form</field>
-        <field name="model">hr_skill.weight.category</field>
-        <field name="type">form</field>
-        <field name="arch" type="xml">
-            <form string="Weight Categories">
-                <field name="name" select="1" colspan="2"/>
-            </form>
-        </field>
-    </record>
-
-    <!-- defini une action pr weight categories ds le menu principal -->
-    <record model="ir.actions.act_window" id="open_view_weight_category_form">
-        <field name="res_model">hr_skill.weight.category</field>
-        <field name="view_type">form</field>
-        <field name="view_mode">tree,form</field>
-    </record>
-
-    <!-- defini l'entree weight categories ds le menu principal -->
-    <menuitem name="Weight Categories" parent="menu_hr_skill_mgt" id="menu_open_view_weight_category_form" action="open_view_weight_category_form"/>
-
-    <!-- defini le formulaire weight -->
-    <record model="ir.ui.view" id="view_weight_form">
-        <field name="name">hr_skill.weight.form</field>
-        <field name="model">hr_skill.weight</field>
-        <field name="type">form</field>
-        <field name="arch" type="xml">
-            <form string="Weight">
-                <field name="name" select="1"/>
-                <newline/>
-                <field name="value" select="1"/>
-                <field name="category_id" select="1"/>
-            </form>
-        </field>
-    </record>
-
-    <!-- defini une action pr weight categories ds le menu principal -->
-    <record model="ir.actions.act_window" id="open_view_weight_form">
-        <field name="res_model">hr_skill.weight</field>
-        <field name="view_type">form</field>
-        <field name="view_mode">tree,form</field>
-    </record>
-
-    <!-- defini l'entree weight categories ds le menu principal -->
-    <menuitem name="Weights" parent="menu_hr_skill_mgt" id="menu_open_view_weight_form" action="open_view_weight_form"/>
-
-    <!-- defini le formulaire experience categories -->
-    <record model="ir.ui.view" id="view_experience_category_form">
-        <field name="name">hr_skill.experience.category.form</field>
-        <field name="model">hr_skill.experience.category</field>
-        <field name="type">form</field>
-        <field name="arch" type="xml">
-            <form string="Experience Categories">
-                <field name="name" select="1" colspan="2"/>
-            </form>
-        </field>
-    </record>
-
-    <!-- defini une action pr experience categories ds le menu principal -->
-    <record model="ir.actions.act_window" id="open_view_experience_category_form">
-        <field name="res_model">hr_skill.experience.category</field>
-        <field name="view_type">form</field>
-        <field name="view_mode">tree,form</field>
-    </record>
-
-    <!-- defini l'entree experience categories ds le menu principal -->
-    <menuitem name="Experience Categories" parent="menu_hr_skill_mgt" id="menu_open_view_experience_category_form" action="open_view_experience_category_form"/>
-
-    <!-- defini le formulaire experience -->
-    <record model="ir.ui.view" id="view_experience_form">
-        <field name="name">hr_skill.experience.form</field>
-        <field name="model">hr_skill.experience</field>
-        <field name="type">form</field>
-        <field name="arch" type="xml">
-            <form string="Experiences">
-                <field name="name" select="1" />
-                <field name="category_id" select="1" />
-                <field name="skill_ids" colspan="4">
-                    <tree string="Skills" editable="top">
-                        <field name="skill_id" on_change="onchange_skill_id(skill_id)"/>
-                        <field name="weight_id"/>
-                        <field name="name"/>
-                    </tree>
-                </field>
-            </form>
-        </field>
-    </record>
-
-    <!-- defini une action pr position ds le menu principal -->
-    <record model="ir.actions.act_window" id="open_view_experience_form">
-        <field name="res_model">hr_skill.experience</field>
-        <field name="view_type">form</field>
-        <field name="view_mode">tree,form</field>
-    </record>
-
-    <!-- defini l'entree position ds le menu principal -->
-    <menuitem name="Experiences" parent="menu_hr_skill_mgt" id="menu_open_view_experience_form" action="open_view_experience_form"/>
-
-    <!-- formulaire evaluation -->
-    <record model="ir.ui.view" id="view_evalutation_form">
-        <field name="name">hr_skill.evaluation.form</field>
-        <field name="model">hr_skill.evaluation</field>
-        <field name="type">form</field>
-        <field name="arch" type="xml">
-            <form string="Evaluation">
-                <notebook>
-                    <page string="General Informations">
-                        <field name="name" select="1"/>
-                        <field name="date" select="1"/>
-                        <field name="interviewee_name" select="1"/>
-                        <field name="interviewer_name" select="1"/>
-                        <field name="employee_id" on_change="onchange_employee_id(employee_id)"/>
-                        <field name="reference" />
-                        <field name="category_id" />
-                        <field name="note" colspan="4"/>
-                    </page>
-                    <page string="Skill and experiences">
-                        <field name="experience_ids" colspan="4" nolabel="1">
-                            <tree string="Experiences" editable="top">
-                                <field name="experience_id" on_change="onchange_experience_id(experience_id)"/>
-                                <field name="weight_id"/>
-                                <field name="name"/>
-                            </tree>
-                        </field>
-                        <field name="skill_ids" colspan="4" nolabel="1">
-                            <tree string="Skills" editable="top">
-                                <field name="skill_id" on_change="onchange_skill_id(skill_id)"/>
-                                <field name="weight_id"/>
-                                <field name="name"/>
-                            </tree>
-                        </field>
-                    </page>
-                </notebook>
-            </form>
-        </field>
-    </record>
-
-    <!-- arbre  evaluation -->
-    <record model="ir.ui.view" id="view_evalutation_tree">
-        <field name="name">hr_skill.evaluation.tree</field>
-        <field name="model">hr_skill.evaluation</field>
-        <field name="type">tree</field>
-        <field name="arch" type="xml">
-            <tree string="Evaluation">
-                <field name="name" select="1"/>
-                <field name="date" select="1"/>
-                <field name="interviewee_name" select="1"/>
-                <field name="interviewer_name" select="1"/>
-                <field name="category_id" />
-            </tree>
-        </field>
-    </record>
-
-    <!-- defini une action pr evaluation ds le menu principal -->
-    <record model="ir.actions.act_window" id="open_view_evaluation_form">
-        <field name="res_model">hr_skill.evaluation</field>
-        <field name="view_type">form</field>
-        <field name="view_mode">tree,form</field>
-    </record>
-
-    <!-- defini l'entree evaluations ds le menu principal -->
-    <menuitem name="Evaluations"
+    <menuitem name="Skills Structure"
               parent="menu_hr_skill_mgt"
-              id="menu_open_view_evaluation_form"
-              action="open_view_evaluation_form"/>
-
-    <act_window name="Skill weight"
-        domain="[('category_id', '=', active_id)]"
-        res_model="hr_skill.weight"
-        src_model="hr_skill.weight.category"
-        id="act_hr_skill_weight_category_2_hr_skill_weight"/>
-
-    <record model="ir.ui.view" id="view_employee_form1">
-        <field name="name">hr.employee.form</field>
-        <field name="model">hr.employee</field>
-        <field name="type">form</field>
-        <field name="inherit_id" ref="hr.view_employee_form"/>
-        <field name="arch" type="xml">
-            <notebook position="inside">
-                <page string="Language Details">
-                    <field name="lang_id" colspan="4" nolabel="1"/>
-                </page>
-            </notebook>
-        </field>
-    </record>
-
-    <!--Employee Language View -->
-
-    <record model="ir.ui.view" id="view_emp_lang_form">
-        <field name="name">Languages</field>
-        <field name="model">emp.lang</field>
-        <field name="type">form</field>
-        <field name="arch" type="xml">
-            <form string="Language">
-                <field name="name"/>
-                <field name="read"/>
-                <field name="write"/>
-                <field name="speak"/>
-            </form>
-        </field>
-    </record>
-
-    <record model="ir.ui.view" id="view_emp_lang_tree">
-        <field name="name">Languages</field>
-        <field name="model">emp.lang</field>
-        <field name="type">tree</field>
-        <field name="arch" type="xml">
-            <tree string="Language" editable="bottom">
-                <field name="name"/>
-                <field name="read"/>
-                <field name="write"/>
-                <field name="speak"/>
-            </tree>
-        </field>
-    </record>
-
-    <!-- Language View -->
-
-    <record model="ir.ui.view" id="view_hr_lang_form">
-        <field name="name">Languages</field>
-        <field name="model">hr.lang</field>
-        <field name="type">form</field>
-        <field name="arch" type="xml">
-            <form string="Language">
-                <field name="name"/>
-            </form>
-        </field>
-    </record>
-
-    <record model="ir.ui.view" id="view_hr_lang_tree">
-        <field name="name">Languages</field>
-        <field name="model">hr.lang</field>
-        <field name="type">tree</field>
-        <field name="arch" type="xml">
-            <tree string="Language">
-                <field name="name"/>
-            </tree>
-        </field>
-    </record>
-
-    <record model="ir.actions.act_window" id="lang_view_id">
-        <field name="res_model">hr.lang</field>
-        <field name="view_type">form</field>
-        <field name="view_mode">tree,form</field>
-    </record>
-
-    <menuitem name="Languages"
-              parent="hr_skill.menu_hr_skill_mgt"
-              id="menu_edit_lang"
-              action="lang_view_id" />
-
-    <record model="ir.ui.view" id="view_employee_grade_form1">
-        <field name="name">employee.grade.form1.inherit</field>
-        <field name="model">hr.employee</field>
-        <field name="type">form</field>
-        <field name="inherit_id" ref="hr.view_employee_form"/>
-        <field name="arch" type="xml">
-            <notebook position="inside">
-                <page string="Pay Grade">
-                    <separator string="Employee Payment" colspan="4"/>
-                    <field name="payscale" select="1"/>
-                    <separator string="Employee Status" colspan="4"/>
-                    <field name="status"/>
-                </page>
-            </notebook>
-        </field>
-    </record>
-
-    <record model="ir.ui.view" id="view_hr_scale_form">
-        <field name="name">Pay Scales</field>
-        <field name="model">hr.scale</field>
-        <field name="type">form</field>
-        <field name="arch" type="xml">
-            <form string="Pay Scales">
-                <field name="code" select="1"/>
-                <field name="name"/>
-                <field name="cur"/>
-                <field name="min_sal"/>
-                <field name="max_sal"/>
-                <field name="increase" select="1"/>
-            </form>
-        </field>
-    </record>
-
-    <record model="ir.ui.view" id="view_hr_scale_tree">
-        <field name="name">Pay Scales</field>
-        <field name="model">hr.scale</field>
-        <field name="type">tree</field>
-        <field name="arch" type="xml">
-            <tree string="Pay Scales">
-                <field name="code" select="1"/>
-                <field name="name"/>
-                <field name="cur"/>
-                <field name="min_sal"/>
-                <field name="max_sal"/>
-                <field name="increase" select="1"/>
-            </tree>
-        </field>
-    </record>
-
-    <record model="ir.actions.act_window" id="scale_view_id">
-        <field name="res_model">hr.scale</field>
-        <field name="view_type">form</field>
-        <field name="view_mode">tree,form</field>
-    </record>
-
-    <menuitem name="Scale Grade"
-              parent="hr_skill.menu_hr_skill_mgt"
-              id="menu_edit_scale"
-              action="scale_view_id" />
-
-<!--
-    <record model="ir.ui.view" id="view_employee_evaluation_form">
-        <field name="name">employee.evaluation.form.inherit</field>
-        <field name="model">hr_skill.evaluation</field>
-        <field name="type">form</field>
-        <field name="inherit_id" ref="hr_skill.view_evalutation_form"/> 
-        <field name="arch" type="xml">
-            <field name="skill_ids" colspan="4" nolanel="1" position="after">
-                <field name="quali_ids" widget="one2many_list">
-                    <tree string="Qualification" editable="top" nolabel="1" >
-                        <field name="name"/>
-                        <field name="rank"/>
-                        <field name="per"/>
-                    </tree>
-                </field>
-            </field>
-        </field>
-    </record>
--->
-
-    <record model="ir.ui.view" id="view_employee_status_form">
-        <field name="name">employee.status.form</field>
-        <field name="model">employee.status</field>
-        <field name="type">form</field>
-        <field name="arch" type="xml">
-            <form string="Status">
-                <field name="name" select="1"/>
-            </form>
-        </field>
-    </record>
-
-    <record model="ir.actions.act_window" id="open_view_employee_status">
-        <field name="res_model">employee.status</field>
-        <field name="view_type">form</field>
-        <field name="view_mode">tree,form</field>
-    </record>
-
-    <menuitem name="Employees Status"
-              parent="hr_skill.menu_hr_skill_mgt"
-              id="menu_open_view_employee_status"
-              action="open_view_employee_status"/>
-
-<!--
-    <record model="ir.ui.view" id="view_employee_quali_form">
-        <field name="name">employee.quali.form</field>
-        <field name="model">emp.quali</field>
-        <field name="type">form</field>
-        <field name="arch" type="xml">
-            <form string="Qualification">
-                <field name="name" select="1"/>
-            </form>
-        </field>
-    </record>
--->
-
-<!--
-    <record model="ir.actions.act_window" id="open_view_employee_quali">
-            <field name="res_model">emp.quali</field>
-            <field name="view_type">form</field>
-            <field name="view_mode">form</field>
-            <field name="view_id" ref="view_employee_quali_form"/>
-    </record>
--->
-
-<!--
-    <menuitem name="Human Resources/Configuration/Employees Qualification" 
-              id="menu_open_view_employee_quali" 
-              action="open_view_employee_quali"/>
--->
-
-<!--
-    <record model="ir.ui.view" id="view_employee_qualification_form">
-        <field name="name">employee.qualification.form</field>
-        <field name="model">employee.qualification</field>
-        <field name="type">form</field>
-        <field name="arch" type="xml">
-            <form string="Qualification/Certification">
-                <field name="name" select="1"/>
-                <field name="rank"/>
-                <field name="per"/>
-                <field name="evaluation_id"/>
-            </form>
-        </field>
-    </record>
--->
-
-<!--
-    <record model="ir.actions.act_window" id="open_view_employee_qualification">
-            <field name="res_model">employee.qualification</field>
-            <field name="view_type">form</field>
-            <field name="view_mode">form</field>
-            <field name="view_id" ref="view_employee_qualification_form"/>
-    </record>
--->
-
-<!--
-    <menuitem name="Human Resources/Configuration/Skills Management/Qualification" 
-              id="menu_open_view_employee_qualification" 
-              action="open_view_employee_qualification"/>
--->
+              id="menu_open_view_skill_tree"
+              action="open_view_skill_tree"/>
 
   </data>
 </openerp>

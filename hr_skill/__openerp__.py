@@ -27,25 +27,23 @@
     "website": "http://www.openerp.com",
     "depends": ["hr"],
     "description": """
-Generic and powerful skill management system.
-This module allows you to manage your company and employees skills, interviews.
+This module allows you to manage your company and employees skills.
     """,
-    "demo_xml": [
-        "demo/hr_skill.weight.category.csv",
-        "demo/hr_skill.weight.csv",
-        "demo/hr_skill.skill.csv",
-        "demo/hr_skill.profile.csv",
-        "demo/hr_skill.position.csv",
-        "demo/hr_skill.experience.category.csv",
-        "demo/hr_skill.experience.csv",
-        "demo/hr_skill.evaluation.category.csv",
-        "demo/hr_skill.evaluation.csv"
-    ],
+#    "demo_xml": [
+#        "demo/hr_skill.weight.category.csv",
+#        "demo/hr_skill.weight.csv",
+#        "demo/hr_skill.skill.csv",
+#        "demo/hr_skill.profile.csv",
+#        "demo/hr_skill.position.csv",
+#        "demo/hr_skill.experience.category.csv",
+#        "demo/hr_skill.experience.csv",
+#        "demo/hr_skill.evaluation.category.csv",
+#        "demo/hr_skill.evaluation.csv"
+#    ],
     "update_xml": [
         "security/ir.model.access.csv",
-        "hr_skill_report.xml",
+#        "hr_skill_report.xml",
         "hr_skill_view.xml",
-        "lang_wiz_view.xml",
     ],
     "active": False,
     "installable": True
