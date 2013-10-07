@@ -1,6 +1,24 @@
 <openerp>
   <data>
 
+    <!-- Employee -->
+
+    <record model="ir.ui.view" id="view_employee_form">
+        <field name="name">hr.experience.employee.form</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <notebook position="inside">
+                <page string="Experiences">
+                    <field name="experience_ids" nolabel="1" colspan="4"/>
+                </page>
+            </notebook>
+        </field>
+    </record>
+
+    <!-- Experience -->
+
     <record model="ir.ui.view" id="view_experience_tree">
         <field name="name">hr.experience.tree</field>
         <field name="model">hr.experience</field>
@@ -8,6 +26,7 @@
         <field name="arch" type="xml">
             <tree string="Experiences">
                 <field name="name"/>
+                <field name="employee_id"/>
                 <field name="category"/>
                 <field name="partner_id"/>
                 <field name="start_date"/>
@@ -23,6 +42,7 @@
         <field name="arch" type="xml">
             <form string="Experience">
                 <field name="name"/>
+                <field name="employee_id"/>
                 <field name="category"/>
                 <separator string="Dates" colspan="4"/>
                 <field name="start_date"/>

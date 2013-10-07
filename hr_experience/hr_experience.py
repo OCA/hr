@@ -25,6 +25,7 @@ class hr_experience(osv.osv):
     _name = 'hr.experience'
     _columns = {
         'name': fields.char('Name', size=64, required=True),
+        'employee_id': fields.many2one('hr.employee', 'Employee', required=True),
         'category': fields.selection((('professional', 'Professional'),
                                      ('academic', 'Academic'),
                                      ('certification', 'Certification')),
@@ -47,4 +48,12 @@ class hr_experience(osv.osv):
         'expire': True,
     }
 hr_experience()
+
+
+class hr_employee(osv.osv):
+    _inherit = 'hr.employee'
+    _columns = {
+        'experience_ids': fields.one2many('hr.experience', 'employee_id', 'Experiences'),
+    }
+hr_employee()
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
