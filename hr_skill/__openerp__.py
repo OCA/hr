@@ -45,7 +45,6 @@ This module allows you to manage your company and employees skills, interviews.
         "security/ir.model.access.csv",
         "hr_skill_report.xml",
         "hr_skill_view.xml",
-        "hrskill_view.xml",
         "lang_wiz_view.xml",
     ],
     "active": False,
