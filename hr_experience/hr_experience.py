@@ -32,7 +32,7 @@ class hr_experience(osv.osv):
         'start_date': fields.date('Start date'),
         'end_date': fields.date('End date'),
         'description': fields.text('Description'),
-        'partner_id': fields.many2one('res.partner', 'Partner'),
+        'partner_id': fields.many2one('res.partner', 'Partner', help="Employer, School, University, Certification Authority"),
         'location': fields.char('Location', size=64),
         'diploma': fields.char('Diploma', size=64),
         'study_field': fields.char('Field of study', size=64),

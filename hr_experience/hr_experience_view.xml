@@ -24,21 +24,25 @@
             <form string="Experience">
                 <field name="name"/>
                 <field name="category"/>
-                <newline/>
+                <separator string="Dates" colspan="4"/>
                 <field name="start_date"/>
                 <field name="expire"/>
-                <field name="end_date"/>
-                <newline/>
+                <field name="end_date" attrs="{'invisible':[('expire', '=', False)]}"/>
+                <separator string="Partner information" colspan="4"/>
                 <field name="partner_id"/>
                 <field name="location"/>
-                <newline/>
-                <field name="diploma"/>
-                <field name="study_field"/>
-                <field name="activities"/>
-                <newline/>
-                <field name="certification"/>
-                <newline/>
-                <field name="description"/>
+                <group attrs="{'invisible':[('category', '!=', 'academic')]}" colspan="4">
+                    <separator string="Academic information" colspan="4"/>
+                    <field name="diploma" attrs="{'invisible':[('category', '!=', 'academic')]}"/>
+                    <field name="study_field" attrs="{'invisible':[('category', '!=', 'academic')]}"/>
+                    <field name="activities" attrs="{'invisible':[('category', '!=', 'academic')]}"/>
+                </group>
+                <group attrs="{'invisible':[('category', '!=', 'certification')]}" colspan="4">
+                    <separator string="Certification information" colspan="4"/>
+                    <field name="certification" attrs="{'invisible':[('category', '!=', 'certification')]}"/>
+                </group>
+                <separator string="Description" colspan="4"/>
+                <field name="description" colspan="4" nolabel="1"/>
             </form>
         </field>
     </record>
