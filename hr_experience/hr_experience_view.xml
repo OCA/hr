@@ -24,6 +24,21 @@
             <form string="Experience">
                 <field name="name"/>
                 <field name="category"/>
+                <newline/>
+                <field name="start_date"/>
+                <field name="expire"/>
+                <field name="end_date"/>
+                <newline/>
+                <field name="partner_id"/>
+                <field name="location"/>
+                <newline/>
+                <field name="diploma"/>
+                <field name="study_field"/>
+                <field name="activities"/>
+                <newline/>
+                <field name="certification"/>
+                <newline/>
+                <field name="description"/>
             </form>
         </field>
     </record>

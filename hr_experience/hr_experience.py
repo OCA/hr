@@ -27,7 +27,7 @@ class hr_experience(osv.osv):
         'name': fields.char('Name', size=64, required=True),
         'category': fields.selection((('professional', 'Professional'),
                                      ('academic', 'Academic'),
-                                     ('certification', 'certification')),
+                                     ('certification', 'Certification')),
                                      'Category', required=True),
         'start_date': fields.date('Start date'),
         'end_date': fields.date('End date'),
@@ -44,6 +44,7 @@ class hr_experience(osv.osv):
 
     _defaults = {
         'category': 'professional',
+        'expire': True,
     }
 hr_experience()
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
