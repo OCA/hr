@@ -1,6 +1,6 @@
 # -*- encoding: utf-8 -*-
-##############################################################################
-#    
+#
+#
 #    OpenERP, Open Source Management Solution
 #    Copyright (C) 2004-2009 Tiny SPRL (<http://tiny.be>).
 #
@@ -15,9 +15,9 @@
 #    GNU Affero General Public License for more details.
 #
 #    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.     
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-##############################################################################
+#
 import wizard
 import pooler
 import time
@@ -27,23 +27,23 @@ emp_form = '''<?xml version="1.0"?>
         <field name="s_ids"/>
 </form>'''
 
-emp_field ={
-    's_ids': {'name' : 'skill', 'relation':'hr_skill.skill', 'string':'Skill', 'required':'True', 'type':'many2one','domain':"[('view','=','skill')]"},
-   }
+emp_field = {
+    's_ids': {'name': 'skill', 'relation': 'hr_skill.skill', 'string': 'Skill', 'required': 'True', 'type': 'many2one', 'domain': "[('view','=','skill')]"},
+}
+
 
 class skillemployee(wizard.interface):
     states = {
-       'init': {
-                    'actions': [],
-                    'result': {'type':'form', 'arch':emp_form, 'fields':emp_field, 'state':[('end','Cancel'),('report','Print')]}
+        'init': {
+            'actions': [],
+            'result': {'type': 'form', 'arch': emp_form, 'fields': emp_field, 'state': [('end', 'Cancel'), ('report', 'Print')]}
         },
 
-       'report': {
-                    'actions': [],
-                    'result': {'type':'print', 'report':'skillreport', 'state':'end'}
+        'report': {
+            'actions': [],
+            'result': {'type': 'print', 'report': 'skillreport', 'state': 'end'}
         }
     }
 
 skillemployee('empskill')
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
-

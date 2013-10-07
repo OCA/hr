@@ -1,6 +1,6 @@
 # -*- encoding: utf-8 -*-
-##############################################################################
-#    
+#
+#
 #    OpenERP, Open Source Management Solution
 #    Copyright (C) 2004-2009 Tiny SPRL (<http://tiny.be>).
 #
@@ -15,9 +15,9 @@
 #    GNU Affero General Public License for more details.
 #
 #    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.     
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-##############################################################################
+#
 import wizard
 import pooler
 import time
@@ -30,25 +30,24 @@ dates_form = '''<?xml version="1.0"?>
         <field name="edate"/>
 </form>'''
 
-dates_fields ={
-    'sdate': {'string':'Start Date', 'type':'date', 'required':True, 'default': lambda *a: time.strftime('%Y-01-01')},
-    'edate': {'string':'End Date', 'type':'date', 'required':True, 'default': lambda *a: time.strftime('%Y-%m-%d')},
-            }
+dates_fields = {
+    'sdate': {'string': 'Start Date', 'type': 'date', 'required': True, 'default': lambda *a: time.strftime('%Y-01-01')},
+    'edate': {'string': 'End Date', 'type': 'date', 'required': True, 'default': lambda *a: time.strftime('%Y-%m-%d')},
+}
 
 
 class datewisecheck(wizard.interface):
 
     states = {
-       'init': {
-                    'actions': [],
-                    'result': {'type':'form', 'arch':dates_form, 'fields':dates_fields, 'state':[('end','Cancel'),('report','Print')]}
+        'init': {
+            'actions': [],
+            'result': {'type': 'form', 'arch': dates_form, 'fields': dates_fields, 'state': [('end', 'Cancel'), ('report', 'Print')]}
         },
         'report': {
-                    'actions': [],
-                    'result': {'type':'print', 'report':'datereport.print', 'state':'end'}
+            'actions': [],
+            'result': {'type': 'print', 'report': 'datereport.print', 'state': 'end'}
         }
     }
 datewisecheck('employee.date.check')
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
-
