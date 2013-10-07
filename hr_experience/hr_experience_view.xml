@@ -1,0 +1,43 @@
+<openerp>
+  <data>
+
+    <record model="ir.ui.view" id="view_experience_tree">
+        <field name="name">hr.experience.tree</field>
+        <field name="model">hr.experience</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="Experiences">
+                <field name="name"/>
+                <field name="category"/>
+                <field name="partner_id"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_experience_form">
+        <field name="name">hr.experience.form</field>
+        <field name="model">hr.experience</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Experience">
+                <field name="name"/>
+                <field name="category"/>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="open_view_experience_form">
+        <field name="res_model">hr.experience</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Experiences"
+              parent="hr.menu_hr_configuration"
+              id="menu_open_view_experience_form"
+              action="open_view_experience_form"/>
+
+  </data>
+</openerp>
