@@ -8,7 +8,7 @@
         <field name="type">form</field>
         <field name="arch" type="xml">
             <field name="location" position="after">
-                <field name="account_id" attrs="{'invisible':[('category', '!=', 'professional')]}" group="analytic.group_analytic_accounting"/>
+                <field name="account_id" attrs="{'invisible':[('category', '!=', 'professional')]}" groups="analytic.group_analytic_accounting"/>
             </field>
         </field>
     </record>

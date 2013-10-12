@@ -38,7 +38,6 @@ the resume of the employees involved in the same project or contract.
     "update_xml": [
         "hr_experience_analytic_view.xml",
     ],
-    "active": False,
     "installable": True,
     "auto_install": True
 }
