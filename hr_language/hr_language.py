@@ -26,6 +26,7 @@ class hr_language(osv.osv):
     _name = 'hr.language'
     _columns = {
         'name': fields.selection(tools.scan_languages(),'Language', required=True),
+        'description': fields.char('Description', size=64, required=True, translate=True),
         'employee_id': fields.many2one('hr.employee', 'Employee', required=True),
         'read': fields.boolean('Read'),
         'write': fields.boolean('Write'),

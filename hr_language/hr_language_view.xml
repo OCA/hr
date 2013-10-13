@@ -25,8 +25,7 @@
         <field name="type">tree</field>
         <field name="arch" type="xml">
             <tree string="Languages">
-                <field name="name"/>
-                <field name="employee_id"/>
+                <field name="description"/>
                 <field name="read"/>
                 <field name="write"/>
                 <field name="speak"/>
@@ -41,6 +40,7 @@
         <field name="arch" type="xml">
             <form string="Language">
                 <field name="name"/>
+                <field name="description"/>
                 <field name="employee_id"/>
                 <newline/>
                 <field name="read"/>
