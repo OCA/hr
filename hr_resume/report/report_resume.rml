@@ -86,7 +86,8 @@
       <para style="terp_default_Bold_9">[[ experience.name ]]</para>
       <para>[[ experience.start_date ]] - [[ experience.expire and experience.end_date or 'Now' ]]</para>
       <para>[[ experience.partner_id.name ]]</para>
-      <para>[[ experience.diploma ]]</para>
+      <para>Diploma: [[ experience.diploma or removeParentNode('para') ]]</para>
+      <para>Field of Study: [[ experience.study_field or removeParentNode('para') ]]</para>
     </section>
     <para style="terp_header">Languages</para>
     <section>
