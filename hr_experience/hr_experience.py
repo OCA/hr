@@ -24,7 +24,7 @@ from osv import osv, fields
 class hr_experience(osv.osv):
     _name = 'hr.experience'
     _columns = {
-        'name': fields.char('Name', size=64, required=True),
+        'name': fields.char('Name', size=64, required=True, translate=True),
         'employee_id': fields.many2one('hr.employee', 'Employee', required=True),
         'category': fields.selection((('professional', 'Professional'),
                                      ('academic', 'Academic'),
@@ -32,13 +32,13 @@ class hr_experience(osv.osv):
                                      'Category', required=True),
         'start_date': fields.date('Start date'),
         'end_date': fields.date('End date'),
-        'description': fields.text('Description'),
+        'description': fields.text('Description', translate=True),
         'partner_id': fields.many2one('res.partner', 'Partner', help="Employer, School, University, Certification Authority"),
-        'location': fields.char('Location', size=64),
-        'diploma': fields.char('Diploma', size=64),
-        'study_field': fields.char('Field of study', size=64),
-        'result': fields.char('Result', size=64),
-        'activities': fields.text('Activities and associations'),
+        'location': fields.char('Location', size=64, translate=True),
+        'diploma': fields.char('Diploma', size=64, translate=True),
+        'study_field': fields.char('Field of study', size=64, translate=True),
+        'result': fields.char('Result', size=64, translate=True),
+        'activities': fields.text('Activities and associations', translate=True),
         'certification': fields.char('Certification Number', size=64),
         'expire': fields.boolean('Expire'),
     }

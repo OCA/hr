@@ -24,7 +24,7 @@ from osv import osv, fields
 class hr_skill(osv.osv):
     _name = 'hr.skill'
     _columns = {
-        'name': fields.char('Name', size=64, required=True),
+        'name': fields.char('Name', size=64, required=True, translate=True),
         'active': fields.boolean('Active'),
         'parent_id': fields.many2one('hr.skill', 'Parent', ondelete='cascade'),
         'child_ids': fields.one2many('hr.skill', 'parent_id', 'Children'),
