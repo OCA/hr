@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-11 20:50+0000\n"
-"PO-Revision-Date: 2013-11-11 20:50+0000\n"
+"POT-Creation-Date: 2013-11-14 21:13+0000\n"
+"PO-Revision-Date: 2013-11-14 21:13+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -56,7 +56,7 @@ msgstr "Employé"
 #. module: hr_skill
 #: model:ir.actions.act_window,name:hr_skill.open_view_skill_tree
 msgid "Skills structure"
-msgstr "Skills structure"
+msgstr "Structure compétences"
 
 #. module: hr_skill
 #: field:hr.skill,employee_ids:0
