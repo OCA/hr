@@ -1,0 +1,55 @@
+<openerp>
+  <data>
+    <!-- certification tree -->
+    <record model="ir.ui.view" id="view_certification_tree">
+      <field name="name">hr.certification.tree</field>
+      <field name="model">hr.certification</field>
+      <field name="type">tree</field>
+      <field name="arch" type="xml">
+        <tree string="certifications">
+          <field name="name"/>
+          <field name="employee_id"/>
+          <field name="partner_id"/>
+          <field name="start_date"/>
+          <field name="end_date"/>
+        </tree>
+      </field>
+    </record>
+    <!-- certification tree -->
+    <record model="ir.ui.view" id="view_certification_form">
+      <field name="name">hr.certification.form</field>
+      <field name="model">hr.certification</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="certification">
+          <field name="name"/>
+          <field name="employee_id"/>
+          <separator string="Dates" colspan="4"/>
+          <field name="start_date"/>
+          <field name="expire"/>
+          <field name="end_date" attrs="{'invisible':[('expire', '=', False)]}"/>
+          <separator string="Partner information" colspan="4"/>
+          <field name="partner_id"/>
+          <field name="location"/>
+          <group colspan="4">
+            <separator string="Certification information" colspan="4"/>
+            <field name="certification"/>
+          </group>
+          <separator string="Description" colspan="4"/>
+          <field name="description" colspan="4" nolabel="1"/>
+        </form>
+      </field>
+    </record>
+    <!-- Menu -->
+    <record model="ir.actions.act_window" id="open_view_certification_form">
+      <field name="res_model">hr.certification</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem name="Certifications"
+              parent="hr.menu_hr_configuration"
+              id="menu_open_view_certification_form"
+              action="open_view_certification_form"/>
+
+  </data>
+</openerp>
