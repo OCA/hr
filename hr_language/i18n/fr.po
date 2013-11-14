@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-11 21:22+0000\n"
-"PO-Revision-Date: 2013-11-11 21:22+0000\n"
+"POT-Creation-Date: 2013-11-14 21:19+0000\n"
+"PO-Revision-Date: 2013-11-14 21:19+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -373,7 +373,7 @@ msgstr "Spanish (CR) / Español (CR)"
 #. module: hr_language
 #: field:hr.language,read:0
 msgid "Read"
-msgstr "Lu"
+msgstr "Lit"
 
 #. module: hr_language
 #: selection:hr.language,name:0
