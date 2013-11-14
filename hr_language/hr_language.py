@@ -21,7 +21,6 @@
 import tools
 from openerp.osv import fields, orm
 
-
 class hr_language(orm.Model):
     _name = 'hr.language'
     _columns = {
@@ -38,13 +37,11 @@ class hr_language(orm.Model):
         'write': True,
         'speak': True,
     }
-hr_language()
-
 
 class hr_employee(orm.Model):
     _inherit = 'hr.employee'
     _columns = {
         'language_ids': fields.one2many('hr.language', 'employee_id', 'Languages'),
     }
-hr_employee()
+
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
