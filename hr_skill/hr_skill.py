@@ -20,7 +20,6 @@
 ###############################################################################
 from openerp.osv import fields, orm
 
-
 class hr_skill(orm.Model):
     _name = 'hr.skill'
     _columns = {
@@ -35,13 +34,11 @@ class hr_skill(orm.Model):
         'view': lambda self, cr, uid, context: 'view',
         'active': lambda self, cr, uid, context: 1
     }
-hr_skill()
-
 
 class hr_employee(orm.Model):
     _inherit = 'hr.employee'
     _columns = {
         'skill_ids': fields.many2many('hr.skill', 'skill_employee_rel', 'employee_id', 'skill_id', 'Skills'),
     }
-hr_employee()
+
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
