@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<openerp>
+   <data>
+
+      <report id="hr_resume_report"
+         string="Print Resume" 
+         model="hr.employee"
+         name="hr.resume.report"
+         rml="hr_resume/report/report_resume.rml"
+         auto="False"
+         menu="True"/>
+
+   </data>
+</openerp>
