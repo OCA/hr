@@ -15,7 +15,7 @@
         <field name="arch" type="xml">
             <notebook position="inside">
                 <page string="Skills">
-                    <field name="skill_ids" nolabel="1" domain="[('view', '=', 'skill')]">
+                    <field name="skill_ids" nolabel="1">
                         <tree>
                             <field name="name"/>
                         </tree>
