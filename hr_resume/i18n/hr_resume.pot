@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-14 21:20+0000\n"
-"PO-Revision-Date: 2013-11-14 21:20+0000\n"
+"POT-Creation-Date: 2013-11-15 14:23+0000\n"
+"PO-Revision-Date: 2013-11-15 14:23+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -18,62 +18,62 @@ msgstr ""
 #. module: hr_resume
 #: report:hr.resume.report:0
 msgid "Certifications"
-msgstr "Certifications"
+msgstr ""
 
 #. module: hr_resume
 #: report:hr.resume.report:0
 msgid "Resume"
-msgstr "CV"
+msgstr ""
 
 #. module: hr_resume
 #: report:hr.resume.report:0
 msgid "Academic Background"
-msgstr "Formation académique"
+msgstr ""
 
 #. module: hr_resume
 #: report:hr.resume.report:0
 msgid "Professional Experiences"
-msgstr "Expériences professionnelles"
+msgstr ""
 
 #. module: hr_resume
 #: report:hr.resume.report:0
 msgid "Diploma:"
-msgstr "Diplôme:"
+msgstr ""
 
 #. module: hr_resume
 #: report:hr.resume.report:0
 msgid "Field of Study:"
-msgstr "Domaine d'études:"
+msgstr ""
 
 #. module: hr_resume
 #: report:hr.resume.report:0
 msgid "Languages"
-msgstr "Langages"
+msgstr ""
 
 #. module: hr_resume
 #: model:ir.model,name:hr_resume.model_hr_employee
 msgid "Employee"
-msgstr "Employé"
+msgstr ""
 
 #. module: hr_resume
 #: model:ir.actions.report.xml,name:hr_resume.hr_resume_report
 msgid "Print Resume"
-msgstr "Imprimer CV"
+msgstr ""
 
 #. module: hr_resume
 #: report:hr.resume.report:0
 msgid "Skills"
-msgstr "Compétences"
+msgstr ""
 
 #. module: hr_resume
 #: report:hr.resume.report:0
 msgid "Certification Number:"
-msgstr "Numéro de certification:"
+msgstr ""
 
 #. module: hr_resume
 #: view:hr.employee:0
 #: field:hr.employee,biography:0
 #: report:hr.resume.report:0
 msgid "Biography"
-msgstr "Biographie"
+msgstr ""
 
