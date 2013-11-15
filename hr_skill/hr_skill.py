@@ -38,7 +38,11 @@ class hr_skill(orm.Model):
 class hr_employee(orm.Model):
     _inherit = 'hr.employee'
     _columns = {
-        'skill_ids': fields.many2many('hr.skill', 'skill_employee_rel', 'employee_id', 'skill_id', 'Skills'),
+        'skill_ids': fields.many2many('hr.skill',
+                                      'skill_employee_rel',
+                                      'employee_id',
+                                      'skill_id',
+                                      'Skills',
+                                      domain="[('view', '=', 'skill')]"),
     }
-
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
