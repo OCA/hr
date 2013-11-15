@@ -1,0 +1,152 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* hr_experience
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-11-15 15:02+0000\n"
+"PO-Revision-Date: 2013-11-15 15:02+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hr_experience
+#: field:hr.experience,category:0
+msgid "Category"
+msgstr ""
+
+#. module: hr_experience
+#: field:hr.experience,certification:0
+msgid "Certification Number"
+msgstr ""
+
+#. module: hr_experience
+#: help:hr.experience,partner_id:0
+msgid "Employer, School, University, Certification Authority"
+msgstr ""
+
+#. module: hr_experience
+#: field:hr.experience,diploma:0
+msgid "Diploma"
+msgstr ""
+
+#. module: hr_experience
+#: view:hr.experience:0
+msgid "Partner information"
+msgstr ""
+
+#. module: hr_experience
+#: field:hr.experience,location:0
+msgid "Location"
+msgstr ""
+
+#. module: hr_experience
+#: field:hr.experience,employee_id:0
+#: model:ir.model,name:hr_experience.model_hr_employee
+msgid "Employee"
+msgstr ""
+
+#. module: hr_experience
+#: field:hr.experience,start_date:0
+msgid "Start date"
+msgstr ""
+
+#. module: hr_experience
+#: field:hr.experience,activities:0
+msgid "Activities and associations"
+msgstr ""
+
+#. module: hr_experience
+#: view:hr.experience:0
+#: field:hr.experience,description:0
+msgid "Description"
+msgstr ""
+
+#. module: hr_experience
+#: field:hr.experience,study_field:0
+msgid "Field of study"
+msgstr ""
+
+#. module: hr_experience
+#: view:hr.experience:0
+msgid "Certification information"
+msgstr ""
+
+#. module: hr_experience
+#: field:hr.experience,expire:0
+msgid "Expire"
+msgstr ""
+
+#. module: hr_experience
+#: view:hr.employee:0
+#: field:hr.employee,experience_ids:0
+#: view:hr.experience:0
+#: model:ir.ui.menu,name:hr_experience.menu_open_view_experience_form
+msgid "Experiences"
+msgstr ""
+
+#. module: hr_experience
+#: model:ir.model,name:hr_experience.model_hr_experience
+msgid "hr.experience"
+msgstr ""
+
+#. module: hr_experience
+#: constraint:hr.employee:0
+msgid "Error ! You cannot create recursive Hierarchy of Employees."
+msgstr ""
+
+#. module: hr_experience
+#: view:hr.experience:0
+msgid "Academic information"
+msgstr ""
+
+#. module: hr_experience
+#: view:hr.experience:0
+msgid "Dates"
+msgstr ""
+
+#. module: hr_experience
+#: field:hr.experience,name:0
+msgid "Name"
+msgstr ""
+
+#. module: hr_experience
+#: view:hr.experience:0
+msgid "Experience"
+msgstr ""
+
+#. module: hr_experience
+#: selection:hr.experience,category:0
+msgid "Academic"
+msgstr ""
+
+#. module: hr_experience
+#: selection:hr.experience,category:0
+msgid "Professional"
+msgstr ""
+
+#. module: hr_experience
+#: field:hr.experience,end_date:0
+msgid "End date"
+msgstr ""
+
+#. module: hr_experience
+#: selection:hr.experience,category:0
+msgid "Certification"
+msgstr ""
+
+#. module: hr_experience
+#: field:hr.experience,result:0
+msgid "Result"
+msgstr ""
+
+#. module: hr_experience
+#: field:hr.experience,partner_id:0
+msgid "Partner"
+msgstr ""
+
