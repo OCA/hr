@@ -50,4 +50,4 @@ class hr_department(osv.Model):
             return super(hr_department, self).name_get(cr, uid, ids, context=context)
         if isinstance(ids, (int, long)):
             ids = [ids]
-        return [(record.id, record.code) for record in self.browse(cr, uid, ids, context=context or {})]
+        return [(record.id, record.code or record.name) for record in self.browse(cr, uid, ids, context=context or {})]
