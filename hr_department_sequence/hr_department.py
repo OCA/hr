@@ -37,3 +37,17 @@ class hr_department(osv.Model):
     _parent_store = True
     _parent_order = 'sequence, name'
     _order = 'parent_left'
+    _sql_constraints = [
+        ('code_uniq', 'unique(code, company_id)', 'The code for the department must be unique per company !'),
+    ]
+
+    def name_get(self, cr, uid, ids, context=None):
+        """
+        Show department code instead of name with:
+        <field name="department_id" context="{'show_code': True}"/>
+        """
+        if not context.get('show_code'):
+            return super(hr_department, self).name_get(cr, uid, ids, context=context)
+        if isinstance(ids, (int, long)):
+            ids = [ids]
+        return [(record.id, record.code) for record in self.browse(cr, uid, ids, context=context or {})]
