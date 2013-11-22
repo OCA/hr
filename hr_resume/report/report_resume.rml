@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<document filename="Resume.pdf">
+  <template pageSize="(595.0,842.0)" title="Resume" author="Savoir-faire Linux" allowSplitting="20">
+    <pageTemplate id="first">
+      <frame id="first" x1="15.0" y1="42.0" width="539" height="758"/>
+    </pageTemplate>
+  </template>
+  <stylesheet>
+    <blockTableStyle id="Standard_Outline">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+    </blockTableStyle>
+    <initialize>
+      <paraStyle name="all" alignment="justify"/>
+    </initialize>
+    <paraStyle name="Standard" fontName="Helvetica"/>
+    <paraStyle name="Text body" fontName="Helvetica" spaceBefore="0.0" spaceAfter="6.0"/>
+    <paraStyle name="Heading" fontName="Helvetica" fontSize="8.0" leading="10" spaceBefore="12.0" spaceAfter="6.0"/>
+    <paraStyle name="List" fontName="Helvetica" spaceBefore="0.0" spaceAfter="6.0"/>
+    <paraStyle name="Table Contents" fontName="Helvetica"/>
+    <paraStyle name="Table Heading" fontName="Helvetica" alignment="CENTER"/>
+    <paraStyle name="Caption" fontName="Helvetica" fontSize="12.0" leading="15" spaceBefore="6.0" spaceAfter="6.0"/>
+    <paraStyle name="Index" fontName="Helvetica"/>
+    <paraStyle name="terp_header" fontName="Helvetica-Bold" fontSize="15.0" leading="19" alignment="LEFT" spaceBefore="12.0" spaceAfter="6.0"/>
+    <paraStyle name="terp_default_8" fontName="Helvetica" fontSize="8.0" leading="10" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
+    <paraStyle name="terp_default_Bold_8" fontName="Helvetica-Bold" fontSize="8.0" leading="10" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
+    <paraStyle name="terp_default_Bold_9" fontName="Helvetica-Bold" fontSize="9.0" leading="11" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
+    <paraStyle name="terp_default_9" fontName="Helvetica" fontSize="9.0" leading="11" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
+    <paraStyle name="terp_tblheader_General" fontName="Helvetica-Bold" fontSize="8.0" leading="10" alignment="LEFT" spaceBefore="6.0" spaceAfter="6.0"/>
+    <paraStyle name="terp_tblheader_General_Centre" fontName="Helvetica-Bold" fontSize="8.0" leading="10" alignment="CENTER" spaceBefore="6.0" spaceAfter="6.0"/>
+    <paraStyle name="terp_default_Centre_8" fontName="Helvetica" fontSize="8.0" leading="10" alignment="CENTER" spaceBefore="0.0" spaceAfter="0.0"/>
+    <paraStyle name="terp_tblheader_Details" fontName="Helvetica-Bold" fontSize="9.0" leading="11" alignment="LEFT" spaceBefore="6.0" spaceAfter="6.0"/>
+    <paraStyle name="Footer" fontName="Helvetica"/>
+    <paraStyle name="Horizontal Line" fontName="Helvetica" fontSize="6.0" leading="8" spaceBefore="0.0" spaceAfter="14.0"/>
+    <paraStyle name="Heading 9" fontName="Helvetica-Bold" fontSize="75%" leading="NaN" spaceBefore="12.0" spaceAfter="6.0"/>
+    <paraStyle name="terp_tblheader_General_Right" fontName="Helvetica-Bold" fontSize="8.0" leading="10" alignment="RIGHT" spaceBefore="6.0" spaceAfter="6.0"/>
+    <paraStyle name="terp_tblheader_Details_Centre" fontName="Helvetica-Bold" fontSize="9.0" leading="11" alignment="CENTER" spaceBefore="6.0" spaceAfter="6.0"/>
+    <paraStyle name="terp_tblheader_Details_Right" fontName="Helvetica-Bold" fontSize="9.0" leading="11" alignment="RIGHT" spaceBefore="6.0" spaceAfter="6.0"/>
+    <paraStyle name="terp_default_Right_8" fontName="Helvetica" fontSize="8.0" leading="10" alignment="RIGHT" spaceBefore="0.0" spaceAfter="0.0"/>
+    <paraStyle name="terp_header_Right" fontName="Helvetica-Bold" fontSize="15.0" leading="19" alignment="LEFT" spaceBefore="12.0" spaceAfter="6.0"/>
+    <paraStyle name="terp_header_Centre" fontName="Helvetica-Bold" fontSize="15.0" leading="19" alignment="CENTER" spaceBefore="12.0" spaceAfter="6.0"/>
+    <paraStyle name="terp_default_address" fontName="Helvetica" fontSize="10.0" leading="13" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
+    <paraStyle name="terp_default_Centre_9" fontName="Helvetica" fontSize="9.0" leading="11" alignment="CENTER" spaceBefore="0.0" spaceAfter="0.0"/>
+    <paraStyle name="terp_default_Right_9" fontName="Helvetica" fontSize="9.0" leading="11" alignment="RIGHT" spaceBefore="0.0" spaceAfter="0.0"/>
+    <paraStyle name="terp_default_1" fontName="Helvetica" fontSize="2.0" leading="3" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
+    <paraStyle name="terp_default_Right_9_Bold" fontName="Helvetica-Bold" fontSize="9.0" leading="11" alignment="RIGHT" spaceBefore="0.0" spaceAfter="0.0"/>
+    <paraStyle name="terp_default_Italic" rightIndent="0.0" leftIndent="20.0" fontName="Helvetica-Oblique" fontSize="8.0" leading="10" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
+    <paraStyle name="Preformatted Text" fontName="Helvetica" fontSize="10.0" leading="13" spaceBefore="0.0" spaceAfter="0.0"/>
+    <paraStyle name="terp_default_Centre_9_Bold" fontName="Helvetica-Bold" fontSize="9.0" leading="11" alignment="CENTER" spaceBefore="0.0" spaceAfter="0.0"/>
+    <images/>
+  </stylesheet>
+  <story>
+  <pto>
+    <para style="terp_default_8">[[repeatIn(objects,'o')]]</para>
+    <para style="terp_default_8">[[setLang(user.lang)]]</para>
+    <!--<image x="1.3cm" y="27.6cm" height="40.0" width="100" alignment="LEFT">[[ company.logo or removeParentNode('image') ]]</image>-->
+    <para style="terp_header_Centre">Resume</para>
+    <para style="terp_header_Centre">[[ o.name ]]</para>
+    <para style="terp_header_Centre">[[ o.job_id.name ]]</para>
+    <para style="terp_header">Biography</para>
+    <para>[[ o.biography ]]</para>
+    <para style="terp_header">Skills</para>
+    <section>
+      <para>[[repeatIn(o.skill_ids,'skill')]]</para>
+      <para>- [[ skill.name ]] </para>
+    </section>
+    <para style="terp_header">Certifications</para>
+    <section>
+      <para >[[ repeatIn(get_experience_by_category(o.id, 'certification'),'line') ]]</para>
+      <para style="terp_default_Bold_9">[[ line['name'] ]] , [[ line['partner_name'] ]]</para>
+      <para>[[ line['start_date'] ]] - [[ line['expire'] and line['end_date'] or 'Now' ]]</para>
+      <para>[[ line['location'] or removeParentNode('para') ]]</para>
+      <para>Certification Number: [[ line['certification'] or removeParentNode('para') ]]</para>
+    </section>
+    <para style="terp_header">Professional Experiences</para>
+    <section>
+      <para >[[ repeatIn(get_experience_by_category(o.id, 'professional'),'line') ]]</para>
+      <para style="terp_default_Bold_9">[[ line['name'] ]] [[  line['location'] or '' ]]</para>
+      <para>[[ line['start_date'] ]] - [[ line['expire'] and line['end_date'] or 'Now' ]]</para>
+      <para>[[ line['partner_name'] ]]</para>
+      <para>[[ line['description'] ]]</para>
+    </section>
+    <para style="terp_header">Academic Background</para>
+    <section>
+       <para >[[ repeatIn(get_experience_by_category(o.id, 'academic'),'line') ]]</para>
+      <para style="terp_default_Bold_9">[[ line['name'] ]]</para>
+      <para>[[ line['start_date'] ]] - [[ line['expire'] and line['end_date'] or 'Now' ]]</para>
+      <para>[[ line['partner_name'] ]]</para>
+      <para>Diploma: [[ line['diploma'] or removeParentNode('para') ]]</para>
+      <para>Field of Study: [[ line['study_field']  or removeParentNode('para') ]]</para>
+    </section>
+    <para style="terp_header">Languages</para>
+    <section>
+      <para>[[repeatIn(o.language_ids,'language')]]</para>
+      <para>- [[ language.description ]] : [[ language.read and 'Read' or '' ]], [[ language.write and 'Write' or '' ]], [[ language.speak and 'Speak' or '' ]]</para>
+    </section>
+  </pto>
+  </story>
+</document>
