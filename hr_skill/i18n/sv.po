@@ -1,0 +1,93 @@
+# Swedish translation for openerp-hr
+# Copyright (c) 2013 Rosetta Contributors and Canonical Ltd 2013
+# This file is distributed under the same license as the openerp-hr package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2013.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: openerp-hr\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2013-11-14 22:11+0000\n"
+"PO-Revision-Date: 2013-11-22 19:40+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Swedish <sv@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2013-11-23 06:29+0000\n"
+"X-Generator: Launchpad (build 16831)\n"
+
+#. module: hr_skill
+#: field:hr.skill,name:0
+msgid "Name"
+msgstr ""
+
+#. module: hr_skill
+#: field:hr.skill,parent_id:0
+msgid "Parent"
+msgstr ""
+
+#. module: hr_skill
+#: model:ir.model,name:hr_skill.model_hr_skill
+msgid "hr.skill"
+msgstr ""
+
+#. module: hr_skill
+#: view:hr.employee:0
+#: field:hr.employee,skill_ids:0
+#: view:hr.skill:0
+#: model:ir.ui.menu,name:hr_skill.menu_open_view_skill_form
+msgid "Skills"
+msgstr ""
+
+#. module: hr_skill
+#: model:ir.actions.act_window,name:hr_skill.hr_employee_normal_action_tree
+msgid "Employees"
+msgstr ""
+
+#. module: hr_skill
+#: model:ir.ui.menu,name:hr_skill.menu_open_view_skill_tree
+msgid "Skills Structure"
+msgstr ""
+
+#. module: hr_skill
+#: model:ir.model,name:hr_skill.model_hr_employee
+msgid "Employee"
+msgstr ""
+
+#. module: hr_skill
+#: model:ir.actions.act_window,name:hr_skill.open_view_skill_tree
+msgid "Skills structure"
+msgstr ""
+
+#. module: hr_skill
+#: field:hr.skill,employee_ids:0
+msgid "Employee(s)"
+msgstr ""
+
+#. module: hr_skill
+#: model:ir.ui.menu,name:hr_skill.menu_hr_skill_mgt
+msgid "Skills Management"
+msgstr ""
+
+#. module: hr_skill
+#: field:hr.skill,active:0
+msgid "Active"
+msgstr ""
+
+#. module: hr_skill
+#: view:hr.skill:0
+#: field:hr.skill,view:0
+#: selection:hr.skill,view:0
+msgid "Skill"
+msgstr ""
+
+#. module: hr_skill
+#: field:hr.skill,child_ids:0
+msgid "Children"
+msgstr ""
+
+#. module: hr_skill
+#: selection:hr.skill,view:0
+msgid "View"
+msgstr ""
