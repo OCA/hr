@@ -43,11 +43,14 @@ class hr_department(osv.Model):
 
     def name_get(self, cr, uid, ids, context=None):
         """
-        Show department code instead of name with:
-        <field name="department_id" context="{'show_code': True}"/>
+        Show department code with name
         """
-        if not context.get('show_code'):
-            return super(hr_department, self).name_get(cr, uid, ids, context=context)
         if isinstance(ids, (int, long)):
             ids = [ids]
-        return [(record.id, record.code or record.name) for record in self.browse(cr, uid, ids, context=context or {})]
+        return [(record.id, '[%s] %s' % (record.code, record.name) if record.code else record.name)
+                for record in self.browse(cr, uid, ids, context=context or {})]
+
+    def name_search(self, cr, uid, name='', args=None, operator='ilike',  context=None, limit=100):
+        ids = self.search(cr, uid, ['|', ('code', 'ilike', name), ('name', 'ilike', name)] + args,
+                          limit=limit, context=context)
+        return self.name_get(cr, uid, ids, context=context)
