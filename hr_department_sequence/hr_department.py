@@ -38,3 +38,20 @@ class hr_department(osv.Model):
     _parent_store = True
     _parent_order = 'sequence, name'
     _order = 'parent_left'
+    _sql_constraints = [
+        ('code_uniq', 'unique(code, company_id)', 'The code for the department must be unique per company !'),
+    ]
+
+    def name_get(self, cr, uid, ids, context=None):
+        """
+        Show department code with name
+        """
+        if isinstance(ids, (int, long)):
+            ids = [ids]
+        return [(record.id, '[%s] %s' % (record.code, record.name) if record.code else record.name)
+                for record in self.browse(cr, uid, ids, context=context or {})]
+
+    def name_search(self, cr, uid, name='', args=None, operator='ilike',  context=None, limit=100):
+        ids = self.search(cr, uid, ['|', ('code', 'ilike', name), ('name', 'ilike', name)] + args,
+                          limit=limit, context=context)
+        return self.name_get(cr, uid, ids, context=context)
