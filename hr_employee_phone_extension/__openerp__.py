@@ -31,7 +31,6 @@ Employee Phone Extension
 This module adds the following to employees :
 * internal_number
 * short_number
-* expiration_date
 
 
 Contributors

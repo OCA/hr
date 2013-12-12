@@ -31,8 +31,6 @@ class hr_employee(orm.Model):
                                        help='Internal phone number.'),
         'short_number': fields.char('Short Number', size=20,
                                     help='Short phone number.'),
-        'expiration_date': fields.date('Expiration Date',
-                                       help='Expiration date of phone numbers.'),
     }
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
