@@ -1,0 +1,31 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* passport_expiration
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 7.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-12-12 16:53+0000\n"
+"PO-Revision-Date: 2013-12-12 16:53+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: passport_expiration
+#: model:ir.model,name:passport_expiration.model_hr_employee
+msgid "Employee"
+msgstr ""
+
+#. module: passport_expiration
+#: help:hr.employee,passport_expiration_date:0
+msgid "Expiration date of the passport."
+msgstr ""
+
+#. module: passport_expiration
+#: field:hr.employee,passport_expiration_date:0
+msgid "Expiration Date"
+msgstr ""
