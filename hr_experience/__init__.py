@@ -18,5 +18,9 @@
 #    along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
 ###############################################################################
-from . import hr_experience
+
+import hr_academic
+import hr_professional
+import hr_certification
+
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

@@ -19,39 +19,32 @@
 #
 ###############################################################################
 
-{
-    "name": "Experience Management",
-    "version": "0.1",
-    "author": "Savoir-faire Linux",
-    "maintainer": 'Savoir-faire Linux',
-    "website": "http://www.savoirfairelinux.com",
-    "category": "Human Resources",
-    "description": """
-Experience Management
-=====================
+from openerp.osv import fields, orm
 
-This module allows you to manage your employee experiences:
-    * Professional
-    * Academic
-    * Certification
 
-Contributors
-------------
-* El Hadji DEM (elhaji.dem@savoirfairelinux.com)
-""",
+class hr_professional(orm.Model):
+    _name = 'hr.professional'
+    _columns = {
+        'name': fields.char('Name', size=64, required=True, translate=True),
+        'employee_id': fields.many2one('hr.employee', 'Employee', required=True),
+        'start_date': fields.date('Start date'),
+        'end_date': fields.date('End date'),
+        'description': fields.text('Description', translate=True),
+        'partner_id': fields.many2one('res.partner', 'Partner',
+                                      help="Employer, School, University, Certification Authority"),
+        'location': fields.char('Location', size=64, translate=True),
+        'expire': fields.boolean('Expire'),
+    }
 
-    "depends": ["hr", ],
-    'external_dependencies': {},
-    'data': [
-        "security/ir.model.access.csv",
-        "hr_experience_view.xml",
-        "hr_academic_view.xml",
-        "hr_professional_view.xml",
-        "hr_certification_view.xml",
-    ],
-    "demo": [],
-    "test": [],
-    "installable": True,
-    "active": False,
-}
+    _defaults = {
+        'expire': True,
+    }
+
+
+class hr_employee(orm.Model):
+    _inherit = 'hr.employee'
+    _columns = {
+        'professional_ids': fields.one2many('hr.professional', 'employee_id', ' Professional Experiences'),
+    }
+
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
