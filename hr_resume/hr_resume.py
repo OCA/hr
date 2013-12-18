@@ -18,13 +18,14 @@
 #    along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
 ###############################################################################
-from osv import osv, fields
+
+from openerp.osv import fields, orm
 
 
-class hr_employee(osv.osv):
+class hr_employee(orm.Model):
     _inherit = 'hr.employee'
     _columns = {
         'biography': fields.text('Biography'),
     }
-hr_employee()
+
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

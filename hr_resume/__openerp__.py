@@ -23,21 +23,33 @@
     "name": "Resume Management",
     "version": "0.1",
     "author": "Savoir-faire Linux",
-    "category": "Human Resources",
+    "maintainer": "Savoir-faire Linux",
     "website": "http://www.savoirfairelinux.com",
+    "category": "Human Resources",
+    "description": """
+Resume Management
+=================
+
+This module allows you to manage your employee resumes.
+
+Contributors
+------------
+* El Hadji DEM (elhadji.dem@savoirfairelinux.com)
+""",
+
     "depends": [
         "hr_experience",
         "hr_skill",
         "hr_language",
     ],
-    "description": """
-This module allows you to manage your employee resumes.
-    """,
-    "update_xml": [
-        "hr_resume_view.xml",
-        "report/report_resume.xml",
-    ],
+    'data': ['hr_resume_view.xml',
+             'report/report_resume.xml',
+             ],
+    'external_dependencies': {},
+    "demo": [],
+    "test": [],
+    "installable": True,
     "active": False,
-    "installable": True
 }
+
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

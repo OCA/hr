@@ -52,8 +52,8 @@
   <story>
   <pto>
     <para style="terp_default_8">[[repeatIn(objects,'o')]]</para>
-    <para style="terp_default_8">[[setLang(user.context_lang)]]</para>
-    <image x="1.3cm" y="27.6cm" height="40.0" width="100" alignment="LEFT">[[ company.logo or removeParentNode('image') ]]</image>
+    <para style="terp_default_8">[[setLang(user.lang)]]</para>
+    <!--<image x="1.3cm" y="27.6cm" height="40.0" width="100" alignment="LEFT">[[ company.logo or removeParentNode('image') ]]</image>-->
     <para style="terp_header_Centre">Resume</para>
     <para style="terp_header_Centre">[[ o.name ]]</para>
     <para style="terp_header_Centre">[[ o.job_id.name ]]</para>
@@ -66,28 +66,28 @@
     </section>
     <para style="terp_header">Certifications</para>
     <section>
-      <para >[[ repeatIn(get_experience_by_category(o.id, 'certification'),'line') ]]</para>
-      <para style="terp_default_Bold_9">[[ line['name'] ]] , [[ line['partner_name'] ]]</para>
-      <para>[[ line['start_date'] ]] - [[ line['expire'] and line['end_date'] or 'Now' ]]</para>
-      <para>[[ line['location'] or removeParentNode('para') ]]</para>
-      <para>Certification Number: [[ line['certification'] or removeParentNode('para') ]]</para>
+      <para >[[repeatIn(o.certification_ids,'certification')]]</para>
+      <para style="terp_default_Bold_9">[[ certification.name ]] , [[ certification.partner_id.name ]]</para>
+      <para>[[ certification.start_date ]] - [[ certification.expire and certification.end_date or 'Now' ]]</para>
+      <para>[[ certification.location or removeParentNode('para') ]]</para>
+      <para>Certification Number: [[ certification.certification or removeParentNode('para') ]]</para>
     </section>
     <para style="terp_header">Professional Experiences</para>
     <section>
-      <para >[[ repeatIn(get_experience_by_category(o.id, 'professional'),'line') ]]</para>
-      <para style="terp_default_Bold_9">[[ line['name'] ]] [[  line['location'] or '' ]]</para>
-      <para>[[ line['start_date'] ]] - [[ line['expire'] and line['end_date'] or 'Now' ]]</para>
-      <para>[[ line['partner_name'] ]]</para>
-      <para>[[ line['description'] ]]</para>
+      <para >[[repeatIn(o.professional_ids,'professional')]]</para>
+      <para style="terp_default_Bold_9">[[ professional.name ]] [[  professional.location or '' ]]</para>
+      <para>[[ professional.start_date ]] - [[ professional.expire and professional.end_date or 'Now' ]]</para>
+      <para>[[ professional.partner_id.name ]]</para>
+      <para>[[ professional.description ]]</para>
     </section>
     <para style="terp_header">Academic Background</para>
     <section>
-       <para >[[ repeatIn(get_experience_by_category(o.id, 'academic'),'line') ]]</para>
-      <para style="terp_default_Bold_9">[[ line['name'] ]]</para>
-      <para>[[ line['start_date'] ]] - [[ line['expire'] and line['end_date'] or 'Now' ]]</para>
-      <para>[[ line['partner_name'] ]]</para>
-      <para>Diploma: [[ line['diploma'] or removeParentNode('para') ]]</para>
-      <para>Field of Study: [[ line['study_field']  or removeParentNode('para') ]]</para>
+      <para >[[repeatIn(o.academic_ids,'academic')]]</para>
+      <para style="terp_default_Bold_9">[[ academic.name ]]</para>
+      <para>[[ academic.start_date ]] - [[ academic.expire and academic.end_date or 'Now' ]]</para>
+      <para>[[ academic.partner_id.name ]]</para>
+      <para>Diploma: [[ academic.diploma or removeParentNode('para') ]]</para>
+      <para>Field of Study: [[ academic.study_field  or removeParentNode('para') ]]</para>
     </section>
     <para style="terp_header">Languages</para>
     <section>
