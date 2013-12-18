@@ -23,17 +23,29 @@
     "name": "Language Management",
     "version": "0.1",
     "author": "Savoir-faire Linux",
-    "category": "Human Resources",
+    "maintainer": "Savoir-faire Linux",
     "website": "http://www.savoirfairelinux.com",
-    "depends": ["hr"],
+    "category": "Human Resources",
     "description": """
+Language Management
+===================
+
 This module allows you to manage your employee languages.
-    """,
-    "update_xml": [
+
+Contributors
+------------
+* El Hadji DEM (elhadji.dem@savoirfairelinux.com)
+""",
+    "depends": ["hr", ],
+    "external_dependencies": {},
+    'data': [
         "security/ir.model.access.csv",
         "hr_language_view.xml",
     ],
+    "demo": [],
+    "test": [],
+    "installable": True,
     "active": False,
-    "installable": True
 }
+
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

@@ -18,5 +18,7 @@
 #    along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
 ###############################################################################
-from . import hr_language
+
+import hr_language
+
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
