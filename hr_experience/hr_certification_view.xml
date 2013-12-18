@@ -21,7 +21,7 @@
       <field name="model">hr.certification</field>
       <field name="type">form</field>
       <field name="arch" type="xml">
-        <form string="certification">
+        <form string="Certification">
           <field name="name"/>
           <field name="employee_id"/>
           <separator string="Dates" colspan="4"/>

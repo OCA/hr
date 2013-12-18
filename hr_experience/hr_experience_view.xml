@@ -9,13 +9,13 @@
       <field name="arch" type="xml">
         <notebook position="inside">
           <page string="Academic">
-              <field name="academic_ids"/>
+              <field name="academic_ids" nolabel="1" colspan="4"/>
           </page>
           <page string="Professional">
-            <field name="professional_ids"/>
+            <field name="professional_ids" nolabel="1" colspan="4"/>
           </page>
           <page string="Certification">
-            <field name="certification_ids"/>
+            <field name="certification_ids" nolabel="1" colspan="4"/>
           </page>
         </notebook>
       </field>
