@@ -4,6 +4,7 @@
     <record model="ir.ui.view" id="view_employee_form">
       <field name="name">hr.language.employee.form</field>
       <field name="model">hr.employee</field>
+      <field name="type">form</field>
       <field name="inherit_id" ref="hr.view_employee_form"/>
       <field name="arch" type="xml">
         <notebook position="inside">
@@ -17,6 +18,7 @@
     <record model="ir.ui.view" id="view_language_tree">
       <field name="name">hr.language.tree</field>
       <field name="model">hr.language</field>
+      <field name="type">tree</field>
       <field name="arch" type="xml">
         <tree string="Languages">
           <field name="description"/>
