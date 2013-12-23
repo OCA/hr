@@ -19,6 +19,6 @@
 #
 ###############################################################################
 
-import hr_language
+from . import hr_language
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

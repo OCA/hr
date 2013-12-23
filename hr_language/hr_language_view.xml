@@ -1,5 +1,6 @@
 <openerp>
   <data>
+
     <!-- inherit Employee -->
     <record model="ir.ui.view" id="view_employee_form">
       <field name="name">hr.language.employee.form</field>
@@ -14,6 +15,7 @@
         </notebook>
       </field>
     </record>
+
     <!-- Language tree -->
     <record model="ir.ui.view" id="view_language_tree">
       <field name="name">hr.language.tree</field>
@@ -28,6 +30,7 @@
         </tree>
       </field>
     </record>
+
     <!-- Language form -->
     <record model="ir.ui.view" id="view_language_form">
       <field name="name">hr.language.form</field>
@@ -47,12 +50,14 @@
         </form>
       </field>
     </record>
-     <!-- Menu -->
+
+    <!-- Menu -->
     <record model="ir.actions.act_window" id="open_view_language_form">
       <field name="res_model">hr.language</field>
       <field name="view_type">form</field>
       <field name="view_mode">tree,form</field>
     </record>
+
     <menuitem name="Languages"
               parent="hr.menu_hr_configuration"
               id="menu_open_view_language_form"
