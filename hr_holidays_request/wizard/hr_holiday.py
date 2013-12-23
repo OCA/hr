@@ -15,11 +15,12 @@
 #    GNU Affero General Public License for more details.
 #
 #    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#    along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
 #
+
+from osv import osv
 import time
-import wizard
 import datetime
 
 error = '''<?xml version="1.0"?>
@@ -74,7 +75,7 @@ field1 = {
 }
 
 
-class hr_holidays_report(wizard.interface):
+class hr_holidays_report(osv.osv_memory):
 
     def year_get(self, cr, uid, data, context):
         p = int(time.strftime('%Y'))
@@ -83,21 +84,21 @@ class hr_holidays_report(wizard.interface):
     def _raise_error(self, cr, uid, data, context):
         form = data['form']
         if not form['emp_ids'][0][2]:
-            raise wizard.except_wizard(
-                'Error', 'You must select Employee(s) For report !')
+            raise osv.except_osv(
+                'Error', 'You must select Employee(s) for report !')
         if form['active1'] and form['active2']:
-            raise wizard.except_wizard(
-                'TyepError', 'You must select only one type For report !')
+            raise osv.except_osv(
+                'TyepError', 'You must select only one type for report !')
         if form['active1']:
             temp = form['year']
             if not form['month']:
-                raise wizard.except_wizard(
-                    'MonthError', 'You must select month For month-wise report !')
+                raise osv.except_osv(
+                    'MonthError', 'You must select month for month-wise report !')
         elif form['active2']:
             temp = 0
             if not form['fromdate'] or not form['todate']:
-                raise wizard.except_wizard(
-                    'DateError', 'You must select Dates For date-wise report !')
+                raise osv.except_osv(
+                    'DateError', 'You must select Dates for date-wise report !')
             else:
                 d = form['fromdate']
                 dd = form['todate']
@@ -108,10 +109,10 @@ class hr_holidays_report(wizard.interface):
                 a = datetime.date(int(d1[0]), int(d1[1]), int(d1[2][0]))
                 b = datetime.date(int(d2[0]), int(d2[1]), int(d2[2][0]))
                 if a > b:
-                    raise wizard.except_wizard(
-                        'DateError', 'You must select Dates proparly !')
+                    raise osv.except_osv(
+                        'DateError', 'You must select Dates properly !')
         else:
-            raise wizard.except_wizard('typeError', 'You must select Type !')
+            raise osv.except_osv('typeError', 'You must select Type !')
         return {'year': temp}
     states = {
         'init': {

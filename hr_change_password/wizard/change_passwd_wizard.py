@@ -20,13 +20,11 @@
 #
 #
 
-from osv import osv
-from osv import fields
-import wizard
+from osv import osv, fields
 import pooler
 
 
-class change_passwd(wizard.interface):
+class change_passwd(osv.osv_memory):
 
     '''
     OpenERP Wizard
@@ -69,7 +67,7 @@ class change_passwd(wizard.interface):
                     _('Verification Error !'), _('Your Old Password is not verified.'))
         else:
             raise osv.except_osv(_('Verification Error !'), _(
-                'New Password and Confirm password does not match.'))
+                'New Password and Confirm password do not match.'))
         return {}
 
     states = {

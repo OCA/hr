@@ -20,7 +20,7 @@
 #
 #
 
-import wizard
+from osv import osv
 import pooler
 import tools
 import time
@@ -42,7 +42,7 @@ mail_fields = {
 }
 
 
-class wizard_email_interview(wizard.interface):
+class wizard_email_interview(osv.osv_memory):
 
     def merge_message(self, cr, uid, id, keystr, context):
         obj_pool = pooler.get_pool(cr.dbname).get('hr.interview')

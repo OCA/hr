@@ -30,7 +30,7 @@
  * Employee: each individual. Has only has read access to own employee data.
  * Manager Assistant: has read and write access to all employees.
  * Employee Manager: has read and write access to all employees.
- 
+
  """,
     'author': 'Daniel Reis',
     'website': 'daniel.reis@securitas.pt',

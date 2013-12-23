@@ -18,12 +18,13 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 #
+
+from osv import osv
 import re
 import urllib2
 import datetime
 from schoolbell.calendar import icalendar
 
-import wizard
 import pooler
 
 CALENDAR_URL = 'http://127.0.0.1:7180'
@@ -88,13 +89,13 @@ success_fields = {}
 project_re = re.compile(r"^ *\[?(\d{1,4}\.?\d{0,3})\]? *(.*)", re.UNICODE)
 
 
-class wizard_import_icalendar(wizard.interface):
+class wizard_import_icalendar(osv.osv_memory):
 
     def import_ical(self, cr, uid, data, context):
         employee_id = _employee_get(
             pooler.get_pool(cr.dbname).get('hr.attendance'), cr, data['form']['user_id'])
         if not employee_id:
-            raise wizard.except_wizard(
+            raise osv.except_osv(
                 'No employee found for the user', 'Login ID: %s' % data['form']['user_id'])
 
         first, end = [datetime.date(*(map(int, x.split('-'))))
@@ -106,10 +107,10 @@ class wizard_import_icalendar(wizard.interface):
             events = icalendar.read_icalendar(get_url('%s/persons/%s/calendar.ics' % (
                 CALENDAR_URL, user[0]['login']), {'user': 'manager', 'pass': 'schoolbell'}))
         except urllib2.HTTPError, e:
-            raise wizard.except_wizard(
+            raise osv.except_osv(
                 'Erreur HTTP', '%s - %s' % (e.code, e.msg))
         except IndexError:
-            raise wizard.except_wizard(
+            raise osv.except_osv(
                 'No user login found', 'Login ID: %s' % data['form']['user_id'])
 
         event_obj = pooler.get_pool(cr.dbname).get('res.partner.event')

@@ -20,7 +20,7 @@
 #
 #
 
-import wizard
+from osv import osv
 import pooler
 import datetime
 import time
@@ -57,7 +57,7 @@ fields = {
 }
 
 
-class wiz_schedule(wizard.interface):
+class wiz_schedule(osv.osv_memory):
 
     def _scheduling(self, cr, uid, data, context):
         pool = pooler.get_pool(cr.dbname)
@@ -90,11 +90,11 @@ class wiz_schedule(wizard.interface):
                         data['form']['list_all'] = list_all
                         return data['form']
             else:
-                raise wizard.except_wizard(
+                raise osv.except_osv(
                     _('UserError'), _('Insert appropriate interval time!!!'))
                 return {}
         else:
-            raise wizard.except_wizard(
+            raise osv.except_osv(
                 _('UserError'), _('The Scheduling is not Appropriate. Enter appropriate date and time '))
             return {}
 
