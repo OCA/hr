@@ -1,5 +1,6 @@
 <openerp>
   <data>
+
     <!-- professional tree -->
     <record model="ir.ui.view" id="view_professional_tree">
       <field name="name">hr.professional.tree</field>
@@ -15,7 +16,8 @@
         </tree>
       </field>
     </record>
-     <!-- professional form -->
+
+    <!-- professional form -->
     <record model="ir.ui.view" id="view_professional_form">
       <field name="name">hr.professional.form</field>
       <field name="model">hr.professional</field>
@@ -36,12 +38,14 @@
         </form>
       </field>
     </record>
-     <!-- Menu -->
+
+    <!-- Menu -->
     <record model="ir.actions.act_window" id="open_view_professional_form">
       <field name="res_model">hr.professional</field>
       <field name="view_type">form</field>
       <field name="view_mode">tree,form</field>
     </record>
+
     <menuitem name="Professional Experiences"
               parent="hr.menu_hr_configuration"
               id="menu_open_view_professional_form"

@@ -19,8 +19,8 @@
 #
 ###############################################################################
 
-import hr_academic
-import hr_professional
-import hr_certification
+from . import hr_academic
+from . import hr_professional
+from . import hr_certification
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

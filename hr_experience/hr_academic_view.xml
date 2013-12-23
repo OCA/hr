@@ -1,5 +1,6 @@
 <openerp>
   <data>
+
     <!-- academic tree-->
     <record model="ir.ui.view" id="view_academic_tree">
       <field name="name">hr.academic.tree</field>
@@ -15,7 +16,8 @@
         </tree>
       </field>
     </record>
-     <!-- academic form-->
+
+    <!-- academic form-->
     <record model="ir.ui.view" id="view_academic_form">
       <field name="name">hr.academic.form</field>
       <field name="model">hr.academic</field>
@@ -42,12 +44,14 @@
         </form>
       </field>
     </record>
+
     <!-- Menu -->
     <record model="ir.actions.act_window" id="open_view_academic_form">
       <field name="res_model">hr.academic</field>
       <field name="view_type">form</field>
       <field name="view_mode">tree,form</field>
     </record>
+
     <menuitem name="Academic Experiences"
               parent="hr.menu_hr_configuration"
               id="menu_open_view_academic_form"
