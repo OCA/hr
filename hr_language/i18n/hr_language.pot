@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: OpenERP Server 7.0\n"
+"Project-Id-Version: OpenERP Server 6.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-14 22:04+0000\n"
-"PO-Revision-Date: 2013-11-14 22:04+0000\n"
+"POT-Creation-Date: 2013-12-31 21:38+0000\n"
+"PO-Revision-Date: 2013-12-31 21:38+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -82,7 +82,7 @@ msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
-msgid "Portuguese (BR) / Português (BR)"
+msgid "Dutch / Nederlands"
 msgstr ""
 
 #. module: hr_language
@@ -193,11 +193,6 @@ msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
-msgid "Portuguese / Português"
-msgstr ""
-
-#. module: hr_language
-#: selection:hr.language,name:0
 msgid "Spanish / Español"
 msgstr ""
 
@@ -213,7 +208,7 @@ msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
-msgid "Spanish (SV) / Español (SV)"
+msgid "Portugese (BR) / Português (BR)"
 msgstr ""
 
 #. module: hr_language
@@ -271,17 +266,17 @@ msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
-msgid "Amharic / አምሃርኛ"
-msgstr ""
-
-#. module: hr_language
-#: selection:hr.language,name:0
 msgid "Latvian / latviešu valoda"
 msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "Spanish (CL) / Español (CL)"
+msgstr ""
+
+#. module: hr_language
+#: constraint:hr.employee:0
+msgid "Error ! You cannot create recursive Hierarchy of Employees."
 msgstr ""
 
 #. module: hr_language
@@ -332,6 +327,11 @@ msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
+msgid "Portugese / Português"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
 msgid "French / Français"
 msgstr ""
 
@@ -347,12 +347,12 @@ msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
-msgid "Dutch / Nederlands"
+msgid "Turkish / Türkçe"
 msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
-msgid "Turkish / Türkçe"
+msgid "Spanish (SV) / Español (SV)"
 msgstr ""
 
 #. module: hr_language
