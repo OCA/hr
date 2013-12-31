@@ -16,5 +16,25 @@
       </field>
     </record>
 
+    <!-- Menu -->
+    <menuitem name="Resume"
+              parent="hr.menu_hr_root"
+              id="menu_open_resume"/>
+
+    <menuitem id="hr_language.menu_open_view_language_form"
+              parent="menu_open_resume"/>
+
+    <menuitem id="hr_experience.menu_open_view_academic_form"
+              parent="menu_open_resume"/>
+
+    <menuitem id="hr_experience.menu_open_view_certification_form"
+              parent="menu_open_resume"/>
+
+    <menuitem id="hr_experience.menu_open_view_professional_form"
+              parent="menu_open_resume"/>
+
+    <menuitem id="hr_skill.menu_hr_skill_mgt"
+              parent="menu_open_resume"/>
+
   </data>
 </openerp>
