@@ -25,7 +25,7 @@ from openerp.osv import fields, orm
 class hr_employee(orm.Model):
     _inherit = 'hr.employee'
     _columns = {
-        'biography': fields.text('Biography'),
+        'biography': fields.text('Biography', translate=True),
     }
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
