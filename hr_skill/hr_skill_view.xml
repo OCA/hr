@@ -1,7 +1,7 @@
 <openerp>
   <data>
 
-    <menuitem name="Skills Management"
+    <menuitem name="Skills"
               parent="hr.menu_hr_configuration"
               id="menu_hr_skill_mgt"/>
 
@@ -90,7 +90,7 @@
         <field eval="'ir.actions.act_window,%d'%hr_employee_normal_action_tree" name="value"/>
     </record>
 
-    <menuitem name="Skills Structure"
+    <menuitem name="Employees by Skills"
               parent="menu_hr_skill_mgt"
               id="menu_open_view_skill_tree"
               action="open_view_skill_tree"/>
