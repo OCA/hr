@@ -66,23 +66,23 @@
     </section>
     <para style="terp_header">Certifications</para>
     <section>
-      <para >[[repeatIn(o.certification_ids,'certification')]]</para>
-      <para style="terp_default_Bold_9">[[ certification.name ]] , [[ certification.partner_id.name ]]</para>
+      <para>[[repeatIn(o.certification_ids,'certification')]]</para>
+      <para style="terp_default_Bold_9">[[ certification.name ]], [[ certification.partner_id.name ]]</para>
       <para>[[ certification.start_date ]] - [[ certification.expire and certification.end_date or 'Now' ]]</para>
       <para>[[ certification.location or removeParentNode('para') ]]</para>
       <para>Certification Number: [[ certification.certification or removeParentNode('para') ]]</para>
     </section>
     <para style="terp_header">Professional Experiences</para>
     <section>
-      <para >[[repeatIn(o.professional_ids,'professional')]]</para>
-      <para style="terp_default_Bold_9">[[ professional.name ]] [[  professional.location or '' ]]</para>
+      <para>[[repeatIn(o.professional_ids,'professional')]]</para>
+      <para style="terp_default_Bold_9">[[ professional.name ]], [[ professional.partner_id.name or '' ]]</para>
       <para>[[ professional.start_date ]] - [[ professional.expire and professional.end_date or 'Now' ]]</para>
-      <para>[[ professional.partner_id.name ]]</para>
-      <para>[[ professional.description ]]</para>
+      <para>[[ professional.location or removeParentNode('para') ]]</para>
+      <para>[[ professional.description or removeParentNode('para') ]]</para>
     </section>
     <para style="terp_header">Academic Background</para>
     <section>
-      <para >[[repeatIn(o.academic_ids,'academic')]]</para>
+      <para>[[repeatIn(o.academic_ids,'academic')]]</para>
       <para style="terp_default_Bold_9">[[ academic.name ]]</para>
       <para>[[ academic.start_date ]] - [[ academic.expire and academic.end_date or 'Now' ]]</para>
       <para>[[ academic.partner_id.name ]]</para>
