@@ -30,8 +30,7 @@ class hr_professional(orm.Model):
         'start_date': fields.date('Start date'),
         'end_date': fields.date('End date'),
         'description': fields.text('Description', translate=True),
-        'partner_id': fields.many2one('res.partner', 'Partner',
-                                      help="Employer, School, University, Certification Authority"),
+        'partner_id': fields.many2one('res.partner', 'Employer'),
         'location': fields.char('Location', size=64, translate=True),
         'expire': fields.boolean('Expire'),
     }
