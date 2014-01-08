@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-09-23 05:37+0000\n"
-"X-Generator: Launchpad (build 16771)\n"
+"X-Launchpad-Export-Date: 2014-01-08 05:44+0000\n"
+"X-Generator: Launchpad (build 16877)\n"
 
 #. module: hr_skill
 #: field:hr_skill.skill,weight_category_id:0
@@ -51,7 +51,7 @@ msgid ""
 msgstr ""
 
 #. module: hr_skill
-#: field:hr_skill.skill,parent_id:0
+#: field:hr.skill,parent_id:0
 msgid "Parent"
 msgstr ""
 
@@ -128,7 +128,7 @@ msgid "Note"
 msgstr ""
 
 #. module: hr_skill
-#: field:hr_skill.skill,child_ids:0
+#: field:hr.skill,child_ids:0
 msgid "Children"
 msgstr ""
 
@@ -391,7 +391,7 @@ msgid "Experience"
 msgstr ""
 
 #. module: hr_skill
-#: field:hr_skill.skill,active:0
+#: field:hr.skill,active:0
 msgid "Active"
 msgstr ""
 
@@ -502,30 +502,14 @@ msgid "End Date"
 msgstr ""
 
 #. module: hr_skill
-#: field:hr.scale,name:0
-#: field:hr_skill.evaluation.category,name:0
-#: field:hr_skill.evaluation.experience,name:0
-#: field:hr_skill.evaluation.skill,name:0
-#: field:hr_skill.experience,name:0
-#: field:hr_skill.experience.category,name:0
-#: field:hr_skill.experience.skill,name:0
-#: field:hr_skill.position,name:0
-#: field:hr_skill.position.profile,name:0
-#: field:hr_skill.profile,name:0
-#: field:hr_skill.profile.skill,name:0
-#: field:hr_skill.skill,name:0
-#: field:hr_skill.weight,name:0
-#: field:hr_skill.weight.category,name:0
+#: field:hr.skill,name:0
 msgid "Name"
 msgstr ""
 
 #. module: hr_skill
-#: view:hr_skill.evaluation:0
-#: view:hr_skill.experience:0
-#: field:hr_skill.experience,skill_ids:0
-#: view:hr_skill.profile:0
-#: field:hr_skill.profile,skill_ids:0
-#: view:hr_skill.skill:0
+#: view:hr.employee:0
+#: field:hr.employee,skill_ids:0
+#: view:hr.skill:0
 #: model:ir.ui.menu,name:hr_skill.menu_open_view_skill_form
 msgid "Skills"
 msgstr ""
@@ -561,7 +545,7 @@ msgid "Language Details"
 msgstr ""
 
 #. module: hr_skill
-#: selection:hr_skill.skill,view:0
+#: selection:hr.skill,view:0
 msgid "View"
 msgstr ""
 
@@ -576,14 +560,9 @@ msgid "hr_skill.evaluation.skill"
 msgstr ""
 
 #. module: hr_skill
-#: wizard_field:empskill,init,s_ids:0
-#: field:hr_skill.evaluation,skill_ids:0
-#: rml:hr_skill.evaluation.report:0
-#: field:hr_skill.evaluation.skill,skill_id:0
-#: field:hr_skill.experience.skill,skill_id:0
-#: field:hr_skill.profile.skill,skill_id:0
-#: field:hr_skill.skill,view:0
-#: selection:hr_skill.skill,view:0
+#: view:hr.skill:0
+#: field:hr.skill,view:0
+#: selection:hr.skill,view:0
 msgid "Skill"
 msgstr ""
 
