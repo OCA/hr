@@ -1,5 +1,5 @@
 # -*- encoding: utf-8 -*-
-##############################################################################
+#
 #
 #    OpenERP, Open Source Management Solution
 #    Copyright (C) 2004-2009 Tiny SPRL (<http://tiny.be>).
@@ -17,24 +17,21 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-##############################################################################
-
+#
 {
-    "name" : "Human Resources: Holidays management",
-    "version" : "0.1",
-    "author" : "Tiny",
-    "category" : "Generic Modules/Human Resources",
-    "website" : "http://www.openerp.com/",
-    "description": """Human Ressources: Holidays summary printing functionality
-
-
-NOTICE: This Module is Deprecated. Please install hr_holidays in order to have latest functionalities.""",
-    "depends" : ["hr_holidays",],
-    "init_xml" : [],
-    "demo_xml" : [],
-    "update_xml" : ["hr_view.xml","hr_holidays_report.xml","hr_holidays_wizard.xml",],
+    "name": "Hr holidays evaluation",
+    "version": "1.0",
+    "author": "Tiny",
+    "category": "Generic Modules/Human Resources",
+    "website": "http://www.openerp.com",
+    "depends": ["hr_holidays", "hr_contract", "hr_attendance"],
+    "demo_xml": [],
+    'init_xml': [],
+    "update_xml": ["hr_holidays_evaluation_view.xml",
+                   "security/ir.model.access.csv"],
+    "description": "Computation of holidays for employee",
     "active": False,
-    "installable": False
+    "installable": True,
 }
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
 
+# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

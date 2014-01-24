@@ -1,6 +1,6 @@
 # -*- encoding: utf-8 -*-
-##############################################################################
-#    
+#
+#
 #    OpenERP, Open Source Management Solution
 #    Copyright (C) 2004-2009 Tiny SPRL (<http://tiny.be>).
 #
@@ -15,12 +15,14 @@
 #    GNU Affero General Public License for more details.
 #
 #    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.     
+#    along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
-##############################################################################
+#
+
+from osv import osv
 import time
-import wizard
 import datetime
+
 error = '''<?xml version="1.0"?>
 <form string="Select period">
     <label string="Error in Data !!"/>
@@ -50,72 +52,78 @@ form1 = '''<?xml version="1.0"?>
             <field name="todate"/>
             </group>
 </form>'''
+
+
 def _get_months(sel, cr, uid, context):
-    i=0
-    res=[]
-    while i<12:
-        t=()
-        t=(i+1,i+1)
+    i = 0
+    res = []
+    while i < 12:
+        t = ()
+        t = (i + 1, i + 1)
         res.append(t)
-        i+=1
+        i += 1
     return res
+
 field1 = {
-    'emp_ids': {'string':'Employees', 'type':'many2many', 'relation':'hr.employee'},
-    'month': {'string':'Month','type':'selection', 'selection':_get_months},
-    'year':{'string':'Year','type':'integer'},
-    'fromdate': {'string':'From', 'type':'date'},
-    'todate': {'string':'To', 'type':'date'},
-    'active1':{'string':'Month Wise','type':'boolean'},
-    'active2':{'string':'Date Wise','type':'boolean'}
+    'emp_ids': {'string': 'Employees', 'type': 'many2many', 'relation': 'hr.employee'},
+    'month': {'string': 'Month', 'type': 'selection', 'selection': _get_months},
+    'year': {'string': 'Year', 'type': 'integer'},
+    'fromdate': {'string': 'From', 'type': 'date'},
+    'todate': {'string': 'To', 'type': 'date'},
+    'active1': {'string': 'Month Wise', 'type': 'boolean'},
+    'active2': {'string': 'Date Wise', 'type': 'boolean'}
 }
 
 
-class hr_holidays_report(wizard.interface):
+class hr_holidays_report(osv.osv_memory):
+
     def year_get(self, cr, uid, data, context):
-       p=int(time.strftime('%Y'))
-       return {'year':p}
-    def _riase_error(self, cr, uid, data, context):
-        form=data['form']
-        if not form['emp_ids'][0][2] :
-            raise wizard.except_wizard('Error', 'You must select Employee(s) For report !')
-        
+        p = int(time.strftime('%Y'))
+        return {'year': p}
+
+    def _raise_error(self, cr, uid, data, context):
+        form = data['form']
+        if not form['emp_ids'][0][2]:
+            raise osv.except_osv(
+                'Error', 'You must select Employee(s) for report !')
         if form['active1'] and form['active2']:
-            raise wizard.except_wizard('TyepError', 'You must select only one type For report !')
+            raise osv.except_osv(
+                'TyepError', 'You must select only one type for report !')
         if form['active1']:
-            temp=form['year']
+            temp = form['year']
             if not form['month']:
-                raise wizard.except_wizard('MonthError', 'You must select month For month-wise report !')
-            
-                
+                raise osv.except_osv(
+                    'MonthError', 'You must select month for month-wise report !')
         elif form['active2']:
-            temp=0
+            temp = 0
             if not form['fromdate'] or not form['todate']:
-                raise wizard.except_wizard('DateError', 'You must select Dates For date-wise report !')
+                raise osv.except_osv(
+                    'DateError', 'You must select Dates for date-wise report !')
             else:
-                d=form['fromdate']
-                dd=form['todate']
-                d1=d.split('-')
-                d2=dd.split('-')
-                d1[2]=d1[2].split(' ')
-                d2[2]=d2[2].split(' ')
-                a=datetime.date(int(d1[0]),int(d1[1]),int(d1[2][0]))
-                b=datetime.date(int(d2[0]),int(d2[1]),int(d2[2][0]))
-                if  a>b :
-                    raise wizard.except_wizard('DateError', 'You must select Dates proparly !')
+                d = form['fromdate']
+                dd = form['todate']
+                d1 = d.split('-')
+                d2 = dd.split('-')
+                d1[2] = d1[2].split(' ')
+                d2[2] = d2[2].split(' ')
+                a = datetime.date(int(d1[0]), int(d1[1]), int(d1[2][0]))
+                b = datetime.date(int(d2[0]), int(d2[1]), int(d2[2][0]))
+                if a > b:
+                    raise osv.except_osv(
+                        'DateError', 'You must select Dates properly !')
         else:
-            raise wizard.except_wizard('typeError', 'You must select Type !')
-        return {'year':temp}
+            raise osv.except_osv('typeError', 'You must select Type !')
+        return {'year': temp}
     states = {
         'init': {
             'actions': [year_get],
-            'result': {'type':'form', 'arch':form1, 'fields':field1,  'state' : [('print', 'Ok'),('end', 'Cancel')]}
+            'result': {'type': 'form', 'arch': form1, 'fields': field1, 'state': [('print', 'Ok'), ('end', 'Cancel')]}
         },
-         'print': {
-            'actions': [_riase_error],
-            'result': {'type':'print', 'report':'hr.holiday.req.report','state':'end'}
+        'print': {
+            'actions': [_raise_error],
+            'result': {'type': 'print', 'report': 'hr.holiday.req.report', 'state': 'end'}
         }
-        
     }
 hr_holidays_report('hr_holiday_req')
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
 
+# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

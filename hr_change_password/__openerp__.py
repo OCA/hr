@@ -1,10 +1,9 @@
-#!/usr/bin/env python
-#-*- coding:utf-8 -*-
-##############################################################################
+# -*- encoding: utf-8 -*-
 #
-#    OpenERP, Open Source Management Solution    
+#
+#    OpenERP, Open Source Management Solution
 #    Copyright (C) 2004-2009 Tiny SPRL (<http://tiny.be>). All Rights Reserved
-#    d$
+#    $Id$
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -19,32 +18,28 @@
 #    You should have received a copy of the GNU General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-##############################################################################
+#
+
 
 {
-    'name': 'Human Resource Payroll Decleration Form',
-    'version': '1.0',
-    'category': 'Generic Modules/Human Resources',
-    'description': """
-    The Payroll Declertion Form - India, Manages,
-    * HR Decleration Information, Begining of Financial Year
-    * Source of Income
-    * List of Claimed Allowances
-    * List of Investment
-    * Approx Calculated Tax
+    "name": "Human Resources/Change password",
+    "version": "1.1",
+    "author": "Tiny",
+    "category": "Generic Modules/Human Resources",
+    "website": "http://www.openerp.com",
+    "description": """
+    Module for human resource management. You can manage:
+    * Change the password of user
+
+    Different reports are also provided, mainly for attendance statistics.
     """,
     'author': 'Tiny',
     'website': 'http://www.openerp.com',
-    'depends': [
-        'hr_payroll'
-    ],
-    'init_xml': [
-    ],
-    'update_xml': [
-        'hr_payroll_declare_view.xml',
-    ],
-    'demo_xml': [
-    ],
+    'depends': ['base'],
+    'init_xml': [],
+    'update_xml': ['hr_change_passwd_wizard.xml'],
+    'demo_xml': [],
     'installable': True,
     'active': False,
 }
+# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

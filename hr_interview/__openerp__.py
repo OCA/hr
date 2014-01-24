@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
-##############################################################################
 #
-#    OpenERP, Open Source Management Solution	
+#
+#    OpenERP, Open Source Management Solution
 #    Copyright (C) 2004-2009 Tiny SPRL (<http://tiny.be>). All Rights Reserved
 #    $Id$
 #
@@ -18,7 +18,7 @@
 #    You should have received a copy of the GNU General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-##############################################################################
+#
 
 {
     'name': 'Human Resources (Interview Evaluation)',
@@ -32,12 +32,12 @@ Example: Candidate X to be evaluated for Y Category(Category reflects to the rec
     """,
     'author': 'Tiny',
     'website': 'http://www.openerp.com',
-    'depends': ['base', 'hr','crm','smtpclient'],
+    'depends': ['base', 'hr', 'crm', 'smtpclient'],
     'init_xml': [],
-    'update_xml': ['hr_interview_view.xml','hr_workflow.xml','hr_sequence.xml','security/ir.model.access.csv','hr_wizard.xml','hr_interview_report.xml'],
+    'update_xml': ['hr_interview_view.xml', 'hr_workflow.xml', 'hr_sequence.xml', 'security/ir.model.access.csv', 'hr_wizard.xml', 'hr_interview_report.xml'],
     'demo_xml': [],
     'installable': True,
     'active': False,
-   
+
 }
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

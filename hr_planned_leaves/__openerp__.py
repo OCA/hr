@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-##############################################################################
+#
 #
 #    OpenERP, Open Source Management Solution
 #    Copyright (C) 2004-2010 Tiny SPRL (<http://tiny.be>).
@@ -17,17 +17,17 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-##############################################################################
+#
 
 {
-    "name" : "Groupe S HR self Report",
-    "version" : "1.0",
-    "author" : "OpenERP / Groupe S",
-    "category" : "Generic Modules/Groupe S",
-    "website" : "http://www.openerp.com",
+    "name": "Groupe S HR self Report",
+    "version": "1.0",
+    "author": "OpenERP / Groupe S",
+    "category": "Generic Modules/Groupe S",
+    "website": "http://www.openerp.com",
     "description": """Extension of generic HR module for Groupe S needs.""",
     'depends': ['hr_holidays'],
-    'update_xml':['wizard/hr_planned_leaves_wizard_view.xml','hr_planned_leaves_report.xml'],
+    'update_xml': ['wizard/hr_planned_leaves_wizard_view.xml', 'hr_planned_leaves_report.xml'],
     'data': [],
     'demo': [],
     'test': [],
