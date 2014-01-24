@@ -1,6 +1,6 @@
 # -*- encoding: utf-8 -*-
-##############################################################################
-#    
+###############################################################################
+#
 #    OpenERP, Open Source Management Solution
 #    Copyright (C) 2004-2009 Tiny SPRL (<http://tiny.be>).
 #
@@ -15,11 +15,25 @@
 #    GNU Affero General Public License for more details.
 #
 #    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.     
+#    along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
-##############################################################################
-import lang_wiz
-import datewise
-import skill
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
+###############################################################################
 
+{
+    "name": "Skill Management",
+    "version": "0.2",
+    "author": "Tiny",
+    "category": "Human Resources",
+    "website": "http://www.openerp.com",
+    "depends": ["hr"],
+    "description": """
+This module allows you to manage your company and employees skills.
+    """,
+    "update_xml": [
+        "security/ir.model.access.csv",
+        "hr_skill_view.xml",
+    ],
+    "active": False,
+    "installable": True
+}
+# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
