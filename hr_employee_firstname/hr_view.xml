@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+  <data>
+    <record id="hr_employee_view_firstname_form" model="ir.ui.view">
+      <field name="name">hr.employee.view.form.inherit.firstname</field>
+      <field name="model">hr.employee</field>
+      <field name="inherit_id" ref="hr.view_employee_form"/>
+      <field name="arch" type="xml">
+        <field name="name" position="replace">
+          <field name="name" invisible="True" nolabel="1" required="False"/>
+        </field>
+        <field name="name" position="after">
+          <field name="firstname" placeholder="e.g. Firstname"/>
+          <field name="lastname" placeholder="e.g. Lastname"/>
+        </field>
+      </field>
+    </record>
+  </data>
+</openerp>
