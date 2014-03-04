@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution
-#    This module copyright (C) 2013 Savoir-faire Linux
+#    This module copyright (C) 2010 - 2014 Savoir-faire Linux
 #    (<http://www.savoirfairelinux.com>).
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -27,16 +27,24 @@ class hr_employee(orm.Model):
     _inherit = 'hr.employee'
 
     def init(self, cursor):
-        cursor.execute('SELECT id FROM hr_employee WHERE lastname IS NOT NULL Limit 1')
+        cursor.execute('''\
+SELECT id
+FROM hr_employee
+WHERE lastname IS NOT NULL
+LIMIT 1''')
         if not cursor.fetchone():
-            cursor.execute('UPDATE hr_employee set lastname = name_related WHERE name_related IS NOT NULL')
-    _columns = {
-        'firstname': fields.char("Firstname"),
-        'lastname': fields.char("Lastname", required=True)}
+            cursor.execute('''\
+UPDATE hr_employee
+SET lastname = name_related
+WHERE name_related IS NOT NULL''')
 
     def create(self, cursor, uid, vals, context=None):
         names = (vals['firstname'], vals['lastname'])
-        vals['name'] = " ".join([s for s in names if s])
-        return super(hr_employee, self).create(cursor, uid, vals, context=context)
+        vals['name'] = " ".join(s for s in names if s)
+        return super(hr_employee, self).create(
+            cursor, uid, vals, context=context)
 
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
+    _columns = {
+        'firstname': fields.char("Firstname"),
+        'lastname': fields.char("Lastname", required=True)
+    }
