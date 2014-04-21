@@ -37,13 +37,15 @@ This module allows you to manage your employee experiences:
 
 Contributors
 ------------
-* El Hadji DEM (elhaji.dem@savoirfairelinux.com)
+* El Hadji DEM <elhaji.dem@savoirfairelinux.com>
+* Maxime Chambreuil <maxime.chambreuil@savoirfairelinux.com>
 """,
 
-    "depends": ["hr", ],
+    "depends": ["hr"],
     'external_dependencies': {},
     'data': [
         "security/ir.model.access.csv",
+        "security/hr_experience_security.xml",
         "hr_experience_view.xml",
         "hr_academic_view.xml",
         "hr_professional_view.xml",
