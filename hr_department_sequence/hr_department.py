@@ -52,6 +52,8 @@ class hr_department(osv.Model):
                 for record in self.browse(cr, uid, ids, context=context or {})]
 
     def name_search(self, cr, uid, name='', args=None, operator='ilike',  context=None, limit=100):
+        if args is None:
+            args = []
         ids = self.search(cr, uid, ['|', ('code', 'ilike', name), ('name', 'ilike', name)] + args,
                           limit=limit, context=context)
         return self.name_get(cr, uid, ids, context=context)
