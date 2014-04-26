@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: openerp-hr\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2013-11-14 22:11+0000\n"
-"PO-Revision-Date: 2013-11-22 19:40+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2014-04-25 14:43+0000\n"
+"Last-Translator: Pedro Manuel Baeza <pedro.baeza@gmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-11-23 06:29+0000\n"
-"X-Generator: Launchpad (build 16831)\n"
+"X-Launchpad-Export-Date: 2014-04-26 07:14+0000\n"
+"X-Generator: Launchpad (build 16985)\n"
 
 #. module: hr_skill
 #: field:hr.skill,name:0
@@ -30,12 +30,13 @@ msgstr "Padre"
 #. module: hr_skill
 #: model:ir.model,name:hr_skill.model_hr_skill
 msgid "hr.skill"
-msgstr ""
+msgstr "Habilidad"
 
 #. module: hr_skill
 #: view:hr.employee:0
 #: field:hr.employee,skill_ids:0
 #: view:hr.skill:0
+#: model:ir.ui.menu,name:hr_skill.menu_hr_skill_mgt
 #: model:ir.ui.menu,name:hr_skill.menu_open_view_skill_form
 msgid "Skills"
 msgstr "Habilidades"
@@ -43,7 +44,7 @@ msgstr "Habilidades"
 #. module: hr_skill
 #: model:ir.actions.act_window,name:hr_skill.hr_employee_normal_action_tree
 msgid "Employees"
-msgstr ""
+msgstr "Empleados"
 
 #. module: hr_skill
 #: model:ir.ui.menu,name:hr_skill.menu_open_view_skill_tree
@@ -53,7 +54,7 @@ msgstr "Jerarquía de Habilidades"
 #. module: hr_skill
 #: model:ir.model,name:hr_skill.model_hr_employee
 msgid "Employee"
-msgstr ""
+msgstr "Empleado"
 
 #. module: hr_skill
 #: model:ir.actions.act_window,name:hr_skill.open_view_skill_tree
@@ -63,7 +64,7 @@ msgstr "Jerarquía de Habilidades"
 #. module: hr_skill
 #: field:hr.skill,employee_ids:0
 msgid "Employee(s)"
-msgstr ""
+msgstr "Empleado(s)"
 
 #. module: hr_skill
 #: model:ir.ui.menu,name:hr_skill.menu_hr_skill_mgt

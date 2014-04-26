@@ -1,0 +1,54 @@
+# Spanish translation for openerp-hr
+# Copyright (c) 2014 Rosetta Contributors and Canonical Ltd 2014
+# This file is distributed under the same license as the openerp-hr package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2014.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: openerp-hr\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2013-11-21 19:08+0000\n"
+"PO-Revision-Date: 2014-04-25 14:44+0000\n"
+"Last-Translator: Pedro Manuel Baeza <pedro.baeza@gmail.com>\n"
+"Language-Team: Spanish <es@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2014-04-26 07:14+0000\n"
+"X-Generator: Launchpad (build 16985)\n"
+
+#. module: hr_department_sequence
+#: field:hr.department,parent_left:0
+msgid "Left Parent"
+msgstr "Padre izquierdo"
+
+#. module: hr_department_sequence
+#: field:hr.department,code:0
+msgid "Code"
+msgstr "Código"
+
+#. module: hr_department_sequence
+#: field:hr.department,sequence:0
+msgid "Sequence"
+msgstr "Secuencia"
+
+#. module: hr_department_sequence
+#: help:hr.department,sequence:0
+msgid "Gives the sequence order when displaying a list of departments."
+msgstr ""
+"Da el orden de secuencia cuando se visualiza una lista de departamentos."
+
+#. module: hr_department_sequence
+#: sql_constraint:hr.department:0
+msgid "The code for the department must be unique per company !"
+msgstr "El código de departamento debe ser único por compañía"
+
+#. module: hr_department_sequence
+#: model:ir.model,name:hr_department_sequence.model_hr_department
+msgid "Department"
+msgstr "Departamento"
+
+#. module: hr_department_sequence
+#: field:hr.department,parent_right:0
+msgid "Right Parent"
+msgstr "Padre derecho"
