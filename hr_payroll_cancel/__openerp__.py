@@ -40,6 +40,7 @@
     "data" : [
         "hr_payslip_view.xml",
         "hr_payslip_workflow.xml",
+        "test/update_payroll_workflow.yml"
         ],
     "test": [],
     "installable" : True,
