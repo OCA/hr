@@ -10,13 +10,19 @@ before_install:
   - git clone https://github.com/OCA/maintainer-quality-tools.git /tmp/maintainer-quality-tools
   - export PATH=/tmp/maintainer-quality-tools/travis:$PATH
   - travis_install_nightly 7.0
+  - sudo apt-get update
+  - sudo apt-get install openoffice.org python-genshi python-cairo python-openoffice python-lxml python-uno
+  - sudo apt-get install zip
+  - bzr branch lp:aeroolib /tmp/aeroolib
+  - bzr branch lp:aeroo /tmp/aeroo
+  - pushd /tmp/aeroolib/aeroolib; sudo python setup.py install; popd
  
 install:
   - pip install coveralls flake8
 
 script:
     - travis_run_flake8
-    - travis_run_tests 7.0
+    - travis_run_tests 7.0 /tmp/aeroo
 
 after_success:
   coveralls
