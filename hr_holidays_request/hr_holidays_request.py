@@ -18,10 +18,7 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 #
-from mx import DateTime
 import time
-import pooler
-import netsvc
 import datetime
 import calendar
 from osv import fields, osv
@@ -43,7 +40,8 @@ class hr_holidays(osv.osv):
     def search(self, cr, uid, args, offset=0, limit=None, order=None,
                context=None, count=False):
         if len(args) == 2:
-            if (args[0] == ['state', '=', 'confirm'] and args[1] == ['employee_id', "=", []]) or (args[0] == ('state', '=', 'confirm') and args[1] == ('employee_id', "=", [])):
+            if ((args[0] == ['state', '=', 'confirm'] and args[1] == ['employee_id', "=", []])
+                    or (args[0] == ('state', '=', 'confirm') and args[1] == ('employee_id', "=", []))):
                 res = []
                 ids = self.pool.get('hr.employee').search(
                     cr, uid, [('user_id', '=', uid)])
@@ -113,18 +111,48 @@ class hr_holidays(osv.osv):
         else:
             return super(hr_holidays, self).create(cr, uid, vals, context=context)
     _columns = {
-        'name': fields.char('Description', required=True, readonly=True, size=64, states={'draft': [('readonly', False)], 'draft1': [('readonly', False)]}),
-        'state': fields.selection([('draft1', 'draft'), ('draft', 'draft'), ('confirm', 'Requested'), ('refuse', 'Refused'), ('validate', 'Validate'), ('cancel', 'Cancel')], 'State', readonly=True),
+        'name': fields.char(
+            'Description', required=True, readonly=True, size=64, states={
+                'draft': [('readonly', False)],
+                'draft1': [('readonly', False)],
+            }),
+        'state': fields.selection([
+            ('draft1', 'draft'),
+            ('draft', 'draft'),
+            ('confirm', 'Requested'),
+            ('refuse', 'Refused'),
+            ('validate', 'Validate'),
+            ('cancel', 'Cancel'),
+        ], 'State', readonly=True),
         'date_from': fields.datetime('Vacation start day'),
         'date_to': fields.datetime('Vacation end day'),
         'date_from1': fields.date('From', required=True, readonly=True, states={'draft': [('readonly', False)]}),
         'date_to1': fields.date('To', required=True, readonly=True, states={'draft': [('readonly', False)]}),
         'employee_id': fields.many2one('hr.employee', 'Employee', select=True, readonly=True, required=True),
-        'user_id': fields.many2one('res.users', 'User_id', states={'draft': [('readonly', False)], 'draft1': [('readonly', False)]}, select=True, readonly=True),
+        'user_id': fields.many2one(
+            'res.users', 'User_id', states={
+                'draft': [('readonly', False)], 'draft1': [('readonly', False)]
+            }, select=True, readonly=True,
+        ),
         'manager_id': fields.many2one('hr.employee', 'Holiday manager', invisible=False, readonly=True),
-        'notes': fields.text('Notes', readonly=True, states={'draft': [('readonly', False)], 'draft1': [('readonly', False)]}),
-        'contactno': fields.char("Contact no", size=64, required=True, readonly=True, states={'draft': [('readonly', False)], 'draft1': [('readonly', False)]}),
-        'holiday_id': fields.one2many('days.holidays.days', 'holiday_id', "Holiday's days list", readonly=True, states={'draft': [('readonly', False)], 'validate': [('readonly', False)]}),
+        'notes': fields.text(
+            'Notes', readonly=True, states={
+                'draft': [('readonly', False)],
+                'draft1': [('readonly', False)],
+            },
+        ),
+        'contactno': fields.char(
+            "Contact no", size=64, required=True, readonly=True, states={
+                'draft': [('readonly', False)],
+                'draft1': [('readonly', False)],
+            },
+        ),
+        'holiday_id': fields.one2many(
+            'days.holidays.days', 'holiday_id', "Holiday's days list", readonly=True, states={
+                'draft': [('readonly', False)],
+                'validate': [('readonly', False)],
+            }
+        ),
         'total_half': fields.integer("Total Half Leave", readonly=True),
         'total_full': fields.integer("Total Full Leave", readonly=True),
         'total_hour': fields.integer("Total Hours", readonly=True),
@@ -213,7 +241,8 @@ class hr_holidays(osv.osv):
                         pd = 0
                         fd = 1
                     if day == 6:
-                        if temp.strftime("%Y-%m-%d") == a.strftime("%Y-%m-%d") or temp.strftime("%Y-%m-%d") == b.strftime("%Y-%m-%d"):
+                        if (temp.strftime("%Y-%m-%d") == a.strftime("%Y-%m-%d")
+                                or temp.strftime("%Y-%m-%d") == b.strftime("%Y-%m-%d")):
                             fd = 0
                             pd = 1
                         else:
@@ -379,7 +408,7 @@ class hr_holidays(osv.osv):
         for s in selfobj:
             for s1 in s.holiday_id:
                 self.pool.get('days.holidays.days').write(
-                    cr, uid, s1.id, {'state': draft})
+                    cr, uid, s1.id, {'state': 'draft'})
         return True
 hr_holidays()
 
@@ -390,7 +419,13 @@ class holiday_history(osv.osv):
     _columns = {
         'validated_id': fields.many2one('res.users', 'Validated By', readonly=True),
         'name': fields.char('Description', readonly=True, size=64),
-        'state': fields.selection([('draft', 'draft'), ('confirm', 'Requested'), ('refuse', 'Refused'), ('validate', 'Validate'), ('cancel', 'Cancel')], 'State', readonly=True),
+        'state': fields.selection([
+            ('draft', 'draft'),
+            ('confirm', 'Requested'),
+            ('refuse', 'Refused'),
+            ('validate', 'Validate'),
+            ('cancel', 'Cancel'),
+        ], 'State', readonly=True),
         'date_from1': fields.date('From', readonly=True),
         'date_to1': fields.date('To', readonly=True),
         'employee_id': fields.many2one('hr.employee', 'Employee', readonly=True),
@@ -419,7 +454,14 @@ class holiday_days(osv.osv):
         'public_h': fields.boolean('Public Holiday', readonly=True),
         'holiday_status': fields.many2one("hr.holidays.status", "Holiday's Status"),
         'user_id': fields.many2one('res.users', 'User_id', readonly=True),
-        'state': fields.selection([('draft1', 'draft'), ('draft', 'draft'), ('confirm', 'Requested'), ('refuse', 'Refused'), ('validate', 'Validate'), ('cancel', 'Cancel')], 'State', readonly=True),
+        'state': fields.selection([
+            ('draft1', 'draft'),
+            ('draft', 'draft'),
+            ('confirm', 'Requested'),
+            ('refuse', 'Refused'),
+            ('validate', 'Validate'),
+            ('cancel', 'Cancel')
+        ], 'State', readonly=True),
     }
     _order = 'date1'
     _defaults = {
@@ -486,8 +528,13 @@ class holiday_days_history(osv.osv):
         'public_h': fields.boolean('Public Holiday', readonly=True),
         'holiday_status': fields.selection(_holidaystatus_get, "Holiday's Status", readonly=True),
         'user_id': fields.many2one('res.users', 'User_id', readonly=True),
-        'state': fields.selection([('draft1', 'draft'), ('draft', 'draft'), ('confirm', 'Requested'), ('refuse', 'Refused'), ('validate', 'Validate'), ('cancel', 'Cancel')], 'State', readonly=True),
+        'state': fields.selection([
+            ('draft1', 'draft'),
+            ('draft', 'draft'),
+            ('confirm', 'Requested'),
+            ('refuse', 'Refused'),
+            ('validate', 'Validate'),
+            ('cancel', 'Cancel'),
+        ], 'State', readonly=True),
     }
 holiday_days_history()
-
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

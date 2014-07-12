@@ -22,7 +22,6 @@
 
 import time
 from report import report_sxw
-import datetime
 import mx.DateTime
 
 
@@ -37,9 +36,18 @@ class candidate_summary(report_sxw.rml_parse):
         })
 
     def _get_education(self, edu_type):
-        edu_list = [(
-            "be_ce", "BE Computers"), ("be_it", "BE IT"), ("bsc_it", "BSc IT"), ("bca", "BCA"), ("btech_ce", "BTech Computers"),
-            ("btech_it", "BTech IT"), ("mca", "MCA"), ("msc_it", "MSc IT"), ("mtech_ce", "MTech Computers"), ("other", "Other")]
+        edu_list = [
+            ("be_ce", "BE Computers"),
+            ("be_it", "BE IT"),
+            ("bsc_it", "BSc IT"),
+            ("bca", "BCA"),
+            ("btech_ce", "BTech Computers"),
+            ("btech_it", "BTech IT"),
+            ("mca", "MCA"),
+            ("msc_it", "MSc IT"),
+            ("mtech_ce", "MTech Computers"),
+            ("other", "Other"),
+        ]
         edu = [x[1] for x in edu_list if x[0] == str(edu_type)]
         return edu[0]
 

@@ -22,10 +22,7 @@
 
 from osv import osv
 import pooler
-import tools
 import time
-import datetime
-import mx.DateTime
 import re
 
 mail_form = '''<?xml version="1.0"?>
@@ -72,7 +69,7 @@ class wizard_email_interview(osv.osv_memory):
         for hr_candidate in hr_candidates:
             msg = self.merge_message(cr, uid, hr_candidate.id, body, context)
             to = hr_candidate.email
-            files = smtp_obj.send_email(
+            smtp_obj.send_email(
                 cr, uid, data['form']['smtp_server'], to, subject, msg)
         return {}
 
@@ -100,7 +97,12 @@ class wizard_email_interview(osv.osv_memory):
     states = {
         'init': {
             'actions': [_default_params],
-            'result': {'type': 'form', 'arch': mail_form, 'fields': mail_fields, 'state': [('end', 'Cancel'), ('sendmail', 'Send Mail')]}
+            'result': {
+                'type': 'form',
+                'arch': mail_form,
+                'fields': mail_fields,
+                'state': [('end', 'Cancel'), ('sendmail', 'Send Mail')],
+            }
         },
         'sendmail': {
             'actions': [_send_mail],
@@ -108,4 +110,3 @@ class wizard_email_interview(osv.osv_memory):
         }
     }
 wizard_email_interview('hr.email.interview')
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

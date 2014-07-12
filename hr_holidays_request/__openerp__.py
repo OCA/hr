@@ -26,9 +26,14 @@
     "website": "http://www.axelor.com",
     "depends": ["base", "hr", "hr_holidays"],
     "init_xml": [],
-    "update_xml": ["security/ir.model.access.csv", "holiday_demo_data.xml", "hr_holidays_request_view.xml", "hr_holiday_wizard.xml", "hr_workflow.xml"],
+    "update_xml": [
+        "security/ir.model.access.csv",
+        "holiday_demo_data.xml",
+        "hr_holidays_request_view.xml",
+        "hr_holiday_wizard.xml",
+        "hr_workflow.xml",
+    ],
     "demo_xml": [],
     "installable": True,
     "active": False,
 }
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

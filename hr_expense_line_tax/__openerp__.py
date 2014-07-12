@@ -25,9 +25,9 @@
     "website": "http://www.savoirfairelinux.com",
     "category": "Human Resources",
     "description": """
-	This module adds a tax field on the expense line and set the taxes of
-        the employee invoice based on this tax, discarding the ones set on the
-        product.	
+This module adds a tax field on the expense line and set the taxes of
+the employee invoice based on this tax, discarding the ones set on the
+product.
     """,
     "depends": ['hr_expense'],
     "init_xml": [],
@@ -38,4 +38,3 @@
     "installable": True,
     "certificate": ''
 }
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

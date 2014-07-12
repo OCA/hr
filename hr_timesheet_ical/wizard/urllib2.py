@@ -127,7 +127,6 @@ import time
 import urlparse
 import bisect
 import cookielib
-from tools.translate import _
 
 try:
     from cStringIO import StringIO
@@ -140,7 +139,7 @@ from urllib import unwrap, unquote, splittype, splithost, \
     splitattr, ftpwrapper, noheaders, splituser, splitpasswd, splitvalue
 
 # support for FileHandler, proxies via environment variables
-from urllib import localhost, url2pathname, getproxies
+from urllib import url2pathname, getproxies
 
 __version__ = "2.4"
 
@@ -234,7 +233,7 @@ class Request:
             if hasattr(Request, 'get_' + name):
                 getattr(self, 'get_' + name)()
                 return getattr(self, attr)
-        raise AttributeError, attr
+        raise AttributeError(attr)
 
     def get_method(self):
         if self.has_data():
@@ -260,7 +259,7 @@ class Request:
         if self.type is None:
             self.type, self.__r_type = splittype(self.__original)
             if self.type is None:
-                raise ValueError, "unknown url type: %s" % self.__original
+                raise ValueError("unknown url type: %s" % self.__original)
         return self.type
 
     def get_host(self):
@@ -695,7 +694,7 @@ class HTTPPasswordMgr:
         if isinstance(uri, basestring):
             uri = [uri]
         uri = tuple(map(self.reduce_uri, uri))
-        if not realm in self.passwd:
+        if realm not in self.passwd:
             self.passwd[realm] = {}
         self.passwd[realm][uri] = (user, passwd)
 
@@ -1120,7 +1119,7 @@ def parse_keqv_list(l):
 
 def parse_http_list(s):
     """Parse lists as described by RFC 2068 Section 2.
- 
+
     In particular, parse comma-separated lists where the elements of
     the list may include quoted-strings.  A quoted-string could
     contain a comma.  A non-quoted string could have quotes in the
@@ -1159,7 +1158,7 @@ def parse_http_list(s):
     if part:
         res.append(part)
 
-    return [part.strip() for part in res]
+    return [r.strip() for r in res]
 
 
 class FileHandler(BaseHandler):
@@ -1209,7 +1208,7 @@ class FTPHandler(BaseHandler):
     def ftp_open(self, req):
         host = req.get_host()
         if not host:
-            raise IOError, ('ftp error', 'no host given')
+            raise IOError('ftp error', 'no host given')
         host, port = splitport(host)
         if port is None:
             port = ftplib.FTP_PORT
@@ -1255,7 +1254,7 @@ class FTPHandler(BaseHandler):
             headers = mimetools.Message(sf)
             return addinfourl(fp, headers, req.get_full_url())
         except ftplib.all_errors, msg:
-            raise IOError, ('ftp error', msg), sys.exc_info()[2]
+            raise IOError('ftp error', msg), sys.exc_info()[2]
 
     def connect_ftp(self, user, passwd, host, port, dirs):
         fw = ftpwrapper(user, passwd, host, port, dirs)

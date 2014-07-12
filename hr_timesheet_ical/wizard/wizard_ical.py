@@ -118,7 +118,7 @@ class wizard_import_icalendar(osv.osv_memory):
             cr.dbname).get('hr.analytic.timesheet')
         analytic_account_obj = pooler.get_pool(
             cr.dbname).get('account.analytic.account')
-        for event in [e for e in events if first <= e.dtstart.date() <= end]:
+        for event in [ev for ev in events if first <= ev.dtstart.date() <= end]:
             project_search = project_re.search(event.title)
             if not project_search:
                 continue
@@ -134,14 +134,19 @@ class wizard_import_icalendar(osv.osv_memory):
                 if not timesheet_line_id:
                     unit_id = timesheet_line_obj.default_get(
                         cr, uid, ['product_uom_id', 'product_id'], {'user_id': data['form']['user_id']})
-                    amount = timesheet_line_obj.on_change_unit_amount(cr, uid, [], unit_id[
-                                                                      'product_id'], event.duration.seconds / 3600.0, unit_id['product_uom_id'])
+                    amount = timesheet_line_obj.on_change_unit_amount(
+                        cr, uid, [], unit_id['product_id'], event.duration.seconds / 3600.0, unit_id['product_uom_id']
+                    )
                     if amount:
                         amount = amount['value']['amount']
                     timesheet_line_obj.create(
                         cr, uid, {
-                            'name': summary, 'date': event.dtstart.strftime('%Y-%m-%d'), 'unit_amount': event.duration.seconds / 3600.0,
-                            'user_id': vdata['form']['user_id'], 'account_id': account_id, 'amount': amount,
+                            'name': summary,
+                            'date': event.dtstart.strftime('%Y-%m-%d'),
+                            'unit_amount': event.duration.seconds / 3600.0,
+                            'user_id': data['form']['user_id'],
+                            'account_id': account_id,
+                            'amount': amount,
                             'event_ical_id': event.unique_id},
                         {'user_id': data['form']['user_id']})
 
@@ -164,7 +169,12 @@ class wizard_import_icalendar(osv.osv_memory):
     states = {
         'init': {
             'actions': [],
-            'result': {'type': 'form', 'arch': ical_form, 'fields': ical_fields, 'state': (('import', 'Import'), ('end', 'Cancel'))}
+            'result': {
+                'type': 'form',
+                'arch': ical_form,
+                'fields': ical_fields,
+                'state': (('import', 'Import'), ('end', 'Cancel'))
+            }
         },
         'import': {
             'actions': [import_ical],
@@ -173,4 +183,3 @@ class wizard_import_icalendar(osv.osv_memory):
     }
 
 wizard_import_icalendar('hr.ical_import')
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

@@ -19,7 +19,7 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 #
-import time
+
 import datetime
 import calendar
 from osv import osv, fields
@@ -34,7 +34,6 @@ class hrself_holidays_summary_dept(osv.osv_memory):
         'date_to': fields.date('To', required=True),
         'depts': fields.many2many('hr.department', 'summary_dept_rel', 'sum_id', 'dept_id', 'Department(s)'),
         'employee_ids': fields.many2many('hr.employee', 'summary_dept_emp_rel', 'sum_id', 'emp_id', 'Employee(s)'),
-        #        'holiday_type': fields.selection([('Validated','Validated'),('Confirmed','Confirmed'),('both','Both Validated and Confirmed')], 'Holiday Type', required=True),
         'report_type': fields.selection([('pdf', 'PDF'), ('excel', 'Excel')], 'Report Type', required=True),
     }
 
@@ -53,7 +52,11 @@ class hrself_holidays_summary_dept(osv.osv_memory):
 
     def _to_date(self, cursor, user, context={}):
         today_date = datetime.date.today()
-        return datetime.datetime(today_date.year, today_date.month, calendar.mdays[today_date.month]).strftime('%Y-%m-%d')
+        return datetime.datetime(
+            today_date.year,
+            today_date.month,
+            calendar.mdays[today_date.month],
+        ).strftime('%Y-%m-%d')
 
     _defaults = {
         'date_from': _from_date,

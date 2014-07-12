@@ -20,8 +20,9 @@
 #
 #
 
-from osv import osv, fields
+from osv import osv
 import pooler
+from tools.translate import _
 
 
 class change_passwd(osv.osv_memory):
@@ -73,7 +74,12 @@ class change_passwd(osv.osv_memory):
     states = {
         'init': {
             'actions': [_get_value],
-            'result': {'type': 'form', 'arch': form, 'fields': fields, 'state': (('end', 'Cancel'), ('process', 'Change'))},
+            'result': {
+                'type': 'form',
+                'arch': form,
+                'fields': fields,
+                'state': (('end', 'Cancel'), ('process', 'Change'))
+            },
         },
         'process': {
             'actions': [_check_password],

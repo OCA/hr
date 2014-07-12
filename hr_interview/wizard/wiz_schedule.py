@@ -62,8 +62,11 @@ class wiz_schedule(osv.osv_memory):
     def _scheduling(self, cr, uid, data, context):
         pool = pooler.get_pool(cr.dbname)
         hr_int_obj = pool.get("hr.interview")
-        if time.strptime(str(data['form']['start_interview']), "%Y-%m-%d %H:%M:%S") < time.strptime(data['form']['end_interview'], "%Y-%m-%d %H:%M:%S") and time.strptime(str(data['form']['start_interview']), "%Y-%m-%d %H:%M:%S")[:3] == time.strptime(str(data['form']['end_interview']), "%Y-%m-%d %H:%M:%S")[:3]:
-            if datetime.datetime(*time.strptime(str(data['form']['end_interview']), "%Y-%m-%d %H:%M:%S")[:6]) >= datetime.datetime(*time.strptime(str(data['form']['start_interview']), "%Y-%m-%d %H:%M:%S")[:6]) + datetime.timedelta(minutes=int(data['form']['interval_time'])):
+        start_interview = time.strptime(str(data['form']['start_interview']), "%Y-%m-%d %H:%M:%S")
+        end_interview = time.strptime(str(data['form']['end_interview']), "%Y-%m-%d %H:%M:%S")
+        if start_interview < end_interview and start_interview[:3] == end_interview[:3]:
+            if (datetime.datetime(*end_interview[:6]) >= datetime.datetime(*start_interview[:6]) +
+                    datetime.timedelta(minutes=int(data['form']['interval_time']))):
                 cur_time = data['form']['start_interview']
                 re_id = deepcopy(data['ids'])
                 list_all = "Interview ID \t Name "
@@ -74,14 +77,15 @@ class wiz_schedule(osv.osv_memory):
                     record = hr_int_obj.read(cr, uid, rec, ['hr_id', 'name'])
                     list_all += "\n" + \
                         record['hr_id'] + "\t\t" + record['name']
-                    id = hr_int_obj.write(
+                    hr_int_obj.write(
                         cr, uid, rec, {'date': cur_time, 'state': 'scheduled'})
                     cur_time = datetime.datetime(*time.strptime(str(cur_time), "%Y-%m-%d %H:%M:%S")[
                         :6]) + datetime.timedelta(minutes=int(data['form']['interval_time']))
                     re_id.remove(rec)
                     end_time = datetime.datetime(*time.strptime(str(cur_time), "%Y-%m-%d %H:%M:%S")[
                         :6]) + datetime.timedelta(minutes=int(data['form']['interval_time']))
-                    if len(re_id) > 0 and time.strptime(str(end_time), "%Y-%m-%d %H:%M:%S") > time.strptime(data['form']['end_interview'], "%Y-%m-%d %H:%M:%S"):
+                    if len(re_id) > 0 and (time.strptime(str(end_time), "%Y-%m-%d %H:%M:%S") >
+                                           time.strptime(data['form']['end_interview'], "%Y-%m-%d %H:%M:%S")):
                         remain = "Interview ID \t Name "
                         for record in hr_int_obj.read(cr, uid, re_id, ['hr_id', 'name']):
                             remain += "\n" + \
@@ -106,7 +110,12 @@ class wiz_schedule(osv.osv_memory):
     states = {
         'init': {
             'actions': [],
-            'result': {'type': 'form', 'arch': _schedule_form, 'fields': _schedule_fields, 'state': [('schedule', 'Schedule', 'gtk-ok'), ('end', 'Cancel', 'gtk-cancel')]}
+            'result': {
+                'type': 'form',
+                'arch': _schedule_form,
+                'fields': _schedule_fields,
+                'state': [('schedule', 'Schedule', 'gtk-ok'), ('end', 'Cancel', 'gtk-cancel')],
+            }
         },
         'schedule': {
             'actions': [_scheduling],
@@ -114,4 +123,3 @@ class wiz_schedule(osv.osv_memory):
         },
     }
 wiz_schedule('wiz_interview_scheduling')
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

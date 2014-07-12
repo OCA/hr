@@ -19,9 +19,8 @@
 #
 #
 import datetime
-import time
-from mx.DateTime import *
 from osv import fields,  osv
+from tools.translate import _
 
 
 class hr_performance(osv.osv):
@@ -245,7 +244,8 @@ class attribute_line(osv.osv):
             if vals.__contains__('obtained_marks'):
                 if vals['obtained_marks'] > self_obj.total_marks or vals['obtained_marks'] < 0:
                     raise osv.except_osv(
-                        'Validation Error !', 'Obtained Marks Should be from  0 to ' + str(int(self_obj.total_marks)) + '')
+                        _('Validation Error !'),
+                        _('Obtained Marks Should be from  0 to ') + str(int(self_obj.total_marks)) + '')
                 return super(attribute_line, self).write(cr, uid, ids, vals, context=context)
 
     _name = "attribute.line"
