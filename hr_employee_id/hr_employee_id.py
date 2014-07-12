@@ -1,4 +1,4 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 #
 #
 #    Copyright (C) 2011,2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
@@ -21,11 +21,11 @@
 
 import random
 import string
-from osv import fields, osv
-from tools.translate import _
+from openerp.osv import fields, orm
+from openerp.tools.translate import _
 
 
-class hr_employee(osv.osv):
+class hr_employee(orm.Model):
 
     """Implement company wide unique identification number."""
 
@@ -58,15 +58,12 @@ class hr_employee(osv.osv):
             return True
         return False
 
-#    _constraints = [
-#        (_check_identification, 'At least one of the identification fields must be filled in.', ['identification_id', 'tin_no']),
-#    ]
-
     def _generate_employeeno(self, cr, uid, arg):
-        """Generate a random employee identifacation number"""
+        """Generate a random employee identification number"""
 
         tries = 0
         max_tries = 50
+        eid = False
         while tries < max_tries:
             rnd = random.SystemRandom()
             eid = ''.join(rnd.choice(string.digits)
@@ -80,12 +77,14 @@ class hr_employee(osv.osv):
             tries += 1
 
         if tries == max_tries:
-            raise osv.except_osv(
-                _('Error'), _('Unable to generate an Employee ID number that is unique.'))
+            raise orm.except_orm(
+                _('Error'),
+                _('Unable to generate an Employee ID number that is unique.')
+            )
 
         return eid
 
-    def create(self, cr, uid, vals, context={}):
+    def create(self, cr, uid, vals, context=None):
 
         eid = self._generate_employeeno(cr, uid, context)
         vals['employee_no'] = eid
