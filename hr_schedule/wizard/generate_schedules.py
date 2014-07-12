@@ -1,4 +1,4 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 #
 #
 #    Copyright (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
@@ -22,10 +22,10 @@
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 
-from openerp.osv import fields, osv
+from openerp.osv import fields, orm
 
 
-class hr_schedule_generate(osv.TransientModel):
+class hr_schedule_generate(orm.TransientModel):
 
     _name = 'hr.schedule.generate'
     _description = 'Generate Schedules'

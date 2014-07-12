@@ -1,4 +1,4 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 #
 #
 #    Copyright (C) 2011 Michael Telahun Makonnen <mmakonnen@gmail.com>.
@@ -22,14 +22,14 @@
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 
-import netsvc
+from openerp import netsvc
 import openerp.addons.decimal_precision as dp
-from osv import fields, osv
+from openerp.osv import fields, orm
 from openerp.tools import DEFAULT_SERVER_DATE_FORMAT
-from tools.translate import _
+from openerp.tools.translate import _
 
 
-class wage_increment(osv.osv):
+class wage_increment(orm.Model):
 
     _name = 'hr.contract.wage.increment'
     _description = 'HR Contract Wage Adjustment'
@@ -58,8 +58,13 @@ class wage_increment(osv.osv):
         return res
 
     _columns = {
-        'effective_date': fields.date('Effective Date', required=True, readonly=True, states={'draft': [('readonly', False)]}),
-        'wage': fields.float('New Wage', digits_compute=dp.get_precision('Payroll'), required=True, readonly=True, states={'draft': [('readonly', False)]}),
+        'effective_date': fields.date(
+            'Effective Date', required=True, readonly=True, states={'draft': [('readonly', False)]}
+        ),
+        'wage': fields.float(
+            'New Wage', digits_compute=dp.get_precision('Payroll'), required=True, readonly=True,
+            states={'draft': [('readonly', False)]}
+        ),
         'new_contract_id': fields.many2one('hr.contract', 'New Contract', readonly=True),
         'contract_id': fields.many2one('hr.contract', 'Contract', readonly=True),
         'current_wage': fields.related('contract_id', 'wage', type='float',
@@ -87,7 +92,7 @@ class wage_increment(osv.osv):
 
     def _get_contract_data(self, cr, uid, field_list, context=None):
 
-        if context == None:
+        if context is None:
             context = {}
         employee_id = self._get_employee(cr, uid, context=context)
         ee_data = self.pool.get('hr.employee').read(
@@ -108,7 +113,7 @@ class wage_increment(osv.osv):
 
     def _get_employee(self, cr, uid, context=None):
 
-        if context == None:
+        if context is None:
             context = {}
         employee_id = context.get('active_id', False)
 
@@ -158,8 +163,10 @@ class wage_increment(osv.osv):
         if len(wage_incr_ids) > 0:
             data = self.pool.get('hr.contract').read(
                 cr, uid, wage_incr.contract_id.id, ['name'], context=context)
-            raise osv.except_osv(
-                _('Warning'), _('There is already another wage adustment in progress for this contract: %s.') % (data['name']))
+            raise orm.except_orm(
+                _('Warning'),
+                _('There is already another wage adjustment in progress for this contract: %s.') % (data['name'])
+            )
 
         contract_obj = self.pool.get('hr.contract')
         data = contract_obj.read(
@@ -168,8 +175,10 @@ class wage_increment(osv.osv):
         if data['state'] in ['draft', 'done']:
             data = self.pool.get('hr.contract').read(
                 cr, uid, wage_incr.contract_id.id, ['name'], context=context)
-            raise osv.except_osv(
-                _('Warning!'), _('The current state of the contract does not permit a wage change: %s') % (data['name']))
+            raise orm.except_orm(
+                _('Warning!'),
+                _('The current state of the contract does not permit a wage change: %s') % (data['name'])
+            )
 
         if data.get('date_end', False) and data['date_end'] != '':
             dContractEnd = datetime.strptime(
@@ -179,9 +188,10 @@ class wage_increment(osv.osv):
             if dEffective >= dContractEnd:
                 data = self.pool.get('hr.contract').read(
                     cr, uid, wage_incr.contract_id.id, ['name'], context=context)
-                raise osv.except_osv(
-                    _('Warning!'), _('The contract end date is on or before the effective date of the adjustment: %s') % (data['name']))
-
+                raise orm.except_orm(
+                    _('Warning!'),
+                    _('The contract end date is on or before the effective date of the adjustment: %s') % (data['name'])
+                )
         return True
 
     def action_wage_increment(self, cr, uid, ids, context=None):
@@ -195,7 +205,7 @@ class wage_increment(osv.osv):
         #
         for wi in self.browse(cr, uid, ids, context=context):
 
-            if wi.wage_difference > -0.01 and wi.wage_difference < 0.01:
+            if -0.01 < wi.wage_difference < 0.01:
                 continue
 
             self._check_state(cr, uid, wi, context=context)
@@ -215,7 +225,7 @@ class wage_increment(osv.osv):
             if not notes:
                 notes = ''
             notes = notes + \
-                '\nSupercedes (because of wage adjustment) previous contract: ' + \
+                _('\nSuperceedes (because of wage adjustment) previous contract: ') + \
                 wi.contract_id.name
             data['notes'] = notes
 
@@ -226,7 +236,7 @@ class wage_increment(osv.osv):
                 else:
                     notes = ''
                 notes = notes + \
-                    '\nSuperceded (for wage adjustment) by contract: ' + \
+                    _('\nSuperceeded (for wage adjustment) by contract: ') + \
                     wi.contract_id.name
                 vals = {'notes': notes,
                         'date_end': False}
@@ -251,7 +261,7 @@ class wage_increment(osv.osv):
         contract_id = vals.get('contract_id', False)
 
         if not contract_id:
-            if context != None:
+            if context is not None:
                 contract_id = context.get('active_id')
 
         data = self.pool.get(
@@ -260,8 +270,11 @@ class wage_increment(osv.osv):
 
         # Check that the contract start date is before the effective date
         if vals['effective_date'] <= data['date_start']:
-            raise osv.except_osv(
-                _('Error'), _('The effective date of the adjustment must be after the contract start date. Contract: %s.') % (data['name']))
+            raise orm.except_orm(
+                _('Error'),
+                _('The effective date of the adjustment must be after the '
+                  'contract start date. Contract: %s.') % (data['name'])
+            )
 
         wage_incr_ids = self.search(cr, uid, [
             ('contract_id', '=', contract_id),
@@ -270,8 +283,10 @@ class wage_increment(osv.osv):
         ],
             context=context)
         if len(wage_incr_ids) > 0:
-            raise osv.except_osv(
-                _('Warning'), _('There is already another wage adustment in progress for this contract: %s.') % (data['name']))
+            raise orm.except_orm(
+                _('Warning'),
+                _('There is already another wage adjustment in progress for this contract: %s.') % (data['name'])
+            )
 
         return super(wage_increment, self).create(cr, uid, vals, context=context)
 
@@ -291,13 +306,16 @@ class wage_increment(osv.osv):
 
         for incr in self.browse(cr, uid, ids, context=context):
             if incr.state in ['approve']:
-                raise osv.except_osv(_('The record cannot be deleted!'), _(
-                    'You may not delete a record that is in a %s state:\nEmployee: %s') % (incr.state, incr.employee_id.name))
+                raise orm.except_orm(
+                    _('The record cannot be deleted!'),
+                    _("""\
+You may not delete a record that is in a %s state:
+Employee: %s""") % (incr.state, incr.employee_id.name))
 
         return super(wage_increment, self).unlink(cr, uid, ids, context=context)
 
 
-class wage_increment_run(osv.osv):
+class wage_increment_run(orm.Model):
 
     _name = 'hr.contract.wage.increment.run'
     _description = 'Wage Increment Batches'
@@ -356,8 +374,8 @@ class wage_increment_run(osv.osv):
 
         for run in self.browse(cr, uid, ids, context=context):
             if run.state in ['approve']:
-                raise osv.except_osv(_('The adjustment run cannot be deleted!'), _(
-                    'You may not delete a wage adjustment that is in the %s state.') % (run.state))
+                raise orm.except_orm(_('The adjustment run cannot be deleted!'), _(
+                    'You may not delete a wage adjustment that is in the %s state.') % run.state)
 
         return super(wage_increment_run, self).unlink(cr, uid, ids, context=context)
 
@@ -384,7 +402,7 @@ class wage_increment_run(osv.osv):
         return self._state(cr, uid, ids, 'signal_decline', 'decline', context)
 
 
-class hr_contract(osv.Model):
+class hr_contract(orm.Model):
 
     _name = 'hr.contract'
     _inherit = 'hr.contract'
@@ -398,9 +416,11 @@ class hr_contract(osv.Model):
                     'draft', 'confirm']),
             ],
                 context=context)
-        if len(wi_ids) > 0:
-            data = self.pool.get('hr.contract').read(cr, uid, i, ['name'],
-                                                     context=context)
-            raise osv.except_osv(_('Error'),
-                                 _('There is a wage adustment in progress for this contract. Either delete the adjustment or delay the termination of contract %s.') % (data['name']))
+            if wi_ids:
+                data = self.pool.get('hr.contract').read(cr, uid, i, ['name'],
+                                                         context=context)
+                raise orm.except_orm(_('Error'),
+                                     _('There is a wage adjustment in progress for this contract. '
+                                       'Either delete the adjustment or delay the termination of '
+                                       'contract %s.') % (data['name']))
         return super(hr_contract, self).state_pending_done(cr, uid, ids, context=context)

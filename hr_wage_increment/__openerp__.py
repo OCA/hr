@@ -1,4 +1,4 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 #
 #
 #    Copyright (C) 2011,2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
@@ -33,15 +33,15 @@ Wage Increment Handling
     "author": "Michael Telahun Makonnen <mmakonnen@gmail.com",
     "website": "http://www.openerp.com",
     "depends": ["hr_contract_state", "hr_payroll_period", "hr_security"],
-    "init_xml": [],
-    'update_xml': [
+    "external_dependencies": {
+        'python': ['dateutil'],
+    },
+    "data": [
         'security/ir.model.access.csv',
         'wizard/wage_adjustment_by_employees.xml',
         'wage_adjustment_run_workflow.xml',
         'wage_increment_view.xml',
         'wage_increment_workflow.xml',
     ],
-    'demo_xml': [],
     'installable': True,
-    'active': False,
 }

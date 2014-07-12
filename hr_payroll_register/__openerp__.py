@@ -1,4 +1,4 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 #
 #
 #    Copyright (C) 2011,2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
@@ -33,9 +33,7 @@ Payroll Register
     'depends': [
         'hr_payroll',
     ],
-    'init_xml': [
-    ],
-    'update_xml': [
+    'data': [
         'security/ir.model.access.csv',
         'wizard/hr_payroll_register_run_view.xml',
         'hr_payroll_register_report.xml',
@@ -43,8 +41,5 @@ Payroll Register
     ],
     'test': [
     ],
-    'demo_xml': [
-    ],
     'installable': True,
-    'active': False,
 }

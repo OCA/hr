@@ -1,4 +1,4 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 #
 #
 #    Copyright (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
@@ -35,9 +35,7 @@ Warning/Disciplinary Action Management
         'hr_security',
         'hr_transfer',
     ],
-    'init_xml': [
-    ],
-    'update_xml': [
+    'data': [
         'security/ir.model.access.csv',
         'wizard/action.xml',
         'hr_infraction_data.xml',
@@ -46,8 +44,5 @@ Warning/Disciplinary Action Management
     ],
     'test': [
     ],
-    'demo_xml': [
-    ],
     'installable': True,
-    'active': False,
 }

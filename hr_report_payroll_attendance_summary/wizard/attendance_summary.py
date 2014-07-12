@@ -1,4 +1,4 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 #
 #
 #    Copyright (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
@@ -19,10 +19,10 @@
 #
 #
 
-from openerp.osv import fields, osv
+from openerp.osv import fields, orm
 
 
-class attendance_summary_wizard(osv.TransientModel):
+class attendance_summary_wizard(orm.TransientModel):
 
     _name = 'hr.attendance.summary.payroll'
 

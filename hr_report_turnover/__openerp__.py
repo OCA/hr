@@ -1,4 +1,4 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 #
 #
 #    Copyright (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
@@ -36,16 +36,11 @@ Employee Turn-over by Department
         'hr_employee_state',
         'report_aeroo',
     ],
-    'init_xml': [
-    ],
-    'update_xml': [
+    'data': [
         'reports.xml',
         'wizard/employee_turnover_view.xml',
     ],
     'test': [
     ],
-    'demo_xml': [
-    ],
     'installable': True,
-    'active': False,
 }

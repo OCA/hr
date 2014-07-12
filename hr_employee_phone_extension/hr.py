@@ -32,5 +32,3 @@ class hr_employee(orm.Model):
         'short_number': fields.char('Short Number', size=20,
                                     help='Short phone number.'),
     }
-
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

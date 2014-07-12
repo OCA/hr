@@ -1,4 +1,4 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 #
 #
 #    Copyright (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
@@ -46,9 +46,10 @@ example:
         'hr_schedule',
         'hr_security',
     ],
-    'init_xml': [
-    ],
-    'update_xml': [
+    "external_dependencies": {
+        'python': ['dateutil'],
+    },
+    'data': [
         'security/ir.model.access.csv',
         'security/ir_rule.xml',
         'data/hr_payroll_period_data.xml',
@@ -61,8 +62,5 @@ example:
     ],
     'test': [
     ],
-    'demo_xml': [
-    ],
     'installable': True,
-    'active': False,
 }

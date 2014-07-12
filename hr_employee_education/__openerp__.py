@@ -1,4 +1,4 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 #
 #
 #    Copyright (C) 2011,2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
@@ -34,16 +34,11 @@ Details About and Employee's Education
     'depends': [
         'hr',
     ],
-    'init_xml': [
-    ],
-    'update_xml': [
+    'data': [
         'wizard/hr_employee_by_department_view.xml',
         'hr_view.xml',
     ],
     'test': [
     ],
-    'demo_xml': [
-    ],
     'installable': True,
-    'active': False,
 }

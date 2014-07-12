@@ -1,4 +1,4 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 #
 #
 #    Copyright (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
@@ -21,16 +21,17 @@
 
 import time
 
-import netsvc
 
 from datetime import datetime, timedelta
 from dateutil.relativedelta import relativedelta
 from pytz import timezone, utc
 
-from osv import fields, osv
+from openerp import netsvc
+from openerp.osv import fields, orm
 from openerp.tools import DEFAULT_SERVER_DATETIME_FORMAT as OE_DTFORMAT
 from openerp.tools import DEFAULT_SERVER_DATE_FORMAT as OE_DFORMAT
 from openerp.tools.translate import _
+
 import logging
 _logger = logging.getLogger(__name__)
 
@@ -44,7 +45,7 @@ DAYOFWEEK_SELECTION = [('0', 'Monday'),
                        ]
 
 
-class week_days(osv.Model):
+class week_days(orm.Model):
 
     _name = 'hr.schedule.weekday'
     _description = 'Days of the Week'
@@ -55,7 +56,7 @@ class week_days(osv.Model):
     }
 
 
-class hr_schedule(osv.osv):
+class hr_schedule(orm.Model):
 
     _name = 'hr.schedule'
     _inherit = ['mail.thread']
@@ -71,18 +72,29 @@ class hr_schedule(osv.osv):
         return res
 
     _columns = {
-        'name': fields.char("Description", size=64, required=True, readonly=True, states={'draft': [('readonly', False)]}),
+        'name': fields.char(
+            "Description", size=64, required=True, readonly=True, states={'draft': [('readonly', False)]}
+        ),
         'company_id': fields.many2one('res.company', 'Company', readonly=True),
-        'employee_id': fields.many2one('hr.employee', 'Employee', required=True, readonly=True, states={'draft': [('readonly', False)]}),
-        'template_id': fields.many2one('hr.schedule.template', 'Schedule Template', readonly=True, states={'draft': [('readonly', False)]}),
-        'detail_ids': fields.one2many('hr.schedule.detail', 'schedule_id', 'Schedule Detail', readonly=True, states={'draft': [('readonly', False)]}),
+        'employee_id': fields.many2one(
+            'hr.employee', 'Employee', required=True, readonly=True, states={'draft': [('readonly', False)]},
+        ),
+        'template_id': fields.many2one(
+            'hr.schedule.template', 'Schedule Template', readonly=True, states={'draft': [('readonly', False)]},
+        ),
+        'detail_ids': fields.one2many(
+            'hr.schedule.detail', 'schedule_id', 'Schedule Detail', readonly=True,
+            states={'draft': [('readonly', False)]},
+        ),
         'date_start': fields.date('Start Date', required=True, readonly=True, states={'draft': [('readonly', False)]}),
         'date_end': fields.date('End Date', required=True, readonly=True, states={'draft': [('readonly', False)]}),
         'department_id': fields.related('employee_id', 'department_id', type='many2one',
                                         relation='hr.department', string='Department', readonly=True,
                                         store={
                                             'hr.schedule': (lambda s, cr, u, ids, ctx: ids, ['employee_id'], 10)}),
-        'alert_ids': fields.function(_compute_alerts, type='one2many', relation='hr.schedule.alert', string='Alerts', method=True, readonly=True),
+        'alert_ids': fields.function(
+            _compute_alerts, type='one2many', relation='hr.schedule.alert', string='Alerts', method=True, readonly=True
+        ),
         'restday_ids1': fields.many2many('hr.schedule.weekday', 'schedule_restdays_rel1', 'sched_id',
                                          'weekday_id', string='Rest Days Week 1'),
         'restday_ids2': fields.many2many('hr.schedule.weekday', 'schedule_restdays_rel2', 'sched_id',
@@ -102,7 +114,9 @@ class hr_schedule(osv.osv):
     }
 
     _defaults = {
-        'company_id': lambda self, cr, uid, context: self.pool.get('res.company')._company_default_get(cr, uid, 'hr.schedule', context=context),
+        'company_id': lambda self, cr, uid, context: self.pool.get('res.company')._company_default_get(
+            cr, uid, 'hr.schedule', context=context
+        ),
         'state': 'draft',
     }
 
@@ -123,10 +137,11 @@ class hr_schedule(osv.osv):
     ]
 
     def get_rest_days(self, cr, uid, employee_id, dt, context=None):
-        '''If the rest day(s) have been explicitly specified that's what is returned, otherwise
+        """If the rest day(s) have been explicitly specified that's what is returned, otherwise
         a guess is returned based on the week days that are not scheduled. If an explicit
         rest day(s) has not been specified an empty list is returned. If it is able to figure
-        out the rest days it will return a list of week day integers with Monday being 0.'''
+        out the rest days it will return a list of week day integers with Monday being 0.
+        """
 
         day = dt.strftime(OE_DTFORMAT)
         ids = self.search(cr, uid, [('employee_id', '=', employee_id),
@@ -135,7 +150,7 @@ class hr_schedule(osv.osv):
         if len(ids) == 0:
             return None
         elif len(ids) > 1:
-            raise osv.except_osv(_('Programming Error'), _(
+            raise orm.except_orm(_('Programming Error'), _(
                 'Employee has a scheduled date in more than one schedule.'))
 
         # If the day is in the middle of the week get the start of the week
@@ -148,10 +163,11 @@ class hr_schedule(osv.osv):
         return self.get_rest_days_by_id(cr, uid, ids[0], week_start, context=context)
 
     def get_rest_days_by_id(self, cr, uid, Id, week_start, context=None):
-        '''If the rest day(s) have been explicitly specified that's what is returned, otherwise
+        """If the rest day(s) have been explicitly specified that's what is returned, otherwise
         a guess is returned based on the week days that are not scheduled. If an explicit
         rest day(s) has not been specified an empty list is returned. If it is able to figure
-        out the rest days it will return a list of week day integers with Monday being 0.'''
+        out the rest days it will return a list of week day integers with Monday being 0.
+        """
 
         res = []
 
@@ -260,7 +276,7 @@ class hr_schedule(osv.osv):
         _logger.warning('field: %s', field_name)
         _logger.warning('rest_days: %s', rest_days)
         restday_ids = []
-        if rest_days == None:
+        if rest_days is None:
             for rd in schedule.template_id.restday_ids:
                 restday_ids.append(rd.id)
         else:
@@ -327,10 +343,10 @@ class hr_schedule(osv.osv):
                     hour, sep, minute = worktime.hour_from.partition(':')
                     toHour, toSep, toMin = worktime.hour_to.partition(':')
                     if len(sep) == 0 or len(toSep) == 0:
-                        raise osv.except_osv(
+                        raise orm.except_orm(
                             _('Invalid Time Format'), _('The time should be entered as HH:MM'))
 
-                    # XXX - Someone affected by DST should fix this
+                    # TODO - Someone affected by DST should fix this
                     #
                     dtStart = datetime.strptime(dWeekStart.strftime(
                         '%Y-%m-%d') + ' ' + hour + ':' + minute + ':00', '%Y-%m-%d %H:%M:%S')
@@ -366,13 +382,13 @@ class hr_schedule(osv.osv):
                         if utcdtFrom <= utcdtStart and utcdtTo >= utcdtEnd:
                             _skip = True
                             break
-                        elif utcdtFrom > utcdtStart and utcdtFrom <= utcdtEnd:
+                        elif utcdtStart < utcdtFrom <= utcdtEnd:
                             if utcdtTo == utcdtEnd:
                                 _skip = True
                             else:
                                 utcdtEnd = utcdtFrom + timedelta(seconds=-1)
                             break
-                        elif utcdtTo >= utcdtStart and utcdtTo < utcdtEnd:
+                        elif utcdtStart <= utcdtTo < utcdtEnd:
                             if utcdtTo == utcdtEnd:
                                 _skip = True
                             else:
@@ -406,8 +422,9 @@ class hr_schedule(osv.osv):
         return my_id
 
     def create_mass_schedule(self, cr, uid, context=None):
-        '''Creates tentative schedules for all employees based on the
-        schedule template attached to their contract. Called from the scheduler.'''
+        """Creates tentative schedules for all employees based on the
+        schedule template attached to their contract. Called from the scheduler.
+        """
 
         sched_obj = self.pool.get('hr.schedule')
         ee_obj = self.pool.get('hr.employee')
@@ -505,9 +522,10 @@ class hr_schedule(osv.osv):
         return True
 
     def workflow_lock(self, cr, uid, ids, context=None):
-        '''Lock the Schedule Record. Expects to be called by its schedule detail
+        """Lock the Schedule Record. Expects to be called by its schedule detail
         records as they are locked one by one.  When the last one has been locked
-        the schedule will also be locked.'''
+        the schedule will also be locked.
+        """
 
         all_locked = True
         for sched in self.browse(cr, uid, ids, context=context):
@@ -520,9 +538,10 @@ class hr_schedule(osv.osv):
         return all_locked
 
     def workflow_unlock(self, cr, uid, ids, context=None):
-        '''Unlock the Schedule Record. Expects to be called by its schedule detail
+        """Unlock the Schedule Record. Expects to be called by its schedule detail
         records as they are unlocked one by one.  When the first one has been unlocked
-        the schedule will also be unlocked.'''
+        the schedule will also be unlocked.
+        """
 
         all_locked = True
         for sched in self.browse(cr, uid, ids, context=context):
@@ -532,10 +551,10 @@ class hr_schedule(osv.osv):
             else:
                 all_locked = False
 
-        return all_locked == False
+        return all_locked is False
 
 
-class schedule_detail(osv.osv):
+class schedule_detail(orm.Model):
     _name = "hr.schedule.detail"
     _description = "Schedule Detail"
 
@@ -607,7 +626,7 @@ class schedule_detail(osv.osv):
         return float(dtDelta.seconds / 60) / 60.0
 
     def scheduled_begin_end_times(self, cr, uid, employee_id, contract_id, dt, context=None):
-        '''Returns a list of tuples containing shift start and end times for the day'''
+        """Returns a list of tuples containing shift start and end times for the day"""
 
         res = []
         detail_ids = self.search(cr, uid, [
@@ -641,8 +660,8 @@ class schedule_detail(osv.osv):
     def scheduled_begin_end_times_range(
         self, cr, uid, employee_id, contract_id,
             dStart, dEnd, context=None):
-        '''Returns a dictionary with the dates in range dtStart - dtEnd as keys and
-        a list of tuples containing shift start and end times during those days as values'''
+        """Returns a dictionary with the dates in range dtStart - dtEnd as keys and
+        a list of tuples containing shift start and end times during those days as values"""
 
         res = {}
         d = dStart
@@ -672,8 +691,8 @@ class schedule_detail(osv.osv):
         return res
 
     def _remove_direct_alerts(self, cr, uid, ids, context=None):
-        '''Remove alerts directly attached to the schedule detail and return a unique
-        list of tuples of employee id and schedule detail date.'''
+        """Remove alerts directly attached to the schedule detail and return a unique
+        list of tuples of employee id and schedule detail date."""
 
         if isinstance(ids, (int, long)):
             ids = [ids]
@@ -707,7 +726,7 @@ class schedule_detail(osv.osv):
         return scheds
 
     def _recompute_alerts(self, cr, uid, attendances, context=None):
-        '''Recompute alerts for each record in schedule detail.'''
+        """Recompute alerts for each record in schedule detail."""
 
         alert_obj = self.pool.get('hr.schedule.alert')
 
@@ -720,7 +739,7 @@ class schedule_detail(osv.osv):
             if strDay >= fields.date.context_today(self, cr, uid, context=context):
                 continue
 
-            # XXX - Someone who cares about DST should fix this
+            # TODO - Someone who cares about DST should fix this
             #
             data = self.pool.get('res.users').read(
                 cr, uid, uid, ['tz'], context=context)
@@ -743,7 +762,7 @@ class schedule_detail(osv.osv):
     def create(self, cr, uid, vals, context=None):
 
         if 'day' not in vals and 'date_start' in vals:
-            # XXX - Someone affected by DST should fix this
+            # TODO - Someone affected by DST should fix this
             #
             user = self.pool.get('res.users').browse(
                 cr, uid, uid, context=context)
@@ -835,7 +854,7 @@ class schedule_detail(osv.osv):
         return True
 
 
-class hr_schedule_request(osv.osv):
+class hr_schedule_request(orm.Model):
 
     _name = 'hr.schedule.request'
     _description = 'Change Request'
@@ -866,7 +885,7 @@ class hr_schedule_request(osv.osv):
     }
 
 
-class hr_schedule_alert(osv.osv):
+class hr_schedule_alert(orm.Model):
 
     _name = 'hr.schedule.alert'
     _description = 'Attendance Exception'
@@ -918,16 +937,16 @@ class hr_schedule_alert(osv.osv):
     }
 
     def check_for_alerts(self, cr, uid, context=None):
-        '''Check the schedule detail and attendance records for yesterday
-        against the scheduling/attendance alert rules. If any rules match create a 
-        record in the database.'''
+        """Check the schedule detail and attendance records for yesterday
+        against the scheduling/attendance alert rules. If any rules match create a
+        record in the database."""
 
         dept_obj = self.pool.get('hr.department')
         detail_obj = self.pool.get('hr.schedule.detail')
         attendance_obj = self.pool.get('hr.attendance')
         rule_obj = self.pool.get('hr.schedule.alert.rule')
 
-        # XXX - Someone who cares about DST should fix ths
+        # TODO - Someone who cares about DST should fix ths
         #
         data = self.pool.get('res.users').read(
             cr, uid, uid, ['tz'], context=context)
@@ -1049,13 +1068,13 @@ class hr_schedule_alert(osv.osv):
         return att_ids
 
     def compute_alerts_by_employee(self, cr, uid, employee_id, strDay, context=None):
-        '''Compute alerts for employee on specified day.'''
+        """Compute alerts for employee on specified day."""
 
         detail_obj = self.pool.get('hr.schedule.detail')
         attendance_obj = self.pool.get('hr.attendance')
         rule_obj = self.pool.get('hr.schedule.alert.rule')
 
-        # XXX - Someone who cares about DST should fix ths
+        # TODO - Someone who cares about DST should fix ths
         #
         data = self.pool.get('res.users').read(
             cr, uid, uid, ['tz'], context=context)
@@ -1133,7 +1152,7 @@ class hr_schedule_alert(osv.osv):
                             context=context)
 
 
-class hr_schedule_alert_rule(osv.osv):
+class hr_schedule_alert_rule(orm.Model):
 
     _name = 'hr.schedule.alert.rule'
     _description = 'Scheduling/Attendance Exception Rule'
@@ -1147,7 +1166,11 @@ class hr_schedule_alert_rule(osv.osv):
             ('high', 'High'),
             ('critical', 'Critical'),
         ), 'Severity', required=True),
-        'grace_period': fields.integer('Grace Period', help='In the case of early or late rules, the amount of time before/after the scheduled time that the rule will trigger.'),
+        'grace_period': fields.integer(
+            'Grace Period',
+            help='In the case of early or late rules, the amount of time '
+                 'before/after the scheduled time that the rule will trigger.'
+        ),
         'window': fields.integer('Window of Activation'),
         'active': fields.boolean('Active'),
     }
@@ -1158,10 +1181,11 @@ class hr_schedule_alert_rule(osv.osv):
     }
 
     def check_rule(self, cr, uid, rule, sched_details, punches, context=None):
-        '''Identify if the schedule detail or attendance records trigger any rule. If
+        """Identify if the schedule detail or attendance records trigger any rule. If
         they do return the datetime and id of the record that triggered it in one of
         the appropriate lists.  All schedule detail and attendance records are expected
-        to be in sorted order according to datetime.'''
+        to be in sorted order according to datetime.
+        """
 
         res = {'schedule_details': [], 'punches': []}
 
@@ -1239,7 +1263,7 @@ class hr_schedule_alert_rule(osv.osv):
                     dtEnd = datetime.strptime(punch.name, '%Y-%m-%d %H:%M:%S')
                     actual_hours += float(
                         (dtEnd - dtStart).seconds / 60) / 60.0
-                    if actual_hours > 8 and sched_hours <= 8:
+                    if actual_hours > 8 >= sched_hours:
                         res['punches'].append((punch.name, punch.id))
         elif rule.code == 'TARDY':
             for detail in sched_details:
@@ -1253,7 +1277,7 @@ class hr_schedule_alert_rule(osv.osv):
                         difference = 0
                         if dtPunch > dtSched:
                             difference = (dtPunch - dtSched).seconds / 60
-                        if difference < rule.window and difference > rule.grace_period:
+                        if rule.window > difference > rule.grace_period:
                             isMatch = True
                             break
                 if isMatch:
@@ -1270,7 +1294,7 @@ class hr_schedule_alert_rule(osv.osv):
                         difference = 0
                         if dtPunch < dtSched:
                             difference = (dtSched - dtPunch).seconds / 60
-                        if difference < rule.window and difference > rule.grace_period:
+                        if rule.window > difference > rule.grace_period:
                             isMatch = True
                             break
                 if isMatch:
@@ -1287,7 +1311,7 @@ class hr_schedule_alert_rule(osv.osv):
                         difference = 0
                         if dtPunch < dtSched:
                             difference = (dtSched - dtPunch).seconds / 60
-                        if difference < rule.window and difference > rule.grace_period:
+                        if rule.window > difference > rule.grace_period:
                             isMatch = True
                             break
                 if isMatch:
@@ -1304,7 +1328,7 @@ class hr_schedule_alert_rule(osv.osv):
                         difference = 0
                         if dtPunch > dtSched:
                             difference = (dtPunch - dtSched).seconds / 60
-                        if difference < rule.window and difference > rule.grace_period:
+                        if rule.window > difference > rule.grace_period:
                             isMatch = True
                             break
                 if isMatch:
@@ -1333,7 +1357,7 @@ class hr_schedule_alert_rule(osv.osv):
         return res
 
 
-class hr_schedule_template(osv.osv):
+class hr_schedule_template(orm.Model):
 
     _name = 'hr.schedule.template'
     _description = 'Employee Working Schedule Template'
@@ -1347,16 +1371,17 @@ class hr_schedule_template(osv.osv):
     }
 
     _defaults = {
-        'company_id': lambda self, cr, uid, context: self.pool.get('res.company')._company_default_get(cr, uid, 'resource.calendar', context=context)
+        'company_id': lambda self, cr, uid, context: self.pool.get('res.company')._company_default_get(
+            cr, uid, 'resource.calendar', context=context
+        ),
     }
 
     def get_rest_days(self, cr, uid, t_id, context=None):
-        '''If the rest day(s) have been explicitly specified that's what is returned, otherwise
+        """If the rest day(s) have been explicitly specified that's what is returned, otherwise
         a guess is returned based on the week days that are not scheduled. If an explicit
         rest day(s) has not been specified an empty list is returned. If it is able to figure
-        out the rest days it will return a list of week day integers with Monday being 0.'''
+        out the rest days it will return a list of week day integers with Monday being 0."""
 
-        res = []
         tpl = self.browse(cr, uid, t_id, context=context)
         if tpl.restday_ids:
             res = [rd.sequence for rd in tpl.restday_ids]
@@ -1374,8 +1399,9 @@ class hr_schedule_template(osv.osv):
         return res
 
     def get_hours_by_weekday(self, cr, uid, tpl_id, day_no, context=None):
-        ''' Return the number working hours in the template for day_no.
-        For day_no 0 is Monday.'''
+        """Return the number working hours in the template for day_no.
+        For day_no 0 is Monday.
+        """
 
         delta = timedelta(seconds=0)
         tpl = self.browse(cr, uid, tpl_id, context=context)
@@ -1386,7 +1412,7 @@ class hr_schedule_template(osv.osv):
             fromHour, fromSep, fromMin = worktime.hour_from.partition(':')
             toHour, toSep, toMin = worktime.hour_to.partition(':')
             if len(fromSep) == 0 or len(toSep) == 0:
-                raise osv.except_osv(
+                raise orm.except_orm(
                     'Invalid Data', 'Format of working hours is incorrect')
 
             delta += datetime.strptime(toHour + ':' + toMin, '%H:%M') - datetime.strptime(
@@ -1395,7 +1421,7 @@ class hr_schedule_template(osv.osv):
         return float(delta.seconds / 60) / 60.0
 
 
-class hr_schedule_working_times(osv.osv):
+class hr_schedule_working_times(orm.Model):
 
     _name = "hr.schedule.template.worktime"
     _description = "Work Detail"
@@ -1422,7 +1448,7 @@ class hr_schedule_working_times(osv.osv):
     }
 
 
-class contract_init(osv.Model):
+class contract_init(orm.Model):
 
     _inherit = 'hr.contract.init'
 
@@ -1433,7 +1459,7 @@ class contract_init(osv.Model):
     }
 
 
-class hr_contract(osv.osv):
+class hr_contract(orm.Model):
 
     _name = 'hr.contract'
     _inherit = 'hr.contract'
@@ -1446,7 +1472,7 @@ class hr_contract(osv.osv):
 
         res = False
         init = self.get_latest_initial_values(cr, uid, context=context)
-        if init != None and init.sched_template_id:
+        if init is not None and init.sched_template_id:
             res = init.sched_template_id.id
         return res
 
@@ -1455,7 +1481,7 @@ class hr_contract(osv.osv):
     }
 
 
-class hr_attendance(osv.osv):
+class hr_attendance(orm.Model):
 
     _name = 'hr.attendance'
     _inherit = 'hr.attendance'
@@ -1465,8 +1491,9 @@ class hr_attendance(osv.osv):
     }
 
     def _remove_direct_alerts(self, cr, uid, ids, context=None):
-        '''Remove alerts directly attached to the attendance and return a unique
-        list of tuples of employee ids and attendance dates.'''
+        """Remove alerts directly attached to the attendance and return a unique
+        list of tuples of employee ids and attendance dates.
+        """
 
         alert_obj = self.pool.get('hr.schedule.alert')
 
@@ -1488,7 +1515,7 @@ class hr_attendance(osv.osv):
         return attendances
 
     def _recompute_alerts(self, cr, uid, attendances, context=None):
-        '''Recompute alerts for each record in attendances.'''
+        """Recompute alerts for each record in attendances."""
 
         alert_obj = self.pool.get('hr.schedule.alert')
 
@@ -1501,7 +1528,7 @@ class hr_attendance(osv.osv):
             if strDay >= fields.date.context_today(self, cr, uid, context=context):
                 continue
 
-            # XXX - Someone who cares about DST should fix this
+            # TODO - Someone who cares about DST should fix this
             #
             data = self.pool.get('res.users').read(
                 cr, uid, uid, ['tz'], context=context)
@@ -1571,7 +1598,7 @@ class hr_attendance(osv.osv):
         return res
 
 
-class hr_holidays(osv.Model):
+class hr_holidays(orm.Model):
 
     _inherit = 'hr.holidays'
 
@@ -1603,7 +1630,7 @@ class hr_holidays(osv.Model):
                         unlink_ids.append(detail.id)
 
                 # Partial day on first day of leave
-                elif leave.date_from > detail.date_start and leave.date_from <= detail.date_end:
+                elif detail.date_start < leave.date_from <= detail.date_end:
                     dtLv = datetime.strptime(leave.date_from, OE_DTFORMAT)
                     if leave.date_from == detail.date_end:
                         if detail.id not in unlink_ids:
@@ -1616,7 +1643,7 @@ class hr_holidays(osv.Model):
                                 context=context)
 
                 # Partial day on last day of leave
-                elif leave.date_to < detail.date_end and leave.date_to >= detail.date_start:
+                elif detail.date_end > leave.date_to >= detail.date_start:
                     dtLv = datetime.strptime(leave.date_to, OE_DTFORMAT)
                     if leave.date_to != detail.date_start:
                         dtStart = dtLv + timedelta(seconds=+1)
@@ -1658,7 +1685,7 @@ class hr_holidays(osv.Model):
         return res
 
 
-class hr_term(osv.Model):
+class hr_term(orm.Model):
 
     _inherit = 'hr.employee.termination'
 

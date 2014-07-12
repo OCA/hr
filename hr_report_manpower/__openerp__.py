@@ -1,4 +1,4 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 #
 #
 #    Copyright (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
@@ -34,16 +34,11 @@ Daily Man Power Report by Department
         'hr',
         'report_aeroo',
     ],
-    'init_xml': [
-    ],
-    'update_xml': [
+    'data': [
         'reports.xml',
         'wizard/daily_manpower_view.xml',
     ],
     'test': [
     ],
-    'demo_xml': [
-    ],
     'installable': True,
-    'active': False,
 }

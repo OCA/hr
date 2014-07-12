@@ -1,4 +1,4 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 #
 #
 #    Copyright (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
@@ -28,7 +28,7 @@ Attach Categories (Tags) to Employees Based on Job Position
 ===========================================================
 
 This module is useful for tagging employees based on their job positions. For example,
-all Supervisors could be attached to the Supervisors category. Define which categries
+all Supervisors could be attached to the Supervisors category. Define which categories
 a job belongs to in the configuration for the job. When an employee is assigned a particular
 job the categories attached to that job will be attached to the employee record as well.
     """,
@@ -37,15 +37,10 @@ job the categories attached to that job will be attached to the employee record 
     'depends': [
         'hr',
     ],
-    'init_xml': [
-    ],
-    'update_xml': [
+    'data': [
         'hr_view.xml',
     ],
     'test': [
     ],
-    'demo_xml': [
-    ],
     'installable': True,
-    'active': False,
 }

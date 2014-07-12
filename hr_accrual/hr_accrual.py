@@ -1,4 +1,4 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 #
 #
 #    Copyright (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
@@ -21,11 +21,11 @@
 
 import time
 
-from openerp.osv import fields, osv
+from openerp.osv import fields, orm
 from openerp.tools import DEFAULT_SERVER_DATE_FORMAT as OE_DATEFORMAT
 
 
-class hr_accrual(osv.Model):
+class hr_accrual(orm.Model):
 
     _name = 'hr.accrual'
     _description = 'Accrual'
@@ -38,7 +38,7 @@ class hr_accrual(osv.Model):
 
     def get_balance(self, cr, uid, ids, employee_id, date=None, context=None):
 
-        if date == None:
+        if date is None:
             date = time.strftime(OE_DATEFORMAT)
 
         res = 0.0
@@ -51,7 +51,7 @@ class hr_accrual(osv.Model):
         return res
 
 
-class hr_accrual_line(osv.Model):
+class hr_accrual_line(orm.Model):
 
     _name = 'hr.accrual.line'
     _description = 'Accrual Line'

@@ -1,4 +1,4 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 #
 #
 #    Copyright (C) 2011,2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
@@ -35,17 +35,12 @@ Human Resource Permission Groups
         'hr',
         'hr_contract',
     ],
-    "init_xml": [
-    ],
-    'update_xml': [
+    "data": [
         'security/hr_security.xml',
         'security/ir.model.access.csv',
         'security/ir_rule.xml',
     ],
     'test': [
     ],
-    'demo_xml': [
-    ],
     'installable': True,
-    'active': False,
 }

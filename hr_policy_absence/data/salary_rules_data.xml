@@ -51,7 +51,7 @@
             <field name="amount_python_compute">result = contract.wage_hourly * worked_days.LVCIVIC.rate</field>
             <field name="quantity">worked_days.LVCIVIC.number_of_hours</field>
             <field name="sequence" eval="7"/>
-            <field name="note">Civic, Leagal, and Union Leave hours. Not applicable to salaried employees.</field>
+            <field name="note">Civic, Legal, and Union Leave hours. Not applicable to salaried employees.</field>
         </record>
 
         <record id="hr_salary_rule_basic_pml" model="hr.salary.rule">

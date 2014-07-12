@@ -14,7 +14,7 @@
             auto="False"
             id="payslip_details_report"
             model="hr.payslip"
-            name="paylip.details"
+            name="payslip.details"
             rml="hr_payroll/report/report_payslip_details.rml"
             string="PaySlip Details" />
 
@@ -25,7 +25,7 @@
             model="hr.contribution.register"
             name="contribution.register.lines"
             rml="hr_payroll/report/report_contribution_register.rml"
-            string="PaySlip Lines By Conribution Register" />
+            string="PaySlip Lines By Contribution Register" />
 
     </data>
 </openerp>

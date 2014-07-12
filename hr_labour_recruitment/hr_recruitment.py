@@ -1,4 +1,4 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 #
 #
 #    Copyright (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
@@ -19,12 +19,11 @@
 #
 #
 
-from openerp.osv import fields, osv
-from openerp.tools import DEFAULT_SERVER_DATE_FORMAT as OE_DATEFORMAT
+from openerp.osv import fields, orm
 from openerp.tools.translate import _
 
 
-class hr_job(osv.Model):
+class hr_job(orm.Model):
 
     _name = 'hr.job'
     _inherit = 'hr.job'
@@ -49,7 +48,7 @@ class hr_job(osv.Model):
         return super(hr_job, self).write(cr, uid, ids, vals, context=context)
 
 
-class hr_applicant(osv.Model):
+class hr_applicant(orm.Model):
 
     _name = 'hr.applicant'
     _inherit = 'hr.applicant'
@@ -62,14 +61,15 @@ class hr_applicant(osv.Model):
                                                  'max_employees_fuzz'],
                                                 context=context)
             if data.get('state', False):
-                if data['state'] != 'recruit' and int(data['no_of_employee']) >= (int(data['max_employees']) + data['max_employees_fuzz']):
-                    raise osv.except_osv(_('Job not open for recruitment!'),
+                if (data['state'] != 'recruit'
+                        and int(data['no_of_employee']) >= (int(data['max_employees']) + data['max_employees_fuzz'])):
+                    raise orm.except_orm(_('Job not open for recruitment!'),
                                          _('You may not register applicants for jobs that are not recruiting.'))
 
         return super(hr_applicant, self).create(cr, uid, vals, context=context)
 
 
-class hr_contract(osv.Model):
+class hr_contract(orm.Model):
 
     _name = 'hr.contract'
     _inherit = 'hr.contract'
@@ -78,7 +78,7 @@ class hr_contract(osv.Model):
         """If the applicant went through recruitment get the job id from there."""
 
         res = False
-        if context != None:
+        if context is not None:
             ee_ids = context.get('search_default_employee_id', False)
             if ee_ids and len(ee_ids) > 0:
                 # If this is the first contract try to obtain job position from
@@ -122,8 +122,9 @@ class hr_contract(osv.Model):
                                                     'no_of_employee', 'state'],
                                                 context=context)
             if data.get('state', False):
-                if data['state'] != 'recruit' and int(data['no_of_employee']) >= (int(data['max_employees']) + data['max_employees_fuzz']):
-                    raise osv.except_osv(
+                if (data['state'] != 'recruit'
+                        and int(data['no_of_employee']) >= (int(data['max_employees']) + data['max_employees_fuzz'])):
+                    raise orm.except_orm(
                         _('The Job "%s" is not in recruitment!') % (
                             data['name']),
                         _('You may not create contracts for jobs that are not in recruitment state.'))
@@ -150,14 +151,14 @@ class hr_contract(osv.Model):
                 'max_employees_fuzz', False) and data['max_employees_fuzz'] or 0
 
             if len(contract_ids) >= max(expected_employees, max_employees + max_employees_fuzz):
-                raise osv.except_osv(
+                raise orm.except_orm(
                     _('Maximum Number of Employees Exceeded!'),
                     _('The maximum number of employees for "%s" has been exceeded.') % (data['name']))
 
         return super(hr_contract, self).create(cr, uid, vals, context=context)
 
 
-class hr_recruitment_request(osv.Model):
+class hr_recruitment_request(orm.Model):
 
     _name = 'hr.recruitment.request'
     _description = 'Request for recruitment of additional personnel'
@@ -169,8 +170,12 @@ class hr_recruitment_request(osv.Model):
         'department_id': fields.many2one('hr.department', 'Department'),
         'job_id': fields.many2one('hr.job', 'Job', required=True),
         'number': fields.integer('Number to Recruit'),
-        'current_number': fields.related('job_id', 'no_of_employee', type='integer', string="Current Number of Employees", readonly=True),
-        'max_number': fields.related('job_id', 'max_employees', type='integer', string="Maximum Number of Employees", readonly=True),
+        'current_number': fields.related(
+            'job_id', 'no_of_employee', type='integer', string="Current Number of Employees", readonly=True
+        ),
+        'max_number': fields.related(
+            'job_id', 'max_employees', type='integer', string="Maximum Number of Employees", readonly=True
+        ),
         'reason': fields.text('Reason for Request'),
         'state': fields.selection([('draft', 'Draft'),
                                    ('confirm', 'Confirmed'),
@@ -192,10 +197,10 @@ class hr_recruitment_request(osv.Model):
 
     _track = {
         'state': {
-            'hr_labour_recruitment.mt_alert_request_confirmed': lambda self, cr, uid, obj, ctx=None: obj['state'] == 'confirm',
-            'hr_labour_recruitment.mt_alert_request_exception': lambda self, cr, uid, obj, ctx=None: obj['state'] == 'exception',
-            'hr_labour_recruitment.mt_alert_request_approved': lambda self, cr, uid, obj, ctx=None: obj['state'] == 'recruitment',
-            'hr_labour_recruitment.mt_alert_request_declined': lambda self, cr, uid, obj, ctx=None: obj['state'] == 'decline',
+            'hr_labour_recruitment.mt_alert_request_confirmed': lambda s, cr, u, o, c=None: o['state'] == 'confirm',
+            'hr_labour_recruitment.mt_alert_request_exception': lambda s, cr, u, o, c=None: o['state'] == 'exception',
+            'hr_labour_recruitment.mt_alert_request_approved': lambda s, cr, u, o, c=None: o['state'] == 'recruitment',
+            'hr_labour_recruitment.mt_alert_request_declined': lambda s, cr, u, o, c=None: o['state'] == 'decline',
         },
     }
 

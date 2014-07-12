@@ -1,4 +1,4 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 #
 #
 #    Copyright (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
@@ -19,10 +19,10 @@
 #
 #
 
-from openerp.osv import fields, osv
+from openerp.osv import fields, orm
 
 
-class policy_absence(osv.Model):
+class policy_absence(orm.Model):
 
     _name = 'hr.policy.absence'
 
@@ -57,7 +57,7 @@ class policy_absence(osv.Model):
         return res
 
 
-class policy_line_absence(osv.Model):
+class policy_line_absence(orm.Model):
 
     _name = 'hr.policy.line.absence'
 
@@ -66,13 +66,22 @@ class policy_line_absence(osv.Model):
         'code': fields.char('Code', required=True, help="Use this code in the salary rules."),
         'holiday_status_id': fields.many2one('hr.holidays.status', 'Leave', required=True),
         'policy_id': fields.many2one('hr.policy.absence', 'Policy'),
-        'type': fields.selection([('paid', 'Paid'),
-                                  ('unpaid', 'Unpaid'),
-                                  ('dock', 'Dock')],
-                                 'Type', required=True,
-                                 help="Determines how the absence will be treated in payroll. The 'Dock Salary' type will deduct money (usefull for salaried employees)."),
+        'type': fields.selection(
+            [
+                ('paid', 'Paid'),
+                ('unpaid', 'Unpaid'),
+                ('dock', 'Dock')
+            ],
+            'Type',
+            required=True,
+            help="Determines how the absence will be treated in payroll. "
+                 "The 'Dock Salary' type will deduct money (useful for salaried employees).",
+        ),
         'rate': fields.float('Rate', required=True, help='Multiplier of employee wage.'),
-        'use_awol': fields.boolean('Absent Without Leave', help='Use this policy to record employee time absence not covered by other leaves.')
+        'use_awol': fields.boolean(
+            'Absent Without Leave',
+            help='Use this policy to record employee time absence not covered by other leaves.'
+        )
     }
 
     def onchange_holiday(self, cr, uid, ids, holiday_status_id, context=None):
@@ -88,7 +97,7 @@ class policy_line_absence(osv.Model):
         return res
 
 
-class policy_group(osv.Model):
+class policy_group(orm.Model):
 
     _name = 'hr.policy.group'
     _inherit = 'hr.policy.group'

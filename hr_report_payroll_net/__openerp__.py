@@ -1,4 +1,4 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 #
 #
 #    Copyright (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
@@ -34,16 +34,11 @@ Net Payroll Payable by Department
         'hr_payroll_register',
         'report_aeroo',
     ],
-    'init_xml': [
-    ],
-    'update_xml': [
+    'data': [
         'reports.xml',
         'wizard/payroll_net_view.xml',
     ],
     'test': [
     ],
-    'demo_xml': [
-    ],
     'installable': True,
-    'active': False,
 }

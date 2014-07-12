@@ -1,4 +1,4 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 #
 #
 #    Copyright (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
@@ -21,12 +21,12 @@
 
 import time
 
-from openerp.osv import fields, osv
+from openerp.osv import fields, orm
 from openerp.tools import DEFAULT_SERVER_DATE_FORMAT
 from openerp.tools.translate import _
 
 
-class hr_infraction_category(osv.Model):
+class hr_infraction_category(orm.Model):
 
     _name = 'hr.infraction.category'
     _description = 'Infraction Type'
@@ -37,7 +37,7 @@ class hr_infraction_category(osv.Model):
     }
 
 
-class hr_infraction(osv.Model):
+class hr_infraction(orm.Model):
 
     _name = 'hr.infraction'
     _description = 'Infraction'
@@ -73,9 +73,9 @@ class hr_infraction(osv.Model):
 
     _track = {
         'state': {
-            'hr_infraction.mt_alert_infraction_confirmed': lambda self, cr, uid, obj, ctx=None: obj['state'] == 'confirm',
-            'hr_infraction.mt_alert_infraction_action': lambda self, cr, uid, obj, ctx=None: obj['state'] == 'action',
-            'hr_infraction.mt_alert_infraction_noaction': lambda self, cr, uid, obj, ctx=None: obj['state'] == 'noaction',
+            'hr_infraction.mt_alert_infraction_confirmed': lambda self, cr, u, obj, ctx=None: obj['state'] == 'confirm',
+            'hr_infraction.mt_alert_infraction_action': lambda self, cr, u, obj, ctx=None: obj['state'] == 'action',
+            'hr_infraction.mt_alert_infraction_noaction': lambda self, cr, u, obj, ctx=None: obj['state'] == 'noaction',
         },
     }
 
@@ -96,7 +96,7 @@ class hr_infraction(osv.Model):
 
         for infraction in self.browse(cr, uid, ids, context=context):
             if infraction.state not in ['draft']:
-                raise osv.except_osv(_('Error'),
+                raise orm.except_orm(_('Error'),
                                      _('Infractions that have progressed beyond "Draft" state may not be removed.'))
 
         return super(hr_infraction, self).unlink(cr, uid, ids, context=context)
@@ -120,7 +120,7 @@ ACTION_TYPE_SELECTION = [
 ]
 
 
-class hr_infraction_action(osv.Model):
+class hr_infraction_action(orm.Model):
 
     _name = 'hr.infraction.action'
     _description = 'Action Based on Infraction'
@@ -142,13 +142,13 @@ class hr_infraction_action(osv.Model):
 
         for action in self.browse(cr, uid, ids, context=context):
             if action.infraction_id.state not in ['draft']:
-                raise osv.except_osv(_('Error'),
+                raise orm.except_orm(_('Error'),
                                      _('Actions belonging to Infractions not in "Draft" state may not be removed.'))
 
         return super(hr_infraction_action, self).unlink(cr, uid, ids, context=context)
 
 
-class hr_warning(osv.Model):
+class hr_warning(orm.Model):
 
     _name = 'hr.infraction.warning'
     _description = 'Employee Warning'
@@ -175,13 +175,13 @@ class hr_warning(osv.Model):
 
         for warning in self.browse(cr, uid, ids, context=context):
             if warning.action_id and warning.action_id.infraction_id.state not in ['draft']:
-                raise osv.except_osv(_('Error'),
+                raise orm.except_orm(_('Error'),
                                      _('Warnings attached to Infractions not in "Draft" state may not be removed.'))
 
         return super(hr_warning, self).unlink(cr, uid, ids, context=context)
 
 
-class hr_employee(osv.Model):
+class hr_employee(orm.Model):
 
     _name = 'hr.employee'
     _inherit = 'hr.employee'

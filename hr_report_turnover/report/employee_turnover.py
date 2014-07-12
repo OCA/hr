@@ -1,7 +1,7 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 #
 #
-#    Copyrigth (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>
+#    Copyright (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as published by
@@ -95,7 +95,7 @@ class Parser(report_sxw.rml_parse):
             if len(ee.contract_ids) == 0 or len(ee.contract_ids) > 1:
                 continue
             d = datetime.strptime(ee.contract_id.date_start, OE_DATEFORMAT)
-            if d >= dStart and d <= dEnd:
+            if dStart <= d <= dEnd:
                 res.append({'name': ee.name,
                             'f_employee_no': ee.f_employee_no,
                             'hire_date': ee.contract_id.date_start})

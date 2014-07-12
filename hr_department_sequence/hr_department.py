@@ -1,7 +1,7 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 #
 #
-#    Copyrigth (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>
+#    Copyright (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as published by
@@ -18,17 +18,20 @@
 #
 #
 
-from openerp.osv import fields, osv
+from openerp.osv import fields, orm
 
 
-class hr_department(osv.Model):
+class hr_department(orm.Model):
 
     _name = 'hr.department'
     _inherit = 'hr.department'
 
     _columns = {
         'code': fields.char('Code', size=64),
-        'sequence': fields.integer('Sequence', select=True, help="Gives the sequence order when displaying a list of departments."),
+        'sequence': fields.integer(
+            'Sequence', select=True,
+            help="Gives the sequence order when displaying a list of departments."
+        ),
         'parent_id': fields.many2one('hr.department', 'Parent Department', select=True, ondelete='cascade'),
         'parent_left': fields.integer('Left Parent', select=1),
         'parent_right': fields.integer('Right Parent', select=1),

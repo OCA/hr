@@ -1,4 +1,4 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 #
 #
 #    Copyright (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
@@ -45,16 +45,11 @@ Capture employee pictures with an attached web cam.
     'qweb': [
         'static/src/xml/hr_webcam.xml',
     ],
-    'init_xml': [
-    ],
-    'update_xml': [
+    'data': [
         'hr_webcam_data.xml',
         'hr_webcam_view.xml',
     ],
     'test': [
     ],
-    'demo_xml': [
-    ],
     'installable': True,
-    'active': False,
 }

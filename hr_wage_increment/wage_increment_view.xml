@@ -26,8 +26,8 @@
         
         <!-- Menus -->
         
-        <menuitem name="Wage Adustments"
-            id="submenu_hr_wageadjust"
+        <menuitem name="Wage Adjustments"
+            id="submenu_hr_wage_adjust"
             parent="hr.menu_hr_main"
             sequence="120" groups="base.group_hr_user"/>
 
@@ -115,7 +115,7 @@
         </record>
         <menuitem action="open_wage_increment"
                   id="menu_wage_increment"
-                  parent="submenu_hr_wageadjust"
+                  parent="submenu_hr_wage_adjust"
                   groups="base.group_hr_user"
                   sequence="10"/>
         
@@ -239,7 +239,7 @@
         </record>
         <menuitem action="action_wage_adjustment_run"
             id="menu_wage_adjustment_run"
-            parent="submenu_hr_wageadjust"
+            parent="submenu_hr_wage_adjust"
             groups="base.group_hr_user"
             sequence="20"/>
 

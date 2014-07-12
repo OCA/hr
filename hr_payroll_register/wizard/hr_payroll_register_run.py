@@ -1,4 +1,4 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 #
 #
 #    Copyright (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
@@ -19,15 +19,17 @@
 #
 #
 
-from datetime import datetime, timedelta
+from datetime import datetime
 from pytz import timezone
 
-from osv import fields, osv
+from openerp.osv import fields, orm
+from openerp.tools.translate import _
+
 import logging
 _logger = logging.getLogger(__name__)
 
 
-class payroll_register_run(osv.osv_memory):
+class payroll_register_run(orm.TransientModel):
 
     _name = 'hr.payroll.register.run'
     _description = 'Pay Slip Creation'
@@ -50,11 +52,11 @@ class payroll_register_run(osv.osv_memory):
         data = self.read(cr, uid, ids, context=context)[0]
         register_id = context.get('active_id', False)
         if not register_id:
-            raise osv.except_osv(_("Programming Error !"), _(
+            raise orm.except_orm(_("Programming Error !"), _(
                 "Unable to determine Payroll Register Id."))
 
         if not data['department_ids']:
-            raise osv.except_osv(
+            raise orm.except_orm(
                 _("Warning !"), _("No departments selected for payslip generation."))
 
         pr = reg_pool.browse(cr, uid, register_id, context=context)
@@ -68,12 +70,12 @@ class payroll_register_run(osv.osv_memory):
         utc_tz = timezone('UTC')
         utcDTStart = utc_tz.localize(
             datetime.strptime(pr.date_start, '%Y-%m-%d %H:%M:%S'))
-        loclDTStart = utcDTStart.astimezone(local_tz)
-        date_start = loclDTStart.strftime('%Y-%m-%d')
+        localDTStart = utcDTStart.astimezone(local_tz)
+        date_start = localDTStart.strftime('%Y-%m-%d')
         utcDTEnd = utc_tz.localize(
             datetime.strptime(pr.date_end, '%Y-%m-%d %H:%M:%S'))
-        loclDTEnd = utcDTEnd.astimezone(local_tz)
-        date_end = loclDTEnd.strftime('%Y-%m-%d')
+        localDTEnd = utcDTEnd.astimezone(local_tz)
+        date_end = localDTEnd.strftime('%Y-%m-%d')
 
         for dept in dept_pool.browse(cr, uid, data['department_ids'], context=context):
             run_res = {

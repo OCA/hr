@@ -18,8 +18,10 @@
 #    along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
 ###############################################################################
-import tools
+
+from openerp import tools
 from openerp.osv import fields, orm
+
 
 class hr_language(orm.Model):
     _name = 'hr.language'
@@ -38,10 +40,9 @@ class hr_language(orm.Model):
         'speak': True,
     }
 
+
 class hr_employee(orm.Model):
     _inherit = 'hr.employee'
     _columns = {
         'language_ids': fields.one2many('hr.language', 'employee_id', 'Languages'),
     }
-
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

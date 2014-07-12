@@ -1,4 +1,4 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 #
 #
 #    Copyright (C) 2011 Michael Telahun Makonnen <mmakonnen@gmail.com>.
@@ -21,11 +21,11 @@
 
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
-from osv import fields, osv
+from openerp.osv import fields, orm
 from tools.translate import _
 
 
-class wage_increment(osv.osv):
+class wage_increment(orm.Model):
 
     _name = 'hr.contract.wage.increment'
     _description = 'HR Contract Wage Increment'
@@ -38,7 +38,7 @@ class wage_increment(osv.osv):
 
     def _get_contract_id(self, cr, uid, context=None):
 
-        if context == None:
+        if context is None:
             context = {}
         return context.get('active_id', False)
 
@@ -63,9 +63,8 @@ class wage_increment(osv.osv):
 
             c_id = hr_obj.create(cr, uid, data, context=context)
             if c_id:
-                vals = {}
-                vals['date_end'] = datetime.strptime(
-                    wi.effective_date, '%Y-%m-%d').date() - relativedelta(days=-1)
+                vals = {'date_end': datetime.strptime(
+                    wi.effective_date, '%Y-%m-%d').date() - relativedelta(days=-1)}
                 hr_obj.write(cr, uid, wi.contract_id.id, vals, context=context)
 
         return {'type': 'ir.actions.act_window_close'}

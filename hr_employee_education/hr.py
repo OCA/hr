@@ -1,4 +1,4 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 #
 #
 #    Copyright (C) 2011,2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
@@ -21,7 +21,7 @@
 
 from datetime import datetime
 
-from osv import fields, osv
+from openerp.osv import fields, orm
 from openerp.tools import DEFAULT_SERVER_DATE_FORMAT as OE_DFORMAT
 
 EDUCATION_SELECTION = [
@@ -35,7 +35,7 @@ EDUCATION_SELECTION = [
 ]
 
 
-class hr_employee(osv.osv):
+class hr_employee(orm.Model):
 
     _inherit = 'hr.employee'
 

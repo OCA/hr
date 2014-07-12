@@ -1,4 +1,4 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 #
 #
 #    Copyright (C) 2011,2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
@@ -21,10 +21,10 @@
 
 from datetime import date
 from openerp.tools.translate import _
-from osv import osv, fields
+from openerp.osv import fields, orm
 
 
-class hr_holidays(osv.osv):
+class hr_holidays(orm.Model):
 
     _name = 'hr.holidays.public'
     _description = 'Public Holidays'
@@ -68,7 +68,7 @@ class hr_holidays(osv.osv):
         return res
 
 
-class hr_holidays_line(osv.osv):
+class hr_holidays_line(orm.Model):
 
     _name = 'hr.holidays.public.line'
     _description = 'Public Holidays Lines'

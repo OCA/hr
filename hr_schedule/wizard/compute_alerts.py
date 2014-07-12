@@ -1,4 +1,4 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 #
 #
 #    Copyright (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
@@ -22,10 +22,10 @@
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 
-from openerp.osv import fields, osv
+from openerp.osv import fields, orm
 
 
-class compute_alerts(osv.TransientModel):
+class compute_alerts(orm.TransientModel):
 
     _name = 'hr.schedule.alert.compute'
     _description = 'Check Alerts'
@@ -62,7 +62,12 @@ class compute_alerts(osv.TransientModel):
             'view_type': 'form',
             'view_mode': 'tree,form',
             'res_model': 'hr.schedule.alert',
-            'domain': [('employee_id', 'in', data['employee_ids']), '&', ('name', '>=', data['date_start'] + ' 00:00:00'), ('name', '<=', data['date_end'] + ' 23:59:59')],
+            'domain': [
+                ('employee_id', 'in', data['employee_ids']),
+                '&',
+                ('name', '>=', data['date_start'] + ' 00:00:00'),
+                ('name', '<=', data['date_end'] + ' 23:59:59')
+            ],
             'type': 'ir.actions.act_window',
             'target': 'current',
             'nodestroy': True,

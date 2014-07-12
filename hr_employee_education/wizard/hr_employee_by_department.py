@@ -1,4 +1,4 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 #
 #
 #    Copyright (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
@@ -19,7 +19,7 @@
 #
 #
 
-from openerp.osv import fields, osv
+from openerp.osv import fields, orm
 
 from hr_employee_education.hr import EDUCATION_SELECTION
 
@@ -27,7 +27,7 @@ import logging
 _l = logging.getLogger(__name__)
 
 
-class hr_al(osv.TransientModel):
+class hr_al(orm.TransientModel):
 
     _name = 'hr.employee.edu'
 
@@ -38,7 +38,7 @@ class hr_al(osv.TransientModel):
 
     def _get_lines(self, cr, uid, context=None):
 
-        if context == None:
+        if context is None:
             context = {}
 
         res = []
@@ -58,7 +58,7 @@ class hr_al(osv.TransientModel):
 
     def _get_department(self, cr, uid, context=None):
 
-        if context == None:
+        if context is None:
             context = {}
         department_id = context.get('active_id', False)
         return department_id
@@ -84,7 +84,7 @@ class hr_al(osv.TransientModel):
         return {'type': 'ir.actions.act_window_close'}
 
 
-class hr_edu_line(osv.TransientModel):
+class hr_edu_line(orm.TransientModel):
 
     _name = 'hr.employee.edu.line'
 

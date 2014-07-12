@@ -1,4 +1,4 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 #
 #
 #    Copyright (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
@@ -23,7 +23,7 @@ from datetime import datetime, timedelta
 from dateutil.relativedelta import relativedelta
 from pytz import timezone, utc
 
-from openerp.osv import fields, osv
+from openerp.osv import fields, orm
 from openerp.tools import DEFAULT_SERVER_DATETIME_FORMAT as OE_DTFORMAT
 from openerp.tools import DEFAULT_SERVER_DATE_FORMAT as OE_DFORMAT
 from openerp.tools.translate import _
@@ -32,7 +32,7 @@ import logging
 _l = logging.getLogger(__name__)
 
 
-class restday(osv.TransientModel):
+class restday(orm.TransientModel):
 
     _name = 'hr.restday.wizard'
     _description = 'Schedule Template Change Wizard'
@@ -44,8 +44,18 @@ class restday(osv.TransientModel):
         'st_current_id': fields.many2one('hr.schedule.template', 'Current Template', readonly=True),
         'st_new_id': fields.many2one('hr.schedule.template', 'New Template'),
         'permanent': fields.boolean('Make Permanent'),
-        'temp_restday': fields.boolean('Temporary Rest Day Change', help="If selected, change the rest day to the specified day only for the selected schedule."),
-        'dayofweek': fields.selection([('0', 'Monday'), ('1', 'Tuesday'), ('2', 'Wednesday'), ('3', 'Thursday'), ('4', 'Friday'), ('5', 'Saturday'), ('6', 'Sunday')], 'Rest Day', select=True),
+        'temp_restday': fields.boolean(
+            'Temporary Rest Day Change',
+            help="If selected, change the rest day to the specified day only for the selected schedule."
+        ),
+        'dayofweek': fields.selection([
+            ('0', 'Monday'),
+            ('1', 'Tuesday'),
+            ('2', 'Wednesday'),
+            ('3', 'Thursday'),
+            ('4', 'Friday'),
+            ('5', 'Saturday'),
+            ('6', 'Sunday')], 'Rest Day', select=True),
         'temp_week_start': fields.date('Start of Week'),
         'week_start': fields.date('Start of Week'),
     }
@@ -111,10 +121,10 @@ class restday(osv.TransientModel):
             hour, sep, minute = worktime.hour_from.partition(':')
             toHour, toSep, toMin = worktime.hour_to.partition(':')
             if len(sep) == 0 or len(toSep) == 0:
-                raise osv.except_osv(
+                raise orm.except_orm(
                     _('Invalid Time Format'), _('The time should be entered as HH:MM'))
 
-            # XXX - Someone affected by DST should fix this
+            # TODO - Someone affected by DST should fix this
             #
             dtStart = datetime.strptime(dWeekStart.strftime(
                 '%Y-%m-%d') + ' ' + hour + ':' + minute + ':00', '%Y-%m-%d %H:%M:%S')
@@ -225,7 +235,7 @@ class restday(osv.TransientModel):
 
         # Remove the current schedule and add a new one in its place according to
         # the new template. If the week that the change starts in is not at the
-        # beginning of a schedule create two new schedules to accomodate the
+        # beginning of a schedule create two new schedules to accommodate the
         # truncated old one and the partial new one.
         #
 

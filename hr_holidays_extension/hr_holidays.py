@@ -1,4 +1,4 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 #
 #
 #    Copyright (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
@@ -24,14 +24,13 @@
 from datetime import datetime, timedelta
 from pytz import timezone, utc
 
-from openerp import tools
-from openerp.osv import fields, osv
+from openerp.osv import fields, orm
 from openerp.tools import DEFAULT_SERVER_DATETIME_FORMAT as OE_DTFORMAT
 from openerp.tools import DEFAULT_SERVER_DATE_FORMAT as OE_DFORMAT
 from openerp.tools.translate import _
 
 
-class hr_holidays_status(osv.Model):
+class hr_holidays_status(orm.Model):
 
     _inherit = 'hr.holidays.status'
 
@@ -43,7 +42,7 @@ class hr_holidays_status(osv.Model):
     }
 
 
-class hr_holidays(osv.osv):
+class hr_holidays(orm.Model):
 
     _name = 'hr.holidays'
     _inherit = ['hr.holidays', 'ir.needaction_mixin']
@@ -57,7 +56,7 @@ class hr_holidays(osv.osv):
 
     def _employee_get(self, cr, uid, context=None):
 
-        if context == None:
+        if context is None:
             context = {}
 
         # If the user didn't enter from "My Leaves" don't pre-populate Employee
@@ -76,7 +75,7 @@ class hr_holidays(osv.osv):
 
     def _days_get(self, cr, uid, context=None):
 
-        if context == None:
+        if context is None:
             context = {}
 
         date_from = context.get('default_date_from')
@@ -84,7 +83,7 @@ class hr_holidays(osv.osv):
         if date_from and date_to:
             delta = datetime.strptime(
                 date_to, OE_DTFORMAT) - datetime.strptime(date_from, OE_DTFORMAT)
-            return (delta.days and delta.days or 1)
+            return delta.days or 1
         return False
 
     _defaults = {
@@ -183,7 +182,9 @@ class hr_holidays(osv.osv):
             else:
                 count_days -= 1
                 real_days += 1
-        while (next_dt.weekday() in rest_days and ex_rd) or (holiday_obj.is_public_holiday(cr, uid, next_dt.date(), context=context) and ex_ph):
+        while ((next_dt.weekday() in rest_days and ex_rd)
+                or (holiday_obj.is_public_holiday(cr, uid, next_dt.date(), context=context)
+                    and ex_ph)):
             if holiday_obj.is_public_holiday(cr, uid, next_dt.date(), context=context):
                 ph_days += 1
             elif next_dt.weekday() in rest_days:
@@ -242,7 +243,9 @@ class hr_holidays(osv.osv):
 
         dt = datetime.strptime(date_to, OE_DTFORMAT)
         return_date = dt + timedelta(days=+1)
-        while (return_date.weekday() in rest_days and ex_rd) or (holiday_obj.is_public_holiday(cr, uid, return_date.date(), context=context) and ex_ph):
+        while ((return_date.weekday() in rest_days and ex_rd)
+               or (holiday_obj.is_public_holiday(cr, uid, return_date.date(), context=context)
+                   and ex_ph)):
             return_date += timedelta(days=1)
         res['value']['return_date'] = return_date.strftime('%B %d, %Y')
         return res
@@ -250,7 +253,8 @@ class hr_holidays(osv.osv):
     def create(self, cr, uid, vals, context=None):
 
         att_obj = self.pool.get('hr.attendance')
-        if vals.get('date_from', False) and vals.get('date_to', False) and (not vals.get('type', False) or vals.get('type', 'x') == 'remove') and vals.get('holiday_type', 'x') == 'employee':
+        if (vals.get('date_from') and vals.get('date_to') and vals.get('type') == 'remove'
+                and vals.get('holiday_type') == 'employee'):
             att_ids = att_obj.search(
                 cr, uid, [('employee_id', '=', vals['employee_id']),
                           ('name', '>=', vals[
@@ -258,8 +262,10 @@ class hr_holidays(osv.osv):
                           ('name', '<=', vals['date_to'])],
                 context=context)
             if len(att_ids) > 0:
-                raise osv.except_osv(_('Warning'),
-                                     _('There is already one or more attendance records for the date you have chosen.'))
+                raise orm.except_orm(
+                    _('Warning'),
+                    _('There is already one or more attendance records for the date you have chosen.')
+                )
 
         return super(hr_holidays, self).create(cr, uid, vals, context=context)
 
@@ -280,13 +286,13 @@ class hr_holidays(osv.osv):
         if not users_obj.has_group(cr, uid, 'base.group_hr_manager'):
             for leave in self.browse(cr, uid, ids, context=context):
                 if leave.employee_id.user_id.id == uid:
-                    raise osv.except_osv(
+                    raise orm.except_orm(
                         _('Warning!'), _('You cannot approve your own leave:\nHoliday Type: %s\nEmployee: %s') %
                         (leave.holiday_status_id.name, leave.employee_id.name))
         return
 
 
-class hr_attendance(osv.Model):
+class hr_attendance(orm.Model):
 
     _name = 'hr.attendance'
     _inherit = 'hr.attendance'
@@ -307,7 +313,10 @@ class hr_attendance(osv.Model):
                 ee_data = self.pool.get(
                     'hr.employee').read(cr, uid, vals['employee_id'], ['name'],
                                         context=context)
-                raise osv.except_osv(_('Warning'),
-                                     _('There is already one or more leaves recorded for the date you have chosen:\nEmployee: %s\nDate: %s' % (ee_data['name'], vals['name'])))
+                raise orm.except_orm(
+                    _('Warning'),
+                    _("There is already one or more leaves recorded for the date you have chosen:\n"
+                      "Employee: %s\n"
+                      "Date: %s" % (ee_data['name'], vals['name'])))
 
         return super(hr_attendance, self).create(cr, uid, vals, context=context)

@@ -1,4 +1,4 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 #
 #
 #    Copyright (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
@@ -39,9 +39,10 @@ Easily create, manage, and track employee schedules.
         'hr_holidays',
         'hr_security',
     ],
-    'init_xml': [
-    ],
-    'update_xml': [
+    "external_dependencies": {
+        'python': ['dateutil'],
+    },
+    'data': [
         'security/ir.model.access.csv',
         'security/ir_rule.xml',
         'data/hr_schedule_data.xml',
@@ -57,8 +58,5 @@ Easily create, manage, and track employee schedules.
     ],
     'test': [
     ],
-    'demo_xml': [
-    ],
     'installable': True,
-    'active': False,
 }
