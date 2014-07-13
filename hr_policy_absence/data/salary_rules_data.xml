@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data noupdate="1">
-        
-        <!-- Delete some default leave types from the database -->
-        <delete model="hr.holidays.status" search="[('name','like','Legal Leaves%')]"/>
-        <delete model="hr.holidays.status" search="[('name','=','Compensatory Days')]"/>
-        <delete model="hr.holidays.status" search="[('name','=','Unpaid')]"/>
-
         <!--
              DO NOT CHANGE THE CODES BELOW!!!
              The codes are used in the payroll register module to print out
