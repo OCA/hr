@@ -21,7 +21,7 @@
 
 from openerp.osv import fields, orm
 
-from hr_employee_education.hr import EDUCATION_SELECTION
+from ..hr import EDUCATION_SELECTION
 
 import logging
 _l = logging.getLogger(__name__)
