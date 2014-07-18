@@ -24,7 +24,12 @@ from osv import osv, fields
 class hr_professional(osv.osv):
     _inherit = 'hr.professional'
     _columns = {
-        'account_id': fields.many2one('account.analytic.account', 'Analytic Account', domain=[('type', '!=', 'view')], help="Project or Contract"),
+        'account_id': fields.many2one(
+            'account.analytic.account',
+            'Analytic Account',
+            domain=[('type', '!=', 'view')],
+            help="Project or Contract",
+        ),
     }
+
 hr_professional()
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

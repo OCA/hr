@@ -21,7 +21,6 @@
 #
 
 from osv import fields, osv
-from osv.orm import except_orm
 from tools.translate import _
 from time import strftime
 
@@ -100,7 +99,18 @@ class hr_interview(osv.osv):
         'mobile_no': fields.char("Mobile", size=64),
         'date': fields.datetime('Scheduled Date'),
         'exam_date': fields.datetime('Exam On'),
-        'education': fields.selection([("be_ce", "BE Computers"), ("be_it", "BE IT"), ("bsc_it", "BSc IT"), ("bca", "BCA"), ("btech_ce", "BTech Computers"), ("btech_it", "BTech IT"), ("mca", "MCA"), ("msc_it", "MSc IT"), ("mtech_ce", "MTech Computers"), ("other", "Other")], "Education"),
+        'education': fields.selection([
+            ("be_ce", "BE Computers"),
+            ("be_it", "BE IT"),
+            ("bsc_it", "BSc IT"),
+            ("bca", "BCA"),
+            ("btech_ce", "BTech Computers"),
+            ("btech_it", "BTech IT"),
+            ("mca", "MCA"),
+            ("msc_it", "MSc IT"),
+            ("mtech_ce", "MTech Computers"),
+            ("other", "Other"),
+        ], "Education"),
         'category_id': fields.many2one("candidate.category", "Category"),
         'experience_id': fields.many2one("candidate.experience", "Experience"),
         'remarks': fields.text("Remarks"),
@@ -108,7 +118,16 @@ class hr_interview(osv.osv):
         'reference_id': fields.many2one("hr.employee", "Reference"),
         'tech_skills_ids': fields.one2many("technical.skill", "candidate_id", "Technology Skills"),
         'performance': fields.float("Performance (%)", readonly=True),
-        'state': fields.selection([("draft", "Draft"), ('scheduled', 'Scheduled'), ('re-scheduled', 'Re-Scheduled'), ('start-interview', 'Start-Interview'), ('end-interview', 'End-Interview'), ("selected", "Selected"), ('rejected', 'Rejected'), ("cancel", "Cancel")], "State", readonly=True, select=1),
+        'state': fields.selection([
+            ("draft", "Draft"),
+            ('scheduled', 'Scheduled'),
+            ('re-scheduled', 'Re-Scheduled'),
+            ('start-interview', 'Start-Interview'),
+            ('end-interview', 'End-Interview'),
+            ("selected", "Selected"),
+            ('rejected', 'Rejected'),
+            ("cancel", "Cancel")
+        ], "State", readonly=True, select=1),
         'history_log_ids': fields.one2many("hr.interview.log", "history_id", "Interview Logs", readonly=True),
     }
     _defaults = {
@@ -227,4 +246,3 @@ class hr_interview_log(osv.osv):
         'user_id': fields.many2one("res.users", "User Name")
     }
 hr_interview_log()
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

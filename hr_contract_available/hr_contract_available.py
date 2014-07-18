@@ -62,7 +62,9 @@ class hr_employee(osv.osv):
                                                        ('ondemand', 'On demand'),
                                                        ('available', 'Available')],
                                             string='Current Availability'),
-        'allocation_department_id': fields.function(_get_department_id, method=True, type='many2one', relation='res.company', string='Current Department'),
+        'allocation_department_id': fields.function(
+            _get_department_id, method=True, type='many2one', relation='res.company', string='Current Department'
+        ),
         'allocation_date_end': fields.function(_get_date_end, method=True, type='date', string='Availability Date')
     }
 hr_employee()
@@ -78,7 +80,11 @@ class hr_allocation(osv.osv):
         'function': fields.many2one('res.partner.function', 'Function'),
         'date_start': fields.date('Start Date', required=True),
         'date_end': fields.date('End Date', help="Keep empty for unlimited allocation."),
-        'state': fields.selection([('unavailable', 'Unavailable'), ('ondemand', 'On demand'), ('available', 'Available')], 'State', required=True),
+        'state': fields.selection([
+            ('unavailable', 'Unavailable'),
+            ('ondemand', 'On demand'),
+            ('available', 'Available'),
+        ], 'State', required=True),
     }
     _order = 'date_start'
     _defaults = {

@@ -33,13 +33,26 @@ class hr_holidays_status(osv.osv):
             res[record.id] = {}
             max_leaves = leaves_taken = 0
             if not return_false:
-                cr.execute("""SELECT type, sum(number_of_days) FROM hr_holidays WHERE employee_id = %s AND state='validate' AND holiday_status_id = %s and type='add' GROUP BY type""", (
-                    str(employee_id), str(record.id)))
+                cr.execute("""\
+SELECT type, sum(number_of_days)
+FROM hr_holidays
+WHERE employee_id = %s
+  AND state='validate'
+  AND holiday_status_id = %s
+  AND type='add'
+GROUP BY type""", (str(employee_id), str(record.id)))
                 for line in cr.fetchall():
                     if line[0] == 'add':
                         max_leaves = line[1]
-                cr.execute("""SELECT type, sum(h.number_of_days) from hr_holidays as h left join hr_holidays_line as t on t.holiday_id=h.id where employee_id = %s AND state='validate' AND t.holiday_status_id = %s and type='remove' GROUP BY type""", (
-                    str(employee_id), str(record.id)))
+                cr.execute("""\
+SELECT type, sum(h.number_of_days)
+FROM hr_holidays as h
+  LEFT JOIN hr_holidays_line as t ON t.holiday_id=h.id
+WHERE employee_id = %s
+  AND state='validate'
+  AND t.holiday_status_id = %s
+  AND type='remove'
+GROUP BY type""", (str(employee_id), str(record.id)))
                 for line in cr.fetchall():
                     if line[0] == 'remove':
                         leaves_taken = -line[1]
@@ -69,8 +82,10 @@ class hr_holidays_line(osv.osv):
                 'hr.holidays.status').browse(cr, uid, [status])[0]
             if brows_obj.categ_id and brows_obj.categ_id.section_id and not brows_obj.categ_id.section_id.allow_unlink:
                 warning = {
-                    'title': "Warning for ",
-                    'message': "You won\'t be able to cancel this leave request because the CRM Section of the leave type disallows."
+                    'title': _("Warning for "),
+                    'message': _("You won't be able to cancel this leave "
+                                 "request because the CRM Section of the leave "
+                                 "type disallows."),
                 }
         return {'warning': warning}
 
@@ -116,10 +131,13 @@ class hr_holidays(osv.osv):
         'date_from': fields.datetime('Start Date', readonly=False, states={'draft': [('readonly', False)]}),
         'date_to': fields.datetime('End Date', readonly=False, states={'draft': [('readonly', False)]}),
         'holiday_line': fields.one2many('hr.holidays.line', 'holiday_id', 'Holidays Line'),
-        'holiday_status_id': fields.many2one("hr.holidays.status", "Leave Type", required=False, readonly=False, states={'draft': [('readonly', False)]}),
+        'holiday_status_id': fields.many2one(
+            "hr.holidays.status", "Leave Type", required=False, readonly=False, states={'draft': [('readonly', False)]}
+        ),
     }
 
     def check_holidays(self, cr, uid, ids):
+        status_pool = self.pool.get('hr.holidays.status')
         for record in self.browse(cr, uid, ids):
             if not record.number_of_days:
                 raise osv.except_osv(
@@ -127,26 +145,35 @@ class hr_holidays(osv.osv):
             if record.holiday_type == 'employee' and record.employee_id:
                 for i in record.holiday_line:
                     leave_asked = -(i.number_of_days)
-#                leave_asked = record.number_of_days
+                    # leave_asked = record.number_of_days
                     if leave_asked < 0.00:
                         if not i.holiday_status_id.limit:
-                            leaves_rest = self.pool.get('hr.holidays.status').get_days(
-                                cr, uid, [i.holiday_status_id.id], record.employee_id.id, False)[i.holiday_status_id.id]['remaining_leaves']
+                            leaves_rest = status_pool.get_days(
+                                cr, uid, [i.holiday_status_id.id], record.employee_id.id, False
+                            )[i.holiday_status_id.id]['remaining_leaves']
                             if leaves_rest < -(leave_asked):
                                 raise osv.except_osv(
-                                    _('Warning!'), _('You Cannot Validate leaves while available leaves are less than asked leaves for %s' % (i.holiday_status_id.name)))
+                                    _('Warning!'),
+                                    _('You Cannot Validate leaves while '
+                                      'available leaves are less than asked '
+                                      'leaves for %s' % (i.holiday_status_id.name))
+                                )
             elif record.holiday_type == 'category' and record.category_id:
-#                leave_asked = record.number_of_days
+                # leave_asked = record.number_of_days
                 for i in record.holiday_line:
                     leave_asked = -(i.number_of_days)
                     if leave_asked < 0.00:
                         if not i.holiday_status_id.limit:
-                            leaves_rest = self.pool.get('hr.holidays.status').get_days_cat(
-                                cr, uid, [i.holiday_status_id.id], record.category_id.id, False)[i.holiday_status_id.id]['remaining_leaves']
+                            leaves_rest = status_pool.get_days_cat(
+                                cr, uid, [i.holiday_status_id.id], record.category_id.id, False
+                            )[i.holiday_status_id.id]['remaining_leaves']
                             if leaves_rest < -(leave_asked):
                                 raise osv.except_osv(
-                                    _('Warning!'), _('You Cannot Validate leaves while available leaves are less than asked leaves for %s' % (i.holiday_status_id.name)))
-            else:  # This condition will never meet!! # check me
+                                    _('Warning!'),
+                                    _('You Cannot Validate leaves while '
+                                      'available leaves are less than asked '
+                                      'leaves for %s' % (i.holiday_status_id.name)))
+            else:  # FIXME This condition will never meet!!
                 for i in record.holiday_line:
                     holiday_ids = []
                     vals = {
@@ -229,28 +256,36 @@ class hr_holidays(osv.osv):
     def holidays_confirm(self, cr, uid, ids, *args):
         for record in self.browse(cr, uid, ids):
             user_id = False
-#            leave_asked = record.number_of_days_temp
+            # leave_asked = record.number_of_days_temp
             if record.holiday_type == 'employee' and record.type == 'remove':
-#                if record.employee_id and not record.holiday_status_id.limit:
-                    if record.employee_id:
-                        for i in record.holiday_line:
-                            leave_asked = i.number_of_days
-                            leaves_rest = self.pool.get('hr.holidays.status').get_days(
-                                cr, uid, [i.holiday_status_id.id], record.employee_id.id, False)[i.holiday_status_id.id]['remaining_leaves']
-                            if leaves_rest < leave_asked and not i.holiday_status_id.limit:
-                                raise osv.except_osv(
-                                    _('Warning!'), _('You cannot validate leaves for %s while available leaves are less than asked leaves for %s' % (record.employee_id.name, i.holiday_status_id.name)))
-                    nb = -(record.number_of_days_temp)
+                # if record.employee_id and not record.holiday_status_id.limit:
+                if record.employee_id:
+                    for i in record.holiday_line:
+                        leave_asked = i.number_of_days
+                        leaves_rest = self.pool.get('hr.holidays.status').get_days(
+                            cr, uid, [i.holiday_status_id.id], record.employee_id.id, False
+                        )[i.holiday_status_id.id]['remaining_leaves']
+                        if leaves_rest < leave_asked and not i.holiday_status_id.limit:
+                            raise osv.except_osv(
+                                _('Warning!'),
+                                _('You cannot validate leaves for %s while '
+                                  'available leaves are less than asked '
+                                  'leaves for %s' % (record.employee_id.name, i.holiday_status_id.name)))
+                nb = -(record.number_of_days_temp)
             elif record.holiday_type == 'category' and record.type == 'remove':
-#                if record.category_id and not record.holiday_status_id.limit:
+                # if record.category_id and not record.holiday_status_id.limit:
                 if record.category_id:
                     for j in record.holiday_line:
                         leave_asked = i.number_of_days
                         leaves_rest = self.pool.get('hr.holidays.status').get_days_cat(
-                            cr, uid, [j.holiday_status_id.id], record.category_id.id, False)[j.holiday_status_id.id]['remaining_leaves']
+                            cr, uid, [j.holiday_status_id.id], record.category_id.id, False
+                        )[j.holiday_status_id.id]['remaining_leaves']
                         if leaves_rest < leave_asked and not i.holiday_status_id.limit:
                             raise osv.except_osv(
-                                _('Warning!'), _('You cannot validate leaves for %s while available leaves are less than asked leaves for %s' % (record.category_id.name, j.holiday_status_id.name)))
+                                _('Warning!'),
+                                _('You cannot validate leaves for %s while '
+                                  'available leaves are less than asked leaves '
+                                  'for %s' % (record.category_id.name, j.holiday_status_id.name)))
                 nb = -(record.number_of_days_temp)
             else:
                 nb = record.number_of_days_temp
@@ -289,5 +324,3 @@ class hr_holidays(osv.osv):
         return res
 
 hr_holidays()
-
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

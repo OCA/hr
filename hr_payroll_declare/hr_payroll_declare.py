@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 #
 #
 #    OpenERP, Open Source Management Solution
@@ -22,7 +22,6 @@
 #
 import time
 from datetime import datetime
-from datetime import timedelta
 
 from osv import osv, fields
 from tools import config
@@ -60,7 +59,10 @@ class hr_payroll_declar(osv.osv):
         res = {}
         for rs in self.browse(cr, uid, ids, context):
             period_id = self.pool.get('account.period').search(
-                cr, uid, [('date_start', '<=', time.strftime('%Y-%m-%d')), ('date_stop', '>=', time.strftime('%Y-%m-%d'))])[0]
+                cr, uid, [
+                    ('date_start', '<=', time.strftime('%Y-%m-%d')),
+                    ('date_stop', '>=', time.strftime('%Y-%m-%d'))
+                ])[0]
             fiscalyear_id = self.pool.get('account.period').browse(
                 cr, uid, period_id).fiscalyear_id
             sql_req = '''
@@ -149,7 +151,13 @@ class hr_payroll_declare_line(osv.osv):
         'claim_id': fields.many2one('hr.payroll.declare', 'Allowance Claims', required=False),
         'amount': fields.float('Amount', digits=(16, int(config['price_accuracy']))),
         'allow': fields.float('Allowence', digits=(16, int(config['price_accuracy']))),
-        'allow_amount': fields.function(_function_call, method=True, type='float', digits=(16, int(config['price_accuracy'])), string='Allow Amount'),
+        'allow_amount': fields.function(
+            _function_call,
+            method=True,
+            type='float',
+            digits=(16, int(config['price_accuracy'])),
+            string='Allow Amount'
+        ),
         'head_id': fields.many2one('hr.allounce.deduction.categoty', 'Allowance / Deduction', required=True),
 
     }

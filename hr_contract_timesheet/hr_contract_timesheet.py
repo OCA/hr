@@ -20,7 +20,7 @@
 #
 
 import time
-from osv import fields, osv
+from osv import osv
 
 
 class hr_timesheet(osv.osv):
