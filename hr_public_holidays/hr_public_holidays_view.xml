@@ -8,6 +8,7 @@
             <field name="arch" type="xml">
                 <tree string="Public Holidays">
                     <field name="year"/>
+                    <field name="country_id"/>
                 </tree>
             </field>
         </record>
@@ -19,6 +20,7 @@
                 <form string="Public Holidays">
                     <group>
                         <field name="year"/>
+                        <field name="country_id"/>
                     </group>
                     <newline/>
                     <group string="Public Holidays" colspan="4" col="1">
@@ -32,11 +34,25 @@
             <field name="name">hr.holidays.public.line.tree</field>
             <field name="model">hr.holidays.public.line</field>
             <field name="arch" type="xml">
-                <tree string="Public Holidays" editable="top">
+                <tree string="Public Holidays">
                     <field name="date"/>
                     <field name="name"/>
+                    <field name="state_ids"/>
                     <field name="variable"/>
                 </tree>
+            </field>
+        </record>
+        
+        <record id="view_public_holiday_line_form" model="ir.ui.view">
+            <field name="name">hr.holidays.public.line.form</field>
+            <field name="model">hr.holidays.public.line</field>
+            <field name="arch" type="xml">
+					<form string="Public Holidays">
+                        <field name="date"/>
+	                    <field name="name"/> 
+	                    <field name="holidays_id" invisible="1"/>
+	                    <field name="state_ids" domain = "[('country_id','=',parent.country_id)]"/>  
+                	</form>
             </field>
         </record>
         

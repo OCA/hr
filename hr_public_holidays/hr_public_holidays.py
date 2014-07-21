@@ -3,6 +3,8 @@
 #
 #    Copyright (C) 2011,2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
 #    All Rights Reserved.
+#    Copyright (C) 2014 initOS GmbH & Co. KG (<http://www.initos.com>).
+#    Author Nikolina Todorova <nikolina.todorova@initos.com>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as published by
@@ -32,39 +34,94 @@ class hr_holidays(osv.osv):
     _columns = {
         'year': fields.char("calendar Year", required=True),
         'line_ids': fields.one2many('hr.holidays.public.line', 'holidays_id', 'Holiday Dates'),
+        'country_id': fields.many2one('res.country', 'Country'),
     }
 
     _rec_name = 'year'
     _order = "year"
 
     _sql_constraints = [
-        ('year_unique', 'UNIQUE(year)', _('Duplicate year!')),
+        ('year_unique', 'UNIQUE(year,country_id)', _('Duplicate year and country!')),
     ]
 
-    def is_public_holiday(self, cr, uid, dt, context=None):
+    def is_public_holiday(self, cr, uid, dt, employee_id=None, context=None):
+        employee = self.pool.get('hr.employee').browse(cr, uid, employee_id)
+        if employee_id == None:
+            holidays_filter = [('year', '=', dt.year), ('country_id', '=', False)]
+        else:
+            if employee.address_id.country_id == None:
+                holidays_filter = [('year', '=', dt.year), ('country_id', '=', False)]
+            else:
+                holidays_filter = [('year', '=', dt.year), '|', ('country_id', '=',
+                                          employee.address_id.country_id.id),
+                                         ('country_id', '=', False)]
 
-        ph_obj = self.pool.get('hr.holidays.public')
-        ph_ids = ph_obj.search(cr, uid, [
-            ('year', '=', dt.year),
-        ],
+        ph_ids = self.search(cr, uid, holidays_filter,
             context=context)
+
         if len(ph_ids) == 0:
             return False
 
-        for line in ph_obj.browse(cr, uid, ph_ids[0], context=context).line_ids:
+        if employee_id == None:
+            states_filter = [('holidays_id', 'in',
+                                            ph_ids),
+                                            ('state_ids', '=', False)]
+        else:
+            if employee.address_id.state_id == None:
+                states_filter = [('holidays_id', 'in',
+                                               ph_ids),
+                                              ('state_ids', '=', False)]
+            else:
+                states_filter = [('holidays_id', 'in',
+                                                ph_ids),
+                                              '|', ('state_ids.id', '=',
+                                              employee.address_id.state_id.id),
+                                              ('state_ids', '=', False)]
+
+        hr_holiday_public_line_obj = self.pool.get('hr.holidays.public.line')
+        holidays_line_ids = hr_holiday_public_line_obj.search(cr, uid,
+                                        states_filter)
+        for line in hr_holiday_public_line_obj.browse(cr, uid, holidays_line_ids):
             if date.strftime(dt, "%Y-%m-%d") == line.date:
                 return True
 
         return False
 
-    def get_holidays_list(self, cr, uid, year, context=None):
+    def get_holidays_list(self, cr, uid, year, employee_id=None, context=None):
 
         res = []
-        ph_ids = self.search(cr, uid, [('year', '=', year)], context=context)
+        employee = self.pool.get('hr.employee').browse(cr, uid, employee_id)
+        if employee_id == None:
+            holidays_filter = [('year', '=', year), ('country_id', '=', False)]
+        else:
+            if employee.address_id.country_id == None:
+                holidays_filter = [('year', '=', year), ('country_id', '=', False)]
+            else:
+                holidays_filter = [('year', '=', year), '|', ('country_id', '=',
+                                          employee.address_id.country_id.id),
+                                         ('country_id', '=', False)]
+
+        ph_ids = self.search(cr, uid, holidays_filter, context=context)
         if len(ph_ids) == 0:
             return res
+
+        if employee.address_id.state_id == None:
+            states_filter = [('holidays_id', 'in',
+                                           ph_ids),
+                                          ('state_ids', '=', False)]
+        else:
+            states_filter = [('holidays_id', 'in',
+                                            ph_ids),
+                                          '|', ('state_ids.id', '=',
+                                          employee.address_id.state_id.id),
+                                          ('state_ids', '=', False)]
+
+        hr_holiday_public_line_obj = self.pool.get('hr.holidays.public.line')
+        holidays_line_ids = hr_holiday_public_line_obj.search(cr, uid,
+                                        states_filter)
+
         [res.append(l.date)
-         for l in self.browse(cr, uid, ph_ids[0], context=context).line_ids]
+         for l in hr_holiday_public_line_obj.browse(cr, uid, holidays_line_ids, context=context)]
         return res
 
 
@@ -78,6 +135,7 @@ class hr_holidays_line(osv.osv):
         'date': fields.date('Date', required=True),
         'holidays_id': fields.many2one('hr.holidays.public', 'Holiday Calendar Year'),
         'variable': fields.boolean('Date may change'),
+        'state_ids': fields.many2many('res.country.state', 'hr_holiday_public_state_rel', 'line_id', 'state_id', 'Related states')
     }
 
     _order = "date, name desc"
