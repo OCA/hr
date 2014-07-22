@@ -1,4 +1,4 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 #
 #
 #    Copyright (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
@@ -19,14 +19,12 @@
 #
 #
 
-import time
 from datetime import datetime
-from dateutil import relativedelta
 from openerp.tools.translate import _
-from osv import fields, osv
+from openerp.osv import fields, orm
 
 
-class hr_payroll_run(osv.osv):
+class hr_payroll_run(orm.Model):
 
     _name = 'hr.payslip.run'
     _inherit = 'hr.payslip.run'
@@ -36,7 +34,7 @@ class hr_payroll_run(osv.osv):
     }
 
 
-class hr_payroll_register(osv.osv):
+class hr_payroll_register(orm.Model):
 
     _name = 'hr.payroll.register'
 
@@ -46,14 +44,21 @@ class hr_payroll_register(osv.osv):
             ('draft', 'Draft'),
             ('close', 'Close'),
         ], 'Status', select=True, readonly=True),
-        'date_start': fields.datetime('Date From', required=True, readonly=True, states={'draft': [('readonly', False)]}),
-        'date_end': fields.datetime('Date To', required=True, readonly=True, states={'draft': [('readonly', False)]}),
-        'run_ids': fields.one2many('hr.payslip.run', 'register_id', readonly=True, states={'draft': [('readonly', False)]}),
+        'date_start': fields.datetime(
+            'Date From', required=True, readonly=True, states={'draft': [('readonly', False)]}
+        ),
+        'date_end': fields.datetime(
+            'Date To', required=True, readonly=True, states={'draft': [('readonly', False)]}
+        ),
+        'run_ids': fields.one2many(
+            'hr.payslip.run', 'register_id', readonly=True, states={'draft': [('readonly', False)]}
+        ),
         'company_id': fields.many2one('res.company', 'Company'),
     }
 
     _sql_constraints = [
-        ('unique_name', 'UNIQUE(name)', _('Payroll Register description must be unique.'))]
+        ('unique_name', 'UNIQUE(name)', _('Payroll Register description must be unique.')),
+    ]
 
     def _get_default_name(self, cr, uid, context=None):
 

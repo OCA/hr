@@ -1,4 +1,4 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 #
 #
 #    Copyright (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
@@ -37,9 +37,7 @@ Define properties of an absence policy, such as:
         'hr_payroll_period',
         'hr_policy_group',
     ],
-    'init_xml': [
-    ],
-    'update_xml': [
+    'data': [
         'security/ir.model.access.csv',
         'data/leave_types.xml',
         'data/salary_rules_data.xml',
@@ -47,8 +45,5 @@ Define properties of an absence policy, such as:
     ],
     'test': [
     ],
-    'demo_xml': [
-    ],
     'installable': True,
-    'active': False,
 }

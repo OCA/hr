@@ -1,4 +1,4 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 #
 #
 #    Copyright (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
@@ -46,9 +46,7 @@ Extended Capabilities for HR Holidays (Leaves)
         'hr_public_holidays',
         'hr_schedule',
     ],
-    'init_xml': [
-    ],
-    'update_xml': [
+    'data': [
         'security/user_groups.xml',
         'security/ir.model.access.csv',
         'security/ir_rule.xml',
@@ -57,8 +55,5 @@ Extended Capabilities for HR Holidays (Leaves)
     ],
     'test': [
     ],
-    'demo_xml': [
-    ],
     'installable': True,
-    'active': False,
 }

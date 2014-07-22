@@ -1,4 +1,4 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 #
 #
 #    Copyright (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
@@ -19,10 +19,10 @@
 #
 #
 
-from openerp.osv import fields, osv
+from openerp.osv import fields, orm
 
 
-class policy_groups(osv.Model):
+class policy_groups(orm.Model):
 
     _name = 'hr.policy.group'
     _description = 'HR Policy Groups'
@@ -33,7 +33,7 @@ class policy_groups(osv.Model):
     }
 
 
-class contract_init(osv.Model):
+class contract_init(orm.Model):
 
     _inherit = 'hr.contract.init'
 
@@ -44,7 +44,7 @@ class contract_init(osv.Model):
     }
 
 
-class hr_contract(osv.Model):
+class hr_contract(orm.Model):
 
     _name = 'hr.contract'
     _inherit = 'hr.contract'
@@ -57,7 +57,7 @@ class hr_contract(osv.Model):
 
         res = False
         init = self.get_latest_initial_values(cr, uid, context=context)
-        if init != None and init.policy_group_id:
+        if init is not None and init.policy_group_id:
             res = init.policy_group_id.id
         return res
 

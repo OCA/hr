@@ -1,7 +1,7 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 #
 #
-#    Copyrigth (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>
+#    Copyright (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as published by
@@ -110,7 +110,7 @@ class Parser(report_sxw.rml_parse):
                                     ('employee_id.id', '=', d[
                                         'employee_id'][0]),
                                     ('state', 'not in', ['cancel'])])
-            if len(term_ids) > 0:
+            if term_ids:
                 continue
 
             if d['employee_id'][0] not in unique_ids:
@@ -191,7 +191,7 @@ class Parser(report_sxw.rml_parse):
                                                    ('employee_id.id', '=',
                                                     sched.employee_id.id),
                                                    ('state', 'not in', ['cancel'])])
-            if len(term_ids) > 0:
+            if term_ids:
                 continue
 
             # Did the employee punch in that day?
@@ -229,7 +229,7 @@ class Parser(report_sxw.rml_parse):
                                                   [('name', '<=', self.date),
                                                    ('employee_id.id', '=', ee_id),
                                                    ('state', 'not in', ['cancel'])])
-            if len(term_ids) > 0:
+            if term_ids:
                 continue
 
             att_ids = att_obj.search(
@@ -244,7 +244,7 @@ class Parser(report_sxw.rml_parse):
                 res += 1
 
         self._absent += res
-        return (res and res or '-')
+        return res or '-'
 
     def _on_leave(self, cr, uid, employee_id, d):
 
@@ -268,7 +268,7 @@ class Parser(report_sxw.rml_parse):
                                 ('state', 'in', [
                                     'validate', 'validate1']),
                                 ])
-        return (len(leave_ids) > 0)
+        return bool(leave_ids)
 
     def get_restday(self, department_id):
 
@@ -316,7 +316,7 @@ class Parser(report_sxw.rml_parse):
 
         self._restday += res
         res_str = otr > 0 and str(res) + '(' + str(otr) + ')' or str(res)
-        return ((res or otr) and res_str or '-')
+        return (res or otr) and res_str or '-'
 
     def _get_leave_ids(self, department_id, codes):
 
@@ -367,33 +367,28 @@ class Parser(report_sxw.rml_parse):
         return employee_ids
 
     def get_al(self, department_id):
-
         res = self.get_leave(department_id, 'LVANNUAL')
         self._al += res
-        return (res and res or '-')
+        return res or '-'
 
     def get_sl(self, department_id):
-
         res = self.get_leave(department_id, ['LVSICK', 'LVSICK50', 'LVSICK00'])
         self._sl += res
-        return (res and res or '-')
+        return res or '-'
 
     def get_ml(self, department_id):
-
         res = self.get_leave(department_id, 'LVMATERNITY')
         self._ml += res
-        return (res and res or '-')
+        return res or '-'
 
     def get_ol(self, department_id):
-
         codes = ['LVBEREAVEMENT', 'LVWEDDING',
                  'LVMMEDICAL', 'LVPTO', 'LVCIVIC']
         res = self.get_leave(department_id, codes)
         self._ol += res
-        return (res and res or '-')
+        return res or '-'
 
     def get_terminated(self, department_id):
-
         res = 0
         seen_ids = []
         term_obj = self.pool.get('hr.employee.termination')
@@ -410,36 +405,28 @@ class Parser(report_sxw.rml_parse):
                 res += 1
                 seen_ids.append(term.employee_id.id)
         self._terminated += res
-        return (res and res or '-')
+        return res or '-'
 
     def get_sum_present(self):
-
         return self._present
 
     def get_sum_absent(self):
-
         return self._absent
 
     def get_sum_restday(self):
-
         return self._restday
 
     def get_sum_al(self):
-
         return self._al
 
     def get_sum_sl(self):
-
         return self._sl
 
     def get_sum_ml(self):
-
         return self._ml
 
     def get_sum_ol(self):
-
         return self._ol
 
     def get_sum_terminated(self):
-
         return self._terminated

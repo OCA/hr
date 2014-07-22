@@ -1,4 +1,4 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 #
 #
 #    Copyright (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
@@ -20,16 +20,15 @@
 #
 
 from datetime import datetime, timedelta
-from dateutil.relativedelta import relativedelta
 
 from openerp import netsvc
 from openerp.addons import decimal_precision as dp
-from openerp.osv import fields, osv
+from openerp.osv import fields, orm
 from openerp.tools import DEFAULT_SERVER_DATE_FORMAT as OE_DFORMAT
 from openerp.tools.translate import _
 
 
-class contract_init(osv.Model):
+class contract_init(orm.Model):
 
     _name = 'hr.contract.init'
     _description = 'Initial Contract Settings'
@@ -67,7 +66,6 @@ class contract_init(osv.Model):
     def _needaction_domain_get(self, cr, uid, context=None):
 
         users_obj = self.pool.get('res.users')
-        domain = []
 
         if users_obj.has_group(cr, uid, 'base.group_hr_director'):
             domain = [('state', 'in', ['draft'])]
@@ -82,14 +80,14 @@ class contract_init(osv.Model):
         data = self.read(cr, uid, ids, ['state'], context=context)
         for d in data:
             if d['state'] in ['approve', 'decline']:
-                raise osv.except_osv(_('Error'),
+                raise orm.except_orm(_('Error'),
                                      _('You may not a delete a record that is not in a "Draft" state'))
         return super(contract_init, self).unlink(cr, uid, ids, context=context)
 
     def set_to_draft(self, cr, uid, ids, context=None):
         self.write(cr, uid, ids, {
             'state': 'draft',
-        })
+        }, context=context)
         wf_service = netsvc.LocalService("workflow")
         for i in ids:
             wf_service.trg_delete(uid, 'hr.contract.init', i, cr)
@@ -107,23 +105,36 @@ class contract_init(osv.Model):
         return True
 
 
-class init_wage(osv.Model):
+class init_wage(orm.Model):
 
     _name = 'hr.contract.init.wage'
     _description = 'Starting Wages'
 
     _columns = {
         'job_id': fields.many2one('hr.job', 'Job'),
-        'starting_wage': fields.float('Starting Wage', digits_compute=dp.get_precision('Payroll'),
-                                      required=True),
-        'is_default': fields.boolean('Use as Default',
-                                     help="Use as default wage"),
+        'starting_wage': fields.float(
+            'Starting Wage',
+            digits_compute=dp.get_precision('Payroll'),
+            required=True
+        ),
+        'is_default': fields.boolean(
+            'Use as Default',
+            help="Use as default wage"
+        ),
         'contract_init_id': fields.many2one('hr.contract.init', 'Contract Settings'),
-        'category_ids': fields.many2many('hr.employee.category', 'contract_init_category_rel', 'contract_init_id', 'category_id', 'Tags'),
+        'category_ids': fields.many2many(
+            'hr.employee.category',
+            'contract_init_category_rel',
+            'contract_init_id',
+            'category_id',
+            'Tags'
+        ),
     }
 
-    _sql_constraints = [('unique_job_cinit', 'UNIQUE(job_id,contract_init_id)', _(
-        'A Job Position cannot be referenced more than once in a Contract Settings record.'))]
+    _sql_constraints = [
+        ('unique_job_cinit', 'UNIQUE(job_id,contract_init_id)',
+         _('A Job Position cannot be referenced more than once in a Contract Settings record.')),
+    ]
 
     def unlink(self, cr, uid, ids, context=None):
 
@@ -137,12 +148,12 @@ class init_wage(osv.Model):
                 'hr.contract.init').read(cr, uid, d['contract_init_id'][0],
                                          ['state'], context=context)
             if d2['state'] in ['approve', 'decline']:
-                raise osv.except_osv(_('Error'),
+                raise orm.except_orm(_('Error'),
                                      _('You may not a delete a record that is not in a "Draft" state'))
         return super(init_wage, self).unlink(cr, uid, ids, context=context)
 
 
-class hr_contract(osv.Model):
+class hr_contract(orm.Model):
 
     _inherit = 'hr.contract'
 
@@ -156,9 +167,9 @@ class hr_contract(osv.Model):
                 cr, uid, job_id, ['category_ids'], context=context)
         else:
             catdata = False
-        if init != None:
+        if init is not None:
             for line in init.wage_ids:
-                if job_id != None and line.job_id.id == job_id:
+                if job_id is not None and line.job_id.id == job_id:
                     res = line.starting_wage
                 elif catdata:
                     cat_id = False
@@ -181,7 +192,7 @@ class hr_contract(osv.Model):
 
         res = False
         init = self.get_latest_initial_values(cr, uid, context=context)
-        if init != None and init.struct_id:
+        if init is not None and init.struct_id:
             res = init.struct_id.id
         return res
 
@@ -189,7 +200,7 @@ class hr_contract(osv.Model):
 
         res = False
         init = self.get_latest_initial_values(cr, uid, context=context)
-        if init != None and init.trial_period and init.trial_period > 0:
+        if init is not None and init.trial_period and init.trial_period > 0:
             res = datetime.now().strftime(OE_DFORMAT)
         return res
 
@@ -197,7 +208,7 @@ class hr_contract(osv.Model):
 
         res = False
         init = self.get_latest_initial_values(cr, uid, context=context)
-        if init != None and init.trial_period and init.trial_period > 0:
+        if init is not None and init.trial_period and init.trial_period > 0:
             dEnd = datetime.now().date() + timedelta(days=init.trial_period)
             res = dEnd.strftime(OE_DFORMAT)
         return res
@@ -222,7 +233,7 @@ class hr_contract(osv.Model):
         res = {'value': {'trial_date_end': False}}
 
         init = self.get_latest_initial_values(cr, uid, context=context)
-        if init != None and init.trial_period and init.trial_period > 0:
+        if init is not None and init.trial_period and init.trial_period > 0:
             dStart = datetime.strptime(trial_date_start, OE_DFORMAT)
             dEnd = dStart + timedelta(days=init.trial_period)
             res['value']['trial_date_end'] = dEnd.strftime(OE_DFORMAT)
@@ -230,10 +241,10 @@ class hr_contract(osv.Model):
         return res
 
     def get_latest_initial_values(self, cr, uid, today_str=None, context=None):
-        '''Return a record with an effective date before today_str but greater than all others'''
+        """Return a record with an effective date before today_str but greater than all others"""
 
         init_obj = self.pool.get('hr.contract.init')
-        if today_str == None:
+        if today_str is None:
             today_str = datetime.now().strftime(OE_DFORMAT)
         dToday = datetime.strptime(today_str, OE_DFORMAT).date()
 
@@ -244,7 +255,7 @@ class hr_contract(osv.Model):
         for init in init_obj.browse(cr, uid, ids, context=context):
             d = datetime.strptime(init.date, OE_DFORMAT).date()
             if d <= dToday:
-                if res == None:
+                if res is None:
                     res = init
                 elif d > datetime.strptime(res.date, OE_DFORMAT).date():
                     res = init

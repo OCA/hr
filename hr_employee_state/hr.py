@@ -1,4 +1,4 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 #
 #
 #    Copyright (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
@@ -24,12 +24,12 @@ import time
 from datetime import datetime
 
 from openerp import netsvc
-from openerp.osv import fields, osv
+from openerp.osv import fields, orm
 from openerp.tools import DEFAULT_SERVER_DATE_FORMAT
 from openerp.tools.translate import _
 
 
-class hr_employee(osv.Model):
+class hr_employee(orm.Model):
 
     _name = 'hr.employee'
     _inherit = 'hr.employee'
@@ -128,7 +128,7 @@ class hr_employee(osv.Model):
         return True
 
 
-class hr_employee_termination_reason(osv.Model):
+class hr_employee_termination_reason(orm.Model):
 
     _name = 'hr.employee.termination.reason'
     _description = 'Reason for Employment Termination'
@@ -138,7 +138,7 @@ class hr_employee_termination_reason(osv.Model):
     }
 
 
-class hr_employee_termination(osv.osv):
+class hr_employee_termination(orm.Model):
 
     _name = 'hr.employee.termination'
     _description = 'Data Related to Deactivation of Employee'
@@ -201,7 +201,7 @@ class hr_employee_termination(osv.osv):
 
         for term in self.browse(cr, uid, ids, context=context):
             if term.state not in ['draft']:
-                raise osv.except_osv(_('Unable to delete record!'),
+                raise orm.except_orm(_('Unable to delete record!'),
                                      _('Employment termination already in progress. Use the "Cancel" button instead.'))
 
             # Trigger employee status change back to Active and contract back
@@ -251,7 +251,7 @@ class hr_employee_termination(osv.osv):
 
         for term in self.browse(cr, uid, ids, context=context):
             if self.effective_date_in_future(cr, uid, [term.id], context=context):
-                raise osv.except_osv(_('Unable to deactivate employee!'),
+                raise orm.except_orm(_('Unable to deactivate employee!'),
                                      _('Effective date is still in the future.'))
 
             # Trigger a status change of the employee and any contracts pending
@@ -269,7 +269,7 @@ class hr_employee_termination(osv.osv):
         return True
 
 
-class hr_contract(osv.Model):
+class hr_contract(orm.Model):
 
     _name = 'hr.contract'
     _inherit = 'hr.contract'
@@ -359,7 +359,8 @@ class hr_contract(osv.Model):
             if c2.id == contract.id or c2.state == 'draft':
                 continue
 
-            if (not c2.date_end or datetime.strptime(c2.date_end, DEFAULT_SERVER_DATE_FORMAT).date() >= dToday) and c2.state != 'done':
+            if ((not c2.date_end or datetime.strptime(c2.date_end, DEFAULT_SERVER_DATE_FORMAT).date() >= dToday)
+                    and c2.state != 'done'):
                 open_contract = True
 
         # Don't create an employment termination if the employee has an open contract or
@@ -389,7 +390,7 @@ class hr_contract(osv.Model):
             uid, 'hr.employee', contract.employee_id.id, 'signal_pending_inactive', cr)
 
 
-class hr_job(osv.Model):
+class hr_job(orm.Model):
 
     _name = 'hr.job'
     _inherit = 'hr.job'
@@ -420,17 +421,19 @@ class hr_job(osv.Model):
 
     _columns = {
         # Override from base class. Also, watch 'status' field of hr.employee
-        'no_of_employee': fields.function(_no_of_employee, string="Current Number of Employees",
-                                          help='Number of employees currently occupying this job position.',
-                                          store={
-                                              'hr.employee': (_get_job_position, ['job_id', 'status'], 10),
-                                          },
-                                          multi='no_of_employee'),
-        'expected_employees': fields.function(_no_of_employee, string='Total Forecasted Employees',
-                                              help='Expected number of employees for this job position after new recruitment.',
-                                              store={
-                                                  'hr.job': (lambda self, cr, uid, ids, c=None: ids, ['no_of_recruitment'], 10),
-                                                  'hr.employee': (_get_job_position, ['job_id', 'status'], 10),
-                                              },
-                                              multi='no_of_employee'),
+        'no_of_employee': fields.function(
+            _no_of_employee, string="Current Number of Employees",
+            help='Number of employees currently occupying this job position.',
+            store={
+                'hr.employee': (_get_job_position, ['job_id', 'status'], 10),
+            }, multi='no_of_employee'
+        ),
+        'expected_employees': fields.function(
+            _no_of_employee, string='Total Forecasted Employees',
+            help='Expected number of employees for this job position after new recruitment.',
+            store={
+                'hr.job': (lambda self, cr, uid, ids, c=None: ids, ['no_of_recruitment'], 10),
+                'hr.employee': (_get_job_position, ['job_id', 'status'], 10),
+            }, multi='no_of_employee'
+        ),
     }

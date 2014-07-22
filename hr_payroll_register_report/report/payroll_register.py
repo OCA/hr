@@ -1,8 +1,8 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 #
 #
 #    OpenERP, Open Source Management Solution
-#    Copyrigth (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>
+#    Copyright (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>
 #    Copyright (C) 2004-2009 Tiny SPRL (<http://tiny.be>). All Rights Reserved
 #    d$
 #
@@ -22,10 +22,8 @@
 #
 
 import time
-from datetime import datetime
 
-from openerp.tools import DEFAULT_SERVER_DATE_FORMAT as OE_DATEFORMAT
-from report import report_sxw
+from openerp.report import report_sxw
 
 
 class Parser(report_sxw.rml_parse):

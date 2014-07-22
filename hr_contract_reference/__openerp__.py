@@ -1,4 +1,4 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 #
 #
 #    Copyright (C) 2011,2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
@@ -33,12 +33,9 @@ This module provides :
     "author": "Michael Telahun Makonnen <mmakonnen@gmail.com",
     "website": "http://miketelahun.wordpress.com",
     "depends": ["hr_contract"],
-    "init_xml": [],
-    'update_xml': [
+    "data": [
         'hr_contract_view.xml',
         'hr_contract_sequence.xml',
     ],
-    'demo_xml': [],
     'installable': True,
-    'active': False,
 }

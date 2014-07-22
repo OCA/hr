@@ -1,4 +1,4 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 #
 #
 #    Copyright (C) 2011,2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
@@ -33,15 +33,10 @@ Company wide unique employee ID
     'depends': [
         'hr',
     ],
-    'init_xml': [
-    ],
-    'update_xml': [
+    'data': [
         'hr_view.xml',
     ],
     'test': [
     ],
-    'demo_xml': [
-    ],
     'installable': True,
-    'active': False,
 }

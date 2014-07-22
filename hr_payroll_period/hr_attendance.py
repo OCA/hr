@@ -1,4 +1,4 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 #
 #
 #    Copyright (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
@@ -19,11 +19,11 @@
 #
 #
 
+from openerp.osv import fields, orm
 from openerp.tools.translate import _
-from osv import fields, osv
 
 
-class hr_attendance(osv.osv):
+class hr_attendance(orm.Model):
 
     _name = 'hr.attendance'
     _inherit = 'hr.attendance'
@@ -57,7 +57,7 @@ class hr_attendance(osv.osv):
                 if c_id in pp_contract_ids:
                     res = True
                     break
-            if res == True:
+            if res is True:
                 break
 
         return res
@@ -68,20 +68,24 @@ class hr_attendance(osv.osv):
             ee_data = self.pool.get(
                 'hr.employee').read(cr, uid, vals['employee_id'], ['name'],
                                     context=context)
-            raise osv.except_osv(_('The period is Locked!'),
-                                 _('You may not add an attendace record to a locked period.\nEmployee: %s\nTime: %s') % (ee_data['name'], vals['name']))
+            raise orm.except_orm(
+                _('The period is Locked!'),
+                _("You may not add an attendance record to a locked period.\n"
+                  "Employee: %s\n"
+                  "Time: %s") % (ee_data['name'], vals['name']))
 
         return super(hr_attendance, self).create(cr, uid, vals, context=context)
 
     def unlink(self, cr, uid, ids, context=None):
-
         if isinstance(ids, (int, long)):
             ids = [ids]
 
         for punch in self.browse(cr, uid, ids, context=context):
             if punch.state in ['verified', 'locked']:
-                raise osv.except_osv(_('The Record cannot be deleted!'),
-                                     _('You may not delete a record that is in a %s state:\nEmployee: %s, Date: %s, Action: %s') % (punch.state, punch.employee_id.name, punch.name, punch.action))
+                raise orm.except_orm(_('The Record cannot be deleted!'),
+                                     _("You may not delete a record that is in a %s state:\n"
+                                       "Employee: %s, Date: %s, Action: %s")
+                                     % (punch.state, punch.employee_id.name, punch.name, punch.action))
 
         return super(hr_attendance, self).unlink(cr, uid, ids, context=context)
 
@@ -91,9 +95,12 @@ class hr_attendance(osv.osv):
             ids = [ids]
 
         for punch in self.browse(cr, uid, ids, context=context):
-            if punch.state in ['verified', 'locked'] and (vals.get('name', False) or vals.get('action', False) or vals.get('employee_id', False)):
-                raise osv.except_osv(
-                    _('The record cannot be modified!'), _('You may not write to a record that is in a %s state:\nEmployee: %s, Date: %s, Action: %s') %
-                    (punch.state, punch.employee_id.name, punch.name, punch.action))
+            if (punch.state in ['verified', 'locked']
+                    and (vals.get('name') or vals.get('action') or vals.get('employee_id'))):
+                raise orm.except_orm(
+                    _('The record cannot be modified!'),
+                    _("You may not write to a record that is in a %s state:\n"
+                      "Employee: %s, Date: %s, Action: %s")
+                    % (punch.state, punch.employee_id.name, punch.name, punch.action))
 
         return super(hr_attendance, self).write(cr, uid, ids, vals, context=context)

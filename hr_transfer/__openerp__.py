@@ -1,4 +1,4 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 #
 #
 #    Copyright (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
@@ -34,9 +34,10 @@ Transfer Employees between Departments
         'hr',
         'hr_contract_state',
     ],
-    'init_xml': [
-    ],
-    'update_xml': [
+    'external_dependencies': {
+        'python': ['dateutil'],
+    },
+    'data': [
         'security/ir.model.access.csv',
         'hr_transfer_cron.xml',
         'hr_transfer_data.xml',
@@ -45,8 +46,5 @@ Transfer Employees between Departments
     ],
     'test': [
     ],
-    'demo_xml': [
-    ],
     'installable': True,
-    'active': False,
 }

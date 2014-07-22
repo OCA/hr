@@ -1,4 +1,4 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 #
 #
 #    Copyright (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
@@ -19,21 +19,23 @@
 #
 #
 
-import netsvc
+from openerp import netsvc
 
-from osv import fields, osv
+from openerp.osv import fields, orm
 
 import logging
 _logger = logging.getLogger(__name__)
 
 
-class department_selection(osv.osv_memory):
+class department_selection(orm.TransientModel):
 
     _name = 'hr.schedule.validate.departments'
     _description = 'Department Selection for Validation'
 
     _columns = {
-        'department_ids': fields.many2many('hr.department', 'hr_department_group_rel', 'employee_id', 'department_id', 'Departments'),
+        'department_ids': fields.many2many(
+            'hr.department', 'hr_department_group_rel', 'employee_id', 'department_id', 'Departments'
+        ),
     }
 
     def view_schedules(self, cr, uid, ids, context=None):

@@ -1,4 +1,4 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 #
 #
 #    Copyright (C) 2011,2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
@@ -39,15 +39,10 @@ Make Employee Records and Contracts Easier to Work With
         'hr',
         'hr_contract',
     ],
-    'init_xml': [
-    ],
-    'update_xml': [
+    'data': [
         'hr_simplify_view.xml',
     ],
     'test': [
     ],
-    'demo_xml': [
-    ],
     'installable': True,
-    'active': False,
 }

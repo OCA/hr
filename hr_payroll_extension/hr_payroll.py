@@ -1,4 +1,4 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 #
 #
 #    Copyright (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
@@ -20,14 +20,13 @@
 #
 
 from pytz import timezone, utc
-
-import openerp.addons.decimal_precision as dp
 from datetime import datetime, timedelta
 
+import openerp.addons.decimal_precision as dp
 from openerp.tools import DEFAULT_SERVER_DATE_FORMAT as OE_DATEFORMAT
 from openerp.tools import DEFAULT_SERVER_DATETIME_FORMAT as OE_DATETIMEFORMAT
 from openerp.tools.translate import _
-from openerp.osv import fields, osv
+from openerp.osv import fields, orm
 
 
 class last_X_days:
@@ -49,18 +48,18 @@ class last_X_days:
     def days_worked(self):
         res = 0
         for d in self.arr:
-            if d == True:
+            if d is True:
                 res += 1
         return res
 
 
-class hr_payslip(osv.osv):
+class hr_payslip(orm.Model):
 
     _name = 'hr.payslip'
     _inherit = 'hr.payslip'
 
     def _get_policy(self, policy_group, policy_ids, dDay):
-        "Return a policy with an effective date before dDay but greater than all others"
+        """Return a policy with an effective date before dDay but greater than all others"""
 
         if not policy_group or not policy_ids:
             return None
@@ -69,7 +68,7 @@ class hr_payslip(osv.osv):
         for policy in policy_ids:
             dPolicy = datetime.strptime(policy.date, OE_DATEFORMAT).date()
             if dPolicy <= dDay:
-                if res == None:
+                if res is None:
                     res = policy
                 elif dPolicy > datetime.strptime(res.date, OE_DATEFORMAT).date():
                     res = policy
@@ -77,26 +76,26 @@ class hr_payslip(osv.osv):
         return res
 
     def _get_ot_policy(self, policy_group, dDay):
-        "Return an OT policy with an effective date before dDay but greater than all others"
+        """Return an OT policy with an effective date before dDay but greater than all others"""
 
         return self._get_policy(policy_group, policy_group.ot_policy_ids, dDay)
 
     def _get_absence_policy(self, policy_group, dDay):
-        "Return an Absence policy with an effective date before dDay but greater than all others"
+        """Return an Absence policy with an effective date before dDay but greater than all others"""
 
         return self._get_policy(policy_group, policy_group.absence_policy_ids, dDay)
 
     def _get_presence_policy(self, policy_group, dDay):
-        "Return a Presence Policy with an effective date before dDay but greater than all others"
+        """Return a Presence Policy with an effective date before dDay but greater than all others"""
 
         return self._get_policy(policy_group, policy_group.presence_policy_ids, dDay)
 
     def _get_applied_time(self, worked_hours, pol_active_after, pol_duration=None):
-        '''Returns worked time in hours according to pol_active_after and pol_duration.'''
+        """Returns worked time in hours according to pol_active_after and pol_duration."""
 
         applied_min = (worked_hours * 60) - pol_active_after
         if applied_min > 0.01:
-            applied_min = (pol_duration != None and applied_min >
+            applied_min = (pol_duration is not None and applied_min >
                            pol_duration) and pol_duration or applied_min
         else:
             applied_min = 0
@@ -138,7 +137,7 @@ class hr_payslip(osv.osv):
             lsd.push(False)
             push_lsd = False
 
-        if hours > -0.01 and hours < 0.01:
+        if -0.01 < hours < 0.01:
             hours = 0
         return hours, push_lsd
 
@@ -176,7 +175,7 @@ class hr_payslip(osv.osv):
             lsd.push(False)
             push_lsd = False
 
-        if hours > -0.01 and hours < 0.01:
+        if -0.01 < hours < 0.01:
             hours = 0
         return hours, push_lsd
 
@@ -216,7 +215,7 @@ class hr_payslip(osv.osv):
             lsd.push(False)
             push_lsd = False
 
-        if hours > -0.01 and hours < 0.01:
+        if -0.01 < hours < 0.01:
             hours = 0
         return hours, push_lsd
 
@@ -249,9 +248,9 @@ class hr_payslip(osv.osv):
         while d <= dTo:
             res[d.strftime(
                 OE_DATEFORMAT)] = att_obj.total_hours_on_day(
-                cr, uid, contract, d,
-                punches_list=att_list,
-                context=context)
+                    cr, uid, contract, d,
+                    punches_list=att_list,
+                    context=context)
             d += timedelta(days=+1)
 
         return res
@@ -265,8 +264,9 @@ class hr_payslip(osv.osv):
         return att_dict['raw_list']
 
     def leaves_list_init(self, cr, uid, employee_id, dFrom, dTo, tz, context=None):
-        '''Returns a list of tuples containing start, end dates for leaves within
-        the specified period.'''
+        """Returns a list of tuples containing start, end dates for leaves within
+        the specified period.
+        """
 
         leave_obj = self.pool.get('hr.holidays')
         dtS = datetime.strptime(
@@ -299,10 +299,8 @@ class hr_payslip(osv.osv):
 
         return res
 
-    def leaves_list_get_hours(
-        self, cr, uid, employee_id, contract_id, sched_tpl_id, d,
-            leaves_list, context=None):
-        '''Return the number of hours of leave on a given date, d.'''
+    def leaves_list_get_hours(self, cr, uid, employee_id, contract_id, sched_tpl_id, d, leaves_list, context=None):
+        """Return the number of hours of leave on a given date, d."""
 
         code = False
         hours = 0
@@ -325,7 +323,7 @@ class hr_payslip(osv.osv):
             if utcdt_dayS <= utcEnd and utcdt_dayE >= utcBegin:
                 code = l['code']
                 sched_tpl_obj = self.pool.get('hr.schedule.template')
-                if utcBegin.date() < utcdt_dayS.date() and utcEnd.date() > utcdt_dayS.date():
+                if utcBegin.date() < utcdt_dayS.date() < utcEnd.date():
                     hours = 24
                 elif utcBegin.date() == utcdt_dayE.date():
                     hours = float((utcdt_dayE - utcBegin).seconds / 60) / 60.0
@@ -374,7 +372,8 @@ class hr_payslip(osv.osv):
     def get_worked_day_lines(self, cr, uid, contract_ids, date_from, date_to, context=None):
         """
         @param contract_ids: list of contract id
-        @return: returns a list of dict containing the input that should be applied for the given contract between date_from and date_to
+        @return: returns a list of dict containing the input that should be
+                 applied for the given contract between date_from and date_to
         """
 
         sched_tpl_obj = self.pool.get('hr.schedule.template')
@@ -402,7 +401,7 @@ class hr_payslip(osv.osv):
 
         def get_ot_policies(policy_group_id, day, data):
 
-            if data == None or not data['_reuse']:
+            if data is None or not data['_reuse']:
                 data = {
                     'policy': None,
                     'daily': None,
@@ -437,7 +436,7 @@ class hr_payslip(osv.osv):
 
         def get_absence_policies(policy_group_id, day, data):
 
-            if data == None or not data['_reuse']:
+            if data is None or not data.get('_reuse'):
                 data = {
                     'policy': None,
                     '_reuse': False,
@@ -452,7 +451,7 @@ class hr_payslip(osv.osv):
 
         def get_presence_policies(policy_group_id, day, data):
 
-            if data == None or not data['_reuse']:
+            if data is None or not data.get('_reuse'):
                 data = {
                     'policy': None,
                     '_reuse': False,
@@ -470,7 +469,7 @@ class hr_payslip(osv.osv):
 
             worked_hours_in_week = 0
 
-            # Initialize list of leave's taken by the employee during the month
+            # Initialize list of leaves taken by the employee during the month
             leaves_list = self.leaves_list_init(
                 cr, uid, contract.employee_id.id,
                 day_from, day_to, contract.pps_id.tz, context=context)
@@ -631,10 +630,10 @@ class hr_payslip(osv.osv):
                     cr, uid, absence_policy.id, context=context) or []
                 absence_sequence = 50
 
-                for abcode, abname, abtype, abrate, useawol in absence_codes:
+                for abcode, abname, abtype, abrate, use_awol in absence_codes:
                     if leaves.get(abcode, False):
                         continue
-                    if useawol:
+                    if use_awol:
                         awol_code = abcode
                     if abtype == 'unpaid':
                         abrate = 0
@@ -667,9 +666,11 @@ class hr_payslip(osv.osv):
 
                 # If the calculated rest days and actual rest days differ, use
                 # actual rest days
-                if actual_rest_days != None and len(rest_days) != len(actual_rest_days):
+                if actual_rest_days is None:
+                    pass
+                elif len(rest_days) != len(actual_rest_days):
                     rest_days = actual_rest_days
-                elif actual_rest_days != None:
+                else:
                     for d in actual_rest_days:
                         if d not in rest_days:
                             rest_days = actual_rest_days
@@ -734,7 +735,8 @@ class hr_payslip(osv.osv):
 
                     if not done and weekly_ot:
                         for line in ot_policy.line_ids:
-                            if line.type == 'weekly' and (not line.weekly_working_days or line.weekly_working_days == 0):
+                            if line.type == 'weekly' and (not line.weekly_working_days
+                                                          or line.weekly_working_days == 0):
                                 _active_after = float(line.active_after) / 60.0
                                 if worked_hours_in_week > _active_after:
                                     if worked_hours_in_week - _active_after > working_hours_on_day:
@@ -756,7 +758,9 @@ class hr_payslip(osv.osv):
                         hours_after_ot = working_hours_on_day
                         for line in ot_policy.line_ids:
                             active_after_hrs = float(line.active_after) / 60.0
-                            if line.type == 'daily' and working_hours_on_day > active_after_hrs and line.active_start_time:
+                            if (line.type == 'daily'
+                                    and working_hours_on_day > active_after_hrs
+                                    and line.active_start_time):
                                 partial_hr = att_obj.partial_hours_on_day(
                                     cr, uid, contract,
                                     dtDateTime, active_after_hrs,
@@ -775,7 +779,9 @@ class hr_payslip(osv.osv):
 
                         for line in ot_policy.line_ids:
                             active_after_hrs = float(line.active_after) / 60.0
-                            if line.type == 'daily' and hours_after_ot > active_after_hrs and not line.active_start_time:
+                            if (line.type == 'daily'
+                                    and hours_after_ot > active_after_hrs
+                                    and not line.active_start_time):
                                 attendances[line.code][
                                     'number_of_hours'] += hours_after_ot - (float(line.active_after) / 60.0)
                                 attendances[line.code]['number_of_days'] += 1.0
@@ -806,7 +812,8 @@ class hr_payslip(osv.osv):
                     timedelta(
                         days=day),
                     leaves_list, context=context)
-                if leave_type and (working_hours_on_day or scheduled_hours > 0 or dtDateTime.weekday() not in rest_days):
+                if (leave_type
+                        and (working_hours_on_day or scheduled_hours > 0 or dtDateTime.weekday() not in rest_days)):
                     if leave_type in leaves:
                         leaves[leave_type]['number_of_days'] += 1.0
                         leaves[leave_type]['number_of_hours'] += (
@@ -820,7 +827,9 @@ class hr_payslip(osv.osv):
                             'number_of_hours': (leave_hours > scheduled_hours) and scheduled_hours or leave_hours,
                             'contract_id': contract.id,
                         }
-                elif awol_code and (scheduled_hours > 0 and working_hours_on_day < scheduled_hours) and not public_holiday:
+                elif (awol_code
+                      and (scheduled_hours > 0 and working_hours_on_day < scheduled_hours)
+                      and not public_holiday):
                     hours_diff = scheduled_hours - working_hours_on_day
                     leaves[awol_code]['number_of_days'] += 1.0
                     leaves[awol_code]['number_of_hours'] += hours_diff
@@ -842,7 +851,7 @@ class hr_payslip(osv.osv):
         dpsTo = datetime.strptime(payslip.date_to, OE_DATEFORMAT).date()
         dcStart = datetime.strptime(contract.date_start, OE_DATEFORMAT).date()
         dcEnd = False
-        if (contract.date_end):
+        if contract.date_end:
             dcEnd = datetime.strptime(contract.date_end, OE_DATEFORMAT).date()
 
         # both start and end of contract are out of the bounds of the payslip
@@ -851,15 +860,15 @@ class hr_payslip(osv.osv):
 
         # One or both start and end of contract are within the bounds of the payslip
         #
-        nocontract_days = 0
+        no_contract_days = 0
         if dcStart > dpsFrom:
-            nocontract_days += (dcStart - dpsFrom).days
+            no_contract_days += (dcStart - dpsFrom).days
         if dcEnd and dcEnd < dpsTo:
-            nocontract_days += (dpsTo - dcEnd).days
+            no_contract_days += (dpsTo - dcEnd).days
 
         total_days = (dpsTo - dpsFrom).days + 1
-        contract_days = total_days - nocontract_days
-        return (float(contract_days) / float(total_days))
+        contract_days = total_days - no_contract_days
+        return float(contract_days) / float(total_days)
 
     def get_utilities_dict(self, cr, uid, contract, payslip, context=None):
 
@@ -930,7 +939,6 @@ class hr_payslip(osv.osv):
             def sum(self, code, from_date, to_date=None):
                 if to_date is None:
                     to_date = datetime.now().strftime('%Y-%m-%d')
-                result = 0.0
                 self.cr.execute("SELECT sum(amount) as sum\
                             FROM hr_payslip as hp, hr_payslip_input as pi \
                             WHERE hp.employee_id = %s AND hp.state = 'done' \
@@ -946,7 +954,6 @@ class hr_payslip(osv.osv):
             def _sum(self, code, from_date, to_date=None):
                 if to_date is None:
                     to_date = datetime.now().strftime('%Y-%m-%d')
-                result = 0.0
                 self.cr.execute("SELECT sum(number_of_days) as number_of_days, sum(number_of_hours) as number_of_hours\
                             FROM hr_payslip as hp, hr_payslip_worked_days as pi \
                             WHERE hp.employee_id = %s AND hp.state = 'done'\
@@ -1010,7 +1017,7 @@ class hr_payslip(osv.osv):
         # well
         structure_ids = self.pool.get('hr.contract').get_all_structures(
             cr, uid, contract_ids, context=context)
-        # get the rules of the structure and thier children
+        # get the rules of the structure and their children
         rule_ids = self.pool.get('hr.payroll.structure').get_all_rules(
             cr, uid, structure_ids, context=context)
         # run the rules by sequence
@@ -1035,7 +1042,8 @@ class hr_payslip(osv.osv):
                 localdict['result'] = None
                 localdict['result_qty'] = 1.0
                 # check if the rule can be applied
-                if obj_rule.satisfy_condition(cr, uid, rule.id, localdict, context=context) and rule.id not in blacklist:
+                if (obj_rule.satisfy_condition(cr, uid, rule.id, localdict, context=context)
+                        and rule.id not in blacklist):
                     # compute the amount of the rule
                     amount, qty, rate = obj_rule.compute_rule(
                         cr, uid, rule.id, localdict, context=context)
@@ -1086,7 +1094,7 @@ class hr_payslip(osv.osv):
 hr_payslip()
 
 
-class hr_payslip_line(osv.osv):
+class hr_payslip_line(orm.Model):
 
     _name = 'hr.payslip.line'
     _inherit = 'hr.payslip.line'
@@ -1096,7 +1104,7 @@ class hr_payslip_line(osv.osv):
     }
 
 
-class hr_attendance(osv.osv):
+class hr_attendance(orm.Model):
 
     _name = 'hr.attendance'
     _inherit = 'hr.attendance'
@@ -1107,15 +1115,16 @@ class hr_attendance(osv.osv):
         return utcdt + timedelta(hours=int(rollover_hours))
 
     def punches_list_init(self, cr, uid, employee_id, pps_template, dFrom, dTo, context=None):
-        '''Returns a dict containing a key for each day in range dFrom - dToday and a
-        corresponding tuple containing two list: in punches, and the corresponding out punches'''
+        """Returns a dict containing a key for each day in range dFrom - dToday and a
+        corresponding tuple containing two list: in punches, and the corresponding out punches
+        """
 
         res = []
 
         # Convert datetime to tz aware datetime according to tz in pay period schedule,
         # then to UTC, and then to naive datetime for comparison with values in db.
         #
-        # Also, includue records 48 hours previous to and 48 hours after the desired
+        # Also, include records 48 hours previous to and 48 hours after the desired
         # dates so that any requests for rollover, sessions, etc are can be satisfied
         #
         dtFrom = datetime.strptime(
@@ -1149,12 +1158,12 @@ class hr_attendance(osv.osv):
         res = []
         for action, name in punches_list:
             ndtName = datetime.strptime(name, OE_DATETIMEFORMAT)
-            if ndtName >= ndtFrom and ndtName <= ndtTo:
+            if ndtFrom <= ndtName <= ndtTo:
                 res.append((action, name))
         return res
 
     def _get_normalized_punches(self, cr, uid, employee_id, pps_template, dDay, punches_list, context=None):
-        '''Returns a tuple containing two lists: in punches, and corresponding out punches'''
+        """Returns a tuple containing two lists: in punches, and corresponding out punches"""
 
         #
         # We assume that:
@@ -1211,7 +1220,8 @@ class hr_attendance(osv.osv):
                     sout = sout[1:]
                     # There may be another session that starts within the
                     # rollover period
-                    if dtSin < dtRollover and float((dtSin - dtSout).seconds) / 60.0 >= pps_template.ot_max_rollover_gap:
+                    if (dtSin < dtRollover
+                            and float((dtSin - dtSout).seconds) / 60.0 >= pps_template.ot_max_rollover_gap):
                         sin = sin[1:]
                         sout = sout[1:]
             else:
@@ -1227,7 +1237,9 @@ class hr_attendance(osv.osv):
                 dtSin = False
                 if len(sin) > 0:
                     dtSin = datetime.strptime(sin[0], OE_DATETIMEFORMAT)
-                if dtSin and dtSin < dtRollover and float((dtSin - dtSout).seconds) / 60.0 >= pps_template.ot_max_rollover_gap:
+                if (dtSin
+                        and dtSin < dtRollover
+                        and float((dtSin - dtSout).seconds) / 60.0 >= pps_template.ot_max_rollover_gap):
                     sin = sin[1:]
                     sout = sout[1:]
 
@@ -1241,10 +1253,10 @@ class hr_attendance(osv.osv):
                     cr, uid, ndtDay + timedelta(hours=-24),
                     ndtDay + timedelta(seconds=-1), punches_list, context=context)
                 if len(my_list4) > 0:
-                    if (my_list4[-1].action == 'sign_out'):
+                    if my_list4[-1].action == 'sign_out':
                         ndtSout = datetime.strptime(
                             my_list4[-1].name, OE_DATETIMEFORMAT)
-                        if (ndtSin <= ndtSout + timedelta(minutes=pps_template.ot_max_rollover_gap)):
+                        if ndtSin <= ndtSout + timedelta(minutes=pps_template.ot_max_rollover_gap):
                             sin = sin[1:]
                             sout = sout[1:]
 
@@ -1265,7 +1277,7 @@ class hr_attendance(osv.osv):
             if len(my_list2) == 0:
                 name = self.pool.get('hr.employee').read(
                     cr, uid, employee_id, ['name'])['name']
-                raise osv.except_osv(_('Attendance Error!'),
+                raise orm.except_orm(_('Attendance Error!'),
                                      _('There is not a final sign-out record for %s on %s') % (name, dDay))
 
             action, name = my_list2[0]
@@ -1286,7 +1298,7 @@ class hr_attendance(osv.osv):
             else:
                 name = self.pool.get('hr.employee').read(
                     cr, uid, employee_id, ['name'])['name']
-                raise osv.except_osv(_('Attendance Error!'),
+                raise orm.except_orm(_('Attendance Error!'),
                                      _('There is a sign-in with no corresponding sign-out for %s on %s') % (name, dDay))
 
         # If the last sign-out was within the rollover gap *BEFORE* midnight check to
@@ -1301,16 +1313,17 @@ class hr_attendance(osv.osv):
                 if len(my_list3) > 0:
                     action, name = my_list3[0]
                     ndtSin = datetime.strptime(name, OE_DATETIMEFORMAT)
-                    if (ndtSin <= ndtSout + timedelta(minutes=pps_template.ot_max_rollover_gap)) and action == 'sign_in':
+                    if ((ndtSin <= ndtSout + timedelta(minutes=pps_template.ot_max_rollover_gap))
+                            and action == 'sign_in'):
                         sin.append(name)
                         sout.append(my_list3[1][1])
 
         return sin, sout
 
     def _on_day(self, cr, uid, contract, dDay, punches_list=None, context=None):
-        '''Return two lists: the first is sign-in times, and the second is corresponding sign-outs.'''
+        """Return two lists: the first is sign-in times, and the second is corresponding sign-outs."""
 
-        if punches_list == None:
+        if punches_list is None:
             punches_list = self.punches_list_init(
                 cr, uid, contract.employee_id.id, contract.pps_id,
                 dDay, dDay, context)
@@ -1319,14 +1332,14 @@ class hr_attendance(osv.osv):
             cr, uid, contract.employee_id.id, contract.pps_id,
             dDay, punches_list, context=context)
         if len(sin) != len(sout):
-            raise osv.except_osv(
+            raise orm.except_orm(
                 _('Number of Sign-in and Sign-out records do not match!'),
                 _('Employee: %s\nSign-in(s): %s\nSign-out(s): %s') % (contract.employee_id.name, sin, sout))
 
         return sin, sout
 
     def punch_names_on_day(self, cr, uid, contract, dDay, punches_list=None, context=None):
-        '''Return a list of tuples containing in and corresponding out punches for the day.'''
+        """Return a list of tuples containing in and corresponding out punches for the day."""
 
         sin, sout = self._on_day(
             cr, uid, contract, dDay, punches_list=punches_list, context=context)
@@ -1338,7 +1351,7 @@ class hr_attendance(osv.osv):
         return res
 
     def punch_ids_on_day(self, cr, uid, contract, dDay, punches_list=None, context=None):
-        '''Return a list of database ids of punches for the day.'''
+        """Return a list of database ids of punches for the day."""
 
         sin, sout = self._on_day(
             cr, uid, contract, dDay, punches_list=punches_list, context=context)
@@ -1354,7 +1367,7 @@ class hr_attendance(osv.osv):
             order='name', context=context)
 
     def total_hours_on_day(self, cr, uid, contract, dDay, punches_list=None, context=None):
-        '''Calculate the number of hours worked on specified date.'''
+        """Calculate the number of hours worked on specified date."""
 
         sin, sout = self._on_day(
             cr, uid, contract, dDay, punches_list=punches_list, context=context)
@@ -1368,10 +1381,10 @@ class hr_attendance(osv.osv):
         return worked_hours
 
     def partial_hours_on_day(
-        self, cr, uid, contract, dtDay, active_after, begin, stop, tz,
-            punches_list=None, context=None):
-        '''Calculate the number of hours worked between begin and stop hours, but
-        after active_after hours past the beginning of the first sign-in on specified date.'''
+            self, cr, uid, contract, dtDay, active_after, begin, stop, tz, punches_list=None, context=None):
+        """Calculate the number of hours worked between begin and stop hours, but
+        after active_after hours past the beginning of the first sign-in on specified date.
+        """
 
         # Since OpenERP stores datetime in db as UTC, but in naive format we have to do
         # the following to compare our partial time to the time in db:
@@ -1392,7 +1405,7 @@ class hr_attendance(osv.osv):
         dtBegin = utcdtBegin.replace(tzinfo=None)
         dtStop = utcdtStop.replace(tzinfo=None)
 
-        if punches_list == None:
+        if punches_list is None:
             punches_list = self.punches_list_init(
                 cr, uid, contract.employee_id.id, contract.pps_id,
                 dtDay.date(), dtDay.date(), context)
@@ -1428,7 +1441,7 @@ class hr_attendance(osv.osv):
         return max(0, (worked_hours + lead_hours) - active_after)
 
 
-class hr_contract(osv.osv):
+class hr_contract(orm.Model):
 
     _name = 'hr.contract'
     _inherit = 'hr.contract'
@@ -1480,9 +1493,24 @@ class hr_contract(osv.osv):
                                        ('daily', 'Daily'),
                                        ('salary', 'Salary')),
                                       'Wage Type', required=True),
-        'wage_hourly': fields.function(_hourly, type='float', digits_compute=dp.get_precision('Intermediate Payroll'), string='Hourly Wages'),
-        'wage_daily': fields.function(_daily, type='float', digits_compute=dp.get_precision('Intermediate Payroll'), string='Daily Wages'),
-        'wage_monthly': fields.function(_monthly, type='float', digits_compute=dp.get_precision('Intermediate Payroll'), string='Monthly Wages'),
+        'wage_hourly': fields.function(
+            _hourly,
+            type='float',
+            digits_compute=dp.get_precision('Intermediate Payroll'),
+            string='Hourly Wages',
+        ),
+        'wage_daily': fields.function(
+            _daily,
+            type='float',
+            digits_compute=dp.get_precision('Intermediate Payroll'),
+            string='Daily Wages',
+        ),
+        'wage_monthly': fields.function(
+            _monthly,
+            type='float',
+            digits_compute=dp.get_precision('Intermediate Payroll'),
+            string='Monthly Wages',
+        ),
     }
 
     _defaults = {
@@ -1490,17 +1518,23 @@ class hr_contract(osv.osv):
     }
 
 
-class hr_salary_rule(osv.Model):
+class hr_salary_rule(orm.Model):
 
     _name = 'hr.salary.rule'
     _inherit = 'hr.salary.rule'
 
     _columns = {
-        'quantity': fields.char('Quantity', size=512, help="It is used in computation for percentage and fixed amount.For e.g. A rule for Meal Voucher having fixed amount of 1€ per worked day can have its quantity defined in expression like worked_days.WORK100.number_of_days."),
+        'quantity': fields.char(
+            'Quantity',
+            size=512,
+            help="It is used in computation for percentage and fixed amount. "
+                 "For e.g. A rule for Meal Voucher having fixed amount of 1€ "
+                 "per worked day can have its quantity defined in expression like worked_days. "
+                 "WORK100.number_of_days."),
     }
 
 
-class hr_payslip_worked_days(osv.Model):
+class hr_payslip_worked_days(orm.Model):
 
     _name = 'hr.payslip.worked_days'
     _inherit = 'hr.payslip.worked_days'

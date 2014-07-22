@@ -1,4 +1,4 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 #
 #
 #    Copyright (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
@@ -21,12 +21,11 @@
 
 from datetime import datetime
 
-import netsvc
-from openerp.osv import fields, osv
+from openerp.osv import fields, orm
 from openerp.tools import DEFAULT_SERVER_DATE_FORMAT
 
 
-class employee_set_inactive(osv.TransientModel):
+class employee_set_inactive(orm.TransientModel):
 
     _name = 'hr.contract.end'
     _description = 'Employee De-Activation Wizard'
@@ -41,14 +40,14 @@ class employee_set_inactive(osv.TransientModel):
 
     def _get_contract(self, cr, uid, context=None):
 
-        if context == None:
+        if context is None:
             context = {}
 
         return context.get('end_contract_id', False)
 
     def _get_employee(self, cr, uid, context=None):
 
-        if context == None:
+        if context is None:
             context = {}
 
         contract_id = context.get('end_contract_id', False)

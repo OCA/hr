@@ -1,4 +1,4 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 #
 #
 #    Copyright (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
@@ -21,19 +21,21 @@
 
 import logging
 import math
-import netsvc
-from datetime import datetime, timedelta
+from datetime import datetime
 from dateutil.relativedelta import relativedelta
+from pytz import timezone
+
+from openerp import netsvc
 from openerp.tools import DEFAULT_SERVER_DATETIME_FORMAT as OEDATETIME_FORMAT
 from openerp.tools import DEFAULT_SERVER_DATE_FORMAT as OEDATE_FORMAT
 from openerp.tools.translate import _
-from osv import fields, osv
-from pytz import timezone
+from openerp.osv import fields, orm
+
 
 _logger = logging.getLogger(__name__)
 
 
-class payroll_period_end_1(osv.osv_memory):
+class payroll_period_end_1(orm.TransientModel):
 
     _name = 'hr.payroll.period.end.1'
     _description = 'End of Payroll Period Wizard Step 1'
@@ -55,7 +57,14 @@ class payroll_period_end_1(osv.osv_memory):
     _columns = {
         'period_id': fields.integer('Period ID'),
         'is_ended': fields.boolean('Past End Day?'),
-        'public_holiday_ids': fields.many2many('hr.holidays.public.line', 'hr_holidays_pay_period_rel', 'holiday_id', 'period_id', 'Public Holidays', readonly=True),
+        'public_holiday_ids': fields.many2many(
+            'hr.holidays.public.line',
+            'hr_holidays_pay_period_rel',
+            'holiday_id',
+            'period_id',
+            'Public Holidays',
+            readonly=True
+        ),
         'alert_critical': fields.integer('Critical Severity', readonly=True),
         'alert_high': fields.integer('High Severity', readonly=True),
         'alert_medium': fields.integer('Medium Severity', readonly=True),
@@ -81,20 +90,34 @@ class payroll_period_end_1(osv.osv_memory):
         'cent05': fields.integer('5 Cents', readonly=True),
         'cent01': fields.integer('1 Cent', readonly=True),
         'exact_change': fields.char('Exact Change Total', size=32, readonly=True),
-        'ps_amendments_conf': fields.many2many('hr.payslip.amendment', 'hr_payslip_pay_period_rel', 'amendment_id', 'period_id', 'Confirmed Amendments', readonly=True),
-        'ps_amendments_draft': fields.many2many('hr.payslip.amendment', 'hr_payslip_pay_period_rel', 'amendment_id', 'period_id', 'Draft Amendments', readonly=True),
+        'ps_amendments_conf': fields.many2many(
+            'hr.payslip.amendment',
+            'hr_payslip_pay_period_rel',
+            'amendment_id',
+            'period_id',
+            'Confirmed Amendments',
+            readonly=True
+        ),
+        'ps_amendments_draft': fields.many2many(
+            'hr.payslip.amendment',
+            'hr_payslip_pay_period_rel',
+            'amendment_id',
+            'period_id',
+            'Draft Amendments',
+            readonly=True
+        ),
     }
 
     def _get_period_id(self, cr, uid, context=None):
 
-        if context == None:
+        if context is None:
             context = {}
         return context.get('active_id', False)
 
     def _get_is_ended(self, cr, uid, context=None):
 
         flag = False
-        if context == None:
+        if context is None:
             context = {}
         period_id = context.get('active_id', False)
         if period_id:
@@ -106,7 +129,7 @@ class payroll_period_end_1(osv.osv_memory):
 
         alert_obj = self.pool.get('hr.schedule.alert')
 
-        if context == None:
+        if context is None:
             context = {}
         period_id = context.get('active_id', False)
 
@@ -128,27 +151,22 @@ class payroll_period_end_1(osv.osv_memory):
         return len(alert_ids)
 
     def _critical_alerts(self, cr, uid, context=None):
-
         return self._alerts_count(cr, uid, 'critical', context)
 
     def _high_alerts(self, cr, uid, context=None):
-
         return self._alerts_count(cr, uid, 'high', context)
 
     def _medium_alerts(self, cr, uid, context=None):
-
         return self._alerts_count(cr, uid, 'medium', context)
 
     def _low_alerts(self, cr, uid, context=None):
-
         return self._alerts_count(cr, uid, 'low', context)
 
     def _pex_count(self, cr, uid, severity, context=None):
-
         ex_obj = self.pool.get('hr.payslip.exception')
         run_obj = self.pool.get('hr.payslip.run')
 
-        if context == None:
+        if context is None:
             context = {}
         period_id = context.get('active_id', False)
 
@@ -169,23 +187,18 @@ class payroll_period_end_1(osv.osv_memory):
         return len(ex_ids)
 
     def _pex_critical(self, cr, uid, context=None):
-
         return self._pex_count(cr, uid, 'critical', context)
 
     def _pex_high(self, cr, uid, context=None):
-
         return self._pex_count(cr, uid, 'high', context)
 
     def _pex_medium(self, cr, uid, context=None):
-
         return self._pex_count(cr, uid, 'medium', context)
 
     def _pex_low(self, cr, uid, context=None):
-
         return self._pex_count(cr, uid, 'low', context)
 
     def _no_missing_punches(self, cr, uid, context=None):
-
         ids = self._missing_punches(cr, uid, context)
         res = len(ids)
         return res
@@ -193,11 +206,11 @@ class payroll_period_end_1(osv.osv_memory):
     def _missing_punches(self, cr, uid, context=None):
 
         #
-        # XXX - Someone who cares about DST should update this code to handle it.
+        # TODO - Someone who cares about DST should update this code to handle it.
         #
 
         missing_punch_ids = []
-        if context == None:
+        if context is None:
             context = {}
         period_id = context.get('active_id', False)
         if period_id:
@@ -220,7 +233,6 @@ class payroll_period_end_1(osv.osv_memory):
                             '%Y-%m-%d %H:%M:S')),
                     ], order='name', context=context)
                     prevPunch = False
-                    punches = None
                     if len(punch_ids) > 0:
                         punches = attendance_obj.browse(
                             cr, uid, punch_ids, context=context)
@@ -244,7 +256,7 @@ class payroll_period_end_1(osv.osv_memory):
     def _get_locked(self, cr, uid, context=None):
 
         flag = False
-        if context == None:
+        if context is None:
             context = {}
         period_id = context.get('active_id', False)
         if period_id:
@@ -258,7 +270,7 @@ class payroll_period_end_1(osv.osv_memory):
     def _get_can_unlock(self, cr, uid, context=None):
 
         flag = False
-        if context == None:
+        if context is None:
             context = {}
         period_id = context.get('active_id', False)
         if period_id:
@@ -271,7 +283,7 @@ class payroll_period_end_1(osv.osv_memory):
     def _get_payslips(self, cr, uid, context=None):
 
         flag = False
-        if context == None:
+        if context is None:
             context = {}
         period_id = context.get('active_id', False)
         if period_id:
@@ -285,7 +297,7 @@ class payroll_period_end_1(osv.osv_memory):
     def _get_ps_generated(self, cr, uid, context=None):
 
         flag = False
-        if context == None:
+        if context is None:
             context = {}
         period_id = context.get('active_id', False)
         if period_id:
@@ -299,7 +311,7 @@ class payroll_period_end_1(osv.osv_memory):
     def _get_payment_started(self, cr, uid, context=None):
 
         flag = False
-        if context == None:
+        if context is None:
             context = {}
         period_id = context.get('active_id', False)
         if period_id:
@@ -330,7 +342,7 @@ class payroll_period_end_1(osv.osv_memory):
         }
 
         net_lines = []
-        if context == None:
+        if context is None:
             context = {}
         period_id = context.get('active_id', False)
         if period_id:
@@ -357,31 +369,31 @@ class payroll_period_end_1(osv.osv_memory):
                 cents = int(round(cents, 2) * 100.0)
                 if birrs >= 100:
                     self._change_res['br100'] += birrs / 100
-                    birrs = birrs % 100
+                    birrs %= 100
                 if birrs >= 50:
                     self._change_res['br50'] += birrs / 50
-                    birrs = birrs % 50
+                    birrs %= 50
                 if birrs >= 10:
                     self._change_res['br10'] += birrs / 10
-                    birrs = birrs % 10
+                    birrs %= 10
                 if birrs >= 5:
                     self._change_res['br5'] += birrs / 5
-                    birrs = birrs % 5
+                    birrs %= 5
                 if birrs >= 1:
                     self._change_res['br1'] += birrs
 
                 if cents >= 50:
                     self._change_res['cent50'] += cents / 50
-                    cents = cents % 50
+                    cents %= 50
                 if cents >= 25:
                     self._change_res['cent25'] += cents / 25
-                    cents = cents % 25
+                    cents %= 25
                 if cents >= 10:
                     self._change_res['cent10'] += cents / 10
-                    cents = cents % 10
+                    cents %= 10
                 if cents >= 5:
                     self._change_res['cent05'] += cents / 5
-                    cents = cents % 5
+                    cents %= 5
                 if cents >= 1:
                     self._change_res['cent01'] += cents
             self._change_res['done'] = True
@@ -443,14 +455,14 @@ class payroll_period_end_1(osv.osv_memory):
         cents += self._change_res['cent01']
 
         birr += cents / 100
-        cents = cents % 100
+        cents %= 100
 
         return 'Br ' + str(birr) + '.' + str(cents)
 
     def _get_closed(self, cr, uid, context=None):
 
         flag = False
-        if context == None:
+        if context is None:
             context = {}
         period_id = context.get('active_id', False)
         if period_id:
@@ -464,7 +476,7 @@ class payroll_period_end_1(osv.osv_memory):
     def _get_public_holidays(self, cr, uid, context=None):
 
         holiday_ids = []
-        if context == None:
+        if context is None:
             context = {}
         period_id = context.get('active_id', False)
         if not period_id:
@@ -487,7 +499,7 @@ class payroll_period_end_1(osv.osv_memory):
     def _get_confirmed_amendments(self, cr, uid, context=None):
 
         psa_ids = []
-        if context == None:
+        if context is None:
             context = {}
         period_id = context.get('active_id', False)
         if not period_id:
@@ -504,7 +516,7 @@ class payroll_period_end_1(osv.osv_memory):
     def _get_draft_amendments(self, cr, uid, context=None):
 
         psa_ids = []
-        if context == None:
+        if context is None:
             context = {}
         period_id = context.get('active_id', False)
         if not period_id:
@@ -564,7 +576,7 @@ class payroll_period_end_1(osv.osv_memory):
 
     def view_alerts(self, cr, uid, ids, context=None):
 
-        if context == None:
+        if context is None:
             context = {}
         period_id = context.get('active_id', False)
 
@@ -575,12 +587,21 @@ class payroll_period_end_1(osv.osv_memory):
             if period:
                 [employee_ids.append(c.employee_id.id)
                  for c in period.schedule_id.contract_ids]
+            else:
+                return {}
+        else:
+            return {}
 
         return {
             'view_type': 'form',
             'view_mode': 'tree,form',
             'res_model': 'hr.schedule.alert',
-            'domain': [('employee_id', 'in', employee_ids), '&', ('name', '>=', period.date_start), ('name', '<=', period.date_end)],
+            'domain': [
+                ('employee_id', 'in', employee_ids),
+                '&',
+                ('name', '>=', period.date_start),
+                ('name', '<=', period.date_end),
+            ],
             'type': 'ir.actions.act_window',
             'target': 'current',
             'context': context
@@ -588,7 +609,7 @@ class payroll_period_end_1(osv.osv_memory):
 
     def view_payroll_exceptions(self, cr, uid, ids, context=None):
 
-        if context == None:
+        if context is None:
             context = {}
         period_id = context.get('active_id', False)
 
@@ -622,7 +643,7 @@ class payroll_period_end_1(osv.osv_memory):
 
         alert_obj = self.pool.get('hr.schedule.alert')
 
-        if context == None:
+        if context is None:
             context = {}
         period_id = context.get('active_id', False)
 
@@ -663,19 +684,19 @@ class payroll_period_end_1(osv.osv_memory):
 
     def lock_period(self, cr, uid, ids, context=None):
 
-        if context == None:
+        if context is None:
             context = {}
         period_id = context.get('active_id', False)
         if not period_id:
             return
 
-        # XXX - should not be necessary any more
+        # TODO - should not be necessary any more
         # Make sure to re-calculate alerts first. Just in case.
-        #self._do_recalc_alerts(cr, uid, ids, context=context)
+        # self._do_recalc_alerts(cr, uid, ids, context=context)
 
         data = self.read(cr, uid, ids[0], ['alert_critical'], context=context)
         if data.get('alert_critical') != 0:
-            raise osv.except_osv(_('Unable to Lock the Payroll Period'), _(
+            raise orm.except_orm(_('Unable to Lock the Payroll Period'), _(
                 'There are one or more Critical Severity Exceptions. Please correct them before proceeding.'))
 
         wkf_service = netsvc.LocalService('workflow')
@@ -707,7 +728,7 @@ class payroll_period_end_1(osv.osv_memory):
 
     def unlock_period(self, cr, uid, ids, context=None):
 
-        if context == None:
+        if context is None:
             context = {}
         period_id = context.get('active_id', False)
         if not period_id:
@@ -737,7 +758,7 @@ class payroll_period_end_1(osv.osv_memory):
 
     def create_payroll_register(self, cr, uid, ids, context=None):
 
-        if context == None:
+        if context is None:
             context = {}
         period_id = context.get('active_id', False)
         if not period_id:
@@ -751,7 +772,7 @@ class payroll_period_end_1(osv.osv_memory):
                                  context=context)
 
         if p_data['state'] not in ['locked', 'generate']:
-            raise osv.except_osv(_('Invalid Action'), _(
+            raise orm.except_orm(_('Invalid Action'), _(
                 'You must lock the payroll period first.'))
 
         # Remove any pre-existing payroll registers
@@ -960,7 +981,7 @@ class payroll_period_end_1(osv.osv_memory):
 
     def view_payroll_register(self, cr, uid, ids, context=None):
 
-        if context == None:
+        if context is None:
             context = {}
         period_id = context.get('active_id', False)
         if not period_id:
@@ -983,7 +1004,7 @@ class payroll_period_end_1(osv.osv_memory):
 
     def start_payments(self, cr, uid, ids, context=None):
 
-        if context == None:
+        if context is None:
             context = {}
         period_id = context.get('active_id', False)
         if not period_id:
@@ -993,7 +1014,7 @@ class payroll_period_end_1(osv.osv_memory):
         #
         data = self.read(cr, uid, ids[0], ['pex_critical'], context=context)
         if data.get('pex_critical') != 0:
-            raise osv.except_osv(_('Unable to Start Payments'), _(
+            raise orm.except_orm(_('Unable to Start Payments'), _(
                 'There are one or more Critical Payroll Exceptions. Please correct them before proceeding.'))
 
         p_data = self.pool.get('hr.payroll.period').read(cr, uid, period_id,
@@ -1035,7 +1056,7 @@ class payroll_period_end_1(osv.osv_memory):
 
     def print_payslips(self, cr, uid, ids, context=None):
 
-        if context == None:
+        if context is None:
             context = {}
         period_id = context.get('active_id', False)
         if not period_id:
@@ -1053,7 +1074,7 @@ class payroll_period_end_1(osv.osv_memory):
 
     def print_payroll_summary(self, cr, uid, ids, context=None):
 
-        if context == None:
+        if context is None:
             context = {}
         period_id = context.get('active_id', False)
         if not period_id:
@@ -1071,7 +1092,7 @@ class payroll_period_end_1(osv.osv_memory):
 
     def print_payroll_register(self, cr, uid, ids, context=None):
 
-        if context == None:
+        if context is None:
             context = {}
         period_id = context.get('active_id', False)
         if not period_id:
@@ -1089,7 +1110,7 @@ class payroll_period_end_1(osv.osv_memory):
 
     def print_payslip_details(self, cr, uid, ids, context=None):
 
-        if context == None:
+        if context is None:
             context = {}
         period_id = context.get('active_id', False)
         if not period_id:
@@ -1113,7 +1134,7 @@ class payroll_period_end_1(osv.osv_memory):
 
     def print_contribution_registers(self, cr, uid, ids, context=None):
 
-        if context == None:
+        if context is None:
             context = {}
         period_id = context.get('active_id', False)
         if not period_id:
@@ -1136,7 +1157,7 @@ class payroll_period_end_1(osv.osv_memory):
 
     def close_pay_period(self, cr, uid, ids, context=None):
 
-        if context == None:
+        if context is None:
             context = {}
         period_id = context.get('active_id', False)
         if not period_id:

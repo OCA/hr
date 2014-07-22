@@ -1,4 +1,4 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 #
 #
 #    Copyright (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
@@ -19,11 +19,10 @@
 #
 #
 
-from pytz import common_timezones
-from openerp.osv import fields, osv
+from openerp.osv import fields, orm
 
 
-class policy_presence(osv.Model):
+class policy_presence(orm.Model):
 
     _name = 'hr.policy.presence'
 
@@ -49,7 +48,7 @@ class policy_presence(osv.Model):
         return res
 
 
-class policy_line_presence(osv.Model):
+class policy_line_presence(orm.Model):
 
     _name = 'hr.policy.line.presence'
 
@@ -62,7 +61,11 @@ class policy_line_presence(osv.Model):
                                   ('holiday', 'Holidays'),
                                   ('restday', 'Rest Days')],
                                  'Type', required=True),
-        'active_after': fields.integer('Active After', required=True, help='Minutes after first punch of the day in which policy will take effect.'),
+        'active_after': fields.integer(
+            'Active After',
+            required=True,
+            help='Minutes after first punch of the day in which policy will take effect.'
+        ),
         'duration': fields.integer('Duration', required=True, help="In minutes.")
     }
 
@@ -71,7 +74,7 @@ class policy_line_presence(osv.Model):
     }
 
 
-class policy_group(osv.Model):
+class policy_group(orm.Model):
 
     _name = 'hr.policy.group'
     _inherit = 'hr.policy.group'

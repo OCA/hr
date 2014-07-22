@@ -1,4 +1,4 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 #
 #
 #    Copyright (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
@@ -20,20 +20,17 @@
 #
 
 from datetime import datetime, date, timedelta
-from dateutil.relativedelta import relativedelta
-
 import logging
 
 from openerp import netsvc
-from openerp.osv import fields, osv
+from openerp.osv import fields, orm
 from openerp.tools import DEFAULT_SERVER_DATE_FORMAT as OE_DATEFORMAT
 from openerp.tools import DEFAULT_SERVER_DATETIME_FORMAT as OE_DATETIMEFORMAT
-from openerp.tools.translate import _
 
 _l = logging.getLogger(__name__)
 
 
-class hr_accrual_job(osv.Model):
+class hr_accrual_job(orm.Model):
 
     _name = 'hr.policy.line.accrual.job'
     _description = 'Accrual Policy Line Job Run'
@@ -51,7 +48,7 @@ class hr_accrual_job(osv.Model):
     }
 
 
-class hr_policy(osv.Model):
+class hr_policy(orm.Model):
 
     _name = 'hr.policy.accrual'
     _description = 'Accrual Policy'
@@ -66,7 +63,7 @@ class hr_policy(osv.Model):
     _order = 'date desc'
 
     def get_latest_policy(self, cr, uid, policy_group, dToday, context=None):
-        '''Return an accrual policy with an effective date before dToday but greater than all the others'''
+        """Return an accrual policy with an effective date before dToday but greater than all the others"""
 
         if not policy_group or not policy_group.accr_policy_ids or not dToday:
             return None
@@ -75,7 +72,7 @@ class hr_policy(osv.Model):
         for policy in policy_group.accr_policy_ids:
             dPolicy = datetime.strptime(policy.date, OE_DATEFORMAT).date()
             if dPolicy <= dToday:
-                if res == None:
+                if res is None:
                     res = policy
                 elif dPolicy > datetime.strptime(res.date, OE_DATEFORMAT).date():
                     res = policy
@@ -107,7 +104,7 @@ class hr_policy(osv.Model):
             'hr.employee').get_months_service_to_date(cr, uid, [employee.id], dToday=dToday,
                                                       context=context)[employee.id]
         srvc_months = int(srvc_months)
-        if dToday == None:
+        if dToday is None:
             dToday = date.today()
 
         if line.type != 'calendar':
@@ -138,8 +135,9 @@ class hr_policy(osv.Model):
                 return
             freq_amount = float(line.accrual_rate) / 52.0
             if line.accrual_rate_premium_minimum <= srvc_months:
-                premium_amount = (max(0, srvc_months - line.accrual_rate_premium_minimum + line.accrual_rate_premium_milestone)
-                                  ) // line.accrual_rate_premium_milestone * line.accrual_rate_premium / 52.0
+                premium_amount = (
+                    max(0, srvc_months - line.accrual_rate_premium_minimum + line.accrual_rate_premium_milestone)
+                ) // line.accrual_rate_premium_milestone * line.accrual_rate_premium / 52.0
         elif line.calculation_frequency == 'monthly':
             # When deciding to skip an employee account for actual month lengths. If
             # the frequency date is 31 and this month only has 30 days, go ahead and
@@ -157,12 +155,16 @@ class hr_policy(osv.Model):
 
             freq_amount = float(line.accrual_rate) / 12.0
             if line.accrual_rate_premium_minimum <= srvc_months:
-                premium_amount = (max(0, srvc_months - line.accrual_rate_premium_minimum + line.accrual_rate_premium_milestone)
-                                  ) // line.accrual_rate_premium_milestone * line.accrual_rate_premium / 12.0
+                premium_amount = (
+                    max(0, srvc_months - line.accrual_rate_premium_minimum + line.accrual_rate_premium_milestone)
+                ) // line.accrual_rate_premium_milestone * line.accrual_rate_premium / 12.0
         else:  # annual frequency
             # On non-leap years execute Feb. 29 accruals on the 28th
             #
-            if dToday.month == 2 and dToday.day == 28 and (dToday + timedelta(days=+1)).day != 29 and freq_annual_day > dToday.day:
+            if (dToday.month == 2
+                    and dToday.day == 28
+                    and (dToday + timedelta(days=+1)).day != 29
+                    and freq_annual_day > dToday.day):
                 freq_annual_day = dToday.day
 
             if dToday.month != freq_annual_month and dToday.day != freq_annual_day:
@@ -170,8 +172,9 @@ class hr_policy(osv.Model):
 
             freq_amount = line.accrual_rate
             if line.accrual_rate_premium_minimum <= srvc_months:
-                premium_amount = (max(0, srvc_months - line.accrual_rate_premium_minimum + line.accrual_rate_premium_milestone)
-                                  ) // line.accrual_rate_premium_milestone * line.accrual_rate_premium
+                premium_amount = (
+                    max(0, srvc_months - line.accrual_rate_premium_minimum + line.accrual_rate_premium_milestone)
+                ) // line.accrual_rate_premium_milestone * line.accrual_rate_premium
 
         if line.accrual_rate_max == 0:
             amount = freq_amount + premium_amount
@@ -237,7 +240,7 @@ class hr_policy(osv.Model):
         for pg in pg_obj.browse(cr, uid, pg_ids, context=context):
             accrual_policy = self.get_latest_policy(
                 cr, uid, pg, dToday, context=context)
-            if accrual_policy == None:
+            if accrual_policy is None:
                 continue
 
             # Get the last time that an accrual job was run for each accrual line in
@@ -248,7 +251,7 @@ class hr_policy(osv.Model):
             for line in accrual_policy.line_ids:
                 d = self._get_last_calculation_date(
                     cr, uid, line.id, context=context)
-                if d == None:
+                if d is None:
                     line_jobs[line.id] = [dToday]
                 else:
                     line_jobs[line.id] = []
@@ -288,7 +291,7 @@ class hr_policy(osv.Model):
         return True
 
 
-class hr_policy_line(osv.Model):
+class hr_policy_line(orm.Model):
 
     _name = 'hr.policy.line.accrual'
     _description = 'Accrual Policy Line'
@@ -300,8 +303,10 @@ class hr_policy_line(osv.Model):
         'accrual_id': fields.many2one('hr.accrual', 'Accrual Account', required=True),
         'type': fields.selection([('standard', 'Standard'), ('calendar', 'Calendar')], 'Type',
                                  required=True),
-        'balance_on_payslip': fields.boolean('Display Balance on Pay Slip',
-                                             help='The pay slip report must be modified to display this accrual for this setting to have any effect.'),
+        'balance_on_payslip': fields.boolean(
+            'Display Balance on Pay Slip',
+            help='The pay slip report must be modified to display this accrual for this setting to have any effect.'
+        ),
         'calculation_frequency': fields.selection([('weekly', 'Weekly'),
                                                    ('monthly', 'Monthly'),
                                                    ('annual', 'Annual'),
@@ -357,14 +362,23 @@ class hr_policy_line(osv.Model):
         'minimum_employed_days': fields.integer('Minimum Employed Days'),
         'accrual_rate': fields.float('Accrual Rate', required=True,
                                      help='The rate, in days, accrued per year.'),
-        'accrual_rate_premium': fields.float('Accrual Rate Premium', required=True,
-                                             help='The additional amount of time (beyond the standard rate) accrued per Premium Milestone of service.'),
-        'accrual_rate_premium_minimum': fields.integer('Months of Employment Before Premium', required=True,
-                                                       help="Minimum number of months the employee must be employed before the premium rate will start to accrue."),
-        'accrual_rate_premium_milestone': fields.integer('Accrual Premium Milestone', required=True,
-                                                         help="Number of milestone months after which the premium rate will be added."),
-        'accrual_rate_max': fields.float('Maximum Accrual Rate', required=True,
-                                         help='The maximum amount of time that may accrue per year. Zero means the amount may keep increasing indefinitely.'),
+        'accrual_rate_premium': fields.float(
+            'Accrual Rate Premium', required=True,
+            help='The additional amount of time (beyond the standard rate) accrued per Premium Milestone of service.'
+        ),
+        'accrual_rate_premium_minimum': fields.integer(
+            'Months of Employment Before Premium', required=True,
+            help="Minimum number of months the employee must be employed before the premium rate will start to accrue."
+        ),
+        'accrual_rate_premium_milestone': fields.integer(
+            'Accrual Premium Milestone', required=True,
+            help="Number of milestone months after which the premium rate will be added."
+        ),
+        'accrual_rate_max': fields.float(
+            'Maximum Accrual Rate', required=True,
+            help='The maximum amount of time that may accrue per year. '
+                 'Zero means the amount may keep increasing indefinitely.'
+        ),
         'job_ids': fields.one2many('hr.policy.line.accrual.job', 'policy_line_id', 'Jobs',
                                    readonly=True),
     }
@@ -377,7 +391,7 @@ class hr_policy_line(osv.Model):
     }
 
 
-class policy_group(osv.Model):
+class policy_group(orm.Model):
 
     _name = 'hr.policy.group'
     _inherit = 'hr.policy.group'
@@ -388,7 +402,7 @@ class policy_group(osv.Model):
     }
 
 
-class hr_holidays(osv.Model):
+class hr_holidays(orm.Model):
 
     _name = 'hr.holidays'
     _inherit = 'hr.holidays'

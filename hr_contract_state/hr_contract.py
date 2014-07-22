@@ -1,4 +1,4 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 #
 #
 #    Copyright (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
@@ -24,12 +24,12 @@ import time
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 
-import netsvc
+from openerp import netsvc
 from openerp.tools import DEFAULT_SERVER_DATE_FORMAT
-from openerp.osv import fields, osv
+from openerp.osv import fields, orm
 
 
-class hr_contract(osv.osv):
+class hr_contract(orm.Model):
 
     _name = 'hr.contract'
     _inherit = ['hr.contract', 'mail.thread', 'ir.needaction_mixin']
@@ -98,9 +98,9 @@ class hr_contract(osv.osv):
 
     _track = {
         'state': {
-            'hr_contract_state.mt_alert_trial_ending': lambda self, cr, uid, obj, ctx=None: obj['state'] == 'trial_ending',
-            'hr_contract_state.mt_alert_open': lambda self, cr, uid, obj, ctx=None: obj['state'] == 'open',
-            'hr_contract_state.mt_alert_contract_ending': lambda self, cr, uid, obj, ctx=None: obj['state'] == 'contract_ending',
+            'hr_contract_state.mt_alert_trial_ending': lambda s, cr, u, o, c=None: o['state'] == 'trial_ending',
+            'hr_contract_state.mt_alert_open': lambda s, cr, u, o, c=None: o['state'] == 'open',
+            'hr_contract_state.mt_alert_contract_ending': lambda s, cr, u, o, c=None: o['state'] == 'contract_ending',
         },
     }
 

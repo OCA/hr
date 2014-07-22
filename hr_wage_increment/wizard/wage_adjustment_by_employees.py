@@ -1,4 +1,4 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 #
 #
 #    Copyright (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
@@ -19,17 +19,23 @@
 #
 #
 
-from openerp.osv import fields, osv
+from openerp.osv import fields, orm
 from openerp.tools.translate import _
 
 
-class hr_payslip_employees(osv.osv_memory):
+class hr_payslip_employees(orm.TransientModel):
 
     _name = 'wage.adjustment.employees'
     _description = 'Generate wage adjustments for selected employees'
 
     _columns = {
-        'employee_ids': fields.many2many('hr.employee', 'hr_employee_wage_group_rel', 'adjustment_id', 'employee_id', 'Employees'),
+        'employee_ids': fields.many2many(
+            'hr.employee',
+            'hr_employee_wage_group_rel',
+            'adjustment_id',
+            'employee_id',
+            'Employees',
+        ),
     }
 
     def _calculate_adjustment(self, initial, adj_type, adj_amount):
@@ -58,12 +64,12 @@ class hr_payslip_employees(osv.osv_memory):
 
         data = self.read(cr, uid, ids, context=context)[0]
         if not data['employee_ids']:
-            raise osv.except_osv(
+            raise orm.except_orm(
                 _("Warning !"), _("You must select at least one employee to generate wage adjustments."))
 
         run_id = context.get('active_id', False)
         if not run_id:
-            raise osv.except_osv(_('Internal Error'), _(
+            raise orm.except_orm(_('Internal Error'), _(
                 'Unable to determine wage adjustment run ID'))
 
         run_data = run_pool.read(

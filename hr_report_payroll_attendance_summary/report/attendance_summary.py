@@ -1,7 +1,7 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 #
 #
-#    Copyrigth (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>
+#    Copyright (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as published by
@@ -94,9 +94,15 @@ class Parser(report_sxw.rml_parse):
                     dtCEnd = datetime.strptime(
                         c.date_end, OE_DATEFORMAT).date()
                 if (dtCStart and dtCStart <= dtEnd) and ((dtCEnd and dtCEnd >= dtStart) or not dtCEnd):
-                    datas.append({'contract_id': c.id,
-                                  'date_start': dtCStart > dtStart and dtCStart.strftime(OE_DATEFORMAT) or dtStart.strftime(OE_DATEFORMAT),
-                                  'date_end': (dtCEnd and dtCEnd < dtEnd) and dtCEnd.strftime(OE_DATEFORMAT) or dtEnd.strftime(OE_DATEFORMAT)})
+                    datas.append({
+                        'contract_id': c.id,
+                        'date_start': (dtCStart > dtStart
+                                       and dtCStart.strftime(OE_DATEFORMAT)
+                                       or dtStart.strftime(OE_DATEFORMAT)),
+                        'date_end': ((dtCEnd and dtCEnd < dtEnd)
+                                     and dtCEnd.strftime(OE_DATEFORMAT)
+                                     or dtEnd.strftime(OE_DATEFORMAT)),
+                    })
             wd_lines = []
             for d in datas:
                 wd_lines += payslip_obj.get_worked_day_lines(

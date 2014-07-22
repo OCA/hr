@@ -1,4 +1,4 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 #
 #
 #    Copyright (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
@@ -35,9 +35,7 @@ Recruitment of New Employees
         'hr_recruitment',
         'hr_security',
     ],
-    'init_xml': [
-    ],
-    'update_xml': [
+    'data': [
         'security/ir.model.access.csv',
         'hr_recruitment_data.xml',
         'hr_recruitment_view.xml',
@@ -45,8 +43,5 @@ Recruitment of New Employees
     ],
     'test': [
     ],
-    'demo_xml': [
-    ],
     'installable': True,
-    'active': False,
 }

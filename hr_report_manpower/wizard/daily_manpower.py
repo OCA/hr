@@ -1,4 +1,4 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 #
 #
 #    Copyright (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
@@ -19,10 +19,10 @@
 #
 #
 
-from openerp.osv import fields, osv
+from openerp.osv import fields, orm
 
 
-class hr_department_manpower(osv.TransientModel):
+class hr_department_manpower(orm.TransientModel):
 
     _name = 'hr.department.manpower'
 
@@ -31,14 +31,12 @@ class hr_department_manpower(osv.TransientModel):
     }
 
     def print_report(self, cr, uid, ids, context=None):
-        if context is None:
-            context = {}
-        datas = {'form': self.read(cr, uid, ids)[0],
-                 'model': 'hr.department'}
-        datas['ids'] = self.pool.get(
-            'hr.department').search(cr, uid, [], context=context)
         return {
             'type': 'ir.actions.report.xml',
             'report_name': 'hr_daily_manpower',
-            'datas': datas,
+            'datas': {
+                'form': self.read(cr, uid, ids)[0],
+                'model': 'hr.department',
+                'ids': self.pool.get('hr.department').search(cr, uid, [], context=context),
+            },
         }

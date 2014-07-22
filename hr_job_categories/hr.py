@@ -1,4 +1,4 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 #
 #
 #    Copyright (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
@@ -19,14 +19,13 @@
 #
 #
 
-from openerp.osv import fields, osv
-from openerp.tools.translate import _
+from openerp.osv import fields, orm
 
 import logging
 _l = logging.getLogger(__name__)
 
 
-class hr_job(osv.Model):
+class hr_job(orm.Model):
 
     _inherit = 'hr.job'
 
@@ -36,7 +35,7 @@ class hr_job(osv.Model):
     }
 
 
-class hr_contract(osv.Model):
+class hr_contract(orm.Model):
 
     _name = 'hr.contract'
     _inherit = 'hr.contract'

@@ -1,4 +1,4 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 #
 #
 #    Copyright (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
@@ -29,7 +29,7 @@
 Extended set of Payroll Rules and Structures
 ============================================
 
-    - Detailed caclculatation of worked hours, leaves, overtime, etc
+    - Detailed calculation of worked hours, leaves, overtime, etc
     - Overtime
     - Paid and Unpaid Leaves
     - Federal Income Tax Withholding rules
@@ -47,15 +47,12 @@ Extended set of Payroll Rules and Structures
         'hr_public_holidays',
         'hr_schedule',
     ],
-    'init_xml': [],
-    'update_xml': [
+    'data': [
         'data/hr_payroll_extension_data.xml',
         'data/hr.salary.rule.csv',
         'hr_payroll_view.xml',
     ],
     'test': [
     ],
-    'demo_xml': [],
-    'active': False,
     'installable': True,
 }

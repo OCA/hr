@@ -5,6 +5,7 @@ include =
 omit =
     */tests/*
     *__init__.py
+    memory:*
 
 # Regexes for lines to exclude from consideration
 exclude_lines =

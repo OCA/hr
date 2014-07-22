@@ -1,4 +1,4 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 #
 #
 #    Copyright (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
@@ -20,10 +20,10 @@
 #
 
 from pytz import common_timezones
-from openerp.osv import fields, osv
+from openerp.osv import fields, orm
 
 
-class policy_ot(osv.Model):
+class policy_ot(orm.Model):
 
     _name = 'hr.policy.ot'
 
@@ -51,11 +51,11 @@ class policy_ot(osv.Model):
         return res
 
     def restday_codes(self, cr, uid, idx, context=None):
-
-        res = []
-        [res.append((line.code, line.name))
-         for line in self.browse(cr, uid, idx, context=context).line_ids if line.type == 'weekly' and line.active_after_units == 'day']
-        return res
+        return [
+            (line.code, line.name)
+            for line in self.browse(cr, uid, idx, context=context).line_ids
+            if line.type == 'weekly' and line.active_after_units == 'day'
+        ]
 
     def restday2_codes(self, cr, uid, idx, context=None):
 
@@ -65,21 +65,21 @@ class policy_ot(osv.Model):
         return res
 
     def weekly_codes(self, cr, uid, idx, context=None):
-
-        res = []
-        [res.append((line.code, line.name))
-         for line in self.browse(cr, uid, idx, context=context).line_ids if line.type == 'weekly' and line.active_after_units == 'min']
-        return res
+        return [
+            (line.code, line.name)
+            for line in self.browse(cr, uid, idx, context=context).line_ids
+            if line.type == 'weekly' and line.active_after_units == 'min'
+        ]
 
     def holiday_codes(self, cr, uid, idx, context=None):
+        return [
+            (line.code, line.name)
+            for line in self.browse(cr, uid, idx, context=context).line_ids
+            if line.type == 'holiday'
+        ]
 
-        res = []
-        [res.append((line.code, line.name))
-         for line in self.browse(cr, uid, idx, context=context).line_ids if line.type == 'holiday']
-        return res
 
-
-class policy_line_ot(osv.Model):
+class policy_line_ot(orm.Model):
 
     _name = 'hr.policy.line.ot'
 
@@ -108,7 +108,7 @@ class policy_line_ot(osv.Model):
     }
 
 
-class policy_group(osv.Model):
+class policy_group(orm.Model):
 
     _name = 'hr.policy.group'
     _inherit = 'hr.policy.group'

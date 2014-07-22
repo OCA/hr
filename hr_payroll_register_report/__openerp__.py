@@ -1,4 +1,4 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 #
 #
 #    Copyright (C) 2011,2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
@@ -36,15 +36,10 @@ Payroll Register Report
         'hr_payroll_register',
         'report_aeroo',
     ],
-    'init_xml': [
-    ],
-    'update_xml': [
+    'data': [
         'hr_payroll_register_report.xml',
     ],
     'test': [
     ],
-    'demo_xml': [
-    ],
     'installable': True,
-    'active': False,
 }

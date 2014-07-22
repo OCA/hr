@@ -1,4 +1,4 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 #
 #
 #    Copyright (C) 2011,2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
@@ -19,10 +19,10 @@
 #
 #
 
-from osv import fields, osv
+from openerp.osv import fields, orm
 
 
-class hr_children(osv.osv):
+class hr_children(orm.Model):
 
     _name = 'hr.employee.children'
     _description = 'HR Employee Children'
@@ -34,7 +34,7 @@ class hr_children(osv.osv):
     }
 
 
-class hr_employee(osv.osv):
+class hr_employee(orm.Model):
 
     _name = 'hr.employee'
     _inherit = 'hr.employee'

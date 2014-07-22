@@ -3,7 +3,7 @@
     <data noupdate="1">
 
         <!-- Allow Payroll Manager access to all attendance records -->
-        <record id="property_rule_attendace_pm" model="ir.rule">
+        <record id="property_rule_attendance_pm" model="ir.rule">
             <field name="name">Payroll Manager Attendance</field>
             <field model="ir.model" name="model_id" ref="model_hr_attendance"/>
             <field name="domain_force">[(1,'=',1)]</field>

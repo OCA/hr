@@ -1,4 +1,4 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 #
 #
 #    Copyright (C) 2011,2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
@@ -32,16 +32,11 @@ Manage Public Holidays
     'depends': [
         'hr',
     ],
-    'init_xml': [
-    ],
-    'update_xml': [
+    'data': [
         'security/ir.model.access.csv',
         'hr_public_holidays_view.xml',
     ],
     'test': [
     ],
-    'demo_xml': [
-    ],
     'installable': True,
-    'active': False,
 }

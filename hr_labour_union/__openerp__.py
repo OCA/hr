@@ -1,4 +1,4 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 #
 #
 #    Copyright (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
@@ -37,16 +37,11 @@ This module adds:
         'hr',
         'hr_payroll',
     ],
-    'init_xml': [
-    ],
-    'update_xml': [
+    'data': [
         'hr_labour_union_data.xml',
         'hr_labour_union_view.xml',
     ],
     'test': [
     ],
-    'demo_xml': [
-    ],
     'installable': True,
-    'active': False,
 }

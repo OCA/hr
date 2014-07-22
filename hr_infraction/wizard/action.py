@@ -1,4 +1,4 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 #
 #
 #    Copyright (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
@@ -20,12 +20,12 @@
 #
 
 from openerp import netsvc
-from openerp.osv import fields, osv
+from openerp.osv import fields, orm
 
 from openerp.addons.hr_infraction.hr_infraction import ACTION_TYPE_SELECTION
 
 
-class action_wizard(osv.TransientModel):
+class action_wizard(orm.TransientModel):
 
     _name = 'hr.infraction.action.wizard'
     _description = 'Choice of Actions for Infraction'
@@ -40,7 +40,7 @@ class action_wizard(osv.TransientModel):
 
     def create_action(self, cr, uid, ids, context=None):
 
-        if context == None:
+        if context is None:
             context = {}
         infraction_id = context.get('active_id', False)
         if not infraction_id:
