@@ -39,8 +39,13 @@ SET lastname = name_related
 WHERE name_related IS NOT NULL''')
 
     def create(self, cursor, uid, vals, context=None):
-        names = (vals['firstname'], vals['lastname'])
-        vals['name'] = " ".join(s for s in names if s)
+        firstname = vals.get('firstname')
+        lastname = vals.get('lastname')
+        if firstname or lastname:
+            names = (firstname, lastname)
+            vals['name'] = " ".join(s for s in names if s)
+        else:
+            vals['lastname'] = vals['name']
         return super(hr_employee, self).create(
             cursor, uid, vals, context=context)
 
