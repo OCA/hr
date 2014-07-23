@@ -45,14 +45,13 @@ class hr_holidays(osv.osv):
     ]
 
     def is_public_holiday(self, cr, uid, dt, employee_id=None, context=None):
-        if employee_id == None:
-            holidays_filter = [('year', '=', dt.year), ('country_id', '=', False)]
+        employee = self.pool['hr.employee'].browse(cr, uid, employee_id)
+
+        holidays_filter = [('year', '=', dt.year)]
+        if not employee or not employee.address_id.country_id:
+            holidays_filter.append(('country_id', '=', False))
         else:
-            employee = self.pool.get('hr.employee').browse(cr, uid, employee_id)
-            if employee.address_id.country_id == None:
-                holidays_filter = [('year', '=', dt.year), ('country_id', '=', False)]
-            else:
-                holidays_filter = [('year', '=', dt.year), '|', ('country_id', '=',
+            holidays_filter += ['|', ('country_id', '=',
                                           employee.address_id.country_id.id),
                                          ('country_id', '=', False)]
 
@@ -62,23 +61,13 @@ class hr_holidays(osv.osv):
         if len(ph_ids) == 0:
             return False
 
-        if employee_id == None:
-            states_filter = [('holidays_id', 'in',
-                                            ph_ids),
-                                            ('state_ids', '=', False)]
+        states_filter = [('holidays_id', 'in', ph_ids)]
+        if not employee or not employee.address_id.state_id:
+            states_filter.append(('state_ids', '=', False))
         else:
-            if employee.address_id.state_id == None:
-                states_filter = [('holidays_id', 'in',
-                                               ph_ids),
-                                              ('state_ids', '=', False)]
-            else:
-                states_filter = [('holidays_id', 'in',
-                                                ph_ids),
-                                              '|', ('state_ids.id', '=',
-                                              employee.address_id.state_id.id),
-                                              ('state_ids', '=', False)]
+            states_filter += ['|', ('state_ids', '=', False), ('state_ids.id', '=', employee.address_id.state_id.id)]
 
-        hr_holiday_public_line_obj = self.pool.get('hr.holidays.public.line')
+        hr_holiday_public_line_obj = self.pool['hr.holidays.public.line']
         holidays_line_ids = hr_holiday_public_line_obj.search(cr, uid,
                                         states_filter)
         for line in hr_holiday_public_line_obj.browse(cr, uid, holidays_line_ids):
@@ -93,7 +82,7 @@ class hr_holidays(osv.osv):
         if employee_id == None:
             holidays_filter = [('year', '=', year), ('country_id', '=', False)]
         else:
-            employee = self.pool.get('hr.employee').browse(cr, uid, employee_id)
+            employee = self.pool['hr.employee'].browse(cr, uid, employee_id)
             if employee.address_id.country_id == None:
                 holidays_filter = [('year', '=', year), ('country_id', '=', False)]
             else:
@@ -121,7 +110,7 @@ class hr_holidays(osv.osv):
                                               employee.address_id.state_id.id),
                                               ('state_ids', '=', False)]
 
-        hr_holiday_public_line_obj = self.pool.get('hr.holidays.public.line')
+        hr_holiday_public_line_obj = self.pool['hr.holidays.public.line']
         holidays_line_ids = hr_holiday_public_line_obj.search(cr, uid,
                                         states_filter)
 
