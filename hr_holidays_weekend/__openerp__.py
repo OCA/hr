@@ -25,9 +25,9 @@
     "name": "Hr holidays weekend module",
     "version": '0.1',
     "depends": [
-                "hr_holidays",
-                "hr_public_holidays"
-                ],
+        "hr_holidays",
+        "hr_public_holidays"
+    ],
     'author': 'initOS GmbH & Co. KG',
     "category": "",
     'license': 'AGPL-3',
@@ -43,7 +43,7 @@
     """,
     "summary": "",
     'data': [
-             'hr_holidays_view.xml',
+        'hr_holidays_view.xml',
     ],
     'demo': [
     ],

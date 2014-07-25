@@ -40,36 +40,36 @@ class hr_holidays(orm.Model):
         employee = self.pool.get('hr.employee').browse(cr, uid, employee_id)
 
         hr_holiday_public_obj = self.pool.get('hr.holidays.public')
-        if employee.address_id.country_id == None:
+        if not employee.address_id.country_id:
             country_filter = [('country_id', '=', False)]
         else:
             country_filter = ['|', ('country_id', '=',
-                                          employee.address_id.country_id.id),
-                                         ('country_id', '=', False)]
+                                    employee.address_id.country_id.id),
+                              ('country_id', '=', False)]
         hr_holiday_public = hr_holiday_public_obj.search(cr, uid,
-                                        country_filter)
+                                                         country_filter)
 
-        if employee.address_id.state_id == None:
+        if not employee.address_id.state_id:
             states_filter = [('holidays_id', 'in',
-                                           hr_holiday_public),
-                                          ('state_ids', '=', False)]
+                              hr_holiday_public),
+                             ('state_ids', '=', False)]
         else:
             states_filter = [('holidays_id', 'in',
-                                            hr_holiday_public),
-                                          '|', ('state_ids.id', '=',
-                                          employee.address_id.state_id.id),
-                                          ('state_ids', '=', False)]
+                              hr_holiday_public),
+                             '|', ('state_ids.id', '=',
+                                   employee.address_id.state_id.id),
+                             ('state_ids', '=', False)]
 
         hr_holiday_public_line_obj = self.pool.get('hr.holidays.public.line')
         holidays_line_ids = hr_holiday_public_line_obj.search(cr, uid,
-                                        states_filter)
+                                                              states_filter)
         for holiday_line_id in holidays_line_ids:
             line = hr_holiday_public_line_obj.browse(cr, uid, holiday_line_id)
             holidays.append(line.date)
         return holidays
 
     def onchange_date_from(self, cr, uid, ids, date_to, date_from,
-                            employee_id):
+                           employee_id):
         """
         If there are no date set for date_to, automatically
         set one 8 hours later than
@@ -89,7 +89,7 @@ class hr_holidays(orm.Model):
             date_to_with_delta =\
                 datetime.datetime.strptime(date_from,
                                            DEFAULT_SERVER_DATETIME_FORMAT) +\
-                                           datetime.timedelta(hours=8)
+                datetime.timedelta(hours=8)
             result['value']['date_to'] = str(date_to_with_delta)
 
         # new timezone-shift
@@ -98,9 +98,9 @@ class hr_holidays(orm.Model):
         # Compute and update the number of days
         if (date_to and date_from) and (date_from <= date_to):
             diff_day = self._get_number_of_days(cr, uid, date_from, date_to,
-                                                 user_obj.tz,
-                                                 user_obj.tz_offset,
-                                                 employee_id)
+                                                user_obj.tz,
+                                                user_obj.tz_offset,
+                                                employee_id)
             result['value']['number_of_days_temp'] =\
                 round(math.floor(diff_day))
         else:
@@ -127,9 +127,9 @@ class hr_holidays(orm.Model):
         # Compute and update the number of days
         if (date_to and date_from) and (date_from <= date_to):
             diff_day = self._get_number_of_days(cr, uid, date_from,
-                                                 date_to, user_obj.tz,
-                                                 user_obj.tz_offset,
-                                                 employee_id)
+                                                date_to, user_obj.tz,
+                                                user_obj.tz_offset,
+                                                employee_id)
             result['value']['number_of_days_temp'] =\
                 round(math.floor(diff_day))
         else:
@@ -138,7 +138,7 @@ class hr_holidays(orm.Model):
         return result
 
     def _get_number_of_days(self, cr, uid, date_from, date_to,
-                             tz, tz_offset, employee_id):
+                            tz, tz_offset, employee_id):
 
         """Returns a float equals to the timedelta between
         two dates given as string.NEW: without weekend days"""
