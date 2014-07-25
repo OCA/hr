@@ -41,6 +41,19 @@ class hr_holidays(osv.osv):
     _rec_name = 'year'
     _order = "year"
 
+    def _check_year(self, cr, uid, ids, context=None):
+        record = self.browse(cr, uid, ids, context=context)
+        for data in record:
+            if not data.country_id:
+                ids = self.search(cr, uid, [('year', '=', data.year),
+                                            ('country_id', '=', False), 
+                                            ('id', '!=', data.id)])
+                if ids:
+                    return False
+        return True
+
+    _constraints = [(_check_year, 'Error: Duplicate year', ['year'])]
+
     _sql_constraints = [
         ('year_unique',
          'UNIQUE(year,country_id)',
@@ -61,7 +74,7 @@ class hr_holidays(osv.osv):
         ph_ids = self.search(cr, uid, holidays_filter,
                              context=context)
 
-        if len(ph_ids) == 0:
+        if not ph_ids:
             return False
 
         states_filter = [('holidays_id', 'in', ph_ids)]
@@ -89,48 +102,40 @@ class hr_holidays(osv.osv):
                           context=None):
 
         res = []
-        if not employee_id:
-            holidays_filter = [('year', '=', year),
-                               ('country_id', '=', False)]
+        employee = self.pool['hr.employee'].browse(cr, uid, employee_id)
+
+        holidays_filter = [('year', '=', year)]
+        if not employee or not employee.address_id.country_id:
+            holidays_filter.append(('country_id', '=', False))
         else:
-            employee = \
-                self.pool['hr.employee'].browse(cr, uid, employee_id)
-            if not employee.address_id \
-                    or not employee.address_id.country_id:
-                holidays_filter = [('year', '=', year),
-                                   ('country_id', '=', False)]
-            else:
-                holidays_filter = \
-                    [('year', '=', year), '|',
-                     ('country_id', '=', employee.address_id.country_id.id),
-                     ('country_id', '=', False)]
+            holidays_filter += ['|', ('country_id', '=',
+                                      employee.address_id.country_id.id),
+                                ('country_id', '=', False)]
 
         ph_ids = self.search(cr, uid, holidays_filter, context=context)
-        if len(ph_ids) == 0:
+
+        if not ph_ids:
             return res
 
-        if not employee_id:
-            states_filter = [('holidays_id', 'in', ph_ids),
-                             ('state_ids', '=', False)]
+        states_filter = [('holidays_id', 'in', ph_ids)]
+        if not employee or not employee.address_id.state_id:
+            states_filter.append(('state_ids', '=', False))
         else:
-            if not employee.address_id or \
-                    not employee.address_id.state_id:
-                states_filter = [('holidays_id', 'in', ph_ids),
-                                 ('state_ids', '=', False)]
-            else:
-                states_filter = [('holidays_id', 'in', ph_ids), '|',
-                                 ('state_ids.id', '=',
-                                  employee.address_id.state_id.id),
-                                 ('state_ids', '=', False)]
+            states_filter += ['|',
+                              ('state_ids', '=', False),
+                              ('state_ids.id', '=',
+                               employee.address_id.state_id.id)
+                              ]
 
         hr_holiday_public_line_obj = self.pool['hr.holidays.public.line']
         holidays_line_ids = \
             hr_holiday_public_line_obj.search(cr, uid, states_filter)
 
         [res.append(l.date)
-         for l in hr_holiday_public_line_obj.browse(cr, uid,
-                                                    holidays_line_ids,
-                                                    context=context)]
+            for l in hr_holiday_public_line_obj.browse(cr,
+                                                       uid,
+                                                       holidays_line_ids,
+                                                       context=context)]
         return res
 
 
