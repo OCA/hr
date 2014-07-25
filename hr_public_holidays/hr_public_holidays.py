@@ -46,7 +46,7 @@ class hr_holidays(osv.osv):
         for data in record:
             if not data.country_id:
                 ids = self.search(cr, uid, [('year', '=', data.year),
-                                            ('country_id', '=', False), 
+                                            ('country_id', '=', False),
                                             ('id', '!=', data.id)])
                 if ids:
                     return False
