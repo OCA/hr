@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 ##############################################################################
 #
-#    OpenERP, Open Source Management Solution
+#    Odoo, Open Source Management Solution
 #    Copyright (C) 2010 Savoir-faire Linux (<http://www.savoirfairelinux.com>).
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -15,7 +15,7 @@
 #    GNU General Public License for more details.
 #
 #    You should have received a copy of the GNU General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.·····
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
 
@@ -43,9 +43,12 @@ class hr_expense_line(orm.Model):
         """Overwriting the unlink() method
         to update the line numbers of the expense
         the expense lines belong to"""
-        for id in ids:
-            expense = self.pool.get('hr.expense.line').browse(cr, uid, id).expense_id
-            ret = super(hr_expense_line, self).unlink(cr, uid, ids, context)
+        line_pool = self.pool['hr.expense.line']
+        for line in line_pool.browse(cr, uid, ids, context=context):
+            expense = line.expense_id
+            ret = super(hr_expense_line, self).unlink(
+                cr, uid, [line.id], context=context
+            )
             self.update_sequences(cr, uid, expense, context)
         return ret
 
@@ -56,6 +59,9 @@ class hr_expense_line(orm.Model):
         ret = super(hr_expense_line, self).create(cr, user, vals, context)
 
         if vals.get('sequence', 0) == 0:
-            expense = self.pool.get('hr.expense.expense').browse(cr, user, vals['expense_id'], context=context)
+            expense_pool = self.pool['hr.expense.expense']
+            expense = expense_pool.browse(
+                cr, user, vals['expense_id'], context=context
+            )
             self.update_sequences(cr, user, expense, context)
         return ret
