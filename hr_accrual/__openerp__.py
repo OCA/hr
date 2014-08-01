@@ -5,8 +5,8 @@
 #    All Rights Reserved.
 #
 #    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as published by
-#    the Free Software Foundation, either version 3 of the License, or
+#    it under the terms of the GNU Affero General Public License as published
+#    by the Free Software Foundation, either version 3 of the License, or
 #    (at your option) any later version.
 #
 #    This program is distributed in the hope that it will be useful,
@@ -27,11 +27,11 @@
 Accruals
 ========
 
-An Accrual is any benefit (usually time) that accrues on behalf of an employee over an extended
-period of time. This can be vacation days, sick days, or a simple time bank. The actual policy
-and mechanics of accrual should be handled by other modules. This module only provides
-the basic framework for recording the data.
-    """,
+An Accrual is any benefit (usually time) that accrues on behalf of an employee
+over an extended period of time. This can be vacation days, sick days, or a
+simple time bank. The actual policy and mechanics of accrual should be handled
+by other modules. This module only provides the basic framework for recording
+the data.""",
     'author': 'Michael Telahun Makonnen <mmakonnen@gmail.com>',
     'website': 'http://miketelahun.wordpress.com',
     'depends': [
