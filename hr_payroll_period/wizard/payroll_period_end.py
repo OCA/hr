@@ -5,8 +5,8 @@
 #    All Rights Reserved.
 #
 #    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as published by
-#    the Free Software Foundation, either version 3 of the License, or
+#    it under the terms of the GNU Affero General Public License as published
+#    by the Free Software Foundation, either version 3 of the License, or
 #    (at your option) any later version.
 #
 #    This program is distributed in the hope that it will be useful,
@@ -55,48 +55,128 @@ class payroll_period_end_1(orm.TransientModel):
     }
 
     _columns = {
-        'period_id': fields.integer('Period ID'),
-        'is_ended': fields.boolean('Past End Day?'),
+        'period_id': fields.integer(
+            'Period ID',
+        ),
+        'is_ended': fields.boolean(
+            'Past End Day?',
+        ),
         'public_holiday_ids': fields.many2many(
             'hr.holidays.public.line',
             'hr_holidays_pay_period_rel',
             'holiday_id',
             'period_id',
             'Public Holidays',
+            readonly=True,
+        ),
+        'alert_critical': fields.integer(
+            'Critical Severity',
+            readonly=True,
+        ),
+        'alert_high': fields.integer(
+            'High Severity',
+            readonly=True,
+        ),
+        'alert_medium': fields.integer(
+            'Medium Severity',
+            readonly=True,
+        ),
+        'alert_low': fields.integer(
+            'Low Severity',
             readonly=True
         ),
-        'alert_critical': fields.integer('Critical Severity', readonly=True),
-        'alert_high': fields.integer('High Severity', readonly=True),
-        'alert_medium': fields.integer('Medium Severity', readonly=True),
-        'alert_low': fields.integer('Low Severity', readonly=True),
-        'pex_critical': fields.integer('Critical', readonly=True),
-        'pex_high': fields.integer('High', readonly=True),
-        'pex_medium': fields.integer('Medium', readonly=True),
-        'pex_low': fields.integer('Low', readonly=True),
-        'locked': fields.boolean('Is Period Locked?', readonly=True),
-        'can_unlock': fields.boolean('Can Unlock Period?', readonly=True),
-        'payslips': fields.boolean('Have Pay Slips Been Generated?', readonly=True),
-        'ps_generated': fields.boolean('Pay Slip Generated?', readonly=True),
-        'payment_started': fields.boolean('Payment Started?', readonly=True),
-        'closed': fields.boolean('Pay Period Closed?', readonly=True),
-        'br100': fields.integer('100 Birr', readonly=True),
-        'br50': fields.integer('50 Birr', readonly=True),
-        'br10': fields.integer('10 Birr', readonly=True),
-        'br5': fields.integer('5 Birr', readonly=True),
-        'br1': fields.integer('1 Birr', readonly=True),
-        'cent50': fields.integer('50 Cents', readonly=True),
-        'cent25': fields.integer('25 Cents', readonly=True),
-        'cent10': fields.integer('10 Cents', readonly=True),
-        'cent05': fields.integer('5 Cents', readonly=True),
-        'cent01': fields.integer('1 Cent', readonly=True),
-        'exact_change': fields.char('Exact Change Total', size=32, readonly=True),
+        'pex_critical': fields.integer(
+            'Critical',
+            readonly=True,
+        ),
+        'pex_high': fields.integer(
+            'High',
+            readonly=True,
+        ),
+        'pex_medium': fields.integer(
+            'Medium',
+            readonly=True,
+        ),
+        'pex_low': fields.integer(
+            'Low',
+            readonly=True,
+        ),
+        'locked': fields.boolean(
+            'Is Period Locked?',
+            readonly=True,
+        ),
+        'can_unlock': fields.boolean(
+            'Can Unlock Period?',
+            readonly=True,
+        ),
+        'payslips': fields.boolean(
+            'Have Pay Slips Been Generated?',
+            readonly=True,
+        ),
+        'ps_generated': fields.boolean(
+            'Pay Slip Generated?',
+            readonly=True,
+        ),
+        'payment_started': fields.boolean(
+            'Payment Started?',
+            readonly=True,
+        ),
+        'closed': fields.boolean(
+            'Pay Period Closed?',
+            readonly=True,
+        ),
+        'br100': fields.integer(
+            '100 Birr',
+            readonly=True,
+        ),
+        'br50': fields.integer(
+            '50 Birr',
+            readonly=True,
+        ),
+        'br10': fields.integer(
+            '10 Birr',
+            readonly=True,
+        ),
+        'br5': fields.integer(
+            '5 Birr',
+            readonly=True,
+        ),
+        'br1': fields.integer(
+            '1 Birr',
+            readonly=True,
+        ),
+        'cent50': fields.integer(
+            '50 Cents',
+            readonly=True,
+        ),
+        'cent25': fields.integer(
+            '25 Cents',
+            readonly=True,
+        ),
+        'cent10': fields.integer(
+            '10 Cents',
+            readonly=True,
+        ),
+        'cent05': fields.integer(
+            '5 Cents',
+            readonly=True,
+        ),
+        'cent01': fields.integer(
+            '1 Cent',
+            readonly=True,
+        ),
+        'exact_change': fields.char(
+            'Exact Change Total',
+            size=32,
+            readonly=True,
+        ),
         'ps_amendments_conf': fields.many2many(
             'hr.payslip.amendment',
             'hr_payslip_pay_period_rel',
             'amendment_id',
             'period_id',
             'Confirmed Amendments',
-            readonly=True
+            readonly=True,
         ),
         'ps_amendments_draft': fields.many2many(
             'hr.payslip.amendment',
@@ -104,7 +184,7 @@ class payroll_period_end_1(orm.TransientModel):
             'amendment_id',
             'period_id',
             'Draft Amendments',
-            readonly=True
+            readonly=True,
         ),
     }
 
@@ -206,7 +286,8 @@ class payroll_period_end_1(orm.TransientModel):
     def _missing_punches(self, cr, uid, context=None):
 
         #
-        # TODO - Someone who cares about DST should update this code to handle it.
+        # TODO - Someone who cares about DST should update this code to handle
+        #  it.
         #
 
         missing_punch_ids = []
@@ -227,8 +308,9 @@ class payroll_period_end_1(orm.TransientModel):
                     employee = contract.employee_id
                     punch_ids = attendance_obj.search(cr, uid, [
                         ('employee_id', '=', employee.id),
-                        '&', (
-                            'name', '>=', utcDtStart.strftime('%Y-%m-%d %H:%M:S')),
+                        '&',
+                        ('name', '>=', utcDtStart.strftime(
+                            '%Y-%m-%d %H:%M:S')),
                         ('name', '<=', utcDtEnd.strftime(
                             '%Y-%m-%d %H:%M:S')),
                     ], order='name', context=context)
@@ -289,8 +371,10 @@ class payroll_period_end_1(orm.TransientModel):
         if period_id:
             data = self.pool.get('hr.payroll.period').read(
                 cr, uid, period_id, ['state', 'register_id'], context=context)
-            if data.get('state') in ['generate', 'payment', 'closed'] and data.get('register_id', False):
-                flag = True
+            flag |= (
+                data.get('state') in ['generate', 'payment', 'closed']
+                and data.get('register_id', False)
+            )
 
         return flag
 
@@ -346,12 +430,15 @@ class payroll_period_end_1(orm.TransientModel):
             context = {}
         period_id = context.get('active_id', False)
         if period_id:
-            data = self.pool.get('hr.payroll.period').read(cr, uid, period_id,
-                                                           ['register_id'], context=context)
+            data = self.pool.get('hr.payroll.period').read(
+                cr, uid, period_id, ['register_id'], context=context
+            )
             if data['register_id']:
                 data = self.pool.get(
-                    'hr.payroll.register').read(cr, uid, data['register_id'][0],
-                                                ['run_ids'], context=context)
+                    'hr.payroll.register').read(
+                    cr, uid, data['register_id'][0], ['run_ids'],
+                    context=context
+                )
                 if data['run_ids']:
                     ps_runs = self.pool.get(
                         'hr.payslip.run').browse(cr, uid, data['run_ids'],
@@ -482,17 +569,20 @@ class payroll_period_end_1(orm.TransientModel):
         if not period_id:
             return holiday_ids
 
-        data = self.pool.get('hr.payroll.period').read(cr, uid, period_id,
-                                                       ['date_start', 'date_end'], context=context)
+        data = self.pool.get('hr.payroll.period').read(
+            cr, uid, period_id, ['date_start', 'date_end'], context=context
+        )
         start = datetime.strptime(
             data['date_start'], OEDATETIME_FORMAT).date().strftime(OEDATE_FORMAT)
         end = datetime.strptime(
             data['date_end'], OEDATETIME_FORMAT).date().strftime(OEDATE_FORMAT)
-        holiday_ids = self.pool.get('hr.holidays.public.line').search(cr, uid, [
-            '&',
-            ('date', '>=', start),
-            ('date', '<=', end),
-        ], context=context)
+        holiday_ids = self.pool.get('hr.holidays.public.line').search(
+            cr, uid, [
+                '&',
+                ('date', '>=', start),
+                ('date', '<=', end),
+            ], context=context
+        )
 
         return holiday_ids
 
@@ -506,11 +596,12 @@ class payroll_period_end_1(orm.TransientModel):
             return psa_ids
 
         psa_ids = self.pool.get(
-            'hr.payslip.amendment').search(cr, uid, [('pay_period_id', '=', period_id),
-                                                     ('state', 'in', [
-                                                         'validate']),
-                                                     ],
-                                           context=context)
+            'hr.payslip.amendment').search(
+                cr, uid, [
+                    ('pay_period_id', '=', period_id),
+                    ('state', 'in', ['validate']),
+                ], context=context
+            )
         return psa_ids
 
     def _get_draft_amendments(self, cr, uid, context=None):
@@ -523,11 +614,12 @@ class payroll_period_end_1(orm.TransientModel):
             return psa_ids
 
         psa_ids = self.pool.get(
-            'hr.payslip.amendment').search(cr, uid, [('pay_period_id', '=', period_id),
-                                                     ('state', 'in', [
-                                                         'draft']),
-                                                     ],
-                                           context=context)
+            'hr.payslip.amendment').search(
+                cr, uid, [
+                    ('pay_period_id', '=', period_id),
+                    ('state', 'in', ['draft']),
+                ], context=context
+        )
         return psa_ids
 
     _defaults = {
@@ -696,8 +788,11 @@ class payroll_period_end_1(orm.TransientModel):
 
         data = self.read(cr, uid, ids[0], ['alert_critical'], context=context)
         if data.get('alert_critical') != 0:
-            raise orm.except_orm(_('Unable to Lock the Payroll Period'), _(
-                'There are one or more Critical Severity Exceptions. Please correct them before proceeding.'))
+            raise orm.except_orm(
+                _('Unable to Lock the Payroll Period'),
+                _('There are one or more Critical Severity Exceptions. '
+                  'Please correct them before proceeding.')
+            )
 
         wkf_service = netsvc.LocalService('workflow')
         wkf_service.trg_validate(
