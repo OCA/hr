@@ -5,8 +5,8 @@
 #    All Rights Reserved.
 #
 #    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as published by
-#    the Free Software Foundation, either version 3 of the License, or
+#    it under the terms of the GNU Affero General Public License as published
+#    by the Free Software Foundation, either version 3 of the License, or
 #    (at your option) any later version.
 #
 #    This program is distributed in the hope that it will be useful,
@@ -36,22 +36,49 @@ class contract_init(orm.Model):
     _inherit = 'ir.needaction_mixin'
 
     _columns = {
-        'name': fields.char('Name', size=64, required=True, readonly=True,
-                            states={'draft': [('readonly', False)]}),
-        'date': fields.date('Effective Date', required=True, readonly=True,
-                            states={'draft': [('readonly', False)]}),
-        'wage_ids': fields.one2many('hr.contract.init.wage', 'contract_init_id',
-                                    'Starting Wages', readonly=True,
-                                    states={'draft': [('readonly', False)]}),
-        'struct_id': fields.many2one('hr.payroll.structure', 'Payroll Structure', readonly=True,
-                                     states={'draft': [('readonly', False)]}),
-        'trial_period': fields.integer('Trial Period', readonly=True,
-                                       states={'draft': [('readonly', False)]},
-                                       help="Length of Trial Period, in days"),
-        'active': fields.boolean('Active'),
-        'state': fields.selection([('draft', 'Draft'),
-                                   ('approve', 'Approved'),
-                                   ('decline', 'Declined')], 'State', readonly=True),
+        'name': fields.char(
+            'Name',
+            size=64,
+            required=True,
+            readonly=True,
+            states={'draft': [('readonly', False)]},
+        ),
+        'date': fields.date(
+            'Effective Date',
+            required=True,
+            readonly=True,
+            states={'draft': [('readonly', False)]},
+        ),
+        'wage_ids': fields.one2many(
+            'hr.contract.init.wage',
+            'contract_init_id',
+            'Starting Wages', readonly=True,
+            states={'draft': [('readonly', False)]},
+        ),
+        'struct_id': fields.many2one(
+            'hr.payroll.structure',
+            'Payroll Structure',
+            readonly=True,
+            states={'draft': [('readonly', False)]},
+        ),
+        'trial_period': fields.integer(
+            'Trial Period',
+            readonly=True,
+            states={'draft': [('readonly', False)]},
+            help="Length of Trial Period, in days",
+        ),
+        'active': fields.boolean(
+            'Active',
+        ),
+        'state': fields.selection(
+            [
+                ('draft', 'Draft'),
+                ('approve', 'Approved'),
+                ('decline', 'Declined'),
+            ],
+            'State',
+            readonly=True,
+        ),
     }
 
     _defaults = {
@@ -80,8 +107,11 @@ class contract_init(orm.Model):
         data = self.read(cr, uid, ids, ['state'], context=context)
         for d in data:
             if d['state'] in ['approve', 'decline']:
-                raise orm.except_orm(_('Error'),
-                                     _('You may not a delete a record that is not in a "Draft" state'))
+                raise orm.except_orm(
+                    _('Error'),
+                    _('You may not a delete a record that is not in a '
+                      '"Draft" state')
+                )
         return super(contract_init, self).unlink(cr, uid, ids, context=context)
 
     def set_to_draft(self, cr, uid, ids, context=None):
@@ -111,7 +141,10 @@ class init_wage(orm.Model):
     _description = 'Starting Wages'
 
     _columns = {
-        'job_id': fields.many2one('hr.job', 'Job'),
+        'job_id': fields.many2one(
+            'hr.job',
+            'Job',
+        ),
         'starting_wage': fields.float(
             'Starting Wage',
             digits_compute=dp.get_precision('Payroll'),
@@ -119,21 +152,27 @@ class init_wage(orm.Model):
         ),
         'is_default': fields.boolean(
             'Use as Default',
-            help="Use as default wage"
+            help="Use as default wage",
         ),
-        'contract_init_id': fields.many2one('hr.contract.init', 'Contract Settings'),
+        'contract_init_id': fields.many2one(
+            'hr.contract.init',
+            'Contract Settings',
+        ),
         'category_ids': fields.many2many(
             'hr.employee.category',
             'contract_init_category_rel',
             'contract_init_id',
             'category_id',
-            'Tags'
+            'Tags',
         ),
     }
 
+    def _rec_message(self, cr, uid, ids, context=None):
+        return _('A Job Position cannot be referenced more than once in a '
+                 'Contract Settings record.')
+
     _sql_constraints = [
-        ('unique_job_cinit', 'UNIQUE(job_id,contract_init_id)',
-         _('A Job Position cannot be referenced more than once in a Contract Settings record.')),
+        ('unique_job_cinit', 'UNIQUE(job_id,contract_init_id)', _rec_message),
     ]
 
     def unlink(self, cr, uid, ids, context=None):
@@ -148,8 +187,11 @@ class init_wage(orm.Model):
                 'hr.contract.init').read(cr, uid, d['contract_init_id'][0],
                                          ['state'], context=context)
             if d2['state'] in ['approve', 'decline']:
-                raise orm.except_orm(_('Error'),
-                                     _('You may not a delete a record that is not in a "Draft" state'))
+                raise orm.except_orm(
+                    _('Error'),
+                    _('You may not a delete a record that is not in a '
+                      '"Draft" state')
+                )
         return super(init_wage, self).unlink(cr, uid, ids, context=context)
 
 
@@ -241,7 +283,9 @@ class hr_contract(orm.Model):
         return res
 
     def get_latest_initial_values(self, cr, uid, today_str=None, context=None):
-        """Return a record with an effective date before today_str but greater than all others"""
+        """Return a record with an effective date before today_str
+        but greater than all others
+        """
 
         init_obj = self.pool.get('hr.contract.init')
         if today_str is None:
