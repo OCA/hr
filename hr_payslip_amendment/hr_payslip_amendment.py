@@ -5,8 +5,8 @@
 #    All Rights Reserved.
 #
 #    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as published by
-#    the Free Software Foundation, either version 3 of the License, or
+#    it under the terms of the GNU Affero General Public License as published
+#    by the Free Software Foundation, either version 3 of the License, or
 #    (at your option) any later version.
 #
 #    This program is distributed in the hope that it will be useful,
@@ -57,15 +57,23 @@ class hr_payslip_amendment(orm.Model):
             required=True,
             readonly=True,
             states={'draft': [('readonly', False)]},
-            help="The meaning of this field is dependant on the salary rule that uses it."
+            help="The meaning of this field is dependant on the salary rule "
+            "that uses it."
         ),
-        'state': fields.selection((
-            ('draft', 'Draft'),
-            ('validate', 'Confirmed'),
-            ('cancel', 'Cancelled'),
-            ('done', 'Done'),
-        ), 'State', required=True, readonly=True),
-        'note': fields.text('Memo'),
+        'state': fields.selection(
+            [
+                ('draft', 'Draft'),
+                ('validate', 'Confirmed'),
+                ('cancel', 'Cancelled'),
+                ('done', 'Done'),
+            ],
+            'State',
+            required=True,
+            readonly=True
+        ),
+        'note': fields.text(
+            'Memo'
+        ),
     }
 
     _defaults = {
@@ -86,7 +94,12 @@ class hr_payslip_amendment(orm.Model):
 
         for psa in self.browse(cr, uid, ids, context=context):
             if psa.state in ['validate', 'done']:
-                raise orm.except_orm(_('Invalid Action'),
-                                     _('A Pay Slip Amendment that has been confirmed cannot be deleted!'))
+                raise orm.except_orm(
+                    _('Invalid Action'),
+                    _('A Pay Slip Amendment that has been confirmed cannot be '
+                      'deleted!')
+                )
 
-        return super(hr_payslip_amendment, self).unlink(cr, uid, ids, context=context)
+        return super(hr_payslip_amendment, self).unlink(
+            cr, uid, ids, context=context
+        )
