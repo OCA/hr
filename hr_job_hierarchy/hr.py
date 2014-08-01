@@ -5,8 +5,8 @@
 #    All Rights Reserved.
 #
 #    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as published by
-#    the Free Software Foundation, either version 3 of the License, or
+#    it under the terms of the GNU Affero General Public License as published
+#    by the Free Software Foundation, either version 3 of the License, or
 #    (at your option) any later version.
 #
 #    This program is distributed in the hope that it will be useful,
@@ -40,12 +40,32 @@ class hr_job(orm.Model):
         return result
 
     _columns = {
-        'department_manager': fields.boolean('Department Manager'),
-        'parent_id': fields.many2one('hr.job', 'Immediate Superior', ondelete='cascade'),
-        'child_ids': fields.one2many('hr.job', 'parent_id', 'Immediate Subordinates'),
-        'all_child_ids': fields.function(_get_all_child_ids, type='many2many', relation='hr.job'),
-        'parent_left': fields.integer('Left Parent', select=1),
-        'parent_right': fields.integer('Right Parent', select=1),
+        'department_manager': fields.boolean(
+            'Department Manager',
+        ),
+        'parent_id': fields.many2one(
+            'hr.job',
+            'Immediate Superior',
+            ondelete='cascade',
+        ),
+        'child_ids': fields.one2many(
+            'hr.job',
+            'parent_id',
+            'Immediate Subordinates',
+        ),
+        'all_child_ids': fields.function(
+            _get_all_child_ids,
+            type='many2many',
+            relation='hr.job',
+        ),
+        'parent_left': fields.integer(
+            'Left Parent',
+            select=1,
+        ),
+        'parent_right': fields.integer(
+            'Right Parent',
+            select=1,
+        ),
     }
 
     _parent_name = "parent_id"
@@ -56,21 +76,26 @@ class hr_job(orm.Model):
     def _check_recursion(self, cr, uid, ids, context=None):
 
         # Copied from product.category
-        # This is a brute-force approach to the problem, but should be good enough.
+        # This is a brute-force approach to the problem, but should be good
+        # enough.
         #
         level = 100
         while len(ids):
             cr.execute(
-                'select distinct parent_id from hr_job where id IN %s', (tuple(ids),))
+                'select distinct parent_id from hr_job where id IN %s',
+                (tuple(ids), )
+            )
             ids = filter(None, map(lambda x: x[0], cr.fetchall()))
             if not level:
                 return False
             level -= 1
         return True
 
+    def _rec_message(self, cr, uid, ids, context=None):
+        return _('Error!\nYou cannot create recursive jobs.')
+
     _constraints = [
-        (_check_recursion,
-         _('Error!\nYou cannot create recursive jobs.'), ['parent_id']),
+        (_check_recursion, _rec_message, ['parent_id']),
     ]
 
     def write(self, cr, uid, ids, vals, context=None):
@@ -94,7 +119,10 @@ class hr_job(orm.Model):
                     employee_id = ee.id
                 if employee_id:
                     dept_obj.write(
-                        cr, uid, dept_id, {'manager_id': employee_id}, context=context)
+                        cr, uid, dept_id, {
+                            'manager_id': employee_id,
+                        }, context=context
+                    )
         elif vals.get('department_id', False):
             for di in ids:
                 job = self.browse(cr, uid, di, context=context)
@@ -102,8 +130,11 @@ class hr_job(orm.Model):
                     employee_id = False
                     for ee in job.employee_ids:
                         employee_id = ee.id
-                    dept_obj.write(cr, uid, vals['department_id'], {
-                                   'manager_id': employee_id}, context=context)
+                    dept_obj.write(
+                        cr, uid, vals['department_id'], {
+                            'manager_id': employee_id,
+                        }, context=context
+                    )
         elif vals.get('parent_id', False):
             ee_obj = self.pool.get('hr.employee')
             parent_job = self.browse(
@@ -112,9 +143,11 @@ class hr_job(orm.Model):
             for ee in parent_job.employee_ids:
                 parent_id = ee.id
             for job in self.browse(cr, uid, ids, context=context):
-                for ee in job.employee_ids:
-                    ee_obj.write(
-                        cr, uid, ee.id, {'parent_id': parent_id}, context=context)
+                ee_obj.write(
+                    cr, uid, [ee.id for ee in job.employee_ids], {
+                        'parent_id': parent_id,
+                    }, context=context
+                )
 
         return res
 
@@ -148,8 +181,7 @@ class hr_contract(orm.Model):
         # Write any employees with jobs that are immediate descendants of this
         # job
         if job:
-            job_child_ids = []
-            [job_child_ids.append(child.id) for child in job.child_ids]
+            job_child_ids = [child.id for child in job.child_ids]
             if len(job_child_ids) > 0:
                 ee_ids = ee_obj.search(
                     cr, uid, [('job_id', 'in', job_child_ids)])
@@ -159,7 +191,10 @@ class hr_contract(orm.Model):
                         parent_id = ee.id
                     if parent_id:
                         ee_obj.write(
-                            cr, uid, ee_ids, {'parent_id': parent_id}, context=context)
+                            cr, uid, ee_ids, {
+                                'parent_id': parent_id,
+                            }, context=context
+                        )
 
         return res
 
@@ -204,6 +239,9 @@ class hr_contract(orm.Model):
                         parent_id = ee.id
                     if parent_id:
                         ee_obj.write(
-                            cr, uid, ee_ids, {'parent_id': parent_id}, context=context)
+                            cr, uid, ee_ids, {
+                                'parent_id': parent_id,
+                            }, context=context
+                        )
 
         return res
