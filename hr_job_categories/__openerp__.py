@@ -5,8 +5,8 @@
 #    All Rights Reserved.
 #
 #    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as published by
-#    the Free Software Foundation, either version 3 of the License, or
+#    it under the terms of the GNU Affero General Public License as published
+#    by the Free Software Foundation, either version 3 of the License, or
 #    (at your option) any later version.
 #
 #    This program is distributed in the hope that it will be useful,
@@ -27,11 +27,12 @@
 Attach Categories (Tags) to Employees Based on Job Position
 ===========================================================
 
-This module is useful for tagging employees based on their job positions. For example,
-all Supervisors could be attached to the Supervisors category. Define which categories
-a job belongs to in the configuration for the job. When an employee is assigned a particular
-job the categories attached to that job will be attached to the employee record as well.
-    """,
+This module is useful for tagging employees based on their job positions.
+For example, all Supervisors could be attached to the Supervisors category.
+Define which categories a job belongs to in the configuration for the job.
+When an employee is assigned a particular job the categories attached to that
+job will be attached to the employee record as well.
+""",
     'author': 'Michael Telahun Makonnen <mmakonnen@gmail.com>',
     'website': 'http://miketelahun.wordpress.com',
     'depends': [
