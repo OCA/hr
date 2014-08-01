@@ -5,8 +5,8 @@
 #    All Rights Reserved.
 #
 #    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as published by
-#    the Free Software Foundation, either version 3 of the License, or
+#    it under the terms of the GNU Affero General Public License as published
+#    by the Free Software Foundation, either version 3 of the License, or
 #    (at your option) any later version.
 #
 #    This program is distributed in the hope that it will be useful,
@@ -29,12 +29,22 @@ class compute_alerts(orm.TransientModel):
 
     _name = 'hr.schedule.alert.compute'
     _description = 'Check Alerts'
-
     _columns = {
-        'date_start': fields.date('Start', required=True),
-        'date_end': fields.date('End', required=True),
-        'employee_ids': fields.many2many('hr.employee', 'hr_employee_alert_rel',
-                                         'generate_id', 'employee_id', 'Employees'),
+        'date_start': fields.date(
+            'Start',
+            required=True,
+        ),
+        'date_end': fields.date(
+            'End',
+            required=True,
+        ),
+        'employee_ids': fields.many2many(
+            'hr.employee',
+            'hr_employee_alert_rel',
+            'generate_id',
+            'employee_id',
+            'Employees',
+        ),
     }
 
     def generate_alerts(self, cr, uid, ids, context=None):
@@ -52,10 +62,10 @@ class compute_alerts(orm.TransientModel):
         dNext = dStart
         for employee_id in data['employee_ids']:
             while dNext <= dEnd:
-                alert_obj.compute_alerts_by_employee(cr, uid, employee_id,
-                                                     dNext.strftime(
-                                                         '%Y-%m-%d'),
-                                                     context=context)
+                alert_obj.compute_alerts_by_employee(
+                    cr, uid, employee_id, dNext.strftime('%Y-%m-%d'),
+                    context=context
+                )
                 dNext += relativedelta(days=+1)
 
         return {

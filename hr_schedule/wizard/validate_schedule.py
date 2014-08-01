@@ -5,8 +5,8 @@
 #    All Rights Reserved.
 #
 #    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as published by
-#    the Free Software Foundation, either version 3 of the License, or
+#    it under the terms of the GNU Affero General Public License as published
+#    by the Free Software Foundation, either version 3 of the License, or
 #    (at your option) any later version.
 #
 #    This program is distributed in the hope that it will be useful,
@@ -34,7 +34,11 @@ class department_selection(orm.TransientModel):
 
     _columns = {
         'department_ids': fields.many2many(
-            'hr.department', 'hr_department_group_rel', 'employee_id', 'department_id', 'Departments'
+            'hr.department',
+            'hr_department_group_rel',
+            'employee_id',
+            'department_id',
+            'Departments',
         ),
     }
 
@@ -45,7 +49,10 @@ class department_selection(orm.TransientModel):
             'view_type': 'form',
             'view_mode': 'tree,form',
             'res_model': 'hr.schedule',
-            'domain': [('department_id', 'in', data['department_ids']), ('state', 'in', ['draft'])],
+            'domain': [
+                ('department_id', 'in', data['department_ids']),
+                ('state', 'in', ['draft']),
+            ],
             'type': 'ir.actions.act_window',
             'target': 'new',
             'nodestroy': True,
@@ -56,10 +63,11 @@ class department_selection(orm.TransientModel):
 
         wkf_service = netsvc.LocalService('workflow')
         data = self.read(cr, uid, ids, context=context)[0]
-        sched_ids = self.pool.get('hr.schedule').search(cr, uid,
-                                                        [('department_id', 'in', data[
-                                                          'department_ids'])],
-                                                        context=context)
+        sched_ids = self.pool.get('hr.schedule').search(
+            cr, uid, [
+                ('department_id', 'in', data['department_ids'])
+            ], context=context
+        )
         for sched_id in sched_ids:
             wkf_service.trg_validate(
                 uid, 'hr.schedule', sched_id, 'signal_validate', cr)
