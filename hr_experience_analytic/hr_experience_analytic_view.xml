@@ -1,0 +1,16 @@
+<openerp>
+  <data>
+
+    <record model="ir.ui.view" id="view_experience_form">
+        <field name="name">hr.experience.form</field>
+        <field name="model">hr.experience</field>
+        <field name="inherit_id" ref="hr_experience.view_professional_form"/>
+        <field name="arch" type="xml">
+            <field name="location" position="after">
+                <field name="account_id" groups="analytic.group_analytic_accounting"/>
+            </field>
+        </field>
+    </record>
+
+  </data>
+</openerp>
