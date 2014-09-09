@@ -573,7 +573,8 @@ class payroll_period_end_1(orm.TransientModel):
             cr, uid, period_id, ['date_start', 'date_end'], context=context
         )
         start = datetime.strptime(
-            data['date_start'], OEDATETIME_FORMAT).date().strftime(OEDATE_FORMAT)
+            data['date_start'], OEDATETIME_FORMAT).date().strftime(
+                OEDATE_FORMAT)
         end = datetime.strptime(
             data['date_end'], OEDATETIME_FORMAT).date().strftime(OEDATE_FORMAT)
         holiday_ids = self.pool.get('hr.holidays.public.line').search(
@@ -831,9 +832,10 @@ class payroll_period_end_1(orm.TransientModel):
 
         # Re-wind pay period if we are in payslip generation state
         #
-        p_data = self.pool.get('hr.payroll.period').read(cr, uid, period_id,
-                                                         ['state', 'register_id'],
-                                                         context=context)
+        p_data = self.pool.get('hr.payroll.period').read(
+            cr, uid, period_id,
+            ['state', 'register_id'],
+            context=context)
         if p_data['state'] == 'generate':
             self._remove_register(
                 cr, uid, p_data['register_id'][0], context=context)
@@ -887,15 +889,17 @@ class payroll_period_end_1(orm.TransientModel):
         r_data = register_obj.read(
             cr, uid, register_id, ['company_id'], context=context)
 
-        department_ids = self.pool.get('hr.department').search(cr, uid,
-                                                               [('company_id', '=', r_data[
-                                                                 'company_id'][0])],
-                                                               context=context)
+        department_ids = self.pool.get('hr.department').search(
+            cr, uid,
+            [('company_id', '=', r_data['company_id'][0])],
+            context=context)
         s_data = self.pool.get(
-            'hr.payroll.period.schedule').read(cr, uid, p_data['schedule_id'][0],
-                                               ['contract_ids', 'tz'], context=context)
+            'hr.payroll.period.schedule').read(
+                cr, uid, p_data['schedule_id'][0],
+                ['contract_ids', 'tz'], context=context)
 
-        # Create payslips for employees, in all departments, that have a contract in this
+        # Create payslips for employees, in all departments,
+        # that have a contract in this
         # pay period's schedule
         self.create_payslip_runs(
             cr, uid, register_id, department_ids, s_data['contract_ids'],
@@ -921,7 +925,9 @@ class payroll_period_end_1(orm.TransientModel):
             'context': context
         }
 
-    def create_payslip_runs(self, cr, uid, register_id, dept_ids, contract_ids, tz, context=None):
+    def create_payslip_runs(
+        self, cr, uid, register_id, dept_ids, contract_ids, tz, context=None
+    ):
 
         contract_obj = self.pool.get('hr.contract')
         dept_obj = self.pool.get('hr.department')
@@ -931,7 +937,8 @@ class payroll_period_end_1(orm.TransientModel):
         reg_obj = self.pool.get('hr.payroll.register')
         pr = reg_obj.browse(cr, uid, register_id, context=context)
 
-        # DateTime in db is store as naive UTC. Convert it to explicit UTC and then convert
+        # DateTime in db is store as naive UTC. Convert it to explicit UTC
+        # and then convert
         # that into the time zone of the pay period schedule.
         #
         local_tz = timezone(tz)
@@ -949,7 +956,9 @@ class payroll_period_end_1(orm.TransientModel):
         #
         psa_codes = []
         psa_ids = self._get_confirmed_amendments(cr, uid, context)
-        for psa in self.pool.get('hr.payslip.amendment').browse(cr, uid, psa_ids, context=context):
+        for psa in self.pool.get('hr.payslip.amendment').browse(
+            cr, uid, psa_ids, context=context
+        ):
             psa_codes.append(
                 (psa.employee_id.id, psa.input_id.code, psa.amount))
 
@@ -961,16 +970,19 @@ class payroll_period_end_1(orm.TransientModel):
         for dept in dept_obj.browse(cr, uid, dept_ids, context=context):
             ee_ids = []
             contracts_dict = {}
-            c_ids = contract_obj.search(cr, uid, [('id', 'in', contract_ids),
-                                                  '|', (
-                                                      'department_id.id', '=', dept.id),
-                                                  ('employee_id.department_id.id', '=', dept.id)
-                                                  ], context=context)
-            c2_ids = contract_obj.search(cr, uid, [('id', 'in', contract_ids),
-                                                   '|', (
-                                                       'job_id.department_id.id', '=', dept.id),
-                                                   ('end_job_id.department_id.id', '=', dept.id),
-                                                   ], context=context)
+            c_ids = contract_obj.search(cr, uid, [
+                ('id', 'in', contract_ids),
+                '|',
+                ('department_id.id', '=', dept.id),
+                ('employee_id.department_id.id', '=', dept.id)
+                ], context=context)
+            c2_ids = contract_obj.search(
+                cr, uid, [
+                    ('id', 'in', contract_ids),
+                    '|',
+                    ('job_id.department_id.id', '=', dept.id),
+                    ('end_job_id.department_id.id', '=', dept.id),
+                    ], context=context)
             for i in c2_ids:
                 if i not in c_ids:
                     c_ids.append(i)
@@ -1021,7 +1033,10 @@ class payroll_period_end_1(orm.TransientModel):
                     if contract.date_end:
                         dContractEnd = datetime.strptime(
                             contract.date_end, OEDATE_FORMAT).date()
-                    if dContractStart > loclDTEnd.date() or dContractEnd < loclDTStart.date():
+                    if (
+                        dContractStart > loclDTEnd.date()
+                        or dContractEnd < loclDTStart.date()
+                    ):
                         continue
                     elif contract.id in contracts_dict[ee.id]:
                         found_contract = contract
@@ -1029,20 +1044,28 @@ class payroll_period_end_1(orm.TransientModel):
                 if not found_contract:
                     continue
 
-                # If the contract doesn't cover the full pay period use the contract
+                # If the contract doesn't cover the full pay period use
+                # the contract
                 # dates as start/end dates instead of the full period.
                 #
                 temp_date_start = date_start
                 temp_date_end = date_end
-                if dContractStart > datetime.strptime(date_start, OEDATE_FORMAT).date():
+                if dContractStart > datetime.strptime(
+                    date_start, OEDATE_FORMAT
+                ).date():
                     temp_date_start = dContractStart.strftime(OEDATE_FORMAT)
-                if found_contract.date_end and dContractEnd < datetime.strptime(date_end, OEDATE_FORMAT).date():
+                if (
+                    found_contract.date_end
+                    and dContractEnd < datetime.strptime(
+                        date_end, OEDATE_FORMAT).date()
+                ):
                     temp_date_end = dContractEnd.strftime(OEDATE_FORMAT)
 
-                slip_data = slip_obj.onchange_employee_id(cr, uid, [],
-                                                          temp_date_start, temp_date_end,
-                                                          ee.id, contract_id=False,
-                                                          context=context)
+                slip_data = slip_obj.onchange_employee_id(
+                    cr, uid, [],
+                    temp_date_start, temp_date_end,
+                    ee.id, contract_id=False,
+                    context=context)
 
                 # Make modifications to rule inputs
                 #
@@ -1058,10 +1081,19 @@ class payroll_period_end_1(orm.TransientModel):
                     'employee_id': ee.id,
                     'name': slip_data['value'].get('name', False),
                     'struct_id': slip_data['value'].get('struct_id', False),
-                    'contract_id': slip_data['value'].get('contract_id', False),
+                    'contract_id': slip_data['value'].get(
+                        'contract_id', False),
                     'payslip_run_id': run_id,
-                    'input_line_ids': [(0, 0, x) for x in slip_data['value'].get('input_line_ids', False)],
-                    'worked_days_line_ids': [(0, 0, x) for x in slip_data['value'].get('worked_days_line_ids', False)],
+                    'input_line_ids': [
+                        (0, 0, x) for x in slip_data['value'].get(
+                            'input_line_ids', False)
+                    ],
+                    'worked_days_line_ids': [
+                        (0, 0, x)
+                        for x
+                        in slip_data['value'].get(
+                            'worked_days_line_ids', False)
+                        ],
                     'date_from': date_start,
                     'date_to': date_end
                 }
@@ -1109,12 +1141,15 @@ class payroll_period_end_1(orm.TransientModel):
         #
         data = self.read(cr, uid, ids[0], ['pex_critical'], context=context)
         if data.get('pex_critical') != 0:
-            raise orm.except_orm(_('Unable to Start Payments'), _(
-                'There are one or more Critical Payroll Exceptions. Please correct them before proceeding.'))
+            raise orm.except_orm(
+                _('Unable to Start Payments'),
+                _('There are one or more Critical Payroll Exceptions. '
+                  'Please correct them before proceeding.'))
 
-        p_data = self.pool.get('hr.payroll.period').read(cr, uid, period_id,
-                                                         ['state', 'register_id'],
-                                                         context=context)
+        p_data = self.pool.get('hr.payroll.period').read(
+            cr, uid, period_id,
+            ['state', 'register_id'],
+            context=context)
         if p_data['state'] != 'generate':
             return {'type': 'ir.actions.act_window_close'}
 
@@ -1123,7 +1158,8 @@ class payroll_period_end_1(orm.TransientModel):
         # Set Pay Slip Amendments to Done
         #
         psa_ids = self._get_confirmed_amendments(cr, uid, context)
-        [wkf_service.trg_validate(uid, 'hr.payslip.amendment', psa_id, 'payslip_done', cr)
+        [wkf_service.trg_validate(
+            uid, 'hr.payslip.amendment', psa_id, 'payslip_done', cr)
          for psa_id in psa_ids]
 
         # Verify Pay Slips
@@ -1132,9 +1168,11 @@ class payroll_period_end_1(orm.TransientModel):
         reg_data = reg_obj.read(
             cr, uid, p_data['register_id'][0], ['run_ids'], context=context)
         for run_id in reg_data['run_ids']:
-            run_data = self.pool.get('hr.payslip.run').read(cr, uid, run_id,
-                                                            ['slip_ids'], context=context)
-            [wkf_service.trg_validate(uid, 'hr.payslip', slip_id, 'hr_verify_sheet', cr)
+            run_data = self.pool.get('hr.payslip.run').read(
+                cr, uid, run_id,
+                ['slip_ids'], context=context)
+            [wkf_service.trg_validate(
+                uid, 'hr.payslip', slip_id, 'hr_verify_sheet', cr)
              for slip_id in run_data['slip_ids']]
 
         wkf_service.trg_validate(
@@ -1236,8 +1274,9 @@ class payroll_period_end_1(orm.TransientModel):
             return {'type': 'ir.actions.act_window_close'}
 
         data = self.pool.get(
-            'hr.payroll.period').read(cr, uid, period_id, ['date_start', 'date_end'],
-                                      context=context)
+            'hr.payroll.period').read(
+                cr, uid, period_id, ['date_start', 'date_end'],
+                context=context)
         register_ids = self.pool.get('hr.contribution.register').search(
             cr, uid, [], context=context)
 
@@ -1247,7 +1286,9 @@ class payroll_period_end_1(orm.TransientModel):
         return {
             'type': 'ir.actions.report.xml',
             'report_name': 'contribution.register.lines',
-            'datas': {'ids': register_ids, 'form': form, 'model': 'hr.contribution.register'},
+            'datas': {
+                'ids': register_ids, 'form': form,
+                'model': 'hr.contribution.register'},
         }
 
     def close_pay_period(self, cr, uid, ids, context=None):
