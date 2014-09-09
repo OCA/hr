@@ -1,4 +1,3 @@
-# -*- encoding: utf-8 -*-
 ###############################################################################
 #
 #    OpenERP, Open Source Management Solution
@@ -26,7 +25,7 @@
     "category": "Human Resources",
     "website": "http://www.savoirfairelinux.com",
     "depends": [
-        "hr",
+        "hr_experience",
         "account",
     ],
     "description": """
@@ -35,11 +34,21 @@ or contracts.
 
 This is useful if you want to have the same project description and metrics on
 all the resume of the employees involved in the same project or contract.
+
+Configuration
+=============
+
+Make sur to add users to the "Analytic Accounting" group to show the analytic
+account on the profesionnal experience form.
+
+Contributors
+============
+
+* Savoir-faire Linux <support@savoirfairelinux.com>
+* Maxime Chambreuil <maxime.chambreuil@savoirfairleinux.com>
     """,
     "data": [
         "hr_experience_analytic_view.xml",
     ],
     "installable": True,
-    "auto_install": True
 }
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

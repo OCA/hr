@@ -1,4 +1,3 @@
-# -*- encoding: utf-8 -*-
 ###############################################################################
 #
 #    OpenERP, Open Source Management Solution
@@ -22,12 +21,11 @@ from osv import osv, fields
 
 
 class hr_professional(osv.osv):
-    _inherit = 'hr.professional'
+    _inherit = 'hr.experience'
     _columns = {
         'account_id': fields.many2one('account.analytic.account',
-                                      'Analytic Account',
+                                      'Project',
                                       domain=[('type', '!=', 'view')],
-                                      help="Project or Contract"),
+                                      help="""
+Enter the project, contract or analytic account"""),
     }
-hr_professional()
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
