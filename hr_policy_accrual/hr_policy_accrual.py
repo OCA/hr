@@ -37,14 +37,18 @@ class hr_accrual_job(orm.Model):
 
     _columns = {
         'name': fields.date('Date', required=True, readonly=True),
-        'exec': fields.datetime('Execution Date/Time', required=True, readonly=True),
-        'policy_line_id': fields.many2one('hr.policy.line.accrual', 'Accrual Policy Line',
-                                          required=True, readonly=True),
-        'accrual_line_ids': fields.many2many('hr.accrual.line', 'hr_policy_job_accrual_line_rel',
-                                             'job_id', 'accrual_line_id', 'Accrual Lines',
-                                             readonly=True),
-        'holiday_ids': fields.many2many('hr.holidays', 'hr_policy_job_holiday_rel', 'job_id',
-                                        'holiday_id', 'Leave Allocation Requests', readonly=True),
+        'exec': fields.datetime(
+            'Execution Date/Time', required=True, readonly=True),
+        'policy_line_id': fields.many2one(
+            'hr.policy.line.accrual', 'Accrual Policy Line',
+            required=True, readonly=True),
+        'accrual_line_ids': fields.many2many(
+            'hr.accrual.line', 'hr_policy_job_accrual_line_rel',
+            'job_id', 'accrual_line_id', 'Accrual Lines',
+            readonly=True),
+        'holiday_ids': fields.many2many(
+            'hr.holidays', 'hr_policy_job_holiday_rel', 'job_id',
+            'holiday_id', 'Leave Allocation Requests', readonly=True),
     }
 
 
@@ -56,14 +60,16 @@ class hr_policy(orm.Model):
     _columns = {
         'name': fields.char('Name', size=128, required=True),
         'date': fields.date('Effective Date', required=True),
-        'line_ids': fields.one2many('hr.policy.line.accrual', 'policy_id', 'Policy Lines'),
+        'line_ids': fields.one2many(
+            'hr.policy.line.accrual', 'policy_id', 'Policy Lines'),
     }
 
     # Return records with latest date first
     _order = 'date desc'
 
     def get_latest_policy(self, cr, uid, policy_group, dToday, context=None):
-        """Return an accrual policy with an effective date before dToday but greater than all the others"""
+        """Return an accrual policy with an effective date before dToday
+        but greater than all the others"""
 
         if not policy_group or not policy_group.accr_policy_ids or not dToday:
             return None
@@ -74,12 +80,16 @@ class hr_policy(orm.Model):
             if dPolicy <= dToday:
                 if res is None:
                     res = policy
-                elif dPolicy > datetime.strptime(res.date, OE_DATEFORMAT).date():
+                elif dPolicy > datetime.strptime(
+                    res.date, OE_DATEFORMAT
+                ).date():
                     res = policy
 
         return res
 
-    def _calculate_and_deposit(self, cr, uid, line, employee, job_id, dToday=None, context=None):
+    def _calculate_and_deposit(
+        self, cr, uid, line, employee, job_id, dToday=None, context=None
+    ):
 
         leave_obj = self.pool.get('hr.holidays')
         accrual_obj = self.pool.get('hr.accrual')
@@ -101,8 +111,9 @@ class hr_policy(orm.Model):
         }
 
         srvc_months, dHire = self.pool.get(
-            'hr.employee').get_months_service_to_date(cr, uid, [employee.id], dToday=dToday,
-                                                      context=context)[employee.id]
+            'hr.employee').get_months_service_to_date(
+                cr, uid, [employee.id], dToday=dToday,
+                context=context)[employee.id]
         srvc_months = int(srvc_months)
         if dToday is None:
             dToday = date.today()
@@ -136,18 +147,29 @@ class hr_policy(orm.Model):
             freq_amount = float(line.accrual_rate) / 52.0
             if line.accrual_rate_premium_minimum <= srvc_months:
                 premium_amount = (
-                    max(0, srvc_months - line.accrual_rate_premium_minimum + line.accrual_rate_premium_milestone)
-                ) // line.accrual_rate_premium_milestone * line.accrual_rate_premium / 52.0
+                    max(
+                        0, srvc_months - line.accrual_rate_premium_minimum
+                        + line.accrual_rate_premium_milestone
+                    )
+                ) // (
+                    line.accrual_rate_premium_milestone
+                    * line.accrual_rate_premium
+                ) / 52.0
         elif line.calculation_frequency == 'monthly':
-            # When deciding to skip an employee account for actual month lengths. If
-            # the frequency date is 31 and this month only has 30 days, go ahead and
-            # do the accrual on the last day of the month (i.e. the 30th). For
-            # February, on non-leap years execute accruals for the 29th on the 28th.
+            # When deciding to skip an employee account for actual month
+            # lengths. If the frequency date is 31 and this month only has 30
+            # days, go ahead and do the accrual on the last day of the month
+            # (i.e. the 30th). For February, on non-leap years execute accruals
+            # for the 29th on the 28th.
             #
-            if dToday.day == month_last_day[dToday.month] and freq_month_day > dToday.day:
+            if dToday.day == month_last_day[
+                dToday.month
+            ] and freq_month_day > dToday.day:
                 if dToday.month != 2:
                     freq_month_day = dToday.day
-                elif dToday.month == 2 and dToday.day == 28 and (dToday + timedelta(days=+1)).day != 29:
+                elif dToday.month == 2 and dToday.day == 28 and (
+                    dToday + timedelta(days=+1)
+                ).day != 29:
                     freq_month_day = dToday.day
 
             if dToday.day != freq_month_day:
@@ -156,8 +178,14 @@ class hr_policy(orm.Model):
             freq_amount = float(line.accrual_rate) / 12.0
             if line.accrual_rate_premium_minimum <= srvc_months:
                 premium_amount = (
-                    max(0, srvc_months - line.accrual_rate_premium_minimum + line.accrual_rate_premium_milestone)
-                ) // line.accrual_rate_premium_milestone * line.accrual_rate_premium / 12.0
+                    max(
+                        0, srvc_months - line.accrual_rate_premium_minimum
+                        + line.accrual_rate_premium_milestone
+                    )
+                ) // (
+                    line.accrual_rate_premium_milestone
+                    * line.accrual_rate_premium
+                ) / 12.0
         else:  # annual frequency
             # On non-leap years execute Feb. 29 accruals on the 28th
             #
@@ -167,14 +195,22 @@ class hr_policy(orm.Model):
                     and freq_annual_day > dToday.day):
                 freq_annual_day = dToday.day
 
-            if dToday.month != freq_annual_month and dToday.day != freq_annual_day:
+            if (
+                dToday.month != freq_annual_month
+                and dToday.day != freq_annual_day
+            ):
                 return
 
             freq_amount = line.accrual_rate
             if line.accrual_rate_premium_minimum <= srvc_months:
                 premium_amount = (
-                    max(0, srvc_months - line.accrual_rate_premium_minimum + line.accrual_rate_premium_milestone)
-                ) // line.accrual_rate_premium_milestone * line.accrual_rate_premium
+                    max(
+                        0, srvc_months - line.accrual_rate_premium_minimum
+                        + line.accrual_rate_premium_milestone
+                    )
+                ) // (
+                    line.accrual_rate_premium_milestone
+                    * line.accrual_rate_premium)
 
         if line.accrual_rate_max == 0:
             amount = freq_amount + premium_amount
@@ -209,7 +245,8 @@ class hr_policy(orm.Model):
         netsvc.LocalService('workflow').trg_validate(
             uid, 'hr.holidays', holiday_id, 'validate', cr)
 
-        # Add this accrual line and holiday request to the job for this policy line
+        # Add this accrual line and holiday request to the job for this
+        # policy line
         #
         job_obj.write(
             cr, uid, job_id, {'accrual_line_ids': [
@@ -243,9 +280,10 @@ class hr_policy(orm.Model):
             if accrual_policy is None:
                 continue
 
-            # Get the last time that an accrual job was run for each accrual line in
-            # the accrual policy. If there was no 'last time' assume this is the first
-            # time the job is being run and start it running from today.
+            # Get the last time that an accrual job was run for each accrual
+            # line in the accrual policy. If there was no 'last time' assume
+            # this is the first time the job is being run and start it running
+            # from today.
             #
             line_jobs = {}
             for line in accrual_policy.line_ids:
@@ -259,9 +297,10 @@ class hr_policy(orm.Model):
                         d += timedelta(days=1)
                         line_jobs[line.id].append(d)
 
-            # For each accrual line in this accrual policy do a run for each day (beginning
-            # from the last date for which it was run) until today for each contract attached
-            # to the policy group.
+            # For each accrual line in this accrual policy do a run for each
+            # day (beginning
+            # from the last date for which it was run) until today for each
+            # contract attached to the policy group.
             #
             for line in accrual_policy.line_ids:
                 for dJob in line_jobs[line.id]:
@@ -276,9 +315,16 @@ class hr_policy(orm.Model):
 
                     employee_list = []
                     for contract in pg.contract_ids:
-                        if contract.employee_id.id in employee_list or contract.state in ['draft', 'done']:
+                        if (
+                            contract.employee_id.id in employee_list
+                            or contract.state in ['draft', 'done']
+                        ):
                             continue
-                        if contract.date_end and datetime.strptime(contract.date_end, OE_DATEFORMAT).date() < dJob:
+                        if (
+                            contract.date_end
+                            and datetime.strptime(
+                                contract.date_end, OE_DATEFORMAT).date() < dJob
+                        ):
                             continue
                         self._calculate_and_deposit(
                             cr, uid, line, contract.employee_id,
@@ -300,19 +346,24 @@ class hr_policy_line(orm.Model):
         'name': fields.char('Name', size=64, required=True),
         'code': fields.char('Code', size=16, required=True),
         'policy_id': fields.many2one('hr.policy.accrual', 'Accrual Policy'),
-        'accrual_id': fields.many2one('hr.accrual', 'Accrual Account', required=True),
-        'type': fields.selection([('standard', 'Standard'), ('calendar', 'Calendar')], 'Type',
-                                 required=True),
+        'accrual_id': fields.many2one(
+            'hr.accrual', 'Accrual Account', required=True),
+        'type': fields.selection([
+            ('standard', 'Standard'), ('calendar', 'Calendar')
+            ], 'Type', required=True),
         'balance_on_payslip': fields.boolean(
             'Display Balance on Pay Slip',
-            help='The pay slip report must be modified to display this accrual for this setting to have any effect.'
+            help='The pay slip report must be modified to display this accrual'
+                 ' for this setting to have any effect.'
         ),
-        'calculation_frequency': fields.selection([('weekly', 'Weekly'),
-                                                   ('monthly', 'Monthly'),
-                                                   ('annual', 'Annual'),
-                                                   ],
-                                                  'Calculation Frequency', required=True),
-        'frequency_on_hire_date': fields.boolean('Frequency Based on Hire Date'),
+        'calculation_frequency': fields.selection([
+            ('weekly', 'Weekly'),
+            ('monthly', 'Monthly'),
+            ('annual', 'Annual'),
+            ],
+            'Calculation Frequency', required=True),
+        'frequency_on_hire_date': fields.boolean(
+            'Frequency Based on Hire Date'),
         'frequency_week_day': fields.selection([('0', 'Monday'),
                                                 ('1', 'Tuesday'),
                                                 ('2', 'Wednesday'),
@@ -334,19 +385,20 @@ class hr_policy_line(orm.Model):
             ('29', '29'), ('30', '30'), ('31', '31'),
         ],
             'Day of Month'),
-        'frequency_annual_month': fields.selection([('1', 'January'), ('2', 'February'),
-                                                    ('3', 'March'), (
-                                                        '4', 'April'),
-                                                    ('5', 'May'), (
-                                                        '6', 'June'),
-                                                    ('7', 'July'), (
-                                                        '8', 'August'),
-                                                    ('9', 'September'), (
-                                                        '10', 'October'),
-                                                    ('11', 'November'), (
-                                                        '12', 'December'),
-                                                    ],
-                                                   'Month'),
+        'frequency_annual_month': fields.selection([
+            ('1', 'January'),
+            ('2', 'February'),
+            ('3', 'March'),
+            ('4', 'April'),
+            ('5', 'May'),
+            ('6', 'June'),
+            ('7', 'July'),
+            ('8', 'August'),
+            ('9', 'September'),
+            ('10', 'October'),
+            ('11', 'November'),
+            ('12', 'December'),
+            ], 'Month'),
         'frequency_annual_day': fields.selection([
             ('1', '1'), ('2', '2'), ('3', '3'), (
                 '4', '4'), ('5', '5'), ('6', '6'), ('7', '7'),
@@ -360,27 +412,32 @@ class hr_policy_line(orm.Model):
         ],
             'Day of Month'),
         'minimum_employed_days': fields.integer('Minimum Employed Days'),
-        'accrual_rate': fields.float('Accrual Rate', required=True,
-                                     help='The rate, in days, accrued per year.'),
+        'accrual_rate': fields.float(
+            'Accrual Rate', required=True,
+            help='The rate, in days, accrued per year.'),
         'accrual_rate_premium': fields.float(
             'Accrual Rate Premium', required=True,
-            help='The additional amount of time (beyond the standard rate) accrued per Premium Milestone of service.'
+            help='The additional amount of time (beyond the standard rate) '
+                 'accrued per Premium Milestone of service.'
         ),
         'accrual_rate_premium_minimum': fields.integer(
             'Months of Employment Before Premium', required=True,
-            help="Minimum number of months the employee must be employed before the premium rate will start to accrue."
+            help="Minimum number of months the employee must be employed "
+                 "before the premium rate will start to accrue."
         ),
         'accrual_rate_premium_milestone': fields.integer(
             'Accrual Premium Milestone', required=True,
-            help="Number of milestone months after which the premium rate will be added."
+            help="Number of milestone months after which the premium rate will"
+                 " be added."
         ),
         'accrual_rate_max': fields.float(
             'Maximum Accrual Rate', required=True,
             help='The maximum amount of time that may accrue per year. '
                  'Zero means the amount may keep increasing indefinitely.'
         ),
-        'job_ids': fields.one2many('hr.policy.line.accrual.job', 'policy_line_id', 'Jobs',
-                                   readonly=True),
+        'job_ids': fields.one2many(
+            'hr.policy.line.accrual.job', 'policy_line_id', 'Jobs',
+            readonly=True),
     }
 
     _defaults = {
@@ -397,8 +454,9 @@ class policy_group(orm.Model):
     _inherit = 'hr.policy.group'
 
     _columns = {
-        'accr_policy_ids': fields.many2many('hr.policy.accrual', 'hr_policy_group_accr_rel',
-                                            'group_id', 'accr_id', 'Accrual Policy'),
+        'accr_policy_ids': fields.many2many(
+            'hr.policy.accrual', 'hr_policy_group_accr_rel',
+            'group_id', 'accr_id', 'Accrual Policy'),
     }
 
 
@@ -408,19 +466,24 @@ class hr_holidays(orm.Model):
     _inherit = 'hr.holidays'
 
     _columns = {
-        'from_accrual': fields.boolean('Created by Accrual Policy Line',
-                                       help='Used to differentiate allocations from accruals and manual allocations',
-                                       readonly=True),
+        'from_accrual': fields.boolean(
+            'Created by Accrual Policy Line',
+            help='Used to differentiate allocations from accruals and manual '
+                 'allocations',
+            readonly=True),
     }
 
-    def _do_accrual(self, cr, uid, today, holiday_status_id, employee_id, days, context=None):
+    def _do_accrual(
+        self, cr, uid, today, holiday_status_id, employee_id, days,
+        context=None
+    ):
 
         accrual_obj = self.pool.get('hr.accrual')
         accrual_line_obj = self.pool.get('hr.accrual.line')
 
-        accrual_ids = accrual_obj.search(cr, uid,
-                                         [('holiday_status_id', '=', holiday_status_id)],
-                                         context=context)
+        accrual_ids = accrual_obj.search(
+            cr, uid, [('holiday_status_id', '=', holiday_status_id)],
+            context=context)
 
         if len(accrual_ids) == 0:
             return
@@ -450,16 +513,21 @@ class hr_holidays(orm.Model):
 
         today = datetime.now().strftime(OE_DATEFORMAT)
         for record in self.browse(cr, uid, ids, context=context):
-            if record.holiday_type == 'employee' and record.type == 'add' and not record.from_accrual:
+            if (
+                record.holiday_type == 'employee'
+                and record.type == 'add' and not record.from_accrual
+            ):
 
                 self._do_accrual(
-                    cr, uid, today, record.holiday_status_id.id, record.employee_id.id,
+                    cr, uid, today, record.holiday_status_id.id,
+                    record.employee_id.id,
                     record.number_of_days_temp, context=context)
 
             elif record.holiday_type == 'employee' and record.type == 'remove':
 
                 self._do_accrual(
-                    cr, uid, today, record.holiday_status_id.id, record.employee_id.id,
+                    cr, uid, today, record.holiday_status_id.id,
+                    record.employee_id.id,
                     -record.number_of_days_temp, context=context)
 
         return res
@@ -477,12 +545,15 @@ class hr_holidays(orm.Model):
             if record.holiday_type == 'employee' and record.type == 'add':
 
                 self._do_accrual(
-                    cr, uid, today, record.holiday_status_id.id, record.employee_id.id,
+                    cr, uid, today, record.holiday_status_id.id,
+                    record.employee_id.id,
                     -record.number_of_days_temp, context=context)
 
             elif record.holiday_type == 'employee' and record.type == 'remove':
 
                 self._do_accrual(
-                    cr, uid, today, record.holiday_status_id.id, record.employee_id.id,
+                    cr, uid, today, record.holiday_status_id.id,
+                    record.employee_id.id,
                     record.number_of_days_temp, context=context)
-        return super(hr_holidays, self).holidays_refuse(cr, uid, ids, context=None)
+        return super(hr_holidays, self).holidays_refuse(
+            cr, uid, ids, context=None)

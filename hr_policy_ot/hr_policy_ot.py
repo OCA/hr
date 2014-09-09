@@ -30,7 +30,8 @@ class policy_ot(orm.Model):
     _columns = {
         'name': fields.char('Name', size=128, required=True),
         'date': fields.date('Effective Date', required=True),
-        'line_ids': fields.one2many('hr.policy.line.ot', 'policy_id', 'Policy Lines'),
+        'line_ids': fields.one2many(
+            'hr.policy.line.ot', 'policy_id', 'Policy Lines'),
     }
 
     # Return records with latest date first
@@ -47,7 +48,8 @@ class policy_ot(orm.Model):
 
         res = []
         [res.append((line.code, line.name))
-         for line in self.browse(cr, uid, idx, context=context).line_ids if line.type == 'daily']
+         for line in self.browse(
+            cr, uid, idx, context=context).line_ids if line.type == 'daily']
         return res
 
     def restday_codes(self, cr, uid, idx, context=None):
@@ -61,7 +63,8 @@ class policy_ot(orm.Model):
 
         res = []
         [res.append((line.code, line.name))
-         for line in self.browse(cr, uid, idx, context=context).line_ids if line.type == 'restday']
+         for line in self.browse(
+            cr, uid, idx, context=context).line_ids if line.type == 'restday']
         return res
 
     def weekly_codes(self, cr, uid, idx, context=None):
@@ -99,12 +102,17 @@ class policy_line_ot(orm.Model):
                                   ('holiday', 'Public Holiday')],
                                  'Type', required=True),
         'weekly_working_days': fields.integer('Weekly Working Days'),
-        'active_after': fields.integer('Active After', help="Minutes after which this policy applies"),
-        'active_start_time': fields.char('Active Start Time', size=5, help="Time in 24 hour time format"),
-        'active_end_time': fields.char('Active End Time', size=5, help="Time in 24 hour time format"),
+        'active_after': fields.integer(
+            'Active After', help="Minutes after which this policy applies"),
+        'active_start_time': fields.char(
+            'Active Start Time', size=5, help="Time in 24 hour time format"),
+        'active_end_time': fields.char(
+            'Active End Time', size=5, help="Time in 24 hour time format"),
         'tz': fields.selection(_tz_list, 'Time Zone'),
-        'rate': fields.float('Rate', required=True, help='Multiplier of employee wage.'),
-        'code': fields.char('Code', required=True, help="Use this code in the salary rules.")
+        'rate': fields.float(
+            'Rate', required=True, help='Multiplier of employee wage.'),
+        'code': fields.char(
+            'Code', required=True, help="Use this code in the salary rules.")
     }
 
 
@@ -114,6 +122,7 @@ class policy_group(orm.Model):
     _inherit = 'hr.policy.group'
 
     _columns = {
-        'ot_policy_ids': fields.many2many('hr.policy.ot', 'hr_policy_group_ot_rel',
-                                          'group_id', 'ot_id', 'Overtime Policy'),
+        'ot_policy_ids': fields.many2many(
+            'hr.policy.ot', 'hr_policy_group_ot_rel',
+            'group_id', 'ot_id', 'Overtime Policy'),
     }
