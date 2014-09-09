@@ -30,12 +30,15 @@ class hr_employee(orm.Model):
     _name = 'hr.employee'
     _inherit = 'hr.employee'
 
-    def _get_latest_contract(self, cr, uid, ids, field_name, args, context=None):
+    def _get_latest_contract(
+        self, cr, uid, ids, field_name, args, context=None
+    ):
         res = {}
         obj_contract = self.pool.get('hr.contract')
         for emp in self.browse(cr, uid, ids, context=context):
             contract_ids = obj_contract.search(
-                cr, uid, [('employee_id', '=', emp.id), ], order='date_start', context=context)
+                cr, uid, [('employee_id', '=', emp.id), ],
+                order='date_start', context=context)
             if contract_ids:
                 res[emp.id] = contract_ids[-1:][0]
             else:
@@ -45,16 +48,22 @@ class hr_employee(orm.Model):
     def _get_id_from_contract(self, cr, uid, ids, context=None):
 
         res = []
-        for contract in self.pool.get('hr.contract').browse(cr, uid, ids, context=context):
+        for contract in self.pool.get('hr.contract').browse(
+            cr, uid, ids, context=context
+        ):
             res.append(contract.employee_id.id)
 
         return res
 
     _columns = {
-        'contract_id': fields.function(_get_latest_contract, string='Contract', type='many2one', relation="hr.contract",
-                                       store={
-                                           'hr.contract': (_get_id_from_contract, ['id', 'date_start'], 10)},
-                                       help='Latest contract of the employee'),
+        'contract_id': fields.function(
+            _get_latest_contract, string='Contract', type='many2one',
+            relation="hr.contract",
+            store={
+                'hr.contract': (
+                    _get_id_from_contract,
+                    ['id', 'date_start'], 10)},
+            help='Latest contract of the employee'),
         'job_id': fields.related(
             'contract_id', 'job_id',
             type="many2one",
@@ -63,8 +72,11 @@ class hr_employee(orm.Model):
             method=True,
             readonly=True,
             store={
-                'hr.contract': (_get_id_from_contract, ['employee_id', 'job_id'], 10),
-                'hr.employee': (lambda self, cr, uid, ids, context=None: ids, ['contract_id', 'active'], 10),
+                'hr.contract': (
+                    _get_id_from_contract, ['employee_id', 'job_id'], 10),
+                'hr.employee': (
+                    lambda self, cr, uid, ids, context=None: ids,
+                    ['contract_id', 'active'], 10),
             }
         ),
     }
@@ -119,8 +131,9 @@ class hr_contract(orm.Model):
             'employee_dept_id': [],
         }
         if employee_id:
-            dept_id = self.pool.get('hr.employee').browse(cr, uid, employee_id,
-                                                          context=context).department_id.id
+            dept_id = self.pool.get('hr.employee').browse(
+                cr, uid, employee_id,
+                context=context).department_id.id
             dom['job_id'] = [('department_id', '=', dept_id)]
             val['employee_dept_id'] = dept_id
         return {'value': val, 'domain': dom}
@@ -144,7 +157,9 @@ class hr_job(orm.Model):
 
     def _get_job_position(self, cr, uid, ids, context=None):
         res = []
-        for contract in self.pool.get('hr.contract').browse(cr, uid, ids, context=context):
+        for contract in self.pool.get('hr.contract').browse(
+            cr, uid, ids, context=context
+        ):
             if contract.job_id:
                 res.append(contract.job_id.id)
         return res
@@ -165,9 +180,12 @@ class hr_job(orm.Model):
         'expected_employees': fields.function(
             _no_of_contracts,
             string='Total Forecasted Employees',
-            help='Expected number of employees for this job position after new recruitment.',
+            help='Expected number of employees for this job position after new'
+                 ' recruitment.',
             store={
-                'hr.job': (lambda self, cr, uid, ids, c=None: ids, ['no_of_recruitment'], 10),
+                'hr.job': (
+                    lambda self, cr, uid, ids, c=None: ids,
+                    ['no_of_recruitment'], 10),
                 'hr.contract': (_get_job_position, ['job_id'], 10),
             },
             multi='no_of_employee',

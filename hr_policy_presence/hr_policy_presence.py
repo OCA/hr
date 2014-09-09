@@ -29,8 +29,10 @@ class policy_presence(orm.Model):
     _columns = {
         'name': fields.char('Name', size=128, required=True),
         'date': fields.date('Effective Date', required=True),
-        'work_days_per_month': fields.integer('Working Days/Month', required=True),
-        'line_ids': fields.one2many('hr.policy.line.presence', 'policy_id', 'Policy Lines'),
+        'work_days_per_month': fields.integer(
+            'Working Days/Month', required=True),
+        'line_ids': fields.one2many(
+            'hr.policy.line.presence', 'policy_id', 'Policy Lines'),
     }
 
     _defaults = {
@@ -43,7 +45,8 @@ class policy_presence(orm.Model):
     def get_codes(self, cr, uid, idx, context=None):
 
         res = []
-        [res.append((line.code, line.name, line.type, line.rate, line.duration))
+        [res.append(
+            (line.code, line.name, line.type, line.rate, line.duration))
          for line in self.browse(cr, uid, idx, context=context).line_ids]
         return res
 
@@ -55,8 +58,10 @@ class policy_line_presence(orm.Model):
     _columns = {
         'name': fields.char('Name', size=64, required=True),
         'policy_id': fields.many2one('hr.policy.presence', 'Policy'),
-        'code': fields.char('Code', required=True, help="Use this code in the salary rules."),
-        'rate': fields.float('Rate', required=True, help='Multiplier of employee wage.'),
+        'code': fields.char(
+            'Code', required=True, help="Use this code in the salary rules."),
+        'rate': fields.float(
+            'Rate', required=True, help='Multiplier of employee wage.'),
         'type': fields.selection([('normal', 'Normal Working Hours'),
                                   ('holiday', 'Holidays'),
                                   ('restday', 'Rest Days')],
@@ -64,9 +69,11 @@ class policy_line_presence(orm.Model):
         'active_after': fields.integer(
             'Active After',
             required=True,
-            help='Minutes after first punch of the day in which policy will take effect.'
+            help='Minutes after first punch of the day in which policy will '
+                 'take effect.'
         ),
-        'duration': fields.integer('Duration', required=True, help="In minutes.")
+        'duration': fields.integer(
+            'Duration', required=True, help="In minutes.")
     }
 
     _defaults = {
@@ -80,6 +87,7 @@ class policy_group(orm.Model):
     _inherit = 'hr.policy.group'
 
     _columns = {
-        'presence_policy_ids': fields.many2many('hr.policy.presence', 'hr_policy_group_presence_rel',
-                                                'group_id', 'presence_id', 'Presence Policy'),
+        'presence_policy_ids': fields.many2many(
+            'hr.policy.presence', 'hr_policy_group_presence_rel',
+            'group_id', 'presence_id', 'Presence Policy'),
     }

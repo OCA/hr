@@ -29,8 +29,9 @@ class attendance_summary_wizard(orm.TransientModel):
     _columns = {
         'start_date': fields.date('Start', required=True),
         'end_date': fields.date('End', required=True),
-        'department_ids': fields.many2many('hr.department', 'attendance_sum_by_dept_rel', 'department_id',
-                                           'wizard_id', 'Departments'),
+        'department_ids': fields.many2many(
+            'hr.department', 'attendance_sum_by_dept_rel', 'department_id',
+            'wizard_id', 'Departments'),
     }
 
     def print_report(self, cr, uid, ids, context=None):

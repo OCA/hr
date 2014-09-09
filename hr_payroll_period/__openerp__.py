@@ -26,11 +26,12 @@
     'description': """
 Easy Payroll Management
 =======================
-This module implements a more formal payroll cycle. This cycle is based on payroll
-period schedules configured by the user. An end-of-pay-period wizard guides the
-HR officer or manager through the payroll process. For each payroll period a specific set
-of criteria have to be met in order to proceed to the next stage of the process. For
-example:
+This module implements a more formal payroll cycle.
+This cycle is based on payroll period schedules configured by the user.
+An end-of-pay-period wizard guides the HR officer or manager through
+the payroll process. For each payroll period a specific set
+of criteria have to be met in order to proceed to the next stage of the
+process. For example:
     - Attendance records are complete
     """,
     'author': 'Michael Telahun Makonnen <mmakonnen@gmail.com>',

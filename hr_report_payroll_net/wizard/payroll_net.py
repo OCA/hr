@@ -27,7 +27,8 @@ class payroll_net_wizard(orm.TransientModel):
     _name = 'hr.payroll.register.net'
 
     _columns = {
-        'register_id': fields.many2one('hr.payroll.register', 'Register', required=True),
+        'register_id': fields.many2one(
+            'hr.payroll.register', 'Register', required=True),
     }
 
     def print_report(self, cr, uid, ids, context=None):

@@ -157,10 +157,12 @@ class report_payroll_summary(report_sxw.rml_parse):
         for id in range(len(obj)):
             ids.append(obj[id].id)
         if ids:
-            self.cr.execute('''SELECT pl.id, pl.category_id FROM hr_payslip_line as pl \
-                LEFT JOIN hr_salary_rule_category AS rc on (pl.category_id = rc.id) \
-                WHERE pl.id in %s \
-                GROUP BY rc.parent_id, pl.sequence, pl.id, pl.category_id \
+            self.cr.execute('''
+                SELECT pl.id, pl.category_id FROM hr_payslip_line as pl
+                LEFT JOIN hr_salary_rule_category AS rc
+                on (pl.category_id = rc.id)
+                WHERE pl.id in %s
+                GROUP BY rc.parent_id, pl.sequence, pl.id, pl.category_id
                 ORDER BY pl.sequence, rc.parent_id''', (tuple(ids),))
             for x in self.cr.fetchall():
                 result.setdefault(x[1], [])
@@ -313,9 +315,13 @@ class report_payslips(report_sxw.rml_parse):
                 continue
 
             for accrual_policy_line in policy.line_ids:
-                if accrual_policy_line.balance_on_payslip and accrual_policy_line.accrual_id.id not in res:
-                    res.append(
-                        (accrual_policy_line.accrual_id.id, accrual_policy_line.accrual_id.holiday_status_id.code))
+                if (
+                    accrual_policy_line.balance_on_payslip
+                    and accrual_policy_line.accrual_id.id not in res
+                ):
+                    res.append((
+                        accrual_policy_line.accrual_id.id,
+                        accrual_policy_line.accrual_id.holiday_status_id.code))
 
         return res
 
@@ -391,10 +397,12 @@ class report_payslips(report_sxw.rml_parse):
         for id in range(len(obj)):
             ids.append(obj[id].id)
         if ids:
-            self.cr.execute('''SELECT pl.id, pl.category_id FROM hr_payslip_line as pl \
-                LEFT JOIN hr_salary_rule_category AS rc on (pl.category_id = rc.id) \
-                WHERE pl.id in %s \
-                GROUP BY rc.parent_id, pl.sequence, pl.id, pl.category_id \
+            self.cr.execute('''
+                SELECT pl.id, pl.category_id FROM hr_payslip_line as pl
+                LEFT JOIN hr_salary_rule_category AS rc
+                on (pl.category_id = rc.id)
+                WHERE pl.id in %s
+                GROUP BY rc.parent_id, pl.sequence, pl.id, pl.category_id
                 ORDER BY pl.sequence, rc.parent_id''', (tuple(ids),))
             for x in self.cr.fetchall():
                 result.setdefault(x[1], [])
