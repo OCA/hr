@@ -57,11 +57,13 @@ class payroll_register_run(orm.TransientModel):
 
         if not data['department_ids']:
             raise orm.except_orm(
-                _("Warning !"), _("No departments selected for payslip generation."))
+                _("Warning !"),
+                _("No departments selected for payslip generation."))
 
         pr = reg_pool.browse(cr, uid, register_id, context=context)
 
-        # DateTime in db is store as naive UTC. Convert it to explicit UTC and then convert
+        # DateTime in db is store as naive UTC. Convert it to explicit UTC and
+        # then convert
         # that into the our time zone.
         #
         user_data = self.pool.get('res.users').read(
@@ -77,7 +79,9 @@ class payroll_register_run(orm.TransientModel):
         localDTEnd = utcDTEnd.astimezone(local_tz)
         date_end = localDTEnd.strftime('%Y-%m-%d')
 
-        for dept in dept_pool.browse(cr, uid, data['department_ids'], context=context):
+        for dept in dept_pool.browse(
+            cr, uid, data['department_ids'], context=context
+        ):
             run_res = {
                 'name': dept.complete_name,
                 'date_start': pr.date_start,
@@ -88,20 +92,27 @@ class payroll_register_run(orm.TransientModel):
 
             slip_ids = []
             ee_ids = ee_pool.search(
-                cr, uid, [('department_id', '=', dept.id)], order="name", context=context)
+                cr, uid, [('department_id', '=', dept.id)],
+                order="name", context=context)
             for ee in ee_pool.browse(cr, uid, ee_ids, context=context):
-                slip_data = slip_pool.onchange_employee_id(cr, uid, [],
-                                                           date_start, date_end,
-                                                           ee.id, contract_id=False,
-                                                           context=context)
+                slip_data = slip_pool.onchange_employee_id(
+                    cr, uid, [],
+                    date_start, date_end,
+                    ee.id, contract_id=False,
+                    context=context)
                 res = {
                     'employee_id': ee.id,
                     'name': slip_data['value'].get('name', False),
                     'struct_id': slip_data['value'].get('struct_id', False),
-                    'contract_id': slip_data['value'].get('contract_id', False),
+                    'contract_id': slip_data['value'].get(
+                        'contract_id', False),
                     'payslip_run_id': run_id,
-                    'input_line_ids': [(0, 0, x) for x in slip_data['value'].get('input_line_ids', False)],
-                    'worked_days_line_ids': [(0, 0, x) for x in slip_data['value'].get('worked_days_line_ids', False)],
+                    'input_line_ids': [
+                        (0, 0, x) for x in slip_data['value'].get(
+                            'input_line_ids', False)],
+                    'worked_days_line_ids': [
+                        (0, 0, x) for x in slip_data['value'].get(
+                            'worked_days_line_ids', False)],
                     'date_from': pr.date_start,
                     'date_to': pr.date_end,
                 }

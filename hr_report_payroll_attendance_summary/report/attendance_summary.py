@@ -59,15 +59,19 @@ class Parser(report_sxw.rml_parse):
         if data.get('form', False) and data['form'].get('end_date', False):
             self.end_date = data['form']['end_date']
 
-        return super(Parser, self).set_context(objects, data, ids, report_type=report_type)
+        return super(Parser, self).set_context(
+            objects, data, ids, report_type=report_type)
 
     def get_employee_list(self, department_id):
 
         ee_obj = self.pool.get('hr.employee')
-        ee_ids = ee_obj.search(self.cr, self.uid,
-                               [('active', '=', True),
-                                '|', ('department_id.id', '=', department_id),
-                                     ('saved_department_id.id', '=', department_id)])
+        ee_ids = ee_obj.search(
+            self.cr, self.uid, [
+                ('active', '=', True),
+                '|',
+                ('department_id.id', '=', department_id),
+                ('saved_department_id.id', '=', department_id)
+                ])
         ees = ee_obj.browse(self.cr, self.uid, ee_ids)
         return ees
 
@@ -78,10 +82,13 @@ class Parser(report_sxw.rml_parse):
 
         dtStart = datetime.strptime(self.start_date, OE_DATEFORMAT).date()
         dtEnd = datetime.strptime(self.end_date, OE_DATEFORMAT).date()
-        ee_ids = ee_obj.search(self.cr, self.uid,
-                               [('active', '=', True),
-                                '|', ('department_id.id', '=', department_id),
-                                     ('saved_department_id.id', '=', department_id)])
+        ee_ids = ee_obj.search(
+            self.cr, self.uid, [
+                ('active', '=', True),
+                '|',
+                ('department_id.id', '=', department_id),
+                ('saved_department_id.id', '=', department_id)
+                ])
         for ee in ee_obj.browse(self.cr, self.uid, ee_ids):
             datas = []
             for c in ee.contract_ids:
@@ -93,7 +100,9 @@ class Parser(report_sxw.rml_parse):
                 if c.date_end:
                     dtCEnd = datetime.strptime(
                         c.date_end, OE_DATEFORMAT).date()
-                if (dtCStart and dtCStart <= dtEnd) and ((dtCEnd and dtCEnd >= dtStart) or not dtCEnd):
+                if (dtCStart and dtCStart <= dtEnd) and (
+                    (dtCEnd and dtCEnd >= dtStart) or not dtCEnd
+                ):
                     datas.append({
                         'contract_id': c.id,
                         'date_start': (dtCStart > dtStart
@@ -112,10 +121,12 @@ class Parser(report_sxw.rml_parse):
             self.ee_lines.update({ee.id: wd_lines})
 
     def get_start(self):
-        return datetime.strptime(self.start_date, OE_DATEFORMAT).strftime('%B %d, %Y')
+        return datetime.strptime(self.start_date, OE_DATEFORMAT).strftime(
+            '%B %d, %Y')
 
     def get_end(self):
-        return datetime.strptime(self.end_date, OE_DATEFORMAT).strftime('%B %d, %Y')
+        return datetime.strptime(self.end_date, OE_DATEFORMAT).strftime(
+            '%B %d, %Y')
 
     def get_no(self, department_id):
 
@@ -155,13 +166,14 @@ class Parser(report_sxw.rml_parse):
         #
         hire_date = self.get_employee_start_date(employee_id)
         term_ids = self.pool.get(
-            'hr.employee.termination').search(self.cr, self.uid,
-                                              [('name', '<', self.end_date),
-                                               ('name', '>=', self.start_date),
-                                               ('employee_id', '=', employee_id),
-                                               ('employee_id.status', 'in', [
-                                                   'pending_inactive', 'inactive']),
-                                               ('state', 'not in', ['cancel'])])
+            'hr.employee.termination').search(
+                self.cr, self.uid, [
+                    ('name', '<', self.end_date),
+                    ('name', '>=', self.start_date),
+                    ('employee_id', '=', employee_id),
+                    ('employee_id.status', 'in', [
+                        'pending_inactive', 'inactive']),
+                    ('state', 'not in', ['cancel'])])
 
         if hire_date <= self.start_date and len(term_ids) == 0:
             if total >= maxw:
@@ -241,6 +253,8 @@ class Parser(report_sxw.rml_parse):
 
         loseit = False
         for line in self.ee_lines[employee_id]:
-            if line['code'] in ['AWOL', 'TARDY', 'NFRA', 'WARN'] and line['number_of_hours'] > 0.01:
+            if line['code'] in ['AWOL', 'TARDY', 'NFRA', 'WARN'] and line[
+                'number_of_hours'
+            ] > 0.01:
                 loseit = True
         return loseit

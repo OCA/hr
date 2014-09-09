@@ -54,13 +54,16 @@ class Parser(report_sxw.rml_parse):
         if data.get('form', False) and data['form'].get('end_date', False):
             self.end_date = data['form']['end_date']
 
-        return super(Parser, self).set_context(objects, data, ids, report_type=report_type)
+        return super(Parser, self).set_context(
+            objects, data, ids, report_type=report_type)
 
     def get_start(self):
-        return datetime.strptime(self.start_date, OE_DATEFORMAT).strftime('%B %d, %Y')
+        return datetime.strptime(self.start_date, OE_DATEFORMAT).strftime(
+            '%B %d, %Y')
 
     def get_end(self):
-        return datetime.strptime(self.end_date, OE_DATEFORMAT).strftime('%B %d, %Y')
+        return datetime.strptime(self.end_date, OE_DATEFORMAT).strftime(
+            '%B %d, %Y')
 
     def get_hno(self, department_id):
 
@@ -118,7 +121,10 @@ class Parser(report_sxw.rml_parse):
                 dept_id = term.employee_id.saved_department_id.id
             else:
                 dept_id = False
-            if term.employee_id.id not in seen_ids and dept_id == department_id:
+            if (
+                term.employee_id.id not in seen_ids
+                and dept_id == department_id
+            ):
                 res.append({'name': term.employee_id.name,
                             'f_employee_no': term.employee_id.f_employee_no,
                             'termination_date': term.name})

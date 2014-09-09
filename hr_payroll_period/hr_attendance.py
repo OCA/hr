@@ -43,8 +43,9 @@ class hr_attendance(orm.Model):
 
         res = False
         pp_obj = self.pool.get('hr.payroll.period')
-        ee_data = self.pool.get('hr.employee').read(cr, uid, employee_id,
-                                                    ['contract_ids'], context=context)
+        ee_data = self.pool.get('hr.employee').read(
+            cr, uid, employee_id,
+            ['contract_ids'], context=context)
         pp_ids = pp_obj.search(cr, uid, [
             ('state', 'in', [
                 'locked', 'generate', 'payment', 'closed']),
@@ -64,7 +65,9 @@ class hr_attendance(orm.Model):
 
     def create(self, cr, uid, vals, context=None):
 
-        if self.is_locked(cr, uid, vals['employee_id'], vals['name'], context=context):
+        if self.is_locked(
+            cr, uid, vals['employee_id'], vals['name'], context=context
+        ):
             ee_data = self.pool.get(
                 'hr.employee').read(cr, uid, vals['employee_id'], ['name'],
                                     context=context)
@@ -74,7 +77,8 @@ class hr_attendance(orm.Model):
                   "Employee: %s\n"
                   "Time: %s") % (ee_data['name'], vals['name']))
 
-        return super(hr_attendance, self).create(cr, uid, vals, context=context)
+        return super(hr_attendance, self).create(
+            cr, uid, vals, context=context)
 
     def unlink(self, cr, uid, ids, context=None):
         if isinstance(ids, (int, long)):
@@ -82,10 +86,13 @@ class hr_attendance(orm.Model):
 
         for punch in self.browse(cr, uid, ids, context=context):
             if punch.state in ['verified', 'locked']:
-                raise orm.except_orm(_('The Record cannot be deleted!'),
-                                     _("You may not delete a record that is in a %s state:\n"
-                                       "Employee: %s, Date: %s, Action: %s")
-                                     % (punch.state, punch.employee_id.name, punch.name, punch.action))
+                raise orm.except_orm(
+                    _('The Record cannot be deleted!'),
+                    _("You may not delete a record that is in a %s state:\n"
+                      "Employee: %s, Date: %s, Action: %s")
+                    % (
+                        punch.state, punch.employee_id.name, punch.name,
+                        punch.action))
 
         return super(hr_attendance, self).unlink(cr, uid, ids, context=context)
 
@@ -95,12 +102,19 @@ class hr_attendance(orm.Model):
             ids = [ids]
 
         for punch in self.browse(cr, uid, ids, context=context):
-            if (punch.state in ['verified', 'locked']
-                    and (vals.get('name') or vals.get('action') or vals.get('employee_id'))):
+            if (
+                punch.state in ['verified', 'locked']
+                and (
+                    vals.get('name') or vals.get('action')
+                    or vals.get('employee_id'))
+            ):
                 raise orm.except_orm(
                     _('The record cannot be modified!'),
                     _("You may not write to a record that is in a %s state:\n"
                       "Employee: %s, Date: %s, Action: %s")
-                    % (punch.state, punch.employee_id.name, punch.name, punch.action))
+                    % (
+                        punch.state, punch.employee_id.name, punch.name,
+                        punch.action))
 
-        return super(hr_attendance, self).write(cr, uid, ids, vals, context=context)
+        return super(hr_attendance, self).write(
+            cr, uid, ids, vals, context=context)
