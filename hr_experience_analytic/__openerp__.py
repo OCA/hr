@@ -33,7 +33,7 @@ This module allows you to link your employee experiences with projects
 or contracts.
 
 This is useful if you want to have the same project description and metrics on
-all the resume of the employees involved in the same project or contract.
+all the resumes of the employees involved in the same project or contract.
 
 Configuration
 =============
