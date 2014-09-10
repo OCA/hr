@@ -17,14 +17,14 @@ msgstr ""
 "X-Generator: Poedit 1.5.4\n"
 
 #. module: hr_experience_analytic
-#: help:hr.experience,account_id:0
+#: help:hr.experience,analytic_id:0
 msgid ""
 "\n"
 "Enter the project, contract or analytic account"
 msgstr ""
 
 #. module: hr_experience_analytic
-#: field:hr.experience,account_id:0
+#: field:hr.experience,analytic_id:0
 msgid "Project"
 msgstr ""
 
