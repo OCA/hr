@@ -23,7 +23,7 @@ from osv import osv, fields
 class hr_professional(osv.osv):
     _inherit = 'hr.experience'
     _columns = {
-        'account_id': fields.many2one('account.analytic.account',
+        'analytic_id': fields.many2one('account.analytic.account',
                                       'Project',
                                       domain=[('type', '!=', 'view')],
                                       help="""
