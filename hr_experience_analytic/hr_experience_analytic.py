@@ -17,10 +17,10 @@
 #    along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
 ###############################################################################
-from osv import osv, fields
+from osv import orm, fields
 
 
-class hr_professional(osv.osv):
+class hr_professional(orm.Model):
     _inherit = 'hr.experience'
     _columns = {
         'analytic_id': fields.many2one('account.analytic.account',
