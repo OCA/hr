@@ -7,7 +7,7 @@
         <field name="inherit_id" ref="hr_experience.view_professional_form"/>
         <field name="arch" type="xml">
             <field name="location" position="after">
-                <field name="account_id" groups="analytic.group_analytic_accounting"/>
+                <field name="analytic_id" groups="analytic.group_analytic_accounting"/>
             </field>
         </field>
     </record>
