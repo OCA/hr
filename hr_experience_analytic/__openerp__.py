@@ -45,7 +45,7 @@ Contributors
 ============
 
 * Savoir-faire Linux <support@savoirfairelinux.com>
-* Maxime Chambreuil <maxime.chambreuil@savoirfairleinux.com>
+* Maxime Chambreuil <maxime.chambreuil@savoirfairelinux.com>
     """,
     "data": [
         "hr_experience_analytic_view.xml",
