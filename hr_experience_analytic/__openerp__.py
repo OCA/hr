@@ -38,7 +38,7 @@ all the resume of the employees involved in the same project or contract.
 Configuration
 =============
 
-Make sur to add users to the "Analytic Accounting" group to show the analytic
+Make sure to add users to the "Analytic Accounting" group to show the analytic
 account on the profesionnal experience form.
 
 Contributors
