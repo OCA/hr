@@ -5,8 +5,8 @@
 #    All Rights Reserved.
 #
 #    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as published by
-#    the Free Software Foundation, either version 3 of the License, or
+#    it under the terms of the GNU Affero General Public License as published
+#    by the Free Software Foundation, either version 3 of the License, or
 #    (at your option) any later version.
 #
 #    This program is distributed in the hope that it will be useful,
@@ -37,7 +37,8 @@ class hr_contract(orm.Model):
     def _get_ids_from_employee(self, cr, uid, ids, context=None):
 
         res = []
-        for ee in self.pool.get('hr.employee').browse(cr, uid, ids, context=context):
+        employee_pool = self.pool['hr.employee']
+        for ee in employee_pool.browse(cr, uid, ids, context=context):
             for contract in ee.contract_ids:
                 if contract.state not in ['pending_done', 'done']:
                     res.append(contract.id)
@@ -46,50 +47,83 @@ class hr_contract(orm.Model):
     def _get_department(self, cr, uid, ids, field_name, arg, context=None):
 
         res = dict.fromkeys(ids, False)
+        states = ['pending_done', 'done']
         for contract in self.browse(cr, uid, ids, context=context):
-            if contract.department_id and contract.state in ['pending_done', 'done']:
+            if contract.department_id and contract.state in states:
                 res[contract.id] = contract.department_id.id
             elif contract.employee_id.department_id:
                 res[contract.id] = contract.employee_id.department_id.id
         return res
 
     _columns = {
-        'state': fields.selection([('draft', 'Draft'),
-                                   ('trial', 'Trial'),
-                                   ('trial_ending', 'Trial Period Ending'),
-                                   ('open', 'Open'),
-                                   ('contract_ending', 'Ending'),
-                                   ('pending_done', 'Pending Termination'),
-                                   ('done', 'Completed')],
-                                  'State',
-                                  readonly=True),
-
-        # store this field in the database and trigger a change only if the contract is
-        # in the right state: we don't want future changes to an employee's department to
-        # impact past contracts that have now ended. Increased priority to
-        # override hr_simplify.
-        'department_id': fields.function(_get_department, type='many2one', method=True,
-                                         obj='hr.department', string="Department", readonly=True,
-                                         store={
-                                             'hr.employee': (_get_ids_from_employee, ['department_id'], 10)}),
-
+        'state': fields.selection(
+            [
+                ('draft', 'Draft'),
+                ('trial', 'Trial'),
+                ('trial_ending', 'Trial Period Ending'),
+                ('open', 'Open'),
+                ('contract_ending', 'Ending'),
+                ('pending_done', 'Pending Termination'),
+                ('done', 'Completed')
+            ],
+            'State',
+            readonly=True,
+        ),
+        # store this field in the database and trigger a change only if the
+        # contract is in the right state: we don't want future changes to an
+        # employee's department to impact past contracts that have now ended.
+        # Increased priority to override hr_simplify.
+        'department_id': fields.function(
+            _get_department,
+            type='many2one',
+            method=True,
+            obj='hr.department',
+            string="Department",
+            readonly=True,
+            store={
+                'hr.employee': (_get_ids_from_employee, ['department_id'], 10)
+            },
+        ),
         # At contract end this field will hold the job_id, and the
         # job_id field will be set to null so that modules that
         # reference job_id don't include deactivated employees.
-        'end_job_id': fields.many2one('hr.job', 'Job Title', readonly=True),
-
+        'end_job_id': fields.many2one(
+            'hr.job',
+            'Job Title',
+            readonly=True,
+        ),
         # The following are redefined again to make them editable only in
         # certain states
-        'employee_id': fields.many2one('hr.employee', "Employee", required=True, readonly=True,
-                                       states={
-                                           'draft': [('readonly', False)]}),
-        'type_id': fields.many2one('hr.contract.type', "Contract Type", required=True, readonly=True,
-                                   states={'draft': [('readonly', False)]}),
-        'date_start': fields.date('Start Date', required=True, readonly=True,
-                                  states={'draft': [('readonly', False)]}),
-        'wage': fields.float('Wage', digits=(16, 2), required=True, readonly=True,
-                             states={'draft': [('readonly', False)]},
-                             help="Basic Salary of the employee"),
+        'employee_id': fields.many2one(
+            'hr.employee',
+            "Employee",
+            required=True,
+            readonly=True,
+            states={
+                'draft': [('readonly', False)]
+            },
+        ),
+        'type_id': fields.many2one(
+            'hr.contract.type',
+            "Contract Type",
+            required=True,
+            readonly=True,
+            states={'draft': [('readonly', False)]},
+        ),
+        'date_start': fields.date(
+            'Start Date',
+            required=True,
+            readonly=True,
+            states={'draft': [('readonly', False)]},
+        ),
+        'wage': fields.float(
+            'Wage',
+            digits=(16, 2),
+            required=True,
+            readonly=True,
+            states={'draft': [('readonly', False)]},
+            help="Basic Salary of the employee",
+        ),
     }
 
     _defaults = {
@@ -98,9 +132,12 @@ class hr_contract(orm.Model):
 
     _track = {
         'state': {
-            'hr_contract_state.mt_alert_trial_ending': lambda s, cr, u, o, c=None: o['state'] == 'trial_ending',
-            'hr_contract_state.mt_alert_open': lambda s, cr, u, o, c=None: o['state'] == 'open',
-            'hr_contract_state.mt_alert_contract_ending': lambda s, cr, u, o, c=None: o['state'] == 'contract_ending',
+            'hr_contract_state.mt_alert_trial_ending': (
+                lambda s, cr, u, o, c=None: o['state'] == 'trial_ending'),
+            'hr_contract_state.mt_alert_open': (
+                lambda s, cr, u, o, c=None: o['state'] == 'open'),
+            'hr_contract_state.mt_alert_contract_ending': (
+                lambda s, cr, u, o, c=None: o['state'] == 'contract_ending'),
         },
     }
 
@@ -128,7 +165,9 @@ class hr_contract(orm.Model):
             contract = self.browse(cr, uid, ids[0], context=None)
             if contract.state != 'draft':
                 return res
-        return super(hr_contract, self).onchange_job(cr, uid, ids, job_id, context=context)
+        return super(hr_contract, self).onchange_job(
+            cr, uid, ids, job_id, context=context
+        )
 
     def condition_trial_period(self, cr, uid, ids, context=None):
 
@@ -149,13 +188,12 @@ class hr_contract(orm.Model):
             return
 
         wkf = netsvc.LocalService('workflow')
-        [wkf.trg_validate(uid, 'hr.contract', contract.id, 'signal_ending_contract', cr)
-         for contract in self.browse(cr, uid, ids, context=context)]
-
-        return
+        for contract in self.browse(cr, uid, ids, context=context):
+            wkf.trg_validate(
+                uid, 'hr.contract', contract.id, 'signal_ending_contract', cr
+            )
 
     def try_signal_contract_completed(self, cr, uid, context=None):
-
         d = datetime.now().date()
         ids = self.search(cr, uid, [
             ('state', '=', 'open'),
@@ -166,10 +204,10 @@ class hr_contract(orm.Model):
             return
 
         wkf = netsvc.LocalService('workflow')
-        [wkf.trg_validate(uid, 'hr.contract', contract.id, 'signal_pending_done', cr)
-         for contract in self.browse(cr, uid, ids, context=context)]
-
-        return
+        for contract in self.browse(cr, uid, ids, context=context):
+            wkf.trg_validate(
+                uid, 'hr.contract', contract.id, 'signal_pending_done', cr
+            )
 
     def try_signal_ending_trial(self, cr, uid, context=None):
 
@@ -183,10 +221,10 @@ class hr_contract(orm.Model):
             return
 
         wkf = netsvc.LocalService('workflow')
-        [wkf.trg_validate(uid, 'hr.contract', contract.id, 'signal_ending_trial', cr)
-         for contract in self.browse(cr, uid, ids, context=context)]
-
-        return
+        for contract in self.browse(cr, uid, ids, context=context):
+            wkf.trg_validate(
+                uid, 'hr.contract', contract.id, 'signal_ending_trial', cr
+            )
 
     def try_signal_open(self, cr, uid, context=None):
 
@@ -200,35 +238,31 @@ class hr_contract(orm.Model):
             return
 
         wkf = netsvc.LocalService('workflow')
-        [wkf.trg_validate(uid, 'hr.contract', contract.id, 'signal_open', cr)
-         for contract in self.browse(cr, uid, ids, context=context)]
-
-        return
+        for contract in self.browse(cr, uid, ids, context=context):
+            wkf.trg_validate(
+                uid, 'hr.contract', contract.id, 'signal_open', cr
+            )
 
     def onchange_start(self, cr, uid, ids, date_start, context=None):
-
-        res = {'value': {}}
-        res['value']['trial_date_start'] = date_start
-
-        return res
+        return {
+            'value': {
+                'trial_date_start': date_start,
+            },
+        }
 
     def state_trial(self, cr, uid, ids, context=None):
-
         self.write(cr, uid, ids, {'state': 'trial'}, context=context)
         return True
 
     def state_open(self, cr, uid, ids, context=None):
-
         self.write(cr, uid, ids, {'state': 'open'}, context=context)
         return True
 
     def state_pending_done(self, cr, uid, ids, context=None):
-
         self.write(cr, uid, ids, {'state': 'pending_done'}, context=context)
         return True
 
     def state_done(self, cr, uid, ids, context=None):
-
         for i in ids:
             data = self.read(
                 cr, uid, i, ['date_end', 'job_id'], context=context)
@@ -243,5 +277,4 @@ class hr_contract(orm.Model):
                 vals['date_end'] = time.strftime(DEFAULT_SERVER_DATE_FORMAT)
 
             self.write(cr, uid, ids, vals, context=context)
-
         return True

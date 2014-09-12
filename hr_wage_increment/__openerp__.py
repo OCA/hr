@@ -5,8 +5,8 @@
 #    All Rights Reserved.
 #
 #    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as published by
-#    the Free Software Foundation, either version 3 of the License, or
+#    it under the terms of the GNU Affero General Public License as published
+#    by the Free Software Foundation, either version 3 of the License, or
 #    (at your option) any later version.
 #
 #    This program is distributed in the hope that it will be useful,
@@ -27,12 +27,17 @@
 Wage Increment Handling
 =======================
 
-    This module provides a way to handle wage increments that automatically creates a
-    new contract for the rest of the duration of the employee's current contract with the new amount.
+    This module provides a way to handle wage increments that automatically
+    creates a new contract for the rest of the duration of the employee's
+    current contract with the new amount.
     """,
     "author": "Michael Telahun Makonnen <mmakonnen@gmail.com",
     "website": "http://www.openerp.com",
-    "depends": ["hr_contract_state", "hr_payroll_period", "hr_security"],
+    "depends": [
+        "hr_contract_state",
+        "hr_payroll_period",
+        "hr_security",
+    ],
     "external_dependencies": {
         'python': ['dateutil'],
     },

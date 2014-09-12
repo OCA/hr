@@ -5,8 +5,8 @@
 #    All Rights Reserved.
 #
 #    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as published by
-#    the Free Software Foundation, either version 3 of the License, or
+#    it under the terms of the GNU Affero General Public License as published
+#    by the Free Software Foundation, either version 3 of the License, or
 #    (at your option) any later version.
 #
 #    This program is distributed in the hope that it will be useful,
@@ -60,16 +60,17 @@ class hr_employee(orm.Model):
             months= +1) + relativedelta(days= -1)
         return last_date.day
 
-    def get_months_service_to_date(self, cr, uid, ids, dToday=None, context=None):
-        """Returns a dictionary of floats. The key is the employee id, and the value is
-        number of months of employment.
+    def get_months_service_to_date(
+            self, cr, uid, ids, dToday=None, context=None):
+        """Returns a dictionary of floats. The key is the employee id,
+        and the value is number of months of employment.
         """
 
         res = dict.fromkeys(ids, 0)
         if dToday is None:
             dToday = date.today()
-
-        for ee in self.pool.get('hr.employee').browse(cr, uid, ids, context=context):
+        employee_pool = self.pool['hr.employee']
+        for ee in employee_pool.browse(cr, uid, ids, context=context):
 
             delta = relativedelta(dToday, dToday)
             contracts = self._get_contracts_list(ee)
@@ -83,7 +84,7 @@ class hr_employee(orm.Model):
             if ee.initial_employment_date:
                 dFirstContract = dInitial
                 dInitial = datetime.strptime(
-                    ee.initial_employment_date, '%Y-%m-%d').date()
+                    ee.initial_employment_date, OE_DATEFORMAT).date()
                 if dFirstContract < dInitial:
                     raise orm.except_orm(
                         _('Employment Date mismatch!'),
@@ -120,7 +121,8 @@ class hr_employee(orm.Model):
 
         return res
 
-    def _get_employed_months(self, cr, uid, ids, field_name, arg, context=None):
+    def _get_employed_months(
+            self, cr, uid, ids, field_name, arg, context=None):
 
         res = dict.fromkeys(ids, 0.0)
         _res = self.get_months_service_to_date(cr, uid, ids, context=context)
@@ -138,7 +140,15 @@ class hr_employee(orm.Model):
                 else:
                     continue
             else:
-                if cond[1] in ['=like', 'like', 'not like', 'ilike', 'not ilike', 'in', 'not in', 'child_of']:
+                if cond[1] in [
+                        '=like',
+                        'like',
+                        'not like',
+                        'ilike',
+                        'not ilike',
+                        'in',
+                        'not in',
+                        'child_of', ]:
                     continue
 
             cr.execute("select id from hr_employee having %s %%s" %
@@ -153,11 +163,13 @@ class hr_employee(orm.Model):
         'initial_employment_date': fields.date(
             'Initial Date of Employment',
             groups=False,
-            help='Date of first employment if it was before the start of the first contract in the system.',
+            help='Date of first employment if it was before the start of the '
+                 'first contract in the system.',
         ),
         'length_of_service': fields.function(
             _get_employed_months,
-            type='float', method=True,
+            type='float',
+            method=True,
             groups=False,
             string='Length of Service',
         ),

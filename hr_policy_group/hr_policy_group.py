@@ -5,8 +5,8 @@
 #    All Rights Reserved.
 #
 #    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as published by
-#    the Free Software Foundation, either version 3 of the License, or
+#    it under the terms of the GNU Affero General Public License as published
+#    by the Free Software Foundation, either version 3 of the License, or
 #    (at your option) any later version.
 #
 #    This program is distributed in the hope that it will be useful,
@@ -26,21 +26,31 @@ class policy_groups(orm.Model):
 
     _name = 'hr.policy.group'
     _description = 'HR Policy Groups'
-
     _columns = {
-        'name': fields.char('Name', size=128),
-        'contract_ids': fields.one2many('hr.contract', 'policy_group_id', 'Contracts'),
+        'name': fields.char(
+            'Name',
+            size=128,
+        ),
+        'contract_ids': fields.one2many(
+            'hr.contract',
+            'policy_group_id',
+            'Contracts',
+        ),
     }
 
 
 class contract_init(orm.Model):
 
     _inherit = 'hr.contract.init'
-
     _columns = {
-        'policy_group_id': fields.many2one('hr.policy.group', 'Policy Group', readonly=True,
-                                           states={
-                                               'draft': [('readonly', False)]}),
+        'policy_group_id': fields.many2one(
+            'hr.policy.group',
+            'Policy Group',
+            readonly=True,
+            states={
+                'draft': [('readonly', False)],
+            }
+        ),
     }
 
 
@@ -48,9 +58,11 @@ class hr_contract(orm.Model):
 
     _name = 'hr.contract'
     _inherit = 'hr.contract'
-
     _columns = {
-        'policy_group_id': fields.many2one('hr.policy.group', 'Policy Group'),
+        'policy_group_id': fields.many2one(
+            'hr.policy.group',
+            'Policy Group',
+        ),
     }
 
     def _get_policy_group(self, cr, uid, context=None):

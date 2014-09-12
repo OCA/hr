@@ -4,8 +4,8 @@
 #    Copyright (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>
 #
 #    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as published by
-#    the Free Software Foundation, either version 3 of the License, or
+#    it under the terms of the GNU Affero General Public License as published
+#    by the Free Software Foundation, either version 3 of the License, or
 #    (at your option) any later version.
 #
 #    This program is distributed in the hope that it will be useful,
@@ -134,10 +134,12 @@ class Parser(report_sxw.rml_parse):
         for id in range(len(obj)):
             ids.append(obj[id].id)
         if ids:
-            self.cr.execute('''SELECT pl.id, pl.category_id FROM hr_payslip_line as pl \
-                LEFT JOIN hr_salary_rule_category AS rc on (pl.category_id = rc.id) \
-                WHERE pl.id in %s \
-                GROUP BY rc.parent_id, pl.sequence, pl.id, pl.category_id \
+            self.cr.execute('''
+                SELECT pl.id, pl.category_id FROM hr_payslip_line as pl
+                LEFT JOIN hr_salary_rule_category AS rc
+                on (pl.category_id = rc.id)
+                WHERE pl.id in %s
+                GROUP BY rc.parent_id, pl.sequence, pl.id, pl.category_id
                 ORDER BY pl.sequence, rc.parent_id''', (tuple(ids),))
             for x in self.cr.fetchall():
                 result.setdefault(x[1], [])

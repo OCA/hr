@@ -5,8 +5,8 @@
 #    All Rights Reserved.
 #
 #    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as published by
-#    the Free Software Foundation, either version 3 of the License, or
+#    it under the terms of the GNU Affero General Public License as published
+#    by the Free Software Foundation, either version 3 of the License, or
 #    (at your option) any later version.
 #
 #    This program is distributed in the hope that it will be useful,
@@ -31,9 +31,21 @@ class hr_accrual(orm.Model):
     _description = 'Accrual'
 
     _columns = {
-        'name': fields.char('Name', size=128, required=True),
-        'holiday_status_id': fields.many2one('hr.holidays.status', 'Leave'),
-        'line_ids': fields.one2many('hr.accrual.line', 'accrual_id', 'Accrual Lines', readonly=True),
+        'name': fields.char(
+            'Name',
+            size=128,
+            required=True,
+        ),
+        'holiday_status_id': fields.many2one(
+            'hr.holidays.status',
+            'Leave',
+        ),
+        'line_ids': fields.one2many(
+            'hr.accrual.line',
+            'accrual_id',
+            'Accrual Lines',
+            readonly=True,
+        ),
     }
 
     def get_balance(self, cr, uid, ids, employee_id, date=None, context=None):
@@ -42,9 +54,11 @@ class hr_accrual(orm.Model):
             date = time.strftime(OE_DATEFORMAT)
 
         res = 0.0
-        cr.execute('''SELECT SUM(amount) from hr_accrual_line \
-                           WHERE accrual_id in %s AND employee_id=%s AND date <= %s''',
-                   (tuple(ids), employee_id, date))
+        cr.execute('''\
+SELECT SUM(amount)
+FROM hr_accrual_line
+WHERE accrual_id in %s AND employee_id=%s AND date <= %s
+''', (tuple(ids), employee_id, date))
         for row in cr.fetchall():
             res = row[0]
 
@@ -57,10 +71,24 @@ class hr_accrual_line(orm.Model):
     _description = 'Accrual Line'
 
     _columns = {
-        'date': fields.date('Date', required=True),
-        'accrual_id': fields.many2one('hr.accrual', 'Accrual', required=True),
-        'employee_id': fields.many2one('hr.employee', 'Employee', required=True),
-        'amount': fields.float('Amount', required=True),
+        'date': fields.date(
+            'Date',
+            required=True,
+        ),
+        'accrual_id': fields.many2one(
+            'hr.accrual',
+            'Accrual',
+            required=True,
+        ),
+        'employee_id': fields.many2one(
+            'hr.employee',
+            'Employee',
+            required=True,
+        ),
+        'amount': fields.float(
+            'Amount',
+            required=True,
+        ),
     }
 
     _defaults = {

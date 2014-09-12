@@ -5,8 +5,8 @@
 #    All Rights Reserved.
 #
 #    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as published by
-#    the Free Software Foundation, either version 3 of the License, or
+#    it under the terms of the GNU Affero General Public License as published
+#    by the Free Software Foundation, either version 3 of the License, or
 #    (at your option) any later version.
 #
 #    This program is distributed in the hope that it will be useful,
@@ -25,13 +25,16 @@ from openerp.osv import fields, orm
 class hr_contract(orm.Model):
 
     _inherit = 'hr.contract'
-
     _columns = {
-        'name': fields.char('Contract Reference', size=32, required=False, readonly=True),
+        'name': fields.char(
+            'Contract Reference',
+            size=32,
+            required=False,
+            readonly=True,
+        ),
     }
 
     def create(self, cr, uid, vals, context=None):
-
         cid = super(hr_contract, self).create(cr, uid, vals, context)
         if cid:
             ref = self.pool.get('ir.sequence').get(cr, uid, 'contract.ref')

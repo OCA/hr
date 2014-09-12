@@ -32,10 +32,14 @@ class report_resume(report_sxw.rml_parse):
         })
 
     def get_experience_by_category(self, employee_id, category):
-        self.cr.execute("SELECT exp.name, exp.start_date, exp.expire, exp.end_date, exp.location, exp.certification, "
-                        "exp.description, exp.diploma, exp.study_field, part.name partner_name FROM hr_experience exp "
-                        "LEFT JOIN res_partner part ON part.id = exp.partner_id "
-                        "WHERE exp.employee_id = %d AND exp.category = '%s'" % (employee_id, category))
+        self.cr.execute(
+            "SELECT exp.name, exp.start_date, exp.expire, exp.end_date, "
+            "exp.location, exp.certification, "
+            "exp.description, exp.diploma, exp.study_field, "
+            "part.name partner_name FROM hr_experience exp "
+            "LEFT JOIN res_partner part ON part.id = exp.partner_id "
+            "WHERE exp.employee_id = %d AND exp.category = '%s'"
+            % (employee_id, category))
         return self.cr.dictfetchall()
 
 report_sxw.report_sxw(

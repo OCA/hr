@@ -5,8 +5,8 @@
 #    All Rights Reserved.
 #
 #    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as published by
-#    the Free Software Foundation, either version 3 of the License, or
+#    it under the terms of the GNU Affero General Public License as published
+#    by the Free Software Foundation, either version 3 of the License, or
 #    (at your option) any later version.
 #
 #    This program is distributed in the hope that it will be useful,
@@ -45,19 +45,23 @@ class hr_payroll_register(orm.Model):
             ('close', 'Close'),
         ], 'Status', select=True, readonly=True),
         'date_start': fields.datetime(
-            'Date From', required=True, readonly=True, states={'draft': [('readonly', False)]}
+            'Date From', required=True, readonly=True,
+            states={'draft': [('readonly', False)]}
         ),
         'date_end': fields.datetime(
-            'Date To', required=True, readonly=True, states={'draft': [('readonly', False)]}
+            'Date To', required=True, readonly=True,
+            states={'draft': [('readonly', False)]}
         ),
         'run_ids': fields.one2many(
-            'hr.payslip.run', 'register_id', readonly=True, states={'draft': [('readonly', False)]}
+            'hr.payslip.run', 'register_id', readonly=True,
+            states={'draft': [('readonly', False)]}
         ),
         'company_id': fields.many2one('res.company', 'Company'),
     }
 
     _sql_constraints = [
-        ('unique_name', 'UNIQUE(name)', _('Payroll Register description must be unique.')),
+        ('unique_name', 'UNIQUE(name)',
+            _('Payroll Register description must be unique.')),
     ]
 
     def _get_default_name(self, cr, uid, context=None):

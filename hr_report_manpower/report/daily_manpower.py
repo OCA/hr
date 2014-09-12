@@ -4,8 +4,8 @@
 #    Copyright (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>
 #
 #    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as published by
-#    the Free Software Foundation, either version 3 of the License, or
+#    it under the terms of the GNU Affero General Public License as published
+#    by the Free Software Foundation, either version 3 of the License, or
 #    (at your option) any later version.
 #
 #    This program is distributed in the hope that it will be useful,
@@ -23,7 +23,7 @@ from pytz import timezone, utc
 
 from openerp.tools import DEFAULT_SERVER_DATE_FORMAT as OE_DATEFORMAT
 from openerp.tools import DEFAULT_SERVER_DATETIME_FORMAT as OE_DATETIMEFORMAT
-from report import report_sxw
+from openerp.report import report_sxw
 
 
 class Parser(report_sxw.rml_parse):
@@ -52,8 +52,19 @@ class Parser(report_sxw.rml_parse):
         })
 
         self.LVCODES = [
-            'LVBEREAVEMENT', 'LVWEDDING', 'LVMMEDICAL', 'LVPTO', 'LVCIVIC', 'LVSICK',
-            'LVSICK50', 'LVSICK00', 'LVMATERNITY', 'LVANNUAL', 'LVTRAIN', 'LVUTO']
+            'LVBEREAVEMENT',
+            'LVWEDDING',
+            'LVMMEDICAL',
+            'LVPTO',
+            'LVCIVIC',
+            'LVSICK',
+            'LVSICK50',
+            'LVSICK00',
+            'LVMATERNITY',
+            'LVANNUAL',
+            'LVTRAIN',
+            'LVUTO',
+        ]
 
         self.date = False
         self.no = 0
@@ -70,10 +81,14 @@ class Parser(report_sxw.rml_parse):
         if data.get('form', False) and data['form'].get('date', False):
             self.date = data['form']['date']
 
-        return super(Parser, self).set_context(objects, data, ids, report_type=report_type)
+        return super(Parser, self).set_context(
+            objects, data, ids, report_type=report_type
+        )
 
     def get_date(self):
-        return datetime.strptime(self.date, OE_DATEFORMAT).strftime('%B %d, %Y')
+        return datetime.strptime(self.date, OE_DATEFORMAT).strftime(
+            '%B %d, %Y'
+        )
 
     def get_no(self):
 
@@ -90,15 +105,17 @@ class Parser(report_sxw.rml_parse):
             local_tz = timezone('Africa/Addis_Ababa')
         dt = datetime.strptime(self.date + ' 00:00:00', OE_DATETIMEFORMAT)
         utcdt = (local_tz.localize(dt, is_dst=False)).astimezone(utc)
-        att_ids = att_obj.search(self.cr, self.uid,
-                                 [('name', '>=', utcdt.strftime(OE_DATETIMEFORMAT)),
-                                  ('name', '<', (utcdt + timedelta(hours=+24)).strftime(
-                                      OE_DATETIMEFORMAT)),
-                                  ('action', '=', 'sign_in'),
-                                  '|', (
-                                      'employee_id.department_id.id', '=', department_id),
-                                  ('employee_id.saved_department_id.id', '=', department_id)
-                                  ])
+        att_ids = att_obj.search(
+            self.cr, self.uid, [
+                ('name', '>=', utcdt.strftime(OE_DATETIMEFORMAT)),
+                ('name', '<', (utcdt + timedelta(hours=+24)).strftime(
+                    OE_DATETIMEFORMAT)),
+                ('action', '=', 'sign_in'),
+                '|',
+                ('employee_id.department_id.id', '=', department_id),
+                ('employee_id.saved_department_id.id', '=', department_id)
+            ]
+        )
 
         unique_ids = []
         term_obj = self.pool.get('hr.employee.termination')
@@ -149,6 +166,7 @@ class Parser(report_sxw.rml_parse):
         ee_withsched_ids = []
         att_obj = self.pool.get('hr.attendance')
         sched_obj = self.pool.get('hr.schedule')
+        term_obj = self.pool.get('hr.employee.termination')
         user = self.pool.get('res.users').browse(self.cr, self.uid, self.uid)
         if user and user.tz:
             local_tz = timezone(user.tz)
@@ -157,12 +175,14 @@ class Parser(report_sxw.rml_parse):
         dt = datetime.strptime(self.date + ' 00:00:00', OE_DATETIMEFORMAT)
         utcdt = (local_tz.localize(dt, is_dst=False)).astimezone(utc)
         sched_ids = sched_obj.search(
-            self.cr, self.uid, [('date_start', '<=', self.date),
-                                ('date_end', '>=', self.date),
-                                '|', (
-                                    'employee_id.department_id.id', '=', department_id),
-                                ('employee_id.saved_department_id.id', '=', department_id)
-                                ])
+            self.cr, self.uid, [
+                ('date_start', '<=', self.date),
+                ('date_end', '>=', self.date),
+                '|',
+                ('employee_id.department_id.id', '=', department_id),
+                ('employee_id.saved_department_id.id', '=', department_id)
+            ]
+        )
         for sched in sched_obj.browse(self.cr, self.uid, sched_ids):
 
             if sched.employee_id.id not in ee_withsched_ids:
@@ -174,7 +194,9 @@ class Parser(report_sxw.rml_parse):
 
             # Skip if the employee wasn't hired yet
             hire_date = self.get_employee_start_date(sched.employee_id.id)
-            if not hire_date or (datetime.strptime(hire_date, OE_DATEFORMAT).date() > dt.date()):
+            if (not hire_date
+                    or (datetime.strptime(hire_date,
+                                          OE_DATEFORMAT).date() > dt.date())):
                 continue
 
             rest_days = sched_obj.get_rest_days(
@@ -185,12 +207,13 @@ class Parser(report_sxw.rml_parse):
                 continue
 
             # if this employee's employment was terminated skip it
-            term_ids = self.pool.get(
-                'hr.employee.termination').search(self.cr, self.uid,
-                                                  [('name', '<=', self.date),
-                                                   ('employee_id.id', '=',
-                                                    sched.employee_id.id),
-                                                   ('state', 'not in', ['cancel'])])
+            term_ids = term_obj.search(
+                self.cr, self.uid, [
+                    ('name', '<=', self.date),
+                    ('employee_id.id', '=', sched.employee_id.id),
+                    ('state', 'not in', ['cancel'])
+                ]
+            )
             if term_ids:
                 continue
 
@@ -208,10 +231,14 @@ class Parser(report_sxw.rml_parse):
                 res += 1
 
         # Get employees who don't have a schedule
-        ee_nosched_ids = self.pool.get('hr.employee').search(self.cr, self.uid,
-                                                             ['|', ('department_id.id', '=', department_id),
-                                                                   ('saved_department_id.id', '=', department_id),
-                                                              ('id', 'not in', ee_withsched_ids)])
+        ee_nosched_ids = self.pool.get('hr.employee').search(
+            self.cr, self.uid, [
+                '|',
+                ('department_id.id', '=', department_id),
+                ('saved_department_id.id', '=', department_id),
+                ('id', 'not in', ee_withsched_ids)
+            ]
+        )
         for ee_id in ee_nosched_ids:
 
             # skip if the employee is on leave
@@ -220,26 +247,31 @@ class Parser(report_sxw.rml_parse):
 
             # Skip if the employee wasn't hired yet
             hire_date = self.get_employee_start_date(ee_id)
-            if not hire_date or (datetime.strptime(hire_date, OE_DATEFORMAT).date() > dt.date()):
+            if (not hire_date
+                    or (datetime.strptime(hire_date,
+                                          OE_DATEFORMAT).date() > dt.date())):
                 continue
 
             # if this employee's employment was terminated skip it
-            term_ids = self.pool.get(
-                'hr.employee.termination').search(self.cr, self.uid,
-                                                  [('name', '<=', self.date),
-                                                   ('employee_id.id', '=', ee_id),
-                                                   ('state', 'not in', ['cancel'])])
+            term_ids = term_obj.search(
+                self.cr, self.uid, [
+                    ('name', '<=', self.date),
+                    ('employee_id.id', '=', ee_id),
+                    ('state', 'not in', ['cancel'])
+                ]
+            )
             if term_ids:
                 continue
 
             att_ids = att_obj.search(
-                self.cr, self.uid, [(
-                    'name', '>=', utcdt.strftime(OE_DATETIMEFORMAT)),
+                self.cr, self.uid, [
+                    ('name', '>=', utcdt.strftime(OE_DATETIMEFORMAT)),
                     ('name', '<', (utcdt + timedelta(hours=+24)).strftime(
                         OE_DATETIMEFORMAT)),
                     ('action', '=', 'sign_in'),
                     ('employee_id.id', '=', ee_id),
-                ])
+                ]
+            )
             if len(att_ids) == 0:
                 res += 1
 
@@ -259,15 +291,14 @@ class Parser(report_sxw.rml_parse):
         utcdtStart = (local_tz.localize(dtStart, is_dst=False)).astimezone(utc)
         utcdtNextStart = utcdtStart + timedelta(hours=+24)
         leave_ids = leave_obj.search(
-            self.cr, self.uid, [('employee_id', '=', employee_id),
-                                ('date_from', '<', utcdtNextStart.strftime(
-                                    OE_DATETIMEFORMAT)),
-                                ('date_to', '>=', utcdtStart.strftime(
-                                    OE_DATETIMEFORMAT)),
-                                ('type', '=', 'remove'),
-                                ('state', 'in', [
-                                    'validate', 'validate1']),
-                                ])
+            self.cr, self.uid, [
+                ('employee_id', '=', employee_id),
+                ('date_from', '<', utcdtNextStart.strftime(OE_DATETIMEFORMAT)),
+                ('date_to', '>=', utcdtStart.strftime(OE_DATETIMEFORMAT)),
+                ('type', '=', 'remove'),
+                ('state', 'in', ['validate', 'validate1']),
+            ]
+        )
         return bool(leave_ids)
 
     def get_restday(self, department_id):
@@ -281,34 +312,37 @@ class Parser(report_sxw.rml_parse):
         dt = datetime.strptime(self.date + ' 00:00:00', OE_DATETIMEFORMAT)
         utcdt = (local_tz.localize(dt, is_dst=False)).astimezone(utc)
         sched_ids = sched_obj.search(
-            self.cr, self.uid, [('date_start', '<=', self.date),
-                                ('date_end', '>=', self.date),
-                                '|', (
-                                    'employee_id.department_id.id', '=', department_id),
-                                ('employee_id.saved_department_id.id', '=', department_id)
-                                ])
+            self.cr, self.uid, [
+                ('date_start', '<=', self.date),
+                ('date_end', '>=', self.date),
+                '|',
+                ('employee_id.department_id.id', '=', department_id),
+                ('employee_id.saved_department_id.id', '=', department_id)
+            ]
+        )
         res = 0
         otr = 0     # restday OT
         for sched in sched_obj.browse(self.cr, self.uid, sched_ids):
 
             # If the employee is on leave, skip it
-            if self._on_leave(self.cr, self.uid, sched.employee_id.id,
-                              datetime.strptime(self.date, OE_DATEFORMAT).date()):
+            if self._on_leave(
+                    self.cr, self.uid, sched.employee_id.id,
+                    datetime.strptime(self.date, OE_DATEFORMAT).date()):
                 continue
 
             rest_days = sched_obj.get_rest_days(
                 self.cr, self.uid, sched.employee_id.id, dt)
             if dt.weekday() in rest_days:
                 # Make sure the employee didn't punch in that day
-                att_ids = self.pool.get(
-                    'hr.attendance').search(self.cr, self.uid,
-                                            [('name', '>=', utcdt.strftime(OE_DATETIMEFORMAT)),
-                                             ('name', '<', (utcdt + timedelta(hours=+24)).strftime(
-                                                 OE_DATETIMEFORMAT)),
-                                             ('action', '=', 'sign_in'),
-                                             ('employee_id.id', '=',
-                                              sched.employee_id.id),
-                                             ])
+                att_ids = self.pool.get('hr.attendance').search(
+                    self.cr, self.uid, [
+                        ('name', '>=', utcdt.strftime(OE_DATETIMEFORMAT)),
+                        ('name', '<', (utcdt + timedelta(hours=+24)).strftime(
+                            OE_DATETIMEFORMAT)),
+                        ('action', '=', 'sign_in'),
+                        ('employee_id.id', '=', sched.employee_id.id),
+                    ]
+                )
                 if len(att_ids) == 0:
                     res += 1
                 else:
@@ -333,18 +367,17 @@ class Parser(report_sxw.rml_parse):
         utcdtStart = (local_tz.localize(dtStart, is_dst=False)).astimezone(utc)
         utcdtNextStart = utcdtStart + timedelta(hours=+24)
         leave_ids = leave_obj.search(
-            self.cr, self.uid, [('holiday_status_id.code', 'in', codes),
-                                ('date_from', '<', utcdtNextStart.strftime(
-                                    OE_DATETIMEFORMAT)),
-                                ('date_to', '>=', utcdtStart.strftime(
-                                    OE_DATETIMEFORMAT)),
-                                ('type', '=', 'remove'),
-                                ('state', 'in', [
-                                    'validate', 'validate1']),
-                                '|', (
-                                    'employee_id.department_id.id', '=', department_id),
-                                ('employee_id.saved_department_id.id', '=', department_id)
-                                ])
+            self.cr, self.uid, [
+                ('holiday_status_id.code', 'in', codes),
+                ('date_from', '<', utcdtNextStart.strftime(OE_DATETIMEFORMAT)),
+                ('date_to', '>=', utcdtStart.strftime(OE_DATETIMEFORMAT)),
+                ('type', '=', 'remove'),
+                ('state', 'in', ['validate', 'validate1']),
+                '|',
+                ('employee_id.department_id.id', '=', department_id),
+                ('employee_id.saved_department_id.id', '=', department_id)
+            ]
+        )
         return leave_ids
 
     def get_leave(self, department_id, codes):
@@ -361,7 +394,8 @@ class Parser(report_sxw.rml_parse):
         data = self.pool.get('hr.holidays').read(
             self.cr, self.uid, leave_ids, ['employee_id'])
         for d in data:
-            if d.get('employee_id', False) and d['employee_id'][0] not in employee_ids:
+            if (d.get('employee_id', False)
+                    and d['employee_id'][0] not in employee_ids):
                 employee_ids.append(d['employee_id'][0])
 
         return employee_ids
@@ -396,12 +430,12 @@ class Parser(report_sxw.rml_parse):
             self.cr, self.uid, [('name', '=', self.date)])
         for term in term_obj.browse(self.cr, self.uid, term_ids):
             if term.employee_id.department_id:
-                dept_id = term.employee_id.department_id.id
+                dep_id = term.employee_id.department_id.id
             elif term.employee_id.saved_department_id:
-                dept_id = term.employee_id.saved_department_id.id
+                dep_id = term.employee_id.saved_department_id.id
             else:
-                dept_id = False
-            if term.employee_id.id not in seen_ids and dept_id == department_id:
+                dep_id = False
+            if term.employee_id.id not in seen_ids and dep_id == department_id:
                 res += 1
                 seen_ids.append(term.employee_id.id)
         self._terminated += res

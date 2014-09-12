@@ -5,8 +5,8 @@
 #    All Rights Reserved.
 #
 #    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as published by
-#    the Free Software Foundation, either version 3 of the License, or
+#    it under the terms of the GNU Affero General Public License as published
+#    by the Free Software Foundation, either version 3 of the License, or
 #    (at your option) any later version.
 #
 #    This program is distributed in the hope that it will be useful,
@@ -27,7 +27,10 @@ class hr_department_manpower(orm.TransientModel):
     _name = 'hr.department.manpower'
 
     _columns = {
-        'date': fields.date('Start', required=True),
+        'date': fields.date(
+            'Start',
+            required=True,
+        ),
     }
 
     def print_report(self, cr, uid, ids, context=None):
@@ -37,6 +40,8 @@ class hr_department_manpower(orm.TransientModel):
             'datas': {
                 'form': self.read(cr, uid, ids)[0],
                 'model': 'hr.department',
-                'ids': self.pool.get('hr.department').search(cr, uid, [], context=context),
+                'ids': self.pool.get('hr.department').search(
+                    cr, uid, [], context=context
+                ),
             },
         }

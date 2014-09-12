@@ -5,8 +5,8 @@
 #    All Rights Reserved.
 #
 #    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as published by
-#    the Free Software Foundation, either version 3 of the License, or
+#    it under the terms of the GNU Affero General Public License as published
+#    by the Free Software Foundation, either version 3 of the License, or
 #    (at your option) any later version.
 #
 #    This program is distributed in the hope that it will be useful,
@@ -31,11 +31,24 @@ class action_wizard(orm.TransientModel):
     _description = 'Choice of Actions for Infraction'
 
     _columns = {
-        'action_type': fields.selection(ACTION_TYPE_SELECTION, 'Action', required=True),
-        'memo': fields.text('Notes'),
-        'new_job_id': fields.many2one('hr.job', 'New Job'),
-        'xfer_effective_date': fields.date('Effective Date'),
-        'effective_date': fields.date('Effective Date'),
+        'action_type': fields.selection(
+            ACTION_TYPE_SELECTION,
+            'Action',
+            required=True,
+        ),
+        'memo': fields.text(
+            'Notes',
+        ),
+        'new_job_id': fields.many2one(
+            'hr.job',
+            'New Job',
+        ),
+        'xfer_effective_date': fields.date(
+            'Effective Date',
+        ),
+        'effective_date': fields.date(
+            'Effective Date',
+        ),
     }
 
     def create_action(self, cr, uid, ids, context=None):
@@ -70,38 +83,49 @@ class action_wizard(orm.TransientModel):
         imd_obj = self.pool.get('ir.model.data')
         iaa_obj = self.pool.get('ir.actions.act_window')
 
-        # If the action is a warning create the appropriate record, reference it from the action,
-        # and pull it up in the view (in case the user needs to make any changes.
+        # If the action is a warning create the appropriate record, reference
+        # it from the action, and pull it up in the view (in case the user
+        # needs to make any changes.
         #
         if data['action_type'] in ['warning_verbal', 'warning_letter']:
             vals = {
-                'name': (data['action_type'] == 'warning_verbal' and 'Verbal' or 'Written') + ' Warning',
-                'type': data['action_type'] == 'warning_verbal' and 'verbal' or 'written',
+                'name': (data['action_type'] == 'warning_verbal'
+                         and 'Verbal' or 'Written') + ' Warning',
+                'type': (data['action_type'] == 'warning_verbal' and 'verbal'
+                         or 'written'),
                 'action_id': action_id,
             }
             warning_id = self.pool.get('hr.infraction.warning').create(
-                cr, uid, vals, context=context)
-            infraa_obj.write(cr, uid, action_id, {
-                             'warning_id': warning_id}, context=context)
-
+                cr, uid, vals, context=context
+            )
+            infraa_obj.write(
+                cr, uid, action_id, {
+                    'warning_id': warning_id,
+                }, context=context
+            )
             res_model, res_id = imd_obj.get_object_reference(
-                cr, uid, 'hr_infraction',
-                'open_hr_infraction_warning')
+                cr,
+                uid,
+                'hr_infraction',
+                'open_hr_infraction_warning'
+            )
             dict_act_window = iaa_obj.read(cr, uid, res_id, [])
             dict_act_window['view_mode'] = 'form,tree'
             dict_act_window['domain'] = [('id', '=', warning_id)]
             return dict_act_window
 
-        # If the action is a departmental transfer create the appropriate record, reference it from
-        # the action, and pull it up in the view (in case the user needs to make any changes.
+        # If the action is a departmental transfer create the appropriate
+        # record, reference it from the action, and pull it up in the view
+        # (in case the user needs to make any changes.
         #
         elif data['action_type'] == 'transfer':
             xfer_obj = self.pool.get('hr.department.transfer')
-            ee = self.pool.get(
-                'hr.employee').browse(cr, uid, infraction_data['employee_id'][0],
-                                      context=context)
+            ee = self.pool.get('hr.employee').browse(
+                cr, uid, infraction_data['employee_id'][0], context=context
+            )
             _tmp = xfer_obj.onchange_employee(
-                cr, uid, None, ee.id, context=context)
+                cr, uid, None, ee.id, context=context
+            )
             vals = {
                 'employee_id': ee.id,
                 'src_id': _tmp['value']['src_id'],
@@ -110,12 +134,16 @@ class action_wizard(orm.TransientModel):
                 'date': data['xfer_effective_date'],
             }
             xfer_id = xfer_obj.create(cr, uid, vals, context=context)
-            infraa_obj.write(cr, uid, action_id, {
-                             'transfer_id': xfer_id}, context=context)
+            infraa_obj.write(
+                cr, uid, action_id, {
+                    'transfer_id': xfer_id,
+                }, context=context
+            )
 
             res_model, res_id = imd_obj.get_object_reference(
                 cr, uid, 'hr_transfer',
-                'open_hr_department_transfer')
+                'open_hr_department_transfer',
+            )
             dict_act_window = iaa_obj.read(cr, uid, res_id, [])
             dict_act_window['view_mode'] = 'form,tree'
             dict_act_window['domain'] = [('id', '=', xfer_id)]
@@ -126,9 +154,9 @@ class action_wizard(orm.TransientModel):
         elif data['action_type'] == 'dismissal':
             term_obj = self.pool.get('hr.employee.termination')
             wkf = netsvc.LocalService('workflow')
-            ee = self.pool.get(
-                'hr.employee').browse(cr, uid, infraction_data['employee_id'][0],
-                                      context=context)
+            ee = self.pool.get('hr.employee').browse(
+                cr, uid, infraction_data['employee_id'][0], context=context
+            )
 
             # We must create the employment termination object before we set
             # the contract state to 'done'.
@@ -147,7 +175,9 @@ class action_wizard(orm.TransientModel):
             for contract in ee.contract_ids:
                 if contract.state not in ['done']:
                     wkf.trg_validate(
-                        uid, 'hr.contract', contract.id, 'signal_pending_done', cr)
+                        uid, 'hr.contract', contract.id, 'signal_pending_done',
+                        cr
+                    )
 
             # Set employee state to pending deactivation
             wkf.trg_validate(
@@ -155,11 +185,14 @@ class action_wizard(orm.TransientModel):
 
             # Trigger confirmation of termination record
             wkf.trg_validate(
-                uid, 'hr.employee.termination', term_id, 'signal_confirmed', cr)
+                uid, 'hr.employee.termination', term_id, 'signal_confirmed',
+                cr
+            )
 
             res_model, res_id = imd_obj.get_object_reference(
                 cr, uid, 'hr_employee_state',
-                'open_hr_employee_termination')
+                'open_hr_employee_termination'
+            )
             dict_act_window = iaa_obj.read(cr, uid, res_id, [])
             dict_act_window['domain'] = [('id', '=', term_id)]
             return dict_act_window
