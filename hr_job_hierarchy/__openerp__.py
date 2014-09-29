@@ -38,7 +38,7 @@ Define Hierarchy of Jobs
     'author': 'Michael Telahun Makonnen <mmakonnen@gmail.com>',
     'website': 'http://miketelahun.wordpress.com',
     'depends': [
-        'hr',
+        'hr_contract',
     ],
     'data': [
         'hr_view.xml',
