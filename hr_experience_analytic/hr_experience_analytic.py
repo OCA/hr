@@ -24,8 +24,8 @@ class hr_professional(orm.Model):
     _inherit = 'hr.experience'
     _columns = {
         'analytic_id': fields.many2one('account.analytic.account',
-                                      'Project',
-                                      domain=[('type', '!=', 'view')],
-                                      help="""
+                                       'Project',
+                                       domain=[('type', '!=', 'view')],
+                                       help="""
 Enter the project, contract or analytic account"""),
     }
