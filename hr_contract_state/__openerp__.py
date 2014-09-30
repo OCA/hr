@@ -1,12 +1,12 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 #
 #
 #    Copyright (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
 #    All Rights Reserved.
 #
 #    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as published by
-#    the Free Software Foundation, either version 3 of the License, or
+#    it under the terms of the GNU Affero General Public License as published
+#    by the Free Software Foundation, either version 3 of the License, or
 #    (at your option) any later version.
 #
 #    This program is distributed in the hope that it will be useful,
@@ -27,8 +27,8 @@
 Employee Contract Workflow and Notifications
 ============================================
 
-Easily find and keep track of employees who are nearing the end of their contracts and
-trial periods.
+Easily find and keep track of employees who are nearing the end of their
+contracts and trial periods.
     """,
     'author': 'Michael Telahun Makonnen <mmakonnen@gmail.com>',
     'website': 'http://miketelahun.wordpress.com',
@@ -36,9 +36,10 @@ trial periods.
         'hr_contract',
         'hr_contract_init',
     ],
-    'init_xml': [
-    ],
-    'update_xml': [
+    "external_dependencies": {
+        'python': ['dateutil'],
+    },
+    'data': [
         'security/ir.model.access.csv',
         'hr_contract_cron.xml',
         'hr_contract_data.xml',
@@ -47,8 +48,5 @@ trial periods.
     ],
     'test': [
     ],
-    'demo_xml': [
-    ],
     'installable': True,
-    'active': False,
 }

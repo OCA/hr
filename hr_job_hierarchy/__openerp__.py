@@ -1,12 +1,12 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 #
 #
 #    Copyright (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
 #    All Rights Reserved.
 #
 #    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as published by
-#    the Free Software Foundation, either version 3 of the License, or
+#    it under the terms of the GNU Affero General Public License as published
+#    by the Free Software Foundation, either version 3 of the License, or
 #    (at your option) any later version.
 #
 #    This program is distributed in the hope that it will be useful,
@@ -31,23 +31,19 @@ Define Hierarchy of Jobs
        determining supervisor/subordinate relationships.
     2. Provide a knob in Job configuration to specify if the person with that
        job should be considered the Department manager.
-    3. Automatically set the manager of a department based on this knob in job configuration.
+    3. Automatically set the manager of a department based on this knob in job
+       configuration.
     4. Automatically set an employee's manager from the department's manager.
     """,
     'author': 'Michael Telahun Makonnen <mmakonnen@gmail.com>',
     'website': 'http://miketelahun.wordpress.com',
     'depends': [
-        'hr',
+        'hr_contract',
     ],
-    'init_xml': [
-    ],
-    'update_xml': [
+    'data': [
         'hr_view.xml',
     ],
     'test': [
     ],
-    'demo_xml': [
-    ],
     'installable': True,
-    'active': False,
 }

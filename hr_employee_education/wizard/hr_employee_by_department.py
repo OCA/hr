@@ -1,12 +1,12 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 #
 #
 #    Copyright (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
 #    All Rights Reserved.
 #
 #    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as published by
-#    the Free Software Foundation, either version 3 of the License, or
+#    it under the terms of the GNU Affero General Public License as published
+#    by the Free Software Foundation, either version 3 of the License, or
 #    (at your option) any later version.
 #
 #    This program is distributed in the hope that it will be useful,
@@ -19,33 +19,44 @@
 #
 #
 
-from openerp.osv import fields, osv
+from openerp.osv import fields, orm
 
-from hr_employee_education.hr import EDUCATION_SELECTION
+from ..hr import EDUCATION_SELECTION
 
 import logging
 _l = logging.getLogger(__name__)
 
 
-class hr_al(osv.TransientModel):
+class hr_al(orm.TransientModel):
 
     _name = 'hr.employee.edu'
 
     _columns = {
-        'department_id': fields.many2one('hr.department', 'Department'),
-        'line_ids': fields.one2many('hr.employee.edu.line', 'edu_id', 'Employee Education Lines'),
+        'department_id': fields.many2one(
+            'hr.department',
+            'Department',
+        ),
+        'line_ids': fields.one2many(
+            'hr.employee.edu.line',
+            'edu_id',
+            'Employee Education Lines',
+        ),
     }
 
     def _get_lines(self, cr, uid, context=None):
 
-        if context == None:
+        if context is None:
             context = {}
 
         res = []
         ee_obj = self.pool.get('hr.employee')
         department_id = context.get('active_id', False)
-        ee_ids = ee_obj.search(cr, uid, [('department_id', '=', department_id),
-                                         ('active', '=', True)], context=context)
+        ee_ids = ee_obj.search(
+            cr, uid, [
+                ('department_id', '=', department_id),
+                ('active', '=', True)
+            ], context=context
+        )
         data = ee_obj.read(cr, uid, ee_ids, ['education'], context=context)
         for record in data:
             vals = {
@@ -58,7 +69,7 @@ class hr_al(osv.TransientModel):
 
     def _get_department(self, cr, uid, context=None):
 
-        if context == None:
+        if context is None:
             context = {}
         department_id = context.get('active_id', False)
         return department_id
@@ -84,12 +95,21 @@ class hr_al(osv.TransientModel):
         return {'type': 'ir.actions.act_window_close'}
 
 
-class hr_edu_line(osv.TransientModel):
+class hr_edu_line(orm.TransientModel):
 
     _name = 'hr.employee.edu.line'
-
     _columns = {
-        'edu_id': fields.many2one('hr.employee.edu', 'Education by Dept.'),
-        'employee_id': fields.many2one('hr.employee', 'Employee', required=True),
-        'education': fields.selection(EDUCATION_SELECTION, 'Education'),
+        'edu_id': fields.many2one(
+            'hr.employee.edu',
+            'Education by Dept.',
+        ),
+        'employee_id': fields.many2one(
+            'hr.employee',
+            'Employee',
+            required=True,
+        ),
+        'education': fields.selection(
+            EDUCATION_SELECTION,
+            'Education',
+        ),
     }

@@ -1,12 +1,12 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 #
 #
 #    Copyright (C) 2011,2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
 #    All Rights Reserved.
 #
 #    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as published by
-#    the Free Software Foundation, either version 3 of the License, or
+#    it under the terms of the GNU Affero General Public License as published
+#    by the Free Software Foundation, either version 3 of the License, or
 #    (at your option) any later version.
 #
 #    This program is distributed in the hope that it will be useful,
@@ -33,12 +33,9 @@ This module provides :
     "author": "Michael Telahun Makonnen <mmakonnen@gmail.com",
     "website": "http://miketelahun.wordpress.com",
     "depends": ["hr_contract"],
-    "init_xml": [],
-    'update_xml': [
+    "data": [
         'hr_contract_view.xml',
         'hr_contract_sequence.xml',
     ],
-    'demo_xml': [],
     'installable': True,
-    'active': False,
 }

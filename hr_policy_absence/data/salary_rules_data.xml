@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data noupdate="1">
-        
-        <!-- Delete some default leave types from the database -->
-        <delete model="hr.holidays.status" search="[('name','like','Legal Leaves%')]"/>
-        <delete model="hr.holidays.status" search="[('name','=','Compensatory Days')]"/>
-        <delete model="hr.holidays.status" search="[('name','=','Unpaid')]"/>
-
         <!--
              DO NOT CHANGE THE CODES BELOW!!!
              The codes are used in the payroll register module to print out
@@ -51,7 +45,7 @@
             <field name="amount_python_compute">result = contract.wage_hourly * worked_days.LVCIVIC.rate</field>
             <field name="quantity">worked_days.LVCIVIC.number_of_hours</field>
             <field name="sequence" eval="7"/>
-            <field name="note">Civic, Leagal, and Union Leave hours. Not applicable to salaried employees.</field>
+            <field name="note">Civic, Legal, and Union Leave hours. Not applicable to salaried employees.</field>
         </record>
 
         <record id="hr_salary_rule_basic_pml" model="hr.salary.rule">

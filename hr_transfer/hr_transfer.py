@@ -1,12 +1,12 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 #
 #
 #    Copyright (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
 #    All Rights Reserved.
 #
 #    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as published by
-#    the Free Software Foundation, either version 3 of the License, or
+#    it under the terms of the GNU Affero General Public License as published
+#    by the Free Software Foundation, either version 3 of the License, or
 #    (at your option) any later version.
 #
 #    This program is distributed in the hope that it will be useful,
@@ -23,12 +23,12 @@ from datetime import datetime
 from dateutil.relativedelta import relativedelta
 
 from openerp import netsvc
-from openerp.osv import fields, osv
+from openerp.osv import fields, orm
 from openerp.tools import DEFAULT_SERVER_DATE_FORMAT
 from openerp.tools.translate import _
 
 
-class hr_transfer(osv.Model):
+class hr_transfer(orm.Model):
 
     _name = 'hr.department.transfer'
     _description = 'Departmental Transfer'
@@ -36,23 +36,28 @@ class hr_transfer(osv.Model):
     _inherit = ['mail.thread', 'ir.needaction_mixin']
 
     _columns = {
-        'employee_id': fields.many2one('hr.employee', 'Employee', required=True, readonly=True,
-                                       states={
-                                           'draft': [('readonly', False)]}),
-        'src_id': fields.many2one('hr.job', 'From', required=True, readonly=True,
-                                  states={'draft': [('readonly', False)]}),
-        'dst_id': fields.many2one('hr.job', 'Destination', required=True, readonly=True,
-                                  states={'draft': [('readonly', False)]}),
-        'src_department_id': fields.related('src_id', 'department_id', type='many2one',
-                                            relation='hr.department', string='From Department',
-                                            store=True, readonly=True),
-        'dst_department_id': fields.related('dst_id', 'department_id', type='many2one',
-                                            relation='hr.department', store=True,
-                                            string='Destination Department', readonly=True),
-        'src_contract_id': fields.many2one('hr.contract', 'From Contract', readonly=True,
-                                           states={
-                                               'draft': [('readonly', False)]}),
-        'dst_contract_id': fields.many2one('hr.contract', 'Destination Contract', readonly=True),
+        'employee_id': fields.many2one(
+            'hr.employee', 'Employee', required=True, readonly=True,
+            states={'draft': [('readonly', False)]}),
+        'src_id': fields.many2one(
+            'hr.job', 'From', required=True, readonly=True,
+            states={'draft': [('readonly', False)]}),
+        'dst_id': fields.many2one(
+            'hr.job', 'Destination', required=True, readonly=True,
+            states={'draft': [('readonly', False)]}),
+        'src_department_id': fields.related(
+            'src_id', 'department_id', type='many2one',
+            relation='hr.department', string='From Department',
+            store=True, readonly=True),
+        'dst_department_id': fields.related(
+            'dst_id', 'department_id', type='many2one',
+            relation='hr.department', store=True,
+            string='Destination Department', readonly=True),
+        'src_contract_id': fields.many2one(
+            'hr.contract', 'From Contract', readonly=True,
+            states={'draft': [('readonly', False)]}),
+        'dst_contract_id': fields.many2one(
+            'hr.contract', 'Destination Contract', readonly=True),
         'date': fields.date('Effective Date', required=True, readonly=True,
                             states={'draft': [('readonly', False)]}),
         'state': fields.selection([
@@ -73,9 +78,12 @@ class hr_transfer(osv.Model):
 
     _track = {
         'state': {
-            'hr_transfer.mt_alert_xfer_confirmed': lambda self, cr, uid, obj, ctx=None: obj['state'] == 'confirm',
-            'hr_transfer.mt_alert_xfer_pending': lambda self, cr, uid, obj, ctx=None: obj['state'] == 'pending',
-            'hr_transfer.mt_alert_xfer_done': lambda self, cr, uid, obj, ctx=None: obj['state'] == 'done',
+            'hr_transfer.mt_alert_xfer_confirmed':
+                lambda self, cr, uid, obj, ctx=None: obj['state'] == 'confirm',
+            'hr_transfer.mt_alert_xfer_pending':
+                lambda self, cr, uid, obj, ctx=None: obj['state'] == 'pending',
+            'hr_transfer.mt_alert_xfer_done':
+                lambda self, cr, uid, obj, ctx=None: obj['state'] == 'done',
         },
     }
 
@@ -83,7 +91,6 @@ class hr_transfer(osv.Model):
 
         users_obj = self.pool.get('res.users')
 
-        domain = []
         if users_obj.has_group(cr, uid, 'base.group_hr_manager'):
             domain = [('state', '=', 'confirm')]
             return domain
@@ -94,8 +101,11 @@ class hr_transfer(osv.Model):
 
         for xfer in self.browse(cr, uid, ids, context=context):
             if xfer.state not in ['draft']:
-                raise osv.except_osv(_('Unable to Delete Transfer!'),
-                                     _('Transfer has been initiated. Either cancel the transfer or create another transfer to undo it.'))
+                raise orm.except_orm(
+                    _('Unable to Delete Transfer!'),
+                    _('Transfer has been initiated. Either cancel the transfer'
+                      ' or create another transfer to undo it.')
+                )
 
         return super(hr_transfer, self).unlink(cr, uid, ids, context=context)
 
@@ -128,9 +138,13 @@ class hr_transfer(osv.Model):
         data = contract_obj.read(
             cr, uid, contract_id, ['state', 'date_end'], context=context)
 
-        if data['state'] not in ['trial', 'trial_ending', 'open', 'contract_ending']:
-            raise osv.except_osv(
-                _('Warning!'), _('The current state of the contract does not permit changes.'))
+        if data['state'] not in [
+            'trial', 'trial_ending', 'open', 'contract_ending'
+        ]:
+            raise orm.except_orm(
+                _('Warning!'),
+                _('The current state of the contract does not permit changes.')
+            )
 
         if data.get('date_end', False) and data['date_end'] != '':
             dContractEnd = datetime.strptime(
@@ -138,16 +152,23 @@ class hr_transfer(osv.Model):
             dEffective = datetime.strptime(
                 effective_date, DEFAULT_SERVER_DATE_FORMAT)
             if dEffective >= dContractEnd:
-                raise osv.except_osv(
-                    _('Warning!'), _('The contract end date is on or before the effective date of the transfer.'))
+                raise orm.except_orm(
+                    _('Warning!'),
+                    _('The contract end date is on or before the effective '
+                      'date of the transfer.')
+                )
 
         return True
 
-    def transfer_contract(self, cr, uid, contract_id, job_id, xfer_id, effective_date, context=None):
+    def transfer_contract(
+        self, cr, uid, contract_id, job_id, xfer_id, effective_date,
+        context=None
+    ):
 
         contract_obj = self.pool.get('hr.contract')
 
-        # Copy the contract and adjust start/end dates, job id, etc. accordingly.
+        # Copy the contract and adjust start/end dates, job id, etc.
+        # accordingly.
         #
         default = {
             'job_id': job_id,
@@ -179,8 +200,9 @@ class hr_transfer(osv.Model):
 
             # Link to the new contract
             self.pool.get(
-                'hr.department.transfer').write(cr, uid, xfer_id, {'dst_contract_id': c_id},
-                                                context=context)
+                'hr.department.transfer').write(
+                    cr, uid, xfer_id, {'dst_contract_id': c_id},
+                    context=context)
 
         return
 
@@ -199,9 +221,12 @@ class hr_transfer(osv.Model):
         today = datetime.now().date()
 
         for xfer in self.browse(cr, uid, ids, context=context):
-            if datetime.strptime(xfer.date, DEFAULT_SERVER_DATE_FORMAT).date() <= today:
+            if datetime.strptime(
+                xfer.date, DEFAULT_SERVER_DATE_FORMAT
+            ).date() <= today:
                 self._check_state(
-                    cr, uid, xfer.src_contract_id.id, xfer.date, context=context)
+                    cr, uid, xfer.src_contract_id.id, xfer.date,
+                    context=context)
                 employee_obj.write(
                     cr, uid, xfer.employee_id.id, {
                         'department_id': xfer.dst_department_id.id},
@@ -217,7 +242,8 @@ class hr_transfer(osv.Model):
         return True
 
     def try_pending_department_transfers(self, cr, uid, context=None):
-        """Completes pending departmental transfers. Called from the scheduler."""
+        """Completes pending departmental transfers. Called from
+        the scheduler."""
 
         xfer_obj = self.pool.get('hr.department.transfer')
         today = datetime.now().date()
@@ -228,7 +254,8 @@ class hr_transfer(osv.Model):
         ], context=context)
 
         wkf = netsvc.LocalService('workflow')
-        [wkf.trg_validate(uid, 'hr.department.transfer', xfer.id, 'signal_done', cr)
+        [wkf.trg_validate(
+            uid, 'hr.department.transfer', xfer.id, 'signal_done', cr)
          for xfer in self.browse(cr, uid, xfer_ids, context=context)]
 
         return True
