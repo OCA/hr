@@ -1,14 +1,14 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 #
 #
 #    OpenERP, Open Source Management Solution
-#    Copyrigth (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>
+#    Copyright (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>
 #    Copyright (C) 2004-2009 Tiny SPRL (<http://tiny.be>). All Rights Reserved
 #    d$
 #
 #    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as published by
-#    the Free Software Foundation, either version 3 of the License, or
+#    it under the terms of the GNU Affero General Public License as published
+#    by the Free Software Foundation, either version 3 of the License, or
 #    (at your option) any later version.
 #
 #    This program is distributed in the hope that it will be useful,
@@ -22,10 +22,8 @@
 #
 
 import time
-from datetime import datetime
 
-from openerp.tools import DEFAULT_SERVER_DATE_FORMAT as OE_DATEFORMAT
-from report import report_sxw
+from openerp.report import report_sxw
 
 
 class Parser(report_sxw.rml_parse):
@@ -139,11 +137,13 @@ class Parser(report_sxw.rml_parse):
         for id in range(len(obj)):
             ids.append(obj[id].id)
         if ids:
-            self.cr.execute('''SELECT pl.id, pl.category_id FROM hr_payslip_line as pl \
-                LEFT JOIN hr_salary_rule_category AS rc on (pl.category_id = rc.id) \
-                WHERE pl.id in %s \
-                GROUP BY rc.parent_id, pl.sequence, pl.id, pl.category_id \
-                ORDER BY pl.sequence, rc.parent_id''', (tuple(ids),))
+            self.cr.execute('''\
+SELECT pl.id, pl.category_id
+FROM hr_payslip_line as pl
+  LEFT JOIN hr_salary_rule_category AS rc on (pl.category_id = rc.id)
+WHERE pl.id in %s
+GROUP BY rc.parent_id, pl.sequence, pl.id, pl.category_id
+ORDER BY pl.sequence, rc.parent_id''', (tuple(ids), ))
             for x in self.cr.fetchall():
                 result.setdefault(x[1], [])
                 result[x[1]].append(x[0])

@@ -92,7 +92,7 @@
         <!-- Policy Group -->
         
         <record id="policy_group_view_form" model="ir.ui.view">
-            <field name="name">hr.policy.group.form.absenceinherit</field>
+            <field name="name">hr.policy.group.form.absence.inherit</field>
             <field name="model">hr.policy.group</field>
             <field name="inherit_id" ref="hr_policy_group.policy_group_view_form"/>
             <field name="arch" type="xml">

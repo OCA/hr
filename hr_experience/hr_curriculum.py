@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 ##############################################################################
 #
-#    OpenERP, Open Source Management Solution
+#    Odoo, Open Source Management Solution
 #    This module copyright (C) 2014 Savoir-faire Linux
 #    (<http://www.savoirfairelinux.com>).
 #
@@ -26,24 +26,39 @@ from openerp.osv import fields, orm
 class hr_curriculum(orm.Model):
     _name = 'hr.curriculum'
     _columns = {
-        'name': fields.char('Name', required=True,
-                            help="Name"),
-        'employee_id': fields.many2one('hr.employee', 'Employee',
-                                       required=True,
-                                       help="Employee"),
-        'start_date': fields.date('Start date',
-                                  help="Start date"),
-        'end_date': fields.date('End date',
-                                help="End date"),
-        'description': fields.text('Description'),
-        'partner_id': fields.many2one('res.partner', 'Partner',
-                                      help="Employer, School, University, Certification Authority"),
-        'location': fields.char('Location',
-                                help="Location"),
-        'expire': fields.boolean('Expire', help="Expire"),
+        'name': fields.char(
+            'Name',
+            required=True,
+        ),
+        'employee_id': fields.many2one(
+            'hr.employee',
+            'Employee',
+            required=True,
+        ),
+        'start_date': fields.date(
+            'Start date',
+        ),
+        'end_date': fields.date(
+            'End date',
+        ),
+        'description': fields.text(
+            'Description',
+        ),
+        'partner_id': fields.many2one(
+            'res.partner',
+            'Partner',
+            help="Employer, School, University, Certification Authority",
+        ),
+        'location': fields.char(
+            'Location',
+            help="Location",
+        ),
+        'expire': fields.boolean(
+            'Expire',
+            help="Expire",
+        ),
 
     }
-
     _defaults = {
         'expire': True,
     }

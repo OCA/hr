@@ -1,12 +1,12 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 #
 #
 #    Copyright (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
 #    All Rights Reserved.
 #
 #    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as published by
-#    the Free Software Foundation, either version 3 of the License, or
+#    it under the terms of the GNU Affero General Public License as published
+#    by the Free Software Foundation, either version 3 of the License, or
 #    (at your option) any later version.
 #
 #    This program is distributed in the hope that it will be useful,
@@ -19,15 +19,17 @@
 #
 #
 
-from datetime import datetime, timedelta
+from datetime import datetime
 from pytz import timezone
 
-from osv import fields, osv
+from openerp.osv import fields, orm
+from openerp.tools.translate import _
+
 import logging
 _logger = logging.getLogger(__name__)
 
 
-class payroll_register_run(osv.osv_memory):
+class payroll_register_run(orm.TransientModel):
 
     _name = 'hr.payroll.register.run'
     _description = 'Pay Slip Creation'
@@ -50,16 +52,18 @@ class payroll_register_run(osv.osv_memory):
         data = self.read(cr, uid, ids, context=context)[0]
         register_id = context.get('active_id', False)
         if not register_id:
-            raise osv.except_osv(_("Programming Error !"), _(
+            raise orm.except_orm(_("Programming Error !"), _(
                 "Unable to determine Payroll Register Id."))
 
         if not data['department_ids']:
-            raise osv.except_osv(
-                _("Warning !"), _("No departments selected for payslip generation."))
+            raise orm.except_orm(
+                _("Warning !"),
+                _("No departments selected for payslip generation."))
 
         pr = reg_pool.browse(cr, uid, register_id, context=context)
 
-        # DateTime in db is store as naive UTC. Convert it to explicit UTC and then convert
+        # DateTime in db is store as naive UTC. Convert it to explicit UTC and
+        # then convert
         # that into the our time zone.
         #
         user_data = self.pool.get('res.users').read(
@@ -68,14 +72,16 @@ class payroll_register_run(osv.osv_memory):
         utc_tz = timezone('UTC')
         utcDTStart = utc_tz.localize(
             datetime.strptime(pr.date_start, '%Y-%m-%d %H:%M:%S'))
-        loclDTStart = utcDTStart.astimezone(local_tz)
-        date_start = loclDTStart.strftime('%Y-%m-%d')
+        localDTStart = utcDTStart.astimezone(local_tz)
+        date_start = localDTStart.strftime('%Y-%m-%d')
         utcDTEnd = utc_tz.localize(
             datetime.strptime(pr.date_end, '%Y-%m-%d %H:%M:%S'))
-        loclDTEnd = utcDTEnd.astimezone(local_tz)
-        date_end = loclDTEnd.strftime('%Y-%m-%d')
+        localDTEnd = utcDTEnd.astimezone(local_tz)
+        date_end = localDTEnd.strftime('%Y-%m-%d')
 
-        for dept in dept_pool.browse(cr, uid, data['department_ids'], context=context):
+        for dept in dept_pool.browse(
+            cr, uid, data['department_ids'], context=context
+        ):
             run_res = {
                 'name': dept.complete_name,
                 'date_start': pr.date_start,
@@ -86,20 +92,27 @@ class payroll_register_run(osv.osv_memory):
 
             slip_ids = []
             ee_ids = ee_pool.search(
-                cr, uid, [('department_id', '=', dept.id)], order="name", context=context)
+                cr, uid, [('department_id', '=', dept.id)],
+                order="name", context=context)
             for ee in ee_pool.browse(cr, uid, ee_ids, context=context):
-                slip_data = slip_pool.onchange_employee_id(cr, uid, [],
-                                                           date_start, date_end,
-                                                           ee.id, contract_id=False,
-                                                           context=context)
+                slip_data = slip_pool.onchange_employee_id(
+                    cr, uid, [],
+                    date_start, date_end,
+                    ee.id, contract_id=False,
+                    context=context)
                 res = {
                     'employee_id': ee.id,
                     'name': slip_data['value'].get('name', False),
                     'struct_id': slip_data['value'].get('struct_id', False),
-                    'contract_id': slip_data['value'].get('contract_id', False),
+                    'contract_id': slip_data['value'].get(
+                        'contract_id', False),
                     'payslip_run_id': run_id,
-                    'input_line_ids': [(0, 0, x) for x in slip_data['value'].get('input_line_ids', False)],
-                    'worked_days_line_ids': [(0, 0, x) for x in slip_data['value'].get('worked_days_line_ids', False)],
+                    'input_line_ids': [
+                        (0, 0, x) for x in slip_data['value'].get(
+                            'input_line_ids', False)],
+                    'worked_days_line_ids': [
+                        (0, 0, x) for x in slip_data['value'].get(
+                            'worked_days_line_ids', False)],
                     'date_from': pr.date_start,
                     'date_to': pr.date_end,
                 }

@@ -6,7 +6,7 @@
             <field name="name">hr.schedule.validate.departments.view</field>
             <field name="model">hr.schedule.validate.departments</field>
             <field name="arch" type="xml">
-                <form string="Departmet Selection">
+                <form string="Department Selection">
                     <group colspan="4" string="Departments">
                         <field name="department_ids" nolabel="1"/>
                     </group>

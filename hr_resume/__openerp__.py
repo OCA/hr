@@ -33,7 +33,7 @@
         "hr_experience",
         "hr_skill",
         "hr_language",
-        ],
+    ],
     'data': ['hr_resume_view.xml',
              'report/report_resume.xml',
              ],
@@ -43,5 +43,3 @@
     "auto_install": False,
     "images": [],
 }
-
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
