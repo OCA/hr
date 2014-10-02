@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hr_analytic_timesheet_activity,hr.analytic.timesheet.activity,model_hr_analytic_timesheet_activity,base.group_hr_manager,1,1,1,1
+access_hr_analytic_timesheet_activity_employee,hr.analytic.timesheet.activity.employee,model_hr_analytic_timesheet_activity,base.group_user,1,0,0,0
+access_account_analytic_activity_rel,account.analytic.activity.rel,model_account_analytic_activity_rel,base.group_hr_manager,1,1,1,1
