@@ -1,0 +1,3 @@
+David Dufresne <david.dufresne@savoirfairelinux.com>
+Pierre Lamarche <pierre.lamarche@savoirfairelinux.com>
+Savoir-faire Linux <contact@savoirfairelinux.com>

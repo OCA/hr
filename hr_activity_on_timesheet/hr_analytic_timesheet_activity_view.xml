@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="hr_analytic_timesheet_activity_form" model="ir.ui.view">
+            <field name="name">hr.analytic.timesheet.activity.form</field>
+            <field name="model">hr.analytic.timesheet.activity</field>
+            <field name="arch" type="xml">
+                <form string="Timesheet Activities">
+                    <field name="name"/>
+                    <field name="type" on_change="onchange_activity_type()"/>
+                    <field name="job_id" attrs="{'invisible': [('type', '!=', 'job')], 'required': [('type', '=', 'job')]}" domain="[('timesheet_activity_id', '=', 0)]"/>
+                    <field name="leave_id" attrs="{'invisible': [('type', '!=', 'leave')], 'required': [('type', '=', 'leave')]}" domain="[('timesheet_activity_id', '=', 0)]"/>
+                </form>
+            </field>
+        </record>
+        <record id="hr_analytic_timesheet_activity_tree" model="ir.ui.view">
+            <field name="name">hr.analytic.timesheet.activity.tree</field>
+            <field name="model">hr.analytic.timesheet.activity</field>
+            <field name="arch" type="xml">
+                <tree string="Timesheet Activities">
+                    <field name="name"/>
+                    <field name="type"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_hr_analytic_timesheet_activity_filter" model="ir.ui.view">
+            <field name="name">Timesheet Activity</field>
+            <field name="model">hr.analytic.timesheet.activity</field>
+            <field name="arch" type="xml">
+                <search string="Timesheet Activity">
+                    <field name="name" string="Timesheet Activity"/>
+                </search>
+             </field>
+        </record>
+
+        <record id="open_tree_timesheet_activity" model="ir.actions.act_window">
+            <field name="name">Timesheet Activities</field>
+            <field name="res_model">hr.analytic.timesheet.activity</field>
+            <field name="view_type">form</field>
+            <field name="search_view_id" ref="view_hr_analytic_timesheet_activity_filter"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to create a timesheet activity
+              </p>
+            </field>
+        </record>
+
+        <menuitem action="open_tree_timesheet_activity" id="menu_hr_analytic_timesheet_activity_tree" parent="hr.menu_hr_configuration" sequence="6"/>
+    </data>
+</openerp>
