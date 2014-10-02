@@ -26,7 +26,7 @@
     'category': 'Generic Modules/Human Resources',
     'description': """
 Worked Days From Timesheet
-====================
+==========================
 * Adds a button to import worked days from timesheet
 
 Contributors

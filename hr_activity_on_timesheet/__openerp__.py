@@ -26,7 +26,7 @@
     'category': 'Generic Modules/Human Resources',
     'description': """
 Activity on Timesheet
-====================
+=====================
 The aim of this module is to allow user to enter details on their timesheet to
 prepare correctly the payslip.
 
@@ -59,6 +59,7 @@ Contributors
         'analytic'
     ],
     'data': [
+        'security/ir.model.access.csv',
         'account_analytic_account_view.xml',
         'hr_analytic_timesheet_view.xml',
         'hr_analytic_timesheet_activity_view.xml',
