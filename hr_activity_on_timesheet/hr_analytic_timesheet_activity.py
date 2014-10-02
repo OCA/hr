@@ -86,8 +86,8 @@ class hr_analytic_timesheet_activity(orm.Model):
             'Activity Type',
             required=True,
         ),
-        #one2one relations are deprecated in openerp, so I create two many2one
-        #fields and put a unique sql constraint on both fields
+        # one2one relations are deprecated in openerp, so I create two many2one
+        # fields and put a unique sql constraint on both fields
         'job_id': fields.many2one(
             'hr.job',
             'Job',

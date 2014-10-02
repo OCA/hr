@@ -20,10 +20,10 @@
 ##############################################################################
 
 from . import (
-	hr_job,
-	hr_holiday_status,
-	hr_analytic_timesheet_activity,
-	hr_analytic_timesheet,
+    hr_job,
+    hr_holiday_status,
+    hr_analytic_timesheet_activity,
+    hr_analytic_timesheet,
     account_analytic_account,
     hr_payslip,
     hr_payslip_worked_days,

@@ -50,7 +50,7 @@ class hr_payslip(orm.Model):
         date_from = payslip.date_from
         date_to = payslip.date_to
 
-        #delete old imported worked_days
+        # delete old imported worked_days
         old_worked_days_ids = [
             wd.id for wd in payslip.worked_days_line_ids
             if wd.imported_from_timesheet
@@ -59,7 +59,7 @@ class hr_payslip(orm.Model):
             'hr.payslip.worked_days'
         ).unlink(cr, uid, old_worked_days_ids, context)
 
-        #get timesheet of employee and filter for the time interval
+        # get timesheet of employee and filter for the time interval
         timesheets = [
             ts for ts in employee.timesheet_sheet_ids
             if (
