@@ -23,26 +23,30 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-
 {
-    "name" : "Hr Payroll Cancel",
-    "version" : "1.0",
-    "author" : "Vauxoo",
-    "category" : "Localization/Mexico",
-    "description" : """
+    "name": "Hr Payroll Cancel", 
+    "version": "1.0", 
+    "author": "Vauxoo", 
+    "category": "Localization/Mexico", 
+    "description": """
     This module change the workflow from hr.payslip to can cancel after to confirm this
-    """,
-    "website" : "http://www.vauxoo.com/",
-    "license" : "AGPL-3",
-    "depends" : [
-        "hr_payroll",
-        ],
-    "data" : [
-        "hr_payslip_view.xml",
-        "hr_payslip_workflow.xml",
+    """, 
+    "website": "http://www.vauxoo.com/", 
+    "license": "AGPL-3", 
+    "depends": [
+        "hr_payroll"
+    ], 
+    "demo": [], 
+    "data": [
+        "hr_payslip_view.xml", 
+        "hr_payslip_workflow.xml", 
         "test/update_payroll_workflow.yml"
-        ],
-    "test": [],
-    "installable" : True,
-    "active" : False,
+    ], 
+    "test": [], 
+    "js": [], 
+    "css": [], 
+    "qweb": [], 
+    "installable": True, 
+    "auto_install": False
 }
+# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
