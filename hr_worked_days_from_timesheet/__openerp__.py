@@ -32,6 +32,7 @@ Worked Days From Timesheet
 Contributors
 ------------
 * David Dufresne <david.dufresne@savoirfairelinux.com>
+* Pierre Lamarche <pierre.lamarche@savoirfairelinux.com>
 """,
     'author': 'Savoir-faire Linux',
     'website': 'https://www.savoirfairelinux.com/',
