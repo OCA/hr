@@ -18,19 +18,33 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from openerp.osv import orm, osv
+from openerp.osv import orm
 from openerp.tools.translate import _
+from datetime import datetime
+from openerp.tools import DEFAULT_SERVER_DATE_FORMAT
 
 
 class hr_payslip(orm.Model):
     _name = 'hr.payslip'
     _inherit = 'hr.payslip'
 
-    def timesheet_mapping(self, timesheets, payslip, date_from, date_to):
+    def timesheet_mapping(
+        self, cr, uid,
+        timesheets,
+        payslip,
+        date_from,
+        date_to,
+        date_format,
+        context=None,
+    ):
         worked_days = {}
         for ts in timesheets:
+            date_from = datetime.strptime(
+                ts.date_from,
+                DEFAULT_SERVER_DATE_FORMAT
+            ).strftime(date_format)
             worked_days[ts.id] = {
-                'name': _('Timesheet ') + ' ' + ts.date_from,
+                'name': _('Timesheet ') + ' ' + date_from,
                 'number_of_hours': 0,
                 'contract_id': payslip.contract_id.id,
                 'code': 'TS',
@@ -43,12 +57,33 @@ class hr_payslip(orm.Model):
                     ] += act.unit_amount
         return worked_days
 
-    def import_worked_days(self, cr, uid, payslip_id, context=None):
-        payslip = self.browse(cr, uid, payslip_id)[0]
+    def import_worked_days(
+        self, cr, uid,
+        payslip_id,
+        context=None
+    ):
+
+        payslip = self.browse(cr, uid, payslip_id, context=context)[0]
         employee = payslip.employee_id
 
         date_from = payslip.date_from
         date_to = payslip.date_to
+
+        # get user date format
+        lang_pool = self.pool['res.lang']
+        user_pool = self.pool['res.users']
+        code = user_pool.context_get(cr, uid).get('lang', 'en_US')
+        lang_id = lang_pool.search(
+            cr, uid,
+            [('code', '=', code)],
+            context=context
+        )
+        date_format = lang_pool.read(
+            cr, uid,
+            lang_id,
+            ['date_format'],
+            context=context
+        )[0]['date_format']
 
         # delete old imported worked_days
         old_worked_days_ids = [
@@ -69,17 +104,20 @@ class hr_payslip(orm.Model):
             and ts.state == 'done'
         ]
         if not timesheets:
-            raise osv.except_osv(
+            raise orm.except_orm(
                 _("Warning"),
                 _("""\
 Sorry, but there is no approved Timesheets for the entire Payslip period"""),
             )
 
         worked_days = self.timesheet_mapping(
+            cr, uid,
             timesheets,
             payslip,
             date_from,
-            date_to
+            date_to,
+            date_format,
+            context=context,
         )
         worked_days = [(0, 0, wd) for key, wd in worked_days.items()]
 

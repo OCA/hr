@@ -38,6 +38,7 @@ Contributors
     'website': 'https://www.savoirfairelinux.com/',
     'depends': [
         'hr_payroll',
+        'hr_timesheet_sheet',
     ],
     'data': [
         'hr_payslip_view.xml'
