@@ -38,7 +38,12 @@ OOP questions, Communication skills, etc.
     """,
     'author': 'Tiny',
     'website': 'http://www.openerp.com',
-    'depends': ['base', 'hr', 'crm', 'smtpclient'],
+    'depends': [
+        'base',
+        'hr',
+        'crm',
+        # 'smtpclient'  # Non OCA module
+    ],
     'init_xml': [],
     'update_xml': [
         'hr_interview_view.xml',
