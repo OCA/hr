@@ -42,7 +42,9 @@ Contributors
     'data': [
         'hr_payslip_view.xml'
     ],
-    'test': [],
+    'test': [
+        'test/worked_days_from_timesheet_test.yml'
+    ],
     'demo': [],
     'installable': True,
 }
