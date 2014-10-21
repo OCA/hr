@@ -30,31 +30,40 @@ class hr_payslip(orm.Model):
 
     def timesheet_mapping(
         self, cr, uid,
-        timesheets,
+        timesheet_sheets,
         payslip,
         date_from,
         date_to,
         date_format,
         context=None,
     ):
+        """This function takes timesheet objects imported from the timesheet
+        module and creates a dict of worked days to be created in the payslip.
+        """
         worked_days = {}
-        for ts in timesheets:
+        # Create one worked days record for each timesheet sheet
+        for ts_sheet in timesheet_sheets:
+            # Get formated date from the timesheet sheet
             date_from = datetime.strptime(
-                ts.date_from,
+                ts_sheet.date_from,
                 DEFAULT_SERVER_DATE_FORMAT
             ).strftime(date_format)
-            worked_days[ts.id] = {
-                'name': _('Timesheet ') + ' ' + date_from,
+            # Create a worked days record with no time
+            worked_days[ts_sheet.id] = {
+                'name': _('Timesheet %s') % date_from,
                 'number_of_hours': 0,
                 'contract_id': payslip.contract_id.id,
                 'code': 'TS',
                 'imported_from_timesheet': True,
             }
-            for act in ts.timesheet_ids:
-                if date_from <= act.date <= date_to:
-                    worked_days[ts.id][
+            for ts in ts_sheet.timesheet_ids:
+                # The timesheet_sheet overlaps the payslip period,
+                # but this does not mean that every timesheet in it
+                # overlaps the payslip period.
+                if date_from <= ts.date <= date_to:
+                    worked_days[ts_sheet.id][
                         'number_of_hours'
-                    ] += act.unit_amount
+                    ] += ts.unit_amount
         return worked_days
 
     def import_worked_days(
@@ -62,7 +71,9 @@ class hr_payslip(orm.Model):
         payslip_id,
         context=None
     ):
-
+        """This method retreives the employee's timesheets for a payslip period
+        and creates worked days records from the imported timesheets
+        """
         payslip = self.browse(cr, uid, payslip_id, context=context)[0]
         employee = payslip.employee_id
 
@@ -85,34 +96,42 @@ class hr_payslip(orm.Model):
             context=context
         )[0]['date_format']
 
-        # delete old imported worked_days
+        # Delete old imported worked_days
+        # The reason to delete these records is that the user may make
+        # corrections to his timesheets and then reimport these.
         old_worked_days_ids = [
             wd.id for wd in payslip.worked_days_line_ids
+            # We only remove records that were imported from
+            # timesheets and not those manually entered.
             if wd.imported_from_timesheet
         ]
         self.pool.get(
             'hr.payslip.worked_days'
         ).unlink(cr, uid, old_worked_days_ids, context)
 
-        # get timesheet of employee and filter for the time interval
-        timesheets = [
-            ts for ts in employee.timesheet_sheet_ids
+        # get timesheet sheets of employee
+        timesheet_sheets = [
+            ts_sheet for ts_sheet in employee.timesheet_sheet_ids
             if (
-                date_from <= ts.date_from <= date_to or
-                date_from <= ts.date_to <= date_to
+                # We need only the timesheet sheets that overlap
+                # the payslip period.
+                date_from <= ts_sheet.date_from <= date_to or
+                date_from <= ts_sheet.date_to <= date_to
             )
-            and ts.state == 'done'
+            # We want only approved timesheets
+            and ts_sheet.state == 'done'
         ]
-        if not timesheets:
+        if not timesheet_sheets:
             raise orm.except_orm(
                 _("Warning"),
                 _("""\
 Sorry, but there is no approved Timesheets for the entire Payslip period"""),
             )
 
+        # The reason to call this method is for other modules to modify it.
         worked_days = self.timesheet_mapping(
             cr, uid,
-            timesheets,
+            timesheet_sheets,
             payslip,
             date_from,
             date_to,
