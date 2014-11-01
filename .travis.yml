@@ -7,6 +7,8 @@ env:
   - VERSION="8.0" ODOO_REPO="odoo/odoo"
   - VERSION="8.0" ODOO_REPO="OCA/OCB"
 
+virtualenv:
+  system_site_packages: true
 
 install:
   - git clone https://github.com/OCA/maintainer-quality-tools.git ${HOME}/maintainer-quality-tools
@@ -20,7 +22,7 @@ install:
   #- pushd /tmp/aeroolib/aeroolib; sudo python setup.py install; popd
 
 script:
-    - travis_run_tests
+    - travis_run_tests ${VERSION}
 
 after_success:
   coveralls
