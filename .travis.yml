@@ -6,6 +6,7 @@ python:
 env:
   - VERSION="8.0" ODOO_REPO="odoo/odoo"
   - VERSION="8.0" ODOO_REPO="OCA/OCB"
+  - VERSION="8.0" ODOO_REPO="odoo/odoo" UNIT_TEST="1"
 
 virtualenv:
   system_site_packages: true
@@ -22,7 +23,7 @@ install:
   #- pushd /tmp/aeroolib/aeroolib; sudo python setup.py install; popd
 
 script:
-    - travis_run_tests ${VERSION}
+    - travis_run_tests
 
 after_success:
   coveralls
