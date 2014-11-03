@@ -6,7 +6,10 @@ python:
 env:
   - VERSION="8.0" ODOO_REPO="odoo/odoo"
   - VERSION="8.0" ODOO_REPO="OCA/OCB"
+  - VERSION="8.0" ODOO_REPO="odoo/odoo" UNIT_TEST="1"
 
+virtualenv:
+  system_site_packages: true
 
 install:
   - git clone https://github.com/OCA/maintainer-quality-tools.git ${HOME}/maintainer-quality-tools
