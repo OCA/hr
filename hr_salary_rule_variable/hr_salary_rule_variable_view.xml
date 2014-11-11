@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="hr_salary_rule_variable_form" model="ir.ui.view">
+            <field name="name">hr.salary.rule.variable.form</field>
+            <field name="model">hr.salary.rule.variable</field>
+            <field name="arch" type="xml">
+                <form string="Salary Rule Variables">
+                    <group col="2">
+                        <field name="salary_rule_id"/>
+                        <field name="date_from"/>
+                        <field name="date_to"/>
+                        <field name="type"/>
+                        <field name="fixed_amount" attrs="{'required': [('type', '=', 'fixed')], 'invisible': [('type', '!=', 'fixed')]}"/>
+                        <field name="python_code" attrs="{'required': [('type', '=', 'python')], 'invisible': [('type', '!=', 'python')]}"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="hr_salary_rule_variable_list" model="ir.ui.view">
+          <field name="name">hr.salary.rule.variable.tree</field>
+            <field name="model">hr.salary.rule.variable</field>
+            <field name="arch" type="xml">
+                <tree string="Salary Rule Variables">
+                    <field name="salary_rule_id"/>
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                    <field name="type"/>
+                    <field name="fixed_amount"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_hr_salary_rule_variable_filter" model="ir.ui.view">
+            <field name="name">hr.salary.rule.variable.select</field>
+            <field name="model">hr.salary.rule.variable</field>
+            <field name="arch" type="xml">
+                <search string="Search Salary Rule Variables">
+                    <field name="salary_rule_id" string="Salary Rule Variables" filter_domain="[('salary_rule_id','ilike',self)]"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_hr_salary_rule_variable_list" model="ir.actions.act_window">
+            <field name="name">Salary Rule Variables</field>
+            <field name="res_model">hr.salary.rule.variable</field>
+            <field name="view_type">form</field>
+            <field name="view_id" ref="hr_salary_rule_variable_list"/>
+            <field name="search_view_id" ref="view_hr_salary_rule_variable_filter"/>
+        </record>
+
+        <menuitem id="menu_action_hr_salary_rule_variable_list" action="action_hr_salary_rule_variable_list" parent="hr_payroll.payroll_configure" sequence="17"/>
+
+    </data>
+</openerp>
