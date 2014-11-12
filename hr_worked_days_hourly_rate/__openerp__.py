@@ -24,7 +24,7 @@
     'license': 'AGPL-3',
     'category': 'Generic Modules/Human Resources',
     'description': """
-Wroked Days Hourly Rate
+Worked Days Hourly Rate
 =======================
  * Adds hourly rate field on worked days
 
