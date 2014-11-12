@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+        <record id="activity_holiday_status_cl" model="hr.activity">
+            <field name="type">leave</field>
+            <field name="code">LEGAL</field>
+            <field name="leave_id" ref="hr_holidays.holiday_status_cl"/>
+        </record>
+ 
+        <record id="activity_holiday_status_sl" model="hr.activity">
+            <field name="type">leave</field>
+            <field name="code">SL</field>
+            <field name="leave_id" ref="hr_holidays.holiday_status_sl"/>
+        </record>
+
+        <record id="activity_holiday_status_comp" model="hr.activity">
+            <field name="type">leave</field>
+            <field name="code">COMP</field>
+            <field name="leave_id" ref="hr_holidays.holiday_status_comp"/>
+        </record>
+
+        <record id="activity_holiday_status_unpaid" model="hr.activity">
+            <field name="type">leave</field>
+            <field name="code">UNPAID</field>
+            <field name="leave_id" ref="hr_holidays.holiday_status_unpaid"/>
+        </record>
+
+        <record id="activity_holiday_status_vacation" model="hr.activity">
+            <field name="type">leave</field>
+            <field name="code">VAC</field>
+            <field name="leave_id" ref="holiday_status_vacation"/>
+        </record>
+    </data>
+</openerp>
