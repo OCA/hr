@@ -20,7 +20,6 @@
 
 {
     'name': 'Activity',
-    'category': 'Localization',
     'version': '1.0',
     'license': 'AGPL-3',
     'category': 'Generic Modules/Human Resources',
@@ -52,15 +51,14 @@ Contributors
     'author': 'Savoir-faire Linux',
     'website': 'https://www.savoirfairelinux.com/',
     'depends': [
-        'hr',
         'hr_holidays',
     ],
     'data': [
         'security/ir.model.access.csv',
-        'hr_holiday_status_view.xml',
-        'hr_holiday_status_data.xml',
-        'hr_activity_view.xml',
-        'hr_activity_data.xml',
+        'data/hr_holiday_status_data.xml',
+        'data/hr_activity_data.xml',
+        'view/hr_holiday_status_view.xml',
+        'view/hr_activity_view.xml',
     ],
     'test': [],
     'demo': [],

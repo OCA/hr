@@ -7,9 +7,26 @@
             <field name="arch" type="xml">
                 <form string="Activities">
                     <field name="name"/>
-                    <field name="type" on_change="onchange_activity_type()"/>
-                    <field name="job_id" attrs="{'invisible': [('type', '!=', 'job')], 'required': [('type', '=', 'job')]}" domain="[('activity_ids', '=', 0)]"/>
-                    <field name="leave_id" attrs="{'invisible': [('type', '!=', 'leave')], 'required': [('type', '=', 'leave')]}" domain="[('activity_ids', '=', 0)]"/>
+                    <field
+                        name="type"
+                        on_change="onchange_activity_type()"
+                    />
+                    <field 
+                        name="job_id"
+                        attrs="{
+                            'invisible': [('type', '!=', 'job')],
+                            'required': [('type', '=', 'job')],
+                        }"
+                        domain="[('activity_ids', '=', 0)]"
+                    />
+                    <field 
+                        name="leave_id"
+                        attrs="{
+                            'invisible': [('type', '!=', 'leave')],
+                            'required': [('type', '=', 'leave')]
+                        }"
+                        domain="[('activity_ids', '=', 0)]"
+                    />
                     <field name="code"/>
                 </form>
             </field>
@@ -43,6 +60,11 @@
             <field name="search_view_id" ref="view_hr_activity_filter"/>
         </record>
 
-        <menuitem action="open_tree_activity" id="menu_hr_activity_tree" parent="hr.menu_hr_configuration" sequence="12"/>
+        <menuitem
+            action="open_tree_activity"
+            id="menu_hr_activity_tree"
+            parent="hr.menu_hr_configuration"
+            sequence="12"
+        />
     </data>
 </openerp>
