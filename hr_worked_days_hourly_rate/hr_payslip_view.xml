@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+         <record id="view_hr_payslip_form" model="ir.ui.view">
+            <field name="name">hr.payslip.form</field>
+            <field name="model">hr.payslip</field>
+            <field name="inherit_id" ref="hr_payroll.view_hr_payslip_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='worked_days_line_ids']//field[@name='name']" position="replace">
+                    <field
+                        name="date"
+                        attrs="{'required': [('number_of_hours', '>', 0)]}"
+                    />
+                    <field name="name"/>
+                </xpath>
+
+                <xpath expr="//field[@name='worked_days_line_ids']//field[@name='number_of_hours']" position="replace">
+                    <field name="number_of_hours"/>
+                    <field
+                        name="hourly_rate"
+                        attrs="{'required': [('number_of_hours', '>', 0)]}"
+                    />
+                </xpath>
+
+            </field>
+        </record>
+    </data>
+</openerp>
