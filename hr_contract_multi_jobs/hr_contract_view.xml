@@ -7,7 +7,9 @@
             <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
             <field name="arch" type="xml">
 
-                <field name="job_id" position="replace"/>
+                <field name="job_id" position="replace">
+                    <field name="job_id" invisible="1"/>
+                </field>
 
                 <field name="wage" position="after">
                     <label for="contract_job_ids" string="Job Positions" colspan="2"/>
