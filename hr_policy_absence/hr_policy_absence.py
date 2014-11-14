@@ -58,7 +58,7 @@ class policy_absence(orm.Model):
         [res.append((line.code, line.name))
          for line in self.browse(
             cr, uid, idx, context=context
-            ).line_ids if line.type == 'unpaid']
+        ).line_ids if line.type == 'unpaid']
         return res
 
 

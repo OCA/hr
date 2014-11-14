@@ -30,6 +30,7 @@ from openerp.osv import fields, orm
 
 
 class last_X_days:
+
     """Last X Days
     Keeps track of the days an employee worked/didn't work in the last
     X days.
@@ -301,9 +302,9 @@ class hr_payslip(orm.Model):
                 'code': leave.holiday_status_id.code,
                 'tz': tz,
                 'start': utc.localize(datetime.strptime(leave.date_from,
-                                      OE_DATETIMEFORMAT)),
+                                                        OE_DATETIMEFORMAT)),
                 'end': utc.localize(datetime.strptime(leave.date_to,
-                                    OE_DATETIMEFORMAT))
+                                                      OE_DATETIMEFORMAT))
             })
 
         return res
@@ -966,6 +967,7 @@ class hr_payslip(orm.Model):
                 return attr in self.dict and self.dict.__getitem__(attr) or 0.0
 
         class InputLine(BrowsableObject):
+
             """a class that will be used into the python code, mainly
             for usability purposes
             """
@@ -986,6 +988,7 @@ WHERE hp.employee_id = %s
                 return res or 0.0
 
         class WorkedDays(BrowsableObject):
+
             """a class that will be used into the python code, mainly
             for usability purposes
             """
@@ -1014,6 +1017,7 @@ WHERE hp.employee_id = %s
                 return res and res[1] or 0.0
 
         class Payslips(BrowsableObject):
+
             """a class that will be used into the python code, mainly
             for usability purposes
             """

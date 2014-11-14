@@ -71,7 +71,7 @@ class Parser(report_sxw.rml_parse):
                 '|',
                 ('department_id.id', '=', department_id),
                 ('saved_department_id.id', '=', department_id)
-                ])
+            ])
         ees = ee_obj.browse(self.cr, self.uid, ee_ids)
         return ees
 
@@ -88,7 +88,7 @@ class Parser(report_sxw.rml_parse):
                 '|',
                 ('department_id.id', '=', department_id),
                 ('saved_department_id.id', '=', department_id)
-                ])
+            ])
         for ee in ee_obj.browse(self.cr, self.uid, ee_ids):
             datas = []
             for c in ee.contract_ids:
