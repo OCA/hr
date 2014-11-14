@@ -1,0 +1,190 @@
+-
+  First we create a user
+-
+  !record {model: res.users, id: user_1}:
+    name: User 1
+    login: test
+    password: test
+-
+  We create a company
+-
+  !record {model: res.company, id: company_1}:
+    name: Company 1
+-
+  We create a second company
+-
+  !record {model: res.company, id: company_2}:
+    name: Company 2
+-
+  Create an employee
+-
+  !record {model: hr.employee, id: employee_1}:
+    name: Employee 1
+    user_id: user_1
+-
+  Create an second employee
+-
+  !record {model: hr.employee, id: employee_2}:
+    name: Employee 2
+    user_id: user_1
+-
+  Create an third employee
+-
+  !record {model: hr.employee, id: employee_3}:
+    name: Employee 3
+    user_id: user_1
+-
+  Create a contract
+-
+  !record {model: hr.contract, id: contract_1}:
+    name: Contract 1
+    employee_id: employee_1
+    wage: 50000
+    struct_id: hr_payroll.structure_base
+-
+  Create a second contract
+-
+  !record {model: hr.contract, id: contract_2}:
+    name: Contract 2
+    employee_id: employee_2
+    wage: 70000
+    struct_id: hr_payroll.structure_base
+-
+  Create a third contract
+-
+  !record {model: hr.contract, id: contract_3}:
+    name: Contract 3
+    employee_id: employee_3
+    wage: 90000
+    struct_id: hr_payroll.structure_base
+-
+  Create a payslip
+-
+  !record {model: hr.payslip, id: payslip_1}:
+    employee_id: employee_1
+    contract_id: contract_1
+    date_from: '2014-01-01'
+    date_to: '2014-01-31'
+    struct_id: hr_payroll.structure_base
+    company_id: company_1
+-
+  Create a second payslip
+-
+  !record {model: hr.payslip, id: payslip_2}:
+    employee_id: employee_2
+    contract_id: contract_2
+    date_from: '2014-02-01'
+    date_to: '2014-02-28'
+    struct_id: hr_payroll.structure_base
+    company_id: company_1
+-
+  Create a third payslip
+-
+  !record {model: hr.payslip, id: payslip_3}:
+    employee_id: employee_3
+    contract_id: contract_3
+    date_from: '2014-01-01'
+    date_to: '2014-01-31'
+    struct_id: hr_payroll.structure_base
+    company_id: company_1
+-
+  Create a fourth payslip
+-
+  !record {model: hr.payslip, id: payslip_4}:
+    employee_id: employee_3
+    contract_id: contract_3
+    date_from: '2014-01-01'
+    date_to: '2014-01-31'
+    struct_id: hr_payroll.structure_base
+    company_id: company_2
+-
+  Create a fifth payslip
+-
+  !record {model: hr.payslip, id: payslip_5}:
+    employee_id: employee_1
+    contract_id: contract_1
+    date_from: '2014-01-01'
+    date_to: '2014-01-31'
+    struct_id: hr_payroll.structure_base
+    company_id: company_1
+-
+  Compute the payslips
+-
+  !python {model: hr.payslip}: |
+    self.compute_sheet(
+      cr, uid,
+      [
+        ref('payslip_1'), ref('payslip_2'),
+        ref('payslip_3'), ref('payslip_4'),
+        ref('payslip_5'),
+      ]
+    )
+    self.write(
+      cr, uid,
+      [
+        ref('payslip_1'), ref('payslip_2'),
+        ref('payslip_3'), ref('payslip_4'),
+      ],
+      {'state': 'done'}
+    )
+-
+  Create a salary rule
+-
+  !record {model: hr.salary.rule, id: rule_1}:
+    name: Contribution over Basic
+    sequence: 1
+    code: RULE_1
+    category_id: hr_payroll.BASIC
+    condition_select: none
+    amount_select: code
+    amount_python_compute: |
+      result = payslip.sum('BASIC', '2014-01-01', '2014-01-31')
+      result = result * 0.05
+-
+  Create a structure
+-
+  !record {model: hr.payroll.structure, id: structure_1}:
+    name: Contribution over Basic Structure
+    code: STRUCT_1
+    rule_ids:
+     - rule_1
+-
+  Create a wage bill contribution
+-
+  !record {model: hr.wage.bill.contribution, id: contribution_1}:
+    date_from: '2014-01-01'
+    date_to: '2014-01-31'
+    struct_id: structure_1
+    company_id: company_1
+-
+  Compute the contribution and check the amount computed
+-
+  !python {model: hr.wage.bill.contribution}: |
+    # Yaml does not seem to allow making a field null on creation
+    # so need to remove the default value for parent_id field
+    # on created structure
+    self.pool['hr.payroll.structure'].write(
+      cr, uid, [ref('structure_1')],
+      {'parent_id': False}
+    )
+
+    # Compute and approve the contribution
+    self.compute_sheet(
+      cr, uid, [ref('contribution_1')]
+    )
+    self.write(
+      cr, uid, [ref('contribution_1')],
+      {'state': 'done'}
+    )
+
+    contribution = self.browse(cr, uid, ref('contribution_1'))
+
+    # Only one line should be computed
+    assert(len(contribution.line_ids) == 1)
+
+    # The total of that line must equal (50k + 90k) * 0.05 == 7000
+    # The payslips 1 and 3 are summed
+    # Payslip 2 does not match the contribution dates
+    # Payslip 4 does not match the contribution company
+    # Payslip 5 is draft
+    assert(contribution.line_ids[0].total == 7000)
