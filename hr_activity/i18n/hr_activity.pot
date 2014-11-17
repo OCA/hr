@@ -38,11 +38,6 @@ msgid "Activity Type"
 msgstr ""
 
 #. module: hr_activity
-#: help:hr.holidays.status,paid_leave:0
-msgid "Whether this leave is paid or not"
-msgstr ""
-
-#. module: hr_activity
 #: view:hr.holidays.status:0
 msgid "Payroll"
 msgstr ""
@@ -94,9 +89,3 @@ msgstr ""
 #: selection:hr.activity,type:0
 msgid "Leave"
 msgstr ""
-
-#. module: hr_activity
-#: field:hr.holidays.status,paid_leave:0
-msgid "Is Paid Leave"
-msgstr ""
-
