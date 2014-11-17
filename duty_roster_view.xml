@@ -23,6 +23,7 @@
                             <group>
                                 <field name="month" attrs="{'readonly': [('state', 'not in', ['new'])]}" on_change="onchange_month_year(month, year, shifts)"></field>
                                 <field name="year"  attrs="{'readonly': [('state', 'not in', ['new'])]}" on_change="onchange_month_year(month, year, shifts)"></field>
+                                <!-- 'days' is a control field, used to set which day to readonly in response to month/year values. -->
                                 <field name="days" invisible="1"></field>
                             </group>
                         </group>
@@ -34,6 +35,7 @@
                                 <field name="shifts" attrs="{'readonly': [('state', 'in', ['pending', 'approved'])]}" context="{'duty_roster_id': active_id, 'days': days}">
                                     <tree string="Shifts" editable="bottom" class="shift_day_list">
                                         <field name="employee_id" required="1" domain="[('department_id', 'child_of', parent.main_department_id)]" widget="employees_filter"></field>
+                                        <!-- When month/year changes, they will trigger on_change_month_year action and set this 'days'. In turn, it will affect the number of days that can be edited. -->
                                         <field name="days" string="D" readonly="1" invisible="1"/>
                                         <field name="day_1" widget="shift_day" string="1" required="1" class="day"></field>
                                         <field name="day_2" widget="shift_day" string="2" required="1" class="day"></field>
