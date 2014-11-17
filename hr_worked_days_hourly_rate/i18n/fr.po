@@ -17,9 +17,14 @@ msgstr ""
 "X-Generator: Poedit 1.5.4\n"
 
 #. module: hr_worked_days_hourly_rate
-#: field:hr.payslip.worked_days,date:0
-msgid "Date"
-msgstr "Date"
+#: field:hr.payslip.worked_days,date_from:0
+msgid "Date From"
+msgstr "Date de début"
+
+#. module: hr_worked_days_hourly_rate
+#: field:hr.payslip.worked_days,date_to:0
+msgid "Date de fin"
+msgstr ""
 
 #. module: hr_worked_days_hourly_rate
 #: model:ir.model,name:hr_worked_days_hourly_rate.model_hr_payslip

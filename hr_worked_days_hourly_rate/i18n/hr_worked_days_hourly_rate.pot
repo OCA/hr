@@ -16,8 +16,13 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: hr_worked_days_hourly_rate
-#: field:hr.payslip.worked_days,date:0
-msgid "Date"
+#: field:hr.payslip.worked_days,date_from:0
+msgid "Date From"
+msgstr ""
+
+#. module: hr_worked_days_hourly_rate
+#: field:hr.payslip.worked_days,date_to:0
+msgid "Date To"
 msgstr ""
 
 #. module: hr_worked_days_hourly_rate

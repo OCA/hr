@@ -21,11 +21,9 @@
 
 from openerp.osv import fields, orm
 from datetime import datetime
-strptime = datetime.strptime
 
 
 class hr_payslip_worked_days(orm.Model):
-    _name = 'hr.payslip.worked_days'
     _inherit = 'hr.payslip.worked_days'
     _columns = {
         'hourly_rate': fields.float('Hourly Rate'),
@@ -33,9 +31,11 @@ class hr_payslip_worked_days(orm.Model):
         # When a worked day has a number of hours and an hourly rate,
         # it is necessary to have a date, because hourly rates are likely to
         # change over the time.
-        'date': fields.date('Date'),
+        'date_from': fields.date('Date From'),
+        'date_to': fields.date('Date To'),
     }
     _defaults = {
         'hourly_rate': 0.0,
-        'date': lambda *a: datetime.strftime(datetime.now(), "%Y-%m-%d"),
+        'date_from': lambda *a: datetime.strftime(datetime.now(), "%Y-%m-%d"),
+        'date_to': lambda *a: datetime.strftime(datetime.now(), "%Y-%m-%d"),
     }

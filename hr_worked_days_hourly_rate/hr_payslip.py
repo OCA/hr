@@ -23,7 +23,6 @@ from openerp.osv import orm
 
 
 class hr_payslip(orm.Model):
-    _name = 'hr.payslip'
     _inherit = 'hr.payslip'
 
     def sum_hourly_rates(
@@ -34,10 +33,10 @@ class hr_payslip(orm.Model):
         """
         This function is intended to be called by salary rules.
 
-        payslip: a Payslip Browsable Object which is different from a
+        :param payslip: a Payslip Browsable Object which is different from a
         browse record
 
-        Returns the gross salary based on worked hours
+        :return the sum of hours proportionally sized
         """
         res = 0
 

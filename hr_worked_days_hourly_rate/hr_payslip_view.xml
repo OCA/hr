@@ -8,7 +8,11 @@
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='worked_days_line_ids']//field[@name='name']" position="replace">
                     <field
-                        name="date"
+                        name="date_from"
+                        attrs="{'required': [('number_of_hours', '>', 0)]}"
+                    />
+                    <field
+                        name="date_to"
                         attrs="{'required': [('number_of_hours', '>', 0)]}"
                     />
                     <field name="name"/>
