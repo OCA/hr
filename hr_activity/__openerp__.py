@@ -33,15 +33,13 @@ Adds the "Activity" model. An activity is whether a job or a leave type.
 It is meant to be used in both timesheet and payroll modules but for different
 reasons.
     - Timesheet: Used when one employee may have different jobs (or task) in
-        the same company witch imply different cost prices. In his timesheet,
+        the same company which imply different cost prices. In his timesheet,
         he can enter the time he spent for every job or leave type.
 
     - Payroll: Used in worked days to identify if a worked days line is
         a normal worked day, a vacation day, a sick leave...
 
 Adds the vacation leave type.
-
-Adds the paid_leave boolean field on leave types (used on payslips)
 
 Contributors
 ------------
@@ -57,7 +55,6 @@ Contributors
         'security/ir.model.access.csv',
         'data/hr_holiday_status_data.xml',
         'data/hr_activity_data.xml',
-        'view/hr_holiday_status_view.xml',
         'view/hr_activity_view.xml',
     ],
     'test': [],

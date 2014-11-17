@@ -23,17 +23,12 @@ from openerp.osv import fields, orm
 
 
 class hr_holidays_status(orm.Model):
-    _name = 'hr.holidays.status'
     _inherit = 'hr.holidays.status'
     _columns = {
         'activity_ids': fields.one2many(
             'hr.activity',
             'leave_id',
             'Activity',
-        ),
-        'paid_leave': fields.boolean(
-            'Is Paid Leave',
-            help="Whether this leave is paid or not",
         ),
     }
     _defaults = {
