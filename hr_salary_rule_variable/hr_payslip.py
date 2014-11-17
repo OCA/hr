@@ -25,7 +25,6 @@ from openerp.tools.translate import _
 
 
 class hr_payslip(orm.Model):
-    _name = 'hr.payslip'
     _inherit = 'hr.payslip'
 
     def get_rule_variable(

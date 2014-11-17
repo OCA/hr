@@ -23,7 +23,6 @@ from openerp.osv import fields, orm
 
 
 class hr_salary_rule(orm.Model):
-    _name = 'hr.salary.rule'
     _inherit = 'hr.salary.rule'
     _columns = {
         'variable_ids': fields.one2many(
