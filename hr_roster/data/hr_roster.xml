@@ -1,0 +1,19 @@
+<openerp>
+    <data>
+        <record id="hr_roster.mt_submitted" model="mail.message.subtype">
+            <field name="name">Submitted</field>
+            <field name="res_model">hr.duty_roster</field>
+            <field name="default" eval="False"/>
+        </record>
+        <record id="hr_roster.mt_approved" model="mail.message.subtype">
+            <field name="name">Approved</field>
+            <field name="res_model">hr.duty_roster</field>
+            <field name="default" eval="False"/>
+        </record>
+        <record id="hr_roster.mt_rejected" model="mail.message.subtype">
+            <field name="name">Rejected</field>
+            <field name="res_model">hr.duty_roster</field>
+            <field name="default" eval="False"/>
+        </record>
+    </data>
+</openerp>

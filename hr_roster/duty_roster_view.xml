@@ -1,0 +1,158 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <record id="view_duty_roster" model="ir.ui.view">
+            <field name="model">hr.duty_roster</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Duty Roster" version="7.0">
+                    <header>
+                        <button name="confirm" string="Submit" class="oe_highlight" attrs="{'invisible': ['|', ('state', 'not in', ['draft']), ('shifts', '=', [])]}" groups="base.group_hr_user"></button>
+                        <button name="resubmit" string="Resubmit" class="oe_highlight" attrs="{'invisible': ['|', ('state', 'not in', ['rejected']), ('shifts', '=', [])]}" groups="base.group_hr_user"></button>
+                        <button name="approved" string="Approve" class="oe_highlight" attrs="{'invisible': [('state', 'not in', ['pending'])]}" groups="base.group_hr_manager"></button>
+                        <button name="rejected" string="Reject" class="oe_highlight" attrs="{'invisible': [('state', 'not in', ['pending'])]}" groups="base.group_hr_manager"></button>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,pending,approved"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="main_department_id" readonly="1" invisible="1"></field>
+                                <field name="department_id" attrs="{'readonly': [('state', 'not in', ['new'])]}" domain="[('manager_id.user_id', '=', uid)]" context="{'default_manager_id': uid}"></field>
+                                <field name="name" attrs="{'readonly': [('state', 'not in', ['new'])]}"></field>
+                            </group>
+                            <group>
+                                <field name="month" attrs="{'readonly': [('state', 'not in', ['new'])]}" on_change="onchange_month_year(month, year, shifts)"></field>
+                                <field name="year"  attrs="{'readonly': [('state', 'not in', ['new'])]}" on_change="onchange_month_year(month, year, shifts)"></field>
+                                <!-- 'days' is a control field, used to set which day to readonly in response to month/year values. -->
+                                <field name="days" invisible="1"></field>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="remarks" placeholder="Remarks..." attrs="{'readonly': [('state', 'in', ['approved'])]}"></field>
+                        </group>
+                        <notebook>
+                            <page string="Shifts">
+                                <field name="shifts" attrs="{'readonly': [('state', 'in', ['pending', 'approved'])]}" context="{'duty_roster_id': active_id, 'days': days}">
+                                    <tree string="Shifts" editable="bottom" class="shift_day_list">
+                                        <field name="employee_id" required="1" domain="[('department_id', 'child_of', parent.main_department_id)]" widget="employees_filter"></field>
+                                        <!-- When month/year changes, they will trigger on_change_month_year action and set this 'days'. In turn, it will affect the number of days that can be edited. -->
+                                        <field name="days" string="D" readonly="1" invisible="1"/>
+                                        <field name="day_1" widget="shift_day" string="1" required="1" class="day"></field>
+                                        <field name="day_2" widget="shift_day" string="2" required="1" class="day"></field>
+                                        <field name="day_3" widget="shift_day" string="3" required="1" class="day"></field>
+                                        <field name="day_4" widget="shift_day" string="4" required="1" class="day"></field>
+                                        <field name="day_5" widget="shift_day" string="5" required="1" class="day"></field>
+                                        <field name="day_6" widget="shift_day" string="6" required="1" class="day"></field>
+                                        <field name="day_7" widget="shift_day" string="7" required="1" class="day"></field>
+                                        <field name="day_8" widget="shift_day" string="8" required="1" class="day"></field>
+                                        <field name="day_9" widget="shift_day" string="9" required="1" class="day"></field>
+                                        <field name="day_10" widget="shift_day" string="10" required="1" class="day"></field>
+                                        <field name="day_11" widget="shift_day" string="11" required="1" class="day"></field>
+                                        <field name="day_12" widget="shift_day" string="12" required="1" class="day"></field>
+                                        <field name="day_13" widget="shift_day" string="13" required="1" class="day"></field>
+                                        <field name="day_14" widget="shift_day" string="14" required="1" class="day"></field>
+                                        <field name="day_15" widget="shift_day" string="15" required="1" class="day"></field>
+                                        <field name="day_16" widget="shift_day" string="16" required="1" class="day"></field>
+                                        <field name="day_17" widget="shift_day" string="17" required="1" class="day"></field>
+                                        <field name="day_18" widget="shift_day" string="18" required="1" class="day"></field>
+                                        <field name="day_19" widget="shift_day" string="19" required="1" class="day"></field>
+                                        <field name="day_20" widget="shift_day" string="20" required="1" class="day"></field>
+                                        <field name="day_21" widget="shift_day" string="21" required="1" class="day"></field>
+                                        <field name="day_22" widget="shift_day" string="22" required="1" class="day"></field>
+                                        <field name="day_23" widget="shift_day" string="23" required="1" class="day"></field>
+                                        <field name="day_24" widget="shift_day" string="24" required="1" class="day"></field>
+                                        <field name="day_25" widget="shift_day" string="25" required="1" class="day"></field>
+                                        <field name="day_26" widget="shift_day" string="26" required="1" class="day"></field>
+                                        <field name="day_27" widget="shift_day" string="27" required="1" class="day"></field>
+                                        <field name="day_28" widget="shift_day" string="28" required="1" class="day"></field>
+                                        <field name="day_29" widget="shift_day" string="29" attrs="{'required': [('days', '>=', 29)], 'readonly': [('days', '&lt;', '29')]}" class="day"></field>
+                                        <field name="day_30" widget="shift_day" string="30" attrs="{'required': [('days', '>=', 30)], 'readonly': [('days', '&lt;', '30')]}" class="day"></field>
+                                        <field name="day_31" widget="shift_day" string="31" attrs="{'required': [('days', '>=', 31)], 'readonly': [('days', '&lt;', '31')]}" class="day"></field>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                        <group>
+                            <widget type="datepicker"></widget>
+                            <widget type="shiftcodeall"></widget>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_duty_roster_tree" model="ir.ui.view">
+            <field name="model">hr.duty_roster</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Duty Rosters">
+                    <field name="department_id"></field>
+                    <field name="name"></field>
+                    <field name="year"></field>
+                    <field name="month"></field>
+                    <field name="state"></field>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_hr_shift_code_tree" model="ir.ui.view">
+            <field name="model">hr.shift_code</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Shift Codes">
+                    <field name="code"></field>
+                    <field name="time_in" widget="time"></field>
+                    <field name="time_out" widget="time"></field>
+                    <field name="duration" widget="duration_mins"></field>
+                    <field name="break"></field>
+                    <field name="description"></field>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_hr_shift_code" model="ir.ui.view">
+            <field name="model">hr.shift_code</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Shift Code" version="7.0">
+                    <sheet>
+                        <group col="4">
+                            <group name="info">
+                                <field name="code"></field>
+                                <field name="description" widget="text"></field>
+                            </group>
+                            <group name="time">
+                                <field name="time_in" widget="timepicker" on_change="onchange_time(time_in, time_out)"></field>
+                                <field name="time_out" widget="timepicker" on_change="onchange_time(time_in, time_out)"></field>
+                                <field name="duration" readonly="1" widget="duration_mins"></field>
+                                <field name="break" widget="timepicker"></field>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_hr_shift_code">
+            <field name="name">Shift Code</field>
+            <field name="res_model">hr.shift_code</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_duty_roster">
+            <field name="name">Duty Roster</field>
+            <field name="res_model">hr.duty_roster</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="menu_duty_roster_root" name="Duty Rosters" action="" parent="hr.menu_hr_root" groups="base.group_user"></menuitem>
+        <menuitem id="menu_shift_code" name="Shift Codes" sequence="20" action="action_hr_shift_code" parent="menu_duty_roster_root" groups="base.group_hr_manager"></menuitem>
+        <menuitem id="menu_duty_roster" name="Duty Rosters" sequence="10" action="action_duty_roster" parent="menu_duty_roster_root" groups="base.group_hr_user,base.group_hr_manager"></menuitem>
+    </data>
+</openerp>
