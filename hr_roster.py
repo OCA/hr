@@ -23,7 +23,8 @@ class hr_duty_roster_shift(osv.Model):
     _name = 'hr.duty_roster_shift'
 
     def default_get(self, cr, uid, fields, context=None):
-        defs = super(hr_duty_roster_shift, self).default_get(cr, uid, fields, context)
+        defs = super(hr_duty_roster_shift, self).default_get(
+            cr, uid, fields, context)
         defs['days'] = context.get('days', 0)
         return defs
 
@@ -73,7 +74,8 @@ class hr_duty_roster_shift(osv.Model):
         'day_29': fields.selection(_get_shift_codes, string='Day 29', size=1),
         'day_30': fields.selection(_get_shift_codes, string='Day 30', size=1),
         'day_31': fields.selection(_get_shift_codes, string='Day 31', size=1),
-        'days': fields.related('duty_roster_id', 'days', type='integer', readonly=True),
+        'days': fields.related(
+            'duty_roster_id', 'days', type='integer', readonly=True),
     }
 
     _sql_constraints = [
@@ -102,9 +104,17 @@ class hr_duty_roster(osv.Model):
             'month': month,
             'year': year,
         })
-        return super(hr_duty_roster, self).copy(cr, uid, id, default=default, context=context)
+        return super(hr_duty_roster, self).copy(
+            cr, uid, id, default=default, context=context)
 
-    def onchange_month_year(self, cr, uid, ids, month, year, shifts, context=None):
+    def onchange_month_year(self,
+                            cr,
+                            uid,
+                            ids,
+                            month,
+                            year,
+                            shifts,
+                            context=None):
         days = calendar.monthrange(year, month)[1]
         for shift in shifts:
             assignment = shift[2]
@@ -122,14 +132,17 @@ class hr_duty_roster(osv.Model):
     def _get_days(self, cr, uid, ids, field_name, args=None, context=None):
         res = {}
         if ids:
-            for row in self.read(cr, uid, ids, ['year', 'month'], context=context):
+            for row in self.read(
+                    cr, uid, ids, ['year', 'month'], context=context):
                 mrange = calendar.monthrange(row['year'], row['month'])
                 _id = row['id']
                 res[_id] = mrange[1]
         return res
 
     def _needaction_domain_get(self, cr, uid, context=None):
-        res = ['&', ('state', '=', 'pending'), ('department_id.manager_id.user_id', '=', uid)]
+        res = ['&',
+               ('state', '=', 'pending'),
+               ('department_id.manager_id.user_id', '=', uid)]
         return res
 
     def _get_date(self, cr, uid, ids, name, args, context=None):
@@ -145,10 +158,14 @@ class hr_duty_roster(osv.Model):
         'month': fields.selection(MONTHS, 'Month', required=True),
         'year': fields.integer('Year', required=True),
         'date': fields.function(_get_date, type="datetime", method=True),
-        'days': fields.function(_get_days, type="integer", string='Days', method=True),
+        'days': fields.function(
+            _get_days, type="integer", string='Days', method=True),
         'state': fields.selection(
-            [('new', 'New'), ('draft', 'Draft'), ('pending', 'Pending Approval'),
-             ('approved', 'Approved'), ('rejected', 'Rejected')], string="State"),
+            [('new', 'New'),
+             ('draft', 'Draft'),
+             ('pending', 'Pending Approval'),
+             ('approved', 'Approved'),
+             ('rejected', 'Rejected')], string="State"),
         'shifts': fields.one2many(
             'hr.duty_roster_shift', 'duty_roster_id', string="Shifts"),
         'main_department_id': fields.related(
@@ -174,15 +191,18 @@ class hr_duty_roster(osv.Model):
 
     def action_pending(self, cr, uid, ids, context=None):
         self.write(cr, uid, ids, {'state': 'pending'}, context)
-        self.message_post(cr, uid, ids, body=_('Submitted for approval'), subtype="hr_roster.mt_submitted", context=context)
+        self.message_post(cr, uid, ids, body=_('Submitted for approval'),
+                          subtype="hr_roster.mt_submitted", context=context)
 
     def action_approved(self, cr, uid, ids, context=None):
         self.write(cr, uid, ids, {'state': 'approved'}, context)
-        self.message_post(cr, uid, ids, body=_('Approved'), subtype="hr_roster.mt_approved", context=context)
+        self.message_post(cr, uid, ids, body=_('Approved'),
+                          subtype="hr_roster.mt_approved", context=context)
 
     def action_rejected(self, cr, uid, ids, context=None):
         self.write(cr, uid, ids, {'state': 'rejected'}, context)
-        self.message_post(cr, uid, ids, body=_('Rejected'), subtype="hr_roster.mt_rejected", context=context)
+        self.message_post(cr, uid, ids, body=_('Rejected'),
+                          subtype="hr_roster.mt_rejected", context=context)
 
     def has_shifts(self, cr, uid, ids, context=None):
         return self.pool.get('hr.duty_roster_shift').search(
@@ -254,12 +274,18 @@ class hr_department(osv.osv):
         root_ids = self.search(cr, uid, [('parent_id', '=', False)])
         for _id in ids:
             for root_id in root_ids:
-                if self.search(cr, uid, [('id', 'child_of', root_id), ('id', '=', _id)], count=True):
+                if self.search(cr, uid, [('id', 'child_of', root_id),
+                                         ('id', '=', _id)], count=True):
                     res[_id] = root_id
                     break
         return res
 
     _columns = {
-        'ancestor_id': fields.function(_get_ancestor_id, type="many2one", obj="hr.department", string="Main Department", method=True),
+        'ancestor_id': fields.function(
+            _get_ancestor_id,
+            type="many2one",
+            obj="hr.department",
+            string="Main Department",
+            method=True),
     }
 hr_department()
