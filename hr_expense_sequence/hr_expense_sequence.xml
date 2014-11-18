@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright (C) 2014 Akretion (http://www.akretion.com)
+  @author: Alexis de Lattre <alexis.delattre@akretion.com>
+  The licence is in the file __openerp__.py
+-->
+
+<openerp>
+<data noupdate="1">
+
+<!--
+In the module hr_expense of the official addons, there is a sequence
+'hr.expense.invoice' defined in addons/hr_expense/hr_expense_sequence.xml
+but this sequence is not used in the code since OpenERP 7.0, so it will
+probably be dropped silently in a future version. That's why I prefer to
+define my own sequence in this module with a more suitable name
+'hr.expense.expense'.
+-->
+
+<record id="hr_expense_seq_type" model="ir.sequence.type">
+    <field name="name">HR Expense</field>
+    <field name="code">hr.expense.expense</field>
+</record>
+
+<record id="hr_expense_seq" model="ir.sequence">
+    <field name="name">HR Expense</field>
+    <field name="code">hr.expense.expense</field>
+    <field name="prefix">EXP</field>
+    <field name="padding">4</field>
+</record>
+
+</data>
+</openerp>

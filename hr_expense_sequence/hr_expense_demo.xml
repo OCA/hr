@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright (C) 2014 Akretion (http://www.akretion.com)
+  @author: Alexis de Lattre <alexis.delattre@akretion.com>
+  The licence is in the file __openerp__.py
+-->
+
+<openerp>
+<data noupdate="1">
+
+<record id="hr_expense.sep_expenses" model="hr.expense.expense">
+    <field name="name">EXP0001</field>
+    <field name="description">September Expenses</field>
+</record>
+
+<record id="hr_expense.expenses0" model="hr.expense.expense">
+    <field name="name">EXP0002</field>
+    <field name="description">Expenses</field>
+</record>
+
+<record id="hr_expense_seq" model="ir.sequence">
+    <field name="number_next">3</field>
+</record>
+
+</data>
+</openerp>
