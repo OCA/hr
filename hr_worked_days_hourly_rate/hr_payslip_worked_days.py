@@ -26,7 +26,19 @@ from datetime import datetime
 class hr_payslip_worked_days(orm.Model):
     _inherit = 'hr.payslip.worked_days'
     _columns = {
-        'hourly_rate': fields.float('Hourly Rate'),
+        'hourly_rate': fields.float(
+            'Hourly Rate',
+            help="""\
+The employee's standard hourly rate for one hour of work.
+Example, 25 Euros per hour."""
+        ),
+        'rate': fields.float(
+            'Rate (%)',
+            help="""\
+The rate by which to multiply the standard hourly rate.
+Example, an overtime hour could be paid the standard rate multiplied by 150%.
+"""
+        ),
 
         # When a worked day has a number of hours and an hourly rate,
         # it is necessary to have a date, because hourly rates are likely to
@@ -35,7 +47,8 @@ class hr_payslip_worked_days(orm.Model):
         'date_to': fields.date('Date To'),
     }
     _defaults = {
-        'hourly_rate': 0.0,
+        'hourly_rate': 0,
+        'rate': 100,
         'date_from': lambda *a: datetime.strftime(datetime.now(), "%Y-%m-%d"),
         'date_to': lambda *a: datetime.strftime(datetime.now(), "%Y-%m-%d"),
     }

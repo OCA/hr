@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-12 15:10+0000\n"
-"PO-Revision-Date: 2014-11-12 10:12-0500\n"
+"POT-Creation-Date: 2014-11-18 15:56+0000\n"
+"PO-Revision-Date: 2014-11-18 11:01-0500\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -17,26 +17,44 @@ msgstr ""
 "X-Generator: Poedit 1.5.4\n"
 
 #. module: hr_worked_days_hourly_rate
-#: field:hr.payslip.worked_days,date_from:0
-msgid "Date From"
-msgstr "Date de début"
+#: field:hr.payslip.worked_days,rate:0
+msgid "Rate (%)"
+msgstr "Taux (%)"
+
+#. module: hr_worked_days_hourly_rate
+#: help:hr.payslip.worked_days,rate:0
+msgid "The rate by which to multiply the standard hourly rate.\n"
+"Example, an overtime hour could be paid the standard rate multiplied by 150%.\n"
+""
+msgstr ""
+"Le taux par lequel multiplier le salaire horaire. Par exemple, une heure de "
+"temps supplémentaire pourrait être payée à 150%."
 
 #. module: hr_worked_days_hourly_rate
 #: field:hr.payslip.worked_days,date_to:0
-msgid "Date de fin"
-msgstr ""
+msgid "Date To"
+msgstr "Date de début"
 
 #. module: hr_worked_days_hourly_rate
-#: model:ir.model,name:hr_worked_days_hourly_rate.model_hr_payslip
-msgid "Pay Slip"
-msgstr "Bulletin de paie"
+#: field:hr.payslip.worked_days,date_from:0
+msgid "Date From"
+msgstr "Date de fin"
 
 #. module: hr_worked_days_hourly_rate
 #: field:hr.payslip.worked_days,hourly_rate:0
 msgid "Hourly Rate"
-msgstr "Taux salarial"
+msgstr "Taux horaire"
 
 #. module: hr_worked_days_hourly_rate
 #: model:ir.model,name:hr_worked_days_hourly_rate.model_hr_payslip_worked_days
 msgid "Payslip Worked Days"
 msgstr "Jours travaillés"
+
+#. module: hr_worked_days_hourly_rate
+#: help:hr.payslip.worked_days,hourly_rate:0
+msgid ""
+"The employee's standard hourly rate for one hour of work.\n"
+"Example, 25 Euros per hour."
+msgstr ""
+"Le salaire horaire standard d'un employé pour une heure de travail.\n"
+"Par exemple, 25 Euros par heure."

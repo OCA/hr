@@ -24,6 +24,10 @@
                         name="hourly_rate"
                         attrs="{'required': [('number_of_hours', '>', 0)]}"
                     />
+                    <field
+                        name="rate"
+                        attrs="{'required': [('number_of_hours', '>', 0)]}"
+                    />
                 </xpath>
 
             </field>

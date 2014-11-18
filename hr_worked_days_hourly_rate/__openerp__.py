@@ -27,6 +27,9 @@
 Worked Days Hourly Rate
 =======================
  * Adds hourly rate field on worked days
+ * Adds date_from and date_to fields
+ * Adds a rate (%) by which to multiplicate the hourly rate
+ for overtime or other purpose.
 
 Contributors
 ------------
