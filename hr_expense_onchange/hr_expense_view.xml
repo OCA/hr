@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright (C) 2014 Akretion (http://www.akretion.com)
+  @author: Alexis de Lattre <alexis.delattre@akretion.com>
+  The licence is in the file __openerp__.py
+-->
+<openerp>
+<data>
+
+<record id="view_expenses_form" model="ir.ui.view">
+    <field name="name">onchange.expense.form</field>
+    <field name="model">hr.expense.expense</field>
+    <field name="inherit_id" ref="hr_expense.view_expenses_form"/>
+    <field name="arch" type="xml">
+        <xpath expr="//field[@name='line_ids']/tree/field[@name='unit_amount']" position="attributes">
+            <attribute name="on_change">onchange_unit_amount(unit_amount, unit_quantity, product_id, parent.employee_id, context)</attribute>
+        </xpath>
+        <xpath expr="//field[@name='line_ids']/form//field[@name='unit_amount']" position="attributes">
+            <attribute name="on_change">onchange_unit_amount(unit_amount, unit_quantity, product_id, parent.employee_id, context)</attribute>
+        </xpath>
+        <xpath expr="//field[@name='line_ids']/tree/field[@name='unit_quantity']" position="attributes">
+            <attribute name="on_change">onchange_unit_quantity(unit_amount, unit_quantity, product_id, parent.employee_id, context)</attribute>
+        </xpath>
+        <xpath expr="//field[@name='line_ids']/form//field[@name='unit_quantity']" position="attributes">
+            <attribute name="on_change">onchange_unit_quantity(unit_amount, unit_quantity, product_id, parent.employee_id, context)</attribute>
+        </xpath>
+    </field>
+</record>
+
+
+</data>
+</openerp>
