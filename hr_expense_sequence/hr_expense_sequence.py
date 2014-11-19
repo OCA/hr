@@ -20,42 +20,31 @@
 #
 ##############################################################################
 
-from openerp.osv import orm, fields
-from openerp.tools.translate import _
+from openerp import models, fields, api
 
 
-class hr_expense_expense(orm.Model):
+class hr_expense_expense(models.Model):
     _inherit = 'hr.expense.expense'
     _order = 'name desc'
 
-    _columns = {
-        # Move the description from the 'name' field to 'description' field
-        # In the 'name' field, we now store the number/sequence
-        'name': fields.char('Number', size=32, readonly=True),
-        'description': fields.char(
-            'Description', size=128, required=True, readonly=True,
-            states={
-                'draft': [('readonly', False)],
-                'confirm': [('readonly', False)],
-            }),
-        }
+    # Move the description from the 'name' field to 'description' field
+    # In the 'name' field, we now store the number/sequence
+    name = fields.Char(string='Number', readonly=True, default='/', copy=False)
+    description = fields.Char(
+        copy=False, readonly=True,
+        states={
+            'draft': [('readonly', False)],
+            'confirm': [('readonly', False)],
+            })
 
-    _defaults = {
-        'name': '/',
-        }
-
-    def copy(self, cr, uid, id, default=None, context=None):
-        if default is None:
-            default = {}
-        default['name'] = '/'
-        expense = self.browse(cr, uid, id, context=context)
-        default['description'] = _("%s (copy)") % (expense.description or '')
-        return super(hr_expense_expense, self).copy(
-            cr, uid, id, default=default, context=context)
-
-    def create(self, cr, uid, vals, context=None):
+    @api.model
+    def create(self, vals=None):
         if vals.get('name', '/') == '/':
-            vals['name'] = self.pool['ir.sequence'].next_by_code(
-                cr, uid, 'hr.expense.expense', context=context)
-        return super(hr_expense_expense, self).create(
-            cr, uid, vals, context=context)
+            vals['name'] = self.env['ir.sequence'].next_by_code(
+                'hr.expense.expense')
+        return super(hr_expense_expense, self).create(vals)
+
+    _sql_constraints = [(
+        'company_name_uniq',
+        'unique(company_id, name)',
+        'An expense with that number already exists in the same company !')]

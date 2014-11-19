@@ -13,7 +13,7 @@
     <field name="inherit_id" ref="hr_expense.view_expenses_form"/>
     <field name="arch" type="xml">
         <field name="name" position="after">
-            <field name="description"/>
+            <field name="description" required="1"/>
         </field>
     </field>
 </record>
