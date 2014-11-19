@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="hr_activity_form" model="ir.ui.view">
+            <field name="name">hr.activity.form</field>
+            <field name="model">hr.activity</field>
+            <field name="arch" type="xml">
+                <form string="Activities">
+                    <field name="name"/>
+                    <field
+                        name="type"
+                        on_change="onchange_activity_type()"
+                    />
+                    <field 
+                        name="job_id"
+                        attrs="{
+                            'invisible': [('type', '!=', 'job')],
+                            'required': [('type', '=', 'job')],
+                        }"
+                        domain="[('activity_ids', '=', 0)]"
+                    />
+                    <field 
+                        name="leave_id"
+                        attrs="{
+                            'invisible': [('type', '!=', 'leave')],
+                            'required': [('type', '=', 'leave')]
+                        }"
+                        domain="[('activity_ids', '=', 0)]"
+                    />
+                    <field name="code"/>
+                </form>
+            </field>
+        </record>
+        <record id="hr_activity_tree" model="ir.ui.view">
+            <field name="name">hr.activity.tree</field>
+            <field name="model">hr.activity</field>
+            <field name="arch" type="xml">
+                <tree string="Activities">
+                    <field name="name"/>
+                    <field name="type"/>
+                    <field name="code"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_hr_activity_filter" model="ir.ui.view">
+            <field name="name">Activity</field>
+            <field name="model">hr.activity</field>
+            <field name="arch" type="xml">
+                <search string="Activity">
+                    <field name="name" string="Activity"/>
+                </search>
+             </field>
+        </record>
+
+        <record id="open_tree_activity" model="ir.actions.act_window">
+            <field name="name">Activities</field>
+            <field name="res_model">hr.activity</field>
+            <field name="view_type">form</field>
+            <field name="search_view_id" ref="view_hr_activity_filter"/>
+        </record>
+
+        <menuitem
+            action="open_tree_activity"
+            id="menu_hr_activity_tree"
+            parent="hr.menu_hr_configuration"
+            sequence="12"
+        />
+    </data>
+</openerp>

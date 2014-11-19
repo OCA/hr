@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+        <!-- Vacation leave -->
+        <!-- Don't know why it is not in module hr_holidays -->
+        <record id="holiday_status_vacation" model="hr.holidays.status">
+            <field name="name">Vacation</field>
+            <field name="color_name">black</field>
+            <field name="paid_leave">1</field>
+            <field name="activity_ids" eval="[(6, 0, [])]"/>
+        </record>
+        <record id="hr_holidays.holiday_status_comp" model="hr.holidays.status">
+            <field name="paid_leave">1</field>
+        </record>
+        <record id="hr_holidays.holiday_status_sl" model="hr.holidays.status">
+            <field name="paid_leave">1</field>
+        </record>
+        <record id="hr_holidays.holiday_status_cl" model="hr.holidays.status">
+            <field name="paid_leave">1</field>
+        </record>
+    </data>
+</openerp>
