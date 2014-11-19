@@ -44,6 +44,11 @@ class hr_expense_expense(orm.Model):
         'name': '/',
         }
 
+    _sql_constraints = [(
+        'company_name_uniq',
+        'unique(company_id, name)',
+        'An expense with that number already exists in the same company !')]
+
     def copy(self, cr, uid, id, default=None, context=None):
         if default is None:
             default = {}
