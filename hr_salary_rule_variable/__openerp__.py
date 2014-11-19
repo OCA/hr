@@ -37,6 +37,16 @@ going each time through the whole testing procedure.
 
 Numbers change but the whole logic stays the same.
 
+How to use it
+-------------
+In the python script of a salary rule, you may call it via the payslip
+browsable object:
+    variable = payslip.get_rule_variable(rule_id, payslip.date_from)
+
+rule_id always refer to the current rule.
+
+If you need more than one variable for a salary rule, use a python dict.
+
 Contributors
 ------------
 * David Dufresne <david.dufresne@savoirfairelinux.com>
