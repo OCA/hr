@@ -1,4 +1,4 @@
-# Hungarian translation for openobject-addons
+# Latvian translation for openobject-addons
 # Copyright (c) 2014 Rosetta Contributors and Canonical Ltd 2014
 # This file is distributed under the same license as the openobject-addons package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2014.
@@ -8,41 +8,14 @@ msgstr ""
 "Project-Id-Version: openobject-addons\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2014-09-23 16:27+0000\n"
-"PO-Revision-Date: 2014-10-29 11:06+0000\n"
-"Last-Translator: krnkris <Unknown>\n"
-"Language-Team: Hungarian <hu@li.org>\n"
+"PO-Revision-Date: 2014-10-24 16:26+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Latvian <lv@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-10-30 06:52+0000\n"
+"X-Launchpad-Export-Date: 2014-10-25 07:02+0000\n"
 "X-Generator: Launchpad (build 17203)\n"
-
-#. module: hr_evaluation
-#: model:survey.question,validation_error_msg:hr_evaluation.appraisal_1_1
-#: model:survey.question,validation_error_msg:hr_evaluation.appraisal_1_2
-#: model:survey.question,validation_error_msg:hr_evaluation.appraisal_1_3
-#: model:survey.question,validation_error_msg:hr_evaluation.appraisal_1_4
-#: model:survey.question,validation_error_msg:hr_evaluation.appraisal_1_5
-#: model:survey.question,validation_error_msg:hr_evaluation.appraisal_2_1
-#: model:survey.question,validation_error_msg:hr_evaluation.appraisal_2_2
-#: model:survey.question,validation_error_msg:hr_evaluation.appraisal_2_3
-#: model:survey.question,validation_error_msg:hr_evaluation.appraisal_3_1
-#: model:survey.question,validation_error_msg:hr_evaluation.appraisal_3_2
-#: model:survey.question,validation_error_msg:hr_evaluation.appraisal_4_1
-#: model:survey.question,validation_error_msg:hr_evaluation.appraisal_4_2
-#: model:survey.question,validation_error_msg:hr_evaluation.appraisal_4_3
-#: model:survey.question,validation_error_msg:hr_evaluation.appraisal_5_1
-#: model:survey.question,validation_error_msg:hr_evaluation.opinion_1_1
-#: model:survey.question,validation_error_msg:hr_evaluation.opinion_1_2
-#: model:survey.question,validation_error_msg:hr_evaluation.opinion_2_1
-#: model:survey.question,validation_error_msg:hr_evaluation.opinion_2_2
-#: model:survey.question,validation_error_msg:hr_evaluation.opinion_2_3
-#: model:survey.question,validation_error_msg:hr_evaluation.opinion_2_4
-#: model:survey.question,validation_error_msg:hr_evaluation.opinion_2_5
-#: model:survey.question,validation_error_msg:hr_evaluation.opinion_2_6
-#: model:survey.question,validation_error_msg:hr_evaluation.opinion_2_7
-msgid "The answer you entered has an invalid format."
-msgstr "A beírt válasza nem megfelelő formátumú."
 
 #. module: hr_evaluation
 #: code:addons/hr_evaluation/hr_evaluation.py:84
@@ -64,46 +37,31 @@ msgid ""
 "\n"
 "        "
 msgstr ""
-"\n"
-"Dátum: %(date)s\n"
-"\n"
-"Tisztelt %(employee_name)s,\n"
-"\n"
-"Én egy értékelést készítek erre vonatkozólag %(eval_name)s.\n"
-"\n"
-"Megtisztelő válaszát várva.\n"
-"\n"
-"\n"
-"Köszönettel,\n"
-"--\n"
-"%(user_signature)s\n"
-"\n"
-"        "
 
 #. module: hr_evaluation
 #: field:hr.evaluation.report,nbr:0
 msgid "# of Requests"
-msgstr "Kérelmek száma"
+msgstr "Pieprasījumu sk."
 
 #. module: hr_evaluation
 #: view:hr_evaluation.plan.phase:hr_evaluation.view_hr_evaluation_plan_phase_form
 msgid "(date)s: Current Date"
-msgstr "(date)s: Jelenlegi dátum"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr_evaluation.plan.phase:hr_evaluation.view_hr_evaluation_plan_phase_form
 msgid "(employee_name)s: Partner name"
-msgstr "(employee_name)s: Partner neve"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr_evaluation.plan.phase:hr_evaluation.view_hr_evaluation_plan_phase_form
 msgid "(eval_name)s:Appraisal Name"
-msgstr "(eval_name)s:Értékelés neve"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr_evaluation.plan.phase:hr_evaluation.view_hr_evaluation_plan_phase_form
 msgid "(user_signature)s: User name"
-msgstr "(user_signature)s: Felhsználó neve"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:survey.page,description:hr_evaluation.opinion_1
@@ -128,23 +86,6 @@ msgid ""
 "<li>Significantly below standards and expectations</li>\n"
 "</ol>"
 msgstr ""
-"<h2>Az ellenőr értékelésének dátuma</h2>\n"
-"<p>A közvetlen jelentését behívja az Odoo rendszerén keresztül az ellenőr "
-"vezetői képességeire vonatkozó visszajelzése kifejezéséhez, valamint "
-"javaslataihoz a saját programja és annak hatékonyságának vonatkozásában, a "
-"vállalati tevékenységek  folyamatos fejlődő és nyitott működéséhez...</p>\n"
-"<p>A munkavállalók visszaküldik névtelen válaszaikat az Odoo rendszerhez. Az "
-"adatokat a Emberi Erőforrás HR manager kapja meg és egy rövid összefoglalót "
-"kap erről az ellenőr, a csoportja és az ellenőr felügyelete.</p>\n"
-"<p>Az értékelőnek kell a munkavállaló elvégzett fő tevékenységét és "
-"teljesítményét értékelnie az alábbi mértékegység szerint\n"
-"</p><ol>\n"
-"<li>Jelentősen az általános és a beosztástól elvártak felett</li>\n"
-"<li>Általánosnál és elvárásoknál jobban</li>\n"
-"<li>Általános és elvárt feltételeknek megfelelően</li>\n"
-"<li>Általános és elvárt feltételeket nem teljesítette</li>\n"
-"<li>Jelentősen az általános és elvárt feltételek alatt</li>\n"
-"</ol>"
 
 #. module: hr_evaluation
 #: model:survey.page,description:hr_evaluation.appraisal_1
@@ -183,38 +124,6 @@ msgid ""
 "</li><li>The supervisor send the form to the HR department in India and in "
 "Belgium</li></ul>"
 msgstr ""
-"<h2>Munkavállalói értékelés céljának összefoglalása</h2>\n"
-"<ul><li>Egy tiszta és nyitott, a teljesítmény elvárásokról szóló "
-"kommunikáció elkezdéséhez\n"
-"</li><li>Segítségnyújtás a munkavállalók szakmai fejlődéséhez, a további "
-"fejlődéshez az erősségek és lehetőségek feltárásával</li></ul>\n"
-"<h2>Az értékelés kezdő időpontjának kitűzése</h2>\n"
-"<ul><li>A megvalósítható munka terv létrehozása, az elkövetkező évre "
-"vonatkozólag, egy közös érdek a munkavállaló és annak mentora (értékelője) "
-"közt, beleértve a fő munkavállalói felelősségvállalásokat és megfelelő "
-"szintek kiválasztását , melynek eredményei lesznek felhasználva az "
-"értékeléshez.\n"
-"</li><li>Kritikus vagy kulcs teljesítmény és szakmai fejlődést igénylő (ha "
-"van) elemeket, is le kell jegyezni ekkor</li></ul>\n"
-"<h2>A kiértékelési időtartam végeztével</h2>\n"
-"<ul><li>A munkavállaló felelőssége lesz az Értékesítési űrlap tervezet "
-"kitöltése az önértékelés eszközeként és mint kiindulási pont a mentor "
-"értékeléséhez. A munkavállaló hozzáfűzhet minden egyes követelményhez "
-"példákat a teljesítésekről.\n"
-"Miután az űrlap kitöltésre került, a munkavállaló elküldi a felügyelőjéhez, "
-"mentorához.\n"
-"</li><li>A felügyelő mentor elsődleges felelőssége a szükséges visszajelzés "
-"forrásokból beszerezni az információkat\n"
-"(belső és/vagy külső ügyfelek, kapcsolat párok). Egy Odoo Belgium "
-"együttműködés esetén, a Belga projekt irányítójától teljes jelentést kell "
-"kapnia a felügyeleti tagnak.\n"
-"</li><li>A felügyeleti tag előállítja és beépíti az összes bejövő, kitöltött "
-"értékelési információt. Ő, véletlenszerű mezőkön jelzi  indoklásait az "
-"értékeléseken.\n"
-"</li><li>A munkavállaló választhat, hogy megjegyzéssel vagy magyarázattal "
-"egészíti ki a kitöltött felülvizsgálatot.\n"
-"</li><li>A felügyelő mentor átküldi az űrlapot a Belga és Indiai Emberi "
-"Erőforrás HR osztályának</li></ul>"
 
 #. module: hr_evaluation
 #: model:ir.actions.act_window,help:hr_evaluation.open_view_hr_evaluation_tree
@@ -232,19 +141,6 @@ msgid ""
 "              </p>\n"
 "            "
 msgstr ""
-"<p class=\"oe_view_nocontent_create\">\n"
-"                Kattintson új értékelés készítéséhez.\n"
-"              </p><p>\n"
-"                Mindegyik munkavállalót kijelölheti egy értékelési "
-"tervezethez. Ilyen tervezet\n"
-"                határozza meg a személyes személyi értékelésének a \n"
-"                gyakoriságát és kezelésének módját. Meghatározhat lépéseket\n"
-"                és lépésenkénti interjúkat adhat hozzá. Odoo rendszer\n"
-"                mindenféle értékelést támogat: alulról-felfelé, fentről-"
-"lefelé, ön-értékelés és\n"
-"                igazgatói végső értékelés.\n"
-"              </p>\n"
-"            "
 
 #. module: hr_evaluation
 #: model:ir.actions.act_window,help:hr_evaluation.action_hr_evaluation_interview_tree
@@ -260,17 +156,6 @@ msgid ""
 "              </p>\n"
 "            "
 msgstr ""
-"<p class=\"oe_view_nocontent_create\">\n"
-"                Kattinson a személyes értékeléshez tartozó új interjú igény "
-"létrehozásához.\n"
-"              </p><p>\n"
-"                Interjú igény általában az Odoo rendszer által "
-"automatikusan\n"
-"                létrehozott az egyén értékelési tervezetéből. Az összes\n"
-"                felhasználó időnként automatikusa kap felkérést és emailt \n"
-"                a kollégák felmérésére.\n"
-"              </p>\n"
-"            "
 
 #. module: hr_evaluation
 #: model:ir.actions.act_window,help:hr_evaluation.action_evaluation_plans_installer
@@ -286,19 +171,6 @@ msgid ""
 "              </p>\n"
 "            "
 msgstr ""
-"<p class=\"oe_view_nocontent_create\">\n"
-"                Kattintson új felmérési tervezet létrehozásához.\n"
-"              </p><p>\n"
-"                Meghatározhat felmérési haditerveket (pl: első interjú 6 "
-"hónap\n"
-"                elteltével, utána minden évben). Aztán, minden egyes "
-"munkavállalót\n"
-"                hozzárendelhet egy felmérési tervhez, így az Odoo rendszer "
-"automatikusan\n"
-"                létrehozhat interjú igényeket a felelős vezetőknek és/vagy "
-"alárendeltjeinek.\n"
-"              </p>\n"
-"            "
 
 #. module: hr_evaluation
 #: model:survey.page,description:hr_evaluation.appraisal_2
@@ -308,12 +180,12 @@ msgstr ""
 #: model:survey.survey,thank_you_message:hr_evaluation.appraisal_form
 #: model:survey.survey,thank_you_message:hr_evaluation.opinion_form
 msgid "<p> </p>"
-msgstr "<p> </p>"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:survey.page,description:hr_evaluation.appraisal_5
 msgid "<p></p>"
-msgstr "<p></p>"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:survey.page,description:hr_evaluation.appraisal_4
@@ -322,9 +194,6 @@ msgid ""
 "for employee’s continued career development\n"
 "over the coming year.</p>"
 msgstr ""
-"<p>Határozza meg a foglalkozást, teljesítményt, vagy projekt célokat, amiket "
-"a munkavállaló folyamatos pálya fejlesztéséhez javasol az elkövetkező "
-"évben.</p>"
 
 #. module: hr_evaluation
 #: model:survey.page,description:hr_evaluation.appraisal_3
@@ -339,52 +208,41 @@ msgid ""
 "</li><li> Did not meet standards and expectations\n"
 "</li><li> Significantly below standards and expectations</li></ol>"
 msgstr ""
-"<p>Az értékelőnek kell a munkavállaló elvégzett fő tevékenységét és "
-"teljesítményét értékelnie az alábbi mértékegység szerint\n"
-"</p><ol>\n"
-"<li>Jelentősen az általános és a beosztástól elvártak felett</li>\n"
-"<li>Általánosnál és elvárásoknál jobban</li>\n"
-"<li>Általános és elvárt feltételeknek megfelelően</li>\n"
-"<li>Általános és elvárt feltételeket nem teljesítette</li>\n"
-"<li>Jelentősen az általános és elvárt feltételek alatt</li>\n"
-"</ol>"
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.arow_3_1_1
 msgid "Ability to cope with multidisciplinarity of team"
-msgstr "Képesség a csoportok fegyelmezésével való összevonásra"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.arow_3_1_6
 msgid "Ability to follow and complete work as instructed"
-msgstr "Képesség az előírás szerinti munka elvégzésére és követésére"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.arow_3_2_5
 msgid "Ability to manage planning resources, risks, budgets and deadlines"
 msgstr ""
-"Képesség a forrás tervezések,  kockázatok, költségvetés és határidők "
-"tervezésére"
 
 #. module: hr_evaluation
 #: field:hr_evaluation.plan.phase,action:0
 msgid "Action"
-msgstr "Művelet"
+msgstr "Darbība"
 
 #. module: hr_evaluation
 #: field:hr_evaluation.evaluation,note_action:0
 msgid "Action Plan"
-msgstr "Művelet terv"
+msgstr "Darbības plāns"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:hr_evaluation.view_hr_evaluation_form
 msgid "Action Plan..."
-msgstr "Végrehajtási terv..."
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr_evaluation.plan.phase:hr_evaluation.view_hr_evaluation_plan_phase_form
 msgid "Action to Perform"
-msgstr "Elvégzendő művelet"
+msgstr "Darāmā darbība"
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.oprow_2_6_1
@@ -392,13 +250,11 @@ msgid ""
 "Actions by Executive management show genuine interest in the well-being of "
 "employees"
 msgstr ""
-"A vezető tisztségviselő intézkedései valóban előtérbe helyezik a "
-"munkavállalók jólétét"
 
 #. module: hr_evaluation
 #: field:hr_evaluation.plan,active:0
 msgid "Active"
-msgstr "Aktív"
+msgstr "Aktīvs"
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.arow_3_1_13
@@ -406,41 +262,39 @@ msgid ""
 "Adaptability: Ability to adapt oneself to organizational changes while "
 "keeping efficiency"
 msgstr ""
-"Alkalmazhatóság: Képes alkalmazkodni a szervezeti változásokra a hatékonyság "
-"megtartása mellett"
 
 #. module: hr_evaluation
 #: model:survey.question,question:hr_evaluation.appraisal_2_3
 msgid "Additional Comments"
-msgstr "Kiegészítő Megjegyzések"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:survey.question,question:hr_evaluation.opinion_2_7
 msgid "Additional comments"
-msgstr "Kiegészítő megjegyzések"
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr_evaluation.plan.phase,send_answer_employee:0
 #: field:hr_evaluation.plan.phase,send_answer_manager:0
 msgid "All Answers"
-msgstr "Minden válasz"
+msgstr "Visas atbildes"
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.arow_3_1_11
 msgid "Analytical and synthetic mind"
-msgstr "Elemző és  összefoglaló tudat"
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr_evaluation.plan.phase,send_anonymous_employee:0
 #: field:hr_evaluation.plan.phase,send_anonymous_manager:0
 msgid "Anonymous Summary"
-msgstr "Név  nélküli összegzés"
+msgstr "Anonīms kopsavilkums"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_form
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_tree
 msgid "Answer Survey"
-msgstr "Kérdőív felmérő"
+msgstr "Atbildēt aptaujai"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_form
@@ -449,7 +303,7 @@ msgstr "Kérdőív felmérő"
 #: model:ir.actions.act_window,name:hr_evaluation.open_view_hr_evaluation_tree
 #: model:ir.ui.menu,name:hr_evaluation.menu_eval_hr
 msgid "Appraisal"
-msgstr "Értékelés"
+msgstr "Novērtējums"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.report:hr_evaluation.view_evaluation_report_graph
@@ -457,45 +311,45 @@ msgstr "Értékelés"
 #: model:ir.actions.act_window,name:hr_evaluation.action_evaluation_report_all
 #: model:ir.ui.menu,name:hr_evaluation.menu_evaluation_report_all
 msgid "Appraisal Analysis"
-msgstr "Értékelés elemzés"
+msgstr "Novērtēšanas analīze"
 
 #. module: hr_evaluation
 #: field:hr_evaluation.evaluation,date:0
 msgid "Appraisal Deadline"
-msgstr "Értékelés  határidő"
+msgstr "Novērtēšanas termiņš"
 
 #. module: hr_evaluation
 #: field:hr.evaluation.interview,survey_id:0
 #: field:hr_evaluation.plan.phase,survey_id:0
 msgid "Appraisal Form"
-msgstr "Értékelési űrlap"
+msgstr "Novērtējuma forma"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:hr_evaluation.view_hr_evaluation_form
 #: field:hr_evaluation.evaluation,survey_request_ids:0
 msgid "Appraisal Forms"
-msgstr "Értékelési formák"
+msgstr "Novērtējuma formas"
 
 #. module: hr_evaluation
 #: model:ir.model,name:hr_evaluation.model_hr_evaluation_interview
 msgid "Appraisal Interview"
-msgstr "Értékelés interjú"
+msgstr "Novērtēšanas intervija"
 
 #. module: hr_evaluation
 #: field:hr.employee,appraisal_count:0
 msgid "Appraisal Interviews"
-msgstr "Értékelés interjúk"
+msgstr "Novērtēšanas intervijas"
 
 #. module: hr_evaluation
 #: field:hr.evaluation.interview,phase_id:0
 msgid "Appraisal Phase"
-msgstr "Értékelési fázisok"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr_evaluation.plan:hr_evaluation.view_hr_evaluation_plan_form
 #: field:hr_evaluation.plan,phase_ids:0
 msgid "Appraisal Phases"
-msgstr "Értékelés fázisai"
+msgstr "Novērtējuma fāzes"
 
 #. module: hr_evaluation
 #: field:hr.employee,evaluation_plan_id:0
@@ -507,117 +361,115 @@ msgstr "Értékelés fázisai"
 #: field:hr_evaluation.plan.phase,plan_id:0
 #: model:ir.model,name:hr_evaluation.model_hr_evaluation_plan
 msgid "Appraisal Plan"
-msgstr "Értékelés tervezet"
+msgstr "Novērtēšanas plāns"
 
 #. module: hr_evaluation
 #: model:ir.model,name:hr_evaluation.model_hr_evaluation_plan_phase
 msgid "Appraisal Plan Phase"
-msgstr "Értékelés terv fázisa"
+msgstr "Novērtēšanas plāna fāze"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.plan.phase:hr_evaluation.view_hr_evaluation_plan_phase_form
 #: view:hr_evaluation.plan.phase:hr_evaluation.view_hr_evaluation_plan_phase_tree
 msgid "Appraisal Plan Phases"
-msgstr "Értékelés terv fázisok"
+msgstr "Novērtēšanas plāna fāzes"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.plan:hr_evaluation.view_hr_evaluation_plan_search
 #: model:ir.actions.act_window,name:hr_evaluation.open_view_hr_evaluation_plan_tree
 #: model:ir.ui.menu,name:hr_evaluation.menu_open_view_hr_evaluation_plan_tree
 msgid "Appraisal Plans"
-msgstr "Értékelés tervek"
+msgstr "Novērtēšanas plāni"
 
 #. module: hr_evaluation
 #: model:survey.page,title:hr_evaluation.opinion_1
 msgid "Appraisal Process"
-msgstr "Értékelési folyamatok"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:ir.actions.act_window,name:hr_evaluation.evaluation_reminders
 msgid "Appraisal Reminders"
-msgstr "Értékelés emlékeztetők"
+msgstr "Novērtēšanas atgādinājumi"
 
 #. module: hr_evaluation
 #: field:hr_evaluation.evaluation,note_summary:0
 msgid "Appraisal Summary"
-msgstr "Értékelés összegzés"
+msgstr "Novērtēšanas kopsavilkums"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:hr_evaluation.view_hr_evaluation_form
 msgid "Appraisal Summary..."
-msgstr "Felmérés összagzése..."
+msgstr ""
 
 #. module: hr_evaluation
 #: model:survey.question,question:hr_evaluation.appraisal_1_3
 msgid "Appraisal for Period"
-msgstr "Értékelés időszakra"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:hr_evaluation.evaluation_search
 msgid "Appraisal that are in Plan In Progress state"
-msgstr "Értékelés ami a Tervezetben a folyamat állapotban van"
+msgstr "Novērtējumi, kas ir stāvoklī plāns procesā"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:hr_evaluation.evaluation_search
 msgid "Appraisal that are in waiting appreciation state"
-msgstr "Értékelés ami elismerés állapotra vár"
+msgstr "Novērtējumi, kas ir stāvoklī gaida atzinumu"
 
 #. module: hr_evaluation
 #: view:hr.employee:hr_evaluation.hr_hr_employee_view_form
 #: model:ir.ui.menu,name:hr_evaluation.menu_open_view_hr_evaluation_tree
 msgid "Appraisals"
-msgstr "Értékelések"
+msgstr "Novērtējumi"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:hr_evaluation.evaluation_search
 msgid "Appraisals Month"
-msgstr "Értékelés hónapja"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:hr_evaluation.evaluation_search
 msgid "Appraisals by Month"
-msgstr "Értékelés havonta"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:survey.question,question:hr_evaluation.appraisal_1_5
 msgid "Appraiser"
-msgstr "Értékelés"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr.evaluation.report:hr_evaluation.view_evaluation_report_search
 #: field:hr_evaluation.evaluation,rating:0
 msgid "Appreciation"
-msgstr "Elismerés"
+msgstr "Atzinums"
 
 #. module: hr_evaluation
 #: selection:hr_evaluation.plan.phase,action:0
 msgid "Bottom-Up Appraisal Requests"
-msgstr "Fordított sorrendi értékelés kérelem"
+msgstr "Bottom-Up novērtēšanas pieprasījumi"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:hr_evaluation.view_hr_evaluation_form
 msgid "Cancel Appraisal"
-msgstr "Értékelés visszavonása"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_form
 msgid "Cancel Survey"
-msgstr "Értékelés visszavonása"
+msgstr ""
 
 #. module: hr_evaluation
 #: selection:hr.evaluation.interview,state:0
 #: selection:hr.evaluation.report,state:0
 #: selection:hr_evaluation.evaluation,state:0
 msgid "Cancelled"
-msgstr "Törölt"
+msgstr "Atcelts"
 
 #. module: hr_evaluation
 #: help:hr_evaluation.plan.phase,mail_feature:0
 msgid ""
 "Check this box if you want to send mail to employees coming under this phase"
 msgstr ""
-"Jelölje be a négyzetet ha e-mailt szeretne küldeni annak az alkalmazottnak "
-"aki ebbe a fázisba kerül"
 
 #. module: hr_evaluation
 #: help:hr_evaluation.plan.phase,wait:0
@@ -625,28 +477,24 @@ msgid ""
 "Check this box if you want to wait that all preceding phases are finished "
 "before launching this phase."
 msgstr ""
-"Jelölje ki ezt a négyzetet, ha azt szeretné, hogy az összes megelőző fázis "
-"be legyen fejezve, mielőtt ezt a fázist elindítaná."
 
 #. module: hr_evaluation
 #: field:hr.evaluation.report,closed:0
 msgid "Close Date"
-msgstr "Zárás dátuma"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.arow_3_1_9
 msgid ""
 "Communication skills (written & verbally): clearness, concision, exactitude"
 msgstr ""
-"Kommunikációs képességek (írott & szóban): tisztán érthetőség, tartalom, "
-"pontosság"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.plan:hr_evaluation.view_hr_evaluation_plan_search
 #: field:hr_evaluation.plan,company_id:0
 #: field:hr_evaluation.plan.phase,company_id:0
 msgid "Company"
-msgstr "Vállalat"
+msgstr "Uzņēmums"
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.oprow_2_6_3
@@ -654,26 +502,22 @@ msgid ""
 "Compared to similar jobs in other companies where I could work, my total "
 "compensation..."
 msgstr ""
-"Összehasonlítva más vállalatnál végzett hasonló munkával, ahol dolgozhatnék, "
-"az összes költségtérítésem..."
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.arow_3_1_3
 msgid ""
 "Compliance to internal rules and processes (timesheets completion, etc.)"
 msgstr ""
-"Belső szabályok és folyamatok kötelességvállalása (időbeosztás teljesítése, "
-"stb.)"
 
 #. module: hr_evaluation
 #: model:survey.question,question:hr_evaluation.opinion_2_4
 msgid "Continuous Improvement"
-msgstr "Folyamatos fejlesztés"
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr.evaluation.report,create_date:0
 msgid "Create Date"
-msgstr "Létrehozás dátuma"
+msgstr "Izveidošanas datums"
 
 #. module: hr_evaluation
 #: field:hr.evaluation.interview,create_uid:0
@@ -681,7 +525,7 @@ msgstr "Létrehozás dátuma"
 #: field:hr_evaluation.plan,create_uid:0
 #: field:hr_evaluation.plan.phase,create_uid:0
 msgid "Created by"
-msgstr "Készítette"
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr.evaluation.interview,create_date:0
@@ -689,80 +533,79 @@ msgstr "Készítette"
 #: field:hr_evaluation.plan,create_date:0
 #: field:hr_evaluation.plan.phase,create_date:0
 msgid "Created on"
-msgstr "Létrehozás dátuma"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr.evaluation.report:hr_evaluation.view_evaluation_report_search
 msgid "Creation Month"
-msgstr "Létrehozás hónapja"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.arow_3_1_14
 msgid "Creativity and forward looking aptitude"
-msgstr "Kreativitás és előrelátó képesség"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.arow_3_1_8
 msgid "Customer commitment"
-msgstr "Ügyfél állásfoglalás"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:survey.question,question:hr_evaluation.opinion_1_2
 msgid "Date"
-msgstr "Dátum"
+msgstr "Datums"
 
 #. module: hr_evaluation
 #: model:survey.question,question:hr_evaluation.appraisal_1_4
 msgid "Date of review"
-msgstr "Áttekintés dátuma"
+msgstr ""
 
 #. module: hr_evaluation
 #: help:hr.evaluation.interview,message_last_post:0
 #: help:hr_evaluation.evaluation,message_last_post:0
 msgid "Date of the last message posted on the record."
-msgstr "A feljegyzésen történt utolsó üzenet dátuma."
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr.evaluation.interview,deadline:0
 #: field:hr.evaluation.report,deadline:0
 msgid "Deadline"
-msgstr "Határidő"
+msgstr "Termiņš"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_tree
 msgid "Deadline Date"
-msgstr "Határidő időpontja"
+msgstr "Termiņa datums"
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.arow_3_1_7
 msgid "Decision making"
-msgstr "Döntéshozás"
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr.evaluation.report,delay_date:0
 msgid "Delay to Start"
-msgstr "Elindítás késleltetés"
+msgstr "Gaidīt pirms sākt"
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.arow_3_2_2
 msgid "Delegation: Ability to efficiently assign tasks to other people"
 msgstr ""
-"Küldetés: Képesség a feladat többi emberhez való hatákony kiosztásában"
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.oprow_2_2_1
 msgid "Demonstrates genuine concern for me as a person"
-msgstr "Hitelesen bemutat, engem mint egy személyt"
+msgstr ""
 
 #. module: hr_evaluation
 #: selection:hr.evaluation.report,rating:0
 msgid "Did not meet expectations"
-msgstr "Elvárásoknak nem megfelelő"
+msgstr "Neattaisnoja cerības"
 
 #. module: hr_evaluation
 #: selection:hr_evaluation.evaluation,rating:0
 msgid "Do not meet expectations"
-msgstr "Nem felel meg az elvárásoknak"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_form
@@ -773,23 +616,23 @@ msgstr "Nem felel meg az elvárásoknak"
 #: view:hr_evaluation.evaluation:hr_evaluation.view_hr_evaluation_form
 #: selection:hr_evaluation.evaluation,state:0
 msgid "Done"
-msgstr "Kész"
+msgstr "Izdarīts"
 
 #. module: hr_evaluation
 #: selection:hr.evaluation.interview,state:0
 #: selection:hr.evaluation.report,state:0
 msgid "Draft"
-msgstr "Piszkozat"
+msgstr "Melnraksts"
 
 #. module: hr_evaluation
 #: model:survey.question,question:hr_evaluation.opinion_2_3
 msgid "Effectiveness"
-msgstr "Hatékonyság"
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr_evaluation.plan.phase,mail_body:0
 msgid "Email"
-msgstr "E-mail"
+msgstr "E-pasts"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.report:hr_evaluation.view_evaluation_report_search
@@ -798,118 +641,118 @@ msgstr "E-mail"
 #: field:hr_evaluation.evaluation,employee_id:0
 #: model:ir.model,name:hr_evaluation.model_hr_employee
 msgid "Employee"
-msgstr "Alkalmazott"
+msgstr "Darbinieks"
 
 #. module: hr_evaluation
 #: model:ir.model,name:hr_evaluation.model_hr_evaluation_evaluation
 msgid "Employee Appraisal"
-msgstr "Alkalmazott értékelése"
+msgstr "Darbinieka novērtējums"
 
 #. module: hr_evaluation
 #: model:survey.page,title:hr_evaluation.appraisal_1
 #: model:survey.survey,title:hr_evaluation.appraisal_form
 msgid "Employee Appraisal Form"
-msgstr "Munkavállalók értékelő űrlapja"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:survey.page,title:hr_evaluation.appraisal_5
 msgid "Employee Comments"
-msgstr "Munkavállalók megjegyzései"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:survey.survey,title:hr_evaluation.opinion_form
 msgid "Employee Opinion Form"
-msgstr "Munkavállalók javaslati űrlapja"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:survey.page,title:hr_evaluation.appraisal_3
 msgid "Employee Performance in Key Areas"
-msgstr "Munkavállalók teljesítménye a kulcsfontosságú területeken"
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr.evaluation.interview,user_to_review_id:0
 msgid "Employee to evaluate"
-msgstr "Értékelni kívánt munkavállaló"
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr_evaluation.evaluation,date_close:0
 msgid "Ending Date"
-msgstr "Záró dátum"
+msgstr "Beigu Datums"
 
 #. module: hr_evaluation
 #: model:survey.question,question:hr_evaluation.opinion_2_1
 msgid "Engagement"
-msgstr "Elkötelezettség"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.arow_3_1_2
 msgid "Enthusiasm & implication toward projects/assignments"
-msgstr "Lelkesedés & részvétel projekteken/megbízásokon"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:survey.page,title:hr_evaluation.opinion_2
 msgid "Evaluation"
-msgstr "Értékelés"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:ir.model,name:hr_evaluation.model_hr_evaluation_report
 msgid "Evaluations Statistics"
-msgstr "Értékelések statisztikája"
+msgstr "Novērtēšanas statistika"
 
 #. module: hr_evaluation
 #: selection:hr.evaluation.report,rating:0
 #: selection:hr_evaluation.evaluation,rating:0
 msgid "Exceeds expectations"
-msgstr "Meghaladja a várakozásokat"
+msgstr "Pārsniedz sagaidāmo"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.report:hr_evaluation.view_evaluation_report_search
 msgid "Extended Filters..."
-msgstr "Kiterjesztett szűrők…"
+msgstr "Paplašinātie filtri..."
 
 #. module: hr_evaluation
 #: selection:hr_evaluation.plan.phase,action:0
 msgid "Final Interview"
-msgstr "Végső interjú"
+msgstr "Galējā intervija"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.report:hr_evaluation.view_evaluation_report_search
 #: selection:hr.evaluation.report,state:0
 msgid "Final Validation"
-msgstr "Végső ellenőrzés"
+msgstr "Galējā pārbaude"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.report:hr_evaluation.view_evaluation_report_search
 msgid "Final Validation Evaluations"
-msgstr "Értékelések végső megerősítése"
+msgstr "Galējās pārbaudes novērtējumi"
 
 #. module: hr_evaluation
 #: field:hr_evaluation.plan,month_first:0
 msgid "First Appraisal in (months)"
-msgstr "Első értékelés ebben  (hónapban)"
+msgstr "Pirmais novērtējums pēc (mēnešiem)"
 
 #. module: hr_evaluation
 #: field:hr.evaluation.interview,message_follower_ids:0
 #: field:hr_evaluation.evaluation,message_follower_ids:0
 msgid "Followers"
-msgstr "Követők"
+msgstr "Sekotāji"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.plan.phase:hr_evaluation.view_hr_evaluation_plan_phase_form
 msgid "General"
-msgstr "Általános"
+msgstr "Vispārīgi"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_search
 #: view:hr.evaluation.report:hr_evaluation.view_evaluation_report_search
 #: view:hr_evaluation.plan:hr_evaluation.view_hr_evaluation_plan_search
 msgid "Group By"
-msgstr "Csoportosítás"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:hr_evaluation.evaluation_search
 msgid "Group by..."
-msgstr "Csoportosítás..."
+msgstr "Grupēt pēc..."
 
 #. module: hr_evaluation
 #: help:hr.evaluation.interview,message_summary:0
@@ -918,13 +761,11 @@ msgid ""
 "Holds the Chatter summary (number of messages, ...). This summary is "
 "directly in html format in order to be inserted in kanban views."
 msgstr ""
-"A chettelés összegzést megállítja (üzenetek száma,...). Ez az összegzés "
-"direkt HTML formátumú ahhoz hogy beilleszthető legyen a kanban nézetekbe."
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.oprow_2_1_1
 msgid "I am proud to tell others I work here"
-msgstr "Büszkén közlöm másokkal, hogy itt dolgozom"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.oprow_2_1_5
@@ -932,14 +773,11 @@ msgid ""
 "I am willing to put in a great deal of effort beyond what is expected to "
 "help my workgroup succeed"
 msgstr ""
-"Nagy erőfeszítések árán szeretnék az elvártakon túl teljesíteni, hogy "
-"segíthessek a csoportom céljának elérésében"
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.oprow_2_2_4
 msgid "I believe the information that I get from the person I report to."
 msgstr ""
-"Hiszek abban az információban amit attól kapok akinek jelentést írok."
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.oprow_2_2_2
@@ -947,14 +785,11 @@ msgid ""
 "I consistently acquire new knowledge, skills or understanding through "
 "contact with my supervisor. He helps me growing my compete"
 msgstr ""
-"Következetessen elsajátítom az új ismereteket, gyakorlatokat vagy megértem a "
-"felügyelő mentorommal felvett kapcsolaton keresztül. Segít a szakértelmem "
-"fejlődésében"
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.oprow_2_3_2
 msgid "I have enough work"
-msgstr "Van elég munkám"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.oprow_2_6_2
@@ -962,13 +797,11 @@ msgid ""
 "I have the same opportunity to succeed as others with similar experiences, "
 "performance and educational background"
 msgstr ""
-"Megvan ugyanaz a lehetőségem a siker elérésében, mint ugyanazokkal, "
-"gyakorlattal, teljesítménnyel és tanulmányi háttérrel rendelkezőknek"
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.oprow_2_5_1
 msgid "I know the company's values and live them"
-msgstr "Ismerem a vállalkozás értékeit és azt szemelőtt tartom"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.oprow_2_3_3
@@ -976,15 +809,11 @@ msgid ""
 "I mostly work on value-added tasks for the company, the products or the "
 "services"
 msgstr ""
-"Legtöbbször éték-növelő feladatokat végzek a vállalkozás, a termék vagy a "
-"szolgáltatás részére"
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.oprow_2_6_4
 msgid "I understand the company strategy and how my workgroup supports it"
 msgstr ""
-"Megértem a vállalkozás stratégiáját és a csoportom annak támogatásában való "
-"részvételét"
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.oprow_2_1_3
@@ -992,13 +821,11 @@ msgid ""
 "I would prefer to remain with this company even if a comparable job were "
 "available in another company"
 msgstr ""
-"Én szívesebben maradnék ennél a vállalkozásnál, még akkor is, ha egy másik "
-"helyen hasonló munkahely állna rendelkezésre"
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.oprow_2_3_1
 msgid "I'm efficient at work and my achievements are successful"
-msgstr "Hatékonyan dolgozom és az eredményeim sikeresek"
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr.evaluation.interview,id:0
@@ -1007,13 +834,13 @@ msgstr "Hatékonyan dolgozom és az eredményeim sikeresek"
 #: field:hr_evaluation.plan,id:0
 #: field:hr_evaluation.plan.phase,id:0
 msgid "ID"
-msgstr "Azonosító ID"
+msgstr ""
 
 #. module: hr_evaluation
 #: help:hr.evaluation.interview,message_unread:0
 #: help:hr_evaluation.evaluation,message_unread:0
 msgid "If checked new messages require your attention."
-msgstr "Ha be van jelölve, akkor figyelje az új üzeneteket."
+msgstr "Ja atzīmēts, tad jauni ziņojumi pieprasīs jūsu uzmanību."
 
 #. module: hr_evaluation
 #: model:survey.question,comments_message:hr_evaluation.appraisal_1_1
@@ -1040,7 +867,7 @@ msgstr "Ha be van jelölve, akkor figyelje az új üzeneteket."
 #: model:survey.question,comments_message:hr_evaluation.opinion_2_6
 #: model:survey.question,comments_message:hr_evaluation.opinion_2_7
 msgid "If other, precise:"
-msgstr "Ha másik, pontosítsa:"
+msgstr ""
 
 #. module: hr_evaluation
 #: help:hr_evaluation.evaluation,note_action:0
@@ -1048,51 +875,49 @@ msgid ""
 "If the evaluation does not meet the expectations, you can propose an action "
 "plan"
 msgstr ""
-"Ha az értékelés nem az elvárásonak megfelelő, lehetősége van egy cselekvési "
-"tervet javasolnia"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.report:hr_evaluation.view_evaluation_report_search
 msgid "In Progress"
-msgstr "Folyamatban"
+msgstr "Procesā"
 
 #. module: hr_evaluation
 #: selection:hr.evaluation.interview,state:0
 #: view:hr_evaluation.evaluation:hr_evaluation.evaluation_search
 msgid "In progress"
-msgstr "Folyamatban"
+msgstr "Procesā"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.report:hr_evaluation.view_evaluation_report_search
 msgid "In progress Evaluations"
-msgstr "Folyamatban lévő értékelések"
+msgstr "Novērtējumi procesā"
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.arow_3_1_5
 msgid "Initiative and self autonomy"
-msgstr "Kezdeményező és önálló"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:hr_evaluation.view_hr_evaluation_form
 msgid "Internal Notes"
-msgstr "Belső megjegyzések"
+msgstr "Iekšējās piezīmes"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_form
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_tree
 msgid "Interview Appraisal"
-msgstr "Értékelés interjú"
+msgstr "Intervijas novērtēšanai"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:hr_evaluation.view_evaluation_calendar
 msgid "Interview Request"
-msgstr "Interjú kérelem"
+msgstr "Intervijas pieprasījums"
 
 #. module: hr_evaluation
 #: model:ir.actions.act_window,name:hr_evaluation.action_hr_evaluation_interview_tree
 #: model:ir.ui.menu,name:hr_evaluation.menu_open_hr_evaluation_interview_requests
 msgid "Interview Requests"
-msgstr "Interjú kérelmek"
+msgstr "Interviju pieprasījumi"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_form
@@ -1100,24 +925,24 @@ msgstr "Interjú kérelmek"
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_tree
 #: field:hr.evaluation.interview,user_id:0
 msgid "Interviewer"
-msgstr "Interjúztató"
+msgstr "Intervētājs"
 
 #. module: hr_evaluation
 #: model:ir.actions.act_window,name:hr_evaluation.act_hr_employee_2_hr__evaluation_interview
 msgid "Interviews"
-msgstr "Interjúk"
+msgstr "Intervijas"
 
 #. module: hr_evaluation
 #: field:hr.evaluation.interview,message_is_follower:0
 #: field:hr_evaluation.evaluation,message_is_follower:0
 msgid "Is a Follower"
-msgstr "Ez egy követő"
+msgstr "Ir sekotājs"
 
 #. module: hr_evaluation
 #: field:hr.evaluation.interview,message_last_post:0
 #: field:hr_evaluation.evaluation,message_last_post:0
 msgid "Last Message Date"
-msgstr "Utolsó üzenet időpontja"
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr.evaluation.interview,write_uid:0
@@ -1125,7 +950,7 @@ msgstr "Utolsó üzenet időpontja"
 #: field:hr_evaluation.plan,write_uid:0
 #: field:hr_evaluation.plan.phase,write_uid:0
 msgid "Last Updated by"
-msgstr "Utoljára frissítve, által"
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr.evaluation.interview,write_date:0
@@ -1133,12 +958,12 @@ msgstr "Utoljára frissítve, által"
 #: field:hr_evaluation.plan,write_date:0
 #: field:hr_evaluation.plan.phase,write_date:0
 msgid "Last Updated on"
-msgstr "Utoljára frissítve ekkor"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:survey.question,question:hr_evaluation.opinion_2_2
 msgid "Leadership"
-msgstr "Irányítás"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.arow_3_2_3
@@ -1146,18 +971,16 @@ msgid ""
 "Leadership: create a challenging and motivating work environment aligned "
 "with the company's strategy"
 msgstr ""
-"Irányítás: hozzon létre egy motiváló, érdeklődésre számot tartó munka "
-"környezetet a vállalati stratégiához illesztve"
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.arow_3_2_4
 msgid "Leadership: sustain subordinates in their professional growth"
-msgstr "Irányítás: tartsa meg a munkavállalói hivatásának a növekedését"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr_evaluation.plan.phase:hr_evaluation.view_hr_evaluation_plan_phase_form
 msgid "Legend"
-msgstr "Magyarázat"
+msgstr "Leģenda"
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.oprow_2_2_3
@@ -1165,46 +988,44 @@ msgid ""
 "Listens and takes into account all ideas and do his best to put in place the "
 "best of these"
 msgstr ""
-"Halgassa meg és gondolja át az ötleteket és törekedjen, hogy a legjobbak a "
-"helyükre kerüljenek"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.plan.phase:hr_evaluation.view_hr_evaluation_plan_phase_form
 msgid "Mail Body"
-msgstr "Levél szövege"
+msgstr "E-pasta saturs"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.plan.phase:hr_evaluation.view_hr_evaluation_plan_phase_form
 msgid "Mail Settings"
-msgstr "Levél beállítások"
+msgstr "E-pasta iestatījumi"
 
 #. module: hr_evaluation
 #: selection:hr.evaluation.report,rating:0
 #: selection:hr_evaluation.evaluation,rating:0
 msgid "Meet expectations"
-msgstr "lvárásoknak megfelel"
+msgstr "Attaisnoja cerības"
 
 #. module: hr_evaluation
 #: field:hr.evaluation.interview,message_ids:0
 #: field:hr_evaluation.evaluation,message_ids:0
 msgid "Messages"
-msgstr "Üzenetek"
+msgstr "Ziņojumi"
 
 #. module: hr_evaluation
 #: help:hr.evaluation.interview,message_ids:0
 #: help:hr_evaluation.evaluation,message_ids:0
 msgid "Messages and communication history"
-msgstr "Üzenetek és kommunikáció történet"
+msgstr "Ziņojumu un komunikācijas vēsture"
 
 #. module: hr_evaluation
 #: model:survey.question,question:hr_evaluation.opinion_2_6
 msgid "Miscellaneous"
-msgstr "Egyebek"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr.evaluation.report:hr_evaluation.view_evaluation_report_search
 msgid "Month"
-msgstr "Hónap"
+msgstr "Mēnesis"
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.oprow_2_5_2
@@ -1212,12 +1033,11 @@ msgid ""
 "My best achievements have been communicated to the community, internally or "
 "to customers"
 msgstr ""
-"A legjobb eredményeimet átbeszélte a közösség, belső osztályok vagy ügyfelek"
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.oprow_2_1_2
 msgid "My job provides me with a sense of personal accomplishment"
-msgstr "A munkám kifejezi a személyes sokoldaluságom érzését"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.oprow_2_4_1
@@ -1225,38 +1045,36 @@ msgid ""
 "My work contributes towards the continuous improvement of the company, our "
 "services or products"
 msgstr ""
-"A munkám hozzájárul a folyamatos vállalkozás, szolgáltatásaink vagy "
-"termékeink fejlesztéséhez"
 
 #. module: hr_evaluation
 #: model:survey.question,question:hr_evaluation.appraisal_1_1
 msgid "Name"
-msgstr "Név"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:survey.question,question:hr_evaluation.opinion_1_1
 msgid "Name of your direct supervisor"
-msgstr "A közvetlen felügyelő mentora neve"
+msgstr ""
 
 #. module: hr_evaluation
 #: selection:hr_evaluation.evaluation,state:0
 msgid "New"
-msgstr "Új"
+msgstr "Jauns/-a"
 
 #. module: hr_evaluation
 #: field:hr.employee,evaluation_date:0
 msgid "Next Appraisal Date"
-msgstr "Következő értékelés dátuma"
+msgstr "Nākamās novērtēšanas datums"
 
 #. module: hr_evaluation
 #: model:survey.question,question:hr_evaluation.appraisal_2_1
 msgid "Objectives"
-msgstr "Célkitűzések"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:survey.question,question:hr_evaluation.opinion_2_5
 msgid "Openness"
-msgstr "Nyitottsághoz"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.oprow_2_4_4
@@ -1264,13 +1082,11 @@ msgid ""
 "Our workgroup identifies and reduces waste of time in our activities and "
 "processes"
 msgstr ""
-"Munkacsoportjaink azonosítják és csökkentik a fölösleges munkákat a "
-"tevékenységeken és folyamatokon belül"
 
 #. module: hr_evaluation
 #: field:hr.evaluation.report,rating:0
 msgid "Overall Rating"
-msgstr "Átlag"
+msgstr "Kopējais reitings"
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.oprow_2_4_3
@@ -1278,38 +1094,36 @@ msgid ""
 "Overall, I believe the quality of products and/or services my workgroup "
 "delivers is improving"
 msgstr ""
-"Általánosságban, hiszem, hogy a csoportunk által készített termékek és/vagy "
-"szolgáltatások minősége javul"
 
 #. module: hr_evaluation
 #: field:hr.evaluation.report,overpass_delay:0
 msgid "Overpassed Deadline"
-msgstr "Túllépett határidő"
+msgstr "Kavēts termiņš"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:hr_evaluation.evaluation_search
 msgid "Pending"
-msgstr "Függőben lévő"
+msgstr "Neizlemts"
 
 #. module: hr_evaluation
 #: model:ir.ui.menu,name:hr_evaluation.menu_eval_hr_config
 msgid "Periodic Appraisal"
-msgstr "Időszakos értékelés"
+msgstr "Periodiska novērtēšana"
 
 #. module: hr_evaluation
 #: field:hr_evaluation.plan,month_next:0
 msgid "Periodicity of Appraisal (months)"
-msgstr "Értékelés időszakasza (hónap)"
+msgstr "Novērtēšanas periodiskums (mēnešos)"
 
 #. module: hr_evaluation
 #: model:survey.question,question:hr_evaluation.appraisal_4_2
 msgid "Personal Performance Objectives"
-msgstr "Személyi teljesítmény céljai"
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr_evaluation.plan.phase,name:0
 msgid "Phase"
-msgstr "Szakasz"
+msgstr "Fāze"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.report:hr_evaluation.view_evaluation_report_search
@@ -1317,70 +1131,70 @@ msgstr "Szakasz"
 #: view:hr_evaluation.evaluation:hr_evaluation.evaluation_search
 #: field:hr_evaluation.evaluation,plan_id:0
 msgid "Plan"
-msgstr "Terv"
+msgstr "Plāns"
 
 #. module: hr_evaluation
 #: selection:hr.evaluation.report,state:0
 #: selection:hr_evaluation.evaluation,state:0
 msgid "Plan In Progress"
-msgstr "Terv folyamatban"
+msgstr "Plāns procesā"
 
 #. module: hr_evaluation
 #: model:survey.question,question:hr_evaluation.appraisal_1_2
 msgid "Position Title"
-msgstr "Állás megnevezése"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_form
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_tree
 msgid "Print Survey"
-msgstr "Felmérés nyomtatása"
+msgstr "Drukāt aptauju"
 
 #. module: hr_evaluation
 #: model:survey.question,question:hr_evaluation.appraisal_4_1
 msgid "Professional Development Objectives"
-msgstr "Személyi fejlődés céljai"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:survey.page,title:hr_evaluation.appraisal_4
 msgid "Professional Development and Performance Plan"
-msgstr "Személyi fejlődés és teljesítmény terv"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:survey.question,question:hr_evaluation.appraisal_4_3
 msgid "Project Objectives"
-msgstr "Projekt céljai"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.arow_3_1_12
 msgid "Promptness and attendance record"
-msgstr "Szolgálatkézség és részvételi nyilvántartás"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:hr_evaluation.view_hr_evaluation_form
 msgid "Public Notes"
-msgstr "Nyilvános jegyzetek"
+msgstr "Publiskas piezīmes"
 
 #. module: hr_evaluation
 #: code:addons/hr_evaluation/hr_evaluation.py:83
 #, python-format
 msgid "Regarding "
-msgstr "Kapcsolatos "
+msgstr "Saistīts ar "
 
 #. module: hr_evaluation
 #: field:hr.evaluation.report,request_id:0
 msgid "Request ID"
-msgstr "Kérelem azonosító ID"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:hr_evaluation.view_hr_evaluation_form
 msgid "Reset to Draft"
-msgstr "Visszaállítás tervezet állapotba"
+msgstr "Atstatīt uz melnrakstu"
 
 #. module: hr_evaluation
 #: model:survey.question,question:hr_evaluation.appraisal_2_2
 msgid "Results"
-msgstr "Eredmények"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.arow_3_2_1
@@ -1388,102 +1202,100 @@ msgid ""
 "Results of the bottom-up survey and mitigation actions to face technical, "
 "organizational, structural and/or relational issues"
 msgstr ""
-"A lentről-felfelé felmérés eredménye és mérséklési műveletek a technikai, "
-"szervezési, felépítési és/vagy átgondolt ügyek szembesítésével"
 
 #. module: hr_evaluation
 #: model:ir.actions.act_window,name:hr_evaluation.action_evaluation_plans_installer
 msgid "Review Appraisal Plans"
-msgstr "Értékelés tervek áttekintése"
+msgstr "Pārskatīt novērtēšanas plānus"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_search
 #: view:hr_evaluation.evaluation:hr_evaluation.evaluation_search
 msgid "Search Appraisal"
-msgstr "Értékelés keresése"
+msgstr "Meklēt novērtēšanas"
 
 #. module: hr_evaluation
 #: selection:hr_evaluation.plan.phase,action:0
 msgid "Self Appraisal Requests"
-msgstr "Önérétkelés kérelem"
+msgstr "Pašnovērtējuma pieprasījumi"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_form
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_tree
 msgid "Send Reminder Email"
-msgstr "Emlékeztető e-mail küldés"
+msgstr "Nosūtīt atgādinājuma e-pastu"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_form
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_tree
 msgid "Send Request"
-msgstr "Igénylés küldése"
+msgstr "Sūtīt pieprasījumu"
 
 #. module: hr_evaluation
 #: help:hr_evaluation.plan.phase,send_answer_employee:0
 msgid "Send all answers to the employee"
-msgstr "Az összes válasz elküldése az alkalmazottnak"
+msgstr "Nosūtīt visas atbildes darbiniekam"
 
 #. module: hr_evaluation
 #: help:hr_evaluation.plan.phase,send_answer_manager:0
 msgid "Send all answers to the manager"
-msgstr "Összes válasz elküldése a vezetőségnek"
+msgstr "Nosūtīt visas atbildes vadītājam"
 
 #. module: hr_evaluation
 #: help:hr_evaluation.plan.phase,send_anonymous_employee:0
 msgid "Send an anonymous summary to the employee"
-msgstr "Névtelen összagzés küldése az alkalmazottnak"
+msgstr "Nosūtīt anonīmu kopsavilkumu darbiniekam"
 
 #. module: hr_evaluation
 #: help:hr_evaluation.plan.phase,send_anonymous_manager:0
 msgid "Send an anonymous summary to the manager"
-msgstr "Név nélküli összegzés elküldése a menedzsernek"
+msgstr "Nosūtīt anonīmu kopsavilkumu vadītājam"
 
 #. module: hr_evaluation
 #: field:hr_evaluation.plan.phase,mail_feature:0
 msgid "Send mail for this phase"
-msgstr "E-mail küldése erről a fázisról"
+msgstr "Nosūtīt šīs fāzes vēstuli"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.plan.phase:hr_evaluation.view_hr_evaluation_plan_phase_form
 msgid "Send to Employees"
-msgstr "Küldés az alkalmazottaknak"
+msgstr "Nosūtīt darbiniekiem"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.plan.phase:hr_evaluation.view_hr_evaluation_plan_phase_form
 msgid "Send to Managers"
-msgstr "Küldés a menedzsereknek"
+msgstr "Nosūtīt vadītājiem"
 
 #. module: hr_evaluation
 #: field:hr_evaluation.plan.phase,sequence:0
 msgid "Sequence"
-msgstr "Sorszám"
+msgstr "Secība"
 
 #. module: hr_evaluation
 #: selection:hr.evaluation.report,rating:0
 msgid "Significantly bellow expectations"
-msgstr "Elvártnál jelentősen alacsonyabb"
+msgstr "Ne tuvu neattaisnoja cerības"
 
 #. module: hr_evaluation
 #: selection:hr_evaluation.evaluation,rating:0
 msgid "Significantly below expectations"
-msgstr "Jelentősen az elvártak alatt"
+msgstr ""
 
 #. module: hr_evaluation
 #: selection:hr.evaluation.report,rating:0
 #: selection:hr_evaluation.evaluation,rating:0
 msgid "Significantly exceeds expectations"
-msgstr "Jelentősen meghaladja a várakozásokat."
+msgstr "Ievērojami pārsniedz sagaidāmo"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:hr_evaluation.view_hr_evaluation_form
 msgid "Start Appraisal"
-msgstr "Értékelés elindítása"
+msgstr "Uzsākt novērtēšanu"
 
 #. module: hr_evaluation
 #: field:hr.evaluation.interview,state:0
 msgid "State"
-msgstr "Állapot"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_search
@@ -1492,41 +1304,40 @@ msgstr "Állapot"
 #: view:hr_evaluation.evaluation:hr_evaluation.evaluation_search
 #: field:hr_evaluation.evaluation,state:0
 msgid "Status"
-msgstr "Állapot"
+msgstr "Statuss"
 
 #. module: hr_evaluation
 #: field:hr_evaluation.plan.phase,email_subject:0
 #: model:survey.question,question:hr_evaluation.appraisal_3_1
 msgid "Subject"
-msgstr "Tárgy"
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr.evaluation.interview,message_summary:0
 #: field:hr_evaluation.evaluation,message_summary:0
 msgid "Summary"
-msgstr "Összegzés"
+msgstr "Kopsavilkums"
 
 #. module: hr_evaluation
 #: model:survey.question,question:hr_evaluation.appraisal_3_2
 msgid "Supervisors only"
-msgstr "Kizárólag felügyelő, mentor"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_search
 msgid "Survey"
-msgstr "Felmérés"
+msgstr "Aptauja"
 
 #. module: hr_evaluation
 #: field:hr.evaluation.interview,request_id:0
 msgid "Survey Request"
-msgstr "Felmérés kérése"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.oprow_2_1_4
 msgid ""
 "Taking everything into account, how satisfied are you with your current job?"
 msgstr ""
-"Minden részletet megvizsgálva, mennyire elégedett a mostani munkahelyével?"
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.arow_3_1_4
@@ -1534,13 +1345,38 @@ msgid ""
 "Team spirit: ability to work efficiently with peers, manage the conflicts "
 "with diplomacy"
 msgstr ""
-"Csoportszellem: képes hatékonyan együttműködni párban, a konfliktusokat "
-"diplomatikusan oldja meg"
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.arow_3_1_10
 msgid "Technical skills regarding to the job requirements"
-msgstr "Munkaköri követelményekhez műszaki érzék"
+msgstr ""
+
+#. module: hr_evaluation
+#: model:survey.question,validation_error_msg:hr_evaluation.appraisal_1_1
+#: model:survey.question,validation_error_msg:hr_evaluation.appraisal_1_2
+#: model:survey.question,validation_error_msg:hr_evaluation.appraisal_1_3
+#: model:survey.question,validation_error_msg:hr_evaluation.appraisal_1_4
+#: model:survey.question,validation_error_msg:hr_evaluation.appraisal_1_5
+#: model:survey.question,validation_error_msg:hr_evaluation.appraisal_2_1
+#: model:survey.question,validation_error_msg:hr_evaluation.appraisal_2_2
+#: model:survey.question,validation_error_msg:hr_evaluation.appraisal_2_3
+#: model:survey.question,validation_error_msg:hr_evaluation.appraisal_3_1
+#: model:survey.question,validation_error_msg:hr_evaluation.appraisal_3_2
+#: model:survey.question,validation_error_msg:hr_evaluation.appraisal_4_1
+#: model:survey.question,validation_error_msg:hr_evaluation.appraisal_4_2
+#: model:survey.question,validation_error_msg:hr_evaluation.appraisal_4_3
+#: model:survey.question,validation_error_msg:hr_evaluation.appraisal_5_1
+#: model:survey.question,validation_error_msg:hr_evaluation.opinion_1_1
+#: model:survey.question,validation_error_msg:hr_evaluation.opinion_1_2
+#: model:survey.question,validation_error_msg:hr_evaluation.opinion_2_1
+#: model:survey.question,validation_error_msg:hr_evaluation.opinion_2_2
+#: model:survey.question,validation_error_msg:hr_evaluation.opinion_2_3
+#: model:survey.question,validation_error_msg:hr_evaluation.opinion_2_4
+#: model:survey.question,validation_error_msg:hr_evaluation.opinion_2_5
+#: model:survey.question,validation_error_msg:hr_evaluation.opinion_2_6
+#: model:survey.question,validation_error_msg:hr_evaluation.opinion_2_7
+msgid "The answer you entered has an invalid format."
+msgstr ""
 
 #. module: hr_evaluation
 #: help:hr.employee,evaluation_date:0
@@ -1548,8 +1384,6 @@ msgid ""
 "The date of the next appraisal is computed by the appraisal plan's dates "
 "(first appraisal + periodicity)."
 msgstr ""
-"A következő értékelés dátuma az értékelés tervek dátumából számított (első "
-"értékelés + időszak)."
 
 #. module: hr_evaluation
 #: help:hr_evaluation.plan,month_next:0
@@ -1557,20 +1391,18 @@ msgid ""
 "The number of month that depicts the delay between each evaluation of this "
 "plan (after the first one)."
 msgstr ""
-"A hónapok száma ami leírja az ehhez a tervhez tartozó értékelések közti  (az "
-"elsőt követő) időszakokat."
 
 #. module: hr_evaluation
 #: help:hr_evaluation.evaluation,rating:0
 msgid "This is the appreciation on which the evaluation is summarized."
-msgstr "Ez a megitélés melyen az értékelés összegezve lett."
+msgstr "Šis ir atzinums, pēc kura novērtējums ir sagatavots kopsavilkumam."
 
 #. module: hr_evaluation
 #: help:hr_evaluation.plan,month_first:0
 msgid ""
 "This number of months will be used to schedule the first evaluation date of "
 "the employee when selecting an evaluation plan. "
-msgstr "a "
+msgstr ""
 
 #. module: hr_evaluation
 #: model:survey.question,constr_error_msg:hr_evaluation.appraisal_1_1
@@ -1597,28 +1429,28 @@ msgstr "a "
 #: model:survey.question,constr_error_msg:hr_evaluation.opinion_2_6
 #: model:survey.question,constr_error_msg:hr_evaluation.opinion_2_7
 msgid "This question requires an answer."
-msgstr "Erre a kérdésre kérjük válaszoljon."
+msgstr ""
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.arow_3_1_15
 msgid "Time management: projects/tasks are completed on time"
-msgstr "Idő vezérlés: projektek/feladatok időre futtathatók"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_search
 msgid "To Do"
-msgstr "Teendő"
+msgstr "Darāmais"
 
 #. module: hr_evaluation
 #: selection:hr_evaluation.plan.phase,action:0
 msgid "Top-Down Appraisal Requests"
-msgstr "Rangsoros értékelés igénylések"
+msgstr "Top-Down novērtējuma pieprasījumi"
 
 #. module: hr_evaluation
 #: field:hr.evaluation.interview,message_unread:0
 #: field:hr_evaluation.evaluation,message_unread:0
 msgid "Unread Messages"
-msgstr "Olvasatlan üzenetek"
+msgstr "Neizlasīti ziņojumi"
 
 #. module: hr_evaluation
 #: model:survey.question,question:hr_evaluation.appraisal_5_1
@@ -1626,42 +1458,40 @@ msgid ""
 "Use the following space to make any comments regarding the above performance "
 "evaluation."
 msgstr ""
-"A következő helyet használja a fenti teljesítmény értékelés bármilyen "
-"megjegyzés írásához"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:hr_evaluation.view_hr_evaluation_form
 msgid "Validate Appraisal"
-msgstr "Értékelés jóváhagyása"
+msgstr "Pārbaudīt novērtējumu"
 
 #. module: hr_evaluation
 #: field:hr_evaluation.plan.phase,wait:0
 msgid "Wait Previous Phases"
-msgstr "Várakozás a következő fázisra"
+msgstr "Gaidīt iepriekšējas fāzes"
 
 #. module: hr_evaluation
 #: selection:hr_evaluation.evaluation,state:0
 msgid "Waiting Appreciation"
-msgstr "Várakozás az értékelésre"
+msgstr "Gaida atzinumu"
 
 #. module: hr_evaluation
 #: code:addons/hr_evaluation/hr_evaluation.py:239
 #: code:addons/hr_evaluation/hr_evaluation.py:338
 #, python-format
 msgid "Warning!"
-msgstr "Figyelem!"
+msgstr "Uzmanību!"
 
 #. module: hr_evaluation
 #: field:hr.evaluation.interview,website_message_ids:0
 #: field:hr_evaluation.evaluation,website_message_ids:0
 msgid "Website Messages"
-msgstr "Weboldal üzenetek"
+msgstr ""
 
 #. module: hr_evaluation
 #: help:hr.evaluation.interview,website_message_ids:0
 #: help:hr_evaluation.evaluation,website_message_ids:0
 msgid "Website communication history"
-msgstr "Weboldal  kommunikáció történet"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.oprow_2_4_2
@@ -1669,13 +1499,11 @@ msgid ""
 "What I did several months ago is still of use to the company, the services "
 "or the products today"
 msgstr ""
-"Amit pár hónapja tettem az még mindíg a vállalkozás, szolgáltatások vagy a "
-"termékek hasznára válik"
 
 #. module: hr_evaluation
 #: model:survey.page,title:hr_evaluation.appraisal_2
 msgid "Work Plan"
-msgstr "Munka terv"
+msgstr ""
 
 #. module: hr_evaluation
 #: code:addons/hr_evaluation/hr_evaluation.py:239
@@ -1684,20 +1512,18 @@ msgid ""
 "You cannot change state, because some appraisal forms have not been "
 "completed."
 msgstr ""
-"Nem tudja megváltoztatni a szintet, mert egyes értékelési űrlapok nem lettek "
-"kitöltve."
 
 #. module: hr_evaluation
 #: code:addons/hr_evaluation/hr_evaluation.py:338
 #, python-format
 msgid "You cannot start evaluation without Appraisal."
-msgstr "Nem indíthat el elemézt értékelés nélkül."
+msgstr "Nevar sākt novērtēt bez novērtēšanas."
 
 #~ msgid "Request_id"
 #~ msgstr "Request_id"
 
-#~ msgid "closed"
-#~ msgstr "lezárt"
-
 #~ msgid "Creation Date"
-#~ msgstr "Létrehozás dátuma"
+#~ msgstr "Izveidošanas datums"
+
+#~ msgid "closed"
+#~ msgstr "slēgts"
