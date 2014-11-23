@@ -109,32 +109,32 @@ class hr_expense_expense(orm.Model):
             current_product_line_pos = len(res) - 1
             tax_code_found = False
 
-            #Calculate tax according to default tax on product
+            # Calculate tax according to default tax on product
             taxes = []
-            #Taken from product_id_onchange in account.invoice
+            # Taken from product_id_onchange in account.invoice
             if line.product_id:
-                #fposition_id = False
-                #fpos_obj = self.pool.get('account.fiscal.position')
-                #fpos = fposition_id and fpos_obj.browse(
+                # fposition_id = False
+                # fpos_obj = self.pool.get('account.fiscal.position')
+                # fpos = fposition_id and fpos_obj.browse(
                 #    cr, uid, fposition_id, context=context) or False
                 product = line.product_id
                 taxes = product.supplier_taxes_id
-                #If taxes are not related to the product, maybe they are in
-                #the account
+                # If taxes are not related to the product, maybe they are in
+                # the account
                 # Alexis de Lattre : NO, I do NOT want this behaviour
                 # That's why the lines of code below are commented
-                #if not taxes:
+                # if not taxes:
                 #    a = product.property_account_expense.id
-                #Why is not there a check here?
+                # Why is not there a check here?
                 #    if not a:
                 #        a = product.categ_id.property_account_expense_categ.id
                 #    a = fpos_obj.map_account(cr, uid, fpos, a)
                 #    taxes = a and self.pool.get('account.account').browse(
                 #        cr, uid, a, context=context).tax_ids or False
-                #tax_id = fpos_obj.map_tax(cr, uid, fpos, taxes)
+                # tax_id = fpos_obj.map_tax(cr, uid, fpos, taxes)
             if not taxes:
                 continue
-            #Calculating tax on the line and creating move?
+            # Calculating tax on the line and creating move?
             for tax in tax_obj.compute_all(
                     cr, uid, taxes,
                     line.unit_amount,
@@ -164,7 +164,7 @@ class hr_expense_expense(orm.Model):
                     res[current_product_line_pos]['price'] = (
                         res[current_product_line_pos]['price']
                         - (-(tax['amount'] * tax['base_sign'] or 0.0)))
-                #Will create the tax here as we don't have the access
+                # Will create the tax here as we don't have the access
                 if (
                         (tax['amount'] * tax['base_sign'] or 0.0)
                         or tax['tax_code_id'] is not False):
