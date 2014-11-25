@@ -34,6 +34,13 @@ class hr_payslip(orm.Model):
         Gets a salary rule variable related to a salary rule for
         a period of time
 
+        This method is called from the salary rule:
+        payslip.get_rule_variable(rule_id, payslip.date_from)
+
+        By using the optional argument localdict, you can pass the value of
+        salary rule already computed. Example:
+        payslip.get_rule_variable(rule_id, payslip.date_from, GROSS)
+
         returns: fixed amount (a float) or a python object (most likely a dict)
         """
         rule = self.pool['hr.salary.rule'].browse(
