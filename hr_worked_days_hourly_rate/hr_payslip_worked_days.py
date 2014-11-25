@@ -21,6 +21,7 @@
 
 from openerp.osv import fields, orm
 from datetime import datetime
+from openerp.tools import DEFAULT_SERVER_DATE_FORMAT
 
 
 class hr_payslip_worked_days(orm.Model):
@@ -41,14 +42,20 @@ Example, an overtime hour could be paid the standard rate multiplied by 150%.
         ),
 
         # When a worked day has a number of hours and an hourly rate,
-        # it is necessary to have a date, because hourly rates are likely to
-        # change over the time.
+        # it is necessary to have a date interval,
+        # because hourly rates are likely to change over the time.
         'date_from': fields.date('Date From'),
         'date_to': fields.date('Date To'),
     }
     _defaults = {
         'hourly_rate': 0,
         'rate': 100,
-        'date_from': lambda *a: datetime.strftime(datetime.now(), "%Y-%m-%d"),
-        'date_to': lambda *a: datetime.strftime(datetime.now(), "%Y-%m-%d"),
+        'date_from': lambda *a: datetime.strftime(
+            datetime.now(),
+            DEFAULT_SERVER_DATE_FORMAT
+        ),
+        'date_to': lambda *a: datetime.strftime(
+            datetime.now(),
+            DEFAULT_SERVER_DATE_FORMAT
+        ),
     }
