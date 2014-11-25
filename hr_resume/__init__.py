@@ -19,5 +19,7 @@
 #
 ###############################################################################
 
-import hr_resume
-import report
+from . import (
+	hr_resume,
+	report,
+)
