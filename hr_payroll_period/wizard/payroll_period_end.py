@@ -602,7 +602,7 @@ class payroll_period_end_1(orm.TransientModel):
                     ('pay_period_id', '=', period_id),
                     ('state', 'in', ['validate']),
                 ], context=context
-            )
+        )
         return psa_ids
 
     def _get_draft_amendments(self, cr, uid, context=None):
@@ -975,14 +975,14 @@ class payroll_period_end_1(orm.TransientModel):
                 '|',
                 ('department_id.id', '=', dept.id),
                 ('employee_id.department_id.id', '=', dept.id)
-                ], context=context)
+            ], context=context)
             c2_ids = contract_obj.search(
                 cr, uid, [
                     ('id', 'in', contract_ids),
                     '|',
                     ('job_id.department_id.id', '=', dept.id),
                     ('end_job_id.department_id.id', '=', dept.id),
-                    ], context=context)
+                ], context=context)
             for i in c2_ids:
                 if i not in c_ids:
                     c_ids.append(i)
@@ -1093,7 +1093,7 @@ class payroll_period_end_1(orm.TransientModel):
                         for x
                         in slip_data['value'].get(
                             'worked_days_line_ids', False)
-                        ],
+                    ],
                     'date_from': date_start,
                     'date_to': date_end
                 }

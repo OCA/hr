@@ -170,14 +170,14 @@ class hr_holidays(orm.Model):
         times = tuple()
         if (ex_rd and employee.contract_id and
                 employee.contract_id.schedule_template_id):
-                rest_days = sched_tpl_obj.get_rest_days(
-                    cr, uid, employee.contract_id.schedule_template_id.id,
-                    context=context
-                )
-                times = sched_detail_obj.scheduled_begin_end_times(
-                    cr, uid, employee.id,
-                    employee.contract_id.id, dt,
-                    context=context)
+            rest_days = sched_tpl_obj.get_rest_days(
+                cr, uid, employee.contract_id.schedule_template_id.id,
+                context=context
+            )
+            times = sched_detail_obj.scheduled_begin_end_times(
+                cr, uid, employee.id,
+                employee.contract_id.id, dt,
+                context=context)
         if len(times) > 0:
             utcdtStart = times[0][0]
         else:

@@ -350,7 +350,7 @@ class hr_policy_line(orm.Model):
             'hr.accrual', 'Accrual Account', required=True),
         'type': fields.selection([
             ('standard', 'Standard'), ('calendar', 'Calendar')
-            ], 'Type', required=True),
+        ], 'Type', required=True),
         'balance_on_payslip': fields.boolean(
             'Display Balance on Pay Slip',
             help='The pay slip report must be modified to display this accrual'
@@ -360,7 +360,7 @@ class hr_policy_line(orm.Model):
             ('weekly', 'Weekly'),
             ('monthly', 'Monthly'),
             ('annual', 'Annual'),
-            ],
+        ],
             'Calculation Frequency', required=True),
         'frequency_on_hire_date': fields.boolean(
             'Frequency Based on Hire Date'),
@@ -398,7 +398,7 @@ class hr_policy_line(orm.Model):
             ('10', 'October'),
             ('11', 'November'),
             ('12', 'December'),
-            ], 'Month'),
+        ], 'Month'),
         'frequency_annual_day': fields.selection([
             ('1', '1'), ('2', '2'), ('3', '3'), (
                 '4', '4'), ('5', '5'), ('6', '6'), ('7', '7'),

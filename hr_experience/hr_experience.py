@@ -29,8 +29,8 @@ class hr_experience(orm.Model):
 
     _columns = {
         'category': fields.selection((('professional', 'Professional'),
-                                     ('academic', 'Academic'),
-                                     ('certification', 'Certification')),
+                                      ('academic', 'Academic'),
+                                      ('certification', 'Certification')),
                                      'Category', required=True,
                                      help='category'),
     }
