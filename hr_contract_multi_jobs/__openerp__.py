@@ -27,7 +27,12 @@
 Contract Multi Jobs
 ===================
 In some companies, one employee may have more than one job position with a
-different hourly rate and a different cost for the company.
+different hourly rate based wage.
+
+An example is a construction worker who makes different types of jobs
+for the same company like bricklaying, electricity, carpentry.
+
+Also in restaurants, a waiter can also be barman.
 
 This module enables multiple job positions for one contract
 
