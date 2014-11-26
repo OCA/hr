@@ -33,6 +33,24 @@ class hr_payslip_worked_days(orm.Model):
         ),
     }
 
+    def _get_default_activity(self, cr, uid, context=None):
+        """
+        This function searches activities and return an activity.
+
+        This is important because hr_worked_days_from_timesheet
+        module's yml tests will fail otherwise because it can't create
+        worked days records.
+
+        It returns a leave type because leave types are the same for every
+        employees whereas job positions are different from an employee to
+        another.
+        """
+        activities = self.pool['hr.activity'].search(
+            cr, uid, [('type', '=', 'leave')], context=context
+        )
+        return activities and activities[0] or False
+
     _defaults = {
-        'activity_id': 0,
+        'activity_id': lambda self, cr, uid, context=None:
+        self._get_default_activity(cr, uid, context=context)
     }

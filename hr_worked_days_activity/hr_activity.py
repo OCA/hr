@@ -50,7 +50,7 @@ class hr_activity(orm.Model):
                 res[i] = ''
         return res
 
-    def onchange_activity_type(self, cr, uid, ids):
+    def onchange_activity_type(self, cr, uid, ids, context=None):
         return {
             'value': {
                 'job_id': 0,
