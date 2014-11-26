@@ -23,7 +23,6 @@ from openerp.osv import fields, orm
 
 
 class hr_job(orm.Model):
-    _name = 'hr.job'
     _inherit = 'hr.job'
     _columns = {
         'contract_job_ids': fields.one2many(

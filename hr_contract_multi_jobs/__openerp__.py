@@ -32,7 +32,7 @@ different hourly rate based wage.
 An example is a construction worker who makes different types of jobs
 for the same company like bricklaying, electricity, carpentry.
 
-Also in restaurants, a waiter can also be barman.
+Also in restaurants, a waiter can also work as a barman.
 
 This module enables multiple job positions for one contract
 
@@ -50,7 +50,7 @@ Contributors
         'security/ir.model.access.csv',
         'hr_contract_view.xml',
     ],
-    'test': [],
+    'test': ['test/hr_contract_job_test.yml'],
     'demo': [],
     'installable': True,
     'auto_install': False,

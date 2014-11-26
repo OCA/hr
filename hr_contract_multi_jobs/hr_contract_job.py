@@ -51,4 +51,7 @@ class hr_contract_job(orm.Model):
             required=True,
             ondelete='cascade',
         ),
+        'is_main_job': fields.boolean(
+            'Main Job Position'
+        ),
     }

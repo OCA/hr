@@ -56,3 +56,12 @@ msgstr ""
 msgid "Job"
 msgstr ""
 
+#. module: hr_contract_multi_jobs
+#: constraint:hr.contract:0
+msgid "You must assign one and only one job position as main job position."
+msgstr ""
+
+#. module: hr_contract_multi_jobs
+#: field:hr.contract.job,is_main_job:0
+msgid "Main Job Position"
+msgstr ""

@@ -8,7 +8,7 @@
             <field name="arch" type="xml">
 
                 <field name="job_id" position="replace">
-                    <field name="job_id" invisible="1"/>
+                    <field name="job_id" readonly="1"/>
                 </field>
 
                 <field name="wage" position="after">
@@ -16,6 +16,7 @@
                     <field name="contract_job_ids" colspan="2" nolabel="1">
                         <tree editable="bottom">
                             <field name="job_id"/>
+                            <field name="is_main_job"/>
                         </tree>
                     </field>
                 </field>
