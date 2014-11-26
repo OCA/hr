@@ -12,14 +12,16 @@
       [('job_id', '=', ref('job_1'))]
     )
 
+    job = self.pool['hr.job'].browse(cr, uid, ref('job_1'), context=context)
+
     # We should get one and only one search result
     assert len(activity_id) == 1
     assert activity_id != 0
     print activity_id
 
     # The name of the activity should be the same as the job name
-    activity = self.browse(cr, uid, activity_id[0])
-    assert activity.name == 'Job 1'
+    activity = self.browse(cr, uid, activity_id[0], context=context)
+    assert activity.name == job.name_get(context=context)
 
     # leave_id field should be False
     assert not activity.leave_id
@@ -46,7 +48,7 @@
 
     for activity in activities:
       assert activity.leave_id.id in activity_ids
-      assert activity.name == activity.leave_id.name
+      assert activity.name == activity.leave_id.name_get(context=context)
       assert not activity.job_id
 -
   Test onchange_activity_type with the job activity created
@@ -56,6 +58,6 @@
       cr, uid,
       [('job_id', '=', ref('job_1'))]
     )
-    res = self.onchange_activity_type(cr, uid, activity_id)
+    res = self.onchange_activity_type(cr, uid, activity_id, context=context)
     assert res['value']['job_id'] == 0
     assert res['value']['leave_id'] == 0

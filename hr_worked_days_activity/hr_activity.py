@@ -40,14 +40,17 @@ class hr_activity(orm.Model):
 
         if isinstance(ids, (int, long)):
             ids = [ids]
-        for i in ids:
-            activity = self.browse(cr, uid, i)
+
+        for activity in self.browse(cr, uid, ids, context=context):
             if activity.type == 'job' and activity.job_id:
-                res[i] = activity.job_id.name
+                res[activity.id] = activity.job_id.name_get(context=context)
+
             elif activity.type == 'leave' and activity.leave_id:
-                res[i] = activity.leave_id.name
+                res[activity.id] = activity.leave_id.name_get(context=context)
+
             else:
-                res[i] = ''
+                res[activity.id] = ''
+
         return res
 
     def onchange_activity_type(self, cr, uid, ids, context=None):
