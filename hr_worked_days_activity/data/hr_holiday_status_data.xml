@@ -1,14 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data noupdate="1">
-        <!-- Vacation leave -->
-        <!-- Don't know why it is not in module hr_holidays -->
+        <!-- 
+            Vacation leave
+
+            Module hr_holidays implements
+             - legal_leaves (public holidays)
+             - compensatory days
+             - sick leaves
+        
+            But it does not implement vacations.
+            It is pretty important in most countries though.
+        -->
         <record id="holiday_status_vacation" model="hr.holidays.status">
             <field name="name">Vacation</field>
             <field name="color_name">black</field>
             <field name="paid_leave">1</field>
             <field name="activity_ids" eval="[(6, 0, [])]"/>
         </record>
+
         <record id="hr_holidays.holiday_status_comp" model="hr.holidays.status">
             <field name="paid_leave">1</field>
         </record>
