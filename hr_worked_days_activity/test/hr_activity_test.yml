@@ -1,0 +1,61 @@
+-
+  First we create a job
+-
+  !record {model: hr.job, id: job_1}:
+    name: Job 1
+-
+  We check that an activity was created for the job
+-
+  !python {model: hr.activity}: |
+    activity_id = self.search(
+      cr, uid,
+      [('job_id', '=', ref('job_1'))]
+    )
+
+    # We should get one and only one search result
+    assert len(activity_id) == 1
+    assert activity_id != 0
+    print activity_id
+
+    # The name of the activity should be the same as the job name
+    activity = self.browse(cr, uid, activity_id[0])
+    assert activity.name == 'Job 1'
+
+    # leave_id field should be False
+    assert not activity.leave_id
+-
+  We check if all standard leave activities are created
+  and have the right name
+-
+  !python {model: hr.activity}: |
+    activity_ids = [
+      ref('hr_worked_days_activity.activity_holiday_status_cl'),
+      ref('hr_worked_days_activity.activity_holiday_status_sl'),
+      ref('hr_worked_days_activity.activity_holiday_status_comp'),
+      ref('hr_worked_days_activity.activity_holiday_status_unpaid'),
+      ref('hr_worked_days_activity.activity_holiday_status_vacation'),
+    ]
+    leave_type_ids = [
+      ref('hr_holidays.holiday_status_cl'),
+      ref('hr_holidays.holiday_status_sl'),
+      ref('hr_holidays.holiday_status_comp'),
+      ref('hr_holidays.holiday_status_unpaid'),
+      ref('hr_worked_days_activity.holiday_status_vacation'),
+    ]
+    activities = self.browse(cr, uid, activity_ids)
+
+    for activity in activities:
+      assert activity.leave_id.id in activity_ids
+      assert activity.name == activity.leave_id.name
+      assert not activity.job_id
+-
+  Test onchange_activity_type with the job activity created
+-
+  !python {model: hr.activity}: |
+    activity_id = self.search(
+      cr, uid,
+      [('job_id', '=', ref('job_1'))]
+    )
+    res = self.onchange_activity_type(cr, uid, activity_id)
+    assert res['value']['job_id'] == 0
+    assert res['value']['leave_id'] == 0
