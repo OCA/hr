@@ -1,14 +1,9 @@
 -
-  Create an employee
--
-  !record {model: hr.employee, id: employee_1}:
-    name: Employee 1
--
   Create a contract
 -
   !record {model: hr.contract, id: contract_1}:
     name: Contract 1
-    employee_id: employee_1
+    employee_id: hr.employee
     wage: 50000
 -
   Create a job position
