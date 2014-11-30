@@ -46,6 +46,11 @@ msgid "Hourly Rate"
 msgstr "Taux horaire"
 
 #. module: hr_worked_days_hourly_rate
+#: field:hr.payslip.worked_days,total:0
+msgid "Total"
+msgstr "Total"
+
+#. module: hr_worked_days_hourly_rate
 #: model:ir.model,name:hr_worked_days_hourly_rate.model_hr_payslip_worked_days
 msgid "Payslip Worked Days"
 msgstr "Jours travaillés"

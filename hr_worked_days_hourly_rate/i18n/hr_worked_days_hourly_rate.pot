@@ -43,6 +43,11 @@ msgid "Hourly Rate"
 msgstr ""
 
 #. module: hr_worked_days_hourly_rate
+#: field:hr.payslip.worked_days,total:0
+msgid "Total"
+msgstr ""
+
+#. module: hr_worked_days_hourly_rate
 #: model:ir.model,name:hr_worked_days_hourly_rate.model_hr_payslip_worked_days
 msgid "Payslip Worked Days"
 msgstr ""

@@ -28,6 +28,7 @@
                         name="rate"
                         attrs="{'required': [('number_of_hours', '>', 0)]}"
                     />
+                    <field name="total"/>
                 </xpath>
 
             </field>

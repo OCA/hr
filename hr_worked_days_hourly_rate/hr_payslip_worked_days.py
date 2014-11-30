@@ -26,6 +26,16 @@ from openerp.tools import DEFAULT_SERVER_DATE_FORMAT
 
 class hr_payslip_worked_days(orm.Model):
     _inherit = 'hr.payslip.worked_days'
+
+    def _get_total(
+        self, cr, uid, ids, field_name, arg=None, context=None
+    ):
+        res = {}
+        for wd in self.browse(cr, uid, ids, context=context):
+            res[wd.id] = wd.number_of_hours \
+                * wd.hourly_rate * wd.rate / 100
+        return res
+
     _columns = {
         'hourly_rate': fields.float(
             'Hourly Rate',
@@ -46,6 +56,12 @@ Example, an overtime hour could be paid the standard rate multiplied by 150%.
         # because hourly rates are likely to change over the time.
         'date_from': fields.date('Date From'),
         'date_to': fields.date('Date To'),
+        'total': fields.function(
+            _get_total,
+            method=True,
+            type="float",
+            string="Total",
+        ),
     }
     _defaults = {
         'hourly_rate': 0,
