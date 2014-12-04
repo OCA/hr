@@ -145,7 +145,7 @@ class hr_holidays_line(orm.Model):
     _description = 'Public Holidays Lines'
 
     _columns = {
-        'name': fields.char('Name', size=128, required=True),
+        'name': fields.char('Name', size=128, required=True, translate=True),
         'date': fields.date('Date', required=True),
         'holidays_id': fields.many2one('hr.holidays.public',
                                        'Holiday Calendar Year'),
