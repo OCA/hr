@@ -17,11 +17,10 @@
     # We should get one and only one search result
     assert len(activity_id) == 1
     assert activity_id != 0
-    print activity_id
 
     # The name of the activity should be the same as the job name
     activity = self.browse(cr, uid, activity_id[0], context=context)
-    assert activity.name == job.name_get(context=context)
+    assert activity.name == job.name_get(context=context)[0][1]
 
     # leave_id field should be False
     assert not activity.leave_id
@@ -48,7 +47,7 @@
 
     for activity in activities:
       assert activity.leave_id.id in activity_ids
-      assert activity.name == activity.leave_id.name_get(context=context)
+      assert activity.name == activity.leave_id.name_get(context=context)[0][1]
       assert not activity.job_id
 -
   Test onchange_activity_type with the job activity created
