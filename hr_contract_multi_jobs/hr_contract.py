@@ -79,8 +79,8 @@ class hr_contract(orm.Model):
     _constraints = [
         (
             _check_one_main_job,
-            """You must assign one and only one job position as main \
-job position.""",
+            "You must assign one and only one job position as main "
+            "job position.",
             ['parent_id']
         ),
     ]
