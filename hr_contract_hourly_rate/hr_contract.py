@@ -88,7 +88,7 @@ class hr_contract(orm.Model):
         self, cr, uid, ids, context=None,
     ):
         """
-        Checks if every contract job on the contract has an hourly rate
+        Check if every contract job on the contract has an hourly rate
         class assigned to it.
         """
         for contract in self.browse(cr, uid, ids, context=context):
