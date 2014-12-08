@@ -129,6 +129,14 @@ class test_contract_hourly_rate(common.TransactionCase):
             }, context=self.context
         )
 
+        self.contract_model.write(
+            self.cr, self.uid, [self.contract_id], {
+                'job_id': self.job_id
+            }, context=self.context)
+
+        print self.contract_model.browse(
+            self.cr, self.uid, self.contract_id, context=self.context).job_id.name
+
     def tearDown(self):
         self.contract_model.unlink(
             self.cr, self.uid, [self.contract_id], context=self.context)
