@@ -107,31 +107,29 @@ class hr_contract(orm.Model):
         #
         for contract in self.browse(cr, uid, ids, context=context):
             for data in prev_data:
-                if(
-                    'job_id' in vals
-                    and 'job_id' in data
-                    and data['job_id']
-                    and 'id' in data
-                    and data['id']
+                if (
+                        data.get('id') == contract.id
+                        and not vals.get('job_id', False)
+                        or (
+                            data.get('job_id')
+                            and data['job_id'][0] != vals.get('job_id')
+                        )
                 ):
-                    if (data['id'] == contract.id
-                            and not vals.get('job_id', False)
-                            or data['job_id'][0] != vals['job_id']):
-                        if data.get('job_id'):
-                            prev_job_id = data['job_id'][0]
-                        else:
-                            prev_job_id = False
-                        _l.warning(
-                            'prev Job, new job: %s, %s',
-                            prev_job_id, vals.get('job_id', False)
+                    if data.get('job_id'):
+                        prev_job_id = data['job_id'][0]
+                    else:
+                        prev_job_id = False
+                    _l.warning(
+                        'prev Job, new job: %s, %s',
+                        prev_job_id, vals.get('job_id', False)
+                    )
+                    self._remove_tags(
+                        cr, uid, contract.employee_id.id, prev_job_id,
+                        context=context
+                    )
+                    if vals.get('job_id'):
+                        self._tag_employees(
+                            cr, uid, contract.employee_id.id,
+                            contract.job_id.id, context=context
                         )
-                        self._remove_tags(
-                            cr, uid, contract.employee_id.id, prev_job_id,
-                            context=context
-                        )
-                        if vals.get('job_id'):
-                            self._tag_employees(
-                                cr, uid, contract.employee_id.id,
-                                contract.job_id.id, context=context
-                            )
         return res
