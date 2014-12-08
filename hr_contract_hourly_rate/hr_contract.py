@@ -31,7 +31,7 @@ class hr_contract(orm.Model):
                 ('hourly_rate', 'Hourly Rate')
             ],
             'Salary Computation Method',
-            help="Wheather to use the annual wage or an hourly rate "
+            help="Whether to use the annual wage or an hourly rate "
             "for computation of payslip.",
             required=True,
         ),

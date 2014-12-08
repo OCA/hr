@@ -32,7 +32,7 @@ msgstr ""
 
 #. module: hr_contract_hourly_rate
 #: help:hr.contract,salary_computation_method:0
-msgid "Wheather to use the annual wage or an hourly rate for computation of payslip."
+msgid "Whether to use the annual wage or an hourly rate for computation of payslip."
 msgstr ""
 
 #. module: hr_contract_hourly_rate
