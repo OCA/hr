@@ -71,4 +71,4 @@ class test_hr_simplify(common.TransactionCase):
             name='no_of_employee', args=None, context=context
         )
 
-        self.assertTrue(res[self.job_id]['no_of_employee'] == 1)
+        self.assertEqual(res[self.job_id]['no_of_employee'], 1)
