@@ -110,6 +110,15 @@ class hr_contract(orm.Model):
                                            type='many2one',
                                            relation='hr.department',
                                            string="Default Dept Id"),
+        'state': fields.selection(
+            [
+                ('draft', 'Draft'),
+                ('approve', 'Approved'),
+                ('decline', 'Declined'),
+            ],
+            'State',
+            readonly=True,
+        ),
     }
 
     def _default_employee(self, cr, uid, context=None):
@@ -120,6 +129,7 @@ class hr_contract(orm.Model):
 
     _defaults = {
         'employee_id': _default_employee,
+        'state': 'draft',
     }
 
     def onchange_employee_id(self, cr, uid, ids, employee_id, context=None):

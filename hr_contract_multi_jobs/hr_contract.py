@@ -56,6 +56,19 @@ class hr_contract(orm.Model):
             method=True,
             type="many2one",
             relation="hr.job",
+            store={
+                'hr.contract': (
+                    lambda self, cr, uid, ids, c={}: ids,
+                    ['contract_job_ids'],
+                    10),
+                'hr.contract.job': (
+                    lambda self, cr, uid, ids, c={}: [
+                        contract_job.contract_id.id for contract_job
+                        in self.pool['hr.contract.job'].browse(cr, uid, ids)
+                    ],
+                    ['contract_id'],
+                    10)
+            }
         ),
     }
 

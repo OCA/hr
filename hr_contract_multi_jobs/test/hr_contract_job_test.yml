@@ -26,9 +26,8 @@
   when contract has no assigned job
 -
   !python {model: hr.contract}: |
-    contract_ids = [ref('contract_1')]
-    res = self._check_one_main_job(cr, uid, contract_ids)
-    assert res == True
+    res = self._check_one_main_job(cr, uid, [ref('contract_1')])
+    assert res
 
 -
   Add a contract job
@@ -44,7 +43,7 @@
 -
   !python {model: hr.contract}: |
     res = self._check_one_main_job(cr, uid, [ref('contract_1')])
-    assert res == False
+    assert not res
 
 -
   Add a second contract job
@@ -60,7 +59,13 @@
 -
   !python {model: hr.contract}: |
     res = self._check_one_main_job(cr, uid, [ref('contract_1')])
-    assert res == True
+    assert res
+
+    # Check that the job_id field of the contract is the same
+    # as the main job
+    contract = self.browse(
+      cr, uid, ref('contract_1'))
+    assert contract.job_id.id == ref('job_2')
 
 -
   Validate the _get_main_job_position method
@@ -85,4 +90,4 @@
 -
   !python {model: hr.contract}: |
     res = self._check_one_main_job(cr, uid, [ref('contract_1')])
-    assert res == False
+    assert not res

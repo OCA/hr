@@ -107,8 +107,14 @@ class hr_contract(orm.Model):
         #
         for contract in self.browse(cr, uid, ids, context=context):
             for data in prev_data:
-                if (data['id'] == contract.id and not vals.get('job_id', False)
-                        or data['job_id'][0] != vals['job_id']):
+                if (
+                        data.get('id') == contract.id
+                        and not vals.get('job_id', False)
+                        or (
+                            data.get('job_id')
+                            and data['job_id'][0] != vals.get('job_id')
+                        )
+                ):
                     if data.get('job_id'):
                         prev_job_id = data['job_id'][0]
                     else:
