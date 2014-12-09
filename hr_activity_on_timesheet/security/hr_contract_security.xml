@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+
+        <record id="property_rule_contract_employee" model="ir.rule">
+            <field name="name">Employee Contract</field>
+            <field model="ir.model" name="model_id" ref="model_hr_contract"/>
+            <field name="domain_force">
+                [(
+                    'employee_id', 'in',
+                    [ee.id for ee in user.employee_ids]
+                )]
+            </field>
+            <field name="groups" eval="[(4,ref('base.group_user'))]"/>
+        </record>
+
+        <record id="property_rule_contract_job_employee" model="ir.rule">
+            <field name="name">Employee Contract Job</field>
+            <field model="ir.model" name="model_id" ref="model_hr_contract_job"/>
+            <field name="domain_force">
+                [(
+                    'contract_id', 'in',
+                    [c.id for c in [ee.contract_id for ee in user.employee_ids]]
+                )]
+            </field>
+            <field name="groups" eval="[(4,ref('base.group_user'))]"/>
+        </record>
+
+    </data>
+</openerp>
