@@ -20,6 +20,7 @@
 ##############################################################################
 
 from openerp.osv import fields, orm
+from itertools import permutations
 
 
 class hr_hourly_rate_class(orm.Model):
@@ -47,15 +48,14 @@ class hr_hourly_rate_class(orm.Model):
         Checks if a class has two rates that overlap in time.
         """
         for hourly_rate_class in self.browse(cr, uid, ids, context):
-            rates = hourly_rate_class.line_ids
-            for r1 in rates:
-                for r2 in rates:
-                    if r1.id != r2.id:
-                        if r1.date_end:
-                            if r1.date_start <= r2.date_start <= r1.date_end:
-                                return False
-                        elif r1.date_start <= r2.date_start:
-                            return False
+
+            for r1, r2 in permutations(hourly_rate_class.line_ids, 2):
+                if r1.date_end and (
+                        r1.date_start <= r2.date_start <= r1.date_end):
+                    return False
+                elif not r1.date_end and (r1.date_start <= r2.date_start):
+                    return False
+
         return True
 
     _constraints = [(
