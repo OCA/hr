@@ -6,7 +6,7 @@
             <field name="model">hr.payslip</field>
             <field name="inherit_id" ref="hr_payroll.view_hr_payslip_form"/>
             <field name="arch" type="xml">
-                <xpath expr="//field[@name='worked_days_line_ids']//field[@name='name']" position="replace">
+                <xpath expr="//field[@name='worked_days_line_ids']//field[@name='name']" position="before">
                     <field
                         name="date_from"
                         attrs="{'required': [('number_of_hours', '>', 0)]}"
@@ -15,11 +15,9 @@
                         name="date_to"
                         attrs="{'required': [('number_of_hours', '>', 0)]}"
                     />
-                    <field name="name"/>
                 </xpath>
 
-                <xpath expr="//field[@name='worked_days_line_ids']//field[@name='number_of_hours']" position="replace">
-                    <field name="number_of_hours"/>
+                <xpath expr="//field[@name='worked_days_line_ids']//field[@name='number_of_hours']" position="after">
                     <field
                         name="hourly_rate"
                         attrs="{'required': [('number_of_hours', '>', 0)]}"
