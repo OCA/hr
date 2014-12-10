@@ -22,6 +22,7 @@
 from openerp.osv import fields, orm
 from openerp.tools import DEFAULT_SERVER_DATE_FORMAT
 from datetime import datetime
+from openerp.tools.translate import _
 
 
 class hr_activity(orm.Model):
@@ -83,6 +84,12 @@ class hr_activity(orm.Model):
             employee = user.employee_ids[0]
         else:
             return []
+
+        if not employee.contract_id:
+            raise orm.except_orm(
+                _("Error"),
+                _("There is no available contract for employee %s.")
+                % employee.name)
 
         # Get the activities related to the jobs
         # on the employee's contract

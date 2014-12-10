@@ -105,3 +105,15 @@ msgstr "Total"
 #, python-format
 msgid "Add a Line"
 msgstr "Ajouter une ligne"
+
+#. module: hr_activity_on_timesheet
+#: code:addons/hr_activity_on_timesheet/hr_activity.py:90
+#, python-format
+msgid "Error"
+msgstr "Erreur"
+
+#. module: hr_activity_on_timesheet
+#: code:addons/hr_activity_on_timesheet/hr_activity.py:91
+#, python-format
+msgid "There is no available contract for employee %s."
+msgstr "Il n'y a aucun contrat défini pour l'employé %s."
