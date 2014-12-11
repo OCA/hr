@@ -66,12 +66,8 @@ Example, an overtime hour could be paid the standard rate multiplied by 150%.
     _defaults = {
         'hourly_rate': 0,
         'rate': 100,
-        'date_from': lambda *a: datetime.strftime(
-            datetime.now(),
-            DEFAULT_SERVER_DATE_FORMAT
-        ),
-        'date_to': lambda *a: datetime.strftime(
-            datetime.now(),
-            DEFAULT_SERVER_DATE_FORMAT
-        ),
+        'date_from': lambda *a: datetime.now().strftime(
+            DEFAULT_SERVER_DATE_FORMAT),
+        'date_to': lambda *a: datetime.now().strftime(
+            DEFAULT_SERVER_DATE_FORMAT)
     }

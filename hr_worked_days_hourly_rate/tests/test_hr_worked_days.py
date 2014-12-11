@@ -89,4 +89,4 @@ class test_worked_days(common.TransactionCase):
         worked_days = self.worked_days_model.browse(
             self.cr, self.uid, worked_days_id, context=self.context)
 
-        self.assertTrue(worked_days.total == 40 * 25 * 1.5)
+        self.assertEqual(worked_days.total, 40 * 25 * 1.5)
