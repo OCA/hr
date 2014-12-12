@@ -46,11 +46,15 @@ class test_worked_days_from_timesheet(common.TransactionCase):
         # Create two user
         self.user_id = self.user_model.create(
             cr, uid, {
-                'name': 'User 1', 'login': 'test', 'password': 'test',
+                'name': 'User 1',
+                'login': 'test',
+                'password': 'test',
             }, context=context)
         self.user_2_id = self.user_model.create(
             cr, uid, {
-                'name': 'User 2', 'login': 'test_2', 'password': 'test_2',
+                'name': 'User 2',
+                'login': 'test_2',
+                'password': 'test_2',
             }, context=context)
 
         # Create two employee

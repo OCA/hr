@@ -165,9 +165,8 @@ class hr_payslip(orm.Model):
                 _(
                     "Sorry, but there is no approved Timesheets "
                     "for the entire payslip period "
-                    "for employee %s" % employee.name_get(
-                        context=context)[0][1]
-                ),
+                    "for employee %s."
+                ) % employee.name_get(context=context)[0][1],
             )
 
         return timesheet_sheets

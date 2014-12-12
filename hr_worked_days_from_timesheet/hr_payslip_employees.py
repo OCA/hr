@@ -42,7 +42,10 @@ class hr_payslip_employees(orm.TransientModel):
     }
 
     def compute_sheet(self, cr, uid, ids, context=None):
-
+        """
+        If import_from_timesheet boolean is True, this method will
+        import worked days before computing each payslip.
+        """
         payslip_employees = self.browse(cr, uid, ids, context=context)[0]
 
         if not payslip_employees.import_from_timesheet:
