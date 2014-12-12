@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+
+        <!-- Employee rules --> 
+        <record id="hr_academic_employee_rule" model="ir.rule">
+            <field name="name">Personal academic experiences</field>
+            <field name="model_id" ref="hr.model_hr_academic"/>
+            <field name="domain_force">[('employee_id.user_id.id', '=', user.id)]</field>
+            <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+            <field name="perm_read">False</field>
+            <field name="perm_create">True</field>
+            <field name="perm_write">True</field>
+            <field name="perm_unlink">True</field>
+        </record>
+
+        <record id="hr_professional_employee_rule" model="ir.rule">
+            <field name="name">Personal professional experiences</field>
+            <field name="model_id" ref="hr.model_hr_professional"/>
+            <field name="domain_force">[('employee_id.user_id.id', '=', user.id)]</field>
+            <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+            <field name="perm_read">False</field>
+            <field name="perm_create">True</field>
+            <field name="perm_write">True</field>
+            <field name="perm_unlink">True</field>
+        </record>
+
+        <record id="hr_certification_employee_rule" model="ir.rule">
+            <field name="name">Personal certifications</field>
+            <field name="model_id" ref="model_hr_certification"/>
+            <field name="domain_force">[('employee_id.user_id.id', '=', user.id)]</field>
+            <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+            <field name="perm_read">False</field>
+            <field name="perm_create">True</field>
+            <field name="perm_write">True</field>
+            <field name="perm_unlink">True</field>
+        </record>
+
+        <!-- HR User rules -->
+        <record id="hr_academic_hruser_rule" model="ir.rule">
+            <field name="name">All academic experiences</field>
+            <field name="model_id" ref="hr.model_hr_academic"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('base.group_hr_user'))]"/>
+        </record>
+
+        <record id="hr_professional_hruser_rule" model="ir.rule">
+            <field name="name">All professional experiences</field>
+            <field name="model_id" ref="hr.model_hr_professional"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('base.group_hr_user'))]"/>
+        </record>
+
+        <record id="hr_certification_hruser_rule" model="ir.rule">
+            <field name="name">All certifications</field>
+            <field name="model_id" ref="model_hr_certification"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('base.group_hr_user'))]"/>
+        </record>
+
+    </data>
+</openerp>
