@@ -40,11 +40,10 @@ Contributors
         'hr_timesheet_sheet',
     ],
     'data': [
-        'hr_payslip_view.xml'
+        'hr_payslip_view.xml',
+        'hr_payslip_employees_view.xml',
     ],
-    'test': [
-        'test/worked_days_from_timesheet_test.yml'
-    ],
+    'test': [],
     'demo': [],
     'installable': True,
 }
