@@ -37,8 +37,9 @@ class hr_payslip(orm.Model):
         date_format,
         context=None,
     ):
-        """This function takes timesheet objects imported from the timesheet
-        module and creates a dict of worked days to be created in the payslip.
+        """
+        Take timesheet objects imported from the timesheet
+        module and create a dict of worked days to be created in the payslip.
         """
         worked_days = {}
         # Create one worked days record for each timesheet sheet
@@ -71,30 +72,27 @@ class hr_payslip(orm.Model):
         payslip_ids,
         context=None
     ):
-        """This method retreives the employee's timesheets for a payslip period
-        and creates worked days records from the imported timesheets
         """
+        Retreive the employee's timesheets for a payslip period
+        and create worked days records from the imported timesheets
+        """
+        # get user date format
+        lang_pool = self.pool['res.lang']
+        user_pool = self.pool['res.users']
+        code = user_pool.context_get(cr, uid).get('lang', 'en_US')
+
+        lang_id = lang_pool.search(
+            cr, uid, [('code', '=', code)], context=context)
+
+        date_format = lang_pool.read(
+            cr, uid, lang_id, ['date_format'],
+            context=context)[0]['date_format']
+
         for payslip in self.browse(cr, uid, payslip_ids, context=context):
             employee = payslip.employee_id
 
             date_from = payslip.date_from
             date_to = payslip.date_to
-
-            # get user date format
-            lang_pool = self.pool['res.lang']
-            user_pool = self.pool['res.users']
-            code = user_pool.context_get(cr, uid).get('lang', 'en_US')
-            lang_id = lang_pool.search(
-                cr, uid,
-                [('code', '=', code)],
-                context=context
-            )
-            date_format = lang_pool.read(
-                cr, uid,
-                lang_id,
-                ['date_format'],
-                context=context
-            )[0]['date_format']
 
             # Delete old imported worked_days
             # The reason to delete these records is that the user may make

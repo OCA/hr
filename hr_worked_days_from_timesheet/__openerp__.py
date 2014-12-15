@@ -26,8 +26,8 @@
     'description': """
 Worked Days From Timesheet
 ==========================
-* Adds a button to import worked days from timesheet in a single payslip
-* Adds the option to import worked days from timesheet in payslip batches
+* Add a button to import worked days from timesheet in a single payslip
+* Add the option to import worked days from timesheet in payslip batches
   when generating payslips.
 
 Contributors
