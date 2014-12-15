@@ -20,7 +20,6 @@
 ##############################################################################
 
 from openerp.tests import common
-from copy import copy
 
 
 class test_worked_days_from_timesheet(common.TransactionCase):
@@ -193,12 +192,15 @@ class test_worked_days_from_timesheet(common.TransactionCase):
         payslip = self.payslip_model.browse(
             cr, uid, self.payslip_id, context=context)
 
+        sum_wd = 0
         for wd in payslip.worked_days_line_ids:
-            # 2 worked days
-            # one for timesheet 4 (11.5 hours)
-            # one for timesheet 2 and timesheet 3 (5 hours + 7 hours = 12)
-            # the order is not important
-            self.assertIn(wd.number_of_hours, [11.5, 12])
+            sum_wd += wd.number_of_hours
+
+        # 23.5 hours should be computed
+        # 5 hours for timesheet 2
+        # 7 hours timesheet 3
+        # 11.5 hours for timesheet 4
+        self.assertEqual(sum_wd, 5 + 7 + 11.5)
 
         # Test again to verify that old records get erased
         # as the function is called a second time
@@ -234,7 +236,7 @@ class test_worked_days_from_timesheet(common.TransactionCase):
             }, context=context
         )
 
-        wizard_context = copy(context)
+        wizard_context = context.copy()
         wizard_context['active_id'] = self.slip_run_id
 
         self.run_wizard_model.compute_sheet(
@@ -243,15 +245,77 @@ class test_worked_days_from_timesheet(common.TransactionCase):
         slip_run = self.slip_run_model.browse(
             cr, uid, self.slip_run_id, context=context)
 
-        # Check that one payslip was created for each employee
-        # that no worked_days were entered and that the payslips were
-        # computed as usual
+        # Check that one payslip was created for each employee,
+        # that worked_days were not imported entered and that
+        # the payslips were computed
         self.assertEqual(len(slip_run.slip_ids), 2)
 
         for slip in slip_run.slip_ids:
             self.assertEqual(len(slip.worked_days_line_ids), 0)
             # If the payslip was computed, it should have lines
             self.assertNotEqual(len(slip.line_ids), 0)
+
+        self.payslip_model.unlink(
+            cr, uid,
+            [slip.id for slip in slip_run.slip_ids],
+            context=context)
+
+        self.slip_run_model.unlink(
+            cr, uid, [self.slip_run_id], context=context)
+
+    def test_payslip_batch_compute_sheet_import_worked_days(self):
+        """
+        Test payslip_emlpoyees method compute_sheet
+        when import_from_timesheet is True
+        """
+        cr, uid, context = self.cr, self.uid, self.context
+
+        # Create a payslip batch
+        self.slip_run_id = self.slip_run_model.create(
+            cr, uid, {
+                'name': 'test',
+                'date_start': '2014-01-02',
+                'date_end': '2014-01-15',
+            }, context=context)
+
+        self.wizard_id = self.run_wizard_model.create(
+            cr, uid, {
+                'employee_ids': [(
+                    6, 0, [self.employee_id, self.employee_2_id])],
+                'import_from_timesheet': True,
+            }, context=context
+        )
+
+        wizard_context = context.copy()
+        wizard_context['active_id'] = self.slip_run_id
+
+        self.run_wizard_model.compute_sheet(
+            cr, uid, [self.wizard_id], context=wizard_context)
+
+        slip_run = self.slip_run_model.browse(
+            cr, uid, self.slip_run_id, context=context)
+
+        # Check that one payslip was created for each employee,
+        # that worked_days were imported and that the payslips were
+        # computed
+        self.assertEqual(len(slip_run.slip_ids), 2)
+
+        for slip in slip_run.slip_ids:
+            self.assertNotEqual(len(slip.line_ids), 0)
+
+        for slip in slip_run.slip_ids:
+            if slip.employee_id.id == self.employee_id:
+                employee_1_slip = slip
+
+        sum_wd = 0
+        for wd in employee_1_slip.worked_days_line_ids:
+            sum_wd += wd.number_of_hours
+
+        # 23.5 hours should be computed
+        # 5 hours for timesheet 2
+        # 7 hours timesheet 3
+        # 11.5 hours for timesheet 4
+        self.assertEqual(sum_wd, 5 + 7 + 11.5)
 
         self.payslip_model.unlink(
             cr, uid,
