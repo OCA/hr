@@ -59,10 +59,6 @@ class test_activity_on_timesheet(common.TransactionCase):
         self.job_3_id = self.job_model.create(
             cr, uid, {'name': 'Job 3'}, context=context)
 
-        # Create an activity
-        self.vac_activity_id = self.activity_model.search(
-            cr, uid, [('code', '=', 'VAC')], context=context)[0]
-
         # Create a contract
         self.contract_id = self.contract_model.create(
             self.cr, self.uid, {

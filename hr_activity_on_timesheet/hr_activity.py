@@ -76,7 +76,8 @@ class hr_activity(orm.Model):
         if not context:
             return []
 
-        # The context may contain the user id.
+        # The context should contain the user id of the employee
+        # to whom the timesheet belongs
         if 'user_id' in context:
             user = self.pool['res.users'].browse(
                 cr, uid, context['user_id'], context=context
