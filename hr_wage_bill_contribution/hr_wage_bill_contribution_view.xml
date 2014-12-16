@@ -56,7 +56,7 @@
                         <field name="credit_note"/>
                     </group>
                     <notebook>
-                        <page string="Wage Bill Contribution" >
+                        <page string="Contribution Lines" >
                             <field name="line_ids" colspan="4" nolabel="1">
                                 <tree string="Salary Structure" editable="bottom" colors="blue:total == 0">
                                     <field name="name"/>

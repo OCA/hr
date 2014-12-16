@@ -34,6 +34,11 @@ msgid "Wage Bill Contribution"
 msgstr "Contribution sur la masse salariale"
 
 #. module: hr_wage_bill_contribution
+#: view:hr.wage.bill.contribution:0
+msgid "Contribution Lines"
+msgstr "Lignes de contribution"
+
+#. module: hr_wage_bill_contribution
 #: field:hr.wage.bill.contribution,company_id:0
 #: field:hr.wage.bill.contribution.line,company_id:0
 msgid "Company"

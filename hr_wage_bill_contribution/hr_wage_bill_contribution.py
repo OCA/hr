@@ -20,58 +20,11 @@
 ##############################################################################
 
 from openerp.osv import orm, fields
-from datetime import datetime
 from openerp import netsvc
 from openerp.tools.translate import _
 from openerp.addons.hr_payroll.hr_payroll import one2many_mod2
-
-
-class PayrollBrowsableObject(object):
-    """
-    The same as in hr_payroll module
-    Don't know why they put it inline in the get_contribution_lines
-    function
-    Not very practical when you need to inherit the object
-    """
-    def __init__(self, pool, cr, uid, dict):
-        self.pool = pool
-        self.cr = cr
-        self.uid = uid
-        self.dict = dict
-
-    def __getattr__(self, attr):
-        return attr in self.dict and self.dict.__getitem__(attr) or 0.0
-
-
-class PayslipsBrowsableObject(PayrollBrowsableObject):
-    """
-    Similar as in hr_payroll module
-    """
-    def __init__(self, pool, cr, uid, company_id, dict):
-        self.company_id = company_id
-        super(PayslipsBrowsableObject, self).__init__(
-            pool, cr, uid, dict
-        )
-
-    def sum(self, code, from_date, to_date=None):
-        if to_date is None:
-            to_date = datetime.now().strftime('%Y-%m-%d')
-        self.cr.execute(
-            "SELECT sum( \
-                case when hp.credit_note = False \
-                then (pl.total) else (-pl.total) end \
-            )\
-            FROM hr_payslip as hp, hr_payslip_line as pl \
-            WHERE hp.company_id = %s \
-            AND hp.state = 'done' \
-            AND hp.date_from >= %s \
-            AND hp.date_to <= %s \
-            AND hp.id = pl.slip_id \
-            AND pl.code = %s",
-            (self.company_id.id, from_date, to_date, code)
-        )
-        res = self.cr.fetchone()
-        return res and res[0] or 0.0
+from .PayrollBrowsableObject import (
+    PayslipsBrowsableObject, PayrollBrowsableObject)
 
 
 class hr_wage_bill_contribution(orm.Model):
@@ -87,18 +40,14 @@ class hr_wage_bill_contribution(orm.Model):
             'contribution_id',
             'Contribution Lines',
             readonly=True,
-            states={
-                'draft': [('readonly', False)]
-            }
+            states={'draft': [('readonly', False)]}
         ),
         'details_by_salary_rule': fields.one2many(
             'hr.wage.bill.contribution.line',
             'contribution_id',
             'Contribution Lines',
             readonly=True,
-            states={
-                'draft': [('readonly', False)]
-            }
+            states={'draft': [('readonly', False)]}
         ),
     }
 
@@ -108,8 +57,7 @@ class hr_wage_bill_contribution(orm.Model):
         context=None,
     ):
         structure = self.pool['hr.payroll.structure'].browse(
-            cr, uid, struct_id, context=context
-        )
+            cr, uid, struct_id, context=context)
         return {
             'value': {
                 'name': _('Contribution to %s') % structure.name
@@ -128,36 +76,33 @@ class hr_wage_bill_contribution(orm.Model):
         # Create the refund and trigger the workflows
         for contribution in self.browse(cr, uid, ids, context=context):
             id_copy = self.copy(
-                cr, uid, contribution.id,
-                {
+                cr, uid, contribution.id, {
                     'credit_note': True,
                     'name': _('Refund: ') + contribution.name
-                },
-                context=context
-            )
+                }, context=context)
+
             self.compute_sheet(cr, uid, [id_copy], context=context)
             wf_service.trg_validate(
                 uid, 'hr.wage.bill.contribution',
-                id_copy, 'hr_verify_sheet', cr
-            )
+                id_copy, 'hr_verify_sheet', cr)
+
             wf_service.trg_validate(
                 uid, 'hr.wage.bill.contribution',
-                id_copy, 'process_sheet', cr
-            )
+                id_copy, 'process_sheet', cr)
 
         # Get the form and tree views
         form_id = mod_obj.get_object_reference(
             cr, uid,
             'hr_wage_bill_contribution',
-            'view_hr_wage_bill_contribution_form'
-        )
+            'view_hr_wage_bill_contribution_form')
+
         form_res = form_id and form_id[1] or False
 
         tree_id = mod_obj.get_object_reference(
             cr, uid,
             'hr_wage_bill_contribution',
-            'view_hr_wage_bill_contribution_tree'
-        )
+            'view_hr_wage_bill_contribution_tree')
+
         tree_res = tree_id and tree_id[1] or False
 
         return {
@@ -179,12 +124,11 @@ class hr_wage_bill_contribution(orm.Model):
             if contribution.state not in ['draft', 'cancel']:
                 raise orm.except_orm(
                     _('Warning!'),
-                    _("""\
-You cannot delete a wage bill contribution which is not draft or cancelled!""")
-                )
+                    _("You cannot delete a wage bill contribution "
+                        "which is not draft or cancelled!"))
+
         return super(hr_wage_bill_contribution, self).unlink(
-            cr, uid, ids, context
-        )
+            cr, uid, ids, context)
 
     def compute_sheet(self, cr, uid, ids, context=None):
         line_obj = self.pool['hr.wage.bill.contribution.line']
@@ -192,37 +136,24 @@ You cannot delete a wage bill contribution which is not draft or cancelled!""")
 
             # Delete old contribution lines
             old_slipline_ids = line_obj.search(
-                cr, uid,
-                [('contribution_id', '=', contribution.id)],
-                context=context
-            )
+                cr, uid, [('contribution_id', '=', contribution.id)],
+                context=context)
+
             if old_slipline_ids:
-                line_obj.unlink(
-                    cr, uid,
-                    old_slipline_ids,
-                    context=context
-                )
+                line_obj.unlink(cr, uid, old_slipline_ids, context=context)
 
             # Compute new lines
             lines = [
                 (0, 0, line)
                 for line in self.get_contribution_lines(
-                    cr, uid,
-                    contribution.id,
-                    contribution.struct_id.id,
-                    context=context
-                )
+                    cr, uid, contribution.id,
+                    contribution.struct_id.id, context=context)
             ]
 
             # Write new lines
             self.write(
-                cr, uid,
-                [contribution.id],
-                {
-                    'line_ids': lines,
-                },
-                context=context
-            )
+                cr, uid, [contribution.id], {'line_ids': lines},
+                context=context)
 
         return True
 
@@ -231,15 +162,11 @@ You cannot delete a wage bill contribution which is not draft or cancelled!""")
     ):
         """
         The same as in hr_payroll but as a method
-        Don't know why they put it inline in hr_payroll
         """
         if category.parent_id:
             localdict = self._sum_salary_rule_category(
-                cr, uid,
-                localdict,
-                category.parent_id,
-                amount
-            )
+                cr, uid, localdict, category.parent_id, amount)
+
         localdict['categories'].dict[category.code] = (
             category.code in localdict['categories'].dict) and (
             localdict['categories'].dict[category.code] + amount or amount
@@ -252,7 +179,7 @@ You cannot delete a wage bill contribution which is not draft or cancelled!""")
         structure_id,
         context=None,
     ):
-        # we keep a dict with the result because a value can be overwritten by
+        # Keep a dict with the result because a value can be overwritten by
         # another rule with the same code
         result_dict = {}
         rules = {}
@@ -262,19 +189,18 @@ You cannot delete a wage bill contribution which is not draft or cancelled!""")
 
         contribution_obj = self.pool.get('hr.wage.bill.contribution')
         contribution = contribution_obj.browse(
-            cr, uid, contribution_id, context=context
-        )
+            cr, uid, contribution_id, context=context)
 
         # browsable objects for local dictionary
         contribution_obj = PayrollBrowsableObject(
-            self.pool, cr, uid, contribution
-        )
+            self.pool, cr, uid, contribution)
+
         categories_obj = PayrollBrowsableObject(
-            self.pool, cr, uid, categories_dict
-        )
+            self.pool, cr, uid, categories_dict)
+
         payslip_obj = PayslipsBrowsableObject(
-            self.pool, cr, uid, contribution.company_id, payslips,
-        )
+            self.pool, cr, uid, contribution.company_id, payslips)
+
         rules_obj = PayrollBrowsableObject(self.pool, cr, uid, rules)
 
         localdict = {
@@ -284,19 +210,17 @@ You cannot delete a wage bill contribution which is not draft or cancelled!""")
             'rules': rules_obj,
         }
 
-        # get the ids structure and its parents
+        # Get the ids structure and its parents
         structure_ids = list(set(self.pool.get(
-            'hr.payroll.structure'
-        )._get_parent_structure(
+            'hr.payroll.structure')._get_parent_structure(
             cr, uid, [structure_id], context=context
         )))
 
-        # get the rules of the structure and thier children
+        # Get the rules of the structure and thier children
         rule_ids = self.pool.get('hr.payroll.structure').get_all_rules(
-            cr, uid, structure_ids, context=context
-        )
+            cr, uid, structure_ids, context=context)
 
-        # run the rules by sequence
+        # Run the rules by sequence
         sorted_rule_ids = [
             id for id, sequence in sorted(rule_ids, key=lambda x:x[1])
         ]
@@ -312,35 +236,33 @@ You cannot delete a wage bill contribution which is not draft or cancelled!""")
             localdict['result_qty'] = 1.0
             localdict['result_rate'] = 100
 
-            # check if the rule can be applied
+            # Check if the rule can be applied
             if obj_rule.satisfy_condition(
                 cr, uid, rule.id, localdict, context=context
             ) and rule.id not in blacklist:
 
-                # compute the amount of the rule
+                # Compute the amount of the rule
                 amount, qty, rate = obj_rule.compute_rule(
-                    cr, uid, rule.id, localdict, context=context
-                )
+                    cr, uid, rule.id, localdict, context=context)
 
-                # check if there is already a rule computed with that code
+                # Check if there is already a rule computed with that code
                 previous_amount = rule.code in localdict and \
                     localdict[rule.code] or 0.0
 
-                # set/overwrite the amount computed
+                # Set/overwrite the amount computed
                 # for this rule in the localdict
                 tot_rule = amount * qty * rate / 100.0
                 localdict[rule.code] = tot_rule
                 rules[rule.code] = rule
 
-                # sum the amount for its salary category
+                # Sum the amount for its salary category
                 localdict = self._sum_salary_rule_category(
                     cr, uid,
                     localdict,
                     rule.category_id,
-                    tot_rule - previous_amount
-                )
+                    tot_rule - previous_amount)
 
-                # create/overwrite the rule in the temporary results
+                # Create/overwrite the rule in the temporary results
                 result_dict[rule.code] = {
                     'salary_rule_id': rule.id,
                     'name': rule.name,
@@ -364,7 +286,7 @@ You cannot delete a wage bill contribution which is not draft or cancelled!""")
                     'rate': rate,
                 }
             else:
-                # blacklist this rule and its children
+                # Blacklist this rule and its children
                 # This may happens when the structure has recursive rules
                 # with conditions
                 blacklist += [id for id, seq in self.pool.get(
