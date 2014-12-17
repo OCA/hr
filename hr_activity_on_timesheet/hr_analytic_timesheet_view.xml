@@ -8,8 +8,8 @@
             <field name="arch" type="xml">
                 <field name="name" position="before">
                     <field name="activity_id"
-                        domain="['|', ('type', '!=', 'job'), ('authorized_user_ids', '=', user_id)]"
-                        context="{'user_id': user_id}"
+                        domain="[('authorized_user_ids', '=', user_id), ('authorized_user_ids', '!=', False)]"
+                        context="{'user_id': user_id, 'account_id': account_id}"
                     />
                 </field>
             </field>
@@ -22,8 +22,8 @@
             <field name="arch" type="xml">
                 <field name="name" position="after">
                     <field name="activity_id"
-                        domain="['|', ('type', '!=', 'job'), ('authorized_user_ids', '=', user_id)]"
-                        context="{'user_id': user_id}"
+                        domain="[('authorized_user_ids', '=', user_id), ('authorized_user_ids', '!=', False)]"
+                        context="{'user_id': user_id, 'account_id': account_id}"
                     />
                 </field>
             </field>

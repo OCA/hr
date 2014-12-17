@@ -367,8 +367,8 @@ openerp.hr_activity_on_timesheet = function(instance) {
                         attrs: {
                             name: "activity",
                             type: "many2one",
-                            domain: ['|', ['type', '=', 'leave'], ['authorized_user_ids', '=', self.get('user_id')]],
-                            context: new instance.web.CompoundContext({user_id: self.get('user_id')}),
+                            domain: [['authorized_user_ids', '=', self.get('user_id')], ['authorized_user_ids', '!=', false]],
+                            context: new instance.web.CompoundContext({user_id: self.get('user_id'), account_id: account_id}),
                             modifiers: '{"required": true}',
                         },
                     });

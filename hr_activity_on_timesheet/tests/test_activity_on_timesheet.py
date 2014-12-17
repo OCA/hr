@@ -59,6 +59,10 @@ class test_activity_on_timesheet(common.TransactionCase):
         self.job_3_id = self.job_model.create(
             cr, uid, {'name': 'Job 3'}, context=context)
 
+        # Create an activity
+        self.vac_activity_id = self.activity_model.search(
+            cr, uid, [('code', '=', 'VAC')], context=context)[0]
+
         # Create a contract
         self.contract_id = self.contract_model.create(
             self.cr, self.uid, {
@@ -136,6 +140,6 @@ class test_activity_on_timesheet(common.TransactionCase):
         activity_2 = self.job_model.browse(
             cr, uid, self.job_2_id, context=context).activity_ids[0]
 
-        self.assertEqual(len(res), 2)
         self.assertTrue(activity_1.id in res)
         self.assertTrue(activity_2.id in res)
+        self.assertTrue(self.vac_activity_id in res)

@@ -68,7 +68,7 @@ class hr_activity(orm.Model):
         self, cr, uid, obj, field_name, args=None, context=None
     ):
         """
-        Search the activities from a given user id or employee id
+        Search the activities from a given user id
 
         This method is called by a view to get the job positions of
         an employee
@@ -99,6 +99,9 @@ class hr_activity(orm.Model):
             for contract_job in employee.contract_id.contract_job_ids
             if contract_job.job_id.activity_ids
         ]
+
+        activity_ids += self.pool['hr.activity'].search(
+            cr, uid, [('type', '!=', 'job')], context=context)
 
         return [('id', 'in', activity_ids)]
 

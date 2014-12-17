@@ -6,18 +6,18 @@
             <field name="model">hr_timesheet_sheet.sheet</field>
             <field name="inherit_id" ref="hr_timesheet_sheet.hr_timesheet_sheet_form"/>
             <field name="arch" type="xml">
-                <!-- details -->
+
                 <xpath expr="//field[@name='timesheet_ids']/tree/field[@name='name']" position="before">
                     <field name="activity_id"
-                        domain="['|', ('type', '!=', 'job'), ('authorized_user_ids', '=', user_id)]"
-                        context="{'user_id': user_id}"
+                        domain="[('authorized_user_ids', '=', user_id), ('authorized_user_ids', '!=', False)]"
+                        context="{'user_id': user_id, 'account_id': account_id}"
                     />
                 </xpath>
 
                 <xpath expr="//field[@name='timesheet_ids']/form/field[@name='name']" position="before">
                     <field name="activity_id"
-                        domain="['|', ('type', '!=', 'job'), ('authorized_user_ids', '=', user_id)]"
-                        context="{'user_id': user_id}"
+                        domain="[('authorized_user_ids', '=', user_id), ('authorized_user_ids', '!=', False)]"
+                        context="{'user_id': user_id, 'account_id': account_id}"
                     />
                 </xpath>
             </field>

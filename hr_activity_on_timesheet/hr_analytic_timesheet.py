@@ -31,3 +31,9 @@ class hr_analytic_timesheet(orm.Model):
             required=True,
         ),
     }
+
+    _defaults = {
+        'activity_id': lambda self, cr, uid, context=None:
+        self.pool['hr.payslip.worked_days']._get_default_activity(
+            cr, uid, context=context)
+    }
