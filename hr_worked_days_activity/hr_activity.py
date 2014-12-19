@@ -46,12 +46,7 @@ class hr_activity(orm.Model):
                 res[activity.id] = activity.job_id.name_get()[0][1]
 
             elif activity.type == 'leave' and activity.leave_id:
-                # There is a missing context check in
-                # addons/hr_holidays/hr_holidays.py, so we need to pass the
-                # context here. This is fixed by a patch in v8.
-                res[activity.id] = activity.leave_id.name_get(
-                    context=context
-                )[0][1]
+                res[activity.id] = activity.leave_id.name_get()[0][1]
 
             else:
                 res[activity.id] = ''

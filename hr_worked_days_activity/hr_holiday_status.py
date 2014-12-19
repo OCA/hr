@@ -41,3 +41,11 @@ class hr_holidays_status(orm.Model):
             {'type': 'leave'}
         ]
     }
+
+    def name_get(self, cr, uid, ids, context=None):
+        # There is a missing context check in
+        # addons/hr_holidays/hr_holidays.py
+        # This is fixed by a patch in v8.
+        context = context or {}
+        return super(hr_holidays_status, self).name_get(
+            cr, uid, ids, context=context)
