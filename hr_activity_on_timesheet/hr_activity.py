@@ -78,13 +78,18 @@ class hr_activity(orm.Model):
 
         # The context should contain the user id of the employee
         # to whom the timesheet belongs
-        if 'user_id' in context:
+        if context.get('user_id'):
             user = self.pool['res.users'].browse(
                 cr, uid, context['user_id'], context=context
             )
             employee = user.employee_ids[0]
         else:
-            return []
+            # If the used_id is not in context, this means that
+            # the current selected employee has no related user
+            raise orm.except_orm(
+                _("Error"),
+                _("There is no defined user for the selected "
+                    "employee."))
 
         if not employee.contract_id:
             raise orm.except_orm(

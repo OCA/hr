@@ -117,3 +117,9 @@ msgstr "Erreur"
 #, python-format
 msgid "There is no available contract for employee %s."
 msgstr "Il n'y a aucun contrat défini pour l'employé %s."
+
+#. module: hr_activity_on_timesheet
+#: code:addons/hr_activity_on_timesheet/hr_activity.py:91
+#, python-format
+msgid "There is no defined user for the selected employee."
+msgstr "Il n'y a aucun utilisateur associé à l'employé sélectionné."
