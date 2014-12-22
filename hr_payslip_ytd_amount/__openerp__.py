@@ -25,16 +25,14 @@
     'category': 'Generic Modules/Human Resources',
     'description': """
 Payslip Year-to-date Amount
-===============================
+===========================
 This module adds a field in payslip lines for year-to-date amounts.
 
-The year-to-date value is computed only for the rules that appear on payslip.
+The year-to-date value is calculated only for the rules that appear on payslip
+after the computation of the payslip.
 
-The objective is to eliminate redondant rules that calculate the year-to-date
-value of other rules.
-
-Also, this allows to print a pdf payslip with every rule and easily put
-the current amount and ytd amount next to each other in 2 seperate columns.
+The purpose of this module is to eliminate redondant rules that calculate
+the year-to-date value of other rules.
 
 Contributors
 ------------
@@ -47,6 +45,7 @@ Contributors
         'hr_payroll',
     ],
     'data': [
+        'hr_payslip_view.xml'
     ],
     'test': [],
     'demo': [],
