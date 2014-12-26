@@ -106,7 +106,6 @@ class test_hr_payslip_line_ytd(common.TransactionCase):
                     'struct_id': self.structure_id,
                     'date_from': payslip[1],
                     'date_to': payslip[2],
-                    'struct_id': self.structure_id,
                     'credit_note': payslip[3],
                     'employee_id': payslip[4],
                     'contract_id': payslip[5],
