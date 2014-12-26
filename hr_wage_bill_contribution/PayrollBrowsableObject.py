@@ -135,6 +135,5 @@ class PayslipsBrowsableObject(PayrollBrowsableObject):
             sub_total = min(sub_total, max_range)
             sub_total = max(0, sub_total - min_range)
             res += sub_total
-            print sub_total
 
         return res

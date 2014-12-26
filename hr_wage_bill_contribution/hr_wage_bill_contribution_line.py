@@ -29,7 +29,7 @@ class hr_contribution_line(orm.Model):
     '''
     _name = 'hr.wage.bill.contribution.line'
     _inherit = 'hr.salary.rule'
-    _description = 'Wage Bill Computation Line'
+    _description = 'Employer Contribution Line'
     _order = 'sequence'
 
     def _calculate_total(self, cr, uid, ids, name, args, context):

@@ -29,7 +29,7 @@ msgstr ""
 #: view:hr.wage.bill.contribution:0
 #: model:ir.actions.act_window,name:hr_wage_bill_contribution.action_view_hr_wage_bill_contribution_form
 #: model:ir.ui.menu,name:hr_wage_bill_contribution.menu_department_tree
-msgid "Wage Bill Contribution"
+msgid "Employer Contributions"
 msgstr ""
 
 #. module: hr_wage_bill_contribution
@@ -66,14 +66,13 @@ msgstr ""
 #. module: hr_wage_bill_contribution
 #: code:addons/hr_wage_bill_contribution/hr_wage_bill_contribution.py:182
 #, python-format
-msgid "You cannot delete a wage bill contribution which is not draft or cancelled!"
+msgid "You cannot delete an employer contribution which is not draft or cancelled!"
 msgstr ""
 
 #. module: hr_wage_bill_contribution
 #: field:hr.wage.bill.contribution.line,contribution_id:0
-#: model:ir.model,name:hr_wage_bill_contribution.model_hr_payslip
 #: model:ir.model,name:hr_wage_bill_contribution.model_hr_wage_bill_contribution
-msgid "Pay Slip"
+msgid "Employer Contribution"
 msgstr ""
 
 #. module: hr_wage_bill_contribution
@@ -97,7 +96,7 @@ msgid "Maximum Range"
 msgstr ""
 
 #. module: hr_wage_bill_contribution
-#: code:addons/hr_wage_bill_contribution/hr_wage_bill_contribution.py:181
+#: code:addons/hr_wage_bill_contribution/hr_wage_bill_contribution.py:123
 #, python-format
 msgid "Warning!"
 msgstr ""
@@ -254,7 +253,7 @@ msgstr ""
 
 #. module: hr_wage_bill_contribution
 #: model:ir.model,name:hr_wage_bill_contribution.model_hr_wage_bill_contribution_line
-msgid "Wage Bill Computation Line"
+msgid "Contribution Line"
 msgstr ""
 
 #. module: hr_wage_bill_contribution
@@ -476,4 +475,3 @@ msgstr ""
 #: field:hr.wage.bill.contribution.line,condition_range:0
 msgid "Range Based on"
 msgstr ""
-

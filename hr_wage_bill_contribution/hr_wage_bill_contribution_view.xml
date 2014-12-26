@@ -42,7 +42,7 @@
                     </div>
                     <div class="oe_title">
                         <label for="name" class="oe_edit_only"/>
-                        <h1><field name="name"/></h1>
+                        <h1><field name="name" required="1"/></h1>
                         <label for="company_id" class="oe_edit_only"/>
                         <h2><field name="company_id" groups="base.group_multi_company" widget="selection"/></h2>
                         <label for="date_from" class="oe_edit_only" string="Period"/>
@@ -111,7 +111,7 @@
         </record>
 
         <record id="action_view_hr_wage_bill_contribution_form" model="ir.actions.act_window">
-            <field name="name">Wage Bill Contribution</field>
+            <field name="name">Employer Contributions</field>
             <field name="res_model">hr.wage.bill.contribution</field>
             <field name="view_type">form</field>
             <field name="view_id" ref="view_hr_wage_bill_contribution_tree"/>

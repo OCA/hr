@@ -30,13 +30,19 @@ msgstr "contributions"
 #: view:hr.wage.bill.contribution:0
 #: model:ir.actions.act_window,name:hr_wage_bill_contribution.action_view_hr_wage_bill_contribution_form
 #: model:ir.ui.menu,name:hr_wage_bill_contribution.menu_department_tree
-msgid "Wage Bill Contribution"
-msgstr "Contribution sur la masse salariale"
+msgid "Employer Contributions"
+msgstr "Contributions de l'employeur"
 
 #. module: hr_wage_bill_contribution
 #: view:hr.wage.bill.contribution:0
 msgid "Contribution Lines"
 msgstr "Lignes de contribution"
+
+#. module: hr_wage_bill_contribution
+#: field:hr.wage.bill.contribution.line,contribution_id:0
+#: model:ir.model,name:hr_wage_bill_contribution.model_hr_wage_bill_contribution
+msgid "Employer Contribution"
+msgstr "Contribution de l'employeur"
 
 #. module: hr_wage_bill_contribution
 #: field:hr.wage.bill.contribution,company_id:0
@@ -58,7 +64,7 @@ msgstr "au"
 #: code:addons/hr_wage_bill_contribution/hr_wage_bill_contribution.py:182
 #, python-format
 msgid ""
-"You cannot delete a wage bill contribution which is not draft or cancelled!"
+"You cannot delete an employer contribution which is not draft or cancelled!"
 msgstr ""
 "Vous ne pouvez pas détruire une contribution qui n'est pas à l'état "
 "brouillon ou annulé!"
@@ -74,10 +80,15 @@ msgid "Reference"
 msgstr "Référence"
 
 #. module: hr_wage_bill_contribution
-#: code:addons/hr_wage_bill_contribution/hr_wage_bill_contribution.py:181
+#: code:addons/hr_wage_bill_contribution/hr_wage_bill_contribution.py:123
 #, python-format
 msgid "Warning!"
 msgstr "Attention!"
+
+#. module: hr_wage_bill_contribution
+#: view:hr.wage.bill.contribution:0
+msgid "Period"
+msgstr "Période"
 
 #. module: hr_wage_bill_contribution
 #: view:hr.wage.bill.contribution:0
@@ -117,6 +128,13 @@ msgid "Refund: "
 msgstr "Rembourser"
 
 #. module: hr_wage_bill_contribution
+#: code:addons/hr_wage_bill_contribution/hr_wage_bill_contribution.py:164
+#: view:hr.wage.bill.contribution:0
+#, python-format
+msgid "Refund"
+msgstr "Rembourser"
+
+#. module: hr_wage_bill_contribution
 #: field:hr.wage.bill.contribution,details_by_salary_rule_category:0
 msgid "Details by Salary Rule Category"
 msgstr "Détail par catégorie de règle de salaire"
@@ -140,8 +158,8 @@ msgstr "Description"
 
 #. module: hr_wage_bill_contribution
 #: model:ir.model,name:hr_wage_bill_contribution.model_hr_wage_bill_contribution_line
-msgid "Wage Bill Computation Line"
-msgstr "Ligne de contribution sur la masse salariale"
+msgid "Contribution Line"
+msgstr "Ligne de contribution"
 
 #. module: hr_wage_bill_contribution
 #: view:hr.wage.bill.contribution:0
@@ -218,3 +236,18 @@ msgstr "Taux (%)"
 #: field:hr.wage.bill.contribution.line,amount:0
 msgid "Amount"
 msgstr "Montant"
+
+#. module: hr_wage_bill_contribution
+#: selection:hr.wage.bill.contribution,state:0
+msgid "Draft"
+msgstr "Brouillon"
+
+#. module: hr_wage_bill_contribution
+#: selection:hr.wage.bill.contribution,state:0
+msgid "Done"
+msgstr "Terminé"
+
+#. module: hr_wage_bill_contribution
+#: selection:hr.wage.bill.contribution,state:0
+msgid "Rejected"
+msgstr "Annulé"

@@ -34,6 +34,7 @@ class hr_wage_bill_contribution(orm.Model):
     """
     _name = 'hr.wage.bill.contribution'
     _inherit = 'hr.payslip'
+    _description = 'Employer Contribution'
     _columns = {
         'line_ids': one2many_mod2(
             'hr.wage.bill.contribution.line',
@@ -58,11 +59,7 @@ class hr_wage_bill_contribution(orm.Model):
     ):
         structure = self.pool['hr.payroll.structure'].browse(
             cr, uid, struct_id, context=context)
-        return {
-            'value': {
-                'name': _('Contribution to %s') % structure.name
-            }
-        }
+        return {'value': {'name': structure.name}}
 
     def refund_sheet(self, cr, uid, ids, context=None):
         """
@@ -123,8 +120,8 @@ class hr_wage_bill_contribution(orm.Model):
         for contribution in self.browse(cr, uid, ids, context=context):
             if contribution.state not in ['draft', 'cancel']:
                 raise orm.except_orm(
-                    _('Warning!'),
-                    _("You cannot delete a wage bill contribution "
+                    _("Warning!"),
+                    _("You cannot delete an employer contribution "
                         "which is not draft or cancelled!"))
 
         return super(hr_wage_bill_contribution, self).unlink(
