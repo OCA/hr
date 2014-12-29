@@ -40,16 +40,16 @@ class hr_holidays(orm.Model):
         employee = self.pool.get('hr.employee').browse(cr, uid, employee_id)
 
         hr_holiday_public_obj = self.pool.get('hr.holidays.public')
-        if not employee.address_id.country_id:
+        if employee.address_id.country_id is None:
             country_filter = [('country_id', '=', False)]
         else:
             country_filter = ['|', ('country_id', '=',
                                     employee.address_id.country_id.id),
-                              ('country_id', '=', False)]
+                                   ('country_id', '=', False)]
         hr_holiday_public = hr_holiday_public_obj.search(cr, uid,
                                                          country_filter)
 
-        if not employee.address_id.state_id:
+        if employee.address_id.state_id is None:
             states_filter = [('holidays_id', 'in',
                               hr_holiday_public),
                              ('state_ids', '=', False)]
@@ -141,12 +141,11 @@ class hr_holidays(orm.Model):
                             tz, tz_offset, employee_id):
 
         """Returns a float equals to the timedelta between
-        two dates given as string.NEW: without weekend days"""
-
-        employee = self.pool.get('hr.employee').browse(cr, uid, employee_id)
+        two dates given as string.NEW: only for working dates"""
 
         # parse and reduce to date viewing
         DATETIME_FORMAT = "%Y-%m-%d %H:%M:%S"
+        DATE_FORMAT = "%Y-%m-%d"
 
         from_full = datetime.datetime.strptime(date_from, DATETIME_FORMAT)
         to_full = datetime.datetime.strptime(date_to, DATETIME_FORMAT)
@@ -180,21 +179,34 @@ class hr_holidays(orm.Model):
         current_dt = from_dt
         res_diff_days = 0
 
-        # integers for Saturday and Sunday
-        # weekend_set = set([5, 6])
+        # Get the contract and schedule
+        contract_obj = self.pool.get('hr.contract')
+        contract_id = contract_obj.search(cr, uid, [('employee_id',
+                                                     '=',
+                                                     employee_id)])
 
-        if(employee.work_days == '5'):
-            lst_weekend_int_values = [5, 6]
-        else:
-            lst_weekend_int_values = [6]
+        if not contract_id:
+            return res_diff_days
 
+        contract = contract_obj.browse(cr, uid, contract_id)
         lst_holidays = self.get_public_holidays(cr, uid, employee_id)
         while current_dt <= to_dt:
-            # if it is not a weekend day
-            if current_dt.weekday() not in lst_weekend_int_values and\
-                    current_dt.strftime('%Y-%m-%d') not in lst_holidays:
+            lst_working_days = []
+            if contract[0].working_hours:
+                for attendance in contract[0].working_hours.attendance_ids:
+                    if attendance.date_from:
+                        attendance_date_from =\
+                            datetime.datetime.strptime(attendance.date_from,
+                                                       DATE_FORMAT).date()
+                        if attendance_date_from <= current_dt:
+                            lst_working_days.append(int(attendance.dayofweek))
+                    else:
+                        lst_working_days.append(int(attendance.dayofweek))
+
+            # if it is a working date
+            if current_dt.weekday() in lst_working_days and\
+                    current_dt.strftime(DATE_FORMAT) not in lst_holidays:
                 res_diff_days += 1
-            # current_dt not in lst_holidays:
             current_dt += delta_single_day
 
         # return result

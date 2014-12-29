@@ -22,11 +22,12 @@
 #
 ##############################################################################
 {
-    "name": "Hr holidays weekend module",
+    "name": "Holidays Weekend",
     "version": '0.1',
     "depends": [
         "hr_holidays",
-        "hr_public_holidays"
+        "hr_public_holidays",
+        "hr_contract",
     ],
     'author': 'initOS GmbH & Co. KG',
     "category": "",
