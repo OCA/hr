@@ -1,0 +1,59 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* hr_timesheet_authorized_activities
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 7.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-01-02 21:37+0000\n"
+"PO-Revision-Date: 2015-01-02 21:37+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hr_timesheet_authorized_activities
+#: view:account.analytic.account:0
+msgid "Activities"
+msgstr ""
+
+#. module: hr_timesheet_authorized_activities
+#: model:ir.model,name:hr_timesheet_authorized_activities.model_account_analytic_activity_rel
+msgid "Relation object between analytic accounts and activities"
+msgstr ""
+
+#. module: hr_timesheet_authorized_activities
+#: model:ir.model,name:hr_timesheet_authorized_activities.model_hr_activity
+msgid "Employee Activities"
+msgstr ""
+
+#. module: hr_timesheet_authorized_activities
+#: field:account.analytic.activity.rel,analytic_account_id:0
+#: model:ir.model,name:hr_timesheet_authorized_activities.model_account_analytic_account
+msgid "Analytic Account"
+msgstr ""
+
+#. module: hr_timesheet_authorized_activities
+#: field:hr.activity,authorized_account_ids:0
+msgid "Authorized Accounts"
+msgstr ""
+
+#. module: hr_timesheet_authorized_activities
+#: field:account.analytic.activity.rel,activity_id:0
+msgid "Activity"
+msgstr ""
+
+#. module: hr_timesheet_authorized_activities
+#: model:ir.model,name:hr_timesheet_authorized_activities.model_hr_analytic_timesheet
+msgid "Timesheet Line"
+msgstr ""
+
+#. module: hr_timesheet_authorized_activities
+#: view:account.analytic.account:0
+#: field:account.analytic.account,authorized_activity_ids:0
+msgid "Authorized Activities"
+msgstr ""
+
