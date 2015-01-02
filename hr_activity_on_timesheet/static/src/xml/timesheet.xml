@@ -6,89 +6,60 @@
             <th class="oe_timesheet_first_col">Analytic Account</th>
             <th class="oe_timesheet_snd_col">Activity</th>
         </t>
-        <!-- would be more simple if openerp put a class on every rows of the table so that the widget can be inherited properly -->
-        <!-- instead of replacing the whole table -->
-        <t t-jquery=".oe_timesheet_weekly table" t-operation="replace">
-            <table>
-                <tr>
-                    <th class="oe_timesheet_first_col">Analytic Account</th>
-                    <th class="oe_timesheet_snd_col">Activity</th>
-                    <t t-foreach="widget.dates" t-as="date">
-                        <th t-att-class="'oe_timesheet_weekly_date_head' + (Date.compare(date, Date.today()) === 0 ? ' oe_timesheet_weekly_today' : '')">
-                            <t t-esc="date.toString('ddd')"/><br />
-                            <t t-esc="date.toString('MMM d')"/>
-                        </th>
-                    </t>
-                    <th class="oe_timesheet_weekly_date_head">Total</th>
-                </tr>
-                <t t-foreach="widget.accounts" t-as="account">
-                    <tr t-foreach="account.activities" t-as="activity">
-                        <td class="oe_timesheet_weekly_account">
-                            <a href="javascript:void(0)" t-att-data-id="JSON.stringify(account.account_id)">
-                                <t t-esc="widget.account_names[account.account_id]"/>
-                            </a>
-                        </td>
-                        <td class="oe_timesheet_weekly_activity">
-                            <a href="javascript:void(0)" t-att-data-id="JSON.stringify(activity.activity_id)">
-                                <t t-esc="widget.activity_names[activity.activity_id]"/>
-                            </a>
-                        </td>
-                        <t t-set="day_count" t-value="0"/>
-                        <t t-foreach="activity.days" t-as="day">
-                            <td t-att-class="(Date.compare(day.day, Date.today()) === 0 ? 'oe_timesheet_weekly_today' : '')">
-                                <input t-if="!widget.get('effective_readonly')"
-                                    type="text"
-                                    class="oe_timesheet_weekly_input"
-                                    t-att-data-account="account.account_id"
-                                    t-att-data-activity="activity.activity_id"
-                                    t-att-data-day-count="day_count"
-                                />
-                                <span t-if="widget.get('effective_readonly')"
-                                    class="oe_timesheet_weekly_box"
-                                    t-att-data-account="account.account_id"
-                                    t-att-data-activity="activity.activity_id"
-                                    t-att-data-day-count="day_count"
-                                />
-                                <t t-set="day_count" t-value="day_count + 1"/>
-                            </td>
-                        </t>
-                        <td t-att-data-account-total="account.account_id" t-att-data-activity-total="activity.activity_id" class="oe_timesheet_total"> </td>
-                    </tr>
-                </t>
-                <tr class="oe_timesheet_weekly_selected_account" style="display: none">
-                    <td></td>
-                </tr>
-                <tr class="oe_timesheet_weekly_add_row" style="display: none">
-                    <td>Select Account</td>
-                    <td t-att-colspan="widget.dates.length + 2">
-                        <button class="oe_highlight">Next</button>
+
+        <t t-jquery="tr:not([class]):nth-child(n+2)" t-operation="replace">
+            <t t-foreach="widget.accounts" t-as="account">
+                <tr t-foreach="account.activities" t-as="activity">
+                    <td class="oe_timesheet_weekly_account">
+                        <a href="javascript:void(0)" t-att-data-id="JSON.stringify(account.account_id)">
+                            <t t-esc="widget.account_names[account.account_id]"/>
+                        </a>
                     </td>
-                </tr>
-                <tr class="oe_timesheet_weekly_add_activity" style="display: none">
-                    <td>Select Activity</td>
-                    <td t-att-colspan="widget.dates.length + 2">
-                        <button class="oe_highlight">Add</button>
+                    <td class="oe_timesheet_weekly_activity">
+                        <a href="javascript:void(0)" t-att-data-id="JSON.stringify(activity.activity_id)">
+                            <t t-esc="widget.activity_names[activity.activity_id]"/>
+                        </a>
                     </td>
-                </tr>
-                <tr class="oe_timesheet_total">
-                    <th>
-                        <div class="oe_timesheet_weekly_adding_tot">
-                            <div class="oe_timesheet_weekly_adding"><button class="oe_timesheet_button_add">Add a Line</button></div>
-                            <div class="oe_timesheet_weekly_tottot"><span>Total</span></div>
-                        </div>
-                    </th>
-                    <td class="oe_timesheet_snd_col"> </td>
                     <t t-set="day_count" t-value="0"/>
-                    <t t-foreach="widget.dates" t-as="date">
-                        <td class="oe_timesheet_total">
-                            <span class="oe_timesheet_weekly_box" t-att-data-day-total="day_count">
-                            </span>
+                    <t t-foreach="activity.days" t-as="day">
+                        <td t-att-class="(Date.compare(day.day, Date.today()) === 0 ? 'oe_timesheet_weekly_today' : '')">
+                            <input t-if="!widget.get('effective_readonly')"
+                                type="text"
+                                class="oe_timesheet_weekly_input"
+                                t-att-data-account="account.account_id"
+                                t-att-data-activity="activity.activity_id"
+                                t-att-data-day-count="day_count"
+                            />
+                            <span t-if="widget.get('effective_readonly')"
+                                class="oe_timesheet_weekly_box"
+                                t-att-data-account="account.account_id"
+                                t-att-data-activity="activity.activity_id"
+                                t-att-data-day-count="day_count"
+                            />
                             <t t-set="day_count" t-value="day_count + 1"/>
                         </td>
                     </t>
-                    <td class="oe_timesheet_weekly_supertotal oe_timesheet_total"> </td>
+                    <td t-att-data-account-total="account.account_id" t-att-data-activity-total="activity.activity_id" class="oe_timesheet_total"> </td>
                 </tr>
-            </table>
+            </t>
+        </t>
+
+        <t t-jquery="tr.oe_timesheet_total > td:first-child" t-operation="after">
+            <td> </td>
+        </t>
+        <t t-jquery=".oe_timesheet_weekly_add_row" t-operation="replace">
+            <tr class="oe_timesheet_weekly_add_row" style="display: none">
+                <td>Select Account</td>
+                <td t-att-colspan="widget.dates.length + 2">
+                    <button class="oe_highlight">Next</button>
+                </td>
+            </tr>
+            <tr class="oe_timesheet_weekly_add_activity" style="display: none">
+                <td>Select Activity</td>
+                <td t-att-colspan="widget.dates.length + 2">
+                    <button class="oe_highlight">Add</button>
+                </td>
+            </tr>
         </t>
     </t>
 </templates>
