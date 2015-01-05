@@ -23,7 +23,7 @@
 ##############################################################################
 {
     "name": "Holidays Weekend",
-    "version": '0.1',
+    "version": '1.0',
     "depends": [
         "hr_holidays",
         "hr_public_holidays",
@@ -33,11 +33,7 @@
     "category": "",
     'license': 'AGPL-3',
     "description": """
-    Excludes weekend days from calculation of holidays
-
-    The module extend hr_employee by adding option for configure
-    the count of working days (5 or 6).
-    The module extends hr_holidays by adding functionality for calculation
+    The module uses hr_contract and add functionality for calculation
     of the leave days according to the applied working days as well as
     calculate the public holidays according
     to the country and state

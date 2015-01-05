@@ -141,7 +141,7 @@ class hr_holidays(orm.Model):
                             tz, tz_offset, employee_id):
 
         """Returns a float equals to the timedelta between
-        two dates given as string.NEW: only for working dates"""
+        two dates given as string. NEW: only for working dates"""
 
         # parse and reduce to date viewing
         DATETIME_FORMAT = "%Y-%m-%d %H:%M:%S"
