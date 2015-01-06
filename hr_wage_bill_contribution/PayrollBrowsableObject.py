@@ -84,7 +84,8 @@ class PayslipsBrowsableObject(PayrollBrowsableObject):
 
     def sum_between_range(
             self, code, from_date, to_date,
-            min_range, max_range, company_ids):
+            min_range, max_range, company_ids,
+            count_employees=False):
         """
         Sum amounts in payslips for a period of time.
         For each employee, get the amount included in a range.
@@ -93,6 +94,9 @@ class PayslipsBrowsableObject(PayrollBrowsableObject):
         between 3500 and 52500. The company has 2 employees. One of them
         earns 40k, the other 70k. The method will return
         (52500 - 3500) + (40000 - 3500)
+
+        :param count_employees is True: return only the number of
+        employees that have an amount within given range
         """
         cr, uid, context = self.cr, self.uid, self.context
 
@@ -115,6 +119,7 @@ class PayslipsBrowsableObject(PayrollBrowsableObject):
         )
 
         res = 0
+        number_employees = 0
         for emp_id, payslips in payslips_per_employee:
             payslip_line_ids = self.pool['hr.payslip.line'].search(
                 cr, uid, [
@@ -135,5 +140,11 @@ class PayslipsBrowsableObject(PayrollBrowsableObject):
             sub_total = min(sub_total, max_range)
             sub_total = max(0, sub_total - min_range)
             res += sub_total
+
+            if sub_total > 0:
+                number_employees += 1
+
+        if count_employees:
+            return number_employees
 
         return res

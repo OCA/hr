@@ -287,3 +287,42 @@ class test_wage_bill_contribution(common.TransactionCase):
 
         self.contribution_model.unlink(
             cr, uid, [contribution_id], context=context)
+
+    def test_contribution_sum_between_range_count(self):
+        """test sum_between_range with count_employees is True"""
+        cr, uid, context = self.cr, self.uid, self.context
+
+        # Create a contribution
+        contribution_id = self.contribution_model.create(
+            cr, uid, {
+                'date_from': '2014-01-01',
+                'date_to': '2014-01-31',
+                'struct_id': self.structure_2_id,
+                'company_id': self.company_ids[1],
+            }, context=context)
+
+        # Edit the salary rule
+        self.rule_model.write(
+            cr, uid, [self.rule_2_id], {
+                'amount_python_compute': ""
+                "result = payslip.sum_between_range(\n"
+                "    'GROSSP', '2014-01-01', '2014-01-31',\n"
+                "    1000, 3200, contribution.company_id.id,\n"
+                "    count_employees=True)\n"
+            }, context=context)
+
+        # Compute and approve the contribution
+        self.contribution_model.compute_sheet(
+            cr, uid, [contribution_id], context=context)
+
+        contribution = self.contribution_model.browse(
+            cr, uid, contribution_id, context=context)
+
+        # Only one line should be computed
+        self.assertEqual(len(contribution.line_ids), 1)
+
+        # 2 employees: employee_1 and employee_2
+        self.assertEqual(contribution.line_ids[0].total, 2)
+
+        self.contribution_model.unlink(
+            cr, uid, [contribution_id], context=context)
