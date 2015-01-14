@@ -43,10 +43,10 @@ class hr_activity(orm.Model):
 
         for activity in self.browse(cr, uid, ids, context=context):
             if activity.type == 'job' and activity.job_id:
-                res[activity.id] = activity.job_id.name_get(context=context)
+                res[activity.id] = activity.job_id.name_get()[0][1]
 
             elif activity.type == 'leave' and activity.leave_id:
-                res[activity.id] = activity.leave_id.name_get(context=context)
+                res[activity.id] = activity.leave_id.name_get()[0][1]
 
             else:
                 res[activity.id] = ''
