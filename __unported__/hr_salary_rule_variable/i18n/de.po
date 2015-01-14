@@ -1,0 +1,98 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+# 	* hr_salary_rule_variable
+#
+# Rudolf Schnapka <schnapkar@golive-saar.de>, 2015.
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 7.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-11-11 19:50+0000\n"
+"PO-Revision-Date: 2015-01-01 18:22+0100\n"
+"Last-Translator: Rudolf Schnapka <schnapkar@golive-saar.de>\n"
+"Language-Team: German <kde-i18n-de@kde.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Lokalize 1.5\n"
+"Language: de\n"
+
+#. module: hr_salary_rule_variable
+#: field:hr.salary.rule,variable_ids:0
+msgid "Variables"
+msgstr "Variablen"
+
+#. module: hr_salary_rule_variable
+#: field:hr.salary.rule.variable,type:0
+msgid "Type"
+msgstr "Art"
+
+#. module: hr_salary_rule_variable
+#: view:hr.salary.rule.variable:0
+msgid "Search Salary Rule Variables"
+msgstr "Variablen in Lohnregeln durchsuchen"
+
+#. module: hr_salary_rule_variable
+#: code:addons/hr_salary_rule_variable/hr_payslip.py:60
+#, python-format
+msgid "%s salary rule variables related to %s exist for the date %s"
+msgstr "%s Variablen zu Lohnregeln bezogen auf %s bestehen zum Datum %s"
+
+#. module: hr_salary_rule_variable
+#: code:addons/hr_salary_rule_variable/hr_payslip.py:53
+#, python-format
+msgid "The salary rule variable related to %s does not exist for the date %s"
+msgstr "Die Variable zur Lohnregel %s besteht zum Datum %s nicht"
+
+#. module: hr_salary_rule_variable
+#: field:hr.salary.rule.variable,fixed_amount:0
+#: selection:hr.salary.rule.variable,type:0
+msgid "Fixed Amount"
+msgstr "Festbetrag"
+
+#. module: hr_salary_rule_variable
+#: field:hr.salary.rule.variable,date_to:0
+msgid "Date To"
+msgstr "Bis Datum"
+
+#. module: hr_salary_rule_variable
+#: code:addons/hr_salary_rule_variable/hr_payslip.py:52
+#: code:addons/hr_salary_rule_variable/hr_payslip.py:59
+#, python-format
+msgid "Warning"
+msgstr "Warnung"
+
+#. module: hr_salary_rule_variable
+#: view:hr.salary.rule.variable:0
+#: model:ir.actions.act_window,name:hr_salary_rule_variable.action_hr_salary_rule_variable_list
+#: model:ir.ui.menu,name:hr_salary_rule_variable.menu_action_hr_salary_rule_variable_list
+msgid "Salary Rule Variables"
+msgstr "Variablen zu Lohnregeln"
+
+#. module: hr_salary_rule_variable
+#: field:hr.salary.rule.variable,date_from:0
+msgid "Date From"
+msgstr "Ab Datum"
+
+#. module: hr_salary_rule_variable
+#: model:ir.model,name:hr_salary_rule_variable.model_hr_salary_rule
+msgid "hr.salary.rule"
+msgstr ""
+
+#. module: hr_salary_rule_variable
+#: model:ir.model,name:hr_salary_rule_variable.model_hr_salary_rule_variable
+msgid "Variables used on salary rules that change over the years"
+msgstr "Über die Jahre veränderliche Variablen aus Lohnregeln"
+
+#. module: hr_salary_rule_variable
+#: model:ir.model,name:hr_salary_rule_variable.model_hr_payslip
+msgid "Pay Slip"
+msgstr "Lohnzettel"
+
+#. module: hr_salary_rule_variable
+#: field:hr.salary.rule.variable,python_code:0
+#: selection:hr.salary.rule.variable,type:0
+msgid "Python Code"
+msgstr "Python-Programmcode"
+

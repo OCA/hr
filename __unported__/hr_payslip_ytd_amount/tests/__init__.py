@@ -19,33 +19,10 @@
 #
 ##############################################################################
 
-from openerp.osv import fields, orm
+from . import (
+    test_hr_payslip,
+)
 
-
-class hr_holidays_status(orm.Model):
-    _inherit = 'hr.holidays.status'
-    _columns = {
-        'paid_leave': fields.boolean(
-            'Is Paid Leave',
-            help="Whether this leave is paid or not",
-        ),
-        'activity_ids': fields.one2many(
-            'hr.activity',
-            'leave_id',
-            'Activity',
-        ),
-    }
-    _defaults = {
-        # Creates an leave type automatically
-        'activity_ids': [
-            {'type': 'leave'}
-        ]
-    }
-
-    def name_get(self, cr, uid, ids, context=None):
-        # There is a missing context check in
-        # addons/hr_holidays/hr_holidays.py
-        # This is fixed by a patch in v8.
-        context = context or {}
-        return super(hr_holidays_status, self).name_get(
-            cr, uid, ids, context=context)
+checks = [
+    test_hr_payslip,
+]
