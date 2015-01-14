@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <openerp>
-    <data>
+	<data>
         
         <record id="view_public_holidays_tree" model="ir.ui.view">
             <field name="name">hr.holidays.public.tree</field>
@@ -8,6 +8,7 @@
             <field name="arch" type="xml">
                 <tree string="Public Holidays">
                     <field name="year"/>
+                    <field name="country_id"/>
                 </tree>
             </field>
         </record>
@@ -19,6 +20,7 @@
                 <form string="Public Holidays">
                     <group>
                         <field name="year"/>
+                        <field name="country_id"/>
                     </group>
                     <newline/>
                     <group string="Public Holidays" colspan="4" col="1">
@@ -35,6 +37,7 @@
                 <tree string="Public Holidays" editable="top">
                     <field name="date"/>
                     <field name="name"/>
+                    <field name="state_ids" domain = "[('country_id','=',parent.country_id)]"/>
                     <field name="variable"/>
                 </tree>
             </field>

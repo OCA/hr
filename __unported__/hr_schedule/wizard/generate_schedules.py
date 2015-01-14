@@ -1,12 +1,12 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 #
 #
 #    Copyright (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
 #    All Rights Reserved.
 #
 #    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as published by
-#    the Free Software Foundation, either version 3 of the License, or
+#    it under the terms of the GNU Affero General Public License as published
+#    by the Free Software Foundation, either version 3 of the License, or
 #    (at your option) any later version.
 #
 #    This program is distributed in the hope that it will be useful,
@@ -22,20 +22,30 @@
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 
-from openerp.osv import fields, osv
+from openerp.osv import fields, orm
 
 
-class hr_schedule_generate(osv.TransientModel):
+class hr_schedule_generate(orm.TransientModel):
 
     _name = 'hr.schedule.generate'
     _description = 'Generate Schedules'
     _columns = {
-        'date_start': fields.date('Start', required=True),
-        'no_weeks': fields.integer('Number of weeks', required=True),
-        'employee_ids': fields.many2many('hr.employee', 'hr_employee_schedule_rel',
-                                         'generate_id', 'employee_id', 'Employees'),
+        'date_start': fields.date(
+            'Start',
+            required=True,
+        ),
+        'no_weeks': fields.integer(
+            'Number of weeks',
+            required=True,
+        ),
+        'employee_ids': fields.many2many(
+            'hr.employee',
+            'hr_employee_schedule_rel',
+            'generate_id',
+            'employee_id',
+            'Employees',
+        ),
     }
-
     _defaults = {
         'no_weeks': 2,
     }
@@ -66,11 +76,14 @@ class hr_schedule_generate(osv.TransientModel):
 
         sched_ids = []
         if len(data['employee_ids']) > 0:
-            for ee in ee_obj.browse(cr, uid, data['employee_ids'], context=context):
-                if not ee.contract_id or not ee.contract_id.schedule_template_id:
+            for ee in ee_obj.browse(
+                    cr, uid, data['employee_ids'], context=context):
+                if (not ee.contract_id
+                        or not ee.contract_id.schedule_template_id):
                     continue
                 sched = {
-                    'name': ee.name + ': ' + data['date_start'] + ' Wk ' + str(dStart.isocalendar()[1]),
+                    'name': (ee.name + ': ' + data['date_start'] + ' Wk ' +
+                             str(dStart.isocalendar()[1])),
                     'employee_id': ee.id,
                     'template_id': ee.contract_id.schedule_template_id.id,
                     'date_start': dStart.strftime('%Y-%m-%d'),

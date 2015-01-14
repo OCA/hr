@@ -32,7 +32,7 @@
             <field name="name">hr.contract.contract.expire.tree</field>
             <field name="model">hr.contract</field>
             <field name="arch" type="xml">
-                <tree string="Expiring Conracts">
+                <tree string="Expiring Contracts">
                     <field name="employee_id"/>
                     <field name="department_id"/>
                     <field name="job_id"/>
@@ -106,7 +106,7 @@
                        <header>
                            <button name="signal_confirm" type="workflow" string="Confirm" 
                                    groups="base.group_hr_manager" states="draft" class="oe_highlight"/>
-                           <button name="signal_open" type="workflow" string="Trial Successfull"
+                           <button name="signal_open" type="workflow" string="Trial Successful"
                                    groups="base.group_hr_manager" states="trial_ending" class="oe_highlight"/>
                            <button name="signal_done" type="workflow" string="End Contract"
                                    groups="base.group_hr_manager" states="trial,trial_ending,open,contract_ending,pending_done" class="oe_highlight"/>

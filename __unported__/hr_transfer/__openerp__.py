@@ -1,12 +1,12 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 #
 #
 #    Copyright (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
 #    All Rights Reserved.
 #
 #    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as published by
-#    the Free Software Foundation, either version 3 of the License, or
+#    it under the terms of the GNU Affero General Public License as published
+#    by the Free Software Foundation, either version 3 of the License, or
 #    (at your option) any later version.
 #
 #    This program is distributed in the hope that it will be useful,
@@ -34,9 +34,10 @@ Transfer Employees between Departments
         'hr',
         'hr_contract_state',
     ],
-    'init_xml': [
-    ],
-    'update_xml': [
+    'external_dependencies': {
+        'python': ['dateutil'],
+    },
+    'data': [
         'security/ir.model.access.csv',
         'hr_transfer_cron.xml',
         'hr_transfer_data.xml',
@@ -45,8 +46,5 @@ Transfer Employees between Departments
     ],
     'test': [
     ],
-    'demo_xml': [
-    ],
     'installable': False,
-    'active': False,
 }
