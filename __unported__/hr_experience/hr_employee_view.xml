@@ -1,0 +1,24 @@
+<openerp>
+  <data>
+    <!-- inheritEmployee -->
+    <record model="ir.ui.view" id="view_employee_form_inherit">
+      <field name="name">hr.experience.employee.form</field>
+      <field name="model">hr.employee</field>
+      <field name="inherit_id" ref="hr.view_employee_form"/>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <notebook position="inside">
+          <page string="Academic">
+              <field name="academic_ids"/>
+          </page>
+          <page string="Professional">
+            <field name="experience_ids"/>
+          </page>
+          <page string="Certification">
+            <field name="certification_ids"/>
+          </page>
+        </notebook>
+      </field>
+    </record>
+  </data>
+</openerp>

@@ -18,18 +18,39 @@
 #    along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
 ###############################################################################
-import tools
+
+from openerp import tools
 from openerp.osv import fields, orm
+
 
 class hr_language(orm.Model):
     _name = 'hr.language'
     _columns = {
-        'name': fields.selection(tools.scan_languages(), 'Language', required=True),
-        'description': fields.char('Description', size=64, required=True, translate=True),
-        'employee_id': fields.many2one('hr.employee', 'Employee', required=True),
-        'read': fields.boolean('Read'),
-        'write': fields.boolean('Write'),
-        'speak': fields.boolean('Speak'),
+        'name': fields.selection(
+            tools.scan_languages(),
+            'Language',
+            required=True,
+        ),
+        'description': fields.char(
+            'Description',
+            size=64,
+            required=True,
+            translate=True,
+        ),
+        'employee_id': fields.many2one(
+            'hr.employee',
+            'Employee',
+            required=True,
+        ),
+        'read': fields.boolean(
+            'Read',
+        ),
+        'write': fields.boolean(
+            'Write',
+        ),
+        'speak': fields.boolean(
+            'Speak',
+        ),
     }
 
     _defaults = {
@@ -38,10 +59,13 @@ class hr_language(orm.Model):
         'speak': True,
     }
 
+
 class hr_employee(orm.Model):
     _inherit = 'hr.employee'
     _columns = {
-        'language_ids': fields.one2many('hr.language', 'employee_id', 'Languages'),
+        'language_ids': fields.one2many(
+            'hr.language',
+            'employee_id',
+            'Languages',
+        ),
     }
-
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

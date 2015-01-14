@@ -1,12 +1,12 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 #
 #
 #    Copyright (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
 #    All Rights Reserved.
 #
 #    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as published by
-#    the Free Software Foundation, either version 3 of the License, or
+#    it under the terms of the GNU Affero General Public License as published
+#    by the Free Software Foundation, either version 3 of the License, or
 #    (at your option) any later version.
 #
 #    This program is distributed in the hope that it will be useful,
@@ -28,10 +28,10 @@ Define Time Accrual Policies
 ============================
 Define properties of a leave accrual policy. The accrued time is calculated
 based on the length of service of the employee. An additional premium may be
-added on the base rate based on additional months of service. This policy is ideal
-for annual leave accruals. If the type of accrual is 'Standard' time is accrued and
-withdrawn manually. However, if the type is 'Calendar' the time is accrued (and recorded)
-at a fixed frequency.
+added on the base rate based on additional months of service.
+This policy is ideal for annual leave accruals. If the type of accrual is
+'Standard' time is accrued and withdrawn manually. However, if the type is
+'Calendar' the time is accrued (and recorded) at a fixed frequency.
     """,
     'author': 'Michael Telahun Makonnen <mmakonnen@gmail.com>',
     'website': 'http://miketelahun.wordpress.com',
@@ -41,17 +41,12 @@ at a fixed frequency.
         'hr_employee_seniority',
         'hr_policy_group',
     ],
-    'init_xml': [
-    ],
-    'update_xml': [
+    'data': [
         'security/ir.model.access.csv',
         'hr_policy_accrual_cron.xml',
         'hr_policy_accrual_view.xml',
     ],
     'test': [
     ],
-    'demo_xml': [
-    ],
     'installable': False,
-    'active': False,
 }

@@ -1,12 +1,12 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 #
 #
 #    Copyright (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
 #    All Rights Reserved.
 #
 #    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as published by
-#    the Free Software Foundation, either version 3 of the License, or
+#    it under the terms of the GNU Affero General Public License as published
+#    by the Free Software Foundation, either version 3 of the License, or
 #    (at your option) any later version.
 #
 #    This program is distributed in the hope that it will be useful,
@@ -19,17 +19,23 @@
 #
 #
 
-from openerp.osv import fields, osv
+from openerp.osv import fields, orm
 from openerp.tools.translate import _
 
 
-class hr_payslip_employees(osv.osv_memory):
+class hr_payslip_employees(orm.TransientModel):
 
     _name = 'wage.adjustment.employees'
     _description = 'Generate wage adjustments for selected employees'
 
     _columns = {
-        'employee_ids': fields.many2many('hr.employee', 'hr_employee_wage_group_rel', 'adjustment_id', 'employee_id', 'Employees'),
+        'employee_ids': fields.many2many(
+            'hr.employee',
+            'hr_employee_wage_group_rel',
+            'adjustment_id',
+            'employee_id',
+            'Employees',
+        ),
     }
 
     def _calculate_adjustment(self, initial, adj_type, adj_amount):
@@ -58,33 +64,42 @@ class hr_payslip_employees(osv.osv_memory):
 
         data = self.read(cr, uid, ids, context=context)[0]
         if not data['employee_ids']:
-            raise osv.except_osv(
-                _("Warning !"), _("You must select at least one employee to generate wage adjustments."))
+            raise orm.except_orm(
+                _("Warning !"),
+                _("You must select at least one employee to generate wage "
+                  "adjustments.")
+            )
 
         run_id = context.get('active_id', False)
         if not run_id:
-            raise osv.except_osv(_('Internal Error'), _(
+            raise orm.except_orm(_('Internal Error'), _(
                 'Unable to determine wage adjustment run ID'))
 
         run_data = run_pool.read(
             cr, uid, run_id, ['effective_date', 'type', 'adjustment_amount'],
             context=context)
 
-        for emp in emp_pool.browse(cr, uid, data['employee_ids'], context=context):
+        for emp in emp_pool.browse(
+                cr, uid, data['employee_ids'], context=context):
 
             # skip contracts that don't start before the effective date of the
             # adjustment
-            if run_data.get('effective_date') and run_data['effective_date'] <= emp.contract_id.date_start:
+            if (run_data.get('effective_date')
+                    and run_data['effective_date']
+                    <= emp.contract_id.date_start):
                 continue
 
             res = {
                 'effective_date': run_data.get('effective_date', False),
                 'contract_id': emp.contract_id.id,
-                'wage': self._calculate_adjustment(emp.contract_id.wage, run_data['type'],
-                                                   run_data[
-                                                       'adjustment_amount']),
+                'wage': self._calculate_adjustment(
+                    emp.contract_id.wage, run_data['type'],
+                    run_data['adjustment_amount']
+                ),
                 'run_id': run_id,
             }
             adj_pool.create(cr, uid, res, context=context)
 
-        return {'type': 'ir.actions.act_window_close'}
+        return {
+            'type': 'ir.actions.act_window_close',
+        }

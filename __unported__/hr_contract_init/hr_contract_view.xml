@@ -84,7 +84,7 @@
             <field name="name">hr.contract.init.wage.form</field>
             <field name="model">hr.contract.init.wage</field>
             <field name="arch" type="xml">
-                <form string="Intial Wages" version="7.0">
+                <form string="Initial Wages" version="7.0">
                     <group>
                         <group>
                             <field name="job_id"/>

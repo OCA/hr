@@ -1,12 +1,12 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 #
 #
 #    Copyright (C) 2011,2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
 #    All Rights Reserved.
 #
 #    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as published by
-#    the Free Software Foundation, either version 3 of the License, or
+#    it under the terms of the GNU Affero General Public License as published
+#    by the Free Software Foundation, either version 3 of the License, or
 #    (at your option) any later version.
 #
 #    This program is distributed in the hope that it will be useful,
@@ -20,19 +20,19 @@
 #
 
 import calendar
-import netsvc
-import time
-from datetime import date, datetime, timedelta
+from datetime import datetime, timedelta
 from dateutil.relativedelta import relativedelta
+from pytz import common_timezones, timezone, utc
+
+from openerp import netsvc
 from openerp.tools.safe_eval import safe_eval as eval
 from openerp.tools.translate import _
-from osv import fields, osv
-from pytz import common_timezones, timezone, utc
-from tools.translate import _
+from openerp.osv import fields, orm
+
 import logging
 _logger = logging.getLogger(__name__)
 
-# Obtained from: http://stackoverflow.com/questions/4130922/how-to-increment-datetime-month-in-python
+# Obtained from: http://goo.gl/klh8p
 #
 
 
@@ -44,7 +44,7 @@ def add_months(sourcedate, months):
     return datetime(year, month, day)
 
 
-class hr_payroll_period(osv.osv):
+class hr_payroll_period(orm.Model):
 
     _name = 'hr.payroll.period'
 
@@ -52,13 +52,14 @@ class hr_payroll_period(osv.osv):
 
     _columns = {
         'name': fields.char('Description', size=256, required=True),
-        'schedule_id': fields.many2one('hr.payroll.period.schedule', 'Payroll Period Schedule',
-                                       required=True),
+        'schedule_id': fields.many2one(
+            'hr.payroll.period.schedule', 'Payroll Period Schedule',
+            required=True),
         'date_start': fields.datetime('Start Date', required=True),
         'date_end': fields.datetime('End Date', required=True),
-        'register_id': fields.many2one('hr.payroll.register', 'Payroll Register', readonly=True,
-                                       states={
-                                           'generate': [('readonly', False)]}),
+        'register_id': fields.many2one(
+            'hr.payroll.register', 'Payroll Register', readonly=True,
+            states={'generate': [('readonly', False)]}),
         'state': fields.selection([('open', 'Open'),
                                    ('ended', 'End of Period Processing'),
                                    ('locked', 'Locked'),
@@ -76,12 +77,20 @@ class hr_payroll_period(osv.osv):
 
     _track = {
         'state': {
-            'hr_payroll_period.mt_state_open': lambda self, cr, uid, obj, ctx=None: obj['state'] == 'open',
-            'hr_payroll_period.mt_state_end': lambda self, cr, uid, obj, ctx=None: obj['state'] == 'ended',
-            'hr_payroll_period.mt_state_lock': lambda self, cr, uid, obj, ctx=None: obj['state'] == 'locked',
-            'hr_payroll_period.mt_state_generate': lambda self, cr, uid, obj, ctx=None: obj['state'] == 'generate',
-            'hr_payroll_period.mt_state_payment': lambda self, cr, uid, obj, ctx=None: obj['state'] == 'payment',
-            'hr_payroll_period.mt_state_close': lambda self, cr, uid, obj, ctx=None: obj['state'] == 'closed',
+            'hr_payroll_period.mt_state_open': (
+                lambda self, cr, uid, obj, ctx=None: obj['state'] == 'open'),
+            'hr_payroll_period.mt_state_end': (
+                lambda self, cr, uid, obj, ctx=None: obj['state'] == 'ended'),
+            'hr_payroll_period.mt_state_lock': (
+                lambda self, cr, uid, obj, ctx=None: obj['state'] == 'locked'),
+            'hr_payroll_period.mt_state_generate': (
+                lambda self, cr, uid, obj, ctx=None: obj['state'] == 'generate'
+            ),
+            'hr_payroll_period.mt_state_payment': (
+                lambda self, cr, uid, obj, ctx=None: obj['state'] == 'payment'
+            ),
+            'hr_payroll_period.mt_state_close': (
+                lambda self, cr, uid, obj, ctx=None: obj['state'] == 'closed'),
         },
     }
 
@@ -99,7 +108,8 @@ class hr_payroll_period(osv.osv):
     def is_ended(self, cr, uid, period_id, context=None):
 
         #
-        # XXX - Someone who cares about DST should update this code to handle it.
+        # TODO - Someone who cares about DST should update this code
+        # to handle it.
         #
 
         flag = False
@@ -110,7 +120,9 @@ class hr_payroll_period(osv.osv):
             if period:
                 dtEnd = datetime.strptime(period.date_end, '%Y-%m-%d %H:%M:%S')
                 utcDtEnd = utc_tz.localize(dtEnd, is_dst=False)
-                if utcDtNow > utcDtEnd + timedelta(minutes=(period.schedule_id.ot_max_rollover_hours * 60)):
+                if utcDtNow > utcDtEnd + timedelta(
+                    minutes=(period.schedule_id.ot_max_rollover_hours * 60)
+                ):
                     flag = True
         return flag
 
@@ -120,7 +132,8 @@ class hr_payroll_period(osv.osv):
         """
 
         #
-        # XXX - Someone who cares about DST should update this code to handle it.
+        # TODO - Someone who cares about DST should update this code
+        # to handle it.
         #
 
         utc_tz = timezone('UTC')
@@ -141,7 +154,8 @@ class hr_payroll_period(osv.osv):
     def set_state_ended(self, cr, uid, ids, context=None):
 
         #
-        # XXX - Someone who cares about DST should update this code to handle it.
+        # TODO - Someone who cares about DST should update this code
+        # to handle it.
         #
 
         wf_service = netsvc.LocalService('workflow')
@@ -161,30 +175,35 @@ class hr_payroll_period(osv.osv):
                     # Unlock attendance
                     punch_ids = attendance_obj.search(cr, uid, [
                         ('employee_id', '=', employee.id),
-                        '&', (
-                            'name', '>=', utcDtStart.strftime('%Y-%m-%d %H:%M:%S')),
+                        '&',
+                        ('name', '>=', utcDtStart.strftime(
+                            '%Y-%m-%d %H:%M:%S')),
                         ('name', '<=', utcDtEnd.strftime(
                             '%Y-%m-%d %H:%M:%S')),
                     ], order='name', context=context)
-                    [wf_service.trg_validate(uid, 'hr.attendance', pid, 'signal_unlock', cr)
+                    [wf_service.trg_validate(
+                        uid, 'hr.attendance', pid, 'signal_unlock', cr)
                      for pid in punch_ids]
 
                     # Unlock schedules
                     detail_ids = detail_obj.search(cr, uid, [
                         ('schedule_id.employee_id', '=', employee.id),
-                        '&', (
-                            'date_start', '>=', utcDtStart.strftime('%Y-%m-%d %H:%M:%S')),
+                        '&',
+                        ('date_start', '>=', utcDtStart.strftime(
+                            '%Y-%m-%d %H:%M:%S')),
                         ('date_start', '<=', utcDtEnd.strftime(
                             '%Y-%m-%d %H:%M:%S')),
                     ], order='date_start', context=context)
-                    [wf_service.trg_validate(uid, 'hr.schedule.detail', did, 'signal_unlock', cr)
+                    [wf_service.trg_validate(
+                        uid, 'hr.schedule.detail', did, 'signal_unlock', cr)
                      for did in detail_ids]
 
                     # Unlock holidays/leaves that end in the current period
                     holiday_ids = holiday_obj.search(cr, uid, [
                         ('employee_id', '=', employee.id),
-                        '&', (
-                            'date_to', '>=', utcDtStart.strftime('%Y-%m-%d %H:%M:%S')),
+                        '&',
+                        ('date_to', '>=', utcDtStart.strftime(
+                            '%Y-%m-%d %H:%M:%S')),
                         ('date_to', '<=', utcDtEnd.strftime(
                             '%Y-%m-%d %H:%M:%S')),
                     ],
@@ -202,7 +221,8 @@ class hr_payroll_period(osv.osv):
     def set_state_locked(self, cr, uid, ids, context=None):
 
         #
-        # XXX - Someone who cares about DST should update this code to handle it.
+        # TODO - Someone who cares about DST should update this code
+        # to handle it.
         #
 
         wkf_service = netsvc.LocalService('workflow')
@@ -221,8 +241,8 @@ class hr_payroll_period(osv.osv):
                 # Lock sign-in and sign-out attendance records
                 punch_ids = attendance_obj.search(cr, uid, [
                     ('employee_id', '=', employee.id),
-                    '&', (
-                        'name', '>=', utcDtStart.strftime('%Y-%m-%d %H:%M:%S')),
+                    '&',
+                    ('name', '>=', utcDtStart.strftime('%Y-%m-%d %H:%M:%S')),
                     ('name', '<=', utcDtEnd.strftime(
                         '%Y-%m-%d %H:%M:%S')),
                 ], order='name', context=context)
@@ -233,8 +253,9 @@ class hr_payroll_period(osv.osv):
                 # Lock schedules
                 detail_ids = detail_obj.search(cr, uid, [
                     ('schedule_id.employee_id', '=', employee.id),
-                    '&', (
-                        'date_start', '>=', utcDtStart.strftime('%Y-%m-%d %H:%M:%S')),
+                    '&',
+                    ('date_start', '>=', utcDtStart.strftime(
+                        '%Y-%m-%d %H:%M:%S')),
                     ('date_start', '<=', utcDtEnd.strftime(
                         '%Y-%m-%d %H:%M:%S')),
                 ], order='date_start', context=context)
@@ -245,8 +266,9 @@ class hr_payroll_period(osv.osv):
                 # Lock holidays/leaves that end in the current period
                 holiday_ids = holiday_obj.search(cr, uid, [
                     ('employee_id', '=', employee.id),
-                    '&', (
-                        'date_to', '>=', utcDtStart.strftime('%Y-%m-%d %H:%M:%S')),
+                    '&',
+                    ('date_to', '>=', utcDtStart.strftime(
+                        '%Y-%m-%d %H:%M:%S')),
                     ('date_to', '<=', utcDtEnd.strftime(
                         '%Y-%m-%d %H:%M:%S')),
                 ],
@@ -266,7 +288,7 @@ class hr_payroll_period(osv.osv):
         return self.write(cr, uid, ids, {'state': 'closed'}, context=context)
 
 
-class hr_payperiod_schedule(osv.osv):
+class hr_payperiod_schedule(orm.Model):
 
     _name = 'hr.payroll.period.schedule'
 
@@ -291,8 +313,10 @@ class hr_payperiod_schedule(osv.osv):
             ('6', _('Saturday')),
         ],
             'Start of Week', required=True),
-        'ot_max_rollover_hours': fields.integer('OT Max. Continous Hours', required=True),
-        'ot_max_rollover_gap': fields.integer('OT Max. Continuous Hours Gap (in Min.)', required=True),
+        'ot_max_rollover_hours': fields.integer(
+            'OT Max. Continuous Hours', required=True),
+        'ot_max_rollover_gap': fields.integer(
+            'OT Max. Continuous Hours Gap (in Min.)', required=True),
         'type': fields.selection([
             ('manual', 'Manual'),
             ('monthly', 'Monthly'),
@@ -325,7 +349,8 @@ class hr_payperiod_schedule(osv.osv):
         ],
             'Pay Date'),
         'contract_ids': fields.one2many('hr.contract', 'pps_id', 'Contracts'),
-        'pay_period_ids': fields.one2many('hr.payroll.period', 'schedule_id', 'Pay Periods'),
+        'pay_period_ids': fields.one2many(
+            'hr.payroll.period', 'schedule_id', 'Pay Periods'),
         'initial_period_date': fields.date('Initial Period Start Date'),
         'active': fields.boolean('Active'),
     }
@@ -369,21 +394,23 @@ class hr_payperiod_schedule(osv.osv):
             return month_number, year_number
 
         #
-        # XXX - Someone who cares about DST should update this code to handle it.
+        # XXX - Someone who cares about DST should update this code
+        # to handle it.
         #
 
         schedule_obj = self.pool.get('hr.payroll.period.schedule')
 
         data = None
-        latest = None
         for sched in schedule_obj.browse(cr, uid, ids, context=context):
-            for p in sched.pay_period_ids:
-                if not latest:
-                    latest = p
-                    continue
-                if datetime.strptime(p.date_end, '%Y-%m-%d %H:%M:%S') > datetime.strptime(latest.date_end, '%Y-%m-%d %H:%M:%S'):
-                    latest = p
             local_tz = timezone(sched.tz)
+            try:
+                latest = max(
+                    datetime.strptime(p.date_end, '%Y-%m-%d %H:%M:%S')
+                    for p in sched.pay_period_ids
+                )
+            except ValueError:
+                latest = False
+
             if not latest:
                 # No pay periods have been defined yet for this pay period
                 # schedule.
@@ -393,10 +420,12 @@ class hr_payperiod_schedule(osv.osv):
                     if dtStart.day > int(sched.mo_firstday):
                         dtStart = add_months(dtStart, 1)
                         dtStart = datetime(
-                            dtStart.year, dtStart.month, int(sched.mo_firstday), 0, 0, 0)
+                            dtStart.year, dtStart.month,
+                            int(sched.mo_firstday), 0, 0, 0)
                     elif dtStart.day < int(sched.mo_firstday):
                         dtStart = datetime(
-                            dtStart.year, dtStart.month, int(sched.mo_firstday), 0, 0, 0)
+                            dtStart.year, dtStart.month,
+                            int(sched.mo_firstday), 0, 0, 0)
                     else:
                         dtStart = datetime(
                             dtStart.year, dtStart.month, dtStart.day, 0, 0, 0)
@@ -412,7 +441,8 @@ class hr_payperiod_schedule(osv.osv):
                     utcEnd = utcEnd.astimezone(utc)
 
                     data = {
-                        'name': 'Pay Period ' + str(month_number) + '/' + str(year_number),
+                        'name': 'Pay Period ' + str(
+                            month_number) + '/' + str(year_number),
                         'schedule_id': sched.id,
                         'date_start': utcStart.strftime('%Y-%m-%d %H:%M:%S'),
                         'date_end': utcEnd.strftime('%Y-%m-%d %H:%M:%S'),
@@ -439,33 +469,35 @@ class hr_payperiod_schedule(osv.osv):
                     utcEnd = utcEnd.astimezone(utc)
 
                     data = {
-                        'name': 'Pay Period ' + str(month_number) + '/' + str(year_number),
+                        'name': 'Pay Period ' + str(
+                            month_number) + '/' + str(year_number),
                         'schedule_id': sched.id,
                         'date_start': utcStart.strftime('%Y-%m-%d %H:%M:%S'),
                         'date_end': utcEnd.strftime('%Y-%m-%d %H:%M:%S'),
                     }
-            if data != None:
-                schedule_obj.write(cr, uid, sched.id, {
-                                   'pay_period_ids': [(0, 0, data)]}, context=context)
+            if data is not None:
+                schedule_obj.write(
+                    cr, uid, sched.id,
+                    {'pay_period_ids': [(0, 0, data)]}, context=context)
 
     def _get_latest_period(self, cr, uid, sched_id, context=None):
 
         sched = self.browse(cr, uid, sched_id, context=context)
-        latest_period = False
-        for period in sched.pay_period_ids:
-            if not latest_period:
-                latest_period = period
-                continue
-            if datetime.strptime(period.date_end, '%Y-%m-%d %H:%M:%S') > datetime.strptime(latest_period.date_end, '%Y-%m-%d %H:%M:%S'):
-                latest_period = period
-
+        try:
+            latest_period = max(
+                datetime.strptime(period.date_end, '%Y-%m-%d %H:%M:%S')
+                for period in sched.pay_period_ids
+            )
+        except ValueError:
+            latest_period = False
         return latest_period
 
     def try_create_new_period(self, cr, uid, context=None):
-        '''Try and create pay periods for up to 3 months from now.'''
+        """Try and create pay periods for up to 3 months from now."""
 
         #
-        # XXX - Someone who cares about DST should update this code to handle it.
+        # TODO - Someone who cares about DST should update this code
+        # to handle it.
         #
 
         dtNow = datetime.now()
@@ -478,7 +510,8 @@ class hr_payperiod_schedule(osv.osv):
             else:
                 continue
             dtNow = datetime.strptime(
-                dtNow.strftime('%Y-%m-' + firstday + ' 00:00:00'), '%Y-%m-%d %H:%M:%S')
+                dtNow.strftime(
+                    '%Y-%m-' + firstday + ' 00:00:00'), '%Y-%m-%d %H:%M:%S')
             loclDTNow = timezone(sched.tz).localize(dtNow, is_dst=False)
             utcDTFuture = loclDTNow.astimezone(
                 utc_tz) + relativedelta(months=+3)
@@ -489,40 +522,47 @@ class hr_payperiod_schedule(osv.osv):
             latest_period = self._get_latest_period(
                 cr, uid, sched.id, context=context)
             utcDTStart = utc_tz.localize(
-                datetime.strptime(latest_period.date_start, '%Y-%m-%d %H:%M:%S'), is_dst=False)
+                datetime.strptime(
+                    latest_period.date_start, '%Y-%m-%d %H:%M:%S'),
+                is_dst=False)
             while utcDTFuture > utcDTStart:
                 self.add_pay_period(cr, uid, [sched.id], context=context)
                 latest_period = self._get_latest_period(
                     cr, uid, sched.id, context=context)
                 utcDTStart = utc_tz.localize(
-                    datetime.strptime(latest_period.date_start, '%Y-%m-%d %H:%M:%S'), is_dst=False)
+                    datetime.strptime(
+                        latest_period.date_start, '%Y-%m-%d %H:%M:%S'
+                    ),
+                    is_dst=False)
 
 
-class contract_init(osv.Model):
+class contract_init(orm.Model):
 
     _inherit = 'hr.contract.init'
 
     _columns = {
-        'pay_sched_id': fields.many2one('hr.payroll.period.schedule', 'Payroll Period Schedule',
-                                        readonly=True, states={
-                                            'draft': [('readonly', False)]}),
+        'pay_sched_id': fields.many2one(
+            'hr.payroll.period.schedule', 'Payroll Period Schedule',
+            readonly=True, states={'draft': [('readonly', False)]}),
     }
 
 
-class hr_contract(osv.osv):
+class hr_contract(orm.Model):
 
     _name = 'hr.contract'
     _inherit = 'hr.contract'
 
     _columns = {
-        'pps_id': fields.many2one('hr.payroll.period.schedule', 'Payroll Period Schedule', required=True),
+        'pps_id': fields.many2one(
+            'hr.payroll.period.schedule', 'Payroll Period Schedule',
+            required=True),
     }
 
     def _get_pay_sched(self, cr, uid, context=None):
 
         res = False
         init = self.get_latest_initial_values(cr, uid, context=context)
-        if init != None and init.pay_sched_id:
+        if init is not None and init.pay_sched_id:
             res = init.pay_sched_id.id
         return res
 
@@ -531,7 +571,7 @@ class hr_contract(osv.osv):
     }
 
 
-class hr_payslip(osv.osv):
+class hr_payslip(orm.Model):
 
     _name = 'hr.payslip'
     _inherit = 'hr.payslip'
@@ -559,33 +599,38 @@ class hr_payslip(osv.osv):
 
         class InputLine(BrowsableObject):
 
-            """a class that will be used into the python code, mainly for usability purposes"""
+            """a class that will be used into the python code, mainly for
+            usability purposes"""
 
             def sum(self, code, from_date, to_date=None):
                 if to_date is None:
                     to_date = datetime.now().strftime('%Y-%m-%d')
-                result = 0.0
-                self.cr.execute("SELECT sum(amount) as sum\
-                            FROM hr_payslip as hp, hr_payslip_input as pi \
-                            WHERE hp.employee_id = %s AND hp.state = 'done' \
-                            AND hp.date_from >= %s AND hp.date_to <= %s AND hp.id = pi.payslip_id AND pi.code = %s",
-                                (self.employee_id, from_date, to_date, code))
+                self.cr.execute(
+                    "SELECT sum(amount) as sum"
+                    "FROM hr_payslip as hp, hr_payslip_input as pi "
+                    "WHERE hp.employee_id = %s AND hp.state = 'done' "
+                    "AND hp.date_from >= %s AND hp.date_to <= %s "
+                    "AND hp.id = pi.payslip_id AND pi.code = %s",
+                    (self.employee_id, from_date, to_date, code))
                 res = self.cr.fetchone()[0]
                 return res or 0.0
 
         class WorkedDays(BrowsableObject):
 
-            """a class that will be used into the python code, mainly for usability purposes"""
+            """a class that will be used into the python code, mainly
+            for usability purposes"""
 
             def _sum(self, code, from_date, to_date=None):
                 if to_date is None:
                     to_date = datetime.now().strftime('%Y-%m-%d')
-                result = 0.0
-                self.cr.execute("SELECT sum(number_of_days) as number_of_days, sum(number_of_hours) as number_of_hours\
-                            FROM hr_payslip as hp, hr_payslip_worked_days as pi \
-                            WHERE hp.employee_id = %s AND hp.state = 'done'\
-                            AND hp.date_from >= %s AND hp.date_to <= %s AND hp.id = pi.payslip_id AND pi.code = %s",
-                                (self.employee_id, from_date, to_date, code))
+                self.cr.execute(
+                    "SELECT sum(number_of_days) as number_of_days, "
+                    "sum(number_of_hours) as number_of_hours"
+                    "FROM hr_payslip as hp, hr_payslip_worked_days as pi "
+                    "WHERE hp.employee_id = %s AND hp.state = 'done'"
+                    "AND hp.date_from >= %s AND hp.date_to <= %s "
+                    "AND hp.id = pi.payslip_id AND pi.code = %s",
+                    (self.employee_id, from_date, to_date, code))
                 return self.cr.fetchone()
 
             def sum(self, code, from_date, to_date=None):
@@ -598,16 +643,20 @@ class hr_payslip(osv.osv):
 
         class Payslips(BrowsableObject):
 
-            """a class that will be used into the python code, mainly for usability purposes"""
+            """a class that will be used into the python code, mainly for
+            usability purposes"""
 
             def sum(self, code, from_date, to_date=None):
                 if to_date is None:
                     to_date = datetime.now().strftime('%Y-%m-%d')
-                self.cr.execute("SELECT sum(case when hp.credit_note = False then (pl.total) else (-pl.total) end)\
-                            FROM hr_payslip as hp, hr_payslip_line as pl \
-                            WHERE hp.employee_id = %s AND hp.state = 'done' \
-                            AND hp.date_from >= %s AND hp.date_to <= %s AND hp.id = pl.slip_id AND pl.code = %s",
-                                (self.employee_id, from_date, to_date, code))
+                self.cr.execute(
+                    "SELECT sum(case when hp.credit_note = False then "
+                    "(pl.total) else (-pl.total) end)"
+                    "FROM hr_payslip as hp, hr_payslip_line as pl "
+                    "WHERE hp.employee_id = %s AND hp.state = 'done' "
+                    "AND hp.date_from >= %s AND hp.date_to <= %s "
+                    "AND hp.id = pl.slip_id AND pl.code = %s",
+                    (self.employee_id, from_date, to_date, code))
                 res = self.cr.fetchone()
                 return res and res[0] or 0.0
 
@@ -656,15 +705,21 @@ class hr_payslip(osv.osv):
             utils_obj = BrowsableObject(
                 self.pool, cr, uid, payslip.employee_id.id, temp_dict)
 
-            localdict = {'categories': categories_obj,
-                         'payslip': payslip_obj,
-                         'worked_days': worked_days_obj,
-                         'inputs': input_obj,
-                         'utils': utils_obj}
-            localdict['result'] = None
+            localdict = {
+                'categories': categories_obj,
+                'payslip': payslip_obj,
+                'worked_days': worked_days_obj,
+                'inputs': input_obj,
+                'utils': utils_obj,
+                'result': None,
+            }
 
-            for rule in rule_obj.browse(cr, uid, sorted_rule_ids, context=context):
-                if rule_obj.satisfy_condition(cr, uid, rule.id, localdict, context=context):
+            for rule in rule_obj.browse(
+                cr, uid, sorted_rule_ids, context=context
+            ):
+                if rule_obj.satisfy_condition(
+                    cr, uid, rule.id, localdict, context=context
+                ):
                     val = {
                         'name': rule.name,
                         'slip_id': payslip.id,
@@ -676,24 +731,29 @@ class hr_payslip(osv.osv):
         return True
 
 
-class hr_payslip_exception(osv.osv):
+class hr_payslip_exception(orm.Model):
 
     _name = 'hr.payslip.exception'
     _description = 'Payroll Exception'
 
     _columns = {
         'name': fields.char('Name', size=256, required=True, readonly=True),
-        'rule_id': fields.many2one('hr.payslip.exception.rule', 'Rule', ondelete='cascade', readonly=True),
-        'slip_id': fields.many2one('hr.payslip', 'Pay Slip', ondelete='cascade', readonly=True),
-        'severity': fields.related('rule_id', 'severity', type="char", string="Severity", store=True, readonly=True),
+        'rule_id': fields.many2one(
+            'hr.payslip.exception.rule', 'Rule', ondelete='cascade',
+            readonly=True),
+        'slip_id': fields.many2one(
+            'hr.payslip', 'Pay Slip', ondelete='cascade', readonly=True),
+        'severity': fields.related(
+            'rule_id', 'severity', type="char", string="Severity", store=True,
+            readonly=True),
     }
 
 # This is almost 100% lifted from hr_payroll/hr.salary.rule
-# I ommitted the parts I don't use.
+# I omitted the parts I don't use.
 #
 
 
-class hr_payslip_exception_rule(osv.osv):
+class hr_payslip_exception_rule(orm.Model):
 
     _name = 'hr.payslip.exception.rule'
     _description = 'Rules describing pay slips in an abnormal state'
@@ -701,11 +761,28 @@ class hr_payslip_exception_rule(osv.osv):
     _columns = {
         'name': fields.char('Name', size=256, required=True),
         'code': fields.char('Code', size=64, required=True),
-        'sequence': fields.integer('Sequence', required=True, help='Use to arrange calculation sequence', select=True),
-        'active': fields.boolean('Active', help="If the active field is set to false, it will allow you to hide the rule without removing it."),
+        'sequence': fields.integer(
+            'Sequence', required=True,
+            help='Use to arrange calculation sequence', select=True),
+        'active': fields.boolean(
+            'Active',
+            help="If the active field is set to false, it will allow you to "
+                 "hide the rule without removing it."
+        ),
         'company_id': fields.many2one('res.company', 'Company'),
-        'condition_select': fields.selection([('none', 'Always True'), ('python', 'Python Expression')], "Condition Based on", required=True),
-        'condition_python': fields.text('Python Condition', readonly=False, help='The condition that triggers the exception.'),
+        'condition_select': fields.selection(
+            [
+                ('none', 'Always True'),
+                ('python', 'Python Expression')
+            ],
+            "Condition Based on",
+            required=True,
+        ),
+        'condition_python': fields.text(
+            'Python Condition',
+            readonly=False,
+            help='The condition that triggers the exception.'
+        ),
         'severity': fields.selection((
             ('low', 'Low'),
             ('medium', 'Medium'),
@@ -717,17 +794,20 @@ class hr_payslip_exception_rule(osv.osv):
 
     _defaults = {
         'active': True,
-        'company_id': lambda self, cr, uid, context: self.pool.get('res.company')._company_default_get(cr, uid, 'hr.payslip.exception.rule', context=context),
+        'company_id': lambda self, cr, uid, context: self.pool.get(
+            'res.company')._company_default_get(
+                cr, uid, 'hr.payslip.exception.rule', context=context
+        ),
         'sequence': 5,
         'severity': 'low',
         'condition_select': 'none',
-        'condition_python':
-'''
+        'condition_python': '''
 # Available variables:
 #----------------------
 # payslip: object containing the payslips
 # contract: hr.contract object
-# categories: object containing the computed salary rule categories (sum of amount of all rules belonging to that category).
+# categories: object containing the computed salary rule categories
+              (sum of amount of all rules belonging to that category).
 # worked_days: object containing the computed worked days
 # inputs: object containing the computed inputs
 
@@ -740,7 +820,9 @@ result = categories.GROSS.amount > categories.NET.amount''',
         """
         @param rule_id: id of hr.payslip.exception.rule to be tested
         @param contract_id: id of hr.contract to be tested
-        @return: returns True if the given rule match the condition for the given contract. Return False otherwise.
+        @return: returns True if the given rule match the condition for the
+        given contract.
+        Return False otherwise.
         """
         rule = self.browse(cr, uid, rule_id, context=context)
 
@@ -752,21 +834,33 @@ result = categories.GROSS.amount > categories.NET.amount''',
                      localdict, mode='exec', nocopy=True)
                 return 'result' in localdict and localdict['result'] or False
             except:
-                raise osv.except_osv(
-                    _('Error!'), _('Wrong python condition defined for payroll exception rule %s (%s).') % (rule.name, rule.code))
+                raise orm.except_orm(
+                    _('Error!'),
+                    _('Wrong python condition defined for payroll exception '
+                      'rule %s (%s).') % (rule.name, rule.code))
 
 
-class hr_payslip_amendment(osv.osv):
+class hr_payslip_amendment(orm.Model):
 
     _name = 'hr.payslip.amendment'
     _inherit = 'hr.payslip.amendment'
 
     _columns = {
-        'pay_period_id': fields.many2one('hr.payroll.period', 'Pay Period', domain=[('state', 'in', ['open', 'ended', 'locked', 'generate'])], required=False, readonly=True, states={'draft': [('readonly', False)], 'validate': [('required', True)], 'done': [('required', True)]}),
+        'pay_period_id': fields.many2one(
+            'hr.payroll.period', 'Pay Period',
+            domain=[('state', 'in', ['open', 'ended', 'locked', 'generate'])],
+            required=False,
+            readonly=True,
+            states={
+                'draft': [('readonly', False)],
+                'validate': [('required', True)],
+                'done': [('required', True)]
+            },
+        ),
     }
 
 
-class hr_holidays_status(osv.osv):
+class hr_holidays_status(orm.Model):
 
     _name = 'hr.holidays.status'
     _inherit = 'hr.holidays.status'
@@ -775,18 +869,20 @@ class hr_holidays_status(osv.osv):
         'code': fields.char('Code', size=16, required=True),
     }
 
-    _sql_constraints = [
-        ('code_unique', 'UNIQUE(code)', 'Codes for leave types must be unique!')]
+    _sql_constraints = [(
+        'code_unique', 'UNIQUE(code)',
+        'Codes for leave types must be unique!')]
 
 
-class hr_holidays(osv.Model):
+class hr_holidays(orm.Model):
 
     _name = 'hr.holidays'
     _inherit = 'hr.holidays'
 
     _columns = {
-        'payroll_period_state': fields.selection([('unlocked', 'Unlocked'), ('locked', 'Locked')],
-                                                 'Payroll Period State', readonly=True),
+        'payroll_period_state': fields.selection(
+            [('unlocked', 'Unlocked'), ('locked', 'Locked')],
+            'Payroll Period State', readonly=True),
     }
 
     _defaults = {
@@ -796,13 +892,22 @@ class hr_holidays(osv.Model):
     def unlink(self, cr, uid, ids, context=None):
         for h in self.browse(cr, uid, ids, context=context):
             if h.payroll_period_state == 'locked':
-                raise osv.except_osv(_('Warning!'),
-                                     _('You cannot delete a leave which belongs to a payroll period that has been locked.'))
+                raise orm.except_orm(
+                    _('Warning!'),
+                    _('You cannot delete a leave which belongs to a payroll '
+                      'period that has been locked.')
+                )
         return super(hr_holidays, self).unlink(cr, uid, ids, context)
 
     def write(self, cr, uid, ids, vals, context=None):
         for h in self.browse(cr, uid, ids, context=context):
-            if h.payroll_period_state == 'locked' and not vals.get('payroll_period_state', False):
-                raise osv.except_osv(_('Warning!'),
-                                     _('You cannot modify a leave which belongs to a payroll period that has been locked.'))
-        return super(hr_holidays, self).write(cr, uid, ids, vals, context=context)
+            if h.payroll_period_state == 'locked' and not vals.get(
+                'payroll_period_state', False
+            ):
+                raise orm.except_orm(
+                    _('Warning!'),
+                    _('You cannot modify a leave which belongs to a payroll '
+                      'period that has been locked.')
+                )
+        return super(hr_holidays, self).write(
+            cr, uid, ids, vals, context=context)
