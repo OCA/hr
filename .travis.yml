@@ -15,13 +15,7 @@ before_install:
   - git clone https://github.com/OCA/maintainer-quality-tools.git ${HOME}/maintainer-quality-tools
   - export PATH=${HOME}/maintainer-quality-tools/travis:$PATH
   - travis_install_nightly
-  - sudo apt-get update
-  - sudo apt-get install openoffice.org python-genshi python-cairo python-openoffice python-lxml python-uno
-  - sudo apt-get install zip
-  - bzr branch lp:aeroolib ${HOME}/aeroolib
-  - bzr branch lp:aeroo ${HOME}/aeroo
-  - pushd ${HOME}/aeroolib/aeroolib; sudo python setup.py install; popd
- 
+
 script:
   - travis_run_tests
 
