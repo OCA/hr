@@ -73,13 +73,13 @@ msgstr "Jours travaillés"
 #: code:addons/hr_worked_days_from_timesheet/hr_payslip_employees.py:62
 #, python-format
 msgid "Warning!"
-msgstr "Attention!"
+msgstr "Attention !"
 
 #. module: hr_worked_days_from_timesheet
 #: code:addons/hr_worked_days_from_timesheet/hr_payslip_employees.py:63
 #, python-format
 msgid "You must select employee(s) to generate payslip(s)."
-msgstr "Vous devez sélectionner au moins un employé pour générer un(des) payslip(s)"
+msgstr "Vous devez sélectionner au moins un employé pour générer un(des) bulletin(s) de paie"
 
 #. module: hr_worked_days_from_timesheet
 #: model:ir.model,name:hr_worked_days_from_timesheet.model_hr_payslip_employees
