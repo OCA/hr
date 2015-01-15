@@ -23,7 +23,7 @@
 }
 
 #webcam, #canvas {
-    width: 320px;
+    width: 360px;
     border:20px solid #333;
     background:#eee;
     -webkit-border-radius: 20px;
