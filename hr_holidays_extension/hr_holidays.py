@@ -195,7 +195,8 @@ class hr_holidays(orm.Model):
         next_dt = dt
         while count_days > 1:
             public_holiday = holiday_obj.is_public_holiday(
-                cr, uid, next_dt.date(), context=context)
+                cr, uid, next_dt.date(), employee_id=employee_id,
+                context=context)
             public_holiday = (public_holiday and ex_ph)
             rest_day = (next_dt.weekday() in rest_days and ex_rd)
             next_dt += timedelta(days=+1)
