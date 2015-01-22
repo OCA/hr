@@ -195,7 +195,8 @@ class hr_holidays(orm.Model):
         next_dt = dt
         while count_days > 1:
             public_holiday = holiday_obj.is_public_holiday(
-                cr, uid, next_dt.date(), context=context)
+                cr, uid, next_dt.date(), employee_id=employee_id,
+                context=context)
             public_holiday = (public_holiday and ex_ph)
             rest_day = (next_dt.weekday() in rest_days and ex_rd)
             next_dt += timedelta(days=+1)
@@ -212,7 +213,7 @@ class hr_holidays(orm.Model):
         while ((next_dt.weekday() in rest_days and ex_rd)
                 or (holiday_obj.is_public_holiday(
                     cr, uid, next_dt.date(), context=context
-                ) and ex_ph)):
+                    ) and ex_ph)):
             if holiday_obj.is_public_holiday(
                     cr, uid, next_dt.date(), context=context):
                 ph_days += 1
@@ -281,7 +282,7 @@ class hr_holidays(orm.Model):
         while ((return_date.weekday() in rest_days and ex_rd)
                or (holiday_obj.is_public_holiday(
                    cr, uid, return_date.date(), context=context
-               ) and ex_ph)):
+                   ) and ex_ph)):
             return_date += timedelta(days=1)
         res['value']['return_date'] = return_date.strftime('%B %d, %Y')
         return res
