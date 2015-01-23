@@ -8,7 +8,7 @@ class hr_employee(osv.Model):
 
     def action_take_picture(self, cr, uid, ids, context=None):
 
-        if context == None:
+        if context is None:
             context = {}
 
         res_model, res_id = self.pool.get(
