@@ -1,0 +1,477 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* hr_employer_contribution
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 7.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-11-13 19:29+0000\n"
+"PO-Revision-Date: 2014-11-13 19:29+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hr_employer_contribution
+#: field:hr.employer.contribution.line,condition_select:0
+msgid "Condition Based on"
+msgstr ""
+
+#. module: hr_employer_contribution
+#: view:hr.employer.contribution:0
+msgid "contributions"
+msgstr ""
+
+#. module: hr_employer_contribution
+#: view:hr.employer.contribution:0
+#: model:ir.actions.act_window,name:hr_employer_contribution.action_view_hr_employer_contribution_form
+#: model:ir.ui.menu,name:hr_employer_contribution.menu_department_tree
+msgid "Employer Contributions"
+msgstr ""
+
+#. module: hr_employer_contribution
+#: field:hr.employer.contribution.line,input_ids:0
+msgid "Inputs"
+msgstr ""
+
+#. module: hr_employer_contribution
+#: field:hr.employer.contribution.line,parent_rule_id:0
+msgid "Parent Salary Rule"
+msgstr ""
+
+#. module: hr_employer_contribution
+#: view:hr.employer.contribution:0
+msgid "Payslips"
+msgstr ""
+
+#. module: hr_employer_contribution
+#: field:hr.employer.contribution,company_id:0
+#: field:hr.employer.contribution.line,company_id:0
+msgid "Company"
+msgstr ""
+
+#. module: hr_employer_contribution
+#: view:hr.employer.contribution:0
+msgid "Set to Draft"
+msgstr ""
+
+#. module: hr_employer_contribution
+#: view:hr.employer.contribution:0
+msgid "to"
+msgstr ""
+
+#. module: hr_employer_contribution
+#: code:addons/hr_employer_contribution/hr_employer_contribution.py:182
+#, python-format
+msgid "You cannot delete an employer contribution which is not draft or cancelled!"
+msgstr ""
+
+#. module: hr_employer_contribution
+#: field:hr.employer.contribution.line,contribution_id:0
+#: model:ir.model,name:hr_employer_contribution.model_hr_employer_contribution
+msgid "Employer Contribution"
+msgstr ""
+
+#. module: hr_employer_contribution
+#: field:hr.employer.contribution.line,amount:0
+msgid "Amount"
+msgstr ""
+
+#. module: hr_employer_contribution
+#: help:hr.employer.contribution.line,amount_select:0
+msgid "The computation method for the rule amount."
+msgstr ""
+
+#. module: hr_employer_contribution
+#: field:hr.employer.contribution,number:0
+msgid "Reference"
+msgstr ""
+
+#. module: hr_employer_contribution
+#: field:hr.employer.contribution.line,condition_range_max:0
+msgid "Maximum Range"
+msgstr ""
+
+#. module: hr_employer_contribution
+#: code:addons/hr_employer_contribution/hr_employer_contribution.py:123
+#, python-format
+msgid "Warning!"
+msgstr ""
+
+#. module: hr_employer_contribution
+#: help:hr.employer.contribution.line,code:0
+msgid "The code of salary rules can be used as reference in computation of other rules. In that case, it is case sensitive."
+msgstr ""
+
+#. module: hr_employer_contribution
+#: view:hr.employer.contribution:0
+msgid "From"
+msgstr ""
+
+#. module: hr_employer_contribution
+#: view:hr.employer.contribution:0
+msgid "Confirm"
+msgstr ""
+
+#. module: hr_employer_contribution
+#: help:hr.employer.contribution.line,condition_python:0
+msgid "Applied this rule for calculation if condition is true. You can specify condition like basic > 1000."
+msgstr ""
+
+#. module: hr_employer_contribution
+#: code:addons/hr_employer_contribution/hr_employer_contribution.py:115
+#, python-format
+msgid "Contribution to %s"
+msgstr ""
+
+#. module: hr_employer_contribution
+#: selection:hr.employer.contribution,state:0
+msgid "Waiting"
+msgstr ""
+
+#. module: hr_employer_contribution
+#: field:hr.employer.contribution,employee_id:0
+msgid "Employee"
+msgstr ""
+
+#. module: hr_employer_contribution
+#: field:hr.employer.contribution.line,amount_percentage_base:0
+msgid "Percentage based on"
+msgstr ""
+
+#. module: hr_employer_contribution
+#: help:hr.employer.contribution.line,amount_percentage:0
+msgid "For example, enter 50.0 to apply a percentage of 50%"
+msgstr ""
+
+#. module: hr_employer_contribution
+#: field:hr.employer.contribution,paid:0
+msgid "Made Payment Order ? "
+msgstr ""
+
+#. module: hr_employer_contribution
+#: view:hr.employer.contribution:0
+msgid "Search Contributions"
+msgstr ""
+
+#. module: hr_employer_contribution
+#: field:hr.employer.contribution.line,rate:0
+msgid "Rate (%)"
+msgstr ""
+
+#. module: hr_employer_contribution
+#: selection:hr.employer.contribution,state:0
+msgid "Rejected"
+msgstr ""
+
+#. module: hr_employer_contribution
+#: help:hr.employer.contribution.line,amount_percentage_base:0
+msgid "result will be affected to a variable"
+msgstr ""
+
+#. module: hr_employer_contribution
+#: code:addons/hr_employer_contribution/hr_employer_contribution.py:134
+#, python-format
+msgid "Refund: "
+msgstr ""
+
+#. module: hr_employer_contribution
+#: field:hr.employer.contribution,payslip_run_id:0
+msgid "Payslip Batches"
+msgstr ""
+
+#. module: hr_employer_contribution
+#: help:hr.employer.contribution.line,condition_range_max:0
+msgid "The maximum amount, applied for this rule."
+msgstr ""
+
+#. module: hr_employer_contribution
+#: field:hr.employer.contribution.line,appears_on_payslip:0
+msgid "Appears on Payslip"
+msgstr ""
+
+#. module: hr_employer_contribution
+#: help:hr.employer.contribution.line,active:0
+msgid "If the active field is set to false, it will allow you to hide the salary rule without removing it."
+msgstr ""
+
+#. module: hr_employer_contribution
+#: field:hr.employer.contribution.line,amount_percentage:0
+#: selection:hr.employer.contribution.line,amount_select:0
+msgid "Percentage (%)"
+msgstr ""
+
+#. module: hr_employer_contribution
+#: field:hr.employer.contribution,details_by_salary_rule_category:0
+msgid "Details by Salary Rule Category"
+msgstr ""
+
+#. module: hr_employer_contribution
+#: help:hr.employer.contribution.line,register_id:0
+msgid "Eventual third party involved in the salary payment of the employees."
+msgstr ""
+
+#. module: hr_employer_contribution
+#: view:hr.employer.contribution:0
+#: field:hr.employer.contribution,details_by_salary_rule:0
+#: field:hr.employer.contribution,line_ids:0
+msgid "Contribution Lines"
+msgstr ""
+
+#. module: hr_employer_contribution
+#: field:hr.employer.contribution.line,condition_range_min:0
+msgid "Minimum Range"
+msgstr ""
+
+#. module: hr_employer_contribution
+#: field:hr.employer.contribution.line,child_ids:0
+msgid "Child Salary Rule"
+msgstr ""
+
+#. module: hr_employer_contribution
+#: field:hr.employer.contribution,date_to:0
+msgid "Date To"
+msgstr ""
+
+#. module: hr_employer_contribution
+#: selection:hr.employer.contribution.line,condition_select:0
+msgid "Range"
+msgstr ""
+
+#. module: hr_employer_contribution
+#: field:hr.employer.contribution,credit_note:0
+msgid "Credit Note"
+msgstr ""
+
+#. module: hr_employer_contribution
+#: help:hr.employer.contribution.line,appears_on_payslip:0
+msgid "Used to display the salary rule on payslip."
+msgstr ""
+
+#. module: hr_employer_contribution
+#: model:ir.model,name:hr_employer_contribution.model_hr_employer_contribution_line
+msgid "Contribution Line"
+msgstr ""
+
+#. module: hr_employer_contribution
+#: view:hr.employer.contribution:0
+msgid "contribution"
+msgstr ""
+
+#. module: hr_employer_contribution
+#: field:hr.employer.contribution.line,amount_select:0
+msgid "Amount Type"
+msgstr ""
+
+#. module: hr_employer_contribution
+#: field:hr.employer.contribution.line,category_id:0
+msgid "Category"
+msgstr ""
+
+#. module: hr_employer_contribution
+#: selection:hr.employer.contribution,state:0
+msgid "Draft"
+msgstr ""
+
+#. module: hr_employer_contribution
+#: field:hr.employer.contribution,date_from:0
+msgid "Date From"
+msgstr ""
+
+#. module: hr_employer_contribution
+#: field:hr.employer.contribution,state:0
+msgid "Status"
+msgstr ""
+
+#. module: hr_employer_contribution
+#: view:hr.employer.contribution:0
+msgid "Compute Sheet"
+msgstr ""
+
+#. module: hr_employer_contribution
+#: field:hr.employer.contribution.line,active:0
+msgid "Active"
+msgstr ""
+
+#. module: hr_employer_contribution
+#: view:hr.employer.contribution:0
+msgid "Cancel Contribution"
+msgstr ""
+
+#. module: hr_employer_contribution
+#: help:hr.employer.contribution.line,condition_range_min:0
+msgid "The minimum amount, applied for this rule."
+msgstr ""
+
+#. module: hr_employer_contribution
+#: selection:hr.employer.contribution.line,condition_select:0
+msgid "Python Expression"
+msgstr ""
+
+#. module: hr_employer_contribution
+#: field:hr.employer.contribution,struct_id:0
+msgid "Structure"
+msgstr ""
+
+#. module: hr_employer_contribution
+#: field:hr.employer.contribution.line,salary_rule_id:0
+msgid "Rule"
+msgstr ""
+
+#. module: hr_employer_contribution
+#: field:hr.employer.contribution.line,condition_python:0
+msgid "Python Condition"
+msgstr ""
+
+#. module: hr_employer_contribution
+#: field:hr.employer.contribution.line,quantity:0
+msgid "Quantity"
+msgstr ""
+
+#. module: hr_employer_contribution
+#: code:addons/hr_employer_contribution/hr_employer_contribution.py:164
+#: view:hr.employer.contribution:0
+#, python-format
+msgid "Refund"
+msgstr ""
+
+#. module: hr_employer_contribution
+#: field:hr.employer.contribution.line,code:0
+msgid "Code"
+msgstr ""
+
+#. module: hr_employer_contribution
+#: field:hr.employer.contribution.line,amount_python_compute:0
+#: selection:hr.employer.contribution.line,amount_select:0
+msgid "Python Code"
+msgstr ""
+
+#. module: hr_employer_contribution
+#: view:hr.employer.contribution:0
+msgid "Period"
+msgstr ""
+
+#. module: hr_employer_contribution
+#: selection:hr.employer.contribution,state:0
+msgid "Done"
+msgstr ""
+
+#. module: hr_employer_contribution
+#: view:hr.employer.contribution:0
+msgid "Salary Structure"
+msgstr ""
+
+#. module: hr_employer_contribution
+#: help:hr.employer.contribution,struct_id:0
+msgid "Defines the rules that have to be applied to this payslip, accordingly to the contract chosen. If you let empty the field contract, this field isn't mandatory anymore and thus the rules applied will be all the rules set on the structure of all contracts of the employee valid for the chosen period"
+msgstr ""
+
+#. module: hr_employer_contribution
+#: help:hr.employer.contribution,credit_note:0
+msgid "Indicates this payslip has a refund of another"
+msgstr ""
+
+#. module: hr_employer_contribution
+#: field:hr.employer.contribution.line,register_id:0
+msgid "Contribution Register"
+msgstr ""
+
+#. module: hr_employer_contribution
+#: view:hr.employer.contribution:0
+#: model:ir.actions.act_window,name:hr_employer_contribution.act_employer_contribution_lines
+msgid "Contribution Details"
+msgstr ""
+
+#. module: hr_employer_contribution
+#: field:hr.employer.contribution,name:0
+#: field:hr.employer.contribution,note:0
+#: field:hr.employer.contribution.line,note:0
+msgid "Description"
+msgstr ""
+
+#. module: hr_employer_contribution
+#: field:hr.employer.contribution,worked_days_line_ids:0
+msgid "Payslip Worked Days"
+msgstr ""
+
+#. module: hr_employer_contribution
+#: field:hr.employer.contribution.line,name:0
+msgid "Name"
+msgstr ""
+
+#. module: hr_employer_contribution
+#: field:hr.employer.contribution.line,amount_fix:0
+#: selection:hr.employer.contribution.line,amount_select:0
+msgid "Fixed Amount"
+msgstr ""
+
+#. module: hr_employer_contribution
+#: help:hr.employer.contribution.line,sequence:0
+msgid "Use to arrange calculation sequence"
+msgstr ""
+
+#. module: hr_employer_contribution
+#: help:hr.employer.contribution,state:0
+msgid "* When the payslip is created the status is 'Draft'.            \n"
+"* If the payslip is under verification, the status is 'Waiting'.             \n"
+"* If the payslip is confirmed then status is set to 'Done'.            \n"
+"* When user cancel payslip the status is 'Rejected'."
+msgstr ""
+
+#. module: hr_employer_contribution
+#: help:hr.employer.contribution.line,condition_range:0
+msgid "This will be used to compute the % fields values; in general it is on basic, but you can also use categories code fields in lowercase as a variable names (hra, ma, lta, etc.) and the variable basic."
+msgstr ""
+
+#. module: hr_employer_contribution
+#: field:hr.employer.contribution,input_line_ids:0
+msgid "Payslip Inputs"
+msgstr ""
+
+#. module: hr_employer_contribution
+#: field:hr.employer.contribution,contract_id:0
+msgid "Contract"
+msgstr ""
+
+#. module: hr_employer_contribution
+#: field:hr.employer.contribution.line,total:0
+msgid "Total"
+msgstr ""
+
+#. module: hr_employer_contribution
+#: field:hr.employer.contribution.line,sequence:0
+msgid "Sequence"
+msgstr ""
+
+#. module: hr_employer_contribution
+#: view:hr.employer.contribution:0
+msgid "Details By Salary Rule Category"
+msgstr ""
+
+#. module: hr_employer_contribution
+#: field:hr.employer.contribution.line,variable_ids:0
+msgid "Variables"
+msgstr ""
+
+#. module: hr_employer_contribution
+#: field:hr.employer.contribution,leave_accrual_line_ids:0
+msgid "Leave Accrual Lines"
+msgstr ""
+
+#. module: hr_employer_contribution
+#: selection:hr.employer.contribution.line,condition_select:0
+msgid "Always True"
+msgstr ""
+
+#. module: hr_employer_contribution
+#: view:hr.employer.contribution:0
+msgid "Contribution Line"
+msgstr ""
+
+#. module: hr_employer_contribution
+#: field:hr.employer.contribution.line,condition_range:0
+msgid "Range Based on"
+msgstr ""

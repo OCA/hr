@@ -1,0 +1,253 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+# 	* hr_employer_contribution
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 7.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-11-13 19:29+0000\n"
+"PO-Revision-Date: 2014-11-13 15:23-0500\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 1.5.4\n"
+
+#. module: hr_employer_contribution
+#: field:hr.employer.contribution.line,condition_select:0
+msgid "Condition Based on"
+msgstr "Condition basée sur"
+
+#. module: hr_employer_contribution
+#: view:hr.employer.contribution:0
+msgid "contributions"
+msgstr "contributions"
+
+#. module: hr_employer_contribution
+#: view:hr.employer.contribution:0
+#: model:ir.actions.act_window,name:hr_employer_contribution.action_view_hr_employer_contribution_form
+#: model:ir.ui.menu,name:hr_employer_contribution.menu_department_tree
+msgid "Employer Contributions"
+msgstr "Contributions de l'employeur"
+
+#. module: hr_employer_contribution
+#: view:hr.employer.contribution:0
+msgid "Contribution Lines"
+msgstr "Lignes de contribution"
+
+#. module: hr_employer_contribution
+#: field:hr.employer.contribution.line,contribution_id:0
+#: model:ir.model,name:hr_employer_contribution.model_hr_employer_contribution
+msgid "Employer Contribution"
+msgstr "Contribution de l'employeur"
+
+#. module: hr_employer_contribution
+#: field:hr.employer.contribution,company_id:0
+#: field:hr.employer.contribution.line,company_id:0
+msgid "Company"
+msgstr "Entreprise"
+
+#. module: hr_employer_contribution
+#: view:hr.employer.contribution:0
+msgid "Set to Draft"
+msgstr "Mettre à l'état \"Brouillon\""
+
+#. module: hr_employer_contribution
+#: view:hr.employer.contribution:0
+msgid "to"
+msgstr "au"
+
+#. module: hr_employer_contribution
+#: code:addons/hr_employer_contribution/hr_employer_contribution.py:182
+#, python-format
+msgid ""
+"You cannot delete an employer contribution which is not draft or cancelled!"
+msgstr ""
+"Vous ne pouvez pas détruire une contribution qui n'est pas à l'état "
+"brouillon ou annulé!"
+
+#. module: hr_employer_contribution
+#: field:hr.employer.contribution.line,amount:0
+msgid "Amount"
+msgstr "Montant"
+
+#. module: hr_employer_contribution
+#: field:hr.employer.contribution,number:0
+msgid "Reference"
+msgstr "Référence"
+
+#. module: hr_employer_contribution
+#: code:addons/hr_employer_contribution/hr_employer_contribution.py:123
+#, python-format
+msgid "Warning!"
+msgstr "Attention!"
+
+#. module: hr_employer_contribution
+#: view:hr.employer.contribution:0
+msgid "Period"
+msgstr "Période"
+
+#. module: hr_employer_contribution
+#: view:hr.employer.contribution:0
+msgid "From"
+msgstr "Du"
+
+#. module: hr_employer_contribution
+#: view:hr.employer.contribution:0
+msgid "Confirm"
+msgstr "Confirmer"
+
+#. module: hr_employer_contribution
+#: code:addons/hr_employer_contribution/hr_employer_contribution.py:115
+#, python-format
+msgid "Contribution to %s"
+msgstr "Contribution à %s"
+
+#. module: hr_employer_contribution
+#: selection:hr.employer.contribution,state:0
+msgid "Waiting"
+msgstr "En attente"
+
+#. module: hr_employer_contribution
+#: field:hr.employer.contribution,employee_id:0
+msgid "Employee"
+msgstr "Employé"
+
+#. module: hr_employer_contribution
+#: view:hr.employer.contribution:0
+msgid "Search Contributions"
+msgstr "Chercher une contribution"
+
+#. module: hr_employer_contribution
+#: code:addons/hr_employer_contribution/hr_employer_contribution.py:134
+#, python-format
+msgid "Refund: "
+msgstr "Rembourser"
+
+#. module: hr_employer_contribution
+#: code:addons/hr_employer_contribution/hr_employer_contribution.py:164
+#: view:hr.employer.contribution:0
+#, python-format
+msgid "Refund"
+msgstr "Rembourser"
+
+#. module: hr_employer_contribution
+#: field:hr.employer.contribution,details_by_salary_rule_category:0
+msgid "Details by Salary Rule Category"
+msgstr "Détail par catégorie de règle de salaire"
+
+#. module: hr_employer_contribution
+#: view:hr.employer.contribution:0
+#: field:hr.employer.contribution,details_by_salary_rule:0
+#: field:hr.employer.contribution,line_ids:0
+msgid "Contribution Lines"
+msgstr "Lignes de contribution"
+
+#. module: hr_employer_contribution
+#: field:hr.employer.contribution,date_to:0
+msgid "Date To"
+msgstr "Date de fin"
+
+#. module: hr_employer_contribution
+#: field:hr.employer.contribution,name:0
+msgid "Description"
+msgstr "Description"
+
+#. module: hr_employer_contribution
+#: model:ir.model,name:hr_employer_contribution.model_hr_employer_contribution_line
+msgid "Contribution Line"
+msgstr "Ligne de contribution"
+
+#. module: hr_employer_contribution
+#: view:hr.employer.contribution:0
+msgid "contribution"
+msgstr "contribution"
+
+#. module: hr_employer_contribution
+#: view:hr.employer.contribution:0
+msgid "Compute Sheet"
+msgstr "Calculer la feuille"
+
+#. module: hr_employer_contribution
+#: view:hr.employer.contribution:0
+msgid "Cancel Contribution"
+msgstr "Annuler la contribution"
+
+#. module: hr_employer_contribution
+#: view:hr.employer.contribution:0
+msgid "Salary Structure"
+msgstr "Structure de salaire"
+
+#. module: hr_employer_contribution
+#: view:hr.employer.contribution:0
+#: model:ir.actions.act_window,name:hr_employer_contribution.act_employer_contribution_lines
+msgid "Contribution Details"
+msgstr "Détails de la contribution"
+
+#. module: hr_employer_contribution
+#: view:hr.employer.contribution:0
+msgid "Details By Salary Rule Category"
+msgstr "Détail par catégories de règles de salaire"
+
+#. module: hr_employer_contribution
+#: view:hr.employer.contribution:0
+msgid "Contribution Line"
+msgstr "Ligne de contribution"
+
+#. module: hr_employer_contribution
+#: field:hr.employer.contribution,credit_note:0
+msgid "Credit Note"
+msgstr "Avoir"
+
+#. module: hr_employer_contribution
+#: field:hr.employer.contribution,struct_id:0
+msgid "Structure"
+msgstr "Structure"
+
+#. module: hr_employer_contribution
+#: field:hr.employer.contribution.line,name:0
+msgid "Name"
+msgstr "Nom"
+
+#. module: hr_employer_contribution
+#: field:hr.employer.contribution.line,name:0
+msgid "Name"
+msgstr "Nom"
+
+#. module: hr_employer_contribution
+#: field:hr.employer.contribution.line,category_id:0
+msgid "Category"
+msgstr "Catégorie"
+
+#. module: hr_employer_contribution
+#: field:hr.employer.contribution.line,quantity:0
+msgid "Quantity"
+msgstr "Quantité"
+
+#. module: hr_employer_contribution
+#: field:hr.employer.contribution.line,rate:0
+msgid "Rate (%)"
+msgstr "Taux (%)"
+
+#. module: hr_employer_contribution
+#: field:hr.employer.contribution.line,amount:0
+msgid "Amount"
+msgstr "Montant"
+
+#. module: hr_employer_contribution
+#: selection:hr.employer.contribution,state:0
+msgid "Draft"
+msgstr "Brouillon"
+
+#. module: hr_employer_contribution
+#: selection:hr.employer.contribution,state:0
+msgid "Done"
+msgstr "Terminé"
+
+#. module: hr_employer_contribution
+#: selection:hr.employer.contribution,state:0
+msgid "Rejected"
+msgstr "Annulé"

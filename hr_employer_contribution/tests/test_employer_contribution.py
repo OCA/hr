@@ -22,14 +22,14 @@
 from openerp.tests import common
 
 
-class test_wage_bill_contribution(common.TransactionCase):
+class test_employer_contribution(common.TransactionCase):
     def setUp(self):
-        super(test_wage_bill_contribution, self).setUp()
+        super(test_employer_contribution, self).setUp()
         self.employee_model = self.registry('hr.employee')
         self.user_model = self.registry("res.users")
         self.company_model = self.registry("res.company")
         self.payslip_model = self.registry("hr.payslip")
-        self.contribution_model = self.registry("hr.wage.bill.contribution")
+        self.contribution_model = self.registry("hr.employer.contribution")
         self.contract_model = self.registry("hr.contract")
         self.structure_model = self.registry("hr.payroll.structure")
         self.rule_model = self.registry("hr.salary.rule")

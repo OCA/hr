@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 ##############################################################################
 #
-#    Copyright (C) 2014 Savoir-faire Linux. All Rights Reserved.
+#    Copyright (C) 2014 - 2015 Savoir-faire Linux. All Rights Reserved.
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as published
@@ -19,21 +19,18 @@
 ##############################################################################
 
 {
-    'name': 'Wage Bill Contribution',
+    'name': 'Employer Contribution',
     'version': '1.0',
     'license': 'AGPL-3',
     'category': 'Generic Modules/Human Resources',
     'description': """
-Wage Bill Contribution
-======================
-Allows to create payroll structures that sum over every employee in a company.
+Employer Contribution
+=====================
+Allows to create payroll structures that sum over the payslip lines of
+every employee in a company.
 
-This is required when a contribution from the employer must be
-computated over the wage bill instead of every single payslip
-
-This model inherits hr_payslip because most of the fields are the same.
-Most of the methods are different from hr_payslip, but the whole logic
-stays exactly the same.
+This is required when a contribution of the employer must be
+computated over the wage bill instead of every single payslip.
 
 In your salary rules, you may access the contribution object with
 "contribution.your_method_or_attribute" or sum over the payslips with
@@ -50,9 +47,9 @@ Contributors
     ],
     'data': [
         'security/ir.model.access.csv',
-        'hr_wage_bill_contribution_view.xml',
-        'hr_wage_bill_contribution_workflow.xml',
-        'hr_payslip_view.xml',
+        'workflow/hr_employer_contribution_workflow.xml',
+        'view/hr_employer_contribution_view.xml',
+        'view/hr_payslip_view.xml',
     ],
     'test': [],
     'demo': [],

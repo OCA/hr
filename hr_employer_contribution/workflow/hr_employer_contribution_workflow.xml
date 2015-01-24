@@ -2,8 +2,8 @@
 <openerp>
     <data>
         <record id="hr_employer_contribution_workflow" model="workflow">
-            <field name="name">hr.wage.bill.contribution.workflow</field>
-            <field name="osv">hr.wage.bill.contribution</field>
+            <field name="name">hr.employer.contribution.workflow</field>
+            <field name="osv">hr.employer.contribution</field>
             <field name="on_create">True</field>
         </record>
 

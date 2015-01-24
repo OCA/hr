@@ -1,3 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_hr_wage_bill_contribution,hr.wage.bill.contribution,model_hr_wage_bill_contribution,base.group_hr_manager,1,1,1,1
-access_hr_wage_bill_contribution_line,hr.wage.bill.contribution.line,model_hr_wage_bill_contribution_line,base.group_hr_manager,1,1,1,1

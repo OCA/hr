@@ -25,7 +25,7 @@ from openerp.osv import fields, orm
 class hr_payslip(orm.Model):
     """
     Make the employee_id field not required, because hr_payslip is inherited
-    by hr_wage_bill_contribution and employee_id makes no sence in the later
+    by hr_employer_contribution and employee_id makes no sence in the later
     one.
 
     Instead, required="1" is added on field employee_id of

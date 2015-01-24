@@ -25,9 +25,9 @@ import openerp.addons.decimal_precision as dp
 
 class hr_contribution_line(orm.Model):
     '''
-    Wage bill contribution line
+    Employer contribution contribution line
     '''
-    _name = 'hr.wage.bill.contribution.line'
+    _name = 'hr.employer.contribution.line'
     _inherit = 'hr.salary.rule'
     _description = 'Employer Contribution Line'
     _order = 'sequence'
@@ -42,7 +42,7 @@ class hr_contribution_line(orm.Model):
 
     _columns = {
         'contribution_id': fields.many2one(
-            'hr.wage.bill.contribution',
+            'hr.employer.contribution',
             'Pay Slip',
             required=True,
             ondelete='cascade'

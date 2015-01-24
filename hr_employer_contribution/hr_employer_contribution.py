@@ -25,32 +25,45 @@ from openerp.tools.translate import _
 from openerp.addons.hr_payroll.hr_payroll import one2many_mod2
 from .PayrollBrowsableObject import (
     PayslipsBrowsableObject, PayrollBrowsableObject)
+from openerp.tools import DEFAULT_SERVER_DATE_FORMAT
+from datetime import datetime
 
 
-class hr_wage_bill_contribution(orm.Model):
+class hr_employer_contribution(orm.Model):
     """
     This model allows to compute amounts over the wage bill of a company
     for a period of time.
     """
-    _name = 'hr.wage.bill.contribution'
+    _name = 'hr.employer.contribution'
     _inherit = 'hr.payslip'
     _description = 'Employer Contribution'
     _columns = {
         'line_ids': one2many_mod2(
-            'hr.wage.bill.contribution.line',
+            'hr.employer.contribution.line',
             'contribution_id',
             'Contribution Lines',
             readonly=True,
             states={'draft': [('readonly', False)]}
         ),
         'details_by_salary_rule': fields.one2many(
-            'hr.wage.bill.contribution.line',
+            'hr.employer.contribution.line',
             'contribution_id',
             'Contribution Lines',
             readonly=True,
             states={'draft': [('readonly', False)]}
         ),
     }
+
+    def get_previous_year(
+        self, cr, uid, ids, date, context=None
+    ):
+        """
+        Get the previous year from a given date
+        :param date: a string date in default server format
+        :return: string in format 'YYYY'
+        """
+        year = datetime.strptime(date, DEFAULT_SERVER_DATE_FORMAT).year
+        return str(year - 1)
 
     def onchange_struct_id(
         self, cr, uid, ids,
@@ -65,7 +78,7 @@ class hr_wage_bill_contribution(orm.Model):
         """
         The same refund_sheet function as in hr_payroll but
          - returns a different view
-         - triggers the hr.wage.bill.contribution workflow
+         - triggers the hr.employer.contribution workflow
         """
         mod_obj = self.pool.get('ir.model.data')
         wf_service = netsvc.LocalService("workflow")
@@ -80,25 +93,25 @@ class hr_wage_bill_contribution(orm.Model):
 
             self.compute_sheet(cr, uid, [id_copy], context=context)
             wf_service.trg_validate(
-                uid, 'hr.wage.bill.contribution',
+                uid, 'hr.employer.contribution',
                 id_copy, 'hr_verify_sheet', cr)
 
             wf_service.trg_validate(
-                uid, 'hr.wage.bill.contribution',
+                uid, 'hr.employer.contribution',
                 id_copy, 'process_sheet', cr)
 
         # Get the form and tree views
         form_id = mod_obj.get_object_reference(
             cr, uid,
-            'hr_wage_bill_contribution',
-            'view_hr_wage_bill_contribution_form')
+            'hr_employer_contribution',
+            'view_hr_employer_contribution_form')
 
         form_res = form_id and form_id[1] or False
 
         tree_id = mod_obj.get_object_reference(
             cr, uid,
-            'hr_wage_bill_contribution',
-            'view_hr_wage_bill_contribution_tree')
+            'hr_employer_contribution',
+            'view_hr_employer_contribution_tree')
 
         tree_res = tree_id and tree_id[1] or False
 
@@ -107,7 +120,7 @@ class hr_wage_bill_contribution(orm.Model):
             'view_mode': 'tree, form',
             'view_id': False,
             'view_type': 'form',
-            'res_model': 'hr.wage.bill.contribution',
+            'res_model': 'hr.employer.contribution',
             'type': 'ir.actions.act_window',
             'nodestroy': True,
             'target': 'current',
@@ -124,11 +137,11 @@ class hr_wage_bill_contribution(orm.Model):
                     _("You cannot delete an employer contribution "
                         "which is not draft or cancelled!"))
 
-        return super(hr_wage_bill_contribution, self).unlink(
+        return super(hr_employer_contribution, self).unlink(
             cr, uid, ids, context)
 
     def compute_sheet(self, cr, uid, ids, context=None):
-        line_obj = self.pool['hr.wage.bill.contribution.line']
+        line_obj = self.pool['hr.employer.contribution.line']
         for contribution in self.browse(cr, uid, ids, context=context):
 
             # Delete old contribution lines
@@ -184,7 +197,7 @@ class hr_wage_bill_contribution(orm.Model):
         categories_dict = {}
         obj_rule = self.pool.get('hr.salary.rule')
 
-        contribution_obj = self.pool.get('hr.wage.bill.contribution')
+        contribution_obj = self.pool.get('hr.employer.contribution')
         contribution = contribution_obj.browse(
             cr, uid, contribution_id, context=context)
 

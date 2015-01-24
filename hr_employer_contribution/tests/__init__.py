@@ -20,8 +20,9 @@
 ##############################################################################
 
 from . import (
-    hr_payslip,
-    hr_wage_bill_contribution,
-    hr_wage_bill_contribution_line,
-    PayrollBrowsableObject,
+    test_employer_contribution
 )
+
+checks = [
+    test_employer_contribution
+]

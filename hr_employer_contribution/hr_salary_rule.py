@@ -39,9 +39,9 @@ class hr_salary_rule(orm.Model):
 # employee: hr.employee object
 # contract: hr.contract object
 
-# Available in Wage Bill Contribution:
+# Available in Employer Contribution:
 # ------------------------------------
-# contribution: object containing the wage bill contribution
+# contribution: object containing the employer contribution
 
 # Note: returned value have to be set in the variable 'result'
 
@@ -62,9 +62,9 @@ result = rules.NET > categories.NET * 0.10''',
 # employee: hr.employee object
 # contract: hr.contract object
 
-# Available in Wage Bill Contribution:
+# Available in Employer Contribution:
 # ------------------------------------
-# contribution: object containing the wage bill contribution
+# contribution: object containing the employer contribution
 
 # Note: returned value have to be set in the variable 'result'
 
