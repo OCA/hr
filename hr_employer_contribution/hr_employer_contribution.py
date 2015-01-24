@@ -195,9 +195,9 @@ class hr_employer_contribution(orm.Model):
         rules = {}
         payslips = {}
         categories_dict = {}
-        obj_rule = self.pool.get('hr.salary.rule')
+        obj_rule = self.pool['hr.salary.rule']
 
-        contribution_obj = self.pool.get('hr.employer.contribution')
+        contribution_obj = self.pool['hr.employer.contribution']
         contribution = contribution_obj.browse(
             cr, uid, contribution_id, context=context)
 

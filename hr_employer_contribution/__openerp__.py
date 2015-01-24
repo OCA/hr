@@ -33,8 +33,13 @@ This is required when a contribution of the employer must be
 computated over the wage bill instead of every single payslip.
 
 In your salary rules, you may access the contribution object with
-"contribution.your_method_or_attribute" or sum over the payslips with
-"payslip.sum('Salary_rule_code', 'date_from', 'date_to')"
+"contribution.your_method_or_attribute"
+
+You may sum over the payslips for the contribution's company with
+"payslip.sum('Salary_rule_code', date_from, date_to)"
+
+Salary rule variables can be used like in payslip with
+"contribution.get_rule_variable(rule_id, contribution.date_from)"
 
 Contributors
 ------------
@@ -44,6 +49,7 @@ Contributors
     'website': 'https://www.savoirfairelinux.com/',
     'depends': [
         'hr_payroll',
+        'hr_salary_rule_variable',
     ],
     'data': [
         'security/ir.model.access.csv',
