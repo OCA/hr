@@ -131,7 +131,7 @@ class hr_contract(orm.Model):
         (
             _check_wage,
             "Error! The field Wage is required if the salary computation "
-            "method is Wage",
+            "method is Wage.",
             ['wage']
         ),
     ]
