@@ -276,7 +276,7 @@
       <blockTable colWidths="353,93.0,93.0" style="Table9">
         <tr>
           <td>
-            <para style="P4">[[ p.name ]]</para>
+            <para style="P4">[[ p.name_get()[0][1] ]]</para>
           </td>
           <td>
             <para style="P5">[[ formatLang(p.total, currency_obj = o.company_id and o.company_id.currency_id)]]</para>
