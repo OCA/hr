@@ -19,9 +19,29 @@
 #
 ##############################################################################
 
-from . import (
-    hr_analytic_timesheet,
-    hr_activity,
-    hr_contract,
-    account_analytic_account,
-)
+from openerp.osv import fields, orm
+
+
+class account_analytic_account(orm.Model):
+    _inherit = 'account.analytic.account'
+    _columns = {
+        'authorized_activity_ids': fields.many2many(
+            'hr.activity',
+            'account_analytic_activity_rel',
+            'analytic_account_id',
+            'activity_id',
+            'Authorized Activities',
+        ),
+        'activity_type': fields.selection(
+            (
+                ('leave', 'Leaves'),
+                ('job', 'Job Positions'),
+            ),
+            'Activity Type',
+            required=True,
+        ),
+    }
+
+    _defaults = {
+        'activity_type': 'job',
+    }

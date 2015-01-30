@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="account_analytic_account_timesheet_form" model="ir.ui.view">
+            <field name="name">account.analytic.account.invoice.form</field>
+            <field name="model">account.analytic.account</field>
+            <field name="inherit_id" ref="analytic.view_account_analytic_account_form"/>
+            <field name="arch" type="xml">
+                <page name="contract_page" position='after'>
+                    <page name="activities" string="Activities" attrs="{'invisible': [('use_timesheets', '=', False)]}">
+                        <group>
+                            <field name="activity_type"/>
+                        </group>
+                        <separator string="Authorized Activities"/>
+                        <field name="authorized_activity_ids" domain="[('type', '=', activity_type)]"/>
+                    </page>
+                </page>
+            </field>
+        </record>
+    </data>
+</openerp>

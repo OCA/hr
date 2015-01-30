@@ -78,18 +78,13 @@ class hr_activity(orm.Model):
 
         # The context should contain the user id of the employee
         # to whom the timesheet belongs
-        if context.get('user_id'):
+        if 'user_id' in context:
             user = self.pool['res.users'].browse(
                 cr, uid, context['user_id'], context=context
             )
             employee = user.employee_ids[0]
         else:
-            # If the used_id is not in context, this means that
-            # the current selected employee has no related user
-            raise orm.except_orm(
-                _("Error"),
-                _("There is no defined user for the selected "
-                    "employee."))
+            return []
 
         if not employee.contract_id:
             raise orm.except_orm(
@@ -97,16 +92,34 @@ class hr_activity(orm.Model):
                 _("There is no available contract for employee %s.")
                 % employee.name)
 
+        activity_ids = []
+
+        account = context.get('account_id', False) and \
+            self.pool['account.analytic.account'].browse(
+                cr, uid, context.get('account_id'), context=context)
+
         # Get the activities related to the jobs
         # on the employee's contract
-        activity_ids = [
-            contract_job.job_id.activity_ids[0].id
-            for contract_job in employee.contract_id.contract_job_ids
-            if contract_job.job_id.activity_ids
-        ]
+        if not account or account.activity_type == 'job':
+            activity_ids += [
+                contract_job.job_id.activity_ids[0].id
+                for contract_job in employee.contract_id.contract_job_ids
+                if contract_job.job_id.activity_ids
+            ]
 
-        activity_ids += self.pool['hr.activity'].search(
-            cr, uid, [('type', '!=', 'job')], context=context)
+        if not account or account.activity_type == 'leave':
+            activity_ids += self.pool['hr.activity'].search(
+                cr, uid, [('type', '=', 'leave')], context=context)
+
+        # Return all activities if no account was given in context
+        if not account or not account.authorized_activity_ids:
+            return [('id', 'in', activity_ids)]
+
+        auth_activities = [act.id for act in account.authorized_activity_ids]
+
+        activity_ids = [
+            act_id for act_id in activity_ids
+            if act_id in auth_activities]
 
         return [('id', 'in', activity_ids)]
 
@@ -119,4 +132,11 @@ class hr_activity(orm.Model):
             type="many2many",
             string="Authorized Users",
         ),
+        'authorized_account_ids': fields.many2many(
+            'account.analytic.account',
+            'account_analytic_activity_rel',
+            'activity_id',
+            'analytic_account_id',
+            'Authorized Accounts',
+        )
     }

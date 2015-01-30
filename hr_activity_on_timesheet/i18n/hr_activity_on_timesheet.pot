@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-07 22:33+0000\n"
-"PO-Revision-Date: 2014-12-07 22:33+0000\n"
+"POT-Creation-Date: 2015-01-30 04:06+0000\n"
+"PO-Revision-Date: 2015-01-30 04:06+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,37 +16,9 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: hr_activity_on_timesheet
-#: model:ir.model,name:hr_activity_on_timesheet.model_hr_job
-msgid "Job Description"
-msgstr ""
-
-#. module: hr_activity_on_timesheet
-#: model:ir.model,name:hr_activity_on_timesheet.model_hr_contract_job
-msgid "Relational object between contract and job"
-msgstr ""
-
-#. module: hr_activity_on_timesheet
-#: model:ir.model,name:hr_activity_on_timesheet.model_hr_activity
-msgid "Employee Activities"
-msgstr ""
-
-#. module: hr_activity_on_timesheet
-#: model:ir.model,name:hr_activity_on_timesheet.model_hr_analytic_timesheet
-msgid "Timesheet Line"
-msgstr ""
-
-#. module: hr_activity_on_timesheet
-#. openerp-web
-#: code:addons/hr_activity_on_timesheet/static/src/xml/timesheet.xml:7
-#: code:addons/hr_activity_on_timesheet/static/src/xml/timesheet.xml:15
-#: field:hr.analytic.timesheet,activity_id:0
+#: code:addons/hr_activity_on_timesheet/hr_activity.py:91
 #, python-format
-msgid "Activity"
-msgstr ""
-
-#. module: hr_activity_on_timesheet
-#: model:ir.model,name:hr_activity_on_timesheet.model_hr_contract
-msgid "Contract"
+msgid "Error"
 msgstr ""
 
 #. module: hr_activity_on_timesheet
@@ -57,11 +29,8 @@ msgid "Next"
 msgstr ""
 
 #. module: hr_activity_on_timesheet
-#. openerp-web
-#: code:addons/hr_activity_on_timesheet/static/src/xml/timesheet.xml:6
-#: code:addons/hr_activity_on_timesheet/static/src/xml/timesheet.xml:14
-#, python-format
-msgid "Analytic Account"
+#: model:ir.model,name:hr_activity_on_timesheet.model_hr_job
+msgid "Job Description"
 msgstr ""
 
 #. module: hr_activity_on_timesheet
@@ -72,10 +41,43 @@ msgid "Add"
 msgstr ""
 
 #. module: hr_activity_on_timesheet
+#: view:account.analytic.account:0
+#: field:account.analytic.account,authorized_activity_ids:0
+msgid "Authorized Activities"
+msgstr ""
+
+#. module: hr_activity_on_timesheet
+#: view:account.analytic.account:0
+msgid "Activities"
+msgstr ""
+
+#. module: hr_activity_on_timesheet
+#: field:account.analytic.account,activity_type:0
+msgid "Activity Type"
+msgstr ""
+
+#. module: hr_activity_on_timesheet
+#: field:hr.activity,authorized_account_ids:0
+msgid "Authorized Accounts"
+msgstr ""
+
+#. module: hr_activity_on_timesheet
+#: selection:account.analytic.account,activity_type:0
+msgid "Leaves"
+msgstr ""
+
+#. module: hr_activity_on_timesheet
+#: model:ir.model,name:hr_activity_on_timesheet.model_hr_contract
+msgid "Contract"
+msgstr ""
+
+#. module: hr_activity_on_timesheet
 #. openerp-web
-#: code:addons/hr_activity_on_timesheet/static/src/xml/timesheet.xml:62
+#: code:addons/hr_activity_on_timesheet/static/src/xml/timesheet.xml:7
+#: code:addons/hr_activity_on_timesheet/static/src/xml/timesheet.xml:15
+#: field:hr.analytic.timesheet,activity_id:0
 #, python-format
-msgid "Select Account"
+msgid "Activity"
 msgstr ""
 
 #. module: hr_activity_on_timesheet
@@ -91,11 +93,19 @@ msgid "Select Activity"
 msgstr ""
 
 #. module: hr_activity_on_timesheet
-#. openerp-web
-#: code:addons/hr_activity_on_timesheet/static/src/xml/timesheet.xml:22
-#: code:addons/hr_activity_on_timesheet/static/src/xml/timesheet.xml:77
+#: selection:account.analytic.account,activity_type:0
+msgid "Job Positions"
+msgstr ""
+
+#. module: hr_activity_on_timesheet
+#: code:addons/hr_activity_on_timesheet/hr_activity.py:92
 #, python-format
-msgid "Total"
+msgid "There is no available contract for employee %s."
+msgstr ""
+
+#. module: hr_activity_on_timesheet
+#: model:ir.model,name:hr_activity_on_timesheet.model_hr_contract_job
+msgid "Relational object between contract and job"
 msgstr ""
 
 #. module: hr_activity_on_timesheet
@@ -106,19 +116,36 @@ msgid "Add a Line"
 msgstr ""
 
 #. module: hr_activity_on_timesheet
-#: code:addons/hr_activity_on_timesheet/hr_activity.py:90
+#. openerp-web
+#: code:addons/hr_activity_on_timesheet/static/src/xml/timesheet.xml:6
+#: code:addons/hr_activity_on_timesheet/static/src/xml/timesheet.xml:14
+#: model:ir.model,name:hr_activity_on_timesheet.model_account_analytic_account
 #, python-format
-msgid "Error"
+msgid "Analytic Account"
 msgstr ""
 
 #. module: hr_activity_on_timesheet
-#: code:addons/hr_activity_on_timesheet/hr_activity.py:91
-#, python-format
-msgid "There is no available contract for employee %s."
+#: model:ir.model,name:hr_activity_on_timesheet.model_hr_activity
+msgid "Employee Activities"
 msgstr ""
 
 #. module: hr_activity_on_timesheet
-#: code:addons/hr_activity_on_timesheet/hr_activity.py:91
+#. openerp-web
+#: code:addons/hr_activity_on_timesheet/static/src/xml/timesheet.xml:62
 #, python-format
-msgid "There is no defined user for the selected employee."
+msgid "Select Account"
 msgstr ""
+
+#. module: hr_activity_on_timesheet
+#. openerp-web
+#: code:addons/hr_activity_on_timesheet/static/src/xml/timesheet.xml:22
+#: code:addons/hr_activity_on_timesheet/static/src/xml/timesheet.xml:77
+#, python-format
+msgid "Total"
+msgstr ""
+
+#. module: hr_activity_on_timesheet
+#: model:ir.model,name:hr_activity_on_timesheet.model_hr_analytic_timesheet
+msgid "Timesheet Line"
+msgstr ""
+

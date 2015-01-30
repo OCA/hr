@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 ##############################################################################
 #
-#    Copyright (C) 2014 Savoir-faire Linux. All Rights Reserved.
+#    Copyright (C) 2014 - 2015 Savoir-faire Linux. All Rights Reserved.
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as published
@@ -20,7 +20,6 @@
 
 {
     'name': 'Activity on Timesheet',
-    'category': 'Localization',
     'version': '1.0',
     'license': 'AGPL-3',
     'category': 'Generic Modules/Human Resources',
@@ -31,6 +30,10 @@ The aim of this module is to allow users to enter details on their timesheet.
 
 With this module, employees can select an Activity which can be a leave type
 or a specific job position.
+
+A list of activities can be selected on analytic account to be authorized
+for this account. If no activities are selected for an account, every
+activities will be available to select with this account.
 
 This will allow in another module to import the hours from timesheet
 to worked days and distinguish every hour passed for each activity.
@@ -50,8 +53,10 @@ Contributors
     'data': [
         'security/ir.model.access.csv',
         'security/hr_contract_security.xml',
-        'hr_analytic_timesheet_view.xml',
-        'hr_timesheet_sheet_view.xml',
+        'view/hr_analytic_timesheet_view.xml',
+        'view/hr_timesheet_sheet_view.xml',
+        'view/account_analytic_account_view.xml',
+        'data/account_analytic_account_data.xml',
     ],
     'test': [],
     'demo': [],
