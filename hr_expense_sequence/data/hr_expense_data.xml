@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<openerp>
+	<data noupdate="1">
+
+		<record model="ir.sequence.type" id="seq_type_expense">
+			<field name="name">Expense sequence</field>
+			<field name="code">hr.expense</field>
+		</record>
+
+		<record model="ir.sequence" id="seq_expense">
+			<field name="name">Expense sequence</field>
+			<field name="code">hr.expense</field>
+			<field name="padding" eval="4"/>
+			<field name="prefix">EX</field>
+		</record>
+
+	</data>
+</openerp>
