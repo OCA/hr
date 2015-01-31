@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="view_expenses_tree_sequence" model="ir.ui.view">
+            <field name="name">hr.expense.expense.tree.sequence</field>
+            <field name="model">hr.expense.expense</field>
+            <field name="inherit_id" ref="hr_expense.view_expenses_tree"/>
+            <field name="arch" type="xml">
+                <field name="employee_id" position="before">
+                    <field name="number"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="view_editable_expenses_tree_sequence" model="ir.ui.view">
+            <field name="name">hr.expense.expense.tree.sequence</field>
+            <field name="model">hr.expense.expense</field>
+            <field name="inherit_id" ref="hr_expense.view_editable_expenses_tree"/>
+            <field name="arch" type="xml">
+                <field name="employee_id" position="before">
+                    <field name="number"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="view_expenses_form_sequence" model="ir.ui.view">
+            <field name="name">hr.expense.form.sequence</field>
+            <field name="model">hr.expense.expense</field>
+            <field name="inherit_id" ref="hr_expense.view_expenses_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//sheet/group" position="before">
+                    <h1>
+                        <label string="Expense "/>
+                        <field name="number" class="oe_inline"/>
+                    </h1>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_hr_expense_filter_sequence" model="ir.ui.view">
+            <field name="name">hr.expense.expense.filter.sequence</field>
+            <field name="model">hr.expense.expense</field>
+            <field name="inherit_id" ref="hr_expense.view_hr_expense_filter"/>
+            <field name="arch" type="xml">
+                <field name="name" position="attributes">
+                    <attribute name="filter_domain">['|', ('name', 'ilike', self), ('number', 'ilike', self)]</attribute>
+                </field>
+            </field>
+        </record>
+
+    </data>
+</openerp>
