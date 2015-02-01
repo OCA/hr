@@ -116,7 +116,7 @@ class hr_contract(orm.Model):
 
             # This does not apply when employee is paid by hourly rate
             if contract.salary_computation_method == 'wage':
-                if contract.wage is False:
+                if not contract.wage:
                     return False
 
         return True
