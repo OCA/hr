@@ -20,12 +20,11 @@
 ##############################################################################
 
 from openerp.osv import orm, fields
-from .hr_leave_accrual_template import get_amount_types
 
 
 class hr_leave_accrual(orm.Model):
     """
-    An instance of a leave accrual for an employee
+    A leave accrual of an employee
     """
     _name = 'hr.leave.accrual'
     _description = 'Employee Leave Accrual'
@@ -71,31 +70,39 @@ class hr_leave_accrual(orm.Model):
         res = {}
 
         for accrual_id in approved_lines:
-            total = 0
+            total_hours = 0
+            total_cash = 0
             lines = approved_lines[accrual_id]
 
             for line in lines:
                 if line.is_refund:
-                    total -= line.amount
+                    if line.amount_type == 'cash':
+                        total_cash -= line.amount
+                    elif line.amount_type == 'hours':
+                        total_hours -= line.amount
                 else:
-                    total += line.amount
+                    if line.amount_type == 'cash':
+                        total_cash += line.amount
+                    elif line.amount_type == 'hours':
+                        total_hours += line.amount
 
-            res[accrual_id] = total
+            res[accrual_id] = {
+                'total_cash': total_cash,
+                'total_hours': total_hours,
+            }
 
         return res
 
     _columns = {
-        'name': fields.related(
-            'template_id',
-            'name',
-            type="char",
-            string='Leave Accrual',
+        'leave_type_id': fields.many2one(
+            'hr.holidays.status',
+            string='Leave Type',
+            ondelete='cascade',
         ),
         'code': fields.related(
-            'template_id',
-            'code',
+            'leave_type_id',
+            'accrual_code',
             type="char",
-            string='Code',
         ),
         'employee_id': fields.many2one(
             'hr.employee',
@@ -103,27 +110,23 @@ class hr_leave_accrual(orm.Model):
             required=True,
             ondelete='cascade',
         ),
-        'template_id': fields.many2one(
-            'hr.leave.accrual.template',
-            'Accrual Template',
-            required=True,
-        ),
         'line_ids': fields.one2many(
             'hr.leave.accrual.line',
             'accrual_id',
             string='Accrual Lines',
         ),
-        'total': fields.function(
+        'total_cash': fields.function(
             _sum_lines,
             method=True,
             type="float",
-            string='Total',
+            string='Hours Accruded',
+            multi=True,
         ),
-        'amount_type': fields.related(
-            'template_id',
-            'amount_type',
-            type="selection",
-            selection=get_amount_types,
-            string="Amount Type",
+        'total_hours': fields.function(
+            _sum_lines,
+            method=True,
+            type="float",
+            multi=True,
+            string='Cash Accruded',
         ),
     }

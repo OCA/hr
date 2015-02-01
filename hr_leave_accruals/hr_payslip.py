@@ -20,7 +20,6 @@
 ##############################################################################
 
 from openerp.osv import orm, fields
-import itertools
 
 
 class hr_payslip(orm.Model):
@@ -46,19 +45,44 @@ class hr_payslip(orm.Model):
         payslip.
         """
         for payslip in self.browse(cr, uid, ids, context=context):
+            # Get the required leave accruals
+            salary_rule_ids = [
+                line.salary_rule_id.id for line
+                in payslip.details_by_salary_rule_category]
+
+            line_obj = self.pool['hr.holidays.status.accrual.line']
+
+            leave_accrual_line_ids = line_obj.search(
+                cr, uid, [('salary_rule_id', 'in', salary_rule_ids)],
+                context=context)
+
+            leave_accrual_lines = line_obj.browse(
+                cr, uid, leave_accrual_line_ids, context=context)
+
+            leave_types_required = {
+                line.leave_type_id for line in leave_accrual_lines}
+
+            # Check if employee has every required leave accruals
+            # If it does not exist, create it
+            accrual_obj = self.pool['hr.leave.accrual']
+            for leave_type in leave_types_required:
+                if not accrual_obj.search(cr, uid, [
+                    ('employee_id', '=', payslip.employee_id.id),
+                    ('leave_type_id', '=', leave_type.id),
+                ], context=context):
+                    accrual_obj.create(cr, uid, {
+                        'employee_id': payslip.employee_id.id,
+                        'leave_type_id': leave_type.id,
+                    }, context=context)
+
             # Get the set of codes needed from the the register templates
             accruals = payslip.employee_id.leave_accrual_ids
 
-            # Retreive all lines from the leave accrual template
+            # Retreive all lines from the leave types
             # This allows to know witch payslip lines are used to update the
             # leave accrual.
-            template_lines = [
-                accrual.template_id.line_ids for accrual in accruals
-            ]
             required_rules = [
-                line.salary_rule_id.id
-                for line in list(itertools.chain(*template_lines))
-            ]
+                line.salary_rule_id.id for line in leave_accrual_lines]
 
             # Create a dict to access the required payslip lines by rule id.
             # This is a matter of performance because we iterate
@@ -72,11 +96,9 @@ class hr_payslip(orm.Model):
             # Create a list of new register line records
             accrual_lines = []
             for accrual in accruals:
-                # For each line in the accrual's template,
+                # For each line in the accrual's leave_type,
                 # Add a line in the accrual related to a payslip line.
-                for line in accrual.template_id.line_ids:
-
-                    # Get the salary rule relative to the template line
+                for line in accrual.leave_type_id.accrual_line_ids:
                     salary_rule_id = line.salary_rule_id.id
 
                     if(
@@ -97,6 +119,7 @@ class hr_payslip(orm.Model):
                                 'amount': amount,
                                 'accrual_id': accrual.id,
                                 'is_refund': payslip.credit_note,
+                                'amount_type': line.amount_type,
                             }))
 
             # Write the resulting records

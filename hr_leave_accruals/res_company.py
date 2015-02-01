@@ -19,33 +19,19 @@
 #
 ##############################################################################
 
-from openerp.osv import orm, fields
+from openerp.osv import fields, orm
 
 
-class hr_leave_accrual_template_line(orm.Model):
-    """
-    The lines that will be added to an employee's leave accrual
-    when a payslip is computed
-
-    If substract field is True, the amount related to the salary rule
-    will be substracted from the accrual instead of added to it.
-    """
-    _name = 'hr.leave.accrual.template.line'
-    _description = 'Leave Accrual Template Line'
+class res_company(orm.Model):
+    _inherit = 'res.company'
     _columns = {
-        'template_id': fields.many2one(
-            'hr.leave.accrual.template',
-            'Leave Accrual Template',
+        'holidays_hours_per_day': fields.float(
+            'Number of Hours per Leave Day',
+            digits=(2, 2),
             required=True,
         ),
-        'salary_rule_id': fields.many2one(
-            'hr.salary.rule',
-            'Salary Rule',
-        ),
-        'substract': fields.boolean(
-            'Substract Amount',
-        )
     }
-    _defaults = {
-        'substract': False,
+
+    _default = {
+        'holidays_hours_per_day': 8.0,
     }

@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 ##############################################################################
 #
-#    Copyright (C) 2014 Savoir-faire Linux. All Rights Reserved.
+#    Copyright (C) 2014 - 2015 Savoir-faire Linux. All Rights Reserved.
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as published
@@ -18,13 +18,25 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from . import (
-    hr_leave_accrual,
-    hr_leave_accrual_line,
-    hr_holidays,
-    hr_holidays_status,
-    hr_holidays_status_accrual_line,
-    hr_payslip,
-    hr_employee,
-    res_company,
-)
+
+from openerp.osv import orm, fields
+
+
+class hr_holidays_status(orm.Model):
+    _inherit = 'hr.holidays.status'
+
+    _columns = {
+        'accrual_code': fields.char(
+            'Accrual Code',
+        ),
+        'increase_accrual_on_allocation': fields.boolean(
+            'Increase Accruals on Allocations',
+            help="Add hours to the related leave accruals when allocating "
+            "leaves to employees."
+        ),
+        'accrual_line_ids': fields.one2many(
+            'hr.holidays.status.accrual.line',
+            'leave_type_id',
+            'Accrual Lines',
+        ),
+    }

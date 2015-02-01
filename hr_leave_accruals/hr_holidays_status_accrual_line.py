@@ -30,32 +30,36 @@ def get_amount_types(self, cr, uid, context=None):
     ]
 
 
-class hr_leave_accrual_template(orm.Model):
+class hr_holidays_status_accrual_line(orm.Model):
     """
-    A leave accrual template represent a leave category
-    e.g. Vacations, Sick Leaves, Compensatory, Legals, etc.
+    The lines that will be added to an employee's leave accrual
+    when a payslip is computed
 
-    Line_ids describe how the accrual must be computed in regard to an
-    employee's payslip
+    If substract field is True, the amount related to the salary rule
+    will be substracted from the accrual instead of added to it.
     """
-    _name = 'hr.leave.accrual.template'
-    _description = 'Leave Accrual Template'
+    _name = 'hr.holidays.status.accrual.line'
+    _description = 'Holidays Status Accrual Line'
     _columns = {
-        'name': fields.char(
-            'Template Name',
+        'leave_type_id': fields.many2one(
+            'hr.holidays.status',
+            'Leave Type',
             required=True,
         ),
-        'code': fields.char(
-            'Template Code',
-            required=True,
+        'salary_rule_id': fields.many2one(
+            'hr.salary.rule',
+            'Salary Rule',
+        ),
+        'substract': fields.boolean(
+            'Substract Amount',
         ),
         'amount_type': fields.selection(
             get_amount_types,
             string="Amount Type",
         ),
-        'line_ids': fields.one2many(
-            'hr.leave.accrual.template.line',
-            'template_id',
-            'Accrual Template Lines',
-        ),
+    }
+
+    _defaults = {
+        'substract': False,
+        'amount_type': 'cash',
     }

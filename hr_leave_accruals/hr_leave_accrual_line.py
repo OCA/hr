@@ -20,6 +20,7 @@
 ##############################################################################
 
 from openerp.osv import orm, fields
+from .hr_holidays_status_accrual_line import get_amount_types
 
 
 class hr_leave_accrual_line(orm.Model):
@@ -48,11 +49,23 @@ class hr_leave_accrual_line(orm.Model):
         'source': fields.selection(
             [
                 ('payslip', 'Payslip Line'),
+                ('allocation', 'Allocation'),
                 ('manual', 'Entered Manually'),
             ],
             type='char',
             string="Source",
             required=True,
+        ),
+        'amount_type': fields.selection(
+            get_amount_types,
+            string="Amount Type",
+        ),
+
+        # Fields required when line is an allocation
+        'allocation_id': fields.many2one(
+            'hr.holidays',
+            'Allocation',
+            ondelete='cascade',
         ),
 
         # Fields required when line is related to a payslip line
@@ -88,4 +101,5 @@ class hr_leave_accrual_line(orm.Model):
         'payslip_id': False,
         'payslip_line_id': False,
         'source': 'manual',
+        'amount_type': 'cash',
     }

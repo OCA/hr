@@ -12,11 +12,10 @@
     name: Employee 1
     user_id: user_1
 -
-  Create a leave accrual template
+  Create a leave type
 -
-  !record {model: hr.leave.accrual.template, id: template_vac}:
+  !record {model: hr.holidays.status, id: vacations}:
     name: "Vacations"
-    code: "VAC"
 -
   Create a salary rule for vacations earned
 -
@@ -38,24 +37,26 @@
     amount_select: "fix"
     amount_fix: 300
 -
-  Create a leave accrual template line for amounts added
+  Create a leave accrual line for amounts added
 -
-  !record {model: hr.leave.accrual.template.line, id: template_vac_line_1}:
-    template_id: template_vac
+  !record {model: hr.holidays.status.accrual.line, id: vac_line_1}:
+    leave_type_id: vacations
     substract: False
     salary_rule_id: vac_added
+    amount_type: cash
 -
-  Create a leave accrual template line for amounts substracted
+  Create a leave accrual line for amounts substracted
 -
-  !record {model: hr.leave.accrual.template.line, id: template_vac_line_2}:
-    template_id: template_vac
+  !record {model: hr.holidays.status.accrual.line, id: vac_line_2}:
+    leave_type_id: vacations
     substract: True
     salary_rule_id: vac_taken
+    amount_type: cash
 -
   Create a leave accrual for the employee
 -
   !record {model: hr.leave.accrual, id: leave_accrual_1}:
-    template_id: template_vac
+    leave_type_id: vacations
     employee_id: employee_1
 -
   Create a salary structure
@@ -73,7 +74,7 @@
   !record {model: hr.contract, id: contract_1}:
     name: Contract 1
     employee_id: employee_1
-    wage: 0
+    wage: 50000
     struct_id: structure_1
 -
   Create a payslip
@@ -97,7 +98,7 @@
     leave_accrual = self.browse(cr, uid, ref('leave_accrual_1'))
     # the total in leave accrual must be 200
     # 500 added - 300 taken
-    assert(leave_accrual.total == 200)
+    assert(leave_accrual.total_cash == 200)
 -
   Compute the payslip a second time
 -
@@ -110,7 +111,7 @@
     leave_accrual = self.browse(cr, uid, ref('leave_accrual_1'))
     # Total still equals 200 because the same payslip
     # was recomputed
-    assert(leave_accrual.total == 200)
+    assert(leave_accrual.total_cash == 200)
 -
   Create a second payslip
 -
@@ -133,7 +134,7 @@
     leave_accrual = self.browse(cr, uid, ref('leave_accrual_1'))
     # the total in leave accrual must be 400
     # 500 added - 300 taken + 500 added - 300 taken
-    assert(leave_accrual.total == 400)
+    assert(leave_accrual.total_cash == 400)
 
 -
   Create a refund payslip
@@ -158,4 +159,4 @@
     leave_accrual = self.browse(cr, uid, ref('leave_accrual_1'))
     # the total in leave accrual must be 200 (400 - 200)
     # because the last payslip is refund
-    assert(leave_accrual.total == 200)
+    assert(leave_accrual.total_cash == 200)

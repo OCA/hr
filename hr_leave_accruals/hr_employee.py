@@ -33,18 +33,36 @@ class hr_employee(orm.Model):
         ),
     }
 
-    def get_leave_accrual(
-        self, cr, uid, employee_id, leave_code, context=None
+    def get_leave_accrual_id(
+        self, cr, uid, employee_id, accrual_code=False,
+        leave_type_id=False, context=None
     ):
         """
         Get a leave accrual of an employee that matches a leave_code
-        return: a leave accrual browse record
+        :return: the id of a leave accrual
         """
         employee = self.browse(cr, uid, employee_id, context=context)
-        leave_accruals = employee.leave_accrual_ids
 
-        for accrual in leave_accruals:
-            if accrual.code == leave_code:
-                return accrual.id
+        accrual_id = False
 
-        return False
+        for accrual in employee.leave_accrual_ids:
+            if accrual_code and accrual.code == accrual_code \
+                    or leave_type_id == accrual.leave_type_id.id:
+                accrual_id = accrual.id
+                break
+
+        # If the employee doesn't have the accrual of the given type,
+        # create it
+        if not accrual_id:
+            if accrual_code:
+                leave_type_id = self.pool['hr.holidays.status'].search(
+                    cr, uid, [('accrual_code', '=', accrual_code)],
+                    context=context)[0]
+
+            accrual_id = self.pool['hr.leave.accrual'].create(
+                cr, uid, {
+                    'employee_id': employee_id,
+                    'leave_type_id': leave_type_id,
+                }, context=context)
+
+        return accrual_id

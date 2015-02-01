@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 ##############################################################################
 #
-#    Copyright (C) 2014 Savoir-faire Linux. All Rights Reserved.
+#    Copyright (C) 2014 - 2015 Savoir-faire Linux. All Rights Reserved.
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as published
@@ -26,18 +26,18 @@
     'description': """
 Leave Accruals
 ===========
-This module adds leave accruals on employees and a mechanic to compute these
+This module adds leave accruals on employees and a mechanism to compute these
 automaticaly.
 
-Whenever a payslip of an employee is computed, the related leave accrual
-records are written.
+On each leave type, a list of salary rules may be selected.
+Whenever a payslip is computed, a line is added to the employee's accrual for
+each salary rule related to the leave type. Leave accruals can be accruded
+in cash or in hours. This must be specified on the leave type.
 
-Each leave accrual is related to a leave accrual template. Templates indicate
-which rules are sumed or substracted from the amount accruded each time a
-payslip is computed.
-
-When a payslip line is deleted, related leave accrual lines are deleted
-so the total amount remains correct.
+If a leave type is accruded in hours instead of cash, the leave allocation
+system may be used to increase the accruals for this leave type. For this,
+the field increase_accrual_on_allocation on the leave type must be True.
+An example of use for this feature is for sick leaves.
 
 Contributors
 ------------
@@ -53,7 +53,8 @@ Contributors
         'security/ir.model.access.csv',
         'view/hr_employee_view.xml',
         'view/hr_leave_accrual_view.xml',
-        'view/hr_leave_accrual_template_view.xml',
+        'view/hr_holidays_status_view.xml',
+        'view/res_company_view.xml',
     ],
     'test': ['test/hr_leave_accruals_test.yml'],
     'demo': [],

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="view holidays_status_form" model="ir.ui.view">
+            <field name="name">hr.holidays.status.form</field>
+            <field name="model">hr.holidays.status</field>
+            <field name="inherit_id" ref="hr_holidays.edit_holiday_status_form"/>
+            <field name="arch" type="xml">
+                <notebook position="inside">
+                    <page name="leave_accruals" string="Leave Accruals">
+                        <group>
+                            <field name="accrual_code"/>
+                            <field name="increase_accrual_on_allocation"/>
+                        </group>
+                        <label for="accrual_line_ids" string="Payslip Lines" colspan="4"/>
+                        <field name="accrual_line_ids" nolabel="1" colspan="4">
+                            <tree editable="top">
+                                <field name="salary_rule_id"/>
+                                <field name="amount_type"/>
+                                <field name="substract"/>
+                            </tree>
+                        </field>
+                    </page>
+                </notebook>
+            </field>
+        </record>
+    </data>
+</openerp>

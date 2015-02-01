@@ -10,9 +10,9 @@
                     <page name="payroll_page" string="Leave Accruals">
                         <field name="leave_accrual_ids">
                             <tree>
-                                <field name="name"/>
-                                <field name="amount_type"/>
-                                <field name="total" string="Amount"/>
+                                <field name="leave_type_id"/>
+                                <field name="total_hours"/>
+                                <field name="total_cash"/>
                             </tree>
                         </field>
                     </page>
