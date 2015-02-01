@@ -58,9 +58,9 @@ msgid "Pay Slip"
 msgstr ""
 
 #. module: hr_worked_days_from_timesheet
-#: code:addons/hr_worked_days_from_timesheet/hr_payslip.py:109
+#: code:addons/hr_worked_days_from_timesheet/hr_payslip.py:168
 #, python-format
-msgid "Sorry, but there is no approved Timesheets for the entire Payslip period"
+msgid "Sorry, but there is no approved Timesheets for the entire payslip period for employee %s."
 msgstr ""
 
 #. module: hr_worked_days_from_timesheet
@@ -68,3 +68,24 @@ msgstr ""
 msgid "Payslip Worked Days"
 msgstr ""
 
+#. module: hr_worked_days_from_timesheet
+#: code:addons/hr_worked_days_from_timesheet/hr_payslip_employees.py:62
+#, python-format
+msgid "Warning!"
+msgstr ""
+
+#. module: hr_worked_days_from_timesheet
+#: code:addons/hr_worked_days_from_timesheet/hr_payslip_employees.py:63
+#, python-format
+msgid "You must select employee(s) to generate payslip(s)."
+msgstr ""
+
+#. module: hr_worked_days_from_timesheet
+#: model:ir.model,name:hr_worked_days_from_timesheet.model_hr_payslip_employees
+msgid "Generate payslips for all selected employees"
+msgstr ""
+
+#. module: hr_worked_days_from_timesheet
+#: field:hr.payslip.employees,import_from_timesheet:0
+msgid "Import Worked Days From Timesheet"
+msgstr ""

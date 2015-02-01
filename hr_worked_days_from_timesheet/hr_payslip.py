@@ -37,8 +37,9 @@ class hr_payslip(orm.Model):
         date_format,
         context=None,
     ):
-        """This function takes timesheet objects imported from the timesheet
-        module and creates a dict of worked days to be created in the payslip.
+        """
+        Take timesheet objects imported from the timesheet
+        module and create a dict of worked days to be created in the payslip.
         """
         worked_days = {}
         # Create one worked days record for each timesheet sheet
@@ -68,48 +69,82 @@ class hr_payslip(orm.Model):
 
     def import_worked_days(
         self, cr, uid,
-        payslip_id,
+        payslip_ids,
         context=None
     ):
-        """This method retreives the employee's timesheets for a payslip period
-        and creates worked days records from the imported timesheets
         """
-        payslip = self.browse(cr, uid, payslip_id, context=context)[0]
-        employee = payslip.employee_id
-
-        date_from = payslip.date_from
-        date_to = payslip.date_to
-
+        Retreive the employee's timesheets for a payslip period
+        and create worked days records from the imported timesheets
+        """
         # get user date format
         lang_pool = self.pool['res.lang']
         user_pool = self.pool['res.users']
         code = user_pool.context_get(cr, uid).get('lang', 'en_US')
+
         lang_id = lang_pool.search(
-            cr, uid,
-            [('code', '=', code)],
-            context=context
-        )
+            cr, uid, [('code', '=', code)], context=context)
+
         date_format = lang_pool.read(
-            cr, uid,
-            lang_id,
-            ['date_format'],
-            context=context
-        )[0]['date_format']
+            cr, uid, lang_id, ['date_format'],
+            context=context)[0]['date_format']
 
-        # Delete old imported worked_days
-        # The reason to delete these records is that the user may make
-        # corrections to his timesheets and then reimport these.
-        old_worked_days_ids = [
-            wd.id for wd in payslip.worked_days_line_ids
-            # We only remove records that were imported from
-            # timesheets and not those manually entered.
-            if wd.imported_from_timesheet
-        ]
-        self.pool.get(
-            'hr.payslip.worked_days'
-        ).unlink(cr, uid, old_worked_days_ids, context)
+        for payslip in self.browse(cr, uid, payslip_ids, context=context):
+            employee = payslip.employee_id
 
-        # get timesheet sheets of employee
+            date_from = payslip.date_from
+            date_to = payslip.date_to
+
+            # Delete old imported worked_days
+            # The reason to delete these records is that the user may make
+            # corrections to his timesheets and then reimport these.
+            old_worked_days_ids = [
+                wd.id for wd in payslip.worked_days_line_ids
+                # We only remove records that were imported from
+                # timesheets and not those manually entered.
+                if wd.imported_from_timesheet
+            ]
+            self.pool.get(
+                'hr.payslip.worked_days'
+            ).unlink(cr, uid, old_worked_days_ids, context)
+
+            # get timesheet sheets of employee
+            timesheet_sheets = self.get_timesheets_from_employee(
+                cr, uid,
+                employee.id,
+                date_from, date_to,
+                context=context
+            )
+
+            # The reason to call this method is for other modules to modify it.
+            worked_days = self.timesheet_mapping(
+                cr, uid,
+                timesheet_sheets,
+                payslip,
+                date_from,
+                date_to,
+                date_format,
+                context=context,
+            )
+            worked_days = [(0, 0, wd) for key, wd in worked_days.items()]
+
+            self.write(
+                cr, uid, payslip.id,
+                {'worked_days_line_ids': worked_days},
+                context=context
+            )
+
+    def get_timesheets_from_employee(
+        self, cr, uid,
+        employee_id,
+        date_from, date_to,
+        context=None
+    ):
+        """
+        Get timesheet sheets of an employee for a period of time
+        """
+        employee = self.pool['hr.employee'].browse(
+            cr, uid, employee_id, context=context)
+
         timesheet_sheets = [
             ts_sheet for ts_sheet in employee.timesheet_sheet_ids
             if (
@@ -121,27 +156,15 @@ class hr_payslip(orm.Model):
             # We want only approved timesheets
             and ts_sheet.state == 'done'
         ]
+
         if not timesheet_sheets:
             raise orm.except_orm(
                 _("Warning"),
-                _("""\
-Sorry, but there is no approved Timesheets for the entire Payslip period"""),
+                _(
+                    "Sorry, but there is no approved Timesheets "
+                    "for the entire payslip period "
+                    "for employee %s."
+                ) % employee.name_get(context=context)[0][1],
             )
 
-        # The reason to call this method is for other modules to modify it.
-        worked_days = self.timesheet_mapping(
-            cr, uid,
-            timesheet_sheets,
-            payslip,
-            date_from,
-            date_to,
-            date_format,
-            context=context,
-        )
-        worked_days = [(0, 0, wd) for key, wd in worked_days.items()]
-
-        self.write(
-            cr, uid, payslip_id,
-            {'worked_days_line_ids': worked_days},
-            context=context
-        )
+        return timesheet_sheets

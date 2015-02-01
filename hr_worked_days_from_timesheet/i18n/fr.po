@@ -59,15 +59,34 @@ msgid "Pay Slip"
 msgstr "Bulletin de paie"
 
 #. module: hr_worked_days_from_timesheet
-#: code:addons/hr_worked_days_from_timesheet/hr_payslip.py:109
+#: code:addons/hr_worked_days_from_timesheet/hr_payslip.py:168
 #, python-format
-msgid ""
-"Sorry, but there is no approved Timesheets for the entire Payslip period"
-msgstr ""
-"Désolé, mais il n'y a aucune feuille de temps approuvée pour la période "
-"entrée."
+msgid "Sorry, but there is no approved Timesheets for the entire payslip period for employee %s."
+msgstr "Désolé, mais il n'y a aucune feuille de temps approuvée pour la période de paie pour l'employé %s."
 
 #. module: hr_worked_days_from_timesheet
 #: model:ir.model,name:hr_worked_days_from_timesheet.model_hr_payslip_worked_days
 msgid "Payslip Worked Days"
 msgstr "Jours travaillés"
+
+#. module: hr_worked_days_from_timesheet
+#: code:addons/hr_worked_days_from_timesheet/hr_payslip_employees.py:62
+#, python-format
+msgid "Warning!"
+msgstr "Attention !"
+
+#. module: hr_worked_days_from_timesheet
+#: code:addons/hr_worked_days_from_timesheet/hr_payslip_employees.py:63
+#, python-format
+msgid "You must select employee(s) to generate payslip(s)."
+msgstr "Vous devez sélectionner au moins un employé pour générer un(des) bulletin(s) de paie"
+
+#. module: hr_worked_days_from_timesheet
+#: model:ir.model,name:hr_worked_days_from_timesheet.model_hr_payslip_employees
+msgid "Generate payslips for all selected employees"
+msgstr "Génère les bulletins de paie pour tous les employés sélectionnés"
+
+#. module: hr_worked_days_from_timesheet
+#: field:hr.payslip.employees,import_from_timesheet:0
+msgid "Import Worked Days From Timesheet"
+msgstr "Importer les heures des feuilles de temps"
