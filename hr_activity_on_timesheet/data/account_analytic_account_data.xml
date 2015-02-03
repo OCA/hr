@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+        <!-- add an analytic account that contains every leave type -->
+        <record id="analytic_account_leaves" model="account.analytic.account">
+            <field name="name">Leaves</field>
+            <field name="type">normal</field>
+            <field name="use_timesheets">1</field>
+            <field name="authorized_activity_ids" eval="[(6, 0, [
+                ref('hr_worked_days_activity.activity_holiday_status_cl'),
+                ref('hr_worked_days_activity.activity_holiday_status_sl'),
+                ref('hr_worked_days_activity.activity_holiday_status_comp'),
+                ref('hr_worked_days_activity.activity_holiday_status_unpaid'),
+                ref('hr_worked_days_activity.activity_holiday_status_vacation'),
+            ])]"/>
+        </record>
+    </data>
+</openerp>

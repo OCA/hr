@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<templates id="template" xml:space="preserve">
+    <t t-extend="hr_timesheet_sheet.WeeklyTimesheet">
+        <t t-jquery=".oe_timesheet_first_col" t-operation="replace">
+            <th class="oe_timesheet_first_col">Analytic Account</th>
+            <th class="oe_timesheet_snd_col">Activity</th>
+        </t>
+
+        <t t-jquery="tr:not([class]):nth-child(n+2)" t-operation="replace">
+            <t t-foreach="widget.accounts" t-as="account">
+                <tr t-foreach="account.activities" t-as="activity">
+                    <td class="oe_timesheet_weekly_account">
+                        <a href="javascript:void(0)" t-att-data-id="JSON.stringify(account.account_id)">
+                            <t t-esc="widget.account_names[account.account_id]"/>
+                        </a>
+                    </td>
+                    <td class="oe_timesheet_weekly_activity">
+                        <a href="javascript:void(0)" t-att-data-id="JSON.stringify(activity.activity_id)">
+                            <t t-esc="widget.activity_names[activity.activity_id]"/>
+                        </a>
+                    </td>
+                    <t t-set="day_count" t-value="0"/>
+                    <t t-foreach="activity.days" t-as="day">
+                        <td t-att-class="(Date.compare(day.day, Date.today()) === 0 ? 'oe_timesheet_weekly_today' : '')">
+                            <input t-if="!widget.get('effective_readonly')"
+                                type="text"
+                                class="oe_timesheet_weekly_input"
+                                t-att-data-account="account.account_id"
+                                t-att-data-activity="activity.activity_id"
+                                t-att-data-day-count="day_count"
+                            />
+                            <span t-if="widget.get('effective_readonly')"
+                                class="oe_timesheet_weekly_box"
+                                t-att-data-account="account.account_id"
+                                t-att-data-activity="activity.activity_id"
+                                t-att-data-day-count="day_count"
+                            />
+                            <t t-set="day_count" t-value="day_count + 1"/>
+                        </td>
+                    </t>
+                    <td t-att-data-account-total="account.account_id" t-att-data-activity-total="activity.activity_id" class="oe_timesheet_total"> </td>
+                </tr>
+            </t>
+        </t>
+
+        <t t-jquery="tr.oe_timesheet_total > td:first-child" t-operation="after">
+            <td> </td>
+        </t>
+        <t t-jquery=".oe_timesheet_weekly_add_row" t-operation="replace">
+            <tr class="oe_timesheet_weekly_add_row" style="display: none">
+                <td>Select Account</td>
+                <td t-att-colspan="widget.dates.length + 2">
+                    <button class="oe_highlight">Next</button>
+                </td>
+            </tr>
+            <tr class="oe_timesheet_weekly_add_activity" style="display: none">
+                <td>Select Activity</td>
+                <td t-att-colspan="widget.dates.length + 2">
+                    <button class="oe_highlight">Add</button>
+                </td>
+            </tr>
+        </t>
+    </t>
+</templates>
