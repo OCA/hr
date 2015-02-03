@@ -35,6 +35,10 @@ class hr_contract(orm.Model):
             "for computation of payslip.",
             required=True,
         ),
+        # Make the contract not required
+        'wage': fields.float(
+            'Wage', digits=(16, 2),
+            help="Basic Salary of the employee"),
     }
     _defaults = {
         'salary_computation_method': 'wage',
@@ -99,11 +103,35 @@ class hr_contract(orm.Model):
                     if not contract_job.hourly_rate_class_id:
                         return False
 
-            return True
+        return True
 
-    _constraints = [(
-        _check_has_hourly_rate_class,
-        "Error! At least one job on contract has no hourly rate "
-        "class assigned.",
-        ['contract_job_ids']
-    )]
+    def _check_wage(
+        self, cr, uid, ids, context=None
+    ):
+        """
+        Check if the wage on the contract is not False
+        if the salary computation method is wage
+        """
+        for contract in self.browse(cr, uid, ids, context=context):
+
+            # This does not apply when employee is paid by hourly rate
+            if contract.salary_computation_method == 'wage':
+                if not contract.wage:
+                    return False
+
+        return True
+
+    _constraints = [
+        (
+            _check_has_hourly_rate_class,
+            "Error! At least one job on contract has no hourly rate "
+            "class assigned.",
+            ['contract_job_ids']
+        ),
+        (
+            _check_wage,
+            "Error! The field Wage is required if the salary computation "
+            "method is Wage.",
+            ['wage']
+        ),
+    ]

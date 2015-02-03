@@ -121,3 +121,19 @@ msgstr "Taux horaire"
 #: field:hr.hourly.rate,date_start:0
 msgid "Start Date"
 msgstr "Date de début"
+
+#. module: hr_contract_hourly_rate
+#: constraint:hr.contract:0
+msgid "Error! The field Wage is required if the salary computation method is Wage."
+msgstr "Erreur! Le champs Salaire est requis si la méthode de calcul du salaire "
+"est Salaire annuel."
+
+#. module: hr_contract_hourly_rate
+#: field:hr.contract,wage:0
+msgid "Wage"
+msgstr "Salaire"
+
+#. module: hr_contract_hourly_rate
+#: help:hr.contract,wage:0
+msgid "Basic Salary of the employee"
+msgstr "Salaire de base de l'employé"
