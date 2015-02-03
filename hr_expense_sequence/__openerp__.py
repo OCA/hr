@@ -36,4 +36,3 @@
     "installable": True,
     "post_init_hook": "assign_old_sequences",
 }
-
