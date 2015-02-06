@@ -31,6 +31,7 @@ Define a collection of policies, such as Overtime, that apply to a contract.
     """,
     'author': 'Michael Telahun Makonnen <mmakonnen@gmail.com>',
     'website': 'http://miketelahun.wordpress.com',
+    'license': 'AGPL-3',
     'depends': [
         'hr_contract',
         'hr_contract_init',

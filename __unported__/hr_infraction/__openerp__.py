@@ -29,6 +29,7 @@ Warning/Disciplinary Action Management
     """,
     'author': 'Michael Telahun Makonnen <mmakonnen@gmail.com>',
     'website': 'http://miketelahun.wordpress.com',
+    'license': 'AGPL-3',
     'depends': [
         'hr',
         'hr_employee_state',

@@ -28,6 +28,7 @@ Order by Parent-Child Relationship and by Sequence Number
     """,
     'author': 'Michael Telahun Makonnen <mmakonnen@gmail.com>',
     'website': 'http://www.openerp.com',
+    'license': 'AGPL-3',
     'depends': [
         'hr',
     ],

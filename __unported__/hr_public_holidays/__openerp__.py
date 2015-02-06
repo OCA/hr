@@ -29,6 +29,7 @@ Manage Public Holidays
 ======================
     """,
     'website': 'http://miketelahun.wordpress.com',
+    'license': 'AGPL-3',
     'depends': [
         'hr',
     ],

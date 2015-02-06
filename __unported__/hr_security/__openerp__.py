@@ -30,6 +30,7 @@ Human Resource Permission Groups
     """,
     "author": "Michael Telahun Makonnen <mmakonnen@gmail.com",
     "website": "http://miketelahun.wordpress.com",
+    "license": "AGPL-3",
     "depends": [
         'base',
         'hr',

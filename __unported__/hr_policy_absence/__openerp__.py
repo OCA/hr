@@ -32,6 +32,7 @@ Define properties of an absence policy, such as:
     """,
     'author': 'Michael Telahun Makonnen <mmakonnen@gmail.com>',
     'website': 'http://miketelahun.wordpress.com',
+    'license': 'AGPL-3',
     'depends': [
         'hr_holidays',
         'hr_payroll_period',

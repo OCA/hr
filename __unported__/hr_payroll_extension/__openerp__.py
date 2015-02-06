@@ -24,6 +24,7 @@
     'category': 'Human Resources',
     'author': 'Michael Telahun Makonnen',
     'website': 'http://miketelahun.wordpress.com',
+    'license': 'AGPL-3',
     'version': '1.0',
     'description': """
 Extended set of Payroll Rules and Structures

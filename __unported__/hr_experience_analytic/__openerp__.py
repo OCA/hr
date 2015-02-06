@@ -24,6 +24,7 @@
     "author": "Savoir-faire Linux",
     "category": "Human Resources",
     "website": "http://www.savoirfairelinux.com",
+    "license": "AGPL-3",
     "depends": [
         "hr_experience",
         "account",

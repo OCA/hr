@@ -33,6 +33,7 @@ Define properties of an overtime policy, such as:
     """,
     'author': 'Michael Telahun Makonnen <mmakonnen@gmail.com>',
     'website': 'http://miketelahun.wordpress.com',
+    'license': 'AGPL-3',
     'depends': [
         'hr_policy_group',
     ],

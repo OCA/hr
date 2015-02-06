@@ -30,6 +30,7 @@ Attendance Summary for the purposes of Payroll
     """,
     'author': 'Michael Telahun Makonnen <mmakonnen@gmail.com>',
     'website': 'http://miketelahun.wordpress.com',
+    'license': 'AGPL-3',
     'depends': [
         'hr',
         'hr_attendance',
