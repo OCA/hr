@@ -35,6 +35,7 @@ job will be attached to the employee record as well.
 """,
     'author': 'Michael Telahun Makonnen <mmakonnen@gmail.com>',
     'website': 'http://miketelahun.wordpress.com',
+    'license': 'AGPL-3',
     'depends': [
         'hr_contract',
     ],

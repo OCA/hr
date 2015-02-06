@@ -29,6 +29,7 @@ Add Amendments to Current and Future Pay Slips
 ==============================================
     """,
     'website': 'http://miketelahun.wordpress.com',
+    'license': 'AGPL-3',
     'depends': [
         'hr_payroll',
     ],

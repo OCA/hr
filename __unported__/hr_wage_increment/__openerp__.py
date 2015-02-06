@@ -33,6 +33,7 @@ Wage Increment Handling
     """,
     "author": "Michael Telahun Makonnen <mmakonnen@gmail.com",
     "website": "http://www.openerp.com",
+    "license": "AGPL-3",
     "depends": [
         "hr_contract_state",
         "hr_payroll_period",

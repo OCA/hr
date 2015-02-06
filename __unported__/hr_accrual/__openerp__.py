@@ -34,6 +34,7 @@ by other modules. This module only provides the basic framework for recording
 the data.""",
     'author': 'Michael Telahun Makonnen <mmakonnen@gmail.com>',
     'website': 'http://miketelahun.wordpress.com',
+    'license': 'AGPL-3',
     'depends': [
         'hr',
         'hr_holidays',

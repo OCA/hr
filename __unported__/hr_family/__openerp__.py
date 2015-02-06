@@ -31,6 +31,7 @@ Employee Family Information
     """,
     'author': 'Michael Telahun Makonnen <mmakonnen@gmail.com>',
     'website': 'http://www.openerp.com',
+    'license': 'AGPL-3',
     'depends': [
         'hr',
     ],

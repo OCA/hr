@@ -31,6 +31,7 @@ Easily create, manage, and track employee schedules.
     """,
     'author': 'Michael Telahun Makonnen <mmakonnen@gmail.com>',
     'website': 'http://miketelahun.wordpress.com',
+    'license': 'AGPL-3',
     'depends': [
         'hr_attendance',
         'hr_contract',

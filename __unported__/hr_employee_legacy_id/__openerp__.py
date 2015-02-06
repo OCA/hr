@@ -32,6 +32,7 @@ to have a record of the ID No. used in the previous system.
     """,
     'author': 'Michael Telahun Makonnen <mmakonnen@gmail.com>',
     'website': 'http://miketelahun.wordpress.com',
+    'license': 'AGPL-3',
     'depends': [
         'hr',
     ],

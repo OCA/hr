@@ -30,6 +30,7 @@ Company wide unique employee ID
     """,
     'author': 'Michael Telahun Makonnen <mmakonnen@gmail.com>',
     'website': 'http://miketelahun.wordpress.com',
+    'license': 'AGPL-3',
     'depends': [
         'hr',
     ],

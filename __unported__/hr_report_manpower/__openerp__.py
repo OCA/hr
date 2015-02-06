@@ -30,6 +30,7 @@ Daily Man Power Report by Department
     """,
     'author': 'Michael Telahun Makonnen <mmakonnen@gmail.com>',
     'website': 'http://miketelahun.wordpress.com',
+    'license': 'AGPL-3',
     'depends': [
         'hr',
         'report_aeroo',

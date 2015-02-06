@@ -35,6 +35,7 @@ This policy is ideal for annual leave accruals. If the type of accrual is
     """,
     'author': 'Michael Telahun Makonnen <mmakonnen@gmail.com>',
     'website': 'http://miketelahun.wordpress.com',
+    'license': 'AGPL-3',
     'depends': [
         'hr_accrual',
         'hr_contract_state',
