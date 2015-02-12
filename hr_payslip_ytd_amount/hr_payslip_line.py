@@ -19,7 +19,6 @@
 ##############################################################################
 
 from openerp.osv import orm, fields
-from openerp.tools.translate import _
 import openerp.addons.decimal_precision as dp
 
 
@@ -30,12 +29,3 @@ class hr_payslip_line(orm.Model):
             'Total Year-to-date',
             digits_compute=dp.get_precision('Payroll'))
     }
-
-    def name_get(self, cr, uid, ids, context=None):
-        """
-        Translate payslip line name in order to get a translated payslip
-        """
-        res = super(hr_payslip_line, self).name_get(
-            cr, uid, ids, context=context)
-
-        return [(line[0], _(line[1])) for line in res]

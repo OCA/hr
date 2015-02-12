@@ -162,27 +162,26 @@
     <blockTable colWidths="539.0" style="Table1">
       <tr>
         <td>
-          <para style="P7">Pay Slip</para>
+          <para style="P7">[[ translate_term('Pay Slip', o) ]]</para>
         </td>
       </tr>
     </blockTable>
     <para style="terp_header_Centre">
       <font face="Helvetica" size="6.0">[[o.credit_note==False and removeParentNode('para')]]</font>
-      <font face="Helvetica-Bold" size="14.0">Credit</font>
+      <font face="Helvetica-Bold" size="14.0">[[ translate_term('Credit', o) ]]</font>
       <font face="Helvetica" size="14.0"/>
-      <font face="Helvetica-Bold" size="14.0">Note</font>
+      <font face="Helvetica-Bold" size="14.0">[[ translate_term('Note', o) ]]</font>
     </para>
-    <para style="P8">([[o.name or removeParentNode('para')]])</para>
     <blockTable colWidths="63.0,206.0,89.0,181.0" style="Table2">
       <tr>
         <td>
-          <para style="P15">Name</para>
+          <para style="P15">[[ translate_term('Name', o) ]]</para>
         </td>
         <td>
-          <para style="P15">[[o.employee_id.name]]</para>
+          <para style="P15">[[ o.employee_id.name ]]</para>
         </td>
         <td>
-          <para style="P15">Designation </para>
+          <para style="P15">[[ translate_term('Designation', o) ]]</para>
         </td>
         <td>
           <para style="P4">[[ o.employee_id.job_id.name or '' ]]</para>
@@ -193,19 +192,19 @@
       <tr>
         <td>
           <para style="terp_default_Bold_8">
-            <font face="Helvetica">Address </font>
+            <font face="Helvetica">[[translate_term('Address', o)]]</font>
           </para>
         </td>
         <td>
-          <para style="P4">[[o.employee_id.address_home_id and o.employee_id.address_home_id.name or '' ]]
-                           [[o.employee_id.address_home_id and display_address(o.employee_id.address_home_id)]]</para>
+          <para style="P4">[[ o.employee_id.address_home_id and o.employee_id.address_home_id.name or '' ]]
+                           [[ o.employee_id.address_home_id and display_address(o.employee_id.address_home_id) ]]</para>
         </td>
       </tr>
     </blockTable>
     <blockTable colWidths="63.0,206.0,89.0,181.0" style="Table4">
       <tr>
         <td>
-          <para style="P15">Email</para>
+          <para style="P15">[[ translate_term('Email', o) ]]</para>
         </td>
         <td>
           <para style="P4">[[ o.employee_id.work_email or '' ]]</para>
@@ -223,13 +222,13 @@
     <blockTable colWidths="63.0,206.0,89.0,181.0" style="Table5">
       <tr>
         <td>
-          <para style="P15">Reference</para>
+          <para style="P15">[[ translate_term('Reference', o) ]]</para>
         </td>
         <td>
           <para style="P4">[[ o.number or '' ]]</para>
         </td>
         <td>
-          <para style="P15">Bank Account</para>
+          <para style="P15">[[ translate_term('Bank Account', o) ]]</para>
         </td>
         <td>
           <para style="P4">[[ o.employee_id.otherid or '' ]]</para>
@@ -246,7 +245,7 @@
         </td>
         <td>
           <para style="terp_default_Bold_8">
-            <font face="Helvetica" size="8.0">Date To</font>
+            <font face="Helvetica" size="8.0">[[ translate_term('Date To', o) ]]</font>
           </para>
         </td>
         <td>
@@ -261,22 +260,22 @@
     <blockTable colWidths="353,93.0,93.0" style="Table8">
       <tr>
         <td>
-          <para style="P13">Name</para>
+          <para style="P13">[[ translate_term('Name', o) ]]</para>
         </td>
         <td>
-          <para style="P13">Amount</para>
+          <para style="P13">[[ translate_term('Amount', o) ]]</para>
         </td>
         <td>
-          <para style="P14">Amount Year-to-date</para>
+          <para style="P14">[[ translate_term('Amount Year-to-date', o) ]]</para>
         </td>
       </tr>
     </blockTable>
     <section>
-      <para style="P4">[[repeatIn(get_payslip_lines(o.line_ids),'p') ]]</para>
+      <para style="P4">[[ repeatIn(get_payslip_lines(o.line_ids), 'p') ]]</para>
       <blockTable colWidths="353,93.0,93.0" style="Table9">
         <tr>
           <td>
-            <para style="P4">[[ p.name_get()[0][1] ]]</para>
+            <para style="P4">[[ translate_term(p.name, o, is_payslip_line=True) ]]</para>
           </td>
           <td>
             <para style="P5">[[ formatLang(p.total, currency_obj = o.company_id and o.company_id.currency_id)]]</para>
