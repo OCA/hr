@@ -30,16 +30,6 @@ This module adds a report over amounts of payslips line related to a
 a salary rule. It allows to group amounts by date, companies, salary rules
 and employees.
 
-This module replaces the use of contribution registers already implemented
-in Odoo, which is meant to generate pdf reports. The purpose of this module
-is to create dynamic reports.
-
-To include salary rules in the report, in the salary rule form view,
-check the field "Include in Payroll Analysis".
-
-To view the report go to Reporting -> Human Ressources -> Payroll Analysis,
-then fill the wizard.
-
 Contributors
 ------------
 * David Dufresne <david.dufresne@savoirfairelinux.com>
