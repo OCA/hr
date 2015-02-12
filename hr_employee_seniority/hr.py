@@ -57,7 +57,7 @@ class hr_employee(orm.Model):
     def _get_days_in_month(self, d):
 
         last_date = d - timedelta(days=(d.day - 1)) + relativedelta(
-            months= +1) + relativedelta(days= -1)
+            months=1) + relativedelta(days=-1)
         return last_date.day
 
     def get_months_service_to_date(
