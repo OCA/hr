@@ -55,8 +55,6 @@ class hr_salary_rule(orm.Model):
                 cr, uid, [('salary_rule_id', '=', rule.id)],
                 context=context)
 
-            print line_ids
-
             analysis_line_obj.unlink(cr, uid, line_ids, context=context)
 
             if rule.include_in_payroll_analysis:
@@ -65,6 +63,7 @@ class hr_salary_rule(orm.Model):
                     cr, uid, [
                         ('salary_rule_id', '=', rule.id),
                         ('slip_id.state', 'not in', ['draft', 'cancel']),
+                        ('total', '!=', 0),
                     ], context=context)
 
                 for line in payslip_line_obj.browse(
