@@ -38,16 +38,22 @@ class hr_payslip(orm.Model):
         """
         super(hr_payslip, self).process_sheet(cr, uid, ids, context=context)
 
+        self.remove_analysis_lines(cr, uid, ids, context=context)
         self.compute_analysis_lines(cr, uid, ids, context=context)
+
+    def remove_analysis_lines(self, cr, uid, ids, context=None):
+        """
+        Make sure no analysis line has already been computed
+        """
+        for payslip in self.browse(cr, uid, ids, context=context):
+            for line in payslip.analysis_line_ids:
+                line.unlink()
 
     def compute_analysis_lines(self, cr, uid, ids, context=None):
 
         analysis_line_obj = self.pool['hr.payslip.analysis.line']
 
         for payslip in self.browse(cr, uid, ids, context=context):
-            # Make sure no analysis line has already been computed
-            for line in payslip.analysis_line_ids:
-                line.unlink()
 
             required_lines = [
                 line for line in payslip.details_by_salary_rule_category
@@ -73,8 +79,5 @@ class hr_payslip(orm.Model):
         """
         Make sure no analytic lines exist when a payslip is cancelled
         """
-        for payslip in self.browse(cr, uid, ids, context=context):
-            for line in payslip.analysis_line_ids:
-                line.unlink()
-
+        self.remove_analysis_lines(cr, uid, ids, context=context)
         super(hr_payslip, self).cancel_sheet(cr, uid, ids, context=context)
