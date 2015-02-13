@@ -52,7 +52,7 @@ class hr_holidays(orm.Model):
 
                 accrual_id = self.pool['hr.employee'].get_leave_accrual_id(
                     cr, uid, employee.id, leave_type_id=leave_type_id,
-                    context=None)
+                    context=context)
 
                 number_of_hours = leave.number_of_days_temp * \
                     employee.company_id.holidays_hours_per_day
@@ -82,7 +82,7 @@ class hr_holidays(orm.Model):
             cr, uid, ids, context=context)
 
         for leave in self.browse(cr, uid, ids, context=context):
-                for line in leave.accrual_line_id:
-                    line.unlink()
+            for line in leave.accrual_line_id:
+                line.unlink()
 
         return res

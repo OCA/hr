@@ -119,7 +119,7 @@ class hr_leave_accrual(orm.Model):
             _sum_lines,
             method=True,
             type="float",
-            string='Hours Accruded',
+            string='Cash Accruded',
             multi=True,
         ),
         'total_hours': fields.function(
@@ -127,6 +127,6 @@ class hr_leave_accrual(orm.Model):
             method=True,
             type="float",
             multi=True,
-            string='Cash Accruded',
+            string='Hours Accruded',
         ),
     }

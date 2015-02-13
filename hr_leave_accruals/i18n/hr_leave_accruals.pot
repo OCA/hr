@@ -91,7 +91,7 @@ msgid "Date"
 msgstr ""
 
 #. module: hr_leave_accruals
-#: field:hr.leave.accrual,total_hours:0
+#: field:hr.leave.accrual,total_cash:0
 msgid "Cash Accruded"
 msgstr ""
 
@@ -149,7 +149,7 @@ msgid "Amount"
 msgstr ""
 
 #. module: hr_leave_accruals
-#: field:hr.leave.accrual,total_cash:0
+#: field:hr.leave.accrual,total_hours:0
 msgid "Hours Accruded"
 msgstr ""
 

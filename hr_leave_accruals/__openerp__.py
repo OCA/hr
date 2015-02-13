@@ -25,19 +25,9 @@
     'category': 'Generic Modules/Human Resources',
     'description': """
 Leave Accruals
-===========
+==============
 This module adds leave accruals on employees and a mechanism to compute these
 automaticaly.
-
-On each leave type, a list of salary rules may be selected.
-Whenever a payslip is computed, a line is added to the employee's accrual for
-each salary rule related to the leave type. Leave accruals can be accruded
-in cash or in hours. This must be specified on the leave type.
-
-If a leave type is accruded in hours instead of cash, the leave allocation
-system may be used to increase the accruals for this leave type. For this,
-the field increase_accrual_on_allocation on the leave type must be True.
-An example of use for this feature is for sick leaves.
 
 Contributors
 ------------
