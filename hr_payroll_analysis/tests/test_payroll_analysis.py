@@ -121,30 +121,7 @@ class test_payroll_analysis(common.TransactionCase):
         self.payslip_model.compute_sheet(
             cr, uid, self.payslip_ids, context=context)
 
-    def tearDown(self):
-        cr, uid, context = self.cr, self.uid, self.context
-
-        self.payslip_model.write(
-            cr, uid, self.payslip_ids, {'state': 'draft'}, context=context)
-
-        self.payslip_model.unlink(
-            cr, uid, self.payslip_ids, context=context)
-
-        self.contract_model.unlink(
-            cr, uid, [self.contract_id], context=context)
-
-        self.employee_model.unlink(
-            cr, uid, [self.employee_id], context=context)
-
-        self.structure_model.unlink(
-            cr, uid, [self.structure_id], context=context)
-
-        self.rule_model.unlink(
-            cr, uid, [self.rule_id, self.rule_2_id], context=context)
-
-        super(test_payroll_analysis, self).tearDown()
-
-    def test_payslip_analysis_line_generated(self):
+    def process_sheets(self):
         cr, uid, context = self.cr, self.uid, self.context
 
         self.payslip_model.process_sheet(
@@ -163,17 +140,15 @@ class test_payroll_analysis(common.TransactionCase):
         for line in lines:
             self.assertEqual(line.amount, 100)
 
+    def test_payslip_analysis_line_generated(self):
+        cr, uid, context = self.cr, self.uid, self.context
+
+        self.process_sheets()
+
         # Process the payslips a second time
-        # Check that there is still one analysis line
-        # per payslip
-        self.payslip_model.process_sheet(
-            cr, uid, self.payslip_ids, context=context)
-
-        line_ids = self.analysis_line_model.search(
-            cr, uid, [('payslip_id', 'in', self.payslip_ids)],
-            context=context)
-
-        self.assertEqual(len(line_ids), 2)
+        # Check that there is the same number of analysis lines
+        # generated
+        self.process_sheets()
 
         # Cancel a payslip and check that there is only one
         # analysis line left
@@ -193,21 +168,7 @@ class test_payroll_analysis(common.TransactionCase):
     def test_salary_rule_refresh(self):
         cr, uid, context = self.cr, self.uid, self.context
 
-        self.payslip_model.process_sheet(
-            cr, uid, self.payslip_ids, context=context)
-
-        # Check that the analysis lines were created
-        line_ids = self.analysis_line_model.search(
-            cr, uid, [('payslip_id', 'in', self.payslip_ids)],
-            context=context)
-
-        lines = self.analysis_line_model.browse(
-            cr, uid, line_ids, context=context)
-
-        self.assertEqual(len(lines), 2)
-
-        for line in lines:
-            self.assertEqual(line.amount, 100)
+        self.process_sheets()
 
         # Include the second salary rule in the report
         self.rule_model.write(
