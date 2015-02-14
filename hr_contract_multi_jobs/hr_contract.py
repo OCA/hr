@@ -25,7 +25,7 @@ from openerp.osv import fields, orm
 class hr_contract(orm.Model):
     _inherit = 'hr.contract'
 
-    def write(self, cr, uid, ids, vals, context=None):
+    def _update_contract_jobs(self, cr, uid, ids, job_id, context=None):
         """
         Manage the case where a value is written in the job_id field
         of a contract. This allows to stay compatible with other
@@ -34,27 +34,43 @@ class hr_contract(orm.Model):
         When a value is written in the job_id field, the contract_job_ids
         field of the contract is updated.
         """
-        super(hr_contract, self).write(cr, uid, ids, vals, context=context)
+        for contract in self.browse(cr, uid, ids, context=context):
+            main_job_found = False
+
+            for contract_job in contract.contract_job_ids:
+                if contract_job.is_main_job:
+                    contract_job.write({'is_main_job': False})
+
+                if contract_job.job_id.id == job_id:
+                    main_job_found = True
+                    contract_job.write({'is_main_job': True})
+
+            if not main_job_found:
+                self.pool['hr.contract.job'].create(
+                    cr, uid, {
+                        'is_main_job': True,
+                        'job_id': job_id,
+                        'contract_id': contract.id,
+                    }, context=context)
+
+    def create(self, cr, uid, vals, context=None):
+        res = super(hr_contract, self).create(cr, uid, vals, context=context)
 
         if 'job_id' in vals:
-            for contract in self.browse(cr, uid, ids, context=context):
-                main_job_found = False
+            self._update_contract_jobs(
+                cr, uid, [res], vals['job_id'], context=context)
 
-                for contract_job in contract.contract_job_ids:
-                    if contract_job.is_main_job:
-                        contract_job.write({'is_main_job': False})
+        return res
 
-                    if contract_job.job_id.id == vals['job_id']:
-                        main_job_found = True
-                        contract_job.write({'is_main_job': True})
+    def write(self, cr, uid, ids, vals, context=None):
+        res = super(hr_contract, self).write(
+            cr, uid, ids, vals, context=context)
 
-                if not main_job_found:
-                    self.pool['hr.contract.job'].create(
-                        cr, uid, {
-                            'is_main_job': True,
-                            'job_id': vals['job_id'],
-                            'contract_id': contract.id,
-                        }, context=context)
+        if 'job_id' in vals:
+            self._update_contract_jobs(
+                cr, uid, ids, vals['job_id'], context=context)
+
+        return res
 
     def _get_main_job_position(
             self, cr, uid, ids, field_name, args=None, context=None
