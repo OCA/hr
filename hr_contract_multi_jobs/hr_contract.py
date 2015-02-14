@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 ##############################################################################
 #
-#    Copyright (C) 2014 Savoir-faire Linux. All Rights Reserved.
+#    Copyright (C) 2014 - 2015 Savoir-faire Linux. All Rights Reserved.
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as published
@@ -24,6 +24,37 @@ from openerp.osv import fields, orm
 
 class hr_contract(orm.Model):
     _inherit = 'hr.contract'
+
+    def write(self, cr, uid, ids, vals, context=None):
+        """
+        Manage the case where a value is written in the job_id field
+        of a contract. This allows to stay compatible with other
+        modules that dont depend on hr_contract_multi_jobs.
+
+        When a value is written in the job_id field, the contract_job_ids
+        field of the contract is updated.
+        """
+        super(hr_contract, self).write(cr, uid, ids, vals, context=context)
+
+        if 'job_id' in vals:
+            for contract in self.browse(cr, uid, ids, context=context):
+                main_job_found = False
+
+                for contract_job in contract.contract_job_ids:
+                    if contract_job.is_main_job:
+                        contract_job.write({'is_main_job': False})
+
+                    if contract_job.job_id.id == vals['job_id']:
+                        main_job_found = True
+                        contract_job.write({'is_main_job': True})
+
+                if not main_job_found:
+                    self.pool['hr.contract.job'].create(
+                        cr, uid, {
+                            'is_main_job': True,
+                            'job_id': vals['job_id'],
+                            'contract_id': contract.id,
+                        }, context=context)
 
     def _get_main_job_position(
             self, cr, uid, ids, field_name, args=None, context=None
@@ -94,6 +125,6 @@ class hr_contract(orm.Model):
             _check_one_main_job,
             "You must assign one and only one job position as main "
             "job position.",
-            ['parent_id']
+            ['contract_job_ids']
         ),
     ]

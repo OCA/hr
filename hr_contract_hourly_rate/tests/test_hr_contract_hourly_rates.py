@@ -129,11 +129,6 @@ class test_contract_hourly_rate(common.TransactionCase):
             }, context=self.context
         )
 
-        self.contract_model.write(
-            self.cr, self.uid, [self.contract_id], {
-                'job_id': self.job_id
-            }, context=self.context)
-
     def tearDown(self):
         self.contract_model.unlink(
             self.cr, self.uid, [self.contract_id], context=self.context)
@@ -215,7 +210,7 @@ class test_contract_hourly_rate(common.TransactionCase):
                 self.contract_id, job_id=self.job_3_id, main_job=False,
                 context=self.context)
 
-            self.assertTrue(res == 20)
+            self.assertEqual(res, 20)
 
         for dates in [
             # Should all return the same result
@@ -227,7 +222,7 @@ class test_contract_hourly_rate(common.TransactionCase):
                 self.contract_id, job_id=self.job_3_id, main_job=False,
                 context=self.context)
 
-            self.assertTrue(res == 25)
+            self.assertEqual(res, 25)
 
     def test_get_job_hourly_rate_main_job(self):
         """
@@ -243,7 +238,7 @@ class test_contract_hourly_rate(common.TransactionCase):
                 self.contract_id, job_id=False, main_job=True,
                 context=self.context)
 
-            self.assertTrue(res == 30)
+            self.assertEqual(res, 30)
 
         for dates in [
             # Should all return the same result
@@ -255,7 +250,7 @@ class test_contract_hourly_rate(common.TransactionCase):
                 self.contract_id, job_id=False, main_job=True,
                 context=self.context)
 
-            self.assertTrue(res == 35)
+            self.assertEqual(res, 35)
 
             self.assertRaises(
                 except_orm, self.rate_class_model.write,
