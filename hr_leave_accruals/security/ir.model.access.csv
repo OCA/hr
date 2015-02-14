@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hr_leave_accrual,hr.leave.accrual,model_hr_leave_accrual,base.group_hr_manager,1,1,1,1
+access_hr_leave_accrual_line,hr.leave.accrual.line,model_hr_leave_accrual_line,base.group_hr_manager,1,1,1,1
+access_hr_holidays_status_accrual_line,hr.holidays.status.accrual.line,model_hr_holidays_status_accrual_line,base.group_hr_manager,1,1,1,1

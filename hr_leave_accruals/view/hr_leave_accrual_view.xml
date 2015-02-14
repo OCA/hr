@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    	<record id="view_leave_accrual_form" model="ir.ui.view">
+            <field name="name">hr.leave.accrual.form</field>
+            <field name="model">hr.leave.accrual</field>
+            <field name="arch" type="xml">
+                <form string="Leave Accrual">
+                    <field name="leave_type_id"/>
+                    <field name="total_hours" readonly="1"/>
+                    <field name="total_cash" readonly="1"/>
+                    <label for="line_ids" string="Leave Accrual Lines" colspan="4"/>
+                    <field name="line_ids" nolabel="1" colspan="4">
+                        <tree editable="top">
+                            <field name="source" readonly="1"/>
+                            <field name="payslip_id" invisible="1"/>
+                            <field name="payslip_line_id" readonly="1"/>
+                            <field name="state" readonly="1"/>
+                            <field name="amount_type"
+                                attrs="{'readonly': [('source', '!=', 'manual')]}"/>
+                            <field name="amount"
+                                attrs="{'readonly': [('source', '!=', 'manual')]}"/>
+                            <field name="date"
+                                attrs="{
+                                'readonly': [('source', '!=', 'manual')],
+                                'required': [('source', '=', 'manual')]
+                            }"/>
+                            <field name="description" attrs="{
+                                'readonly': [('source', '!=', 'manual')],
+                                'required': [('source', '=', 'manual')]
+                            }"/>
+                        </tree>
+                    </field>
+                </form>
+            </field>
+        </record>
+    </data>
+</openerp>

@@ -1,0 +1,162 @@
+-
+  First we create a user
+-
+  !record {model: res.users, id: user_1}:
+    name: User 1
+    login: test
+    password: test
+-
+  Create an employee
+-
+  !record {model: hr.employee, id: employee_1}:
+    name: Employee 1
+    user_id: user_1
+-
+  Create a leave type
+-
+  !record {model: hr.holidays.status, id: vacations}:
+    name: "Vacations"
+-
+  Create a salary rule for vacations earned
+-
+  !record {model: hr.salary.rule, id: vac_added}:
+    name: Vacations
+    sequence: 1
+    code: "VAC_ADDED"
+    category_id: hr_payroll.GROSS
+    amount_select: "fix"
+    amount_fix: 500
+-
+  Create a salary rule for vacations taken
+-
+  !record {model: hr.salary.rule, id: vac_taken}:
+    name: Vacations
+    sequence: 1
+    code: "VAC_TAKEN"
+    category_id: hr_payroll.GROSS
+    amount_select: "fix"
+    amount_fix: 300
+-
+  Create a leave accrual line for amounts added
+-
+  !record {model: hr.holidays.status.accrual.line, id: vac_line_1}:
+    leave_type_id: vacations
+    substract: False
+    salary_rule_id: vac_added
+    amount_type: cash
+-
+  Create a leave accrual line for amounts substracted
+-
+  !record {model: hr.holidays.status.accrual.line, id: vac_line_2}:
+    leave_type_id: vacations
+    substract: True
+    salary_rule_id: vac_taken
+    amount_type: cash
+-
+  Create a leave accrual for the employee
+-
+  !record {model: hr.leave.accrual, id: leave_accrual_1}:
+    leave_type_id: vacations
+    employee_id: employee_1
+-
+  Create a salary structure
+-
+  !record {model: hr.payroll.structure, id: structure_1}:
+    code: 'VAC'
+    name: 'Vacation'
+    parent_id: False
+    rule_ids:
+      - vac_added
+      - vac_taken
+-
+  Create a contract
+-
+  !record {model: hr.contract, id: contract_1}:
+    name: Contract 1
+    employee_id: employee_1
+    wage: 50000
+    struct_id: structure_1
+-
+  Create a payslip
+-
+  !record {model: hr.payslip, id: payslip_1}:
+    employee_id: employee_1
+    contract_id: contract_1
+    date_from: '2014-01-01'
+    date_to: '2014-01-31'
+    struct_id: structure_1
+-
+  Compute the payslip
+-
+  !python {model: hr.payslip}: |
+    self.compute_sheet(cr, uid, [ref('payslip_1')])
+    self.write(cr, uid, [ref('payslip_1')], {'state': 'done'})
+-
+  Check if leave accrual lines were generated
+-
+  !python {model: hr.leave.accrual}: |
+    leave_accrual = self.browse(cr, uid, ref('leave_accrual_1'))
+    # the total in leave accrual must be 200
+    # 500 added - 300 taken
+    assert(leave_accrual.total_cash == 200)
+-
+  Compute the payslip a second time
+-
+  !python {model: hr.payslip}: |
+    self.compute_sheet(cr, uid, [ref('payslip_1')])
+-
+  Check if leave accrual changed
+-
+  !python {model: hr.leave.accrual}: |
+    leave_accrual = self.browse(cr, uid, ref('leave_accrual_1'))
+    # Total still equals 200 because the same payslip
+    # was recomputed
+    assert(leave_accrual.total_cash == 200)
+-
+  Create a second payslip
+-
+  !record {model: hr.payslip, id: payslip_2}:
+    employee_id: employee_1
+    contract_id: contract_1
+    date_from: '2014-02-01'
+    date_to: '2014-02-28'
+    struct_id: structure_1
+-
+  Compute the payslip
+-
+  !python {model: hr.payslip}: |
+    self.compute_sheet(cr, uid, [ref('payslip_2')])
+    self.write(cr, uid, [ref('payslip_2')], {'state': 'done'})
+-
+  Check if leave accrual lines were generated
+-
+  !python {model: hr.leave.accrual}: |
+    leave_accrual = self.browse(cr, uid, ref('leave_accrual_1'))
+    # the total in leave accrual must be 400
+    # 500 added - 300 taken + 500 added - 300 taken
+    assert(leave_accrual.total_cash == 400)
+
+-
+  Create a refund payslip
+-
+  !record {model: hr.payslip, id: payslip_3}:
+    employee_id: employee_1
+    contract_id: contract_1
+    date_from: '2014-02-01'
+    date_to: '2014-02-28'
+    struct_id: structure_1
+    credit_note: True
+-
+  Compute the payslip
+-
+  !python {model: hr.payslip}: |
+    self.compute_sheet(cr, uid, [ref('payslip_3')])
+    self.write(cr, uid, [ref('payslip_3')], {'state': 'done'})
+-
+  Check if leave accrual lines were generated
+-
+  !python {model: hr.leave.accrual}: |
+    leave_accrual = self.browse(cr, uid, ref('leave_accrual_1'))
+    # the total in leave accrual must be 200 (400 - 200)
+    # because the last payslip is refund
+    assert(leave_accrual.total_cash == 200)
