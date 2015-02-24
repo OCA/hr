@@ -1,4 +1,4 @@
-from openerp.osv import fields, osv
+from openerp.osv import osv
 
 
 class hr_employee(osv.Model):
