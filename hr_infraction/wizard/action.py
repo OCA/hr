@@ -89,10 +89,12 @@ class action_wizard(orm.TransientModel):
         #
         if data['action_type'] in ['warning_verbal', 'warning_letter']:
             vals = {
-                'name': (data['action_type'] == 'warning_verbal'
-                         and 'Verbal' or 'Written') + ' Warning',
-                'type': (data['action_type'] == 'warning_verbal' and 'verbal'
-                         or 'written'),
+                'name': (
+                    data['action_type'] == 'warning_verbal'and
+                    'Verbal' or 'Written') + ' Warning',
+                'type': (
+                    data['action_type'] == 'warning_verbal' and
+                    'verbal'or 'written'),
                 'action_id': action_id,
             }
             warning_id = self.pool.get('hr.infraction.warning').create(

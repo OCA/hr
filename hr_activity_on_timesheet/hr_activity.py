@@ -48,10 +48,10 @@ class hr_activity(orm.Model):
                 employees = [
                     j.contract_id.employee_id
                     for j in contract_jobs
-                    if j.contract_id.date_start <= now
-                    and (
-                        not j.contract_id.date_end
-                        or now <= j.contract_id.date_end
+                    if j.contract_id.date_start <= now and
+                    (
+                        not j.contract_id.date_end or
+                        now <= j.contract_id.date_end
                     )
                 ]
 

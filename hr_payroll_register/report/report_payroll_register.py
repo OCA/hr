@@ -316,8 +316,8 @@ class report_payslips(report_sxw.rml_parse):
 
             for accrual_policy_line in policy.line_ids:
                 if (
-                    accrual_policy_line.balance_on_payslip
-                    and accrual_policy_line.accrual_id.id not in res
+                    accrual_policy_line.balance_on_payslip and
+                    accrual_policy_line.accrual_id.id not in res
                 ):
                     res.append((
                         accrual_policy_line.accrual_id.id,

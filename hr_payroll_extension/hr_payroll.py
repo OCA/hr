@@ -71,9 +71,9 @@ class hr_payslip(orm.Model):
         for policy in policy_ids:
             dPolicy = datetime.strptime(policy.date, OE_DATEFORMAT).date()
             if dPolicy <= dDay and (
-                    res is None
-                    or dPolicy > datetime.strptime(res.date,
-                                                   OE_DATEFORMAT).date()):
+                    res is None or
+                    dPolicy > datetime.strptime(
+                        res.date, OE_DATEFORMAT).date()):
                 res = policy
 
         return res
@@ -212,9 +212,9 @@ class hr_payslip(orm.Model):
 
         # Process OT hours
         for line in ot_policy.line_ids:
-            if (line.type == 'weekly' and line.weekly_working_days
-                    and line.weekly_working_days > 0
-                    and lsd.days_worked() == line.weekly_working_days):
+            if (line.type == 'weekly' and line.weekly_working_days and
+                line.weekly_working_days > 0 and
+                    lsd.days_worked() == line.weekly_working_days):
                 ot_hours = self._get_applied_time(
                     worked_hours, line.active_after)
                 attendances[line.code]['number_of_hours'] += ot_hours
@@ -346,8 +346,9 @@ class hr_payslip(orm.Model):
                     if len(shift_times) > 0:
                         for dtStart, dtEnd in shift_times:
                             if dtLvBegin < dtEnd:
-                                dt = ((dtLvBegin < dtStart) and dtStart
-                                      or dtLvBegin)
+                                dt = (
+                                    (dtLvBegin < dtStart) and dtStart or
+                                    dtLvBegin)
                                 hours += float(
                                     (dtEnd - dt).seconds / 60) / 60.0
                                 dtLvBegin = dtEnd
@@ -514,8 +515,10 @@ class hr_payslip(orm.Model):
             ot_data = get_ot_policies(
                 contract.policy_group_id, day_from, ot_data)
             data2 = get_ot_policies(contract.policy_group_id, day_to, data2)
-            if ((ot_data['policy'] and data2['policy'])
-                    and ot_data['policy'].id == data2['policy'].id):
+            if (
+                (ot_data['policy'] and data2['policy']) and
+                ot_data['policy'].id == data2['policy'].id
+            ):
                 ot_data['_reuse'] = True
 
             absence_data = None
@@ -524,8 +527,10 @@ class hr_payslip(orm.Model):
                 contract.policy_group_id, day_from, absence_data)
             data2 = get_absence_policies(
                 contract.policy_group_id, day_to, data2)
-            if (absence_data['policy'] and data2['policy']
-                    and absence_data['policy'].id == data2['policy'].id):
+            if (
+                absence_data['policy'] and data2['policy'] and
+                absence_data['policy'].id == data2['policy'].id
+            ):
                 absence_data['_reuse'] = True
 
             presence_data = None
@@ -534,8 +539,10 @@ class hr_payslip(orm.Model):
                 contract.policy_group_id, day_from, presence_data)
             data2 = get_presence_policies(
                 contract.policy_group_id, day_to, data2)
-            if (presence_data['policy'] and data2['policy']
-                    and presence_data['policy'].id == data2['policy'].id):
+            if (
+                presence_data['policy'] and data2['policy'] and
+                presence_data['policy'].id == data2['policy'].id
+            ):
                 presence_data['_reuse'] = True
 
             # Calculate the number of days worked in the last week of
@@ -695,8 +702,9 @@ class hr_payslip(orm.Model):
                             rest_days = actual_rest_days
                             break
 
-                if (scheduled_hours == 0
-                        and dtDateTime.weekday() not in rest_days):
+                if (
+                        scheduled_hours == 0 and
+                        dtDateTime.weekday() not in rest_days):
                     scheduled_hours = sched_tpl_obj.get_hours_by_weekday(
                         cr, uid, contract.schedule_template_id.id,
                         dtDateTime.weekday(
@@ -757,8 +765,8 @@ class hr_payslip(orm.Model):
                     if not done and weekly_ot:
                         for line in ot_policy.line_ids:
                             if line.type == 'weekly' and (
-                                    not line.weekly_working_days
-                                    or line.weekly_working_days == 0):
+                                    not line.weekly_working_days or
+                                    line.weekly_working_days == 0):
                                 _active_after = float(line.active_after) / 60.0
                                 if wh_in_week > _active_after:
                                     if wh_in_week - _active_after > wh_on_day:
@@ -783,9 +791,11 @@ class hr_payslip(orm.Model):
                         hours_after_ot = wh_on_day
                         for line in ot_policy.line_ids:
                             active_after_hrs = float(line.active_after) / 60.0
-                            if (line.type == 'daily'
-                                    and wh_on_day > active_after_hrs
-                                    and line.active_start_time):
+                            if (
+                                line.type == 'daily' and
+                                wh_on_day > active_after_hrs and
+                                line.active_start_time
+                            ):
                                 partial_hr = att_obj.partial_hours_on_day(
                                     cr, uid, contract,
                                     dtDateTime, active_after_hrs,
@@ -804,9 +814,11 @@ class hr_payslip(orm.Model):
 
                         for line in ot_policy.line_ids:
                             active_after_hrs = float(line.active_after) / 60.0
-                            if (line.type == 'daily'
-                                    and hours_after_ot > active_after_hrs
-                                    and not line.active_start_time):
+                            if (
+                                line.type == 'daily' and
+                                hours_after_ot > active_after_hrs and not
+                                line.active_start_time
+                            ):
                                 attendances[line.code][
                                     'number_of_hours'
                                 ] += hours_after_ot - (float(line.active_after)
@@ -839,9 +851,11 @@ class hr_payslip(orm.Model):
                     timedelta(
                         days=day),
                     leaves_list, context=context)
-                if (leave_type
-                        and (wh_on_day or scheduled_hours > 0
-                             or dtDateTime.weekday() not in rest_days)):
+                if (
+                    leave_type and (
+                        wh_on_day or scheduled_hours > 0 or
+                        dtDateTime.weekday() not in rest_days)
+                ):
                     if leave_type in leaves:
                         leaves[leave_type]['number_of_days'] += 1.0
                         leaves[leave_type]['number_of_hours'] += (
@@ -854,14 +868,16 @@ class hr_payslip(orm.Model):
                             'code': leave_type,
                             'number_of_days': 1.0,
                             'number_of_hours': (
-                                (leave_hours > scheduled_hours)
-                                and scheduled_hours or leave_hours
+                                (leave_hours > scheduled_hours) and
+                                scheduled_hours or leave_hours
                             ),
                             'contract_id': contract.id,
                         }
-                elif (awol_code
-                      and (scheduled_hours > 0 and wh_on_day < scheduled_hours)
-                      and not public_holiday):
+                elif (
+                    awol_code and (
+                        scheduled_hours > 0 and wh_on_day < scheduled_hours
+                    ) and not public_holiday
+                ):
                     hours_diff = scheduled_hours - wh_on_day
                     leaves[awol_code]['number_of_days'] += 1.0
                     leaves[awol_code]['number_of_hours'] += hours_diff
@@ -1308,9 +1324,11 @@ class hr_attendance(orm.Model):
                     sout = sout[1:]
                     # There may be another session that starts within the
                     # rollover period
-                    if (dtSin < dtRollover
-                            and float((dtSin - dtSout).seconds) / 60.0
-                            >= pps_template.ot_max_rollover_gap):
+                    if (
+                        dtSin < dtRollover and
+                        float((dtSin - dtSout).seconds) / 60.0 >=
+                        pps_template.ot_max_rollover_gap
+                    ):
                         sin = sin[1:]
                         sout = sout[1:]
             else:
@@ -1326,10 +1344,12 @@ class hr_attendance(orm.Model):
                 dtSin = False
                 if len(sin) > 0:
                     dtSin = datetime.strptime(sin[0], OE_DATETIMEFORMAT)
-                if (dtSin
-                        and dtSin < dtRollover
-                        and float((dtSin - dtSout).seconds) / 60.0 >=
-                        pps_template.ot_max_rollover_gap):
+                if (
+                    dtSin and
+                    dtSin < dtRollover and
+                    float((dtSin - dtSout).seconds) / 60.0 >=
+                        pps_template.ot_max_rollover_gap
+                ):
                     sin = sin[1:]
                     sout = sout[1:]
 
@@ -1338,8 +1358,12 @@ class hr_attendance(orm.Model):
         #
         if len(sout) > 0:
             ndtSin = datetime.strptime(sin[0], OE_DATETIMEFORMAT)
-            if ((ndtSin - timedelta(minutes=pps_template.ot_max_rollover_gap))
-                    <= ndtDay):
+            if (
+                (
+                    ndtSin - timedelta(
+                        minutes=pps_template.ot_max_rollover_gap)
+                ) <= ndtDay
+            ):
                 my_list4 = self.punches_list_search(
                     cr, uid, ndtDay + timedelta(hours=-24),
                     ndtDay + timedelta(seconds=-1), punches_list,
@@ -1419,9 +1443,11 @@ class hr_attendance(orm.Model):
                 if len(my_list3) > 0:
                     action, name = my_list3[0]
                     ndtSin = datetime.strptime(name, OE_DATETIMEFORMAT)
-                    if ((ndtSin <= ndtSout + timedelta(
-                            minutes=pps_template.ot_max_rollover_gap))
-                            and action == 'sign_in'):
+                    if (
+                        (ndtSin <= ndtSout + timedelta(
+                            minutes=pps_template.ot_max_rollover_gap)) and
+                        action == 'sign_in'
+                    ):
                         sin.append(name)
                         sout.append(my_list3[1][1])
 

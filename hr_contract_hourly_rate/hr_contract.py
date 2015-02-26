@@ -81,8 +81,8 @@ class hr_contract(orm.Model):
                 for rate in contract_job.hourly_rate_class_id.line_ids:
                     if(
                         # We need the rate that fits the given dates
-                        rate.date_start <= date_from
-                        and not rate.date_end or date_to <= rate.date_end
+                        rate.date_start <= date_from and not
+                        rate.date_end or date_to <= rate.date_end
                     ):
                         return rate.rate
                 break

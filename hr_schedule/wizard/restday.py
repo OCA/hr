@@ -221,9 +221,9 @@ class restday(orm.TransientModel):
         dtFirstDay = datetime.strptime(
             sched.detail_ids[0].date_start, OE_DTFORMAT)
         date_start = (
-            dtFirstDay.strftime(OE_DFORMAT) < week_start
-            and week_start + ' ' + dtFirstDay.strftime('%H:%M:%S')
-            or dtFirstDay.strftime(OE_DTFORMAT)
+            dtFirstDay.strftime(OE_DFORMAT) < week_start and
+            week_start + ' ' + dtFirstDay.strftime('%H:%M:%S') or
+            dtFirstDay.strftime(OE_DTFORMAT)
         )
         dtNextWeek = datetime.strptime(
             date_start, OE_DTFORMAT) + relativedelta(weeks=+1)
@@ -235,9 +235,11 @@ class restday(orm.TransientModel):
 
         # Next, remove the schedule detail for the new rest day
         for dtl in sched.detail_ids:
-            if (dtl.date_start < week_start
-                    or datetime.strptime(dtl.date_start, OE_DTFORMAT)
-                    >= dtNextWeek):
+            if (
+                dtl.date_start < week_start or
+                datetime.strptime(dtl.date_start, OE_DTFORMAT) >=
+                dtNextWeek
+            ):
                 continue
             if dtl.dayofweek == dayofweek:
                 sched_detail_obj.unlink(cr, uid, dtl.id, context=context)
@@ -364,17 +366,20 @@ class restday(orm.TransientModel):
         data = self.read(cr, uid, ids[0], [], context=context)
 
         # Change the rest day for only one schedule
-        if (data.get('temp_restday')
-                and data.get('dayofweek')
-                and data.get('temp_week_start')):
+        if (
+            data.get('temp_restday') and
+            data.get('dayofweek') and
+            data.get('temp_week_start')
+        ):
             self._change_restday(
                 cr, uid, data['employee_id'][0], data['temp_week_start'],
                 data['dayofweek'], context=context)
 
         # Change entire week's schedule to the chosen schedule template
-        if (not data.get('temp_restday')
-                and data.get('st_new_id')
-                and data.get('week_start')):
+        if (
+                not data.get('temp_restday') and
+                data.get('st_new_id') and
+                data.get('week_start')):
 
             if data.get('week_start', False):
                 self._change_by_template(
