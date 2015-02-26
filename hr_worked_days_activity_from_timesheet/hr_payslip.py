@@ -62,8 +62,8 @@ class hr_payslip(orm.Model):
             rates_dict = {
                 j.job_id.id: [
                     r for r in j.hourly_rate_class_id.line_ids
-                    if r.date_start <= date_to
-                    and (not r.date_end or r.date_end >= date_from)
+                    if r.date_start <= date_to and
+                    (not r.date_end or r.date_end >= date_from)
                 ]
                 for j in contract.contract_job_ids
                 if j.hourly_rate_class_id
@@ -91,8 +91,8 @@ class hr_payslip(orm.Model):
                     rates = rates_dict[activity.job_id.id]
                     for r in rates:
                         if(
-                            r.date_start <= ts_date
-                            and (not r.date_end or ts_date <= r.date_end)
+                            r.date_start <= ts_date and
+                            (not r.date_end or ts_date <= r.date_end)
                         ):
                             ts_rate = r.rate
                             break
@@ -100,8 +100,8 @@ class hr_payslip(orm.Model):
                 # Case activity is not a job position (example: a leave type)
                 elif activity.type != 'job' and \
                         (
-                            activity.type != 'leave'
-                            or activity.leave_id.paid_leave
+                            activity.type != 'leave' or
+                            activity.leave_id.paid_leave
                         ):
                     ts_rate = self.pool['hr.contract'].get_job_hourly_rate(
                         cr, uid, date_from=ts_date, date_to=ts_date,
