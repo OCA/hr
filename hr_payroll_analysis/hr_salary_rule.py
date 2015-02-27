@@ -77,6 +77,6 @@ class hr_salary_rule(orm.Model):
                             'payslip_line_id': line.id,
                             'payslip_id': payslip.id,
                             'date': payslip.date_from,
-                            'amount': payslip.credit_note
-                            and -line.total or line.total,
+                            'amount': payslip.credit_note and -line.total or
+                            line.total,
                         }, context=context)

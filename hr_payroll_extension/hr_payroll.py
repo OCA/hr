@@ -821,8 +821,8 @@ class hr_payslip(orm.Model):
                             ):
                                 attendances[line.code][
                                     'number_of_hours'
-                                ] += hours_after_ot - (float(line.active_after)
-                                                       / 60.0)
+                                ] += hours_after_ot - (
+                                    float(line.active_after) / 60.0)
                                 attendances[line.code]['number_of_days'] += 1.0
 
                     if not done:
