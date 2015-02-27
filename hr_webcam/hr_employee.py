@@ -2,7 +2,7 @@ from openerp import models
 
 
 class hr_employee(models.Model):
-    _name = 'hr.employee'
+    _inherit = 'hr.employee'
 
     def action_take_picture(self, cr, uid, ids, context=None):
 
