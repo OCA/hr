@@ -22,7 +22,7 @@
 {
     "name": "Sequence on expense line",
     "version": "1.0",
-    "author": "Savoir-faire Linux",
+    "author": "Savoir-faire Linux,Odoo Community Association (OCA)",
     "website": "http://www.savoirfairelinux.com",
     "category": "Human Resources",
     "description": """
