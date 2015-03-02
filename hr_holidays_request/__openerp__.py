@@ -21,7 +21,7 @@
 {
     "name": "HR Holiday Request",
     "version": "1.0",
-    "author": "Tiny & Axelor",
+    "author": "Tiny & Axelor,Odoo Community Association (OCA)",
     "category": "Generic Modules/Human Resources",
     "website": "http://www.axelor.com",
     "depends": ["base", "hr", "hr_holidays"],

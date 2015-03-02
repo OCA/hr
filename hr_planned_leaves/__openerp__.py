@@ -22,7 +22,7 @@
 {
     "name": "Groupe S HR self Report",
     "version": "1.0",
-    "author": "OpenERP / Groupe S",
+    "author": "OpenERP / Groupe S,Odoo Community Association (OCA)",
     "category": "Generic Modules/Groupe S",
     "website": "http://www.openerp.com",
     "description": """Extension of generic HR module for Groupe S needs.""",

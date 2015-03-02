@@ -36,7 +36,7 @@ recruitment criteria). Category Y has several question types: DBMS questions,
 OOP questions, Communication skills, etc.
 
     """,
-    'author': 'Tiny',
+    'author': "Tiny,Odoo Community Association (OCA)",
     'website': 'http://www.openerp.com',
     'depends': [
         'base',

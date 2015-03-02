@@ -22,7 +22,7 @@
 {
     "name": "Skill Management",
     "version": "0.2",
-    "author": "Tiny",
+    "author": "Tiny,Odoo Community Association (OCA)",
     "category": "Human Resources",
     "website": "http://www.openerp.com",
     "depends": ["hr"],

@@ -21,7 +21,7 @@
 {
     "name": "Hr holidays evaluation",
     "version": "1.0",
-    "author": "Tiny",
+    "author": "Tiny,Odoo Community Association (OCA)",
     "category": "Generic Modules/Human Resources",
     "website": "http://www.openerp.com",
     "depends": ["hr_holidays", "hr_contract", "hr_attendance"],

@@ -23,7 +23,7 @@
 {
     "name": "Human Resources: Holidays management",
     "version": "0.1",
-    "author": "Tiny",
+    "author": "Tiny,Odoo Community Association (OCA)",
     "category": "Generic Modules/Human Resources",
     "website": "http://www.openerp.com/",
     "description": """ One request for different Leave type """,

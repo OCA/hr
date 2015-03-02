@@ -21,7 +21,7 @@
 {
     "name": "Performance Review",
     "version": "1.0",
-    "author": "Tiny",
+    "author": "Tiny,Odoo Community Association (OCA)",
     "category": "Generic Modules",
     "depends": ["base", "hr"],
     "website": "http://www.openerp.com",

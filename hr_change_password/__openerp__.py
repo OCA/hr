@@ -24,7 +24,7 @@
 {
     "name": "Human Resources/Change password",
     "version": "1.1",
-    "author": "Tiny",
+    "author": "Tiny,Odoo Community Association (OCA)",
     "category": "Generic Modules/Human Resources",
     "website": "http://www.openerp.com",
     "description": """
@@ -33,7 +33,7 @@
 
     Different reports are also provided, mainly for attendance statistics.
     """,
-    'author': 'Tiny',
+    'author': "Tiny,Odoo Community Association (OCA)",
     'website': 'http://www.openerp.com',
     'depends': ['base'],
     'init_xml': [],

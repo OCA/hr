@@ -22,7 +22,7 @@
 {
     "name": "Human Resources Contracts - Human Ressources Reservations Management",
     "version": "0.1",
-    "author": "Tiny",
+    "author": "Tiny,Odoo Community Association (OCA)",
     "category": "Generic Modules/Human Resources",
     "website": "http://www.openerp.com",
     "depends": ["hr_contract"],

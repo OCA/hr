@@ -33,7 +33,7 @@
     * List of Investment
     * Approx Calculated Tax
     """,
-    'author': 'Tiny',
+    'author': "Tiny,Odoo Community Association (OCA)",
     'website': 'http://www.openerp.com',
     'depends': [
         'hr_payroll'

@@ -32,7 +32,7 @@
  * Employee Manager: has read and write access to all employees.
 
  """,
-    'author': 'Daniel Reis',
+    'author': "Daniel Reis,Odoo Community Association (OCA)",
     'website': 'daniel.reis@securitas.pt',
     'depends': [
         'hr',

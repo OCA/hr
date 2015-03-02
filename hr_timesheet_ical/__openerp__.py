@@ -21,7 +21,7 @@
 {
     "name": "Complete timesheet from an iCal server",
     "version": "0.1",
-    "author": "Tiny",
+    "author": "Tiny,Odoo Community Association (OCA)",
     "category": "Generic Modules/Human Resources",
     "website": "http://www.openerp.com",
     "description": "Import iCal events (for eg, Outlook) to auto-complete timesheets.",
