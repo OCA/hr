@@ -60,6 +60,11 @@ msgid "Vacation"
 msgstr "Vacances"
 
 #. module: hr_worked_days_activity
+#: model:hr.holidays.status,name:hr_worked_days_activity.holiday_status_public
+msgid "Public Holidays"
+msgstr "Congés Fériés"
+
+#. module: hr_worked_days_activity
 #: model:ir.model,name:hr_worked_days_activity.model_hr_job
 msgid "Job Description"
 msgstr "Description du poste"
