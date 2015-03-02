@@ -26,7 +26,7 @@
   when contract has no assigned job
 -
   !python {model: hr.contract}: |
-    res = self._check_one_main_job(cr, uid, [ref('contract_1')])
+    res = self._check_one_main_job(cr, uid, [ref('contract_1')], context=context)
     assert res
 
 -
@@ -42,7 +42,7 @@
   when contract has no main job
 -
   !python {model: hr.contract}: |
-    res = self._check_one_main_job(cr, uid, [ref('contract_1')])
+    res = self._check_one_main_job(cr, uid, [ref('contract_1')], context=context)
     assert not res
 
 -
@@ -58,13 +58,13 @@
   when contract has one main job
 -
   !python {model: hr.contract}: |
-    res = self._check_one_main_job(cr, uid, [ref('contract_1')])
+    res = self._check_one_main_job(cr, uid, [ref('contract_1')], context=context)
     assert res
 
     # Check that the job_id field of the contract is the same
     # as the main job
     contract = self.browse(
-      cr, uid, ref('contract_1'))
+      cr, uid, ref('contract_1'), context=context)
     assert contract.job_id.id == ref('job_2')
 
 -
@@ -72,7 +72,7 @@
 -
   !python {model: hr.contract}: |
     res = self._get_main_job_position(
-      cr, uid, [ref('contract_1')], 'job_id'
+      cr, uid, [ref('contract_1')], 'job_id', context=context
     )
     assert res[ref('contract_1')] == ref('job_2')
 
@@ -89,5 +89,24 @@
   when contract has two main jobs
 -
   !python {model: hr.contract}: |
-    res = self._check_one_main_job(cr, uid, [ref('contract_1')])
+    res = self._check_one_main_job(cr, uid, [ref('contract_1')], context=context)
     assert not res
+    self.pool['hr.contract.job'].unlink(cr, uid, [ref('contract_job_3')], context=context)
+-
+  Write a value into the job field of the contract and check that
+  the contract job was modified
+-
+  !python {model: hr.contract}: |
+    contract = self.browse(cr, uid, ref('contract_1'), context=context)
+
+    contract.write({'job_id': ref('job_2')})
+    res = self._get_main_job_position(
+      cr, uid, [ref('contract_1')], 'job_id', context=context
+    )
+    assert res[ref('contract_1')] == ref('job_2')
+
+    contract.write({'job_id': ref('job_3')})
+    res = self._get_main_job_position(
+      cr, uid, [ref('contract_1')], 'job_id', context=context
+    )
+    assert res[ref('contract_1')] == ref('job_3')
