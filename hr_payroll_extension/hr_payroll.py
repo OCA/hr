@@ -702,8 +702,7 @@ class hr_payslip(orm.Model):
                             rest_days = actual_rest_days
                             break
 
-                if (
-                        scheduled_hours == 0 and
+                if (scheduled_hours == 0 and
                         dtDateTime.weekday() not in rest_days):
                     scheduled_hours = sched_tpl_obj.get_hours_by_weekday(
                         cr, uid, contract.schedule_template_id.id,
