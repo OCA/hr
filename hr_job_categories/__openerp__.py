@@ -33,7 +33,7 @@ Define which categories a job belongs to in the configuration for the job.
 When an employee is assigned a particular job the categories attached to that
 job will be attached to the employee record as well.
 """,
-    'author': 'Michael Telahun Makonnen <mmakonnen@gmail.com>',
+    'author': "Michael Telahun Makonnen <mmakonnen@gmail.com>,Odoo Community Association (OCA)",
     'website': 'http://miketelahun.wordpress.com',
     'depends': [
         'hr_contract',

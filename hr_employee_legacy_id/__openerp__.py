@@ -30,7 +30,7 @@ Employee Identification Numbers from Previous System
 When switching from a legacy HR system to a new one. It may be necessary
 to have a record of the ID No. used in the previous system.
     """,
-    'author': 'Michael Telahun Makonnen <mmakonnen@gmail.com>',
+    'author': "Michael Telahun Makonnen <mmakonnen@gmail.com>,Odoo Community Association (OCA)",
     'website': 'http://miketelahun.wordpress.com',
     'depends': [
         'hr',

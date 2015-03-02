@@ -35,7 +35,7 @@ Define Hierarchy of Jobs
        configuration.
     4. Automatically set an employee's manager from the department's manager.
     """,
-    'author': 'Michael Telahun Makonnen <mmakonnen@gmail.com>',
+    'author': "Michael Telahun Makonnen <mmakonnen@gmail.com>,Odoo Community Association (OCA)",
     'website': 'http://miketelahun.wordpress.com',
     'depends': [
         'hr_contract',

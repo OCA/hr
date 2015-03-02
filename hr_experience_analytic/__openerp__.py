@@ -21,7 +21,7 @@
 {
     "name": "Experience and Analytic Accounting",
     "version": "0.1",
-    "author": "Savoir-faire Linux",
+    "author": "Savoir-faire Linux,Odoo Community Association (OCA)",
     "category": "Human Resources",
     "website": "http://www.savoirfairelinux.com",
     "depends": [

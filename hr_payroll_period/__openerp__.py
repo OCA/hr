@@ -34,7 +34,7 @@ of criteria have to be met in order to proceed to the next stage of the
 process. For example:
     - Attendance records are complete
     """,
-    'author': 'Michael Telahun Makonnen <mmakonnen@gmail.com>',
+    'author': "Michael Telahun Makonnen <mmakonnen@gmail.com>,Odoo Community Association (OCA)",
     'website': 'http://miketelahun.wordpress.com',
     'depends': [
         'hr_contract',

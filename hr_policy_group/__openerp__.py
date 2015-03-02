@@ -29,7 +29,7 @@ HR Policy Groups
 
 Define a collection of policies, such as Overtime, that apply to a contract.
     """,
-    'author': 'Michael Telahun Makonnen <mmakonnen@gmail.com>',
+    'author': "Michael Telahun Makonnen <mmakonnen@gmail.com>,Odoo Community Association (OCA)",
     'website': 'http://miketelahun.wordpress.com',
     'depends': [
         'hr_contract',

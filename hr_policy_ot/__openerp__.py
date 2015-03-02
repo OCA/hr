@@ -31,7 +31,7 @@ Define properties of an overtime policy, such as:
     * Rate (multiplier of base wage)
     * Active Hours
     """,
-    'author': 'Michael Telahun Makonnen <mmakonnen@gmail.com>',
+    'author': "Michael Telahun Makonnen <mmakonnen@gmail.com>,Odoo Community Association (OCA)",
     'website': 'http://miketelahun.wordpress.com',
     'depends': [
         'hr_policy_group',

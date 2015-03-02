@@ -29,7 +29,7 @@ Details About and Employee's Education
 
     Add an extra field about an employee's education.
     """,
-    'author': 'Michael Telahun Makonnen <mmakonnen@gmail.com>',
+    'author': "Michael Telahun Makonnen <mmakonnen@gmail.com>,Odoo Community Association (OCA)",
     'website': 'http://www.openerp.com',
     'depends': [
         'hr',

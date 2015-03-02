@@ -30,7 +30,7 @@ Define Initial Settings on New Contracts
     - Salary Structure
     - Trial Period Length
     """,
-    'author': 'Michael Telahun Makonnen <mmakonnen@gmail.com>',
+    'author': "Michael Telahun Makonnen <mmakonnen@gmail.com>,Odoo Community Association (OCA)",
     'website': 'http://miketelahun.wordpress.com',
     'depends': [
         'hr',

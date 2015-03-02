@@ -30,7 +30,7 @@ Define properties of an absence policy, such as:
     * Type (paid, unpaid)
     * Rate (multiplier of base wage)
     """,
-    'author': 'Michael Telahun Makonnen <mmakonnen@gmail.com>',
+    'author': "Michael Telahun Makonnen <mmakonnen@gmail.com>,Odoo Community Association (OCA)",
     'website': 'http://miketelahun.wordpress.com',
     'depends': [
         'hr_holidays',

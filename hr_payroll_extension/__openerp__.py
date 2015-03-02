@@ -22,7 +22,7 @@
 {
     'name': 'Payroll Extension',
     'category': 'Human Resources',
-    'author': 'Michael Telahun Makonnen',
+    'author': "Michael Telahun Makonnen,Odoo Community Association (OCA)",
     'website': 'http://miketelahun.wordpress.com',
     'version': '1.0',
     'description': """

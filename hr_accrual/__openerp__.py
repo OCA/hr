@@ -32,7 +32,7 @@ over an extended period of time. This can be vacation days, sick days, or a
 simple time bank. The actual policy and mechanics of accrual should be handled
 by other modules. This module only provides the basic framework for recording
 the data.""",
-    'author': 'Michael Telahun Makonnen <mmakonnen@gmail.com>',
+    'author': "Michael Telahun Makonnen <mmakonnen@gmail.com>,Odoo Community Association (OCA)",
     'website': 'http://miketelahun.wordpress.com',
     'depends': [
         'hr',

@@ -30,7 +30,7 @@ Employee Contract Workflow and Notifications
 Easily find and keep track of employees who are nearing the end of their
 contracts and trial periods.
     """,
-    'author': 'Michael Telahun Makonnen <mmakonnen@gmail.com>',
+    'author': "Michael Telahun Makonnen <mmakonnen@gmail.com>,Odoo Community Association (OCA)",
     'website': 'http://miketelahun.wordpress.com',
     'depends': [
         'hr_contract',

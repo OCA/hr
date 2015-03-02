@@ -33,7 +33,7 @@ This policy is ideal for annual leave accruals. If the type of accrual is
 'Standard' time is accrued and withdrawn manually. However, if the type is
 'Calendar' the time is accrued (and recorded) at a fixed frequency.
     """,
-    'author': 'Michael Telahun Makonnen <mmakonnen@gmail.com>',
+    'author': "Michael Telahun Makonnen <mmakonnen@gmail.com>,Odoo Community Association (OCA)",
     'website': 'http://miketelahun.wordpress.com',
     'depends': [
         'hr_accrual',

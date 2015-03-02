@@ -34,7 +34,7 @@ Contributors
 ------------
 * David Dufresne <david.dufresne@savoirfairelinux.com>
 """,
-    'author': 'Savoir-faire Linux',
+    'author': "Savoir-faire Linux,Odoo Community Association (OCA)",
     'website': 'https://www.savoirfairelinux.com/',
     'depends': [
         'hr_payroll',
