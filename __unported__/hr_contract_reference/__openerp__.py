@@ -30,7 +30,7 @@ This module provides :
     - Unique reference number for each employee contract
     - Automatically generated
     """,
-    "author": "Michael Telahun Makonnen <mmakonnen@gmail.com",
+    "author": "Michael Telahun Makonnen <mmakonnen@gmail.com,Odoo Community Association (OCA)",
     "website": "http://miketelahun.wordpress.com",
     "license": "AGPL-3",
     "depends": ["hr_contract"],

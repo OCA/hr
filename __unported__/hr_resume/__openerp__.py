@@ -27,7 +27,7 @@
     "description": """
     This module allows you to manage your employee resumes.
     """,
-    "author": "Savoir-faire Linux",
+    "author": "Savoir-faire Linux,Odoo Community Association (OCA)",
     "website": "http://www.savoirfairelinux.com",
     "depends": [
         "hr_experience",

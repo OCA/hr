@@ -38,7 +38,7 @@ Contributors
 * Sandy Carter (sandy.carter@savoirfairelinux.com)
 * El Hadji Dem (elhadji.dem@savoirfairelinux.com)
     """,
-    'author': 'Savoir-faire Linux',
+    'author': "Savoir-faire Linux,Odoo Community Association (OCA)",
     'website': 'http://www.savoirfairelinux.com',
     'license': 'AGPL-3',
     'depends': ['hr', ],

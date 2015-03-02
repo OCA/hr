@@ -23,7 +23,7 @@
     'name': 'Pay Slip Amendment',
     'version': '1.0',
     'category': 'Generic Modules/Company Data',
-    'author': 'Michael Telahun Makonnen <mmakonnen@gmail.com>',
+    'author': "Michael Telahun Makonnen <mmakonnen@gmail.com>,Odoo Community Association (OCA)",
     'description': """
 Add Amendments to Current and Future Pay Slips
 ==============================================
