@@ -36,7 +36,7 @@ reference in the related account move.
 This module has been written by Alexis de Lattre
 <alexis.delattre@akretion.com>.
     """,
-    'author': 'Akretion',
+    'author': "Akretion,Odoo Community Association (OCA)",
     'website': 'http://www.akretion.com',
     'depends': ['hr_expense'],
     'data': [
