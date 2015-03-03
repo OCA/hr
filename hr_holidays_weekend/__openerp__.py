@@ -41,6 +41,8 @@
     "summary": "",
     'data': [
         'hr_holidays_view.xml',
+        'security/ir.model.access.csv',
+        'security/hr_contract_employee.xml'
     ],
     'demo': [
     ],
