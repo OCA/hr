@@ -17,3 +17,7 @@
 	text-align: left;
 	float: left;
 }
+.openerp .oe_timesheet_weekly .oe_timesheet_weekly_cancel {
+  display: table-cell;
+  text-align: left;
+}
