@@ -27,7 +27,8 @@
 Emergency Contact information for Employee
 ==========================================
     """,
-    'author': "Michael Telahun Makonnen <mmakonnen@gmail.com>,Odoo Community Association (OCA)",
+    'author': "Michael Telahun Makonnen <mmakonnen@gmail.com>, "
+    "Odoo Community Association (OCA)",
     'website': 'http://www.openerp.com',
     'depends': [
         'hr',
