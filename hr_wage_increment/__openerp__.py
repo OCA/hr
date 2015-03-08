@@ -31,7 +31,8 @@ Wage Increment Handling
     creates a new contract for the rest of the duration of the employee's
     current contract with the new amount.
     """,
-    "author": "Michael Telahun Makonnen <mmakonnen@gmail.com,Odoo Community Association (OCA)",
+    "author": "Michael Telahun Makonnen <mmakonnen@gmail.com, "
+    "Odoo Community Association (OCA)",
     "website": "http://www.openerp.com",
     "depends": [
         "hr_contract_state",
