@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="hr_income_tax_exemption_list" model="ir.ui.view">
+            <field name="name">hr.income.tax.exemption.form</field>
+                <field name="model">hr.income.tax.exemption</field>
+                <field name="arch" type="xml">
+                    <tree string="Income Tax Exemptions" editable="top">
+                        <field name="name"/>
+                        <field name="code"/>
+                    </tree>
+                </field>
+        </record>
+
+        <record id="action_hr_income_tax_exemption_list" model="ir.actions.act_window">
+            <field name="name">Income Tax Exemptions</field>
+            <field name="res_model">hr.income.tax.exemption</field>
+            <field name="view_type">form</field>
+            <field name="view_id" ref="hr_income_tax_exemption_list"/>
+        </record>
+
+        <menuitem
+            id="menu_action_hr_income_tax_exemption_list"
+            action="action_hr_income_tax_exemption_list"
+            parent="hr_payroll.payroll_configure"
+            sequence="15"
+        />
+
+    </data>
+</openerp>
