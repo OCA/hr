@@ -57,8 +57,8 @@ class hr_payslip(orm.Model):
 
             required_lines = [
                 line for line in payslip.details_by_salary_rule_category
-                if line.salary_rule_id.include_in_payroll_analysis
-                and line.total
+                if line.salary_rule_id.include_in_payroll_analysis and
+                line.total
             ]
 
             is_refund = payslip.credit_note

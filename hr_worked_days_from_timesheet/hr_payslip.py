@@ -152,9 +152,9 @@ class hr_payslip(orm.Model):
                 # the payslip period.
                 date_from <= ts_sheet.date_from <= date_to or
                 date_from <= ts_sheet.date_to <= date_to
-            )
-            # We want only approved timesheets
-            and ts_sheet.state == 'done'
+
+                # We want only approved timesheets
+            ) and ts_sheet.state == 'done'
         ]
 
         if not timesheet_sheets:

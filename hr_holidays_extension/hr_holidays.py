@@ -210,10 +210,10 @@ class hr_holidays(orm.Model):
             else:
                 count_days -= 1
                 real_days += 1
-        while ((next_dt.weekday() in rest_days and ex_rd)
-                or (holiday_obj.is_public_holiday(
-                    cr, uid, next_dt.date(), context=context
-                    ) and ex_ph)):
+        while (
+                (next_dt.weekday() in rest_days and ex_rd) or
+                (holiday_obj.is_public_holiday(
+                    cr, uid, next_dt.date(), context=context) and ex_ph)):
             if holiday_obj.is_public_holiday(
                     cr, uid, next_dt.date(), context=context):
                 ph_days += 1
@@ -279,10 +279,10 @@ class hr_holidays(orm.Model):
 
         dt = datetime.strptime(date_to, OE_DTFORMAT)
         return_date = dt + timedelta(days=+1)
-        while ((return_date.weekday() in rest_days and ex_rd)
-               or (holiday_obj.is_public_holiday(
-                   cr, uid, return_date.date(), context=context
-                   ) and ex_ph)):
+        while (
+            (return_date.weekday() in rest_days and ex_rd) or
+            (holiday_obj.is_public_holiday(
+                cr, uid, return_date.date(), context=context) and ex_ph)):
             return_date += timedelta(days=1)
         res['value']['return_date'] = return_date.strftime('%B %d, %Y')
         return res
@@ -290,9 +290,10 @@ class hr_holidays(orm.Model):
     def create(self, cr, uid, vals, context=None):
 
         att_obj = self.pool.get('hr.attendance')
-        if (vals.get('date_from') and vals.get('date_to')
-                and vals.get('type') == 'remove'
-                and vals.get('holiday_type') == 'employee'):
+        if (
+                vals.get('date_from') and vals.get('date_to') and
+                vals.get('type') == 'remove' and
+                vals.get('holiday_type') == 'employee'):
             att_ids = att_obj.search(
                 cr, uid, [
                     ('employee_id', '=', vals['employee_id']),

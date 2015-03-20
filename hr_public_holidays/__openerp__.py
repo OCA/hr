@@ -23,7 +23,8 @@
     'name': 'Public Holidays',
     'version': '1.0',
     'category': 'Generic Modules/Human Resources',
-    'author': "Michael Telahun Makonnen <mmakonnen@gmail.com>,Odoo Community Association (OCA)",
+    'author': "Michael Telahun Makonnen <mmakonnen@gmail.com>, "
+    "Odoo Community Association (OCA)",
     'description': """
 Manage Public Holidays
 ======================

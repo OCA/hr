@@ -474,17 +474,19 @@ WHERE (date_start <= %s and %s <= date_end)
                         curHour = utcdtStart.strftime('%H')
                         curMin = utcdtStart.strftime('%M')
                         delta_seconds = (
-                            datetime.strptime(curHour + ':' + curMin, '%H:%M')
-                            - datetime.strptime(prevHour + ':' + prevMin,
-                                                '%H:%M')).seconds
+                            datetime.strptime(
+                                curHour + ':' + curMin, '%H:%M') -
+                            datetime.strptime(
+                                prevHour + ':' + prevMin, '%H:%M')
+                        ).seconds
                         utcdtStart = prevutcdtStart + \
                             timedelta(seconds=+delta_seconds)
                         dDay = prevutcdtStart.astimezone(local_tz).date()
 
-                    delta_seconds = (datetime.strptime(toHour + ':' + toMin,
-                                                       '%H:%M')
-                                     - datetime.strptime(hour + ':' + minute,
-                                                         '%H:%M')).seconds
+                    delta_seconds = (
+                        datetime.strptime(toHour + ':' + toMin, '%H:%M') -
+                        datetime.strptime(hour + ':' + minute, '%H:%M')
+                    ).seconds
                     utcdtEnd = utcdtStart + timedelta(seconds=+delta_seconds)
 
                     # Leave empty holes where there are leaves
@@ -567,8 +569,10 @@ WHERE (date_start <= %s and %s <= date_end)
 
             for ee in ee_obj.browse(cr, uid, ee_ids, context=context):
 
-                if (not ee.contract_id
-                        or not ee.contract_id.schedule_template_id):
+                if (
+                    not ee.contract_id or not
+                    ee.contract_id.schedule_template_id
+                ):
                     continue
 
                 sched = {
@@ -1964,9 +1968,11 @@ class hr_holidays(orm.Model):
             for detail in det_obj.browse(cr, uid, det_ids, context=context):
 
                 # Remove schedule details completely covered by leave
-                if (leave.date_from <= detail.date_start
-                        and leave.date_to >= detail.date_end
-                        and detail.id not in unlink_ids):
+                if (
+                        leave.date_from <= detail.date_start and
+                        leave.date_to >= detail.date_end and
+                        detail.id not in unlink_ids
+                ):
                     unlink_ids.append(detail.id)
 
                 # Partial day on first day of leave

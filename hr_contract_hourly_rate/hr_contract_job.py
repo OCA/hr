@@ -42,11 +42,8 @@ class hr_contract_job(orm.Model):
                 rates = [
                     r for r in rate_class.line_ids
                     if(
-                        r.date_start <= now
-                        and (
-                            not r.date_end
-                            or now <= r.date_end
-                        )
+                        r.date_start <= now and
+                        (not r.date_end or now <= r.date_end)
                     )
                 ]
                 res[i] = rates and rates[0].rate or 0

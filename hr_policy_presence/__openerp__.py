@@ -31,7 +31,8 @@ Define properties of an employee presence policy, such as:
     * The maximum possible hours
     * Rate (multiplier of base wage)
     """,
-    'author': "Michael Telahun Makonnen <mmakonnen@gmail.com>,Odoo Community Association (OCA)",
+    'author': "Michael Telahun Makonnen <mmakonnen@gmail.com>, "
+    "Odoo Community Association (OCA)",
     'website': 'http://miketelahun.wordpress.com',
     'depends': [
         'hr_policy_group',
