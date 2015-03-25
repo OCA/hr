@@ -39,5 +39,5 @@ Manage Public Holidays
     ],
     'test': [
     ],
-    'installable': False,
+    'installable': True,
 }
