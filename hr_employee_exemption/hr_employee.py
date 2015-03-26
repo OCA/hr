@@ -22,7 +22,7 @@
 from openerp.osv import orm, fields
 
 
-class hr_employee_exemption(orm.Model):
+class hr_employee(orm.Model):
     _inherit = 'hr.employee'
 
     _columns = {
