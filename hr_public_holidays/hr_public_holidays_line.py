@@ -3,6 +3,8 @@
 #
 #    Copyright (C) 2011,2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
 #    All Rights Reserved.
+#    Copyright (C) 2014 initOS GmbH & Co. KG (<http://www.initos.com>).
+#    Author Nikolina Todorova <nikolina.todorova@initos.com>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as published
@@ -19,4 +21,19 @@
 #
 #
 
-from . import hr_public_holidays, hr_public_holidays_line
+from openerp import models, fields
+
+
+class HrPublicHolidaysLine(models.Model):
+
+    _name = 'hr.holidays.public.line'
+    _description = 'Public Holidays Lines'
+
+    name = fields.Char('Name', size=128, required=True, translate=True)
+    date = fields.Date('Date', required=True)
+    holidays_id = fields.Many2one('hr.holidays.public', 'Holiday Calendar Year')
+    variable = fields.Boolean('Date may change')
+    state_ids = fields.Many2many('res.country.state', 'hr_holiday_public_state_rel',
+                                 'line_id', 'state_id', 'Related states')
+
+    _order = "date, name desc"
