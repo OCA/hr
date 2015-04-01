@@ -22,6 +22,8 @@
 #
 
 from openerp import models, fields, api, _
+from datetime import date
+from openerp.http import request
 
 
 class HrPublicHolidays(models.Model):
@@ -51,10 +53,41 @@ class HrPublicHolidays(models.Model):
          _('Duplicate year and country!')),
     ]
 
-    def is_public_holiday(self, date, employee_id=None):
+    @api.v7
+    def is_public_holiday(self, selected_date, employee_id=None):
+
+        cr, uid = request.cr, request.uid
+        employee = self.pool.get('hr.employee').browse(cr, uid, employee_id)
+
+        holidays_filter = [('year', '=', selected_date.year),
+                           ('country_id', 'in', list({False, employee.address_id.country_id.id}))]
+
+        ph_objects = self.search(cr, uid, holidays_filter)
+        if not ph_objects:
+            return False
+
+        states_filter = [('holidays_id.id', 'in', ph_objects)]
+        if not employee or not employee.address_id.state_id:
+            states_filter.append(('state_ids', '=', False))
+        else:
+            states_filter += ['|',
+                              ('state_ids', '=', False),
+                              ('state_ids.id', '=', employee.address_id.state_id.id)]
+
+        hr_holiday_public_line_obj = self.pool.get('hr.holidays.public.line')
+        holidays_line_ids = hr_holiday_public_line_obj.search(cr, uid, states_filter)
+        holidays_line_objects = hr_holiday_public_line_obj.browse(cr, uid, holidays_line_ids)
+        for line in holidays_line_objects:
+            if date.strftime(selected_date, "%Y-%m-%d") == line.date:
+                return True
+        return False
+
+    @api.v8
+    def is_public_holiday(self, selected_date, employee_id=None):
+
         employee = self.env['hr.employee'].browse(employee_id)
 
-        holidays_filter = [('year', '=', date.year),
+        holidays_filter = [('year', '=', selected_date.year),
                            ('country_id', 'in', list({False, employee.address_id.country_id.id}))]
 
         ph_objects = self.search(holidays_filter)
@@ -72,7 +105,7 @@ class HrPublicHolidays(models.Model):
         hr_holiday_public_line_obj = self.env['hr.holidays.public.line']
         holidays_line_ids = hr_holiday_public_line_obj.search(states_filter)
         for line in holidays_line_ids:
-            if date.strftime(date, "%Y-%m-%d") == line.date:
+            if date.strftime(selected_date, "%Y-%m-%d") == line.date:
                 return True
         return False
 
