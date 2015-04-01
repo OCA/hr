@@ -32,7 +32,8 @@ class HrPublicHolidays(models.Model):
     _description = 'Public Holidays'
 
     year = fields.Char("calendar Year", required=True)
-    line_ids = fields.One2many('hr.holidays.public.line', 'holidays_id', 'Holiday Dates')
+    line_ids = fields.One2many('hr.holidays.public.line', 'holidays_id',
+                               'Holiday Dates')
     country_id = fields.Many2one('res.country', 'Country')
 
     _rec_name = 'year'
@@ -42,8 +43,9 @@ class HrPublicHolidays(models.Model):
     @api.constrains('year')
     def _check_year(self):
         if not self.country_id:
-            ids = self.search([('year', '=', self.year), ('country_id', '=', False),
-                                                         ('id', '!=', self.id)])
+            ids = self.search([('year', '=', self.year),
+                               ('country_id', '=', False),
+                               ('id', '!=', self.id)])
             if ids:
                 raise Warning(_('Error: Duplicate year'))
 
@@ -60,7 +62,8 @@ class HrPublicHolidays(models.Model):
         employee = self.pool.get('hr.employee').browse(cr, uid, employee_id)
 
         holidays_filter = [('year', '=', selected_date.year),
-                           ('country_id', 'in', list({False, employee.address_id.country_id.id}))]
+                           ('country_id', 'in',
+                            list({False, employee.address_id.country_id.id}))]
 
         ph_objects = self.search(cr, uid, holidays_filter)
         if not ph_objects:
@@ -72,11 +75,14 @@ class HrPublicHolidays(models.Model):
         else:
             states_filter += ['|',
                               ('state_ids', '=', False),
-                              ('state_ids.id', '=', employee.address_id.state_id.id)]
+                              ('state_ids.id', '=',
+                               employee.address_id.state_id.id)]
 
         hr_holiday_public_line_obj = self.pool.get('hr.holidays.public.line')
-        holidays_line_ids = hr_holiday_public_line_obj.search(cr, uid, states_filter)
-        holidays_line_objects = hr_holiday_public_line_obj.browse(cr, uid, holidays_line_ids)
+        holidays_line_ids = \
+            hr_holiday_public_line_obj.search(cr, uid, states_filter)
+        holidays_line_objects = \
+            hr_holiday_public_line_obj.browse(cr, uid, holidays_line_ids)
         for line in holidays_line_objects:
             if date.strftime(selected_date, "%Y-%m-%d") == line.date:
                 return True
@@ -88,7 +94,8 @@ class HrPublicHolidays(models.Model):
         employee = self.env['hr.employee'].browse(employee_id)
 
         holidays_filter = [('year', '=', selected_date.year),
-                           ('country_id', 'in', list({False, employee.address_id.country_id.id}))]
+                           ('country_id', 'in',
+                            list({False, employee.address_id.country_id.id}))]
 
         ph_objects = self.search(holidays_filter)
         if not ph_objects:
@@ -100,7 +107,8 @@ class HrPublicHolidays(models.Model):
         else:
             states_filter += ['|',
                               ('state_ids', '=', False),
-                              ('state_ids.id', '=', employee.address_id.state_id.id)]
+                              ('state_ids.id', '=',
+                               employee.address_id.state_id.id)]
 
         hr_holiday_public_line_obj = self.env['hr.holidays.public.line']
         holidays_line_ids = hr_holiday_public_line_obj.search(states_filter)
@@ -115,7 +123,8 @@ class HrPublicHolidays(models.Model):
 
         employee = self.env['hr.employee'].browse(employee_id)
         holidays_filter = [('year', '=', year),
-                           ('country_id', 'in', list({False, employee.address_id.country_id.id}))]
+                           ('country_id', 'in',
+                            list({False, employee.address_id.country_id.id}))]
 
         ph_objects = self.search(holidays_filter)
         if not ph_objects:
@@ -125,7 +134,9 @@ class HrPublicHolidays(models.Model):
         if not employee or not employee.address_id.state_id:
             states_filter.append(('state_ids', '=', False))
         else:
-            states_filter.append(('state_ids', 'in', list({False, employee.address_id.state_id.id})))
+            states_filter.append(('state_ids', 'in',
+                                  list({False,
+                                        employee.address_id.state_id.id})))
 
         res = self.env['hr.holidays.public.line'].search(states_filter)
         return res

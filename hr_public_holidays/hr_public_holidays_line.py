@@ -31,9 +31,11 @@ class HrPublicHolidaysLine(models.Model):
 
     name = fields.Char('Name', size=128, required=True, translate=True)
     date = fields.Date('Date', required=True)
-    holidays_id = fields.Many2one('hr.holidays.public', 'Holiday Calendar Year')
+    holidays_id = fields.Many2one('hr.holidays.public',
+                                  'Holiday Calendar Year')
     variable = fields.Boolean('Date may change')
-    state_ids = fields.Many2many('res.country.state', 'hr_holiday_public_state_rel',
+    state_ids = fields.Many2many('res.country.state',
+                                 'hr_holiday_public_state_rel',
                                  'line_id', 'state_id', 'Related states')
 
     _order = "date, name desc"
