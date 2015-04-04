@@ -29,10 +29,13 @@
     """,
     "author": "Savoir-faire Linux,Odoo Community Association (OCA)",
     "website": "http://www.savoirfairelinux.com",
-    "depends": ["hr"],
-    'data': ["security/ir.model.access.csv",
-             "hr_language_view.xml",
-             ],
+    "depends": [
+        "hr",
+    ],
+    'data': [
+        'security/ir.model.access.csv',
+        'views/hr_language_view.xml',
+    ],
     "demo": [],
     "test": [],
     'installable': False,
