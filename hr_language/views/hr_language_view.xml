@@ -5,7 +5,6 @@
         <field name="name">hr.language.employee.form</field>
         <field name="model">hr.employee</field>
         <field name="inherit_id" ref="hr.view_employee_form"/>
-        <field name="type">form</field>
         <field name="arch" type="xml">
             <notebook position="inside">
                 <page string="Languages">
@@ -20,7 +19,6 @@
     <record model="ir.ui.view" id="view_language_tree">
         <field name="name">hr.language.tree</field>
         <field name="model">hr.language</field>
-        <field name="type">tree</field>
         <field name="arch" type="xml">
             <tree string="Languages">
                 <field name="description"/>
@@ -34,23 +32,27 @@
     <record model="ir.ui.view" id="view_language_form">
         <field name="name">hr.language.form</field>
         <field name="model">hr.language</field>
-        <field name="type">form</field>
         <field name="arch" type="xml">
             <form string="Language">
-                <field name="name"/>
-                <field name="description"/>
-                <field name="employee_id"/>
-                <newline/>
-                <field name="read"/>
-                <newline/>
-                <field name="write"/>
-                <newline/>
-                <field name="speak"/>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="description"/>
+                        <field name="employee_id"/>
+                        <newline/>
+                        <field name="read"/>
+                        <newline/>
+                        <field name="write"/>
+                        <newline/>
+                        <field name="speak"/>
+                    </group>
+                </sheet>
             </form>
         </field>
     </record>
 
     <record model="ir.actions.act_window" id="open_view_language_form">
+        <field name="name">Languages</field>
         <field name="res_model">hr.language</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
