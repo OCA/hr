@@ -120,6 +120,7 @@ class hr_payslip(orm.Model):
                                 'accrual_id': accrual.id,
                                 'is_refund': payslip.credit_note,
                                 'amount_type': line.amount_type,
+                                'date': payslip.date_from,
                             }))
 
             # Write the resulting records

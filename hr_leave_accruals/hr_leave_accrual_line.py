@@ -97,6 +97,9 @@ class hr_leave_accrual_line(orm.Model):
             'Description',
         )
     }
+
+    _order = 'date desc'
+
     _defaults = {
         'payslip_id': False,
         'payslip_line_id': False,
