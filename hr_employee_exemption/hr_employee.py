@@ -30,6 +30,7 @@ class hr_employee(orm.Model):
             'hr.employee.exemption',
             'employee_id',
             'Income Tax Exemptions',
+            groups='base.group_hr_manager',
         ),
     }
 
