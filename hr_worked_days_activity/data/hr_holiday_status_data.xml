@@ -5,15 +5,22 @@
             Vacation leave
 
             Module hr_holidays implements
-             - legal_leaves (public holidays)
+             - legal_leaves
              - compensatory days
              - sick leaves
         
-            But it does not implement vacations.
+            But it does not implement vacations nor public holidays
             It is pretty important in most countries though.
         -->
         <record id="holiday_status_vacation" model="hr.holidays.status">
             <field name="name">Vacation</field>
+            <field name="color_name">black</field>
+            <field name="paid_leave">1</field>
+            <field name="activity_ids" eval="[(6, 0, [])]"/>
+        </record>
+
+        <record id="holiday_status_public" model="hr.holidays.status">
+            <field name="name">Public Holidays</field>
             <field name="color_name">black</field>
             <field name="paid_leave">1</field>
             <field name="activity_ids" eval="[(6, 0, [])]"/>
