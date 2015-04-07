@@ -55,7 +55,6 @@
         <record id="hr_children_view_tree" model="ir.ui.view">
             <field name="name">hr.children.view.tree</field>
             <field name="model">hr.employee.children</field>
-            <field name="type">tree</field>
             <field name="arch" type="xml">
                 <tree string="Employee Children">
                     <field name="name"/>
@@ -66,11 +65,14 @@
         <record id="hr_children_view_form" model="ir.ui.view">
             <field name="name">hr.children.view.form</field>
             <field name="model">hr.employee.children</field>
-            <field name="type">form</field>
             <field name="arch" type="xml">
                 <form string="Employee Children">
-                    <field name="name"/>
-                    <field name="dob"/>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="dob"/>
+                        </group>
+                    </sheet>
                 </form>
             </field>
         </record>
