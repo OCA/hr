@@ -41,5 +41,5 @@ Employee Family Information
     ],
     'test': [
     ],
-    'installable': False,
+    'installable': True,
 }
