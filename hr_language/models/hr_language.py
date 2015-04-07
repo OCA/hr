@@ -33,9 +33,9 @@ class hr_language(models.Model):
         string=u"Description", size=64, required=True)
     employee_id = fields.Many2one(
         'hr.employee', string=u"Employee", required=True)
-    read = fields.Boolean(u"Read", default=True)
-    write = fields.Boolean(u"Write", default=True)
-    speak = fields.Boolean(u"Speak", default=True)
+    can_read = fields.Boolean(u"Read", default=True, oldname='read')
+    can_write = fields.Boolean(u"Write", default=True, oldname='write')
+    can_speak = fields.Boolean(u"Speak", default=True, oldname='speak')
 
 
 class hr_employee(models.Model):
