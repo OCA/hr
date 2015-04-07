@@ -20,16 +20,11 @@
 #
 
 {
-    'name': 'Family Information',
+    'name': 'Employee Family Information',
     'version': '1.0',
     'category': 'Generic Modules/Human Resources',
-    'description': """
-Employee Family Information
-===========================
-
-    Enter extra information about employee's family
-    """,
-    'author': "Michael Telahun Makonnen <mmakonnen@gmail.com>,Odoo Community Association (OCA)",
+    'author': "Michael Telahun Makonnen <mmakonnen@gmail.com>,"
+              "Odoo Community Association (OCA)",
     'website': 'http://www.openerp.com',
     'license': 'AGPL-3',
     'depends': [
