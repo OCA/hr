@@ -19,65 +19,28 @@
 #
 #
 
-from openerp.osv import fields, orm
+from openerp import models, fields
 
 
-class hr_children(orm.Model):
-
+class hr_children(models.Model):
     _name = 'hr.employee.children'
     _description = 'HR Employee Children'
 
-    _columns = {
-        'name': fields.char(
-            'Name',
-            size=256,
-            required=True,
-        ),
-        'dob': fields.date(
-            'Date of Birth',
-        ),
-        'employee_id': fields.many2one(
-            'hr.employee',
-            'Employee',
-        ),
-    }
+    name = fields.Char("Name", size=256, required=True)
+    dob = fields.Date("Date of Birth")
+    employee_id = fields.Many2one('hr.employee', "Employee")
 
 
-class hr_employee(orm.Model):
-
+class hr_employee(models.Model):
     _name = 'hr.employee'
     _inherit = 'hr.employee'
 
-    _columns = {
-        'fam_spouse': fields.char(
-            "Name",
-            size=256,
-        ),
-        'fam_spouse_employer': fields.char(
-            "Employer",
-            size=256,
-        ),
-        'fam_spouse_tel': fields.char(
-            "Telephone.",
-            size=32,
-        ),
-        'fam_children_ids': fields.one2many(
-            'hr.employee.children',
-            'employee_id',
-            'Children',
-        ),
-        'fam_father': fields.char(
-            "Father's Name",
-            size=128,
-        ),
-        'fam_father_dob': fields.date(
-            'Date of Birth',
-        ),
-        'fam_mother': fields.char(
-            "Mother's Name",
-            size=128,
-        ),
-        'fam_mother_dob': fields.date(
-            'Date of Birth',
-        ),
-    }
+    fam_spouse = fields.Char("Name", size=256)
+    fam_spouse_employer = fields.Char("Employer", size=256)
+    fam_spouse_tel = fields.Char("Telephone.", size=32)
+    fam_children_ids = fields.One2many(
+        'hr.employee.children', 'employee_id', "Children")
+    fam_father = fields.Char("Father's Name", size=128)
+    fam_father_dob = fields.Date("Date of Birth")
+    fam_mother = fields.Char("Mother's Name", size=128)
+    fam_mother_dob = fields.Date("Date of Birth")
