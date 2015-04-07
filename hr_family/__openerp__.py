@@ -37,7 +37,7 @@ Employee Family Information
     ],
     'data': [
         'security/ir.model.access.csv',
-        'hr_view.xml',
+        'views/hr_view.xml',
     ],
     'test': [
     ],
