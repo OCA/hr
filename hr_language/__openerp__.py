@@ -24,9 +24,6 @@
     "version": "0.1",
     "category": "Human Resources",
     "license": "AGPL-3",
-    "description": """
-    This module allows you to manage your employee languages.
-    """,
     "author": "Savoir-faire Linux,Odoo Community Association (OCA)",
     "website": "http://www.savoirfairelinux.com",
     "depends": [
