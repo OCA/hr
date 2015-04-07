@@ -22,9 +22,9 @@
         <field name="arch" type="xml">
             <tree string="Languages">
                 <field name="description"/>
-                <field name="read"/>
-                <field name="write"/>
-                <field name="speak"/>
+                <field name="can_read"/>
+                <field name="can_write"/>
+                <field name="can_speak"/>
             </tree>
         </field>
     </record>
@@ -40,11 +40,11 @@
                         <field name="description"/>
                         <field name="employee_id"/>
                         <newline/>
-                        <field name="read"/>
+                        <field name="can_read"/>
                         <newline/>
-                        <field name="write"/>
+                        <field name="can_write"/>
                         <newline/>
-                        <field name="speak"/>
+                        <field name="can_speak"/>
                     </group>
                 </sheet>
             </form>
