@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 #
 #
-#    Copyright (C) 2011 Michael Telahun Makonnen <mmakonnen@gmail.com>.
+#    Copyright (C) 2011,2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
 #    All Rights Reserved.
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -19,5 +19,13 @@
 #
 #
 
-from . import hr_children
-from . import hr_employee
+from openerp import models, fields
+
+
+class hr_children(models.Model):
+    _name = 'hr.employee.children'
+    _description = 'HR Employee Children'
+
+    name = fields.Char("Name", size=256, required=True)
+    dob = fields.Date("Date of Birth")
+    employee_id = fields.Many2one('hr.employee', "Employee")

@@ -22,15 +22,6 @@
 from openerp import models, fields
 
 
-class hr_children(models.Model):
-    _name = 'hr.employee.children'
-    _description = 'HR Employee Children'
-
-    name = fields.Char("Name", size=256, required=True)
-    dob = fields.Date("Date of Birth")
-    employee_id = fields.Many2one('hr.employee', "Employee")
-
-
 class hr_employee(models.Model):
     _name = 'hr.employee'
     _inherit = 'hr.employee'

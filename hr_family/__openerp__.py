@@ -32,7 +32,8 @@
     ],
     'data': [
         'security/ir.model.access.csv',
-        'views/hr_view.xml',
+        'views/hr_children.xml',
+        'views/hr_employee.xml',
     ],
     'test': [
     ],
