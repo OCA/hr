@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="view_expenses_form_invoice" model="ir.ui.view">
+            <field name="name">hr.expense.form.invoice</field>
+            <field name="model">hr.expense.expense</field>
+            <field name="inherit_id" ref="hr_expense.view_expenses_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='line_ids']/form//field[@name='product_id']" position="before">
+                    <field name="invoice"/>
+                </xpath>
+                <xpath expr="//field[@name='line_ids']/form//field[@name='product_id']" position="attributes">
+                    <attribute name="attrs">{'readonly': [('invoice', '!=', False)]}</attribute>
+                </xpath>
+                <xpath expr="//field[@name='line_ids']/form//field[@name='date_value']" position="attributes">
+                    <attribute name="attrs">{'readonly': [('invoice', '!=', False)]}</attribute>
+                </xpath>
+                <xpath expr="//field[@name='line_ids']/form//field[@name='analytic_account']" position="attributes">
+                    <attribute name="attrs">{'readonly': [('invoice', '!=', False)]}</attribute>
+                </xpath>
+                <xpath expr="//field[@name='line_ids']/form//field[@name='uom_id']" position="attributes">
+                    <attribute name="attrs">{'readonly': [('invoice', '!=', False)]}</attribute>
+                </xpath>
+                <xpath expr="//field[@name='line_ids']/form//field[@name='unit_amount']" position="attributes">
+                    <attribute name="attrs">{'readonly': [('invoice', '!=', False)]}</attribute>
+                </xpath>
+                <xpath expr="//field[@name='line_ids']/form//field[@name='unit_quantity']" position="attributes">
+                    <attribute name="attrs">{'readonly': [('invoice', '!=', False)]}</attribute>
+                </xpath>
+                <xpath expr="//field[@name='line_ids']/tree//field[@name='product_id']" position="before">
+                    <field name="invoice"/>
+                </xpath>
+                <xpath expr="//field[@name='line_ids']/tree//field[@name='product_id']" position="attributes">
+                    <attribute name="attrs">{'readonly': [('invoice', '!=', False)]}</attribute>
+                </xpath>
+                <xpath expr="//field[@name='line_ids']/tree//field[@name='date_value']" position="attributes">
+                    <attribute name="attrs">{'readonly': [('invoice', '!=', False)]}</attribute>
+                </xpath>
+                <xpath expr="//field[@name='line_ids']/tree//field[@name='analytic_account']" position="attributes">
+                    <attribute name="attrs">{'readonly': [('invoice', '!=', False)]}</attribute>
+                </xpath>
+                <xpath expr="//field[@name='line_ids']/tree//field[@name='uom_id']" position="attributes">
+                    <attribute name="attrs">{'readonly': [('invoice', '!=', False)]}</attribute>
+                </xpath>
+                <xpath expr="//field[@name='line_ids']/tree//field[@name='unit_amount']" position="attributes">
+                    <attribute name="attrs">{'readonly': [('invoice', '!=', False)]}</attribute>
+                </xpath>
+                <xpath expr="//field[@name='line_ids']/tree//field[@name='unit_quantity']" position="attributes">
+                    <attribute name="attrs">{'readonly': [('invoice', '!=', False)]}</attribute>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</openerp>
