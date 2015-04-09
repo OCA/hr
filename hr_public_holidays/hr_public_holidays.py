@@ -56,9 +56,8 @@ class HrPublicHolidays(models.Model):
     ]
 
     @api.v7
-    def is_public_holiday(self, selected_date, employee_id=None):
+    def is_public_holiday(self, cr, uid, selected_date, employee_id=None):
 
-        cr, uid = request.cr, request.uid
         employee = self.pool.get('hr.employee').browse(cr, uid, employee_id)
 
         holidays_filter = [('year', '=', selected_date.year),
