@@ -36,7 +36,7 @@ Manage Public Holidays
     ],
     'data': [
         'security/ir.model.access.csv',
-        'hr_public_holidays_view.xml',
+        'views/hr_public_holidays_view.xml',
     ],
     'test': [
     ],

@@ -19,4 +19,4 @@
 #
 #
 
-from . import hr_public_holidays, hr_public_holidays_line
+import models

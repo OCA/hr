@@ -23,7 +23,6 @@
 
 from openerp import models, fields, api, _
 from datetime import date
-from openerp.http import request
 
 
 class HrPublicHolidays(models.Model):
