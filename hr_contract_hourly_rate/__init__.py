@@ -19,9 +19,4 @@
 #
 ##############################################################################
 
-from . import (
-    hr_hourly_rate,
-    hr_hourly_rate_class,
-    hr_contract,
-    hr_contract_job,
-)
+from . import models

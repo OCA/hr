@@ -19,50 +19,29 @@
 #
 ##############################################################################
 
-from openerp.osv import fields, orm
-from openerp.tools import DEFAULT_SERVER_DATE_FORMAT
-from datetime import datetime
-strftime = datetime.strftime
+from openerp import models, fields, api
 
 
-class hr_contract_job(orm.Model):
+class hr_contract_job(models.Model):
     _inherit = 'hr.contract.job'
 
-    def _get_current_hourly_rate(
-        self, cr, uid, ids, field_name, arg, context=None
-    ):
-        now = strftime(datetime.now().date(), DEFAULT_SERVER_DATE_FORMAT)
-        res = {}
-        for i in ids:
-            contract_job = self.browse(cr, uid, i, context=context)
+    @api.multi
+    def _get_current_hourly_rate(self):
+        today = fields.Date.today()
+        for contract_job in self:
             contract = contract_job.contract_id
             if contract_job.hourly_rate_class_id and \
                     contract.salary_computation_method == 'hourly_rate':
                 rate_class = contract_job.hourly_rate_class_id
                 rates = [
                     r for r in rate_class.line_ids
-                    if(
-                        r.date_start <= now
-                        and (
-                            not r.date_end
-                            or now <= r.date_end
-                        )
-                    )
-                ]
-                res[i] = rates and rates[0].rate or 0
+                    if(r.date_start <= today and (not r.date_end or
+                                                  today <= r.date_end))]
+                contract_job.hourly_rate = rates and rates[0].rate or 0
             else:
-                res[i] = False
-        return res
+                contract_job.hourly_rate = False
 
-    _columns = {
-        'hourly_rate_class_id': fields.many2one(
-            'hr.hourly.rate.class',
-            'Hourly Rate Class'
-        ),
-        'hourly_rate': fields.function(
-            _get_current_hourly_rate,
-            type='float',
-            method=True,
-            string='Hourly Rate',
-        ),
-    }
+    hourly_rate_class_id = fields.Many2one('hr.hourly.rate.class',
+                                           string='Hourly Rate Class')
+    hourly_rate = fields.Float(string='Hourly Rate',
+                               compute="_get_current_hourly_rate")
