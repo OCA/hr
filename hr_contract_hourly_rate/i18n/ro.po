@@ -18,93 +18,92 @@ msgstr ""
 #. module: hr_contract_hourly_rate
 #: selection:hr.contract,salary_computation_method:0
 msgid "Annual Wage"
-msgstr "Salaire annuel"
+msgstr "Salariu Anual"
 
 #. module: hr_contract_hourly_rate
 #: field:hr.hourly.rate.class,name:0
 msgid "Class Name"
-msgstr "Nom de la classe"
+msgstr "Nume clasă"
 
 #. module: hr_contract_hourly_rate
 #: view:hr.hourly.rate.class:hr_contract_hourly_rate.view_hr_hourly_rate_class_tree
 msgid "Companies"
-msgstr "Entreprises"
+msgstr "Companii"
 
 #. module: hr_contract_hourly_rate
 #: model:ir.model,name:hr_contract_hourly_rate.model_hr_contract
 msgid "Contract"
-msgstr "Contrat"
+msgstr "Contract"
 
 #. module: hr_contract_hourly_rate
 #: field:hr.hourly.rate.class,contract_job_ids:0
 msgid "Contract Jobs"
-msgstr "Postes de contrat"
+msgstr "Funcții Contract"
 
 #. module: hr_contract_hourly_rate
 #: field:hr.hourly.rate,create_uid:0
 #: field:hr.hourly.rate.class,create_uid:0
 msgid "Created by"
-msgstr "Créé par"
+msgstr "Creeat de către"
 
 #. module: hr_contract_hourly_rate
 #: field:hr.hourly.rate,create_date:0
 #: field:hr.hourly.rate.class,create_date:0
 msgid "Created on"
-msgstr "Créé le"
+msgstr "Creeat în"
 
 #. module: hr_contract_hourly_rate
 #: field:hr.hourly.rate,date_end:0
 msgid "End Date"
-msgstr "Date de fin"
+msgstr "Dată Sfârșit"
 
 #. module: hr_contract_hourly_rate
 #: code:addons/hr_contract_hourly_rate/models/hr_contract.py:86
 #, python-format
 msgid "Error! At least one job on contract has no hourly rate class assigned."
-msgstr ""
-"Erreur! Au moins une job sur le contrat n'a aucun taux horaire d'assigné."
+msgstr "Eroare! Cel puțin o funcție asociată contractului nu are specificat un salariu orar"
 
 #. module: hr_contract_hourly_rate
 #: code:addons/hr_contract_hourly_rate/models/hr_hourly_rate_class.py:49
 #: code:addons/hr_contract_hourly_rate/models/hr_hourly_rate_class.py:52
 #, python-format
 msgid "Error! You cannot have overlapping rates"
-msgstr "Erreur! Vous ne pouvez pas avoir deux taux superposés dans le temps."
+msgstr "Eroare! Nu puteți avea tarife salariale suprapuse"
 
 #. module: hr_contract_hourly_rate
 #: selection:hr.contract,salary_computation_method:0
 msgid "Hourly Rate"
-msgstr "Taux horaire"
+msgstr "Salariu Orar"
 
 #. module: hr_contract_hourly_rate
 #: field:hr.contract.job,hourly_rate_class_id:0
 #: view:hr.hourly.rate.class:hr_contract_hourly_rate.view_hr_hourly_rate_class_filter
 #: view:hr.hourly.rate.class:hr_contract_hourly_rate.view_hr_hourly_rate_class_form
 msgid "Hourly Rate Class"
-msgstr "Classe de taux horaire"
+msgstr "Salariu Orar"
 
 #. module: hr_contract_hourly_rate
 #: view:hr.hourly.rate.class:hr_contract_hourly_rate.view_hr_hourly_rate_class_filter
 #: model:ir.actions.act_window,name:hr_contract_hourly_rate.open_module_tree_hourly_rate_class
 #: model:ir.ui.menu,name:hr_contract_hourly_rate.menu_hr_hourly_rate_class_tree
 msgid "Hourly Rate Classes"
-msgstr "Classes de taux horaire"
+msgstr "Salarii Orare"
 
 #. module: hr_contract_hourly_rate
 #: view:hr.hourly.rate.class:hr_contract_hourly_rate.view_hr_hourly_rate_class_form
 #: field:hr.hourly.rate.class,line_ids:0
 msgid "Hourly Rates"
-msgstr "Taux horaire"
+msgstr "Salarii Orare"
 
 #. module: hr_contract_hourly_rate
 #: model:ir.model,name:hr_contract_hourly_rate.model_hr_hourly_rate
 msgid "Hourly rate"
-msgstr "Taux horaire"
+msgstr "Salariu Orar"
 
 #. module: hr_contract_hourly_rate
 #: model:ir.model,name:hr_contract_hourly_rate.model_hr_hourly_rate_class
 msgid "Hourly rate class"
-msgstr "Classe de taux horaire"
+msgstr "Salariu Orar"
 
 #. module: hr_contract_hourly_rate
 #: field:hr.hourly.rate,id:0
@@ -116,43 +115,41 @@ msgstr "ID"
 #: field:hr.hourly.rate,write_uid:0
 #: field:hr.hourly.rate.class,write_uid:0
 msgid "Last Updated by"
-msgstr "Dernière modification par"
+msgstr "Ultima actualizare de către"
 
 #. module: hr_contract_hourly_rate
 #: field:hr.hourly.rate,write_date:0
 #: field:hr.hourly.rate.class,write_date:0
 msgid "Last Updated on"
-msgstr "Dernière mise à jour le"
+msgstr "Ultima actualizare în"
 
 #. module: hr_contract_hourly_rate
 #: field:hr.hourly.rate,rate:0
 msgid "Rate"
-msgstr "Taux horaire"
+msgstr "Salariu"
 
 #. module: hr_contract_hourly_rate
 #: model:ir.model,name:hr_contract_hourly_rate.model_hr_contract_job
 msgid "Relational object between contract and job"
-msgstr "Objet relationnel entre un contrat et un poste"
+msgstr "Obiect relaționar intre Contracte și Funcții"
 
 #. module: hr_contract_hourly_rate
 #: field:hr.hourly.rate,class_id:0
 msgid "Salary Class"
-msgstr "Classe Salariale"
+msgstr "Salarii"
 
 #. module: hr_contract_hourly_rate
 #: field:hr.contract,salary_computation_method:0
 msgid "Salary Computation Method"
-msgstr "Méthode de calcul du salaire"
+msgstr "Metodă Calcul Salariu"
 
 #. module: hr_contract_hourly_rate
 #: field:hr.hourly.rate,date_start:0
 msgid "Start Date"
-msgstr "Date de début"
+msgstr "Dată Început"
 
 #. module: hr_contract_hourly_rate
 #: help:hr.contract,salary_computation_method:0
 msgid "Whether to use the annual wage or an hourly rate for computation of payslip."
-msgstr ""
-"La méthode utilisée pour calculer le salaire d'un employé. Soit par taux "
-"horaire ou par salaire annuel."
+msgstr "Dacă să folosiți salariu anual sau salariu orar pentru calculul statului de plată"
 
