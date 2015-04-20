@@ -1,13 +1,13 @@
-# Translation of OpenERP Server.
+# Translation of Odoo Server.
 # This file contains the translation of the following modules:
 #	* hr_contract_hourly_rate
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: OpenERP Server 7.0\n"
+"Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-07 15:43+0000\n"
-"PO-Revision-Date: 2014-12-07 15:43+0000\n"
+"POT-Creation-Date: 2015-04-20 10:44+0000\n"
+"PO-Revision-Date: 2015-04-20 10:44+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,13 +16,8 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: hr_contract_hourly_rate
-#: field:hr.hourly.rate,date_end:0
-msgid "End Date"
-msgstr ""
-
-#. module: hr_contract_hourly_rate
-#: model:ir.model,name:hr_contract_hourly_rate.model_hr_hourly_rate
-msgid "Hourly rate"
+#: selection:hr.contract,salary_computation_method:0
+msgid "Annual Wage"
 msgstr ""
 
 #. module: hr_contract_hourly_rate
@@ -31,40 +26,7 @@ msgid "Class Name"
 msgstr ""
 
 #. module: hr_contract_hourly_rate
-#: help:hr.contract,salary_computation_method:0
-msgid "Whether to use the annual wage or an hourly rate for computation of payslip."
-msgstr ""
-
-#. module: hr_contract_hourly_rate
-#: model:ir.model,name:hr_contract_hourly_rate.model_hr_contract_job
-msgid "Relational object between contract and job"
-msgstr ""
-
-#. module: hr_contract_hourly_rate
-#: field:hr.hourly.rate.class,contract_job_ids:0
-msgid "Contract Jobs"
-msgstr ""
-
-#. module: hr_contract_hourly_rate
-#: view:hr.hourly.rate.class:0
-#: model:ir.actions.act_window,name:hr_contract_hourly_rate.open_module_tree_hourly_rate_class
-#: model:ir.ui.menu,name:hr_contract_hourly_rate.menu_hr_hourly_rate_class_tree
-msgid "Hourly Rate Classes"
-msgstr ""
-
-#. module: hr_contract_hourly_rate
-#: field:hr.contract.job,hourly_rate_class_id:0
-#: view:hr.hourly.rate.class:0
-msgid "Hourly Rate Class"
-msgstr ""
-
-#. module: hr_contract_hourly_rate
-#: constraint:hr.hourly.rate.class:0
-msgid "Error! You cannot have overlapping rates"
-msgstr ""
-
-#. module: hr_contract_hourly_rate
-#: view:hr.hourly.rate.class:0
+#: view:hr.hourly.rate.class:hr_contract_hourly_rate.view_hr_hourly_rate_class_tree
 msgid "Companies"
 msgstr ""
 
@@ -74,8 +36,91 @@ msgid "Contract"
 msgstr ""
 
 #. module: hr_contract_hourly_rate
+#: field:hr.hourly.rate.class,contract_job_ids:0
+msgid "Contract Jobs"
+msgstr ""
+
+#. module: hr_contract_hourly_rate
+#: field:hr.hourly.rate,create_uid:0
+#: field:hr.hourly.rate.class,create_uid:0
+msgid "Created by"
+msgstr ""
+
+#. module: hr_contract_hourly_rate
+#: field:hr.hourly.rate,create_date:0
+#: field:hr.hourly.rate.class,create_date:0
+msgid "Created on"
+msgstr ""
+
+#. module: hr_contract_hourly_rate
+#: field:hr.hourly.rate,date_end:0
+msgid "End Date"
+msgstr ""
+
+#. module: hr_contract_hourly_rate
+#: code:addons/hr_contract_hourly_rate/models/hr_contract.py:86
+#, python-format
+msgid "Error! At least one job on contract has no hourly rate class assigned."
+msgstr ""
+
+#. module: hr_contract_hourly_rate
+#: code:addons/hr_contract_hourly_rate/models/hr_hourly_rate_class.py:49
+#: code:addons/hr_contract_hourly_rate/models/hr_hourly_rate_class.py:52
+#, python-format
+msgid "Error! You cannot have overlapping rates"
+msgstr ""
+
+#. module: hr_contract_hourly_rate
+#: selection:hr.contract,salary_computation_method:0
+msgid "Hourly Rate"
+msgstr ""
+
+#. module: hr_contract_hourly_rate
+#: field:hr.contract.job,hourly_rate_class_id:0
+#: view:hr.hourly.rate.class:hr_contract_hourly_rate.view_hr_hourly_rate_class_filter
+#: view:hr.hourly.rate.class:hr_contract_hourly_rate.view_hr_hourly_rate_class_form
+msgid "Hourly Rate Class"
+msgstr ""
+
+#. module: hr_contract_hourly_rate
+#: view:hr.hourly.rate.class:hr_contract_hourly_rate.view_hr_hourly_rate_class_filter
+#: model:ir.actions.act_window,name:hr_contract_hourly_rate.open_module_tree_hourly_rate_class
+#: model:ir.ui.menu,name:hr_contract_hourly_rate.menu_hr_hourly_rate_class_tree
+msgid "Hourly Rate Classes"
+msgstr ""
+
+#. module: hr_contract_hourly_rate
+#: view:hr.hourly.rate.class:hr_contract_hourly_rate.view_hr_hourly_rate_class_form
+#: field:hr.hourly.rate.class,line_ids:0
+msgid "Hourly Rates"
+msgstr ""
+
+#. module: hr_contract_hourly_rate
+#: model:ir.model,name:hr_contract_hourly_rate.model_hr_hourly_rate
+msgid "Hourly rate"
+msgstr ""
+
+#. module: hr_contract_hourly_rate
 #: model:ir.model,name:hr_contract_hourly_rate.model_hr_hourly_rate_class
 msgid "Hourly rate class"
+msgstr ""
+
+#. module: hr_contract_hourly_rate
+#: field:hr.hourly.rate,id:0
+#: field:hr.hourly.rate.class,id:0
+msgid "ID"
+msgstr ""
+
+#. module: hr_contract_hourly_rate
+#: field:hr.hourly.rate,write_uid:0
+#: field:hr.hourly.rate.class,write_uid:0
+msgid "Last Updated by"
+msgstr ""
+
+#. module: hr_contract_hourly_rate
+#: field:hr.hourly.rate,write_date:0
+#: field:hr.hourly.rate.class,write_date:0
+msgid "Last Updated on"
 msgstr ""
 
 #. module: hr_contract_hourly_rate
@@ -84,8 +129,8 @@ msgid "Rate"
 msgstr ""
 
 #. module: hr_contract_hourly_rate
-#: constraint:hr.contract:0
-msgid "Error! At least one job on contract has no hourly rate class assigned."
+#: model:ir.model,name:hr_contract_hourly_rate.model_hr_contract_job
+msgid "Relational object between contract and job"
 msgstr ""
 
 #. module: hr_contract_hourly_rate
@@ -99,24 +144,12 @@ msgid "Salary Computation Method"
 msgstr ""
 
 #. module: hr_contract_hourly_rate
-#: selection:hr.contract,salary_computation_method:0
-msgid "Annual Wage"
-msgstr ""
-
-#. module: hr_contract_hourly_rate
-#: view:hr.hourly.rate.class:0
-#: field:hr.hourly.rate.class,line_ids:0
-msgid "Hourly Rates"
-msgstr ""
-
-#. module: hr_contract_hourly_rate
-#: selection:hr.contract,salary_computation_method:0
-#: field:hr.contract.job,hourly_rate:0
-msgid "Hourly Rate"
-msgstr ""
-
-#. module: hr_contract_hourly_rate
 #: field:hr.hourly.rate,date_start:0
 msgid "Start Date"
+msgstr ""
+
+#. module: hr_contract_hourly_rate
+#: help:hr.contract,salary_computation_method:0
+msgid "Whether to use the annual wage or an hourly rate for computation of payslip."
 msgstr ""
 
