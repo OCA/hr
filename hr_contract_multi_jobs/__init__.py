@@ -19,8 +19,4 @@
 #
 ##############################################################################
 
-from . import (
-    hr_job,
-    hr_contract,
-    hr_contract_job,
-)
+from . import models

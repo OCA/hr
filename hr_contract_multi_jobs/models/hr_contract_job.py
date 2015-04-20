@@ -19,10 +19,10 @@
 #
 ##############################################################################
 
-from openerp.osv import fields, orm
+from openerp import models, fields
 
 
-class hr_contract_job(orm.Model):
+class hr_contract_job(models.Model):
     """
     An instance of a job position for an employee's contract.
 
@@ -33,25 +33,13 @@ class hr_contract_job(orm.Model):
     _name = 'hr.contract.job'
     _description = 'Relational object between contract and job'
 
-    _columns = {
-        'name': fields.related(
-            'job_id',
-            'name',
-            string='Job',
-        ),
-        'job_id': fields.many2one(
-            'hr.job',
-            'Job',
-            required=True,
-            ondelete='cascade',
-        ),
-        'contract_id': fields.many2one(
-            'hr.contract',
-            'Contract',
-            required=True,
-            ondelete='cascade',
-        ),
-        'is_main_job': fields.boolean(
-            'Main Job Position'
-        ),
-    }
+    name = fields.Char(string='Job', related='job_id.name', index=True)
+    job_id = fields.Many2one('hr.job',
+                             string='Job',
+                             required=True,
+                             ondelete='cascade'),
+    contract_id = fields.Many2one('hr.contract',
+                                  string='Contract',
+                                  required=True,
+                                  ondelete='cascade'),
+    is_main_job = fields.Boolean(string='Main Job Position')
