@@ -37,9 +37,9 @@ class hr_contract_job(models.Model):
     job_id = fields.Many2one('hr.job',
                              string='Job',
                              required=True,
-                             ondelete='cascade'),
+                             ondelete='cascade')
     contract_id = fields.Many2one('hr.contract',
                                   string='Contract',
                                   required=True,
-                                  ondelete='cascade'),
+                                  ondelete='cascade')
     is_main_job = fields.Boolean(string='Main Job Position')
