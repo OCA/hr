@@ -19,31 +19,18 @@
 #
 ##############################################################################
 
-from openerp.osv import fields, orm
-from openerp.tools import DEFAULT_SERVER_DATE_FORMAT
-import time
+from openerp import models, fields
 
 
-class hr_hourly_rate(orm.Model):
+class hr_hourly_rate(models.Model):
     _name = 'hr.hourly.rate'
     _description = 'Hourly rate'
-    _columns = {
-        'rate': fields.float(
-            'Rate',
-            required=True,
-        ),
-        'date_start': fields.date(
-            'Start Date',
-            required=True,
-        ),
-        'date_end': fields.date('End Date'),
-        'class_id': fields.many2one(
-            'hr.hourly.rate.class',
-            'Salary Class',
-            ondelete='cascade',
-            required=True,
-        ),
-    }
-    _defaults = {
-        'date_start': lambda *a: time.strftime(DEFAULT_SERVER_DATE_FORMAT),
-    }
+
+    rate = fields.Float(string='Rate', required=True)
+    date_start = fields.Date(string='Start Date', required=True,
+                             default=fields.Date.today())
+    date_end = fields.Date(string='End Date')
+    class_id = fields.Many2one('hr.hourly.rate.class',
+                               string='Salary Class',
+                               ondelete='cascade',
+                               required=True)
