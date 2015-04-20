@@ -19,47 +19,34 @@
 #
 ##############################################################################
 
-from openerp.osv import fields, orm
+from openerp import models, fields, api, exceptions, _
 from itertools import permutations
 
 
-class hr_hourly_rate_class(orm.Model):
+class hr_hourly_rate_class(models.Model):
     _name = 'hr.hourly.rate.class'
     _description = 'Hourly rate class'
-    _columns = {
-        'name': fields.char(
-            'Class Name',
-            required=True,
-        ),
-        'line_ids': fields.one2many(
-            'hr.hourly.rate',
-            'class_id',
-            'Hourly Rates'
-        ),
-        'contract_job_ids': fields.one2many(
-            'hr.contract.job',
-            'hourly_rate_class_id',
-            'Contract Jobs'
-        ),
-    }
 
+    name = fields.char(string='Class Name', required=True, index=True)
+    line_ids = fields.One2many('hr.hourly.rate',
+                               'class_id',
+                               string='Hourly Rates'),
+    contract_job_ids = fields.One2many('hr.contract.job',
+                                       'hourly_rate_class_id',
+                                       string='Contract Jobs')
+
+    @api.multi
+    @api.constrains('line_ids')
     def _check_overlapping_rates(self, cr, uid, ids, context=None):
         """
         Checks if a class has two rates that overlap in time.
         """
-        for hourly_rate_class in self.browse(cr, uid, ids, context):
-
+        for hourly_rate_class in self:
             for r1, r2 in permutations(hourly_rate_class.line_ids, 2):
-                if r1.date_end and (
-                        r1.date_start <= r2.date_start <= r1.date_end):
-                    return False
+                if r1.date_end and (r1.date_start <= r2.date_start) and
+                (r2.date_start <= r1.date_end):
+                    return exceptions.Warning(
+                        _("Error! You cannot have overlapping rates"))
                 elif not r1.date_end and (r1.date_start <= r2.date_start):
-                    return False
-
-        return True
-
-    _constraints = [(
-        _check_overlapping_rates,
-        'Error! You cannot have overlapping rates',
-        ['line_ids']
-    )]
+                    return exceptions.Warning(
+                        _("Error! You cannot have overlapping rates"))

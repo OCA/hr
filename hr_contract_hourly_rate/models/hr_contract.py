@@ -19,35 +19,23 @@
 #
 ##############################################################################
 
-from openerp.osv import fields, orm
+from openerp import models, fields, api, exceptions, _
 
 
-class hr_contract(orm.Model):
+class hr_contract(models.Model):
     _inherit = 'hr.contract'
-    _columns = {
-        'salary_computation_method': fields.selection(
-            [
-                ('wage', 'Annual Wage'),
-                ('hourly_rate', 'Hourly Rate')
-            ],
-            'Salary Computation Method',
-            help="Whether to use the annual wage or an hourly rate "
-            "for computation of payslip.",
-            required=True,
-        ),
-    }
-    _defaults = {
-        'salary_computation_method': 'wage',
-    }
 
-    def get_job_hourly_rate(
-        self, cr, uid,
-        date_from, date_to,
-        contract_id,
-        job_id=False,
-        main_job=False,
-        context=None,
-    ):
+    salary_computation_method = fields.Selection(
+        [('wage', 'Annual Wage'),
+         ('hourly_rate', 'Hourly Rate')],
+        string='Salary Computation Method',
+        help="Whether to use the annual wage or an hourly rate "
+             "for computation of payslip.",
+        required=True, default='wage')
+
+    @api.model
+    def get_job_hourly_rate(self, date_from, date_to, contract_id,
+                            job_id=False, main_job=False):
         """
         Get the hourly rate related to a job on a contract for a given
         interval of time (date_from, date_to)
@@ -62,7 +50,7 @@ class hr_contract(orm.Model):
         If no rate completely overlap the given period (date_from, date_to),
         False is returned and the hourly rate must then be entered manually.
         """
-        contract = self.browse(cr, uid, contract_id, context=context)
+        contract = self.contract_id
 
         # This does not apply when employee is paid by wage
         if contract.salary_computation_method == 'wage':
@@ -75,18 +63,15 @@ class hr_contract(orm.Model):
                 # The contract_job belongs to a salary class
                 # The salary class contains rates
                 for rate in contract_job.hourly_rate_class_id.line_ids:
-                    if(
-                        # We need the rate that fits the given dates
-                        rate.date_start <= date_from
-                        and not rate.date_end or date_to <= rate.date_end
-                    ):
+                    # We need the rate that fits the given dates
+                    if(rate.date_start <= date_from and
+                       not rate.date_end or date_to <= rate.date_end):
                         return rate.rate
                 break
         return False
 
-    def _check_has_hourly_rate_class(
-        self, cr, uid, ids, context=None,
-    ):
+    @api.multi
+    def _check_has_hourly_rate_class(self):
         """
         Check if every contract job on the contract has an hourly rate
         class assigned to it.
@@ -97,13 +82,7 @@ class hr_contract(orm.Model):
             if contract.salary_computation_method == 'hourly_rate':
                 for contract_job in contract.contract_job_ids:
                     if not contract_job.hourly_rate_class_id:
-                        return False
-
+                        raise exceptions.Warning(
+                            _("Error! At least one job on contract has no "
+                              "hourly rate class assigned."))
             return True
-
-    _constraints = [(
-        _check_has_hourly_rate_class,
-        "Error! At least one job on contract has no hourly rate "
-        "class assigned.",
-        ['contract_job_ids']
-    )]
