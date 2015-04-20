@@ -42,7 +42,7 @@ class hr_contract(models.Model):
 
     contract_job_ids = fields.One2many('hr.contract.job',
                                        'contract_id',
-                                       string='Jobs'),
+                                       string='Jobs')
 
     # Modify the job_id field so that it points to the main job
     job_id = fields.Many2one(
@@ -51,8 +51,9 @@ class hr_contract(models.Model):
         compute="_get_main_job_position",
         store=True)
 
-    @api.multi
-    @api.constrains('parent_id')
+    @api.model
+    @api.depends('contract_job_ids', 'contract_job_ids.is_main_job')
+    @api.constrains('contract_job_ids')
     def _check_one_main_job(self):
         for contract in self:
 
