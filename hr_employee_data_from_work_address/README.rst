@@ -1,0 +1,37 @@
+User data from employee
+=======================
+
+When using HR, there are a couple of partners involved per employee: The employee's work address, the employee's private address and the partner assigned to the employee's user (if any). The latter is used to store some data about the user, like the email address. In many cases, it would be more convenient to edit this data from the employee record. This module assumes you assign a (different) partner for the work address to every employee, and synchronizes its values with the employee record. Then you should use this partner record also for the user record.
+
+Usage
+=====
+
+After installation, updating an employee's `work_email` or `work_phone` record transparently changes the linked partner's appropriate field. For obvious reasons, the default for the work address being the company's address has been lifted. Partners created through the work address field will have the `employee`-flag set, and the `partner_id` field on the user record filters for this flag.
+
+When creating a user, you can select the existing partner record for your employee, so it will be updated transparently too. Creating a user via the user field in the employee form preselects this partner record.
+
+Credits
+=======
+
+Contributors
+------------
+
+* Holger Brunn <hbrunn@therp.nl>
+
+Acknowledgements
+----------------
+
+* Icon courtesy of http://www.picol.org (refresh.svg) and https://github.com/odoo/odoo/blob/8.0/addons/hr/static/description/icon.png
+
+Maintainer
+----------
+
+.. image:: http://odoo-community.org/logo.png
+    :alt: Odoo Community Association
+    :target: http://odoo-community.org
+
+This module is maintained by the OCA.
+
+OCA, or the Odoo Community Association, is a nonprofit organization whose mission is to support the collaborative development of Odoo features and promote its widespread use.
+
+To contribute to this module, please visit http://odoo-community.org.
