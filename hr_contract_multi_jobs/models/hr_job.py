@@ -19,15 +19,12 @@
 #
 ##############################################################################
 
-from openerp.osv import fields, orm
+from openerp import models, fields
 
 
-class hr_job(orm.Model):
+class hr_job(models.Model):
     _inherit = 'hr.job'
-    _columns = {
-        'contract_job_ids': fields.one2many(
-            'hr.contract.job',
-            'job_id',
-            'Contract Jobs',
-        ),
-    }
+
+    contract_job_ids = fields.One2many('hr.contract.job',
+                                       'job_id',
+                                       string='Contract Jobs')
