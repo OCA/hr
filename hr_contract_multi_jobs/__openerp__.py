@@ -32,7 +32,7 @@
         'security/ir.model.access.csv',
         'views/hr_contract_view.xml',
     ],
-    'test': ['test/hr_contract_job_test.yml'],
+    #'test': ['test/hr_contract_job_test.yml'],
     'demo': [],
     'installable': True,
 }
