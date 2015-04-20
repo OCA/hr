@@ -1,13 +1,13 @@
-# Translation of OpenERP Server.
+# Translation of Odoo Server.
 # This file contains the translation of the following modules:
 #	* hr_contract_multi_jobs
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: OpenERP Server 7.0\n"
+"Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-12 16:11+0000\n"
-"PO-Revision-Date: 2014-11-12 16:11+0000\n"
+"POT-Creation-Date: 2015-04-20 10:44+0000\n"
+"PO-Revision-Date: 2015-04-20 10:44+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,7 +16,43 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: hr_contract_multi_jobs
-#: view:hr.contract:0
+#: field:hr.contract.job,contract_id:0
+#: model:ir.model,name:hr_contract_multi_jobs.model_hr_contract
+msgid "Contract"
+msgstr ""
+
+#. module: hr_contract_multi_jobs
+#: field:hr.job,contract_job_ids:0
+msgid "Contract Jobs"
+msgstr ""
+
+#. module: hr_contract_multi_jobs
+#: field:hr.contract.job,create_uid:0
+msgid "Created by"
+msgstr ""
+
+#. module: hr_contract_multi_jobs
+#: field:hr.contract.job,create_date:0
+msgid "Created on"
+msgstr ""
+
+#. module: hr_contract_multi_jobs
+#: field:hr.contract.job,id:0
+msgid "ID"
+msgstr ""
+
+#. module: hr_contract_multi_jobs
+#: field:hr.contract.job,job_id:0
+msgid "Job"
+msgstr ""
+
+#. module: hr_contract_multi_jobs
+#: model:ir.model,name:hr_contract_multi_jobs.model_hr_job
+msgid "Job Position"
+msgstr ""
+
+#. module: hr_contract_multi_jobs
+#: view:hr.contract:hr_contract_multi_jobs.hr_contract_view_form
 msgid "Job Positions"
 msgstr ""
 
@@ -26,42 +62,22 @@ msgid "Jobs"
 msgstr ""
 
 #. module: hr_contract_multi_jobs
-#: model:ir.model,name:hr_contract_multi_jobs.model_hr_contract_job
-msgid "Relational object between contract and job"
+#: field:hr.contract.job,write_uid:0
+msgid "Last Updated by"
 msgstr ""
 
 #. module: hr_contract_multi_jobs
-#: field:hr.job,contract_job_ids:0
-msgid "Contract Jobs"
-msgstr ""
-
-#. module: hr_contract_multi_jobs
-#: field:hr.contract.job,name:0
-msgid "Job"
-msgstr ""
-
-#. module: hr_contract_multi_jobs
-#: field:hr.contract.job,contract_id:0
-#: model:ir.model,name:hr_contract_multi_jobs.model_hr_contract
-msgid "Contract"
-msgstr ""
-
-#. module: hr_contract_multi_jobs
-#: model:ir.model,name:hr_contract_multi_jobs.model_hr_job
-msgid "Job Description"
-msgstr ""
-
-#. module: hr_contract_multi_jobs
-#: field:hr.contract.job,job_id:0
-msgid "Job"
-msgstr ""
-
-#. module: hr_contract_multi_jobs
-#: constraint:hr.contract:0
-msgid "You must assign one and only one job position as main job position."
+#: field:hr.contract.job,write_date:0
+msgid "Last Updated on"
 msgstr ""
 
 #. module: hr_contract_multi_jobs
 #: field:hr.contract.job,is_main_job:0
 msgid "Main Job Position"
 msgstr ""
+
+#. module: hr_contract_multi_jobs
+#: model:ir.model,name:hr_contract_multi_jobs.model_hr_contract_job
+msgid "Relational object between contract and job"
+msgstr ""
+
