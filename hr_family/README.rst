@@ -9,7 +9,7 @@ This module allows you to enter extra information about employee's family.
 Usage
 =====
 
-To use this module, you need to go to on any employee form, and look for the
+To use this module, you need to go to any employee form, and look for the
 *Family* tab. You will be able to enter family information there.
 
 For further information, please visit:
@@ -23,6 +23,7 @@ Contributors
 ------------
 
 * Michael Telahun Makonnen <mmakonnen@gmail.com>
+* Sébastien Alix <sebastien.alix@osiell.com>
 
 Maintainer
 ----------
