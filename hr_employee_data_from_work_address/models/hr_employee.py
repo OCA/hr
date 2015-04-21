@@ -43,3 +43,15 @@ class HrEmployee(models.Model):
             if field in result['value']:
                 result['value'].pop(field)
         return result
+
+    def _register_hook(self, cr):
+        # we need to reset the store parameter
+        # further, making a normal field related doesn't reset columns
+        for field in ['work_phone', 'work_email', 'mobile_phone', 'image']:
+            if field in self._columns:
+                self._columns.pop(field)
+            if field in self._all_columns:
+                self._all_columns.pop(field)
+            self._fields[field].store = False
+            self._fields[field].column = None
+        return super(HrEmployee, self)._register_hook(cr)
