@@ -19,11 +19,13 @@
 ##############################################################################
 
 {
-    'name': 'Contract Multi Jobs',
+    'name': 'HR Contract Multi Jobs',
     'version': '1.0',
     'license': 'AGPL-3',
     'category': 'Generic Modules/Human Resources',
-    'author': "Savoir-faire Linux,Odoo Community Association (OCA)",
+    'author': 'Savoir-faire Linux, '
+              'Fekete Mihai (Forest and Biomass Services Romania, '
+              'Odoo Community Association (OCA)',
     'website': 'https://www.savoirfairelinux.com/',
     'depends': [
         'hr_contract'
