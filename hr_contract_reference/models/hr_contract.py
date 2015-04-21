@@ -27,12 +27,10 @@ class hr_contract(models.Model):
     _inherit = 'hr.contract'
 
     name = fields.Char('Contract Reference', required=False,
-            readonly=True, copy=False)
+                       readonly=True, copy=False, default='/')
 
     @api.model
     def create(self, vals):
-        contract = super(hr_contract, self).create(vals)
-        if contract:
-            contract[0].name = self.env['ir.sequence'].next_by_code(
-                'contract.ref')
-        return contract
+        if vals.get('number', '/') == '/':
+            vals['name'] = self.env['ir.sequence'].next_by_code('contract.ref')
+        return super(hr_contract, self).create(vals)
