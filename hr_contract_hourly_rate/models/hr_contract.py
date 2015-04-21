@@ -5,8 +5,7 @@
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as published
-#    by
-#    the Free Software Foundation, either version 3 of the License, or
+#    by the Free Software Foundation, either version 3 of the License, or
 #    (at your option) any later version.
 #
 #    This program is distributed in the hope that it will be useful,
@@ -33,8 +32,8 @@ class hr_contract(models.Model):
              "for computation of payslip.",
         required=True, default='wage')
 
-    @api.model
-    def get_job_hourly_rate(self, date_from, date_to, contract_id,
+    @api.multi
+    def get_job_hourly_rate(self, date_from, date_to,
                             job_id=False, main_job=False):
         """
         Get the hourly rate related to a job on a contract for a given
@@ -50,7 +49,8 @@ class hr_contract(models.Model):
         If no rate completely overlap the given period (date_from, date_to),
         False is returned and the hourly rate must then be entered manually.
         """
-        contract = self.contract_id
+        self.ensure_one()
+        contract = self[0]
 
         # This does not apply when employee is paid by wage
         if contract.salary_computation_method == 'wage':
@@ -67,17 +67,17 @@ class hr_contract(models.Model):
                     if(rate.date_start <= date_from and
                        not rate.date_end or date_to <= rate.date_end):
                         return rate.rate
-                break
         return False
 
-    @api.multi
+    @api.model
+    @api.depends('contract_job_ids', 'contract_job_ids.hourly_rate_class_id')
+    @api.constrains('contract_job_ids')
     def _check_has_hourly_rate_class(self):
         """
         Check if every contract job on the contract has an hourly rate
         class assigned to it.
         """
-        for contract in self.browse(cr, uid, ids, context=context):
-
+        for contract in self:
             # This does not apply when employee is paid by wage
             if contract.salary_computation_method == 'hourly_rate':
                 for contract_job in contract.contract_job_ids:
@@ -85,4 +85,3 @@ class hr_contract(models.Model):
                         raise exceptions.Warning(
                             _("Error! At least one job on contract has no "
                               "hourly rate class assigned."))
-            return True
