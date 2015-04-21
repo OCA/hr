@@ -26,6 +26,6 @@ class hr_children(models.Model):
     _name = 'hr.employee.children'
     _description = 'HR Employee Children'
 
-    name = fields.Char("Name", size=256, required=True)
+    name = fields.Char("Name", required=True)
     dob = fields.Date("Date of Birth")
     employee_id = fields.Many2one('hr.employee', "Employee")

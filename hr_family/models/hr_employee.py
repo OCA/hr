@@ -23,15 +23,14 @@ from openerp import models, fields
 
 
 class hr_employee(models.Model):
-    _name = 'hr.employee'
     _inherit = 'hr.employee'
 
-    fam_spouse = fields.Char("Name", size=256)
-    fam_spouse_employer = fields.Char("Employer", size=256)
-    fam_spouse_tel = fields.Char("Telephone.", size=32)
+    fam_spouse = fields.Char("Name")
+    fam_spouse_employer = fields.Char("Employer")
+    fam_spouse_tel = fields.Char("Telephone.")
     fam_children_ids = fields.One2many(
         'hr.employee.children', 'employee_id', "Children")
-    fam_father = fields.Char("Father's Name", size=128)
+    fam_father = fields.Char("Father's Name")
     fam_father_dob = fields.Date("Date of Birth")
-    fam_mother = fields.Char("Mother's Name", size=128)
+    fam_mother = fields.Char("Mother's Name")
     fam_mother_dob = fields.Date("Date of Birth")
