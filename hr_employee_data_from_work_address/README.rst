@@ -3,10 +3,15 @@ User data from employee
 
 When using HR, there are a couple of partners involved per employee: The employee's work address, the employee's private address and the partner assigned to the employee's user (if any). The latter is used to store some data about the user, like the email address. In many cases, it would be more convenient to edit this data from the employee record. This module assumes you assign a (different) partner for the work address to every employee, and synchronizes its values with the employee record. Then you should use this partner record also for the user record.
 
+Installation
+============
+
+As it would be problematic to have work addresses pointing to the company's partner with this module, all employees are updated with either a new partner as work address in case they are not linked to a user, or with the user's partner otherwise. This may take some time if you have a lot of employees.
+
 Usage
 =====
 
-After installation, updating an employee's `work_email` or `work_phone` record transparently changes the linked partner's appropriate field. For obvious reasons, the default for the work address being the company's address has been lifted. Partners created through the work address field will have the `employee`-flag set, and the `partner_id` field on the user record filters for this flag.
+After installation, updating an employee's `work_email`, `work_phone`, `mobile_phone` and `image` fields transparently changes the linked partner's appropriate field and vice versa. For obvious reasons, the default for the work address being the company's address has been lifted. Partners created through the work address field will have the `employee`-flag set, and the `partner_id` field on the user record filters for this flag.
 
 When creating a user, you can select the existing partner record for your employee, so it will be updated transparently too. Creating a user via the user field in the employee form preselects this partner record.
 
