@@ -23,7 +23,7 @@
     "name": "HR Contract Reference",
     "version": "1.0",
     "category": "Generic Modules/Human Resources",
-    "author": "Michael Telahun Makonnen <mmakonnen@gmail.com,Odoo Community Association (OCA)",
+    "author": "Michael Telahun Makonnen,Odoo Community Association (OCA)",
     "website": "http://miketelahun.wordpress.com",
     "license": "AGPL-3",
     "depends": ["hr_contract"],
