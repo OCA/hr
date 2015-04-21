@@ -22,6 +22,7 @@
 from openerp.tests.common import TransactionCase
 from openerp import exceptions
 
+
 class TestContractMultiJob(TransactionCase):
     def setUp(self):
         super(TestContractMultiJob, self).setUp()
@@ -80,12 +81,12 @@ class TestContractMultiJob(TransactionCase):
             self.cr, self.uid, [self.contract_id], {
                 'contract_job_ids': [],
             }, context=self.context
-        )        
+        )
         contract = self.contract_model.browse(
             self.cr, self.uid, [self.contract_id], context=self.context
         )
-        self.assertFalse(contract.job_id == False)
-        
+        self.assertFalse(contract.job_id is False)
+
     def test_one_main_jobs(self):
         """
         Validate the _check_one_main_job method
@@ -98,14 +99,14 @@ class TestContractMultiJob(TransactionCase):
                     (0, 0, {
                         'job_id': self.job_id,
                         'is_main_job': True,
-                    }),],
+                    })],
             }, context=self.context
         )
         contract = self.contract_model.browse(
             self.cr, self.uid, [self.contract_id], context=self.context
         )
         self.assertTrue(contract.job_id.id == self.job_id)
-        
+
     def test_two_contract_jobs_one_main_job(self):
         """
         Validate the _check_one_main_job method
@@ -122,14 +123,14 @@ class TestContractMultiJob(TransactionCase):
                     (0, 0, {
                         'job_id': self.job_2_id,
                         'is_main_job': False,
-                    }),],
+                    })],
             }, context=self.context
         )
         contract = self.contract_model.browse(
             self.cr, self.uid, [self.contract_id], context=self.context
         )
         self.assertTrue(contract.job_id.id == self.job_id)
-        
+
     def test_two_contract_jobs_two_main_job(self):
         """
         Validate the _check_one_main_job method
@@ -147,7 +148,6 @@ class TestContractMultiJob(TransactionCase):
                     (0, 0, {
                         'job_id': self.job_2_id,
                         'is_main_job': True,
-                    }),],
+                    })],
             }, context=self.context
         )
-        
