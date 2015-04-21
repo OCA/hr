@@ -42,7 +42,8 @@ class hr_hourly_rate_class(models.Model):
         """
         for hourly_rate_class in self:
             for r1, r2 in permutations(hourly_rate_class.line_ids, 2):
-                if r1.date_end and (r1.date_start <= r2.date_start <= r1.date_end):
+                if r1.date_end and \
+                   (r1.date_start <= r2.date_start <= r1.date_end):
                     raise exceptions.Warning(
                         _("Error! You cannot have overlapping rates"))
                 elif not r1.date_end and (r1.date_start <= r2.date_start):
