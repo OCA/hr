@@ -19,11 +19,11 @@
 #
 ##############################################################################
 
-from openerp.tests import common
-from openerp.osv.orm import except_orm
+from openerp.tests.common import TransactionCase
+from openerp import exceptions
 
 
-class test_contract_hourly_rate(common.TransactionCase):
+class test_contract_hourly_rate(TransactionCase):
     def setUp(self):
         super(test_contract_hourly_rate, self).setUp()
         self.employee_model = self.registry('hr.employee')
@@ -47,7 +47,7 @@ class test_contract_hourly_rate(common.TransactionCase):
         self.job_3_id = self.job_model.create(
             self.cr, self.uid, {'name': 'Job 3'}, context=self.context)
 
-        # Create 2 hourly rate classes
+        # Create 3 hourly rate classes
         self.rate_class_id = self.rate_class_model.create(
             self.cr, self.uid, {
                 'name': 'Test',
@@ -129,11 +129,6 @@ class test_contract_hourly_rate(common.TransactionCase):
             }, context=self.context
         )
 
-        self.contract_model.write(
-            self.cr, self.uid, [self.contract_id], {
-                'job_id': self.job_id
-            }, context=self.context)
-
     def tearDown(self):
         self.contract_model.unlink(
             self.cr, self.uid, [self.contract_id], context=self.context)
@@ -165,7 +160,7 @@ class test_contract_hourly_rate(common.TransactionCase):
             ('2014-06-01', '2014-07-31'),
         ]:
             self.assertRaises(
-                except_orm, self.rate_class_model.write,
+                exceptions.ValidationError, self.rate_class_model.write,
                 self.cr, self.uid, [self.rate_class_id], {
                     'line_ids': [
                         (0, 0, {
@@ -186,7 +181,7 @@ class test_contract_hourly_rate(common.TransactionCase):
             self.cr, self.uid, {'name': 'Job 4'}, context=self.context)
 
         self.assertRaises(
-            except_orm, self.contract_model.write,
+            exceptions.ValidationError, self.contract_model.write,
             self.cr, self.uid, [self.contract_id], {
                 'contract_job_ids': [
                     (0, 0, {
@@ -211,8 +206,8 @@ class test_contract_hourly_rate(common.TransactionCase):
             ('2014-01-01', '2014-06-30'),
         ]:
             res = self.contract_model.get_job_hourly_rate(
-                self.cr, self.uid, dates[0], dates[1],
-                self.contract_id, job_id=self.job_3_id, main_job=False,
+                self.cr, self.uid, self.contract_id, dates[0], dates[1],
+                job_id=self.job_3_id, main_job=False,
                 context=self.context)
 
             self.assertTrue(res == 20)
@@ -223,8 +218,8 @@ class test_contract_hourly_rate(common.TransactionCase):
             ('2014-07-01', '2014-12-31'),
         ]:
             res = self.contract_model.get_job_hourly_rate(
-                self.cr, self.uid, dates[0], dates[1],
-                self.contract_id, job_id=self.job_3_id, main_job=False,
+                self.cr, self.uid, self.contract_id, dates[0], dates[1],
+                job_id=self.job_3_id, main_job=False,
                 context=self.context)
 
             self.assertTrue(res == 25)
@@ -239,8 +234,8 @@ class test_contract_hourly_rate(common.TransactionCase):
             ('2014-01-01', '2014-06-30'),
         ]:
             res = self.contract_model.get_job_hourly_rate(
-                self.cr, self.uid, dates[0], dates[1],
-                self.contract_id, job_id=False, main_job=True,
+                self.cr, self.uid, self.contract_id, dates[0], dates[1],
+                job_id=False, main_job=True,
                 context=self.context)
 
             self.assertTrue(res == 30)
@@ -251,14 +246,14 @@ class test_contract_hourly_rate(common.TransactionCase):
             ('2014-07-01', '2014-12-31'),
         ]:
             res = self.contract_model.get_job_hourly_rate(
-                self.cr, self.uid, dates[0], dates[1],
-                self.contract_id, job_id=False, main_job=True,
+                self.cr, self.uid, self.contract_id, dates[0], dates[1],
+                job_id=False, main_job=True,
                 context=self.context)
 
             self.assertTrue(res == 35)
 
             self.assertRaises(
-                except_orm, self.rate_class_model.write,
+                exceptions.ValidationError, self.rate_class_model.write,
                 self.cr, self.uid, [self.rate_class_id], {
                     'line_ids': [
                         (0, 0, {

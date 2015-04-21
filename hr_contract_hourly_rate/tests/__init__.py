@@ -19,10 +19,4 @@
 #
 ##############################################################################
 
-from . import (
-    test_hr_contract_hourly_rates,
-)
-
-checks = [
-    test_hr_contract_hourly_rates,
-]
+from . import test_hr_contract_hourly_rates
