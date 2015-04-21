@@ -41,6 +41,8 @@ def post_init_hook(cr, pool):
 def adjust_employee_partners_post(env):
     companies = env['res.company'].with_context(active_test=False).search([])
     company_partners = companies.mapped('partner_id')
+    # use user's partner or create one for all employees pointing to a company
+    # address
     for employee in env['hr.employee'].with_context(active_test=False).search(
             [('address_id', 'in', company_partners.ids)]):
         if employee.user_id:
