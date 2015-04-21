@@ -28,6 +28,7 @@ class HrEmployee(models.Model):
     work_phone = fields.Char(related=['address_id', 'phone'])
     work_email = fields.Char(related=['address_id', 'email'])
     mobile_phone = fields.Char(related=['address_id', 'mobile'])
+    image = fields.Binary(related=['address_id', 'image'])
 
     @api.multi
     def onchange_company(self, company):
