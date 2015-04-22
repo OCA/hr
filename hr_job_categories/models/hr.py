@@ -46,7 +46,7 @@ class hr_contract(models.Model):
         employee = self.env['hr.employee'].browse(employee_id)
         empl_tags = employee.category_ids
         job = self.env['hr.job'].browse(job_id)
-        _logger.debug('Removing employee tags if tad exists on contract '
+        _logger.debug('Removing employee tags if tag exists on contract '
                       'job: %s', empl_tags)
         for tag in job.category_ids:
             if tag in empl_tags:
