@@ -9,6 +9,9 @@
             <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
             <field name="arch" type="xml">
                 <data>
+                    <field name="employee_id" position="replace">
+                        <field name="employee_id"/>
+                    </field>
                     <field name="job_id" position="replace">
                         <field name="employee_dept_id" invisible="1"/>
                         <field name="job_id" required="1" domain="[('department_id', '=', employee_dept_id)]"/>

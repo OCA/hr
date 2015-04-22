@@ -45,6 +45,6 @@ class hr_contract(models.Model):
                              readonly=True)
 
     @api.onchange('employee_id')
-    def onchange_employee_id(self):
+    def _onchange_employee_id(self):
         if self.employee_id:
             self.employee_dept_id = self.employee_id.department_id
