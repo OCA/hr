@@ -33,20 +33,20 @@ class test_hr_job_categories(common.TransactionCase):
         self.context = self.user_model.context_get(self.cr, self.uid)
         cr, uid, context = self.cr, self.uid, self.context
 
-        #Create a employee
+        # Create a employee
         self.employee_id = self.employee_model.create(
             cr, uid, {'name': 'Employee 1'}, context=context
         )
-        
-        #Create two employee categories
+
+        # Create two employee categories
         self.categ_id = self.employee_categ_model.create(
             cr, uid, {'name': 'Category 1'}, context=context
         )
         self.categ_2_id = self.employee_categ_model.create(
             cr, uid, {'name': 'Category 2'}, context=context
         )
-        
-        #Create two jobs
+
+        # Create two jobs
         self.job_id = self.job_model.create(
             cr, uid, {'name': 'Job 1',
                       'category_ids': [(6, 0, [self.categ_id])]},
@@ -57,8 +57,8 @@ class test_hr_job_categories(common.TransactionCase):
                       'category_ids': [(6, 0, [self.categ_2_id])]},
             context=context
         )
-        
-        #Create one contract
+
+        # Create one contract
         self.contract_id = self.contract_model.create(
             cr, uid, {
                 'name': 'Contract 1',
@@ -90,7 +90,7 @@ class test_hr_job_categories(common.TransactionCase):
         """
         cr, uid, context = self.cr, self.uid, self.context
 
-        #Check if job categories are written to the employee
+        # Check if job categories are written to the employee
         self.contract_model.write(
             cr, uid, [self.contract_id], {
                 'job_id': self.job_id,
@@ -104,10 +104,10 @@ class test_hr_job_categories(common.TransactionCase):
             self.cr, self.uid, [self.employee_id], context=self.context
         )
         empl_categ = [categ.id for categ in employee.category_ids]
-        
+
         self.assertTrue(all(x in empl_categ for x in job_categ))
-        
-        #Check if job2 categories are written to the employee
+
+        # Check if job2 categories are written to the employee
         self.contract_model.write(
             cr, uid, [self.contract_id], {
                 'job_id': self.job_2_id,
@@ -121,6 +121,5 @@ class test_hr_job_categories(common.TransactionCase):
             self.cr, self.uid, [self.employee_id], context=self.context
         )
         empl_categ = [categ.id for categ in employee.category_ids]
-        
+
         self.assertTrue(all(x in empl_categ for x in job_categ))
-        
