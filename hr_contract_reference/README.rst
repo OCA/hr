@@ -23,9 +23,9 @@ Configuration
 =============
 
 If you want to modify the format of the sequence, go to
-Seetings -> Technical -> Sequences & Identifiers -> Sequences
+Settings -> Technical -> Sequences & Identifiers -> Sequences
 and search for the "Contract Reference" sequence, where you modify
-it's prefix and numbering formats.
+its prefix and numbering formats.
 
 Usage
 =====
