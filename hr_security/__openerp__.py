@@ -1,5 +1,5 @@
 # -*- coding:utf-8 -*-
-#
+##############################################################################
 #
 #    Copyright (C) 2011,2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
 #    All Rights Reserved.
@@ -17,18 +17,15 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-#
+##############################################################################
 
 {
     "name": "HR Permission Groups",
     "version": "1.0",
     "category": "Generic Modules/Human Resources",
-    "description": """
-Human Resource Permission Groups
-================================
-
-    """,
-    "author": "Michael Telahun Makonnen <mmakonnen@gmail.com,Odoo Community Association (OCA)",
+    "author": "Michael Telahun Makonnen <mmakonnen@gmail.com, "
+              "Fekete Mihai (Forest and Biomass Services Romania), "
+              "Odoo Community Association (OCA)",
     "website": "http://miketelahun.wordpress.com",
     "license": "AGPL-3",
     "depends": [
