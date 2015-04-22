@@ -20,7 +20,7 @@
 #
 ##############################################################################
 
-from openerp import models, fields, api, exceptions, _
+from openerp import models, fields, api
 import logging
 
 _logger = logging.getLogger(__name__)
@@ -62,7 +62,7 @@ class hr_contract(models.Model):
         for tag in job.category_ids:
             if tag not in empl_tags:
                 _logger.debug("Adding employee tag if job tag doesn't "
-                              "exists: %s", tag.name)            
+                              "exists: %s", tag.name)
                 employee.write({'category_ids': [(4, tag.id)]})
 
     @api.model
@@ -75,7 +75,7 @@ class hr_contract(models.Model):
     @api.multi
     def write(self, vals):
         prev_data = self.read(['job_id'])
-        
+
         res = super(hr_contract, self).write(vals)
 
         # Go through each record and delete tags associated with the previous
@@ -85,7 +85,8 @@ class hr_contract(models.Model):
             for data in prev_data:
                 if (data.get('id') == contract.id and data['job_id'] and
                         data['job_id'][0] != contract.job_id.id):
-                    self._remove_tags(contract.employee_id.id, data['job_id'][0])
+                    self._remove_tags(contract.employee_id.id,
+                                      data['job_id'][0])
                 self._tag_employees(contract.employee_id.id,
                                     contract.job_id.id)
         return res
