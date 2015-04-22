@@ -19,10 +19,4 @@
 #
 ##############################################################################
 
-from . import (
-    test_hr_job_categories,
-)
-
-checks = [
-    test_hr_job_categories,
-]
+from . import test_hr_job_categories
