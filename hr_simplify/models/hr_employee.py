@@ -19,7 +19,7 @@
 #
 ##############################################################################
 
-from openerp import models, fields, api
+from openerp import models, fields, api, _
 
 
 class hr_employee(models.Model):
@@ -47,7 +47,7 @@ class hr_employee(models.Model):
     contract_id = fields.Many2one("hr.contract", string="Contract",
                                   compute="_get_latest_contract",
                                   store=True,
-                                  help="Latest contract of the employee"),
+                                  help="Latest contract of the employee")
     job_id = fields.Many2one("hr.job", string="Job",
                              related="contract_id.job_id")
 

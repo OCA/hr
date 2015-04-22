@@ -40,9 +40,8 @@ class hr_job(models.Model):
 
     def _get_job_position(self, cr, uid, ids, context=None):
         res = []
-        for contract in self.pool.get('hr.contract').browse(
-            cr, uid, ids, context=context
-        ):
+        for contract in self.pool.get('hr.contract').browse(cr, uid, ids,
+                                                            context=context):
             if contract.job_id:
                 res.append(contract.job_id.id)
         return res

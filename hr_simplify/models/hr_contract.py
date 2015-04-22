@@ -27,7 +27,7 @@ class hr_contract(models.Model):
 
     @api.one
     def _default_employee(self):
-        if self._context.get('search_default_employee_id', False)
+        if self._context.get('search_default_employee_id', False):
             return self._context['search_default_employee_id']
 
     employee_id = fields.Many2one("hr.employee",
@@ -37,16 +37,12 @@ class hr_contract(models.Model):
     employee_dept_id = fields.Many2one("hr.department",
                                        string="Department",
                                        related="employee_id.department_id")
-    state = fields.Selection(
-            [
-             ('draft', 'Draft'),
-             ('approve', 'Approved'),
-             ('decline', 'Declined'),
-            ],
-            string='State',
-            default='draft',
-            readonly=True,
-        )
+    state = fields.Selection([('draft', 'Draft'),
+                              ('approve', 'Approved'),
+                              ('decline', 'Declined')],
+                             string='State',
+                             default='draft',
+                             readonly=True)
 
     @api.onchange('employee_id')
     def onchange_employee_id(self):
