@@ -26,7 +26,7 @@
     'category': 'Generic Modules/Human Resources',
     'author': "Michael Telahun Makonnen <mmakonnen@gmail.com>, "
               "Savoir-faire Linux, "
-              "Fekete Mihai (Forest and Biomass Services Romania), "
+              "Fekete Mihai (FBSR), "
               "Odoo Community Association (OCA)",
     'website': 'http://miketelahun.wordpress.com',
     'license': 'AGPL-3',
