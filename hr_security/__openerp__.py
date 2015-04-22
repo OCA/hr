@@ -43,5 +43,5 @@ Human Resource Permission Groups
     ],
     'test': [
     ],
-    'installable': False,
+    'installable': True,
 }
