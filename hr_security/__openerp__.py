@@ -37,6 +37,8 @@
         'security/hr_security.xml',
         'security/ir.model.access.csv',
         'security/ir_rule.xml',
+        'views/hr_employee_view.xml',
+        'views/hr_contract_view.xml',
     ],
     'test': [
     ],
