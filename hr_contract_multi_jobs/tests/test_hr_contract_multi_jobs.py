@@ -26,50 +26,27 @@ from openerp import exceptions
 class TestContractMultiJob(TransactionCase):
     def setUp(self):
         super(TestContractMultiJob, self).setUp()
-        self.employee_model = self.registry('hr.employee')
-        self.user_model = self.registry('res.users')
-        self.contract_model = self.registry('hr.contract')
-        self.job_model = self.registry('hr.job')
-        self.context = self.user_model.context_get(self.cr, self.uid)
+        self.employee_model = self.env['hr.employee']
+        self.user_model = self.env['res.users']
+        self.contract_model = self.env['hr.contract']
+        self.job_model = self.env['hr.job']
 
         # Create an employee
-        self.employee_id = self.employee_model.create(
-            self.cr, self.uid, {'name': 'Employee 1'}, context=self.context)
+        self.employee_id = self.employee_model.create({'name': 'Employee 1'})
 
         # Create 2 jobs
-        self.job_id = self.job_model.create(
-            self.cr, self.uid, {'name': 'Job 1'}, context=self.context)
+        self.job_id = self.job_model.create({'name': 'Job 1'})
 
-        self.job_2_id = self.job_model.create(
-            self.cr, self.uid, {'name': 'Job 2'}, context=self.context)
+        self.job_2_id = self.job_model.create({'name': 'Job 2'})
 
         # Create a contract
         self.contract_id = self.contract_model.create(
-            self.cr, self.uid, {
-                'employee_id': self.employee_id,
+            {
+                'employee_id': self.employee_id.id,
                 'name': 'Contract 1',
                 'wage': 50000,
-            }, context=self.context
+            }
         )
-
-        self.contract_model.write(
-            self.cr, self.uid, [self.contract_id], {
-                'job_id': self.job_id
-            }, context=self.context)
-
-    def tearDown(self):
-        self.contract_model.unlink(
-            self.cr, self.uid, [self.contract_id], context=self.context)
-
-        self.employee_model.unlink(
-            self.cr, self.uid, [self.employee_id], context=self.context)
-
-        self.job_model.unlink(
-            self.cr, self.uid,
-            [self.job_id, self.job_2_id],
-            context=self.context)
-
-        super(TestContractMultiJob, self).tearDown()
 
     def test_no_main_jobs(self):
         """
@@ -77,15 +54,8 @@ class TestContractMultiJob(TransactionCase):
         when contract has no assigned job
         and check job_id is False.
         """
-        self.contract_model.write(
-            self.cr, self.uid, [self.contract_id], {
-                'contract_job_ids': [],
-            }, context=self.context
-        )
-        contract = self.contract_model.browse(
-            self.cr, self.uid, [self.contract_id], context=self.context
-        )
-        self.assertFalse(contract.job_id is False)
+        self.contract_id.write({'contract_job_ids': []})
+        self.assertFalse(self.contract_id.job_id is False)
 
     def test_one_main_jobs(self):
         """
@@ -93,19 +63,10 @@ class TestContractMultiJob(TransactionCase):
         when contract has one assigned job
         and check is the job_id is set.
         """
-        self.contract_model.write(
-            self.cr, self.uid, [self.contract_id], {
-                'contract_job_ids': [
-                    (0, 0, {
-                        'job_id': self.job_id,
-                        'is_main_job': True,
-                    })],
-            }, context=self.context
-        )
-        contract = self.contract_model.browse(
-            self.cr, self.uid, [self.contract_id], context=self.context
-        )
-        self.assertTrue(contract.job_id.id == self.job_id)
+        self.contract_id.write({'contract_job_ids':
+                                [(0, 0, {'job_id': self.job_id.id,
+                                         'is_main_job': True})]})
+        self.assertTrue(self.contract_id.job_id.id == self.job_id.id)
 
     def test_two_contract_jobs_one_main_job(self):
         """
@@ -113,23 +74,12 @@ class TestContractMultiJob(TransactionCase):
         when contract has two assigned jobs
         and check is the job_id is set as main job.
         """
-        self.contract_model.write(
-            self.cr, self.uid, [self.contract_id], {
-                'contract_job_ids': [
-                    (0, 0, {
-                        'job_id': self.job_id,
-                        'is_main_job': True,
-                    }),
-                    (0, 0, {
-                        'job_id': self.job_2_id,
-                        'is_main_job': False,
-                    })],
-            }, context=self.context
-        )
-        contract = self.contract_model.browse(
-            self.cr, self.uid, [self.contract_id], context=self.context
-        )
-        self.assertTrue(contract.job_id.id == self.job_id)
+        self.contract_id.write({'contract_job_ids':
+                                [(0, 0, {'job_id': self.job_id.id,
+                                         'is_main_job': True}),
+                                 (0, 0, {'job_id': self.job_2_id.id,
+                                         'is_main_job': False})]})
+        self.assertTrue(self.contract_id.job_id.id == self.job_id.id)
 
     def test_two_contract_jobs_two_main_job(self):
         """
@@ -138,16 +88,9 @@ class TestContractMultiJob(TransactionCase):
         and raise error since both are set as main jobs.
         """
         self.assertRaises(
-            exceptions.ValidationError, self.contract_model.write,
-            self.cr, self.uid, [self.contract_id], {
-                'contract_job_ids': [
-                    (0, 0, {
-                        'job_id': self.job_id,
-                        'is_main_job': True,
-                    }),
-                    (0, 0, {
-                        'job_id': self.job_2_id,
-                        'is_main_job': True,
-                    })],
-            }, context=self.context
-        )
+            exceptions.ValidationError,
+            self.contract_id.write,
+            {'contract_job_ids': [(0, 0, {'job_id': self.job_id.id,
+                                          'is_main_job': True}),
+                                  (0, 0, {'job_id': self.job_2_id.id,
+                                          'is_main_job': True})]})
