@@ -74,5 +74,4 @@ class test_hr_job_categories(common.TransactionCase):
         job_categ = [categ.id for categ in self.job_2_id.category_ids]
         empl_categ = [categ.id for categ in self.employee_id.category_ids]
 
-
         self.assertTrue(all(x in empl_categ for x in job_categ))
