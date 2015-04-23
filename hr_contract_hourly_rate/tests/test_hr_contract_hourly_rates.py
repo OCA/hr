@@ -26,30 +26,25 @@ from openerp import exceptions
 class test_contract_hourly_rate(TransactionCase):
     def setUp(self):
         super(test_contract_hourly_rate, self).setUp()
-        self.employee_model = self.registry('hr.employee')
-        self.user_model = self.registry("res.users")
-        self.contract_model = self.registry("hr.contract")
-        self.job_model = self.registry("hr.job")
-        self.rate_class_model = self.registry("hr.hourly.rate.class")
-        self.context = self.user_model.context_get(self.cr, self.uid)
+        self.employee_model = self.env['hr.employee']
+        self.user_model = self.env["res.users"]
+        self.contract_model = self.env["hr.contract"]
+        self.job_model = self.env["hr.job"]
+        self.rate_class_model = self.env["hr.hourly.rate.class"]
 
         # Create an employee
-        self.employee_id = self.employee_model.create(
-            self.cr, self.uid, {'name': 'Employee 1'}, context=self.context)
+        self.employee_id = self.employee_model.create({'name': 'Employee 1'})
 
         # Create 3 jobs
-        self.job_id = self.job_model.create(
-            self.cr, self.uid, {'name': 'Job 1'}, context=self.context)
+        self.job_id = self.job_model.create({'name': 'Job 1'})
 
-        self.job_2_id = self.job_model.create(
-            self.cr, self.uid, {'name': 'Job 2'}, context=self.context)
+        self.job_2_id = self.job_model.create({'name': 'Job 2'})
 
-        self.job_3_id = self.job_model.create(
-            self.cr, self.uid, {'name': 'Job 3'}, context=self.context)
+        self.job_3_id = self.job_model.create({'name': 'Job 3'})
 
         # Create 3 hourly rate classes
         self.rate_class_id = self.rate_class_model.create(
-            self.cr, self.uid, {
+            {
                 'name': 'Test',
                 'line_ids': [
                     (0, 0, {
@@ -63,11 +58,11 @@ class test_contract_hourly_rate(TransactionCase):
                         'rate': 45,
                     }),
                 ],
-            }, context=self.context
+            }
         )
 
         self.rate_class_2_id = self.rate_class_model.create(
-            self.cr, self.uid, {
+            {
                 'name': 'Test',
                 'line_ids': [
                     (0, 0, {
@@ -81,11 +76,11 @@ class test_contract_hourly_rate(TransactionCase):
                         'rate': 35,
                     }),
                 ],
-            }, context=self.context
+            }
         )
 
         self.rate_class_3_id = self.rate_class_model.create(
-            self.cr, self.uid, {
+            {
                 'name': 'Test',
                 'line_ids': [
                     (0, 0, {
@@ -99,69 +94,48 @@ class test_contract_hourly_rate(TransactionCase):
                         'rate': 25,
                     }),
                 ],
-            }, context=self.context
+            }
         )
 
         # Create a contract
         self.contract_id = self.contract_model.create(
-            self.cr, self.uid, {
-                'employee_id': self.employee_id,
+            {
+                'employee_id': self.employee_id.id,
                 'name': 'Contract 1',
                 'wage': 50000,
                 'salary_computation_method': 'hourly_rate',
                 'contract_job_ids': [
                     (0, 0, {
-                        'job_id': self.job_id,
+                        'job_id': self.job_id.id,
                         'is_main_job': False,
-                        'hourly_rate_class_id': self.rate_class_id,
+                        'hourly_rate_class_id': self.rate_class_id.id,
                     }),
                     (0, 0, {
-                        'job_id': self.job_2_id,
+                        'job_id': self.job_2_id.id,
                         'is_main_job': True,
-                        'hourly_rate_class_id': self.rate_class_2_id,
+                        'hourly_rate_class_id': self.rate_class_2_id.id,
                     }),
                     (0, 0, {
-                        'job_id': self.job_3_id,
+                        'job_id': self.job_3_id.id,
                         'is_main_job': False,
-                        'hourly_rate_class_id': self.rate_class_3_id,
+                        'hourly_rate_class_id': self.rate_class_3_id.id,
                     }),
                 ],
-            }, context=self.context
+            }
         )
-
-    def tearDown(self):
-        self.contract_model.unlink(
-            self.cr, self.uid, [self.contract_id], context=self.context)
-
-        self.employee_model.unlink(
-            self.cr, self.uid, [self.employee_id], context=self.context)
-
-        self.rate_class_model.unlink(
-            self.cr, self.uid,
-            [self.rate_class_id, self.rate_class_2_id, self.rate_class_3_id],
-            context=self.context)
-
-        self.job_model.unlink(
-            self.cr, self.uid,
-            [self.job_id, self.job_2_id, self.job_3_id],
-            context=self.context)
-
-        super(test_contract_hourly_rate, self).tearDown()
 
     def test_check_overlapping_dates(self):
         """
         test the _check_overlapping_dates constraint
         on hourly rate class
         """
-        for dates in [
-            # Should all return the same result
-            ('2013-01-01', '2014-01-01'),
-            ('2014-12-31', '2015-12-31'),
-            ('2014-06-01', '2014-07-31'),
-        ]:
+        # Should all return the same result
+        for dates in [('2013-01-01', '2014-01-01'),
+                      ('2014-12-31', '2015-12-31'),
+                      ('2014-06-01', '2014-07-31')]:
             self.assertRaises(
                 exceptions.ValidationError, self.rate_class_model.write,
-                self.cr, self.uid, [self.rate_class_id], {
+                [self.rate_class_id.id], {
                     'line_ids': [
                         (0, 0, {
                             'date_start': dates[0],
@@ -169,7 +143,7 @@ class test_contract_hourly_rate(TransactionCase):
                             'rate': 15,
                         }),
                     ],
-                }, context=self.context
+                }
             )
 
     def test_check_has_hourly_rate_class(self):
@@ -177,50 +151,40 @@ class test_contract_hourly_rate(TransactionCase):
         test the _check_overlapping_dates constraint
         on contract
         """
-        job_id = self.job_model.create(
-            self.cr, self.uid, {'name': 'Job 4'}, context=self.context)
+        job_id = self.job_model.create({'name': 'Job 4'})
 
         self.assertRaises(
             exceptions.ValidationError, self.contract_model.write,
-            self.cr, self.uid, [self.contract_id], {
+            [self.contract_id.id], {
                 'contract_job_ids': [
                     (0, 0, {
-                        'job_id': job_id,
+                        'job_id': job_id.id,
                         'is_main_job': False,
                         'hourly_rate_class_id': False,
                     }),
                 ],
-            }, context=self.context
+            }
         )
 
-        self.job_model.unlink(
-            self.cr, self.uid, [job_id], context=self.context)
+        self.job_model.unlink([job_id.id])
 
     def test_get_job_hourly_rate(self):
         """
         test the method get_job_hourly_rate with job_id argument
         """
-        for dates in [
-            # Should all return the same result
-            ('2014-02-01', '2014-02-10'),
-            ('2014-01-01', '2014-06-30'),
-        ]:
-            res = self.contract_model.get_job_hourly_rate(
-                self.cr, self.uid, self.contract_id, dates[0], dates[1],
-                job_id=self.job_3_id, main_job=False,
-                context=self.context)
+        # Should all return the same result
+        for dates in [('2014-02-01', '2014-02-10'),
+                      ('2014-01-01', '2014-06-30')]:
+            res = self.contract_id.get_job_hourly_rate(
+                dates[0], dates[1], job_id=self.job_3_id.id, main_job=False)
 
             self.assertTrue(res == 20)
 
-        for dates in [
-            # Should all return the same result
-            ('2014-08-10', '2014-08-20'),
-            ('2014-07-01', '2014-12-31'),
-        ]:
-            res = self.contract_model.get_job_hourly_rate(
-                self.cr, self.uid, self.contract_id, dates[0], dates[1],
-                job_id=self.job_3_id, main_job=False,
-                context=self.context)
+        # Should all return the same result
+        for dates in [('2014-08-10', '2014-08-20'),
+                      ('2014-07-01', '2014-12-31')]:
+            res = self.contract_id.get_job_hourly_rate(
+                dates[0], dates[1], job_id=self.job_3_id.id, main_job=False)
 
             self.assertTrue(res == 25)
 
@@ -228,33 +192,26 @@ class test_contract_hourly_rate(TransactionCase):
         """
         test the method get_job_hourly_rate with main_job argument
         """
-        for dates in [
-            # Should all return the same result
-            ('2014-02-01', '2014-02-10'),
-            ('2014-01-01', '2014-06-30'),
-        ]:
-            res = self.contract_model.get_job_hourly_rate(
-                self.cr, self.uid, self.contract_id, dates[0], dates[1],
-                job_id=False, main_job=True,
-                context=self.context)
+        # Should all return the same result
+        for dates in [('2014-02-01', '2014-02-10'),
+                      ('2014-01-01', '2014-06-30')]:
+            res = self.contract_id.get_job_hourly_rate(
+                dates[0], dates[1], job_id=False, main_job=True)
 
             self.assertTrue(res == 30)
 
-        for dates in [
-            # Should all return the same result
-            ('2014-08-10', '2014-08-20'),
-            ('2014-07-01', '2014-12-31'),
-        ]:
-            res = self.contract_model.get_job_hourly_rate(
-                self.cr, self.uid, self.contract_id, dates[0], dates[1],
-                job_id=False, main_job=True,
-                context=self.context)
+        # Should all return the same result
+        for dates in [('2014-08-10', '2014-08-20'),
+                      ('2014-07-01', '2014-12-31')]:
+            res = self.contract_id.get_job_hourly_rate(
+                dates[0], dates[1], job_id=False, main_job=True)
 
             self.assertTrue(res == 35)
 
             self.assertRaises(
                 exceptions.ValidationError, self.rate_class_model.write,
-                self.cr, self.uid, [self.rate_class_id], {
+                [self.rate_class_id.id],
+                {
                     'line_ids': [
                         (0, 0, {
                             'date_start': dates[0],
@@ -262,5 +219,5 @@ class test_contract_hourly_rate(TransactionCase):
                             'rate': 15,
                         }),
                     ],
-                }, context=self.context
+                }
             )
