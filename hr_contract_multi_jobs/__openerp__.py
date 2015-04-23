@@ -24,7 +24,7 @@
     'license': 'AGPL-3',
     'category': 'Generic Modules/Human Resources',
     'author': 'Savoir-faire Linux, '
-              'Fekete Mihai (Forest and Biomass Services Romania, '
+              'Fekete Mihai (Forest and Biomass Services Romania), '
               'Odoo Community Association (OCA)',
     'website': 'https://www.savoirfairelinux.com/',
     'depends': [
