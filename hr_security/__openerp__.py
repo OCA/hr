@@ -23,7 +23,7 @@
     "name": "HR Permission Groups",
     "version": "1.0",
     "category": "Generic Modules/Human Resources",
-    "author": "Michael Telahun Makonnen <mmakonnen@gmail.com, "
+    "author": "Michael Telahun Makonnen, "
               "Fekete Mihai (Forest and Biomass Services Romania), "
               "Odoo Community Association (OCA)",
     "website": "http://miketelahun.wordpress.com",
