@@ -1,0 +1,5 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_hr_academic","hr.academic","model_hr_academic",base.group_hr_user,1,1,1,1
+"access_hr_experience","hr.experience","model_hr_experience",base.group_hr_user,1,1,1,1
+access_hr_curriculum,access_hr_curriculum,model_hr_curriculum,base.group_hr_user,1,1,1,1
+"access_hr_certification","hr.certification","model_hr_certification",base.group_hr_user,1,1,1,1
