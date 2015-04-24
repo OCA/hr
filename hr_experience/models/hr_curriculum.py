@@ -20,45 +20,28 @@
 #
 ##############################################################################
 
-from openerp.osv import fields, orm
+from openerp import models, fields
 
 
-class hr_curriculum(orm.Model):
+class hr_curriculum(models.Model):
     _name = 'hr.curriculum'
-    _columns = {
-        'name': fields.char(
-            'Name',
-            required=True,
-        ),
-        'employee_id': fields.many2one(
-            'hr.employee',
-            'Employee',
-            required=True,
-        ),
-        'start_date': fields.date(
-            'Start date',
-        ),
-        'end_date': fields.date(
-            'End date',
-        ),
-        'description': fields.text(
-            'Description',
-        ),
-        'partner_id': fields.many2one(
-            'res.partner',
-            'Partner',
-            help="Employer, School, University, Certification Authority",
-        ),
-        'location': fields.char(
-            'Location',
-            help="Location",
-        ),
-        'expire': fields.boolean(
-            'Expire',
-            help="Expire",
-        ),
+    _description = "Employee's Curriculum"
 
-    }
-    _defaults = {
-        'expire': True,
-    }
+    # Allow the possibility to attachements to curriculum
+    # even if it's a diploma, degree...
+    _inherit = 'ir.needaction_mixin'
+    
+    
+    name = fields.Char('Name', required=True,)
+    employee_id = fields.Many2one('hr.employee',
+                                  string='Employee',
+                                  required=True)
+    start_date = fields.Date('Start date')
+    end_date = fields.Date('End date')
+    description = fields.Text('Description')
+    partner_id = fields.Many2one('res.partner',
+                                 'Partner',
+                                 help="Employer, School, University, "
+                                      "Certification Authority")
+    location = fields.Char('Location', help="Location")
+    expire = fields.Boolean('Expire', help="Expire", default=True)

@@ -20,14 +20,12 @@
 #
 ##############################################################################
 
-from openerp.osv import fields, orm
+from openerp import models, fields
 
 
-class hr_certification(orm.Model):
+class hr_certification(models.Model):
     _name = 'hr.certification'
     _inherit = 'hr.curriculum'
 
-    _columns = {
-        'certification': fields.char('Certification Number',
-                                     help='Certification Number'),
-    }
+    certification = fields.Char(string='Certification Number',
+                                help='Certification Number')

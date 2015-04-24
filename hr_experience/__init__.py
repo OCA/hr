@@ -19,10 +19,4 @@
 #
 ###############################################################################
 
-from . import (
-    hr_curriculum,
-    hr_academic,
-    hr_certification,
-    hr_experience,
-    hr_employee,
-)
+from . import models
