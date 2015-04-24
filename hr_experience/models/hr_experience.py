@@ -20,21 +20,17 @@
 #
 ##############################################################################
 
-from openerp.osv import fields, orm
+from openerp import models, fields
 
 
-class hr_experience(orm.Model):
+class hr_experience(models.Model):
     _name = 'hr.experience'
     _inherit = 'hr.curriculum'
 
-    _columns = {
-        'category': fields.selection((('professional', 'Professional'),
-                                      ('academic', 'Academic'),
-                                      ('certification', 'Certification')),
-                                     'Category', required=True,
-                                     help='category'),
-    }
-
-    _defaults = {
-        'category': 'professional',
-    }
+    category = fields.Selection([('professional', 'Professional'),
+                                 ('academic', 'Academic'),
+                                 ('certification', 'Certification')],
+                                'Category',
+                                required=True,
+                                default='professional',
+                                help='Category')

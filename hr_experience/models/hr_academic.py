@@ -20,25 +20,14 @@
 #
 ##############################################################################
 
-from openerp.osv import fields, orm
+from openerp import models, fields
 
 
-class hr_academic(orm.Model):
+class hr_academic(models.Model):
     _name = 'hr.academic'
     _inherit = 'hr.curriculum'
-    _columns = {
-        'diploma': fields.char(
-            'Diploma',
-            size=64,
-            translate=True,
-        ),
-        'study_field': fields.char(
-            'Field of study',
-            size=64,
-            translate=True,
-        ),
-        'activities': fields.text(
-            'Activities and associations',
-            translate=True,
-        ),
-    }
+
+    diploma = fields.Char(string='Diploma', translate=True)
+    study_field = fields.Char(string='Field of study', translate=True,)
+    activities = fields.Text(string='Activities and associations',
+                             translate=True)

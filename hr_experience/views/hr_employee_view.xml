@@ -2,23 +2,22 @@
   <data>
     <!-- inheritEmployee -->
     <record model="ir.ui.view" id="view_employee_form_inherit">
-      <field name="name">hr.experience.employee.form</field>
-      <field name="model">hr.employee</field>
-      <field name="inherit_id" ref="hr.view_employee_form"/>
-      <field name="type">form</field>
-      <field name="arch" type="xml">
-        <notebook position="inside">
-          <page string="Academic">
-              <field name="academic_ids"/>
-          </page>
-          <page string="Professional">
-            <field name="experience_ids"/>
-          </page>
-          <page string="Certification">
-            <field name="certification_ids"/>
-          </page>
-        </notebook>
-      </field>
+        <field name="name">hr.experience.employee.form</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <notebook position="inside">
+                <page string="Academic" groups="base.group_user,base.group_hr_user">
+                    <field name="academic_ids" context="{'default_employee_id': active_id}"/>
+                </page>
+                <page string="Professional" groups="base.group_user,base.group_hr_user">
+                    <field name="experience_ids" context="{'default_employee_id': active_id}"/>
+                </page>
+                <page string="Certification" groups="base.group_user,base.group_hr_user">
+                    <field name="certification_ids" context="{'default_employee_id': active_id}"/>
+                </page>
+            </notebook>
+        </field>
     </record>
   </data>
 </openerp>
