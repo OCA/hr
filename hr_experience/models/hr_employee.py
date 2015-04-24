@@ -20,22 +20,21 @@
 #
 ##############################################################################
 
-from openerp.osv import fields, orm
+from openerp import models, fields
 
 
-class hr_employee(orm.Model):
+class hr_employee(models.Model):
     _inherit = 'hr.employee'
-    _columns = {
-        'academic_ids': fields.one2many('hr.academic',
+
+    academic_ids = fields.One2many('hr.academic',
+                                   'employee_id',
+                                   'Academic experiences',
+                                   help="Academic experiences")
+    certification_ids = fields.One2many('hr.certification',
                                         'employee_id',
-                                        'Academic experiences',
-                                        help="Academic experiences"),
-        'certification_ids': fields.one2many('hr.certification',
-                                             'employee_id',
-                                             'Certifications',
-                                             help="Certifications"),
-        'experience_ids': fields.one2many('hr.experience',
-                                          'employee_id',
-                                          ' Professional Experiences',
-                                          help='Professional Experiences'),
-    }
+                                        'Certifications',
+                                        help="Certifications")
+    experience_ids = fields.One2many('hr.experience',
+                                     'employee_id',
+                                     ' Professional Experiences',
+                                     help='Professional Experiences')
