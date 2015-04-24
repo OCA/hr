@@ -48,7 +48,7 @@
         <field name="view_mode">tree,form</field>
     </record>
     <menuitem name="Academic Experiences"
-              parent="hr.menu_hr_configuration"
+              parent="menu_hr_experience"
               id="menu_open_view_academic_form"
               action="open_view_academic_form"/>
 
