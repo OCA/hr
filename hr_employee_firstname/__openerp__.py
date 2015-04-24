@@ -20,36 +20,34 @@
 #
 ##############################################################################
 
-from openerp.osv import orm, fields
+{
+    'name': 'Employee First Name, Last Name',
+    'version': '0.1',
+    'author': "Savoir-faire Linux,Odoo Community Association (OCA)",
+    'maintainer': 'Savoir-faire Linux',
+    'website': 'http://www.savoirfairelinux.com',
+    'license': 'AGPL-3',
+    'category': 'Human Resources',
+    'summary': 'Adds First Name to Employee',
+    'description': """
+Employee First Name, Last Name
+==============================
 
+This module allows you to add firstname and lastname in employee form,
+and concatenate both in name field.
 
-class hr_employee(orm.Model):
-    _inherit = 'hr.employee'
-
-    def init(self, cursor):
-        cursor.execute('''\
-SELECT id
-FROM hr_employee
-WHERE lastname IS NOT NULL
-LIMIT 1''')
-        if not cursor.fetchone():
-            cursor.execute('''\
-UPDATE hr_employee
-SET lastname = name_related
-WHERE name_related IS NOT NULL''')
-
-    def create(self, cursor, uid, vals, context=None):
-        firstname = vals.get('firstname')
-        lastname = vals.get('lastname')
-        if firstname or lastname:
-            names = (firstname, lastname)
-            vals['name'] = " ".join(s for s in names if s)
-        else:
-            vals['lastname'] = vals['name']
-        return super(hr_employee, self).create(
-            cursor, uid, vals, context=context)
-
-    _columns = {
-        'firstname': fields.char("Firstname"),
-        'lastname': fields.char("Lastname", required=True)
-    }
+Contributors
+------------
+* El Hadji Dem (elhadji.dem@savoirfairelinux.com)
+* Sandy Carter (sandy.carter@savoirfairelinux.com)
+""",
+    'depends': [
+        'hr',
+    ],
+    'data': [
+        'views/hr_view.xml',
+    ],
+    'demo': [],
+    'test': [],
+    'installable': True,
+}
