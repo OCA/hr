@@ -1,5 +1,8 @@
 <openerp>
   <data>
+    <!-- Add a menu to Human Resources to keep the curriculum. -->
+    <menuitem id="menu_hr_experience" parent="hr.menu_hr_root" name="Experiences" sequence="0"/>
+    
     <!-- inheritEmployee -->
     <record model="ir.ui.view" id="view_employee_form_inherit">
         <field name="name">hr.experience.employee.form</field>
