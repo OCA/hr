@@ -21,26 +21,16 @@
 ##############################################################################
 
 {
-    'name': 'Employee First Name, Last Name',
+    'name': 'HR Employee First Name, Last Name',
     'version': '0.1',
-    'author': "Savoir-faire Linux,Odoo Community Association (OCA)",
+    'author': "Savoir-faire Linux, "
+              "Fekete Mihai (Forest and Biomass Services Romania), "
+              "Odoo Community Association (OCA)",
     'maintainer': 'Savoir-faire Linux',
     'website': 'http://www.savoirfairelinux.com',
     'license': 'AGPL-3',
     'category': 'Human Resources',
     'summary': 'Adds First Name to Employee',
-    'description': """
-Employee First Name, Last Name
-==============================
-
-This module allows you to add firstname and lastname in employee form,
-and concatenate both in name field.
-
-Contributors
-------------
-* El Hadji Dem (elhadji.dem@savoirfairelinux.com)
-* Sandy Carter (sandy.carter@savoirfairelinux.com)
-""",
     'depends': [
         'hr',
     ],
