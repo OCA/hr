@@ -35,23 +35,47 @@ FROM hr_employee
 WHERE firstname IS NULL AND lastname IS NULL
 LIMIT 1""")
         if not cr.fetchone():
-           cr.execute("""
+            cr.execute("""
 UPDATE hr_employee
-SET firstname = substr(name_related, 1, CASE WHEN strpos(name_related, ' ')-2>0 THEN strpos(name_related, ' ') ELSE 2 END),
-    lastname = substr(name_related, CASE WHEN strpos(name_related, ' ')-2>0 THEN strpos(name_related, ' ') ELSE 2 END+1, length(name_related)-CASE WHEN strpos(name_related, ' ')-2>0 THEN strpos(name_related, ' ') ELSE 2 END+1)
+SET firstname = substr(name_related,
+                       1,
+                       CASE WHEN strpos(name_related, ' ')-2>0
+                           THEN strpos(name_related, ' ')
+                           ELSE 2
+                       END),
+    lastname = substr(name_related,
+                      CASE WHEN strpos(name_related, ' ')-2>0
+                          THEN strpos(name_related, ' ')
+                          ELSE 2
+                      END + 1,
+                      length(name_related) - \
+                      CASE WHEN strpos(name_related, ' ')-2>0
+                          THEN strpos(name_related, ' ')
+                          ELSE 2
+                      END+1)
 WHERE name_related IS NOT NULL""")
         return res
-        
-    @api.multi
+
+    @api.one
+    @api.onchange('firstname', 'lastname')
+    def get_name(self):
+        if self.firstname and self.lastname:
+            self.name_related = self.firstname + ' ' + self.lastname
+
+    @api.one
     @api.depends('firstname', 'lastname')
     def _get_name(self):
-        for employee in self:
-           if self.firstname or self.lastname:
-               self.name_related = self.firstname + ' ' + self.lastname
-               self.resource_id.name = self.name_related
+        if self.firstname and self.lastname:
+            self.name_related = self.firstname + ' ' + self.lastname
 
     firstname = fields.Char("Firstname", required=True)
     lastname = fields.Char("Lastname", required=True)
     name_related = fields.Char(string="Name", readonly=True,
                                compute="_get_name",
                                store=True)
+
+    @api.model
+    def create(self, vals):
+        if vals.get('firstname', '') and vals.get('lastname', ''):
+            vals['name'] = vals['firstname'] + ' ' + vals['lastname']
+        return super(hr_employee, self).create(vals)
