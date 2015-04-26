@@ -178,7 +178,7 @@
           <para style="P15">[[ translate_term('Name', o) ]]</para>
         </td>
         <td>
-          <para style="P15">[[ o.employee_id.name ]]</para>
+          <para style="P4">[[ o.employee_id.name ]]</para>
         </td>
         <td>
           <para style="P15">[[ translate_term('Designation', o) ]]</para>
@@ -191,9 +191,7 @@
     <blockTable colWidths="89.0,451.0" style="Table3">
       <tr>
         <td>
-          <para style="terp_default_Bold_8">
-            <font face="Helvetica">[[translate_term('Address', o)]]</font>
-          </para>
+          <para style="P15">[[translate_term('Address', o)]]</para>
         </td>
         <td>
           <para style="P4">[[ o.employee_id.address_home_id and o.employee_id.address_home_id.name or '' ]]
@@ -210,9 +208,7 @@
           <para style="P4">[[ o.employee_id.work_email or '' ]]</para>
         </td>
         <td>
-          <para style="terp_default_Bold_8">
-            <font face="Helvetica">Identification No</font>
-          </para>
+          <para style="P15">Identification No</para>
         </td>
         <td>
           <para style="P4">[[ o.employee_id.identification_id or '' ]]</para>
@@ -244,9 +240,7 @@
           <para style="P4">[[ o.date_from or '']]</para>
         </td>
         <td>
-          <para style="terp_default_Bold_8">
-            <font face="Helvetica" size="8.0">[[ translate_term('Date To', o) ]]</font>
-          </para>
+          <para style="P15">[[ translate_term('Date To', o) ]]</para>
         </td>
         <td>
           <para style="P4">[[ o.date_to or '' ]]</para>
