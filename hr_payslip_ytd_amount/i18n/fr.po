@@ -28,7 +28,6 @@ msgstr "Référence"
 
 #. module: hr_payslip_ytd_amount
 #: report:payslip_ytd_amount:0
-#, fuzzy
 msgid "Amount Year-to-date"
 msgstr "Total Année Courante"
 

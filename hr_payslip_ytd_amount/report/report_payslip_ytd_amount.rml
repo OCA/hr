@@ -172,7 +172,7 @@
       <font face="Helvetica" size="14.0"/>
       <font face="Helvetica-Bold" size="14.0">[[ translate_term('Note', o) ]]</font>
     </para>
-    <blockTable colWidths="63.0,206.0,89.0,181.0" style="Table2">
+    <blockTable colWidths="89.0,181.0,89.0,181.0" style="Table2">
       <tr>
         <td>
           <para style="P15">[[ translate_term('Name', o) ]]</para>
@@ -188,7 +188,7 @@
         </td>
       </tr>
     </blockTable>
-    <blockTable colWidths="63.0,476.0" style="Table3">
+    <blockTable colWidths="89.0,451.0" style="Table3">
       <tr>
         <td>
           <para style="terp_default_Bold_8">
@@ -201,7 +201,7 @@
         </td>
       </tr>
     </blockTable>
-    <blockTable colWidths="63.0,206.0,89.0,181.0" style="Table4">
+    <blockTable colWidths="89.0,181.0,89.0,181.0" style="Table4">
       <tr>
         <td>
           <para style="P15">[[ translate_term('Email', o) ]]</para>
@@ -219,7 +219,7 @@
         </td>
       </tr>
     </blockTable>
-    <blockTable colWidths="63.0,206.0,89.0,181.0" style="Table5">
+    <blockTable colWidths="89.0,181.0,89.0,181.0" style="Table5">
       <tr>
         <td>
           <para style="P15">[[ translate_term('Reference', o) ]]</para>
@@ -235,10 +235,10 @@
         </td>
       </tr>
     </blockTable>
-    <blockTable colWidths="63.0,206.0,89.0,181.0" style="Table6">
+    <blockTable colWidths="89.0,181.0,89.0,181.0" style="Table6">
       <tr>
         <td>
-          <para style="P15">Date From</para>
+          <para style="P15">[[ translate_term('Date From', o) ]]</para>
         </td>
         <td>
           <para style="P4">[[ o.date_from or '']]</para>
@@ -263,7 +263,7 @@
           <para style="P13">[[ translate_term('Name', o) ]]</para>
         </td>
         <td>
-          <para style="P13">[[ translate_term('Amount', o) ]]</para>
+          <para style="P14">[[ translate_term('Amount', o) ]]</para>
         </td>
         <td>
           <para style="P14">[[ translate_term('Amount Year-to-date', o) ]]</para>
