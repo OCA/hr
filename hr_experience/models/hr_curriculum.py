@@ -30,8 +30,7 @@ class hr_curriculum(models.Model):
     # Allow the possibility to attachements to curriculum
     # even if it's a diploma, degree...
     _inherit = 'ir.needaction_mixin'
-    
-    
+
     name = fields.Char('Name', required=True,)
     employee_id = fields.Many2one('hr.employee',
                                   string='Employee',
