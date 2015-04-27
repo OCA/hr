@@ -20,7 +20,6 @@
 ##############################################################################
 
 from openerp.tests.common import TransactionCase
-from openerp import exceptions
 
 
 class TestEmployeeFirstname(TransactionCase):
