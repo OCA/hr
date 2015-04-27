@@ -28,19 +28,20 @@ class hr_employee(models.Model):
 
     @api.cr_context
     def _auto_init(self, cr, context=None):
-        res = super(hr_employee, self)._auto_init(cr, context=context)
         cr.execute("""
 UPDATE hr_employee
-SET firstname = LEFT(trim(name_related),
+SET firstname = COALESCE(LEFT(trim(name_related),
                 COALESCE(POSITION(' ' IN trim(name_related))-1,
                          CHAR_LENGTH(trim(name_related)))),
-    lastname = RIGHT(trim(name_related),
+                         ' '),
+    lastname = COALESCE(RIGHT(trim(name_related),
                      CHAR_LENGTH(trim(name_related))-
-                     POSITION(' ' IN trim(name_related)))
+                     POSITION(' ' IN trim(name_related))),
+                     ' ')
 WHERE name_related IS NOT NULL OR name_related != ' ' AND
       (firstname IS NULL OR firstname = ' ') AND
       (lastname IS NULL or lastname = ' ')""")
-        return res
+        return super(hr_employee, self)._auto_init(cr, context=context)
 
     @api.one
     @api.onchange('firstname', 'lastname')
