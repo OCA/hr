@@ -28,6 +28,7 @@ class hr_employee(models.Model):
 
     @api.cr_context
     def _auto_init(self, cr, context=None):
+        res = super(hr_employee, self)._auto_init(cr, context=context)
         cr.execute("""
 UPDATE hr_employee
 SET firstname = COALESCE(LEFT(trim(name_related),
@@ -41,7 +42,7 @@ SET firstname = COALESCE(LEFT(trim(name_related),
 WHERE name_related IS NOT NULL OR name_related != ' ' AND
       (firstname IS NULL OR firstname = ' ') AND
       (lastname IS NULL or lastname = ' ')""")
-        return super(hr_employee, self)._auto_init(cr, context=context)
+        return res
 
     @api.one
     @api.onchange('firstname', 'lastname')
