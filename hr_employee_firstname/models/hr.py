@@ -31,9 +31,15 @@ class hr_employee(models.Model):
         res = super(hr_employee, self)._auto_init(cr, context=context)
         cr.execute("""
 UPDATE hr_employee
-SET firstname = LEFT(trim(name_related),COALESCE(POSITION(' ' IN trim(name_related))-1,CHAR_LENGTH(trim(name_related)))),
-    lastname = RIGHT(trim(name_related),CHAR_LENGTH(trim(name_related))-POSITION(' ' IN trim(name_related)))
-WHERE name_related IS NOT NULL OR name_related != ' ' AND (firstname IS NULL OR firstname = ' ') AND (lastname IS NULL or lastname = ' ')""")
+SET firstname = LEFT(trim(name_related),
+                COALESCE(POSITION(' ' IN trim(name_related))-1,
+                         CHAR_LENGTH(trim(name_related)))),
+    lastname = RIGHT(trim(name_related),
+                     CHAR_LENGTH(trim(name_related))-
+                     POSITION(' ' IN trim(name_related)))
+WHERE name_related IS NOT NULL OR name_related != ' ' AND
+      (firstname IS NULL OR firstname = ' ') AND
+      (lastname IS NULL or lastname = ' ')""")
         return res
 
     @api.one
@@ -56,13 +62,15 @@ WHERE name_related IS NOT NULL OR name_related != ' ' AND (firstname IS NULL OR 
 
     @api.model
     def create(self, vals):
-        if vals.get('firstname', ' ')!=' ' and vals.get('lastname', ' ')!=' ':
+        if vals.get('firstname', ' ') != ' ' and vals.get('lastname',
+                                                          ' ') != ' ':
             vals['name'] = vals['firstname'] + ' ' + vals['lastname']
-        if vals['name'] and vals.get('firstname', ' ') and vals.get('lastname', ' '):
-            if len(vals['name'].strip().split(' ', 1))>1:
+        if vals['name'] and vals.get('firstname', ' ') and vals.get('lastname',
+                                                                    ' '):
+            if len(vals['name'].strip().split(' ', 1)) > 1:
                 vals['firstname'] = vals['name'].strip().split(' ', 1)[0]
                 vals['lastname'] = vals['name'].strip().split(' ', 1)[1]
-            else:            
+            else:
                 vals['firstname'] = vals['name']
                 vals['lastname'] = ' '
         return super(hr_employee, self).create(vals)
