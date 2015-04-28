@@ -1,23 +1,21 @@
-# Russian translation for openobject-addons
-# Copyright (c) 2014 Rosetta Contributors and Canonical Ltd 2014
+# Kabyle translation for openobject-addons
+# Copyright (c) 2015 Rosetta Contributors and Canonical Ltd 2015
 # This file is distributed under the same license as the openobject-addons package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2014.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2015.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: openobject-addons\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-01-21 14:07+0000\n"
-"PO-Revision-Date: 2015-04-26 03:03+0000\n"
-"Last-Translator: user3 <Unknown>\n"
-"Language-Team: Russian <http://translate.starlight-"
-"biz.com//projects/odoo/hr_evaluation/ru/>\n"
+"PO-Revision-Date: 2015-04-19 20:24+0000\n"
+"Last-Translator: Belkacem Mohammed <belkacem77@gmail.com>\n"
+"Language-Team: Kabyle <kab@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-04-27 05:37+0000\n"
+"X-Launchpad-Export-Date: 2015-04-20 06:35+0000\n"
 "X-Generator: Launchpad (build 17430)\n"
-"Language: ru\n"
 
 #. module: hr_evaluation
 #: code:addons/hr_evaluation/hr_evaluation.py:84
@@ -39,46 +37,31 @@ msgid ""
 "\n"
 "        "
 msgstr ""
-"\n"
-"Дата: %(date)s\n"
-"\n"
-"Уважаемый %(employee_name)s,\n"
-"\n"
-"Я провожу собеседование %(eval_name)s.\n"
-"\n"
-"Отправьте, пожалуйста, ваш ответ.\n"
-"\n"
-"\n"
-"С благодарностью,\n"
-"--\n"
-"%(user_signature)s\n"
-"\n"
-"        "
 
 #. module: hr_evaluation
 #: field:hr.evaluation.report,nbr:0
 msgid "# of Requests"
-msgstr "# запросов"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr_evaluation.plan.phase:hr_evaluation.view_hr_evaluation_plan_phase_form
 msgid "(date)s: Current Date"
-msgstr "(date)s: Текущая дата"
+msgstr "(date)s: Azemz Amiran"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.plan.phase:hr_evaluation.view_hr_evaluation_plan_phase_form
 msgid "(employee_name)s: Partner name"
-msgstr "(employee_name)s: Имя партнера"
+msgstr "(employee_name)s: Isem n umendid"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.plan.phase:hr_evaluation.view_hr_evaluation_plan_phase_form
 msgid "(eval_name)s:Appraisal Name"
-msgstr "(eval_name)s:Имя рецензента"
+msgstr "(eval_name)s:Isem n Uskazal"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.plan.phase:hr_evaluation.view_hr_evaluation_plan_phase_form
 msgid "(user_signature)s: User name"
-msgstr "(user_signature)s: Имя пользователя"
+msgstr "(user_signature)s: Isem n useqdac"
 
 #. module: hr_evaluation
 #: model:survey.page,description:hr_evaluation.opinion_1
@@ -103,24 +86,6 @@ msgid ""
 "<li>Significantly below standards and expectations</li>\n"
 "</ol>"
 msgstr ""
-"<h2>В день оценки руководителя</h2>\n"
-"<р>Его подчиненные будут приглашены через Odoo прокомментировать руководство "
-"своего непосредственного начальника и высказать свое мнение о собственной "
-"активности и эффективности, и непрерывном улучшении и открытости в работе в "
-"компании...</p> \n"
-"<р>Сотрудники отправят свои анонимные ответы на Odoo. Данные будут "
-"обработаны менеджером по персоналу и краткий итог данных будет отправлен "
-"соответствующему руководителю, его команде и вышестоящему руководителю.</p>\n"
-"<р>Рецензент должен оценить основные рабочие достижения и результаты "
-"деятельности работника в соответствии с системой оценки, приведенной ниже \n"
-"</p><ol>\n"
-"<li>Значительно превышает стандарты и ожидания, необходимые для занимаемой "
-"должности</li> \n"
-"<li>Превышает стандарты и ожидания</li> \n"
-"<li>Соответствует стандартам и ожиданиям</li>\n"
-"<li>Не соответствует стандартам и ожиданиям </li> \n"
-"<li>Значительно ниже стандартов и ожиданий </li>\n"
-"</ol>"
 
 #. module: hr_evaluation
 #: model:survey.page,description:hr_evaluation.appraisal_1
@@ -159,41 +124,6 @@ msgid ""
 "</li><li>The supervisor send the form to the HR department in India and in "
 "Belgium</li></ul>"
 msgstr ""
-"<h2>Общая цель Оценивания Сотрудника</h2>\n"
-"<ul><li>Чтобы осуществить четкую и открытую коммуникацию ожидаемой "
-"производительности\n"
-"</li><li>Для оказания помощи сотрудникам в их профессиональном росте, путем "
-"выявления сильных сторон и возможностей для\n"
-"\n"
-"развития</li></li>\n"
-"<h2>Вне периода оценивания</h2>\n"
-"<ul><li>Это совместная ответственность работника и руководителя (оценщика) "
-"создать оправданный план работы на\n"
-"Наступающий год, в том числе из основных обязанностей работника и "
-"соответствующих показателей, по которым результаты будут\n"
-"оценены.\n"
-"</li></li>Критические или ключевые элементы производительности и "
-"профессиональных потребностей развития (если таковые имеются), следует также "
-"отметить, в это время</li><ul>\n"
-"<h2>В завершении периода оценивания</h2>\n"
-"<ul><li>Сотрудник будет нести ответственность за выполнение проекта по форме "
-"оценки в качестве инструмента для самооценки и начальной\n"
-"точки для оценки руководителя. Работник может добавить примеры достижений "
-"для каждого критерия.\n"
-"После того как форма была заполнена, сотрудник отправляет ее своему "
-"руководителю.\n"
-"</li><li>Главная обязанность руководителя собрать необходимую информацию от "
-"соответствующих источников обратной связи\n"
-"(внутренние и / или внешние клиенты, пиры). В случае сотрудничества с Odoo "
-"SA Бельгия, руководитель должен\n"
-"получить заполненную форму оценки от бельгийского проект-менеджера.\n"
-"</li><li>Руководитель синтезирует и интегрирует все исходные данные в "
-"завершенную оценку. Он мотивирует свою оценку в\n"
-"специальном поле.\n"
-"</li><li>Работник может выбрать, чтобы предложить комментарии или объяснения "
-"в отношении завершенного оценивания.\n"
-"</li><li>Руководитель отправляет форму в отдел кадров в Индии и в "
-"Бельгии</li></ul>"
 
 #. module: hr_evaluation
 #: model:ir.actions.act_window,help:hr_evaluation.open_view_hr_evaluation_tree
@@ -211,19 +141,6 @@ msgid ""
 "              </p>\n"
 "            "
 msgstr ""
-"<p class=\"oe_view_nocontent_create\">↵\n"
-"Нажмите чтобы создать нового рецензента.↵\n"
-"</p><p>↵\n"
-"Каждый сотрудник может быть направлен на плановое оценивание. Такое "
-"оценивание↵\n"
-"определяет частоту и способ вашего прохождения периодического↵\n"
-"персонального тестирования. Вы сможете определить этапы↵\n"
-"и пройти собеседование по каждому из этапов. Odoo контролирует все типы↵\n"
-"оцениваний: восходящие, нисходящие, самостоятельное оценивание и "
-"окончательное↵\n"
-"оценивание менеджером.↵\n"
-"</p>↵\n"
-"            "
 
 #. module: hr_evaluation
 #: model:ir.actions.act_window,help:hr_evaluation.action_hr_evaluation_interview_tree
@@ -239,18 +156,6 @@ msgid ""
 "              </p>\n"
 "            "
 msgstr ""
-"<p class=\"oe_view_nocontent_create\">↵\n"
-"                Нажмите чтобы создать  новый запрос на собеседование "
-"относительно                            персонального оценивания.↵\n"
-"              </p><p>↵\n"
-"                Запросы на собеседование обычно создаются Odoo "
-"автоматически↵\n"
-"                согласно оценочному плану сотрудника. Периодически каждый "
-"пользователь↵\n"
-"                автоматически получает письма и запросы с просьбой оценить "
-"своих коллег.↵\n"
-"              </p>↵\n"
-"            "
 
 #. module: hr_evaluation
 #: model:ir.actions.act_window,help:hr_evaluation.action_evaluation_plans_installer
@@ -266,18 +171,6 @@ msgid ""
 "              </p>\n"
 "            "
 msgstr ""
-"<p class=\"oe_view_nocontent_create\">↵\n"
-"               Нажмите чтобы создать новое плановое оценивание.↵\n"
-"              </p><p>↵\n"
-"                Вы можете определить время планового оценивания (напр.: "
-"первое собеседование    через 6↵\n"
-"                месяцев, затем каждый год). Затем, каждый сотрудник может "
-"быть подключен к↵\n"
-"                плановому оцениванию так, что Odoo сможет автоматически "
-"создавать↵\n"
-"                запросы на собеседование для менеджеров и/или подчиненных.↵\n"
-"              </p>↵\n"
-"            "
 
 #. module: hr_evaluation
 #: model:survey.page,description:hr_evaluation.appraisal_2
@@ -292,7 +185,7 @@ msgstr "<p> </p>"
 #. module: hr_evaluation
 #: model:survey.page,description:hr_evaluation.appraisal_5
 msgid "<p></p>"
-msgstr "<p></p>"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:survey.page,description:hr_evaluation.appraisal_4
@@ -301,9 +194,6 @@ msgid ""
 "for employee’s continued career development\n"
 "over the coming year.</p>"
 msgstr ""
-"<р>Определите профессиональные, производственные или проектные качества, "
-"которые вы рекомендуете для развития карьеры сотрудника\n"
-"в течение следующего года.</p>"
 
 #. module: hr_evaluation
 #: model:survey.page,description:hr_evaluation.appraisal_3
@@ -318,51 +208,41 @@ msgid ""
 "</li><li> Did not meet standards and expectations\n"
 "</li><li> Significantly below standards and expectations</li></ol>"
 msgstr ""
-"<p>Рецензент должен оценить основные рабочие достижения и результаты "
-"деятельности работника в соответствии с системой оценки, приведенной ниже↵ \n"
-"</p><ol>↵ \n"
-"<li>Значительно превышает стандарты и ожидания, необходимые для занимаемой "
-"должности\n"
-"</li><li>Превышает стандарты и ожидания\n"
-"</li><li>Соответствует стандартам и ожиданиям\n"
-"</li><li>Не соответствует стандартам и ожиданиям \n"
-"</li><li>Значительно ниже стандартов и ожиданий </li></ol>"
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.arow_3_1_1
 msgid "Ability to cope with multidisciplinarity of team"
-msgstr "Способность справиться с мультидисциплинарностью команды"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.arow_3_1_6
 msgid "Ability to follow and complete work as instructed"
-msgstr "Способность выполнять и завершать работу согласно инструкции"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.arow_3_2_5
 msgid "Ability to manage planning resources, risks, budgets and deadlines"
 msgstr ""
-"Способность контролировать распределение ресурсов, риски, затраты и сроки"
 
 #. module: hr_evaluation
 #: field:hr_evaluation.plan.phase,action:0
 msgid "Action"
-msgstr "Действие"
+msgstr "Tigawt"
 
 #. module: hr_evaluation
 #: field:hr_evaluation.evaluation,note_action:0
 msgid "Action Plan"
-msgstr "План действия"
+msgstr "Aɣawas n Tigawt"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:hr_evaluation.view_hr_evaluation_form
 msgid "Action Plan..."
-msgstr "План действий..."
+msgstr "Aɣawas n Tigawt..."
 
 #. module: hr_evaluation
 #: view:hr_evaluation.plan.phase:hr_evaluation.view_hr_evaluation_plan_phase_form
 msgid "Action to Perform"
-msgstr "Действие к выполнению"
+msgstr "Tigawt i wuselkem"
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.oprow_2_6_1
@@ -370,13 +250,11 @@ msgid ""
 "Actions by Executive management show genuine interest in the well-being of "
 "employees"
 msgstr ""
-"Действия исполнительного руководства свидетельствуют о неподдельной "
-"заинтересованности в благополучии сотрудников"
 
 #. module: hr_evaluation
 #: field:hr_evaluation.plan,active:0
 msgid "Active"
-msgstr "Активный"
+msgstr "Urmid"
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.arow_3_1_13
@@ -384,41 +262,39 @@ msgid ""
 "Adaptability: Ability to adapt oneself to organizational changes while "
 "keeping efficiency"
 msgstr ""
-"Адаптируемость: способность адаптироваться к организационным изменениям, "
-"сохраняя при этом эффективность"
 
 #. module: hr_evaluation
 #: model:survey.question,question:hr_evaluation.appraisal_2_3
 msgid "Additional Comments"
-msgstr "Дополнительные комментарии"
+msgstr "Iwenniten-nniḍen"
 
 #. module: hr_evaluation
 #: model:survey.question,question:hr_evaluation.opinion_2_7
 msgid "Additional comments"
-msgstr "Дополнительные комментарии"
+msgstr "Iwenniten-nniḍen"
 
 #. module: hr_evaluation
 #: field:hr_evaluation.plan.phase,send_answer_employee:0
 #: field:hr_evaluation.plan.phase,send_answer_manager:0
 msgid "All Answers"
-msgstr "Все ответы"
+msgstr "Istanen Imaṛṛa"
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.arow_3_1_11
 msgid "Analytical and synthetic mind"
-msgstr "Аналитическое и комплексное мышление"
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr_evaluation.plan.phase,send_anonymous_employee:0
 #: field:hr_evaluation.plan.phase,send_anonymous_manager:0
 msgid "Anonymous Summary"
-msgstr "Анонимная сводка"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_form
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_tree
 msgid "Answer Survey"
-msgstr "Результат обзора"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_form
@@ -427,7 +303,7 @@ msgstr "Результат обзора"
 #: model:ir.actions.act_window,name:hr_evaluation.open_view_hr_evaluation_tree
 #: model:ir.ui.menu,name:hr_evaluation.menu_eval_hr
 msgid "Appraisal"
-msgstr "Рецензент"
+msgstr "Askazal"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.report:hr_evaluation.view_evaluation_report_graph
@@ -435,45 +311,45 @@ msgstr "Рецензент"
 #: model:ir.actions.act_window,name:hr_evaluation.action_evaluation_report_all
 #: model:ir.ui.menu,name:hr_evaluation.menu_evaluation_report_all
 msgid "Appraisal Analysis"
-msgstr "Анализ оценивания"
+msgstr "Tasleṭ n Uskazal"
 
 #. module: hr_evaluation
 #: field:hr_evaluation.evaluation,date:0
 msgid "Appraisal Deadline"
-msgstr "Крайний срок оценивания"
+msgstr "Azemz n Tagara n Uskazal"
 
 #. module: hr_evaluation
 #: field:hr.evaluation.interview,survey_id:0
 #: field:hr_evaluation.plan.phase,survey_id:0
 msgid "Appraisal Form"
-msgstr "Оценочная форма"
+msgstr "Tiferkit n Uskazal"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:hr_evaluation.view_hr_evaluation_form
 #: field:hr_evaluation.evaluation,survey_request_ids:0
 msgid "Appraisal Forms"
-msgstr "Формы оценки"
+msgstr "Tiferkitin n Uskazal"
 
 #. module: hr_evaluation
 #: model:ir.model,name:hr_evaluation.model_hr_evaluation_interview
 msgid "Appraisal Interview"
-msgstr "Оценочное собеседование"
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr.employee,appraisal_count:0
 msgid "Appraisal Interviews"
-msgstr "Оценочные собеседования"
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr.evaluation.interview,phase_id:0
 msgid "Appraisal Phase"
-msgstr "Этап оценивания"
+msgstr "Amecwaṛ n Uskazal"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.plan:hr_evaluation.view_hr_evaluation_plan_form
 #: field:hr_evaluation.plan,phase_ids:0
 msgid "Appraisal Phases"
-msgstr "Этапы оценивания"
+msgstr "Imecwaṛen n Uskazal"
 
 #. module: hr_evaluation
 #: field:hr.employee,evaluation_plan_id:0
@@ -485,117 +361,115 @@ msgstr "Этапы оценивания"
 #: field:hr_evaluation.plan.phase,plan_id:0
 #: model:ir.model,name:hr_evaluation.model_hr_evaluation_plan
 msgid "Appraisal Plan"
-msgstr "План оценивания"
+msgstr "Aɣawas n Uskazal"
 
 #. module: hr_evaluation
 #: model:ir.model,name:hr_evaluation.model_hr_evaluation_plan_phase
 msgid "Appraisal Plan Phase"
-msgstr "Этап плана оценивания"
+msgstr "Amecwaṛ n Uɣawas n Uskazal"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.plan.phase:hr_evaluation.view_hr_evaluation_plan_phase_form
 #: view:hr_evaluation.plan.phase:hr_evaluation.view_hr_evaluation_plan_phase_tree
 msgid "Appraisal Plan Phases"
-msgstr "Этапы плана оценивания"
+msgstr "Imecwaṛen n Uɣawas n Uskazal"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.plan:hr_evaluation.view_hr_evaluation_plan_search
 #: model:ir.actions.act_window,name:hr_evaluation.open_view_hr_evaluation_plan_tree
 #: model:ir.ui.menu,name:hr_evaluation.menu_open_view_hr_evaluation_plan_tree
 msgid "Appraisal Plans"
-msgstr "Планы оценивания"
+msgstr "Iɣawasen n Uskazal"
 
 #. module: hr_evaluation
 #: model:survey.page,title:hr_evaluation.opinion_1
 msgid "Appraisal Process"
-msgstr "Процесс оценивания"
+msgstr "Akala n Uskazal"
 
 #. module: hr_evaluation
 #: model:ir.actions.act_window,name:hr_evaluation.evaluation_reminders
 msgid "Appraisal Reminders"
-msgstr "Напоминание об оценивании"
+msgstr "Ismetiyen n Uskazal"
 
 #. module: hr_evaluation
 #: field:hr_evaluation.evaluation,note_summary:0
 msgid "Appraisal Summary"
-msgstr "Итог оценивания"
+msgstr "Agzul n Uskazal"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:hr_evaluation.view_hr_evaluation_form
 msgid "Appraisal Summary..."
-msgstr "Итог оценивания..."
+msgstr "Agzul n Uskazal..."
 
 #. module: hr_evaluation
 #: model:survey.question,question:hr_evaluation.appraisal_1_3
 msgid "Appraisal for Period"
-msgstr "Оценивание за период"
+msgstr "Askazal i Tawala"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:hr_evaluation.evaluation_search
 msgid "Appraisal that are in Plan In Progress state"
-msgstr "Оценивание, которое согласно Плану находится в процессе выполнения"
+msgstr "Askazal yellan deg uɣawas anazzal"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:hr_evaluation.evaluation_search
 msgid "Appraisal that are in waiting appreciation state"
-msgstr "Оценивания в стадии одобрения"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr.employee:hr_evaluation.hr_hr_employee_view_form
 #: model:ir.ui.menu,name:hr_evaluation.menu_open_view_hr_evaluation_tree
 msgid "Appraisals"
-msgstr "Оценивания"
+msgstr "Iskazalen"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:hr_evaluation.evaluation_search
 msgid "Appraisals Month"
-msgstr "Месяц оцениваний"
+msgstr "Aggur n Uskazal"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:hr_evaluation.evaluation_search
 msgid "Appraisals by Month"
-msgstr "Оценивания по месяцам"
+msgstr "Iskazalen s waggur"
 
 #. module: hr_evaluation
 #: model:survey.question,question:hr_evaluation.appraisal_1_5
 msgid "Appraiser"
-msgstr "Оценивающий эксперт"
+msgstr "Amskazal"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.report:hr_evaluation.view_evaluation_report_search
 #: field:hr_evaluation.evaluation,rating:0
 msgid "Appreciation"
-msgstr "Оценка"
+msgstr ""
 
 #. module: hr_evaluation
 #: selection:hr_evaluation.plan.phase,action:0
 msgid "Bottom-Up Appraisal Requests"
-msgstr "Запросы оценки снизу вверх"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:hr_evaluation.view_hr_evaluation_form
 msgid "Cancel Appraisal"
-msgstr "Отмена оценивания"
+msgstr "Sefsax Askazal"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_form
 msgid "Cancel Survey"
-msgstr "отмена опроса"
+msgstr ""
 
 #. module: hr_evaluation
 #: selection:hr.evaluation.interview,state:0
 #: selection:hr.evaluation.report,state:0
 #: selection:hr_evaluation.evaluation,state:0
 msgid "Cancelled"
-msgstr "Отменено"
+msgstr "Ifsax"
 
 #. module: hr_evaluation
 #: help:hr_evaluation.plan.phase,mail_feature:0
 msgid ""
 "Check this box if you want to send mail to employees coming under this phase"
 msgstr ""
-"Отметьте, если хотите отправлять письма сотрудникам, приходящим в текущей "
-"фазе"
 
 #. module: hr_evaluation
 #: help:hr_evaluation.plan.phase,wait:0
@@ -603,27 +477,24 @@ msgid ""
 "Check this box if you want to wait that all preceding phases are finished "
 "before launching this phase."
 msgstr ""
-"Отметьте, если необходимо, чтобы перед началом данной фазы все предыдущие "
-"были завершены."
 
 #. module: hr_evaluation
 #: field:hr.evaluation.report,closed:0
 msgid "Close Date"
-msgstr "Дата закрытия"
+msgstr "Azemz n umdel"
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.arow_3_1_9
 msgid ""
 "Communication skills (written & verbally): clearness, concision, exactitude"
 msgstr ""
-"Коммуникативные навыки (письменные и устные): ясность, краткость, точность"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.plan:hr_evaluation.view_hr_evaluation_plan_search
 #: field:hr_evaluation.plan,company_id:0
 #: field:hr_evaluation.plan.phase,company_id:0
 msgid "Company"
-msgstr "Компания"
+msgstr "Takebbwanit"
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.oprow_2_6_3
@@ -631,26 +502,22 @@ msgid ""
 "Compared to similar jobs in other companies where I could work, my total "
 "compensation..."
 msgstr ""
-"По сравнению со схожими должностями в других компаниях, где я мог бы "
-"работать, моя общая компенсация..."
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.arow_3_1_3
 msgid ""
 "Compliance to internal rules and processes (timesheets completion, etc.)"
 msgstr ""
-"Соответствие внутренних правил и процессов (табель учета завершения рабочего "
-"времени, и т.д.)"
 
 #. module: hr_evaluation
 #: model:survey.question,question:hr_evaluation.opinion_2_4
 msgid "Continuous Improvement"
-msgstr "Непрерывное совершенствование"
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr.evaluation.report,create_date:0
 msgid "Create Date"
-msgstr "Дата создания"
+msgstr "Azemz n usilel"
 
 #. module: hr_evaluation
 #: field:hr.evaluation.interview,create_uid:0
@@ -658,7 +525,7 @@ msgstr "Дата создания"
 #: field:hr_evaluation.plan,create_uid:0
 #: field:hr_evaluation.plan.phase,create_uid:0
 msgid "Created by"
-msgstr "Создано"
+msgstr "Ilul-ed sɣuṛ"
 
 #. module: hr_evaluation
 #: field:hr.evaluation.interview,create_date:0
@@ -666,79 +533,79 @@ msgstr "Создано"
 #: field:hr_evaluation.plan,create_date:0
 #: field:hr_evaluation.plan.phase,create_date:0
 msgid "Created on"
-msgstr "Создан"
+msgstr "Ilul-ed di"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.report:hr_evaluation.view_evaluation_report_search
 msgid "Creation Month"
-msgstr "Месяц создания"
+msgstr "Aggur n usilel"
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.arow_3_1_14
 msgid "Creativity and forward looking aptitude"
-msgstr "Креативность и перспективные способности"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.arow_3_1_8
 msgid "Customer commitment"
-msgstr "Приверженность клиентов"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:survey.question,question:hr_evaluation.opinion_1_2
 msgid "Date"
-msgstr "Дата"
+msgstr "Azemz"
 
 #. module: hr_evaluation
 #: model:survey.question,question:hr_evaluation.appraisal_1_4
 msgid "Date of review"
-msgstr "Дата отзыва"
+msgstr ""
 
 #. module: hr_evaluation
 #: help:hr.evaluation.interview,message_last_post:0
 #: help:hr_evaluation.evaluation,message_last_post:0
 msgid "Date of the last message posted on the record."
-msgstr "Дата последнего сообщения размещенного в отчете."
+msgstr "Azemz n yizen anegaru di ţunefken ɣef ukalas agi"
 
 #. module: hr_evaluation
 #: field:hr.evaluation.interview,deadline:0
 #: field:hr.evaluation.report,deadline:0
 msgid "Deadline"
-msgstr "Последний срок"
+msgstr "Azemz n tagara"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_tree
 msgid "Deadline Date"
-msgstr "Конечная дата"
+msgstr "Azemz n tagara"
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.arow_3_1_7
 msgid "Decision making"
-msgstr "Принятие решения"
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr.evaluation.report,delay_date:0
 msgid "Delay to Start"
-msgstr "Задержка начала"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.arow_3_2_2
 msgid "Delegation: Ability to efficiently assign tasks to other people"
-msgstr "Делегирование: способность эффективно поручать задания другим людям"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.oprow_2_2_1
 msgid "Demonstrates genuine concern for me as a person"
-msgstr "Демонстрирует искреннюю заботу обо мне как о личности"
+msgstr ""
 
 #. module: hr_evaluation
 #: selection:hr.evaluation.report,rating:0
 msgid "Did not meet expectations"
-msgstr "Не оправдал ожиданий"
+msgstr ""
 
 #. module: hr_evaluation
 #: selection:hr_evaluation.evaluation,rating:0
 msgid "Do not meet expectations"
-msgstr "Не соответствует ожиданиям"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_form
@@ -749,18 +616,18 @@ msgstr "Не соответствует ожиданиям"
 #: view:hr_evaluation.evaluation:hr_evaluation.view_hr_evaluation_form
 #: selection:hr_evaluation.evaluation,state:0
 msgid "Done"
-msgstr "Выполнено"
+msgstr "Immed"
 
 #. module: hr_evaluation
 #: selection:hr.evaluation.interview,state:0
 #: selection:hr.evaluation.report,state:0
 msgid "Draft"
-msgstr "Черновик"
+msgstr "Arewway"
 
 #. module: hr_evaluation
 #: model:survey.question,question:hr_evaluation.opinion_2_3
 msgid "Effectiveness"
-msgstr "Эффектиность"
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr_evaluation.plan.phase,mail_body:0
@@ -774,118 +641,118 @@ msgstr "Email"
 #: field:hr_evaluation.evaluation,employee_id:0
 #: model:ir.model,name:hr_evaluation.model_hr_employee
 msgid "Employee"
-msgstr "Сотрудник"
+msgstr "Amaris"
 
 #. module: hr_evaluation
 #: model:ir.model,name:hr_evaluation.model_hr_evaluation_evaluation
 msgid "Employee Appraisal"
-msgstr "Оценивание сотрудника"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:survey.page,title:hr_evaluation.appraisal_1
 #: model:survey.survey,title:hr_evaluation.appraisal_form
 msgid "Employee Appraisal Form"
-msgstr "Форма оценивания сотрудника"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:survey.page,title:hr_evaluation.appraisal_5
 msgid "Employee Comments"
-msgstr "Комментарии сотрудника"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:survey.survey,title:hr_evaluation.opinion_form
 msgid "Employee Opinion Form"
-msgstr "Форма мнения сотрудника"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:survey.page,title:hr_evaluation.appraisal_3
 msgid "Employee Performance in Key Areas"
-msgstr "Производительность сотрудника в ключевых областях"
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr.evaluation.interview,user_to_review_id:0
 msgid "Employee to evaluate"
-msgstr "Сотрудник для оценивания"
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr_evaluation.evaluation,date_close:0
 msgid "Ending Date"
-msgstr "Дата окончания"
+msgstr "Azemz n tagara"
 
 #. module: hr_evaluation
 #: model:survey.question,question:hr_evaluation.opinion_2_1
 msgid "Engagement"
-msgstr "Активность"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.arow_3_1_2
 msgid "Enthusiasm & implication toward projects/assignments"
-msgstr "Энтузиазм и вовлеченность в проекты/задачи"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:survey.page,title:hr_evaluation.opinion_2
 msgid "Evaluation"
-msgstr "Оценка"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:ir.model,name:hr_evaluation.model_hr_evaluation_report
 msgid "Evaluations Statistics"
-msgstr "Статистика испытаний"
+msgstr ""
 
 #. module: hr_evaluation
 #: selection:hr.evaluation.report,rating:0
 #: selection:hr_evaluation.evaluation,rating:0
 msgid "Exceeds expectations"
-msgstr "Превосходит ожидания"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr.evaluation.report:hr_evaluation.view_evaluation_report_search
 msgid "Extended Filters..."
-msgstr "Расширенные фильтры..."
+msgstr "Imzizdigen leqqayen..."
 
 #. module: hr_evaluation
 #: selection:hr_evaluation.plan.phase,action:0
 msgid "Final Interview"
-msgstr "Завершающее собеседование"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr.evaluation.report:hr_evaluation.view_evaluation_report_search
 #: selection:hr.evaluation.report,state:0
 msgid "Final Validation"
-msgstr "Конечная проверка"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr.evaluation.report:hr_evaluation.view_evaluation_report_search
 msgid "Final Validation Evaluations"
-msgstr "Окончательное проверочное оценивание"
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr_evaluation.plan,month_first:0
 msgid "First Appraisal in (months)"
-msgstr "Первое оценивание в (месяцы)"
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr.evaluation.interview,message_follower_ids:0
 #: field:hr_evaluation.evaluation,message_follower_ids:0
 msgid "Followers"
-msgstr "Подписчики"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr_evaluation.plan.phase:hr_evaluation.view_hr_evaluation_plan_phase_form
 msgid "General"
-msgstr "Общее"
+msgstr "Amatu"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_search
 #: view:hr.evaluation.report:hr_evaluation.view_evaluation_report_search
 #: view:hr_evaluation.plan:hr_evaluation.view_hr_evaluation_plan_search
 msgid "Group By"
-msgstr "Группировать по"
+msgstr "Sdukel s"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:hr_evaluation.evaluation_search
 msgid "Group by..."
-msgstr "Группировать по..."
+msgstr "Sdukel s ..."
 
 #. module: hr_evaluation
 #: help:hr.evaluation.interview,message_summary:0
@@ -894,13 +761,13 @@ msgid ""
 "Holds the Chatter summary (number of messages, ...). This summary is "
 "directly in html format in order to be inserted in kanban views."
 msgstr ""
-"Содержит обзор чата (количество сообщений, ...). Это краткое изложение "
-"непосредственно в HTML формате для того, чтобы вставить в виды kanban."
+"Igber agzul n lehduṛ (amḍan n iznan,…). Agzul agi illa  deg umasal HTML "
+"iwakken ad isireg aseqdec-ines di tmeẓri n Kanban."
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.oprow_2_1_1
 msgid "I am proud to tell others I work here"
-msgstr "Я с гордостью рассказываю о том, что работаю здесь"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.oprow_2_1_5
@@ -908,14 +775,11 @@ msgid ""
 "I am willing to put in a great deal of effort beyond what is expected to "
 "help my workgroup succeed"
 msgstr ""
-"Я готов приложить максимум усилий для того, чтобы моя группа, как и "
-"ожидается, достигла успеха"
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.oprow_2_2_4
 msgid "I believe the information that I get from the person I report to."
 msgstr ""
-"Я доверяю информации, которую я получил от человека, которому я подчиняюсь."
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.oprow_2_2_2
@@ -923,13 +787,11 @@ msgid ""
 "I consistently acquire new knowledge, skills or understanding through "
 "contact with my supervisor. He helps me growing my compete"
 msgstr ""
-"Я постоянно приобретаю новые знания, навыки или понимание общаясь с моим "
-"руководителем. Он помогает мне увеличить мою конкурентоспособность"
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.oprow_2_3_2
 msgid "I have enough work"
-msgstr "У меня достаточно работы"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.oprow_2_6_2
@@ -937,13 +799,11 @@ msgid ""
 "I have the same opportunity to succeed as others with similar experiences, "
 "performance and educational background"
 msgstr ""
-"У меня такая же возможность добиться успеха, как и у других с аналогичным "
-"опытом, производительностью и уровнем образования"
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.oprow_2_5_1
 msgid "I know the company's values and live them"
-msgstr "Я знаком с ценностями компании и я живу ими"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.oprow_2_3_3
@@ -951,14 +811,11 @@ msgid ""
 "I mostly work on value-added tasks for the company, the products or the "
 "services"
 msgstr ""
-"В основном я работаю над задачами добавленной стоимости для компании, "
-"продуктов или услуг"
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.oprow_2_6_4
 msgid "I understand the company strategy and how my workgroup supports it"
 msgstr ""
-"Я понимаю стратегию компании и то, как моя рабочая группа поддерживает ее"
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.oprow_2_1_3
@@ -966,13 +823,11 @@ msgid ""
 "I would prefer to remain with this company even if a comparable job were "
 "available in another company"
 msgstr ""
-"Я бы предпочел остаться в этой компании, даже если бы в другой компании "
-"открылась подобная вакансия"
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.oprow_2_3_1
 msgid "I'm efficient at work and my achievements are successful"
-msgstr "Я эффективен в своей работе и мои достижения успешны"
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr.evaluation.interview,id:0
@@ -981,13 +836,13 @@ msgstr "Я эффективен в своей работе и мои дости�
 #: field:hr_evaluation.plan,id:0
 #: field:hr_evaluation.plan.phase,id:0
 msgid "ID"
-msgstr "ID"
+msgstr "Asulay"
 
 #. module: hr_evaluation
 #: help:hr.evaluation.interview,message_unread:0
 #: help:hr_evaluation.evaluation,message_unread:0
 msgid "If checked new messages require your attention."
-msgstr "Если проверенные новые сообщения требуют вашего внимания."
+msgstr ""
 
 #. module: hr_evaluation
 #: model:survey.question,comments_message:hr_evaluation.appraisal_1_1
@@ -1014,7 +869,7 @@ msgstr "Если проверенные новые сообщения требу
 #: model:survey.question,comments_message:hr_evaluation.opinion_2_6
 #: model:survey.question,comments_message:hr_evaluation.opinion_2_7
 msgid "If other, precise:"
-msgstr "Если прочее, уточните:"
+msgstr ""
 
 #. module: hr_evaluation
 #: help:hr_evaluation.evaluation,note_action:0
@@ -1022,50 +877,49 @@ msgid ""
 "If the evaluation does not meet the expectations, you can propose an action "
 "plan"
 msgstr ""
-"Если оценивание не соответствует ожиданиям вы можете предложить план действий"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.report:hr_evaluation.view_evaluation_report_search
 msgid "In Progress"
-msgstr "В процессе"
+msgstr "Anazzal"
 
 #. module: hr_evaluation
 #: selection:hr.evaluation.interview,state:0
 #: view:hr_evaluation.evaluation:hr_evaluation.evaluation_search
 msgid "In progress"
-msgstr "В процессе"
+msgstr "Anazzal"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.report:hr_evaluation.view_evaluation_report_search
 msgid "In progress Evaluations"
-msgstr "Оценивания в процессе"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.arow_3_1_5
 msgid "Initiative and self autonomy"
-msgstr "Инициативность и самостоятельность"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:hr_evaluation.view_hr_evaluation_form
 msgid "Internal Notes"
-msgstr "Внутренние примечания"
+msgstr "Iwenniten igensanen"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_form
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_tree
 msgid "Interview Appraisal"
-msgstr "Оценочное собеседование"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:hr_evaluation.view_evaluation_calendar
 msgid "Interview Request"
-msgstr "Запрос на собеседование"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:ir.actions.act_window,name:hr_evaluation.action_hr_evaluation_interview_tree
 #: model:ir.ui.menu,name:hr_evaluation.menu_open_hr_evaluation_interview_requests
 msgid "Interview Requests"
-msgstr "Запросы на собеседование"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_form
@@ -1073,24 +927,24 @@ msgstr "Запросы на собеседование"
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_tree
 #: field:hr.evaluation.interview,user_id:0
 msgid "Interviewer"
-msgstr "Интервьюер"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:ir.actions.act_window,name:hr_evaluation.act_hr_employee_2_hr__evaluation_interview
 msgid "Interviews"
-msgstr "Собеседования"
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr.evaluation.interview,message_is_follower:0
 #: field:hr_evaluation.evaluation,message_is_follower:0
 msgid "Is a Follower"
-msgstr "Является подписчиком"
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr.evaluation.interview,message_last_post:0
 #: field:hr_evaluation.evaluation,message_last_post:0
 msgid "Last Message Date"
-msgstr "Дата последнего сообщения"
+msgstr "Azemz n yizen aneggaru"
 
 #. module: hr_evaluation
 #: field:hr.evaluation.interview,write_uid:0
@@ -1098,7 +952,7 @@ msgstr "Дата последнего сообщения"
 #: field:hr_evaluation.plan,write_uid:0
 #: field:hr_evaluation.plan.phase,write_uid:0
 msgid "Last Updated by"
-msgstr "Последний раз обновлено"
+msgstr "Aleqqem aneggaru sɣuṛ"
 
 #. module: hr_evaluation
 #: field:hr.evaluation.interview,write_date:0
@@ -1106,12 +960,12 @@ msgstr "Последний раз обновлено"
 #: field:hr_evaluation.plan,write_date:0
 #: field:hr_evaluation.plan.phase,write_date:0
 msgid "Last Updated on"
-msgstr "Последний раз обновлено"
+msgstr "Aleqqem aneggaru di"
 
 #. module: hr_evaluation
 #: model:survey.question,question:hr_evaluation.opinion_2_2
 msgid "Leadership"
-msgstr "Лидерство"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.arow_3_2_3
@@ -1119,18 +973,16 @@ msgid ""
 "Leadership: create a challenging and motivating work environment aligned "
 "with the company's strategy"
 msgstr ""
-"Лидерство: создать амбициозную и мотивированную рабочую атмосферу в "
-"соответствии со стратегией компании"
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.arow_3_2_4
 msgid "Leadership: sustain subordinates in their professional growth"
-msgstr "Лидерство: поддерживать подчиненных в их профессиональном росте"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr_evaluation.plan.phase:hr_evaluation.view_hr_evaluation_plan_phase_form
 msgid "Legend"
-msgstr "Обозначения"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.oprow_2_2_3
@@ -1138,46 +990,44 @@ msgid ""
 "Listens and takes into account all ideas and do his best to put in place the "
 "best of these"
 msgstr ""
-"Слушает и учитывает все идеи и делает все возможное, чтобы реализовать "
-"лучшие из них"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.plan.phase:hr_evaluation.view_hr_evaluation_plan_phase_form
 msgid "Mail Body"
-msgstr "Тело письма"
+msgstr "Taffeka n yizen"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.plan.phase:hr_evaluation.view_hr_evaluation_plan_phase_form
 msgid "Mail Settings"
-msgstr "Настройки почты"
+msgstr "Tawila n Email"
 
 #. module: hr_evaluation
 #: selection:hr.evaluation.report,rating:0
 #: selection:hr_evaluation.evaluation,rating:0
 msgid "Meet expectations"
-msgstr "Соответствует ожиданиям"
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr.evaluation.interview,message_ids:0
 #: field:hr_evaluation.evaluation,message_ids:0
 msgid "Messages"
-msgstr "Сообщения"
+msgstr "Iznan"
 
 #. module: hr_evaluation
 #: help:hr.evaluation.interview,message_ids:0
 #: help:hr_evaluation.evaluation,message_ids:0
 msgid "Messages and communication history"
-msgstr "Сообщения и журнал обращений"
+msgstr "Amazray n iznan  d  tiywalin"
 
 #. module: hr_evaluation
 #: model:survey.question,question:hr_evaluation.opinion_2_6
 msgid "Miscellaneous"
-msgstr "Прочее"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr.evaluation.report:hr_evaluation.view_evaluation_report_search
 msgid "Month"
-msgstr "Месяц"
+msgstr "Aggur"
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.oprow_2_5_2
@@ -1185,13 +1035,11 @@ msgid ""
 "My best achievements have been communicated to the community, internally or "
 "to customers"
 msgstr ""
-"Мои лучшие достижения были доведены до сведения сообщества, внутри компании "
-"или клиентам"
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.oprow_2_1_2
 msgid "My job provides me with a sense of personal accomplishment"
-msgstr "Моя работа дает мне чувство самореализованности"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.oprow_2_4_1
@@ -1199,38 +1047,36 @@ msgid ""
 "My work contributes towards the continuous improvement of the company, our "
 "services or products"
 msgstr ""
-"Моя работа способствует постоянному совершенствованию компании, наших услуг "
-"и продуктов,"
 
 #. module: hr_evaluation
 #: model:survey.question,question:hr_evaluation.appraisal_1_1
 msgid "Name"
-msgstr "Имя"
+msgstr "Isem"
 
 #. module: hr_evaluation
 #: model:survey.question,question:hr_evaluation.opinion_1_1
 msgid "Name of your direct supervisor"
-msgstr "Имя вашего непосредственного руководителя"
+msgstr ""
 
 #. module: hr_evaluation
 #: selection:hr_evaluation.evaluation,state:0
 msgid "New"
-msgstr "Новый"
+msgstr "Amaynut"
 
 #. module: hr_evaluation
 #: field:hr.employee,evaluation_date:0
 msgid "Next Appraisal Date"
-msgstr "Дата следующего оценивания"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:survey.question,question:hr_evaluation.appraisal_2_1
 msgid "Objectives"
-msgstr "Цели"
+msgstr "Iswiyen"
 
 #. module: hr_evaluation
 #: model:survey.question,question:hr_evaluation.opinion_2_5
 msgid "Openness"
-msgstr "Открытость"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.oprow_2_4_4
@@ -1238,13 +1084,11 @@ msgid ""
 "Our workgroup identifies and reduces waste of time in our activities and "
 "processes"
 msgstr ""
-"Наша рабочая группа определяет и уменьшает пустую трату времени в нашей "
-"деятельности и процессах"
 
 #. module: hr_evaluation
 #: field:hr.evaluation.report,rating:0
 msgid "Overall Rating"
-msgstr "Общий рейтинг"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.oprow_2_4_3
@@ -1252,38 +1096,36 @@ msgid ""
 "Overall, I believe the quality of products and/or services my workgroup "
 "delivers is improving"
 msgstr ""
-"В целом, я считаю, что качество продукции и/или услуг, которые предоставляет "
-"моя рабочая группа, улучшается"
 
 #. module: hr_evaluation
 #: field:hr.evaluation.report,overpass_delay:0
 msgid "Overpassed Deadline"
-msgstr "Просрочено"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:hr_evaluation.evaluation_search
 msgid "Pending"
-msgstr "В ожидании"
+msgstr "Iţraǧu"
 
 #. module: hr_evaluation
 #: model:ir.ui.menu,name:hr_evaluation.menu_eval_hr_config
 msgid "Periodic Appraisal"
-msgstr "Периодическое оценивание"
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr_evaluation.plan,month_next:0
 msgid "Periodicity of Appraisal (months)"
-msgstr "Периодичность оцениваний (месяцы)"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:survey.question,question:hr_evaluation.appraisal_4_2
 msgid "Personal Performance Objectives"
-msgstr "Личные цели производительности"
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr_evaluation.plan.phase,name:0
 msgid "Phase"
-msgstr "Этап"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr.evaluation.report:hr_evaluation.view_evaluation_report_search
@@ -1291,70 +1133,70 @@ msgstr "Этап"
 #: view:hr_evaluation.evaluation:hr_evaluation.evaluation_search
 #: field:hr_evaluation.evaluation,plan_id:0
 msgid "Plan"
-msgstr "План"
+msgstr "Aɣawas"
 
 #. module: hr_evaluation
 #: selection:hr.evaluation.report,state:0
 #: selection:hr_evaluation.evaluation,state:0
 msgid "Plan In Progress"
-msgstr "Выполнение плана"
+msgstr "Aɣawas anazzal"
 
 #. module: hr_evaluation
 #: model:survey.question,question:hr_evaluation.appraisal_1_2
 msgid "Position Title"
-msgstr "Название должности"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_form
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_tree
 msgid "Print Survey"
-msgstr "Печатный опрос"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:survey.question,question:hr_evaluation.appraisal_4_1
 msgid "Professional Development Objectives"
-msgstr "Цели личного развития"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:survey.page,title:hr_evaluation.appraisal_4
 msgid "Professional Development and Performance Plan"
-msgstr "План производительности и личного развития"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:survey.question,question:hr_evaluation.appraisal_4_3
 msgid "Project Objectives"
-msgstr "Цели проекта"
+msgstr "Iswiyen n usefaṛ"
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.arow_3_1_12
 msgid "Promptness and attendance record"
-msgstr "Исполнительность и отчет о посещаемости"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:hr_evaluation.view_hr_evaluation_form
 msgid "Public Notes"
-msgstr "Общедоступные примечания"
+msgstr "Iwenniten azayezen"
 
 #. module: hr_evaluation
 #: code:addons/hr_evaluation/hr_evaluation.py:83
 #, python-format
 msgid "Regarding "
-msgstr "Относительно "
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr.evaluation.report,request_id:0
 msgid "Request ID"
-msgstr "ID запроса"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:hr_evaluation.view_hr_evaluation_form
 msgid "Reset to Draft"
-msgstr "Возврат к разработке"
+msgstr "Rrit d arewway"
 
 #. module: hr_evaluation
 #: model:survey.question,question:hr_evaluation.appraisal_2_2
 msgid "Results"
-msgstr "Результаты"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.arow_3_2_1
@@ -1362,102 +1204,100 @@ msgid ""
 "Results of the bottom-up survey and mitigation actions to face technical, "
 "organizational, structural and/or relational issues"
 msgstr ""
-"Результаты восходящего опроса и действия по снижению последствий столкнулись "
-"с техническими, организационными, структурными и/или подобными задачами"
 
 #. module: hr_evaluation
 #: model:ir.actions.act_window,name:hr_evaluation.action_evaluation_plans_installer
 msgid "Review Appraisal Plans"
-msgstr "Обзорные оценочные планы"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_search
 #: view:hr_evaluation.evaluation:hr_evaluation.evaluation_search
 msgid "Search Appraisal"
-msgstr "Поиск оценивания"
+msgstr ""
 
 #. module: hr_evaluation
 #: selection:hr_evaluation.plan.phase,action:0
 msgid "Self Appraisal Requests"
-msgstr "Запросы самооценки"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_form
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_tree
 msgid "Send Reminder Email"
-msgstr "Отправить письмо с напоминанием"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_form
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_tree
 msgid "Send Request"
-msgstr "Отправить запрос"
+msgstr ""
 
 #. module: hr_evaluation
 #: help:hr_evaluation.plan.phase,send_answer_employee:0
 msgid "Send all answers to the employee"
-msgstr "Отправить все ответы сотруднику"
+msgstr ""
 
 #. module: hr_evaluation
 #: help:hr_evaluation.plan.phase,send_answer_manager:0
 msgid "Send all answers to the manager"
-msgstr "Отправить все ответы менеджеру"
+msgstr ""
 
 #. module: hr_evaluation
 #: help:hr_evaluation.plan.phase,send_anonymous_employee:0
 msgid "Send an anonymous summary to the employee"
-msgstr "Отправить анонимную сводку сотруднику"
+msgstr ""
 
 #. module: hr_evaluation
 #: help:hr_evaluation.plan.phase,send_anonymous_manager:0
 msgid "Send an anonymous summary to the manager"
-msgstr "Отправить анонимную сводку менеджеру"
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr_evaluation.plan.phase,mail_feature:0
 msgid "Send mail for this phase"
-msgstr "Отправить письмо по данной фазе"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr_evaluation.plan.phase:hr_evaluation.view_hr_evaluation_plan_phase_form
 msgid "Send to Employees"
-msgstr "Отправить сотрудникам"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr_evaluation.plan.phase:hr_evaluation.view_hr_evaluation_plan_phase_form
 msgid "Send to Managers"
-msgstr "Отправить менеджерам"
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr_evaluation.plan.phase,sequence:0
 msgid "Sequence"
-msgstr "Последовательность"
+msgstr "Agzum"
 
 #. module: hr_evaluation
 #: selection:hr.evaluation.report,rating:0
 msgid "Significantly bellow expectations"
-msgstr "Значительно ниже ожиданий"
+msgstr ""
 
 #. module: hr_evaluation
 #: selection:hr_evaluation.evaluation,rating:0
 msgid "Significantly below expectations"
-msgstr "Значительно ниже ожидаемого"
+msgstr ""
 
 #. module: hr_evaluation
 #: selection:hr.evaluation.report,rating:0
 #: selection:hr_evaluation.evaluation,rating:0
 msgid "Significantly exceeds expectations"
-msgstr "Значительно превосходит ожидания"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:hr_evaluation.view_hr_evaluation_form
 msgid "Start Appraisal"
-msgstr "Начать оценивание"
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr.evaluation.interview,state:0
 msgid "State"
-msgstr "Состояние"
+msgstr "Addad"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_search
@@ -1466,42 +1306,40 @@ msgstr "Состояние"
 #: view:hr_evaluation.evaluation:hr_evaluation.evaluation_search
 #: field:hr_evaluation.evaluation,state:0
 msgid "Status"
-msgstr "Статус"
+msgstr "Addad"
 
 #. module: hr_evaluation
 #: field:hr_evaluation.plan.phase,email_subject:0
 #: model:survey.question,question:hr_evaluation.appraisal_3_1
 msgid "Subject"
-msgstr "Тема"
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr.evaluation.interview,message_summary:0
 #: field:hr_evaluation.evaluation,message_summary:0
 msgid "Summary"
-msgstr "Резюме"
+msgstr "Agzul"
 
 #. module: hr_evaluation
 #: model:survey.question,question:hr_evaluation.appraisal_3_2
 msgid "Supervisors only"
-msgstr "Только для руководителей"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_search
 msgid "Survey"
-msgstr "Опрос"
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr.evaluation.interview,request_id:0
 msgid "Survey Request"
-msgstr "Запрос обзора"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.oprow_2_1_4
 msgid ""
 "Taking everything into account, how satisfied are you with your current job?"
 msgstr ""
-"Принимая во внимание все факторы, насколько вы довольны своей нынешней "
-"работой?"
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.arow_3_1_4
@@ -1509,13 +1347,11 @@ msgid ""
 "Team spirit: ability to work efficiently with peers, manage the conflicts "
 "with diplomacy"
 msgstr ""
-"Командный дух: способность эффективно работать в коллективе и разрешать "
-"конфликты путем дипломатии"
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.arow_3_1_10
 msgid "Technical skills regarding to the job requirements"
-msgstr "Технические навыки соответственно требованиям должности"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:survey.question,validation_error_msg:hr_evaluation.appraisal_1_1
@@ -1542,7 +1378,7 @@ msgstr "Технические навыки соответственно тре�
 #: model:survey.question,validation_error_msg:hr_evaluation.opinion_2_6
 #: model:survey.question,validation_error_msg:hr_evaluation.opinion_2_7
 msgid "The answer you entered has an invalid format."
-msgstr "Ответ введен в неправильном формате."
+msgstr ""
 
 #. module: hr_evaluation
 #: help:hr.employee,evaluation_date:0
@@ -1550,20 +1386,18 @@ msgid ""
 "The date of the next appraisal is computed by the appraisal plan's dates "
 "(first appraisal + periodicity)."
 msgstr ""
-"Дата следующего оценивания устанавливается согласно плану оценивания (первое "
-"оценивание + периодические)."
 
 #. module: hr_evaluation
 #: help:hr_evaluation.plan,month_next:0
 msgid ""
 "The number of month that depicts the delay between each evaluation of this "
 "plan (after the first one)."
-msgstr "Число месяцев между собеседованиями по этому плану (после первого)"
+msgstr ""
 
 #. module: hr_evaluation
 #: help:hr_evaluation.evaluation,rating:0
 msgid "This is the appreciation on which the evaluation is summarized."
-msgstr "Это оценка, в которой суммируются результаты оценивания."
+msgstr ""
 
 #. module: hr_evaluation
 #: help:hr_evaluation.plan,month_first:0
@@ -1571,8 +1405,6 @@ msgid ""
 "This number of months will be used to schedule the first evaluation date of "
 "the employee when selecting an evaluation plan. "
 msgstr ""
-"Указанное количество месяцев будет использоваться при планировании первого "
-"испытательного дня при выборе испытательного плана. "
 
 #. module: hr_evaluation
 #: model:survey.question,constr_error_msg:hr_evaluation.appraisal_1_1
@@ -1599,28 +1431,28 @@ msgstr ""
 #: model:survey.question,constr_error_msg:hr_evaluation.opinion_2_6
 #: model:survey.question,constr_error_msg:hr_evaluation.opinion_2_7
 msgid "This question requires an answer."
-msgstr "Этот вопрос требует ответа."
+msgstr ""
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.arow_3_1_15
 msgid "Time management: projects/tasks are completed on time"
-msgstr "Тайм-менеджмент: проекты/задания выполняются вовремя"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_search
 msgid "To Do"
-msgstr "Сделать"
+msgstr "Ad imag"
 
 #. module: hr_evaluation
 #: selection:hr_evaluation.plan.phase,action:0
 msgid "Top-Down Appraisal Requests"
-msgstr "Запросы на оценку сверху вниз"
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr.evaluation.interview,message_unread:0
 #: field:hr_evaluation.evaluation,message_unread:0
 msgid "Unread Messages"
-msgstr "Непрочитанные сообщения"
+msgstr "Iznan ur neţwaɣer-ara"
 
 #. module: hr_evaluation
 #: model:survey.question,question:hr_evaluation.appraisal_5_1
@@ -1628,42 +1460,40 @@ msgid ""
 "Use the following space to make any comments regarding the above performance "
 "evaluation."
 msgstr ""
-"Используйте следующее пространство для комментариев по поводу пройденного "
-"оценивания."
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:hr_evaluation.view_hr_evaluation_form
 msgid "Validate Appraisal"
-msgstr "Утвержденное оценивание"
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr_evaluation.plan.phase,wait:0
 msgid "Wait Previous Phases"
-msgstr "Дождатья предыдущей фазы"
+msgstr ""
 
 #. module: hr_evaluation
 #: selection:hr_evaluation.evaluation,state:0
 msgid "Waiting Appreciation"
-msgstr "Ожидание оценки"
+msgstr ""
 
 #. module: hr_evaluation
 #: code:addons/hr_evaluation/hr_evaluation.py:239
 #: code:addons/hr_evaluation/hr_evaluation.py:339
 #, python-format
 msgid "Warning!"
-msgstr "Внимание!"
+msgstr "ɣuṛ-ek !"
 
 #. module: hr_evaluation
 #: field:hr.evaluation.interview,website_message_ids:0
 #: field:hr_evaluation.evaluation,website_message_ids:0
 msgid "Website Messages"
-msgstr "Сообщения сайта"
+msgstr "Iznan n usmel  Web"
 
 #. module: hr_evaluation
 #: help:hr.evaluation.interview,website_message_ids:0
 #: help:hr_evaluation.evaluation,website_message_ids:0
 msgid "Website communication history"
-msgstr "История переписки сайта"
+msgstr "Amazray n Taywalt n usmel  Web"
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.oprow_2_4_2
@@ -1671,13 +1501,11 @@ msgid ""
 "What I did several months ago is still of use to the company, the services "
 "or the products today"
 msgstr ""
-"То, что я делал для несколько месяцев назад, сегодня все еще используется "
-"для компании, услуг или продукции"
 
 #. module: hr_evaluation
 #: model:survey.page,title:hr_evaluation.appraisal_2
 msgid "Work Plan"
-msgstr "План работы"
+msgstr "Aɣawas n Umahil"
 
 #. module: hr_evaluation
 #: code:addons/hr_evaluation/hr_evaluation.py:239
@@ -1686,17 +1514,9 @@ msgid ""
 "You cannot change state, because some appraisal forms have not been "
 "completed."
 msgstr ""
-"Вы не можете изменить положение, так как некоторые формы оценивания не были "
-"заполнены."
 
 #. module: hr_evaluation
 #: code:addons/hr_evaluation/hr_evaluation.py:339
 #, python-format
 msgid "You cannot start evaluation without Appraisal."
-msgstr "Вы не можете начать оценку без Оценивания."
-
-#~ msgid "Request_id"
-#~ msgstr "Идентификатор запроса"
-
-#~ msgid "closed"
-#~ msgstr "закрыто"
+msgstr ""
