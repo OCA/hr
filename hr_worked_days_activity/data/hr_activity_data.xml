@@ -34,7 +34,7 @@
         <record id="activity_holiday_status_public" model="hr.activity">
             <field name="type">leave</field>
             <field name="code">PUBLIC</field>
-            <field name="leave_id" ref="holiday_status_vacation"/>
+            <field name="leave_id" ref="holiday_status_public"/>
         </record>
 
     </data>
