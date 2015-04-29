@@ -103,7 +103,7 @@ class test_contract_hourly_rate(TransactionCase):
                 'employee_id': self.employee_id.id,
                 'name': 'Contract 1',
                 'wage': 50000,
-                'salary_computation_method': 'hourly_rate',
+                'salary_computation_method': 'hourly',
                 'contract_job_ids': [
                     (0, 0, {
                         'job_id': self.job_id.id,
@@ -134,39 +134,23 @@ class test_contract_hourly_rate(TransactionCase):
                       ('2014-12-31', '2015-12-31'),
                       ('2014-06-01', '2014-07-31')]:
             self.assertRaises(
-                exceptions.ValidationError, self.rate_class_model.write,
-                [self.rate_class_id.id], {
-                    'line_ids': [
-                        (0, 0, {
-                            'date_start': dates[0],
-                            'date_end': dates[1],
-                            'rate': 15,
-                        }),
-                    ],
-                }
-            )
+                exceptions.ValidationError, self.rate_class_id.write,
+                {'line_ids': [(0, 0, {'date_start': dates[0],
+                                      'date_end': dates[1],
+                                      'rate': 15})]})
 
     def test_check_has_hourly_rate_class(self):
         """
         test the _check_overlapping_dates constraint
         on contract
         """
-        job_id = self.job_model.create({'name': 'Job 4'})
+        self.job_4_id = self.job_model.create({'name': 'Job 4'})
 
         self.assertRaises(
-            exceptions.ValidationError, self.contract_model.write,
-            [self.contract_id.id], {
-                'contract_job_ids': [
-                    (0, 0, {
-                        'job_id': job_id.id,
-                        'is_main_job': False,
-                        'hourly_rate_class_id': False,
-                    }),
-                ],
-            }
-        )
-
-        self.job_model.unlink([job_id.id])
+            exceptions.ValidationError, self.contract_id.write,
+            {'contract_job_ids': [(0, 0, {'job_id': self.job_4_id.id,
+                                          'is_main_job': False,
+                                          'hourly_rate_class_id': False})]})
 
     def test_get_job_hourly_rate(self):
         """
@@ -209,15 +193,7 @@ class test_contract_hourly_rate(TransactionCase):
             self.assertTrue(res == 35)
 
             self.assertRaises(
-                exceptions.ValidationError, self.rate_class_model.write,
-                [self.rate_class_id.id],
-                {
-                    'line_ids': [
-                        (0, 0, {
-                            'date_start': dates[0],
-                            'date_end': dates[1],
-                            'rate': 15,
-                        }),
-                    ],
-                }
-            )
+                exceptions.ValidationError, self.rate_class_id.write,
+                {'line_ids': [(0, 0, {'date_start': dates[0],
+                                      'date_end': dates[1],
+                                      'rate': 15})]})
