@@ -103,7 +103,7 @@ class test_contract_hourly_rate(TransactionCase):
                 'employee_id': self.employee_id.id,
                 'name': 'Contract 1',
                 'wage': 50000,
-                'salary_computation_method': 'hourly_rate',
+                'salary_computation_method': 'hourly',
                 'contract_job_ids': [
                     (0, 0, {
                         'job_id': self.job_id.id,
