@@ -8,8 +8,8 @@
             <field name="arch" type="xml">
                 <field name="wage" position="replace">
                     <field name="salary_computation_method"/>
-                    <field name="wage" attrs="{'invisible': [('salary_computation_method','!=','wage')],
-                                                'required': [('salary_computation_method','=', 'wage')]}"/>
+                    <field name="wage" attrs="{'invisible': [('salary_computation_method','=','hourly')],
+                                                'required': [('salary_computation_method','!=', 'hourly')]}"/>
                 </field>
                 <xpath expr="//field[@name='contract_job_ids']//field[@name='job_id']" position="after">
                     <field name="hourly_rate_class_id"/>
