@@ -30,7 +30,7 @@ class hr_contract_job(models.Model):
         for contract_job in self:
             contract = contract_job.contract_id
             if contract_job.hourly_rate_class_id and \
-                    contract.salary_computation_method == 'hourly_rate':
+                    contract.salary_computation_method == 'hourly':
                 rate_class = contract_job.hourly_rate_class_id
                 rates = [
                     r for r in rate_class.line_ids

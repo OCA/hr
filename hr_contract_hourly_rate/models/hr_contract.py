@@ -25,12 +25,13 @@ class hr_contract(models.Model):
     _inherit = 'hr.contract'
 
     salary_computation_method = fields.Selection(
-        [('wage', 'Annual Wage'),
-         ('hourly_rate', 'Hourly Rate')],
+        [('yearly', 'Annual Wage'),
+         ('monthly', 'Annual Wage'),
+         ('hourly', 'Hourly Wage')],
         string='Salary Computation Method',
         help="Whether to use the annual wage or an hourly rate "
              "for computation of payslip.",
-        required=True, default='wage')
+        required=True, default='monthly')
 
     @api.multi
     def get_job_hourly_rate(self, date_from, date_to,
@@ -53,7 +54,7 @@ class hr_contract(models.Model):
         contract = self[0]
 
         # This does not apply when employee is paid by wage
-        if contract.salary_computation_method == 'wage':
+        if contract.salary_computation_method != 'hourly':
             return False
 
         for contract_job in contract.contract_job_ids:
@@ -79,7 +80,7 @@ class hr_contract(models.Model):
         """
         for contract in self:
             # This does not apply when employee is paid by wage
-            if contract.salary_computation_method == 'hourly_rate':
+            if contract.salary_computation_method == 'hourly':
                 for contract_job in contract.contract_job_ids:
                     if not contract_job.hourly_rate_class_id:
                         raise exceptions.Warning(
