@@ -20,11 +20,15 @@
 ##############################################################################
 
 from openerp.tests import common
+from openerp.osv import orm
 
 
 class test_worked_days_from_timesheet(common.TransactionCase):
     def setUp(self):
         super(test_worked_days_from_timesheet, self).setUp()
+        self.company_model = self.registry('res.company')
+        self.structure_model = self.registry("hr.payroll.structure")
+        self.slip_run_model = self.registry('hr.payslip.run')
         self.employee_model = self.registry('hr.employee')
         self.user_model = self.registry("res.users")
         self.payslip_model = self.registry("hr.payslip")
@@ -43,6 +47,10 @@ class test_worked_days_from_timesheet(common.TransactionCase):
 
         cr, uid, context = self.cr, self.uid, self.context
 
+        self.company_id = self.company_model.create(cr, uid, {
+            'name': 'Company Test',
+        }, context=context)
+
         # Create two user
         self.user_id = self.user_model.create(
             cr, uid, {
@@ -54,6 +62,7 @@ class test_worked_days_from_timesheet(common.TransactionCase):
         # Create two employee
         self.employee_id = self.employee_model.create(
             cr, uid, {
+                'company_id': self.company_id,
                 'name': 'Employee 1',
                 'user_id': self.user_id,
             }, context=context)
@@ -61,6 +70,7 @@ class test_worked_days_from_timesheet(common.TransactionCase):
         # Create an analytic account
         self.account_id = self.account_model.create(
             cr, uid, {
+                'company_id': self.company_id,
                 'name': 'Account 1',
                 'type': 'normal',
                 'use_timesheets': True,
@@ -89,6 +99,9 @@ class test_worked_days_from_timesheet(common.TransactionCase):
         # Create an activity
         self.vac_activity_id = self.activity_model.search(
             cr, uid, [('code', '=', 'VAC')], context=context)[0]
+
+        self.journal_id = self.journal_model.search(
+            cr, uid, [('code', '=', 'TS')], context=context)[0]
 
         # Create hourly rate classes
         self.rate_class_id = self.rate_class_model.create(
@@ -125,6 +138,9 @@ class test_worked_days_from_timesheet(common.TransactionCase):
                 ],
             }, context=context)
 
+        self.structure_id = self.structure_model.search(
+            cr, uid, [('code', '=', 'BASE')], context=context)[0]
+
         # Create a contract for the employee
         self.contract_id = self.contract_model.create(
             self.cr, self.uid, {
@@ -133,6 +149,7 @@ class test_worked_days_from_timesheet(common.TransactionCase):
                 'wage': 50000,
                 'date_start': '2014-01-01',
                 'salary_computation_method': 'hourly_rate',
+                'struct_id': self.structure_id,
                 'contract_job_ids': [
                     (0, 0, {
                         'job_id': self.job_id,
@@ -147,6 +164,9 @@ class test_worked_days_from_timesheet(common.TransactionCase):
 
                 ],
             }, context=context)
+
+    def create_timesheets(self):
+        cr, uid, context = self.cr, self.uid, self.context
 
         # Create timesheets
         self.ts_sheet_ids = [
@@ -165,9 +185,6 @@ class test_worked_days_from_timesheet(common.TransactionCase):
                 (self.employee_id, '2014-06-22', '2014-06-28'),
             ]
         ]
-
-        self.journal_id = self.journal_model.search(
-            cr, uid, [('code', '=', 'TS')], context=context)[0]
 
         self.timesheet_ids = [
             self.timesheet_model.create(
@@ -206,6 +223,7 @@ class test_worked_days_from_timesheet(common.TransactionCase):
 
         self.payslip_id = self.payslip_model.create(
             cr, uid, {
+                'company_id': self.company_id,
                 'employee_id': self.employee_id,
                 'contract_id': self.contract_id,
                 'date_from': '2014-06-09',
@@ -219,13 +237,12 @@ class test_worked_days_from_timesheet(common.TransactionCase):
 
         self.payslip.refresh()
 
-        self.assertTrue(len(self.payslip.worked_days_line_ids), 6)
-
     def test_import_worked_days_hourly_rate(self):
         """
         Test the payslip method import_worked_days
         when the employee is paid by hourly rates
         """
+        self.create_timesheets()
         self.make_payslip()
 
         sub_totals = {
@@ -233,6 +250,8 @@ class test_worked_days_from_timesheet(common.TransactionCase):
             self.job_2_activity_id: 0,
             self.vac_activity_id: 0,
         }
+
+        self.assertTrue(len(self.payslip.worked_days_line_ids), 6)
 
         for wd in self.payslip.worked_days_line_ids:
             sub_totals[wd.activity_id.id] += wd.total
@@ -256,12 +275,15 @@ class test_worked_days_from_timesheet(common.TransactionCase):
         Test the payslip method import_worked_days
         when the employee is paid by wage
         """
+        self.create_timesheets()
         self.contract_model.write(
             self.cr, self.uid, [self.contract_id], {
                 'salary_computation_method': 'wage',
             }, context=self.context)
 
         self.make_payslip()
+
+        self.assertTrue(len(self.payslip.worked_days_line_ids), 6)
 
         # Because the employee is paid by wage, the hourly rate
         # will be 0. Instead, we check the number of hours.
@@ -282,3 +304,81 @@ class test_worked_days_from_timesheet(common.TransactionCase):
 
         self.assertEqual(
             sub_totals[self.vac_activity_id], 11)
+
+    def test_import_worked_days_hourly_rate_no_timesheet(self):
+        """ Test the payslip method import_worked_days
+        when the employee is paid by hourly rate and the employee did
+        not complete his timesheet """
+        self.assertRaises(
+            orm.except_orm, self.make_payslip)
+
+    def test_import_worked_days_wage_no_timesheet(self):
+        """ Test the payslip method import_worked_days
+        when the employee is paid by wage and the employee did
+        not complete his timesheet """
+        self.contract_model.write(
+            self.cr, self.uid, [self.contract_id], {
+                'salary_computation_method': 'wage',
+            }, context=self.context)
+
+        self.assertRaises(
+            orm.except_orm, self.make_payslip)
+
+    def create_payslip_run(self):
+        cr, uid, context = self.cr, self.uid, self.context
+
+        # Create a payslip batch
+        self.slip_run_id = self.slip_run_model.create(
+            cr, uid, {
+                'name': 'test',
+                'date_start': '2014-06-09',
+                'date_end': '2014-06-20',
+            }, context=context)
+
+        self.wizard_id = self.run_wizard_model.create(
+            cr, uid, {
+                'employee_ids': [(4, self.employee_id)],
+                'import_from_timesheet': True,
+            }, context=context
+        )
+
+        context['active_id'] = self.slip_run_id
+
+    def test_payslip_batch_wage_no_timesheet(self):
+        """
+        Test payslip_employees method compute_sheet when the employee
+        is paid by wage and did not enter his timesheet
+        """
+        cr, uid, context = self.cr, self.uid, self.context
+
+        self.contract_model.write(
+            self.cr, self.uid, [self.contract_id], {
+                'salary_computation_method': 'wage',
+            }, context=self.context)
+
+        self.create_payslip_run()
+
+        self.run_wizard_model.compute_sheet(
+            cr, uid, [self.wizard_id], context=context)
+
+        slip_run = self.slip_run_model.browse(
+            cr, uid, self.slip_run_id, context=context)
+
+        self.assertEqual(len(slip_run.slip_ids), 1)
+
+        for slip in slip_run.slip_ids:
+            self.assertEqual(len(slip.worked_days_line_ids), 0)
+            self.assertNotEqual(len(slip.line_ids), 0)
+
+    def test_payslip_batch_hourly_rate_no_timesheet(self):
+        """
+        Test payslip_employees method compute_sheet when the employee
+        is paid by hourly rate and did not enter his timesheet
+        """
+        cr, uid, context = self.cr, self.uid, self.context
+
+        self.create_payslip_run()
+
+        self.assertRaises(
+            orm.except_orm, self.run_wizard_model.compute_sheet,
+            cr, uid, [self.wizard_id], context=context)

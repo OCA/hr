@@ -26,6 +26,18 @@ from openerp.tools.translate import _
 class hr_payslip(orm.Model):
     _inherit = 'hr.payslip'
 
+    def _check_no_timesheet(
+        self, cr, uid, employee, timesheet_sheets, context=None
+    ):
+        """ If the employee is paid by wage, it is not necessary that his
+        timesheet is completed. """
+        if not (
+            employee.contract_id.salary_computation_method == 'wage'
+            and context.get('payslip_run_id')
+        ):
+            super(hr_payslip, self)._check_no_timesheet(
+                cr, uid, employee, timesheet_sheets, context=context)
+
     def timesheet_mapping(
         self, cr, uid,
         timesheets, payslip,
