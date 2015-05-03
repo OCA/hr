@@ -30,9 +30,10 @@ Credits
 Contributors
 ------------
 
-* El Hadji Dem (elhadji.dem@savoirfairelinux.com)
-* Sandy Carter (sandy.carter@savoirfairelinux.com)
+* El Hadji Dem <elhadji.dem@savoirfairelinux.com>
+* Sandy Carter <sandy.carter@savoirfairelinux.com>
 * Fekete Mihai <feketemihai@gmail.com>
+* David Dufresne <david.dufresne@savoirfairelinux.com>
 
 Maintainer
 ----------
