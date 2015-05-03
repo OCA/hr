@@ -39,11 +39,11 @@ class TestEmployeeFirstname(TransactionCase):
         # Create 3 employees for split the name_related to
         # firstname and lastname
         self.employee10_id = self.employee_model.create(
-            {'name': ' Jan Van Eyck', 'firstname': ' ', 'lastname':  ' '})
+            {'name': ' Jan Van Eyck'})
         self.employee20_id = self.employee_model.create(
-            {'name': 'Jean-Pierre Carnaud', 'firstname': ' ', 'lastname': ' '})
+            {'name': 'Jean-Pierre Carnaud'})
         self.employee30_id = self.employee_model.create(
-            {'name': 'FamkeJenssens', 'firstname': ' ', 'lastname': ' '})
+            {'name': 'FamkeJenssens'})
 
     def test_get_name(self):
         """
@@ -51,28 +51,61 @@ class TestEmployeeFirstname(TransactionCase):
         the firstname and lastname
         """
         # Check for employee1
-        self.assertTrue(self.employee1_id.name_related == 'Jan Van Eyck')
+        self.assertEqual(self.employee1_id.name, 'Jan Van Eyck')
 
         # Check for employee2
-        self.assertTrue(self.employee2_id.name_related == 'Jean-Pierre '
-                                                          'Carnaud')
+        self.assertEqual(self.employee2_id.name, 'Jean-Pierre Carnaud')
 
         # Check for employee3
-        self.assertTrue(self.employee3_id.name_related == 'Famke Jenssens')
+        self.assertEqual(self.employee3_id.name, 'Famke Jenssens')
 
     def test_auto_init_name(self):
         """
-        Validate the _auto_init if the name related is split
+        Validate the create method if the name is split
         in firstname and lastname
         """
         # Check for employee10
-        self.assertTrue(self.employee10_id.firstname == "Jan")
-        self.assertTrue(self.employee10_id.lastname == 'Van Eyck')
+        self.assertEqual(self.employee10_id.firstname, "Jan")
+        self.assertEqual(self.employee10_id.lastname, 'Van Eyck')
 
         # Check for employee20
-        self.assertTrue(self.employee20_id.firstname == 'Jean-Pierre')
-        self.assertTrue(self.employee20_id.lastname == 'Carnaud')
+        self.assertEqual(self.employee20_id.firstname, 'Jean-Pierre')
+        self.assertEqual(self.employee20_id.lastname, 'Carnaud')
 
         # Check for employee30
-        self.assertTrue(self.employee30_id.firstname == 'FamkeJenssens')
-        self.assertTrue(self.employee30_id.lastname == ' ')
+        self.assertEqual(self.employee30_id.firstname, 'FamkeJenssens')
+        self.assertEqual(self.employee30_id.lastname, ' ')
+
+    def test_change_name(self):
+        self.employee1_id.write({'name': 'Jean-Pierre Carnaud Eyck'})
+        self.employee1_id.refresh()
+
+        self.assertEqual(self.employee1_id.firstname, 'Jean-Pierre')
+        self.assertEqual(self.employee1_id.lastname, 'Carnaud Eyck')
+
+    def test_change_name_with_space(self):
+        self.employee1_id.write({'name': '  Jean-Pierre  Carnaud    Eyck'})
+        self.employee1_id.refresh()
+
+        self.assertEqual(self.employee1_id.firstname, 'Jean-Pierre')
+        self.assertEqual(self.employee1_id.lastname, 'Carnaud Eyck')
+
+    def test_change_firstname(self):
+        self.employee1_id.write({'firstname': 'Jean-Pierre'})
+        self.employee1_id.refresh()
+
+        self.assertEqual(self.employee1_id.name, 'Jean-Pierre Van Eyck')
+
+    def test_change_lastname(self):
+        self.employee1_id.write({'lastname': 'Carnaud'})
+        self.employee1_id.refresh()
+
+        self.assertEqual(self.employee1_id.name, 'Jan Carnaud')
+
+    def test_change_firstname_and_lastname(self):
+        self.employee1_id.write({
+            'firstname': 'Jean-Pierre',
+            'lastname': 'Carnaud'})
+        self.employee1_id.refresh()
+
+        self.assertEqual(self.employee1_id.name, 'Jean-Pierre Carnaud')
