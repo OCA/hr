@@ -43,17 +43,35 @@ def adjust_employee_partners_post(env):
     company_partners = companies.mapped('partner_id')
     # use user's partner or create one for all employees pointing to a company
     # address
-    for employee in env['hr.employee'].with_context(active_test=False).search(
-            [('address_id', 'in', company_partners.ids)]):
+    employees = env['hr.employee'].with_context(active_test=False).search(
+        [('address_id', 'in', company_partners.ids)], order='id')
+    # we need to read related values from the database because the related
+    # fields already cover our fields
+    env.cr.execute(
+        'select work_phone, work_email, mobile_phone, image '
+        'from hr_employee where id in %s order by id',
+        (tuple(employees.ids),))
+    employee_db_data = env.cr.dictfetchall()
+    for employee, db_data in zip(employees, employee_db_data):
         if employee.user_id:
             employee.address_id = employee.user_id.partner_id
+            if employee.address_id.phone:
+                db_data.pop('work_phone')
+            if employee.address_id.email:
+                db_data.pop('work_email')
+            if employee.address_id.mobile:
+                db_data.pop('mobile_phone')
+            if employee.address_id.image:
+                db_data.pop('image')
+            if db_data:
+                employee.write(db_data)
         else:
             employee.address_id = env['res.partner'].create({
                 'employee': True,
                 'name': employee.name,
-                'phone': employee.work_phone,
-                'email': employee.work_email,
-                'mobile': employee.mobile_phone,
-                'image': employee.image,
+                'phone': db_data['work_phone'],
+                'email': db_data['work_email'],
+                'mobile': db_data['mobile_phone'],
+                'image': db_data['image'],
                 'active': employee.active,
             })
