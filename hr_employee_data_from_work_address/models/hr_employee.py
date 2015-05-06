@@ -29,6 +29,8 @@ class HrEmployee(models.Model):
     work_email = fields.Char(related=['address_id', 'email'])
     mobile_phone = fields.Char(related=['address_id', 'mobile'])
     image = fields.Binary(related=['address_id', 'image'])
+    image_medium = fields.Binary(related=['address_id', 'image_medium'])
+    image_small = fields.Binary(related=['address_id', 'image_small'])
 
     @api.multi
     def onchange_company(self, company):
@@ -47,7 +49,8 @@ class HrEmployee(models.Model):
     def _register_hook(self, cr):
         # we need to reset the store parameter
         # further, making a normal field related doesn't reset columns
-        for field in ['work_phone', 'work_email', 'mobile_phone', 'image']:
+        for field in ['work_phone', 'work_email', 'mobile_phone', 'image',
+                      'image_medium', 'image_small']:
             if field in self._columns:
                 self._columns.pop(field)
             if field in self._all_columns:
