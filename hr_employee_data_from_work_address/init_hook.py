@@ -85,3 +85,7 @@ def adjust_employee_partners_post(env):
             'image': db_data['image'],
             'active': employee.active,
         })
+
+
+def uninstall_hook(cr, pool):
+    cr.execute('alter table hr_employee alter column address_id drop not null')
