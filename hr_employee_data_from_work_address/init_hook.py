@@ -27,8 +27,32 @@ def pre_init_hook(cr):
 
 
 def adjust_employee_partners_pre(cr):
-    # point all employees without address_id to a company partner to satisfy
-    # newly introduced non null constraint
+    cr.execute('update hr_employee e set address_id=null '
+               'from res_company c where address_id=c.partner_id')
+    # set work address to user's partner if any
+    cr.execute(
+        '''update hr_employee e
+        set
+        address_id=u.partner_id
+        from
+        resource_resource r,
+        res_users u
+        where e.resource_id=r.id and r.user_id=u.id and e.address_id is null
+        ''')
+    # copy unset fields on the linked partner records from the employee
+    cr.execute(
+        '''update res_partner p
+        set
+        phone=coalesce(nullif(trim(p.phone), ''), e.work_phone),
+        email=coalesce(nullif(trim(p.email), ''), e.work_email),
+        mobile=coalesce(nullif(trim(p.mobile), ''), e.mobile_phone),
+        image=coalesce(p.image, e.image)
+        from
+        hr_employee e
+        where e.address_id=p.id
+        ''')
+    # point all remaining employees without address_id to a company partner to
+    # satisfy newly introduced non null constraint
     cr.execute('update hr_employee e set address_id=c.partner_id '
                'from res_company c where e.address_id is null')
 
@@ -41,8 +65,7 @@ def post_init_hook(cr, pool):
 def adjust_employee_partners_post(env):
     companies = env['res.company'].with_context(active_test=False).search([])
     company_partners = companies.mapped('partner_id')
-    # use user's partner or create one for all employees pointing to a company
-    # address
+    # create a new partner for all employees pointing to a company address
     employees = env['hr.employee'].with_context(active_test=False).search(
         [('address_id', 'in', company_partners.ids)], order='id')
     # we need to read related values from the database because the related
@@ -53,25 +76,12 @@ def adjust_employee_partners_post(env):
         (tuple(employees.ids),))
     employee_db_data = env.cr.dictfetchall()
     for employee, db_data in zip(employees, employee_db_data):
-        if employee.user_id:
-            employee.address_id = employee.user_id.partner_id
-            if employee.address_id.phone:
-                db_data.pop('work_phone')
-            if employee.address_id.email:
-                db_data.pop('work_email')
-            if employee.address_id.mobile:
-                db_data.pop('mobile_phone')
-            if employee.address_id.image:
-                db_data.pop('image')
-            if db_data:
-                employee.write(db_data)
-        else:
-            employee.address_id = env['res.partner'].create({
-                'employee': True,
-                'name': employee.name,
-                'phone': db_data['work_phone'],
-                'email': db_data['work_email'],
-                'mobile': db_data['mobile_phone'],
-                'image': db_data['image'],
-                'active': employee.active,
-            })
+        employee.address_id = env['res.partner'].create({
+            'employee': True,
+            'name': employee.name,
+            'phone': db_data['work_phone'],
+            'email': db_data['work_email'],
+            'mobile': db_data['mobile_phone'],
+            'image': db_data['image'],
+            'active': employee.active,
+        })

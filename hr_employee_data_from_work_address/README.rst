@@ -6,7 +6,7 @@ When using HR, there are a couple of partners involved per employee: The employe
 Installation
 ============
 
-As it would be problematic to have work addresses pointing to the company's partner with this module, all employees are updated with either a new partner as work address in case they are not linked to a user, or with the user's partner otherwise. This may take some time if you have a lot of employees.
+As it would be problematic to have work addresses pointing to the company's partner with this module, all employees are updated with either a new partner as work address in case they are not linked to a user, or with the user's partner otherwise. This may take some time if you have a lot of employees. For existing work addresses, the partner's data win, so if your employee as ha different email/phone number/image than the corresponding partner, those fields will be overwritten - but only if it is set in the partner.
 
 Usage
 =====
