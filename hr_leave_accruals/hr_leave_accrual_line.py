@@ -59,6 +59,7 @@ class hr_leave_accrual_line(orm.Model):
         'amount_type': fields.selection(
             get_amount_types,
             string="Amount Type",
+            required=True,
         ),
 
         # Fields required when line is an allocation
@@ -89,10 +90,12 @@ class hr_leave_accrual_line(orm.Model):
             'Is Refund',
         ),
 
-        # Fields required when the line is entered manually
         'date': fields.date(
             'Date',
+            required=True,
         ),
+
+        # Field required when the line is entered manually
         'description': fields.char(
             'Description',
         )
