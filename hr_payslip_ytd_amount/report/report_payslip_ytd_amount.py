@@ -57,7 +57,8 @@ class payslip_ytd_amount_report(report_sxw.rml_parse):
 
         return [
             line for line in payslip_lines
-            if line.appears_on_payslip and line.amount
+            if line.appears_on_payslip and
+            (line.amount or line.total_ytd)
         ]
 
     def translate_in_employee_lang(self, term, payslip, is_payslip_line=False):
