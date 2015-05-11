@@ -24,7 +24,7 @@ Configuration
 
 Create a fiscal year
 --------------------
-Go to: Human Resources -> Configuration -> Payroll -> Payoll Fiscal Year
+Go to: Human Resources -> Configuration -> Payroll -> Payroll Fiscal Year
 
  - Select a type of schedule, e.g. monthly
  - Select a duration, e.g. from 2015-01-01 to 2015-12-31
@@ -72,11 +72,6 @@ Credits
 
 Contributors
 ------------
-
-.. image:: http://sflx.ca/logo
-   :alt: Savoir-faire Linux
-   :target: http://sflx.ca
-
 * David Dufresne <david.dufresne@savoirfairelinux.com>
 * Maxime Chambreuil <maxime.chambreuil@savoirfairelinux.com>
 * Pierre Lamarche <pierre.lamarche@savoirfairelinux.com>
