@@ -29,7 +29,7 @@ HR Payroll Period
 Add payroll periods
 """,
     'author': "Savoir-faire Linux,Odoo Community Association (OCA)",
-    'website': 'https://odoo-community.org',
+    'website': 'https://github.com/OCA/hr',
     'depends': [
         'hr_payroll',
     ],
