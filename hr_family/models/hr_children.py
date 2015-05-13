@@ -19,27 +19,13 @@
 #
 #
 
-{
-    'name': 'Family Information',
-    'version': '1.0',
-    'category': 'Generic Modules/Human Resources',
-    'description': """
-Employee Family Information
-===========================
+from openerp import models, fields
 
-    Enter extra information about employee's family
-    """,
-    'author': "Michael Telahun Makonnen <mmakonnen@gmail.com>,Odoo Community Association (OCA)",
-    'website': 'http://www.openerp.com',
-    'license': 'AGPL-3',
-    'depends': [
-        'hr',
-    ],
-    'data': [
-        'security/ir.model.access.csv',
-        'hr_view.xml',
-    ],
-    'test': [
-    ],
-    'installable': False,
-}
+
+class HrChildren(models.Model):
+    _name = 'hr.employee.children'
+    _description = 'HR Employee Children'
+
+    name = fields.Char("Name", required=True)
+    date_of_birth = fields.Date("Date of Birth", oldname='dob')
+    employee_id = fields.Many2one('hr.employee', "Employee")
