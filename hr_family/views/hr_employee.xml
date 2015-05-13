@@ -39,9 +39,9 @@
                             </group>
                             <group string="Parents">
                                 <field name="fam_father"/>
-                                <field name="fam_father_dob"/>
+                                <field name="fam_father_date_of_birth"/>
                                 <field name="fam_mother"/>
-                                <field name="fam_mother_dob"/>
+                                <field name="fam_mother_date_of_birth"/>
                             </group>
                         </group>
                         <group string="Children">
