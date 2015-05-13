@@ -135,16 +135,9 @@ class test_contract_hourly_rate(TransactionCase):
                       ('2014-06-01', '2014-07-31')]:
             self.assertRaises(
                 exceptions.ValidationError, self.rate_class_model.write,
-                [self.rate_class_id.id], {
-                    'line_ids': [
-                        (0, 0, {
-                            'date_start': dates[0],
-                            'date_end': dates[1],
-                            'rate': 15,
-                        }),
-                    ],
-                }
-            )
+                {'line_ids': [(0, 0, {'date_start': dates[0],
+                                      'date_end': dates[1],
+                                      'rate': 15})]})
 
     def test_check_has_hourly_rate_class(self):
         """
@@ -155,16 +148,9 @@ class test_contract_hourly_rate(TransactionCase):
 
         self.assertRaises(
             exceptions.ValidationError, self.contract_model.write,
-            [self.contract_id.id], {
-                'contract_job_ids': [
-                    (0, 0, {
-                        'job_id': job_id.id,
-                        'is_main_job': False,
-                        'hourly_rate_class_id': False,
-                    }),
-                ],
-            }
-        )
+            {'contract_job_ids': [(0, 0, {'job_id': job_id.id,
+                                          'is_main_job': False,
+                                          'hourly_rate_class_id': False})]})
 
         self.job_model.unlink([job_id.id])
 
@@ -210,14 +196,6 @@ class test_contract_hourly_rate(TransactionCase):
 
             self.assertRaises(
                 exceptions.ValidationError, self.rate_class_model.write,
-                [self.rate_class_id.id],
-                {
-                    'line_ids': [
-                        (0, 0, {
-                            'date_start': dates[0],
-                            'date_end': dates[1],
-                            'rate': 15,
-                        }),
-                    ],
-                }
-            )
+                {'line_ids': [(0, 0, {'date_start': dates[0],
+                                      'date_end': dates[1],
+                                      'rate': 15})]})
