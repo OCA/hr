@@ -38,6 +38,7 @@ INTERVALS = {
     'monthly': (relativedelta(months=1), 12),
     'bi-weekly': (relativedelta(weeks=2), 26),
     'weekly': (relativedelta(weeks=1), 52),
+    'daily': (relativedelta(days=1), 365),
 }
 
 
@@ -51,6 +52,7 @@ def get_schedules(self, cr, uid, context=None):
         ('semi-monthly', _('Semi-monthly (24)')),
         ('bi-weekly', _('Bi-weekly (26)')),
         ('weekly', _('Weekly (52)')),
+        ('daily', _('Daily (365)')),
     ]
 
 
@@ -168,45 +170,50 @@ class HrFiscalYear(orm.Model):
     def create_periods(self, cr, uid, ids, context=None):
         """ Create every periods a payroll fiscal year
         """
-        fy = self.browse(cr, uid, ids[0], context=context)
+        if isinstance(ids, (int, long)):
+            ids = [ids]
 
-        for period in fy.period_ids:
-            period.unlink()
+        for fy in self.browse(cr, uid, ids, context=context):
 
-        fy.refresh()
+            for period in fy.period_ids:
+                period.unlink()
 
-        period_start = datetime.strptime(
-            fy.date_start, DEFAULT_SERVER_DATE_FORMAT)
+            fy.refresh()
 
-        next_year_start = datetime.strptime(
-            fy.date_stop, DEFAULT_SERVER_DATE_FORMAT) + relativedelta(days=1)
+            period_start = datetime.strptime(
+                fy.date_start, DEFAULT_SERVER_DATE_FORMAT)
 
-        # Case for semi-monthly schedules
-        if fy.schedule_pay == 'semi-monthly':
-            delta_1 = relativedelta(days=15)
-            delta_2 = relativedelta(months=1)
+            next_year_start = datetime.strptime(
+                fy.date_stop,
+                DEFAULT_SERVER_DATE_FORMAT) + relativedelta(days=1)
 
-            i = 1
-            while not period_start + delta_2 > next_year_start:
-                # create periods for one month
-                half_month = period_start + delta_1
-                fy._create_single_period(period_start, half_month, i)
-                fy._create_single_period(
-                    half_month, period_start + delta_2, i + 1)
+            # Case for semi-monthly schedules
+            if fy.schedule_pay == 'semi-monthly':
+                delta_1 = relativedelta(days=15)
+                delta_2 = relativedelta(months=1)
 
-                # setup for next month
-                period_start += delta_2
-                i += 2
+                i = 1
+                while not period_start + delta_2 > next_year_start:
+                    # create periods for one month
+                    half_month = period_start + delta_1
+                    fy._create_single_period(period_start, half_month, i)
+                    fy._create_single_period(
+                        half_month, period_start + delta_2, i + 1)
 
-        # All other cases
-        else:
-            delta, nb_periods = INTERVALS[fy.schedule_pay]
+                    # setup for next month
+                    period_start += delta_2
+                    i += 2
 
-            i = 1
-            while not period_start + delta > next_year_start:
-                fy._create_single_period(period_start, period_start + delta, i)
-                period_start += delta
-                i += 1
+            # All other cases
+            else:
+                delta, nb_periods = INTERVALS[fy.schedule_pay]
+
+                i = 1
+                while not period_start + delta > next_year_start:
+                    fy._create_single_period(
+                        period_start, period_start + delta, i)
+                    period_start += delta
+                    i += 1
 
     def _create_single_period(
         self, cr, uid, ids, date_start, date_stop, number, context=None
@@ -215,6 +222,11 @@ class HrFiscalYear(orm.Model):
         :param date_start: the first day of the actual period
         :param date_stop: the first day of the following period
         """
+        if isinstance(ids, (int, long)):
+            ids = [ids]
+
+        assert(len(ids), 1)
+
         fy = self.browse(cr, uid, ids[0], context=context)
 
         date_stop -= relativedelta(days=1)
@@ -236,6 +248,11 @@ class HrFiscalYear(orm.Model):
         """ Get the date of payment for a period to create
         :param date_stop: the last day of the current period
         """
+        if isinstance(ids, (int, long)):
+            ids = [ids]
+
+        assert(len(ids), 1)
+
         fy = self.browse(cr, uid, ids[0], context=context)
 
         date_payment = date_stop
@@ -283,6 +300,12 @@ class HrFiscalYear(orm.Model):
         self.write(cr, uid, ids, {'state': 'draft'}, context=context)
 
     def search_period(self, cr, uid, ids, number, context=None):
+        if not ids:
+            return False
+
+        if isinstance(ids, (int, long)):
+            ids = [ids]
+
         fy = self.browse(cr, uid, ids[0], context=context)
 
         return next((p for p in fy.period_ids if p.number == number), False)
