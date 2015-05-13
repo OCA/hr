@@ -22,10 +22,10 @@
 from openerp import models, fields
 
 
-class hr_children(models.Model):
+class HrChildren(models.Model):
     _name = 'hr.employee.children'
     _description = 'HR Employee Children'
 
     name = fields.Char("Name", required=True)
-    dob = fields.Date("Date of Birth")
+    date_of_birth = fields.Date("Date of Birth", oldname='dob')
     employee_id = fields.Many2one('hr.employee', "Employee")
