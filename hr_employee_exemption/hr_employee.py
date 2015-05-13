@@ -39,6 +39,12 @@ class hr_employee(orm.Model):
         The method to call from a salary rule to check whether an employee
         is exempted from a source deduction
         """
+
+        if isinstance(ids, (int, long)):
+            ids = [ids]
+
+        assert(len(ids), 1)
+
         employee = self.browse(cr, uid, ids[0], context=context)
         for exemption in employee.exemption_ids:
             if exemption.exemption_id.code == code and \
