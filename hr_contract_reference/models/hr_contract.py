@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
+##############################################################################
 #
-#
-#    Copyright (C) 2011 Michael Telahun Makonnen <mmakonnen@gmail.com>.
+#    Copyright (C) 2011,2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
 #    All Rights Reserved.
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -17,6 +17,19 @@
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-#
+##############################################################################
 
-from . import hr_contract
+from openerp import models, fields, api
+
+
+class hr_contract(models.Model):
+    _inherit = 'hr.contract'
+
+    name = fields.Char('Contract Reference', required=False,
+                       readonly=True, copy=False, default='/')
+
+    @api.model
+    def create(self, vals):
+        if vals.get('number', '/') == '/':
+            vals['name'] = self.env['ir.sequence'].next_by_code('contract.ref')
+        return super(hr_contract, self).create(vals)
