@@ -85,6 +85,19 @@ class test_hr_fiscalyear(common.TransactionCase):
         self.check_period(
             periods[11], '2015-12-01', '2015-12-31', '2016-01-02')
 
+    def test_create_periods_daily(self):
+        fy = self.create_fiscal_year({
+            'schedule_pay': 'daily'
+        })
+        fy.create_periods()
+        periods = self.get_periods(fy)
+        self.assertEqual(len(periods), 365)
+        self.check_period(periods[0], '2015-01-01', '2015-01-01', '2015-01-03')
+        self.check_period(periods[1], '2015-01-02', '2015-01-02', '2015-01-04')
+        self.check_period(periods[2], '2015-01-03', '2015-01-03', '2015-01-05')
+        self.check_period(
+            periods[364], '2015-12-31', '2015-12-31', '2016-01-02')
+
     def test_create_periods_monthly_custom_year(self):
         fy = self.create_fiscal_year({
             'date_start': '2015-03-16',

@@ -455,3 +455,9 @@ msgstr "Samedi"
 #, python-format
 msgid "Fifth"
 msgstr "Cinquième"
+
+#. module: hr_period
+#: code:addons/hr_period/models/hr_fiscal_year.py:0
+#, python-format
+msgid "Daily (365)"
+msgstr "Journalier (365)"
