@@ -19,8 +19,4 @@
 #
 ##############################################################################
 
-from . import (
-    hr_employee,
-    hr_employee_exemption,
-    hr_income_tax_exemption,
-)
+from . import models
