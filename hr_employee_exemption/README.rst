@@ -9,21 +9,17 @@ Usage
 =====
 
 Go to: Human Resources -> Configuration -> Payroll -> Income Tax Exemptions
-Create exemption types
-exemple: 
- - name: 'Exemption from federal tax'
- - code: 'FED'
+Create an exemption (EX1)
+
+Go to: Human Resources -> Configuration -> Payroll -> Salary Rules
+Select a salary rule (R1) on which to apply the exemption
+In the field 'Exemption', select the exemption EX1
 
 Go to: Human Resources -> Human Resources -> Employees
-Select an employee
-In the Tax Exemptions tab, add exemptions
+Select an employee (E1)
+In the Tax Exemptions tab, add exemption EX1 and the period of time over which it applies.
 
-In your salary rules, you may access check if an employee is exempted from a source deduction:
-if employee.exempted_from('FED', payslip.date_from):
-	result = ...
-else:
-	result = ...
-
+The amount will be 0 for rule R1 in employee E1's payslips.
 
 Credits
 =======

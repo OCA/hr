@@ -2,15 +2,30 @@
 <openerp>
     <data>
 
-        <record id="hr_income_tax_exemption_list" model="ir.ui.view">
+        <record id="hr_income_tax_exemption_form" model="ir.ui.view">
             <field name="name">hr.income.tax.exemption.form</field>
-                <field name="model">hr.income.tax.exemption</field>
-                <field name="arch" type="xml">
-                    <tree string="Income Tax Exemptions" editable="top">
+            <field name="model">hr.income.tax.exemption</field>
+            <field name="arch" type="xml">
+                <form string="Income Tax Exemptions">
+                    <group>
                         <field name="name"/>
-                        <field name="code"/>
-                    </tree>
-                </field>
+
+                        <group col="4" colspan="4" string="Salary Rules">
+                            <field name="salary_rule_ids" nolabel="1"/>
+                        </group>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="hr_income_tax_exemption_list" model="ir.ui.view">
+            <field name="name">hr.income.tax.exemption.tree</field>
+            <field name="model">hr.income.tax.exemption</field>
+            <field name="arch" type="xml">
+                <tree string="Income Tax Exemptions">
+                    <field name="name"/>
+                </tree>
+            </field>
         </record>
 
         <record id="action_hr_income_tax_exemption_list" model="ir.actions.act_window">

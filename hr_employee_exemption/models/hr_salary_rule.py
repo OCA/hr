@@ -19,36 +19,36 @@
 #
 ##############################################################################
 
-from openerp.osv import orm, fields
+from openerp.osv import fields, orm
 
 
-class hr_employee(orm.Model):
-    _inherit = 'hr.employee'
-
+class HrSalaryRule(orm.Model):
+    _inherit = 'hr.salary.rule'
     _columns = {
-        'exemption_ids': fields.one2many(
-            'hr.employee.exemption',
-            'employee_id',
-            'Income Tax Exemptions',
-            groups='base.group_hr_manager',
+        'exemption_id': fields.many2one(
+            'hr.income.tax.exemption',
+            'Exemption',
         ),
     }
 
-    def exempted_from(self, cr, uid, ids, code, date, context=None):
-        """
-        The method to call from a salary rule to check whether an employee
-        is exempted from a source deduction
-        """
+    def compute_rule(self, cr, uid, rule_id, localdict, context=None):
+        rule = self.browse(cr, uid, rule_id, context=context)
 
+        if rule.exemption_id and rule.check_exemption(localdict):
+            return (0, 0, 0)
+
+        return super(HrSalaryRule, self).compute_rule(
+            cr, uid, rule_id, localdict, context=context)
+
+    def check_exemption(self, cr, uid, ids, localdict, context=None):
+        """ Check whether the employee is exempted for the given rule
+        """
         if isinstance(ids, (int, long)):
             ids = [ids]
 
         assert(len(ids), 1)
 
-        employee = self.browse(cr, uid, ids[0], context=context)
-        for exemption in employee.exemption_ids:
-            if exemption.exemption_id.code == code and \
-                    exemption.date_from <= date and (
-                    not exemption.date_to or date <= exemption.date_to):
-                return True
-        return False
+        rule = self.browse(cr, uid, ids[0], context=context)
+
+        return localdict['employee'].exempted_from(
+            rule.exemption_id, localdict['payslip'].date_to)

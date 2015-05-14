@@ -22,7 +22,7 @@
 from openerp.osv import orm, fields
 
 
-class hr_employee_exemption(orm.Model):
+class HrEmployeeExemption(orm.Model):
     _name = 'hr.employee.exemption'
     _description = 'Employee Income Tax Exemption'
 

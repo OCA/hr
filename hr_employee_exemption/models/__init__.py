@@ -5,7 +5,8 @@
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as published
-#    by the Free Software Foundation, either version 3 of the License, or
+#    by
+#    the Free Software Foundation, either version 3 of the License, or
 #    (at your option) any later version.
 #
 #    This program is distributed in the hope that it will be useful,
@@ -18,30 +19,7 @@
 #
 ##############################################################################
 
-{
-    'name': 'Employee Exemption',
-    'version': '1.0',
-    'license': 'AGPL-3',
-    'category': 'Generic Modules/Human Resources',
-    'author': "Savoir-faire Linux, Odoo Community Association (OCA)",
-    'website': 'https://www.savoirfairelinux.com',
-    'description': """
-Employee Exemption
-==================
-This module implements employee exemption.
-This allows in salary rules to know whether the employee is exempted
-from a source deduction.
-    """,
-    'depends': [
-        'hr_payroll',
-    ],
-    'data': [
-        'security/ir.model.access.csv',
-        'view/hr_employee_view.xml',
-        'view/hr_income_tax_exemption_view.xml',
-        'view/hr_salary_rule_view.xml',
-    ],
-    'test': [],
-    'demo': [],
-    'installable': True,
-}
+from . import hr_employee
+from . import hr_employee_exemption
+from . import hr_income_tax_exemption
+from . import hr_salary_rule
