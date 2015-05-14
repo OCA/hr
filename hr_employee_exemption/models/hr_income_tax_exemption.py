@@ -22,14 +22,15 @@
 from openerp.osv import fields, orm
 
 
-class hr_income_tax_exemption(orm.Model):
+class HrIncomeTaxExemption(orm.Model):
     _name = 'hr.income.tax.exemption'
     _description = 'Income Tax Exemption'
     _columns = {
         'name': fields.char('Name', required=True),
-        'code': fields.char(
-            'Code', required=True, help=""
-            "The code that can be used in the salary rules to identify "
-            "the exemption"
+        'salary_rule_ids': fields.one2many(
+            'hr.salary.rule',
+            'exemption_id',
+            'Salary Rules',
+            readonly=True,
         ),
     }

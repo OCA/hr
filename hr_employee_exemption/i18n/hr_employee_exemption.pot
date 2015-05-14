@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-14 18:29+0000\n"
-"PO-Revision-Date: 2015-03-14 18:29+0000\n"
+"POT-Creation-Date: 2015-05-14 14:14+0000\n"
+"PO-Revision-Date: 2015-05-14 14:14+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,17 +16,13 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: hr_employee_exemption
-#: model:ir.model,name:hr_employee_exemption.model_hr_employee_exemption
-msgid "hr.employee.exemption"
-msgstr ""
-
-#. module: hr_employee_exemption
-#: field:hr.income.tax.exemption,code:0
-msgid "Code"
+#: model:ir.model,name:hr_employee_exemption.model_hr_salary_rule
+msgid "hr.salary.rule"
 msgstr ""
 
 #. module: hr_employee_exemption
 #: field:hr.employee.exemption,exemption_id:0
+#: field:hr.salary.rule,exemption_id:0
 msgid "Exemption"
 msgstr ""
 
@@ -49,8 +45,14 @@ msgid "Tax Exemptions"
 msgstr ""
 
 #. module: hr_employee_exemption
-#: help:hr.income.tax.exemption,code:0
-msgid "The code that can be used in the salary rules to identify the exemption"
+#: model:ir.model,name:hr_employee_exemption.model_hr_employee_exemption
+msgid "Employee Income Tax Exemption"
+msgstr ""
+
+#. module: hr_employee_exemption
+#: view:hr.income.tax.exemption:0
+#: field:hr.income.tax.exemption,salary_rule_ids:0
+msgid "Salary Rules"
 msgstr ""
 
 #. module: hr_employee_exemption

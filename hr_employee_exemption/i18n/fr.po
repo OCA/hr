@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-14 18:29+0000\n"
-"PO-Revision-Date: 2015-03-14 14:34-0500\n"
+"POT-Creation-Date: 2015-05-14 14:14+0000\n"
+"PO-Revision-Date: 2015-05-14 10:16-0500\n"
 "Last-Translator: David Dufresne <david.dufresne@savoirfairelinux.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -17,17 +17,13 @@ msgstr ""
 "X-Generator: Poedit 1.5.4\n"
 
 #. module: hr_employee_exemption
-#: model:ir.model,name:hr_employee_exemption.model_hr_employee_exemption
-msgid "hr.employee.exemption"
-msgstr "hr.employee.exemption"
-
-#. module: hr_employee_exemption
-#: field:hr.income.tax.exemption,code:0
-msgid "Code"
-msgstr "Code"
+#: model:ir.model,name:hr_employee_exemption.model_hr_salary_rule
+msgid "hr.salary.rule"
+msgstr "hr.salary.rule"
 
 #. module: hr_employee_exemption
 #: field:hr.employee.exemption,exemption_id:0
+#: field:hr.salary.rule,exemption_id:0
 msgid "Exemption"
 msgstr "Exonération"
 
@@ -49,11 +45,15 @@ msgid "Tax Exemptions"
 msgstr "Exonérations d'impôt"
 
 #. module: hr_employee_exemption
-#: help:hr.income.tax.exemption,code:0
-msgid "The code that can be used in the salary rules to identify the exemption"
-msgstr ""
-"Le code pouvant être utilisé dans les règles de salaire pour identifier "
-"l'exonération."
+#: model:ir.model,name:hr_employee_exemption.model_hr_employee_exemption
+msgid "Employee Income Tax Exemption"
+msgstr "Exonération d'impôt de l'employé"
+
+#. module: hr_employee_exemption
+#: view:hr.income.tax.exemption:0
+#: field:hr.income.tax.exemption,salary_rule_ids:0
+msgid "Salary Rules"
+msgstr "Règles de salaire"
 
 #. module: hr_employee_exemption
 #: field:hr.employee.exemption,date_to:0
@@ -75,3 +75,15 @@ msgstr "Date de fin"
 #: model:ir.model,name:hr_employee_exemption.model_hr_employee
 msgid "Employee"
 msgstr "Employé"
+
+#~ msgid "hr.employee.exemption"
+#~ msgstr "hr.employee.exemption"
+
+#~ msgid "Code"
+#~ msgstr "Code"
+
+#~ msgid ""
+#~ "The code that can be used in the salary rules to identify the exemption"
+#~ msgstr ""
+#~ "Le code pouvant être utilisé dans les règles de salaire pour identifier "
+#~ "l'exonération."

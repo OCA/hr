@@ -27,84 +27,189 @@ class test_hr_employee_exemption(common.TransactionCase):
         super(test_hr_employee_exemption, self).setUp()
         self.employee_model = self.registry('hr.employee')
         self.exemption_model = self.registry('hr.income.tax.exemption')
+        self.rule_model = self.registry('hr.salary.rule')
+        self.rule_category_model = self.registry("hr.salary.rule.category")
+        self.contract_model = self.registry('hr.contract')
+        self.structure_model = self.registry("hr.payroll.structure")
+        self.payslip_model = self.registry('hr.payslip')
         self.user_model = self.registry("res.users")
 
         self.context = self.user_model.context_get(self.cr, self.uid)
-
         cr, uid, context = self.cr, self.uid, self.context
 
-        self.exemption_1 = self.exemption_model.create(cr, uid, {
+        self.category_id = self.rule_category_model.search(
+            cr, uid, [], context=context)[0]
+
+        self.exemption_id = self.exemption_model.create(cr, uid, {
             'name': 'Test',
-            'code': 'TEST_1',
         }, context=context)
 
-        self.exemption_2 = self.exemption_model.create(cr, uid, {
+        self.exemption = self.exemption_model.browse(
+            cr, uid, self.exemption_id, context=context)
+
+        self.exemption_2_id = self.exemption_model.create(cr, uid, {
             'name': 'Test',
-            'code': 'TEST_2',
         }, context=context)
 
-        self.employee_id = self.employee_model.create(
+        self.exemption_2 = self.exemption_model.browse(
+            cr, uid, self.exemption_2_id, context=context)
+
+        self.rule_id = self.rule_model.create(
             cr, uid, {
-                'name': 'Employee 1'
-            }, context=context)
+                'name': 'Test 1',
+                'sequence': 1,
+                'code': 'TEST_1',
+                'category_id': self.category_id,
+                'amount_select': 'fix',
+                'amount_fix': 50,
+                'exemption_id': self.exemption_id,
+            }, context=context
+        )
+        self.rule = self.rule_model.browse(
+            cr, uid, self.rule_id, context=context)
 
-    def add_exemption(self, exemption):
+        self.rule_2_id = self.rule_model.create(
+            cr, uid, {
+                'name': 'Test 2',
+                'sequence': 2,
+                'code': 'TEST_2',
+                'category_id': self.category_id,
+                'amount_select': 'fix',
+                'amount_fix': 75,
+                'exemption_id': self.exemption_2_id,
+            }, context=context
+        )
+
+        self.rule_2 = self.rule_model.browse(
+            cr, uid, self.rule_2_id, context=context)
+
+        self.structure_id = self.structure_model.create(
+            cr, uid, {
+                'name': 'TEST',
+                'parent_id': False,
+                'code': 'TEST',
+                'rule_ids': [(6, 0, [self.rule_id, self.rule_2_id])]
+            }, context=context
+        )
+
+        self.employee_ids = [
+            self.employee_model.create(
+                cr, uid, {
+                    'name': record[0],
+                }, context=context
+            ) for record in [
+                ('Employee 1', ),
+                ('Employee 2', ),
+            ]
+        ]
+
+        self.employee = self.employee_model.browse(
+            cr, uid, self.employee_ids[0], context=context)
+
+        self.contract_ids = [
+            self.contract_model.create(self.cr, self.uid, {
+                'name': record[0],
+                'employee_id': record[1],
+                'wage': 50000,
+                'struct_id': self.structure_id,
+            }, context=self.context)
+            for record in [
+                ('Contract 1', self.employee_ids[0]),
+                ('Contract 2', self.employee_ids[1]),
+            ]
+        ]
+
+    def compute_payslip(self):
         cr, uid, context = self.cr, self.uid, self.context
-        employee = self.employee_model.browse(
-            cr, uid, self.employee_id, context=context)
 
-        employee.write({'exemption_ids': [(0, 0, {
-            'exemption_id': exemption,
+        self.payslip_id = self.payslip_model.create(cr, uid, {
+            'employee_id': self.employee_ids[0],
+            'contract_id': self.contract_ids[0],
+            'date_from': '2015-01-01',
+            'date_to': '2015-01-31',
+            'struct_id': self.structure_id,
+        }, context=context)
+
+        self.payslip_model.compute_sheet(
+            cr, uid, [self.payslip_id], context=context)
+
+        payslip = self.payslip_model.browse(
+            cr, uid, self.payslip_id, context=context)
+
+        return {
+            line.code: line.total
+            for line in payslip.details_by_salary_rule_category
+        }
+
+    def test_no_exemption(self):
+        payslip = self.compute_payslip()
+
+        self.assertEqual(payslip['TEST_1'], 50)
+        self.assertEqual(payslip['TEST_2'], 75)
+
+    def test_one_exemption(self):
+        self.employee.write({'exemption_ids': [(0, 0, {
+            'exemption_id': self.exemption_id,
             'date_from': '2015-01-01',
             'date_to': '2015-12-31',
         })]})
 
-    def test_exempted_from_no_exemption(self):
-        cr, uid, context = self.cr, self.uid, self.context
-        employee = self.employee_model.browse(
-            cr, uid, self.employee_id, context=context)
+        payslip = self.compute_payslip()
 
-        self.assertEqual(employee.exempted_from('TEST_1', '2015-01-01'), False)
+        self.assertEqual(payslip['TEST_1'], 0)
+        self.assertEqual(payslip['TEST_2'], 75)
 
-    def test_exempted_from_one_exemption(self):
-        cr, uid, context = self.cr, self.uid, self.context
-        self.add_exemption(self.exemption_1)
+    def test_two_exemption(self):
+        self.employee.write({'exemption_ids': [
+            (0, 0, {
+                'exemption_id': self.exemption_id,
+                'date_from': '2015-01-01',
+                'date_to': '2015-12-31',
+            }),
+            (0, 0, {
+                'exemption_id': self.exemption_2_id,
+                'date_from': '2015-01-01',
+                'date_to': '2015-12-31',
+            }),
+        ]})
 
-        employee = self.employee_model.browse(
-            cr, uid, self.employee_id, context=context)
+        payslip = self.compute_payslip()
 
-        self.assertEqual(employee.exempted_from('TEST_1', '2015-01-01'), True)
-        self.assertEqual(employee.exempted_from('TEST_2', '2015-01-01'), False)
+        self.assertEqual(payslip['TEST_1'], 0)
+        self.assertEqual(payslip['TEST_2'], 0)
 
-        self.assertEqual(employee.exempted_from('TEST_1', '2014-12-31'), False)
-        self.assertEqual(employee.exempted_from('TEST_1', '2015-12-31'), True)
-        self.assertEqual(employee.exempted_from('TEST_1', '2016-01-01'), False)
-
-    def test_exempted_from_two_exemption(self):
-        cr, uid, context = self.cr, self.uid, self.context
-        self.add_exemption(self.exemption_1)
-        self.add_exemption(self.exemption_2)
-
-        employee = self.employee_model.browse(
-            cr, uid, self.employee_id, context=context)
-
-        self.assertEqual(employee.exempted_from('TEST_1', '2015-01-01'), True)
-        self.assertEqual(employee.exempted_from('TEST_2', '2015-01-01'), True)
-
-    def test_exempted_from_no_date_to(self):
-        cr, uid, context = self.cr, self.uid, self.context
-        employee = self.employee_model.browse(
-            cr, uid, self.employee_id, context=context)
-
-        employee.write({'exemption_ids': [(0, 0, {
-            'exemption_id': self.exemption_1,
+    def test_exemption_no_date_to(self):
+        self.employee.write({'exemption_ids': [(0, 0, {
+            'exemption_id': self.exemption_id,
             'date_from': '2015-01-01',
+            'date_to': False,
         })]})
 
-        self.assertEqual(employee.exempted_from('TEST_1', '2014-12-31'), False)
+        payslip = self.compute_payslip()
 
-        self.assertEqual(employee.exempted_from('TEST_1', '2015-01-01'), True)
-        self.assertEqual(employee.exempted_from('TEST_2', '2015-01-01'), False)
+        self.assertEqual(payslip['TEST_1'], 0)
+        self.assertEqual(payslip['TEST_2'], 75)
 
-        self.assertEqual(employee.exempted_from('TEST_1', '2016-01-01'), True)
-        self.assertEqual(employee.exempted_from('TEST_2', '2016-01-01'), False)
+    def test_exemption_date_before(self):
+        self.employee.write({'exemption_ids': [(0, 0, {
+            'exemption_id': self.exemption_id,
+            'date_from': '2014-12-01',
+            'date_to': '2014-12-31',
+        })]})
+
+        payslip = self.compute_payslip()
+
+        self.assertEqual(payslip['TEST_1'], 50)
+        self.assertEqual(payslip['TEST_2'], 75)
+
+    def test_exemption_date_after(self):
+        self.employee.write({'exemption_ids': [(0, 0, {
+            'exemption_id': self.exemption_id,
+            'date_from': '2015-02-01',
+            'date_to': '2015-12-31',
+        })]})
+
+        payslip = self.compute_payslip()
+
+        self.assertEqual(payslip['TEST_1'], 50)
+        self.assertEqual(payslip['TEST_2'], 75)
