@@ -20,6 +20,8 @@
 ##############################################################################
 
 from openerp.osv import fields, orm
+from openerp.tools.safe_eval import safe_eval as eval
+from openerp.tools.translate import _
 
 
 class hr_salary_rule(orm.Model):
@@ -32,13 +34,50 @@ class hr_salary_rule(orm.Model):
         ),
     }
 
-    # Rewrite compute_rule (from hr_payroll module)
-    # so that the python script in the rule may reference the rule itself
-    def compute_rule(self, cr, uid, rule_id, localdict, context=None):
+    def variable(self, cr, uid, ids, date, localdict=False, context=None):
+        """
+        Get a salary rule variable related to a salary rule for
+        a period of time
 
-        # Add reference to the rule
-        localdict['rule_id'] = rule_id
+        This method is called from the salary rule:
+        rule.variable(payslip.date_from)
 
-        return super(hr_salary_rule, self).compute_rule(
-            cr, uid, rule_id, localdict, context=context
-        )
+        By using the optional argument localdict, you can pass the value of
+        salary rule already computed. Example:
+        rule.variable(payslip.date_from, {'GROSS': GROSS})
+
+        :rtype: fixed amount (a float) or a python object (most likely a dict)
+        """
+        if isinstance(ids, (int, float)):
+            ids = [ids]
+
+        assert(len(ids) == 1)
+
+        rule = self.browse(cr, uid, ids[0], context=context)
+
+        # Find the salary rule variable related to that rule for the
+        # requested period
+        variable_list = [
+            variable for variable in rule.variable_ids
+            if variable.date_from <= date <= variable.date_to
+        ]
+        if not variable_list:
+            raise orm.except_orm(
+                _("Warning"),
+                _("The salary rule variable related to %s does not "
+                    "exist for the date %s""") %
+                (rule.code, date))
+        if len(variable_list) > 1:
+            raise orm.except_orm(
+                _("Warning"),
+                _("%s salary rule variables related to %s exist for "
+                    "the date %s""") %
+                (len(variable_list), rule.code, date))
+
+        variable = variable_list[0]
+
+        # Return the result whether the variable is fix or based on python code
+        if variable.type == 'python':
+            return eval(variable.python_code, localdict or {})
+        else:
+            return variable.fixed_amount

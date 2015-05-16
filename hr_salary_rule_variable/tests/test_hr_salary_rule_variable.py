@@ -57,7 +57,7 @@ class test_hr_salary_rule_variable(common.TransactionCase):
                 'active': True,
                 'amount_select': 'code',
                 'amount_python_compute': """\
-result = payslip.get_rule_variable(rule_id, payslip.date_from)
+result = rule.variable(payslip.date_from)
 """,
             }, context=context
         )
@@ -71,7 +71,7 @@ result = payslip.get_rule_variable(rule_id, payslip.date_from)
                 'active': True,
                 'amount_select': 'code',
                 'amount_python_compute': """\
-result = payslip.get_rule_variable(rule_id, payslip.date_from)
+result = rule.variable(payslip.date_from)
 """,
             }, context=context
         )
@@ -182,7 +182,7 @@ result = payslip.get_rule_variable(rule_id, payslip.date_from)
         self.rule_model.write(
             cr, uid, [self.rule_id], {
                 'amount_python_compute': """\
-variable = payslip.get_rule_variable(rule_id, payslip.date_from)
+variable = rule.variable(payslip.date_from)
 result = variable['TEST']
 """
             }, context=context)
@@ -190,7 +190,7 @@ result = variable['TEST']
         self.rule_model.write(
             cr, uid, [self.rule_2_id], {
                 'amount_python_compute': """\
-variable = payslip.get_rule_variable(rule_id, payslip.date_from)
+variable = rule.variable(payslip.date_from)
 result = variable[0]
 """
             }, context=context)
