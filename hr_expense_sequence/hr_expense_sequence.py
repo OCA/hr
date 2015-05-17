@@ -28,6 +28,22 @@ class hr_expense_expense(orm.Model):
     _inherit = 'hr.expense.expense'
     _order = 'name desc'
 
+    def _auto_init(self, cr, context=None):
+        """pre-create and fill column description with the column name
+        so that the required constraint setting will not fail
+        """
+        self._field_create(cr, context=context)
+        column_data = self._select_column_data(cr)
+        if 'description' not in column_data:
+            field = self._columns['description']
+            cr.execute('ALTER TABLE "%s" ADD COLUMN "description" %s' %
+                       (self._table,
+                        orm.pg_varchar(field.size)))
+            cr.execute('UPDATE hr_expense_expense '
+                       'SET description = name '
+                       'WHERE name IS NOT NULL')
+        return super(hr_expense_expense, self)._auto_init(cr, context=context)
+
     _columns = {
         # Move the description from the 'name' field to 'description' field
         # In the 'name' field, we now store the number/sequence

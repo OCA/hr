@@ -865,6 +865,21 @@ class hr_holidays_status(orm.Model):
     _name = 'hr.holidays.status'
     _inherit = 'hr.holidays.status'
 
+    def _auto_init(self, cr, context=None):
+        """pre-create and fill column code so that the constraint
+        setting will not fail"""
+        self._field_create(cr, context=context)
+        column_data = self._select_column_data(cr)
+        if 'code' not in column_data:
+            field = self._columns['code']
+            cr.execute('ALTER TABLE "%s" ADD COLUMN "code" %s' %
+                       (self._table,
+                        orm.pg_varchar(field.size)))
+            cr.execute('UPDATE hr_holidays_status '
+                       'SET code = substring(name from 1 for 16) '
+                       'WHERE code IS NULL')
+        return super(hr_holidays_status, self)._auto_init(cr, context=context)
+
     _columns = {
         'code': fields.char('Code', size=16, required=True),
     }
