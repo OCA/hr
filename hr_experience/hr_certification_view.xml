@@ -4,7 +4,6 @@
     <record model="ir.ui.view" id="view_certification_tree">
       <field name="name">hr.certification.tree</field>
       <field name="model">hr.certification</field>
-      <field name="type">tree</field>
       <field name="arch" type="xml">
         <tree string="certifications">
           <field name="name"/>
@@ -19,7 +18,6 @@
     <record model="ir.ui.view" id="view_certification_form">
       <field name="name">hr.certification.form</field>
       <field name="model">hr.certification</field>
-      <field name="type">form</field>
       <field name="arch" type="xml">
         <form string="certification">
           <field name="name"/>

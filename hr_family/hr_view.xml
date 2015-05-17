@@ -23,7 +23,7 @@
 
 <openerp>
     <data>
-        
+
         <record id="hr_employee_view_form" model="ir.ui.view">
             <field name="name">hr.employee.view.form.inherit.familyinfo</field>
             <field name="model">hr.employee</field>
@@ -35,7 +35,7 @@
                             <group string="Spouse">
                                 <field name="fam_spouse"/>
                                 <field name="fam_spouse_employer"/>
-                                <field name="fam_spouse_tel"/>                            
+                                <field name="fam_spouse_tel"/>
                             </group>
                             <group string="Parents">
                                 <field name="fam_father"/>
@@ -51,11 +51,10 @@
                 </xpath>
             </field>
         </record>
-        
+
         <record id="hr_children_view_tree" model="ir.ui.view">
             <field name="name">hr.children.view.tree</field>
             <field name="model">hr.employee.children</field>
-            <field name="type">tree</field>
             <field name="arch" type="xml">
                 <tree string="Employee Children">
                     <field name="name"/>
@@ -66,7 +65,6 @@
         <record id="hr_children_view_form" model="ir.ui.view">
             <field name="name">hr.children.view.form</field>
             <field name="model">hr.employee.children</field>
-            <field name="type">form</field>
             <field name="arch" type="xml">
                 <form string="Employee Children">
                     <field name="name"/>
@@ -74,6 +72,6 @@
                 </form>
             </field>
         </record>
-        
+
     </data>
 </openerp>
