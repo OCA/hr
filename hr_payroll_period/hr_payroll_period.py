@@ -560,10 +560,35 @@ class hr_contract(orm.Model):
 
     def _get_pay_sched(self, cr, uid, context=None):
 
-        res = False
         init = self.get_latest_initial_values(cr, uid, context=context)
         if init is not None and init.pay_sched_id:
             res = init.pay_sched_id.id
+        else:
+            # this is mainly for installation with existing contracts in the
+            # database
+            model_data = self.pool['ir.model.data']
+            try:
+                model, res = model_data.get_object_reference(
+                    cr,
+                    uid,
+                    'hr_payroll_period',
+                    'default_payroll_period_schedule')
+            except ValueError:
+                # the data file has not yet been imported
+                # we create the default record manually
+                sched_tmpl = self.pool['hr.payroll.period.schedule']
+                res = sched_tmpl.create(cr, uid,
+                                        {'name': 'Payroll Period Schedule',
+                                         'type': 'manual',
+                                         'tz': 'UTC'},
+                                        context=context)
+                model_data.create(cr, uid,
+                                  {'module': 'hr_payroll_period',
+                                   'model': 'hr.payroll.period.schedule',
+                                   'name': 'default_payrolle_period_schedule',
+                                   'res_id': res,
+                                   'noupdate': True},
+                                  context=context)
         return res
 
     _defaults = {
