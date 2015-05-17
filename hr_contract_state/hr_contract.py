@@ -20,6 +20,7 @@
 #
 
 import time
+import logging
 
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
@@ -27,6 +28,8 @@ from dateutil.relativedelta import relativedelta
 from openerp import netsvc
 from openerp.tools import DEFAULT_SERVER_DATE_FORMAT
 from openerp.osv import fields, orm
+
+_l = logging.getLogger(__name__)
 
 
 class hr_contract(orm.Model):
@@ -155,9 +158,7 @@ class hr_contract(orm.Model):
 
     def onchange_job(self, cr, uid, ids, job_id, context=None):
 
-        import logging
-        _l = logging.getLogger(__name__)
-        _l.warning('hr_contract_state: onchange_job()')
+        _l.debug('hr_contract_state: onchange_job()')
         res = False
         if isinstance(ids, (int, long)):
             ids = [ids]

@@ -835,8 +835,8 @@ class hr_payslip(orm.Model):
                                     'number_of_hours'] += normal_hours
                                 attendances[line.code]['number_of_days'] += 1.0
                                 done = True
-                                _l.warning('nh: %s', normal_hours)
-                                _l.warning('att: %s', attendances[line.code])
+                                _l.debug('nh: %s', normal_hours)
+                                _l.debug('att: %s', attendances[line.code])
 
                     if push_lsd:
                         lsd.push(True)

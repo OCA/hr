@@ -376,8 +376,8 @@ WHERE (date_start <= %s and %s <= date_end)
     def add_restdays(
             self, cr, uid, schedule, field_name, rest_days=None, context=None):
 
-        _logger.warning('field: %s', field_name)
-        _logger.warning('rest_days: %s', rest_days)
+        _logger.debug('field: %s', field_name)
+        _logger.debug('rest_days: %s', rest_days)
         restday_ids = []
         if rest_days is None:
             for rd in schedule.template_id.restday_ids:
@@ -387,7 +387,7 @@ WHERE (date_start <= %s and %s <= date_end)
                 cr, uid, [
                     ('sequence', 'in', rest_days)
                 ], context=context)
-        _logger.warning('restday_ids: %s', restday_ids)
+        _logger.debug('restday_ids: %s', restday_ids)
         if len(restday_ids) > 0:
             self.write(cr, uid, schedule.id, {
                        field_name: [(6, 0, restday_ids)]}, context=context)
