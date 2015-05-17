@@ -1800,11 +1800,31 @@ class hr_contract(orm.Model):
     }
 
     def _get_sched_template(self, cr, uid, context=None):
-
-        res = False
         init = self.get_latest_initial_values(cr, uid, context=context)
         if init is not None and init.sched_template_id:
             res = init.sched_template_id.id
+        else:
+            model_data = self.pool['ir.model.data']
+            try:
+                model, res = model_data.get_object_reference(
+                    cr,
+                    uid,
+                    'hr_schedule',
+                    'default_schedule_template')
+            except ValueError:
+                # the data file has not yet been imported
+                # we create the default record manually
+                sched_tmpl = self.pool['hr.schedule.template']
+                res = sched_tmpl.create(cr, uid,
+                                        {'name': 'Schedule Template'},
+                                        context=context)
+                model_data.create(cr, uid,
+                                  {'module': 'hr_schedule',
+                                   'model': 'hr.schedule.template',
+                                   'name': 'default_schedule_template',
+                                   'res_id': res,
+                                   'noupdate': True},
+                                  context=context)
         return res
 
     _defaults = {

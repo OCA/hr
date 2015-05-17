@@ -36,6 +36,9 @@
             <field name="name">Sunday</field>
             <field name="sequence" eval="6"/>
         </record>
-
+        
+        <record id="default_schedule_template" model="hr.schedule.template">
+          <field name="name">Schedule Template</field>
+        </record>
     </data>
 </openerp>
