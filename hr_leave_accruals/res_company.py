@@ -32,6 +32,6 @@ class res_company(orm.Model):
         ),
     }
 
-    _default = {
+    _defaults = {
         'holidays_hours_per_day': 8.0,
     }
