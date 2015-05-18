@@ -5,7 +5,6 @@
         <field name="name">hr.resume.employee.form</field>
         <field name="model">hr.employee</field>
         <field name="inherit_id" ref="hr.view_employee_form"/>
-        <field name="type">form</field>
         <field name="arch" type="xml">
             <notebook position="inside">
                 <page string="Biography">

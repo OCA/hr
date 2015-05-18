@@ -322,10 +322,10 @@ class restday(orm.TransientModel):
             }
 
         sched_obj.unlink(cr, uid, schedule_id, context=context)
-        _l.warning('vals1: %s', vals1)
+        _l.debug('vals1: %s', vals1)
         sched_obj.create(cr, uid, vals1, context=context)
         if vals2:
-            _l.warning('vals2: %s', vals2)
+            _l.debug('vals2: %s', vals2)
             sched_obj.create(cr, uid, vals2, context=context)
 
     def _change_by_template(

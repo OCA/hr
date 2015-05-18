@@ -21,6 +21,7 @@
 #
 #
 
+import logging
 from datetime import datetime, timedelta
 from pytz import timezone, utc
 
@@ -28,6 +29,8 @@ from openerp.osv import fields, orm
 from openerp.tools import DEFAULT_SERVER_DATETIME_FORMAT as OE_DTFORMAT
 from openerp.tools import DEFAULT_SERVER_DATE_FORMAT as OE_DFORMAT
 from openerp.tools.translate import _
+
+_l = logging.getLogger(__name__)
 
 
 class hr_holidays_status(orm.Model):
@@ -79,9 +82,7 @@ class hr_holidays(orm.Model):
 
         # If the user didn't enter from "My Leaves" don't pre-populate Employee
         # field
-        import logging
-        _l = logging.getLogger(__name__)
-        _l.warning('context: %s', context)
+        _l.debug('context: %s', context)
         if not context.get('search_default_my_leaves', False):
             return False
 

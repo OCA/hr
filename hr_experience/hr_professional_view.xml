@@ -4,7 +4,6 @@
     <record model="ir.ui.view" id="view_professional_tree">
       <field name="name">hr.experience.tree</field>
       <field name="model">hr.experience</field>
-      <field name="type">tree</field>
       <field name="arch" type="xml">
         <tree string="Professional Experiences">
           <field name="name"/>
@@ -19,7 +18,6 @@
     <record model="ir.ui.view" id="view_professional_form">
       <field name="name">hr.experience.form</field>
       <field name="model">hr.experience</field>
-      <field name="type">form</field>
       <field name="arch" type="xml">
         <form string="Professional Experience">
           <field name="name"/>
