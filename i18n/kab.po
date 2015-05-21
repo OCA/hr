@@ -1,94 +1,94 @@
-# Slovenian translation for openobject-addons
-# Copyright (c) 2013 Rosetta Contributors and Canonical Ltd 2013
+# Kabyle translation for openobject-addons
+# Copyright (c) 2015 Rosetta Contributors and Canonical Ltd 2015
 # This file is distributed under the same license as the openobject-addons package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2013.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2015.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: openobject-addons\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2013-06-07 19:36+0000\n"
-"PO-Revision-Date: 2015-03-26 09:00+0000\n"
-"Last-Translator: Matjaž Mozetič (Matmoz) <Unknown>\n"
-"Language-Team: Slovenian <sl@li.org>\n"
+"PO-Revision-Date: 2015-03-20 18:58+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Kabyle <kab@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-03-27 05:32+0000\n"
-"X-Generator: Launchpad (build 17413)\n"
+"X-Launchpad-Export-Date: 2015-03-21 05:39+0000\n"
+"X-Generator: Launchpad (build 17405)\n"
 
 #. module: hr_evaluation
 #: help:hr_evaluation.plan.phase,send_anonymous_manager:0
 msgid "Send an anonymous summary to the manager"
-msgstr "Pošlji anonimni povzetek upravitelju"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:hr_evaluation.view_hr_evaluation_form
 msgid "Start Appraisal"
-msgstr "Prični z ocenjevanjem"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:0
 #: view:hr.evaluation.report:0
 #: view:hr_evaluation.plan:0
 msgid "Group By..."
-msgstr "Združeno po..."
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:hr_evaluation.view_hr_evaluation_form
 msgid "Cancel Appraisal"
-msgstr "Preklic ocenjevanja"
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr.evaluation.report,request_id:0
 msgid "Request_id"
-msgstr "Id zahevka"
+msgstr ""
 
 #. module: hr_evaluation
 #: selection:hr.evaluation.report,month:0
 msgid "March"
-msgstr "Marec"
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr.evaluation.report,delay_date:0
 msgid "Delay to Start"
-msgstr "Zakasnitev do začetka"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:hr_evaluation.evaluation_search
 msgid "Appraisal that are in waiting appreciation state"
-msgstr "Ocenjevanja v stanju čakanja stališča"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr_evaluation.plan:hr_evaluation.view_hr_evaluation_plan_search
 #: field:hr_evaluation.plan,company_id:0
 #: field:hr_evaluation.plan.phase,company_id:0
 msgid "Company"
-msgstr "Družba"
+msgstr "Takebbwanit"
 
 #. module: hr_evaluation
 #: field:hr.evaluation.interview,survey_id:0
 #: field:hr_evaluation.plan.phase,survey_id:0
 msgid "Appraisal Form"
-msgstr "Obrazec ocenjevanja"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr.evaluation.report:0
 #: field:hr.evaluation.report,day:0
 msgid "Day"
-msgstr "Dan"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr_evaluation.plan:hr_evaluation.view_hr_evaluation_plan_form
 #: field:hr_evaluation.plan,phase_ids:0
 msgid "Appraisal Phases"
-msgstr "Faze ocenjevanja"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_form
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_tree
 msgid "Send Request"
-msgstr "Pošlji zahtevek"
+msgstr ""
 
 #. module: hr_evaluation
 #: help:hr_evaluation.plan,month_first:0
@@ -96,52 +96,50 @@ msgid ""
 "This number of months will be used to schedule the first evaluation date of "
 "the employee when selecting an evaluation plan. "
 msgstr ""
-"Število mesecev za načrtovanje prvega kadrovskega vrednotenja ob izbiri "
-"načrta vrednotenja. "
 
 #. module: hr_evaluation
 #: view:hr.employee:hr_evaluation.hr_hr_employee_view_form
 #: model:ir.ui.menu,name:hr_evaluation.menu_open_view_hr_evaluation_tree
 msgid "Appraisals"
-msgstr "Ocenjevanja"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr_evaluation.plan.phase:hr_evaluation.view_hr_evaluation_plan_phase_form
 msgid "(eval_name)s:Appraisal Name"
-msgstr "(eval_name)s: Naziv ocene"
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr.evaluation.interview,message_ids:0
 #: field:hr_evaluation.evaluation,message_ids:0
 msgid "Messages"
-msgstr "Sporočila"
+msgstr "Iznan"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.plan.phase:hr_evaluation.view_hr_evaluation_plan_phase_form
 msgid "Mail Body"
-msgstr "Vsebina e-pošte"
+msgstr "Taffeka n yizen"
 
 #. module: hr_evaluation
 #: field:hr_evaluation.plan.phase,wait:0
 msgid "Wait Previous Phases"
-msgstr "Čakanje predhodnih faz"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:ir.model,name:hr_evaluation.model_hr_evaluation_evaluation
 msgid "Employee Appraisal"
-msgstr "Kadrovsko ocenjevanje"
+msgstr ""
 
 #. module: hr_evaluation
 #: selection:hr.evaluation.interview,state:0
 #: selection:hr.evaluation.report,state:0
 #: selection:hr_evaluation.evaluation,state:0
 msgid "Cancelled"
-msgstr "Preklicano"
+msgstr "Ifsax"
 
 #. module: hr_evaluation
 #: selection:hr.evaluation.report,rating:0
 msgid "Did not meet expectations"
-msgstr "Ni ustrezal pričakovanjem"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_form
@@ -150,33 +148,33 @@ msgstr "Ni ustrezal pričakovanjem"
 #: model:ir.actions.act_window,name:hr_evaluation.open_view_hr_evaluation_tree
 #: model:ir.ui.menu,name:hr_evaluation.menu_eval_hr
 msgid "Appraisal"
-msgstr "Ocena"
+msgstr ""
 
 #. module: hr_evaluation
 #: help:hr.evaluation.interview,message_unread:0
 #: help:hr_evaluation.evaluation,message_unread:0
 msgid "If checked new messages require your attention."
-msgstr "Če je označeno, zahtevajo nova sporočila vašo pozornost."
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr_evaluation.plan.phase:hr_evaluation.view_hr_evaluation_plan_phase_form
 msgid "Send to Managers"
-msgstr "Pošlji upraviteljem"
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr_evaluation.evaluation,date_close:0
 msgid "Ending Date"
-msgstr "Končni datum"
+msgstr "Azemz n tagara"
 
 #. module: hr_evaluation
 #: field:hr_evaluation.plan,month_first:0
 msgid "First Appraisal in (months)"
-msgstr "Prvo ocenjevanje čez (mesecev)"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr_evaluation.plan.phase:hr_evaluation.view_hr_evaluation_plan_phase_form
 msgid "Send to Employees"
-msgstr "Pošlji delojemalcem"
+msgstr ""
 
 #. module: hr_evaluation
 #: code:addons/hr_evaluation/hr_evaluation.py:84
@@ -198,26 +196,11 @@ msgid ""
 "\n"
 "        "
 msgstr ""
-"\n"
-"Datum: %(date)s\n"
-"\n"
-"Spoštovani %(employee_name)s,\n"
-"\n"
-"Izvajamo vrednotenje %(eval_name)s.\n"
-"\n"
-"Prosimo, oddajte vaše odgovore.\n"
-"\n"
-"\n"
-"Najlepša hvala in lep pozdrav,\n"
-"--\n"
-"%(user_signature)s\n"
-"\n"
-"        "
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:hr_evaluation.evaluation_search
 msgid "Appraisal that are in Plan In Progress state"
-msgstr "Ocenjevanja v stanju 'v postopku načrtovanja'"
+msgstr ""
 
 #. module: hr_evaluation
 #: help:hr.evaluation.interview,message_summary:0
@@ -226,69 +209,69 @@ msgid ""
 "Holds the Chatter summary (number of messages, ...). This summary is "
 "directly in html format in order to be inserted in kanban views."
 msgstr ""
-"Povzetek komunikacij (število sporočil, ...). Ta povzetek je neposredno v "
-"html formatu, da se lahko vstavlja v poglede kanban."
+"Igber agzul n lehduṛ (amḍan n iznan,…). Agzul agi illa  deg umasal HTML "
+"iwakken ad isireg aseqdec-ines di tmeẓri n Kanban."
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:hr_evaluation.view_hr_evaluation_form
 msgid "Reset to Draft"
-msgstr "Vrni v osnutek"
+msgstr "Rrit d arewway"
 
 #. module: hr_evaluation
 #: field:hr.evaluation.interview,deadline:0
 #: field:hr.evaluation.report,deadline:0
 msgid "Deadline"
-msgstr "Rok"
+msgstr "Azemz n tagara"
 
 #. module: hr_evaluation
 #: code:addons/hr_evaluation/hr_evaluation.py:239
 #: code:addons/hr_evaluation/hr_evaluation.py:339
 #, python-format
 msgid "Warning!"
-msgstr "Opozorilo!"
+msgstr "ɣuṛ-ek !"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.report:hr_evaluation.view_evaluation_report_search
 msgid "In progress Evaluations"
-msgstr "Vrednotenja v teku"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:ir.model,name:hr_evaluation.model_survey_request
 msgid "survey.request"
-msgstr "survey.request"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_form
 msgid "Cancel Survey"
-msgstr "Preklic ankete"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr_evaluation.plan.phase:hr_evaluation.view_hr_evaluation_plan_phase_form
 msgid "(date)s: Current Date"
-msgstr "(date)s: Trenutni datum"
+msgstr "(date)s: Azemz Amiran"
 
 #. module: hr_evaluation
 #: model:ir.actions.act_window,name:hr_evaluation.act_hr_employee_2_hr__evaluation_interview
 msgid "Interviews"
-msgstr "Intervjuji"
+msgstr ""
 
 #. module: hr_evaluation
 #: code:addons/hr_evaluation/hr_evaluation.py:83
 #, python-format
 msgid "Regarding "
-msgstr "Glede na "
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr.evaluation.interview,message_follower_ids:0
 #: field:hr_evaluation.evaluation,message_follower_ids:0
 msgid "Followers"
-msgstr "Sledilci"
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr.evaluation.interview,message_unread:0
 #: field:hr_evaluation.evaluation,message_unread:0
 msgid "Unread Messages"
-msgstr "Neprebrana sporočila"
+msgstr "Iznan ur neţwaɣer-ara"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.report:hr_evaluation.view_evaluation_report_search
@@ -297,89 +280,88 @@ msgstr "Neprebrana sporočila"
 #: field:hr_evaluation.evaluation,employee_id:0
 #: model:ir.model,name:hr_evaluation.model_hr_employee
 msgid "Employee"
-msgstr "Delojemalec"
+msgstr "Amaris"
 
 #. module: hr_evaluation
 #: selection:hr_evaluation.evaluation,state:0
 msgid "New"
-msgstr "Novo"
+msgstr "Amaynut"
 
 #. module: hr_evaluation
 #: field:hr_evaluation.plan.phase,mail_body:0
 msgid "Email"
-msgstr "E-pošta"
+msgstr "Email"
 
 #. module: hr_evaluation
 #: selection:hr.evaluation.report,rating:0
 #: selection:hr_evaluation.evaluation,rating:0
 msgid "Exceeds expectations"
-msgstr "Presega pričakovanja"
+msgstr ""
 
 #. module: hr_evaluation
 #: help:hr_evaluation.plan.phase,mail_feature:0
 msgid ""
 "Check this box if you want to send mail to employees coming under this phase"
 msgstr ""
-"Označite, če želite pošiljati pošto delojemalcem, ki vstopajo v tej fazi"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.report:hr_evaluation.view_evaluation_report_search
 msgid "Creation Date"
-msgstr "Ustvarjeno dne"
+msgstr ""
 
 #. module: hr_evaluation
 #: help:hr_evaluation.plan.phase,send_answer_manager:0
 msgid "Send all answers to the manager"
-msgstr "Pošlji vse odgovore upravitelju"
+msgstr ""
 
 #. module: hr_evaluation
 #: selection:hr.evaluation.report,state:0
 #: selection:hr_evaluation.evaluation,state:0
 msgid "Plan In Progress"
-msgstr "Plan v postopku"
+msgstr "Aɣawas anazzal"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:hr_evaluation.view_hr_evaluation_form
 msgid "Public Notes"
-msgstr "Javne beležke"
+msgstr "Iwenniten azayezen"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_form
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_tree
 msgid "Send Reminder Email"
-msgstr "Pošlji opomnik po e-pošti"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr.evaluation.report:hr_evaluation.view_evaluation_report_search
 #: field:hr_evaluation.evaluation,rating:0
 msgid "Appreciation"
-msgstr "Stališče"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:0
 msgid "Print Interview"
-msgstr "Natisni vprašalnik"
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr.evaluation.report,closed:0
 msgid "closed"
-msgstr "zaprto"
+msgstr ""
 
 #. module: hr_evaluation
 #: selection:hr.evaluation.report,rating:0
 #: selection:hr_evaluation.evaluation,rating:0
 msgid "Meet expectations"
-msgstr "Ustreza pričakovanjem"
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr.evaluation.report,nbr:0
 msgid "# of Requests"
-msgstr "# zahtevkov"
+msgstr ""
 
 #. module: hr_evaluation
 #: selection:hr.evaluation.report,month:0
 msgid "July"
-msgstr "Julij"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_search
@@ -388,12 +370,12 @@ msgstr "Julij"
 #: view:hr_evaluation.evaluation:hr_evaluation.evaluation_search
 #: field:hr_evaluation.evaluation,state:0
 msgid "Status"
-msgstr "Status"
+msgstr "Addad"
 
 #. module: hr_evaluation
 #: model:ir.actions.act_window,name:hr_evaluation.action_evaluation_plans_installer
 msgid "Review Appraisal Plans"
-msgstr "Pregled ocenjevalnih planov"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:ir.actions.act_window,help:hr_evaluation.action_evaluation_plans_installer
@@ -410,96 +392,85 @@ msgid ""
 "              </p>\n"
 "            "
 msgstr ""
-"<p class=\"oe_view_nocontent_create\">\n"
-"                Kliknite za definiranje novega plana ocenjevanja.\n"
-"              </p><p>\n"
-"                Plane ocenjevanja lahko določite (npr: prvo ocenjevanje po 6 "
-"\n"
-"                mesecih, potem vsako leto). Potem je lahko vsak zaposleni "
-"povezan\n"
-"                s planom ocenjevanja, tako da OpenERP avtomatično generira\n"
-"                anketna vprašanja vodje in/ali podrejenim.\n"
-"              </p>\n"
-"            "
 
 #. module: hr_evaluation
 #: view:hr_evaluation.plan.phase:hr_evaluation.view_hr_evaluation_plan_phase_form
 msgid "Action to Perform"
-msgstr "Ukrepi za izvedbo"
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr_evaluation.evaluation,note_action:0
 msgid "Action Plan"
-msgstr "Načrt ukrepov"
+msgstr "Aɣawas n Tigawt"
 
 #. module: hr_evaluation
 #: model:ir.ui.menu,name:hr_evaluation.menu_eval_hr_config
 msgid "Periodic Appraisal"
-msgstr "Periodično ocenjevanje"
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr_evaluation.plan,month_next:0
 msgid "Periodicity of Appraisal (months)"
-msgstr "Periodičnost ocenjevanja (meseci)"
+msgstr ""
 
 #. module: hr_evaluation
 #: selection:hr.evaluation.report,rating:0
 #: selection:hr_evaluation.evaluation,rating:0
 msgid "Significantly exceeds expectations"
-msgstr "Občutno presega pričakovanja"
+msgstr ""
 
 #. module: hr_evaluation
 #: selection:hr.evaluation.interview,state:0
 #: view:hr_evaluation.evaluation:hr_evaluation.evaluation_search
 msgid "In progress"
-msgstr "V postopku"
+msgstr "Anazzal"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:hr_evaluation.view_evaluation_calendar
 msgid "Interview Request"
-msgstr "Poziv na intervju"
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr_evaluation.plan.phase,send_answer_employee:0
 #: field:hr_evaluation.plan.phase,send_answer_manager:0
 msgid "All Answers"
-msgstr "Vsi odgovori"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_form
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_tree
 msgid "Answer Survey"
-msgstr "Odgovor na anketo"
+msgstr ""
 
 #. module: hr_evaluation
 #: selection:hr.evaluation.report,month:0
 msgid "September"
-msgstr "September"
+msgstr ""
 
 #. module: hr_evaluation
 #: selection:hr.evaluation.report,month:0
 msgid "December"
-msgstr "December"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr.evaluation.report:hr_evaluation.view_evaluation_report_search
 msgid "Month"
-msgstr "Mesec"
+msgstr "Aggur"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:hr_evaluation.evaluation_search
 msgid "Group by..."
-msgstr "Združi po..."
+msgstr "Sdukel s ..."
 
 #. module: hr_evaluation
 #: view:hr_evaluation.plan.phase:hr_evaluation.view_hr_evaluation_plan_phase_form
 msgid "Mail Settings"
-msgstr "Nastavitve e-pošte"
+msgstr "Tawila n Email"
 
 #. module: hr_evaluation
 #: model:ir.actions.act_window,name:hr_evaluation.evaluation_reminders
 msgid "Appraisal Reminders"
-msgstr "Opomniki ocenjevanja"
+msgstr ""
 
 #. module: hr_evaluation
 #: help:hr_evaluation.plan.phase,wait:0
@@ -507,13 +478,11 @@ msgid ""
 "Check this box if you want to wait that all preceding phases are finished "
 "before launching this phase."
 msgstr ""
-"Označite, če želite počakati, da so vse predhodne faze zaključne preden se "
-"prične ta faza."
 
 #. module: hr_evaluation
 #: view:hr_evaluation.plan.phase:hr_evaluation.view_hr_evaluation_plan_phase_form
 msgid "Legend"
-msgstr "Legenda"
+msgstr ""
 
 #. module: hr_evaluation
 #: help:hr_evaluation.evaluation,note_action:0
@@ -521,24 +490,23 @@ msgid ""
 "If the evaluation does not meet the expectations, you can proposean action "
 "plan"
 msgstr ""
-"Če ocenitev ne ustreza pričakovanjem, lahko predvidite akcijski načrt"
 
 #. module: hr_evaluation
 #: selection:hr.evaluation.interview,state:0
 #: selection:hr.evaluation.report,state:0
 msgid "Draft"
-msgstr "Osnutek"
+msgstr "Arewway"
 
 #. module: hr_evaluation
 #: field:hr_evaluation.plan.phase,send_anonymous_employee:0
 #: field:hr_evaluation.plan.phase,send_anonymous_manager:0
 msgid "Anonymous Summary"
-msgstr "Anonimni povzetek"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:hr_evaluation.evaluation_search
 msgid "Pending"
-msgstr "Na čakanju"
+msgstr "Iţraǧu"
 
 #. module: hr_evaluation
 #: field:hr.employee,evaluation_plan_id:0
@@ -550,44 +518,44 @@ msgstr "Na čakanju"
 #: field:hr_evaluation.plan.phase,plan_id:0
 #: model:ir.model,name:hr_evaluation.model_hr_evaluation_plan
 msgid "Appraisal Plan"
-msgstr "Ocenjevalni plan"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_form
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_tree
 msgid "Print Survey"
-msgstr "Tisk ankete"
+msgstr ""
 
 #. module: hr_evaluation
 #: selection:hr.evaluation.report,month:0
 msgid "August"
-msgstr "Avgust"
+msgstr ""
 
 #. module: hr_evaluation
 #: selection:hr.evaluation.report,month:0
 msgid "June"
-msgstr "Junij"
+msgstr ""
 
 #. module: hr_evaluation
 #: selection:hr.evaluation.report,rating:0
 msgid "Significantly bellow expectations"
-msgstr "Znatno pod pričakovanji"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:hr_evaluation.view_hr_evaluation_form
 msgid "Validate Appraisal"
-msgstr "Preverjanje ocenjevanja"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr_evaluation.plan.phase:0
 msgid " (employee_name)s: Partner name"
-msgstr " (employee_name)s: Partnerjevo ime"
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr.evaluation.interview,message_is_follower:0
 #: field:hr_evaluation.evaluation,message_is_follower:0
 msgid "Is a Follower"
-msgstr "Je sledilec"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr.evaluation.report:hr_evaluation.view_evaluation_report_search
@@ -595,74 +563,74 @@ msgstr "Je sledilec"
 #: view:hr_evaluation.evaluation:hr_evaluation.evaluation_search
 #: field:hr_evaluation.evaluation,plan_id:0
 msgid "Plan"
-msgstr "Plan"
+msgstr "Aɣawas"
 
 #. module: hr_evaluation
 #: field:hr_evaluation.plan,active:0
 msgid "Active"
-msgstr "Aktivno"
+msgstr "Urmid"
 
 #. module: hr_evaluation
 #: selection:hr.evaluation.report,month:0
 msgid "November"
-msgstr "November"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr.evaluation.report:hr_evaluation.view_evaluation_report_search
 msgid "Extended Filters..."
-msgstr "Razširjeni filtri..."
+msgstr "Imzizdigen leqqayen..."
 
 #. module: hr_evaluation
 #: help:hr_evaluation.plan.phase,send_anonymous_employee:0
 msgid "Send an anonymous summary to the employee"
-msgstr "Pošlji anonimni povzetek delojemalcu"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:ir.model,name:hr_evaluation.model_hr_evaluation_plan_phase
 msgid "Appraisal Plan Phase"
-msgstr "Faza ocenjevalnega plana"
+msgstr ""
 
 #. module: hr_evaluation
 #: selection:hr.evaluation.report,month:0
 msgid "January"
-msgstr "Januar"
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr.employee,appraisal_count:0
 msgid "Appraisal Interviews"
-msgstr "Ocenjevalni intervjuji"
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr.evaluation.interview,message_summary:0
 #: field:hr_evaluation.evaluation,message_summary:0
 msgid "Summary"
-msgstr "Povzetek"
+msgstr "Agzul"
 
 #. module: hr_evaluation
 #: model:survey.question,question:hr_evaluation.opinion_1_2
 msgid "Date"
-msgstr "Datum"
+msgstr "Azemz"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_search
 msgid "Survey"
-msgstr "Anketa"
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr_evaluation.plan.phase,action:0
 msgid "Action"
-msgstr "Ukrep"
+msgstr "Tigawt"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.report:hr_evaluation.view_evaluation_report_search
 #: selection:hr.evaluation.report,state:0
 msgid "Final Validation"
-msgstr "Končno preverjanje"
+msgstr ""
 
 #. module: hr_evaluation
 #: selection:hr_evaluation.evaluation,state:0
 msgid "Waiting Appreciation"
-msgstr "Čakanje na stališče"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr.evaluation.report:hr_evaluation.view_evaluation_report_graph
@@ -670,17 +638,17 @@ msgstr "Čakanje na stališče"
 #: model:ir.actions.act_window,name:hr_evaluation.action_evaluation_report_all
 #: model:ir.ui.menu,name:hr_evaluation.menu_evaluation_report_all
 msgid "Appraisal Analysis"
-msgstr "Analiza ocenjevanja"
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr_evaluation.evaluation,date:0
 msgid "Appraisal Deadline"
-msgstr "Rok ocenjevanja"
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr.evaluation.report,rating:0
 msgid "Overall Rating"
-msgstr "Splošna ocena"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_form
@@ -688,37 +656,37 @@ msgstr "Splošna ocena"
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_tree
 #: field:hr.evaluation.interview,user_id:0
 msgid "Interviewer"
-msgstr "Izpraševalec"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:ir.model,name:hr_evaluation.model_hr_evaluation_report
 msgid "Evaluations Statistics"
-msgstr "Statistika vrednotenj"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_tree
 msgid "Deadline Date"
-msgstr "Rok izvedbe"
+msgstr "Azemz n tagara"
 
 #. module: hr_evaluation
 #: help:hr_evaluation.evaluation,rating:0
 msgid "This is the appreciation on which the evaluation is summarized."
-msgstr "Stališče, po katerem je vrednotenje povzeto."
+msgstr ""
 
 #. module: hr_evaluation
 #: selection:hr_evaluation.plan.phase,action:0
 msgid "Top-Down Appraisal Requests"
-msgstr "Zahtevki po ocenjevanju 'z vrha navzdol'"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr_evaluation.plan.phase:hr_evaluation.view_hr_evaluation_plan_phase_form
 msgid "General"
-msgstr "Splošno"
+msgstr "Amatu"
 
 #. module: hr_evaluation
 #: help:hr_evaluation.plan.phase,send_answer_employee:0
 msgid "Send all answers to the employee"
-msgstr "Pošlji vse odgovore delojemalcu"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_form
@@ -729,49 +697,49 @@ msgstr "Pošlji vse odgovore delojemalcu"
 #: view:hr_evaluation.evaluation:hr_evaluation.view_hr_evaluation_form
 #: selection:hr_evaluation.evaluation,state:0
 msgid "Done"
-msgstr "Opravljeno"
+msgstr "Immed"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.plan:hr_evaluation.view_hr_evaluation_plan_search
 #: model:ir.actions.act_window,name:hr_evaluation.open_view_hr_evaluation_plan_tree
 #: model:ir.ui.menu,name:hr_evaluation.menu_open_view_hr_evaluation_plan_tree
 msgid "Appraisal Plans"
-msgstr "Ocenjevalni plani"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:ir.model,name:hr_evaluation.model_hr_evaluation_interview
 msgid "Appraisal Interview"
-msgstr "Ocenjevalni intervju"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr.evaluation.report:hr_evaluation.view_evaluation_report_search
 msgid "In Progress"
-msgstr "V postopku"
+msgstr "Anazzal"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_search
 msgid "To Do"
-msgstr "Seznam opravkov"
+msgstr "Ad imag"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.report:hr_evaluation.view_evaluation_report_search
 msgid "Final Validation Evaluations"
-msgstr "Končno preverjanje vrednotenj"
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr_evaluation.plan.phase,mail_feature:0
 msgid "Send mail for this phase"
-msgstr "Pošlji e-pošto za to fazo"
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr_evaluation.plan.phase,email_subject:0
 msgid "char"
-msgstr "znak"
+msgstr ""
 
 #. module: hr_evaluation
 #: selection:hr.evaluation.report,month:0
 msgid "October"
-msgstr "Oktober"
+msgstr ""
 
 #. module: hr_evaluation
 #: help:hr.employee,evaluation_date:0
@@ -779,13 +747,11 @@ msgid ""
 "The date of the next appraisal is computed by the appraisal plan's dates "
 "(first appraisal + periodicity)."
 msgstr ""
-"Datum naslednjega ocenjevanja je izračunan po ocenjevalnem planu (prvo "
-"ocenjevanje + periodičnost)."
 
 #. module: hr_evaluation
 #: field:hr.evaluation.report,overpass_delay:0
 msgid "Overpassed Deadline"
-msgstr "Presežen rok"
+msgstr ""
 
 #. module: hr_evaluation
 #: help:hr_evaluation.plan,month_next:0
@@ -793,24 +759,22 @@ msgid ""
 "The number of month that depicts the delay between each evaluation of this "
 "plan (after the first one)."
 msgstr ""
-"Število mesecev, ki prikazuje zamudo med posameznimi vrednotenji po tem "
-"načrtu (po prvem)."
 
 #. module: hr_evaluation
 #: selection:hr_evaluation.plan.phase,action:0
 msgid "Self Appraisal Requests"
-msgstr "Zahtevki po samo-ocenjevanju"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:hr_evaluation.view_hr_evaluation_form
 #: field:hr_evaluation.evaluation,survey_request_ids:0
 msgid "Appraisal Forms"
-msgstr "Obrazci ocenjevanja"
+msgstr ""
 
 #. module: hr_evaluation
 #: selection:hr.evaluation.report,month:0
 msgid "May"
-msgstr "Maj"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:ir.actions.act_window,help:hr_evaluation.open_view_hr_evaluation_tree
@@ -833,54 +797,54 @@ msgstr ""
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:hr_evaluation.view_hr_evaluation_form
 msgid "Internal Notes"
-msgstr "Interni zaznamki"
+msgstr "Iwenniten igensanen"
 
 #. module: hr_evaluation
 #: selection:hr_evaluation.plan.phase,action:0
 msgid "Final Interview"
-msgstr "Končni intervju"
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr_evaluation.plan.phase,name:0
 msgid "Phase"
-msgstr "Faza"
+msgstr ""
 
 #. module: hr_evaluation
 #: selection:hr_evaluation.plan.phase,action:0
 msgid "Bottom-Up Appraisal Requests"
-msgstr "Zahtevki po ocenjevanju 'z dna navzgor'"
+msgstr ""
 
 #. module: hr_evaluation
 #: selection:hr.evaluation.report,month:0
 msgid "February"
-msgstr "Februar"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_form
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_tree
 msgid "Interview Appraisal"
-msgstr "Ocenjevalni intervju"
+msgstr ""
 
 #. module: hr_evaluation
 #: field:survey.request,is_evaluation:0
 msgid "Is Appraisal?"
-msgstr "Je ocenjevanje?"
+msgstr ""
 
 #. module: hr_evaluation
 #: code:addons/hr_evaluation/hr_evaluation.py:339
 #, python-format
 msgid "You cannot start evaluation without Appraisal."
-msgstr "Ne morete pričeti vrednotenja brez ocenjevanja."
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:hr_evaluation.view_hr_evaluation_form
 msgid "Appraisal Summary..."
-msgstr "Povzetek ocenjevanja..."
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr.evaluation.interview,user_to_review_id:0
 msgid "Employee to Interview"
-msgstr "Intervjujanec"
+msgstr ""
 
 #. module: hr_evaluation
 #: code:addons/hr_evaluation/hr_evaluation.py:235
@@ -893,13 +857,13 @@ msgstr ""
 #. module: hr_evaluation
 #: selection:hr.evaluation.report,month:0
 msgid "April"
-msgstr "April"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr_evaluation.plan.phase:hr_evaluation.view_hr_evaluation_plan_phase_form
 #: view:hr_evaluation.plan.phase:hr_evaluation.view_hr_evaluation_plan_phase_tree
 msgid "Appraisal Plan Phases"
-msgstr "Faze ocenjevalnega plana"
+msgstr ""
 
 #. module: hr_evaluation
 #: model:ir.actions.act_window,help:hr_evaluation.action_hr_evaluation_interview_tree
@@ -921,55 +885,52 @@ msgstr ""
 #: help:hr.evaluation.interview,message_ids:0
 #: help:hr_evaluation.evaluation,message_ids:0
 msgid "Messages and communication history"
-msgstr "Komunikacije in kronologija"
+msgstr "Amazray n iznan  d  tiywalin"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_search
 #: view:hr_evaluation.evaluation:hr_evaluation.evaluation_search
 msgid "Search Appraisal"
-msgstr "Iskanje ocenjevanj"
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr_evaluation.plan.phase,sequence:0
 msgid "Sequence"
-msgstr "Zaporedje"
+msgstr "Agzum"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.plan.phase:hr_evaluation.view_hr_evaluation_plan_phase_form
 msgid "(user_signature)s: User name"
-msgstr "(user_signature)s: Naziv uporabnika"
+msgstr "(user_signature)s: Isem n useqdac"
 
 #. module: hr_evaluation
 #: model:ir.actions.act_window,name:hr_evaluation.action_hr_evaluation_interview_tree
 #: model:ir.ui.menu,name:hr_evaluation.menu_open_hr_evaluation_interview_requests
 msgid "Interview Requests"
-msgstr "Pozivi na intervjuje"
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr.evaluation.report,create_date:0
 msgid "Create Date"
-msgstr "Datum nastanka"
+msgstr "Azemz n usilel"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.report:0
 #: field:hr.evaluation.report,year:0
 msgid "Year"
-msgstr "Leto"
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr_evaluation.evaluation,note_summary:0
 msgid "Appraisal Summary"
-msgstr "Povzetek ocenjevanja"
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr.employee,evaluation_date:0
 msgid "Next Appraisal Date"
-msgstr "Naslednji datum ocenjevanja"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:hr_evaluation.view_hr_evaluation_form
 msgid "Action Plan..."
-msgstr "Načrt ukrepov..."
-
-#~ msgid "Cancel"
-#~ msgstr "Prekliči"
+msgstr "Aɣawas n Tigawt..."
