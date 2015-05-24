@@ -16,7 +16,8 @@
                         ]"/>
                 </label>
                 <field name="name" position="after">
-                    <field name="date_payment"/>
+                    <field name="date_payment"
+                        required="1"/>
                 </field>
                 <field name="company_id" position="attributes">
                     <attribute name="on_change">onchange_company_id(company_id, contract_id)</attribute>
