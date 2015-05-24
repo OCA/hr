@@ -32,7 +32,7 @@ class HrPayslip(orm.Model):
             readonly=True, states={'draft': [('readonly', False)]},
         ),
         'date_payment': fields.date(
-            'Date of Payment', required=True,
+            'Date of Payment',
             readonly=True, states={'draft': [('readonly', False)]},
         ),
     }
