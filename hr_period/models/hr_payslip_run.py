@@ -30,7 +30,7 @@ class HrPayslipRun(orm.Model):
 
     _columns = {
         'company_id': fields.many2one(
-            'res.company', 'Company', required=True,
+            'res.company', 'Company',
             states={'close': [('readonly', True)]}
         ),
         'hr_period_id': fields.many2one(
@@ -38,7 +38,7 @@ class HrPayslipRun(orm.Model):
             states={'close': [('readonly', True)]}
         ),
         'date_payment': fields.date(
-            'Date of Payment', required=True,
+            'Date of Payment',
             states={'close': [('readonly', True)]}
         ),
         'schedule_pay': fields.selection(
