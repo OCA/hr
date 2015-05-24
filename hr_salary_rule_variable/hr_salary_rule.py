@@ -65,13 +65,13 @@ class hr_salary_rule(orm.Model):
             raise orm.except_orm(
                 _("Warning"),
                 _("The salary rule variable related to %s does not "
-                    "exist for the date %s""") %
+                    "exist for the date %s") %
                 (rule.code, date))
         if len(variable_list) > 1:
             raise orm.except_orm(
                 _("Warning"),
                 _("%s salary rule variables related to %s exist for "
-                    "the date %s""") %
+                    "the date %s") %
                 (len(variable_list), rule.code, date))
 
         variable = variable_list[0]
