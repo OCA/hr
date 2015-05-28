@@ -9,7 +9,7 @@ from openerp import models, fields, api
 class HrExpense(models.Model):
     _inherit = 'hr.expense.expense'
 
-    number = fields.Char(required=True, default="/", readonly=True)
+    number = fields.Char(required=True, default="/", readonly=True, copy=False)
 
     @api.model
     def create(self, vals):
