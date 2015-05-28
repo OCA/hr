@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 ##############################################################################
 #
-#    Copyright (C) 2014 Savoir-faire Linux. All Rights Reserved.
+#    Copyright (C) 2015 Savoir-faire Linux. All Rights Reserved.
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as published
@@ -22,14 +22,15 @@
 from openerp.osv import orm
 
 
-class hr_payslip(orm.Model):
-    _inherit = 'hr.payslip'
+class HrSalaryRule(orm.Model):
+    _inherit = 'hr.salary.rule'
 
-    def get_rule_variable(
-        self, cr, uid, ids, rule_id, date, localdict=False, context=None
-    ):
-        """ Depecreted
-        Keep for backward compatibility
-        """
-        return self.pool['hr.salary.rule'].variable(
-            cr, uid, [rule_id], date, localdict=localdict, context=context)
+    def compute_rule(self, cr, uid, rule_id, localdict, context=None):
+
+        # Add reference to the rule itself
+        localdict['rule_id'] = rule_id
+        localdict['rule'] = self.browse(cr, uid, rule_id, context=context)
+
+        return super(HrSalaryRule, self).compute_rule(
+            cr, uid, rule_id, localdict, context=context
+        )
