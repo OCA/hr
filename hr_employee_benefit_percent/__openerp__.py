@@ -33,6 +33,9 @@ Add employee benefits based on percent of the gross salary
     'depends': [
         'hr_employee_benefit',
     ],
+    'data': [
+        'views/hr_payslip.xml',
+    ],
     'test': [],
     'demo': [],
     'installable': True,
