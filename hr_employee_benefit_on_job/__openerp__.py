@@ -39,7 +39,7 @@ Each worked days record related to a job will trigger benefits.
         'hr_worked_days_hourly_rate',
     ],
     'data': [
-        'view/hr_job_view.xml',
+        'view/hr_job.xml',
     ],
     'test': [],
     'demo': [],
