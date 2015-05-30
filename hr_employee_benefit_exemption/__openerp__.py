@@ -35,7 +35,7 @@ Add exemptions on employee benefit categories.
         'hr_employee_exemption',
     ],
     'data': [
-        'view/hr_employee_benefit_category_view.xml',
+        'views/hr_employee_benefit_category.xml',
     ],
     'test': [],
     'demo': [],
