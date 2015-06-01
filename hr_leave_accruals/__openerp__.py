@@ -41,6 +41,7 @@ Contributors
     ],
     'data': [
         'security/ir.model.access.csv',
+        'security/ir_rule_data.xml',
         'view/hr_employee_view.xml',
         'view/hr_leave_accrual_view.xml',
         'view/hr_holidays_status_view.xml',

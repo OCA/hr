@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-07 15:33+0000\n"
-"PO-Revision-Date: 2015-02-07 10:35-0500\n"
+"POT-Creation-Date: 2015-04-06 15:58+0000\n"
+"PO-Revision-Date: 2015-04-06 12:04-0500\n"
 "Last-Translator: David Dufresne <david.dufresne@savoirfairelinux.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -23,9 +23,9 @@ msgid "Holidays Status Accrual Line"
 msgstr "Ligne de banque de temps"
 
 #. module: hr_leave_accruals
-#: field:hr.leave.accrual.line,source:0
-msgid "Source"
-msgstr "Source"
+#: view:hr.leave.accrual:0
+msgid "Group By..."
+msgstr "Grouper par..."
 
 #. module: hr_leave_accruals
 #: field:hr.leave.accrual.line,state:0
@@ -45,7 +45,7 @@ msgid "Accrual Lines"
 msgstr "Lignes de banque de temps"
 
 #. module: hr_leave_accruals
-#: field:hr.leave.accrual,employee_id:0
+#: view:hr.leave.accrual:0 field:hr.leave.accrual,employee_id:0
 #: model:ir.model,name:hr_leave_accruals.model_hr_employee
 msgid "Employee"
 msgstr "Employé"
@@ -138,6 +138,11 @@ msgid "Cash"
 msgstr "Argent"
 
 #. module: hr_leave_accruals
+#: view:hr.leave.accrual:0
+msgid "Search Leave Accrual"
+msgstr "Chercher des banque de temps"
+
+#. module: hr_leave_accruals
 #: field:hr.leave.accrual.line,payslip_id:0
 msgid "Payslip"
 msgstr "Bulletin de paie"
@@ -170,6 +175,8 @@ msgstr "Soustraire le montant"
 #. module: hr_leave_accruals
 #: view:hr.employee:0 field:hr.employee,leave_accrual_ids:0
 #: view:hr.holidays.status:0
+#: model:ir.actions.act_window,name:hr_leave_accruals.action_view_leave_accrual_tree
+#: model:ir.ui.menu,name:hr_leave_accruals.leave_accrual_menu_item
 msgid "Leave Accruals"
 msgstr "Banque de temps"
 
@@ -195,10 +202,15 @@ msgstr "Lignes de banque de temps"
 
 #. module: hr_leave_accruals
 #: field:hr.holidays.status.accrual.line,leave_type_id:0
-#: field:hr.leave.accrual,leave_type_id:0
+#: view:hr.leave.accrual:0 field:hr.leave.accrual,leave_type_id:0
 #: model:ir.model,name:hr_leave_accruals.model_hr_holidays_status
 msgid "Leave Type"
 msgstr "Type de congé"
+
+#. module: hr_leave_accruals
+#: field:hr.leave.accrual.line,source:0
+msgid "Source"
+msgstr "Source"
 
 #. module: hr_leave_accruals
 #: field:hr.holidays.status.accrual.line,salary_rule_id:0

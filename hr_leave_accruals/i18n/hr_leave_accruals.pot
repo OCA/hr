@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-07 15:33+0000\n"
-"PO-Revision-Date: 2015-02-07 15:33+0000\n"
+"POT-Creation-Date: 2015-04-06 15:58+0000\n"
+"PO-Revision-Date: 2015-04-06 15:58+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -21,8 +21,8 @@ msgid "Holidays Status Accrual Line"
 msgstr ""
 
 #. module: hr_leave_accruals
-#: field:hr.leave.accrual.line,source:0
-msgid "Source"
+#: view:hr.leave.accrual:0
+msgid "Group By..."
 msgstr ""
 
 #. module: hr_leave_accruals
@@ -43,6 +43,7 @@ msgid "Accrual Lines"
 msgstr ""
 
 #. module: hr_leave_accruals
+#: view:hr.leave.accrual:0
 #: field:hr.leave.accrual,employee_id:0
 #: model:ir.model,name:hr_leave_accruals.model_hr_employee
 msgid "Employee"
@@ -134,6 +135,11 @@ msgid "Cash"
 msgstr ""
 
 #. module: hr_leave_accruals
+#: view:hr.leave.accrual:0
+msgid "Search Leave Accrual"
+msgstr ""
+
+#. module: hr_leave_accruals
 #: field:hr.leave.accrual.line,payslip_id:0
 msgid "Payslip"
 msgstr ""
@@ -167,6 +173,8 @@ msgstr ""
 #: view:hr.employee:0
 #: field:hr.employee,leave_accrual_ids:0
 #: view:hr.holidays.status:0
+#: model:ir.actions.act_window,name:hr_leave_accruals.action_view_leave_accrual_tree
+#: model:ir.ui.menu,name:hr_leave_accruals.leave_accrual_menu_item
 msgid "Leave Accruals"
 msgstr ""
 
@@ -193,9 +201,15 @@ msgstr ""
 
 #. module: hr_leave_accruals
 #: field:hr.holidays.status.accrual.line,leave_type_id:0
+#: view:hr.leave.accrual:0
 #: field:hr.leave.accrual,leave_type_id:0
 #: model:ir.model,name:hr_leave_accruals.model_hr_holidays_status
 msgid "Leave Type"
+msgstr ""
+
+#. module: hr_leave_accruals
+#: field:hr.leave.accrual.line,source:0
+msgid "Source"
 msgstr ""
 
 #. module: hr_leave_accruals

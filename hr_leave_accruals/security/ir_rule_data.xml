@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+
+        <record id="rule_employee_own_leave_accrual"  model="ir.rule">
+            <field name="name">Access Employee own Leave Accruals</field>
+            <field name="model_id" model="ir.model" ref="model_hr_leave_accrual"/>
+            <field name="domain_force">[
+                ('employee_id', '=', user.employee_ids[0].id),
+            ]
+            </field>
+            <field name="groups" eval="[(4,ref('base.group_user'))]"/>
+        </record>
+
+        <record id="rule_officer_leave_accrual"  model="ir.rule">
+            <field name="name">Access Subordinates Leave Accruals</field>
+            <field name="model_id" model="ir.model" ref="model_hr_leave_accrual"/>
+            <field name="domain_force">[
+                ('employee_id', 'in', [ee.id for ee in user.employee_ids[0].child_ids] + [user.employee_ids[0].id]),
+            ]
+            </field>
+            <field name="groups" eval="[(4,ref('base.group_hr_user'))]"/>
+        </record>
+
+        <record id="rule_manager_leave_accrual"  model="ir.rule">
+            <field name="name">Access Manager Leave Accruals</field>
+            <field name="model_id" model="ir.model" ref="model_hr_leave_accrual"/>
+            <field name="domain_force">[]</field>
+            <field name="groups" eval="[(4,ref('base.group_hr_manager'))]"/>
+        </record>
+
+        <record id="rule_employee_own_leave_accrual_line"  model="ir.rule">
+            <field name="name">Access Employee own Leave Accrual Lines</field>
+            <field name="model_id" model="ir.model" ref="model_hr_leave_accrual_line"/>
+            <field name="domain_force">[
+                ('accrual_id.employee_id', '=', user.employee_ids[0].id),
+            ]
+            </field>
+            <field name="groups" eval="[(4,ref('base.group_user'))]"/>
+        </record>
+
+        <record id="rule_officer_leave_accrual_line"  model="ir.rule">
+            <field name="name">Access Subordinates Leave Accrual Lines</field>
+            <field name="model_id" model="ir.model" ref="model_hr_leave_accrual_line"/>
+            <field name="domain_force">[
+                ('accrual_id.employee_id', 'in', [ee.id for ee in user.employee_ids[0].child_ids] + [user.employee_ids[0].id]),
+            ]
+            </field>
+            <field name="groups" eval="[(4,ref('base.group_user'))]"/>
+        </record>
+
+        <record id="rule_manager_leave_accrual_line"  model="ir.rule">
+            <field name="name">Access Manager Leave Accrual Lines</field>
+            <field name="model_id" model="ir.model" ref="model_hr_leave_accrual_line"/>
+            <field name="domain_force">[]</field>
+            <field name="groups" eval="[(4,ref('base.group_hr_manager'))]"/>
+        </record>
+
+    </data>
+</openerp>

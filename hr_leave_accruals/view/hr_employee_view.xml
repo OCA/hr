@@ -7,7 +7,7 @@
             <field name="inherit_id" ref="hr.view_employee_form"/>
             <field name="arch" type="xml">
                 <notebook position="inside">
-                    <page name="payroll_page" string="Leave Accruals">
+                    <page name="payroll_page" string="Leave Accruals" groups="base.group_hr_manager">
                         <field name="leave_accrual_ids">
                             <tree>
                                 <field name="leave_type_id"/>

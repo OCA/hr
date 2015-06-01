@@ -20,6 +20,29 @@
 ##############################################################################
 
 from openerp.osv import orm, fields
+from itertools import chain
+
+
+# We store the values of fields total_cash and total_hours so that
+# the totals may appear in views when grouping leave accruals for multiple
+# employees
+line_store_parameters = {
+    'hr.leave.accrual.line': (
+        lambda self, cr, uid, ids, c={}: [
+            line.accrual_id.id for line
+            in self.browse(cr, uid, ids, context=c)
+        ], ['accrual_id', 'amount', 'type'], 10),
+    'hr.leave.accrual': (
+        lambda self, cr, uid, ids, c={}: ids,
+        ['line_ids'], 10),
+    'hr.payslip': (
+        lambda self, cr, uid, ids, c={}: [
+            accrual.id for accrual in chain(*[
+                payslip.employee_id.leave_accrual_ids for payslip
+                in self.browse(cr, uid, ids, context=c)
+            ])
+        ], ['state', 'leave_accrual_line_ids'], 10),
+}
 
 
 class hr_leave_accrual(orm.Model):
@@ -121,6 +144,7 @@ class hr_leave_accrual(orm.Model):
             type="float",
             string='Cash Accruded',
             multi=True,
+            store=line_store_parameters,
         ),
         'total_hours': fields.function(
             _sum_lines,
@@ -128,5 +152,6 @@ class hr_leave_accrual(orm.Model):
             type="float",
             multi=True,
             string='Hours Accruded',
+            store=line_store_parameters,
         ),
     }
