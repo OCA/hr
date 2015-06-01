@@ -29,7 +29,7 @@ class HrSalaryRule(orm.Model):
         """ Remove all benefits that are exempted from a deduction.
         """
         benefits = super(HrSalaryRule, self)._filter_benefits(
-            cr, uid, ids, payslip, **kwargs)
+            cr, uid, ids, payslip, context=context, **kwargs)
 
         rule = self.browse(cr, uid, ids[0], context=context)
 
