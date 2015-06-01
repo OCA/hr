@@ -47,6 +47,9 @@ class hr_payslip_employees(orm.TransientModel):
         import worked days before computing each payslip,
         othewise, only compute the payslips.
         """
+        if context is None:
+            context = {}
+
         payslip_employees = self.browse(cr, uid, ids, context=context)[0]
 
         context['payslip_run_id'] = context.get('active_id')

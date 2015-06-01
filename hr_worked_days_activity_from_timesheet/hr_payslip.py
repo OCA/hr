@@ -31,6 +31,9 @@ class hr_payslip(orm.Model):
     ):
         """ If the employee is paid by wage, it is not necessary that his
         timesheet is completed. """
+        if context is None:
+            context = {}
+
         if not (
             employee.contract_id.salary_computation_method == 'wage'
             and context.get('payslip_run_id')
