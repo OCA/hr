@@ -34,5 +34,6 @@ msgstr "hr.employee.benefit.rate"
 
 #. module: hr_employee_benefit_percent
 #: field:hr.payslip,gross_salary:0
+#: view:hr.payslip:0
 msgid "Gross Salary"
 msgstr "Salaire brut"
