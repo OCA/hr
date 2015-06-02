@@ -3,7 +3,7 @@
     <data noupdate="1">
 
         <record id="property_rule_contract_employee" model="ir.rule">
-            <field name="name">Employee Contract</field>
+            <field name="name">Employee Own Contract</field>
             <field model="ir.model" name="model_id" ref="model_hr_contract"/>
             <field name="domain_force">
                 [(
@@ -15,7 +15,7 @@
         </record>
 
         <record id="property_rule_contract_job_employee" model="ir.rule">
-            <field name="name">Employee Contract Job</field>
+            <field name="name">Employee Own Contract Job</field>
             <field model="ir.model" name="model_id" ref="model_hr_contract_job"/>
             <field name="domain_force">
                 [(
@@ -24,6 +24,20 @@
                 )]
             </field>
             <field name="groups" eval="[(4,ref('base.group_user'))]"/>
+        </record>
+
+        <record id="property_rule_contract_employee" model="ir.rule">
+            <field name="name">HR Manager All Contracts</field>
+            <field model="ir.model" name="model_id" ref="model_hr_contract"/>
+            <field name="domain_force">[]</field>
+            <field name="groups" eval="[(4,ref('base.group_hr_manager'))]"/>
+        </record>
+
+        <record id="property_rule_contract_job_employee" model="ir.rule">
+            <field name="name">HR Manager All Contract Jobs</field>
+            <field model="ir.model" name="model_id" ref="model_hr_contract_job"/>
+            <field name="domain_force">[]</field>
+            <field name="groups" eval="[(4,ref('base.group_hr_manager'))]"/>
         </record>
 
     </data>

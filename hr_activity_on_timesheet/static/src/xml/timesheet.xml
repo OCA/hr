@@ -48,18 +48,20 @@
             <td> </td>
         </t>
         <t t-jquery=".oe_timesheet_weekly_add_row" t-operation="replace">
-            <tr class="oe_timesheet_weekly_add_row" style="display: none">
-                <td>Select Account</td>
-                <td t-att-colspan="widget.dates.length + 2">
-                    <button class="oe_highlight">Next</button>
-                </td>
+            <tr class="oe_timesheet_weekly_add_row oe_timesheet_weekly_add_row_line_1" style="display: none">
+                <td>Select Account and Activity</td>
             </tr>
-            <tr class="oe_timesheet_weekly_add_activity" style="display: none">
-                <td>Select Activity</td>
+            <tr class="oe_timesheet_weekly_add_row oe_timesheet_weekly_add_row_line_2" style="display: none">
                 <td t-att-colspan="widget.dates.length + 2">
                     <button class="oe_highlight">Add</button>
                 </td>
             </tr>
         </t>
+        <t t-jquery=".oe_timesheet_weekly_adding" t-operation="before">
+            <div t-if="!widget.get('effective_readonly')" class="oe_timesheet_weekly_cancel" style="display: none">
+                <button class="oe_highlight">Cancel</button>
+            </div>
+        </t>
+        
     </t>
 </templates>

@@ -18,7 +18,7 @@ openerp.hr_activity_on_timesheet = function(instance) {
         go_to_account_selected: function(account_id) {
             this.do_action({
                 type: 'ir.actions.act_window',
-                res_model: "account.analytic.account",
+                field_values_model: "account.analytic.account",
                 res_id: account_id,
                 views: [[false, 'form']],
                 target: 'current'
@@ -159,49 +159,42 @@ openerp.hr_activity_on_timesheet = function(instance) {
                     account_ids = _.uniq(account_ids);
                     activity_ids = _.uniq(activity_ids);
 
-                    return new instance.web.Model("hr.analytic.timesheet").call("multi_on_change_account_id",
-                        [
-                            [],
-                            account_ids,
-                            new instance.web.CompoundContext({'user_id': self.get('user_id')})
-                        ]
-                    ).then(function(accounts_defaults){
-                        // we need the name_get of the activities
-                        self.get_activity_names(self, activity_ids, function(){
-                            // we need the name_get of the analytic accounts
-                            self.get_account_names(self, account_ids, function(){
-                                // modify the account dict so that it can be parsed to fill the timesheet
-                                accounts = self.map_accounts(self, accounts, dates, default_get, accounts_defaults);
-                                // sort the accounts by name
-                                accounts = _.sortBy(accounts, function(account){
-                                    return self.account_names[account.account_id];
-                                });
+                    // Before rendering the timesheet, we need the default values for each account
+                    deferred_1 = new instance.web.Model("hr.analytic.timesheet").call(
+                        "multi_on_change_account_id", [
+                            [], account_ids, new instance.web.CompoundContext({'user_id': self.get('user_id')})])
+                    // and the name of the activities and account to be displayed
+                    deferred_2 = self.get_activity_names(self, activity_ids)
+                    deferred_3 = self.get_account_names(self, account_ids)
 
-                                self.dates = dates;
-                                self.accounts = accounts;
-                                self.activity_names = _.extend(self.activity_names, activity_names);
-                                self.default_get = default_get;
-
-                                // fill the timesheet
-                                self.display_data();
-                            });
+                    $.when(deferred_1, deferred_2, deferred_3).done(function(accounts_defaults){
+                        // modify the account dict so that it can be parsed to fill the timesheet
+                        accounts = self.map_accounts(self, accounts, dates, default_get, accounts_defaults);
+                        // sort the accounts by name
+                        accounts = _.sortBy(accounts, function(account){
+                            return self.account_names[account.account_id];
                         });
+
+                        self.dates = dates;
+                        self.accounts = accounts;
+                        self.activity_names = _.extend(self.activity_names, activity_names);
+                        self.default_get = default_get;
+
+                        // fill the timesheet
+                        self.display_data();
                     });
                 })
             );
         },
-        get_account_names: function(self, account_ids, callback){
+        get_account_names: function(self, account_ids){
             // we want only the records that are not in the current dict of names
             account_ids = _.filter(account_ids, function(account){
                 return !(account in self.account_names);
             });
             // we make a querry only if there is at least one unknowed value
             if(account_ids.length !== 0){
-                new instance.web.Model("account.analytic.account").call("name_get",
-                    [
-                        account_ids,
-                        new instance.web.CompoundContext()
-                    ]
+                new instance.web.Model("account.analytic.account").call(
+                    "name_get", [account_ids, new instance.web.CompoundContext()]
                 ).then(function(result){
                     // name_get returns a list of tuples (id, name), we need a dict
                     account_names = {};
@@ -210,25 +203,18 @@ openerp.hr_activity_on_timesheet = function(instance) {
                     });
                     // update the current dict of names
                     self.account_names = _.extend(self.account_names, account_names);
-                    callback();
                 });
             }
-            else{
-                callback();
-            }
         },
-        get_activity_names: function(self, activity_ids, callback){
+        get_activity_names: function(self, activity_ids){
             // we want only the records that are not in the current dict of names
             activity_ids = _.filter(activity_ids, function(activity){
                 return !(activity in self.activity_names);
             });
             // we make a querry only if there is at least one unknowed value
             if(activity_ids.length !== 0){
-                new instance.web.Model("hr.activity").call("name_get",
-                    [
-                        activity_ids,
-                        new instance.web.CompoundContext()
-                    ]
+                new instance.web.Model("hr.activity").call(
+                    "name_get", [activity_ids, new instance.web.CompoundContext()]
                 ).then(function(result){
                     // name_get returns a list of tuples (id, name), we need a dict
                     activity_names = {};
@@ -237,11 +223,7 @@ openerp.hr_activity_on_timesheet = function(instance) {
                     });
                     // update the current dict of names
                     self.activity_names = _.extend(self.activity_names, activity_names);
-                    callback();
                 });
-            }
-            else{
-                callback();
             }
         },
         get_box: function(account, activity, day_count){
@@ -309,16 +291,23 @@ openerp.hr_activity_on_timesheet = function(instance) {
             self.display_totals();
             self.$(".oe_timesheet_weekly_adding button").click(_.bind(this.init_add_account, this));
         },
+        // Method to manage the account/activity selector
         init_add_account: function() {
             var self = this;
             if (self.dfm)
                 return;
             // create the 'Next' button
-            self.$(".oe_timesheet_weekly_add_row").show();
+            self.$(".oe_timesheet_weekly_add_row_line_1").show();
+            self.$(".oe_timesheet_weekly_add_row_line_2").show();
+            self.$(".oe_timesheet_weekly_adding").hide();
+            self.$(".oe_timesheet_weekly_cancel").show();
 
-            // create the input to select the account
+            // create the inputs to select the account and the activity
             self.dfm = new instance.web.form.DefaultFieldManager(self);
-            self.dfm.extend_field_desc({account: {relation: "account.analytic.account"}});
+            self.dfm.extend_field_desc({
+                account: {relation: "account.analytic.account"},
+                activity: {relation: "hr.activity"},
+            });
             self.account_m2o = new instance.web.form.FieldMany2One(self.dfm, {
                 attrs: {
                     name: "account",
@@ -335,71 +324,105 @@ openerp.hr_activity_on_timesheet = function(instance) {
                     modifiers: '{"required": true}',
                 },
             });
-            self.account_m2o.prependTo(self.$(".oe_timesheet_weekly_add_row td:nth-child(2)"));
+
+            // Set default value of the analytic account field
+            self.account_m2o.get_search_result('').then(function(data){
+                if (data.length > 0){
+                    self.account_m2o.set_value(data[0]['id']);
+                }
+            });
+
+            // create the input to select the activity
+            self.activity_m2o = new instance.web.form.FieldMany2One(self.dfm, {
+                attrs: {
+                    name: "activity",
+                    type: "many2one",
+                    domain: [['authorized_user_ids', '=', self.get('user_id')], ['authorized_user_ids', '!=', false]],
+                    context: new instance.web.CompoundContext({user_id: self.get('user_id')}),
+                    modifiers: '{"required": true}',
+                },
+            });
+
+            // When the account is changed, need to change the context of the activity field.
+            // If the current selected activity is not autorized for the selected account,
+            // replace the activity selected with the first value in the list of authorized activities.
+            self.account_m2o.on('changed_value', this, function() {
+                node = self.activity_m2o.node
+                node.attrs.context = new instance.web.CompoundContext(
+                    node.attrs.context, {
+                        user_id: self.get('user_id'),
+                        account_id: self.account_m2o.get_value(),
+                    }
+                );
+                activity_field = self.activity_m2o;
+
+                // Search activities
+                self.activity_m2o.get_search_result('').then(function(data){
+                    previous_activity_id = self.activity_m2o.get_value();
+                    activity_dict = _.indexBy(data, 'id');
+
+                    if (! (previous_activity_id in activity_dict)){
+                        if (data.length > 0 ){
+                            self.activity_m2o.set_value(data[0]['id']);
+                            value = self.activity_m2o.get_value();
+                            value = value;
+                        }
+                        else {
+                            self.activity_m2o.set_value(false);
+                        }
+                    }
+                });
+            });
+
+            // Place the fields in the widget
+            self.activity_m2o.prependTo(self.$(".oe_timesheet_weekly_add_row_line_2 td:first-child"));
+            self.account_m2o.prependTo(self.$(".oe_timesheet_weekly_add_row_line_2 td:first-child"));
+
+            self.$(".oe_timesheet_weekly_cancel button").click(function(){
+                self.close_account_selector();
+                self.set({"sheets": self.generate_o2m_value()});
+            });
 
             self.$(".oe_timesheet_weekly_add_row button").click(function(){
+                var activity_id = self.activity_m2o.get_value();
                 var account_id = self.account_m2o.get_value();
                 if (account_id === false) {
                     self.dfm.set({display_invalid_fields: true});
                     return;
                 }
+                if(self.activity_m2o.get_value() === false){
+                    self.dfm.set({display_invalid_fields: true});
+                    return;
+                }
 
-                // Update the dict self.account_names with the selected account
-                new self.get_account_names(self, [account_id], function(){
-                    // hide the 'Next' button
-                    self.$(".oe_timesheet_weekly_add_row").hide();
+                // Get the field values for the new timesheet
+                deferred_1 = new instance.web.Model("hr.analytic.timesheet").call(
+                    "on_change_account_id", [[], account_id, self.get('user_id')]);
 
-                    // show the selected account in timesheet
-                    self.$(".oe_timesheet_weekly_selected_account").show();
-                    self.$(".oe_timesheet_weekly_selected_account td").empty();
-                    account_name = self.account_names[account_id];
-                    self.$(".oe_timesheet_weekly_selected_account td").html('<a href="javascript:void(0)"'.concat(account_name, 'data-id="', '">', account_name, '</a>'));
-                    self.$(".oe_timesheet_weekly_selected_account a").click(function(){
-                        self.go_to_account_selected(account_id);
+                // Update the dicts of names with the selected account and activities
+                deferred_2 = self.get_account_names(self, [account_id]);
+                deferred_3 = self.get_activity_names(self, [activity_id]);
+
+                $.when(deferred_1, deferred_2, deferred_3).done(function(field_values){
+                    self.close_account_selector();
+                    var ops = self.generate_o2m_value();
+                    var new_timesheet_line = _.extend({}, self.default_get, field_values.value, {
+                        name: self.description_line,
+                        unit_amount: 0,
+                        date: instance.web.date_to_str(self.dates[0]),
+                        account_id: account_id,
+                        activity_id: activity_id,
                     });
-
-                    // create the 'Next' button
-                    self.$(".oe_timesheet_weekly_add_activity").show();
-
-                    // create the input to select the activity
-                    self.dfm.extend_field_desc({activity: {relation: "hr.activity"}});
-                    self.activity_m2o = new instance.web.form.FieldMany2One(self.dfm, {
-                        attrs: {
-                            name: "activity",
-                            type: "many2one",
-                            domain: [['authorized_user_ids', '=', self.get('user_id')], ['authorized_user_ids', '!=', false]],
-                            context: new instance.web.CompoundContext({user_id: self.get('user_id'), account_id: account_id}),
-                            modifiers: '{"required": true}',
-                        },
-                    });
-                    self.activity_m2o.prependTo(self.$(".oe_timesheet_weekly_add_activity td:nth-child(2)"));
-
-                    self.$(".oe_timesheet_weekly_add_activity button").click(function(){
-                        if(self.activity_m2o.get_value() === false){
-                            self.dfm.set({display_invalid_fields: true});
-                            return;
-                        }
-                        activity_id = self.activity_m2o.get_value();
-
-                        // Update the dict self.activity_names with the selected activity
-                        self.get_activity_names(self, [activity_id], function(){
-                            // Create a new timesheet record with the account and the activity selected
-                            var ops = self.generate_o2m_value();
-                            new instance.web.Model("hr.analytic.timesheet").call("on_change_account_id", [[], account_id, self.get('user_id')]).then(function(res){
-                                var def = _.extend({}, self.default_get, res.value, {
-                                    name: self.description_line,
-                                    unit_amount: 0,
-                                    date: instance.web.date_to_str(self.dates[0]),
-                                    account_id: account_id,
-                                    activity_id: activity_id,
-                                });
-                                ops.push(def);
-                                self.set({"sheets": ops});
-                            });
-                        });
-                    });
+                    ops.push(new_timesheet_line);
+                    self.set({"sheets": ops});
                 });
             });
+        },
+        close_account_selector: function() {
+            self.$(".oe_timesheet_weekly_add_row_line_1").hide();
+            self.$(".oe_timesheet_weekly_add_row_line_2").hide();
+            self.$(".oe_timesheet_weekly_adding").show();
+            self.$(".oe_timesheet_weekly_cancel").hide();
         },
         display_totals: function() {
             var self = this;
