@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 #
 #
-#    Copyright (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
+#    Copyright (C) 2011 Michael Telahun Makonnen <mmakonnen@gmail.com>.
 #    All Rights Reserved.
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -18,3 +18,6 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 #
+
+from . import hr_children
+from . import hr_employee

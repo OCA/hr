@@ -1,13 +1,14 @@
-# -*- coding:utf-8 -*-
+# -*- encoding: utf-8 -*-
 ##############################################################################
 #
-#    Copyright (C) 2014 Savoir-faire Linux. All Rights Reserved.
+#    HR Expense Analytic Default module for OpenERP
+#    Copyright (C) 2014 Akretion (http://www.akretion.com)
+#    @author Alexis de Lattre <alexis.delattre@akretion.com>
 #
 #    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as published
-#    by
-#    the Free Software Foundation, either version 3 of the License, or
-#    (at your option) any later version.
+#    it under the terms of the GNU Affero General Public License as
+#    published by the Free Software Foundation, either version 3 of the
+#    License, or (at your option) any later version.
 #
 #    This program is distributed in the hope that it will be useful,
 #    but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -19,10 +20,4 @@
 #
 ##############################################################################
 
-from . import (
-    test_hr_job_categories,
-)
-
-checks = [
-    test_hr_job_categories,
-]
+from . import expense_analytic_default

@@ -19,29 +19,13 @@
 #
 #
 
-{
-    "name": "HR Permission Groups",
-    "version": "1.0",
-    "category": "Generic Modules/Human Resources",
-    "description": """
-Human Resource Permission Groups
-================================
+from openerp import models, fields
 
-    """,
-    "author": "Michael Telahun Makonnen <mmakonnen@gmail.com,Odoo Community Association (OCA)",
-    "website": "http://miketelahun.wordpress.com",
-    "license": "AGPL-3",
-    "depends": [
-        'base',
-        'hr',
-        'hr_contract',
-    ],
-    "data": [
-        'security/hr_security.xml',
-        'security/ir.model.access.csv',
-        'security/ir_rule.xml',
-    ],
-    'test': [
-    ],
-    'installable': False,
-}
+
+class HrChildren(models.Model):
+    _name = 'hr.employee.children'
+    _description = 'HR Employee Children'
+
+    name = fields.Char("Name", required=True)
+    date_of_birth = fields.Date("Date of Birth", oldname='dob')
+    employee_id = fields.Many2one('hr.employee', "Employee")
