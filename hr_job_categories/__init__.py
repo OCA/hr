@@ -1,7 +1,8 @@
 # -*- coding:utf-8 -*-
 ##############################################################################
 #
-#    Copyright (C) 2014 Savoir-faire Linux. All Rights Reserved.
+#    Copyright (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
+#    All Rights Reserved.
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as published
@@ -19,10 +20,4 @@
 #
 ##############################################################################
 
-from . import (
-    test_hr_job_categories,
-)
-
-checks = [
-    test_hr_job_categories,
-]
+from . import models
