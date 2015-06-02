@@ -150,28 +150,6 @@ class test_worked_days_from_timesheet(common.TransactionCase):
         self.ts_sheet_model.write(
             cr, uid, self.ts_sheet_ids, {'state': 'done'}, context=context)
 
-    def tearDown(self):
-        cr, uid, context = self.cr, self.uid, self.context
-
-        self.ts_sheet_model.write(
-            cr, uid, self.ts_sheet_ids, {'state': 'draft'}, context=context)
-        self.timesheet_model.unlink(
-            cr, uid, self.timesheet_ids, context=context)
-
-        self.ts_sheet_model.unlink(
-            cr, uid, self.ts_sheet_ids, context=context)
-
-        self.contract_model.unlink(
-            cr, uid, [self.contract_id, self.contract_2_id], context=context)
-
-        self.employee_model.unlink(
-            cr, uid, [self.employee_id, self.employee_2_id], context=context)
-
-        self.user_model.unlink(
-            cr, uid, [self.user_id, self.user_2_id], context=context)
-
-        super(test_worked_days_from_timesheet, self).tearDown()
-
     def test_import_worked_days(self):
         """
         Test the payslip method import_worked_days
@@ -316,11 +294,3 @@ class test_worked_days_from_timesheet(common.TransactionCase):
         # 7 hours timesheet 3
         # 11.5 hours for timesheet 4
         self.assertEqual(sum_wd, 5 + 7 + 11.5)
-
-        self.payslip_model.unlink(
-            cr, uid,
-            [slip.id for slip in slip_run.slip_ids],
-            context=context)
-
-        self.slip_run_model.unlink(
-            cr, uid, [self.slip_run_id], context=context)

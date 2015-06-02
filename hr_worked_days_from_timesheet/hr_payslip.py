@@ -109,11 +109,7 @@ class hr_payslip(orm.Model):
 
             # get timesheet sheets of employee
             timesheet_sheets = self.get_timesheets_from_employee(
-                cr, uid,
-                employee.id,
-                date_from, date_to,
-                context=context
-            )
+                cr, uid, employee.id, date_from, date_to, context=context)
 
             # The reason to call this method is for other modules to modify it.
             worked_days = self.timesheet_mapping(
@@ -157,6 +153,14 @@ class hr_payslip(orm.Model):
             ) and ts_sheet.state == 'done'
         ]
 
+        self._check_no_timesheet(
+            cr, uid, employee, timesheet_sheets, context=context)
+
+        return timesheet_sheets
+
+    def _check_no_timesheet(
+        self, cr, uid, employee, timesheet_sheets, context=None
+    ):
         if not timesheet_sheets:
             raise orm.except_orm(
                 _("Warning"),
@@ -166,5 +170,3 @@ class hr_payslip(orm.Model):
                     "for employee %s."
                 ) % employee.name_get(context=context)[0][1],
             )
-
-        return timesheet_sheets
