@@ -24,7 +24,6 @@ from openerp import models, fields, api
 class HrEmployee(models.Model):
     _inherit = 'hr.employee'
 
-    address_id = fields.Many2one(required=True)
     work_phone = fields.Char(related=['address_id', 'phone'])
     work_email = fields.Char(related=['address_id', 'email'])
     mobile_phone = fields.Char(related=['address_id', 'mobile'])
