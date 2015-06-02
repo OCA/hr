@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 ##############################################################################
 #
-#    Odoo, Open Source Management Solution
+#    OpenERP, Open Source Management Solution
 #    This module copyright (C) 2014 Savoir-faire Linux
 #    (<http://www.savoirfairelinux.com>).
 #
@@ -20,25 +20,21 @@
 #
 ##############################################################################
 
-from openerp.osv import fields, orm
+from openerp import models, fields
 
 
-class hr_academic(orm.Model):
-    _name = 'hr.academic'
-    _inherit = 'hr.curriculum'
-    _columns = {
-        'diploma': fields.char(
-            'Diploma',
-            size=64,
-            translate=True,
-        ),
-        'study_field': fields.char(
-            'Field of study',
-            size=64,
-            translate=True,
-        ),
-        'activities': fields.text(
-            'Activities and associations',
-            translate=True,
-        ),
-    }
+class hr_employee(models.Model):
+    _inherit = 'hr.employee'
+
+    academic_ids = fields.One2many('hr.academic',
+                                   'employee_id',
+                                   'Academic experiences',
+                                   help="Academic experiences")
+    certification_ids = fields.One2many('hr.certification',
+                                        'employee_id',
+                                        'Certifications',
+                                        help="Certifications")
+    experience_ids = fields.One2many('hr.experience',
+                                     'employee_id',
+                                     ' Professional Experiences',
+                                     help='Professional Experiences')

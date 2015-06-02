@@ -45,14 +45,14 @@ Contributors
     'external_dependencies': {},
     'data': [
         "security/ir.model.access.csv",
-        "hr_employee_view.xml",
-        "hr_academic_view.xml",
-        "hr_professional_view.xml",
-        "hr_certification_view.xml",
+        "security/hr_security.xml",
+        "views/hr_employee_view.xml",
+        "views/hr_academic_view.xml",
+        "views/hr_professional_view.xml",
+        "views/hr_certification_view.xml",
     ],
     "demo": [],
     "test": [],
-    'installable': False,
-    "active": False,
+    'installable': True
 }
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

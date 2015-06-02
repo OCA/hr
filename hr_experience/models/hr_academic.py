@@ -20,45 +20,14 @@
 #
 ##############################################################################
 
-from openerp.osv import fields, orm
+from openerp import models, fields
 
 
-class hr_curriculum(orm.Model):
-    _name = 'hr.curriculum'
-    _columns = {
-        'name': fields.char(
-            'Name',
-            required=True,
-        ),
-        'employee_id': fields.many2one(
-            'hr.employee',
-            'Employee',
-            required=True,
-        ),
-        'start_date': fields.date(
-            'Start date',
-        ),
-        'end_date': fields.date(
-            'End date',
-        ),
-        'description': fields.text(
-            'Description',
-        ),
-        'partner_id': fields.many2one(
-            'res.partner',
-            'Partner',
-            help="Employer, School, University, Certification Authority",
-        ),
-        'location': fields.char(
-            'Location',
-            help="Location",
-        ),
-        'expire': fields.boolean(
-            'Expire',
-            help="Expire",
-        ),
+class hr_academic(models.Model):
+    _name = 'hr.academic'
+    _inherit = 'hr.curriculum'
 
-    }
-    _defaults = {
-        'expire': True,
-    }
+    diploma = fields.Char(string='Diploma', translate=True)
+    study_field = fields.Char(string='Field of study', translate=True,)
+    activities = fields.Text(string='Activities and associations',
+                             translate=True)
