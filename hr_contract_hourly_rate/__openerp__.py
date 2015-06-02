@@ -19,38 +19,23 @@
 ##############################################################################
 
 {
-    'name': 'Contract Hourly Rate',
-    'category': 'Localization',
+    'name': 'HR Contract Hourly Rate',
     'version': '1.0',
     'license': 'AGPL-3',
     'category': 'Generic Modules/Human Resources',
-    'description': """
-Contract Hourly Rate
-====================
-The objective of this module is to manage employee hourly rates. Annual wage
-is still possible. On the contract, the field salary_computation_method allows
-to choose between hourly rate and annual wage.
-
-Each contract job belongs to an hourly rate class if the employee is paid
-by hourly rates. This allows to manage hourly rate increments over the years
-for multiple employees at the same time.
-
-Contributors
-------------
-* David Dufresne <david.dufresne@savoirfairelinux.com>
-* Pierre Lamarche <pierre.lamarche@savoirfairelinux.com>
-""",
-    'author': "Savoir-faire Linux,Odoo Community Association (OCA)",
+    'author': 'Savoir-faire Linux, '
+              'Fekete Mihai (Forest and Biomass Services Romania), '
+              'Odoo Community Association (OCA)',
     'website': 'https://www.savoirfairelinux.com/',
     'depends': [
         'hr_contract_multi_jobs',
     ],
     'data': [
         'security/ir.model.access.csv',
-        'hr_contract_view.xml',
-        'hr_hourly_rate_class_view.xml',
+        'views/hr_contract_view.xml',
+        'views/hr_hourly_rate_class_view.xml',
     ],
     'test': [],
     'demo': [],
-    'installable': False,
+    'installable': True,
 }

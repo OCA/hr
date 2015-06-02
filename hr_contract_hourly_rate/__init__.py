@@ -5,8 +5,7 @@
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as published
-#    by
-#    the Free Software Foundation, either version 3 of the License, or
+#    by the Free Software Foundation, either version 3 of the License, or
 #    (at your option) any later version.
 #
 #    This program is distributed in the hope that it will be useful,
@@ -19,31 +18,4 @@
 #
 ##############################################################################
 
-from openerp.osv import fields, orm
-from openerp.tools import DEFAULT_SERVER_DATE_FORMAT
-import time
-
-
-class hr_hourly_rate(orm.Model):
-    _name = 'hr.hourly.rate'
-    _description = 'Hourly rate'
-    _columns = {
-        'rate': fields.float(
-            'Rate',
-            required=True,
-        ),
-        'date_start': fields.date(
-            'Start Date',
-            required=True,
-        ),
-        'date_end': fields.date('End Date'),
-        'class_id': fields.many2one(
-            'hr.hourly.rate.class',
-            'Salary Class',
-            ondelete='cascade',
-            required=True,
-        ),
-    }
-    _defaults = {
-        'date_start': lambda *a: time.strftime(DEFAULT_SERVER_DATE_FORMAT),
-    }
+from . import models

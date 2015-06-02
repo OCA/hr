@@ -5,8 +5,7 @@
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as published
-#    by
-#    the Free Software Foundation, either version 3 of the License, or
+#    by the Free Software Foundation, either version 3 of the License, or
 #    (at your option) any later version.
 #
 #    This program is distributed in the hope that it will be useful,
@@ -19,10 +18,18 @@
 #
 ##############################################################################
 
-from . import (
-    test_hr_contract_hourly_rates,
-)
+from openerp import models, fields
 
-checks = [
-    test_hr_contract_hourly_rates,
-]
+
+class hr_hourly_rate(models.Model):
+    _name = 'hr.hourly.rate'
+    _description = 'Hourly rate'
+
+    rate = fields.Float(string='Rate', required=True)
+    date_start = fields.Date(string='Start Date', required=True,
+                             default=fields.Date.today())
+    date_end = fields.Date(string='End Date')
+    class_id = fields.Many2one('hr.hourly.rate.class',
+                               string='Salary Class',
+                               ondelete='cascade',
+                               required=True)
