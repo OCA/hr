@@ -65,11 +65,20 @@ def post_init_hook(cr, pool):
 def adjust_employee_partners_post(env):
     companies = env['res.company'].with_context(active_test=False).search([])
     company_partners = companies.mapped('partner_id')
+    # recalculate images for partners we possibly touched in pre-init
+    recalculate_ids = env['hr.employee'].with_context(active_test=False)\
+        .search([('address_id', 'not in', company_partners.ids)])\
+        .mapped('address_id.id')
+    env['res.partner']._model._store_set_values(
+        env.cr, env.uid, recalculate_ids, ['image_small', 'image_medium'],
+        env.context)
     # create a new partner for all employees pointing to a company address
     employees = env['hr.employee'].with_context(active_test=False).search(
         [('address_id', 'in', company_partners.ids)], order='id')
     # we need to read related values from the database because the related
     # fields already cover our fields
+    if not employees.ids:
+        return
     env.cr.execute(
         'select work_phone, work_email, mobile_phone, image '
         'from hr_employee where id in %s order by id',
