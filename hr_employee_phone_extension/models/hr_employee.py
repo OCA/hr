@@ -23,7 +23,7 @@
 from openerp.osv import fields, orm
 
 
-class hr_employee(orm.Model):
+class HrEmployee(orm.Model):
     _inherit = 'hr.employee'
 
     _columns = {

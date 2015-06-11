@@ -20,4 +20,4 @@
 #
 ##############################################################################
 
-from models import hr
+from hr.hr_employee_phone_extension.models import hr_employee
