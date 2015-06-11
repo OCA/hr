@@ -43,7 +43,7 @@ Contributors
     'license': 'AGPL-3',
     'depends': ['hr', ],
     'data': [
-        'hr_view.xml',
+        'views/hr_view.xml',
     ],
     'demo': [],
     'test': [],
