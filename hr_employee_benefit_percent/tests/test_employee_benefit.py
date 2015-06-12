@@ -50,8 +50,8 @@ class TestEmployeeBenefit(TestEmployeeBenefitBase):
 
         self.rule_model.write(cr, uid, [self.rule_id], {
             'amount_python_compute': """
-payslip.set_gross_salary(payslip, 2000)
-payslip.compute_benefits(payslip)
+payslip.set_gross_salary(2000)
+payslip.compute_benefits()
 result = rule.sum_benefits(payslip)
 """
         }, context=context)

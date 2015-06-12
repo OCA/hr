@@ -54,7 +54,7 @@ class TestEmployeeBenefitBase(common.TransactionCase):
                 'category_id': self.category_id,
                 'amount_select': 'code',
                 'amount_python_compute': """
-payslip.compute_benefits(payslip)
+payslip.compute_benefits()
 result = rule.sum_benefits(payslip)
 """
             }, context=context)
@@ -232,7 +232,7 @@ class TestEmployeeBenefit(TestEmployeeBenefitBase):
         cr, uid, context = self.cr, self.uid, self.context
         self.rule_model.write(cr, uid, [self.rule_id], {
             'amount_python_compute': """
-payslip.compute_benefits(payslip)
+payslip.compute_benefits()
 result = rule.sum_benefits(payslip, codes='BEN_1')
 """
         }, context=context)
