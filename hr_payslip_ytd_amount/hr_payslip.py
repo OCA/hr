@@ -58,6 +58,8 @@ class hr_payslip(orm.Model):
             employee_payslips = self.browse(
                 cr, uid, employee_payslip_ids, context=context)
 
+            employee_payslips.append(payslip)
+
             # Iterate one time over each line of each payslip of the
             # employee since the beginning of the year and sum required
             # lines
@@ -71,6 +73,6 @@ class hr_payslip(orm.Model):
 
             # For each line in the payslip, write the related total ytd
             for line in payslip.line_ids:
-                amount = line_dict[line.salary_rule_id.code] + line.total
+                amount = line_dict[line.salary_rule_id.code]
                 self.pool['hr.payslip.line'].write(
                     cr, uid, [line.id], {'total_ytd': amount}, context=context)
