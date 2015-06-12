@@ -29,7 +29,7 @@
     'license': 'AGPL-3',
     'depends': ['hr', ],
     'data': [
-        'views/hr_view.xml',
+        'views/hr_employee_view.xml',
     ],
     'demo': [],
     'test': [],
