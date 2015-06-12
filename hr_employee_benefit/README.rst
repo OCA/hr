@@ -29,7 +29,7 @@ Setting the payroll structure
 -----------------------------
 In a salary rule of your payroll structure, you may call
 
-payslip.compute_benefits(payslip)
+payslip.compute_benefits()
 
 This allows compute the employee benefits at a specific point in the
 payroll structure.
