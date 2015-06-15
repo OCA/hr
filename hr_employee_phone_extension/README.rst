@@ -10,28 +10,6 @@ This module adds the following to employees :
 * short_number
 
 
-
-Installation
-============
-
-To install this module, you need to:
-
-* do this ...
-
-Configuration
-=============
-
-To configure this module, you need to:
-
-* go to ...
-
-Usage
-=====
-
-To use this module, you need to:
-
-* go to ...
-
 For further information, please visit:
 
 * https://www.odoo.com/forum/help-1
@@ -55,8 +33,10 @@ Credits
 
 Contributors
 ------------
+
 * Sandy Carter (sandy.carter@savoirfairelinux.com)
 * El Hadji Dem (elhadji.dem@savoirfairelinux.com)
+* Charbel Jacquin (charbel.jacquin@camptocamp.com)
     
 
 Maintainer
