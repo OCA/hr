@@ -27,6 +27,6 @@ class HrEmployee(models.Model):
     _inherit = 'hr.employee'
 
     internal_number = fields.Char('Internal Number', size=20,
-                                  help='Internal phone number.'),
+                                  help='Internal phone number.')
     short_number = fields.Char('Short Number', size=20,
-                               help='Short phone number.'),
+                               help='Short phone number.')
