@@ -20,15 +20,13 @@
 #
 ##############################################################################
 
-from openerp.osv import fields, orm
+from openerp import models, fields
 
 
-class HrEmployee(orm.Model):
+class HrEmployee(models.Model):
     _inherit = 'hr.employee'
 
-    _columns = {
-        'internal_number': fields.char('Internal Number', size=20,
-                                       help='Internal phone number.'),
-        'short_number': fields.char('Short Number', size=20,
-                                    help='Short phone number.'),
-    }
+    internal_number = fields.Char('Internal Number', size=20,
+                                  help='Internal phone number.'),
+    short_number = fields.Char('Short Number', size=20,
+                               help='Short phone number.'),
