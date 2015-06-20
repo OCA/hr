@@ -5,7 +5,7 @@ HR Expense Account Period
 =========================
 
 This module was written to allow you to choose an accounting period at the
-genreration of journal entry from an expense.
+generation of journal entry from an expense.
 
 Bug Tracker
 ===========
