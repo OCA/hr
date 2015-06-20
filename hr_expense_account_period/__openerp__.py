@@ -25,9 +25,7 @@
 {
     'name': "HR Expense Account Period",
 
-    'summary': """
-        Add the possbility to choose accounting period at the generation of
-        the journal entry with an HR Expense""",
+    'summary': """Accounting period for HR expenses journal entries""",
     'author': "ACSONE SA/NV,Odoo Community Association (OCA)",
     'website': "http://acsone.eu",
     'category': 'Human Resources',
