@@ -37,6 +37,6 @@
         'hr_expense',
     ],
     'data': [
-         'view/hr_expense_view.xml',
-     ],
+        'view/hr_expense_view.xml',
+    ],
 }
