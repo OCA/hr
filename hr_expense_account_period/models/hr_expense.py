@@ -26,7 +26,7 @@
 from openerp import models, api, fields
 
 
-class hr_expense_expense(models.Model):
+class HrExpenseExpense(models.Model):
     _inherit = 'hr.expense.expense'
 
     period_id = fields.Many2one('account.period', string='Force Period',
@@ -34,7 +34,7 @@ class hr_expense_expense(models.Model):
 
     @api.model
     def account_move_get(self, expense_id):
-        res = super(hr_expense_expense, self).account_move_get(expense_id)
+        res = super(HrExpenseExpense, self).account_move_get(expense_id)
         expense = self.browse([expense_id])[0]
         if expense.period_id.id:
             res.update({'period_id': expense.period_id.id})
