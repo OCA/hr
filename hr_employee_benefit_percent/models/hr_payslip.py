@@ -40,7 +40,7 @@ class hr_payslip(orm.Model):
         'gross_salary': 0,
     }
 
-    def set_gross_salary(self, cr, uid, ids, payslip, gross, context=None):
+    def set_gross_salary(self, cr, uid, ids, gross, context=None):
         """
         Allow to set payslip fields directly from the salary rules.
 
@@ -49,9 +49,6 @@ class hr_payslip(orm.Model):
 
         Exemple
         -------
-        payslip.set_gross_salary(payslip, GROSS)
+        payslip.set_gross_salary(GROSS)
         """
-        if not isinstance(payslip, orm.browse_record):
-            payslip = payslip.dict
-
-        payslip.write({'gross_salary': gross})
+        self.write(cr, uid, ids, {'gross_salary': gross}, context=context)

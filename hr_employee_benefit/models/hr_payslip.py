@@ -77,7 +77,7 @@ class HrPayslip(orm.Model):
         for payslip in self.browse(cr, uid, ids, context=context):
             payslip.compute_benefits(payslip)
 
-    def compute_benefits(self, cr, uid, ids, payslip, context=None):
+    def compute_benefits(self, cr, uid, ids, context=None):
         """
         Compute the employee benefits on the payslip.
 
@@ -85,7 +85,7 @@ class HrPayslip(orm.Model):
 
         Exemple
         -------
-        payslip.compute_benefits(payslip)
+        payslip.compute_benefits()
 
         This is required when the benefits are based on the value
         of one or more salary rules.
@@ -93,8 +93,12 @@ class HrPayslip(orm.Model):
         The module hr_employee_benefit_percent implements that
         functionnality.
         """
-        if not isinstance(payslip, orm.browse_record):
-            payslip = payslip.dict
+        if isinstance(ids, (int, long)):
+            ids = [ids]
+
+        assert len(ids) == 1
+
+        payslip = self.browse(cr, uid, ids[0], context=context)
 
         payslip.refresh()
 

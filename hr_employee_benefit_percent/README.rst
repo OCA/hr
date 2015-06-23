@@ -14,7 +14,7 @@ before the employee benefits are computed.
 
 For this, you may add the following code in the proper salary rule:
 
-payslip.set_gross_salary(payslip, GROSS)
+payslip.set_gross_salary(GROSS)
 
 where 'GROSS' is the code of the salary rule that defines the gross salary.
 
