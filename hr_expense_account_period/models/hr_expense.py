@@ -37,5 +37,5 @@ class HrExpenseExpense(models.Model):
         res = super(HrExpenseExpense, self).account_move_get(expense_id)
         expense = self.browse([expense_id])[0]
         if expense.period_id.id:
-            res.update({'period_id': expense.period_id.id})
+            res['period_id'] = expense.period_id.id
         return res
