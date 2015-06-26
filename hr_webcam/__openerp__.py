@@ -29,7 +29,8 @@ HR WebCam
 
 Capture employee pictures with an attached web cam.
     """,
-    'author': "Michael Telahun Makonnen <mmakonnen@gmail.com>,Odoo Community Association (OCA)",
+    'author': "Michael Telahun Makonnen <mmakonnen@gmail.com>,"
+    "Odoo Community Association (OCA)",
     'website': 'http://miketelahun.wordpress.com',
     'license': 'AGPL-3',
     'depends': [
