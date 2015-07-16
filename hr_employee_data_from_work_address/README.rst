@@ -1,7 +1,7 @@
 User data from employee
 =======================
 
-When using HR, there are a couple of partners involved per employee: The employee's work address, the employee's private address and the partner assigned to the employee's user (if any). The latter is used to store some data about the user, like the email address. In many cases, it would be more convenient to edit this data from the employee record. This module assumes you assign a (different) partner for the work address to every employee, and synchronizes its values with the employee record. Then you should use this partner record also for the user record.
+When using HR, there are a couple of partners involved per employee: The employee's work address, the employee's private address and the partner assigned to the employee's user (if any). The latter is used to store some data about the user, like the email address. In many cases, it would be more convenient to edit this data from the employee record. This module assumes you assign a (different) partner for the work address to every employee, and synchronizes its values with the employee record. Then you should use this partner record also for the user record. When assigning an existing user, the module will replace this user's partner with the current work address's partner.
 
 Installation
 ============
