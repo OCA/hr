@@ -57,3 +57,36 @@ class HrEmployee(models.Model):
             self._fields[field].store = False
             self._fields[field].column = None
         return super(HrEmployee, self)._register_hook(cr)
+
+    @api.multi
+    def _reassign_user_id_partner(self, values):
+        '''if we assigned a user, replace its partner_id by our work address'''
+        if 'user_id' not in values:
+            return
+        for this in self:
+            # take some precautions
+            if this.user_id.partner_id == this.address_id:
+                continue
+            # don't drop the partner if we recycle users
+            if self.search(
+                    [
+                        ('id', '!=', this.id),
+                        ('user_id', '=', this.user_id.id),
+                    ]):
+                continue
+            old_partner = this.user_id.partner_id
+            this.user_id.write({'partner_id': this.address_id.id})
+            old_partner.unlink()
+
+    @api.multi
+    def write(self, values):
+        result = super(HrEmployee, self).write(values)
+        self._reassign_user_id_partner(values)
+        return result
+
+    @api.model
+    @api.returns('self', lambda value: value.id)
+    def create(self, values):
+        result = super(HrEmployee, self).create(values)
+        result._reassign_user_id_partner(values)
+        return result
