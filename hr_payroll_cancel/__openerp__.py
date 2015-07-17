@@ -28,9 +28,6 @@
     "version": "1.0", 
     "author": "Vauxoo", 
     "category": "Localization/Mexico", 
-    "description": """
-    This module change the workflow from hr.payslip to can cancel after to confirm this
-    """, 
     "website": "http://www.vauxoo.com/", 
     "license": "AGPL-3", 
     "depends": [
