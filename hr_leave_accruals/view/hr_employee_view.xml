@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    	<record id="view_employee_form" model="ir.ui.view">
+            <field name="name">hr.employee.form</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <notebook position="inside">
+                    <page name="payroll_page" string="Leave Accruals" groups="base.group_hr_manager">
+                        <field name="leave_accrual_ids">
+                            <tree>
+                                <field name="leave_type_id"/>
+                                <field name="total_hours"/>
+                                <field name="total_cash"/>
+                            </tree>
+                        </field>
+                    </page>
+                </notebook>
+            </field>
+        </record>
+    </data>
+</openerp>

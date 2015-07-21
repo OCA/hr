@@ -148,12 +148,12 @@ class hr_policy(orm.Model):
             if line.accrual_rate_premium_minimum <= srvc_months:
                 premium_amount = (
                     max(
-                        0, srvc_months - line.accrual_rate_premium_minimum
-                        + line.accrual_rate_premium_milestone
+                        0, srvc_months - line.accrual_rate_premium_minimum +
+                        line.accrual_rate_premium_milestone
                     )
                 ) // (
-                    line.accrual_rate_premium_milestone
-                    * line.accrual_rate_premium
+                    line.accrual_rate_premium_milestone *
+                    line.accrual_rate_premium
                 ) / 52.0
         elif line.calculation_frequency == 'monthly':
             # When deciding to skip an employee account for actual month
@@ -179,25 +179,29 @@ class hr_policy(orm.Model):
             if line.accrual_rate_premium_minimum <= srvc_months:
                 premium_amount = (
                     max(
-                        0, srvc_months - line.accrual_rate_premium_minimum
-                        + line.accrual_rate_premium_milestone
+                        0, srvc_months - line.accrual_rate_premium_minimum +
+                        line.accrual_rate_premium_milestone
                     )
                 ) // (
-                    line.accrual_rate_premium_milestone
-                    * line.accrual_rate_premium
+                    line.accrual_rate_premium_milestone *
+                    line.accrual_rate_premium
                 ) / 12.0
         else:  # annual frequency
             # On non-leap years execute Feb. 29 accruals on the 28th
             #
-            if (dToday.month == 2
-                    and dToday.day == 28
-                    and (dToday + timedelta(days=+1)).day != 29
-                    and freq_annual_day > dToday.day):
+            if (
+                dToday.month == 2 and
+                dToday.day == 28 and
+                (
+                    dToday + timedelta(days=+1)
+                ).day != 29 and
+                freq_annual_day > dToday.day
+            ):
                 freq_annual_day = dToday.day
 
             if (
-                dToday.month != freq_annual_month
-                and dToday.day != freq_annual_day
+                dToday.month != freq_annual_month and
+                dToday.day != freq_annual_day
             ):
                 return
 
@@ -205,12 +209,12 @@ class hr_policy(orm.Model):
             if line.accrual_rate_premium_minimum <= srvc_months:
                 premium_amount = (
                     max(
-                        0, srvc_months - line.accrual_rate_premium_minimum
-                        + line.accrual_rate_premium_milestone
+                        0, srvc_months - line.accrual_rate_premium_minimum +
+                        line.accrual_rate_premium_milestone
                     )
                 ) // (
-                    line.accrual_rate_premium_milestone
-                    * line.accrual_rate_premium)
+                    line.accrual_rate_premium_milestone *
+                    line.accrual_rate_premium)
 
         if line.accrual_rate_max == 0:
             amount = freq_amount + premium_amount
@@ -316,13 +320,13 @@ class hr_policy(orm.Model):
                     employee_list = []
                     for contract in pg.contract_ids:
                         if (
-                            contract.employee_id.id in employee_list
-                            or contract.state in ['draft', 'done']
+                            contract.employee_id.id in employee_list or
+                            contract.state in ['draft', 'done']
                         ):
                             continue
                         if (
-                            contract.date_end
-                            and datetime.strptime(
+                            contract.date_end and
+                            datetime.strptime(
                                 contract.date_end, OE_DATEFORMAT).date() < dJob
                         ):
                             continue
@@ -514,8 +518,8 @@ class hr_holidays(orm.Model):
         today = datetime.now().strftime(OE_DATEFORMAT)
         for record in self.browse(cr, uid, ids, context=context):
             if (
-                record.holiday_type == 'employee'
-                and record.type == 'add' and not record.from_accrual
+                record.holiday_type == 'employee' and
+                record.type == 'add' and not record.from_accrual
             ):
 
                 self._do_accrual(

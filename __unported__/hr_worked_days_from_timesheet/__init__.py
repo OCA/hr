@@ -22,4 +22,5 @@ from . import (
     hr_payslip,
     hr_employee,
     hr_payslip_worked_days,
+    hr_payslip_employees,
 )

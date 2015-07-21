@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-22 01:03+0000\n"
-"PO-Revision-Date: 2014-12-22 01:03+0000\n"
+"POT-Creation-Date: 2015-02-12 18:29+0000\n"
+"PO-Revision-Date: 2015-02-12 18:29+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,8 +16,33 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: hr_payslip_ytd_amount
-#: field:hr.payslip.line,total_ytd:0
-msgid "Total Year-to-date"
+#: report:payslip_ytd_amount:0
+msgid "Note"
+msgstr ""
+
+#. module: hr_payslip_ytd_amount
+#: report:payslip_ytd_amount:0
+msgid "Reference"
+msgstr ""
+
+#. module: hr_payslip_ytd_amount
+#: report:payslip_ytd_amount:0
+msgid "Amount Year-to-date"
+msgstr ""
+
+#. module: hr_payslip_ytd_amount
+#: report:payslip_ytd_amount:0
+msgid "Name"
+msgstr ""
+
+#. module: hr_payslip_ytd_amount
+#: report:payslip_ytd_amount:0
+msgid "Designation"
+msgstr ""
+
+#. module: hr_payslip_ytd_amount
+#: model:ir.actions.report.xml,name:hr_payslip_ytd_amount.payslip_ytd_amount_report
+msgid "Employee PaySlip (YTD Amount)"
 msgstr ""
 
 #. module: hr_payslip_ytd_amount
@@ -26,7 +51,53 @@ msgid "Payslip Line"
 msgstr ""
 
 #. module: hr_payslip_ytd_amount
+#: report:payslip_ytd_amount:0
+msgid "Bank Account"
+msgstr ""
+
+#. module: hr_payslip_ytd_amount
+#: report:payslip_ytd_amount:0
+msgid "Identification No"
+msgstr ""
+
+#. module: hr_payslip_ytd_amount
+#: report:payslip_ytd_amount:0
+msgid "Date To"
+msgstr ""
+
+#. module: hr_payslip_ytd_amount
+#: report:payslip_ytd_amount:0
+msgid "Credit"
+msgstr ""
+
+#. module: hr_payslip_ytd_amount
+#: report:payslip_ytd_amount:0
+msgid "Amount"
+msgstr ""
+
+#. module: hr_payslip_ytd_amount
+#: field:hr.payslip.line,total_ytd:0
+msgid "Total Year-to-date"
+msgstr ""
+
+#. module: hr_payslip_ytd_amount
+#: report:payslip_ytd_amount:0
+msgid "Date From"
+msgstr ""
+
+#. module: hr_payslip_ytd_amount
+#: report:payslip_ytd_amount:0
+msgid "Address"
+msgstr ""
+
+#. module: hr_payslip_ytd_amount
 #: model:ir.model,name:hr_payslip_ytd_amount.model_hr_payslip
+#: report:payslip_ytd_amount:0
 msgid "Pay Slip"
+msgstr ""
+
+#. module: hr_payslip_ytd_amount
+#: report:payslip_ytd_amount:0
+msgid "Email"
 msgstr ""
 

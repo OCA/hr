@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="hr_timesheet_sheet_form" model="ir.ui.view">
+            <field name="name">hr.timesheet.sheet.form</field>
+            <field name="model">hr_timesheet_sheet.sheet</field>
+            <field name="inherit_id" ref="hr_timesheet_sheet.hr_timesheet_sheet_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='timesheet_ids']/tree/field[@name='name']" position="before">
+                    <field name="activity_id"
+                        domain="[('authorized_user_ids', '=', user_id), ('authorized_user_ids', '!=', False)]"
+                        context="{'user_id': user_id, 'account_id': account_id}"
+                    />
+                </xpath>
+
+                <xpath expr="//field[@name='timesheet_ids']/form/field[@name='name']" position="before">
+                    <field name="activity_id"
+                        domain="[('authorized_user_ids', '=', user_id), ('authorized_user_ids', '!=', False)]"
+                        context="{'user_id': user_id, 'account_id': account_id}"
+                    />
+                </xpath>
+
+                <!-- Add activity_id argument to on_change_account_id -->
+                <xpath expr="//field[@name='timesheet_ids']/tree/field[@name='account_id']" position="replace">
+                    <field
+                        domain="[('type','in',['normal','contract']),('state', '&lt;&gt;', 'close'),('use_timesheets','=',1)]"
+                        name="account_id"
+                        on_change="on_change_account_id(account_id, user_id, activity_id)"
+                        context="{'default_use_timesheets': 1}"
+                    />
+                </xpath>
+
+                <xpath expr="//field[@name='timesheet_ids']/form/field[@name='account_id']" position="replace">
+                    <field
+                        domain="[('type','in',['normal','contract']),('state', '&lt;&gt;', 'close'),('use_timesheets','=',1)]"
+                        name="account_id"
+                        on_change="on_change_account_id(account_id, user_id, activity_id)"
+                        context="{'default_use_timesheets': 1}"
+                    />
+                </xpath>
+                
+            </field>
+        </record>
+
+
+    </data>
+</openerp>

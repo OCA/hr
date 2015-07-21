@@ -21,6 +21,7 @@
 #
 #
 
+import logging
 from datetime import datetime, timedelta
 from pytz import timezone, utc
 
@@ -28,6 +29,8 @@ from openerp.osv import fields, orm
 from openerp.tools import DEFAULT_SERVER_DATETIME_FORMAT as OE_DTFORMAT
 from openerp.tools import DEFAULT_SERVER_DATE_FORMAT as OE_DFORMAT
 from openerp.tools.translate import _
+
+_l = logging.getLogger(__name__)
 
 
 class hr_holidays_status(orm.Model):
@@ -79,9 +82,7 @@ class hr_holidays(orm.Model):
 
         # If the user didn't enter from "My Leaves" don't pre-populate Employee
         # field
-        import logging
-        _l = logging.getLogger(__name__)
-        _l.warning('context: %s', context)
+        _l.debug('context: %s', context)
         if not context.get('search_default_my_leaves', False):
             return False
 
@@ -195,7 +196,8 @@ class hr_holidays(orm.Model):
         next_dt = dt
         while count_days > 1:
             public_holiday = holiday_obj.is_public_holiday(
-                cr, uid, next_dt.date(), context=context)
+                cr, uid, next_dt.date(), employee_id=employee_id,
+                context=context)
             public_holiday = (public_holiday and ex_ph)
             rest_day = (next_dt.weekday() in rest_days and ex_rd)
             next_dt += timedelta(days=+1)
@@ -209,10 +211,10 @@ class hr_holidays(orm.Model):
             else:
                 count_days -= 1
                 real_days += 1
-        while ((next_dt.weekday() in rest_days and ex_rd)
-                or (holiday_obj.is_public_holiday(
-                    cr, uid, next_dt.date(), context=context
-                ) and ex_ph)):
+        while (
+                (next_dt.weekday() in rest_days and ex_rd) or
+                (holiday_obj.is_public_holiday(
+                    cr, uid, next_dt.date(), context=context) and ex_ph)):
             if holiday_obj.is_public_holiday(
                     cr, uid, next_dt.date(), context=context):
                 ph_days += 1
@@ -278,10 +280,10 @@ class hr_holidays(orm.Model):
 
         dt = datetime.strptime(date_to, OE_DTFORMAT)
         return_date = dt + timedelta(days=+1)
-        while ((return_date.weekday() in rest_days and ex_rd)
-               or (holiday_obj.is_public_holiday(
-                   cr, uid, return_date.date(), context=context
-               ) and ex_ph)):
+        while (
+            (return_date.weekday() in rest_days and ex_rd) or
+            (holiday_obj.is_public_holiday(
+                cr, uid, return_date.date(), context=context) and ex_ph)):
             return_date += timedelta(days=1)
         res['value']['return_date'] = return_date.strftime('%B %d, %Y')
         return res
@@ -289,9 +291,10 @@ class hr_holidays(orm.Model):
     def create(self, cr, uid, vals, context=None):
 
         att_obj = self.pool.get('hr.attendance')
-        if (vals.get('date_from') and vals.get('date_to')
-                and vals.get('type') == 'remove'
-                and vals.get('holiday_type') == 'employee'):
+        if (
+                vals.get('date_from') and vals.get('date_to') and
+                vals.get('type') == 'remove' and
+                vals.get('holiday_type') == 'employee'):
             att_ids = att_obj.search(
                 cr, uid, [
                     ('employee_id', '=', vals['employee_id']),

@@ -78,8 +78,10 @@ class hr_schedule_generate(orm.TransientModel):
         if len(data['employee_ids']) > 0:
             for ee in ee_obj.browse(
                     cr, uid, data['employee_ids'], context=context):
-                if (not ee.contract_id
-                        or not ee.contract_id.schedule_template_id):
+                if (
+                    not ee.contract_id or not
+                    ee.contract_id.schedule_template_id
+                ):
                     continue
                 sched = {
                     'name': (ee.name + ': ' + data['date_start'] + ' Wk ' +

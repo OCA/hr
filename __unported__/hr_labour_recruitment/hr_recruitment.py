@@ -68,8 +68,8 @@ class hr_applicant(orm.Model):
                     'max_employees_fuzz',
                 ], context=context
             )
-            if (data.get('state', 'recruit') != 'recruit'
-                    and int(data['no_of_employee']) >=
+            if (data.get('state', 'recruit') != 'recruit' and
+                int(data['no_of_employee']) >=
                     (int(data['max_employees']) + data['max_employees_fuzz'])):
                 raise orm.except_orm(
                     _('Job not open for recruitment!'),
@@ -143,10 +143,10 @@ class hr_contract(orm.Model):
                     'no_of_employee',
                     'state',
                 ], context=context)
-            if (data.get('state', 'recruit') != 'recruit'
-                    and int(data['no_of_employee']) >= (
-                        int(data['max_employees']) +
-                        data['max_employees_fuzz'])):
+            if (data.get('state', 'recruit') != 'recruit' and
+                int(data['no_of_employee']) >= (
+                int(data['max_employees']) +
+                    data['max_employees_fuzz'])):
                 raise orm.except_orm(
                     _('The Job "%s" is not in recruitment!') % (data['name']),
                     _('You may not create contracts for jobs that are not in '

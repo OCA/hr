@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="hr_contract_view_form" model="ir.ui.view">
+            <field name="name">hr.contract.view.form</field>
+            <field name="model">hr.contract</field>
+            <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
+            <field name="arch" type="xml">
+
+                <group name="salary_and_advantages" position="after">
+                    <group name="benefits_group" string="Employee Benefits" colspan="2">
+                        <field name="benefit_line_ids" nolabel="1">
+                            <tree string="Employee Benefits" editable="bottom">
+                                <field name="category_id"/>
+                                <field name="rate_id" domain="[('category_id', '=', category_id)]"/>
+                                <field name="employee_amount"/>
+                                <field name="employer_amount"/>
+                                <field name="amount_type"/>
+                                <field name="date_start"/>
+                                <field name="date_end"/>
+                            </tree>
+                        </field>
+                    </group>
+                </group>
+
+            </field>
+        </record>
+    </data>
+</openerp>

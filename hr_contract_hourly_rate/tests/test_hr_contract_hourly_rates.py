@@ -162,7 +162,7 @@ class test_contract_hourly_rate(TransactionCase):
             res = self.contract_id.get_job_hourly_rate(
                 dates[0], dates[1], job_id=self.job_3_id.id, main_job=False)
 
-            self.assertTrue(res == 20)
+            self.assertEqual(res, 20)
 
         # Should all return the same result
         for dates in [('2014-08-10', '2014-08-20'),
@@ -170,7 +170,7 @@ class test_contract_hourly_rate(TransactionCase):
             res = self.contract_id.get_job_hourly_rate(
                 dates[0], dates[1], job_id=self.job_3_id.id, main_job=False)
 
-            self.assertTrue(res == 25)
+            self.assertEqual(res, 25)
 
     def test_get_job_hourly_rate_main_job(self):
         """
@@ -182,7 +182,7 @@ class test_contract_hourly_rate(TransactionCase):
             res = self.contract_id.get_job_hourly_rate(
                 dates[0], dates[1], job_id=False, main_job=True)
 
-            self.assertTrue(res == 30)
+            self.assertEqual(res, 30)
 
         # Should all return the same result
         for dates in [('2014-08-10', '2014-08-20'),
@@ -190,7 +190,7 @@ class test_contract_hourly_rate(TransactionCase):
             res = self.contract_id.get_job_hourly_rate(
                 dates[0], dates[1], job_id=False, main_job=True)
 
-            self.assertTrue(res == 35)
+            self.assertEqual(res, 35)
 
             self.assertRaises(
                 exceptions.ValidationError, self.rate_class_id.write,
