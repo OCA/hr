@@ -21,4 +21,5 @@
 from . import (
     hr_payslip_line,
     hr_payslip,
+    report,
 )

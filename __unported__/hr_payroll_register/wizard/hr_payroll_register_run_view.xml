@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <openerp>
     <data>
-        
+
         <record id="view_payroll_register" model="ir.ui.view">
             <field name="name">hr.payroll.register.run.wizard</field>
             <field name="model">hr.payroll.register.run</field>
-            <field name="type">form</field>
             <field name="arch" type="xml">
                 <form string="Payslip Creation by Department">
                     <group colspan="4" >

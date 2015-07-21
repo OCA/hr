@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data noupdate="1">
-        
+      <record id="default_payroll_period_schedule"
+              model="hr.payroll.period.schedule">
+        <field name="name">Payroll Period Schedule</field>
+        <field name="tz">UTC</field>
+        <field name="type">manual</field>
+      </record>
         <!-- Messaging / Chatter -->
         
         <record id="mt_state_open" model="mail.message.subtype">

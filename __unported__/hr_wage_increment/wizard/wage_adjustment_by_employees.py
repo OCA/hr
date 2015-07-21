@@ -84,9 +84,9 @@ class hr_payslip_employees(orm.TransientModel):
 
             # skip contracts that don't start before the effective date of the
             # adjustment
-            if (run_data.get('effective_date')
-                    and run_data['effective_date']
-                    <= emp.contract_id.date_start):
+            if (run_data.get('effective_date') and
+                    run_data['effective_date'] <=
+                    emp.contract_id.date_start):
                 continue
 
             res = {

@@ -103,10 +103,10 @@ class hr_attendance(orm.Model):
 
         for punch in self.browse(cr, uid, ids, context=context):
             if (
-                punch.state in ['verified', 'locked']
-                and (
-                    vals.get('name') or vals.get('action')
-                    or vals.get('employee_id'))
+                punch.state in ['verified', 'locked'] and
+                (
+                    vals.get('name') or vals.get('action') or
+                    vals.get('employee_id'))
             ):
                 raise orm.except_orm(
                     _('The record cannot be modified!'),

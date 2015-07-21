@@ -1,0 +1,40 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* hr_worked_days_activities_from_ts
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 7.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-01-06 15:58+0000\n"
+"PO-Revision-Date: 2015-01-06 15:58+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hr_worked_days_activities_from_ts
+#: code:addons/hr_worked_days_activities_from_ts/hr_payslip.py:38
+#, python-format
+msgid "You have not defined a contract for the payslip %s"
+msgstr ""
+
+#. module: hr_worked_days_activities_from_ts
+#: model:ir.model,name:hr_worked_days_activities_from_ts.model_hr_payslip
+msgid "Pay Slip"
+msgstr ""
+
+#. module: hr_worked_days_activities_from_ts
+#: code:addons/hr_worked_days_activities_from_ts/hr_payslip.py:127
+#, python-format
+msgid "Timesheet"
+msgstr ""
+
+#. module: hr_worked_days_activities_from_ts
+#: code:addons/hr_worked_days_activities_from_ts/hr_payslip.py:37
+#, python-format
+msgid "Error"
+msgstr ""
+

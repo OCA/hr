@@ -21,7 +21,7 @@
 {
     'name': 'Salary Rule Variables',
     'category': 'Localization',
-    'version': '1.0',
+    'version': '1.1',
     'license': 'AGPL-3',
     'category': 'Generic Modules/Human Resources',
     'description': """
@@ -56,6 +56,7 @@ Contributors
     'website': 'https://www.savoirfairelinux.com',
     'depends': [
         'hr_payroll',
+        'hr_salary_rule_reference',
     ],
     'data': [
         'security/ir.model.access.csv',

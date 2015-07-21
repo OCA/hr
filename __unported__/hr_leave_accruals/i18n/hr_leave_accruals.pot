@@ -1,0 +1,225 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* hr_leave_accruals
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 7.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-04-06 15:58+0000\n"
+"PO-Revision-Date: 2015-04-06 15:58+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hr_leave_accruals
+#: model:ir.model,name:hr_leave_accruals.model_hr_holidays_status_accrual_line
+msgid "Holidays Status Accrual Line"
+msgstr ""
+
+#. module: hr_leave_accruals
+#: view:hr.leave.accrual:0
+msgid "Group By..."
+msgstr ""
+
+#. module: hr_leave_accruals
+#: field:hr.leave.accrual.line,state:0
+msgid "State"
+msgstr ""
+
+#. module: hr_leave_accruals
+#: field:hr.holidays,accrual_line_id:0
+#: model:ir.model,name:hr_leave_accruals.model_hr_leave_accrual_line
+msgid "Leave Accrual Line"
+msgstr ""
+
+#. module: hr_leave_accruals
+#: field:hr.holidays.status,accrual_line_ids:0
+#: field:hr.leave.accrual,line_ids:0
+msgid "Accrual Lines"
+msgstr ""
+
+#. module: hr_leave_accruals
+#: view:hr.leave.accrual:0
+#: field:hr.leave.accrual,employee_id:0
+#: model:ir.model,name:hr_leave_accruals.model_hr_employee
+msgid "Employee"
+msgstr ""
+
+#. module: hr_leave_accruals
+#: field:hr.leave.accrual.line,allocation_id:0
+#: selection:hr.leave.accrual.line,source:0
+msgid "Allocation"
+msgstr ""
+
+#. module: hr_leave_accruals
+#: field:hr.leave.accrual.line,description:0
+msgid "Description"
+msgstr ""
+
+#. module: hr_leave_accruals
+#: field:hr.leave.accrual,code:0
+msgid "unknown"
+msgstr ""
+
+#. module: hr_leave_accruals
+#: view:hr.holidays.status:0
+msgid "Payslip Lines"
+msgstr ""
+
+#. module: hr_leave_accruals
+#: view:res.company:0
+msgid "Holidays"
+msgstr ""
+
+#. module: hr_leave_accruals
+#: code:addons/hr_leave_accruals/hr_holidays_status_accrual_line.py:29
+#, python-format
+msgid "Hours"
+msgstr ""
+
+#. module: hr_leave_accruals
+#: field:hr.holidays.status,accrual_code:0
+msgid "Accrual Code"
+msgstr ""
+
+#. module: hr_leave_accruals
+#: field:hr.leave.accrual.line,date:0
+msgid "Date"
+msgstr ""
+
+#. module: hr_leave_accruals
+#: field:hr.leave.accrual,total_cash:0
+msgid "Cash Accruded"
+msgstr ""
+
+#. module: hr_leave_accruals
+#: view:hr.leave.accrual:0
+#: field:hr.leave.accrual.line,accrual_id:0
+msgid "Leave Accrual"
+msgstr ""
+
+#. module: hr_leave_accruals
+#: model:ir.model,name:hr_leave_accruals.model_hr_payslip
+msgid "Pay Slip"
+msgstr ""
+
+#. module: hr_leave_accruals
+#: field:hr.leave.accrual.line,payslip_line_id:0
+#: selection:hr.leave.accrual.line,source:0
+msgid "Payslip Line"
+msgstr ""
+
+#. module: hr_leave_accruals
+#: selection:hr.leave.accrual.line,source:0
+msgid "Entered Manually"
+msgstr ""
+
+#. module: hr_leave_accruals
+#: help:hr.holidays.status,increase_accrual_on_allocation:0
+msgid "Add hours to the related leave accruals when allocating leaves to employees."
+msgstr ""
+
+#. module: hr_leave_accruals
+#: model:ir.model,name:hr_leave_accruals.model_res_company
+msgid "Companies"
+msgstr ""
+
+#. module: hr_leave_accruals
+#: code:addons/hr_leave_accruals/hr_holidays_status_accrual_line.py:28
+#, python-format
+msgid "Cash"
+msgstr ""
+
+#. module: hr_leave_accruals
+#: view:hr.leave.accrual:0
+msgid "Search Leave Accrual"
+msgstr ""
+
+#. module: hr_leave_accruals
+#: field:hr.leave.accrual.line,payslip_id:0
+msgid "Payslip"
+msgstr ""
+
+#. module: hr_leave_accruals
+#: model:ir.model,name:hr_leave_accruals.model_hr_leave_accrual
+msgid "Employee Leave Accrual"
+msgstr ""
+
+#. module: hr_leave_accruals
+#: field:hr.leave.accrual.line,amount:0
+msgid "Amount"
+msgstr ""
+
+#. module: hr_leave_accruals
+#: field:hr.leave.accrual,total_hours:0
+msgid "Hours Accruded"
+msgstr ""
+
+#. module: hr_leave_accruals
+#: field:res.company,holidays_hours_per_day:0
+msgid "Number of Hours per Leave Day"
+msgstr ""
+
+#. module: hr_leave_accruals
+#: field:hr.holidays.status.accrual.line,substract:0
+msgid "Substract Amount"
+msgstr ""
+
+#. module: hr_leave_accruals
+#: view:hr.employee:0
+#: field:hr.employee,leave_accrual_ids:0
+#: view:hr.holidays.status:0
+#: model:ir.actions.act_window,name:hr_leave_accruals.action_view_leave_accrual_tree
+#: model:ir.ui.menu,name:hr_leave_accruals.leave_accrual_menu_item
+msgid "Leave Accruals"
+msgstr ""
+
+#. module: hr_leave_accruals
+#: model:ir.model,name:hr_leave_accruals.model_hr_holidays
+msgid "Leave"
+msgstr ""
+
+#. module: hr_leave_accruals
+#: field:hr.leave.accrual.line,is_refund:0
+msgid "Is Refund"
+msgstr ""
+
+#. module: hr_leave_accruals
+#: field:hr.holidays.status,increase_accrual_on_allocation:0
+msgid "Increase Accruals on Allocations"
+msgstr ""
+
+#. module: hr_leave_accruals
+#: view:hr.leave.accrual:0
+#: field:hr.payslip,leave_accrual_line_ids:0
+msgid "Leave Accrual Lines"
+msgstr ""
+
+#. module: hr_leave_accruals
+#: field:hr.holidays.status.accrual.line,leave_type_id:0
+#: view:hr.leave.accrual:0
+#: field:hr.leave.accrual,leave_type_id:0
+#: model:ir.model,name:hr_leave_accruals.model_hr_holidays_status
+msgid "Leave Type"
+msgstr ""
+
+#. module: hr_leave_accruals
+#: field:hr.leave.accrual.line,source:0
+msgid "Source"
+msgstr ""
+
+#. module: hr_leave_accruals
+#: field:hr.holidays.status.accrual.line,salary_rule_id:0
+msgid "Salary Rule"
+msgstr ""
+
+#. module: hr_leave_accruals
+#: field:hr.holidays.status.accrual.line,amount_type:0
+#: field:hr.leave.accrual.line,amount_type:0
+msgid "Amount Type"
+msgstr ""
+

@@ -31,6 +31,22 @@ class hr_payslip(orm.Model):
         )
         self.compute_lines_ytd(cr, uid, ids, context=context)
 
+    def _search_employee_payslips_ytd(self, cr, uid, ids, context=None):
+        """ Search all employee payslips since the beginning of the year
+        """
+        payslip = self.browse(cr, uid, ids[0], context=context)
+
+        # Get the payslips of the employee for the current year
+        date_from = payslip.date_from[0:4] + "-01-01"
+
+        return self.search(
+            cr, uid, [
+                ('employee_id', '=', payslip.employee_id.id),
+                ('date_from', '>=', date_from),
+                ('date_to', '<=', payslip.date_to),
+                ('state', '=', 'done'),
+            ], context=context)
+
     def compute_lines_ytd(self, cr, uid, ids, context=None):
         for payslip in self.browse(cr, uid, ids, context=context):
             # Create a dict of the required lines that will be used
@@ -38,17 +54,7 @@ class hr_payslip(orm.Model):
             line_dict = {
                 line.salary_rule_id.code: 0 for line in payslip.line_ids}
 
-            # Get the payslips of the employee for the current year
-            date_from = payslip.date_from[0:4] + "-01-01"
-
-            employee_payslip_ids = self.search(
-                cr, uid, [
-                    ('employee_id', '=', payslip.employee_id.id),
-                    ('date_from', '>=', date_from),
-                    ('date_to', '<=', payslip.date_to),
-                    ('state', '=', 'done'),
-                ], context=context)
-
+            employee_payslip_ids = payslip._search_employee_payslips_ytd()
             employee_payslips = self.browse(
                 cr, uid, employee_payslip_ids, context=context)
 
