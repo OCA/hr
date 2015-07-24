@@ -10,8 +10,19 @@
                 <xpath expr="//field[@name='name']" position="after">
                     <field name="code"/>
                 </xpath>
-                <xpath expr="//field[@name='company_id']" position="after">
-                    <field name="sequence"/>
+                <xpath expr="//sheet" position="inside">
+                    <notebook>
+                        <page string="Children Departments">
+                            <field name="child_ids">
+                                <tree editable="bottom">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="name" />
+                                    <field name="code" />
+                                    <field name="manager_id" />
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
                 </xpath>
             </field>
         </record>
@@ -23,7 +34,6 @@
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='complete_name']" position="after">
                     <field name="code"/>
-                    <field name="sequence"/>
                 </xpath>
             </field>
         </record>

@@ -26,7 +26,7 @@ class HrDepartment(models.Model):
     _parent_name = "parent_id"
     _parent_store = True
     _parent_order = 'sequence, name'
-    _order = 'parent_left'
+    _order = 'sequence, name'
 
     code = fields.Char(string='code')
     sequence = fields.Integer(string='Sequence', index=True,
@@ -34,6 +34,9 @@ class HrDepartment(models.Model):
                               "a list of departments.")
     parent_left = fields.Integer(string='Left Parent', index=True)
     parent_right = fields.Integer(string='Right Parent', index=True)
+    child_ids = fields.One2many(comodel_name='hr.department',
+                                inverse_name='parent_id',
+                                string='Children Departments')
 
     @api.multi
     def _rec_message(self):
