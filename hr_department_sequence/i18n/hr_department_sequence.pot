@@ -50,3 +50,8 @@ msgstr ""
 msgid "Right Parent"
 msgstr ""
 
+#. module: hr_department_sequence
+#: field:hr.department,active:0
+msgid "Active"
+msgstr ""
+

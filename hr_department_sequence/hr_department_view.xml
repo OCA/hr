@@ -10,6 +10,9 @@
                 <xpath expr="//field[@name='name']" position="after">
                     <field name="code"/>
                 </xpath>
+                <xpath expr="//field[@name='parent_id']" position="after">
+                    <field name="active" />
+                </xpath>
                 <xpath expr="//sheet" position="inside">
                     <notebook>
                         <page string="Children Departments">

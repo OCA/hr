@@ -37,6 +37,7 @@ class HrDepartment(models.Model):
     child_ids = fields.One2many(comodel_name='hr.department',
                                 inverse_name='parent_id',
                                 string='Children Departments')
+    active = fields.Boolean(string='Active', default=True)
 
     @api.multi
     def _rec_message(self):
