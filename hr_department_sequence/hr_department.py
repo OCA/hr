@@ -46,6 +46,15 @@ class HrDepartment(models.Model):
         ('code_uniq', 'unique(code, company_id)', _rec_message),
     ]
 
+    @api.multi
+    def copy(self, default=None):
+        if not default:
+            default = {}
+        self.ensure_one()
+        if self.code:
+            default['code'] = _("%s (copy)") % self.code
+        return super(HrDepartment, self).copy(default)
+
     @api.one
     def name_get(self):
         name = self.name
