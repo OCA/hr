@@ -18,79 +18,49 @@
 #
 #
 
-from openerp.osv import fields, orm
-from openerp.tools.translate import _
+from openerp import models, fields, api, _
 
 
-class hr_department(orm.Model):
-
-    _name = 'hr.department'
+class HrDepartment(models.Model):
     _inherit = 'hr.department'
-
-    _columns = {
-        'code': fields.char(
-            'Code',
-            size=64,
-        ),
-        'sequence': fields.integer(
-            'Sequence',
-            select=True,
-            help="Gives the sequence order when displaying a list of "
-                 "departments.",
-        ),
-        'parent_id': fields.many2one(
-            'hr.department',
-            'Parent Department',
-            select=True,
-            ondelete='cascade',
-        ),
-        'parent_left': fields.integer(
-            'Left Parent',
-            select=1,
-        ),
-        'parent_right': fields.integer(
-            'Right Parent',
-            select=1,
-        ),
-    }
-
     _parent_name = "parent_id"
     _parent_store = True
     _parent_order = 'sequence, name'
     _order = 'parent_left'
 
-    def _rec_message(self, cr, uid, ids, context=None):
+    code = fields.Char(string='code')
+    sequence = fields.Integer(string='Sequence', index=True,
+                              help="Gives the sequence order when displaying "
+                              "a list of departments.")
+    parent_left = fields.Integer(string='Left Parent', index=True)
+    parent_right = fields.Integer(string='Right Parent', index=True)
+
+    @api.multi
+    def _rec_message(self):
         return _('The code for the department must be unique per company!')
 
     _sql_constraints = [
         ('code_uniq', 'unique(code, company_id)', _rec_message),
     ]
 
-    def name_get(self, cr, uid, ids, context=None):
-        """
-        Show department code with name
-        """
-        if context is None:
-            context = {}
-        if isinstance(ids, (int, long)):
-            ids = [ids]
-        return [
-            (
-                record.id,
-                '[%s] %s' % (record.code, record.name)
-                if record.code else record.name
-            )
-            for record in self.browse(cr, uid, ids, context=context)
-        ]
+    @api.one
+    def name_get(self):
+        name = self.name
+        if self.code:
+            name = '[%s] %s' % (self.code, name)
+        return (self.id, name)
 
-    def name_search(
-            self, cr, uid, name='', args=None, operator='ilike',
-            context=None, limit=100):
-        if args is None:
-            args = []
-        ids = self.search(
-            cr, uid,
-            ['|', ('code', 'ilike', name), ('name', 'ilike', name)] + args,
-            limit=limit, context=context
-        )
-        return self.name_get(cr, uid, ids, context=context)
+    @api.model
+    def name_search(self, name='', args=None, operator='ilike', limit=100):
+        args = list(args or [])
+        ids = []
+        if name != '':
+            search_name = name
+            if operator != '=':
+                search_name = '%s%%' % name
+            ids = self.search([('code', operator, search_name)] + args,
+                              limit=limit)
+            if ids:
+                return ids.name_get()
+        return super(HrDepartment, self)\
+            .name_search(name=name, args=args, operator=operator, limit=limit)
