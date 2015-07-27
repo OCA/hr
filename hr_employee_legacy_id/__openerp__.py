@@ -41,5 +41,5 @@ to have a record of the ID No. used in the previous system.
     ],
     'test': [
     ],
-    'installable': False,
+    'installable': True,
 }
