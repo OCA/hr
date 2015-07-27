@@ -25,68 +25,47 @@ from openerp.tests import common
 class test_worked_days(common.TransactionCase):
     def setUp(self):
         super(test_worked_days, self).setUp()
-        self.employee_model = self.registry('hr.employee')
-        self.user_model = self.registry("res.users")
-        self.payslip_model = self.registry("hr.payslip")
-        self.worked_days_model = self.registry("hr.payslip.worked_days")
-        self.contract_model = self.registry("hr.contract")
-        self.context = self.user_model.context_get(self.cr, self.uid)
+        self.employee_model = self.env['hr.employee']
+        self.user_model = self.env["res.users"]
+        self.payslip_model = self.env["hr.payslip"]
+        self.worked_days_model = self.env["hr.payslip.worked_days"]
+        self.contract_model = self.env["hr.contract"]
 
         # Create an employee
-        self.employee_id = self.employee_model.create(
-            self.cr, self.uid, {'name': 'Employee 1'}, context=self.context
-        )
+        self.employee_id = self.employee_model.create({'name': 'Employee 1'})
 
         # Create a contract for the employee
-        self.contract_id = self.contract_model.create(
-            self.cr, self.uid,
-            {
-                'employee_id': self.employee_id,
+        self.contract_id = self.contract_model.create({
+                'employee_id': self.employee_id.id,
                 'name': 'Contract 1',
                 'wage': 50000,
-            },
-            context=self.context
-        )
+            })
 
         # Create a payslip
-        self.payslip_id = self.payslip_model.create(
-            self.cr, self.uid,
-            {
-                'employee_id': self.employee_id,
-                'contract_id': self.contract_id,
+        self.payslip_id = self.payslip_model.create({
+                'employee_id': self.employee_id.id,
+                'contract_id': self.contract_id.id,
                 'date_from': '2014-01-01',
                 'date_to': '2014-01-31',
-            },
-            context=self.context,
-        )
+            })
 
     def tearDown(self):
-        self.payslip_model.unlink(
-            self.cr, self.uid, [self.payslip_id], context=self.context)
-        self.contract_model.unlink(
-            self.cr, self.uid, [self.contract_id], context=self.context)
-        self.employee_model.unlink(
-            self.cr, self.uid, [self.employee_id], context=self.context)
+        self.payslip_id.unlink()
+        self.contract_id.unlink()
+        self.employee_id.unlink()
         super(test_worked_days, self).tearDown()
 
     def test_total(self):
-        worked_days_id = self.worked_days_model.create(
-            self.cr, self.uid,
-            {
+        worked_days = self.worked_days_model.create({
                 'date_from': '2014-01-01',
                 'date_to': '2014-01-05',
                 'number_of_hours': 40,
                 'hourly_rate': 25,
                 'rate': 150,
-                'payslip_id': self.payslip_id,
+                'payslip_id': self.payslip_id.id,
                 'code': 'test',
                 'name': 'test',
-                'contract_id': self.contract_id,
-            },
-            context=self.context,
-        )
-
-        worked_days = self.worked_days_model.browse(
-            self.cr, self.uid, worked_days_id, context=self.context)
+                'contract_id': self.contract_id.id,
+            })
 
         self.assertEqual(worked_days.total, 40 * 25 * 1.5)

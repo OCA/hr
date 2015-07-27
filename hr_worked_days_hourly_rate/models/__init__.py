@@ -19,6 +19,4 @@
 #
 ##############################################################################
 
-from . import (
-    hr_payslip_worked_days,
-)
+import hr_payslip_worked_days
