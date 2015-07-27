@@ -40,12 +40,9 @@ class HrDepartment(models.Model):
                                 string='Children Departments')
     active = fields.Boolean(string='Active', default=True)
 
-    @api.multi
-    def _rec_message(self):
-        return _('The code for the department must be unique per company!')
-
     _sql_constraints = [
-        ('code_uniq', 'unique(code, company_id)', _rec_message),
+        ('code_uniq', 'unique(code, company_id)',
+         _('The code for the department must be unique per company!')),
     ]
 
     @api.multi
