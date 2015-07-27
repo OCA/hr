@@ -19,14 +19,4 @@
 #
 #
 
-from openerp.osv import fields, orm
-
-
-class hr_employee(orm.Model):
-
-    _name = 'hr.employee'
-    _inherit = 'hr.employee'
-
-    _columns = {
-        'legacy_no': fields.char('Legacy ID', size=16),
-    }
+from . import models

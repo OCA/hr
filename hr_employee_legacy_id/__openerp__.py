@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 #
 #
-#    Copyright (C) 013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
+#    Copyright (C) 2011,2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
 #    All Rights Reserved.
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -19,4 +19,19 @@
 #
 #
 
-from . import hr
+{
+    'name': 'Legacy Employee ID',
+    'version': '1.0',
+    'category': 'Generic Modules/Human Resources',
+    'author': "Michael Telahun Makonnen <mmakonnen@gmail.com>,"
+              "Odoo Community Association (OCA)",
+    'website': 'http://miketelahun.wordpress.com',
+    'license': 'AGPL-3',
+    'depends': [
+        'hr',
+    ],
+    'data': [
+        'views/hr_view.xml',
+    ],
+    'installable': True,
+}
