@@ -40,6 +40,17 @@
                 </xpath>
             </field>
         </record>
-        
+
+        <record id="view_department_filter" model="ir.ui.view">
+            <field name="name">Departments (hr_department_sequence)</field>
+            <field name="model">hr.department</field>
+            <field name="inherit_id" ref="hr.view_department_filter" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='manager_id']" position="after">
+                    <field name="code" />
+                </xpath>
+             </field>
+        </record>
+
     </data>
 </openerp>
