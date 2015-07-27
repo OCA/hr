@@ -32,6 +32,7 @@ class HrDepartment(models.Model):
     sequence = fields.Integer(string='Sequence', index=True,
                               help="Gives the sequence order when displaying "
                               "a list of departments.")
+    parent_id = fields.Many2one(ondelete='restrict')
     parent_left = fields.Integer(string='Left Parent', index=True)
     parent_right = fields.Integer(string='Right Parent', index=True)
     child_ids = fields.One2many(comodel_name='hr.department',
