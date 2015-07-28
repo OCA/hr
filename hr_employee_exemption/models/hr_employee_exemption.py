@@ -19,25 +19,22 @@
 #
 ##############################################################################
 
-from openerp.osv import orm, fields
+from openerp import api, models, fields
 
-
-class HrEmployeeExemption(orm.Model):
+class HrEmployeeExemption(models.Model):
     _name = 'hr.employee.exemption'
     _description = 'Employee Income Tax Exemption'
 
-    _columns = {
-        'employee_id': fields.many2one(
-            'hr.employee',
-            'Employee',
-            required=True,
-            ondelete='cascade',
-        ),
-        'exemption_id': fields.many2one(
-            'hr.income.tax.exemption',
-            'Exemption',
-            required=True,
-        ),
-        'date_from': fields.date('Date From', required=True),
-        'date_to': fields.date('Date To'),
-    }
+    employee_id = fields.Many2one(
+        'hr.employee',
+        'Employee',
+        required=True,
+        ondelete='cascade',
+    )
+    exemption_id = fields.Many2one(
+        'hr.income.tax.exemption',
+        'Exemption',
+        required=True,
+    )
+    date_from = fields.Date('Date From', required=True)
+    date_to = fields.Date('Date To')

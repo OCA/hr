@@ -19,19 +19,17 @@
 #
 ##############################################################################
 
-from openerp.osv import fields, orm
+from openerp import api, models, fields
 
-
-class HrSalaryRule(orm.Model):
+class HrSalaryRule(models.Model):
     _inherit = 'hr.salary.rule'
-    _columns = {
-        'exemption_id': fields.many2one(
-            'hr.income.tax.exemption',
-            'Exemption',
-        ),
-    }
+    exemption_id = fields.Many2one(
+        'hr.income.tax.exemption',
+        'Exemption',
+    )
 
-    def compute_rule(self, cr, uid, rule_id, localdict, context=None):
+    @api.multi
+    def compute_rule(self, rule_id, localdict):
         rule = self.browse(cr, uid, rule_id, context=context)
 
         if rule.exemption_id and rule.check_exemption(localdict):
@@ -40,7 +38,8 @@ class HrSalaryRule(orm.Model):
         return super(HrSalaryRule, self).compute_rule(
             cr, uid, rule_id, localdict, context=context)
 
-    def check_exemption(self, cr, uid, ids, localdict, context=None):
+    @api.multi
+    def check_exemption(self, localdict):
         """ Check whether the employee is exempted for the given rule
         """
         if isinstance(ids, (int, long)):

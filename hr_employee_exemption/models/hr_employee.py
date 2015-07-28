@@ -19,22 +19,22 @@
 #
 ##############################################################################
 
-from openerp.osv import orm, fields
+from openerp import api, models, fields
 
 
-class HrEmployee(orm.Model):
+class HrEmployee(models.Model):
     _inherit = 'hr.employee'
 
-    _columns = {
-        'exemption_ids': fields.one2many(
-            'hr.employee.exemption',
-            'employee_id',
-            'Income Tax Exemptions',
-            groups='base.group_hr_manager',
-        ),
-    }
 
-    def exempted_from(self, cr, uid, ids, exemption, date, context=None):
+    exemption_ids = fields.One2many(
+        'hr.employee.exemption',
+        'employee_id',
+        'Income Tax Exemptions',
+        groups='base.group_hr_manager',
+    )
+
+    @api.multi
+    def exempted_from(self, exemption, date):
         """
         The method to call from a salary rule to check whether an employee
         is exempted from a source deduction

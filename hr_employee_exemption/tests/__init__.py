@@ -23,6 +23,3 @@ from . import (
     test_hr_employee_exemption,
 )
 
-checks = [
-    test_hr_employee_exemption,
-]
