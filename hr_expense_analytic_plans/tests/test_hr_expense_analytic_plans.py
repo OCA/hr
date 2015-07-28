@@ -48,6 +48,8 @@ class TestHrExpenseAnalyticPlans(TransactionCase):
                 (0, 0, {
                     'name': 'testline',
                     'analytics_id': instance.id,
+                    'unit_amount': 42,
+                    'unit_quantity': 1,
                 }),
             ],
         })
@@ -61,3 +63,5 @@ class TestHrExpenseAnalyticPlans(TransactionCase):
                     l.account_id for l in line.analytic_lines])
                 self.assertIn(account2, [
                     l.account_id for l in line.analytic_lines])
+                for l in line.analytic_lines:
+                    self.assertEqual(l.amount, -21)
