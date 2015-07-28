@@ -54,11 +54,9 @@
             <field name="model">hr.employee.benefit.category</field>
             <field name="arch" type="xml">
                 <search string="Search Employee Benefit">
-                    <field 
-                        name="name"
-                        string="Employee Benefits"
-                        filter_domain="['|',('name','ilike',self),('code','ilike',self)]"
-                    />
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="reference"/>
                 </search>
             </field>
         </record>

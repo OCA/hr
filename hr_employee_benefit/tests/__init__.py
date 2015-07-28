@@ -19,10 +19,4 @@
 #
 ##############################################################################
 
-from . import (
-    test_employee_benefit
-)
-
-checks = [
-    test_employee_benefit
-]
+from . import test_employee_benefit

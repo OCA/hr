@@ -25,21 +25,6 @@
     'category': 'Generic Modules/Human Resources',
     'author': "Savoir-faire Linux, Odoo Community Association (OCA)",
     'website': 'https://www.savoirfairelinux.com',
-    'description': """
-Employee Benefit
-================
-This module implements employee benefits in order to produce payslips.
-
-Employee benefits can be computed automatically at a specific point in a
-payroll structure. They can also be computed using the button on the
-payslip form, in the 'Employee Benefits' tab.
-
-Also, they can be added manually on a payslip.
-
-If a benefit has 2 different rates in the same payslip period,
-the 2 rates will be weighted by the fraction of the payslip over which they
-apply.
-    """,
     'depends': [
         'hr_payroll',
         'hr_salary_rule_reference',

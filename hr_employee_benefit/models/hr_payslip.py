@@ -19,7 +19,7 @@
 #
 ##############################################################################
 
-from openerp.osv import orm, fields
+from openerp import models, fields, api
 
 
 PAYS_PER_YEAR = {
@@ -35,49 +35,45 @@ PAYS_PER_YEAR = {
 }
 
 
-class HrPayslip(orm.Model):
+class HrPayslip(models.Model):
     _inherit = 'hr.payslip'
 
-    def _get_pays_per_year(
-        self, cr, uid, ids, field_name=False, args=False, context=None
-    ):
-        res = {}
+    benefit_line_ids = fields.One2many(
+        'hr.payslip.benefit.line',
+        'payslip_id',
+        'Employee Benefits',
+        readonly=True, states={'draft': [('readonly', False)]},
+    )
+    pays_per_year = fields.Integer(
+        compute='_get_pays_per_year',
+        string='Number of pays per year', readonly=True,
+        store=True,
+        help="Field required to compute benefits based on an annual "
+        "amount."
+    )
 
-        for payslip in self.browse(cr, uid, ids, context=context):
-            contract = payslip.contract_id
+    @api.depends('contract_id')
+    def _get_pays_per_year(self):
+        self.pays_per_year = PAYS_PER_YEAR.get(
+            self.contract_id.schedule_pay, False)
 
-            res[payslip.id] = PAYS_PER_YEAR.get(
-                contract.schedule_pay, False)
+    @api.multi
+    def _search_benefits(self):
+        """
+        Search employee benefits to be added on the payslip
 
-        return res
+        This method is meant to be inherited in other modules
+        in order to add benefits from other sources.
+        """
+        self.ensure_one()
+        return self.contract_id.benefit_line_ids
 
-    _columns = {
-        'benefit_line_ids': fields.one2many(
-            'hr.payslip.benefit.line',
-            'payslip_id',
-            'Employee Benefits',
-            readonly=True, states={'draft': [('readonly', False)]},
-        ),
-        # Field required to compute benefits based on an annual amount
-        'pays_per_year': fields.function(
-            _get_pays_per_year,
-            string='Number of pays per year', readonly=True, type='integer',
-            store={
-                'hr.payslip': (
-                    lambda self, cr, uid, ids, c=None: ids,
-                    ['contract_id'], 10),
-            },
-        ),
-    }
+    @api.multi
+    def button_compute_benefits(self):
+        self.compute_benefits()
 
-    def _search_benefits(self, cr, uid, payslip, context=None):
-        return payslip.contract_id.benefit_line_ids
-
-    def button_compute_benefits(self, cr, uid, ids, context=None):
-        for payslip in self.browse(cr, uid, ids, context=context):
-            payslip.compute_benefits(payslip)
-
-    def compute_benefits(self, cr, uid, ids, context=None):
+    @api.one
+    def compute_benefits(self):
         """
         Compute the employee benefits on the payslip.
 
@@ -93,24 +89,16 @@ class HrPayslip(orm.Model):
         The module hr_employee_benefit_percent implements that
         functionnality.
         """
-        if isinstance(ids, (int, long)):
-            ids = [ids]
-
-        assert len(ids) == 1
-
-        payslip = self.browse(cr, uid, ids[0], context=context)
-
-        payslip.refresh()
-
-        for benefit_line in payslip.benefit_line_ids:
+        for benefit_line in self.benefit_line_ids:
             if benefit_line.source == 'contract':
                 benefit_line.unlink()
 
-        benefits = self._search_benefits(
-            cr, uid, payslip, context=context)
-
-        benefit_ids = [b.id for b in benefits]
+        benefits = self._search_benefits()
 
         # Compute the amounts for each employee benefit
-        self.pool['hr.employee.benefit'].compute_amounts(
-            cr, uid, benefit_ids, payslip, context=context)
+        benefits.compute_amounts(self)
+
+        # If the method is called from a salary rule.
+        # It is important to call refresh() so that the record set
+        # will contain the benefits computed above.
+        self.refresh()
