@@ -19,58 +19,49 @@
 #
 ##############################################################################
 
-from openerp.osv import fields, orm
-from openerp.tools import DEFAULT_SERVER_DATE_FORMAT
-from .hr_employee_benefit_rate import get_amount_types
+from openerp import fields, models
 import openerp.addons.decimal_precision as dp
-import time
+
+from .hr_employee_benefit_rate import get_amount_types
 
 
-class HrEmployeeBenefitRateLine(orm.Model):
+class HrEmployeeBenefitRateLine(models.Model):
     _name = 'hr.employee.benefit.rate.line'
     _description = 'Employee Benefit Rate Line'
-    _columns = {
-        'employee_amount': fields.float(
-            'Employee Amount',
-            required=True,
-            digits_compute=dp.get_precision('Payroll'),
 
-        ),
-        'employer_amount': fields.float(
-            'Employer Amount',
-            required=True,
-            digits_compute=dp.get_precision('Payroll'),
+    employee_amount = fields.Float(
+        'Employee Amount',
+        required=True,
+        digits_compute=dp.get_precision('Payroll'),
+    )
+    employer_amount = fields.Float(
+        'Employer Amount',
+        required=True,
+        digits_compute=dp.get_precision('Payroll'),
+    )
+    date_start = fields.Date(
+        'Start Date',
+        required=True,
+        default=fields.Date.context_today,
+    )
+    date_end = fields.Date('End Date')
+    parent_id = fields.Many2one(
+        'hr.employee.benefit.rate',
+        'Parent',
+        ondelete='cascade',
+        required=True,
+    )
+    amount_type = fields.Selection(
+        get_amount_types,
+        related='parent_id.amount_type',
+        string="Amount Type",
+        readonly=True,
+    )
+    category_id = fields.Many2one(
+        'hr.employee.benefit.category',
+        related='parent_id.category_id',
+        string="Category",
+        readonly=True,
+    )
 
-        ),
-        'date_start': fields.date(
-            'Start Date',
-            required=True,
-        ),
-        'date_end': fields.date('End Date'),
-        'parent_id': fields.many2one(
-            'hr.employee.benefit.rate',
-            'Parent',
-            ondelete='cascade',
-            required=True,
-        ),
-        'amount_type': fields.related(
-            'parent_id',
-            'amount_type',
-            selection=get_amount_types,
-            string="Amount Type",
-            type="selection",
-            readonly=True,
-        ),
-        'category_id': fields.related(
-            'parent_id',
-            'category_id',
-            string="Category",
-            type="many2one",
-            relation="hr.employee.benefit.category",
-            readonly=True,
-        ),
-    }
-    _defaults = {
-        'date_start': lambda *a: time.strftime(DEFAULT_SERVER_DATE_FORMAT),
-    }
     _order = 'date_start desc'

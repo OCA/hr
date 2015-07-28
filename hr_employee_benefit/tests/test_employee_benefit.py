@@ -23,155 +23,139 @@ from openerp.tests import common
 
 
 class TestEmployeeBenefitBase(common.TransactionCase):
-    """ This model must not contain any test, only the setUp method, so that
+    """
+    This model must not contain any test, only the setUp method, so that
     it can be inherited.
     """
     def setUp(self):
         super(TestEmployeeBenefitBase, self).setUp()
-        self.employee_model = self.registry('hr.employee')
-        self.user_model = self.registry("res.users")
-        self.contract_model = self.registry("hr.contract")
-        self.category_model = self.registry("hr.employee.benefit.category")
-        self.benefit_model = self.registry("hr.employee.benefit")
-        self.rate_model = self.registry("hr.employee.benefit.rate")
-        self.rate_line_model = self.registry("hr.employee.benefit.rate.line")
-        self.payslip_model = self.registry("hr.payslip")
-        self.rule_model = self.registry("hr.salary.rule")
-        self.rule_category_model = self.registry("hr.salary.rule.category")
-        self.structure_model = self.registry("hr.payroll.structure")
-        self.context = self.user_model.context_get(self.cr, self.uid)
+        self.employee_model = self.env['hr.employee']
+        self.user_model = self.env["res.users"]
+        self.contract_model = self.env["hr.contract"]
+        self.category_model = self.env["hr.employee.benefit.category"]
+        self.benefit_model = self.env["hr.employee.benefit"]
+        self.rate_model = self.env["hr.employee.benefit.rate"]
+        self.rate_line_model = self.env["hr.employee.benefit.rate.line"]
+        self.payslip_model = self.env["hr.payslip"]
+        self.rule_model = self.env["hr.salary.rule"]
+        self.rule_category_model = self.env["hr.salary.rule.category"]
+        self.structure_model = self.env["hr.payroll.structure"]
 
-        cr, uid, context = self.cr, self.uid, self.context
+        self.category = self.rule_category_model.search([], limit=1)
 
-        self.category_id = self.rule_category_model.search(
-            cr, uid, [], context=context)[0]
-
-        self.rule_id = self.rule_model.create(
-            cr, uid, {
-                'name': 'Test 1',
-                'sequence': 1,
-                'code': 'RULE_1',
-                'category_id': self.category_id,
-                'amount_select': 'code',
-                'amount_python_compute': """
+        self.rule = self.rule_model.create({
+            'name': 'Test 1',
+            'sequence': 1,
+            'code': 'RULE_1',
+            'category_id': self.category.id,
+            'amount_select': 'code',
+            'amount_python_compute': """
 payslip.compute_benefits()
 result = rule.sum_benefits(payslip)
 """
-            }, context=context)
+        })
 
-        self.rule = self.rule_model.browse(
-            cr, uid, self.rule_id, context=context)
-
-        self.rule_2_id = self.rule_model.create(
-            cr, uid, {
-                'name': 'Test 2',
-                'sequence': 2,
-                'code': 'RULE_2',
-                'category_id': self.category_id,
-                'amount_select': 'code',
-                'amount_python_compute': """
+        self.rule_2 = self.rule_model.create({
+            'name': 'Test 2',
+            'sequence': 2,
+            'code': 'RULE_2',
+            'category_id': self.category.id,
+            'amount_select': 'code',
+            'amount_python_compute': """
 result = rule.sum_benefits(payslip, employer=True)
 """
-            }, context=context)
+        })
 
-        self.rule_2 = self.rule_model.browse(
-            cr, uid, self.rule_2_id, context=context)
-
-        self.structure_id = self.structure_model.create(cr, uid, {
+        self.structure = self.structure_model.create({
             'name': 'TEST',
             'parent_id': False,
             'code': 'TEST',
-            'rule_ids': [(6, 0, [self.rule_id, self.rule_2_id])]
-        }, context=context)
+            'rule_ids': [(6, 0, [self.rule.id, self.rule_2.id])]
+        })
 
-        self.employee_id = self.employee_model.create(
-            cr, uid, {'name': 'Employee 1'}, context=context)
+        self.employee = self.employee_model.create(
+            {'name': 'Employee 1'})
 
-        self.contract_id = self.contract_model.create(self.cr, self.uid, {
-            'employee_id': self.employee_id,
+        self.contract = self.contract_model.create({
+            'employee_id': self.employee.id,
             'name': 'Contract 1',
             'wage': 50000,
-            'struct_id': self.structure_id,
-        }, context=self.context)
+            'struct_id': self.structure.id,
+        })
 
-        self.category_ids = [
-            self.category_model.create(cr, uid, {
+        self.categories = [
+            self.category_model.create({
                 'name': category[0],
                 'description': 'Test',
                 'code': category[1],
                 'salary_rule_ids': [(6, 0, category[2])],
-            }, context=context)
+            })
             for category in [
-                ('Category 1', 'BEN_1', [self.rule_id]),
-                ('Category 2', 'BEN_2', [self.rule_id, self.rule_2_id]),
+                ('Category 1', 'BEN_1', [self.rule.id]),
+                ('Category 2', 'BEN_2', [self.rule.id, self.rule_2.id]),
             ]
         ]
 
-        self.rate_ids = [
-            self.rate_model.create(cr, uid, {
+        self.rates = [
+            self.rate_model.create({
                 'name': 'Test',
-                'category_id': rate[0],
+                'category_id': rate[0].id,
                 'amount_type': rate[1],
-            }, context=context)
+            })
             for rate in [
-                (self.category_ids[0], 'each_pay'),
-                (self.category_ids[1], 'annual'),
+                (self.categories[0], 'each_pay'),
+                (self.categories[1], 'annual'),
             ]
         ]
 
-        self.rate_line_ids = [
-            self.rate_line_model.create(cr, uid, {
-                'parent_id': line[0],
+        self.rate_lines = [
+            self.rate_line_model.create({
+                'parent_id': line[0].id,
                 'employee_amount': line[1],
                 'employer_amount': line[2],
                 'date_start': line[3],
                 'date_end': line[4],
-            }, context=context)
+            })
             for line in [
-                (self.rate_ids[0], 20, 40, '2015-01-01', '2015-06-30'),
-                (self.rate_ids[0], 30, 50, '2015-07-01', False),
+                (self.rates[0], 20, 40, '2015-01-01', '2015-06-30'),
+                (self.rates[0], 30, 50, '2015-07-01', False),
 
-                (self.rate_ids[1], 600, 720, '2015-01-01', '2015-06-30'),
-                (self.rate_ids[1], 840, 900, '2015-07-01', False),
+                (self.rates[1], 600, 720, '2015-01-01', '2015-06-30'),
+                (self.rates[1], 840, 900, '2015-07-01', False),
             ]
         ]
 
-        self.benefit_ids = [
-            self.benefit_model.create(cr, uid, {
-                'category_id': benefit[0],
-                'rate_id': benefit[1],
+        self.benefits = [
+            self.benefit_model.create({
+                'category_id': benefit[0].id,
+                'rate_id': benefit[1].id,
                 'date_start': benefit[2],
                 'date_end': benefit[3],
-                'contract_id': self.contract_id,
-            }, context=context)
+                'contract_id': self.contract.id,
+            })
             for benefit in [
-                (self.category_ids[0], self.rate_ids[0],
+                (self.categories[0], self.rates[0],
                     '2015-01-01', '2015-12-31'),
-                (self.category_ids[1], self.rate_ids[1],
+                (self.categories[1], self.rates[1],
                     '2015-01-01', '2015-12-31'),
             ]
         ]
 
-        self.payslip_id = self.payslip_model.create(cr, uid, {
-            'employee_id': self.employee_id,
-            'contract_id': self.contract_id,
+        self.payslip = self.payslip_model.create({
+            'employee_id': self.employee.id,
+            'contract_id': self.contract.id,
             'date_from': '2015-01-01',
             'date_to': '2015-01-31',
-            'struct_id': self.structure_id,
-        }, context=context)
+            'struct_id': self.structure.id,
+        })
 
     def compute_payslip(self):
-        cr, uid, context = self.cr, self.uid, self.context
-
-        self.payslip_model.compute_sheet(
-            cr, uid, [self.payslip_id], context=context)
-
-        payslip = self.payslip_model.browse(
-            cr, uid, self.payslip_id, context=context)
+        self.payslip.compute_sheet()
+        self.payslip.refresh()
 
         return {
             line.code: line.total
-            for line in payslip.details_by_salary_rule_category
+            for line in self.payslip.details_by_salary_rule_category
         }
 
 
@@ -183,11 +167,10 @@ class TestEmployeeBenefit(TestEmployeeBenefitBase):
         self.assertEqual(payslip['RULE_2'], 720 / 12)
 
     def test_overlapping_dates(self):
-        cr, uid, context = self.cr, self.uid, self.context
-        self.payslip_model.write(cr, uid, [self.payslip_id], {
+        self.payslip.write({
             'date_from': '2015-06-16',
             'date_to': '2015-07-15',
-        }, context=context)
+        })
 
         payslip = self.compute_payslip()
 
@@ -204,21 +187,20 @@ class TestEmployeeBenefit(TestEmployeeBenefitBase):
     def test_compute_payslip_benefits_added_manually(self):
         """ Compute payslip with benefits added manually
         """
-        cr, uid, context = self.cr, self.uid, self.context
-        self.payslip_model.write(cr, uid, [self.payslip_id], {
+        self.payslip.write({
             'benefit_line_ids': [
                 (0, 0, {
-                    'category_id': self.category_ids[0],
+                    'category_id': self.categories[0].id,
                     'employee_amount': 1000,
                     'employer_amount': 1500,
                 }),
                 (0, 0, {
-                    'category_id': self.category_ids[1],
+                    'category_id': self.categories[1].id,
                     'employee_amount': 1300,
                     'employer_amount': 1800,
                 }),
             ]
-        }, context=context)
+        })
 
         payslip = self.compute_payslip()
 
@@ -229,19 +211,18 @@ class TestEmployeeBenefit(TestEmployeeBenefitBase):
         """ Test sum_benefits with list of benefit codes as
         parameter
         """
-        cr, uid, context = self.cr, self.uid, self.context
-        self.rule_model.write(cr, uid, [self.rule_id], {
+        self.rule.write({
             'amount_python_compute': """
 payslip.compute_benefits()
 result = rule.sum_benefits(payslip, codes='BEN_1')
 """
-        }, context=context)
+        })
 
-        self.rule_model.write(cr, uid, [self.rule_2_id], {
+        self.rule_2.write({
             'amount_python_compute': """
 result = rule.sum_benefits(payslip, codes=['BEN_1', 'BEN_2'], employer=True)
 """
-        }, context=context)
+        })
 
         payslip = self.compute_payslip()
 
@@ -252,14 +233,13 @@ result = rule.sum_benefits(payslip, codes=['BEN_1', 'BEN_2'], employer=True)
         """ Test sum_benefits when the salary rule is related to no
         employee benefit
         """
-        cr, uid, context = self.cr, self.uid, self.context
-        self.rule_model.write(cr, uid, [self.rule_id], {
+        self.rule.write({
             'employee_benefit_ids': [(5, 0)],
-        }, context=context)
+        })
 
-        self.rule_model.write(cr, uid, [self.rule_2_id], {
+        self.rule_2.write({
             'employee_benefit_ids': [(5, 0)],
-        }, context=context)
+        })
 
         payslip = self.compute_payslip()
 

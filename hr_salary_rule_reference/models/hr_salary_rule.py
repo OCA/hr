@@ -19,4 +19,27 @@
 #
 ##############################################################################
 
-from . import test_employee_benefit
+from openerp import models, api
+
+
+class HrSalaryRule(models.Model):
+    _inherit = 'hr.salary.rule'
+
+    @api.model
+    def compute_rule(self, rule_id, localdict):
+        rule = self.browse(rule_id)
+
+        # Add reference to the rule itself
+        localdict['rule_id'] = rule_id
+        localdict['rule'] = rule
+
+        # The payslip contained in the local dict is an object that is
+        # different from an actual payslip. The real payslip is
+        # contained in the attribute 'dict' of that object.
+        payslip = localdict['payslip']
+        if not isinstance(payslip, type(self.env['hr.payslip'])):
+            payslip = payslip.dict
+            payslip.refresh()
+            localdict['payslip'] = payslip
+
+        return super(HrSalaryRule, self).compute_rule(rule_id, localdict)

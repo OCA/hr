@@ -5,7 +5,8 @@
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as published
-#    by the Free Software Foundation, either version 3 of the License, or
+#    by
+#    the Free Software Foundation, either version 3 of the License, or
 #    (at your option) any later version.
 #
 #    This program is distributed in the hope that it will be useful,
@@ -18,26 +19,4 @@
 #
 ##############################################################################
 
-{
-    'name': 'Employee Benefit',
-    'version': '1.0',
-    'license': 'AGPL-3',
-    'category': 'Generic Modules/Human Resources',
-    'author': "Savoir-faire Linux, Odoo Community Association (OCA)",
-    'website': 'https://www.savoirfairelinux.com',
-    'depends': [
-        'hr_payroll',
-        'hr_salary_rule_reference',
-    ],
-    'data': [
-        'security/ir.model.access.csv',
-        'views/hr_contract.xml',
-        'views/hr_employee_benefit_category.xml',
-        'views/hr_employee_benefit_rate.xml',
-        'views/hr_salary_rule.xml',
-        'views/hr_payslip.xml',
-    ],
-    'test': [],
-    'demo': [],
-    'installable': True,
-}
+from . import hr_salary_rule
