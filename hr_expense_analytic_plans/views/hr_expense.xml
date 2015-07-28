@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="view_expenses_form" model="ir.ui.view">
+            <field name="model">hr.expense.expense</field>
+            <field name="inherit_id" ref="hr_expense.view_expenses_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='line_ids']/form//field[@name='analytic_account']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='line_ids']/form//field[@name='analytic_account']" position="after">
+                    <field name="analytics_id" groups="analytic.group_analytic_accounting" />
+                </xpath>
+                <xpath expr="//field[@name='line_ids']/tree//field[@name='analytic_account']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='line_ids']/tree//field[@name='analytic_account']" position="after">
+                    <field name="analytics_id" groups="analytic.group_analytic_accounting" />
+                </xpath>
+            </field>
+        </record>
+    </data>
+</openerp>
