@@ -45,12 +45,10 @@ class HrDepartment(models.Model):
          _('The code for the department must be unique per company!')),
     ]
 
-    @api.multi
+    @api.one
     def copy(self, default=None):
-        if not default:
-            default = {}
-        self.ensure_one()
-        if self.code:
+        default = dict(default or {})
+        if self.code and not default.get('code'):
             default['code'] = _("%s (copy)") % self.code
         return super(HrDepartment, self).copy(default)
 
@@ -64,14 +62,13 @@ class HrDepartment(models.Model):
     @api.model
     def name_search(self, name='', args=None, operator='ilike', limit=100):
         args = list(args or [])
-        ids = []
-        if name != '':
+        if name:
             search_name = name
             if operator != '=':
                 search_name = '%s%%' % name
-            ids = self.search([('code', operator, search_name)] + args,
-                              limit=limit)
-            if ids:
-                return ids.name_get()
+            departments = self.search([('code', operator, search_name)] + args,
+                                      limit=limit)
+            if departments.ids:
+                return departments.name_get()
         return super(HrDepartment, self)\
             .name_search(name=name, args=args, operator=operator, limit=limit)
