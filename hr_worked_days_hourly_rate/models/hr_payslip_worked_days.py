@@ -25,28 +25,26 @@ from openerp import api, fields, models
 class HrPayslipWorkedDays(models.Model):
     _inherit = 'hr.payslip.worked_days'
 
-    def _compute_total(self):
-        self.total = self.number_of_hours * self.hourly_rate * self.rate / 100
-
     hourly_rate = fields.Float(
-            'Hourly Rate',
-            default=0,
-            help="""\
-The employee's standard hourly rate for one hour of work.
-Example, 25 Euros per hour."""
-        )
+        'Hourly Rate',
+        default=0,
+        help="The employee's standard hourly rate for one hour of work."
+             "Example, 25 Euros per hour.")
     rate = fields.Float(
-            'Rate (%)',
-            default=100,
-            help="""\
-The rate by which to multiply the standard hourly rate.
-Example, an overtime hour could be paid the standard rate multiplied by 150%.
-"""
-        )
+        'Rate (%)',
+        default=100,
+        help="The rate by which to multiply the standard hourly rate."
+             "Example, an overtime hour could be paid the standard rate"
+             "multiplied by 150%.")
 
     # When a worked day has a number of hours and an hourly rate,
     # it is necessary to have a date interval,
     # because hourly rates are likely to change over the time.
     date_from = fields.Date('Date From', default=fields.Date.context_today)
     date_to = fields.Date('Date To', default=fields.Date.context_today)
-    total = fields.Float(string='Total', compute=_compute_total)
+    total = fields.Float(string='Total', compute='_compute_total')
+
+    @api.one
+    @api.depends('number_of_hours', 'hourly_rate', 'rate')
+    def _compute_total(self):
+        self.total = self.number_of_hours * self.hourly_rate * self.rate / 100

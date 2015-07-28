@@ -22,9 +22,9 @@
 from openerp.tests import common
 
 
-class test_worked_days(common.TransactionCase):
+class TestWorkedDays(common.TransactionCase):
     def setUp(self):
-        super(test_worked_days, self).setUp()
+        super(TestWorkedDays, self).setUp()
         self.employee_model = self.env['hr.employee']
         self.user_model = self.env["res.users"]
         self.payslip_model = self.env["hr.payslip"]
@@ -36,36 +36,30 @@ class test_worked_days(common.TransactionCase):
 
         # Create a contract for the employee
         self.contract_id = self.contract_model.create({
-                'employee_id': self.employee_id.id,
-                'name': 'Contract 1',
-                'wage': 50000,
+            'employee_id': self.employee_id.id,
+            'name': 'Contract 1',
+            'wage': 50000,
             })
 
         # Create a payslip
         self.payslip_id = self.payslip_model.create({
-                'employee_id': self.employee_id.id,
-                'contract_id': self.contract_id.id,
-                'date_from': '2014-01-01',
-                'date_to': '2014-01-31',
+            'employee_id': self.employee_id.id,
+            'contract_id': self.contract_id.id,
+            'date_from': '2014-01-01',
+            'date_to': '2014-01-31',
             })
-
-    def tearDown(self):
-        self.payslip_id.unlink()
-        self.contract_id.unlink()
-        self.employee_id.unlink()
-        super(test_worked_days, self).tearDown()
 
     def test_total(self):
         worked_days = self.worked_days_model.create({
-                'date_from': '2014-01-01',
-                'date_to': '2014-01-05',
-                'number_of_hours': 40,
-                'hourly_rate': 25,
-                'rate': 150,
-                'payslip_id': self.payslip_id.id,
-                'code': 'test',
-                'name': 'test',
-                'contract_id': self.contract_id.id,
+            'date_from': '2014-01-01',
+            'date_to': '2014-01-05',
+            'number_of_hours': 40,
+            'hourly_rate': 25,
+            'rate': 150,
+            'payslip_id': self.payslip_id.id,
+            'code': 'test',
+            'name': 'test',
+            'contract_id': self.contract_id.id,
             })
 
         self.assertEqual(worked_days.total, 40 * 25 * 1.5)
