@@ -20,7 +20,7 @@
 {
     "name": "Analytic plans in expenses",
     "version": "1.0",
-    "author": "Therp BV",
+    "author": "Therp BV,Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "category": "Human Resources",
     "summary": "Use analytic plans in expenses",
@@ -31,10 +31,6 @@
     "data": [
         "views/hr_expense.xml",
         "views/hr_expense_line.xml",
-    ],
-    "qweb": [
-    ],
-    "test": [
     ],
     "auto_install": False,
     "installable": True,
