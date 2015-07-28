@@ -46,11 +46,13 @@
             <field name="model">hr.employee.benefit.rate</field>
             <field name="arch" type="xml">
                 <search string="Search Employee Benefit Rate">
-                    <field 
-                        name="name"
-                        string="Employee Benefit Rates"
-                        filter_domain="['|',('name','ilike',self),('code','ilike',self)]"
-                    />
+                    <field name="name"/>
+                    <field name="category_id"/>
+                    <field name="amount_type"/>
+                    <group string="Group by...">
+                        <filter name="category_id" string="Category" context="{'group_by':'category_id'}"/>
+                        <filter name="amount_type" string="Amount Type" context="{'group_by':'amount_type'}"/>
+                    </group>
                 </search>
             </field>
         </record>

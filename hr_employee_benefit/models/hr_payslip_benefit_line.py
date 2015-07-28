@@ -19,47 +19,42 @@
 #
 ##############################################################################
 
-from openerp.osv import orm, fields
+from openerp import models, fields
 import openerp.addons.decimal_precision as dp
 
 
-class HrPayslipBenefitLine(orm.Model):
+class HrPayslipBenefitLine(models.Model):
     _name = 'hr.payslip.benefit.line'
     _decription = 'Pay Slip Employee Benefit Line'
 
-    _columns = {
-        'payslip_id': fields.many2one(
-            'hr.payslip',
-            'Payslip',
-            required=True,
-            ondelete='cascade',
-        ),
-        'category_id': fields.many2one(
-            'hr.employee.benefit.category',
-            'Benefit',
-            required=True,
-        ),
-        'employer_amount': fields.float(
-            'Employer Contribution',
-            digits_compute=dp.get_precision('Payroll'),
-        ),
-        'employee_amount': fields.float(
-            'Employee Contribution',
-            digits_compute=dp.get_precision('Payroll'),
-        ),
-        'source': fields.selection(
-            [
-                ('contract', 'From Contract'),
-                ('manual', 'Added Manually'),
-            ],
-            readonly=True,
-            required=True,
-            string='Type',
-            type='char',
-        ),
-        'reference': fields.char('Reference'),
-    }
-
-    _defaults = {
-        'source': 'manual',
-    }
+    payslip_id = fields.Many2one(
+        'hr.payslip',
+        'Payslip',
+        required=True,
+        ondelete='cascade',
+    )
+    category_id = fields.Many2one(
+        'hr.employee.benefit.category',
+        'Benefit',
+        required=True,
+    )
+    employer_amount = fields.Float(
+        'Employer Contribution',
+        digits_compute=dp.get_precision('Payroll'),
+    )
+    employee_amount = fields.Float(
+        'Employee Contribution',
+        digits_compute=dp.get_precision('Payroll'),
+    )
+    source = fields.Selection(
+        [
+            ('contract', 'From Contract'),
+            ('manual', 'Added Manually'),
+        ],
+        readonly=True,
+        required=True,
+        string='Type',
+        type='char',
+        default='manual',
+    )
+    reference = fields.Char('Reference')
