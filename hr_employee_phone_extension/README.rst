@@ -9,11 +9,6 @@ This module adds the following to employees :
 * internal_number
 * short_number
 
-
-For further information, please visit:
-
-* https://www.odoo.com/forum/help-1
-
 Known issues / Roadmap
 ======================
 
