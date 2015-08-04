@@ -1,7 +1,6 @@
-# -*- encoding: utf-8 -*-
+# -*- coding: utf-8 -*-
 ###############################################################################
 #
-#    OpenERP, Open Source Management Solution
 #    Copyright (C) 2013 Savoir-faire Linux (<http://www.savoirfairelinux.com>).
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -19,4 +18,18 @@
 #
 ###############################################################################
 
-from . import hr_skill
+{
+    "name": "Skill Management",
+    "version": "8.0.1.0.0",
+    "category": "Human Resources",
+    "license": "AGPL-3",
+    "author": "Savoir-faire Linux,Odoo Community Association (OCA)",
+    "website": "http://www.savoirfairelinux.com",
+    "depends": ["hr"],
+    'data': [
+        "views/hr_skill.xml",
+        "views/hr_employee.xml",
+        "security/ir.model.access.csv",
+    ],
+    'installable': True,
+}
