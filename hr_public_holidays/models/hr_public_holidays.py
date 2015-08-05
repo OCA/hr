@@ -84,7 +84,7 @@ class HrPublicHolidays(models.Model):
 
         pholidays = self.search(holidays_filter)
         if not pholidays:
-            return False
+            return list()
 
         states_filter = [('holidays_id', 'in', pholidays.ids)]
         if employee and employee.address_id and employee.address_id.state_id:
