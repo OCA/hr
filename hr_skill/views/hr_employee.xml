@@ -1,7 +1,7 @@
 <openerp>
   <data>
 
-    <record model="ir.ui.view" id="view_employee_skill_form">
+    <record id="view_employee_skill_form" model="ir.ui.view">
         <field name="name">hr.employee.skill.form</field>
         <field name="model">hr.employee</field>
         <field name="inherit_id" ref="hr.view_employee_form"/>
@@ -20,7 +20,7 @@
         <field name="res_model">hr.employee</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
-        <field name="domain">[('skill_ids','=', active_ids)]</field>
+        <field name="domain">[('skill_ids','child_of', active_ids)]</field>
     </record>
 
     <record id="hr_employee_skill_open" model="ir.values">

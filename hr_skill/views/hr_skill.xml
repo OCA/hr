@@ -1,7 +1,7 @@
 <openerp>
   <data>
 
-    <record model="ir.ui.view" id="view_hr_skill_tree">
+    <record id="view_hr_skill_tree" model="ir.ui.view">
         <field name="name">hr.skill.tree</field>
         <field name="model">hr.skill</field>
         <field name="field_parent">child_ids</field>
@@ -13,7 +13,7 @@
         </field>
     </record>
 
-    <record model="ir.ui.view" id="view_skill_form">
+    <record id="view_skill_form" model="ir.ui.view">
         <field name="name">hr.skill.form</field>
         <field name="model">hr.skill</field>
         <field name="arch" type="xml">
@@ -34,7 +34,7 @@
               parent="hr.menu_hr_configuration"
               id="menu_hr_skill_mgt"/>
 
-    <record model="ir.actions.act_window" id="open_view_skill_form">
+    <record id="open_view_skill_form" model="ir.actions.act_window">
         <field name="name">Skills</field>
         <field name="res_model">hr.skill</field>
         <field name="view_type">form</field>
@@ -46,7 +46,7 @@
               id="menu_open_view_skill_form"
               action="open_view_skill_form"/>
 
-    <record model="ir.actions.act_window" id="open_view_skill_tree">
+    <record id="open_view_skill_tree" model="ir.actions.act_window">
         <field name="name">Skills Structure</field>
         <field name="res_model">hr.skill</field>
         <field name="view_type">tree</field>
