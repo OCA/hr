@@ -23,9 +23,13 @@ from openerp import fields, models
 
 class Skill(models.Model):
     _name = 'hr.skill'
-    name = fields.Char('Name', size=64, required=True, translate=True)
+    _parent_store = True
+
+    name = fields.Char('Name', required=True, translate=True)
     active = fields.Boolean('Active', default=True)
     parent_id = fields.Many2one('hr.skill', 'Parent', ondelete='cascade')
+    parent_left = fields.Integer('Parent Left', index=True)
+    parent_right = fields.Integer('Parent Right', index=True)
     child_ids = fields.One2many('hr.skill', 'parent_id', 'Children')
     view = fields.Selection(
         [('view', 'View'), ('skill', 'Skill')],
