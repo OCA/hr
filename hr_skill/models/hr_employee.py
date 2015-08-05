@@ -23,6 +23,7 @@ from openerp import fields, models
 
 class Employee(models.Model):
     _inherit = 'hr.employee'
+
     skill_ids = fields.Many2many(
         'hr.skill',
         'skill_employee_rel',
