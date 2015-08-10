@@ -24,26 +24,26 @@
 #
 ##############################################################################
 {
-    "name": "Hr Payroll Cancel", 
-    "version": "1.6", 
-    "author": "Vauxoo", 
-    "category": "Localization/Mexico", 
-    "website": "http://www.vauxoo.com/", 
-    "license": "AGPL-3", 
+    "name": "Hr Payroll Cancel",
+    "version": "1.6",
+    "author": "Vauxoo",
+    "category": "Localization/Mexico",
+    "website": "http://www.vauxoo.com/",
+    "license": "AGPL-3",
     "depends": [
         "hr_payroll"
-    ], 
-    "demo": [], 
+    ],
+    "demo": [],
     "data": [
-        "hr_payslip_view.xml", 
-        "hr_payslip_workflow.xml", 
+        "hr_payslip_view.xml",
+        "hr_payslip_workflow.xml",
         "test/update_payroll_workflow.yml"
-    ], 
-    "test": [], 
-    "js": [], 
-    "css": [], 
-    "qweb": [], 
-    "installable": True, 
-    "auto_install": False, 
+    ],
+    "test": [],
+    "js": [],
+    "css": [],
+    "qweb": [],
+    "installable": True,
+    "auto_install": False,
     "active": False
 }
