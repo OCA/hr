@@ -19,30 +19,28 @@
 #
 #
 
-from openerp.osv import fields, orm
+from openerp import api, models, fields
 
 
-class hr_employee(orm.Model):
+class hr_employee(models.Model):
 
     _name = 'hr.employee'
     _inherit = 'hr.employee'
 
-    _columns = {
-        'ec_name': fields.char('Name', size=256),
-        'ec_relationship': fields.char('Relationship', size=64),
-        'ec_tel1': fields.char('Primary Phone No.', size=32),
-        'ec_tel2': fields.char('Secondary Phone No.', size=32),
-        'ec_woreda': fields.char('Subcity/Woreda', size=32),
-        'ec_kebele': fields.char('Kebele', size=8),
-        'ec_houseno': fields.char('House No.', size=8),
-        'ec_address': fields.char('Address 2', size=256),
-        'ec_country_id': fields.many2one('res.country', 'Country'),
-        'ec_state_id': fields.many2one('res.country.state', 'State', domain="[('country_id','=',country_id)]"),
-    }
+    ec_name = fields.Char('Name', size=256)
+    ec_relationship = fields.Char('Relationship', size=64)
+    ec_tel1 = fields.Char('Primary Phone No.', size=32)
+    ec_tel2 = fields.Char('Secondary Phone No.', size=32)
+    ec_woreda = fields.Char('Subcity/Woreda', size=32)
+    ec_kebele = fields.Char('Kebele', size=8)
+    ec_houseno = fields.Char('House No.', size=8)
+    ec_address = fields.Char('Address 2', size=256)
+    ec_country_id = fields.Many2one('res.country', 'Country')
+    ec_state_id = fields.Many2one('res.country.state', 'State', domain="[('country_id','=',country_id)]")
 
-    def _get_country(self, cr, uid, context=None):
-        cid = self.pool.get('res.country').search(
-            cr, uid, [('code', '=', 'ET')], context=context)
+    @api.multi
+    def _get_country(self):
+        cid = self.pool.get('res.country').search(self.env.cr, self.env.user.id, [('code', '=', 'ET')])
         return cid[0]
 
     _defaults = {
