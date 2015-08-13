@@ -76,14 +76,10 @@ class HrEmployee(models.Model):
     @api.multi
     def write(self, vals):
         if vals.get('firstname') or vals.get('lastname'):
-            self.ensure_one()
-
             vals['name'] = ' '.join([
                 vals.get('firstname') or self.firstname or ' ',
                 vals.get('lastname') or self.lastname or ' ',
             ])
-
         elif vals.get('name'):
             vals['firstname'], vals['lastname'] = self.split_name(vals['name'])
-
         return super(HrEmployee, self).write(vals)
