@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+  <data>
+        <record model="ir.ui.view" id="crm_case_form_view_job">
+            <field name="name">Jobs - Recruitment Form (hr_recruitment_firstname)</field>
+            <field name="model">hr.applicant</field>
+            <field name="inherit_id" ref="hr_recruitment.crm_case_form_view_job" />
+            <field name="arch" type="xml">
+                <xpath expr="//label[@for='partner_name']" position="replace"/>
+                <xpath expr="//h2[field[@name='partner_name']]" position="replace"/>
+                <xpath expr="//field[@name='partner_id']" position="before">
+                    <field name="partner_name" />
+                    <label for="partner_firstname" />
+                    <div>
+                        <field name="partner_firstname" class="oe_inline"/>
+                        <button string="Create Employee" name="create_employee_from_applicant" type="object"
+                                    class="oe_link oe_inline" style="margin-left: 8px;"
+                                    attrs="{'invisible': [('emp_id', '!=', False)]}"/>
+                    </div>
+                </xpath>
+            </field>
+       </record>
+  </data>
+</openerp>
