@@ -26,6 +26,7 @@ from openerp import models, fields, api, SUPERUSER_ID
 class HrEmployee(models.Model):
     _inherit = 'hr.employee'
 
+    @api.model
     def split_name(self, name):
         new_name = [w for w in name.split(' ') if w]
         firstname = new_name[0]
