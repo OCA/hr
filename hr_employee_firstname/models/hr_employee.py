@@ -50,6 +50,18 @@ class HrEmployee(models.Model):
                 'lastname': lastname,
             })
 
+    @api.model
+    def _update_partner_firstname(self, employee):
+        ir_module = self.env['ir.module.module']
+        res_found_module = ir_module.search_count([
+            ('name', '=', 'partner_firstname'),
+            ('state', '=', 'installed')])
+        if res_found_module:
+            partners = employee.mapped('user_id.partner_id')
+            partners += employee.mapped('address_home_id')
+            partners.write({'firstname': employee.firstname,
+                            'lastname': employee.lastname})
+
     @api.one
     @api.onchange('firstname', 'lastname')
     def get_name(self):
@@ -71,8 +83,9 @@ class HrEmployee(models.Model):
 
         elif vals.get('name'):
             vals['firstname'], vals['lastname'] = self.split_name(vals['name'])
-
-        return super(HrEmployee, self).create(vals)
+        res = super(HrEmployee, self).create(vals)
+        self._update_partner_firstname(res)
+        return res
 
     @api.multi
     def write(self, vals):
@@ -83,4 +96,6 @@ class HrEmployee(models.Model):
             ])
         elif vals.get('name'):
             vals['firstname'], vals['lastname'] = self.split_name(vals['name'])
-        return super(HrEmployee, self).write(vals)
+        res = super(HrEmployee, self).write(vals)
+        self._update_partner_firstname(self)
+        return res
