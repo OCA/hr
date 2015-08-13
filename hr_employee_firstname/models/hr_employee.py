@@ -26,11 +26,10 @@ from openerp import models, fields, api, SUPERUSER_ID
 class HrEmployee(models.Model):
     _inherit = 'hr.employee'
 
+    @api.model
     def split_name(self, name):
-        new_name = [w for w in name.split(' ') if w]
-        firstname = new_name[0]
-        lastname = ' '.join(new_name[1:]) or ' '
-        return firstname, lastname
+        clean_name = u" ".join(name.split(None)) if name else name
+        return self.env['res.partner']._get_inverse_name(clean_name)
 
     @api.cr_context
     def _auto_init(self, cr, context=None):
@@ -43,47 +42,58 @@ class HrEmployee(models.Model):
             ('firstname', '=', ' '), ('lastname', '=', ' ')])
 
         for ee in employees:
-            firstname, lastname = self.split_name(ee.name)
+            lastname, firstname = self.split_name(ee.name)
             ee.write({
                 'firstname': firstname,
                 'lastname': lastname,
             })
 
+    @api.model
+    def _update_partner_firstname(self, employee):
+        partners = employee.mapped('user_id.partner_id')
+        for partner in employee.mapped('address_home_id'):
+            if partner not in partners:
+                partners += partner
+        partners.write({'firstname': employee.firstname,
+                        'lastname': employee.lastname})
+
+    @api.model
+    def _get_name(self, lastname, firstname):
+        return self.env['res.partner']._get_computed_name(lastname, firstname)
+
     @api.one
     @api.onchange('firstname', 'lastname')
     def get_name(self):
         if self.firstname and self.lastname:
-            self.name = ' '.join([self.firstname, self.lastname])
+            self.name = self._get_name(self.lastname, self.firstname)
 
     def _firstname_default(self):
         return ' ' if self.env.context.get('module') else False
 
     firstname = fields.Char(
-        "Firstname", required=True, default=_firstname_default)
+        "Firstname", default=_firstname_default)
     lastname = fields.Char(
         "Lastname", required=True, default=_firstname_default)
 
     @api.model
     def create(self, vals):
         if vals.get('firstname') and vals.get('lastname'):
-            vals['name'] = ' '.join([vals['firstname'], vals['lastname']])
+            vals['name'] = self._get_name(vals['lastname'], vals['firstname'])
 
         elif vals.get('name'):
-            vals['firstname'], vals['lastname'] = self.split_name(vals['name'])
-
-        return super(HrEmployee, self).create(vals)
+            vals['lastname'], vals['firstname'] = self.split_name(vals['name'])
+        res = super(HrEmployee, self).create(vals)
+        self._update_partner_firstname(res)
+        return res
 
     @api.multi
     def write(self, vals):
         if vals.get('firstname') or vals.get('lastname'):
-            self.ensure_one()
-
-            vals['name'] = ' '.join([
-                vals.get('firstname') or self.firstname or ' ',
-                vals.get('lastname') or self.lastname or ' ',
-            ])
-
+            lastname = vals.get('lastname') or self.lastname or ' '
+            firstname = vals.get('firstname') or self.firstname or ' '
+            vals['name'] = self._get_name(lastname, firstname)
         elif vals.get('name'):
-            vals['firstname'], vals['lastname'] = self.split_name(vals['name'])
-
-        return super(HrEmployee, self).write(vals)
+            vals['lastname'], vals['firstname'] = self.split_name(vals['name'])
+        res = super(HrEmployee, self).write(vals)
+        self._update_partner_firstname(self)
+        return res
