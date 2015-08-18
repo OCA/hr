@@ -3,95 +3,94 @@
 # * hr_language
 # 
 # Translators:
-# Rudolf Schnapka <schnapkar@golive-saar.de>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-08-18 13:10+0000\n"
 "PO-Revision-Date: 2015-07-27 23:44+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
-"Language-Team: German (http://www.transifex.com/oca/OCA-hr-8-0/language/de/)\n"
+"Last-Translator: <>\n"
+"Language-Team: Romanian (http://www.transifex.com/oca/OCA-hr-8-0/language/ro/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: de\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: ro\n"
+"Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?2:1));\n"
 
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "Albanian / Shqip"
-msgstr "Albanisch"
+msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "Amharic / አምሃርኛ"
-msgstr "Amharisch"
+msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "Arabic / الْعَرَبيّة"
-msgstr "Arabisch"
+msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "Bosnian / bosanski jezik"
-msgstr "Bosnisch"
+msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "Bulgarian / български език"
-msgstr "Bulgarisch"
+msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "Catalan / Català"
-msgstr "Katalanisch"
+msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "Chinese (CN) / 简体中文"
-msgstr "Chinesisch (CN)"
+msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "Chinese (HK)"
-msgstr "Chinesisch (HK)"
+msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "Chinese (TW) / 正體字"
-msgstr "Chinesisch (TW)"
+msgstr ""
 
 #. module: hr_language
 #: field:hr.language,create_uid:0
 msgid "Created by"
-msgstr "Erstellt von"
+msgstr "Creeat de către"
 
 #. module: hr_language
 #: field:hr.language,create_date:0
 msgid "Created on"
-msgstr "Angelegt am"
+msgstr "Creeat în"
 
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "Croatian / hrvatski jezik"
-msgstr "Kroatisch"
+msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "Czech / Čeština"
-msgstr "Tschechisch"
+msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "Danish / Dansk"
-msgstr "Dänisch"
+msgstr ""
 
 #. module: hr_language
 #: field:hr.language,description:0
 msgid "Description"
-msgstr "Beschreibung"
+msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
@@ -101,13 +100,13 @@ msgstr ""
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "Dutch / Nederlands"
-msgstr "Holländisch / Niederländisch"
+msgstr ""
 
 #. module: hr_language
 #: field:hr.language,employee_id:0
 #: model:ir.model,name:hr_language.model_hr_employee
 msgid "Employee"
-msgstr "Angestellter"
+msgstr "Angajat"
 
 #. module: hr_language
 #: selection:hr.language,name:0
@@ -117,27 +116,27 @@ msgstr ""
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "English (UK)"
-msgstr "Englisch (GB)"
+msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "English (US)"
-msgstr "Englisch (US)"
+msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "Estonian / Eesti keel"
-msgstr "Estnisch"
+msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "Finnish / Suomi"
-msgstr "Finnisch"
+msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "French (BE) / Français (BE)"
-msgstr "Französisch (BE)"
+msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
@@ -147,17 +146,17 @@ msgstr ""
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "French (CH) / Français (CH)"
-msgstr "Französisch (Schweizer)"
+msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "French / Français"
-msgstr "Französisch"
+msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "Galician / Galego"
-msgstr "Galizisch"
+msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
@@ -167,32 +166,32 @@ msgstr ""
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "German / Deutsch"
-msgstr "Deutsch"
+msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "Greek / Ελληνικά"
-msgstr "Griechisch"
+msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "Gujarati / ગુજરાતી"
-msgstr "Gujaratisch"
+msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "Hebrew / עִבְרִי"
-msgstr "Hebräisch"
+msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "Hindi / हिंदी"
-msgstr "Hindi"
+msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "Hungarian / Magyar"
-msgstr "Ungarisch"
+msgstr ""
 
 #. module: hr_language
 #: field:hr.language,id:0
@@ -202,17 +201,17 @@ msgstr "ID"
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "Indonesian / Bahasa Indonesia"
-msgstr "Indonesisch"
+msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "Italian / Italiano"
-msgstr "Italienisch"
+msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "Japanese / 日本語"
-msgstr "Japanisch"
+msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
@@ -222,17 +221,17 @@ msgstr ""
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "Korean (KP) / 한국어 (KP)"
-msgstr "Koreanisch (KP)"
+msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "Korean (KR) / 한국어 (KR)"
-msgstr "Koreanisch (KR)"
+msgstr ""
 
 #. module: hr_language
 #: view:hr.language:hr_language.view_language_form field:hr.language,name:0
 msgid "Language"
-msgstr "Sprache"
+msgstr ""
 
 #. module: hr_language
 #: view:hr.employee:hr_language.view_employee_form
@@ -241,7 +240,7 @@ msgstr "Sprache"
 #: model:ir.actions.act_window,name:hr_language.open_view_language_form
 #: model:ir.ui.menu,name:hr_language.menu_open_view_language_form
 msgid "Languages"
-msgstr "Sprachen"
+msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
@@ -251,22 +250,22 @@ msgstr ""
 #. module: hr_language
 #: field:hr.language,write_uid:0
 msgid "Last Updated by"
-msgstr "Zuletzt aktualisiert durch"
+msgstr "Ultima actualizare de către"
 
 #. module: hr_language
 #: field:hr.language,write_date:0
 msgid "Last Updated on"
-msgstr "Zuletzt aktualisiert am"
+msgstr "Ultima actualizare în"
 
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "Latvian / latviešu valoda"
-msgstr "Lettisch"
+msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "Lithuanian / Lietuvių kalba"
-msgstr "Litauisch"
+msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
@@ -276,179 +275,179 @@ msgstr ""
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "Mongolian / монгол"
-msgstr "Mongolisch"
+msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "Norwegian Bokmål / Norsk bokmål"
-msgstr "Norwegisch"
+msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "Persian / فارس"
-msgstr "Persisch"
+msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "Polish / Język polski"
-msgstr "Polnisch"
+msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "Portuguese (BR) / Português (BR)"
-msgstr "Portugisisch (BR)"
+msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "Portuguese / Português"
-msgstr "Portugiesisch"
+msgstr ""
 
 #. module: hr_language
 #: field:hr.language,can_read:0
 msgid "Read"
-msgstr "Lesen"
+msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "Romanian / română"
-msgstr "Rumänisch"
+msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "Russian / русский язык"
-msgstr "Russisch"
+msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "Serbian (Cyrillic) / српски"
-msgstr "Serbisch (Kyrillisch)"
+msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "Serbian (Latin) / srpski"
-msgstr "Serbisch"
+msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "Slovak / Slovenský jazyk"
-msgstr "Slovakisch"
+msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "Slovenian / slovenščina"
-msgstr "Slovenisch"
+msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "Spanish (AR) / Español (AR)"
-msgstr "Spanisch (AR)"
+msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "Spanish (BO) / Español (BO)"
-msgstr "Spanisch (BO)"
+msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "Spanish (CL) / Español (CL)"
-msgstr "Spanisch (CL)"
+msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "Spanish (CO) / Español (CO)"
-msgstr "Spanisch (CO)"
+msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "Spanish (CR) / Español (CR)"
-msgstr "Spanisch (CR)"
+msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "Spanish (DO) / Español (DO)"
-msgstr "Spanisch (DO)"
+msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "Spanish (EC) / Español (EC)"
-msgstr "Spanisch (EC)"
+msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "Spanish (GT) / Español (GT)"
-msgstr "Spanisch (GT)"
+msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "Spanish (MX) / Español (MX)"
-msgstr "Spanisch (MX)"
+msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "Spanish (PA) / Español (PA)"
-msgstr "Spanisch (PA)"
+msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "Spanish (PE) / Español (PE)"
-msgstr "Spanisch (PE)"
+msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "Spanish (PY) / Español (PY)"
-msgstr "Spanisch (PY)"
+msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "Spanish (UY) / Español (UY)"
-msgstr "Spanisch (UY)"
+msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "Spanish (VE) / Español (VE)"
-msgstr "Spanisch (VE)"
+msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "Spanish / Español"
-msgstr "Spanisch"
+msgstr ""
 
 #. module: hr_language
 #: field:hr.language,can_speak:0
 msgid "Speak"
-msgstr "Sprechen"
+msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "Swedish / svenska"
-msgstr "Schwedisch"
+msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "Telugu / తెలుగు"
-msgstr "Telugu"
+msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "Thai / ภาษาไทย"
-msgstr "Thailändisch"
+msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "Turkish / Türkçe"
-msgstr "Türkisch"
+msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "Ukrainian / українська"
-msgstr "Ukrainisch"
+msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "Vietnamese / Tiếng Việt"
-msgstr "Vietnamesisch"
+msgstr ""
 
 #. module: hr_language
 #: field:hr.language,can_write:0
 msgid "Write"
-msgstr "Schreiben"
+msgstr ""
