@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>	
+        <record id="view_expenses_months_form2" model="ir.ui.view">
+            <field name="name">view.expenses.months.form2</field>
+			<field name="model">hr.expense.expense</field>
+            <field name="inherit_id" ref="hr_expense.view_expenses_form"/>  
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <field name="name" select="1" position = "replace">
+                    <field name="name" invisible="1"/>
+                    <field name="months" select="1" on_change="onchange_months(months)"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="view_expenses_tree4" model="ir.ui.view">
+            <field name="name">hr.expense.expense.tree4</field>
+            <field name="model">hr.expense.expense</field>
+            <field name="type">tree</field>
+			<field name="inherit_id" ref="hr_expense.view_expenses_tree"/>
+            <field name="arch" type="xml">
+                <field name="name" position = "replace">
+                    <field name="name" invisible="True"/>
+			        <field name="months" select="1"/>
+                </field>
+            </field>
+        </record>
+	
+         <record id="view_hr_expense_filter_inherit" model="ir.ui.view">
+             <field name="name">hr.expense.expense.filter</field>
+             <field name="model">hr.expense.expense</field>
+             <field name="type">search</field>
+	         <field name="inherit_id" ref="hr_expense.view_hr_expense_filter"/>
+             <field name="arch" type="xml">
+                 <field name="date" select='1' position = "after" >
+			         <field name="months" select="1"/>
+                 </field>
+             </field>
+         </record>
+    </data>
+</openerp>
