@@ -34,7 +34,7 @@ class HrSalaryRule(models.Model):
         if self.exemption_id and self.check_exemption(localdict):
             return (0, 0, 0)
 
-        return super(HrSalaryRule, self).compute_rule(localdict)
+        return super(HrSalaryRule, self).compute_rule(self.id, localdict)
 
     @api.multi
     def check_exemption(self, localdict):
