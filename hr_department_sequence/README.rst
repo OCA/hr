@@ -5,7 +5,7 @@ HR Department Sequence
 ======================
 
 This module was written to allow you to order department by Parent-Child Relationship and by Sequence Number.
-It also adds some fields on the department like code and active.
+It also extends department by adding the two extra fields code and active to ease management with many departments
 
 Bug Tracker
 ===========
