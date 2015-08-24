@@ -28,7 +28,7 @@ class HrDepartment(models.Model):
     _parent_order = 'sequence, name'
     _order = 'sequence, name'
 
-    code = fields.Char(string='code')
+    code = fields.Char()
     sequence = fields.Integer(string='Sequence', index=True,
                               help="Gives the sequence order when displaying "
                               "a list of departments.")
