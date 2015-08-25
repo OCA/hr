@@ -29,15 +29,17 @@ Employee Identification Numbers
 Company wide unique employee ID
     """,
     'author': "Michael Telahun Makonnen <mmakonnen@gmail.com>, "
-    "Odoo Community Association (OCA)",
+    "Odoo Community Association (OCA), "
+    "Salton Massally <smassally@idtlabs.sl>(iDT Labs)",
     'website': 'http://miketelahun.wordpress.com',
+    'license': 'AGPL-3',
     'depends': [
         'hr',
     ],
     'data': [
-        'hr_view.xml',
-    ],
-    'test': [
+        'views/res_config_views.xml',
+        'views/hr_employee_views.xml',
+        'data/hr_employee_sequence.xml',
     ],
     'installable': False,
 }
