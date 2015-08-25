@@ -8,16 +8,15 @@
             <field name="inherit_id" ref="hr.view_employee_form"/>
             <field name="arch" type="xml">
                 <data>
-                    <div name="button_box" position="after">
-                        <div class="oe_title">
-                            <label for="f_employee_no" class="oe_edit_only"/>
-                            <h2>
-                                <field name="f_employee_no"/>
-                            </h2>
-                        </div>
-                    </div>
-                    <field name="identification_id" position="after">
-                        <field name="tin_no"/>
+                    <h1 position="after">
+                            <label for="employee_no" class="oe_edit_only"/>
+                            <h3>
+                                <field name="employee_no"/>
+                            </h3>
+                    </h1>
+                    
+                    <field name="identification_id" position="replace">
+                        <field name="identification_id"/>
                     </field>
                 </data>
             </field>
@@ -30,9 +29,7 @@
             <field name="arch" type="xml">
                 <data>
                     <field name="name" position="after">
-                        <field name="employee_no" invisible="1"/>
-                        <field name="f_employee_no"/>
-                        <field name="tin_no"/>
+                        <field name="employee_no"/>
                     </field>
                 </data>
             </field>
@@ -45,20 +42,21 @@
             <field name="arch" type="xml">
                 <field name="name" position="after">
                     <field name="employee_no"/>
-                    <field name="tin_no"/>
                 </field>
             </field>
         </record>
-        <record model="ir.ui.view" id="hr_kanban_view_employees">
+        <record id="hr_kanban_view_employees" model="ir.ui.view">
             <field name="name">HR - Employees Kanban</field>
             <field name="model">hr.employee</field>
             <field name="inherit_id" ref="hr.hr_kanban_view_employees"/>
             <field name="arch" type="xml">
-                <field name="job_id" position="before">
-                    <li><field name="f_employee_no"/></li>
-                </field>
+                <li id="last_login" position="after">
+                	<li t-if="record.employee_no.raw_value"><field name="employee_no"/></li>
+                </li>
             </field>
-        </record>
+        </record> 
+        
+        
         
     </data>
 </openerp>
