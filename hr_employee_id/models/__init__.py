@@ -17,23 +17,6 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-{
-    'name': 'Employee ID',
-    'version': '8.0.1.0.0',
-    'license': 'AGPL-3',
-    'category': 'Generic Modules/Human Resources',
-    'author': 'Michael Telahun Makonnen, '
-              'Odoo Community Association (OCA)',
-    'website': 'http://miketelahun.wordpress.com',
-    'license': 'AGPL-3',
-    'depends': [
-        'hr',
-    ],
-    'data': [
-        'views/res_config_views.xml',
-        'views/res_company.xml',
-        'views/hr_employee_views.xml',
-        'data/hr_employee_sequence.xml',
-    ],
-    'installable': False,
-}
+from . import hr_employee
+from . import res_company
+from . import res_config
