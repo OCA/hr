@@ -3,50 +3,51 @@
 # * hr_expense_analytic_default
 # 
 # Translators:
+# Matjaž Mozetič <m.mozetic@matmoz.si>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-08-18 13:10+0000\n"
-"PO-Revision-Date: 2015-08-12 10:11+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
-"Language-Team: French (http://www.transifex.com/oca/OCA-hr-8-0/language/fr/)\n"
+"PO-Revision-Date: 2015-08-16 11:40+0000\n"
+"Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>\n"
+"Language-Team: Slovenian (http://www.transifex.com/oca/OCA-hr-8-0/language/sl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: fr\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Language: sl\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
 
 #. module: hr_expense_analytic_default
 #: view:hr.employee:hr_expense_analytic_default.view_employee_form
 msgid "Analytic on Expenses"
-msgstr "Analytique sur les notes de frais"
+msgstr "Analitika izdatkov"
 
 #. module: hr_expense_analytic_default
 #: field:hr.employee,default_analytic_account_id:0
 #: field:hr.expense.expense,default_analytic_account_id:0
 msgid "Default Analytic Account"
-msgstr "Compte analytique par défaut"
+msgstr "Privzeti analitični konto"
 
 #. module: hr_expense_analytic_default
 #: model:ir.model,name:hr_expense_analytic_default.model_hr_employee
 msgid "Employee"
-msgstr "Employé"
+msgstr "Kader"
 
 #. module: hr_expense_analytic_default
 #: model:ir.model,name:hr_expense_analytic_default.model_hr_expense_expense
 msgid "Expense"
-msgstr "Frais"
+msgstr "Izdatki"
 
 #. module: hr_expense_analytic_default
 #: view:hr.employee:hr_expense_analytic_default.view_employee_form
 msgid "HR Settings"
-msgstr "Paramètres RH"
+msgstr "Kadrovske nastavitve"
 
 #. module: hr_expense_analytic_default
 #: help:hr.employee,default_analytic_account_id:0
 msgid "This field will be copied on the expenses of this employee."
-msgstr "Ce champ sera copié sur les notes de frais de cet employé."
+msgstr "To polje bo kopirano med izdatke tega kadra."
 
 #. module: hr_expense_analytic_default
 #: view:hr.expense.expense:hr_expense_analytic_default.view_expenses_form
