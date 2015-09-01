@@ -4,19 +4,18 @@
 # 
 # Translators:
 # OCA Transbot <transbot@odoo-community.org>, 2017
-# Niki Waibel, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-27 02:55+0000\n"
-"PO-Revision-Date: 2018-03-27 02:55+0000\n"
-"Last-Translator: Niki Waibel, 2017\n"
-"Language-Team: German (https://www.transifex.com/oca/teams/23907/de/)\n"
+"POT-Creation-Date: 2017-03-03 03:37+0000\n"
+"PO-Revision-Date: 2017-03-03 03:37+0000\n"
+"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
+"Language-Team: Finnish (https://www.transifex.com/oca/teams/23907/fi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: de\n"
+"Language: fi\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: hr_experience
@@ -120,7 +119,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_experience.field_hr_curriculum_create_uid
 #: model:ir.model.fields,field_description:hr_experience.field_hr_experience_create_uid
 msgid "Created by"
-msgstr "Erstellt von"
+msgstr "Luonut"
 
 #. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_academic_create_date
@@ -128,7 +127,7 @@ msgstr "Erstellt von"
 #: model:ir.model.fields,field_description:hr_experience.field_hr_curriculum_create_date
 #: model:ir.model.fields,field_description:hr_experience.field_hr_experience_create_date
 msgid "Created on"
-msgstr "Angelegt am"
+msgstr "Luotu"
 
 #. module: hr_experience
 #: model:ir.ui.view,arch_db:hr_experience.view_academic_form
@@ -147,7 +146,7 @@ msgstr ""
 #: model:ir.ui.view,arch_db:hr_experience.view_employee_form_inherit
 #: model:ir.ui.view,arch_db:hr_experience.view_professional_form
 msgid "Description"
-msgstr "Beschreibung"
+msgstr ""
 
 #. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_academic_diploma
@@ -160,7 +159,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_experience.field_hr_curriculum_display_name
 #: model:ir.model.fields,field_description:hr_experience.field_hr_experience_display_name
 msgid "Display Name"
-msgstr "Anzeigename"
+msgstr ""
 
 #. module: hr_experience
 #: model:ir.ui.view,arch_db:hr_experience.view_academic_tree
@@ -174,7 +173,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_experience.field_hr_curriculum_employee_id
 #: model:ir.model.fields,field_description:hr_experience.field_hr_experience_employee_id
 msgid "Employee"
-msgstr "Angestellter"
+msgstr "Työntekijä"
 
 #. module: hr_experience
 #: model:ir.model,name:hr_experience.model_hr_curriculum
@@ -253,7 +252,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_experience.field_hr_curriculum___last_update
 #: model:ir.model.fields,field_description:hr_experience.field_hr_experience___last_update
 msgid "Last Modified on"
-msgstr "Zuletzt geändert am"
+msgstr ""
 
 #. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_academic_write_uid
@@ -261,7 +260,7 @@ msgstr "Zuletzt geändert am"
 #: model:ir.model.fields,field_description:hr_experience.field_hr_curriculum_write_uid
 #: model:ir.model.fields,field_description:hr_experience.field_hr_experience_write_uid
 msgid "Last Updated by"
-msgstr "Zuletzt aktualisiert durch"
+msgstr "Viimeksi päivittänyt"
 
 #. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_academic_write_date
@@ -269,7 +268,7 @@ msgstr "Zuletzt aktualisiert durch"
 #: model:ir.model.fields,field_description:hr_experience.field_hr_curriculum_write_date
 #: model:ir.model.fields,field_description:hr_experience.field_hr_experience_write_date
 msgid "Last Updated on"
-msgstr "Zuletzt aktualisiert am"
+msgstr "Viimeksi päivitetty"
 
 #. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_academic_location
@@ -289,7 +288,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_experience.field_hr_curriculum_name
 #: model:ir.model.fields,field_description:hr_experience.field_hr_experience_name
 msgid "Name"
-msgstr "Name"
+msgstr "Nimi"
 
 #. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_academic_partner_id
