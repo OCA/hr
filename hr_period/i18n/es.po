@@ -1,0 +1,474 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+# * hr_period
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: hr (7.0)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-07-27 23:36+0000\n"
+"PO-Revision-Date: 2015-07-27 23:40+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: Spanish (http://www.transifex.com/oca/OCA-hr-7-0/language/es/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: es\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: hr_period
+#: selection:hr.fiscalyear,payment_week:0
+msgid "Second Following Week"
+msgstr ""
+
+#. module: hr_period
+#: code:addons/hr_period/models/hr_fiscal_year.py:66
+#, python-format
+msgid "Fourth"
+msgstr ""
+
+#. module: hr_period
+#: view:hr.fiscalyear:0
+msgid "Confirm"
+msgstr ""
+
+#. module: hr_period
+#: code:addons/hr_period/models/hr_fiscal_year.py:54
+#, python-format
+msgid "Weekly (52)"
+msgstr ""
+
+#. module: hr_period
+#: selection:hr.fiscalyear,payment_weekday:0
+msgid "Sunday"
+msgstr ""
+
+#. module: hr_period
+#: constraint:hr.payslip:0
+msgid ""
+"The company on the selected period must be the same as the company on the "
+"payslip."
+msgstr ""
+
+#. module: hr_period
+#: code:addons/hr_period/models/hr_fiscal_year.py:52
+#, python-format
+msgid "Semi-monthly (24)"
+msgstr ""
+
+#. module: hr_period
+#: field:hr.payslip,date_payment:0 field:hr.payslip.run,date_payment:0
+#: field:hr.period,date_payment:0
+msgid "Date of Payment"
+msgstr ""
+
+#. module: hr_period
+#: field:hr.fiscalyear,payment_day:0 field:hr.fiscalyear,payment_weekday:0
+msgid "Day of Payment"
+msgstr ""
+
+#. module: hr_period
+#: code:addons/hr_period/models/hr_fiscal_year.py:278
+#, python-format
+msgid "You must create periods before confirming the the fiscal year."
+msgstr ""
+
+#. module: hr_period
+#: view:hr.fiscalyear:0 view:hr.payslip.run:0
+msgid "Group By..."
+msgstr ""
+
+#. module: hr_period
+#: view:hr.period:0
+msgid "Search Period"
+msgstr ""
+
+#. module: hr_period
+#: selection:hr.fiscalyear,payment_weekday:0
+msgid "Thursday"
+msgstr ""
+
+#. module: hr_period
+#: selection:hr.fiscalyear,state:0 selection:hr.period,state:0
+msgid "Draft"
+msgstr ""
+
+#. module: hr_period
+#: view:hr.fiscalyear:0 selection:hr.fiscalyear,state:0
+#: selection:hr.period,state:0
+msgid "Closed"
+msgstr ""
+
+#. module: hr_period
+#: field:hr.payslip,hr_period_id:0 field:hr.payslip.run,hr_period_id:0
+#: view:hr.period:0
+msgid "Period"
+msgstr ""
+
+#. module: hr_period
+#: field:hr.fiscalyear,payment_week:0
+msgid "Week of Payment"
+msgstr ""
+
+#. module: hr_period
+#: view:hr.payslip.employees:0
+msgid ""
+"[\n"
+"                        ('company_id', '=', company_id)\n"
+"                    ]"
+msgstr ""
+
+#. module: hr_period
+#: code:addons/hr_period/models/hr_fiscal_year.py:55
+#, python-format
+msgid "Daily (365)"
+msgstr ""
+
+#. module: hr_period
+#: view:hr.fiscalyear:0
+msgid "Fiscalyear"
+msgstr ""
+
+#. module: hr_period
+#: view:hr.fiscalyear:0 field:hr.fiscalyear,state:0 field:hr.period,state:0
+msgid "Status"
+msgstr ""
+
+#. module: hr_period
+#: help:hr.fiscalyear,date_stop:0
+msgid "The last day of the last period of the fiscal year."
+msgstr ""
+
+#. module: hr_period
+#: view:hr.period:0 field:hr.period,payslip_ids:0
+msgid "Payslips"
+msgstr ""
+
+#. module: hr_period
+#: code:addons/hr_period/models/hr_fiscal_year.py:65
+#, python-format
+msgid "Third"
+msgstr ""
+
+#. module: hr_period
+#: code:addons/hr_period/models/hr_fiscal_year.py:47
+#, python-format
+msgid "Annually (1)"
+msgstr ""
+
+#. module: hr_period
+#: code:addons/hr_period/models/hr_fiscal_year.py:277
+#: code:addons/hr_period/models/hr_period.py:101
+#, python-format
+msgid "Warning"
+msgstr ""
+
+#. module: hr_period
+#: field:hr.fiscalyear,company_id:0 field:hr.payslip.employees,company_id:0
+#: view:hr.payslip.run:0 field:hr.payslip.run,company_id:0
+#: field:hr.period,company_id:0
+msgid "Company"
+msgstr ""
+
+#. module: hr_period
+#: selection:hr.fiscalyear,payment_weekday:0
+msgid "Friday"
+msgstr ""
+
+#. module: hr_period
+#: code:addons/hr_period/models/hr_fiscal_year.py:61
+#, python-format
+msgid "%s day of the current period"
+msgstr ""
+
+#. module: hr_period
+#: constraint:hr.payslip.run:0
+msgid ""
+"The schedule on the selected period must be the same as the schedule on the "
+"payslip batch."
+msgstr ""
+
+#. module: hr_period
+#: view:hr.period:0
+msgid "Payroll Period"
+msgstr ""
+
+#. module: hr_period
+#: code:addons/hr_period/models/hr_fiscal_year.py:49
+#, python-format
+msgid "Quarterly (4)"
+msgstr ""
+
+#. module: hr_period
+#: model:ir.model,name:hr_period.model_hr_payslip_run
+msgid "Payslip Batches"
+msgstr ""
+
+#. module: hr_period
+#: model:ir.model,name:hr_period.model_hr_fiscalyear
+msgid "HR Fiscal Year"
+msgstr ""
+
+#. module: hr_period
+#: view:hr.payslip:0 view:hr.payslip.run:0
+msgid "Payment Date"
+msgstr ""
+
+#. module: hr_period
+#: field:hr.period,number:0
+msgid "Number"
+msgstr ""
+
+#. module: hr_period
+#: field:hr.period,date_stop:0
+msgid "End of Period"
+msgstr ""
+
+#. module: hr_period
+#: field:hr.fiscalyear,date_start:0
+msgid "Start Date"
+msgstr ""
+
+#. module: hr_period
+#: field:hr.period,date_start:0
+msgid "Start of Period"
+msgstr ""
+
+#. module: hr_period
+#: code:addons/hr_period/models/hr_fiscal_year.py:60
+#, python-format
+msgid "%s day of the next period"
+msgstr ""
+
+#. module: hr_period
+#: model:ir.model,name:hr_period.model_hr_payslip
+msgid "Pay Slip"
+msgstr ""
+
+#. module: hr_period
+#: constraint:hr.payslip.run:0
+msgid ""
+"The company on the selected period must be the same as the company on the "
+"payslip batch."
+msgstr ""
+
+#. module: hr_period
+#: model:ir.actions.act_window,name:hr_period.action_hr_fiscalyear
+#: model:ir.ui.menu,name:hr_period.menu_action_hr_fiscalyear
+msgid "Payroll Fiscal Years"
+msgstr ""
+
+#. module: hr_period
+#: code:addons/hr_period/models/hr_fiscal_year.py:53
+#, python-format
+msgid "Bi-weekly (26)"
+msgstr ""
+
+#. module: hr_period
+#: field:hr.fiscalyear,date_stop:0
+msgid "End Date"
+msgstr ""
+
+#. module: hr_period
+#: code:addons/hr_period/models/hr_fiscal_year.py:68
+#, python-format
+msgid "Last"
+msgstr ""
+
+#. module: hr_period
+#: model:ir.model,name:hr_period.model_hr_period
+msgid "HR Payroll Period"
+msgstr ""
+
+#. module: hr_period
+#: view:hr.period:0
+#: model:ir.actions.act_window,name:hr_period.action_hr_period
+#: model:ir.ui.menu,name:hr_period.menu_action_hr_period
+msgid "Payroll Periods"
+msgstr ""
+
+#. module: hr_period
+#: view:hr.fiscalyear:0
+msgid "Search Fiscalyear"
+msgstr ""
+
+#. module: hr_period
+#: view:hr.payslip.employees:0
+msgid "Employees"
+msgstr "Empleados"
+
+#. module: hr_period
+#: view:hr.period:0
+msgid "Close Period"
+msgstr ""
+
+#. module: hr_period
+#: field:hr.fiscalyear,schedule_pay:0
+#: field:hr.payslip.employees,schedule_pay:0 view:hr.payslip.run:0
+#: field:hr.payslip.run,schedule_pay:0 field:hr.period,schedule_pay:0
+msgid "Scheduled Pay"
+msgstr ""
+
+#. module: hr_period
+#: code:addons/hr_period/models/hr_fiscal_year.py:48
+#, python-format
+msgid "Semi-annually (2)"
+msgstr ""
+
+#. module: hr_period
+#: model:ir.model,name:hr_period.model_hr_contract
+msgid "Contract"
+msgstr ""
+
+#. module: hr_period
+#: selection:hr.fiscalyear,payment_weekday:0
+msgid "Wednesday"
+msgstr ""
+
+#. module: hr_period
+#: view:hr.period:0
+msgid "Open Period"
+msgstr ""
+
+#. module: hr_period
+#: view:hr.fiscalyear:0 field:hr.fiscalyear,name:0
+#: field:hr.period,fiscalyear_id:0
+msgid "Fiscal Year"
+msgstr ""
+
+#. module: hr_period
+#: code:addons/hr_period/models/hr_payslip_run.py:174 view:hr.payslip.run:0
+#, python-format
+msgid "Generate Payslips"
+msgstr ""
+
+#. module: hr_period
+#: view:hr.fiscalyear:0
+msgid "Set To Draft"
+msgstr ""
+
+#. module: hr_period
+#: code:addons/hr_period/models/hr_fiscal_year.py:51
+#, python-format
+msgid "Monthly (12)"
+msgstr ""
+
+#. module: hr_period
+#: view:hr.fiscalyear:0
+msgid "Create Periods"
+msgstr ""
+
+#. module: hr_period
+#: view:hr.payslip:0
+msgid "onchange_company_id(company_id, contract_id)"
+msgstr ""
+
+#. module: hr_period
+#: code:addons/hr_period/models/hr_period.py:102
+#, python-format
+msgid "You can not set to draft a period that already has payslips computed"
+msgstr ""
+
+#. module: hr_period
+#: selection:hr.fiscalyear,payment_week:0
+msgid "Following Week"
+msgstr ""
+
+#. module: hr_period
+#: code:addons/hr_period/models/hr_fiscal_year.py:63
+#, python-format
+msgid "First"
+msgstr ""
+
+#. module: hr_period
+#: view:hr.period:0
+msgid "Re-Open Period"
+msgstr ""
+
+#. module: hr_period
+#: help:hr.fiscalyear,date_start:0
+msgid "The first day of the first period of the fiscal year."
+msgstr ""
+
+#. module: hr_period
+#: selection:hr.fiscalyear,payment_weekday:0
+msgid "Monday"
+msgstr ""
+
+#. module: hr_period
+#: code:addons/hr_period/models/hr_payslip.py:95
+#: code:addons/hr_period/models/hr_payslip.py:131
+#, python-format
+msgid "Salary Slip of %s for %s"
+msgstr ""
+
+#. module: hr_period
+#: selection:hr.fiscalyear,payment_weekday:0
+msgid "Tuesday"
+msgstr ""
+
+#. module: hr_period
+#: selection:hr.fiscalyear,payment_week:0
+msgid "Same Week"
+msgstr ""
+
+#. module: hr_period
+#: code:addons/hr_period/models/hr_fiscal_year.py:240
+#, python-format
+msgid "%s Period #%s"
+msgstr ""
+
+#. module: hr_period
+#: code:addons/hr_period/models/hr_fiscal_year.py:64
+#, python-format
+msgid "Second"
+msgstr ""
+
+#. module: hr_period
+#: view:hr.period:0
+msgid "To Close"
+msgstr ""
+
+#. module: hr_period
+#: model:ir.model,name:hr_period.model_hr_payslip_employees
+msgid "Generate payslips for all selected employees"
+msgstr ""
+
+#. module: hr_period
+#: field:hr.fiscalyear,period_ids:0
+msgid "Periods"
+msgstr ""
+
+#. module: hr_period
+#: code:addons/hr_period/models/hr_fiscal_year.py:50
+#, python-format
+msgid "Bi-monthly (6)"
+msgstr ""
+
+#. module: hr_period
+#: view:hr.period:0
+msgid "Duration"
+msgstr ""
+
+#. module: hr_period
+#: field:hr.period,name:0
+msgid "Name"
+msgstr "Nombre"
+
+#. module: hr_period
+#: view:hr.fiscalyear:0 selection:hr.fiscalyear,state:0
+#: selection:hr.period,state:0
+msgid "Open"
+msgstr ""
+
+#. module: hr_period
+#: selection:hr.fiscalyear,payment_weekday:0
+msgid "Saturday"
+msgstr ""
+
+#. module: hr_period
+#: code:addons/hr_period/models/hr_fiscal_year.py:67
+#, python-format
+msgid "Fifth"
+msgstr ""

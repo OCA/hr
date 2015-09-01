@@ -1,32 +1,31 @@
 # Translation of OpenERP Server.
 # This file contains the translation of the following modules:
-#	* hr_contract_multi_jobs
-#
-# Rudolf Schnapka <schnapkar@golive-saar.de>, 2015.
+# * hr_contract_multi_jobs
+# 
+# Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: OpenERP Server 7.0\n"
+"Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-12 16:11+0000\n"
-"PO-Revision-Date: 2015-01-01 17:51+0100\n"
-"Last-Translator: Rudolf Schnapka <schnapkar@golive-saar.de>\n"
-"Language-Team: German <kde-i18n-de@kde.org>\n"
+"POT-Creation-Date: 2015-07-27 23:36+0000\n"
+"PO-Revision-Date: 2015-07-27 23:36+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: German (http://www.transifex.com/oca/OCA-hr-7-0/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: \n"
 "Language: de\n"
-"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: hr_contract_multi_jobs
 #: view:hr.contract:0
 msgid "Job Positions"
-msgstr "Arbeitsplatzpositionen"
+msgstr ""
 
 #. module: hr_contract_multi_jobs
 #: field:hr.contract,contract_job_ids:0
 msgid "Jobs"
-msgstr "Arbeitsplätze"
+msgstr ""
 
 #. module: hr_contract_multi_jobs
 #: model:ir.model,name:hr_contract_multi_jobs.model_hr_contract_job
@@ -36,12 +35,7 @@ msgstr "Verknüpfungsobjekt zwischen Vertrag und Arbeitsplatz"
 #. module: hr_contract_multi_jobs
 #: field:hr.job,contract_job_ids:0
 msgid "Contract Jobs"
-msgstr "Arbeitsverträge"
-
-#. module: hr_contract_multi_jobs
-#: field:hr.contract.job,name:0
-msgid "Job"
-msgstr "Arbeitsplatz"
+msgstr "Arbeitsvertrag"
 
 #. module: hr_contract_multi_jobs
 #: field:hr.contract.job,contract_id:0
@@ -55,7 +49,7 @@ msgid "Job Description"
 msgstr "Arbeitsplatzbeschreibung"
 
 #. module: hr_contract_multi_jobs
-#: field:hr.contract.job,job_id:0
+#: field:hr.contract.job,job_id:0 field:hr.contract.job,name:0
 msgid "Job"
 msgstr "Arbeitsplatz"
 
@@ -63,11 +57,8 @@ msgstr "Arbeitsplatz"
 #: constraint:hr.contract:0
 msgid "You must assign one and only one job position as main job position."
 msgstr ""
-"Sie müssen genau eine Arbeitsplatzposition als Hauptarbeitsplatzposition "
-"festlegen."
 
 #. module: hr_contract_multi_jobs
 #: field:hr.contract.job,is_main_job:0
 msgid "Main Job Position"
-msgstr "Hauptarbeitsplatzposition"
-
+msgstr ""
