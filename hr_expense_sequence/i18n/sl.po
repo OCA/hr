@@ -1,0 +1,35 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * hr_expense_sequence
+# 
+# Translators:
+# Matjaž Mozetič <m.mozetic@matmoz.si>, 2015
+msgid ""
+msgstr ""
+"Project-Id-Version: hr (8.0)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-08-18 13:10+0000\n"
+"PO-Revision-Date: 2015-08-01 16:13+0000\n"
+"Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>\n"
+"Language-Team: Slovenian (http://www.transifex.com/oca/OCA-hr-8-0/language/sl/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: sl\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
+
+#. module: hr_expense_sequence
+#: view:hr.expense.expense:hr_expense_sequence.view_expenses_form_sequence
+#: model:ir.model,name:hr_expense_sequence.model_hr_expense_expense
+msgid "Expense"
+msgstr "Izdatki"
+
+#. module: hr_expense_sequence
+#: field:hr.expense.expense,number:0
+msgid "Number"
+msgstr "Številka"
+
+#. module: hr_expense_sequence
+#: view:hr.expense.expense:hr_expense_sequence.view_hr_expense_filter_sequence
+msgid "['|', ('name', 'ilike', self), ('number', 'ilike', self)]"
+msgstr "['|', ('name', 'ilike', self), ('number', 'ilike', self)]"
