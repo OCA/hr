@@ -22,6 +22,9 @@
 
 from openerp import models, fields, api, SUPERUSER_ID
 
+UPDATE_PARTNER_FIELDS = set(['firstname', 'lastname', 'user_id',
+                             'address_home_id'])
+
 
 class HrEmployee(models.Model):
     _inherit = 'hr.employee'
@@ -95,5 +98,6 @@ class HrEmployee(models.Model):
         elif vals.get('name'):
             vals['lastname'], vals['firstname'] = self.split_name(vals['name'])
         res = super(HrEmployee, self).write(vals)
-        self._update_partner_firstname(self)
+        if set(vals).intersection(UPDATE_PARTNER_FIELDS):
+            self._update_partner_firstname(self)
         return res
