@@ -14,8 +14,7 @@
         <record id="act_new" model="workflow.activity">
             <field name="wkf_id" ref="wkf_employee"/>
             <field name="name">new</field>
-            <field name="kind">function</field>
-            <field name="action">write({'status': 'new'})</field>
+            <field name="kind">dummy</field>
             <field name="flow_start">True</field>
         </record>
         

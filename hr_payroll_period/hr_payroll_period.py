@@ -560,10 +560,35 @@ class hr_contract(orm.Model):
 
     def _get_pay_sched(self, cr, uid, context=None):
 
-        res = False
         init = self.get_latest_initial_values(cr, uid, context=context)
         if init is not None and init.pay_sched_id:
             res = init.pay_sched_id.id
+        else:
+            # this is mainly for installation with existing contracts in the
+            # database
+            model_data = self.pool['ir.model.data']
+            try:
+                model, res = model_data.get_object_reference(
+                    cr,
+                    uid,
+                    'hr_payroll_period',
+                    'default_payroll_period_schedule')
+            except ValueError:
+                # the data file has not yet been imported
+                # we create the default record manually
+                sched_tmpl = self.pool['hr.payroll.period.schedule']
+                res = sched_tmpl.create(cr, uid,
+                                        {'name': 'Payroll Period Schedule',
+                                         'type': 'manual',
+                                         'tz': 'UTC'},
+                                        context=context)
+                model_data.create(cr, uid,
+                                  {'module': 'hr_payroll_period',
+                                   'model': 'hr.payroll.period.schedule',
+                                   'name': 'default_payrolle_period_schedule',
+                                   'res_id': res,
+                                   'noupdate': True},
+                                  context=context)
         return res
 
     _defaults = {
@@ -864,6 +889,21 @@ class hr_holidays_status(orm.Model):
 
     _name = 'hr.holidays.status'
     _inherit = 'hr.holidays.status'
+
+    def _auto_init(self, cr, context=None):
+        """pre-create and fill column code so that the constraint
+        setting will not fail"""
+        self._field_create(cr, context=context)
+        column_data = self._select_column_data(cr)
+        if 'code' not in column_data:
+            field = self._columns['code']
+            cr.execute('ALTER TABLE "%s" ADD COLUMN "code" %s' %
+                       (self._table,
+                        orm.pg_varchar(field.size)))
+            cr.execute('UPDATE hr_holidays_status '
+                       'SET code = substring(name from 1 for 16) '
+                       'WHERE code IS NULL')
+        return super(hr_holidays_status, self)._auto_init(cr, context=context)
 
     _columns = {
         'code': fields.char('Code', size=16, required=True),

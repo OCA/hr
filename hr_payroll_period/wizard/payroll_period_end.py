@@ -372,8 +372,8 @@ class payroll_period_end_1(orm.TransientModel):
             data = self.pool.get('hr.payroll.period').read(
                 cr, uid, period_id, ['state', 'register_id'], context=context)
             flag |= (
-                data.get('state') in ['generate', 'payment', 'closed']
-                and data.get('register_id', False)
+                data.get('state') in ['generate', 'payment', 'closed'] and
+                data.get('register_id', False)
             )
 
         return flag
@@ -602,7 +602,7 @@ class payroll_period_end_1(orm.TransientModel):
                     ('pay_period_id', '=', period_id),
                     ('state', 'in', ['validate']),
                 ], context=context
-            )
+        )
         return psa_ids
 
     def _get_draft_amendments(self, cr, uid, context=None):
@@ -975,14 +975,14 @@ class payroll_period_end_1(orm.TransientModel):
                 '|',
                 ('department_id.id', '=', dept.id),
                 ('employee_id.department_id.id', '=', dept.id)
-                ], context=context)
+            ], context=context)
             c2_ids = contract_obj.search(
                 cr, uid, [
                     ('id', 'in', contract_ids),
                     '|',
                     ('job_id.department_id.id', '=', dept.id),
                     ('end_job_id.department_id.id', '=', dept.id),
-                    ], context=context)
+                ], context=context)
             for i in c2_ids:
                 if i not in c_ids:
                     c_ids.append(i)
@@ -1034,8 +1034,8 @@ class payroll_period_end_1(orm.TransientModel):
                         dContractEnd = datetime.strptime(
                             contract.date_end, OEDATE_FORMAT).date()
                     if (
-                        dContractStart > loclDTEnd.date()
-                        or dContractEnd < loclDTStart.date()
+                        dContractStart > loclDTEnd.date() or
+                        dContractEnd < loclDTStart.date()
                     ):
                         continue
                     elif contract.id in contracts_dict[ee.id]:
@@ -1055,8 +1055,8 @@ class payroll_period_end_1(orm.TransientModel):
                 ).date():
                     temp_date_start = dContractStart.strftime(OEDATE_FORMAT)
                 if (
-                    found_contract.date_end
-                    and dContractEnd < datetime.strptime(
+                    found_contract.date_end and
+                    dContractEnd < datetime.strptime(
                         date_end, OEDATE_FORMAT).date()
                 ):
                     temp_date_end = dContractEnd.strftime(OEDATE_FORMAT)
@@ -1093,7 +1093,7 @@ class payroll_period_end_1(orm.TransientModel):
                         for x
                         in slip_data['value'].get(
                             'worked_days_line_ids', False)
-                        ],
+                    ],
                     'date_from': date_start,
                     'date_to': date_end
                 }

@@ -52,7 +52,7 @@ class hr_contract(orm.Model):
             cr, uid, employee_id, ['category_ids'], context=context
         )
         job = self.pool.get('hr.job').browse(cr, uid, job_id, context=context)
-        _l.warning('remv: eedata: %s', eedata)
+        _l.debug('remv: eedata: %s', eedata)
         for tag in job.category_ids:
             if tag.id in eedata['category_ids']:
                 ee_obj.write(
@@ -71,11 +71,11 @@ class hr_contract(orm.Model):
             cr, uid, employee_id, ['category_ids'], context=context
         )
         job = self.pool.get('hr.job').browse(cr, uid, job_id, context=context)
-        _l.warning('tag: eedata: %s', eedata)
+        _l.debug('tag: eedata: %s', eedata)
         for tag in job.category_ids:
-            _l.warning('tag: name,id: %s,%s', tag.name, tag.id)
+            _l.debug('tag: name,id: %s,%s', tag.name, tag.id)
             if tag.id not in eedata['category_ids']:
-                _l.warning('tag: write()')
+                _l.debug('tag: write()')
                 ee_obj.write(
                     cr, uid, employee_id, {
                         'category_ids': [(4, tag.id)],
@@ -97,7 +97,7 @@ class hr_contract(orm.Model):
             ids = [ids]
 
         prev_data = self.read(cr, uid, ids, ['job_id'], context=context)
-        _l.warning('prev_data: %s', prev_data)
+        _l.debug('prev_data: %s', prev_data)
 
         res = super(hr_contract, self).write(
             cr, uid, ids, vals, context=context)
@@ -107,13 +107,15 @@ class hr_contract(orm.Model):
         #
         for contract in self.browse(cr, uid, ids, context=context):
             for data in prev_data:
-                if (data['id'] == contract.id and not vals.get('job_id', False)
-                        or data['job_id'][0] != vals['job_id']):
+                if(data.get('id') == contract.id and
+                   not vals.get('job_id', False) or
+                   (data.get('job_id') and
+                        data['job_id'][0] != vals.get('job_id'))):
                     if data.get('job_id'):
                         prev_job_id = data['job_id'][0]
                     else:
                         prev_job_id = False
-                    _l.warning(
+                    _l.debug(
                         'prev Job, new job: %s, %s',
                         prev_job_id, vals.get('job_id', False)
                     )

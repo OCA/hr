@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+  <data>
+
+    <!-- Report View -->
+    <record id="view_payslip_analysis_line_tree" model="ir.ui.view">
+        <field name="name">hr.payslip.analysis.line.tree</field>
+        <field name="model">hr.payslip.analysis.line</field>
+        <field name="arch" type="xml">
+            <tree string="Payroll Analysis Lines">
+                <field name="company_id"/>
+                <field name="employee_id"/>
+                <field name="salary_rule_id"/>
+                <field name="date"/>
+                <field name="amount"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Report filter -->
+    <record id="payroll_analysis_analytic_filter" model="ir.ui.view">
+      <field name="name">hr.payslip.analysis.line.filter</field>
+      <field name="model">hr.payslip.analysis.line</field>
+      <field name="arch" type="xml">
+        <search string="Search Payslip Lines">
+          <field name="employee_id"/>
+          <field name="company_id"/>
+          <field name="salary_rule_id"/>
+          <group string="Group By..." expand="0">
+            <filter name="group_company_id"
+              string="Company"
+              context="{'group_by':'company_id'}"/>
+            <filter name="group_employee_id"
+              string="Employee"
+              context="{'group_by':'employee_id'}"/>
+            <filter name="group_salary_rule_id"
+              string="Salary Rule"
+              context="{'group_by':'salary_rule_id'}"/>
+            <filter name="group_salary_rule_id"
+              string="Date"
+              context="{'group_by':'date'}"/>
+          </group>
+        </search>
+      </field>
+    </record>
+
+    <!-- Wizard view -->
+    <record id="payroll_analysis_config_form" model="ir.ui.view">
+      <field name="name">hr.payroll.analysis.form</field>
+      <field name="model">hr.payroll.analysis</field>
+      <field name="arch" type="xml">
+        <form string="Model" version="7.0">
+          <group string="Payroll Analysis">
+            <field name="type"/>
+            <field name="company_ids"
+              attrs="{'invisible': [('type', '!=', 'company')]}"
+            />
+            <field name="employee_ids"
+              attrs="{'invisible': [('type', '!=', 'employee')]}"
+            />
+            <field name="salary_rule_ids"
+              domain="[('include_in_payroll_analysis', '=', True)]"
+            />
+            <field name="period" on_change="onchange_period(period)"/>
+            <field name="start_date"/>
+            <field name="end_date"/>
+          </group>
+          <footer>
+            <button name="payroll_analysis_open_window" string="Generate the Report" type="object" class="oe_highlight"/>
+            or
+            <button string="Cancel" class="oe_link" special="cancel"/>
+          </footer>
+        </form>
+      </field>
+    </record>
+
+    <!-- Wizard action -->
+    <record id="action_payroll_analysis_config" model="ir.actions.act_window">
+      <field name="name">Payroll Analysis</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">hr.payroll.analysis</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">tree,form</field>
+      <field name="view_id" ref="payroll_analysis_config_form"/>
+      <field name="target">new</field>
+    </record>
+
+    <!-- Action placement -->
+    <menuitem action="action_payroll_analysis_config"
+      id="menu_action_payroll_analysis"
+      parent="hr.menu_hr_reporting" />
+
+  </data>
+</openerp>

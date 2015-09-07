@@ -11,7 +11,6 @@
         <field name="name">hr.employee.skill.form</field>
         <field name="model">hr.employee</field>
         <field name="inherit_id" ref="hr.view_employee_form"/>
-        <field name="type">form</field>
         <field name="arch" type="xml">
             <notebook position="inside">
                 <page string="Skills">
@@ -30,7 +29,6 @@
     <record model="ir.ui.view" id="view_skill_form">
         <field name="name">hr.skill.form</field>
         <field name="model">hr.skill</field>
-        <field name="type">form</field>
         <field name="arch" type="xml">
             <form string="Skill">
                 <field name="name" select="1" colspan="1"/>
@@ -56,7 +54,6 @@
     <record model="ir.ui.view" id="view_hr_skill_tree">
         <field name="name">hr.skill.tree</field>
         <field name="model">hr.skill</field>
-        <field name="type">tree</field>
         <field name="field_parent">child_ids</field>
         <field name="arch" type="xml">
             <tree string="Skills">

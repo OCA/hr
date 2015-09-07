@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="view_leave_accrual_form" model="ir.ui.view">
+            <field name="name">hr.leave.accrual.form</field>
+            <field name="model">hr.leave.accrual</field>
+            <field name="arch" type="xml">
+                <form string="Leave Accrual">
+                    <field name="leave_type_id"/>
+                    <field name="total_hours" readonly="1"/>
+                    <field name="total_cash" readonly="1"/>
+                    <label for="line_ids" string="Leave Accrual Lines" colspan="4"/>
+                    <field name="line_ids" nolabel="1" colspan="4">
+                        <tree editable="top">
+                            <field name="source" readonly="1"/>
+                            <field name="payslip_id" invisible="1"/>
+                            <field name="payslip_line_id" readonly="1"/>
+                            <field name="state" readonly="1"/>
+                            <field name="amount_type"
+                                attrs="{'readonly': [('source', '!=', 'manual')]}"/>
+                            <field name="amount"
+                                attrs="{'readonly': [('source', '!=', 'manual')]}"/>
+                            <field name="date"
+                                attrs="{
+                                'readonly': [('source', '!=', 'manual')],
+                                'required': [('source', '=', 'manual')]
+                            }"/>
+                            <field name="description" attrs="{
+                                'readonly': [('source', '!=', 'manual')],
+                                'required': [('source', '=', 'manual')]
+                            }"/>
+                        </tree>
+                    </field>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_leave_accrual_tree" model="ir.ui.view">
+            <field name="name">hr.leave.accrual.tree</field>
+            <field name="model">hr.leave.accrual</field>
+            <field name="arch" type="xml">
+                <tree string="Leave Accrual">
+                    <field name="employee_id"/>
+                    <field name="leave_type_id"/>
+                    <field name="total_hours" readonly="1"/>
+                    <field name="total_cash" readonly="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_hr_leave_accrual_filter" model="ir.ui.view">
+            <field name="name">hr.leave.accrual.select</field>
+            <field name="model">hr.leave.accrual</field>
+            <field name="arch" type="xml">
+                <search string="Search Leave Accrual">
+                    <field name="employee_id"/>
+                    <field name="leave_type_id"/>
+                    <group string="Group By...">
+                        <filter name="group_employee_id"
+                          string="Employee"
+                          context="{'group_by':'employee_id'}"/>
+                        <filter name="group_leave_type_id"
+                          string="Leave Type"
+                          context="{'group_by':'leave_type_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_view_leave_accrual_tree" model="ir.actions.act_window">
+            <field name="name">Leave Accruals</field>
+            <field name="res_model">hr.leave.accrual</field>
+            <field name="view_type">form</field>
+            <field name="view_id" ref="view_leave_accrual_tree"/>
+            <field name="search_view_id" ref="view_hr_leave_accrual_filter"/>
+        </record>
+
+        <menuitem action="action_view_leave_accrual_tree" id="leave_accrual_menu_item" parent="hr_holidays.menu_open_ask_holidays" groups="base.group_user" sequence="50"/>
+
+    </data>
+</openerp>

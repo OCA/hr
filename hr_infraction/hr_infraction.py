@@ -257,8 +257,9 @@ class hr_warning(orm.Model):
 
     def unlink(self, cr, uid, ids, context=None):
         for warning in self.browse(cr, uid, ids, context=context):
-            if (warning.action_id
-                    and warning.action_id.infraction_id.state != 'draft'):
+            if (
+                    warning.action_id and
+                    warning.action_id.infraction_id.state != 'draft'):
                 raise orm.except_orm(
                     _('Error'),
                     _('Warnings attached to Infractions not in "Draft" state '
