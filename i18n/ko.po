@@ -3,22 +3,19 @@
 # * hr_evaluation
 # 
 # Translators:
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2014
-# hoxhe aits <hoxhe0@gmail.com>, 2015
-# Mustafa Rawi <mustafa@cubexco.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo 8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-01-21 14:07+0000\n"
-"PO-Revision-Date: 2015-09-08 13:16+0000\n"
-"Last-Translator: Mustafa Rawi <mustafa@cubexco.com>\n"
-"Language-Team: Arabic (http://www.transifex.com/odoo/odoo-8/language/ar/)\n"
+"PO-Revision-Date: 2015-08-18 08:38+0000\n"
+"Last-Translator: choijaeho <hwangtog@gmail.com>\n"
+"Language-Team: Korean (http://www.transifex.com/odoo/odoo-8/language/ko/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: ar\n"
-"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"Language: ko\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #. module: hr_evaluation
 #: code:addons/hr_evaluation/hr_evaluation.py:84
@@ -39,32 +36,32 @@ msgid ""
 "%(user_signature)s\n"
 "\n"
 "        "
-msgstr "\nالتاريخ: %(date)s\n\nعزيزي %(employee_name)s,\n\nأقوم حالياً بإجراء تقييم بشأن %(eval_name)s.\n\nأرجو منكم تسجيل استجابتكم عليه.\n\n\nشكراً,\n--\n%(user_signature)s\n\n        "
+msgstr "\n날짜 : %(date)s\n\n%(employee_name)s님 안녕하십니까?\n\n%(eval_name)s님에 대한 평가를 진행 중입니다.\n\n귀하의 친절한 답변 부탁드리겠습니다.\n\n\n감사합니다.\n--\n%(user_signature)s\n\n        "
 
 #. module: hr_evaluation
 #: field:hr.evaluation.report,nbr:0
 msgid "# of Requests"
-msgstr "# بشأن الطلبات"
+msgstr "요청 수"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.plan.phase:hr_evaluation.view_hr_evaluation_plan_phase_form
 msgid "(date)s: Current Date"
-msgstr "(date)s: التاريخ الجاري"
+msgstr "(date)s : 현재 날짜"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.plan.phase:hr_evaluation.view_hr_evaluation_plan_phase_form
 msgid "(employee_name)s: Partner name"
-msgstr "(employee_name)s: اسم الشريك"
+msgstr "(employee_name)s : 파트너 이름"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.plan.phase:hr_evaluation.view_hr_evaluation_plan_phase_form
 msgid "(eval_name)s:Appraisal Name"
-msgstr "(eval_name)s:اسم التقييم"
+msgstr "(eval_name)s : 직무평가 명"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.plan.phase:hr_evaluation.view_hr_evaluation_plan_phase_form
 msgid "(user_signature)s: User name"
-msgstr "(توقيعات_المستخدمين): اسم المستخدم"
+msgstr "(user_signature)s : 사용자명"
 
 #. module: hr_evaluation
 #: model:survey.page,description:hr_evaluation.opinion_1
@@ -135,7 +132,7 @@ msgid ""
 "                colleagues periodically.\n"
 "              </p>\n"
 "            "
-msgstr ""
+msgstr "<p class=\"oe_view_nocontent_create\">\n                개인 평가에 관한 새 면담 요청을 작성합니다.\n              </p><p>\n                면담 요청은 일반적으로 임직원 직무평가 계획에 따라 \n                      Odoo에서 자동으로 작성합니다.\n                각 사용자는 주기적으로 자신의 동료를 평가하기 위해 \n                자동 이메일과 회신 요청을 받습니다.\n              </p>\n            "
 
 #. module: hr_evaluation
 #: model:ir.actions.act_window,help:hr_evaluation.action_evaluation_plans_installer
@@ -159,7 +156,7 @@ msgstr ""
 #: model:survey.survey,thank_you_message:hr_evaluation.appraisal_form
 #: model:survey.survey,thank_you_message:hr_evaluation.opinion_form
 msgid "<p> </p>"
-msgstr ""
+msgstr "<p> </p>"
 
 #. module: hr_evaluation
 #: model:survey.page,description:hr_evaluation.appraisal_5
@@ -188,37 +185,37 @@ msgstr ""
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.arow_3_1_1
 msgid "Ability to cope with multidisciplinarity of team"
-msgstr ""
+msgstr "팀의 여러 전문 분야에 걸친 대처 능력"
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.arow_3_1_6
 msgid "Ability to follow and complete work as instructed"
-msgstr ""
+msgstr "지시에 따른 완벽한 작업과 수행 능력"
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.arow_3_2_5
 msgid "Ability to manage planning resources, risks, budgets and deadlines"
-msgstr ""
+msgstr "자원 계획, 위험, 예산과 기한을 관리 할 수 있는 능력"
 
 #. module: hr_evaluation
 #: field:hr_evaluation.plan.phase,action:0
 msgid "Action"
-msgstr "إجراء"
+msgstr "동작"
 
 #. module: hr_evaluation
 #: field:hr_evaluation.evaluation,note_action:0
 msgid "Action Plan"
-msgstr "خطة الاجراء"
+msgstr "동작 계획"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:hr_evaluation.view_hr_evaluation_form
 msgid "Action Plan..."
-msgstr "الخطة الإجرائية.."
+msgstr "동작 계획..."
 
 #. module: hr_evaluation
 #: view:hr_evaluation.plan.phase:hr_evaluation.view_hr_evaluation_plan_phase_form
 msgid "Action to Perform"
-msgstr "اجراءات للتنفيذ"
+msgstr "수행할 동작"
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.oprow_2_6_1
@@ -230,47 +227,47 @@ msgstr ""
 #. module: hr_evaluation
 #: field:hr_evaluation.plan,active:0
 msgid "Active"
-msgstr "نشط"
+msgstr "활성"
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.arow_3_1_13
 msgid ""
 "Adaptability: Ability to adapt oneself to organizational changes while "
 "keeping efficiency"
-msgstr ""
+msgstr "적응성 : 조직의 변화에도 효율성을 유지하면서 자신을 적응시키는 능력"
 
 #. module: hr_evaluation
 #: model:survey.question,question:hr_evaluation.appraisal_2_3
 msgid "Additional Comments"
-msgstr "التعليقات الإضافية"
+msgstr "추가 의견"
 
 #. module: hr_evaluation
 #: model:survey.question,question:hr_evaluation.opinion_2_7
 msgid "Additional comments"
-msgstr "تعليقات اضافية"
+msgstr "추가 의견"
 
 #. module: hr_evaluation
 #: field:hr_evaluation.plan.phase,send_answer_employee:0
 #: field:hr_evaluation.plan.phase,send_answer_manager:0
 msgid "All Answers"
-msgstr "كل الاجوبة"
+msgstr "모든 답변"
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.arow_3_1_11
 msgid "Analytical and synthetic mind"
-msgstr "العقل التحليلي والاصطناعي"
+msgstr "분석 및 의견 조합"
 
 #. module: hr_evaluation
 #: field:hr_evaluation.plan.phase,send_anonymous_employee:0
 #: field:hr_evaluation.plan.phase,send_anonymous_manager:0
 msgid "Anonymous Summary"
-msgstr "ملخص مجهول"
+msgstr "익명 요약"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_form
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_tree
 msgid "Answer Survey"
-msgstr "أجب عن الاستفتاء"
+msgstr "설문 조사 답변"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_form
@@ -279,7 +276,7 @@ msgstr "أجب عن الاستفتاء"
 #: model:ir.actions.act_window,name:hr_evaluation.open_view_hr_evaluation_tree
 #: model:ir.ui.menu,name:hr_evaluation.menu_eval_hr
 msgid "Appraisal"
-msgstr "التقييم"
+msgstr "직무평가"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.report:hr_evaluation.view_evaluation_report_graph
@@ -287,45 +284,45 @@ msgstr "التقييم"
 #: model:ir.actions.act_window,name:hr_evaluation.action_evaluation_report_all
 #: model:ir.ui.menu,name:hr_evaluation.menu_evaluation_report_all
 msgid "Appraisal Analysis"
-msgstr "تحليل التقييم"
+msgstr "직무평가 분석"
 
 #. module: hr_evaluation
 #: field:hr_evaluation.evaluation,date:0
 msgid "Appraisal Deadline"
-msgstr "الموعد النهائي للتقييم"
+msgstr "직무평가 마감일"
 
 #. module: hr_evaluation
 #: field:hr.evaluation.interview,survey_id:0
 #: field:hr_evaluation.plan.phase,survey_id:0
 msgid "Appraisal Form"
-msgstr "نموذج تقييمي"
+msgstr "직무평가 양식"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:hr_evaluation.view_hr_evaluation_form
 #: field:hr_evaluation.evaluation,survey_request_ids:0
 msgid "Appraisal Forms"
-msgstr "نماذج التقييم"
+msgstr "직무평가 양식"
 
 #. module: hr_evaluation
 #: model:ir.model,name:hr_evaluation.model_hr_evaluation_interview
 msgid "Appraisal Interview"
-msgstr "تقييم المقابلة"
+msgstr "직무평가 면담"
 
 #. module: hr_evaluation
 #: field:hr.employee,appraisal_count:0
 msgid "Appraisal Interviews"
-msgstr "تقييم المقابلات"
+msgstr "직무평가 면담"
 
 #. module: hr_evaluation
 #: field:hr.evaluation.interview,phase_id:0
 msgid "Appraisal Phase"
-msgstr "مرحلة التقييم "
+msgstr "직무평가 단계"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.plan:hr_evaluation.view_hr_evaluation_plan_form
 #: field:hr_evaluation.plan,phase_ids:0
 msgid "Appraisal Phases"
-msgstr "مراحل التقييم"
+msgstr "직무평가 단계"
 
 #. module: hr_evaluation
 #: field:hr.employee,evaluation_plan_id:0
@@ -336,163 +333,163 @@ msgstr "مراحل التقييم"
 #: field:hr_evaluation.plan,name:0 field:hr_evaluation.plan.phase,plan_id:0
 #: model:ir.model,name:hr_evaluation.model_hr_evaluation_plan
 msgid "Appraisal Plan"
-msgstr "تقييم الخطة"
+msgstr "직무평가 계획"
 
 #. module: hr_evaluation
 #: model:ir.model,name:hr_evaluation.model_hr_evaluation_plan_phase
 msgid "Appraisal Plan Phase"
-msgstr "طور تقييم الخطة"
+msgstr "직무평가 계획 단계"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.plan.phase:hr_evaluation.view_hr_evaluation_plan_phase_form
 #: view:hr_evaluation.plan.phase:hr_evaluation.view_hr_evaluation_plan_phase_tree
 msgid "Appraisal Plan Phases"
-msgstr "أطوار خطة التقييم"
+msgstr "직무평가 계획 단계"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.plan:hr_evaluation.view_hr_evaluation_plan_search
 #: model:ir.actions.act_window,name:hr_evaluation.open_view_hr_evaluation_plan_tree
 #: model:ir.ui.menu,name:hr_evaluation.menu_open_view_hr_evaluation_plan_tree
 msgid "Appraisal Plans"
-msgstr "خطط التقييم"
+msgstr "직무평가 계획"
 
 #. module: hr_evaluation
 #: model:survey.page,title:hr_evaluation.opinion_1
 msgid "Appraisal Process"
-msgstr "عملية التقييم"
+msgstr "직무평가 과정"
 
 #. module: hr_evaluation
 #: model:ir.actions.act_window,name:hr_evaluation.evaluation_reminders
 msgid "Appraisal Reminders"
-msgstr "تقييم التذكير"
+msgstr "직무평가 알림"
 
 #. module: hr_evaluation
 #: field:hr_evaluation.evaluation,note_summary:0
 msgid "Appraisal Summary"
-msgstr "مختصر التقييم"
+msgstr "직무평가 요약"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:hr_evaluation.view_hr_evaluation_form
 msgid "Appraisal Summary..."
-msgstr "موجز التقييم ."
+msgstr "직무평가 요약"
 
 #. module: hr_evaluation
 #: model:survey.question,question:hr_evaluation.appraisal_1_3
 msgid "Appraisal for Period"
-msgstr "التقييم عن فترة"
+msgstr "기간별 직무평가"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:hr_evaluation.evaluation_search
 msgid "Appraisal that are in Plan In Progress state"
-msgstr "تقييم ان الخطة  في حالة متقدمة"
+msgstr "진행 중 상태에 있는 직무평가 계획"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:hr_evaluation.evaluation_search
 msgid "Appraisal that are in waiting appreciation state"
-msgstr "التقييم في انتظار حالة تقييم"
+msgstr "감사 대기 상태에 있는 직무평가"
 
 #. module: hr_evaluation
 #: view:hr.employee:hr_evaluation.hr_hr_employee_view_form
 #: model:ir.ui.menu,name:hr_evaluation.menu_open_view_hr_evaluation_tree
 msgid "Appraisals"
-msgstr "تقييمات"
+msgstr "직무평가"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:hr_evaluation.evaluation_search
 msgid "Appraisals Month"
-msgstr "شهر التقييمات "
+msgstr "월 직무평가"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:hr_evaluation.evaluation_search
 msgid "Appraisals by Month"
-msgstr "التقييمات حسب الشهر"
+msgstr "월별 직무평가"
 
 #. module: hr_evaluation
 #: model:survey.question,question:hr_evaluation.appraisal_1_5
 msgid "Appraiser"
-msgstr "المقيم"
+msgstr "평가자"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.report:hr_evaluation.view_evaluation_report_search
 #: field:hr_evaluation.evaluation,rating:0
 msgid "Appreciation"
-msgstr "التقدير"
+msgstr "감사"
 
 #. module: hr_evaluation
 #: selection:hr_evaluation.plan.phase,action:0
 msgid "Bottom-Up Appraisal Requests"
-msgstr "طلبات التقييم من اسفل-لأعلى"
+msgstr "상향식 직무평가 요청"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:hr_evaluation.view_hr_evaluation_form
 msgid "Cancel Appraisal"
-msgstr "إلغاء تقييم"
+msgstr "직무평가 취소"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_form
 msgid "Cancel Survey"
-msgstr ""
+msgstr "설문 취소"
 
 #. module: hr_evaluation
 #: selection:hr.evaluation.interview,state:0
 #: selection:hr.evaluation.report,state:0
 #: selection:hr_evaluation.evaluation,state:0
 msgid "Cancelled"
-msgstr "ملغي"
+msgstr "취소됨"
 
 #. module: hr_evaluation
 #: help:hr_evaluation.plan.phase,mail_feature:0
 msgid ""
 "Check this box if you want to send mail to employees coming under this phase"
-msgstr "تفحص هذه الخانة اذا كنت تريد ارسال بريد الي الموظفين المندرجين تحت هذه القائمة"
+msgstr "이 단계 이전 직원에게 메일을 보내면 이 확인란을 선택합니다"
 
 #. module: hr_evaluation
 #: help:hr_evaluation.plan.phase,wait:0
 msgid ""
 "Check this box if you want to wait that all preceding phases are finished "
 "before launching this phase."
-msgstr "راجع هذه الخانة اذا كنت تريد كل المراحل السابقة التي أُنهت قبل بدء هذه المرحلة."
+msgstr "이 단계를 실행하기 전에 이전 단계가 모두 완료되도록 기다려야 하는 경우 이 확인란을 선택합니다."
 
 #. module: hr_evaluation
 #: field:hr.evaluation.report,closed:0
 msgid "Close Date"
-msgstr "تاريخ الإغلاق"
+msgstr "마감일"
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.arow_3_1_9
 msgid ""
 "Communication skills (written & verbally): clearness, concision, exactitude"
-msgstr ""
+msgstr "의사 소통 기술 (구두 및 서면) : 명료, 간결, 정확성"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.plan:hr_evaluation.view_hr_evaluation_plan_search
 #: field:hr_evaluation.plan,company_id:0
 #: field:hr_evaluation.plan.phase,company_id:0
 msgid "Company"
-msgstr "شركة"
+msgstr "업체"
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.oprow_2_6_3
 msgid ""
 "Compared to similar jobs in other companies where I could work, my total "
 "compensation..."
-msgstr ""
+msgstr "내가 일할 수 있는 다른 회사의 비슷한 직급과 전체 보상금액을 비교..."
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.arow_3_1_3
 msgid ""
 "Compliance to internal rules and processes (timesheets completion, etc.)"
-msgstr ""
+msgstr "내부 규칙과 프로세스 준수 (출퇴근부 완성 등)"
 
 #. module: hr_evaluation
 #: model:survey.question,question:hr_evaluation.opinion_2_4
 msgid "Continuous Improvement"
-msgstr ""
+msgstr "지속적인 개선"
 
 #. module: hr_evaluation
 #: field:hr.evaluation.report,create_date:0
 msgid "Create Date"
-msgstr "إنشاء تاريخ"
+msgstr "작성일"
 
 #. module: hr_evaluation
 #: field:hr.evaluation.interview,create_uid:0
@@ -500,7 +497,7 @@ msgstr "إنشاء تاريخ"
 #: field:hr_evaluation.plan,create_uid:0
 #: field:hr_evaluation.plan.phase,create_uid:0
 msgid "Created by"
-msgstr "أُنشئ بواسطة"
+msgstr "작성자"
 
 #. module: hr_evaluation
 #: field:hr.evaluation.interview,create_date:0
@@ -508,79 +505,79 @@ msgstr "أُنشئ بواسطة"
 #: field:hr_evaluation.plan,create_date:0
 #: field:hr_evaluation.plan.phase,create_date:0
 msgid "Created on"
-msgstr "إنشاؤه في"
+msgstr "작성일"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.report:hr_evaluation.view_evaluation_report_search
 msgid "Creation Month"
-msgstr "شهر الانشاء"
+msgstr "작성월"
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.arow_3_1_14
 msgid "Creativity and forward looking aptitude"
-msgstr ""
+msgstr "창의력과 기대 적성"
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.arow_3_1_8
 msgid "Customer commitment"
-msgstr ""
+msgstr "고객과의 약속"
 
 #. module: hr_evaluation
 #: model:survey.question,question:hr_evaluation.opinion_1_2
 msgid "Date"
-msgstr "تاريخ"
+msgstr "날짜"
 
 #. module: hr_evaluation
 #: model:survey.question,question:hr_evaluation.appraisal_1_4
 msgid "Date of review"
-msgstr ""
+msgstr "검토 날짜"
 
 #. module: hr_evaluation
 #: help:hr.evaluation.interview,message_last_post:0
 #: help:hr_evaluation.evaluation,message_last_post:0
 msgid "Date of the last message posted on the record."
-msgstr "تاريخ آخر رسالة نُشرت لهذا البند"
+msgstr "레코드에 게시된 최근 메시지의 날짜."
 
 #. module: hr_evaluation
 #: field:hr.evaluation.interview,deadline:0
 #: field:hr.evaluation.report,deadline:0
 msgid "Deadline"
-msgstr "الموعد النهائي"
+msgstr "마감시한"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_tree
 msgid "Deadline Date"
-msgstr "تاريخ الموعد النهائي"
+msgstr "마감 날짜"
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.arow_3_1_7
 msgid "Decision making"
-msgstr ""
+msgstr "의사 결정"
 
 #. module: hr_evaluation
 #: field:hr.evaluation.report,delay_date:0
 msgid "Delay to Start"
-msgstr "التأخر في البدء"
+msgstr "시작 지연"
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.arow_3_2_2
 msgid "Delegation: Ability to efficiently assign tasks to other people"
-msgstr ""
+msgstr "위임 : 효율적으로 다른 사람들에게 작업을 할당 할 수 있는 능력"
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.oprow_2_2_1
 msgid "Demonstrates genuine concern for me as a person"
-msgstr ""
+msgstr "인간으로서 나에게 진실된 관심을 보여줍니다"
 
 #. module: hr_evaluation
 #: selection:hr.evaluation.report,rating:0
 msgid "Did not meet expectations"
-msgstr "لم تلب التوقعات"
+msgstr "기대에 부응하지 못함"
 
 #. module: hr_evaluation
 #: selection:hr_evaluation.evaluation,rating:0
 msgid "Do not meet expectations"
-msgstr ""
+msgstr "기대에 부응하지 못함"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_form
@@ -591,23 +588,23 @@ msgstr ""
 #: view:hr_evaluation.evaluation:hr_evaluation.view_hr_evaluation_form
 #: selection:hr_evaluation.evaluation,state:0
 msgid "Done"
-msgstr "تم"
+msgstr "완료"
 
 #. module: hr_evaluation
 #: selection:hr.evaluation.interview,state:0
 #: selection:hr.evaluation.report,state:0
 msgid "Draft"
-msgstr "مسودة"
+msgstr "기안"
 
 #. module: hr_evaluation
 #: model:survey.question,question:hr_evaluation.opinion_2_3
 msgid "Effectiveness"
-msgstr ""
+msgstr "유효성"
 
 #. module: hr_evaluation
 #: field:hr_evaluation.plan.phase,mail_body:0
 msgid "Email"
-msgstr "بريد إلكتروني"
+msgstr "이메일"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.report:hr_evaluation.view_evaluation_report_search
@@ -616,118 +613,118 @@ msgstr "بريد إلكتروني"
 #: field:hr_evaluation.evaluation,employee_id:0
 #: model:ir.model,name:hr_evaluation.model_hr_employee
 msgid "Employee"
-msgstr "موظف"
+msgstr "임직원"
 
 #. module: hr_evaluation
 #: model:ir.model,name:hr_evaluation.model_hr_evaluation_evaluation
 msgid "Employee Appraisal"
-msgstr "تقييم الموظف"
+msgstr "임직원 직무평가"
 
 #. module: hr_evaluation
 #: model:survey.page,title:hr_evaluation.appraisal_1
 #: model:survey.survey,title:hr_evaluation.appraisal_form
 msgid "Employee Appraisal Form"
-msgstr ""
+msgstr "임직원 직무평가 양식"
 
 #. module: hr_evaluation
 #: model:survey.page,title:hr_evaluation.appraisal_5
 msgid "Employee Comments"
-msgstr ""
+msgstr "임직원 의견"
 
 #. module: hr_evaluation
 #: model:survey.survey,title:hr_evaluation.opinion_form
 msgid "Employee Opinion Form"
-msgstr ""
+msgstr "임직원 의견 양식"
 
 #. module: hr_evaluation
 #: model:survey.page,title:hr_evaluation.appraisal_3
 msgid "Employee Performance in Key Areas"
-msgstr ""
+msgstr "임직원 성과 주요 분야"
 
 #. module: hr_evaluation
 #: field:hr.evaluation.interview,user_to_review_id:0
 msgid "Employee to evaluate"
-msgstr ""
+msgstr "임직원의 평가"
 
 #. module: hr_evaluation
 #: field:hr_evaluation.evaluation,date_close:0
 msgid "Ending Date"
-msgstr "تاريخ الانتهاء"
+msgstr "종료 날짜"
 
 #. module: hr_evaluation
 #: model:survey.question,question:hr_evaluation.opinion_2_1
 msgid "Engagement"
-msgstr ""
+msgstr "참여"
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.arow_3_1_2
 msgid "Enthusiasm & implication toward projects/assignments"
-msgstr ""
+msgstr "프로젝트/과제를 향한 열정과 의미"
 
 #. module: hr_evaluation
 #: model:survey.page,title:hr_evaluation.opinion_2
 msgid "Evaluation"
-msgstr "تقييم"
+msgstr "평가"
 
 #. module: hr_evaluation
 #: model:ir.model,name:hr_evaluation.model_hr_evaluation_report
 msgid "Evaluations Statistics"
-msgstr "احصائيات التقييمات"
+msgstr "평가 통계"
 
 #. module: hr_evaluation
 #: selection:hr.evaluation.report,rating:0
 #: selection:hr_evaluation.evaluation,rating:0
 msgid "Exceeds expectations"
-msgstr "يتجاوز التوقعات"
+msgstr "기대를 초과함"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.report:hr_evaluation.view_evaluation_report_search
 msgid "Extended Filters..."
-msgstr "مرشحات مفصلة..."
+msgstr "확장 필터..."
 
 #. module: hr_evaluation
 #: selection:hr_evaluation.plan.phase,action:0
 msgid "Final Interview"
-msgstr "المقابلة النهائية"
+msgstr "최종 면담"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.report:hr_evaluation.view_evaluation_report_search
 #: selection:hr.evaluation.report,state:0
 msgid "Final Validation"
-msgstr "الصلاحية النهائية"
+msgstr "마지막 유효성 검사"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.report:hr_evaluation.view_evaluation_report_search
 msgid "Final Validation Evaluations"
-msgstr "نهائي تصديق التقيمات"
+msgstr "최종 유효성 평가"
 
 #. module: hr_evaluation
 #: field:hr_evaluation.plan,month_first:0
 msgid "First Appraisal in (months)"
-msgstr "أول تقييم في (الأشهر)"
+msgstr "첫 번째 직무평가일 (월)"
 
 #. module: hr_evaluation
 #: field:hr.evaluation.interview,message_follower_ids:0
 #: field:hr_evaluation.evaluation,message_follower_ids:0
 msgid "Followers"
-msgstr "المتابعون"
+msgstr "팔로워"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.plan.phase:hr_evaluation.view_hr_evaluation_plan_phase_form
 msgid "General"
-msgstr "عام"
+msgstr "일반"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_search
 #: view:hr.evaluation.report:hr_evaluation.view_evaluation_report_search
 #: view:hr_evaluation.plan:hr_evaluation.view_hr_evaluation_plan_search
 msgid "Group By"
-msgstr "تجميع حسب"
+msgstr "그룹화"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:hr_evaluation.evaluation_search
 msgid "Group by..."
-msgstr "تجميع حسب..."
+msgstr "그룹화..."
 
 #. module: hr_evaluation
 #: help:hr.evaluation.interview,message_summary:0
@@ -735,85 +732,85 @@ msgstr "تجميع حسب..."
 msgid ""
 "Holds the Chatter summary (number of messages, ...). This summary is "
 "directly in html format in order to be inserted in kanban views."
-msgstr "يحمل ملخص المشارك (عدد الرسائل، ...). هذا ملخص مباشرة بتنسيق HTML من أجل إدراجها في عروض كانبان."
+msgstr "대화 요약(메시지 개수, ...)을 포함합니다. 이 요약은 칸반 화면에 바로 삽입할 수 있는 html 형식입니다."
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.oprow_2_1_1
 msgid "I am proud to tell others I work here"
-msgstr ""
+msgstr "여기서 일하는 것이 다른 사람들에게 자랑스럽다"
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.oprow_2_1_5
 msgid ""
 "I am willing to put in a great deal of effort beyond what is expected to "
 "help my workgroup succeed"
-msgstr ""
+msgstr "내 작업 그룹의 성공을 돕기위해 예상되는 것 이상의 노력을 기꺼이 기울일 것입니다"
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.oprow_2_2_4
 msgid "I believe the information that I get from the person I report to."
-msgstr ""
+msgstr "난 내가 보고받는 사람에게서 얻는 정보를 믿습니다."
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.oprow_2_2_2
 msgid ""
 "I consistently acquire new knowledge, skills or understanding through "
 "contact with my supervisor. He helps me growing my compete"
-msgstr ""
+msgstr "나는 지속적으로 내 상사와의 대화를 통해 새로운 지식, 기술 또는 이해를 습득합니다. 그는 내 경쟁력을 성장시키는데 도움을 줍니다."
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.oprow_2_3_2
 msgid "I have enough work"
-msgstr ""
+msgstr "난 충분히 일하고 있습니다"
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.oprow_2_6_2
 msgid ""
 "I have the same opportunity to succeed as others with similar experiences, "
 "performance and educational background"
-msgstr ""
+msgstr "나는 비슷한 경험, 능력, 교육 배경을 가진 다른 이들처럼 성공할 수 있는 동일한 기회를 가집니다."
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.oprow_2_5_1
 msgid "I know the company's values and live them"
-msgstr ""
+msgstr "나는 회사의 가치를 알고 그들과 함께 합니다"
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.oprow_2_3_3
 msgid ""
 "I mostly work on value-added tasks for the company, the products or the "
 "services"
-msgstr ""
+msgstr "나는 주로 회사, 상품, 서비스의 고부가가치 업무를 진행했습니다"
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.oprow_2_6_4
 msgid "I understand the company strategy and how my workgroup supports it"
-msgstr ""
+msgstr "나는 회사의 전략을 이해하고 내 작업 그룹을 지원하는 방법을 압니다"
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.oprow_2_1_3
 msgid ""
 "I would prefer to remain with this company even if a comparable job were "
 "available in another company"
-msgstr ""
+msgstr "나는 다른 회사에 이직이 가능해도 이 회사에 남는 걸 선호합니다"
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.oprow_2_3_1
 msgid "I'm efficient at work and my achievements are successful"
-msgstr ""
+msgstr "나는 직장에서 효율적으로 일하고 내 업적도 성공적입니다"
 
 #. module: hr_evaluation
 #: field:hr.evaluation.interview,id:0 field:hr.evaluation.report,id:0
 #: field:hr_evaluation.evaluation,id:0 field:hr_evaluation.plan,id:0
 #: field:hr_evaluation.plan.phase,id:0
 msgid "ID"
-msgstr "المعرّف"
+msgstr "ID"
 
 #. module: hr_evaluation
 #: help:hr.evaluation.interview,message_unread:0
 #: help:hr_evaluation.evaluation,message_unread:0
 msgid "If checked new messages require your attention."
-msgstr "عند التفعيل، يجب الانتباه الى الرسائل الجديدة"
+msgstr "선택하면 새로운 메시지에 주목할 필요가 있습니다."
 
 #. module: hr_evaluation
 #: model:survey.question,comments_message:hr_evaluation.appraisal_1_1
@@ -840,57 +837,57 @@ msgstr "عند التفعيل، يجب الانتباه الى الرسائل ا
 #: model:survey.question,comments_message:hr_evaluation.opinion_2_6
 #: model:survey.question,comments_message:hr_evaluation.opinion_2_7
 msgid "If other, precise:"
-msgstr ""
+msgstr "다른 경우의 정밀도 :"
 
 #. module: hr_evaluation
 #: help:hr_evaluation.evaluation,note_action:0
 msgid ""
 "If the evaluation does not meet the expectations, you can propose an action "
 "plan"
-msgstr ""
+msgstr "직무평가가 기대에 부응하지 않는 경우 당신은 행동 계획을 제안할 수 있습니다"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.report:hr_evaluation.view_evaluation_report_search
 msgid "In Progress"
-msgstr "قيد التقدم"
+msgstr "진행 중"
 
 #. module: hr_evaluation
 #: selection:hr.evaluation.interview,state:0
 #: view:hr_evaluation.evaluation:hr_evaluation.evaluation_search
 msgid "In progress"
-msgstr "جاري التقدم"
+msgstr "진행 중"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.report:hr_evaluation.view_evaluation_report_search
 msgid "In progress Evaluations"
-msgstr "في مرحلة التقييم"
+msgstr "평가 진행 중"
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.arow_3_1_5
 msgid "Initiative and self autonomy"
-msgstr ""
+msgstr "주도권과 자기 자율성"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:hr_evaluation.view_hr_evaluation_form
 msgid "Internal Notes"
-msgstr "ملاحظات داخلية"
+msgstr "내부 메모"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_form
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_tree
 msgid "Interview Appraisal"
-msgstr "تقييم المعاينة"
+msgstr "직무평가 면담"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:hr_evaluation.view_evaluation_calendar
 msgid "Interview Request"
-msgstr "طلب المقابلة"
+msgstr "면담 요청"
 
 #. module: hr_evaluation
 #: model:ir.actions.act_window,name:hr_evaluation.action_hr_evaluation_interview_tree
 #: model:ir.ui.menu,name:hr_evaluation.menu_open_hr_evaluation_interview_requests
 msgid "Interview Requests"
-msgstr "طلبات المقابلة"
+msgstr "면담 요청"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_form
@@ -898,24 +895,24 @@ msgstr "طلبات المقابلة"
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_tree
 #: field:hr.evaluation.interview,user_id:0
 msgid "Interviewer"
-msgstr "المقابل"
+msgstr "면담자"
 
 #. module: hr_evaluation
 #: model:ir.actions.act_window,name:hr_evaluation.act_hr_employee_2_hr__evaluation_interview
 msgid "Interviews"
-msgstr "مقابلات"
+msgstr "면담"
 
 #. module: hr_evaluation
 #: field:hr.evaluation.interview,message_is_follower:0
 #: field:hr_evaluation.evaluation,message_is_follower:0
 msgid "Is a Follower"
-msgstr "متابع"
+msgstr "팔로워?"
 
 #. module: hr_evaluation
 #: field:hr.evaluation.interview,message_last_post:0
 #: field:hr_evaluation.evaluation,message_last_post:0
 msgid "Last Message Date"
-msgstr "تاريخ آخر رسالة"
+msgstr "최근 메시지 날짜"
 
 #. module: hr_evaluation
 #: field:hr.evaluation.interview,write_uid:0
@@ -923,7 +920,7 @@ msgstr "تاريخ آخر رسالة"
 #: field:hr_evaluation.plan,write_uid:0
 #: field:hr_evaluation.plan.phase,write_uid:0
 msgid "Last Updated by"
-msgstr "آخر تحديث بواسطة"
+msgstr "최근 갱신한 사람"
 
 #. module: hr_evaluation
 #: field:hr.evaluation.interview,write_date:0
@@ -931,29 +928,29 @@ msgstr "آخر تحديث بواسطة"
 #: field:hr_evaluation.plan,write_date:0
 #: field:hr_evaluation.plan.phase,write_date:0
 msgid "Last Updated on"
-msgstr "آخر تحديث فى"
+msgstr "최근 갱신 날짜"
 
 #. module: hr_evaluation
 #: model:survey.question,question:hr_evaluation.opinion_2_2
 msgid "Leadership"
-msgstr ""
+msgstr "지도력"
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.arow_3_2_3
 msgid ""
 "Leadership: create a challenging and motivating work environment aligned "
 "with the company's strategy"
-msgstr ""
+msgstr "리더십 : 회사 전략과 일치하는 도전과  동기를 부여하는 작업 환경 조성"
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.arow_3_2_4
 msgid "Leadership: sustain subordinates in their professional growth"
-msgstr ""
+msgstr "리더십 : 전문적인 성장 분야에 부하 직원 유지"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.plan.phase:hr_evaluation.view_hr_evaluation_plan_phase_form
 msgid "Legend"
-msgstr "الدليل"
+msgstr "범례"
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.oprow_2_2_3
@@ -965,40 +962,40 @@ msgstr ""
 #. module: hr_evaluation
 #: view:hr_evaluation.plan.phase:hr_evaluation.view_hr_evaluation_plan_phase_form
 msgid "Mail Body"
-msgstr "هيئة البريد"
+msgstr "이메일 내용"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.plan.phase:hr_evaluation.view_hr_evaluation_plan_phase_form
 msgid "Mail Settings"
-msgstr "ضوابط البريد"
+msgstr "메일 설정"
 
 #. module: hr_evaluation
 #: selection:hr.evaluation.report,rating:0
 #: selection:hr_evaluation.evaluation,rating:0
 msgid "Meet expectations"
-msgstr "قابل التوقعات"
+msgstr "기대를 충족함"
 
 #. module: hr_evaluation
 #: field:hr.evaluation.interview,message_ids:0
 #: field:hr_evaluation.evaluation,message_ids:0
 msgid "Messages"
-msgstr "رسائل"
+msgstr "메시지"
 
 #. module: hr_evaluation
 #: help:hr.evaluation.interview,message_ids:0
 #: help:hr_evaluation.evaluation,message_ids:0
 msgid "Messages and communication history"
-msgstr "الرسائل و سجل التواصل"
+msgstr "메시지 및 대화이력"
 
 #. module: hr_evaluation
 #: model:survey.question,question:hr_evaluation.opinion_2_6
 msgid "Miscellaneous"
-msgstr "متفرقات"
+msgstr "기타"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.report:hr_evaluation.view_evaluation_report_search
 msgid "Month"
-msgstr "شهر"
+msgstr "월"
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.oprow_2_5_2
@@ -1022,32 +1019,32 @@ msgstr ""
 #. module: hr_evaluation
 #: model:survey.question,question:hr_evaluation.appraisal_1_1
 msgid "Name"
-msgstr "الاسم"
+msgstr "명칭"
 
 #. module: hr_evaluation
 #: model:survey.question,question:hr_evaluation.opinion_1_1
 msgid "Name of your direct supervisor"
-msgstr ""
+msgstr "직전 상사 이름"
 
 #. module: hr_evaluation
 #: selection:hr_evaluation.evaluation,state:0
 msgid "New"
-msgstr "جديد"
+msgstr "신규"
 
 #. module: hr_evaluation
 #: field:hr.employee,evaluation_date:0
 msgid "Next Appraisal Date"
-msgstr "تاريخ التقييم القادم"
+msgstr "신규 직무평가일"
 
 #. module: hr_evaluation
 #: model:survey.question,question:hr_evaluation.appraisal_2_1
 msgid "Objectives"
-msgstr ""
+msgstr "목표"
 
 #. module: hr_evaluation
 #: model:survey.question,question:hr_evaluation.opinion_2_5
 msgid "Openness"
-msgstr ""
+msgstr "개방 상태"
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.oprow_2_4_4
@@ -1059,7 +1056,7 @@ msgstr ""
 #. module: hr_evaluation
 #: field:hr.evaluation.report,rating:0
 msgid "Overall Rating"
-msgstr "التقييم العام"
+msgstr "전체 평가"
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.oprow_2_4_3
@@ -1071,32 +1068,32 @@ msgstr ""
 #. module: hr_evaluation
 #: field:hr.evaluation.report,overpass_delay:0
 msgid "Overpassed Deadline"
-msgstr "تخطي الموعد النهائي"
+msgstr "과거 만기일"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:hr_evaluation.evaluation_search
 msgid "Pending"
-msgstr "معلّق"
+msgstr "보류 중"
 
 #. module: hr_evaluation
 #: model:ir.ui.menu,name:hr_evaluation.menu_eval_hr_config
 msgid "Periodic Appraisal"
-msgstr "التقييم الدوري"
+msgstr "정기 직무평가"
 
 #. module: hr_evaluation
 #: field:hr_evaluation.plan,month_next:0
 msgid "Periodicity of Appraisal (months)"
-msgstr "التقييم دورياً (الشهور)"
+msgstr "직무평가 주기 (월)"
 
 #. module: hr_evaluation
 #: model:survey.question,question:hr_evaluation.appraisal_4_2
 msgid "Personal Performance Objectives"
-msgstr ""
+msgstr "개인 성과 목표"
 
 #. module: hr_evaluation
 #: field:hr_evaluation.plan.phase,name:0
 msgid "Phase"
-msgstr "طور"
+msgstr "단계"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.report:hr_evaluation.view_evaluation_report_search
@@ -1104,171 +1101,171 @@ msgstr "طور"
 #: view:hr_evaluation.evaluation:hr_evaluation.evaluation_search
 #: field:hr_evaluation.evaluation,plan_id:0
 msgid "Plan"
-msgstr "خطّة"
+msgstr "계획"
 
 #. module: hr_evaluation
 #: selection:hr.evaluation.report,state:0
 #: selection:hr_evaluation.evaluation,state:0
 msgid "Plan In Progress"
-msgstr "خطة في التقدم"
+msgstr "진행 중인 계획"
 
 #. module: hr_evaluation
 #: model:survey.question,question:hr_evaluation.appraisal_1_2
 msgid "Position Title"
-msgstr ""
+msgstr "영역 제목"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_form
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_tree
 msgid "Print Survey"
-msgstr "طباعة الإستفتاء"
+msgstr "설문조사 인쇄"
 
 #. module: hr_evaluation
 #: model:survey.question,question:hr_evaluation.appraisal_4_1
 msgid "Professional Development Objectives"
-msgstr ""
+msgstr "전문 개발 목표"
 
 #. module: hr_evaluation
 #: model:survey.page,title:hr_evaluation.appraisal_4
 msgid "Professional Development and Performance Plan"
-msgstr ""
+msgstr "전문 개발 및 성능 계획"
 
 #. module: hr_evaluation
 #: model:survey.question,question:hr_evaluation.appraisal_4_3
 msgid "Project Objectives"
-msgstr "أهداف المشروع"
+msgstr "프로젝트 목표"
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.arow_3_1_12
 msgid "Promptness and attendance record"
-msgstr ""
+msgstr "신속성 및 출석 기록"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:hr_evaluation.view_hr_evaluation_form
 msgid "Public Notes"
-msgstr "ملاحظات عامة"
+msgstr "공개 노트"
 
 #. module: hr_evaluation
 #: code:addons/hr_evaluation/hr_evaluation.py:83
 #, python-format
 msgid "Regarding "
-msgstr "متعلق "
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr.evaluation.report,request_id:0
 msgid "Request ID"
-msgstr "معرف الطلب"
+msgstr "요청 ID"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:hr_evaluation.view_hr_evaluation_form
 msgid "Reset to Draft"
-msgstr "أعادته للمسودة"
+msgstr "기안으로 재설정"
 
 #. module: hr_evaluation
 #: model:survey.question,question:hr_evaluation.appraisal_2_2
 msgid "Results"
-msgstr ""
+msgstr "결과"
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.arow_3_2_1
 msgid ""
 "Results of the bottom-up survey and mitigation actions to face technical, "
 "organizational, structural and/or relational issues"
-msgstr ""
+msgstr "상향식 설문조사 결과 및 직면한 기술적, 조직적, 구조적으로 관련된 문제에 대한 개선 대책"
 
 #. module: hr_evaluation
 #: model:ir.actions.act_window,name:hr_evaluation.action_evaluation_plans_installer
 msgid "Review Appraisal Plans"
-msgstr "خطط استعراض تقييم"
+msgstr ""
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_search
 #: view:hr_evaluation.evaluation:hr_evaluation.evaluation_search
 msgid "Search Appraisal"
-msgstr "البحث عن تقييم"
+msgstr "직무평가 검색"
 
 #. module: hr_evaluation
 #: selection:hr_evaluation.plan.phase,action:0
 msgid "Self Appraisal Requests"
-msgstr "طلبات التقييم الذاتية"
+msgstr "직접 직무평가 요청"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_form
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_tree
 msgid "Send Reminder Email"
-msgstr "ارسل بريد تذكير"
+msgstr "알림 이메일 보내기"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_form
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_tree
 msgid "Send Request"
-msgstr "أرسل طلب"
+msgstr "요청 보내기"
 
 #. module: hr_evaluation
 #: help:hr_evaluation.plan.phase,send_answer_employee:0
 msgid "Send all answers to the employee"
-msgstr "ارسل جميع الاجوبة للموظفين"
+msgstr "직원에게 답변서 보내기"
 
 #. module: hr_evaluation
 #: help:hr_evaluation.plan.phase,send_answer_manager:0
 msgid "Send all answers to the manager"
-msgstr "ارسل جميع الاجوبة الى المدير"
+msgstr "부서장에게 모든 답변서 보내기"
 
 #. module: hr_evaluation
 #: help:hr_evaluation.plan.phase,send_anonymous_employee:0
 msgid "Send an anonymous summary to the employee"
-msgstr "ارسل ملخص مجهول الى الموظف"
+msgstr ""
 
 #. module: hr_evaluation
 #: help:hr_evaluation.plan.phase,send_anonymous_manager:0
 msgid "Send an anonymous summary to the manager"
-msgstr "ارسل ملخص مجهول للمدير"
+msgstr ""
 
 #. module: hr_evaluation
 #: field:hr_evaluation.plan.phase,mail_feature:0
 msgid "Send mail for this phase"
-msgstr "ارسل بريد لهذه المرحلة"
+msgstr "이 단계에 대한 메일 보내기"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.plan.phase:hr_evaluation.view_hr_evaluation_plan_phase_form
 msgid "Send to Employees"
-msgstr "ارسل الى الموظفين"
+msgstr "직원에게 보내기"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.plan.phase:hr_evaluation.view_hr_evaluation_plan_phase_form
 msgid "Send to Managers"
-msgstr "ارسل للمديرين"
+msgstr "부서장에게 보내기"
 
 #. module: hr_evaluation
 #: field:hr_evaluation.plan.phase,sequence:0
 msgid "Sequence"
-msgstr "مسلسل"
+msgstr "순서"
 
 #. module: hr_evaluation
 #: selection:hr.evaluation.report,rating:0
 msgid "Significantly bellow expectations"
-msgstr "توقعات منخفضة بشكل ملحوظ"
+msgstr "크게 기대 이하"
 
 #. module: hr_evaluation
 #: selection:hr_evaluation.evaluation,rating:0
 msgid "Significantly below expectations"
-msgstr "أقل بكثير من التوقعات"
+msgstr "크게 기대 이하"
 
 #. module: hr_evaluation
 #: selection:hr.evaluation.report,rating:0
 #: selection:hr_evaluation.evaluation,rating:0
 msgid "Significantly exceeds expectations"
-msgstr "يتجاوز التوقعات بشكل كبير"
+msgstr "크게 기대 초과"
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:hr_evaluation.view_hr_evaluation_form
 msgid "Start Appraisal"
-msgstr "بدء التقييم"
+msgstr "직무평가 시작"
 
 #. module: hr_evaluation
 #: field:hr.evaluation.interview,state:0
 msgid "State"
-msgstr "الحالة"
+msgstr "주"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_search
@@ -1277,34 +1274,34 @@ msgstr "الحالة"
 #: view:hr_evaluation.evaluation:hr_evaluation.evaluation_search
 #: field:hr_evaluation.evaluation,state:0
 msgid "Status"
-msgstr "الحالة"
+msgstr "상태"
 
 #. module: hr_evaluation
 #: field:hr_evaluation.plan.phase,email_subject:0
 #: model:survey.question,question:hr_evaluation.appraisal_3_1
 msgid "Subject"
-msgstr "الموضوع"
+msgstr "제목"
 
 #. module: hr_evaluation
 #: field:hr.evaluation.interview,message_summary:0
 #: field:hr_evaluation.evaluation,message_summary:0
 msgid "Summary"
-msgstr "ملخّص"
+msgstr "요약"
 
 #. module: hr_evaluation
 #: model:survey.question,question:hr_evaluation.appraisal_3_2
 msgid "Supervisors only"
-msgstr "المشرفين فقط"
+msgstr "부서장만"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_search
 msgid "Survey"
-msgstr "إستفتاء"
+msgstr "설문"
 
 #. module: hr_evaluation
 #: field:hr.evaluation.interview,request_id:0
 msgid "Survey Request"
-msgstr "طلب استطلاع"
+msgstr "설문 조사 요청"
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.oprow_2_1_4
@@ -1317,12 +1314,12 @@ msgstr ""
 msgid ""
 "Team spirit: ability to work efficiently with peers, manage the conflicts "
 "with diplomacy"
-msgstr ""
+msgstr "팀 정신 : 타인과의 관계 및 갈등을 관리하여 동료들과 업무를 효율적으로 처리하는 능력"
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.arow_3_1_10
 msgid "Technical skills regarding to the job requirements"
-msgstr ""
+msgstr "작업 요구 사항에 대한 기술 능력"
 
 #. module: hr_evaluation
 #: model:survey.question,validation_error_msg:hr_evaluation.appraisal_1_1
@@ -1349,21 +1346,21 @@ msgstr ""
 #: model:survey.question,validation_error_msg:hr_evaluation.opinion_2_6
 #: model:survey.question,validation_error_msg:hr_evaluation.opinion_2_7
 msgid "The answer you entered has an invalid format."
-msgstr ""
+msgstr "입력한 답변 형식이 잘못되었습니다."
 
 #. module: hr_evaluation
 #: help:hr.employee,evaluation_date:0
 msgid ""
 "The date of the next appraisal is computed by the appraisal plan's dates "
 "(first appraisal + periodicity)."
-msgstr "تاريخ التقييم التالي يحسب بتاريخ خطة التقييم (أول تقييم + دورياً)"
+msgstr ""
 
 #. module: hr_evaluation
 #: help:hr_evaluation.plan,month_next:0
 msgid ""
 "The number of month that depicts the delay between each evaluation of this "
 "plan (after the first one)."
-msgstr "يبين عدد الشهر التأخير بين كل تقييم لتلك الخطة (قبل الخطة او بعدها)"
+msgstr ""
 
 #. module: hr_evaluation
 #: help:hr_evaluation.evaluation,rating:0
@@ -1375,7 +1372,7 @@ msgstr ""
 msgid ""
 "This number of months will be used to schedule the first evaluation date of "
 "the employee when selecting an evaluation plan. "
-msgstr "عدد الشهور هذا سيتم استخدامه لتحديد موعد أول تقييم للموظف عند اختيار خطة تقييم "
+msgstr ""
 
 #. module: hr_evaluation
 #: model:survey.question,constr_error_msg:hr_evaluation.appraisal_1_1
@@ -1402,69 +1399,69 @@ msgstr "عدد الشهور هذا سيتم استخدامه لتحديد موع
 #: model:survey.question,constr_error_msg:hr_evaluation.opinion_2_6
 #: model:survey.question,constr_error_msg:hr_evaluation.opinion_2_7
 msgid "This question requires an answer."
-msgstr ""
+msgstr "이 질문에 답변을 해야 합니다."
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.arow_3_1_15
 msgid "Time management: projects/tasks are completed on time"
-msgstr ""
+msgstr "시간 관리 : 시간 내에 프로젝트/업무 완료"
 
 #. module: hr_evaluation
 #: view:hr.evaluation.interview:hr_evaluation.view_hr_evaluation_interview_search
 msgid "To Do"
-msgstr "في انتظار التنفيذ"
+msgstr "할 일"
 
 #. module: hr_evaluation
 #: selection:hr_evaluation.plan.phase,action:0
 msgid "Top-Down Appraisal Requests"
-msgstr "طلبات التقييم من أعلى لأسفل"
+msgstr "하향식 직무평가 요청"
 
 #. module: hr_evaluation
 #: field:hr.evaluation.interview,message_unread:0
 #: field:hr_evaluation.evaluation,message_unread:0
 msgid "Unread Messages"
-msgstr "رسائل غير مقروءة"
+msgstr "읽지않은 메시지"
 
 #. module: hr_evaluation
 #: model:survey.question,question:hr_evaluation.appraisal_5_1
 msgid ""
 "Use the following space to make any comments regarding the above performance"
 " evaluation."
-msgstr ""
+msgstr "위의 능력 평가에 대한 의견을 아래 공간에 적어주십시오."
 
 #. module: hr_evaluation
 #: view:hr_evaluation.evaluation:hr_evaluation.view_hr_evaluation_form
 msgid "Validate Appraisal"
-msgstr "التحقق من صحة التقييم"
+msgstr "직무평가 검증"
 
 #. module: hr_evaluation
 #: field:hr_evaluation.plan.phase,wait:0
 msgid "Wait Previous Phases"
-msgstr "انتظر المراحل السابقة"
+msgstr "이전 단계 대기"
 
 #. module: hr_evaluation
 #: selection:hr_evaluation.evaluation,state:0
 msgid "Waiting Appreciation"
-msgstr "انتظار التقدير"
+msgstr "감사 대기중"
 
 #. module: hr_evaluation
 #: code:addons/hr_evaluation/hr_evaluation.py:239
 #: code:addons/hr_evaluation/hr_evaluation.py:339
 #, python-format
 msgid "Warning!"
-msgstr "تحذير!"
+msgstr "경고!"
 
 #. module: hr_evaluation
 #: field:hr.evaluation.interview,website_message_ids:0
 #: field:hr_evaluation.evaluation,website_message_ids:0
 msgid "Website Messages"
-msgstr "رسائل الموقع الإلكتروني"
+msgstr "웹 사이트 메시지"
 
 #. module: hr_evaluation
 #: help:hr.evaluation.interview,website_message_ids:0
 #: help:hr_evaluation.evaluation,website_message_ids:0
 msgid "Website communication history"
-msgstr "سجل اتصال الموقع الإلكتروني"
+msgstr "웹 사이트 대화 이력"
 
 #. module: hr_evaluation
 #: model:survey.label,value:hr_evaluation.oprow_2_4_2
@@ -1476,7 +1473,7 @@ msgstr ""
 #. module: hr_evaluation
 #: model:survey.page,title:hr_evaluation.appraisal_2
 msgid "Work Plan"
-msgstr ""
+msgstr "작업 계획"
 
 #. module: hr_evaluation
 #: code:addons/hr_evaluation/hr_evaluation.py:239
@@ -1484,10 +1481,10 @@ msgstr ""
 msgid ""
 "You cannot change state, because some appraisal forms have not been "
 "completed."
-msgstr ""
+msgstr "일부 직무평가 양식이 완료되어 상태 변경이 불가능합니다."
 
 #. module: hr_evaluation
 #: code:addons/hr_evaluation/hr_evaluation.py:339
 #, python-format
 msgid "You cannot start evaluation without Appraisal."
-msgstr "لا يمكنك بدء التقييم بدون تقييم مسبق"
+msgstr "직무평가 없이는 평가를 시작할 수 없습니다."
