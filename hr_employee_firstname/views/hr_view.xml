@@ -7,17 +7,17 @@
         <field name="inherit_id" ref="hr.view_employee_form"/>
         <field name="arch" type="xml">
             <label for="name" position="replace">
-                <label for="firstname" class="oe_edit_only"/>
+                <label for="lastname" class="oe_edit_only"/>
             </label>
             <field name="name" position="replace">
                 <field name="name" invisible="True" nolabel="1" required="False"/>
-                <field name="firstname"/>
+                <field name="lastname"/>
             </field>
 
             <label for="category_ids" position="before">
-                <label for="lastname" class="oe_edit_only"/>
+                <label for="firstname" class="oe_edit_only"/>
                 <h1>
-                     <field name="lastname"/>
+                     <field name="firstname"/>
                 </h1>
             </label>
       </field>
