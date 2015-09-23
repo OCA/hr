@@ -55,11 +55,5 @@ Extended set of Payroll Rules and Structures
     ],
     'test': [
     ],
-<<<<<<< HEAD:__unported__/hr_payroll_extension/__openerp__.py
-    'demo_xml': [],
-    'active': False,
     'installable': False,
-=======
-    'installable': True,
->>>>>>> 7.0:hr_payroll_extension/__openerp__.py
 }
