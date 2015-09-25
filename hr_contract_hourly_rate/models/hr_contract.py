@@ -26,12 +26,13 @@ class hr_contract(models.Model):
 
     salary_computation_method = fields.Selection(
         [('yearly', 'Annual Wage'),
-         ('monthly', 'Annual Wage'),
+         ('monthly', 'Monthly Wage'),
          ('hourly', 'Hourly Wage')],
         string='Salary Computation Method',
         help="Whether to use the annual wage or an hourly rate "
              "for computation of payslip.",
-        required=True, default='monthly')
+        required=True,
+        default='yearly')
 
     @api.multi
     def get_job_hourly_rate(self, date_from, date_to,
