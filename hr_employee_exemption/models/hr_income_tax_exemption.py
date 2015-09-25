@@ -19,7 +19,8 @@
 #
 ##############################################################################
 
-from openerp import api, models, fields
+from openerp import models, fields
+
 
 class HrIncomeTaxExemption(models.Model):
     _name = 'hr.income.tax.exemption'
