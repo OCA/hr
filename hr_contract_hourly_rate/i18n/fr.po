@@ -92,8 +92,14 @@ msgstr "Taux horaire"
 
 #. module: hr_contract_hourly_rate
 #: selection:hr.contract,salary_computation_method:0
+#: field:hr.contract.job,hourly_rate:0
 msgid "Hourly Wage"
-msgstr ""
+msgstr "Taux horaire"
+
+#. module: hr_contract_hourly_rate
+#: model:ir.model,name:hr_contract_hourly_rate.model_hr_hourly_rate
+msgid "Hourly rate"
+msgstr "Taux horaire"
 
 #. module: hr_contract_hourly_rate
 #: model:ir.model,name:hr_contract_hourly_rate.model_hr_hourly_rate
@@ -150,3 +156,8 @@ msgstr "Date de début"
 msgid ""
 "Whether to use the annual wage or an hourly rate for computation of payslip."
 msgstr "La méthode utilisée pour calculer le salaire d'un employé. Soit par taux horaire ou par salaire annuel."
+
+#. module: hr_contract_hourly_rate
+#: selection:hr.contract,salary_computation_method:0
+msgid "Monthly Wage"
+msgstr "Salaire mensuel"
