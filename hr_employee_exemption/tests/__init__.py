@@ -23,6 +23,9 @@ from . import (
     test_hr_employee_exemption,
 )
 
+<<<<<<< HEAD
 checks = [
     test_hr_employee_exemption,
 ]
+=======
+>>>>>>> e471f44... Migration to version 8.0
