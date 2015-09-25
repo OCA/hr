@@ -81,3 +81,8 @@ msgstr "Poste Principal"
 msgid "Relational object between contract and job"
 msgstr "Relation entre un contrat et un poste"
 
+#. module: hr_contract_multi_jobs
+#: code:addons/hr_contract_multi_jobs/models/hr_contract.py:0
+#, python-format
+msgid "You must assign one and only one job position as main job position."
+msgstr "Vous devez indiquer un poste comme étant le poste principal."
