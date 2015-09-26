@@ -84,7 +84,7 @@ class test_hr_employee_exemption(common.TransactionCase):
                 {
                     'name': record[0],
                 }
-            ) for record in [
+            ).id for record in [
                 ('Employee 1', ),
                 ('Employee 2', ),
             ]
@@ -98,7 +98,7 @@ class test_hr_employee_exemption(common.TransactionCase):
                 'employee_id': record[1],
                 'wage': 50000,
                 'struct_id': self.structure_id.id,
-            })
+            }).id
             for record in [
                 ('Contract 1', self.employee_ids[0]),
                 ('Contract 2', self.employee_ids[1]),
