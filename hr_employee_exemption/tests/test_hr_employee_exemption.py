@@ -34,7 +34,7 @@ class test_hr_employee_exemption(common.TransactionCase):
         self.payslip_model = self.env['hr.payslip']
         self.user_model = self.env["res.users"]
 
-        self.context = self.user_model.context_get(self.cr, self.uid)
+        self.context = self.user_model.context_get()
         context = self.context
 
         self.category_id = self.rule_category_model.search(
