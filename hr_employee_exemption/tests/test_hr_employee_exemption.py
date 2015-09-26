@@ -46,7 +46,7 @@ class test_hr_employee_exemption(common.TransactionCase):
 
         self.exemption_2 = self.exemption_model.browse(self.exemption_2_id)
 
-        self.rule_id = self.rule_model.create(
+        self.rule = self.rule_model.create(
             {
                 'name': 'Test 1',
                 'sequence': 1,
@@ -57,9 +57,8 @@ class test_hr_employee_exemption(common.TransactionCase):
                 'exemption_id': self.exemption_id.id,
             }
         )
-        self.rule = self.rule_model.browse(self.rule_id)
 
-        self.rule_2_id = self.rule_model.create(
+        self.rule_2 = self.rule_model.create(
             {
                 'name': 'Test 2',
                 'sequence': 2,
@@ -71,14 +70,12 @@ class test_hr_employee_exemption(common.TransactionCase):
             }
         )
 
-        self.rule_2 = self.rule_model.browse(self.rule_2_id)
-
         self.structure_id = self.structure_model.create(
             {
                 'name': 'TEST',
                 'parent_id': False,
                 'code': 'TEST',
-                'rule_ids': [(6, 0, [self.rule_id, self.rule_2_id])]
+                'rule_ids': [(6, 0, [self.rule.id, self.rule_2.id])]
             }
         )
 
@@ -109,7 +106,7 @@ class test_hr_employee_exemption(common.TransactionCase):
         ]
 
     def compute_payslip(self):
-        self.payslip_id = self.payslip_model.create({
+        self.payslip = self.payslip_model.create({
             'employee_id': self.employee_ids[0],
             'contract_id': self.contract_ids[0],
             'date_from': '2015-01-01',
@@ -117,9 +114,9 @@ class test_hr_employee_exemption(common.TransactionCase):
             'struct_id': self.structure_id.id,
         })
 
-        self.payslip_model.compute_sheet([self.payslip_id])
+        self.payslip_model.compute_sheet([self.payslip.id])
 
-        payslip = self.payslip_model.browse(self.payslip_id)
+        payslip = self.payslip_model.browse(self.payslip.id)
 
         return {
             line.code: line.total
