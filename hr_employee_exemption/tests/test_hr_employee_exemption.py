@@ -51,10 +51,10 @@ class test_hr_employee_exemption(common.TransactionCase):
                 'name': 'Test 1',
                 'sequence': 1,
                 'code': 'TEST_1',
-                'category_id': self.category_id,
+                'category_id': self.category_id.id,
                 'amount_select': 'fix',
                 'amount_fix': 50,
-                'exemption_id': self.exemption_id,
+                'exemption_id': self.exemption_id.id,
             }
         )
         self.rule = self.rule_model.browse(self.rule_id)
@@ -64,10 +64,10 @@ class test_hr_employee_exemption(common.TransactionCase):
                 'name': 'Test 2',
                 'sequence': 2,
                 'code': 'TEST_2',
-                'category_id': self.category_id,
+                'category_id': self.category_id.id,
                 'amount_select': 'fix',
                 'amount_fix': 75,
-                'exemption_id': self.exemption_2_id,
+                'exemption_id': self.exemption_2_id.id,
             }
         )
 
@@ -100,7 +100,7 @@ class test_hr_employee_exemption(common.TransactionCase):
                 'name': record[0],
                 'employee_id': record[1],
                 'wage': 50000,
-                'struct_id': self.structure_id,
+                'struct_id': self.structure_id.id,
             })
             for record in [
                 ('Contract 1', self.employee_ids[0]),
@@ -114,7 +114,7 @@ class test_hr_employee_exemption(common.TransactionCase):
             'contract_id': self.contract_ids[0],
             'date_from': '2015-01-01',
             'date_to': '2015-01-31',
-            'struct_id': self.structure_id,
+            'struct_id': self.structure_id.id,
         })
 
         self.payslip_model.compute_sheet([self.payslip_id])
@@ -134,7 +134,7 @@ class test_hr_employee_exemption(common.TransactionCase):
 
     def test_one_exemption(self):
         self.employee.write({'exemption_ids': [(0, 0, {
-            'exemption_id': self.exemption_id,
+            'exemption_id': self.exemption_id.id,
             'date_from': '2015-01-01',
             'date_to': '2015-12-31',
         })]})
@@ -147,12 +147,12 @@ class test_hr_employee_exemption(common.TransactionCase):
     def test_two_exemption(self):
         self.employee.write({'exemption_ids': [
             (0, 0, {
-                'exemption_id': self.exemption_id,
+                'exemption_id': self.exemption_id.id,
                 'date_from': '2015-01-01',
                 'date_to': '2015-12-31',
             }),
             (0, 0, {
-                'exemption_id': self.exemption_2_id,
+                'exemption_id': self.exemption_2_id.id,
                 'date_from': '2015-01-01',
                 'date_to': '2015-12-31',
             }),
@@ -165,7 +165,7 @@ class test_hr_employee_exemption(common.TransactionCase):
 
     def test_exemption_no_date_to(self):
         self.employee.write({'exemption_ids': [(0, 0, {
-            'exemption_id': self.exemption_id,
+            'exemption_id': self.exemption_id.id,
             'date_from': '2015-01-01',
             'date_to': False,
         })]})
@@ -177,7 +177,7 @@ class test_hr_employee_exemption(common.TransactionCase):
 
     def test_exemption_date_before(self):
         self.employee.write({'exemption_ids': [(0, 0, {
-            'exemption_id': self.exemption_id,
+            'exemption_id': self.exemption_id.id,
             'date_from': '2014-12-01',
             'date_to': '2014-12-31',
         })]})
@@ -189,7 +189,7 @@ class test_hr_employee_exemption(common.TransactionCase):
 
     def test_exemption_date_after(self):
         self.employee.write({'exemption_ids': [(0, 0, {
-            'exemption_id': self.exemption_id,
+            'exemption_id': self.exemption_id.id,
             'date_from': '2015-02-01',
             'date_to': '2015-12-31',
         })]})
