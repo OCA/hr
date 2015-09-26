@@ -114,7 +114,7 @@ class test_hr_employee_exemption(common.TransactionCase):
             'struct_id': self.structure_id.id,
         })
 
-        self.payslip_model.compute_sheet([self.payslip.id])
+        self.payslip_model.compute_sheet([self.payslip.id], context=self.context)
 
         payslip = self.payslip_model.browse(self.payslip.id)
 
