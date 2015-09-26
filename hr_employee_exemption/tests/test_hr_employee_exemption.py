@@ -35,24 +35,16 @@ class test_hr_employee_exemption(common.TransactionCase):
         self.user_model = self.env["res.users"]
 
         self.context = self.user_model.context_get()
-        context = self.context
 
-        self.category_id = self.rule_category_model.search(
-            [], context=context)[0]
+        self.category_id = self.rule_category_model.search([])[0]
 
-        self.exemption_id = self.exemption_model.create({
-            'name': 'Test',
-        }, context=context)
+        self.exemption_id = self.exemption_model.create({'name': 'Test'})
 
-        self.exemption = self.exemption_model.browse(
-            self.exemption_id, context=context)
+        self.exemption = self.exemption_model.browse(self.exemption_id)
 
-        self.exemption_2_id = self.exemption_model.create({
-            'name': 'Test',
-        }, context=context)
+        self.exemption_2_id = self.exemption_model.create({'name': 'Test'})
 
-        self.exemption_2 = self.exemption_model.browse(
-            self.exemption_2_id, context=context)
+        self.exemption_2 = self.exemption_model.browse(self.exemption_2_id)
 
         self.rule_id = self.rule_model.create(
             {
@@ -63,10 +55,9 @@ class test_hr_employee_exemption(common.TransactionCase):
                 'amount_select': 'fix',
                 'amount_fix': 50,
                 'exemption_id': self.exemption_id,
-            }, context=context
+            }
         )
-        self.rule = self.rule_model.browse(
-            self.rule_id, context=context)
+        self.rule = self.rule_model.browse(self.rule_id)
 
         self.rule_2_id = self.rule_model.create(
             {
@@ -77,11 +68,10 @@ class test_hr_employee_exemption(common.TransactionCase):
                 'amount_select': 'fix',
                 'amount_fix': 75,
                 'exemption_id': self.exemption_2_id,
-            }, context=context
+            }
         )
 
-        self.rule_2 = self.rule_model.browse(
-            self.rule_2_id, context=context)
+        self.rule_2 = self.rule_model.browse(self.rule_2_id)
 
         self.structure_id = self.structure_model.create(
             {
@@ -89,22 +79,21 @@ class test_hr_employee_exemption(common.TransactionCase):
                 'parent_id': False,
                 'code': 'TEST',
                 'rule_ids': [(6, 0, [self.rule_id, self.rule_2_id])]
-            }, context=context
+            }
         )
 
         self.employee_ids = [
             self.employee_model.create(
                 {
                     'name': record[0],
-                }, context=context
+                }
             ) for record in [
                 ('Employee 1', ),
                 ('Employee 2', ),
             ]
         ]
 
-        self.employee = self.employee_model.browse(
-            self.employee_ids[0], context=context)
+        self.employee = self.employee_model.browse(self.employee_ids[0])
 
         self.contract_ids = [
             self.contract_model.create({
@@ -112,7 +101,7 @@ class test_hr_employee_exemption(common.TransactionCase):
                 'employee_id': record[1],
                 'wage': 50000,
                 'struct_id': self.structure_id,
-            }, context=self.context)
+            })
             for record in [
                 ('Contract 1', self.employee_ids[0]),
                 ('Contract 2', self.employee_ids[1]),
@@ -120,21 +109,17 @@ class test_hr_employee_exemption(common.TransactionCase):
         ]
 
     def compute_payslip(self):
-        context = self.context
-
         self.payslip_id = self.payslip_model.create({
             'employee_id': self.employee_ids[0],
             'contract_id': self.contract_ids[0],
             'date_from': '2015-01-01',
             'date_to': '2015-01-31',
             'struct_id': self.structure_id,
-        }, context=context)
+        })
 
-        self.payslip_model.compute_sheet(
-            [self.payslip_id], context=context)
+        self.payslip_model.compute_sheet([self.payslip_id])
 
-        payslip = self.payslip_model.browse(
-            self.payslip_id, context=context)
+        payslip = self.payslip_model.browse(self.payslip_id)
 
         return {
             line.code: line.total
