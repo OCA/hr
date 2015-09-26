@@ -41,7 +41,7 @@ class HrSalaryRule(models.Model):
         """ Check whether the employee is exempted for the given rule
         """
 
-        assert len(self) == 1, 'must be called with a single employee'
+        self.ensure_one()
 
         return localdict['employee'].exempted_from(
             self.exemption_id, localdict['payslip'].date_to)

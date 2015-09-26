@@ -41,7 +41,7 @@ class HrEmployee(models.Model):
         :type exemption: hr.income.tax.exemption browse record
         """
 
-        assert len(self) == 1, 'must be called with a single employee'
+        self.ensure_one()
 
         for e in self.exemption_ids:
             if (

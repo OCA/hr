@@ -58,7 +58,7 @@ msgstr "Règles de salaire"
 #. module: hr_employee_exemption
 #: field:hr.employee.exemption,date_to:0
 msgid "Date To"
-msgstr "Date de début"
+msgstr "Date de fin"
 
 #. module: hr_employee_exemption
 #: model:ir.model,name:hr_employee_exemption.model_hr_income_tax_exemption
@@ -68,7 +68,7 @@ msgstr "Exonération d'impôt"
 #. module: hr_employee_exemption
 #: field:hr.employee.exemption,date_from:0
 msgid "Date From"
-msgstr "Date de fin"
+msgstr "Date de début"
 
 #. module: hr_employee_exemption
 #: field:hr.employee.exemption,employee_id:0
