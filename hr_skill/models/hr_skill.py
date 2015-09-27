@@ -38,7 +38,6 @@ class Skill(models.Model):
         'employee_id',
         'Employee(s)')
 
-
     @api.multi
     def name_get(self):
         res = []
