@@ -18,7 +18,7 @@
 #
 ###############################################################################
 
-from openerp import fields, models
+from openerp import fields, models, api
 
 
 class Skill(models.Model):
@@ -37,3 +37,16 @@ class Skill(models.Model):
         'skill_id',
         'employee_id',
         'Employee(s)')
+
+
+    @api.multi
+    def name_get(self):
+        res = []
+        for skill in self:
+            names = []
+            current = skill
+            while current:
+                names.append(current.name)
+                current = current.parent_id
+            res.append((skill.id, ' / '.join(reversed(names))))
+        return res
