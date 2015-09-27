@@ -7,7 +7,7 @@
         <field name="field_parent">child_ids</field>
         <field name="arch" type="xml">
             <tree string="Skills">
-                <field name="display_name"/>
+                <field name="display_name" string="Name"/>
             </tree>
         </field>
     </record>
@@ -22,6 +22,11 @@
                     <field name="active"/>
                     <field name="parent_id"/>
                 </group>
+                <field name="child_ids" string="Name">
+                    <tree editable="bottom"  string="Child Skills">
+                        <field name="name"/>
+                    </tree>
+                </field>
             </form>
         </field>
     </record>
