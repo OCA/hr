@@ -8,6 +8,7 @@
         <field name="arch" type="xml">
             <tree string="Skills">
                 <field name="display_name" string="Name"/>
+                <field name="employee_ids" widget="many2many_tags"/>
             </tree>
         </field>
     </record>
