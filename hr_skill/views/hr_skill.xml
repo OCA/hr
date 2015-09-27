@@ -8,7 +8,6 @@
         <field name="arch" type="xml">
             <tree string="Skills">
                 <field name="name"/>
-                <field name="view"/>
             </tree>
         </field>
     </record>
@@ -22,7 +21,6 @@
                     <field name="name"/>
                     <field name="active"/>
                     <field name="parent_id"/>
-                    <field name="view"/>
                 </group>
             </form>
         </field>
