@@ -30,4 +30,5 @@ class Employee(models.Model):
         'employee_id',
         'skill_id',
         'Skills',
+        domain="[('child_ids', '=', False)]",
     )
