@@ -31,9 +31,6 @@ class Skill(models.Model):
     parent_left = fields.Integer('Parent Left', index=True)
     parent_right = fields.Integer('Parent Right', index=True)
     child_ids = fields.One2many('hr.skill', 'parent_id', 'Children')
-    view = fields.Selection(
-        [('view', 'View'), ('skill', 'Skill')],
-        'Skill', required=True, default='view')
     employee_ids = fields.Many2many(
         'hr.employee',
         'skill_employee_rel',
