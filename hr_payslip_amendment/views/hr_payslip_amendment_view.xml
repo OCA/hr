@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+        <!-- Pay Slip Amendment -->
+        
+        <record id="view_payslip_amendment_tree" model="ir.ui.view">
+            <field name="name">hr.payslip.amendment.tree</field>
+            <field name="model">hr.payslip.amendment</field>
+            <field name="arch" type="xml">
+                <tree string="Pay Slip Amendments" 
+                colors="blue:state=='draft';grey:state=='done'">
+                    <field name="name"/>
+                    <field name="employee_id"/>
+                    <field name="input_id"/>
+                    <field name="date"/>
+                    <field name="amount"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="view_payslip_amendment_form" model="ir.ui.view">
+            <field name="name">hr.payslip.amendment.form</field>
+            <field name="model">hr.payslip.amendment</field>
+            <field name="arch" type="xml">
+                <form string="Pay Slip Amendment">
+                    <header>
+                        <button name="validate" type="workflow" states="draft" 
+                        class="oe_highlight" string="Confirm"/>
+                        <button name="cancel" type="workflow" 
+                        states="draft,validate" class="oe_highlight" 
+                        string="Cancel"/>
+                        <button name="reset" type="workflow" states="cancel" 
+                        class="oe_highlight" string="Set to Draft"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+	                    <group>
+	                        <group>
+	                            <field name="employee_id"/>
+	                            <field name="input_id" widget="selection"/>
+	                            <field name="amount"/>
+	                        </group>
+	                        <group>
+	                            <field name="name"/>
+	                            <field name="date"/>
+	                            <field name="slip_id"/>
+	                        </group>
+	                        <newline/>
+	                        <group string="Note">
+	                            <field name="note" nolabel="1" 
+	                            placeholder="Explain the reason for the amendment..."/>
+	                        </group>
+	                    </group>
+	                </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <record id="view_payslip_amendment_search" model="ir.ui.view">
+            <field name="name">hr.payslip.amendment.search</field>
+            <field name="model">hr.payslip.amendment</field>
+            <field name="arch" type="xml">
+                <search string="Search Amendments">
+                    <field name="name" />
+                    <field name="employee_id" />
+                    <seperator />
+                    <filter string="Open" name="open" domain="[('state','in', ('draft', 'validate'))]" icon="terp-camera_test"/>
+                    <filter string="Closed" domain="[('state','=','done')]" icon="terp-dialog-close"/>
+                    <seperator />
+                    <filter string="This Month" name="month" domain="[('date','&lt;=', time.strftime('%Y-%m-%d')),('date','&gt;=',time.strftime('%Y-%m-01'))]" help="month"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Status" context="{'group_by': 'state'}" icon="terp-stock_effects-object-colorize"/>
+                        <filter string="Employee" context="{'group_by': 'employee_id'}"/>
+                        <filter string="Month" name="group_month" context="{'group_by': 'date:month'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+        
+        <record id="action_payslip_amendment" model="ir.actions.act_window">
+            <field name="name">Payslip Amendments</field>
+            <field name="res_model">hr.payslip.amendment</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'search_default_open': 1, 'search_default_group_month': 1}</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to add a payslip amendment.
+              </p><p>
+                 A payslip amendments are inputs that should affect an employee's
+                 payslip for a particular period
+              </p>
+            </field>
+        </record>
+        <menuitem action="action_payslip_amendment"
+                  id="menu_payslip_amendment"
+                  parent="hr_payroll.menu_hr_root_payroll"
+                  sequence="20"/>
+        
+    </data>
+</openerp>
