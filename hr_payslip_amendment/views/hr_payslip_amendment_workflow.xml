@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+        <!-- Workflow Definition -->
+        <record id="wkf_payslip_amendment_basic" model="workflow">
+            <field name="name">hr.payslip.amendment.basic</field>
+            <field name="osv">hr.payslip.amendment</field>
+            <field name="on_create">True</field>
+        </record>
+        
+        <!-- Workflow Activities (Stages) -->
+        
+        <record id="act_draft" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_payslip_amendment_basic"/>
+            <field name="name">draft</field>
+            <field name="kind">function</field>
+            <field name="action">write({'state': 'draft'})</field>
+            <field name="flow_start">True</field>
+        </record>
+        
+        <record id="act_validate" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_payslip_amendment_basic"/>
+            <field name="name">validate</field>
+            <field name="kind">function</field>
+            <field name="action">write({'state': 'validate'})</field>
+        </record>
+        
+        <record id="act_cancel" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_payslip_amendment_basic"/>
+            <field name="name">cancel</field>
+            <field name="kind">function</field>
+            <field name="action">write({'state': 'cancel'})</field>
+        </record>
+        
+        <record id="act_done" model="workflow.activity">
+            <field name="wkf_id" ref="wkf_payslip_amendment_basic"/>
+            <field name="name">done</field>
+            <field name="kind">function</field>
+            <field name="action">write({'state': 'done'})</field>
+            <field name="flow_stop">True</field>
+        </record>
+        
+        <!-- Workflow Transitions -->
+        
+        <record id="draft2validate" model="workflow.transition">
+            <field name="act_from" ref="act_draft"/>
+            <field name="act_to" ref="act_validate"/>
+            <field name="signal">validate</field>
+            <field name="group_id" ref="base.group_hr_manager"/>
+        </record>
+        
+        <record id="draft2cancel" model="workflow.transition">
+            <field name="act_from" ref="act_draft"/>
+            <field name="act_to" ref="act_cancel"/>
+            <field name="signal">cancel</field>
+        </record>
+        
+        <record id="validate2cancel" model="workflow.transition">
+            <field name="act_from" ref="act_validate"/>
+            <field name="act_to" ref="act_cancel"/>
+            <field name="signal">cancel</field>
+            <field name="group_id" ref="base.group_hr_manager"/>
+        </record>
+        
+        <record id="validate2done" model="workflow.transition">
+            <field name="act_from" ref="act_validate"/>
+            <field name="act_to" ref="act_done"/>
+            <field name="signal">payslip_done</field>
+            <field name="group_id" ref="base.group_hr_manager"/>
+        </record>
+        
+        <record id="cancel2draft" model="workflow.transition">
+            <field name="act_from" ref="act_cancel"/>
+            <field name="act_to" ref="act_draft"/>
+            <field name="signal">reset</field>
+        </record>
+        
+    </data>
+</openerp>
