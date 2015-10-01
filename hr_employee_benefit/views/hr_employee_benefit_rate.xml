@@ -71,6 +71,6 @@
             parent="hr_payroll.payroll_configure"
             sequence="15"
         />
-168
+
     </data>
 </openerp>
