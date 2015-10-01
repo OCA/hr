@@ -19,7 +19,7 @@
 #
 ##############################################################################
 
-from openerp import models, fields, api
+from openerp import api, models, fields
 
 
 PAYS_PER_YEAR = {
