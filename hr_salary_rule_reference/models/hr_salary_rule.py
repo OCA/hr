@@ -25,13 +25,12 @@ from openerp import models, api
 class HrSalaryRule(models.Model):
     _inherit = 'hr.salary.rule'
 
-    @api.model
-    def compute_rule(self, rule_id, localdict):
-        rule = self.browse(rule_id)
+    @api.multi
+    def compute_rule(self, localdict):
+        self.ensure_one()
 
         # Add reference to the rule itself
-        localdict['rule_id'] = rule_id
-        localdict['rule'] = rule
+        localdict['rule'] = self
 
         # The payslip contained in the local dict is an object that is
         # different from an actual payslip. The real payslip is
@@ -42,4 +41,6 @@ class HrSalaryRule(models.Model):
             payslip.refresh()
             localdict['payslip'] = payslip
 
-        return super(HrSalaryRule, self).compute_rule(rule_id, localdict)
+        # Pass the rule_id parameter, because the parent function
+        # has a not standard signature
+        return super(HrSalaryRule, self).compute_rule(self.id, localdict)
