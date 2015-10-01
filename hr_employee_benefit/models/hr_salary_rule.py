@@ -57,16 +57,17 @@ class HrSalaryRule(models.Model):
         employer = kwargs.get('employer', False)
 
         if employer:
-            res = sum([ben.employer_amount for ben in benefits])
+            res = sum(ben.employer_amount for ben in benefits)
         else:
-            res = sum([ben.employee_amount for ben in benefits])
+            res = sum(ben.employee_amount for ben in benefits)
 
         return res
 
     @api.multi
+    @api.returns('hr.payslip.benefit.line')
     def _filter_benefits(self, payslip, **kwargs):
         """ Filter the benefit records on the payslip
-        :rtype: list of hr.payslip.benefit.line browse records
+        :rtype: record set of hr.payslip.benefit.line
         """
         self.ensure_one()
 
@@ -77,17 +78,13 @@ class HrSalaryRule(models.Model):
             if isinstance(benefit_codes, str):
                 benefit_codes = [benefit_codes]
 
-            return [
-                ben for ben in benefits
-                if ben.category_id.code in benefit_codes
-            ]
+            return benefits.filtered(
+                lambda b: b.category_id.code in benefit_codes)
 
         # If the salary rule is linked to no benefit category,
         # by default it accepts every categories.
         if self.employee_benefit_ids:
-            return [
-                ben for ben in benefits
-                if ben.category_id in self.employee_benefit_ids
-            ]
+            return benefits.filtered(
+                lambda b: b.category_id in self.employee_benefit_ids)
 
         return benefits
