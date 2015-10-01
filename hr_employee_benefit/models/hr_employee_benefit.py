@@ -89,6 +89,6 @@ class HrEmployeeBenefit(models.Model):
     def compute_amounts(self, payslip):
         if (
             self.date_start <= payslip.date_from and
-            (not self.date_end or payslip.date_to <= self.date_end)
+            not (self.date_end and payslip.date_to > self.date_end)
         ):
             self.rate_id.compute_amounts(payslip)
