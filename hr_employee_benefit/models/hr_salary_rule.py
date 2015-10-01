@@ -19,7 +19,7 @@
 #
 ##############################################################################
 
-from openerp import fields, models, api
+from openerp import api, fields, models
 
 
 class HrSalaryRule(models.Model):

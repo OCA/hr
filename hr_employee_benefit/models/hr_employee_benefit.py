@@ -19,7 +19,7 @@
 #
 ##############################################################################
 
-from openerp import fields, models, api, _
+from openerp import api, fields, models, _
 from openerp.exceptions import ValidationError
 
 from .hr_employee_benefit_rate import get_amount_types
