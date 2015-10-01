@@ -11,24 +11,11 @@ Usage
 
 Create a payslip
 ----------------
-Go to: Human Resources -> Payroll -> Employe Payslip
+Go to: Human Resources -> Payroll -> Employee Payslip
 
 - Complete the payslip details
 - Go to 'Other information', 'Accounting' section and complete the field
 'Force move date'.
-
-
- - Click on Generate Payslips
-
-The employees paid with the selected schedule are automatically selected.
-
- - Click on Generate
-
- - Confirm your payslips
-
- - Click on Close
-
-The payroll period is closed automatically and the next one is open.
 
 
 Known issues / Roadmap
