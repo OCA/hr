@@ -26,21 +26,23 @@ from .hr_employee_benefit_rate import get_amount_types
 
 
 class HrEmployeeBenefit(models.Model):
+    """Employee Benefit"""
+
     _name = 'hr.employee.benefit'
-    _description = 'Employee Benefit'
+    _description = __doc__
 
     contract_id = fields.Many2one(
         'hr.contract',
         'Contract',
         ondelete='cascade',
-        select=True
+        index=True,
     )
     category_id = fields.Many2one(
         'hr.employee.benefit.category',
         'Benefit',
         required=True,
         ondelete='cascade',
-        select=True
+        index=True,
     )
     rate_id = fields.Many2one(
         'hr.employee.benefit.rate',
