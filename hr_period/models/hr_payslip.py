@@ -89,12 +89,12 @@ class HrPayslip(orm.Model):
             period = self.pool['hr.period'].get_next_period(
                 cr, uid, employee.company_id.id, contract.schedule_pay,
                 context=context)
-
-            res['value'].update({
-                'hr_period_id': period.id if period else False,
-                'name': _('Salary Slip of %s for %s') % (
-                    employee.name, period.name),
-            })
+            if employee and period:
+                res['value'].update({
+                    'hr_period_id': period.id if period else False,
+                    'name': _('Salary Slip of %s for %s') % (
+                        employee.name, period.name),
+                })
 
         return res
 
