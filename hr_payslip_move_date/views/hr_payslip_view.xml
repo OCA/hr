@@ -15,5 +15,17 @@
             </field>
         </record>
 
+        <record id="hr_payslip_run_form_inherit" model="ir.ui.view">
+            <field name="name">hr.payslip.run.form</field>
+            <field name="model">hr.payslip.run</field>
+            <field name="inherit_id"
+                   ref="hr_payroll_account.hr_payslip_run_form_inherit"/>
+            <field name="arch" type="xml">
+                <field name="journal_id" position="before">
+                    <field name="move_date"/>
+                </field>
+            </field>
+        </record>
+
     </data>
 </openerp>

@@ -35,7 +35,7 @@ Allows the user to propose/force a specific move date.
 If none is proposed, the field will be completed with the actual move date.
     """,
     "data": [
-        "views/hr_payslip_view.xml",
+        "views/hr_payslip_view.xml"
     ],
     'demo': [],
     'test':[

@@ -61,3 +61,13 @@ class HrPayslip(orm.Model):
                                {'move_date': slip.move_id.date},
                                context=context)
         return res
+
+
+class HrPayslipRun(orm.Model):
+
+    _inherit = 'hr.payslip.run'
+
+    _columns = {
+        'move_date': fields.date(string='Force move date',
+                                 required=False),
+    }
