@@ -67,7 +67,7 @@ msgstr "Catégorie"
 
 #. module: hr_employee_benefit
 #: model:ir.model,name:hr_employee_benefit.model_hr_employee_benefit_category
-msgid "Category of employee benefits"
+msgid "Employee Benefit Category"
 msgstr "Catégorie d'avantages sociaux"
 
 #. module: hr_employee_benefit
@@ -123,7 +123,7 @@ msgstr "Contribution de l'employé"
 #. module: hr_employee_benefit
 #: model:ir.model,name:hr_employee_benefit.model_hr_employee_benefit
 msgid "Employee Benefit"
-msgstr "Avantage Social"
+msgstr "Avantage social"
 
 #. module: hr_employee_benefit
 #: view:hr.employee.benefit.category:hr_employee_benefit.hr_employee_benefit_category_list
@@ -135,7 +135,7 @@ msgstr "Catégories d'avantages sociaux"
 #. module: hr_employee_benefit
 #: model:ir.model,name:hr_employee_benefit.model_hr_employee_benefit_rate_line
 msgid "Employee Benefit Rate Line"
-msgstr "Avantage social"
+msgstr "Ligne de taux d'avantage social"
 
 #. module: hr_employee_benefit
 #: view:hr.employee.benefit.rate:hr_employee_benefit.hr_employee_benefit_rate_list
@@ -331,3 +331,13 @@ msgstr "Vous devez sélectionner un taux lié à la catégorie sélectionnée."
 #, python-format
 msgid "You cannot have overlapping rates"
 msgstr "Vous ne pouvez pas avoir de taux superposés dans le temps."
+
+#. module: hr_employee_benefit
+#: model:ir.model,name:hr_employee_benefit.model_hr_employee_benefit_rate
+msgid "Employee Benefit Rate"
+msgstr "Taux d'avantage social"
+
+#. module: hr_employee_benefit
+#: model:ir.model,name:hr_employee_benefit.model_hr_payslip_benefit_line
+msgid "Pay Slip Employee Benefit Line"
+msgstr "Ligne d'avantage social de bulletin de paie"
