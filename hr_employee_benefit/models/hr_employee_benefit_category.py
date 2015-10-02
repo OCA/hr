@@ -19,12 +19,14 @@
 #
 ##############################################################################
 
-from openerp import fields, models
+from openerp import fields, models, _
 
 
 class HrEmployeeBenefitCategory(models.Model):
+    """Employee Benefit Category"""
+
     _name = 'hr.employee.benefit.category'
-    _description = 'Category of employee benefits'
+    _description = _(__doc__)
 
     name = fields.Char('Benefit Name', required=True)
     code = fields.Char(

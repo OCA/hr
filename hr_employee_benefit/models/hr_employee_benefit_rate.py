@@ -37,8 +37,10 @@ def get_amount_types(self):
 
 
 class HrEmployeeBenefitRate(models.Model):
+    """Employee Benefit Rate"""
+
     _name = 'hr.employee.benefit.rate'
-    _decription = 'Employee Benefit Rate'
+    _description = _(__doc__)
 
     category_id = fields.Many2one(
         'hr.employee.benefit.category',
