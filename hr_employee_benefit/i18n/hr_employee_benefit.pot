@@ -66,7 +66,7 @@ msgstr ""
 
 #. module: hr_employee_benefit
 #: model:ir.model,name:hr_employee_benefit.model_hr_employee_benefit_category
-msgid "Category of employee benefits"
+msgid "Employee Benefit Category"
 msgstr ""
 
 #. module: hr_employee_benefit
@@ -327,3 +327,12 @@ msgstr ""
 msgid "active"
 msgstr ""
 
+#. module: hr_employee_benefit
+#: model:ir.model,name:hr_employee_benefit.model_hr_employee_benefit_rate
+msgid "Employee Benefit Rate"
+msgstr ""
+
+#. module: hr_employee_benefit
+#: model:ir.model,name:hr_employee_benefit.model_hr_payslip_benefit_line
+msgid "Pay Slip Employee Benefit Line"
+msgstr ""

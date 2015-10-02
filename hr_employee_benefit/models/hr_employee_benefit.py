@@ -29,7 +29,7 @@ class HrEmployeeBenefit(models.Model):
     """Employee Benefit"""
 
     _name = 'hr.employee.benefit'
-    _description = __doc__
+    _description = _(__doc__)
 
     contract_id = fields.Many2one(
         'hr.contract',

@@ -19,15 +19,17 @@
 #
 ##############################################################################
 
-from openerp import fields, models
+from openerp import fields, models, _
 import openerp.addons.decimal_precision as dp
 
 from .hr_employee_benefit_rate import get_amount_types
 
 
 class HrEmployeeBenefitRateLine(models.Model):
+    """Employee Benefit Rate Line"""
+
     _name = 'hr.employee.benefit.rate.line'
-    _description = 'Employee Benefit Rate Line'
+    _description = _(__doc__)
 
     employee_amount = fields.Float(
         'Employee Amount',

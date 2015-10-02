@@ -19,13 +19,15 @@
 #
 ##############################################################################
 
-from openerp import models, fields
+from openerp import models, fields, _
 import openerp.addons.decimal_precision as dp
 
 
 class HrPayslipBenefitLine(models.Model):
+    """Pay Slip Employee Benefit Line"""
+
     _name = 'hr.payslip.benefit.line'
-    _decription = 'Pay Slip Employee Benefit Line'
+    _description = _(__doc__)
 
     payslip_id = fields.Many2one(
         'hr.payslip',
