@@ -19,19 +19,20 @@
 #
 ##############################################################################
 
-from openerp.osv import orm
+from openerp import api, models
 
 
-class HrSalaryRule(orm.Model):
+class HrSalaryRule(models.Model):
     _inherit = 'hr.salary.rule'
 
-    def _filter_benefits(self, cr, uid, ids, payslip, context=None, **kwargs):
+    @api.multi
+    @api.returns('hr.payslip.benefit.line')
+    def _filter_benefits(self, payslip, codes=False, **kwargs):
         """ Remove all benefits that are exempted from a deduction.
         """
-        benefits = super(HrSalaryRule, self)._filter_benefits(
-            cr, uid, ids, payslip, context=context, **kwargs)
+        benefits = super(HrSalaryRule, self)._filter_benefits(payslip, **kwargs)
 
-        rule = self.browse(cr, uid, ids[0], context=context)
+        rule = self[0]
 
         exemption = rule.exemption_id
         if exemption and not rule.employee_benefit_ids:

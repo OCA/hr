@@ -19,17 +19,15 @@
 #
 ##############################################################################
 
-from openerp.osv import fields, orm
+from openerp import fields, models
 
 
-class HrEmployeeBenefitCategory(orm.Model):
+class HrEmployeeBenefitCategory(models.Model):
     _inherit = 'hr.employee.benefit.category'
-    _columns = {
-        'exemption_ids': fields.many2many(
-            'hr.income.tax.exemption',
-            'benefit_exemption_rel',
-            'benefit_id',
-            'exemption_id',
-            'Exemptions',
-        ),
-    }
+    exemption_ids = fields.Many2many(
+        'hr.income.tax.exemption',
+        'benefit_exemption_rel',
+        'benefit_id',
+        'exemption_id',
+        'Exemptions',
+    )
