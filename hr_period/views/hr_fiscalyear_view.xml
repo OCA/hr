@@ -7,7 +7,7 @@
             <field name="name">hr.fiscalyear.form</field>
             <field name="model">hr.fiscalyear</field>
             <field name="arch" type="xml">
-                <form version="7.0" string="Fiscal Year">
+                <form string="Fiscal Year">
                     <header>
                         <button name="create_periods" string="Create Periods" type="object" class="oe_highlight" states="draft"/>
                         <button name="button_set_to_draft" string="Set To Draft" type="object" states="open"/>
@@ -21,7 +21,7 @@
                                 <field name="company_id" groups="base.group_multi_company"/>
                             </group>
                             <group colspan="4" col="4">
-                                <field name="schedule_pay" on_change="onchange_schedule(schedule_pay, date_start)"/>
+                                <field name="schedule_pay"/>
                                 <newline/>
                                 <field name="date_start"/>
                                 <field name="date_stop"/>

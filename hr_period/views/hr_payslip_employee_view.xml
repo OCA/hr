@@ -8,7 +8,7 @@
             <field name="inherit_id" ref="hr_payroll.view_hr_payslip_by_employees"/>
             <field name="arch" type="xml">
                 <separator string="Employees" position="before">
-                    <field name="company_id"/>
+                    <field name="company_id" groups="base.group_multi_company"/>
                     <field name="schedule_pay"/>
                 </separator>
                 <field name="employee_ids" position="attributes">

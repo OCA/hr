@@ -6,7 +6,7 @@
             <field name="name">hr.period.form</field>
             <field name="model">hr.period</field>
             <field name="arch" type="xml">
-                <form string="Payroll Periods" version="7.0">
+                <form string="Payroll Periods">
                     <header>
                         <button name="button_open" string="Open Period" type="object" states="draft"/>
                         <button name="button_re_open" string="Re-Open Period" type="object" states="done"/>

@@ -5,8 +5,7 @@
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as published
-#    by
-#    the Free Software Foundation, either version 3 of the License, or
+#    by the Free Software Foundation, either version 3 of the License, or
 #    (at your option) any later version.
 #
 #    This program is distributed in the hope that it will be useful,
@@ -18,31 +17,26 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-
-from openerp.tests import common
 from datetime import datetime
+from openerp.tests import common
 
 
-class test_hr_fiscalyear(common.TransactionCase):
+class TestHrFiscalyear(common.TransactionCase):
     def setUp(self):
-        super(test_hr_fiscalyear, self).setUp()
-        self.user_model = self.registry("res.users")
-        self.company_model = self.registry('res.company')
-        self.payslip_model = self.registry("hr.payslip")
-        self.run_model = self.registry('hr.payslip.run')
-        self.fy_model = self.registry('hr.fiscalyear')
-        self.period_model = self.registry('hr.period')
+        super(TestHrFiscalyear, self).setUp()
+        self.user_model = self.env["res.users"]
+        self.company_model = self.env['res.company']
+        self.payslip_model = self.env["hr.payslip"]
+        self.run_model = self.env['hr.payslip.run']
+        self.fy_model = self.env['hr.fiscalyear']
+        self.period_model = self.env['hr.period']
 
-        self.context = self.user_model.context_get(self.cr, self.uid)
-        cr, uid, context = self.cr, self.uid, self.context
-
-        self.company_id = self.company_model.create(cr, uid, {
-            'name': 'Company 1'}, context=context)
+        self.company_id = self.company_model.create({'name': 'Company 1'})
 
         self.today = datetime.now().date()
 
         self.vals = {
-            'company_id': self.company_id,
+            'company_id': self.company_id.id,
             'date_start': '2015-01-01',
             'date_stop': '2015-12-31',
             'schedule_pay': 'monthly',
@@ -53,18 +47,14 @@ class test_hr_fiscalyear(common.TransactionCase):
         }
 
     def create_fiscal_year(self, vals=None):
-        cr, uid, context = self.cr, self.uid, self.context
-
         if vals is None:
             vals = {}
 
         self.vals.update(vals)
-        fy_id = self.fy_model.create(cr, uid, self.vals, context=context)
-
-        return self.fy_model.browse(cr, uid, fy_id, context=context)
+        return self.fy_model.create(self.vals)
 
     def get_periods(self, fiscal_year):
-        return sorted(fiscal_year.period_ids, key=lambda p: p.date_start)
+        return fiscal_year.period_ids.sorted(key=lambda p: p.date_start)
 
     def check_period(self, period, date_start, date_stop, date_payment):
         if date_start:

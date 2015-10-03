@@ -7,34 +7,39 @@
             <field name="model">hr.payslip.run</field>
             <field name="inherit_id" ref="hr_payroll.hr_payslip_run_form"/>
             <field name="arch" type="xml">
-                <h2 position="replace">
+                <h1 position="after">
                     <label for="company_id" groups="base.group_multi_company"/>
-                    <h2>
+                    <h3>
                         <field name="company_id"
                             groups="base.group_multi_company"
-                            on_change="onchange_company_id(company_id, schedule_pay)"
                             required="1"/>
-                    </h2>
-                    <label for="hr_period_id"/>
-                    <h2>
-                        <field name="hr_period_id"
-                            on_change="onchange_period_id(hr_period_id)"
-                            domain="[
-                                ('state', '=', 'open'),
-                                ('company_id', '=', company_id),
-                            ]"/>
-                    </h2>
-                    <group colspan="4" col="4">
-                        <field name="schedule_pay"
-                            on_change="onchange_company_id(company_id, schedule_pay)"/>
-                        <newline/>
-                        <field name="date_start"/>
-                        <field name="date_end"/>
-                        <newline/>
-                        <field name="date_payment"
-                            required="1"/>
+                    </h3>
+                    <h3>
+                        <group>
+	                        <group>
+	                            <field name="hr_period_id"
+	                            domain="[
+	                                ('state', '=', 'open'),
+	                                ('company_id', '=', company_id),
+	                            ]"/>
+	                        </group>
+	                        <group>
+	                        </group>
+                        </group>
+                    </h3>
+                    <group>
+                        <group>
+                            <field name="schedule_pay"/>
+                        </group>
+                        <group>
+                            <field name="date_payment" required="1"/>
+                        </group>
                     </group>
-                </h2>
+                </h1>
+                
+                <label string="Period" position="replace">
+                    <label for="date_start" string="Date"/>
+                </label>
 
                 <button string="Generate Payslips" position="replace">
                     <button
