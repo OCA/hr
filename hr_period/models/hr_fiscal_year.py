@@ -5,8 +5,7 @@
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as published
-#    by
-#    the Free Software Foundation, either version 3 of the License, or
+#    by the Free Software Foundation, either version 3 of the License, or
 #    (at your option) any later version.
 #
 #    This program is distributed in the hope that it will be useful,
@@ -18,17 +17,14 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-
-from openerp.osv import orm, fields
-from openerp.tools import DEFAULT_SERVER_DATE_FORMAT
-from openerp.tools.translate import _
-
 from datetime import datetime
 strftime = datetime.strptime
-
 from dateutil.relativedelta import relativedelta
 
-from itertools import chain
+from openerp import models, fields, api,  _
+from openerp.tools import DEFAULT_SERVER_DATE_FORMAT
+from openerp.exceptions import Warning as UserError
+
 
 INTERVALS = {
     'annually': (relativedelta(months=12), 1),
@@ -42,7 +38,8 @@ INTERVALS = {
 }
 
 
-def get_schedules(self, cr, uid, context=None):
+@api.model
+def get_schedules(self):
     return [
         ('annually', _('Annually (1)')),
         ('semi-annually', _('Semi-annually (2)')),
@@ -56,7 +53,8 @@ def get_schedules(self, cr, uid, context=None):
     ]
 
 
-def get_payment_days(self, cr, uid, context=None):
+@api.model
+def get_payment_days(self):
     expr = _('%s day of the next period')
     expr_2 = _('%s day of the current period')
     return [
@@ -69,243 +67,226 @@ def get_payment_days(self, cr, uid, context=None):
     ]
 
 
-class HrFiscalYear(orm.Model):
+class HrFiscalYear(models.Model):
     _name = 'hr.fiscalyear'
     _description = 'HR Fiscal Year'
-    _columns = {
-        'name': fields.char(
-            'Fiscal Year', required=True,
-            readonly=True, states={'draft': [('readonly', False)]},
-        ),
-        'company_id': fields.many2one(
-            'res.company', 'Company', required=True,
-            readonly=True, states={'draft': [('readonly', False)]},
-        ),
-        'date_start': fields.date(
-            'Start Date', required=True,
-            readonly=True, states={'draft': [('readonly', False)]},
-            help="The first day of the first period of the fiscal year."
-        ),
-        'date_stop': fields.date(
-            'End Date', required=True,
-            readonly=True, states={'draft': [('readonly', False)]},
-            help="The last day of the last period of the fiscal year."
-        ),
-        'period_ids': fields.one2many(
-            'hr.period', 'fiscalyear_id', 'Periods',
-            readonly=True, states={'draft': [('readonly', False)]},
-        ),
-        'state': fields.selection([
-            ('draft', 'Draft'), ('open', 'Open'), ('done', 'Closed'),
-        ], 'Status', readonly=True),
-        'schedule_pay': fields.selection(
-            get_schedules, 'Scheduled Pay', required=True,
-            readonly=True, states={'draft': [('readonly', False)]},
-        ),
-        'payment_weekday': fields.selection(
-            [
-                ('0', 'Sunday'),
-                ('1', 'Monday'),
-                ('2', 'Tuesday'),
-                ('3', 'Wednesday'),
-                ('4', 'Thursday'),
-                ('5', 'Friday'),
-                ('6', 'Saturday'),
-            ], 'Day of Payment',
-            readonly=True, states={'draft': [('readonly', False)]},
-        ),
-        'payment_week': fields.selection(
-            [
-                ('0', 'Same Week'),
-                ('1', 'Following Week'),
-                ('2', 'Second Following Week'),
-            ], 'Week of Payment',
-            readonly=True, states={'draft': [('readonly', False)]},
-        ),
-        'payment_day': fields.selection(
-            get_payment_days, 'Day of Payment',
-            readonly=True, states={'draft': [('readonly', False)]},
-        ),
-    }
 
-    def _default_date_start(self, cr, uid, context):
+    @api.model
+    def _default_date_start(self):
         today = datetime.now()
         return datetime(today.year, 1, 1).strftime(
             DEFAULT_SERVER_DATE_FORMAT)
 
-    def _default_date_stop(self, cr, uid, context):
+    @api.model
+    def _default_date_stop(self):
         today = datetime.now()
         return datetime(today.year, 12, 31).strftime(
             DEFAULT_SERVER_DATE_FORMAT)
 
-    _defaults = {
-        'state': 'draft',
-        'company_id': lambda self, cr, uid, c:
-        self.pool['res.users'].browse(cr, uid, uid, c).company_id.id,
-        'date_start': _default_date_start,
-        'date_stop': _default_date_stop,
-        'schedule_pay': 'monthly',
-    }
+    name = fields.Char(
+        'Fiscal Year',
+        required=True,
+        readonly=True,
+        states={'draft': [('readonly', False)]}
+    )
+    company_id = fields.Many2one(
+        'res.company',
+        'Company',
+        required=True,
+        readonly=True,
+        states={'draft': [('readonly', False)]},
+        default=lambda obj: obj.env.user.company_id
+    )
+    date_start = fields.Date(
+        'Start Date',
+        required=True,
+        readonly=True,
+        states={'draft': [('readonly', False)]},
+        help="The first day of the first period of the "
+        "fiscal year.",
+        default=_default_date_start
+    )
+    date_stop = fields.Date(
+        'End Date',
+        required=True,
+        readonly=True,
+        states={'draft': [('readonly', False)]},
+        help="The last day of the last period of the "
+        "fiscal year.",
+        default=_default_date_stop
+    )
+    period_ids = fields.One2many(
+        'hr.period',
+        'fiscalyear_id',
+        'Periods',
+        readonly=True,
+        states={'draft': [('readonly', False)]}
+    )
+    state = fields.Selection(
+        [
+            ('draft', 'Draft'),
+            ('open', 'Open'),
+            ('done', 'Closed'),
+        ],
+        'Status',
+        readonly=True,
+        default='draft'
+    )
+    schedule_pay = fields.Selection(
+        get_schedules,
+        'Scheduled Pay',
+        required=True,
+        readonly=True,
+        states={'draft': [('readonly', False)]},
+        default='monthly'
+    )
+    payment_weekday = fields.Selection(
+        [
+            ('0', 'Sunday'),
+            ('1', 'Monday'),
+            ('2', 'Tuesday'),
+            ('3', 'Wednesday'),
+            ('4', 'Thursday'),
+            ('5', 'Friday'),
+            ('6', 'Saturday'),
+        ], 'Day of Payment',
+        readonly=True,
+        states={'draft': [('readonly', False)]}
+    )
+    payment_week = fields.Selection(
+        [
+            ('0', 'Same Week'),
+            ('1', 'Following Week'),
+            ('2', 'Second Following Week'),
+        ], 'Week of Payment',
+        readonly=True,
+        states={'draft': [('readonly', False)]}
+    )
+    payment_day = fields.Selection(
+        get_payment_days,
+        'Day of Payment',
+        readonly=True,
+        states={'draft': [('readonly', False)]}
+    )
 
-    def onchange_schedule(
-        self, cr, uid, ids, schedule_pay, date_start, context=None
-    ):
-        res = {'value': {}}
+    @api.onchange('schedule_pay', 'date_start')
+    @api.multi
+    def onchange_schedule(self):
+        if self.schedule_pay and self.date_start:
+            year = datetime.strptime(
+                self.date_start, DEFAULT_SERVER_DATE_FORMAT).year
 
-        year = datetime.strptime(
-            date_start, DEFAULT_SERVER_DATE_FORMAT).year
+            schedule_name = next((
+                s[1] for s in get_schedules(self)
+                if s[0] == self.schedule_pay), False)
 
-        schedule_name = next((
-            s[1] for s in get_schedules(self, cr, uid, context=context)
-            if s[0] == schedule_pay
-        ), False)
+            self.name = '%(year)s - %(schedule)s' % {
+                'year': year,
+                'schedule': schedule_name,
+            }
 
-        res['value']['name'] = '%(year)s - %(schedule)s' % {
-            'year': year,
-            'schedule': schedule_name,
-        }
-
-        return res
-
-    def create_periods(self, cr, uid, ids, context=None):
-        """ Create every periods a payroll fiscal year
+    @api.one
+    def create_periods(self):
         """
-        if isinstance(ids, (int, long)):
-            ids = [ids]
+        Create every periods a payroll fiscal year
+        """
+        for period in self.period_ids:
+            period.unlink()
 
-        for fy in self.browse(cr, uid, ids, context=context):
+        self.refresh()
 
-            for period in fy.period_ids:
-                period.unlink()
+        period_start = datetime.strptime(
+            self.date_start, DEFAULT_SERVER_DATE_FORMAT)
 
-            fy.refresh()
+        next_year_start = datetime.strptime(
+            self.date_stop,
+            DEFAULT_SERVER_DATE_FORMAT) + relativedelta(days=1)
 
-            period_start = datetime.strptime(
-                fy.date_start, DEFAULT_SERVER_DATE_FORMAT)
+        if self.schedule_pay == 'semi-monthly':
+            #  Case for semi-monthly schedules
+            delta_1 = relativedelta(days=15)
+            delta_2 = relativedelta(months=1)
 
-            next_year_start = datetime.strptime(
-                fy.date_stop,
-                DEFAULT_SERVER_DATE_FORMAT) + relativedelta(days=1)
+            i = 1
+            while not period_start + delta_2 > next_year_start:
+                # create periods for one month
+                half_month = period_start + delta_1
+                self._create_single_period(period_start, half_month, i)
+                self._create_single_period(
+                    half_month, period_start + delta_2, i + 1)
 
-            # Case for semi-monthly schedules
-            if fy.schedule_pay == 'semi-monthly':
-                delta_1 = relativedelta(days=15)
-                delta_2 = relativedelta(months=1)
+                # setup for next month
+                period_start += delta_2
+                i += 2
+        else:  # All other cases
+            delta, nb_periods = INTERVALS[self.schedule_pay]
 
-                i = 1
-                while not period_start + delta_2 > next_year_start:
-                    # create periods for one month
-                    half_month = period_start + delta_1
-                    fy._create_single_period(period_start, half_month, i)
-                    fy._create_single_period(
-                        half_month, period_start + delta_2, i + 1)
+            i = 1
+            while not period_start + delta > next_year_start:
+                self._create_single_period(
+                    period_start, period_start + delta, i)
+                period_start += delta
+                i += 1
 
-                    # setup for next month
-                    period_start += delta_2
-                    i += 2
-
-            # All other cases
-            else:
-                delta, nb_periods = INTERVALS[fy.schedule_pay]
-
-                i = 1
-                while not period_start + delta > next_year_start:
-                    fy._create_single_period(
-                        period_start, period_start + delta, i)
-                    period_start += delta
-                    i += 1
-
-    def _create_single_period(
-        self, cr, uid, ids, date_start, date_stop, number, context=None
-    ):
+    @api.multi
+    def _create_single_period(self, date_start, date_stop, number):
         """ Create a single payroll period
         :param date_start: the first day of the actual period
         :param date_stop: the first day of the following period
         """
-        if isinstance(ids, (int, long)):
-            ids = [ids]
-
-        assert(len(ids) == 1)
-
-        fy = self.browse(cr, uid, ids[0], context=context)
+        self.ensure_one()
 
         date_stop -= relativedelta(days=1)
 
-        fy.write({
+        self.write({
             'period_ids': [(0, 0, {
                 'date_start': date_start,
                 'date_stop': date_stop,
-                'date_payment': fy._get_day_of_payment(date_stop),
-                'company_id': fy.company_id.id,
-                'name': _('%s Period #%s') % (fy.name, number),
+                'date_payment': self._get_day_of_payment(date_stop),
+                'company_id': self.company_id.id,
+                'name': _('%s Period #%s') % (self.name, number),
                 'number': number,
                 'state': 'draft',
-                'schedule_pay': fy.schedule_pay,
+                'schedule_pay': self.schedule_pay,
             })],
         })
 
-    def _get_day_of_payment(self, cr, uid, ids, date_stop, context=None):
-        """ Get the date of payment for a period to create
+    @api.multi
+    def _get_day_of_payment(self, date_stop):
+        """
+        Get the date of payment for a period to create
         :param date_stop: the last day of the current period
         """
-        if isinstance(ids, (int, long)):
-            ids = [ids]
-
-        assert(len(ids) == 1)
-
-        fy = self.browse(cr, uid, ids[0], context=context)
+        self.ensure_one()
 
         date_payment = date_stop
-
-        if fy.schedule_pay in ['weekly', 'bi-weekly']:
-            date_payment += relativedelta(weeks=int(fy.payment_week))
-
-            while date_payment.strftime('%w') != fy.payment_weekday:
+        if self.schedule_pay in ['weekly', 'bi-weekly']:
+            date_payment += relativedelta(weeks=int(self.payment_week))
+            while date_payment.strftime('%w') != self.payment_weekday:
                 date_payment -= relativedelta(days=1)
-
         else:
-            date_payment += relativedelta(days=int(fy.payment_day))
-
+            date_payment += relativedelta(days=int(self.payment_day))
         return date_payment
 
-    def button_confirm(self, cr, uid, ids, context=None):
-        fiscal_years = self.browse(cr, uid, ids, context=context)
-
-        for fy in fiscal_years:
+    @api.multi
+    def button_confirm(self):
+        for fy in self:
             if not fy.period_ids:
-                raise orm.except_orm(
-                    _('Warning'),
-                    _('You must create periods before confirming the '
-                        'the fiscal year.'))
-
-        self.write(cr, uid, ids, {'state': 'open'})
-
-        for fy in fiscal_years:
-            first_period = sorted(fy.period_ids, key=lambda p: p.number)[0]
+                raise UserError(_('You must create periods before confirming '
+                                  'the fiscal year.'))
+        self.state = 'open'
+        for fy in self:
+            first_period = fy.period_ids.sorted(key=lambda p: p.number)[0]
             first_period.button_open()
 
-    def button_set_to_draft(self, cr, uid, ids, context=None):
+    @api.multi
+    def button_set_to_draft(self):
         # Set all periods to draft
-        period_ids = [
-            p.id for p in chain(*[
-                fy.period_ids for fy in self.browse(
-                    cr, uid, ids, context=context)
-            ])
-        ]
+        periods = self.mapped('period_ids')
+        periods.button_set_to_draft()
+        self.state = 'draft'
 
-        self.pool['hr.period'].button_set_to_draft(
-            cr, uid, period_ids, context=context)
-
-        # Set the fiscal year to draft
-        self.write(cr, uid, ids, {'state': 'draft'}, context=context)
-
-    def search_period(self, cr, uid, ids, number, context=None):
-        if not ids:
-            return False
-
-        if isinstance(ids, (int, long)):
-            ids = [ids]
-
-        fy = self.browse(cr, uid, ids[0], context=context)
-
-        return next((p for p in fy.period_ids if p.number == number), False)
+    @api.multi
+    def search_period(self, number):
+        return next((p for p in self.period_ids if p.number == number),
+                    self.env['hr.period'])
