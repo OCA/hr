@@ -9,7 +9,6 @@
             <field name="arch" type="xml">
                 <label for="date_from" position="before">
                     <field name="hr_period_id"
-                        on_change="onchange_hr_period_id(hr_period_id)"
                         domain="[
                             ('state', '=', 'open'),
                             ('company_id', '=', company_id)
@@ -19,9 +18,7 @@
                     <field name="date_payment"
                         required="1"/>
                 </field>
-                <field name="company_id" position="attributes">
-                    <attribute name="on_change">onchange_company_id(company_id, contract_id)</attribute>
-                </field>
+
             </field>
         </record>
 
