@@ -17,18 +17,14 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-
 {
     'name': 'HR Payroll Period',
-    'version': '1.0',
+    'version': '8.0.1.0',
     'license': 'AGPL-3',
     'category': 'Generic Modules/Human Resources',
-    'description': """
-HR Payroll Period
-=================
-Add payroll periods
-""",
-    'author': "Savoir-faire Linux,Odoo Community Association (OCA)",
+    'summary': "Add payroll periods",
+    'author': "Savoir-faire Linux, "
+              "Odoo Community Association (OCA)",
     'website': 'https://github.com/OCA/hr',
     'depends': [
         'hr_payroll',
@@ -42,7 +38,5 @@ Add payroll periods
         'views/hr_payslip_run_view.xml',
         'views/hr_payslip_employee_view.xml',
     ],
-    'test': [],
-    'demo': [],
     'installable': True,
 }
