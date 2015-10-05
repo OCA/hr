@@ -18,7 +18,7 @@ class HrPayrollAllowance(models.Model):
     name = fields.Char('Name', size=128, required=True)
     code = fields.Char('Code', size=10, required=True)
     struct_id = fields.Many2one('hr.payroll.structure', 'Payroll Structure',
-                                required=True, defauult=_get_default_struct)
+                                required=True, default=_get_default_struct)
     in_report = fields.Boolean('Show in Reports')
     register_id = fields.Many2one('hr.contribution.register',
                                   'Contribution Register', readonly=True)
