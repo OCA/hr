@@ -2,7 +2,8 @@
 {
     "name" : "Employee Contract Usability",
     "version" : "0.1",
-    "author" : "Salton Massally <smassally@idtlabs.sl>",
+    'author': "Salton Massally <smassally@idtlabs.sl>, "
+               "Odoo Community Association (OCA)",
     "website" : "http://idtlabs.sl",
     "category" : "Human Resources",
     "summary": "Small usability improvements for employee contracts",
