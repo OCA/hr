@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-18 13:10+0000\n"
+"POT-Creation-Date: 2015-10-03 22:37+0000\n"
 "PO-Revision-Date: 2015-08-16 16:41+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: French (http://www.transifex.com/oca/OCA-hr-8-0/language/fr/)\n"
@@ -70,12 +70,12 @@ msgstr "Dernière mise à jour le"
 #. module: hr_skill
 #: field:hr.skill,name:0
 msgid "Name"
-msgstr ""
+msgstr "Nom"
 
 #. module: hr_skill
 #: field:hr.skill,parent_id:0
 msgid "Parent"
-msgstr ""
+msgstr "Parent"
 
 #. module: hr_skill
 #: field:hr.skill,parent_left:0

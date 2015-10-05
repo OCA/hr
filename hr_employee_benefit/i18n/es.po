@@ -9,78 +9,78 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-10-03 22:37+0000\n"
 "PO-Revision-Date: 2015-10-02 11:58+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
-"Language-Team: French (http://www.transifex.com/oca/OCA-hr-8-0/language/fr/)\n"
+"Last-Translator: <>\n"
+"Language-Team: Spanish (http://www.transifex.com/oca/OCA-hr-8-0/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: fr\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Language: es\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: hr_employee_benefit
 #: selection:hr.payslip.benefit.line,source:0
 msgid "Added Manually"
-msgstr "Ajouté manuellement"
+msgstr ""
 
 #. module: hr_employee_benefit
 #: view:hr.employee.benefit.rate:hr_employee_benefit.view_hr_employee_benefit_rate_filter
 #: field:hr.employee.benefit.rate,amount_type:0
 msgid "Amount Type"
-msgstr "Type de Montant"
+msgstr ""
 
 #. module: hr_employee_benefit
 #: code:addons/hr_employee_benefit/models/hr_employee_benefit_rate.py:100
 #, python-format
 msgid "Annual"
-msgstr "Montant annuel"
+msgstr ""
 
 #. module: hr_employee_benefit
 #: field:hr.employee.benefit,category_id:0
 #: field:hr.payslip.benefit.line,category_id:0
 msgid "Benefit"
-msgstr "Avantage social"
+msgstr ""
 
 #. module: hr_employee_benefit
 #: field:hr.employee.benefit.rate,category_id:0
 msgid "Benefit Category"
-msgstr "Catégorie d'avantage social"
+msgstr ""
 
 #. module: hr_employee_benefit
 #: field:hr.employee.benefit.category,name:0
 msgid "Benefit Name"
-msgstr "Nom de l'avantage social"
+msgstr ""
 
 #. module: hr_employee_benefit
 #: view:hr.employee.benefit.category:hr_employee_benefit.hr_employee_benefit_category_form
 #: field:hr.employee.benefit.category,rate_ids:0
 msgid "Benefit Rates"
-msgstr "Taux d'avantage social"
+msgstr ""
 
 #. module: hr_employee_benefit
 #: help:hr.employee.benefit.category,description:0
 msgid "Brief explanation of which benefits the category contains."
-msgstr "Brève description des avantages sociaux que contient la catégorie"
+msgstr ""
 
 #. module: hr_employee_benefit
 #: view:hr.employee.benefit.rate:hr_employee_benefit.view_hr_employee_benefit_rate_filter
 msgid "Category"
-msgstr "Catégorie"
+msgstr ""
 
 #. module: hr_employee_benefit
 #: field:hr.employee.benefit.category,code:0
 msgid "Code"
-msgstr "Code"
+msgstr ""
 
 #. module: hr_employee_benefit
 #: view:hr.payslip:hr_employee_benefit.view_hr_payslip_form
 msgid "Compute Benefits"
-msgstr "Calculer les avantages sociaux"
+msgstr ""
 
 #. module: hr_employee_benefit
 #: field:hr.employee.benefit,contract_id:0
 #: model:ir.model,name:hr_employee_benefit.model_hr_contract
 msgid "Contract"
-msgstr "Contrat"
+msgstr ""
 
 #. module: hr_employee_benefit
 #: field:hr.employee.benefit,create_uid:0
@@ -89,7 +89,7 @@ msgstr "Contrat"
 #: field:hr.employee.benefit.rate.line,create_uid:0
 #: field:hr.payslip.benefit.line,create_uid:0
 msgid "Created by"
-msgstr "Créé par"
+msgstr ""
 
 #. module: hr_employee_benefit
 #: field:hr.employee.benefit,create_date:0
@@ -98,57 +98,57 @@ msgstr "Créé par"
 #: field:hr.employee.benefit.rate.line,create_date:0
 #: field:hr.payslip.benefit.line,create_date:0
 msgid "Created on"
-msgstr "Créé le"
+msgstr ""
 
 #. module: hr_employee_benefit
 #: field:hr.employee.benefit.category,description:0
 msgid "Description"
-msgstr "Description"
+msgstr ""
 
 #. module: hr_employee_benefit
 #: code:addons/hr_employee_benefit/models/hr_employee_benefit_rate.py:99
 #, python-format
 msgid "Each Pay"
-msgstr "Montant par paie"
+msgstr ""
 
 #. module: hr_employee_benefit
 #: field:hr.employee.benefit.rate.line,employee_amount:0
 msgid "Employee Amount"
-msgstr "Contribution de l'employé"
+msgstr ""
 
 #. module: hr_employee_benefit
 #: model:ir.model,name:hr_employee_benefit.model_hr_employee_benefit
 msgid "Employee Benefit"
-msgstr "Avantage social"
+msgstr ""
 
 #. module: hr_employee_benefit
 #: view:hr.employee.benefit.category:hr_employee_benefit.hr_employee_benefit_category_list
 #: model:ir.actions.act_window,name:hr_employee_benefit.action_hr_employee_benefit_category_list
 #: model:ir.ui.menu,name:hr_employee_benefit.menu_action_hr_employee_benefit_category_list
 msgid "Employee Benefit Categories"
-msgstr "Catégories d'avantages sociaux"
+msgstr ""
 
 #. module: hr_employee_benefit
 #: model:ir.model,name:hr_employee_benefit.model_hr_employee_benefit_category
 msgid "Employee Benefit Category"
-msgstr "Catégorie d'avantages sociaux"
+msgstr ""
 
 #. module: hr_employee_benefit
 #: model:ir.model,name:hr_employee_benefit.model_hr_employee_benefit_rate
 msgid "Employee Benefit Rate"
-msgstr "Taux d'avantage social"
+msgstr ""
 
 #. module: hr_employee_benefit
 #: model:ir.model,name:hr_employee_benefit.model_hr_employee_benefit_rate_line
 msgid "Employee Benefit Rate Line"
-msgstr "Ligne de taux d'avantage social"
+msgstr ""
 
 #. module: hr_employee_benefit
 #: view:hr.employee.benefit.rate:hr_employee_benefit.hr_employee_benefit_rate_list
 #: model:ir.actions.act_window,name:hr_employee_benefit.action_hr_employee_benefit_rate_list
 #: model:ir.ui.menu,name:hr_employee_benefit.menu_action_hr_employee_benefit_rate_list
 msgid "Employee Benefit Rates"
-msgstr "Taux d'avantages sociaux"
+msgstr ""
 
 #. module: hr_employee_benefit
 #: view:hr.contract:hr_employee_benefit.hr_contract_view_form
@@ -158,67 +158,67 @@ msgstr "Taux d'avantages sociaux"
 #: field:hr.payslip,benefit_line_ids:0
 #: view:hr.salary.rule:hr_employee_benefit.hr_salary_rule_form
 msgid "Employee Benefits"
-msgstr "Avantages sociaux"
+msgstr ""
 
 #. module: hr_employee_benefit
 #: view:hr.employee.benefit.rate:hr_employee_benefit.hr_employee_benefit_rate_form
 msgid "Employee Benefits Rates"
-msgstr "Taux d'avantages sociaux"
+msgstr ""
 
 #. module: hr_employee_benefit
 #: field:hr.payslip.benefit.line,employee_amount:0
 msgid "Employee Contribution"
-msgstr "Contribution de l'employé"
+msgstr ""
 
 #. module: hr_employee_benefit
 #: field:hr.employee.benefit.rate.line,employer_amount:0
 msgid "Employer Amount"
-msgstr "Contribution de l'employeur"
+msgstr ""
 
 #. module: hr_employee_benefit
 #: field:hr.payslip.benefit.line,employer_amount:0
 msgid "Employer Contribution"
-msgstr "Contribution de l'employeur"
+msgstr ""
 
 #. module: hr_employee_benefit
 #: field:hr.employee.benefit,date_end:0
 #: field:hr.employee.benefit.rate.line,date_end:0
 msgid "End Date"
-msgstr "Date de fin"
+msgstr ""
 
 #. module: hr_employee_benefit
 #: help:hr.payslip,pays_per_year:0
 msgid "Field required to compute benefits based on an annual amount."
-msgstr "Champ requis pour calculer les montants sur une base annuel."
+msgstr ""
 
 #. module: hr_employee_benefit
 #: help:hr.employee.benefit.category,reference:0
 msgid ""
 "Field used to enter an external identifier for a benefit category. Example, "
 "pension plans may have a registration number."
-msgstr "Champ utilisé pour entrer un identifiant externe pour une catégorie d'avantages sociaux. Par example, un régime de pension peut avoir un numéro d'enregistrement."
+msgstr ""
 
 #. module: hr_employee_benefit
 #: selection:hr.payslip.benefit.line,source:0
 msgid "From Contract"
-msgstr "À partir du contrat"
+msgstr ""
 
 #. module: hr_employee_benefit
 #: view:hr.employee.benefit.rate:hr_employee_benefit.view_hr_employee_benefit_rate_filter
 msgid "Group by..."
-msgstr "Gouper par..."
+msgstr ""
 
 #. module: hr_employee_benefit
 #: field:hr.employee.benefit,id:0 field:hr.employee.benefit.category,id:0
 #: field:hr.employee.benefit.rate,id:0
 #: field:hr.employee.benefit.rate.line,id:0 field:hr.payslip.benefit.line,id:0
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 #. module: hr_employee_benefit
 #: view:hr.salary.rule:hr_employee_benefit.hr_salary_rule_form
 msgid "Inputs"
-msgstr "Entrées"
+msgstr ""
 
 #. module: hr_employee_benefit
 #: field:hr.employee.benefit,write_uid:0
@@ -227,7 +227,7 @@ msgstr "Entrées"
 #: field:hr.employee.benefit.rate.line,write_uid:0
 #: field:hr.payslip.benefit.line,write_uid:0
 msgid "Last Updated by"
-msgstr "Mis-à-jour par"
+msgstr ""
 
 #. module: hr_employee_benefit
 #: field:hr.employee.benefit,write_date:0
@@ -236,105 +236,105 @@ msgstr "Mis-à-jour par"
 #: field:hr.employee.benefit.rate.line,write_date:0
 #: field:hr.payslip.benefit.line,write_date:0
 msgid "Last Updated on"
-msgstr "Mis-à-jour le"
+msgstr ""
 
 #. module: hr_employee_benefit
 #: field:hr.employee.benefit.rate,name:0
 msgid "Name"
-msgstr "Nom"
+msgstr "Nombre"
 
 #. module: hr_employee_benefit
 #: field:hr.payslip,pays_per_year:0
 msgid "Number of pays per year"
-msgstr "Nombre de paies par année"
+msgstr ""
 
 #. module: hr_employee_benefit
 #: field:hr.employee.benefit.rate.line,parent_id:0
 msgid "Parent"
-msgstr "Parent"
+msgstr "Padre"
 
 #. module: hr_employee_benefit
 #: model:ir.model,name:hr_employee_benefit.model_hr_payslip
 msgid "Pay Slip"
-msgstr "Bulletin de paie"
+msgstr ""
 
 #. module: hr_employee_benefit
 #: model:ir.model,name:hr_employee_benefit.model_hr_payslip_benefit_line
 msgid "Pay Slip Employee Benefit Line"
-msgstr "Ligne d'avantage social de bulletin de paie"
+msgstr ""
 
 #. module: hr_employee_benefit
 #: field:hr.payslip.benefit.line,payslip_id:0
 msgid "Payslip"
-msgstr "Bulletin de paie"
+msgstr ""
 
 #. module: hr_employee_benefit
 #: field:hr.employee.benefit,rate_id:0
 msgid "Rate"
-msgstr "Taux"
+msgstr ""
 
 #. module: hr_employee_benefit
 #: field:hr.employee.benefit.rate,line_ids:0
 msgid "Rates"
-msgstr "Taux"
+msgstr ""
 
 #. module: hr_employee_benefit
 #: field:hr.employee.benefit.category,reference:0
 #: field:hr.payslip.benefit.line,reference:0
 msgid "Reference"
-msgstr "Référence"
+msgstr ""
 
 #. module: hr_employee_benefit
 #: view:hr.payslip:hr_employee_benefit.view_hr_payslip_form
 msgid "Salary Computation"
-msgstr "Calcul du salaire"
+msgstr ""
 
 #. module: hr_employee_benefit
 #: view:hr.employee.benefit.category:hr_employee_benefit.hr_employee_benefit_category_form
 #: field:hr.employee.benefit.category,salary_rule_ids:0
 #: field:hr.salary.rule,employee_benefit_ids:0
 msgid "Salary Rules"
-msgstr "Règles de salaire"
+msgstr ""
 
 #. module: hr_employee_benefit
 #: view:hr.employee.benefit.category:hr_employee_benefit.view_hr_employee_benefit_category_filter
 msgid "Search Employee Benefit"
-msgstr "Rechercher des Avantages Sociaux"
+msgstr ""
 
 #. module: hr_employee_benefit
 #: view:hr.employee.benefit.rate:hr_employee_benefit.view_hr_employee_benefit_rate_filter
 msgid "Search Employee Benefit Rate"
-msgstr "Rechercher des taux d'avantages sociaux"
+msgstr ""
 
 #. module: hr_employee_benefit
 #: field:hr.employee.benefit,date_start:0
 #: field:hr.employee.benefit.rate.line,date_start:0
 msgid "Start Date"
-msgstr "Date de début"
+msgstr ""
 
 #. module: hr_employee_benefit
 #: help:hr.employee.benefit.category,code:0
 msgid "The code that can be used in the salary rules to identify the benefit"
-msgstr "Le code utilisé dans les règles de salaire pour identifier l'avantage social"
+msgstr ""
 
 #. module: hr_employee_benefit
 #: field:hr.payslip.benefit.line,source:0
 msgid "Type"
-msgstr "Type"
+msgstr ""
 
 #. module: hr_employee_benefit
 #: code:addons/hr_employee_benefit/models/hr_employee_benefit_rate.py:88
 #, python-format
 msgid "You cannot have overlapping rates"
-msgstr "Vous ne pouvez pas avoir de taux superposés dans le temps."
+msgstr ""
 
 #. module: hr_employee_benefit
 #: code:addons/hr_employee_benefit/models/hr_employee_benefit.py:87
 #, python-format
 msgid "You must select a rate related to the selected category."
-msgstr "Vous devez sélectionner un taux lié à la catégorie sélectionnée."
+msgstr ""
 
 #. module: hr_employee_benefit
 #: field:hr.employee.benefit.category,active:0
 msgid "active"
-msgstr "actif"
+msgstr ""
