@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-18 13:10+0000\n"
+"POT-Creation-Date: 2015-10-03 22:37+0000\n"
 "PO-Revision-Date: 2015-07-27 23:44+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: French (http://www.transifex.com/oca/OCA-hr-8-0/language/fr/)\n"
@@ -58,7 +58,7 @@ msgstr ""
 #. module: hr_experience
 #: field:hr.experience,category:0 help:hr.experience,category:0
 msgid "Category"
-msgstr ""
+msgstr "Catégorie"
 
 #. module: hr_experience
 #: view:hr.employee:hr_experience.view_employee_form_inherit
@@ -111,7 +111,7 @@ msgstr ""
 #: view:hr.experience:hr_experience.view_professional_form
 #: field:hr.experience,description:0
 msgid "Description"
-msgstr ""
+msgstr "Description"
 
 #. module: hr_experience
 #: field:hr.academic,diploma:0
@@ -193,7 +193,7 @@ msgstr ""
 #: field:hr.academic,name:0 field:hr.certification,name:0
 #: field:hr.curriculum,name:0 field:hr.experience,name:0
 msgid "Name"
-msgstr ""
+msgstr "Nom"
 
 #. module: hr_experience
 #: field:hr.academic,partner_id:0 field:hr.certification,partner_id:0
