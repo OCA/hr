@@ -5,10 +5,17 @@ from openerp import models, fields, api, _
 class HrPayslip(models.Model):
     _inherit = 'hr.payslip'
 
-    hr_period_id = fields.Many2one('hr.period', string='Period', readonly=True,
-                                   states={'draft': [('readonly', False)]})
-    date_payment = fields.Date('Date of Payment', readonly=True,
-                               states={'draft': [('readonly', False)]})
+    hr_period_id = fields.Many2one(
+                                   'hr.period', 
+                                   string='Period', 
+                                   readonly=True,
+                                   states={'draft': [('readonly', False)]}
+                                   )
+    date_payment = fields.Date(
+                               'Date of Payment',
+                               readonly=True,
+                               states={'draft': [('readonly', False)]}
+                               )
     
     @api.multi
     @api.constrains('hr_period_id', 'company_id')
