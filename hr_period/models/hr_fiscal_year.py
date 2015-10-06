@@ -63,30 +63,63 @@ class HrFiscalYear(models.Model):
         return datetime(today.year, 12, 31).strftime(
             DEFAULT_SERVER_DATE_FORMAT)
     
-    name = fields.Char('Fiscal Year', required=True,readonly=True, 
-                       states={'draft': [('readonly', False)]})
-    company_id = fields.Many2one('res.company', 'Company', required=True,
+    name = fields.Char(
+                       'Fiscal Year',
+                       required=True,
+                       readonly=True, 
+                       states={'draft': [('readonly', False)]}
+                       )
+    company_id = fields.Many2one(
+                                 'res.company', 
+                                 'Company', 
+                                 required=True,
                                  readonly=True, 
                                  states={'draft': [('readonly', False)]},
-                                 default=lambda obj: obj.env.user.company_id)
-    date_start = fields.Date('Start Date', required=True, readonly=True,
+                                 default=lambda obj: obj.env.user.company_id
+                                 )
+    date_start = fields.Date(
+                             'Start Date', 
+                             required=True, 
+                             readonly=True,
                              states={'draft': [('readonly', False)]},
                              help="The first day of the first period of the "
-                             "fiscal year.", default=_default_date_start)
-    date_stop = fields.Date('End Date', required=True, readonly=True,
+                             "fiscal year.", 
+                             default=_default_date_start
+                             )
+    date_stop = fields.Date(
+                            'End Date', 
+                            required=True, 
+                            readonly=True,
                             states={'draft': [('readonly', False)]},
                             help="The last day of the last period of the "
-                            "fiscal year.", default=_default_date_stop)
-    period_ids = fields.One2many('hr.period', 'fiscalyear_id', 'Periods',
+                            "fiscal year.", 
+                            default=_default_date_stop
+                            )
+    period_ids = fields.One2many(
+                                 'hr.period', 
+                                 'fiscalyear_id', 
+                                 'Periods',
                                  readonly=True, 
-                                 states={'draft': [('readonly', False)]})
-    state = fields.Selection([('draft', 'Draft'), ('open', 'Open'), 
-                              ('done', 'Closed'),], 'Status', readonly=True,
-                             default='draft')
-    schedule_pay = fields.Selection(get_schedules, 'Scheduled Pay',
-                                    required=True, readonly=True,
+                                 states={'draft': [('readonly', False)]}
+                                 )
+    state = fields.Selection(
+                             [
+                              ('draft', 'Draft'), 
+                              ('open', 'Open'), 
+                              ('done', 'Closed'),
+                              ], 
+                             'Status', 
+                             readonly=True,
+                             default='draft'
+                             )
+    schedule_pay = fields.Selection(
+                                    get_schedules, 
+                                    'Scheduled Pay',
+                                    required=True, 
+                                    readonly=True,
                                     states={'draft': [('readonly', False)]},
-                                    default='monthly')
+                                    default='monthly'
+                                    )
     payment_weekday = fields.Selection(
         [
             ('0', 'Sunday'),
@@ -97,17 +130,23 @@ class HrFiscalYear(models.Model):
             ('5', 'Friday'),
             ('6', 'Saturday'),
         ], 'Day of Payment',
-        readonly=True, states={'draft': [('readonly', False)]})
+        readonly=True, 
+        states={'draft': [('readonly', False)]}
+        )
     payment_week = fields.Selection(
         [
             ('0', 'Same Week'),
             ('1', 'Following Week'),
             ('2', 'Second Following Week'),
         ], 'Week of Payment',
-        readonly=True, states={'draft': [('readonly', False)]})
-    payment_day = fields.Selection(get_payment_days, 'Day of Payment',
+        readonly=True, 
+        states={'draft': [('readonly', False)]}
+        )
+    payment_day = fields.Selection(get_payment_days, 
+                                   'Day of Payment',
                                    readonly=True, 
-                                   states={'draft': [('readonly', False)]})
+                                   states={'draft': [('readonly', False)]}
+                                   )
 
     @api.onchange('schedule_pay', 'date_start')
     @api.multi
@@ -228,15 +267,11 @@ class HrFiscalYear(models.Model):
     @api.multi
     def button_set_to_draft(self):
         # Set all periods to draft
-        period_ids = [
-            p.id for p in chain(*[
-                fy.period_ids for fy in self
-            ])
-        ]
-        periods = self.env['hr.period'].browse(period_ids)
+        periods = self.mapped('period_ids')
         periods.button_set_to_draft()
         self.state = 'draft'
     
     @api.multi
     def search_period(self, number):
-        return next((p for p in self.period_ids if p.number == number), False)
+        return next((p for p in self.period_ids if p.number == number), 
+                    self.env['hr.period'])

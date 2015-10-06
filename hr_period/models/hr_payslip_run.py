@@ -8,19 +8,34 @@ from .hr_fiscal_year import get_schedules
 class HrPayslipRun(models.Model):
     _inherit = 'hr.payslip.run'
 
-    name = fields.Char('Name', required=True, readonly=True, 
+    name = fields.Char(
+                       'Name', 
+                       required=True, 
+                       readonly=True, 
                        states={'draft': [('readonly', False)]},
                        default=lambda obj:obj.env['ir.sequence']\
-                       .get('hr.payslip.run'))
-    company_id = fields.Many2one('res.company', 'Company',
+                       .get('hr.payslip.run')
+                       )
+    company_id = fields.Many2one(
+                                 'res.company', 
+                                 'Company',
                                  states={'close': [('readonly', True)]},
-                                 default=lambda obj: obj.env.user.company_id)
-    hr_period_id = fields.Many2one('hr.period', string='Period',
-                                   states={'close': [('readonly', True)]})
-    date_payment = fields.Date('Date of Payment', 
-                               states={'close': [('readonly', True)]})
-    schedule_pay = fields.Selection(get_schedules, 'Scheduled Pay', 
-                                    states={'close': [('readonly', True)]})
+                                 default=lambda obj: obj.env.user.company_id
+                                 )
+    hr_period_id = fields.Many2one(
+                                   'hr.period', 
+                                   string='Period',
+                                   states={'close': [('readonly', True)]}
+                                   )
+    date_payment = fields.Date(
+                               'Date of Payment', 
+                               states={'close': [('readonly', True)]}
+                               )
+    schedule_pay = fields.Selection(
+                                    get_schedules, 
+                                    'Scheduled Pay', 
+                                    states={'close': [('readonly', True)]}
+                                    )
 
     @api.multi
     @api.constrains('hr_period_id', 'company_id')
