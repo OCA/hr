@@ -20,7 +20,3 @@
 ##############################################################################
 
 from . import test_payroll_analysis
-
-checks = [
-    test_payroll_analysis,
-]

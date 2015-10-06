@@ -21,7 +21,7 @@ class PayrollAnalysis(models.TransientModel):
     _name = 'hr.payroll.analysis'
     _description = 'Payroll Analysis Wizard'
 
-    type = fields.Selection(
+    method = fields.Selection(
         [
             ('employee', 'By Employee'),
             ('salary_rule', 'By Salary Rule'),
@@ -77,48 +77,42 @@ class PayrollAnalysis(models.TransientModel):
         requested in the wizard
         """
         self.ensure_one()
-        wizard = self[0]
-
         domain_filters = []
 
-        if wizard.salary_rule_ids:
-            domain_filters.append(('salary_rule_id', 'in', [
-                rule.id for rule in wizard.salary_rule_ids]))
+        if self.salary_rule_ids:
+            domain_filters.append(('salary_rule_id', 'in', 
+                                   self.salary_rule_ids.ids))
 
-        if wizard.employee_ids and wizard.type == 'employee':
-            domain_filters.append(('employee_id', 'in', [
-                employee.id for employee in wizard.employee_ids]))
+        if self.employee_ids and self.method == 'employee':
+            domain_filters.append(('employee_id', 'in', self.employee_ids.ids))
 
-        if wizard.company_ids and wizard.type == 'company':
-            domain_filters.append(('company_id', 'in', [
-                company.id for company in wizard.company_ids]))
+        if self.company_ids and self.method == 'company':
+            domain_filters.append(('company_id', 'in', self.company_ids.ids))
 
-        if wizard.end_date:
-            domain_filters.append(('date', '<=', wizard.end_date))
+        if self.end_date:
+            domain_filters.append(('date', '<=', self.end_date))
 
-        if wizard.start_date:
-            domain_filters.append(('date', '>=', wizard.start_date))
+        if self.start_date:
+            domain_filters.append(('date', '>=', self.start_date))
 
-        analysis_lines = self.env['hr.payslip.analysis.line'].search(
-                                                            domain_filters)
-        analysis_line_ids = analysis_lines.mapped('id')
+        analysis_lines = self.env['hr.payslip.analysis.line'].search(domain_filters)
+        analysis_line_ids = analysis_lines.ids
 
-        view_ref = \
-            self.env.ref('hr_payroll_analysis.view_payslip_analysis_line_tree')
+        view_ref =  self.env.ref('hr_payroll_analysis.view_payslip_analysis_line_tree')
 
         view_context = {}
 
-        if wizard.type == 'company':
+        if self.method == 'company':
             view_context = {
                 'search_default_group_company_id': 1,
                 'search_default_group_salary_rule_id': 1,
             }
-        elif wizard.type == 'employee':
+        elif self.method == 'employee':
             view_context = {
                 'search_default_group_employee_id': 1,
                 'search_default_group_salary_rule_id': 1,
             }
-        elif wizard.type == 'salary_rule':
+        elif self.method == 'salary_rule':
             view_context = {
                 'search_default_group_salary_rule_id': 1,
             }

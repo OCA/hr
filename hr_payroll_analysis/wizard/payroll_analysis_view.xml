@@ -51,12 +51,12 @@
       <field name="arch" type="xml">
         <form string="Model">
           <group string="Payroll Analysis">
-            <field name="type"/>
+            <field name="method"/>
             <field name="company_ids"
-              attrs="{'invisible': [('type', '!=', 'company')]}"
+              attrs="{'invisible': [('method', '!=', 'company')]}"
             />
             <field name="employee_ids"
-              attrs="{'invisible': [('type', '!=', 'employee')]}"
+              attrs="{'invisible': [('method', '!=', 'employee')]}"
             />
             <field name="salary_rule_ids"
               domain="[('include_in_payroll_analysis', '=', True)]"
