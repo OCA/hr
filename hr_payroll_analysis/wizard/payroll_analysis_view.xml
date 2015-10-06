@@ -49,7 +49,7 @@
       <field name="name">hr.payroll.analysis.form</field>
       <field name="model">hr.payroll.analysis</field>
       <field name="arch" type="xml">
-        <form string="Model" version="7.0">
+        <form string="Model">
           <group string="Payroll Analysis">
             <field name="type"/>
             <field name="company_ids"
@@ -61,7 +61,7 @@
             <field name="salary_rule_ids"
               domain="[('include_in_payroll_analysis', '=', True)]"
             />
-            <field name="period" on_change="onchange_period(period)"/>
+            <field name="period" />
             <field name="start_date"/>
             <field name="end_date"/>
           </group>

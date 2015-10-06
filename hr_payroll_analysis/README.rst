@@ -23,7 +23,7 @@ In the form view, check the 'Include in Payroll Analysis' box.
 Usage
 =====
 
-Go to: Reporting -> Human Ressources -> Payroll Analysis,
+Go to: Reporting -> Human Resources -> Payroll Analysis,
 Fill the wizard and click 'Generate the Report'
 
 
@@ -46,6 +46,7 @@ Contributors
 * David Dufresne <david.dufresne@savoirfairelinux.com>
 * Maxime Chambreuil <maxime.chambreuil@savoirfairelinux.com>
 * Pierre Lamarche <pierre.lamarche@savoirfairelinux.com>
+* Salton Massally <smassally@idtlabs.sl>
 
 Maintainer
 ----------
