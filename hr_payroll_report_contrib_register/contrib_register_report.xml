@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <report 
+            id="action_contribution_register" 
+            model="hr.contribution.register" 
+            string="PaySlip Lines By Conribution Register"
+            report_type="qweb-pdf"
+            name="hr_payroll_report_contrib_register.report_contributionregister" 
+            file="hr_payroll_report_contrib_register.report_contributionregister"
+            menu="False"
+        />
+    </data>
+</openerp>
