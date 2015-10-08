@@ -1,4 +1,22 @@
-# -*- coding:utf-8 -*-
+# -*- coding: utf-8 -*-
+###############################################################################
+#
+#    Copyright (C) 2016 Salton Massally (<smassally@idtlabs.sl>).
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU Affero General Public License as
+#    published by the Free Software Foundation, either version 3 of the
+#    License, or (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+#    GNU Affero General Public License for more details.
+#
+#    You should have received a copy of the GNU Affero General Public License
+#    along with this program. If not, see <http://www.gnu.org/licenses/>.
+#
+###############################################################################
 import operator
 from functools import partial
 from datetime import datetime, date, timedelta
@@ -11,17 +29,27 @@ from openerp.exceptions import Warning, ValidationError
 class HrEmployee(models.Model):
     _inherit = 'hr.employee'
 
-    initial_employment_date = fields.Date('Initial Date of Employment',
+    initial_employment_date = fields.Date(
+                                          'Initial Date of Employment',
         help='Date of first employment if it was before the start of the '
              'first contract in the system.',
     )
-    date_start = fields.Date('Start Date', readonly=True, store=True, 
-                             compute='_compute_service_details')    
-    
-    length_of_service = fields.Float('Length of Service', readonly=True, 
-                                     compute='_compute_employment_length')
-    length_of_service_str = fields.Char('Length of Service', readonly=True, 
-                                     compute='_compute_employment_length')
+    date_start = fields.Date(
+                             'Start Date', 
+                             readonly=True, 
+                             store=True, 
+                             compute='_compute_service_details'
+                             )    
+    length_of_service = fields.Float(
+                                     'Length of Service', 
+                                     readonly=True, 
+                                     compute='_compute_employment_length'
+                                     )
+    length_of_service_str = fields.Char(
+                                        'Length of Service', 
+                                        readonly=True,
+                                        compute='_compute_employment_length'
+                                        )
     
     @api.one
     @api.constrains('initial_employment_date', 'first_contract_id')
@@ -123,6 +151,7 @@ class HrEmployee(models.Model):
         delta = self.get_service_length_delta_at_time(dt)
         if not delta:
             return
-        self.length_of_service = float(((delta.years * 12) + delta.months))\
+        length_of_service = float(((delta.years * 12) + delta.months))\
          + delta.days/30.0
+        self.length_of_service = round(length_of_service, 1)
         self.length_of_service_str = self._convert_timedelta_to_str(delta)
