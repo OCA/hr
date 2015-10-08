@@ -28,7 +28,7 @@
             <field name="name">hr.children.view.tree</field>
             <field name="model">hr.employee.children</field>
             <field name="arch" type="xml">
-                <tree string="Employee Children">
+                <tree string="Employee Children" editable="bottom">
                     <field name="name"/>
                     <field name="gender"/>
                     <field name="date_of_birth"/>
