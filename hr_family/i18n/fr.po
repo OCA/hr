@@ -3,13 +3,16 @@
 # * hr_family
 # 
 # Translators:
+# Fouad ELOUAD <f.elouad@agoradeveloppement.com>, 2016
+# Isabelle RICHARD <isabellerichard89@gmail.com>, 2016
+# Mohamed HABOU <m.habou@agoradeveloppement.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-03 22:37+0000\n"
-"PO-Revision-Date: 2015-07-27 23:44+0000\n"
-"Last-Translator: <>\n"
+"POT-Creation-Date: 2015-11-30 05:19+0000\n"
+"PO-Revision-Date: 2016-01-13 01:03+0000\n"
+"Last-Translator: Isabelle RICHARD <isabellerichard89@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/oca/OCA-hr-8-0/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,7 +24,7 @@ msgstr ""
 #: view:hr.employee:hr_family.hr_employee_view_form
 #: field:hr.employee,fam_children_ids:0
 msgid "Children"
-msgstr ""
+msgstr "Enfants"
 
 #. module: hr_family
 #: field:hr.employee.children,create_uid:0
@@ -38,7 +41,7 @@ msgstr "Créé le"
 #: field:hr.employee,fam_mother_date_of_birth:0
 #: field:hr.employee.children,date_of_birth:0
 msgid "Date of Birth"
-msgstr ""
+msgstr "Date de naissance"
 
 #. module: hr_family
 #: field:hr.employee.children,employee_id:0
@@ -47,7 +50,6 @@ msgid "Employee"
 msgstr "Employé"
 
 #. module: hr_family
-#: view:hr.employee.children:hr_family.hr_children_view_form
 #: view:hr.employee.children:hr_family.hr_children_view_tree
 msgid "Employee Children"
 msgstr ""
@@ -60,12 +62,22 @@ msgstr ""
 #. module: hr_family
 #: view:hr.employee:hr_family.hr_employee_view_form
 msgid "Family"
-msgstr ""
+msgstr "Famille"
 
 #. module: hr_family
 #: field:hr.employee,fam_father:0
 msgid "Father's Name"
-msgstr ""
+msgstr "Nom du père"
+
+#. module: hr_family
+#: selection:hr.employee.children,gender:0
+msgid "Female"
+msgstr "Féminin"
+
+#. module: hr_family
+#: field:hr.employee.children,gender:0
+msgid "Gender"
+msgstr "Sexe"
 
 #. module: hr_family
 #: model:ir.model,name:hr_family.model_hr_employee_children
@@ -88,9 +100,14 @@ msgid "Last Updated on"
 msgstr "Dernière mise à jour le"
 
 #. module: hr_family
+#: selection:hr.employee.children,gender:0
+msgid "Male"
+msgstr "Masculin"
+
+#. module: hr_family
 #: field:hr.employee,fam_mother:0
 msgid "Mother's Name"
-msgstr ""
+msgstr "Nom de la mère"
 
 #. module: hr_family
 #: field:hr.employee,fam_spouse:0 field:hr.employee.children,name:0
@@ -100,14 +117,14 @@ msgstr "Nom"
 #. module: hr_family
 #: view:hr.employee:hr_family.hr_employee_view_form
 msgid "Parents"
-msgstr ""
+msgstr "Parents"
 
 #. module: hr_family
 #: view:hr.employee:hr_family.hr_employee_view_form
 msgid "Spouse"
-msgstr ""
+msgstr "Épouse"
 
 #. module: hr_family
 #: field:hr.employee,fam_spouse_tel:0
 msgid "Telephone."
-msgstr ""
+msgstr "Téléphone"
