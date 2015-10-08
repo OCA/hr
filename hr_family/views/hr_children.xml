@@ -30,7 +30,9 @@
             <field name="arch" type="xml">
                 <tree string="Employee Children">
                     <field name="name"/>
+                    <field name="gender"/>
                     <field name="date_of_birth"/>
+                    
                 </tree>
             </field>
         </record>
@@ -43,6 +45,7 @@
                     <sheet>
                         <group>
                             <field name="name"/>
+                            <field name="gender"/>
                             <field name="date_of_birth"/>
                         </group>
                     </sheet>
