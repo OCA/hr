@@ -21,6 +21,9 @@
 
 from openerp import models, fields
 
+GENDER_SELECTION = [('male', 'Male'),
+                    ('female', 'Female')]
+
 
 class HrChildren(models.Model):
     _name = 'hr.employee.children'
@@ -29,3 +32,4 @@ class HrChildren(models.Model):
     name = fields.Char("Name", required=True)
     date_of_birth = fields.Date("Date of Birth", oldname='dob')
     employee_id = fields.Many2one('hr.employee', "Employee")
+    gender = fields.Selection(selection=GENDER_SELECTION, string='Gender')
