@@ -39,7 +39,7 @@ addon | version | summary
 [hr_expense_invoice](hr_expense_invoice/) | 1.0 | Supplier invoices on HR expenses
 [hr_expense_sequence](hr_expense_sequence/) | 1.0 | HR expense sequence
 [hr_experience](hr_experience/) | 0.1 | Experience Management
-[hr_family](hr_family/) | 1.0 | Employee Family Information
+[hr_family](hr_family/) | 8.0.1.1.0 | Employee Family Information
 [hr_job_categories](hr_job_categories/) | 1.0 | HR Job Employee Categories
 [hr_language](hr_language/) | 0.1 | Language Management
 [hr_salary_rule_reference](hr_salary_rule_reference/) | 1.0 | Salary Rule Reference
