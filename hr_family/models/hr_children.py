@@ -21,8 +21,8 @@
 
 from openerp import models, fields
 
-GENDER_SELECTION = [('m', 'M'),
-                    ('f', 'F')]
+GENDER_SELECTION = [('male', 'Male'),
+                    ('female', 'Female')]
 
 
 class HrChildren(models.Model):
