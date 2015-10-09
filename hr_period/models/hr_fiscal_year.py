@@ -20,10 +20,10 @@
 from datetime import datetime
 strftime = datetime.strptime
 from dateutil.relativedelta import relativedelta
-from itertools import chain
 
 from openerp import models, fields, api,  _
 from openerp.tools import DEFAULT_SERVER_DATE_FORMAT
+from openerp.exceptions import Warning as UserError
 
 
 INTERVALS = {
@@ -36,6 +36,7 @@ INTERVALS = {
     'weekly': (relativedelta(weeks=1), 52),
     'daily': (relativedelta(days=1), 365),
 }
+
 
 @api.model
 def get_schedules(self):
@@ -50,6 +51,7 @@ def get_schedules(self):
         ('weekly', _('Weekly (52)')),
         ('daily', _('Daily (365)')),
     ]
+
 
 @api.model
 def get_payment_days(self):
@@ -68,76 +70,76 @@ def get_payment_days(self):
 class HrFiscalYear(models.Model):
     _name = 'hr.fiscalyear'
     _description = 'HR Fiscal Year'
-    
+
     @api.model
     def _default_date_start(self):
         today = datetime.now()
         return datetime(today.year, 1, 1).strftime(
             DEFAULT_SERVER_DATE_FORMAT)
-    
+
     @api.model
     def _default_date_stop(self):
         today = datetime.now()
         return datetime(today.year, 12, 31).strftime(
             DEFAULT_SERVER_DATE_FORMAT)
-    
+
     name = fields.Char(
-                       'Fiscal Year',
-                       required=True,
-                       readonly=True, 
-                       states={'draft': [('readonly', False)]}
-                       )
+        'Fiscal Year',
+        required=True,
+        readonly=True,
+        states={'draft': [('readonly', False)]}
+    )
     company_id = fields.Many2one(
-                                 'res.company', 
-                                 'Company', 
-                                 required=True,
-                                 readonly=True, 
-                                 states={'draft': [('readonly', False)]},
-                                 default=lambda obj: obj.env.user.company_id
-                                 )
+        'res.company',
+        'Company',
+        required=True,
+        readonly=True,
+        states={'draft': [('readonly', False)]},
+        default=lambda obj: obj.env.user.company_id
+    )
     date_start = fields.Date(
-                             'Start Date', 
-                             required=True, 
-                             readonly=True,
-                             states={'draft': [('readonly', False)]},
-                             help="The first day of the first period of the "
-                             "fiscal year.", 
-                             default=_default_date_start
-                             )
+        'Start Date',
+        required=True,
+        readonly=True,
+        states={'draft': [('readonly', False)]},
+        help="The first day of the first period of the "
+        "fiscal year.",
+        default=_default_date_start
+    )
     date_stop = fields.Date(
-                            'End Date', 
-                            required=True, 
-                            readonly=True,
-                            states={'draft': [('readonly', False)]},
-                            help="The last day of the last period of the "
-                            "fiscal year.", 
-                            default=_default_date_stop
-                            )
+        'End Date',
+        required=True,
+        readonly=True,
+        states={'draft': [('readonly', False)]},
+        help="The last day of the last period of the "
+        "fiscal year.",
+        default=_default_date_stop
+    )
     period_ids = fields.One2many(
-                                 'hr.period', 
-                                 'fiscalyear_id', 
-                                 'Periods',
-                                 readonly=True, 
-                                 states={'draft': [('readonly', False)]}
-                                 )
+        'hr.period',
+        'fiscalyear_id',
+        'Periods',
+        readonly=True,
+        states={'draft': [('readonly', False)]}
+    )
     state = fields.Selection(
-                             [
-                              ('draft', 'Draft'), 
-                              ('open', 'Open'), 
-                              ('done', 'Closed'),
-                              ], 
-                             'Status', 
-                             readonly=True,
-                             default='draft'
-                             )
+        [
+            ('draft', 'Draft'),
+            ('open', 'Open'),
+            ('done', 'Closed'),
+        ],
+        'Status',
+        readonly=True,
+        default='draft'
+    )
     schedule_pay = fields.Selection(
-                                    get_schedules, 
-                                    'Scheduled Pay',
-                                    required=True, 
-                                    readonly=True,
-                                    states={'draft': [('readonly', False)]},
-                                    default='monthly'
-                                    )
+        get_schedules,
+        'Scheduled Pay',
+        required=True,
+        readonly=True,
+        states={'draft': [('readonly', False)]},
+        default='monthly'
+    )
     payment_weekday = fields.Selection(
         [
             ('0', 'Sunday'),
@@ -148,23 +150,24 @@ class HrFiscalYear(models.Model):
             ('5', 'Friday'),
             ('6', 'Saturday'),
         ], 'Day of Payment',
-        readonly=True, 
+        readonly=True,
         states={'draft': [('readonly', False)]}
-        )
+    )
     payment_week = fields.Selection(
         [
             ('0', 'Same Week'),
             ('1', 'Following Week'),
             ('2', 'Second Following Week'),
         ], 'Week of Payment',
-        readonly=True, 
+        readonly=True,
         states={'draft': [('readonly', False)]}
-        )
-    payment_day = fields.Selection(get_payment_days, 
-                                   'Day of Payment',
-                                   readonly=True, 
-                                   states={'draft': [('readonly', False)]}
-                                   )
+    )
+    payment_day = fields.Selection(
+        get_payment_days,
+        'Day of Payment',
+        readonly=True,
+        states={'draft': [('readonly', False)]}
+    )
 
     @api.onchange('schedule_pay', 'date_start')
     @api.multi
@@ -172,12 +175,11 @@ class HrFiscalYear(models.Model):
         if self.schedule_pay and self.date_start:
             year = datetime.strptime(
                 self.date_start, DEFAULT_SERVER_DATE_FORMAT).year
-    
+
             schedule_name = next((
                 s[1] for s in get_schedules(self)
-                if s[0] == self.schedule_pay
-            ), False)
-    
+                if s[0] == self.schedule_pay), False)
+
             self.name = '%(year)s - %(schedule)s' % {
                 'year': year,
                 'schedule': schedule_name,
@@ -185,7 +187,7 @@ class HrFiscalYear(models.Model):
 
     @api.multi
     def create_periods(self):
-        """ 
+        """
         Create every periods a payroll fiscal year
         """
         for fy in self:
@@ -201,7 +203,8 @@ class HrFiscalYear(models.Model):
                 fy.date_stop,
                 DEFAULT_SERVER_DATE_FORMAT) + relativedelta(days=1)
 
-            if fy.schedule_pay == 'semi-monthly': # Case for semi-monthly schedules
+            if fy.schedule_pay == 'semi-monthly':
+                #  Case for semi-monthly schedules
                 delta_1 = relativedelta(days=15)
                 delta_2 = relativedelta(months=1)
 
@@ -215,8 +218,8 @@ class HrFiscalYear(models.Model):
 
                     # setup for next month
                     period_start += delta_2
-                    i += 2            
-            else: # All other cases
+                    i += 2
+            else:  # All other cases
                 delta, nb_periods = INTERVALS[fy.schedule_pay]
 
                 i = 1
@@ -253,7 +256,7 @@ class HrFiscalYear(models.Model):
 
     @api.multi
     def _get_day_of_payment(self, date_stop):
-        """ 
+        """
         Get the date of payment for a period to create
         :param date_stop: the last day of the current period
         """
@@ -274,10 +277,9 @@ class HrFiscalYear(models.Model):
     def button_confirm(self):
         for fy in self:
             if not fy.period_ids:
-                raise Warning(_('You must create periods before confirming the '
-                        'the fiscal year.'))
+                raise UserError(_('You must create periods before confirming '
+                                  'the fiscal year.'))
         self.state = 'open'
-        
         for fy in self:
             first_period = fy.period_ids.sorted(key=lambda p: p.number)[0]
             first_period.button_open()
@@ -288,8 +290,8 @@ class HrFiscalYear(models.Model):
         periods = self.mapped('period_ids')
         periods.button_set_to_draft()
         self.state = 'draft'
-    
+
     @api.multi
     def search_period(self, number):
-        return next((p for p in self.period_ids if p.number == number), 
+        return next((p for p in self.period_ids if p.number == number),
                     self.env['hr.period'])
