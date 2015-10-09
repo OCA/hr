@@ -18,42 +18,45 @@
 #
 ##############################################################################
 from openerp import models, fields, api, _
+from openerp.exceptions import Warning as UserError
 
 
 class HrPayslip(models.Model):
     _inherit = 'hr.payslip'
 
     hr_period_id = fields.Many2one(
-                                   'hr.period', 
-                                   string='Period', 
-                                   readonly=True,
-                                   states={'draft': [('readonly', False)]}
-                                   )
+        'hr.period',
+        string='Period',
+        readonly=True,
+        states={'draft': [('readonly', False)]}
+    )
     date_payment = fields.Date(
-                               'Date of Payment',
-                               readonly=True,
-                               states={'draft': [('readonly', False)]}
-                               )
-    
+        'Date of Payment',
+        readonly=True,
+        states={'draft': [('readonly', False)]}
+    )
+
     @api.multi
     @api.constrains('hr_period_id', 'company_id')
     def _check_period_company(self):
         for slip in self:
             if slip.hr_period_id:
                 if slip.hr_period_id.company_id != slip.company_id:
-                    raise Warning("The company on the selected period must be "
-                                  "the same as the company on the payslip.")
+                    raise UserError("The company on the selected period must "
+                                    "be the same as the company on the "
+                                    "payslip.")
         return True
-    
+
     @api.onchange('company_id', 'contract_id')
     def onchange_company_id(self):
         if len(self.company_id) and len(self.contract_id):
             contract = self.contract_id
-            period = self.env['hr.period'].get_next_period(self.company_id.id,
-                                                        contract.schedule_pay)
+            period_obj = self.env['hr.period']
+            period = period_obj.get_next_period(self.company_id.id,
+                                                contract.schedule_pay)
             self.hr_period_id = period.id if period else False
-    
-    @api.onchange('contract_id')    
+
+    @api.onchange('contract_id')
     def onchange_contract_id(
         self, cr, uid, ids, date_from, date_to,
         employee_id=False, contract_id=False, context=None
@@ -79,8 +82,7 @@ class HrPayslip(models.Model):
                     employee.name, period.name),
             })
         return res
- 
-    
+
     @api.onchange('hr_period_id')
     def onchange_hr_period_id(self):
         if len(self.hr_period_id):
@@ -93,7 +95,7 @@ class HrPayslip(models.Model):
     def create(self, vals):
         if vals.get('payslip_run_id'):
             payslip_run = self.env['hr.payslip.run'].browse(
-                                                    vals['payslip_run_id'])
+                vals['payslip_run_id'])
 
             employee = self.env['hr.employee'].browse(vals['employee_id'])
             period = payslip_run.hr_period_id
