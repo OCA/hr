@@ -39,5 +39,4 @@ class ResCompany(models.Model):
     employee_id_sequence = fields.Many2one(
         'ir.sequence', 'Sequence',
         help="Pattern to be used for used for ID Generation",
-        default=lambda self: self.env.ref('hr_employee_id.seq_employeeid_ref')
     )
