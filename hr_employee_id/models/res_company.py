@@ -17,6 +17,27 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from . import hr_employee
-from . import res_company
-from . import res_config
+
+from openerp import models, fields
+
+
+class ResCompany(models.Model):
+    _inherit = 'res.company'
+
+    employee_id_gen_method = fields.Selection(
+        [
+            ('random', 'Random'),
+            ('sequence', 'Sequence'),
+        ],
+        string="ID Generation Method",
+        default='random'
+    )
+    employee_id_random_digits = fields.Integer(
+        '# of Digits', default=5,
+        help="Number of digits making up the ID"
+    )
+    employee_id_sequence = fields.Many2one(
+        'ir.sequence', 'Sequence',
+        help="Pattern to be used for used for ID Generation",
+        default=lambda self: self.env.ref('hr_employee_id.seq_employeeid_ref')
+    )
