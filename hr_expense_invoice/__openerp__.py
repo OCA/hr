@@ -21,7 +21,7 @@
 
 {
     'name': 'Supplier invoices on HR expenses',
-    'version': '1.0',
+    'version': '8.0.1.0.0',
     'category': 'HR',
     'author': 'Serv. Tecnol. Avanzados - Pedro M. Baeza, '
               'Odoo Community Association (OCA)',
