@@ -20,7 +20,7 @@
 ##############################################################################
 {
     "name": "HR Contract Reference",
-    "version": "1.0",
+    "version": "8.0.1.0.0",
     "category": "Generic Modules/Human Resources",
     "author": 'Michael Telahun Makonnen, '
               'Fekete Mihai (Forest and Biomass Services Romania), '
