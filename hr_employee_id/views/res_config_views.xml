@@ -11,21 +11,22 @@
 						<label for="id" string="Employee ID" />
 						<div>
 							<div>
-							<label for="employee_id_gen_method" />
+								<label for="employee_id_gen_method" />
 								<field name="employee_id_gen_method" class="oe_inline" />
-								
+
 							</div>
-							<div
-								attrs="{'invisible': [('employee_id_gen_method','!=','random')]}">
-							<label for="employee_id_random_digits" />
-								<field name="employee_id_random_digits" class="oe_inline"  attrs="{'required': [('employee_id_gen_method','=','random')]}"/>
-								
+							<div attrs="{'invisible': [('employee_id_gen_method','!=','random')]}">
+								<label for="employee_id_random_digits" />
+								<field name="employee_id_random_digits" class="oe_inline"
+									attrs="{'required': [('employee_id_gen_method','=','random')]}" />
+
 							</div>
 							<div
 								attrs="{'invisible': [('employee_id_gen_method','!=','sequence')]}">
-							<label for="employee_id_sequence" />
-								<field name="employee_id_sequence" class="oe_inline" attrs="{'required': [('employee_id_gen_method','=','sequence')]}" />
-								
+								<label for="employee_id_sequence" />
+								<field name="employee_id_sequence" class="oe_inline"
+									attrs="{'required': [('employee_id_gen_method','=','sequence')]}" />
+
 							</div>
 						</div>
 					</group>
@@ -35,5 +36,3 @@
 		</record>
 	</data>
 </openerp>
-
-
