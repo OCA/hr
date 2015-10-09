@@ -23,7 +23,7 @@
 
 {
     'name': 'Default Analytic on Expenses',
-    'version': '0.1',
+    'version': '8.0.0.1.0',
     'category': 'Human Resources',
     'license': 'AGPL-3',
     'summary': "Manage default analytic account on expenses",
