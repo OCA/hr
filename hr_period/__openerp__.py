@@ -20,7 +20,7 @@
 
 {
     'name': 'HR Payroll Period',
-    'version': '1.0',
+    'version': '1.0.1',
     'license': 'AGPL-3',
     'category': 'Generic Modules/Human Resources',
     'description': """
