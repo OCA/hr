@@ -21,9 +21,9 @@ from datetime import datetime
 from openerp.tests import common
 
 
-class test_hr_fiscalyear(common.TransactionCase):
+class TestHrFiscalyear(common.TransactionCase):
     def setUp(self):
-        super(test_hr_fiscalyear, self).setUp()
+        super(TestHrFiscalyear, self).setUp()
         self.user_model = self.env["res.users"]
         self.company_model = self.env['res.company']
         self.payslip_model = self.env["hr.payslip"]

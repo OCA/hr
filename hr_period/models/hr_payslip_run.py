@@ -18,7 +18,7 @@
 #
 ##############################################################################
 from openerp import models, fields, api, _
-from openerp.exceptions import Warning
+from openerp.exceptions import Warning as UserError
 
 from .hr_fiscal_year import get_schedules
 
@@ -27,33 +27,33 @@ class HrPayslipRun(models.Model):
     _inherit = 'hr.payslip.run'
 
     name = fields.Char(
-                       'Name', 
-                       required=True, 
-                       readonly=True, 
-                       states={'draft': [('readonly', False)]},
-                       default=lambda obj:obj.env['ir.sequence']\
-                       .get('hr.payslip.run')
-                       )
+        'Name',
+        required=True,
+        readonly=True,
+        states={'draft': [('readonly', False)]},
+        default=lambda obj: obj.env['ir.sequence']
+        .get('hr.payslip.run')
+    )
     company_id = fields.Many2one(
-                                 'res.company', 
-                                 'Company',
-                                 states={'close': [('readonly', True)]},
-                                 default=lambda obj: obj.env.user.company_id
-                                 )
+        'res.company',
+        'Company',
+        states={'close': [('readonly', True)]},
+        default=lambda obj: obj.env.user.company_id
+    )
     hr_period_id = fields.Many2one(
-                                   'hr.period', 
-                                   string='Period',
-                                   states={'close': [('readonly', True)]}
-                                   )
+        'hr.period',
+        string='Period',
+        states={'close': [('readonly', True)]}
+    )
     date_payment = fields.Date(
-                               'Date of Payment', 
-                               states={'close': [('readonly', True)]}
-                               )
+        'Date of Payment',
+        states={'close': [('readonly', True)]}
+    )
     schedule_pay = fields.Selection(
-                                    get_schedules, 
-                                    'Scheduled Pay', 
-                                    states={'close': [('readonly', True)]}
-                                    )
+        get_schedules,
+        'Scheduled Pay',
+        states={'close': [('readonly', True)]}
+    )
 
     @api.multi
     @api.constrains('hr_period_id', 'company_id')
@@ -61,9 +61,9 @@ class HrPayslipRun(models.Model):
         for run in self:
             if run.hr_period_id:
                 if run.hr_period_id.company_id != run.company_id:
-                    raise Warning("The company on the selected period must be "
-                                  "the same as the company on the payslip "
-                                  "batch.")
+                    raise UserError("The company on the selected period must "
+                                    "be the same as the company on the  "
+                                    "payslip batch.")
         return True
 
     @api.multi
@@ -72,11 +72,11 @@ class HrPayslipRun(models.Model):
         for run in self:
             if run.hr_period_id:
                 if run.hr_period_id.schedule_pay != run.schedule_pay:
-                    raise Warning("The schedule on the selected period must be "
-                                  "the same as the schedule on the payslip "
-                                  "batch.")
+                    raise UserError("The schedule on the selected period must "
+                                    "be the same as the schedule on the "
+                                    "payslip batch.")
         return True
-    
+
     @api.model
     def get_default_schedule(self, company_id):
         company = self.env['res.company'].browse(company_id)
@@ -97,7 +97,7 @@ class HrPayslipRun(models.Model):
     @api.one
     def onchange_company_id(self):
         schedule_pay = self.schedule_pay or \
-        self.get_default_schedule(self.company_id.id)
+            self.get_default_schedule(self.company_id.id)
 
         if len(self.company_id) and schedule_pay:
             period = self.env['hr.period'].get_next_period(self.company_id.id,
@@ -129,7 +129,7 @@ class HrPayslipRun(models.Model):
         payslip_run = self[0]
 
         view_ref = self.env['ir.model.data'].get_object_reference(
-                                'hr_payroll', 'view_hr_payslip_by_employees')
+            'hr_payroll', 'view_hr_payslip_by_employees')
 
         view_id = view_ref and view_ref[1] or False
 
@@ -163,8 +163,8 @@ class HrPayslipRun(models.Model):
     def close_payslip_run(self):
         for run in self:
             if next((p for p in run.slip_ids if p.state == 'draft'), False):
-                raise Warning("The payslip batch %s still has unconfirmed "
-                "pay slips." % (run.name))
+                raise UserError("The payslip batch %s still has unconfirmed "
+                                "pay slips." % (run.name))
 
         self.update_periods()
         return super(HrPayslipRun, self).close_payslip_run()

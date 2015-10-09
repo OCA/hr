@@ -26,7 +26,7 @@ class HrContract(models.Model):
 
     # Add semi-monthly to payroll schedules
     shedule_pay = fields.Selection(
-                                   get_schedules, 
-                                   'Scheduled Pay',
-                                   index=True
-                                   )
+        get_schedules,
+        'Scheduled Pay',
+        index=True
+    )
