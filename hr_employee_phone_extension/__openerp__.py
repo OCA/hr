@@ -22,7 +22,7 @@
 
 {
     'name': 'Employee Phone Extension',
-    'version': '1.0',
+    'version': '8.0.1.0.0',
     'category': 'Human Resources',
     'author': "Savoir-faire Linux,Odoo Community Association (OCA)",
     'website': 'http://www.savoirfairelinux.com',

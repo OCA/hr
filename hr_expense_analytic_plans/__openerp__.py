@@ -19,7 +19,7 @@
 ##############################################################################
 {
     "name": "Analytic plans in expenses",
-    "version": "1.0",
+    "version": "8.0.1.0.0",
     "author": "Therp BV,Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "category": "Human Resources",

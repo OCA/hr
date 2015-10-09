@@ -24,28 +24,28 @@ Available addons
 ----------------
 addon | version | summary
 --- | --- | ---
-[hr_contract_hourly_rate](hr_contract_hourly_rate/) | 1.0 | HR Contract Hourly Rate
-[hr_contract_multi_jobs](hr_contract_multi_jobs/) | 1.0 | HR Contract Multi Jobs
-[hr_contract_reference](hr_contract_reference/) | 1.0 | HR Contract Reference
-[hr_employee_benefit](hr_employee_benefit/) | 1.0 | Employee Benefit
-[hr_employee_data_from_work_address](hr_employee_data_from_work_address/) | 1.0 | Update user's and partner's data fields from employee record
+[hr_contract_hourly_rate](hr_contract_hourly_rate/) | 8.0.1.0.0 | HR Contract Hourly Rate
+[hr_contract_multi_jobs](hr_contract_multi_jobs/) | 8.0.1.0.0 | HR Contract Multi Jobs
+[hr_contract_reference](hr_contract_reference/) | 8.0.1.0.0 | HR Contract Reference
+[hr_employee_benefit](hr_employee_benefit/) | 8.0.1.0.0 | Employee Benefit
+[hr_employee_data_from_work_address](hr_employee_data_from_work_address/) | 8.0.1.0.0 | Update user's and partner's data fields from employee record
 [hr_employee_firstname](hr_employee_firstname/) | 8.0.0.0.1 | Adds First Name to Employee
 [hr_employee_gravatar](hr_employee_gravatar/) | 8.0.1.0.0 | Employees Synchronize Gravatar image
-[hr_employee_legacy_id](hr_employee_legacy_id/) | 1.0 | Legacy Employee ID
-[hr_employee_phone_extension](hr_employee_phone_extension/) | 1.0 | Employee Phone Extension
-[hr_expense_account_period](hr_expense_account_period/) | 0.1 | Accounting period for HR expenses journal entries
-[hr_expense_analytic_default](hr_expense_analytic_default/) | 0.1 | Manage default analytic account on expenses
-[hr_expense_analytic_plans](hr_expense_analytic_plans/) | 1.0 | Use analytic plans in expenses
-[hr_expense_invoice](hr_expense_invoice/) | 1.0 | Supplier invoices on HR expenses
-[hr_expense_sequence](hr_expense_sequence/) | 1.0 | HR expense sequence
-[hr_experience](hr_experience/) | 0.1 | Experience Management
+[hr_employee_legacy_id](hr_employee_legacy_id/) | 8.0.1.0.0 | Legacy Employee ID
+[hr_employee_phone_extension](hr_employee_phone_extension/) | 8.0.1.0.0 | Employee Phone Extension
+[hr_expense_account_period](hr_expense_account_period/) | 8.0.0.1.0 | Accounting period for HR expenses journal entries
+[hr_expense_analytic_default](hr_expense_analytic_default/) | 8.0.0.1.0 | Manage default analytic account on expenses
+[hr_expense_analytic_plans](hr_expense_analytic_plans/) | 8.0.1.0.0 | Use analytic plans in expenses
+[hr_expense_invoice](hr_expense_invoice/) | 8.0.1.0.0 | Supplier invoices on HR expenses
+[hr_expense_sequence](hr_expense_sequence/) | 8.0.1.0.0 | HR expense sequence
+[hr_experience](hr_experience/) | 8.0.0.1.0 | Experience Management
 [hr_family](hr_family/) | 8.0.1.1.0 | Employee Family Information
-[hr_job_categories](hr_job_categories/) | 1.0 | HR Job Employee Categories
-[hr_language](hr_language/) | 0.1 | Language Management
-[hr_salary_rule_reference](hr_salary_rule_reference/) | 1.0 | Salary Rule Reference
-[hr_security](hr_security/) | 1.0 | HR Permission Groups
+[hr_job_categories](hr_job_categories/) | 8.0.1.0.0 | HR Job Employee Categories
+[hr_language](hr_language/) | 8.0.0.1.0 | Language Management
+[hr_salary_rule_reference](hr_salary_rule_reference/) | 8.0.1.0.0 | Salary Rule Reference
+[hr_security](hr_security/) | 8.0.1.0.0 | HR Permission Groups
 [hr_skill](hr_skill/) | 8.0.1.0.0 | Skill Management
-[hr_webcam](hr_webcam/) | 1.0 | Capture employee picture with webcam
+[hr_webcam](hr_webcam/) | 8.0.1.0.0 | Capture employee picture with webcam
 
 Unported addons
 ---------------

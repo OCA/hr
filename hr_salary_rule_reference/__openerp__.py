@@ -20,7 +20,7 @@
 
 {
     'name': 'Salary Rule Reference',
-    'version': '1.0',
+    'version': '8.0.1.0.0',
     'license': 'AGPL-3',
     'category': 'Generic Modules/Human Resources',
     'author': "Savoir-faire Linux,Odoo Community Association (OCA)",
