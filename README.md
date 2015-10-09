@@ -60,7 +60,6 @@ addon | version | summary
 [hr_employee_id](__unported__/hr_employee_id/) | 1.0 (unported) | Employee ID
 [hr_employee_seniority](__unported__/hr_employee_seniority/) | 1.0 (unported) | Employee Seniority
 [hr_employee_state](__unported__/hr_employee_state/) | 1.0 (unported) | Employment Status
-[hr_expense_sequence](__unported__/hr_expense_sequence/) | 0.1 (unported) | Adds a sequence on expenses
 [hr_experience_analytic](__unported__/hr_experience_analytic/) | 0.1 (unported) | Experience and Analytic Accounting
 [hr_holidays_extension](__unported__/hr_holidays_extension/) | 1.0 (unported) | HR Holidays Extension
 [hr_infraction](__unported__/hr_infraction/) | 1.0 (unported) | Employee Infraction Management
