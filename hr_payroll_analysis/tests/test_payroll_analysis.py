@@ -20,13 +20,13 @@
 from openerp.tests import common
 
 
-class test_payroll_analysis(common.TransactionCase):
+class TestPayrollAnalysis(common.TransactionCase):
     def get_activity_id(self, job_id):
         job = self.job_model.browse(job_id)
         return job.activity_ids[0].id
 
     def setUp(self):
-        super(test_payroll_analysis, self).setUp()
+        super(TestPayrollAnalysis, self).setUp()
         self.user_model = self.env["res.users"]
         self.payslip_model = self.env["hr.payslip"]
         self.contract_model = self.env["hr.contract"]
@@ -38,8 +38,8 @@ class test_payroll_analysis(common.TransactionCase):
 
         # Create an employee
         self.employee = self.employee_model.create({
-                'name': 'Employee 1',
-            })
+            'name': 'Employee 1',
+        })
 
         # Get any existing category
         self.category = self.rule_category_model.search([])[0]
@@ -137,7 +137,7 @@ class test_payroll_analysis(common.TransactionCase):
         self.payslips[0].cancel_sheet()
 
         lines = self.analysis_line_model.search(
-                            [('payslip_id', 'in', self.payslips.ids)])
+            [('payslip_id', 'in', self.payslips.ids)])
 
         self.assertEqual(len(lines), 1)
         self.assertEqual(lines[0].payslip_id.id, self.payslips.ids[1])
@@ -153,7 +153,7 @@ class test_payroll_analysis(common.TransactionCase):
 
         # Check that the proper lines are now computed
         lines = self.analysis_line_model.search(
-                                [('payslip_id', 'in', self.payslips.ids)])
+            [('payslip_id', 'in', self.payslips.ids)])
 
         self.assertEqual(len(lines), 2)
 

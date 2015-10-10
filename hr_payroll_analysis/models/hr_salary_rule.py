@@ -26,7 +26,7 @@ class HrSalaryRule(models.Model):
     include_in_payroll_analysis = fields.Boolean(
         'Include in Payroll Analysis',
         help="If True, every payslip line related to this salary "
-        "rule will appear in the payroll analysis report."
+             "rule will appear in the payroll analysis report."
     )
 
     @api.multi
@@ -47,7 +47,7 @@ class HrSalaryRule(models.Model):
         for rule in self:
             # Remove existing analysis lines
             lines = analysis_line_obj.search(
-                                    [('salary_rule_id', '=', rule.id)])
+                [('salary_rule_id', '=', rule.id)])
             lines.unlink()
 
             if rule.include_in_payroll_analysis:

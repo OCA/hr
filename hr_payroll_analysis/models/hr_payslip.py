@@ -22,12 +22,12 @@ from openerp import models, fields, api
 
 class HrPayslip(models.Model):
     _inherit = 'hr.payslip'
-    
+
     analysis_line_ids = fields.One2many(
-                                        'hr.payslip.analysis.line', 
-                                        'payslip_id', 
-                                        'Analysis Lines'
-                                        )
+        'hr.payslip.analysis.line',
+        'payslip_id',
+        'Analysis Lines'
+    )
 
     @api.multi
     def process_sheet(self):
@@ -37,23 +37,22 @@ class HrPayslip(models.Model):
         super(HrPayslip, self).process_sheet()
         self.remove_analysis_lines()
         self.compute_analysis_lines()
-    
+
     @api.multi
     def remove_analysis_lines(self):
         """
         Make sure no analysis line has already been computed
         """
         self.mapped('analysis_line_ids').unlink()
-    
+
     @api.multi
     def compute_analysis_lines(self):
 
         analysis_line_obj = self.env['hr.payslip.analysis.line']
 
         for payslip in self:
-            required_lines = payslip.details_by_salary_rule_category\
-            .filtered(
-                lambda line: line.salary_rule_id.include_in_payroll_analysis \
+            required_lines = payslip.details_by_salary_rule_category.filtered(
+                lambda line: line.salary_rule_id.include_in_payroll_analysis
                 and line.total)
 
             is_refund = payslip.credit_note
@@ -69,7 +68,7 @@ class HrPayslip(models.Model):
                         'date': payslip.date_from,
                         'amount': is_refund and -line.total or line.total,
                     })
-    
+
     @api.multi
     def cancel_sheet(self):
         """

@@ -44,30 +44,52 @@ class PayrollAnalysis(models.TransientModel):
             ('employee', 'By Employee'),
             ('salary_rule', 'By Salary Rule'),
             ('company', 'By Company'),
-        ], required=True,  string="Analysis Type", default='salary_rule')
+        ],
+        required=True,
+        string="Analysis Type",
+        default='salary_rule'
+    )
     period = fields.Selection(
         [
             ('current_year', 'Current Year'),
             ('previous_year', 'Previous Year'),
             ('every_year', 'Every Year'),
-        ], string='Analysis Period', default='current_year')
-    start_date = fields.Datetime('Start Date',
+        ],
+        string='Analysis Period',
+        default='current_year'
+    )
+    start_date = fields.Datetime(
+        'Start Date',
         default=lambda self: (
             date(get_current_year(self.env.context), 1, 1).strftime(
-                DEFAULT_SERVER_DATE_FORMAT)))
-    end_date = fields.Datetime('End Date',
+                DEFAULT_SERVER_DATE_FORMAT))
+    )
+    end_date = fields.Datetime(
+        'End Date',
         default=lambda self: (
             date(get_current_year(self.env.context), 12, 31).strftime(
-                DEFAULT_SERVER_DATE_FORMAT)))
-    company_ids = fields.Many2many('res.company',
-        'payroll_analysis_company_rel', 'payroll_analysis_id',
-        'company_id', 'Companies',)
-    employee_ids = fields.Many2many('hr.employee',
-        'payroll_analysis_employee_rel', 'payroll_analysis_id',
-        'employee_id', 'Employees',)
-    salary_rule_ids = fields.Many2many('hr.salary.rule',
-        'payroll_analysis_salary_rule_rel', 'payroll_analysis_id',
-        'salary_rule_id','Salary Rules',)
+                DEFAULT_SERVER_DATE_FORMAT))
+        )
+    company_ids = fields.Many2many(
+        'res.company',
+        'payroll_analysis_company_rel',
+        'payroll_analysis_id',
+        'company_id', 'Companies',
+    )
+    employee_ids = fields.Many2many(
+        'hr.employee',
+        'payroll_analysis_employee_rel',
+        'payroll_analysis_id',
+        'employee_id',
+        'Employees'
+    )
+    salary_rule_ids = fields.Many2many(
+        'hr.salary.rule',
+        'payroll_analysis_salary_rule_rel',
+        'payroll_analysis_id',
+        'salary_rule_id',
+        'Salary Rules'
+    )
 
     @api.onchange('period')
     @api.one
@@ -76,18 +98,18 @@ class PayrollAnalysis(models.TransientModel):
             if self.period == 'every_year':
                 self.start_date = False
                 self.end_date = False
-    
+
             year = get_current_year(self.env.context)
-    
+
             if self.period == 'previous_year':
                 year -= 1
-    
+
             start_date = date(year, 1, 1).strftime(DEFAULT_SERVER_DATE_FORMAT)
             end_date = date(year, 12, 31).strftime(DEFAULT_SERVER_DATE_FORMAT)
-    
+
             self.start_date = start_date
             self.end_date = end_date
-    
+
     @api.multi
     def payroll_analysis_open_window(self):
         """
@@ -98,7 +120,7 @@ class PayrollAnalysis(models.TransientModel):
         domain_filters = []
 
         if self.salary_rule_ids:
-            domain_filters.append(('salary_rule_id', 'in', 
+            domain_filters.append(('salary_rule_id', 'in',
                                    self.salary_rule_ids.ids))
 
         if self.employee_ids and self.method == 'employee':
@@ -113,10 +135,12 @@ class PayrollAnalysis(models.TransientModel):
         if self.start_date:
             domain_filters.append(('date', '>=', self.start_date))
 
-        analysis_lines = self.env['hr.payslip.analysis.line'].search(domain_filters)
+        analysis_lines = self.env['hr.payslip.analysis.line'].search(
+            domain_filters)
         analysis_line_ids = analysis_lines.ids
 
-        view_ref =  self.env.ref('hr_payroll_analysis.view_payslip_analysis_line_tree')
+        view_ref = self.env.ref(
+            'hr_payroll_analysis.view_payslip_analysis_line_tree')
 
         view_context = {}
 
