@@ -22,7 +22,7 @@
 
     <!-- Wizard action -->
     <record id="action_print_run_contrib_register" model="ir.actions.act_window">
-      <field name="name">Print Contribution Register</field>
+      <field name="name">Contribution Registers</field>
       <field name="type">ir.actions.act_window</field>
       <field name="res_model">print.run.contrib_register</field>
       <field name="view_type">form</field>
