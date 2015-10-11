@@ -10,7 +10,7 @@
             <field name="arch" type="xml">
                 <data>
                     <field name="employee_id" position="replace">
-                        <field name="employee_id" required="1" on_change="onchange_employee_id(employee_id)"/>
+                        <field name="employee_id"/>
                     </field>
                     <field name="job_id" position="replace">
                         <field name="employee_dept_id" invisible="1"/>

@@ -19,10 +19,4 @@
 #
 ##############################################################################
 
-from . import (
-    test_hr_simplify,
-)
-
-checks = [
-    test_hr_simplify,
-]
+from . import test_hr_simplify
