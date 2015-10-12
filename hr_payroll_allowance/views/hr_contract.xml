@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="hr_contract_view_form" model="ir.ui.view">
+            <field name="name">hr.contract.view.form</field>
+            <field name="model">hr.contract</field>
+            <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
+            <field name="arch" type="xml">
+                <group name="duration_group" position="after">
+                    <group name="allowance_group" string="Allowances">
+                        <field name="allowance_line_ids" nolabel="1">
+                            <tree string="Allowances" editable="bottom">
+                                <field name="allowance_id"/>
+                                <field name="amount"/>
+                            </tree>
+                        </field>
+                    </group>
+                </group>
+
+            </field>
+        </record>
+    </data>
+</openerp>

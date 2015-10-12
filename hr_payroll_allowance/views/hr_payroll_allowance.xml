@@ -29,7 +29,6 @@
 							<group>
 								<field name="register_id" />
 								<field name="rule_id" />
-								<field name="field_id" groups="base.group_no_one" />
 							</group>
 
 						</group>
