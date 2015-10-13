@@ -42,9 +42,9 @@ Contributors
         'hr_payroll',
     ],
     'data': [
-        'hr_payslip_view.xml',
+        'views/hr_payslip_view.xml',
     ],
     'test': [],
     'demo': [],
-    'installable': False,
+    'installable': True,
 }
