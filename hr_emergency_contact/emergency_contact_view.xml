@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+##############################################################################
+#
+#    Copyright (C) 2011 Michael Telahun Makonnen <mmakonnen@gmail.com>.
+#    All Rights Reserved.
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU Affero General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU Affero General Public License for more details.
+#
+#    You should have received a copy of the GNU Affero General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+##############################################################################
+-->
+
+<openerp>
+    <data>
+        
+        <record id="emergency_contact_view_form" model="ir.ui.view">
+            <field name="name">hr.emergency_contact.form</field>
+            <field name="model">hr.emergency_contact</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Emergency Contact">
+                </form>
+            </field>
+        </record>
+        
+        <record id="hr_employee_view_form" model="ir.ui.view">
+            <field name="name">hr.employee.view.form.inherit</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <xpath expr='//form/notebook/page[@string="Personal Information"]' position="after">
+                    <page string="Emergency Contact">
+                        <field name="ec_name"/>
+                        <field name="ec_relationship"/>
+                        <field name="ec_tel1"/>
+                        <field name="ec_tel2"/>
+                        <group colspan="4" col="6">
+                            <field name="ec_woreda"/>
+                            <field name="ec_kebele"/>
+                            <field name="ec_houseno"/>
+                        </group>
+                        <field name="ec_address" colspan="4"/>
+                        <field name="ec_country_id"/>
+                        <field name="ec_state_id"/>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+        
+    </data>
+</openerp>
