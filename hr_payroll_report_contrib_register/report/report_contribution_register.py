@@ -24,9 +24,9 @@ from openerp.osv import osv
 from openerp.report import report_sxw
 
 
-class contribution_register_report(report_sxw.rml_parse):
+class ContributionRegisterReport(report_sxw.rml_parse):
     def __init__(self, cr, uid, name, context):
-        super(contribution_register_report, self).__init__(
+        super(ContributionRegisterReport, self).__init__(
             cr, uid, name, context)
         self.localcontext.update({
             'get_payslip_lines': self._get_payslip_lines,
@@ -46,7 +46,7 @@ class contribution_register_report(report_sxw.rml_parse):
             )[:10]
         )
         self.slip_ids = data['form'].get('slip_ids', [])
-        return super(contribution_register_report, self).set_context(
+        return super(ContributionRegisterReport, self).set_context(
             objects, data, ids, report_type=report_type
         )
 
@@ -81,10 +81,10 @@ class contribution_register_report(report_sxw.rml_parse):
         return res
 
 
-class wrapped_report_contribution_register(osv.AbstractModel):
+class WrappedReportContributionRegister(osv.AbstractModel):
     _name = (
         'report.hr_payroll_report_contrib_register.report_contributionregister'
     )
     _inherit = 'report.abstract_report'
     _template = 'hr_payroll.report_contributionregister'
-    _wrapped_report_class = contribution_register_report
+    _wrapped_report_class = ContributionRegisterReport

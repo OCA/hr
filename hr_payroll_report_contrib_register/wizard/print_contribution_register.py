@@ -20,7 +20,7 @@
 from openerp import models, fields, api
 
 
-class print_run_contrib_register(models.TransientModel):
+class PrintRunContribRegister(models.TransientModel):
     _name = 'print.run.contrib_register'
     _description = 'Print Contribution Register'
 
