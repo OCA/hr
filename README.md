@@ -10,6 +10,7 @@ Odoo modules related to Human Resources.
 
 
 [//]: # (addons)
+
 Unported addons
 ---------------
 addon | version | summary
@@ -70,6 +71,8 @@ addon | version | summary
 [hr_worked_days_activity](hr_worked_days_activity/) | 1.0 (unported) | Worked Days Activity
 [hr_worked_days_from_timesheet](hr_worked_days_from_timesheet/) | 8.0.1.0.0 (unported) | Worked Days From Timesheet
 [hr_worked_days_hourly_rate](hr_worked_days_hourly_rate/) | 1.0 (unported) | Worked Days Hourly Rates
+
+=======
 
 [//]: # (end addons)
 
