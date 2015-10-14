@@ -82,10 +82,9 @@ class contribution_register_report(report_sxw.rml_parse):
 
 
 class wrapped_report_contribution_register(osv.AbstractModel):
-    _name = \
+    _name = (
         'report.hr_payroll_report_contrib_register.report_contributionregister'
+    )
     _inherit = 'report.abstract_report'
     _template = 'hr_payroll.report_contributionregister'
     _wrapped_report_class = contribution_register_report
-
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
