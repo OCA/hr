@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-##############################################################################
+###############################################################################
 #
-#    Copyright (C) 2011,2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
+#    Copyright (C) 2016 Salton Massally (<smassally@idtlabs.sl>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -10,13 +10,13 @@
 #
 #    This program is distributed in the hope that it will be useful,
 #    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 #    GNU Affero General Public License for more details.
 #
 #    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#    along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
-##############################################################################
+###############################################################################
 
 from openerp import models, fields
 
@@ -39,5 +39,4 @@ class ResCompany(models.Model):
     employee_id_sequence = fields.Many2one(
         'ir.sequence', 'Sequence',
         help="Pattern to be used for used for ID Generation",
-        default=lambda self: self.env.ref('hr_employee_id.seq_employeeid_ref')
     )

@@ -30,6 +30,7 @@
     ],
     'data': [
         'views/res_config_views.xml',
+        'views/res_company.xml',
         'views/hr_employee_views.xml',
         'data/hr_employee_sequence.xml',
     ],
