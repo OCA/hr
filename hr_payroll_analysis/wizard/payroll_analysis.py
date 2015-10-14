@@ -113,7 +113,7 @@ class PayrollAnalysis(models.TransientModel):
     @api.multi
     def payroll_analysis_open_window(self):
         """
-        This method returns an action that displays profitability lines
+        This method returns an action that displays analysis lines
         requested in the wizard
         """
         self.ensure_one()
