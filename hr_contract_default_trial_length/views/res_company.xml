@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="hr_timesheet_sheet_company" model="ir.ui.view">
+            <field name="name">res.company.sheet</field>
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="base.view_company_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group[@name='account_grp']" position="after">
+                    <group name="contract_struct_grp" string="Contract">
+                        <field name="default_contract_trial_length"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+        </data>
+</openerp>
