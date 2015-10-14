@@ -29,9 +29,7 @@
         'hr_payroll'
     ],
     "data": [
-        'views/hr_payroll.xml',
+        'views/hr_payroll_structure.xml',
     ],
     'installable': True,
 }
-
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
