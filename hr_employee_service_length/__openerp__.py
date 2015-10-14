@@ -26,7 +26,7 @@
                "Odoo Community Association (OCA)",
     'website': 'http://idtlabs.sl',
     'license': 'AGPL-3',
-    'depends': ['hr_contract_usability'],
+    'depends': ['hr_contract'],
     "external_dependencies": {
         'python': ['dateutil'],
     },

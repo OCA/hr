@@ -55,8 +55,7 @@ class HrEmployee(models.Model):
             .sorted(key=operator.itemgetter('date_start', 'id'))[0]
 
     @api.one
-    @api.constrains('initial_employment_date', 'contract_ids',
-                    'contract_ids.date_start')
+    @api.constrains('initial_employment_date', 'contract_ids')
     def _check_initial_employment_date(self):
         if self.initial_employment_date and len(self.contract_ids):
             initial_dt = fields.Date.from_string(self.initial_employment_date)
