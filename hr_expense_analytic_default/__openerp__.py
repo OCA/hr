@@ -53,5 +53,5 @@ This module has been written by Alexis de Lattre
         'hr_expense_view.xml',
     ],
     'demo': ['expense_analytic_default_demo.xml'],
-    'installable': True,
+    'installable': False,
 }

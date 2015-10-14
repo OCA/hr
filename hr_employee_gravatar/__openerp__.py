@@ -10,6 +10,6 @@
     'website': 'http://www.endikaiglesias.com/',
     "license": "AGPL-3",
     "application": False,
-    "installable": True,
+    'installable': False,
     'depends': ['hr', 'base_user_gravatar']
 }
