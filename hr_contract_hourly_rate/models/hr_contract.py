@@ -32,7 +32,7 @@ class hr_contract(models.Model):
         help="Whether to use the annual wage or an hourly rate "
              "for computation of payslip.",
         required=True,
-        default='yearly')
+        default='monthly')
 
     @api.multi
     def get_job_hourly_rate(self, date_from, date_to,
