@@ -56,31 +56,25 @@ class HrPayslip(models.Model):
                                                 contract.schedule_pay)
             self.hr_period_id = period.id if period else False
 
-    @api.onchange('contract_id')
-    def onchange_contract_id(
-        self, cr, uid, ids, date_from, date_to,
-        employee_id=False, contract_id=False, context=None
-    ):
-
+    @api.multi
+    def onchange_contract_id(self, date_from, date_to,
+                             employee_id=False, contract_id=False):
         res = super(HrPayslip, self).onchange_contract_id(
-            cr, uid, ids, date_from, date_to,
-            employee_id=employee_id, contract_id=contract_id, context=context)
+            date_from, date_to,
+            employee_id=employee_id, contract_id=contract_id)
 
         if employee_id and contract_id:
-            employee = self.pool['hr.employee'].browse(
-                cr, uid, employee_id, context=context)
-            contract = self.pool['hr.contract'].browse(
-                cr, uid, contract_id, context=context)
+            employee = self.env['hr.employee'].browse(employee_id)
+            contract = self.env['hr.contract'].browse(contract_id)
 
-            period = self.pool['hr.period'].get_next_period(
-                cr, uid, employee.company_id.id, contract.schedule_pay,
-                context=context)
-
-            res['value'].update({
-                'hr_period_id': period.id if period else False,
-                'name': _('Salary Slip of %s for %s') % (
-                    employee.name, period.name),
-            })
+            period = self.env['hr.period'].get_next_period(
+                employee.company_id.id, contract.schedule_pay)
+            if len(period):
+                res['value'].update({
+                    'hr_period_id': period.id if period else False,
+                    'name': _('Salary Slip of %s for %s') % (
+                        employee.name, period.name),
+                })
         return res
 
     @api.onchange('hr_period_id')
