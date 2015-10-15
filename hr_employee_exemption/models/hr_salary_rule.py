@@ -21,33 +21,30 @@
 
 from openerp import api, models, fields
 
+
 class HrSalaryRule(models.Model):
+
     _inherit = 'hr.salary.rule'
+
     exemption_id = fields.Many2one(
         'hr.income.tax.exemption',
         'Exemption',
     )
 
     @api.multi
-    def compute_rule(self, rule_id, localdict):
-        rule = self.browse(cr, uid, rule_id, context=context)
+    def compute_rule(self, localdict):
+        self.ensure_one()
 
-        if rule.exemption_id and rule.check_exemption(localdict):
+        if self.exemption_id and self.check_exemption(localdict):
             return (0, 0, 0)
 
-        return super(HrSalaryRule, self).compute_rule(
-            cr, uid, rule_id, localdict, context=context)
+        return super(HrSalaryRule, self).compute_rule(self.id, localdict)
 
     @api.multi
     def check_exemption(self, localdict):
         """ Check whether the employee is exempted for the given rule
         """
-        if isinstance(ids, (int, long)):
-            ids = [ids]
-
-        assert len(ids) == 1, 'must be called with a single employee'
-
-        rule = self.browse(cr, uid, ids[0], context=context)
+        self.ensure_one()
 
         return localdict['employee'].exempted_from(
-            rule.exemption_id, localdict['payslip'].date_to)
+            self.exemption_id, localdict['payslip'].date_to)

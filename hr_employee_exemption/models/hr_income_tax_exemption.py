@@ -19,12 +19,19 @@
 #
 ##############################################################################
 
-from openerp import api, models, fields
+from openerp import fields, models, _
+
 
 class HrIncomeTaxExemption(models.Model):
+    """Income Tax Exemption"""
+
     _name = 'hr.income.tax.exemption'
-    _description = 'Income Tax Exemption'
-    name = fields.Char('Name', required=True)
+    _description = _(__doc__)
+
+    name = fields.Char(
+        'Name',
+        required=True
+    )
     salary_rule_ids = fields.One2many(
         'hr.salary.rule',
         'exemption_id',

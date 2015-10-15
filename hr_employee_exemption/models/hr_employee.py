@@ -25,7 +25,6 @@ from openerp import api, models, fields
 class HrEmployee(models.Model):
     _inherit = 'hr.employee'
 
-
     exemption_ids = fields.One2many(
         'hr.employee.exemption',
         'employee_id',
@@ -41,15 +40,9 @@ class HrEmployee(models.Model):
 
         :type exemption: hr.income.tax.exemption browse record
         """
+        self.ensure_one()
 
-        if isinstance(ids, (int, long)):
-            ids = [ids]
-
-        assert len(ids) == 1, 'must be called with a single employee'
-
-        employee = self.browse(cr, uid, ids[0], context=context)
-
-        for e in employee.exemption_ids:
+        for e in self.exemption_ids:
             if (
                 e.exemption_id == exemption and
                 e.date_from <= date and

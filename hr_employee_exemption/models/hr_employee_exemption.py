@@ -19,11 +19,14 @@
 #
 ##############################################################################
 
-from openerp import api, models, fields
+from openerp import fields, models, _
+
 
 class HrEmployeeExemption(models.Model):
+    """Employee Income Tax Exemption"""
+
     _name = 'hr.employee.exemption'
-    _description = 'Employee Income Tax Exemption'
+    _description = _(__doc__)
 
     employee_id = fields.Many2one(
         'hr.employee',

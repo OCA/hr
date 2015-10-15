@@ -22,123 +22,92 @@
 from openerp.tests import common
 
 
-class test_hr_employee_exemption(common.TransactionCase):
+class TestHrEmployeeExemption(common.TransactionCase):
     def setUp(self):
-        super(test_hr_employee_exemption, self).setUp()
-        self.employee_model = self.registry('hr.employee')
-        self.exemption_model = self.registry('hr.income.tax.exemption')
-        self.rule_model = self.registry('hr.salary.rule')
-        self.rule_category_model = self.registry("hr.salary.rule.category")
-        self.contract_model = self.registry('hr.contract')
-        self.structure_model = self.registry("hr.payroll.structure")
-        self.payslip_model = self.registry('hr.payslip')
-        self.user_model = self.registry("res.users")
+        super(TestHrEmployeeExemption, self).setUp()
+        self.employee_model = self.env['hr.employee']
+        self.exemption_model = self.env['hr.income.tax.exemption']
+        self.rule_model = self.env['hr.salary.rule']
+        self.rule_category_model = self.env["hr.salary.rule.category"]
+        self.contract_model = self.env['hr.contract']
+        self.structure_model = self.env["hr.payroll.structure"]
+        self.payslip_model = self.env['hr.payslip']
+        self.user_model = self.env["res.users"]
 
-        self.context = self.user_model.context_get(self.cr, self.uid)
-        cr, uid, context = self.cr, self.uid, self.context
+        self.category = self.rule_category_model.search([], limit=1)
 
-        self.category_id = self.rule_category_model.search(
-            cr, uid, [], context=context)[0]
-
-        self.exemption_id = self.exemption_model.create(cr, uid, {
+        self.exemption = self.exemption_model.create({
             'name': 'Test',
-        }, context=context)
+        })
 
-        self.exemption = self.exemption_model.browse(
-            cr, uid, self.exemption_id, context=context)
-
-        self.exemption_2_id = self.exemption_model.create(cr, uid, {
+        self.exemption_2 = self.exemption_model.create({
             'name': 'Test',
-        }, context=context)
+        })
 
-        self.exemption_2 = self.exemption_model.browse(
-            cr, uid, self.exemption_2_id, context=context)
+        self.rule = self.rule_model.create({
+            'name': 'Test 1',
+            'sequence': 1,
+            'code': 'TEST_1',
+            'category_id': self.category.id,
+            'amount_select': 'fix',
+            'amount_fix': 50,
+            'exemption_id': self.exemption.id,
+        })
 
-        self.rule_id = self.rule_model.create(
-            cr, uid, {
-                'name': 'Test 1',
-                'sequence': 1,
-                'code': 'TEST_1',
-                'category_id': self.category_id,
-                'amount_select': 'fix',
-                'amount_fix': 50,
-                'exemption_id': self.exemption_id,
-            }, context=context
-        )
-        self.rule = self.rule_model.browse(
-            cr, uid, self.rule_id, context=context)
+        self.rule_2 = self.rule_model.create({
+            'name': 'Test 2',
+            'sequence': 2,
+            'code': 'TEST_2',
+            'category_id': self.category.id,
+            'amount_select': 'fix',
+            'amount_fix': 75,
+            'exemption_id': self.exemption_2.id,
+        })
 
-        self.rule_2_id = self.rule_model.create(
-            cr, uid, {
-                'name': 'Test 2',
-                'sequence': 2,
-                'code': 'TEST_2',
-                'category_id': self.category_id,
-                'amount_select': 'fix',
-                'amount_fix': 75,
-                'exemption_id': self.exemption_2_id,
-            }, context=context
-        )
+        self.structure = self.structure_model.create({
+            'name': 'TEST',
+            'parent_id': False,
+            'code': 'TEST',
+            'rule_ids': [(6, 0, [self.rule.id, self.rule_2.id])]
+        })
 
-        self.rule_2 = self.rule_model.browse(
-            cr, uid, self.rule_2_id, context=context)
+        self.employee = self.employee_model.create({
+            'name': 'Employee 1',
+        })
 
-        self.structure_id = self.structure_model.create(
-            cr, uid, {
-                'name': 'TEST',
-                'parent_id': False,
-                'code': 'TEST',
-                'rule_ids': [(6, 0, [self.rule_id, self.rule_2_id])]
-            }, context=context
-        )
+        self.employee_2 = self.employee_model.create({
+            'name': 'Employee 2',
+        })
 
-        self.employee_ids = [
-            self.employee_model.create(
-                cr, uid, {
-                    'name': record[0],
-                }, context=context
-            ) for record in [
-                ('Employee 1', ),
-                ('Employee 2', ),
-            ]
-        ]
+        self.contract = self.contract_model.create({
+            'name': 'Contract 1',
+            'employee_id': self.employee.id,
+            'wage': 50000,
+            'struct_id': self.structure.id,
+        })
 
-        self.employee = self.employee_model.browse(
-            cr, uid, self.employee_ids[0], context=context)
-
-        self.contract_ids = [
-            self.contract_model.create(self.cr, self.uid, {
-                'name': record[0],
-                'employee_id': record[1],
-                'wage': 50000,
-                'struct_id': self.structure_id,
-            }, context=self.context)
-            for record in [
-                ('Contract 1', self.employee_ids[0]),
-                ('Contract 2', self.employee_ids[1]),
-            ]
-        ]
+        self.contract_2 = self.contract_model.create({
+            'name': 'Contract 2',
+            'employee_id': self.employee_2.id,
+            'wage': 50000,
+            'struct_id': self.structure.id,
+        })
 
     def compute_payslip(self):
-        cr, uid, context = self.cr, self.uid, self.context
-
-        self.payslip_id = self.payslip_model.create(cr, uid, {
-            'employee_id': self.employee_ids[0],
-            'contract_id': self.contract_ids[0],
+        self.payslip = self.payslip_model.create({
+            'employee_id': self.employee.id,
+            'contract_id': self.contract.id,
             'date_from': '2015-01-01',
             'date_to': '2015-01-31',
-            'struct_id': self.structure_id,
-        }, context=context)
+            'struct_id': self.structure.id,
+        })
 
-        self.payslip_model.compute_sheet(
-            cr, uid, [self.payslip_id], context=context)
-
-        payslip = self.payslip_model.browse(
-            cr, uid, self.payslip_id, context=context)
+        self.payslip.compute_sheet()
+        self.payslip.refresh()
 
         return {
             line.code: line.total
-            for line in payslip.details_by_salary_rule_category
+            for line in self.payslip.details_by_salary_rule_category
         }
 
     def test_no_exemption(self):
@@ -149,7 +118,7 @@ class test_hr_employee_exemption(common.TransactionCase):
 
     def test_one_exemption(self):
         self.employee.write({'exemption_ids': [(0, 0, {
-            'exemption_id': self.exemption_id,
+            'exemption_id': self.exemption.id,
             'date_from': '2015-01-01',
             'date_to': '2015-12-31',
         })]})
@@ -162,12 +131,12 @@ class test_hr_employee_exemption(common.TransactionCase):
     def test_two_exemption(self):
         self.employee.write({'exemption_ids': [
             (0, 0, {
-                'exemption_id': self.exemption_id,
+                'exemption_id': self.exemption.id,
                 'date_from': '2015-01-01',
                 'date_to': '2015-12-31',
             }),
             (0, 0, {
-                'exemption_id': self.exemption_2_id,
+                'exemption_id': self.exemption_2.id,
                 'date_from': '2015-01-01',
                 'date_to': '2015-12-31',
             }),
@@ -180,7 +149,7 @@ class test_hr_employee_exemption(common.TransactionCase):
 
     def test_exemption_no_date_to(self):
         self.employee.write({'exemption_ids': [(0, 0, {
-            'exemption_id': self.exemption_id,
+            'exemption_id': self.exemption.id,
             'date_from': '2015-01-01',
             'date_to': False,
         })]})
@@ -192,7 +161,7 @@ class test_hr_employee_exemption(common.TransactionCase):
 
     def test_exemption_date_before(self):
         self.employee.write({'exemption_ids': [(0, 0, {
-            'exemption_id': self.exemption_id,
+            'exemption_id': self.exemption.id,
             'date_from': '2014-12-01',
             'date_to': '2014-12-31',
         })]})
@@ -204,7 +173,7 @@ class test_hr_employee_exemption(common.TransactionCase):
 
     def test_exemption_date_after(self):
         self.employee.write({'exemption_ids': [(0, 0, {
-            'exemption_id': self.exemption_id,
+            'exemption_id': self.exemption.id,
             'date_from': '2015-02-01',
             'date_to': '2015-12-31',
         })]})

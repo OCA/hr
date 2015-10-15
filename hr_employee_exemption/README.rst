@@ -1,9 +1,12 @@
+.. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
+    :alt: License: AGPL-3
+
+==================
 Employee Exemption
 ==================
 
 This module implements employee exemption.
 This allows in salary rules to know whether the employee is exempted from a source deduction.
-
 
 Usage
 =====
