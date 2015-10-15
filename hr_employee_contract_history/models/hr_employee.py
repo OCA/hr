@@ -25,9 +25,6 @@ class HrEmployee(models.Model):
     _inherit = 'hr.employee'
 
     contract_id = fields.Many2one(
-        'hr.contract',
-        'Current Contract',
-        help='Latest contract of the employee',
         store=True,
         readonly=True,
         index=True,
@@ -41,8 +38,6 @@ class HrEmployee(models.Model):
         compute='_compute_first_contract'
     )
     job_id = fields.Many2one(
-        'hr.job',
-        'Job Title',
         readonly=True,
         store=True,
         related='contract_id.job_id'
@@ -56,7 +51,7 @@ class HrEmployee(models.Model):
         'contract_ids.job_id'
     )
     def _compute_first_contract(self):
-        if len(self.contract_ids):
+        if self.contract_ids:
             contracts_sorted = self.contract_ids.sorted(
                 key=lambda r: (r.date_start, r.id))
             self.first_contract_id = contracts_sorted[0]
@@ -69,7 +64,7 @@ class HrEmployee(models.Model):
         'contract_ids.job_id'
     )
     def _compute_current_contract(self):
-        if len(self.contract_ids):
+        if self.contract_ids:
             contracts_sorted = self.contract_ids.sorted(
                 key=lambda r: (r.date_start, r.id))
             self.contract_id = contracts_sorted[-1]

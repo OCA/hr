@@ -1,12 +1,12 @@
 .. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
     :alt: License: AGPL-3
 
-==========================
+=========================
 Employee Contract History
-==========================
+=========================
 
 Calculates first and current contract for employees and assigns job position
-on current contract to employee
+on current contract to employee.
 
 Installation
 ============
