@@ -1,9 +1,9 @@
 .. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
     :alt: License: AGPL-3
 
-============================
-Employee Contract Chronology
-============================
+==========================
+Employee Contract History
+==========================
 
 Calculates first and current contract for employees and assigns job position
 on current contract to employee
@@ -16,7 +16,7 @@ To install this module, you need to:
 * clone the branch 8.0 of the repository https://github.com/OCA/hr
 * add the path to this repository in your configuration (addons-path)
 * update the module list
-* search for "Employee Contract Chronology" in your addons
+* search for "Employee Contract History" in your addons
 * install the module
 
 Configuration

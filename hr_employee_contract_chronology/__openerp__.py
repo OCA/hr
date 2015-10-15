@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 ###############################################################################
 #
-#    Copyright (C) 2016 Salton Massally (<smassally@idtlabs.sl>).
+#    Copyright (C) 2015 Salton Massally (<smassally@idtlabs.sl>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -18,12 +18,13 @@
 #
 ###############################################################################
 {
-    "name": "Employee Contract Chronology",
+    "name": "Employee Contract History",
     'version': '8.0.1.0.0',
+    'license': 'AGPL-3',
     "author": "Salton Massally <smassally@idtlabs.sl>",
     "website": "http://idtlabs.sl",
     "category": "Human Resources",
-    "summary": "Small usability improvements for employee contracts",
+    "summary": "manage employee contract history",
     "depends": [
         'hr_contract'
     ],

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 ###############################################################################
 #
-#    Copyright (C) 2016 Salton Massally (<smassally@idtlabs.sl>).
+#    Copyright (C) 2015 Salton Massally (<smassally@idtlabs.sl>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -22,6 +22,7 @@ from openerp import fields, models
 
 class HrContract(models.Model):
     _inherit = 'hr.contract'
+    _order = "date_start desc, id desc"
 
     job_id = fields.Many2one(
         required=True

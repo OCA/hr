@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 ###############################################################################
 #
-#    Copyright (C) 2016 Salton Massally (<smassally@idtlabs.sl>).
+#    Copyright (C) 2015 Salton Massally (<smassally@idtlabs.sl>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -17,7 +17,6 @@
 #    along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
 ###############################################################################
-import operator
 from openerp import models, fields, api
 
 
@@ -59,7 +58,7 @@ class hr_employee(models.Model):
     def _compute_first_contract(self):
         if len(self.contract_ids):
             contracts_sorted = self.contract_ids.sorted(
-                key=operator.itemgetter('date_start', 'id'))
+                key=lambda r: (r.date_start, r.id))
             self.first_contract_id = contracts_sorted[0]
 
     @api.one
@@ -72,5 +71,5 @@ class hr_employee(models.Model):
     def _compute_current_contract(self):
         if len(self.contract_ids):
             contracts_sorted = self.contract_ids.sorted(
-                key=operator.itemgetter('date_start', 'id'))
+                key=lambda r: (r.date_start, r.id))
             self.contract_id = contracts_sorted[-1]
