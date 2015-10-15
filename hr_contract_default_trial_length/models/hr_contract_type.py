@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 ###############################################################################
 #
-#    Copyright (C) 2016 Salton Massally (<smassally@idtlabs.sl>).
+#    Copyright (C) 2015 Salton Massally (<smassally@idtlabs.sl>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -17,14 +17,12 @@
 #    along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
 ###############################################################################
+from openerp import fields, models
 
-from openerp import models, fields
 
+class HrContractType(models.Model):
+    _inherit = 'hr.contract.type'
 
-class ResCompany(models.Model):
-    _inherit = 'res.company'
-
-    default_contract_trial_length = fields.Integer(
-        default=60,
+    trial_length = fields.Integer(
         help="Default contract trial length in Days"
     )
