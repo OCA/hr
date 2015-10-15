@@ -37,4 +37,5 @@ class HrEmployee(models.Model):
         if self.birthday:
             dBday = datetime.strptime(self.birthday, OE_DFORMAT).date()
             dToday = datetime.now().date()
-            self.age = (dToday - dBday).days / 365
+            self.age = dToday.year - dBday.year - ((
+                dToday.month, dToday.day) < (dBday.month, dBday.day))
