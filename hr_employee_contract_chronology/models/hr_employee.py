@@ -20,7 +20,7 @@
 from openerp import models, fields, api
 
 
-class hr_employee(models.Model):
+class HrEmployee(models.Model):
 
     _inherit = 'hr.employee'
 
