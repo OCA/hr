@@ -20,7 +20,7 @@
 ##############################################################################
 {
     "name": "User and partner data from employee",
-    "version": "1.0",
+    "version": "8.0.1.0.0",
     "author": "Therp BV",
     "license": "AGPL-3",
     "category": "Human Resources",

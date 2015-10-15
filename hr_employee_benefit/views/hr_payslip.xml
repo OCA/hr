@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="view_hr_payslip_form" model="ir.ui.view">
+            <field name="name">hr.payslip.form</field>
+            <field name="model">hr.payslip</field>
+            <field name="inherit_id" ref="hr_payroll.view_hr_payslip_form"/>
+            <field name="arch" type="xml">
+                <field name="payslip_run_id" position="after">
+                    <field name="pays_per_year"/>
+                </field>
+                <page string="Salary Computation" position="before">
+                    <page string="Employee Benefits">
+                        <group>
+                            <separator string="Employee Benefits"/>
+                            <div class="oe_right oe_button_box">
+                                <button string="Compute Benefits" name="button_compute_benefits" type="object" states="draft" />
+                            </div>
+                        </group>
+                        <group name="employee_benefit">
+                            <field name="benefit_line_ids" col="2" nolabel="1">
+                                <tree editable="top">
+                                    <field name="source" readonly="1"/>
+                                    <field name="category_id" attrs="{'readonly': [('source', '!=', 'manual')]}"/>
+                                    <field name="employee_amount" attrs="{'readonly': [('source', '!=', 'manual')]}"/>
+                                    <field name="employer_amount" attrs="{'readonly': [('source', '!=', 'manual')]}"/>
+                                    <field name="reference" attrs="{'readonly': [('source', '!=', 'manual')]}"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </page>
+                </page>
+            </field>
+        </record>
+
+    </data>
+</openerp>

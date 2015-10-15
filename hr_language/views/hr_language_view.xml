@@ -7,7 +7,7 @@
         <field name="inherit_id" ref="hr.view_employee_form"/>
         <field name="arch" type="xml">
             <notebook position="inside">
-                <page string="Languages">
+                <page string="Languages" groups="base.group_hr_user">
                     <field name="language_ids" nolabel="1" colspan="4"/>
                 </page>
             </notebook>

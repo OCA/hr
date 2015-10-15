@@ -21,7 +21,7 @@
 
 {
     "name": "Experience Management",
-    "version": "0.1",
+    "version": "8.0.0.1.0",
     "author": "Savoir-faire Linux,Odoo Community Association (OCA)",
     "maintainer": 'Savoir-faire Linux',
     "website": "http://www.savoirfairelinux.com",
