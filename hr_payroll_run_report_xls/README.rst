@@ -28,6 +28,13 @@ Usage
 =====
 Print report from the print action on your payslip run
 
+Sample report:
+| Name            | ID #  | Bank Account | Department | Basic | Rent  | Gross | Net   |
+|-----------------|-------|--------------|------------|-------|-------|-------|-------|
+| Jeremy Clarkson | 47474 | 757987234234 | Production | 10000 | 10000 | 20000 | 20000 |
+| James May       | 34434 | 345534345344 | Production | 10000 | 10000 | 20000 | 20000 |
+| Richard Hammond | 44534 | 896757567676 | Production | 10000 | 10000 | 20000 | 20000 |
+
 
 Bug Tracker
 ===========
