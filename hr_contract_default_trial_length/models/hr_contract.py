@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 ###############################################################################
 #
-#    Copyright (C) 2016 Salton Massally (<smassally@idtlabs.sl>).
+#    Copyright (C) 2015 Salton Massally (<smassally@idtlabs.sl>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -24,12 +24,12 @@ from openerp import fields, models, api
 class HrContract(models.Model):
     _inherit = 'hr.contract'
 
-    @api.onchange('trial_date_start')
+    @api.onchange('trial_date_start', 'type_id')
     @api.multi
     def onchange_trial_date_start(self):
         self.ensure_one()
-        if self.trial_date_start:
-            res = self.env.user.company_id.default_contract_trial_length
+        if self.trial_date_start and len(self.type_id):
+            res = self.type_id.trial_length
             if res:
                 end_dt = fields.Date.from_string(
                     self.trial_date_start) + relativedelta(days=res)

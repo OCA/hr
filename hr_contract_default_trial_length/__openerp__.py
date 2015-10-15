@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 ###############################################################################
 #
-#    Copyright (C) 2016 Salton Massally (<smassally@idtlabs.sl>).
+#    Copyright (C) 2015 Salton Massally (<smassally@idtlabs.sl>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -20,6 +20,7 @@
 {
     "name": "Default Contract Trail Length",
     'version': '8.0.1.0.0',
+    'license': 'AGPL-3',
     'author': "Salton Massally <smassally@idtlabs.sl>, "
                "Odoo Community Association (OCA)",
     "website": "http://idtlabs.sl",
@@ -29,8 +30,7 @@
         'hr_contract'
     ],
     "data": [
-        'views/res_config.xml',
-        'views/res_company.xml',
+        'views/hr_contract_type.xml',
     ],
     'installable': True,
 }
