@@ -26,8 +26,12 @@ shown above.
 
 Usage
 =====
-* Go to Settings > Human Resources and set your preference
+* Set your trail length on  your contract types
 
+Known issues / Roadmap
+======================
+
+* Contract trial length can also depend on contract duration
 
 Bug Tracker
 ===========
