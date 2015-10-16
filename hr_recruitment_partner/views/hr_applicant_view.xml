@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="hr_applicant_form_image" model="ir.ui.view">
+            <field name="name">Applicant: add Image</field>
+            <field name="model">hr.applicant</field>
+            <field name="inherit_id" ref="hr_recruitment.crm_case_form_view_job"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//div[1]" position="before">
+                    <field name="image" widget="image" class="oe_left oe_avatar"
+                        options="{&quot;preview_image&quot;: &quot;image_medium&quot;, &quot;size&quot;: [90, 90]}"/>
+                </xpath>
+           </field>
+        </record>
+
+    </data>
+</openerp>
