@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+  <data>
+    <record id="hr_payslip_run_form" model="ir.ui.view">
+      <field name="name">hr.payslip.run.form</field>
+      <field name="model">hr.payslip.run</field>
+      <field name="inherit_id" ref="hr_payroll.hr_payslip_run_form" />
+      <field name="arch" type="xml">
+        <button name="close_payslip_run" position="after">
+          <button name="action_payslips_send" string="Send all by Email"
+            type="object" states="close" groups="base.group_hr_user" />
+        </button>
+      </field>
+    </record>
+  </data>
+</openerp>
