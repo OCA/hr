@@ -26,7 +26,6 @@
     'author': "Salton Massally <smassally@idtlabs.sl>, "
                "Odoo Community Association (OCA)",
     'website': 'http://idtlabs.sl',
-    'license': 'AGPL-3',
     'depends': ['hr_payroll'],
     'data': [
         'views/hr_payslip_view.xml',
