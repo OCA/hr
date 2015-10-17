@@ -5,8 +5,10 @@
 Employee Contract History
 =========================
 
-Calculates first and current contract for employees and assigns job position
-on current contract to employee.
+* Computes first contract of employees
+* Computes the current contract of employees
+* Compute job ID of employee from job on current contract of employee
+
 
 Installation
 ============

@@ -17,13 +17,9 @@
 #    along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
 ###############################################################################
-from openerp import fields, models
+from openerp import models
 
 
 class HrContract(models.Model):
     _inherit = 'hr.contract'
     _order = "date_start desc, id desc"
-
-    job_id = fields.Many2one(
-        required=True
-    )

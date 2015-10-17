@@ -28,5 +28,8 @@
     "depends": [
         'hr_contract'
     ],
+    "data": [
+        'views/hr_contract_view.xml',
+    ],
     'installable': True,
 }
