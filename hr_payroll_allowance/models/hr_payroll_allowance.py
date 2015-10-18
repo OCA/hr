@@ -18,8 +18,7 @@
 #
 ###############################################################################
 from openerp import models, fields, api
-from openerp.exceptions import ValidationError
-
+from openerp.exceptions import ValidationError, Warning as UserWarning
 
 class HrPayrollAllowance(models.Model):
     _name = 'hr.payroll.allowance'
@@ -176,7 +175,7 @@ class HrPayrollAllowance(models.Model):
     def write(self, data):
         for allowance in self:
             if 'code' in data:
-                raise Warning('Sorry, you can\'t edit the code once it has '
+                raise UserWarning('Sorry, you can\'t edit the code once it has '
                               ' been created')
             # let's handle inactivation
             if 'active' in data:
@@ -186,7 +185,7 @@ class HrPayrollAllowance(models.Model):
 
     @api.multi
     def copy(self):
-        raise Warning('Salary allowance does not support duplication!')
+        raise UserWarning('Salary allowance does not support duplication!')
 
     @api.multi
     def unlink(self):
