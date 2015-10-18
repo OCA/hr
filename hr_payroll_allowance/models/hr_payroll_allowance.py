@@ -155,7 +155,7 @@ class HrPayrollAllowance(models.Model):
                 'result = contract.alw_amount_python_compute(payslip, "%s")'
                 % (vals['code'].upper()),
             'register_id': register.id,
-            'sequence': 103,
+            'sequence': 50,
             'note': note,
             'condition_python':
                 'result = contract.alw_condition_python(payslip, "%s")'
