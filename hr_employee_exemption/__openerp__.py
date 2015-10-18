@@ -1,4 +1,4 @@
-# -*- coding:utf-8 -*-
+# coding: utf-8
 ##############################################################################
 #
 #    Copyright (C) 2015 Savoir-faire Linux. All Rights Reserved.
@@ -20,28 +20,19 @@
 
 {
     'name': 'Employee Exemption',
-    'version': '1.0',
+    'version': '8.0.1.0.0',
     'license': 'AGPL-3',
     'category': 'Generic Modules/Human Resources',
     'author': "Savoir-faire Linux, Odoo Community Association (OCA)",
     'website': 'https://www.savoirfairelinux.com',
-    'description': """
-Employee Exemption
-==================
-This module implements employee exemption.
-This allows in salary rules to know whether the employee is exempted
-from a source deduction.
-    """,
     'depends': [
         'hr_payroll',
     ],
     'data': [
         'security/ir.model.access.csv',
-        'view/hr_employee_view.xml',
-        'view/hr_income_tax_exemption_view.xml',
-        'view/hr_salary_rule_view.xml',
+        'views/hr_employee_view.xml',
+        'views/hr_income_tax_exemption_view.xml',
+        'views/hr_salary_rule_view.xml',
     ],
-    'test': [],
-    'demo': [],
     'installable': True,
 }

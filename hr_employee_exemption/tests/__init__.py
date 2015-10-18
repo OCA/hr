@@ -1,4 +1,4 @@
-# -*- coding:utf-8 -*-
+# coding: utf-8
 ##############################################################################
 #
 #    Copyright (C) 2015 Savoir-faire Linux. All Rights Reserved.
@@ -19,7 +19,4 @@
 #
 ##############################################################################
 
-from . import (
-    test_hr_employee_exemption,
-)
-
+from . import test_hr_employee_exemption
