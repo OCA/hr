@@ -19,8 +19,7 @@ Install as usual from the module installation screen
 Configuration
 =============
 
-* Go to Human Resources > Configuration > Salary Allowance Category and create
-the allowance categories applicable to you company
+* Go to Human Resources > Configuration > Salary Allowance Category and create the allowance categories applicable to you company
 
 * Go to the employee's contract and insert figures for the allowances
 

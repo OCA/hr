@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 ###############################################################################
 #
-#    Copyright (C) 2016 Salton Massally (<smassally@idtlabs.sl>).
+#    Copyright (C) 2015 Salton Massally (<smassally@idtlabs.sl>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -26,7 +26,7 @@ import logging
 _logger = logging.getLogger(__name__)
 
 
-class hr_contract(models.Model):
+class HrContract(models.Model):
     _inherit = 'hr.contract'
 
     allowance_line_ids = fields.One2many(
@@ -97,9 +97,9 @@ class hr_contract(models.Model):
         allowances = alw_obj.search([('code', '=', code)])
 
         if not len(allowances):
-            return False
             _logger.error(
                 'Allowance Category with code %s was not found' % (code))
+            return False
         if code not in contract.allowance_line_ids.mapped('code'):
             # alw does nto apply to contract
             return False
@@ -107,19 +107,15 @@ class hr_contract(models.Model):
             lambda r: r.code == code)
         alw = line.allowance_id
         if alw.interval == 'each':
-            '''
-            if this allowance is being paid each month then it is clearly
-            simple, let's return True
-            '''
+            # if this allowance is being paid each month then it is clearly
+            # simple, let's return True
             return True
         elif alw.interval == 'yearly':
             dtCmpStart = fields.Date.from_string(slip.date_from)
             dtCmpEnd = fields.Date.from_string(slip.date_to)
             dtEmpStart = fields.Date.from_string(employee.date_start)
             if alw.yearly_payment_strategy == 'anniversary':
-                '''
-                we pay whenever it is the anniversary of employees
-                '''
+                # we pay whenever it is the anniversary of employees
                 employee = employee.with_context(
                     date_now=fields.Date.to_string(dtCmpEnd))
                 if employee.length_of_service > 12.0:

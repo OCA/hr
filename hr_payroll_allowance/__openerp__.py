@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 ###############################################################################
 #
-#    Copyright (C) 2016 Salton Massally (<smassally@idtlabs.sl>).
+#    Copyright (C) 2015 Salton Massally (<smassally@idtlabs.sl>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -20,6 +20,7 @@
 {
     "name": "Employee Payroll Allowance",
     "version": "1.0",
+    'license': 'AGPL-3',
     "depends": ["hr_payroll", "hr_employee_service_length"],
     'author': "Salton Massally <smassally@idtlabs.sl>, "
               "Odoo Community Association (OCA)",

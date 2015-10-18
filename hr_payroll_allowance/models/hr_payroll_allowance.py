@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 ###############################################################################
 #
-#    Copyright (C) 2016 Salton Massally (<smassally@idtlabs.sl>).
+#    Copyright (C) 2015 Salton Massally (<smassally@idtlabs.sl>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -134,7 +134,7 @@ class HrPayrollAllowance(models.Model):
         # creating payroll fields
         note = vals.get('note', False)
         if note:
-            note + ' - Auto created via payroll allowance'
+            note += ' - Auto created via payroll allowance'
         else:
             note = 'Auto created via payroll allowance'
 
