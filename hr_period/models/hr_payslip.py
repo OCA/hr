@@ -49,7 +49,7 @@ class HrPayslip(models.Model):
 
     @api.onchange('company_id', 'contract_id')
     def onchange_company_id(self):
-        if len(self.company_id) and len(self.contract_id):
+        if self.company_id and self.contract_id:
             contract = self.contract_id
             period_obj = self.env['hr.period']
             period = period_obj.get_next_period(self.company_id.id,
@@ -69,7 +69,7 @@ class HrPayslip(models.Model):
 
             period = self.env['hr.period'].get_next_period(
                 employee.company_id.id, contract.schedule_pay)
-            if len(period):
+            if period:
                 res['value'].update({
                     'hr_period_id': period.id if period else False,
                     'name': _('Salary Slip of %s for %s') % (
@@ -79,7 +79,7 @@ class HrPayslip(models.Model):
 
     @api.onchange('hr_period_id')
     def onchange_hr_period_id(self):
-        if len(self.hr_period_id):
+        if self.hr_period_id:
             period = self.hr_period_id
             self.date_from = period.date_start
             self.date_to = period.date_stop

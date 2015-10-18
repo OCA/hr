@@ -185,49 +185,48 @@ class HrFiscalYear(models.Model):
                 'schedule': schedule_name,
             }
 
-    @api.multi
+    @api.one
     def create_periods(self):
         """
         Create every periods a payroll fiscal year
         """
-        for fy in self:
-            for period in fy.period_ids:
-                period.unlink()
+        for period in self.period_ids:
+            period.unlink()
 
-            fy.refresh()
+        self.refresh()
 
-            period_start = datetime.strptime(
-                fy.date_start, DEFAULT_SERVER_DATE_FORMAT)
+        period_start = datetime.strptime(
+            self.date_start, DEFAULT_SERVER_DATE_FORMAT)
 
-            next_year_start = datetime.strptime(
-                fy.date_stop,
-                DEFAULT_SERVER_DATE_FORMAT) + relativedelta(days=1)
+        next_year_start = datetime.strptime(
+            self.date_stop,
+            DEFAULT_SERVER_DATE_FORMAT) + relativedelta(days=1)
 
-            if fy.schedule_pay == 'semi-monthly':
-                #  Case for semi-monthly schedules
-                delta_1 = relativedelta(days=15)
-                delta_2 = relativedelta(months=1)
+        if self.schedule_pay == 'semi-monthly':
+            #  Case for semi-monthly schedules
+            delta_1 = relativedelta(days=15)
+            delta_2 = relativedelta(months=1)
 
-                i = 1
-                while not period_start + delta_2 > next_year_start:
-                    # create periods for one month
-                    half_month = period_start + delta_1
-                    fy._create_single_period(period_start, half_month, i)
-                    fy._create_single_period(
-                        half_month, period_start + delta_2, i + 1)
+            i = 1
+            while not period_start + delta_2 > next_year_start:
+                # create periods for one month
+                half_month = period_start + delta_1
+                self._create_single_period(period_start, half_month, i)
+                self._create_single_period(
+                    half_month, period_start + delta_2, i + 1)
 
-                    # setup for next month
-                    period_start += delta_2
-                    i += 2
-            else:  # All other cases
-                delta, nb_periods = INTERVALS[fy.schedule_pay]
+                # setup for next month
+                period_start += delta_2
+                i += 2
+        else:  # All other cases
+            delta, nb_periods = INTERVALS[self.schedule_pay]
 
-                i = 1
-                while not period_start + delta > next_year_start:
-                    fy._create_single_period(
-                        period_start, period_start + delta, i)
-                    period_start += delta
-                    i += 1
+            i = 1
+            while not period_start + delta > next_year_start:
+                self._create_single_period(
+                    period_start, period_start + delta, i)
+                period_start += delta
+                i += 1
 
     @api.multi
     def _create_single_period(self, date_start, date_stop, number):
@@ -237,20 +236,18 @@ class HrFiscalYear(models.Model):
         """
         self.ensure_one()
 
-        fy = self[0]
-
         date_stop -= relativedelta(days=1)
 
-        fy.write({
+        self.write({
             'period_ids': [(0, 0, {
                 'date_start': date_start,
                 'date_stop': date_stop,
-                'date_payment': fy._get_day_of_payment(date_stop),
-                'company_id': fy.company_id.id,
-                'name': _('%s Period #%s') % (fy.name, number),
+                'date_payment': self._get_day_of_payment(date_stop),
+                'company_id': self.company_id.id,
+                'name': _('%s Period #%s') % (self.name, number),
                 'number': number,
                 'state': 'draft',
-                'schedule_pay': fy.schedule_pay,
+                'schedule_pay': self.schedule_pay,
             })],
         })
 
@@ -262,15 +259,13 @@ class HrFiscalYear(models.Model):
         """
         self.ensure_one()
 
-        fy = self[0]
-
         date_payment = date_stop
-        if fy.schedule_pay in ['weekly', 'bi-weekly']:
-            date_payment += relativedelta(weeks=int(fy.payment_week))
-            while date_payment.strftime('%w') != fy.payment_weekday:
+        if self.schedule_pay in ['weekly', 'bi-weekly']:
+            date_payment += relativedelta(weeks=int(self.payment_week))
+            while date_payment.strftime('%w') != self.payment_weekday:
                 date_payment -= relativedelta(days=1)
         else:
-            date_payment += relativedelta(days=int(fy.payment_day))
+            date_payment += relativedelta(days=int(self.payment_day))
         return date_payment
 
     @api.multi

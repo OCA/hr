@@ -105,13 +105,13 @@ class HrPeriod(models.Model):
          Get the next payroll period to process
         :rtype: hr.period browse record
         """
-        periods = self.search([
+        period = self.search([
             ('company_id', '=', company_id),
             ('schedule_pay', '=', schedule_pay),
             ('state', '=', 'open'),
         ], order='date_start', limit=1)
 
-        return periods[0] if len(periods) else False
+        return period if period else False
 
     @api.multi
     def button_set_to_draft(self):
