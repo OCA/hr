@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-18 13:10+0000\n"
-"PO-Revision-Date: 2015-07-27 23:43+0000\n"
+"POT-Creation-Date: 2015-10-15 07:15+0000\n"
+"PO-Revision-Date: 2015-10-15 07:16+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Romanian (http://www.transifex.com/oca/OCA-hr-8-0/language/ro/)\n"
 "MIME-Version: 1.0\n"
@@ -58,7 +58,7 @@ msgid "End Date"
 msgstr "Dată Sfârșit"
 
 #. module: hr_contract_hourly_rate
-#: code:addons/hr_contract_hourly_rate/models/hr_contract.py:87
+#: code:addons/hr_contract_hourly_rate/models/hr_contract.py:88
 #, python-format
 msgid "Error! At least one job on contract has no hourly rate class assigned."
 msgstr "Eroare! Cel puțin o funcție asociată contractului nu are specificat un salariu orar"
@@ -119,6 +119,11 @@ msgstr "Ultima actualizare de către"
 #: field:hr.hourly.rate,write_date:0 field:hr.hourly.rate.class,write_date:0
 msgid "Last Updated on"
 msgstr "Ultima actualizare în"
+
+#. module: hr_contract_hourly_rate
+#: selection:hr.contract,salary_computation_method:0
+msgid "Monthly Wage"
+msgstr ""
 
 #. module: hr_contract_hourly_rate
 #: field:hr.hourly.rate,rate:0

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-18 13:10+0000\n"
-"PO-Revision-Date: 2015-08-01 15:45+0000\n"
+"POT-Creation-Date: 2015-10-15 07:15+0000\n"
+"PO-Revision-Date: 2015-10-16 03:55+0000\n"
 "Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>\n"
 "Language-Team: Slovenian (http://www.transifex.com/oca/OCA-hr-8-0/language/sl/)\n"
 "MIME-Version: 1.0\n"
@@ -59,7 +59,7 @@ msgid "End Date"
 msgstr "Končni datum"
 
 #. module: hr_contract_hourly_rate
-#: code:addons/hr_contract_hourly_rate/models/hr_contract.py:87
+#: code:addons/hr_contract_hourly_rate/models/hr_contract.py:88
 #, python-format
 msgid "Error! At least one job on contract has no hourly rate class assigned."
 msgstr "Napaka! Vsaj eno pogodbeno mesto nima določenega razreda urne postavke."
@@ -120,6 +120,11 @@ msgstr "Zadnjič posodobil"
 #: field:hr.hourly.rate,write_date:0 field:hr.hourly.rate.class,write_date:0
 msgid "Last Updated on"
 msgstr "Zadnjič posodobljeno"
+
+#. module: hr_contract_hourly_rate
+#: selection:hr.contract,salary_computation_method:0
+msgid "Monthly Wage"
+msgstr "Mesečna plača"
 
 #. module: hr_contract_hourly_rate
 #: field:hr.hourly.rate,rate:0
