@@ -90,27 +90,28 @@ class HrPayslipRun(models.Model):
 
         return (
             fys[0].schedule_pay
-            if len(fys) else 'monthly'
+            if fys else 'monthly'
         )
 
     @api.onchange('company_id', 'schedule_pay')
     @api.one
     def onchange_company_id(self):
-        schedule_pay = self.schedule_pay or \
-            self.get_default_schedule(self.company_id.id)
+        schedule_pay = self.schedule_pay or self.get_default_schedule(
+            self.company_id.id)
 
-        if len(self.company_id) and schedule_pay:
+        if self.company_id and schedule_pay:
             period = self.env['hr.period'].get_next_period(self.company_id.id,
                                                            schedule_pay,)
             self.hr_period_id = period.id if period else False,
 
     @api.onchange('hr_period_id')
     def onchange_period_id(self):
-        if len(self.hr_period_id):
-            self.date_start = self.hr_period_id.date_start
-            self.date_end = self.hr_period_id.date_stop
-            self.date_payment = self.hr_period_id.date_payment
-            self.schedule_pay = self.hr_period_id.schedule_pay
+        period = self.hr_period_id
+        if period:
+            self.date_start = period.date_start
+            self.date_end = period.date_stop
+            self.date_payment = period.date_payment
+            self.schedule_pay = period.schedule_pay
 
     @api.model
     def create(self, vals):
@@ -126,23 +127,15 @@ class HrPayslipRun(models.Model):
         """ Replace the static action used to call the wizard
         """
         self.ensure_one()
-        payslip_run = self[0]
+        view = self.env.ref('hr_payroll.view_hr_payslip_by_employees')
 
-        view_ref = self.env['ir.model.data'].get_object_reference(
-            'hr_payroll', 'view_hr_payslip_by_employees')
-
-        view_id = view_ref and view_ref[1] or False
-
-        company = payslip_run.company_id
+        company = self.company_id
 
         employee_obj = self.env['hr.employee']
 
-        employees = employee_obj.search([('company_id', '=', company.id)])
-
-        employee_ids = [
-            emp.id for emp in employees
-            if emp.contract_id.schedule_pay == payslip_run.schedule_pay
-        ]
+        employee_ids = employee_obj.search(
+            [('company_id', '=', company.id),
+             ('contract_id.schedule_pay', '=', self.schedule_pay)]).ids
 
         return {
             'type': 'ir.actions.act_window',
@@ -150,11 +143,11 @@ class HrPayslipRun(models.Model):
             'res_model': 'hr.payslip.employees',
             'view_type': 'form',
             'view_mode': 'form',
-            'view_id': view_id,
+            'view_id': view.id,
             'target': 'new',
             'context': {
                 'default_company_id': company.id,
-                'default_schedule_pay': payslip_run.schedule_pay,
+                'default_schedule_pay': self.schedule_pay,
                 'default_employee_ids': [(6, 0, employee_ids)],
             }
         }
@@ -175,18 +168,17 @@ class HrPayslipRun(models.Model):
             run.hr_period_id.button_re_open()
         return super(HrPayslipRun, self).draft_payslip_run()
 
-    @api.multi
+    @api.one
     def update_periods(self):
-        for run in self:
-            period = run.hr_period_id
-            if len(period):
-                # Close the current period
-                period.button_close()
+        period = self.hr_period_id
+        if period:
+            # Close the current period
+            period.button_close()
 
-                # Open the next period of the fiscal year
-                fiscal_year = period.fiscalyear_id
-                next_period = fiscal_year.search_period(
-                    number=period.number + 1)
+            # Open the next period of the fiscal year
+            fiscal_year = period.fiscalyear_id
+            next_period = fiscal_year.search_period(
+                number=period.number + 1)
 
-                if next_period:
-                    next_period.button_open()
+            if next_period:
+                next_period.button_open()
