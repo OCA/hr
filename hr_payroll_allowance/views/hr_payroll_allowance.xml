@@ -6,7 +6,7 @@
 			<field name="name">Salary Allowances Categories</field>
 			<field name="model">hr.payroll.allowance</field>
 			<field name="arch" type="xml">
-				<form string="payroll Allowances" version="7.0">
+				<form string="Payroll Allowances">
 					<sheet>
 						<div class="oe_title">
 							<label for="name" class="oe_edit_only" />
