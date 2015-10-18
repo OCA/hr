@@ -24,7 +24,6 @@ class TestPayrollAllowance(common.TransactionCase):
 
     def setUp(self):
         super(TestPayrollAllowance, self).setUp()
-        self.user_model = self.env["res.users"]
         self.payslip_model = self.env["hr.payslip"]
         self.contract_model = self.env["hr.contract"]
         self.rule_model = self.env["hr.salary.rule"]
