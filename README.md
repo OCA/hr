@@ -27,6 +27,7 @@ addon | version | summary
 [hr_contract_hourly_rate](hr_contract_hourly_rate/) | 8.0.1.0.0 | HR Contract Hourly Rate
 [hr_contract_multi_jobs](hr_contract_multi_jobs/) | 8.0.1.0.0 | HR Contract Multi Jobs
 [hr_contract_reference](hr_contract_reference/) | 8.0.1.0.0 | HR Contract Reference
+[hr_employee_age](hr_employee_age/) | 8.0.1.0.0 | Age field for employee
 [hr_employee_benefit](hr_employee_benefit/) | 8.0.1.0.0 | Employee Benefit
 [hr_employee_data_from_work_address](hr_employee_data_from_work_address/) | 8.0.1.0.0 | Update user's and partner's data fields from employee record
 [hr_employee_firstname](hr_employee_firstname/) | 8.0.0.0.1 | Adds First Name to Employee
