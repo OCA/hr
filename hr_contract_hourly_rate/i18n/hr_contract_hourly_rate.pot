@@ -72,7 +72,13 @@ msgstr ""
 
 #. module: hr_contract_hourly_rate
 #: selection:hr.contract,salary_computation_method:0
+#: field:hr.contract.job,hourly_rate:0
 msgid "Hourly Rate"
+msgstr ""
+
+#. module: hr_contract_hourly_rate
+#: selection:hr.contract,salary_computation_method:0
+msgid "Monthly Wage"
 msgstr ""
 
 #. module: hr_contract_hourly_rate

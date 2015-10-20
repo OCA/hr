@@ -19,21 +19,5 @@
 #
 #
 
-{
-    'name': 'Public Holidays',
-    'version': '8.0.1.0.0',
-    'license': 'AGPL-3',
-    'category': 'Human Resources',
-    'author': "Michael Telahun Makonnen <mmakonnen@gmail.com>, "
-              "Odoo Community Association (OCA)",
-    'summary': "Manage Public Holidays",
-    'website': 'http://miketelahun.wordpress.com',
-    'depends': [
-        'hr',
-    ],
-    'data': [
-        'security/ir.model.access.csv',
-        'views/hr_public_holidays_view.xml',
-    ],
-    'installable': True,
-}
+from . import hr_public_holidays_line
+from . import hr_public_holidays
