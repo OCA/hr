@@ -20,20 +20,20 @@
 
 {
 
-    'name': 'Public Holidays',
+    'name': 'HR Public Holidays',
     'version': '8.0.1.0.0',
-    'category': 'Generic Modules/Human Resources',
-    'author': "Michael Telahun Makonnen <mmakonnen@gmail.com>, "
-              "Savoir-faire Linux, "
-              "Fekete Mihai (FBSR), "
-              "Odoo Community Association (OCA)",
-    'website': 'http://miketelahun.wordpress.com',
     'license': 'AGPL-3',
-    'depends': ['hr'],
+    'category': 'Human Resources',
+    'author': "Michael Telahun Makonnen <mmakonnen@gmail.com>, "
+              "Odoo Community Association (OCA)",
+    'summary': "Manage Public Holidays",
+    'website': 'http://miketelahun.wordpress.com',
+    'depends': [
+        'hr',
+    ],
     'data': [
         'security/ir.model.access.csv',
         'views/hr_public_holidays_view.xml',
     ],
-    'test': [],
     'installable': True,
 }

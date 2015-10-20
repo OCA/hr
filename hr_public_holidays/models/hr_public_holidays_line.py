@@ -2,8 +2,6 @@
 ##############################################################################
 #
 #    Copyright (C) 2011,2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
-#    Copyright (C) 2014 initOS GmbH & Co. KG (<http://www.initos.com>).
-#    Author Nikolina Todorova <nikolina.todorova@initos.com>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -19,8 +17,8 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-
-from openerp import models, fields
+from openerp import fields, models, api
+from openerp.exceptions import ValidationError
 
 
 class HrPublicHolidaysLine(models.Model):
@@ -28,11 +26,37 @@ class HrPublicHolidaysLine(models.Model):
     _description = 'Public Holidays Lines'
     _order = "date, name desc"
 
-    name = fields.Char('Name', required=True, translate=True)
-    date = fields.Date('Date', required=True)
-    holidays_id = fields.Many2one('hr.holidays.public',
-                                  'Holiday Calendar Year')
+
+    name = fields.Char(
+        'Name',
+        size=128,
+        required=True,
+    )
+    date = fields.Date(
+        'Date',
+        required=True
+    )
+    year_id = fields.Many2one(
+        'hr.holidays.public',
+        'Calendar Year',
+        required=True,
+    )
     variable = fields.Boolean('Date may change')
-    state_ids = fields.Many2many('res.country.state',
-                                 'hr_holiday_public_state_rel',
-                                 'line_id', 'state_id', 'Related states')
+    state_ids = fields.Many2many(
+        'res.country.state',
+        'hr_holiday_public_state_rel',
+        'line_id',
+        'state_id',
+        'Related States'
+    )
+
+    @api.one
+    @api.constrains('date')
+    def _check_year(self):
+        if fields.Date.from_string(self.date).year != self.year_id.year:
+            raise ValidationError(
+                'Dates of holidays should be the same year '
+                'as the calendar year they are being assigned to'
+            )
+        return True
+
