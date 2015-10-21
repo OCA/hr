@@ -22,8 +22,18 @@
                         <field name="year"/>
                         <field name="country_id"/>
                     </group>
-                    <group string="Public Holidays" col="1">
-                        <field name="line_ids" nolabel="1"/>
+                    <newline />
+                    <group string="Public Holidays">
+                        <field name="line_ids" nolabel="1">
+                            <tree string="Public Holidays"
+                                editable="bottom">
+                                <field name="date" />
+                                <field name="name" />
+                                <field name="state_ids" widget="many2many_tags"
+                                    domain="[('country_id','=',parent.country_id)]" />
+                                <field name="variable" />
+                            </tree>
+                        </field>
                     </group>
                 </form>
             </field>
