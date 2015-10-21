@@ -32,7 +32,6 @@ class HrHolidaysLine(models.Model):
 
     name = fields.Char(
         'Name',
-        size=128,
         required=True,
     )
     date = fields.Date(

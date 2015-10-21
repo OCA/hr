@@ -25,8 +25,7 @@
                         </group>
                     </group>
                     <newline />
-                    <group string="Public Holidays" colspan="4"
-                        col="1">
+                    <group string="Public Holidays">
                         <field name="line_ids" nolabel="1">
                             <tree string="Public Holidays"
                                 editable="bottom">

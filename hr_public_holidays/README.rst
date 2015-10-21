@@ -46,7 +46,7 @@ Credits
 
 Contributors
 ------------
-
+* Michael Telahun Makonnen <mmakonnen@gmail.com>
 * Salton Massally (iDT Labs) <smassally@idtlabs.sl>
 
 Maintainer
