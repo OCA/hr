@@ -20,7 +20,7 @@
 
 {
     "name": "Skill Management",
-    "version": "8.0.1.0.0",
+    "version": "8.0.1.1.0",
     "category": "Human Resources",
     "license": "AGPL-3",
     "author": "Savoir-faire Linux,Odoo Community Association (OCA)",
