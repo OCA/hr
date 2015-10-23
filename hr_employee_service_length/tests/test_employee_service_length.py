@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 ###############################################################################
 #
-#    Copyright (C) 2016 Salton Massally (<smassally@idtlabs.sl>).
+#    Copyright (C) 2015 Salton Massally (<smassally@idtlabs.sl>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -57,7 +57,7 @@ class TestEmployeeServiceLength(common.TransactionCase):
         # if we are supplying only the initial employment date that should
         # be used to calculate service length
         self.employee.write({'initial_employment_date': self.one_year_ago})
-        self.assertAlmostEqual(self.employee.length_of_service, 12.0)
+        self.assertAlmostEqual(self.employee.length_of_service, 1.0)
 
     def test_contract_start_date_only_supplied(self):
         # initial employment date not supplied but we do have a contract
@@ -71,7 +71,7 @@ class TestEmployeeServiceLength(common.TransactionCase):
                 'wage': 5000
             }
         )
-        self.assertAlmostEqual(self.employee.length_of_service, 12.0)
+        self.assertAlmostEqual(self.employee.length_of_service, 1.0)
 
     def test_inital_employment_before_first_contract_date(self):
         # initial employment date is supplied and we have a contract
@@ -87,7 +87,7 @@ class TestEmployeeServiceLength(common.TransactionCase):
             }
         )
         self.employee.write({'initial_employment_date': self.two_year_ago})
-        self.assertAlmostEqual(self.employee.length_of_service, 24.0)
+        self.assertAlmostEqual(self.employee.length_of_service, 2.0)
 
     def test_inital_employment_after_first_contract_date(self):
         # initial employment date is supplied and we have a contract
@@ -110,14 +110,14 @@ class TestEmployeeServiceLength(common.TransactionCase):
         self.employee.write({'initial_employment_date': self.one_year_ago})
         self.employee = self.employee\
             .with_context(date_now=self.six_months_ago)
-        self.assertAlmostEqual(self.employee.length_of_service, 6.0)
+        self.assertAlmostEqual(self.employee.length_of_service, 0.5)
 
     def test_length_of_service_at_period_in_future(self):
         # we want to know how long employee would have worked x months from now
         self.employee.write({'initial_employment_date': self.one_year_ago})
         self.employee = self.employee\
             .with_context(date_now=self.one_year_in_future)
-        self.assertAlmostEqual(self.employee.length_of_service, 24.0)
+        self.assertAlmostEqual(self.employee.length_of_service, 2.0)
 
     def test_multiple_contracts_with_no_interval(self):
         # multiple contracts
@@ -130,17 +130,16 @@ class TestEmployeeServiceLength(common.TransactionCase):
                 'wage': 5000
             }
         )
-        dt = date.today() - relativedelta(years=1) + relativedelta(days=1)
         self.contract_model.create(
             {
                 'employee_id': self.employee.id,
                 'name': 'Contract 2',
-                'date_start': dt.strftime(DEFAULT_SERVER_DATE_FORMAT),
+                'date_start': self.one_year_ago,
                 'date_end': self.now,
                 'wage': 5000
             }
         )
-        self.assertAlmostEqual(self.employee.length_of_service, 24.0)
+        self.assertAlmostEqual(self.employee.length_of_service, 2.0)
 
     def test_multiple_contracts_with_interval(self):
         # contracts have breaks
@@ -153,7 +152,7 @@ class TestEmployeeServiceLength(common.TransactionCase):
                 'wage': 5000
             }
         )
-        dt = date.today() - relativedelta(years=1) + relativedelta(days=1)
+        dt = date.today() - relativedelta(years=1)
         self.contract_model.create(
             {
                 'employee_id': self.employee.id,
@@ -163,4 +162,4 @@ class TestEmployeeServiceLength(common.TransactionCase):
                 'wage': 5000
             }
         )
-        self.assertAlmostEqual(self.employee.length_of_service, 24.0)
+        self.assertAlmostEqual(self.employee.length_of_service, 2.0)

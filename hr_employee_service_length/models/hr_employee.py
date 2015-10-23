@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 ###############################################################################
 #
-#    Copyright (C) 2016 Salton Massally (<smassally@idtlabs.sl>).
+#    Copyright (C) 2015 Salton Massally (<smassally@idtlabs.sl>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -24,6 +24,7 @@ from dateutil.relativedelta import relativedelta
 
 from openerp import fields, models, api
 from openerp.exceptions import ValidationError
+import math
 
 
 class HrEmployee(models.Model):
@@ -150,14 +151,17 @@ class HrEmployee(models.Model):
         return str_since
 
     @api.one
+    @api.depends('date_start')
     def _compute_employment_length(self):
-        dt = 'date_now' in self.env.context and self.env.context['date_now']\
-            or fields.Date.today()
+        '''
+        employment length inn years
+        '''
+        dt = ('date_now' in self.env.context and self.env.context['date_now']
+                  or fields.Date.today())
 
         delta = self.get_service_length_delta_at_time(dt)
         if not delta:
             return
-        length_of_service = float(((delta.years * 12) + delta.months))\
-            + delta.days/30.0
-        self.length_of_service = round(length_of_service, 1)
+        self.length_of_service = delta.years + (delta.months/12.0) + (
+            delta.days/365.25)
         self.length_of_service_str = self._convert_timedelta_to_str(delta)

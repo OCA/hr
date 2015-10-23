@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 ###############################################################################
 #
-#    Copyright (C) 2016 Salton Massally (<smassally@idtlabs.sl>).
+#    Copyright (C) 2015 Salton Massally (<smassally@idtlabs.sl>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -20,6 +20,7 @@
 {
     'name': 'Employee Service Length',
     'version': '8.0.1.0.0',
+    'license': 'AGPL-3',
     'category': 'Human Resources',
     'summary': "Calculates the length of an employee's time in a company",
     'author': "Salton Massally <smassally@idtlabs.sl>, "
