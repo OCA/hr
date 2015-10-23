@@ -24,7 +24,6 @@ from dateutil.relativedelta import relativedelta
 
 from openerp import fields, models, api
 from openerp.exceptions import ValidationError
-import math
 
 
 class HrEmployee(models.Model):
@@ -157,7 +156,7 @@ class HrEmployee(models.Model):
         employment length inn years
         '''
         dt = ('date_now' in self.env.context and self.env.context['date_now']
-                  or fields.Date.today())
+              or fields.Date.today())
 
         delta = self.get_service_length_delta_at_time(dt)
         if not delta:
