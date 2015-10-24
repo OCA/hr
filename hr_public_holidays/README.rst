@@ -5,7 +5,8 @@
 HR Public Holidays
 ==================
 
-This module is a technical module to handle public holidays ; it is used by other human ressources modules that need to take into account public holidays in their behavior.
+This module is a technical module to handle public holidays;
+it is used by other human resources modules that need to take into account public holidays in their behavior.
 
 Installation
 ============
@@ -59,7 +60,6 @@ Contributors
 * Fekete Mihai <feketemihai@gmail.com>
 * Nikolina Todorova <nikolina.todorova@initos.com>
 * Alexis de Lattre <alexis.delattre@akretion.com>
-* Michael Telahun Makonnen <mmakonnen@gmail.com>
 * Salton Massally (iDT Labs) <smassally@idtlabs.sl>
 
 

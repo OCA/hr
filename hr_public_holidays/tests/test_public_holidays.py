@@ -98,13 +98,15 @@ class TestPublicHolidays(common.TransactionCase):
 
     def test_list_holidays_in_list_country_specific(self):
         # ensures that correct holidays are identified for a country
-        lines =  self.holiday_model.get_holidays_list(
-            1994, employee_id=self.employee.id) 
-        self.assertIn('1994-10-14', lines)
+        lines = self.holiday_model.get_holidays_list(
+            1994, employee_id=self.employee.id)
+        res = lines.filtered(lambda r: r.date == '1994-10-14')
+        self.assertEqual(len(res), 1)
         self.assertEqual(len(lines), 1)
 
     def test_list_holidays_in_list(self):
         # ensures that correct holidays are identified for a country
         lines = self.holiday_model.get_holidays_list(1995)
-        self.assertIn('1995-10-14', lines)
+        res = lines.filtered(lambda r: r.date == '1995-10-14')
+        self.assertEqual(len(res), 1)
         self.assertEqual(len(lines), 3)

@@ -26,7 +26,7 @@
                     <group string="Public Holidays">
                         <field name="line_ids" nolabel="1">
                             <tree string="Public Holidays"
-                                editable="bottom">
+                                editable="top">
                                 <field name="date" />
                                 <field name="name" />
                                 <field name="state_ids" widget="many2many_tags"
@@ -36,20 +36,6 @@
                         </field>
                     </group>
                 </form>
-            </field>
-        </record>
-
-        <record id="view_public_holiday_line_tree" model="ir.ui.view">
-            <field name="name">hr.holidays.public.line.tree</field>
-            <field name="model">hr.holidays.public.line</field>
-            <field name="arch" type="xml">
-                <tree string="Public Holidays" editable="top">
-                    <field name="date"/>
-                    <field name="name"/>
-                    <field name="state_ids"
-                        domain="[('country_id','=',parent.country_id)]"/>
-                    <field name="variable"/>
-                </tree>
             </field>
         </record>
 

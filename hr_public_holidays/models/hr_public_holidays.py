@@ -18,7 +18,7 @@
 #
 ##############################################################################
 from datetime import date
-from openerp import fields, models, api, _
+from openerp import fields, models, api
 from openerp.exceptions import ValidationError
 
 
@@ -28,6 +28,12 @@ class HrPublicHolidays(models.Model):
     _rec_name = 'year'
     _order = "year"
 
+    display_name = fields.Char(
+        "Name",
+        compute="_compute_display_name",
+        readonly=True,
+        store=True
+    )
     year = fields.Integer(
         "Calendar Year",
         required=True,
@@ -46,19 +52,43 @@ class HrPublicHolidays(models.Model):
     _sql_constraints = [
         ('year_country_unique',
          'UNIQUE(year,country_id)',
-         _('Duplicate year and country!')),
+         'Duplicate year and country!'),
     ]
+
+    @api.one
+    @api.constrains('year')
+    def _check_year(self):
+        if self.search_count([('year', '=', self.year),
+                              ('country_id', '=', False),
+                              ('id', '!=', self.id)]):
+            raise ValidationError('You can\'t create duplicate year')
+        return True
+
+    @api.one
+    @api.depends('year', 'country_id')
+    def _compute_display_name(self):
+        if self.country_id:
+            self.display_name = '%s (%s)' % (self.year, self.country_id.name)
+        else:
+            self.display_name = self.year
+
+    @api.multi
+    def name_get(self):
+        result = []
+        for rec in self:
+            result.append((rec.id, rec.display_name))
+        return result
 
     @api.model
     @api.returns('hr.holidays.public.line')
     def get_holidays_list(self, year, employee_id=None):
-        '''
+        """
         Returns recordset of hr.holidays.public.line
         for the specified year and employee
         :param year: year as string
         :param employee_id: ID of the employee
         :return: recordset of hr.holidays.public.line
-        '''
+        """
         holidays_filter = [('year', '=', year)]
         employee = False
         if employee_id:
@@ -73,7 +103,7 @@ class HrPublicHolidays(models.Model):
         if not pholidays:
             return list()
 
-        states_filter = [('holidays_id', 'in', pholidays.ids)]
+        states_filter = [('year_id', 'in', pholidays.ids)]
         if employee and employee.address_id and employee.address_id.state_id:
             states_filter += ['|',
                               ('state_ids', '=', False),
@@ -88,25 +118,17 @@ class HrPublicHolidays(models.Model):
 
     @api.model
     def is_public_holiday(self, selected_date, employee_id=None):
-        '''
+        """
         Returns True if selected_date is a public holiday for the employee
-        :param selected_date: datetime object
+        :param selected_date: datetime object or string
         :param employee_id: ID of the employee
         :return: bool
-        '''
+        """
+        if isinstance(selected_date, basestring):
+            selected_date = fields.Date.from_string(selected_date)
         holidays_lines = self.get_holidays_list(
             selected_date.year, employee_id=employee_id)
-        for line in holidays_lines:
-            if date.strftime(selected_date, "%Y-%m-%d") == line.date:
-                return True
+        if len(holidays_lines.filtered(
+                lambda r: r.date == fields.Date.to_string(selected_date))):
+            return True
         return False
-
-    @api.one
-    @api.constrains('year')
-    def _check_year(self):
-        if self.search_count([('year', '=', self.year),
-                              ('country_id', '=', False),
-                              ('id', '!=', self.id)]):
-            raise ValidationError('You can\'t create duplicate year')
-        return True
-

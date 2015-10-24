@@ -26,7 +26,6 @@ class HrPublicHolidaysLine(models.Model):
     _description = 'Public Holidays Lines'
     _order = "date, name desc"
 
-
     name = fields.Char(
         'Name',
         required=True,
@@ -58,4 +57,3 @@ class HrPublicHolidaysLine(models.Model):
                 'as the calendar year they are being assigned to'
             )
         return True
-
