@@ -9,7 +9,7 @@ HR Holidays Legal Leave
 Allows the define what holiday type is to be considered legal/annual leave type.
 As currently is Odoo assumes the type with limit=False which is a problem if
 you have more than one leave type limited this becomes confusing especially
-when tying to set leaves from the employee form
+when tying to set leaves from the employee form.
 
 Installation
 ============
