@@ -23,8 +23,8 @@
     'version': '8.0.1.0.0',
     'category': 'Human Resources',
     'license': 'AGPL-3',
-    'summary': 'Computes the actual days for which employee will be on leave '
-               'taking into account both rest days and public holidays',
+    'summary': 'Computes the actual leave days '
+               'considering rest days and public holidays',
     'author': 'Salton Massally<smassally@idtlabs.sl>',
     'website': 'http://idtlabs.sl',
     'depends': ['hr_holidays', 'hr_public_holidays'],
