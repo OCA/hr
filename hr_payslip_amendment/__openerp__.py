@@ -1,4 +1,4 @@
-# -*- coding:utf-8 -*-
+# -*- coding: utf-8 -*-
 ##############################################################################
 #
 #    Copyright (C) 2011,2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
@@ -30,8 +30,10 @@
         'hr_payroll',
     ],
     'data': [
-        'hr_payslip_amendment_view.xml',
-        'hr_payslip_amendment_workflow.xml',
+        'views/hr_payslip_amendment_category_view.xml',
+        'views/hr_payslip_amendment_view.xml',
+        'views/hr_payslip_amendment_workflow.xml',
+        'security/ir.model.access.csv'
     ],
     'installable': True,
 }

@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="view_hr_payslip_amendment_category_form">
+            <field name="name">Salary Allowances Categories</field>
+            <field name="model">hr.payslip.amendment.category</field>
+            <field name="arch" type="xml">
+                <form string="Salary Amendment Category">
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only" />
+                            <h1>
+                                <field name="name" nolabel="1" />
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="code" />
+                                <field name="type" />
+                                <field name="struct_id" />
+                                <field name="in_report" />
+                                <field name="active" />
+                            </group>
+                            <group>
+                                <field name="input_rule_id" />
+                                <field name="rule_id" />
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Reason for Allowance">
+                                <field name="note" colspan="4"
+                                    nolabel="1" />
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="hr_payslip_amendment_category_tree">
+            <field name="name">hr.payslip.amendment.category.tree</field>
+            <field name="model">hr.payslip.amendment.category</field>
+            <field name="arch" type="xml">
+                <tree string="Salary Amendment Category">
+                    <field name="name" />
+                    <field name="code" />
+                    <field name="struct_id" />
+                    <field name="input_rule_id" />
+                </tree>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="action_hr_payslip_amendment_category">
+            <field name="name">Salary Amendment Categories</field>
+            <field name="res_model">hr.payslip.amendment.category</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem action="action_hr_payslip_amendment_category"
+            id="menu_hr_payslip_amendment_category" parent="hr_payroll.payroll_configure"
+            groups="base.group_hr_manager" sequence="20" />
+    </data>
+</openerp>

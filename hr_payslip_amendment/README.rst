@@ -21,12 +21,11 @@ To install this module, you need to:
 Configuration
 =============
 
-This module does not require any special configuration apart from enabling it as
-shown above
+* Create Amendment Categories from Human Resources > Configuration > Payroll > Salary Amendment Categories
 
 Usage
 =====
-* Ensure that salary structure contains rules that calculated your inputs
+* Ensure that salary structure contains rules that calculate your inputs
 * Add amendments via Human Resources > Payroll > Pay Slip Amendments
 
 
@@ -36,7 +35,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/hr/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us smashing it by providing a detailed and welcomed feedback
-`here <https://github.com/OCA/hr/issues/new?body=module:%20hr_employee_id%0Aversion:%208.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`here <https://github.com/OCA/hr/issues/new?body=module:%20hr_payslip_amendment%0Aversion:%208.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Credits
 =======
