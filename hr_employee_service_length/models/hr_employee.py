@@ -108,7 +108,13 @@ class HrEmployee(models.Model):
                 deltas.append(relativedelta(first_contract_dt, dt_date_start))
             for d in deltas:
                 delta += d
-        return delta
+        if delta:
+            days = delta.days % 30
+            months = delta.months + int(delta.days / 30)
+            years = delta.years + int(months / 12)
+            months = months % 12
+            return relativedelta(years=years, months=months, days=days)
+        return False
 
     @api.one
     @api.depends('contract_ids', 'initial_employment_date',
@@ -160,7 +166,7 @@ class HrEmployee(models.Model):
 
         delta = self.get_service_length_delta_at_time(dt)
         if not delta:
-            return
-        self.length_of_service = delta.years + (delta.months/12.0) + (
-            delta.days/365.25)
+            return 0.0
+        self.length_of_service = delta.years + (delta.months / 12.0) + (
+            delta.days / 365.25)
         self.length_of_service_str = self._convert_timedelta_to_str(delta)

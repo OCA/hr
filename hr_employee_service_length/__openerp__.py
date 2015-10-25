@@ -24,7 +24,7 @@
     'category': 'Human Resources',
     'summary': "Calculates the length of an employee's time in a company",
     'author': "Salton Massally <smassally@idtlabs.sl>, "
-               "Odoo Community Association (OCA)",
+              "Odoo Community Association (OCA)",
     'website': 'http://idtlabs.sl',
     'license': 'AGPL-3',
     'depends': ['hr_contract'],

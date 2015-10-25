@@ -2,8 +2,7 @@
 <openerp>
     <data>
         
-        <!-- Employee Records -->
-        
+        <!-- Employee Records -->        
         <record id="hr_employee_view_tree" model="ir.ui.view">
             <field name="name">hr.employee.tree.seniority</field>
             <field name="model">hr.employee</field>
