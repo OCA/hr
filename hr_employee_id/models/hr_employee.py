@@ -20,7 +20,7 @@
 import random
 import string
 from openerp import models, fields, api, _
-from openerp.exceptions import Warning
+from openerp.exceptions import Warning as UserWarning
 
 
 class HrEmployee(models.Model):
@@ -62,7 +62,7 @@ class HrEmployee(models.Model):
                     break
                 tries += 1
             if tries == max_tries:
-                raise Warning(_('Unable to generate an Employee ID number that \
+                raise UserWarning(_('Unable to generate an Employee ID number that \
                 is unique.'))
         return employee_id
 
