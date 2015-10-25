@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="hr_contract_type_view_form" model="ir.ui.view">
+            <field name="name">hr.contract.type.view.form</field>
+            <field name="model">hr.contract.type</field>
+            <field name="inherit_id" ref="hr_contract.hr_contract_type_view_form" />
+            <field name="arch" type="xml">
+                <field name="name" position="after">
+                    <group colspan="2" string="End of Service Benefit Rules">
+                        <field name="terminal_rule_ids" nolabel="1"
+                            context="{'default_contract_type_id': active_id}">
+                            <tree editable="top">
+                                <field name="range_from" />
+                                <field name="range_to" />
+                                <field name="days" />
+                            </tree>
+                        </field>
+                    </group>
+                </field>
+            </field>
+        </record>
+    </data>
+</openerp>
