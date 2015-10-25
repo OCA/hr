@@ -31,6 +31,7 @@
     'data': [
         'views/hr_contract_type.xml',
         'views/hr_employee.xml',
+        'security/ir.model.access.csv'
     ],
     'installable': True,
 }
