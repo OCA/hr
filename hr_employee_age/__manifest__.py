@@ -20,7 +20,7 @@
 
 {
     "name": "Employee Age",
-    'version': '8.0.1.0.0',
+    'version': '10.0.1.0.0',
     'license': 'AGPL-3',
     'author': "Salton Massally <smassally@idtlabs.sl>, "
                "Odoo Community Association (OCA)",
