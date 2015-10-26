@@ -3,13 +3,15 @@
 # * hr_experience
 # 
 # Translators:
+# Antonio Trueba, 2016
+# Antonio Trueba, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-18 13:10+0000\n"
-"PO-Revision-Date: 2015-07-27 23:44+0000\n"
-"Last-Translator: <>\n"
+"POT-Creation-Date: 2015-11-30 05:19+0000\n"
+"PO-Revision-Date: 2016-02-16 15:02+0000\n"
+"Last-Translator: Antonio Trueba\n"
 "Language-Team: Spanish (http://www.transifex.com/oca/OCA-hr-8-0/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,7 +22,7 @@ msgstr ""
 #. module: hr_experience
 #: field:hr.employee,experience_ids:0
 msgid " Professional Experiences"
-msgstr ""
+msgstr "Experiencia profesional"
 
 #. module: hr_experience
 #: view:hr.employee:hr_experience.view_employee_form_inherit
@@ -31,12 +33,12 @@ msgstr ""
 #. module: hr_experience
 #: model:ir.ui.menu,name:hr_experience.menu_open_view_academic_form
 msgid "Academic Experiences"
-msgstr ""
+msgstr "Experiencia académica"
 
 #. module: hr_experience
 #: view:hr.academic:hr_experience.view_academic_form
 msgid "Academic experience"
-msgstr ""
+msgstr "Experiencia académica"
 
 #. module: hr_experience
 #: view:hr.academic:hr_experience.view_academic_tree
@@ -48,7 +50,7 @@ msgstr ""
 #. module: hr_experience
 #: view:hr.academic:hr_experience.view_academic_form
 msgid "Academic information"
-msgstr ""
+msgstr "Información académica"
 
 #. module: hr_experience
 #: field:hr.academic,activities:0
@@ -58,13 +60,13 @@ msgstr ""
 #. module: hr_experience
 #: field:hr.experience,category:0 help:hr.experience,category:0
 msgid "Category"
-msgstr ""
+msgstr "Categoría"
 
 #. module: hr_experience
 #: view:hr.employee:hr_experience.view_employee_form_inherit
 #: selection:hr.experience,category:0
 msgid "Certification"
-msgstr ""
+msgstr "Certificación"
 
 #. module: hr_experience
 #: field:hr.certification,certification:0
@@ -82,26 +84,26 @@ msgstr ""
 #: model:ir.actions.act_window,name:hr_experience.open_view_certification_form
 #: model:ir.ui.menu,name:hr_experience.menu_open_view_certification_form
 msgid "Certifications"
-msgstr ""
+msgstr "Certificaciones"
 
 #. module: hr_experience
 #: field:hr.academic,create_uid:0 field:hr.certification,create_uid:0
 #: field:hr.curriculum,create_uid:0 field:hr.experience,create_uid:0
 msgid "Created by"
-msgstr ""
+msgstr "Creado por"
 
 #. module: hr_experience
 #: field:hr.academic,create_date:0 field:hr.certification,create_date:0
 #: field:hr.curriculum,create_date:0 field:hr.experience,create_date:0
 msgid "Created on"
-msgstr ""
+msgstr "Creado el"
 
 #. module: hr_experience
 #: view:hr.academic:hr_experience.view_academic_form
 #: view:hr.certification:hr_experience.view_certification_form
 #: view:hr.experience:hr_experience.view_professional_form
 msgid "Dates"
-msgstr ""
+msgstr "Fechas"
 
 #. module: hr_experience
 #: view:hr.academic:hr_experience.view_academic_form
@@ -111,7 +113,7 @@ msgstr ""
 #: view:hr.experience:hr_experience.view_professional_form
 #: field:hr.experience,description:0
 msgid "Description"
-msgstr ""
+msgstr "Descripción"
 
 #. module: hr_experience
 #: field:hr.academic,diploma:0
@@ -187,7 +189,7 @@ msgstr ""
 #: field:hr.curriculum,location:0 help:hr.curriculum,location:0
 #: field:hr.experience,location:0 help:hr.experience,location:0
 msgid "Location"
-msgstr ""
+msgstr "Ubicación"
 
 #. module: hr_experience
 #: field:hr.academic,name:0 field:hr.certification,name:0
@@ -212,7 +214,7 @@ msgstr ""
 #: view:hr.employee:hr_experience.view_employee_form_inherit
 #: selection:hr.experience,category:0
 msgid "Professional"
-msgstr ""
+msgstr "Profesional"
 
 #. module: hr_experience
 #: view:hr.experience:hr_experience.view_professional_form
