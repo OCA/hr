@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="assets_backend" name="hr_webcam assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <link rel="stylesheet" href="/hr_webcam/static/src/css/hr_webcam.css"/>
+                <script type="text/javascript" src="/hr_webcam/static/src/js/jquery.webcam.js"></script>
+                <script type="text/javascript" src="/hr_webcam/static/src/js/hr_webcam.js"></script>
+            </xpath>
+        </template>
+        
+        <record id="action_take_photo" model="ir.actions.client">
+            <field name="name">Take Picture</field>
+            <field name="tag">photo.action</field>
+        </record>
+        
+        <record id="view_employee_form" model="ir.ui.view">
+            <field name="name">hr.employee.form.webcam</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+				<xpath expr="//div[@name='button_box']" position="inside">
+					<button name="action_take_picture" class="oe_stat_button" icon="fa-camera" type="object" groups="base.group_hr_user" string="Take Picture"/>
+				</xpath>
+            </field>
+        </record>
+        
+    </data>
+</openerp>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="hr_employee_benefit_rate_form" model="ir.ui.view">
+            <field name="name">hr.employee.benefit.rate.form</field>
+            <field name="model">hr.employee.benefit.rate</field>
+            <field name="arch" type="xml">
+                <form string="Employee Benefits Rates" version="7.0">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="category_id"/>
+                            <field name="amount_type"/>
+                        </group>
+                        <label for="line_ids"/>
+                        <field name="line_ids" nolabel="1">
+                            <tree editable="top">
+                                <field name="employee_amount"/>
+                                <field name="employer_amount"/>
+                                <field name="date_start"/>
+                                <field name="date_end"/>
+                            </tree>
+                        </field>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="hr_employee_benefit_rate_list" model="ir.ui.view">
+            <field name="name">hr.employee.benefit.rate.tree</field>
+                <field name="model">hr.employee.benefit.rate</field>
+                <field name="arch" type="xml">
+                    <tree string="Employee Benefit Rates" editable="top">
+                        <field name="name"/>
+                        <field name="category_id"/>
+                        <field name="employee_amount"/>
+                        <field name="employer_amount"/>
+                        <field name="amount_type"/>
+                    </tree>
+                </field>
+        </record>
+
+        <record id="view_hr_employee_benefit_rate_filter" model="ir.ui.view">
+            <field name="name">hr.employee.benefit.rate.select</field>
+            <field name="model">hr.employee.benefit.rate</field>
+            <field name="arch" type="xml">
+                <search string="Search Employee Benefit Rate">
+                    <field name="name"/>
+                    <field name="category_id"/>
+                    <field name="amount_type"/>
+                    <group string="Group by...">
+                        <filter name="category_id" string="Category" context="{'group_by':'category_id'}"/>
+                        <filter name="amount_type" string="Amount Type" context="{'group_by':'amount_type'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_hr_employee_benefit_rate_list" model="ir.actions.act_window">
+            <field name="name">Employee Benefit Rates</field>
+            <field name="res_model">hr.employee.benefit.rate</field>
+            <field name="view_type">form</field>
+            <field name="view_id" ref="hr_employee_benefit_rate_list"/>
+            <field name="search_view_id" ref="view_hr_employee_benefit_rate_filter"/>
+        </record>
+
+        <menuitem
+            id="menu_action_hr_employee_benefit_rate_list"
+            action="action_hr_employee_benefit_rate_list"
+            parent="hr_payroll.payroll_configure"
+            sequence="15"
+        />
+
+    </data>
+</openerp>

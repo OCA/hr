@@ -1,0 +1,53 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * hr_employee_data_from_work_address
+# 
+# Translators:
+# Matjaž Mozetič <m.mozetic@matmoz.si>, 2015
+msgid ""
+msgstr ""
+"Project-Id-Version: hr (8.0)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-08-18 13:10+0000\n"
+"PO-Revision-Date: 2015-08-16 11:40+0000\n"
+"Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>\n"
+"Language-Team: Slovenian (http://www.transifex.com/oca/OCA-hr-8-0/language/sl/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: sl\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
+
+#. module: hr_employee_data_from_work_address
+#: model:ir.model,name:hr_employee_data_from_work_address.model_hr_employee
+msgid "Employee"
+msgstr "Kader"
+
+#. module: hr_employee_data_from_work_address
+#: view:hr.employee:hr_employee_data_from_work_address.view_employee_form
+msgid "True"
+msgstr "Pravilno"
+
+#. module: hr_employee_data_from_work_address
+#: view:hr.employee:hr_employee_data_from_work_address.view_employee_form
+#: view:res.users:hr_employee_data_from_work_address.view_users_form
+msgid "[('employee', '=', True)]"
+msgstr "[('employee', '=', True)]"
+
+#. module: hr_employee_data_from_work_address
+#: view:hr.employee:hr_employee_data_from_work_address.view_employee_form
+msgid ""
+"{'default_groups_ref': ['base.group_user'], 'default_partner_id': "
+"address_id}"
+msgstr "{'default_groups_ref': ['base.group_user'], 'default_partner_id': address_id}"
+
+#. module: hr_employee_data_from_work_address
+#: view:res.users:hr_employee_data_from_work_address.view_users_form
+msgid "{'required': [('id', '!=', False)]}"
+msgstr "{'required': [('id', '!=', False)]}"
+
+#. module: hr_employee_data_from_work_address
+#: view:hr.employee:hr_employee_data_from_work_address.view_employee_form
+msgid ""
+"{'show_address': 1, 'default_customer': False, 'default_employee': True}"
+msgstr "{'show_address': 1, 'default_customer': False, 'default_employee': True}"

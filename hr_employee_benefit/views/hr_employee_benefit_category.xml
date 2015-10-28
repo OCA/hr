@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="hr_employee_benefit_category_form" model="ir.ui.view">
+            <field name="name">hr.employee.benefit.category.form</field>
+            <field name="model">hr.employee.benefit.category</field>
+            <field name="arch" type="xml">
+                <form string="Employee Benefits" version="7.0">
+                    <sheet>
+                        <group name="basic" colspan="2">
+                            <field name="name"/>
+                            <field name="code"/>
+                            <field name="reference"/>
+                            <field name="description"/>
+                            <field name="active"/>
+                        </group>
+                        <notebook>
+                            <page name="salary_rules" string="Salary Rules">
+                                <label for="salary_rule_ids"/>
+                                <field name="salary_rule_ids" no_label="1"/>
+                            </page>
+                            <page name="benefit_rates" string="Benefit Rates">
+                                <label for="rate_ids"/>
+                                <field name="rate_ids" no_label="1" context="{'default_category_id': id}">
+                                    <tree>
+                                        <field name="name"/>
+                                        <field name="employee_amount"/>
+                                        <field name="employer_amount"/>
+                                        <field name="amount_type"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="hr_employee_benefit_category_list" model="ir.ui.view">
+            <field name="name">hr.employee.benefit.category.tree</field>
+                <field name="model">hr.employee.benefit.category</field>
+                <field name="arch" type="xml">
+                    <tree string="Employee Benefit Categories">
+                        <field name="name"/>
+                        <field name="code"/>
+                        <field name="reference"/>
+                    </tree>
+                </field>
+        </record>
+
+        <record id="view_hr_employee_benefit_category_filter" model="ir.ui.view">
+            <field name="name">hr.employee.benefit.category.select</field>
+            <field name="model">hr.employee.benefit.category</field>
+            <field name="arch" type="xml">
+                <search string="Search Employee Benefit">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="reference"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_hr_employee_benefit_category_list" model="ir.actions.act_window">
+            <field name="name">Employee Benefit Categories</field>
+            <field name="res_model">hr.employee.benefit.category</field>
+            <field name="view_type">form</field>
+            <field name="view_id" ref="hr_employee_benefit_category_list"/>
+            <field name="search_view_id" ref="view_hr_employee_benefit_category_filter"/>
+        </record>
+
+        <menuitem
+            id="menu_action_hr_employee_benefit_category_list"
+            action="action_hr_employee_benefit_category_list"
+            parent="hr_payroll.payroll_configure"
+            sequence="15"
+        />
+
+    </data>
+</openerp>

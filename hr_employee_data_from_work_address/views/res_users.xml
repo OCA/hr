@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="view_users_simple_form" model="ir.ui.view">
+            <field name="inherit_id" ref="base.view_users_simple_form" />
+            <field name="model">res.users</field>
+            <field name="arch" type="xml">
+                <xpath expr="//h1" position="after">
+                    <field name="partner_id" attrs="{'required': [('id', '!=', False)]}" domain="[('employee', '=', True)]" />
+                </xpath>
+            </field>
+        </record>
+        <record id="view_users_form" model="ir.ui.view">
+            <field name="inherit_id" ref="base.view_users_form" />
+            <field name="model">res.users</field>
+            <field name="arch" type="xml">
+                <field name="partner_id" position="attributes">
+                    <attribute name="readonly" eval="False" />
+                    <attribute name="attrs">{'required': [('id', '!=', False)]}</attribute>
+                    <attribute name="domain">[('employee', '=', True)]</attribute>
+                </field>
+            </field>
+        </record>
+    </data>
+</openerp>

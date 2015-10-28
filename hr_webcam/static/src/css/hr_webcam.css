@@ -1,0 +1,97 @@
+.openerp .oe_hr_webcam {
+    color: white;
+    background-color: black;
+    height: 100%;
+}
+
+.openerp .oe_hr_webcam h4 {
+    margin: 0;
+    font-size: 14pt;
+    text-align: center;
+}
+
+.openerp .oe_hr_webcam_close {
+    text-align: center;
+}
+
+.openerp .oe_hr_webcam a {
+    font-size: 14pt;
+}
+
+#container {
+    width: 750px;
+}
+
+#webcam, #canvas {
+    width: 360px;
+    border:20px solid #333;
+    background:#eee;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+}
+
+#webcam {
+    float: left;
+    position:relative;
+    margin-bottom:50px;
+}
+
+#webcam > span {
+    z-index:2;
+    position:absolute;
+    color:#eee;
+    font-size:10px;
+    bottom: -16px;
+    left:152px;
+}
+
+#webcam > img {
+    z-index:1;
+    position:absolute;
+    border:0px none;
+    padding:0px;
+    bottom:-40px;
+    left:89px;
+}
+
+#webcam > div {
+    border:5px solid #333;
+    position:absolute;
+    right:-90px;
+    padding:5px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    cursor:pointer;
+}
+
+#webcam a {
+    background:#fff;
+    font-weight:bold;
+}
+
+#webcam a > img {
+    border:0px none;
+}
+
+#canvas {
+    float: right;
+    position: relative;
+    border:20px solid #ccc;
+    background:#eee;
+}
+
+#cams {
+    color: black;
+}
+
+#cams li {
+    color: black;
+}
+
+object {
+    display:block; /* HTML5 fix */
+    position:relative;
+    z-index:1000;
+}

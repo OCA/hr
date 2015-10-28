@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <!--
+            Setting 'address_id' to required in the view below instead of in the field definition
+            because this breaks tests of other modules in the same OCA repo that add their own
+            employees
+        -->
+        <record id="view_employee_form" model="ir.ui.view">
+            <field name="inherit_id" ref="hr.view_employee_form" />
+            <field name="model">hr.employee</field>
+            <field name="arch" type="xml">
+                <field name="address_id" position="attributes">
+                    <attribute name="context">{'show_address': 1, 'default_customer': False, 'default_employee': True}</attribute>
+                <attribute name="required">True</attribute>
+                </field>
+                <field name="user_id" position="attributes">
+                    <attribute name="context">{'default_groups_ref': ['base.group_user'], 'default_partner_id': address_id}</attribute>
+                    <attribute name="domain">[('employee', '=', True)]</attribute>
+                </field>
+            </field>
+        </record>
+    </data>
+</openerp>

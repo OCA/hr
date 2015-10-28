@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="view_expenses_line_tree" model="ir.ui.view">
+            <field name="model">hr.expense.line</field>
+            <field name="inherit_id" ref="hr_expense.view_expenses_line_tree" />
+            <field name="arch" type="xml">
+                <field name="analytic_account" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <field name="analytic_account" position="after">
+                    <field name="analytics_id" groups="analytic.group_analytic_accounting" />
+                </field>
+            </field>
+        </record>
+    </data>
+</openerp>
