@@ -24,13 +24,16 @@
 ##############################################################################
 
 from openerp import models, fields, api, exceptions, _
+from openerp.tools import DEFAULT_SERVER_DATETIME_FORMAT
+from datetime import datetime
+import pytz
 
 
 class HrHolidaysStatus(models.Model):
     _inherit = "hr.holidays.status"
 
-    date_start = fields.Date(string='Start Date')
-    date_end = fields.Date(string="Expiry Date")
+    date_start = fields.Datetime(string='Start Date')
+    date_end = fields.Datetime(string="Expiry Date")
     use_validity_dates = fields.Boolean()
 
     _sql_constraints = [
@@ -43,6 +46,14 @@ class HrHolidaysStatus(models.Model):
 class HrHolidays(models.Model):
     _inherit = "hr.holidays"
 
+    @api.model
+    def _utc_to_tz(self, date):
+        date_dt = datetime.strptime(date, DEFAULT_SERVER_DATETIME_FORMAT)
+        tz_info = fields.Datetime.context_timestamp(self, date_dt).tzinfo
+        date_dt = date_dt.replace(tzinfo=pytz.UTC).astimezone(tz_info)\
+            .replace(tzinfo=None)
+        return date_dt.strftime(DEFAULT_SERVER_DATETIME_FORMAT)
+
     @api.constrains('holiday_status_id', 'date_from', 'date_to')
     @api.one
     def _check_validity_date(self):
@@ -51,8 +62,12 @@ class HrHolidays(models.Model):
                 self.date_from and self.date_to:
             if self.date_from < self.holiday_status_id.date_start or\
                     self.date_to > self.holiday_status_id.date_end:
+                tz_date_start = self._utc_to_tz(
+                    self.holiday_status_id.date_start)
+                tz_date_end = self._utc_to_tz(
+                    self.holiday_status_id.date_end)
                 raise exceptions.Warning(
                     _("""leaves on %s type must be taken between %s and
                     %s""") % (self.holiday_status_id.name,
-                              self.holiday_status_id.date_start,
-                              self.holiday_status_id.date_end))
+                              tz_date_start,
+                              tz_date_end))
