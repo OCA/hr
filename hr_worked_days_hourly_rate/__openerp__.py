@@ -23,28 +23,20 @@
     'version': '1.0',
     'license': 'AGPL-3',
     'category': 'Generic Modules/Human Resources',
-    'description': """
-Worked Days Hourly Rate
-=======================
- * Adds hourly rate field on worked days
- * Adds date_from and date_to fields
- * Adds a rate (%) by which to multiplicate the hourly rate
- for overtime or other purposes.
-
-Contributors
-------------
-* David Dufresne <david.dufresne@savoirfairelinux.com>
-* Pierre Lamarche <pierre.lamarche@savoirfairelinux.com>
-""",
     'author': "Savoir-faire Linux,Odoo Community Association (OCA)",
     'website': 'https://www.savoirfairelinux.com/',
+    'contributors': [
+        'David Dufresne <david.dufresne@savoirfairelinux.com>',
+        'Pierre Lamarche <pierre.lamarche@savoirfairelinux.com>',
+        'Ignacio Ibeas <ignacio@acysos.com>',
+    ],
     'depends': [
         'hr_payroll',
     ],
     'data': [
-        'hr_payslip_view.xml',
+        'views/hr_payslip_view.xml',
     ],
     'test': [],
     'demo': [],
-    'installable': False,
+    'installable': True,
 }

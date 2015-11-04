@@ -18,56 +18,28 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-
-from openerp.osv import fields, orm
-from datetime import datetime
-from openerp.tools import DEFAULT_SERVER_DATE_FORMAT
+from openerp import models, fields
 
 
-class hr_payslip_worked_days(orm.Model):
+class HrPayslipWorkedDays(models.Model):
     _inherit = 'hr.payslip.worked_days'
 
-    def _get_total(
-        self, cr, uid, ids, field_name, arg=None, context=None
-    ):
-        res = {}
-        for wd in self.browse(cr, uid, ids, context=context):
-            res[wd.id] = wd.number_of_hours \
-                * wd.hourly_rate * wd.rate / 100
-        return res
+    def _get_total(self):
+        self.total = self.number_of_hours * self.hourly_rate * self.rate / 100
 
-    _columns = {
-        'hourly_rate': fields.float(
-            'Hourly Rate',
-            help="""\
-The employee's standard hourly rate for one hour of work.
-Example, 25 Euros per hour."""
-        ),
-        'rate': fields.float(
-            'Rate (%)',
-            help="""\
-The rate by which to multiply the standard hourly rate.
-Example, an overtime hour could be paid the standard rate multiplied by 150%.
-"""
-        ),
+    hourly_rate = fields.Float(
+        string='Hourly Rate',  default=0, help="""\
+        The employee's standard hourly rate for one hour of work.
+        Example, 25 Euros per hour.""")
+    rate = fields.Float(
+        string='Rate (%)', default=100, help="""\
+        The rate by which to multiply the standard hourly rate.
+        Example, an overtime hour could be paid the standard rate multiplied
+        by 150%.""")
 
-        # When a worked day has a number of hours and an hourly rate,
-        # it is necessary to have a date interval,
-        # because hourly rates are likely to change over the time.
-        'date_from': fields.date('Date From'),
-        'date_to': fields.date('Date To'),
-        'total': fields.function(
-            _get_total,
-            method=True,
-            type="float",
-            string="Total",
-        ),
-    }
-    _defaults = {
-        'hourly_rate': 0,
-        'rate': 100,
-        'date_from': lambda *a: datetime.now().strftime(
-            DEFAULT_SERVER_DATE_FORMAT),
-        'date_to': lambda *a: datetime.now().strftime(
-            DEFAULT_SERVER_DATE_FORMAT)
-    }
+    # When a worked day has a number of hours and an hourly rate,
+    # it is necessary to have a date interval,
+    # because hourly rates are likely to change over the time.
+    date_from = fields.Date(string='Date From', default=fields.Date.today())
+    date_to = fields.Date(string='Date To', default=fields.Date.today())
+    total = fields.Float(string="Total", compute=_get_total, method=True)
