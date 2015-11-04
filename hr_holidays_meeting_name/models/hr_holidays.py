@@ -30,7 +30,7 @@ class HrHolidaysStatus(models.Model):
     _inherit = "hr.holidays.status"
 
     use_leave_name_for_meeting = fields.Boolean(
-        string='Use Leave Name for Meeting description', default=True)
+        string='Use leave name for meeting description', default=True)
     meeting_description = fields.Char(translate=True)
 
 
