@@ -32,7 +32,6 @@
                     <field name="name"/>
                     <field name="gender"/>
                     <field name="date_of_birth"/>
-                    
                 </tree>
             </field>
         </record>
