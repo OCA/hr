@@ -27,19 +27,20 @@ class HrPayslipWorkedDays(models.Model):
     @api.multi
     @api.depends('number_of_hours', 'hourly_rate', 'rate')
     def _get_total(self):
-        self.total = self.number_of_hours * self.hourly_rate * self.rate / 100
+        for wd in self:
+            wd.total = wd.number_of_hours * wd.hourly_rate * wd.rate / 100
 
     hourly_rate = fields.Float(
         string='Hourly Rate',
         default=0,
-        help="""The employee's standard hourly rate for one hour of work.
-        Example, 25 Euros per hour.""")
+        help="The employee's standard hourly rate for one hour of work. \
+        Example, 25 Euros per hour.")
     rate = fields.Float(
         string='Rate (%)',
         default=100,
-        help="""The rate by which to multiply the standard hourly rate.
-        Example, an overtime hour could be paid the standard rate multiplied
-        by 150%.""")
+        help="The rate by which to multiply the standard hourly rate. \
+        Example, an overtime hour could be paid the standard rate multiplied \
+        by 150%.")
 
     # When a worked day has a number of hours and an hourly rate,
     # it is necessary to have a date interval,
