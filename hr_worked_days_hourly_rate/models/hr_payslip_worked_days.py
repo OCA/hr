@@ -18,22 +18,26 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from openerp import models, fields
+from openerp import models, fields, api
 
 
 class HrPayslipWorkedDays(models.Model):
     _inherit = 'hr.payslip.worked_days'
 
+    @api.multi
+    @api.depends('number_of_hours', 'hourly_rate', 'rate')
     def _get_total(self):
         self.total = self.number_of_hours * self.hourly_rate * self.rate / 100
 
     hourly_rate = fields.Float(
-        string='Hourly Rate',  default=0, help="""\
-        The employee's standard hourly rate for one hour of work.
+        string='Hourly Rate',
+        default=0,
+        help="""The employee's standard hourly rate for one hour of work.
         Example, 25 Euros per hour.""")
     rate = fields.Float(
-        string='Rate (%)', default=100, help="""\
-        The rate by which to multiply the standard hourly rate.
+        string='Rate (%)',
+        default=100,
+        help="""The rate by which to multiply the standard hourly rate.
         Example, an overtime hour could be paid the standard rate multiplied
         by 150%.""")
 
