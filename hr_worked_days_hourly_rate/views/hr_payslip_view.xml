@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
-         <record id="view_hr_payslip_form" model="ir.ui.view">
+         <record id="view_hr_payslip_rate_form" model="ir.ui.view">
             <field name="name">hr.payslip.form</field>
             <field name="model">hr.payslip</field>
             <field name="inherit_id" ref="hr_payroll.view_hr_payslip_form"/>
