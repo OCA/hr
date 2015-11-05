@@ -3,7 +3,7 @@
 #
 #    OpenERP, Open Source Management Solution
 #    Copyright (C) 2010-2013 OpenERP s.a. (<http://openerp.com>).
-#    Copyright (C) 2014 initOS GmbH & Co. KG (<http://www.initos.com>).
+#    Copyright (C) 2014 initOS GmbH(<http://www.initos.com>).
 #    Author Andy Kanner <andy.kenner@initos.com>
 #    Author Nikolina Todorova <nikolina.todorova@initos.com>
 #
@@ -29,7 +29,7 @@
         "hr_public_holidays",
         "hr_contract",
     ],
-    'author': 'initOS GmbH & Co. KG',
+    'author': 'initOS GmbH',
     "category": "",
     'license': 'AGPL-3',
     "description": """
