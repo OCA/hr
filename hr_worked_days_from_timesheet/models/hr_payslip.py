@@ -72,6 +72,9 @@ class HrPayslip(models.Model):
             date_format = self.env['res.lang'].search(
                 [('code', '=', self.env.user.lang)]).date_format
 
+            if not date_format:
+                date_format = '%m/%d/%Y'
+
             # Delete old imported worked_days
             # The reason to delete these records is that the user may make
             # corrections to his timesheets and then reimport these.
