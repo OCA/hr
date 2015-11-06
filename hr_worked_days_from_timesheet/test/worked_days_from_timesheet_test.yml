@@ -1,10 +1,16 @@
 -
+  First we create a partner
+-
+  !record {model: res.partner, id: partner_1}:
+    name: Partner 1
+-
   First we create a user
 -
   !record {model: res.users, id: user_1}:
     name: User 1
     login: test
     password: test
+    partner_id: partner_1
 -
   Create an employee
 -
