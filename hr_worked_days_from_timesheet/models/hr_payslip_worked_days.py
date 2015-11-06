@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 ##############################################################################
 #
-#    Copyright (C) 2014 Odoo Canada. All Rights Reserved.
+#    Copyright (C) 2012 - 2014 Odoo Canada. All Rights Reserved.
 #    Copyright (C) 2015 Acysos S.L. All Rights Reserved.
 #
 #    This program is free software: you can redistribute it and/or modify
