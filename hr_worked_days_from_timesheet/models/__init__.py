@@ -18,17 +18,5 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-
-from openerp.osv import orm, fields
-
-
-class hr_employee(orm.Model):
-    _name = "hr.employee"
-    _inherit = "hr.employee"
-    _columns = {
-        'timesheet_sheet_ids': fields.one2many(
-            'hr_timesheet_sheet.sheet',
-            'employee_id',
-            'Timesheets'
-        )
-    }
+from . import hr_payslip_worked_days
+from . import hr_payslip
