@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# * hr_employee_legacy_id
+# * hr_expense_account_period
 # 
 # Translators:
 # Thomas A. Jaeger, 2015
@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-11-06 00:27+0000\n"
-"PO-Revision-Date: 2015-11-05 14:13+0000\n"
+"PO-Revision-Date: 2015-11-05 14:45+0000\n"
 "Last-Translator: Thomas A. Jaeger\n"
 "Language-Team: German (http://www.transifex.com/oca/OCA-hr-8-0/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -18,12 +18,12 @@ msgstr ""
 "Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#. module: hr_employee_legacy_id
-#: model:ir.model,name:hr_employee_legacy_id.model_hr_employee
-msgid "Employee"
-msgstr "Angestellter"
+#. module: hr_expense_account_period
+#: model:ir.model,name:hr_expense_account_period.model_hr_expense_expense
+msgid "Expense"
+msgstr "Ausgaben"
 
-#. module: hr_employee_legacy_id
-#: field:hr.employee,legacy_no:0
-msgid "Legacy ID"
-msgstr "Alte ID"
+#. module: hr_expense_account_period
+#: field:hr.expense.expense,period_id:0
+msgid "Force Period"
+msgstr "Periode überschreiben"

@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# * hr_employee_legacy_id
+# * hr_employee_gravatar
 # 
 # Translators:
 # Thomas A. Jaeger, 2015
@@ -18,12 +18,7 @@ msgstr ""
 "Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#. module: hr_employee_legacy_id
-#: model:ir.model,name:hr_employee_legacy_id.model_hr_employee
-msgid "Employee"
-msgstr "Angestellter"
-
-#. module: hr_employee_legacy_id
-#: field:hr.employee,legacy_no:0
-msgid "Legacy ID"
-msgstr "Alte ID"
+#. module: hr_employee_gravatar
+#: model:ir.model,name:hr_employee_gravatar.model_res_users
+msgid "Users"
+msgstr "Benutzer"

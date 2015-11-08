@@ -4,13 +4,14 @@
 # 
 # Translators:
 # Rudolf Schnapka <schnapkar@golive-saar.de>, 2015
+# Thomas A. Jaeger, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-18 13:10+0000\n"
-"PO-Revision-Date: 2015-07-27 23:44+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
+"POT-Creation-Date: 2015-11-06 00:27+0000\n"
+"PO-Revision-Date: 2015-11-05 14:31+0000\n"
+"Last-Translator: Thomas A. Jaeger\n"
 "Language-Team: German (http://www.transifex.com/oca/OCA-hr-8-0/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -59,7 +60,7 @@ msgstr "Aktivitäten und Vereinigungen"
 #. module: hr_experience
 #: field:hr.experience,category:0 help:hr.experience,category:0
 msgid "Category"
-msgstr ""
+msgstr "Kategorie"
 
 #. module: hr_experience
 #: view:hr.employee:hr_experience.view_employee_form_inherit
@@ -132,7 +133,7 @@ msgstr "Angestellter"
 #: model:ir.model,name:hr_experience.model_hr_curriculum
 #: model:ir.model,name:hr_experience.model_hr_experience
 msgid "Employee's Curriculum"
-msgstr ""
+msgstr "Mitarbeiter Lebenslauf"
 
 #. module: hr_experience
 #: help:hr.academic,partner_id:0 help:hr.certification,partner_id:0
@@ -149,7 +150,7 @@ msgstr "Enddatum"
 #. module: hr_experience
 #: model:ir.ui.menu,name:hr_experience.menu_hr_experience
 msgid "Experiences"
-msgstr ""
+msgstr "Erfahrungen"
 
 #. module: hr_experience
 #: field:hr.academic,expire:0 help:hr.academic,expire:0
@@ -242,4 +243,4 @@ msgstr "Zertifizierung"
 #. module: hr_experience
 #: view:hr.certification:hr_experience.view_certification_tree
 msgid "certifications"
-msgstr ""
+msgstr "Zertifizierungen"

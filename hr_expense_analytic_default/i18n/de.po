@@ -3,13 +3,14 @@
 # * hr_expense_analytic_default
 # 
 # Translators:
+# Thomas A. Jaeger, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-18 13:10+0000\n"
-"PO-Revision-Date: 2015-07-27 23:44+0000\n"
-"Last-Translator: <>\n"
+"POT-Creation-Date: 2015-11-06 00:27+0000\n"
+"PO-Revision-Date: 2015-11-05 14:45+0000\n"
+"Last-Translator: Thomas A. Jaeger\n"
 "Language-Team: German (http://www.transifex.com/oca/OCA-hr-8-0/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,13 +21,13 @@ msgstr ""
 #. module: hr_expense_analytic_default
 #: view:hr.employee:hr_expense_analytic_default.view_employee_form
 msgid "Analytic on Expenses"
-msgstr ""
+msgstr "Analyse auf Spesen"
 
 #. module: hr_expense_analytic_default
 #: field:hr.employee,default_analytic_account_id:0
 #: field:hr.expense.expense,default_analytic_account_id:0
 msgid "Default Analytic Account"
-msgstr ""
+msgstr "Standard Kostenstelle"
 
 #. module: hr_expense_analytic_default
 #: model:ir.model,name:hr_expense_analytic_default.model_hr_employee
@@ -36,21 +37,21 @@ msgstr "Angestellter"
 #. module: hr_expense_analytic_default
 #: model:ir.model,name:hr_expense_analytic_default.model_hr_expense_expense
 msgid "Expense"
-msgstr ""
+msgstr "Ausgaben"
 
 #. module: hr_expense_analytic_default
 #: view:hr.employee:hr_expense_analytic_default.view_employee_form
 msgid "HR Settings"
-msgstr ""
+msgstr "HR Einstellungen"
 
 #. module: hr_expense_analytic_default
 #: help:hr.employee,default_analytic_account_id:0
 msgid "This field will be copied on the expenses of this employee."
-msgstr ""
+msgstr "Dieses Feld wird in die Spesen dieses Mitarbeiters kopiert."
 
 #. module: hr_expense_analytic_default
 #: view:hr.expense.expense:hr_expense_analytic_default.view_expenses_form
 msgid ""
 "{'currency_id': currency_id, 'default_analytic_account': "
 "default_analytic_account_id or context.get('analytic_account')}"
-msgstr ""
+msgstr "{'currency_id': currency_id, 'default_analytic_account': default_analytic_account_id or context.get('analytic_account')}"
