@@ -4,13 +4,14 @@
 # 
 # Translators:
 # Rudolf Schnapka <schnapkar@golive-saar.de>, 2015
+# Thomas A. Jaeger, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-18 13:10+0000\n"
-"PO-Revision-Date: 2015-07-27 23:44+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
+"POT-Creation-Date: 2015-11-06 00:27+0000\n"
+"PO-Revision-Date: 2015-11-05 14:40+0000\n"
+"Last-Translator: Thomas A. Jaeger\n"
 "Language-Team: German (http://www.transifex.com/oca/OCA-hr-8-0/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -32,6 +33,11 @@ msgstr "Amharisch"
 #: selection:hr.language,name:0
 msgid "Arabic / الْعَرَبيّة"
 msgstr "Arabisch"
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "Basque / Euskara"
+msgstr "Baskisch"
 
 #. module: hr_language
 #: selection:hr.language,name:0
@@ -96,7 +102,7 @@ msgstr "Beschreibung"
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "Dutch (BE) / Nederlands (BE)"
-msgstr ""
+msgstr "Holländisch (BE)"
 
 #. module: hr_language
 #: selection:hr.language,name:0
@@ -112,7 +118,7 @@ msgstr "Angestellter"
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "English (AU)"
-msgstr ""
+msgstr "Englisch (AU)"
 
 #. module: hr_language
 #: selection:hr.language,name:0
@@ -142,7 +148,7 @@ msgstr "Französisch (BE)"
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "French (CA) / Français (CA)"
-msgstr ""
+msgstr "Französisch (CA)"
 
 #. module: hr_language
 #: selection:hr.language,name:0
@@ -162,7 +168,7 @@ msgstr "Galizisch"
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "Georgian / ქართული ენა"
-msgstr ""
+msgstr "Georgisch"
 
 #. module: hr_language
 #: selection:hr.language,name:0
@@ -217,7 +223,7 @@ msgstr "Japanisch"
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "Kabyle / Taqbaylit"
-msgstr ""
+msgstr "Kabylisch"
 
 #. module: hr_language
 #: selection:hr.language,name:0
@@ -246,7 +252,7 @@ msgstr "Sprachen"
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "Lao / ພາສາລາວ"
-msgstr ""
+msgstr "Laotisch"
 
 #. module: hr_language
 #: field:hr.language,write_uid:0
@@ -271,7 +277,7 @@ msgstr "Litauisch"
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "Macedonian / македонски јазик"
-msgstr ""
+msgstr "Mazedonisch"
 
 #. module: hr_language
 #: selection:hr.language,name:0
