@@ -1,4 +1,4 @@
-# -*- encoding: utf-8 -*-
+# -*- coding: utf-8 -*-
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution
@@ -85,7 +85,7 @@ class HrEmployee(models.Model):
 
         elif vals.get('name'):
             vals['lastname'] = self.split_name(vals['name'])['lastname']
-            vals['firstname'] =  self.split_name(vals['name'])['firstname']
+            vals['firstname'] = self.split_name(vals['name'])['firstname']
         res = super(HrEmployee, self).create(vals)
         self._update_partner_firstname(res)
         return res
@@ -98,7 +98,7 @@ class HrEmployee(models.Model):
             vals['name'] = self._get_name(lastname, firstname)
         elif vals.get('name'):
             vals['lastname'] = self.split_name(vals['name'])['lastname']
-            vals['firstname'] =  self.split_name(vals['name'])['firstname']
+            vals['firstname'] = self.split_name(vals['name'])['firstname']
         res = super(HrEmployee, self).write(vals)
         if set(vals).intersection(UPDATE_PARTNER_FIELDS):
             self._update_partner_firstname(self)
