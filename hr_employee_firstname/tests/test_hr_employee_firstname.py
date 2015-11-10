@@ -65,7 +65,7 @@ class TestEmployeeFirstname(TransactionCase):
         in firstname and lastname
         """
         # Check for employee10
-        self.assertEqual(self.employee10_id.firstname, "Jan")
+        self.assertEqual(self.employee10_id.firstname, 'Jan')
         self.assertEqual(self.employee10_id.lastname, 'Van-Eyck')
 
         # Check for employee20
