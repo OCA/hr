@@ -23,18 +23,15 @@
 from openerp.tests.common import TransactionCase
 
 
-class test_department(TransactionCase):
+class TestDepartment(TransactionCase):
 
     def setUp(self):
-        super(test_department, self).setUp()
-        # Clean up registries
-        self.registry('ir.model').clear_caches()
-        self.registry('ir.model.data').clear_caches()
+        super(TestDepartment, self).setUp()
         # Get registries
-        self.user_model = self.registry("res.users")
-        self.department_model = self.registry("hr.department")
+        self.user_model = self.env["res.users"]
+        self.department_model = self.env["hr.department"]
         # Get context
-        self.context = self.user_model.context_get(self.cr, self.uid)
+        self.context = self.user_model.context_get()
         self.vals = {
             'name': 'test',
             'code': 'TEST',
@@ -42,21 +39,15 @@ class test_department(TransactionCase):
         }
 
     def test_create_department(self):
-        cr, uid, context = self.cr, self.uid, self.context
-        department_id = self.department_model.create(
-            self.cr, self.uid, self.vals, context=self.context)
-        department = self.department_model.browse(cr, uid, department_id,
-                                                  context=context)
-        self.assertEqual(self.vals['name'], department.name)
-        self.assertEqual(self.vals['code'], department.code)
-        self.assertEqual(self.vals['sequence'], department.sequence)
+        department_id = self.department_model.create(self.vals)
+        self.assertEqual(self.vals['name'], department_id.name)
+        self.assertEqual(self.vals['code'], department_id.code)
+        self.assertEqual(self.vals['sequence'], department_id.sequence)
 
     def test_name_search_department(self):
-        cr, uid, context = self.cr, self.uid, self.context
-        department_id = self.department_model.create(
-            self.cr, self.uid, self.vals, context=self.context)
+        department_id = self.department_model.create(self.vals)
 
-        found_id = self.department_model.name_search(
-            cr, uid, name=self.vals['name'], context=context)[0][0]
-        self.assertEqual(department_id, found_id,
+        found_id = self.department_model.\
+            name_search(name=self.vals['name'])[0][0]
+        self.assertEqual(department_id.id, found_id,
                          "Found wrong id for name=%s" % self.vals['name'])
