@@ -52,46 +52,46 @@ Unported addons
 ---------------
 addon | version | summary
 --- | --- | ---
-[hr_accrual](hr_accrual/) | 1.0 (unported) | Accrual
-[hr_contract_init](hr_contract_init/) | 1.0 (unported) | Contracts - Initial Settings
-[hr_contract_state](hr_contract_state/) | 1.0 (unported) | Manage Employee Contracts
-[hr_department_sequence](hr_department_sequence/) | 1.0 (unported) | Department Sequence
-[hr_emergency_contact](hr_emergency_contact/) | 1.0 (unported) | HR Emergency Contact
-[hr_employee_education](hr_employee_education/) | 1.0 (unported) | Employee Education Records
-[hr_employee_id](hr_employee_id/) | 1.0 (unported) | Employee ID
-[hr_employee_seniority](hr_employee_seniority/) | 1.0 (unported) | Employee Seniority
-[hr_employee_state](hr_employee_state/) | 1.0 (unported) | Employment Status
-[hr_experience_analytic](hr_experience_analytic/) | 0.1 (unported) | Experience and Analytic Accounting
-[hr_holidays_extension](hr_holidays_extension/) | 1.0 (unported) | HR Holidays Extension
-[hr_infraction](hr_infraction/) | 1.0 (unported) | Employee Infraction Management
-[hr_job_hierarchy](hr_job_hierarchy/) | 1.0 (unported) | Job Hierarchy
-[hr_labour_recruitment](hr_labour_recruitment/) | 1.0 (unported) | New Employee Recruitment and Personnel Requests
-[hr_labour_union](hr_labour_union/) | 1.0 (unported) | Labour Union
-[hr_payroll_extension](hr_payroll_extension/) | 1.0 (unported) | Payroll Extension
-[hr_payroll_period](hr_payroll_period/) | 1.0 (unported) | Payroll Period
-[hr_payroll_register](hr_payroll_register/) | 1.0 (unported) | Payroll Register
-[hr_payroll_register_report](hr_payroll_register_report/) | 1.0 (unported) | Payroll Register Report
-[hr_payslip_amendment](hr_payslip_amendment/) | 1.0 (unported) | Pay Slip Amendment
-[hr_payslip_ytd_amount](hr_payslip_ytd_amount/) | 1.0 (unported) | Payslip Year-to-date Amount
-[hr_policy_absence](hr_policy_absence/) | 1.0 (unported) | Absence Policy
-[hr_policy_accrual](hr_policy_accrual/) | 1.0 (unported) | Time Accrual Policy
-[hr_policy_group](hr_policy_group/) | 1.0 (unported) | Human Resources Policy Groups
-[hr_policy_ot](hr_policy_ot/) | 1.0 (unported) | Overtime Policy
-[hr_policy_presence](hr_policy_presence/) | 1.0 (unported) | Employee Presence Policy
-[hr_public_holidays](hr_public_holidays/) | 1.0 (unported) | Public Holidays
-[hr_report_manpower](hr_report_manpower/) | 1.0 (unported) | Man Power Report
-[hr_report_payroll_attendance_summary](hr_report_payroll_attendance_summary/) | 1.0 (unported) | Attendance Summary for Payroll
-[hr_report_payroll_net](hr_report_payroll_net/) | 1.0 (unported) | Net Payroll Payable
-[hr_report_turnover](hr_report_turnover/) | 1.0 (unported) | Employee Turn-over Report
-[hr_resume](hr_resume/) | 0.1 (unported) | Resume Management
-[hr_salary_rule_variable](hr_salary_rule_variable/) | 1.0 (unported) | Salary Rule Variables
-[hr_schedule](hr_schedule/) | 1.0 (unported) | Employee Shift Scheduling
-[hr_simplify](hr_simplify/) | 1.0 (unported) | Simplify Employee Records.
-[hr_transfer](hr_transfer/) | 1.0 (unported) | Departmental Transfer
-[hr_wage_increment](hr_wage_increment/) | 1.0 (unported) | HR Wage Increment
-[hr_worked_days_activity](hr_worked_days_activity/) | 1.0 (unported) | Worked Days Activity
-[hr_worked_days_from_timesheet](hr_worked_days_from_timesheet/) | 1.0 (unported) | Worked Days From Timesheet
-[hr_worked_days_hourly_rate](hr_worked_days_hourly_rate/) | 1.0 (unported) | Worked Days Hourly Rates
+[hr_accrual](__unported__/hr_accrual/) | 1.0 (unported) | Accrual
+[hr_contract_init](__unported__/hr_contract_init/) | 1.0 (unported) | Contracts - Initial Settings
+[hr_contract_state](__unported__/hr_contract_state/) | 1.0 (unported) | Manage Employee Contracts
+[hr_department_sequence](__unported__/hr_department_sequence/) | 1.0 (unported) | Department Sequence
+[hr_emergency_contact](__unported__/hr_emergency_contact/) | 1.0 (unported) | HR Emergency Contact
+[hr_employee_education](__unported__/hr_employee_education/) | 1.0 (unported) | Employee Education Records
+[hr_employee_id](__unported__/hr_employee_id/) | 1.0 (unported) | Employee ID
+[hr_employee_seniority](__unported__/hr_employee_seniority/) | 1.0 (unported) | Employee Seniority
+[hr_employee_state](__unported__/hr_employee_state/) | 1.0 (unported) | Employment Status
+[hr_experience_analytic](__unported__/hr_experience_analytic/) | 0.1 (unported) | Experience and Analytic Accounting
+[hr_holidays_extension](__unported__/hr_holidays_extension/) | 1.0 (unported) | HR Holidays Extension
+[hr_infraction](__unported__/hr_infraction/) | 1.0 (unported) | Employee Infraction Management
+[hr_job_hierarchy](__unported__/hr_job_hierarchy/) | 1.0 (unported) | Job Hierarchy
+[hr_labour_recruitment](__unported__/hr_labour_recruitment/) | 1.0 (unported) | New Employee Recruitment and Personnel Requests
+[hr_labour_union](__unported__/hr_labour_union/) | 1.0 (unported) | Labour Union
+[hr_payroll_extension](__unported__/hr_payroll_extension/) | 1.0 (unported) | Payroll Extension
+[hr_payroll_period](__unported__/hr_payroll_period/) | 1.0 (unported) | Payroll Period
+[hr_payroll_register](__unported__/hr_payroll_register/) | 1.0 (unported) | Payroll Register
+[hr_payroll_register_report](__unported__/hr_payroll_register_report/) | 1.0 (unported) | Payroll Register Report
+[hr_payslip_amendment](__unported__/hr_payslip_amendment/) | 1.0 (unported) | Pay Slip Amendment
+[hr_payslip_ytd_amount](__unported__/hr_payslip_ytd_amount/) | 1.0 (unported) | Payslip Year-to-date Amount
+[hr_policy_absence](__unported__/hr_policy_absence/) | 1.0 (unported) | Absence Policy
+[hr_policy_accrual](__unported__/hr_policy_accrual/) | 1.0 (unported) | Time Accrual Policy
+[hr_policy_group](__unported__/hr_policy_group/) | 1.0 (unported) | Human Resources Policy Groups
+[hr_policy_ot](__unported__/hr_policy_ot/) | 1.0 (unported) | Overtime Policy
+[hr_policy_presence](__unported__/hr_policy_presence/) | 1.0 (unported) | Employee Presence Policy
+[hr_public_holidays](__unported__/hr_public_holidays/) | 1.0 (unported) | Public Holidays
+[hr_report_manpower](__unported__/hr_report_manpower/) | 1.0 (unported) | Man Power Report
+[hr_report_payroll_attendance_summary](__unported__/hr_report_payroll_attendance_summary/) | 1.0 (unported) | Attendance Summary for Payroll
+[hr_report_payroll_net](__unported__/hr_report_payroll_net/) | 1.0 (unported) | Net Payroll Payable
+[hr_report_turnover](__unported__/hr_report_turnover/) | 1.0 (unported) | Employee Turn-over Report
+[hr_resume](__unported__/hr_resume/) | 0.1 (unported) | Resume Management
+[hr_salary_rule_variable](__unported__/hr_salary_rule_variable/) | 1.0 (unported) | Salary Rule Variables
+[hr_schedule](__unported__/hr_schedule/) | 1.0 (unported) | Employee Shift Scheduling
+[hr_simplify](__unported__/hr_simplify/) | 1.0 (unported) | Simplify Employee Records.
+[hr_transfer](__unported__/hr_transfer/) | 1.0 (unported) | Departmental Transfer
+[hr_wage_increment](__unported__/hr_wage_increment/) | 1.0 (unported) | HR Wage Increment
+[hr_worked_days_activity](__unported__/hr_worked_days_activity/) | 1.0 (unported) | Worked Days Activity
+[hr_worked_days_from_timesheet](__unported__/hr_worked_days_from_timesheet/) | 1.0 (unported) | Worked Days From Timesheet
+[hr_worked_days_hourly_rate](__unported__/hr_worked_days_hourly_rate/) | 1.0 (unported) | Worked Days Hourly Rates
 
 [//]: # (end addons)
 
