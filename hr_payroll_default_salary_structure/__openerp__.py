@@ -19,7 +19,7 @@
 ###############################################################################
 {
     "name": "Default Salary Structure",
-    "version": "0.1",
+    'version': '8.0.1.0.0',
     'author': "Salton Massally <smassally@idtlabs.sl>, "
                "Odoo Community Association (OCA)",
     "website": "http://idtlabs.sl",
