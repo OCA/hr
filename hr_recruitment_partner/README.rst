@@ -31,6 +31,10 @@ Some fields in the Applicant form are now mapped to the corresponding fields
 in the partner form. For example, editing the Phone or Email in one place will
 implicitly change it in the other.
 
+.. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
+   :alt: Try me on Runbot
+   :target: https://runbot.odoo-community.org/runbot/116/8.0
+
 
 Known issues / Roadmap
 ======================
