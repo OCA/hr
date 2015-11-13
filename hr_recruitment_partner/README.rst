@@ -20,9 +20,6 @@ address details.
 Configuration
 =============
 
-On install, new Partner record are automatically created for existing
-Applicants without one.
-
 You may like to customize your Applicants form view to add to it some
 Partner fields relevant for your use case.
 
