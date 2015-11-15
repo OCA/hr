@@ -19,17 +19,16 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from openerp import models, api
+from openerp import models, fields, api
 from openerp.tools.translate import _
-from datetime import datetime
-from openerp.tools import DEFAULT_SERVER_DATE_FORMAT
 
 
 class HrPayslip(models.Model):
     _inherit = 'hr.payslip'
 
-    def timesheet_mapping(self, timesheet_sheets, payslip, date_from, date_to,
-                          date_format):
+    @api.multi
+    def _timesheet_mapping(self, timesheet_sheets, payslip, date_from,
+                           date_to):
         """This function takes timesheet objects imported from the timesheet
         module and creates a dict of worked days to be created in the payslip.
         """
@@ -37,11 +36,8 @@ class HrPayslip(models.Model):
         wd_model = self.env['hr.payslip.worked_days']
         for ts_sheet in timesheet_sheets:
             # Get formated date from the timesheet sheet
-            date_from_formated = datetime.strptime(
-                ts_sheet.date_from,
-                DEFAULT_SERVER_DATE_FORMAT
-            ).strftime(date_format)
-
+            date_from_formated = fields.Date.to_string(
+                fields.Datetime.from_string(ts_sheet.date_from))
             number_of_hours = 0
             for ts in ts_sheet.timesheet_ids:
                 if date_from <= ts.date <= date_to:
@@ -68,13 +64,6 @@ class HrPayslip(models.Model):
             date_from = payslip.date_from
             date_to = payslip.date_to
 
-            # get user date format
-            date_format = self.env['res.lang'].search(
-                [('code', '=', self.env.user.lang)]).date_format
-
-            if not date_format:
-                date_format = '%m/%d/%Y'
-
             # Delete old imported worked_days
             # The reason to delete these records is that the user may make
             # corrections to his timesheets and then reimport these.
@@ -100,10 +89,9 @@ class HrPayslip(models.Model):
                 )
 
             # The reason to call this method is for other modules to modify it.
-            self.timesheet_mapping(
+            self._timesheet_mapping(
                 timesheet_sheets,
                 payslip,
                 date_from,
-                date_to,
-                date_format,
+                date_to
             )
