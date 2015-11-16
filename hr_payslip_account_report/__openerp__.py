@@ -11,17 +11,11 @@
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-    "external_dependencies": {
-        "python": [],
-        "bin": [],
-    },
     "depends": [
         "hr_payroll_account",
     ],
     "data": [
         "report/hr_payslip_account_report_view.xml",
         "security/ir.model.access.csv"
-    ],
-    "demo": [
     ],
 }
