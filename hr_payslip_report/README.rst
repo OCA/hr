@@ -1,0 +1,38 @@
+HR Payslip report
+=================
+This module adds a new report in the area of Human Resources that makes it
+possible to report on the employee payslips.
+
+Usage
+=====
+
+Go to 'Reporting | Human Resources | Payslip Report'
+
+
+.. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
+   :alt: Try me on Runbot
+   :target: https://runbot.odoo-community.org/runbot/116/7.0
+
+
+Credits
+=======
+
+Contributors
+------------
+
+* Jordi Ballester <jordi.ballester@eficent.com>
+
+Maintainer
+----------
+
+.. image:: http://odoo-community.org/logo.png
+   :alt: Odoo Community Association
+   :target: http://odoo-community.org
+
+This module is maintained by the OCA.
+
+OCA, or the Odoo Community Association, is a nonprofit organization whose
+mission is to support the collaborative development of Odoo features and
+promote its widespread use.
+
+To contribute to this module, please visit http://odoo-community.org.
