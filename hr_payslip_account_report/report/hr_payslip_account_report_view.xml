@@ -15,7 +15,7 @@
                     <field name="date_from"/>
                     <field name="date_to"/>
                     <field name="state"/>
-                    <field name="company_id"/>
+                    <field name="company_id" groups="base.group_multi_company"/>
                     <field name="paid"/>
                     <field name="contract_id"/>
                     <field name="credit_note"/>
@@ -43,7 +43,7 @@
                     <field name="date_from"/>
                     <field name="date_to"/>
                     <field name="state"/>
-                    <field name="company_id"/>
+                    <field name="company_id" groups="base.group_multi_company"/>
                     <field name="paid"/>
                     <field name="contract_id"/>
                     <field name="credit_note"/>
@@ -78,7 +78,7 @@
                     <field name="date_from"/>
                     <field name="date_to"/>
                     <field name="state"/>
-                    <field name="company_id"/>
+                    <field name="company_id" groups="base.group_multi_company"/>
                     <field name="paid"/>
                     <field name="contract_id"/>
                     <field name="credit_note"/>
