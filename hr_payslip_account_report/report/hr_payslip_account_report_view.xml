@@ -26,6 +26,7 @@
                     <field name="move_line_account_id"/>
                     <field name="move_line_debit" sum="Total Debit"/>
                     <field name="move_line_credit" sum="Total Credit"/>
+                    <field name="move_line_balance" sum="Total Balance"/>
                     <field name="move_line_name"/>
                 </tree>
             </field>
@@ -57,9 +58,13 @@
                                 domain="[]"
                                 context="{'group_by':'employee_id'}"/>
                         <filter string="Accounting Period" 
-                                name="move_period_id"
+                                name="group_move_period_id"
                                 domain="[]"
                                 context="{'group_by':'move_period_id'}"/>
+                        <filter string="Account"
+                                name="group_move_line_account_id"
+                                domain="[]"
+                                context="{'group_by':'move_line_account_id'}"/>
                     </group>
                 </search>
             </field>
@@ -67,7 +72,7 @@
 
         <record model="ir.ui.view"
                 id="hr_payslip_account_report_form">
-            <field name="name">hr.payslip.account.report.tree</field>
+            <field name="name">hr.payslip.account.report.form</field>
             <field name="model">hr.payslip.account.report</field>
             <field name="arch" type="xml">
                 <form string="Payslip account report" create="false">
@@ -89,6 +94,7 @@
                     <field name="move_line_account_id"/>
                     <field name="move_line_debit"/>
                     <field name="move_line_credit"/>
+                    <field name="move_line_balance" sum="Total Balance"/>
                     <field name="move_line_name"/>                    
                 </form>
             </field>

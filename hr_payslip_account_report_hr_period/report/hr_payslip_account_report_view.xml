@@ -24,12 +24,19 @@
                 <field name="date_to" position="after">
                     <field name="hr_period_id"/>
                 </field>
+                <group name="group_by" position="inside">
+                        <filter string="Payroll Period"
+                                name="group_hr_period_id"
+                                domain="[]"
+                                context="{'group_by':'hr_period_id'}"/>
+                </group>
+
             </field>
         </record>
 
         <record model="ir.ui.view"
                 id="hr_payslip_account_report_form">
-            <field name="name">hr.payslip.account.report.tree</field>
+            <field name="name">hr.payslip.account.report.form</field>
             <field name="model">hr.payslip.account.report</field>
             <field name="inherit_id"
                    ref="hr_payslip_account_report.hr_payslip_account_report_form"/>

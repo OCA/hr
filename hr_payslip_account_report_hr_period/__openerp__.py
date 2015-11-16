@@ -12,8 +12,8 @@
     "application": False,
     "installable": True,
     "depends": [
-        "hr_payslip_account_report",
-        "hr_period"
+        "hr_period",
+        "hr_payslip_account_report"
     ],
     "data": [
         "report/hr_payslip_account_report_view.xml",
