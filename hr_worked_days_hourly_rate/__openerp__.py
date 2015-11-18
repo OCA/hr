@@ -20,7 +20,7 @@
 
 {
     'name': 'Worked Days Hourly Rates',
-    'version': '8.0.1.0',
+    'version': '8.0.1.0.0',
     'license': 'AGPL-3',
     'category': 'Generic Modules/Human Resources',
     'author': "Savoir-faire Linux,Odoo Community Association (OCA)",
@@ -29,6 +29,7 @@
         'David Dufresne <david.dufresne@savoirfairelinux.com>',
         'Pierre Lamarche <pierre.lamarche@savoirfairelinux.com>',
         'Ignacio Ibeas <ignacio@acysos.com>',
+        'Stéphane Le Cornec <stephane.lecornec@gmail.com>'
     ],
     'depends': [
         'hr_payroll',

@@ -52,6 +52,7 @@ Contributors
 * David Dufresne <david.dufresne@savoirfairelinux.com>
 * Pierre Lamarche <pierre.lamarche@savoirfairelinux.com>
 * Ignacio Ibeas <ignacio@acysos.com>
+* Stéphane Le Cornec <stephane.lecornec@gmail.com>
 
 Maintainer
 ----------
