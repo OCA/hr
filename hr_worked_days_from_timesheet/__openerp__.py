@@ -21,7 +21,7 @@
 
 {
     'name': 'Worked Days From Timesheet',
-    'version': '8.0.1.0',
+    'version': '8.0.1.0.0',
     'license': 'AGPL-3',
     'category': 'Generic Modules/Human Resources',
     'author': "Savoir-faire Linux, Acysos SL, \
