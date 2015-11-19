@@ -3,65 +3,64 @@
 # * hr_department_sequence
 # 
 # Translators:
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-11-19 01:53+0000\n"
-"PO-Revision-Date: 2015-11-12 10:32+0000\n"
+"PO-Revision-Date: 2015-11-12 09:52+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
-"Language-Team: Spanish (http://www.transifex.com/oca/OCA-hr-8-0/language/es/)\n"
+"Language-Team: English (http://www.transifex.com/oca/OCA-hr-8-0/language/en/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: es\n"
+"Language: en\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: hr_department_sequence
 #: code:addons/hr_department_sequence/models/hr_department.py:52
 #, python-format
 msgid "%s (copy)"
-msgstr ""
+msgstr "%s (copy)"
 
 #. module: hr_department_sequence
 #: field:hr.department,active:0
 msgid "Active"
-msgstr "Activo"
+msgstr "Active"
 
 #. module: hr_department_sequence
 #: view:hr.department:hr_department_sequence.hr_department_view
 msgid "Children Departments"
-msgstr ""
+msgstr "Children Departments"
 
 #. module: hr_department_sequence
 #: field:hr.department,code:0
 msgid "Code"
-msgstr "Código"
+msgstr "Code"
 
 #. module: hr_department_sequence
 #: help:hr.department,sequence:0
 msgid "Gives the sequence order when displaying a list of departments."
-msgstr "Da el orden de secuencia cuando se visualiza una lista de departamentos."
+msgstr "Gives the sequence order when displaying a list of departments."
 
 #. module: hr_department_sequence
 #: field:hr.department,parent_left:0
 msgid "Left Parent"
-msgstr "Padre izquierdo"
+msgstr "Left Parent"
 
 #. module: hr_department_sequence
 #: field:hr.department,parent_right:0
 msgid "Right Parent"
-msgstr "Padre derecho"
+msgstr "Right Parent"
 
 #. module: hr_department_sequence
 #: field:hr.department,sequence:0
 msgid "Sequence"
-msgstr "Secuencia"
+msgstr "Sequence"
 
 #. module: hr_department_sequence
 #: code:addons/hr_department_sequence/models/hr_department.py:45
 #: sql_constraint:hr.department:0
 #, python-format
 msgid "The code for the department must be unique per company!"
-msgstr ""
+msgstr "The code for the department must be unique per company!"
