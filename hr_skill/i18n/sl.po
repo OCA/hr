@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-18 13:10+0000\n"
-"PO-Revision-Date: 2015-08-18 18:58+0000\n"
+"POT-Creation-Date: 2015-11-19 01:53+0000\n"
+"PO-Revision-Date: 2015-11-12 12:39+0000\n"
 "Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>\n"
 "Language-Team: Slovenian (http://www.transifex.com/oca/OCA-hr-8-0/language/sl/)\n"
 "MIME-Version: 1.0\n"
@@ -22,6 +22,11 @@ msgstr ""
 #: field:hr.skill,active:0
 msgid "Active"
 msgstr "Aktivno"
+
+#. module: hr_skill
+#: view:hr.skill:hr_skill.view_skill_form
+msgid "Child Skills"
+msgstr "Podrejene veščine"
 
 #. module: hr_skill
 #: field:hr.skill,child_ids:0
@@ -69,7 +74,8 @@ msgid "Last Updated on"
 msgstr "Zadnjič posodobljeno"
 
 #. module: hr_skill
-#: field:hr.skill,name:0
+#: view:hr.skill:hr_skill.view_hr_skill_tree
+#: view:hr.skill:hr_skill.view_skill_form field:hr.skill,name:0
 msgid "Name"
 msgstr "Naziv"
 
@@ -89,8 +95,7 @@ msgid "Parent Right"
 msgstr "Desno nadrejeno"
 
 #. module: hr_skill
-#: view:hr.skill:hr_skill.view_skill_form field:hr.skill,view:0
-#: selection:hr.skill,view:0
+#: view:hr.skill:hr_skill.view_skill_form
 msgid "Skill"
 msgstr "Veščina"
 
@@ -112,8 +117,3 @@ msgstr "Upravljanje veščin"
 #: model:ir.ui.menu,name:hr_skill.menu_open_view_skill_tree
 msgid "Skills Structure"
 msgstr "Struktura veščin"
-
-#. module: hr_skill
-#: selection:hr.skill,view:0
-msgid "View"
-msgstr "Prikaz"

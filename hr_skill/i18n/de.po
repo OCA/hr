@@ -5,13 +5,14 @@
 # Translators:
 # Rudolf Schnapka <schnapkar@golive-saar.de>, 2015
 # Thomas A. Jaeger, 2015
+# Thomas A. Jaeger, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-06 00:27+0000\n"
-"PO-Revision-Date: 2015-11-05 14:46+0000\n"
-"Last-Translator: Thomas A. Jaeger\n"
+"POT-Creation-Date: 2015-11-19 01:53+0000\n"
+"PO-Revision-Date: 2015-11-12 10:04+0000\n"
+"Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: German (http://www.transifex.com/oca/OCA-hr-8-0/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,6 +24,11 @@ msgstr ""
 #: field:hr.skill,active:0
 msgid "Active"
 msgstr "Aktiv"
+
+#. module: hr_skill
+#: view:hr.skill:hr_skill.view_skill_form
+msgid "Child Skills"
+msgstr ""
 
 #. module: hr_skill
 #: field:hr.skill,child_ids:0
@@ -70,7 +76,8 @@ msgid "Last Updated on"
 msgstr "Zuletzt aktualisiert am"
 
 #. module: hr_skill
-#: field:hr.skill,name:0
+#: view:hr.skill:hr_skill.view_hr_skill_tree
+#: view:hr.skill:hr_skill.view_skill_form field:hr.skill,name:0
 msgid "Name"
 msgstr "Bezeichnung"
 
@@ -90,8 +97,7 @@ msgid "Parent Right"
 msgstr "Übergeordnet Rechts"
 
 #. module: hr_skill
-#: view:hr.skill:hr_skill.view_skill_form field:hr.skill,view:0
-#: selection:hr.skill,view:0
+#: view:hr.skill:hr_skill.view_skill_form
 msgid "Skill"
 msgstr "Fähigkeit"
 
@@ -113,8 +119,3 @@ msgstr "Fähigkeitenverwaltung"
 #: model:ir.ui.menu,name:hr_skill.menu_open_view_skill_tree
 msgid "Skills Structure"
 msgstr "Fähigkeitenhierarchie"
-
-#. module: hr_skill
-#: selection:hr.skill,view:0
-msgid "View"
-msgstr "Sicht"

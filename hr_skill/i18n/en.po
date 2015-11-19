@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-18 13:10+0000\n"
-"PO-Revision-Date: 2015-08-16 16:41+0000\n"
+"POT-Creation-Date: 2015-11-19 01:53+0000\n"
+"PO-Revision-Date: 2015-11-12 10:04+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: English (http://www.transifex.com/oca/OCA-hr-8-0/language/en/)\n"
 "MIME-Version: 1.0\n"
@@ -21,6 +21,11 @@ msgstr ""
 #: field:hr.skill,active:0
 msgid "Active"
 msgstr "Active"
+
+#. module: hr_skill
+#: view:hr.skill:hr_skill.view_skill_form
+msgid "Child Skills"
+msgstr "Child Skills"
 
 #. module: hr_skill
 #: field:hr.skill,child_ids:0
@@ -68,7 +73,8 @@ msgid "Last Updated on"
 msgstr "Last Updated on"
 
 #. module: hr_skill
-#: field:hr.skill,name:0
+#: view:hr.skill:hr_skill.view_hr_skill_tree
+#: view:hr.skill:hr_skill.view_skill_form field:hr.skill,name:0
 msgid "Name"
 msgstr "Name"
 
@@ -88,8 +94,7 @@ msgid "Parent Right"
 msgstr "Parent Right"
 
 #. module: hr_skill
-#: view:hr.skill:hr_skill.view_skill_form field:hr.skill,view:0
-#: selection:hr.skill,view:0
+#: view:hr.skill:hr_skill.view_skill_form
 msgid "Skill"
 msgstr "Skill"
 
@@ -111,8 +116,3 @@ msgstr "Skills Management"
 #: model:ir.ui.menu,name:hr_skill.menu_open_view_skill_tree
 msgid "Skills Structure"
 msgstr "Skills Structure"
-
-#. module: hr_skill
-#: selection:hr.skill,view:0
-msgid "View"
-msgstr "View"
