@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+
+        <report
+            auto="False"
+            id="payslip_ytd_amount_report"
+            model="hr.payslip"
+            name="payslip_ytd_amount"
+            rml="hr_payslip_ytd_amount/report/report_payslip_ytd_amount.rml"
+            string="Employee PaySlip (YTD Amount)"
+        />
+
+    </data>
+</openerp>
