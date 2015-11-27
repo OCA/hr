@@ -1,4 +1,4 @@
-# -*- coding:utf-8 -*-
+# -*- encoding: utf-8 -*-
 ##############################################################################
 #
 #    Copyright (C) 2015 Savoir-faire Linux. All Rights Reserved.
@@ -25,11 +25,6 @@
     'category': 'Generic Modules/Human Resources',
     'author': "Savoir-faire Linux, Odoo Community Association (OCA)",
     'website': 'https://www.savoirfairelinux.com',
-    'description': """
-Employee Benefit Exemption
-==========================
-Add exemptions on employee benefit categories.
-    """,
     'depends': [
         'hr_employee_benefit',
         'hr_employee_exemption',
@@ -40,4 +35,5 @@ Add exemptions on employee benefit categories.
     'test': [],
     'demo': [],
     'installable': True,
+    'images': []
 }
