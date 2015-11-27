@@ -30,6 +30,7 @@ Contributors
 * David Dufresne <david.dufresne@savoirfairelinux.com>
 * Maxime Chambreuil <maxime.chambreuil@savoirfairelinux.com>
 * Pierre Lamarche <pierre.lamarche@savoirfairelinux.com>
+* Vincent Coll <vgc@microcom.ca>
 
 Maintainer
 ----------
