@@ -30,7 +30,8 @@ class HrSalaryRule(models.Model):
     def _filter_benefits(self, payslip, codes=False, **kwargs):
         """ Remove all benefits that are exempted from a deduction.
         """
-        benefits = super(HrSalaryRule, self)._filter_benefits(payslip, **kwargs)
+        benefits = super(HrSalaryRule, self)._filter_benefits(payslip,
+                                                              **kwargs)
 
         rule = self[0]
 

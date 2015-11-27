@@ -18,6 +18,3 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-
-from . import hr_employee_benefit_category
-from . import hr_salary_rule
