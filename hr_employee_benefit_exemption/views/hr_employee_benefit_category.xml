@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="hr_employee_benefit_category_form" model="ir.ui.view">
+            <field name="name">hr.employee.benefit.category.form</field>
+            <field name="model">hr.employee.benefit.category</field>
+            <field name="inherit_id" ref="hr_employee_benefit.hr_employee_benefit_category_form"/>
+            <field name="arch" type="xml">
+                <notebook position="inside">
+                    <page name="exemptions" string="Exemptions">
+                        <group colspan="2" string="Exemptions">
+                            <field name="exemption_ids" no_label="1"/>
+                        </group>
+                    </page>
+                </notebook>
+            </field>
+        </record>
+
+    </data>
+</openerp>
