@@ -3,15 +3,16 @@
 # * hr_family
 # 
 # Translators:
+# Rudolf Schnapka <rs@techno-flex.de>, 2015
 # Thomas A. Jaeger, 2015
 # Thomas A. Jaeger, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-19 01:53+0000\n"
-"PO-Revision-Date: 2015-11-12 10:10+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
+"POT-Creation-Date: 2015-11-19 11:54+0000\n"
+"PO-Revision-Date: 2015-11-24 09:20+0000\n"
+"Last-Translator: Rudolf Schnapka <rs@techno-flex.de>\n"
 "Language-Team: German (http://www.transifex.com/oca/OCA-hr-8-0/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -71,12 +72,12 @@ msgstr "Name des Vaters"
 #. module: hr_family
 #: selection:hr.employee.children,gender:0
 msgid "Female"
-msgstr ""
+msgstr "Weiblich"
 
 #. module: hr_family
 #: field:hr.employee.children,gender:0
 msgid "Gender"
-msgstr ""
+msgstr "Geschlecht"
 
 #. module: hr_family
 #: model:ir.model,name:hr_family.model_hr_employee_children
@@ -101,7 +102,7 @@ msgstr "Zuletzt aktualisiert am"
 #. module: hr_family
 #: selection:hr.employee.children,gender:0
 msgid "Male"
-msgstr ""
+msgstr "Männlich"
 
 #. module: hr_family
 #: field:hr.employee,fam_mother:0

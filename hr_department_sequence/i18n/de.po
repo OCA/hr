@@ -3,14 +3,15 @@
 # * hr_department_sequence
 # 
 # Translators:
+# Rudolf Schnapka <rs@techno-flex.de>, 2015
 # Rudolf Schnapka <schnapkar@golive-saar.de>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-19 01:53+0000\n"
-"PO-Revision-Date: 2015-11-12 10:32+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
+"POT-Creation-Date: 2015-11-19 11:54+0000\n"
+"PO-Revision-Date: 2015-11-24 09:18+0000\n"
+"Last-Translator: Rudolf Schnapka <rs@techno-flex.de>\n"
 "Language-Team: German (http://www.transifex.com/oca/OCA-hr-8-0/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,7 +23,7 @@ msgstr ""
 #: code:addons/hr_department_sequence/models/hr_department.py:52
 #, python-format
 msgid "%s (copy)"
-msgstr ""
+msgstr "%s (Kopie)"
 
 #. module: hr_department_sequence
 #: field:hr.department,active:0
@@ -32,7 +33,7 @@ msgstr "Aktiv"
 #. module: hr_department_sequence
 #: view:hr.department:hr_department_sequence.hr_department_view
 msgid "Children Departments"
-msgstr ""
+msgstr "Untergeordnete Abteilungen"
 
 #. module: hr_department_sequence
 #: field:hr.department,code:0
@@ -64,4 +65,4 @@ msgstr "Folge"
 #: sql_constraint:hr.department:0
 #, python-format
 msgid "The code for the department must be unique per company!"
-msgstr ""
+msgstr "Der Schlüssel für die Abteilung muss je Unternehmen eindeutig sein"
