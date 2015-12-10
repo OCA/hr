@@ -50,11 +50,18 @@ class HrHolidays(models.Model):
                 check_previous_type_days = True
             if check_previous_type_days:
                 leaves = previous_type.get_days(self.employee_id.id)
-                tz_date_end = self._utc_to_tz(previous_type.date_end)
                 if leaves[previous_type.id]['virtual_remaining_leaves'] > 0:
-                    raise exceptions.Warning(
-                        _("""You have to take your remaining leave
-                        on %s before %s. the remaining leaves in this type are
-                        valid until %s""") % (previous_type.name,
-                                              self.holiday_status_id.name,
-                                              tz_date_end))
+                    name = self.holiday_status_id.name
+                    if previous_type.date_end:
+                        tz_date_end = self._utc_to_tz(previous_type.date_end)
+                        raise exceptions.Warning(
+                            _("""You have to take your remaining leave
+                            on %s before %s. the remaining leaves in this type
+                            are valid until %s""") % (previous_type.name,
+                                                      name,
+                                                      tz_date_end))
+                    else:
+                        raise exceptions.Warning(
+                            _("""You have to take your remaining leave
+                            on %s before %s.""") % (previous_type.name,
+                                                    name))
