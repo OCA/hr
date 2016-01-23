@@ -3,13 +3,14 @@
 # * hr_expense_invoice
 # 
 # Translators:
+# Mohamed HABOU <m.habou@agoradeveloppement.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-18 13:10+0000\n"
-"PO-Revision-Date: 2015-07-27 23:44+0000\n"
-"Last-Translator: <>\n"
+"POT-Creation-Date: 2015-11-30 05:19+0000\n"
+"PO-Revision-Date: 2016-01-11 17:13+0000\n"
+"Last-Translator: Mohamed HABOU <m.habou@agoradeveloppement.com>\n"
 "Language-Team: French (http://www.transifex.com/oca/OCA-hr-8-0/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -33,12 +34,12 @@ msgstr "Frais"
 #. module: hr_expense_invoice
 #: model:ir.model,name:hr_expense_invoice.model_hr_expense_line
 msgid "Expense Line"
-msgstr ""
+msgstr "Ligne de frais"
 
 #. module: hr_expense_invoice
 #: field:hr.expense.line,invoice:0
 msgid "Invoice"
-msgstr ""
+msgstr "Facture"
 
 #. module: hr_expense_invoice
 #: view:hr.expense.expense:hr_expense_invoice.view_expenses_form_invoice
