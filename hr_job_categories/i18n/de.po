@@ -3,14 +3,16 @@
 # * hr_job_categories
 # 
 # Translators:
+# Rudolf Schnapka <rs@techno-flex.de>, 2016
+# Thomas A. Jaeger, 2015
 # Thomas A. Jaeger, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-06 00:27+0000\n"
-"PO-Revision-Date: 2015-11-05 14:34+0000\n"
-"Last-Translator: Thomas A. Jaeger\n"
+"POT-Creation-Date: 2015-11-30 05:19+0000\n"
+"PO-Revision-Date: 2016-01-26 09:53+0000\n"
+"Last-Translator: Rudolf Schnapka <rs@techno-flex.de>\n"
 "Language-Team: German (http://www.transifex.com/oca/OCA-hr-8-0/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -36,4 +38,4 @@ msgstr "Arbeitsplatzpositionen"
 #. module: hr_job_categories
 #: view:hr.job:hr_job_categories.view_job_form
 msgid "e.g. Part Time"
-msgstr "zB Teilzeit"
+msgstr "z. B. Teilzeit"

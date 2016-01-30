@@ -3,14 +3,16 @@
 # * hr_expense_analytic_default
 # 
 # Translators:
+# Rudolf Schnapka <rs@techno-flex.de>, 2016
+# Thomas A. Jaeger, 2015
 # Thomas A. Jaeger, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-06 00:27+0000\n"
-"PO-Revision-Date: 2015-11-05 14:45+0000\n"
-"Last-Translator: Thomas A. Jaeger\n"
+"POT-Creation-Date: 2015-11-30 05:19+0000\n"
+"PO-Revision-Date: 2016-01-26 09:44+0000\n"
+"Last-Translator: Rudolf Schnapka <rs@techno-flex.de>\n"
 "Language-Team: German (http://www.transifex.com/oca/OCA-hr-8-0/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,7 +23,7 @@ msgstr ""
 #. module: hr_expense_analytic_default
 #: view:hr.employee:hr_expense_analytic_default.view_employee_form
 msgid "Analytic on Expenses"
-msgstr "Analyse auf Spesen"
+msgstr "Kostenartenkonto"
 
 #. module: hr_expense_analytic_default
 #: field:hr.employee,default_analytic_account_id:0
@@ -37,7 +39,7 @@ msgstr "Angestellter"
 #. module: hr_expense_analytic_default
 #: model:ir.model,name:hr_expense_analytic_default.model_hr_expense_expense
 msgid "Expense"
-msgstr "Ausgaben"
+msgstr "Aufwand"
 
 #. module: hr_expense_analytic_default
 #: view:hr.employee:hr_expense_analytic_default.view_employee_form
