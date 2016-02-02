@@ -3,13 +3,13 @@
 # * hr_language
 # 
 # Translators:
-# Matjaž Mozetič <m.mozetic@matmoz.si>, 2015
+# Matjaž Mozetič <m.mozetic@matmoz.si>, 2015-2016
 msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-23 16:39+0000\n"
-"PO-Revision-Date: 2015-09-24 11:46+0000\n"
+"POT-Creation-Date: 2016-05-12 02:42+0000\n"
+"PO-Revision-Date: 2016-05-12 05:21+0000\n"
 "Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>\n"
 "Language-Team: Slovenian (http://www.transifex.com/oca/OCA-hr-8-0/language/sl/)\n"
 "MIME-Version: 1.0\n"
@@ -47,6 +47,11 @@ msgstr "Bosanski / bosanski jezik"
 #: selection:hr.language,name:0
 msgid "Bulgarian / български език"
 msgstr "Bolgarski / български език"
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "Burmese / မြန်မာဘာသာ"
+msgstr "Burmanski /"
 
 #. module: hr_language
 #: selection:hr.language,name:0
@@ -97,6 +102,11 @@ msgstr "Danski / Dansk"
 #: field:hr.language,description:0
 msgid "Description"
 msgstr "Opis"
+
+#. module: hr_language
+#: field:hr.language,display_name:0
+msgid "Display Name"
+msgstr "Prikazni naziv"
 
 #. module: hr_language
 #: selection:hr.language,name:0
@@ -171,6 +181,11 @@ msgstr "Gruzijski / ქართული ენა"
 
 #. module: hr_language
 #: selection:hr.language,name:0
+msgid "German (CH) / Deutsch (CH)"
+msgstr "Nemščina (CH) / Deutsch (CH)"
+
+#. module: hr_language
+#: selection:hr.language,name:0
 msgid "German / Deutsch"
 msgstr "Nemški / Deutsch"
 
@@ -235,6 +250,7 @@ msgid "Korean (KR) / 한국어 (KR)"
 msgstr "Korejski (KR) / 한국어 (KR)"
 
 #. module: hr_language
+#: view:hr.employee:hr_language.view_employee_form
 #: view:hr.language:hr_language.view_language_form field:hr.language,name:0
 msgid "Language"
 msgstr "Jezik"
@@ -252,6 +268,11 @@ msgstr "Jeziki"
 #: selection:hr.language,name:0
 msgid "Lao / ພາສາລາວ"
 msgstr "Lao / ພາສາລາວ"
+
+#. module: hr_language
+#: field:hr.language,__last_update:0
+msgid "Last Modified on"
+msgstr "Zadnjič spremenjeno"
 
 #. module: hr_language
 #: field:hr.language,write_uid:0
