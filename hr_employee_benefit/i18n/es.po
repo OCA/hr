@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-19 01:53+0000\n"
+"POT-Creation-Date: 2015-11-30 05:19+0000\n"
 "PO-Revision-Date: 2015-10-02 11:58+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Spanish (http://www.transifex.com/oca/OCA-hr-8-0/language/es/)\n"
@@ -64,7 +64,7 @@ msgstr ""
 #. module: hr_employee_benefit
 #: view:hr.employee.benefit.rate:hr_employee_benefit.view_hr_employee_benefit_rate_filter
 msgid "Category"
-msgstr ""
+msgstr "Categoría"
 
 #. module: hr_employee_benefit
 #: field:hr.employee.benefit.category,code:0
@@ -80,7 +80,7 @@ msgstr ""
 #: field:hr.employee.benefit,contract_id:0
 #: model:ir.model,name:hr_employee_benefit.model_hr_contract
 msgid "Contract"
-msgstr ""
+msgstr "Contrato"
 
 #. module: hr_employee_benefit
 #: field:hr.employee.benefit,create_uid:0
@@ -103,7 +103,7 @@ msgstr ""
 #. module: hr_employee_benefit
 #: field:hr.employee.benefit.category,description:0
 msgid "Description"
-msgstr ""
+msgstr "Descripción"
 
 #. module: hr_employee_benefit
 #: code:addons/hr_employee_benefit/models/hr_employee_benefit_rate.py:99
