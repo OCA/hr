@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+File: hr_employee_view.xml
+Module: hr_payroll_extended
+
+Created by sge@open-net.ch
+
+Copyright (c) 2014 Open-Net Ltd.
+-->
+<openerp>
+  <data>
+    <record model="ir.ui.view" id="hr_employee_form_l10n_ch_inherit">
+      <field name="name">hr.employee.form.inherit_ch_01</field>
+      <field name="model">hr.employee</field>
+      <field name="inherit_id" ref="hr_contract.hr_hr_employee_view_form2"/>
+      <field name="priority" eval="20"/>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <field name="children" position="after">
+          <field name="children_student"/>
+        </field>
+      </field>
+    </record>
+  </data>
+</openerp>

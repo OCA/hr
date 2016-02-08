@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    File: views/hr_contract_view.xml
+    Module: hr_payroll_extended
+
+    Created by cyp@open-net.ch
+
+    Copyright (c) 2014-TODAY Open-Net Ltd.
+-->
+<openerp>
+    <data>
+
+        <record model="ir.ui.view" id="hr_contract_form_l10n_ch_inherit">
+            <field name="name">hr.contract.form.inherit_ch_01</field>
+            <field name="model">hr.contract</field>
+            <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
+            <field name="priority" eval="20"/>
+            <field name="arch" type="xml">
+                <field name="wage" position="before">
+                    <field name="worked_hours" on_change="compute_wage(worked_hours, hourly_rate)"/>
+                    <field name="hourly_rate"  on_change="compute_wage(worked_hours, hourly_rate)"/>
+                    <field name="reimbursement"/>
+                    <label for="commission" string="Commissions / Rate"/>
+                    <div>
+                        <field name="commission" class="oe_inline"/>
+                        <label string=" / "/>
+                        <field name="comm_rate" class="oe_inline"/>
+                    </div>
+                </field>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="hr_contract_list_l10n_ch_inherit">
+            <field name="name">hr.contract.list.inherit_ch_01</field>
+            <field name="model">hr.contract</field>
+            <field name="inherit_id" ref="hr_contract.hr_contract_view_tree"/>
+            <field name="priority" eval="20"/>
+            <field name="arch" type="xml">
+                <field name="working_hours" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <field name="date_end" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <field name="date_start" position="before">
+                    <field name="reimbursement"/>
+                    <field name="commission"/>
+                </field>
+            </field>
+        </record>
+
+    </data>
+</openerp>
