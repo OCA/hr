@@ -56,8 +56,7 @@ class HrContract(models.Model):
         sum = 0
         ExpensesObj = self.env['hr.expense']
         for expense in ExpensesObj.search(filters):
-            sum+= expense.account_move_id.amount
-            # sum += expense.account_move_id.credit
+            sum += expense.account_move_id.amount
         self.reimbursement += sum
 
         account_invoice_obj = self.env['account.invoice']
