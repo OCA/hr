@@ -25,6 +25,7 @@
     'license': 'AGPL-3',
     'category': 'Generic Modules/Human Resources',
     'author': "Savoir-faire Linux, Acysos SL, \
+    Acysos S.L., \
     Odoo Community Association (OCA)",
     'website': 'https://www.savoirfairelinux.com/',
     'depends': [
@@ -37,6 +38,5 @@
     'test': [
         'test/worked_days_from_timesheet_test.yml'
     ],
-    'demo': [],
     'installable': True,
 }

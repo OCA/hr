@@ -21,6 +21,7 @@
 ##############################################################################
 from openerp import models, fields, api
 from openerp.tools.translate import _
+from openerp.exceptions import Warning
 
 
 class HrPayslip(models.Model):
@@ -82,8 +83,7 @@ class HrPayslip(models.Model):
             )
 
             if not timesheet_sheets:
-                raise Exception(
-                    _("Warning"),
+                raise Warning(
                     _("Sorry, but there is no approved Timesheets for the \
                     entire Payslip period"),
                 )
