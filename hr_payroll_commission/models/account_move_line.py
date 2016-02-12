@@ -46,8 +46,8 @@ class AccountMoveLine(models.Model):
             query = """update account_move
                        set partner_id=%d
                        where id=%d""" % (
-                            new_rec.partner_id.id,
-                            new_rec.move_id.id
+                        new_rec.partner_id.id,
+                        new_rec.move_id.id
                         )
             self._cr.execute(query)
 
