@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 #  File: models/invoices.py
-#  Module: hr_payroll_extended
+#  Module: hr_payroll_commission
 #
 #  Created by cyp@open-net.ch
 #

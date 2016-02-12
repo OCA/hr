@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 #  File: models/hr_payslip.py
-#  Module: hr_payroll_extended
+#  Module: hr_payroll_commission
 #
 #  Created by cyp@open-net.ch
 #
@@ -124,7 +124,7 @@ class HrPayslip(models.Model):
                 if move_line_ids:
                     move_line_ids = [str(id) for id in move_line_ids]
                     q = """update account_move_line
-    set slip_id=%d where id in (%s)""" % (payslip.id, ','.join(move_line_ids))
+    set slip_id=%d where id in (%s)""" % (payslip.id, ','.tuple(move_line_ids))
                     self.env.cr.execute(q)
 
         return ret

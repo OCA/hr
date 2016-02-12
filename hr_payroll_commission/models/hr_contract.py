@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 #  File: models/hr_contract.py
-#  Module: hr_payroll_extended
+#  Module: hr_payroll_commission
 #
 #  Created by sge@open-net.ch
 #
@@ -30,9 +30,6 @@
 from openerp import models, fields, api
 import openerp.addons.decimal_precision as dp
 
-import logging
-_logger = logging.getLogger(__name__)
-
 
 class HrContract(models.Model):
     _inherit = 'hr.contract'
@@ -53,11 +50,11 @@ class HrContract(models.Model):
         ]
 
         # Compute reimbursement
-        sum = 0
+        reimbursement = 0
         ExpensesObj = self.env['hr.expense']
         for expense in ExpensesObj.search(filters):
-            sum += expense.account_move_id.amount
-        self.reimbursement += sum
+            reimbursement += expense.account_move_id.amount
+        self.reimbursement += reimbursement
 
         account_invoice_obj = self.env['account.invoice']
         invoice_ids = account_invoice_obj.search([
@@ -68,12 +65,12 @@ class HrContract(models.Model):
         ])
 
         # Compute comission based
-        sum = 0
+        commission = 0
         for invoice_id in invoice_ids:
             for move_line in invoice_id.payment_move_line_ids:
                 if not move_line.slip_id.id:
-                    sum += move_line.credit
-        self.commission += sum
+                    commission += move_line.credit
+        self.commission += commission
 
     worked_hours = fields.Float(string='Worked Hours')
     hourly_rate = fields.Float(string='Hourly Rate')

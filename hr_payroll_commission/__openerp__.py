@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
 #
-#  File: models/hr_expenses.py
-#  Module: hr_payroll_extended
+#  File: __openerp__.py
+#  Module: hr_payroll_commission
 #
-#  Created by cyp@open-net.ch
+#  Created by sge@open-net.ch
 #
-#  Copyright (c) 2015-TODAY Open-Net Ltd.
+#  Copyright (c) 2014-TODAY Open-Net Ltd. <http://www.open-net.ch>
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution
-#    Copyright (C) 2004-2010 Tiny SPRL (<http://tiny.be>).
+#    Copyright (C) 2004-TODAY OpenERP S.A. <http://www.openerp.com>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -27,12 +27,25 @@
 ##############################################################################
 
 
-from openerp import models, fields
-
-
-class HrExpenseExpense(models.Model):
-    _inherit = 'hr.expense'
-
-    # ---------- Fields management
-
-    slip_id = fields.Many2one('hr.payslip', string='Pay slip')
+{
+    'name': 'Commisions - Payroll',
+    'summary': 'Payroll Commisions',
+    'category': 'Human Resources',
+    'author': "Open-Net Sàrl,Odoo Community Association (OCA)",
+    'depends': [
+        'hr_payroll_account',
+        'hr_attendance',
+        'account'
+    ],
+    'version': '9.0.1.0.0',
+    'auto_install': False,
+    'website': 'http://open-net.ch',
+    'license': 'AGPL-3',
+    'data': [
+        'views/hr_contract_view.xml',
+        'views/hr_payroll_view.xml',
+        'data/hr.salary.rule.category.xml',
+        'data/hr.salary.rule.xml',
+    ],
+    'installable': True
+}

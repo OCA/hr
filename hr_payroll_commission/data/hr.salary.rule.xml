@@ -5,7 +5,7 @@
         <field name="appears_on_payslip">True</field>
         <field name="code">COMM</field>
         <field name="condition_select">python</field>
-        <field name="name">Commissions sur prestations</field>
+        <field name="name">Commissions on delivery</field>
         <field name="amount_python_compute">result = (contract.commission * contract.comm_rate)</field>
         <field name="condition_python">result = (contract.commission * contract.comm_rate) > 0</field>
         <field name="quantity">1</field>
@@ -18,7 +18,7 @@
         <field name="appears_on_payslip">True</field>
         <field name="code">REIMB</field>
         <field name="condition_select">none</field>
-        <field name="name">Remboursement des frais</field>
+        <field name="name">Reimbursement of expenses</field>
         <field name="amount_python_compute">result = contract.reimbursement</field>
         <field name="quantity">1</field>
         <field name="condition_range">contract.wage</field>

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 #  File: models/account_move_line.py
-#  Module: hr_payroll_extended
+#  Module: hr_payroll_commission
 #
 #  Created by cyp@open-net.ch
 #
@@ -33,11 +33,7 @@ from openerp import models, fields, api
 class AccountMoveLine(models.Model):
     _inherit = 'account.move.line'
 
-    # ---------- Fields management
-
     slip_id = fields.Many2one('hr.payslip', string='Pay slip')
-
-    # ---------- Instances management
 
     @api.model
     def create(self, vals):
@@ -48,15 +44,14 @@ class AccountMoveLine(models.Model):
         if new_rec.account_id.internal_type == 'payable' and \
            new_rec.partner_id:
             query = """update account_move
-set partner_id=%d
-where id=%d""" % (new_rec.partner_id.id, new_rec.move_id.id)
+                       set partner_id=%d
+                       where id=%d""" % (new_rec.partner_id.id, new_rec.move_id.id)
             self._cr.execute(query)
 
         return new_rec
 
     @api.multi
     def write(self, vals):
-
         ret = super(AccountMoveLine, self).write(vals)
 
         # This is for the cases when the first account_move_line
