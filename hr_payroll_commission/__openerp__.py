@@ -41,6 +41,7 @@
     'auto_install': False,
     'website': 'http://open-net.ch',
     'license': 'AGPL-3',
+    'images': [],
     'data': [
         'views/hr_contract_view.xml',
         'views/hr_payroll_view.xml',
