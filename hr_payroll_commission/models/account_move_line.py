@@ -43,13 +43,13 @@ class AccountMoveLine(models.Model):
         # doesn't have a partner_id but the others have one.
         if new_rec.account_id.internal_type == 'payable' and \
            new_rec.partner_id:
-            query = """update account_move
-                       set partner_id=%d
-                       where id=%d""" % (
-                        new_rec.partner_id.id,
-                        new_rec.move_id.id
-                        )
-            self._cr.execute(query)
+            account_move_obj = self.env['account.move']
+            account_move_obj.search([
+                ('id', '=', new_rec.move_id.id)
+            ])
+            account_move_obj.write({
+                'partner_id': new_rec.partner_id.id
+            })
 
         return new_rec
 
