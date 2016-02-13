@@ -4,12 +4,13 @@
 # 
 # Translators:
 # Antonio Trueba, 2016
+# Antonio Trueba, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-11-30 05:19+0000\n"
-"PO-Revision-Date: 2016-02-05 12:49+0000\n"
+"PO-Revision-Date: 2016-02-10 16:54+0000\n"
 "Last-Translator: Antonio Trueba\n"
 "Language-Team: Spanish (http://www.transifex.com/oca/OCA-hr-8-0/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -33,7 +34,7 @@ msgstr "Empleado"
 #. module: hr_webcam
 #: model:ir.actions.client,name:hr_webcam.action_client_employees_menu
 msgid "Open Employees Menu"
-msgstr ""
+msgstr "Abrir menú de empleados"
 
 #. module: hr_webcam
 #. openerp-web
@@ -46,14 +47,14 @@ msgstr ""
 #: view:hr.employee:hr_webcam.view_employee_form
 #: model:ir.actions.client,name:hr_webcam.action_take_photo
 msgid "Take Picture"
-msgstr ""
+msgstr "Tomar fotografía"
 
 #. module: hr_webcam
 #. openerp-web
 #: code:addons/hr_webcam/static/src/xml/hr_webcam.xml:10
 #, python-format
 msgid "Take a Picture"
-msgstr ""
+msgstr "Tomar una fotografía"
 
 #. module: hr_webcam
 #. openerp-web

@@ -4,12 +4,13 @@
 # 
 # Translators:
 # Antonio Trueba, 2016
+# Antonio Trueba, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-11-30 05:19+0000\n"
-"PO-Revision-Date: 2016-02-05 12:52+0000\n"
+"PO-Revision-Date: 2016-02-10 16:55+0000\n"
 "Last-Translator: Antonio Trueba\n"
 "Language-Team: Spanish (http://www.transifex.com/oca/OCA-hr-8-0/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -27,12 +28,12 @@ msgstr "Hijo"
 #. module: hr_family
 #: field:hr.employee.children,create_uid:0
 msgid "Created by"
-msgstr ""
+msgstr "Creado por"
 
 #. module: hr_family
 #: field:hr.employee.children,create_date:0
 msgid "Created on"
-msgstr ""
+msgstr "Creado el"
 
 #. module: hr_family
 #: field:hr.employee,fam_father_date_of_birth:0
@@ -60,7 +61,7 @@ msgstr ""
 #. module: hr_family
 #: view:hr.employee:hr_family.hr_employee_view_form
 msgid "Family"
-msgstr ""
+msgstr "Familia"
 
 #. module: hr_family
 #: field:hr.employee,fam_father:0

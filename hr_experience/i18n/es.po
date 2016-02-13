@@ -4,12 +4,13 @@
 # 
 # Translators:
 # Antonio Trueba, 2016
+# Antonio Trueba, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-11-30 05:19+0000\n"
-"PO-Revision-Date: 2016-02-05 12:51+0000\n"
+"PO-Revision-Date: 2016-02-10 16:55+0000\n"
 "Last-Translator: Antonio Trueba\n"
 "Language-Team: Spanish (http://www.transifex.com/oca/OCA-hr-8-0/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -21,7 +22,7 @@ msgstr ""
 #. module: hr_experience
 #: field:hr.employee,experience_ids:0
 msgid " Professional Experiences"
-msgstr ""
+msgstr "Experiencia profesional"
 
 #. module: hr_experience
 #: view:hr.employee:hr_experience.view_employee_form_inherit
@@ -32,12 +33,12 @@ msgstr ""
 #. module: hr_experience
 #: model:ir.ui.menu,name:hr_experience.menu_open_view_academic_form
 msgid "Academic Experiences"
-msgstr ""
+msgstr "Experiencia académica"
 
 #. module: hr_experience
 #: view:hr.academic:hr_experience.view_academic_form
 msgid "Academic experience"
-msgstr ""
+msgstr "Experiencia académica"
 
 #. module: hr_experience
 #: view:hr.academic:hr_experience.view_academic_tree
@@ -65,7 +66,7 @@ msgstr "Categoría"
 #: view:hr.employee:hr_experience.view_employee_form_inherit
 #: selection:hr.experience,category:0
 msgid "Certification"
-msgstr ""
+msgstr "Certificación"
 
 #. module: hr_experience
 #: field:hr.certification,certification:0
@@ -89,13 +90,13 @@ msgstr "Certificaciones"
 #: field:hr.academic,create_uid:0 field:hr.certification,create_uid:0
 #: field:hr.curriculum,create_uid:0 field:hr.experience,create_uid:0
 msgid "Created by"
-msgstr ""
+msgstr "Creado por"
 
 #. module: hr_experience
 #: field:hr.academic,create_date:0 field:hr.certification,create_date:0
 #: field:hr.curriculum,create_date:0 field:hr.experience,create_date:0
 msgid "Created on"
-msgstr ""
+msgstr "Creado el"
 
 #. module: hr_experience
 #: view:hr.academic:hr_experience.view_academic_form
