@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-11-30 05:19+0000\n"
-"PO-Revision-Date: 2016-02-10 16:53+0000\n"
+"PO-Revision-Date: 2016-02-16 15:00+0000\n"
 "Last-Translator: Antonio Trueba\n"
 "Language-Team: Spanish (http://www.transifex.com/oca/OCA-hr-8-0/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -95,7 +95,7 @@ msgstr ""
 #. module: hr_contract_hourly_rate
 #: selection:hr.contract,salary_computation_method:0
 msgid "Hourly Wage"
-msgstr ""
+msgstr "Salario por hora"
 
 #. module: hr_contract_hourly_rate
 #: model:ir.model,name:hr_contract_hourly_rate.model_hr_hourly_rate
@@ -125,7 +125,7 @@ msgstr ""
 #. module: hr_contract_hourly_rate
 #: selection:hr.contract,salary_computation_method:0
 msgid "Monthly Wage"
-msgstr ""
+msgstr "Salario mensual"
 
 #. module: hr_contract_hourly_rate
 #: field:hr.hourly.rate,rate:0

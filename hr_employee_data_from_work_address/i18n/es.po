@@ -4,12 +4,13 @@
 # 
 # Translators:
 # Antonio Trueba, 2016
+# Antonio Trueba, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-11-30 05:19+0000\n"
-"PO-Revision-Date: 2016-02-10 16:52+0000\n"
+"PO-Revision-Date: 2016-02-16 14:59+0000\n"
 "Last-Translator: Antonio Trueba\n"
 "Language-Team: Spanish (http://www.transifex.com/oca/OCA-hr-8-0/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -32,22 +33,22 @@ msgstr "Verdadero"
 #: view:hr.employee:hr_employee_data_from_work_address.view_employee_form
 #: view:res.users:hr_employee_data_from_work_address.view_users_form
 msgid "[('employee', '=', True)]"
-msgstr ""
+msgstr "[('employee', '=', True)]"
 
 #. module: hr_employee_data_from_work_address
 #: view:hr.employee:hr_employee_data_from_work_address.view_employee_form
 msgid ""
 "{'default_groups_ref': ['base.group_user'], 'default_partner_id': "
 "address_id}"
-msgstr ""
+msgstr "{'default_groups_ref': ['base.group_user'], 'default_partner_id': address_id}"
 
 #. module: hr_employee_data_from_work_address
 #: view:res.users:hr_employee_data_from_work_address.view_users_form
 msgid "{'required': [('id', '!=', False)]}"
-msgstr ""
+msgstr "{'required': [('id', '!=', False)]}"
 
 #. module: hr_employee_data_from_work_address
 #: view:hr.employee:hr_employee_data_from_work_address.view_employee_form
 msgid ""
 "{'show_address': 1, 'default_customer': False, 'default_employee': True}"
-msgstr ""
+msgstr "{'show_address': 1, 'default_customer': False, 'default_employee': True}"

@@ -4,12 +4,13 @@
 # 
 # Translators:
 # Antonio Trueba, 2016
+# Antonio Trueba, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-11-30 05:19+0000\n"
-"PO-Revision-Date: 2016-02-10 16:53+0000\n"
+"PO-Revision-Date: 2016-02-16 15:04+0000\n"
 "Last-Translator: Antonio Trueba\n"
 "Language-Team: Spanish (http://www.transifex.com/oca/OCA-hr-8-0/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -207,7 +208,7 @@ msgstr ""
 #. module: hr_employee_benefit
 #: view:hr.employee.benefit.rate:hr_employee_benefit.view_hr_employee_benefit_rate_filter
 msgid "Group by..."
-msgstr ""
+msgstr "Agrupar por..."
 
 #. module: hr_employee_benefit
 #: field:hr.employee.benefit,id:0 field:hr.employee.benefit.category,id:0
@@ -321,7 +322,7 @@ msgstr ""
 #. module: hr_employee_benefit
 #: field:hr.payslip.benefit.line,source:0
 msgid "Type"
-msgstr ""
+msgstr "Tipo"
 
 #. module: hr_employee_benefit
 #: code:addons/hr_employee_benefit/models/hr_employee_benefit_rate.py:88

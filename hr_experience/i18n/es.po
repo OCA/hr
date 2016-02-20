@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-11-30 05:19+0000\n"
-"PO-Revision-Date: 2016-02-10 16:55+0000\n"
+"PO-Revision-Date: 2016-02-16 15:02+0000\n"
 "Last-Translator: Antonio Trueba\n"
 "Language-Team: Spanish (http://www.transifex.com/oca/OCA-hr-8-0/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -189,7 +189,7 @@ msgstr ""
 #: field:hr.curriculum,location:0 help:hr.curriculum,location:0
 #: field:hr.experience,location:0 help:hr.experience,location:0
 msgid "Location"
-msgstr ""
+msgstr "Ubicación"
 
 #. module: hr_experience
 #: field:hr.academic,name:0 field:hr.certification,name:0
@@ -214,7 +214,7 @@ msgstr ""
 #: view:hr.employee:hr_experience.view_employee_form_inherit
 #: selection:hr.experience,category:0
 msgid "Professional"
-msgstr ""
+msgstr "Profesional"
 
 #. module: hr_experience
 #: view:hr.experience:hr_experience.view_professional_form
