@@ -9,7 +9,7 @@ class ResCompany(models.Model):
     _inherit = 'res.company'
 
     employee_id_gen_method = fields.Selection(
-        [
+        selection=[
             ('random', 'Random'),
             ('sequence', 'Sequence'),
         ],
@@ -17,10 +17,12 @@ class ResCompany(models.Model):
         default='random'
     )
     employee_id_random_digits = fields.Integer(
-        '# of Digits', default=5,
+        string='# of Digits',
+        default=5,
         help="Number of digits making up the ID"
     )
     employee_id_sequence = fields.Many2one(
-        'ir.sequence', 'Sequence',
+        comodel_name='ir.sequence',
+        string='Sequence',
         help="Pattern to be used for used for ID Generation",
     )
