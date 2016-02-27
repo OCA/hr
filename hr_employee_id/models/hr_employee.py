@@ -30,7 +30,6 @@ class HrEmployee(models.Model):
 
     identification_id = fields.Char(
         'Identification No',
-        readonly=True,
         copy=False
     )
 

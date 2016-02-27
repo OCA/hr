@@ -12,7 +12,7 @@
 					<h1 position="after">
 						<label for="identification_id" class="oe_edit_only" />
 						<h3>
-							<field name="identification_id" />
+							<field name="identification_id" readonly="1" />
 						</h3>
 					</h1>					
 				</data>
