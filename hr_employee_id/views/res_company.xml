@@ -8,9 +8,9 @@
             <field name="arch" type="xml">
                 <xpath expr="//group[@name='account_grp']" position="after">
                     <group name="employee_id_grp" string="Employee ID">
-                        <field name="employee_id_gen_method" />
-                        <field name="employee_id_random_digits" attrs="{'invisible': [('employee_id_gen_method','!=','random')], 'required': [('employee_id_gen_method','=','random')]}" />
-                        <field name="employee_id_sequence" attrs="{'invisible': [('employee_id_gen_method','!=','sequence')], 'required': [('employee_id_gen_method','=','sequence')]}" />
+                        <field name="employee_id_gen_method"/>
+                        <field name="employee_id_random_digits" attrs="{'invisible': [('employee_id_gen_method','!=','random')], 'required': [('employee_id_gen_method','=','random')]}"/>
+                        <field name="employee_id_sequence" attrs="{'invisible': [('employee_id_gen_method','!=','sequence')], 'required': [('employee_id_gen_method','=','sequence')]}"/>
                     </group>
                 </xpath>
             </field>
