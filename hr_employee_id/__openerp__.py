@@ -19,12 +19,13 @@
 ##############################################################################
 {
     'name': 'Employee ID',
-    'version': '1.0',
+    'version': '8.0.1.0.0',
     'license': 'AGPL-3',
     'category': 'Generic Modules/Human Resources',
     'author': 'Michael Telahun Makonnen, '
               'Odoo Community Association (OCA)',
     'website': 'http://miketelahun.wordpress.com',
+    'license': 'AGPL-3',
     'depends': [
         'hr',
     ],
