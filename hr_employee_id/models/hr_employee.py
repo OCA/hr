@@ -14,7 +14,7 @@ class HrEmployee(models.Model):
     _inherit = 'hr.employee'
 
     identification_id = fields.Char(
-        'Identification No',
+        string='Identification No',
         copy=False
     )
 

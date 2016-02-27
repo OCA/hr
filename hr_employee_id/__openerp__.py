@@ -7,7 +7,7 @@
     'license': 'AGPL-3',
     'category': 'Generic Modules/Human Resources',
     'author': 'Michael Telahun Makonnen, '
-              'Odoo Community Association (OCA)',
+                    'Odoo Community Association (OCA)',
     'website': 'http://miketelahun.wordpress.com',
     'license': 'AGPL-3',
     'depends': [

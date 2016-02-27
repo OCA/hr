@@ -13,7 +13,7 @@ class HumanResourcesConfiguration(models.TransientModel):
         return sequence and sequence.id or False
 
     employee_id_gen_method = fields.Selection(
-        [
+        selection=[
             ('random', 'Random'),
             ('sequence', 'Sequence'),
         ],
@@ -21,11 +21,13 @@ class HumanResourcesConfiguration(models.TransientModel):
         default='random'
     )
     employee_id_random_digits = fields.Integer(
-        '# of Digits', default=5,
+        string='# of Digits',
+        default=5,
         help="Number of digits making up the ID"
     )
     employee_id_sequence = fields.Many2one(
-        'ir.sequence', 'Sequence',
+        comodel_name='ir.sequence',
+        string='Sequence',
         help="Pattern to be used for used for ID Generation",
         default=_default_id_sequence
     )
