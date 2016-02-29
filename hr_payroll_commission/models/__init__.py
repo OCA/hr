@@ -8,7 +8,6 @@
 ##############################################################################
 
 from . import hr_contract
-from . import hr_expenses
 from . import hr_payslip
 from . import invoices
 from . import account_move_line

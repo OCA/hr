@@ -1,29 +1,24 @@
 .. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
     :alt: License: AGPL-3
 
-Payroll Commissions
-===================
+Payroll Expenses Reinbursements
+===============================
 
 This module allows you to add commission and reimbursement to payslip
 
 **Features list :**
-    * Add commision rate, commission to contract.
-    * Link commission to Payslip.
+    * Add expenses reimbursement to Payslip.
 
 **For further information:**
-    * Commissions management: http://open-net.ch/blog/la-comptabilite-salariale-suisse-avec-odoo-1/post/salaires-avec-odoo-commissions-et-notes-de-frais-78
+    *Expenses reimbursements management: http://open-net.ch/blog/la-comptabilite-salariale-suisse-avec-odoo-1/post/salaires-avec-odoo-commissions-et-notes-de-frais-78
 
-**Remarks:**
-    * As this module proposes its own report (same as the original, but with its own footer), don't forget to make it non-updatable.
 
 Usage sample:
 ------
-    * To add commission to the payslip, you need to add a rate into the employee's contract. 
-    .. image:: http://s16.postimg.org/iv10leobp/Screen_Shot_02_12_16_at_03_00_PM.png
-    * You also need to add a the rule COMM to the contract.
-    .. image:: http://s15.postimg.org/xa7roruij/Screen_Shot_02_12_16_at_02_58_PM.png
-    * When you have this properly setup, you just have to compute your payslip to find COMM into the list.
-    .. image:: http://s22.postimg.org/4ouwvh2f5/Screen_Shot_02_12_16_at_03_04_PM.png
+    * To add reimbursement to the employee's payslip, you need to add the REIMB rule to the corresponding contract.
+    .. image:: http://s11.postimg.org/99esrh5yr/Screen_Shot_02_12_16_at_03_07_PM.png
+    * Then you just need to compute your payslip to find REIMB into the list.
+    .. image:: http://s11.postimg.org/4mhxh6xdf/Screen_Shot_02_12_16_at_03_09_PM.png
 
 
 

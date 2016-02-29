@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    File: views/hr_payroll_view.xml
+    Module: hr_payroll_expense
+
+    Created by dco@open-net.ch
+
+    Copyright (c) 2014-TODAY Open-Net Ltd.
+-->
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="hr_payslip_form">
+            <field name="name">hr.payslip.form.view</field>
+            <field name="model">hr.payslip</field>
+            <field name="inherit_id" ref="hr_payroll.view_hr_payslip_form"/>
+            <field name="priority" eval="20"/>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook" position="inside">
+                    <page string="Expenses">
+                        <field name="expenses" readonly="1">
+                            <tree colors="blue:state == 'draft';black:state in ('confirm','accepted','done');gray:state == 'cancelled'" string="Expenses" editable="top">
+                                <field name="employee_id"/>
+                                <field name="date"/>
+                                <field name="department_id"/>
+                                <field name="name"/>
+                                <field name="total_amount"/>
+                                <field name="state"/>
+                            </tree>
+                        </field>
+                   </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</openerp>

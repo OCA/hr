@@ -38,23 +38,8 @@ class HrContract(models.Model):
 
     @api.one
     @api.depends('employee_id.user_id')
-    def _comp_wage_expenses(self):
-        self.reimbursement = 0
+    def _comp_commission(self):
         self.commission = 0
-
-        # Look in linked expenses:
-        filters = [
-            ('employee_id', '=', self.employee_id.id),
-            ('slip_id', '=', False),
-            ('state', 'in', ['done', 'post']),
-        ]
-
-        # Compute reimbursement
-        reimbursement = 0
-        ExpensesObj = self.env['hr.expense']
-        for expense in ExpensesObj.search(filters):
-            reimbursement += expense.account_move_id.amount
-        self.reimbursement += reimbursement
 
         account_invoice_obj = self.env['account.invoice']
         invoice_ids = account_invoice_obj.search([
@@ -72,24 +57,7 @@ class HrContract(models.Model):
                     commission += move_line.credit
         self.commission += commission
 
-    worked_hours = fields.Float(string='Worked Hours')
-    hourly_rate = fields.Float(string='Hourly Rate')
-    reimbursement = fields.Float(string='Reimbursement',
-                                 compute='_comp_wage_expenses')
     commission = fields.Float(string='Commission',
-                              compute='_comp_wage_expenses')
+                              compute='_comp_commission')
     comm_rate = fields.Float(string='Commissions Rate',
                              digits=dp.get_precision('Payroll Rate'))
-
-    # ---------- Utilities
-    @api.multi
-    def compute_wage(self, worked_hours, hourly_rate):
-        """
-            Compute the wage from worked_hours and hourly_rate.
-        """
-        wage = worked_hours * hourly_rate
-
-        res = {
-            'value': {'wage': wage}
-        }
-        return res

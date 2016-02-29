@@ -37,8 +37,6 @@ class HrPayslip(models.Model):
 
     invoices = fields.One2many('account.invoice', 'slip_id',
                                string='Invoices')
-    expenses = fields.One2many('hr.expense', 'slip_id',
-                               string='Expenses')
     move_lines = fields.One2many('account.move.line', 'slip_id',
                                  string='Journal Items')
 
@@ -53,19 +51,13 @@ class HrPayslip(models.Model):
         if invoices:
             invoices.write({'slip_id': False})
 
-        # Second, detach expenses from the pay slips
-        ExpenseObj = self.env['hr.expense']
-        expenses = ExpenseObj.search([('slip_id', 'in', self.ids)])
-        if expenses:
-            expenses.write({'slip_id': False})
-
-        # Third, detach account move lines from the pay slips
+        # Second, detach account move lines from the pay slips
         AccountMoveLineObj = self.env['account.move.line']
         aml = AccountMoveLineObj.search([('slip_id', 'in', self.ids)])
         if aml:
             aml.write({'slip_id': False})
 
-        ret = super(HrPayslip, self).compute_sheet()
+        res = super(HrPayslip, self).compute_sheet()
 
         # Then, re-link the invoices, the expenses
         # and the account move lines using the criterias
@@ -79,7 +71,6 @@ class HrPayslip(models.Model):
             user_id = payslip.contract_id.employee_id.user_id.id
             if not user_id:
                 continue
-            employee_id = payslip.contract_id.employee_id.id
 
             # Look for invoice lines
             inv_ids = []
@@ -103,16 +94,6 @@ class HrPayslip(models.Model):
             invoices.write({'slip_id': payslip.id})
             moves = invoices.mapped('move_id')
 
-            # Look for expenses
-            filters = [
-                ('employee_id', '=', employee_id),
-                ('slip_id', '=', False),
-                ('state', '=', ['done', 'post']),
-            ]
-            expenses = ExpenseObj.search(filters)
-            if expenses:
-                expenses.write({'slip_id': payslip.id})
-
             # Look for account move lines
             if moves:
                 move_line_ids = self.env["account.move.line"].search([
@@ -127,4 +108,4 @@ class HrPayslip(models.Model):
     set slip_id=%d where id in (%s)""" % (payslip.id, ','.tuple(move_line_ids))
                     self.env.cr.execute(q)
 
-        return ret
+        return res

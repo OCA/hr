@@ -33,8 +33,7 @@
     'category': 'Human Resources',
     'author': "Open-Net Sàrl,Odoo Community Association (OCA)",
     'depends': [
-        'hr_payroll_account',
-        'hr_attendance',
+        'hr_payroll',
         'account'
     ],
     'version': '9.0.1.0.0',
@@ -45,7 +44,6 @@
     'data': [
         'views/hr_contract_view.xml',
         'views/hr_payroll_view.xml',
-        'data/hr.salary.rule.category.xml',
         'data/hr.salary.rule.xml',
     ],
     'installable': True
