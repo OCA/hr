@@ -7,7 +7,7 @@ Created by dco@open-net.ch
 
 Copyright (c) 2014 Open-Net Ltd.
 -->
-<openerp>
+<odoo>
     <data>
         <record id="hr_payroll.hr_rule_reimb" model="hr.salary.rule">
             <field name="amount_select">code</field>
@@ -22,4 +22,4 @@ Copyright (c) 2014 Open-Net Ltd.
             <field name="category_id" ref="hr_payroll_FALW"/>
         </record>
     </data>
-</openerp>
+</odoo>

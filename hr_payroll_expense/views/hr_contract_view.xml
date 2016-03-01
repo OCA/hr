@@ -7,7 +7,7 @@
 
     Copyright (c) 2014-TODAY Open-Net Ltd.
 -->
-<openerp>
+<odoo>
     <data>
          <record model="ir.ui.view" id="hr_contract_form">
             <field name="name">hr.contract.form.view</field>
@@ -33,4 +33,4 @@
             </field>
         </record>
     </data>
-</openerp>
+</odoo>

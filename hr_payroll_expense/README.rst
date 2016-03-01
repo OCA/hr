@@ -10,16 +10,18 @@ This module allows you to add commission and reimbursement to payslip
     * Add expenses reimbursement to Payslip.
 
 **For further information:**
-    *Expenses reimbursements management: http://open-net.ch/blog/la-comptabilite-salariale-suisse-avec-odoo-1/post/salaires-avec-odoo-commissions-et-notes-de-frais-78
+    * Expenses reimbursements management: http://open-net.ch/blog/la-comptabilite-salariale-suisse-avec-odoo-1/post/salaires-avec-odoo-commissions-et-notes-de-frais-78
 
 
 Usage sample:
-------
+-------------
     * To add reimbursement to the employee's payslip, you need to add the REIMB rule to the corresponding contract.
-    .. image:: http://s11.postimg.org/99esrh5yr/Screen_Shot_02_12_16_at_03_07_PM.png
-    * Then you just need to compute your payslip to find REIMB into the list.
-    .. image:: http://s11.postimg.org/4mhxh6xdf/Screen_Shot_02_12_16_at_03_09_PM.png
 
+    .. image:: http://s11.postimg.org/99esrh5yr/Screen_Shot_02_12_16_at_03_07_PM.png
+
+    * Then you just need to compute your payslip to find REIMB into the list.
+
+    .. image:: http://s11.postimg.org/4mhxh6xdf/Screen_Shot_02_12_16_at_03_09_PM.png
 
 
 Known issues / Roadmap

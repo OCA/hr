@@ -1,4 +1,4 @@
-<openerp>
+<odoo>
 <data>
     <record id="hr_payroll.hr_rule_comm" model="hr.salary.rule">
         <field name="amount_select">code</field>
@@ -27,4 +27,4 @@
         <field name="category_id" ref="hr_payroll_FALW"/>
     </record>
 </data>
-</openerp>
+</odoo>

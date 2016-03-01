@@ -17,12 +17,17 @@ This module allows you to add commission and reimbursement to payslip
     * As this module proposes its own report (same as the original, but with its own footer), don't forget to make it non-updatable.
 
 Usage sample:
-------
+-------------
     * To add commission to the payslip, you need to add a rate into the employee's contract. 
+
     .. image:: http://s16.postimg.org/iv10leobp/Screen_Shot_02_12_16_at_03_00_PM.png
+
     * You also need to add a the rule COMM to the contract.
+
     .. image:: http://s15.postimg.org/xa7roruij/Screen_Shot_02_12_16_at_02_58_PM.png
+
     * When you have this properly setup, you just have to compute your payslip to find COMM into the list.
+
     .. image:: http://s22.postimg.org/4ouwvh2f5/Screen_Shot_02_12_16_at_03_04_PM.png
 
 

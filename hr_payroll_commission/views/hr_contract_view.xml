@@ -7,7 +7,7 @@
 
     Copyright (c) 2014-TODAY Open-Net Ltd.
 -->
-<openerp>
+<odoo>
     <data>
 
         <record model="ir.ui.view" id="hr_contract_form">
@@ -40,4 +40,4 @@
         </record>
 
     </data>
-</openerp>
+</odoo>

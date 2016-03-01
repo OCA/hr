@@ -7,7 +7,7 @@
 
     Copyright (c) 2014-TODAY Open-Net Ltd.
 -->
-<openerp>
+<odoo>
     <data>
         <record model="ir.ui.view" id="hr_payslip_form">
             <field name="name">hr.payslip.form.view</field>
@@ -25,4 +25,4 @@
         </record>
 
     </data>
-</openerp>
+</odoo>
