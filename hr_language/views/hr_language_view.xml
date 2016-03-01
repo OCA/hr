@@ -8,7 +8,15 @@
         <field name="arch" type="xml">
             <notebook position="inside">
                 <page string="Languages" groups="base.group_hr_user">
-                    <field name="language_ids" nolabel="1" colspan="4"/>
+                    <field name="language_ids" nolabel="1" colspan="4">
+                        <tree string="Language" editable="bottom">
+                            <field name="name"/>
+                            <field name="description"/>
+                            <field name="can_read"/>
+                            <field name="can_write"/>
+                            <field name="can_speak"/>
+                        </tree>
+                    </field>
                 </page>
             </notebook>
         </field>
@@ -21,6 +29,7 @@
         <field name="model">hr.language</field>
         <field name="arch" type="xml">
             <tree string="Languages">
+                <field name="employee_id"/>
                 <field name="description"/>
                 <field name="can_read"/>
                 <field name="can_write"/>

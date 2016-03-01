@@ -3,13 +3,14 @@
 # * hr_employee_legacy_id
 # 
 # Translators:
+# Thomas A. Jaeger, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-18 13:10+0000\n"
-"PO-Revision-Date: 2015-07-27 23:43+0000\n"
-"Last-Translator: <>\n"
+"POT-Creation-Date: 2015-11-06 00:27+0000\n"
+"PO-Revision-Date: 2015-11-05 14:13+0000\n"
+"Last-Translator: Thomas A. Jaeger\n"
 "Language-Team: German (http://www.transifex.com/oca/OCA-hr-8-0/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,4 +26,4 @@ msgstr "Angestellter"
 #. module: hr_employee_legacy_id
 #: field:hr.employee,legacy_no:0
 msgid "Legacy ID"
-msgstr ""
+msgstr "Alte ID"

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+        <record id="hr_department_view" model="ir.ui.view">
+            <field name="name">hr.department.form.sequence</field>
+            <field name="model">hr.department</field>
+            <field name="inherit_id" ref="hr.view_department_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="after">
+                    <field name="code"/>
+                </xpath>
+                <xpath expr="//field[@name='parent_id']" position="after">
+                    <field name="active" />
+                </xpath>
+                <xpath expr="//sheet" position="inside">
+                    <notebook>
+                        <page string="Children Departments">
+                            <field name="child_ids">
+                                <tree editable="bottom">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="name" />
+                                    <field name="code" />
+                                    <field name="manager_id" />
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </xpath>
+            </field>
+        </record>
+        
+        <record id="hr_department_tree_view" model="ir.ui.view">
+            <field name="name">hr.department.tree.sequence</field>
+            <field name="model">hr.department</field>
+            <field name="inherit_id" ref="hr.view_department_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='complete_name']" position="after">
+                    <field name="code"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_department_filter" model="ir.ui.view">
+            <field name="name">Departments (hr_department_sequence)</field>
+            <field name="model">hr.department</field>
+            <field name="inherit_id" ref="hr.view_department_filter" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='manager_id']" position="after">
+                    <field name="code" />
+                </xpath>
+             </field>
+        </record>
+
+    </data>
+</openerp>

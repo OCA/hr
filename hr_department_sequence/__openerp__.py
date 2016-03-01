@@ -22,20 +22,16 @@
     'name': 'Department Sequence',
     'version': '1.0',
     'category': 'Generic Modules/Human Resources',
-    'description': """
-Order by Parent-Child Relationship and by Sequence Number
-=========================================================
-    """,
-    'author': "Michael Telahun Makonnen <mmakonnen@gmail.com>,Odoo Community Association (OCA)",
+    'summary': """Add sequence on department""",
+    'author': "Michael Telahun Makonnen <mmakonnen@gmail.com>,"
+              "Odoo Community Association (OCA)",
     'website': 'http://www.openerp.com',
     'license': 'AGPL-3',
     'depends': [
         'hr',
     ],
     'data': [
-        'hr_department_view.xml',
+        'views/hr_department_view.xml',
     ],
-    'test': [
-    ],
-    'installable': False,
+    'installable': True,
 }

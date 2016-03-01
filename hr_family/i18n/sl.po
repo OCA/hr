@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-18 13:10+0000\n"
-"PO-Revision-Date: 2015-08-01 16:15+0000\n"
+"POT-Creation-Date: 2015-11-19 01:53+0000\n"
+"PO-Revision-Date: 2015-11-12 12:39+0000\n"
 "Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>\n"
 "Language-Team: Slovenian (http://www.transifex.com/oca/OCA-hr-8-0/language/sl/)\n"
 "MIME-Version: 1.0\n"
@@ -48,7 +48,6 @@ msgid "Employee"
 msgstr "Kader"
 
 #. module: hr_family
-#: view:hr.employee.children:hr_family.hr_children_view_form
 #: view:hr.employee.children:hr_family.hr_children_view_tree
 msgid "Employee Children"
 msgstr "Otroci delojemalca"
@@ -69,6 +68,16 @@ msgid "Father's Name"
 msgstr "Očetovo ime"
 
 #. module: hr_family
+#: selection:hr.employee.children,gender:0
+msgid "Female"
+msgstr "Ženski"
+
+#. module: hr_family
+#: field:hr.employee.children,gender:0
+msgid "Gender"
+msgstr "Spol"
+
+#. module: hr_family
 #: model:ir.model,name:hr_family.model_hr_employee_children
 msgid "HR Employee Children"
 msgstr "Otroci delojemalca"
@@ -87,6 +96,11 @@ msgstr "Zadnjič posodobil"
 #: field:hr.employee.children,write_date:0
 msgid "Last Updated on"
 msgstr "Zadnjič posodobljeno"
+
+#. module: hr_family
+#: selection:hr.employee.children,gender:0
+msgid "Male"
+msgstr "Moški"
 
 #. module: hr_family
 #: field:hr.employee,fam_mother:0
