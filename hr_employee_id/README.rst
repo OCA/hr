@@ -2,11 +2,12 @@
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-============================
+===============================
 Employee Identification Numbers
-============================
+===============================
 
-Company wide unique employee ID. Supports
+Company wide unique employee ID. Supports:
+
 * Random ID Generation
 * Sequence
 
