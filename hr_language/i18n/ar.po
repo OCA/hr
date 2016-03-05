@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-30 05:19+0000\n"
+"POT-Creation-Date: 2016-02-27 10:43+0000\n"
 "PO-Revision-Date: 2016-02-25 21:28+0000\n"
 "Last-Translator: new stargate <newstargate@gmail.com>\n"
 "Language-Team: Arabic (http://www.transifex.com/oca/OCA-hr-8-0/language/ar/)\n"
@@ -235,6 +235,7 @@ msgid "Korean (KR) / 한국어 (KR)"
 msgstr ""
 
 #. module: hr_language
+#: view:hr.employee:hr_language.view_employee_form
 #: view:hr.language:hr_language.view_language_form field:hr.language,name:0
 msgid "Language"
 msgstr "اللغة"
