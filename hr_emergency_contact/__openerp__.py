@@ -6,15 +6,15 @@
     'name': 'HR Emergency Contact',
     'version': '1.0',
     'category': 'Generic Modules/Human Resources',
-    'author': "Andhitia Rama,Michael Telahun Makonnen,"
-                   "Odoo Community Association (OCA)",
+    'author': "OpenSynergy Indonesia,Michael Telahun Makonnen,"
+              "Odoo Community Association (OCA)",
     'website': 'http://www.openerp.com',
     'license': 'AGPL-3',
     'depends': [
         'hr',
     ],
     'data': [
-        'hr_view.xml',
+        'views/hr_employee_views.xml',
     ],
     'installable': True,
 }
