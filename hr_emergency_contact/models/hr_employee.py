@@ -18,7 +18,8 @@ class HrEmployee(models.Model):
         relation='rel_employee_emergency_contact',
         column1='employee_id',
         column2='partner_id',
-        domain=[('is_company', '=', False),
+        domain=[
+            ('is_company', '=', False),
             ('parent_id', '=', False),
             ]
         )
