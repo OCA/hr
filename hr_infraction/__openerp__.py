@@ -15,10 +15,10 @@
     ],
     'data': [
         'security/ir.model.access.csv',
-        'wizard/action.xml',
-        'hr_infraction_data.xml',
-        'hr_infraction_view.xml',
-        'hr_infraction_workflow.xml',
+        # 'wizard/action.xml',
+        # 'hr_infraction_data.xml',
+        # 'hr_infraction_view.xml',
+        # 'hr_infraction_workflow.xml',
     ],
     'installable': True,
 }
