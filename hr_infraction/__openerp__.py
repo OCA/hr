@@ -14,11 +14,10 @@
         'hr',
     ],
     'data': [
-        'security/ir.model.access.csv',
-        # 'wizard/action.xml',
-        # 'hr_infraction_data.xml',
-        # 'hr_infraction_view.xml',
-        # 'hr_infraction_workflow.xml',
+        # 'security/ir.model.access.csv',
+        'views/hr_infraction_views.xml',
+        'demo/hr_infraction_demo.xml',
+        'datas/hr_infraction_data.xml',
     ],
     'installable': True,
 }

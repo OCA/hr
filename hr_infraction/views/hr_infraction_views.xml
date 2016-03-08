@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+        <!-- Menu Parent -->
+        <menuitem id="menu_hr_infraction_root" name="Infractions" parent="hr.menu_hr_root" groups="base.group_hr_user" sequence="27"/>
+        
+        <!-- Infraction Categories -->
+        
+        <record id="hr_infraction_category_tree" model="ir.ui.view">
+            <field name="name">hr.infraction.category.tree</field>
+            <field name="model">hr.infraction.category</field>
+            <field name="arch" type="xml">
+                <tree string="Infraction Categories">
+                    <field name="name"/>
+                    <field name="code"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="hr_infraction_category_form" model="ir.ui.view">
+            <field name="name">hr.infraction.category.form</field>
+            <field name="model">hr.infraction.category</field>
+            <field name="arch" type="xml">
+                <form string="Infraction Category">
+                    <group name="main">
+                        <field name="name"/>
+                        <field name="code"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+        
+        <record id="open_hr_infraction_category" model="ir.actions.act_window">
+            <field name="name">Infraction Categories</field>
+            <field name="res_model">hr.infraction.category</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem action="open_hr_infraction_category"
+            id="menu_hr_infraction_category"
+            parent="hr.menu_hr_configuration"
+            sequence="5"/>
+        
+        <!-- Infraction Warning -->
+        
+        <record id="hr_infraction_warning_tree" model="ir.ui.view">
+            <field name="name">hr.infraction.warning.tree</field>
+            <field name="model">hr.infraction.warning</field>
+            <field name="arch" type="xml">
+                <tree string="Infraction Warning">
+                    <field name="name"/>
+                    <field name="code"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="hr_infraction_warning_form" model="ir.ui.view">
+            <field name="name">hr.infraction.warning.form</field>
+            <field name="model">hr.infraction.warning</field>
+            <field name="arch" type="xml">
+                <form string="Infraction Warning">
+                    <group name="main">
+                        <field name="name"/>
+                        <field name="code"/>
+                        <field name="category_ids" widget="many2many_tags"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+        
+        <record id="open_hr_infraction_warning" model="ir.actions.act_window">
+            <field name="name">Infraction Warnings</field>
+            <field name="res_model">hr.infraction.warning</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem action="open_hr_infraction_warning"
+            id="menu_hr_infraction_warning"
+            parent="hr.menu_hr_configuration"
+            sequence="6"/>
+
+        <!-- Infraction -->
+        
+        <record id="hr_infraction_tree" model="ir.ui.view">
+            <field name="name">hr.infraction.tree</field>
+            <field name="model">hr.infraction</field>
+            <field name="arch" type="xml">
+                <tree string="Infractions">
+                    <field name="name"/>
+                    <field name="employee_id"/>
+                    <field name="date"/>
+                    <field name="category_id"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="hr_infraction_form" model="ir.ui.view">
+            <field name="name">hr.infraction.form</field>
+            <field name="model">hr.infraction</field>
+            <field name="arch" type="xml">
+                <form string="Infraction">
+                    <header>
+                        <button name="button_confirm" string="Confirm" class="oe_highlight" type="object" states="draft"/>
+                        <button name="button_approve" string="Approve" class="oe_highlight" type="object" states="confirm"/>
+                        <button name="button_valid" string="Valid" class="oe_highlight" type="object" states="approve"/>
+                        <button name="button_cancel" string="Cancel" type="object" states="confirm,approve,valid"/>
+                        <button name="button_set_to_draft" string="Set to Draft" type="object" states="cancel"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <label for="name"/>
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                        <group name="group_1">
+                            <group name="group_1_1">
+                                <field name="employee_id"/>
+                            </group>
+                            <group name="group_1_2">
+                                <field name="date"/>
+                                <field name="category_id" widget="selection"/>
+                                <field name="warning_id" widget="selection"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Description" name="page_description">
+                                <field name="memo" nolabel="1" placeholder="Describe the incident here..." colspan="4"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+        
+        <record id="open_hr_infraction" model="ir.actions.act_window">
+            <field name="name">Infractions</field>
+            <field name="res_model">hr.infraction</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem id="menu_hr_infraction"
+            action="open_hr_infraction"
+            parent="menu_hr_infraction_root"
+            sequence="5"/>
+        
+        
+    </data>
+</openerp>

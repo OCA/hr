@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+          <record id="infraction_category_lt" model="hr.infraction.category">
+              <field name="name">Light</field>
+              <field name="code">LGT</field>
+          </record>
+          
+          <record id="infraction_category_mo" model="hr.infraction.category">
+              <field name="name">Moderate</field>
+              <field name="code">MOD</field>
+          </record>
+          
+          <record id="infraction_category_hv" model="hr.infraction.category">
+              <field name="name">Heavy</field>
+              <field name="code">HEA</field>
+          </record>
+          
+          <record id="infraction_warning_vw" model="hr.infraction.warning">
+              <field name="name">Verbal Warning</field>
+              <field name="code">VW</field>
+          </record>
+          
+          <record id="infraction_warning_wl1" model="hr.infraction.warning">
+              <field name="name">Warning Letter 1</field>
+              <field name="code">WL1</field>
+          </record>
+          
+          <record id="infraction_warning_wl2" model="hr.infraction.warning">
+              <field name="name">Warning Letter 2</field>
+              <field name="code">WL2</field>
+          </record>
+          
+          <record id="infraction_warning_wl3" model="hr.infraction.warning">
+              <field name="name">Warning Letter 3</field>
+              <field name="code">WL3</field>
+          </record>
+
+    </data>
+</openerp>
