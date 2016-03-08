@@ -71,6 +71,7 @@ Known issues / Roadmap
 
 * This module does not inted to execute any action related to infraction (e.g. demotion, transfer to other department, etc)
 * Incompatible data model when migrated from 7.0
+* No revision mecanism avalaible
 
 Bug Tracker
 ===========

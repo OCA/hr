@@ -41,6 +41,7 @@
         <menuitem action="open_hr_infraction_category"
             id="menu_hr_infraction_category"
             parent="hr.menu_hr_configuration"
+            groups="group_infraction_officer"
             sequence="5"/>
         
         <!-- Infraction Warning -->
@@ -80,6 +81,7 @@
         <menuitem action="open_hr_infraction_warning"
             id="menu_hr_infraction_warning"
             parent="hr.menu_hr_configuration"
+            groups="group_infraction_officer"
             sequence="6"/>
 
         <!-- Infraction -->
@@ -91,6 +93,7 @@
                 <tree string="Infractions">
                     <field name="name"/>
                     <field name="employee_id"/>
+                    <field name="company_id" groups="base.group_multi_company"/>
                     <field name="date"/>
                     <field name="category_id"/>
                     <field name="state"/>
@@ -119,6 +122,7 @@
                         <group name="group_1">
                             <group name="group_1_1">
                                 <field name="employee_id"/>
+                                <field name="company_id" groups="base.group_multi_company"/>
                             </group>
                             <group name="group_1_2">
                                 <field name="date"/>
@@ -149,6 +153,7 @@
         <menuitem id="menu_hr_infraction"
             action="open_hr_infraction"
             parent="menu_hr_infraction_root"
+            groups="group_infraction_officer,group_infraction_user"
             sequence="5"/>
         
         

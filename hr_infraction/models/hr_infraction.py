@@ -25,6 +25,7 @@ class HrInfractionWarning(models.Model):
     _name = 'hr.infraction.warning'
     _description = 'Infraction Warning'
 
+
     name = fields.Char(
         string='Warning',
         required=True,
@@ -47,6 +48,11 @@ class HrInfraction(models.Model):
     _name = 'hr.infraction'
     _description = 'Infraction'
     _inherit = ['mail.thread']
+
+    @api.model
+    def _default_company_id(self):
+        return self.env.user.company_id.id
+
     name = fields.Char(
         string='# Infraction',
         required=False,
@@ -68,6 +74,14 @@ class HrInfraction(models.Model):
         readonly=True,
         states={'draft': [('readonly', False)]},
     )
+    company_id = fields.Many2one(
+        store=True,
+        comodel_name='res.company',
+        string='Company',
+        copy=False,
+        default=_default_company_id,
+    )
+
     category_id = fields.Many2one(
         comodel_name='hr.infraction.category',
         string='Category',

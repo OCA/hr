@@ -15,6 +15,7 @@
         'hr',
     ],
     'data': [
+        'security/hr_infraction_security.xml',
         'security/ir.model.access.csv',
         'views/hr_infraction_views.xml',
         'demo/hr_infraction_demo.xml',
