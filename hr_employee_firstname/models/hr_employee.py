@@ -37,12 +37,8 @@ class HrEmployee(models.Model):
     @api.cr_context
     def _auto_init(self, cr, context=None):
         super(HrEmployee, self)._auto_init(cr, context=context)
-        self._update_employee_names(cr, SUPERUSER_ID, context=context)
-
-    @api.model
-    def _update_employee_names(self):
-        employees = self.search([
-            ('firstname', '=', ' '), ('lastname', '=', ' ')])
+        employees = self.search(cr, SUPERUSER_ID, [
+            ('firstname', '=', ' '), ('lastname', '=', ' ')], context=context)
 
         for ee in employees:
             lastname, firstname = self.split_name(ee.name)
