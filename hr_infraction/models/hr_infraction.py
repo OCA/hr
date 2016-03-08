@@ -25,7 +25,6 @@ class HrInfractionWarning(models.Model):
     _name = 'hr.infraction.warning'
     _description = 'Infraction Warning'
 
-
     name = fields.Char(
         string='Warning',
         required=True,

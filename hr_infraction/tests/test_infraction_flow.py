@@ -11,10 +11,14 @@ class TestInfractionFlow(TransactionCase):
     def setUp(self, *args, **kwargs):
         result = super(TestInfractionFlow, self).setUp(*args, **kwargs)
         self.grp_employee = self.env.ref('base.group_user')
-        self.grp_infraction_user = self.env.ref('hr_infraction.group_infraction_user')
-        self.grp_infraction_officer = self.env.ref('hr_infraction.group_infraction_officer')
-        self.grp_infraction_manager = self.env.ref('hr_infraction.group_infraction_manager')
-        self.main_company = self.env.ref('base.main_company')
+        self.grp_infraction_user = self.env.ref(
+            'hr_infraction.group_infraction_user')
+        self.grp_infraction_officer = self.env.ref(
+            'hr_infraction.group_infraction_officer')
+        self.grp_infraction_manager = self.env.ref(
+            'hr_infraction.group_infraction_manager')
+        self.main_company = self.env.ref(
+            'base.main_company')
 
         # setup employee
         self.employee = self.env.ref('hr.employee_chs')
@@ -27,7 +31,6 @@ class TestInfractionFlow(TransactionCase):
         self.user = self.env['res.users'].create(user1_data)
         self.employee.update({'user_id': self.user.id})
 
-
         # setup employee 2
         self.employee2 = self.env.ref('hr.employee_ngh')
 
@@ -35,19 +38,24 @@ class TestInfractionFlow(TransactionCase):
         user2_data = {
             'name': self.employee_manager.name,
             'login': 'al',
-            'groups_id': [(6, 0, [self.grp_employee.id,self.grp_infraction_user.id])],
+            'groups_id': [
+                (6, 0, [self.grp_employee.id, self.grp_infraction_user.id])],
             'email': 'al@example.com',
             }
         self.user_manager = self.env['res.users'].create(user2_data)
         self.employee_manager.update({'user_id': self.user_manager.id})
-        self.employee_manager.department_id.update({'manager_id': self.employee_manager.id})
+        self.employee_manager.department_id.update(
+            {'manager_id': self.employee_manager.id})
 
         # setup hr officer
         self.employee_hr_user = self.env.ref('hr.employee_vad')
         user3_data = {
             'name': self.employee_hr_user.name,
             'login': 'ap',
-            'groups_id': [(6, 0, [self.grp_employee.id, self.grp_infraction_officer.id])],
+            'groups_id': [
+                (6, 0, [
+                    self.grp_employee.id,
+                    self.grp_infraction_officer.id])],
             'email': 'ap@example.com',
             }
         self.user_hr_officer = self.env['res.users'].create(user3_data)
@@ -57,8 +65,10 @@ class TestInfractionFlow(TransactionCase):
         self.employee_hr_manager = self.env.ref('hr.employee_fp')
         self.user_hr_manager = self.employee_hr_manager.user_id
 
-        self.infraction_categ = self.env.ref('hr_infraction.infraction_category_lt')
-        self.infraction_warning = self.env.ref('hr_infraction.infraction_warning_vw')
+        self.infraction_categ = self.env.ref(
+            'hr_infraction.infraction_category_lt')
+        self.infraction_warning = self.env.ref(
+            'hr_infraction.infraction_warning_vw')
 
         return result
 
@@ -72,7 +82,8 @@ class TestInfractionFlow(TransactionCase):
             'company_id': self.main_company.id,
             }
 
-        infraction = self.env['hr.infraction'].sudo(self.user_manager).create(infraction_data)
+        infraction = self.env['hr.infraction'].sudo(
+            self.user_manager).create(infraction_data)
 
         self.assertIsNotNone(infraction)
 
@@ -101,7 +112,8 @@ class TestInfractionFlow(TransactionCase):
             'company_id': self.main_company.id,
             }
 
-        infraction = self.env['hr.infraction'].sudo(self.user_manager).create(infraction_data)
+        infraction = self.env['hr.infraction'].sudo(
+            self.user_manager).create(infraction_data)
 
         self.assertIsNotNone(infraction)
 
@@ -121,7 +133,8 @@ class TestInfractionFlow(TransactionCase):
             'company_id': self.main_company.id,
             }
 
-        infraction = self.env['hr.infraction'].sudo(self.user_manager).create(infraction_data)
+        infraction = self.env['hr.infraction'].sudo(
+            self.user_manager).create(infraction_data)
 
         self.assertIsNotNone(infraction)
 
@@ -151,5 +164,6 @@ class TestInfractionFlow(TransactionCase):
             }
 
         with self.assertRaises(orm.except_orm):
-            infraction = self.env['hr.infraction'].sudo(self.user_manager).create(infraction_data)
+            infraction = self.env['hr.infraction'].sudo(
+                self.user_manager).create(infraction_data)
             self.assertIsNone(infraction)
