@@ -2,9 +2,9 @@
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-=======================
+========================
 HR Infraction Management
-=======================
+========================
 
 This module add employee infraction management
 

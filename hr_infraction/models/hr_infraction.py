@@ -11,7 +11,7 @@ from openerp.tools import DEFAULT_SERVER_DATE_FORMAT
 class HrInfractionCatagory(models.Model):
     _name = 'hr.infraction.category'
     _description = 'Infraction Type'
-    name =  fields.Char(
+    name = fields.Char(
         string='Name',
         required=True,
     )
@@ -19,6 +19,7 @@ class HrInfractionCatagory(models.Model):
         string='Code',
         required=True,
     )
+
 
 class HrInfractionWarning(models.Model):
     _name = 'hr.infraction.warning'
@@ -46,7 +47,7 @@ class HrInfraction(models.Model):
     _name = 'hr.infraction'
     _description = 'Infraction'
     _inherit = ['mail.thread']
-    name =  fields.Char(
+    name = fields.Char(
         string='# Infraction',
         required=False,
         readonly=True,
@@ -57,7 +58,7 @@ class HrInfraction(models.Model):
         string='Date',
         required=True,
         readonly=True,
-        states={'draft': [('readonly', False)]}, #TODO
+        states={'draft': [('readonly', False)]},
         default=time.strftime(DEFAULT_SERVER_DATE_FORMAT),
     )
     employee_id = fields.Many2one(
@@ -74,8 +75,8 @@ class HrInfraction(models.Model):
         readonly=True,
         copy=False,
         states={
-            'confirm': [('required', True),('readonly', False)],
-            'approve': [('required', True),('readonly', False)],
+            'confirm': [('required', True), ('readonly', False)],
+            'approve': [('required', True), ('readonly', False)],
             }
     )
     warning_id = fields.Many2one(
@@ -85,8 +86,8 @@ class HrInfraction(models.Model):
         required=False,
         readonly=True,
         states={
-            'confirm': [('required', True),('readonly', False)],
-            'approve': [('required', True),('readonly', False)],
+            'confirm': [('required', True), ('readonly', False)],
+            'approve': [('required', True), ('readonly', False)],
             }
     )
     memo = fields.Text(
