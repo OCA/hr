@@ -5,11 +5,11 @@
 
 {
     'name': 'Employee Infraction Management',
-    "version": "8.0.1.0.0",
+    'version': '8.0.1.0.0',
     'category': 'Generic Modules/Human Resources',
-    'author': "OpenSynergy Indonesia,"
-              "Michael Telahun Makonnen <mmakonnen@gmail.com>,"
-              "Odoo Community Association (OCA)",
+    'author': 'OpenSynergy Indonesia,'
+              'Michael Telahun Makonnen <mmakonnen@gmail.com>,'
+              'Odoo Community Association (OCA)',
     'website': 'http://miketelahun.wordpress.com',
     'license': 'AGPL-3',
     'depends': [
