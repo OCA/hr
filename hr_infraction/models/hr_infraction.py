@@ -14,6 +14,7 @@ class HrInfractionCatagory(models.Model):
     name = fields.Char(
         string='Name',
         required=True,
+        translate=True,
     )
     code = fields.Char(
         string='Code',
@@ -28,6 +29,7 @@ class HrInfractionWarning(models.Model):
     name = fields.Char(
         string='Warning',
         required=True,
+        translate=True,
         )
 
     code = fields.Char(
