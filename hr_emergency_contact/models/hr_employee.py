@@ -8,7 +8,6 @@ from openerp import models, fields
 
 class HrEmployee(models.Model):
 
-    _name = 'hr.employee'
     _inherit = 'hr.employee'
 
     emergency_contact_ids = fields.Many2many(
