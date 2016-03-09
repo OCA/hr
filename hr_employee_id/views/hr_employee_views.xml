@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <openerp>
     <data>
-
         <record id="view_employee_form" model="ir.ui.view">
             <field name="name">hr.employee.form.inherit</field>
             <field name="model">hr.employee</field>
@@ -18,7 +17,6 @@
                 </data>
             </field>
         </record>
-
         <record id="view_employee_tree" model="ir.ui.view">
             <field name="name">hr.employee.tree.inherit</field>
             <field name="model">hr.employee</field>
@@ -31,7 +29,6 @@
                 </data>
             </field>
         </record>
-
         <record id="view_employee_filter" model="ir.ui.view">
             <field name="name">Employees</field>
             <field name="model">hr.employee</field>

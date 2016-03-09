@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 # © 2011, 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>
+# © 2016 OpenSynergy Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 import random
@@ -51,7 +52,6 @@ class HrEmployee(models.Model):
         return employee_id
 
     @api.model
-    @api.returns('self', lambda value: value.id)
     def create(self, vals):
         eid = self._generate_identification_id()
         vals['identification_id'] = eid
