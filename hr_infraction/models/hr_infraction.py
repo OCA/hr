@@ -11,6 +11,7 @@ from openerp.tools import DEFAULT_SERVER_DATE_FORMAT
 class HrInfractionCatagory(models.Model):
     _name = 'hr.infraction.category'
     _description = 'Infraction Type'
+    
     name = fields.Char(
         string='Name',
         required=True,
@@ -66,7 +67,7 @@ class HrInfraction(models.Model):
         required=True,
         readonly=True,
         states={'draft': [('readonly', False)]},
-        default=time.strftime(DEFAULT_SERVER_DATE_FORMAT),
+        default=fields.Date.today(),
     )
     employee_id = fields.Many2one(
         comodel_name='hr.employee',
