@@ -90,7 +90,7 @@
             <field name="name">hr.infraction.tree</field>
             <field name="model">hr.infraction</field>
             <field name="arch" type="xml">
-                <tree string="Infractions">
+                <tree string="Infractions" colors="grey:state=='cancel';blue:state in ('confirm','approve')">
                     <field name="name"/>
                     <field name="employee_id"/>
                     <field name="company_id" groups="base.group_multi_company"/>
@@ -107,12 +107,12 @@
             <field name="arch" type="xml">
                 <form string="Infraction">
                     <header>
-                        <button name="button_confirm" string="Confirm" class="oe_highlight" type="object" states="draft" groups="hr_infraction.group_infraction_user"/>
-                        <button name="button_approve" string="Approve" class="oe_highlight" type="object" states="confirm" groups="hr_infraction.group_infraction_user"/>
+                        <button name="button_confirm" string="Confirm" class="oe_highlight" type="object" states="draft" groups="hr_infraction.group_infraction_user,hr_infraction.group_infraction_officer"/>
+                        <button name="button_approve" string="Approve" class="oe_highlight" type="object" states="confirm" groups="hr_infraction.group_infraction_user,hr_infraction.group_infraction_officer"/>
                         <button name="button_valid" string="Valid" class="oe_highlight" type="object" states="approve" groups="hr_infraction.group_infraction_officer"/>
                         <button name="button_cancel" string="Cancel" type="object" states="confirm,approve,valid" groups="hr_infraction.group_infraction_officer"/>
                         <button name="button_set_to_draft" string="Set to Draft" type="object" states="cancel" groups="hr_infraction.group_infraction_officer"/>
-                        <field name="state" widget="statusbar"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,confirm,approve" statusbar_colors='{"valid":"green","cancel":"red"}'/>
                     </header>
                     <sheet>
                         <label for="name"/>
