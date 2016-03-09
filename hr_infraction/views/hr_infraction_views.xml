@@ -86,6 +86,28 @@
 
         <!-- Infraction -->
         
+        <record id="hr_infraction_search" model="ir.ui.view">
+            <field name="name">hr.infraction.search</field>
+            <field name="model">hr.infraction</field>
+            <field name="arch" type="xml">
+                <search string="Infractions">
+                    <field name="name"/>
+                    <field name="employee_id"/>
+                    <field name="company_id" groups="base.group_multi_company"/>
+                    <field name="date"/>
+                    <field name="category_id"/>
+                    <field name="state"/>
+                    <group name="group_by" string="Group By..">
+                        <filter name="filter_employee" string="Employee" context="{'group_by' : 'employee_id'}"/>
+                        <filter name="filter_date" string="Date" context="{'group_by' : 'date'}"/>
+                        <filter name="filter_company" string="Company" context="{'group_by' : 'employee_id'}" groups="base.group_multi_company"/>          
+                        <filter name="filter_category" string="Category" context="{'group_by' : 'category_id'}"/>                    
+                        <filter name="filter_warning" string="Warning" context="{'group_by' : 'warning_id'}"/>                                          
+                    </group>
+                </search>
+            </field>
+        </record>
+        
         <record id="hr_infraction_tree" model="ir.ui.view">
             <field name="name">hr.infraction.tree</field>
             <field name="model">hr.infraction</field>
@@ -148,6 +170,7 @@
             <field name="name">Infractions</field>
             <field name="res_model">hr.infraction</field>
             <field name="view_type">form</field>
+            <field name="search_view_id" ref="hr_infraction_search"/>
             <field name="view_mode">tree,form</field>
         </record>
         <menuitem id="menu_hr_infraction"
