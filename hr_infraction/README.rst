@@ -36,6 +36,13 @@ To configure this module, you need to:
 Usage
 =====
 
+**To see your infraction data, you need to:**
+
+1. Got to menu *Human Resources -> Human Resources -> Employee*
+2. Open your employee data
+3. Infraction data will be shown on *Diciplinary Information*
+
+
 **To create infraction document, you need to:**
 
 1. Go to menu *Human Resources -> Infraction -> Infractions*
