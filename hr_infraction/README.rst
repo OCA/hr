@@ -43,9 +43,22 @@ Usage
 3. Infraction data will be shown on *Diciplinary Information*
 
 
+**To see your subordinate infraction infraction data(s), you need to:**
+
+1. Go to menu *Human Resources -> Infraction -> Infractions*
+
+Note:
+* You have to be a member on *Infraction Management / User* to see your subordinate data 
+
+
 **To create infraction document, you need to:**
 
 1. Go to menu *Human Resources -> Infraction -> Infractions*
+
+Note:
+* To create infraction document user has to belong to *Infraction Management / User* or *Infraction Management / Officer* group
+* User who belong to *Infraction Management / User* can only create infraction document for his/her subordinate 
+* User who belong to *Infraction Management / Officer* can create infraction document for all employee
 
 **To confirm infraction document, you need to:**
 
@@ -54,12 +67,20 @@ Usage
 3. Make sure all entries are correct
 4. Click *Confirm* button
 
+Note:
+* To confirm infraction document user has to belong to *Infraction Management / User* or *Infraction Management / Officer* group
+* User who belong to *Infraction Management / User* can only confirm infraction document for his/her subordinate 
+* User who belong to *Infraction Management / Officer* can confirm infraction document for all employee
+
 **To approve infraction document, you need to:**
 
 1. Go to menu *Human Resources -> Infraction -> Infractions*
 2. Open an infraction document that has *confirmed*
 3. Fill (1) *Category*, and (2) *Warning*
 4. Click *Approve* button
+
+Note:
+* To approve infraction document user has to belong to *Infraction Management / Officer* group
 
 **To execute infraction document, you need to:**
 
@@ -68,6 +89,8 @@ Usage
 3. Make sure (1) *Category*, and (2) *Warning* is correct. You still can edit both fields.
 4. Click *Valid* button
 
+Note:
+* To execute infraction document user has to belong to *Infraction Management / Manager* group
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
