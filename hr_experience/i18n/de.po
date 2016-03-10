@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-30 05:19+0000\n"
-"PO-Revision-Date: 2016-01-26 09:40+0000\n"
+"POT-Creation-Date: 2016-03-11 01:48+0000\n"
+"PO-Revision-Date: 2016-03-10 11:30+0000\n"
 "Last-Translator: Rudolf Schnapka <rs@techno-flex.de>\n"
 "Language-Team: German (http://www.transifex.com/oca/OCA-hr-8-0/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -27,15 +27,37 @@ msgid " Professional Experiences"
 msgstr "Berufserfahrung"
 
 #. module: hr_experience
+#: view:hr.certification:hr_experience.view_certification_tree
 #: view:hr.employee:hr_experience.view_employee_form_inherit
+msgid "# Certificate"
+msgstr ""
+
+#. module: hr_experience
+#: view:hr.employee:hr_experience.view_employee_form_inherit
+msgid "# Certification"
+msgstr ""
+
+#. module: hr_experience
 #: selection:hr.experience,category:0
 msgid "Academic"
 msgstr "Schulisch"
 
 #. module: hr_experience
+#: view:hr.employee:hr_experience.view_employee_form_inherit
+msgid "Academic Experience"
+msgstr ""
+
+#. module: hr_experience
+#: view:hr.employee:hr_experience.view_employee_form_inherit
 #: model:ir.ui.menu,name:hr_experience.menu_open_view_academic_form
 msgid "Academic Experiences"
 msgstr "Schulische Erfahrungen"
+
+#. module: hr_experience
+#: view:hr.academic:hr_experience.view_academic_form
+#: view:hr.employee:hr_experience.view_employee_form_inherit
+msgid "Academic Information"
+msgstr ""
 
 #. module: hr_experience
 #: view:hr.academic:hr_experience.view_academic_form
@@ -50,14 +72,14 @@ msgid "Academic experiences"
 msgstr "Schulische Erfahrungen"
 
 #. module: hr_experience
-#: view:hr.academic:hr_experience.view_academic_form
-msgid "Academic information"
-msgstr "Auskunft zur Bildung"
-
-#. module: hr_experience
 #: field:hr.academic,activities:0
 msgid "Activities and associations"
 msgstr "Aktivitäten und Vereinigungen"
+
+#. module: hr_experience
+#: view:hr.academic:hr_experience.view_academic_form
+msgid "Additional Information"
+msgstr ""
 
 #. module: hr_experience
 #: field:hr.experience,category:0 help:hr.experience,category:0
@@ -65,6 +87,8 @@ msgid "Category"
 msgstr "Kategorie"
 
 #. module: hr_experience
+#: view:hr.certification:hr_experience.view_certification_form
+#: view:hr.certification:hr_experience.view_certification_tree
 #: view:hr.employee:hr_experience.view_employee_form_inherit
 #: selection:hr.experience,category:0
 msgid "Certification"
@@ -82,6 +106,7 @@ msgid "Certification information"
 msgstr "Auskunft zur Zertifizierung"
 
 #. module: hr_experience
+#: view:hr.employee:hr_experience.view_employee_form_inherit
 #: field:hr.employee,certification_ids:0 help:hr.employee,certification_ids:0
 #: model:ir.actions.act_window,name:hr_experience.open_view_certification_form
 #: model:ir.ui.menu,name:hr_experience.menu_open_view_certification_form
@@ -103,15 +128,16 @@ msgstr "Angelegt am"
 #. module: hr_experience
 #: view:hr.academic:hr_experience.view_academic_form
 #: view:hr.certification:hr_experience.view_certification_form
+#: view:hr.employee:hr_experience.view_employee_form_inherit
 #: view:hr.experience:hr_experience.view_professional_form
 msgid "Dates"
 msgstr "Daten"
 
 #. module: hr_experience
-#: view:hr.academic:hr_experience.view_academic_form
 #: field:hr.academic,description:0
 #: view:hr.certification:hr_experience.view_certification_form
 #: field:hr.certification,description:0 field:hr.curriculum,description:0
+#: view:hr.employee:hr_experience.view_employee_form_inherit
 #: view:hr.experience:hr_experience.view_professional_form
 #: field:hr.experience,description:0
 msgid "Description"
@@ -121,6 +147,11 @@ msgstr "Beschreibung"
 #: field:hr.academic,diploma:0
 msgid "Diploma"
 msgstr "Diplom"
+
+#. module: hr_experience
+#: view:hr.academic:hr_experience.view_academic_tree
+msgid "Education"
+msgstr ""
 
 #. module: hr_experience
 #: field:hr.academic,employee_id:0 field:hr.certification,employee_id:0
@@ -136,6 +167,13 @@ msgstr "Angestellter"
 #: model:ir.model,name:hr_experience.model_hr_experience
 msgid "Employee's Curriculum"
 msgstr "Mitarbeiter Lebenslauf"
+
+#. module: hr_experience
+#: view:hr.employee:hr_experience.view_employee_form_inherit
+#: view:hr.experience:hr_experience.view_professional_form
+#: view:hr.experience:hr_experience.view_professional_tree
+msgid "Employer"
+msgstr "Arbeitgeber"
 
 #. module: hr_experience
 #: help:hr.academic,partner_id:0 help:hr.certification,partner_id:0
@@ -174,6 +212,19 @@ msgid "ID"
 msgstr "ID"
 
 #. module: hr_experience
+#: view:hr.academic:hr_experience.view_academic_tree
+#: view:hr.employee:hr_experience.view_employee_form_inherit
+msgid "Institution"
+msgstr ""
+
+#. module: hr_experience
+#: view:hr.certification:hr_experience.view_certification_form
+#: view:hr.certification:hr_experience.view_certification_tree
+#: view:hr.employee:hr_experience.view_employee_form_inherit
+msgid "Issued By"
+msgstr ""
+
+#. module: hr_experience
 #: field:hr.academic,write_uid:0 field:hr.certification,write_uid:0
 #: field:hr.curriculum,write_uid:0 field:hr.experience,write_uid:0
 msgid "Last Updated by"
@@ -200,13 +251,15 @@ msgid "Name"
 msgstr "Name"
 
 #. module: hr_experience
+#: view:hr.academic:hr_experience.view_academic_form
 #: field:hr.academic,partner_id:0 field:hr.certification,partner_id:0
-#: field:hr.curriculum,partner_id:0 field:hr.experience,partner_id:0
+#: field:hr.curriculum,partner_id:0
+#: view:hr.employee:hr_experience.view_employee_form_inherit
+#: field:hr.experience,partner_id:0
 msgid "Partner"
 msgstr "Partner"
 
 #. module: hr_experience
-#: view:hr.academic:hr_experience.view_academic_form
 #: view:hr.certification:hr_experience.view_certification_form
 #: view:hr.experience:hr_experience.view_professional_form
 msgid "Partner information"
@@ -214,16 +267,24 @@ msgstr "Auskunft zum Partner"
 
 #. module: hr_experience
 #: view:hr.employee:hr_experience.view_employee_form_inherit
+#: view:hr.experience:hr_experience.view_professional_form
+#: view:hr.experience:hr_experience.view_professional_tree
+msgid "Position"
+msgstr ""
+
+#. module: hr_experience
 #: selection:hr.experience,category:0
 msgid "Professional"
 msgstr "Professionell"
 
 #. module: hr_experience
+#: view:hr.employee:hr_experience.view_employee_form_inherit
 #: view:hr.experience:hr_experience.view_professional_form
 msgid "Professional Experience"
 msgstr "Berufliche Expertise"
 
 #. module: hr_experience
+#: view:hr.employee:hr_experience.view_employee_form_inherit
 #: help:hr.employee,experience_ids:0
 #: view:hr.experience:hr_experience.view_professional_tree
 #: model:ir.actions.act_window,name:hr_experience.open_view_professional_form
