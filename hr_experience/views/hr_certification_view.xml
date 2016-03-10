@@ -7,9 +7,10 @@
         <field name="type">tree</field>
         <field name="arch" type="xml">
             <tree string="certifications">
-                <field name="name"/>
+                <field name="name" string="Certification"/>
                 <field name="employee_id"/>
-                <field name="partner_id"/>
+                <field name="certification" string="# Certificate"/>
+                <field name="partner_id" string="Issued By"/>
                 <field name="start_date"/>
                 <field name="end_date"/>
             </tree>
@@ -22,21 +23,25 @@
         <field name="type">form</field>
         <field name="arch" type="xml">
             <form string="certification">
-                <field name="name"/>
-                <field name="employee_id"/>
-                <separator string="Dates" colspan="4"/>
-                <field name="start_date"/>
-                <field name="expire"/>
-                <field name="end_date" attrs="{'invisible':[('expire', '=', False)]}"/>
-                <separator string="Partner information" colspan="4"/>
-                <field name="partner_id"/>
-                <field name="location"/>
-                <group colspan="4">
-                    <separator string="Certification information" colspan="4"/>
-                    <field name="certification"/>
-                </group>
-                <separator string="Description" colspan="4"/>
-                <field name="description" colspan="4" nolabel="1"/>
+                <sheet>
+                    <group name="main">
+                        <field name="employee_id"/>
+                        <field name="name" string="Certification"/>
+                        <separator string="Dates" colspan="4"/>
+                        <field name="start_date"/>
+                        <field name="expire"/>
+                        <field name="end_date" attrs="{'invisible':[('expire', '=', False)]}"/>
+                        <separator string="Partner information" colspan="4"/>
+                        <field name="partner_id" string="Issued By"/>
+                        <field name="location"/>
+                        <group colspan="4">
+                            <separator string="Certification information" colspan="4"/>
+                            <field name="certification"/>
+                        </group>
+                        <separator string="Description" colspan="4"/>
+                        <field name="description" colspan="4" nolabel="1"/>
+                    </group>
+                </sheet>
             </form>
         </field>
     </record>
