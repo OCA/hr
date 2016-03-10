@@ -7,9 +7,9 @@
         <field name="type">tree</field>
         <field name="arch" type="xml">
             <tree string="Professional Experiences">
-                <field name="name"/>
+                <field name="name" string="Position"/>
                 <field name="employee_id"/>
-                <field name="partner_id"/>
+                <field name="partner_id" string="Employer"/>
                 <field name="start_date"/>
                 <field name="end_date"/>
             </tree>
@@ -22,17 +22,21 @@
         <field name="type">form</field>
         <field name="arch" type="xml">
             <form string="Professional Experience">
-                <field name="name"/>
-                <field name="employee_id"/>
-                <separator string="Dates" colspan="4"/>
-                <field name="start_date"/>
-                <field name="expire"/>
-                <field name="end_date" attrs="{'invisible':[('expire', '=', False)]}"/>
-                <separator string="Partner information" colspan="4"/>
-                <field name="partner_id"/>
-                <field name="location"/>
-                <separator string="Description" colspan="4"/>
-                <field name="description" colspan="4" nolabel="1"/>
+                <sheet>
+                    <group name="main">
+                        <field name="employee_id"/>
+                        <field name="name" string="Position"/>
+                        <separator string="Dates" colspan="4"/>
+                        <field name="start_date"/>
+                        <field name="expire"/>
+                        <field name="end_date" attrs="{'invisible':[('expire', '=', False)]}"/>
+                        <separator string="Partner information" colspan="4"/>
+                        <field name="partner_id" string="Employer"/>
+                        <field name="location"/>
+                        <separator string="Description" colspan="4"/>
+                        <field name="description" colspan="4" nolabel="1"/>
+                    </group>
+                </sheet>
             </form>
         </field>
     </record>
