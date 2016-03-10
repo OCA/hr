@@ -7,9 +7,9 @@ HR Holidays Legal Leave
 =======================
 
 Allows the define what holiday type is to be considered legal/annual leave type.
-As currently is Odoo assumes the type with limit=False which is a problem if
-you have more than one leave type limited this becomes confusing especially
-when tying to set leaves from the employee form.
+Currently Odoo assumes by default leave type with limit=False. This is a problem if
+you have more than one 'limited' leave type and specially confusing when tying to
+set leaves from the employee form.
 
 Installation
 ============
@@ -25,23 +25,18 @@ Configuration
 
 To configure this module, you need to:
 
-Multi-Company setup
+Multi-Company/Company setup
 * Go to the company and select the leave type to use as legal leave
 
-Regular Setup
+HR Module Setup
 * Assign legal leave type via Settings > Human Resources
 
 Usage
 =====
 
-
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
    :target: https://runbot.odoo-community.org/runbot/116/8.0
-
-Known issues / Roadmap
-======================
-
 
 Bug Tracker
 ===========
@@ -75,4 +70,4 @@ OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
 
-To contribute to this module, please visit http://odoo-community.org.
+To contribute to this module, please visit https://odoo-community.org.

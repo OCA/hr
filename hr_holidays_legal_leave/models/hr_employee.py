@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# ©  2015 Salton Massally (<smassally@idtlabs.sl>
+# ©  2015 Salton Massally <smassally@idtlabs.sl>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 from openerp import models, api, fields
-from openerp.exceptions import Warning as UserWarning
+from openerp.exceptions import Warning as UserError
 
 
 class HrEmployee(models.Model):
@@ -13,8 +13,8 @@ class HrEmployee(models.Model):
     def _inverse_remaining_days(self):
         legal_leave = self.company_id.legal_holidays_status_id
         if not legal_leave:
-            raise UserWarning('Legal/annual leave type is not defined for '
-                              'your company')
+            raise UserError('Legal/annual leave type is not defined for '
+                            'your company.')
         diff = self.remaining_leaves - legal_leave.get_days(
             self.id)[legal_leave.id]['remaining_leaves']
         if diff > 0:
@@ -29,8 +29,8 @@ class HrEmployee(models.Model):
                 }
             )
         elif diff < 0:
-            raise UserWarning(
-                'You cannot reduce validated allocation requests')
+            raise UserError(
+                'You cannot reduce validated allocation requests.')
 
         for sig in ('confirm', 'validate', 'second_validate'):
             leave.signal_workflow(sig)
@@ -39,8 +39,8 @@ class HrEmployee(models.Model):
     def _compute_remaining_days(self):
         legal_leave = self.company_id.legal_holidays_status_id
         if not legal_leave:
-            raise UserWarning('Legal/annual leave type is not defined for '
-                              'your company')
+            raise UserError('Legal/annual leave type is not defined for '
+                            'your company.')
         self.remaining_leaves = legal_leave.get_days(
             self.id)[legal_leave.id]['remaining_leaves']
 
@@ -48,7 +48,7 @@ class HrEmployee(models.Model):
         'Remaining Legal Leaves',
         compute='_compute_remaining_days',
         inverse='_inverse_remaining_days',
-        help='Total number of legal leaves allocated to this employee, '
-             'change this value to create allocation/leave request. '
+        help='Total number of legal leaves allocated to this employee. '
+             'Change this value to create allocation/leave request. '
              'Total based on all the leave types without overriding limit.'
     )
