@@ -6,9 +6,11 @@
         <field name="model">hr.academic</field>
         <field name="arch" type="xml">
             <tree string="Academic experiences">
-                <field name="name"/>
+                <field name="name" string="Education"/>
                 <field name="employee_id"/>
-                <field name="partner_id"/>
+                <field name="partner_id" string="Institution"/>
+                <field name="diploma"/>
+                <field name="study_field"/>
                 <field name="start_date"/>
                 <field name="end_date"/>
             </tree>
@@ -20,23 +22,25 @@
         <field name="model">hr.academic</field>
         <field name="arch" type="xml">
             <form string="Academic experience">
-                <field name="name"/>
-                <field name="employee_id"/>
-                <separator string="Dates" colspan="4"/>
-                <field name="start_date"/>
-                <field name="expire"/>
-                <field name="end_date" attrs="{'invisible':[('expire', '=', False)]}"/>
-                <separator string="Partner information" colspan="4"/>
-                <field name="partner_id"/>
-                <field name="location"/>
-                <group  colspan="4">
-                    <separator string="Academic information" colspan="4"/>
-                    <field name="diploma" />
-                    <field name="study_field"/>
-                    <field name="activities"/>
-                </group>
-                <separator string="Description" colspan="4"/>
-                <field name="description" colspan="4" nolabel="1"/>
+                <sheet>
+                    <group name="main">
+                        <field name="employee_id"/>
+                        <field name="name"/>
+                        <separator string="Dates" colspan="4"/>
+                        <field name="start_date"/>
+                        <field name="expire"/>
+                        <field name="end_date" attrs="{'invisible':[('expire', '=', False)]}"/>
+                        <separator string="Partner" colspan="4"/>
+                        <field name="partner_id"/>
+                        <field name="location"/>
+                        <separator string="Academic Information" colspan="4"/>
+                        <field name="diploma"/>
+                        <field name="study_field"/>
+                        <field name="activities"/>
+                        <separator string="Additional Information" colspan="4"/>
+                        <field name="description" colspan="4" nolabel="1"/>
+                    </group>
+                </sheet>
             </form>
       </field>
     </record>
