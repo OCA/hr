@@ -56,6 +56,7 @@ Contributors
 ------------
 
 * Salton Massally <smassally@idtlabs.sl>
+* Fekete Mihai <feketemihai@gmail.com>
 
 Maintainer
 ----------
