@@ -30,11 +30,9 @@ class HrInfractionWarning(models.Model):
         required=True,
         translate=True,
         )
-
     code = fields.Char(
         string='Code',
         )
-
     category_ids = fields.Many2many(
         string='Infraction Category(s)',
         comodel_name='hr.infraction.category',
@@ -81,7 +79,6 @@ class HrInfraction(models.Model):
         copy=False,
         default=_default_company_id,
     )
-
     category_id = fields.Many2one(
         comodel_name='hr.infraction.category',
         string='Category',
