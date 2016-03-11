@@ -42,7 +42,7 @@ addon | version | summary
 [hr_expense_analytic_plans](hr_expense_analytic_plans/) | 8.0.1.0.0 | Use analytic plans in expenses
 [hr_expense_invoice](hr_expense_invoice/) | 8.0.1.0.0 | Supplier invoices on HR expenses
 [hr_expense_sequence](hr_expense_sequence/) | 8.0.1.0.0 | HR expense sequence
-[hr_experience](hr_experience/) | 8.0.0.1.0 | Experience Management
+[hr_experience](hr_experience/) | 8.0.1.1.0 | Experience Management
 [hr_family](hr_family/) | 8.0.1.2.0 | Employee Family Information
 [hr_job_categories](hr_job_categories/) | 8.0.1.0.0 | HR Job Employee Categories
 [hr_language](hr_language/) | 8.0.0.1.0 | Language Management
