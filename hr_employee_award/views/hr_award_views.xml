@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- © <YEAR(S)> <AUTHOR(S)>
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html). -->
+
+<openerp>
+<data>
+<menuitem id="menu_hr_award_root"
+    parent="hr.menu_hr_root"
+    name="Awards"
+    sequence="5"/>
+<!-- Award type -->
+<record id="search_award_type" model="ir.ui.view">
+    <field name="name">hr.award.type.search</field>
+    <field name="model">hr.award.type</field>
+    <field name="arch" type="xml">
+        <search string="Award Type">
+            <field name="name"/>
+            <field name="code"/>
+            <field name="type"/>
+            <field name="point"/>
+        </search>
+    </field>
+</record>
+<record id="tree_award_type" model="ir.ui.view">
+    <field name="name">hr.award.type.tree</field>
+    <field name="model">hr.award.type</field>
+    <field name="arch" type="xml">
+        <tree string="Award Type">
+            <field name="name"/>
+            <field name="code"/>
+            <field name="type"/>
+            <field name="point"/>
+        </tree>
+    </field>
+</record>
+<record id="form_award_type" model="ir.ui.view">
+    <field name="name">hr.award.type.form</field>
+    <field name="model">hr.award.type</field>
+    <field name="arch" type="xml">
+        <form string="Award Type">
+            <group name="main">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="type"/>
+                <field name="point"/>
+                <field name="active"/>
+            </group>
+        </form>
+    </field>
+</record>
+<record id="open_hr_award_type" model="ir.actions.act_window">
+    <field name="name">Award Types</field>
+    <field name="res_model">hr.award.type</field>
+    <field name="view_type">form</field>
+    <field name="view_mode">tree,form</field>
+</record>
+<menuitem action="open_hr_award_type"
+    id="menu_hr_award_type"
+    parent="hr.menu_hr_configuration"
+    groups="base.group_hr_user"
+    sequence="5"/>
+
+<!-- Award -->
+<record id="search_award" model="ir.ui.view">
+    <field name="name">hr.award.search</field>
+    <field name="model">hr.award</field>
+    <field name="arch" type="xml">
+        <search string="Award">
+            <field name="name"/>
+            <field name="employee_id"/>
+            <field name="date_issued"/>
+            <field name="award_type_id"/>
+            <field name="point"/>
+            <field name="state"/>
+            <group name="group_by" string="Group By..">
+                <filter name="filter_employee" string="Employee" context="{'group_by':'employee_id'}"/>
+                <filter name="filter_date_issued" string="Date Issued" context="{'group_by':'date_issued'}"/>
+                <filter name="filter_award_type" string="Award Type" context="{'group_by':'award_type_id'}"/>
+            </group>
+        </search>
+    </field>
+</record>
+<record id="tree_award" model="ir.ui.view">
+    <field name="name">hr.award.tree</field>
+    <field name="model">hr.award</field>
+    <field name="arch" type="xml">
+        <tree string="Award" colors="grey:state=='cancelled';blue:state in ('confirmed','approved')">
+            <field name="name"/>
+            <field name="employee_id"/>
+            <field name="company_id" groups="base.group_multi_company"/>
+            <field name="date_issued"/>
+            <field name="award_type_id"/>
+            <field name="point" sum="Total Point"/>
+            <field name="state"/>
+        </tree>
+    </field>
+</record>
+<record id="form_award" model="ir.ui.view">
+    <field name="name">hr.award.form</field>
+    <field name="model">hr.award</field>
+    <field name="arch" type="xml">
+        <form string="Award Type">
+            <header>
+                <button name="button_confirm" string="Confirm" type="object" states="draft" class="oe_highlight" groups="base.group_hr_user"/>
+                <button name="button_approve" string="Approve" type="object" states="confirmed" class="oe_highlight" groups="base.group_hr_manager"/>
+                <button name="button_issue" string="Issue" type="object" states="approved" class="oe_highlight" groups="base.group_hr_manager"/>
+                <button name="button_cancel" string="Cancel" type="object" states="confirmed,approved,issued" groups="base.group_hr_user,base.group_hr_manager"/>
+                <button name="button_restart" string="Set to Draft" type="object" states="cancelled" groups="base.group_hr_user,base.group_hr_manager"/>
+                <field name="state" widget="statusbar" statusbar_visible="draft,confirmed,approved,issued"/>
+            </header>
+            <sheet>
+                <group name="main">
+                    <field name="name"/>
+                    <field name="employee_id"/>
+                    <field name="company_id" groups="base.group_multi_company"/>
+                    <field name="date_issued"/>
+                    <field name="award_type_id"/>
+                    <field name="point"/>
+                </group>
+                <notebook>
+                    <page name="page_note" string="Additional Information">
+                        <field name="note" colspan="4" nolabel="1"/>
+                    </page>
+                </notebook>
+            </sheet>
+            <div class="oe_chatter">
+                <field name="message_follower_ids" widget="mail_followers"/>
+                <field name="message_ids" widget="mail_thread"/>
+            </div>
+        </form>
+    </field>
+</record>
+<record id="open_hr_award" model="ir.actions.act_window">
+    <field name="name">Awards</field>
+    <field name="res_model">hr.award</field>
+    <field name="view_type">form</field>
+    <field name="view_mode">tree,form</field>
+</record>
+<menuitem action="open_hr_award"
+    id="menu_hr_award"
+    parent="menu_hr_award_root"
+    groups="base.group_hr_user"    
+    sequence="5"/>
+</data>
+</openerp>

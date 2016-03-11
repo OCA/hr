@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- © 2016 OpenSynergy Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html). -->
+
+<openerp>
+<data>
+
+<record id="award_type_eom" model="hr.award.type">
+    <field name="name">Employee of the month</field>
+    <field name="code">EOM</field>
+    <field name="type">internal</field>
+    <field name="point" eval="10"/>
+</record>
+
+<record id="award_type_eoy" model="hr.award.type">
+    <field name="name">Employee of the year</field>
+    <field name="code">EOY</field>
+    <field name="type">internal</field>
+    <field name="point" eval="20"/>
+</record>
+
+</data>
+</openerp>
