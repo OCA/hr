@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# * hr_contract_default_trial_length
+# * hr_expense_sequence
 # 
 # Translators:
 # danimaribeiro <danimaribeiro@gmail.com>, 2016
@@ -18,22 +18,18 @@ msgstr ""
 "Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#. module: hr_contract_default_trial_length
-#: model:ir.model,name:hr_contract_default_trial_length.model_hr_contract
-msgid "Contract"
-msgstr "Contrato"
+#. module: hr_expense_sequence
+#: view:hr.expense.expense:hr_expense_sequence.view_expenses_form_sequence
+#: model:ir.model,name:hr_expense_sequence.model_hr_expense_expense
+msgid "Expense"
+msgstr "Despesa"
 
-#. module: hr_contract_default_trial_length
-#: model:ir.model,name:hr_contract_default_trial_length.model_hr_contract_type
-msgid "Contract Type"
-msgstr "Tipo de contrato"
+#. module: hr_expense_sequence
+#: field:hr.expense.expense,number:0
+msgid "Number"
+msgstr "Número"
 
-#. module: hr_contract_default_trial_length
-#: help:hr.contract.type,trial_length:0
-msgid "Default contract trial length in Days"
-msgstr "Duração padrão em dias do contrato de experiência"
-
-#. module: hr_contract_default_trial_length
-#: field:hr.contract.type,trial_length:0
-msgid "Trial length"
+#. module: hr_expense_sequence
+#: view:hr.expense.expense:hr_expense_sequence.view_hr_expense_filter_sequence
+msgid "['|', ('name', 'ilike', self), ('number', 'ilike', self)]"
 msgstr ""
