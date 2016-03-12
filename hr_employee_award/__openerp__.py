@@ -18,10 +18,10 @@
         "security/ir.model.access.csv",
         "security/hr_award_security.xml",
         "data/hr_award_data.xml",
-        "demo/hr_award_demo.xml",
         "views/hr_award_views.xml",
         "views/hr_employee_views.xml",
     ],
     "demo": [
+        "demo/hr_award_demo.xml",
     ],
 }
