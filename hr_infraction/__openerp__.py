@@ -18,10 +18,12 @@
     'data': [
         'security/hr_infraction_security.xml',
         'security/ir.model.access.csv',
-        'demo/hr_infraction_demo.xml',
         'datas/hr_infraction_data.xml',
         'views/hr_infraction_views.xml',
         'views/hr_employee_views.xml',
+    ],
+    'demo': [
+        'demo/hr_infraction_demo.xml',
     ],
     'installable': True,
 }

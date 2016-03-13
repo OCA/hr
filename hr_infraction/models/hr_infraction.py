@@ -3,15 +3,13 @@
 # © 2016 OpenSynergy Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-import time
 from openerp import models, fields, api
-from openerp.tools import DEFAULT_SERVER_DATE_FORMAT
 
 
 class HrInfractionCatagory(models.Model):
     _name = 'hr.infraction.category'
     _description = 'Infraction Type'
-    
+
     name = fields.Char(
         string='Name',
         required=True,
