@@ -123,14 +123,14 @@ class HrInfraction(models.Model):
     @api.multi
     def button_confirm(self):
         for inv in self:
-            update_data = {
-                'state': 'confirm',
-                }
+            name = inv.name
             if inv.name == '/':
-                update_data.update({
-                    'name': self.env['ir.sequence'].get('hr.infraction'),
-                    })
-            self.update(update_data)
+                name = self.env['ir.sequence'].get('hr.infraction'),
+
+            self.update({
+                'state': 'confirm',
+                'name': name,
+                })
 
     @api.multi
     def button_approve(self):
