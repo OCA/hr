@@ -1,25 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
-<data noupdate="0">
-    <record model="ir.module.category" id="module_category_infraction">
-        <field name="name">Infraction Management</field>
-        <field name="sequence">10</field>
-    </record>
-        
+<data noupdate="0">      
     <record id="group_infraction_user" model="res.groups">
-        <field name="name">User</field>
-        <field name="category_id" ref="module_category_infraction"/>
+        <field name="name">Infraction User</field>
+        <field name="category_id" ref="base.module_category_human_resources"/>
         <field name="comment">the user will be able to create infraction document</field>
     </record>
     
     <record id="group_infraction_officer" model="res.groups">
-        <field name="name">Officer</field>
-        <field name="category_id" ref="module_category_infraction"/>
+        <field name="name">Infraction Officer</field>
+        <field name="category_id" ref="base.module_category_human_resources"/>
     </record>
     
     <record id="group_infraction_manager" model="res.groups">
-        <field name="name">Manager</field>
-        <field name="category_id" ref="module_category_infraction"/>
+        <field name="name">Infraction Manager</field>
+        <field name="category_id" ref="base.module_category_human_resources"/>
         <field name="implied_ids" eval="[(4, ref('group_infraction_officer'))]"/>
         <field name="users" eval="[(4, ref('base.user_root'))]"/>
     </record>
