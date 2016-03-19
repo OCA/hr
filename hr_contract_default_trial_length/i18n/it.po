@@ -1,0 +1,39 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * hr_contract_default_trial_length
+# 
+# Translators:
+# Paolo Valier, 2016
+msgid ""
+msgstr ""
+"Project-Id-Version: hr (8.0)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-03-12 12:02+0000\n"
+"PO-Revision-Date: 2016-03-19 10:39+0000\n"
+"Last-Translator: Paolo Valier\n"
+"Language-Team: Italian (http://www.transifex.com/oca/OCA-hr-8-0/language/it/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: it\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: hr_contract_default_trial_length
+#: model:ir.model,name:hr_contract_default_trial_length.model_hr_contract
+msgid "Contract"
+msgstr "Contratto"
+
+#. module: hr_contract_default_trial_length
+#: model:ir.model,name:hr_contract_default_trial_length.model_hr_contract_type
+msgid "Contract Type"
+msgstr ""
+
+#. module: hr_contract_default_trial_length
+#: help:hr.contract.type,trial_length:0
+msgid "Default contract trial length in Days"
+msgstr ""
+
+#. module: hr_contract_default_trial_length
+#: field:hr.contract.type,trial_length:0
+msgid "Trial length"
+msgstr ""
