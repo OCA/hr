@@ -18,6 +18,5 @@ class HrEmployee(models.Model):
         column2='partner_id',
         domain=[
             ('is_company', '=', False),
-            ('parent_id', '=', False),
             ]
         )
