@@ -10,7 +10,7 @@
                 <xpath expr='//notebook' position="inside">
                     <page string="Emergency Contacts">
                         <field name="emergency_contact_ids" nolabel="1" colspan="4"
-                            context="{'default_is_company':False, 'default_parent_id':False}"
+                            context="{'default_is_company':False}"
                             />
                     </page>
                 </xpath>
