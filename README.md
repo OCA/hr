@@ -29,6 +29,7 @@ addon | version | summary
 [hr_contract_multi_jobs](hr_contract_multi_jobs/) | 8.0.1.0.0 | HR Contract Multi Jobs
 [hr_contract_reference](hr_contract_reference/) | 8.0.1.0.0 | HR Contract Reference
 [hr_department_sequence](hr_department_sequence/) | 1.0 | Add sequence on department
+[hr_emergency_contact](hr_emergency_contact/) | 1.0 | HR Emergency Contact
 [hr_employee_age](hr_employee_age/) | 8.0.1.0.0 | Age field for employee
 [hr_employee_benefit](hr_employee_benefit/) | 8.0.1.0.0 | Employee Benefit
 [hr_employee_data_from_work_address](hr_employee_data_from_work_address/) | 8.0.1.0.0 | Update user's and partner's data fields from employee record
@@ -59,7 +60,6 @@ addon | version | summary
 [hr_accrual](hr_accrual/) | 1.0 (unported) | Accrual
 [hr_contract_init](hr_contract_init/) | 1.0 (unported) | Contracts - Initial Settings
 [hr_contract_state](hr_contract_state/) | 1.0 (unported) | Manage Employee Contracts
-[hr_emergency_contact](hr_emergency_contact/) | 1.0 (unported) | HR Emergency Contact
 [hr_employee_education](hr_employee_education/) | 1.0 (unported) | Employee Education Records
 [hr_employee_seniority](hr_employee_seniority/) | 1.0 (unported) | Employee Seniority
 [hr_employee_state](hr_employee_state/) | 1.0 (unported) | Employment Status
