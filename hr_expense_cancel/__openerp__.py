@@ -20,25 +20,19 @@
 ##############################################################################
 
 {
-    "name": "Hr Expense",
-    "version": "1.0",
-    "author": "Vincent Renaville, Odoo Community Association (OCA)",
-    "author": "Camptocamp",
+    "name": "HR Expense Cancel",
+    "version": "8.0.1.0.0",
+    "author": "Camptocamp, Odoo Community Association (OCA)",
     "category": "Accounting",
     "website": "http://www.camptocamp.com/",
-    "license": "",
+    "license": "AGPL-3",
     "depends": [
         "hr_expense"
     ],
-    "demo": [],
     "data": [
         "workflow/hr_expense_workflow.xml",
         "view/hr_expense_view.xml"
     ],
-    "test": [],
-    "js": [],
-    "css": [],
-    "qweb": [],
     "installable": True,
     "auto_install": False,
 }
