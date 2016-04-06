@@ -35,7 +35,7 @@ class HrHolidays(models.Model):
             duration = self._compute_number_of_days(employee_id,
                                                     date_to,
                                                     date_from)
-            res['value']['number_of_hours_temp'] = duration
+            res['value']['number_of_days_temp'] = duration
         return res
 
     @api.multi

@@ -31,7 +31,7 @@ class TestHolidaysComputeDays(common.TransactionCase):
         calendar = self.calendar_model.create({
             'name': 'Calendar'
         })
-        for day in range(0, 5):
+        for day in range(5):
             self.calendar_attendance_model.create(
                 {
                     'name': 'Attendance',
@@ -75,105 +75,109 @@ class TestHolidaysComputeDays(common.TransactionCase):
     def test_schedule_on_rest_day(self):
         # let's schedule start and then end date on a rest day
         with self.assertRaises(ValidationError):
-            self.holiday_model.create({
-                'name': 'Hol10',
-                'employee_id': self.employee.id,
-                'type': 'remove',
-                'holiday_type': 'employee',
-                'holiday_status_id': self.holiday_type.id,
-                'date_from': '1994-10-01 00:10:00',
-                'date_to': '1994-10-05 23:59:59',
-            })
+            leave = self.holiday_model.create({
+                    'name': 'Hol10',
+                    'employee_id': self.employee.id,
+                    'type': 'remove',
+                    'holiday_type': 'employee',
+                    'holiday_status_id': self.holiday_type.id,
+                    'date_from': '1994-10-01 08:00:00',
+                    'date_to': '1994-10-05 18:00:00',
+                })
+            leave.onchange_date_from(leave.date_to, leave.date_from)
 
         with self.assertRaises(ValidationError):
-            self.holiday_model.create({
-                'name': 'Hol10',
-                'type': 'remove',
-                'holiday_type': 'employee',
-                'employee_id': self.employee.id,
-                'holiday_status_id': self.holiday_type.id,
-                'date_from': '1994-10-03 00:10:00',
-                'date_to': '1994-10-05 23:59:59',
-            })
+            leave = self.holiday_model.create({
+                    'name': 'Hol11',
+                    'type': 'remove',
+                    'holiday_type': 'employee',
+                    'employee_id': self.employee.id,
+                    'holiday_status_id': self.holiday_type.id,
+                    'date_from': '1994-10-03 08:00:00',
+                    'date_to': '1994-10-08 18:00:00',
+                })
+            leave.onchange_date_from(leave.date_to, leave.date_from)
 
     def test_schedule_on_public_holiday(self):
         # let's schedule start and then end date on public holiday
         with self.assertRaises(ValidationError):
-            self.holiday_model.create({
-                'name': 'Hol10',
-                'type': 'remove',
-                'holiday_type': 'employee',
-                'employee_id': self.employee.id,
-                'holiday_status_id': self.holiday_type.id,
-                'date_from': '1994-10-14 00:10:00',
-                'date_to': '1994-10-15 23:59:59',
-            })
+            leave = self.holiday_model.create({
+                    'name': 'Hol12',
+                    'type': 'remove',
+                    'holiday_type': 'employee',
+                    'employee_id': self.employee.id,
+                    'holiday_status_id': self.holiday_type.id,
+                    'date_from': '1994-10-14 08:00:00',
+                    'date_to': '1994-10-17 18:00:00',
+                })
+            leave.onchange_date_from(leave.date_to, leave.date_from)
         with self.assertRaises(ValidationError):
-            self.holiday_model.create({
-                'name': 'Hol10',
-                'employee_id': self.employee.id,
-                'type': 'remove',
-                'holiday_type': 'employee',
-                'holiday_status_id': self.holiday_type.id,
-                'date_from': '1994-10-06 00:10:00',
-                'date_to': '1994-10-14 23:59:59',
-            })
+            leave = self.holiday_model.create({
+                    'name': 'Hol13',
+                    'employee_id': self.employee.id,
+                    'type': 'remove',
+                    'holiday_type': 'employee',
+                    'holiday_status_id': self.holiday_type.id,
+                    'date_from': '1994-10-06 08:00:00',
+                    'date_to': '1994-10-14 18:00:00',
+                })
+            leave.onchange_date_from(leave.date_to, leave.date_from)
 
     def test_leave_creation_ok(self):
-        # let's schedule start and then end date on public holiday
+        # let's schedule holiday with date_from and date to in working days
         leave = self.holiday_model.new({
-            'name': 'Hol10',
+            'name': 'Hol14',
             'employee_id': self.employee.id,
             'type': 'remove',
             'holiday_type': 'employee',
             'holiday_status_id': self.holiday_type.id,
-            'date_from': '1994-10-11 00:10:00',
-            'date_to': '1994-10-13 23:59:59',
+            'date_from': '1994-10-11 08:00:00',
+            'date_to': '1994-10-13 18:00:00',
         })
-        leave.on_change_number_of_days()
+        leave.onchange_date_from(leave.date_to, leave.date_from)
         self.assertTrue(leave)
 
     def test_no_overlap(self):
         # leave overlaps no weekend or public holiday
         leave = self.holiday_model.new({
-            'name': 'Hol10',
+            'name': 'Hol15',
             'employee_id': self.employee.id,
             'type': 'remove',
             'holiday_type': 'employee',
             'holiday_status_id': self.holiday_type.id,
-            'date_from': '1994-10-17 00:10:00',
-            'date_to': '1994-10-21 23:59:59',
+            'date_from': '1994-10-17 08:00:00',
+            'date_to': '1994-10-21 18:00:00',
         })
-        leave.onchange_date_from(leave.date_to, leave.date_from)
-        self.assertEqual(leave.number_of_days_temp, 5)
+        res = leave.onchange_date_from(leave.date_to, leave.date_from)
+        self.assertEqual(res['value']['number_of_days_temp'], 5)
 
     def test_overlap_weekend(self):
         # let's leave schedule overlap weekend
         leave = self.holiday_model.new({
-            'name': 'Hol10',
+            'name': 'Hol16',
             'employee_id': self.employee.id,
             'type': 'remove',
             'holiday_type': 'employee',
             'holiday_status_id': self.holiday_type.id,
-            'date_from': '1994-10-21 00:10:00',
-            'date_to': '1994-10-27 23:59:59',
+            'date_from': '1994-10-21 08:00:00',
+            'date_to': '1994-10-27 18:00:00',
         })
-        leave.onchange_date_from(leave.date_to, leave.date_from)
-        self.assertEqual(leave.number_of_days_temp, 5)
+        res = leave.onchange_date_from(leave.date_to, leave.date_from)
+        self.assertEqual(res['value']['number_of_days_temp'], 5)
 
     def test_overlap_holiday_and_rest_day(self):
-        # let's leave schedule overlap weekend and restday
+        # let's leave schedule overlap weekend and public holiday
         leave = self.holiday_model.new({
-            'name': 'Hol10',
+            'name': 'Hol17',
             'employee_id': self.employee.id,
             'type': 'remove',
             'holiday_type': 'employee',
             'holiday_status_id': self.holiday_type.id,
-            'date_from': '1994-10-12 00:10:00',
-            'date_to': '1994-10-19 23:59:59',
+            'date_from': '1994-10-12 08:00:00',
+            'date_to': '1994-10-19 18:00:00',
         })
-        leave.onchange_date_from(leave.date_to, leave.date_from)
-        self.assertEqual(leave.number_of_days_temp, 5)
+        res = leave.onchange_date_from(leave.date_to, leave.date_from)
+        self.assertEqual(res['value']['number_of_days_temp'], 5)
 
     def test_overlap_for_non_conventional_rest_day(self):
         # let's leave schedule overlap on restday for non conventional restday
@@ -188,29 +192,29 @@ class TestHolidaysComputeDays(common.TransactionCase):
                     'dayofweek': str(day),
                     'hour_from': '08',
                     'hour_to': '18',
-                    'calendar_id': calendar.id
+                    'calendar_id': calendar[0].id
                 }
             )
         # create contract
         self.contract.write(
             {
-                'working_hours': calendar.id
+                'working_hours': calendar[0].id
             }
         )
         leave = self.holiday_model.new({
-            'name': 'Hol10',
+            'name': 'Hol18',
             'employee_id': self.employee.id,
             'type': 'remove',
             'holiday_type': 'employee',
             'holiday_status_id': self.holiday_type.id,
-            'date_from': '1994-10-17 00:10:00',
-            'date_to': '1994-10-23 23:59:59',
+            'date_from': '1994-10-16 08:00:00',
+            'date_to': '1994-10-22 18:00:00',
         })
-        leave.onchange_date_from(leave.date_to, leave.date_from)
-        self.assertEqual(leave.number_of_days_temp, 5)
+        res = leave.onchange_date_from(leave.date_to, leave.date_from)
+        self.assertEqual(res['value']['number_of_days_temp'], 5)
 
     def test_no_exclude_holiday_and_rest_day(self):
-        # lwe have a holiday type that does not exclude public holiday or
+        # we have a holiday type that does not exclude public holiday or
         # rest day
         self.holiday_type.write(
             {
@@ -219,54 +223,56 @@ class TestHolidaysComputeDays(common.TransactionCase):
             }
         )
         leave = self.holiday_model.new({
-            'name': 'Hol10',
+            'name': 'Hol19',
             'employee_id': self.employee.id,
             'type': 'remove',
             'holiday_type': 'employee',
             'holiday_status_id': self.holiday_type.id,
-            'date_from': '1994-10-13 00:10:00',
-            'date_to': '1994-10-17 23:59:59',
+            'date_from': '1994-10-13 08:00:00',
+            'date_to': '1994-10-17 18:00:00',
         })
-        leave.onchange_date_from(leave.date_to, leave.date_from)
-        self.assertEqual(leave.number_of_days_temp, 5)
+        res = leave.onchange_date_from(leave.date_to, leave.date_from)
+        self.assertEqual(res['value']['number_of_days_temp'], 5)
 
     def test_no_exclude_holiday(self):
         # lwe have a holiday type that excludes on rest days
         self.holiday_type.write(
             {
                 'exclude_public_holidays': False,
+                'exclude_rest_days':True
             }
         )
         leave = self.holiday_model.new({
-            'name': 'Hol10',
+            'name': 'Hol20',
             'employee_id': self.employee.id,
             'type': 'remove',
             'holiday_type': 'employee',
             'holiday_status_id': self.holiday_type.id,
-            'date_from': '1994-10-12 00:10:00',
-            'date_to': '1994-10-18 23:59:59',
+            'date_from': '1994-10-12 08:00:00',
+            'date_to': '1994-10-18 18:00:00',
         })
-        leave.onchange_date_from(leave.date_to, leave.date_from)
-        self.assertEqual(leave.number_of_days_temp, 5)
+        res = leave.onchange_date_from(leave.date_to, leave.date_from)
+        self.assertEqual(res['value']['number_of_days_temp'], 5)
 
     def test_no_exclude_rest_day(self):
         # lwe have a holiday type that does not exclude rest days
         self.holiday_type.write(
             {
+                'exclude_public_holidays': True,
                 'exclude_rest_days': False
             }
         )
         leave = self.holiday_model.new({
-            'name': 'Hol10',
+            'name': 'Hol21',
             'employee_id': self.employee.id,
             'type': 'remove',
             'holiday_type': 'employee',
             'holiday_status_id': self.holiday_type.id,
-            'date_from': '1994-10-12 00:10:00',
-            'date_to': '1994-10-17 23:59:59',
+            'date_from': '1994-10-12 08:00:00',
+            'date_to': '1994-10-17 18:00:00',
         })
-        leave.onchange_date_from(leave.date_to, leave.date_from)
-        self.assertEqual(leave.number_of_days_temp, 5)
+        res = leave.onchange_date_from(leave.date_to, leave.date_from)
+        self.assertEqual(res['value']['number_of_days_temp'], 5)
 
     def test_no_schedule_holiday_and_rest_day(self):
         # let's run test assumign employee has not schedule
@@ -276,28 +282,28 @@ class TestHolidaysComputeDays(common.TransactionCase):
             }
         )
         leave = self.holiday_model.new({
-            'name': 'Hol10',
+            'name': 'Hol22',
             'employee_id': self.employee.id,
             'type': 'remove',
             'holiday_type': 'employee',
             'holiday_status_id': self.holiday_type.id,
-            'date_from': '1994-10-13 00:10:00',
-            'date_to': '1994-10-20 23:59:59',
+            'date_from': '1994-10-13 08:00:00',
+            'date_to': '1994-10-20 18:00:00',
         })
-        leave.onchange_date_from(leave.date_to, leave.date_from)
-        self.assertEqual(leave.number_of_days_temp, 5)
+        res = leave.onchange_date_from(leave.date_to, leave.date_from)
+        self.assertEqual(res['value']['number_of_days_temp'], 5)
 
     def test_no_contract_holiday_and_rest_day(self):
         # let's run test assumign employee has not schedule
         self.contract.unlink()
         leave = self.holiday_model.new({
-            'name': 'Hol10',
+            'name': 'Hol23',
             'employee_id': self.employee.id,
             'type': 'remove',
             'holiday_type': 'employee',
             'holiday_status_id': self.holiday_type.id,
-            'date_from': '1994-10-13 00:10:00',
-            'date_to': '1994-10-20 23:59:59',
+            'date_from': '1994-10-13 08:00:00',
+            'date_to': '1994-10-20 18:00:00',
         })
-        leave.onchange_date_from(leave.date_to, leave.date_from)
-        self.assertEqual(leave.number_of_days_temp, 5)
+        res = leave.onchange_date_from(leave.date_to, leave.date_from)
+        self.assertEqual(res['value']['number_of_days_temp'], 5)
