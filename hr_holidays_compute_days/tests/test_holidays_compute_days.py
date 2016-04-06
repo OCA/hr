@@ -75,7 +75,8 @@ class TestHolidaysComputeDays(common.TransactionCase):
     def test_schedule_on_rest_day(self):
         # let's schedule start and then end date on a rest day
         with self.assertRaises(ValidationError):
-            leave = self.holiday_model.create({
+            leave = self.holiday_model.create(
+                {
                     'name': 'Hol10',
                     'employee_id': self.employee.id,
                     'type': 'remove',
@@ -87,7 +88,8 @@ class TestHolidaysComputeDays(common.TransactionCase):
             leave.onchange_date_from(leave.date_to, leave.date_from)
 
         with self.assertRaises(ValidationError):
-            leave = self.holiday_model.create({
+            leave = self.holiday_model.create(
+                {
                     'name': 'Hol11',
                     'type': 'remove',
                     'holiday_type': 'employee',
@@ -101,7 +103,8 @@ class TestHolidaysComputeDays(common.TransactionCase):
     def test_schedule_on_public_holiday(self):
         # let's schedule start and then end date on public holiday
         with self.assertRaises(ValidationError):
-            leave = self.holiday_model.create({
+            leave = self.holiday_model.create(
+                {
                     'name': 'Hol12',
                     'type': 'remove',
                     'holiday_type': 'employee',
@@ -112,7 +115,8 @@ class TestHolidaysComputeDays(common.TransactionCase):
                 })
             leave.onchange_date_from(leave.date_to, leave.date_from)
         with self.assertRaises(ValidationError):
-            leave = self.holiday_model.create({
+            leave = self.holiday_model.create(
+                {
                     'name': 'Hol13',
                     'employee_id': self.employee.id,
                     'type': 'remove',
@@ -239,7 +243,7 @@ class TestHolidaysComputeDays(common.TransactionCase):
         self.holiday_type.write(
             {
                 'exclude_public_holidays': False,
-                'exclude_rest_days':True
+                'exclude_rest_days': True
             }
         )
         leave = self.holiday_model.new({

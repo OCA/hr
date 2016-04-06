@@ -27,9 +27,9 @@ class HrEmployee(models.Model):
                 date_dt, employee_id=self.id):
             return False
         elif schedule and self.contract_id and self.contract_id.working_hours:
-              hours = self.contract_id.working_hours.get_working_hours_of_date(
-                  datetime.combine(date_dt, time.min))[0]
-              if not hours:
+            hours = self.contract_id.working_hours.get_working_hours_of_date(
+                datetime.combine(date_dt, time.min))[0]
+            if not hours:
                 return False
         elif schedule and (not self.contract_id or (
                 self.contract_id and not self.contract_id.working_hours)):
