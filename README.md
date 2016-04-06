@@ -47,6 +47,7 @@ addon | version | summary
 [hr_family](hr_family/) | 8.0.1.2.0 | Employee Family Information
 [hr_job_categories](hr_job_categories/) | 8.0.1.0.0 | HR Job Employee Categories
 [hr_language](hr_language/) | 8.0.0.1.0 | Language Management
+[hr_public_holidays](hr_public_holidays/) | 8.0.1.0.0 | Manage Public Holidays
 [hr_recruitment_partner](hr_recruitment_partner/) | 8.0.1.0.0 | Automatically create a Partner for Applicants
 [hr_salary_rule_reference](hr_salary_rule_reference/) | 8.0.1.0.0 | Salary Rule Reference
 [hr_security](hr_security/) | 8.0.1.0.0 | HR Permission Groups
@@ -80,7 +81,6 @@ addon | version | summary
 [hr_policy_group](hr_policy_group/) | 1.0 (unported) | Human Resources Policy Groups
 [hr_policy_ot](hr_policy_ot/) | 1.0 (unported) | Overtime Policy
 [hr_policy_presence](hr_policy_presence/) | 1.0 (unported) | Employee Presence Policy
-[hr_public_holidays](hr_public_holidays/) | 1.0 (unported) | Public Holidays
 [hr_report_manpower](hr_report_manpower/) | 1.0 (unported) | Man Power Report
 [hr_report_payroll_attendance_summary](hr_report_payroll_attendance_summary/) | 1.0 (unported) | Attendance Summary for Payroll
 [hr_report_payroll_net](hr_report_payroll_net/) | 1.0 (unported) | Net Payroll Payable
