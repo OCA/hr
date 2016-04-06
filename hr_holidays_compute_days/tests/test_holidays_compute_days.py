@@ -144,7 +144,7 @@ class TestHolidaysComputeDays(common.TransactionCase):
             'date_from': '1994-10-17 00:10:00',
             'date_to': '1994-10-21 23:59:59',
         })
-        leave.onchange_date_from(leave.date_to, leavedate_from)
+        leave.onchange_date_from(leave.date_to, leave.date_from)
         self.assertEqual(leave.number_of_days_temp, 5)
 
     def test_overlap_weekend(self):
@@ -158,7 +158,7 @@ class TestHolidaysComputeDays(common.TransactionCase):
             'date_from': '1994-10-21 00:10:00',
             'date_to': '1994-10-27 23:59:59',
         })
-        leave.onchange_date_from(leave.date_to, leavedate_from)
+        leave.onchange_date_from(leave.date_to, leave.date_from)
         self.assertEqual(leave.number_of_days_temp, 5)
 
     def test_overlap_holiday_and_rest_day(self):
@@ -172,7 +172,7 @@ class TestHolidaysComputeDays(common.TransactionCase):
             'date_from': '1994-10-12 00:10:00',
             'date_to': '1994-10-19 23:59:59',
         })
-        leave.onchange_date_from(leave.date_to, leavedate_from)
+        leave.onchange_date_from(leave.date_to, leave.date_from)
         self.assertEqual(leave.number_of_days_temp, 5)
 
     def test_overlap_for_non_conventional_rest_day(self):
@@ -206,7 +206,7 @@ class TestHolidaysComputeDays(common.TransactionCase):
             'date_from': '1994-10-17 00:10:00',
             'date_to': '1994-10-23 23:59:59',
         })
-        leave.onchange_date_from(leave.date_to, leavedate_from)
+        leave.onchange_date_from(leave.date_to, leave.date_from)
         self.assertEqual(leave.number_of_days_temp, 5)
 
     def test_no_exclude_holiday_and_rest_day(self):
@@ -227,7 +227,7 @@ class TestHolidaysComputeDays(common.TransactionCase):
             'date_from': '1994-10-13 00:10:00',
             'date_to': '1994-10-17 23:59:59',
         })
-        leave.onchange_date_from(leave.date_to, leavedate_from)
+        leave.onchange_date_from(leave.date_to, leave.date_from)
         self.assertEqual(leave.number_of_days_temp, 5)
 
     def test_no_exclude_holiday(self):
@@ -246,7 +246,7 @@ class TestHolidaysComputeDays(common.TransactionCase):
             'date_from': '1994-10-12 00:10:00',
             'date_to': '1994-10-18 23:59:59',
         })
-        leave.onchange_date_from(leave.date_to, leavedate_from)
+        leave.onchange_date_from(leave.date_to, leave.date_from)
         self.assertEqual(leave.number_of_days_temp, 5)
 
     def test_no_exclude_rest_day(self):
@@ -265,7 +265,7 @@ class TestHolidaysComputeDays(common.TransactionCase):
             'date_from': '1994-10-12 00:10:00',
             'date_to': '1994-10-17 23:59:59',
         })
-        leave.onchange_date_from(leave.date_to, leavedate_from)
+        leave.onchange_date_from(leave.date_to, leave.date_from)
         self.assertEqual(leave.number_of_days_temp, 5)
 
     def test_no_schedule_holiday_and_rest_day(self):
@@ -284,7 +284,7 @@ class TestHolidaysComputeDays(common.TransactionCase):
             'date_from': '1994-10-13 00:10:00',
             'date_to': '1994-10-20 23:59:59',
         })
-        leave.onchange_date_from(leave.date_to, leavedate_from)
+        leave.onchange_date_from(leave.date_to, leave.date_from)
         self.assertEqual(leave.number_of_days_temp, 5)
 
     def test_no_contract_holiday_and_rest_day(self):
@@ -299,5 +299,5 @@ class TestHolidaysComputeDays(common.TransactionCase):
             'date_from': '1994-10-13 00:10:00',
             'date_to': '1994-10-20 23:59:59',
         })
-        leave.onchange_date_from(leave.date_to, leavedate_from)
+        leave.onchange_date_from(leave.date_to, leave.date_from)
         self.assertEqual(leave.number_of_days_temp, 5)
