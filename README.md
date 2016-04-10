@@ -38,6 +38,7 @@ addon | version | summary
 [hr_employee_id](hr_employee_id/) | 8.0.1.0.0 | Employee ID
 [hr_employee_legacy_id](hr_employee_legacy_id/) | 8.0.1.0.0 | Legacy Employee ID
 [hr_employee_phone_extension](hr_employee_phone_extension/) | 8.0.1.0.0 | Employee Phone Extension
+[hr_employee_reference](hr_employee_reference/) | 8.0.1.0.0 | Manage employee references
 [hr_expense_account_period](hr_expense_account_period/) | 8.0.0.1.0 | Accounting period for HR expenses journal entries
 [hr_expense_analytic_default](hr_expense_analytic_default/) | 8.0.0.1.0 | Manage default analytic account on expenses
 [hr_expense_analytic_plans](hr_expense_analytic_plans/) | 8.0.1.0.0 | Use analytic plans in expenses
