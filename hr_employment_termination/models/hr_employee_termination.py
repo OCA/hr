@@ -1,12 +1,12 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 ##############################################################################
 #
 #    Copyright (C) 2013 Salton Massally <salton.massally@gmail.com>.
 #    All Rights Reserved.
 #
 #    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as published by
-#    the Free Software Foundation, either version 3 of the License, or
+#    it under the terms of the GNU Affero General Public License as published
+#    by the Free Software Foundation, either version 3 of the License, or
 #    (at your option) any later version.
 #
 #    This program is distributed in the hope that it will be useful,
@@ -19,6 +19,7 @@
 #
 ##############################################################################
 
+
 import time
 from datetime import datetime
 
@@ -30,9 +31,9 @@ class HrEmployeeTermination(models.Model):
     _name = 'hr.employee.termination'
     _description = 'Data Related to Deactivation of Employee'
     _order = "id DESC"
-    
+
     _inherit = ['mail.thread', 'ir.needaction_mixin']
-    
+
     name = fields.Date(
         'Effective Date',
         required=True,
@@ -72,43 +73,43 @@ class HrEmployeeTermination(models.Model):
             ('cancel', 'Cancelled'),
             ('done', 'Done'),
         ],
-    readonly=True,
-    default='draft'
+        readonly=True,
+        default='draft'
     )
 
-    @api.model    
+    @api.model
     def _needaction_domain_get(self):
         users_obj = self.env['res.users']
         domain = []
-        
+
         if users_obj.has_group('base.group_hr_user'):
             domain = [('state', 'in', ['draft'])]
-        
+
         if users_obj.has_group('base.group_hr_manager'):
             if len(domain) > 0:
                 domain = ['|'] + domain + [('state', '=', 'confirm')]
             else:
                 domain = [('state', '=', 'confirm')]
-        
+
         return domain
 
-    @api.multi   
+    @api.multi
     def unlink(self):
         res = self.filtered(lambda r: r.state != 'draft')
         if res:
             raise UserWarning('Employment termination already in progress. '
                               'Use the "Cancel" button instead.')
-            
+
         return super(HrEmployeeTermination, self).unlink()
 
     @api.multi
     def state_cancel(self):
         return self.write({'state': 'cancel'})
-    
+
     @api.multi
     def state_confirm(self):
         return self.write({'state': 'confirm'})
-    
+
     @api.multi
     def state_done(self):
         today = fields.Date.today()
@@ -117,9 +118,9 @@ class HrEmployeeTermination(models.Model):
                 raise UserWarning('Unable to deactivate employee, effective '
                                   'date is still in the future!')
             termination.employee_id.end_employment(termination.name)
-            
+
         return self.write({'state': 'done'})
-    
+
     @api.model
     def try_terminating_ended(self):
         self.search(

@@ -1,12 +1,12 @@
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 ##############################################################################
 #
 #    Copyright (C) 2013 Salton Massally <salton.massally@gmail.com>.
 #    All Rights Reserved.
 #
 #    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as published by
-#    the Free Software Foundation, either version 3 of the License, or
+#    it under the terms of the GNU Affero General Public License as published
+#    by the Free Software Foundation, either version 3 of the License, or
 #    (at your option) any later version.
 #
 #    This program is distributed in the hope that it will be useful,
@@ -19,16 +19,17 @@
 #
 ##############################################################################
 
+
 from datetime import datetime
 
 from openerp import models, fields, api, _
 
 
 class EmploymentInactivate(models.TransientModel):
-    
+
     _name = 'hr.employment.end'
     _description = 'Employee De-Activation Wizard'
-    
+
     date = fields.Date(
         'Effective Date',
         required=True,
@@ -42,7 +43,7 @@ class EmploymentInactivate(models.TransientModel):
         'Notes',
         required=True
     )
-    
+
     @api.multi
     def apply(self):
         self.ensure_one()
