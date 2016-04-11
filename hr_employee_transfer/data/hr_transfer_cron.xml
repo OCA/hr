@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+        <record model="ir.cron" id="hr_department_transfer_cron">
+            <field name="name">Departmental Transfers</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field eval="(DateTime.now() + timedelta(hours= +(24-DateTime.now().hour))).strftime('%Y-%m-%d 0:01:00')" name="nextcall"/>
+            <field eval="True" name="doall"/>
+            <field eval="'hr.department.transfer'" name="model"/>
+            <field eval="'try_pending_department_transfers'" name="function"/>
+            <field eval="'()'" name="args"/>
+        </record>
+        
+    </data>
+</openerp>
