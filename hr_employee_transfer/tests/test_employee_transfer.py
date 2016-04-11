@@ -20,7 +20,7 @@
 from dateutil.relativedelta import relativedelta
 from datetime import date
 from openerp.tests import common
-from openerp.exceptions import ValidationError, Warning as UserWarning
+from openerp.exceptions import ValidationError, Warning as UserError
 from openerp import fields
 
 
@@ -33,7 +33,7 @@ class TestEmployeeTransfer(common.TransactionCase):
         self.job_model = self.env['hr.job']
 
         # Create an employees
-        self.job_1 = self.job_model.create({'name': 'Job 1'})
+        self.job = self.job_model.create({'name': 'Job 1'})
         self.job_2 = self.job_model.create({'name': 'Job 2'})
         self.department = self.env['hr.department'].create(
             {'name': 'Department 1'})

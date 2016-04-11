@@ -1,4 +1,4 @@
-# -*- coding:utf-8 -*-
+# -*- coding: utf-8 -*-
 ##############################################################################
 #
 #    Copyright (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
@@ -23,7 +23,7 @@ from datetime import datetime, date
 from dateutil.relativedelta import relativedelta
 
 from openerp import fields, models, api, _
-from openerp.exceptions import ValidationError, Warning as UserWarning
+from openerp.exceptions import ValidationError, Warning as UserError
 
 
 _tracked_states = {
@@ -133,9 +133,9 @@ class HrDepartmentTransfer(models.Model):
     def unlink(self, cr, uid, ids, context=None):
         transfers = self.filtered(lambda r: r.state != 'draft')
         if transfers:
-            raise UserWarning('Unable to Delete Transfer! \n'
-                              'Transfer has been initiated. Either cancel the '
-                              'transfer or create another transfer to undo it')
+            raise UserError('Unable to Delete Transfer! \n'
+                            'Transfer has been initiated. Either cancel the '
+                            'transfer or create another transfer to undo it')
 
         return super(HrDepartmentTransfer, self).unlink()
 
@@ -150,8 +150,8 @@ class HrDepartmentTransfer(models.Model):
     @api.model
     def _check_state(self, contract, effective_date):
         if contract.date_end and effective_date >= contract.date_end:
-            raise UserWarning('The contract end date is on or before the '
-                              'effective date of the transfer.')
+            raise UserError('The contract end date is on or before the '
+                            'effective date of the transfer.')
         return True
 
     @api.multi

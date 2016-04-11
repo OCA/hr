@@ -1,4 +1,4 @@
-# -*- coding:utf-8 -*-
+# -*- coding: utf-8 -*-
 ##############################################################################
 #
 #    Copyright (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
@@ -25,7 +25,8 @@
     'license': 'AGPL-3',
     'category': 'Human Resources',
     'summary': "Transfer Employees between Jobs and Departments",
-    'author': 'Michael Telahun Makonnen <mmakonnen@gmail.com>',
+    'author': 'Michael Telahun Makonnen, '
+              'Odoo Community Association (OCA)',
     'website': 'http://miketelahun.wordpress.com',
     'depends': [
         'hr',
@@ -39,5 +40,4 @@
     ],
 
     'installable': True,
-    'active': False,
 }
