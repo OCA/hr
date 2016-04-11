@@ -19,11 +19,11 @@
 #
 ##############################################################################
 
-from datetime import datetime, date
+from datetime import datetime
 from dateutil.relativedelta import relativedelta
 
-from openerp import fields, models, api, _
-from openerp.exceptions import ValidationError, Warning as UserError
+from openerp import fields, models, api
+from openerp.exceptions import Warning as UserError
 
 
 _tracked_states = {
@@ -178,7 +178,6 @@ class HrDepartmentTransfer(models.Model):
         data = contract.copy_data(default=default)
         if isinstance(data, list):
             data = data[0]
-        vals = {}
 
         # end the current contract
         contract.date_end = fields.Date.to_string(
@@ -197,9 +196,6 @@ class HrDepartmentTransfer(models.Model):
 
     @api.multi
     def state_done(self):
-
-        employee_obj = self.pool.get('hr.employee')
-        today = datetime.now().date()
 
         for xfer in self:
             if xfer.date <= fields.Date.today():

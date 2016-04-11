@@ -17,10 +17,7 @@
 #    along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
 ###############################################################################
-from dateutil.relativedelta import relativedelta
-from datetime import date
 from openerp.tests import common
-from openerp.exceptions import ValidationError, Warning as UserError
 from openerp import fields
 
 
@@ -44,7 +41,7 @@ class TestEmployeeTransfer(common.TransactionCase):
         })
         self.contract = self.env["hr.contract"].create({
             'name': 'Contract 1',
-            'date_start': fields.Date.to_string(dt),
+            'date_start': '2010-10-01',
             'employee_id': self.employee.id,
             'wage': 1000,
             'job_id': self.job_1.id,
