@@ -4,8 +4,8 @@
 #    Copyright (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
 #    All Rights Reserved.
 #
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as published by
+#    This program is free software: you can redistribute it and/or modify it
+#    under the terms of the GNU Affero General Public License as published by
 #    the Free Software Foundation, either version 3 of the License, or
 #    (at your option) any later version.
 #
@@ -25,12 +25,23 @@ from dateutil.relativedelta import relativedelta
 from openerp import fields, models, api, _
 from openerp.exceptions import ValidationError, Warning as UserWarning
 
+
+_tracked_states = {
+    'hr_transfer.mt_alert_xfer_confirmed':
+    lambda self, cr, uid, obj, ctx = None: obj['state'] == 'confirm',
+    'hr_transfer.mt_alert_xfer_pending':
+    lambda self, cr, uid, obj, ctx = None: obj['state'] == 'pending',
+    'hr_transfer.mt_alert_xfer_done':
+    lambda self, cr, uid, obj, ctx = None: obj['state'] == 'done',
+}
+
+
 class HrDepartmentTransfer(models.Model):
     _name = 'hr.department.transfer'
     _description = 'Departmental Transfer'
     _order = "id DESC"
     _inherit = ['mail.thread', 'ir.needaction_mixin']
-    
+
     employee_id = fields.Many2one(
         'hr.employee',
         'Employee',
@@ -49,7 +60,7 @@ class HrDepartmentTransfer(models.Model):
         'hr.job',
         'Job (TO)',
         required=True,
-        readonly=True, 
+        readonly=True,
         states={'draft': [('readonly', False)]}
     )
     src_department_id = fields.Many2one(
@@ -96,40 +107,36 @@ class HrDepartmentTransfer(models.Model):
         readonly=True,
         default='draft'
     )
-    
+
     _rec_name = 'date'
-    
+
     _defaults = {
         'state': 'draft',
     }
-    
+
     _track = {
-        'state': {
-            'hr_transfer.mt_alert_xfer_confirmed': lambda self, cr, uid, obj, ctx = None: obj['state'] == 'confirm',
-            'hr_transfer.mt_alert_xfer_pending': lambda self, cr, uid, obj, ctx = None: obj['state'] == 'pending',
-            'hr_transfer.mt_alert_xfer_done': lambda self, cr, uid, obj, ctx = None: obj['state'] == 'done',
-        },
+        'state': _tracked_states,
     }
-    
+
     @api.model
     def _needaction_domain_get(self):
-        
+
         users_obj = self.env['res.users']
         domain = []
         if users_obj.has_group('base.group_hr_manager'):
             domain = [('state', '=', 'confirm')]
             return domain
-        
+
         return False
-    
+
     @api.multi
     def unlink(self, cr, uid, ids, context=None):
         transfers = self.filtered(lambda r: r.state != 'draft')
         if transfers:
             raise UserWarning('Unable to Delete Transfer! \n'
-                'Transfer has been initiated. Either cancel the transfer or '
-                'create another transfer to undo it.')
-        
+                              'Transfer has been initiated. Either cancel the '
+                              'transfer or create another transfer to undo it')
+
         return super(HrDepartmentTransfer, self).unlink()
 
     @api.onchange('employee_id')
@@ -158,10 +165,10 @@ class HrDepartmentTransfer(models.Model):
     @api.multi
     def transfer_contract(self, contract, job_id, effective_date):
         self.ensure_one()
-        # Copy the contract and adjust start/end dates, job id, etc. accordingly.
-        #
+        # Copy the contract and adjust start/end dates,
+        # job id, etc. accordingly.
         default = {
-            'job_id':job_id,
+            'job_id': job_id,
             'date_start': effective_date,
             'name': False,
             'message_ids': False,
@@ -175,25 +182,25 @@ class HrDepartmentTransfer(models.Model):
 
         # end the current contract
         contract.date_end = fields.Date.to_string(
-            fields.Date.from_string(effective_date) + relativedelta(days=-1))            
-            
+            fields.Date.from_string(effective_date) + relativedelta(days=-1))
+
         dst_contract = self.env['hr.contract'].create(data)
         # Link to the new contract
         self.write({'dst_contract_id': dst_contract.id})
-    
+
     @api.multi
     def state_confirm(self):
         for xfer in self:
             self._check_state(xfer.src_contract_id, xfer.date)
             self.write({'state': 'confirm'})
         return True
-    
+
     @api.multi
     def state_done(self):
-        
+
         employee_obj = self.pool.get('hr.employee')
         today = datetime.now().date()
-        
+
         for xfer in self:
             if xfer.date <= fields.Date.today():
                 self._check_state(xfer.src_contract_id, xfer.date)
@@ -205,14 +212,15 @@ class HrDepartmentTransfer(models.Model):
             else:
                 return False
         return True
-    
+
     @api.model
     def try_pending_department_transfers(self):
-        """Completes pending departmental transfers. Called from the scheduler."""
+        """Completes pending departmental transfers.
+        Called from the scheduler."""
         pending_transfers = self.search(
             [
-                 ('state', '=', 'pending'),
-                 ('date', '<=', fields.Date.today()),
+                ('state', '=', 'pending'),
+                ('date', '<=', fields.Date.today()),
             ]
         )
         pending_transfers.signal_workflow('signal_done')

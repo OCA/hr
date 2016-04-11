@@ -49,7 +49,7 @@ class TestEmployeeTransfer(common.TransactionCase):
             'wage': 1000,
             'job_id': self.job_1.id,
         })
-        
+
         # create transfer
         self.transfer = self.transfer_model.create(
             {
@@ -64,9 +64,7 @@ class TestEmployeeTransfer(common.TransactionCase):
         self.transfer.signal_workflow('signal_confirm')
         self.transfer.signal_workflow('signal_pending')
 
-
     def test_transfer(self):
         self.assertTrue(self.transfer.dst_contract_id)
         self.assertEqual(self.transfer.src_contract_id)
         self.assertEqual(self.employee.job_id, self.job_2)
-
