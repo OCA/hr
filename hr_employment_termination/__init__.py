@@ -1,4 +1,4 @@
-# -*- coding:utf-8 -*-
+# -*- coding: utf-8 -*-
 ##############################################################################
 #
 #    Copyright (C) 2013 Salton Massally <salton.massally@gmail.com>.
@@ -19,5 +19,5 @@
 #
 ##############################################################################
 
-import models
-import wizard
+from . import models
+from . import wizard

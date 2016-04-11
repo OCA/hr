@@ -1,4 +1,4 @@
-# -*- coding:utf-8 -*-
+# -*- coding: utf-8 -*-
 ##############################################################################
 #
 #    Copyright (C) 2013 Salton Massally <salton.massally@gmail.com>.
@@ -19,10 +19,7 @@
 #
 ##############################################################################
 
-
-from datetime import datetime
-
-from openerp import models, fields, api, _
+from openerp import models, fields, api
 
 
 class EmploymentInactivate(models.TransientModel):

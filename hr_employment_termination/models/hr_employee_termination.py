@@ -1,4 +1,4 @@
-# -*- coding:utf-8 -*-
+# -*- coding: utf-8 -*-
 ##############################################################################
 #
 #    Copyright (C) 2013 Salton Massally <salton.massally@gmail.com>.
@@ -20,11 +20,8 @@
 ##############################################################################
 
 
-import time
-from datetime import datetime
-
-from openerp import fields, models, api, _
-from openerp.exceptions import Warning as UserWarning
+from openerp import fields, models, api
+from openerp.exceptions import Warning as UserError
 
 
 class HrEmployeeTermination(models.Model):
@@ -97,8 +94,8 @@ class HrEmployeeTermination(models.Model):
     def unlink(self):
         res = self.filtered(lambda r: r.state != 'draft')
         if res:
-            raise UserWarning('Employment termination already in progress. '
-                              'Use the "Cancel" button instead.')
+            raise UserError('Employment termination already in progress. '
+                            'Use the "Cancel" button instead.')
 
         return super(HrEmployeeTermination, self).unlink()
 
@@ -115,8 +112,8 @@ class HrEmployeeTermination(models.Model):
         today = fields.Date.today()
         for termination in self:
             if today < termination.name:
-                raise UserWarning('Unable to deactivate employee, effective '
-                                  'date is still in the future!')
+                raise UserError('Unable to deactivate employee, effective '
+                                'date is still in the future!')
             termination.employee_id.end_employment(termination.name)
 
         return self.write({'state': 'done'})

@@ -20,7 +20,7 @@
 from dateutil.relativedelta import relativedelta
 from datetime import date
 from openerp.tests import common
-from openerp.exceptions import ValidationError, Warning as UserWarning
+from openerp.exceptions import Warning as UserError
 from openerp import fields
 
 
@@ -79,7 +79,7 @@ class TestEmploymentTermination(common.TransactionCase):
     def test_infuture_effective_dt(self):
         dt = date.today() + relativedelta(months=6)
         self.termination.name = fields.Date.to_string(dt)
-        with self.assertRaises(UserWarning):
+        with self.assertRaises(UserError):
             self.termination.state_done()
 
     def test_termination_exists_wiz(self):

@@ -1,4 +1,4 @@
-# -*- coding:utf-8 -*-
+# -*- coding: utf-8 -*-
 ##############################################################################
 #
 #    Copyright (C) 2013 Salton Massally <salton.massally@gmail.com>.
@@ -19,12 +19,7 @@
 #
 ##############################################################################
 
-
-import time
-from datetime import datetime
-
-from openerp import fields, models, api, _
-from openerp.exceptions import Warning as UserWarning
+from openerp import fields, models, api
 
 
 class HrEmployee(models.Model):

@@ -1,4 +1,4 @@
-# -*- coding:utf-8 -*-
+# -*- coding: utf-8 -*-
 ##############################################################################
 #
 #    Copyright (C) 2013 Salton Massally <salton.massally@gmail.com>.
@@ -23,12 +23,13 @@
 {
     'name': 'Employment Termination',
     'version': '1.0',
+    'license': 'AGPL-3',
     'category': 'Human Resources',
     'summary': "Adds the ability to terminate employees",
-    'author': 'Salton Massally <salton.massally@gmail.com>',
+    'author': 'Salton Massally <salton.massally@gmail.com>, '
+              'Odoo Community Association (OCA)',
     'website': 'http://idtlabs.sl',
     'depends': [
-        'hr',
         'hr_contract'
     ],
     'data': [

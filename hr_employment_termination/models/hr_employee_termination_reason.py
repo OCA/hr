@@ -1,4 +1,4 @@
-# -*- coding:utf-8 -*-
+# -*- coding: utf-8 -*-
 ##############################################################################
 #
 #    Copyright (C) 2013 Salton Massally <salton.massally@gmail.com>.
@@ -20,7 +20,7 @@
 ##############################################################################
 
 
-from openerp import fields, models, api, _
+from openerp import fields, models
 
 
 class HrEmployeeTerminationReason(models.Model):
