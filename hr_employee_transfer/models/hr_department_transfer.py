@@ -124,9 +124,16 @@ class HrDepartmentTransfer(models.Model):
     @api.one
     def onchange_employee(self):
         if self.employee_id:
-            self.src_department_id = self.employee_id.department_id.id
-            self.src_id = self.employee_id.contract_id.job_id.id
-            self.src_contract_id = self.employee_id.contract_id.id
+            employee = self.employee_id
+            self.src_department_id = employee.department_id and \
+                employee.department_id.id or \
+                False
+            self.src_id = employee.contract_id and \
+                (employee.contract_id.job_id and \
+                employee.contract_id_job_id.id or \
+                False) or False
+            self.src_contract_id = employee.contract_id and \
+                self.employee_id.contract_id.id or False
 
     @api.model
     def _check_state(self, contract, effective_date):
@@ -183,8 +190,9 @@ class HrDepartmentTransfer(models.Model):
                 self._check_state(xfer.src_contract_id, xfer.date)
                 xfer.employee_id.write(
                     {'department_id': xfer.dst_department_id.id})
-                xfer.transfer_contract(xfer.src_contract_id,
-                                       xfer.dst_id.id, xfer.date)
+                if xfer.src_contract_id:
+                    xfer.transfer_contract(xfer.src_contract_id,
+                                        xfer.dst_id.id, xfer.date)
                 xfer.write({'state': 'done'})
             else:
                 return False

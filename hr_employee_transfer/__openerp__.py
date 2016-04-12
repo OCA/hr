@@ -11,7 +11,7 @@
               'Odoo Community Association (OCA)',
     'website': 'http://miketelahun.wordpress.com',
     'depends': [
-        'hr',
+        'hr_contract',
     ],
     'data': [
         'security/ir.model.access.csv',
