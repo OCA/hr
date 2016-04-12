@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# © 2012 - 2014 Odoo Canada
+# © 2012 Odoo Canada
 # © 2015 Acysos S.L.
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html)
 {
@@ -7,7 +7,7 @@
     'version': '8.0.1.0.0',
     'license': 'AGPL-3',
     'category': 'Generic Modules/Human Resources',
-    'author': "Savoir-faire Linux, Acysos SL,Acysos S.L.,"
+    'author': "Savoir-faire Linux, Acysos S.L.,"
     "Odoo Community Association (OCA)",
     'website': 'https://www.savoirfairelinux.com/',
     'depends': [
