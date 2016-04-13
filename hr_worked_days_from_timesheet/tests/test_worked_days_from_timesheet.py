@@ -21,10 +21,12 @@ class TestComputeWorkdays(TransactionCase):
             }
         self.user_test = self.env['res.users'].create(user_dict)
 
+
         employee_dict = {
             'name': 'Employee 1',
             'user_id': self.user_test.id,
             'journal_id': self.analytic_journal.id,
+            'address_id': self.user_test.partner_id.id,
             }
         self.employee = self.env['hr.employee'].create(employee_dict)
 
