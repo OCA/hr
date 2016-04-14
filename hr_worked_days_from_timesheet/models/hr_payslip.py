@@ -58,13 +58,14 @@ class HrPayslip(models.Model):
                  ('imported_from_timesheet', '=', True)]).unlink()
 
             # get timesheet sheets of employee
-            timesheet_sheets = self.env['hr_timesheet_sheet.sheet'].search(
-                ['&', '&', '|', '&',
-                 ('date_from', '<=', date_to), ('date_from', '>=', date_from),
-                 '&', ('date_to', '<=', date_to), ('date_to', '>=', date_from),
-                 ('state', '=', 'done'),
-                 ('employee_id', '=', payslip.employee_id.id)]
-            )
+            criteria = [
+                ('date_from', '>=', date_from),
+                ('date_to', '<=', date_to),
+                ('state', '=', 'done'),
+                ('employee_id','=', payslip.employee_id.id),
+                ]
+            ts_model = self.env['hr_timesheet_sheet.sheet']
+            timesheet_sheets = ts_model.search(criteria)
 
             if not timesheet_sheets:
                 raise UserError(
