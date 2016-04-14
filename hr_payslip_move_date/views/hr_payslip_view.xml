@@ -9,8 +9,7 @@
                    ref="hr_payroll_account.view_hr_payslip_inherit_form"/>
             <field name="arch" type="xml">
                 <field name="period_id" position="before">
-                    <field name="move_date"
-                           on_change="onchange_move_date(move_date)"/>
+                    <field name="move_date"/>
                 </field>
             </field>
         </record>

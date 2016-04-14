@@ -1,49 +1,30 @@
 # -*- coding: utf-8 -*-
-##############################################################################
-#
-#    OpenERP, Open Source Management Solution
-#    Copyright (C) 2004-2010 Tiny SPRL (<http://tiny.be>).
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as
-#    published by the Free Software Foundation, either version 3 of the
-#    License, or (at your option) any later version.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
-#
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-##############################################################################
-from openerp.osv import fields, orm
+# © 2014 Eficent
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+
+from openerp import models, api
 
 
-class HrPayslipEmployees(orm.TransientModel):
+class HrPayslipEmployees(models.TransientModel):
 
     _inherit = 'hr.payslip.employees'
 
-    def compute_sheet(self, cr, uid, ids, context=None):
+    @api.multi
+    def compute_sheet(self):
 
-        res = super(HrPayslipEmployees, self).compute_sheet(cr, uid, ids,
-                                                            context=context)
-        payslip_run = self.pool['hr.payslip.run'].browse(
-                cr, uid, context['active_id'], context=context)
+        res = super(HrPayslipEmployees, self).compute_sheet()
+        payslip_run = self.env['hr.payslip.run'].browse(
+            self.env.context['active_id'])
         move_date = payslip_run.move_date
         if move_date:
-            period_obj = self.pool['account.period']
-            period_ids = period_obj.find(cr, uid,
-                                         dt=move_date,
-                                         context=context)
+            period_obj = self.env['account.period']
+            period_ids = period_obj.find(dt=move_date)
             if period_ids:
                 period_id = period_ids[0]
             else:
                 period_id = False
-            slip_ids = [slip.id for slip in payslip_run.slip_ids]
-            self.pool['hr.payslip'].write(cr, uid, slip_ids,
-                                          {'move_date': move_date,
-                                           'period_id': period_id},
-                                          context=context)
+            payslip_run.slip_ids.write({
+                'move_date': move_date,
+                'period_id': period_id.id,
+            })
         return res
