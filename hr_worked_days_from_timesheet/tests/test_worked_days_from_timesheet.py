@@ -76,7 +76,6 @@ class TestComputeWorkdays(TransactionCase):
         analytic_ts1_dict = {
             'date': '2014-01-01',
             'user_id': self.user_test.id,
-            'employee_id': self.employee.id,
             'name': 'ddd',
             'account_id': self.analytic.id,
             'unit_amount': 3.0,
@@ -89,7 +88,6 @@ class TestComputeWorkdays(TransactionCase):
         analytic_ts2_dict = {
             'date': '2014-01-02',
             'user_id': self.user_test.id,
-            'employee_id': self.employee.id,
             'name': 'ddd',
             'account_id': self.analytic.id,
             'unit_amount': 5.0,
