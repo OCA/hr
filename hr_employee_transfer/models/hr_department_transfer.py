@@ -158,7 +158,7 @@ class HrDepartmentTransfer(models.Model):
         default = {
             'job_id': job_id,
             'date_start': effective_date,
-            'name': False,
+            'name': '/',
             'message_ids': False,
             'trial_date_start': False,
             'trial_date_end': False,
