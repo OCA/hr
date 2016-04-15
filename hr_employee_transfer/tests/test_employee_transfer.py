@@ -28,7 +28,7 @@ class TestEmployeeTransfer(common.TransactionCase):
             'date_start': '2010-10-01',
             'employee_id': self.employee.id,
             'wage': 1000,
-            'job_id': self.job_1.id,
+            'job_id': self.job.id,
         })
 
         # create transfer
