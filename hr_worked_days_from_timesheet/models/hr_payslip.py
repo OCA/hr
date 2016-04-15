@@ -62,8 +62,8 @@ class HrPayslip(models.Model):
                 ('date_from', '>=', date_from),
                 ('date_to', '<=', date_to),
                 ('state', '=', 'done'),
-                ('employee_id','=', payslip.employee_id.id),
-                ]
+                ('employee_id', '=', payslip.employee_id.id),
+            ]
             ts_model = self.env['hr_timesheet_sheet.sheet']
             timesheet_sheets = ts_model.search(criteria)
 
