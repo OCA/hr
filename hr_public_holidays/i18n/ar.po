@@ -4,19 +4,20 @@
 # 
 # Translators:
 # OCA Transbot <transbot@odoo-community.org>, 2016
+# abdullah alsabi <alsabi.abdullah@gmail.com>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-03 03:37+0000\n"
-"PO-Revision-Date: 2017-03-03 03:37+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2016\n"
-"Language-Team: Polish (https://www.transifex.com/oca/teams/23907/pl/)\n"
+"POT-Creation-Date: 2017-06-10 04:30+0000\n"
+"PO-Revision-Date: 2017-06-10 04:30+0000\n"
+"Last-Translator: abdullah alsabi <alsabi.abdullah@gmail.com>, 2017\n"
+"Language-Team: Arabic (https://www.transifex.com/oca/teams/23907/ar/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: pl\n"
-"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>=14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
+"Language: ar\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 
 #. module: hr_public_holidays
 #: model:ir.ui.view,arch_db:hr_public_holidays.public_holidays_next_year_wizard_view
@@ -39,12 +40,12 @@ msgstr ""
 #. module: hr_public_holidays
 #: model:ir.ui.view,arch_db:hr_public_holidays.public_holidays_next_year_wizard_view
 msgid "Cancel"
-msgstr ""
+msgstr "إلغاء"
 
 #. module: hr_public_holidays
 #: model:ir.model.fields,field_description:hr_public_holidays.field_hr_holidays_public_country_id
 msgid "Country"
-msgstr "Kraj"
+msgstr ""
 
 #. module: hr_public_holidays
 #: model:ir.ui.view,arch_db:hr_public_holidays.public_holidays_next_year_wizard_view
@@ -63,14 +64,14 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_public_holidays.field_hr_holidays_public_line_create_uid
 #: model:ir.model.fields,field_description:hr_public_holidays.field_public_holidays_next_year_wizard_create_uid
 msgid "Created by"
-msgstr ""
+msgstr "انشئ من قبل"
 
 #. module: hr_public_holidays
 #: model:ir.model.fields,field_description:hr_public_holidays.field_hr_holidays_public_create_date
 #: model:ir.model.fields,field_description:hr_public_holidays.field_hr_holidays_public_line_create_date
 #: model:ir.model.fields,field_description:hr_public_holidays.field_public_holidays_next_year_wizard_create_date
 msgid "Created on"
-msgstr ""
+msgstr "وقت الانشاء"
 
 #. module: hr_public_holidays
 #: model:ir.model,name:hr_public_holidays.model_public_holidays_next_year_wizard
@@ -80,12 +81,12 @@ msgstr ""
 #. module: hr_public_holidays
 #: model:ir.model.fields,field_description:hr_public_holidays.field_hr_holidays_public_line_date
 msgid "Date"
-msgstr "Data"
+msgstr ""
 
 #. module: hr_public_holidays
 #: model:ir.model.fields,field_description:hr_public_holidays.field_hr_holidays_public_line_variable
 msgid "Date may change"
-msgstr "Data może ulec zmianie"
+msgstr ""
 
 #. module: hr_public_holidays
 #: code:addons/hr_public_holidays/models/hr_public_holidays_line.py:45
@@ -104,12 +105,12 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_public_holidays.field_hr_holidays_public_line_display_name
 #: model:ir.model.fields,field_description:hr_public_holidays.field_public_holidays_next_year_wizard_display_name
 msgid "Display Name"
-msgstr ""
+msgstr "إسم العرض"
 
 #. module: hr_public_holidays
 #: model:ir.model.fields,field_description:hr_public_holidays.field_hr_holidays_public_line_ids
 msgid "Holiday Dates"
-msgstr "Daty dni wolnych od pracy"
+msgstr ""
 
 #. module: hr_public_holidays
 #: model:ir.model.fields,field_description:hr_public_holidays.field_hr_holidays_public_id
@@ -130,20 +131,20 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_public_holidays.field_hr_holidays_public_write_uid
 #: model:ir.model.fields,field_description:hr_public_holidays.field_public_holidays_next_year_wizard_write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "اخر تعديل من قبل"
 
 #. module: hr_public_holidays
 #: model:ir.model.fields,field_description:hr_public_holidays.field_hr_holidays_public_line_write_date
 #: model:ir.model.fields,field_description:hr_public_holidays.field_hr_holidays_public_write_date
 #: model:ir.model.fields,field_description:hr_public_holidays.field_public_holidays_next_year_wizard_write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "اخر تعديل في"
 
 #. module: hr_public_holidays
 #: model:ir.model.fields,field_description:hr_public_holidays.field_hr_holidays_public_display_name
 #: model:ir.model.fields,field_description:hr_public_holidays.field_hr_holidays_public_line_name
 msgid "Name"
-msgstr "Nazwa"
+msgstr ""
 
 #. module: hr_public_holidays
 #: code:addons/hr_public_holidays/wizards/public_holidays_next_year_wizard.py:41
@@ -166,12 +167,12 @@ msgstr ""
 #: model:ir.ui.view,arch_db:hr_public_holidays.view_public_holidays_form
 #: model:ir.ui.view,arch_db:hr_public_holidays.view_public_holidays_tree
 msgid "Public Holidays"
-msgstr "Dni wolne od pracy"
+msgstr ""
 
 #. module: hr_public_holidays
 #: model:ir.model,name:hr_public_holidays.model_hr_holidays_public_line
 msgid "Public Holidays Lines"
-msgstr "Dni wolne od pracy - pozycje"
+msgstr ""
 
 #. module: hr_public_holidays
 #: model:ir.model.fields,field_description:hr_public_holidays.field_hr_holidays_public_line_state_ids
