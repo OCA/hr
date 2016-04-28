@@ -20,7 +20,7 @@ class HrPayslip(models.Model):
         # Create one worked days record for each timesheet sheet
         wd_model = self.env['hr.payslip.worked_days']
         uom_obj = self.env['product.uom']
-        uom_hours = self.ref('product.product_uom_hour')
+        uom_hours = self.env.ref('product.product_uom_hour')
         for ts_sheet in timesheet_sheets:
             # Get formated date from the timesheet sheet
             date_from_formated = fields.Date.to_string(
