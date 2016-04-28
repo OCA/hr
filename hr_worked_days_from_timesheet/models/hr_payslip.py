@@ -28,7 +28,8 @@ class HrPayslip(models.Model):
             number_of_hours = 0
             for ts in ts_sheet.timesheet_ids:
                 if date_from <= ts.date <= date_to:
-                    unit_amount = uom_obj._compute_qty_obj(ts.product_uom_id, 
+                    unit_amount = uom_obj._compute_qty_obj(
+                        ts.product_uom_id,
                         ts.unit_amount, uom_hours)
                     number_of_hours += unit_amount
 
