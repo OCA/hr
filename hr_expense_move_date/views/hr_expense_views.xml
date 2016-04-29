@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="hr_expense_view_form" model="ir.ui.view">
+            <field name="name">hr.expense.form (hr_expense_move_date)</field>
+            <field name="model">hr.expense.expense</field>
+            <field name="inherit_id" ref="hr_expense_account_period.view_expenses_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='period_id']" position="before">
+                    <field name="move_date" attrs="{'readonly': [('state', '!=', 'accepted')]}"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</openerp>
