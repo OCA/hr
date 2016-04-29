@@ -10,7 +10,6 @@ class HrPayslip(models.Model):
 
     move_date = fields.Date(
         string='Force move date',
-        required=False,
     )
 
     @api.onchange('move_date')
@@ -40,5 +39,4 @@ class HrPayslipRun(models.Model):
 
     move_date = fields.Date(
         string='Force move date',
-        required=False,
     )

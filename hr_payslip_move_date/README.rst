@@ -2,14 +2,31 @@
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-=======================
-HR Payroll Account Date
-=======================
+====================
+HR Payslip Move Date
+====================
 
 Adds a move date to the payslip.
 Allows the user to propose/force a specific move date.
 If none is proposed, the field will be completed with the actual move date.
 
+
+Installation
+============
+
+To install this module, you need to:
+
+1.  Clone the branch 8.0 of the repository https://github.com/OCA/hr
+2.  Add the path to this repository in your configuration (addons-path)
+3.  Update the module list
+4.  Go to menu *Setting -> Modules -> Local Modules*
+5.  Search For *HR Payslip Move Date*
+6.  Install the module
+
+Configuration
+=============
+
+No configuration needed
 
 Usage
 =====
