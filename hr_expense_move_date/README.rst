@@ -18,7 +18,7 @@ To install this module, you need to:
 2.  Add the path to this repository in your configuration (addons-path)
 3.  Update the module list
 4.  Go to menu *Setting -> Modules -> Local Modules*
-5.  Search For *Employee Expense Move Date*
+5.  Search For *Expense Move Date*
 6.  Install the module
 
 Configuration

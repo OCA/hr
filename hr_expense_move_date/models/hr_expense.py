@@ -15,7 +15,7 @@ class HrExpenseExpense(models.Model):
     @api.model
     def account_move_get(self, expense_id):
         res = super(HrExpenseExpense, self).account_move_get(expense_id)
-        expense = self.browse([expense_id])[0]
+        expense = self.browse(expense_id)
         if expense.move_date:
             res['date'] = expense.move_date
         return res
