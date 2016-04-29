@@ -54,6 +54,7 @@ addon | version | summary
 [hr_security](hr_security/) | 8.0.1.0.0 | HR Permission Groups
 [hr_skill](hr_skill/) | 8.0.1.1.0 | Skill Management
 [hr_webcam](hr_webcam/) | 8.0.1.0.0 | Capture employee picture with webcam
+[hr_worked_days_from_timesheet](hr_worked_days_from_timesheet/) | 8.0.1.0.0 | Worked Days From Timesheet
 
 Unported addons
 ---------------
@@ -93,7 +94,6 @@ addon | version | summary
 [hr_transfer](hr_transfer/) | 1.0 (unported) | Departmental Transfer
 [hr_wage_increment](hr_wage_increment/) | 1.0 (unported) | HR Wage Increment
 [hr_worked_days_activity](hr_worked_days_activity/) | 1.0 (unported) | Worked Days Activity
-[hr_worked_days_from_timesheet](hr_worked_days_from_timesheet/) | 1.0 (unported) | Worked Days From Timesheet
 [hr_worked_days_hourly_rate](hr_worked_days_hourly_rate/) | 1.0 (unported) | Worked Days Hourly Rates
 
 [//]: # (end addons)
