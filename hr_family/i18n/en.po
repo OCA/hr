@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-19 01:53+0000\n"
-"PO-Revision-Date: 2015-11-12 10:10+0000\n"
+"POT-Creation-Date: 2016-04-30 02:40+0000\n"
+"PO-Revision-Date: 2016-04-28 15:01+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: English (http://www.transifex.com/oca/OCA-hr-8-0/language/en/)\n"
 "MIME-Version: 1.0\n"
@@ -39,6 +39,11 @@ msgstr "Created on"
 #: field:hr.employee.children,date_of_birth:0
 msgid "Date of Birth"
 msgstr "Date of Birth"
+
+#. module: hr_family
+#: field:hr.employee.children,display_name:0
+msgid "Display Name"
+msgstr "Display Name"
 
 #. module: hr_family
 #: field:hr.employee.children,employee_id:0
@@ -85,6 +90,11 @@ msgstr "HR Employee Children"
 #: field:hr.employee.children,id:0
 msgid "ID"
 msgstr "ID"
+
+#. module: hr_family
+#: field:hr.employee.children,__last_update:0
+msgid "Last Modified on"
+msgstr "Last Modified on"
 
 #. module: hr_family
 #: field:hr.employee.children,write_uid:0

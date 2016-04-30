@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# * hr_employee_gravatar
+# * hr_expense_move_date
 # 
 # Translators:
 msgid ""
@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-30 02:40+0000\n"
-"PO-Revision-Date: 2016-04-28 15:00+0000\n"
+"PO-Revision-Date: 2016-04-29 13:17+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: English (http://www.transifex.com/oca/OCA-hr-8-0/language/en/)\n"
 "MIME-Version: 1.0\n"
@@ -17,12 +17,12 @@ msgstr ""
 "Language: en\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#. module: hr_employee_gravatar
-#: field:res.users,calendar_last_notif_ack:0
-msgid "Last notification marked as read from base Calendar"
-msgstr "Last notification marked as read from base Calendar"
+#. module: hr_expense_move_date
+#: model:ir.model,name:hr_expense_move_date.model_hr_expense_expense
+msgid "Expense"
+msgstr "Expense"
 
-#. module: hr_employee_gravatar
-#: model:ir.model,name:hr_employee_gravatar.model_res_users
-msgid "Users"
-msgstr "Users"
+#. module: hr_expense_move_date
+#: field:hr.expense.expense,move_date:0
+msgid "Move Date"
+msgstr "Move Date"
