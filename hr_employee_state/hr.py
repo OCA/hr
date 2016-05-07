@@ -470,8 +470,8 @@ class hr_job(orm.Model):
         res = {}
         count = 0
         for job in self.browse(cr, uid, ids, context=context):
-            count = len(
-                ee for ee in job.employee_ids
+            count = sum(
+                1 for ee in job.employee_ids
                 if ee.active and ee.status != 'pending_inactive'
             )
             res[job.id] = {
