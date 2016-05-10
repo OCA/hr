@@ -3,13 +3,15 @@
 # * hr_family
 # 
 # Translators:
+# Antonio Trueba, 2016
+# Antonio Trueba, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-18 13:10+0000\n"
-"PO-Revision-Date: 2015-07-27 23:44+0000\n"
-"Last-Translator: <>\n"
+"POT-Creation-Date: 2015-11-30 05:19+0000\n"
+"PO-Revision-Date: 2016-02-10 16:55+0000\n"
+"Last-Translator: Antonio Trueba\n"
 "Language-Team: Spanish (http://www.transifex.com/oca/OCA-hr-8-0/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,19 +28,19 @@ msgstr "Hijo"
 #. module: hr_family
 #: field:hr.employee.children,create_uid:0
 msgid "Created by"
-msgstr ""
+msgstr "Creado por"
 
 #. module: hr_family
 #: field:hr.employee.children,create_date:0
 msgid "Created on"
-msgstr ""
+msgstr "Creado el"
 
 #. module: hr_family
 #: field:hr.employee,fam_father_date_of_birth:0
 #: field:hr.employee,fam_mother_date_of_birth:0
 #: field:hr.employee.children,date_of_birth:0
 msgid "Date of Birth"
-msgstr ""
+msgstr "Fecha de nacimiento"
 
 #. module: hr_family
 #: field:hr.employee.children,employee_id:0
@@ -47,7 +49,6 @@ msgid "Employee"
 msgstr "Empleado"
 
 #. module: hr_family
-#: view:hr.employee.children:hr_family.hr_children_view_form
 #: view:hr.employee.children:hr_family.hr_children_view_tree
 msgid "Employee Children"
 msgstr ""
@@ -60,12 +61,22 @@ msgstr ""
 #. module: hr_family
 #: view:hr.employee:hr_family.hr_employee_view_form
 msgid "Family"
-msgstr ""
+msgstr "Familia"
 
 #. module: hr_family
 #: field:hr.employee,fam_father:0
 msgid "Father's Name"
-msgstr ""
+msgstr "Nombre del padre"
+
+#. module: hr_family
+#: selection:hr.employee.children,gender:0
+msgid "Female"
+msgstr "Mujer"
+
+#. module: hr_family
+#: field:hr.employee.children,gender:0
+msgid "Gender"
+msgstr "Sexo"
 
 #. module: hr_family
 #: model:ir.model,name:hr_family.model_hr_employee_children
@@ -88,9 +99,14 @@ msgid "Last Updated on"
 msgstr ""
 
 #. module: hr_family
+#: selection:hr.employee.children,gender:0
+msgid "Male"
+msgstr "Hombre"
+
+#. module: hr_family
 #: field:hr.employee,fam_mother:0
 msgid "Mother's Name"
-msgstr ""
+msgstr "Nombre de la madre"
 
 #. module: hr_family
 #: field:hr.employee,fam_spouse:0 field:hr.employee.children,name:0
@@ -100,14 +116,14 @@ msgstr "Nombre"
 #. module: hr_family
 #: view:hr.employee:hr_family.hr_employee_view_form
 msgid "Parents"
-msgstr ""
+msgstr "Padres"
 
 #. module: hr_family
 #: view:hr.employee:hr_family.hr_employee_view_form
 msgid "Spouse"
-msgstr ""
+msgstr "Cónyuge"
 
 #. module: hr_family
 #: field:hr.employee,fam_spouse_tel:0
 msgid "Telephone."
-msgstr ""
+msgstr "Teléfono."

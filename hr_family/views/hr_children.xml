@@ -28,25 +28,11 @@
             <field name="name">hr.children.view.tree</field>
             <field name="model">hr.employee.children</field>
             <field name="arch" type="xml">
-                <tree string="Employee Children">
+                <tree string="Employee Children" editable="bottom">
                     <field name="name"/>
+                    <field name="gender"/>
                     <field name="date_of_birth"/>
                 </tree>
-            </field>
-        </record>
-
-        <record id="hr_children_view_form" model="ir.ui.view">
-            <field name="name">hr.children.view.form</field>
-            <field name="model">hr.employee.children</field>
-            <field name="arch" type="xml">
-                <form string="Employee Children">
-                    <sheet>
-                        <group>
-                            <field name="name"/>
-                            <field name="date_of_birth"/>
-                        </group>
-                    </sheet>
-                </form>
             </field>
         </record>
 

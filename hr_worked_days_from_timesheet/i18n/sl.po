@@ -1,0 +1,63 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * hr_worked_days_from_timesheet
+# 
+# Translators:
+# Matjaž Mozetič <m.mozetic@matmoz.si>, 2016
+msgid ""
+msgstr ""
+"Project-Id-Version: hr (8.0)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-04-30 02:40+0000\n"
+"PO-Revision-Date: 2016-04-30 06:22+0000\n"
+"Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>\n"
+"Language-Team: Slovenian (http://www.transifex.com/oca/OCA-hr-8-0/language/sl/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: sl\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
+
+#. module: hr_worked_days_from_timesheet
+#: view:hr.payslip:hr_worked_days_from_timesheet.view_hr_payslip_form
+msgid "Import from Timesheets"
+msgstr "Uvozi iz časovnic"
+
+#. module: hr_worked_days_from_timesheet
+#: field:hr.payslip.worked_days,imported_from_timesheet:0
+msgid "Imported From Timesheet"
+msgstr "Uvoženo iz časovnic"
+
+#. module: hr_worked_days_from_timesheet
+#: model:ir.model,name:hr_worked_days_from_timesheet.model_hr_payslip
+msgid "Pay Slip"
+msgstr "Plačilni list"
+
+#. module: hr_worked_days_from_timesheet
+#: model:ir.model,name:hr_worked_days_from_timesheet.model_hr_payslip_worked_days
+msgid "Payslip Worked Days"
+msgstr "Delovnih dni na plačilni listi"
+
+#. module: hr_worked_days_from_timesheet
+#: code:addons/hr_worked_days_from_timesheet/models/hr_payslip.py:77
+#, python-format
+msgid ""
+"Sorry, but there is no approved Timesheets for the                     "
+"entire Payslip period"
+msgstr "Za celotno obdobje plačilne liste ni odobrenih časovnic."
+
+#. module: hr_worked_days_from_timesheet
+#: field:hr.payslip.worked_days,timesheet_sheet_id:0
+msgid "Timesheet"
+msgstr "Časovnica"
+
+#. module: hr_worked_days_from_timesheet
+#: code:addons/hr_worked_days_from_timesheet/models/hr_payslip.py:38
+#, python-format
+msgid "Timesheet %s"
+msgstr "Časovnica %s"
+
+#. module: hr_worked_days_from_timesheet
+#: view:hr.payslip:hr_worked_days_from_timesheet.view_hr_payslip_form
+msgid "Worked Days"
+msgstr "Delovnih dni"

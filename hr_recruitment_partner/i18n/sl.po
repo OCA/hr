@@ -1,0 +1,561 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * hr_recruitment_partner
+# 
+# Translators:
+# Matjaž Mozetič <m.mozetic@matmoz.si>, 2015-2016
+msgid ""
+msgstr ""
+"Project-Id-Version: hr (8.0)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-04-30 15:07+0000\n"
+"PO-Revision-Date: 2016-05-01 05:38+0000\n"
+"Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>\n"
+"Language-Team: Slovenian (http://www.transifex.com/oca/OCA-hr-8-0/language/sl/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: sl\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
+
+#. module: hr_recruitment_partner
+#: field:hr.applicant,property_account_payable:0
+msgid "Account Payable"
+msgstr "Konto obveznosti"
+
+#. module: hr_recruitment_partner
+#: field:hr.applicant,property_account_receivable:0
+msgid "Account Receivable"
+msgstr "Konto terjatev"
+
+#. module: hr_recruitment_partner
+#: field:hr.applicant,type:0
+msgid "Address Type"
+msgstr "Tip naslova"
+
+#. module: hr_recruitment_partner
+#: model:ir.model,name:hr_recruitment_partner.model_hr_applicant
+msgid "Applicant"
+msgstr "Prijavitelj"
+
+#. module: hr_recruitment_partner
+#: field:hr.applicant,bank_ids:0
+msgid "Banks"
+msgstr "Banke"
+
+#. module: hr_recruitment_partner
+#: field:hr.applicant,birthdate:0
+msgid "Birthdate"
+msgstr "Rojstni datum"
+
+#. module: hr_recruitment_partner
+#: help:hr.applicant,is_company:0
+msgid "Check if the contact is a company, otherwise it is a person"
+msgstr "Označite, če je stik družba. V nasprotnem primeru je fizična oseba"
+
+#. module: hr_recruitment_partner
+#: help:hr.applicant,vat_subjected:0
+msgid ""
+"Check this box if the partner is subjected to the VAT. It will be used for "
+"the VAT legal statement."
+msgstr "Označite, če je partner DDV zavezanec. Uporablja se za DDV izjave."
+
+#. module: hr_recruitment_partner
+#: help:hr.applicant,customer:0
+msgid "Check this box if this contact is a customer."
+msgstr "Označite, če je stik kupec."
+
+#. module: hr_recruitment_partner
+#: help:hr.applicant,supplier:0
+msgid ""
+"Check this box if this contact is a supplier. If it's not checked, purchase "
+"people will not see it when encoding a purchase order."
+msgstr "Označite, če je stik dobavitelj. Če ni označeno, ga osebje iz nabave ne vidi ob vnosu nabavnih nalogov."
+
+#. module: hr_recruitment_partner
+#: help:hr.applicant,employee:0
+msgid "Check this box if this contact is an Employee."
+msgstr "Označite, če je stik kader."
+
+#. module: hr_recruitment_partner
+#: field:hr.applicant,city:0
+msgid "City"
+msgstr "Kraj"
+
+#. module: hr_recruitment_partner
+#: field:hr.applicant,commercial_partner_id:0
+msgid "Commercial Entity"
+msgstr "Poslovni subjekt"
+
+#. module: hr_recruitment_partner
+#: field:hr.applicant,ref_companies:0
+msgid "Companies that refers to partner"
+msgstr "Družbe vezane na partnerja"
+
+#. module: hr_recruitment_partner
+#: field:hr.applicant,contact_address:0
+msgid "Complete Address"
+msgstr "Polni naslov"
+
+#. module: hr_recruitment_partner
+#: field:hr.applicant,ref:0
+msgid "Contact Reference"
+msgstr "Sklic stika"
+
+#. module: hr_recruitment_partner
+#: field:hr.applicant,child_ids:0
+msgid "Contacts"
+msgstr "Stiki"
+
+#. module: hr_recruitment_partner
+#: field:hr.applicant,contract_ids:0 field:hr.applicant,contracts_count:0
+msgid "Contracts"
+msgstr "Pogodbe"
+
+#. module: hr_recruitment_partner
+#: field:hr.applicant,country_id:0
+msgid "Country"
+msgstr "Država"
+
+#. module: hr_recruitment_partner
+#: field:hr.applicant,credit_limit:0
+msgid "Credit Limit"
+msgstr "Kreditni limit"
+
+#. module: hr_recruitment_partner
+#: field:hr.applicant,customer:0
+msgid "Customer"
+msgstr "Kupec"
+
+#. module: hr_recruitment_partner
+#: field:hr.applicant,property_stock_customer:0
+msgid "Customer Location"
+msgstr "Lokacija kupca"
+
+#. module: hr_recruitment_partner
+#: field:hr.applicant,property_payment_term:0
+msgid "Customer Payment Term"
+msgstr "Plačilni pogoj kupca"
+
+#. module: hr_recruitment_partner
+#: field:hr.applicant,date:0
+msgid "Date"
+msgstr "Datum"
+
+#. module: hr_recruitment_partner
+#: help:hr.applicant,last_reconciliation_date:0
+msgid ""
+"Date on which the partner accounting entries were fully reconciled last "
+"time. It differs from the last date where a reconciliation has been made for"
+" this partner, as here we depict the fact that nothing more was to be "
+"reconciled at this date. This can be achieved in 2 different ways: either "
+"the last unreconciled debit/credit entry of this partner was reconciled, "
+"either the user pressed the button \"Nothing more to reconcile\" during the "
+"manual reconciliation process."
+msgstr "Datum, na katerega so bile vknjžbe partnerja polno usklajene. Od zadnjega datuma uskladitve se razlikuje, ker tu prikazujemo dejstvo, da na ta datum ni bilo več nič za uskladiti. To se lahko doseže na 2 različna načina: lahko je bil usklajen zadnji neusklajeni vnos tega partnerja v breme/dobro, ali pa je uporabnik pritisnil gumb \"Nič več za usklajevanje\" med procesom ročne uskladitve."
+
+#. module: hr_recruitment_partner
+#: field:hr.applicant,ean13:0
+msgid "EAN13"
+msgstr "EAN13"
+
+#. module: hr_recruitment_partner
+#: field:hr.applicant,email:0
+msgid "Email"
+msgstr "E-pošta"
+
+#. module: hr_recruitment_partner
+#: field:hr.applicant,employee:0
+msgid "Employee"
+msgstr "Kader"
+
+#. module: hr_recruitment_partner
+#: field:hr.applicant,fax:0
+msgid "Fax"
+msgstr "Faks"
+
+#. module: hr_recruitment_partner
+#: field:hr.applicant,firstname:0
+msgid "First name"
+msgstr "Lastno ime"
+
+#. module: hr_recruitment_partner
+#: field:hr.applicant,property_account_position:0
+msgid "Fiscal Position"
+msgstr "Fiskalni položaj"
+
+#. module: hr_recruitment_partner
+#: help:hr.applicant,opt_out:0
+msgid ""
+"If opt-out is checked, this contact has refused to receive emails for mass "
+"mailing and marketing campaign. Filter 'Available for Mass Mailing' allows "
+"users to filter the partners when performing mass mailing."
+msgstr "Če je označena odjava, pomeni, da ta stik zavrača sprejemanje e-pošte za masovna razpošiljanja in marketinške kampanje. Filter 'Na voljo za masovno pošto' omogoča uporabnikom filtriranje partnerjev pri izvajanju masovnega razpošiljanja."
+
+#. module: hr_recruitment_partner
+#: help:hr.applicant,lang:0
+msgid ""
+"If the selected language is loaded in the system, all documents related to "
+"this contact will be printed in this language. If not, it will be English."
+msgstr "Če je izbrani jezik naložen v sistem, se vsi dokumenti v zvezi s tem stikom tiskajo v tem jeziku. V nasprotnem primeru bodo v angleščini."
+
+#. module: hr_recruitment_partner
+#: field:hr.applicant,image:0
+msgid "Image"
+msgstr "Slika"
+
+#. module: hr_recruitment_partner
+#: field:hr.applicant,invoice_ids:0
+msgid "Invoices"
+msgstr "Računi"
+
+#. module: hr_recruitment_partner
+#: field:hr.applicant,is_company:0
+msgid "Is a Company"
+msgstr "Je družba"
+
+#. module: hr_recruitment_partner
+#: field:hr.applicant,function:0
+msgid "Job Position"
+msgstr "Delovno mesto"
+
+#. module: hr_recruitment_partner
+#: field:hr.applicant,journal_item_count:0
+msgid "Journal Items"
+msgstr "Dnevniške postavke"
+
+#. module: hr_recruitment_partner
+#: field:hr.applicant,lang:0
+msgid "Language"
+msgstr "Jezik"
+
+#. module: hr_recruitment_partner
+#: field:hr.applicant,lastname:0
+msgid "Last name"
+msgstr "Priimek"
+
+#. module: hr_recruitment_partner
+#: field:hr.applicant,calendar_last_notif_ack:0
+msgid "Last notification marked as read from base Calendar"
+msgstr "Zadnje obvestilo iz osnovnega koledarja označeno kot prebrano"
+
+#. module: hr_recruitment_partner
+#: field:hr.applicant,last_reconciliation_date:0
+msgid "Latest Full Reconciliation Date"
+msgstr "Datum zadnje polne uskladitve"
+
+#. module: hr_recruitment_partner
+#: field:hr.applicant,image_medium:0
+msgid "Medium-sized image"
+msgstr "Srednje velika slika"
+
+#. module: hr_recruitment_partner
+#: help:hr.applicant,image_medium:0
+msgid ""
+"Medium-sized image of this contact. It is automatically resized as a "
+"128x128px image, with aspect ratio preserved. Use this field in form views "
+"or some kanban views."
+msgstr "Srednje velika slika stika. Samodejno se preoblikuje v 128x128 px sliko in pri tem ohrani razmerja. Uporabite to polje za prikaze obrazce ali nekatere kanban prikaze."
+
+#. module: hr_recruitment_partner
+#: field:hr.applicant,mobile:0
+msgid "Mobile"
+msgstr "Mobilni"
+
+#. module: hr_recruitment_partner
+#: field:hr.applicant,comment:0
+msgid "Notes"
+msgstr "Opombe"
+
+#. module: hr_recruitment_partner
+#: field:hr.applicant,opt_out:0
+msgid "Opt-Out"
+msgstr "Odjava"
+
+#. module: hr_recruitment_partner
+#: field:hr.applicant,parent_name:0
+msgid "Parent name"
+msgstr "Nadrejeni naziv"
+
+#. module: hr_recruitment_partner
+#: field:hr.applicant,debit_limit:0
+msgid "Payable Limit"
+msgstr "Plačilni limit"
+
+#. module: hr_recruitment_partner
+#: field:hr.applicant,phone:0
+msgid "Phone"
+msgstr "Telefon"
+
+#. module: hr_recruitment_partner
+#: help:hr.applicant,notify_email:0
+msgid ""
+"Policy to receive emails for new messages pushed to your personal Inbox:\n"
+"- Never: no emails are sent\n"
+"- All Messages: for every notification you receive in your Inbox"
+msgstr "Politika prejemanja e-pošte za nova sporočila v osebnem predalu:\n- Nikoli: ni pošiljanja e-pošte\n- Vsa sporočila: za vsa obvestila prejeta v svoj predal"
+
+#. module: hr_recruitment_partner
+#: field:hr.applicant,notify_email:0
+msgid "Receive Inbox Notifications by Email"
+msgstr "Prejem vhodnih obvestil na e-pošto"
+
+#. module: hr_recruitment_partner
+#: field:hr.applicant,parent_id:0
+msgid "Related Company"
+msgstr "Povezana družba"
+
+#. module: hr_recruitment_partner
+#: field:hr.applicant,property_product_pricelist:0
+msgid "Sale Pricelist"
+msgstr "Prodajni cenik"
+
+#. module: hr_recruitment_partner
+#: field:hr.applicant,section_id:0
+msgid "Sales Team"
+msgstr "Prodajna ekipa"
+
+#. module: hr_recruitment_partner
+#: help:hr.applicant,use_parent_address:0
+msgid ""
+"Select this if you want to set company's address information  for this "
+"contact"
+msgstr "Izberite, če za ta stik želite nastaviti naslov družbe."
+
+#. module: hr_recruitment_partner
+#: field:hr.applicant,signup_expiration:0
+msgid "Signup Expiration"
+msgstr "Zapadlost prijave"
+
+#. module: hr_recruitment_partner
+#: field:hr.applicant,signup_token:0
+msgid "Signup Token"
+msgstr "Prijavni žeton"
+
+#. module: hr_recruitment_partner
+#: field:hr.applicant,signup_type:0
+msgid "Signup Token Type"
+msgstr "Tip prijavnega žetona"
+
+#. module: hr_recruitment_partner
+#: field:hr.applicant,signup_valid:0
+msgid "Signup Token is Valid"
+msgstr "Prijavni žeton je veljaven"
+
+#. module: hr_recruitment_partner
+#: field:hr.applicant,signup_url:0
+msgid "Signup URL"
+msgstr "Prijavna URL"
+
+#. module: hr_recruitment_partner
+#: field:hr.applicant,image_small:0
+msgid "Small-sized image"
+msgstr "Manjša slika"
+
+#. module: hr_recruitment_partner
+#: help:hr.applicant,image_small:0
+msgid ""
+"Small-sized image of this contact. It is automatically resized as a 64x64px "
+"image, with aspect ratio preserved. Use this field anywhere a small image is"
+" required."
+msgstr "Manjša slika stika. Samodejno se preoblikuje v 64x64 px sliko in pri tem ohrani razmerja. Uporabite to polje kjerkoli potrebujete manjšo sliko."
+
+#. module: hr_recruitment_partner
+#: field:hr.applicant,state_id:0
+msgid "State"
+msgstr "Zvezna država"
+
+#. module: hr_recruitment_partner
+#: field:hr.applicant,street:0
+msgid "Street"
+msgstr "Ulica"
+
+#. module: hr_recruitment_partner
+#: field:hr.applicant,street2:0
+msgid "Street2"
+msgstr "Ulica2"
+
+#. module: hr_recruitment_partner
+#: field:hr.applicant,supplier:0
+msgid "Supplier"
+msgstr "Dobavitelj"
+
+#. module: hr_recruitment_partner
+#: field:hr.applicant,property_stock_supplier:0
+msgid "Supplier Location"
+msgstr "Lokacija dobavitelja"
+
+#. module: hr_recruitment_partner
+#: field:hr.applicant,property_supplier_payment_term:0
+msgid "Supplier Payment Term"
+msgstr "Plačilni pogoj dobavitelja"
+
+#. module: hr_recruitment_partner
+#: field:hr.applicant,vat:0
+msgid "TIN"
+msgstr "ID za DDV"
+
+#. module: hr_recruitment_partner
+#: field:hr.applicant,category_id:0
+msgid "Tags"
+msgstr "Oznake"
+
+#. module: hr_recruitment_partner
+#: help:hr.applicant,vat:0
+msgid ""
+"Tax Identification Number. Check the box if this contact is subjected to "
+"taxes. Used by the some of the legal statements."
+msgstr "Davčna identifikacijska številka. Označite, če je stik zavezanec za DDV. Uporablja se v nekaterih pravnih izpisih."
+
+#. module: hr_recruitment_partner
+#: help:hr.applicant,property_account_position:0
+msgid ""
+"The fiscal position will determine taxes and accounts used for the partner."
+msgstr "Fiskalni položaj določa davke in konte uporabljene pri partnerju."
+
+#. module: hr_recruitment_partner
+#: help:hr.applicant,tz:0
+msgid ""
+"The partner's timezone, used to output proper date and time values inside "
+"printed reports. It is important to set a value for this field. You should "
+"use the same timezone that is otherwise used to pick and render date and "
+"time values: your computer's timezone."
+msgstr "Partnerjev časovni pas za prikaz pravilnih vrednosti datuma in časa v tiskanih poročilih. Pomembno je nastaviti vrednost za to polje. Uporabite isti časovni pas, kot se uporablja za zbiranje in prikaz datuma in časovnih vrednosti: časovni pas vašega računalnika."
+
+#. module: hr_recruitment_partner
+#: help:hr.applicant,property_account_payable:0
+msgid ""
+"This account will be used instead of the default one as the payable account "
+"for the current partner"
+msgstr "Konto, ki bo pri trenutnem partnerju uporabljen namesto privzetega kot konto obveznosti"
+
+#. module: hr_recruitment_partner
+#: help:hr.applicant,property_account_receivable:0
+msgid ""
+"This account will be used instead of the default one as the receivable "
+"account for the current partner"
+msgstr "Konto, ki bo pri trenutnem partnerju uporabljen namesto privzetega kot konto terjatev"
+
+#. module: hr_recruitment_partner
+#: help:hr.applicant,image:0
+msgid ""
+"This field holds the image used as avatar for this contact, limited to "
+"1024x1024px"
+msgstr "Polje, ki vsebuje sliko uporabljeno kot avatar stika, omejeno na 1024x1024px"
+
+#. module: hr_recruitment_partner
+#: help:hr.applicant,property_supplier_payment_term:0
+msgid ""
+"This payment term will be used instead of the default one for purchase "
+"orders and supplier invoices"
+msgstr "Plačilni pogoj, ki bo uporabljen namesto privzetega na nabavnih nalogih in prejetih računih"
+
+#. module: hr_recruitment_partner
+#: help:hr.applicant,property_payment_term:0
+msgid ""
+"This payment term will be used instead of the default one for sale orders "
+"and customer invoices"
+msgstr "Plačilni pogoj, ki bo uporabljen namesto privzetega na prodajnih nalogih in izdanih računih"
+
+#. module: hr_recruitment_partner
+#: help:hr.applicant,property_product_pricelist:0
+msgid ""
+"This pricelist will be used, instead of the default one, for sales to the "
+"current partner"
+msgstr "Cenik, ki bo za trenutnega partnerja pri prodaji uporabljen namesto privzetega"
+
+#. module: hr_recruitment_partner
+#: help:hr.applicant,property_stock_customer:0
+msgid ""
+"This stock location will be used, instead of the default one, as the "
+"destination location for goods you send to this partner"
+msgstr "Lokacija zaloge, ki se namesto privzete uporabi za ciljno lokacijo blaga odposlanega temu partnerju"
+
+#. module: hr_recruitment_partner
+#: help:hr.applicant,property_stock_supplier:0
+msgid ""
+"This stock location will be used, instead of the default one, as the source "
+"location for goods you receive from the current partner"
+msgstr "Lokacija zaloge, ki se namesto privzete uporabi za izvorno lokacijo blaga prejetega od tega partnerja"
+
+#. module: hr_recruitment_partner
+#: field:hr.applicant,tz:0
+msgid "Timezone"
+msgstr "Časovni pas"
+
+#. module: hr_recruitment_partner
+#: field:hr.applicant,tz_offset:0
+msgid "Timezone offset"
+msgstr "Zamik časovnega pasu"
+
+#. module: hr_recruitment_partner
+#: field:hr.applicant,title:0
+msgid "Title"
+msgstr "Naziv"
+
+#. module: hr_recruitment_partner
+#: field:hr.applicant,total_invoiced:0
+msgid "Total Invoiced"
+msgstr "Skupaj zaračunano"
+
+#. module: hr_recruitment_partner
+#: field:hr.applicant,debit:0
+msgid "Total Payable"
+msgstr "Skupaj obveznosti"
+
+#. module: hr_recruitment_partner
+#: field:hr.applicant,credit:0
+msgid "Total Receivable"
+msgstr "Skupaj terjatev"
+
+#. module: hr_recruitment_partner
+#: help:hr.applicant,credit:0
+msgid "Total amount this customer owes you."
+msgstr "Skupni znesek, ki vam ga ta kupec dolguje."
+
+#. module: hr_recruitment_partner
+#: help:hr.applicant,debit:0
+msgid "Total amount you have to pay to this supplier."
+msgstr "Skupni znesek, ki ga dolgujete temu dobavitelju."
+
+#. module: hr_recruitment_partner
+#: field:hr.applicant,use_parent_address:0
+msgid "Use Company Address"
+msgstr "Uporabi naslov družbe"
+
+#. module: hr_recruitment_partner
+#: help:hr.applicant,type:0
+msgid ""
+"Used to select automatically the right address according to the context in "
+"sales and purchases documents."
+msgstr "Uporablja se za samodejno izbiro pravilnega naslova glede na kontekst pri prodajnih in nabavnih dokumentih."
+
+#. module: hr_recruitment_partner
+#: field:hr.applicant,user_ids:0
+msgid "Users"
+msgstr "Uporabniki"
+
+#. module: hr_recruitment_partner
+#: field:hr.applicant,vat_subjected:0
+msgid "VAT Legal Statement"
+msgstr "DDV izjava"
+
+#. module: hr_recruitment_partner
+#: field:hr.applicant,website:0
+msgid "Website"
+msgstr "Spletna stran"
+
+#. module: hr_recruitment_partner
+#: help:hr.applicant,website:0
+msgid "Website of Partner or Company"
+msgstr "Spletna stran partnerja ali družbe"
+
+#. module: hr_recruitment_partner
+#: field:hr.applicant,zip:0
+msgid "Zip"
+msgstr "PŠ"
+
+#. module: hr_recruitment_partner
+#: field:hr.applicant,has_image:0
+msgid "unknown"
+msgstr "neznano"

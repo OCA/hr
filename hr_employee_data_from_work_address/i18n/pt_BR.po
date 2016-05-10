@@ -1,0 +1,53 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * hr_employee_data_from_work_address
+# 
+# Translators:
+# danimaribeiro <danimaribeiro@gmail.com>, 2016
+msgid ""
+msgstr ""
+"Project-Id-Version: hr (8.0)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-03-11 01:48+0000\n"
+"PO-Revision-Date: 2016-03-08 03:13+0000\n"
+"Last-Translator: danimaribeiro <danimaribeiro@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) (http://www.transifex.com/oca/OCA-hr-8-0/language/pt_BR/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: pt_BR\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#. module: hr_employee_data_from_work_address
+#: model:ir.model,name:hr_employee_data_from_work_address.model_hr_employee
+msgid "Employee"
+msgstr "Empregado"
+
+#. module: hr_employee_data_from_work_address
+#: view:hr.employee:hr_employee_data_from_work_address.view_employee_form
+msgid "True"
+msgstr ""
+
+#. module: hr_employee_data_from_work_address
+#: view:hr.employee:hr_employee_data_from_work_address.view_employee_form
+#: view:res.users:hr_employee_data_from_work_address.view_users_form
+msgid "[('employee', '=', True)]"
+msgstr ""
+
+#. module: hr_employee_data_from_work_address
+#: view:hr.employee:hr_employee_data_from_work_address.view_employee_form
+msgid ""
+"{'default_groups_ref': ['base.group_user'], 'default_partner_id': "
+"address_id}"
+msgstr ""
+
+#. module: hr_employee_data_from_work_address
+#: view:res.users:hr_employee_data_from_work_address.view_users_form
+msgid "{'required': [('id', '!=', False)]}"
+msgstr ""
+
+#. module: hr_employee_data_from_work_address
+#: view:hr.employee:hr_employee_data_from_work_address.view_employee_form
+msgid ""
+"{'show_address': 1, 'default_customer': False, 'default_employee': True}"
+msgstr ""

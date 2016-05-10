@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="view_human_resources_configuration" model="ir.ui.view">
+            <field name="name">hr.config.settings.inherit</field>
+            <field name="model">hr.config.settings</field>
+            <field name="inherit_id" ref="hr.view_human_resources_configuration"/>
+            <field name="arch" type="xml">
+                <group name="contract_grp" position="after">
+                    <group>
+                        <label for="id" string="Employee ID"/>
+                        <div>
+                            <div>
+                                <label for="employee_id_gen_method"/>
+                                <field name="employee_id_gen_method" class="oe_inline"/>
+                            </div>
+                            <div attrs="{'invisible': [('employee_id_gen_method','!=','random')]}">
+                                <label for="employee_id_random_digits"/>
+                                <field name="employee_id_random_digits" class="oe_inline"
+                                    attrs="{'required': [('employee_id_gen_method','=','random')]}"/>
+                            </div>
+                            <div
+                                attrs="{'invisible': [('employee_id_gen_method','!=','sequence')]}">
+                                <label for="employee_id_sequence"/>
+                                <field name="employee_id_sequence" class="oe_inline"
+                                    attrs="{'required': [('employee_id_gen_method','=','sequence')]}"/>
+                            </div>
+                        </div>
+                    </group>
+                </group>
+            </field>
+        </record>
+    </data>
+</openerp>

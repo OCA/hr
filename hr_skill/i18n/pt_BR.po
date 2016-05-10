@@ -1,0 +1,119 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * hr_skill
+# 
+# Translators:
+# danimaribeiro <danimaribeiro@gmail.com>, 2016
+msgid ""
+msgstr ""
+"Project-Id-Version: hr (8.0)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-03-11 01:48+0000\n"
+"PO-Revision-Date: 2016-03-08 03:18+0000\n"
+"Last-Translator: danimaribeiro <danimaribeiro@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) (http://www.transifex.com/oca/OCA-hr-8-0/language/pt_BR/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: pt_BR\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#. module: hr_skill
+#: field:hr.skill,active:0
+msgid "Active"
+msgstr "Ativo"
+
+#. module: hr_skill
+#: view:hr.skill:hr_skill.view_skill_form
+msgid "Child Skills"
+msgstr ""
+
+#. module: hr_skill
+#: field:hr.skill,child_ids:0
+msgid "Children"
+msgstr "Filhos"
+
+#. module: hr_skill
+#: field:hr.skill,create_uid:0
+msgid "Created by"
+msgstr "Criado por"
+
+#. module: hr_skill
+#: field:hr.skill,create_date:0
+msgid "Created on"
+msgstr "Criado em"
+
+#. module: hr_skill
+#: model:ir.model,name:hr_skill.model_hr_employee
+msgid "Employee"
+msgstr "Empregado"
+
+#. module: hr_skill
+#: field:hr.skill,employee_ids:0
+msgid "Employee(s)"
+msgstr ""
+
+#. module: hr_skill
+#: model:ir.actions.act_window,name:hr_skill.hr_employee_normal_action_tree
+msgid "Employees"
+msgstr ""
+
+#. module: hr_skill
+#: field:hr.skill,id:0
+msgid "ID"
+msgstr ""
+
+#. module: hr_skill
+#: field:hr.skill,write_uid:0
+msgid "Last Updated by"
+msgstr ""
+
+#. module: hr_skill
+#: field:hr.skill,write_date:0
+msgid "Last Updated on"
+msgstr ""
+
+#. module: hr_skill
+#: view:hr.skill:hr_skill.view_hr_skill_tree
+#: view:hr.skill:hr_skill.view_skill_form field:hr.skill,name:0
+msgid "Name"
+msgstr ""
+
+#. module: hr_skill
+#: field:hr.skill,parent_id:0
+msgid "Parent"
+msgstr ""
+
+#. module: hr_skill
+#: field:hr.skill,parent_left:0
+msgid "Parent Left"
+msgstr ""
+
+#. module: hr_skill
+#: field:hr.skill,parent_right:0
+msgid "Parent Right"
+msgstr ""
+
+#. module: hr_skill
+#: view:hr.skill:hr_skill.view_skill_form
+msgid "Skill"
+msgstr ""
+
+#. module: hr_skill
+#: view:hr.employee:hr_skill.view_employee_skill_form
+#: field:hr.employee,skill_ids:0 view:hr.skill:hr_skill.view_hr_skill_tree
+#: model:ir.actions.act_window,name:hr_skill.open_view_skill_form
+#: model:ir.ui.menu,name:hr_skill.menu_open_view_skill_form
+msgid "Skills"
+msgstr ""
+
+#. module: hr_skill
+#: model:ir.ui.menu,name:hr_skill.menu_hr_skill_mgt
+msgid "Skills Management"
+msgstr ""
+
+#. module: hr_skill
+#: model:ir.actions.act_window,name:hr_skill.open_view_skill_tree
+#: model:ir.ui.menu,name:hr_skill.menu_open_view_skill_tree
+msgid "Skills Structure"
+msgstr ""

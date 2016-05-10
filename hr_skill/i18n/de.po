@@ -3,14 +3,17 @@
 # * hr_skill
 # 
 # Translators:
+# Rudolf Schnapka <rs@techno-flex.de>, 2015
 # Rudolf Schnapka <schnapkar@golive-saar.de>, 2015
+# Thomas A. Jaeger, 2015
+# Thomas A. Jaeger, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-18 13:10+0000\n"
-"PO-Revision-Date: 2015-08-16 16:41+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
+"POT-Creation-Date: 2015-11-19 11:54+0000\n"
+"PO-Revision-Date: 2015-11-24 09:17+0000\n"
+"Last-Translator: Rudolf Schnapka <rs@techno-flex.de>\n"
 "Language-Team: German (http://www.transifex.com/oca/OCA-hr-8-0/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,6 +25,11 @@ msgstr ""
 #: field:hr.skill,active:0
 msgid "Active"
 msgstr "Aktiv"
+
+#. module: hr_skill
+#: view:hr.skill:hr_skill.view_skill_form
+msgid "Child Skills"
+msgstr "Untergeordnete Fähigkeiten"
 
 #. module: hr_skill
 #: field:hr.skill,child_ids:0
@@ -69,7 +77,8 @@ msgid "Last Updated on"
 msgstr "Zuletzt aktualisiert am"
 
 #. module: hr_skill
-#: field:hr.skill,name:0
+#: view:hr.skill:hr_skill.view_hr_skill_tree
+#: view:hr.skill:hr_skill.view_skill_form field:hr.skill,name:0
 msgid "Name"
 msgstr "Bezeichnung"
 
@@ -81,16 +90,15 @@ msgstr "Übergeordneter"
 #. module: hr_skill
 #: field:hr.skill,parent_left:0
 msgid "Parent Left"
-msgstr ""
+msgstr "Übergeordnet Links"
 
 #. module: hr_skill
 #: field:hr.skill,parent_right:0
 msgid "Parent Right"
-msgstr ""
+msgstr "Übergeordnet Rechts"
 
 #. module: hr_skill
-#: view:hr.skill:hr_skill.view_skill_form field:hr.skill,view:0
-#: selection:hr.skill,view:0
+#: view:hr.skill:hr_skill.view_skill_form
 msgid "Skill"
 msgstr "Fähigkeit"
 
@@ -112,8 +120,3 @@ msgstr "Fähigkeitenverwaltung"
 #: model:ir.ui.menu,name:hr_skill.menu_open_view_skill_tree
 msgid "Skills Structure"
 msgstr "Fähigkeitenhierarchie"
-
-#. module: hr_skill
-#: selection:hr.skill,view:0
-msgid "View"
-msgstr "Sicht"
