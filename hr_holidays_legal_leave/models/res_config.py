@@ -23,4 +23,4 @@ class HumanResourcesConfiguration(models.TransientModel):
     @api.one
     def set_legal_holidays_status_id(self):
         company = self.env.user.company_id
-        company.legal_holidays_status_id = self.legal_holidays_status_id.id
+        company.legal_holidays_status_id = self.legal_holidays_status_id
