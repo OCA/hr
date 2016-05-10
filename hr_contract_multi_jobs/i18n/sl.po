@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-18 13:10+0000\n"
-"PO-Revision-Date: 2015-08-01 15:47+0000\n"
+"POT-Creation-Date: 2016-04-30 02:40+0000\n"
+"PO-Revision-Date: 2016-04-30 06:15+0000\n"
 "Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>\n"
 "Language-Team: Slovenian (http://www.transifex.com/oca/OCA-hr-8-0/language/sl/)\n"
 "MIME-Version: 1.0\n"
@@ -40,12 +40,17 @@ msgid "Created on"
 msgstr "Ustvarjeno"
 
 #. module: hr_contract_multi_jobs
+#: field:hr.contract.job,display_name:0
+msgid "Display Name"
+msgstr "Prikazni naziv"
+
+#. module: hr_contract_multi_jobs
 #: field:hr.contract.job,id:0
 msgid "ID"
 msgstr "ID"
 
 #. module: hr_contract_multi_jobs
-#: field:hr.contract.job,job_id:0
+#: field:hr.contract.job,job_id:0 field:hr.contract.job,name:0
 msgid "Job"
 msgstr "Zaposlitev"
 
@@ -63,6 +68,11 @@ msgstr "Delovna mesta"
 #: field:hr.contract,contract_job_ids:0
 msgid "Jobs"
 msgstr "Zaposlitve"
+
+#. module: hr_contract_multi_jobs
+#: field:hr.contract.job,__last_update:0
+msgid "Last Modified on"
+msgstr "Zadnjič spremenjeno"
 
 #. module: hr_contract_multi_jobs
 #: field:hr.contract.job,write_uid:0

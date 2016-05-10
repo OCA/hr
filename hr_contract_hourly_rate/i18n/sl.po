@@ -3,13 +3,13 @@
 # * hr_contract_hourly_rate
 # 
 # Translators:
-# Matjaž Mozetič <m.mozetic@matmoz.si>, 2015
+# Matjaž Mozetič <m.mozetic@matmoz.si>, 2015-2016
 msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-15 07:15+0000\n"
-"PO-Revision-Date: 2015-10-16 03:55+0000\n"
+"POT-Creation-Date: 2016-04-30 02:40+0000\n"
+"PO-Revision-Date: 2016-04-30 06:15+0000\n"
 "Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>\n"
 "Language-Team: Slovenian (http://www.transifex.com/oca/OCA-hr-8-0/language/sl/)\n"
 "MIME-Version: 1.0\n"
@@ -54,6 +54,12 @@ msgid "Created on"
 msgstr "Ustvarjeno"
 
 #. module: hr_contract_hourly_rate
+#: field:hr.hourly.rate,display_name:0
+#: field:hr.hourly.rate.class,display_name:0
+msgid "Display Name"
+msgstr "Prikazni naziv"
+
+#. module: hr_contract_hourly_rate
 #: field:hr.hourly.rate,date_end:0
 msgid "End Date"
 msgstr "Končni datum"
@@ -70,6 +76,11 @@ msgstr "Napaka! Vsaj eno pogodbeno mesto nima določenega razreda urne postavke.
 #, python-format
 msgid "Error! You cannot have overlapping rates"
 msgstr "Napaka! Postavke se ne smejo prekrivati"
+
+#. module: hr_contract_hourly_rate
+#: field:hr.contract.job,hourly_rate:0
+msgid "Hourly Rate"
+msgstr "Urna postavka"
 
 #. module: hr_contract_hourly_rate
 #: field:hr.contract.job,hourly_rate_class_id:0
@@ -110,6 +121,12 @@ msgstr "Razred urne postavke"
 #: field:hr.hourly.rate,id:0 field:hr.hourly.rate.class,id:0
 msgid "ID"
 msgstr "ID"
+
+#. module: hr_contract_hourly_rate
+#: field:hr.hourly.rate,__last_update:0
+#: field:hr.hourly.rate.class,__last_update:0
+msgid "Last Modified on"
+msgstr "Zadnjič spremenjeno"
 
 #. module: hr_contract_hourly_rate
 #: field:hr.hourly.rate,write_uid:0 field:hr.hourly.rate.class,write_uid:0

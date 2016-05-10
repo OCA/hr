@@ -38,20 +38,24 @@ addon | version | summary
 [hr_employee_id](hr_employee_id/) | 8.0.1.0.0 | Employee ID
 [hr_employee_legacy_id](hr_employee_legacy_id/) | 8.0.1.0.0 | Legacy Employee ID
 [hr_employee_phone_extension](hr_employee_phone_extension/) | 8.0.1.0.0 | Employee Phone Extension
+[hr_employee_reference](hr_employee_reference/) | 8.0.1.0.0 | Manage employee references
 [hr_expense_account_period](hr_expense_account_period/) | 8.0.0.1.0 | Accounting period for HR expenses journal entries
 [hr_expense_analytic_default](hr_expense_analytic_default/) | 8.0.0.1.0 | Manage default analytic account on expenses
 [hr_expense_analytic_plans](hr_expense_analytic_plans/) | 8.0.1.0.0 | Use analytic plans in expenses
 [hr_expense_invoice](hr_expense_invoice/) | 8.0.1.0.0 | Supplier invoices on HR expenses
+[hr_expense_move_date](hr_expense_move_date/) | 8.0.1.0.0 | Move date for HR expenses journal entries
 [hr_expense_sequence](hr_expense_sequence/) | 8.0.1.0.0 | HR expense sequence
 [hr_experience](hr_experience/) | 8.0.1.1.0 | Experience Management
 [hr_family](hr_family/) | 8.0.1.2.0 | Employee Family Information
 [hr_job_categories](hr_job_categories/) | 8.0.1.0.0 | HR Job Employee Categories
 [hr_language](hr_language/) | 8.0.0.1.0 | Language Management
+[hr_public_holidays](hr_public_holidays/) | 8.0.1.0.0 | Manage Public Holidays
 [hr_recruitment_partner](hr_recruitment_partner/) | 8.0.1.0.0 | Automatically create a Partner for Applicants
 [hr_salary_rule_reference](hr_salary_rule_reference/) | 8.0.1.0.0 | Salary Rule Reference
 [hr_security](hr_security/) | 8.0.1.0.0 | HR Permission Groups
 [hr_skill](hr_skill/) | 8.0.1.1.0 | Skill Management
 [hr_webcam](hr_webcam/) | 8.0.1.0.0 | Capture employee picture with webcam
+[hr_worked_days_from_timesheet](hr_worked_days_from_timesheet/) | 8.0.1.0.0 | Worked Days From Timesheet
 
 Unported addons
 ---------------
@@ -80,7 +84,6 @@ addon | version | summary
 [hr_policy_group](hr_policy_group/) | 1.0 (unported) | Human Resources Policy Groups
 [hr_policy_ot](hr_policy_ot/) | 1.0 (unported) | Overtime Policy
 [hr_policy_presence](hr_policy_presence/) | 1.0 (unported) | Employee Presence Policy
-[hr_public_holidays](hr_public_holidays/) | 1.0 (unported) | Public Holidays
 [hr_report_manpower](hr_report_manpower/) | 1.0 (unported) | Man Power Report
 [hr_report_payroll_attendance_summary](hr_report_payroll_attendance_summary/) | 1.0 (unported) | Attendance Summary for Payroll
 [hr_report_payroll_net](hr_report_payroll_net/) | 1.0 (unported) | Net Payroll Payable
@@ -92,7 +95,6 @@ addon | version | summary
 [hr_transfer](hr_transfer/) | 1.0 (unported) | Departmental Transfer
 [hr_wage_increment](hr_wage_increment/) | 1.0 (unported) | HR Wage Increment
 [hr_worked_days_activity](hr_worked_days_activity/) | 1.0 (unported) | Worked Days Activity
-[hr_worked_days_from_timesheet](hr_worked_days_from_timesheet/) | 1.0 (unported) | Worked Days From Timesheet
 [hr_worked_days_hourly_rate](hr_worked_days_hourly_rate/) | 1.0 (unported) | Worked Days Hourly Rates
 
 [//]: # (end addons)
