@@ -2,7 +2,7 @@
 # ©  2015 iDT LABS (http://www.@idtlabs.sl)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from openerp import models, fields, api
+from openerp import models, fields, api, _
 from openerp.exceptions import ValidationError
 from dateutil.relativedelta import relativedelta
 import math
@@ -32,6 +32,14 @@ class HrHolidays(models.Model):
         date_from = self.date_from or self.env.context.get('date_from')
         date_to = self.date_to or self.env.context.get('date_to')
         if (date_to and date_from) and (date_from <= date_to):
+            if not self._check_date_helper(employee_id, date_from):
+                raise ValidationError(_("You cannot schedule the start date "
+                                        "on a public holiday or employee's "
+                                        "rest day"))
+            if not self._check_date_helper(employee_id, date_to):
+                raise ValidationError(_("You cannot schedule the end date "
+                                        "on a public holiday or employee's "
+                                        "rest day"))
             duration = self._compute_number_of_days(employee_id,
                                                     date_to,
                                                     date_from)
@@ -45,8 +53,8 @@ class HrHolidays(models.Model):
             'employee_id',
             False)
         if not self._check_date_helper(employee_id, date_from):
-            raise ValidationError('You cannot schedule the start date on '
-                                  'a public holiday or employee\'s rest day')
+            raise ValidationError(_("You cannot schedule the start date on "
+                                    "a public holiday or employee's rest day"))
         if (date_to and date_from) and (date_from <= date_to):
             diff_day = self._compute_number_of_days(employee_id,
                                                     date_to,
@@ -61,8 +69,8 @@ class HrHolidays(models.Model):
             'employee_id',
             False)
         if not self._check_date_helper(employee_id, date_to):
-            raise ValidationError('You cannot schedule the end date on '
-                                  'a public holiday or employee\'s rest day')
+            raise ValidationError(_("You cannot schedule the end date on "
+                                    "a public holiday or employee's rest day"))
         if (date_to and date_from) and (date_from <= date_to):
             diff_day = self._compute_number_of_days(employee_id,
                                                     date_to,

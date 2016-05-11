@@ -22,9 +22,13 @@ class TestHolidaysComputeDays(common.TransactionCase):
             self.env['resource.calendar.attendance']
         )
 
-        # Create an employees
+        # Create 2 employees
         self.employee = self.employee_model.create({
             'name': 'Employee 1',
+        })
+        
+        self.employee2 = self.employee_model.create({
+            'name': 'Employee 2',
         })
 
         # create calendar
@@ -52,6 +56,16 @@ class TestHolidaysComputeDays(common.TransactionCase):
                 'working_hours': calendar.id
             }
         )
+        
+        self.contract2 = self.contract_model.create(
+            {
+                'employee_id': self.employee2.id,
+                'name': 'Contract 2',
+                'date_start': '1990-10-01',
+                'wage': 5000,
+                'working_hours': calendar.id
+            }
+        )
 
         # Create public holidays
         public_holiday = self.public_holiday_model.create({
@@ -60,6 +74,11 @@ class TestHolidaysComputeDays(common.TransactionCase):
         self.public_holiday_model_line.create({
             'name': 'Public Holiday',
             'date': '1994-10-14',
+            'year_id': public_holiday.id
+        })
+        self.public_holiday_model_line.create({
+            'name': 'Public Holiday2',
+            'date': '1994-10-28',
             'year_id': public_holiday.id
         })
 
@@ -98,7 +117,7 @@ class TestHolidaysComputeDays(common.TransactionCase):
                     'date_from': '1994-10-03 08:00:00',
                     'date_to': '1994-10-08 18:00:00',
                 })
-            leave.onchange_date_from(leave.date_to, leave.date_from)
+            leave.onchange_date_to(leave.date_to, leave.date_from)
 
     def test_schedule_on_public_holiday(self):
         # let's schedule start and then end date on public holiday
@@ -125,7 +144,19 @@ class TestHolidaysComputeDays(common.TransactionCase):
                     'date_from': '1994-10-06 08:00:00',
                     'date_to': '1994-10-14 18:00:00',
                 })
-            leave.onchange_date_from(leave.date_to, leave.date_from)
+            leave.onchange_date_to(leave.date_to, leave.date_from)
+        with self.assertRaises(ValidationError):
+            leave = self.holiday_model.create(
+                {
+                    'name': 'Hol13',
+                    'employee_id': self.employee.id,
+                    'type': 'remove',
+                    'holiday_type': 'employee',
+                    'holiday_status_id': self.holiday_type.id,
+                    'date_from': '1994-10-25 08:00:00',
+                    'date_to': '1994-10-28 18:00:00',
+                })
+            leave.onchange_employee(self.employee2.id)
 
     def test_leave_creation_ok(self):
         # let's schedule holiday with date_from and date to in working days
@@ -310,4 +341,19 @@ class TestHolidaysComputeDays(common.TransactionCase):
             'date_to': '1994-10-20 18:00:00',
         })
         res = leave.onchange_date_from(leave.date_to, leave.date_from)
+        self.assertEqual(res['value']['number_of_days_temp'], 5)
+        
+    def test_onchange_employee(self):
+        # let's run test assumign employee has not schedule
+        self.contract.unlink()
+        leave = self.holiday_model.new({
+            'name': 'Hol23',
+            'employee_id': self.employee.id,
+            'type': 'remove',
+            'holiday_type': 'employee',
+            'holiday_status_id': self.holiday_type.id,
+            'date_from': '1994-10-13 08:00:00',
+            'date_to': '1994-10-20 18:00:00',
+        })
+        res = leave.onchange_employee(self.employee2.id)
         self.assertEqual(res['value']['number_of_days_temp'], 5)
