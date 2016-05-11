@@ -26,7 +26,7 @@ class TestHolidaysComputeDays(common.TransactionCase):
         self.employee = self.employee_model.create({
             'name': 'Employee 1',
         })
-        
+
         self.employee2 = self.employee_model.create({
             'name': 'Employee 2',
         })
@@ -56,7 +56,7 @@ class TestHolidaysComputeDays(common.TransactionCase):
                 'working_hours': calendar.id
             }
         )
-        
+
         self.contract2 = self.contract_model.create(
             {
                 'employee_id': self.employee2.id,
@@ -342,7 +342,7 @@ class TestHolidaysComputeDays(common.TransactionCase):
         })
         res = leave.onchange_date_from(leave.date_to, leave.date_from)
         self.assertEqual(res['value']['number_of_days_temp'], 5)
-        
+
     def test_onchange_employee(self):
         # let's run test assumign employee has not schedule
         self.contract.unlink()
