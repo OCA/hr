@@ -45,10 +45,10 @@ class HrEmployee(models.Model):
             ('firstname', '=', ' '), ('lastname', '=', ' ')])
 
         for ee in employees:
-            lastname, firstname = self.split_name(ee.name)
+            split_name = self.split_name(ee.name)
             ee.write({
-                'firstname': firstname,
-                'lastname': lastname,
+                'firstname': split_name['firstname'],
+                'lastname': split_name['lastname'],
             })
 
     @api.model
