@@ -1,4 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_hr_recruitment_request_user,access_hr_recruitment_request,model_hr_recruitment_request,base.group_hr_user,1,1,1,1
-access_hr_recruitment_request_manager,access_hr_recruitment_request,model_hr_recruitment_request,base.group_hr_manager,1,1,1,1
-access_hr_recruitment_request_director,access_hr_recruitment_request,model_hr_recruitment_request,hr_security.group_hr_director,1,1,0,0
