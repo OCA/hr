@@ -1,5 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_hr_accrual_manager,access_hr_accrual,model_hr_accrual,base.group_hr_manager,1,1,1,1
-access_hr_accrual_line_manager,access_hr_accrual_line,model_hr_accrual_line,base.group_hr_manager,1,1,1,1
-access_hr_accrual_leave_approval,access_hr_accrual,model_hr_accrual,hr_holidays_extension.group_hr_leave,1,1,1,1
-access_hr_accrual_line_leave_approval,access_hr_accrual_line,model_hr_accrual_line,hr_holidays_extension.group_hr_leave,1,1,1,1
