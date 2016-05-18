@@ -1,12 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-    File: views/hr_payroll_view.xml
-    Module: hr_payroll_commission
-
-    Created by dco@open-net.ch
-
-    Copyright (c) 2014-TODAY Open-Net Ltd.
--->
 <odoo>
     <data>
         <record model="ir.ui.view" id="hr_payslip_form">

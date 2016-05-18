@@ -11,6 +11,10 @@ class HrContract(models.Model):
     _inherit = 'hr.contract'
 
     # ---------- Fields management
+    commission = fields.Float(string='Commission',
+                              compute='_comp_commission')
+    comm_rate = fields.Float(string='Commissions Rate',
+                             digits=dp.get_precision('Payroll Rate'))
 
     @api.one
     @api.depends('employee_id.user_id')
@@ -33,7 +37,4 @@ class HrContract(models.Model):
                     commission += move_line.credit
         self.commission += commission
 
-    commission = fields.Float(string='Commission',
-                              compute='_comp_commission')
-    comm_rate = fields.Float(string='Commissions Rate',
-                             digits=dp.get_precision('Payroll Rate'))
+

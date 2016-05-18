@@ -8,7 +8,8 @@ from openerp import models, fields, api
 class HrContract(models.Model):
     _inherit = 'hr.contract'
 
-    # ---------- Fields management
+    reimbursement = fields.Float(string='Reimbursement',
+                                 compute='_comp_reimbursement')
 
     @api.one
     @api.depends('employee_id.user_id')
@@ -29,5 +30,4 @@ class HrContract(models.Model):
             reimbursement += expense.account_move_id.amount
         self.reimbursement += reimbursement
 
-    reimbursement = fields.Float(string='Reimbursement',
-                                 compute='_comp_reimbursement')
+

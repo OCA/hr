@@ -43,6 +43,5 @@ class HrPayslip(models.Model):
         expenses = ExpenseObj.search([
             ('slip_id', '=', self.id)
         ])
-        for expense in expenses:
-            expenses.state = 'done'
+        expenses.paid_expenses()
         return super(HrPayslip, self).process_sheet()
