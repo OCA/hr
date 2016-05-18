@@ -1,10 +1,5 @@
 # -*- coding: utf-8 -*-
-#
-#  File: __init__.py
-#  Module: hr_payroll_commission
-#
-#  Created by sge@open-net.ch
-#  See __openerp__.py for full copyright and licensing details
-##############################################################################
+# © 2016 Coninckx David (Open Net Sarl)
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from . import models
