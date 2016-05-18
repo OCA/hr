@@ -56,7 +56,6 @@ class HrPayslip(models.Model):
 
         # Then, re-link the invoices, the expenses
         # and the account move lines using the criterias
-        InvoiceLineObj = self.env['account.invoice.line']
         for payslip in self:
             # No contract? forget about it
             if not payslip.contract_id:

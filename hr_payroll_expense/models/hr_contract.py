@@ -29,5 +29,3 @@ class HrContract(models.Model):
         for expense in ExpensesObj.search(filters):
             reimbursement += expense.account_move_id.amount
         self.reimbursement += reimbursement
-
-
