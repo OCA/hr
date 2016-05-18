@@ -3,7 +3,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 from openerp.tests import common
-from openerp.exceptions import Warning as UserWarning
+from openerp.exceptions import Warning as UserError
 
 
 class TestHolidaysLegalLeave(common.TransactionCase):
@@ -42,7 +42,7 @@ class TestHolidaysLegalLeave(common.TransactionCase):
 
     def test_try_reduce_allocation(self):
         # let's sattempt to reduce allocation here... it should not let us
-        with self.assertRaises(UserWarning):
+        with self.assertRaises(UserError):
             self.employee.write({'remaining_leaves': 5})
 
     def test_getting_remaining(self):
