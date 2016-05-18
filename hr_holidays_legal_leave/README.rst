@@ -38,6 +38,16 @@ Usage
    :alt: Try me on Runbot
    :target: https://runbot.odoo-community.org/runbot/116/8.0
 
+Known issues / Roadmap
+======================
+
+By default, Odoo calculated leaves only by days, so there should be possible to calculate leaves by number of hours or to change the "number of days" field from integer to float.
+There are a few cases that should improve the allocation requests:
+
+* Each employee should have assigned to the contract a field about number of leaves negotiated, if different from the Legal Leave type number.
+* For the first assignation the number of days should be calculated depending of the date of employment.
+* Employees transfered between the same company Group should get the remaining days from previous company.
+
 Bug Tracker
 ===========
 
