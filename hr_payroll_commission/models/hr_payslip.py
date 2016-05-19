@@ -11,9 +11,9 @@ class HrPayslip(models.Model):
 
     # ---------- Fields management
 
-    invoices = fields.One2many('account.invoice', 'slip_id',
+    invoice_ids = fields.One2many('account.invoice', 'slip_id',
                                string='Invoices')
-    move_lines = fields.One2many('account.move.line', 'slip_id',
+    move_line_ids = fields.One2many('account.move.line', 'slip_id',
                                  string='Journal Items')
 
     # ---------- Utilities
@@ -49,13 +49,14 @@ class HrPayslip(models.Model):
 
     @api.multi
     def compute_sheet(self):
+        # self.invoice_ids.unlink()
+        # self.move_line_ids.unlink()
         self._detach_invoices_from_payslip()
         self._detach_move_lines_from_payslip()
 
-        res = super(HrPayslip, self).compute_sheet()
-
         # Then, re-link the invoices, the expenses
         # and the account move lines using the criterias
+        InvoiceLineObj = self.env['account.invoice.line']
         for payslip in self:
             # No contract? forget about it
             if not payslip.contract_id:
@@ -69,4 +70,5 @@ class HrPayslip(models.Model):
             invoice_ids = self._attach_invoices_to_payslip()
             self._attach_move_lines_to_payslip(invoice_ids)
 
+        res = super(HrPayslip, self).compute_sheet()
         return res

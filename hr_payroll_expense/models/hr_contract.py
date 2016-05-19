@@ -11,21 +11,24 @@ class HrContract(models.Model):
     reimbursement = fields.Float(string='Reimbursement',
                                  compute='_comp_reimbursement')
 
-    @api.one
+    @api.multi
     @api.depends('employee_id.user_id')
     def _comp_reimbursement(self):
-        self.reimbursement = 0
+        for contract in self:
+            contract.reimbursement = 0
 
-        # Look in linked expenses:
-        filters = [
-            ('employee_id', '=', self.employee_id.id),
-            ('slip_id', '=', False),
-            ('state', 'in', ['done', 'post']),
-        ]
+            # Look in linked expenses:
+            filters = [
+                ('employee_id', '=', contract.employee_id.id),
+                ('slip_id', '=', False),
+                ('state', 'in', ['done', 'post']),
+            ]
 
-        # Compute reimbursement
-        reimbursement = 0
-        ExpensesObj = self.env['hr.expense']
-        for expense in ExpensesObj.search(filters):
-            reimbursement += expense.account_move_id.amount
-        self.reimbursement += reimbursement
+            # Compute reimbursement
+            reimbursement = 0
+            ExpensesObj = self.env['hr.expense']
+            for expense in ExpensesObj.search(filters):
+                reimbursement += expense.account_move_id.amount
+            contract.reimbursement += reimbursement
+
+

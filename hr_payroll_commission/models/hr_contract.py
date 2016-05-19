@@ -16,23 +16,26 @@ class HrContract(models.Model):
     comm_rate = fields.Float(string='Commissions Rate',
                              digits=dp.get_precision('Payroll Rate'))
 
-    @api.one
+    @api.multi
     @api.depends('employee_id.user_id')
     def _comp_commission(self):
-        self.commission = 0
+        for contract in self:
+            contract.commission = 0
 
-        account_invoice_obj = self.env['account.invoice']
-        invoice_ids = account_invoice_obj.search([
-            ('state', 'in', ('open', 'paid')),
-            ('user_id', '=', self.employee_id.user_id.id),
-            ('type', '=', 'out_invoice'),
-            ('slip_id', '=', False)
-        ])
+            account_invoice_obj = self.env['account.invoice']
+            invoice_ids = account_invoice_obj.search([
+                ('state', 'in', ('open', 'paid')),
+                ('user_id', '=', contract.employee_id.user_id.id),
+                ('type', '=', 'out_invoice'),
+                ('slip_id', '=', False)
+            ])
 
-        # Compute comission based
-        commission = 0
-        for invoice_id in invoice_ids:
-            for move_line in invoice_id.payment_move_line_ids:
-                if not move_line.slip_id.id:
-                    commission += move_line.credit
-        self.commission += commission
+            # Compute comission based
+            commission = 0
+            for invoice_id in invoice_ids:
+                for move_line in invoice_id.payment_move_line_ids:
+                    if not move_line.slip_id.id:
+                        commission += move_line.credit
+            contract.commission += commission
+
+

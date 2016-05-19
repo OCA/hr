@@ -10,7 +10,7 @@
             <field name="arch" type="xml">
                 <xpath expr="//notebook" position="inside">
                     <page string="Journal Items">
-                        <field name="move_lines" readonly="1"/>
+                        <field name="move_line_ids" readonly="1"/>
                    </page>
                 </xpath>
             </field>
