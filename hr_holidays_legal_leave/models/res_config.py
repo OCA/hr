@@ -20,7 +20,8 @@ class HumanResourcesConfiguration(models.TransientModel):
             'legal_holidays_status_id': company.legal_holidays_status_id.id,
         }
 
-    @api.one
+    @api.multi
     def set_legal_holidays_status_id(self):
+        self.ensure_one()
         company = self.env.user.company_id
         company.legal_holidays_status_id = self.legal_holidays_status_id

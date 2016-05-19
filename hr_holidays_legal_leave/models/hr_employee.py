@@ -36,8 +36,9 @@ class HrEmployee(models.Model):
         for sig in ('confirm', 'validate', 'second_validate'):
             leave.signal_workflow(sig)
 
-    @api.one
+    @api.multi
     def _compute_remaining_days(self):
+        self.ensure_one()
         legal_leave = self.company_id.legal_holidays_status_id
         if not legal_leave:
             raise UserError(_('Legal/annual leave type is not defined for '
