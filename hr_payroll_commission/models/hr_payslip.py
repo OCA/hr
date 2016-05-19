@@ -11,10 +11,12 @@ class HrPayslip(models.Model):
 
     # ---------- Fields management
 
-    invoice_ids = fields.One2many('account.invoice', 'slip_id',
-                               string='Invoices')
-    move_line_ids = fields.One2many('account.move.line', 'slip_id',
-                                 string='Journal Items')
+    invoice_ids = fields.One2many(
+        'account.invoice', 'slip_id',
+        string='Invoices')
+    move_line_ids = fields.One2many(
+        'account.move.line', 'slip_id',
+        string='Journal Items')
 
     # ---------- Utilities
 
@@ -56,7 +58,6 @@ class HrPayslip(models.Model):
 
         # Then, re-link the invoices, the expenses
         # and the account move lines using the criterias
-        InvoiceLineObj = self.env['account.invoice.line']
         for payslip in self:
             # No contract? forget about it
             if not payslip.contract_id:

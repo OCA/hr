@@ -37,5 +37,3 @@ class HrContract(models.Model):
                     if not move_line.slip_id.id:
                         commission += move_line.credit
             contract.commission += commission
-
-
