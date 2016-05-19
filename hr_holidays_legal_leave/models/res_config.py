@@ -14,7 +14,7 @@ class HumanResourcesConfiguration(models.TransientModel):
     )
 
     @api.model
-    def get_legal_holidays_status_id(self, fields):
+    def get_legal_holidays_status_id(self):
         company = self.env.user.company_id
         return {
             'legal_holidays_status_id': company.legal_holidays_status_id.id,
