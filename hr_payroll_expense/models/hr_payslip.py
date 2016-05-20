@@ -19,6 +19,8 @@ class HrPayslip(models.Model):
         if expenses:
             expenses.write({'slip_id': False})
 
+        res = super(HrPayslip, self).compute_sheet()
+
         # Then, re-link the expenses
 
         for payslip in self:
@@ -28,13 +30,11 @@ class HrPayslip(models.Model):
             filters = [
                 ('employee_id', '=', employee_id),
                 ('slip_id', '=', False),
-                ('state', '=', ['done', 'post']),
+                ('state', '=', 'approve'),
             ]
             expenses = ExpenseObj.search(filters)
             if expenses:
                 expenses.write({'slip_id': payslip.id})
-
-        res = super(HrPayslip, self).compute_sheet()
         return res
 
     def process_sheet(self):

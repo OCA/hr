@@ -21,12 +21,13 @@ class HrContract(models.Model):
             filters = [
                 ('employee_id', '=', contract.employee_id.id),
                 ('slip_id', '=', False),
-                ('state', 'in', ['done', 'post']),
+                ('state', '=', 'approve'),
             ]
 
             # Compute reimbursement
             reimbursement = 0
             ExpensesObj = self.env['hr.expense']
             for expense in ExpensesObj.search(filters):
-                reimbursement += expense.account_move_id.amount
-            contract.reimbursement += reimbursement
+                amount = expense.total_amount
+                reimbursement = reimbursement + amount
+            contract.reimbursement = reimbursement
