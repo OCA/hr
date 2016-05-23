@@ -56,6 +56,8 @@ class HrPayslip(models.Model):
         self._detach_invoices_from_payslip()
         self._detach_move_lines_from_payslip()
 
+        res = super(HrPayslip, self).compute_sheet()
+
         # Then, re-link the invoices, the expenses
         # and the account move lines using the criterias
         for payslip in self:
@@ -71,5 +73,4 @@ class HrPayslip(models.Model):
             invoice_ids = self._attach_invoices_to_payslip()
             self._attach_move_lines_to_payslip(invoice_ids)
 
-        res = super(HrPayslip, self).compute_sheet()
         return res

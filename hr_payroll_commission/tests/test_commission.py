@@ -70,7 +70,6 @@ class TestCommission(common.TransactionCase):
                 'name': "Invoice Line"
             }
         )
-
         self.invoice.signal_workflow('invoice_open')
         self.bank_journal = self.env['account.journal'].create(
             {
@@ -99,8 +98,33 @@ class TestCommission(common.TransactionCase):
                 'employee_id': self.employee.id,
                 'name': 'Contract',
                 'wage': 0,
+                'comm_rate': 0.2,
             }
         )
         self.register_payments.create_payment()
-
         self.assertEqual(self.employee.contract_id.commission, 500)
+
+        self.commission_rule = self.env['hr.salary.rule'].search(
+            [
+                ['code', '=', 'COMM']
+            ]
+        )
+        if self.commission_rule:
+            self.payroll_structure = self.env['hr.payroll.structure'].create(
+                {
+                    'name': 'Test structure',
+                    'code': "TEST",
+                    'rule_ids': [(4, self.commission_rule.id)],
+                    'parent_id': False,
+                }
+            )
+            self.contract.struct_id = self.payroll_structure.id
+            self.payslip = self.env['hr.payslip'].create(
+                {
+                    'employee_id': self.employee.id,
+                    'contract_id': self.contract.id,
+                    'struct_id': self.payroll_structure.id,
+                }
+            )
+            self.payslip.compute_sheet()
+            self.assertEqual(self.payslip.line_ids[0].amount, 100)
