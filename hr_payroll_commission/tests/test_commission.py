@@ -14,15 +14,15 @@ class TestCommission(common.TransactionCase):
         self.main_company = self.env.ref('base.main_company')
         self.main_company.currency_id = self.env.ref("base.CHF").id
         self.sale_user = self.env['res.users'].with_context(
-                {'no_reset_password': True}
-            ).create(
-                {
-                    'name': "Salesman",
-                    'company_id': self.main_company.id,
-                    'login': "sale",
-                    'email': "sale@yourcompany.com",
-                }
-            )
+            {'no_reset_password': True}
+        ).create(
+            {
+                'name': "Salesman",
+                'company_id': self.main_company.id,
+                'login': "sale",
+                'email': "sale@yourcompany.com",
+            }
+        )
 
         self.employee = self.env['hr.employee'].create(
             {
