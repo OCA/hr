@@ -6,7 +6,7 @@
 Payroll Commissions
 ===================
 
-This module allows you to add commission and reimbursement to payslip
+This module allows you to add commission to payslip
 
 **Features list :**
     * Add commision rate, commission to contract.
@@ -43,7 +43,9 @@ Usage
 
     .. image:: http://s22.postimg.org/4ouwvh2f5/Screen_Shot_02_12_16_at_03_04_PM.png
 
-
+.. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
+   :alt: Try me on Runbot
+   :target: https://runbot.odoo-community.org/runbot/hr/9.0
 
 Known issues / Roadmap
 ======================
@@ -55,7 +57,7 @@ Bug Tracker
 ===========
 
 Bugs are tracked on `GitHub Issues
-<https://github.com/OCA/{project_repo}/issues>`_. In case of trouble, please
+<https://github.com/OCA/hr/issues>`_. In case of trouble, please
 check there if your issue has already been reported. If you spotted it first,
 help us smashing it by providing a detailed and welcomed feedback.
 

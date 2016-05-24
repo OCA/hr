@@ -1,6 +1,6 @@
 <odoo>
 <data>
-    <record id="hr_payroll.hr_rule_comm" model="hr.salary.rule">
+    <record id="hr_rule_comm" model="hr.salary.rule">
         <field name="amount_select">code</field>
         <field name="appears_on_payslip">True</field>
         <field name="code">COMM</field>

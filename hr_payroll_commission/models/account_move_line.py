@@ -8,4 +8,4 @@ from openerp import models, fields
 class AccountMoveLine(models.Model):
     _inherit = 'account.move.line'
 
-    slip_id = fields.Many2one('hr.payslip', string='Pay slip')
+    slip_id = fields.Many2one('hr.payslip', string='Payslip')

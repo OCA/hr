@@ -8,8 +8,8 @@ from openerp import models, fields, api
 class HrPayslip(models.Model):
     _inherit = 'hr.payslip'
 
-    expenses = fields.One2many('hr.expense', 'slip_id',
-                               string='Expenses')
+    expense_ids = fields.One2many(
+        'hr.expense', 'slip_id', string='Expenses')
 
     @api.multi
     def compute_sheet(self):

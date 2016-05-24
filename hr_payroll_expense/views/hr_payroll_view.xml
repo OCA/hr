@@ -10,7 +10,7 @@
             <field name="arch" type="xml">
                 <xpath expr="//notebook" position="inside">
                     <page string="Expenses">
-                        <field name="expenses" readonly="1">
+                        <field name="expense_ids" readonly="1">
                             <tree colors="blue:state == 'draft';black:state in ('confirm','accepted','done');gray:state == 'cancelled'" string="Expenses" editable="top">
                                 <field name="employee_id"/>
                                 <field name="date"/>

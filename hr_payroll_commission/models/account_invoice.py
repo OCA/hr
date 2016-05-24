@@ -11,4 +11,4 @@ class AccountInvoice(models.Model):
 
     # ---------- Fields management
 
-    slip_id = fields.Many2one('hr.payslip', string='Pay slip')
+    slip_id = fields.Many2one('hr.payslip', string='Payslip')

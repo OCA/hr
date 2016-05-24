@@ -32,6 +32,7 @@ class TestCommission(common.TransactionCase):
         )
         self.partner = self.env.ref("base.res_partner_2")
         self.product = self.env.ref("product.product_product_4")
+
         self.account_receivable = self.env['account.account'].search(
             [(
                 'user_type_id', '=',
@@ -39,6 +40,7 @@ class TestCommission(common.TransactionCase):
             )],
             limit=1
         )
+
         self.account_revenue = self.env['account.account'].search(
             [(
                 'user_type_id', '=',
