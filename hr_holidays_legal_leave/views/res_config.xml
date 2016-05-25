@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="view_hr_config_inherit" model="ir.ui.view">
+            <field name="name">hr settings for payroll</field>
+            <field name="model">hr.config.settings</field>
+            <field name="inherit_id" ref="hr.view_human_resources_configuration" />
+            <field name="arch" type="xml">
+                <xpath expr="//div[@name='hr_attendance']"
+                    position="after">
+                    <div>
+                        <label for="legal_holidays_status_id"
+                            class="oe_inline" />
+                        <field name="legal_holidays_status_id"
+                            class="oe_inline" />
+                    </div>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</openerp>
