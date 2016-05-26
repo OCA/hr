@@ -48,6 +48,7 @@ addon | version | summary
 [hr_experience](hr_experience/) | 8.0.1.1.0 | Experience Management
 [hr_family](hr_family/) | 8.0.1.2.0 | Employee Family Information
 [hr_holidays_compute_days](hr_holidays_compute_days/) | 8.0.1.0.0 | Computes the actual leave days considering rest days and public holidays
+[hr_holidays_legal_leave](hr_holidays_legal_leave/) | 8.0.1.0.0 | Allows the definition of legal/annual leave
 [hr_job_categories](hr_job_categories/) | 8.0.1.0.0 | HR Job Employee Categories
 [hr_language](hr_language/) | 8.0.0.1.0 | Language Management
 [hr_payslip_move_date](hr_payslip_move_date/) | 8.0.0.1.0 | HR Payslip Move Date
