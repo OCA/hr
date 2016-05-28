@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-30 02:40+0000\n"
-"PO-Revision-Date: 2016-04-28 14:58+0000\n"
+"POT-Creation-Date: 2016-05-26 02:40+0000\n"
+"PO-Revision-Date: 2016-05-24 20:25+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Spanish (http://www.transifex.com/oca/OCA-hr-8-0/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -43,12 +43,12 @@ msgstr "Creado el"
 #. module: hr_contract_multi_jobs
 #: field:hr.contract.job,display_name:0
 msgid "Display Name"
-msgstr ""
+msgstr "Mostrar nombre"
 
 #. module: hr_contract_multi_jobs
 #: field:hr.contract.job,id:0
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: hr_contract_multi_jobs
 #: field:hr.contract.job,job_id:0 field:hr.contract.job,name:0
@@ -73,17 +73,17 @@ msgstr ""
 #. module: hr_contract_multi_jobs
 #: field:hr.contract.job,__last_update:0
 msgid "Last Modified on"
-msgstr ""
+msgstr "Última modificación el"
 
 #. module: hr_contract_multi_jobs
 #: field:hr.contract.job,write_uid:0
 msgid "Last Updated by"
-msgstr ""
+msgstr "Última actualización por"
 
 #. module: hr_contract_multi_jobs
 #: field:hr.contract.job,write_date:0
 msgid "Last Updated on"
-msgstr ""
+msgstr "Última actualización en"
 
 #. module: hr_contract_multi_jobs
 #: field:hr.contract.job,is_main_job:0

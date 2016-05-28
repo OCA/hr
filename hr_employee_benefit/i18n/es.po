@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-30 02:40+0000\n"
-"PO-Revision-Date: 2016-04-28 15:02+0000\n"
+"POT-Creation-Date: 2016-05-26 02:40+0000\n"
+"PO-Revision-Date: 2016-05-24 20:25+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Spanish (http://www.transifex.com/oca/OCA-hr-8-0/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -117,7 +117,7 @@ msgstr "Descripción"
 #: field:hr.employee.benefit.rate.line,display_name:0
 #: field:hr.payslip.benefit.line,display_name:0
 msgid "Display Name"
-msgstr ""
+msgstr "Mostrar nombre"
 
 #. module: hr_employee_benefit
 #: code:addons/hr_employee_benefit/models/hr_employee_benefit_rate.py:99
@@ -231,7 +231,7 @@ msgstr "Agrupar por..."
 #: field:hr.employee.benefit.rate,id:0
 #: field:hr.employee.benefit.rate.line,id:0 field:hr.payslip.benefit.line,id:0
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: hr_employee_benefit
 #: view:hr.salary.rule:hr_employee_benefit.hr_salary_rule_form
@@ -245,7 +245,7 @@ msgstr ""
 #: field:hr.employee.benefit.rate.line,__last_update:0
 #: field:hr.payslip.benefit.line,__last_update:0
 msgid "Last Modified on"
-msgstr ""
+msgstr "Última modificación el"
 
 #. module: hr_employee_benefit
 #: field:hr.employee.benefit,write_uid:0
@@ -254,7 +254,7 @@ msgstr ""
 #: field:hr.employee.benefit.rate.line,write_uid:0
 #: field:hr.payslip.benefit.line,write_uid:0
 msgid "Last Updated by"
-msgstr ""
+msgstr "Última actualización por"
 
 #. module: hr_employee_benefit
 #: field:hr.employee.benefit,write_date:0
@@ -263,7 +263,7 @@ msgstr ""
 #: field:hr.employee.benefit.rate.line,write_date:0
 #: field:hr.payslip.benefit.line,write_date:0
 msgid "Last Updated on"
-msgstr ""
+msgstr "Última actualización en"
 
 #. module: hr_employee_benefit
 #: field:hr.employee.benefit.rate,name:0

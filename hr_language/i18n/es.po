@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-27 10:43+0000\n"
-"PO-Revision-Date: 2016-02-16 15:07+0000\n"
-"Last-Translator: Antonio Trueba\n"
+"POT-Creation-Date: 2016-05-26 02:41+0000\n"
+"PO-Revision-Date: 2016-05-24 20:25+0000\n"
+"Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Spanish (http://www.transifex.com/oca/OCA-hr-8-0/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -48,6 +48,11 @@ msgstr "Bosnio / bosanski jezik"
 #: selection:hr.language,name:0
 msgid "Bulgarian / български език"
 msgstr "Búlgaro / български език"
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "Burmese / မြန်မာဘာသာ"
+msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
@@ -98,6 +103,11 @@ msgstr "Danés / Dansk"
 #: field:hr.language,description:0
 msgid "Description"
 msgstr "Descripción"
+
+#. module: hr_language
+#: field:hr.language,display_name:0
+msgid "Display Name"
+msgstr "Mostrar nombre"
 
 #. module: hr_language
 #: selection:hr.language,name:0
@@ -172,6 +182,11 @@ msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
+msgid "German (CH) / Deutsch (CH)"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
 msgid "German / Deutsch"
 msgstr "Alemán / Deutsch"
 
@@ -203,7 +218,7 @@ msgstr "Húngaro / Magyar"
 #. module: hr_language
 #: field:hr.language,id:0
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: hr_language
 #: selection:hr.language,name:0
@@ -256,14 +271,19 @@ msgid "Lao / ພາສາລາວ"
 msgstr ""
 
 #. module: hr_language
+#: field:hr.language,__last_update:0
+msgid "Last Modified on"
+msgstr "Última modificación el"
+
+#. module: hr_language
 #: field:hr.language,write_uid:0
 msgid "Last Updated by"
-msgstr ""
+msgstr "Última actualización por"
 
 #. module: hr_language
 #: field:hr.language,write_date:0
 msgid "Last Updated on"
-msgstr ""
+msgstr "Última actualización en"
 
 #. module: hr_language
 #: selection:hr.language,name:0
