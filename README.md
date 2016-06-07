@@ -54,22 +54,16 @@ Unported addons
 ---------------
 addon | version | summary
 --- | --- | ---
-[hr_accrual](hr_accrual/) | 1.0 (unported) | Accrual
 [hr_contract_init](hr_contract_init/) | 1.0 (unported) | Contracts - Initial Settings
 [hr_contract_state](hr_contract_state/) | 1.0 (unported) | Manage Employee Contracts
-[hr_employee_education](hr_employee_education/) | 1.0 (unported) | Employee Education Records
 [hr_employee_seniority](hr_employee_seniority/) | 1.0 (unported) | Employee Seniority
 [hr_employee_state](hr_employee_state/) | 1.0 (unported) | Employment Status
-[hr_experience_analytic](hr_experience_analytic/) | 0.1 (unported) | Experience and Analytic Accounting
 [hr_holidays_extension](hr_holidays_extension/) | 1.0 (unported) | HR Holidays Extension
 [hr_infraction](hr_infraction/) | 1.0 (unported) | Employee Infraction Management
 [hr_job_hierarchy](hr_job_hierarchy/) | 1.0 (unported) | Job Hierarchy
-[hr_labour_recruitment](hr_labour_recruitment/) | 1.0 (unported) | New Employee Recruitment and Personnel Requests
 [hr_labour_union](hr_labour_union/) | 1.0 (unported) | Labour Union
-[hr_payroll_extension](hr_payroll_extension/) | 1.0 (unported) | Payroll Extension
 [hr_payroll_period](hr_payroll_period/) | 1.0 (unported) | Payroll Period
 [hr_payroll_register](hr_payroll_register/) | 1.0 (unported) | Payroll Register
-[hr_payroll_register_report](hr_payroll_register_report/) | 1.0 (unported) | Payroll Register Report
 [hr_payslip_amendment](hr_payslip_amendment/) | 1.0 (unported) | Pay Slip Amendment
 [hr_payslip_ytd_amount](hr_payslip_ytd_amount/) | 1.0 (unported) | Payslip Year-to-date Amount
 [hr_policy_absence](hr_policy_absence/) | 1.0 (unported) | Absence Policy
@@ -77,10 +71,6 @@ addon | version | summary
 [hr_policy_group](hr_policy_group/) | 1.0 (unported) | Human Resources Policy Groups
 [hr_policy_ot](hr_policy_ot/) | 1.0 (unported) | Overtime Policy
 [hr_policy_presence](hr_policy_presence/) | 1.0 (unported) | Employee Presence Policy
-[hr_report_manpower](hr_report_manpower/) | 1.0 (unported) | Man Power Report
-[hr_report_payroll_attendance_summary](hr_report_payroll_attendance_summary/) | 1.0 (unported) | Attendance Summary for Payroll
-[hr_report_payroll_net](hr_report_payroll_net/) | 1.0 (unported) | Net Payroll Payable
-[hr_report_turnover](hr_report_turnover/) | 1.0 (unported) | Employee Turn-over Report
 [hr_resume](hr_resume/) | 0.1 (unported) | Resume Management
 [hr_salary_rule_variable](hr_salary_rule_variable/) | 1.0 (unported) | Salary Rule Variables
 [hr_schedule](hr_schedule/) | 1.0 (unported) | Employee Shift Scheduling
