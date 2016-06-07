@@ -36,4 +36,4 @@ class HrContract(models.Model):
                 for move_line in invoice_id.payment_move_line_ids:
                     if not move_line.slip_id.id:
                         commission += move_line.credit
-            contract.commission += commission
+            contract.commission = commission

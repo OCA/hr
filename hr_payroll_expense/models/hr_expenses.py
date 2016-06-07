@@ -8,6 +8,4 @@ from openerp import models, fields
 class HrExpenseExpense(models.Model):
     _inherit = 'hr.expense'
 
-    # ---------- Fields management
-
     slip_id = fields.Many2one('hr.payslip', string='Pay slip')

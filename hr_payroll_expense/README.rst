@@ -3,7 +3,7 @@
    :alt: License: AGPL-3
 
 ===============================
-Payroll Expenses Reinbursements
+Payroll Expenses Reimbursements
 ===============================
 
 This module allows you to add commission and reimbursement to payslip
