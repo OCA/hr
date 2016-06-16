@@ -57,12 +57,9 @@ addon | version | summary
 [hr_contract_init](hr_contract_init/) | 1.0 (unported) | Contracts - Initial Settings
 [hr_contract_state](hr_contract_state/) | 1.0 (unported) | Manage Employee Contracts
 [hr_employee_seniority](hr_employee_seniority/) | 1.0 (unported) | Employee Seniority
-[hr_employee_state](hr_employee_state/) | 1.0 (unported) | Employment Status
-[hr_holidays_extension](hr_holidays_extension/) | 1.0 (unported) | HR Holidays Extension
 [hr_infraction](hr_infraction/) | 1.0 (unported) | Employee Infraction Management
 [hr_job_hierarchy](hr_job_hierarchy/) | 1.0 (unported) | Job Hierarchy
 [hr_labour_union](hr_labour_union/) | 1.0 (unported) | Labour Union
-[hr_payroll_period](hr_payroll_period/) | 1.0 (unported) | Payroll Period
 [hr_payroll_register](hr_payroll_register/) | 1.0 (unported) | Payroll Register
 [hr_payslip_amendment](hr_payslip_amendment/) | 1.0 (unported) | Pay Slip Amendment
 [hr_payslip_ytd_amount](hr_payslip_ytd_amount/) | 1.0 (unported) | Payslip Year-to-date Amount
@@ -74,7 +71,6 @@ addon | version | summary
 [hr_resume](hr_resume/) | 0.1 (unported) | Resume Management
 [hr_salary_rule_variable](hr_salary_rule_variable/) | 1.0 (unported) | Salary Rule Variables
 [hr_schedule](hr_schedule/) | 1.0 (unported) | Employee Shift Scheduling
-[hr_simplify](hr_simplify/) | 1.0 (unported) | Simplify Employee Records.
 [hr_transfer](hr_transfer/) | 1.0 (unported) | Departmental Transfer
 [hr_wage_increment](hr_wage_increment/) | 1.0 (unported) | HR Wage Increment
 [hr_worked_days_activity](hr_worked_days_activity/) | 1.0 (unported) | Worked Days Activity
