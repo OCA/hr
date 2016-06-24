@@ -51,8 +51,6 @@ class HrPayslip(models.Model):
 
     @api.multi
     def compute_sheet(self):
-        # self.invoice_ids.unlink()
-        # self.move_line_ids.unlink()
         self._detach_invoices_from_payslip()
         self._detach_move_lines_from_payslip()
 
@@ -63,11 +61,6 @@ class HrPayslip(models.Model):
         for payslip in self:
             # No contract? forget about it
             if not payslip.contract_id:
-                continue
-
-            # No user? forget about it
-            user_id = payslip.contract_id.employee_id.user_id.id
-            if not user_id:
                 continue
 
             invoice_ids = self._attach_invoices_to_payslip()

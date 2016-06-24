@@ -2,11 +2,11 @@
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-===================
-Payroll Commissions
-===================
+=====================================
+Payroll Commissions On Invoiced sales
+=====================================
 
-This module allows you to add commission to payslip
+This module computes commissions on invoiced sales and allows you to add it to payslip
 
 **Features list :**
     * Add commision rate, commission to contract.

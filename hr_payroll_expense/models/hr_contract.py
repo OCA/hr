@@ -14,9 +14,8 @@ class HrContract(models.Model):
     @api.multi
     @api.depends('employee_id.user_id')
     def _comp_reimbursement(self):
+        ExpensesObj = self.env['hr.expense']
         for contract in self:
-            contract.reimbursement = 0
-
             # Look in linked expenses:
             filters = [
                 ('employee_id', '=', contract.employee_id.id),
@@ -26,7 +25,6 @@ class HrContract(models.Model):
 
             # Compute reimbursement
             reimbursement = 0
-            ExpensesObj = self.env['hr.expense']
             for expense in ExpensesObj.search(filters):
                 amount = expense.total_amount
                 reimbursement = reimbursement + amount
