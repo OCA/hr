@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+        <record id="view_expenses_form" model="ir.ui.view">
+            <field name="name">hr.expense.form</field>
+            <field name="model">hr.expense.expense</field>
+            <field name="inherit_id" ref="hr_expense.view_expenses_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//field[@name='employee_id']" position="after">
+                            <field name="related_required_expense_product"/>
+                    </xpath>
+                    <xpath expr="//field[@name='line_ids']/tree/field[@name='product_id']" position="replace">
+                        <field  name="product_id" 
+                                on_change="onchange_product_id(product_id, context)" 
+                                context="{'default_hr_expense_ok':1}"
+                                attrs="{'required': [('related_required_expense_product', '=', True)]}"/>
+                    </xpath>
+                    <xpath expr="//field[@name='line_ids']/tree/field[@name='product_id']" position="before">
+                        <field  name="related_required_expense_product"
+                                context="{'required_expense_product': 1}"/>
+                        <field name="related_employee_id"/>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+
+    </data>
+</openerp>
