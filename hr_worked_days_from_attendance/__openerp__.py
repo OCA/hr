@@ -12,7 +12,7 @@
     "application": False,
     "installable": True,
     "depends": [
-        "hr_timesheet_sheet",
+        "hr_timesheet_day_start_end_attendance",
         "hr_payroll",
     ],
     "data": [

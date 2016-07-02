@@ -87,41 +87,54 @@ class HrPayslip(models.Model):
             day_to = datetime.strptime(date_to,"%Y-%m-%d")
             nb_of_days = (day_to - day_from).days + 1
             obj_calendar = self.env["resource.calendar"]
+            obj_ts_day = self.env["hr_timesheet_sheet.sheet.day"]
+            obj_attendance = self.env["hr.attendance"]
             for day in range(0, nb_of_days):
-                working_hours_on_day = obj_calendar.working_hours_on_day(
-                        contract.working_hours, 
-                        day_from + timedelta(days=day))
-                if working_hours_on_day:
-                    #the employee had to work
-                    leave_type = was_on_leave(
-                            contract.employee_id.id, 
-                            day_from + timedelta(days=day))
-                    if leave_type:
-                        #if he was on leave, fill the leaves dict
-                        if leave_type in leaves:
-                            leaves[leave_type]['number_of_days'] += 1.0
-                            leaves[leave_type]['number_of_hours'] += working_hours_on_day
-                        else:
-                            leaves[leave_type] = {
-                                'name': leave_type,
-                                'sequence': 5,
-                                'code': leave_type,
-                                'number_of_days': 1.0,
-                                'number_of_hours': working_hours_on_day,
-                                'contract_id': contract.id,
-                            }
-                    else:
-                        #add the input vals to tmp (increment if existing)
-                        obj_day = self.env["hr_timesheet_sheet.sheet.day"]
-                        date_attn = (day_from + timedelta(days=day)).strftime("%Y-%m-%d")
-                        criteria2 = [
-                            ("name", "=", date_attn),
-                            ("sheet_id.employee_id", "=", contract.employee_id.id),
-                        ]
-                        attn = obj_day.search(criteria2)
-                        if attn:
-                            attendances['number_of_days'] += 1.0
-                            attendances['number_of_hours'] += attn[0].total_attendance
-            leaves = [value for key,value in leaves.items()]
-            res += [attendances] + leaves
+                criteria = [
+                        ("name", "=", (day_from + timedelta(days=day)).strftime("%Y-%m-%d %H:%M:%S")),
+                    ("sheet_id.employee_id.id", "=", contract.employee_id.id),
+                    ("sheet_id.state", "=", "done"),
+                    ]
+                ts_days = obj_ts_day.search(criteria)
+
+                if not ts_days:
+                    continue
+
+                ts_day = ts_days[0]
+                
+                # Continue if sheet day does not has a valid
+                # first_attendance_id and last_attendance_id.
+                # Line bellow addes because first_attendance_id and
+                # last_attendance_id are not stored.
+                if not ts_day.first_attendance_id or \
+                        not ts_day.last_attendance_id:
+                    continue
+
+                criteria2 = [
+                    ("attendance_day_id.id", "=", ts_day.id),
+                    ("id", ">=", ts_day.first_attendance_id.id),
+                    ("id", "<=", ts_day.last_attendance_id.id),
+                    ]
+
+                ts_attendances = obj_attendance.search(criteria2)
+
+                if len(ts_attendances) == 0:
+                    continue
+
+                #if attendace exist add number_of_days
+                attendances['number_of_days'] += 1.0
+
+                for attn_counter in range(0, len(ts_attendances)-1, 2):
+                    # working_hours = contract.working_hours.get_working_hours_of_date(
+                    #         datetime.strptime(ts_attendances[attn_counter].name, "%Y-%m-%d %H:%M:%S"),
+                    #         datetime.strptime(ts_attendances[attn_counter+1].name, "%Y-%m-%d %H:%M:%S"),
+                    #         )[0]
+                    working_hours = contract.working_hours.get_working_hours_of_date(
+                            datetime.strptime("2016-07-01 00:00:00", "%Y-%m-%d %H:%M:%S"),
+                            datetime.strptime("2016-07-01 23:59:00", "%Y-%m-%d %H:%M:%S"),
+                            )[0]
+
+                    attendances['number_of_hours'] += working_hours
+
+            res += [attendances]
         return res
