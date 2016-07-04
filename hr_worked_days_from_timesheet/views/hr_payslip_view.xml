@@ -12,6 +12,7 @@
                         <separator string="Worked Days"/>
                         <div class="oe_right oe_button_box">
                             <button string="Import from Timesheets" name="import_worked_days" type="object" states="draft" />
+                            <button string="Import from Timesheets Activity" name="action_import_timesheet_activity" type="object" states="draft" />                            
                         </div>
                     </group>
                 </field>

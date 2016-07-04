@@ -7,6 +7,7 @@ Worked Days From Timesheet
 ==========================
 
 * Adds a button to import worked days from timesheet
+* Adds a button to import worked days from timesheet activity
 
 Installation
 ============
@@ -30,7 +31,7 @@ To use this module, you need to:
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
    :target: https://runbot.odoo-community.org/runbot/116/8.0
-   
+
 Known issues / Roadmap
 ======================
 

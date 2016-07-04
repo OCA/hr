@@ -9,7 +9,15 @@ from openerp import models, fields
 class HrPayslipWorkedDays(models.Model):
     _inherit = 'hr.payslip.worked_days'
 
-    imported_from_timesheet = fields.Boolean(string='Imported From Timesheet',
-                                             default=False)
+    imported_from_timesheet = fields.Boolean(
+        string="Imported From Timesheet",
+        default=False,
+        )
     timesheet_sheet_id = fields.Many2one(
-        string='Timesheet', comodel_name='hr_timesheet_sheet.sheet')
+        string="Timesheet",
+        comodel_name="hr_timesheet_sheet.sheet",
+        )
+    import_from_activity = fields.Boolean(
+        string="Imported from Timesheet Detail",
+        default=False,
+        )
