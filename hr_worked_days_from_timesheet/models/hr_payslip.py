@@ -91,6 +91,7 @@ class HrPayslip(models.Model):
         obj_uom = self.env["product.uom"]
         obj_timesheet_line = self.env["hr.analytic.timesheet"]
         obj_worked_days = self.env["hr.payslip.worked_days"]
+        obj_rule = self.env["hr.salary.rule"]
 
         for payslip in self:
             res = {}
@@ -115,7 +116,10 @@ class HrPayslip(models.Model):
             if not payslip.contract_id:
                 continue
 
-            for rule in payslip.contract_id.struct_id.rule_ids:
+            rule_ids = map(
+                lambda x: x[0],
+                payslip.contract_id.struct_id.get_all_rules())
+            for rule in obj_rule.browse(rule_ids):
                 if not rule.timesheet_account_ids:
                     continue
 
