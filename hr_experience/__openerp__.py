@@ -20,5 +20,5 @@
         "views/hr_professional_view.xml",
         "views/hr_certification_view.xml",
     ],
-    "installable": True
+    'installable': False
 }
