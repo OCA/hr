@@ -9,7 +9,7 @@
     "website": "https://opensynergy-indonesia.com/",
     "author": "OpenSynergy Indonesia, Odoo Community Association (OCA)",
     "license": "AGPL-3",
-    "installable": True,
+    'installable': False,
     "depends": [
         "hr_expense_account_period",
     ],

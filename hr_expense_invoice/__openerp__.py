@@ -32,5 +32,5 @@
     'data': [
         'views/hr_expense_expense_view.xml',
     ],
-    "installable": True,
+    'installable': False,
 }

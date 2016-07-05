@@ -18,5 +18,5 @@
         'security/ir.model.access.csv',
         'views/hr_public_holidays_view.xml',
     ],
-    'installable': True,
+    'installable': False,
 }

@@ -16,5 +16,5 @@
         'views/res_config.xml',
         'views/res_company.xml',
     ],
-    'installable': True,
+    'installable': False,
 }

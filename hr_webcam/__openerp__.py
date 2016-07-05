@@ -51,6 +51,6 @@ Capture employee pictures with an attached web cam.
         'hr_webcam_data.xml',
         'hr_webcam_view.xml',
     ],
-    'installable': True,
+    'installable': False,
     'active': False,
 }
