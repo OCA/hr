@@ -32,5 +32,5 @@
         'views/hr_contract_view.xml',
         'data/hr_contract_sequence.xml',
     ],
-    'installable': True,
+    'installable': False,
 }
