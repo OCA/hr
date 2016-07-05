@@ -32,5 +32,5 @@
     "data": [
         'views/hr_contract_type.xml',
     ],
-    'installable': True,
+    'installable': False,
 }
