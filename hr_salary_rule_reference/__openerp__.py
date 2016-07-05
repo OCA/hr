@@ -30,5 +30,5 @@
     ],
     'test': [],
     'demo': [],
-    'installable': True,
+    'installable': False,
 }
