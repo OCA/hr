@@ -3,13 +3,14 @@
 # * hr_employee_id
 # 
 # Translators:
+# Christophe CHAUVET <christophe.chauvet@gmail.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-11 01:48+0000\n"
-"PO-Revision-Date: 2016-03-09 14:56+0000\n"
-"Last-Translator: <>\n"
+"POT-Creation-Date: 2016-07-05 18:30+0000\n"
+"PO-Revision-Date: 2016-07-04 06:52+0000\n"
+"Last-Translator: Christophe CHAUVET <christophe.chauvet@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/oca/OCA-hr-8-0/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,7 +22,7 @@ msgstr ""
 #: field:hr.config.settings,employee_id_random_digits:0
 #: field:res.company,employee_id_random_digits:0
 msgid "# of Digits"
-msgstr ""
+msgstr "# de chiffres"
 
 #. module: hr_employee_id
 #: model:ir.model,name:hr_employee_id.model_res_company
@@ -37,31 +38,31 @@ msgstr "Employé"
 #: view:hr.config.settings:hr_employee_id.view_human_resources_configuration
 #: view:res.company:hr_employee_id.view_company_form
 msgid "Employee ID"
-msgstr ""
+msgstr "ID de l'employé"
 
 #. module: hr_employee_id
 #: field:hr.config.settings,employee_id_gen_method:0
 #: field:res.company,employee_id_gen_method:0
 msgid "ID Generation Method"
-msgstr ""
+msgstr "Méthode de génération de l'ID"
 
 #. module: hr_employee_id
 #: help:hr.config.settings,employee_id_random_digits:0
 #: help:res.company,employee_id_random_digits:0
 msgid "Number of digits making up the ID"
-msgstr ""
+msgstr "Nombre de chiffres pour fabriquer l'ID"
 
 #. module: hr_employee_id
 #: help:hr.config.settings,employee_id_sequence:0
 #: help:res.company,employee_id_sequence:0
 msgid "Pattern to be used for used for ID Generation"
-msgstr ""
+msgstr "Modèle à utiliser pour la génération de l'ID"
 
 #. module: hr_employee_id
 #: selection:hr.config.settings,employee_id_gen_method:0
 #: selection:res.company,employee_id_gen_method:0
 msgid "Random"
-msgstr ""
+msgstr "Aléatoire"
 
 #. module: hr_employee_id
 #: selection:hr.config.settings,employee_id_gen_method:0
@@ -74,11 +75,11 @@ msgstr "Séquence"
 #. module: hr_employee_id
 #: sql_constraint:hr.employee:0
 msgid "The Employee Number must be unique across the company(s)."
-msgstr ""
+msgstr "Le numéro d'employé doit être unique par société(s)."
 
 #. module: hr_employee_id
 #: code:addons/hr_employee_id/models/hr_employee.py:50
 #, python-format
 msgid ""
 "Unable to generate an Employee ID number that                 is unique."
-msgstr ""
+msgstr "Impossible de générer le numéro d'ID employé qui doit être unique."

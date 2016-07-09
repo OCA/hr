@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-11 01:48+0000\n"
-"PO-Revision-Date: 2016-03-10 11:30+0000\n"
+"POT-Creation-Date: 2016-07-05 18:30+0000\n"
+"PO-Revision-Date: 2016-07-04 06:42+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: French (http://www.transifex.com/oca/OCA-hr-8-0/language/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -146,6 +146,12 @@ msgid "Diploma"
 msgstr ""
 
 #. module: hr_experience
+#: field:hr.academic,display_name:0 field:hr.certification,display_name:0
+#: field:hr.curriculum,display_name:0 field:hr.experience,display_name:0
+msgid "Display Name"
+msgstr "Nom affiché"
+
+#. module: hr_experience
 #: view:hr.academic:hr_experience.view_academic_tree
 msgid "Education"
 msgstr ""
@@ -220,6 +226,12 @@ msgstr ""
 #: view:hr.employee:hr_experience.view_employee_form_inherit
 msgid "Issued By"
 msgstr ""
+
+#. module: hr_experience
+#: field:hr.academic,__last_update:0 field:hr.certification,__last_update:0
+#: field:hr.curriculum,__last_update:0 field:hr.experience,__last_update:0
+msgid "Last Modified on"
+msgstr "Dernière modification le"
 
 #. module: hr_experience
 #: field:hr.academic,write_uid:0 field:hr.certification,write_uid:0

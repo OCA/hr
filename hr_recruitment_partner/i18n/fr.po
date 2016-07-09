@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-30 02:40+0000\n"
+"POT-Creation-Date: 2016-07-05 18:30+0000\n"
 "PO-Revision-Date: 2015-11-18 14:58+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: French (http://www.transifex.com/oca/OCA-hr-8-0/language/fr/)\n"
@@ -236,7 +236,7 @@ msgstr ""
 #. module: hr_recruitment_partner
 #: field:hr.applicant,calendar_last_notif_ack:0
 msgid "Last notification marked as read from base Calendar"
-msgstr ""
+msgstr "La dernière modification marquée comme lu dans le calendrier général"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,last_reconciliation_date:0
