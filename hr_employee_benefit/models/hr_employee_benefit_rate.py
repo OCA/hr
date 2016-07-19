@@ -106,18 +106,18 @@ class HrEmployeeBenefitRate(models.Model):
         for rate in self:
             rate.employee_amount = rate.get_amount(today)
             rate.employer_amount = rate.get_amount(today, employer=True)
-    
+
     @api.multi
     def get_amount(self, date, employer=False):
-        for rate in self:
-            for line in rate.line_ids:
-                if line.date_start <= date and (
-                    not line.date_end or date <= line.date_end
-                ):
-                    return (
-                        line.employer_amount if employer else
-                        line.employee_amount
-                    )
+        self.ensure_one()
+        for line in self.line_ids:
+            if line.date_start <= date and (
+                not line.date_end or date <= line.date_end
+            ):
+                return (
+                    line.employer_amount if employer else
+                    line.employee_amount
+                )
         return False
 
     @api.model
