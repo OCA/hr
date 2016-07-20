@@ -100,10 +100,12 @@ class HrEmployeeBenefitRate(models.Model):
             ('annual', _('Annual')),
         ]
 
+    @api.multi
     def _get_amounts_now(self):
         today = context_today(self)
-        self.employee_amount = self.get_amount(today)
-        self.employer_amount = self.get_amount(today, employer=True)
+        for rate in self:
+            rate.employee_amount = rate.get_amount(today)
+            rate.employer_amount = rate.get_amount(today, employer=True)
 
     @api.multi
     def get_amount(self, date, employer=False):
