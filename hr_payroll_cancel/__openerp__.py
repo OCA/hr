@@ -3,7 +3,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 {
     "name": "Hr Payroll Cancel",
-    "version": "8.0.0.1.6",
+    "version": "8.0.1.0.0",
     "author": "Vauxoo,"
               "Odoo Community Association (OCA)",
     "category": "Localization/Mexico",
@@ -12,15 +12,10 @@
     "depends": [
         "hr_payroll"
     ],
-    "demo": [],
     "data": [
         "hr_payslip_view.xml",
         "hr_payslip_workflow.xml",
     ],
-    "test": [],
-    "js": [],
-    "css": [],
-    "qweb": [],
     "installable": True,
     "auto_install": False
 }

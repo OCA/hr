@@ -38,25 +38,12 @@ Go to: Human Resources -> Payroll -> Employee Payslip
 - Click on the button "Cancel Payslip" to cancel the payslip
 - Now the payslip is in rejected state
 
-.. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
-   :alt: Try me on Runbot
-   :target: https://runbot.odoo-community.org/runbot/116/8.0
-
-Known issues / Roadmap
-======================
-
-By default the Salary Journal should be set up with the field 'Check Date in
- Period' unflagged. Otherwise the application will raise an error message if
-  the user enters a move date corresponding to a past period.
-
-
 Credits
 =======
 
 Contributors
 ------------
-* Jordi Ballester <jordi.ballester@eficent.com>
-* OpenSynergy Indonesia <https://opensynergy-indonesia.com>
+* Luis Torres (luis_t@vauxoo.com)
 
 Maintainer
 ----------
