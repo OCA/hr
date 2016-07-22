@@ -44,6 +44,7 @@ Credits
 Contributors
 ------------
 * Luis Torres (luis_t@vauxoo.com)
+* Aaron Henriquez (ahenriquez@eficent.com)
 
 Maintainer
 ----------

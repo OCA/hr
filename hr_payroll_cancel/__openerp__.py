@@ -6,7 +6,7 @@
     "version": "8.0.1.0.0",
     "author": "Vauxoo,"
               "Odoo Community Association (OCA)",
-    "category": "Localization/Mexico",
+    "category": "HR",
     "website": "http://www.vauxoo.com/",
     "license": "AGPL-3",
     "depends": [
