@@ -3,7 +3,7 @@ HR Payslip Change State
 =============================
 
 This module introduces the following features:
-* The module payroll_cancel allows change the state of many payslips form the
+* This module allows change the state of many payslips form the
 tree view
 * The module checks if the require state is allowed for each payslip
 * If any of the payslips are not in a suitable state a warning message will
