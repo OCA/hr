@@ -5,7 +5,7 @@
             <field name="name">hr.payslip.change.state.form</field>
             <field name="model">hr.payslip.change.state</field>
             <field name="arch" type="xml">
-                <form string="Change status of Resource Plan Lines"
+                <form string="Change state"
                       version="7.0">
                     <group>
                         <field name="state"/>
@@ -20,7 +20,7 @@
         </record>
 
         <record id="action_hr_payslip_change_state_form" model="ir.actions.act_window">
-            <field name="name">Change status</field>
+            <field name="name">Change state</field>
             <field name="res_model">hr.payslip.change.state</field>
             <field name="view_type">form</field>
             <field name="view_mode">form,tree</field>
@@ -28,7 +28,7 @@
             <field name="target">new</field>
         </record>
 
-        <act_window name="Change status"
+        <act_window name="Change state"
             res_model="hr.payslip.change.state"
             src_model="hr.payslip"
             view_mode="form"
