@@ -30,11 +30,11 @@ class HrPaySlipChangeState(orm.TransientModel):
 
     _columns = {
         'state': fields.selection([
-            ('draft', 'Draft'),
-            ('verify', 'Waiting'),
-            ('done', 'Done'),
-            ('cancel', 'Rejected'),
-        ], 'Status',
+            ('draft', 'Set to Draft'),
+            ('verify', 'Compute Sheet'),
+            ('done', 'Confirm'),
+            ('cancel', 'Cancel Payslip'),
+        ], 'Action',
             help='* When the payslip is created the status is \'Draft\'.\
             \n* If the payslip is under verification, the status is '
                  '\'Waiting\'. \
