@@ -18,11 +18,12 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from openerp.osv import fields, osv
+from openerp.osv import fields, orm
 from openerp.tools.translate import _
 from openerp.exceptions import Warning
+from openerp import netsvc
 
-class hr_payslip_change_state(osv.osv_memory):
+class HrPaySlipChangeState(orm.TransientModel):
 
     _name = "hr.payslip.change.state"
     _description = "Change state of a payslip"
@@ -49,37 +50,41 @@ class hr_payslip_change_state(osv.osv_memory):
         payslip_obj = self.pool.get('hr.payslip')
         new_state = data.get('state', False)
         records = payslip_obj.browse(cr, uid, record_ids, context=context)
+        wf_service = netsvc.LocalService("workflow")
 
         for rec in records:
-            if new_state == 'draft' and rec.state != 'cancel':
-                raise Warning(_("Only rejected payslips can be reset to "
-                                "draft, the payslip %s is in "
-                                "%s state" % (rec.name, rec.state)))
-            elif new_state == 'verify' and rec.state != 'draft':
-                raise Warning(_("Only draft payslips can be verified,"
-                                "the payslip %s is in "
-                                "%s state" % (rec.name, rec.state)))
-            elif new_state == 'done' and rec.state not in ('verify','draft'):
-                raise Warning(_("Only payslips in states verify or draft "
-                                "can be confirmed, the payslip %s is in "
-                                "%s state" % (rec.name, rec.state)))
-            elif new_state == 'cancel' and rec.state == 'cancel':
-                raise Warning(_("The payslip %s is already canceled "
-                                "please deselect it" % rec.name))
+            if new_state == 'draft':
+                if rec.state == 'cancel':
+                    wf_service.trg_validate(uid, 'hr.payslip', rec.id,
+                                            'draft', cr)
+                else:
+                    raise Warning(_("Only rejected payslips can be reset to "
+                                    "draft, the payslip %s is in "
+                                    "%s state" % (rec.name, rec.state)))
+            elif new_state == 'verify':
+                if rec.state == 'draft':
+                    payslip_obj.compute_sheet(cr, uid, [rec.id],
+                                              context=context)
+                else:
+                    raise Warning(_("Only draft payslips can be verified,"
+                                    "the payslip %s is in "
+                                    "%s state" % (rec.name, rec.state)))
+            elif new_state == 'done':
+                if rec.state in ('verify','draft'):
+                    wf_service.trg_validate(uid, 'hr.payslip', rec.id,
+                                            'hr_verify_sheet', cr)
+                else:
+                    raise Warning(_("Only payslips in states verify or draft "
+                                    "can be confirmed, the payslip %s is in "
+                                    "%s state" % (rec.name, rec.state)))
+            elif new_state == 'cancel':
+                if rec.state != 'cancel':
+                    wf_service.trg_validate(uid, 'hr.payslip', rec.id,
+                                            'cancel_sheet', cr)
+                else:
+                    raise Warning(_("The payslip %s is already canceled "
+                                    "please deselect it" % rec.name))
 
-        for rec in records:
-            if new_state == 'draft' and rec.state == 'cancel':
-                payslip_obj.draft_sheet(cr, uid, [rec.id],
-                                                  context=context)
-            elif new_state == 'verify' and rec.state == 'draft':
-                payslip_obj.hr_verify_sheet(cr, uid, [rec.id],
-                                                    context=context)
-            elif new_state == 'done' and rec.state in ('verify','draft'):
-                payslip_obj.process_sheet(cr, uid, [rec.id],
-                                       context=context)
-            elif new_state == 'cancel' and rec.state != 'cancel':
-                payslip_obj.cancel_sheet(cr, uid, [rec.id],
-                                                    context=context)
         return {
             'domain': "[('id','in', ["+','.join(map(str, record_ids))+"])]",
             'name': _('Payslips'),
