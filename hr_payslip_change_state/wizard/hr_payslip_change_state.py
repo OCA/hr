@@ -23,6 +23,7 @@ from openerp.tools.translate import _
 from openerp.exceptions import Warning
 from openerp import netsvc
 
+
 class HrPaySlipChangeState(orm.TransientModel):
 
     _name = "hr.payslip.change.state"
@@ -70,7 +71,7 @@ class HrPaySlipChangeState(orm.TransientModel):
                                     "the payslip %s is in "
                                     "%s state" % (rec.name, rec.state)))
             elif new_state == 'done':
-                if rec.state in ('verify','draft'):
+                if rec.state in ('verify', 'draft'):
                     wf_service.trg_validate(uid, 'hr.payslip', rec.id,
                                             'hr_verify_sheet', cr)
                 else:
