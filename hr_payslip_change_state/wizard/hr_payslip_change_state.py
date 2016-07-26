@@ -12,12 +12,12 @@ class HrPaySlipChangeState(models.TransientModel):
     _name = "hr.payslip.change.state"
     _description = "Change state of a payslip"
 
-    state = fields.Selection([
-            ('draft', 'Set to Draft'),
+    state = fields.Selection([('draft', 'Set to Draft'),
             ('verify', 'Compute Sheet'),
             ('done', 'Confirm'),
             ('cancel', 'Cancel Payslip'),
-        ], 'Action',
+        ],
+            'Action',
             help='* When the payslip is created the status is \'Draft\'.\
             \n* If the payslip is under verification, the status is '
                  '\'Waiting\'. \
@@ -35,7 +35,7 @@ class HrPaySlipChangeState(models.TransientModel):
         for rec in records:
             if new_state == 'draft':
                 if rec.state == 'cancel':
-                    wf_service.trg_validate(self.env.uid,'hr.payslip',
+                    wf_service.trg_validate(self.env.uid, 'hr.payslip',
                                             rec.id, 'draft', self.env.cr)
                 else:
                     raise Warning(_("Only rejected payslips can be reset to "
@@ -60,7 +60,7 @@ class HrPaySlipChangeState(models.TransientModel):
             elif new_state == 'cancel':
                 if rec.state != 'cancel':
                     wf_service.trg_validate(self.env.uid, 'hr.payslip',
-                                            rec.id,'cancel_sheet',self.env.cr)
+                                            rec.id, 'cancel_sheet', self.env.cr)
                 else:
                     raise Warning(_("The payslip %s is already canceled "
                                     "please deselect it" % rec.name))

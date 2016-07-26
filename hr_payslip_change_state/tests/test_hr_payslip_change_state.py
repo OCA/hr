@@ -12,7 +12,6 @@ class TestHrPayslipChangeState(TransactionCase):
         self.payslip_model = self.registry('hr.payslip')
         self.contract_model = self.registry('hr.contract')
         self.tested_model = self.registry('hr.payslip.change.state')
-        cr, uid = self.cr, self.uid
         return result
 
     def test_change_state(self):
@@ -20,9 +19,9 @@ class TestHrPayslipChangeState(TransactionCase):
         payslip_model = self.payslip_model
         tested_model = self.tested_model
         contract_id = self.contract_model.create(cr, uid, {'employee_id': 1,
-                                                    'name': 'demo',
-                                                    'wage': 10000,
-                                                    'struck_id': 1})
+                                                           'name': 'demo',
+                                                           'wage': 10000,
+                                                           'struck_id': 1})
 
         payslip_id = payslip_model.create(cr, uid, {'employee_id': 1,
                                                     'name': 'test_payslip',
@@ -41,7 +40,7 @@ class TestHrPayslipChangeState(TransactionCase):
             tested_model.change_state_confirm(cr, uid, [action], context)
         except Exception as e:
             wrong_tries = 1
-            logging.info('hr_payslip_change_state: '+ str(e))
+            logging.info('hr_payslip_change_state: ' + str(e))
 
         # Now the payslip should be computed but in state draft
         payslip = payslip_model.browse(cr, uid, [payslip_id], context)
@@ -59,19 +58,19 @@ class TestHrPayslipChangeState(TransactionCase):
             tested_model.change_state_confirm(cr, uid, [action], context)
         except Exception as e:
             wrong_tries += 1
-            logging.info('hr_payslip_change_state: '+ str(e))
+            logging.info('hr_payslip_change_state: ' + str(e))
         try:
             tested_model.write(cr, uid, action, {'state': 'verify'})
             tested_model.change_state_confirm(cr, uid, [action], context)
         except Exception as e:
             wrong_tries += 1
-            logging.info('hr_payslip_change_state: '+ str(e))
+            logging.info('hr_payslip_change_state: ' + str(e))
         try:
             tested_model.write(cr, uid, action, {'state': 'done'})
             tested_model.change_state_confirm(cr, uid, [action], context)
         except Exception as e:
             wrong_tries += 1
-            logging.info('hr_payslip_change_state: '+ str(e))
+            logging.info('hr_payslip_change_state: ' + str(e))
 
         tested_model.write(cr, uid, action, {'state': 'cancel'})
         tested_model.change_state_confirm(cr, uid, [action], context)
@@ -85,23 +84,23 @@ class TestHrPayslipChangeState(TransactionCase):
             tested_model.change_state_confirm(cr, uid, [action], context)
         except Exception as e:
             wrong_tries += 1
-            logging.info('hr_payslip_change_state: '+ str(e))
+            logging.info('hr_payslip_change_state: ' + str(e))
         try:
             tested_model.write(cr, uid, action, {'state': 'verify'})
             tested_model.change_state_confirm(cr, uid, [action], context)
         except Exception as e:
             wrong_tries += 1
-            logging.info('hr_payslip_change_state: '+ str(e))
+            logging.info('hr_payslip_change_state: ' + str(e))
         try:
             tested_model.write(cr, uid, action, {'state': 'cancel'})
             tested_model.change_state_confirm(cr, uid, [action], context)
         except Exception as e:
             wrong_tries += 1
-            logging.info('hr_payslip_change_state: '+ str(e))
+            logging.info('hr_payslip_change_state: ' + str(e))
 
         tested_model.write(cr, uid, action, {'state': 'draft'})
         tested_model.change_state_confirm(cr, uid, [action], context)
-        #again, it shoud be draft. Also checking if wrong changes happened
+        # again, it shoud be draft. Also checking if wrong changes happened
         self.assertEqual(payslip.state, 'draft')
         self.assertEqual(wrong_tries, 7)
         logging.info(
