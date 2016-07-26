@@ -2,7 +2,7 @@
 # © 2016 - Eficent http://www.eficent.com/
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 {
-    'name': 'Change the state of payslip in tree view',
+    'name': 'Change the state of many payslips at a time',
     'version': '8.0.0.0.0',
     'category': 'Human Resources',
     'author': "Eficent",
