@@ -7,8 +7,8 @@ HR Payslip Change State
 =========================
 
 This module introduces the following features:
-* This module allows to execute the actions that buttons inside a form do
-    for many payslips at a time.
+* This module allows to execute the actions that buttons inside a form do \
+for many payslips at a time.
 * The module checks if the required action is allowed for each payslip
 * If any of the payslips are not in a suitable state a warning message will
 pop up and no changes will be made
