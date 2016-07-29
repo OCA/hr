@@ -22,12 +22,11 @@ class HrEmployee(models.Model):
         obj_product = self.env["product.product"]
         for employee in self:
             products = employee.allowed_expense_product_ids
-            category_ids = employee.allowed_expense_product_categ_ids.mapped(
-                "id")
+            category_ids = employee.allowed_expense_product_categ_ids.ids
             criteria = [
                 ("categ_id", "in", category_ids),
                 ("hr_expense_ok", "=", True),
-                ]
+            ]
             products += obj_product.search(criteria)
             if employee.department_id:
                 department = employee.department_id
@@ -37,15 +36,17 @@ class HrEmployee(models.Model):
                 job = employee.job_id
                 products += job.all_allowed_expense_product_ids
 
-            employee.all_allowed_expense_product_ids = \
-                products.mapped("id")
+            employee.all_allowed_expense_product_ids = products
 
     required_expense_product = fields.Boolean(
         string="Required Expense Product",
         default=False,
         help="""Turn on this options if this employee
     has to choose product when creating expenses"""
-        )
+    )
+    limit_product_selection = fields.Boolean(
+        string="Limit Product Selection",
+    )
     allowed_expense_product_categ_ids = fields.Many2many(
         string="Allowed Expense Product Categories",
         comodel_name="product.category",
@@ -83,15 +84,13 @@ class HrDepartment(models.Model):
         obj_product = self.env["product.product"]
         for dept in self:
             products = dept.allowed_expense_product_ids
-            category_ids = dept.allowed_expense_product_categ_ids.mapped(
-                "id")
+            category_ids = dept.allowed_expense_product_categ_ids.ids
             criteria = [
                 ("categ_id", "in", category_ids),
                 ("hr_expense_ok", "=", True),
-                ]
+            ]
             products += obj_product.search(criteria)
-            dept.all_allowed_expense_product_ids = \
-                products.mapped("id")
+            dept.all_allowed_expense_product_ids = products
 
     allowed_expense_product_categ_ids = fields.Many2many(
         string="Allowed Expense Product Categories",
@@ -130,15 +129,13 @@ class HrJob(models.Model):
         obj_product = self.env["product.product"]
         for job in self:
             products = job.allowed_expense_product_ids
-            category_ids = job.allowed_expense_product_categ_ids.mapped(
-                "id")
+            category_ids = job.allowed_expense_product_categ_ids.ids
             criteria = [
                 ("categ_id", "in", category_ids),
                 ("hr_expense_ok", "=", True),
-                ]
+            ]
             products += obj_product.search(criteria)
-            job.all_allowed_expense_product_ids = \
-                products.mapped("id")
+            job.all_allowed_expense_product_ids = products
 
     allowed_expense_product_categ_ids = fields.Many2many(
         string="Allowed Expense Product Categories",

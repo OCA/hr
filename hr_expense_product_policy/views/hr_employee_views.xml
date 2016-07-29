@@ -8,9 +8,11 @@
     <field name="inherit_id" ref="hr.view_employee_form"/>
     <field name="arch" type="xml">
         <data>
-            <xpath expr="//field[@name='active']" position="after">
+            <xpath expr="//notebook/page[@string='HR Settings']" position="inside">
               <group name="grp_expense_product" colspan="4" col="4">
+                <separator string="Expense Product Policy" colspan="4"/>
                 <field name="required_expense_product"/>
+                <field name="limit_product_selection"/>
                 <newline/>
                 <separator string="Allowed Expense Product Categories" colspan="4"/>
                 <field name="allowed_expense_product_categ_ids" colspan="4" nolabel="1"/>
