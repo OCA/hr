@@ -3,7 +3,7 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 from openerp import models, fields, api
 from openerp.tools.translate import _
-from openerp.exceptions import Warning
+from openerp.exceptions import Warning as UserError
 from openerp import netsvc
 
 
@@ -38,14 +38,14 @@ class HrPaySlipChangeState(models.TransientModel):
                     wf_service.trg_validate(self.env.uid, 'hr.payslip',
                                             rec.id, 'draft', self.env.cr)
                 else:
-                    raise Warning(_("Only rejected payslips can be reset to "
+                    raise UserError(_("Only rejected payslips can be reset to "
                                     "draft, the payslip %s is in "
                                     "%s state" % (rec.name, rec.state)))
             elif new_state == 'verify':
                 if rec.state == 'draft':
                     rec.compute_sheet()
                 else:
-                    raise Warning(_("Only draft payslips can be verified,"
+                    raise UserError(_("Only draft payslips can be verified,"
                                     "the payslip %s is in "
                                     "%s state" % (rec.name, rec.state)))
             elif new_state == 'done':
@@ -54,15 +54,15 @@ class HrPaySlipChangeState(models.TransientModel):
                                             rec.id, 'hr_verify_sheet',
                                             self.env.cr)
                 else:
-                    raise Warning(_("Only payslips in states verify or draft "
-                                    "can be confirmed, the payslip %s is in "
+                    raise UserError(_("Only payslips in states verify or draft"
+                                    " can be confirmed, the payslip %s is in "
                                     "%s state" % (rec.name, rec.state)))
             elif new_state == 'cancel':
                 if rec.state != 'cancel':
                     wf_service.trg_validate(self.env.uid, 'hr.payslip',rec.id,
                                             'cancel_sheet', self.env.cr)
                 else:
-                    raise Warning(_("The payslip %s is already canceled "
+                    raise UserError(_("The payslip %s is already canceled "
                                     "please deselect it" % rec.name))
 
         return {
