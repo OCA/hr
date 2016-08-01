@@ -82,6 +82,10 @@ To set up employee's allowed product policy based on specific product, you need 
 1. Open employee data
 2. Select product on *Allowed Expense Product*
 
+To activate product policy, you need to:
+
+1. Activate *Limit Product Selection*
+
 Note:
 * Only product with *Can be expense* flag turn on can be used, even if that product belong to category specified on *Allowed Expense Product Category*
 * Only product with *Can be expense* flag turn on can be selected on *Allowed Expense Product*
