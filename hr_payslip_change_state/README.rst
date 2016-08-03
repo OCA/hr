@@ -6,28 +6,13 @@
 HR Payslip Change State
 =========================
 
-This module introduces the following features:
+This module process payslip batches:
+
 * This module allows to execute the actions that buttons inside a form do \
-for many payslips at a time.
+for a payslip batch.
 * The module checks if the required action is allowed for each payslip
 * If any of the payslips are not in a suitable state a warning message will
 pop up and no changes will be made
-* If the action succeed a new tree view with the affected record will show
-
-Installation
-============
-
-To install this module, you need to:
-
-1.  Clone the branch 8.0 of the repository https://github.com/OCA/hr
-2.  Add the path to this repository in your configuration (addons-path)
-3.  Update the module list
-4.  Go to menu *Setting -> Modules -> Local Modules*
-5.  Search For *HR Payslip Change State*
-6.  Install the module
-
-It depends on hr_payroll_cancel. There is a pull request here:
-https://github.com/OCA/hr/pull/248
 
 Configuration
 =============
@@ -39,6 +24,10 @@ Usage
 1. Go to the payslip list view and select the ones you want to .
 2. Unfold the "More" menu on the top and click on "Change state"
 3. Select the action to execute
+
+.. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
+   :alt: Try me on Runbot
+   :target: https://runbot.odoo-community.org/runbot/116/8.0
 
 Credits
 =======
