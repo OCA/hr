@@ -2,13 +2,11 @@
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-====================
+=================
 HR Payroll Cancel
-====================
+=================
 
-This module introduces the following features:
-* The module payroll_cancel allows the user to cancel a payslip whatever \
-the previous state is.
+This module allows the user to cancel a payslip whatever the previous state is.
 
 Installation
 ============
@@ -22,21 +20,18 @@ To install this module, you need to:
 5.  Search For *HR Payroll Cancel*
 6.  Install the module
 
-Configuration
-=============
-
-No configuration needed
-
 Usage
 =====
 
-Cancel a payslip
-----------------
 Go to: Human Resources -> Payroll -> Employee Payslip
 
-- Choose a payslip from the list
-- Click on the button "Cancel Payslip" to cancel the payslip
-- Now the payslip is in rejected state
+- Choose a payslip from the list.
+- Click on the button "Cancel Payslip" to cancel the payslip.
+- Now the payslip is in rejected state.
+
+.. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
+   :alt: Try me on Runbot
+   :target: https://runbot.odoo-community.org/runbot/116/8.0
 
 Credits
 =======
