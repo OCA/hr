@@ -41,6 +41,7 @@ addon | version | summary
 [hr_holidays_legal_leave](hr_holidays_legal_leave/) | 8.0.1.0.0 | Allows the definition of legal/annual leave
 [hr_job_categories](hr_job_categories/) | 8.0.1.0.0 | HR Job Employee Categories
 [hr_language](hr_language/) | 8.0.0.1.0 | Language Management
+[hr_payroll_cancel](hr_payroll_cancel/) | 8.0.1.0.0 | Hr Payroll Cancel
 [hr_payslip_move_date](hr_payslip_move_date/) | 8.0.0.1.0 | HR Payslip Move Date
 [hr_public_holidays](hr_public_holidays/) | 8.0.1.0.0 | Manage Public Holidays
 [hr_recruitment_partner](hr_recruitment_partner/) | 8.0.1.0.0 | Automatically create a Partner for Applicants
