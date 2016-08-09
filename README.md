@@ -74,7 +74,6 @@ addon | version | summary
 [hr_schedule](hr_schedule/) | 1.0 (unported) | Employee Shift Scheduling
 [hr_transfer](hr_transfer/) | 1.0 (unported) | Departmental Transfer
 [hr_wage_increment](hr_wage_increment/) | 1.0 (unported) | HR Wage Increment
-[hr_worked_days_activity](hr_worked_days_activity/) | 1.0 (unported) | Worked Days Activity
 [hr_worked_days_hourly_rate](hr_worked_days_hourly_rate/) | 1.0 (unported) | Worked Days Hourly Rates
 
 [//]: # (end addons)
