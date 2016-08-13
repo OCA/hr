@@ -3,13 +3,14 @@
 # * hr_family
 # 
 # Translators:
+# Christophe CHAUVET <christophe.chauvet@gmail.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-27 23:36+0000\n"
-"PO-Revision-Date: 2015-07-27 23:38+0000\n"
-"Last-Translator: <>\n"
+"POT-Creation-Date: 2016-05-07 16:52+0000\n"
+"PO-Revision-Date: 2016-08-10 08:56+0000\n"
+"Last-Translator: Christophe CHAUVET <christophe.chauvet@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/oca/OCA-hr-7-0/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,12 +21,12 @@ msgstr ""
 #. module: hr_family
 #: field:hr.employee,fam_mother:0
 msgid "Mother's Name"
-msgstr ""
+msgstr "Nom de la mère"
 
 #. module: hr_family
 #: field:hr.employee,fam_father:0
 msgid "Father's Name"
-msgstr ""
+msgstr "Nom du père"
 
 #. module: hr_family
 #: field:hr.employee,fam_spouse:0 field:hr.employee.children,name:0
@@ -35,33 +36,33 @@ msgstr "Nom"
 #. module: hr_family
 #: view:hr.employee:0
 msgid "Family"
-msgstr ""
+msgstr "Famille"
 
 #. module: hr_family
 #: field:hr.employee,fam_spouse_tel:0
 msgid "Telephone."
-msgstr ""
+msgstr "Téléphone."
 
 #. module: hr_family
 #: field:hr.employee,fam_father_dob:0 field:hr.employee,fam_mother_dob:0
 #: field:hr.employee.children,dob:0
 msgid "Date of Birth"
-msgstr ""
+msgstr "Date de naissance"
 
 #. module: hr_family
 #: model:ir.model,name:hr_family.model_hr_employee_children
 msgid "HR Employee Children"
-msgstr ""
+msgstr "Enfant de l'employé"
 
 #. module: hr_family
 #: field:hr.employee,fam_spouse_employer:0
 msgid "Employer"
-msgstr ""
+msgstr "Employeur"
 
 #. module: hr_family
 #: view:hr.employee.children:0
 msgid "Employee Children"
-msgstr ""
+msgstr "Enfant de l'employé"
 
 #. module: hr_family
 #: field:hr.employee.children,employee_id:0
@@ -72,14 +73,14 @@ msgstr "Employé"
 #. module: hr_family
 #: view:hr.employee:0
 msgid "Parents"
-msgstr ""
+msgstr "Parents"
 
 #. module: hr_family
 #: view:hr.employee:0
 msgid "Spouse"
-msgstr ""
+msgstr "Épouse"
 
 #. module: hr_family
 #: view:hr.employee:0 field:hr.employee,fam_children_ids:0
 msgid "Children"
-msgstr ""
+msgstr "Enfant"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-27 23:36+0000\n"
+"POT-Creation-Date: 2016-05-07 16:52+0000\n"
 "PO-Revision-Date: 2015-07-27 23:39+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: French (http://www.transifex.com/oca/OCA-hr-7-0/language/fr/)\n"
@@ -25,12 +25,12 @@ msgstr ""
 #. module: hr_labour_recruitment
 #: view:hr.recruitment.request:0
 msgid "Decline"
-msgstr ""
+msgstr "Décliner"
 
 #. module: hr_labour_recruitment
 #: selection:hr.recruitment.request,state:0
 msgid "Confirmed"
-msgstr ""
+msgstr "Confirmé"
 
 #. module: hr_labour_recruitment
 #: view:hr.recruitment.request:0
@@ -256,7 +256,7 @@ msgstr ""
 #. module: hr_labour_recruitment
 #: view:hr.recruitment.request:0
 msgid "Approve"
-msgstr ""
+msgstr "Approuvé"
 
 #. module: hr_labour_recruitment
 #: help:hr.recruitment.request,message_unread:0
@@ -339,7 +339,7 @@ msgstr ""
 #. module: hr_labour_recruitment
 #: selection:hr.recruitment.request,state:0
 msgid "Declined"
-msgstr ""
+msgstr "Décliner"
 
 #. module: hr_labour_recruitment
 #: model:mail.message.subtype,name:hr_labour_recruitment.mt_alert_request_confirmed

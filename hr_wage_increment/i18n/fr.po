@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-27 23:36+0000\n"
+"POT-Creation-Date: 2016-05-07 16:52+0000\n"
 "PO-Revision-Date: 2015-07-27 23:41+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: French (http://www.transifex.com/oca/OCA-hr-7-0/language/fr/)\n"
@@ -20,13 +20,13 @@ msgstr ""
 #. module: hr_wage_increment
 #: view:hr.contract.wage.increment:0 view:hr.contract.wage.increment.run:0
 msgid "Decline"
-msgstr ""
+msgstr "Décliner"
 
 #. module: hr_wage_increment
 #: selection:hr.contract.wage.increment,state:0
 #: selection:hr.contract.wage.increment.run,state:0
 msgid "Confirmed"
-msgstr ""
+msgstr "Confirmé"
 
 #. module: hr_wage_increment
 #: view:wage.adjustment.employees:0
@@ -248,7 +248,7 @@ msgstr ""
 #: selection:hr.contract.wage.increment,state:0
 #: selection:hr.contract.wage.increment.run,state:0
 msgid "Approved"
-msgstr ""
+msgstr "Approuvé"
 
 #. module: hr_wage_increment
 #: selection:hr.contract.wage.increment.run,type:0
@@ -342,7 +342,7 @@ msgstr ""
 #. module: hr_wage_increment
 #: view:hr.contract.wage.increment:0 view:hr.contract.wage.increment.run:0
 msgid "Approve"
-msgstr ""
+msgstr "Approuvé"
 
 #. module: hr_wage_increment
 #: field:hr.contract.wage.increment,current_wage:0
@@ -388,7 +388,7 @@ msgstr ""
 #: view:hr.contract.wage.increment.run:0
 #: field:hr.contract.wage.increment.run,effective_date:0
 msgid "Effective Date"
-msgstr ""
+msgstr "Date effective"
 
 #. module: hr_wage_increment
 #: code:addons/hr_wage_increment/wage_increment.py:345
@@ -433,4 +433,4 @@ msgstr ""
 #: selection:hr.contract.wage.increment,state:0
 #: selection:hr.contract.wage.increment.run,state:0
 msgid "Declined"
-msgstr ""
+msgstr "Décliner"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-27 23:36+0000\n"
+"POT-Creation-Date: 2016-05-07 16:52+0000\n"
 "PO-Revision-Date: 2015-07-27 23:38+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: French (http://www.transifex.com/oca/OCA-hr-7-0/language/fr/)\n"
@@ -30,7 +30,7 @@ msgstr "Congés Fériés"
 #. module: hr_holidays_extension
 #: view:hr.holidays:0
 msgid "Reset to New"
-msgstr ""
+msgstr "Remettre à nouveau"
 
 #. module: hr_holidays_extension
 #: sql_constraint:hr.holidays:0
@@ -148,7 +148,7 @@ msgstr "Attention !"
 #. module: hr_holidays_extension
 #: view:hr.holidays:0
 msgid "Approve"
-msgstr ""
+msgstr "Approuvé"
 
 #. module: hr_holidays_extension
 #: sql_constraint:hr.holidays:0

@@ -3,13 +3,14 @@
 # * hr_contract_init
 # 
 # Translators:
+# Christophe CHAUVET <christophe.chauvet@gmail.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-27 23:36+0000\n"
-"PO-Revision-Date: 2015-07-27 23:36+0000\n"
-"Last-Translator: <>\n"
+"POT-Creation-Date: 2016-05-07 16:52+0000\n"
+"PO-Revision-Date: 2016-08-10 09:04+0000\n"
+"Last-Translator: Christophe CHAUVET <christophe.chauvet@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/oca/OCA-hr-7-0/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,17 +21,17 @@ msgstr ""
 #. module: hr_contract_init
 #: view:hr.contract.init:0
 msgid "Decline"
-msgstr ""
+msgstr "Décliner"
 
 #. module: hr_contract_init
 #: view:hr.contract.init:0
 msgid "Contract Initial Values"
-msgstr ""
+msgstr "Valeurs initiales du contrat"
 
 #. module: hr_contract_init
 #: view:hr.contract.init:0
 msgid "Reset to New"
-msgstr ""
+msgstr "Remettre à nouveau"
 
 #. module: hr_contract_init
 #: code:addons/hr_contract_init/hr_contract.py:111
@@ -42,7 +43,7 @@ msgstr "Erreur"
 #. module: hr_contract_init
 #: field:hr.contract.init.wage,contract_init_id:0
 msgid "Contract Settings"
-msgstr ""
+msgstr "Paramètres du contrat"
 
 #. module: hr_contract_init
 #: field:hr.contract.init,state:0
@@ -52,7 +53,7 @@ msgstr "État"
 #. module: hr_contract_init
 #: field:hr.contract.init,trial_period:0
 msgid "Trial Period"
-msgstr ""
+msgstr "Période d'essai"
 
 #. module: hr_contract_init
 #: selection:hr.contract.init,state:0
@@ -62,19 +63,19 @@ msgstr "Brouillon"
 #. module: hr_contract_init
 #: field:hr.contract.init.wage,category_ids:0
 msgid "Tags"
-msgstr ""
+msgstr "Étiquettes"
 
 #. module: hr_contract_init
 #: field:hr.contract.init,struct_id:0
 msgid "Payroll Structure"
-msgstr ""
+msgstr "Structrure de paiement"
 
 #. module: hr_contract_init
 #: code:addons/hr_contract_init/hr_contract.py:112
 #: code:addons/hr_contract_init/hr_contract.py:192
 #, python-format
 msgid "You may not a delete a record that is not in a \"Draft\" state"
-msgstr ""
+msgstr "Vous ne pouvez pas supprimer un enregistrement qui n'est pas à l'état brouillon"
 
 #. module: hr_contract_init
 #: field:hr.contract.init.wage,job_id:0
@@ -84,27 +85,27 @@ msgstr "Poste"
 #. module: hr_contract_init
 #: field:hr.contract.init.wage,starting_wage:0
 msgid "Starting Wage"
-msgstr ""
+msgstr "Salaire de départ"
 
 #. module: hr_contract_init
 #: field:hr.contract.init,active:0
 msgid "Active"
-msgstr ""
+msgstr "Actif"
 
 #. module: hr_contract_init
 #: selection:hr.contract.init,state:0
 msgid "Approved"
-msgstr ""
+msgstr "Approuver"
 
 #. module: hr_contract_init
 #: view:hr.contract.init:0 view:hr.contract.init.wage:0
 msgid "Initial Wages"
-msgstr ""
+msgstr "Salaires initiaux"
 
 #. module: hr_contract_init
 #: help:hr.contract.init.wage,is_default:0
 msgid "Use as default wage"
-msgstr ""
+msgstr "Utiliser comme salaire par défaut"
 
 #. module: hr_contract_init
 #: field:hr.contract.init,name:0
@@ -119,39 +120,39 @@ msgstr "Contrat"
 #. module: hr_contract_init
 #: field:hr.contract.init.wage,is_default:0
 msgid "Use as Default"
-msgstr ""
+msgstr "Utiliser par défaut"
 
 #. module: hr_contract_init
 #: model:ir.actions.act_window,name:hr_contract_init.open_contract_init
 #: model:ir.ui.menu,name:hr_contract_init.menu_hr_contract_init
 msgid "Contract Starting Values"
-msgstr ""
+msgstr "Valeurs de départ du contrat"
 
 #. module: hr_contract_init
 #: field:hr.contract.init,wage_ids:0
 #: model:ir.model,name:hr_contract_init.model_hr_contract_init_wage
 msgid "Starting Wages"
-msgstr ""
+msgstr "Salaires de départ"
 
 #. module: hr_contract_init
 #: help:hr.contract.init,trial_period:0
 msgid "Length of Trial Period, in days"
-msgstr ""
+msgstr "Durée de la période d'essai en jours"
 
 #. module: hr_contract_init
 #: view:hr.contract.init:0
 msgid "Approve"
-msgstr ""
+msgstr "Approuvé"
 
 #. module: hr_contract_init
 #: model:ir.model,name:hr_contract_init.model_hr_contract_init
 msgid "Initial Contract Settings"
-msgstr ""
+msgstr "Paramètres initiaux du contrat"
 
 #. module: hr_contract_init
 #: field:hr.contract.init,date:0
 msgid "Effective Date"
-msgstr ""
+msgstr "Date effective"
 
 #. module: hr_contract_init
 #: code:addons/hr_contract_init/hr_contract.py:171
@@ -159,9 +160,9 @@ msgstr ""
 msgid ""
 "A Job Position cannot be referenced more than once in a Contract Settings "
 "record."
-msgstr ""
+msgstr "Un poste ne peut pas être référencer plus d'une fois dans les paramètres du contrat."
 
 #. module: hr_contract_init
 #: selection:hr.contract.init,state:0
 msgid "Declined"
-msgstr ""
+msgstr "Décliner"
