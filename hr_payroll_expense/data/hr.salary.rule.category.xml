@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+File: hr.salary.rule.category.xml
+Module: hr_payroll_commission
+
+Created by dco@open-net.ch
+
+Copyright (c) 2014 Open-Net Ltd.
+-->
+<odoo>
+    <data noupdate="1">
+    <record id="hr_payroll_FALW" model="hr.salary.rule.category">
+        <field name="name">Free allowance</field>
+        <field name="code">FALW</field>
+    </record>
+    </data>
+</odoo>

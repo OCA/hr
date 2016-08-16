@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.ui.view" id="hr_contract_form">
+        <field name="name">hr.contract.form.view</field>
+        <field name="model">hr.contract</field>
+        <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
+        <field name="priority" eval="20"/>
+        <field name="arch" type="xml">
+            <field name="wage" position="before">
+                <label for="commission" string="Commissions / Rate"/>
+                <div>
+                    <field name="commission" class="oe_inline"/>
+                    <label string=" / "/>
+                    <field name="comm_rate" class="oe_inline"/>
+                </div>
+            </field>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="hr_contract_tree">
+        <field name="name">hr.contract.tree.view</field>
+        <field name="model">hr.contract</field>
+        <field name="inherit_id" ref="hr_contract.hr_contract_view_tree"/>
+        <field name="priority" eval="20"/>
+        <field name="arch" type="xml">
+            <field name="date_start" position="before">
+                <field name="commission"/>
+            </field>
+        </field>
+    </record>
+</odoo>
