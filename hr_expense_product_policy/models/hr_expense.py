@@ -21,16 +21,16 @@ class HrExpense(models.Model):
             else:
                 criteria = [
                     ("hr_expense_ok", "=", True),
-                ]
+                    ]
                 expense.all_allowed_expense_product_ids = \
                     obj_product.search(criteria)
 
     required_expense_product = fields.Boolean(
         string="Required Expense Product",
-    )
+        )
     limit_product_selection = fields.Boolean(
         string="Limit Product Selection",
-    )
+        )
     all_allowed_expense_product_ids = fields.Many2many(
         string="All Allowed Expense Product",
         comodel_name="product.product",
@@ -39,7 +39,7 @@ class HrExpense(models.Model):
         column2="product_id",
         compute="_compute_all_allowed_product_ids",
         store=False,
-    )
+        )
 
     @api.onchange("employee_id")
     def onchange_employee(self):
@@ -58,19 +58,16 @@ class HrExpense(models.Model):
         if vals.get("line_ids", False):
             for line in map(lambda x: x[2], vals.get("line_ids")):
                 product_id = line.get("product_id", False)
-
                 # check required product
                 if not product_id and product_required:
                     strWarning = "Product has to be filled"
                     raise models.ValidationError(strWarning)
-
                 # check allowed product
                 product_ids = employee.all_allowed_expense_product_ids.ids
                 if product_id and limit_product:
                     if product_id not in product_ids:
                         strWarning = "Product is not allowed"
                         raise models.ValidationError(strWarning)
-
         return super(HrExpense, self).create(vals)
 
     @api.multi
@@ -78,28 +75,23 @@ class HrExpense(models.Model):
         for exp in self:
             if not vals.get("line_ids", False):
                 continue
-
             product_required = vals.get(
                 "required_expense_product",
                 False) and \
                 vals.get("required_expense_product") or \
                 exp.required_expense_product
-
             for line in map(lambda x: x[2], vals.get("line_ids")):
                 product_id = line.get("product_id", False)
-
                 # check required product
                 if not product_id and product_required:
                     strWarning = "Product has to be filled"
                     raise models.ValidationError(strWarning)
-
                 employee = exp.employee_id
                 product_ids = employee.all_allowed_expense_product_ids.ids
                 if product_id and exp.limit_product_selection:
                     if product_id not in product_ids:
                         strWarning = "Product is not allowed"
                         raise models.ValidationError(strWarning)
-
         return super(HrExpense, self).write(vals)
 
 
@@ -110,4 +102,4 @@ class HrExpenseLine(models.Model):
         string="Required Expense Product",
         related="expense_id.required_expense_product",
         store=True,
-    )
+        )
