@@ -40,7 +40,6 @@ class HrEmployee(models.Model):
 
     required_expense_product = fields.Boolean(
         string="Required Expense Product",
-        default=False,
         help="""Turn on this options if this employee
     has to choose product when creating expenses"""
     )
