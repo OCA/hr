@@ -34,9 +34,6 @@ class HrExpense(models.Model):
     all_allowed_expense_product_ids = fields.Many2many(
         string="All Allowed Expense Product",
         comodel_name="product.product",
-        relation="rel_all_allowed_product_2_expense",
-        column1="expense_id",
-        column2="product_id",
         compute="_compute_all_allowed_product_ids",
         store=False,
         )

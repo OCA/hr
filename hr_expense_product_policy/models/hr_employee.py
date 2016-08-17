@@ -47,24 +47,15 @@ class HrEmployee(models.Model):
     allowed_expense_product_categ_ids = fields.Many2many(
         string="Allowed Expense Product Categories",
         comodel_name="product.category",
-        relation="rel_allowed_product_categ_2_employee",
-        column1="employee_id",
-        column2="product_categ_id"
         )
     allowed_expense_product_ids = fields.Many2many(
         string="Allowed Expense Product",
         comodel_name="product.product",
-        relation="rel_allowed_product_2_employee",
-        column1="employee_id",
-        column2="product_id",
         domain=[("hr_expense_ok", "=", True)],
         )
     all_allowed_expense_product_ids = fields.Many2many(
         string="All Allowed Expense Product",
         comodel_name="product.product",
-        relation="rel_all_allowed_product_2_employee",
-        column1="employee_id",
-        column2="product_id",
         compute="_compute_all_allowed_product_ids",
         store=True,
         )
