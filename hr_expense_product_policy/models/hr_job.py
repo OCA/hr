@@ -20,22 +20,22 @@ class HrJob(models.Model):
             criteria = [
                 ("categ_id", "in", category_ids),
                 ("hr_expense_ok", "=", True),
-                ]
+            ]
             products += obj_product.search(criteria)
             job.all_allowed_expense_product_ids = products
 
     allowed_expense_product_categ_ids = fields.Many2many(
         string="Allowed Expense Product Categories",
         comodel_name="product.category",
-        )
+    )
     allowed_expense_product_ids = fields.Many2many(
         string="Allowed Expense Product",
         comodel_name="product.product",
         domain=[("hr_expense_ok", "=", True)],
-        )
+    )
     all_allowed_expense_product_ids = fields.Many2many(
         string="All Allowed Expense Product",
         comodel_name="product.product",
         compute="_compute_all_allowed_product_ids",
         store=True,
-        )
+    )

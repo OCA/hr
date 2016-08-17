@@ -19,25 +19,25 @@ class TestHrExpense(TransactionCase):
         self.categ1_products = self.obj_product.search([
             ("categ_id", "=", self.categ1.id),
             ("hr_expense_ok", "=", True),
-            ])
+        ])
         self.categ1_products.write({"hr_expense_ok": True})
         self.categ2 = self.env.ref("product.product_category_7")
         self.categ2_products = self.obj_product.search([
             ("categ_id", "=", self.categ2.id),
             ("hr_expense_ok", "=", True),
-            ])
+        ])
         self.categ2_products.write({"hr_expense_ok": True})
         self.categ3 = self.env.ref("product.product_category_8")
         self.categ3_products = self.obj_product.search([
             ("categ_id", "=", self.categ3.id),
             ("hr_expense_ok", "=", True),
-            ])
+        ])
         self.categ3_products.write({"hr_expense_ok": True})
         self.categ4 = self.env.ref("product.product_category_8")
         self.categ4_products = self.obj_product.search([
             ("categ_id", "=", self.categ4.id),
             ("hr_expense_ok", "=", True),
-            ])
+        ])
         self.categ4_products.write({"hr_expense_ok": True})
         self.product1 = self.env.ref("hr_expense.car_travel")
         self.product2 = self.env.ref("hr_expense.air_ticket")
@@ -51,7 +51,7 @@ class TestHrExpense(TransactionCase):
             "name": "Daily expense",
             "date": datetime.today().strftime("%Y-%m-%d"),
             "employee_id": self.employee.id,
-            }
+        }
         self.uom1 = self.env.ref("product.product_uom_unit")
         return result
 
@@ -71,7 +71,7 @@ class TestHrExpense(TransactionCase):
     def test_employee_only_product_policy(self):
         self.employee.write({
             "allowed_expense_product_categ_ids": [(6, 0, [self.categ1.id])]
-            })
+        })
         self.assertEqual(
             self.employee.all_allowed_expense_product_ids.sorted(
                 key=lambda x: x.id),
@@ -87,7 +87,7 @@ class TestHrExpense(TransactionCase):
     def test_employee_department_product_policy(self):
         self.employee.write({
             "allowed_expense_product_categ_ids": [(6, 0, [self.categ1.id])]
-            })
+        })
         expected_products = self.categ1_products
         self.assertEqual(
             self.employee.all_allowed_expense_product_ids.sorted(
@@ -102,7 +102,7 @@ class TestHrExpense(TransactionCase):
             expected_products.sorted(key=lambda x: x.id))
         self.department.write({
             "allowed_expense_product_categ_ids": [(6, 0, [self.categ2.id])],
-            })
+        })
         expected_products += self.categ2_products
         self.assertEqual(
             self.employee.all_allowed_expense_product_ids.sorted(
@@ -110,7 +110,7 @@ class TestHrExpense(TransactionCase):
             expected_products.sorted(key=lambda x: x.id))
         self.department.write({
             "allowed_expense_product_ids": [(6, 0, [self.product2.id])],
-            })
+        })
         expected_products += self.product2
         self.assertEqual(
             self.employee.all_allowed_expense_product_ids.sorted(
@@ -120,7 +120,7 @@ class TestHrExpense(TransactionCase):
     def test_employee_job_product_policy(self):
         self.employee.write({
             "allowed_expense_product_categ_ids": [(6, 0, [self.categ3.id])]
-            })
+        })
         expected_products = self.categ1_products
         self.assertEqual(
             self.employee.all_allowed_expense_product_ids.sorted(
@@ -135,7 +135,7 @@ class TestHrExpense(TransactionCase):
             expected_products.sorted(key=lambda x: x.id))
         self.job.write({
             "allowed_expense_product_categ_ids": [(6, 0, [self.categ3.id])],
-            })
+        })
         expected_products += self.categ3_products
         self.assertEqual(
             self.employee.all_allowed_expense_product_ids.sorted(
@@ -143,7 +143,7 @@ class TestHrExpense(TransactionCase):
             expected_products.sorted(key=lambda x: x.id))
         self.department.write({
             "allowed_expense_product_ids": [(6, 0, [self.product3.id])],
-            })
+        })
         expected_products += self.product3
         self.assertEqual(
             self.employee.all_allowed_expense_product_ids.sorted(
@@ -157,7 +157,7 @@ class TestHrExpense(TransactionCase):
             "date_value": self.expense_data["date"],
             "unit_amount": 100.00,
             "uom_id": self.uom1.id,
-            }
+        }
         self.expense_data.update({
             "required_expense_product": True,
             "line_ids": [
@@ -178,7 +178,6 @@ class TestHrExpense(TransactionCase):
             "unit_amount": 100.00,
             "product_id": self.product2.id,
             "uom_id": self.product2.uom_id.id,
-
         }
         self.expense_data.update({
             "limit_product_selection": True,
@@ -190,14 +189,14 @@ class TestHrExpense(TransactionCase):
     def test_create_expense_3(self):
         self.employee.write({
             "allowed_expense_product_ids": [(6, 0, [self.product1.id])]
-            })
+        })
         line1 = {
             "name": "tes line",
             "date_value": self.expense_data["date"],
             "unit_amount": 100.00,
             "product_id": self.product1.id,
             "uom_id": self.product1.uom_id.id,
-            }
+        }
         self.expense_data.update({
             "line_ids": [
                 (0, 0, line1)]})
@@ -207,14 +206,14 @@ class TestHrExpense(TransactionCase):
         self.employee.write({
             "allowed_expense_product_ids": [(6, 0, [self.product1.id])],
             "required_expense_product": True,
-            })
+        })
         line1 = {
             "name": "tes line",
             "date_value": self.expense_data["date"],
             "unit_amount": 100.00,
             "uom_id": self.uom1.id,
             "product_id": self.product1.id,
-            }
+        }
         self.expense_data.update({
             "required_expense_product": True,
             "limit_product_selection": True,
@@ -224,11 +223,11 @@ class TestHrExpense(TransactionCase):
         line_id = expense.line_ids[0].id
         res = {
             "line_ids": [(1, line_id, {"product_id": False})],
-            }
+        }
         with self.assertRaises(models.ValidationError):
             expense.write(res)
         res = {
             "line_ids": [(1, line_id, {"product_id": self.product2.id})],
-            }
+        }
         with self.assertRaises(models.ValidationError):
             expense.write(res)
