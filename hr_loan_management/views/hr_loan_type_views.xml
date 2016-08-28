@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2016 OpenSynergy Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<openerp>
+<data>
+
+<record id="hr_loan_type_view_tree" model="ir.ui.view">
+    <field name="name">Employee Loan Type</field>
+    <field name="model">hr.loan.type</field>
+    <field name="arch" type="xml">
+        <tree string="Loan Type">
+            <field name="name"/>
+            <field name="code"/>
+        </tree>
+    </field>
+</record>
+
+<record id="hr_loan_type_view_form" model="ir.ui.view">
+    <field name="name">Employee Loan Type</field>
+    <field name="model">hr.loan.type</field>
+    <field name="arch" type="xml">
+        <form string="Loan Type">
+            <header>
+            </header>
+            <label for="code" class="oe_edit_only" string="Loan Type and Code"/>
+            <h1>
+                <field name="code" class="oe_inline" placeholder="Loan Type Code" style="width: 6em"/>
+                <field name="name" class="oe_inline" placeholder="Loan Type"/>
+            </h1>
+            <div class="oe_right oe_button_box" name="buttons">
+            </div>
+            <group name="group_general_information" colspan="4" col="2" string="General Information">
+                <field name="active"/>
+                <field name="currency_id" invisible="1"/>
+                <field name="interest_method"/>
+                <field name="maximum_loan_amount" widget="monetary" options="{'currency_field':'currency_id'}"/>
+                <field name="interest_amount"/>
+                <field name="maximum_installment_period"/>
+            </group>
+            <group name="group_acc" colspan="4" col="2" string="Accounting Setting">
+                <field name="journal_id"/>
+                <field name="account_realization_id"/>
+                <field name="account_principle_id"/>
+                <field name="account_interest_id"/>
+                <field name="account_interest_income_id"/>
+            </group>
+        </form>
+    </field>
+</record>
+
+<record id="hr_loan_type_action" model="ir.actions.act_window">
+    <field name="name">Loan Type</field>
+    <field name="res_model">hr.loan.type</field>
+    <field name="view_type">form</field>
+    <field name="view_mode">tree,form</field>
+</record>
+
+<menuitem 
+    name="Employee Loan"
+    parent="hr.menu_hr_configuration"
+    id="employee_loan_configuration_menu"
+    />
+
+<menuitem 
+    name="Loan Type"
+    parent="employee_loan_configuration_menu"
+    id="hr_oan_type_menu"
+    action="hr_loan_type_action"
+    />
+</data>
+</openerp>

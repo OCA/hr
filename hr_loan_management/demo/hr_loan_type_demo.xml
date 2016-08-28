@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2016 OpenSynergy Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<openerp>
+<data>
+
+<record id="loan_type_01" model="hr.loan.type">
+    <field name="name">Anuity Loan Example</field>
+    <field name="code">EX1</field>
+    <field name="interest_method">anuity</field>
+    <field name="interest_amount">10.0</field>
+    <field name="maximum_loan_amount" eval="5000"/>
+    <field name="maximum_installment_period" eval="12"/>
+    <field name="account_principle_id" ref="account01"/>
+    <field name="account_interest_id" ref="account01"/>
+    <field name="account_interest_income_id" ref="account02"/>
+    <field name="account_realization_id" ref="account04"/>
+    <field name="journal_id" ref="loan_journal"/>
+</record>
+
+<record id="loan_type_02" model="hr.loan.type">
+    <field name="name">Flat Loan Example</field>
+    <field name="code">EX2</field>
+    <field name="interest_method">flat</field>
+    <field name="interest_amount">10.0</field>
+    <field name="maximum_loan_amount" eval="5000"/>
+    <field name="maximum_installment_period" eval="12"/>
+    <field name="account_principle_id" ref="account01"/>
+    <field name="account_interest_id" ref="account01"/>
+    <field name="account_interest_income_id" ref="account02"/>
+    <field name="account_realization_id" ref="account04"/>
+    <field name="journal_id" ref="loan_journal"/>
+</record>
+
+<record id="loan_type_03" model="hr.loan.type">
+    <field name="name">Effective Loan Example</field>
+    <field name="code">EX3</field>
+    <field name="interest_method">effective</field>
+    <field name="interest_amount">10.0</field>
+    <field name="maximum_loan_amount" eval="5000"/>
+    <field name="maximum_installment_period" eval="12"/>
+    <field name="account_principle_id" ref="account01"/>
+    <field name="account_interest_id" ref="account01"/>
+    <field name="account_interest_income_id" ref="account02"/>
+    <field name="account_realization_id" ref="account04"/>
+    <field name="journal_id" ref="loan_journal"/>
+</record>
+
+</data>
+</openerp>

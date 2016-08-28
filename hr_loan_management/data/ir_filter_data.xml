@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2016 OpenSynergy Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<openerp>
+<data>
+
+<record id="ir_filter_01" model="ir.filters">
+    <field name="name">Unrealized Employee Loan</field>
+    <field name="domain">[['realized','=',False]]</field>
+    <field name="model_id">hr.loan</field>
+    <field name="user_id" eval="False"/>
+</record>
+
+<record id="ir_filter_02" model="ir.filters">
+    <field name="name">Realized Employee Loan</field>
+    <field name="domain">[['realized','=',True]]</field>
+    <field name="model_id">hr.loan</field>
+    <field name="user_id" eval="False"/>
+</record>
+
+<record id="ir_filter_03" model="ir.filters">
+    <field name="name">Unreconcilled</field>
+    <field name="domain">[['reconcile_id','=',False]]</field>
+    <field name="model_id">account.move.line</field>
+    <field name="user_id" eval="False"/>
+</record>
+
+<record id="ir_filter_04" model="ir.filters">
+    <field name="name">Reconcilled</field>
+    <field name="domain">[['reconcile_id','!=',False]]</field>
+    <field name="model_id">account.move.line</field>
+    <field name="user_id" eval="False"/>
+</record>
+</data>
+</openerp>

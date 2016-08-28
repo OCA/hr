@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright <YEAR(S)> <AUTHOR(S)>
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<openerp>
+<data>
+
+<record id="ir_action_server_01" model="ir.actions.server">
+    <field name="name">Realize Employee Loan</field>
+    <field name="type">ir.actions.server</field>
+    <field name="state">code</field>
+    <field name="model_id" ref="account.model_account_move_line"/>
+    <field name="code">line_id = object.id
+if not line_id:
+    action = {}
+
+obj_loan = env['hr.loan']
+criteria = [('move_line_header_id','=',line_id)]
+loan = obj_loan.search(criteria)
+if not loan:
+    action = {}
+loan.workflow_action_active()
+    </field>
+</record>
+
+<record id="ir_action_server_02" model="ir.actions.server">
+    <field name="name">Employee Loan Payment</field>
+    <field name="type">ir.actions.server</field>
+    <field name="state">code</field>
+    <field name="model_id" ref="account.model_account_move_line"/>
+    <field name="code">line_id = object.id
+if not line_id:
+    action = {}
+
+obj_payment = env['hr.loan.payment.schedule']
+criteria = [
+    '|',
+    ('principle_move_line_id','=',line_id),
+    ('interest_move_line_id', '=', line_id),
+    ]
+payment = obj_payment.search(criteria)
+if not payment:
+    action = {}
+criteria = [
+    '|',
+    ('principle_payment_state', '!=', 'paid'),
+    ('interest_payment_state', '!=', 'paid'),
+    ]
+if obj_payment.search_count(criteria) == 0:
+    payment.loan_id.workflow_action_done()
+    </field>
+</record>
+</data>
+</openerp>

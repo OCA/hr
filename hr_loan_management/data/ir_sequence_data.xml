@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<openerp>
+<data noupdate="1">
+
+<record model="ir.sequence.type" id="seq_type_loan">
+    <field name="name">Employee Loan Sequence Type</field>
+    <field name="code">hr.loan</field>
+</record>
+
+<record model="ir.sequence" id="seq_loan">
+    <field name="name">Employee Loan Sequence</field>
+    <field name="code">hr.loan</field>
+    <field name="padding" eval="4"/>
+    <field name="prefix">LN/</field>
+</record>
+
+</data>
+</openerp>

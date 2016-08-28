@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2016 OpenSynergy Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<openerp>
+<data>
+
+<record id="account01" model="account.account">
+    <field name="code">XLOAN001</field>
+    <field name="name">Employee Loan - (test)</field>
+    <field ref="account.cas" name="parent_id"/>
+    <field name="type">other</field>
+    <field name="user_type" ref="account.data_account_type_asset"/>
+    <field name="reconcile" eval="True"/>
+</record>
+
+<record id="account02" model="account.account">
+    <field name="code">XLOAN002</field>
+    <field name="name">Prepaid Income - (test)</field>
+    <field ref="account.cas" name="parent_id"/>
+    <field name="type">other</field>
+    <field name="user_type" ref="account.data_account_type_asset"/>
+    <field name="reconcile" eval="True"/>
+</record>
+
+<record id="account03" model="account.account">
+    <field name="code">XLOAN003</field>
+    <field name="name">Employee Loan Interest - (test)</field>
+    <field ref="account.rev" name="parent_id"/>
+    <field name="type">other</field>
+    <field name="user_type" ref="account.data_account_type_income"/>
+</record>
+
+<record id="account04" model="account.account">
+    <field name="code">XLOAN004</field>
+    <field name="name">Employee Loan Realization - (test)</field>
+    <field ref="account.cas" name="parent_id"/>
+    <field name="type">other</field>
+    <field name="user_type" ref="account.data_account_type_asset"/>
+    <field name="reconcile" eval="True"/>
+</record>
+
+
+</data>
+</openerp>
