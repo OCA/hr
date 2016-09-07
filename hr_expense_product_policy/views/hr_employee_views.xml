@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+<record id="hr_employee_view_form_requiredProduct" model="ir.ui.view">
+    <field name="name">hr.employee.view.form</field>
+    <field name="model">hr.employee</field>
+    <field name="inherit_id" ref="hr.view_employee_form"/>
+    <field name="arch" type="xml">
+        <data>
+            <xpath expr="//notebook/page[@string='HR Settings']" position="inside">
+              <group name="grp_expense_product" colspan="4" col="4">
+                <separator string="Expense Product Policy" colspan="4"/>
+                <field name="required_expense_product"/>
+                <field name="limit_product_selection"/>
+                <newline/>
+                <separator string="Allowed Expense Product Categories" colspan="4"/>
+                <field name="allowed_expense_product_categ_ids" colspan="4" nolabel="1"/>
+                <separator string="Allowed Expense Product" colspan="4"/>
+                <field name="allowed_expense_product_ids" colspan="4" nolabel="1"/>
+                <separator string="All Allowed Expense Product" colspan="4"/>
+                <field name="all_allowed_expense_product_ids" colspan="4" nolabel="1"/>              
+              </group>
+            </xpath>
+        </data>
+    </field>
+</record>
+<record id="hr_department_view_form" model="ir.ui.view">
+    <field name="name">hr.department form</field>
+    <field name="model">hr.department</field>
+    <field name="inherit_id" ref="hr.view_department_form"/>
+    <field name="arch" type="xml">
+        <data>
+            <xpath expr="//form/sheet" position="inside">
+              <group name="grp_product_expense" colspan="4" col="4">
+                <separator string="Allowed Expense Product Categories" colspan="4"/>
+                <field name="allowed_expense_product_categ_ids" colspan="4" nolabel="1"/>
+                <separator string="Allowed Expense Product" colspan="4"/>
+                <field name="allowed_expense_product_ids" colspan="4" nolabel="1"/>
+                <separator string="All Allowed Expense Product" colspan="4"/>
+                <field name="all_allowed_expense_product_ids" colspan="4" nolabel="1"/>
+              </group>
+            </xpath>
+        </data>
+    </field>
+</record>
+
+<record id="hr_job_view_form" model="ir.ui.view">
+    <field name="name">hr.job form</field>
+    <field name="model">hr.job</field>
+    <field name="inherit_id" ref="hr.view_hr_job_form"/>
+    <field name="arch" type="xml">
+        <data>
+            <xpath expr="//form/sheet" position="inside">
+              <group name="grp_product_expense" colspan="4" col="4">
+                <separator string="Allowed Expense Product Categories" colspan="4"/>
+                <field name="allowed_expense_product_categ_ids" colspan="4" nolabel="1"/>
+                <separator string="Allowed Expense Product" colspan="4"/>
+                <field name="allowed_expense_product_ids" colspan="4" nolabel="1"/>
+                <separator string="All Allowed Expense Product" colspan="4"/>
+                <field name="all_allowed_expense_product_ids" colspan="4" nolabel="1"/>
+              </group>
+            </xpath>
+        </data>
+    </field>
+</record>
+
+    </data>
+</openerp>
