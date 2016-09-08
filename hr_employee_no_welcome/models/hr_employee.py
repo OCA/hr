@@ -11,5 +11,5 @@ class HrEmployee(models.Model):
 
     @api.model
     def create(self, vals):
-        self = self.with_context(mail_broadcast=False)
-        return super(HrEmployee, self).create(vals)
+        return super(
+            HrEmployee, self.with_context(mail_broadcast=False)).create(vals)
