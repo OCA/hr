@@ -31,5 +31,5 @@
         "views/hr_employee.xml",
         "security/ir.model.access.csv",
     ],
-    'installable': False,
+    'installable': True,
 }

@@ -150,12 +150,11 @@
             <field name="inherit_id" ref="hr_contract.hr_hr_employee_view_form2"/>
             <field name="arch" type="xml">
                 <data>
-                    <xpath expr="//button[@string='Contracts']" position="replace">
-                        <button name="%(hr_contract.act_hr_employee_2_hr_contract)d" string="Contracts" type="action" groups="base.group_hr_user"/>
+                    <xpath expr="//button[@name='%(hr_contract.act_hr_employee_2_hr_contract)d']" position="attributes">
+                        <attribute name="groups">base.group_hr_user</attribute>
                     </xpath>
                 </data>
             </field>
         </record>
-        
     </data>
 </openerp>

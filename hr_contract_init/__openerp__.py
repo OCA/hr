@@ -48,5 +48,5 @@ Define Initial Settings on New Contracts
     ],
     'test': [
     ],
-    'installable': False,
+    'installable': True,
 }
