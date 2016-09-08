@@ -49,5 +49,5 @@ contracts and trial periods.
     ],
     'test': [
     ],
-    'installable': False,
+    'installable': True,
 }

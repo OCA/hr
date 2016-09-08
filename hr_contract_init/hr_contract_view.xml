@@ -62,9 +62,9 @@
         </record>
         <menuitem action="open_contract_init"
             id="menu_hr_contract_init"
-            parent="hr_contract.next_id_56"
+            parent="hr_contract.hr_menu_contract"
             sequence="10"/>
-        
+
         <!-- Initial Wages -->
         
         <record id="view_init_wage_tree" model="ir.ui.view">
@@ -111,7 +111,7 @@
                 </xpath>
             </field>
         </record>
-        
+        <!-- module hr_simply was deleted
         <record id="hr_contract_view_form" model="ir.ui.view">
             <field name="name">hr.contract.view.form.contract_init</field>
             <field name="model">hr.contract</field>
@@ -122,6 +122,6 @@
                 </xpath>
             </field>
         </record>
-    
+        -->
     </data>
 </openerp>

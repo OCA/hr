@@ -42,5 +42,5 @@ Keep Track of Length of Employment
     ],
     'test': [
     ],
-    'installable': False,
+    'installable': True,
 }
