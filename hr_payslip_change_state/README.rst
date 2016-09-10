@@ -9,7 +9,7 @@ HR Payslip Change State
 This module process payslip batches:
 
 * This module allows to execute the actions that buttons inside a form do \
-for a payslip batch.
+  for a payslip batch.
 * The module checks if the required action is allowed for each payslip
 * If any of the payslips are not in a suitable state a warning message will
 pop up and no changes will be made
