@@ -27,6 +27,7 @@ addon | version | summary
 [hr_employee_gravatar](hr_employee_gravatar/) | 8.0.1.0.0 | Employees Synchronize Gravatar image
 [hr_employee_id](hr_employee_id/) | 8.0.1.0.0 | Employee ID
 [hr_employee_legacy_id](hr_employee_legacy_id/) | 8.0.1.0.0 | Legacy Employee ID
+[hr_employee_no_welcome](hr_employee_no_welcome/) | 8.0.1.0.0 | Disable Employee Welcome Message
 [hr_employee_phone_extension](hr_employee_phone_extension/) | 8.0.1.0.0 | Employee Phone Extension
 [hr_employee_reference](hr_employee_reference/) | 8.0.1.0.0 | Manage employee references
 [hr_expense_account_period](hr_expense_account_period/) | 8.0.0.1.0 | Accounting period for HR expenses journal entries
@@ -34,6 +35,7 @@ addon | version | summary
 [hr_expense_analytic_plans](hr_expense_analytic_plans/) | 8.0.1.0.0 | Use analytic plans in expenses
 [hr_expense_invoice](hr_expense_invoice/) | 8.0.1.0.0 | Supplier invoices on HR expenses
 [hr_expense_move_date](hr_expense_move_date/) | 8.0.1.0.0 | Move date for HR expenses journal entries
+[hr_expense_product_policy](hr_expense_product_policy/) | 8.0.1.0.0 | HR Expense Product Policy
 [hr_expense_sequence](hr_expense_sequence/) | 8.0.1.0.0 | HR expense sequence
 [hr_experience](hr_experience/) | 8.0.1.1.0 | Experience Management
 [hr_family](hr_family/) | 8.0.1.2.0 | Employee Family Information
@@ -41,6 +43,7 @@ addon | version | summary
 [hr_holidays_legal_leave](hr_holidays_legal_leave/) | 8.0.1.0.0 | Allows the definition of legal/annual leave
 [hr_job_categories](hr_job_categories/) | 8.0.1.0.0 | HR Job Employee Categories
 [hr_language](hr_language/) | 8.0.0.1.0 | Language Management
+[hr_payroll_cancel](hr_payroll_cancel/) | 8.0.1.0.0 | Hr Payroll Cancel
 [hr_payslip_move_date](hr_payslip_move_date/) | 8.0.0.1.0 | HR Payslip Move Date
 [hr_public_holidays](hr_public_holidays/) | 8.0.1.0.0 | Manage Public Holidays
 [hr_recruitment_partner](hr_recruitment_partner/) | 8.0.1.0.0 | Automatically create a Partner for Applicants
@@ -73,7 +76,6 @@ addon | version | summary
 [hr_schedule](hr_schedule/) | 1.0 (unported) | Employee Shift Scheduling
 [hr_transfer](hr_transfer/) | 1.0 (unported) | Departmental Transfer
 [hr_wage_increment](hr_wage_increment/) | 1.0 (unported) | HR Wage Increment
-[hr_worked_days_activity](hr_worked_days_activity/) | 1.0 (unported) | Worked Days Activity
 [hr_worked_days_hourly_rate](hr_worked_days_hourly_rate/) | 1.0 (unported) | Worked Days Hourly Rates
 
 [//]: # (end addons)

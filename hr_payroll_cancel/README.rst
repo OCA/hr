@@ -2,28 +2,32 @@
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-=========================
-HR Payslip Change State
-=========================
+=================
+HR Payroll Cancel
+=================
 
-This module process payslip batches:
+This module allows the user to cancel a payslip whatever the previous state is.
 
-* This module allows to execute the actions that buttons inside a form do \
-  for a payslip batch.
-* The module checks if the required action is allowed for each payslip
-* If any of the payslips are not in a suitable state a warning message will
-pop up and no changes will be made
+Installation
+============
 
-Configuration
-=============
+To install this module, you need to:
 
-No needed.
+1.  Clone the branch 8.0 of the repository https://github.com/OCA/hr
+2.  Add the path to this repository in your configuration (addons-path)
+3.  Update the module list
+4.  Go to menu *Setting -> Modules -> Local Modules*
+5.  Search For *HR Payroll Cancel*
+6.  Install the module
 
 Usage
 =====
-1. Go to the payslip list view and select the ones you want to .
-2. Unfold the "More" menu on the top and click on "Change state"
-3. Select the action to execute
+
+Go to: Human Resources -> Payroll -> Employee Payslip
+
+- Choose a payslip from the list.
+- Click on the button "Cancel Payslip" to cancel the payslip.
+- Now the payslip is in rejected state.
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
@@ -34,8 +38,8 @@ Credits
 
 Contributors
 ------------
-* Aaron Henriquez <ahenriquez@eficent.com>
-* Jordi Ballester <jordi.ballester@eficent.com>
+* Luis Torres (luis_t@vauxoo.com)
+* Aaron Henriquez (ahenriquez@eficent.com)
 
 Maintainer
 ----------

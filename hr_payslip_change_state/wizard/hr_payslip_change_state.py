@@ -11,17 +11,19 @@ class HrPaySlipChangeState(models.TransientModel):
     _name = "hr.payslip.change.state"
     _description = "Change state of a payslip"
 
-    state = fields.Selection([('draft', 'Set to Draft'),
-                              ('verify', 'Compute Sheet'),
-                              ('done', 'Confirm'),
-                              ('cancel', 'Cancel Payslip'),
-                              ],
-                             'Action',
-            help='* When the payslip is created the status is \'Draft\'.\
-            \n* If the payslip is under verification, the status is '
-                 '\'Compute Sheet\'. \
-            \n* If the payslip is confirmed then status is set to \'Done\'.\
-            \n* When user cancel payslip the status is \'Rejected\'.')
+    state = fields.Selection(
+        selection=[
+            ('draft', 'Set to Draft'),
+            ('verify', 'Compute Sheet'),
+            ('done', 'Confirm'),
+            ('cancel', 'Cancel Payslip'),
+            ],
+        string='Action',
+        help='* When the payslip is created the status is \'Draft\'.\
+             \n* If the payslip is under verification, the status is '
+             '\'Compute Sheet\'. \
+             \n* If the payslip is confirmed then status is set to \'Done\'.\
+             \n* When user cancel payslip the status is \'Rejected\'.')
 
     @api.multi
     def change_state_confirm(self):
@@ -36,22 +38,23 @@ class HrPaySlipChangeState(models.TransientModel):
                     rec.signal_workflow("draft")
                 else:
                     raise UserError(_("Only rejected payslips can be reset to "
-                                    "draft, the payslip %s is in "
-                                    "%s state" % (rec.name, rec.state)))
+                                      "draft, the payslip %s is in "
+                                      "%s state" % (rec.name, rec.state)))
             elif new_state == 'verify':
                 if rec.state == 'draft':
                     rec.compute_sheet()
                 else:
                     raise UserError(_("Only draft payslips can be verified,"
-                                    "the payslip %s is in "
-                                    "%s state" % (rec.name, rec.state)))
+                                      "the payslip %s is in "
+                                      "%s state" % (rec.name, rec.state)))
             elif new_state == 'done':
                 if rec.state in ('verify', 'draft'):
                     rec.signal_workflow("hr_verify_sheet")
                 else:
-                    raise UserError(_("Only payslips in states verify or draft"
-                                    " can be confirmed, the payslip %s is in "
-                                    "%s state" % (rec.name, rec.state)))
+                    raise UserError(
+                        _("Only payslips in states verify or draft"
+                          " can be confirmed, the payslip %s is in "
+                          "%s state" % (rec.name, rec.state)))
             elif new_state == 'cancel':
                 if rec.state != 'cancel':
                     rec.signal_workflow("cancel_sheet")
