@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-12 12:02+0000\n"
-"PO-Revision-Date: 2016-03-19 10:41+0000\n"
+"POT-Creation-Date: 2016-09-09 02:43+0000\n"
+"PO-Revision-Date: 2016-09-09 12:24+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Italian (http://www.transifex.com/oca/OCA-hr-8-0/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -53,6 +53,12 @@ msgid "Created on"
 msgstr "Creato il"
 
 #. module: hr_contract_hourly_rate
+#: field:hr.hourly.rate,display_name:0
+#: field:hr.hourly.rate.class,display_name:0
+msgid "Display Name"
+msgstr "Nome da visualizzare"
+
+#. module: hr_contract_hourly_rate
 #: field:hr.hourly.rate,date_end:0
 msgid "End Date"
 msgstr ""
@@ -68,6 +74,11 @@ msgstr ""
 #: code:addons/hr_contract_hourly_rate/models/hr_hourly_rate_class.py:51
 #, python-format
 msgid "Error! You cannot have overlapping rates"
+msgstr ""
+
+#. module: hr_contract_hourly_rate
+#: field:hr.contract.job,hourly_rate:0
+msgid "Hourly Rate"
 msgstr ""
 
 #. module: hr_contract_hourly_rate
@@ -109,6 +120,12 @@ msgstr ""
 #: field:hr.hourly.rate,id:0 field:hr.hourly.rate.class,id:0
 msgid "ID"
 msgstr "ID"
+
+#. module: hr_contract_hourly_rate
+#: field:hr.hourly.rate,__last_update:0
+#: field:hr.hourly.rate.class,__last_update:0
+msgid "Last Modified on"
+msgstr "Ultima modifica il"
 
 #. module: hr_contract_hourly_rate
 #: field:hr.hourly.rate,write_uid:0 field:hr.hourly.rate.class,write_uid:0

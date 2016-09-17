@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-26 02:41+0000\n"
-"PO-Revision-Date: 2016-05-24 20:25+0000\n"
+"POT-Creation-Date: 2016-09-09 02:43+0000\n"
+"PO-Revision-Date: 2016-09-16 21:45+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Spanish (http://www.transifex.com/oca/OCA-hr-8-0/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -42,7 +42,7 @@ msgstr "Creado el"
 #. module: hr_public_holidays
 #: field:hr.holidays.public.line,date:0
 msgid "Date"
-msgstr ""
+msgstr "Fecha"
 
 #. module: hr_public_holidays
 #: field:hr.holidays.public.line,variable:0

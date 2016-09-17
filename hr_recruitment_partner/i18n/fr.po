@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-05 18:30+0000\n"
+"POT-Creation-Date: 2016-09-09 02:43+0000\n"
 "PO-Revision-Date: 2015-11-18 14:58+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: French (http://www.transifex.com/oca/OCA-hr-8-0/language/fr/)\n"
@@ -114,7 +114,7 @@ msgstr ""
 #. module: hr_recruitment_partner
 #: field:hr.applicant,country_id:0
 msgid "Country"
-msgstr ""
+msgstr "Pays"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,credit_limit:0
@@ -139,7 +139,7 @@ msgstr ""
 #. module: hr_recruitment_partner
 #: field:hr.applicant,date:0
 msgid "Date"
-msgstr ""
+msgstr "Date"
 
 #. module: hr_recruitment_partner
 #: help:hr.applicant,last_reconciliation_date:0
@@ -161,7 +161,7 @@ msgstr ""
 #. module: hr_recruitment_partner
 #: field:hr.applicant,email:0
 msgid "Email"
-msgstr ""
+msgstr "Courriel"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,employee:0
@@ -362,7 +362,7 @@ msgstr ""
 #. module: hr_recruitment_partner
 #: field:hr.applicant,state_id:0
 msgid "State"
-msgstr ""
+msgstr "État"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,street:0

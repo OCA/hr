@@ -4,12 +4,13 @@
 # 
 # Translators:
 # danimaribeiro <danimaribeiro@gmail.com>, 2016
+# danimaribeiro <danimaribeiro@gmail.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-11 01:48+0000\n"
-"PO-Revision-Date: 2016-03-10 11:30+0000\n"
+"POT-Creation-Date: 2016-09-09 02:43+0000\n"
+"PO-Revision-Date: 2016-09-08 13:36+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/oca/OCA-hr-8-0/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -146,6 +147,12 @@ msgid "Diploma"
 msgstr ""
 
 #. module: hr_experience
+#: field:hr.academic,display_name:0 field:hr.certification,display_name:0
+#: field:hr.curriculum,display_name:0 field:hr.experience,display_name:0
+msgid "Display Name"
+msgstr ""
+
+#. module: hr_experience
 #: view:hr.academic:hr_experience.view_academic_tree
 msgid "Education"
 msgstr ""
@@ -206,7 +213,7 @@ msgstr ""
 #: field:hr.academic,id:0 field:hr.certification,id:0 field:hr.curriculum,id:0
 #: field:hr.experience,id:0
 msgid "ID"
-msgstr ""
+msgstr "Identificação"
 
 #. module: hr_experience
 #: view:hr.academic:hr_experience.view_academic_tree
@@ -222,16 +229,22 @@ msgid "Issued By"
 msgstr ""
 
 #. module: hr_experience
+#: field:hr.academic,__last_update:0 field:hr.certification,__last_update:0
+#: field:hr.curriculum,__last_update:0 field:hr.experience,__last_update:0
+msgid "Last Modified on"
+msgstr ""
+
+#. module: hr_experience
 #: field:hr.academic,write_uid:0 field:hr.certification,write_uid:0
 #: field:hr.curriculum,write_uid:0 field:hr.experience,write_uid:0
 msgid "Last Updated by"
-msgstr ""
+msgstr "Última atualização por"
 
 #. module: hr_experience
 #: field:hr.academic,write_date:0 field:hr.certification,write_date:0
 #: field:hr.curriculum,write_date:0 field:hr.experience,write_date:0
 msgid "Last Updated on"
-msgstr ""
+msgstr "Última atualização em"
 
 #. module: hr_experience
 #: field:hr.academic,location:0 help:hr.academic,location:0
