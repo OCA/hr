@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<openerp>
-  <data>
+<!-- Copyright 2016 Savoir-faire Linux,
+                    Fekete Mihai (Forest and Biomass Services Romania),
+                    ACSONE SA/NV,
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
 
     <record id="view_employee_form" model="ir.ui.view">
         <field name="model">hr.employee</field>
@@ -23,5 +26,4 @@
       </field>
     </record>
 
-  </data>
-</openerp>
+</odoo>
