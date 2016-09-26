@@ -18,10 +18,12 @@
             </field>
 
             <field name="category_ids" position="before">
-                <label for="firstname" class="oe_edit_only"/>
-                <h1>
-                     <field name="firstname"/>
-                </h1>
+                <div class="oe_title">
+                    <label for="firstname" class="oe_edit_only"/>
+                    <h1>
+                         <field name="firstname"/>
+                    </h1>
+                </div>
             </field>
       </field>
     </record>
