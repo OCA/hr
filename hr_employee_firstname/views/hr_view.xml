@@ -17,12 +17,12 @@
                 <field name="lastname"/>
             </field>
 
-            <label for="category_ids" position="before">
+            <field name="category_ids" position="before">
                 <label for="firstname" class="oe_edit_only"/>
                 <h1>
                      <field name="firstname"/>
                 </h1>
-            </label>
+            </field>
       </field>
     </record>
 
