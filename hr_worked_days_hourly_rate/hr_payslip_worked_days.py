@@ -19,12 +19,12 @@
 #
 ##############################################################################
 
-from openerp.osv import fields, orm
+from openerp import fields
 from datetime import datetime
 from openerp.tools import DEFAULT_SERVER_DATE_FORMAT
 
 
-class hr_payslip_worked_days(orm.Model):
+class hr_payslip_worked_days(models.Model):
     _inherit = 'hr.payslip.worked_days'
 
     def _get_total(

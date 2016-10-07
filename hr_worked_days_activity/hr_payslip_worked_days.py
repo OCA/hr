@@ -19,10 +19,10 @@
 #
 ##############################################################################
 
-from openerp.osv import orm, fields
+from openerp import fields
 
 
-class hr_payslip_worked_days(orm.Model):
+class hr_payslip_worked_days(models.Model):
     _inherit = 'hr.payslip.worked_days'
 
     _columns = {

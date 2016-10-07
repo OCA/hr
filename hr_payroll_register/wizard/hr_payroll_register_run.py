@@ -22,14 +22,14 @@
 from datetime import datetime
 from pytz import timezone
 
-from openerp.osv import fields, orm
+from openerp import fields
 from openerp.tools.translate import _
 
 import logging
 _logger = logging.getLogger(__name__)
 
 
-class payroll_register_run(orm.TransientModel):
+class payroll_register_run(models.TransientModel):
 
     _name = 'hr.payroll.register.run'
     _description = 'Pay Slip Creation'
@@ -52,11 +52,11 @@ class payroll_register_run(orm.TransientModel):
         data = self.read(cr, uid, ids, context=context)[0]
         register_id = context.get('active_id', False)
         if not register_id:
-            raise orm.except_orm(_("Programming Error !"), _(
+            raise models.except_orm(_("Programming Error !"), _(
                 "Unable to determine Payroll Register Id."))
 
         if not data['department_ids']:
-            raise orm.except_orm(
+            raise models.except_orm(
                 _("Warning !"),
                 _("No departments selected for payslip generation."))
 

@@ -21,11 +21,11 @@
 
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
-from openerp.osv import fields, orm
+from openerp import fields
 from openerp.tools.translate import _
 
 
-class wage_increment(orm.Model):
+class wage_increment(models.Model):
 
     _name = 'hr.contract.wage.increment'
     _description = 'HR Contract Wage Increment'

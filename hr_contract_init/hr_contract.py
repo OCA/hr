@@ -23,12 +23,12 @@ from datetime import datetime, timedelta
 
 from openerp import netsvc
 from openerp.addons import decimal_precision as dp
-from openerp.osv import fields, orm
+from openerp import fields
 from openerp.tools import DEFAULT_SERVER_DATE_FORMAT as OE_DFORMAT
 from openerp.tools.translate import _
 
 
-class contract_init(orm.Model):
+class contract_init(models.Model):
 
     _name = 'hr.contract.init'
     _description = 'Initial Contract Settings'
@@ -107,7 +107,7 @@ class contract_init(orm.Model):
         data = self.read(cr, uid, ids, ['state'], context=context)
         for d in data:
             if d['state'] in ['approve', 'decline']:
-                raise orm.except_orm(
+                raise models.except_orm(
                     _('Error'),
                     _('You may not a delete a record that is not in a '
                       '"Draft" state')
@@ -135,7 +135,7 @@ class contract_init(orm.Model):
         return True
 
 
-class init_wage(orm.Model):
+class init_wage(models.Model):
 
     _name = 'hr.contract.init.wage'
     _description = 'Starting Wages'
@@ -187,7 +187,7 @@ class init_wage(orm.Model):
                 'hr.contract.init').read(cr, uid, d['contract_init_id'][0],
                                          ['state'], context=context)
             if d2['state'] in ['approve', 'decline']:
-                raise orm.except_orm(
+                raise models.except_orm(
                     _('Error'),
                     _('You may not a delete a record that is not in a '
                       '"Draft" state')
@@ -195,7 +195,7 @@ class init_wage(orm.Model):
         return super(init_wage, self).unlink(cr, uid, ids, context=context)
 
 
-class hr_contract(orm.Model):
+class hr_contract(models.Model):
 
     _inherit = 'hr.contract'
 

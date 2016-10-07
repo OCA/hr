@@ -26,10 +26,10 @@ from dateutil.relativedelta import relativedelta
 
 from openerp import netsvc
 from openerp.tools import DEFAULT_SERVER_DATE_FORMAT
-from openerp.osv import fields, orm
+from openerp import fields
 
 
-class hr_contract(orm.Model):
+class hr_contract(models.Model):
 
     _name = 'hr.contract'
     _inherit = ['hr.contract', 'mail.thread', 'ir.needaction_mixin']

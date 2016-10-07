@@ -19,10 +19,10 @@
 #
 ##############################################################################
 
-from openerp.osv import fields, orm
+from openerp import fields
 
 
-class hr_activity(orm.Model):
+class hr_activity(models.Model):
     """
     An activity is a job or a leave type
     When a job or a leave type is created, the related activity is created

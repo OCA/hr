@@ -22,10 +22,10 @@
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 
-from openerp.osv import fields, orm
+from openerp import fields
 
 
-class compute_alerts(orm.TransientModel):
+class compute_alerts(models.TransientModel):
 
     _name = 'hr.schedule.alert.compute'
     _description = 'Check Alerts'

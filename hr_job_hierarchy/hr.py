@@ -19,14 +19,14 @@
 #
 #
 
-from openerp.osv import fields, orm
+from openerp import fields
 from openerp.tools.translate import _
 
 import logging
 _l = logging.getLogger(__name__)
 
 
-class hr_job(orm.Model):
+class hr_job(models.Model):
 
     _name = 'hr.job'
     _inherit = 'hr.job'
@@ -152,7 +152,7 @@ class hr_job(orm.Model):
         return res
 
 
-class hr_contract(orm.Model):
+class hr_contract(models.Model):
 
     _name = 'hr.contract'
     _inherit = 'hr.contract'

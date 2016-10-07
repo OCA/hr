@@ -20,10 +20,10 @@
 #
 
 from pytz import common_timezones
-from openerp.osv import fields, orm
+from openerp import fields
 
 
-class policy_ot(orm.Model):
+class policy_ot(models.Model):
 
     _name = 'hr.policy.ot'
 
@@ -82,7 +82,7 @@ class policy_ot(orm.Model):
         ]
 
 
-class policy_line_ot(orm.Model):
+class policy_line_ot(models.Model):
 
     _name = 'hr.policy.line.ot'
 
@@ -116,7 +116,7 @@ class policy_line_ot(orm.Model):
     }
 
 
-class policy_group(orm.Model):
+class policy_group(models.Model):
 
     _name = 'hr.policy.group'
     _inherit = 'hr.policy.group'

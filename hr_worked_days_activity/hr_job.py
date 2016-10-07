@@ -19,10 +19,10 @@
 #
 ##############################################################################
 
-from openerp.osv import fields, orm
+from openerp import fields
 
 
-class hr_job(orm.Model):
+class hr_job(models.Model):
     _inherit = 'hr.job'
     _columns = {
         'activity_ids': fields.one2many(

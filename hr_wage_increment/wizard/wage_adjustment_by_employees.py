@@ -19,11 +19,11 @@
 #
 #
 
-from openerp.osv import fields, orm
+from openerp import fields
 from openerp.tools.translate import _
 
 
-class hr_payslip_employees(orm.TransientModel):
+class hr_payslip_employees(models.TransientModel):
 
     _name = 'wage.adjustment.employees'
     _description = 'Generate wage adjustments for selected employees'
@@ -64,7 +64,7 @@ class hr_payslip_employees(orm.TransientModel):
 
         data = self.read(cr, uid, ids, context=context)[0]
         if not data['employee_ids']:
-            raise orm.except_orm(
+            raise models.except_orm(
                 _("Warning !"),
                 _("You must select at least one employee to generate wage "
                   "adjustments.")
@@ -72,7 +72,7 @@ class hr_payslip_employees(orm.TransientModel):
 
         run_id = context.get('active_id', False)
         if not run_id:
-            raise orm.except_orm(_('Internal Error'), _(
+            raise models.except_orm(_('Internal Error'), _(
                 'Unable to determine wage adjustment run ID'))
 
         run_data = run_pool.read(
