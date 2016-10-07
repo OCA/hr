@@ -24,12 +24,12 @@ from dateutil.relativedelta import relativedelta
 
 from openerp import netsvc
 import openerp.addons.decimal_precision as dp
-from openerp.osv import fields, orm
+from openerp import fields
 from openerp.tools import DEFAULT_SERVER_DATE_FORMAT
 from openerp.tools.translate import _
 
 
-class wage_increment(orm.Model):
+class wage_increment(models.Model):
 
     _name = 'hr.contract.wage.increment'
     _description = 'HR Contract Wage Adjustment'
@@ -225,7 +225,7 @@ class wage_increment(orm.Model):
         if len(wage_incr_ids) > 0:
             data = self.pool.get('hr.contract').read(
                 cr, uid, wage_incr.contract_id.id, ['name'], context=context)
-            raise orm.except_orm(
+            raise models.except_orm(
                 _('Warning'),
                 _('There is already another wage adjustment in progress for '
                   'this contract: %s.') % (data['name'])
@@ -240,7 +240,7 @@ class wage_increment(orm.Model):
         if data['state'] in ['draft', 'done']:
             data = self.pool.get('hr.contract').read(
                 cr, uid, wage_incr.contract_id.id, ['name'], context=context)
-            raise orm.except_orm(
+            raise models.except_orm(
                 _('Warning!'),
                 _('The current state of the contract does not permit a wage '
                   'change: %s') % (data['name'])
@@ -256,7 +256,7 @@ class wage_increment(orm.Model):
                     cr, uid, wage_incr.contract_id.id, ['name'],
                     context=context
                 )
-                raise orm.except_orm(
+                raise models.except_orm(
                     _('Warning!'),
                     _('The contract end date is on or before the effective '
                       'date of the adjustment: %s') % (data['name'])
@@ -340,7 +340,7 @@ class wage_increment(orm.Model):
 
         # Check that the contract start date is before the effective date
         if vals['effective_date'] <= data['date_start']:
-            raise orm.except_orm(
+            raise models.except_orm(
                 _('Error'),
                 _('The effective date of the adjustment must be after the '
                   'contract start date. Contract: %s.') % (data['name'])
@@ -353,7 +353,7 @@ class wage_increment(orm.Model):
         ],
             context=context)
         if len(wage_incr_ids) > 0:
-            raise orm.except_orm(
+            raise models.except_orm(
                 _('Warning'),
                 _('There is already another wage adjustment in progress for '
                   'this contract: %s.') % (data['name'])
@@ -379,7 +379,7 @@ class wage_increment(orm.Model):
 
         for incr in self.browse(cr, uid, ids, context=context):
             if incr.state in ['approve']:
-                raise orm.except_orm(
+                raise models.except_orm(
                     _('The record cannot be deleted!'),
                     _("""\
 You may not delete a record that is in a %s state:
@@ -390,7 +390,7 @@ Employee: %s""") % (incr.state, incr.employee_id.name))
         )
 
 
-class wage_increment_run(orm.Model):
+class wage_increment_run(models.Model):
 
     _name = 'hr.contract.wage.increment.run'
     _description = 'Wage Increment Batches'
@@ -470,7 +470,7 @@ class wage_increment_run(orm.Model):
 
         for run in self.browse(cr, uid, ids, context=context):
             if run.state in ['approve']:
-                raise orm.except_orm(
+                raise models.except_orm(
                     _('The adjustment run cannot be deleted!'),
                     _('You may not delete a wage adjustment that is in the '
                       '%s state.') % run.state)
@@ -503,7 +503,7 @@ class wage_increment_run(orm.Model):
         return self._state(cr, uid, ids, 'signal_decline', 'decline', context)
 
 
-class hr_contract(orm.Model):
+class hr_contract(models.Model):
 
     _name = 'hr.contract'
     _inherit = 'hr.contract'
@@ -520,7 +520,7 @@ class hr_contract(orm.Model):
                 data = self.pool.get('hr.contract').read(
                     cr, uid, i, ['name'], context=context
                 )
-                raise orm.except_orm(
+                raise models.except_orm(
                     _('Error'),
                     _('There is a wage adjustment in progress for this '
                       'contract. Either delete the adjustment or delay the '

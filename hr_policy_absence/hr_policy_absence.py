@@ -19,10 +19,10 @@
 #
 #
 
-from openerp.osv import fields, orm
+from openerp import fields
 
 
-class policy_absence(orm.Model):
+class policy_absence(models.Model):
 
     _name = 'hr.policy.absence'
 
@@ -62,7 +62,7 @@ class policy_absence(orm.Model):
         return res
 
 
-class policy_line_absence(orm.Model):
+class policy_line_absence(models.Model):
 
     _name = 'hr.policy.line.absence'
 
@@ -108,7 +108,7 @@ class policy_line_absence(orm.Model):
         return res
 
 
-class policy_group(orm.Model):
+class policy_group(models.Model):
 
     _name = 'hr.policy.group'
     _inherit = 'hr.policy.group'

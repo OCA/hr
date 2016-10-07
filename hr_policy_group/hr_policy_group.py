@@ -19,10 +19,10 @@
 #
 #
 
-from openerp.osv import fields, orm
+from openerp import fields
 
 
-class policy_groups(orm.Model):
+class policy_groups(models.Model):
 
     _name = 'hr.policy.group'
     _description = 'HR Policy Groups'
@@ -39,7 +39,7 @@ class policy_groups(orm.Model):
     }
 
 
-class contract_init(orm.Model):
+class contract_init(models.Model):
 
     _inherit = 'hr.contract.init'
     _columns = {
@@ -54,7 +54,7 @@ class contract_init(orm.Model):
     }
 
 
-class hr_contract(orm.Model):
+class hr_contract(models.Model):
 
     _name = 'hr.contract'
     _inherit = 'hr.contract'

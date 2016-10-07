@@ -20,10 +20,10 @@
 #
 ##############################################################################
 
-from openerp.osv import orm, fields
+from openerp import fields
 
 
-class hr_employee(orm.Model):
+class hr_employee(models.Model):
     _inherit = 'hr.employee'
 
     _columns = {
@@ -35,7 +35,7 @@ class hr_employee(orm.Model):
         }
 
 
-class hr_expense_expense(orm.Model):
+class hr_expense_expense(models.Model):
     _inherit = 'hr.expense.expense'
 
     _columns = {

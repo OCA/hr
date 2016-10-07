@@ -23,14 +23,14 @@ from datetime import datetime, date, timedelta
 import logging
 
 from openerp import netsvc
-from openerp.osv import fields, orm
+from openerp import fields
 from openerp.tools import DEFAULT_SERVER_DATE_FORMAT as OE_DATEFORMAT
 from openerp.tools import DEFAULT_SERVER_DATETIME_FORMAT as OE_DATETIMEFORMAT
 
 _l = logging.getLogger(__name__)
 
 
-class hr_accrual_job(orm.Model):
+class hr_accrual_job(models.Model):
 
     _name = 'hr.policy.line.accrual.job'
     _description = 'Accrual Policy Line Job Run'
@@ -52,7 +52,7 @@ class hr_accrual_job(orm.Model):
     }
 
 
-class hr_policy(orm.Model):
+class hr_policy(models.Model):
 
     _name = 'hr.policy.accrual'
     _description = 'Accrual Policy'
@@ -337,7 +337,7 @@ class hr_policy(orm.Model):
         return True
 
 
-class hr_policy_line(orm.Model):
+class hr_policy_line(models.Model):
 
     _name = 'hr.policy.line.accrual'
     _description = 'Accrual Policy Line'
@@ -448,7 +448,7 @@ class hr_policy_line(orm.Model):
     }
 
 
-class policy_group(orm.Model):
+class policy_group(models.Model):
 
     _name = 'hr.policy.group'
     _inherit = 'hr.policy.group'
@@ -460,7 +460,7 @@ class policy_group(orm.Model):
     }
 
 
-class hr_holidays(orm.Model):
+class hr_holidays(models.Model):
 
     _name = 'hr.holidays'
     _inherit = 'hr.holidays'

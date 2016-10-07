@@ -23,12 +23,12 @@ from datetime import datetime
 from dateutil.relativedelta import relativedelta
 
 from openerp import netsvc
-from openerp.osv import fields, orm
+from openerp import fields
 from openerp.tools import DEFAULT_SERVER_DATE_FORMAT
 from openerp.tools.translate import _
 
 
-class hr_transfer(orm.Model):
+class hr_transfer(models.Model):
 
     _name = 'hr.department.transfer'
     _description = 'Departmental Transfer'
@@ -101,7 +101,7 @@ class hr_transfer(orm.Model):
 
         for xfer in self.browse(cr, uid, ids, context=context):
             if xfer.state not in ['draft']:
-                raise orm.except_orm(
+                raise models.except_orm(
                     _('Unable to Delete Transfer!'),
                     _('Transfer has been initiated. Either cancel the transfer'
                       ' or create another transfer to undo it.')
@@ -141,7 +141,7 @@ class hr_transfer(orm.Model):
         if data['state'] not in [
             'trial', 'trial_ending', 'open', 'contract_ending'
         ]:
-            raise orm.except_orm(
+            raise models.except_orm(
                 _('Warning!'),
                 _('The current state of the contract does not permit changes.')
             )
@@ -152,7 +152,7 @@ class hr_transfer(orm.Model):
             dEffective = datetime.strptime(
                 effective_date, DEFAULT_SERVER_DATE_FORMAT)
             if dEffective >= dContractEnd:
-                raise orm.except_orm(
+                raise models.except_orm(
                     _('Warning!'),
                     _('The contract end date is on or before the effective '
                       'date of the transfer.')

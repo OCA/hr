@@ -19,10 +19,10 @@
 #
 ##############################################################################
 
-from openerp.osv import fields, orm
+from openerp import fields
 
 
-class hr_salary_rule(orm.Model):
+class hr_salary_rule(models.Model):
     _inherit = 'hr.salary.rule'
     _columns = {
         'variable_ids': fields.one2many(

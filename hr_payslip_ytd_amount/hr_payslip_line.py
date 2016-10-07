@@ -18,11 +18,11 @@
 #
 ##############################################################################
 
-from openerp.osv import orm, fields
+from openerp import fields
 import openerp.addons.decimal_precision as dp
 
 
-class hr_payslip_line(orm.Model):
+class hr_payslip_line(models.Model):
     _inherit = 'hr.payslip.line'
     _columns = {
         'total_ytd': fields.float(

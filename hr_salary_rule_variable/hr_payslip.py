@@ -19,12 +19,12 @@
 #
 ##############################################################################
 
-from openerp.osv import orm
+
 from openerp.tools.safe_eval import safe_eval as eval
 from openerp.tools.translate import _
 
 
-class hr_payslip(orm.Model):
+class hr_payslip(models.Model):
     _inherit = 'hr.payslip'
 
     def get_rule_variable(
@@ -54,14 +54,14 @@ class hr_payslip(orm.Model):
             if variable.date_from <= date <= variable.date_to
         ]
         if not variable_list:
-            raise orm.except_orm(
+            raise models.except_orm(
                 _("Warning"),
                 _("""\
 The salary rule variable related to %s does not exist for the date %s""") %
                 (rule.code, date)
             )
         if len(variable_list) > 1:
-            raise orm.except_orm(
+            raise models.except_orm(
                 _("Warning"),
                 _("""\
 %s salary rule variables related to %s exist for the date %s""") %

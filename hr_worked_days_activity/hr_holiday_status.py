@@ -19,10 +19,10 @@
 #
 ##############################################################################
 
-from openerp.osv import fields, orm
+from openerp import fields
 
 
-class hr_holidays_status(orm.Model):
+class hr_holidays_status(models.Model):
     _inherit = 'hr.holidays.status'
     _columns = {
         'paid_leave': fields.boolean(
