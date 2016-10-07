@@ -15,9 +15,8 @@
     'depends': ['hr', 'hr_contract', 'hr_holidays', 'hr_public_holidays'],
     'data': [
         'views/hr_holidays_status.xml',
-        'views/hr_holidays_view.xml',
         'security/ir.model.access.csv',
         'security/ir_rule.xml',
     ],
-    'installable': False,
+    'installable': True,
 }
