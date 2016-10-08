@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-27 10:43+0000\n"
-"PO-Revision-Date: 2015-11-05 14:40+0000\n"
-"Last-Translator: Thomas A. Jaeger\n"
+"POT-Creation-Date: 2016-09-17 13:09+0000\n"
+"PO-Revision-Date: 2016-10-04 09:42+0000\n"
+"Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: German (http://www.transifex.com/oca/OCA-hr-8-0/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -49,6 +49,11 @@ msgstr "Bosnisch"
 #: selection:hr.language,name:0
 msgid "Bulgarian / български език"
 msgstr "Bulgarisch"
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "Burmese / မြန်မာဘာသာ"
+msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
@@ -99,6 +104,11 @@ msgstr "Dänisch"
 #: field:hr.language,description:0
 msgid "Description"
 msgstr "Beschreibung"
+
+#. module: hr_language
+#: field:hr.language,display_name:0
+msgid "Display Name"
+msgstr "Anzeigename"
 
 #. module: hr_language
 #: selection:hr.language,name:0
@@ -170,6 +180,11 @@ msgstr "Galizisch"
 #: selection:hr.language,name:0
 msgid "Georgian / ქართული ენა"
 msgstr "Georgisch"
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "German (CH) / Deutsch (CH)"
+msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
@@ -255,6 +270,11 @@ msgstr "Sprachen"
 #: selection:hr.language,name:0
 msgid "Lao / ພາສາລາວ"
 msgstr "Laotisch"
+
+#. module: hr_language
+#: field:hr.language,__last_update:0
+msgid "Last Modified on"
+msgstr "Zuletzt geändert am"
 
 #. module: hr_language
 #: field:hr.language,write_uid:0

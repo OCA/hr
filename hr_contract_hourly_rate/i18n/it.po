@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-09 02:43+0000\n"
-"PO-Revision-Date: 2016-09-09 12:24+0000\n"
+"POT-Creation-Date: 2016-09-17 13:08+0000\n"
+"PO-Revision-Date: 2016-10-04 09:43+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Italian (http://www.transifex.com/oca/OCA-hr-8-0/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -61,7 +61,7 @@ msgstr "Nome da visualizzare"
 #. module: hr_contract_hourly_rate
 #: field:hr.hourly.rate,date_end:0
 msgid "End Date"
-msgstr ""
+msgstr "Data fine"
 
 #. module: hr_contract_hourly_rate
 #: code:addons/hr_contract_hourly_rate/models/hr_contract.py:88
@@ -165,7 +165,7 @@ msgstr ""
 #. module: hr_contract_hourly_rate
 #: field:hr.hourly.rate,date_start:0
 msgid "Start Date"
-msgstr ""
+msgstr "Data inizio"
 
 #. module: hr_contract_hourly_rate
 #: help:hr.contract,salary_computation_method:0

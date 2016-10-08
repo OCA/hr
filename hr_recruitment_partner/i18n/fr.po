@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-09 02:43+0000\n"
+"POT-Creation-Date: 2016-09-17 13:09+0000\n"
 "PO-Revision-Date: 2015-11-18 14:58+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: French (http://www.transifex.com/oca/OCA-hr-8-0/language/fr/)\n"
@@ -124,7 +124,7 @@ msgstr ""
 #. module: hr_recruitment_partner
 #: field:hr.applicant,customer:0
 msgid "Customer"
-msgstr ""
+msgstr "Client"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,property_stock_customer:0
@@ -264,7 +264,7 @@ msgstr ""
 #. module: hr_recruitment_partner
 #: field:hr.applicant,comment:0
 msgid "Notes"
-msgstr ""
+msgstr "Commentaires"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,opt_out:0
