@@ -356,5 +356,7 @@ class TestHolidaysComputeDays(common.TransactionCase):
             'date_to': '1994-10-20 18:00:00',
         })
         # leave._onchange_employee(self.employee2.id)
-        leave.onchange({'employee_id': self.employee2.id}, 'employee_id', {'employee_id': '1'})
+        leave.onchange({'employee_id': self.employee2.id},
+                       'employee_id',
+                       {'employee_id': '1'})
         self.assertEqual(leave.number_of_days, 5)

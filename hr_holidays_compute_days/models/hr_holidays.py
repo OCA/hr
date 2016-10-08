@@ -5,7 +5,6 @@
 from openerp import models, fields, api, _
 from openerp.exceptions import ValidationError
 from dateutil.relativedelta import relativedelta
-import math
 
 
 class HrHolidays(models.Model):
@@ -49,7 +48,8 @@ class HrHolidays(models.Model):
         if not self._check_date_helper(employee_id, self.date_from):
             raise ValidationError(_("You cannot schedule the start date on "
                                     "a public holiday or employee's rest day"))
-        if (self.date_to and self.date_from) and (self.date_from <= self.date_to):
+        if (self.date_to and self.date_from) \
+           and (self.date_from <= self.date_to):
             self.number_of_days_temp = self._compute_number_of_days()
 
     @api.onchange('date_to')
@@ -59,7 +59,8 @@ class HrHolidays(models.Model):
         if not self._check_date_helper(employee_id, self.date_to):
             raise ValidationError(_("You cannot schedule the end date on "
                                     "a public holiday or employee's rest day"))
-        if (self.date_to and self.date_from) and (self.date_from <= self.date_to):
+        if (self.date_to and self.date_from) \
+           and (self.date_from <= self.date_to):
             self.number_of_days_temp = self._compute_number_of_days()
 
     def _compute_number_of_days(self):
