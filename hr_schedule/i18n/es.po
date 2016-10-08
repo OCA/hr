@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-13 11:18+0000\n"
+"POT-Creation-Date: 2016-09-17 12:09+0000\n"
 "PO-Revision-Date: 2015-07-27 23:40+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Spanish (http://www.transifex.com/oca/OCA-hr-7-0/language/es/)\n"
@@ -275,7 +275,7 @@ msgstr ""
 #: field:hr.schedule,state:0 field:hr.schedule.alert,state:0
 #: field:hr.schedule.detail,state:0 field:hr.schedule.request,state:0
 msgid "State"
-msgstr ""
+msgstr "Estado"
 
 #. module: hr_schedule
 #: field:hr.schedule,message_follower_ids:0
@@ -301,7 +301,7 @@ msgstr "Empleado"
 #. module: hr_schedule
 #: field:hr.schedule.request,type:0
 msgid "Type"
-msgstr ""
+msgstr "Tipo"
 
 #. module: hr_schedule
 #: help:hr.restday.wizard,temp_restday:0
@@ -445,7 +445,7 @@ msgstr ""
 #. module: hr_schedule
 #: field:hr.schedule.request,message:0
 msgid "Message"
-msgstr ""
+msgstr "Mensaje"
 
 #. module: hr_schedule
 #: field:hr.schedule.alert.rule,grace_period:0
@@ -776,7 +776,7 @@ msgstr ""
 #. module: hr_schedule
 #: field:hr.schedule,name:0
 msgid "Description"
-msgstr ""
+msgstr "Descripción"
 
 #. module: hr_schedule
 #: view:hr.schedule.alert.compute:0

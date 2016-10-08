@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-15 20:33+0000\n"
+"POT-Creation-Date: 2016-09-17 12:08+0000\n"
 "PO-Revision-Date: 2015-07-27 23:36+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Slovenian (http://www.transifex.com/oca/OCA-hr-7-0/language/sl/)\n"
@@ -26,7 +26,7 @@ msgstr ""
 #: view:hr.accrual:0 field:hr.accrual.line,accrual_id:0
 #: model:ir.model,name:hr_accrual.model_hr_accrual
 msgid "Accrual"
-msgstr ""
+msgstr "Razmejitev"
 
 #. module: hr_accrual
 #: model:ir.model,name:hr_accrual.model_hr_accrual_line

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-27 23:36+0000\n"
+"POT-Creation-Date: 2016-09-17 12:09+0000\n"
 "PO-Revision-Date: 2015-07-27 23:39+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Spanish (http://www.transifex.com/oca/OCA-hr-7-0/language/es/)\n"
@@ -388,7 +388,7 @@ msgstr ""
 #. module: hr_payroll_period
 #: field:hr.attendance,state:0 field:hr.payroll.period,state:0
 msgid "State"
-msgstr ""
+msgstr "Estado"
 
 #. module: hr_payroll_period
 #: field:hr.payroll.period.end.1,exact_change:0
@@ -408,7 +408,7 @@ msgstr ""
 #. module: hr_payroll_period
 #: field:hr.payroll.period.schedule,type:0
 msgid "Type"
-msgstr ""
+msgstr "Tipo"
 
 #. module: hr_payroll_period
 #: field:hr.payroll.period.end.1,pex_medium:0
@@ -892,7 +892,7 @@ msgstr ""
 #. module: hr_payroll_period
 #: selection:hr.payroll.period,state:0
 msgid "Open"
-msgstr ""
+msgstr "Abierto"
 
 #. module: hr_payroll_period
 #: selection:hr.payroll.period.schedule,mo_firstday:0
@@ -982,7 +982,7 @@ msgstr ""
 #: field:hr.payroll.period,name:0 field:hr.payroll.period.schedule,name:0
 #: field:hr.payslip.exception.rule,note:0
 msgid "Description"
-msgstr ""
+msgstr "Descripción"
 
 #. module: hr_payroll_period
 #: view:hr.payroll.period.end.1:0

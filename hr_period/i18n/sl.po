@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-13 11:18+0000\n"
+"POT-Creation-Date: 2016-09-17 12:09+0000\n"
 "PO-Revision-Date: 2015-07-27 23:40+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Slovenian (http://www.transifex.com/oca/OCA-hr-7-0/language/sl/)\n"
@@ -169,7 +169,7 @@ msgstr ""
 #: view:hr.payslip.run:0 field:hr.payslip.run,company_id:0
 #: field:hr.period,company_id:0
 msgid "Company"
-msgstr ""
+msgstr "Družba"
 
 #. module: hr_period
 #: selection:hr.fiscalyear,payment_weekday:0
@@ -335,7 +335,7 @@ msgstr ""
 #: view:hr.fiscalyear:0 field:hr.fiscalyear,name:0
 #: field:hr.period,fiscalyear_id:0
 msgid "Fiscal Year"
-msgstr ""
+msgstr "Fiskalno leto"
 
 #. module: hr_period
 #: code:addons/hr_period/models/hr_payslip_run.py:174 view:hr.payslip.run:0

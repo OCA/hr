@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-07 16:52+0000\n"
+"POT-Creation-Date: 2016-09-17 12:09+0000\n"
 "PO-Revision-Date: 2015-07-27 23:41+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: French (http://www.transifex.com/oca/OCA-hr-7-0/language/fr/)\n"
@@ -70,7 +70,7 @@ msgstr "Employé"
 #. module: hr_transfer
 #: selection:hr.department.transfer,state:0
 msgid "Pending"
-msgstr ""
+msgstr "En attente"
 
 #. module: hr_transfer
 #: field:hr.department.transfer,message_unread:0
@@ -198,7 +198,7 @@ msgstr ""
 #. module: hr_transfer
 #: selection:hr.department.transfer,state:0
 msgid "Done"
-msgstr ""
+msgstr "Terminé"
 
 #. module: hr_transfer
 #: code:addons/hr_transfer/hr_transfer.py:146

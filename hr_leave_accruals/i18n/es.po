@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-13 11:18+0000\n"
+"POT-Creation-Date: 2016-09-17 12:09+0000\n"
 "PO-Revision-Date: 2015-07-27 23:39+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Spanish (http://www.transifex.com/oca/OCA-hr-7-0/language/es/)\n"
@@ -30,7 +30,7 @@ msgstr "Agrupar por..."
 #. module: hr_leave_accruals
 #: field:hr.leave.accrual.line,state:0
 msgid "State"
-msgstr ""
+msgstr "Estado"
 
 #. module: hr_leave_accruals
 #: field:hr.holidays,accrual_line_id:0
@@ -59,7 +59,7 @@ msgstr ""
 #. module: hr_leave_accruals
 #: field:hr.leave.accrual.line,description:0
 msgid "Description"
-msgstr ""
+msgstr "Descripción"
 
 #. module: hr_leave_accruals
 #: field:hr.leave.accrual,code:0

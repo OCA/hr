@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-13 11:18+0000\n"
+"POT-Creation-Date: 2016-09-17 12:09+0000\n"
 "PO-Revision-Date: 2015-07-27 23:39+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: German (http://www.transifex.com/oca/OCA-hr-7-0/language/de/)\n"
@@ -73,7 +73,7 @@ msgstr ""
 #. module: hr_payroll_analysis
 #: view:hr.payslip.analysis.line:0 field:hr.payslip.analysis.line,company_id:0
 msgid "Company"
-msgstr ""
+msgstr "Unternehmen"
 
 #. module: hr_payroll_analysis
 #: field:hr.payroll.analysis,salary_rule_ids:0
@@ -182,7 +182,7 @@ msgstr ""
 #. module: hr_payroll_analysis
 #: view:hr.payroll.analysis:0
 msgid "Cancel"
-msgstr ""
+msgstr "Abbrechen"
 
 #. module: hr_payroll_analysis
 #: field:hr.payroll.analysis,start_date:0
@@ -198,4 +198,4 @@ msgstr ""
 #. module: hr_payroll_analysis
 #: view:hr.payroll.analysis:0
 msgid "or"
-msgstr ""
+msgstr "oder"

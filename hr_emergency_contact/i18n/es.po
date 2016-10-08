@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-27 23:36+0000\n"
+"POT-Creation-Date: 2016-09-17 12:09+0000\n"
 "PO-Revision-Date: 2015-07-27 23:37+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Spanish (http://www.transifex.com/oca/OCA-hr-7-0/language/es/)\n"
@@ -35,7 +35,7 @@ msgstr ""
 #. module: hr_emergency_contact
 #: field:hr.employee,ec_country_id:0
 msgid "Country"
-msgstr ""
+msgstr "País"
 
 #. module: hr_emergency_contact
 #: view:hr.employee:0
@@ -50,7 +50,7 @@ msgstr ""
 #. module: hr_emergency_contact
 #: field:hr.employee,ec_state_id:0
 msgid "State"
-msgstr ""
+msgstr "Estado"
 
 #. module: hr_emergency_contact
 #: field:hr.employee,ec_tel1:0

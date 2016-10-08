@@ -1,0 +1,886 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+# * hr_schedule
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: hr (7.0)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-09-17 12:09+0000\n"
+"PO-Revision-Date: 2015-07-27 23:40+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: Dutch (http://www.transifex.com/oca/OCA-hr-7-0/language/nl/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: nl\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: hr_schedule
+#: field:hr.schedule.alert,severity:0 field:hr.schedule.alert.rule,severity:0
+msgid "Severity"
+msgstr ""
+
+#. module: hr_schedule
+#: view:hr.restday.wizard:0
+#: model:ir.actions.act_window,name:hr_schedule.action_restday_change
+#: model:ir.ui.menu,name:hr_schedule.menu_restday_change
+msgid "Change Schedule Template"
+msgstr ""
+
+#. module: hr_schedule
+#: field:hr.schedule,restday_ids1:0
+msgid "Rest Days Week 1"
+msgstr ""
+
+#. module: hr_schedule
+#: field:hr.schedule,restday_ids3:0
+msgid "Rest Days Week 3"
+msgstr ""
+
+#. module: hr_schedule
+#: field:hr.schedule,restday_ids2:0
+msgid "Rest Days Week 2"
+msgstr ""
+
+#. module: hr_schedule
+#: model:ir.model,name:hr_schedule.model_hr_employee_termination
+msgid "Data Related to Deactivation of Employee"
+msgstr ""
+
+#. module: hr_schedule
+#: field:hr.schedule,restday_ids4:0
+msgid "Rest Days Week 4"
+msgstr ""
+
+#. module: hr_schedule
+#: view:hr.schedule:0 view:hr.schedule.alert:0 view:hr.schedule.detail:0
+msgid "Group By..."
+msgstr ""
+
+#. module: hr_schedule
+#: selection:hr.restday.wizard,dayofweek:0
+#: selection:hr.schedule.detail,dayofweek:0
+#: selection:hr.schedule.template.worktime,dayofweek:0
+msgid "Sunday"
+msgstr ""
+
+#. module: hr_schedule
+#: code:addons/hr_schedule/hr_schedule.py:246
+#, python-format
+msgid "Programming Error"
+msgstr ""
+
+#. module: hr_schedule
+#: view:hr.schedule:0 field:hr.schedule,department_id:0
+#: view:hr.schedule.alert:0 field:hr.schedule.alert,department_id:0
+#: view:hr.schedule.detail:0 field:hr.schedule.detail,department_id:0
+msgid "Department"
+msgstr ""
+
+#. module: hr_schedule
+#: code:addons/hr_schedule/hr_schedule.py:451
+#: code:addons/hr_schedule/wizard/restday.py:155
+#, python-format
+msgid "Invalid Time Format"
+msgstr ""
+
+#. module: hr_schedule
+#: model:ir.actions.act_window,name:hr_schedule.open_schedule_view
+#: model:ir.ui.menu,name:hr_schedule.menu_schedule_view
+msgid "Employee Schedules"
+msgstr ""
+
+#. module: hr_schedule
+#: view:hr.schedule:0 view:hr.schedule.detail:0
+msgid "Today"
+msgstr ""
+
+#. module: hr_schedule
+#: view:hr.employee:0 view:hr.schedule.detail:0
+#: field:hr.schedule.detail,schedule_id:0
+#: model:ir.actions.act_window,name:hr_schedule.act_hr_employee_2_hr_schedule
+msgid "Schedule"
+msgstr ""
+
+#. module: hr_schedule
+#: field:hr.schedule,message_unread:0 field:hr.schedule.alert,message_unread:0
+#: field:hr.schedule.request,message_unread:0
+msgid "Unread Messages"
+msgstr ""
+
+#. module: hr_schedule
+#: field:hr.schedule,company_id:0 field:hr.schedule.alert,company_id:0
+#: field:hr.schedule.template,company_id:0
+msgid "Company"
+msgstr ""
+
+#. module: hr_schedule
+#: selection:hr.restday.wizard,dayofweek:0
+#: selection:hr.schedule.detail,dayofweek:0
+#: selection:hr.schedule.template.worktime,dayofweek:0
+msgid "Friday"
+msgstr ""
+
+#. module: hr_schedule
+#: model:ir.model,name:hr_schedule.model_hr_restday_wizard
+msgid "Schedule Template Change Wizard"
+msgstr ""
+
+#. module: hr_schedule
+#: view:hr.schedule:0 view:hr.schedule.detail:0
+#: model:ir.model,name:hr_schedule.model_hr_schedule
+msgid "Employee Schedule"
+msgstr ""
+
+#. module: hr_schedule
+#: field:hr.restday.wizard,st_current_id:0
+msgid "Current Template"
+msgstr ""
+
+#. module: hr_schedule
+#: field:hr.schedule.template.worktime,hour_to:0
+msgid "Work To"
+msgstr ""
+
+#. module: hr_schedule
+#: view:hr.schedule:0
+msgid "Schedules"
+msgstr ""
+
+#. module: hr_schedule
+#: field:hr.restday.wizard,temp_restday:0
+msgid "Temporary Rest Day Change"
+msgstr ""
+
+#. module: hr_schedule
+#: view:hr.schedule:0 view:hr.schedule.detail:0
+msgid "Validate"
+msgstr ""
+
+#. module: hr_schedule
+#: selection:hr.schedule.request,type:0
+msgid "Missed Punch"
+msgstr ""
+
+#. module: hr_schedule
+#: field:hr.schedule.detail,date_end:0
+msgid "End Date and Time"
+msgstr ""
+
+#. module: hr_schedule
+#: view:hr.schedule:0 view:hr.schedule.detail:0 field:hr.schedule.detail,day:0
+msgid "Day"
+msgstr ""
+
+#. module: hr_schedule
+#: view:hr.restday.wizard:0
+msgid "Change"
+msgstr ""
+
+#. module: hr_schedule
+#: selection:hr.schedule.alert,state:0
+#: model:mail.message.subtype,name:hr_schedule.mt_alert_unresolved
+msgid "Unresolved"
+msgstr ""
+
+#. module: hr_schedule
+#: view:hr.schedule:0
+msgid "to"
+msgstr ""
+
+#. module: hr_schedule
+#: field:hr.schedule,restday_ids5:0
+msgid "Rest Days Week 5"
+msgstr ""
+
+#. module: hr_schedule
+#: field:hr.schedule,message_ids:0 field:hr.schedule.alert,message_ids:0
+#: field:hr.schedule.request,message_ids:0
+msgid "Messages"
+msgstr ""
+
+#. module: hr_schedule
+#: model:ir.model,name:hr_schedule.model_hr_holidays
+msgid "Leave"
+msgstr ""
+
+#. module: hr_schedule
+#: selection:hr.schedule.request,state:0
+msgid "Cancelled"
+msgstr ""
+
+#. module: hr_schedule
+#: model:mail.message.subtype,description:hr_schedule.mt_alert_unresolved
+msgid "Alert state is unresolved"
+msgstr ""
+
+#. module: hr_schedule
+#: help:hr.schedule,message_unread:0 help:hr.schedule.alert,message_unread:0
+#: help:hr.schedule.request,message_unread:0
+msgid "If checked new messages require your attention."
+msgstr ""
+
+#. module: hr_schedule
+#: view:hr.schedule.request:0
+#: model:ir.actions.act_window,name:hr_schedule.open_hr_schedule_request_view
+#: model:ir.model,name:hr_schedule.model_hr_schedule_request
+#: model:ir.ui.menu,name:hr_schedule.menu_schedule_request_view
+msgid "Change Request"
+msgstr ""
+
+#. module: hr_schedule
+#: field:hr.restday.wizard,permanent:0
+msgid "Make Permanent"
+msgstr ""
+
+#. module: hr_schedule
+#: view:hr.schedule.validate.departments:0
+msgid "Department Selection"
+msgstr ""
+
+#. module: hr_schedule
+#: field:hr.schedule.alert,punch_id:0
+msgid "Triggering Punch"
+msgstr ""
+
+#. module: hr_schedule
+#: view:hr.schedule.alert.compute:0
+msgid "Check"
+msgstr ""
+
+#. module: hr_schedule
+#: selection:hr.schedule,state:0 selection:hr.schedule.detail,state:0
+msgid "Confirmed"
+msgstr ""
+
+#. module: hr_schedule
+#: model:ir.model,name:hr_schedule.model_hr_attendance
+msgid "Attendance"
+msgstr ""
+
+#. module: hr_schedule
+#: model:ir.model,name:hr_schedule.model_hr_schedule_template
+msgid "Employee Working Schedule Template"
+msgstr ""
+
+#. module: hr_schedule
+#: field:hr.schedule.detail,dayofweek:0
+#: field:hr.schedule.template.worktime,dayofweek:0
+msgid "Day of Week"
+msgstr ""
+
+#. module: hr_schedule
+#: field:hr.schedule,state:0 field:hr.schedule.alert,state:0
+#: field:hr.schedule.detail,state:0 field:hr.schedule.request,state:0
+msgid "State"
+msgstr ""
+
+#. module: hr_schedule
+#: field:hr.schedule,message_follower_ids:0
+#: field:hr.schedule.alert,message_follower_ids:0
+#: field:hr.schedule.request,message_follower_ids:0
+msgid "Followers"
+msgstr ""
+
+#. module: hr_schedule
+#: selection:hr.schedule.request,state:0
+msgid "Authorized"
+msgstr ""
+
+#. module: hr_schedule
+#: field:hr.restday.wizard,employee_id:0 view:hr.schedule:0
+#: field:hr.schedule,employee_id:0 view:hr.schedule.alert:0
+#: field:hr.schedule.alert,employee_id:0 view:hr.schedule.detail:0
+#: field:hr.schedule.detail,employee_id:0
+#: field:hr.schedule.request,employee_id:0
+msgid "Employee"
+msgstr ""
+
+#. module: hr_schedule
+#: field:hr.schedule.request,type:0
+msgid "Type"
+msgstr "Type"
+
+#. module: hr_schedule
+#: help:hr.restday.wizard,temp_restday:0
+msgid ""
+"If selected, change the rest day to the specified day only for the selected "
+"schedule."
+msgstr ""
+
+#. module: hr_schedule
+#: selection:hr.schedule.alert.rule,severity:0
+msgid "Medium"
+msgstr ""
+
+#. module: hr_schedule
+#: view:hr.schedule.alert:0
+msgid "High Severity"
+msgstr ""
+
+#. module: hr_schedule
+#: field:hr.schedule.detail,date_start:0
+msgid "Start Date and Time"
+msgstr ""
+
+#. module: hr_schedule
+#: help:hr.schedule,message_summary:0 help:hr.schedule.alert,message_summary:0
+#: help:hr.schedule.request,message_summary:0
+msgid ""
+"Holds the Chatter summary (number of messages, ...). This summary is "
+"directly in html format in order to be inserted in kanban views."
+msgstr ""
+
+#. module: hr_schedule
+#: field:hr.schedule.alert,rule_id:0
+msgid "Alert Rule"
+msgstr ""
+
+#. module: hr_schedule
+#: view:hr.schedule.validate.departments:0
+msgid "Validate All"
+msgstr ""
+
+#. module: hr_schedule
+#: view:hr.schedule.template.worktime:0
+msgid "Hours"
+msgstr ""
+
+#. module: hr_schedule
+#: code:addons/hr_schedule/hr_schedule.py:221
+#, python-format
+msgid "You cannot have schedules that overlap!"
+msgstr ""
+
+#. module: hr_schedule
+#: view:hr.schedule:0
+msgid "Working Days"
+msgstr ""
+
+#. module: hr_schedule
+#: model:ir.ui.menu,name:hr_schedule.menu_time_attendance
+msgid "Time and Attendance"
+msgstr ""
+
+#. module: hr_schedule
+#: selection:hr.schedule,state:0 selection:hr.schedule.detail,state:0
+msgid "Locked"
+msgstr ""
+
+#. module: hr_schedule
+#: selection:hr.schedule.request,type:0
+msgid "Schedule Adjustment"
+msgstr ""
+
+#. module: hr_schedule
+#: field:hr.schedule.generate,no_weeks:0
+msgid "Number of weeks"
+msgstr ""
+
+#. module: hr_schedule
+#: view:hr.schedule.validate.departments:0
+#: field:hr.schedule.validate.departments,department_ids:0
+msgid "Departments"
+msgstr ""
+
+#. module: hr_schedule
+#: field:hr.attendance,alert_ids:0 view:hr.schedule.alert:0
+#: model:ir.actions.act_window,name:hr_schedule.open_hr_schedule_alert_view
+#: model:ir.ui.menu,name:hr_schedule.menu_schedule_alert_view
+msgid "Exceptions"
+msgstr ""
+
+#. module: hr_schedule
+#: model:ir.actions.act_window,name:hr_schedule.open_schedule_detail_view
+#: model:ir.ui.menu,name:hr_schedule.menu_schedule_detail_view
+msgid "Employee Schedule Details"
+msgstr ""
+
+#. module: hr_schedule
+#: model:ir.actions.act_window,name:hr_schedule.action_schedules_by_department
+#: model:ir.ui.menu,name:hr_schedule.menu_schedules_by_department
+msgid "Validate by Department"
+msgstr ""
+
+#. module: hr_schedule
+#: model:mail.message.subtype,description:hr_schedule.mt_alert_resolved
+msgid "Alert resolved"
+msgstr ""
+
+#. module: hr_schedule
+#: model:ir.actions.act_window,name:hr_schedule.open_hr_schedule_alert_rule_view
+#: model:ir.ui.menu,name:hr_schedule.menu_schedule_alert_rule_view
+msgid "Exception Rules"
+msgstr ""
+
+#. module: hr_schedule
+#: view:hr.schedule:0 field:hr.schedule.template,restday_ids:0
+msgid "Rest Days"
+msgstr ""
+
+#. module: hr_schedule
+#: model:ir.model,name:hr_schedule.model_hr_schedule_alert_compute
+msgid "Check Alerts"
+msgstr ""
+
+#. module: hr_schedule
+#: selection:hr.restday.wizard,dayofweek:0
+#: selection:hr.schedule.detail,dayofweek:0
+#: selection:hr.schedule.template.worktime,dayofweek:0
+msgid "Tuesday"
+msgstr ""
+
+#. module: hr_schedule
+#: field:hr.schedule.template.worktime,hour_from:0
+msgid "Work From"
+msgstr ""
+
+#. module: hr_schedule
+#: view:hr.schedule.alert:0
+msgid "Low Severity"
+msgstr ""
+
+#. module: hr_schedule
+#: field:hr.schedule.request,message:0
+msgid "Message"
+msgstr ""
+
+#. module: hr_schedule
+#: field:hr.schedule.alert.rule,grace_period:0
+msgid "Grace Period"
+msgstr ""
+
+#. module: hr_schedule
+#: view:hr.schedule.alert:0
+msgid "My Alerts"
+msgstr ""
+
+#. module: hr_schedule
+#: view:hr.schedule.alert.rule:0
+msgid "Exceptions Rules"
+msgstr ""
+
+#. module: hr_schedule
+#: selection:hr.schedule.request,type:0
+msgid "Punch Adjustment"
+msgstr ""
+
+#. module: hr_schedule
+#: view:hr.attendance:0 view:hr.schedule:0 field:hr.schedule,alert_ids:0
+#: view:hr.schedule.detail:0 field:hr.schedule.detail,alert_ids:0
+msgid "Alerts"
+msgstr ""
+
+#. module: hr_schedule
+#: view:hr.restday.wizard:0
+msgid "Temporary Rest Day"
+msgstr ""
+
+#. module: hr_schedule
+#: field:hr.schedule.alert.compute,date_start:0
+#: field:hr.schedule.generate,date_start:0
+msgid "Start"
+msgstr ""
+
+#. module: hr_schedule
+#: selection:hr.schedule.request,type:0
+msgid "Absence"
+msgstr ""
+
+#. module: hr_schedule
+#: selection:hr.schedule.alert.rule,severity:0
+msgid "Critical"
+msgstr ""
+
+#. module: hr_schedule
+#: selection:hr.schedule,state:0 selection:hr.schedule.detail,state:0
+msgid "Draft"
+msgstr ""
+
+#. module: hr_schedule
+#: selection:hr.schedule.alert.rule,severity:0
+msgid "Low"
+msgstr ""
+
+#. module: hr_schedule
+#: selection:hr.schedule.request,state:0
+msgid "Denied"
+msgstr ""
+
+#. module: hr_schedule
+#: field:hr.schedule.alert.compute,date_end:0
+msgid "End"
+msgstr ""
+
+#. module: hr_schedule
+#: selection:hr.schedule.request,state:0
+msgid "Pending"
+msgstr ""
+
+#. module: hr_schedule
+#: field:hr.schedule.alert,name:0
+msgid "Date and Time"
+msgstr ""
+
+#. module: hr_schedule
+#: field:hr.schedule.alert.rule,window:0
+msgid "Window of Activation"
+msgstr ""
+
+#. module: hr_schedule
+#: view:hr.schedule:0 view:hr.schedule.detail:0
+msgid "My Schedule"
+msgstr ""
+
+#. module: hr_schedule
+#: view:hr.schedule.generate:0
+#: model:ir.actions.act_window,name:hr_schedule.action_schedules_by_employee
+#: model:ir.model,name:hr_schedule.model_hr_schedule_generate
+#: model:ir.ui.menu,name:hr_schedule.menu_schedules_by_employee
+msgid "Generate Schedules"
+msgstr ""
+
+#. module: hr_schedule
+#: selection:hr.restday.wizard,dayofweek:0
+#: selection:hr.schedule.detail,dayofweek:0
+#: selection:hr.schedule.template.worktime,dayofweek:0
+msgid "Monday"
+msgstr ""
+
+#. module: hr_schedule
+#: model:ir.model,name:hr_schedule.model_hr_schedule_weekday
+msgid "Days of the Week"
+msgstr ""
+
+#. module: hr_schedule
+#: view:hr.schedule.alert:0
+msgid "Search Alerts"
+msgstr ""
+
+#. module: hr_schedule
+#: view:hr.schedule:0
+msgid "Week Schedule"
+msgstr ""
+
+#. module: hr_schedule
+#: view:hr.schedule.alert:0
+msgid "Medium Severity"
+msgstr ""
+
+#. module: hr_schedule
+#: field:hr.schedule,message_is_follower:0
+#: field:hr.schedule.alert,message_is_follower:0
+#: field:hr.schedule.request,message_is_follower:0
+msgid "Is a Follower"
+msgstr ""
+
+#. module: hr_schedule
+#: view:hr.schedule.alert:0
+msgid "My Department Alerts"
+msgstr ""
+
+#. module: hr_schedule
+#: view:hr.schedule:0
+msgid "Work Week Schedule Search"
+msgstr ""
+
+#. module: hr_schedule
+#: field:hr.schedule.alert.rule,active:0
+msgid "Active"
+msgstr "Actief"
+
+#. module: hr_schedule
+#: field:hr.schedule,date_start:0
+msgid "Start Date"
+msgstr ""
+
+#. module: hr_schedule
+#: view:hr.schedule.alert:0
+msgid "Exception"
+msgstr ""
+
+#. module: hr_schedule
+#: view:hr.schedule.alert.compute:0
+msgid "Interval"
+msgstr ""
+
+#. module: hr_schedule
+#: selection:hr.restday.wizard,dayofweek:0
+#: selection:hr.schedule.detail,dayofweek:0
+#: selection:hr.schedule.template.worktime,dayofweek:0
+msgid "Wednesday"
+msgstr ""
+
+#. module: hr_schedule
+#: field:hr.restday.wizard,contract_id:0
+#: model:ir.model,name:hr_schedule.model_hr_contract
+msgid "Contract"
+msgstr ""
+
+#. module: hr_schedule
+#: field:hr.schedule,message_summary:0
+#: field:hr.schedule.alert,message_summary:0
+#: field:hr.schedule.request,message_summary:0
+msgid "Summary"
+msgstr ""
+
+#. module: hr_schedule
+#: field:hr.schedule.request,date:0
+msgid "Date"
+msgstr ""
+
+#. module: hr_schedule
+#: selection:hr.restday.wizard,dayofweek:0
+#: selection:hr.schedule.detail,dayofweek:0
+#: selection:hr.schedule.template.worktime,dayofweek:0
+msgid "Thursday"
+msgstr ""
+
+#. module: hr_schedule
+#: field:hr.contract.init,sched_template_id:0 view:hr.restday.wizard:0
+#: field:hr.schedule,template_id:0
+#: field:hr.schedule.template.worktime,template_id:0
+msgid "Schedule Template"
+msgstr ""
+
+#. module: hr_schedule
+#: field:hr.restday.wizard,temp_week_start:0
+#: field:hr.restday.wizard,week_start:0
+msgid "Start of Week"
+msgstr ""
+
+#. module: hr_schedule
+#: field:hr.schedule.alert.rule,code:0
+msgid "Code"
+msgstr ""
+
+#. module: hr_schedule
+#: model:ir.model,name:hr_schedule.model_hr_schedule_template_worktime
+msgid "Work Detail"
+msgstr ""
+
+#. module: hr_schedule
+#: model:ir.model,name:hr_schedule.model_hr_contract_init
+msgid "Initial Contract Settings"
+msgstr ""
+
+#. module: hr_schedule
+#: view:hr.schedule.generate:0
+msgid "Generate"
+msgstr ""
+
+#. module: hr_schedule
+#: code:addons/hr_schedule/hr_schedule.py:1173
+#, python-format
+msgid "Duplicate Record!"
+msgstr ""
+
+#. module: hr_schedule
+#: code:addons/hr_schedule/hr_schedule.py:452
+#: code:addons/hr_schedule/wizard/restday.py:156
+#, python-format
+msgid "The time should be entered as HH:MM"
+msgstr ""
+
+#. module: hr_schedule
+#: field:hr.restday.wizard,st_new_id:0
+msgid "New Template"
+msgstr ""
+
+#. module: hr_schedule
+#: view:hr.schedule.alert.compute:0 view:hr.schedule.validate.departments:0
+msgid "Close"
+msgstr ""
+
+#. module: hr_schedule
+#: code:addons/hr_schedule/hr_schedule.py:785
+#, python-format
+msgid "You cannot have scheduled days that overlap!"
+msgstr ""
+
+#. module: hr_schedule
+#: field:hr.restday.wizard,dayofweek:0
+msgid "Rest Day"
+msgstr ""
+
+#. module: hr_schedule
+#: help:hr.schedule.alert.rule,grace_period:0
+msgid ""
+"In the case of early or late rules, the amount of time before/after the "
+"scheduled time that the rule will trigger."
+msgstr ""
+
+#. module: hr_schedule
+#: view:hr.schedule.validate.departments:0
+msgid "View Schedules"
+msgstr ""
+
+#. module: hr_schedule
+#: view:hr.schedule.alert:0
+msgid "My Exceptions"
+msgstr ""
+
+#. module: hr_schedule
+#: field:hr.schedule.alert,attendance_ids:0 view:hr.schedule.template:0
+#: field:hr.schedule.template,worktime_ids:0
+#: view:hr.schedule.template.worktime:0
+msgid "Working Time"
+msgstr ""
+
+#. module: hr_schedule
+#: view:hr.schedule:0 field:hr.schedule,detail_ids:0
+#: field:hr.schedule.alert,sched_detail_id:0 view:hr.schedule.detail:0
+#: model:ir.model,name:hr_schedule.model_hr_schedule_detail
+msgid "Schedule Detail"
+msgstr ""
+
+#. module: hr_schedule
+#: code:addons/hr_schedule/hr_schedule.py:246
+#, python-format
+msgid "Employee has a scheduled date in more than one schedule."
+msgstr ""
+
+#. module: hr_schedule
+#: view:hr.schedule.alert.rule:0
+msgid "Exception Rule"
+msgstr ""
+
+#. module: hr_schedule
+#: selection:hr.schedule.request,type:0
+msgid "Other"
+msgstr ""
+
+#. module: hr_schedule
+#: view:hr.schedule.request:0
+msgid "Change Requests"
+msgstr ""
+
+#. module: hr_schedule
+#: selection:hr.schedule,state:0 selection:hr.schedule.detail,state:0
+msgid "Unlocked"
+msgstr ""
+
+#. module: hr_schedule
+#: model:ir.model,name:hr_schedule.model_hr_schedule_validate_departments
+msgid "Department Selection for Validation"
+msgstr ""
+
+#. module: hr_schedule
+#: selection:hr.schedule.alert,state:0
+#: model:mail.message.subtype,name:hr_schedule.mt_alert_resolved
+msgid "Resolved"
+msgstr ""
+
+#. module: hr_schedule
+#: field:hr.schedule,name:0
+msgid "Description"
+msgstr ""
+
+#. module: hr_schedule
+#: view:hr.schedule.alert.compute:0
+#: model:ir.actions.act_window,name:hr_schedule.action_alerts_by_employee
+#: model:ir.ui.menu,name:hr_schedule.menu_alerts_by_employee
+msgid "Check Exceptions"
+msgstr ""
+
+#. module: hr_schedule
+#: view:hr.schedule.alert:0
+msgid "My Department Exceptions"
+msgstr ""
+
+#. module: hr_schedule
+#: field:hr.schedule.alert,manager:0
+msgid "Workgroup Manager"
+msgstr ""
+
+#. module: hr_schedule
+#: field:hr.schedule,date_end:0
+msgid "End Date"
+msgstr ""
+
+#. module: hr_schedule
+#: field:hr.schedule.alert.rule,name:0 field:hr.schedule.detail,name:0
+#: field:hr.schedule.template,name:0
+#: field:hr.schedule.template.worktime,name:0 field:hr.schedule.weekday,name:0
+msgid "Name"
+msgstr "Naam"
+
+#. module: hr_schedule
+#: model:ir.model,name:hr_schedule.model_hr_schedule_alert_rule
+msgid "Scheduling/Attendance Exception Rule"
+msgstr ""
+
+#. module: hr_schedule
+#: view:hr.schedule.detail:0
+msgid "Work Schedule Detail Search"
+msgstr ""
+
+#. module: hr_schedule
+#: view:hr.schedule.alert.compute:0
+#: field:hr.schedule.alert.compute,employee_ids:0 view:hr.schedule.generate:0
+#: field:hr.schedule.generate,employee_ids:0
+msgid "Employees"
+msgstr ""
+
+#. module: hr_schedule
+#: field:hr.contract,schedule_template_id:0
+msgid "Working Schedule Template"
+msgstr ""
+
+#. module: hr_schedule
+#: model:ir.ui.menu,name:hr_schedule.menu_hr_configure_schedule
+#: model:ir.ui.menu,name:hr_schedule.menu_hr_root_schedule
+msgid "Scheduling"
+msgstr ""
+
+#. module: hr_schedule
+#: view:hr.schedule.alert:0
+msgid "Rule"
+msgstr ""
+
+#. module: hr_schedule
+#: help:hr.schedule,message_ids:0 help:hr.schedule.alert,message_ids:0
+#: help:hr.schedule.request,message_ids:0
+msgid "Messages and communication history"
+msgstr ""
+
+#. module: hr_schedule
+#: code:addons/hr_schedule/hr_schedule.py:1762
+#, python-format
+msgid "Duplicate Records!"
+msgstr ""
+
+#. module: hr_schedule
+#: model:ir.model,name:hr_schedule.model_hr_schedule_alert
+msgid "Attendance Exception"
+msgstr ""
+
+#. module: hr_schedule
+#: field:hr.schedule.weekday,sequence:0
+msgid "Sequence"
+msgstr ""
+
+#. module: hr_schedule
+#: selection:hr.schedule.alert.rule,severity:0
+msgid "High"
+msgstr ""
+
+#. module: hr_schedule
+#: model:ir.actions.act_window,name:hr_schedule.open_hr_schedule_template_view
+#: model:ir.ui.menu,name:hr_schedule.menu_schedule_template_view
+msgid "Schedule Templates"
+msgstr ""
+
+#. module: hr_schedule
+#: view:hr.schedule:0
+msgid "Duration"
+msgstr ""
+
+#. module: hr_schedule
+#: selection:hr.restday.wizard,dayofweek:0
+#: selection:hr.schedule.detail,dayofweek:0
+#: selection:hr.schedule.template.worktime,dayofweek:0
+msgid "Saturday"
+msgstr ""

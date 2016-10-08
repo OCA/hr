@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-13 11:18+0000\n"
+"POT-Creation-Date: 2016-09-17 12:09+0000\n"
 "PO-Revision-Date: 2015-07-27 23:41+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Spanish (http://www.transifex.com/oca/OCA-hr-7-0/language/es/)\n"
@@ -91,7 +91,7 @@ msgstr "Empleado"
 #: view:hr.contract.wage.increment.run:0
 #: field:hr.contract.wage.increment.run,state:0
 msgid "State"
-msgstr ""
+msgstr "Estado"
 
 #. module: hr_wage_increment
 #: selection:hr.contract.wage.increment,state:0
@@ -135,7 +135,7 @@ msgstr ""
 #. module: hr_wage_increment
 #: field:hr.contract.wage.increment.run,type:0
 msgid "Type"
-msgstr ""
+msgstr "Tipo"
 
 #. module: hr_wage_increment
 #: view:hr.contract.wage.increment:0
@@ -326,7 +326,7 @@ msgstr ""
 #: code:addons/hr_wage_increment/wage_increment.py:524
 #, python-format
 msgid "Error"
-msgstr ""
+msgstr "Error"
 
 #. module: hr_wage_increment
 #: model:ir.actions.act_window,name:hr_wage_increment.action_wage_adjustment_by_employees

@@ -1,0 +1,172 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+# * hr_payslip_amendment
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: hr (7.0)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-09-17 12:09+0000\n"
+"PO-Revision-Date: 2015-07-27 23:39+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: Croatian (http://www.transifex.com/oca/OCA-hr-7-0/language/hr/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: hr\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+
+#. module: hr_payslip_amendment
+#: selection:hr.payslip.amendment,state:0
+msgid "Confirmed"
+msgstr ""
+
+#. module: hr_payslip_amendment
+#: view:hr.payslip.amendment:0
+msgid "Explain the reason for the amendment..."
+msgstr ""
+
+#. module: hr_payslip_amendment
+#: view:hr.payslip.amendment:0
+msgid "Confirm"
+msgstr "Potvrdi"
+
+#. module: hr_payslip_amendment
+#: help:hr.payslip.amendment,amount:0
+msgid ""
+"The meaning of this field is dependant on the salary rule that uses it."
+msgstr ""
+
+#. module: hr_payslip_amendment
+#: code:addons/hr_payslip_amendment/hr_payslip_amendment.py:98
+#, python-format
+msgid "Invalid Action"
+msgstr ""
+
+#. module: hr_payslip_amendment
+#: view:hr.payslip.amendment:0
+msgid "Note"
+msgstr ""
+
+#. module: hr_payslip_amendment
+#: field:hr.payslip.amendment,state:0
+msgid "State"
+msgstr ""
+
+#. module: hr_payslip_amendment
+#: field:hr.payslip.amendment,message_follower_ids:0
+msgid "Followers"
+msgstr ""
+
+#. module: hr_payslip_amendment
+#: field:hr.payslip.amendment,employee_id:0
+msgid "Employee"
+msgstr ""
+
+#. module: hr_payslip_amendment
+#: field:hr.payslip.amendment,name:0
+msgid "Description"
+msgstr ""
+
+#. module: hr_payslip_amendment
+#: field:hr.payslip.amendment,message_unread:0
+msgid "Unread Messages"
+msgstr ""
+
+#. module: hr_payslip_amendment
+#: field:hr.payslip.amendment,note:0
+msgid "Memo"
+msgstr ""
+
+#. module: hr_payslip_amendment
+#: code:addons/hr_payslip_amendment/hr_payslip_amendment.py:89
+#, python-format
+msgid "Pay Slip Amendment: %s (%s)"
+msgstr ""
+
+#. module: hr_payslip_amendment
+#: view:hr.payslip.amendment:0
+msgid "Set to Draft"
+msgstr ""
+
+#. module: hr_payslip_amendment
+#: help:hr.payslip.amendment,message_unread:0
+msgid "If checked new messages require your attention."
+msgstr ""
+
+#. module: hr_payslip_amendment
+#: field:hr.payslip.amendment,message_is_follower:0
+msgid "Is a Follower"
+msgstr ""
+
+#. module: hr_payslip_amendment
+#: field:hr.payslip.amendment,message_ids:0
+msgid "Messages"
+msgstr ""
+
+#. module: hr_payslip_amendment
+#: field:hr.payslip.amendment,message_summary:0
+msgid "Summary"
+msgstr ""
+
+#. module: hr_payslip_amendment
+#: field:hr.payslip.amendment,amount:0
+msgid "Amount"
+msgstr ""
+
+#. module: hr_payslip_amendment
+#: selection:hr.payslip.amendment,state:0
+msgid "Cancelled"
+msgstr ""
+
+#. module: hr_payslip_amendment
+#: view:hr.payslip.amendment:0
+#: model:ir.model,name:hr_payslip_amendment.model_hr_payslip_amendment
+msgid "Pay Slip Amendment"
+msgstr ""
+
+#. module: hr_payslip_amendment
+#: help:hr.payslip.amendment,message_ids:0
+msgid "Messages and communication history"
+msgstr ""
+
+#. module: hr_payslip_amendment
+#: code:addons/hr_payslip_amendment/hr_payslip_amendment.py:99
+#, python-format
+msgid "A Pay Slip Amendment that has been confirmed cannot be deleted!"
+msgstr ""
+
+#. module: hr_payslip_amendment
+#: help:hr.payslip.amendment,message_summary:0
+msgid ""
+"Holds the Chatter summary (number of messages, ...). This summary is "
+"directly in html format in order to be inserted in kanban views."
+msgstr ""
+
+#. module: hr_payslip_amendment
+#: selection:hr.payslip.amendment,state:0
+msgid "Done"
+msgstr ""
+
+#. module: hr_payslip_amendment
+#: field:hr.payslip.amendment,input_id:0
+msgid "Salary Rule Input"
+msgstr ""
+
+#. module: hr_payslip_amendment
+#: view:hr.payslip.amendment:0
+#: model:ir.actions.act_window,name:hr_payslip_amendment.action_payslip_amendment
+#: model:ir.ui.menu,name:hr_payslip_amendment.menu_payslip_amendment
+msgid "Pay Slip Amendments"
+msgstr ""
+
+#. module: hr_payslip_amendment
+#: view:hr.payslip.amendment:0
+msgid "Cancel"
+msgstr "Odustani"
+
+#. module: hr_payslip_amendment
+#: selection:hr.payslip.amendment,state:0
+msgid "Draft"
+msgstr ""

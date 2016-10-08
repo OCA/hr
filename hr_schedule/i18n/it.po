@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-13 11:18+0000\n"
+"POT-Creation-Date: 2016-09-17 12:09+0000\n"
 "PO-Revision-Date: 2015-07-27 23:40+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Italian (http://www.transifex.com/oca/OCA-hr-7-0/language/it/)\n"
@@ -114,7 +114,7 @@ msgstr ""
 #: field:hr.schedule,company_id:0 field:hr.schedule.alert,company_id:0
 #: field:hr.schedule.template,company_id:0
 msgid "Company"
-msgstr ""
+msgstr "Azienda"
 
 #. module: hr_schedule
 #: selection:hr.restday.wizard,dayofweek:0
@@ -301,7 +301,7 @@ msgstr ""
 #. module: hr_schedule
 #: field:hr.schedule.request,type:0
 msgid "Type"
-msgstr ""
+msgstr "Tipo"
 
 #. module: hr_schedule
 #: help:hr.restday.wizard,temp_restday:0
@@ -482,7 +482,7 @@ msgstr ""
 #: field:hr.schedule.alert.compute,date_start:0
 #: field:hr.schedule.generate,date_start:0
 msgid "Start"
-msgstr ""
+msgstr "Avvia"
 
 #. module: hr_schedule
 #: selection:hr.schedule.request,type:0
@@ -517,7 +517,7 @@ msgstr ""
 #. module: hr_schedule
 #: selection:hr.schedule.request,state:0
 msgid "Pending"
-msgstr ""
+msgstr "Attesa"
 
 #. module: hr_schedule
 #: field:hr.schedule.alert,name:0
@@ -594,7 +594,7 @@ msgstr ""
 #. module: hr_schedule
 #: field:hr.schedule,date_start:0
 msgid "Start Date"
-msgstr ""
+msgstr "Data inizio"
 
 #. module: hr_schedule
 #: view:hr.schedule.alert:0
@@ -776,7 +776,7 @@ msgstr ""
 #. module: hr_schedule
 #: field:hr.schedule,name:0
 msgid "Description"
-msgstr ""
+msgstr "Descrizione"
 
 #. module: hr_schedule
 #: view:hr.schedule.alert.compute:0
@@ -798,7 +798,7 @@ msgstr ""
 #. module: hr_schedule
 #: field:hr.schedule,date_end:0
 msgid "End Date"
-msgstr ""
+msgstr "Data fine"
 
 #. module: hr_schedule
 #: field:hr.schedule.alert.rule,name:0 field:hr.schedule.detail,name:0
@@ -876,7 +876,7 @@ msgstr ""
 #. module: hr_schedule
 #: view:hr.schedule:0
 msgid "Duration"
-msgstr ""
+msgstr "Durata"
 
 #. module: hr_schedule
 #: selection:hr.restday.wizard,dayofweek:0

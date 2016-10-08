@@ -1,0 +1,39 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+# * hr_expense_sequence
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: hr (7.0)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-09-17 12:09+0000\n"
+"PO-Revision-Date: 2015-07-27 23:38+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: Turkish (http://www.transifex.com/oca/OCA-hr-7-0/language/tr/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: tr\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#. module: hr_expense_sequence
+#: code:addons/hr_expense_sequence/hr_expense_sequence.py:73
+#, python-format
+msgid "%s (copy)"
+msgstr ""
+
+#. module: hr_expense_sequence
+#: model:ir.model,name:hr_expense_sequence.model_hr_expense_expense
+msgid "Expense"
+msgstr ""
+
+#. module: hr_expense_sequence
+#: sql_constraint:hr.expense.expense:0
+msgid "An expense with that number already exists in the same company !"
+msgstr ""
+
+#. module: hr_expense_sequence
+#: field:hr.expense.expense,description:0
+msgid "Description"
+msgstr "Açıklama"
