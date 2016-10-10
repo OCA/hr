@@ -37,8 +37,7 @@ class TestHolidaysLegalLeave(common.TransactionCase):
             'holiday_status_id': self.holiday_status.id,
             'number_of_days_temp': 10
         })
-        for sig in ('confirm', 'validate', 'second_validate'):
-            self.holiday.signal_workflow(sig)
+        self.holiday.action_approve()
 
     def test_try_reduce_allocation(self):
         # let's sattempt to reduce allocation here... it should not let us
