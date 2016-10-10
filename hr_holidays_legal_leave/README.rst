@@ -14,7 +14,7 @@ set leaves from the employee form.
 Installation
 ============
 
-* clone the branch 8.0 of the repository https://github.com/OCA/hr
+* clone the branch 10.0 of the repository https://github.com/OCA/hr
 * add the path to this repository in your configuration (addons-path)
 * update the module list
 * search for "HR Holidays Legal Leave" in your addons
@@ -25,18 +25,20 @@ Configuration
 
 To configure this module, you need to:
 
-Company setup
-* Go to the company and select the leave type to use as legal leave
+* assign legal leave type via ``Leaves > Configuration``:
 
-HR Module Setup
-* Assign legal leave type via Settings > Human Resources
+  * choose Leave type you need
+  * click ``[Edit]``
+  * set **Legal/Annual** checkbox
+  * click ``[Save]``
+
 
 Usage
 =====
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
-   :target: https://runbot.odoo-community.org/runbot/116/8.0
+   :target: https://runbot.odoo-community.org/runbot/116/10.0
 
 Known issues / Roadmap
 ======================
@@ -67,6 +69,8 @@ Contributors
 
 * Salton Massally <smassally@idtlabs.sl>
 * Fekete Mihai <feketemihai@gmail.com>
+* Ivan Yelizariev <yelizariev@it-projects.info>
+* Bassirou Ndaw <b.ndaw@ergobit.org>
 
 Maintainer
 ----------
