@@ -65,7 +65,8 @@ Contributors
 * Nikolina Todorova <nikolina.todorova@initos.com>
 * Alexis de Lattre <alexis.delattre@akretion.com>
 * Salton Massally (iDT Labs) <smassally@idtlabs.sl>
-
+* Ivan Yelizariev <yelizariev@it-projects.info>
+* Bassirou Ndaw <b.ndaw@ergobit.org>
 
 Maintainer
 ----------
