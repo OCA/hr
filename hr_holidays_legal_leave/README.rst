@@ -67,6 +67,8 @@ Contributors
 
 * Salton Massally <smassally@idtlabs.sl>
 * Fekete Mihai <feketemihai@gmail.com>
+* Ivan Yelizariev <yelizariev@it-projects.info>
+* Bassirou Ndaw <b.ndaw@ergobit.org>
 
 Maintainer
 ----------

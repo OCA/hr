@@ -4,7 +4,7 @@
 
 {
     'name': 'HR Holidays Legal Leave',
-    'version': '8.0.1.0.0',
+    'version': '10.0.1.0.0',
     'category': 'Human Resources',
     'license': 'AGPL-3',
     'summary': 'Allows the definition of legal/annual leave',
@@ -13,8 +13,7 @@
     'website': 'http://idtlabs.sl',
     'depends': ['hr_holidays'],
     'data': [
-        'views/res_config.xml',
-        'views/res_company.xml',
+        'views/hr_holidays_status.xml',
     ],
-    'installable': False,
+    'installable': True,
 }
