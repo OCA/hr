@@ -20,7 +20,7 @@ class HolidaysType(models.Model):
     def _compute_is_annual(self):
         company = self.env.user.company_id
         self.filtered(lambda x: x == company.legal_holidays_status_id)\
-            .write({'is_annual': True})
+            .update({'is_annual': True})
 
     @api.multi
     def _inverse_is_annual(self):
