@@ -5,7 +5,6 @@
 from openerp import models, fields, api, _
 from openerp.exceptions import ValidationError
 from dateutil.relativedelta import relativedelta
-import math
 
 
 class HrHolidays(models.Model):
@@ -26,62 +25,61 @@ class HrHolidays(models.Model):
                 return False
         return True
 
-    @api.multi
-    def onchange_employee(self, employee_id):
-        res = super(HrHolidays, self).onchange_employee(employee_id)
-        date_from = self.date_from or self.env.context.get('date_from')
-        date_to = self.date_to or self.env.context.get('date_to')
+    @api.onchange('holiday_status_id')
+    def _onchange_holiday_status_id(self):
+        self._check_and_recompute_days()
+
+    @api.onchange('employee_id')
+    def _onchange_employee(self):
+        super(HrHolidays, self)._onchange_employee()
+        self._check_and_recompute_days()
+
+    def _check_and_recompute_days(self):
+        date_from = self.date_from
+        date_to = self.date_to
         if (date_to and date_from) and (date_from <= date_to):
-            if not self._check_date_helper(employee_id, date_from):
+            if not self._check_date_helper(self.employee_id.id, date_from):
                 raise ValidationError(_("You cannot schedule the start date "
                                         "on a public holiday or employee's "
                                         "rest day"))
-            if not self._check_date_helper(employee_id, date_to):
+            if not self._check_date_helper(self.employee_id.id, date_to):
                 raise ValidationError(_("You cannot schedule the end date "
                                         "on a public holiday or employee's "
                                         "rest day"))
-            duration = self._compute_number_of_days(employee_id,
-                                                    date_to,
-                                                    date_from)
-            res['value']['number_of_days_temp'] = duration
-        return res
+            self.number_of_days_temp = self._compute_number_of_days()
 
-    @api.multi
-    def onchange_date_from(self, date_to, date_from):
-        res = super(HrHolidays, self).onchange_date_from(date_to, date_from)
-        employee_id = self.employee_id.id or self.env.context.get(
-            'employee_id',
-            False)
-        if not self._check_date_helper(employee_id, date_from):
+    @api.onchange('date_from')
+    def _onchange_date_from(self):
+        super(HrHolidays, self)._onchange_date_from()
+        employee_id = self.employee_id.id
+        if not self._check_date_helper(employee_id, self.date_from):
             raise ValidationError(_("You cannot schedule the start date on "
                                     "a public holiday or employee's rest day"))
-        if (date_to and date_from) and (date_from <= date_to):
-            diff_day = self._compute_number_of_days(employee_id,
-                                                    date_to,
-                                                    date_from)
-            res['value']['number_of_days_temp'] = diff_day
-        return res
+        if (self.date_to and self.date_from) \
+           and (self.date_from <= self.date_to):
+            self.number_of_days_temp = self._compute_number_of_days()
 
-    @api.multi
-    def onchange_date_to(self, date_to, date_from):
-        res = super(HrHolidays, self).onchange_date_to(date_to, date_from)
-        employee_id = self.employee_id.id or self.env.context.get(
-            'employee_id',
-            False)
-        if not self._check_date_helper(employee_id, date_to):
+    @api.onchange('date_to')
+    def _onchange_date_to(self):
+        super(HrHolidays, self)._onchange_date_to()
+        employee_id = self.employee_id.id
+        if not self._check_date_helper(employee_id, self.date_to):
             raise ValidationError(_("You cannot schedule the end date on "
                                     "a public holiday or employee's rest day"))
-        if (date_to and date_from) and (date_from <= date_to):
-            diff_day = self._compute_number_of_days(employee_id,
-                                                    date_to,
-                                                    date_from)
-            res['value']['number_of_days_temp'] = diff_day
-        return res
+        if (self.date_to and self.date_from) \
+           and (self.date_from <= self.date_to):
+            self.number_of_days_temp = self._compute_number_of_days()
 
-    def _compute_number_of_days(self, employee_id, date_to, date_from):
-        days = self._get_number_of_days(date_from, date_to)
-        if days or date_to == date_from:
-            days = round(math.floor(days))+1
+    def _compute_number_of_days(self):
+        date_from = self.date_from
+        date_to = self.date_to
+        employee_id = self.employee_id.id
+        if not date_from or not date_to:
+            return 0
+        days = self._get_number_of_days(date_from, date_to, None)
+        if date_to == date_from:
+            days = 1
+
         status_id = self.holiday_status_id.id or self.env.context.get(
             'holiday_status_id',
             False)
@@ -96,8 +94,9 @@ class HrHolidays(models.Model):
                 if not employee.work_scheduled_on_day(
                         date_dt,
                         status.exclude_public_holidays,
-                        status.exclude_rest_days
+                        status.exclude_rest_days,
                 ):
                     days -= 1
                 date_dt += relativedelta(days=1)
+        self.number_of_days = days
         return days
