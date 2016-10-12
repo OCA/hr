@@ -19,7 +19,7 @@
         <field name="perm_create" eval="True"/>
         <field name="perm_write" eval="True"/>
         <field name="perm_unlink" eval="True"/>
-        <field name="groups" eval="[(4,ref('base.group_hr_manager'))]"/>
+        <field name="groups" eval="[(4,ref('hr.group_hr_manager'))]"/>
     </record>
   </data>
 </openerp>

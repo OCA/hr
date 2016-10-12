@@ -4,7 +4,7 @@
 
 {
     'name': 'Employee Compute Leave Days',
-    'version': '8.0.1.0.0',
+    'version': '10.0.1.0.0',
     'category': 'Human Resources',
     'license': 'AGPL-3',
     'summary': 'Computes the actual leave days '
@@ -15,7 +15,6 @@
     'depends': ['hr', 'hr_contract', 'hr_holidays', 'hr_public_holidays'],
     'data': [
         'views/hr_holidays_status.xml',
-        'views/hr_holidays_view.xml',
         'security/ir.model.access.csv',
         'security/ir_rule.xml',
     ],
