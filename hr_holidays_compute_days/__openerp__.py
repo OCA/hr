@@ -4,7 +4,7 @@
 
 {
     'name': 'Employee Compute Leave Days',
-    'version': '8.0.1.0.0',
+    'version': '9.0.1.0.0',
     'category': 'Human Resources',
     'license': 'AGPL-3',
     'summary': 'Computes the actual leave days '
@@ -19,5 +19,5 @@
         'security/ir.model.access.csv',
         'security/ir_rule.xml',
     ],
-    'installable': False,
+    'installable': True,
 }
