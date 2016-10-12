@@ -1,7 +1,6 @@
 [![Runbot Status](https://runbot.odoo-community.org/runbot/badge/flat/116/8.0.svg)](https://runbot.odoo-community.org/runbot/repo/github-com-oca-hr-116)
 [![Build Status](https://travis-ci.org/OCA/hr.svg?branch=8.0)](https://travis-ci.org/OCA/hr)
-[![Coverage Status](https://coveralls.io/repos/OCA/hr/badge.png?branch=8.0)](https://coveralls.io/r/OCA/hr?branch=8.0)
-[![Code Climate](https://codeclimate.com/github/OCA/hr/badges/gpa.svg)](https://codeclimate.com/github/OCA/hr)
+[![codecov](https://codecov.io/gh/OCA/hr/branch/8.0/graph/badge.svg)](https://codecov.io/gh/OCA/hr)
 
 Human Resources
 ===============
