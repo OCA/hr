@@ -13,10 +13,11 @@
     'website': 'http://miketelahun.wordpress.com',
     'depends': [
         'hr',
+        'hr_holidays',
     ],
     'data': [
         'security/ir.model.access.csv',
         'views/hr_public_holidays_view.xml',
     ],
-    'installable': False,
+    'installable': True,
 }
