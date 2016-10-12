@@ -25,9 +25,16 @@ class HrHolidays(models.Model):
                 return False
         return True
 
+    @api.onchange('holiday_status_id')
+    def _onchange_holiday_status_id(self):
+        self._check_and_recompute_days()
+
     @api.onchange('employee_id')
     def _onchange_employee(self):
         super(HrHolidays, self)._onchange_employee()
+        self._check_and_recompute_days()
+
+    def _check_and_recompute_days(self):
         date_from = self.date_from
         date_to = self.date_to
         if (date_to and date_from) and (date_from <= date_to):
