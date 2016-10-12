@@ -3,7 +3,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 from datetime import date
-from openerp import fields, models, api
+from openerp import fields, models, api, _
 from openerp.exceptions import Warning as UserError
 
 
@@ -34,9 +34,13 @@ class HrPublicHolidays(models.Model):
         'Country'
     )
 
-    @api.one
+    @api.multi
     @api.constrains('year', 'country_id')
     def _check_year(self):
+        for r in self:
+            r._check_year_one()
+
+    def _check_year_one(self):
         if self.country_id:
             domain = [('year', '=', self.year),
                       ('country_id', '=', self.country_id.id),
@@ -46,17 +50,18 @@ class HrPublicHolidays(models.Model):
                       ('country_id', '=', False),
                       ('id', '!=', self.id)]
         if self.search_count(domain):
-            raise UserError('You can\'t create duplicate public holiday '
-                            'per year and/or country')
+            raise UserError(_('You can\'t create duplicate public holiday '
+                              'per year and/or country'))
         return True
 
-    @api.one
+    @api.multi
     @api.depends('year', 'country_id')
     def _compute_display_name(self):
-        if self.country_id:
-            self.display_name = '%s (%s)' % (self.year, self.country_id.name)
-        else:
-            self.display_name = self.year
+        for r in self:
+            if r.country_id:
+                r.display_name = '%s (%s)' % (r.year, r.country_id.name)
+            else:
+                r.display_name = r.year
 
     @api.multi
     def name_get(self):

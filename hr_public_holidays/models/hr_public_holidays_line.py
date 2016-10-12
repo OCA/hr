@@ -3,7 +3,7 @@
 # ©  2014 initOS GmbH & Co. KG <http://www.initos.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from openerp import fields, models, api
+from openerp import fields, models, api, _
 from openerp.exceptions import Warning as UserError
 
 
@@ -34,14 +34,18 @@ class HrPublicHolidaysLine(models.Model):
         'Related States'
     )
 
-    @api.one
+    @api.multi
     @api.constrains('date', 'state_ids')
     def _check_date_state(self):
+        for r in self:
+            r._check_date_state_one()
+
+    def _check_date_state_one(self):
         if fields.Date.from_string(self.date).year != self.year_id.year:
-            raise UserError(
+            raise UserError(_(
                 'Dates of holidays should be the same year '
                 'as the calendar year they are being assigned to'
-            )
+            ))
         if self.state_ids:
             domain = [('date', '=', self.date),
                       ('year_id', '=', self.year_id.id),
@@ -50,13 +54,13 @@ class HrPublicHolidaysLine(models.Model):
             holidays = self.search(domain)
             for holiday in holidays:
                 if self.state_ids & holiday.state_ids:
-                    raise UserError('You can\'t create duplicate public '
-                                    'holiday per date %s and one of the '
-                                    'country states.' % self.date)
+                    raise UserError(_('You can\'t create duplicate public '
+                                      'holiday per date %s and one of the '
+                                      'country states.') % self.date)
         domain = [('date', '=', self.date),
                   ('year_id', '=', self.year_id.id),
                   ('state_ids', '=', False)]
         if self.search_count(domain) > 1:
-            raise UserError('You can\'t create duplicate public holiday '
-                            'per date %s.' % self.date)
+            raise UserError(_('You can\'t create duplicate public holiday '
+                            'per date %s.') % self.date)
         return True
