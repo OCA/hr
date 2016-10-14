@@ -4,7 +4,7 @@
 
 {
     'name': 'HR Public Holidays',
-    'version': '8.0.1.0.0',
+    'version': '9.0.1.0.0',
     'license': 'AGPL-3',
     'category': 'Human Resources',
     'author': "Michael Telahun Makonnen <mmakonnen@gmail.com>, "
@@ -13,10 +13,11 @@
     'website': 'http://miketelahun.wordpress.com',
     'depends': [
         'hr',
+        'hr_holidays',
     ],
     'data': [
         'security/ir.model.access.csv',
         'views/hr_public_holidays_view.xml',
     ],
-    'installable': False,
+    'installable': True,
 }
