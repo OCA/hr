@@ -79,9 +79,11 @@ class HrHolidays(models.Model):
         return res
 
     def _compute_number_of_days(self, employee_id, date_to, date_from):
+        if not date_from and not date_to:
+            return 0
         days = self._get_number_of_days(date_from, date_to)
         if days or date_to == date_from:
-            days = round(math.floor(days))+1
+            days = round(math.floor(days)) + 1
         status_id = self.holiday_status_id.id or self.env.context.get(
             'holiday_status_id',
             False)
