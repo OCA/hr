@@ -9,6 +9,12 @@ Odoo modules related to Human Resources.
 
 
 [//]: # (addons)
+Available addons
+----------------
+addon | version | summary
+--- | --- | ---
+[hr_public_holidays](hr_public_holidays/) | 9.0.1.0.0 | Manage Public Holidays
+
 Unported addons
 ---------------
 addon | version | summary
@@ -55,7 +61,6 @@ addon | version | summary
 [hr_policy_group](hr_policy_group/) | 1.0 (unported) | Human Resources Policy Groups
 [hr_policy_ot](hr_policy_ot/) | 1.0 (unported) | Overtime Policy
 [hr_policy_presence](hr_policy_presence/) | 1.0 (unported) | Employee Presence Policy
-[hr_public_holidays](hr_public_holidays/) | 8.0.1.0.0 (unported) | Manage Public Holidays
 [hr_recruitment_partner](hr_recruitment_partner/) | 8.0.1.0.0 (unported) | Automatically create a Partner for Applicants
 [hr_resume](hr_resume/) | 0.1 (unported) | Resume Management
 [hr_salary_rule_reference](hr_salary_rule_reference/) | 8.0.1.0.0 (unported) | Salary Rule Reference
