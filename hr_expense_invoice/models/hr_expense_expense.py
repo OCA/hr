@@ -40,7 +40,10 @@ class HrExpenseExpense(models.Model):
                     move_lines = expense.account_move_id.line_id
                     c_move_lines = move_lines.filtered(
                         lambda x: x.partner_id == partner and
-                        x.debit == line.invoice.residual)
+                        x.debit == line.invoice.residual and
+                        not x.reconcile_id)
+                    if len(c_move_lines) > 1:
+                        c_move_lines = c_move_lines[0]
                     c_move_lines |= line.invoice.move_id.line_id.filtered(
                         lambda x: x.account_id == line.invoice.account_id and
                         x.credit == line.invoice.residual)
