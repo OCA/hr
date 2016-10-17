@@ -43,6 +43,7 @@ Contributors
 * Fekete Mihai <feketemihai@gmail.com>
 * David Dufresne <david.dufresne@savoirfairelinux.com>
 * Adrien Peiffer (ACSONE) <adrien.peiffer@acsone.eu>
+* Zakaria Makrelouf (ACSONE) <z.makrelouf@gmail.com>
 
 Maintainer
 ----------

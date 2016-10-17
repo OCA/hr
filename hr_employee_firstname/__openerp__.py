@@ -22,9 +22,10 @@
 
 {
     'name': 'HR Employee First Name, Last Name',
-    'version': '8.0.0.0.2',
+    'version': '9.0.1.0.0',
     'author': "Savoir-faire Linux, "
               "Fekete Mihai (Forest and Biomass Services Romania), "
+              "ACSONE SA/NV, "
               "Odoo Community Association (OCA)",
     'maintainer': 'Savoir-faire Linux',
     'website': 'http://www.savoirfairelinux.com',
@@ -40,5 +41,5 @@
     ],
     'demo': [],
     'test': [],
-    'installable': False,
+    'installable': True,
 }
