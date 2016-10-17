@@ -74,6 +74,8 @@ class HrHolidays(models.Model):
         date_from = self.date_from
         date_to = self.date_to
         employee_id = self.employee_id.id
+        if not date_from or not date_to:
+            return 0
         days = self._get_number_of_days(date_from, date_to, None)
         if date_to == date_from:
             days = 1
