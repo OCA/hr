@@ -38,13 +38,13 @@ class HrEmployee(models.Model):
 
     @api.multi
     def _compute_remaining_days(self):
-        self.ensure_one()
-        legal_leave = self.company_id.legal_holidays_status_id
-        if not legal_leave:
-            raise UserError(_('Legal/annual leave type is not defined for '
-                              'your company.'))
-        self.remaining_leaves = legal_leave.get_days(
-            self.id)[legal_leave.id]['remaining_leaves']
+        for r in self:
+            legal_leave = r.company_id.legal_holidays_status_id
+            if not legal_leave:
+                raise UserError(_('Legal/annual leave type is not defined for '
+                                  'your company.'))
+            r.remaining_leaves = legal_leave.get_days(
+                r.id)[legal_leave.id]['remaining_leaves']
 
     remaining_leaves = fields.Integer(
         'Remaining Legal Leaves',
