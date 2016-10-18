@@ -13,8 +13,7 @@
     'website': 'http://idtlabs.sl',
     'depends': ['hr_holidays'],
     'data': [
-        'views/res_config.xml',
-        'views/res_company.xml',
+        'views/hr_holidays_status.xml',
     ],
-    'installable': False,
+    'installable': True,
 }

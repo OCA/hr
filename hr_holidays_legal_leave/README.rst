@@ -14,7 +14,7 @@ set leaves from the employee form.
 Installation
 ============
 
-* clone the branch 8.0 of the repository https://github.com/OCA/hr
+* clone the branch 9.0 of the repository https://github.com/OCA/hr
 * add the path to this repository in your configuration (addons-path)
 * update the module list
 * search for "HR Holidays Legal Leave" in your addons
@@ -36,7 +36,7 @@ Usage
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
-   :target: https://runbot.odoo-community.org/runbot/116/8.0
+   :target: https://runbot.odoo-community.org/runbot/116/9.0
 
 Known issues / Roadmap
 ======================
@@ -67,6 +67,9 @@ Contributors
 
 * Salton Massally <smassally@idtlabs.sl>
 * Fekete Mihai <feketemihai@gmail.com>
+* Ivan Yelizariev <yelizariev@it-projects.info>
+* Bassirou Ndaw <b.ndaw@ergobit.org>
+* Alexandre Fayolle <alexandre.fayolle@camptocamp.com>
 
 Maintainer
 ----------

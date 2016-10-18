@@ -3,7 +3,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 from openerp import models, api, fields, _
-from openerp.exceptions import Warning as UserError
+from openerp.exceptions import UserError
 
 
 class HrEmployee(models.Model):
@@ -38,13 +38,13 @@ class HrEmployee(models.Model):
 
     @api.multi
     def _compute_remaining_days(self):
-        self.ensure_one()
-        legal_leave = self.company_id.legal_holidays_status_id
-        if not legal_leave:
-            raise UserError(_('Legal/annual leave type is not defined for '
-                              'your company.'))
-        self.remaining_leaves = legal_leave.get_days(
-            self.id)[legal_leave.id]['remaining_leaves']
+        for rec in self:
+            legal_leave = rec.company_id.legal_holidays_status_id
+            if not legal_leave:
+                raise UserError(_('Legal/annual leave type is not defined for '
+                                  'your company.'))
+            rec.remaining_leaves = legal_leave.get_days(
+                rec.id)[legal_leave.id]['remaining_leaves']
 
     remaining_leaves = fields.Integer(
         'Remaining Legal Leaves',
