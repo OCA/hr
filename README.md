@@ -13,6 +13,7 @@ Available addons
 ----------------
 addon | version | summary
 --- | --- | ---
+[hr_employee_firstname](hr_employee_firstname/) | 9.0.1.0.0 | Adds First Name to Employee
 [hr_public_holidays](hr_public_holidays/) | 9.0.1.0.0 | Manage Public Holidays
 
 Unported addons
@@ -30,7 +31,6 @@ addon | version | summary
 [hr_employee_age](hr_employee_age/) | 8.0.1.0.0 (unported) | Age field for employee
 [hr_employee_benefit](hr_employee_benefit/) | 8.0.1.0.0 (unported) | Employee Benefit
 [hr_employee_data_from_work_address](hr_employee_data_from_work_address/) | 8.0.1.0.0 (unported) | Update user's and partner's data fields from employee record
-[hr_employee_firstname](hr_employee_firstname/) | 8.0.0.0.2 (unported) | Adds First Name to Employee
 [hr_employee_gravatar](hr_employee_gravatar/) | 8.0.1.0.0 (unported) | Employees Synchronize Gravatar image
 [hr_employee_id](hr_employee_id/) | 8.0.1.0.0 (unported) | Employee ID
 [hr_employee_legacy_id](hr_employee_legacy_id/) | 8.0.1.0.0 (unported) | Legacy Employee ID
