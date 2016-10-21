@@ -14,10 +14,6 @@ Usage
 To use this module, you need to go to any employee form, and look for the
 *Family* tab. You will be able to enter family information there.
 
-For further information, please visit:
-
- * https://www.odoo.com/forum/help-1
-
 Bug Tracker
 ===========
 
