@@ -14,6 +14,7 @@ Available addons
 addon | version | summary
 --- | --- | ---
 [hr_employee_firstname](hr_employee_firstname/) | 9.0.1.0.0 | Adds First Name to Employee
+[hr_family](hr_family/) | 9.0.1.0.0 | Employee Family Information
 [hr_public_holidays](hr_public_holidays/) | 9.0.1.0.0 | Manage Public Holidays
 
 Unported addons
@@ -44,7 +45,6 @@ addon | version | summary
 [hr_expense_move_date](hr_expense_move_date/) | 8.0.1.0.0 (unported) | Move date for HR expenses journal entries
 [hr_expense_sequence](hr_expense_sequence/) | 8.0.1.0.0 (unported) | HR expense sequence
 [hr_experience](hr_experience/) | 8.0.1.1.0 (unported) | Experience Management
-[hr_family](hr_family/) | 8.0.1.2.0 (unported) | Employee Family Information
 [hr_holidays_compute_days](hr_holidays_compute_days/) | 8.0.1.0.0 (unported) | Computes the actual leave days considering rest days and public holidays
 [hr_holidays_legal_leave](hr_holidays_legal_leave/) | 8.0.1.0.0 (unported) | Allows the definition of legal/annual leave
 [hr_infraction](hr_infraction/) | 1.0 (unported) | Employee Infraction Management
