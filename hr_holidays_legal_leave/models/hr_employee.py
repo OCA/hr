@@ -2,8 +2,8 @@
 # ©  2015 iDT LABS (http://www.@idtlabs.sl)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from openerp import models, api, fields, _
-from openerp.exceptions import Warning as UserError
+from odoo import models, api, fields, _
+from odoo.exceptions import UserError
 
 
 class HrEmployee(models.Model):
@@ -29,12 +29,12 @@ class HrEmployee(models.Model):
                     'number_of_days_temp': diff
                 }
             )
+            leave.action_approve()
+            if leave.double_validation:
+                leave.action_validate()
         elif diff < 0:
             raise UserError(_('You cannot reduce validated allocation '
                               'requests.'))
-
-        for sig in ('confirm', 'validate', 'second_validate'):
-            leave.signal_workflow(sig)
 
     @api.multi
     def _compute_remaining_days(self):
