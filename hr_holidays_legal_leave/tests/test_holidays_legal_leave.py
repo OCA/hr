@@ -52,3 +52,11 @@ class TestHolidaysLegalLeave(common.TransactionCase):
         # let's attempt setting remaining leave
         self.employee.write({'remaining_leaves': 20})
         self.assertEqual(self.employee.remaining_leaves, 20)
+
+    def test_create_employee(self):
+        """Check that we are able to create new employee
+        and that _inverse_remaining_days doesn't raise error"""
+        self.employee_model.create({
+            'name': 'Employee 1',
+            'remaining_leaves': 0,
+        })
