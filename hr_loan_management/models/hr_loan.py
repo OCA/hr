@@ -586,7 +586,7 @@ class HrLoanPaymentSchedule(models.Model):
         string="Principle Payment State",
         selection=[
             ("unpaid", "Unpaid"),
-            ("partial_paid", "Partial Paid"),
+            ("partial", "Partial Paid"),
             ("paid", "Paid"),
         ],
         compute="_compute_state",
@@ -597,7 +597,7 @@ class HrLoanPaymentSchedule(models.Model):
         string="Interest Payment State",
         selection=[
             ("unpaid", "Unpaid"),
-            ("partial_paid", "Partial Paid"),
+            ("partial", "Partial Paid"),
             ("paid", "Paid"),
         ],
         compute="_compute_state",
