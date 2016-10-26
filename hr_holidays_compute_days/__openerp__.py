@@ -10,6 +10,7 @@
     'summary': 'Computes the actual leave days '
                'considering rest days and public holidays',
     'author': 'iDT LABS, '
+              'Camptocamp SA, '
               'Odoo Community Association (OCA)',
     'website': 'http://idtlabs.sl',
     'depends': ['hr', 'hr_contract', 'hr_holidays', 'hr_public_holidays'],
