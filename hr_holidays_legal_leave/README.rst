@@ -25,8 +25,11 @@ Configuration
 
 To configure this module, you need to:
 
-Company setup
-* Go to the company and select the leave type to use as legal leave
+* assign legal leave type via Leaves > Configuration:
+    - choose Leave type you need
+    - click [Edit]
+    - set Legal/Annual checkbox
+    - click [Save]
 
 HR Module Setup
 * Assign legal leave type via Settings > Human Resources
