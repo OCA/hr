@@ -4,7 +4,7 @@
 
 {
     'name': 'HR Holidays Legal Leave',
-    'version': '8.0.1.0.0',
+    'version': '9.0.1.0.0',
     'category': 'Human Resources',
     'license': 'AGPL-3',
     'summary': 'Allows the definition of legal/annual leave',
