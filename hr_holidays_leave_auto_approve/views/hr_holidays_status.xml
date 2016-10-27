@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="view_holiday_status_form_auto_approve" model="ir.ui.view">
+        <field name="name">hr.holidays.status.form.auto.approve</field>
+        <field name="model">hr.holidays.status</field>
+        <field name="inherit_id" ref="hr_holidays.edit_holiday_status_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='limit']" position="after">
+                <field name="auto_approve"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
