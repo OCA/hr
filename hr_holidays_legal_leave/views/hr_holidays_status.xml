@@ -7,6 +7,7 @@
         <field name="arch" type="xml">
             <xpath expr="//field[@name='name']"
                     position="after">
+                <field name="company_id" groups="base.group_multi_company"/>
                 <field name="is_annual" />
             </xpath>
         </field>
