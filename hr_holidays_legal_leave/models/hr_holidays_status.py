@@ -15,16 +15,21 @@ class HolidaysType(models.Model):
              'You cannot unset it directly. '
              'Set it on another Leave type instead. '
     )
+    company_id = fields.Many2one(
+        comodel_name='res.company',
+        default=lambda self: self._get_default_company()
+    )
 
-    @api.multi
+    def _get_default_company(self):
+        return self.env.user.company_id.id
+
+    @api.depends('company_id', 'is_annual')
     def _compute_is_annual(self):
-        company = self.env.user.company_id
-        self.filtered(lambda x: x == company.legal_holidays_status_id)\
-            .update({'is_annual': True})
+        for rec in self:
+            rec.is_annual = rec.company_id.legal_holidays_status_id == rec.id
 
     @api.multi
     def _inverse_is_annual(self):
         self.ensure_one()
-        company = self.env.user.company_id
         if self.is_annual:
-            company.legal_holidays_status_id = self.id
+            self.company_id.legal_holidays_status_id = self.id
