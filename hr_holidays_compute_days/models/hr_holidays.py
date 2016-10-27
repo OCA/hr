@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 # ©  2015 iDT LABS (http://www.@idtlabs.sl)
+# Copyright 2016 Camptocamp SA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 from openerp import models, fields, api, _
@@ -26,24 +27,34 @@ class HrHolidays(models.Model):
                 return False
         return True
 
-    @api.multi
-    def onchange_employee(self, employee_id):
-        res = super(HrHolidays, self).onchange_employee(employee_id)
-        date_from = self.date_from or self.env.context.get('date_from')
-        date_to = self.date_to or self.env.context.get('date_to')
+    @api.onchange('holiday_status_id')
+    def _onchange_holiday_status_id(self):
+        self._check_and_recompute_days()
+
+    def _check_and_recompute_days(self):
+        date_from = self.date_from
+        date_to = self.date_to
         if (date_to and date_from) and (date_from <= date_to):
-            if not self._check_date_helper(employee_id, date_from):
+            if not self._check_date_helper(self.employee_id.id, date_from):
                 raise ValidationError(_("You cannot schedule the start date "
                                         "on a public holiday or employee's "
                                         "rest day"))
-            if not self._check_date_helper(employee_id, date_to):
+            if not self._check_date_helper(self.employee_id.id, date_to):
                 raise ValidationError(_("You cannot schedule the end date "
                                         "on a public holiday or employee's "
                                         "rest day"))
-            duration = self._compute_number_of_days(employee_id,
-                                                    date_to,
-                                                    date_from)
-            res['value']['number_of_days_temp'] = duration
+            duration = self._compute_number_of_days(
+                self.employee_id.id,
+                date_to,
+                date_from
+            )
+            return duration
+
+    @api.multi
+    def onchange_employee(self, employee_id):
+        res = super(HrHolidays, self).onchange_employee(employee_id)
+        duration = self._check_and_recompute_days()
+        res['value']['number_of_days_temp'] = duration
         return res
 
     @api.multi
@@ -79,6 +90,8 @@ class HrHolidays(models.Model):
         return res
 
     def _compute_number_of_days(self, employee_id, date_to, date_from):
+        if not date_from or not date_to:
+            return 0
         days = self._get_number_of_days(date_from, date_to)
         if days or date_to == date_from:
             days = round(math.floor(days))+1
