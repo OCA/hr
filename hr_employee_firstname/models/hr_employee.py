@@ -69,7 +69,8 @@ class HrEmployee(models.Model):
     def get_name(self):
         for employee in self:
             if employee.firstname and employee.lastname:
-                employee.name = self._get_name(employee.lastname, employee.firstname)
+                employee.name = self._get_name(
+                    employee.lastname, employee.firstname)
 
     def _firstname_default(self):
         return ' ' if self.env.context.get('module') else False
