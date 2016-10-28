@@ -15,6 +15,9 @@ addon | version | summary
 --- | --- | ---
 [hr_employee_firstname](hr_employee_firstname/) | 9.0.1.0.0 | Adds First Name to Employee
 [hr_family](hr_family/) | 9.0.1.0.0 | Employee Family Information
+[hr_holidays_compute_days](hr_holidays_compute_days/) | 9.0.1.0.0 | Computes the actual leave days considering rest days and public holidays
+[hr_holidays_leave_auto_approve](hr_holidays_leave_auto_approve/) | 9.0.1.0.0 | Leave type for auto approval of Leaves
+[hr_holidays_legal_leave](hr_holidays_legal_leave/) | 9.0.1.0.0 | Allows the definition of legal/annual leave
 [hr_public_holidays](hr_public_holidays/) | 9.0.1.0.0 | Manage Public Holidays
 
 Unported addons
@@ -45,8 +48,6 @@ addon | version | summary
 [hr_expense_move_date](hr_expense_move_date/) | 8.0.1.0.0 (unported) | Move date for HR expenses journal entries
 [hr_expense_sequence](hr_expense_sequence/) | 8.0.1.0.0 (unported) | HR expense sequence
 [hr_experience](hr_experience/) | 8.0.1.1.0 (unported) | Experience Management
-[hr_holidays_compute_days](hr_holidays_compute_days/) | 8.0.1.0.0 (unported) | Computes the actual leave days considering rest days and public holidays
-[hr_holidays_legal_leave](hr_holidays_legal_leave/) | 8.0.1.0.0 (unported) | Allows the definition of legal/annual leave
 [hr_infraction](hr_infraction/) | 1.0 (unported) | Employee Infraction Management
 [hr_job_categories](hr_job_categories/) | 8.0.1.0.0 (unported) | HR Job Employee Categories
 [hr_job_hierarchy](hr_job_hierarchy/) | 1.0 (unported) | Job Hierarchy
