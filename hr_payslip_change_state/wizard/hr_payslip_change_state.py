@@ -6,7 +6,7 @@ from openerp.tools.translate import _
 from openerp.exceptions import Warning as UserError
 
 
-class HrPaySlipChangeState(models.TransientModel):
+class HrPayslipChangeState(models.TransientModel):
 
     _name = "hr.payslip.change.state"
     _description = "Change state of a payslip"
