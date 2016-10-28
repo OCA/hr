@@ -19,8 +19,8 @@
 #
 ##############################################################################
 
-import openerp.tests
-from openerp.tests.common import TransactionCase
+import odoo
+from odoo.tests.common import TransactionCase
 
 
 class TestEmployeeFirstname(TransactionCase):
@@ -111,10 +111,10 @@ class TestEmployeeFirstname(TransactionCase):
 
         self.assertEqual(self.employee1_id.name, 'Carnaud Jean-Pierre')
 
-    @openerp.tests.common.at_install(False)
-    @openerp.tests.common.post_install(True)
+    @odoo.tests.common.at_install(False)
+    @odoo.tests.common.post_install(True)
     def test_update_name_post_install(self):
-        self.empl_demo = self.env.ref('hr.employee_fp')
+        self.empl_demo = self.env.ref('hr.employee_root')
 
         self.assertEqual(self.empl_demo.firstname, 'Parker')
         self.assertEqual(self.empl_demo.lastname, 'Pieter')

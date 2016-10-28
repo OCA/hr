@@ -6,7 +6,7 @@
 # Antonio Trueba, 2016
 msgid ""
 msgstr ""
-"Project-Id-Version: hr (8.0)\n"
+"Project-Id-Version: hr (10.0)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-11-30 05:19+0000\n"
 "PO-Revision-Date: 2016-02-05 12:48+0000\n"

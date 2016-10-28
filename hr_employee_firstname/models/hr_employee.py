@@ -20,10 +20,9 @@
 #
 ##############################################################################
 
-from openerp import models, fields, api, SUPERUSER_ID
+from odoo import models, fields, api
 
-UPDATE_PARTNER_FIELDS = set(['firstname', 'lastname', 'user_id',
-                             'address_home_id'])
+UPDATE_PARTNER_FIELDS = ['firstname', 'lastname', 'user_id', 'address_home_id']
 
 
 class HrEmployee(models.Model):
@@ -35,9 +34,10 @@ class HrEmployee(models.Model):
         return self.env['res.partner']._get_inverse_name(clean_name)
 
     @api.cr_context
-    def _auto_init(self, cr, context=None):
-        super(HrEmployee, self)._auto_init(cr, context=context)
-        self._update_employee_names(cr, SUPERUSER_ID, context=context)
+    def _auto_init(self):
+        res = super(HrEmployee, self)._auto_init()
+        self.sudo()._update_employee_names()
+        return res
 
     @api.model
     def _update_employee_names(self):
@@ -64,11 +64,12 @@ class HrEmployee(models.Model):
     def _get_name(self, lastname, firstname):
         return self.env['res.partner']._get_computed_name(lastname, firstname)
 
-    @api.one
+    @api.multi
     @api.onchange('firstname', 'lastname')
     def get_name(self):
-        if self.firstname and self.lastname:
-            self.name = self._get_name(self.lastname, self.firstname)
+        for employee in self:
+            if employee.firstname and employee.lastname:
+                employee.name = self._get_name(employee.lastname, employee.firstname)
 
     def _firstname_default(self):
         return ' ' if self.env.context.get('module') else False
