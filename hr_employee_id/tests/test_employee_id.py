@@ -3,7 +3,7 @@
 # © 2016 OpenSynergy Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from openerp.tests import common
+from odoo.tests import common
 
 
 class TestEmployeeID(common.TransactionCase):
@@ -34,3 +34,15 @@ class TestEmployeeID(common.TransactionCase):
         employee = self.employee_model.create({'name': 'Employee'})
 
         self.assertTrue(len(employee.identification_id))
+
+    def test_configuration_default_values(self):
+        # test loading of default configuration values
+        self.company.write({'employee_id_gen_method': None,
+                            'employee_id_random_digits': None,
+                            'employee_id_sequence': None})
+        config_model = self.env['hr.employeeid.config.settings']
+        config = config_model.create({})
+        self.assertTrue(config.company_id.id == self.company.id)
+        self.assertTrue(config.employee_id_gen_method == 'random')
+        self.assertTrue(config.employee_id_random_digits == 5)
+        self.assertFalse(config.employee_id_sequence is False)
