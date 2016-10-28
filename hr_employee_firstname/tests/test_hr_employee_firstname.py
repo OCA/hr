@@ -60,6 +60,17 @@ class TestEmployeeFirstname(TransactionCase):
         # Check for employee3
         self.assertEqual(self.employee3_id.name, 'Jenssens Famke')
 
+    def test_onchange(self):
+        """
+        Validate the get_name method is not failing
+        """
+        field_onchange = self.employee1_id._onchange_spec()
+        self.assertEqual(field_onchange.get('firstname'), '1')
+        self.assertEqual(field_onchange.get('lastname'), '1')
+        values = {'firstname': 'Antonio', 'lastname': 'Esposito'}
+        self.employee1_id.onchange(values, 'firstname', field_onchange)
+        self.employee1_id.onchange(values, 'lastname', field_onchange)
+
     def test_auto_init_name(self):
         """
         Validate the create method if the name is split
