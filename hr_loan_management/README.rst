@@ -38,13 +38,16 @@ To configure employee loan type, you need to:
 Usage
 =====
 
-**Create Employee Loan Request**
+Create Employee Loan Request
+----------------------------
 
 1. Go to menu *Human Resources -> Employee Loan -> My Loan*
 2. Create employee loan
 3. Click *Confirm* button to confirm employee loan request
 
-**Approve Employee Loan Request**
+Approve Employee Loan Request
+-----------------------------
+
 1. Go to menu *Human Resources -> Employee Loan -> My Loan*
 2. Open employee loan data with *Waiting for Approval* status
 3. Click *Approve* button
@@ -52,30 +55,64 @@ Usage
 Odoo will create journal entry with bellow configuration:
 
 Loan Principle Receivable Dr.
-Loan Interest Receivable Dr.
-    Accrue Interest Income Cr.
     Loan Realization Cr.
 
 Note:
-First 3 lines above will be generated as much as number of payment schedule
+*Loan principle receivable* will be generated as much as number of payment schedule
 
-**Employee Loan Realization**
+Employee Loan Realization
+-------------------------
 
-Employee loan can be realized by reconcile **Loan Realization Move Line**
+Employee loan can be realized by reconcile *Loan Realization Move Line*
 created from step above. You can reconcile them by using any accounting
 method provided by Odoo, such as: (1) bank statement, (2) voucher, or
 (3) manualy creating journal entry and reconciliation.
 
 
-**Employee Loan Principle Repayment**
+Employee Loan Principle Repayment
+---------------------------------
 
-Employee loan's principle can be paid by reconcile **Principle Receivable Move Line**
+Employee loan's principle can be paid by reconcile *Principle Receivable Move Line*
 created from approval steap above. You can reconcile them by using any accounting
 method provided by Odoo, such as: (1) bank statement, (2) voucher, or
 (3) manualy creating journal entry and reconciliation.
 
 
-**Employee Loan Interest Repayment**
+Employee Loan Interest Realization
+----------------------------------
+
+Through *Employee Loan* menu:
+
+1. Go to menu *Human Resources -> Employee Loan -> Employee Loan*
+2. Look through loan repayment schedule table
+3. Click *Realize Interest* button for each interest schedule that need to be realized
+4. Select *Realization Date* on *Realize Interest* form wizard
+5. Click *Realize* button
+
+Through *Repayment Schedule* menu:
+
+1. Go to menu *Human Resources -> Employee Loan -> Repayment Schedule*
+2. Activate *Active Loan* filter
+3. Open repayment schedule that need to be realized
+4. Click *Realize Interest* button
+
+
+Through *Repayment Schedule* menu, using context action:
+
+1. Go to menu *Human Resources -> Employee Loan -> Repayment Schedule*
+2. Activate *Active Loan* filter
+3. Select repayment schedule that need to be realized
+4. Click *More* button
+5. Click *Realize Interest* button
+
+Odoo will create journal entry with bellow configuration:
+
+Loan Interest Receivable Dr.
+    Interest Income Cr.
+
+
+Employee Loan Interest Repayment
+--------------------------------
 
 Employee loan's interest can be paid by reconcile **Principle Receivable Move Line**
 created from approval steap above. You can reconcile them by using any accounting
