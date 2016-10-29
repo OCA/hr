@@ -759,14 +759,6 @@ class HrLoanPaymentSchedule(models.Model):
         return res
 
     @api.multi
-    def _create_interest_receivable_move_line(self):
-        self.ensure_one()
-        line = self.env[
-            "account.move.line"].sudo().create(
-                self._prepare_interest_receivable_move_line())
-        self.interest_move_line_id = line
-
-    @api.multi
     def _prepare_interest_income_move_line(self, move):
         self.ensure_one()
         loan = self.loan_id
@@ -782,10 +774,3 @@ class HrLoanPaymentSchedule(models.Model):
             "partner_id": self.loan_id.employee_id.address_home_id.id,
         }
         return res
-
-    @api.multi
-    def _create_interest_income_move_line(self):
-        self.ensure_one()
-        self.env[
-            "account.move.line"].sudo().create(
-                self._prepare_interest_income_move_line())
