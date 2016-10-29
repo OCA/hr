@@ -91,14 +91,26 @@
                                         '&amp;',
                                         ('state', '=', 'active'),
                                         ('interest_move_line_id','!=',False)]}"
-                                    string="Realize Income" icon="gtk-execute"/>
+                                    string="Realize Interest" icon="gtk-execute"/>
                                 <field name="installment_amount" sum="Total Installment Amount"/>
                                 <field name="principle_payment_state"/>
                                 <field name="interest_payment_state"/>
                                 <field name="state" invisible="0"/>
                             </tree>
                             <form string="Payment Schedule">
+                                <header>
+                                    <button name="%(realize_interest_action)d" type="action"
+                                        attrs="{'invisible':[
+                                            '|',
+                                            ('state', '!=', 'active'),
+                                            '&amp;',
+                                            ('state', '=', 'active'),
+                                            ('interest_move_line_id','!=',False)]}"
+                                        string="Realize Interest"/>
+                                </header>
                                 <group name="group_main" colspan="4" col="2">
+                                    <field name="loan_id"/>
+                                    <field name="state" invisible="1"/>
                                     <field name="schedule_date"/>
                                     <field name="installment_amount" widget="monetary" options="{'currency_field':'currency_id'}"/>
                                     <field name="currency_id" invisible="1"/>
@@ -285,7 +297,7 @@
                     '&amp;',
                     ('state', '=', 'active'),
                     ('interest_move_line_id','!=',False)]}"
-                string="Realize Income" icon="gtk-execute"/>
+                string="Realize Interest" icon="gtk-execute"/>
             <field name="installment_amount" sum="Total Installment Amount"/>
             <field name="principle_payment_state"/>
             <field name="interest_payment_state"/>
@@ -300,10 +312,19 @@
     <field name="arch" type="xml">
         <form string="Employee Loan Payment Schedule" create="false" edit="false" delete="false">
             <header>
+                <button name="%(realize_interest_action)d" type="action"
+                    attrs="{'invisible':[
+                        '|',
+                        ('state', '!=', 'active'),
+                        '&amp;',
+                        ('state', '=', 'active'),
+                        ('interest_move_line_id','!=',False)]}"
+                    string="Realize Interest"/>
             </header>
             <sheet>
                 <group name="group_main" colspan="4" col="2">
                     <field name="loan_id"/>
+                    <field name="state" invisible="1"/>
                     <field name="employee_id"/>
                     <field name="schedule_date"/>
                     <field name="installment_amount" widget="monetary" options="{'currency_field':'currency_id'}"/>
