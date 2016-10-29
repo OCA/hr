@@ -314,6 +314,19 @@ class HrLoan(models.Model):
         return res
 
     @api.multi
+    def unlink(self):
+        for loan in self:
+            strWarning = _("""You can not delete loan %s. \n
+                         Loan can be deleted only on cancel state and
+                         has not been assigned a
+                         loan number""") % loan.display_name
+            if (loan.state != "cancel" or
+                    loan.name != "/") and \
+                    not self.env.context.get("force_unlink", False):
+                raise UserError(strWarning)
+        return super(HrLoan, self).unlink()
+
+    @api.multi
     def action_compute_payment(self):
         for loan in self:
             self._compute_payment()

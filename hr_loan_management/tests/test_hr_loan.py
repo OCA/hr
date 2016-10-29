@@ -5,6 +5,7 @@
 from openerp.tests.common import TransactionCase
 from datetime import datetime
 from openerp import models
+from openerp.exceptions import Warning as UserError
 
 
 class TestEmployeeLoan(TransactionCase):
@@ -198,6 +199,16 @@ class TestEmployeeLoan(TransactionCase):
         with self.assertRaises(models.ValidationError):
             loan.workflow_action_cancel()
 
+    def _unlink_allowed(self, loan):
+        loan.unlink()
+
+    def _force_unlink(self, loan):
+        loan.with_context(force_unlink=True).unlink()
+
+    def _unlink_not_allowed(self, loan):
+        with self.assertRaises(UserError):
+            loan.unlink()
+
     def test_no_loan_period_zero(self):
         """
         Loan period can not equal 0
@@ -256,6 +267,7 @@ class TestEmployeeLoan(TransactionCase):
             ))
         loan.action_compute_payment()
         self._workflow_cancel(loan)
+        self._unlink_allowed(loan)
 
     def test_cancel_on_confirm(self):
         """
@@ -270,6 +282,8 @@ class TestEmployeeLoan(TransactionCase):
         loan.action_compute_payment()
         self._workflow_confirm(loan)
         self._workflow_cancel(loan)
+        self._unlink_not_allowed(loan)
+        self._force_unlink(loan)
 
     def test_cancel_on_approve(self):
         """
@@ -285,6 +299,8 @@ class TestEmployeeLoan(TransactionCase):
         self._workflow_confirm(loan)
         self._workflow_approve(loan)
         self._workflow_cancel(loan)
+        self._unlink_not_allowed(loan)
+        self._force_unlink(loan)
 
     def test_cancel_on_active(self):
         """
@@ -301,6 +317,7 @@ class TestEmployeeLoan(TransactionCase):
         self._workflow_approve(loan)
         self._realized_loan(loan)
         self._workflow_cancel_not_allowed(loan)
+        self._unlink_not_allowed(loan)
 
     def test_loan_anuity(self):
         """

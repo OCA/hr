@@ -119,6 +119,18 @@ created from approval steap above. You can reconcile them by using any accountin
 method provided by Odoo, such as: (1) bank statement, (2) voucher, or
 (3) manualy creating journal entry and reconciliation.
 
+Delete Loan
+-----------
+
+You can only delete loan data, if:
+
+1. State equal to *cancel*, and
+2. No loan number assigned
+
+Note for administrator:
+Unlink police could be override by using *force_unlink* context
+
+
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
    :target: https://runbot.odoo-community.org/runbot/116/8.0
