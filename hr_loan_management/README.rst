@@ -91,10 +91,8 @@ Known issues / Roadmap
 ======================
 
 1. Mechanism for set to draft or manage loan revision will be handled on other module
-2. No additional mechanism to reverse interest accrue income into income. Use existing accounting
-   features to reverse it.
-3. No support for multi-currency
-4. No direct integration to payslip. Loan repayment has to be done via accounting reconciliation.
+2. No support for multi-currency
+3. No direct integration to payslip. Loan repayment has to be done via accounting reconciliation.
 
 Bug Tracker
 ===========
