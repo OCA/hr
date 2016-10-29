@@ -132,6 +132,9 @@ class TestEmployeeLoan(TransactionCase):
             "approve")
         self.assertTrue(
             loan.move_receivable_id)
+        self.assertEqual(
+            loan.move_line_header_id.partner_id,
+            loan.employee_id.address_home_id)
 
     def _workflow_draft(
             self, loan):

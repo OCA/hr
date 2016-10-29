@@ -7,6 +7,7 @@ from datetime import datetime
 from openerp import models, fields, api
 from openerp.tools.translate import _
 from openerp.addons import decimal_precision as dp
+from openerp.exceptions import Warning as UserError
 
 DATE_SELECTION = map(lambda x: [x, str(x)], range(1, 32))
 
@@ -482,6 +483,16 @@ class HrLoan(models.Model):
         }
         return res
 
+    @api.multi
+    def _get_employee_home_address(self):
+        self.ensure_one()
+        strWarning = _(
+            "Home addres not set for %s employee") % (self.employee_id.name)
+        if not self.employee_id.address_home_id:
+            raise UserError(strWarning)
+        return self.employee_id.address_home_id
+
+
     @api.model
     def _prepare_header_move_line(self):
         self.ensure_one()
@@ -492,6 +503,7 @@ class HrLoan(models.Model):
             "account_id": self.loan_type_id.account_realization_id.id,
             "debit": 0.0,
             "credit": self.total_principle_amount,
+            "partner_id": self._get_employee_home_address().id,
         }
         return res
 
@@ -673,7 +685,7 @@ class HrLoanPaymentSchedule(models.Model):
             "debit": self.interest_amount,
             "credit": 0.0,
             "date_maturity": self.schedule_date,
-            "partner_id": loan.employee_id.address_home_id.id,
+            "partner_id": loan._get_employee_home_address().id,
         }
         return res
 
