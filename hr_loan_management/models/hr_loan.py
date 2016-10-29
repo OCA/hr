@@ -421,12 +421,12 @@ class HrLoan(models.Model):
         obj_line = self.env[
             "account.move.line"]
 
-        move = obj_move.create(
+        move = obj_move.sudo().create(
             self._prepare_receivable_move())
 
         self.move_receivable_id = move
 
-        header = obj_line.create(
+        header = obj_line.sudo().create(
             self._prepare_header_move_line())
 
         self.move_line_header_id = header
@@ -688,17 +688,17 @@ class HrLoanPaymentSchedule(models.Model):
         obj_line = self.env[
             "account.move.line"]
 
-        move = obj_move.create(
+        move = obj_move.sudo().create(
             self._prepare_interest_receivable_move(
                 date_realization))
 
-        line_receivable = obj_line.create(
+        line_receivable = obj_line.sudo().create(
             self._prepare_interest_receivable_move_line(
                 move))
 
         self.interest_move_line_id = line_receivable
 
-        obj_line.create(
+        obj_line.sudo().create(
             self._prepare_interest_income_move_line(
                 move))
 
@@ -724,7 +724,7 @@ class HrLoanPaymentSchedule(models.Model):
     def _create_principle_receivable_move_line(self):
         self.ensure_one()
         line = self.env[
-            "account.move.line"].create(
+            "account.move.line"].sudo().create(
                 self._prepare_principle_receivable_move_line())
         self.principle_move_line_id = line
 
@@ -749,7 +749,7 @@ class HrLoanPaymentSchedule(models.Model):
     def _create_interest_receivable_move_line(self):
         self.ensure_one()
         line = self.env[
-            "account.move.line"].create(
+            "account.move.line"].sudo().create(
                 self._prepare_interest_receivable_move_line())
         self.interest_move_line_id = line
 
@@ -774,5 +774,5 @@ class HrLoanPaymentSchedule(models.Model):
     def _create_interest_income_move_line(self):
         self.ensure_one()
         self.env[
-            "account.move.line"].create(
+            "account.move.line"].sudo().create(
                 self._prepare_interest_income_move_line())
