@@ -22,6 +22,7 @@
         "data/ir_filter_data.xml",
         "data/ir_actions_server_data.xml",
         "data/base_action_rule_data.xml",
+        "wizard/realize_interest_views.xml",
         "views/hr_loan_type_views.xml",
         "views/hr_loan_views.xml",
         "views/hr_employee_views.xml",

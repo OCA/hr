@@ -24,6 +24,8 @@ class TestEmployeeLoan(TransactionCase):
         self.obj_move = self.env["account.move"]
         self.obj_line = self.env["account.move.line"]
         self.obj_period = self.env["account.period"]
+        self.obj_realize = self.env[
+            "hr.loan.realize_interest"]
 
     def _realized_loan(self, loan):
         move = self.obj_move.create({
@@ -93,6 +95,11 @@ class TestEmployeeLoan(TransactionCase):
             "credit": schedule.interest_amount,
         })
         (line + schedule.interest_move_line_id).reconcile_partial()
+
+    def _realize_interest(self, schedule):
+        wizard = self.obj_realize.with_context(
+            active_ids=[schedule.id]).create({})
+        wizard.action_realize()
 
     def _prepare_loan(self,
                       loan_type_id, manual_loan_period=10,
@@ -358,6 +365,7 @@ class TestEmployeeLoan(TransactionCase):
             self.assertEqual(
                 schedule.principle_payment_state,
                 "paid")
+            self._realize_interest(schedule)
             self._pay_interest(schedule)
             self.assertEqual(
                 schedule.interest_payment_state,
@@ -424,6 +432,7 @@ class TestEmployeeLoan(TransactionCase):
             self.assertEqual(
                 schedule.principle_payment_state,
                 "paid")
+            self._realize_interest(schedule)
             self._pay_interest(schedule)
             self.assertEqual(
                 schedule.interest_payment_state,
@@ -490,6 +499,7 @@ class TestEmployeeLoan(TransactionCase):
             self.assertEqual(
                 schedule.principle_payment_state,
                 "paid")
+            self._realize_interest(schedule)
             self._pay_interest(schedule)
             self.assertEqual(
                 schedule.interest_payment_state,

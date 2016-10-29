@@ -433,8 +433,6 @@ class HrLoan(models.Model):
 
         for schedule in self.payment_schedule_ids:
             schedule._create_principle_receivable_move_line()
-            schedule._create_interest_receivable_move_line()
-            schedule._create_interest_income_move_line()
 
     @api.multi
     def _prepare_active_data(self):
@@ -491,7 +489,6 @@ class HrLoan(models.Model):
         if not self.employee_id.address_home_id:
             raise UserError(strWarning)
         return self.employee_id.address_home_id
-
 
     @api.model
     def _prepare_header_move_line(self):
@@ -636,6 +633,20 @@ class HrLoanPaymentSchedule(models.Model):
         related="interest_move_line_id.move_id",
         comodel_name="account.move",
     )
+    state = fields.Selection(
+        string="State",
+        selection=[
+            ("draft", "Draft"),
+            ("confirm", "Waiting for Approval"),
+            ("approve", "Waiting for Realization"),
+            ("active", "Active"),
+            ("done", "Done"),
+            ("cancel", "Cancelled"),
+        ],
+        readonly=True,
+        related="loan_id.state",
+        store=True,
+    )
 
     @api.multi
     def name_get(self):
@@ -645,6 +656,51 @@ class HrLoanPaymentSchedule(models.Model):
                 schedule.loan_id.display_name, schedule.schedule_date)
             res.append((schedule.id, name))
         return res
+
+    @api.multi
+    def action_realize_interest(self, date_realization=False):
+        for schedule in self:
+            self._create_interest_receivable_move(date_realization)
+
+    @api.multi
+    def _prepare_interest_receivable_move(self, date_realization):
+        self.ensure_one()
+        if not date_realization:
+            date_realization = datetime.now().strftime(
+                "%Y-%m-%d")
+        obj_period = self.env["account.period"]
+        loan = self.loan_id
+        res = {
+            "name": "/",
+            "journal_id": loan.loan_type_id.journal_id.id,
+            "date": date_realization,
+            "ref": loan.name,
+            "period_id": obj_period.find(
+                date_realization)[0].id,
+        }
+        return res
+
+    @api.multi
+    def _create_interest_receivable_move(self, date_realization):
+        self.ensure_one()
+        obj_move = self.env[
+            "account.move"]
+        obj_line = self.env[
+            "account.move.line"]
+
+        move = obj_move.create(
+            self._prepare_interest_receivable_move(
+                date_realization))
+
+        line_receivable = obj_line.create(
+            self._prepare_interest_receivable_move_line(
+                move))
+
+        self.interest_move_line_id = line_receivable
+
+        obj_line.create(
+            self._prepare_interest_income_move_line(
+                move))
 
     @api.multi
     def _prepare_principle_receivable_move_line(self):
@@ -673,13 +729,13 @@ class HrLoanPaymentSchedule(models.Model):
         self.principle_move_line_id = line
 
     @api.multi
-    def _prepare_interest_receivable_move_line(self):
+    def _prepare_interest_receivable_move_line(self, move):
         self.ensure_one()
         loan = self.loan_id
         loan_type = loan.loan_type_id
         name = _("%s %s interest receivable") % (loan.name, self.schedule_date)
         res = {
-            "move_id": loan.move_receivable_id.id,
+            "move_id": move.id,
             "name": name,
             "account_id": loan_type.account_interest_id.id,
             "debit": self.interest_amount,
@@ -698,13 +754,13 @@ class HrLoanPaymentSchedule(models.Model):
         self.interest_move_line_id = line
 
     @api.multi
-    def _prepare_interest_income_move_line(self):
+    def _prepare_interest_income_move_line(self, move):
         self.ensure_one()
         loan = self.loan_id
         loan_type = loan.loan_type_id
         name = _("%s %s interest income") % (loan.name, self.schedule_date)
         res = {
-            "move_id": loan.move_receivable_id.id,
+            "move_id": move.id,
             "name": name,
             "account_id": loan_type.account_interest_income_id.id,
             "credit": self.interest_amount,
