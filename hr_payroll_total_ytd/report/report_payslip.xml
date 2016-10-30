@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="report_payslip_amount_ytd" inherit_id="hr_payroll.report_payslip">
+            <xpath expr="//table[@class='table table-condensed']/thead/tr" position="inside">
+                <th style="text-align:right">Total YTD</th>
+            </xpath>
+            <xpath expr="//table[@class='table table-condensed']/tbody/tr" position="inside">
+                <td style="text-align:right">
+                    <span t-esc="line.amount_ytd" t-esc-options='{"widget": "monetary", "display_currency": o.company_id.currency_id}'/>
+                </td>
+            </xpath>
+        </template>
+    </data>
+</openerp>
