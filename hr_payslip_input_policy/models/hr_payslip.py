@@ -29,8 +29,8 @@ class HrPayslipInput(models.Model):
         obj_contract_input = self.env[
             "hr.contract.input_type"]
         criteria = [
-            ("contract_id", "=", self.contract_id),
-            ("code", "=", self.code),
+            ("contract_id", "=", self.contract_id.id),
+            ("input_type_id.code", "=", self.code),
             ]
         contract_input = obj_contract_input.search(
             criteria, limit=1)
