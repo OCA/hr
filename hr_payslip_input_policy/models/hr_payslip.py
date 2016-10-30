@@ -18,7 +18,7 @@ class HrPayslip(models.Model):
     def compute_sheet(self):
         super(HrPayslip, self).compute_sheet()
         self._get_input_from_contract()
-            
+
 
 class HrPayslipInput(models.Model):
     _inherit = "hr.payslip.input"
@@ -31,9 +31,8 @@ class HrPayslipInput(models.Model):
         criteria = [
             ("contract_id", "=", self.contract_id.id),
             ("input_type_id.code", "=", self.code),
-            ]
+        ]
         contract_input = obj_contract_input.search(
             criteria, limit=1)
         if contract_input:
             self.amount = contract_input.amount
-            

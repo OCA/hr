@@ -15,22 +15,23 @@ class HrContractInputType(models.Model):
         comodel_name="hr.contract",
         required=True,
         ondelete="cascade",
-        )
+    )
     input_type_id = fields.Many2one(
         string="Input Type",
         comodel_name="hr.payslip.input_type",
         required=True,
         ondelete="restrict",
-        )
+    )
     amount = fields.Float(
         string="Amount",
         require=True,
-        )
+    )
     _sql_constraints = [
-        ("contract_input_type_unique", 
+        ("contract_input_type_unique",
          "unique(contract_id, input_type_id)",
          _("No duplicate input type"))
-        ]
+    ]
+
 
 class HrContract(models.Model):
     _inherit = "hr.contract"
@@ -39,4 +40,4 @@ class HrContract(models.Model):
         string="Input Types",
         comodel_name="hr.contract.input_type",
         inverse_name="contract_id",
-        )
+    )

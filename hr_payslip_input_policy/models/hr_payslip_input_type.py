@@ -14,20 +14,20 @@ class HrPayslipInputType(models.Model):
         string="Input Type",
         required=True,
         translate=True,
-        )
+    )
     code = fields.Char(
         string="Code",
         required=True,
-        )
+    )
     active = fields.Boolean(
         string="Active",
         default=True,
-        )
+    )
     description = fields.Text(
         string="Description",
         translate=True,
-        )
+    )
 
     _sql_constraints = [
         ("code_unique", "unique(code)", _("Code has to be unique)")),
-        ]
+    ]

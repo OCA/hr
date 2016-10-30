@@ -6,6 +6,7 @@ from openerp.tests.common import TransactionCase
 
 
 class HrPayslip(TransactionCase):
+
     def setUp(self, *args, **kwargs):
         super(HrPayslip, self).setUp(*args, **kwargs)
         self.obj_type = self.env[
@@ -27,36 +28,38 @@ class HrPayslip(TransactionCase):
         self.type1 = self.obj_type.create({
             "code": "X1",
             "name": "Example 1",
-            })
+        })
         self.type2 = self.obj_type.create({
             "code": "X2",
             "name": "Example 2",
-            })
+        })
+        compute1 = "result = inputs.X1 and inputs.X1.amount or 0.0"
         self.rule1 = self.obj_rule.create({
             "name": "X Rule 1",
             "code": "X1",
             "category_id": self.rule_categ.id,
             "condition_select": "none",
             "amount_select": "code",
-            "amount_python_compute": "result = inputs.X1 and inputs.X1.amount or 0.0",
+            "amount_python_compute": compute1,
             "input_ids": [(0, 0, {"code": "X1", "name": "Example 1"})],
-            })
+        })
+        compute2 = "result = inputs.X2 and inputs.X2.amount or 0.0"
         self.rule2 = self.obj_rule.create({
             "name": "X Rule 2",
             "code": "X2",
             "category_id": self.rule_categ.id,
             "condition_select": "none",
             "amount_select": "code",
-            "amount_python_compute": "result = inputs.X2 and inputs.X2.amount or 0.0",
+            "amount_python_compute": compute2,
             "input_ids": [(0, 0, {"code": "X2", "name": "Example 2"})],
-            })
+        })
         self.struct = self.obj_struct.create({
             "name": "X1",
             "code": "X1",
             "parent_id": self.env.ref(
                 "hr_payroll.structure_base").id,
             "rule_ids": [(6, 0, [self.rule1.id, self.rule2.id])],
-            })
+        })
 
     def test_payslip_compute(self):
         contract = self.obj_contract.create({
@@ -67,24 +70,24 @@ class HrPayslip(TransactionCase):
             "input_type_ids": [
                 (0, 0, {"input_type_id": self.type1.id, "amount": 77.0}),
                 (0, 0, {"input_type_id": self.type2.id, "amount": 88.0}),
-                ],
-            })
+            ],
+        })
         payslip = self.obj_payslip.create({
             "employee_id": self.employee.id,
             "contract_id": contract.id,
             "struct_id": self.struct.id,
-            })
+        })
         onchange = payslip.onchange_employee_id(
-                payslip.date_from,
-                payslip.date_to,
-                self.employee.id,
-                contract.id)
+            payslip.date_from,
+            payslip.date_to,
+            self.employee.id,
+            contract.id)
         input_data = []
         for inputs in onchange["value"]["input_line_ids"]:
             input_data.append((0, 0, inputs))
         payslip.write({
             "input_line_ids": input_data,
-            })
+        })
         payslip.compute_sheet()
         self.assertEqual(
             len(payslip.input_line_ids),
