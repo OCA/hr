@@ -13,7 +13,7 @@
         "hr_payroll",
     ],
     "data": [
-        # "security/ir.model.access.csv",
+        "security/ir.model.access.csv",
         "views/hr_payslip_input_type_views.xml",
         "views/hr_contract_views.xml",
     ],
