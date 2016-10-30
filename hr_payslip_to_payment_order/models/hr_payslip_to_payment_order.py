@@ -18,81 +18,80 @@ class HrPayslipToPaymentOrder(models.Model):
             payslip.amount_payment_on_progress = 0.0
             payslip.amount_paid = payslip.amount
             for payment in payslip.payment_order_line_ids:
-                if payment.move_line_id.reconcile_id or payment.move_line_id.reconcile_partial_id:
-                    payslip.amount_paid -= payment.move_line_id.amount_residual
+                line = payment.move_line_id
+                if line.reconcile_id or line.reconcile_partial_id:
+                    payslip.amount_paid -= line.amount_residual
                     continue
 
                 if payment.order_id.state in ["draft", "open"]:
                     payslip.payment_on_progress += 1
                     payslip.amount_payment_on_progress += payment.amount
 
-
-
     company_id = fields.Many2one(
         string="Company",
         comodel_name="res.company",
-        )
+    )
     description = fields.Char(
         string="Description",
-        )
+    )
     payslip_id = fields.Many2one(
         string="Payslip",
         comodel_name="hr.payslip",
-        )
+    )
     payslip_number = fields.Char(
         string="# Payslip",
-        )
+    )
     date_payslip = fields.Date(
         string="Payslip Date",
-        )
+    )
     employee_id = fields.Many2one(
         string="Employee",
         comodel_name="hr.employee",
-        )
+    )
     partner_id = fields.Many2one(
         string="Partner",
         comodel_name="res.partner",
-        )
+    )
     amount = fields.Float(
         string="Amount",
-        )
+    )
     move_line_id = fields.Many2one(
         string="Move Line",
         comodel_name="account.move.line",
-        )
+    )
     bank_id = fields.Many2one(
         string="Bank",
         comodel_name="res.bank",
-        )
+    )
     partner_bank_id = fields.Many2one(
         string="Partner's Bank Account",
         comodel_name="res.partner.bank",
-        )
+    )
     state = fields.Selection(
         string="State",
         selection=[
             ("unpaid", "Unpaid"),
             ("partial", "Partial"),
             ("paid", "Paid"),
-            ],
-        )
+        ],
+    )
     payment_order_line_ids = fields.One2many(
         string="Payment Order Lines",
         comodel_name="payment.line",
         inverse_name="move_line_id",
-        )
+    )
     payment_on_progress = fields.Integer(
         string="Payment on Progress",
         compute="_compute_payment",
-        )
+    )
     amount_payment_on_progress = fields.Float(
         sring="Amount on Progress",
         compute="_compute_payment",
-        )
+    )
     amount_paid = fields.Float(
         sring="Amount Paid",
         compute="_compute_payment",
-        )
+    )
 
     def init(self, cr):
         drop_view_if_exists(cr, "hr_payslip_to_payment_order")
@@ -110,8 +109,8 @@ class HrPayslipToPaymentOrder(models.Model):
                                 c.id AS move_line_id,
                                 i.id AS bank_id,
                                 g.bank_account_id AS partner_bank_id,
-                                CASE 
-                                    WHEN 
+                                CASE
+                                    WHEN
                                         c.reconcile_id IS NOT NULL
                                     THEN
                                         'paid'
@@ -120,7 +119,8 @@ class HrPayslipToPaymentOrder(models.Model):
                                     THEN
                                         'partial'
                                     WHEN
-                                        c.reconcile_id IS NULL AND c.reconcile_id IS NULL
+                                        c.reconcile_id IS NULL
+                                        AND c.reconcile_id IS NULL
                                     THEN
                                         'unpaid'
                                 END AS state
@@ -129,7 +129,8 @@ class HrPayslipToPaymentOrder(models.Model):
                         JOIN    account_move_line AS c ON b.id = c.move_id
                         JOIN    account_account AS d ON c.account_id = d.id
                         JOIN    hr_employee AS g ON a.employee_id = g.id
-                        LEFT JOIN   res_partner_bank AS h ON g.bank_account_id = h.id
+                        LEFT JOIN   res_partner_bank AS h ON
+                            g.bank_account_id = h.id
                         LEFT JOIN   res_bank AS i ON h.bank = i.id
                         WHERE   c.credit > 0.0 AND
                                 c.partner_id IS NOT NULL AND
@@ -168,9 +169,5 @@ class HrPayslipToPaymentOrder(models.Model):
             "date": payment.date_scheduled,
             "state": "normal",
             "partner_id": self.partner_id.id,
-            }
+        }
         return res
-
-
-
-

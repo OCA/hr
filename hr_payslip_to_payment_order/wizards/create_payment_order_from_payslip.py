@@ -21,31 +21,30 @@ class HrCreatePaymentOrderFromPayslip(models.TransientModel):
         comodel_name="res.company",
         required=True,
         default=_default_company_id,
-        )
+    )
     bank_cash = fields.Selection(
         string="Bank/Cash?",
         selection=[
             ("bank", "Bank"),
             ("cash", "Cash"),
-            ],
+        ],
         required=True,
         default="bank",
-        )
+    )
     bank_id = fields.Many2one(
         string="Bank",
         comodel_name="res.bank",
-        )
+    )
     mode_id = fields.Many2one(
         string="Payment Mode",
         comodel_name="payment.mode",
         required=True,
-        )
+    )
     date_prefered = fields.Date(
         string="Payment Date",
         required=True,
         default=datetime.now().strftime("%Y-%m-%d"),
-        )
-
+    )
 
     @api.onchange("bank_cash", "bank_id")
     def onchange_bank_cash(self):
@@ -57,12 +56,12 @@ class HrCreatePaymentOrderFromPayslip(models.TransientModel):
                 ("journal.type", "=", "bank"),
                 ("bank_id.bank", "=", self.bank_id.id),
                 ("company_id", "=", self.company_id.id),
-                ]
+            ]
         else:
             domain = [
                 ("journal.type", "=", "cash"),
                 ("company_id", "=", self.company_id.id),
-                ]
+            ]
         return {"domain": {"mode_id": domain}}
 
     @api.multi
@@ -94,5 +93,5 @@ class HrCreatePaymentOrderFromPayslip(models.TransientModel):
             "mode": self.mode_id.id,
             "user_id": self.mode_id.journal.user_id.id,
             "date_prefered": "fixed",
-            }
+        }
         return res
