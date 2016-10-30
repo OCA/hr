@@ -12,10 +12,9 @@
 Payslip Year-to-date Amount
 ===========================
 This module adds a field in payslip lines for year-to-date amounts.
-
-The year-to-date value is calculated only for the rules that appear on payslip
-after the computation of the payslip.
-
+ * The purpose of this module is to eliminate redondant rules that calculate the year-to-date value of other rules.  
+ * The year-to-date value is calculated only for the rules that appear on payslip
+ * The calculation is done just after payslip computation.
 The purpose of this module is to eliminate redondant rules that calculate
 the year-to-date value of other rules.
 
