@@ -20,4 +20,4 @@ Credits
 
 Contributors
 ------------
- * Bassirou Ndaw <b.ndaw@ergobit.org>
+* Bassirou Ndaw <b.ndaw@ergobit.org>
