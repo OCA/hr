@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2016 OpenSynergy Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<openerp>
+<data>
+
+<record id="hr_payslip_to_payment_order_view_tree" model="ir.ui.view">
+    <field name="name">hr.payslip_to_payment_order tree</field>
+    <field name="model">hr.payslip_to_payment_order</field>
+    <field name="arch" type="xml">
+        <tree string="Payslip to Payment Order" create="false" edit="false" unlink="false">
+            <field name="payslip_id" invisible="1"/>
+            <field name="company_id" groups="base.group_multi_company"/>
+            <field name="payslip_number"/>
+            <field name="date_payslip"/>
+            <field name="description"/>
+            <field name="employee_id"/>
+            <field name="partner_id" invisible="1"/>
+            <field name="move_line_id" invisible="1"/>
+            <field name="bank_id"/>
+            <field name="amount"/>
+            <field name="payment_on_progress"/>
+            <field name="amount_payment_on_progress"/>
+            <field name="amount_paid"/>
+            <field name="state"/>
+        </tree>
+    </field>
+</record>
+
+<record id="hr_payslip_to_payment_order_view_search" model="ir.ui.view">
+    <field name="name">hr.payslip_to_payment_order search</field>
+    <field name="model">hr.payslip_to_payment_order</field>
+    <field name="arch" type="xml">
+        <search string="Payslip to Payment Order">
+            <field name="payslip_id" invisible="1"/>
+            <field name="payslip_number"/>
+            <field name="date_payslip"/>
+            <field name="employee_id"/>
+            <field name="partner_id"/>
+            <field name="date_payslip"/>
+            <filter name="filter_unpaid" string="Unpaid" domain="[('state','=','unpaid')]"/>
+            <filter name="filter_partial" string="Partial" domain="[('state','=','partial')]"/>
+            <filter name="filter_paid" string="Paid" domain="[('state','=','paid')]"/>
+            <group name="group_by" string="Group By..">
+                <filter name="group_employee" string="Employee" context="{'group_by': 'employee_id'}"/>
+                <filter name="group_bank" string="Bank" context="{'group_by': 'bank_id'}"/>
+                <filter name="group_state" string="State" context="{'group_by': 'state'}"/>
+                <separator/>
+                <filter name="group_day" string="Day" context="{'group_by': 'date_payslip:day'}"/>
+                <filter name="group_week" string="Week" context="{'group_by': 'date_payslip:week'}"/>
+                <filter name="group_month" string="Month" context="{'group_by': 'date_payslip:month'}"/>
+                <filter name="group_year" string="Year" context="{'group_by': 'date_payslip:year'}"/>
+            </group>
+        </search>
+    </field>
+</record>
+
+<record id="hr_payslip_to_payment_order_action" model="ir.actions.act_window">
+    <field name="name">Payslip to Payment Order</field>
+    <field name="res_model">hr.payslip_to_payment_order</field>
+    <field name="view_type">form</field>
+    <field name="view_mode">tree</field>
+    <field name="search_view_id" ref="hr_payslip_to_payment_order_view_search"/>
+    <field name="context">{'search_default_filter_unpaid':1, 'search_default_filter_partial':1}</field>
+</record>
+
+<menuitem id="hr_payslip_to_payment_order_menu"
+    name="Payslip to Payment Order"
+    parent="hr_payroll.menu_hr_root_payroll"
+    action="hr_payslip_to_payment_order_action"/>
+
+</data>
+</openerp>

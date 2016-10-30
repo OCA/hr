@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright <YEAR(S)> <AUTHOR(S)>
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<openerp>
+<data>
+
+<record id="create_payment_order_from_payslip_view_form" model="ir.ui.view">
+    <field name="name">hr.create_payment_order_from_payslip form</field>
+    <field name="model">hr.create_payment_order_from_payslip</field>
+    <field name="arch" type="xml">
+        <form string="Create Payment Order From Payslip">
+            <group name="group_main" colspan="4" col="2">
+                <field name="company_id" groups="base.group_multi_company"/>
+                <field name="bank_cash"/>
+                <field name="bank_id" attrs="{'invisible':[('bank_cash','=','cash')],'required':[('bank_cash','=','bank')]}"/>
+                <field name="mode_id"/>
+                <field name="date_prefered"/>
+            </group>
+            <footer>
+                <button name="action_create"
+                        type="object"
+                        string="Create Payment Order"
+                        class="oe_highlight"/>
+                or
+                <button special="cancel"
+                        string="Cancel"/>
+            </footer>
+        </form>
+    </field>
+</record>
+
+<record id="create_payment_order_from_payslip_action" model="ir.actions.act_window">
+    <field name="name">Create Payment Order From Payslip</field>
+    <field name="res_model">hr.create_payment_order_from_payslip</field>
+    <field name="view_type">form</field>
+    <field name="view_mode">form</field>
+    <field name="target">new</field>
+</record>
+
+<act_window name="Create Payment Order From Payslip"
+    res_model="hr.create_payment_order_from_payslip"
+    src_model="hr.payslip_to_payment_order"
+    view_mode="form"
+    target="new"
+    multi="True"
+    key2="client_action_multi"
+    id="create_payment_order_from_payslip_action"/>
+
+</data>
+</openerp>

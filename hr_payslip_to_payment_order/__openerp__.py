@@ -14,5 +14,8 @@
         "account_payment",
     ],
     "data": [
+        "security/ir.model.access.csv",
+        "views/hr_payslip_to_payment_order_views.xml",
+        "wizards/create_payment_order_from_payslip_views.xml",
     ],
 }
