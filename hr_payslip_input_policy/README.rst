@@ -2,55 +2,71 @@
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-==============
-{module_title}
-==============
+====================
+Payslip Input Policy
+====================
 
-This module extends the functionality of ... to support ...
-and to allow you to ...
+This module adds feature to configure predefined values for
+payslip inputs. Predefined value attach to each employee's contract.
+
 
 Installation
 ============
 
 To install this module, you need to:
 
-#. Do this ...
+1.  Clone the branch 8.0 of the repository https://github.com/OCA/hr
+2.  Add the path to this repository in your configuration (addons-path)
+3.  Update the module list
+4.  Go to menu *Setting -> Modules -> Local Modules*
+5.  Search For *Payslip Input Policy*
+6.  Install the module
 
 Configuration
 =============
 
-To configure this module, you need to:
+Configure Input Type
+--------------------
 
-#. Go to ...
+To configure input types, you need to:
 
-.. figure:: path/to/local/image.png
-   :alt: alternative description
-   :width: 600 px
+1. Go to *Human Resources -> Configuration -> Payroll -> Input Type*
+2. Create input type data
+
+Note:
+
+* Input type has to be unique
 
 Usage
 =====
 
-To use this module, you need to:
+Add Predefined Inputs Value On Employee's Contract
+--------------------------------------------------------
 
-#. Go to ...
+You need to:
+
+1. Go to *Human Resources -> Employee -> Contract*
+2. Create/Open contract data
+3. Open *Payslip Input Types* tab
+4. Add predefined payslip input value
+
+Use Predefined Payslip Input
+----------------------------
+
+No special action. Each time (1) payslip created, or (2) user compute
+payslip, Odoo will search predefined payslip input value based on
+(1) payslip's contract information, and (2) input type's code.
+
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
-   :target: https://runbot.odoo-community.org/runbot/{repo_id}/{branch}
-
-.. repo_id is available in https://github.com/OCA/maintainer-tools/blob/master/tools/repos_with_ids.txt
-.. branch is "8.0" for example
-
-Known issues / Roadmap
-======================
-
-* ...
+   :target: https://runbot.odoo-community.org/runbot/116/8.0
 
 Bug Tracker
 ===========
 
 Bugs are tracked on `GitHub Issues
-<https://github.com/OCA/{project_repo}/issues>`_. In case of trouble, please
+<https://github.com/OCA/hr/issues>`_. In case of trouble, please
 check there if your issue has already been reported. If you spotted it first,
 help us smashing it by providing a detailed and welcomed feedback.
 
@@ -65,8 +81,7 @@ Images
 Contributors
 ------------
 
-* Firstname Lastname <email.address@example.org>
-* Second Person <second.person@example.org>
+* Andhitia Rama <andhitia.r@gmail.com>
 
 Maintainer
 ----------
