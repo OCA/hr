@@ -9,10 +9,10 @@ HR Payslip Total Year-To-Date
 Add the year-to-date total on the payslip.
 
 This module is a fork:
- * We fork this module https://github.com/savoirfairelinux/odoo_payroll/tree/9.0/payroll_amount_ytd
- * We upgrade it to Odoo 10.0
- * We remove all dependencies to make it usable with Odoo core module hr_payroll
- * This module sums up the field total while the forked module sums up the field amount
+* We fork module https://github.com/savoirfairelinux/odoo_payroll/tree/9.0/payroll_amount_ytd
+* We upgrade it to Odoo 10.0
+* We remove all dependencies and make it usable with Odoo core module hr_payroll
+* This module sums up the field total while the forked module sums up the field amount
 
 
 Credits
@@ -20,4 +20,4 @@ Credits
 
 Contributors
 ------------
-* Bassirou Ndaw <bassirou.ndaw@ergobit.org>
+* Bassirou Ndaw <b.ndaw@ergobit.org>
