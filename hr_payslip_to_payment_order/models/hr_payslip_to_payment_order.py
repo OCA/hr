@@ -11,6 +11,13 @@ class HrPayslipToPaymentOrder(models.Model):
     _description = "Payslip to Payment Order"
     _auto = False
 
+    @api.depends(
+        "payment_order_line_ids",
+        "payment_order_line_ids.order_id.state",
+        "payment_order_line_ids.amount",
+        "payment_order_line_ids.move_line_id.reconcile_id",
+        "payment_order_line_ids.move_line_id.reconcile_partial_id",
+        )
     @api.multi
     def _compute_payment(self):
         for payslip in self:

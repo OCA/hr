@@ -135,8 +135,8 @@ class PayslipToPaymentCase(TransactionCase):
             p2ps[0].amount_payment_on_progress,
             7000.00)
         self.assertEqual(
-            p2ps[1].payment_on_progress,
+            p2ps[2].payment_on_progress,
             1)
         self.assertEqual(
-            p2ps[1].amount_payment_on_progress,
+            p2ps[2].amount_payment_on_progress,
             8000.00)
