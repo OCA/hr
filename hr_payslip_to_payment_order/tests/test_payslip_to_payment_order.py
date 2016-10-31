@@ -6,6 +6,7 @@ from openerp.tests.common import TransactionCase
 
 
 class PayslipToPaymentCase(TransactionCase):
+
     def setUp(self, *args, **kwargs):
         super(PayslipToPaymentCase, self).setUp(*args, **kwargs)
 
@@ -17,10 +18,10 @@ class PayslipToPaymentCase(TransactionCase):
             "hr.create_payment_order_from_payslip"]
         self.partner1 = self.env[
             "res.partner"].create(
-                    {"name": "X Partner 1"})
+            {"name": "X Partner 1"})
         self.partner2 = self.env[
             "res.partner"].create(
-                    {"name": "X Partner 2"})
+            {"name": "X Partner 2"})
         self.partner_bank1 = self.env[
             "res.partner.bank"].create({
                 "name": "X Bank1",
@@ -29,7 +30,7 @@ class PayslipToPaymentCase(TransactionCase):
                 "partner_id": self.partner1.id,
                 "state": self.env[
                     "res.partner.bank.type"].search([], limit=1).code,
-                })
+            })
         self.employee1 = self.env.ref(
             "hr.employee_al")
         self.employee2 = self.env.ref(
@@ -37,10 +38,10 @@ class PayslipToPaymentCase(TransactionCase):
         self.employee1.write({
             "bank_account_id": self.partner_bank1.id,
             "address_home_id": self.partner1.id,
-            })
+        })
         self.employee2.write({
             "address_home_id": self.partner2.id,
-            })
+        })
         self.struct = self.env.ref(
             "hr_payroll.structure_base")
         self.rule1 = self.env.ref(
@@ -50,7 +51,7 @@ class PayslipToPaymentCase(TransactionCase):
                 "account.a_salary_expense").id,
             "account_credit": self.env.ref(
                 "account.a_pay").id,
-            })
+        })
         self.contract1 = self.env["hr.contract"].create({
             "name": "X Contract 1",
             "employee_id": self.employee1.id,
@@ -58,7 +59,7 @@ class PayslipToPaymentCase(TransactionCase):
             "struct_id": self.struct.id,
             "date_start": self.env.ref(
                 "account.data_fiscalyear").date_start,
-            })
+        })
         self.contract2 = self.env["hr.contract"].create({
             "name": "X Contract 2",
             "employee_id": self.employee2.id,
@@ -66,7 +67,7 @@ class PayslipToPaymentCase(TransactionCase):
             "struct_id": self.struct.id,
             "date_start": self.env.ref(
                 "account.data_fiscalyear").date_start,
-            })
+        })
         self.period1 = self.env.ref(
             "account.period_7")
         self.period2 = self.env.ref(
@@ -80,22 +81,22 @@ class PayslipToPaymentCase(TransactionCase):
             "date_to": period.date_stop,
             "contract_id": contract.id,
             "struct_id": contract.struct_id.id,
-            }
+        }
         return res
 
     def test_1(self):
         payslip1 = self.obj_payslip.create(
-                self._prepare_payslip(
-                    self.employee1, self.period1, self.contract1))
+            self._prepare_payslip(
+                self.employee1, self.period1, self.contract1))
         payslip2 = self.obj_payslip.create(
-                self._prepare_payslip(
-                    self.employee1, self.period2, self.contract1))
+            self._prepare_payslip(
+                self.employee1, self.period2, self.contract1))
         payslip3 = self.obj_payslip.create(
-                self._prepare_payslip(
-                    self.employee2, self.period1, self.contract2))
+            self._prepare_payslip(
+                self.employee2, self.period1, self.contract2))
         payslip4 = self.obj_payslip.create(
-                self._prepare_payslip(
-                    self.employee2, self.period2, self.contract2))
+            self._prepare_payslip(
+                self.employee2, self.period2, self.contract2))
         payslips = payslip1 + payslip2 + payslip3 + payslip4
         payslips.signal_workflow("hr_verify_sheet")
         p2ps = self.obj_payslip_2_payment.search([])
@@ -119,13 +120,13 @@ class PayslipToPaymentCase(TransactionCase):
                 0)
 
         wizard = self.obj_wizard.with_context(
-                active_ids=[p2ps[0].id, p2ps[2].id]).create({
-                    "bank_cash": "bank",
-                    "bank_id": self.env.ref(
-                        "base.res_bank_1").id,
-                    "mode_id": self.env.ref(
-                        "account_payment.payment_mode_1").id,
-                    })
+            active_ids=[p2ps[0].id, p2ps[2].id]).create({
+                "bank_cash": "bank",
+                "bank_id": self.env.ref(
+                    "base.res_bank_1").id,
+                "mode_id": self.env.ref(
+                    "account_payment.payment_mode_1").id,
+            })
         wizard.action_create()
         self.assertEqual(
             p2ps[0].payment_on_progress,
