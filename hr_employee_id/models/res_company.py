@@ -24,6 +24,6 @@ class ResCompany(models.Model):
     )
     employee_id_sequence = fields.Many2one(
         comodel_name='ir.sequence',
-        string='Sequence',
-        help="Pattern to be used for used for ID Generation"
+        string='Employee ID Sequence',
+        help="Pattern to be used for employee ID Generation"
     )

@@ -47,6 +47,7 @@ class HumanResourcesConfiguration(models.TransientModel):
         default=_default_id_random_digits
     )
     employee_id_sequence = fields.Many2one(
+        'ir.sequence',
         related='company_id.employee_id_sequence',
         default=_default_id_sequence
     )
