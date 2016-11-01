@@ -48,6 +48,11 @@ assigned automatically with the next number of the predefined sequence.
    :alt: Try me on Runbot
    :target: https://runbot.odoo-community.org/runbot/116/10.0
 
+Known issues / Roadmap
+======================
+
+* When installing the module, the ID of existing employees is not generated automatically
+
 Bug Tracker
 ===========
 
