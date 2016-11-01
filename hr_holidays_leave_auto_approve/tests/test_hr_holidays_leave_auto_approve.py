@@ -61,7 +61,7 @@ class TestHolidaysAutoApprove(TransactionCase):
     def test_leave_requests_state(self):
 
         # Validate the leave_allocation2
-        self.leave_allocation2.signal_workflow('validate')
+        self.leave_allocation2.action_approve()
 
         # Check for leave_allocation2 state
         self.assertEqual(self.leave_allocation2.state, 'validate')
