@@ -2,7 +2,6 @@
 # Copyright 2016 Trobz
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from datetime import timedelta
 import logging
 
 from odoo import api, models, fields
@@ -56,7 +55,7 @@ class PublicHolidaysNextYearWizard(models.TransientModel):
                 last_ph_line.copy(new_ph_line_vals)
 
         domain = [['id', 'in', new_ph_ids]]
-        print domain
+
         action = {
             'type': 'ir.actions.act_window',
             'name': 'New public holidays',
