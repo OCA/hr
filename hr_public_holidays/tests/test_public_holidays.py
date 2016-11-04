@@ -2,8 +2,8 @@
 # ©  2015 Salton Massally <smassally@idtlabs.sl>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from openerp.tests import common
-from openerp.exceptions import ValidationError
+from odoo.exceptions import ValidationError
+from odoo.tests import common
 
 
 class TestPublicHolidays(common.TransactionCase):
@@ -13,6 +13,7 @@ class TestPublicHolidays(common.TransactionCase):
         self.holiday_model = self.env["hr.holidays.public"]
         self.holiday_model_line = self.env["hr.holidays.public.line"]
         self.employee_model = self.env['hr.employee']
+        self.wizard_next_year = self.env['public.holidays.next.year.wizard']
 
         # Create holidays
         holiday2 = self.holiday_model.create({
@@ -130,5 +131,12 @@ class TestPublicHolidays(common.TransactionCase):
         # ensures that correct holidays are identified for a country
         lines = self.holiday_model.get_holidays_list(1995)
         res = lines.filtered(lambda r: r.date == '1995-10-14')
+        self.assertEqual(len(res), 1)
+        self.assertEqual(len(lines), 3)
+
+    def test_create_next_year_public_holidays(self):
+        self.wizard_next_year.create_next_year_public_holidays()
+        lines = self.holiday_model.get_holidays_list(1996)
+        res = lines.filtered(lambda r: r.date == '1996-10-14')
         self.assertEqual(len(res), 1)
         self.assertEqual(len(lines), 3)

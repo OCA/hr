@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2016 Trobz
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+<record id="public_holidays_next_year_wizard_view" model="ir.ui.view">
+    <field name="name">Create Next Year Public Holidays</field>
+    <field name="model">public.holidays.next.year.wizard</field>
+    <field name="arch" type="xml">
+        <form string="Create Next Year Public Holidays">
+            <footer>
+                <button name="create_next_year_public_holidays" string="Create" type="object" class="btn-primary"/>
+                <button string="Cancel" class="btn-default" special="cancel" />
+            </footer>
+        </form>
+    </field>
+</record>
+
+<record id="action_create_next_year_public_holidays" model="ir.actions.act_window">
+    <field name="name">Create Next Year Public Holidays</field>
+    <field name="res_model">public.holidays.next.year.wizard</field>
+    <field name="view_type">form</field>
+    <field name="view_mode">form</field>
+    <field name="target">new</field>
+</record>
+
+<menuitem action="action_create_next_year_public_holidays"
+          id="menu_create_next_year_public_holidays"
+          parent="hr.menu_human_resources_configuration"
+          groups="hr.group_hr_manager"
+          sequence="30"/>
+
+
+</odoo>
