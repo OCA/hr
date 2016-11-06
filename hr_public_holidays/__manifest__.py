@@ -13,6 +13,7 @@
     'website': 'http://miketelahun.wordpress.com',
     'depends': [
         'hr',
+        'hr_holidays',
     ],
     'data': [
         'security/ir.model.access.csv',
