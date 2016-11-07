@@ -44,9 +44,6 @@ class PublicHolidaysNextYearWizard(models.TransientModel):
 
         for ph in pholidays:
 
-            # curr_country = ph.country_id # and ph.country_id.id or NO_COUNTRY
-
-            # last_ph_country = last_ph_dict.get(curr_country, False)
             last_ph_country = last_ph_dict.get(ph.country_id, False)
 
             if last_ph_country:
