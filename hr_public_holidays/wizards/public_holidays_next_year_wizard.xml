@@ -9,8 +9,43 @@
     <field name="model">public.holidays.next.year.wizard</field>
     <field name="arch" type="xml">
         <form string="Create Next Year Public Holidays">
+            <sheet>
+                <div>
+                        Use this wizard to create pulic holidays based on the 
+                        existing ones.<br/>
+                        Only the last templates of each country 
+                        will be taken into account (If you select templates 
+                        from 2012 and 2015 of the same country; '
+                        only the templates from 2015 will be taken into 
+                        account).
+                </div>
+                <group>
+                    
+                    <group string="Defaults">
+                        <div>     
+                        Normally, you should not need to input anything in 
+                        optional fields and only need to click on the button 
+                        "Create".<br/>
+                        By default, the most recent public holidays 
+                        for each country are used as template to create  
+                        public holidays for the year following the templates.
+                        </div> 
+                    </group>
+                    <group string="Optional">
+                        <div colspan="2">
+                        The below optional fields are here only to handle 
+                        special situtaions like "2016 was a special year with 
+                        an additional public holiday for the 150th 
+                        anniversary of the Italian unification, so you want to 
+                        replicate the 2015 Italian holidays to 2017."
+                        </div>
+                        <field name="template_ids" />
+                        <field name="year" />
+                    </group>
+                </group>
+            </sheet>
             <footer>
-                <button name="create_next_year_public_holidays" string="Create" type="object" class="btn-primary"/>
+                <button name="create_public_holidays" string="Create" type="object" class="btn-primary"/>
                 <button string="Cancel" class="btn-default" special="cancel" />
             </footer>
         </form>
