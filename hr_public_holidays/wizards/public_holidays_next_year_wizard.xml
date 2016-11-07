@@ -41,9 +41,9 @@
                         replicate the 2010 Italian holidays to 2012."
                         </div>
                         <group>
-	                        <field name="template_ids" />
-	                        <field name="year" />
-	                    </group>
+                            <field name="template_ids" />
+                            <field name="year" />
+                        </group>
                     </page>
                 </notebook>
                 
