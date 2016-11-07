@@ -73,11 +73,9 @@ class PublicHolidaysNextYearWizard(models.TransientModel):
                     ph_line_date.day == 29)
 
                 if feb_29:
-                    '''
-                    Handling this rare case would mean quite a lot of
-                    complexity because previous or next day might also be a
-                    public holiday.
-                    '''
+                    # Handling this rare case would mean quite a lot of
+                    # complexity because previous or next day might also be a
+                    # public holiday.
                     raise UserError(_(
                         'You cannot use as template the public holidays '
                         'of a year that '
