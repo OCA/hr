@@ -3,7 +3,7 @@
 # © 2016 OpenSynergy Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from openerp import models, fields
+from odoo import models, fields
 
 
 class ResCompany(models.Model):
@@ -24,6 +24,6 @@ class ResCompany(models.Model):
     )
     employee_id_sequence = fields.Many2one(
         comodel_name='ir.sequence',
-        string='Sequence',
-        help="Pattern to be used for used for ID Generation",
+        string='Employee ID Sequence',
+        help="Pattern to be used for employee ID Generation"
     )

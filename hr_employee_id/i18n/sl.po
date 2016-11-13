@@ -3,15 +3,15 @@
 # * hr_employee_id
 # 
 # Translators:
-# Matjaž Mozetič <m.mozetic@matmoz.si>, 2016
+# OCA Transbot <transbot@odoo-community.org>, 2016
 msgid ""
 msgstr ""
-"Project-Id-Version: hr (8.0)\n"
+"Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-11 01:48+0000\n"
-"PO-Revision-Date: 2016-03-10 05:41+0000\n"
-"Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>\n"
-"Language-Team: Slovenian (http://www.transifex.com/oca/OCA-hr-8-0/language/sl/)\n"
+"POT-Creation-Date: 2017-03-03 03:37+0000\n"
+"PO-Revision-Date: 2017-03-03 03:37+0000\n"
+"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2016\n"
+"Language-Team: Slovenian (https://www.transifex.com/oca/teams/23907/sl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -19,10 +19,27 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
 
 #. module: hr_employee_id
-#: field:hr.config.settings,employee_id_random_digits:0
-#: field:res.company,employee_id_random_digits:0
+#: model:ir.model.fields,field_description:hr_employee_id.field_hr_employeeid_config_settings_employee_id_random_digits
+#: model:ir.model.fields,field_description:hr_employee_id.field_res_company_employee_id_random_digits
 msgid "# of Digits"
 msgstr "Št. znakov"
+
+#. module: hr_employee_id
+#: model:ir.ui.view,arch_db:hr_employee_id.view_human_resources_employeeid_configuration
+msgid ""
+"<span>(*) This configuration is related to the company you're logged "
+"into.</span>"
+msgstr ""
+
+#. module: hr_employee_id
+#: model:ir.ui.view,arch_db:hr_employee_id.view_human_resources_employeeid_configuration
+msgid "Apply"
+msgstr ""
+
+#. module: hr_employee_id
+#: model:ir.ui.view,arch_db:hr_employee_id.view_human_resources_employeeid_configuration
+msgid "Cancel"
+msgstr ""
 
 #. module: hr_employee_id
 #: model:ir.model,name:hr_employee_id.model_res_company
@@ -30,45 +47,97 @@ msgid "Companies"
 msgstr "Družbe"
 
 #. module: hr_employee_id
+#: model:ir.model.fields,field_description:hr_employee_id.field_hr_employeeid_config_settings_company_id
+msgid "Company"
+msgstr ""
+
+#. module: hr_employee_id
+#: model:ir.actions.act_window,name:hr_employee_id.action_human_resources_employeeid_config
+#: model:ir.ui.view,arch_db:hr_employee_id.view_human_resources_employeeid_configuration
+msgid "Configure Employee ID"
+msgstr ""
+
+#. module: hr_employee_id
+#: model:ir.model.fields,field_description:hr_employee_id.field_hr_employeeid_config_settings_create_uid
+msgid "Created by"
+msgstr "Ustvaril"
+
+#. module: hr_employee_id
+#: model:ir.model.fields,field_description:hr_employee_id.field_hr_employeeid_config_settings_create_date
+msgid "Created on"
+msgstr "Ustvarjeno"
+
+#. module: hr_employee_id
+#: model:ir.model.fields,field_description:hr_employee_id.field_hr_employeeid_config_settings_display_name
+msgid "Display Name"
+msgstr "Prikazni naziv"
+
+#. module: hr_employee_id
 #: model:ir.model,name:hr_employee_id.model_hr_employee
 msgid "Employee"
 msgstr "Kader"
 
 #. module: hr_employee_id
-#: view:hr.config.settings:hr_employee_id.view_human_resources_configuration
-#: view:res.company:hr_employee_id.view_company_form
+#: model:ir.ui.menu,name:hr_employee_id.menu_account_config
 msgid "Employee ID"
 msgstr "ID kadra"
 
 #. module: hr_employee_id
-#: field:hr.config.settings,employee_id_gen_method:0
-#: field:res.company,employee_id_gen_method:0
+#: model:ir.ui.view,arch_db:hr_employee_id.view_human_resources_employeeid_configuration
+msgid "Employee ID *"
+msgstr ""
+
+#. module: hr_employee_id
+#: model:ir.model.fields,field_description:hr_employee_id.field_hr_employeeid_config_settings_employee_id_sequence
+#: model:ir.model.fields,field_description:hr_employee_id.field_res_company_employee_id_sequence
+msgid "Employee ID Sequence"
+msgstr ""
+
+#. module: hr_employee_id
+#: model:ir.model.fields,field_description:hr_employee_id.field_hr_employeeid_config_settings_id
+msgid "ID"
+msgstr "ID"
+
+#. module: hr_employee_id
+#: model:ir.model.fields,field_description:hr_employee_id.field_hr_employeeid_config_settings_employee_id_gen_method
+#: model:ir.model.fields,field_description:hr_employee_id.field_res_company_employee_id_gen_method
 msgid "ID Generation Method"
 msgstr "Metoda ustvarjanja ID"
 
 #. module: hr_employee_id
-#: help:hr.config.settings,employee_id_random_digits:0
-#: help:res.company,employee_id_random_digits:0
+#: model:ir.model.fields,field_description:hr_employee_id.field_hr_employeeid_config_settings___last_update
+msgid "Last Modified on"
+msgstr "Zadnjič spremenjeno"
+
+#. module: hr_employee_id
+#: model:ir.model.fields,field_description:hr_employee_id.field_hr_employeeid_config_settings_write_uid
+msgid "Last Updated by"
+msgstr "Zadnjič posodobil"
+
+#. module: hr_employee_id
+#: model:ir.model.fields,field_description:hr_employee_id.field_hr_employeeid_config_settings_write_date
+msgid "Last Updated on"
+msgstr "Zadnjič posodobljeno"
+
+#. module: hr_employee_id
+#: model:ir.model.fields,help:hr_employee_id.field_hr_employeeid_config_settings_employee_id_random_digits
+#: model:ir.model.fields,help:hr_employee_id.field_res_company_employee_id_random_digits
 msgid "Number of digits making up the ID"
 msgstr "Število znakov, ki sestavlja ID"
 
 #. module: hr_employee_id
-#: help:hr.config.settings,employee_id_sequence:0
-#: help:res.company,employee_id_sequence:0
-msgid "Pattern to be used for used for ID Generation"
+#: model:ir.model.fields,help:hr_employee_id.field_hr_employeeid_config_settings_employee_id_sequence
+#: model:ir.model.fields,help:hr_employee_id.field_res_company_employee_id_sequence
+msgid "Pattern to be used for employee ID Generation"
 msgstr "Vzorec uporabljen za ustvarjanje ID"
 
 #. module: hr_employee_id
-#: selection:hr.config.settings,employee_id_gen_method:0
 #: selection:res.company,employee_id_gen_method:0
 msgid "Random"
 msgstr "Naključno"
 
 #. module: hr_employee_id
-#: selection:hr.config.settings,employee_id_gen_method:0
-#: field:hr.config.settings,employee_id_sequence:0
 #: selection:res.company,employee_id_gen_method:0
-#: field:res.company,employee_id_sequence:0
 msgid "Sequence"
 msgstr "Zaporedje"
 
@@ -83,3 +152,8 @@ msgstr "Številka kadra mora biti unikatna v sklopu družbe (družb)."
 msgid ""
 "Unable to generate an Employee ID number that                 is unique."
 msgstr "Ni možno ustvariti ID številke kadra, ki bi bila unikatna."
+
+#. module: hr_employee_id
+#: model:ir.model,name:hr_employee_id.model_hr_employeeid_config_settings
+msgid "hr.employeeid.config.settings"
+msgstr ""
