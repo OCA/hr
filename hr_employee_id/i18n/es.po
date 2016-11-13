@@ -3,14 +3,16 @@
 # * hr_employee_id
 # 
 # Translators:
+# OCA Transbot <transbot@odoo-community.org>, 2016
+# José Antonio Cuello <jcuello@artextrading.com>, 2016
 msgid ""
 msgstr ""
-"Project-Id-Version: hr (8.0)\n"
+"Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-11 01:48+0000\n"
-"PO-Revision-Date: 2016-03-09 14:56+0000\n"
-"Last-Translator: <>\n"
-"Language-Team: Spanish (http://www.transifex.com/oca/OCA-hr-8-0/language/es/)\n"
+"POT-Creation-Date: 2016-11-29 01:35+0000\n"
+"PO-Revision-Date: 2016-11-29 01:35+0000\n"
+"Last-Translator: José Antonio Cuello <jcuello@artextrading.com>, 2016\n"
+"Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -18,10 +20,29 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: hr_employee_id
-#: field:hr.config.settings,employee_id_random_digits:0
-#: field:res.company,employee_id_random_digits:0
+#: model:ir.model.fields,field_description:hr_employee_id.field_hr_employeeid_config_settings_employee_id_random_digits
+#: model:ir.model.fields,field_description:hr_employee_id.field_res_company_employee_id_random_digits
 msgid "# of Digits"
+msgstr "# de Digitos"
+
+#. module: hr_employee_id
+#: model:ir.ui.view,arch_db:hr_employee_id.view_human_resources_employeeid_configuration
+msgid ""
+"<span>(*) This configuration is related to the company you're logged "
+"into.</span>"
 msgstr ""
+"<span>(*) Esta configuración es relativa a la compañía donde estas "
+"conectado.</span>"
+
+#. module: hr_employee_id
+#: model:ir.ui.view,arch_db:hr_employee_id.view_human_resources_employeeid_configuration
+msgid "Apply"
+msgstr "Aplicar"
+
+#. module: hr_employee_id
+#: model:ir.ui.view,arch_db:hr_employee_id.view_human_resources_employeeid_configuration
+msgid "Cancel"
+msgstr "Cancelar"
 
 #. module: hr_employee_id
 #: model:ir.model,name:hr_employee_id.model_res_company
@@ -29,56 +50,113 @@ msgid "Companies"
 msgstr "Compañías"
 
 #. module: hr_employee_id
+#: model:ir.model.fields,field_description:hr_employee_id.field_hr_employeeid_config_settings_company_id
+msgid "Company"
+msgstr "Compañía"
+
+#. module: hr_employee_id
+#: model:ir.actions.act_window,name:hr_employee_id.action_human_resources_employeeid_config
+#: model:ir.ui.view,arch_db:hr_employee_id.view_human_resources_employeeid_configuration
+msgid "Configure Employee ID"
+msgstr "Configurar ID de empleado"
+
+#. module: hr_employee_id
+#: model:ir.model.fields,field_description:hr_employee_id.field_hr_employeeid_config_settings_create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: hr_employee_id
+#: model:ir.model.fields,field_description:hr_employee_id.field_hr_employeeid_config_settings_create_date
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: hr_employee_id
+#: model:ir.model.fields,field_description:hr_employee_id.field_hr_employeeid_config_settings_display_name
+msgid "Display Name"
+msgstr "Mostrar nombre"
+
+#. module: hr_employee_id
 #: model:ir.model,name:hr_employee_id.model_hr_employee
 msgid "Employee"
 msgstr "Empleado"
 
 #. module: hr_employee_id
-#: view:hr.config.settings:hr_employee_id.view_human_resources_configuration
-#: view:res.company:hr_employee_id.view_company_form
+#: model:ir.ui.menu,name:hr_employee_id.menu_account_config
 msgid "Employee ID"
-msgstr ""
+msgstr "ID de empleado"
 
 #. module: hr_employee_id
-#: field:hr.config.settings,employee_id_gen_method:0
-#: field:res.company,employee_id_gen_method:0
+#: model:ir.ui.view,arch_db:hr_employee_id.view_human_resources_employeeid_configuration
+msgid "Employee ID *"
+msgstr "ID de empleado*"
+
+#. module: hr_employee_id
+#: model:ir.model.fields,field_description:hr_employee_id.field_hr_employeeid_config_settings_employee_id_sequence
+#: model:ir.model.fields,field_description:hr_employee_id.field_res_company_employee_id_sequence
+msgid "Employee ID Sequence"
+msgstr "Secuencia del ID de empleado"
+
+#. module: hr_employee_id
+#: model:ir.model.fields,field_description:hr_employee_id.field_hr_employeeid_config_settings_id
+msgid "ID"
+msgstr "ID"
+
+#. module: hr_employee_id
+#: model:ir.model.fields,field_description:hr_employee_id.field_hr_employeeid_config_settings_employee_id_gen_method
+#: model:ir.model.fields,field_description:hr_employee_id.field_res_company_employee_id_gen_method
 msgid "ID Generation Method"
-msgstr ""
+msgstr "Método de generación del ID"
 
 #. module: hr_employee_id
-#: help:hr.config.settings,employee_id_random_digits:0
-#: help:res.company,employee_id_random_digits:0
+#: model:ir.model.fields,field_description:hr_employee_id.field_hr_employeeid_config_settings___last_update
+msgid "Last Modified on"
+msgstr "Última modificación el"
+
+#. module: hr_employee_id
+#: model:ir.model.fields,field_description:hr_employee_id.field_hr_employeeid_config_settings_write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: hr_employee_id
+#: model:ir.model.fields,field_description:hr_employee_id.field_hr_employeeid_config_settings_write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: hr_employee_id
+#: model:ir.model.fields,help:hr_employee_id.field_hr_employeeid_config_settings_employee_id_random_digits
+#: model:ir.model.fields,help:hr_employee_id.field_res_company_employee_id_random_digits
 msgid "Number of digits making up the ID"
-msgstr ""
+msgstr "Número de dígitos que componen el ID"
 
 #. module: hr_employee_id
-#: help:hr.config.settings,employee_id_sequence:0
-#: help:res.company,employee_id_sequence:0
-msgid "Pattern to be used for used for ID Generation"
-msgstr ""
+#: model:ir.model.fields,help:hr_employee_id.field_hr_employeeid_config_settings_employee_id_sequence
+#: model:ir.model.fields,help:hr_employee_id.field_res_company_employee_id_sequence
+msgid "Pattern to be used for employee ID Generation"
+msgstr "Patrón a usar para la creación del ID de empleado"
 
 #. module: hr_employee_id
-#: selection:hr.config.settings,employee_id_gen_method:0
 #: selection:res.company,employee_id_gen_method:0
 msgid "Random"
-msgstr ""
+msgstr "Aleatorio"
 
 #. module: hr_employee_id
-#: selection:hr.config.settings,employee_id_gen_method:0
-#: field:hr.config.settings,employee_id_sequence:0
 #: selection:res.company,employee_id_gen_method:0
-#: field:res.company,employee_id_sequence:0
 msgid "Sequence"
 msgstr "Secuencia"
 
 #. module: hr_employee_id
 #: sql_constraint:hr.employee:0
 msgid "The Employee Number must be unique across the company(s)."
-msgstr ""
+msgstr "El ID de empleado debe ser único en la(s) compañía(s)"
 
 #. module: hr_employee_id
 #: code:addons/hr_employee_id/models/hr_employee.py:50
 #, python-format
 msgid ""
 "Unable to generate an Employee ID number that                 is unique."
-msgstr ""
+msgstr "No es posible crear un ID de empleado que sea único."
+
+#. module: hr_employee_id
+#: model:ir.model,name:hr_employee_id.model_hr_employeeid_config_settings
+msgid "hr.employeeid.config.settings"
+msgstr "hr.employeeid.config.settings"
