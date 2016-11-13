@@ -3,53 +3,51 @@
 # © 2016 OpenSynergy Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from openerp import models, fields, api
+from odoo import models, fields
 
 
 class HumanResourcesConfiguration(models.TransientModel):
-    _inherit = 'hr.config.settings'
+    _inherit = 'res.config.settings'
+    _name = 'hr.employeeid.config.settings'
+
+    def _default_id_gen_method(self):
+        gen_method = self.env.user.company_id.employee_id_gen_method
+        if not gen_method:
+            gen_method = self.env['res.company'].default_get(
+                ['employee_id_gen_method']
+            )['employee_id_gen_method']
+        return gen_method
+
+    def _default_id_random_digits(self):
+        digits = self.env.user.company_id.employee_id_random_digits
+        if not digits:
+            digits = self.env['res.company'].default_get(
+                ['employee_id_random_digits']
+            )['employee_id_random_digits']
+        return digits
 
     def _default_id_sequence(self):
-        sequence = self.env.ref('hr_employee_id.seq_employeeid_ref')
+        sequence = self.env.user.company_id.employee_id_sequence
+        if not sequence:
+            sequence = self.env.ref('hr_employee_id.seq_employeeid_ref')
         return sequence and sequence.id or False
 
+    company_id = fields.Many2one(
+        'res.company',
+        string='Company',
+        required=True,
+        default=lambda self: self.env.user.company_id)
+
     employee_id_gen_method = fields.Selection(
-        selection=[
-            ('random', 'Random'),
-            ('sequence', 'Sequence'),
-        ],
-        string="ID Generation Method",
-        default='random'
+        related='company_id.employee_id_gen_method',
+        default=_default_id_gen_method
     )
     employee_id_random_digits = fields.Integer(
-        string='# of Digits',
-        default=5,
-        help="Number of digits making up the ID"
+        related='company_id.employee_id_random_digits',
+        default=_default_id_random_digits
     )
     employee_id_sequence = fields.Many2one(
-        comodel_name='ir.sequence',
-        string='Sequence',
-        help="Pattern to be used for used for ID Generation",
+        'ir.sequence',
+        related='company_id.employee_id_sequence',
         default=_default_id_sequence
     )
-
-    @api.model
-    def get_default_employee_id_values(self, fields):
-        company = self.env.user.company_id
-        return {
-            'employee_id_gen_method': company.employee_id_gen_method,
-            'employee_id_random_digits': company.employee_id_random_digits,
-            'employee_id_sequence': company.employee_id_sequence.id,
-        }
-
-    @api.one
-    def set_employee_id_values(self):
-        company = self.env.user.company_id
-        company.employee_id_gen_method = self.employee_id_gen_method
-        company.employee_id_random_digits = self.employee_id_random_digits
-        company.employee_id_sequence = self.employee_id_sequence
-
-    @api.onchange('employee_id_gen_method')
-    def onchange_employee_id_gen_method(self):
-        if self.employee_id_gen_method == 'sequence':
-            self.employee_id_sequence = self._default_id_sequence()
