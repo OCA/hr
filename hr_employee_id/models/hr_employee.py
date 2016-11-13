@@ -5,8 +5,8 @@
 
 import random
 import string
-from openerp import models, fields, api, _
-from openerp.exceptions import Warning as UserWarning
+from odoo import models, fields, api, _
+from odoo.exceptions import Warning as UserWarning
 
 
 class HrEmployee(models.Model):
