@@ -55,7 +55,7 @@ msgstr ""
 #. module: hr_employee_id
 #: help:hr.config.settings,employee_id_sequence:0
 #: help:res.company,employee_id_sequence:0
-msgid "Pattern to be used for used for ID Generation"
+msgid "Pattern to be used for employee ID Generation"
 msgstr ""
 
 #. module: hr_employee_id

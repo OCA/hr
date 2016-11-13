@@ -19,7 +19,7 @@ Installation
 
 To install this module, you need to:
 
-* clone the branch 8.0 of the repository https://github.com/OCA/hr
+* clone the branch 10.0 of the repository https://github.com/OCA/hr
 * add the path to this repository in your configuration (addons-path)
 * update the module list
 * search for "Employee Identification Numbers" in your addons
@@ -33,6 +33,11 @@ Settings -> Technical -> Sequences & Identifiers -> Sequences
 and search for the "Employee ID" sequence, where you modify
 its prefix and numbering formats.
 
+To configure the 'ID Generation Method', the '# of Digits' and
+the 'Sequence', activate the developer mode and go to
+Employees -> Configuration -> Employee ID.
+
+
 Usage
 =====
 
@@ -41,15 +46,19 @@ assigned automatically with the next number of the predefined sequence.
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
-   :target: https://runbot.odoo-community.org/runbot/116/8.0
+   :target: https://runbot.odoo-community.org/runbot/116/10.0
+
+Known issues / Roadmap
+======================
+
+* When installing the module, the ID of existing employees is not generated automatically
 
 Bug Tracker
 ===========
 
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/hr/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
-If you spotted it first, help us smashing it by providing a detailed and welcomed feedback
-`here <https://github.com/OCA/hr/issues/new?body=module:%20hr_employee_id%0Aversion:%208.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+If you spotted it first, help us smashing it by providing a detailed and welcomed feedback.
 
 Credits
 =======
