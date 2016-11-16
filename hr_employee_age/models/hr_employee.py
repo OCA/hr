@@ -18,7 +18,7 @@
 #
 ###############################################################################
 
-from openerp import api, fields, models
+from odoo import api, fields, models
 from dateutil.relativedelta import relativedelta
 
 
@@ -26,17 +26,18 @@ class HrEmployee(models.Model):
     _inherit = 'hr.employee'
 
     age = fields.Integer(
-        'Age',
+        string='Age',
         readonly=True,
         compute='_compute_age'
     )
 
-    @api.one
+    @api.multi
     @api.depends('birthday')
     def _compute_age(self):
-        if self.birthday:
-            dBday = fields.Date.from_string(self.birthday)
-            dToday = fields.Date.from_string(fields.Date.today())
-            self.age = relativedelta(dToday, dBday).years
-        else:
-            self.age = 0
+        for record in self:
+            if record.birthday:
+                record.age = relativedelta(
+                    fields.Date.from_string(fields.Date.today()),
+                    fields.Date.from_string(record.birthday)).years
+            else:
+                record.age = 0
