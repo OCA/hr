@@ -23,10 +23,10 @@ class HolidaysType(models.Model):
     def _get_default_company(self):
         return self.env.user.company_id.id
 
-    @api.depends('company_id', 'is_annual')
+    @api.depends('company_id')
     def _compute_is_annual(self):
         for rec in self:
-            rec.is_annual = rec.company_id.legal_holidays_status_id == rec.id
+            rec.is_annual = rec.company_id.legal_holidays_status_id.id == rec.id
 
     @api.multi
     def _inverse_is_annual(self):
