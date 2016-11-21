@@ -29,12 +29,13 @@ class HrEmployee(models.Model):
                     'number_of_days_temp': diff
                 }
             )
+            for sig in ('confirm', 'validate', 'second_validate'):
+                leave.signal_workflow(sig)
         elif diff < 0:
             raise UserError(_('You cannot reduce validated allocation '
                               'requests.'))
 
-        for sig in ('confirm', 'validate', 'second_validate'):
-            leave.signal_workflow(sig)
+
 
     @api.multi
     def _compute_remaining_days(self):
