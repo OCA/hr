@@ -35,8 +35,6 @@ class HrEmployee(models.Model):
             raise UserError(_('You cannot reduce validated allocation '
                               'requests.'))
 
-
-
     @api.multi
     def _compute_remaining_days(self):
         for rec in self:
