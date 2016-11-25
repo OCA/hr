@@ -20,7 +20,7 @@
 
 {
     "name": "Skill Management",
-    "version": "8.0.1.1.0",
+    "version": "10.0.1.0.0",
     "category": "Human Resources",
     "license": "AGPL-3",
     "author": "Savoir-faire Linux,Odoo Community Association (OCA)",
@@ -31,5 +31,5 @@
         "views/hr_employee.xml",
         "security/ir.model.access.csv",
     ],
-    'installable': False,
+    'installable': True,
 }
