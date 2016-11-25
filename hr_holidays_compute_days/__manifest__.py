@@ -18,7 +18,6 @@
     'data': [
         'views/hr_holidays_status.xml',
         'security/ir.model.access.csv',
-        'security/ir_rule.xml',
     ],
     'installable': True,
 }
