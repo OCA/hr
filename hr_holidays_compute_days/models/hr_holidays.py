@@ -31,7 +31,7 @@ class HrHolidays(models.Model):
             return
         self._check_limits()
         self.number_of_days_temp = self._get_number_of_days(
-            date_from, date_to, self.employee_id)
+            date_from, date_to, self.employee_id.id)
 
     @api.onchange('holiday_status_id')
     def _onchange_holiday_status_id(self):
