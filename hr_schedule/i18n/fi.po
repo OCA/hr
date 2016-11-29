@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-17 12:09+0000\n"
+"POT-Creation-Date: 2016-10-12 23:35+0000\n"
 "PO-Revision-Date: 2015-07-27 23:40+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Finnish (http://www.transifex.com/oca/OCA-hr-7-0/language/fi/)\n"
@@ -57,7 +57,7 @@ msgstr ""
 #. module: hr_schedule
 #: view:hr.schedule:0 view:hr.schedule.alert:0 view:hr.schedule.detail:0
 msgid "Group By..."
-msgstr ""
+msgstr "Ryhmittele..."
 
 #. module: hr_schedule
 #: selection:hr.restday.wizard,dayofweek:0
@@ -108,7 +108,7 @@ msgstr ""
 #: field:hr.schedule,message_unread:0 field:hr.schedule.alert,message_unread:0
 #: field:hr.schedule.request,message_unread:0
 msgid "Unread Messages"
-msgstr ""
+msgstr "Lukemattomia viestejä"
 
 #. module: hr_schedule
 #: field:hr.schedule,company_id:0 field:hr.schedule.alert,company_id:0
@@ -199,7 +199,7 @@ msgstr ""
 #: field:hr.schedule,message_ids:0 field:hr.schedule.alert,message_ids:0
 #: field:hr.schedule.request,message_ids:0
 msgid "Messages"
-msgstr ""
+msgstr "Viestejä"
 
 #. module: hr_schedule
 #: model:ir.model,name:hr_schedule.model_hr_holidays
@@ -220,7 +220,7 @@ msgstr ""
 #: help:hr.schedule,message_unread:0 help:hr.schedule.alert,message_unread:0
 #: help:hr.schedule.request,message_unread:0
 msgid "If checked new messages require your attention."
-msgstr ""
+msgstr "Jos valittuna, uudet viestit vaatii toimenpiteitä."
 
 #. module: hr_schedule
 #: view:hr.schedule.request:0
@@ -282,7 +282,7 @@ msgstr "Tila"
 #: field:hr.schedule.alert,message_follower_ids:0
 #: field:hr.schedule.request,message_follower_ids:0
 msgid "Followers"
-msgstr ""
+msgstr "Seuraajat"
 
 #. module: hr_schedule
 #: selection:hr.schedule.request,state:0
@@ -497,7 +497,7 @@ msgstr ""
 #. module: hr_schedule
 #: selection:hr.schedule,state:0 selection:hr.schedule.detail,state:0
 msgid "Draft"
-msgstr ""
+msgstr "Luonnos"
 
 #. module: hr_schedule
 #: selection:hr.schedule.alert.rule,severity:0
@@ -805,7 +805,7 @@ msgstr ""
 #: field:hr.schedule.template,name:0
 #: field:hr.schedule.template.worktime,name:0 field:hr.schedule.weekday,name:0
 msgid "Name"
-msgstr ""
+msgstr "Nimi"
 
 #. module: hr_schedule
 #: model:ir.model,name:hr_schedule.model_hr_schedule_alert_rule

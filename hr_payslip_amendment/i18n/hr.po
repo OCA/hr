@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-17 12:09+0000\n"
+"POT-Creation-Date: 2016-10-12 23:34+0000\n"
 "PO-Revision-Date: 2015-07-27 23:39+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Croatian (http://www.transifex.com/oca/OCA-hr-7-0/language/hr/)\n"
@@ -52,12 +52,12 @@ msgstr ""
 #. module: hr_payslip_amendment
 #: field:hr.payslip.amendment,state:0
 msgid "State"
-msgstr ""
+msgstr "Status"
 
 #. module: hr_payslip_amendment
 #: field:hr.payslip.amendment,message_follower_ids:0
 msgid "Followers"
-msgstr ""
+msgstr "Pratitelji"
 
 #. module: hr_payslip_amendment
 #: field:hr.payslip.amendment,employee_id:0
@@ -67,12 +67,12 @@ msgstr ""
 #. module: hr_payslip_amendment
 #: field:hr.payslip.amendment,name:0
 msgid "Description"
-msgstr ""
+msgstr "Opis"
 
 #. module: hr_payslip_amendment
 #: field:hr.payslip.amendment,message_unread:0
 msgid "Unread Messages"
-msgstr ""
+msgstr "Nepročitane poruke"
 
 #. module: hr_payslip_amendment
 #: field:hr.payslip.amendment,note:0
@@ -93,7 +93,7 @@ msgstr ""
 #. module: hr_payslip_amendment
 #: help:hr.payslip.amendment,message_unread:0
 msgid "If checked new messages require your attention."
-msgstr ""
+msgstr "Ako je odabrano, nove poruke zahtijevaju Vašu pažnju."
 
 #. module: hr_payslip_amendment
 #: field:hr.payslip.amendment,message_is_follower:0
@@ -103,7 +103,7 @@ msgstr ""
 #. module: hr_payslip_amendment
 #: field:hr.payslip.amendment,message_ids:0
 msgid "Messages"
-msgstr ""
+msgstr "Poruke"
 
 #. module: hr_payslip_amendment
 #: field:hr.payslip.amendment,message_summary:0
@@ -118,7 +118,7 @@ msgstr ""
 #. module: hr_payslip_amendment
 #: selection:hr.payslip.amendment,state:0
 msgid "Cancelled"
-msgstr ""
+msgstr "Otkazan"
 
 #. module: hr_payslip_amendment
 #: view:hr.payslip.amendment:0
@@ -129,7 +129,7 @@ msgstr ""
 #. module: hr_payslip_amendment
 #: help:hr.payslip.amendment,message_ids:0
 msgid "Messages and communication history"
-msgstr ""
+msgstr "Poruke i povijest"
 
 #. module: hr_payslip_amendment
 #: code:addons/hr_payslip_amendment/hr_payslip_amendment.py:99
@@ -147,7 +147,7 @@ msgstr ""
 #. module: hr_payslip_amendment
 #: selection:hr.payslip.amendment,state:0
 msgid "Done"
-msgstr ""
+msgstr "Izvršeno"
 
 #. module: hr_payslip_amendment
 #: field:hr.payslip.amendment,input_id:0

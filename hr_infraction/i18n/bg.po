@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-17 12:09+0000\n"
+"POT-Creation-Date: 2016-10-12 23:34+0000\n"
 "PO-Revision-Date: 2015-07-27 23:38+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Bulgarian (http://www.transifex.com/oca/OCA-hr-7-0/language/bg/)\n"
@@ -20,7 +20,7 @@ msgstr ""
 #. module: hr_infraction
 #: field:hr.infraction,category_id:0
 msgid "Category"
-msgstr ""
+msgstr "Категория"
 
 #. module: hr_infraction
 #: selection:hr.infraction,state:0
@@ -87,7 +87,7 @@ msgstr ""
 #. module: hr_infraction
 #: field:hr.infraction.action,type:0 field:hr.infraction.warning,type:0
 msgid "Type"
-msgstr ""
+msgstr "Вид"
 
 #. module: hr_infraction
 #: view:hr.infraction:0 view:hr.infraction.action.wizard:0
@@ -119,7 +119,7 @@ msgstr ""
 #. module: hr_infraction
 #: field:hr.infraction,message_unread:0
 msgid "Unread Messages"
-msgstr ""
+msgstr "Непрочетени съобщения"
 
 #. module: hr_infraction
 #: selection:hr.infraction.action,type:0
@@ -182,12 +182,12 @@ msgstr ""
 #. module: hr_infraction
 #: help:hr.infraction,message_ids:0
 msgid "Messages and communication history"
-msgstr ""
+msgstr "История на събщенията и комуникациите"
 
 #. module: hr_infraction
 #: field:hr.infraction,message_ids:0
 msgid "Messages"
-msgstr ""
+msgstr "Съобщения"
 
 #. module: hr_infraction
 #: view:hr.infraction.action.wizard:0
@@ -247,7 +247,7 @@ msgstr ""
 #. module: hr_infraction
 #: help:hr.infraction,message_unread:0
 msgid "If checked new messages require your attention."
-msgstr ""
+msgstr "Ако е отбелязано, новите съобщения ще изискват внимание."
 
 #. module: hr_infraction
 #: model:ir.model,name:hr_infraction.model_hr_infraction_action
@@ -318,7 +318,7 @@ msgstr ""
 #: model:ir.actions.act_window,name:hr_infraction.open_hr_infraction_action
 #: model:ir.ui.menu,name:hr_infraction.menu_hr_infraction_action
 msgid "Actions"
-msgstr ""
+msgstr "Действия"
 
 #. module: hr_infraction
 #: field:hr.infraction.action.wizard,effective_date:0
@@ -358,7 +358,7 @@ msgstr ""
 #. module: hr_infraction
 #: field:hr.infraction,message_follower_ids:0
 msgid "Followers"
-msgstr ""
+msgstr "Последователи"
 
 #. module: hr_infraction
 #: selection:hr.infraction.action,type:0

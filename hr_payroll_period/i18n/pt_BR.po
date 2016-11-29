@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-17 12:09+0000\n"
+"POT-Creation-Date: 2016-10-12 23:34+0000\n"
 "PO-Revision-Date: 2015-07-27 23:39+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/oca/OCA-hr-7-0/language/pt_BR/)\n"
@@ -163,7 +163,7 @@ msgstr ""
 #. module: hr_payroll_period
 #: field:hr.payslip.exception.rule,company_id:0
 msgid "Company"
-msgstr ""
+msgstr "Empresa"
 
 #. module: hr_payroll_period
 #: code:addons/hr_payroll_period/hr_payroll_period.py:312
@@ -369,7 +369,7 @@ msgstr ""
 #. module: hr_payroll_period
 #: model:mail.message.subtype,name:hr_payroll_period.mt_state_open
 msgid "Create"
-msgstr ""
+msgstr "Criar"
 
 #. module: hr_payroll_period
 #: code:addons/hr_payroll_period/hr_attendance.py:76
@@ -388,7 +388,7 @@ msgstr ""
 #. module: hr_payroll_period
 #: field:hr.attendance,state:0 field:hr.payroll.period,state:0
 msgid "State"
-msgstr ""
+msgstr "Estado"
 
 #. module: hr_payroll_period
 #: field:hr.payroll.period.end.1,exact_change:0
@@ -552,7 +552,7 @@ msgstr ""
 #. module: hr_payroll_period
 #: field:hr.payroll.period,date_start:0
 msgid "Start Date"
-msgstr ""
+msgstr "Data Inicial"
 
 #. module: hr_payroll_period
 #: code:addons/hr_payroll_period/wizard/payroll_period_end.py:794
@@ -617,7 +617,7 @@ msgstr ""
 #. module: hr_payroll_period
 #: view:hr.payroll.period.end.1:0
 msgid "Draft"
-msgstr ""
+msgstr "Rascunho"
 
 #. module: hr_payroll_period
 #: field:hr.payroll.period.end.1,pex_low:0
@@ -707,7 +707,7 @@ msgstr ""
 #: field:hr.payroll.period.schedule,active:0
 #: field:hr.payslip.exception.rule,active:0
 msgid "Active"
-msgstr ""
+msgstr "Ativo"
 
 #. module: hr_payroll_period
 #: view:hr.payroll.period:0
@@ -1030,7 +1030,7 @@ msgstr ""
 #. module: hr_payroll_period
 #: field:hr.payroll.period,date_end:0
 msgid "End Date"
-msgstr ""
+msgstr "Data Final"
 
 #. module: hr_payroll_period
 #: view:hr.payroll.period.end.1:0
@@ -1040,7 +1040,7 @@ msgstr ""
 #. module: hr_payroll_period
 #: field:hr.payslip.exception,name:0 field:hr.payslip.exception.rule,name:0
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 #. module: hr_payroll_period
 #: view:hr.payroll.period:0
@@ -1077,7 +1077,7 @@ msgstr ""
 #. module: hr_payroll_period
 #: field:hr.payslip.exception,rule_id:0
 msgid "Rule"
-msgstr ""
+msgstr "Regra"
 
 #. module: hr_payroll_period
 #: code:addons/hr_payroll_period/hr_attendance.py:91
@@ -1151,7 +1151,7 @@ msgstr ""
 #. module: hr_payroll_period
 #: model:ir.model,name:hr_payroll_period.model_hr_payroll_period
 msgid "Email Thread"
-msgstr ""
+msgstr "Processo Email"
 
 #. module: hr_payroll_period
 #: field:hr.payroll.period.schedule,paydate_biz_day:0

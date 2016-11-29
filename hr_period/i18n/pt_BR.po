@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-13 11:18+0000\n"
+"POT-Creation-Date: 2016-10-12 23:34+0000\n"
 "PO-Revision-Date: 2015-07-27 23:40+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/oca/OCA-hr-7-0/language/pt_BR/)\n"
@@ -77,7 +77,7 @@ msgstr ""
 #. module: hr_period
 #: view:hr.fiscalyear:0 view:hr.payslip.run:0
 msgid "Group By..."
-msgstr ""
+msgstr "Agrupado por"
 
 #. module: hr_period
 #: view:hr.period:0
@@ -92,7 +92,7 @@ msgstr ""
 #. module: hr_period
 #: selection:hr.fiscalyear,state:0 selection:hr.period,state:0
 msgid "Draft"
-msgstr ""
+msgstr "Rascunho"
 
 #. module: hr_period
 #: view:hr.fiscalyear:0 selection:hr.fiscalyear,state:0
@@ -169,7 +169,7 @@ msgstr ""
 #: view:hr.payslip.run:0 field:hr.payslip.run,company_id:0
 #: field:hr.period,company_id:0
 msgid "Company"
-msgstr ""
+msgstr "Empresa"
 
 #. module: hr_period
 #: selection:hr.fiscalyear,payment_weekday:0
@@ -228,7 +228,7 @@ msgstr ""
 #. module: hr_period
 #: field:hr.fiscalyear,date_start:0
 msgid "Start Date"
-msgstr ""
+msgstr "Data Inicial"
 
 #. module: hr_period
 #: field:hr.period,date_start:0
@@ -268,7 +268,7 @@ msgstr ""
 #. module: hr_period
 #: field:hr.fiscalyear,date_stop:0
 msgid "End Date"
-msgstr ""
+msgstr "Data Final"
 
 #. module: hr_period
 #: code:addons/hr_period/models/hr_fiscal_year.py:68
@@ -454,7 +454,7 @@ msgstr ""
 #. module: hr_period
 #: field:hr.period,name:0
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 #. module: hr_period
 #: view:hr.fiscalyear:0 selection:hr.fiscalyear,state:0

@@ -1,0 +1,379 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+# * hr_payroll_register
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: hr (7.0)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-12 23:34+0000\n"
+"PO-Revision-Date: 2015-07-27 23:39+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: English (United Kingdom) (http://www.transifex.com/oca/OCA-hr-7-0/language/en_GB/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: en_GB\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: hr_payroll_register
+#: report:hr.payroll.register.summary:0
+#: model:ir.actions.report.xml,name:hr_payroll_register.payroll_summary_report
+msgid "Payroll Summary"
+msgstr ""
+
+#. module: hr_payroll_register
+#: report:hr.payroll.register.summary:0
+msgid "Gross"
+msgstr ""
+
+#. module: hr_payroll_register
+#: report:hr.payroll.register.payslips:0
+msgid "Employee:"
+msgstr ""
+
+#. module: hr_payroll_register
+#: report:hr.payroll.register.summary:0
+msgid "For"
+msgstr ""
+
+#. module: hr_payroll_register
+#: report:hr.payroll.register.summary:0
+msgid "Net Salary"
+msgstr ""
+
+#. module: hr_payroll_register
+#: report:hr.payroll.register.summary:0
+msgid "Authorised Signature"
+msgstr ""
+
+#. module: hr_payroll_register
+#: report:hr.payroll.register.payslips:0
+msgid "axable"
+msgstr ""
+
+#. module: hr_payroll_register
+#: model:ir.model,name:hr_payroll_register.model_hr_payroll_register
+msgid "hr.payroll.register"
+msgstr ""
+
+#. module: hr_payroll_register
+#: code:addons/hr_payroll_register/wizard/hr_payroll_register_run.py:61
+#, python-format
+msgid "No departments selected for payslip generation."
+msgstr ""
+
+#. module: hr_payroll_register
+#: report:hr.payroll.register.payslips:0 report:hr.payroll.register.summary:0
+msgid "Other"
+msgstr ""
+
+#. module: hr_payroll_register
+#: selection:hr.payroll.register,state:0
+msgid "Draft"
+msgstr ""
+
+#. module: hr_payroll_register
+#: report:hr.payroll.register.payslips:0
+msgid "Earnings"
+msgstr ""
+
+#. module: hr_payroll_register
+#: report:hr.payroll.register.payslips:0
+msgid "Basic"
+msgstr ""
+
+#. module: hr_payroll_register
+#: view:hr.payroll.register.run:0
+msgid "Payslip Creation by Department"
+msgstr ""
+
+#. module: hr_payroll_register
+#: report:hr.payroll.register.payslips:0
+msgid "Net Pay:"
+msgstr ""
+
+#. module: hr_payroll_register
+#: field:hr.payroll.register,state:0
+msgid "Status"
+msgstr ""
+
+#. module: hr_payroll_register
+#: view:hr.payroll.register:0
+msgid "Payroll Register"
+msgstr ""
+
+#. module: hr_payroll_register
+#: code:addons/hr_payroll_register/hr_payroll_register.py:64
+#: sql_constraint:hr.payroll.register:0
+#, python-format
+msgid "Payroll Register description must be unique."
+msgstr ""
+
+#. module: hr_payroll_register
+#: report:hr.payroll.register.summary:0
+msgid "ER Pension Contrib."
+msgstr ""
+
+#. module: hr_payroll_register
+#: report:hr.payroll.register.summary:0
+msgid "Taxable Gross"
+msgstr ""
+
+#. module: hr_payroll_register
+#: report:hr.payroll.register.payslips:0
+msgid "Pension Fund"
+msgstr ""
+
+#. module: hr_payroll_register
+#: report:hr.payroll.register.payslips:0
+msgid "Bonus"
+msgstr ""
+
+#. module: hr_payroll_register
+#: code:addons/hr_payroll_register/wizard/hr_payroll_register_run.py:55
+#, python-format
+msgid "Programming Error !"
+msgstr ""
+
+#. module: hr_payroll_register
+#: field:hr.payroll.register,company_id:0
+msgid "Company"
+msgstr ""
+
+#. module: hr_payroll_register
+#: report:hr.payroll.register.summary:0
+msgid "Print Date:"
+msgstr ""
+
+#. module: hr_payroll_register
+#: code:addons/hr_payroll_register/wizard/hr_payroll_register_run.py:55
+#, python-format
+msgid "Unable to determine Payroll Register Id."
+msgstr ""
+
+#. module: hr_payroll_register
+#: field:hr.payroll.register,run_ids:0
+msgid "unknown"
+msgstr ""
+
+#. module: hr_payroll_register
+#: code:addons/hr_payroll_register/hr_payroll_register.py:71
+#, python-format
+msgid "Payroll for the Month of %s %s"
+msgstr ""
+
+#. module: hr_payroll_register
+#: report:hr.payroll.register.payslips:0
+msgid "Deductions"
+msgstr ""
+
+#. module: hr_payroll_register
+#: model:ir.model,name:hr_payroll_register.model_hr_payslip_run
+msgid "Payslip Batches"
+msgstr ""
+
+#. module: hr_payroll_register
+#: report:hr.payroll.register.payslips:0
+msgid "Annual Leave:"
+msgstr ""
+
+#. module: hr_payroll_register
+#: report:hr.payroll.register.summary:0
+msgid "Federal Income Tax"
+msgstr ""
+
+#. module: hr_payroll_register
+#: report:hr.payroll.register.summary:0
+msgid "Allowance"
+msgstr ""
+
+#. module: hr_payroll_register
+#: report:hr.payroll.register.payslips:0
+msgid "Pay Slip"
+msgstr ""
+
+#. module: hr_payroll_register
+#: view:hr.payroll.register.run:0
+msgid "Generate"
+msgstr ""
+
+#. module: hr_payroll_register
+#: view:hr.payroll.register.run:0
+msgid "This wizard will generate payslips for selected departments."
+msgstr ""
+
+#. module: hr_payroll_register
+#: report:hr.payroll.register.payslips:0
+msgid "From:"
+msgstr ""
+
+#. module: hr_payroll_register
+#: report:hr.payroll.register.payslips:0
+msgid "To:"
+msgstr ""
+
+#. module: hr_payroll_register
+#: view:hr.payroll.register:0
+msgid ""
+"This will delete all payslip records for this month. Are you sure you want "
+"to continue?"
+msgstr ""
+
+#. module: hr_payroll_register
+#: field:hr.payslip.run,register_id:0
+msgid "Register"
+msgstr ""
+
+#. module: hr_payroll_register
+#: report:hr.payroll.register.payslips:0
+msgid "FIT"
+msgstr ""
+
+#. module: hr_payroll_register
+#: report:hr.payroll.register.payslips:0
+msgid "Others"
+msgstr ""
+
+#. module: hr_payroll_register
+#: report:hr.payroll.register.summary:0
+msgid "Department Name"
+msgstr ""
+
+#. module: hr_payroll_register
+#: field:hr.payroll.register.run,department_ids:0
+msgid "Departments"
+msgstr ""
+
+#. module: hr_payroll_register
+#: field:hr.payroll.register,date_end:0
+msgid "Date To"
+msgstr ""
+
+#. module: hr_payroll_register
+#: report:hr.payroll.register.payslips:0
+msgid "ID:"
+msgstr ""
+
+#. module: hr_payroll_register
+#: view:hr.payroll.register:0
+msgid "Remove All Payslips"
+msgstr ""
+
+#. module: hr_payroll_register
+#: code:addons/hr_payroll_register/wizard/hr_payroll_register_run.py:60
+#, python-format
+msgid "Warning !"
+msgstr ""
+
+#. module: hr_payroll_register
+#: model:ir.model,name:hr_payroll_register.model_hr_payroll_register_run
+msgid "Pay Slip Creation"
+msgstr ""
+
+#. module: hr_payroll_register
+#: field:hr.payroll.register,name:0
+msgid "Description"
+msgstr "Description"
+
+#. module: hr_payroll_register
+#: report:hr.payroll.register.summary:0
+msgid "Other Deductions"
+msgstr ""
+
+#. module: hr_payroll_register
+#: report:hr.payroll.register.summary:0
+msgid "Total"
+msgstr "Total"
+
+#. module: hr_payroll_register
+#: report:hr.payroll.register.summary:0
+msgid "EE Pension Contrib."
+msgstr ""
+
+#. module: hr_payroll_register
+#: model:ir.actions.report.xml,name:hr_payroll_register.payslip_report
+msgid "Pay Slips"
+msgstr ""
+
+#. module: hr_payroll_register
+#: view:hr.payroll.register:0
+msgid "Create Payslips"
+msgstr ""
+
+#. module: hr_payroll_register
+#: report:hr.payroll.register.payslips:0 report:hr.payroll.register.summary:0
+msgid "Total Deductions"
+msgstr ""
+
+#. module: hr_payroll_register
+#: model:ir.actions.act_window,name:hr_payroll_register.action_create_runs
+msgid "Generate Payslips"
+msgstr ""
+
+#. module: hr_payroll_register
+#: report:hr.payroll.register.summary:0
+msgid "General"
+msgstr "General"
+
+#. module: hr_payroll_register
+#: report:hr.payroll.register.summary:0
+msgid "OverTime"
+msgstr ""
+
+#. module: hr_payroll_register
+#: report:hr.payroll.register.summary:0
+msgid "Transport Allowance"
+msgstr ""
+
+#. module: hr_payroll_register
+#: model:ir.actions.act_window,name:hr_payroll_register.open_payroll_registers
+#: model:ir.ui.menu,name:hr_payroll_register.menu_payroll_register
+msgid "Registers"
+msgstr ""
+
+#. module: hr_payroll_register
+#: view:hr.payroll.register:0
+msgid "Payroll Registers"
+msgstr ""
+
+#. module: hr_payroll_register
+#: view:hr.payroll.register.run:0
+msgid "Payslips by Department"
+msgstr ""
+
+#. module: hr_payroll_register
+#: view:hr.payroll.register:0
+msgid "Payslip Runs by Department"
+msgstr ""
+
+#. module: hr_payroll_register
+#: view:hr.payroll.register.run:0
+msgid "Cancel"
+msgstr "Cancel"
+
+#. module: hr_payroll_register
+#: selection:hr.payroll.register,state:0
+msgid "Close"
+msgstr ""
+
+#. module: hr_payroll_register
+#: report:hr.payroll.register.summary:0
+msgid "Wages"
+msgstr ""
+
+#. module: hr_payroll_register
+#: report:hr.payroll.register.payslips:0
+msgid "OT"
+msgstr ""
+
+#. module: hr_payroll_register
+#: report:hr.payroll.register.payslips:0
+msgid "Transport"
+msgstr ""
+
+#. module: hr_payroll_register
+#: field:hr.payroll.register,date_start:0
+msgid "Date From"
+msgstr ""

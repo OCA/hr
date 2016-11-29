@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-17 12:09+0000\n"
+"POT-Creation-Date: 2016-10-12 23:34+0000\n"
 "PO-Revision-Date: 2015-07-27 23:39+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Turkish (http://www.transifex.com/oca/OCA-hr-7-0/language/tr/)\n"
@@ -158,7 +158,7 @@ msgstr ""
 #. module: hr_payroll_period
 #: field:hr.payroll.period,message_unread:0
 msgid "Unread Messages"
-msgstr ""
+msgstr "Okunmamış mesajlar"
 
 #. module: hr_payroll_period
 #: field:hr.payslip.exception.rule,company_id:0
@@ -227,7 +227,7 @@ msgstr ""
 #. module: hr_payroll_period
 #: field:hr.payroll.period,message_ids:0
 msgid "Messages"
-msgstr ""
+msgstr "Mesajlar"
 
 #. module: hr_payroll_period
 #: field:hr.payroll.period.end.1,alert_critical:0
@@ -271,7 +271,7 @@ msgstr ""
 #. module: hr_payroll_period
 #: help:hr.payroll.period,message_unread:0
 msgid "If checked new messages require your attention."
-msgstr ""
+msgstr "Eğer işaretlenirse yeni mesajlar dikkatinizi ister."
 
 #. module: hr_payroll_period
 #: field:hr.payroll.period.end.1,br5:0
@@ -388,7 +388,7 @@ msgstr ""
 #. module: hr_payroll_period
 #: field:hr.attendance,state:0 field:hr.payroll.period,state:0
 msgid "State"
-msgstr ""
+msgstr "Durum"
 
 #. module: hr_payroll_period
 #: field:hr.payroll.period.end.1,exact_change:0
@@ -398,7 +398,7 @@ msgstr ""
 #. module: hr_payroll_period
 #: field:hr.payroll.period,message_follower_ids:0
 msgid "Followers"
-msgstr ""
+msgstr "Takipçiler"
 
 #. module: hr_payroll_period
 #: field:hr.payroll.period.end.1,cent10:0
@@ -617,7 +617,7 @@ msgstr ""
 #. module: hr_payroll_period
 #: view:hr.payroll.period.end.1:0
 msgid "Draft"
-msgstr ""
+msgstr "Taslak"
 
 #. module: hr_payroll_period
 #: field:hr.payroll.period.end.1,pex_low:0
@@ -1040,7 +1040,7 @@ msgstr ""
 #. module: hr_payroll_period
 #: field:hr.payslip.exception,name:0 field:hr.payslip.exception.rule,name:0
 msgid "Name"
-msgstr ""
+msgstr "Adı"
 
 #. module: hr_payroll_period
 #: view:hr.payroll.period:0
@@ -1077,7 +1077,7 @@ msgstr ""
 #. module: hr_payroll_period
 #: field:hr.payslip.exception,rule_id:0
 msgid "Rule"
-msgstr ""
+msgstr "Kural"
 
 #. module: hr_payroll_period
 #: code:addons/hr_payroll_period/hr_attendance.py:91
@@ -1151,7 +1151,7 @@ msgstr ""
 #. module: hr_payroll_period
 #: model:ir.model,name:hr_payroll_period.model_hr_payroll_period
 msgid "Email Thread"
-msgstr ""
+msgstr "Eposta konuşması"
 
 #. module: hr_payroll_period
 #: field:hr.payroll.period.schedule,paydate_biz_day:0

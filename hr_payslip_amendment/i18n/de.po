@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-17 12:09+0000\n"
+"POT-Creation-Date: 2016-10-12 23:34+0000\n"
 "PO-Revision-Date: 2015-07-27 23:39+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: German (http://www.transifex.com/oca/OCA-hr-7-0/language/de/)\n"
@@ -52,7 +52,7 @@ msgstr "Notiz"
 #. module: hr_payslip_amendment
 #: field:hr.payslip.amendment,state:0
 msgid "State"
-msgstr ""
+msgstr "Status"
 
 #. module: hr_payslip_amendment
 #: field:hr.payslip.amendment,message_follower_ids:0
@@ -169,4 +169,4 @@ msgstr "Abbrechen"
 #. module: hr_payslip_amendment
 #: selection:hr.payslip.amendment,state:0
 msgid "Draft"
-msgstr ""
+msgstr "Entwurf"

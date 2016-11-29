@@ -1,0 +1,222 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+# * hr_transfer
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: hr (7.0)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-12 23:35+0000\n"
+"PO-Revision-Date: 2015-07-27 23:41+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: Swedish (http://www.transifex.com/oca/OCA-hr-7-0/language/sv/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: sv\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: hr_transfer
+#: selection:hr.department.transfer,state:0
+msgid "Confirmed"
+msgstr ""
+
+#. module: hr_transfer
+#: field:hr.department.transfer,src_contract_id:0
+msgid "From Contract"
+msgstr ""
+
+#. module: hr_transfer
+#: field:hr.department.transfer,src_id:0
+msgid "From"
+msgstr ""
+
+#. module: hr_transfer
+#: view:hr.department.transfer:0
+msgid "Confirm"
+msgstr ""
+
+#. module: hr_transfer
+#: view:hr.department.transfer:0
+msgid "Transfer"
+msgstr ""
+
+#. module: hr_transfer
+#: field:hr.department.transfer,dst_id:0
+msgid "Destination"
+msgstr ""
+
+#. module: hr_transfer
+#: model:mail.message.subtype,name:hr_transfer.mt_alert_xfer_confirmed
+msgid "Department Transfer - Confirmed"
+msgstr ""
+
+#. module: hr_transfer
+#: field:hr.department.transfer,state:0
+msgid "State"
+msgstr ""
+
+#. module: hr_transfer
+#: field:hr.department.transfer,message_follower_ids:0
+msgid "Followers"
+msgstr "Följare"
+
+#. module: hr_transfer
+#: field:hr.department.transfer,employee_id:0
+msgid "Employee"
+msgstr ""
+
+#. module: hr_transfer
+#: selection:hr.department.transfer,state:0
+msgid "Pending"
+msgstr ""
+
+#. module: hr_transfer
+#: field:hr.department.transfer,message_unread:0
+msgid "Unread Messages"
+msgstr "Olästa meddelanden"
+
+#. module: hr_transfer
+#: view:hr.department.transfer:0
+#: model:ir.actions.act_window,name:hr_transfer.open_hr_department_transfer
+#: model:ir.ui.menu,name:hr_transfer.menu_hr_department_transfer
+msgid "Departmental Transfers"
+msgstr ""
+
+#. module: hr_transfer
+#: help:hr.department.transfer,message_ids:0
+msgid "Messages and communication history"
+msgstr "Meddelande- och kommunikationshistorik"
+
+#. module: hr_transfer
+#: field:hr.department.transfer,dst_contract_id:0
+msgid "Destination Contract"
+msgstr ""
+
+#. module: hr_transfer
+#: model:mail.message.subtype,description:hr_transfer.mt_alert_xfer_done
+msgid "Transfer complete"
+msgstr ""
+
+#. module: hr_transfer
+#: field:hr.department.transfer,message_is_follower:0
+msgid "Is a Follower"
+msgstr ""
+
+#. module: hr_transfer
+#: model:mail.message.subtype,name:hr_transfer.mt_alert_xfer_done
+msgid "Department Transfer - Completed"
+msgstr ""
+
+#. module: hr_transfer
+#: code:addons/hr_transfer/hr_transfer.py:145
+#: code:addons/hr_transfer/hr_transfer.py:156
+#, python-format
+msgid "Warning!"
+msgstr ""
+
+#. module: hr_transfer
+#: code:addons/hr_transfer/hr_transfer.py:105
+#, python-format
+msgid "Unable to Delete Transfer!"
+msgstr ""
+
+#. module: hr_transfer
+#: field:hr.department.transfer,message_ids:0
+msgid "Messages"
+msgstr "Meddelanden"
+
+#. module: hr_transfer
+#: model:mail.message.subtype,description:hr_transfer.mt_alert_xfer_pending
+msgid "Transfer pending effective date"
+msgstr ""
+
+#. module: hr_transfer
+#: field:hr.department.transfer,message_summary:0
+msgid "Summary"
+msgstr ""
+
+#. module: hr_transfer
+#: model:mail.message.subtype,description:hr_transfer.mt_alert_xfer_confirmed
+msgid "Transfer submitted"
+msgstr ""
+
+#. module: hr_transfer
+#: selection:hr.department.transfer,state:0
+msgid "Cancelled"
+msgstr ""
+
+#. module: hr_transfer
+#: help:hr.department.transfer,message_unread:0
+msgid "If checked new messages require your attention."
+msgstr "Om ikryssad nya meddelanden som kräver din uppmärksamhet"
+
+#. module: hr_transfer
+#: model:mail.message.subtype,name:hr_transfer.mt_alert_xfer_pending
+msgid "Department Transfer - Pending"
+msgstr ""
+
+#. module: hr_transfer
+#: view:hr.department.transfer:0
+#: model:ir.model,name:hr_transfer.model_hr_department_transfer
+msgid "Departmental Transfer"
+msgstr ""
+
+#. module: hr_transfer
+#: field:hr.department.transfer,dst_department_id:0
+msgid "Destination Department"
+msgstr ""
+
+#. module: hr_transfer
+#: code:addons/hr_transfer/hr_transfer.py:106
+#, python-format
+msgid ""
+"Transfer has been initiated. Either cancel the transfer or create another "
+"transfer to undo it."
+msgstr ""
+
+#. module: hr_transfer
+#: code:addons/hr_transfer/hr_transfer.py:157
+#, python-format
+msgid ""
+"The contract end date is on or before the effective date of the transfer."
+msgstr ""
+
+#. module: hr_transfer
+#: field:hr.department.transfer,date:0
+msgid "Effective Date"
+msgstr ""
+
+#. module: hr_transfer
+#: help:hr.department.transfer,message_summary:0
+msgid ""
+"Holds the Chatter summary (number of messages, ...). This summary is "
+"directly in html format in order to be inserted in kanban views."
+msgstr ""
+
+#. module: hr_transfer
+#: selection:hr.department.transfer,state:0
+msgid "Done"
+msgstr ""
+
+#. module: hr_transfer
+#: code:addons/hr_transfer/hr_transfer.py:146
+#, python-format
+msgid "The current state of the contract does not permit changes."
+msgstr ""
+
+#. module: hr_transfer
+#: view:hr.department.transfer:0
+msgid "Cancel"
+msgstr "Avbryt"
+
+#. module: hr_transfer
+#: selection:hr.department.transfer,state:0
+msgid "Draft"
+msgstr ""
+
+#. module: hr_transfer
+#: field:hr.department.transfer,src_department_id:0
+msgid "From Department"
+msgstr ""

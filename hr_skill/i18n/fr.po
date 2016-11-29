@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-07 16:52+0000\n"
+"POT-Creation-Date: 2016-10-12 23:35+0000\n"
 "PO-Revision-Date: 2015-07-27 23:41+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: French (http://www.transifex.com/oca/OCA-hr-7-0/language/fr/)\n"
@@ -46,7 +46,7 @@ msgstr "Employés"
 #. module: hr_skill
 #: model:ir.ui.menu,name:hr_skill.menu_open_view_skill_tree
 msgid "Skills Structure"
-msgstr ""
+msgstr "Structure des compétences"
 
 #. module: hr_skill
 #: model:ir.model,name:hr_skill.model_hr_employee
@@ -61,12 +61,12 @@ msgstr ""
 #. module: hr_skill
 #: field:hr.skill,employee_ids:0
 msgid "Employee(s)"
-msgstr ""
+msgstr "Employé(s)"
 
 #. module: hr_skill
 #: model:ir.ui.menu,name:hr_skill.menu_hr_skill_mgt
 msgid "Skills Management"
-msgstr ""
+msgstr "Gérer les compétences"
 
 #. module: hr_skill
 #: field:hr.skill,active:0
@@ -76,7 +76,7 @@ msgstr "Actif"
 #. module: hr_skill
 #: view:hr.skill:0 field:hr.skill,view:0 selection:hr.skill,view:0
 msgid "Skill"
-msgstr ""
+msgstr "Compétence"
 
 #. module: hr_skill
 #: field:hr.skill,child_ids:0

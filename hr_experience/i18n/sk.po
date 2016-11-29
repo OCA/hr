@@ -1,0 +1,212 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+# * hr_experience
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: hr (7.0)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-12 23:34+0000\n"
+"PO-Revision-Date: 2015-07-27 23:38+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: Slovak (http://www.transifex.com/oca/OCA-hr-7-0/language/sk/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: sk\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+
+#. module: hr_experience
+#: field:hr.experience,category:0
+msgid "Category"
+msgstr "Kategória"
+
+#. module: hr_experience
+#: view:hr.certification:0
+msgid "certification"
+msgstr ""
+
+#. module: hr_experience
+#: field:hr.certification,certification:0
+#: help:hr.certification,certification:0
+msgid "Certification Number"
+msgstr ""
+
+#. module: hr_experience
+#: help:hr.academic,partner_id:0 help:hr.certification,partner_id:0
+#: help:hr.curriculum,partner_id:0 help:hr.experience,partner_id:0
+msgid "Employer, School, University, Certification Authority"
+msgstr ""
+
+#. module: hr_experience
+#: field:hr.academic,diploma:0
+msgid "Diploma"
+msgstr ""
+
+#. module: hr_experience
+#: view:hr.academic:0 view:hr.certification:0 view:hr.experience:0
+msgid "Partner information"
+msgstr ""
+
+#. module: hr_experience
+#: field:hr.academic,location:0 help:hr.academic,location:0
+#: field:hr.certification,location:0 help:hr.certification,location:0
+#: field:hr.curriculum,location:0 help:hr.curriculum,location:0
+#: field:hr.experience,location:0 help:hr.experience,location:0
+msgid "Location"
+msgstr ""
+
+#. module: hr_experience
+#: field:hr.academic,employee_id:0 field:hr.certification,employee_id:0
+#: field:hr.curriculum,employee_id:0 field:hr.experience,employee_id:0
+#: model:ir.model,name:hr_experience.model_hr_employee
+msgid "Employee"
+msgstr ""
+
+#. module: hr_experience
+#: field:hr.academic,start_date:0 field:hr.certification,start_date:0
+#: field:hr.curriculum,start_date:0 field:hr.experience,start_date:0
+msgid "Start date"
+msgstr ""
+
+#. module: hr_experience
+#: field:hr.academic,activities:0
+msgid "Activities and associations"
+msgstr ""
+
+#. module: hr_experience
+#: help:hr.experience,category:0
+msgid "category"
+msgstr ""
+
+#. module: hr_experience
+#: view:hr.academic:0 field:hr.academic,description:0 view:hr.certification:0
+#: field:hr.certification,description:0 field:hr.curriculum,description:0
+#: view:hr.experience:0 field:hr.experience,description:0
+msgid "Description"
+msgstr "Popis"
+
+#. module: hr_experience
+#: field:hr.academic,study_field:0
+msgid "Field of study"
+msgstr ""
+
+#. module: hr_experience
+#: model:ir.model,name:hr_experience.model_hr_curriculum
+msgid "hr.curriculum"
+msgstr ""
+
+#. module: hr_experience
+#: model:ir.ui.menu,name:hr_experience.menu_open_view_academic_form
+msgid "Academic Experiences"
+msgstr ""
+
+#. module: hr_experience
+#: view:hr.certification:0
+msgid "Certification information"
+msgstr ""
+
+#. module: hr_experience
+#: field:hr.academic,expire:0 help:hr.academic,expire:0
+#: field:hr.certification,expire:0 help:hr.certification,expire:0
+#: field:hr.curriculum,expire:0 help:hr.curriculum,expire:0
+#: field:hr.experience,expire:0 help:hr.experience,expire:0
+msgid "Expire"
+msgstr ""
+
+#. module: hr_experience
+#: model:ir.model,name:hr_experience.model_hr_experience
+msgid "hr.experience"
+msgstr ""
+
+#. module: hr_experience
+#: view:hr.experience:0
+msgid "Professional Experience"
+msgstr ""
+
+#. module: hr_experience
+#: view:hr.academic:0
+msgid "Academic information"
+msgstr ""
+
+#. module: hr_experience
+#: view:hr.academic:0 view:hr.certification:0 view:hr.experience:0
+msgid "Dates"
+msgstr ""
+
+#. module: hr_experience
+#: field:hr.employee,certification_ids:0 help:hr.employee,certification_ids:0
+#: model:ir.ui.menu,name:hr_experience.menu_open_view_certification_form
+msgid "Certifications"
+msgstr ""
+
+#. module: hr_experience
+#: field:hr.academic,name:0 field:hr.certification,name:0
+#: field:hr.curriculum,name:0 field:hr.experience,name:0
+msgid "Name"
+msgstr "Meno"
+
+#. module: hr_experience
+#: view:hr.academic:0 field:hr.employee,academic_ids:0
+#: help:hr.employee,academic_ids:0
+msgid "Academic experiences"
+msgstr ""
+
+#. module: hr_experience
+#: field:hr.employee,experience_ids:0
+msgid " Professional Experiences"
+msgstr ""
+
+#. module: hr_experience
+#: view:hr.employee:0 selection:hr.experience,category:0
+msgid "Academic"
+msgstr ""
+
+#. module: hr_experience
+#: view:hr.employee:0 selection:hr.experience,category:0
+msgid "Professional"
+msgstr ""
+
+#. module: hr_experience
+#: view:hr.academic:0
+msgid "Academic experience"
+msgstr ""
+
+#. module: hr_experience
+#: field:hr.academic,end_date:0 field:hr.certification,end_date:0
+#: field:hr.curriculum,end_date:0 field:hr.experience,end_date:0
+msgid "End date"
+msgstr ""
+
+#. module: hr_experience
+#: model:ir.model,name:hr_experience.model_hr_academic
+msgid "hr.academic"
+msgstr ""
+
+#. module: hr_experience
+#: view:hr.certification:0
+msgid "certifications"
+msgstr ""
+
+#. module: hr_experience
+#: view:hr.employee:0 selection:hr.experience,category:0
+msgid "Certification"
+msgstr ""
+
+#. module: hr_experience
+#: model:ir.model,name:hr_experience.model_hr_certification
+msgid "hr.certification"
+msgstr ""
+
+#. module: hr_experience
+#: field:hr.academic,partner_id:0 field:hr.certification,partner_id:0
+#: field:hr.curriculum,partner_id:0 field:hr.experience,partner_id:0
+msgid "Partner"
+msgstr ""
+
+#. module: hr_experience
+#: help:hr.employee,experience_ids:0 view:hr.experience:0
+#: model:ir.ui.menu,name:hr_experience.menu_open_view_professional_form
+msgid "Professional Experiences"
+msgstr ""

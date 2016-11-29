@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-27 23:36+0000\n"
-"PO-Revision-Date: 2015-07-27 23:37+0000\n"
+"POT-Creation-Date: 2016-10-12 23:34+0000\n"
+"PO-Revision-Date: 2016-11-18 10:05+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: French (http://www.transifex.com/oca/OCA-hr-7-0/language/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -243,7 +243,7 @@ msgstr "Le code utilisé dans les règles de salaire pour identifier l'avantage 
 #: field:hr.employee.benefit.category,reference:0
 #: field:hr.payslip.benefit.line,reference:0
 msgid "Reference"
-msgstr ""
+msgstr "Référence"
 
 #. module: hr_employee_benefit
 #: model:ir.model,name:hr_employee_benefit.model_hr_payslip_benefit_line

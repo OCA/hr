@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-17 12:09+0000\n"
+"POT-Creation-Date: 2016-10-12 23:34+0000\n"
 "PO-Revision-Date: 2015-07-27 23:39+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Croatian (http://www.transifex.com/oca/OCA-hr-7-0/language/hr/)\n"
@@ -158,12 +158,12 @@ msgstr ""
 #. module: hr_payroll_period
 #: field:hr.payroll.period,message_unread:0
 msgid "Unread Messages"
-msgstr ""
+msgstr "Nepročitane poruke"
 
 #. module: hr_payroll_period
 #: field:hr.payslip.exception.rule,company_id:0
 msgid "Company"
-msgstr ""
+msgstr "Poduzeće"
 
 #. module: hr_payroll_period
 #: code:addons/hr_payroll_period/hr_payroll_period.py:312
@@ -227,7 +227,7 @@ msgstr ""
 #. module: hr_payroll_period
 #: field:hr.payroll.period,message_ids:0
 msgid "Messages"
-msgstr ""
+msgstr "Poruke"
 
 #. module: hr_payroll_period
 #: field:hr.payroll.period.end.1,alert_critical:0
@@ -271,7 +271,7 @@ msgstr ""
 #. module: hr_payroll_period
 #: help:hr.payroll.period,message_unread:0
 msgid "If checked new messages require your attention."
-msgstr ""
+msgstr "Ako je odabrano, nove poruke zahtijevaju Vašu pažnju."
 
 #. module: hr_payroll_period
 #: field:hr.payroll.period.end.1,br5:0
@@ -388,7 +388,7 @@ msgstr ""
 #. module: hr_payroll_period
 #: field:hr.attendance,state:0 field:hr.payroll.period,state:0
 msgid "State"
-msgstr ""
+msgstr "Status"
 
 #. module: hr_payroll_period
 #: field:hr.payroll.period.end.1,exact_change:0
@@ -398,7 +398,7 @@ msgstr ""
 #. module: hr_payroll_period
 #: field:hr.payroll.period,message_follower_ids:0
 msgid "Followers"
-msgstr ""
+msgstr "Pratitelji"
 
 #. module: hr_payroll_period
 #: field:hr.payroll.period.end.1,cent10:0
@@ -408,13 +408,13 @@ msgstr ""
 #. module: hr_payroll_period
 #: field:hr.payroll.period.schedule,type:0
 msgid "Type"
-msgstr ""
+msgstr "Tip"
 
 #. module: hr_payroll_period
 #: field:hr.payroll.period.end.1,pex_medium:0
 #: selection:hr.payslip.exception.rule,severity:0
 msgid "Medium"
-msgstr ""
+msgstr "Srednji"
 
 #. module: hr_payroll_period
 #: field:hr.payroll.period.end.1,alert_high:0
@@ -681,7 +681,7 @@ msgstr ""
 #. module: hr_payroll_period
 #: help:hr.payroll.period,message_ids:0
 msgid "Messages and communication history"
-msgstr ""
+msgstr "Poruke i povijest"
 
 #. module: hr_payroll_period
 #: field:hr.payroll.period.end.1,alert_medium:0
@@ -707,7 +707,7 @@ msgstr ""
 #: field:hr.payroll.period.schedule,active:0
 #: field:hr.payslip.exception.rule,active:0
 msgid "Active"
-msgstr ""
+msgstr "Aktivno"
 
 #. module: hr_payroll_period
 #: view:hr.payroll.period:0
@@ -810,7 +810,7 @@ msgstr ""
 #: field:hr.holidays.status,code:0 view:hr.payslip.exception.rule:0
 #: field:hr.payslip.exception.rule,code:0
 msgid "Code"
-msgstr ""
+msgstr "Šifra"
 
 #. module: hr_payroll_period
 #: selection:hr.payroll.period.schedule,mo_firstday:0
@@ -851,7 +851,7 @@ msgstr ""
 #. module: hr_payroll_period
 #: field:hr.payslip.exception.rule,sequence:0
 msgid "Sequence"
-msgstr ""
+msgstr "Sekvenca"
 
 #. module: hr_payroll_period
 #: model:ir.model,name:hr_payroll_period.model_hr_contract_init
@@ -982,7 +982,7 @@ msgstr ""
 #: field:hr.payroll.period,name:0 field:hr.payroll.period.schedule,name:0
 #: field:hr.payslip.exception.rule,note:0
 msgid "Description"
-msgstr ""
+msgstr "Opis"
 
 #. module: hr_payroll_period
 #: view:hr.payroll.period.end.1:0
@@ -1040,7 +1040,7 @@ msgstr ""
 #. module: hr_payroll_period
 #: field:hr.payslip.exception,name:0 field:hr.payslip.exception.rule,name:0
 msgid "Name"
-msgstr ""
+msgstr "Naziv"
 
 #. module: hr_payroll_period
 #: view:hr.payroll.period:0

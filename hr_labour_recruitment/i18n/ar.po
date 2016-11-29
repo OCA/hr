@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-13 11:18+0000\n"
+"POT-Creation-Date: 2016-10-12 23:34+0000\n"
 "PO-Revision-Date: 2015-07-27 23:39+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Arabic (http://www.transifex.com/oca/OCA-hr-7-0/language/ar/)\n"
@@ -77,12 +77,12 @@ msgstr ""
 #. module: hr_labour_recruitment
 #: field:hr.recruitment.request,message_follower_ids:0
 msgid "Followers"
-msgstr ""
+msgstr "المتابعون"
 
 #. module: hr_labour_recruitment
 #: field:hr.recruitment.request,message_unread:0
 msgid "Unread Messages"
-msgstr ""
+msgstr "رسائل غير مقروءة"
 
 #. module: hr_labour_recruitment
 #: view:hr.recruitment.request:0 field:hr.recruitment.request,department_id:0
@@ -110,7 +110,7 @@ msgstr ""
 #. module: hr_labour_recruitment
 #: field:hr.recruitment.request,name:0
 msgid "Description"
-msgstr ""
+msgstr "الوصف"
 
 #. module: hr_labour_recruitment
 #: code:addons/hr_labour_recruitment/hr_recruitment.py:151
@@ -121,7 +121,7 @@ msgstr ""
 #. module: hr_labour_recruitment
 #: help:hr.recruitment.request,message_ids:0
 msgid "Messages and communication history"
-msgstr ""
+msgstr "الرسائل و سجل التواصل"
 
 #. module: hr_labour_recruitment
 #: model:ir.ui.menu,name:hr_labour_recruitment.menu_crm_case_categ0_act_job
@@ -208,7 +208,7 @@ msgstr ""
 #. module: hr_labour_recruitment
 #: field:hr.recruitment.request,message_ids:0
 msgid "Messages"
-msgstr ""
+msgstr "الرسائل"
 
 #. module: hr_labour_recruitment
 #: model:ir.model,name:hr_labour_recruitment.model_hr_contract
@@ -261,7 +261,7 @@ msgstr ""
 #. module: hr_labour_recruitment
 #: help:hr.recruitment.request,message_unread:0
 msgid "If checked new messages require your attention."
-msgstr ""
+msgstr "إذا حددته، ستتطلب الرسائل الجديدة انتباهك"
 
 #. module: hr_labour_recruitment
 #: selection:hr.recruitment.request,state:0

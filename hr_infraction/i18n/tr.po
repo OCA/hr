@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-17 12:09+0000\n"
+"POT-Creation-Date: 2016-10-12 23:34+0000\n"
 "PO-Revision-Date: 2015-07-27 23:38+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Turkish (http://www.transifex.com/oca/OCA-hr-7-0/language/tr/)\n"
@@ -64,12 +64,12 @@ msgstr ""
 #. module: hr_infraction
 #: field:hr.infraction,state:0
 msgid "State"
-msgstr ""
+msgstr "Durum"
 
 #. module: hr_infraction
 #: selection:hr.infraction,state:0
 msgid "Draft"
-msgstr ""
+msgstr "Taslak"
 
 #. module: hr_infraction
 #: field:hr.infraction,employee_id:0 field:hr.infraction.action,employee_id:0
@@ -119,7 +119,7 @@ msgstr ""
 #. module: hr_infraction
 #: field:hr.infraction,message_unread:0
 msgid "Unread Messages"
-msgstr ""
+msgstr "Okunmamış mesajlar"
 
 #. module: hr_infraction
 #: selection:hr.infraction.action,type:0
@@ -147,7 +147,7 @@ msgstr ""
 #. module: hr_infraction
 #: field:hr.infraction,date:0
 msgid "Date"
-msgstr ""
+msgstr "Tarih"
 
 #. module: hr_infraction
 #: field:hr.infraction,message_is_follower:0
@@ -172,7 +172,7 @@ msgstr ""
 #. module: hr_infraction
 #: field:hr.infraction.category,name:0
 msgid "Name"
-msgstr ""
+msgstr "Adı"
 
 #. module: hr_infraction
 #: model:mail.message.subtype,description:hr_infraction.mt_alert_infraction_confirmed
@@ -187,7 +187,7 @@ msgstr ""
 #. module: hr_infraction
 #: field:hr.infraction,message_ids:0
 msgid "Messages"
-msgstr ""
+msgstr "Mesajlar"
 
 #. module: hr_infraction
 #: view:hr.infraction.action.wizard:0
@@ -237,7 +237,7 @@ msgstr ""
 #: field:hr.infraction.action.wizard,action_type:0
 #: field:hr.infraction.warning,action_id:0
 msgid "Action"
-msgstr ""
+msgstr "Eylem"
 
 #. module: hr_infraction
 #: field:hr.infraction,message_summary:0
@@ -247,7 +247,7 @@ msgstr ""
 #. module: hr_infraction
 #: help:hr.infraction,message_unread:0
 msgid "If checked new messages require your attention."
-msgstr ""
+msgstr "Eğer işaretlenirse yeni mesajlar dikkatinizi ister."
 
 #. module: hr_infraction
 #: model:ir.model,name:hr_infraction.model_hr_infraction_action
@@ -358,7 +358,7 @@ msgstr ""
 #. module: hr_infraction
 #: field:hr.infraction,message_follower_ids:0
 msgid "Followers"
-msgstr ""
+msgstr "Takipçiler"
 
 #. module: hr_infraction
 #: selection:hr.infraction.action,type:0

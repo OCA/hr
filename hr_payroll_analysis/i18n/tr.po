@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-13 11:18+0000\n"
+"POT-Creation-Date: 2016-10-12 23:34+0000\n"
 "PO-Revision-Date: 2015-07-27 23:39+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Turkish (http://www.transifex.com/oca/OCA-hr-7-0/language/tr/)\n"
@@ -35,7 +35,7 @@ msgstr ""
 #. module: hr_payroll_analysis
 #: view:hr.payslip.analysis.line:0
 msgid "Group By..."
-msgstr ""
+msgstr "Grupla..."
 
 #. module: hr_payroll_analysis
 #: selection:hr.payroll.analysis,period:0
@@ -88,7 +88,7 @@ msgstr ""
 #. module: hr_payroll_analysis
 #: view:hr.payslip.analysis.line:0 field:hr.payslip.analysis.line,date:0
 msgid "Date"
-msgstr ""
+msgstr "Tarih"
 
 #. module: hr_payroll_analysis
 #: model:ir.model,name:hr_payroll_analysis.model_hr_payslip
@@ -142,7 +142,7 @@ msgstr ""
 #. module: hr_payroll_analysis
 #: view:hr.payroll.analysis:0
 msgid "Model"
-msgstr ""
+msgstr "Alan"
 
 #. module: hr_payroll_analysis
 #: field:hr.payslip.analysis.line,payslip_id:0
@@ -198,4 +198,4 @@ msgstr ""
 #. module: hr_payroll_analysis
 #: view:hr.payroll.analysis:0
 msgid "or"
-msgstr ""
+msgstr "ya da"

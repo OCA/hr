@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-13 11:18+0000\n"
+"POT-Creation-Date: 2016-10-12 23:34+0000\n"
 "PO-Revision-Date: 2015-07-27 23:38+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Spanish (Ecuador) (http://www.transifex.com/oca/OCA-hr-7-0/language/es_EC/)\n"
@@ -110,7 +110,7 @@ msgstr ""
 #. module: hr_employee_state
 #: help:hr.employee.termination,message_ids:0
 msgid "Messages and communication history"
-msgstr ""
+msgstr "Mensajes e historial de comunicación"
 
 #. module: hr_employee_state
 #: selection:hr.employee,status:0
@@ -127,7 +127,7 @@ msgstr ""
 #. module: hr_employee_state
 #: field:hr.employee.termination,message_unread:0
 msgid "Unread Messages"
-msgstr ""
+msgstr "Mensajes sin leer"
 
 #. module: hr_employee_state
 #: view:hr.employee.termination:0
@@ -204,7 +204,7 @@ msgstr ""
 #. module: hr_employee_state
 #: field:hr.employee.termination.reason,name:0
 msgid "Name"
-msgstr ""
+msgstr "Nombre"
 
 #. module: hr_employee_state
 #: view:hr.employee.termination:0
@@ -214,7 +214,7 @@ msgstr ""
 #. module: hr_employee_state
 #: field:hr.employee.termination,message_ids:0
 msgid "Messages"
-msgstr ""
+msgstr "Mensajes"
 
 #. module: hr_employee_state
 #: field:hr.contract.end,contract_id:0
@@ -259,7 +259,7 @@ msgstr ""
 #. module: hr_employee_state
 #: help:hr.employee.termination,message_unread:0
 msgid "If checked new messages require your attention."
-msgstr ""
+msgstr "Si está marcado, hay nuevos mensajes que requieren su atención"
 
 #. module: hr_employee_state
 #: view:hr.employee:0 field:hr.employee,inactive_ids:0
@@ -341,7 +341,7 @@ msgstr "Cancelar"
 #. module: hr_employee_state
 #: field:hr.employee.termination,message_follower_ids:0
 msgid "Followers"
-msgstr ""
+msgstr "Seguidores"
 
 #. module: hr_employee_state
 #: code:addons/hr_employee_state/hr.py:253

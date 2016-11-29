@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-17 12:09+0000\n"
+"POT-Creation-Date: 2016-10-12 23:34+0000\n"
 "PO-Revision-Date: 2015-07-27 23:39+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Finnish (http://www.transifex.com/oca/OCA-hr-7-0/language/fi/)\n"
@@ -62,7 +62,7 @@ msgstr ""
 #. module: hr_labour_recruitment
 #: view:hr.recruitment.request:0
 msgid "Group By..."
-msgstr ""
+msgstr "Ryhmittele..."
 
 #. module: hr_labour_recruitment
 #: field:hr.recruitment.request,state:0
@@ -77,12 +77,12 @@ msgstr ""
 #. module: hr_labour_recruitment
 #: field:hr.recruitment.request,message_follower_ids:0
 msgid "Followers"
-msgstr ""
+msgstr "Seuraajat"
 
 #. module: hr_labour_recruitment
 #: field:hr.recruitment.request,message_unread:0
 msgid "Unread Messages"
-msgstr ""
+msgstr "Lukemattomia viestejä"
 
 #. module: hr_labour_recruitment
 #: view:hr.recruitment.request:0 field:hr.recruitment.request,department_id:0
@@ -208,7 +208,7 @@ msgstr ""
 #. module: hr_labour_recruitment
 #: field:hr.recruitment.request,message_ids:0
 msgid "Messages"
-msgstr ""
+msgstr "Viestejä"
 
 #. module: hr_labour_recruitment
 #: model:ir.model,name:hr_labour_recruitment.model_hr_contract
@@ -261,7 +261,7 @@ msgstr ""
 #. module: hr_labour_recruitment
 #: help:hr.recruitment.request,message_unread:0
 msgid "If checked new messages require your attention."
-msgstr ""
+msgstr "Jos valittuna, uudet viestit vaatii toimenpiteitä."
 
 #. module: hr_labour_recruitment
 #: selection:hr.recruitment.request,state:0
@@ -324,12 +324,12 @@ msgstr ""
 #. module: hr_labour_recruitment
 #: view:hr.recruitment.request:0
 msgid "Cancel"
-msgstr ""
+msgstr "Peruuta"
 
 #. module: hr_labour_recruitment
 #: selection:hr.recruitment.request,state:0
 msgid "Draft"
-msgstr ""
+msgstr "Luonnos"
 
 #. module: hr_labour_recruitment
 #: view:hr.recruitment.request:0

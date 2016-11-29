@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-27 23:36+0000\n"
+"POT-Creation-Date: 2016-10-12 23:35+0000\n"
 "PO-Revision-Date: 2015-07-27 23:40+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Spanish (http://www.transifex.com/oca/OCA-hr-7-0/language/es/)\n"
@@ -31,7 +31,7 @@ msgstr ""
 #. module: hr_policy_group
 #: field:hr.policy.group,contract_ids:0
 msgid "Contracts"
-msgstr ""
+msgstr "Contratos"
 
 #. module: hr_policy_group
 #: model:ir.model,name:hr_policy_group.model_hr_contract_init

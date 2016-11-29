@@ -1,0 +1,387 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+# * hr_infraction
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: hr (7.0)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-12 23:34+0000\n"
+"PO-Revision-Date: 2015-07-27 23:38+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: Korean (http://www.transifex.com/oca/OCA-hr-7-0/language/ko/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: ko\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. module: hr_infraction
+#: field:hr.infraction,category_id:0
+msgid "Category"
+msgstr "분류"
+
+#. module: hr_infraction
+#: selection:hr.infraction,state:0
+msgid "Confirmed"
+msgstr ""
+
+#. module: hr_infraction
+#: view:hr.infraction:0
+msgid "Confirm"
+msgstr ""
+
+#. module: hr_infraction
+#: field:hr.infraction.action,transfer_id:0
+#: selection:hr.infraction.action,type:0
+#: selection:hr.infraction.action.wizard,action_type:0
+msgid "Transfer"
+msgstr ""
+
+#. module: hr_infraction
+#: selection:hr.infraction.action,type:0 view:hr.infraction.action.wizard:0
+#: selection:hr.infraction.action.wizard,action_type:0
+msgid "Dismissal"
+msgstr ""
+
+#. module: hr_infraction
+#: view:hr.employee:0
+msgid "Disciplinary Information"
+msgstr ""
+
+#. module: hr_infraction
+#: view:hr.infraction.action:0
+#: model:ir.actions.act_window,name:hr_infraction.action_action_wizard
+msgid "Infraction Action"
+msgstr ""
+
+#. module: hr_infraction
+#: view:hr.infraction.action:0
+msgid "Infraction Actions"
+msgstr ""
+
+#. module: hr_infraction
+#: field:hr.infraction,state:0
+msgid "State"
+msgstr ""
+
+#. module: hr_infraction
+#: selection:hr.infraction,state:0
+msgid "Draft"
+msgstr ""
+
+#. module: hr_infraction
+#: field:hr.infraction,employee_id:0 field:hr.infraction.action,employee_id:0
+#: field:hr.infraction.warning,employee_id:0
+#: model:ir.model,name:hr_infraction.model_hr_employee
+msgid "Employee"
+msgstr ""
+
+#. module: hr_infraction
+#: selection:hr.infraction.action,type:0
+#: selection:hr.infraction.action.wizard,action_type:0
+msgid "Suspension"
+msgstr ""
+
+#. module: hr_infraction
+#: field:hr.infraction.action,type:0 field:hr.infraction.warning,type:0
+msgid "Type"
+msgstr "유형"
+
+#. module: hr_infraction
+#: view:hr.infraction:0 view:hr.infraction.action.wizard:0
+msgid "Take Action"
+msgstr ""
+
+#. module: hr_infraction
+#: model:ir.model,name:hr_infraction.model_hr_infraction_action_wizard
+msgid "Choice of Actions for Infraction"
+msgstr ""
+
+#. module: hr_infraction
+#: code:addons/hr_infraction/hr_infraction.py:129
+#, python-format
+msgid ""
+"Infractions that have progressed beyond \"Draft\" state may not be removed."
+msgstr ""
+
+#. module: hr_infraction
+#: view:hr.infraction:0 field:hr.infraction,memo:0
+msgid "Description"
+msgstr "설명"
+
+#. module: hr_infraction
+#: selection:hr.infraction,state:0
+msgid "No Action"
+msgstr ""
+
+#. module: hr_infraction
+#: field:hr.infraction,message_unread:0
+msgid "Unread Messages"
+msgstr "읽지 않은 메시지"
+
+#. module: hr_infraction
+#: selection:hr.infraction.action,type:0
+#: selection:hr.infraction.action.wizard,action_type:0
+msgid "Written Warning"
+msgstr ""
+
+#. module: hr_infraction
+#: code:addons/hr_infraction/hr_infraction.py:200
+#, python-format
+msgid ""
+"Actions belonging to Infractions not in \"Draft\" state may not be removed."
+msgstr ""
+
+#. module: hr_infraction
+#: model:ir.model,name:hr_infraction.model_hr_infraction_warning
+msgid "Employee Warning"
+msgstr ""
+
+#. module: hr_infraction
+#: view:hr.infraction.action.wizard:0
+msgid "Please choose the appropriate action from the list below"
+msgstr ""
+
+#. module: hr_infraction
+#: field:hr.infraction,date:0
+msgid "Date"
+msgstr ""
+
+#. module: hr_infraction
+#: field:hr.infraction,message_is_follower:0
+msgid "Is a Follower"
+msgstr ""
+
+#. module: hr_infraction
+#: view:hr.infraction:0
+msgid "No Further Action"
+msgstr ""
+
+#. module: hr_infraction
+#: view:hr.infraction:0
+msgid "Describe the incident here..."
+msgstr ""
+
+#. module: hr_infraction
+#: model:mail.message.subtype,name:hr_infraction.mt_alert_infraction_confirmed
+msgid "Infraction - Confirmed"
+msgstr ""
+
+#. module: hr_infraction
+#: field:hr.infraction.category,name:0
+msgid "Name"
+msgstr "이름"
+
+#. module: hr_infraction
+#: model:mail.message.subtype,description:hr_infraction.mt_alert_infraction_confirmed
+msgid "Infraction submitted"
+msgstr ""
+
+#. module: hr_infraction
+#: help:hr.infraction,message_ids:0
+msgid "Messages and communication history"
+msgstr "메시지 및 대화 기록"
+
+#. module: hr_infraction
+#: field:hr.infraction,message_ids:0
+msgid "Messages"
+msgstr "메시지"
+
+#. module: hr_infraction
+#: view:hr.infraction.action.wizard:0
+msgid "Choose Action"
+msgstr ""
+
+#. module: hr_infraction
+#: view:hr.infraction:0
+msgid "Action(s)"
+msgstr ""
+
+#. module: hr_infraction
+#: field:hr.infraction.warning,date:0
+msgid "Date Issued"
+msgstr ""
+
+#. module: hr_infraction
+#: selection:hr.infraction,state:0
+msgid "Actioned"
+msgstr ""
+
+#. module: hr_infraction
+#: view:hr.infraction.action.wizard:0
+msgid "Departmental Transfer"
+msgstr ""
+
+#. module: hr_infraction
+#: view:hr.infraction.action:0 field:hr.infraction.action,memo:0
+#: view:hr.infraction.action.wizard:0 field:hr.infraction.action.wizard,memo:0
+msgid "Notes"
+msgstr ""
+
+#. module: hr_infraction
+#: model:ir.model,name:hr_infraction.model_hr_infraction_category
+msgid "Infraction Type"
+msgstr ""
+
+#. module: hr_infraction
+#: code:addons/hr_infraction/hr_infraction.py:128
+#: code:addons/hr_infraction/hr_infraction.py:199
+#: code:addons/hr_infraction/hr_infraction.py:264
+#, python-format
+msgid "Error"
+msgstr ""
+
+#. module: hr_infraction
+#: field:hr.infraction.action.wizard,action_type:0
+#: field:hr.infraction.warning,action_id:0
+msgid "Action"
+msgstr ""
+
+#. module: hr_infraction
+#: field:hr.infraction,message_summary:0
+msgid "Summary"
+msgstr ""
+
+#. module: hr_infraction
+#: help:hr.infraction,message_unread:0
+msgid "If checked new messages require your attention."
+msgstr "선택하면 새로운 메시지를 주목할 필요가 있습니다."
+
+#. module: hr_infraction
+#: model:ir.model,name:hr_infraction.model_hr_infraction_action
+msgid "Action Based on Infraction"
+msgstr ""
+
+#. module: hr_infraction
+#: model:mail.message.subtype,name:hr_infraction.mt_alert_infraction_action
+msgid "Infraction - Action Taken"
+msgstr ""
+
+#. module: hr_infraction
+#: field:hr.infraction.category,code:0
+msgid "Code"
+msgstr ""
+
+#. module: hr_infraction
+#: selection:hr.infraction.warning,type:0
+msgid "Verbal"
+msgstr ""
+
+#. module: hr_infraction
+#: view:hr.infraction.category:0
+msgid "Infraction Category"
+msgstr ""
+
+#. module: hr_infraction
+#: view:hr.employee:0 field:hr.employee,infraction_ids:0 view:hr.infraction:0
+#: model:ir.actions.act_window,name:hr_infraction.open_hr_infraction
+#: model:ir.ui.menu,name:hr_infraction.menu_hr_infraction
+#: model:ir.ui.menu,name:hr_infraction.menu_hr_infraction_root
+msgid "Infractions"
+msgstr ""
+
+#. module: hr_infraction
+#: field:hr.infraction.action.wizard,new_job_id:0
+msgid "New Job"
+msgstr ""
+
+#. module: hr_infraction
+#: view:hr.infraction:0 field:hr.infraction.action,infraction_id:0
+#: field:hr.infraction.warning,infraction_id:0
+#: model:ir.model,name:hr_infraction.model_hr_infraction
+msgid "Infraction"
+msgstr ""
+
+#. module: hr_infraction
+#: view:hr.infraction.warning:0
+#: model:ir.actions.act_window,name:hr_infraction.open_hr_infraction_warning
+#: model:ir.ui.menu,name:hr_infraction.menu_hr_infraction_warning
+msgid "Warnings"
+msgstr ""
+
+#. module: hr_infraction
+#: code:addons/hr_infraction/hr_infraction.py:265
+#, python-format
+msgid ""
+"Warnings attached to Infractions not in \"Draft\" state may not be removed."
+msgstr ""
+
+#. module: hr_infraction
+#: selection:hr.infraction.warning,type:0
+msgid "Written"
+msgstr ""
+
+#. module: hr_infraction
+#: view:hr.employee:0 field:hr.infraction,action_ids:0
+#: model:ir.actions.act_window,name:hr_infraction.open_hr_infraction_action
+#: model:ir.ui.menu,name:hr_infraction.menu_hr_infraction_action
+msgid "Actions"
+msgstr "동작"
+
+#. module: hr_infraction
+#: field:hr.infraction.action.wizard,effective_date:0
+#: field:hr.infraction.action.wizard,xfer_effective_date:0
+msgid "Effective Date"
+msgstr ""
+
+#. module: hr_infraction
+#: model:mail.message.subtype,description:hr_infraction.mt_alert_infraction_action
+msgid "Action has been taken"
+msgstr ""
+
+#. module: hr_infraction
+#: view:hr.infraction:0
+msgid "Actions Taken"
+msgstr ""
+
+#. module: hr_infraction
+#: help:hr.infraction,message_summary:0
+msgid ""
+"Holds the Chatter summary (number of messages, ...). This summary is "
+"directly in html format in order to be inserted in kanban views."
+msgstr ""
+
+#. module: hr_infraction
+#: field:hr.infraction.action,warning_id:0 view:hr.infraction.warning:0
+msgid "Warning"
+msgstr ""
+
+#. module: hr_infraction
+#: view:hr.infraction.category:0
+#: model:ir.actions.act_window,name:hr_infraction.open_hr_infraction_category
+#: model:ir.ui.menu,name:hr_infraction.menu_hr_infraction_category
+msgid "Infraction Categories"
+msgstr ""
+
+#. module: hr_infraction
+#: field:hr.infraction,message_follower_ids:0
+msgid "Followers"
+msgstr "팔로워"
+
+#. module: hr_infraction
+#: selection:hr.infraction.action,type:0
+#: selection:hr.infraction.action.wizard,action_type:0
+msgid "Verbal Warning"
+msgstr ""
+
+#. module: hr_infraction
+#: view:hr.employee:0 field:hr.employee,infraction_action_ids:0
+msgid "Disciplinary Actions"
+msgstr ""
+
+#. module: hr_infraction
+#: model:mail.message.subtype,description:hr_infraction.mt_alert_infraction_noaction
+msgid "No further action necessary"
+msgstr ""
+
+#. module: hr_infraction
+#: model:mail.message.subtype,name:hr_infraction.mt_alert_infraction_noaction
+msgid "Infraction - No Action Taken"
+msgstr ""
+
+#. module: hr_infraction
+#: field:hr.infraction,name:0 field:hr.infraction.warning,name:0
+msgid "Subject"
+msgstr ""

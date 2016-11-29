@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-13 11:18+0000\n"
+"POT-Creation-Date: 2016-10-12 23:34+0000\n"
 "PO-Revision-Date: 2015-07-27 23:39+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Dutch (Belgium) (http://www.transifex.com/oca/OCA-hr-7-0/language/nl_BE/)\n"
@@ -275,7 +275,7 @@ msgstr ""
 #. module: hr_payroll_register
 #: field:hr.payroll.register,name:0
 msgid "Description"
-msgstr ""
+msgstr "Omschrijving"
 
 #. module: hr_payroll_register
 #: report:hr.payroll.register.summary:0
@@ -285,7 +285,7 @@ msgstr ""
 #. module: hr_payroll_register
 #: report:hr.payroll.register.summary:0
 msgid "Total"
-msgstr ""
+msgstr "Totaal"
 
 #. module: hr_payroll_register
 #: report:hr.payroll.register.summary:0
@@ -315,7 +315,7 @@ msgstr ""
 #. module: hr_payroll_register
 #: report:hr.payroll.register.summary:0
 msgid "General"
-msgstr ""
+msgstr "Algemeen"
 
 #. module: hr_payroll_register
 #: report:hr.payroll.register.summary:0

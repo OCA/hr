@@ -1,0 +1,70 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+# * hr_accrual
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: hr (7.0)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-12 23:34+0000\n"
+"PO-Revision-Date: 2015-07-27 23:36+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: Spanish (Colombia) (http://www.transifex.com/oca/OCA-hr-7-0/language/es_CO/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: es_CO\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: hr_accrual
+#: view:hr.accrual:0 field:hr.accrual,name:0
+msgid "Name"
+msgstr "Nombre"
+
+#. module: hr_accrual
+#: view:hr.accrual:0 field:hr.accrual.line,accrual_id:0
+#: model:ir.model,name:hr_accrual.model_hr_accrual
+msgid "Accrual"
+msgstr ""
+
+#. module: hr_accrual
+#: model:ir.model,name:hr_accrual.model_hr_accrual_line
+msgid "Accrual Line"
+msgstr ""
+
+#. module: hr_accrual
+#: field:hr.accrual,holiday_status_id:0
+msgid "Leave"
+msgstr ""
+
+#. module: hr_accrual
+#: field:hr.accrual.line,employee_id:0
+msgid "Employee"
+msgstr ""
+
+#. module: hr_accrual
+#: field:hr.accrual.line,amount:0
+msgid "Amount"
+msgstr ""
+
+#. module: hr_accrual
+#: view:hr.accrual:0 field:hr.accrual,line_ids:0
+msgid "Accrual Lines"
+msgstr ""
+
+#. module: hr_accrual
+#: field:hr.accrual.line,date:0
+msgid "Date"
+msgstr ""
+
+#. module: hr_accrual
+#: model:ir.actions.act_window,name:hr_accrual.open_accrual
+#: model:ir.ui.menu,name:hr_accrual.menu_hr_accrual
+msgid "Accrual Time Banks"
+msgstr ""
+
+#. module: hr_accrual
+#: view:hr.accrual:0
+msgid "Accruals"
+msgstr ""

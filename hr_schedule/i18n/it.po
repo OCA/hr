@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-17 12:09+0000\n"
+"POT-Creation-Date: 2016-10-12 23:35+0000\n"
 "PO-Revision-Date: 2015-07-27 23:40+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Italian (http://www.transifex.com/oca/OCA-hr-7-0/language/it/)\n"
@@ -64,7 +64,7 @@ msgstr "Raggruppa per..."
 #: selection:hr.schedule.detail,dayofweek:0
 #: selection:hr.schedule.template.worktime,dayofweek:0
 msgid "Sunday"
-msgstr ""
+msgstr "Domenica"
 
 #. module: hr_schedule
 #: code:addons/hr_schedule/hr_schedule.py:246
@@ -95,7 +95,7 @@ msgstr ""
 #. module: hr_schedule
 #: view:hr.schedule:0 view:hr.schedule.detail:0
 msgid "Today"
-msgstr ""
+msgstr "Oggi"
 
 #. module: hr_schedule
 #: view:hr.employee:0 view:hr.schedule.detail:0
@@ -108,7 +108,7 @@ msgstr ""
 #: field:hr.schedule,message_unread:0 field:hr.schedule.alert,message_unread:0
 #: field:hr.schedule.request,message_unread:0
 msgid "Unread Messages"
-msgstr ""
+msgstr "Unread Messages"
 
 #. module: hr_schedule
 #: field:hr.schedule,company_id:0 field:hr.schedule.alert,company_id:0
@@ -199,7 +199,7 @@ msgstr ""
 #: field:hr.schedule,message_ids:0 field:hr.schedule.alert,message_ids:0
 #: field:hr.schedule.request,message_ids:0
 msgid "Messages"
-msgstr ""
+msgstr "Messages"
 
 #. module: hr_schedule
 #: model:ir.model,name:hr_schedule.model_hr_holidays
@@ -209,7 +209,7 @@ msgstr ""
 #. module: hr_schedule
 #: selection:hr.schedule.request,state:0
 msgid "Cancelled"
-msgstr ""
+msgstr "Annullato"
 
 #. module: hr_schedule
 #: model:mail.message.subtype,description:hr_schedule.mt_alert_unresolved
@@ -220,7 +220,7 @@ msgstr ""
 #: help:hr.schedule,message_unread:0 help:hr.schedule.alert,message_unread:0
 #: help:hr.schedule.request,message_unread:0
 msgid "If checked new messages require your attention."
-msgstr ""
+msgstr "If checked new messages require your attention."
 
 #. module: hr_schedule
 #: view:hr.schedule.request:0
@@ -275,14 +275,14 @@ msgstr ""
 #: field:hr.schedule,state:0 field:hr.schedule.alert,state:0
 #: field:hr.schedule.detail,state:0 field:hr.schedule.request,state:0
 msgid "State"
-msgstr ""
+msgstr "Stato"
 
 #. module: hr_schedule
 #: field:hr.schedule,message_follower_ids:0
 #: field:hr.schedule.alert,message_follower_ids:0
 #: field:hr.schedule.request,message_follower_ids:0
 msgid "Followers"
-msgstr ""
+msgstr "Followers"
 
 #. module: hr_schedule
 #: selection:hr.schedule.request,state:0
@@ -497,7 +497,7 @@ msgstr ""
 #. module: hr_schedule
 #: selection:hr.schedule,state:0 selection:hr.schedule.detail,state:0
 msgid "Draft"
-msgstr ""
+msgstr "Bozza"
 
 #. module: hr_schedule
 #: selection:hr.schedule.alert.rule,severity:0
@@ -547,7 +547,7 @@ msgstr ""
 #: selection:hr.schedule.detail,dayofweek:0
 #: selection:hr.schedule.template.worktime,dayofweek:0
 msgid "Monday"
-msgstr ""
+msgstr "Lunedì"
 
 #. module: hr_schedule
 #: model:ir.model,name:hr_schedule.model_hr_schedule_weekday
@@ -589,7 +589,7 @@ msgstr ""
 #. module: hr_schedule
 #: field:hr.schedule.alert.rule,active:0
 msgid "Active"
-msgstr ""
+msgstr "Attivo"
 
 #. module: hr_schedule
 #: field:hr.schedule,date_start:0
@@ -624,12 +624,12 @@ msgstr ""
 #: field:hr.schedule.alert,message_summary:0
 #: field:hr.schedule.request,message_summary:0
 msgid "Summary"
-msgstr ""
+msgstr "Periodo Iva"
 
 #. module: hr_schedule
 #: field:hr.schedule.request,date:0
 msgid "Date"
-msgstr ""
+msgstr "Data"
 
 #. module: hr_schedule
 #: selection:hr.restday.wizard,dayofweek:0
@@ -805,7 +805,7 @@ msgstr "Data fine"
 #: field:hr.schedule.template,name:0
 #: field:hr.schedule.template.worktime,name:0 field:hr.schedule.weekday,name:0
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 #. module: hr_schedule
 #: model:ir.model,name:hr_schedule.model_hr_schedule_alert_rule
@@ -883,4 +883,4 @@ msgstr "Durata"
 #: selection:hr.schedule.detail,dayofweek:0
 #: selection:hr.schedule.template.worktime,dayofweek:0
 msgid "Saturday"
-msgstr ""
+msgstr "Sabato"

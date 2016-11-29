@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-17 12:09+0000\n"
+"POT-Creation-Date: 2016-10-12 23:34+0000\n"
 "PO-Revision-Date: 2015-07-27 23:37+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/oca/OCA-hr-7-0/language/pt_BR/)\n"
@@ -36,7 +36,7 @@ msgstr ""
 #: field:hr.employee.benefit,date_end:0
 #: field:hr.employee.benefit.rate.line,date_end:0
 msgid "End Date"
-msgstr ""
+msgstr "Data Final"
 
 #. module: hr_employee_benefit
 #: view:hr.employee.benefit.category:0
@@ -167,7 +167,7 @@ msgstr ""
 #. module: hr_employee_benefit
 #: field:hr.employee.benefit.rate,name:0
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 #. module: hr_employee_benefit
 #: view:hr.payslip:0
@@ -270,7 +270,7 @@ msgstr ""
 #: field:hr.employee.benefit,date_start:0
 #: field:hr.employee.benefit.rate.line,date_start:0
 msgid "Start Date"
-msgstr ""
+msgstr "Data Inicial"
 
 #. module: hr_employee_benefit
 #: view:hr.employee.benefit.rate:0

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-13 11:18+0000\n"
+"POT-Creation-Date: 2016-10-12 23:34+0000\n"
 "PO-Revision-Date: 2015-07-27 23:38+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: French (http://www.transifex.com/oca/OCA-hr-7-0/language/fr/)\n"
@@ -25,29 +25,29 @@ msgstr "Catégorie"
 #. module: hr_experience
 #: view:hr.certification:0
 msgid "certification"
-msgstr ""
+msgstr "Certification"
 
 #. module: hr_experience
 #: field:hr.certification,certification:0
 #: help:hr.certification,certification:0
 msgid "Certification Number"
-msgstr ""
+msgstr "No de certification"
 
 #. module: hr_experience
 #: help:hr.academic,partner_id:0 help:hr.certification,partner_id:0
 #: help:hr.curriculum,partner_id:0 help:hr.experience,partner_id:0
 msgid "Employer, School, University, Certification Authority"
-msgstr ""
+msgstr "Employeur, école, université, autorité de certification"
 
 #. module: hr_experience
 #: field:hr.academic,diploma:0
 msgid "Diploma"
-msgstr ""
+msgstr "Diplôme"
 
 #. module: hr_experience
 #: view:hr.academic:0 view:hr.certification:0 view:hr.experience:0
 msgid "Partner information"
-msgstr ""
+msgstr "Information du partenaire"
 
 #. module: hr_experience
 #: field:hr.academic,location:0 help:hr.academic,location:0
@@ -55,7 +55,7 @@ msgstr ""
 #: field:hr.curriculum,location:0 help:hr.curriculum,location:0
 #: field:hr.experience,location:0 help:hr.experience,location:0
 msgid "Location"
-msgstr ""
+msgstr "Emplacement"
 
 #. module: hr_experience
 #: field:hr.academic,employee_id:0 field:hr.certification,employee_id:0
@@ -68,7 +68,7 @@ msgstr "Employé"
 #: field:hr.academic,start_date:0 field:hr.certification,start_date:0
 #: field:hr.curriculum,start_date:0 field:hr.experience,start_date:0
 msgid "Start date"
-msgstr ""
+msgstr "Date de début"
 
 #. module: hr_experience
 #: field:hr.academic,activities:0
@@ -90,7 +90,7 @@ msgstr "Description"
 #. module: hr_experience
 #: field:hr.academic,study_field:0
 msgid "Field of study"
-msgstr ""
+msgstr "Domaine d'étude"
 
 #. module: hr_experience
 #: model:ir.model,name:hr_experience.model_hr_curriculum
@@ -100,12 +100,12 @@ msgstr ""
 #. module: hr_experience
 #: model:ir.ui.menu,name:hr_experience.menu_open_view_academic_form
 msgid "Academic Experiences"
-msgstr ""
+msgstr "Expériences académiques"
 
 #. module: hr_experience
 #: view:hr.certification:0
 msgid "Certification information"
-msgstr ""
+msgstr "Informations de certification"
 
 #. module: hr_experience
 #: field:hr.academic,expire:0 help:hr.academic,expire:0
@@ -113,7 +113,7 @@ msgstr ""
 #: field:hr.curriculum,expire:0 help:hr.curriculum,expire:0
 #: field:hr.experience,expire:0 help:hr.experience,expire:0
 msgid "Expire"
-msgstr ""
+msgstr "Expire"
 
 #. module: hr_experience
 #: model:ir.model,name:hr_experience.model_hr_experience
@@ -133,7 +133,7 @@ msgstr ""
 #. module: hr_experience
 #: view:hr.academic:0 view:hr.certification:0 view:hr.experience:0
 msgid "Dates"
-msgstr ""
+msgstr "Dates"
 
 #. module: hr_experience
 #: field:hr.employee,certification_ids:0 help:hr.employee,certification_ids:0
@@ -151,7 +151,7 @@ msgstr "Nom"
 #: view:hr.academic:0 field:hr.employee,academic_ids:0
 #: help:hr.employee,academic_ids:0
 msgid "Academic experiences"
-msgstr ""
+msgstr "Expériences académique"
 
 #. module: hr_experience
 #: field:hr.employee,experience_ids:0
@@ -161,7 +161,7 @@ msgstr ""
 #. module: hr_experience
 #: view:hr.employee:0 selection:hr.experience,category:0
 msgid "Academic"
-msgstr ""
+msgstr "Académique"
 
 #. module: hr_experience
 #: view:hr.employee:0 selection:hr.experience,category:0
@@ -171,13 +171,13 @@ msgstr ""
 #. module: hr_experience
 #: view:hr.academic:0
 msgid "Academic experience"
-msgstr ""
+msgstr "Expérience académique"
 
 #. module: hr_experience
 #: field:hr.academic,end_date:0 field:hr.certification,end_date:0
 #: field:hr.curriculum,end_date:0 field:hr.experience,end_date:0
 msgid "End date"
-msgstr ""
+msgstr "Date de fin"
 
 #. module: hr_experience
 #: model:ir.model,name:hr_experience.model_hr_academic
@@ -187,12 +187,12 @@ msgstr ""
 #. module: hr_experience
 #: view:hr.certification:0
 msgid "certifications"
-msgstr ""
+msgstr "Certifications"
 
 #. module: hr_experience
 #: view:hr.employee:0 selection:hr.experience,category:0
 msgid "Certification"
-msgstr ""
+msgstr "Certification"
 
 #. module: hr_experience
 #: model:ir.model,name:hr_experience.model_hr_certification

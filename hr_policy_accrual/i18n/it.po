@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-17 12:09+0000\n"
+"POT-Creation-Date: 2016-10-12 23:35+0000\n"
 "PO-Revision-Date: 2015-07-27 23:40+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Italian (http://www.transifex.com/oca/OCA-hr-7-0/language/it/)\n"
@@ -20,7 +20,7 @@ msgstr ""
 #. module: hr_policy_accrual
 #: selection:hr.policy.line.accrual,calculation_frequency:0
 msgid "Monthly"
-msgstr ""
+msgstr "Mensile"
 
 #. module: hr_policy_accrual
 #: field:hr.policy.line.accrual.job,holiday_ids:0
@@ -30,7 +30,7 @@ msgstr ""
 #. module: hr_policy_accrual
 #: selection:hr.policy.line.accrual,frequency_week_day:0
 msgid "Sunday"
-msgstr ""
+msgstr "Domenica"
 
 #. module: hr_policy_accrual
 #: model:ir.ui.menu,name:hr_policy_accrual.menu_leave_allocation
@@ -292,7 +292,7 @@ msgstr ""
 #. module: hr_policy_accrual
 #: selection:hr.policy.line.accrual,frequency_week_day:0
 msgid "Monday"
-msgstr ""
+msgstr "Lunedì"
 
 #. module: hr_policy_accrual
 #: field:hr.policy.line.accrual,accrual_rate_premium_milestone:0
@@ -314,7 +314,7 @@ msgstr ""
 #. module: hr_policy_accrual
 #: field:hr.policy.line.accrual.job,name:0
 msgid "Date"
-msgstr ""
+msgstr "Data"
 
 #. module: hr_policy_accrual
 #: selection:hr.policy.line.accrual,frequency_annual_month:0
@@ -501,7 +501,7 @@ msgstr ""
 #: view:hr.policy.accrual:0 field:hr.policy.accrual,name:0
 #: view:hr.policy.line.accrual:0 field:hr.policy.line.accrual,name:0
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 #. module: hr_policy_accrual
 #: selection:hr.policy.line.accrual,frequency_annual_month:0
@@ -516,7 +516,7 @@ msgstr ""
 #. module: hr_policy_accrual
 #: selection:hr.policy.line.accrual,frequency_week_day:0
 msgid "Saturday"
-msgstr ""
+msgstr "Sabato"
 
 #. module: hr_policy_accrual
 #: help:hr.policy.line.accrual,accrual_rate_premium_milestone:0

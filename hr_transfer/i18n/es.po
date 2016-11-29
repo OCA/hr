@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-17 12:09+0000\n"
+"POT-Creation-Date: 2016-10-12 23:35+0000\n"
 "PO-Revision-Date: 2015-07-27 23:41+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Spanish (http://www.transifex.com/oca/OCA-hr-7-0/language/es/)\n"
@@ -40,7 +40,7 @@ msgstr ""
 #. module: hr_transfer
 #: view:hr.department.transfer:0
 msgid "Transfer"
-msgstr ""
+msgstr "Transferir"
 
 #. module: hr_transfer
 #: field:hr.department.transfer,dst_id:0
@@ -60,7 +60,7 @@ msgstr "Estado"
 #. module: hr_transfer
 #: field:hr.department.transfer,message_follower_ids:0
 msgid "Followers"
-msgstr ""
+msgstr "Seguidores"
 
 #. module: hr_transfer
 #: field:hr.department.transfer,employee_id:0
@@ -70,12 +70,12 @@ msgstr "Empleado"
 #. module: hr_transfer
 #: selection:hr.department.transfer,state:0
 msgid "Pending"
-msgstr ""
+msgstr "Pendiente"
 
 #. module: hr_transfer
 #: field:hr.department.transfer,message_unread:0
 msgid "Unread Messages"
-msgstr ""
+msgstr "Mensajes sin leer"
 
 #. module: hr_transfer
 #: view:hr.department.transfer:0
@@ -125,7 +125,7 @@ msgstr ""
 #. module: hr_transfer
 #: field:hr.department.transfer,message_ids:0
 msgid "Messages"
-msgstr ""
+msgstr "Mensajes"
 
 #. module: hr_transfer
 #: model:mail.message.subtype,description:hr_transfer.mt_alert_xfer_pending
@@ -145,12 +145,12 @@ msgstr ""
 #. module: hr_transfer
 #: selection:hr.department.transfer,state:0
 msgid "Cancelled"
-msgstr ""
+msgstr "Cancelado"
 
 #. module: hr_transfer
 #: help:hr.department.transfer,message_unread:0
 msgid "If checked new messages require your attention."
-msgstr ""
+msgstr "Si se marca los nuevos mensajes requerirán su atención."
 
 #. module: hr_transfer
 #: model:mail.message.subtype,name:hr_transfer.mt_alert_xfer_pending
@@ -193,7 +193,7 @@ msgstr ""
 msgid ""
 "Holds the Chatter summary (number of messages, ...). This summary is "
 "directly in html format in order to be inserted in kanban views."
-msgstr ""
+msgstr "Contiene el resumen del chatter (nº de mensajes, ...). Este resumen está directamente en formato html para ser insertado en vistas kanban."
 
 #. module: hr_transfer
 #: selection:hr.department.transfer,state:0
@@ -214,7 +214,7 @@ msgstr "Cancelar"
 #. module: hr_transfer
 #: selection:hr.department.transfer,state:0
 msgid "Draft"
-msgstr ""
+msgstr "Borrador"
 
 #. module: hr_transfer
 #: field:hr.department.transfer,src_department_id:0

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-17 12:09+0000\n"
+"POT-Creation-Date: 2016-10-12 23:35+0000\n"
 "PO-Revision-Date: 2015-07-27 23:40+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: French (http://www.transifex.com/oca/OCA-hr-7-0/language/fr/)\n"
@@ -108,7 +108,7 @@ msgstr ""
 #: field:hr.schedule,message_unread:0 field:hr.schedule.alert,message_unread:0
 #: field:hr.schedule.request,message_unread:0
 msgid "Unread Messages"
-msgstr ""
+msgstr "Messages non-lus"
 
 #. module: hr_schedule
 #: field:hr.schedule,company_id:0 field:hr.schedule.alert,company_id:0
@@ -199,7 +199,7 @@ msgstr ""
 #: field:hr.schedule,message_ids:0 field:hr.schedule.alert,message_ids:0
 #: field:hr.schedule.request,message_ids:0
 msgid "Messages"
-msgstr ""
+msgstr "Messages"
 
 #. module: hr_schedule
 #: model:ir.model,name:hr_schedule.model_hr_holidays
@@ -209,7 +209,7 @@ msgstr "Congé"
 #. module: hr_schedule
 #: selection:hr.schedule.request,state:0
 msgid "Cancelled"
-msgstr ""
+msgstr "Annulé"
 
 #. module: hr_schedule
 #: model:mail.message.subtype,description:hr_schedule.mt_alert_unresolved
@@ -220,7 +220,7 @@ msgstr ""
 #: help:hr.schedule,message_unread:0 help:hr.schedule.alert,message_unread:0
 #: help:hr.schedule.request,message_unread:0
 msgid "If checked new messages require your attention."
-msgstr ""
+msgstr "Si coché, les nouveaux messages seront portés à votre attention."
 
 #. module: hr_schedule
 #: view:hr.schedule.request:0
@@ -282,7 +282,7 @@ msgstr "État"
 #: field:hr.schedule.alert,message_follower_ids:0
 #: field:hr.schedule.request,message_follower_ids:0
 msgid "Followers"
-msgstr ""
+msgstr "Abonnés"
 
 #. module: hr_schedule
 #: selection:hr.schedule.request,state:0
@@ -331,7 +331,7 @@ msgstr ""
 msgid ""
 "Holds the Chatter summary (number of messages, ...). This summary is "
 "directly in html format in order to be inserted in kanban views."
-msgstr ""
+msgstr "Contient le résumé de la discussion (nombre de messages, ...). Ce résumé est au format HTML pour permettre son utilisation dans la vue kanban."
 
 #. module: hr_schedule
 #: field:hr.schedule.alert,rule_id:0
@@ -574,7 +574,7 @@ msgstr ""
 #: field:hr.schedule.alert,message_is_follower:0
 #: field:hr.schedule.request,message_is_follower:0
 msgid "Is a Follower"
-msgstr ""
+msgstr "Est un abonné"
 
 #. module: hr_schedule
 #: view:hr.schedule.alert:0
@@ -624,7 +624,7 @@ msgstr "Contrat"
 #: field:hr.schedule.alert,message_summary:0
 #: field:hr.schedule.request,message_summary:0
 msgid "Summary"
-msgstr ""
+msgstr "Résumé"
 
 #. module: hr_schedule
 #: field:hr.schedule.request,date:0
@@ -838,13 +838,13 @@ msgstr ""
 #. module: hr_schedule
 #: view:hr.schedule.alert:0
 msgid "Rule"
-msgstr ""
+msgstr "Règle"
 
 #. module: hr_schedule
 #: help:hr.schedule,message_ids:0 help:hr.schedule.alert,message_ids:0
 #: help:hr.schedule.request,message_ids:0
 msgid "Messages and communication history"
-msgstr ""
+msgstr "Historique des messages et communications"
 
 #. module: hr_schedule
 #: code:addons/hr_schedule/hr_schedule.py:1762

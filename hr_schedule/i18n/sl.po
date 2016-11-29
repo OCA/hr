@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-17 12:09+0000\n"
+"POT-Creation-Date: 2016-10-12 23:35+0000\n"
 "PO-Revision-Date: 2015-07-27 23:40+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Slovenian (http://www.transifex.com/oca/OCA-hr-7-0/language/sl/)\n"
@@ -77,7 +77,7 @@ msgstr ""
 #: view:hr.schedule.alert:0 field:hr.schedule.alert,department_id:0
 #: view:hr.schedule.detail:0 field:hr.schedule.detail,department_id:0
 msgid "Department"
-msgstr ""
+msgstr "Oddelek"
 
 #. module: hr_schedule
 #: code:addons/hr_schedule/hr_schedule.py:451
@@ -108,7 +108,7 @@ msgstr ""
 #: field:hr.schedule,message_unread:0 field:hr.schedule.alert,message_unread:0
 #: field:hr.schedule.request,message_unread:0
 msgid "Unread Messages"
-msgstr ""
+msgstr "Neprebrana sporočila"
 
 #. module: hr_schedule
 #: field:hr.schedule,company_id:0 field:hr.schedule.alert,company_id:0
@@ -199,7 +199,7 @@ msgstr ""
 #: field:hr.schedule,message_ids:0 field:hr.schedule.alert,message_ids:0
 #: field:hr.schedule.request,message_ids:0
 msgid "Messages"
-msgstr ""
+msgstr "Sporočila"
 
 #. module: hr_schedule
 #: model:ir.model,name:hr_schedule.model_hr_holidays
@@ -220,7 +220,7 @@ msgstr ""
 #: help:hr.schedule,message_unread:0 help:hr.schedule.alert,message_unread:0
 #: help:hr.schedule.request,message_unread:0
 msgid "If checked new messages require your attention."
-msgstr ""
+msgstr "Če označeno, zahtevajo nova sporočila vašo pozornost."
 
 #. module: hr_schedule
 #: view:hr.schedule.request:0
@@ -282,7 +282,7 @@ msgstr "Stanje"
 #: field:hr.schedule.alert,message_follower_ids:0
 #: field:hr.schedule.request,message_follower_ids:0
 msgid "Followers"
-msgstr ""
+msgstr "Sledilci"
 
 #. module: hr_schedule
 #: selection:hr.schedule.request,state:0
@@ -383,7 +383,7 @@ msgstr ""
 #: view:hr.schedule.validate.departments:0
 #: field:hr.schedule.validate.departments,department_ids:0
 msgid "Departments"
-msgstr ""
+msgstr "Oddelki"
 
 #. module: hr_schedule
 #: field:hr.attendance,alert_ids:0 view:hr.schedule.alert:0
@@ -497,7 +497,7 @@ msgstr ""
 #. module: hr_schedule
 #: selection:hr.schedule,state:0 selection:hr.schedule.detail,state:0
 msgid "Draft"
-msgstr ""
+msgstr "Osnutek"
 
 #. module: hr_schedule
 #: selection:hr.schedule.alert.rule,severity:0
@@ -589,12 +589,12 @@ msgstr ""
 #. module: hr_schedule
 #: field:hr.schedule.alert.rule,active:0
 msgid "Active"
-msgstr ""
+msgstr "Aktivno"
 
 #. module: hr_schedule
 #: field:hr.schedule,date_start:0
 msgid "Start Date"
-msgstr ""
+msgstr "Začetni datum"
 
 #. module: hr_schedule
 #: view:hr.schedule.alert:0
@@ -654,7 +654,7 @@ msgstr ""
 #. module: hr_schedule
 #: field:hr.schedule.alert.rule,code:0
 msgid "Code"
-msgstr ""
+msgstr "Koda"
 
 #. module: hr_schedule
 #: model:ir.model,name:hr_schedule.model_hr_schedule_template_worktime
@@ -798,14 +798,14 @@ msgstr ""
 #. module: hr_schedule
 #: field:hr.schedule,date_end:0
 msgid "End Date"
-msgstr ""
+msgstr "Končni datum"
 
 #. module: hr_schedule
 #: field:hr.schedule.alert.rule,name:0 field:hr.schedule.detail,name:0
 #: field:hr.schedule.template,name:0
 #: field:hr.schedule.template.worktime,name:0 field:hr.schedule.weekday,name:0
 msgid "Name"
-msgstr ""
+msgstr "Naziv"
 
 #. module: hr_schedule
 #: model:ir.model,name:hr_schedule.model_hr_schedule_alert_rule
@@ -838,7 +838,7 @@ msgstr ""
 #. module: hr_schedule
 #: view:hr.schedule.alert:0
 msgid "Rule"
-msgstr ""
+msgstr "Pravilo"
 
 #. module: hr_schedule
 #: help:hr.schedule,message_ids:0 help:hr.schedule.alert,message_ids:0

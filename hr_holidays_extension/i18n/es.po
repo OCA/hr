@@ -1,0 +1,207 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+# * hr_holidays_extension
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: hr (7.0)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-12 23:34+0000\n"
+"PO-Revision-Date: 2015-07-27 23:38+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: Spanish (http://www.transifex.com/oca/OCA-hr-7-0/language/es/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: es\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: hr_holidays_extension
+#: model:ir.model,name:hr_holidays_extension.model_hr_attendance
+msgid "Attendance"
+msgstr ""
+
+#. module: hr_holidays_extension
+#: field:hr.holidays,public_holiday_days:0
+msgid "Public Holidays"
+msgstr ""
+
+#. module: hr_holidays_extension
+#: view:hr.holidays:0
+msgid "Reset to New"
+msgstr ""
+
+#. module: hr_holidays_extension
+#: sql_constraint:hr.holidays:0
+msgid "The number of days must be greater than 0."
+msgstr ""
+
+#. module: hr_holidays_extension
+#: code:addons/hr_holidays_extension/hr_holidays.py:364
+#, python-format
+msgid ""
+"There is already one or more leaves recorded for the date you have chosen:\n"
+"Employee: %s\n"
+"Date: %s"
+msgstr ""
+
+#. module: hr_holidays_extension
+#: code:addons/hr_holidays_extension/hr_holidays.py:332
+#, python-format
+msgid ""
+"You cannot approve your own leave:\n"
+"Holiday Type: %s\n"
+"Employee: %s"
+msgstr ""
+
+#. module: hr_holidays_extension
+#: code:addons/hr_holidays_extension/hr_holidays.py:307
+#, python-format
+msgid ""
+"There is already one or more attendance records for the date you have "
+"chosen."
+msgstr ""
+
+#. module: hr_holidays_extension
+#: model:res.groups,comment:hr_holidays_extension.group_hr_leave
+msgid "the user can approve leaves"
+msgstr ""
+
+#. module: hr_holidays_extension
+#: view:hr.holidays:0
+msgid "Leave Request"
+msgstr ""
+
+#. module: hr_holidays_extension
+#: model:res.groups,name:hr_holidays_extension.group_hr_leave
+msgid "Leave Approval"
+msgstr ""
+
+#. module: hr_holidays_extension
+#: field:hr.holidays,real_days:0
+msgid "Total Days"
+msgstr ""
+
+#. module: hr_holidays_extension
+#: code:addons/hr_holidays_extension/hr_holidays.py:306
+#: code:addons/hr_holidays_extension/hr_holidays.py:360
+#, python-format
+msgid "Warning"
+msgstr "Aviso"
+
+#. module: hr_holidays_extension
+#: constraint:hr.holidays:0
+msgid "You can not have 2 leaves that overlaps on same day!"
+msgstr ""
+
+#. module: hr_holidays_extension
+#: field:hr.holidays,return_date:0
+msgid "Return Date"
+msgstr ""
+
+#. module: hr_holidays_extension
+#: view:hr.holidays:0
+msgid "Validate"
+msgstr ""
+
+#. module: hr_holidays_extension
+#: model:ir.actions.act_window,name:hr_holidays_extension.open_leave_request
+#: model:ir.ui.menu,name:hr_holidays_extension.menu_leave_request
+msgid "All Leave Requests"
+msgstr ""
+
+#. module: hr_holidays_extension
+#: help:hr.holidays.status,ex_rest_days:0
+msgid ""
+"If enabled, the employee's day off is skipped in leave days calculation."
+msgstr ""
+
+#. module: hr_holidays_extension
+#: field:hr.holidays.status,ex_public_holidays:0
+msgid "Exclude Public Holidays"
+msgstr ""
+
+#. module: hr_holidays_extension
+#: view:hr.holidays:0
+msgid "Refuse"
+msgstr ""
+
+#. module: hr_holidays_extension
+#: sql_constraint:hr.holidays:0
+msgid ""
+"The employee or employee category of this request is missing. Please make "
+"sure that your user login is linked to an employee."
+msgstr ""
+
+#. module: hr_holidays_extension
+#: model:ir.model,name:hr_holidays_extension.model_hr_holidays
+msgid "Leave"
+msgstr ""
+
+#. module: hr_holidays_extension
+#: code:addons/hr_holidays_extension/hr_holidays.py:331
+#, python-format
+msgid "Warning!"
+msgstr ""
+
+#. module: hr_holidays_extension
+#: view:hr.holidays:0
+msgid "Approve"
+msgstr ""
+
+#. module: hr_holidays_extension
+#: sql_constraint:hr.holidays:0
+msgid "The start date must be anterior to the end date."
+msgstr ""
+
+#. module: hr_holidays_extension
+#: field:hr.holidays,rest_days:0
+msgid "Rest Days"
+msgstr ""
+
+#. module: hr_holidays_extension
+#: help:hr.holidays.status,ex_public_holidays:0
+msgid "If enabled, public holidays are skipped in leave days calculation."
+msgstr ""
+
+#. module: hr_holidays_extension
+#: model:ir.model,name:hr_holidays_extension.model_hr_holidays_status
+msgid "Leave Type"
+msgstr ""
+
+#. module: hr_holidays_extension
+#: view:hr.holidays:0
+msgid "Days Requested"
+msgstr ""
+
+#. module: hr_holidays_extension
+#: model:ir.actions.act_window,help:hr_holidays_extension.open_leave_request
+msgid ""
+"<p class=\"oe_view_nocontent_create\">\n"
+"                Click to create a new leave request.\n"
+"              </p><p>\n"
+"                Once you have recorded your leave request, it will be sent\n"
+"                to a manager for validation. Be sure to set the right leave\n"
+"                type (recuperation, legal holidays, sickness) and the exact\n"
+"                number of open days related to your leave.\n"
+"              </p>\n"
+"            "
+msgstr ""
+
+#. module: hr_holidays_extension
+#: view:hr.holidays:0
+msgid "Duration"
+msgstr "Duración"
+
+#. module: hr_holidays_extension
+#: field:hr.holidays.status,ex_rest_days:0
+msgid "Exclude Rest Days"
+msgstr ""
+
+#. module: hr_holidays_extension
+#: view:hr.holidays:0
+msgid ""
+"The default duration interval between the start date and the end date is 8 "
+"hours.  Feel free to adapt it to your needs."
+msgstr ""

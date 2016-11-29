@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-27 23:36+0000\n"
+"POT-Creation-Date: 2016-10-12 23:35+0000\n"
 "PO-Revision-Date: 2015-07-27 23:40+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Spanish (http://www.transifex.com/oca/OCA-hr-7-0/language/es/)\n"
@@ -25,7 +25,7 @@ msgstr ""
 #. module: hr_resume
 #: report:hr.resume.report:0
 msgid "Resume"
-msgstr ""
+msgstr "Reanudar"
 
 #. module: hr_resume
 #: report:hr.resume.report:0
@@ -50,7 +50,7 @@ msgstr ""
 #. module: hr_resume
 #: report:hr.resume.report:0
 msgid "Languages"
-msgstr ""
+msgstr "Idiomas"
 
 #. module: hr_resume
 #: model:ir.model,name:hr_resume.model_hr_employee

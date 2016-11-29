@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-27 23:36+0000\n"
+"POT-Creation-Date: 2016-10-12 23:34+0000\n"
 "PO-Revision-Date: 2015-07-27 23:37+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: French (http://www.transifex.com/oca/OCA-hr-7-0/language/fr/)\n"
@@ -81,7 +81,7 @@ msgstr ""
 #: selection:hr.employee,education:0
 #: selection:hr.employee.edu.line,education:0
 msgid "Diploma"
-msgstr ""
+msgstr "Diplôme"
 
 #. module: hr_employee_education
 #: view:hr.employee:0
@@ -135,4 +135,4 @@ msgstr ""
 #: view:hr.employee:0 field:hr.employee,education:0
 #: field:hr.employee.edu.line,education:0
 msgid "Education"
-msgstr ""
+msgstr "Scholarité"

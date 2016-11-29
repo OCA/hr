@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-13 11:18+0000\n"
+"POT-Creation-Date: 2016-10-12 23:35+0000\n"
 "PO-Revision-Date: 2015-07-27 23:41+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Spanish (Mexico) (http://www.transifex.com/oca/OCA-hr-7-0/language/es_MX/)\n"
@@ -60,7 +60,7 @@ msgstr ""
 #. module: hr_transfer
 #: field:hr.department.transfer,message_follower_ids:0
 msgid "Followers"
-msgstr ""
+msgstr "Seguidores"
 
 #. module: hr_transfer
 #: field:hr.department.transfer,employee_id:0
@@ -75,7 +75,7 @@ msgstr ""
 #. module: hr_transfer
 #: field:hr.department.transfer,message_unread:0
 msgid "Unread Messages"
-msgstr ""
+msgstr "Mensajes sin leer"
 
 #. module: hr_transfer
 #: view:hr.department.transfer:0
@@ -87,7 +87,7 @@ msgstr ""
 #. module: hr_transfer
 #: help:hr.department.transfer,message_ids:0
 msgid "Messages and communication history"
-msgstr ""
+msgstr "Mensajes e historial de comunicación"
 
 #. module: hr_transfer
 #: field:hr.department.transfer,dst_contract_id:0
@@ -125,7 +125,7 @@ msgstr ""
 #. module: hr_transfer
 #: field:hr.department.transfer,message_ids:0
 msgid "Messages"
-msgstr ""
+msgstr "Mensajes"
 
 #. module: hr_transfer
 #: model:mail.message.subtype,description:hr_transfer.mt_alert_xfer_pending
@@ -150,7 +150,7 @@ msgstr ""
 #. module: hr_transfer
 #: help:hr.department.transfer,message_unread:0
 msgid "If checked new messages require your attention."
-msgstr ""
+msgstr "Si se marca, los nuevos mensajes requieren su atención"
 
 #. module: hr_transfer
 #: model:mail.message.subtype,name:hr_transfer.mt_alert_xfer_pending

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-17 12:09+0000\n"
+"POT-Creation-Date: 2016-10-12 23:34+0000\n"
 "PO-Revision-Date: 2015-07-27 23:39+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Turkish (http://www.transifex.com/oca/OCA-hr-7-0/language/tr/)\n"
@@ -52,12 +52,12 @@ msgstr ""
 #. module: hr_payslip_amendment
 #: field:hr.payslip.amendment,state:0
 msgid "State"
-msgstr ""
+msgstr "Durum"
 
 #. module: hr_payslip_amendment
 #: field:hr.payslip.amendment,message_follower_ids:0
 msgid "Followers"
-msgstr ""
+msgstr "Takipçiler"
 
 #. module: hr_payslip_amendment
 #: field:hr.payslip.amendment,employee_id:0
@@ -72,7 +72,7 @@ msgstr "Açıklama"
 #. module: hr_payslip_amendment
 #: field:hr.payslip.amendment,message_unread:0
 msgid "Unread Messages"
-msgstr ""
+msgstr "Okunmamış mesajlar"
 
 #. module: hr_payslip_amendment
 #: field:hr.payslip.amendment,note:0
@@ -93,7 +93,7 @@ msgstr ""
 #. module: hr_payslip_amendment
 #: help:hr.payslip.amendment,message_unread:0
 msgid "If checked new messages require your attention."
-msgstr ""
+msgstr "Eğer işaretlenirse yeni mesajlar dikkatinizi ister."
 
 #. module: hr_payslip_amendment
 #: field:hr.payslip.amendment,message_is_follower:0
@@ -103,7 +103,7 @@ msgstr ""
 #. module: hr_payslip_amendment
 #: field:hr.payslip.amendment,message_ids:0
 msgid "Messages"
-msgstr ""
+msgstr "Mesajlar"
 
 #. module: hr_payslip_amendment
 #: field:hr.payslip.amendment,message_summary:0
@@ -169,4 +169,4 @@ msgstr "Vazgeç"
 #. module: hr_payslip_amendment
 #: selection:hr.payslip.amendment,state:0
 msgid "Draft"
-msgstr ""
+msgstr "Taslak"

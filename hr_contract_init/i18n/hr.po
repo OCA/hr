@@ -1,0 +1,167 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+# * hr_contract_init
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: hr (7.0)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-12 23:34+0000\n"
+"PO-Revision-Date: 2015-07-27 23:36+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: Croatian (http://www.transifex.com/oca/OCA-hr-7-0/language/hr/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: hr\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+
+#. module: hr_contract_init
+#: view:hr.contract.init:0
+msgid "Decline"
+msgstr ""
+
+#. module: hr_contract_init
+#: view:hr.contract.init:0
+msgid "Contract Initial Values"
+msgstr ""
+
+#. module: hr_contract_init
+#: view:hr.contract.init:0
+msgid "Reset to New"
+msgstr ""
+
+#. module: hr_contract_init
+#: code:addons/hr_contract_init/hr_contract.py:111
+#: code:addons/hr_contract_init/hr_contract.py:191
+#, python-format
+msgid "Error"
+msgstr ""
+
+#. module: hr_contract_init
+#: field:hr.contract.init.wage,contract_init_id:0
+msgid "Contract Settings"
+msgstr ""
+
+#. module: hr_contract_init
+#: field:hr.contract.init,state:0
+msgid "State"
+msgstr "Status"
+
+#. module: hr_contract_init
+#: field:hr.contract.init,trial_period:0
+msgid "Trial Period"
+msgstr ""
+
+#. module: hr_contract_init
+#: selection:hr.contract.init,state:0
+msgid "Draft"
+msgstr ""
+
+#. module: hr_contract_init
+#: field:hr.contract.init.wage,category_ids:0
+msgid "Tags"
+msgstr "Oznake"
+
+#. module: hr_contract_init
+#: field:hr.contract.init,struct_id:0
+msgid "Payroll Structure"
+msgstr ""
+
+#. module: hr_contract_init
+#: code:addons/hr_contract_init/hr_contract.py:112
+#: code:addons/hr_contract_init/hr_contract.py:192
+#, python-format
+msgid "You may not a delete a record that is not in a \"Draft\" state"
+msgstr ""
+
+#. module: hr_contract_init
+#: field:hr.contract.init.wage,job_id:0
+msgid "Job"
+msgstr ""
+
+#. module: hr_contract_init
+#: field:hr.contract.init.wage,starting_wage:0
+msgid "Starting Wage"
+msgstr ""
+
+#. module: hr_contract_init
+#: field:hr.contract.init,active:0
+msgid "Active"
+msgstr "Aktivno"
+
+#. module: hr_contract_init
+#: selection:hr.contract.init,state:0
+msgid "Approved"
+msgstr ""
+
+#. module: hr_contract_init
+#: view:hr.contract.init:0 view:hr.contract.init.wage:0
+msgid "Initial Wages"
+msgstr ""
+
+#. module: hr_contract_init
+#: help:hr.contract.init.wage,is_default:0
+msgid "Use as default wage"
+msgstr ""
+
+#. module: hr_contract_init
+#: field:hr.contract.init,name:0
+msgid "Name"
+msgstr "Naziv"
+
+#. module: hr_contract_init
+#: model:ir.model,name:hr_contract_init.model_hr_contract
+msgid "Contract"
+msgstr ""
+
+#. module: hr_contract_init
+#: field:hr.contract.init.wage,is_default:0
+msgid "Use as Default"
+msgstr ""
+
+#. module: hr_contract_init
+#: model:ir.actions.act_window,name:hr_contract_init.open_contract_init
+#: model:ir.ui.menu,name:hr_contract_init.menu_hr_contract_init
+msgid "Contract Starting Values"
+msgstr ""
+
+#. module: hr_contract_init
+#: field:hr.contract.init,wage_ids:0
+#: model:ir.model,name:hr_contract_init.model_hr_contract_init_wage
+msgid "Starting Wages"
+msgstr ""
+
+#. module: hr_contract_init
+#: help:hr.contract.init,trial_period:0
+msgid "Length of Trial Period, in days"
+msgstr ""
+
+#. module: hr_contract_init
+#: view:hr.contract.init:0
+msgid "Approve"
+msgstr ""
+
+#. module: hr_contract_init
+#: model:ir.model,name:hr_contract_init.model_hr_contract_init
+msgid "Initial Contract Settings"
+msgstr ""
+
+#. module: hr_contract_init
+#: field:hr.contract.init,date:0
+msgid "Effective Date"
+msgstr ""
+
+#. module: hr_contract_init
+#: code:addons/hr_contract_init/hr_contract.py:171
+#, python-format
+msgid ""
+"A Job Position cannot be referenced more than once in a Contract Settings "
+"record."
+msgstr ""
+
+#. module: hr_contract_init
+#: selection:hr.contract.init,state:0
+msgid "Declined"
+msgstr ""

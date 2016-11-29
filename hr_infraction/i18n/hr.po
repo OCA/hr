@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-17 12:09+0000\n"
+"POT-Creation-Date: 2016-10-12 23:34+0000\n"
 "PO-Revision-Date: 2015-07-27 23:38+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Croatian (http://www.transifex.com/oca/OCA-hr-7-0/language/hr/)\n"
@@ -20,7 +20,7 @@ msgstr ""
 #. module: hr_infraction
 #: field:hr.infraction,category_id:0
 msgid "Category"
-msgstr ""
+msgstr "Kategorija"
 
 #. module: hr_infraction
 #: selection:hr.infraction,state:0
@@ -64,7 +64,7 @@ msgstr ""
 #. module: hr_infraction
 #: field:hr.infraction,state:0
 msgid "State"
-msgstr ""
+msgstr "Status"
 
 #. module: hr_infraction
 #: selection:hr.infraction,state:0
@@ -87,7 +87,7 @@ msgstr ""
 #. module: hr_infraction
 #: field:hr.infraction.action,type:0 field:hr.infraction.warning,type:0
 msgid "Type"
-msgstr ""
+msgstr "Tip"
 
 #. module: hr_infraction
 #: view:hr.infraction:0 view:hr.infraction.action.wizard:0
@@ -109,7 +109,7 @@ msgstr ""
 #. module: hr_infraction
 #: view:hr.infraction:0 field:hr.infraction,memo:0
 msgid "Description"
-msgstr ""
+msgstr "Opis"
 
 #. module: hr_infraction
 #: selection:hr.infraction,state:0
@@ -119,7 +119,7 @@ msgstr ""
 #. module: hr_infraction
 #: field:hr.infraction,message_unread:0
 msgid "Unread Messages"
-msgstr ""
+msgstr "Nepročitane poruke"
 
 #. module: hr_infraction
 #: selection:hr.infraction.action,type:0
@@ -172,7 +172,7 @@ msgstr ""
 #. module: hr_infraction
 #: field:hr.infraction.category,name:0
 msgid "Name"
-msgstr ""
+msgstr "Naziv"
 
 #. module: hr_infraction
 #: model:mail.message.subtype,description:hr_infraction.mt_alert_infraction_confirmed
@@ -182,12 +182,12 @@ msgstr ""
 #. module: hr_infraction
 #: help:hr.infraction,message_ids:0
 msgid "Messages and communication history"
-msgstr ""
+msgstr "Poruke i povijest"
 
 #. module: hr_infraction
 #: field:hr.infraction,message_ids:0
 msgid "Messages"
-msgstr ""
+msgstr "Poruke"
 
 #. module: hr_infraction
 #: view:hr.infraction.action.wizard:0
@@ -247,7 +247,7 @@ msgstr ""
 #. module: hr_infraction
 #: help:hr.infraction,message_unread:0
 msgid "If checked new messages require your attention."
-msgstr ""
+msgstr "Ako je odabrano, nove poruke zahtijevaju Vašu pažnju."
 
 #. module: hr_infraction
 #: model:ir.model,name:hr_infraction.model_hr_infraction_action
@@ -262,7 +262,7 @@ msgstr ""
 #. module: hr_infraction
 #: field:hr.infraction.category,code:0
 msgid "Code"
-msgstr ""
+msgstr "Šifra"
 
 #. module: hr_infraction
 #: selection:hr.infraction.warning,type:0
@@ -318,7 +318,7 @@ msgstr ""
 #: model:ir.actions.act_window,name:hr_infraction.open_hr_infraction_action
 #: model:ir.ui.menu,name:hr_infraction.menu_hr_infraction_action
 msgid "Actions"
-msgstr ""
+msgstr "Akcije"
 
 #. module: hr_infraction
 #: field:hr.infraction.action.wizard,effective_date:0
@@ -358,7 +358,7 @@ msgstr ""
 #. module: hr_infraction
 #: field:hr.infraction,message_follower_ids:0
 msgid "Followers"
-msgstr ""
+msgstr "Pratitelji"
 
 #. module: hr_infraction
 #: selection:hr.infraction.action,type:0

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-17 12:09+0000\n"
+"POT-Creation-Date: 2016-10-12 23:34+0000\n"
 "PO-Revision-Date: 2015-07-27 23:39+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Italian (http://www.transifex.com/oca/OCA-hr-7-0/language/it/)\n"
@@ -47,17 +47,17 @@ msgstr ""
 #. module: hr_payslip_amendment
 #: view:hr.payslip.amendment:0
 msgid "Note"
-msgstr ""
+msgstr "Nota"
 
 #. module: hr_payslip_amendment
 #: field:hr.payslip.amendment,state:0
 msgid "State"
-msgstr ""
+msgstr "Stato"
 
 #. module: hr_payslip_amendment
 #: field:hr.payslip.amendment,message_follower_ids:0
 msgid "Followers"
-msgstr ""
+msgstr "Followers"
 
 #. module: hr_payslip_amendment
 #: field:hr.payslip.amendment,employee_id:0
@@ -72,7 +72,7 @@ msgstr "Descrizione"
 #. module: hr_payslip_amendment
 #: field:hr.payslip.amendment,message_unread:0
 msgid "Unread Messages"
-msgstr ""
+msgstr "Unread Messages"
 
 #. module: hr_payslip_amendment
 #: field:hr.payslip.amendment,note:0
@@ -93,7 +93,7 @@ msgstr ""
 #. module: hr_payslip_amendment
 #: help:hr.payslip.amendment,message_unread:0
 msgid "If checked new messages require your attention."
-msgstr ""
+msgstr "If checked new messages require your attention."
 
 #. module: hr_payslip_amendment
 #: field:hr.payslip.amendment,message_is_follower:0
@@ -103,12 +103,12 @@ msgstr ""
 #. module: hr_payslip_amendment
 #: field:hr.payslip.amendment,message_ids:0
 msgid "Messages"
-msgstr ""
+msgstr "Messages"
 
 #. module: hr_payslip_amendment
 #: field:hr.payslip.amendment,message_summary:0
 msgid "Summary"
-msgstr ""
+msgstr "Periodo Iva"
 
 #. module: hr_payslip_amendment
 #: field:hr.payslip.amendment,amount:0
@@ -118,7 +118,7 @@ msgstr ""
 #. module: hr_payslip_amendment
 #: selection:hr.payslip.amendment,state:0
 msgid "Cancelled"
-msgstr ""
+msgstr "Annullato"
 
 #. module: hr_payslip_amendment
 #: view:hr.payslip.amendment:0
@@ -147,7 +147,7 @@ msgstr ""
 #. module: hr_payslip_amendment
 #: selection:hr.payslip.amendment,state:0
 msgid "Done"
-msgstr ""
+msgstr "Completato"
 
 #. module: hr_payslip_amendment
 #: field:hr.payslip.amendment,input_id:0
@@ -169,4 +169,4 @@ msgstr "Annulla"
 #. module: hr_payslip_amendment
 #: selection:hr.payslip.amendment,state:0
 msgid "Draft"
-msgstr ""
+msgstr "Bozza"

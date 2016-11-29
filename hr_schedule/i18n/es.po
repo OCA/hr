@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-17 12:09+0000\n"
+"POT-Creation-Date: 2016-10-12 23:35+0000\n"
 "PO-Revision-Date: 2015-07-27 23:40+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Spanish (http://www.transifex.com/oca/OCA-hr-7-0/language/es/)\n"
@@ -108,13 +108,13 @@ msgstr ""
 #: field:hr.schedule,message_unread:0 field:hr.schedule.alert,message_unread:0
 #: field:hr.schedule.request,message_unread:0
 msgid "Unread Messages"
-msgstr ""
+msgstr "Mensajes sin leer"
 
 #. module: hr_schedule
 #: field:hr.schedule,company_id:0 field:hr.schedule.alert,company_id:0
 #: field:hr.schedule.template,company_id:0
 msgid "Company"
-msgstr ""
+msgstr "Compañía"
 
 #. module: hr_schedule
 #: selection:hr.restday.wizard,dayofweek:0
@@ -199,7 +199,7 @@ msgstr ""
 #: field:hr.schedule,message_ids:0 field:hr.schedule.alert,message_ids:0
 #: field:hr.schedule.request,message_ids:0
 msgid "Messages"
-msgstr ""
+msgstr "Mensajes"
 
 #. module: hr_schedule
 #: model:ir.model,name:hr_schedule.model_hr_holidays
@@ -209,7 +209,7 @@ msgstr ""
 #. module: hr_schedule
 #: selection:hr.schedule.request,state:0
 msgid "Cancelled"
-msgstr ""
+msgstr "Cancelado"
 
 #. module: hr_schedule
 #: model:mail.message.subtype,description:hr_schedule.mt_alert_unresolved
@@ -220,7 +220,7 @@ msgstr ""
 #: help:hr.schedule,message_unread:0 help:hr.schedule.alert,message_unread:0
 #: help:hr.schedule.request,message_unread:0
 msgid "If checked new messages require your attention."
-msgstr ""
+msgstr "Si se marca los nuevos mensajes requerirán su atención."
 
 #. module: hr_schedule
 #: view:hr.schedule.request:0
@@ -282,7 +282,7 @@ msgstr "Estado"
 #: field:hr.schedule.alert,message_follower_ids:0
 #: field:hr.schedule.request,message_follower_ids:0
 msgid "Followers"
-msgstr ""
+msgstr "Seguidores"
 
 #. module: hr_schedule
 #: selection:hr.schedule.request,state:0
@@ -331,7 +331,7 @@ msgstr ""
 msgid ""
 "Holds the Chatter summary (number of messages, ...). This summary is "
 "directly in html format in order to be inserted in kanban views."
-msgstr ""
+msgstr "Contiene el resumen del chatter (nº de mensajes, ...). Este resumen está directamente en formato html para ser insertado en vistas kanban."
 
 #. module: hr_schedule
 #: field:hr.schedule.alert,rule_id:0
@@ -383,7 +383,7 @@ msgstr ""
 #: view:hr.schedule.validate.departments:0
 #: field:hr.schedule.validate.departments,department_ids:0
 msgid "Departments"
-msgstr ""
+msgstr "Departamentos"
 
 #. module: hr_schedule
 #: field:hr.attendance,alert_ids:0 view:hr.schedule.alert:0
@@ -413,7 +413,7 @@ msgstr ""
 #: model:ir.actions.act_window,name:hr_schedule.open_hr_schedule_alert_rule_view
 #: model:ir.ui.menu,name:hr_schedule.menu_schedule_alert_rule_view
 msgid "Exception Rules"
-msgstr ""
+msgstr "Reglas de excepción"
 
 #. module: hr_schedule
 #: view:hr.schedule:0 field:hr.schedule.template,restday_ids:0
@@ -497,7 +497,7 @@ msgstr ""
 #. module: hr_schedule
 #: selection:hr.schedule,state:0 selection:hr.schedule.detail,state:0
 msgid "Draft"
-msgstr ""
+msgstr "Borrador"
 
 #. module: hr_schedule
 #: selection:hr.schedule.alert.rule,severity:0
@@ -517,7 +517,7 @@ msgstr ""
 #. module: hr_schedule
 #: selection:hr.schedule.request,state:0
 msgid "Pending"
-msgstr ""
+msgstr "Pendiente"
 
 #. module: hr_schedule
 #: field:hr.schedule.alert,name:0
@@ -594,7 +594,7 @@ msgstr "Activo"
 #. module: hr_schedule
 #: field:hr.schedule,date_start:0
 msgid "Start Date"
-msgstr ""
+msgstr "Fecha de inicio"
 
 #. module: hr_schedule
 #: view:hr.schedule.alert:0
@@ -798,7 +798,7 @@ msgstr ""
 #. module: hr_schedule
 #: field:hr.schedule,date_end:0
 msgid "End Date"
-msgstr ""
+msgstr "Fecha Final"
 
 #. module: hr_schedule
 #: field:hr.schedule.alert.rule,name:0 field:hr.schedule.detail,name:0
@@ -838,7 +838,7 @@ msgstr ""
 #. module: hr_schedule
 #: view:hr.schedule.alert:0
 msgid "Rule"
-msgstr ""
+msgstr "Regla"
 
 #. module: hr_schedule
 #: help:hr.schedule,message_ids:0 help:hr.schedule.alert,message_ids:0
@@ -876,7 +876,7 @@ msgstr ""
 #. module: hr_schedule
 #: view:hr.schedule:0
 msgid "Duration"
-msgstr ""
+msgstr "Duración"
 
 #. module: hr_schedule
 #: selection:hr.restday.wizard,dayofweek:0

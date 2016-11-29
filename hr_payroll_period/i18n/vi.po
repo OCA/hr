@@ -1,0 +1,1176 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+# * hr_payroll_period
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: hr (7.0)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-12 23:34+0000\n"
+"PO-Revision-Date: 2015-07-27 23:39+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: Vietnamese (http://www.transifex.com/oca/OCA-hr-7-0/language/vi/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: vi\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. module: hr_payroll_period
+#: code:addons/hr_payroll_period/wizard/payroll_period_end.py:1146
+#, python-format
+msgid ""
+"There are one or more Critical Payroll Exceptions. Please correct them "
+"before proceeding."
+msgstr ""
+
+#. module: hr_payroll_period
+#: field:hr.payslip.exception,severity:0
+#: field:hr.payslip.exception.rule,severity:0
+msgid "Severity"
+msgstr ""
+
+#. module: hr_payroll_period
+#: field:hr.payslip.exception.rule,condition_select:0
+msgid "Condition Based on"
+msgstr ""
+
+#. module: hr_payroll_period
+#: selection:hr.payroll.period.schedule,type:0
+msgid "Monthly"
+msgstr ""
+
+#. module: hr_payroll_period
+#: view:hr.payroll.period.end.1:0
+msgid "Coins"
+msgstr ""
+
+#. module: hr_payroll_period
+#: field:hr.payroll.period.end.1,br100:0
+msgid "100 Birr"
+msgstr ""
+
+#. module: hr_payroll_period
+#: view:hr.payroll.period.end.1:0
+msgid "Bank Notes"
+msgstr ""
+
+#. module: hr_payroll_period
+#: model:ir.model,name:hr_payroll_period.model_hr_payslip_exception_rule
+msgid "Rules describing pay slips in an abnormal state"
+msgstr ""
+
+#. module: hr_payroll_period
+#: code:addons/hr_payroll_period/hr_payroll_period.py:307
+#: selection:hr.payroll.period.schedule,ot_week_startday:0
+#, python-format
+msgid "Sunday"
+msgstr ""
+
+#. module: hr_payroll_period
+#: model:mail.message.subtype,description:hr_payroll_period.mt_state_lock
+msgid "Payroll Period has been locked"
+msgstr ""
+
+#. module: hr_payroll_period
+#: code:addons/hr_payroll_period/hr_payroll_period.py:949
+#, python-format
+msgid ""
+"You cannot modify a leave which belongs to a payroll period that has been "
+"locked."
+msgstr ""
+
+#. module: hr_payroll_period
+#: view:hr.payroll.period.end.1:0
+msgid "Re-check"
+msgstr ""
+
+#. module: hr_payroll_period
+#: field:hr.payroll.period.end.1,cent50:0
+msgid "50 Cents"
+msgstr ""
+
+#. module: hr_payroll_period
+#: model:mail.message.subtype,description:hr_payroll_period.mt_state_close
+msgid "Payroll Period closed"
+msgstr ""
+
+#. module: hr_payroll_period
+#: view:hr.payroll.period.end.1:0
+msgid ""
+"Payroll exceptions denote possible abnormalities in the generated\n"
+"                        Pay Slips. While most types of exceptions should be reviewed, only\n"
+"                        \"Critical\" exceptions will block you from moving on to the next\n"
+"                        stage.  Critical exceptions must be resolved and the affected\n"
+"                        Pay Slips recomputed before the wizard will continue to the next\n"
+"                        stage."
+msgstr ""
+
+#. module: hr_payroll_period
+#: selection:hr.payroll.period.schedule,mo_firstday:0
+#: selection:hr.payroll.period.schedule,mo_paydate:0
+msgid "24"
+msgstr ""
+
+#. module: hr_payroll_period
+#: selection:hr.payroll.period.schedule,mo_firstday:0
+#: selection:hr.payroll.period.schedule,mo_paydate:0
+msgid "25"
+msgstr ""
+
+#. module: hr_payroll_period
+#: selection:hr.payroll.period.schedule,mo_firstday:0
+#: selection:hr.payroll.period.schedule,mo_paydate:0
+msgid "26"
+msgstr ""
+
+#. module: hr_payroll_period
+#: selection:hr.payroll.period.schedule,mo_firstday:0
+#: selection:hr.payroll.period.schedule,mo_paydate:0
+msgid "27"
+msgstr ""
+
+#. module: hr_payroll_period
+#: selection:hr.payroll.period.schedule,mo_firstday:0
+#: selection:hr.payroll.period.schedule,mo_paydate:0
+msgid "20"
+msgstr ""
+
+#. module: hr_payroll_period
+#: selection:hr.payroll.period.schedule,mo_firstday:0
+#: selection:hr.payroll.period.schedule,mo_paydate:0
+msgid "21"
+msgstr ""
+
+#. module: hr_payroll_period
+#: selection:hr.payroll.period.schedule,mo_firstday:0
+#: selection:hr.payroll.period.schedule,mo_paydate:0
+msgid "22"
+msgstr ""
+
+#. module: hr_payroll_period
+#: selection:hr.payroll.period.schedule,mo_firstday:0
+#: selection:hr.payroll.period.schedule,mo_paydate:0
+msgid "23"
+msgstr ""
+
+#. module: hr_payroll_period
+#: field:hr.payroll.period,message_unread:0
+msgid "Unread Messages"
+msgstr "Thông điệp chưa đọc"
+
+#. module: hr_payroll_period
+#: field:hr.payslip.exception.rule,company_id:0
+msgid "Company"
+msgstr ""
+
+#. module: hr_payroll_period
+#: code:addons/hr_payroll_period/hr_payroll_period.py:312
+#: selection:hr.payroll.period.schedule,ot_week_startday:0
+#, python-format
+msgid "Friday"
+msgstr ""
+
+#. module: hr_payroll_period
+#: selection:hr.payroll.period.schedule,mo_firstday:0
+#: selection:hr.payroll.period.schedule,mo_paydate:0
+msgid "28"
+msgstr ""
+
+#. module: hr_payroll_period
+#: selection:hr.payroll.period.schedule,mo_firstday:0
+#: selection:hr.payroll.period.schedule,mo_paydate:0
+msgid "29"
+msgstr ""
+
+#. module: hr_payroll_period
+#: field:hr.contract,pps_id:0 field:hr.contract.init,pay_sched_id:0
+#: field:hr.payroll.period,schedule_id:0
+msgid "Payroll Period Schedule"
+msgstr ""
+
+#. module: hr_payroll_period
+#: view:hr.payslip.exception.rule:0
+msgid "Payroll Exception Rule"
+msgstr ""
+
+#. module: hr_payroll_period
+#: field:hr.payslip.exception,slip_id:0
+#: model:ir.model,name:hr_payroll_period.model_hr_payslip
+msgid "Pay Slip"
+msgstr ""
+
+#. module: hr_payroll_period
+#: field:hr.payroll.period.schedule,ot_week_startday:0
+msgid "Start of Week"
+msgstr ""
+
+#. module: hr_payroll_period
+#: view:hr.payroll.period.end.1:0
+msgid "Review Pay Slips"
+msgstr ""
+
+#. module: hr_payroll_period
+#: view:hr.payroll.period.end.1:0
+msgid ""
+"Once you start making payments there is no way to go back to a previous\n"
+"                        state. Any modifications will have to be made as Pay Slip Amendments to\n"
+"                        the next pay period after this one is closed."
+msgstr ""
+
+#. module: hr_payroll_period
+#: view:hr.payroll.period.end.1:0
+msgid "Close Pay Period"
+msgstr ""
+
+#. module: hr_payroll_period
+#: field:hr.payroll.period,message_ids:0
+msgid "Messages"
+msgstr "Thông điệp"
+
+#. module: hr_payroll_period
+#: field:hr.payroll.period.end.1,alert_critical:0
+msgid "Critical Severity"
+msgstr ""
+
+#. module: hr_payroll_period
+#: model:ir.model,name:hr_payroll_period.model_hr_holidays
+msgid "Leave"
+msgstr ""
+
+#. module: hr_payroll_period
+#: code:addons/hr_payroll_period/hr_payroll_period.py:863
+#, python-format
+msgid "Error!"
+msgstr ""
+
+#. module: hr_payroll_period
+#: selection:hr.payroll.period.schedule,mo_firstday:0
+#: selection:hr.payroll.period.schedule,mo_paydate:0
+msgid "12"
+msgstr ""
+
+#. module: hr_payroll_period
+#: field:hr.payroll.period.end.1,period_id:0
+msgid "Period ID"
+msgstr ""
+
+#. module: hr_payroll_period
+#: view:hr.payroll.period.end.1:0
+msgid "Print Contribution Registers"
+msgstr ""
+
+#. module: hr_payroll_period
+#: help:hr.payslip.exception.rule,active:0
+msgid ""
+"If the active field is set to false, it will allow you to hide the rule "
+"without removing it."
+msgstr ""
+
+#. module: hr_payroll_period
+#: help:hr.payroll.period,message_unread:0
+msgid "If checked new messages require your attention."
+msgstr "Nếu đánh dấu kiểm, các thông điệp mới yêu cầu sự có mặt của bạn."
+
+#. module: hr_payroll_period
+#: field:hr.payroll.period.end.1,br5:0
+msgid "5 Birr"
+msgstr ""
+
+#. module: hr_payroll_period
+#: model:mail.message.subtype,description:hr_payroll_period.mt_state_open
+msgid "Payroll Period opened"
+msgstr ""
+
+#. module: hr_payroll_period
+#: view:hr.payroll.period.end.1:0
+msgid ""
+"Once you close a pay period there is no way to alter the status of any\n"
+"                        pay slips.  Any modifications will have to be made as Pay Slip Amendments to\n"
+"                        the next pay period."
+msgstr ""
+
+#. module: hr_payroll_period
+#: model:mail.message.subtype,description:hr_payroll_period.mt_state_generate
+msgid "Pay Slip generation has begun"
+msgstr ""
+
+#. module: hr_payroll_period
+#: model:ir.model,name:hr_payroll_period.model_hr_holidays_status
+msgid "Leave Type"
+msgstr ""
+
+#. module: hr_payroll_period
+#: view:hr.payslip.exception.rule:0
+#: model:ir.actions.act_window,name:hr_payroll_period.open_payroll_exception_rule_view
+#: model:ir.ui.menu,name:hr_payroll_period.menu_payroll_exception_rule_view
+msgid "Payroll Exception Rules"
+msgstr ""
+
+#. module: hr_payroll_period
+#: help:hr.payroll.period,message_summary:0
+msgid ""
+"Holds the Chatter summary (number of messages, ...). This summary is "
+"directly in html format in order to be inserted in kanban views."
+msgstr ""
+
+#. module: hr_payroll_period
+#: field:hr.payroll.period.end.1,pex_critical:0
+#: selection:hr.payslip.exception.rule,severity:0
+msgid "Critical"
+msgstr ""
+
+#. module: hr_payroll_period
+#: view:hr.payroll.period.end.1:0
+msgid "Generate Pay Slips"
+msgstr ""
+
+#. module: hr_payroll_period
+#: code:addons/hr_payroll_period/hr_payroll_period.py:936
+#: code:addons/hr_payroll_period/hr_payroll_period.py:948
+#, python-format
+msgid "Warning!"
+msgstr ""
+
+#. module: hr_payroll_period
+#: model:mail.message.subtype,description:hr_payroll_period.mt_state_end
+msgid "Begin end-of-period processing"
+msgstr ""
+
+#. module: hr_payroll_period
+#: code:addons/hr_payroll_period/hr_payroll_period.py:309
+#: selection:hr.payroll.period.schedule,ot_week_startday:0
+#, python-format
+msgid "Tuesday"
+msgstr ""
+
+#. module: hr_payroll_period
+#: code:addons/hr_payroll_period/wizard/payroll_period_end.py:1145
+#, python-format
+msgid "Unable to Start Payments"
+msgstr ""
+
+#. module: hr_payroll_period
+#: view:hr.payroll.period.end.1:0
+msgid "Confirmed"
+msgstr ""
+
+#. module: hr_payroll_period
+#: view:hr.payroll.period.end.1:0
+msgid "8. Print End-of-Period Reports"
+msgstr ""
+
+#. module: hr_payroll_period
+#: field:hr.payroll.period.schedule,ot_max_rollover_gap:0
+msgid "OT Max. Continuous Hours Gap (in Min.)"
+msgstr ""
+
+#. module: hr_payroll_period
+#: model:mail.message.subtype,name:hr_payroll_period.mt_state_open
+msgid "Create"
+msgstr ""
+
+#. module: hr_payroll_period
+#: code:addons/hr_payroll_period/hr_attendance.py:76
+#, python-format
+msgid ""
+"You may not add an attendance record to a locked period.\n"
+"Employee: %s\n"
+"Time: %s"
+msgstr ""
+
+#. module: hr_payroll_period
+#: model:ir.model,name:hr_payroll_period.model_hr_payslip_amendment
+msgid "Pay Slip Amendment"
+msgstr ""
+
+#. module: hr_payroll_period
+#: field:hr.attendance,state:0 field:hr.payroll.period,state:0
+msgid "State"
+msgstr ""
+
+#. module: hr_payroll_period
+#: field:hr.payroll.period.end.1,exact_change:0
+msgid "Exact Change Total"
+msgstr ""
+
+#. module: hr_payroll_period
+#: field:hr.payroll.period,message_follower_ids:0
+msgid "Followers"
+msgstr "Người dõi theo"
+
+#. module: hr_payroll_period
+#: field:hr.payroll.period.end.1,cent10:0
+msgid "10 Cents"
+msgstr ""
+
+#. module: hr_payroll_period
+#: field:hr.payroll.period.schedule,type:0
+msgid "Type"
+msgstr "Loại"
+
+#. module: hr_payroll_period
+#: field:hr.payroll.period.end.1,pex_medium:0
+#: selection:hr.payslip.exception.rule,severity:0
+msgid "Medium"
+msgstr "Trung bình"
+
+#. module: hr_payroll_period
+#: field:hr.payroll.period.end.1,alert_high:0
+msgid "High Severity"
+msgstr ""
+
+#. module: hr_payroll_period
+#: view:hr.payroll.period.end.1:0
+msgid "Start Payments"
+msgstr ""
+
+#. module: hr_payroll_period
+#: field:hr.payroll.period.schedule,initial_period_date:0
+msgid "Initial Period Start Date"
+msgstr ""
+
+#. module: hr_payroll_period
+#: field:hr.payroll.period.end.1,ps_amendments_draft:0
+msgid "Draft Amendments"
+msgstr ""
+
+#. module: hr_payroll_period
+#: view:hr.payroll.period.end.1:0
+msgid ""
+"If there are any public holidays during this pay period please review the\n"
+"                        dates on which they fall. Some holidays may depend on local conditions\n"
+"                        (such as sightings of the moon, etc.) and may therefor fall on a day\n"
+"                        different than previously scheduled."
+msgstr ""
+
+#. module: hr_payroll_period
+#: code:addons/hr_payroll_period/wizard/payroll_period_end.py:872
+#, python-format
+msgid "Invalid Action"
+msgstr ""
+
+#. module: hr_payroll_period
+#: view:hr.payroll.period.end.1:0
+msgid "3. Lock Pay Period"
+msgstr ""
+
+#. module: hr_payroll_period
+#: model:ir.ui.menu,name:hr_payroll_period.menu_payroll_advanced
+msgid "Advanced"
+msgstr ""
+
+#. module: hr_payroll_period
+#: view:hr.payroll.period.end.1:0
+msgid "View Alerts"
+msgstr ""
+
+#. module: hr_payroll_period
+#: selection:hr.attendance,state:0
+#: selection:hr.holidays,payroll_period_state:0
+#: selection:hr.payroll.period,state:0
+#: model:mail.message.subtype,name:hr_payroll_period.mt_state_lock
+msgid "Locked"
+msgstr ""
+
+#. module: hr_payroll_period
+#: view:hr.payslip.exception:0
+#: model:ir.model,name:hr_payroll_period.model_hr_payslip_exception
+msgid "Payroll Exception"
+msgstr ""
+
+#. module: hr_payroll_period
+#: selection:hr.payroll.period.schedule,type:0
+msgid "Manual"
+msgstr ""
+
+#. module: hr_payroll_period
+#: field:hr.payroll.period.end.1,cent25:0
+msgid "25 Cents"
+msgstr ""
+
+#. module: hr_payroll_period
+#: field:hr.payslip,exception_ids:0
+#: model:ir.actions.act_window,name:hr_payroll_period.open_payroll_exception_view
+#: model:ir.ui.menu,name:hr_payroll_period.menu_payroll_exception_view
+msgid "Exceptions"
+msgstr ""
+
+#. module: hr_payroll_period
+#: view:hr.payroll.period.end.1:0
+msgid "1. Check Attendance Records"
+msgstr ""
+
+#. module: hr_payroll_period
+#: field:hr.payroll.period.end.1,is_ended:0
+msgid "Past End Day?"
+msgstr ""
+
+#. module: hr_payroll_period
+#: view:hr.payroll.period.end.1:0
+msgid "End of Payroll Period Wizard"
+msgstr ""
+
+#. module: hr_payroll_period
+#: model:ir.actions.act_window,name:hr_payroll_period.action_pay_period_end
+#: model:ir.ui.menu,name:hr_payroll_period.menu_pay_period_end
+msgid "End of Pay Period"
+msgstr ""
+
+#. module: hr_payroll_period
+#: selection:hr.payroll.period.schedule,mo_firstday:0
+#: selection:hr.payroll.period.schedule,mo_paydate:0
+msgid "30"
+msgstr ""
+
+#. module: hr_payroll_period
+#: sql_constraint:hr.holidays.status:0
+msgid "Codes for leave types must be unique!"
+msgstr ""
+
+#. module: hr_payroll_period
+#: model:ir.actions.act_window,help:hr_payroll_period.action_pay_period_end
+msgid ""
+"<p>\n"
+"                There are no current pay periods that are past their end date.\n"
+"              </p>\n"
+"            "
+msgstr ""
+
+#. module: hr_payroll_period
+#: field:hr.payroll.period.end.1,alert_low:0
+msgid "Low Severity"
+msgstr ""
+
+#. module: hr_payroll_period
+#: code:addons/hr_payroll_period/hr_attendance.py:90
+#, python-format
+msgid "The Record cannot be deleted!"
+msgstr ""
+
+#. module: hr_payroll_period
+#: field:hr.payroll.period,date_start:0
+msgid "Start Date"
+msgstr ""
+
+#. module: hr_payroll_period
+#: code:addons/hr_payroll_period/wizard/payroll_period_end.py:794
+#, python-format
+msgid ""
+"There are one or more Critical Severity Exceptions. Please correct them "
+"before proceeding."
+msgstr ""
+
+#. module: hr_payroll_period
+#: code:addons/hr_payroll_period/wizard/payroll_period_end.py:872
+#, python-format
+msgid "You must lock the payroll period first."
+msgstr ""
+
+#. module: hr_payroll_period
+#: selection:hr.payroll.period,state:0
+msgid "End of Period Processing"
+msgstr ""
+
+#. module: hr_payroll_period
+#: view:hr.payroll.period.end.1:0
+msgid "Attendance Exceptions"
+msgstr ""
+
+#. module: hr_payroll_period
+#: code:addons/hr_payroll_period/hr_payroll_period.py:864
+#, python-format
+msgid "Wrong python condition defined for payroll exception rule %s (%s)."
+msgstr ""
+
+#. module: hr_payroll_period
+#: view:hr.payroll.period.end.1:0
+msgid "Print Payroll Summary"
+msgstr ""
+
+#. module: hr_payroll_period
+#: field:hr.payroll.period.schedule,mo_paydate:0
+msgid "Pay Date"
+msgstr ""
+
+#. module: hr_payroll_period
+#: model:mail.message.subtype,description:hr_payroll_period.mt_state_payment
+msgid "Payment has started"
+msgstr ""
+
+#. module: hr_payroll_period
+#: view:hr.payslip.exception.rule:0
+msgid "Note"
+msgstr ""
+
+#. module: hr_payroll_period
+#: view:hr.payroll.period.schedule:0
+msgid "Add"
+msgstr ""
+
+#. module: hr_payroll_period
+#: model:ir.model,name:hr_payroll_period.model_hr_attendance
+msgid "Attendance"
+msgstr ""
+
+#. module: hr_payroll_period
+#: view:hr.payroll.period.end.1:0
+msgid "Draft"
+msgstr ""
+
+#. module: hr_payroll_period
+#: field:hr.payroll.period.end.1,pex_low:0
+#: selection:hr.payslip.exception.rule,severity:0
+msgid "Low"
+msgstr ""
+
+#. module: hr_payroll_period
+#: selection:hr.payroll.period,state:0
+#: model:mail.message.subtype,name:hr_payroll_period.mt_state_close
+msgid "Closed"
+msgstr ""
+
+#. module: hr_payroll_period
+#: view:hr.payslip.exception.rule:0
+msgid "Conditions"
+msgstr ""
+
+#. module: hr_payroll_period
+#: view:hr.payroll.period.end.1:0 view:hr.payslip:0
+#: view:hr.payslip.exception:0
+msgid "Payroll Exceptions"
+msgstr ""
+
+#. module: hr_payroll_period
+#: view:hr.payroll.period.end.1:0
+msgid ""
+"Review pay slip amendments, if any, attached to this pay period. You can\n"
+"                        confirm, cancel or modify amendments directly from this wizard. Only\n"
+"                        confirmed amendments will be processed."
+msgstr ""
+
+#. module: hr_payroll_period
+#: field:hr.payroll.period,register_id:0
+msgid "Payroll Register"
+msgstr ""
+
+#. module: hr_payroll_period
+#: model:ir.model,name:hr_payroll_period.model_hr_payroll_period_schedule
+msgid "hr.payroll.period.schedule"
+msgstr ""
+
+#. module: hr_payroll_period
+#: code:addons/hr_payroll_period/hr_payroll_period.py:308
+#: selection:hr.payroll.period.schedule,ot_week_startday:0
+#, python-format
+msgid "Monday"
+msgstr ""
+
+#. module: hr_payroll_period
+#: model:ir.model,name:hr_payroll_period.model_hr_payroll_period_end_1
+msgid "End of Payroll Period Wizard Step 1"
+msgstr ""
+
+#. module: hr_payroll_period
+#: view:hr.payroll.period.schedule:0
+#: field:hr.payroll.period.schedule,contract_ids:0
+msgid "Contracts"
+msgstr ""
+
+#. module: hr_payroll_period
+#: help:hr.payroll.period,message_ids:0
+msgid "Messages and communication history"
+msgstr "Lịch sử trao đổi"
+
+#. module: hr_payroll_period
+#: field:hr.payroll.period.end.1,alert_medium:0
+msgid "Medium Severity"
+msgstr ""
+
+#. module: hr_payroll_period
+#: field:hr.payroll.period.end.1,payslips:0
+msgid "Have Pay Slips Been Generated?"
+msgstr ""
+
+#. module: hr_payroll_period
+#: field:hr.payroll.period,message_is_follower:0
+msgid "Is a Follower"
+msgstr ""
+
+#. module: hr_payroll_period
+#: field:hr.holidays,payroll_period_state:0
+msgid "Payroll Period State"
+msgstr ""
+
+#. module: hr_payroll_period
+#: field:hr.payroll.period.schedule,active:0
+#: field:hr.payslip.exception.rule,active:0
+msgid "Active"
+msgstr ""
+
+#. module: hr_payroll_period
+#: view:hr.payroll.period:0
+msgid "Payroll Period"
+msgstr ""
+
+#. module: hr_payroll_period
+#: view:hr.payroll.period.schedule:0
+#: field:hr.payroll.period.schedule,pay_period_ids:0
+msgid "Pay Periods"
+msgstr ""
+
+#. module: hr_payroll_period
+#: selection:hr.payslip.exception.rule,condition_select:0
+msgid "Python Expression"
+msgstr ""
+
+#. module: hr_payroll_period
+#: field:hr.payroll.period.end.1,br10:0
+msgid "10 Birr"
+msgstr ""
+
+#. module: hr_payroll_period
+#: code:addons/hr_payroll_period/hr_payroll_period.py:937
+#, python-format
+msgid ""
+"You cannot delete a leave which belongs to a payroll period that has been "
+"locked."
+msgstr ""
+
+#. module: hr_payroll_period
+#: view:hr.payroll.period:0
+msgid "Interval"
+msgstr ""
+
+#. module: hr_payroll_period
+#: field:hr.payroll.period.end.1,payment_started:0
+msgid "Payment Started?"
+msgstr ""
+
+#. module: hr_payroll_period
+#: code:addons/hr_payroll_period/hr_payroll_period.py:310
+#: selection:hr.payroll.period.schedule,ot_week_startday:0
+#, python-format
+msgid "Wednesday"
+msgstr ""
+
+#. module: hr_payroll_period
+#: model:ir.model,name:hr_payroll_period.model_hr_contract
+msgid "Contract"
+msgstr ""
+
+#. module: hr_payroll_period
+#: field:hr.payroll.period,message_summary:0
+msgid "Summary"
+msgstr ""
+
+#. module: hr_payroll_period
+#: field:hr.payroll.period.end.1,ps_amendments_conf:0
+msgid "Confirmed Amendments"
+msgstr ""
+
+#. module: hr_payroll_period
+#: code:addons/hr_payroll_period/hr_payroll_period.py:311
+#: selection:hr.payroll.period.schedule,ot_week_startday:0
+#, python-format
+msgid "Thursday"
+msgstr ""
+
+#. module: hr_payroll_period
+#: code:addons/hr_payroll_period/hr_attendance.py:112
+#, python-format
+msgid "The record cannot be modified!"
+msgstr ""
+
+#. module: hr_payroll_period
+#: field:hr.payslip.exception.rule,condition_python:0
+msgid "Python Condition"
+msgstr ""
+
+#. module: hr_payroll_period
+#: selection:hr.payroll.period.schedule,mo_firstday:0
+#: selection:hr.payroll.period.schedule,mo_paydate:0
+msgid "11"
+msgstr ""
+
+#. module: hr_payroll_period
+#: selection:hr.payroll.period.schedule,mo_firstday:0
+#: selection:hr.payroll.period.schedule,mo_paydate:0
+msgid "10"
+msgstr ""
+
+#. module: hr_payroll_period
+#: selection:hr.payroll.period.schedule,mo_firstday:0
+#: selection:hr.payroll.period.schedule,mo_paydate:0
+msgid "13"
+msgstr ""
+
+#. module: hr_payroll_period
+#: field:hr.holidays.status,code:0 view:hr.payslip.exception.rule:0
+#: field:hr.payslip.exception.rule,code:0
+msgid "Code"
+msgstr ""
+
+#. module: hr_payroll_period
+#: selection:hr.payroll.period.schedule,mo_firstday:0
+#: selection:hr.payroll.period.schedule,mo_paydate:0
+msgid "15"
+msgstr ""
+
+#. module: hr_payroll_period
+#: selection:hr.payroll.period.schedule,mo_firstday:0
+#: selection:hr.payroll.period.schedule,mo_paydate:0
+msgid "14"
+msgstr ""
+
+#. module: hr_payroll_period
+#: selection:hr.payroll.period.schedule,mo_firstday:0
+#: selection:hr.payroll.period.schedule,mo_paydate:0
+msgid "17"
+msgstr ""
+
+#. module: hr_payroll_period
+#: selection:hr.payroll.period.schedule,mo_firstday:0
+#: selection:hr.payroll.period.schedule,mo_paydate:0
+msgid "16"
+msgstr ""
+
+#. module: hr_payroll_period
+#: selection:hr.payroll.period.schedule,mo_firstday:0
+#: selection:hr.payroll.period.schedule,mo_paydate:0
+msgid "19"
+msgstr ""
+
+#. module: hr_payroll_period
+#: selection:hr.payroll.period.schedule,mo_firstday:0
+#: selection:hr.payroll.period.schedule,mo_paydate:0
+msgid "18"
+msgstr ""
+
+#. module: hr_payroll_period
+#: field:hr.payslip.exception.rule,sequence:0
+msgid "Sequence"
+msgstr "Trình tự"
+
+#. module: hr_payroll_period
+#: model:ir.model,name:hr_payroll_period.model_hr_contract_init
+msgid "Initial Contract Settings"
+msgstr ""
+
+#. module: hr_payroll_period
+#: view:hr.payroll.period.end.1:0
+msgid "7. Start Making Payments"
+msgstr ""
+
+#. module: hr_payroll_period
+#: model:ir.actions.act_window,name:hr_payroll_period.open_payroll_period_schedule_view
+#: model:ir.ui.menu,name:hr_payroll_period.menu_payroll_period_schedule_view
+msgid "Payroll Period Schedules"
+msgstr ""
+
+#. module: hr_payroll_period
+#: field:hr.payroll.period.end.1,cent05:0
+msgid "5 Cents"
+msgstr ""
+
+#. module: hr_payroll_period
+#: field:hr.payroll.period.end.1,br50:0
+msgid "50 Birr"
+msgstr ""
+
+#. module: hr_payroll_period
+#: field:hr.payroll.period.schedule,tz:0
+msgid "Time Zone"
+msgstr ""
+
+#. module: hr_payroll_period
+#: view:hr.payroll.period.end.1:0
+msgid "Exact Change"
+msgstr ""
+
+#. module: hr_payroll_period
+#: selection:hr.payroll.period,state:0
+msgid "Open"
+msgstr ""
+
+#. module: hr_payroll_period
+#: selection:hr.payroll.period.schedule,mo_firstday:0
+#: selection:hr.payroll.period.schedule,mo_paydate:0
+msgid "31"
+msgstr ""
+
+#. module: hr_payroll_period
+#: selection:hr.attendance,state:0
+msgid "Unverified"
+msgstr ""
+
+#. module: hr_payroll_period
+#: selection:hr.payroll.period,state:0
+msgid "Generating Payslips"
+msgstr ""
+
+#. module: hr_payroll_period
+#: view:hr.payroll.period.end.1:0
+msgid "Print Pay Slip Details"
+msgstr ""
+
+#. module: hr_payroll_period
+#: view:hr.payroll.period.end.1:0
+#: field:hr.payroll.period.end.1,public_holiday_ids:0
+msgid "Public Holidays"
+msgstr ""
+
+#. module: hr_payroll_period
+#: field:hr.payroll.period.end.1,ps_generated:0
+msgid "Pay Slip Generated?"
+msgstr ""
+
+#. module: hr_payroll_period
+#: code:addons/hr_payroll_period/hr_attendance.py:113
+#, python-format
+msgid ""
+"You may not write to a record that is in a %s state:\n"
+"Employee: %s, Date: %s, Action: %s"
+msgstr ""
+
+#. module: hr_payroll_period
+#: help:hr.payslip.exception.rule,condition_python:0
+msgid "The condition that triggers the exception."
+msgstr ""
+
+#. module: hr_payroll_period
+#: view:hr.payroll.period.end.1:0
+msgid "Print Pay Slips"
+msgstr ""
+
+#. module: hr_payroll_period
+#: field:hr.payroll.period.schedule,mo_firstday:0
+msgid "Start Day"
+msgstr ""
+
+#. module: hr_payroll_period
+#: selection:hr.holidays,payroll_period_state:0
+msgid "Unlocked"
+msgstr ""
+
+#. module: hr_payroll_period
+#: view:hr.payroll.period.end.1:0
+msgid ""
+"Print out the payroll and contribution registers belonging to this\n"
+"                        period. Keeping paper-copies of these reports can be useful for\n"
+"                        record-keeping and preservation purposes."
+msgstr ""
+
+#. module: hr_payroll_period
+#: constraint:hr.payroll.period.schedule:0
+msgid "You must supply an Initial Period Start Date"
+msgstr ""
+
+#. module: hr_payroll_period
+#: field:hr.payslip.amendment,pay_period_id:0
+msgid "Pay Period"
+msgstr ""
+
+#. module: hr_payroll_period
+#: view:hr.payroll.period:0
+#: model:ir.actions.act_window,name:hr_payroll_period.action_payroll_period_end
+msgid "End of Pay Period Wizard"
+msgstr ""
+
+#. module: hr_payroll_period
+#: field:hr.payroll.period,name:0 field:hr.payroll.period.schedule,name:0
+#: field:hr.payslip.exception.rule,note:0
+msgid "Description"
+msgstr "Miêu tả"
+
+#. module: hr_payroll_period
+#: view:hr.payroll.period.end.1:0
+msgid "5. Generate and Review Pay Slips"
+msgstr ""
+
+#. module: hr_payroll_period
+#: view:hr.payroll.period.end.1:0
+msgid "Unlock"
+msgstr ""
+
+#. module: hr_payroll_period
+#: code:addons/hr_payroll_period/hr_attendance.py:75
+#, python-format
+msgid "The period is Locked!"
+msgstr ""
+
+#. module: hr_payroll_period
+#: code:addons/hr_payroll_period/wizard/payroll_period_end.py:793
+#, python-format
+msgid "Unable to Lock the Payroll Period"
+msgstr ""
+
+#. module: hr_payroll_period
+#: view:hr.payroll.period.end.1:0
+msgid "6. Review and Resolve Payroll Exceptions"
+msgstr ""
+
+#. module: hr_payroll_period
+#: field:hr.payroll.period.end.1,closed:0
+msgid "Pay Period Closed?"
+msgstr ""
+
+#. module: hr_payroll_period
+#: selection:hr.payroll.period,state:0
+#: model:mail.message.subtype,name:hr_payroll_period.mt_state_payment
+msgid "Payment"
+msgstr ""
+
+#. module: hr_payroll_period
+#: view:hr.payroll.period.end.1:0
+msgid "2. Public Holidays"
+msgstr ""
+
+#. module: hr_payroll_period
+#: field:hr.payroll.period,date_end:0
+msgid "End Date"
+msgstr ""
+
+#. module: hr_payroll_period
+#: view:hr.payroll.period.end.1:0
+msgid "Print Payroll Register"
+msgstr ""
+
+#. module: hr_payroll_period
+#: field:hr.payslip.exception,name:0 field:hr.payslip.exception.rule,name:0
+msgid "Name"
+msgstr "Tên"
+
+#. module: hr_payroll_period
+#: view:hr.payroll.period:0
+#: model:ir.actions.act_window,name:hr_payroll_period.open_payroll_period_view
+#: model:ir.ui.menu,name:hr_payroll_period.menu_payroll_period_view
+msgid "Payroll Periods"
+msgstr ""
+
+#. module: hr_payroll_period
+#: view:hr.payroll.period.schedule:0
+msgid "Pay Period Schedules"
+msgstr ""
+
+#. module: hr_payroll_period
+#: field:hr.payroll.period.end.1,locked:0
+msgid "Is Period Locked?"
+msgstr ""
+
+#. module: hr_payroll_period
+#: help:hr.payslip.exception.rule,sequence:0
+msgid "Use to arrange calculation sequence"
+msgstr ""
+
+#. module: hr_payroll_period
+#: view:hr.payroll.period.end.1:0
+msgid "Reload"
+msgstr ""
+
+#. module: hr_payroll_period
+#: field:hr.payroll.period.end.1,can_unlock:0
+msgid "Can Unlock Period?"
+msgstr ""
+
+#. module: hr_payroll_period
+#: field:hr.payslip.exception,rule_id:0
+msgid "Rule"
+msgstr ""
+
+#. module: hr_payroll_period
+#: code:addons/hr_payroll_period/hr_attendance.py:91
+#, python-format
+msgid ""
+"You may not delete a record that is in a %s state:\n"
+"Employee: %s, Date: %s, Action: %s"
+msgstr ""
+
+#. module: hr_payroll_period
+#: model:mail.group,name:hr_payroll_period.mail_group_hr_main
+msgid "HR Information"
+msgstr ""
+
+#. module: hr_payroll_period
+#: field:hr.payroll.period.schedule,ot_max_rollover_hours:0
+msgid "OT Max. Continuous Hours"
+msgstr ""
+
+#. module: hr_payroll_period
+#: view:hr.payroll.period.end.1:0
+msgid "View Exceptions"
+msgstr ""
+
+#. module: hr_payroll_period
+#: view:hr.payroll.period.end.1:0
+msgid "9. Close Pay Period"
+msgstr ""
+
+#. module: hr_payroll_period
+#: view:hr.payroll.period.end.1:0
+msgid "Lock"
+msgstr ""
+
+#. module: hr_payroll_period
+#: selection:hr.attendance,state:0
+msgid "Verified"
+msgstr ""
+
+#. module: hr_payroll_period
+#: model:mail.message.subtype,name:hr_payroll_period.mt_state_generate
+msgid "Generate Payslips"
+msgstr ""
+
+#. module: hr_payroll_period
+#: view:hr.payroll.period.end.1:0
+msgid "4. Review Pay Slip Amendments"
+msgstr ""
+
+#. module: hr_payroll_period
+#: field:hr.payroll.period.end.1,pex_high:0
+#: selection:hr.payslip.exception.rule,severity:0
+msgid "High"
+msgstr ""
+
+#. module: hr_payroll_period
+#: model:mail.message.subtype,name:hr_payroll_period.mt_state_end
+msgid "Ended"
+msgstr ""
+
+#. module: hr_payroll_period
+#: selection:hr.payslip.exception.rule,condition_select:0
+msgid "Always True"
+msgstr ""
+
+#. module: hr_payroll_period
+#: view:hr.payroll.period.schedule:0
+msgid "Pay Period Schedule"
+msgstr ""
+
+#. module: hr_payroll_period
+#: model:ir.model,name:hr_payroll_period.model_hr_payroll_period
+msgid "Email Thread"
+msgstr ""
+
+#. module: hr_payroll_period
+#: field:hr.payroll.period.schedule,paydate_biz_day:0
+msgid "Pay Date on a Business Day"
+msgstr ""
+
+#. module: hr_payroll_period
+#: field:hr.payroll.period.end.1,br1:0
+msgid "1 Birr"
+msgstr ""
+
+#. module: hr_payroll_period
+#: code:addons/hr_payroll_period/hr_payroll_period.py:313
+#: selection:hr.payroll.period.schedule,ot_week_startday:0
+#, python-format
+msgid "Saturday"
+msgstr ""
+
+#. module: hr_payroll_period
+#: field:hr.payroll.period.end.1,cent01:0
+msgid "1 Cent"
+msgstr ""

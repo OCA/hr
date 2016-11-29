@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-17 12:09+0000\n"
+"POT-Creation-Date: 2016-10-12 23:35+0000\n"
 "PO-Revision-Date: 2015-07-27 23:41+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Italian (http://www.transifex.com/oca/OCA-hr-7-0/language/it/)\n"
@@ -55,12 +55,12 @@ msgstr ""
 #. module: hr_transfer
 #: field:hr.department.transfer,state:0
 msgid "State"
-msgstr ""
+msgstr "Stato"
 
 #. module: hr_transfer
 #: field:hr.department.transfer,message_follower_ids:0
 msgid "Followers"
-msgstr ""
+msgstr "Followers"
 
 #. module: hr_transfer
 #: field:hr.department.transfer,employee_id:0
@@ -75,7 +75,7 @@ msgstr "Attesa"
 #. module: hr_transfer
 #: field:hr.department.transfer,message_unread:0
 msgid "Unread Messages"
-msgstr ""
+msgstr "Unread Messages"
 
 #. module: hr_transfer
 #: view:hr.department.transfer:0
@@ -125,7 +125,7 @@ msgstr ""
 #. module: hr_transfer
 #: field:hr.department.transfer,message_ids:0
 msgid "Messages"
-msgstr ""
+msgstr "Messages"
 
 #. module: hr_transfer
 #: model:mail.message.subtype,description:hr_transfer.mt_alert_xfer_pending
@@ -135,7 +135,7 @@ msgstr ""
 #. module: hr_transfer
 #: field:hr.department.transfer,message_summary:0
 msgid "Summary"
-msgstr ""
+msgstr "Periodo Iva"
 
 #. module: hr_transfer
 #: model:mail.message.subtype,description:hr_transfer.mt_alert_xfer_confirmed
@@ -145,12 +145,12 @@ msgstr ""
 #. module: hr_transfer
 #: selection:hr.department.transfer,state:0
 msgid "Cancelled"
-msgstr ""
+msgstr "Annullato"
 
 #. module: hr_transfer
 #: help:hr.department.transfer,message_unread:0
 msgid "If checked new messages require your attention."
-msgstr ""
+msgstr "If checked new messages require your attention."
 
 #. module: hr_transfer
 #: model:mail.message.subtype,name:hr_transfer.mt_alert_xfer_pending
@@ -198,7 +198,7 @@ msgstr ""
 #. module: hr_transfer
 #: selection:hr.department.transfer,state:0
 msgid "Done"
-msgstr ""
+msgstr "Completato"
 
 #. module: hr_transfer
 #: code:addons/hr_transfer/hr_transfer.py:146
@@ -214,7 +214,7 @@ msgstr "Annulla"
 #. module: hr_transfer
 #: selection:hr.department.transfer,state:0
 msgid "Draft"
-msgstr ""
+msgstr "Bozza"
 
 #. module: hr_transfer
 #: field:hr.department.transfer,src_department_id:0
