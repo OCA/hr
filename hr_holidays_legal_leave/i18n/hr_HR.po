@@ -1,0 +1,65 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * hr_holidays_legal_leave
+# 
+# Translators:
+# Bole <bole@dajmi5.com>, 2016
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-11-29 03:45+0000\n"
+"PO-Revision-Date: 2016-11-29 03:45+0000\n"
+"Last-Translator: Bole <bole@dajmi5.com>, 2016\n"
+"Language-Team: Croatian (Croatia) (https://www.transifex.com/oca/teams/23907/hr_HR/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: hr_HR\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+
+#. module: hr_holidays_legal_leave
+#: model:ir.model,name:hr_holidays_legal_leave.model_res_company
+msgid "Companies"
+msgstr "Poduzeća"
+
+#. module: hr_holidays_legal_leave
+#: model:ir.model,name:hr_holidays_legal_leave.model_hr_employee
+msgid "Employee"
+msgstr "Djelatnik"
+
+#. module: hr_holidays_legal_leave
+#: model:ir.model,name:hr_holidays_legal_leave.model_hr_holidays_status
+msgid "Leave Type"
+msgstr "Tip odsustva"
+
+#. module: hr_holidays_legal_leave
+#: model:ir.model.fields,field_description:hr_holidays_legal_leave.field_res_company_legal_holidays_status_id
+msgid "Legal Leave Status"
+msgstr ""
+
+#. module: hr_holidays_legal_leave
+#: model:ir.model.fields,field_description:hr_holidays_legal_leave.field_hr_holidays_status_is_annual
+msgid "Legal/Annual"
+msgstr ""
+
+#. module: hr_holidays_legal_leave
+#: code:addons/hr_holidays_legal_leave/models/hr_employee.py:17
+#: code:addons/hr_holidays_legal_leave/models/hr_employee.py:44
+#, python-format
+msgid "Legal/annual leave type is not defined for your company."
+msgstr ""
+
+#. module: hr_holidays_legal_leave
+#: model:ir.model.fields,help:hr_holidays_legal_leave.field_hr_holidays_status_is_annual
+msgid ""
+"Use this Leave type as Legal/Annual for current company. One and only one "
+"leave type can have this checkbox. You cannot unset it directly. Set it on "
+"another Leave type instead. "
+msgstr ""
+
+#. module: hr_holidays_legal_leave
+#: code:addons/hr_holidays_legal_leave/models/hr_employee.py:36
+#, python-format
+msgid "You cannot reduce validated allocation requests."
+msgstr ""
