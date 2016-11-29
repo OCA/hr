@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-17 13:08+0000\n"
-"PO-Revision-Date: 2016-10-04 09:42+0000\n"
+"POT-Creation-Date: 2016-10-17 20:43+0000\n"
+"PO-Revision-Date: 2016-11-25 14:57+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Italian (http://www.transifex.com/oca/OCA-hr-8-0/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -309,7 +309,7 @@ msgstr ""
 #: field:hr.employee.benefit.category,reference:0
 #: field:hr.payslip.benefit.line,reference:0
 msgid "Reference"
-msgstr ""
+msgstr "Riferimento"
 
 #. module: hr_employee_benefit
 #: view:hr.payslip:hr_employee_benefit.view_hr_payslip_form

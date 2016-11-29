@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-17 13:09+0000\n"
-"PO-Revision-Date: 2016-10-04 09:42+0000\n"
+"POT-Creation-Date: 2016-10-17 20:43+0000\n"
+"PO-Revision-Date: 2016-11-25 14:55+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Finnish (http://www.transifex.com/oca/OCA-hr-8-0/language/fi/)\n"
 "MIME-Version: 1.0\n"
@@ -265,7 +265,7 @@ msgstr "Nimi"
 #: view:hr.employee:hr_experience.view_employee_form_inherit
 #: field:hr.experience,partner_id:0
 msgid "Partner"
-msgstr ""
+msgstr "Kumppani"
 
 #. module: hr_experience
 #: view:hr.certification:hr_experience.view_certification_form

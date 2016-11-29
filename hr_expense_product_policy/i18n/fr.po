@@ -4,14 +4,14 @@
 # 
 # Translators:
 # OCA Transbot <transbot@odoo-community.org>, 2016
-# Mohamed HABOU <m.habou@agoradeveloppement.com>, 2016
+# Christophe CHAUVET <christophe.chauvet@gmail.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-09 02:43+0000\n"
-"PO-Revision-Date: 2016-09-09 02:43+0000\n"
-"Last-Translator: Mohamed HABOU <m.habou@agoradeveloppement.com>, 2016\n"
+"POT-Creation-Date: 2016-10-17 20:43+0000\n"
+"PO-Revision-Date: 2016-10-17 20:43+0000\n"
+"Last-Translator: Christophe CHAUVET <christophe.chauvet@gmail.com>, 2016\n"
 "Language-Team: French (https://www.transifex.com/oca/teams/23907/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,7 +28,7 @@ msgstr ""
 #: view:hr.job:hr_expense_product_policy.hr_job_view_form
 #: field:hr.job,all_allowed_expense_product_ids:0
 msgid "All Allowed Expense Product"
-msgstr ""
+msgstr "Autoriser tous les produits de note de frais"
 
 #. module: hr_expense_product_policy
 #: view:hr.department:hr_expense_product_policy.hr_department_view_form
@@ -38,7 +38,7 @@ msgstr ""
 #: view:hr.job:hr_expense_product_policy.hr_job_view_form
 #: field:hr.job,allowed_expense_product_ids:0
 msgid "Allowed Expense Product"
-msgstr ""
+msgstr "Autoriser les produits de note de frais"
 
 #. module: hr_expense_product_policy
 #: view:hr.department:hr_expense_product_policy.hr_department_view_form
@@ -48,7 +48,7 @@ msgstr ""
 #: view:hr.job:hr_expense_product_policy.hr_job_view_form
 #: field:hr.job,allowed_expense_product_categ_ids:0
 msgid "Allowed Expense Product Categories"
-msgstr ""
+msgstr "Autoriser toutes les familles de produit de note de frais"
 
 #. module: hr_expense_product_policy
 #: model:ir.model,name:hr_expense_product_policy.model_hr_employee
@@ -68,7 +68,7 @@ msgstr "Ligne de frais"
 #. module: hr_expense_product_policy
 #: view:hr.employee:hr_expense_product_policy.hr_employee_view_form_requiredProduct
 msgid "Expense Product Policy"
-msgstr ""
+msgstr "Police d'ajout de produit dans les dépenses"
 
 #. module: hr_expense_product_policy
 #: model:ir.model,name:hr_expense_product_policy.model_hr_job
@@ -79,26 +79,26 @@ msgstr "Poste"
 #: field:hr.employee,limit_product_selection:0
 #: field:hr.expense.expense,limit_product_selection:0
 msgid "Limit Product Selection"
-msgstr ""
+msgstr "Limiter la sélection de produit"
 
 #. module: hr_expense_product_policy
 #: code:addons/hr_expense_product_policy/models/hr_expense.py:65
 #, python-format
 msgid "Product has to be filled"
-msgstr ""
+msgstr "Le produit doit être renseigné"
 
 #. module: hr_expense_product_policy
 #: code:addons/hr_expense_product_policy/models/hr_expense.py:71
 #, python-format
 msgid "Product is not allowed"
-msgstr ""
+msgstr "Ce produit n'est pas autorisé"
 
 #. module: hr_expense_product_policy
 #: field:hr.employee,required_expense_product:0
 #: field:hr.expense.expense,required_expense_product:0
 #: field:hr.expense.line,required_expense_product:0
 msgid "Required Expense Product"
-msgstr ""
+msgstr "Le produit est requis"
 
 #. module: hr_expense_product_policy
 #: help:hr.employee,required_expense_product:0
@@ -106,18 +106,20 @@ msgid ""
 "Turn on this options if this employee\n"
 "    has to choose product when creating expenses"
 msgstr ""
+"Activer ces options si l'employé\n"
+"a choisi le produit lors de la création de note de frais"
 
 #. module: hr_expense_product_policy
 #: view:hr.expense.expense:hr_expense_product_policy.view_expenses_form
 msgid "[('id', 'in', parent.all_allowed_expense_product_ids[0][2])]"
-msgstr ""
+msgstr "[('id', 'in', parent.all_allowed_expense_product_ids[0][2])]"
 
 #. module: hr_expense_product_policy
 #: view:hr.expense.expense:hr_expense_product_policy.view_expenses_form
 msgid "{\"default_required_expense_product\": required_expense_product}"
-msgstr ""
+msgstr "{\"default_required_expense_product\": required_expense_product}"
 
 #. module: hr_expense_product_policy
 #: view:hr.expense.expense:hr_expense_product_policy.view_expenses_form
 msgid "{'required':[('required_expense_product','=',True)]}"
-msgstr ""
+msgstr "{'required':[('required_expense_product','=',True)]}"

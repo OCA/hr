@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-27 10:43+0000\n"
-"PO-Revision-Date: 2016-02-25 21:28+0000\n"
-"Last-Translator: new stargate <newstargate@gmail.com>\n"
+"POT-Creation-Date: 2016-10-17 20:43+0000\n"
+"PO-Revision-Date: 2016-10-11 09:48+0000\n"
+"Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Arabic (http://www.transifex.com/oca/OCA-hr-8-0/language/ar/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -46,6 +46,11 @@ msgstr ""
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "Bulgarian / български език"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "Burmese / မြန်မာဘာသာ"
 msgstr ""
 
 #. module: hr_language
@@ -97,6 +102,11 @@ msgstr ""
 #: field:hr.language,description:0
 msgid "Description"
 msgstr "الوصف"
+
+#. module: hr_language
+#: field:hr.language,display_name:0
+msgid "Display Name"
+msgstr "اسم العرض"
 
 #. module: hr_language
 #: selection:hr.language,name:0
@@ -171,6 +181,11 @@ msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
+msgid "German (CH) / Deutsch (CH)"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
 msgid "German / Deutsch"
 msgstr ""
 
@@ -202,7 +217,7 @@ msgstr ""
 #. module: hr_language
 #: field:hr.language,id:0
 msgid "ID"
-msgstr ""
+msgstr "المعرف"
 
 #. module: hr_language
 #: selection:hr.language,name:0
@@ -253,6 +268,11 @@ msgstr "اللغات"
 #: selection:hr.language,name:0
 msgid "Lao / ພາສາລາວ"
 msgstr ""
+
+#. module: hr_language
+#: field:hr.language,__last_update:0
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
 
 #. module: hr_language
 #: field:hr.language,write_uid:0

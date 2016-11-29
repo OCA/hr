@@ -3,15 +3,16 @@
 # * hr_skill
 # 
 # Translators:
+# Christophe CHAUVET <christophe.chauvet@gmail.com>, 2016
 # Mohamed HABOU <m.habou@agoradeveloppement.com>, 2016
 # Youness RHANDOUR <rhandour.youness@gmail.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-05 18:30+0000\n"
-"PO-Revision-Date: 2016-07-04 06:42+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
+"POT-Creation-Date: 2016-10-17 20:43+0000\n"
+"PO-Revision-Date: 2016-11-25 14:55+0000\n"
+"Last-Translator: Christophe CHAUVET <christophe.chauvet@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/oca/OCA-hr-8-0/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -27,7 +28,7 @@ msgstr "Actif"
 #. module: hr_skill
 #: view:hr.skill:hr_skill.view_skill_form
 msgid "Child Skills"
-msgstr ""
+msgstr "Compétences enfant"
 
 #. module: hr_skill
 #: field:hr.skill,child_ids:0
@@ -57,7 +58,7 @@ msgstr "Employé"
 #. module: hr_skill
 #: field:hr.skill,employee_ids:0
 msgid "Employee(s)"
-msgstr ""
+msgstr "Employé(s)"
 
 #. module: hr_skill
 #: model:ir.actions.act_window,name:hr_skill.hr_employee_normal_action_tree
@@ -98,17 +99,17 @@ msgstr "Parent"
 #. module: hr_skill
 #: field:hr.skill,parent_left:0
 msgid "Parent Left"
-msgstr ""
+msgstr "Parent Left"
 
 #. module: hr_skill
 #: field:hr.skill,parent_right:0
 msgid "Parent Right"
-msgstr ""
+msgstr "Parent Right"
 
 #. module: hr_skill
 #: view:hr.skill:hr_skill.view_skill_form
 msgid "Skill"
-msgstr ""
+msgstr "Compétence"
 
 #. module: hr_skill
 #: view:hr.employee:hr_skill.view_employee_skill_form
@@ -116,15 +117,15 @@ msgstr ""
 #: model:ir.actions.act_window,name:hr_skill.open_view_skill_form
 #: model:ir.ui.menu,name:hr_skill.menu_open_view_skill_form
 msgid "Skills"
-msgstr ""
+msgstr "Compétences"
 
 #. module: hr_skill
 #: model:ir.ui.menu,name:hr_skill.menu_hr_skill_mgt
 msgid "Skills Management"
-msgstr ""
+msgstr "Gérer les compétences"
 
 #. module: hr_skill
 #: model:ir.actions.act_window,name:hr_skill.open_view_skill_tree
 #: model:ir.ui.menu,name:hr_skill.menu_open_view_skill_tree
 msgid "Skills Structure"
-msgstr ""
+msgstr "Structure des compétences"

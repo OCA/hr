@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-26 02:40+0000\n"
-"PO-Revision-Date: 2016-05-24 20:25+0000\n"
+"POT-Creation-Date: 2016-10-17 20:43+0000\n"
+"PO-Revision-Date: 2016-11-25 14:56+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Spanish (http://www.transifex.com/oca/OCA-hr-8-0/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -202,7 +202,7 @@ msgstr ""
 #: field:hr.employee.benefit,date_end:0
 #: field:hr.employee.benefit.rate.line,date_end:0
 msgid "End Date"
-msgstr ""
+msgstr "Fecha Final"
 
 #. module: hr_employee_benefit
 #: help:hr.payslip,pays_per_year:0
@@ -309,7 +309,7 @@ msgstr ""
 #: field:hr.employee.benefit.category,reference:0
 #: field:hr.payslip.benefit.line,reference:0
 msgid "Reference"
-msgstr ""
+msgstr "Referencia"
 
 #. module: hr_employee_benefit
 #: view:hr.payslip:hr_employee_benefit.view_hr_payslip_form
@@ -337,7 +337,7 @@ msgstr ""
 #: field:hr.employee.benefit,date_start:0
 #: field:hr.employee.benefit.rate.line,date_start:0
 msgid "Start Date"
-msgstr ""
+msgstr "Fecha de inicio"
 
 #. module: hr_employee_benefit
 #: help:hr.employee.benefit,code:0 help:hr.employee.benefit.category,code:0

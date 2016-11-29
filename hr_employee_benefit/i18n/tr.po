@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-17 13:08+0000\n"
-"PO-Revision-Date: 2016-10-04 09:43+0000\n"
+"POT-Creation-Date: 2016-10-17 20:43+0000\n"
+"PO-Revision-Date: 2016-11-25 14:57+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Turkish (http://www.transifex.com/oca/OCA-hr-8-0/language/tr/)\n"
 "MIME-Version: 1.0\n"
@@ -266,7 +266,7 @@ msgstr "Son güncelleme"
 #. module: hr_employee_benefit
 #: field:hr.employee.benefit.rate,name:0
 msgid "Name"
-msgstr ""
+msgstr "Adı"
 
 #. module: hr_employee_benefit
 #: field:hr.payslip,pays_per_year:0

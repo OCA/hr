@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-09 02:43+0000\n"
-"PO-Revision-Date: 2016-09-09 12:27+0000\n"
+"POT-Creation-Date: 2016-10-17 20:43+0000\n"
+"PO-Revision-Date: 2016-11-25 14:58+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Portuguese (http://www.transifex.com/oca/OCA-hr-8-0/language/pt/)\n"
 "MIME-Version: 1.0\n"
@@ -43,7 +43,7 @@ msgstr ""
 #. module: hr_family
 #: field:hr.employee.children,display_name:0
 msgid "Display Name"
-msgstr ""
+msgstr "Nome"
 
 #. module: hr_family
 #: field:hr.employee.children,employee_id:0
@@ -74,12 +74,12 @@ msgstr ""
 #. module: hr_family
 #: selection:hr.employee.children,gender:0
 msgid "Female"
-msgstr ""
+msgstr "Feminino"
 
 #. module: hr_family
 #: field:hr.employee.children,gender:0
 msgid "Gender"
-msgstr ""
+msgstr "Género"
 
 #. module: hr_family
 #: model:ir.model,name:hr_family.model_hr_employee_children
@@ -94,7 +94,7 @@ msgstr "ID"
 #. module: hr_family
 #: field:hr.employee.children,__last_update:0
 msgid "Last Modified on"
-msgstr ""
+msgstr "Modificado a última vez por"
 
 #. module: hr_family
 #: field:hr.employee.children,write_uid:0
@@ -109,7 +109,7 @@ msgstr "Atualizado pela última vez em"
 #. module: hr_family
 #: selection:hr.employee.children,gender:0
 msgid "Male"
-msgstr ""
+msgstr "Masculino"
 
 #. module: hr_family
 #: field:hr.employee,fam_mother:0
@@ -119,7 +119,7 @@ msgstr ""
 #. module: hr_family
 #: field:hr.employee,fam_spouse:0 field:hr.employee.children,name:0
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 #. module: hr_family
 #: view:hr.employee:hr_family.hr_employee_view_form

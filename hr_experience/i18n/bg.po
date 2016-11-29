@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-17 13:09+0000\n"
-"PO-Revision-Date: 2016-09-25 14:54+0000\n"
+"POT-Creation-Date: 2016-10-17 20:43+0000\n"
+"PO-Revision-Date: 2016-11-25 14:57+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Bulgarian (http://www.transifex.com/oca/OCA-hr-8-0/language/bg/)\n"
 "MIME-Version: 1.0\n"
@@ -80,7 +80,7 @@ msgstr ""
 #. module: hr_experience
 #: field:hr.experience,category:0 help:hr.experience,category:0
 msgid "Category"
-msgstr ""
+msgstr "Категория"
 
 #. module: hr_experience
 #: view:hr.certification:hr_experience.view_certification_form
@@ -148,7 +148,7 @@ msgstr ""
 #: field:hr.academic,display_name:0 field:hr.certification,display_name:0
 #: field:hr.curriculum,display_name:0 field:hr.experience,display_name:0
 msgid "Display Name"
-msgstr ""
+msgstr "Име за Показване"
 
 #. module: hr_experience
 #: view:hr.academic:hr_experience.view_academic_tree

@@ -1,0 +1,108 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * hr_public_holidays
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: hr (8.0)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-17 20:43+0000\n"
+"PO-Revision-Date: 2016-04-05 07:13+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: French (Switzerland) (http://www.transifex.com/oca/OCA-hr-8-0/language/fr_CH/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: fr_CH\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#. module: hr_public_holidays
+#: field:hr.holidays.public,year:0 field:hr.holidays.public.line,year_id:0
+msgid "Calendar Year"
+msgstr ""
+
+#. module: hr_public_holidays
+#: field:hr.holidays.public,country_id:0
+msgid "Country"
+msgstr ""
+
+#. module: hr_public_holidays
+#: field:hr.holidays.public,create_uid:0
+#: field:hr.holidays.public.line,create_uid:0
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: hr_public_holidays
+#: field:hr.holidays.public,create_date:0
+#: field:hr.holidays.public.line,create_date:0
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: hr_public_holidays
+#: field:hr.holidays.public.line,date:0
+msgid "Date"
+msgstr ""
+
+#. module: hr_public_holidays
+#: field:hr.holidays.public.line,variable:0
+msgid "Date may change"
+msgstr ""
+
+#. module: hr_public_holidays
+#: field:hr.holidays.public.line,display_name:0
+msgid "Display Name"
+msgstr ""
+
+#. module: hr_public_holidays
+#: field:hr.holidays.public,line_ids:0
+msgid "Holiday Dates"
+msgstr ""
+
+#. module: hr_public_holidays
+#: field:hr.holidays.public,id:0 field:hr.holidays.public.line,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: hr_public_holidays
+#: field:hr.holidays.public,__last_update:0
+#: field:hr.holidays.public.line,__last_update:0
+msgid "Last Modified on"
+msgstr ""
+
+#. module: hr_public_holidays
+#: field:hr.holidays.public,write_uid:0
+#: field:hr.holidays.public.line,write_uid:0
+msgid "Last Updated by"
+msgstr "Modifié par"
+
+#. module: hr_public_holidays
+#: field:hr.holidays.public,write_date:0
+#: field:hr.holidays.public.line,write_date:0
+msgid "Last Updated on"
+msgstr "Modifié le"
+
+#. module: hr_public_holidays
+#: field:hr.holidays.public,display_name:0
+#: field:hr.holidays.public.line,name:0
+msgid "Name"
+msgstr ""
+
+#. module: hr_public_holidays
+#: view:hr.holidays.public:hr_public_holidays.view_public_holidays_form
+#: view:hr.holidays.public:hr_public_holidays.view_public_holidays_tree
+#: model:ir.actions.act_window,name:hr_public_holidays.open_public_holidays_view
+#: model:ir.model,name:hr_public_holidays.model_hr_holidays_public
+#: model:ir.ui.menu,name:hr_public_holidays.menu_public_holidays_view
+msgid "Public Holidays"
+msgstr ""
+
+#. module: hr_public_holidays
+#: model:ir.model,name:hr_public_holidays.model_hr_holidays_public_line
+msgid "Public Holidays Lines"
+msgstr ""
+
+#. module: hr_public_holidays
+#: field:hr.holidays.public.line,state_ids:0
+msgid "Related States"
+msgstr ""

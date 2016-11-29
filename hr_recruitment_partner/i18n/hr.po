@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-17 13:09+0000\n"
-"PO-Revision-Date: 2016-10-04 10:06+0000\n"
+"POT-Creation-Date: 2016-10-17 20:43+0000\n"
+"PO-Revision-Date: 2016-10-13 09:56+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Croatian (http://www.transifex.com/oca/OCA-hr-8-0/language/hr/)\n"
 "MIME-Version: 1.0\n"
@@ -201,7 +201,7 @@ msgstr ""
 #. module: hr_recruitment_partner
 #: field:hr.applicant,image:0
 msgid "Image"
-msgstr ""
+msgstr "Slika"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,invoice_ids:0
@@ -362,7 +362,7 @@ msgstr ""
 #. module: hr_recruitment_partner
 #: field:hr.applicant,state_id:0
 msgid "State"
-msgstr ""
+msgstr "Status"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,street:0
@@ -397,7 +397,7 @@ msgstr ""
 #. module: hr_recruitment_partner
 #: field:hr.applicant,category_id:0
 msgid "Tags"
-msgstr ""
+msgstr "Oznake"
 
 #. module: hr_recruitment_partner
 #: help:hr.applicant,vat:0
@@ -490,7 +490,7 @@ msgstr ""
 #. module: hr_recruitment_partner
 #: field:hr.applicant,title:0
 msgid "Title"
-msgstr ""
+msgstr "Titula"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,total_invoiced:0
@@ -542,7 +542,7 @@ msgstr ""
 #. module: hr_recruitment_partner
 #: field:hr.applicant,website:0
 msgid "Website"
-msgstr ""
+msgstr "Web stranice"
 
 #. module: hr_recruitment_partner
 #: help:hr.applicant,website:0

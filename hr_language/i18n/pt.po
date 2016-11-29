@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-09 02:43+0000\n"
-"PO-Revision-Date: 2016-09-09 12:27+0000\n"
+"POT-Creation-Date: 2016-10-17 20:43+0000\n"
+"PO-Revision-Date: 2016-11-25 14:58+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Portuguese (http://www.transifex.com/oca/OCA-hr-8-0/language/pt/)\n"
 "MIME-Version: 1.0\n"
@@ -105,7 +105,7 @@ msgstr ""
 #. module: hr_language
 #: field:hr.language,display_name:0
 msgid "Display Name"
-msgstr ""
+msgstr "Nome"
 
 #. module: hr_language
 #: selection:hr.language,name:0
@@ -271,7 +271,7 @@ msgstr ""
 #. module: hr_language
 #: field:hr.language,__last_update:0
 msgid "Last Modified on"
-msgstr ""
+msgstr "Modificado a última vez por"
 
 #. module: hr_language
 #: field:hr.language,write_uid:0

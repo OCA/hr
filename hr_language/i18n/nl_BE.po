@@ -1,0 +1,479 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * hr_language
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: hr (8.0)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-17 20:43+0000\n"
+"PO-Revision-Date: 2016-10-11 09:47+0000\n"
+"Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
+"Language-Team: Dutch (Belgium) (http://www.transifex.com/oca/OCA-hr-8-0/language/nl_BE/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: nl_BE\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "Albanian / Shqip"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "Amharic / አምሃርኛ"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "Arabic / الْعَرَبيّة"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "Basque / Euskara"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "Bosnian / bosanski jezik"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "Bulgarian / български език"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "Burmese / မြန်မာဘာသာ"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "Catalan / Català"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "Chinese (CN) / 简体中文"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "Chinese (HK)"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "Chinese (TW) / 正體字"
+msgstr ""
+
+#. module: hr_language
+#: field:hr.language,create_uid:0
+msgid "Created by"
+msgstr "Gemaakt door"
+
+#. module: hr_language
+#: field:hr.language,create_date:0
+msgid "Created on"
+msgstr "Gemaakt op"
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "Croatian / hrvatski jezik"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "Czech / Čeština"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "Danish / Dansk"
+msgstr ""
+
+#. module: hr_language
+#: field:hr.language,description:0
+msgid "Description"
+msgstr "Omschrijving"
+
+#. module: hr_language
+#: field:hr.language,display_name:0
+msgid "Display Name"
+msgstr "Schermnaam"
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "Dutch (BE) / Nederlands (BE)"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "Dutch / Nederlands"
+msgstr ""
+
+#. module: hr_language
+#: field:hr.language,employee_id:0
+#: model:ir.model,name:hr_language.model_hr_employee
+msgid "Employee"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "English (AU)"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "English (UK)"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "English (US)"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "Estonian / Eesti keel"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "Finnish / Suomi"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "French (BE) / Français (BE)"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "French (CA) / Français (CA)"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "French (CH) / Français (CH)"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "French / Français"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "Galician / Galego"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "Georgian / ქართული ენა"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "German (CH) / Deutsch (CH)"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "German / Deutsch"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "Greek / Ελληνικά"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "Gujarati / ગુજરાતી"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "Hebrew / עִבְרִי"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "Hindi / हिंदी"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "Hungarian / Magyar"
+msgstr ""
+
+#. module: hr_language
+#: field:hr.language,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "Indonesian / Bahasa Indonesia"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "Italian / Italiano"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "Japanese / 日本語"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "Kabyle / Taqbaylit"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "Korean (KP) / 한국어 (KP)"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "Korean (KR) / 한국어 (KR)"
+msgstr ""
+
+#. module: hr_language
+#: view:hr.employee:hr_language.view_employee_form
+#: view:hr.language:hr_language.view_language_form field:hr.language,name:0
+msgid "Language"
+msgstr ""
+
+#. module: hr_language
+#: view:hr.employee:hr_language.view_employee_form
+#: field:hr.employee,language_ids:0
+#: view:hr.language:hr_language.view_language_tree
+#: model:ir.actions.act_window,name:hr_language.open_view_language_form
+#: model:ir.ui.menu,name:hr_language.menu_open_view_language_form
+msgid "Languages"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "Lao / ພາສາລາວ"
+msgstr ""
+
+#. module: hr_language
+#: field:hr.language,__last_update:0
+msgid "Last Modified on"
+msgstr "Laatst Aangepast op"
+
+#. module: hr_language
+#: field:hr.language,write_uid:0
+msgid "Last Updated by"
+msgstr "Laatst bijgewerkt door"
+
+#. module: hr_language
+#: field:hr.language,write_date:0
+msgid "Last Updated on"
+msgstr "Laatst bijgewerkt op"
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "Latvian / latviešu valoda"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "Lithuanian / Lietuvių kalba"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "Macedonian / македонски јазик"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "Mongolian / монгол"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "Norwegian Bokmål / Norsk bokmål"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "Persian / فارس"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "Polish / Język polski"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "Portuguese (BR) / Português (BR)"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "Portuguese / Português"
+msgstr ""
+
+#. module: hr_language
+#: field:hr.language,can_read:0
+msgid "Read"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "Romanian / română"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "Russian / русский язык"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "Serbian (Cyrillic) / српски"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "Serbian (Latin) / srpski"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "Slovak / Slovenský jazyk"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "Slovenian / slovenščina"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "Spanish (AR) / Español (AR)"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "Spanish (BO) / Español (BO)"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "Spanish (CL) / Español (CL)"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "Spanish (CO) / Español (CO)"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "Spanish (CR) / Español (CR)"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "Spanish (DO) / Español (DO)"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "Spanish (EC) / Español (EC)"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "Spanish (GT) / Español (GT)"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "Spanish (MX) / Español (MX)"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "Spanish (PA) / Español (PA)"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "Spanish (PE) / Español (PE)"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "Spanish (PY) / Español (PY)"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "Spanish (UY) / Español (UY)"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "Spanish (VE) / Español (VE)"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "Spanish / Español"
+msgstr ""
+
+#. module: hr_language
+#: field:hr.language,can_speak:0
+msgid "Speak"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "Swedish / svenska"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "Telugu / తెలుగు"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "Thai / ภาษาไทย"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "Turkish / Türkçe"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "Ukrainian / українська"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "Vietnamese / Tiếng Việt"
+msgstr ""
+
+#. module: hr_language
+#: field:hr.language,can_write:0
+msgid "Write"
+msgstr ""

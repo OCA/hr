@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-09 02:43+0000\n"
-"PO-Revision-Date: 2016-09-13 11:29+0000\n"
+"POT-Creation-Date: 2016-10-17 20:43+0000\n"
+"PO-Revision-Date: 2016-11-25 14:56+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Portuguese (Portugal) (http://www.transifex.com/oca/OCA-hr-8-0/language/pt_PT/)\n"
 "MIME-Version: 1.0\n"
@@ -45,7 +45,7 @@ msgstr "Criado em"
 #. module: hr_skill
 #: field:hr.skill,display_name:0
 msgid "Display Name"
-msgstr ""
+msgstr "Nome a Apresentar"
 
 #. module: hr_skill
 #: model:ir.model,name:hr_skill.model_hr_employee
@@ -70,7 +70,7 @@ msgstr "ID"
 #. module: hr_skill
 #: field:hr.skill,__last_update:0
 msgid "Last Modified on"
-msgstr ""
+msgstr "Última Modificação Em"
 
 #. module: hr_skill
 #: field:hr.skill,write_uid:0
@@ -86,7 +86,7 @@ msgstr "Atualizado pela última vez em"
 #: view:hr.skill:hr_skill.view_hr_skill_tree
 #: view:hr.skill:hr_skill.view_skill_form field:hr.skill,name:0
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 #. module: hr_skill
 #: field:hr.skill,parent_id:0

@@ -1,0 +1,174 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * hr_contract_hourly_rate
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: hr (8.0)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-17 20:43+0000\n"
+"PO-Revision-Date: 2016-10-11 09:50+0000\n"
+"Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
+"Language-Team: Spanish (Peru) (http://www.transifex.com/oca/OCA-hr-8-0/language/es_PE/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: es_PE\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: hr_contract_hourly_rate
+#: selection:hr.contract,salary_computation_method:0
+msgid "Annual Wage"
+msgstr ""
+
+#. module: hr_contract_hourly_rate
+#: field:hr.hourly.rate.class,name:0
+msgid "Class Name"
+msgstr ""
+
+#. module: hr_contract_hourly_rate
+#: view:hr.hourly.rate.class:hr_contract_hourly_rate.view_hr_hourly_rate_class_tree
+msgid "Companies"
+msgstr ""
+
+#. module: hr_contract_hourly_rate
+#: model:ir.model,name:hr_contract_hourly_rate.model_hr_contract
+msgid "Contract"
+msgstr ""
+
+#. module: hr_contract_hourly_rate
+#: field:hr.hourly.rate.class,contract_job_ids:0
+msgid "Contract Jobs"
+msgstr ""
+
+#. module: hr_contract_hourly_rate
+#: field:hr.hourly.rate,create_uid:0 field:hr.hourly.rate.class,create_uid:0
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: hr_contract_hourly_rate
+#: field:hr.hourly.rate,create_date:0 field:hr.hourly.rate.class,create_date:0
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: hr_contract_hourly_rate
+#: field:hr.hourly.rate,display_name:0
+#: field:hr.hourly.rate.class,display_name:0
+msgid "Display Name"
+msgstr "Nombre a Mostrar"
+
+#. module: hr_contract_hourly_rate
+#: field:hr.hourly.rate,date_end:0
+msgid "End Date"
+msgstr ""
+
+#. module: hr_contract_hourly_rate
+#: code:addons/hr_contract_hourly_rate/models/hr_contract.py:88
+#, python-format
+msgid "Error! At least one job on contract has no hourly rate class assigned."
+msgstr ""
+
+#. module: hr_contract_hourly_rate
+#: code:addons/hr_contract_hourly_rate/models/hr_hourly_rate_class.py:48
+#: code:addons/hr_contract_hourly_rate/models/hr_hourly_rate_class.py:51
+#, python-format
+msgid "Error! You cannot have overlapping rates"
+msgstr ""
+
+#. module: hr_contract_hourly_rate
+#: field:hr.contract.job,hourly_rate:0
+msgid "Hourly Rate"
+msgstr ""
+
+#. module: hr_contract_hourly_rate
+#: field:hr.contract.job,hourly_rate_class_id:0
+#: view:hr.hourly.rate.class:hr_contract_hourly_rate.view_hr_hourly_rate_class_filter
+#: view:hr.hourly.rate.class:hr_contract_hourly_rate.view_hr_hourly_rate_class_form
+msgid "Hourly Rate Class"
+msgstr ""
+
+#. module: hr_contract_hourly_rate
+#: view:hr.hourly.rate.class:hr_contract_hourly_rate.view_hr_hourly_rate_class_filter
+#: model:ir.actions.act_window,name:hr_contract_hourly_rate.open_module_tree_hourly_rate_class
+#: model:ir.ui.menu,name:hr_contract_hourly_rate.menu_hr_hourly_rate_class_tree
+msgid "Hourly Rate Classes"
+msgstr ""
+
+#. module: hr_contract_hourly_rate
+#: view:hr.hourly.rate.class:hr_contract_hourly_rate.view_hr_hourly_rate_class_form
+#: field:hr.hourly.rate.class,line_ids:0
+msgid "Hourly Rates"
+msgstr ""
+
+#. module: hr_contract_hourly_rate
+#: selection:hr.contract,salary_computation_method:0
+msgid "Hourly Wage"
+msgstr ""
+
+#. module: hr_contract_hourly_rate
+#: model:ir.model,name:hr_contract_hourly_rate.model_hr_hourly_rate
+msgid "Hourly rate"
+msgstr ""
+
+#. module: hr_contract_hourly_rate
+#: model:ir.model,name:hr_contract_hourly_rate.model_hr_hourly_rate_class
+msgid "Hourly rate class"
+msgstr ""
+
+#. module: hr_contract_hourly_rate
+#: field:hr.hourly.rate,id:0 field:hr.hourly.rate.class,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: hr_contract_hourly_rate
+#: field:hr.hourly.rate,__last_update:0
+#: field:hr.hourly.rate.class,__last_update:0
+msgid "Last Modified on"
+msgstr "Ultima Modificación en"
+
+#. module: hr_contract_hourly_rate
+#: field:hr.hourly.rate,write_uid:0 field:hr.hourly.rate.class,write_uid:0
+msgid "Last Updated by"
+msgstr "Actualizado última vez por"
+
+#. module: hr_contract_hourly_rate
+#: field:hr.hourly.rate,write_date:0 field:hr.hourly.rate.class,write_date:0
+msgid "Last Updated on"
+msgstr "Ultima Actualización"
+
+#. module: hr_contract_hourly_rate
+#: selection:hr.contract,salary_computation_method:0
+msgid "Monthly Wage"
+msgstr ""
+
+#. module: hr_contract_hourly_rate
+#: field:hr.hourly.rate,rate:0
+msgid "Rate"
+msgstr ""
+
+#. module: hr_contract_hourly_rate
+#: model:ir.model,name:hr_contract_hourly_rate.model_hr_contract_job
+msgid "Relational object between contract and job"
+msgstr ""
+
+#. module: hr_contract_hourly_rate
+#: field:hr.hourly.rate,class_id:0
+msgid "Salary Class"
+msgstr ""
+
+#. module: hr_contract_hourly_rate
+#: field:hr.contract,salary_computation_method:0
+msgid "Salary Computation Method"
+msgstr ""
+
+#. module: hr_contract_hourly_rate
+#: field:hr.hourly.rate,date_start:0
+msgid "Start Date"
+msgstr ""
+
+#. module: hr_contract_hourly_rate
+#: help:hr.contract,salary_computation_method:0
+msgid ""
+"Whether to use the annual wage or an hourly rate for computation of payslip."
+msgstr ""

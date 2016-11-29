@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-09 02:43+0000\n"
-"PO-Revision-Date: 2016-04-28 15:01+0000\n"
+"POT-Creation-Date: 2016-10-17 20:43+0000\n"
+"PO-Revision-Date: 2016-11-25 14:55+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Portuguese (Portugal) (http://www.transifex.com/oca/OCA-hr-8-0/language/pt_PT/)\n"
 "MIME-Version: 1.0\n"
@@ -148,7 +148,7 @@ msgstr ""
 #: field:hr.academic,display_name:0 field:hr.certification,display_name:0
 #: field:hr.curriculum,display_name:0 field:hr.experience,display_name:0
 msgid "Display Name"
-msgstr ""
+msgstr "Nome a Apresentar"
 
 #. module: hr_experience
 #: view:hr.academic:hr_experience.view_academic_tree
@@ -230,7 +230,7 @@ msgstr ""
 #: field:hr.academic,__last_update:0 field:hr.certification,__last_update:0
 #: field:hr.curriculum,__last_update:0 field:hr.experience,__last_update:0
 msgid "Last Modified on"
-msgstr ""
+msgstr "Última Modificação Em"
 
 #. module: hr_experience
 #: field:hr.academic,write_uid:0 field:hr.certification,write_uid:0
@@ -256,7 +256,7 @@ msgstr ""
 #: field:hr.academic,name:0 field:hr.certification,name:0
 #: field:hr.curriculum,name:0 field:hr.experience,name:0
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 #. module: hr_experience
 #: view:hr.academic:hr_experience.view_academic_form

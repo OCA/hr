@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-14 04:15+0000\n"
-"PO-Revision-Date: 2016-04-05 07:13+0000\n"
+"POT-Creation-Date: 2016-10-17 20:43+0000\n"
+"PO-Revision-Date: 2016-10-11 09:50+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Polish (http://www.transifex.com/oca/OCA-hr-8-0/language/pl/)\n"
 "MIME-Version: 1.0\n"
@@ -31,13 +31,13 @@ msgstr "Kraj"
 #: field:hr.holidays.public,create_uid:0
 #: field:hr.holidays.public.line,create_uid:0
 msgid "Created by"
-msgstr ""
+msgstr "Utworzone przez"
 
 #. module: hr_public_holidays
 #: field:hr.holidays.public,create_date:0
 #: field:hr.holidays.public.line,create_date:0
 msgid "Created on"
-msgstr ""
+msgstr "Utworzono"
 
 #. module: hr_public_holidays
 #: field:hr.holidays.public.line,date:0
@@ -50,6 +50,11 @@ msgid "Date may change"
 msgstr "Data może ulec zmianie"
 
 #. module: hr_public_holidays
+#: field:hr.holidays.public.line,display_name:0
+msgid "Display Name"
+msgstr "Wyświetlana nazwa "
+
+#. module: hr_public_holidays
 #: field:hr.holidays.public,line_ids:0
 msgid "Holiday Dates"
 msgstr "Daty dni wolnych od pracy"
@@ -57,19 +62,25 @@ msgstr "Daty dni wolnych od pracy"
 #. module: hr_public_holidays
 #: field:hr.holidays.public,id:0 field:hr.holidays.public.line,id:0
 msgid "ID"
-msgstr ""
+msgstr "ID"
+
+#. module: hr_public_holidays
+#: field:hr.holidays.public,__last_update:0
+#: field:hr.holidays.public.line,__last_update:0
+msgid "Last Modified on"
+msgstr "Ostatnio modyfikowano"
 
 #. module: hr_public_holidays
 #: field:hr.holidays.public,write_uid:0
 #: field:hr.holidays.public.line,write_uid:0
 msgid "Last Updated by"
-msgstr ""
+msgstr "Ostatnio modyfikowane przez"
 
 #. module: hr_public_holidays
 #: field:hr.holidays.public,write_date:0
 #: field:hr.holidays.public.line,write_date:0
 msgid "Last Updated on"
-msgstr ""
+msgstr "Ostatnia zmiana"
 
 #. module: hr_public_holidays
 #: field:hr.holidays.public,display_name:0
