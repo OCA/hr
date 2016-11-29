@@ -3,61 +3,58 @@
 # * hr_holidays_compute_days
 # 
 # Translators:
-# OCA Transbot <transbot@odoo-community.org>, 2016
-# Pedro M. Baeza <pedro.baeza@gmail.com>, 2016
+# Lukáš Spurný <lukasspurny8@gmail.com>, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-29 01:35+0000\n"
-"PO-Revision-Date: 2016-11-29 01:35+0000\n"
-"Last-Translator: Pedro M. Baeza <pedro.baeza@gmail.com>, 2016\n"
-"Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
+"POT-Creation-Date: 2018-02-23 03:45+0000\n"
+"PO-Revision-Date: 2018-02-23 03:45+0000\n"
+"Last-Translator: Lukáš Spurný <lukasspurny8@gmail.com>, 2018\n"
+"Language-Team: Czech (Czech Republic) (https://www.transifex.com/oca/teams/23907/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: es\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: cs_CZ\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #. module: hr_holidays_compute_days
 #: model:ir.model,name:hr_holidays_compute_days.model_hr_employee
 msgid "Employee"
-msgstr "Empleado"
+msgstr "Zaměstnanec"
 
 #. module: hr_holidays_compute_days
 #: model:ir.model.fields,field_description:hr_holidays_compute_days.field_hr_holidays_status_exclude_public_holidays
 msgid "Exclude Public Holidays"
-msgstr "Excluir vacaciones públicas"
+msgstr "Vyřadit státní svátky"
 
 #. module: hr_holidays_compute_days
 #: model:ir.model.fields,field_description:hr_holidays_compute_days.field_hr_holidays_status_exclude_rest_days
 msgid "Exclude Rest Days"
-msgstr "Excluir los días de descanso"
+msgstr "Vyloučit dny odpočinku"
 
 #. module: hr_holidays_compute_days
 #: model:ir.model.fields,help:hr_holidays_compute_days.field_hr_holidays_status_exclude_public_holidays
 msgid "If enabled, public holidays are skipped in leave days calculation."
 msgstr ""
-"Si está habilitado, las vacaciones públicas serán saltadas en el cálculo de "
-"las ausencias."
+"Je-li zapnuto, státní svátky jsou vynechány ve výpočtu počtu dní volna."
 
 #. module: hr_holidays_compute_days
 #: model:ir.model.fields,help:hr_holidays_compute_days.field_hr_holidays_status_exclude_rest_days
 msgid ""
 "If enabled, the employee's day off is skipped in leave days calculation."
 msgstr ""
-"Si está habilitado, los días de descanso del empleado serán saltados en el "
-"cálculo de las ausencias."
+"Je-li povoleno, volno zaměstnanců je přeskočeno ve výpočtu počtu dní volna."
 
 #. module: hr_holidays_compute_days
 #: model:ir.model,name:hr_holidays_compute_days.model_hr_holidays
 msgid "Leave"
-msgstr "Ausencia"
+msgstr "Opustit"
 
 #. module: hr_holidays_compute_days
 #: model:ir.model,name:hr_holidays_compute_days.model_hr_holidays_status
 msgid "Leave Type"
-msgstr "Tipo de ausencia"
+msgstr "Typ dovolené"
 
 #. module: hr_holidays_compute_days
 #: code:addons/hr_holidays_compute_days/models/hr_holidays.py:46
@@ -65,9 +62,7 @@ msgstr "Tipo de ausencia"
 #, python-format
 msgid ""
 "You cannot schedule the end date on a public holiday or employee's rest day"
-msgstr ""
-"No puede programar la fecha final en una vacación pública o un día de "
-"descanso del empleado."
+msgstr "Datum ukončení nelze naplánovat na státní svátek nebo den odpočinku"
 
 #. module: hr_holidays_compute_days
 #: code:addons/hr_holidays_compute_days/models/hr_holidays.py:42
@@ -77,5 +72,4 @@ msgid ""
 "You cannot schedule the start date on a public holiday or employee's rest "
 "day"
 msgstr ""
-"No puede programar la fecha de inicio en una vacación pública o un día de "
-"descanso del empleado."
+"Datum zahájení nemůžete naplánovat na státní svátek nebo den odpočinku"
