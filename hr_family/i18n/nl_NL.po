@@ -3,125 +3,124 @@
 # * hr_family
 # 
 # Translators:
-# Matjaž Mozetič <m.mozetic@matmoz.si>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: hr (9.0)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-22 15:02+0000\n"
-"PO-Revision-Date: 2016-10-21 13:59+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
-"Language-Team: Slovenian (http://www.transifex.com/oca/OCA-hr-9-0/language/sl/)\n"
+"PO-Revision-Date: 2016-10-21 13:58+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: Dutch (Netherlands) (http://www.transifex.com/oca/OCA-hr-9-0/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: sl\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
+"Language: nl_NL\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: hr_family
 #: model:ir.model.fields,field_description:hr_family.field_hr_employee_fam_children_ids
 #: model:ir.ui.view,arch_db:hr_family.hr_employee_view_form
 msgid "Children"
-msgstr "Otroci"
+msgstr ""
 
 #. module: hr_family
 #: model:ir.model.fields,field_description:hr_family.field_hr_employee_children_create_uid
 msgid "Created by"
-msgstr "Ustvaril"
+msgstr ""
 
 #. module: hr_family
 #: model:ir.model.fields,field_description:hr_family.field_hr_employee_children_create_date
 msgid "Created on"
-msgstr "Ustvarjeno"
+msgstr ""
 
 #. module: hr_family
 #: model:ir.model.fields,field_description:hr_family.field_hr_employee_children_date_of_birth
 #: model:ir.model.fields,field_description:hr_family.field_hr_employee_fam_father_date_of_birth
 #: model:ir.model.fields,field_description:hr_family.field_hr_employee_fam_mother_date_of_birth
 msgid "Date of Birth"
-msgstr "Datum rojstva"
+msgstr ""
 
 #. module: hr_family
 #: model:ir.model.fields,field_description:hr_family.field_hr_employee_children_display_name
 msgid "Display Name"
-msgstr "Prikazni naziv"
+msgstr ""
 
 #. module: hr_family
 #: model:ir.model,name:hr_family.model_hr_employee
 #: model:ir.model.fields,field_description:hr_family.field_hr_employee_children_employee_id
 msgid "Employee"
-msgstr "Kader"
+msgstr "Werknemer"
 
 #. module: hr_family
 #: model:ir.ui.view,arch_db:hr_family.hr_children_view_tree
 msgid "Employee Children"
-msgstr "Otroci delojemalca"
+msgstr ""
 
 #. module: hr_family
 #: model:ir.model.fields,field_description:hr_family.field_hr_employee_fam_spouse_employer
 msgid "Employer"
-msgstr "Delodajalec"
+msgstr ""
 
 #. module: hr_family
 #: model:ir.ui.view,arch_db:hr_family.hr_employee_view_form
 msgid "Family"
-msgstr "Družina"
+msgstr ""
 
 #. module: hr_family
 #: model:ir.model.fields,field_description:hr_family.field_hr_employee_fam_father
 msgid "Father's Name"
-msgstr "Očetovo ime"
+msgstr ""
 
 #. module: hr_family
 #: selection:hr.employee.children,gender:0
 msgid "Female"
-msgstr "Ženski"
+msgstr ""
 
 #. module: hr_family
 #: model:ir.model.fields,field_description:hr_family.field_hr_employee_children_gender
 msgid "Gender"
-msgstr "Spol"
+msgstr ""
 
 #. module: hr_family
 #: model:ir.model,name:hr_family.model_hr_employee_children
 msgid "HR Employee Children"
-msgstr "Otroci delojemalca"
+msgstr ""
 
 #. module: hr_family
 #: model:ir.model.fields,field_description:hr_family.field_hr_employee_children_id
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 #. module: hr_family
 #: model:ir.model.fields,field_description:hr_family.field_hr_employee_children___last_update
 msgid "Last Modified on"
-msgstr "Zadnjič spremenjeno"
+msgstr ""
 
 #. module: hr_family
 #: model:ir.model.fields,field_description:hr_family.field_hr_employee_children_write_uid
 msgid "Last Updated by"
-msgstr "Zadnjič posodobil"
+msgstr ""
 
 #. module: hr_family
 #: model:ir.model.fields,field_description:hr_family.field_hr_employee_children_write_date
 msgid "Last Updated on"
-msgstr "Zadnjič posodobljeno"
+msgstr ""
 
 #. module: hr_family
 #: selection:hr.employee.children,gender:0
 msgid "Male"
-msgstr "Moški"
+msgstr ""
 
 #. module: hr_family
 #: model:ir.model.fields,field_description:hr_family.field_hr_employee_fam_mother
 msgid "Mother's Name"
-msgstr "Materino ime"
+msgstr ""
 
 #. module: hr_family
 #: model:ir.model.fields,field_description:hr_family.field_hr_employee_children_name
 #: model:ir.model.fields,field_description:hr_family.field_hr_employee_fam_spouse
 msgid "Name"
-msgstr "Ime"
+msgstr ""
 
 #. module: hr_family
 #: selection:hr.employee.children,gender:0
@@ -131,14 +130,14 @@ msgstr ""
 #. module: hr_family
 #: model:ir.ui.view,arch_db:hr_family.hr_employee_view_form
 msgid "Parents"
-msgstr "Starši"
+msgstr ""
 
 #. module: hr_family
 #: model:ir.ui.view,arch_db:hr_family.hr_employee_view_form
 msgid "Spouse"
-msgstr "Zakonski partner"
+msgstr ""
 
 #. module: hr_family
 #: model:ir.model.fields,field_description:hr_family.field_hr_employee_fam_spouse_tel
 msgid "Telephone."
-msgstr "Telefon"
+msgstr ""
