@@ -17,25 +17,27 @@
 #    along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
 ###############################################################################
-from datetime import datetime
 
-from openerp import fields, models, api
-from openerp.tools import DEFAULT_SERVER_DATE_FORMAT as OE_DFORMAT
+from odoo import api, fields, models
+from dateutil.relativedelta import relativedelta
 
 
 class HrEmployee(models.Model):
     _inherit = 'hr.employee'
 
     age = fields.Integer(
-        'Age',
+        string='Age',
         readonly=True,
         compute='_compute_age'
     )
 
-    @api.one
+    @api.multi
+    @api.depends('birthday')
     def _compute_age(self):
-        if self.birthday:
-            dBday = datetime.strptime(self.birthday, OE_DFORMAT).date()
-            dToday = datetime.now().date()
-            self.age = dToday.year - dBday.year - ((
-                dToday.month, dToday.day) < (dBday.month, dBday.day))
+        for record in self:
+            if record.birthday:
+                record.age = relativedelta(
+                    fields.Date.from_string(fields.Date.today()),
+                    fields.Date.from_string(record.birthday)).years
+            else:
+                record.age = 0
