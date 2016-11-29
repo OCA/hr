@@ -3,14 +3,16 @@
 # * hr_public_holidays
 # 
 # Translators:
+# OCA Transbot <transbot@odoo-community.org>, 2016
+# Pedro M. Baeza <pedro.baeza@gmail.com>, 2016
 msgid ""
 msgstr ""
-"Project-Id-Version: hr (8.0)\n"
+"Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-26 02:41+0000\n"
-"PO-Revision-Date: 2016-05-24 20:25+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
-"Language-Team: Spanish (http://www.transifex.com/oca/OCA-hr-8-0/language/es/)\n"
+"POT-Creation-Date: 2016-11-29 01:35+0000\n"
+"PO-Revision-Date: 2016-11-29 01:35+0000\n"
+"Last-Translator: Pedro M. Baeza <pedro.baeza@gmail.com>, 2016\n"
+"Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -18,91 +20,125 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: hr_public_holidays
-#: field:hr.holidays.public,year:0 field:hr.holidays.public.line,year_id:0
+#: model:ir.model.fields,field_description:hr_public_holidays.field_hr_holidays_public_line_year_id
+#: model:ir.model.fields,field_description:hr_public_holidays.field_hr_holidays_public_year
 msgid "Calendar Year"
-msgstr ""
+msgstr "Año del calendario"
 
 #. module: hr_public_holidays
-#: field:hr.holidays.public,country_id:0
+#: model:ir.model.fields,field_description:hr_public_holidays.field_hr_holidays_public_country_id
 msgid "Country"
-msgstr ""
+msgstr "País"
 
 #. module: hr_public_holidays
-#: field:hr.holidays.public,create_uid:0
-#: field:hr.holidays.public.line,create_uid:0
+#: model:ir.model.fields,field_description:hr_public_holidays.field_hr_holidays_public_create_uid
+#: model:ir.model.fields,field_description:hr_public_holidays.field_hr_holidays_public_line_create_uid
 msgid "Created by"
 msgstr "Creado por"
 
 #. module: hr_public_holidays
-#: field:hr.holidays.public,create_date:0
-#: field:hr.holidays.public.line,create_date:0
+#: model:ir.model.fields,field_description:hr_public_holidays.field_hr_holidays_public_create_date
+#: model:ir.model.fields,field_description:hr_public_holidays.field_hr_holidays_public_line_create_date
 msgid "Created on"
 msgstr "Creado el"
 
 #. module: hr_public_holidays
-#: field:hr.holidays.public.line,date:0
+#: model:ir.model.fields,field_description:hr_public_holidays.field_hr_holidays_public_line_date
 msgid "Date"
-msgstr ""
+msgstr "Fecha"
 
 #. module: hr_public_holidays
-#: field:hr.holidays.public.line,variable:0
+#: model:ir.model.fields,field_description:hr_public_holidays.field_hr_holidays_public_line_variable
 msgid "Date may change"
-msgstr ""
+msgstr "La fecha puede cambiar"
 
 #. module: hr_public_holidays
-#: field:hr.holidays.public.line,display_name:0
+#: code:addons/hr_public_holidays/models/hr_public_holidays_line.py:45
+#, python-format
+msgid ""
+"Dates of holidays should be the same year as the calendar year they are "
+"being assigned to"
+msgstr ""
+"Las fechas de las vacaciones deberían ser el mismo año que el año de "
+"calendario al que están siendo asignadas."
+
+#. module: hr_public_holidays
+#: model:ir.model.fields,field_description:hr_public_holidays.field_hr_holidays_public_line_display_name
 msgid "Display Name"
 msgstr "Mostrar nombre"
 
 #. module: hr_public_holidays
-#: field:hr.holidays.public,line_ids:0
+#: model:ir.model.fields,field_description:hr_public_holidays.field_hr_holidays_public_line_ids
 msgid "Holiday Dates"
-msgstr ""
+msgstr "Fechas de la vacación"
 
 #. module: hr_public_holidays
-#: field:hr.holidays.public,id:0 field:hr.holidays.public.line,id:0
+#: model:ir.model.fields,field_description:hr_public_holidays.field_hr_holidays_public_id
+#: model:ir.model.fields,field_description:hr_public_holidays.field_hr_holidays_public_line_id
 msgid "ID"
 msgstr "ID"
 
 #. module: hr_public_holidays
-#: field:hr.holidays.public,__last_update:0
-#: field:hr.holidays.public.line,__last_update:0
+#: model:ir.model.fields,field_description:hr_public_holidays.field_hr_holidays_public___last_update
+#: model:ir.model.fields,field_description:hr_public_holidays.field_hr_holidays_public_line___last_update
 msgid "Last Modified on"
 msgstr "Última modificación el"
 
 #. module: hr_public_holidays
-#: field:hr.holidays.public,write_uid:0
-#: field:hr.holidays.public.line,write_uid:0
+#: model:ir.model.fields,field_description:hr_public_holidays.field_hr_holidays_public_line_write_uid
+#: model:ir.model.fields,field_description:hr_public_holidays.field_hr_holidays_public_write_uid
 msgid "Last Updated by"
 msgstr "Última actualización por"
 
 #. module: hr_public_holidays
-#: field:hr.holidays.public,write_date:0
-#: field:hr.holidays.public.line,write_date:0
+#: model:ir.model.fields,field_description:hr_public_holidays.field_hr_holidays_public_line_write_date
+#: model:ir.model.fields,field_description:hr_public_holidays.field_hr_holidays_public_write_date
 msgid "Last Updated on"
 msgstr "Última actualización en"
 
 #. module: hr_public_holidays
-#: field:hr.holidays.public,display_name:0
-#: field:hr.holidays.public.line,name:0
+#: model:ir.model.fields,field_description:hr_public_holidays.field_hr_holidays_public_display_name
+#: model:ir.model.fields,field_description:hr_public_holidays.field_hr_holidays_public_line_name
 msgid "Name"
 msgstr "Nombre"
 
 #. module: hr_public_holidays
-#: view:hr.holidays.public:hr_public_holidays.view_public_holidays_form
-#: view:hr.holidays.public:hr_public_holidays.view_public_holidays_tree
 #: model:ir.actions.act_window,name:hr_public_holidays.open_public_holidays_view
 #: model:ir.model,name:hr_public_holidays.model_hr_holidays_public
 #: model:ir.ui.menu,name:hr_public_holidays.menu_public_holidays_view
+#: model:ir.ui.view,arch_db:hr_public_holidays.view_public_holidays_form
+#: model:ir.ui.view,arch_db:hr_public_holidays.view_public_holidays_tree
 msgid "Public Holidays"
-msgstr ""
+msgstr "Vacaciones públicas"
 
 #. module: hr_public_holidays
 #: model:ir.model,name:hr_public_holidays.model_hr_holidays_public_line
 msgid "Public Holidays Lines"
-msgstr ""
+msgstr "Líneas de vacaciones públicas"
 
 #. module: hr_public_holidays
-#: field:hr.holidays.public.line,state_ids:0
+#: model:ir.model.fields,field_description:hr_public_holidays.field_hr_holidays_public_line_state_ids
 msgid "Related States"
+msgstr "Provincias relacionadas"
+
+#. module: hr_public_holidays
+#: code:addons/hr_public_holidays/models/hr_public_holidays_line.py:57
+#, python-format
+msgid ""
+"You can't create duplicate public holiday per date %s and one of the country"
+" states."
 msgstr ""
+"No puede crear vacaciones públicas duplicadas para la fecha %s y una de las "
+"provincias."
+
+#. module: hr_public_holidays
+#: code:addons/hr_public_holidays/models/hr_public_holidays_line.py:64
+#, python-format
+msgid "You can't create duplicate public holiday per date %s."
+msgstr "No puede crear vacaciones públicas duplicadas para la fecha %s."
+
+#. module: hr_public_holidays
+#: code:addons/hr_public_holidays/models/hr_public_holidays.py:53
+#, python-format
+msgid "You can't create duplicate public holiday per year and/or country"
+msgstr "No puede crear vacaciones públicas duplicadas para el año y/o país."
