@@ -15,12 +15,6 @@ class HrEmployee(models.Model):
         clean_name = u" ".join(name.split(None)) if name else name
         return self.env['res.partner']._get_inverse_name(clean_name)
 
-    @api.model_cr_context
-    def _auto_init(self):
-        res = super(HrEmployee, self)._auto_init()
-        self.sudo()._update_employee_names()
-        return res
-
     @api.model
     def _update_employee_names(self):
         employees = self.search([
