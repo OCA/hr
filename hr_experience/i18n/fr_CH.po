@@ -10,17 +10,17 @@ msgstr ""
 "POT-Creation-Date: 2016-11-29 11:39+0000\n"
 "PO-Revision-Date: 2015-07-27 23:38+0000\n"
 "Last-Translator: <>\n"
-"Language-Team: Portuguese (Brazil) (http://www.transifex.com/oca/OCA-hr-7-0/language/pt_BR/)\n"
+"Language-Team: French (Switzerland) (http://www.transifex.com/oca/OCA-hr-7-0/language/fr_CH/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: pt_BR\n"
+"Language: fr_CH\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #. module: hr_experience
 #: field:hr.experience,category:0
 msgid "Category"
-msgstr "Categoria"
+msgstr "Catégorie"
 
 #. module: hr_experience
 #: view:hr.certification:0
@@ -85,7 +85,7 @@ msgstr ""
 #: field:hr.certification,description:0 field:hr.curriculum,description:0
 #: view:hr.experience:0 field:hr.experience,description:0
 msgid "Description"
-msgstr "Descrição"
+msgstr ""
 
 #. module: hr_experience
 #: field:hr.academic,study_field:0
@@ -145,7 +145,7 @@ msgstr ""
 #: field:hr.academic,name:0 field:hr.certification,name:0
 #: field:hr.curriculum,name:0 field:hr.experience,name:0
 msgid "Name"
-msgstr "Nome"
+msgstr ""
 
 #. module: hr_experience
 #: view:hr.academic:0 field:hr.employee,academic_ids:0
@@ -203,7 +203,7 @@ msgstr ""
 #: field:hr.academic,partner_id:0 field:hr.certification,partner_id:0
 #: field:hr.curriculum,partner_id:0 field:hr.experience,partner_id:0
 msgid "Partner"
-msgstr "Parceiro"
+msgstr "Partenaire"
 
 #. module: hr_experience
 #: help:hr.employee,experience_ids:0 view:hr.experience:0

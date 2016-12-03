@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-12 23:34+0000\n"
+"POT-Creation-Date: 2016-11-29 11:39+0000\n"
 "PO-Revision-Date: 2015-07-27 23:38+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Norwegian Bokmål (http://www.transifex.com/oca/OCA-hr-7-0/language/nb/)\n"
@@ -230,7 +230,7 @@ msgstr ""
 #. module: hr_employee_state
 #: selection:hr.employee,status:0
 msgid "Active"
-msgstr ""
+msgstr "Aktiv"
 
 #. module: hr_employee_state
 #: code:addons/hr_employee_state/hr.py:308
@@ -269,7 +269,7 @@ msgstr ""
 #. module: hr_employee_state
 #: view:hr.employee.termination:0
 msgid "Group By..."
-msgstr ""
+msgstr "Grupper etter ..."
 
 #. module: hr_employee_state
 #: view:hr.employee.termination:0
