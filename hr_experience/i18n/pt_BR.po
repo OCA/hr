@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-17 20:43+0000\n"
-"PO-Revision-Date: 2016-11-25 14:55+0000\n"
+"POT-Creation-Date: 2016-11-29 12:16+0000\n"
+"PO-Revision-Date: 2016-12-02 13:53+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/oca/OCA-hr-8-0/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -82,7 +82,7 @@ msgstr ""
 #. module: hr_experience
 #: field:hr.experience,category:0 help:hr.experience,category:0
 msgid "Category"
-msgstr ""
+msgstr "Categoria"
 
 #. module: hr_experience
 #: view:hr.certification:hr_experience.view_certification_form

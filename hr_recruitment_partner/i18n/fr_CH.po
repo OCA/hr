@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-17 20:43+0000\n"
-"PO-Revision-Date: 2016-11-25 14:57+0000\n"
+"POT-Creation-Date: 2016-11-29 12:16+0000\n"
+"PO-Revision-Date: 2016-12-01 10:36+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: French (Switzerland) (http://www.transifex.com/oca/OCA-hr-8-0/language/fr_CH/)\n"
 "MIME-Version: 1.0\n"
@@ -45,7 +45,7 @@ msgstr ""
 #. module: hr_recruitment_partner
 #: field:hr.applicant,birthdate:0
 msgid "Birthdate"
-msgstr ""
+msgstr "Date de naissance"
 
 #. module: hr_recruitment_partner
 #: help:hr.applicant,is_company:0
@@ -176,7 +176,7 @@ msgstr ""
 #. module: hr_recruitment_partner
 #: field:hr.applicant,firstname:0
 msgid "First name"
-msgstr ""
+msgstr "Prénom"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,property_account_position:0
@@ -231,7 +231,7 @@ msgstr ""
 #. module: hr_recruitment_partner
 #: field:hr.applicant,lastname:0
 msgid "Last name"
-msgstr ""
+msgstr "Nom de famille"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,calendar_last_notif_ack:0
@@ -532,7 +532,7 @@ msgstr ""
 #. module: hr_recruitment_partner
 #: field:hr.applicant,user_ids:0
 msgid "Users"
-msgstr ""
+msgstr "Utilisateurs"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,vat_subjected:0

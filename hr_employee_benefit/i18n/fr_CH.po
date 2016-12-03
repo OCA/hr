@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-17 20:43+0000\n"
-"PO-Revision-Date: 2016-11-25 14:57+0000\n"
+"POT-Creation-Date: 2016-11-29 12:16+0000\n"
+"PO-Revision-Date: 2016-12-01 10:13+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: French (Switzerland) (http://www.transifex.com/oca/OCA-hr-8-0/language/fr_CH/)\n"
 "MIME-Version: 1.0\n"
@@ -67,7 +67,7 @@ msgstr ""
 #: view:hr.employee.benefit.rate:hr_employee_benefit.view_hr_employee_benefit_rate_filter
 #: field:hr.employee.benefit.rate.line,category_id:0
 msgid "Category"
-msgstr ""
+msgstr "Catégorie"
 
 #. module: hr_employee_benefit
 #: field:hr.employee.benefit,code:0 field:hr.employee.benefit.category,code:0
@@ -115,7 +115,7 @@ msgstr ""
 #: field:hr.employee.benefit.rate.line,display_name:0
 #: field:hr.payslip.benefit.line,display_name:0
 msgid "Display Name"
-msgstr ""
+msgstr "Nom affiché"
 
 #. module: hr_employee_benefit
 #: code:addons/hr_employee_benefit/models/hr_employee_benefit_rate.py:99
@@ -243,7 +243,7 @@ msgstr ""
 #: field:hr.employee.benefit.rate.line,__last_update:0
 #: field:hr.payslip.benefit.line,__last_update:0
 msgid "Last Modified on"
-msgstr ""
+msgstr "Dernière modification le"
 
 #. module: hr_employee_benefit
 #: field:hr.employee.benefit,write_uid:0
