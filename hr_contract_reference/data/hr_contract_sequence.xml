@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data noupdate="1">
-        <record id="seq_type_contract_ref" model="ir.sequence.type">
-            <field name="name">Contract Reference</field>
-            <field name="code">contract.ref</field>
-        </record>
         <record id="seq_contract_ref" model="ir.sequence">
             <field name="name">Contract Reference</field>
             <field name="code">contract.ref</field>

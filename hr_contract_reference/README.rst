@@ -1,6 +1,7 @@
 .. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
-    :alt: License: AGPL-3
+    :alt: License: AGPL-3  
 
+=====================
 HR Contract Reference
 =====================
 
@@ -13,7 +14,7 @@ Installation
 
 To install this module, you need to:
 
-* clone the branch 8.0 of the repository https://github.com/OCA/hr
+* clone the branch 9.0 of the repository https://github.com/OCA/hr
 * add the path to this repository in your configuration (addons-path)
 * update the module list
 * search for "HR Contract Reference" in your addons
@@ -33,14 +34,32 @@ Usage
 When you will create a new employee contract, the field reference will be
 assigned automatically with the next number of the predefined sequence.
 
+.. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
+   :alt: Try me on Runbot
+   :target: https://runbot.odoo-community.org/runbot/116/9.0
+
+Bug Tracker
+===========
+
+Bugs are tracked on `GitHub Issues
+<https://github.com/OCA/hr/issues>`_. In case of trouble, please
+check there if your issue has already been reported. If you spotted it first,
+help us smashing it by providing a detailed and welcomed feedback.
+
 Credits
 =======
+
+Images
+------
+
+* Odoo Community Association: `Icon <https://github.com/OCA/maintainer-tools/blob/master/template/module/static/description/icon.svg>`_.
 
 Contributors
 ------------
 
 * Michael Telahun Makonnen <mmakonnen@gmail.com>
 * Fekete Mihai <feketemihai@gmail.com>
+* Michael Viriyananda <viriyananda.michael@gmail.com>
 
 Maintainer
 ----------
