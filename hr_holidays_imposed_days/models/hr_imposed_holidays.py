@@ -8,7 +8,7 @@ from openerp import models, fields, api
 
 class HrHolidaysImposed(models.Model):
     _name = 'hr.holidays.imposed'
-    _desc = 'Manage imposed holidays'
+    _description = 'Manage imposed holidays'
 
     name = fields.Char(required=True)
     date = fields.Date(required=True)
@@ -23,7 +23,7 @@ class HrHolidaysImposed(models.Model):
         string="Leave type",
         required=True
     )
-    employee_ids = fields.Many2many('hr.employee')
+    employee_ids = fields.Many2many(comodel_name='hr.employee')
     auto_confirm = fields.Boolean()
 
     @api.multi
