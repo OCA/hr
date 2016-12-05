@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="hr_payslip_change_state_form" model="ir.ui.view">
+            <field name="name">hr.payslip.change.state.form</field>
+            <field name="model">hr.payslip.change.state</field>
+            <field name="arch" type="xml">
+                <form string="Change state">
+                    <group>
+                        <field name="state"/>
+                    </group>
+                    <footer>
+                        <button string="Execute"
+                                name="change_state_confirm" type="object" class="oe_highlight"/>
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_hr_payslip_change_state_form" model="ir.actions.act_window">
+            <field name="name">Change state</field>
+            <field name="res_model">hr.payslip.change.state</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form,tree</field>
+            <field name="view_id" ref="hr_payslip_change_state_form"/>
+            <field name="target">new</field>
+        </record>
+
+        <act_window name="Change state"
+            res_model="hr.payslip.change.state"
+            src_model="hr.payslip"
+            view_mode="form"
+            target="new"
+            multi="True"
+            key2="client_action_multi"
+            id="action_hr_payslip_change_state_form"/>
+
+    </data>
+</openerp>
