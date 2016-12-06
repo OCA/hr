@@ -30,18 +30,17 @@ class HrEmployee(models.Model):
             self._get_search_imposed_parameters(emp)
             )
 
-        if imposed:
-            for imposed_day in imposed:
-                created = holiday.create({
-                    'number_of_days_temp': 1.,
-                    'name': imposed_day.name,
-                    'date_from': imposed_day.date,
-                    'date_to': imposed_day.date,
-                    'employee_id': emp.id,
-                    'type': 'remove',
-                    'holiday_status_id': imposed_day.status_id.id,
-                    })
-                if imposed_day.auto_confirm:
-                    created.signal_workflow('validate')
+        for imposed_day in imposed:
+            created = holiday.create({
+                'number_of_days_temp': 1.,
+                'name': imposed_day.name,
+                'date_from': imposed_day.date,
+                'date_to': imposed_day.date,
+                'employee_id': emp.id,
+                'type': 'remove',
+                'holiday_status_id': imposed_day.status_id.id,
+                })
+            if imposed_day.auto_confirm:
+                created.signal_workflow('validate')
 
         return emp
