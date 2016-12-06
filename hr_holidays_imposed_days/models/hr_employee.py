@@ -3,11 +3,19 @@
 # Copyright 2016 Camptocamp SA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from openerp import models, api
+from openerp import models, api, fields
 
 
 class HrEmployee(models.Model):
     _inherit = 'hr.employee'
+
+    def _get_search_imposed_parameters(self, employee):
+        """ """
+        res = [('company_id', '=', employee.company_id.id),
+               ('employee_ids', '=', False),  # no employee defined means all
+               ('date', '>=', fields.Date.today())
+               ]
+        return res
 
     @api.model
     @api.returns('self', lambda value: value.id)
@@ -17,12 +25,9 @@ class HrEmployee(models.Model):
         holiday = self.env['hr.holidays']
 
         emp = super(HrEmployee, self).create(values)
-        company = emp.company_id.id
 
         imposed = imposed_holiday.search(
-            [('company_id', '=', company),
-             ('employee_ids', '=', False),  # no employee defined means all
-             ]
+            self._get_search_imposed_parameters(emp)
             )
 
         if imposed:
