@@ -13,7 +13,7 @@ class HrEmployee(models.Model):
         """ """
         res = [('company_id', '=', employee.company_id.id),
                ('employee_ids', '=', False),  # no employee defined means all
-               ('date', '>=', fields.Date.today())
+               ('date_from', '>=', fields.Datetime.now())
                ]
         return res
 

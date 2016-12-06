@@ -3,7 +3,11 @@
 # Copyright 2016 Camptocamp SA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from openerp import models, fields, api
+import datetime
+import math
+
+from openerp import models, fields, api, exceptions, _
+from openerp import tools
 
 
 class HrHolidaysImposed(models.Model):
@@ -11,7 +15,9 @@ class HrHolidaysImposed(models.Model):
     _description = 'Manage imposed holidays'
 
     name = fields.Char(required=True)
-    date = fields.Date(required=True)
+    date_from = fields.Datetime(required=True)
+    date_to = fields.Datetime(required=True)
+    number_of_days = fields.Float()
     company_id = fields.Many2one(
         comodel_name='res.company',
         string="Company",
@@ -23,7 +29,10 @@ class HrHolidaysImposed(models.Model):
         string="Leave type",
         required=True
     )
-    employee_ids = fields.Many2many(comodel_name='hr.employee')
+    employee_ids = fields.Many2many(comodel_name='hr.employee',
+                                    help="If empty, all employees of the "
+                                         "company will have this day/period "
+                                         "imposed")
     auto_confirm = fields.Boolean()
 
     @api.multi
@@ -40,8 +49,8 @@ class HrHolidaysImposed(models.Model):
                 vals = {
                     'number_of_days_temp': 1.,
                     'name': rec.name,
-                    'date_from': rec.date,
-                    'date_to': rec.date,
+                    'date_from': rec.date_from,
+                    'date_to': rec.date_to,
                     'employee_id': employee.id,
                     'type': 'remove',
                     'holiday_status_id': rec.status_id.id,
@@ -50,3 +59,62 @@ class HrHolidaysImposed(models.Model):
                 created |= created.create(vals)
             if rec.auto_confirm:
                 created.signal_workflow('validate')
+
+    def _get_number_of_days(self, date_from, date_to):
+        """Returns a float equals to the timedelta between
+           two dates given as string."""
+
+        DATETIME_FORMAT = tools.DEFAULT_SERVER_DATETIME_FORMAT
+        from_dt = datetime.datetime.strptime(date_from, DATETIME_FORMAT)
+        to_dt = datetime.datetime.strptime(date_to, DATETIME_FORMAT)
+        timedelta = to_dt - from_dt
+        diff_day = timedelta.days + float(timedelta.seconds) / 86400
+        return diff_day
+
+    @api.onchange('date_from', 'date_to')
+    def onchange_date_from(self):
+        """
+        If there are no date set for date_to, automatically set one
+        8 hours later than the date_from.
+        Also update the number_of_days.
+        """
+        # date_to has to be greater than date_from
+        if ((self.date_from and self.date_to) and
+                (self.date_from > self.date_to)):
+            raise exceptions.Warning(
+                _('The start date must be anterior to the end date.'))
+
+        # No date_to set so far: automatically compute one 8 hours later
+        if self.date_from and not self.date_to:
+            date_to_with_delta = datetime.datetime.strptime(
+                self.date_from,
+                tools.DEFAULT_SERVER_DATETIME_FORMAT) + datetime.timedelta(
+                hours=8)
+            self.date_to = str(date_to_with_delta)
+
+        # Compute and update the number of days
+        if ((self.date_to and self.date_from) and
+                (self.date_from <= self.date_to)):
+            diff_day = self._get_number_of_days(self.date_from, self.date_to)
+            self.number_of_days = round(math.floor(diff_day))+1
+        else:
+            self.number_of_days = 0
+
+    @api.onchange('date_from', 'date_to')
+    def onchange_date_to(self):
+        """
+        Update the number_of_days.
+        """
+        # date_to has to be greater than date_from
+        if ((self.date_from and self.date_to) and
+                (self.date_from > self.date_to)):
+            raise exceptions.Warning(
+                _('The start date must be anterior to the end date.'))
+
+        # Compute and update the number of days
+        if ((self.date_to and self.date_from) and
+                (self.date_from <= self.date_to)):
+            diff_day = self._get_number_of_days(self.date_from, self.date_to)
+            self.number_of_days = round(math.floor(diff_day))+1
+        else:
+            self.number_of_days = 0
