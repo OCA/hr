@@ -34,8 +34,8 @@ class HrEmployee(models.Model):
             created = holiday.create({
                 'number_of_days_temp': 1.,
                 'name': imposed_day.name,
-                'date_from': imposed_day.date,
-                'date_to': imposed_day.date,
+                'date_from': imposed_day.date_from,
+                'date_to': imposed_day.date_to,
                 'employee_id': emp.id,
                 'type': 'remove',
                 'holiday_status_id': imposed_day.status_id.id,
