@@ -54,8 +54,9 @@ class HrHolidays(models.Model):
 
     def _get_number_of_days(self, date_from, date_to, employee_id):
         if not self.holiday_status_id.allow_partial_days:
+            # 1 second to avoid bug https://github.com/odoo/odoo/pull/14464
             date_from = fields.Datetime.from_string(date_from).replace(
-                hour=0, minute=0, second=0, microsecond=0)
+                hour=0, minute=0, second=1, microsecond=0)
             date_to = fields.Datetime.from_string(date_to).replace(
                 hour=23, minute=59, second=59, microsecond=0)
             date_from, date_to = [
