@@ -87,7 +87,7 @@ def adjust_employee_partners_post(env):
     for employee, db_data in zip(employees, employee_db_data):
         employee.address_id = env['res.partner'].create({
             'employee': True,
-            'name': employee.name,
+            'name': employee.name or employee.display_name,
             'phone': db_data['work_phone'],
             'email': db_data['work_email'],
             'mobile': db_data['mobile_phone'],
