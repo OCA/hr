@@ -1,0 +1,153 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * hr_payslip_change_state
+# 
+# Translators:
+# OCA Transbot <transbot@odoo-community.org>, 2016
+# Matjaž Mozetič <m.mozetic@matmoz.si>, 2016
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-12-06 03:44+0000\n"
+"PO-Revision-Date: 2016-12-06 03:44+0000\n"
+"Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>, 2016\n"
+"Language-Team: Slovenian (https://www.transifex.com/oca/teams/23907/sl/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: sl\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
+
+#. module: hr_payslip_change_state
+#: help:hr.payslip.change.state,state:0
+msgid ""
+"* When the payslip is created the status is 'Draft'.             \n"
+"* If the payslip is under verification, the status is 'Compute Sheet'.              \n"
+"* If the payslip is confirmed then status is set to 'Done'.             \n"
+"* When user cancel payslip the status is 'Rejected'."
+msgstr ""
+"* Ob nastanku je plačilni list v stanju 'Osnutek'.             \n"
+"* Ko je plačilni list v overjanju, je v stanju 'Obdelava lista'.              \n"
+"* Ko je plačilni list potrjen, je v stanju 'Opravljeno'.             \n"
+"* Če uporabnik prekliče plačilni list, je ta v stanju 'Zavrnjeno'."
+
+#. module: hr_payslip_change_state
+#: field:hr.payslip.change.state,state:0
+msgid "Action"
+msgstr "Ukrep"
+
+#. module: hr_payslip_change_state
+#: view:hr.payslip.change.state:hr_payslip_change_state.hr_payslip_change_state_form
+msgid "Cancel"
+msgstr "Preklic"
+
+#. module: hr_payslip_change_state
+#: selection:hr.payslip.change.state,state:0
+msgid "Cancel Payslip"
+msgstr "Preklic plačilnega lista"
+
+#. module: hr_payslip_change_state
+#: view:hr.payslip.change.state:hr_payslip_change_state.hr_payslip_change_state_form
+#: model:ir.actions.act_window,name:hr_payslip_change_state.action_hr_payslip_change_state_form
+msgid "Change state"
+msgstr "Spremeni stanje"
+
+#. module: hr_payslip_change_state
+#: model:ir.model,name:hr_payslip_change_state.model_hr_payslip_change_state
+msgid "Change state of a payslip"
+msgstr "Spremeni stanje plačilnega lista"
+
+#. module: hr_payslip_change_state
+#: selection:hr.payslip.change.state,state:0
+msgid "Compute Sheet"
+msgstr "Obdelava lista"
+
+#. module: hr_payslip_change_state
+#: selection:hr.payslip.change.state,state:0
+msgid "Confirm"
+msgstr "Potrdi"
+
+#. module: hr_payslip_change_state
+#: field:hr.payslip.change.state,create_uid:0
+msgid "Created by"
+msgstr "Ustvaril"
+
+#. module: hr_payslip_change_state
+#: field:hr.payslip.change.state,create_date:0
+msgid "Created on"
+msgstr "Ustvarjeno"
+
+#. module: hr_payslip_change_state
+#: field:hr.payslip.change.state,display_name:0
+msgid "Display Name"
+msgstr "Prikazni naziv"
+
+#. module: hr_payslip_change_state
+#: view:hr.payslip.change.state:hr_payslip_change_state.hr_payslip_change_state_form
+msgid "Execute"
+msgstr "Izvedi"
+
+#. module: hr_payslip_change_state
+#: field:hr.payslip.change.state,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: hr_payslip_change_state
+#: field:hr.payslip.change.state,__last_update:0
+msgid "Last Modified on"
+msgstr "Zadnjič spremenjeno"
+
+#. module: hr_payslip_change_state
+#: field:hr.payslip.change.state,write_uid:0
+msgid "Last Updated by"
+msgstr "Zadnjič posodobil"
+
+#. module: hr_payslip_change_state
+#: field:hr.payslip.change.state,write_date:0
+msgid "Last Updated on"
+msgstr "Zadnjič posodobljeno"
+
+#. module: hr_payslip_change_state
+#: code:addons/hr_payslip_change_state/wizard/hr_payslip_change_state.py:49
+#, python-format
+msgid "Only draft payslips can be verified,the payslip %s is in %s state"
+msgstr ""
+"Le osnutki plačilnih listov se lahko overijo, plačilni list %s je v stanju "
+"%s"
+
+#. module: hr_payslip_change_state
+#: code:addons/hr_payslip_change_state/wizard/hr_payslip_change_state.py:57
+#, python-format
+msgid ""
+"Only payslips in states verify or draft can be confirmed, the payslip %s is "
+"in %s state"
+msgstr ""
+"Le plačilne liste v stanjih overjanja ali osnutek se lahko potrdijo, "
+"plačilni list %s je v stanju %s"
+
+#. module: hr_payslip_change_state
+#: code:addons/hr_payslip_change_state/wizard/hr_payslip_change_state.py:42
+#, python-format
+msgid ""
+"Only rejected payslips can be reset to draft, the payslip %s is in %s state"
+msgstr ""
+"Le zavrnjene plačilne liste se lahko ponastavi v osnutek, plačilni list %s "
+"je v stanju %s"
+
+#. module: hr_payslip_change_state
+#: code:addons/hr_payslip_change_state/wizard/hr_payslip_change_state.py:67
+#, python-format
+msgid "Payslips"
+msgstr "Plačilni listi"
+
+#. module: hr_payslip_change_state
+#: selection:hr.payslip.change.state,state:0
+msgid "Set to Draft"
+msgstr "Nastavi kot osnutek"
+
+#. module: hr_payslip_change_state
+#: code:addons/hr_payslip_change_state/wizard/hr_payslip_change_state.py:62
+#, python-format
+msgid "The payslip %s is already canceled please deselect it"
+msgstr "Plačilni list %s je že preklican. Odstranite ga iz izbora"
