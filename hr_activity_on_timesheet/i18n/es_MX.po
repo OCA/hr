@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-15 20:33+0000\n"
+"POT-Creation-Date: 2016-11-29 11:39+0000\n"
 "PO-Revision-Date: 2015-07-27 23:36+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Spanish (Mexico) (http://www.transifex.com/oca/OCA-hr-7-0/language/es_MX/)\n"
@@ -25,7 +25,7 @@ msgstr ""
 #. module: hr_activity_on_timesheet
 #: view:account.analytic.account:0
 msgid "Activities"
-msgstr ""
+msgstr "Actividades"
 
 #. module: hr_activity_on_timesheet
 #: code:addons/hr_activity_on_timesheet/hr_activity.py:90
@@ -69,7 +69,7 @@ msgstr ""
 #: model:ir.model,name:hr_activity_on_timesheet.model_account_analytic_account
 #, python-format
 msgid "Analytic Account"
-msgstr ""
+msgstr "Cuenta analítica"
 
 #. module: hr_activity_on_timesheet
 #: model:ir.model,name:hr_activity_on_timesheet.model_hr_activity
@@ -112,7 +112,7 @@ msgstr ""
 #. module: hr_activity_on_timesheet
 #: model:ir.model,name:hr_activity_on_timesheet.model_hr_analytic_timesheet
 msgid "Timesheet Line"
-msgstr ""
+msgstr "Línea de plantilla horaria"
 
 #. module: hr_activity_on_timesheet
 #. openerp-web
