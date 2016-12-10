@@ -3,13 +3,14 @@
 # * hr_public_holidays
 # 
 # Translators:
+# OCA Transbot <transbot@odoo-community.org>, 2016
 # leemannd <leemannd@gmail.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 9.0c\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-29 12:16+0000\n"
-"PO-Revision-Date: 2016-11-29 12:16+0000\n"
+"POT-Creation-Date: 2016-12-05 13:38+0000\n"
+"PO-Revision-Date: 2016-12-05 13:38+0000\n"
 "Last-Translator: leemannd <leemannd@gmail.com>, 2016\n"
 "Language-Team: French (Switzerland) (https://www.transifex.com/oca/teams/23907/fr_CH/)\n"
 "MIME-Version: 1.0\n"
@@ -103,9 +104,9 @@ msgstr "Congés Officiels"
 #. module: hr_public_holidays
 #: model:ir.model,name:hr_public_holidays.model_hr_holidays_public_line
 msgid "Public Holidays Lines"
-msgstr ""
+msgstr "Lignes de Congés Officiels"
 
 #. module: hr_public_holidays
 #: model:ir.model.fields,field_description:hr_public_holidays.field_hr_holidays_public_line_state_ids
 msgid "Related States"
-msgstr ""
+msgstr "Etat relatif"
