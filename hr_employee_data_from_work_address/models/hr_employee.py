@@ -18,13 +18,20 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from openerp import models, fields, api
+from openerp import models, fields, api, tools
 
 
 class HrEmployee(models.Model):
     _inherit = 'hr.employee'
 
-    address_id = fields.Many2one(required=True)
+    address_id = fields.Many2one(
+        required=True, default=lambda self:
+        # we set a default here in order to have tests from other modules
+        # succeed
+        tools.config['test_enable'] and
+        self.env.user.company_id.partner_id or
+        self.env['res.partner'].browse([])
+    )
     work_phone = fields.Char(related=['address_id', 'phone'], store=False)
     work_email = fields.Char(related=['address_id', 'email'], store=False)
     mobile_phone = fields.Char(related=['address_id', 'mobile'], store=False)

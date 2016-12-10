@@ -58,9 +58,6 @@ def adjust_employee_partners_pre(cr):
 
 
 def post_init_hook(cr, pool):
-    # we need to run our register hook before those run, otherwise the orm is
-    # messed up
-    pool['hr.employee']._register_hook(cr)
     env = Environment(cr, SUPERUSER_ID, {})
     adjust_employee_partners_post(env)
     fix_nonunique_employee_partners(env)
@@ -76,6 +73,9 @@ def adjust_employee_partners_post(env):
     env['res.partner']._model._store_set_values(
         env.cr, env.uid, recalculate_ids, ['image_small', 'image_medium'],
         env.context)
+    # we need to run our register hook before the rest runs, otherwise the
+    # orm is messed up
+    env.registry['hr.employee']._register_hook(cr)
     # create a new partner for all employees pointing to a company address
     employees = env['hr.employee'].with_context(active_test=False).search(
         [('address_id', 'in', company_partners.ids)], order='id')
