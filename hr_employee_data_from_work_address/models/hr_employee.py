@@ -18,7 +18,7 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from openerp import models, fields, api, tools
+from openerp import models, fields, api
 
 
 class HrEmployee(models.Model):

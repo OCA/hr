@@ -75,7 +75,7 @@ def adjust_employee_partners_post(env):
         env.context)
     # we need to run our register hook before the rest runs, otherwise the
     # orm is messed up
-    env.registry['hr.employee']._register_hook(cr)
+    env['hr.employee']._model._register_hook(env.cr)
     # create a new partner for all employees pointing to a company address
     employees = env['hr.employee'].with_context(active_test=False).search(
         [('address_id', 'in', company_partners.ids)], order='id')
