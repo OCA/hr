@@ -58,6 +58,11 @@ class HrEmployee(models.Model):
                 self._columns[field].store = False
                 self._fields[field].column = self._columns[field]
             self._fields[field].store = False
+            self.pool._store_function[self._name] = [
+                spec
+                for spec in self.pool._store_function[self._name]
+                if spec[1] != field
+            ]
 
         return super(HrEmployee, self)._register_hook(cr)
 

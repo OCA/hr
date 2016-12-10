@@ -24,6 +24,9 @@ from openerp.tests.common import TransactionCase
 class TestHrEmployeeDataFromWorkAddress(TransactionCase):
     def setUp(self):
         super(TestHrEmployeeDataFromWorkAddress, self).setUp()
+        # we need to run our register hook before the rest runs, otherwise the
+        # orm is messed up
+        self.env['hr.employee']._model._register_hook(self.env.cr)
         # create employees with same partner to be corrected by the hook
         self.partner = self.env['res.partner'].create({
             'name': 'testemployee',

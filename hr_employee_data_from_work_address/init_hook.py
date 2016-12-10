@@ -66,13 +66,6 @@ def post_init_hook(cr, pool):
 def adjust_employee_partners_post(env):
     companies = env['res.company'].with_context(active_test=False).search([])
     company_partners = companies.mapped('partner_id')
-    # recalculate images for partners we possibly touched in pre-init
-    recalculate_ids = env['hr.employee'].with_context(active_test=False)\
-        .search([('address_id', 'not in', company_partners.ids)])\
-        .mapped('address_id.id')
-    env['res.partner']._model._store_set_values(
-        env.cr, env.uid, recalculate_ids, ['image_small', 'image_medium'],
-        env.context)
     # we need to run our register hook before the rest runs, otherwise the
     # orm is messed up
     env['hr.employee']._model._register_hook(env.cr)
