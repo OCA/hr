@@ -58,8 +58,12 @@ def adjust_employee_partners_pre(cr):
 
 
 def post_init_hook(cr, pool):
+    # we need to run our register hook before those run, otherwise the orm is
+    # messed up
+    pool['hr.employee']._register_hook(cr)
     env = Environment(cr, SUPERUSER_ID, {})
     adjust_employee_partners_post(env)
+    fix_nonunique_employee_partners(env)
 
 
 def adjust_employee_partners_post(env):
@@ -94,6 +98,36 @@ def adjust_employee_partners_post(env):
             'image': db_data['image'],
             'active': employee.active,
         })
+
+
+def fix_nonunique_employee_partners(env):
+    '''If some employees point to the same partner, this will yield weird
+    results. Create new partners here, and label duplicates'''
+    category_duplicate = env.ref(
+        'hr_employee_data_from_work_address.category_duplicate'
+    )
+    category_duplicate_created = env.ref(
+        'hr_employee_data_from_work_address.category_duplicate_created'
+    )
+    env.cr.execute(
+        'select address_id, employee_ids from '
+        '(select address_id, array_agg(id) employee_ids, '
+        'count(address_id) amount from hr_employee group by address_id) '
+        'employee_amount where amount > 1'
+    )
+    for partner_id, employee_ids in env.cr.fetchall():
+        partner = env['res.partner'].browse(partner_id)
+        partner.write({
+            'category_id': [(4, category_duplicate.id)],
+        })
+        employees = env['hr.employee'].browse(employee_ids)
+        for employee in employees:
+            employee.write({
+                'address_id': partner.copy(default={
+                    'category_id': [(4, category_duplicate_created.id)],
+                    'name': employee.name or employee.display_name,
+                }).id,
+            })
 
 
 def uninstall_hook(cr, pool):
