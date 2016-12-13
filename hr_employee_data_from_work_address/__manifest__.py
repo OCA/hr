@@ -29,6 +29,7 @@
         'hr',
     ],
     "data": [
+        "data/res_partner_category.xml",
         'views/hr_employee.xml',
         'views/res_users.xml',
     ],

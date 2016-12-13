@@ -24,12 +24,14 @@ from openerp import models, fields, api
 class HrEmployee(models.Model):
     _inherit = 'hr.employee'
 
-    work_phone = fields.Char(related=['address_id', 'phone'])
-    work_email = fields.Char(related=['address_id', 'email'])
-    mobile_phone = fields.Char(related=['address_id', 'mobile'])
-    image = fields.Binary(related=['address_id', 'image'])
-    image_medium = fields.Binary(related=['address_id', 'image_medium'])
-    image_small = fields.Binary(related=['address_id', 'image_small'])
+    work_phone = fields.Char(related=['address_id', 'phone'], store=False)
+    work_email = fields.Char(related=['address_id', 'email'], store=False)
+    mobile_phone = fields.Char(related=['address_id', 'mobile'], store=False)
+    image = fields.Binary(related=['address_id', 'image'], store=False)
+    image_medium = fields.Binary(
+        related=['address_id', 'image_medium'], store=False)
+    image_small = fields.Binary(
+        related=['address_id', 'image_small'], store=False)
 
     @api.multi
     def onchange_company(self, company):
@@ -48,14 +50,20 @@ class HrEmployee(models.Model):
     def _register_hook(self, cr):
         # we need to reset the store parameter
         # further, making a normal field related doesn't reset columns
-        for field in ['work_phone', 'work_email', 'mobile_phone', 'image',
-                      'image_medium', 'image_small']:
+        for field in [
+            'work_phone', 'work_email', 'mobile_phone', 'image',
+            'image_medium', 'image_small',
+        ]:
             if field in self._columns:
-                self._columns.pop(field)
-            if field in self._all_columns:
-                self._all_columns.pop(field)
+                self._columns[field].store = False
+                self._fields[field].column = self._columns[field]
             self._fields[field].store = False
-            self._fields[field].column = None
+            self.pool._store_function[self._name] = [
+                spec
+                for spec in self.pool._store_function[self._name]
+                if spec[1] != field
+            ]
+
         return super(HrEmployee, self)._register_hook(cr)
 
     @api.multi

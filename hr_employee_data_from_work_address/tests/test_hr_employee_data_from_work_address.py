@@ -22,11 +22,39 @@ from openerp.tests.common import TransactionCase
 
 
 class TestHrEmployeeDataFromWorkAddress(TransactionCase):
-    def test_hooks(self):
-        pre_init_hook(self.env.cr)
-        post_init_hook(self.env.cr, self.env.registry)
+    def setUp(self):
+        super(TestHrEmployeeDataFromWorkAddress, self).setUp()
+        # we need to run our register hook before the rest runs, otherwise the
+        # orm is messed up
+        self.env['hr.employee']._model._register_hook(self.env.cr)
+        # create employees with same partner to be corrected by the hook
+        self.partner = self.env['res.partner'].create({
+            'name': 'testemployee',
+        })
+        self.employee1 = self.env['hr.employee'].create({
+            'name': 'testemployee1',
+            'address_id': self.partner.id,
+        })
+        self.employee2 = self.env['hr.employee'].create({
+            'name': 'testemployee1',
+            'address_id': self.partner.id,
+        })
 
-    def test_create_write(self):
+    def test_01_hooks(self):
+        pre_init_hook(self.env.cr)
+        self.assertTrue(
+            len(
+                self.env['hr.employee'].search([
+                    ('address_id', '=', self.partner.id),
+                ])
+            ) > 1
+        )
+        post_init_hook(self.env.cr, self.env.registry)
+        self.assertFalse(self.env['hr.employee'].search([
+            ('address_id', '=', self.partner.id),
+        ]))
+
+    def test_02_create_write(self):
         user1 = self.env['res.users'].create({
             'name': 'user1',
             'login': 'user1',
@@ -48,11 +76,11 @@ class TestHrEmployeeDataFromWorkAddress(TransactionCase):
         employee.write({'user_id': user2.id})
         self.assertEqual(user2.partner_id, employee.address_id)
 
-    def test_onchange(self):
-        result = self.env.ref('hr.employee_fp').onchange_company(
+    def test_03_onchange(self):
+        result = self.employee1.onchange_company(
             self.env.ref('base.main_company').id)
         self.assertFalse('address_id' in result.get('value', {}))
-        result = self.env.ref('hr.employee_fp').onchange_address_id(
+        result = self.employee1.onchange_address_id(
             self.env.ref('base.main_partner').id)
         self.assertFalse('work_phone' in result.get('value', {}))
         self.assertFalse('mobile_phone' in result.get('value', {}))

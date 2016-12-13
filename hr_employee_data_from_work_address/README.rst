@@ -6,7 +6,9 @@ When using HR, there are a couple of partners involved per employee: The employe
 Installation
 ============
 
-As it would be problematic to have work addresses pointing to the company's partner with this module, all employees are updated with either a new partner as work address in case they are not linked to a user, or with the user's partner otherwise. This may take some time if you have a lot of employees. For existing work addresses, the partner's data win, so if your employee as ha different email/phone number/image than the corresponding partner, those fields will be overwritten - but only if it is set in the partner.
+As it would be problematic to have work addresses pointing to the company's partner with this module, all employees are updated with either a new partner as work address in case they are not linked to a user, or with the user's partner otherwise. This may take some time if you have a lot of employees. For existing work addresses, the partner's data win, so if your employee has a different email/phone number/image than the corresponding partner, those fields will be overwritten - but only if it is set in the partner.
+
+Also multiple employees pointing to the same partner is problematic. This is fixed by creating new partners for all employees involved, and flagging all of them with the label 'Duplicate work address' and the newly created ones with 'Duplicate work address / Newly created'. Then after installation, search for partners with this labels to do whatever cleanup you consider necessary. After this, it's safe to delete the labels again.
 
 Usage
 =====
