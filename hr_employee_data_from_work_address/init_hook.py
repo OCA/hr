@@ -60,18 +60,15 @@ def adjust_employee_partners_pre(cr):
 def post_init_hook(cr, pool):
     env = Environment(cr, SUPERUSER_ID, {})
     adjust_employee_partners_post(env)
+    fix_nonunique_employee_partners(env)
 
 
 def adjust_employee_partners_post(env):
     companies = env['res.company'].with_context(active_test=False).search([])
     company_partners = companies.mapped('partner_id')
-    # recalculate images for partners we possibly touched in pre-init
-    recalculate_ids = env['hr.employee'].with_context(active_test=False)\
-        .search([('address_id', 'not in', company_partners.ids)])\
-        .mapped('address_id.id')
-    env['res.partner']._model._store_set_values(
-        env.cr, env.uid, recalculate_ids, ['image_small', 'image_medium'],
-        env.context)
+    # we need to run our register hook before the rest runs, otherwise the
+    # orm is messed up
+    env['hr.employee']._model._register_hook(env.cr)
     # create a new partner for all employees pointing to a company address
     employees = env['hr.employee'].with_context(active_test=False).search(
         [('address_id', 'in', company_partners.ids)], order='id')
@@ -87,13 +84,43 @@ def adjust_employee_partners_post(env):
     for employee, db_data in zip(employees, employee_db_data):
         employee.address_id = env['res.partner'].create({
             'employee': True,
-            'name': employee.name,
+            'name': employee.name or employee.display_name,
             'phone': db_data['work_phone'],
             'email': db_data['work_email'],
             'mobile': db_data['mobile_phone'],
             'image': db_data['image'],
             'active': employee.active,
         })
+
+
+def fix_nonunique_employee_partners(env):
+    '''If some employees point to the same partner, this will yield weird
+    results. Create new partners here, and label duplicates'''
+    category_duplicate = env.ref(
+        'hr_employee_data_from_work_address.category_duplicate'
+    )
+    category_duplicate_created = env.ref(
+        'hr_employee_data_from_work_address.category_duplicate_created'
+    )
+    env.cr.execute(
+        'select address_id, employee_ids from '
+        '(select address_id, array_agg(id) employee_ids, '
+        'count(address_id) amount from hr_employee group by address_id) '
+        'employee_amount where amount > 1'
+    )
+    for partner_id, employee_ids in env.cr.fetchall():
+        partner = env['res.partner'].browse(partner_id)
+        partner.write({
+            'category_id': [(4, category_duplicate.id)],
+        })
+        employees = env['hr.employee'].browse(employee_ids)
+        for employee in employees:
+            employee.write({
+                'address_id': partner.copy(default={
+                    'category_id': [(4, category_duplicate_created.id)],
+                    'name': employee.name or employee.display_name,
+                }).id,
+            })
 
 
 def uninstall_hook(cr, pool):

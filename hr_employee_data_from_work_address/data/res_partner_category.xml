@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="category_duplicate" model="res.partner.category" forcecreate="False">
+            <field name="name">Duplicate work address</field>
+        </record>
+        <record id="category_duplicate_created" model="res.partner.category" forcecreate="False">
+            <field name="parent_id" ref="category_duplicate" />
+            <field name="name">Newly created</field>
+        </record>
+    </data>
+</openerp>
