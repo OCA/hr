@@ -9,8 +9,37 @@ Employee Loan Management
 This module add functionality to:
 
 1. Manage employee loan request
-2. Import employee loan realization into bank statement
-3. Track employee loan repayment
+2. Calculate loan repayment schedule
+3. Track employee loan disburstment
+4. Track employee loan repayment
+
+**Loan Disburstment**
+
+Disbursement is the act of paying out or disbursing money, such as money paid out to run a business, 
+cash expenditures, dividend payments, and/or the amounts that a lawyer might have to pay out 
+on a person's behalf in connection with a transaction.
+
+http://www.investopedia.com/terms/d/disbursement.asp
+
+**Loan Principle Amount**
+
+The amount of debt, exclusive of interest, remaining on a loan.
+
+http://www.ucop.edu/loan-programs/resources/loan-terminology-glossary.html
+
+**Loan Repayment Schedule**
+
+Detailed outline of a borrower's loan agreement with a lender that shows the original loan amount, 
+when payments are due, and how much of the payment goes to the principal and interest repayment. 
+This statement may be provided on a monthly basis or may be issued when the loan is originally acquired.
+
+http://www.investorwords.com/8680/repayment_schedule.html
+
+**Loan Repayment**
+
+Repayment is the act of paying back money previously borrowed from a lender
+
+http://www.investopedia.com/terms/r/repayment.asp
 
 Installation
 ============
@@ -60,8 +89,8 @@ Loan Principle Receivable Dr.
 Note:
 *Loan principle receivable* will be generated as much as number of payment schedule
 
-Employee Loan Realization
--------------------------
+Employee Loan Disburstment
+--------------------------
 
 Employee loan can be realized by reconcile *Loan Realization Move Line*
 created from step above. You can reconcile them by using any accounting
@@ -110,11 +139,10 @@ Odoo will create journal entry with bellow configuration:
 Loan Interest Receivable Dr.
     Interest Income Cr.
 
-
 Employee Loan Interest Repayment
 --------------------------------
 
-Employee loan's interest can be paid by reconcile **Principle Receivable Move Line**
+Employee loan's interest can be paid by reconcile *Principle Receivable Move Line*
 created from approval steap above. You can reconcile them by using any accounting
 method provided by Odoo, such as: (1) bank statement, (2) voucher, or
 (3) manualy creating journal entry and reconciliation.
@@ -128,7 +156,7 @@ You can only delete loan data, if:
 2. No loan number assigned
 
 Note for administrator:
-Unlink police could be override by using *force_unlink* context
+Unlink policy could be override by using *force_unlink* context
 
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
