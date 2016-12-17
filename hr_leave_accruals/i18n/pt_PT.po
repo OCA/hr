@@ -10,11 +10,11 @@ msgstr ""
 "POT-Creation-Date: 2016-12-10 02:13+0000\n"
 "PO-Revision-Date: 2015-07-27 23:39+0000\n"
 "Last-Translator: <>\n"
-"Language-Team: German (http://www.transifex.com/oca/OCA-hr-7-0/language/de/)\n"
+"Language-Team: Portuguese (Portugal) (http://www.transifex.com/oca/OCA-hr-7-0/language/pt_PT/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: de\n"
+"Language: pt_PT\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: hr_leave_accruals
@@ -25,12 +25,12 @@ msgstr ""
 #. module: hr_leave_accruals
 #: view:hr.leave.accrual:0
 msgid "Group By..."
-msgstr "Gruppiere"
+msgstr ""
 
 #. module: hr_leave_accruals
 #: field:hr.leave.accrual.line,state:0
 msgid "State"
-msgstr "Status"
+msgstr ""
 
 #. module: hr_leave_accruals
 #: field:hr.holidays,accrual_line_id:0
@@ -48,7 +48,7 @@ msgstr ""
 #: view:hr.leave.accrual:0 field:hr.leave.accrual,employee_id:0
 #: model:ir.model,name:hr_leave_accruals.model_hr_employee
 msgid "Employee"
-msgstr "Angestellter"
+msgstr ""
 
 #. module: hr_leave_accruals
 #: field:hr.leave.accrual.line,allocation_id:0
@@ -59,7 +59,7 @@ msgstr ""
 #. module: hr_leave_accruals
 #: field:hr.leave.accrual.line,description:0
 msgid "Description"
-msgstr "Beschreibung"
+msgstr "Descrição"
 
 #. module: hr_leave_accruals
 #: field:hr.leave.accrual,code:0
@@ -90,7 +90,7 @@ msgstr ""
 #. module: hr_leave_accruals
 #: field:hr.leave.accrual.line,date:0
 msgid "Date"
-msgstr "Datum"
+msgstr ""
 
 #. module: hr_leave_accruals
 #: field:hr.leave.accrual,total_cash:0
@@ -105,7 +105,7 @@ msgstr ""
 #. module: hr_leave_accruals
 #: model:ir.model,name:hr_leave_accruals.model_hr_payslip
 msgid "Pay Slip"
-msgstr "Lohnzettel"
+msgstr ""
 
 #. module: hr_leave_accruals
 #: field:hr.leave.accrual.line,payslip_line_id:0
@@ -127,7 +127,7 @@ msgstr ""
 #. module: hr_leave_accruals
 #: model:ir.model,name:hr_leave_accruals.model_res_company
 msgid "Companies"
-msgstr "Unternehmen"
+msgstr ""
 
 #. module: hr_leave_accruals
 #: code:addons/hr_leave_accruals/hr_holidays_status_accrual_line.py:28
@@ -153,7 +153,7 @@ msgstr ""
 #. module: hr_leave_accruals
 #: field:hr.leave.accrual.line,amount:0
 msgid "Amount"
-msgstr "Betrag"
+msgstr ""
 
 #. module: hr_leave_accruals
 #: field:hr.leave.accrual,total_hours:0
@@ -181,7 +181,7 @@ msgstr ""
 #. module: hr_leave_accruals
 #: model:ir.model,name:hr_leave_accruals.model_hr_holidays
 msgid "Leave"
-msgstr "Abwesenheit"
+msgstr ""
 
 #. module: hr_leave_accruals
 #: field:hr.leave.accrual.line,is_refund:0
@@ -203,12 +203,12 @@ msgstr ""
 #: view:hr.leave.accrual:0 field:hr.leave.accrual,leave_type_id:0
 #: model:ir.model,name:hr_leave_accruals.model_hr_holidays_status
 msgid "Leave Type"
-msgstr "Abwesenheitsart"
+msgstr ""
 
 #. module: hr_leave_accruals
 #: field:hr.leave.accrual.line,source:0
 msgid "Source"
-msgstr ""
+msgstr "Origem"
 
 #. module: hr_leave_accruals
 #: field:hr.holidays.status.accrual.line,salary_rule_id:0

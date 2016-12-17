@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-12 23:35+0000\n"
+"POT-Creation-Date: 2016-11-29 11:39+0000\n"
 "PO-Revision-Date: 2015-07-27 23:40+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Portuguese (Portugal) (http://www.transifex.com/oca/OCA-hr-7-0/language/pt_PT/)\n"
@@ -114,7 +114,7 @@ msgstr "Mensagens não lidas"
 #: field:hr.schedule,company_id:0 field:hr.schedule.alert,company_id:0
 #: field:hr.schedule.template,company_id:0
 msgid "Company"
-msgstr ""
+msgstr "Empresa"
 
 #. module: hr_schedule
 #: selection:hr.restday.wizard,dayofweek:0
@@ -301,7 +301,7 @@ msgstr ""
 #. module: hr_schedule
 #: field:hr.schedule.request,type:0
 msgid "Type"
-msgstr ""
+msgstr "Tipo"
 
 #. module: hr_schedule
 #: help:hr.restday.wizard,temp_restday:0
@@ -589,7 +589,7 @@ msgstr ""
 #. module: hr_schedule
 #: field:hr.schedule.alert.rule,active:0
 msgid "Active"
-msgstr ""
+msgstr "Ativo"
 
 #. module: hr_schedule
 #: field:hr.schedule,date_start:0
@@ -776,7 +776,7 @@ msgstr ""
 #. module: hr_schedule
 #: field:hr.schedule,name:0
 msgid "Description"
-msgstr ""
+msgstr "Descrição"
 
 #. module: hr_schedule
 #: view:hr.schedule.alert.compute:0
@@ -876,7 +876,7 @@ msgstr ""
 #. module: hr_schedule
 #: view:hr.schedule:0
 msgid "Duration"
-msgstr ""
+msgstr "Duração"
 
 #. module: hr_schedule
 #: selection:hr.restday.wizard,dayofweek:0
