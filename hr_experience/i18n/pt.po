@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-17 20:43+0000\n"
-"PO-Revision-Date: 2016-11-25 14:58+0000\n"
+"POT-Creation-Date: 2016-12-13 16:26+0000\n"
+"PO-Revision-Date: 2016-12-12 11:45+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Portuguese (http://www.transifex.com/oca/OCA-hr-8-0/language/pt/)\n"
 "MIME-Version: 1.0\n"
@@ -187,7 +187,7 @@ msgstr ""
 #: field:hr.academic,end_date:0 field:hr.certification,end_date:0
 #: field:hr.curriculum,end_date:0 field:hr.experience,end_date:0
 msgid "End date"
-msgstr ""
+msgstr "Data de fim"
 
 #. module: hr_experience
 #: model:ir.ui.menu,name:hr_experience.menu_hr_experience
@@ -304,7 +304,7 @@ msgstr ""
 #: field:hr.academic,start_date:0 field:hr.certification,start_date:0
 #: field:hr.curriculum,start_date:0 field:hr.experience,start_date:0
 msgid "Start date"
-msgstr ""
+msgstr "Data de início"
 
 #. module: hr_experience
 #: view:hr.certification:hr_experience.view_certification_form
