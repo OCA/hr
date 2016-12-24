@@ -3,21 +3,19 @@
 # * hr_department_sequence
 # 
 # Translators:
-# Paolo Valier, 2016
-# Paolo Valier, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-12-17 02:00+0000\n"
-"PO-Revision-Date: 2016-12-17 10:14+0000\n"
-"Last-Translator: Paolo Valier\n"
-"Language-Team: Italian (http://www.transifex.com/oca/OCA-hr-8-0/language/it/)\n"
+"PO-Revision-Date: 2015-11-12 09:52+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: Turkish (http://www.transifex.com/oca/OCA-hr-8-0/language/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: it\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: tr\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #. module: hr_department_sequence
 #: code:addons/hr_department_sequence/models/hr_department.py:52
@@ -28,7 +26,7 @@ msgstr ""
 #. module: hr_department_sequence
 #: field:hr.department,active:0
 msgid "Active"
-msgstr "Attivo"
+msgstr ""
 
 #. module: hr_department_sequence
 #: view:hr.department:hr_department_sequence.hr_department_view
@@ -38,7 +36,7 @@ msgstr ""
 #. module: hr_department_sequence
 #: field:hr.department,code:0
 msgid "Code"
-msgstr "Codice"
+msgstr ""
 
 #. module: hr_department_sequence
 #: help:hr.department,sequence:0
@@ -58,7 +56,7 @@ msgstr ""
 #. module: hr_department_sequence
 #: field:hr.department,sequence:0
 msgid "Sequence"
-msgstr "Sequenza"
+msgstr "Sıra"
 
 #. module: hr_department_sequence
 #: code:addons/hr_department_sequence/models/hr_department.py:45

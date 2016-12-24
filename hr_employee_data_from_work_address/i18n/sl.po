@@ -3,13 +3,13 @@
 # * hr_employee_data_from_work_address
 # 
 # Translators:
-# Matjaž Mozetič <m.mozetic@matmoz.si>, 2015
+# Matjaž Mozetič <m.mozetic@matmoz.si>, 2015-2016
 msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-18 13:10+0000\n"
-"PO-Revision-Date: 2015-08-16 11:40+0000\n"
+"POT-Creation-Date: 2016-12-17 02:00+0000\n"
+"PO-Revision-Date: 2016-12-20 04:42+0000\n"
 "Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>\n"
 "Language-Team: Slovenian (http://www.transifex.com/oca/OCA-hr-8-0/language/sl/)\n"
 "MIME-Version: 1.0\n"
@@ -19,9 +19,19 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
 
 #. module: hr_employee_data_from_work_address
+#: model:res.partner.category,name:hr_employee_data_from_work_address.category_duplicate
+msgid "Duplicate work address"
+msgstr "Podvoji delovni naslov"
+
+#. module: hr_employee_data_from_work_address
 #: model:ir.model,name:hr_employee_data_from_work_address.model_hr_employee
 msgid "Employee"
 msgstr "Kader"
+
+#. module: hr_employee_data_from_work_address
+#: model:res.partner.category,name:hr_employee_data_from_work_address.category_duplicate_created
+msgid "Newly created"
+msgstr "Novo ustvarjeno"
 
 #. module: hr_employee_data_from_work_address
 #: view:hr.employee:hr_employee_data_from_work_address.view_employee_form
