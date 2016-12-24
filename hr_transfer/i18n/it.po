@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-12 23:35+0000\n"
+"POT-Creation-Date: 2016-12-17 01:54+0000\n"
 "PO-Revision-Date: 2015-07-27 23:41+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Italian (http://www.transifex.com/oca/OCA-hr-7-0/language/it/)\n"
@@ -35,7 +35,7 @@ msgstr ""
 #. module: hr_transfer
 #: view:hr.department.transfer:0
 msgid "Confirm"
-msgstr ""
+msgstr "Conferma"
 
 #. module: hr_transfer
 #: view:hr.department.transfer:0
@@ -102,7 +102,7 @@ msgstr ""
 #. module: hr_transfer
 #: field:hr.department.transfer,message_is_follower:0
 msgid "Is a Follower"
-msgstr ""
+msgstr "È un follower"
 
 #. module: hr_transfer
 #: model:mail.message.subtype,name:hr_transfer.mt_alert_xfer_done

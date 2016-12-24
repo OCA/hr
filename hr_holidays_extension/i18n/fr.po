@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-29 11:39+0000\n"
+"POT-Creation-Date: 2016-12-17 01:54+0000\n"
 "PO-Revision-Date: 2015-07-27 23:38+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: French (http://www.transifex.com/oca/OCA-hr-7-0/language/fr/)\n"
@@ -115,12 +115,12 @@ msgstr ""
 #: help:hr.holidays.status,ex_rest_days:0
 msgid ""
 "If enabled, the employee's day off is skipped in leave days calculation."
-msgstr ""
+msgstr "Si actif, les jours fériés sont ignorés dans le calcul des jours d'absences"
 
 #. module: hr_holidays_extension
 #: field:hr.holidays.status,ex_public_holidays:0
 msgid "Exclude Public Holidays"
-msgstr ""
+msgstr "Exclure les jours fériés"
 
 #. module: hr_holidays_extension
 #: view:hr.holidays:0
@@ -163,7 +163,7 @@ msgstr ""
 #. module: hr_holidays_extension
 #: help:hr.holidays.status,ex_public_holidays:0
 msgid "If enabled, public holidays are skipped in leave days calculation."
-msgstr ""
+msgstr "Si actif, les jours fériés sont ignorés dans le calcul des jours d'absences"
 
 #. module: hr_holidays_extension
 #: model:ir.model,name:hr_holidays_extension.model_hr_holidays_status
@@ -197,7 +197,7 @@ msgstr "Durée"
 #. module: hr_holidays_extension
 #: field:hr.holidays.status,ex_rest_days:0
 msgid "Exclude Rest Days"
-msgstr ""
+msgstr "Exclure les jours d'absence"
 
 #. module: hr_holidays_extension
 #: view:hr.holidays:0

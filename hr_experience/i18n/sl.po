@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-12 23:34+0000\n"
+"POT-Creation-Date: 2016-12-17 01:54+0000\n"
 "PO-Revision-Date: 2015-07-27 23:38+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Slovenian (http://www.transifex.com/oca/OCA-hr-7-0/language/sl/)\n"
@@ -55,7 +55,7 @@ msgstr ""
 #: field:hr.curriculum,location:0 help:hr.curriculum,location:0
 #: field:hr.experience,location:0 help:hr.experience,location:0
 msgid "Location"
-msgstr ""
+msgstr "Lokacija"
 
 #. module: hr_experience
 #: field:hr.academic,employee_id:0 field:hr.certification,employee_id:0
