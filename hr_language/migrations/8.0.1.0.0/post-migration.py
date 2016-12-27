@@ -9,7 +9,7 @@ def migrate(cr, version):
         return
 
     cr.execute('''
-        UPDATE hr_language
+        UPDATE hr_language a
             SET
                 read_rating=(
                     CASE WHEN a.can_read IS TRUE THEN '3' ELSE '0' END),
@@ -17,7 +17,6 @@ def migrate(cr, version):
                     CASE WHEN a.can_speak IS TRUE THEN '3' ELSE '0' END),
                 write_rating=(
                     CASE WHEN a.can_write IS TRUE THEN '3' ELSE '0' END)
-        FROM    hr_language AS a
         ''')
 
     cr.execute("""
