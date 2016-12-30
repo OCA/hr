@@ -1,5 +1,6 @@
-<openerp>
-  <data>
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
     <!-- professional tree -->
     <record model="ir.ui.view" id="view_professional_tree">
         <field name="name">hr.experience.tree</field>
@@ -15,15 +16,15 @@
             </tree>
         </field>
     </record>
+
      <!-- professional form -->
     <record model="ir.ui.view" id="view_professional_form">
         <field name="name">hr.experience.form</field>
         <field name="model">hr.experience</field>
-        <field name="type">form</field>
         <field name="arch" type="xml">
             <form string="Professional Experience">
                 <sheet>
-                    <group name="main">
+                    <group name="main" col="4">
                         <field name="employee_id"/>
                         <field name="name" string="Position"/>
                         <separator string="Dates" colspan="4"/>
@@ -40,6 +41,7 @@
             </form>
         </field>
     </record>
+
      <!-- Menu -->
     <record model="ir.actions.act_window" id="open_view_professional_form">
         <field name="name">Professional Experiences</field>
@@ -47,10 +49,10 @@
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
     </record>
+
     <menuitem name="Professional Experiences"
               parent="menu_hr_experience"
               id="menu_open_view_professional_form"
               action="open_view_professional_form"/>
 
-  </data>
-</openerp>
+</odoo>
