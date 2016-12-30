@@ -1,5 +1,6 @@
-<openerp>
-  <data>
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
     <!-- academic tree-->
     <record model="ir.ui.view" id="view_academic_tree">
         <field name="name">hr.academic.tree</field>
@@ -23,7 +24,7 @@
         <field name="arch" type="xml">
             <form string="Academic experience">
                 <sheet>
-                    <group name="main">
+                    <group name="main" col="4">
                         <field name="employee_id"/>
                         <field name="name"/>
                         <separator string="Dates" colspan="4"/>
@@ -56,5 +57,4 @@
               id="menu_open_view_academic_form"
               action="open_view_academic_form"/>
 
-  </data>
-</openerp>
+</odoo>
