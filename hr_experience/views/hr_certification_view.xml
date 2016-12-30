@@ -1,5 +1,6 @@
-<openerp>
-  <data>
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
     <!-- certification tree -->
     <record model="ir.ui.view" id="view_certification_tree">
         <field name="name">hr.certification.tree</field>
@@ -16,11 +17,11 @@
             </tree>
         </field>
     </record>
+
     <!-- certification tree -->
     <record model="ir.ui.view" id="view_certification_form">
         <field name="name">hr.certification.form</field>
         <field name="model">hr.certification</field>
-        <field name="type">form</field>
         <field name="arch" type="xml">
             <form string="certification">
                 <sheet>
@@ -45,6 +46,7 @@
             </form>
         </field>
     </record>
+
     <!-- Menu -->
     <record model="ir.actions.act_window" id="open_view_certification_form">
         <field name="name">Certifications</field>
@@ -52,10 +54,10 @@
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
     </record>
+
     <menuitem name="Certifications"
               parent="menu_hr_experience"
               id="menu_open_view_certification_form"
               action="open_view_certification_form"/>
 
-  </data>
-</openerp>
+</odoo>
