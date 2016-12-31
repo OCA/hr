@@ -3,13 +3,14 @@
 # * hr_family
 # 
 # Translators:
+# Barry Willems <bwillems@roc-dev.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: hr (9.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-22 15:02+0000\n"
-"PO-Revision-Date: 2016-10-21 13:58+0000\n"
-"Last-Translator: <>\n"
+"POT-Creation-Date: 2016-12-24 02:14+0000\n"
+"PO-Revision-Date: 2016-12-24 08:51+0000\n"
+"Last-Translator: Barry Willems <bwillems@roc-dev.com>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/oca/OCA-hr-9-0/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,29 +22,29 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_family.field_hr_employee_fam_children_ids
 #: model:ir.ui.view,arch_db:hr_family.hr_employee_view_form
 msgid "Children"
-msgstr ""
+msgstr "Kinderen"
 
 #. module: hr_family
 #: model:ir.model.fields,field_description:hr_family.field_hr_employee_children_create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Gemaakt door"
 
 #. module: hr_family
 #: model:ir.model.fields,field_description:hr_family.field_hr_employee_children_create_date
 msgid "Created on"
-msgstr ""
+msgstr "Gemaakt op"
 
 #. module: hr_family
 #: model:ir.model.fields,field_description:hr_family.field_hr_employee_children_date_of_birth
 #: model:ir.model.fields,field_description:hr_family.field_hr_employee_fam_father_date_of_birth
 #: model:ir.model.fields,field_description:hr_family.field_hr_employee_fam_mother_date_of_birth
 msgid "Date of Birth"
-msgstr ""
+msgstr "Geboortedatum"
 
 #. module: hr_family
 #: model:ir.model.fields,field_description:hr_family.field_hr_employee_children_display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Weergave naam"
 
 #. module: hr_family
 #: model:ir.model,name:hr_family.model_hr_employee
@@ -64,22 +65,22 @@ msgstr ""
 #. module: hr_family
 #: model:ir.ui.view,arch_db:hr_family.hr_employee_view_form
 msgid "Family"
-msgstr ""
+msgstr "Familie"
 
 #. module: hr_family
 #: model:ir.model.fields,field_description:hr_family.field_hr_employee_fam_father
 msgid "Father's Name"
-msgstr ""
+msgstr "Vader's naam"
 
 #. module: hr_family
 #: selection:hr.employee.children,gender:0
 msgid "Female"
-msgstr ""
+msgstr "Vrouw"
 
 #. module: hr_family
 #: model:ir.model.fields,field_description:hr_family.field_hr_employee_children_gender
 msgid "Gender"
-msgstr ""
+msgstr "Geslacht"
 
 #. module: hr_family
 #: model:ir.model,name:hr_family.model_hr_employee_children
@@ -94,43 +95,43 @@ msgstr ""
 #. module: hr_family
 #: model:ir.model.fields,field_description:hr_family.field_hr_employee_children___last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Laatst aangepast op"
 
 #. module: hr_family
 #: model:ir.model.fields,field_description:hr_family.field_hr_employee_children_write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Laatst bijgewerkt door"
 
 #. module: hr_family
 #: model:ir.model.fields,field_description:hr_family.field_hr_employee_children_write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Laatst bijgewerkt op"
 
 #. module: hr_family
 #: selection:hr.employee.children,gender:0
 msgid "Male"
-msgstr ""
+msgstr "Man"
 
 #. module: hr_family
 #: model:ir.model.fields,field_description:hr_family.field_hr_employee_fam_mother
 msgid "Mother's Name"
-msgstr ""
+msgstr "Moeder's naam"
 
 #. module: hr_family
 #: model:ir.model.fields,field_description:hr_family.field_hr_employee_children_name
 #: model:ir.model.fields,field_description:hr_family.field_hr_employee_fam_spouse
 msgid "Name"
-msgstr ""
+msgstr "Naam"
 
 #. module: hr_family
 #: selection:hr.employee.children,gender:0
 msgid "Other"
-msgstr ""
+msgstr "Anders"
 
 #. module: hr_family
 #: model:ir.ui.view,arch_db:hr_family.hr_employee_view_form
 msgid "Parents"
-msgstr ""
+msgstr "Ouders"
 
 #. module: hr_family
 #: model:ir.ui.view,arch_db:hr_family.hr_employee_view_form
@@ -140,4 +141,4 @@ msgstr ""
 #. module: hr_family
 #: model:ir.model.fields,field_description:hr_family.field_hr_employee_fam_spouse_tel
 msgid "Telephone."
-msgstr ""
+msgstr "Telefoon."
