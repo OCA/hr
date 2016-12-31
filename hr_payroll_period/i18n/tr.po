@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-17 01:54+0000\n"
+"POT-Creation-Date: 2016-12-24 01:32+0000\n"
 "PO-Revision-Date: 2015-07-27 23:39+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Turkish (http://www.transifex.com/oca/OCA-hr-7-0/language/tr/)\n"
@@ -163,7 +163,7 @@ msgstr "Okunmamış mesajlar"
 #. module: hr_payroll_period
 #: field:hr.payslip.exception.rule,company_id:0
 msgid "Company"
-msgstr ""
+msgstr "Şirket"
 
 #. module: hr_payroll_period
 #: code:addons/hr_payroll_period/hr_payroll_period.py:312
@@ -313,7 +313,7 @@ msgstr ""
 msgid ""
 "Holds the Chatter summary (number of messages, ...). This summary is "
 "directly in html format in order to be inserted in kanban views."
-msgstr ""
+msgstr "Sohbet özetini tutar (kaç mesa vs) Bu özet kanban görünümleri gibi yerlerde kullanılmak için doğrudan HTML formatındadır. "
 
 #. module: hr_payroll_period
 #: field:hr.payroll.period.end.1,pex_critical:0
@@ -408,7 +408,7 @@ msgstr ""
 #. module: hr_payroll_period
 #: field:hr.payroll.period.schedule,type:0
 msgid "Type"
-msgstr ""
+msgstr "Tipi"
 
 #. module: hr_payroll_period
 #: field:hr.payroll.period.end.1,pex_medium:0
@@ -681,7 +681,7 @@ msgstr ""
 #. module: hr_payroll_period
 #: help:hr.payroll.period,message_ids:0
 msgid "Messages and communication history"
-msgstr ""
+msgstr "Mesaj ve iletişim geçmişi"
 
 #. module: hr_payroll_period
 #: field:hr.payroll.period.end.1,alert_medium:0
@@ -707,7 +707,7 @@ msgstr ""
 #: field:hr.payroll.period.schedule,active:0
 #: field:hr.payslip.exception.rule,active:0
 msgid "Active"
-msgstr ""
+msgstr "Aktif"
 
 #. module: hr_payroll_period
 #: view:hr.payroll.period:0
@@ -810,7 +810,7 @@ msgstr ""
 #: field:hr.holidays.status,code:0 view:hr.payslip.exception.rule:0
 #: field:hr.payslip.exception.rule,code:0
 msgid "Code"
-msgstr ""
+msgstr "Kod"
 
 #. module: hr_payroll_period
 #: selection:hr.payroll.period.schedule,mo_firstday:0

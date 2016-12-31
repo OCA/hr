@@ -209,7 +209,7 @@ msgstr ""
 #. module: hr_transfer
 #: view:hr.department.transfer:0
 msgid "Cancel"
-msgstr ""
+msgstr "Zrušiť"
 
 #. module: hr_transfer
 #: selection:hr.department.transfer,state:0

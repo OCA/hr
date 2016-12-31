@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-12 23:34+0000\n"
+"POT-Creation-Date: 2016-12-24 01:32+0000\n"
 "PO-Revision-Date: 2015-07-27 23:38+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Turkish (http://www.transifex.com/oca/OCA-hr-7-0/language/tr/)\n"
@@ -63,7 +63,7 @@ msgstr ""
 #: field:hr.employee.termination,department_id:0
 #: field:hr.employee.termination,saved_department_id:0
 msgid "Department"
-msgstr ""
+msgstr "Departmanlar"
 
 #. module: hr_employee_state
 #: field:hr.employee.termination,state:0
@@ -110,7 +110,7 @@ msgstr ""
 #. module: hr_employee_state
 #: help:hr.employee.termination,message_ids:0
 msgid "Messages and communication history"
-msgstr ""
+msgstr "Mesaj ve iletişim geçmişi"
 
 #. module: hr_employee_state
 #: selection:hr.employee,status:0
@@ -230,7 +230,7 @@ msgstr ""
 #. module: hr_employee_state
 #: selection:hr.employee,status:0
 msgid "Active"
-msgstr ""
+msgstr "Aktif"
 
 #. module: hr_employee_state
 #: code:addons/hr_employee_state/hr.py:308
@@ -311,7 +311,7 @@ msgstr ""
 msgid ""
 "Holds the Chatter summary (number of messages, ...). This summary is "
 "directly in html format in order to be inserted in kanban views."
-msgstr ""
+msgstr "Sohbet özetini tutar (kaç mesa vs) Bu özet kanban görünümleri gibi yerlerde kullanılmak için doğrudan HTML formatındadır. "
 
 #. module: hr_employee_state
 #: selection:hr.employee,status:0

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-12 23:35+0000\n"
+"POT-Creation-Date: 2016-12-17 01:54+0000\n"
 "PO-Revision-Date: 2015-07-27 23:41+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Turkish (http://www.transifex.com/oca/OCA-hr-7-0/language/tr/)\n"
@@ -113,7 +113,7 @@ msgstr ""
 #: view:hr.contract.wage.increment:0
 #: field:hr.contract.wage.increment,department_id:0
 msgid "Department"
-msgstr ""
+msgstr "Departmanlar"
 
 #. module: hr_wage_increment
 #: code:addons/hr_wage_increment/wage_increment.py:383
@@ -135,7 +135,7 @@ msgstr ""
 #. module: hr_wage_increment
 #: field:hr.contract.wage.increment.run,type:0
 msgid "Type"
-msgstr ""
+msgstr "Tipi"
 
 #. module: hr_wage_increment
 #: view:hr.contract.wage.increment:0
@@ -173,7 +173,7 @@ msgstr ""
 #: code:addons/hr_wage_increment/wage_increment.py:357
 #, python-format
 msgid "Warning"
-msgstr ""
+msgstr "Uyarı"
 
 #. module: hr_wage_increment
 #: view:hr.contract.wage.increment:0 view:hr.contract.wage.increment.run:0

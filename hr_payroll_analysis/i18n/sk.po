@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-12 23:34+0000\n"
+"POT-Creation-Date: 2016-12-24 01:32+0000\n"
 "PO-Revision-Date: 2015-07-27 23:39+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Slovak (http://www.transifex.com/oca/OCA-hr-7-0/language/sk/)\n"
@@ -122,7 +122,7 @@ msgstr ""
 #. module: hr_payroll_analysis
 #: field:hr.payroll.analysis,company_ids:0
 msgid "Companies"
-msgstr ""
+msgstr "Spoločnosti"
 
 #. module: hr_payroll_analysis
 #: field:hr.payroll.analysis,type:0
@@ -182,7 +182,7 @@ msgstr ""
 #. module: hr_payroll_analysis
 #: view:hr.payroll.analysis:0
 msgid "Cancel"
-msgstr ""
+msgstr "Zrušiť"
 
 #. module: hr_payroll_analysis
 #: field:hr.payroll.analysis,start_date:0

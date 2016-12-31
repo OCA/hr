@@ -77,7 +77,7 @@ msgstr ""
 #: view:hr.schedule.alert:0 field:hr.schedule.alert,department_id:0
 #: view:hr.schedule.detail:0 field:hr.schedule.detail,department_id:0
 msgid "Department"
-msgstr ""
+msgstr "Departmanlar"
 
 #. module: hr_schedule
 #: code:addons/hr_schedule/hr_schedule.py:451
@@ -114,7 +114,7 @@ msgstr "Okunmamış mesajlar"
 #: field:hr.schedule,company_id:0 field:hr.schedule.alert,company_id:0
 #: field:hr.schedule.template,company_id:0
 msgid "Company"
-msgstr ""
+msgstr "Şirket"
 
 #. module: hr_schedule
 #: selection:hr.restday.wizard,dayofweek:0
@@ -301,7 +301,7 @@ msgstr ""
 #. module: hr_schedule
 #: field:hr.schedule.request,type:0
 msgid "Type"
-msgstr ""
+msgstr "Tipi"
 
 #. module: hr_schedule
 #: help:hr.restday.wizard,temp_restday:0
@@ -331,7 +331,7 @@ msgstr ""
 msgid ""
 "Holds the Chatter summary (number of messages, ...). This summary is "
 "directly in html format in order to be inserted in kanban views."
-msgstr ""
+msgstr "Sohbet özetini tutar (kaç mesa vs) Bu özet kanban görünümleri gibi yerlerde kullanılmak için doğrudan HTML formatındadır. "
 
 #. module: hr_schedule
 #: field:hr.schedule.alert,rule_id:0
@@ -383,7 +383,7 @@ msgstr ""
 #: view:hr.schedule.validate.departments:0
 #: field:hr.schedule.validate.departments,department_ids:0
 msgid "Departments"
-msgstr ""
+msgstr "Departmanlar"
 
 #. module: hr_schedule
 #: field:hr.attendance,alert_ids:0 view:hr.schedule.alert:0
@@ -589,7 +589,7 @@ msgstr ""
 #. module: hr_schedule
 #: field:hr.schedule.alert.rule,active:0
 msgid "Active"
-msgstr ""
+msgstr "Aktif"
 
 #. module: hr_schedule
 #: field:hr.schedule,date_start:0
@@ -654,7 +654,7 @@ msgstr ""
 #. module: hr_schedule
 #: field:hr.schedule.alert.rule,code:0
 msgid "Code"
-msgstr ""
+msgstr "Kod"
 
 #. module: hr_schedule
 #: model:ir.model,name:hr_schedule.model_hr_schedule_template_worktime
@@ -692,7 +692,7 @@ msgstr ""
 #. module: hr_schedule
 #: view:hr.schedule.alert.compute:0 view:hr.schedule.validate.departments:0
 msgid "Close"
-msgstr ""
+msgstr "Kapat"
 
 #. module: hr_schedule
 #: code:addons/hr_schedule/hr_schedule.py:785
@@ -750,7 +750,7 @@ msgstr ""
 #. module: hr_schedule
 #: selection:hr.schedule.request,type:0
 msgid "Other"
-msgstr ""
+msgstr "Diğer"
 
 #. module: hr_schedule
 #: view:hr.schedule.request:0
@@ -844,7 +844,7 @@ msgstr "Kural"
 #: help:hr.schedule,message_ids:0 help:hr.schedule.alert,message_ids:0
 #: help:hr.schedule.request,message_ids:0
 msgid "Messages and communication history"
-msgstr ""
+msgstr "Mesaj ve iletişim geçmişi"
 
 #. module: hr_schedule
 #: code:addons/hr_schedule/hr_schedule.py:1762
@@ -876,7 +876,7 @@ msgstr ""
 #. module: hr_schedule
 #: view:hr.schedule:0
 msgid "Duration"
-msgstr ""
+msgstr "Süre"
 
 #. module: hr_schedule
 #: selection:hr.restday.wizard,dayofweek:0

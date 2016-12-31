@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-12 23:34+0000\n"
+"POT-Creation-Date: 2016-12-24 01:32+0000\n"
 "PO-Revision-Date: 2015-07-27 23:40+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Turkish (http://www.transifex.com/oca/OCA-hr-7-0/language/tr/)\n"
@@ -162,14 +162,14 @@ msgstr ""
 #: code:addons/hr_period/models/hr_period.py:101
 #, python-format
 msgid "Warning"
-msgstr ""
+msgstr "Uyarı"
 
 #. module: hr_period
 #: field:hr.fiscalyear,company_id:0 field:hr.payslip.employees,company_id:0
 #: view:hr.payslip.run:0 field:hr.payslip.run,company_id:0
 #: field:hr.period,company_id:0
 msgid "Company"
-msgstr ""
+msgstr "Şirket"
 
 #. module: hr_period
 #: selection:hr.fiscalyear,payment_weekday:0
@@ -449,7 +449,7 @@ msgstr ""
 #. module: hr_period
 #: view:hr.period:0
 msgid "Duration"
-msgstr ""
+msgstr "Süre"
 
 #. module: hr_period
 #: field:hr.period,name:0

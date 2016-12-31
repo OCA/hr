@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-12 23:34+0000\n"
+"POT-Creation-Date: 2016-12-24 01:32+0000\n"
 "PO-Revision-Date: 2015-07-27 23:38+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Turkish (http://www.transifex.com/oca/OCA-hr-7-0/language/tr/)\n"
@@ -20,7 +20,7 @@ msgstr ""
 #. module: hr_infraction
 #: field:hr.infraction,category_id:0
 msgid "Category"
-msgstr ""
+msgstr "Kategori"
 
 #. module: hr_infraction
 #: selection:hr.infraction,state:0
@@ -87,7 +87,7 @@ msgstr ""
 #. module: hr_infraction
 #: field:hr.infraction.action,type:0 field:hr.infraction.warning,type:0
 msgid "Type"
-msgstr ""
+msgstr "Tipi"
 
 #. module: hr_infraction
 #: view:hr.infraction:0 view:hr.infraction.action.wizard:0
@@ -182,7 +182,7 @@ msgstr ""
 #. module: hr_infraction
 #: help:hr.infraction,message_ids:0
 msgid "Messages and communication history"
-msgstr ""
+msgstr "Mesaj ve iletişim geçmişi"
 
 #. module: hr_infraction
 #: field:hr.infraction,message_ids:0
@@ -262,7 +262,7 @@ msgstr ""
 #. module: hr_infraction
 #: field:hr.infraction.category,code:0
 msgid "Code"
-msgstr ""
+msgstr "Kod"
 
 #. module: hr_infraction
 #: selection:hr.infraction.warning,type:0
@@ -341,12 +341,12 @@ msgstr ""
 msgid ""
 "Holds the Chatter summary (number of messages, ...). This summary is "
 "directly in html format in order to be inserted in kanban views."
-msgstr ""
+msgstr "Sohbet özetini tutar (kaç mesa vs) Bu özet kanban görünümleri gibi yerlerde kullanılmak için doğrudan HTML formatındadır. "
 
 #. module: hr_infraction
 #: field:hr.infraction.action,warning_id:0 view:hr.infraction.warning:0
 msgid "Warning"
-msgstr ""
+msgstr "Uyarı"
 
 #. module: hr_infraction
 #: view:hr.infraction.category:0

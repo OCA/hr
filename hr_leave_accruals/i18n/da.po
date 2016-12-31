@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-12 23:34+0000\n"
+"POT-Creation-Date: 2016-12-24 01:32+0000\n"
 "PO-Revision-Date: 2015-07-27 23:39+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Danish (http://www.transifex.com/oca/OCA-hr-7-0/language/da/)\n"
@@ -127,7 +127,7 @@ msgstr ""
 #. module: hr_leave_accruals
 #: model:ir.model,name:hr_leave_accruals.model_res_company
 msgid "Companies"
-msgstr ""
+msgstr "Virksomheder"
 
 #. module: hr_leave_accruals
 #: code:addons/hr_leave_accruals/hr_holidays_status_accrual_line.py:28

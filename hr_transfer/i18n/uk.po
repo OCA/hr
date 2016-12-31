@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-12 23:35+0000\n"
+"POT-Creation-Date: 2016-12-17 01:54+0000\n"
 "PO-Revision-Date: 2015-07-27 23:41+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/oca/OCA-hr-7-0/language/uk/)\n"
@@ -209,7 +209,7 @@ msgstr ""
 #. module: hr_transfer
 #: view:hr.department.transfer:0
 msgid "Cancel"
-msgstr ""
+msgstr "Скасувати"
 
 #. module: hr_transfer
 #: selection:hr.department.transfer,state:0

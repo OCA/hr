@@ -20,7 +20,7 @@ msgstr ""
 #. module: hr_transfer
 #: selection:hr.department.transfer,state:0
 msgid "Confirmed"
-msgstr ""
+msgstr "Confirmado"
 
 #. module: hr_transfer
 #: field:hr.department.transfer,src_contract_id:0

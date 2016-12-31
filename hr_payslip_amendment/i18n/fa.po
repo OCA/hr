@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-12 23:34+0000\n"
+"POT-Creation-Date: 2016-12-24 01:32+0000\n"
 "PO-Revision-Date: 2015-07-27 23:39+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Persian (http://www.transifex.com/oca/OCA-hr-7-0/language/fa/)\n"
@@ -164,7 +164,7 @@ msgstr ""
 #. module: hr_payslip_amendment
 #: view:hr.payslip.amendment:0
 msgid "Cancel"
-msgstr ""
+msgstr "لغو"
 
 #. module: hr_payslip_amendment
 #: selection:hr.payslip.amendment,state:0

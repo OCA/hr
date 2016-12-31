@@ -253,7 +253,7 @@ msgstr ""
 #. module: hr_schedule
 #: selection:hr.schedule,state:0 selection:hr.schedule.detail,state:0
 msgid "Confirmed"
-msgstr ""
+msgstr "Confirmado"
 
 #. module: hr_schedule
 #: model:ir.model,name:hr_schedule.model_hr_attendance
