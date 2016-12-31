@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-09 02:43+0000\n"
-"PO-Revision-Date: 2016-09-09 11:32+0000\n"
+"POT-Creation-Date: 2016-12-24 02:15+0000\n"
+"PO-Revision-Date: 2016-12-30 18:44+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Turkish (http://www.transifex.com/oca/OCA-hr-8-0/language/tr/)\n"
 "MIME-Version: 1.0\n"
@@ -30,7 +30,7 @@ msgstr ""
 #. module: hr_contract_hourly_rate
 #: view:hr.hourly.rate.class:hr_contract_hourly_rate.view_hr_hourly_rate_class_tree
 msgid "Companies"
-msgstr ""
+msgstr "Şirketler"
 
 #. module: hr_contract_hourly_rate
 #: model:ir.model,name:hr_contract_hourly_rate.model_hr_contract
@@ -56,7 +56,7 @@ msgstr "Oluşturuldu"
 #: field:hr.hourly.rate,display_name:0
 #: field:hr.hourly.rate.class,display_name:0
 msgid "Display Name"
-msgstr ""
+msgstr "Görünen İsim"
 
 #. module: hr_contract_hourly_rate
 #: field:hr.hourly.rate,date_end:0
@@ -125,7 +125,7 @@ msgstr "ID"
 #: field:hr.hourly.rate,__last_update:0
 #: field:hr.hourly.rate.class,__last_update:0
 msgid "Last Modified on"
-msgstr ""
+msgstr "Son değişiklik"
 
 #. module: hr_contract_hourly_rate
 #: field:hr.hourly.rate,write_uid:0 field:hr.hourly.rate.class,write_uid:0

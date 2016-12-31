@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-17 20:43+0000\n"
-"PO-Revision-Date: 2016-10-11 09:49+0000\n"
+"POT-Creation-Date: 2016-12-24 02:15+0000\n"
+"PO-Revision-Date: 2016-12-27 08:24+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Spanish (Costa Rica) (http://www.transifex.com/oca/OCA-hr-8-0/language/es_CR/)\n"
 "MIME-Version: 1.0\n"
@@ -113,7 +113,7 @@ msgstr ""
 #: field:hr.academic,create_uid:0 field:hr.certification,create_uid:0
 #: field:hr.curriculum,create_uid:0 field:hr.experience,create_uid:0
 msgid "Created by"
-msgstr ""
+msgstr "Creado por"
 
 #. module: hr_experience
 #: field:hr.academic,create_date:0 field:hr.certification,create_date:0
@@ -236,13 +236,13 @@ msgstr ""
 #: field:hr.academic,write_uid:0 field:hr.certification,write_uid:0
 #: field:hr.curriculum,write_uid:0 field:hr.experience,write_uid:0
 msgid "Last Updated by"
-msgstr ""
+msgstr "Ultima actualización por"
 
 #. module: hr_experience
 #: field:hr.academic,write_date:0 field:hr.certification,write_date:0
 #: field:hr.curriculum,write_date:0 field:hr.experience,write_date:0
 msgid "Last Updated on"
-msgstr ""
+msgstr "Ultima actualización en"
 
 #. module: hr_experience
 #: field:hr.academic,location:0 help:hr.academic,location:0
@@ -265,7 +265,7 @@ msgstr "Nombre"
 #: view:hr.employee:hr_experience.view_employee_form_inherit
 #: field:hr.experience,partner_id:0
 msgid "Partner"
-msgstr ""
+msgstr "Empresa"
 
 #. module: hr_experience
 #: view:hr.certification:hr_experience.view_certification_form

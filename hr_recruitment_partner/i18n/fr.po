@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-17 02:01+0000\n"
+"POT-Creation-Date: 2016-12-24 02:15+0000\n"
 "PO-Revision-Date: 2015-11-18 14:58+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: French (http://www.transifex.com/oca/OCA-hr-8-0/language/fr/)\n"
@@ -181,7 +181,7 @@ msgstr ""
 #. module: hr_recruitment_partner
 #: field:hr.applicant,property_account_position:0
 msgid "Fiscal Position"
-msgstr ""
+msgstr "Position fiscale"
 
 #. module: hr_recruitment_partner
 #: help:hr.applicant,opt_out:0
@@ -206,7 +206,7 @@ msgstr ""
 #. module: hr_recruitment_partner
 #: field:hr.applicant,invoice_ids:0
 msgid "Invoices"
-msgstr ""
+msgstr "Factures"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,is_company:0
@@ -221,7 +221,7 @@ msgstr "Poste"
 #. module: hr_recruitment_partner
 #: field:hr.applicant,journal_item_count:0
 msgid "Journal Items"
-msgstr ""
+msgstr "Écritures du journal"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,lang:0

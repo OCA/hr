@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-17 20:43+0000\n"
-"PO-Revision-Date: 2016-11-22 12:24+0000\n"
+"POT-Creation-Date: 2016-12-24 02:15+0000\n"
+"PO-Revision-Date: 2016-12-27 08:25+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: French (Canada) (http://www.transifex.com/oca/OCA-hr-8-0/language/fr_CA/)\n"
 "MIME-Version: 1.0\n"
@@ -113,13 +113,13 @@ msgstr ""
 #: field:hr.academic,create_uid:0 field:hr.certification,create_uid:0
 #: field:hr.curriculum,create_uid:0 field:hr.experience,create_uid:0
 msgid "Created by"
-msgstr ""
+msgstr "Créé par"
 
 #. module: hr_experience
 #: field:hr.academic,create_date:0 field:hr.certification,create_date:0
 #: field:hr.curriculum,create_date:0 field:hr.experience,create_date:0
 msgid "Created on"
-msgstr ""
+msgstr "Créé le"
 
 #. module: hr_experience
 #: view:hr.academic:hr_experience.view_academic_form
@@ -148,7 +148,7 @@ msgstr ""
 #: field:hr.academic,display_name:0 field:hr.certification,display_name:0
 #: field:hr.curriculum,display_name:0 field:hr.experience,display_name:0
 msgid "Display Name"
-msgstr ""
+msgstr "Afficher le nom"
 
 #. module: hr_experience
 #: view:hr.academic:hr_experience.view_academic_tree
@@ -211,7 +211,7 @@ msgstr ""
 #: field:hr.academic,id:0 field:hr.certification,id:0 field:hr.curriculum,id:0
 #: field:hr.experience,id:0
 msgid "ID"
-msgstr ""
+msgstr "Identifiant"
 
 #. module: hr_experience
 #: view:hr.academic:hr_experience.view_academic_tree
@@ -236,13 +236,13 @@ msgstr ""
 #: field:hr.academic,write_uid:0 field:hr.certification,write_uid:0
 #: field:hr.curriculum,write_uid:0 field:hr.experience,write_uid:0
 msgid "Last Updated by"
-msgstr ""
+msgstr "Dernière mise à jour par"
 
 #. module: hr_experience
 #: field:hr.academic,write_date:0 field:hr.certification,write_date:0
 #: field:hr.curriculum,write_date:0 field:hr.experience,write_date:0
 msgid "Last Updated on"
-msgstr ""
+msgstr "Dernière mise à jour le"
 
 #. module: hr_experience
 #: field:hr.academic,location:0 help:hr.academic,location:0
@@ -265,7 +265,7 @@ msgstr "Nom"
 #: view:hr.employee:hr_experience.view_employee_form_inherit
 #: field:hr.experience,partner_id:0
 msgid "Partner"
-msgstr ""
+msgstr "Partenaire"
 
 #. module: hr_experience
 #: view:hr.certification:hr_experience.view_certification_form

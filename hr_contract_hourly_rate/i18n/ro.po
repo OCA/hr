@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-15 07:15+0000\n"
-"PO-Revision-Date: 2015-10-15 07:16+0000\n"
+"POT-Creation-Date: 2016-12-24 02:15+0000\n"
+"PO-Revision-Date: 2016-12-27 08:24+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Romanian (http://www.transifex.com/oca/OCA-hr-8-0/language/ro/)\n"
 "MIME-Version: 1.0\n"
@@ -53,6 +53,12 @@ msgid "Created on"
 msgstr "Creeat în"
 
 #. module: hr_contract_hourly_rate
+#: field:hr.hourly.rate,display_name:0
+#: field:hr.hourly.rate.class,display_name:0
+msgid "Display Name"
+msgstr "Nume Afişat"
+
+#. module: hr_contract_hourly_rate
 #: field:hr.hourly.rate,date_end:0
 msgid "End Date"
 msgstr "Dată Sfârșit"
@@ -69,6 +75,11 @@ msgstr "Eroare! Cel puțin o funcție asociată contractului nu are specificat u
 #, python-format
 msgid "Error! You cannot have overlapping rates"
 msgstr "Eroare! Nu puteți avea tarife salariale suprapuse"
+
+#. module: hr_contract_hourly_rate
+#: field:hr.contract.job,hourly_rate:0
+msgid "Hourly Rate"
+msgstr ""
 
 #. module: hr_contract_hourly_rate
 #: field:hr.contract.job,hourly_rate_class_id:0
@@ -109,6 +120,12 @@ msgstr "Salariu Orar"
 #: field:hr.hourly.rate,id:0 field:hr.hourly.rate.class,id:0
 msgid "ID"
 msgstr "ID"
+
+#. module: hr_contract_hourly_rate
+#: field:hr.hourly.rate,__last_update:0
+#: field:hr.hourly.rate.class,__last_update:0
+msgid "Last Modified on"
+msgstr "Ultima actualizare în"
 
 #. module: hr_contract_hourly_rate
 #: field:hr.hourly.rate,write_uid:0 field:hr.hourly.rate.class,write_uid:0

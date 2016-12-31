@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-17 20:43+0000\n"
-"PO-Revision-Date: 2016-10-11 09:48+0000\n"
+"POT-Creation-Date: 2016-12-24 02:15+0000\n"
+"PO-Revision-Date: 2016-12-27 08:23+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Latvian (http://www.transifex.com/oca/OCA-hr-8-0/language/lv/)\n"
 "MIME-Version: 1.0\n"
@@ -265,7 +265,7 @@ msgstr "Nosaukums"
 #: view:hr.employee:hr_experience.view_employee_form_inherit
 #: field:hr.experience,partner_id:0
 msgid "Partner"
-msgstr ""
+msgstr "Partneris"
 
 #. module: hr_experience
 #: view:hr.certification:hr_experience.view_certification_form

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-17 20:43+0000\n"
-"PO-Revision-Date: 2016-11-25 14:57+0000\n"
+"POT-Creation-Date: 2016-12-24 02:15+0000\n"
+"PO-Revision-Date: 2016-12-30 21:31+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Turkish (http://www.transifex.com/oca/OCA-hr-8-0/language/tr/)\n"
 "MIME-Version: 1.0\n"
@@ -43,7 +43,7 @@ msgstr ""
 #. module: hr_family
 #: field:hr.employee.children,display_name:0
 msgid "Display Name"
-msgstr ""
+msgstr "Görünen İsim"
 
 #. module: hr_family
 #: field:hr.employee.children,employee_id:0
@@ -74,12 +74,12 @@ msgstr ""
 #. module: hr_family
 #: selection:hr.employee.children,gender:0
 msgid "Female"
-msgstr ""
+msgstr "Kadın"
 
 #. module: hr_family
 #: field:hr.employee.children,gender:0
 msgid "Gender"
-msgstr ""
+msgstr "Cinsiyet"
 
 #. module: hr_family
 #: model:ir.model,name:hr_family.model_hr_employee_children
@@ -94,7 +94,7 @@ msgstr "ID"
 #. module: hr_family
 #: field:hr.employee.children,__last_update:0
 msgid "Last Modified on"
-msgstr ""
+msgstr "Son değişiklik"
 
 #. module: hr_family
 #: field:hr.employee.children,write_uid:0
@@ -109,7 +109,7 @@ msgstr "Son güncelleme"
 #. module: hr_family
 #: selection:hr.employee.children,gender:0
 msgid "Male"
-msgstr ""
+msgstr "Erkek"
 
 #. module: hr_family
 #: field:hr.employee,fam_mother:0

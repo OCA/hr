@@ -1,0 +1,46 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * hr_expense_invoice
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: hr (8.0)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-12-24 02:15+0000\n"
+"PO-Revision-Date: 2015-07-27 23:44+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: Dutch (Belgium) (http://www.transifex.com/oca/OCA-hr-8-0/language/nl_BE/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: nl_BE\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: hr_expense_invoice
+#: code:addons/hr_expense_invoice/models/hr_expense_expense.py:52
+#, python-format
+msgid ""
+"Cannot reconcile supplier invoice payable with generated line. Please check "
+"amounts and see if the invoice is already added or paid. Invoice: %s"
+msgstr ""
+
+#. module: hr_expense_invoice
+#: model:ir.model,name:hr_expense_invoice.model_hr_expense_expense
+msgid "Expense"
+msgstr ""
+
+#. module: hr_expense_invoice
+#: model:ir.model,name:hr_expense_invoice.model_hr_expense_line
+msgid "Expense Line"
+msgstr ""
+
+#. module: hr_expense_invoice
+#: field:hr.expense.line,invoice:0
+msgid "Invoice"
+msgstr "Factuur"
+
+#. module: hr_expense_invoice
+#: view:hr.expense.expense:hr_expense_invoice.view_expenses_form_invoice
+msgid "{'readonly': [('invoice', '!=', False)]}"
+msgstr ""

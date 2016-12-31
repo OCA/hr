@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-17 20:43+0000\n"
-"PO-Revision-Date: 2016-11-22 12:26+0000\n"
+"POT-Creation-Date: 2016-12-24 02:15+0000\n"
+"PO-Revision-Date: 2016-12-30 21:48+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Turkish (http://www.transifex.com/oca/OCA-hr-8-0/language/tr/)\n"
 "MIME-Version: 1.0\n"
@@ -45,7 +45,7 @@ msgstr ""
 #. module: hr_recruitment_partner
 #: field:hr.applicant,birthdate:0
 msgid "Birthdate"
-msgstr ""
+msgstr "Doğum Günü"
 
 #. module: hr_recruitment_partner
 #: help:hr.applicant,is_company:0
@@ -104,7 +104,7 @@ msgstr ""
 #. module: hr_recruitment_partner
 #: field:hr.applicant,child_ids:0
 msgid "Contacts"
-msgstr ""
+msgstr "Kişiler"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,contract_ids:0 field:hr.applicant,contracts_count:0
@@ -114,7 +114,7 @@ msgstr ""
 #. module: hr_recruitment_partner
 #: field:hr.applicant,country_id:0
 msgid "Country"
-msgstr ""
+msgstr "Ülke"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,credit_limit:0
@@ -124,7 +124,7 @@ msgstr ""
 #. module: hr_recruitment_partner
 #: field:hr.applicant,customer:0
 msgid "Customer"
-msgstr ""
+msgstr "Müşteri"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,property_stock_customer:0
@@ -161,7 +161,7 @@ msgstr ""
 #. module: hr_recruitment_partner
 #: field:hr.applicant,email:0
 msgid "Email"
-msgstr ""
+msgstr "Eposta"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,employee:0
@@ -176,7 +176,7 @@ msgstr ""
 #. module: hr_recruitment_partner
 #: field:hr.applicant,firstname:0
 msgid "First name"
-msgstr ""
+msgstr "Adı"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,property_account_position:0
@@ -201,7 +201,7 @@ msgstr ""
 #. module: hr_recruitment_partner
 #: field:hr.applicant,image:0
 msgid "Image"
-msgstr ""
+msgstr "Resim"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,invoice_ids:0
@@ -231,7 +231,7 @@ msgstr ""
 #. module: hr_recruitment_partner
 #: field:hr.applicant,lastname:0
 msgid "Last name"
-msgstr ""
+msgstr "Soyadı"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,calendar_last_notif_ack:0
@@ -246,7 +246,7 @@ msgstr ""
 #. module: hr_recruitment_partner
 #: field:hr.applicant,image_medium:0
 msgid "Medium-sized image"
-msgstr ""
+msgstr "Orta boylu resim"
 
 #. module: hr_recruitment_partner
 #: help:hr.applicant,image_medium:0
@@ -349,7 +349,7 @@ msgstr ""
 #. module: hr_recruitment_partner
 #: field:hr.applicant,image_small:0
 msgid "Small-sized image"
-msgstr ""
+msgstr "Küçük-boylu resim"
 
 #. module: hr_recruitment_partner
 #: help:hr.applicant,image_small:0
