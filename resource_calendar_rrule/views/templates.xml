@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <template id="assets_backend" name="resource_calendar_rrule assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <script type="text/javascript" src="/resource_calendar_rrule/static/src/js/resource_calendar_rrule.js"></script>
+                <link rel="stylesheet" href="/resource_calendar_rrule/static/src/css/resource_calendar_rrule.css"/>
+            </xpath>
+        </template>
+    </data>
+</openerp>

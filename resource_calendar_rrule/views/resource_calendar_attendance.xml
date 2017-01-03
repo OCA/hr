@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="view_resource_calendar_attendance_tree" model="ir.ui.view">
+            <field name="model">resource.calendar.attendance</field>
+            <field name="inherit_id" ref="resource.view_resource_calendar_attendance_tree" />
+            <field name="arch" type="xml">
+                <tree position="attributes">
+                    <attribute name="editable" />
+                </tree>
+                <field name="dayofweek" position="replace" />
+                <field name="date_from" position="replace">
+                    <field name="rrule_preview" />
+                </field>
+            </field>
+        </record>
+        <record id="view_resource_calendar_attendance_form" model="ir.ui.view">
+            <field name="model">resource.calendar.attendance</field>
+            <field name="inherit_id" ref="resource.view_resource_calendar_attendance_form" />
+            <field name="arch" type="xml">
+                <field name="date_from" position="replace">
+                    <field name="rrule" widget="rrule" />
+                    <field name="rrule_preview" class="oe_edit_only" />
+                </field>
+            </field>
+        </record>
+    </data>
+</openerp>
