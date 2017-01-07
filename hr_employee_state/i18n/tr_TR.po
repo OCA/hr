@@ -10,12 +10,12 @@ msgstr ""
 "POT-Creation-Date: 2016-12-31 03:22+0000\n"
 "PO-Revision-Date: 2015-07-27 23:38+0000\n"
 "Last-Translator: <>\n"
-"Language-Team: Turkish (http://www.transifex.com/oca/OCA-hr-7-0/language/tr/)\n"
+"Language-Team: Turkish (Turkey) (http://www.transifex.com/oca/OCA-hr-7-0/language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: tr\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Language: tr_TR\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #. module: hr_employee_state
 #: selection:hr.employee.termination,state:0
@@ -41,7 +41,7 @@ msgstr ""
 #. module: hr_employee_state
 #: view:hr.employee:0 view:hr.employee.termination:0
 msgid "Confirm"
-msgstr ""
+msgstr "Onayla"
 
 #. module: hr_employee_state
 #: view:hr.employee.termination:0
@@ -63,12 +63,12 @@ msgstr ""
 #: field:hr.employee.termination,department_id:0
 #: field:hr.employee.termination,saved_department_id:0
 msgid "Department"
-msgstr "Departmanlar"
+msgstr ""
 
 #. module: hr_employee_state
 #: field:hr.employee.termination,state:0
 msgid "State"
-msgstr "Durum"
+msgstr "Hal"
 
 #. module: hr_employee_state
 #: selection:hr.employee.termination,state:0
@@ -100,7 +100,7 @@ msgstr ""
 #. module: hr_employee_state
 #: field:hr.employee,status:0
 msgid "Status"
-msgstr ""
+msgstr "Durum"
 
 #. module: hr_employee_state
 #: model:mail.message.subtype,name:hr_employee_state.mt_alert_state_done
@@ -110,7 +110,7 @@ msgstr ""
 #. module: hr_employee_state
 #: help:hr.employee.termination,message_ids:0
 msgid "Messages and communication history"
-msgstr "Mesaj ve iletişim geçmişi"
+msgstr ""
 
 #. module: hr_employee_state
 #: selection:hr.employee,status:0
@@ -127,7 +127,7 @@ msgstr ""
 #. module: hr_employee_state
 #: field:hr.employee.termination,message_unread:0
 msgid "Unread Messages"
-msgstr "Okunmamış mesajlar"
+msgstr ""
 
 #. module: hr_employee_state
 #: view:hr.employee.termination:0
@@ -160,7 +160,7 @@ msgstr ""
 #. module: hr_employee_state
 #: field:hr.contract.end,reason_id:0 field:hr.employee.termination,reason_id:0
 msgid "Reason"
-msgstr ""
+msgstr "Neden"
 
 #. module: hr_employee_state
 #: field:hr.employee.termination,message_is_follower:0
@@ -183,7 +183,7 @@ msgstr ""
 #. module: hr_employee_state
 #: field:hr.contract.end,date:0
 msgid "Date"
-msgstr "Tarih"
+msgstr ""
 
 #. module: hr_employee_state
 #: view:hr.employee:0
@@ -204,7 +204,7 @@ msgstr ""
 #. module: hr_employee_state
 #: field:hr.employee.termination.reason,name:0
 msgid "Name"
-msgstr "Adı"
+msgstr "Ad"
 
 #. module: hr_employee_state
 #: view:hr.employee.termination:0
@@ -214,7 +214,7 @@ msgstr ""
 #. module: hr_employee_state
 #: field:hr.employee.termination,message_ids:0
 msgid "Messages"
-msgstr "Mesajlar"
+msgstr ""
 
 #. module: hr_employee_state
 #: field:hr.contract.end,contract_id:0
@@ -230,7 +230,7 @@ msgstr ""
 #. module: hr_employee_state
 #: selection:hr.employee,status:0
 msgid "Active"
-msgstr "Aktif"
+msgstr "Etkin"
 
 #. module: hr_employee_state
 #: code:addons/hr_employee_state/hr.py:308
@@ -259,7 +259,7 @@ msgstr ""
 #. module: hr_employee_state
 #: help:hr.employee.termination,message_unread:0
 msgid "If checked new messages require your attention."
-msgstr "Eğer işaretlenirse yeni mesajlar dikkatinizi ister."
+msgstr ""
 
 #. module: hr_employee_state
 #: view:hr.employee:0 field:hr.employee,inactive_ids:0
@@ -269,7 +269,7 @@ msgstr ""
 #. module: hr_employee_state
 #: view:hr.employee.termination:0
 msgid "Group By..."
-msgstr "Grupla..."
+msgstr ""
 
 #. module: hr_employee_state
 #: view:hr.employee.termination:0
@@ -311,7 +311,7 @@ msgstr ""
 msgid ""
 "Holds the Chatter summary (number of messages, ...). This summary is "
 "directly in html format in order to be inserted in kanban views."
-msgstr "Sohbet özetini tutar (kaç mesa vs) Bu özet kanban görünümleri gibi yerlerde kullanılmak için doğrudan HTML formatındadır. "
+msgstr ""
 
 #. module: hr_employee_state
 #: selection:hr.employee,status:0
@@ -336,12 +336,12 @@ msgstr ""
 #. module: hr_employee_state
 #: view:hr.employee.termination:0
 msgid "Cancel"
-msgstr "Vazgeç"
+msgstr "İptal et"
 
 #. module: hr_employee_state
 #: field:hr.employee.termination,message_follower_ids:0
 msgid "Followers"
-msgstr "Takipçiler"
+msgstr ""
 
 #. module: hr_employee_state
 #: code:addons/hr_employee_state/hr.py:253

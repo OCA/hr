@@ -10,12 +10,12 @@ msgstr ""
 "POT-Creation-Date: 2016-12-17 01:54+0000\n"
 "PO-Revision-Date: 2015-07-27 23:40+0000\n"
 "Last-Translator: <>\n"
-"Language-Team: French (http://www.transifex.com/oca/OCA-hr-7-0/language/fr/)\n"
+"Language-Team: Turkish (Turkey) (http://www.transifex.com/oca/OCA-hr-7-0/language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: fr\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Language: tr_TR\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #. module: hr_schedule
 #: field:hr.schedule.alert,severity:0 field:hr.schedule.alert.rule,severity:0
@@ -57,14 +57,14 @@ msgstr ""
 #. module: hr_schedule
 #: view:hr.schedule:0 view:hr.schedule.alert:0 view:hr.schedule.detail:0
 msgid "Group By..."
-msgstr "Gouper par.."
+msgstr ""
 
 #. module: hr_schedule
 #: selection:hr.restday.wizard,dayofweek:0
 #: selection:hr.schedule.detail,dayofweek:0
 #: selection:hr.schedule.template.worktime,dayofweek:0
 msgid "Sunday"
-msgstr "Dimanche"
+msgstr ""
 
 #. module: hr_schedule
 #: code:addons/hr_schedule/hr_schedule.py:246
@@ -77,7 +77,7 @@ msgstr ""
 #: view:hr.schedule.alert:0 field:hr.schedule.alert,department_id:0
 #: view:hr.schedule.detail:0 field:hr.schedule.detail,department_id:0
 msgid "Department"
-msgstr "Département"
+msgstr ""
 
 #. module: hr_schedule
 #: code:addons/hr_schedule/hr_schedule.py:451
@@ -108,20 +108,20 @@ msgstr ""
 #: field:hr.schedule,message_unread:0 field:hr.schedule.alert,message_unread:0
 #: field:hr.schedule.request,message_unread:0
 msgid "Unread Messages"
-msgstr "Messages non-lus"
+msgstr ""
 
 #. module: hr_schedule
 #: field:hr.schedule,company_id:0 field:hr.schedule.alert,company_id:0
 #: field:hr.schedule.template,company_id:0
 msgid "Company"
-msgstr "Société"
+msgstr "Firma"
 
 #. module: hr_schedule
 #: selection:hr.restday.wizard,dayofweek:0
 #: selection:hr.schedule.detail,dayofweek:0
 #: selection:hr.schedule.template.worktime,dayofweek:0
 msgid "Friday"
-msgstr "Vendredi"
+msgstr ""
 
 #. module: hr_schedule
 #: model:ir.model,name:hr_schedule.model_hr_restday_wizard
@@ -157,7 +157,7 @@ msgstr ""
 #. module: hr_schedule
 #: view:hr.schedule:0 view:hr.schedule.detail:0
 msgid "Validate"
-msgstr "Valider"
+msgstr ""
 
 #. module: hr_schedule
 #: selection:hr.schedule.request,type:0
@@ -172,7 +172,7 @@ msgstr ""
 #. module: hr_schedule
 #: view:hr.schedule:0 view:hr.schedule.detail:0 field:hr.schedule.detail,day:0
 msgid "Day"
-msgstr "Jour"
+msgstr ""
 
 #. module: hr_schedule
 #: view:hr.restday.wizard:0
@@ -199,17 +199,17 @@ msgstr ""
 #: field:hr.schedule,message_ids:0 field:hr.schedule.alert,message_ids:0
 #: field:hr.schedule.request,message_ids:0
 msgid "Messages"
-msgstr "Messages"
+msgstr ""
 
 #. module: hr_schedule
 #: model:ir.model,name:hr_schedule.model_hr_holidays
 msgid "Leave"
-msgstr "Congé"
+msgstr ""
 
 #. module: hr_schedule
 #: selection:hr.schedule.request,state:0
 msgid "Cancelled"
-msgstr "Annulé"
+msgstr ""
 
 #. module: hr_schedule
 #: model:mail.message.subtype,description:hr_schedule.mt_alert_unresolved
@@ -220,7 +220,7 @@ msgstr ""
 #: help:hr.schedule,message_unread:0 help:hr.schedule.alert,message_unread:0
 #: help:hr.schedule.request,message_unread:0
 msgid "If checked new messages require your attention."
-msgstr "Si coché, les nouveaux messages seront portés à votre attention."
+msgstr ""
 
 #. module: hr_schedule
 #: view:hr.schedule.request:0
@@ -253,7 +253,7 @@ msgstr ""
 #. module: hr_schedule
 #: selection:hr.schedule,state:0 selection:hr.schedule.detail,state:0
 msgid "Confirmed"
-msgstr "Confirmé"
+msgstr ""
 
 #. module: hr_schedule
 #: model:ir.model,name:hr_schedule.model_hr_attendance
@@ -275,14 +275,14 @@ msgstr ""
 #: field:hr.schedule,state:0 field:hr.schedule.alert,state:0
 #: field:hr.schedule.detail,state:0 field:hr.schedule.request,state:0
 msgid "State"
-msgstr "État"
+msgstr "Hal"
 
 #. module: hr_schedule
 #: field:hr.schedule,message_follower_ids:0
 #: field:hr.schedule.alert,message_follower_ids:0
 #: field:hr.schedule.request,message_follower_ids:0
 msgid "Followers"
-msgstr "Abonnés"
+msgstr ""
 
 #. module: hr_schedule
 #: selection:hr.schedule.request,state:0
@@ -296,12 +296,12 @@ msgstr ""
 #: field:hr.schedule.detail,employee_id:0
 #: field:hr.schedule.request,employee_id:0
 msgid "Employee"
-msgstr "Employé"
+msgstr ""
 
 #. module: hr_schedule
 #: field:hr.schedule.request,type:0
 msgid "Type"
-msgstr "Type"
+msgstr "Tip"
 
 #. module: hr_schedule
 #: help:hr.restday.wizard,temp_restday:0
@@ -331,7 +331,7 @@ msgstr ""
 msgid ""
 "Holds the Chatter summary (number of messages, ...). This summary is "
 "directly in html format in order to be inserted in kanban views."
-msgstr "Contient le résumé de la discussion (nombre de messages, ...). Ce résumé est au format HTML pour permettre son utilisation dans la vue kanban."
+msgstr ""
 
 #. module: hr_schedule
 #: field:hr.schedule.alert,rule_id:0
@@ -346,7 +346,7 @@ msgstr ""
 #. module: hr_schedule
 #: view:hr.schedule.template.worktime:0
 msgid "Hours"
-msgstr "Heures"
+msgstr ""
 
 #. module: hr_schedule
 #: code:addons/hr_schedule/hr_schedule.py:221
@@ -390,7 +390,7 @@ msgstr ""
 #: model:ir.actions.act_window,name:hr_schedule.open_hr_schedule_alert_view
 #: model:ir.ui.menu,name:hr_schedule.menu_schedule_alert_view
 msgid "Exceptions"
-msgstr ""
+msgstr "İstisnalar"
 
 #. module: hr_schedule
 #: model:ir.actions.act_window,name:hr_schedule.open_schedule_detail_view
@@ -413,7 +413,7 @@ msgstr ""
 #: model:ir.actions.act_window,name:hr_schedule.open_hr_schedule_alert_rule_view
 #: model:ir.ui.menu,name:hr_schedule.menu_schedule_alert_rule_view
 msgid "Exception Rules"
-msgstr ""
+msgstr "İstisna kuralları"
 
 #. module: hr_schedule
 #: view:hr.schedule:0 field:hr.schedule.template,restday_ids:0
@@ -430,7 +430,7 @@ msgstr ""
 #: selection:hr.schedule.detail,dayofweek:0
 #: selection:hr.schedule.template.worktime,dayofweek:0
 msgid "Tuesday"
-msgstr "Mardi"
+msgstr ""
 
 #. module: hr_schedule
 #: field:hr.schedule.template.worktime,hour_from:0
@@ -445,7 +445,7 @@ msgstr ""
 #. module: hr_schedule
 #: field:hr.schedule.request,message:0
 msgid "Message"
-msgstr "Message"
+msgstr ""
 
 #. module: hr_schedule
 #: field:hr.schedule.alert.rule,grace_period:0
@@ -482,7 +482,7 @@ msgstr ""
 #: field:hr.schedule.alert.compute,date_start:0
 #: field:hr.schedule.generate,date_start:0
 msgid "Start"
-msgstr "Démarrage"
+msgstr ""
 
 #. module: hr_schedule
 #: selection:hr.schedule.request,type:0
@@ -497,7 +497,7 @@ msgstr ""
 #. module: hr_schedule
 #: selection:hr.schedule,state:0 selection:hr.schedule.detail,state:0
 msgid "Draft"
-msgstr "Brouillon"
+msgstr "Taslak"
 
 #. module: hr_schedule
 #: selection:hr.schedule.alert.rule,severity:0
@@ -517,7 +517,7 @@ msgstr ""
 #. module: hr_schedule
 #: selection:hr.schedule.request,state:0
 msgid "Pending"
-msgstr "En attente"
+msgstr ""
 
 #. module: hr_schedule
 #: field:hr.schedule.alert,name:0
@@ -547,7 +547,7 @@ msgstr ""
 #: selection:hr.schedule.detail,dayofweek:0
 #: selection:hr.schedule.template.worktime,dayofweek:0
 msgid "Monday"
-msgstr "Lundi"
+msgstr ""
 
 #. module: hr_schedule
 #: model:ir.model,name:hr_schedule.model_hr_schedule_weekday
@@ -574,7 +574,7 @@ msgstr ""
 #: field:hr.schedule.alert,message_is_follower:0
 #: field:hr.schedule.request,message_is_follower:0
 msgid "Is a Follower"
-msgstr "Est un abonné"
+msgstr ""
 
 #. module: hr_schedule
 #: view:hr.schedule.alert:0
@@ -589,17 +589,17 @@ msgstr ""
 #. module: hr_schedule
 #: field:hr.schedule.alert.rule,active:0
 msgid "Active"
-msgstr "Actif"
+msgstr "Etkin"
 
 #. module: hr_schedule
 #: field:hr.schedule,date_start:0
 msgid "Start Date"
-msgstr "Date de début"
+msgstr ""
 
 #. module: hr_schedule
 #: view:hr.schedule.alert:0
 msgid "Exception"
-msgstr ""
+msgstr "İstisna"
 
 #. module: hr_schedule
 #: view:hr.schedule.alert.compute:0
@@ -611,32 +611,32 @@ msgstr ""
 #: selection:hr.schedule.detail,dayofweek:0
 #: selection:hr.schedule.template.worktime,dayofweek:0
 msgid "Wednesday"
-msgstr "Mercredi"
+msgstr ""
 
 #. module: hr_schedule
 #: field:hr.restday.wizard,contract_id:0
 #: model:ir.model,name:hr_schedule.model_hr_contract
 msgid "Contract"
-msgstr "Contrat"
+msgstr ""
 
 #. module: hr_schedule
 #: field:hr.schedule,message_summary:0
 #: field:hr.schedule.alert,message_summary:0
 #: field:hr.schedule.request,message_summary:0
 msgid "Summary"
-msgstr "Résumé"
+msgstr ""
 
 #. module: hr_schedule
 #: field:hr.schedule.request,date:0
 msgid "Date"
-msgstr "Date"
+msgstr ""
 
 #. module: hr_schedule
 #: selection:hr.restday.wizard,dayofweek:0
 #: selection:hr.schedule.detail,dayofweek:0
 #: selection:hr.schedule.template.worktime,dayofweek:0
 msgid "Thursday"
-msgstr "Jeudi"
+msgstr ""
 
 #. module: hr_schedule
 #: field:hr.contract.init,sched_template_id:0 view:hr.restday.wizard:0
@@ -654,7 +654,7 @@ msgstr ""
 #. module: hr_schedule
 #: field:hr.schedule.alert.rule,code:0
 msgid "Code"
-msgstr "Code"
+msgstr ""
 
 #. module: hr_schedule
 #: model:ir.model,name:hr_schedule.model_hr_schedule_template_worktime
@@ -664,7 +664,7 @@ msgstr ""
 #. module: hr_schedule
 #: model:ir.model,name:hr_schedule.model_hr_contract_init
 msgid "Initial Contract Settings"
-msgstr "Paramètres initiaux du contrat"
+msgstr ""
 
 #. module: hr_schedule
 #: view:hr.schedule.generate:0
@@ -692,7 +692,7 @@ msgstr ""
 #. module: hr_schedule
 #: view:hr.schedule.alert.compute:0 view:hr.schedule.validate.departments:0
 msgid "Close"
-msgstr "Fermer"
+msgstr ""
 
 #. module: hr_schedule
 #: code:addons/hr_schedule/hr_schedule.py:785
@@ -750,7 +750,7 @@ msgstr ""
 #. module: hr_schedule
 #: selection:hr.schedule.request,type:0
 msgid "Other"
-msgstr "Autre"
+msgstr ""
 
 #. module: hr_schedule
 #: view:hr.schedule.request:0
@@ -776,7 +776,7 @@ msgstr ""
 #. module: hr_schedule
 #: field:hr.schedule,name:0
 msgid "Description"
-msgstr "Description"
+msgstr "Açıklama"
 
 #. module: hr_schedule
 #: view:hr.schedule.alert.compute:0
@@ -798,14 +798,14 @@ msgstr ""
 #. module: hr_schedule
 #: field:hr.schedule,date_end:0
 msgid "End Date"
-msgstr "Date de fin"
+msgstr ""
 
 #. module: hr_schedule
 #: field:hr.schedule.alert.rule,name:0 field:hr.schedule.detail,name:0
 #: field:hr.schedule.template,name:0
 #: field:hr.schedule.template.worktime,name:0 field:hr.schedule.weekday,name:0
 msgid "Name"
-msgstr "Nom"
+msgstr "Ad"
 
 #. module: hr_schedule
 #: model:ir.model,name:hr_schedule.model_hr_schedule_alert_rule
@@ -822,7 +822,7 @@ msgstr ""
 #: field:hr.schedule.alert.compute,employee_ids:0 view:hr.schedule.generate:0
 #: field:hr.schedule.generate,employee_ids:0
 msgid "Employees"
-msgstr "Employés"
+msgstr ""
 
 #. module: hr_schedule
 #: field:hr.contract,schedule_template_id:0
@@ -838,13 +838,13 @@ msgstr ""
 #. module: hr_schedule
 #: view:hr.schedule.alert:0
 msgid "Rule"
-msgstr "Règle"
+msgstr ""
 
 #. module: hr_schedule
 #: help:hr.schedule,message_ids:0 help:hr.schedule.alert,message_ids:0
 #: help:hr.schedule.request,message_ids:0
 msgid "Messages and communication history"
-msgstr "Historique des messages et communications"
+msgstr ""
 
 #. module: hr_schedule
 #: code:addons/hr_schedule/hr_schedule.py:1762
@@ -860,7 +860,7 @@ msgstr ""
 #. module: hr_schedule
 #: field:hr.schedule.weekday,sequence:0
 msgid "Sequence"
-msgstr "Séquence"
+msgstr "Sıra"
 
 #. module: hr_schedule
 #: selection:hr.schedule.alert.rule,severity:0
@@ -876,11 +876,11 @@ msgstr ""
 #. module: hr_schedule
 #: view:hr.schedule:0
 msgid "Duration"
-msgstr "Durée"
+msgstr ""
 
 #. module: hr_schedule
 #: selection:hr.restday.wizard,dayofweek:0
 #: selection:hr.schedule.detail,dayofweek:0
 #: selection:hr.schedule.template.worktime,dayofweek:0
 msgid "Saturday"
-msgstr "Samedi"
+msgstr ""
