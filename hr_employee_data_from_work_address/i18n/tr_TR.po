@@ -1,0 +1,62 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * hr_employee_data_from_work_address
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: hr (8.0)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-12-31 03:29+0000\n"
+"PO-Revision-Date: 2017-01-03 11:45+0000\n"
+"Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
+"Language-Team: Turkish (Turkey) (http://www.transifex.com/oca/OCA-hr-8-0/language/tr_TR/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: tr_TR\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. module: hr_employee_data_from_work_address
+#: model:res.partner.category,name:hr_employee_data_from_work_address.category_duplicate
+msgid "Duplicate work address"
+msgstr ""
+
+#. module: hr_employee_data_from_work_address
+#: model:ir.model,name:hr_employee_data_from_work_address.model_hr_employee
+msgid "Employee"
+msgstr ""
+
+#. module: hr_employee_data_from_work_address
+#: model:res.partner.category,name:hr_employee_data_from_work_address.category_duplicate_created
+msgid "Newly created"
+msgstr ""
+
+#. module: hr_employee_data_from_work_address
+#: view:hr.employee:hr_employee_data_from_work_address.view_employee_form
+msgid "True"
+msgstr "Doğru"
+
+#. module: hr_employee_data_from_work_address
+#: view:hr.employee:hr_employee_data_from_work_address.view_employee_form
+#: view:res.users:hr_employee_data_from_work_address.view_users_form
+msgid "[('employee', '=', True)]"
+msgstr ""
+
+#. module: hr_employee_data_from_work_address
+#: view:hr.employee:hr_employee_data_from_work_address.view_employee_form
+msgid ""
+"{'default_groups_ref': ['base.group_user'], 'default_partner_id': "
+"address_id}"
+msgstr ""
+
+#. module: hr_employee_data_from_work_address
+#: view:res.users:hr_employee_data_from_work_address.view_users_form
+msgid "{'required': [('id', '!=', False)]}"
+msgstr ""
+
+#. module: hr_employee_data_from_work_address
+#: view:hr.employee:hr_employee_data_from_work_address.view_employee_form
+msgid ""
+"{'show_address': 1, 'default_customer': False, 'default_employee': True}"
+msgstr ""
