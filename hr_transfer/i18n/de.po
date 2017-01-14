@@ -70,7 +70,7 @@ msgstr "Angestellte"
 #. module: hr_transfer
 #: selection:hr.department.transfer,state:0
 msgid "Pending"
-msgstr ""
+msgstr "laufend"
 
 #. module: hr_transfer
 #: field:hr.department.transfer,message_unread:0
@@ -198,7 +198,7 @@ msgstr ""
 #. module: hr_transfer
 #: selection:hr.department.transfer,state:0
 msgid "Done"
-msgstr ""
+msgstr "Erledigt"
 
 #. module: hr_transfer
 #: code:addons/hr_transfer/hr_transfer.py:146

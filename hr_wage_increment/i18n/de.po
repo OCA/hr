@@ -415,7 +415,7 @@ msgstr ""
 #. module: hr_wage_increment
 #: view:hr.contract.wage.increment:0 view:hr.contract.wage.increment.run:0
 msgid "Done"
-msgstr ""
+msgstr "Erledigt"
 
 #. module: hr_wage_increment
 #: code:addons/hr_wage_increment/wage_increment.py:244

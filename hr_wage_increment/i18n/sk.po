@@ -232,7 +232,7 @@ msgstr ""
 #. module: hr_wage_increment
 #: view:hr.contract.wage.increment.run:0
 msgid "Date"
-msgstr ""
+msgstr "Dátum"
 
 #. module: hr_wage_increment
 #: view:hr.contract.wage.increment.run:0

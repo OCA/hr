@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-12 23:35+0000\n"
+"POT-Creation-Date: 2016-12-17 01:54+0000\n"
 "PO-Revision-Date: 2015-07-27 23:40+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Russian (http://www.transifex.com/oca/OCA-hr-7-0/language/ru/)\n"
@@ -629,7 +629,7 @@ msgstr ""
 #. module: hr_schedule
 #: field:hr.schedule.request,date:0
 msgid "Date"
-msgstr ""
+msgstr "Дата"
 
 #. module: hr_schedule
 #: selection:hr.restday.wizard,dayofweek:0
@@ -860,7 +860,7 @@ msgstr ""
 #. module: hr_schedule
 #: field:hr.schedule.weekday,sequence:0
 msgid "Sequence"
-msgstr ""
+msgstr "Последовательность"
 
 #. module: hr_schedule
 #: selection:hr.schedule.alert.rule,severity:0

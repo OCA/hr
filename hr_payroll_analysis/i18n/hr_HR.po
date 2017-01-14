@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-24 01:32+0000\n"
+"POT-Creation-Date: 2016-12-31 03:22+0000\n"
 "PO-Revision-Date: 2015-07-27 23:39+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Croatian (Croatia) (http://www.transifex.com/oca/OCA-hr-7-0/language/hr_HR/)\n"
@@ -88,7 +88,7 @@ msgstr ""
 #. module: hr_payroll_analysis
 #: view:hr.payslip.analysis.line:0 field:hr.payslip.analysis.line,date:0
 msgid "Date"
-msgstr ""
+msgstr "Datum"
 
 #. module: hr_payroll_analysis
 #: model:ir.model,name:hr_payroll_analysis.model_hr_payslip

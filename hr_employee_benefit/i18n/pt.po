@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-10 02:13+0000\n"
+"POT-Creation-Date: 2017-01-07 02:23+0000\n"
 "PO-Revision-Date: 2015-07-27 23:37+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Portuguese (http://www.transifex.com/oca/OCA-hr-7-0/language/pt/)\n"
@@ -89,7 +89,7 @@ msgstr ""
 #. module: hr_employee_benefit
 #: field:hr.employee.benefit.category,description:0
 msgid "Description"
-msgstr ""
+msgstr "Descrição"
 
 #. module: hr_employee_benefit
 #: field:hr.employee.benefit.rate.line,parent_id:0
@@ -232,7 +232,7 @@ msgstr ""
 #. module: hr_employee_benefit
 #: field:hr.employee.benefit,code:0 field:hr.employee.benefit.category,code:0
 msgid "Code"
-msgstr ""
+msgstr "Código"
 
 #. module: hr_employee_benefit
 #: help:hr.employee.benefit.category,code:0
@@ -243,7 +243,7 @@ msgstr ""
 #: field:hr.employee.benefit.category,reference:0
 #: field:hr.payslip.benefit.line,reference:0
 msgid "Reference"
-msgstr ""
+msgstr "Referência"
 
 #. module: hr_employee_benefit
 #: model:ir.model,name:hr_employee_benefit.model_hr_payslip_benefit_line

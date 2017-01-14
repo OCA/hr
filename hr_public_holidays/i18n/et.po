@@ -1,0 +1,83 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+# * hr_public_holidays
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: hr (7.0)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-12-31 03:22+0000\n"
+"PO-Revision-Date: 2015-07-27 23:40+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: Estonian (http://www.transifex.com/oca/OCA-hr-7-0/language/et/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: et\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: hr_public_holidays
+#: field:hr.holidays.public.line,name:0
+msgid "Name"
+msgstr "Nimi"
+
+#. module: hr_public_holidays
+#: field:hr.holidays.public,line_ids:0
+msgid "Holiday Dates"
+msgstr ""
+
+#. module: hr_public_holidays
+#: field:hr.holidays.public,year:0
+msgid "calendar Year"
+msgstr ""
+
+#. module: hr_public_holidays
+#: field:hr.holidays.public,country_id:0
+msgid "Country"
+msgstr ""
+
+#. module: hr_public_holidays
+#: field:hr.holidays.public.line,holidays_id:0
+msgid "Holiday Calendar Year"
+msgstr ""
+
+#. module: hr_public_holidays
+#: constraint:hr.holidays.public:0
+msgid "Error: Duplicate year"
+msgstr ""
+
+#. module: hr_public_holidays
+#: model:ir.model,name:hr_public_holidays.model_hr_holidays_public_line
+msgid "Public Holidays Lines"
+msgstr ""
+
+#. module: hr_public_holidays
+#: code:addons/hr_public_holidays/hr_public_holidays.py:60
+#: sql_constraint:hr.holidays.public:0
+#, python-format
+msgid "Duplicate year and country!"
+msgstr ""
+
+#. module: hr_public_holidays
+#: field:hr.holidays.public.line,date:0
+msgid "Date"
+msgstr "Kuupäev"
+
+#. module: hr_public_holidays
+#: field:hr.holidays.public.line,state_ids:0
+msgid "Related states"
+msgstr ""
+
+#. module: hr_public_holidays
+#: field:hr.holidays.public.line,variable:0
+msgid "Date may change"
+msgstr ""
+
+#. module: hr_public_holidays
+#: view:hr.holidays.public:0 view:hr.holidays.public.line:0
+#: model:ir.actions.act_window,name:hr_public_holidays.open_public_holidays_view
+#: model:ir.model,name:hr_public_holidays.model_hr_holidays_public
+#: model:ir.ui.menu,name:hr_public_holidays.menu_public_holidays_view
+msgid "Public Holidays"
+msgstr ""

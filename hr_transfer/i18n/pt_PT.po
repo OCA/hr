@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-13 11:18+0000\n"
+"POT-Creation-Date: 2016-12-17 01:54+0000\n"
 "PO-Revision-Date: 2015-07-27 23:41+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Portuguese (Portugal) (http://www.transifex.com/oca/OCA-hr-7-0/language/pt_PT/)\n"
@@ -70,7 +70,7 @@ msgstr ""
 #. module: hr_transfer
 #: selection:hr.department.transfer,state:0
 msgid "Pending"
-msgstr ""
+msgstr "Pendente"
 
 #. module: hr_transfer
 #: field:hr.department.transfer,message_unread:0
@@ -198,7 +198,7 @@ msgstr "Contém o resumo do Chatter (número de mensagens, ...). Este resumo é 
 #. module: hr_transfer
 #: selection:hr.department.transfer,state:0
 msgid "Done"
-msgstr ""
+msgstr "Concluído"
 
 #. module: hr_transfer
 #: code:addons/hr_transfer/hr_transfer.py:146

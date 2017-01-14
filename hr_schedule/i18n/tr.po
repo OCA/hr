@@ -157,7 +157,7 @@ msgstr ""
 #. module: hr_schedule
 #: view:hr.schedule:0 view:hr.schedule.detail:0
 msgid "Validate"
-msgstr ""
+msgstr "Doğrula"
 
 #. module: hr_schedule
 #: selection:hr.schedule.request,type:0

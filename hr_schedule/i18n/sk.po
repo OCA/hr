@@ -629,7 +629,7 @@ msgstr ""
 #. module: hr_schedule
 #: field:hr.schedule.request,date:0
 msgid "Date"
-msgstr ""
+msgstr "Dátum"
 
 #. module: hr_schedule
 #: selection:hr.restday.wizard,dayofweek:0

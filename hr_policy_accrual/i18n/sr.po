@@ -1,0 +1,524 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+# * hr_policy_accrual
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: hr (7.0)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-12-31 03:22+0000\n"
+"PO-Revision-Date: 2015-07-27 23:40+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: Serbian (http://www.transifex.com/oca/OCA-hr-7-0/language/sr/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: sr\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#. module: hr_policy_accrual
+#: selection:hr.policy.line.accrual,calculation_frequency:0
+msgid "Monthly"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: field:hr.policy.line.accrual.job,holiday_ids:0
+msgid "Leave Allocation Requests"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: selection:hr.policy.line.accrual,frequency_week_day:0
+msgid "Sunday"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: model:ir.ui.menu,name:hr_policy_accrual.menu_leave_allocation
+msgid "Leave Allocation"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: view:hr.policy.accrual:0 view:hr.policy.line.accrual.job:0
+#: field:hr.policy.line.accrual.job,accrual_line_ids:0
+msgid "Accrual Lines"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: selection:hr.policy.line.accrual,frequency_annual_day:0
+#: selection:hr.policy.line.accrual,frequency_month_day:0
+msgid "24"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: selection:hr.policy.line.accrual,frequency_annual_day:0
+#: selection:hr.policy.line.accrual,frequency_month_day:0
+msgid "25"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: selection:hr.policy.line.accrual,frequency_annual_day:0
+#: selection:hr.policy.line.accrual,frequency_month_day:0
+msgid "26"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: selection:hr.policy.line.accrual,frequency_annual_day:0
+#: selection:hr.policy.line.accrual,frequency_month_day:0
+msgid "27"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: selection:hr.policy.line.accrual,frequency_annual_month:0
+msgid "March"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: selection:hr.policy.line.accrual,frequency_annual_day:0
+#: selection:hr.policy.line.accrual,frequency_month_day:0
+msgid "21"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: selection:hr.policy.line.accrual,frequency_annual_day:0
+#: selection:hr.policy.line.accrual,frequency_month_day:0
+msgid "22"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: selection:hr.policy.line.accrual,frequency_annual_day:0
+#: selection:hr.policy.line.accrual,frequency_month_day:0
+msgid "23"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: selection:hr.policy.line.accrual,frequency_week_day:0
+msgid "Friday"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: selection:hr.policy.line.accrual,frequency_annual_day:0
+#: selection:hr.policy.line.accrual,frequency_month_day:0
+msgid "28"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: view:hr.policy.line.accrual:0
+msgid "List of Jobs"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: view:hr.policy.line.accrual.job:0
+msgid "Holidays"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: field:hr.policy.line.accrual.job,exec:0
+msgid "Execution Date/Time"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: view:hr.policy.accrual:0
+#: model:ir.actions.act_window,name:hr_policy_accrual.open_accr_policy
+#: model:ir.ui.menu,name:hr_policy_accrual.menu_hr_accr_policy
+msgid "Accrual Policies"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: selection:hr.policy.line.accrual,calculation_frequency:0
+msgid "Annual"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: model:ir.model,name:hr_policy_accrual.model_hr_holidays
+msgid "Leave"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: selection:hr.policy.line.accrual,frequency_annual_day:0
+#: selection:hr.policy.line.accrual,frequency_month_day:0
+msgid "12"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: view:hr.policy.line.accrual.job:0
+msgid "Accrual Line Job"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: help:hr.policy.line.accrual,accrual_rate:0
+msgid "The rate, in days, accrued per year."
+msgstr ""
+
+#. module: hr_policy_accrual
+#: view:hr.policy.line.accrual.job:0
+msgid "Holiday Allocation Requests"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: field:hr.policy.line.accrual,accrual_id:0
+msgid "Accrual Account"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: field:hr.policy.accrual,date:0
+msgid "Effective Date"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: help:hr.holidays,from_accrual:0
+msgid "Used to differentiate allocations from accruals and manual allocations"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: help:hr.policy.line.accrual,accrual_rate_premium_minimum:0
+msgid ""
+"Minimum number of months the employee must be employed before the premium "
+"rate will start to accrue."
+msgstr ""
+
+#. module: hr_policy_accrual
+#: field:hr.policy.line.accrual,type:0
+msgid "Type"
+msgstr "Tip"
+
+#. module: hr_policy_accrual
+#: view:hr.policy.line.accrual:0
+#: field:hr.policy.line.accrual.job,policy_line_id:0
+#: model:ir.model,name:hr_policy_accrual.model_hr_policy_line_accrual
+msgid "Accrual Policy Line"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: selection:hr.policy.line.accrual,frequency_annual_month:0
+msgid "July"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: field:hr.policy.line.accrual,accrual_rate_premium:0
+msgid "Accrual Rate Premium"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: model:ir.model,name:hr_policy_accrual.model_hr_policy_line_accrual_job
+msgid "Accrual Policy Line Job Run"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: selection:hr.policy.line.accrual,frequency_annual_day:0
+#: selection:hr.policy.line.accrual,frequency_month_day:0
+msgid "20"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: view:hr.policy.line.accrual:0
+msgid "Monthly Frequency"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: selection:hr.policy.line.accrual,frequency_annual_month:0
+msgid "September"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: selection:hr.policy.line.accrual,frequency_annual_month:0
+msgid "December"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: selection:hr.policy.line.accrual,frequency_annual_day:0
+#: selection:hr.policy.line.accrual,frequency_month_day:0
+msgid "31"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: selection:hr.policy.line.accrual,frequency_annual_day:0
+#: selection:hr.policy.line.accrual,frequency_month_day:0
+msgid "30"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: field:hr.policy.line.accrual,frequency_annual_month:0
+msgid "Month"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: field:hr.policy.line.accrual,accrual_rate_premium_minimum:0
+msgid "Months of Employment Before Premium"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: selection:hr.policy.line.accrual,type:0
+msgid "Calendar"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: selection:hr.policy.line.accrual,calculation_frequency:0
+msgid "Weekly"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: view:hr.policy.accrual:0 field:hr.policy.group,accr_policy_ids:0
+#: field:hr.policy.line.accrual,policy_id:0
+#: model:ir.model,name:hr_policy_accrual.model_hr_policy_accrual
+msgid "Accrual Policy"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: view:hr.policy.line.accrual:0
+msgid "Annual Frequency"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: selection:hr.policy.line.accrual,frequency_annual_day:0
+#: selection:hr.policy.line.accrual,frequency_month_day:0
+msgid "29"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: selection:hr.policy.line.accrual,type:0
+msgid "Standard"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: field:hr.policy.line.accrual,frequency_on_hire_date:0
+msgid "Frequency Based on Hire Date"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: selection:hr.policy.line.accrual,frequency_annual_month:0
+msgid "August"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: selection:hr.policy.line.accrual,frequency_week_day:0
+msgid "Monday"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: field:hr.policy.line.accrual,accrual_rate_premium_milestone:0
+msgid "Accrual Premium Milestone"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: selection:hr.policy.line.accrual,frequency_annual_month:0
+msgid "June"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: help:hr.policy.line.accrual,accrual_rate_premium:0
+msgid ""
+"The additional amount of time (beyond the standard rate) accrued per Premium"
+" Milestone of service."
+msgstr ""
+
+#. module: hr_policy_accrual
+#: field:hr.policy.line.accrual.job,name:0
+msgid "Date"
+msgstr "Datum"
+
+#. module: hr_policy_accrual
+#: selection:hr.policy.line.accrual,frequency_annual_month:0
+msgid "November"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: selection:hr.policy.line.accrual,frequency_annual_month:0
+msgid "October"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: selection:hr.policy.line.accrual,frequency_annual_month:0
+msgid "January"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: selection:hr.policy.line.accrual,frequency_week_day:0
+msgid "Wednesday"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: field:hr.policy.line.accrual,accrual_rate:0
+msgid "Accrual Rate"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: field:hr.policy.line.accrual,accrual_rate_max:0
+msgid "Maximum Accrual Rate"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: selection:hr.policy.line.accrual,frequency_annual_day:0
+#: selection:hr.policy.line.accrual,frequency_month_day:0
+msgid "11"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: selection:hr.policy.line.accrual,frequency_annual_day:0
+#: selection:hr.policy.line.accrual,frequency_month_day:0
+msgid "10"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: selection:hr.policy.line.accrual,frequency_annual_day:0
+#: selection:hr.policy.line.accrual,frequency_month_day:0
+msgid "13"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: view:hr.policy.line.accrual:0 field:hr.policy.line.accrual,code:0
+msgid "Code"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: selection:hr.policy.line.accrual,frequency_annual_day:0
+#: selection:hr.policy.line.accrual,frequency_month_day:0
+msgid "15"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: selection:hr.policy.line.accrual,frequency_annual_day:0
+#: selection:hr.policy.line.accrual,frequency_month_day:0
+msgid "14"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: selection:hr.policy.line.accrual,frequency_annual_day:0
+#: selection:hr.policy.line.accrual,frequency_month_day:0
+msgid "17"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: selection:hr.policy.line.accrual,frequency_annual_day:0
+#: selection:hr.policy.line.accrual,frequency_month_day:0
+msgid "16"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: selection:hr.policy.line.accrual,frequency_annual_day:0
+#: selection:hr.policy.line.accrual,frequency_month_day:0
+msgid "19"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: selection:hr.policy.line.accrual,frequency_annual_day:0
+#: selection:hr.policy.line.accrual,frequency_month_day:0
+msgid "18"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: help:hr.policy.line.accrual,balance_on_payslip:0
+msgid ""
+"The pay slip report must be modified to display this accrual for this "
+"setting to have any effect."
+msgstr ""
+
+#. module: hr_policy_accrual
+#: view:hr.policy.line.accrual:0
+msgid "General"
+msgstr "Opšte"
+
+#. module: hr_policy_accrual
+#: field:hr.policy.line.accrual,frequency_annual_day:0
+#: field:hr.policy.line.accrual,frequency_month_day:0
+msgid "Day of Month"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: field:hr.holidays,from_accrual:0
+msgid "Created by Accrual Policy Line"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: field:hr.policy.line.accrual,balance_on_payslip:0
+msgid "Display Balance on Pay Slip"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: selection:hr.policy.line.accrual,frequency_week_day:0
+msgid "Tuesday"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: field:hr.policy.line.accrual,calculation_frequency:0
+msgid "Calculation Frequency"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: selection:hr.policy.line.accrual,frequency_week_day:0
+msgid "Thursday"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: model:ir.model,name:hr_policy_accrual.model_hr_policy_group
+msgid "HR Policy Groups"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: help:hr.policy.line.accrual,accrual_rate_max:0
+msgid ""
+"The maximum amount of time that may accrue per year. Zero means the amount "
+"may keep increasing indefinitely."
+msgstr ""
+
+#. module: hr_policy_accrual
+#: view:hr.policy.line.accrual:0
+#: model:ir.actions.act_window,name:hr_policy_accrual.open_accr_policy_line
+#: model:ir.ui.menu,name:hr_policy_accrual.menu_hr_accr_policy_line
+msgid "Accrual Policy Lines"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: field:hr.policy.line.accrual,minimum_employed_days:0
+msgid "Minimum Employed Days"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: selection:hr.policy.line.accrual,frequency_annual_month:0
+msgid "May"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: view:hr.policy.line.accrual:0 field:hr.policy.line.accrual,job_ids:0
+msgid "Jobs"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: field:hr.policy.line.accrual,frequency_week_day:0
+msgid "Week Day"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: view:hr.policy.line.accrual:0
+msgid "Weekly Frequency"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: selection:hr.policy.line.accrual,frequency_annual_month:0
+msgid "February"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: view:hr.policy.accrual:0 field:hr.policy.accrual,name:0
+#: view:hr.policy.line.accrual:0 field:hr.policy.line.accrual,name:0
+msgid "Name"
+msgstr "Ime"
+
+#. module: hr_policy_accrual
+#: selection:hr.policy.line.accrual,frequency_annual_month:0
+msgid "April"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: field:hr.policy.accrual,line_ids:0
+msgid "Policy Lines"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: selection:hr.policy.line.accrual,frequency_week_day:0
+msgid "Saturday"
+msgstr ""
+
+#. module: hr_policy_accrual
+#: help:hr.policy.line.accrual,accrual_rate_premium_milestone:0
+msgid "Number of milestone months after which the premium rate will be added."
+msgstr ""

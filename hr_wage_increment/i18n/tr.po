@@ -342,7 +342,7 @@ msgstr ""
 #. module: hr_wage_increment
 #: view:hr.contract.wage.increment:0 view:hr.contract.wage.increment.run:0
 msgid "Approve"
-msgstr ""
+msgstr "Onayla"
 
 #. module: hr_wage_increment
 #: field:hr.contract.wage.increment,current_wage:0

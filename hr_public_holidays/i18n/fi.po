@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-12 23:35+0000\n"
+"POT-Creation-Date: 2016-12-31 03:22+0000\n"
 "PO-Revision-Date: 2015-07-27 23:40+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Finnish (http://www.transifex.com/oca/OCA-hr-7-0/language/fi/)\n"
@@ -62,7 +62,7 @@ msgstr ""
 #. module: hr_public_holidays
 #: field:hr.holidays.public.line,date:0
 msgid "Date"
-msgstr ""
+msgstr "Päivämäärä"
 
 #. module: hr_public_holidays
 #: field:hr.holidays.public.line,state_ids:0
