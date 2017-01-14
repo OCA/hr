@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-17 02:00+0000\n"
+"POT-Creation-Date: 2017-01-07 02:29+0000\n"
 "PO-Revision-Date: 2016-12-02 13:53+0000\n"
 "Last-Translator: danimaribeiro <danimaribeiro@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/oca/OCA-hr-8-0/language/pt_BR/)\n"
@@ -38,7 +38,7 @@ msgstr "Departamentos filhos"
 #. module: hr_department_sequence
 #: field:hr.department,code:0
 msgid "Code"
-msgstr ""
+msgstr "Código"
 
 #. module: hr_department_sequence
 #: help:hr.department,sequence:0

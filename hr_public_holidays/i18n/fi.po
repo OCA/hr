@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-09 02:43+0000\n"
-"PO-Revision-Date: 2016-09-15 12:45+0000\n"
+"POT-Creation-Date: 2016-12-31 03:30+0000\n"
+"PO-Revision-Date: 2017-01-13 09:29+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Finnish (http://www.transifex.com/oca/OCA-hr-8-0/language/fi/)\n"
 "MIME-Version: 1.0\n"
@@ -42,7 +42,7 @@ msgstr "Luotu"
 #. module: hr_public_holidays
 #: field:hr.holidays.public.line,date:0
 msgid "Date"
-msgstr ""
+msgstr "Päivämäärä"
 
 #. module: hr_public_holidays
 #: field:hr.holidays.public.line,variable:0

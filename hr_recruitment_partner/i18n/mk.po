@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-17 20:43+0000\n"
-"PO-Revision-Date: 2016-10-11 09:51+0000\n"
+"POT-Creation-Date: 2016-12-31 03:30+0000\n"
+"PO-Revision-Date: 2017-01-11 15:39+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Macedonian (http://www.transifex.com/oca/OCA-hr-8-0/language/mk/)\n"
 "MIME-Version: 1.0\n"
@@ -139,7 +139,7 @@ msgstr ""
 #. module: hr_recruitment_partner
 #: field:hr.applicant,date:0
 msgid "Date"
-msgstr ""
+msgstr "Датум"
 
 #. module: hr_recruitment_partner
 #: help:hr.applicant,last_reconciliation_date:0

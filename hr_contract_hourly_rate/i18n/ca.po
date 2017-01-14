@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-09 02:43+0000\n"
-"PO-Revision-Date: 2016-09-09 12:25+0000\n"
+"POT-Creation-Date: 2017-01-07 02:29+0000\n"
+"PO-Revision-Date: 2017-01-13 09:22+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Catalan (http://www.transifex.com/oca/OCA-hr-8-0/language/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -56,7 +56,7 @@ msgstr "Creat el"
 #: field:hr.hourly.rate,display_name:0
 #: field:hr.hourly.rate.class,display_name:0
 msgid "Display Name"
-msgstr ""
+msgstr "Veure el nom"
 
 #. module: hr_contract_hourly_rate
 #: field:hr.hourly.rate,date_end:0
@@ -125,7 +125,7 @@ msgstr "ID"
 #: field:hr.hourly.rate,__last_update:0
 #: field:hr.hourly.rate.class,__last_update:0
 msgid "Last Modified on"
-msgstr ""
+msgstr "Darrera modificació el"
 
 #. module: hr_contract_hourly_rate
 #: field:hr.hourly.rate,write_uid:0 field:hr.hourly.rate.class,write_uid:0

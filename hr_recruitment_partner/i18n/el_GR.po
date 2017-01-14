@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-17 20:43+0000\n"
-"PO-Revision-Date: 2016-10-14 23:34+0000\n"
+"POT-Creation-Date: 2016-12-31 03:30+0000\n"
+"PO-Revision-Date: 2017-01-11 15:36+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Greek (Greece) (http://www.transifex.com/oca/OCA-hr-8-0/language/el_GR/)\n"
 "MIME-Version: 1.0\n"
@@ -532,7 +532,7 @@ msgstr ""
 #. module: hr_recruitment_partner
 #: field:hr.applicant,user_ids:0
 msgid "Users"
-msgstr ""
+msgstr "Χρήστες"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,vat_subjected:0

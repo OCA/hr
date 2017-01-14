@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-14 04:15+0000\n"
-"PO-Revision-Date: 2016-04-04 11:09+0000\n"
+"POT-Creation-Date: 2016-12-31 03:29+0000\n"
+"PO-Revision-Date: 2017-01-10 00:36+0000\n"
 "Last-Translator: Jarmo Kortetjärvi <jarmo.kortetjarvi@gmail.com>\n"
 "Language-Team: Finnish (http://www.transifex.com/oca/OCA-hr-8-0/language/fi/)\n"
 "MIME-Version: 1.0\n"
@@ -69,7 +69,7 @@ msgstr ""
 #: selection:res.company,employee_id_gen_method:0
 #: field:res.company,employee_id_sequence:0
 msgid "Sequence"
-msgstr ""
+msgstr "Sekvenssi"
 
 #. module: hr_employee_id
 #: sql_constraint:hr.employee:0

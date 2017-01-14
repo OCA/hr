@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-17 20:43+0000\n"
-"PO-Revision-Date: 2016-10-14 23:34+0000\n"
+"POT-Creation-Date: 2016-12-31 03:30+0000\n"
+"PO-Revision-Date: 2017-01-11 15:36+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Catalan (http://www.transifex.com/oca/OCA-hr-8-0/language/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -114,7 +114,7 @@ msgstr ""
 #. module: hr_recruitment_partner
 #: field:hr.applicant,country_id:0
 msgid "Country"
-msgstr ""
+msgstr "País"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,credit_limit:0
@@ -139,7 +139,7 @@ msgstr ""
 #. module: hr_recruitment_partner
 #: field:hr.applicant,date:0
 msgid "Date"
-msgstr ""
+msgstr "Data"
 
 #. module: hr_recruitment_partner
 #: help:hr.applicant,last_reconciliation_date:0
@@ -161,7 +161,7 @@ msgstr ""
 #. module: hr_recruitment_partner
 #: field:hr.applicant,email:0
 msgid "Email"
-msgstr ""
+msgstr "Correu electrònic"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,employee:0
@@ -362,7 +362,7 @@ msgstr ""
 #. module: hr_recruitment_partner
 #: field:hr.applicant,state_id:0
 msgid "State"
-msgstr ""
+msgstr "Estat"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,street:0

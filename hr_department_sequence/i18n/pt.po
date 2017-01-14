@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-13 16:26+0000\n"
+"POT-Creation-Date: 2017-01-07 02:29+0000\n"
 "PO-Revision-Date: 2015-11-12 09:52+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Portuguese (http://www.transifex.com/oca/OCA-hr-8-0/language/pt/)\n"
@@ -36,7 +36,7 @@ msgstr ""
 #. module: hr_department_sequence
 #: field:hr.department,code:0
 msgid "Code"
-msgstr ""
+msgstr "Código"
 
 #. module: hr_department_sequence
 #: help:hr.department,sequence:0
@@ -56,7 +56,7 @@ msgstr ""
 #. module: hr_department_sequence
 #: field:hr.department,sequence:0
 msgid "Sequence"
-msgstr ""
+msgstr "Sequência"
 
 #. module: hr_department_sequence
 #: code:addons/hr_department_sequence/models/hr_department.py:45
