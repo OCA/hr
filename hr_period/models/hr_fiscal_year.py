@@ -19,6 +19,10 @@
 #
 ##############################################################################
 
+from dateutil.relativedelta import relativedelta
+
+from itertools import chain
+
 from openerp.osv import orm, fields
 from openerp.tools import DEFAULT_SERVER_DATE_FORMAT
 from openerp.tools.translate import _
@@ -26,14 +30,11 @@ from openerp.tools.translate import _
 from datetime import datetime
 strftime = datetime.strptime
 
-from dateutil.relativedelta import relativedelta
-
-from itertools import chain
 
 INTERVALS = {
     'annually': (relativedelta(months=12), 1),
     'semi-annually': (relativedelta(months=6), 2),
-    'quaterly': (relativedelta(months=3), 4),
+    'quarterly': (relativedelta(months=3), 4),
     'bi-monthly': (relativedelta(months=2), 6),
     'monthly': (relativedelta(months=1), 12),
     'bi-weekly': (relativedelta(weeks=2), 26),
