@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-17 01:54+0000\n"
+"POT-Creation-Date: 2017-01-17 14:04+0000\n"
 "PO-Revision-Date: 2015-07-27 23:41+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/oca/OCA-hr-7-0/language/pt_BR/)\n"
@@ -60,7 +60,7 @@ msgstr "Estado"
 #. module: hr_transfer
 #: field:hr.department.transfer,message_follower_ids:0
 msgid "Followers"
-msgstr ""
+msgstr "Seguidores"
 
 #. module: hr_transfer
 #: field:hr.department.transfer,employee_id:0
@@ -75,7 +75,7 @@ msgstr "Pendente"
 #. module: hr_transfer
 #: field:hr.department.transfer,message_unread:0
 msgid "Unread Messages"
-msgstr ""
+msgstr "Mensagens não lidas"
 
 #. module: hr_transfer
 #: view:hr.department.transfer:0
@@ -125,7 +125,7 @@ msgstr ""
 #. module: hr_transfer
 #: field:hr.department.transfer,message_ids:0
 msgid "Messages"
-msgstr ""
+msgstr "Mensagens"
 
 #. module: hr_transfer
 #: model:mail.message.subtype,description:hr_transfer.mt_alert_xfer_pending
@@ -150,7 +150,7 @@ msgstr ""
 #. module: hr_transfer
 #: help:hr.department.transfer,message_unread:0
 msgid "If checked new messages require your attention."
-msgstr ""
+msgstr "Se marcado novas mensagens requerem sua atenção."
 
 #. module: hr_transfer
 #: model:mail.message.subtype,name:hr_transfer.mt_alert_xfer_pending

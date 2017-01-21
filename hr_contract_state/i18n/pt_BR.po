@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-17 01:54+0000\n"
+"POT-Creation-Date: 2017-01-17 14:03+0000\n"
 "PO-Revision-Date: 2015-07-27 23:36+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/oca/OCA-hr-7-0/language/pt_BR/)\n"
@@ -35,7 +35,7 @@ msgstr ""
 #. module: hr_contract_state
 #: field:hr.contract,message_follower_ids:0
 msgid "Followers"
-msgstr ""
+msgstr "Seguidores"
 
 #. module: hr_contract_state
 #: view:hr.contract:0
@@ -104,7 +104,7 @@ msgstr ""
 #. module: hr_contract_state
 #: field:hr.contract,message_ids:0
 msgid "Messages"
-msgstr ""
+msgstr "Mensagens"
 
 #. module: hr_contract_state
 #: model:ir.actions.act_window,help:hr_contract_state.open_draft_contracts
@@ -148,7 +148,7 @@ msgstr ""
 #. module: hr_contract_state
 #: help:hr.contract,message_unread:0
 msgid "If checked new messages require your attention."
-msgstr ""
+msgstr "Se marcado novas mensagens requerem sua atenção."
 
 #. module: hr_contract_state
 #: model:mail.message.subtype,description:hr_contract_state.mt_alert_contract_ending
@@ -158,7 +158,7 @@ msgstr ""
 #. module: hr_contract_state
 #: field:hr.contract,message_unread:0
 msgid "Unread Messages"
-msgstr ""
+msgstr "Mensagens não lidas"
 
 #. module: hr_contract_state
 #: help:hr.contract,message_summary:0

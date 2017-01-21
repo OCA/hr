@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-31 03:22+0000\n"
+"POT-Creation-Date: 2017-01-17 14:04+0000\n"
 "PO-Revision-Date: 2015-07-27 23:39+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/oca/OCA-hr-7-0/language/pt_BR/)\n"
@@ -158,7 +158,7 @@ msgstr ""
 #. module: hr_payroll_period
 #: field:hr.payroll.period,message_unread:0
 msgid "Unread Messages"
-msgstr ""
+msgstr "Mensagens não lidas"
 
 #. module: hr_payroll_period
 #: field:hr.payslip.exception.rule,company_id:0
@@ -227,7 +227,7 @@ msgstr ""
 #. module: hr_payroll_period
 #: field:hr.payroll.period,message_ids:0
 msgid "Messages"
-msgstr ""
+msgstr "Mensagens"
 
 #. module: hr_payroll_period
 #: field:hr.payroll.period.end.1,alert_critical:0
@@ -271,7 +271,7 @@ msgstr ""
 #. module: hr_payroll_period
 #: help:hr.payroll.period,message_unread:0
 msgid "If checked new messages require your attention."
-msgstr ""
+msgstr "Se marcado novas mensagens requerem sua atenção."
 
 #. module: hr_payroll_period
 #: field:hr.payroll.period.end.1,br5:0
@@ -398,7 +398,7 @@ msgstr ""
 #. module: hr_payroll_period
 #: field:hr.payroll.period,message_follower_ids:0
 msgid "Followers"
-msgstr ""
+msgstr "Seguidores"
 
 #. module: hr_payroll_period
 #: field:hr.payroll.period.end.1,cent10:0
@@ -623,13 +623,13 @@ msgstr "Rascunho"
 #: field:hr.payroll.period.end.1,pex_low:0
 #: selection:hr.payslip.exception.rule,severity:0
 msgid "Low"
-msgstr ""
+msgstr "Baixa"
 
 #. module: hr_payroll_period
 #: selection:hr.payroll.period,state:0
 #: model:mail.message.subtype,name:hr_payroll_period.mt_state_close
 msgid "Closed"
-msgstr ""
+msgstr "Fechado"
 
 #. module: hr_payroll_period
 #: view:hr.payslip.exception.rule:0
@@ -1131,7 +1131,7 @@ msgstr ""
 #: field:hr.payroll.period.end.1,pex_high:0
 #: selection:hr.payslip.exception.rule,severity:0
 msgid "High"
-msgstr ""
+msgstr "Alta"
 
 #. module: hr_payroll_period
 #: model:mail.message.subtype,name:hr_payroll_period.mt_state_end

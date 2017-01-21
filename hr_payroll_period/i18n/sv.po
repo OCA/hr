@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-12 23:34+0000\n"
+"POT-Creation-Date: 2017-01-17 14:04+0000\n"
 "PO-Revision-Date: 2015-07-27 23:39+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Swedish (http://www.transifex.com/oca/OCA-hr-7-0/language/sv/)\n"
@@ -163,7 +163,7 @@ msgstr "Olästa meddelanden"
 #. module: hr_payroll_period
 #: field:hr.payslip.exception.rule,company_id:0
 msgid "Company"
-msgstr ""
+msgstr "Företag"
 
 #. module: hr_payroll_period
 #: code:addons/hr_payroll_period/hr_payroll_period.py:312
@@ -623,13 +623,13 @@ msgstr ""
 #: field:hr.payroll.period.end.1,pex_low:0
 #: selection:hr.payslip.exception.rule,severity:0
 msgid "Low"
-msgstr ""
+msgstr "Låg"
 
 #. module: hr_payroll_period
 #: selection:hr.payroll.period,state:0
 #: model:mail.message.subtype,name:hr_payroll_period.mt_state_close
 msgid "Closed"
-msgstr ""
+msgstr "Stängd"
 
 #. module: hr_payroll_period
 #: view:hr.payslip.exception.rule:0
@@ -1131,7 +1131,7 @@ msgstr ""
 #: field:hr.payroll.period.end.1,pex_high:0
 #: selection:hr.payslip.exception.rule,severity:0
 msgid "High"
-msgstr ""
+msgstr "Hög"
 
 #. module: hr_payroll_period
 #: model:mail.message.subtype,name:hr_payroll_period.mt_state_end

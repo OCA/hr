@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-07 02:23+0000\n"
+"POT-Creation-Date: 2017-01-17 14:03+0000\n"
 "PO-Revision-Date: 2015-07-27 23:39+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/oca/OCA-hr-7-0/language/pt_BR/)\n"
@@ -77,12 +77,12 @@ msgstr ""
 #. module: hr_labour_recruitment
 #: field:hr.recruitment.request,message_follower_ids:0
 msgid "Followers"
-msgstr ""
+msgstr "Seguidores"
 
 #. module: hr_labour_recruitment
 #: field:hr.recruitment.request,message_unread:0
 msgid "Unread Messages"
-msgstr ""
+msgstr "Mensagens não lidas"
 
 #. module: hr_labour_recruitment
 #: view:hr.recruitment.request:0 field:hr.recruitment.request,department_id:0
@@ -208,7 +208,7 @@ msgstr ""
 #. module: hr_labour_recruitment
 #: field:hr.recruitment.request,message_ids:0
 msgid "Messages"
-msgstr ""
+msgstr "Mensagens"
 
 #. module: hr_labour_recruitment
 #: model:ir.model,name:hr_labour_recruitment.model_hr_contract
@@ -261,7 +261,7 @@ msgstr ""
 #. module: hr_labour_recruitment
 #: help:hr.recruitment.request,message_unread:0
 msgid "If checked new messages require your attention."
-msgstr ""
+msgstr "Se marcado novas mensagens requerem sua atenção."
 
 #. module: hr_labour_recruitment
 #: selection:hr.recruitment.request,state:0

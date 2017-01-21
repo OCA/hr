@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-17 01:54+0000\n"
+"POT-Creation-Date: 2017-01-17 14:04+0000\n"
 "PO-Revision-Date: 2015-07-27 23:40+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: German (http://www.transifex.com/oca/OCA-hr-7-0/language/de/)\n"
@@ -502,7 +502,7 @@ msgstr "Entwurf"
 #. module: hr_schedule
 #: selection:hr.schedule.alert.rule,severity:0
 msgid "Low"
-msgstr ""
+msgstr "Niedrig"
 
 #. module: hr_schedule
 #: selection:hr.schedule.request,state:0
@@ -865,7 +865,7 @@ msgstr "Folge"
 #. module: hr_schedule
 #: selection:hr.schedule.alert.rule,severity:0
 msgid "High"
-msgstr ""
+msgstr "Hoch"
 
 #. module: hr_schedule
 #: model:ir.actions.act_window,name:hr_schedule.open_hr_schedule_template_view

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-31 03:22+0000\n"
+"POT-Creation-Date: 2017-01-17 14:04+0000\n"
 "PO-Revision-Date: 2015-07-27 23:39+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Catalan (http://www.transifex.com/oca/OCA-hr-7-0/language/ca/)\n"
@@ -39,7 +39,7 @@ msgstr ""
 #. module: hr_payroll_period
 #: selection:hr.payroll.period.schedule,type:0
 msgid "Monthly"
-msgstr ""
+msgstr "Mensual"
 
 #. module: hr_payroll_period
 #: view:hr.payroll.period.end.1:0
@@ -163,7 +163,7 @@ msgstr ""
 #. module: hr_payroll_period
 #: field:hr.payslip.exception.rule,company_id:0
 msgid "Company"
-msgstr ""
+msgstr "Empresa"
 
 #. module: hr_payroll_period
 #: code:addons/hr_payroll_period/hr_payroll_period.py:312
@@ -707,7 +707,7 @@ msgstr ""
 #: field:hr.payroll.period.schedule,active:0
 #: field:hr.payslip.exception.rule,active:0
 msgid "Active"
-msgstr ""
+msgstr "Actiu"
 
 #. module: hr_payroll_period
 #: view:hr.payroll.period:0
@@ -1040,7 +1040,7 @@ msgstr ""
 #. module: hr_payroll_period
 #: field:hr.payslip.exception,name:0 field:hr.payslip.exception.rule,name:0
 msgid "Name"
-msgstr ""
+msgstr "Nom"
 
 #. module: hr_payroll_period
 #: view:hr.payroll.period:0

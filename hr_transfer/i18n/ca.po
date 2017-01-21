@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-17 01:54+0000\n"
+"POT-Creation-Date: 2017-01-17 14:04+0000\n"
 "PO-Revision-Date: 2015-07-27 23:41+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Catalan (http://www.transifex.com/oca/OCA-hr-7-0/language/ca/)\n"
@@ -30,7 +30,7 @@ msgstr ""
 #. module: hr_transfer
 #: field:hr.department.transfer,src_id:0
 msgid "From"
-msgstr ""
+msgstr "De"
 
 #. module: hr_transfer
 #: view:hr.department.transfer:0
