@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-07 02:29+0000\n"
-"PO-Revision-Date: 2017-01-13 09:22+0000\n"
+"POT-Creation-Date: 2017-01-14 03:17+0000\n"
+"PO-Revision-Date: 2017-01-17 19:17+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Catalan (http://www.transifex.com/oca/OCA-hr-8-0/language/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -34,7 +34,7 @@ msgstr ""
 #: code:addons/hr_employee_benefit/models/hr_employee_benefit_rate.py:100
 #, python-format
 msgid "Annual"
-msgstr ""
+msgstr "Anual"
 
 #. module: hr_employee_benefit
 #: field:hr.employee.benefit,category_id:0
@@ -266,7 +266,7 @@ msgstr "Darrera Actualització el"
 #. module: hr_employee_benefit
 #: field:hr.employee.benefit.rate,name:0
 msgid "Name"
-msgstr ""
+msgstr "Nom"
 
 #. module: hr_employee_benefit
 #: field:hr.payslip,pays_per_year:0

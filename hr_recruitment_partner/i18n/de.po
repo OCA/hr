@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-17 20:43+0000\n"
-"PO-Revision-Date: 2016-11-25 14:56+0000\n"
+"POT-Creation-Date: 2017-01-14 03:17+0000\n"
+"PO-Revision-Date: 2017-01-19 21:07+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: German (http://www.transifex.com/oca/OCA-hr-8-0/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -313,7 +313,7 @@ msgstr ""
 #. module: hr_recruitment_partner
 #: field:hr.applicant,section_id:0
 msgid "Sales Team"
-msgstr ""
+msgstr "Verkaufsteam"
 
 #. module: hr_recruitment_partner
 #: help:hr.applicant,use_parent_address:0

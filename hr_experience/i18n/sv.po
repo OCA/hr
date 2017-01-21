@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-24 02:15+0000\n"
-"PO-Revision-Date: 2016-12-27 08:26+0000\n"
+"POT-Creation-Date: 2017-01-14 03:17+0000\n"
+"PO-Revision-Date: 2017-01-19 20:17+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Swedish (http://www.transifex.com/oca/OCA-hr-8-0/language/sv/)\n"
 "MIME-Version: 1.0\n"
@@ -127,7 +127,7 @@ msgstr "Skapad den"
 #: view:hr.employee:hr_experience.view_employee_form_inherit
 #: view:hr.experience:hr_experience.view_professional_form
 msgid "Dates"
-msgstr ""
+msgstr "Datum"
 
 #. module: hr_experience
 #: field:hr.academic,description:0
