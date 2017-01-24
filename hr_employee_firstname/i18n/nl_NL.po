@@ -6,7 +6,7 @@
 # lfreeke <lfreeke@therp.nl>, 2015
 msgid ""
 msgstr ""
-"Project-Id-Version: hr (8.0)\n"
+"Project-Id-Version: hr (10.0)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-10-03 22:37+0000\n"
 "PO-Revision-Date: 2015-09-28 20:59+0000\n"
