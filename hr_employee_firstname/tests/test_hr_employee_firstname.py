@@ -1,26 +1,9 @@
 # -*- coding: utf-8 -*-
-##############################################################################
-#
-#    Copyright (C) 2014 Savoir-faire Linux. All Rights Reserved.
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as published
-#    by
-#    the Free Software Foundation, either version 3 of the License, or
-#    (at your option) any later version.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
-#
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-##############################################################################
+# Copyright (C) 2014 Savoir-faire Linux. All Rights Reserved.
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-import openerp.tests
-from openerp.tests.common import TransactionCase
+import odoo
+from odoo.tests.common import TransactionCase
 
 
 class TestEmployeeFirstname(TransactionCase):
@@ -59,6 +42,17 @@ class TestEmployeeFirstname(TransactionCase):
 
         # Check for employee3
         self.assertEqual(self.employee3_id.name, 'Jenssens Famke')
+
+    def test_onchange(self):
+        """
+        Validate the get_name method is not failing
+        """
+        field_onchange = self.employee1_id._onchange_spec()
+        self.assertEqual(field_onchange.get('firstname'), '1')
+        self.assertEqual(field_onchange.get('lastname'), '1')
+        values = {'firstname': 'Antonio', 'lastname': 'Esposito'}
+        self.employee1_id.onchange(values, 'firstname', field_onchange)
+        self.employee1_id.onchange(values, 'lastname', field_onchange)
 
     def test_auto_init_name(self):
         """
@@ -111,10 +105,10 @@ class TestEmployeeFirstname(TransactionCase):
 
         self.assertEqual(self.employee1_id.name, 'Carnaud Jean-Pierre')
 
-    @openerp.tests.common.at_install(False)
-    @openerp.tests.common.post_install(True)
+    @odoo.tests.common.at_install(False)
+    @odoo.tests.common.post_install(True)
     def test_update_name_post_install(self):
-        self.empl_demo = self.env.ref('hr.employee_fp')
+        self.empl_demo = self.env.ref('hr.employee_root')
 
         self.assertEqual(self.empl_demo.firstname, 'Parker')
         self.assertEqual(self.empl_demo.lastname, 'Pieter')
