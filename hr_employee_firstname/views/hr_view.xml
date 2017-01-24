@@ -1,27 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<openerp>
-  <data>
+<odoo>
 
     <record id="view_employee_form" model="ir.ui.view">
         <field name="model">hr.employee</field>
         <field name="inherit_id" ref="hr.view_employee_form"/>
         <field name="arch" type="xml">
-            <label for="name" position="replace">
-                <label for="lastname" class="oe_edit_only"/>
-            </label>
-            <field name="name" position="replace">
-                <field name="name" invisible="True" nolabel="1" required="False"/>
-                <field name="lastname"/>
-            </field>
-
-            <label for="category_ids" position="before">
+            <xpath expr="//label[@for='name']" position="replace">
                 <label for="firstname" class="oe_edit_only"/>
+            </xpath>
+            <xpath expr="//field[@name='name']" position="attributes">
+                <attribute name="invisible">1</attribute>
+                <attribute name="no_label">1</attribute>
+                <attribute name="required">0</attribute>
+            </xpath>
+            <xpath expr="//field[@name='name']" position="after">
+                 <field name="firstname"/>
+            </xpath>
+            <xpath expr="//field[@name='name']/.." position="after">
+                <label for="lastname" class="oe_edit_only"/>
                 <h1>
-                     <field name="firstname"/>
-                </h1>
-            </label>
-      </field>
+                    <field name="lastname"/>
+                 </h1>
+            </xpath>
+        </field>
     </record>
 
-  </data>
-</openerp>
+</odoo>
