@@ -14,6 +14,7 @@ Available addons
 addon | version | summary
 --- | --- | ---
 [hr_employee_age](hr_employee_age/) | 10.0.1.0.0 | Age field for employee
+[hr_employee_firstname](hr_employee_firstname/) | 10.0.1.0.0 | Adds First Name to Employee
 [hr_employee_id](hr_employee_id/) | 10.0.1.0.0 | Employee ID
 [hr_holidays_compute_days](hr_holidays_compute_days/) | 10.0.1.0.0 | Computes the actual leave days considering rest days and public holidays
 [hr_holidays_leave_auto_approve](hr_holidays_leave_auto_approve/) | 10.0.1.0.0 | Leave type for auto approval of Leaves
@@ -34,7 +35,6 @@ addon | version | summary
 [hr_emergency_contact](hr_emergency_contact/) | 1.0 (unported) | HR Emergency Contact
 [hr_employee_benefit](hr_employee_benefit/) | 8.0.1.0.0 (unported) | Employee Benefit
 [hr_employee_data_from_work_address](hr_employee_data_from_work_address/) | 8.0.1.0.0 (unported) | Update user's and partner's data fields from employee record
-[hr_employee_firstname](hr_employee_firstname/) | 8.0.0.0.2 (unported) | Adds First Name to Employee
 [hr_employee_gravatar](hr_employee_gravatar/) | 8.0.1.0.0 (unported) | Employees Synchronize Gravatar image
 [hr_employee_legacy_id](hr_employee_legacy_id/) | 8.0.1.0.0 (unported) | Legacy Employee ID
 [hr_employee_phone_extension](hr_employee_phone_extension/) | 8.0.1.0.0 (unported) | Employee Phone Extension
