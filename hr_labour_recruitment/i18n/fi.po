@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-17 01:54+0000\n"
+"POT-Creation-Date: 2017-02-11 02:20+0000\n"
 "PO-Revision-Date: 2015-07-27 23:39+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Finnish (http://www.transifex.com/oca/OCA-hr-7-0/language/fi/)\n"
@@ -256,7 +256,7 @@ msgstr ""
 #. module: hr_labour_recruitment
 #: view:hr.recruitment.request:0
 msgid "Approve"
-msgstr ""
+msgstr "Hyväksy"
 
 #. module: hr_labour_recruitment
 #: help:hr.recruitment.request,message_unread:0
