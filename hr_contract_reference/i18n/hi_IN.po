@@ -3,22 +3,22 @@
 # * hr_contract_reference
 # 
 # Translators:
-# Alexandre Fayolle <alexandre.fayolle@camptocamp.com>, 2018
+# BS Logics <bslogics2017@gmail.com>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-23 03:45+0000\n"
-"PO-Revision-Date: 2018-02-23 03:45+0000\n"
-"Last-Translator: Alexandre Fayolle <alexandre.fayolle@camptocamp.com>, 2018\n"
-"Language-Team: French (https://www.transifex.com/oca/teams/23907/fr/)\n"
+"POT-Creation-Date: 2017-07-29 02:20+0000\n"
+"PO-Revision-Date: 2017-07-29 02:20+0000\n"
+"Last-Translator: BS Logics <bslogics2017@gmail.com>, 2017\n"
+"Language-Team: Hindi (India) (https://www.transifex.com/oca/teams/23907/hi_IN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: fr\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Language: hi_IN\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: hr_contract_reference
 #: model:ir.model,name:hr_contract_reference.model_hr_contract
-msgid "Employee Contract"
-msgstr "Contrat"
+msgid "Contract"
+msgstr "संपर्क "
