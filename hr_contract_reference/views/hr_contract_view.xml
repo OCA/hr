@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<openerp>
-    <data>
-        
-        <record id="hr_contract_view" model="ir.ui.view">
-            <field name="name">hr.contract.form.view.inherit.ref</field>
-            <field name="model">hr.contract</field>
-            <field name="type">form</field>
-            <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
-            <field name="arch" type="xml">
-                <field name="name" position="replace">
-                    <field name="name" readonly="1"/>
-                </field>
+<odoo>
+    <record id="hr_contract_view" model="ir.ui.view">
+        <field name="name">hr.contract.form.view.inherit.ref</field>
+        <field name="model">hr.contract</field>
+        <field name="type">form</field>
+        <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
+        <field name="arch" type="xml">
+            <field name="name" position="attributes">
+                <attribute name="readonly">True</attribute>
             </field>
-        </record>
-    </data>
-</openerp>
+        </field>
+    </record>
+</odoo>
