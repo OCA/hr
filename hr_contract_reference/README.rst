@@ -1,5 +1,6 @@
 .. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
-    :alt: License: AGPL-3
+   :target: https://www.gnu.org/licenses/agpl-3.0-standalone.html
+   :alt: License: AGPL-3
 
 HR Contract Reference
 =====================
@@ -13,7 +14,7 @@ Installation
 
 To install this module, you need to:
 
-* clone the branch 8.0 of the repository https://github.com/OCA/hr
+* clone the branch 10.0 of the repository https://github.com/OCA/hr
 * add the path to this repository in your configuration (addons-path)
 * update the module list
 * search for "HR Contract Reference" in your addons
@@ -33,6 +34,13 @@ Usage
 When you will create a new employee contract, the field reference will be
 assigned automatically with the next number of the predefined sequence.
 
+Bug Tracker
+===========
+
+Bugs are tracked on `GitHub Issues <https://github.com/OCA/hr/issues>`_.
+In case of trouble, please check there if your issue has already been reported.
+If you spotted it first, help us smashing it by providing a detailed and welcomed feedback.
+
 Credits
 =======
 
@@ -41,6 +49,7 @@ Contributors
 
 * Michael Telahun Makonnen <mmakonnen@gmail.com>
 * Fekete Mihai <feketemihai@gmail.com>
+* Denis Leemann <denis.leemann@camptocamp.com>
 
 Maintainer
 ----------
