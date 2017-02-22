@@ -1,13 +1,11 @@
-# Translation of OpenERP Server.
+# Translation of Odoo Server.
 # This file contains the translation of the following modules:
 #	* hr_employee_phone_extension
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: OpenERP Server 7.0\n"
+"Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-12 16:57+0000\n"
-"PO-Revision-Date: 2013-12-12 16:57+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -21,21 +19,22 @@ msgid "Employee"
 msgstr ""
 
 #. module: hr_employee_phone_extension
-#: field:hr.employee,internal_number:0
+#: model:ir.model.fields,field_description:hr_employee_phone_extension.field_hr_employee_internal_number
 msgid "Internal Number"
 msgstr ""
 
 #. module: hr_employee_phone_extension
-#: help:hr.employee,internal_number:0
+#: model:ir.model.fields,help:hr_employee_phone_extension.field_hr_employee_internal_number
 msgid "Internal phone number."
 msgstr ""
 
 #. module: hr_employee_phone_extension
-#: help:hr.employee,short_number:0
-msgid "Short phone number."
+#: model:ir.model.fields,field_description:hr_employee_phone_extension.field_hr_employee_short_number
+msgid "Short Number"
 msgstr ""
 
 #. module: hr_employee_phone_extension
-#: field:hr.employee,short_number:0
-msgid "Short Number"
+#: model:ir.model.fields,help:hr_employee_phone_extension.field_hr_employee_short_number
+msgid "Short phone number."
 msgstr ""
+
