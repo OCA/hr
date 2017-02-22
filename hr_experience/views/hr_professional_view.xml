@@ -1,5 +1,5 @@
-<openerp>
-  <data>
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
     <!-- professional tree -->
     <record model="ir.ui.view" id="view_professional_tree">
         <field name="name">hr.experience.tree</field>
@@ -52,5 +52,4 @@
               id="menu_open_view_professional_form"
               action="open_view_professional_form"/>
 
-  </data>
-</openerp>
+</odoo>
