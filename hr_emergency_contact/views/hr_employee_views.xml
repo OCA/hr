@@ -9,8 +9,15 @@
                 <xpath expr='//notebook' position="inside">
                     <page string="Emergency Contacts">
                         <field name="emergency_contact_ids" nolabel="1" colspan="4"
-                            context="{'default_is_company':False}"
-                            />
+                            context="{'default_is_company':False}">
+                            <tree>
+                                <field name='name'/>
+                                <field name='function'/>
+                                <field name='phone'/>
+                                <field name='mobile'/>
+                                <field name='email'/>
+                            </tree>
+                        </field>
                     </page>
                 </xpath>
             </field>
