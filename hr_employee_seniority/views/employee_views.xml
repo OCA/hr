@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!-- Employee Records -->
+    <record id="hr_employee_view_tree" model="ir.ui.view">
+        <field name="name">hr.employee.tree.seniority</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='work_phone']" position="before">
+                <field name="length_of_service"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="hr_employee_view_form_inherit" model="ir.ui.view">
+        <field name="name">hr.employee.form.seniority</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='active_group']" position="after">
+                <group string="Duration of Service">
+                    <field name="initial_employment_date"/>
+                    <field name="length_of_service"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
