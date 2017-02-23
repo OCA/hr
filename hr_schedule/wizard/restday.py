@@ -23,7 +23,7 @@ from datetime import datetime, timedelta
 from dateutil.relativedelta import relativedelta
 from pytz import timezone, utc
 
-from openerp.osv import fields, orm
+from openerp import fields
 from openerp.tools import DEFAULT_SERVER_DATETIME_FORMAT as OE_DTFORMAT
 from openerp.tools import DEFAULT_SERVER_DATE_FORMAT as OE_DFORMAT
 from openerp.tools.translate import _
@@ -32,7 +32,7 @@ import logging
 _l = logging.getLogger(__name__)
 
 
-class restday(orm.TransientModel):
+class restday(models.TransientModel):
 
     _name = 'hr.restday.wizard'
     _description = 'Schedule Template Change Wizard'
@@ -151,7 +151,7 @@ class restday(orm.TransientModel):
             hour, sep, minute = worktime.hour_from.partition(':')
             toHour, toSep, toMin = worktime.hour_to.partition(':')
             if len(sep) == 0 or len(toSep) == 0:
-                raise orm.except_orm(
+                raise models.except_orm(
                     _('Invalid Time Format'),
                     _('The time should be entered as HH:MM'))
 

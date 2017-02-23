@@ -19,10 +19,10 @@
 #
 ##############################################################################
 
-from openerp.osv import orm
 
 
-class hr_payslip(orm.Model):
+
+class hr_payslip(models.Model):
     _inherit = 'hr.payslip'
 
     def compute_sheet(self, cr, uid, ids, context=None):

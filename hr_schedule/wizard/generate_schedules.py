@@ -22,10 +22,10 @@
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 
-from openerp.osv import fields, orm
+from openerp import fields
 
 
-class hr_schedule_generate(orm.TransientModel):
+class hr_schedule_generate(models.TransientModel):
 
     _name = 'hr.schedule.generate'
     _description = 'Generate Schedules'

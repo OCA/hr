@@ -19,10 +19,10 @@
 #
 #
 
-from openerp.osv import fields, orm
+from openerp import fields
 
 
-class policy_presence(orm.Model):
+class policy_presence(models.Model):
 
     _name = 'hr.policy.presence'
 
@@ -51,7 +51,7 @@ class policy_presence(orm.Model):
         return res
 
 
-class policy_line_presence(orm.Model):
+class policy_line_presence(models.Model):
 
     _name = 'hr.policy.line.presence'
 
@@ -81,7 +81,7 @@ class policy_line_presence(orm.Model):
     }
 
 
-class policy_group(orm.Model):
+class policy_group(models.Model):
 
     _name = 'hr.policy.group'
     _inherit = 'hr.policy.group'

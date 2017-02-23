@@ -19,10 +19,10 @@
 #
 #
 
-from openerp.osv import fields, orm
+from openerp import fields
 
 
-class hr_employee(orm.Model):
+class hr_employee(models.Model):
 
     _name = 'hr.employee'
     _inherit = 'hr.employee'
@@ -36,7 +36,7 @@ class hr_employee(orm.Model):
     }
 
 
-class hr_contract(orm.Model):
+class hr_contract(models.Model):
 
     _name = 'hr.contract'
     _inherit = 'hr.contract'

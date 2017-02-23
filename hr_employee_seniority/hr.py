@@ -22,12 +22,12 @@
 from datetime import datetime, date, timedelta
 from dateutil.relativedelta import relativedelta
 
-from openerp.osv import fields, orm
+from openerp import fields
 from openerp.tools import DEFAULT_SERVER_DATE_FORMAT as OE_DATEFORMAT
 from openerp.tools.translate import _
 
 
-class hr_employee(orm.Model):
+class hr_employee(models.Model):
 
     _inherit = 'hr.employee'
 
@@ -86,7 +86,7 @@ class hr_employee(orm.Model):
                 dInitial = datetime.strptime(
                     ee.initial_employment_date, OE_DATEFORMAT).date()
                 if dFirstContract < dInitial:
-                    raise orm.except_orm(
+                    raise models.except_orm(
                         _('Employment Date mismatch!'),
                         _("The initial employment date cannot be after the "
                           "first contract in the system.\n"

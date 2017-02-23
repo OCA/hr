@@ -18,10 +18,10 @@
 #    along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
 ###############################################################################
-from openerp.osv import fields, orm
+from openerp import fields
 
 
-class hr_employee(orm.Model):
+class hr_employee(models.Model):
     _inherit = 'hr.employee'
     _columns = {
         'biography': fields.text('Biography'),

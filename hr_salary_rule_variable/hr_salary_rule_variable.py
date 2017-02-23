@@ -19,10 +19,10 @@
 #
 ##############################################################################
 
-from openerp.osv import fields, orm
+from openerp import fields
 
 
-class hr_salary_rule_variable(orm.Model):
+class hr_salary_rule_variable(models.Model):
     _name = 'hr.salary.rule.variable'
     _description = 'Variables used on salary rules that change over the years'
     _columns = {

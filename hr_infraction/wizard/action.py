@@ -20,12 +20,12 @@
 #
 
 from openerp import netsvc
-from openerp.osv import fields, orm
+from openerp import fields
 
 from openerp.addons.hr_infraction.hr_infraction import ACTION_TYPE_SELECTION
 
 
-class action_wizard(orm.TransientModel):
+class action_wizard(models.TransientModel):
 
     _name = 'hr.infraction.action.wizard'
     _description = 'Choice of Actions for Infraction'

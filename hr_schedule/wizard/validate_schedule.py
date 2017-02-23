@@ -21,13 +21,13 @@
 
 from openerp import netsvc
 
-from openerp.osv import fields, orm
+from openerp import fields
 
 import logging
 _logger = logging.getLogger(__name__)
 
 
-class department_selection(orm.TransientModel):
+class department_selection(models.TransientModel):
 
     _name = 'hr.schedule.validate.departments'
     _description = 'Department Selection for Validation'

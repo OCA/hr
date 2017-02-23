@@ -20,10 +20,10 @@
 #
 
 from openerp.tools.translate import _
-from openerp.osv import fields, orm
+from openerp import fields
 
 
-class hr_payslip_amendment(orm.Model):
+class hr_payslip_amendment(models.Model):
 
     _name = 'hr.payslip.amendment'
     _description = 'Pay Slip Amendment'
@@ -94,7 +94,7 @@ class hr_payslip_amendment(orm.Model):
 
         for psa in self.browse(cr, uid, ids, context=context):
             if psa.state in ['validate', 'done']:
-                raise orm.except_orm(
+                raise models.except_orm(
                     _('Invalid Action'),
                     _('A Pay Slip Amendment that has been confirmed cannot be '
                       'deleted!')

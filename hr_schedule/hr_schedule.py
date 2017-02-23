@@ -27,7 +27,7 @@ from dateutil.relativedelta import relativedelta
 from pytz import timezone, utc
 
 from openerp import netsvc
-from openerp.osv import fields, orm
+from openerp import fields
 from openerp.tools import DEFAULT_SERVER_DATETIME_FORMAT as OE_DTFORMAT
 from openerp.tools import DEFAULT_SERVER_DATE_FORMAT as OE_DFORMAT
 from openerp.tools.translate import _
@@ -46,7 +46,7 @@ DAYOFWEEK_SELECTION = [
 ]
 
 
-class week_days(orm.Model):
+class week_days(models.Model):
 
     _name = 'hr.schedule.weekday'
     _description = 'Days of the Week'
@@ -64,7 +64,7 @@ class week_days(orm.Model):
     }
 
 
-class hr_schedule(orm.Model):
+class hr_schedule(models.Model):
 
     _name = 'hr.schedule'
     _inherit = ['mail.thread']
@@ -243,7 +243,7 @@ WHERE (date_start <= %s and %s <= date_end)
         if len(ids) == 0:
             return None
         elif len(ids) > 1:
-            raise orm.except_orm(_('Programming Error'), _(
+            raise models.except_orm(_('Programming Error'), _(
                 'Employee has a scheduled date in more than one schedule.'))
 
         # If the day is in the middle of the week get the start of the week
@@ -447,7 +447,7 @@ WHERE (date_start <= %s and %s <= date_end)
                     hour, sep, minute = worktime.hour_from.partition(':')
                     toHour, toSep, toMin = worktime.hour_to.partition(':')
                     if len(sep) == 0 or len(toSep) == 0:
-                        raise orm.except_orm(
+                        raise models.except_orm(
                             _('Invalid Time Format'),
                             _('The time should be entered as HH:MM')
                         )
@@ -676,7 +676,7 @@ WHERE (date_start <= %s and %s <= date_end)
         return all_locked is False
 
 
-class schedule_detail(orm.Model):
+class schedule_detail(models.Model):
     _name = "hr.schedule.detail"
     _description = "Schedule Detail"
 
@@ -1038,7 +1038,7 @@ WHERE (date_start <= %s and %s <= date_end)
         return True
 
 
-class hr_schedule_request(orm.Model):
+class hr_schedule_request(models.Model):
 
     _name = 'hr.schedule.request'
     _description = 'Change Request'
@@ -1086,7 +1086,7 @@ class hr_schedule_request(orm.Model):
     }
 
 
-class hr_schedule_alert(orm.Model):
+class hr_schedule_alert(models.Model):
 
     _name = 'hr.schedule.alert'
     _description = 'Attendance Exception'
@@ -1420,7 +1420,7 @@ class hr_schedule_alert(orm.Model):
                             context=context)
 
 
-class hr_schedule_alert_rule(orm.Model):
+class hr_schedule_alert_rule(models.Model):
 
     _name = 'hr.schedule.alert.rule'
     _description = 'Scheduling/Attendance Exception Rule'
@@ -1626,7 +1626,7 @@ class hr_schedule_alert_rule(orm.Model):
         return res
 
 
-class hr_schedule_template(orm.Model):
+class hr_schedule_template(models.Model):
 
     _name = 'hr.schedule.template'
     _description = 'Employee Working Schedule Template'
@@ -1707,7 +1707,7 @@ class hr_schedule_template(orm.Model):
             fromHour, fromSep, fromMin = worktime.hour_from.partition(':')
             toHour, toSep, toMin = worktime.hour_to.partition(':')
             if len(fromSep) == 0 or len(toSep) == 0:
-                raise orm.except_orm(
+                raise models.except_orm(
                     'Invalid Data', 'Format of working hours is incorrect')
 
             delta += (
@@ -1718,7 +1718,7 @@ class hr_schedule_template(orm.Model):
         return float(delta.seconds / 60) / 60.0
 
 
-class hr_schedule_working_times(orm.Model):
+class hr_schedule_working_times(models.Model):
 
     _name = "hr.schedule.template.worktime"
     _description = "Work Detail"
@@ -1769,7 +1769,7 @@ class hr_schedule_working_times(orm.Model):
     }
 
 
-class contract_init(orm.Model):
+class contract_init(models.Model):
 
     _inherit = 'hr.contract.init'
 
@@ -1783,7 +1783,7 @@ class contract_init(orm.Model):
     }
 
 
-class hr_contract(orm.Model):
+class hr_contract(models.Model):
 
     _name = 'hr.contract'
     _inherit = 'hr.contract'
@@ -1808,7 +1808,7 @@ class hr_contract(orm.Model):
     }
 
 
-class hr_attendance(orm.Model):
+class hr_attendance(models.Model):
 
     _name = 'hr.attendance'
     _inherit = 'hr.attendance'
@@ -1937,7 +1937,7 @@ class hr_attendance(orm.Model):
         return res
 
 
-class hr_holidays(orm.Model):
+class hr_holidays(models.Model):
 
     _inherit = 'hr.holidays'
 
@@ -2026,7 +2026,7 @@ class hr_holidays(orm.Model):
         return res
 
 
-class hr_term(orm.Model):
+class hr_term(models.Model):
 
     _inherit = 'hr.employee.termination'
 

@@ -21,10 +21,10 @@
 
 from datetime import datetime
 from openerp.tools.translate import _
-from openerp.osv import fields, orm
+from openerp import fields
 
 
-class hr_payroll_run(orm.Model):
+class hr_payroll_run(models.Model):
 
     _name = 'hr.payslip.run'
     _inherit = 'hr.payslip.run'
@@ -34,7 +34,7 @@ class hr_payroll_run(orm.Model):
     }
 
 
-class hr_payroll_register(orm.Model):
+class hr_payroll_register(models.Model):
 
     _name = 'hr.payroll.register'
 

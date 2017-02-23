@@ -21,12 +21,12 @@
 
 import time
 
-from openerp.osv import fields, orm
+from openerp import fields
 from openerp.tools import DEFAULT_SERVER_DATE_FORMAT
 from openerp.tools.translate import _
 
 
-class hr_infraction_category(orm.Model):
+class hr_infraction_category(models.Model):
 
     _name = 'hr.infraction.category'
     _description = 'Infraction Type'
@@ -42,7 +42,7 @@ class hr_infraction_category(orm.Model):
     }
 
 
-class hr_infraction(orm.Model):
+class hr_infraction(models.Model):
 
     _name = 'hr.infraction'
     _description = 'Infraction'
@@ -124,7 +124,7 @@ class hr_infraction(orm.Model):
     def unlink(self, cr, uid, ids, context=None):
         for infraction in self.browse(cr, uid, ids, context=context):
             if infraction.state not in ['draft']:
-                raise orm.except_orm(
+                raise models.except_orm(
                     _('Error'),
                     _('Infractions that have progressed beyond "Draft" state '
                       'may not be removed.')
@@ -149,7 +149,7 @@ ACTION_TYPE_SELECTION = [
 ]
 
 
-class hr_infraction_action(orm.Model):
+class hr_infraction_action(models.Model):
 
     _name = 'hr.infraction.action'
     _description = 'Action Based on Infraction'
@@ -195,7 +195,7 @@ class hr_infraction_action(orm.Model):
 
         for action in self.browse(cr, uid, ids, context=context):
             if action.infraction_id.state not in ['draft']:
-                raise orm.except_orm(
+                raise models.except_orm(
                     _('Error'),
                     _('Actions belonging to Infractions not in "Draft" state '
                       'may not be removed.')
@@ -206,7 +206,7 @@ class hr_infraction_action(orm.Model):
         )
 
 
-class hr_warning(orm.Model):
+class hr_warning(models.Model):
 
     _name = 'hr.infraction.warning'
     _description = 'Employee Warning'
@@ -259,7 +259,7 @@ class hr_warning(orm.Model):
         for warning in self.browse(cr, uid, ids, context=context):
             if (warning.action_id
                     and warning.action_id.infraction_id.state != 'draft'):
-                raise orm.except_orm(
+                raise models.except_orm(
                     _('Error'),
                     _('Warnings attached to Infractions not in "Draft" state '
                       'may not be removed.')
@@ -267,7 +267,7 @@ class hr_warning(orm.Model):
         return super(hr_warning, self).unlink(cr, uid, ids, context=context)
 
 
-class hr_employee(orm.Model):
+class hr_employee(models.Model):
 
     _name = 'hr.employee'
     _inherit = 'hr.employee'
