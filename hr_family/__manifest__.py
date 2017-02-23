@@ -21,11 +21,11 @@
 
 {
     'name': 'Employee Family Information',
-    'version': '8.0.1.2.0',
+    'version': '10.0.1.0.0',
     'category': 'Generic Modules/Human Resources',
     'author': "Michael Telahun Makonnen <mmakonnen@gmail.com>,"
               "Odoo Community Association (OCA)",
-    'website': 'http://www.openerp.com',
+    'website': 'https://odoo-community.org/',
     'license': 'AGPL-3',
     'depends': [
         'hr',
@@ -35,7 +35,5 @@
         'views/hr_children.xml',
         'views/hr_employee.xml',
     ],
-    'test': [
-    ],
-    'installable': False,
+    'installable': True,
 }
