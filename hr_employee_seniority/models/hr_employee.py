@@ -2,10 +2,10 @@
 # copyright 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>
 # copyright 2017 Denis Leemann, Camptocamp SA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
-import datetime
 
-from odoo import api, fields, models
-from odoo import tools
+from dateutil.relativedelta import relativedelta
+
+from odoo import api, exceptions, fields, models
 
 
 class HrEmployee(models.Model):
@@ -22,29 +22,49 @@ class HrEmployee(models.Model):
         compute='_compute_months_service',
     )
 
-    @api.depends('contract_ids')
+    def _first_contract(self):
+        Contract = self.env['hr.contract']
+        return Contract.search([('employee_id', '=', self.id)],
+                               order='date_start asc', limit=1)
+
+    @api.depends('contract_ids', 'initial_employment_date')
     def _compute_months_service(self):
+        date_now = fields.Date.today()
         for employee in self:
-            nb_days = 0
-            DATE_FORMAT = tools.DEFAULT_SERVER_DATE_FORMAT
-            date_now = fields.Date.today()
+            nb_month = 0
 
             if employee.initial_employment_date:
-                from_dt = datetime.datetime.strptime(
-                    employee.initial_employment_date, DATE_FORMAT)
-                to_dt = datetime.datetime.strptime(date_now, DATE_FORMAT)
-                nb_days += (to_dt - from_dt).days
+                if employee.contract_ids:
+                    contract = employee._first_contract()
+                    to_dt = fields.Date.from_string(contract.date_start)
+                else:
+                    to_dt = fields.Date.from_string(date_now)
+
+                from_dt = fields.Date.from_string(
+                    employee.initial_employment_date)
+
+                nb_month += relativedelta(to_dt, from_dt).years * 12 + \
+                    relativedelta(to_dt, from_dt).months
 
             for contract in employee.contract_ids:
-                from_dt = datetime.datetime.strptime(
-                    contract.date_start, DATE_FORMAT)
-                if contract.date_end:
-                    to_dt = datetime.datetime.strptime(
-                        contract.date_end, DATE_FORMAT)
+                from_dt = fields.Date.from_string(contract.date_start)
+                if contract.date_end and contract.date_end < date_now:
+                    to_dt = fields.Date.from_string(contract.date_end)
                 else:
-                    to_dt = datetime.datetime.strptime(date_now, DATE_FORMAT)
+                    to_dt = fields.Date.from_string(date_now)
 
-                nb_days += (to_dt - from_dt).days
+                nb_month += relativedelta(to_dt, from_dt).years * 12 + \
+                    relativedelta(to_dt, from_dt).months
 
-            # assuming in commercial calendar, one month is 30 days long
-            employee.length_of_service = nb_days / 30.0
+            employee.length_of_service = nb_month
+
+    @api.constrains('initial_employment_date', 'contract_ids')
+    def _check_initial_employment_date(self):
+        if self.initial_employment_date and len(self.contract_ids):
+            initial_dt = fields.Date.from_string(self.initial_employment_date)
+            first_contract_dt = fields.Date.from_string(
+                self._first_contract().date_start)
+            if initial_dt > first_contract_dt:
+                raise exceptions.UserError("The initial employment date cannot"
+                                           " be after the first contract in "
+                                           "the system!")
