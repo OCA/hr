@@ -4,35 +4,36 @@
 # 
 # Translators:
 # OCA Transbot <transbot@odoo-community.org>, 2017
+# Peter Hageman <hageman.p@gmail.com>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-10 19:09+0000\n"
-"PO-Revision-Date: 2017-03-10 19:09+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
-"Language-Team: Polish (https://www.transifex.com/oca/teams/23907/pl/)\n"
+"POT-Creation-Date: 2017-06-10 04:30+0000\n"
+"PO-Revision-Date: 2017-06-10 04:30+0000\n"
+"Last-Translator: Peter Hageman <hageman.p@gmail.com>, 2017\n"
+"Language-Team: Dutch (Netherlands) (https://www.transifex.com/oca/teams/23907/nl_NL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: pl\n"
-"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>=14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
+"Language: nl_NL\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: hr_family
 #: model:ir.model.fields,field_description:hr_family.field_hr_employee_fam_children_ids
 #: model:ir.ui.view,arch_db:hr_family.hr_employee_view_form
 msgid "Children"
-msgstr ""
+msgstr "Kinderen"
 
 #. module: hr_family
 #: model:ir.model.fields,field_description:hr_family.field_hr_employee_children_create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Aangemaakt door"
 
 #. module: hr_family
 #: model:ir.model.fields,field_description:hr_family.field_hr_employee_children_create_date
 msgid "Created on"
-msgstr ""
+msgstr "Aangemaakt op"
 
 #. module: hr_family
 #: model:ir.model.fields,field_description:hr_family.field_hr_employee_children_date_of_birth
@@ -42,13 +43,13 @@ msgstr ""
 #. module: hr_family
 #: model:ir.model.fields,field_description:hr_family.field_hr_employee_children_display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Weergavenaam"
 
 #. module: hr_family
 #: model:ir.model,name:hr_family.model_hr_employee
 #: model:ir.model.fields,field_description:hr_family.field_hr_employee_children_employee_id
 msgid "Employee"
-msgstr ""
+msgstr "Werknemer"
 
 #. module: hr_family
 #: model:ir.ui.view,arch_db:hr_family.hr_children_view_tree
@@ -88,22 +89,22 @@ msgstr ""
 #. module: hr_family
 #: model:ir.model.fields,field_description:hr_family.field_hr_employee_children_id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: hr_family
 #: model:ir.model.fields,field_description:hr_family.field_hr_employee_children___last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Laatst gewijzigd op"
 
 #. module: hr_family
 #: model:ir.model.fields,field_description:hr_family.field_hr_employee_children_write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Laatst bijgewerkt door"
 
 #. module: hr_family
 #: model:ir.model.fields,field_description:hr_family.field_hr_employee_children_write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Laatst bijgewerkt op"
 
 #. module: hr_family
 #: selection:hr.employee.children,gender:0
@@ -123,7 +124,7 @@ msgstr ""
 #. module: hr_family
 #: model:ir.model.fields,field_description:hr_family.field_hr_employee_children_name
 msgid "Name"
-msgstr "Nazwa"
+msgstr "Naam"
 
 #. module: hr_family
 #: model:ir.ui.view,arch_db:hr_family.hr_employee_view_form

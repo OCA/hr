@@ -19,20 +19,27 @@
 #
 #
 
-from openerp import models, fields
+from odoo import models, fields
 
 
 class HrEmployee(models.Model):
     _inherit = 'hr.employee'
 
-    fam_spouse = fields.Char("Name")
-    fam_spouse_employer = fields.Char("Employer")
-    fam_spouse_tel = fields.Char("Telephone.")
+    fam_spouse = fields.Char(string="Spouse's Name")
+    fam_spouse_employer = fields.Char(string="Spouses's Employer")
+    fam_spouse_tel = fields.Char(string="Spouse's Telephone")
     fam_children_ids = fields.One2many(
-        'hr.employee.children', 'employee_id', "Children")
-    fam_father = fields.Char("Father's Name")
+        string="Children",
+        comodel_name='hr.employee.children',
+        inverse_name='employee_id'
+    )
+    fam_father = fields.Char(string="Father's Name")
     fam_father_date_of_birth = fields.Date(
-        "Date of Birth", oldname='fam_father_dob')
-    fam_mother = fields.Char("Mother's Name")
+        string="Father Date of Birth",
+        oldname='fam_father_dob'
+    )
+    fam_mother = fields.Char(string="Mother's Name")
     fam_mother_date_of_birth = fields.Date(
-        "Date of Birth", oldname='fam_mother_dob')
+        string="Mother Date of Birth",
+        oldname='fam_mother_dob'
+    )
