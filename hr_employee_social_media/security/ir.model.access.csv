@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hr_social_media_public_user,access_hr_social_media_user,model_hr_social_media,base.group_user,1,0,0,0
+access_hr_social_media_publi_manager,access_hr_social_media_manager,model_hr_social_media,hr.group_hr_manager,1,1,1,1
+access_hr_social_media_account_user,access_hr_social_media_account_user,model_hr_social_media_account,base.group_user,1,0,0,0
+access_hr_social_media_account_manager,access_hr_social_media_account_manager,model_hr_social_media_account,hr.group_hr_manager,1,1,1,1
