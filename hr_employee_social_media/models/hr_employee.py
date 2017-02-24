@@ -8,12 +8,8 @@ from odoo import models, fields
 class HrEmployee(models.Model):
     _inherit = 'hr.employee'
 
-    skype_id = fields.Char(
-        string='Skype ID',
-    )
-    twitter_id = fields.Char(
-        string='Twitter ID',
-    )
-    whatsapp_id = fields.Char(
-        string='Whatsapp ID',
+    social_media_account_ids = fields.One2many(
+        'hr.social.media.account',
+        'employee_id',
+        string='Social Media Accounts',
     )
