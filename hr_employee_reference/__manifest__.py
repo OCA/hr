@@ -4,7 +4,7 @@
 {
     "name": "Employee References",
     "summary": "Manage employee references",
-    "version": "8.0.1.0.0",
+    "version": "10.0.1.0.0",
     "category": "HR",
     "website": "https://opensynergy-indonesia.com",
     "author": "OpenSynergy Indonesia, Odoo Community Association (OCA)",
