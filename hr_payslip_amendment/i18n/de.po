@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-31 03:22+0000\n"
+"POT-Creation-Date: 2017-02-18 02:58+0000\n"
 "PO-Revision-Date: 2015-07-27 23:39+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: German (http://www.transifex.com/oca/OCA-hr-7-0/language/de/)\n"
@@ -93,12 +93,12 @@ msgstr ""
 #. module: hr_payslip_amendment
 #: help:hr.payslip.amendment,message_unread:0
 msgid "If checked new messages require your attention."
-msgstr ""
+msgstr "Wenn angehakt, erfordern neue Mitteilungen Ihre Aufmerksamkeit."
 
 #. module: hr_payslip_amendment
 #: field:hr.payslip.amendment,message_is_follower:0
 msgid "Is a Follower"
-msgstr ""
+msgstr "Ist Follower"
 
 #. module: hr_payslip_amendment
 #: field:hr.payslip.amendment,message_ids:0
@@ -129,7 +129,7 @@ msgstr ""
 #. module: hr_payslip_amendment
 #: help:hr.payslip.amendment,message_ids:0
 msgid "Messages and communication history"
-msgstr ""
+msgstr "Meldungs- und Kommunikationsverlauf"
 
 #. module: hr_payslip_amendment
 #: code:addons/hr_payslip_amendment/hr_payslip_amendment.py:99
@@ -142,7 +142,7 @@ msgstr ""
 msgid ""
 "Holds the Chatter summary (number of messages, ...). This summary is "
 "directly in html format in order to be inserted in kanban views."
-msgstr ""
+msgstr "Beinhaltet die Dialogzusammenfassung (Anzahl Mitteilungen, ...). Diese Zusammenfassung liegt in HTML vor, um direkt in Kanban-Ansichten verwendet werden zu können."
 
 #. module: hr_payslip_amendment
 #: selection:hr.payslip.amendment,state:0

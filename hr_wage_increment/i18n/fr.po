@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-17 12:09+0000\n"
+"POT-Creation-Date: 2017-02-18 02:58+0000\n"
 "PO-Revision-Date: 2015-07-27 23:41+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: French (http://www.transifex.com/oca/OCA-hr-7-0/language/fr/)\n"
@@ -78,7 +78,7 @@ msgstr ""
 #: code:addons/hr_wage_increment/wizard/wage_adjustment_by_employees.py:68
 #, python-format
 msgid "Warning !"
-msgstr ""
+msgstr "Attention !"
 
 #. module: hr_wage_increment
 #: view:hr.contract.wage.increment:0

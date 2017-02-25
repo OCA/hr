@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-17 01:54+0000\n"
+"POT-Creation-Date: 2017-02-18 02:58+0000\n"
 "PO-Revision-Date: 2015-07-27 23:39+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: French (http://www.transifex.com/oca/OCA-hr-7-0/language/fr/)\n"
@@ -265,7 +265,7 @@ msgstr ""
 #: code:addons/hr_payroll_register/wizard/hr_payroll_register_run.py:60
 #, python-format
 msgid "Warning !"
-msgstr ""
+msgstr "Attention !"
 
 #. module: hr_payroll_register
 #: model:ir.model,name:hr_payroll_register.model_hr_payroll_register_run

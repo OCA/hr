@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-17 14:03+0000\n"
+"POT-Creation-Date: 2017-02-18 02:58+0000\n"
 "PO-Revision-Date: 2015-07-27 23:38+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: German (http://www.transifex.com/oca/OCA-hr-7-0/language/de/)\n"
@@ -152,7 +152,7 @@ msgstr "Datum"
 #. module: hr_infraction
 #: field:hr.infraction,message_is_follower:0
 msgid "Is a Follower"
-msgstr ""
+msgstr "Ist Follower"
 
 #. module: hr_infraction
 #: view:hr.infraction:0
@@ -182,7 +182,7 @@ msgstr ""
 #. module: hr_infraction
 #: help:hr.infraction,message_ids:0
 msgid "Messages and communication history"
-msgstr ""
+msgstr "Meldungs- und Kommunikationsverlauf"
 
 #. module: hr_infraction
 #: field:hr.infraction,message_ids:0
@@ -218,7 +218,7 @@ msgstr ""
 #: view:hr.infraction.action:0 field:hr.infraction.action,memo:0
 #: view:hr.infraction.action.wizard:0 field:hr.infraction.action.wizard,memo:0
 msgid "Notes"
-msgstr ""
+msgstr "Hinweise"
 
 #. module: hr_infraction
 #: model:ir.model,name:hr_infraction.model_hr_infraction_category
@@ -247,7 +247,7 @@ msgstr ""
 #. module: hr_infraction
 #: help:hr.infraction,message_unread:0
 msgid "If checked new messages require your attention."
-msgstr ""
+msgstr "Wenn angehakt, erfordern neue Mitteilungen Ihre Aufmerksamkeit."
 
 #. module: hr_infraction
 #: model:ir.model,name:hr_infraction.model_hr_infraction_action
@@ -341,7 +341,7 @@ msgstr ""
 msgid ""
 "Holds the Chatter summary (number of messages, ...). This summary is "
 "directly in html format in order to be inserted in kanban views."
-msgstr ""
+msgstr "Beinhaltet die Dialogzusammenfassung (Anzahl Mitteilungen, ...). Diese Zusammenfassung liegt in HTML vor, um direkt in Kanban-Ansichten verwendet werden zu können."
 
 #. module: hr_infraction
 #: field:hr.infraction.action,warning_id:0 view:hr.infraction.warning:0
