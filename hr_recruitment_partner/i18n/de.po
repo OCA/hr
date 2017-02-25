@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-14 03:17+0000\n"
-"PO-Revision-Date: 2017-02-09 11:36+0000\n"
+"POT-Creation-Date: 2017-02-18 03:03+0000\n"
+"PO-Revision-Date: 2017-02-25 00:43+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: German (http://www.transifex.com/oca/OCA-hr-8-0/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -115,7 +115,7 @@ msgstr ""
 #. module: hr_recruitment_partner
 #: field:hr.applicant,country_id:0
 msgid "Country"
-msgstr ""
+msgstr "Land"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,credit_limit:0
@@ -182,7 +182,7 @@ msgstr ""
 #. module: hr_recruitment_partner
 #: field:hr.applicant,property_account_position:0
 msgid "Fiscal Position"
-msgstr ""
+msgstr "Steuerzuordnung"
 
 #. module: hr_recruitment_partner
 #: help:hr.applicant,opt_out:0
@@ -265,7 +265,7 @@ msgstr ""
 #. module: hr_recruitment_partner
 #: field:hr.applicant,comment:0
 msgid "Notes"
-msgstr ""
+msgstr "Hinweise"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,opt_out:0
@@ -378,7 +378,7 @@ msgstr ""
 #. module: hr_recruitment_partner
 #: field:hr.applicant,supplier:0
 msgid "Supplier"
-msgstr ""
+msgstr "Lieferant"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,property_stock_supplier:0
