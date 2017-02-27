@@ -18,7 +18,7 @@
 #
 ###############################################################################
 from dateutil.relativedelta import relativedelta
-from openerp import fields, models, api
+from odoo import fields, models, api
 
 
 class HrContract(models.Model):
@@ -31,6 +31,6 @@ class HrContract(models.Model):
         if self.trial_date_start and len(self.type_id):
             res = self.type_id.trial_length
             if res:
-                end_dt = fields.Date.from_string(
-                    self.trial_date_start) + relativedelta(days=res)
+                end_dt = fields.Date.from_string(self.trial_date_start)
+                end_dt += relativedelta(days=res)
                 self.trial_date_end = fields.Date.to_string(end_dt)
