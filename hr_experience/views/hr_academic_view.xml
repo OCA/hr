@@ -1,5 +1,5 @@
-<openerp>
-  <data>
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
     <!-- academic tree-->
     <record model="ir.ui.view" id="view_academic_tree">
         <field name="name">hr.academic.tree</field>
@@ -56,5 +56,4 @@
               id="menu_open_view_academic_form"
               action="open_view_academic_form"/>
 
-  </data>
-</openerp>
+</odoo>

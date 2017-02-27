@@ -17,7 +17,7 @@ Installation
 
 To install this module, you need to:
 
-1.  Clone the branch 8.0 of the repository https://github.com/OCA/hr
+1.  Clone the branch 10.0 of the repository https://github.com/OCA/hr
 2.  Add the path to this repository in your configuration (addons-path)
 3.  Update the module list
 4.  Go to menu *Setting -> Modules -> Local Modules*
@@ -83,7 +83,7 @@ help us smashing it by providing a detailed and welcomed `feedback
 <https://github.com/OCA/
 hr/issues/new?body=module:%20
 hr_experience%0Aversion:%20
-8.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+10.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Credits
 =======

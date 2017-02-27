@@ -1,5 +1,5 @@
-<openerp>
-  <data>
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
     <!-- certification tree -->
     <record model="ir.ui.view" id="view_certification_tree">
         <field name="name">hr.certification.tree</field>
@@ -57,5 +57,4 @@
               id="menu_open_view_certification_form"
               action="open_view_certification_form"/>
 
-  </data>
-</openerp>
+</odoo>
