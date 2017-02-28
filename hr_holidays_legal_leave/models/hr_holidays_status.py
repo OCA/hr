@@ -30,6 +30,6 @@ class HolidaysType(models.Model):
 
     @api.multi
     def _inverse_is_annual(self):
-        self.ensure_one()
-        if self.is_annual:
-            self.company_id.legal_holidays_status_id = self
+        for rec in self:
+            if rec.is_annual and rec.company_id:
+                rec.company_id.legal_holidays_status_id = rec
