@@ -4,13 +4,13 @@
 {
     "name": "Employee References",
     "summary": "Manage employee references",
-    "version": "8.0.1.0.0",
+    'version': "9.0.1.0.0",
     "category": "HR",
     "website": "https://opensynergy-indonesia.com",
     "author": "OpenSynergy Indonesia, Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "application": False,
-    'installable': False,
+    'installable': True,
     "depends": [
         "hr",
     ],
