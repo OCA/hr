@@ -18,6 +18,7 @@
     'data': [
         'security/ir.model.access.csv',
         'views/hr_public_holidays_view.xml',
+        'wizards/public_holidays_next_year_wizard.xml',
     ],
     'installable': True,
 }
