@@ -12,7 +12,7 @@ Installation
 
 To install this module, you need to:
 
-* clone the branch 8.0 of the repository https://github.com/OCA/hr
+* clone the branch 10.0 of the repository https://github.com/OCA/hr
 * add the path to this repository in your configuration (addons-path)
 * update the module list
 * search for "Default Contract Trail Length" in your addons
@@ -33,6 +33,13 @@ Known issues / Roadmap
 
 * Contract trial length can also depend on contract duration
 
+Usage
+=====
+
+.. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
+   :alt: Try me on Runbot
+   :target: https://runbot.odoo-community.org/runbot/116/10.0
+
 Bug Tracker
 ===========
 
@@ -48,6 +55,7 @@ Contributors
 ------------
 
 * Salton Massally (iDT Labs) <smassally@idtlabs.sl>
+* Julien Laloux <julien.laloux@jlaloux.be>
 
 Maintainer
 ----------
