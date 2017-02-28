@@ -2,8 +2,9 @@
 # ©  2015 Salton Massally <smassally@idtlabs.sl>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from openerp.tests import common
-from openerp.exceptions import ValidationError
+from odoo.exceptions import ValidationError
+from odoo.exceptions import Warning as UserError
+from odoo.tests import common
 
 
 class TestPublicHolidays(common.TransactionCase):
@@ -13,6 +14,11 @@ class TestPublicHolidays(common.TransactionCase):
         self.holiday_model = self.env["hr.holidays.public"]
         self.holiday_model_line = self.env["hr.holidays.public.line"]
         self.employee_model = self.env['hr.employee']
+        self.wizard_next_year = self.env['public.holidays.next.year.wizard']
+
+        # Remove possibly existing public holidays that would interfer.
+        self.holiday_model_line.search([]).unlink()
+        self.holiday_model.search([]).unlink()
 
         # Create holidays
         holiday2 = self.holiday_model.create({
@@ -132,3 +138,50 @@ class TestPublicHolidays(common.TransactionCase):
         res = lines.filtered(lambda r: r.date == '1995-10-14')
         self.assertEqual(len(res), 1)
         self.assertEqual(len(lines), 3)
+
+    def test_create_next_year_public_holidays(self):
+        self.wizard_next_year.new().create_public_holidays()
+        lines = self.holiday_model.get_holidays_list(1996)
+        res = lines.filtered(lambda r: r.date == '1996-10-14')
+        self.assertEqual(len(res), 1)
+        self.assertEqual(len(lines), 3)
+
+    def test_create_year_2000_public_holidays(self):
+        ph_start_ids = self.holiday_model.search([('year', '=', 1994)])
+        val = {
+            'template_ids': ph_start_ids,
+            'year': 2000
+        }
+        wz_create_ph = self.wizard_next_year.new(values=val)
+
+        wz_create_ph.create_public_holidays()
+
+        lines = self.holiday_model.get_holidays_list(2000)
+        self.assertEqual(len(lines), 2)
+
+        res = lines.filtered(
+            lambda r: r.year_id.country_id.id == self.env.ref('base.sl').id)
+        self.assertEqual(len(res), 1)
+
+    def test_february_29th(self):
+        # Ensures that users get a UserError (not a nasty Exception) when
+        # trying to create public holidays from year including 29th of
+        # February
+        holiday_tw_2016 = self.holiday_model.create({
+            'year': 2016,
+            'country_id': self.env.ref('base.tw').id
+        })
+
+        self.holiday_model_line.create({
+            'name': 'Peace Memorial Holiday',
+            'date': '2016-02-29',
+            'year_id': holiday_tw_2016.id,
+        })
+
+        val = {
+            'template_ids': holiday_tw_2016
+        }
+        wz_create_ph = self.wizard_next_year.new(values=val)
+
+        with self.assertRaises(UserError):
+            wz_create_ph.create_public_holidays()

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<openerp>
-    <data>
+<odoo>
 
         <record id="view_public_holidays_tree" model="ir.ui.view">
             <field name="name">hr.holidays.public.tree</field>
@@ -45,10 +44,14 @@
             <field name="view_mode">tree,form</field>
         </record>
 
-        <menuitem action="open_public_holidays_view"
-                  id="menu_public_holidays_view"
+        <menuitem id="menu_hr_public_holidays"
+                  name="Public Holidays"
                   parent="hr_holidays.menu_hr_holidays_root"
                   sequence="20"/>
 
-    </data>
-</openerp>
+        <menuitem action="open_public_holidays_view"
+                  id="menu_public_holidays_view"
+                  parent="menu_hr_public_holidays"
+                  sequence="10"/>
+
+</odoo>
