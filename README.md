@@ -13,10 +13,13 @@ Available addons
 ----------------
 addon | version | summary
 --- | --- | ---
+[hr_contract_default_trial_length](hr_contract_default_trial_length/) | 10.0.1.0.0 | Define default trail length for contracts
+[hr_emergency_contact](hr_emergency_contact/) | 10.0.1.0.0 | HR Emergency Contact
 [hr_employee_age](hr_employee_age/) | 10.0.1.0.0 | Age field for employee
 [hr_employee_firstname](hr_employee_firstname/) | 10.0.1.0.0 | Adds First Name to Employee
 [hr_employee_id](hr_employee_id/) | 10.0.1.0.0 | Employee ID
 [hr_employee_phone_extension](hr_employee_phone_extension/) | 10.0.1.0.0 | Employee Phone Extension
+[hr_experience](hr_experience/) | 10.0.1.0.0 | Experience Management
 [hr_holidays_compute_days](hr_holidays_compute_days/) | 10.0.1.0.0 | Computes the actual leave days considering rest days and public holidays
 [hr_holidays_leave_auto_approve](hr_holidays_leave_auto_approve/) | 10.0.1.0.0 | Leave type for auto approval of Leaves
 [hr_holidays_legal_leave](hr_holidays_legal_leave/) | 10.0.1.0.0 | Allows the definition of legal/annual leave
@@ -26,14 +29,12 @@ Unported addons
 ---------------
 addon | version | summary
 --- | --- | ---
-[hr_contract_default_trial_length](hr_contract_default_trial_length/) | 8.0.1.0.0 (unported) | Define default trail length for contracts
 [hr_contract_hourly_rate](hr_contract_hourly_rate/) | 8.0.1.0.0 (unported) | HR Contract Hourly Rate
 [hr_contract_init](hr_contract_init/) | 1.0 (unported) | Contracts - Initial Settings
 [hr_contract_multi_jobs](hr_contract_multi_jobs/) | 8.0.1.0.0 (unported) | HR Contract Multi Jobs
 [hr_contract_reference](hr_contract_reference/) | 8.0.1.0.0 (unported) | HR Contract Reference
 [hr_contract_state](hr_contract_state/) | 1.0 (unported) | Manage Employee Contracts
 [hr_department_sequence](hr_department_sequence/) | 1.0 (unported) | Add sequence on department
-[hr_emergency_contact](hr_emergency_contact/) | 1.0 (unported) | HR Emergency Contact
 [hr_employee_benefit](hr_employee_benefit/) | 8.0.1.0.0 (unported) | Employee Benefit
 [hr_employee_data_from_work_address](hr_employee_data_from_work_address/) | 8.0.1.0.0 (unported) | Update user's and partner's data fields from employee record
 [hr_employee_gravatar](hr_employee_gravatar/) | 8.0.1.0.0 (unported) | Employees Synchronize Gravatar image
@@ -46,7 +47,6 @@ addon | version | summary
 [hr_expense_invoice](hr_expense_invoice/) | 8.0.1.0.0 (unported) | Supplier invoices on HR expenses
 [hr_expense_move_date](hr_expense_move_date/) | 8.0.1.0.0 (unported) | Move date for HR expenses journal entries
 [hr_expense_sequence](hr_expense_sequence/) | 8.0.1.0.0 (unported) | HR expense sequence
-[hr_experience](hr_experience/) | 8.0.1.1.0 (unported) | Experience Management
 [hr_family](hr_family/) | 8.0.1.2.0 (unported) | Employee Family Information
 [hr_infraction](hr_infraction/) | 1.0 (unported) | Employee Infraction Management
 [hr_job_categories](hr_job_categories/) | 8.0.1.0.0 (unported) | HR Job Employee Categories
