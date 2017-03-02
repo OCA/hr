@@ -14,8 +14,10 @@ Available addons
 addon | version | summary
 --- | --- | ---
 [hr_contract_default_trial_length](hr_contract_default_trial_length/) | 10.0.1.0.0 | Define default trail length for contracts
+[hr_contract_reference](hr_contract_reference/) | 10.0.1.0.0 | HR Contract Reference
 [hr_emergency_contact](hr_emergency_contact/) | 10.0.1.0.0 | HR Emergency Contact
 [hr_employee_age](hr_employee_age/) | 10.0.1.0.0 | Age field for employee
+[hr_employee_birth_name](hr_employee_birth_name/) | 10.0.1.0.0 | Employee Birth Name
 [hr_employee_firstname](hr_employee_firstname/) | 10.0.1.0.0 | Adds First Name to Employee
 [hr_employee_id](hr_employee_id/) | 10.0.1.0.0 | Employee ID
 [hr_employee_phone_extension](hr_employee_phone_extension/) | 10.0.1.0.0 | Employee Phone Extension
@@ -32,7 +34,6 @@ addon | version | summary
 [hr_contract_hourly_rate](hr_contract_hourly_rate/) | 8.0.1.0.0 (unported) | HR Contract Hourly Rate
 [hr_contract_init](hr_contract_init/) | 1.0 (unported) | Contracts - Initial Settings
 [hr_contract_multi_jobs](hr_contract_multi_jobs/) | 8.0.1.0.0 (unported) | HR Contract Multi Jobs
-[hr_contract_reference](hr_contract_reference/) | 8.0.1.0.0 (unported) | HR Contract Reference
 [hr_contract_state](hr_contract_state/) | 1.0 (unported) | Manage Employee Contracts
 [hr_department_sequence](hr_department_sequence/) | 1.0 (unported) | Add sequence on department
 [hr_employee_benefit](hr_employee_benefit/) | 8.0.1.0.0 (unported) | Employee Benefit
