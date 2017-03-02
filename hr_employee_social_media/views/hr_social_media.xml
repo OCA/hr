@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Social Media views-->
+    <record id="hr_social_media_view_form" model="ir.ui.view">
+        <field name="name">hr.social.media.form</field>
+        <field name="model">hr.social.media</field>
+        <field name="arch" type="xml">
+            <form string="Social Medias">
+                <group col="4">
+                    <field colspan="4" name="name"/>
+                    <field colspan="4" name="social_url"/>
+                </group>
+            </form>
+        </field>
+    </record>
+    <record id="hr_social_media_view_tree" model="ir.ui.view">
+        <field name="name">hr.social.media.tree</field>
+        <field name="model">hr.social.media</field>
+        <field name="arch" type="xml">
+            <tree string="Social Media">
+                <field colspan="4" name="name"/>
+                <field colspan="4" name="social_url"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Social Accounts views-->
+    <record id="hr_social_account_view_form" model="ir.ui.view">
+        <field name="name">hr.social.account.form</field>
+        <field name="model">hr.social.media.account</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="hr_social_media_id"/>
+                    <field name='employee_id' context="{}"/>
+                    <field name='account_name'/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <!-- Menus & Actions -->
+    <record id="action_hr_social_media" model="ir.actions.act_window">
+        <field name="name">Social Medias</field>
+        <field name="res_model">hr.social.media</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        id="hr_menu_social_media"
+        action="action_hr_social_media"
+        parent="hr.menu_human_resources_configuration"
+        sequence="3"
+        groups="base.group_no_one"/>
+
+</odoo>
