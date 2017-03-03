@@ -21,6 +21,7 @@ addon | version | summary
 [hr_employee_firstname](hr_employee_firstname/) | 10.0.1.0.0 | Adds First Name to Employee
 [hr_employee_id](hr_employee_id/) | 10.0.1.0.0 | Employee ID
 [hr_employee_phone_extension](hr_employee_phone_extension/) | 10.0.1.0.0 | Employee Phone Extension
+[hr_employee_social_media](hr_employee_social_media/) | 10.0.1.0.0 | Employee Social Media
 [hr_experience](hr_experience/) | 10.0.1.0.0 | Experience Management
 [hr_holidays_compute_days](hr_holidays_compute_days/) | 10.0.1.0.0 | Computes the actual leave days considering rest days and public holidays
 [hr_holidays_leave_auto_approve](hr_holidays_leave_auto_approve/) | 10.0.1.0.0 | Leave type for auto approval of Leaves
