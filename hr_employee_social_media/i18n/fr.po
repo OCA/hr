@@ -1,0 +1,112 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * hr_employee_social_media
+# 
+# Translators:
+# leemannd <denis.leemann@camptocamp.com>, 2017
+# OCA Transbot <transbot@odoo-community.org>, 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-03-03 03:37+0000\n"
+"PO-Revision-Date: 2017-03-03 03:37+0000\n"
+"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
+"Language-Team: French (https://www.transifex.com/oca/teams/23907/fr/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: fr\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#. module: hr_employee_social_media
+#: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_account_account_name
+msgid "Account"
+msgstr "Compte"
+
+#. module: hr_employee_social_media
+#: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_account_create_uid
+#: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: hr_employee_social_media
+#: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_account_create_date
+#: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: hr_employee_social_media
+#: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_account_display_name
+#: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_display_name
+msgid "Display Name"
+msgstr "Nom affiché"
+
+#. module: hr_employee_social_media
+#: model:ir.model,name:hr_employee_social_media.model_hr_employee
+#: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_account_employee_id
+msgid "Employee"
+msgstr "Employé"
+
+#. module: hr_employee_social_media
+#: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_account_id
+#: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_id
+msgid "ID"
+msgstr "ID"
+
+#. module: hr_employee_social_media
+#: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media___last_update
+#: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_account___last_update
+msgid "Last Modified on"
+msgstr "Dernière modification le"
+
+#. module: hr_employee_social_media
+#: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_account_write_uid
+#: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_write_uid
+msgid "Last Updated by"
+msgstr "Dernière modification par"
+
+#. module: hr_employee_social_media
+#: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_account_write_date
+#: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: hr_employee_social_media
+#: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_name
+msgid "Name"
+msgstr "Nom"
+
+#. module: hr_employee_social_media
+#: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_account_hr_social_media_id
+#: model:ir.ui.view,arch_db:hr_employee_social_media.hr_social_media_view_tree
+msgid "Social Media"
+msgstr "Réseau Sociaux"
+
+#. module: hr_employee_social_media
+#: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_employee_social_media_account_ids
+#: model:ir.ui.view,arch_db:hr_employee_social_media.view_employee_form_inherit_extension
+msgid "Social Media Accounts"
+msgstr "Compte de Réseau Sociaux"
+
+#. module: hr_employee_social_media
+#: model:ir.actions.act_window,name:hr_employee_social_media.action_hr_social_media
+#: model:ir.ui.menu,name:hr_employee_social_media.hr_menu_social_media
+#: model:ir.ui.view,arch_db:hr_employee_social_media.hr_social_media_view_form
+msgid "Social Medias"
+msgstr "Réseau Sociaux"
+
+#. module: hr_employee_social_media
+#: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_social_url
+msgid "Website"
+msgstr "Site Internet"
+
+#. module: hr_employee_social_media
+#: model:ir.model,name:hr_employee_social_media.model_hr_social_media
+msgid "hr.social.media"
+msgstr "hr.social.media"
+
+#. module: hr_employee_social_media
+#: model:ir.model,name:hr_employee_social_media.model_hr_social_media_account
+msgid "hr.social.media.account"
+msgstr "hr.social.media.account"

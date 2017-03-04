@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-28 02:12+0000\n"
-"PO-Revision-Date: 2017-01-28 02:12+0000\n"
+"POT-Creation-Date: 2017-03-03 03:37+0000\n"
+"PO-Revision-Date: 2017-03-03 03:37+0000\n"
 "Last-Translator: leemannd <denis.leemann@camptocamp.com>, 2017\n"
 "Language-Team: French (https://www.transifex.com/oca/teams/23907/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -21,13 +21,15 @@ msgstr ""
 #. module: hr_holidays_leave_auto_approve
 #: model:ir.model.fields,field_description:hr_holidays_leave_auto_approve.field_hr_holidays_status_auto_approve
 msgid "Auto Approve"
-msgstr ""
+msgstr "Auto Validation"
 
 #. module: hr_holidays_leave_auto_approve
 #: model:ir.model.fields,help:hr_holidays_leave_auto_approve.field_hr_holidays_status_auto_approve
 msgid ""
 "If True, leaves belonging to this leave type will be automatically approved"
 msgstr ""
+"Si coché, les feuilles appartenant à ce type vont être automatiquement "
+"approuvées"
 
 #. module: hr_holidays_leave_auto_approve
 #: model:ir.model,name:hr_holidays_leave_auto_approve.model_hr_holidays
