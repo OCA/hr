@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-12 23:34+0000\n"
+"POT-Creation-Date: 2017-02-25 02:37+0000\n"
 "PO-Revision-Date: 2015-07-27 23:37+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/oca/OCA-hr-7-0/language/zh_CN/)\n"
@@ -232,7 +232,7 @@ msgstr ""
 #. module: hr_employee_benefit
 #: field:hr.employee.benefit,code:0 field:hr.employee.benefit.category,code:0
 msgid "Code"
-msgstr ""
+msgstr "代码"
 
 #. module: hr_employee_benefit
 #: help:hr.employee.benefit.category,code:0

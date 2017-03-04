@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-12 23:34+0000\n"
+"POT-Creation-Date: 2017-02-18 02:58+0000\n"
 "PO-Revision-Date: 2015-07-27 23:39+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/oca/OCA-hr-7-0/language/zh_CN/)\n"
@@ -163,7 +163,7 @@ msgstr "未读消息"
 #. module: hr_payroll_period
 #: field:hr.payslip.exception.rule,company_id:0
 msgid "Company"
-msgstr ""
+msgstr "公司"
 
 #. module: hr_payroll_period
 #: code:addons/hr_payroll_period/hr_payroll_period.py:312
@@ -707,7 +707,7 @@ msgstr ""
 #: field:hr.payroll.period.schedule,active:0
 #: field:hr.payslip.exception.rule,active:0
 msgid "Active"
-msgstr ""
+msgstr "有效"
 
 #. module: hr_payroll_period
 #: view:hr.payroll.period:0
@@ -810,7 +810,7 @@ msgstr ""
 #: field:hr.holidays.status,code:0 view:hr.payslip.exception.rule:0
 #: field:hr.payslip.exception.rule,code:0
 msgid "Code"
-msgstr ""
+msgstr "代码"
 
 #. module: hr_payroll_period
 #: selection:hr.payroll.period.schedule,mo_firstday:0

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-07 02:23+0000\n"
+"POT-Creation-Date: 2017-02-25 02:38+0000\n"
 "PO-Revision-Date: 2015-07-27 23:38+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Portuguese (Portugal) (http://www.transifex.com/oca/OCA-hr-7-0/language/pt_PT/)\n"
@@ -231,7 +231,7 @@ msgstr ""
 #: code:addons/hr_infraction/hr_infraction.py:264
 #, python-format
 msgid "Error"
-msgstr ""
+msgstr "Erro"
 
 #. module: hr_infraction
 #: field:hr.infraction.action.wizard,action_type:0
