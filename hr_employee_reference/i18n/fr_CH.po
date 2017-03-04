@@ -3,28 +3,28 @@
 # * hr_employee_reference
 # 
 # Translators:
-# OCA Transbot <transbot@odoo-community.org>, 2017
+# leemannd <denis.leemann@camptocamp.com>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 9.0c\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-01 03:24+0000\n"
 "PO-Revision-Date: 2017-03-01 03:24+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
-"Language-Team: Slovenian (https://www.transifex.com/oca/teams/23907/sl/)\n"
+"Last-Translator: leemannd <denis.leemann@camptocamp.com>, 2017\n"
+"Language-Team: French (Switzerland) (https://www.transifex.com/oca/teams/23907/fr_CH/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: sl\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
+"Language: fr_CH\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #. module: hr_employee_reference
 #: model:ir.model,name:hr_employee_reference.model_hr_employee
 msgid "Employee"
-msgstr "Kader"
+msgstr "Employé"
 
 #. module: hr_employee_reference
 #: model:ir.model.fields,field_description:hr_employee_reference.field_hr_employee_reference_ids
 #: model:ir.ui.view,arch_db:hr_employee_reference.form_hr_employee_references
 msgid "References"
-msgstr "Reference"
+msgstr ""
