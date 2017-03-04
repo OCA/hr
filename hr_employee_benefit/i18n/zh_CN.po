@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-17 20:43+0000\n"
-"PO-Revision-Date: 2016-11-25 14:56+0000\n"
+"POT-Creation-Date: 2017-02-25 02:41+0000\n"
+"PO-Revision-Date: 2017-03-03 06:30+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/oca/OCA-hr-8-0/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -72,7 +72,7 @@ msgstr "类别"
 #. module: hr_employee_benefit
 #: field:hr.employee.benefit,code:0 field:hr.employee.benefit.category,code:0
 msgid "Code"
-msgstr ""
+msgstr "代码"
 
 #. module: hr_employee_benefit
 #: view:hr.payslip:hr_employee_benefit.view_hr_payslip_form

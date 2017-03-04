@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-17 20:43+0000\n"
+"POT-Creation-Date: 2017-02-25 02:41+0000\n"
 "PO-Revision-Date: 2015-11-12 09:52+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/oca/OCA-hr-8-0/language/zh_CN/)\n"
@@ -26,7 +26,7 @@ msgstr ""
 #. module: hr_department_sequence
 #: field:hr.department,active:0
 msgid "Active"
-msgstr ""
+msgstr "有效"
 
 #. module: hr_department_sequence
 #: view:hr.department:hr_department_sequence.hr_department_view
@@ -36,7 +36,7 @@ msgstr ""
 #. module: hr_department_sequence
 #: field:hr.department,code:0
 msgid "Code"
-msgstr ""
+msgstr "代码"
 
 #. module: hr_department_sequence
 #: help:hr.department,sequence:0
