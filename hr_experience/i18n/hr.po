@@ -3,65 +3,63 @@
 # * hr_experience
 # 
 # Translators:
-# OCA Transbot <transbot@odoo-community.org>, 2017
-# leemannd <denis.leemann@camptocamp.com>, 2017
-# Alexandre Fayolle <alexandre.fayolle@camptocamp.com>, 2017
+# Bole <bole@dajmi5.com>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-23 03:45+0000\n"
-"PO-Revision-Date: 2018-02-23 03:45+0000\n"
-"Last-Translator: Alexandre Fayolle <alexandre.fayolle@camptocamp.com>, 2017\n"
-"Language-Team: French (https://www.transifex.com/oca/teams/23907/fr/)\n"
+"POT-Creation-Date: 2017-07-04 06:52+0000\n"
+"PO-Revision-Date: 2017-07-04 06:52+0000\n"
+"Last-Translator: Bole <bole@dajmi5.com>, 2017\n"
+"Language-Team: Croatian (https://www.transifex.com/oca/teams/23907/hr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: fr\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Language: hr\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
 #. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_employee_experience_ids
 msgid " Professional Experiences"
-msgstr "Expériences professionnelles"
+msgstr "Profesionalno iskustvo"
 
 #. module: hr_experience
 #: model:ir.ui.view,arch_db:hr_experience.view_certification_tree
 #: model:ir.ui.view,arch_db:hr_experience.view_employee_form_inherit
 msgid "# Certificate"
-msgstr "# Certificat"
+msgstr "# Ceritfikat"
 
 #. module: hr_experience
 #: model:ir.ui.view,arch_db:hr_experience.view_employee_form_inherit
 msgid "# Certification"
-msgstr "# Certification"
+msgstr "# Certificiranje"
 
 #. module: hr_experience
 #: selection:hr.experience,category:0
 msgid "Academic"
-msgstr "Académique"
+msgstr "Akademski"
 
 #. module: hr_experience
 #: model:ir.ui.view,arch_db:hr_experience.view_employee_form_inherit
 msgid "Academic Experience"
-msgstr "Expérience Académique"
+msgstr "Akademsko iskustvo"
 
 #. module: hr_experience
 #: model:ir.ui.menu,name:hr_experience.menu_open_view_academic_form
 #: model:ir.ui.view,arch_db:hr_experience.view_employee_form_inherit
 msgid "Academic Experiences"
-msgstr "Expériences Académiques"
+msgstr "Akademska iskustva"
 
 #. module: hr_experience
 #: model:ir.ui.view,arch_db:hr_experience.view_academic_form
 #: model:ir.ui.view,arch_db:hr_experience.view_employee_form_inherit
 msgid "Academic Information"
-msgstr "Information Académique"
+msgstr "Akademske informacije"
 
 #. module: hr_experience
 #: model:ir.ui.view,arch_db:hr_experience.view_academic_form
 msgid "Academic experience"
-msgstr "Expérience académique"
+msgstr "Akademsko iskustvo"
 
 #. module: hr_experience
 #: model:ir.actions.act_window,name:hr_experience.open_view_academic_form
@@ -69,23 +67,23 @@ msgstr "Expérience académique"
 #: model:ir.model.fields,help:hr_experience.field_hr_employee_academic_ids
 #: model:ir.ui.view,arch_db:hr_experience.view_academic_tree
 msgid "Academic experiences"
-msgstr "Expériences adadémiques"
+msgstr "Akademska iskustva"
 
 #. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_academic_activities
 msgid "Activities and associations"
-msgstr "Activités et associations"
+msgstr "Aktivnosti i asocijacije"
 
 #. module: hr_experience
 #: model:ir.ui.view,arch_db:hr_experience.view_academic_form
 msgid "Additional Information"
-msgstr "Autres Informations"
+msgstr "Dodatne informacije"
 
 #. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_experience_category
 #: model:ir.model.fields,help:hr_experience.field_hr_experience_category
 msgid "Category"
-msgstr "Catégorie"
+msgstr "Kategorija"
 
 #. module: hr_experience
 #: selection:hr.experience,category:0
@@ -93,18 +91,18 @@ msgstr "Catégorie"
 #: model:ir.ui.view,arch_db:hr_experience.view_certification_tree
 #: model:ir.ui.view,arch_db:hr_experience.view_employee_form_inherit
 msgid "Certification"
-msgstr "Certificat"
+msgstr "Certificiranje"
 
 #. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_certification_certification
 #: model:ir.model.fields,help:hr_experience.field_hr_certification_certification
 msgid "Certification Number"
-msgstr "Numéro de Certificat"
+msgstr "Broj certifikata"
 
 #. module: hr_experience
 #: model:ir.ui.view,arch_db:hr_experience.view_certification_form
 msgid "Certification information"
-msgstr "Informations de certificat"
+msgstr "Informacije o certifikatu"
 
 #. module: hr_experience
 #: model:ir.actions.act_window,name:hr_experience.open_view_certification_form
@@ -113,7 +111,7 @@ msgstr "Informations de certificat"
 #: model:ir.ui.menu,name:hr_experience.menu_open_view_certification_form
 #: model:ir.ui.view,arch_db:hr_experience.view_employee_form_inherit
 msgid "Certifications"
-msgstr "Certifications"
+msgstr "Certifikati"
 
 #. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_academic_create_uid
@@ -121,7 +119,7 @@ msgstr "Certifications"
 #: model:ir.model.fields,field_description:hr_experience.field_hr_curriculum_create_uid
 #: model:ir.model.fields,field_description:hr_experience.field_hr_experience_create_uid
 msgid "Created by"
-msgstr "Créé par"
+msgstr "Kreirao"
 
 #. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_academic_create_date
@@ -129,7 +127,7 @@ msgstr "Créé par"
 #: model:ir.model.fields,field_description:hr_experience.field_hr_curriculum_create_date
 #: model:ir.model.fields,field_description:hr_experience.field_hr_experience_create_date
 msgid "Created on"
-msgstr "Créé le"
+msgstr "Kreirano"
 
 #. module: hr_experience
 #: model:ir.ui.view,arch_db:hr_experience.view_academic_form
@@ -137,7 +135,7 @@ msgstr "Créé le"
 #: model:ir.ui.view,arch_db:hr_experience.view_employee_form_inherit
 #: model:ir.ui.view,arch_db:hr_experience.view_professional_form
 msgid "Dates"
-msgstr "Dates"
+msgstr "Datumi"
 
 #. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_academic_description
@@ -148,12 +146,12 @@ msgstr "Dates"
 #: model:ir.ui.view,arch_db:hr_experience.view_employee_form_inherit
 #: model:ir.ui.view,arch_db:hr_experience.view_professional_form
 msgid "Description"
-msgstr "Description"
+msgstr "Opis"
 
 #. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_academic_diploma
 msgid "Diploma"
-msgstr "Diplôme"
+msgstr "Diploma"
 
 #. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_academic_display_name
@@ -161,12 +159,12 @@ msgstr "Diplôme"
 #: model:ir.model.fields,field_description:hr_experience.field_hr_curriculum_display_name
 #: model:ir.model.fields,field_description:hr_experience.field_hr_experience_display_name
 msgid "Display Name"
-msgstr "Nom affiché"
+msgstr "Naziv"
 
 #. module: hr_experience
 #: model:ir.ui.view,arch_db:hr_experience.view_academic_tree
 msgid "Education"
-msgstr "Formation"
+msgstr "Obrazovanje"
 
 #. module: hr_experience
 #: model:ir.model,name:hr_experience.model_hr_employee
@@ -175,19 +173,19 @@ msgstr "Formation"
 #: model:ir.model.fields,field_description:hr_experience.field_hr_curriculum_employee_id
 #: model:ir.model.fields,field_description:hr_experience.field_hr_experience_employee_id
 msgid "Employee"
-msgstr "Employé"
+msgstr "Djelatnik"
 
 #. module: hr_experience
 #: model:ir.model,name:hr_experience.model_hr_curriculum
 msgid "Employee's Curriculum"
-msgstr "Curriculum de l'Employé"
+msgstr "Djelatnikov životopis"
 
 #. module: hr_experience
 #: model:ir.ui.view,arch_db:hr_experience.view_employee_form_inherit
 #: model:ir.ui.view,arch_db:hr_experience.view_professional_form
 #: model:ir.ui.view,arch_db:hr_experience.view_professional_tree
 msgid "Employer"
-msgstr "Employeur"
+msgstr "Djelatnik"
 
 #. module: hr_experience
 #: model:ir.model.fields,help:hr_experience.field_hr_academic_partner_id
@@ -195,7 +193,7 @@ msgstr "Employeur"
 #: model:ir.model.fields,help:hr_experience.field_hr_curriculum_partner_id
 #: model:ir.model.fields,help:hr_experience.field_hr_experience_partner_id
 msgid "Employer, School, University, Certification Authority"
-msgstr "Employeur, Ecole, Université, Autorité de Certification"
+msgstr "Poslodavac, Škola, Fakultet, Ovašteni certifikatori"
 
 #. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_academic_end_date
@@ -203,12 +201,12 @@ msgstr "Employeur, Ecole, Université, Autorité de Certification"
 #: model:ir.model.fields,field_description:hr_experience.field_hr_curriculum_end_date
 #: model:ir.model.fields,field_description:hr_experience.field_hr_experience_end_date
 msgid "End date"
-msgstr "Date de fin"
+msgstr "Završni datum"
 
 #. module: hr_experience
 #: model:ir.ui.menu,name:hr_experience.menu_hr_experience
 msgid "Experiences"
-msgstr "Expériences"
+msgstr "Iskustva"
 
 #. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_academic_expire
@@ -220,12 +218,12 @@ msgstr "Expériences"
 #: model:ir.model.fields,help:hr_experience.field_hr_curriculum_expire
 #: model:ir.model.fields,help:hr_experience.field_hr_experience_expire
 msgid "Expire"
-msgstr "Expiration"
+msgstr "Ističe"
 
 #. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_academic_study_field
 msgid "Field of study"
-msgstr "Domaine d'étude"
+msgstr "Područje obrazovanja"
 
 #. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_academic_id
@@ -239,14 +237,14 @@ msgstr "ID"
 #: model:ir.ui.view,arch_db:hr_experience.view_academic_tree
 #: model:ir.ui.view,arch_db:hr_experience.view_employee_form_inherit
 msgid "Institution"
-msgstr "Etablissement"
+msgstr "Institucija"
 
 #. module: hr_experience
 #: model:ir.ui.view,arch_db:hr_experience.view_certification_form
 #: model:ir.ui.view,arch_db:hr_experience.view_certification_tree
 #: model:ir.ui.view,arch_db:hr_experience.view_employee_form_inherit
 msgid "Issued By"
-msgstr "Délivré par"
+msgstr "Izdao"
 
 #. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_academic___last_update
@@ -254,7 +252,7 @@ msgstr "Délivré par"
 #: model:ir.model.fields,field_description:hr_experience.field_hr_curriculum___last_update
 #: model:ir.model.fields,field_description:hr_experience.field_hr_experience___last_update
 msgid "Last Modified on"
-msgstr "Dernière modification le"
+msgstr "Zadnje modificirano"
 
 #. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_academic_write_uid
@@ -262,7 +260,7 @@ msgstr "Dernière modification le"
 #: model:ir.model.fields,field_description:hr_experience.field_hr_curriculum_write_uid
 #: model:ir.model.fields,field_description:hr_experience.field_hr_experience_write_uid
 msgid "Last Updated by"
-msgstr "Dernière modification par"
+msgstr "Zadnji ažurirao"
 
 #. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_academic_write_date
@@ -270,7 +268,7 @@ msgstr "Dernière modification par"
 #: model:ir.model.fields,field_description:hr_experience.field_hr_curriculum_write_date
 #: model:ir.model.fields,field_description:hr_experience.field_hr_experience_write_date
 msgid "Last Updated on"
-msgstr "Dernière mise à jour le"
+msgstr "Zadnje ažurirano"
 
 #. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_academic_location
@@ -282,7 +280,7 @@ msgstr "Dernière mise à jour le"
 #: model:ir.model.fields,help:hr_experience.field_hr_curriculum_location
 #: model:ir.model.fields,help:hr_experience.field_hr_experience_location
 msgid "Location"
-msgstr "Lieu"
+msgstr "Lokacija"
 
 #. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_academic_name
@@ -290,7 +288,7 @@ msgstr "Lieu"
 #: model:ir.model.fields,field_description:hr_experience.field_hr_curriculum_name
 #: model:ir.model.fields,field_description:hr_experience.field_hr_experience_name
 msgid "Name"
-msgstr "Nom"
+msgstr "Naziv"
 
 #. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_academic_partner_id
@@ -300,31 +298,31 @@ msgstr "Nom"
 #: model:ir.ui.view,arch_db:hr_experience.view_academic_form
 #: model:ir.ui.view,arch_db:hr_experience.view_employee_form_inherit
 msgid "Partner"
-msgstr "Contact"
+msgstr "Partner"
 
 #. module: hr_experience
 #: model:ir.ui.view,arch_db:hr_experience.view_certification_form
 #: model:ir.ui.view,arch_db:hr_experience.view_professional_form
 msgid "Partner information"
-msgstr "Informations de contact"
+msgstr "POdaci o partneru"
 
 #. module: hr_experience
 #: model:ir.ui.view,arch_db:hr_experience.view_employee_form_inherit
 #: model:ir.ui.view,arch_db:hr_experience.view_professional_form
 #: model:ir.ui.view,arch_db:hr_experience.view_professional_tree
 msgid "Position"
-msgstr "Intitulé du poste"
+msgstr "Posicija"
 
 #. module: hr_experience
 #: selection:hr.experience,category:0
 msgid "Professional"
-msgstr "Professionnel"
+msgstr "Prefesionalno"
 
 #. module: hr_experience
 #: model:ir.ui.view,arch_db:hr_experience.view_employee_form_inherit
 #: model:ir.ui.view,arch_db:hr_experience.view_professional_form
 msgid "Professional Experience"
-msgstr "Expérience professionnelle"
+msgstr "Profesionalno iskustvo"
 
 #. module: hr_experience
 #: model:ir.actions.act_window,name:hr_experience.open_view_professional_form
@@ -333,7 +331,7 @@ msgstr "Expérience professionnelle"
 #: model:ir.ui.view,arch_db:hr_experience.view_employee_form_inherit
 #: model:ir.ui.view,arch_db:hr_experience.view_professional_tree
 msgid "Professional Experiences"
-msgstr "Expériences professionnelles"
+msgstr "Profesionlna iskustva"
 
 #. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_academic_start_date
@@ -341,17 +339,17 @@ msgstr "Expériences professionnelles"
 #: model:ir.model.fields,field_description:hr_experience.field_hr_curriculum_start_date
 #: model:ir.model.fields,field_description:hr_experience.field_hr_experience_start_date
 msgid "Start date"
-msgstr "Date de début"
+msgstr "Početni datum"
 
 #. module: hr_experience
 #: model:ir.ui.view,arch_db:hr_experience.view_certification_form
 msgid "certification"
-msgstr "certification"
+msgstr "certificiranje"
 
 #. module: hr_experience
 #: model:ir.ui.view,arch_db:hr_experience.view_certification_tree
 msgid "certifications"
-msgstr "certifications"
+msgstr "certificiranja"
 
 #. module: hr_experience
 #: model:ir.model,name:hr_experience.model_hr_academic
