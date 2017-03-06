@@ -114,3 +114,27 @@ class TestHrEmployeeSeniority(common.TransactionCase):
             }
         )
         self.assertAlmostEqual(self.employee.length_of_service, 24.0)
+
+    def test_days_in_contract(self):
+        # 3 Days contracts
+        self.contract_model.create(
+            {
+                'employee_id': self.employee.id,
+                'name': 'Contract 1',
+                'date_start': (2017, 01, 01),
+                'date_end': (2017, 01, 03),
+                'wage': 5000
+            }
+        )
+        self.assertAlmostEqual(self.employee.length_of_service, 0.0)
+        # 2 months contract
+        self.contract_model.create(
+            {
+                'employee_id': self.employee.id,
+                'name': 'Contract 1',
+                'date_start': (2016, 11, 01),
+                'date_end': (2016, 12, 31),
+                'wage': 5000
+            }
+        )
+        self.assertAlmostEqual(self.employee.length_of_service, 2.0)
