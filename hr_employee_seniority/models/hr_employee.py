@@ -3,6 +3,7 @@
 # copyright 2017 Denis Leemann, Camptocamp SA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
+import calendar
 from dateutil.relativedelta import relativedelta
 
 from odoo import api, exceptions, fields, models
@@ -18,7 +19,7 @@ class HrEmployee(models.Model):
              'first contract in the system.',
     )
     length_of_service = fields.Float(
-        'Lenght of Service',
+        'Months of Service',
         compute='_compute_months_service',
     )
 
@@ -26,6 +27,16 @@ class HrEmployee(models.Model):
         Contract = self.env['hr.contract']
         return Contract.search([('employee_id', '=', self.id)],
                                order='date_start asc', limit=1)
+
+    @staticmethod
+    def check_next_days(date_to, date_from):
+        if date_from.day == 1:
+            days_in_month = calendar.monthrange(date_to.year, date_to.month)[1]
+            if date_to.day == days_in_month:
+                return 1
+            elif date_from.day == date_to.day + 1:
+                return 1
+        return 0
 
     @api.depends('contract_ids', 'initial_employment_date')
     def _compute_months_service(self):
@@ -44,7 +55,8 @@ class HrEmployee(models.Model):
                     employee.initial_employment_date)
 
                 nb_month += relativedelta(to_dt, from_dt).years * 12 + \
-                    relativedelta(to_dt, from_dt).months
+                    relativedelta(to_dt, from_dt).months + \
+                    self.check_next_days(to_dt, from_dt)
 
             for contract in employee.contract_ids:
                 from_dt = fields.Date.from_string(contract.date_start)
@@ -52,9 +64,9 @@ class HrEmployee(models.Model):
                     to_dt = fields.Date.from_string(contract.date_end)
                 else:
                     to_dt = fields.Date.from_string(date_now)
-
                 nb_month += relativedelta(to_dt, from_dt).years * 12 + \
-                    relativedelta(to_dt, from_dt).months
+                    relativedelta(to_dt, from_dt).months + \
+                    self.check_next_days(to_dt, from_dt)
 
             employee.length_of_service = nb_month
 
