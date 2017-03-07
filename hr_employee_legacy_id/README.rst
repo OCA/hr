@@ -23,6 +23,7 @@ Contributors
 
 * Michael Telahun Makonnen <mmakonnen@gmail.com>
 * Adrien Peiffer (ACSONE) <adrien.peiffer@acsone.eu>
+* Meyomesse Gilles <meyomesse.gilles@gmail.com>
 
 Maintainer
 ----------

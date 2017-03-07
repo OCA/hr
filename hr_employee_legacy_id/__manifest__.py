@@ -21,7 +21,7 @@
 
 {
     'name': 'Legacy Employee ID',
-    'version': '8.0.1.0.0',
+    'version': '10.0.1.0.0',
     'category': 'Generic Modules/Human Resources',
     'author': "Michael Telahun Makonnen <mmakonnen@gmail.com>,"
               "Odoo Community Association (OCA)",
@@ -33,5 +33,5 @@
     'data': [
         'views/hr_view.xml',
     ],
-    'installable': False,
+    'installable': True,
 }
