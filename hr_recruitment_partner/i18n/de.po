@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-02-18 03:03+0000\n"
-"PO-Revision-Date: 2017-02-25 00:43+0000\n"
+"PO-Revision-Date: 2017-03-10 13:16+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: German (http://www.transifex.com/oca/OCA-hr-8-0/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -202,7 +202,7 @@ msgstr ""
 #. module: hr_recruitment_partner
 #: field:hr.applicant,image:0
 msgid "Image"
-msgstr ""
+msgstr "Bild"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,invoice_ids:0
@@ -247,7 +247,7 @@ msgstr ""
 #. module: hr_recruitment_partner
 #: field:hr.applicant,image_medium:0
 msgid "Medium-sized image"
-msgstr ""
+msgstr "Mittelgroßes Bild"
 
 #. module: hr_recruitment_partner
 #: help:hr.applicant,image_medium:0
@@ -350,7 +350,7 @@ msgstr ""
 #. module: hr_recruitment_partner
 #: field:hr.applicant,image_small:0
 msgid "Small-sized image"
-msgstr ""
+msgstr "Bild mit kleinen Abmessungen"
 
 #. module: hr_recruitment_partner
 #: help:hr.applicant,image_small:0
@@ -496,7 +496,7 @@ msgstr ""
 #. module: hr_recruitment_partner
 #: field:hr.applicant,total_invoiced:0
 msgid "Total Invoiced"
-msgstr ""
+msgstr "Abrechnungssumme"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,debit:0
