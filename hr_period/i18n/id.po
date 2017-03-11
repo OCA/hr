@@ -10,12 +10,12 @@ msgstr ""
 "POT-Creation-Date: 2017-02-18 02:58+0000\n"
 "PO-Revision-Date: 2015-07-27 23:40+0000\n"
 "Last-Translator: <>\n"
-"Language-Team: Croatian (http://www.transifex.com/oca/OCA-hr-7-0/language/hr/)\n"
+"Language-Team: Indonesian (http://www.transifex.com/oca/OCA-hr-7-0/language/id/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: hr\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Language: id\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #. module: hr_period
 #: selection:hr.fiscalyear,payment_week:0
@@ -31,7 +31,7 @@ msgstr ""
 #. module: hr_period
 #: view:hr.fiscalyear:0
 msgid "Confirm"
-msgstr "Potvrdi"
+msgstr ""
 
 #. module: hr_period
 #: code:addons/hr_period/models/hr_fiscal_year.py:55
@@ -77,7 +77,7 @@ msgstr ""
 #. module: hr_period
 #: view:hr.fiscalyear:0 view:hr.payslip.run:0
 msgid "Group By..."
-msgstr "Grupiraj po..."
+msgstr ""
 
 #. module: hr_period
 #: view:hr.period:0
@@ -169,7 +169,7 @@ msgstr ""
 #: view:hr.payslip.run:0 field:hr.payslip.run,company_id:0
 #: field:hr.period,company_id:0
 msgid "Company"
-msgstr "Poduzeće"
+msgstr "Perusahaan"
 
 #. module: hr_period
 #: selection:hr.fiscalyear,payment_weekday:0
@@ -218,7 +218,7 @@ msgstr ""
 #. module: hr_period
 #: field:hr.period,number:0
 msgid "Number"
-msgstr "Broj"
+msgstr ""
 
 #. module: hr_period
 #: field:hr.period,date_stop:0
@@ -454,7 +454,7 @@ msgstr ""
 #. module: hr_period
 #: field:hr.period,name:0
 msgid "Name"
-msgstr "Naziv"
+msgstr "Nama"
 
 #. module: hr_period
 #: view:hr.fiscalyear:0 selection:hr.fiscalyear,state:0

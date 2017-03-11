@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-27 23:36+0000\n"
+"POT-Creation-Date: 2017-03-04 02:29+0000\n"
 "PO-Revision-Date: 2015-07-27 23:38+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: German (http://www.transifex.com/oca/OCA-hr-7-0/language/de/)\n"
@@ -192,7 +192,7 @@ msgstr ""
 #. module: hr_holidays_extension
 #: view:hr.holidays:0
 msgid "Duration"
-msgstr ""
+msgstr "Dauer"
 
 #. module: hr_holidays_extension
 #: field:hr.holidays.status,ex_rest_days:0

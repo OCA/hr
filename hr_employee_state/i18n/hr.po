@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-07 02:23+0000\n"
+"POT-Creation-Date: 2017-03-04 02:29+0000\n"
 "PO-Revision-Date: 2015-07-27 23:38+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Croatian (http://www.transifex.com/oca/OCA-hr-7-0/language/hr/)\n"
@@ -63,7 +63,7 @@ msgstr ""
 #: field:hr.employee.termination,department_id:0
 #: field:hr.employee.termination,saved_department_id:0
 msgid "Department"
-msgstr ""
+msgstr "Odjel"
 
 #. module: hr_employee_state
 #: field:hr.employee.termination,state:0
@@ -269,7 +269,7 @@ msgstr ""
 #. module: hr_employee_state
 #: view:hr.employee.termination:0
 msgid "Group By..."
-msgstr ""
+msgstr "Grupiraj po..."
 
 #. module: hr_employee_state
 #: view:hr.employee.termination:0

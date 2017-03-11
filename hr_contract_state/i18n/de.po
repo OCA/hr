@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-18 02:57+0000\n"
+"POT-Creation-Date: 2017-03-04 02:28+0000\n"
 "PO-Revision-Date: 2015-07-27 23:36+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: German (http://www.transifex.com/oca/OCA-hr-7-0/language/de/)\n"
@@ -35,7 +35,7 @@ msgstr ""
 #. module: hr_contract_state
 #: field:hr.contract,message_follower_ids:0
 msgid "Followers"
-msgstr ""
+msgstr "Follower"
 
 #. module: hr_contract_state
 #: view:hr.contract:0
@@ -123,7 +123,7 @@ msgstr "Vertrag"
 #. module: hr_contract_state
 #: field:hr.contract,message_summary:0
 msgid "Summary"
-msgstr ""
+msgstr "Zusammenfassung"
 
 #. module: hr_contract_state
 #: constraint:hr.contract:0

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-24 01:32+0000\n"
+"POT-Creation-Date: 2017-02-18 02:58+0000\n"
 "PO-Revision-Date: 2015-07-27 23:39+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Spanish (http://www.transifex.com/oca/OCA-hr-7-0/language/es/)\n"
@@ -29,7 +29,7 @@ msgstr ""
 #: field:hr.payslip.exception,severity:0
 #: field:hr.payslip.exception.rule,severity:0
 msgid "Severity"
-msgstr ""
+msgstr "Severidad"
 
 #. module: hr_payroll_period
 #: field:hr.payslip.exception.rule,condition_select:0
@@ -319,7 +319,7 @@ msgstr "Contiene el resumen del chatter (nº de mensajes, ...). Este resumen est
 #: field:hr.payroll.period.end.1,pex_critical:0
 #: selection:hr.payslip.exception.rule,severity:0
 msgid "Critical"
-msgstr ""
+msgstr "Crítico"
 
 #. module: hr_payroll_period
 #: view:hr.payroll.period.end.1:0
@@ -414,7 +414,7 @@ msgstr "Tipo"
 #: field:hr.payroll.period.end.1,pex_medium:0
 #: selection:hr.payslip.exception.rule,severity:0
 msgid "Medium"
-msgstr ""
+msgstr "Medio"
 
 #. module: hr_payroll_period
 #: field:hr.payroll.period.end.1,alert_high:0
@@ -623,7 +623,7 @@ msgstr "Borrador"
 #: field:hr.payroll.period.end.1,pex_low:0
 #: selection:hr.payslip.exception.rule,severity:0
 msgid "Low"
-msgstr ""
+msgstr "Bajo"
 
 #. module: hr_payroll_period
 #: selection:hr.payroll.period,state:0
@@ -1131,7 +1131,7 @@ msgstr ""
 #: field:hr.payroll.period.end.1,pex_high:0
 #: selection:hr.payslip.exception.rule,severity:0
 msgid "High"
-msgstr ""
+msgstr "Alto"
 
 #. module: hr_payroll_period
 #: model:mail.message.subtype,name:hr_payroll_period.mt_state_end

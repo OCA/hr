@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-18 02:57+0000\n"
+"POT-Creation-Date: 2017-03-04 02:28+0000\n"
 "PO-Revision-Date: 2015-07-27 23:36+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: German (http://www.transifex.com/oca/OCA-hr-7-0/language/de/)\n"
@@ -87,7 +87,7 @@ msgstr "Hinzufügen"
 #: code:addons/hr_activity_on_timesheet/hr_activity.py:89
 #, python-format
 msgid "Error"
-msgstr ""
+msgstr "Fehler"
 
 #. module: hr_activity_on_timesheet
 #. openerp-web

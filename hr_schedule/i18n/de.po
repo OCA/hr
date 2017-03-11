@@ -20,7 +20,7 @@ msgstr ""
 #. module: hr_schedule
 #: field:hr.schedule.alert,severity:0 field:hr.schedule.alert.rule,severity:0
 msgid "Severity"
-msgstr ""
+msgstr "Schweregrad"
 
 #. module: hr_schedule
 #: view:hr.restday.wizard:0
@@ -64,7 +64,7 @@ msgstr "Gruppiere"
 #: selection:hr.schedule.detail,dayofweek:0
 #: selection:hr.schedule.template.worktime,dayofweek:0
 msgid "Sunday"
-msgstr ""
+msgstr "Sonntag"
 
 #. module: hr_schedule
 #: code:addons/hr_schedule/hr_schedule.py:246
@@ -121,7 +121,7 @@ msgstr "Unternehmen"
 #: selection:hr.schedule.detail,dayofweek:0
 #: selection:hr.schedule.template.worktime,dayofweek:0
 msgid "Friday"
-msgstr ""
+msgstr "Freitag"
 
 #. module: hr_schedule
 #: model:ir.model,name:hr_schedule.model_hr_restday_wizard
@@ -282,7 +282,7 @@ msgstr "Status"
 #: field:hr.schedule.alert,message_follower_ids:0
 #: field:hr.schedule.request,message_follower_ids:0
 msgid "Followers"
-msgstr ""
+msgstr "Follower"
 
 #. module: hr_schedule
 #: selection:hr.schedule.request,state:0
@@ -313,7 +313,7 @@ msgstr ""
 #. module: hr_schedule
 #: selection:hr.schedule.alert.rule,severity:0
 msgid "Medium"
-msgstr ""
+msgstr "Mittel"
 
 #. module: hr_schedule
 #: view:hr.schedule.alert:0
@@ -430,7 +430,7 @@ msgstr ""
 #: selection:hr.schedule.detail,dayofweek:0
 #: selection:hr.schedule.template.worktime,dayofweek:0
 msgid "Tuesday"
-msgstr ""
+msgstr "Dienstag"
 
 #. module: hr_schedule
 #: field:hr.schedule.template.worktime,hour_from:0
@@ -445,7 +445,7 @@ msgstr ""
 #. module: hr_schedule
 #: field:hr.schedule.request,message:0
 msgid "Message"
-msgstr ""
+msgstr "Meldung"
 
 #. module: hr_schedule
 #: field:hr.schedule.alert.rule,grace_period:0
@@ -492,7 +492,7 @@ msgstr ""
 #. module: hr_schedule
 #: selection:hr.schedule.alert.rule,severity:0
 msgid "Critical"
-msgstr ""
+msgstr "Kritisch"
 
 #. module: hr_schedule
 #: selection:hr.schedule,state:0 selection:hr.schedule.detail,state:0
@@ -512,7 +512,7 @@ msgstr ""
 #. module: hr_schedule
 #: field:hr.schedule.alert.compute,date_end:0
 msgid "End"
-msgstr ""
+msgstr "Ende"
 
 #. module: hr_schedule
 #: selection:hr.schedule.request,state:0
@@ -547,7 +547,7 @@ msgstr ""
 #: selection:hr.schedule.detail,dayofweek:0
 #: selection:hr.schedule.template.worktime,dayofweek:0
 msgid "Monday"
-msgstr ""
+msgstr "Montag"
 
 #. module: hr_schedule
 #: model:ir.model,name:hr_schedule.model_hr_schedule_weekday
@@ -604,14 +604,14 @@ msgstr ""
 #. module: hr_schedule
 #: view:hr.schedule.alert.compute:0
 msgid "Interval"
-msgstr ""
+msgstr "Intervall"
 
 #. module: hr_schedule
 #: selection:hr.restday.wizard,dayofweek:0
 #: selection:hr.schedule.detail,dayofweek:0
 #: selection:hr.schedule.template.worktime,dayofweek:0
 msgid "Wednesday"
-msgstr ""
+msgstr "Mittwoch"
 
 #. module: hr_schedule
 #: field:hr.restday.wizard,contract_id:0
@@ -624,7 +624,7 @@ msgstr "Vertrag"
 #: field:hr.schedule.alert,message_summary:0
 #: field:hr.schedule.request,message_summary:0
 msgid "Summary"
-msgstr ""
+msgstr "Zusammenfassung"
 
 #. module: hr_schedule
 #: field:hr.schedule.request,date:0
@@ -636,7 +636,7 @@ msgstr "Datum"
 #: selection:hr.schedule.detail,dayofweek:0
 #: selection:hr.schedule.template.worktime,dayofweek:0
 msgid "Thursday"
-msgstr ""
+msgstr "Donnerstag"
 
 #. module: hr_schedule
 #: field:hr.contract.init,sched_template_id:0 view:hr.restday.wizard:0
@@ -876,11 +876,11 @@ msgstr ""
 #. module: hr_schedule
 #: view:hr.schedule:0
 msgid "Duration"
-msgstr ""
+msgstr "Dauer"
 
 #. module: hr_schedule
 #: selection:hr.restday.wizard,dayofweek:0
 #: selection:hr.schedule.detail,dayofweek:0
 #: selection:hr.schedule.template.worktime,dayofweek:0
 msgid "Saturday"
-msgstr ""
+msgstr "Samstag"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-27 23:36+0000\n"
+"POT-Creation-Date: 2017-02-18 02:58+0000\n"
 "PO-Revision-Date: 2015-07-27 23:39+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: German (http://www.transifex.com/oca/OCA-hr-7-0/language/de/)\n"
@@ -25,7 +25,7 @@ msgstr ""
 #. module: hr_payroll_extension
 #: selection:hr.contract,wage_type:0
 msgid "Hourly"
-msgstr ""
+msgstr "Stündlich"
 
 #. module: hr_payroll_extension
 #: code:addons/hr_payroll_extension/hr_payroll.py:1470
@@ -75,7 +75,7 @@ msgstr ""
 #. module: hr_payroll_extension
 #: selection:hr.contract,wage_type:0
 msgid "Daily"
-msgstr ""
+msgstr "Täglich"
 
 #. module: hr_payroll_extension
 #: model:ir.model,name:hr_payroll_extension.model_hr_salary_rule

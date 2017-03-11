@@ -20,7 +20,7 @@ msgstr ""
 #. module: hr_schedule
 #: field:hr.schedule.alert,severity:0 field:hr.schedule.alert.rule,severity:0
 msgid "Severity"
-msgstr ""
+msgstr "Sévérité"
 
 #. module: hr_schedule
 #: view:hr.restday.wizard:0
@@ -313,7 +313,7 @@ msgstr ""
 #. module: hr_schedule
 #: selection:hr.schedule.alert.rule,severity:0
 msgid "Medium"
-msgstr ""
+msgstr "Moyen"
 
 #. module: hr_schedule
 #: view:hr.schedule.alert:0
@@ -492,7 +492,7 @@ msgstr ""
 #. module: hr_schedule
 #: selection:hr.schedule.alert.rule,severity:0
 msgid "Critical"
-msgstr ""
+msgstr "Critique"
 
 #. module: hr_schedule
 #: selection:hr.schedule,state:0 selection:hr.schedule.detail,state:0

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-17 01:54+0000\n"
+"POT-Creation-Date: 2017-02-18 02:58+0000\n"
 "PO-Revision-Date: 2015-07-27 23:40+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Spanish (http://www.transifex.com/oca/OCA-hr-7-0/language/es/)\n"
@@ -20,7 +20,7 @@ msgstr ""
 #. module: hr_schedule
 #: field:hr.schedule.alert,severity:0 field:hr.schedule.alert.rule,severity:0
 msgid "Severity"
-msgstr ""
+msgstr "Severidad"
 
 #. module: hr_schedule
 #: view:hr.restday.wizard:0
@@ -313,7 +313,7 @@ msgstr ""
 #. module: hr_schedule
 #: selection:hr.schedule.alert.rule,severity:0
 msgid "Medium"
-msgstr ""
+msgstr "Medio"
 
 #. module: hr_schedule
 #: view:hr.schedule.alert:0
@@ -492,7 +492,7 @@ msgstr ""
 #. module: hr_schedule
 #: selection:hr.schedule.alert.rule,severity:0
 msgid "Critical"
-msgstr ""
+msgstr "Crítico"
 
 #. module: hr_schedule
 #: selection:hr.schedule,state:0 selection:hr.schedule.detail,state:0
@@ -502,7 +502,7 @@ msgstr "Borrador"
 #. module: hr_schedule
 #: selection:hr.schedule.alert.rule,severity:0
 msgid "Low"
-msgstr ""
+msgstr "Bajo"
 
 #. module: hr_schedule
 #: selection:hr.schedule.request,state:0
@@ -865,7 +865,7 @@ msgstr "Secuencia"
 #. module: hr_schedule
 #: selection:hr.schedule.alert.rule,severity:0
 msgid "High"
-msgstr ""
+msgstr "Alto"
 
 #. module: hr_schedule
 #: model:ir.actions.act_window,name:hr_schedule.open_hr_schedule_template_view

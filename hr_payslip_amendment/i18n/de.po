@@ -57,7 +57,7 @@ msgstr "Status"
 #. module: hr_payslip_amendment
 #: field:hr.payslip.amendment,message_follower_ids:0
 msgid "Followers"
-msgstr ""
+msgstr "Follower"
 
 #. module: hr_payslip_amendment
 #: field:hr.payslip.amendment,employee_id:0
@@ -108,7 +108,7 @@ msgstr "Nachrichten"
 #. module: hr_payslip_amendment
 #: field:hr.payslip.amendment,message_summary:0
 msgid "Summary"
-msgstr ""
+msgstr "Zusammenfassung"
 
 #. module: hr_payslip_amendment
 #: field:hr.payslip.amendment,amount:0
