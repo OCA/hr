@@ -6,11 +6,11 @@
             <field name="model">hr.salary.rule</field>
             <field name="inherit_id" ref="hr_payroll.hr_salary_rule_form"/>
             <field name="arch" type="xml">
-                <page string="Inputs" position="after">
+                <xpath expr="//field[@name='input_ids']/.." position="after">
                     <page string="Employee Benefits">
                         <field name="employee_benefit_ids"/>
                     </page>
-                </page>
+                </xpath>
             </field>
         </record>
     </data>

@@ -10,7 +10,7 @@
                 <field name="payslip_run_id" position="after">
                     <field name="pays_per_year"/>
                 </field>
-                <page string="Salary Computation" position="before">
+                <xpath expr="//field[@name='line_ids']/.." position="before">
                     <page string="Employee Benefits">
                         <group>
                             <separator string="Employee Benefits"/>
@@ -30,7 +30,7 @@
                             </field>
                         </group>
                     </page>
-                </page>
+                </xpath>
             </field>
         </record>
 
