@@ -43,6 +43,7 @@
     <menuitem name="Skills"
               parent="hr.menu_human_resources_configuration"
               id="menu_open_view_skill_form"
-              action="open_view_skill_form"/>
+              action="open_view_skill_form"
+              groups="base.group_no_one"/>
 
 </odoo>
