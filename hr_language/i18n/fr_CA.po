@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-02-18 03:03+0000\n"
-"PO-Revision-Date: 2017-03-14 18:27+0000\n"
+"PO-Revision-Date: 2017-03-13 12:52+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
-"Language-Team: Catalan (http://www.transifex.com/oca/OCA-hr-8-0/language/ca/)\n"
+"Language-Team: French (Canada) (http://www.transifex.com/oca/OCA-hr-8-0/language/fr_CA/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: ca\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: fr_CA\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #. module: hr_language
 #: selection:hr.language,name:0
@@ -75,12 +75,12 @@ msgstr ""
 #. module: hr_language
 #: field:hr.language,create_uid:0
 msgid "Created by"
-msgstr "Creat per"
+msgstr "Créé par"
 
 #. module: hr_language
 #: field:hr.language,create_date:0
 msgid "Created on"
-msgstr "Creat el"
+msgstr "Créé le"
 
 #. module: hr_language
 #: selection:hr.language,name:0
@@ -100,12 +100,12 @@ msgstr ""
 #. module: hr_language
 #: field:hr.language,description:0
 msgid "Description"
-msgstr "Descripció"
+msgstr ""
 
 #. module: hr_language
 #: field:hr.language,display_name:0
 msgid "Display Name"
-msgstr "Veure el nom"
+msgstr "Afficher le nom"
 
 #. module: hr_language
 #: selection:hr.language,name:0
@@ -216,7 +216,7 @@ msgstr ""
 #. module: hr_language
 #: field:hr.language,id:0
 msgid "ID"
-msgstr "ID"
+msgstr "Identifiant"
 
 #. module: hr_language
 #: selection:hr.language,name:0
@@ -271,17 +271,17 @@ msgstr ""
 #. module: hr_language
 #: field:hr.language,__last_update:0
 msgid "Last Modified on"
-msgstr "Darrera modificació el"
+msgstr ""
 
 #. module: hr_language
 #: field:hr.language,write_uid:0
 msgid "Last Updated by"
-msgstr "Darrera Actualització per"
+msgstr "Dernière mise à jour par"
 
 #. module: hr_language
 #: field:hr.language,write_date:0
 msgid "Last Updated on"
-msgstr "Darrera Actualització el"
+msgstr "Dernière mise à jour le"
 
 #. module: hr_language
 #: selection:hr.language,name:0

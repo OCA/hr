@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-14 03:17+0000\n"
-"PO-Revision-Date: 2017-01-17 19:17+0000\n"
+"POT-Creation-Date: 2017-03-04 02:33+0000\n"
+"PO-Revision-Date: 2017-03-14 18:27+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Catalan (http://www.transifex.com/oca/OCA-hr-8-0/language/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -83,7 +83,7 @@ msgstr ""
 #: field:hr.employee.benefit,contract_id:0
 #: model:ir.model,name:hr_employee_benefit.model_hr_contract
 msgid "Contract"
-msgstr ""
+msgstr "Contracte"
 
 #. module: hr_employee_benefit
 #: field:hr.employee.benefit,create_uid:0
@@ -106,7 +106,7 @@ msgstr "Creat el"
 #. module: hr_employee_benefit
 #: field:hr.employee.benefit.category,description:0
 msgid "Description"
-msgstr ""
+msgstr "Descripció"
 
 #. module: hr_employee_benefit
 #: field:hr.employee.benefit,display_name:0

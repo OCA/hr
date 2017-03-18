@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-14 03:17+0000\n"
-"PO-Revision-Date: 2017-01-17 18:52+0000\n"
+"POT-Creation-Date: 2017-02-18 03:03+0000\n"
+"PO-Revision-Date: 2017-03-14 18:29+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Catalan (http://www.transifex.com/oca/OCA-hr-8-0/language/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -109,7 +109,7 @@ msgstr ""
 #. module: hr_recruitment_partner
 #: field:hr.applicant,contract_ids:0 field:hr.applicant,contracts_count:0
 msgid "Contracts"
-msgstr ""
+msgstr "Contractes"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,country_id:0
@@ -206,7 +206,7 @@ msgstr ""
 #. module: hr_recruitment_partner
 #: field:hr.applicant,invoice_ids:0
 msgid "Invoices"
-msgstr ""
+msgstr "Factures"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,is_company:0

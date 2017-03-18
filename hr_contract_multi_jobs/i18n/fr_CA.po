@@ -10,18 +10,18 @@ msgstr ""
 "POT-Creation-Date: 2017-03-04 02:33+0000\n"
 "PO-Revision-Date: 2015-07-27 23:43+0000\n"
 "Last-Translator: <>\n"
-"Language-Team: Catalan (http://www.transifex.com/oca/OCA-hr-8-0/language/ca/)\n"
+"Language-Team: French (Canada) (http://www.transifex.com/oca/OCA-hr-8-0/language/fr_CA/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: ca\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: fr_CA\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #. module: hr_contract_multi_jobs
 #: field:hr.contract.job,contract_id:0
 #: model:ir.model,name:hr_contract_multi_jobs.model_hr_contract
 msgid "Contract"
-msgstr "Contracte"
+msgstr ""
 
 #. module: hr_contract_multi_jobs
 #: field:hr.job,contract_job_ids:0
@@ -31,22 +31,22 @@ msgstr ""
 #. module: hr_contract_multi_jobs
 #: field:hr.contract.job,create_uid:0
 msgid "Created by"
-msgstr "Creat per"
+msgstr "Créé par"
 
 #. module: hr_contract_multi_jobs
 #: field:hr.contract.job,create_date:0
 msgid "Created on"
-msgstr "Creat el"
+msgstr "Créé le"
 
 #. module: hr_contract_multi_jobs
 #: field:hr.contract.job,display_name:0
 msgid "Display Name"
-msgstr "Veure el nom"
+msgstr "Afficher le nom"
 
 #. module: hr_contract_multi_jobs
 #: field:hr.contract.job,id:0
 msgid "ID"
-msgstr "ID"
+msgstr "Identifiant"
 
 #. module: hr_contract_multi_jobs
 #: field:hr.contract.job,job_id:0 field:hr.contract.job,name:0
@@ -71,17 +71,17 @@ msgstr ""
 #. module: hr_contract_multi_jobs
 #: field:hr.contract.job,__last_update:0
 msgid "Last Modified on"
-msgstr "Darrera modificació el"
+msgstr ""
 
 #. module: hr_contract_multi_jobs
 #: field:hr.contract.job,write_uid:0
 msgid "Last Updated by"
-msgstr "Darrera Actualització per"
+msgstr "Dernière mise à jour par"
 
 #. module: hr_contract_multi_jobs
 #: field:hr.contract.job,write_date:0
 msgid "Last Updated on"
-msgstr "Darrera Actualització el"
+msgstr "Dernière mise à jour le"
 
 #. module: hr_contract_multi_jobs
 #: field:hr.contract.job,is_main_job:0
