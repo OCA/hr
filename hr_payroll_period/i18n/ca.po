@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-17 14:04+0000\n"
+"POT-Creation-Date: 2017-02-18 02:58+0000\n"
 "PO-Revision-Date: 2015-07-27 23:39+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Catalan (http://www.transifex.com/oca/OCA-hr-7-0/language/ca/)\n"
@@ -676,7 +676,7 @@ msgstr ""
 #: view:hr.payroll.period.schedule:0
 #: field:hr.payroll.period.schedule,contract_ids:0
 msgid "Contracts"
-msgstr ""
+msgstr "Contractes"
 
 #. module: hr_payroll_period
 #: help:hr.payroll.period,message_ids:0
@@ -758,7 +758,7 @@ msgstr ""
 #. module: hr_payroll_period
 #: model:ir.model,name:hr_payroll_period.model_hr_contract
 msgid "Contract"
-msgstr ""
+msgstr "Contracte"
 
 #. module: hr_payroll_period
 #: field:hr.payroll.period,message_summary:0
@@ -982,7 +982,7 @@ msgstr ""
 #: field:hr.payroll.period,name:0 field:hr.payroll.period.schedule,name:0
 #: field:hr.payslip.exception.rule,note:0
 msgid "Description"
-msgstr ""
+msgstr "Descripció"
 
 #. module: hr_payroll_period
 #: view:hr.payroll.period.end.1:0

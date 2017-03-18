@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-17 14:04+0000\n"
+"POT-Creation-Date: 2017-02-18 02:58+0000\n"
 "PO-Revision-Date: 2015-07-27 23:41+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Catalan (http://www.transifex.com/oca/OCA-hr-7-0/language/ca/)\n"
@@ -297,7 +297,7 @@ msgstr ""
 #: field:hr.contract.wage.increment,contract_id:0
 #: model:ir.model,name:hr_wage_increment.model_hr_contract
 msgid "Contract"
-msgstr ""
+msgstr "Contracte"
 
 #. module: hr_wage_increment
 #: code:addons/hr_wage_increment/wizard/wage_increment.py:69
@@ -369,7 +369,7 @@ msgstr ""
 #. module: hr_wage_increment
 #: view:hr.contract.wage.increment:0 view:hr.contract.wage.increment.run:0
 msgid "Group By..."
-msgstr ""
+msgstr "Agrupat per..."
 
 #. module: hr_wage_increment
 #: view:hr.contract.wage.increment.run:0

@@ -1,0 +1,123 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+# * hr_payroll_extension
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: hr (7.0)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-02-18 02:58+0000\n"
+"PO-Revision-Date: 2015-07-27 23:39+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: Catalan (http://www.transifex.com/oca/OCA-hr-7-0/language/ca/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: ca\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: hr_payroll_extension
+#: selection:hr.contract,wage_type:0
+msgid "Salary"
+msgstr ""
+
+#. module: hr_payroll_extension
+#: selection:hr.contract,wage_type:0
+msgid "Hourly"
+msgstr ""
+
+#. module: hr_payroll_extension
+#: code:addons/hr_payroll_extension/hr_payroll.py:1470
+#, python-format
+msgid "Number of Sign-in and Sign-out records do not match!"
+msgstr ""
+
+#. module: hr_payroll_extension
+#: model:ir.model,name:hr_payroll_extension.model_hr_attendance
+msgid "Attendance"
+msgstr ""
+
+#. module: hr_payroll_extension
+#: code:addons/hr_payroll_extension/hr_payroll.py:1400
+#: code:addons/hr_payroll_extension/hr_payroll.py:1425
+#, python-format
+msgid "Attendance Error!"
+msgstr ""
+
+#. module: hr_payroll_extension
+#: code:addons/hr_payroll_extension/hr_payroll.py:1426
+#, python-format
+msgid "There is a sign-in with no corresponding sign-out for %s on %s"
+msgstr ""
+
+#. module: hr_payroll_extension
+#: field:hr.contract,wage_daily:0
+msgid "Daily Wages"
+msgstr ""
+
+#. module: hr_payroll_extension
+#: code:addons/hr_payroll_extension/hr_payroll.py:574
+#, python-format
+msgid "Maximum Possible Working Hours"
+msgstr ""
+
+#. module: hr_payroll_extension
+#: model:ir.model,name:hr_payroll_extension.model_hr_payslip_line
+msgid "Payslip Line"
+msgstr ""
+
+#. module: hr_payroll_extension
+#: field:hr.contract,wage_type:0
+msgid "Wage Type"
+msgstr ""
+
+#. module: hr_payroll_extension
+#: selection:hr.contract,wage_type:0
+msgid "Daily"
+msgstr ""
+
+#. module: hr_payroll_extension
+#: model:ir.model,name:hr_payroll_extension.model_hr_salary_rule
+msgid "hr.salary.rule"
+msgstr ""
+
+#. module: hr_payroll_extension
+#: model:ir.model,name:hr_payroll_extension.model_hr_contract
+msgid "Contract"
+msgstr "Contracte"
+
+#. module: hr_payroll_extension
+#: code:addons/hr_payroll_extension/hr_payroll.py:1401
+#, python-format
+msgid "There is not a final sign-out record for %s on %s"
+msgstr ""
+
+#. module: hr_payroll_extension
+#: code:addons/hr_payroll_extension/hr_payroll.py:1471
+#, python-format
+msgid ""
+"Employee: %s\n"
+"Sign-in(s): %s\n"
+"Sign-out(s): %s"
+msgstr ""
+
+#. module: hr_payroll_extension
+#: model:ir.model,name:hr_payroll_extension.model_hr_payslip
+msgid "Pay Slip"
+msgstr ""
+
+#. module: hr_payroll_extension
+#: field:hr.contract,wage_hourly:0
+msgid "Hourly Wages"
+msgstr ""
+
+#. module: hr_payroll_extension
+#: model:ir.model,name:hr_payroll_extension.model_hr_payslip_worked_days
+msgid "Payslip Worked Days"
+msgstr ""
+
+#. module: hr_payroll_extension
+#: field:hr.contract,wage_monthly:0
+msgid "Monthly Wages"
+msgstr ""

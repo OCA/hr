@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-17 14:03+0000\n"
+"POT-Creation-Date: 2017-03-11 02:44+0000\n"
 "PO-Revision-Date: 2015-07-27 23:36+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Catalan (http://www.transifex.com/oca/OCA-hr-7-0/language/ca/)\n"
@@ -61,7 +61,7 @@ msgstr ""
 #. module: hr_activity_on_timesheet
 #: model:ir.model,name:hr_activity_on_timesheet.model_hr_contract
 msgid "Contract"
-msgstr ""
+msgstr "Contracte"
 
 #. module: hr_activity_on_timesheet
 #. openerp-web
