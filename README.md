@@ -9,6 +9,7 @@ Odoo modules related to Human Resources.
 
 
 [//]: # (addons)
+
 Available addons
 ----------------
 addon | version | summary
