@@ -22,6 +22,7 @@ addon | version | summary
 [hr_holidays_legal_leave](hr_holidays_legal_leave/) | 9.0.1.0.0 | Allows the definition of legal/annual leave
 [hr_public_holidays](hr_public_holidays/) | 9.0.1.0.0 | Manage Public Holidays
 
+
 Unported addons
 ---------------
 addon | version | summary
