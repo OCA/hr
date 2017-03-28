@@ -8,22 +8,10 @@ HR Payroll Cancel
 
 This module allows the user to cancel a payslip whatever the previous state is.
 
-Installation
-============
-
-To install this module, you need to:
-
-1.  Clone the branch 8.0 of the repository https://github.com/OCA/hr
-2.  Add the path to this repository in your configuration (addons-path)
-3.  Update the module list
-4.  Go to menu *Setting -> Modules -> Local Modules*
-5.  Search For *HR Payroll Cancel*
-6.  Install the module
-
 Usage
 =====
 
-Go to: Human Resources -> Payroll -> Employee Payslip
+Go to: Payroll -> Employee Payslip
 
 - Choose a payslip from the list.
 - Click on the button "Cancel Payslip" to cancel the payslip.
@@ -31,7 +19,7 @@ Go to: Human Resources -> Payroll -> Employee Payslip
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
-   :target: https://runbot.odoo-community.org/runbot/116/8.0
+   :target: https://runbot.odoo-community.org/runbot/116/9.0
 
 Credits
 =======
@@ -40,6 +28,7 @@ Contributors
 ------------
 * Luis Torres (luis_t@vauxoo.com)
 * Aaron Henriquez (ahenriquez@eficent.com)
+* Lois Rilo (lois.rilo@eficent.com)
 
 Maintainer
 ----------
