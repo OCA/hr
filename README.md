@@ -54,6 +54,7 @@ addon | version | summary
 [hr_webcam](hr_webcam/) | 8.0.1.0.0 | Capture employee picture with webcam
 [hr_worked_days_from_timesheet](hr_worked_days_from_timesheet/) | 8.0.1.0.0 | Worked Days From Timesheet
 
+
 Unported addons
 ---------------
 addon | version | summary
