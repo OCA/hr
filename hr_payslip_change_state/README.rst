@@ -2,31 +2,26 @@
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-=========================
+=======================
 HR Payslip Change State
-=========================
+=======================
 
 This module process payslip batches:
 
 * This module allows to mass change Payslip states
 * The module checks if the required action is allowed for each payslip
 * If any of the payslips are not in a suitable state a warning message will
-pop up and no changes will be made
-
-Configuration
-=============
-
-No needed.
+  pop up and no changes will be made
 
 Usage
 =====
-1. Go to the payslip list view and select the ones you want to .
-2. Unfold the "More" menu on the top and click on "Change state"
-3. Select the action to execute
+#. Go to the payslip list view and select the ones you want to .
+#. Unfold the "More" menu on the top and click on "Change state"
+#. Select the action to execute
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
-   :target: https://runbot.odoo-community.org/runbot/116/8.0
+   :target: https://runbot.odoo-community.org/runbot/116/9.0
 
 Credits
 =======
@@ -36,6 +31,7 @@ Contributors
 * Aaron Henriquez <ahenriquez@eficent.com>
 * Jordi Ballester <jordi.ballester@eficent.com>
 * Andhitia Rama <andhitia.r@gmail.com>
+* Lois Rilo <lois.rilo@eficent.com>
 
 Maintainer
 ----------

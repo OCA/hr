@@ -3,16 +3,15 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
 from openerp.tests.common import TransactionCase
-from openerp.exceptions import Warning as UserWarning
+from openerp.exceptions import UserError
 
 
 class TestHrPayslipChangeState(TransactionCase):
     def setUp(self):
-        result = super(TestHrPayslipChangeState, self).setUp()
+        super(TestHrPayslipChangeState, self).setUp()
         self.payslip_model = self.env['hr.payslip']
         self.contract_model = self.env['hr.contract']
         self.tested_model = self.env['hr.payslip.change.state']
-        return result
 
     def test_change_state(self):
         payslip_model = self.payslip_model
@@ -34,7 +33,7 @@ class TestHrPayslipChangeState(TransactionCase):
         action.change_state_confirm()
 
         # trying to set it to wrong states
-        with self.assertRaises(UserWarning):
+        with self.assertRaises(UserError):
             action.write({'state': 'draft'})
             action.change_state_confirm()
 
@@ -48,13 +47,13 @@ class TestHrPayslipChangeState(TransactionCase):
         self.assertEqual(payslip.state, 'done')
 
         # trying to set it to wrong states
-        with self.assertRaises(UserWarning):
+        with self.assertRaises(UserError):
             action.write({'state': 'draft'})
             action.change_state_confirm()
-        with self.assertRaises(UserWarning):
+        with self.assertRaises(UserError):
             action.write({'state': 'verify'})
             action.change_state_confirm()
-        with self.assertRaises(UserWarning):
+        with self.assertRaises(UserError):
             action.write({'state': 'done'})
             action.change_state_confirm()
 
@@ -65,13 +64,13 @@ class TestHrPayslipChangeState(TransactionCase):
         self.assertEqual(payslip.state, 'cancel')
 
         # trying to set it to wrong states
-        with self.assertRaises(UserWarning):
+        with self.assertRaises(UserError):
             action.write({'state': 'done'})
             action.change_state_confirm()
-        with self.assertRaises(UserWarning):
+        with self.assertRaises(UserError):
             action.write({'state': 'verify'})
             action.change_state_confirm()
-        with self.assertRaises(UserWarning):
+        with self.assertRaises(UserError):
             action.write({'state': 'cancel'})
             action.change_state_confirm()
 
