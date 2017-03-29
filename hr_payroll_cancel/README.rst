@@ -6,16 +6,23 @@
 HR Payroll Cancel
 =================
 
-This module allows the user to cancel a payslip whatever the previous state is.
+This module allows the user to cancel a payslip whatever the previous state is
+without doing a refund. When the user cancel the journal entry is deleted
+and  the payslip state is set to rejected. Then the user is able to set the
+state to draft again and later on he/she is able to confirm again the payslip.
+
+If there’s a refund for a payslip the user should not cancel the entry because
+the refund would still be confirm. In that case, the user have either to
+confirm again the payslip or cancel the refund.
 
 Usage
 =====
 
 Go to: Payroll -> Employee Payslip
 
-- Choose a payslip from the list.
-- Click on the button "Cancel Payslip" to cancel the payslip.
-- Now the payslip is in rejected state.
+#. Choose a payslip from the list.
+#. Click on the button "Cancel Payslip" to cancel the payslip.
+#. Now the payslip is in rejected state.
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
