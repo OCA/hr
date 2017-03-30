@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 # © 2012 Odoo Canada
 # © 2015 Acysos S.L.
+# © 2017 Eficent Business and IT Consulting Services S.L.
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html)
 
-from openerp import models, fields, api
-from openerp.tools.translate import _
-from openerp.exceptions import Warning as UserError
+from openerp import api, fields, models, _
+from openerp.exceptions import UserError
 
 
 class HrPayslip(models.Model):
@@ -18,9 +18,6 @@ class HrPayslip(models.Model):
         module and creates a dict of worked days to be created in the payslip.
         """
         # Create one worked days record for each timesheet sheet
-        wd_model = self.env['hr.payslip.worked_days']
-        uom_obj = self.env['product.uom']
-        uom_hours = self.env.ref('product.product_uom_hour')
         for ts_sheet in timesheet_sheets:
             # Get formated date from the timesheet sheet
             date_from_formated = fields.Date.to_string(
@@ -28,13 +25,10 @@ class HrPayslip(models.Model):
             number_of_hours = 0
             for ts in ts_sheet.timesheet_ids:
                 if date_from <= ts.date <= date_to:
-                    unit_amount = uom_obj._compute_qty_obj(
-                        ts.product_uom_id,
-                        ts.unit_amount, uom_hours)
+                    unit_amount = ts.unit_amount
                     number_of_hours += unit_amount
-
             if number_of_hours > 0:
-                wd_model.create({
+                self.env['hr.payslip.worked_days'].create({
                     'name': _('Timesheet %s') % date_from_formated,
                     'number_of_hours': number_of_hours,
                     'contract_id': payslip.contract_id.id,
@@ -45,10 +39,21 @@ class HrPayslip(models.Model):
                 })
 
     @api.multi
+    def _check_contract(self):
+        """Contract is not required field for payslips, yet it is for
+        payslips.worked_days."""
+        for payslip in self:
+            if not payslip.contract_id:
+                raise UserError(
+                    _("Contract is not defined for one or more payslips."),
+                )
+
+    @api.multi
     def import_worked_days(self):
         """This method retreives the employee's timesheets for a payslip period
         and creates worked days records from the imported timesheets
         """
+        self._check_contract()
         for payslip in self:
 
             date_from = payslip.date_from
@@ -57,8 +62,7 @@ class HrPayslip(models.Model):
             # Delete old imported worked_days
             # The reason to delete these records is that the user may make
             # corrections to his timesheets and then reimport these.
-            wd_model = self.env['hr.payslip.worked_days']
-            wd_model.search(
+            self.env['hr.payslip.worked_days'].search(
                 [('payslip_id', '=', payslip.id),
                  ('imported_from_timesheet', '=', True)]).unlink()
 
@@ -71,7 +75,6 @@ class HrPayslip(models.Model):
             ]
             ts_model = self.env['hr_timesheet_sheet.sheet']
             timesheet_sheets = ts_model.search(criteria)
-
             if not timesheet_sheets:
                 raise UserError(
                     _("Sorry, but there is no approved Timesheets for the \
@@ -79,9 +82,5 @@ class HrPayslip(models.Model):
                 )
 
             # The reason to call this method is for other modules to modify it.
-            self._timesheet_mapping(
-                timesheet_sheets,
-                payslip,
-                date_from,
-                date_to
-            )
+            self._timesheet_mapping(timesheet_sheets, payslip,
+                                    date_from, date_to)
