@@ -1,14 +1,17 @@
 # -*- coding: utf-8 -*-
 # © 2012 Odoo Canada
 # © 2015 Acysos S.L.
+# © 2017 Eficent Business and IT Consulting Services S.L.
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html)
+
 {
-    'name': 'Worked Days From Timesheet',
-    'version': '8.0.1.0.0',
+    'name': 'HR Worked Days From Timesheet',
+    'summary': 'Adds a button to import worked days from timesheet.',
+    'version': '9.0.1.0.0',
     'license': 'AGPL-3',
     'category': 'Generic Modules/Human Resources',
-    'author': "Savoir-faire Linux, Acysos S.L.,"
-    "Odoo Community Association (OCA)",
+    'author': "Savoir-faire Linux, Acysos S.L., Eficent, "
+              "Odoo Community Association (OCA)",
     'website': 'https://www.savoirfairelinux.com/',
     'depends': [
         'hr_payroll',
@@ -17,5 +20,5 @@
     'data': [
         'views/hr_payslip_view.xml'
     ],
-    'installable': False,
+    'installable': True,
 }

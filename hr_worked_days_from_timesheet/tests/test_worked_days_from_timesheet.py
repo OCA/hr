@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
-# © 2016 OpenSynergy Indonesia <https://opensynergy-indonesia.com>
-# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+# © 2012 Odoo Canada
+# © 2015 Acysos S.L.
+# © 2017 Eficent Business and IT Consulting Services S.L.
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html)
 
 from openerp.tests.common import TransactionCase
 
@@ -11,7 +13,6 @@ class TestComputeWorkdays(TransactionCase):
         super(TestComputeWorkdays, self).setUp()
 
         self.company = self.env.ref('base.main_company')
-        self.analytic_journal = self.env.ref('hr_timesheet.analytic_journal')
         self.user_admin = self.env.ref('base.partner_root')
 
         user_dict = {
@@ -24,7 +25,6 @@ class TestComputeWorkdays(TransactionCase):
         employee_dict = {
             'name': 'Employee 1',
             'user_id': self.user_test.id,
-            'journal_id': self.analytic_journal.id,
             'address_id': self.user_test.partner_id.id,
         }
         self.employee = self.env['hr.employee'].create(employee_dict)
@@ -79,9 +79,9 @@ class TestComputeWorkdays(TransactionCase):
             'name': 'ddd',
             'account_id': self.analytic.id,
             'unit_amount': 3.0,
-            'journal_id': self.analytic_journal.id,
+            'is_timesheet': True
         }
-        self.analytic_ts1 = self.env['hr.analytic.timesheet'].with_context(
+        self.analytic_ts1 = self.env['account.analytic.line'].with_context(
             user_id=self.user_test.id).create(
                 analytic_ts1_dict)
 
@@ -91,10 +91,10 @@ class TestComputeWorkdays(TransactionCase):
             'name': 'ddd',
             'account_id': self.analytic.id,
             'unit_amount': 5.0,
-            'journal_id': self.analytic_journal.id,
+            'is_timesheet': True,
             'sheet_id': self.ts2.id,
         }
-        self.analytic_ts2 = self.env['hr.analytic.timesheet'].with_context(
+        self.analytic_ts2 = self.env['account.analytic.line'].with_context(
             user_id=self.user_test.id).create(
                 analytic_ts2_dict)
 
@@ -105,9 +105,9 @@ class TestComputeWorkdays(TransactionCase):
             'name': 'ddd',
             'account_id': self.analytic.id,
             'unit_amount': 7.0,
-            'journal_id': self.analytic_journal.id,
+            'is_timesheet': True
         }
-        self.analytic_ts3 = self.env['hr.analytic.timesheet'].with_context(
+        self.analytic_ts3 = self.env['account.analytic.line'].with_context(
             user_id=self.user_test.id).create(
                 analytic_ts3_dict)
 
@@ -118,9 +118,9 @@ class TestComputeWorkdays(TransactionCase):
             'name': 'ddd',
             'account_id': self.analytic.id,
             'unit_amount': 11.5,
-            'journal_id': self.analytic_journal.id,
+            'is_timesheet': True
         }
-        self.analytic_ts4 = self.env['hr.analytic.timesheet'].with_context(
+        self.analytic_ts4 = self.env['account.analytic.line'].with_context(
             user_id=self.user_test.id).create(
                 analytic_ts4_dict)
 
@@ -131,9 +131,9 @@ class TestComputeWorkdays(TransactionCase):
             'name': 'ddd',
             'account_id': self.analytic.id,
             'unit_amount': 13,
-            'journal_id': self.analytic_journal.id,
+            'is_timesheet': True
         }
-        self.analytic_ts5 = self.env['hr.analytic.timesheet'].with_context(
+        self.analytic_ts5 = self.env['account.analytic.line'].with_context(
             user_id=self.user_test.id).create(
                 analytic_ts5_dict)
 
