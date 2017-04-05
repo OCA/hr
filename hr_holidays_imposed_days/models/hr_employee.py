@@ -1,16 +1,14 @@
 # -*- coding: utf-8 -*-
-# Author: Damien Crier
 # Copyright 2016 Camptocamp SA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from openerp import models, api, fields
+from odoo import models, api, fields
 
 
 class HrEmployee(models.Model):
     _inherit = 'hr.employee'
 
     def _get_search_imposed_parameters(self, employee):
-        """ """
         res = [('company_id', '=', employee.company_id.id),
                ('employee_ids', '=', False),  # no employee defined means all
                ('date_from', '>=', fields.Datetime.now())
