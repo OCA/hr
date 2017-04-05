@@ -4,6 +4,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 from odoo.tests import common
+from odoo.exceptions import ValidationError
 from odoo import fields
 from dateutil.relativedelta import relativedelta
 
@@ -12,6 +13,7 @@ class TestHolidaysImposedDays(common.TransactionCase):
 
     def setUp(self):
         super(TestHolidaysImposedDays, self).setUp()
+        # Base models
         self.employee_model = self.env['hr.employee']
         self.holiday_status_model = self.env['hr.holidays.status']
         self.holiday_imposed_model = self.env['hr.holidays.imposed']
@@ -37,9 +39,34 @@ class TestHolidaysImposedDays(common.TransactionCase):
                                                   relativedelta(days=4)),
              'status_id': self.holiday_type.id,
              }
-            )
+        )
         self.imposed.onchange_dates()
         self.assertEqual(self.imposed.number_of_days, 3.)
+
+    def test_imposed_on_specific_employee(self):
+        # Create employee
+        self.employee = self.employee_model.create({
+            'name': 'Employee 1',
+        })
+        # define an imposed day
+        self.imposed = self.holiday_imposed_model.create(
+            {'name': 'TEST',
+             'date_from': fields.Datetime.to_string(self.today +
+                                                    relativedelta(days=2)),
+             'date_to': fields.Datetime.to_string(self.today +
+                                                  relativedelta(days=4)),
+             'status_id': self.holiday_type.id,
+             'employee_ids': self.employee,
+             }
+        )
+        self.imposed.validate()
+        leaves = self.holiday_model.search(
+            [('type', '=', 'remove'),
+             ('employee_id', '=', self.employee.id)
+             ]
+        )
+        self.assertEqual(len(leaves), 1)
+        self.assertEqual(leaves[0].state, 'confirm')
 
     def test_imposed_employee_create(self):
         # Create employee
@@ -61,7 +88,7 @@ class TestHolidaysImposedDays(common.TransactionCase):
                                                   relativedelta(days=4)),
              'status_id': self.holiday_type.id,
              }
-            )
+        )
         self.employee2 = self.employee_model.create({
             'name': 'Employee 2',
         })
@@ -94,7 +121,7 @@ class TestHolidaysImposedDays(common.TransactionCase):
              'status_id': self.holiday_type.id,
              'auto_confirm': True
              }
-            )
+        )
         self.employee2 = self.employee_model.create({
             'name': 'Employee 2',
         })
@@ -123,7 +150,7 @@ class TestHolidaysImposedDays(common.TransactionCase):
              'status_id': self.holiday_type.id,
              'auto_confirm': True
              }
-            )
+        )
         self.imposed.validate()
         leaves = self.holiday_model.search(
             [('type', '=', 'remove'),
@@ -131,3 +158,33 @@ class TestHolidaysImposedDays(common.TransactionCase):
         )
         self.assertEqual(len(leaves), 2)
         self.assertEqual(leaves[0].state, 'validate')
+
+    def test_same_dates(self):
+        # define an imposed day
+        self.imposed = self.holiday_imposed_model.create(
+            {'name': 'TEST',
+             'date_from': fields.Datetime.to_string(self.today +
+                                                    relativedelta(days=2)),
+             'date_to': fields.Datetime.to_string(self.today +
+                                                  relativedelta(days=2)),
+             'status_id': self.holiday_type.id,
+             }
+        )
+        self.imposed.date_from = self.imposed.date_to
+        self.imposed.onchange_dates()
+        self.assertEqual(self.imposed.number_of_days, 1.)
+
+    def test_check_dates_constrains(self):
+        self.assertRaises(ValidationError, self._create_wrong_imposed)
+
+    def _create_wrong_imposed(self):
+        return self.holiday_imposed_model.create(
+            {'name': 'TEST',
+             'date_from': fields.Datetime.to_string(self.today +
+                                                    relativedelta(days=4)),
+             'date_to': fields.Datetime.to_string(self.today +
+                                                  relativedelta(days=2)),
+             'status_id': self.holiday_type.id,
+             'auto_confirm': True
+             }
+        )
