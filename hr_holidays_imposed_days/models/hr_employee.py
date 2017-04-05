@@ -27,7 +27,6 @@ class HrEmployee(models.Model):
         imposed = imposed_holiday.search(
             self._get_search_imposed_parameters(emp)
             )
-
         for imposed_day in imposed:
             created = holiday.create({
                 'number_of_days_temp': 1.,
@@ -39,6 +38,6 @@ class HrEmployee(models.Model):
                 'holiday_status_id': imposed_day.status_id.id,
                 })
             if imposed_day.auto_confirm:
-                created.signal_workflow('validate')
+                created.action_validate()
 
         return emp
