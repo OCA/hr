@@ -6,11 +6,11 @@
 Imposed holidays
 ================
 
-Allows to manage imposed holidays. 
+Allows to manage imposed holidays.
 
 This can be used to manage periods where the company is closed for everyone,
-such as end of year celebration. The HR team can use this to easily create 
-and validate vacations for all the employees of a company. 
+such as end of year celebration. The HR team can use this to easily create
+and validate vacations for all the employees of a company.
 
 Installation
 ============
@@ -28,7 +28,7 @@ Usage
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
-   :target: https://runbot.odoo-community.org/runbot/116/9.0
+   :target: https://runbot.odoo-community.org/runbot/116/10.0
 
 Bug Tracker
 ===========
@@ -50,6 +50,7 @@ Contributors
 ------------
 
 * Damien Crier <damien.crier@camptocamp.com>
+* Denis Leemann <denis.leemann@camptocamp.com>
 
 Maintainer
 ----------
