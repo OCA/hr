@@ -6,6 +6,7 @@
 import datetime
 import math
 
+from odoo.exceptions import ValidationError
 from odoo import models, fields, api, exceptions, _
 from odoo import tools
 
@@ -55,11 +56,10 @@ class HrHolidaysImposed(models.Model):
                     'holiday_status_id': rec.status_id.id,
                 }
                 leave = created.create(vals)
-                res = leave.onchange_date_from(rec.date_to, rec.date_from,)
-                leave.write(res['value'])
+                leave._onchange_date_from()
                 created |= leave
             if rec.auto_confirm:
-                created.signal_workflow('validate')
+                created.action_validate()
 
     def _get_number_of_days(self, date_from, date_to):
         """Returns a float equals to the timedelta between
@@ -78,6 +78,16 @@ class HrHolidaysImposed(models.Model):
         8 hours later than the date_from.
         Also update the number_of_days.
         """
+        # Beacause when setting date_from, date_to is setted to actual day and
+        # will trigger an error.
+        if not self.id and self.date_from and \
+           self.date_to is False or self.date_from > self.date_to:
+            date_to_with_delta = datetime.datetime.strptime(
+                self.date_from,
+                tools.DEFAULT_SERVER_DATETIME_FORMAT) + datetime.timedelta(
+                hours=8)
+            self.date_to = str(date_to_with_delta)
+
         # date_to has to be greater than date_from
         if ((self.date_from and self.date_to) and
                 (self.date_from > self.date_to)):
@@ -102,3 +112,11 @@ class HrHolidaysImposed(models.Model):
 
     def compute_nb_days(self, diff):
         return round(math.floor(diff))+1
+
+    @api.one
+    @api.constrains('date_from', 'date_to')
+    def _check_dates(self):
+        if ((self.date_from and self.date_to) and
+                (self.date_from > self.date_to)):
+            raise ValidationError(_(
+                "The start date must be anterior to the end date."))
