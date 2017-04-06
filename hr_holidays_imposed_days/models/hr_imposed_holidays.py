@@ -77,6 +77,16 @@ class HrHolidaysImposed(models.Model):
         8 hours later than the date_from.
         Also update the number_of_days.
         """
+        # Beacause when setting date_from, date_to is setted to actual day and
+        # will trigger an error.
+        if not self.id and self.date_from and \
+           self.date_to is False or self.date_from > self.date_to:
+            date_to_with_delta = datetime.datetime.strptime(
+                self.date_from,
+                tools.DEFAULT_SERVER_DATETIME_FORMAT) + datetime.timedelta(
+                hours=8)
+            self.date_to = str(date_to_with_delta)
+
         # date_to has to be greater than date_from
         if ((self.date_from and self.date_to) and
                 (self.date_from > self.date_to)):
