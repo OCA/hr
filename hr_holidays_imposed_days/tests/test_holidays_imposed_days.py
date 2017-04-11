@@ -159,6 +159,21 @@ class TestHolidaysImposedDays(common.TransactionCase):
         self.assertEqual(len(leaves), 2)
         self.assertEqual(leaves[0].state, 'validate')
 
+    def test_same_dates(self):
+        # define an imposed day
+        self.imposed = self.holiday_imposed_model.create(
+            {'name': 'TEST',
+             'date_from': fields.Datetime.to_string(self.today +
+                                                    relativedelta(days=2)),
+             'date_to': fields.Datetime.to_string(self.today +
+                                                  relativedelta(days=2)),
+             'status_id': self.holiday_type.id,
+             }
+        )
+        self.imposed.date_from = self.imposed.date_to
+        self.imposed.onchange_dates()
+        self.assertEqual(self.imposed.number_of_days, 1.)
+
     def test_check_dates_constrains(self):
         self.assertRaises(ValidationError, self._create_wrong_imposed)
 
