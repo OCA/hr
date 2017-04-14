@@ -1,27 +1,6 @@
 # -*- coding: utf-8 -*-
-##############################################################################
-#
-#     This file is part of hr_holidays_previous_type,
-#     an Odoo module.
-#
-#     Copyright (c) 2015 ACSONE SA/NV (<http://acsone.eu>)
-#
-#     hr_holidays_previous_type is free software:
-#     you can redistribute it and/or modify it under the terms of the GNU
-#     Affero General Public License as published by the Free Software
-#     Foundation,either version 3 of the License, or (at your option) any
-#     later version.
-#
-#     hr_holidays_previous_type is distributed
-#     in the hope that it will be useful, but WITHOUT ANY WARRANTY; without
-#     even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
-#     PURPOSE.  See the GNU Affero General Public License for more details.
-#
-#     You should have received a copy of the GNU Affero General Public License
-#     along with hr_holidays_previous_type.
-#     If not, see <http://www.gnu.org/licenses/>.
-#
-##############################################################################
+# Copyright 2015-2017 ACSONE SA/NV
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from openerp.tests import common
 from openerp import exceptions
@@ -41,7 +20,7 @@ class TestHrHolidaysPreviousType(common.TransactionCase):
         self.holidays_obj = self.env['hr.holidays']
         self.type01 = self.env.ref('hr_holidays.holiday_status_cl')
         self.type02 = self.type01.copy()
-        self.employee01 = self.env.ref('hr.employee')
+        self.employee01 = self.env.ref('hr.employee_vad')
         self.year = datetime.now().strftime('%Y')
         self.yearp1 = str(int(self.year) + 1)
         self.yearp2 = str(int(self.year) + 2)
@@ -68,7 +47,8 @@ class TestHrHolidaysPreviousType(common.TransactionCase):
             'holiday_status_id': self.type01.id,
             'number_of_days_temp': 10,
         }
-        self.holidays_obj.create(allocation_vals)
+        alloc = self.holidays_obj.create(allocation_vals)
+        alloc.action_validate()
         allocation_vals = {
             'name': 'Test',
             'type': 'add',
@@ -76,7 +56,8 @@ class TestHrHolidaysPreviousType(common.TransactionCase):
             'holiday_status_id': self.type02.id,
             'number_of_days_temp': 10,
         }
-        self.holidays_obj.create(allocation_vals)
+        alloc = self.holidays_obj.create(allocation_vals)
+        alloc.action_validate()
 
     def test_without_previous_type(self):
         self._create_allocation()
