@@ -16,10 +16,10 @@ class HrHolidaysStatus(models.Model):
 class HrHolidays(models.Model):
     _inherit = 'hr.holidays'
 
-    @api.model
-    def _prepare_holidays_meeting_values(self, leave):
-        res = super(HrHolidays, self)._prepare_holidays_meeting_values(leave)
-        if not leave.holiday_status_id.use_leave_name_for_meeting and \
-                leave.holiday_status_id.meeting_description:
-            res['name'] = leave.holiday_status_id.meeting_description
+    @api.multi
+    def _prepare_holidays_meeting_values(self):
+        res = super(HrHolidays, self)._prepare_holidays_meeting_values()
+        if not self.holiday_status_id.use_leave_name_for_meeting and \
+                self.holiday_status_id.meeting_description:
+            res['name'] = self.holiday_status_id.meeting_description
         return res
