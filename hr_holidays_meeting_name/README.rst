@@ -8,14 +8,12 @@ HR holidays meeting name
 
 This module allows to leave generated meeting name personalization according to the leave type.
 
-this module depends on https://github.com/odoo/odoo/pull/9103.
-
 Usage
 =====
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
-   :target: https://runbot.odoo-community.org/runbot/116/8.0
+   :target: https://runbot.odoo-community.org/runbot/116/10.0
 
 For further information, please visit:
 
