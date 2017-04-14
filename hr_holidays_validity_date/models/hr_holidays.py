@@ -1,32 +1,8 @@
 # -*- coding: utf-8 -*-
-##############################################################################
-#
-#     This file is part of hr_holidays_validity_date,
-#     an Odoo module.
-#
-#     Copyright (c) 2015 ACSONE SA/NV (<http://acsone.eu>)
-#
-#     hr_holidays_validity_date is free software:
-#     you can redistribute it and/or modify it under the terms of the GNU
-#     Affero General Public License as published by the Free Software
-#     Foundation,either version 3 of the License, or (at your option) any
-#     later version.
-#
-#     hr_holidays_validity_date is distributed
-#     in the hope that it will be useful, but WITHOUT ANY WARRANTY; without
-#     even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
-#     PURPOSE.  See the GNU Affero General Public License for more details.
-#
-#     You should have received a copy of the GNU Affero General Public License
-#     along with hr_holidays_validity_date.
-#     If not, see <http://www.gnu.org/licenses/>.
-#
-##############################################################################
+# Copyright 2015-2017 ACSONE SA/NV
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from openerp import models, fields, api, exceptions, _
-from openerp.tools import DEFAULT_SERVER_DATETIME_FORMAT
-from datetime import datetime
-import pytz
+from odoo import api, exceptions, fields, models, _
 
 
 class HrHolidaysStatus(models.Model):
@@ -48,11 +24,9 @@ class HrHolidays(models.Model):
 
     @api.model
     def _utc_to_tz(self, date):
-        date_dt = datetime.strptime(date, DEFAULT_SERVER_DATETIME_FORMAT)
-        tz_info = fields.Datetime.context_timestamp(self, date_dt).tzinfo
-        date_dt = date_dt.replace(tzinfo=pytz.UTC).astimezone(tz_info)\
-            .replace(tzinfo=None)
-        return date_dt.strftime(DEFAULT_SERVER_DATETIME_FORMAT)
+        date_dt = fields.Datetime.from_string(date)
+        date_dt = fields.Datetime.context_timestamp(self, date_dt)
+        return fields.Datetime.to_string(date_dt)
 
     @api.constrains('holiday_status_id', 'date_from', 'date_to')
     @api.one

@@ -1,31 +1,11 @@
 # -*- coding: utf-8 -*-
-##############################################################################
-#
-#     This file is part of hr_holidays_validity_date,
-#     an Odoo module.
-#
-#     Copyright (c) 2015 ACSONE SA/NV (<http://acsone.eu>)
-#
-#     hr_holidays_validity_date is free software:
-#     you can redistribute it and/or modify it under the terms of the GNU
-#     Affero General Public License as published by the Free Software
-#     Foundation,either version 3 of the License, or (at your option) any
-#     later version.
-#
-#     hr_holidays_validity_date is distributed
-#     in the hope that it will be useful, but WITHOUT ANY WARRANTY; without
-#     even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
-#     PURPOSE.  See the GNU Affero General Public License for more details.
-#
-#     You should have received a copy of the GNU Affero General Public License
-#     along with hr_holidays_validity_date.
-#     If not, see <http://www.gnu.org/licenses/>.
-#
-##############################################################################
+# Copyright 2015-2017 ACSONE SA/NV
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from openerp.tests import common
-from openerp import exceptions
-from openerp.tools import DEFAULT_SERVER_DATETIME_FORMAT
+
+from odoo.tests import common
+from odoo import exceptions
+from odoo.tools import DEFAULT_SERVER_DATETIME_FORMAT
 from datetime import datetime, timedelta
 
 
@@ -34,8 +14,8 @@ class TestHrHolidaysValidityDate(common.TransactionCase):
     def setUp(self):
         super(TestHrHolidaysValidityDate, self).setUp()
         self.holidays_obj = self.env['hr.holidays']
-        self.type01 = self.env.ref('hr_holidays.holiday_status_cl')
-        self.employee01 = self.env.ref('hr.employee')
+        self.type01 = self.env.ref('hr_holidays.holiday_status_sl')
+        self.employee01 = self.env.ref('hr.employee_vad')
 
     def test_holidays_without_validity(self):
         today = datetime.now().strftime(DEFAULT_SERVER_DATETIME_FORMAT)
