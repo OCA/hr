@@ -11,18 +11,10 @@ class HrHolidays(models.Model):
     def _get_approvers_to_notify(self):
         """Defines who to notify."""
         company = self.env['res.company']._company_default_get('hr.holidays')
-        notify_to = company.leave_notify_approver
-        if notify_to == 'none':
-            return False
-        elif notify_to == 'manager' and self.employee_id.parent_id:
-            approvers = self.employee_id.parent_id.user_id
-        elif (notify_to == 'department' and
-                  self.employee_id.department_id.manager_id):
-            approvers = self.employee_id.department_id.manager_id.user_id
+        if company.leave_notify_approver and self.employee_id.parent_id:
+            return self.employee_id.parent_id.user_id
         else:
-            # also if notify_to == 'default' this will be run:
-            approvers = self.env.ref('base.group_hr_manager').users
-        return approvers
+            return False
 
     @api.model
     def create(self, vals):

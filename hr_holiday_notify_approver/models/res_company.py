@@ -8,10 +8,7 @@ from openerp import fields, models
 class ResCompany(models.Model):
     _inherit = 'res.company'
 
-    leave_notify_approver = fields.Selection(
-        selection=[('none', "Don't notify anyone."),
-                   ('manager', "Notify employee's manager."),
-                   ('department', "Notify employee's department manager."),
-                   ('default', "Notify HR managers.")],
-        string='Email Notification on Leave Request',
-        default='none')
+    leave_notify_approver = fields.Boolean(
+        string="Leave Requests notified to employee's manager",
+        help="When a leave request is created the employee's manager "
+             "will be added as follower and notified by email.")

@@ -7,18 +7,17 @@ HR Holiday Notify Approver
 ==========================
 
 This module extends the functionality of the Leaves App to make possible
-to notify by mail the manager of the employee requesting the leave (or the
-person that should approve the leave).
+to notify by mail the manager of the employee requesting the leave.
 
 Configuration
 =============
 
 To configure this module, you need to:
 
-#. Go to *Settings > Users > Companies*
-#. In the company form got to the *Configuration* tab and in the *Leaves
-   Management* section configure who to notify (*Email Notification on
-   Leave Request*)
+#. Go to *Settings > Users > Companies*.
+#. In the company form go to the *Configuration* tab and in the *Leaves
+   Management* section.
+#. Check *Leave Requests notified to employee's manager* box.
 
 Usage
 =====
