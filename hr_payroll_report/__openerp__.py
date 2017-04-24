@@ -6,7 +6,8 @@
     "version": "9.0.0.1.0",
     "category": "Generic Modules/Human Resources",
     "website": "https://odoo-community.org/",
-    "author": "Elico Corp (www.elico-corp.com), Odoo Community Association (OCA)",
+    "author": "Elico Corp (www.elico-corp.com), "
+              "Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "installable": True,
     "depends": [
