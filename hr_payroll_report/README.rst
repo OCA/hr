@@ -6,8 +6,8 @@
 Payroll Report
 ==============
 
-This module extends the functionality of Payroll by adding a BI report view on payroll lines.
-This allows to create all kind of analysis for the payroll department
+This module extends the functionality of Payroll by adding a BI report view on payslip lines.
+This allows to create all kind of analysis for the payroll department.
 
 Installation
 ============
