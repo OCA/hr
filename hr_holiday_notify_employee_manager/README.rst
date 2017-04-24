@@ -2,9 +2,9 @@
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-==========================
-HR Holiday Notify Approver
-==========================
+==================================
+HR Holiday Notify Employee Manager
+==================================
 
 This module extends the functionality of the Leaves App to make possible
 to notify by mail the manager of the employee requesting the leave.

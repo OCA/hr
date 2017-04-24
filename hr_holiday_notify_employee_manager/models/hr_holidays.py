@@ -11,7 +11,7 @@ class HrHolidays(models.Model):
     def _get_approvers_to_notify(self):
         """Defines who to notify."""
         company = self.env['res.company']._company_default_get('hr.holidays')
-        if company.leave_notify_approver and self.employee_id.parent_id:
+        if company.leave_notify_manager and self.employee_id.parent_id:
             return self.employee_id.parent_id.user_id
         else:
             return False
