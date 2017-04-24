@@ -1,0 +1,7 @@
+<openerp>
+    <data>
+        <menuitem name="Reports"
+                  parent="hr_payroll.menu_hr_payroll_root"
+                  id="menu_hr_payroll_report_root"/>
+    </data>
+</openerp>
