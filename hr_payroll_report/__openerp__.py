@@ -4,7 +4,7 @@
 {
     "name": "Payslip Lines BI report",
     "version": "9.0.1.0.0",
-    "summary": "Analyze your payroll with the Payslip Lines BI report"
+    "summary": "Analyze your payroll with the Payslip Lines BI report",
     "category": "Generic Modules/Human Resources",
     "website": "https://www.elico-corp.com/",
     "author": "Elico Corp, "
