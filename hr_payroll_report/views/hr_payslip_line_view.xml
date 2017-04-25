@@ -6,6 +6,7 @@
             <field name="arch" type="xml">
                 <pivot string="Payroll Report">
                     <field name="employee_id" type="row"/>
+                    <field name="category_id" type="row"/>
                     <field name="payslip_run_id" type="col"/>
                     <field name="quantity" type="measure"/>
                     <field name="rate" type="measure"/>
