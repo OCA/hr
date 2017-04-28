@@ -8,13 +8,14 @@ from openerp import api, models
 class HrHolidays(models.Model):
     _inherit = 'hr.holidays'
 
+    @api.multi
     def _get_approvers_to_notify(self):
         """Defines who to notify."""
+        self.ensure_one()
         company = self.employee_id.company_id
         if company.leave_notify_manager and self.employee_id.parent_id:
             return self.employee_id.parent_id
-        else:
-            return False
+        return False
 
     @api.model
     def create(self, vals):
@@ -22,9 +23,10 @@ class HrHolidays(models.Model):
         res._notify_approvers()
         return res
 
-    @api.one
+    @api.multi
     def _notify_approvers(self):
         """Input: res.user"""
+        self.ensure_one()
         approvers = self._get_approvers_to_notify()
         if not approvers:
             return True
