@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <menuitem id="menu_hr_product" name="Products"
+                  parent="hr.menu_hr_root" sequence="40" />
+
+        <record id="product_template_ppe_action" model="ir.actions.act_window">
+            <field name="name">PPE Products</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.template</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="view_type">form</field>
+            <field name="view_id" ref="product.product_template_kanban_view"/>
+            <field name="context">{"search_default_filter_is_ppe":1}</field>
+        </record>
+
+        <menuitem id="menu_hr_product_ppe" action="product_template_ppe_action"
+                  parent="menu_hr_product" sequence="1" />
+
+        <menuitem id="menu_hr_job" action="hr.action_hr_job" name="Job Titles"
+                  parent="hr.menu_hr_configuration" sequence="6" />
+
+    </data>
+</openerp>

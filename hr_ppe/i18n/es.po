@@ -1,0 +1,222 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* hr_ppe
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-04-28 07:48+0000\n"
+"PO-Revision-Date: 2017-04-28 07:48+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hr_ppe
+#: field:hr.employee,count_ppe_pickings:0
+msgid "# PPE pickings"
+msgstr "Nº de albaranes EPI"
+
+#. module: hr_ppe
+#: view:hr.employee:hr_ppe.hr_employee_ppe_form_view
+msgid "(create PPE picking)"
+msgstr "(crear albarán EPI)"
+
+#. module: hr_ppe
+#: view:hr.employee.partner.selection:hr_ppe.hr_employee_partner_selection_wizard_form_view
+msgid "Add"
+msgstr "Añadir"
+
+#. module: hr_ppe
+#: model:ir.actions.act_window,name:hr_ppe.hr_employee_partner_selection_wizard_action
+msgid "Add Home Address"
+msgstr "Añadir dirección particular"
+
+#. module: hr_ppe
+#: field:product.template,ppe_ok:0
+msgid "Can be PPE"
+msgstr "Puede ser EPI"
+
+#. module: hr_ppe
+#: view:hr.employee.partner.selection:hr_ppe.hr_employee_partner_selection_wizard_form_view
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: hr_ppe
+#: field:hr.employee.partner.selection,create_uid:0
+#: field:hr.job.ppe,create_uid:0
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: hr_ppe
+#: field:hr.employee.partner.selection,create_date:0
+#: field:hr.job.ppe,create_date:0
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: hr_ppe
+#: field:hr.employee.partner.selection,display_name:0
+#: field:hr.job.ppe,display_name:0
+msgid "Display Name"
+msgstr "Nombre a mostrar"
+
+#. module: hr_ppe
+#: field:hr.employee.partner.selection,employee_id:0
+#: model:ir.model,name:hr_ppe.model_hr_employee
+msgid "Employee"
+msgstr "Empleado"
+
+#. module: hr_ppe
+#: field:hr.employee.partner.selection,partner_id:0
+msgid "Home Address"
+msgstr "Dirección particular"
+
+#. module: hr_ppe
+#: field:hr.employee.partner.selection,id:0
+#: field:hr.job.ppe,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: hr_ppe
+#: view:product.template:hr_ppe.product_template_ppe_search_view
+msgid "Is a PPE"
+msgstr "Es un EPI"
+
+#. module: hr_ppe
+#: model:ir.model,name:hr_ppe.model_hr_job
+msgid "Job Position"
+msgstr "Puesto de trabajo"
+
+#. module: hr_ppe
+#: field:hr.job.ppe,job_id:0
+msgid "Job Title"
+msgstr "Título de trabajo"
+
+#. module: hr_ppe
+#: model:ir.ui.menu,name:hr_ppe.menu_hr_job
+msgid "Job Titles"
+msgstr "Títulos del trabajo"
+
+#. module: hr_ppe
+#: view:hr.employee.partner.selection:hr_ppe.hr_employee_partner_selection_wizard_form_view
+msgid "Job positions assign"
+msgstr "Asignar puesto de trabajo"
+
+#. module: hr_ppe
+#: field:hr.employee.partner.selection,__last_update:0
+#: field:hr.job.ppe,__last_update:0
+msgid "Last Modified on"
+msgstr "Última actualización por"
+
+#. module: hr_ppe
+#: field:hr.employee.partner.selection,write_uid:0
+#: field:hr.job.ppe,write_uid:0
+msgid "Last Updated by"
+msgstr "Última actualización de"
+
+#. module: hr_ppe
+#: field:hr.employee.partner.selection,write_date:0
+#: field:hr.job.ppe,write_date:0
+msgid "Last Updated on"
+msgstr "Última actualización en"
+
+#. module: hr_ppe
+#: model:stock.picking.type,name:hr_ppe.hr_ppe_type
+msgid "PPE"
+msgstr "EPI"
+
+#. module: hr_ppe
+#: view:hr.employee:hr_ppe.hr_employee_ppe_form_view
+msgid "PPE Moves"
+msgstr "Movimientos EPI"
+
+#. module: hr_ppe
+#: model:ir.actions.act_window,name:hr_ppe.product_template_ppe_action
+#: model:ir.ui.menu,name:hr_ppe.menu_hr_product_ppe
+msgid "PPE Products"
+msgstr "Productos EPI"
+
+#. module: hr_ppe
+#: field:hr.employee,ppe_move_ids:0
+msgid "PPE moves"
+msgstr "Movimientos EPI"
+
+#. module: hr_ppe
+#: field:hr.employee,ppe_picking_ids:0
+msgid "PPE pickings"
+msgstr "Albaranes EPI"
+
+#. module: hr_ppe
+#: view:hr.job.ppe:hr_ppe.hr_job_ppe_form_view
+msgid "PPE product"
+msgstr "Producto EPI"
+
+#. module: hr_ppe
+#: view:hr.job.ppe:hr_ppe.hr_job_ppe_tree_view
+msgid "PPE products"
+msgstr "Productos EPI"
+
+#. module: hr_ppe
+#: field:hr.job,ppe_ids:0
+msgid "PPEs"
+msgstr "EPI's"
+
+#. module: hr_ppe
+#: field:hr.job.ppe,product_id:0
+msgid "Product"
+msgstr "Producto"
+
+#. module: hr_ppe
+#: model:ir.model,name:hr_ppe.model_product_template
+msgid "Product Template"
+msgstr "Plantilla de producto"
+
+#. module: hr_ppe
+#: sql_constraint:hr.job.ppe:0
+msgid "Product quantity must be positive!"
+msgstr "¡La cantidad de producto debe ser positiva!"
+
+#. module: hr_ppe
+#: model:ir.ui.menu,name:hr_ppe.menu_hr_product
+msgid "Products"
+msgstr "Productos"
+
+#. module: hr_ppe
+#: field:hr.job.ppe,product_uom_qty:0
+msgid "Quantity"
+msgstr "Cantidad"
+
+#. module: hr_ppe
+#: help:product.template,ppe_ok:0
+msgid "Specify if the product can be selected as PPE"
+msgstr "Especifique si un producto puede ser seleccionado como EPI"
+
+#. module: hr_ppe
+#: view:hr.employee.partner.selection:hr_ppe.hr_employee_partner_selection_wizard_form_view
+msgid "There must be an home address assigned, please select one."
+msgstr "Tiene que haber una dirección particular asignada, por favor seleccione una."
+
+#. module: hr_ppe
+#: field:hr.job.ppe,product_uom_id:0
+msgid "Unit of Measure"
+msgstr "Unidad de medida"
+
+#. module: hr_ppe
+#: code:addons/hr_ppe/models/hr_employee.py:62
+#, python-format
+msgid "for job title"
+msgstr "para titulo de trabajo"
+
+#. module: hr_ppe
+#: view:hr.employee.partner.selection:hr_ppe.hr_employee_partner_selection_wizard_form_view
+msgid "or"
+msgstr "o"
+
+#. module: hr_ppe
+#: view:hr.employee:hr_ppe.hr_employee_ppe_form_view
+msgid "ppe pickings"
+msgstr "albaranes epi"
+

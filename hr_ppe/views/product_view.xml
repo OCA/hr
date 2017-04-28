@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<openerp>
+    <data>
+        <record id="product_template_ppe_form_view" model="ir.ui.view">
+            <field name="name">product.template.ppe.form</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_form_view" />
+            <field name="arch" type="xml">
+                <div name="options" position="inside">
+                    <div>
+                        <field name="ppe_ok"/>
+                        <label for="ppe_ok"/>
+                    </div>
+                </div>
+            </field>
+        </record>
+
+        <record id="product_template_ppe_search_view" model="ir.ui.view">
+            <field name="name">product.template.ppe.search</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_search_view" />
+            <field name="priority">20</field>
+            <field name="arch" type="xml">
+                <filter name="filter_to_sell" position="after">
+                <filter string="Is a PPE" name="filter_is_ppe"
+                        domain="[('ppe_ok','=',True)]"/>
+                </filter>
+            </field>
+        </record>
+
+    </data>
+</openerp>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+    <data>
+        <record id="hr_employee_partner_selection_wizard_form_view"
+                model="ir.ui.view">
+            <field name="name">hr.employee.partner.selection.form</field>
+            <field name="model">hr.employee.partner.selection</field>
+            <field name="arch" type="xml">
+                <form string="Job positions assign">
+                    <field name="employee_id" readonly="1"
+                           invisible="1" />
+                    <label string="There must be an home address assigned, please select one." />
+                    <field name="partner_id" />
+                    <footer>
+                        <button name="button_partner_select" string="Add"
+                                type="object" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="hr_employee_partner_selection_wizard_action" model="ir.actions.act_window">
+            <field name="name">Add Home Address</field>
+            <field name="res_model">hr.employee.partner.selection</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+    </data>
+</openerp>

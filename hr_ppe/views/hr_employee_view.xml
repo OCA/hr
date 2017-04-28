@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="hr_employee_ppe_form_view" model="ir.ui.view">
+            <field name="name">hr.employee.ppe.form</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form" />
+            <field name="arch" type="xml">
+                <div name="button_box">
+                    <button name="button_open_ppe_pickings" icon="fa-medkit"
+                            type="object" class="oe_stat_button"
+                            attrs="{'invisible': [('address_home_id','=',False)]}">
+                        <field name="count_ppe_pickings"
+                               widget="statinfo" string="ppe pickings"/>
+                    </button>
+                </div>
+                <field name="job_id" position="after">
+                    <button name="button_create_ppe_picking" type="object"
+                            string="(create PPE picking)"
+                            class="oe_link" colspan="2" />
+                </field>
+                <notebook position="inside">
+                    <page string="PPE Moves">
+                        <field name="ppe_move_ids" readonly="True">
+                            <tree>
+                                <field name="product_id" />
+                                <field name="product_uom_qty" />
+                                <field name="product_uom" groups="product.group_uom" />
+                                <field name="date" />
+                                <field name="state" invisible="1" />
+                            </tree>
+                        </field>
+                    </page>
+                </notebook>
+            </field>
+        </record>
+    </data>
+</openerp>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="hr_job_ppe_tree_view" model="ir.ui.view">
+            <field name="name">hr.job.ppe.tree</field>
+            <field name="model">hr.job.ppe</field>
+            <field name="arch" type="xml">
+                <tree string="PPE products">
+                    <field name="job_id"
+                           invisible="'default_job_id' in context" />
+                    <field name="product_id" />
+                    <field name="product_uom_qty" />
+                    <field name="product_uom_id" groups="product.group_uom" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="hr_job_ppe_form_view" model="ir.ui.view">
+            <field name="name">hr.job.ppe.form</field>
+            <field name="model">hr.job.ppe</field>
+            <field name="arch" type="xml">
+                <form string="PPE product">
+                    <sheet>
+                        <group colspan="4">
+                            <field name="job_id"
+                                   readonly="'default_job_id' in context" />
+                            <field name="product_id" />
+                            <label for="product_uom_qty"/>
+                            <div>
+                                <field name="product_uom_qty"
+                                       class="oe_inline" />
+                                <field name="product_uom_id"
+                                       groups="product.group_uom"
+                                       class="oe_inline oe_no_button" />
+                            </div>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="hr_job_ppes_form_view" model="ir.ui.view">
+            <field name="name">hr.job.ppes.form</field>
+            <field name="model">hr.job</field>
+            <field name="inherit_id" ref="hr.view_hr_job_form" />
+            <field name="arch" type="xml">
+                <group name="employee_data" position="after">
+                    <field name="ppe_ids"
+                           context="{'default_job_id': active_id}" />
+                </group>
+            </field>
+        </record>
+
+    </data>
+</openerp>

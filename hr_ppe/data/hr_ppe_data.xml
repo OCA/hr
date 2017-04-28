@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<openerp>
+    <data noupdate="1">
+        <record model="ir.sequence" id="hr_ppe_sequence"
+                forcecreate="True">
+            <field name="name">PPE</field>
+            <field name="prefix">PPE/</field>
+        </record>
+
+        <record model="stock.picking.type" id="hr_ppe_type"
+                forcecreate="True">
+            <field name="name">PPE</field>
+            <field name="code">outgoing</field>
+            <field name="sequence_id" ref="hr_ppe.hr_ppe_sequence" />
+            <field name="warehouse_id" ref="stock.warehouse0" />
+            <field name="default_location_src_id" ref="stock.stock_location_stock" />
+            <field name="default_location_dest_id" ref="stock.stock_location_customers" />
+        </record>
+    </data>
+</openerp>
