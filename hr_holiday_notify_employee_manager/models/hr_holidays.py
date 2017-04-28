@@ -10,9 +10,9 @@ class HrHolidays(models.Model):
 
     def _get_approvers_to_notify(self):
         """Defines who to notify."""
-        company = self.env['res.company']._company_default_get('hr.holidays')
+        company = self.employee_id.company_id
         if company.leave_notify_manager and self.employee_id.parent_id:
-            return self.employee_id.parent_id.user_id
+            return self.employee_id.parent_id
         else:
             return False
 
@@ -28,7 +28,9 @@ class HrHolidays(models.Model):
         approvers = self._get_approvers_to_notify()
         if not approvers:
             return True
-        for aprover in approvers:
-            self.add_follower(aprover.id)
-            self._message_auto_subscribe_notify([aprover.partner_id.id])
+        for approver in approvers:
+            self.add_follower(approver.id)
+            if approver.user_id:
+                self._message_auto_subscribe_notify(
+                    [approver.user_id.partner_id.id])
         return True
