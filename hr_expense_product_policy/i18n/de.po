@@ -3,16 +3,15 @@
 # * hr_expense_product_policy
 # 
 # Translators:
-# Rudolf Schnapka <rs@techno-flex.de>, 2016
-# Thomas A. Jaeger <tj@jamotion.ch>, 2016
 # OCA Transbot <transbot@odoo-community.org>, 2016
+# Rudolf Schnapka <rs@techno-flex.de>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-09 02:43+0000\n"
-"PO-Revision-Date: 2016-09-09 02:43+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2016\n"
+"POT-Creation-Date: 2017-03-28 03:12+0000\n"
+"PO-Revision-Date: 2017-03-28 03:12+0000\n"
+"Last-Translator: Rudolf Schnapka <rs@techno-flex.de>, 2017\n"
 "Language-Team: German (https://www.transifex.com/oca/teams/23907/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -29,7 +28,7 @@ msgstr ""
 #: view:hr.job:hr_expense_product_policy.hr_job_view_form
 #: field:hr.job,all_allowed_expense_product_ids:0
 msgid "All Allowed Expense Product"
-msgstr ""
+msgstr "Aufwandsprodukt allen erlaubt"
 
 #. module: hr_expense_product_policy
 #: view:hr.department:hr_expense_product_policy.hr_department_view_form
@@ -39,7 +38,7 @@ msgstr ""
 #: view:hr.job:hr_expense_product_policy.hr_job_view_form
 #: field:hr.job,allowed_expense_product_ids:0
 msgid "Allowed Expense Product"
-msgstr ""
+msgstr "Erlaubtes Aufwandsprodukt"
 
 #. module: hr_expense_product_policy
 #: view:hr.department:hr_expense_product_policy.hr_department_view_form
@@ -49,7 +48,7 @@ msgstr ""
 #: view:hr.job:hr_expense_product_policy.hr_job_view_form
 #: field:hr.job,allowed_expense_product_categ_ids:0
 msgid "Allowed Expense Product Categories"
-msgstr ""
+msgstr "Zugelassene Aufwandsprodukt-Kategorien"
 
 #. module: hr_expense_product_policy
 #: model:ir.model,name:hr_expense_product_policy.model_hr_employee
@@ -69,7 +68,7 @@ msgstr "Spesendetail"
 #. module: hr_expense_product_policy
 #: view:hr.employee:hr_expense_product_policy.hr_employee_view_form_requiredProduct
 msgid "Expense Product Policy"
-msgstr ""
+msgstr "Aufwandsprodukt-Regelung"
 
 #. module: hr_expense_product_policy
 #: model:ir.model,name:hr_expense_product_policy.model_hr_job
@@ -80,26 +79,26 @@ msgstr "Arbeitsplatz"
 #: field:hr.employee,limit_product_selection:0
 #: field:hr.expense.expense,limit_product_selection:0
 msgid "Limit Product Selection"
-msgstr ""
+msgstr "Produktauswahl eingrenzen"
 
 #. module: hr_expense_product_policy
 #: code:addons/hr_expense_product_policy/models/hr_expense.py:65
 #, python-format
 msgid "Product has to be filled"
-msgstr ""
+msgstr "Produkt muss gepflegt sein"
 
 #. module: hr_expense_product_policy
 #: code:addons/hr_expense_product_policy/models/hr_expense.py:71
 #, python-format
 msgid "Product is not allowed"
-msgstr ""
+msgstr "Produkt ist nicht zulässig"
 
 #. module: hr_expense_product_policy
 #: field:hr.employee,required_expense_product:0
 #: field:hr.expense.expense,required_expense_product:0
 #: field:hr.expense.line,required_expense_product:0
 msgid "Required Expense Product"
-msgstr ""
+msgstr "Aufwandsprodukt erforderlich"
 
 #. module: hr_expense_product_policy
 #: help:hr.employee,required_expense_product:0
@@ -107,18 +106,20 @@ msgid ""
 "Turn on this options if this employee\n"
 "    has to choose product when creating expenses"
 msgstr ""
+"Wählen Sie diese Option, wenn der Mitarbeiter\n"
+"bei Aufwand ein Produkt auswählen muss"
 
 #. module: hr_expense_product_policy
 #: view:hr.expense.expense:hr_expense_product_policy.view_expenses_form
 msgid "[('id', 'in', parent.all_allowed_expense_product_ids[0][2])]"
-msgstr ""
+msgstr "[('id', 'in', parent.all_allowed_expense_product_ids[0][2])]"
 
 #. module: hr_expense_product_policy
 #: view:hr.expense.expense:hr_expense_product_policy.view_expenses_form
 msgid "{\"default_required_expense_product\": required_expense_product}"
-msgstr ""
+msgstr "{\"default_required_expense_product\": required_expense_product}"
 
 #. module: hr_expense_product_policy
 #: view:hr.expense.expense:hr_expense_product_policy.view_expenses_form
 msgid "{'required':[('required_expense_product','=',True)]}"
-msgstr ""
+msgstr "{'required':[('required_expense_product','=',True)]}"

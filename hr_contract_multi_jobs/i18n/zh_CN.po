@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-17 20:43+0000\n"
+"POT-Creation-Date: 2017-03-28 03:11+0000\n"
 "PO-Revision-Date: 2015-07-27 23:43+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/oca/OCA-hr-8-0/language/zh_CN/)\n"
@@ -21,7 +21,7 @@ msgstr ""
 #: field:hr.contract.job,contract_id:0
 #: model:ir.model,name:hr_contract_multi_jobs.model_hr_contract
 msgid "Contract"
-msgstr ""
+msgstr "合同"
 
 #. module: hr_contract_multi_jobs
 #: field:hr.job,contract_job_ids:0

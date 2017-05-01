@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-18 03:03+0000\n"
-"PO-Revision-Date: 2017-03-14 18:29+0000\n"
+"POT-Creation-Date: 2017-03-28 03:12+0000\n"
+"PO-Revision-Date: 2017-03-24 18:35+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Catalan (http://www.transifex.com/oca/OCA-hr-8-0/language/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -124,7 +124,7 @@ msgstr ""
 #. module: hr_recruitment_partner
 #: field:hr.applicant,customer:0
 msgid "Customer"
-msgstr ""
+msgstr "Client "
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,property_stock_customer:0
@@ -377,7 +377,7 @@ msgstr ""
 #. module: hr_recruitment_partner
 #: field:hr.applicant,supplier:0
 msgid "Supplier"
-msgstr ""
+msgstr "Proveïdor "
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,property_stock_supplier:0
@@ -557,4 +557,4 @@ msgstr ""
 #. module: hr_recruitment_partner
 #: field:hr.applicant,has_image:0
 msgid "unknown"
-msgstr ""
+msgstr "desconegut "

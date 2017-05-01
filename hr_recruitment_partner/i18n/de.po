@@ -3,14 +3,14 @@
 # * hr_recruitment_partner
 # 
 # Translators:
-# Rudolf Schnapka <rs@techno-flex.de>, 2015
+# Rudolf Schnapka <rs@techno-flex.de>, 2015,2017
 msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-18 03:03+0000\n"
-"PO-Revision-Date: 2017-03-10 13:16+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
+"POT-Creation-Date: 2017-03-28 03:12+0000\n"
+"PO-Revision-Date: 2017-04-19 11:44+0000\n"
+"Last-Translator: Rudolf Schnapka <rs@techno-flex.de>\n"
 "Language-Team: German (http://www.transifex.com/oca/OCA-hr-8-0/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,17 +21,17 @@ msgstr ""
 #. module: hr_recruitment_partner
 #: field:hr.applicant,property_account_payable:0
 msgid "Account Payable"
-msgstr ""
+msgstr "Kreditorisches Konto"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,property_account_receivable:0
 msgid "Account Receivable"
-msgstr ""
+msgstr "Debitorisches Konto"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,type:0
 msgid "Address Type"
-msgstr ""
+msgstr "Anschriftsart"
 
 #. module: hr_recruitment_partner
 #: model:ir.model,name:hr_recruitment_partner.model_hr_applicant
@@ -46,61 +46,61 @@ msgstr "Banken"
 #. module: hr_recruitment_partner
 #: field:hr.applicant,birthdate:0
 msgid "Birthdate"
-msgstr ""
+msgstr "Geburtsdatum"
 
 #. module: hr_recruitment_partner
 #: help:hr.applicant,is_company:0
 msgid "Check if the contact is a company, otherwise it is a person"
-msgstr ""
+msgstr "Prüfen, ob der Kontakt ein Unternehmen ist, anderenfalls ist eine Person"
 
 #. module: hr_recruitment_partner
 #: help:hr.applicant,vat_subjected:0
 msgid ""
 "Check this box if the partner is subjected to the VAT. It will be used for "
 "the VAT legal statement."
-msgstr ""
+msgstr "Diese Box anwählen, wenn der Partner Steuerpflichtig ist. Dies wird für die Umsatzsteuermeldung verwendet."
 
 #. module: hr_recruitment_partner
 #: help:hr.applicant,customer:0
 msgid "Check this box if this contact is a customer."
-msgstr ""
+msgstr "Wählen Sie diese Box an, wenn dies ein Kunde ist."
 
 #. module: hr_recruitment_partner
 #: help:hr.applicant,supplier:0
 msgid ""
 "Check this box if this contact is a supplier. If it's not checked, purchase "
 "people will not see it when encoding a purchase order."
-msgstr ""
+msgstr "Wählen Sie diese Box an, wenn dies ein Lieferant ist. Wenn dies nicht gewählt ist, sehen Einkäufer diesen Kontakt beim Erfassen von Bestellungen nicht."
 
 #. module: hr_recruitment_partner
 #: help:hr.applicant,employee:0
 msgid "Check this box if this contact is an Employee."
-msgstr ""
+msgstr "Wählen Sie diese Box an, wenn dies ein Mitarbeiter ist."
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,city:0
 msgid "City"
-msgstr ""
+msgstr "Stadt"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,commercial_partner_id:0
 msgid "Commercial Entity"
-msgstr ""
+msgstr "Kommerzielle Einheit"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,ref_companies:0
 msgid "Companies that refers to partner"
-msgstr ""
+msgstr "Unternehmen mit Bezug auf diesen Partner"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,contact_address:0
 msgid "Complete Address"
-msgstr ""
+msgstr "Vollständige Anschrift"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,ref:0
 msgid "Contact Reference"
-msgstr ""
+msgstr "Kontaktbezug"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,child_ids:0
@@ -110,7 +110,7 @@ msgstr "Kontakte"
 #. module: hr_recruitment_partner
 #: field:hr.applicant,contract_ids:0 field:hr.applicant,contracts_count:0
 msgid "Contracts"
-msgstr ""
+msgstr "Verträge"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,country_id:0
@@ -120,7 +120,7 @@ msgstr "Land"
 #. module: hr_recruitment_partner
 #: field:hr.applicant,credit_limit:0
 msgid "Credit Limit"
-msgstr ""
+msgstr "Kreditlimit"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,customer:0
@@ -130,12 +130,12 @@ msgstr "Kunde"
 #. module: hr_recruitment_partner
 #: field:hr.applicant,property_stock_customer:0
 msgid "Customer Location"
-msgstr ""
+msgstr "Kundenanschrift"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,property_payment_term:0
 msgid "Customer Payment Term"
-msgstr ""
+msgstr "Kunden-Zahlungsbedingung"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,date:0
@@ -152,12 +152,12 @@ msgid ""
 "the last unreconciled debit/credit entry of this partner was reconciled, "
 "either the user pressed the button \"Nothing more to reconcile\" during the "
 "manual reconciliation process."
-msgstr ""
+msgstr "Datum, an dem die Buchungen des Partners das letzte Mal vollständig saldiert waren. Das mag vom Datum einer letzten Ausgleichszahlung dieses Partners abweichen, da wir hier das Datum ermitteln, an dem zum letzten Mal keine Forderungen oder Verbindlichkeiten auszugleichen waren. Dies kann auf zwei Arten erreicht werden: Entweder wird der letzte offene Posten des Partners beglichen, oder im manuellen Ausgleichsvorgang wird \"Nichts mehr auszugleichen\" getätigt."
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,ean13:0
 msgid "EAN13"
-msgstr ""
+msgstr "EAN13"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,email:0
@@ -172,12 +172,12 @@ msgstr "Angestellte"
 #. module: hr_recruitment_partner
 #: field:hr.applicant,fax:0
 msgid "Fax"
-msgstr ""
+msgstr "Fax"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,firstname:0
 msgid "First name"
-msgstr ""
+msgstr "Vorname"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,property_account_position:0
@@ -190,14 +190,14 @@ msgid ""
 "If opt-out is checked, this contact has refused to receive emails for mass "
 "mailing and marketing campaign. Filter 'Available for Mass Mailing' allows "
 "users to filter the partners when performing mass mailing."
-msgstr ""
+msgstr "Wenn Opt-Out gesetzt ist, hat der Empfänger dem Erhalt von Massenmailings oder Werbung nicht zugestimmt. Der Filter 'Für Massenmails verfügbar' ermöglicht das Herausfiltern dieser Partner bei Massenmailings."
 
 #. module: hr_recruitment_partner
 #: help:hr.applicant,lang:0
 msgid ""
 "If the selected language is loaded in the system, all documents related to "
 "this contact will be printed in this language. If not, it will be English."
-msgstr ""
+msgstr "Wenn die gewählte Sprache im System installiert ist, werden alle Dokumente mit Bezug auf diesen Kontakt in dieser Sprache erstellt. Ansonsten wird Englisch verwendet."
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,image:0
@@ -207,12 +207,12 @@ msgstr "Bild"
 #. module: hr_recruitment_partner
 #: field:hr.applicant,invoice_ids:0
 msgid "Invoices"
-msgstr ""
+msgstr "Rechnungen"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,is_company:0
 msgid "Is a Company"
-msgstr ""
+msgstr "Ist ein Unternehmen?"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,function:0
@@ -232,17 +232,17 @@ msgstr "Sprache"
 #. module: hr_recruitment_partner
 #: field:hr.applicant,lastname:0
 msgid "Last name"
-msgstr ""
+msgstr "Nachname"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,calendar_last_notif_ack:0
 msgid "Last notification marked as read from base Calendar"
-msgstr ""
+msgstr "Letzte Benachrichtigung im Basis-Kalender als gelesen gekennzeichnet"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,last_reconciliation_date:0
 msgid "Latest Full Reconciliation Date"
-msgstr ""
+msgstr "Letztes Datum eines Vollausgleichs"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,image_medium:0
@@ -255,12 +255,12 @@ msgid ""
 "Medium-sized image of this contact. It is automatically resized as a "
 "128x128px image, with aspect ratio preserved. Use this field in form views "
 "or some kanban views."
-msgstr ""
+msgstr "Mittelgroßes Bild. Es wird automatisch auf 128 x 128 Pixel, unter Beibehaltung der Seitenverhältnisse, umgerechnet, sofern eine Seite diese Größe überschreitet. Verwenden Sie dieses Bild in Formularen und Kanban-Sichten."
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,mobile:0
 msgid "Mobile"
-msgstr ""
+msgstr "Mobil"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,comment:0
@@ -270,22 +270,22 @@ msgstr "Hinweise"
 #. module: hr_recruitment_partner
 #: field:hr.applicant,opt_out:0
 msgid "Opt-Out"
-msgstr ""
+msgstr "Opt-Out"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,parent_name:0
 msgid "Parent name"
-msgstr ""
+msgstr "Übergeordnetes Objekt"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,debit_limit:0
 msgid "Payable Limit"
-msgstr ""
+msgstr "Begrenzung Verbindlichkeiten"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,phone:0
 msgid "Phone"
-msgstr ""
+msgstr "Telefon"
 
 #. module: hr_recruitment_partner
 #: help:hr.applicant,notify_email:0
@@ -293,22 +293,22 @@ msgid ""
 "Policy to receive emails for new messages pushed to your personal Inbox:\n"
 "- Never: no emails are sent\n"
 "- All Messages: for every notification you receive in your Inbox"
-msgstr ""
+msgstr "Regelung für die Weiterleitung neuer Emails in Ihr persönliches Postfach:\n- Niemals: Keine Nachricht wird weitergeleitet\n- Alle Nachrichten: Jede eingehende Mitteilung in Ihrem Posteingang"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,notify_email:0
 msgid "Receive Inbox Notifications by Email"
-msgstr ""
+msgstr "Erhalte eingehende Mitteilungen per Email"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,parent_id:0
 msgid "Related Company"
-msgstr ""
+msgstr "Zugehöriges Unternehmen"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,property_product_pricelist:0
 msgid "Sale Pricelist"
-msgstr ""
+msgstr "Verkaufspreisliste"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,section_id:0
@@ -320,32 +320,32 @@ msgstr "Verkaufsteam"
 msgid ""
 "Select this if you want to set company's address information  for this "
 "contact"
-msgstr ""
+msgstr "Anwählen, wenn Sie die Unternehmenanschrift für diesen Kontakt festlegen möchten"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,signup_expiration:0
 msgid "Signup Expiration"
-msgstr ""
+msgstr "Anmeldungablaufdatum"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,signup_token:0
 msgid "Signup Token"
-msgstr ""
+msgstr "Anmeldeschlüssel"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,signup_type:0
 msgid "Signup Token Type"
-msgstr ""
+msgstr "Anmeldeschlüsselart"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,signup_valid:0
 msgid "Signup Token is Valid"
-msgstr ""
+msgstr "Anmeldeschlüssel ist gültig"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,signup_url:0
 msgid "Signup URL"
-msgstr ""
+msgstr "Anmeldungs-URL"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,image_small:0
@@ -358,7 +358,7 @@ msgid ""
 "Small-sized image of this contact. It is automatically resized as a 64x64px "
 "image, with aspect ratio preserved. Use this field anywhere a small image is"
 " required."
-msgstr ""
+msgstr "Kleines Bild. Dieses wird automatisch als 64 x 64 Bild, unter Beibehaltung des Seitenverhältnisses, umgerechnet. Verwenden Sie dieses Bild da, wo ein kleines Bild benötigt wird."
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,state_id:0
@@ -368,12 +368,12 @@ msgstr "Status"
 #. module: hr_recruitment_partner
 #: field:hr.applicant,street:0
 msgid "Street"
-msgstr ""
+msgstr "Straße"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,street2:0
 msgid "Street2"
-msgstr ""
+msgstr "Straße2"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,supplier:0
@@ -383,35 +383,35 @@ msgstr "Lieferant"
 #. module: hr_recruitment_partner
 #: field:hr.applicant,property_stock_supplier:0
 msgid "Supplier Location"
-msgstr ""
+msgstr "Lieferantenstandort"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,property_supplier_payment_term:0
 msgid "Supplier Payment Term"
-msgstr ""
+msgstr "Lieferanten-Zahlungsbedingungen"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,vat:0
 msgid "TIN"
-msgstr ""
+msgstr "USt-ID:"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,category_id:0
 msgid "Tags"
-msgstr ""
+msgstr "Schlagworte"
 
 #. module: hr_recruitment_partner
 #: help:hr.applicant,vat:0
 msgid ""
 "Tax Identification Number. Check the box if this contact is subjected to "
 "taxes. Used by the some of the legal statements."
-msgstr ""
+msgstr "Steueridentifikationsnummer. Anwählen, wenn dieser Kontakt Steuerpflichtig ist. Verwendet durch einige Finanzberichte."
 
 #. module: hr_recruitment_partner
 #: help:hr.applicant,property_account_position:0
 msgid ""
 "The fiscal position will determine taxes and accounts used for the partner."
-msgstr ""
+msgstr "Die Steuerzuordnung bestimmt die Steuern und Konten, die bei diesem Partner Anwendung finden."
 
 #. module: hr_recruitment_partner
 #: help:hr.applicant,tz:0
@@ -420,78 +420,78 @@ msgid ""
 "printed reports. It is important to set a value for this field. You should "
 "use the same timezone that is otherwise used to pick and render date and "
 "time values: your computer's timezone."
-msgstr ""
+msgstr "Des Partners Zeitzone, verwendet, um angepasste Datums- und Uhrzeitangaben in Drucksachen auszugeben. Es ist wichtig hier korrekte Angaben einzupflegen. Sie sollten die gleiche Zeitzone einstellen, die auch anderweitig genutzt wird, die Ihres Arbeitsplatzrechners."
 
 #. module: hr_recruitment_partner
 #: help:hr.applicant,property_account_payable:0
 msgid ""
 "This account will be used instead of the default one as the payable account "
 "for the current partner"
-msgstr ""
+msgstr "Dieses Konto wird anstelle des Vorgabe-Kreditorenkontos dieses Partners verwendet."
 
 #. module: hr_recruitment_partner
 #: help:hr.applicant,property_account_receivable:0
 msgid ""
 "This account will be used instead of the default one as the receivable "
 "account for the current partner"
-msgstr ""
+msgstr "Dieses Konto wird anstelle des Vorgabe-Debitorenkontos dieses Partners verwendet."
 
 #. module: hr_recruitment_partner
 #: help:hr.applicant,image:0
 msgid ""
 "This field holds the image used as avatar for this contact, limited to "
 "1024x1024px"
-msgstr ""
+msgstr "Dieses Feld wird für das 1024x1024px grosse Avatar-Bild dieses Kontakts verwendet"
 
 #. module: hr_recruitment_partner
 #: help:hr.applicant,property_supplier_payment_term:0
 msgid ""
 "This payment term will be used instead of the default one for purchase "
 "orders and supplier invoices"
-msgstr ""
+msgstr "Diese Zahlungsbedingung wird anstelle der Vorgabe bei Bestellungen und Eingangsrechnungen verwendet"
 
 #. module: hr_recruitment_partner
 #: help:hr.applicant,property_payment_term:0
 msgid ""
 "This payment term will be used instead of the default one for sale orders "
 "and customer invoices"
-msgstr ""
+msgstr "Diese Zahlungsbedingung wird anstelle der Vorgabe bei Verkaufsaufträgen und Ausgangsrechnungen verwendet"
 
 #. module: hr_recruitment_partner
 #: help:hr.applicant,property_product_pricelist:0
 msgid ""
 "This pricelist will be used, instead of the default one, for sales to the "
 "current partner"
-msgstr ""
+msgstr "Diese Preisliste wird anstelle der Vorgabe bei Verkäufen an diesen Partner verwendet"
 
 #. module: hr_recruitment_partner
 #: help:hr.applicant,property_stock_customer:0
 msgid ""
 "This stock location will be used, instead of the default one, as the "
 "destination location for goods you send to this partner"
-msgstr ""
+msgstr "Dieses Lager wird anstelle der Vorgabe, als Zielort bei Warensendungen an diesen Partner, verwendet"
 
 #. module: hr_recruitment_partner
 #: help:hr.applicant,property_stock_supplier:0
 msgid ""
 "This stock location will be used, instead of the default one, as the source "
 "location for goods you receive from the current partner"
-msgstr ""
+msgstr "Dieses Lager wird anstelle der Vorgabe, als Herkunftsort bei Warenlieferungen von diesem Partner, verwendet"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,tz:0
 msgid "Timezone"
-msgstr ""
+msgstr "Zeitzone"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,tz_offset:0
 msgid "Timezone offset"
-msgstr ""
+msgstr "Zeitzonenversatz"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,title:0
 msgid "Title"
-msgstr ""
+msgstr "Titel"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,total_invoiced:0
@@ -501,34 +501,34 @@ msgstr "Abrechnungssumme"
 #. module: hr_recruitment_partner
 #: field:hr.applicant,debit:0
 msgid "Total Payable"
-msgstr ""
+msgstr "Gesamtverbindlichkeit"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,credit:0
 msgid "Total Receivable"
-msgstr ""
+msgstr "Gesamtforderung"
 
 #. module: hr_recruitment_partner
 #: help:hr.applicant,credit:0
 msgid "Total amount this customer owes you."
-msgstr ""
+msgstr "Gesamtbetrag, den dieser Partner Ihnen schuldet."
 
 #. module: hr_recruitment_partner
 #: help:hr.applicant,debit:0
 msgid "Total amount you have to pay to this supplier."
-msgstr ""
+msgstr "Gesamtbetrag, den Sie diesem Partner zahlen müssen."
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,use_parent_address:0
 msgid "Use Company Address"
-msgstr ""
+msgstr "Verwende Unternehmensanschrift"
 
 #. module: hr_recruitment_partner
 #: help:hr.applicant,type:0
 msgid ""
 "Used to select automatically the right address according to the context in "
 "sales and purchases documents."
-msgstr ""
+msgstr "Verwendet, um automatisch, im Kontext von Verkaufs- oder Einkaufsvorgängen, die richtige Anschrift zu wählen."
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,user_ids:0
@@ -538,7 +538,7 @@ msgstr "Benutzer"
 #. module: hr_recruitment_partner
 #: field:hr.applicant,vat_subjected:0
 msgid "VAT Legal Statement"
-msgstr ""
+msgstr "USt.-Erklärung"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,website:0
@@ -548,14 +548,14 @@ msgstr "Webseite"
 #. module: hr_recruitment_partner
 #: help:hr.applicant,website:0
 msgid "Website of Partner or Company"
-msgstr ""
+msgstr "Webseite des Partners oder Unternehmens"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,zip:0
 msgid "Zip"
-msgstr ""
+msgstr "PLZ"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,has_image:0
 msgid "unknown"
-msgstr ""
+msgstr "unbekannt"

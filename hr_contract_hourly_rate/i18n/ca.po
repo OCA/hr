@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-04 02:33+0000\n"
-"PO-Revision-Date: 2017-03-14 18:27+0000\n"
+"POT-Creation-Date: 2017-03-28 03:11+0000\n"
+"PO-Revision-Date: 2017-03-24 09:00+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Catalan (http://www.transifex.com/oca/OCA-hr-8-0/language/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -30,7 +30,7 @@ msgstr ""
 #. module: hr_contract_hourly_rate
 #: view:hr.hourly.rate.class:hr_contract_hourly_rate.view_hr_hourly_rate_class_tree
 msgid "Companies"
-msgstr ""
+msgstr "Empreses"
 
 #. module: hr_contract_hourly_rate
 #: model:ir.model,name:hr_contract_hourly_rate.model_hr_contract

@@ -3,13 +3,14 @@
 # * hr_holidays_compute_days
 # 
 # Translators:
+# Rudolf Schnapka <rs@techno-flex.de>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-19 02:40+0000\n"
-"PO-Revision-Date: 2016-05-18 13:34+0000\n"
-"Last-Translator: <>\n"
+"POT-Creation-Date: 2017-03-28 03:12+0000\n"
+"PO-Revision-Date: 2017-04-13 13:18+0000\n"
+"Last-Translator: Rudolf Schnapka <rs@techno-flex.de>\n"
 "Language-Team: German (http://www.transifex.com/oca/OCA-hr-8-0/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,33 +26,33 @@ msgstr "Angestellte"
 #. module: hr_holidays_compute_days
 #: field:hr.holidays.status,exclude_public_holidays:0
 msgid "Exclude Public Holidays"
-msgstr ""
+msgstr "Gesetzliche Feiertage ausschließen"
 
 #. module: hr_holidays_compute_days
 #: field:hr.holidays.status,exclude_rest_days:0
 msgid "Exclude Rest Days"
-msgstr ""
+msgstr "Resttage ausschließen"
 
 #. module: hr_holidays_compute_days
 #: help:hr.holidays.status,exclude_public_holidays:0
 msgid "If enabled, public holidays are skipped in leave days calculation."
-msgstr ""
+msgstr "Wenn aktiviert, werden gesetzliche Feiertage bei der Berechnung der Urlaubstage ausgelassen."
 
 #. module: hr_holidays_compute_days
 #: help:hr.holidays.status,exclude_rest_days:0
 msgid ""
 "If enabled, the employee's day off is skipped in leave days calculation."
-msgstr ""
+msgstr "Wenn aktiviert, wird der freie Arbeitstag in der Abwesenheitsermittlung nicht berücksichtigt."
 
 #. module: hr_holidays_compute_days
 #: model:ir.model,name:hr_holidays_compute_days.model_hr_holidays
 msgid "Leave"
-msgstr ""
+msgstr "Abwesenheit"
 
 #. module: hr_holidays_compute_days
 #: model:ir.model,name:hr_holidays_compute_days.model_hr_holidays_status
 msgid "Leave Type"
-msgstr ""
+msgstr "Abwesenheitsart"
 
 #. module: hr_holidays_compute_days
 #: code:addons/hr_holidays_compute_days/models/hr_holidays.py:40
@@ -59,7 +60,7 @@ msgstr ""
 #, python-format
 msgid ""
 "You cannot schedule the end date on a public holiday or employee's rest day"
-msgstr ""
+msgstr "Sie dürfen das Enddatum nicht auf einen Gesetzl. Feiertag oder Mitarbeiter-Ruhetag legen"
 
 #. module: hr_holidays_compute_days
 #: code:addons/hr_holidays_compute_days/models/hr_holidays.py:36
@@ -68,31 +69,31 @@ msgstr ""
 msgid ""
 "You cannot schedule the start date on a public holiday or employee's rest "
 "day"
-msgstr ""
+msgstr "Sie dürfen das Anfangsdatum nicht auf einen Gesetzl. Feiertag oder Mitarbeiter-Ruhetag legen"
 
 #. module: hr_holidays_compute_days
 #: view:hr.holidays:hr_holidays_compute_days.edit_holiday_new
 msgid "onchange_date_from(date_to, date_from, context)"
-msgstr ""
+msgstr "onchange_date_from(date_to, date_from, context)"
 
 #. module: hr_holidays_compute_days
 #: view:hr.holidays:hr_holidays_compute_days.edit_holiday_new
 msgid "onchange_date_to(date_to, date_from, context)"
-msgstr ""
+msgstr "onchange_date_to(date_to, date_from, context)"
 
 #. module: hr_holidays_compute_days
 #: view:hr.holidays:hr_holidays_compute_days.edit_holiday_new
 msgid "onchange_employee(employee_id, context)"
-msgstr ""
+msgstr "onchange_employee(employee_id, context)"
 
 #. module: hr_holidays_compute_days
 #: view:hr.holidays:hr_holidays_compute_days.edit_holiday_new
 msgid ""
 "{'date_from': date_from, 'date_to': date_to, 'holiday_status_id': "
 "holiday_status_id}"
-msgstr ""
+msgstr "{'date_from': date_from, 'date_to': date_to, 'holiday_status_id': holiday_status_id}"
 
 #. module: hr_holidays_compute_days
 #: view:hr.holidays:hr_holidays_compute_days.edit_holiday_new
 msgid "{'employee_id': employee_id, 'holiday_status_id': holiday_status_id}"
-msgstr ""
+msgstr "{'employee_id': employee_id, 'holiday_status_id': holiday_status_id}"

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-18 03:03+0000\n"
-"PO-Revision-Date: 2017-03-14 18:27+0000\n"
+"POT-Creation-Date: 2017-03-28 03:12+0000\n"
+"PO-Revision-Date: 2017-04-21 14:16+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Catalan (http://www.transifex.com/oca/OCA-hr-8-0/language/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -187,7 +187,7 @@ msgstr ""
 #: field:hr.academic,end_date:0 field:hr.certification,end_date:0
 #: field:hr.curriculum,end_date:0 field:hr.experience,end_date:0
 msgid "End date"
-msgstr ""
+msgstr "Data final "
 
 #. module: hr_experience
 #: model:ir.ui.menu,name:hr_experience.menu_hr_experience
@@ -250,7 +250,7 @@ msgstr "Darrera Actualització el"
 #: field:hr.curriculum,location:0 help:hr.curriculum,location:0
 #: field:hr.experience,location:0 help:hr.experience,location:0
 msgid "Location"
-msgstr ""
+msgstr "Ubicació "
 
 #. module: hr_experience
 #: field:hr.academic,name:0 field:hr.certification,name:0
@@ -304,7 +304,7 @@ msgstr ""
 #: field:hr.academic,start_date:0 field:hr.certification,start_date:0
 #: field:hr.curriculum,start_date:0 field:hr.experience,start_date:0
 msgid "Start date"
-msgstr ""
+msgstr "Data d'inici "
 
 #. module: hr_experience
 #: view:hr.certification:hr_experience.view_certification_form

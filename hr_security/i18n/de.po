@@ -3,14 +3,16 @@
 # * hr_security
 # 
 # Translators:
+# Rudolf Schnapka <rs@techno-flex.de>, 2017
 # Thomas A. Jaeger, 2015
+# Renzo Meister, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-06 00:27+0000\n"
-"PO-Revision-Date: 2015-11-05 14:45+0000\n"
-"Last-Translator: Thomas A. Jaeger\n"
+"POT-Creation-Date: 2017-03-28 03:12+0000\n"
+"PO-Revision-Date: 2017-04-13 12:43+0000\n"
+"Last-Translator: Rudolf Schnapka <rs@techno-flex.de>\n"
 "Language-Team: German (http://www.transifex.com/oca/OCA-hr-8-0/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -36,7 +38,7 @@ msgstr "Lohnliste Benutzer"
 #. module: hr_security
 #: view:hr.employee:hr_security.hr_hr_employee_view_form2
 msgid "base.group_user"
-msgstr ""
+msgstr "base.group_user"
 
 #. module: hr_security
 #: model:res.groups,comment:hr_security.group_payroll_manager
