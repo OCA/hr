@@ -92,7 +92,7 @@ msgstr ""
 #. module: hr_period
 #: selection:hr.fiscalyear,state:0 selection:hr.period,state:0
 msgid "Draft"
-msgstr ""
+msgstr "Skica"
 
 #. module: hr_period
 #: view:hr.fiscalyear:0 selection:hr.fiscalyear,state:0
@@ -133,7 +133,7 @@ msgstr ""
 #. module: hr_period
 #: view:hr.fiscalyear:0 field:hr.fiscalyear,state:0 field:hr.period,state:0
 msgid "Status"
-msgstr ""
+msgstr "Status"
 
 #. module: hr_period
 #: help:hr.fiscalyear,date_stop:0

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-27 23:36+0000\n"
-"PO-Revision-Date: 2015-07-27 23:41+0000\n"
+"POT-Creation-Date: 2017-02-18 02:58+0000\n"
+"PO-Revision-Date: 2017-04-13 13:18+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: German (http://www.transifex.com/oca/OCA-hr-7-0/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -38,7 +38,7 @@ msgstr "Für Lohnberechnung verwendet"
 #. module: hr_worked_days_activity
 #: model:hr.holidays.status,name:hr_worked_days_activity.holiday_status_public
 msgid "Public Holidays"
-msgstr ""
+msgstr "Gesetzliche Feiertage"
 
 #. module: hr_worked_days_activity
 #: model:ir.model,name:hr_worked_days_activity.model_hr_payslip_worked_days

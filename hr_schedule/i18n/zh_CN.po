@@ -331,7 +331,7 @@ msgstr ""
 msgid ""
 "Holds the Chatter summary (number of messages, ...). This summary is "
 "directly in html format in order to be inserted in kanban views."
-msgstr ""
+msgstr "HTML格式的简介，包括了各种项目的总结信息（比如消息数，作业数……）"
 
 #. module: hr_schedule
 #: field:hr.schedule.alert,rule_id:0
@@ -497,7 +497,7 @@ msgstr ""
 #. module: hr_schedule
 #: selection:hr.schedule,state:0 selection:hr.schedule.detail,state:0
 msgid "Draft"
-msgstr ""
+msgstr "草稿"
 
 #. module: hr_schedule
 #: selection:hr.schedule.alert.rule,severity:0
@@ -574,7 +574,7 @@ msgstr ""
 #: field:hr.schedule.alert,message_is_follower:0
 #: field:hr.schedule.request,message_is_follower:0
 msgid "Is a Follower"
-msgstr ""
+msgstr "关注者"
 
 #. module: hr_schedule
 #: view:hr.schedule.alert:0
@@ -617,7 +617,7 @@ msgstr ""
 #: field:hr.restday.wizard,contract_id:0
 #: model:ir.model,name:hr_schedule.model_hr_contract
 msgid "Contract"
-msgstr ""
+msgstr "合同"
 
 #. module: hr_schedule
 #: field:hr.schedule,message_summary:0
@@ -692,7 +692,7 @@ msgstr ""
 #. module: hr_schedule
 #: view:hr.schedule.alert.compute:0 view:hr.schedule.validate.departments:0
 msgid "Close"
-msgstr ""
+msgstr "关闭"
 
 #. module: hr_schedule
 #: code:addons/hr_schedule/hr_schedule.py:785

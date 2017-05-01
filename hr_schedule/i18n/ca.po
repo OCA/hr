@@ -157,7 +157,7 @@ msgstr ""
 #. module: hr_schedule
 #: view:hr.schedule:0 view:hr.schedule.detail:0
 msgid "Validate"
-msgstr ""
+msgstr "Validar"
 
 #. module: hr_schedule
 #: selection:hr.schedule.request,type:0
@@ -199,7 +199,7 @@ msgstr ""
 #: field:hr.schedule,message_ids:0 field:hr.schedule.alert,message_ids:0
 #: field:hr.schedule.request,message_ids:0
 msgid "Messages"
-msgstr ""
+msgstr "Missatges"
 
 #. module: hr_schedule
 #: model:ir.model,name:hr_schedule.model_hr_holidays
@@ -209,7 +209,7 @@ msgstr ""
 #. module: hr_schedule
 #: selection:hr.schedule.request,state:0
 msgid "Cancelled"
-msgstr ""
+msgstr "Cancel·lat "
 
 #. module: hr_schedule
 #: model:mail.message.subtype,description:hr_schedule.mt_alert_unresolved
@@ -282,7 +282,7 @@ msgstr "Estat"
 #: field:hr.schedule.alert,message_follower_ids:0
 #: field:hr.schedule.request,message_follower_ids:0
 msgid "Followers"
-msgstr ""
+msgstr "Seguidors"
 
 #. module: hr_schedule
 #: selection:hr.schedule.request,state:0
@@ -497,7 +497,7 @@ msgstr ""
 #. module: hr_schedule
 #: selection:hr.schedule,state:0 selection:hr.schedule.detail,state:0
 msgid "Draft"
-msgstr ""
+msgstr "Esborrany"
 
 #. module: hr_schedule
 #: selection:hr.schedule.alert.rule,severity:0
@@ -838,7 +838,7 @@ msgstr ""
 #. module: hr_schedule
 #: view:hr.schedule.alert:0
 msgid "Rule"
-msgstr ""
+msgstr "Regla "
 
 #. module: hr_schedule
 #: help:hr.schedule,message_ids:0 help:hr.schedule.alert,message_ids:0
@@ -876,7 +876,7 @@ msgstr ""
 #. module: hr_schedule
 #: view:hr.schedule:0
 msgid "Duration"
-msgstr ""
+msgstr "Duració "
 
 #. module: hr_schedule
 #: selection:hr.restday.wizard,dayofweek:0

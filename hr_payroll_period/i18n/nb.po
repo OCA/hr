@@ -617,7 +617,7 @@ msgstr ""
 #. module: hr_payroll_period
 #: view:hr.payroll.period.end.1:0
 msgid "Draft"
-msgstr ""
+msgstr "Utkast"
 
 #. module: hr_payroll_period
 #: field:hr.payroll.period.end.1,pex_low:0

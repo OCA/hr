@@ -676,7 +676,7 @@ msgstr ""
 #: view:hr.payroll.period.schedule:0
 #: field:hr.payroll.period.schedule,contract_ids:0
 msgid "Contracts"
-msgstr ""
+msgstr "Verträge"
 
 #. module: hr_payroll_period
 #: help:hr.payroll.period,message_ids:0
@@ -919,7 +919,7 @@ msgstr ""
 #: view:hr.payroll.period.end.1:0
 #: field:hr.payroll.period.end.1,public_holiday_ids:0
 msgid "Public Holidays"
-msgstr ""
+msgstr "Gesetzliche Feiertage"
 
 #. module: hr_payroll_period
 #: field:hr.payroll.period.end.1,ps_generated:0

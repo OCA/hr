@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-31 03:22+0000\n"
+"POT-Creation-Date: 2017-02-18 02:58+0000\n"
 "PO-Revision-Date: 2015-07-27 23:39+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Romanian (http://www.transifex.com/oca/OCA-hr-7-0/language/ro/)\n"
@@ -163,7 +163,7 @@ msgstr ""
 #. module: hr_payroll_period
 #: field:hr.payslip.exception.rule,company_id:0
 msgid "Company"
-msgstr ""
+msgstr "Companie"
 
 #. module: hr_payroll_period
 #: code:addons/hr_payroll_period/hr_payroll_period.py:312
@@ -617,7 +617,7 @@ msgstr ""
 #. module: hr_payroll_period
 #: view:hr.payroll.period.end.1:0
 msgid "Draft"
-msgstr ""
+msgstr "Schiță"
 
 #. module: hr_payroll_period
 #: field:hr.payroll.period.end.1,pex_low:0

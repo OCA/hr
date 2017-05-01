@@ -47,7 +47,7 @@ msgstr ""
 #. module: hr_payslip_amendment
 #: view:hr.payslip.amendment:0
 msgid "Note"
-msgstr ""
+msgstr "Nota"
 
 #. module: hr_payslip_amendment
 #: field:hr.payslip.amendment,state:0
@@ -57,7 +57,7 @@ msgstr "Estat"
 #. module: hr_payslip_amendment
 #: field:hr.payslip.amendment,message_follower_ids:0
 msgid "Followers"
-msgstr ""
+msgstr "Seguidors"
 
 #. module: hr_payslip_amendment
 #: field:hr.payslip.amendment,employee_id:0
@@ -103,7 +103,7 @@ msgstr ""
 #. module: hr_payslip_amendment
 #: field:hr.payslip.amendment,message_ids:0
 msgid "Messages"
-msgstr ""
+msgstr "Missatges"
 
 #. module: hr_payslip_amendment
 #: field:hr.payslip.amendment,message_summary:0
@@ -118,7 +118,7 @@ msgstr "Import"
 #. module: hr_payslip_amendment
 #: selection:hr.payslip.amendment,state:0
 msgid "Cancelled"
-msgstr ""
+msgstr "Cancel·lat "
 
 #. module: hr_payslip_amendment
 #: view:hr.payslip.amendment:0
@@ -169,4 +169,4 @@ msgstr "Cancel·la"
 #. module: hr_payslip_amendment
 #: selection:hr.payslip.amendment,state:0
 msgid "Draft"
-msgstr ""
+msgstr "Esborrany"

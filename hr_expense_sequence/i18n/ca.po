@@ -21,7 +21,7 @@ msgstr ""
 #: code:addons/hr_expense_sequence/hr_expense_sequence.py:73
 #, python-format
 msgid "%s (copy)"
-msgstr ""
+msgstr "%s (copia)"
 
 #. module: hr_expense_sequence
 #: model:ir.model,name:hr_expense_sequence.model_hr_expense_expense

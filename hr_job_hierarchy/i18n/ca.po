@@ -53,7 +53,7 @@ msgstr ""
 #. module: hr_job_hierarchy
 #: field:hr.job,all_child_ids:0
 msgid "unknown"
-msgstr ""
+msgstr "desconegut "
 
 #. module: hr_job_hierarchy
 #: view:hr.job:0 field:hr.job,child_ids:0

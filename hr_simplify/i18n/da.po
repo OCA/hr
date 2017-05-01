@@ -1,0 +1,84 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+# * hr_simplify
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: hr (7.0)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-02-18 02:58+0000\n"
+"PO-Revision-Date: 2015-07-27 23:41+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: Danish (http://www.transifex.com/oca/OCA-hr-7-0/language/da/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: da\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: hr_simplify
+#: selection:hr.contract,state:0
+msgid "Pending Termination"
+msgstr ""
+
+#. module: hr_simplify
+#: field:hr.contract,employee_dept_id:0
+msgid "Default Dept Id"
+msgstr ""
+
+#. module: hr_simplify
+#: selection:hr.contract,state:0
+msgid "Completed"
+msgstr ""
+
+#. module: hr_simplify
+#: field:hr.contract,state:0
+msgid "State"
+msgstr ""
+
+#. module: hr_simplify
+#: model:ir.model,name:hr_simplify.model_hr_contract
+msgid "Contract"
+msgstr ""
+
+#. module: hr_simplify
+#: selection:hr.contract,state:0
+msgid "Ending"
+msgstr ""
+
+#. module: hr_simplify
+#: model:ir.model,name:hr_simplify.model_hr_job
+msgid "Job Description"
+msgstr ""
+
+#. module: hr_simplify
+#: selection:hr.contract,state:0
+msgid "Trial"
+msgstr ""
+
+#. module: hr_simplify
+#: code:addons/hr_simplify/hr_simplify.py:86 sql_constraint:hr.employee:0
+#, python-format
+msgid "Official Identifications must be unique!"
+msgstr ""
+
+#. module: hr_simplify
+#: selection:hr.contract,state:0
+msgid "Draft"
+msgstr "Udkast"
+
+#. module: hr_simplify
+#: model:ir.model,name:hr_simplify.model_hr_employee
+msgid "Employee"
+msgstr ""
+
+#. module: hr_simplify
+#: selection:hr.contract,state:0
+msgid "Open"
+msgstr ""
+
+#. module: hr_simplify
+#: selection:hr.contract,state:0
+msgid "Trial Period Ending"
+msgstr ""

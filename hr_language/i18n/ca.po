@@ -157,7 +157,7 @@ msgstr ""
 #: view:hr.employee:0 field:hr.employee,language_ids:0 view:hr.language:0
 #: model:ir.ui.menu,name:hr_language.menu_open_view_language_form
 msgid "Languages"
-msgstr ""
+msgstr "Idiomes "
 
 #. module: hr_language
 #: selection:hr.language,name:0

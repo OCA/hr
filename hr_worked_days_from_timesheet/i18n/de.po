@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-27 23:36+0000\n"
-"PO-Revision-Date: 2015-07-27 23:41+0000\n"
+"POT-Creation-Date: 2017-02-18 02:58+0000\n"
+"PO-Revision-Date: 2017-04-13 13:09+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: German (http://www.transifex.com/oca/OCA-hr-7-0/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -32,7 +32,7 @@ msgstr "Arbeitstage"
 #: code:addons/hr_worked_days_from_timesheet/hr_payslip.py:54
 #, python-format
 msgid "Timesheet %s"
-msgstr ""
+msgstr "Zeitnachweis %s"
 
 #. module: hr_worked_days_from_timesheet
 #: view:hr.payslip.employees:0
@@ -67,7 +67,7 @@ msgstr "Warnung"
 #. module: hr_worked_days_from_timesheet
 #: model:ir.model,name:hr_worked_days_from_timesheet.model_hr_payslip_employees
 msgid "Generate payslips for all selected employees"
-msgstr ""
+msgstr "Lohnbescheinigungen für alle ausgewählten Mitarbeiter erstellen"
 
 #. module: hr_worked_days_from_timesheet
 #: field:hr.employee,timesheet_sheet_ids:0

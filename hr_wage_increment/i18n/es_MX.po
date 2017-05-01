@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-17 01:54+0000\n"
+"POT-Creation-Date: 2017-02-18 02:58+0000\n"
 "PO-Revision-Date: 2015-07-27 23:41+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Spanish (Mexico) (http://www.transifex.com/oca/OCA-hr-7-0/language/es_MX/)\n"
@@ -97,7 +97,7 @@ msgstr ""
 #: selection:hr.contract.wage.increment,state:0
 #: selection:hr.contract.wage.increment.run,state:0
 msgid "Draft"
-msgstr ""
+msgstr "Borrador"
 
 #. module: hr_wage_increment
 #: field:hr.contract.wage.increment.run,name:0

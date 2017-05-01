@@ -629,7 +629,7 @@ msgstr "Bajo"
 #: selection:hr.payroll.period,state:0
 #: model:mail.message.subtype,name:hr_payroll_period.mt_state_close
 msgid "Closed"
-msgstr ""
+msgstr "Cerrado"
 
 #. module: hr_payroll_period
 #: view:hr.payslip.exception.rule:0

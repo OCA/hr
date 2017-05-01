@@ -72,7 +72,7 @@ msgstr ""
 #. module: hr_payroll_register
 #: selection:hr.payroll.register,state:0
 msgid "Draft"
-msgstr ""
+msgstr "Esborrany"
 
 #. module: hr_payroll_register
 #: report:hr.payroll.register.payslips:0
@@ -97,7 +97,7 @@ msgstr ""
 #. module: hr_payroll_register
 #: field:hr.payroll.register,state:0
 msgid "Status"
-msgstr ""
+msgstr "Estat"
 
 #. module: hr_payroll_register
 #: view:hr.payroll.register:0
@@ -156,7 +156,7 @@ msgstr ""
 #. module: hr_payroll_register
 #: field:hr.payroll.register,run_ids:0
 msgid "unknown"
-msgstr ""
+msgstr "desconegut "
 
 #. module: hr_payroll_register
 #: code:addons/hr_payroll_register/hr_payroll_register.py:71

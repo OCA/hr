@@ -313,7 +313,7 @@ msgstr ""
 msgid ""
 "Holds the Chatter summary (number of messages, ...). This summary is "
 "directly in html format in order to be inserted in kanban views."
-msgstr ""
+msgstr "HTML格式的简介，包括了各种项目的总结信息（比如消息数，作业数……）"
 
 #. module: hr_payroll_period
 #: field:hr.payroll.period.end.1,pex_critical:0
@@ -617,7 +617,7 @@ msgstr ""
 #. module: hr_payroll_period
 #: view:hr.payroll.period.end.1:0
 msgid "Draft"
-msgstr ""
+msgstr "草稿"
 
 #. module: hr_payroll_period
 #: field:hr.payroll.period.end.1,pex_low:0
@@ -696,7 +696,7 @@ msgstr ""
 #. module: hr_payroll_period
 #: field:hr.payroll.period,message_is_follower:0
 msgid "Is a Follower"
-msgstr ""
+msgstr "关注者"
 
 #. module: hr_payroll_period
 #: field:hr.holidays,payroll_period_state:0
@@ -758,7 +758,7 @@ msgstr ""
 #. module: hr_payroll_period
 #: model:ir.model,name:hr_payroll_period.model_hr_contract
 msgid "Contract"
-msgstr ""
+msgstr "合同"
 
 #. module: hr_payroll_period
 #: field:hr.payroll.period,message_summary:0

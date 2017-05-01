@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-04 02:28+0000\n"
+"POT-Creation-Date: 2017-03-11 02:44+0000\n"
 "PO-Revision-Date: 2015-07-27 23:37+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: German (http://www.transifex.com/oca/OCA-hr-7-0/language/de/)\n"
@@ -118,7 +118,7 @@ msgstr ""
 #. module: hr_employee_education
 #: field:hr.employee,age:0
 msgid "Age"
-msgstr ""
+msgstr "Alter"
 
 #. module: hr_employee_education
 #: view:hr.employee.edu.line:0
@@ -135,4 +135,4 @@ msgstr ""
 #: view:hr.employee:0 field:hr.employee,education:0
 #: field:hr.employee.edu.line,education:0
 msgid "Education"
-msgstr ""
+msgstr "Ausbildung"

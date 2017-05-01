@@ -32,7 +32,7 @@ msgstr "Lohnzettel"
 #: code:addons/hr_worked_days_activity_from_timesheet/hr_payslip.py:133
 #, python-format
 msgid "Timesheet"
-msgstr ""
+msgstr "Zeitnachweis"
 
 #. module: hr_worked_days_activity_from_timesheet
 #: code:addons/hr_worked_days_activity_from_timesheet/hr_payslip.py:52

@@ -69,7 +69,7 @@ msgstr "Estat"
 #. module: hr_infraction
 #: selection:hr.infraction,state:0
 msgid "Draft"
-msgstr ""
+msgstr "Esborrany"
 
 #. module: hr_infraction
 #: field:hr.infraction,employee_id:0 field:hr.infraction.action,employee_id:0
@@ -187,7 +187,7 @@ msgstr ""
 #. module: hr_infraction
 #: field:hr.infraction,message_ids:0
 msgid "Messages"
-msgstr ""
+msgstr "Missatges"
 
 #. module: hr_infraction
 #: view:hr.infraction.action.wizard:0
@@ -237,7 +237,7 @@ msgstr "Error"
 #: field:hr.infraction.action.wizard,action_type:0
 #: field:hr.infraction.warning,action_id:0
 msgid "Action"
-msgstr ""
+msgstr "Acció"
 
 #. module: hr_infraction
 #: field:hr.infraction,message_summary:0
@@ -358,7 +358,7 @@ msgstr ""
 #. module: hr_infraction
 #: field:hr.infraction,message_follower_ids:0
 msgid "Followers"
-msgstr ""
+msgstr "Seguidors"
 
 #. module: hr_infraction
 #: selection:hr.infraction.action,type:0

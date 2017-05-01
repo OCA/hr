@@ -238,7 +238,7 @@ msgstr ""
 #. module: hr_labour_recruitment
 #: selection:hr.recruitment.request,state:0
 msgid "Cancelled"
-msgstr ""
+msgstr "Storniert"
 
 #. module: hr_labour_recruitment
 #: code:addons/hr_labour_recruitment/hr_recruitment.py:180

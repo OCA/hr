@@ -25,7 +25,7 @@ msgstr "Name"
 #. module: hr_public_holidays
 #: field:hr.holidays.public,line_ids:0
 msgid "Holiday Dates"
-msgstr ""
+msgstr "Feiertagsdaten"
 
 #. module: hr_public_holidays
 #: field:hr.holidays.public,year:0
@@ -50,7 +50,7 @@ msgstr ""
 #. module: hr_public_holidays
 #: model:ir.model,name:hr_public_holidays.model_hr_holidays_public_line
 msgid "Public Holidays Lines"
-msgstr ""
+msgstr "Positionen gesetzlicher Feiertage"
 
 #. module: hr_public_holidays
 #: code:addons/hr_public_holidays/hr_public_holidays.py:60
@@ -72,7 +72,7 @@ msgstr ""
 #. module: hr_public_holidays
 #: field:hr.holidays.public.line,variable:0
 msgid "Date may change"
-msgstr ""
+msgstr "Datum kann sich ändern"
 
 #. module: hr_public_holidays
 #: view:hr.holidays.public:0 view:hr.holidays.public.line:0
@@ -80,4 +80,4 @@ msgstr ""
 #: model:ir.model,name:hr_public_holidays.model_hr_holidays_public
 #: model:ir.ui.menu,name:hr_public_holidays.menu_public_holidays_view
 msgid "Public Holidays"
-msgstr ""
+msgstr "Gesetzliche Feiertage"

@@ -45,7 +45,7 @@ msgstr "Umbuchung"
 #. module: hr_transfer
 #: field:hr.department.transfer,dst_id:0
 msgid "Destination"
-msgstr ""
+msgstr "Ziel"
 
 #. module: hr_transfer
 #: model:mail.message.subtype,name:hr_transfer.mt_alert_xfer_confirmed
@@ -145,7 +145,7 @@ msgstr ""
 #. module: hr_transfer
 #: selection:hr.department.transfer,state:0
 msgid "Cancelled"
-msgstr ""
+msgstr "Storniert"
 
 #. module: hr_transfer
 #: help:hr.department.transfer,message_unread:0

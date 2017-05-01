@@ -25,7 +25,7 @@ msgstr ""
 #. module: hr_holidays_extension
 #: field:hr.holidays,public_holiday_days:0
 msgid "Public Holidays"
-msgstr ""
+msgstr "Gesetzliche Feiertage"
 
 #. module: hr_holidays_extension
 #: view:hr.holidays:0
@@ -115,12 +115,12 @@ msgstr ""
 #: help:hr.holidays.status,ex_rest_days:0
 msgid ""
 "If enabled, the employee's day off is skipped in leave days calculation."
-msgstr ""
+msgstr "Wenn aktiviert, wird der freie Arbeitstag in der Abwesenheitsermittlung nicht berücksichtigt."
 
 #. module: hr_holidays_extension
 #: field:hr.holidays.status,ex_public_holidays:0
 msgid "Exclude Public Holidays"
-msgstr ""
+msgstr "Gesetzliche Feiertage ausschließen"
 
 #. module: hr_holidays_extension
 #: view:hr.holidays:0
@@ -163,7 +163,7 @@ msgstr ""
 #. module: hr_holidays_extension
 #: help:hr.holidays.status,ex_public_holidays:0
 msgid "If enabled, public holidays are skipped in leave days calculation."
-msgstr ""
+msgstr "Wenn aktiviert, werden gesetzliche Feiertage bei der Berechnung der Urlaubstage ausgelassen."
 
 #. module: hr_holidays_extension
 #: model:ir.model,name:hr_holidays_extension.model_hr_holidays_status
@@ -197,7 +197,7 @@ msgstr "Dauer"
 #. module: hr_holidays_extension
 #: field:hr.holidays.status,ex_rest_days:0
 msgid "Exclude Rest Days"
-msgstr ""
+msgstr "Resttage ausschließen"
 
 #. module: hr_holidays_extension
 #: view:hr.holidays:0

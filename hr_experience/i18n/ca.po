@@ -55,7 +55,7 @@ msgstr ""
 #: field:hr.curriculum,location:0 help:hr.curriculum,location:0
 #: field:hr.experience,location:0 help:hr.experience,location:0
 msgid "Location"
-msgstr ""
+msgstr "Ubicació "
 
 #. module: hr_experience
 #: field:hr.academic,employee_id:0 field:hr.certification,employee_id:0
@@ -68,7 +68,7 @@ msgstr ""
 #: field:hr.academic,start_date:0 field:hr.certification,start_date:0
 #: field:hr.curriculum,start_date:0 field:hr.experience,start_date:0
 msgid "Start date"
-msgstr ""
+msgstr "Data d'inici "
 
 #. module: hr_experience
 #: field:hr.academic,activities:0
@@ -177,7 +177,7 @@ msgstr ""
 #: field:hr.academic,end_date:0 field:hr.certification,end_date:0
 #: field:hr.curriculum,end_date:0 field:hr.experience,end_date:0
 msgid "End date"
-msgstr ""
+msgstr "Data final "
 
 #. module: hr_experience
 #: model:ir.model,name:hr_experience.model_hr_academic

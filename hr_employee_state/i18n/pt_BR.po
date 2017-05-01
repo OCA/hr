@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-04 02:29+0000\n"
+"POT-Creation-Date: 2017-03-11 02:44+0000\n"
 "PO-Revision-Date: 2015-07-27 23:38+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/oca/OCA-hr-7-0/language/pt_BR/)\n"
@@ -100,7 +100,7 @@ msgstr ""
 #. module: hr_employee_state
 #: field:hr.employee,status:0
 msgid "Status"
-msgstr ""
+msgstr "Status"
 
 #. module: hr_employee_state
 #: model:mail.message.subtype,name:hr_employee_state.mt_alert_state_done

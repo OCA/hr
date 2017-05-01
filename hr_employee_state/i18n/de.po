@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-04 02:29+0000\n"
+"POT-Creation-Date: 2017-03-11 02:44+0000\n"
 "PO-Revision-Date: 2015-07-27 23:38+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: German (http://www.transifex.com/oca/OCA-hr-7-0/language/de/)\n"
@@ -254,7 +254,7 @@ msgstr ""
 #: selection:hr.employee.termination,state:0
 #: model:mail.message.subtype,description:hr_employee_state.mt_alert_state_cancel
 msgid "Cancelled"
-msgstr ""
+msgstr "Storniert"
 
 #. module: hr_employee_state
 #: help:hr.employee.termination,message_unread:0

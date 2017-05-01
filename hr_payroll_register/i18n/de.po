@@ -156,7 +156,7 @@ msgstr ""
 #. module: hr_payroll_register
 #: field:hr.payroll.register,run_ids:0
 msgid "unknown"
-msgstr ""
+msgstr "unbekannt"
 
 #. module: hr_payroll_register
 #: code:addons/hr_payroll_register/hr_payroll_register.py:71
@@ -172,7 +172,7 @@ msgstr ""
 #. module: hr_payroll_register
 #: model:ir.model,name:hr_payroll_register.model_hr_payslip_run
 msgid "Payslip Batches"
-msgstr ""
+msgstr "Lohnzettelstapel"
 
 #. module: hr_payroll_register
 #: report:hr.payroll.register.payslips:0
@@ -212,7 +212,7 @@ msgstr ""
 #. module: hr_payroll_register
 #: report:hr.payroll.register.payslips:0
 msgid "To:"
-msgstr ""
+msgstr "An:"
 
 #. module: hr_payroll_register
 #: view:hr.payroll.register:0

@@ -143,7 +143,7 @@ msgstr ""
 #. module: hr_period
 #: view:hr.period:0 field:hr.period,payslip_ids:0
 msgid "Payslips"
-msgstr ""
+msgstr "Lohnbescheinigungen"
 
 #. module: hr_period
 #: code:addons/hr_period/models/hr_fiscal_year.py:66
@@ -203,7 +203,7 @@ msgstr ""
 #. module: hr_period
 #: model:ir.model,name:hr_period.model_hr_payslip_run
 msgid "Payslip Batches"
-msgstr ""
+msgstr "Lohnzettelstapel"
 
 #. module: hr_period
 #: model:ir.model,name:hr_period.model_hr_fiscalyear
@@ -433,7 +433,7 @@ msgstr ""
 #. module: hr_period
 #: model:ir.model,name:hr_period.model_hr_payslip_employees
 msgid "Generate payslips for all selected employees"
-msgstr ""
+msgstr "Lohnbescheinigungen für alle ausgewählten Mitarbeiter erstellen"
 
 #. module: hr_period
 #: field:hr.fiscalyear,period_ids:0

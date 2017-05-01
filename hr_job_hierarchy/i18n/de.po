@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-27 23:36+0000\n"
+"POT-Creation-Date: 2017-03-04 02:29+0000\n"
 "PO-Revision-Date: 2015-07-27 23:39+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: German (http://www.transifex.com/oca/OCA-hr-7-0/language/de/)\n"
@@ -53,7 +53,7 @@ msgstr "Arbeitsplatzbeschreibung"
 #. module: hr_job_hierarchy
 #: field:hr.job,all_child_ids:0
 msgid "unknown"
-msgstr ""
+msgstr "unbekannt"
 
 #. module: hr_job_hierarchy
 #: view:hr.job:0 field:hr.job,child_ids:0

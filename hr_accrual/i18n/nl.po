@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-07 02:22+0000\n"
+"POT-Creation-Date: 2017-03-18 02:41+0000\n"
 "PO-Revision-Date: 2015-07-27 23:36+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Dutch (http://www.transifex.com/oca/OCA-hr-7-0/language/nl/)\n"
@@ -41,7 +41,7 @@ msgstr ""
 #. module: hr_accrual
 #: field:hr.accrual.line,employee_id:0
 msgid "Employee"
-msgstr ""
+msgstr "Werknemer"
 
 #. module: hr_accrual
 #: field:hr.accrual.line,amount:0

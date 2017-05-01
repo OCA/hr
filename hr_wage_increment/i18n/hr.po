@@ -97,7 +97,7 @@ msgstr "Status"
 #: selection:hr.contract.wage.increment,state:0
 #: selection:hr.contract.wage.increment.run,state:0
 msgid "Draft"
-msgstr ""
+msgstr "Skica"
 
 #. module: hr_wage_increment
 #: field:hr.contract.wage.increment.run,name:0

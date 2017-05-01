@@ -81,7 +81,7 @@ msgstr ""
 #. module: hr_skill
 #: field:hr.skill,child_ids:0
 msgid "Children"
-msgstr ""
+msgstr "子分类"
 
 #. module: hr_skill
 #: selection:hr.skill,view:0

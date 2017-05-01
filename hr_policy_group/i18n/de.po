@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-27 23:36+0000\n"
-"PO-Revision-Date: 2015-07-27 23:41+0000\n"
+"POT-Creation-Date: 2017-02-18 02:58+0000\n"
+"PO-Revision-Date: 2017-04-05 15:18+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: German (http://www.transifex.com/oca/OCA-hr-7-0/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -31,7 +31,7 @@ msgstr ""
 #. module: hr_policy_group
 #: field:hr.policy.group,contract_ids:0
 msgid "Contracts"
-msgstr ""
+msgstr "Verträge"
 
 #. module: hr_policy_group
 #: model:ir.model,name:hr_policy_group.model_hr_contract_init

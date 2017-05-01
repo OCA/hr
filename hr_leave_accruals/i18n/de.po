@@ -64,7 +64,7 @@ msgstr "Beschreibung"
 #. module: hr_leave_accruals
 #: field:hr.leave.accrual,code:0
 msgid "unknown"
-msgstr ""
+msgstr "unbekannt"
 
 #. module: hr_leave_accruals
 #: view:hr.holidays.status:0

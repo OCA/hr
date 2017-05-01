@@ -98,7 +98,7 @@ msgstr "查看是否有需要留意的新信息。"
 #. module: hr_payslip_amendment
 #: field:hr.payslip.amendment,message_is_follower:0
 msgid "Is a Follower"
-msgstr ""
+msgstr "关注者"
 
 #. module: hr_payslip_amendment
 #: field:hr.payslip.amendment,message_ids:0
@@ -142,7 +142,7 @@ msgstr ""
 msgid ""
 "Holds the Chatter summary (number of messages, ...). This summary is "
 "directly in html format in order to be inserted in kanban views."
-msgstr ""
+msgstr "HTML格式的简介，包括了各种项目的总结信息（比如消息数，作业数……）"
 
 #. module: hr_payslip_amendment
 #: selection:hr.payslip.amendment,state:0
@@ -169,4 +169,4 @@ msgstr "取消"
 #. module: hr_payslip_amendment
 #: selection:hr.payslip.amendment,state:0
 msgid "Draft"
-msgstr ""
+msgstr "草稿"

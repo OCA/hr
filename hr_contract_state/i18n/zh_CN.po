@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-12 23:34+0000\n"
+"POT-Creation-Date: 2017-03-18 02:41+0000\n"
 "PO-Revision-Date: 2015-07-27 23:36+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/oca/OCA-hr-7-0/language/zh_CN/)\n"
@@ -88,7 +88,7 @@ msgstr ""
 #. module: hr_contract_state
 #: field:hr.contract,message_is_follower:0
 msgid "Is a Follower"
-msgstr ""
+msgstr "关注者"
 
 #. module: hr_contract_state
 #: model:mail.message.subtype,description:hr_contract_state.mt_alert_open
@@ -118,7 +118,7 @@ msgstr ""
 #. module: hr_contract_state
 #: model:ir.model,name:hr_contract_state.model_hr_contract
 msgid "Contract"
-msgstr ""
+msgstr "合同"
 
 #. module: hr_contract_state
 #: field:hr.contract,message_summary:0
@@ -165,7 +165,7 @@ msgstr "未读消息"
 msgid ""
 "Holds the Chatter summary (number of messages, ...). This summary is "
 "directly in html format in order to be inserted in kanban views."
-msgstr ""
+msgstr "HTML格式的简介，包括了各种项目的总结信息（比如消息数，作业数……）"
 
 #. module: hr_contract_state
 #: model:mail.message.subtype,description:hr_contract_state.mt_alert_trial_ending

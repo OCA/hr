@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-17 14:04+0000\n"
+"POT-Creation-Date: 2017-02-18 02:58+0000\n"
 "PO-Revision-Date: 2015-07-27 23:40+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Spanish (http://www.transifex.com/oca/OCA-hr-7-0/language/es/)\n"
@@ -98,13 +98,13 @@ msgstr "Borrador"
 #: view:hr.fiscalyear:0 selection:hr.fiscalyear,state:0
 #: selection:hr.period,state:0
 msgid "Closed"
-msgstr ""
+msgstr "Cerrado"
 
 #. module: hr_period
 #: field:hr.payslip,hr_period_id:0 field:hr.payslip.run,hr_period_id:0
 #: view:hr.period:0
 msgid "Period"
-msgstr ""
+msgstr "Periodo"
 
 #. module: hr_period
 #: field:hr.fiscalyear,payment_week:0
@@ -438,7 +438,7 @@ msgstr ""
 #. module: hr_period
 #: field:hr.fiscalyear,period_ids:0
 msgid "Periods"
-msgstr ""
+msgstr "Periodos"
 
 #. module: hr_period
 #: code:addons/hr_period/models/hr_fiscal_year.py:51

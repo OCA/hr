@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-24 01:32+0000\n"
+"POT-Creation-Date: 2017-02-18 02:58+0000\n"
 "PO-Revision-Date: 2015-07-27 23:39+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Latvian (http://www.transifex.com/oca/OCA-hr-7-0/language/lv/)\n"
@@ -97,7 +97,7 @@ msgstr ""
 #. module: hr_payroll_register
 #: field:hr.payroll.register,state:0
 msgid "Status"
-msgstr ""
+msgstr "Statuss"
 
 #. module: hr_payroll_register
 #: view:hr.payroll.register:0
@@ -140,7 +140,7 @@ msgstr ""
 #. module: hr_payroll_register
 #: field:hr.payroll.register,company_id:0
 msgid "Company"
-msgstr ""
+msgstr "Uzņēmums"
 
 #. module: hr_payroll_register
 #: report:hr.payroll.register.summary:0

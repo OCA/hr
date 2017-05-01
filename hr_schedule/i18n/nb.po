@@ -497,7 +497,7 @@ msgstr "Kritisk"
 #. module: hr_schedule
 #: selection:hr.schedule,state:0 selection:hr.schedule.detail,state:0
 msgid "Draft"
-msgstr ""
+msgstr "Utkast"
 
 #. module: hr_schedule
 #: selection:hr.schedule.alert.rule,severity:0

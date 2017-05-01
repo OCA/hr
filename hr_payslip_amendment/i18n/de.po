@@ -118,7 +118,7 @@ msgstr "Betrag"
 #. module: hr_payslip_amendment
 #: selection:hr.payslip.amendment,state:0
 msgid "Cancelled"
-msgstr ""
+msgstr "Storniert"
 
 #. module: hr_payslip_amendment
 #: view:hr.payslip.amendment:0

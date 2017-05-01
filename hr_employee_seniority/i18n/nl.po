@@ -1,0 +1,59 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+# * hr_employee_seniority
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: hr (7.0)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-03-11 02:44+0000\n"
+"PO-Revision-Date: 2015-07-27 23:38+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: Dutch (http://www.transifex.com/oca/OCA-hr-7-0/language/nl/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: nl\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: hr_employee_seniority
+#: view:hr.employee:0
+msgid "Duration of Service"
+msgstr ""
+
+#. module: hr_employee_seniority
+#: help:hr.employee,initial_employment_date:0
+msgid ""
+"Date of first employment if it was before the start of the first contract in"
+" the system."
+msgstr ""
+
+#. module: hr_employee_seniority
+#: code:addons/hr_employee_seniority/hr.py:91
+#, python-format
+msgid ""
+"The initial employment date cannot be after the first contract in the system.\n"
+"Employee: %s"
+msgstr ""
+
+#. module: hr_employee_seniority
+#: code:addons/hr_employee_seniority/hr.py:90
+#, python-format
+msgid "Employment Date mismatch!"
+msgstr ""
+
+#. module: hr_employee_seniority
+#: field:hr.employee,length_of_service:0
+msgid "Length of Service"
+msgstr ""
+
+#. module: hr_employee_seniority
+#: model:ir.model,name:hr_employee_seniority.model_hr_employee
+msgid "Employee"
+msgstr "Werknemer"
+
+#. module: hr_employee_seniority
+#: field:hr.employee,initial_employment_date:0
+msgid "Initial Date of Employment"
+msgstr ""

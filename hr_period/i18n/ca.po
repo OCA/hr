@@ -92,7 +92,7 @@ msgstr ""
 #. module: hr_period
 #: selection:hr.fiscalyear,state:0 selection:hr.period,state:0
 msgid "Draft"
-msgstr ""
+msgstr "Esborrany"
 
 #. module: hr_period
 #: view:hr.fiscalyear:0 selection:hr.fiscalyear,state:0
@@ -133,7 +133,7 @@ msgstr ""
 #. module: hr_period
 #: view:hr.fiscalyear:0 field:hr.fiscalyear,state:0 field:hr.period,state:0
 msgid "Status"
-msgstr ""
+msgstr "Estat"
 
 #. module: hr_period
 #: help:hr.fiscalyear,date_stop:0
@@ -335,7 +335,7 @@ msgstr ""
 #: view:hr.fiscalyear:0 field:hr.fiscalyear,name:0
 #: field:hr.period,fiscalyear_id:0
 msgid "Fiscal Year"
-msgstr ""
+msgstr "Exercici Fiscal "
 
 #. module: hr_period
 #: code:addons/hr_period/models/hr_payslip_run.py:174 view:hr.payslip.run:0
@@ -379,7 +379,7 @@ msgstr ""
 #: code:addons/hr_period/models/hr_fiscal_year.py:64
 #, python-format
 msgid "First"
-msgstr ""
+msgstr "Primer "
 
 #. module: hr_period
 #: view:hr.period:0
@@ -438,7 +438,7 @@ msgstr ""
 #. module: hr_period
 #: field:hr.fiscalyear,period_ids:0
 msgid "Periods"
-msgstr ""
+msgstr "Períodes"
 
 #. module: hr_period
 #: code:addons/hr_period/models/hr_fiscal_year.py:51
@@ -449,7 +449,7 @@ msgstr ""
 #. module: hr_period
 #: view:hr.period:0
 msgid "Duration"
-msgstr ""
+msgstr "Duració "
 
 #. module: hr_period
 #: field:hr.period,name:0

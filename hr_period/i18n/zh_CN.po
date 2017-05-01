@@ -92,7 +92,7 @@ msgstr ""
 #. module: hr_period
 #: selection:hr.fiscalyear,state:0 selection:hr.period,state:0
 msgid "Draft"
-msgstr ""
+msgstr "草稿"
 
 #. module: hr_period
 #: view:hr.fiscalyear:0 selection:hr.fiscalyear,state:0
@@ -319,7 +319,7 @@ msgstr ""
 #. module: hr_period
 #: model:ir.model,name:hr_period.model_hr_contract
 msgid "Contract"
-msgstr ""
+msgstr "合同"
 
 #. module: hr_period
 #: selection:hr.fiscalyear,payment_weekday:0

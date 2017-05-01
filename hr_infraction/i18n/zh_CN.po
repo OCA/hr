@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-25 02:38+0000\n"
+"POT-Creation-Date: 2017-03-04 02:29+0000\n"
 "PO-Revision-Date: 2015-07-27 23:38+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/oca/OCA-hr-7-0/language/zh_CN/)\n"
@@ -69,7 +69,7 @@ msgstr ""
 #. module: hr_infraction
 #: selection:hr.infraction,state:0
 msgid "Draft"
-msgstr ""
+msgstr "草稿"
 
 #. module: hr_infraction
 #: field:hr.infraction,employee_id:0 field:hr.infraction.action,employee_id:0
@@ -152,7 +152,7 @@ msgstr "日期"
 #. module: hr_infraction
 #: field:hr.infraction,message_is_follower:0
 msgid "Is a Follower"
-msgstr ""
+msgstr "关注者"
 
 #. module: hr_infraction
 #: view:hr.infraction:0
@@ -341,7 +341,7 @@ msgstr ""
 msgid ""
 "Holds the Chatter summary (number of messages, ...). This summary is "
 "directly in html format in order to be inserted in kanban views."
-msgstr ""
+msgstr "HTML格式的简介，包括了各种项目的总结信息（比如消息数，作业数……）"
 
 #. module: hr_infraction
 #: field:hr.infraction.action,warning_id:0 view:hr.infraction.warning:0

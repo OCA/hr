@@ -97,7 +97,7 @@ msgstr ""
 #: selection:hr.contract.wage.increment,state:0
 #: selection:hr.contract.wage.increment.run,state:0
 msgid "Draft"
-msgstr ""
+msgstr "草稿"
 
 #. module: hr_wage_increment
 #: field:hr.contract.wage.increment.run,name:0
@@ -297,7 +297,7 @@ msgstr ""
 #: field:hr.contract.wage.increment,contract_id:0
 #: model:ir.model,name:hr_wage_increment.model_hr_contract
 msgid "Contract"
-msgstr ""
+msgstr "合同"
 
 #. module: hr_wage_increment
 #: code:addons/hr_wage_increment/wizard/wage_increment.py:69

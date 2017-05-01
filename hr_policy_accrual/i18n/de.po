@@ -222,7 +222,7 @@ msgstr ""
 #. module: hr_policy_accrual
 #: selection:hr.policy.line.accrual,frequency_annual_month:0
 msgid "December"
-msgstr ""
+msgstr "Dezember"
 
 #. module: hr_policy_accrual
 #: selection:hr.policy.line.accrual,frequency_annual_day:0

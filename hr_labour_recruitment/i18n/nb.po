@@ -329,7 +329,7 @@ msgstr "Avbryt"
 #. module: hr_labour_recruitment
 #: selection:hr.recruitment.request,state:0
 msgid "Draft"
-msgstr ""
+msgstr "Utkast"
 
 #. module: hr_labour_recruitment
 #: view:hr.recruitment.request:0
