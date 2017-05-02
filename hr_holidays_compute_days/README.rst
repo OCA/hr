@@ -6,8 +6,13 @@
 Employee Compute Leave Days
 ===========================
 
-Computes the actual days for which employee will be on leave taking into 
-account both rest days and public holidays
+* Computes the actual days for which employee will be on leave, optionally taking into
+  account both rest days and public holidays.
+* Warn employees if they are trying to define a leave that starts or end
+  in a non-working day
+* Set on the leave type if the leave durations should be calculated as integer
+  (full days) or float (allow partial day leaves)
+
 
 Installation
 ============
@@ -25,7 +30,7 @@ Usage
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
    :target: https://runbot.odoo-community.org/runbot/116/10.0
-   
+
 Known issues / Roadmap
 ======================
 
@@ -55,6 +60,7 @@ Contributors
 * Fekete Mihai <feketemihai@gmail.com>
 * Ivan Yelizariev <yelizariev@it-projects.info>
 * Bassirou Ndaw <b.ndaw@ergobit.org>
+* Leonardo Donelli <donelli@webmonks.it>
 
 Maintainer
 ----------
