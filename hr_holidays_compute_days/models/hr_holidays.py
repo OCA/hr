@@ -46,7 +46,7 @@ class HrHolidays(models.Model):
                 raise ValidationError(_("You cannot schedule the end date "
                                         "on a public holiday or employee's "
                                         "rest day"))
-            self.number_of_days_temp = self._compute_number_of_days()
+            self.number_of_days_temp = self._recompute_number_of_days()
 
     @api.onchange('date_from')
     def _onchange_date_from(self):
@@ -57,7 +57,7 @@ class HrHolidays(models.Model):
                                     "a public holiday or employee's rest day"))
         if (self.date_to and self.date_from) \
            and (self.date_from <= self.date_to):
-            self.number_of_days_temp = self._compute_number_of_days()
+            self.number_of_days_temp = self._recompute_number_of_days()
 
     @api.onchange('date_to')
     def _onchange_date_to(self):
@@ -68,9 +68,9 @@ class HrHolidays(models.Model):
                                     "a public holiday or employee's rest day"))
         if (self.date_to and self.date_from) \
            and (self.date_from <= self.date_to):
-            self.number_of_days_temp = self._compute_number_of_days()
+            self.number_of_days_temp = self._recompute_number_of_days()
 
-    def _compute_number_of_days(self):
+    def _recompute_number_of_days(self):
         date_from = self.date_from
         date_to = self.date_to
         employee_id = self.employee_id.id
@@ -98,5 +98,4 @@ class HrHolidays(models.Model):
                 ):
                     days -= 1
                 date_dt += relativedelta(days=1)
-        self.number_of_days = days
         return days

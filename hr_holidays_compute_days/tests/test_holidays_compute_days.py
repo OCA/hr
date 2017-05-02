@@ -166,6 +166,18 @@ class TestHolidaysComputeDays(common.TransactionCase):
                 })
             leave._onchange_employee(self.employee2.id)
 
+    def test_leave_allocation_ok(self):
+        """allocate 10 days of holidays"""
+        leave = self.holiday_model.new({
+            'name': 'Hol14',
+            'employee_id': self.employee.id,
+            'type': 'add',
+            'number_of_days_temp': 10,
+            'holiday_type': 'employee',
+            'holiday_status_id': self.holiday_type.id,
+        })
+        self.assertEquals(leave.number_of_days, 10)
+
     def test_leave_creation_ok(self):
         # let's schedule holiday with date_from and date to in working days
         leave = self.holiday_model.new({
@@ -193,6 +205,7 @@ class TestHolidaysComputeDays(common.TransactionCase):
         })
         leave._onchange_date_from()
         self.assertEqual(leave.number_of_days_temp, 5)
+        self.assertEqual(leave.number_of_days, -5)
 
     def test_overlap_weekend(self):
         # let's leave schedule overlap weekend
@@ -207,6 +220,7 @@ class TestHolidaysComputeDays(common.TransactionCase):
         })
         leave._onchange_date_from()
         self.assertEqual(leave.number_of_days_temp, 5)
+        self.assertEqual(leave.number_of_days, -5)
 
     def test_overlap_holiday_and_rest_day(self):
         # let's leave schedule overlap weekend and public holiday
@@ -221,6 +235,7 @@ class TestHolidaysComputeDays(common.TransactionCase):
         })
         leave._onchange_date_from()
         self.assertEqual(leave.number_of_days_temp, 5)
+        self.assertEqual(leave.number_of_days, -5)
 
     def test_overlap_for_non_conventional_rest_day(self):
         # let's leave schedule overlap on restday for non conventional restday
@@ -255,6 +270,7 @@ class TestHolidaysComputeDays(common.TransactionCase):
         })
         leave._onchange_date_from()
         self.assertEqual(leave.number_of_days_temp, 5)
+        self.assertEqual(leave.number_of_days, -5)
 
     def test_no_exclude_holiday_and_rest_day(self):
         # we have a holiday type that does not exclude public holiday or
@@ -276,6 +292,7 @@ class TestHolidaysComputeDays(common.TransactionCase):
         })
         leave._onchange_date_from()
         self.assertEqual(leave.number_of_days_temp, 5)
+        self.assertEqual(leave.number_of_days, -5)
 
     def test_no_exclude_holiday(self):
         # lwe have a holiday type that excludes on rest days
@@ -296,6 +313,7 @@ class TestHolidaysComputeDays(common.TransactionCase):
         })
         leave._onchange_date_from()
         self.assertEqual(leave.number_of_days_temp, 5)
+        self.assertEqual(leave.number_of_days, -5)
 
     def test_no_exclude_rest_day(self):
         # lwe have a holiday type that does not exclude rest days
@@ -316,6 +334,7 @@ class TestHolidaysComputeDays(common.TransactionCase):
         })
         leave._onchange_date_from()
         self.assertEqual(leave.number_of_days_temp, 5)
+        self.assertEqual(leave.number_of_days, -5)
 
     def test_no_schedule_holiday_and_rest_day(self):
         # let's run test assumign employee has not schedule
@@ -335,6 +354,7 @@ class TestHolidaysComputeDays(common.TransactionCase):
         })
         leave._onchange_date_from()
         self.assertEqual(leave.number_of_days_temp, 5)
+        self.assertEqual(leave.number_of_days, -5)
 
     def test_no_contract_holiday_and_rest_day(self):
         # let's run test assumign employee has not schedule
@@ -350,6 +370,7 @@ class TestHolidaysComputeDays(common.TransactionCase):
         })
         leave._onchange_date_from()
         self.assertEqual(leave.number_of_days_temp, 5)
+        self.assertEqual(leave.number_of_days, -5)
 
     def test_onchange_employee(self):
         # let's run test assumign employee has not schedule
