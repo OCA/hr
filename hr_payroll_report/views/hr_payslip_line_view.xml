@@ -12,10 +12,6 @@
                     <field name="rate" type="measure"/>
                     <field name="amount" type="measure"/>
                     <field name="total" type="measure"/>
-                    <field name="amount_fix" type="measure"/>
-                    <field name="amount_percentage" type="measure"/>
-                    <field name="condition_range_min" type="measure"/>
-                    <field name="condition_range_max" type="measure"/>
                 </pivot>
             </field>
         </record>
