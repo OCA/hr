@@ -26,7 +26,8 @@ addon | version | summary
 [hr_employee_social_media](hr_employee_social_media/) | 10.0.1.0.0 | Employee Social Media
 [hr_experience](hr_experience/) | 10.0.1.0.0 | Experience Management
 [hr_family](hr_family/) | 10.0.1.0.0 | Employee Family Information
-[hr_holidays_compute_days](hr_holidays_compute_days/) | 10.0.1.0.0 | Computes the actual leave days considering rest days and public holidays
+[hr_holidays_compute_days](hr_holidays_compute_days/) | 10.0.2.0.0 | Computes the actual leave days considering rest days and public holidays
+[hr_holidays_imposed_days](hr_holidays_imposed_days/) | 10.0.1.0.0 | Imposed holidays days
 [hr_holidays_leave_auto_approve](hr_holidays_leave_auto_approve/) | 10.0.1.0.0 | Leave type for auto approval of Leaves
 [hr_holidays_legal_leave](hr_holidays_legal_leave/) | 10.0.1.0.0 | Allows the definition of legal/annual leave
 [hr_public_holidays](hr_public_holidays/) | 10.0.1.0.0 | Manage Public Holidays
