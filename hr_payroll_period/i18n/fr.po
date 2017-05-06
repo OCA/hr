@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-18 02:58+0000\n"
+"POT-Creation-Date: 2017-05-01 18:04+0000\n"
 "PO-Revision-Date: 2015-07-27 23:39+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: French (http://www.transifex.com/oca/OCA-hr-7-0/language/fr/)\n"
@@ -141,19 +141,19 @@ msgstr ""
 #: selection:hr.payroll.period.schedule,mo_firstday:0
 #: selection:hr.payroll.period.schedule,mo_paydate:0
 msgid "21"
-msgstr ""
+msgstr "21"
 
 #. module: hr_payroll_period
 #: selection:hr.payroll.period.schedule,mo_firstday:0
 #: selection:hr.payroll.period.schedule,mo_paydate:0
 msgid "22"
-msgstr ""
+msgstr "22"
 
 #. module: hr_payroll_period
 #: selection:hr.payroll.period.schedule,mo_firstday:0
 #: selection:hr.payroll.period.schedule,mo_paydate:0
 msgid "23"
-msgstr ""
+msgstr "23"
 
 #. module: hr_payroll_period
 #: field:hr.payroll.period,message_unread:0
@@ -182,7 +182,7 @@ msgstr ""
 #: selection:hr.payroll.period.schedule,mo_firstday:0
 #: selection:hr.payroll.period.schedule,mo_paydate:0
 msgid "29"
-msgstr ""
+msgstr "29"
 
 #. module: hr_payroll_period
 #: field:hr.contract,pps_id:0 field:hr.contract.init,pay_sched_id:0
@@ -249,7 +249,7 @@ msgstr ""
 #: selection:hr.payroll.period.schedule,mo_firstday:0
 #: selection:hr.payroll.period.schedule,mo_paydate:0
 msgid "12"
-msgstr ""
+msgstr "12"
 
 #. module: hr_payroll_period
 #: field:hr.payroll.period.end.1,period_id:0
@@ -522,7 +522,7 @@ msgstr ""
 #: selection:hr.payroll.period.schedule,mo_firstday:0
 #: selection:hr.payroll.period.schedule,mo_paydate:0
 msgid "30"
-msgstr ""
+msgstr "30"
 
 #. module: hr_payroll_period
 #: sql_constraint:hr.holidays.status:0
@@ -792,19 +792,19 @@ msgstr ""
 #: selection:hr.payroll.period.schedule,mo_firstday:0
 #: selection:hr.payroll.period.schedule,mo_paydate:0
 msgid "11"
-msgstr ""
+msgstr "11"
 
 #. module: hr_payroll_period
 #: selection:hr.payroll.period.schedule,mo_firstday:0
 #: selection:hr.payroll.period.schedule,mo_paydate:0
 msgid "10"
-msgstr ""
+msgstr "10"
 
 #. module: hr_payroll_period
 #: selection:hr.payroll.period.schedule,mo_firstday:0
 #: selection:hr.payroll.period.schedule,mo_paydate:0
 msgid "13"
-msgstr ""
+msgstr "13"
 
 #. module: hr_payroll_period
 #: field:hr.holidays.status,code:0 view:hr.payslip.exception.rule:0
@@ -822,7 +822,7 @@ msgstr ""
 #: selection:hr.payroll.period.schedule,mo_firstday:0
 #: selection:hr.payroll.period.schedule,mo_paydate:0
 msgid "14"
-msgstr ""
+msgstr "14"
 
 #. module: hr_payroll_period
 #: selection:hr.payroll.period.schedule,mo_firstday:0
@@ -840,7 +840,7 @@ msgstr ""
 #: selection:hr.payroll.period.schedule,mo_firstday:0
 #: selection:hr.payroll.period.schedule,mo_paydate:0
 msgid "19"
-msgstr ""
+msgstr "19"
 
 #. module: hr_payroll_period
 #: selection:hr.payroll.period.schedule,mo_firstday:0

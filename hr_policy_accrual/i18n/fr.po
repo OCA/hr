@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-13 11:18+0000\n"
+"POT-Creation-Date: 2017-05-01 18:04+0000\n"
 "PO-Revision-Date: 2015-07-27 23:40+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: French (http://www.transifex.com/oca/OCA-hr-7-0/language/fr/)\n"
@@ -76,19 +76,19 @@ msgstr ""
 #: selection:hr.policy.line.accrual,frequency_annual_day:0
 #: selection:hr.policy.line.accrual,frequency_month_day:0
 msgid "21"
-msgstr ""
+msgstr "21"
 
 #. module: hr_policy_accrual
 #: selection:hr.policy.line.accrual,frequency_annual_day:0
 #: selection:hr.policy.line.accrual,frequency_month_day:0
 msgid "22"
-msgstr ""
+msgstr "22"
 
 #. module: hr_policy_accrual
 #: selection:hr.policy.line.accrual,frequency_annual_day:0
 #: selection:hr.policy.line.accrual,frequency_month_day:0
 msgid "23"
-msgstr ""
+msgstr "23"
 
 #. module: hr_policy_accrual
 #: selection:hr.policy.line.accrual,frequency_week_day:0
@@ -137,7 +137,7 @@ msgstr "Congé"
 #: selection:hr.policy.line.accrual,frequency_annual_day:0
 #: selection:hr.policy.line.accrual,frequency_month_day:0
 msgid "12"
-msgstr ""
+msgstr "12"
 
 #. module: hr_policy_accrual
 #: view:hr.policy.line.accrual.job:0
@@ -234,7 +234,7 @@ msgstr ""
 #: selection:hr.policy.line.accrual,frequency_annual_day:0
 #: selection:hr.policy.line.accrual,frequency_month_day:0
 msgid "30"
-msgstr ""
+msgstr "30"
 
 #. module: hr_policy_accrual
 #: field:hr.policy.line.accrual,frequency_annual_month:0
@@ -272,7 +272,7 @@ msgstr ""
 #: selection:hr.policy.line.accrual,frequency_annual_day:0
 #: selection:hr.policy.line.accrual,frequency_month_day:0
 msgid "29"
-msgstr ""
+msgstr "29"
 
 #. module: hr_policy_accrual
 #: selection:hr.policy.line.accrual,type:0
@@ -350,19 +350,19 @@ msgstr ""
 #: selection:hr.policy.line.accrual,frequency_annual_day:0
 #: selection:hr.policy.line.accrual,frequency_month_day:0
 msgid "11"
-msgstr ""
+msgstr "11"
 
 #. module: hr_policy_accrual
 #: selection:hr.policy.line.accrual,frequency_annual_day:0
 #: selection:hr.policy.line.accrual,frequency_month_day:0
 msgid "10"
-msgstr ""
+msgstr "10"
 
 #. module: hr_policy_accrual
 #: selection:hr.policy.line.accrual,frequency_annual_day:0
 #: selection:hr.policy.line.accrual,frequency_month_day:0
 msgid "13"
-msgstr ""
+msgstr "13"
 
 #. module: hr_policy_accrual
 #: view:hr.policy.line.accrual:0 field:hr.policy.line.accrual,code:0
@@ -379,7 +379,7 @@ msgstr ""
 #: selection:hr.policy.line.accrual,frequency_annual_day:0
 #: selection:hr.policy.line.accrual,frequency_month_day:0
 msgid "14"
-msgstr ""
+msgstr "14"
 
 #. module: hr_policy_accrual
 #: selection:hr.policy.line.accrual,frequency_annual_day:0
@@ -397,7 +397,7 @@ msgstr ""
 #: selection:hr.policy.line.accrual,frequency_annual_day:0
 #: selection:hr.policy.line.accrual,frequency_month_day:0
 msgid "19"
-msgstr ""
+msgstr "19"
 
 #. module: hr_policy_accrual
 #: selection:hr.policy.line.accrual,frequency_annual_day:0
