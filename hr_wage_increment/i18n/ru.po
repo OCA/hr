@@ -43,7 +43,7 @@ msgstr ""
 #. module: hr_wage_increment
 #: view:hr.contract.wage.increment:0 view:hr.contract.wage.increment.run:0
 msgid "Confirm"
-msgstr ""
+msgstr "Изменить"
 
 #. module: hr_wage_increment
 #: code:addons/hr_wage_increment/wage_increment.py:384
@@ -248,7 +248,7 @@ msgstr ""
 #: selection:hr.contract.wage.increment,state:0
 #: selection:hr.contract.wage.increment.run,state:0
 msgid "Approved"
-msgstr ""
+msgstr "Подтвержден"
 
 #. module: hr_wage_increment
 #: selection:hr.contract.wage.increment.run,type:0
@@ -415,7 +415,7 @@ msgstr ""
 #. module: hr_wage_increment
 #: view:hr.contract.wage.increment:0 view:hr.contract.wage.increment.run:0
 msgid "Done"
-msgstr ""
+msgstr "Завершен"
 
 #. module: hr_wage_increment
 #: code:addons/hr_wage_increment/wage_increment.py:244

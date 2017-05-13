@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-18 02:58+0000\n"
+"POT-Creation-Date: 2017-05-06 01:30+0000\n"
 "PO-Revision-Date: 2015-07-27 23:39+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: French (Switzerland) (http://www.transifex.com/oca/OCA-hr-7-0/language/fr_CH/)\n"
@@ -197,7 +197,7 @@ msgstr ""
 #. module: hr_payroll_register
 #: view:hr.payroll.register.run:0
 msgid "Generate"
-msgstr ""
+msgstr "Générer"
 
 #. module: hr_payroll_register
 #: view:hr.payroll.register.run:0
@@ -356,7 +356,7 @@ msgstr "Annuler"
 #. module: hr_payroll_register
 #: selection:hr.payroll.register,state:0
 msgid "Close"
-msgstr ""
+msgstr "Fermer"
 
 #. module: hr_payroll_register
 #: report:hr.payroll.register.summary:0

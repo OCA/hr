@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-04 02:29+0000\n"
+"POT-Creation-Date: 2017-05-06 01:30+0000\n"
 "PO-Revision-Date: 2015-07-27 23:39+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Russian (http://www.transifex.com/oca/OCA-hr-7-0/language/ru/)\n"
@@ -35,7 +35,7 @@ msgstr ""
 #. module: hr_labour_recruitment
 #: view:hr.recruitment.request:0
 msgid "Confirm"
-msgstr ""
+msgstr "Изменить"
 
 #. module: hr_labour_recruitment
 #: model:mail.message.subtype,description:hr_labour_recruitment.mt_alert_request_approved
@@ -238,7 +238,7 @@ msgstr ""
 #. module: hr_labour_recruitment
 #: selection:hr.recruitment.request,state:0
 msgid "Cancelled"
-msgstr ""
+msgstr "Отменен"
 
 #. module: hr_labour_recruitment
 #: code:addons/hr_labour_recruitment/hr_recruitment.py:180
@@ -314,7 +314,7 @@ msgstr ""
 #. module: hr_labour_recruitment
 #: view:hr.recruitment.request:0 selection:hr.recruitment.request,state:0
 msgid "Done"
-msgstr ""
+msgstr "Завершен"
 
 #. module: hr_labour_recruitment
 #: model:mail.message.subtype,name:hr_labour_recruitment.mt_alert_request_approved

@@ -135,7 +135,7 @@ msgstr ""
 #. module: hr_transfer
 #: field:hr.department.transfer,message_summary:0
 msgid "Summary"
-msgstr ""
+msgstr "Sažetak"
 
 #. module: hr_transfer
 #: model:mail.message.subtype,description:hr_transfer.mt_alert_xfer_confirmed

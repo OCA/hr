@@ -157,7 +157,7 @@ msgstr ""
 #. module: hr_schedule
 #: view:hr.schedule:0 view:hr.schedule.detail:0
 msgid "Validate"
-msgstr ""
+msgstr "Valider"
 
 #. module: hr_schedule
 #: selection:hr.schedule.request,type:0
@@ -669,7 +669,7 @@ msgstr ""
 #. module: hr_schedule
 #: view:hr.schedule.generate:0
 msgid "Generate"
-msgstr ""
+msgstr "Générer"
 
 #. module: hr_schedule
 #: code:addons/hr_schedule/hr_schedule.py:1173
@@ -692,7 +692,7 @@ msgstr ""
 #. module: hr_schedule
 #: view:hr.schedule.alert.compute:0 view:hr.schedule.validate.departments:0
 msgid "Close"
-msgstr ""
+msgstr "Fermer"
 
 #. module: hr_schedule
 #: code:addons/hr_schedule/hr_schedule.py:785

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-04 02:22+0000\n"
+"POT-Creation-Date: 2017-02-18 02:58+0000\n"
 "PO-Revision-Date: 2015-07-27 23:40+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Finnish (http://www.transifex.com/oca/OCA-hr-7-0/language/fi/)\n"
@@ -301,7 +301,7 @@ msgstr ""
 #. module: hr_schedule
 #: field:hr.schedule.request,type:0
 msgid "Type"
-msgstr ""
+msgstr "Tyyppi"
 
 #. module: hr_schedule
 #: help:hr.restday.wizard,temp_restday:0
@@ -445,7 +445,7 @@ msgstr ""
 #. module: hr_schedule
 #: field:hr.schedule.request,message:0
 msgid "Message"
-msgstr ""
+msgstr "Viesti"
 
 #. module: hr_schedule
 #: field:hr.schedule.alert.rule,grace_period:0

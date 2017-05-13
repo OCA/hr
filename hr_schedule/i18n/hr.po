@@ -624,7 +624,7 @@ msgstr ""
 #: field:hr.schedule.alert,message_summary:0
 #: field:hr.schedule.request,message_summary:0
 msgid "Summary"
-msgstr ""
+msgstr "Sažetak"
 
 #. module: hr_schedule
 #: field:hr.schedule.request,date:0
