@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-14 03:17+0000\n"
-"PO-Revision-Date: 2017-02-14 11:14+0000\n"
+"POT-Creation-Date: 2017-05-01 18:12+0000\n"
+"PO-Revision-Date: 2017-05-11 04:32+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Finnish (http://www.transifex.com/oca/OCA-hr-8-0/language/fi/)\n"
 "MIME-Version: 1.0\n"
@@ -114,7 +114,7 @@ msgstr ""
 #. module: hr_recruitment_partner
 #: field:hr.applicant,country_id:0
 msgid "Country"
-msgstr ""
+msgstr "Maa"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,credit_limit:0
@@ -161,7 +161,7 @@ msgstr ""
 #. module: hr_recruitment_partner
 #: field:hr.applicant,email:0
 msgid "Email"
-msgstr ""
+msgstr "Sähköposti"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,employee:0
