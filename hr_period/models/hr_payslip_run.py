@@ -1,22 +1,7 @@
 # -*- coding:utf-8 -*-
-##############################################################################
-#
-#    Copyright (C) 2015 Savoir-faire Linux. All Rights Reserved.
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as published
-#    by the Free Software Foundation, either version 3 of the License, or
-#    (at your option) any later version.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
-#
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-##############################################################################
+# Copyright 2015 Savoir-faire Linux. All Rights Reserved.
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+
 from openerp import models, fields, api, _
 from openerp.exceptions import Warning as UserError
 
@@ -64,7 +49,6 @@ class HrPayslipRun(models.Model):
                     raise UserError("The company on the selected period must "
                                     "be the same as the company on the  "
                                     "payslip batch.")
-        return True
 
     @api.multi
     @api.constrains('hr_period_id', 'schedule_pay')
@@ -75,19 +59,14 @@ class HrPayslipRun(models.Model):
                     raise UserError("The schedule on the selected period must "
                                     "be the same as the schedule on the "
                                     "payslip batch.")
-        return True
 
     @api.model
     def get_default_schedule(self, company_id):
         company = self.env['res.company'].browse(company_id)
 
-        fy_obj = self.env['hr.fiscalyear']
-
-        fys = fy_obj.search([
-            ('state', '=', 'open'),
-            ('company_id', '=', company.id),
-        ])
-
+        fys = self.env['hr.fiscalyear'].search([('state', '=', 'open'),
+                                                ('company_id', '=', company.id)
+                                                ])
         return (
             fys[0].schedule_pay
             if fys else 'monthly'
@@ -131,9 +110,7 @@ class HrPayslipRun(models.Model):
 
         company = self.company_id
 
-        employee_obj = self.env['hr.employee']
-
-        employee_ids = employee_obj.search(
+        employee_ids = self.env['hr.employee'].search(
             [('company_id', '=', company.id),
              ('contract_id.schedule_pay', '=', self.schedule_pay)]).ids
 
