@@ -2,11 +2,6 @@
 <openerp>
     <data noupdate="1">
 
-        <record id="seq_code_payslip_run" model="ir.sequence.type">
-            <field name="name">Payslip Batch</field>
-            <field name="code">hr.payslip.run</field>
-        </record>
-
         <record id="seq_payslip_run" model="ir.sequence">
             <field name="name">Payslip Batch</field>
             <field name="code">hr.payslip.run</field>
