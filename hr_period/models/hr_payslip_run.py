@@ -64,7 +64,6 @@ class HrPayslipRun(models.Model):
                     raise UserError("The company on the selected period must "
                                     "be the same as the company on the  "
                                     "payslip batch.")
-        return True
 
     @api.multi
     @api.constrains('hr_period_id', 'schedule_pay')
@@ -75,19 +74,14 @@ class HrPayslipRun(models.Model):
                     raise UserError("The schedule on the selected period must "
                                     "be the same as the schedule on the "
                                     "payslip batch.")
-        return True
 
     @api.model
     def get_default_schedule(self, company_id):
         company = self.env['res.company'].browse(company_id)
 
-        fy_obj = self.env['hr.fiscalyear']
-
-        fys = fy_obj.search([
-            ('state', '=', 'open'),
-            ('company_id', '=', company.id),
-        ])
-
+        fys = self.env['hr.fiscalyear'].search([('state', '=', 'open'),
+                                                ('company_id', '=', company.id)
+                                                ])
         return (
             fys[0].schedule_pay
             if fys else 'monthly'
@@ -131,9 +125,7 @@ class HrPayslipRun(models.Model):
 
         company = self.company_id
 
-        employee_obj = self.env['hr.employee']
-
-        employee_ids = employee_obj.search(
+        employee_ids = self.env['hr.employee'].search(
             [('company_id', '=', company.id),
              ('contract_id.schedule_pay', '=', self.schedule_pay)]).ids
 

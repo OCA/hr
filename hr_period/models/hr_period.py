@@ -110,7 +110,6 @@ class HrPeriod(models.Model):
             ('schedule_pay', '=', schedule_pay),
             ('state', '=', 'open'),
         ], order='date_start', limit=1)
-
         return period if period else False
 
     @api.multi
