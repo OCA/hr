@@ -73,7 +73,7 @@
             <field name="context">{'search_default_open': 1}</field>
         </record>
 
-        <menuitem id="menu_action_hr_period" action="action_hr_period" parent="hr_payroll.payroll_configure" sequence="26"/>
+        <menuitem id="menu_action_hr_period" action="action_hr_period" parent="hr_payroll.menu_hr_payroll_configuration" sequence="26"/>
 
 
     </data>
