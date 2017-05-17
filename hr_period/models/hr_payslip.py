@@ -45,7 +45,6 @@ class HrPayslip(models.Model):
                     raise UserError("The company on the selected period must "
                                     "be the same as the company on the "
                                     "payslip.")
-        return True
 
     @api.onchange('company_id', 'contract_id')
     def onchange_company_id(self):

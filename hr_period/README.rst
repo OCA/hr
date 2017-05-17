@@ -6,16 +6,15 @@
 HR Payroll Period
 =================
 
-Add the concept of payroll period.
+Adds the concept of payroll period.
 
 The objective is not to restrict or complicate the payroll workflow.
 It is meant to reduce the number of clicks related to date selections and avoid mistakes.
 
-Add the date of payment on the payslip and payslip batch. This date is automatically filled when selecting
+Adds the date of payment on the payslip and payslip batch. This date is automatically filled when selecting
 a period.
 
-Add the company field on the payslip batch.
-Add a sequence on the payslip batch name.
+Adds a sequence on the payslip batch name and also adds the company on the payslip batch.
 
 
 Installation
@@ -66,14 +65,26 @@ The employees paid with the selected schedule are automatically selected.
 The payroll period is closed automatically and the next one is open.
 
 
-Known issues / Roadmap
-======================
+.. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
+   :alt: Try me on Runbot
+   :target: https://runbot.odoo-community.org/runbot/116/9.0
 
-None
+Bug Tracker
+===========
+
+Bugs are tracked on `GitHub Issues
+<https://github.com/OCA/hr/issues>`_. In case of trouble, please
+check there if your issue has already been reported. If you spotted it first,
+help us smashing it by providing a detailed and welcomed feedback.
 
 
 Credits
 =======
+
+Images
+------
+
+* Odoo Community Association: `Icon <https://github.com/OCA/maintainer-tools/blob/master/template/module/static/description/icon.svg>`_.
 
 Contributors
 ------------
@@ -81,6 +92,9 @@ Contributors
 * Maxime Chambreuil <maxime.chambreuil@savoirfairelinux.com>
 * Pierre Lamarche <pierre.lamarche@savoirfairelinux.com>
 * Salton Massally <smassally@idtlabs.sl>
+* Guewen Baconnier <guewen.baconnier@camptocamp.com>
+* Jordi Ballester Alomar <jordi.ballester@eficent.com>
+* Serpent Consulting Services Pvt. Ltd. <support@serpentcs.com>
 
 Maintainer
 ----------

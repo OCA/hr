@@ -17,19 +17,19 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from datetime import datetime
-strftime = datetime.strptime
-from dateutil.relativedelta import relativedelta
-
-from openerp import models, fields, api,  _
+from openerp import api, fields, models, _
 from openerp.tools import DEFAULT_SERVER_DATE_FORMAT
 from openerp.exceptions import Warning as UserError
+from dateutil.relativedelta import relativedelta
+
+from datetime import datetime
+strftime = datetime.strptime
 
 
 INTERVALS = {
     'annually': (relativedelta(months=12), 1),
     'semi-annually': (relativedelta(months=6), 2),
-    'quaterly': (relativedelta(months=3), 4),
+    'quarterly': (relativedelta(months=3), 4),
     'bi-monthly': (relativedelta(months=2), 6),
     'monthly': (relativedelta(months=1), 12),
     'bi-weekly': (relativedelta(weeks=2), 26),
@@ -179,7 +179,6 @@ class HrFiscalYear(models.Model):
             schedule_name = next((
                 s[1] for s in get_schedules(self)
                 if s[0] == self.schedule_pay), False)
-
             self.name = '%(year)s - %(schedule)s' % {
                 'year': year,
                 'schedule': schedule_name,
@@ -197,11 +196,9 @@ class HrFiscalYear(models.Model):
 
         period_start = datetime.strptime(
             self.date_start, DEFAULT_SERVER_DATE_FORMAT)
-
         next_year_start = datetime.strptime(
             self.date_stop,
             DEFAULT_SERVER_DATE_FORMAT) + relativedelta(days=1)
-
         if self.schedule_pay == 'semi-monthly':
             #  Case for semi-monthly schedules
             delta_1 = relativedelta(days=15)
