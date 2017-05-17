@@ -7,7 +7,7 @@
             <field name="model">hr.payslip.run</field>
             <field name="inherit_id" ref="hr_payroll.hr_payslip_run_form"/>
             <field name="arch" type="xml">
-                <h1 position="after">
+                <field name="name" position="after">
                     <label for="company_id" groups="base.group_multi_company"/>
                     <h3>
                         <field name="company_id"
@@ -35,13 +35,15 @@
                             <field name="date_payment" required="1"/>
                         </group>
                     </group>
-                </h1>
-                
-                <label string="Period" position="replace">
+                </field>
+                <xpath expr="//form/sheet/group/label[1]" position="replace">
                     <label for="date_start" string="Date"/>
-                </label>
+                </xpath>
 
-                <button string="Generate Payslips" position="replace">
+                 <button name="%(hr_payroll.action_hr_payslip_by_employees)d"
+                     type="action" states="draft"
+                     class="oe_highlight"
+                     position="replace">
                     <button
                         name="get_payslip_employees_wizard"
                         type="object"

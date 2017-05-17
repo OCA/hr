@@ -63,7 +63,7 @@
             <field name="model">hr.fiscalyear</field>
             <field name="arch" type="xml">
                 <search string="Search Fiscalyear">
-                    <field name="name" filter_domain="['|', ('name', 'ilike', self), ('code', 'ilike', self)]" string="Fiscal Year"/>
+                    <field name="name" filter_domain="[('name', 'ilike', self)]" string="Fiscal Year"/>
                     <filter string="Open" domain="[('state', '=', 'open')]" icon="terp-camera_test"/>
                     <filter string="Closed" domain="[('state', '=', 'done')]" icon="terp-dialog-close"/>
                     <field name="state"/>
@@ -80,7 +80,7 @@
             <field name="view_mode">tree,form</field>
         </record>
 
-        <menuitem id="menu_action_hr_fiscalyear" action="action_hr_fiscalyear" parent="hr_payroll.payroll_configure" sequence="25"/>
+        <menuitem id="menu_action_hr_fiscalyear" action="action_hr_fiscalyear" parent="hr_payroll.menu_hr_payroll_configuration" sequence="25"/>
 
     </data>
 </openerp>
