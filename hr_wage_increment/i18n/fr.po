@@ -125,7 +125,7 @@ msgstr ""
 #: field:hr.contract.wage.increment,wage_difference_percent:0
 #: selection:hr.contract.wage.increment.run,type:0
 msgid "Percentage"
-msgstr ""
+msgstr "Pourcentage"
 
 #. module: hr_wage_increment
 #: view:hr.contract.wage.increment.run:0

@@ -198,7 +198,7 @@ msgstr "Contiene el resumen del chatter (nº de mensajes, ...). Este resumen est
 #. module: hr_transfer
 #: selection:hr.department.transfer,state:0
 msgid "Done"
-msgstr ""
+msgstr "Hecho"
 
 #. module: hr_transfer
 #: code:addons/hr_transfer/hr_transfer.py:146

@@ -750,7 +750,7 @@ msgstr ""
 #. module: hr_schedule
 #: selection:hr.schedule.request,type:0
 msgid "Other"
-msgstr ""
+msgstr "Drugo"
 
 #. module: hr_schedule
 #: view:hr.schedule.request:0
