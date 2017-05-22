@@ -73,7 +73,7 @@ class TestHolidaysAutoApprove(TransactionCase):
             'name': 'Test Leave Request 1',
             'holiday_status_id': self.test_leave_type1_id.id,
             'date_from': today.strftime(DF),
-            'date_to': (today + timedelta(days=2)).strftime(DF),
+            'date_to': (today + timedelta(days=1)).strftime(DF),
             'holiday_type': 'employee',
             'employee_id': self.test_employee_id.id,
             'type': 'remove',
@@ -82,7 +82,7 @@ class TestHolidaysAutoApprove(TransactionCase):
         leave2 = self.leave_request_model.create({
             'name': 'Test Leave Request 2',
             'holiday_status_id': self.test_leave_type2_id.id,
-            'date_from': (today + timedelta(days=4)).strftime(DF),
+            'date_from': (today + timedelta(days=5)).strftime(DF),
             'date_to': (today + timedelta(days=8)).strftime(DF),
             'holiday_type': 'employee',
             'employee_id': self.test_employee_id.id,
