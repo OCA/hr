@@ -1,0 +1,30 @@
+<openerp>
+    <data>
+        <record id="hr_payroll_view_pivot" model="ir.ui.view">
+            <field name="name">hr.payslip.line.pivot</field>
+            <field name="model">hr.payslip.line</field>
+            <field name="arch" type="xml">
+                <pivot string="Payroll Report">
+                    <field name="employee_id" type="row"/>
+                    <field name="category_id" type="row"/>
+                    <field name="payslip_run_id" type="col"/>
+                    <field name="quantity" type="measure"/>
+                    <field name="rate" type="measure"/>
+                    <field name="amount" type="measure"/>
+                    <field name="total" type="measure"/>
+                </pivot>
+            </field>
+        </record>
+
+        <record id="action_hr_payroll_report" model="ir.actions.act_window">
+            <field name="name">Payroll Report</field>
+            <field name="res_model">hr.payslip.line</field>
+            <field name="view_mode">pivot</field>
+        </record>
+
+        <menuitem name="Payroll Report"
+                  parent="menu_hr_payroll_report_root"
+                  action="action_hr_payroll_report"
+                  id="menu_hr_payroll_report"/>
+    </data>
+</openerp>
