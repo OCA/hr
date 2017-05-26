@@ -20,6 +20,7 @@ addon | version | summary
 [hr_holidays_compute_days](hr_holidays_compute_days/) | 9.0.1.0.0 | Computes the actual leave days considering rest days and public holidays
 [hr_holidays_leave_auto_approve](hr_holidays_leave_auto_approve/) | 9.0.1.0.0 | Leave type for auto approval of Leaves
 [hr_holidays_legal_leave](hr_holidays_legal_leave/) | 9.0.1.0.0 | Allows the definition of legal/annual leave
+[hr_payroll_report](hr_payroll_report/) | 9.0.1.0.0 | Analyze your payroll with the Payslip Lines BI report
 [hr_public_holidays](hr_public_holidays/) | 9.0.1.0.0 | Manage Public Holidays
 
 
