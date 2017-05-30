@@ -85,3 +85,67 @@ class HrPayslip(models.Model):
                 date_from,
                 date_to
             )
+
+    @api.multi
+    def action_import_timesheet_activity(self):
+        obj_uom = self.env["product.uom"]
+        obj_timesheet_line = self.env["hr.analytic.timesheet"]
+        obj_worked_days = self.env["hr.payslip.worked_days"]
+        obj_rule = self.env["hr.salary.rule"]
+
+        for payslip in self:
+            res = {}
+            uom_hour = self.env.ref("product.product_uom_hour")
+
+            if payslip.state != "draft":
+                raise UserError(
+                    _("Cannot import timesheet activity on non-draft payslip"))
+
+            criteria = [
+                ("payslip_id", "=", payslip.id),
+                ("import_from_activity", "=", True),
+            ]
+
+            obj_worked_days.search(criteria).unlink()
+
+            if not payslip.employee_id.user_id:
+                continue
+
+            user = payslip.employee_id.user_id
+
+            if not payslip.contract_id:
+                continue
+
+            rule_ids = map(
+                lambda x: x[0],
+                payslip.contract_id.struct_id.get_all_rules())
+            for rule in obj_rule.browse(rule_ids):
+                if not rule.timesheet_account_ids:
+                    continue
+
+                res = {
+                    "name": _("Timesheet activities for %s") % rule.name,
+                    "code": "TS.%s" % rule.code,
+                    "contract_id": payslip.contract_id.id,
+                    "number_of_hours": 0.0,
+                    "payslip_id": payslip.id,
+                    "import_from_activity": True,
+                }
+
+                for account in rule.timesheet_account_ids:
+                    criteria = [
+                        ("account_id", "child_of", account.id),
+                        ("user_id", "=", user.id),
+                        ("sheet_id.state", "=", "done"),
+                        ("date", ">=", payslip.date_from),
+                        ("date", "<=", payslip.date_to),
+                    ]
+                    for ts_line in obj_timesheet_line.search(
+                            criteria):
+                        ts_line_hour = obj_uom._compute_qty(
+                            ts_line.product_uom_id.id,
+                            ts_line.unit_amount,
+                            uom_hour.id
+                        )
+                        res["number_of_hours"] += ts_line_hour
+                obj_worked_days.create(res)
