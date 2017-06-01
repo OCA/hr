@@ -22,6 +22,7 @@ addon | version | summary
 [hr_holidays_legal_leave](hr_holidays_legal_leave/) | 9.0.1.0.0 | Allows the definition of legal/annual leave
 [hr_payroll_report](hr_payroll_report/) | 9.0.1.0.0 | Analyze your payroll with the Payslip Lines BI report
 [hr_public_holidays](hr_public_holidays/) | 9.0.1.0.0 | Manage Public Holidays
+[hr_worked_days_from_timesheet](hr_worked_days_from_timesheet/) | 9.0.1.0.0 | Adds a button to import worked days from timesheet.
 
 
 Unported addons
@@ -76,7 +77,6 @@ addon | version | summary
 [hr_wage_increment](hr_wage_increment/) | 1.0 (unported) | HR Wage Increment
 [hr_webcam](hr_webcam/) | 8.0.1.0.0 (unported) | Capture employee picture with webcam
 [hr_worked_days_activity](hr_worked_days_activity/) | 1.0 (unported) | Worked Days Activity
-[hr_worked_days_from_timesheet](hr_worked_days_from_timesheet/) | 8.0.1.0.0 (unported) | Worked Days From Timesheet
 [hr_worked_days_hourly_rate](hr_worked_days_hourly_rate/) | 1.0 (unported) | Worked Days Hourly Rates
 
 [//]: # (end addons)
