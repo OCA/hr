@@ -1,0 +1,51 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * hr_payroll_report
+# 
+# Translators:
+# Rudolf Schnapka <rs@techno-flex.de>, 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 9.0c\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-06-01 01:36+0000\n"
+"PO-Revision-Date: 2017-06-01 01:36+0000\n"
+"Last-Translator: Rudolf Schnapka <rs@techno-flex.de>, 2017\n"
+"Language-Team: German (https://www.transifex.com/oca/teams/23907/de/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: de\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: hr_payroll_report
+#: model:ir.model.fields,field_description:hr_payroll_report.field_hr_payslip_line_date_from
+msgid "Date From"
+msgstr "Datum ab:"
+
+#. module: hr_payroll_report
+#: model:ir.model.fields,field_description:hr_payroll_report.field_hr_payslip_line_date_to
+msgid "Date To"
+msgstr "Datum bis:"
+
+#. module: hr_payroll_report
+#: model:ir.actions.act_window,name:hr_payroll_report.action_hr_payroll_report
+#: model:ir.ui.menu,name:hr_payroll_report.menu_hr_payroll_report
+#: model:ir.ui.view,arch_db:hr_payroll_report.hr_payroll_view_pivot
+msgid "Payroll Report"
+msgstr "Lohnbescheinungs-Bericht"
+
+#. module: hr_payroll_report
+#: model:ir.model.fields,field_description:hr_payroll_report.field_hr_payslip_line_payslip_run_id
+msgid "Payslip Batches"
+msgstr "Lohnbescheinungs-Stapel"
+
+#. module: hr_payroll_report
+#: model:ir.model,name:hr_payroll_report.model_hr_payslip_line
+msgid "Payslip Line"
+msgstr "Lohnbescheinigungs-Position"
+
+#. module: hr_payroll_report
+#: model:ir.ui.menu,name:hr_payroll_report.menu_hr_payroll_report_root
+msgid "Reports"
+msgstr "Berichte"
