@@ -61,6 +61,6 @@ Key Features
     #     'test/hr_evalution_demo.yml',
     # ],
     'auto_install': False,
-    'installable': True,
+    'installable': False,
     'application': True,
 }
