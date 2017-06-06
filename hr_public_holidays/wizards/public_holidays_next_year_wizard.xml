@@ -67,7 +67,7 @@
 <menuitem action="action_create_next_year_public_holidays"
           id="menu_create_next_year_public_holidays"
           parent="menu_hr_public_holidays"
-          groups="hr.group_hr_manager"
+          groups="hr_holidays.group_hr_holidays_manager"
           sequence="30"/>
 
 
