@@ -1,17 +1,14 @@
-# -*- encoding: utf-8 -*-
-##############################################################################
-# For copyright and license notices, see __openerp__.py file in root directory
-##############################################################################
+# -*- coding: utf-8 -*-
 
 from . import models
-from openerp import SUPERUSER_ID
+from odoo import api, SUPERUSER_ID
 
 
 def assign_old_sequences(cr, registry):
-    expense_obj = registry['hr.expense.expense']
-    sequence_obj = registry['ir.sequence']
-    expense_ids = expense_obj.search(cr, SUPERUSER_ID, [], order="id")
-    for expense_id in expense_ids:
-        expense_obj.write(cr, SUPERUSER_ID, expense_id,
-                          {'number': sequence_obj.get(
-                              cr, SUPERUSER_ID, 'hr.expense')})
+    with api.Environment.manage():
+        env = api.Environment(cr, SUPERUSER_ID, {})
+        expense_obj = env['hr.expense.sheet']
+        sequence_obj = env['ir.sequence']
+        for expense in expense_obj.search([], order='id'):
+            expense.write({
+                'number': sequence_obj.next_by_code('hr.expense.sheet')})

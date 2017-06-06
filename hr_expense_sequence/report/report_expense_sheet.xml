@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<template id="report_expense_sheet" inherit_id="hr_expense.report_expense_sheet">
+    <xpath expr="//h2" position="replace">
+        <h2>Expenses Report <span t-field="o.number"/></h2>
+    </xpath>
+</template>
+
+</odoo>
