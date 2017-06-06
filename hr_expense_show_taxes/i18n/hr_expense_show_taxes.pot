@@ -1,0 +1,69 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* hr_expense_show_taxes
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 7.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-08-11 22:58+0000\n"
+"PO-Revision-Date: 2014-08-11 22:58+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hr_expense_show_taxes
+#: constraint:product.product:0
+msgid "Error msg in raise"
+msgstr ""
+
+#. module: hr_expense_show_taxes
+#: code:addons/hr_expense_show_taxes/expense_show_taxes.py:187
+#, python-format
+msgid "Error:"
+msgstr ""
+
+#. module: hr_expense_show_taxes
+#: model:ir.model,name:hr_expense_show_taxes.model_hr_expense_expense
+msgid "Expense"
+msgstr ""
+
+#. module: hr_expense_show_taxes
+#: model:ir.model,name:hr_expense_show_taxes.model_hr_expense_line
+msgid "Expense Line"
+msgstr ""
+
+#. module: hr_expense_show_taxes
+#: model:ir.model,name:hr_expense_show_taxes.model_product_product
+msgid "Product"
+msgstr ""
+
+#. module: hr_expense_show_taxes
+#: field:hr.expense.line,amount_tax:0
+msgid "Tax"
+msgstr ""
+
+#. module: hr_expense_show_taxes
+#: code:addons/hr_expense_show_taxes/expense_show_taxes.py:188
+#, python-format
+msgid "The product '%s' is 'Can be Expensed', but it has a Supplier Tax '%s' (%s) which is not 'Tax Included'. You should replace this tax by it's equivalent with 'Tax Included'."
+msgstr ""
+
+#. module: hr_expense_show_taxes
+#: field:hr.expense.expense,amount_tax:0
+msgid "Total Tax"
+msgstr ""
+
+#. module: hr_expense_show_taxes
+#: field:hr.expense.expense,amount_untaxed:0
+msgid "Total Untaxed"
+msgstr ""
+
+#. module: hr_expense_show_taxes
+#: field:hr.expense.line,amount_untaxed:0
+msgid "Untaxed"
+msgstr ""
+
