@@ -8,6 +8,7 @@ from odoo import models, fields, api
 
 class HrExpenseSheet(models.Model):
     _inherit = 'hr.expense.sheet'
+    _rec_name = 'number'
 
     number = fields.Char(required=True, default="/", readonly=True, copy=False)
 
