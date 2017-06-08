@@ -1,11 +1,5 @@
 # -*- coding: utf-8 -*-
-# © 2014 Savoir-faire Linux (https://www.savoirfairelinux.com)
+# © 2016 Ergobit Consulting (https://www.ergobit.org)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-
 from . import test_hr_payslip
-)
-
-checks = [
-    test_hr_payslip,
-]
