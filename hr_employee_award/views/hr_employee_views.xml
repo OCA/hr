@@ -1,0 +1,39 @@
+<openerp>
+  <data>
+    <record model="ir.ui.view" id="view_employee_form_inherit">
+        <field name="name">hr.award.employee.form</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <notebook position="inside">
+                <page string="Awards" groups="base.group_user,base.group_hr_user">
+                    <field name="award_ids" domain="[('state', '=', 'issued')]">
+                        <tree string="Awards">
+                            <field name="name"/>
+                            <field name="employee_id"/>
+                            <field name="date_issued"/>
+                            <field name="award_type_id"/>
+                            <field name="point"/>
+                            <field name="state"/>
+                        </tree>
+                        <form string="Award">
+                            <header>
+                                <field name="state" widget="statusbar"/>
+                            </header>
+                            <sheet>
+                                <group name="main">
+                                    <field name="name"/>
+                                    <field name="employee_id"/>
+                                    <field name="date_issued"/>
+                                    <field name="award_type_id"/>
+                                    <field name="point"/>
+                                </group>
+                            </sheet>
+                        </form>
+                    </field>
+                </page>
+            </notebook>
+        </field>
+    </record>
+  </data>
+</openerp>

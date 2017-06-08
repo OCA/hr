@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_award_type_user,Award Type - User,model_hr_award_type,base.group_user,1,0,0,0
+access_award_user,Award - User,model_hr_award,base.group_user,1,0,0,0
+access_award_type_officer,Award Type - HR Officer,model_hr_award,base.group_hr_user,1,1,1,1
+access_award_officer,Award - HR Officer,model_hr_award,base.group_hr_user,1,1,1,1
+access_award_type_manager,Award Type - HR Manager,model_hr_award,base.group_hr_manager,1,1,1,1
+access_award_manager,Award - HR Manager,model_hr_award,base.group_hr_manager,1,1,1,1
