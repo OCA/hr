@@ -1,0 +1,54 @@
+<openerp>
+    <data noupdate="1">
+        <!-- time_in and time_out are in UTC -->
+        <record id="shift_code_a" model="hr.shift_code">
+            <field name="code">A</field>
+            <field name="time_in">1969-12-31 23:00:00</field>
+            <field name="time_out">1970-01-01 07:00:00</field>
+            <field name="break">00:30:00</field>
+        </record>
+        <record id="shift_code_b" model="hr.shift_code">
+            <field name="code">B</field>
+            <field name="time_in">1970-01-01 07:00:00</field>
+            <field name="time_out">1970-01-01 15:00:00</field>
+            <field name="break">00:30:00</field>
+        </record>
+        <record id="shift_code_c" model="hr.shift_code">
+            <field name="code">C</field>
+            <field name="time_in">1970-01-01 15:00:00</field>
+            <field name="time_out">1969-12-31 23:00:00</field>
+            <field name="break">00:30:00</field>
+        </record>
+        <record id="shift_code_d" model="hr.shift_code">
+            <field name="code">D</field>
+            <field name="time_in">1969-12-31 23:00:00</field>
+            <field name="time_out">1970-01-01 11:00:00</field>
+            <field name="break">00:30:00</field>
+        </record>
+        <record id="shift_code_e" model="hr.shift_code">
+            <field name="code">E</field>
+            <field name="time_in">1970-01-01 11:00:00</field>
+            <field name="time_out">1969-12-31 23:00:00</field>
+            <field name="break">00:30:00</field>
+        </record>
+        <record id="shift_code_n" model="hr.shift_code">
+            <field name="code">N</field>
+            <field name="time_in">1970-01-01 00:00:00</field>
+            <field name="time_out">1970-01-01 09:00:00</field>
+            <field name="break">01:00:00</field>
+        </record>
+        <record id="shift_code_h" model="hr.shift_code">
+            <field name="code">H</field>
+            <field name="time_in">1969-12-31 16:00:00</field>
+            <field name="time_out">1970-01-01 04:00:00</field>
+            <field name="break">00:00:00</field>
+        </record>
+        <record id="shift_code_x" model="hr.shift_code">
+            <field name="code">X</field>
+            <field name="time_in">1969-12-31 16:00:00</field>
+            <field name="time_out">1969-12-31 16:00:00</field>
+            <field name="break">00:00:00</field>
+            <field name="day_off" eval="True"></field>
+        </record>
+    </data>
+</openerp>

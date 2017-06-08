@@ -1,0 +1,16 @@
+.oe_list.shift_day_list [data-id=employee_id] {
+    width: 30em;
+    vertical-align: top;
+}
+
+.oe_list_header_shift_day {
+    font-size: 0.75em;
+    vertical-align: top;
+    width: 24px;
+    padding: 3px 0 0 3px !important;
+    text-align: center !important;
+}
+
+.hr_shift_code_col {
+    font-weight: bold;
+}

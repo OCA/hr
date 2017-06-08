@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<templates xml:space="preserve">
+    <t t-name="DatePickerWidget">
+        <div t-att-id="_id" class="datepicker"></div>
+        <script type="text/javascript">
+            setTimeout(function(){
+                $('#<t t-raw="_id"/>').datepicker({'onSelect': function(){}, 'defaultDate': new Date(<t t-raw="year"/>, <t t-raw="month"/>, <t t-raw="day"/>)});
+            }, 0);
+        </script>
+    </t>
+    
+    <t t-name="ShiftField">
+        <span class="oe_form_field hr_roster_month_shift">
+            <t t-foreach="widget.get('value').length" t-as="day">
+                <t t-if="! widget.get('readonly')">
+                    <input type="text" maxlength="1" size="1" t-att-value="widget.get('value')[day_index]"></input>
+                </t>
+                <t t-if="widget.get('readonly')">
+                    <input type="text" maxlength="1" size="1" t-att-value="widget.get('value')[day_index]" readonly="readonly"></input>
+                </t>
+            </t>
+        </span>
+    </t>
+</templates>

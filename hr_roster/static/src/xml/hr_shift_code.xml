@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<templates xml:space="preserve">
+    <t t-name="ShiftCodeAllWidget">
+        <table class="oe_list_content">
+            <thead>
+                <tr>
+                    <th>Code</th>
+                    <th>Description</th>
+                    <th>Time In - Time Out</th>
+                    <th>Duration</th>
+                    <th>Break</th>
+                </tr>
+            </thead>
+            <tbody>
+                <t t-foreach="selection" t-as="choice">
+                    <tr>
+                        <td class="hr_shift_code_col">
+                            <t t-esc="choice.code"></t>
+                        </td>
+                        <td>
+                            <t t-if="choice.description">
+                                <t t-esc="choice.description"></t>
+                            </t>
+                        </td>
+                        <td>
+                            <t t-if="choice.time_in and choice.time_out">
+                                <t t-esc="choice.time_in"></t> - <t t-esc="choice.time_out"></t> 
+                            </t>
+                        </td>
+                        <td>
+                            <t t-if="choice.duration > 0">
+                                <t t-esc="choice.duration_text"></t>
+                            </t>
+                        </td>
+                        <td>
+                            <t t-if="choice.break">
+                                <t t-esc="choice.break"></t>
+                            </t>
+                        </td>
+                    </tr>
+                </t>
+            </tbody>
+        </table>
+    </t>
+</templates>
