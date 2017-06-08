@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hr_income_tax_exemption,access_hr_income_tax_exemption,model_hr_income_tax_exemption,base.group_hr_manager,1,1,1,1
+access_hr_employee_exemption,access_hr_employee_exemption,model_hr_employee_exemption,base.group_hr_manager,1,1,1,1
+
+access_hr_income_tax_exemption_base,access_hr_income_tax_exemption_base,model_hr_income_tax_exemption,base.group_user,1,0,0,0
