@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+     <data noupdate="1">  
+        <!--  Holidays reset V8 -->
+        <record model="workflow.transition" id="holiday_validate2draft"> <!-- 2. validate->draft (reset signal) -->
+            <field name="act_from" ref="hr_holidays.act_validate" />
+            <field name="act_to" ref="hr_holidays.act_draft" />
+            <field name="signal">reset</field>
+            <field name="condition">can_reset</field>
+            <field name="group_id" ref="base.group_user"/>
+        </record>
+        <record model="workflow.transition" id="holiday_validate12draft"> <!-- 2. validate1->draft (reset signal) -->
+            <field name="act_from" ref="hr_holidays.act_validate1" />
+            <field name="act_to" ref="hr_holidays.act_draft" />
+            <field name="signal">reset</field>
+            <field name="condition">can_reset</field>
+            <field name="group_id" ref="base.group_user"/>
+        </record>
+     </data>
+     <data>    
+        <record id="edit_holiday_new_inh" model="ir.ui.view">
+            <field name="name">Leave Request</field>
+            <field name="model">hr.holidays</field>
+            <field name="inherit_id" ref="hr_holidays.edit_holiday_new"/>
+            <field name="arch" type="xml">
+                <button name="reset" position="replace">
+                    <button string="Reset to Draft" name="reset" type="workflow" attrs="{'invisible': ['|', ('can_reset', '=', False), ('state', 'not in', ['confirm', 'refuse','validate1','validate'])]}"/>
+                </button>
+            </field>
+        </record>
+   </data>
+</openerp>
