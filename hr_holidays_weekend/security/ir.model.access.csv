@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+hr_contract_employee_system_user,hr.contract.user.access,hr_contract.model_hr_contract,base.group_user,1,0,0,0
+resource_calendar_employee_system_user,resource.calendar.user.access,resource.model_resource_calendar,base.group_user,1,0,0,0
+resource_calendar_attendance_employee_system_user,resource.calendar.attendance.user.access,resource.model_resource_calendar_attendance,base.group_user,1,0,0,0
