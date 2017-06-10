@@ -17,6 +17,7 @@ addon | version | summary
 [hr_employee_firstname](hr_employee_firstname/) | 9.0.1.0.0 | Adds First Name to Employee
 [hr_employee_reference](hr_employee_reference/) | 9.0.1.0.0 | Manage employee references
 [hr_family](hr_family/) | 9.0.1.0.0 | Employee Family Information
+[hr_holiday_notify_employee_manager](hr_holiday_notify_employee_manager/) | 9.0.1.0.0 | Notify employee's manager by mail on Leave Requests creation.
 [hr_holidays_compute_days](hr_holidays_compute_days/) | 9.0.1.0.0 | Computes the actual leave days considering rest days and public holidays
 [hr_holidays_leave_auto_approve](hr_holidays_leave_auto_approve/) | 9.0.1.0.0 | Leave type for auto approval of Leaves
 [hr_holidays_legal_leave](hr_holidays_legal_leave/) | 9.0.1.0.0 | Allows the definition of legal/annual leave
