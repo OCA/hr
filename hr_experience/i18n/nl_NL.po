@@ -4,14 +4,14 @@
 # 
 # Translators:
 # OCA Transbot <transbot@odoo-community.org>, 2017
-# Cas Vissers <casvissers@brahoo.nl>, 2017
+# Peter Hageman <hageman.p@gmail.com>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-28 03:17+0000\n"
-"PO-Revision-Date: 2017-03-28 03:17+0000\n"
-"Last-Translator: Cas Vissers <casvissers@brahoo.nl>, 2017\n"
+"POT-Creation-Date: 2017-05-22 11:14+0000\n"
+"PO-Revision-Date: 2017-05-22 11:14+0000\n"
+"Last-Translator: Peter Hageman <hageman.p@gmail.com>, 2017\n"
 "Language-Team: Dutch (Netherlands) (https://www.transifex.com/oca/teams/23907/nl_NL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -120,7 +120,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_experience.field_hr_curriculum_create_uid
 #: model:ir.model.fields,field_description:hr_experience.field_hr_experience_create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Aangemaakt door"
 
 #. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_academic_create_date
@@ -128,7 +128,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_experience.field_hr_curriculum_create_date
 #: model:ir.model.fields,field_description:hr_experience.field_hr_experience_create_date
 msgid "Created on"
-msgstr ""
+msgstr "Aangemaakt op"
 
 #. module: hr_experience
 #: model:ir.ui.view,arch_db:hr_experience.view_academic_form
@@ -289,7 +289,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_experience.field_hr_curriculum_name
 #: model:ir.model.fields,field_description:hr_experience.field_hr_experience_name
 msgid "Name"
-msgstr ""
+msgstr "Naam"
 
 #. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_academic_partner_id
