@@ -16,6 +16,7 @@ addon | version | summary
 --- | --- | ---
 [hr_employee_firstname](hr_employee_firstname/) | 9.0.1.0.0 | Adds First Name to Employee
 [hr_employee_reference](hr_employee_reference/) | 9.0.1.0.0 | Manage employee references
+[hr_expense_analytic_distribution](hr_expense_analytic_distribution/) | 9.0.1.0.0 | Use analytic plans in expenses
 [hr_family](hr_family/) | 9.0.1.0.0 | Employee Family Information
 [hr_holiday_notify_employee_manager](hr_holiday_notify_employee_manager/) | 9.0.1.0.0 | Notify employee's manager by mail on Leave Requests creation.
 [hr_holidays_compute_days](hr_holidays_compute_days/) | 9.0.1.0.0 | Computes the actual leave days considering rest days and public holidays
@@ -48,7 +49,6 @@ addon | version | summary
 [hr_employee_seniority](hr_employee_seniority/) | 1.0 (unported) | Employee Seniority
 [hr_expense_account_period](hr_expense_account_period/) | 8.0.0.1.0 (unported) | Accounting period for HR expenses journal entries
 [hr_expense_analytic_default](hr_expense_analytic_default/) | 8.0.0.1.0 (unported) | Manage default analytic account on expenses
-[hr_expense_analytic_plans](hr_expense_analytic_plans/) | 8.0.1.0.0 (unported) | Use analytic plans in expenses
 [hr_expense_invoice](hr_expense_invoice/) | 8.0.1.0.0 (unported) | Supplier invoices on HR expenses
 [hr_expense_move_date](hr_expense_move_date/) | 8.0.1.0.0 (unported) | Move date for HR expenses journal entries
 [hr_expense_sequence](hr_expense_sequence/) | 8.0.1.0.0 (unported) | HR expense sequence
