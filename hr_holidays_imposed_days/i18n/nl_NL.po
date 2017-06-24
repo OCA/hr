@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-22 11:14+0000\n"
-"PO-Revision-Date: 2017-05-22 11:14+0000\n"
+"POT-Creation-Date: 2017-06-10 04:30+0000\n"
+"PO-Revision-Date: 2017-06-10 04:30+0000\n"
 "Last-Translator: Peter Hageman <hageman.p@gmail.com>, 2017\n"
 "Language-Team: Dutch (Netherlands) (https://www.transifex.com/oca/teams/23907/nl_NL/)\n"
 "MIME-Version: 1.0\n"
@@ -27,7 +27,7 @@ msgstr ""
 #. module: hr_holidays_imposed_days
 #: model:ir.model.fields,field_description:hr_holidays_imposed_days.field_hr_holidays_imposed_company_id
 msgid "Company"
-msgstr ""
+msgstr "Bedrijf"
 
 #. module: hr_holidays_imposed_days
 #: model:ir.model.fields,field_description:hr_holidays_imposed_days.field_hr_holidays_imposed_create_uid
@@ -52,7 +52,7 @@ msgstr ""
 #. module: hr_holidays_imposed_days
 #: model:ir.model.fields,field_description:hr_holidays_imposed_days.field_hr_holidays_imposed_display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Weergavenaam"
 
 #. module: hr_holidays_imposed_days
 #: model:ir.model,name:hr_holidays_imposed_days.model_hr_employee
@@ -72,7 +72,7 @@ msgstr ""
 #. module: hr_holidays_imposed_days
 #: model:ir.model.fields,field_description:hr_holidays_imposed_days.field_hr_holidays_imposed_id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: hr_holidays_imposed_days
 #: model:ir.model.fields,help:hr_holidays_imposed_days.field_hr_holidays_imposed_employee_ids
@@ -95,17 +95,17 @@ msgstr ""
 #. module: hr_holidays_imposed_days
 #: model:ir.model.fields,field_description:hr_holidays_imposed_days.field_hr_holidays_imposed___last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Laatst gewijzigd op"
 
 #. module: hr_holidays_imposed_days
 #: model:ir.model.fields,field_description:hr_holidays_imposed_days.field_hr_holidays_imposed_write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Laatst bijgewerkt door"
 
 #. module: hr_holidays_imposed_days
 #: model:ir.model.fields,field_description:hr_holidays_imposed_days.field_hr_holidays_imposed_write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Laatst bijgewerkt op"
 
 #. module: hr_holidays_imposed_days
 #: model:ir.model.fields,field_description:hr_holidays_imposed_days.field_hr_holidays_imposed_status_id

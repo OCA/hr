@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-22 11:14+0000\n"
-"PO-Revision-Date: 2017-05-22 11:14+0000\n"
+"POT-Creation-Date: 2017-06-10 04:30+0000\n"
+"PO-Revision-Date: 2017-06-10 04:30+0000\n"
 "Last-Translator: Peter Hageman <hageman.p@gmail.com>, 2017\n"
 "Language-Team: Dutch (Netherlands) (https://www.transifex.com/oca/teams/23907/nl_NL/)\n"
 "MIME-Version: 1.0\n"
@@ -37,12 +37,12 @@ msgstr ""
 #. module: hr_employee_id
 #: model:ir.ui.view,arch_db:hr_employee_id.view_human_resources_employeeid_configuration
 msgid "Apply"
-msgstr ""
+msgstr "Toepassen"
 
 #. module: hr_employee_id
 #: model:ir.ui.view,arch_db:hr_employee_id.view_human_resources_employeeid_configuration
 msgid "Cancel"
-msgstr ""
+msgstr "Annuleer"
 
 #. module: hr_employee_id
 #: model:ir.model,name:hr_employee_id.model_res_company
@@ -52,7 +52,7 @@ msgstr "Bedrijven"
 #. module: hr_employee_id
 #: model:ir.model.fields,field_description:hr_employee_id.field_hr_employeeid_config_settings_company_id
 msgid "Company"
-msgstr ""
+msgstr "Bedrijf"
 
 #. module: hr_employee_id
 #: model:ir.actions.act_window,name:hr_employee_id.action_human_resources_employeeid_config
@@ -73,7 +73,7 @@ msgstr "Aangemaakt op"
 #. module: hr_employee_id
 #: model:ir.model.fields,field_description:hr_employee_id.field_hr_employeeid_config_settings_display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Weergavenaam"
 
 #. module: hr_employee_id
 #: model:ir.model,name:hr_employee_id.model_hr_employee
@@ -83,23 +83,23 @@ msgstr "Werknemer"
 #. module: hr_employee_id
 #: model:ir.ui.menu,name:hr_employee_id.menu_account_config
 msgid "Employee ID"
-msgstr ""
+msgstr "Medewerker ID"
 
 #. module: hr_employee_id
 #: model:ir.ui.view,arch_db:hr_employee_id.view_human_resources_employeeid_configuration
 msgid "Employee ID *"
-msgstr ""
+msgstr "Medewerker ID *"
 
 #. module: hr_employee_id
 #: model:ir.model.fields,field_description:hr_employee_id.field_hr_employeeid_config_settings_employee_id_sequence
 #: model:ir.model.fields,field_description:hr_employee_id.field_res_company_employee_id_sequence
 msgid "Employee ID Sequence"
-msgstr ""
+msgstr "Medewerker ID Volgorde"
 
 #. module: hr_employee_id
 #: model:ir.model.fields,field_description:hr_employee_id.field_hr_employeeid_config_settings_id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: hr_employee_id
 #: model:ir.model.fields,field_description:hr_employee_id.field_hr_employeeid_config_settings_employee_id_gen_method
@@ -110,17 +110,17 @@ msgstr ""
 #. module: hr_employee_id
 #: model:ir.model.fields,field_description:hr_employee_id.field_hr_employeeid_config_settings___last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Laatst gewijzigd op"
 
 #. module: hr_employee_id
 #: model:ir.model.fields,field_description:hr_employee_id.field_hr_employeeid_config_settings_write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Laatst bijgewerkt door"
 
 #. module: hr_employee_id
 #: model:ir.model.fields,field_description:hr_employee_id.field_hr_employeeid_config_settings_write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Laatst bijgewerkt op"
 
 #. module: hr_employee_id
 #: model:ir.model.fields,help:hr_employee_id.field_hr_employeeid_config_settings_employee_id_random_digits
@@ -137,12 +137,12 @@ msgstr ""
 #. module: hr_employee_id
 #: selection:res.company,employee_id_gen_method:0
 msgid "Random"
-msgstr ""
+msgstr "Willekeurig"
 
 #. module: hr_employee_id
 #: selection:res.company,employee_id_gen_method:0
 msgid "Sequence"
-msgstr ""
+msgstr "Volgorde"
 
 #. module: hr_employee_id
 #: sql_constraint:hr.employee:0
@@ -159,4 +159,4 @@ msgstr ""
 #. module: hr_employee_id
 #: model:ir.model,name:hr_employee_id.model_hr_employeeid_config_settings
 msgid "hr.employeeid.config.settings"
-msgstr ""
+msgstr "hr.employeeid.config.settings"

@@ -4,13 +4,14 @@
 # 
 # Translators:
 # OCA Transbot <transbot@odoo-community.org>, 2017
+# abdullah alsabi <alsabi.abdullah@gmail.com>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-10 19:09+0000\n"
-"PO-Revision-Date: 2017-03-10 19:09+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
+"POT-Creation-Date: 2017-06-10 04:30+0000\n"
+"PO-Revision-Date: 2017-06-10 04:30+0000\n"
+"Last-Translator: abdullah alsabi <alsabi.abdullah@gmail.com>, 2017\n"
 "Language-Team: Arabic (https://www.transifex.com/oca/teams/23907/ar/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,7 +23,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_family.field_hr_employee_fam_children_ids
 #: model:ir.ui.view,arch_db:hr_family.hr_employee_view_form
 msgid "Children"
-msgstr ""
+msgstr "الأبناء"
 
 #. module: hr_family
 #: model:ir.model.fields,field_description:hr_family.field_hr_employee_children_create_uid
@@ -37,12 +38,12 @@ msgstr "وقت الانشاء"
 #. module: hr_family
 #: model:ir.model.fields,field_description:hr_family.field_hr_employee_children_date_of_birth
 msgid "Date of Birth"
-msgstr ""
+msgstr "تاريخ الميلاد"
 
 #. module: hr_family
 #: model:ir.model.fields,field_description:hr_family.field_hr_employee_children_display_name
 msgid "Display Name"
-msgstr ""
+msgstr "إسم العرض"
 
 #. module: hr_family
 #: model:ir.model,name:hr_family.model_hr_employee

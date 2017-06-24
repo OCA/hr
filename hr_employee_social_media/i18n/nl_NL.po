@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-22 11:14+0000\n"
-"PO-Revision-Date: 2017-05-22 11:14+0000\n"
+"POT-Creation-Date: 2017-06-10 04:30+0000\n"
+"PO-Revision-Date: 2017-06-10 04:30+0000\n"
 "Last-Translator: Peter Hageman <hageman.p@gmail.com>, 2017\n"
 "Language-Team: Dutch (Netherlands) (https://www.transifex.com/oca/teams/23907/nl_NL/)\n"
 "MIME-Version: 1.0\n"
@@ -40,7 +40,7 @@ msgstr "Aangemaakt op"
 #: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_account_display_name
 #: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Weergavenaam"
 
 #. module: hr_employee_social_media
 #: model:ir.model,name:hr_employee_social_media.model_hr_employee
@@ -52,25 +52,25 @@ msgstr "Werknemer"
 #: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_account_id
 #: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: hr_employee_social_media
 #: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media___last_update
 #: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_account___last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Laatst gewijzigd op"
 
 #. module: hr_employee_social_media
 #: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_account_write_uid
 #: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Laatst bijgewerkt door"
 
 #. module: hr_employee_social_media
 #: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_account_write_date
 #: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Laatst bijgewerkt op"
 
 #. module: hr_employee_social_media
 #: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_name

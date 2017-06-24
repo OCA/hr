@@ -4,13 +4,14 @@
 # 
 # Translators:
 # OCA Transbot <transbot@odoo-community.org>, 2017
+# abdullah alsabi <alsabi.abdullah@gmail.com>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-05 02:38+0000\n"
-"PO-Revision-Date: 2017-05-05 02:38+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
+"POT-Creation-Date: 2017-06-10 04:30+0000\n"
+"PO-Revision-Date: 2017-06-10 04:30+0000\n"
+"Last-Translator: abdullah alsabi <alsabi.abdullah@gmail.com>, 2017\n"
 "Language-Team: Arabic (https://www.transifex.com/oca/teams/23907/ar/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,12 +22,12 @@ msgstr ""
 #. module: hr_holidays_imposed_days
 #: model:ir.model.fields,field_description:hr_holidays_imposed_days.field_hr_holidays_imposed_auto_confirm
 msgid "Auto confirm"
-msgstr ""
+msgstr "تأكيد تلقائي"
 
 #. module: hr_holidays_imposed_days
 #: model:ir.model.fields,field_description:hr_holidays_imposed_days.field_hr_holidays_imposed_company_id
 msgid "Company"
-msgstr ""
+msgstr "الشركة"
 
 #. module: hr_holidays_imposed_days
 #: model:ir.model.fields,field_description:hr_holidays_imposed_days.field_hr_holidays_imposed_create_uid
@@ -51,7 +52,7 @@ msgstr ""
 #. module: hr_holidays_imposed_days
 #: model:ir.model.fields,field_description:hr_holidays_imposed_days.field_hr_holidays_imposed_display_name
 msgid "Display Name"
-msgstr ""
+msgstr "إسم العرض"
 
 #. module: hr_holidays_imposed_days
 #: model:ir.model,name:hr_holidays_imposed_days.model_hr_employee

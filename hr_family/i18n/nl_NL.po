@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-22 11:14+0000\n"
-"PO-Revision-Date: 2017-05-22 11:14+0000\n"
+"POT-Creation-Date: 2017-06-10 04:30+0000\n"
+"PO-Revision-Date: 2017-06-10 04:30+0000\n"
 "Last-Translator: Peter Hageman <hageman.p@gmail.com>, 2017\n"
 "Language-Team: Dutch (Netherlands) (https://www.transifex.com/oca/teams/23907/nl_NL/)\n"
 "MIME-Version: 1.0\n"
@@ -43,7 +43,7 @@ msgstr ""
 #. module: hr_family
 #: model:ir.model.fields,field_description:hr_family.field_hr_employee_children_display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Weergavenaam"
 
 #. module: hr_family
 #: model:ir.model,name:hr_family.model_hr_employee
@@ -89,22 +89,22 @@ msgstr ""
 #. module: hr_family
 #: model:ir.model.fields,field_description:hr_family.field_hr_employee_children_id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: hr_family
 #: model:ir.model.fields,field_description:hr_family.field_hr_employee_children___last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Laatst gewijzigd op"
 
 #. module: hr_family
 #: model:ir.model.fields,field_description:hr_family.field_hr_employee_children_write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Laatst bijgewerkt door"
 
 #. module: hr_family
 #: model:ir.model.fields,field_description:hr_family.field_hr_employee_children_write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Laatst bijgewerkt op"
 
 #. module: hr_family
 #: selection:hr.employee.children,gender:0
