@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<openerp>
+    <data>
+        <record id="hr_payroll.act_done" model="workflow.activity">
+            <field name="wkf_id" ref="hr_payroll.wkf"/>
+            <field name="name">done</field>
+            <field name="action">process_sheet()</field>
+            <field name="kind">function</field>
+            <field name="flow_stop"/>
+        </record>
+
+        <record id="workflow_transition_act_done_to_act_cancel" model="workflow.transition">
+            <field name="signal">cancel_sheet</field>
+            <field name="act_from" ref="hr_payroll.act_done"/>
+            <field name="act_to" ref="hr_payroll.act_cancel"/>
+            <field name="condition">True</field>
+        </record>
+
+    </data>
+</openerp>
