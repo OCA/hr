@@ -34,10 +34,6 @@
 
     <!-- Menu and Actions -->
 
-    <menuitem name="Skills Management"
-              parent="hr.menu_human_resources_configuration"
-              id="menu_hr_skill_mgt"/>
-
     <record id="open_view_skill_form" model="ir.actions.act_window">
         <field name="name">Skills</field>
         <field name="res_model">hr.skill</field>
