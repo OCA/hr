@@ -42,7 +42,7 @@
     </record>
 
     <menuitem name="Skills"
-              parent="menu_hr_skill_mgt"
+              parent="hr.menu_human_resources_configuration"
               id="menu_open_view_skill_form"
               action="open_view_skill_form"/>
 
