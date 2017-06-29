@@ -55,7 +55,7 @@
     </record>
 
     <menuitem name="Skills Structure"
-              parent="menu_hr_skill_mgt"
+              parent="menu_open_view_skill_form"
               id="menu_open_view_skill_tree"
               action="open_view_skill_tree"/>
 
