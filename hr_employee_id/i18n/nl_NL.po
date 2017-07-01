@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-10 04:30+0000\n"
-"PO-Revision-Date: 2017-06-10 04:30+0000\n"
+"POT-Creation-Date: 2017-07-01 01:04+0000\n"
+"PO-Revision-Date: 2017-07-01 01:04+0000\n"
 "Last-Translator: Peter Hageman <hageman.p@gmail.com>, 2017\n"
 "Language-Team: Dutch (Netherlands) (https://www.transifex.com/oca/teams/23907/nl_NL/)\n"
 "MIME-Version: 1.0\n"
@@ -58,7 +58,7 @@ msgstr "Bedrijf"
 #: model:ir.actions.act_window,name:hr_employee_id.action_human_resources_employeeid_config
 #: model:ir.ui.view,arch_db:hr_employee_id.view_human_resources_employeeid_configuration
 msgid "Configure Employee ID"
-msgstr ""
+msgstr "Configureer Personeelsnummer"
 
 #. module: hr_employee_id
 #: model:ir.model.fields,field_description:hr_employee_id.field_hr_employeeid_config_settings_create_uid
@@ -83,18 +83,18 @@ msgstr "Werknemer"
 #. module: hr_employee_id
 #: model:ir.ui.menu,name:hr_employee_id.menu_account_config
 msgid "Employee ID"
-msgstr "Medewerker ID"
+msgstr "Personeelsnummer"
 
 #. module: hr_employee_id
 #: model:ir.ui.view,arch_db:hr_employee_id.view_human_resources_employeeid_configuration
 msgid "Employee ID *"
-msgstr "Medewerker ID *"
+msgstr "Personeelsnummer *"
 
 #. module: hr_employee_id
 #: model:ir.model.fields,field_description:hr_employee_id.field_hr_employeeid_config_settings_employee_id_sequence
 #: model:ir.model.fields,field_description:hr_employee_id.field_res_company_employee_id_sequence
 msgid "Employee ID Sequence"
-msgstr "Medewerker ID Volgorde"
+msgstr "Personeelsnummervolgorde"
 
 #. module: hr_employee_id
 #: model:ir.model.fields,field_description:hr_employee_id.field_hr_employeeid_config_settings_id
@@ -105,7 +105,7 @@ msgstr "ID"
 #: model:ir.model.fields,field_description:hr_employee_id.field_hr_employeeid_config_settings_employee_id_gen_method
 #: model:ir.model.fields,field_description:hr_employee_id.field_res_company_employee_id_gen_method
 msgid "ID Generation Method"
-msgstr ""
+msgstr "ID-Genereermethode"
 
 #. module: hr_employee_id
 #: model:ir.model.fields,field_description:hr_employee_id.field_hr_employeeid_config_settings___last_update
@@ -126,13 +126,13 @@ msgstr "Laatst bijgewerkt op"
 #: model:ir.model.fields,help:hr_employee_id.field_hr_employeeid_config_settings_employee_id_random_digits
 #: model:ir.model.fields,help:hr_employee_id.field_res_company_employee_id_random_digits
 msgid "Number of digits making up the ID"
-msgstr ""
+msgstr "Aantal cijfers voor de opmaak van de ID"
 
 #. module: hr_employee_id
 #: model:ir.model.fields,help:hr_employee_id.field_hr_employeeid_config_settings_employee_id_sequence
 #: model:ir.model.fields,help:hr_employee_id.field_res_company_employee_id_sequence
 msgid "Pattern to be used for employee ID Generation"
-msgstr ""
+msgstr "Te gebruiken patroon voor het genereren van de medewerker-ID"
 
 #. module: hr_employee_id
 #: selection:res.company,employee_id_gen_method:0
@@ -147,14 +147,14 @@ msgstr "Volgorde"
 #. module: hr_employee_id
 #: sql_constraint:hr.employee:0
 msgid "The Employee Number must be unique across the company(s)."
-msgstr ""
+msgstr "Het Personeelsnummer moet uniek zijn binnen elk bedrijf en bedrijven."
 
 #. module: hr_employee_id
 #: code:addons/hr_employee_id/models/hr_employee.py:50
 #, python-format
 msgid ""
 "Unable to generate an Employee ID number that                 is unique."
-msgstr ""
+msgstr "Niet in staat om een uniek personeelsnummer te genereren."
 
 #. module: hr_employee_id
 #: model:ir.model,name:hr_employee_id.model_hr_employeeid_config_settings
