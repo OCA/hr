@@ -24,6 +24,7 @@ addon | version | summary
 [hr_employee_phone_extension](hr_employee_phone_extension/) | 10.0.1.0.0 | Employee Phone Extension
 [hr_employee_seniority](hr_employee_seniority/) | 10.0.1.0.0 | Keep Track of Length of Employment
 [hr_employee_social_media](hr_employee_social_media/) | 10.0.1.0.0 | Employee Social Media
+[hr_expense_sequence](hr_expense_sequence/) | 10.0.1.0.0 | HR expense sequence
 [hr_experience](hr_experience/) | 10.0.1.0.0 | Experience Management
 [hr_family](hr_family/) | 10.0.1.0.0 | Employee Family Information
 [hr_holidays_compute_days](hr_holidays_compute_days/) | 10.0.2.0.0 | Computes the actual leave days considering rest days and public holidays
@@ -52,7 +53,6 @@ addon | version | summary
 [hr_expense_analytic_plans](hr_expense_analytic_plans/) | 8.0.1.0.0 (unported) | Use analytic plans in expenses
 [hr_expense_invoice](hr_expense_invoice/) | 8.0.1.0.0 (unported) | Supplier invoices on HR expenses
 [hr_expense_move_date](hr_expense_move_date/) | 8.0.1.0.0 (unported) | Move date for HR expenses journal entries
-[hr_expense_sequence](hr_expense_sequence/) | 8.0.1.0.0 (unported) | HR expense sequence
 [hr_infraction](hr_infraction/) | 1.0 (unported) | Employee Infraction Management
 [hr_job_categories](hr_job_categories/) | 8.0.1.0.0 (unported) | HR Job Employee Categories
 [hr_job_hierarchy](hr_job_hierarchy/) | 1.0 (unported) | Job Hierarchy
