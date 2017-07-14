@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_resource_calendar_attendance,resource.calendar.attendance,resource.model_resource_calendar_attendance,base.group_user,1,0,0,0
+access_resource_calendar,resource.calendar,resource.model_resource_calendar,base.group_user,1,0,0,0
+hr_holidays.access_hr_holydays_status_employee,hr.holidays.status employee,hr_holidays.model_hr_holidays_status,base.group_user,1,1,0,0
