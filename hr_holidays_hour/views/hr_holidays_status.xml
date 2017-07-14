@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_holiday_status_tree_inherit_leave_hours" model="ir.ui.view">
+        <field name="model">hr.holidays.status</field>
+        <field name="inherit_id" ref="hr_holidays.view_holiday_status_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='remaining_leaves']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='max_leaves']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='leaves_taken']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
