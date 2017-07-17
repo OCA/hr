@@ -164,7 +164,7 @@ class TestHolidaysComputeDays(common.TransactionCase):
                     'date_from': '1994-10-25 08:00:00',
                     'date_to': '1994-10-28 18:00:00',
                 })
-            leave._onchange_employee(self.employee2.id)
+            leave._onchange_employee()
 
     def test_leave_allocation_ok(self):
         """allocate 10 days of holidays"""
