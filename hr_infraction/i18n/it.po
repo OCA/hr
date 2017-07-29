@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-13 02:14+0000\n"
+"POT-Creation-Date: 2017-07-15 02:33+0000\n"
 "PO-Revision-Date: 2015-07-27 23:38+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Italian (http://www.transifex.com/oca/OCA-hr-7-0/language/it/)\n"
@@ -262,7 +262,7 @@ msgstr ""
 #. module: hr_infraction
 #: field:hr.infraction.category,code:0
 msgid "Code"
-msgstr ""
+msgstr "Codice"
 
 #. module: hr_infraction
 #: selection:hr.infraction.warning,type:0
