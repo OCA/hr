@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-28 03:12+0000\n"
-"PO-Revision-Date: 2017-04-09 07:01+0000\n"
+"POT-Creation-Date: 2017-07-06 22:15+0000\n"
+"PO-Revision-Date: 2017-07-25 11:38+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Italian (http://www.transifex.com/oca/OCA-hr-8-0/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -181,7 +181,7 @@ msgstr ""
 #. module: hr_recruitment_partner
 #: field:hr.applicant,property_account_position:0
 msgid "Fiscal Position"
-msgstr ""
+msgstr "Posizione fiscale"
 
 #. module: hr_recruitment_partner
 #: help:hr.applicant,opt_out:0
@@ -377,7 +377,7 @@ msgstr ""
 #. module: hr_recruitment_partner
 #: field:hr.applicant,supplier:0
 msgid "Supplier"
-msgstr ""
+msgstr "Fornitore"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,property_stock_supplier:0
