@@ -5,13 +5,14 @@
 # Translators:
 # leemannd <denis.leemann@camptocamp.com>, 2017
 # OCA Transbot <transbot@odoo-community.org>, 2017
+# guillaume bauer <guillaume.bauer@syentys.com>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-10 19:09+0000\n"
-"PO-Revision-Date: 2017-03-10 19:09+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
+"POT-Creation-Date: 2017-07-17 12:55+0000\n"
+"PO-Revision-Date: 2017-07-17 12:55+0000\n"
+"Last-Translator: guillaume bauer <guillaume.bauer@syentys.com>, 2017\n"
 "Language-Team: French (https://www.transifex.com/oca/teams/23907/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -54,7 +55,7 @@ msgstr "Employé"
 #. module: hr_family
 #: model:ir.ui.view,arch_db:hr_family.hr_children_view_tree
 msgid "Employee Children"
-msgstr ""
+msgstr "Enfants de l'employée"
 
 #. module: hr_family
 #: model:ir.ui.view,arch_db:hr_family.hr_employee_view_form
@@ -64,7 +65,7 @@ msgstr "Famille"
 #. module: hr_family
 #: model:ir.model.fields,field_description:hr_family.field_hr_employee_fam_father_date_of_birth
 msgid "Father Date of Birth"
-msgstr ""
+msgstr "Date de naissance du père"
 
 #. module: hr_family
 #: model:ir.model.fields,field_description:hr_family.field_hr_employee_fam_father
@@ -84,7 +85,7 @@ msgstr "Sexe"
 #. module: hr_family
 #: model:ir.model,name:hr_family.model_hr_employee_children
 msgid "HR Employee Children"
-msgstr ""
+msgstr "RH Enfants de l'employé"
 
 #. module: hr_family
 #: model:ir.model.fields,field_description:hr_family.field_hr_employee_children_id
@@ -114,7 +115,7 @@ msgstr "Masculin"
 #. module: hr_family
 #: model:ir.model.fields,field_description:hr_family.field_hr_employee_fam_mother_date_of_birth
 msgid "Mother Date of Birth"
-msgstr ""
+msgstr "Date de naissance de la mère"
 
 #. module: hr_family
 #: model:ir.model.fields,field_description:hr_family.field_hr_employee_fam_mother
@@ -134,19 +135,19 @@ msgstr "Parents"
 #. module: hr_family
 #: model:ir.ui.view,arch_db:hr_family.hr_employee_view_form
 msgid "Spouse"
-msgstr "Épouse"
+msgstr "Epoux / Epouse"
 
 #. module: hr_family
 #: model:ir.model.fields,field_description:hr_family.field_hr_employee_fam_spouse
 msgid "Spouse's Name"
-msgstr ""
+msgstr "Nom de l'époux"
 
 #. module: hr_family
 #: model:ir.model.fields,field_description:hr_family.field_hr_employee_fam_spouse_tel
 msgid "Spouse's Telephone"
-msgstr ""
+msgstr "Numéro de téléphone de l'époux / épouse"
 
 #. module: hr_family
 #: model:ir.model.fields,field_description:hr_family.field_hr_employee_fam_spouse_employer
 msgid "Spouses's Employer"
-msgstr ""
+msgstr "Employeur de l'époux / épouse"
