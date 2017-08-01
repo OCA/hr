@@ -4,7 +4,6 @@
 
 from openerp import models, fields, api, _
 from openerp.exceptions import Warning as UserError
-
 from .hr_fiscal_year import get_schedules
 
 
@@ -88,7 +87,7 @@ class HrPayslipRun(models.Model):
         period = self.hr_period_id
         if period:
             self.date_start = period.date_start
-            self.date_end = period.date_stop
+            self.date_end = period.date_end
             self.date_payment = period.date_payment
             self.schedule_pay = period.schedule_pay
 
@@ -134,7 +133,7 @@ class HrPayslipRun(models.Model):
         for run in self:
             if next((p for p in run.slip_ids if p.state == 'draft'), False):
                 raise UserError("The payslip batch %s still has unconfirmed "
-                                "pay slips." % (run.name))
+                                "pay slips." % run.name)
 
         self.update_periods()
         return super(HrPayslipRun, self).close_payslip_run()

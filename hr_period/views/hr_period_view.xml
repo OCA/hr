@@ -21,7 +21,7 @@
                                 <label for="date_start" string="Duration"/>
                                 <div>
                                     <field name="date_start" nolabel="1" class="oe_inline"/> -
-                                    <field name="date_stop" nolabel="1" class="oe_inline"/>
+                                    <field name="date_end" nolabel="1" class="oe_inline"/>
                                 </div>
                                 <field name="date_payment"/>
                             </group>
@@ -46,7 +46,7 @@
               <tree colors="blue:state == 'open';gray:state == 'done'" string="Payroll Period">
                     <field name="name"/>
                     <field name="date_start"/>
-                    <field name="date_stop"/>
+                    <field name="date_end"/>
                     <field name="date_payment"/>
                     <field name="company_id" groups="base.group_multi_company"/>
                     <field name="state"/>
