@@ -2,7 +2,7 @@
 # Copyright 2015 Savoir-faire Linux. All Rights Reserved.
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from openerp import models, fields, api, _
+from openerp import api, fields, models, _
 from openerp.exceptions import Warning as UserError
 
 
