@@ -13,6 +13,7 @@
     'website': 'https://github.com/OCA/hr',
     'depends': [
         'hr_payroll',
+        'date_range'
     ],
     'data': [
         'data/ir_sequence_data.xml',

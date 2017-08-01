@@ -3,19 +3,24 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from openerp import api, fields, models, _
-from openerp.tools import DEFAULT_SERVER_DATE_FORMAT
+from openerp.tools import DEFAULT_SERVER_DATE_FORMAT as DF
 from openerp.exceptions import Warning as UserError
 from dateutil.relativedelta import relativedelta
-
+from dateutil.rrule import (YEARLY,
+                            MONTHLY,
+                            WEEKLY,
+                            DAILY)
 from datetime import datetime
-strftime = datetime.strptime
 
+strptime = datetime.strptime
+strftime = datetime.strftime
 
 INTERVALS = {
     'annually': (relativedelta(months=12), 1),
     'semi-annually': (relativedelta(months=6), 2),
     'quarterly': (relativedelta(months=3), 4),
     'bi-monthly': (relativedelta(months=2), 6),
+    'semi-monthly': (relativedelta(weeks=2), 24),
     'monthly': (relativedelta(months=1), 12),
     'bi-weekly': (relativedelta(weeks=2), 26),
     'weekly': (relativedelta(weeks=1), 52),
@@ -59,14 +64,12 @@ class HrFiscalYear(models.Model):
     @api.model
     def _default_date_start(self):
         today = datetime.now()
-        return datetime(today.year, 1, 1).strftime(
-            DEFAULT_SERVER_DATE_FORMAT)
+        return datetime(today.year, 1, 1).strftime(DF)
 
     @api.model
     def _default_date_stop(self):
         today = datetime.now()
-        return datetime(today.year, 12, 31).strftime(
-            DEFAULT_SERVER_DATE_FORMAT)
+        return datetime(today.year, 12, 31).strftime(DF)
 
     name = fields.Char(
         'Fiscal Year',
@@ -125,6 +128,16 @@ class HrFiscalYear(models.Model):
         states={'draft': [('readonly', False)]},
         default='monthly'
     )
+
+    type_id = fields.Many2one(
+        'date.range.type',
+        required=True,
+        readonly=True,
+        states={'draft': [('readonly', False)]},
+        help="Date Range Type",
+        ondelete='cascade'
+    )
+
     payment_weekday = fields.Selection(
         [
             ('0', 'Sunday'),
@@ -154,12 +167,18 @@ class HrFiscalYear(models.Model):
         states={'draft': [('readonly', False)]}
     )
 
+    @api.multi
+    def _count_range_no(self):
+        days_range = abs((strptime(self.date_stop, DF) -
+                          strptime(self.date_start, DF)).days) + 1
+        return INTERVALS[self.schedule_pay][1] * days_range / 365
+
     @api.onchange('schedule_pay', 'date_start')
     @api.multi
     def onchange_schedule(self):
         if self.schedule_pay and self.date_start:
             year = datetime.strptime(
-                self.date_start, DEFAULT_SERVER_DATE_FORMAT).year
+                self.date_start, DF).year
 
             schedule_name = next((
                 s[1] for s in get_schedules(self)
@@ -169,24 +188,64 @@ class HrFiscalYear(models.Model):
                 'schedule': schedule_name,
             }
 
-    @api.one
+    @api.model
+    def get_generator_vals(self):
+        no_interval = 1
+        if self.schedule_pay == 'daily':
+            unit_of_time = DAILY
+        elif self.schedule_pay == 'weekly':
+            unit_of_time = WEEKLY
+        elif self.schedule_pay == 'bi-weekly':
+            unit_of_time = WEEKLY
+            no_interval = 2
+        elif self.schedule_pay == 'monthly':
+            unit_of_time = MONTHLY
+        elif self.schedule_pay == 'bi-monthly':
+            unit_of_time = MONTHLY
+            no_interval = 2
+        elif self.schedule_pay == 'quarterly':
+            unit_of_time = MONTHLY
+            no_interval = 4
+        elif self.schedule_pay == 'semi-annually':
+            unit_of_time = MONTHLY
+            no_interval = 6
+        else:
+            unit_of_time = YEARLY
+
+        return {
+            'name_prefix': self.name,
+            'date_start': self.date_start,
+            'type_id': self.type_id.id,
+            'company_id': self.company_id.id,
+            'unit_of_time': unit_of_time,
+            'duration_count': no_interval,
+            'count': self._count_range_no()
+        }
+
+    @api.multi
+    def get_ranges(self):
+        self.ensure_one()
+        vals = self.get_generator_vals()
+        range_generator = self.env['date.range.generator'].create(vals)
+        date_ranges = range_generator._compute_date_ranges()
+        return date_ranges
+
+    @api.multi
     def create_periods(self):
         """
         Create every periods a payroll fiscal year
         """
-        for period in self.period_ids:
-            period.unlink()
-
-        self.refresh()
-
-        period_start = datetime.strptime(
-            self.date_start, DEFAULT_SERVER_DATE_FORMAT)
-        next_year_start = datetime.strptime(
-            self.date_stop,
-            DEFAULT_SERVER_DATE_FORMAT) + relativedelta(days=1)
+        for fy in self:
+            for period in fy.period_ids:
+                period.unlink()
+            fy.refresh()
         if self.schedule_pay == 'semi-monthly':
+            period_start = datetime.strptime(
+                self.date_start, DF)
+            next_year_start = datetime.strptime(
+                self.date_stop, DF) + relativedelta(days=1)
             #  Case for semi-monthly schedules
-            delta_1 = relativedelta(days=15)
+            delta_1 = relativedelta(days=14)
             delta_2 = relativedelta(months=1)
 
             i = 1
@@ -195,20 +254,20 @@ class HrFiscalYear(models.Model):
                 half_month = period_start + delta_1
                 self._create_single_period(period_start, half_month, i)
                 self._create_single_period(
-                    half_month, period_start + delta_2, i + 1)
-
+                    half_month + relativedelta(days=1),
+                    period_start + delta_2 - relativedelta(days=1), i + 1)
                 # setup for next month
                 period_start += delta_2
                 i += 2
-        else:  # All other cases
-            delta, nb_periods = INTERVALS[self.schedule_pay]
-
-            i = 1
-            while not period_start + delta > next_year_start:
-                self._create_single_period(
-                    period_start, period_start + delta, i)
-                period_start += delta
+        else:
+            i = 0
+            for period in self.get_ranges():
                 i += 1
+                period_start = strptime(period.get('date_start', False), DF)
+                period_end = strptime(period.get('date_end', False), DF)
+                self._create_single_period(
+                    period_start, period_end, i)
+        return True
 
     @api.multi
     def _create_single_period(self, date_start, date_stop, number):
@@ -217,18 +276,16 @@ class HrFiscalYear(models.Model):
         :param date_stop: the first day of the following period
         """
         self.ensure_one()
-
-        date_stop -= relativedelta(days=1)
-
         self.write({
             'period_ids': [(0, 0, {
                 'date_start': date_start,
-                'date_stop': date_stop,
+                'date_end': date_stop,
                 'date_payment': self._get_day_of_payment(date_stop),
                 'company_id': self.company_id.id,
                 'name': _('%s Period #%s') % (self.name, number),
                 'number': number,
                 'state': 'draft',
+                'type_id': self.type_id.id,
                 'schedule_pay': self.schedule_pay,
             })],
         })
