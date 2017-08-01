@@ -4,12 +4,12 @@
 #
 from openerp import models, fields, api, _
 from openerp.exceptions import Warning as UserError
-
 from .hr_fiscal_year import get_schedules
 
 
 class HrPeriod(models.Model):
     _name = 'hr.period'
+    _inherit = 'date.range'
     _description = 'HR Payroll Period'
     _order = 'date_start'
 
@@ -25,24 +25,13 @@ class HrPeriod(models.Model):
         readonly=True,
         states={'draft': [('readonly', False)]}
     )
-    date_start = fields.Date(
-        'Start of Period',
-        required=True,
-        readonly=True,
-        states={'draft': [('readonly', False)]}
-    )
-    date_stop = fields.Date(
-        'End of Period',
-        required=True,
-        readonly=True,
-        states={'draft': [('readonly', False)]}
-    )
     date_payment = fields.Date(
         'Date of Payment',
         required=True,
         readonly=True,
         states={'draft': [('readonly', False)]}
     )
+
     fiscalyear_id = fields.Many2one(
         'hr.fiscalyear',
         'Fiscal Year',

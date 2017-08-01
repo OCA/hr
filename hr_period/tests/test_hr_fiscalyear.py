@@ -15,21 +15,29 @@ class TestHrFiscalyear(common.TransactionCase):
         self.run_model = self.env['hr.payslip.run']
         self.fy_model = self.env['hr.fiscalyear']
         self.period_model = self.env['hr.period']
+        self.data_range_type_model = self.env['date.range.type']
 
         self.company_id = self.company_model.create({'name': 'Company 1'})
 
         self.today = datetime.now().date()
-
+        self.type = self.create_data_range_type('test_hr_period')
         self.vals = {
             'company_id': self.company_id.id,
             'date_start': '2015-01-01',
             'date_stop': '2015-12-31',
             'schedule_pay': 'monthly',
+            'type_id': self.type.id,
             'payment_day': '2',
             'payment_weekday': '0',
             'payment_week': '1',
             'name': 'Test',
         }
+
+    def create_data_range_type(self, name):
+        return self.data_range_type_model.create(
+            {'name': name,
+             'active': True
+             })
 
     def create_fiscal_year(self, vals=None):
         if vals is None:
@@ -45,7 +53,7 @@ class TestHrFiscalyear(common.TransactionCase):
         if date_start:
             self.assertEqual(period.date_start, date_start)
         if date_stop:
-            self.assertEqual(period.date_stop, date_stop)
+            self.assertEqual(period.date_end, date_stop)
         if date_payment:
             self.assertEqual(period.date_payment, date_payment)
 
@@ -155,6 +163,7 @@ class TestHrFiscalyear(common.TransactionCase):
         fy = self.create_fiscal_year({
             'schedule_pay': 'weekly',
             'payment_week': '0',
+            'type': self.type.id
         })
         fy.create_periods()
         periods = self.get_periods(fy)
