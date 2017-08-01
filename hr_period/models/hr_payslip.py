@@ -2,7 +2,7 @@
 # Copyright 2015 Savoir-faire Linux. All Rights Reserved.
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from openerp import models, fields, api, _
+from openerp import api, fields, models, _
 from openerp.exceptions import Warning as UserError
 
 
@@ -66,7 +66,7 @@ class HrPayslip(models.Model):
         if self.hr_period_id:
             period = self.hr_period_id
             self.date_from = period.date_start
-            self.date_to = period.date_stop
+            self.date_to = period.date_end
             self.date_payment = period.date_payment
 
     @api.model
