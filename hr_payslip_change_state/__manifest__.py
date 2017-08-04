@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 # © 2016 - Eficent http://www.eficent.com/
+# Copyright 2017 Serpent Consulting Services Pvt. Ltd.
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 {
     "name": "Human Resources Payslip Change State",
@@ -7,7 +8,8 @@
     "version": "10.0.1.0.0",
     "license": "AGPL-3",
     "category": "Human Resources",
-    "author": "Eficent, Odoo Community Association (OCA)",
+    "author": "Eficent, Odoo Community Association (OCA)"
+              "Serpent Consulting Services Pvt. Ltd.,",
     "depends": [
         'hr_payroll_cancel'
     ],
