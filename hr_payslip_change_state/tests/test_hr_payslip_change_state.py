@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 # © 2016 - Eficent http://www.eficent.com/
+# Copyright 2017 Serpent Consulting Services Pvt. Ltd.
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
-from openerp.tests.common import TransactionCase
-from openerp.exceptions import UserError
+from odoo.tests.common import TransactionCase
+from odoo.exceptions import UserError
 
 
 class TestHrPayslipChangeState(TransactionCase):
@@ -16,15 +17,19 @@ class TestHrPayslipChangeState(TransactionCase):
     def test_change_state(self):
         payslip_model = self.payslip_model
         tested_model = self.tested_model
-        contract = self.contract_model.create({'employee_id': 1,
-                                               'name': 'demo',
-                                               'wage': 10000,
-                                               'struct_id': 1})
+        contract = self.contract_model.create({
+            'employee_id': 1,
+            'name': 'demo',
+            'wage': 10000,
+            'struct_id': 1
+        })
 
-        payslip = payslip_model.create({'employee_id': 1,
-                                        'name': 'test_payslip',
-                                        'contract_id': contract.id,
-                                        'struct_id': 1})
+        payslip = payslip_model.create({
+            'employee_id': 1,
+            'name': 'test_payslip',
+            'contract_id': contract.id,
+            'struct_id': 1
+        })
 
         context = {'active_ids': [payslip.id]}
         action = tested_model.with_context(context).create({'state': 'verify'})
