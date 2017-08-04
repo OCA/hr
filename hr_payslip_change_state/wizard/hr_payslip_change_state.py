@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 # © 2016 - Eficent http://www.eficent.com/
+# Copyright 2017 Serpent Consulting Services Pvt. Ltd.
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
-from openerp import models, fields, api
-from openerp.tools.translate import _
-from openerp.exceptions import Warning as UserError
+from odoo import models, fields, api
+from odoo.tools.translate import _
+from odoo.exceptions import UserError
 
 
 class HrPayslipChangeState(models.TransientModel):
@@ -35,7 +36,7 @@ class HrPayslipChangeState(models.TransientModel):
         for rec in records:
             if new_state == 'draft':
                 if rec.state == 'cancel':
-                    rec.signal_workflow("draft")
+                    rec.action_payslip_draft()
                 else:
                     raise UserError(_("Only rejected payslips can be reset to "
                                       "draft, the payslip %s is in "
@@ -49,7 +50,7 @@ class HrPayslipChangeState(models.TransientModel):
                                       "%s state" % (rec.name, rec.state)))
             elif new_state == 'done':
                 if rec.state in ('verify', 'draft'):
-                    rec.signal_workflow("hr_verify_sheet")
+                    rec.action_payslip_done()
                 else:
                     raise UserError(
                         _("Only payslips in states verify or draft"
@@ -57,7 +58,7 @@ class HrPayslipChangeState(models.TransientModel):
                           "%s state" % (rec.name, rec.state)))
             elif new_state == 'cancel':
                 if rec.state != 'cancel':
-                    rec.signal_workflow("cancel_sheet")
+                    rec.action_payslip_cancel()
                 else:
                     raise UserError(_("The payslip %s is already canceled "
                                     "please deselect it" % rec.name))
