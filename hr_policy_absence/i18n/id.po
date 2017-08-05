@@ -1,0 +1,191 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+# * hr_policy_absence
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: hr (7.0)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-07-29 02:28+0000\n"
+"PO-Revision-Date: 2015-07-27 23:40+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: Indonesian (http://www.transifex.com/oca/OCA-hr-7-0/language/id/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: id\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. module: hr_policy_absence
+#: model:hr.holidays.status,name:hr_policy_absence.holiday_status_unpaid
+msgid "Unpaid Time Off"
+msgstr ""
+
+#. module: hr_policy_absence
+#: model:hr.holidays.status,name:hr_policy_absence.holiday_status_wedding
+msgid "Wedding Leave"
+msgstr ""
+
+#. module: hr_policy_absence
+#: model:hr.holidays.status,name:hr_policy_absence.holiday_status_annual
+msgid "Annual Leave"
+msgstr ""
+
+#. module: hr_policy_absence
+#: model:hr.holidays.status,name:hr_policy_absence.holiday_status_maternity_medical
+msgid "Maternity Medical Leave"
+msgstr ""
+
+#. module: hr_policy_absence
+#: model:ir.model,name:hr_policy_absence.model_hr_policy_line_absence
+msgid "hr.policy.line.absence"
+msgstr ""
+
+#. module: hr_policy_absence
+#: model:ir.model,name:hr_policy_absence.model_hr_policy_group
+msgid "HR Policy Groups"
+msgstr ""
+
+#. module: hr_policy_absence
+#: model:hr.holidays.status,name:hr_policy_absence.holiday_status_awol
+#: field:hr.policy.line.absence,use_awol:0
+msgid "Absent Without Leave"
+msgstr ""
+
+#. module: hr_policy_absence
+#: field:hr.policy.line.absence,policy_id:0
+msgid "Policy"
+msgstr ""
+
+#. module: hr_policy_absence
+#: field:hr.policy.line.absence,type:0
+msgid "Type"
+msgstr "Jenis"
+
+#. module: hr_policy_absence
+#: model:hr.holidays.status,name:hr_policy_absence.holiday_status_sl50
+msgid "Sick Leave at 50%"
+msgstr ""
+
+#. module: hr_policy_absence
+#: view:hr.policy.absence:0 view:hr.policy.line.absence:0
+msgid "Absence Lines"
+msgstr ""
+
+#. module: hr_policy_absence
+#: model:ir.model,name:hr_policy_absence.model_hr_policy_absence
+msgid "hr.policy.absence"
+msgstr ""
+
+#. module: hr_policy_absence
+#: selection:hr.policy.line.absence,type:0
+msgid "Paid"
+msgstr ""
+
+#. module: hr_policy_absence
+#: selection:hr.policy.line.absence,type:0
+msgid "Dock"
+msgstr ""
+
+#. module: hr_policy_absence
+#: help:hr.policy.line.absence,rate:0
+msgid "Multiplier of employee wage."
+msgstr ""
+
+#. module: hr_policy_absence
+#: model:hr.holidays.status,name:hr_policy_absence.holiday_status_paid
+msgid "Paid Time Off"
+msgstr ""
+
+#. module: hr_policy_absence
+#: view:hr.policy.absence:0 field:hr.policy.group,absence_policy_ids:0
+#: view:hr.policy.line.absence:0
+msgid "Absence Policy"
+msgstr ""
+
+#. module: hr_policy_absence
+#: view:hr.policy.absence:0 field:hr.policy.absence,name:0
+#: field:hr.policy.line.absence,name:0
+msgid "Name"
+msgstr "Nama"
+
+#. module: hr_policy_absence
+#: model:hr.holidays.status,name:hr_policy_absence.holiday_status_sl00
+msgid "Sick Leave Without Pay"
+msgstr ""
+
+#. module: hr_policy_absence
+#: help:hr.policy.line.absence,type:0
+msgid ""
+"Determines how the absence will be treated in payroll. The 'Dock Salary' "
+"type will deduct money (useful for salaried employees)."
+msgstr ""
+
+#. module: hr_policy_absence
+#: field:hr.policy.line.absence,holiday_status_id:0
+msgid "Leave"
+msgstr ""
+
+#. module: hr_policy_absence
+#: selection:hr.policy.line.absence,type:0
+msgid "Unpaid"
+msgstr ""
+
+#. module: hr_policy_absence
+#: model:hr.holidays.status,name:hr_policy_absence.holiday_status_civic
+msgid "Civic/Legal/Union Leave"
+msgstr ""
+
+#. module: hr_policy_absence
+#: model:hr.holidays.status,name:hr_policy_absence.holiday_status_bereavement
+msgid "Bereavement Leave"
+msgstr ""
+
+#. module: hr_policy_absence
+#: model:hr.holidays.status,name:hr_policy_absence.holiday_status_maternity
+msgid "Maternity/Paternity Leave"
+msgstr ""
+
+#. module: hr_policy_absence
+#: field:hr.policy.line.absence,code:0
+msgid "Code"
+msgstr ""
+
+#. module: hr_policy_absence
+#: help:hr.policy.line.absence,use_awol:0
+msgid ""
+"Use this policy to record employee time absence not covered by other leaves."
+msgstr ""
+
+#. module: hr_policy_absence
+#: field:hr.policy.absence,date:0
+msgid "Effective Date"
+msgstr ""
+
+#. module: hr_policy_absence
+#: field:hr.policy.line.absence,rate:0
+msgid "Rate"
+msgstr ""
+
+#. module: hr_policy_absence
+#: help:hr.policy.line.absence,code:0
+msgid "Use this code in the salary rules."
+msgstr ""
+
+#. module: hr_policy_absence
+#: view:hr.policy.absence:0
+#: model:ir.actions.act_window,name:hr_policy_absence.open_absence_policy
+#: model:ir.ui.menu,name:hr_policy_absence.menu_hr_absence_policy
+msgid "Absence Policies"
+msgstr ""
+
+#. module: hr_policy_absence
+#: field:hr.policy.absence,line_ids:0
+msgid "Policy Lines"
+msgstr ""
+
+#. module: hr_policy_absence
+#: model:hr.holidays.status,name:hr_policy_absence.holiday_status_training
+msgid "Training Leave"
+msgstr ""

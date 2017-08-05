@@ -1,0 +1,153 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+# * hr_policy_ot
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: hr (7.0)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-07-29 02:28+0000\n"
+"PO-Revision-Date: 2015-07-27 23:40+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: Estonian (http://www.transifex.com/oca/OCA-hr-7-0/language/et/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: et\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: hr_policy_ot
+#: selection:hr.policy.line.ot,type:0
+msgid "Rest Day"
+msgstr ""
+
+#. module: hr_policy_ot
+#: field:hr.policy.line.ot,tz:0
+msgid "Time Zone"
+msgstr ""
+
+#. module: hr_policy_ot
+#: model:ir.model,name:hr_policy_ot.model_hr_policy_line_ot
+msgid "hr.policy.line.ot"
+msgstr ""
+
+#. module: hr_policy_ot
+#: help:hr.policy.line.ot,active_end_time:0
+#: help:hr.policy.line.ot,active_start_time:0
+msgid "Time in 24 hour time format"
+msgstr ""
+
+#. module: hr_policy_ot
+#: view:hr.policy.ot:0
+#: model:ir.actions.act_window,name:hr_policy_ot.open_ot_policy
+#: model:ir.ui.menu,name:hr_policy_ot.menu_hr_ot_policy
+msgid "Overtime Policies"
+msgstr ""
+
+#. module: hr_policy_ot
+#: model:ir.model,name:hr_policy_ot.model_hr_policy_group
+msgid "HR Policy Groups"
+msgstr ""
+
+#. module: hr_policy_ot
+#: help:hr.policy.line.ot,active_after:0
+msgid "Minutes after which this policy applies"
+msgstr ""
+
+#. module: hr_policy_ot
+#: field:hr.policy.line.ot,policy_id:0
+msgid "Policy"
+msgstr ""
+
+#. module: hr_policy_ot
+#: field:hr.policy.line.ot,type:0
+msgid "Type"
+msgstr "Tüüp"
+
+#. module: hr_policy_ot
+#: selection:hr.policy.line.ot,type:0
+msgid "Public Holiday"
+msgstr ""
+
+#. module: hr_policy_ot
+#: field:hr.policy.line.ot,active_after:0
+msgid "Active After"
+msgstr ""
+
+#. module: hr_policy_ot
+#: help:hr.policy.line.ot,rate:0
+msgid "Multiplier of employee wage."
+msgstr ""
+
+#. module: hr_policy_ot
+#: field:hr.policy.line.ot,weekly_working_days:0
+msgid "Weekly Working Days"
+msgstr ""
+
+#. module: hr_policy_ot
+#: view:hr.policy.line.ot:0 field:hr.policy.line.ot,name:0 view:hr.policy.ot:0
+#: field:hr.policy.ot,name:0
+msgid "Name"
+msgstr "Nimi"
+
+#. module: hr_policy_ot
+#: view:hr.policy.line.ot:0 view:hr.policy.ot:0
+msgid "Overtime Lines"
+msgstr ""
+
+#. module: hr_policy_ot
+#: selection:hr.policy.line.ot,type:0
+msgid "Daily"
+msgstr ""
+
+#. module: hr_policy_ot
+#: field:hr.policy.group,ot_policy_ids:0 view:hr.policy.line.ot:0
+#: view:hr.policy.ot:0
+msgid "Overtime Policy"
+msgstr ""
+
+#. module: hr_policy_ot
+#: field:hr.policy.line.ot,active_end_time:0
+msgid "Active End Time"
+msgstr ""
+
+#. module: hr_policy_ot
+#: view:hr.policy.line.ot:0 field:hr.policy.line.ot,code:0
+msgid "Code"
+msgstr ""
+
+#. module: hr_policy_ot
+#: field:hr.policy.ot,date:0
+msgid "Effective Date"
+msgstr ""
+
+#. module: hr_policy_ot
+#: model:ir.model,name:hr_policy_ot.model_hr_policy_ot
+msgid "hr.policy.ot"
+msgstr ""
+
+#. module: hr_policy_ot
+#: field:hr.policy.line.ot,rate:0
+msgid "Rate"
+msgstr ""
+
+#. module: hr_policy_ot
+#: help:hr.policy.line.ot,code:0
+msgid "Use this code in the salary rules."
+msgstr ""
+
+#. module: hr_policy_ot
+#: field:hr.policy.line.ot,active_start_time:0
+msgid "Active Start Time"
+msgstr ""
+
+#. module: hr_policy_ot
+#: field:hr.policy.ot,line_ids:0
+msgid "Policy Lines"
+msgstr ""
+
+#. module: hr_policy_ot
+#: selection:hr.policy.line.ot,type:0
+msgid "Weekly"
+msgstr ""
