@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <record id="view_employee_form" model="ir.ui.view">
+    <field name="name">hr_employee_address_improved hr.employee.form </field>
+    <field name="model">hr.employee</field>
+    <field name="inherit_id" ref="hr.view_employee_form"/>
+    <field name="arch" type="xml">
+      <field name="bank_account_id" position="attributes">
+        <attribute name="domain">['|', ('active', '=', True), ('active', '=', False)]</attribute>
+        <attribute name="context">{
+          'default_supplier': True,
+          'default_customer': False,
+          'default_active': False,
+          'default_partner_id': address_home_id}</attribute>
+      </field>
+      <field name="address_home_id" position="attributes">
+        <attribute name="context">{
+          'show_address': True,
+          'default_supplier': True,
+          'default_customer': False,
+          'default_active': False}</attribute>
+      </field>
+    </field>
+  </record>
+</odoo>
