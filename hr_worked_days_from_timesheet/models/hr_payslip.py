@@ -2,10 +2,11 @@
 # © 2012 Odoo Canada
 # © 2015 Acysos S.L.
 # © 2017 Eficent Business and IT Consulting Services S.L.
+# Copyright 2017 Serpent Consulting Services Pvt. Ltd.
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html)
 
-from openerp import api, fields, models, _
-from openerp.exceptions import UserError
+from odoo import api, fields, models, _
+from odoo.exceptions import UserError
 
 
 class HrPayslip(models.Model):
@@ -55,7 +56,6 @@ class HrPayslip(models.Model):
         """
         self._check_contract()
         for payslip in self:
-
             date_from = payslip.date_from
             date_to = payslip.date_to
 
@@ -80,7 +80,6 @@ class HrPayslip(models.Model):
                     _("Sorry, but there is no approved Timesheets for the \
                     entire Payslip period"),
                 )
-
             # The reason to call this method is for other modules to modify it.
             self._timesheet_mapping(timesheet_sheets, payslip,
                                     date_from, date_to)
