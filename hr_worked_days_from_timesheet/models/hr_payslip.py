@@ -48,6 +48,23 @@ class HrPayslip(models.Model):
                     _("Contract is not defined for one or more payslips."),
                 )
 
+    @api.model
+    def get_timesheets_from_employee(self, employee, date_from, date_to):
+        criteria = [
+            ('date_from', '>=', date_from),
+            ('date_to', '<=', date_to),
+            ('state', '=', 'done'),
+            ('employee_id', '=', employee.id),
+        ]
+        ts_model = self.env['hr_timesheet_sheet.sheet']
+        timesheet_sheets = ts_model.search(criteria)
+        if not timesheet_sheets:
+            raise UserError(
+                _("Sorry, but there is no approved Timesheets for the \
+                entire Payslip period for user %s") % employee.name,
+            )
+        return timesheet_sheets
+
     @api.multi
     def import_worked_days(self):
         """This method retreives the employee's timesheets for a payslip period
@@ -66,19 +83,8 @@ class HrPayslip(models.Model):
                  ('imported_from_timesheet', '=', True)]).unlink()
 
             # get timesheet sheets of employee
-            criteria = [
-                ('date_from', '>=', date_from),
-                ('date_to', '<=', date_to),
-                ('state', '=', 'done'),
-                ('employee_id', '=', payslip.employee_id.id),
-            ]
-            ts_model = self.env['hr_timesheet_sheet.sheet']
-            timesheet_sheets = ts_model.search(criteria)
-            if not timesheet_sheets:
-                raise UserError(
-                    _("Sorry, but there is no approved Timesheets for the \
-                    entire Payslip period"),
-                )
+            timesheet_sheets = self.get_timesheets_from_employee(
+                payslip.employee_id, date_from, date_to)
             # The reason to call this method is for other modules to modify it.
             self._timesheet_mapping(timesheet_sheets, payslip,
                                     date_from, date_to)
