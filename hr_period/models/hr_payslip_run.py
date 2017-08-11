@@ -87,7 +87,7 @@ class HrPayslipRun(models.Model):
         period = self.hr_period_id
         if period:
             self.date_start = period.date_start
-            self.date_end = period.date_stop
+            self.date_end = period.date_end
             self.date_payment = period.date_payment
             self.schedule_pay = period.schedule_pay
 

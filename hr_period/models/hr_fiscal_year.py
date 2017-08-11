@@ -130,7 +130,8 @@ class HrFiscalYear(models.Model):
     )
 
     type_id = fields.Many2one(
-        'date.range.type',
+        comodel_name='date.range.type',
+        string='Date Range Type',
         required=True,
         readonly=True,
         states={'draft': [('readonly', False)]},
