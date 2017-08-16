@@ -8,8 +8,7 @@
     "version": "10.0.1.0.0",
     "license": "AGPL-3",
     "category": "Human Resources",
-    "author": "Eficent, Odoo Community Association (OCA)"
-              "Serpent Consulting Services Pvt. Ltd.,",
+    "author": "Eficent, Odoo Community Association (OCA)",
     "depends": [
         'hr_payroll_cancel'
     ],
