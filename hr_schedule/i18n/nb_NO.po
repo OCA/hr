@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-18 02:58+0000\n"
+"POT-Creation-Date: 2017-08-05 02:23+0000\n"
 "PO-Revision-Date: 2015-07-27 23:40+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Norwegian Bokmål (Norway) (http://www.transifex.com/oca/OCA-hr-7-0/language/nb_NO/)\n"
@@ -275,7 +275,7 @@ msgstr ""
 #: field:hr.schedule,state:0 field:hr.schedule.alert,state:0
 #: field:hr.schedule.detail,state:0 field:hr.schedule.request,state:0
 msgid "State"
-msgstr ""
+msgstr "Stat"
 
 #. module: hr_schedule
 #: field:hr.schedule,message_follower_ids:0

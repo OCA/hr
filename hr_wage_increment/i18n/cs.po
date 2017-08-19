@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-18 02:58+0000\n"
+"POT-Creation-Date: 2017-08-05 02:23+0000\n"
 "PO-Revision-Date: 2015-07-27 23:41+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Czech (http://www.transifex.com/oca/OCA-hr-7-0/language/cs/)\n"
@@ -91,7 +91,7 @@ msgstr ""
 #: view:hr.contract.wage.increment.run:0
 #: field:hr.contract.wage.increment.run,state:0
 msgid "State"
-msgstr ""
+msgstr "Stav"
 
 #. module: hr_wage_increment
 #: selection:hr.contract.wage.increment,state:0

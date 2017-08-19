@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-18 02:58+0000\n"
+"POT-Creation-Date: 2017-08-05 02:23+0000\n"
 "PO-Revision-Date: 2015-07-27 23:41+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Norwegian Bokmål (http://www.transifex.com/oca/OCA-hr-7-0/language/nb/)\n"
@@ -35,7 +35,7 @@ msgstr ""
 #. module: hr_simplify
 #: field:hr.contract,state:0
 msgid "State"
-msgstr ""
+msgstr "Status"
 
 #. module: hr_simplify
 #: model:ir.model,name:hr_simplify.model_hr_contract
