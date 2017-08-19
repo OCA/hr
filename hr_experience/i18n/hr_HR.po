@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-24 02:15+0000\n"
-"PO-Revision-Date: 2016-12-27 08:23+0000\n"
+"POT-Creation-Date: 2017-08-05 02:29+0000\n"
+"PO-Revision-Date: 2017-08-11 11:57+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Croatian (Croatia) (http://www.transifex.com/oca/OCA-hr-8-0/language/hr_HR/)\n"
 "MIME-Version: 1.0\n"
@@ -256,7 +256,7 @@ msgstr ""
 #: field:hr.academic,name:0 field:hr.certification,name:0
 #: field:hr.curriculum,name:0 field:hr.experience,name:0
 msgid "Name"
-msgstr ""
+msgstr "Naziv"
 
 #. module: hr_experience
 #: view:hr.academic:hr_experience.view_academic_form

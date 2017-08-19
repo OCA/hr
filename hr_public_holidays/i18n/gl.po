@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-31 03:30+0000\n"
+"POT-Creation-Date: 2017-08-05 02:30+0000\n"
 "PO-Revision-Date: 2016-04-05 07:13+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Galician (http://www.transifex.com/oca/OCA-hr-8-0/language/gl/)\n"
@@ -86,7 +86,7 @@ msgstr "Última actualización en"
 #: field:hr.holidays.public,display_name:0
 #: field:hr.holidays.public.line,name:0
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 #. module: hr_public_holidays
 #: view:hr.holidays.public:hr_public_holidays.view_public_holidays_form
