@@ -1,10 +1,10 @@
 # -*- coding:utf-8 -*-
 # Copyright 2015 Savoir-faire Linux. All Rights Reserved.
+# Copyright 2017 Serpent Consulting Services Pvt. Ltd.
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import models, fields, api, _
+from odoo import api, fields, models, _
 from odoo.exceptions import UserError
-
 from .hr_fiscal_year import get_schedules
 
 
@@ -46,9 +46,9 @@ class HrPayslipRun(models.Model):
         for run in self:
             if run.hr_period_id:
                 if run.hr_period_id.company_id != run.company_id:
-                    raise UserError("The company on the selected period must "
-                                    "be the same as the company on the  "
-                                    "payslip batch.")
+                    raise UserError("""The company on the selected period must
+                                    be the same as the company on the
+                                    payslip batch.""")
 
     @api.multi
     @api.constrains('hr_period_id', 'schedule_pay')
@@ -56,9 +56,9 @@ class HrPayslipRun(models.Model):
         for run in self:
             if run.hr_period_id:
                 if run.hr_period_id.schedule_pay != run.schedule_pay:
-                    raise UserError("The schedule on the selected period must "
-                                    "be the same as the schedule on the "
-                                    "payslip batch.")
+                    raise UserError("""The schedule on the selected period must
+                                    be the same as the schedule on the
+                                    payslip batch.""")
 
     @api.model
     def get_default_schedule(self, company_id):
@@ -72,13 +72,12 @@ class HrPayslipRun(models.Model):
             if fys else 'monthly'
         )
 
-    @api.onchange('company_id', 'schedule_pay')
     @api.multi
+    @api.onchange('company_id', 'schedule_pay')
     def onchange_company_id(self):
         self.ensure_one()
         schedule_pay = self.schedule_pay or self.get_default_schedule(
             self.company_id.id)
-
         if self.company_id and schedule_pay:
             period = self.env['hr.period'].get_next_period(self.company_id.id,
                                                            schedule_pay,)
@@ -89,7 +88,7 @@ class HrPayslipRun(models.Model):
         period = self.hr_period_id
         if period:
             self.date_start = period.date_start
-            self.date_end = period.date_stop
+            self.date_end = period.date_end
             self.date_payment = period.date_payment
             self.schedule_pay = period.schedule_pay
 
@@ -135,8 +134,7 @@ class HrPayslipRun(models.Model):
         for run in self:
             if next((p for p in run.slip_ids if p.state == 'draft'), False):
                 raise UserError("The payslip batch %s still has unconfirmed "
-                                "pay slips." % (run.name))
-
+                                "pay slips." % run.name)
         self.update_periods()
         return super(HrPayslipRun, self).close_payslip_run()
 
@@ -146,8 +144,9 @@ class HrPayslipRun(models.Model):
             run.hr_period_id.button_re_open()
         return super(HrPayslipRun, self).draft_payslip_run()
 
-    @api.one
+    @api.multi
     def update_periods(self):
+        self.ensure_one()
         period = self.hr_period_id
         if period:
             # Close the current period
@@ -157,6 +156,5 @@ class HrPayslipRun(models.Model):
             fiscal_year = period.fiscalyear_id
             next_period = fiscal_year.search_period(
                 number=period.number + 1)
-
             if next_period:
                 next_period.button_open()

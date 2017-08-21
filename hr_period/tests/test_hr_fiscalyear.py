@@ -3,7 +3,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from datetime import datetime
-from odoo.tests import common
+from openerp.tests import common
 
 
 class TestHrFiscalyear(common.TransactionCase):
@@ -15,21 +15,29 @@ class TestHrFiscalyear(common.TransactionCase):
         self.run_model = self.env['hr.payslip.run']
         self.fy_model = self.env['hr.fiscalyear']
         self.period_model = self.env['hr.period']
+        self.data_range_type_model = self.env['date.range.type']
 
         self.company_id = self.company_model.create({'name': 'Company 1'})
 
         self.today = datetime.now().date()
-
+        self.type = self.create_data_range_type('test_hr_period')
         self.vals = {
             'company_id': self.company_id.id,
             'date_start': '2015-01-01',
             'date_stop': '2015-12-31',
             'schedule_pay': 'monthly',
+            'type_id': self.type.id,
             'payment_day': '2',
             'payment_weekday': '0',
             'payment_week': '1',
             'name': 'Test',
         }
+
+    def create_data_range_type(self, name):
+        return self.data_range_type_model.create({
+            'name': name,
+            'active': True
+        })
 
     def create_fiscal_year(self, vals=None):
         if vals is None:
@@ -45,7 +53,7 @@ class TestHrFiscalyear(common.TransactionCase):
         if date_start:
             self.assertEqual(period.date_start, date_start)
         if date_stop:
-            self.assertEqual(period.date_stop, date_stop)
+            self.assertEqual(period.date_end, date_stop)
         if date_payment:
             self.assertEqual(period.date_payment, date_payment)
 
@@ -59,19 +67,6 @@ class TestHrFiscalyear(common.TransactionCase):
         self.check_period(periods[2], '2015-03-01', '2015-03-31', '2015-04-02')
         self.check_period(
             periods[11], '2015-12-01', '2015-12-31', '2016-01-02')
-
-    def test_create_periods_daily(self):
-        fy = self.create_fiscal_year({
-            'schedule_pay': 'daily'
-        })
-        fy.create_periods()
-        periods = self.get_periods(fy)
-        self.assertEqual(len(periods), 365)
-        self.check_period(periods[0], '2015-01-01', '2015-01-01', '2015-01-03')
-        self.check_period(periods[1], '2015-01-02', '2015-01-02', '2015-01-04')
-        self.check_period(periods[2], '2015-01-03', '2015-01-03', '2015-01-05')
-        self.check_period(
-            periods[364], '2015-12-31', '2015-12-31', '2016-01-02')
 
     def test_create_periods_monthly_custom_year(self):
         fy = self.create_fiscal_year({
@@ -155,6 +150,7 @@ class TestHrFiscalyear(common.TransactionCase):
         fy = self.create_fiscal_year({
             'schedule_pay': 'weekly',
             'payment_week': '0',
+            'type_id': self.type.id
         })
         fy.create_periods()
         periods = self.get_periods(fy)

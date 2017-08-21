@@ -1,8 +1,9 @@
 # -*- coding:utf-8 -*-
 # Copyright 2015 Savoir-faire Linux. All Rights Reserved.
+# Copyright 2017 Serpent Consulting Services Pvt. Ltd.
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import models, fields, api, _
+from odoo import api, fields, models, _
 from odoo.exceptions import UserError
 
 
@@ -27,9 +28,9 @@ class HrPayslip(models.Model):
         for slip in self:
             if slip.hr_period_id:
                 if slip.hr_period_id.company_id != slip.company_id:
-                    raise UserError("The company on the selected period must "
-                                    "be the same as the company on the "
-                                    "payslip.")
+                    raise UserError("""The company on the selected period must
+                                    be the same as the company on the
+                                    payslip.""")
 
     @api.onchange('company_id', 'contract_id')
     def onchange_company_id(self):
@@ -50,11 +51,8 @@ class HrPayslip(models.Model):
             period = self.env['hr.period'].get_next_period(
                 employee.company_id.id, contract.schedule_pay)
             if period:
-                res['value'].update({
-                    'hr_period_id': period.id if period else False,
-                    'name': _('Salary Slip of %s for %s') % (
-                        employee.name, period.name),
-                })
+                self.hr_period_id = period.id if period else False
+                self.name = 'Salary Slip of '+employee.name+' for '+period.name
         return res
 
     @api.onchange('hr_period_id')
@@ -62,7 +60,7 @@ class HrPayslip(models.Model):
         if self.hr_period_id:
             period = self.hr_period_id
             self.date_from = period.date_start
-            self.date_to = period.date_stop
+            self.date_to = period.date_end
             self.date_payment = period.date_payment
 
     @api.model
@@ -70,15 +68,12 @@ class HrPayslip(models.Model):
         if vals.get('payslip_run_id'):
             payslip_run = self.env['hr.payslip.run'].browse(
                 vals['payslip_run_id'])
-
             employee = self.env['hr.employee'].browse(vals['employee_id'])
             period = payslip_run.hr_period_id
-
             vals['date_payment'] = payslip_run.date_payment
             vals['hr_period_id'] = period.id
             vals['name'] = _('Salary Slip of %s for %s') % (
                 employee.name, period.name)
-
         elif vals.get('date_to') and not vals.get('date_payment'):
             vals['date_payment'] = vals['date_to']
         return super(HrPayslip, self).create(vals)

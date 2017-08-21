@@ -38,7 +38,6 @@
             <xpath expr="//form/sheet/group/label[1]" position="replace">
                 <label for="date_start" string="Date"/>
             </xpath>
-
              <button name="%(hr_payroll.action_hr_payslip_by_employees)d"
                  type="action" states="draft"
                  class="oe_highlight"
@@ -50,7 +49,6 @@
                     string="Generate Payslips"
                     class="oe_highlight"/>
             </button>
-
         </field>
     </record>
 
@@ -59,13 +57,11 @@
         <field name="model">hr.payslip.run</field>
         <field name="inherit_id" ref="hr_payroll.hr_payslip_run_filter"/>
         <field name="arch" type="xml">
-
             <field name="name" position="after">
                 <field name="company_id"/>
                 <field name="date_payment"/>
                 <field name="schedule_pay"/>
             </field>
-
             <search position="inside">
                 <group string="Group By...">
                     <filter
@@ -83,7 +79,6 @@
                         context="{'group_by':'date_payment'}"/>
                 </group>
             </search>
-
         </field>
     </record>
 
@@ -92,12 +87,12 @@
         <field name="model">hr.payslip.run</field>
         <field name="inherit_id" ref="hr_payroll.hr_payslip_run_tree"/>
         <field name="arch" type="xml">
-                <field name="date_end" position="after">
-                    <field name="date_payment"/>
-                    <field name="schedule_pay"/>
-                    <field name="company_id"
-                        groups="base.group_multi_company"/>
-                </field>
+            <field name="date_end" position="after">
+                <field name="date_payment"/>
+                <field name="schedule_pay"/>
+                <field name="company_id"
+                    groups="base.group_multi_company"/>
+            </field>
         </field>
     </record>
 

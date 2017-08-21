@@ -17,7 +17,6 @@
                 <field name="date_payment"
                     required="1"/>
             </field>
-
         </field>
     </record>
 
