@@ -2,9 +2,9 @@
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-==================================
-HR Holiday Notify Employee Manager
-==================================
+===================================
+HR Holidays Notify Employee Manager
+===================================
 
 This module extends the functionality of the Leaves App to make possible
 to notify by mail the manager of the employee requesting the leave.
@@ -14,9 +14,7 @@ Configuration
 
 To configure this module, you need to:
 
-#. Go to *Settings > Users > Companies*.
-#. In the company form go to the *Configuration* tab and in the *Leaves
-   Management* section.
+#. Go to *Leaves > Configuration > Settings*.
 #. Check *Leave Requests notified to employee's manager* box.
 
 Usage
@@ -30,7 +28,7 @@ To use this module, you need to:
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
-   :target: https://runbot.odoo-community.org/runbot/116/9.0
+   :target: https://runbot.odoo-community.org/runbot/116/10.0
 
 Bug Tracker
 ===========
@@ -52,6 +50,7 @@ Contributors
 ------------
 
 * Lois Rilo <lois.rilo@eficent.com>
+* Miquel Raïch <miquel.raich@eficent.com>
 
 Maintainer
 ----------
