@@ -26,7 +26,9 @@ class HrPayslip(models.Model):
             number_of_hours = 0
             for ts in ts_sheet.timesheet_ids:
                 if date_from <= ts.date <= date_to:
-                    unit_amount = ts.unit_amount
+                    unit_amount = ts.product_id.uom_id._compute_quantity(
+                        ts.unit_amount,
+                        ts.product_id.uom_id)
                     number_of_hours += unit_amount
             if number_of_hours > 0:
                 self.env['hr.payslip.worked_days'].create({
