@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-05 02:22+0000\n"
+"POT-Creation-Date: 2017-08-19 02:34+0000\n"
 "PO-Revision-Date: 2015-07-27 23:39+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Portuguese (Portugal) (http://www.transifex.com/oca/OCA-hr-7-0/language/pt_PT/)\n"
@@ -153,7 +153,7 @@ msgstr ""
 #. module: hr_leave_accruals
 #: field:hr.leave.accrual.line,amount:0
 msgid "Amount"
-msgstr ""
+msgstr "Valor"
 
 #. module: hr_leave_accruals
 #: field:hr.leave.accrual,total_hours:0

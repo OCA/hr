@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-05 02:23+0000\n"
+"POT-Creation-Date: 2017-08-19 02:34+0000\n"
 "PO-Revision-Date: 2015-07-27 23:40+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Swedish (http://www.transifex.com/oca/OCA-hr-7-0/language/sv/)\n"
@@ -589,7 +589,7 @@ msgstr ""
 #. module: hr_schedule
 #: field:hr.schedule.alert.rule,active:0
 msgid "Active"
-msgstr ""
+msgstr "Aktiv"
 
 #. module: hr_schedule
 #: field:hr.schedule,date_start:0
@@ -692,7 +692,7 @@ msgstr ""
 #. module: hr_schedule
 #: view:hr.schedule.alert.compute:0 view:hr.schedule.validate.departments:0
 msgid "Close"
-msgstr ""
+msgstr "Stäng"
 
 #. module: hr_schedule
 #: code:addons/hr_schedule/hr_schedule.py:785
