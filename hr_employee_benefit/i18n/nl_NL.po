@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-10 04:45+0000\n"
-"PO-Revision-Date: 2017-06-30 08:53+0000\n"
+"POT-Creation-Date: 2017-08-19 02:40+0000\n"
+"PO-Revision-Date: 2017-08-29 08:01+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/oca/OCA-hr-8-0/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
@@ -92,7 +92,7 @@ msgstr ""
 #: field:hr.employee.benefit.rate.line,create_uid:0
 #: field:hr.payslip.benefit.line,create_uid:0
 msgid "Created by"
-msgstr ""
+msgstr "Aangemaakt door"
 
 #. module: hr_employee_benefit
 #: field:hr.employee.benefit,create_date:0
@@ -101,12 +101,12 @@ msgstr ""
 #: field:hr.employee.benefit.rate.line,create_date:0
 #: field:hr.payslip.benefit.line,create_date:0
 msgid "Created on"
-msgstr ""
+msgstr "Aangemaakt op"
 
 #. module: hr_employee_benefit
 #: field:hr.employee.benefit.category,description:0
 msgid "Description"
-msgstr ""
+msgstr "Omschrijving"
 
 #. module: hr_employee_benefit
 #: field:hr.employee.benefit,display_name:0
@@ -252,7 +252,7 @@ msgstr "Laatst gewijzigd op"
 #: field:hr.employee.benefit.rate.line,write_uid:0
 #: field:hr.payslip.benefit.line,write_uid:0
 msgid "Last Updated by"
-msgstr ""
+msgstr "Laatst bijgewerkt door"
 
 #. module: hr_employee_benefit
 #: field:hr.employee.benefit,write_date:0
@@ -261,7 +261,7 @@ msgstr ""
 #: field:hr.employee.benefit.rate.line,write_date:0
 #: field:hr.payslip.benefit.line,write_date:0
 msgid "Last Updated on"
-msgstr ""
+msgstr "Laatst bijgewerkt op"
 
 #. module: hr_employee_benefit
 #: field:hr.employee.benefit.rate,name:0
@@ -307,7 +307,7 @@ msgstr ""
 #: field:hr.employee.benefit.category,reference:0
 #: field:hr.payslip.benefit.line,reference:0
 msgid "Reference"
-msgstr ""
+msgstr "Referentie"
 
 #. module: hr_employee_benefit
 #: view:hr.payslip:hr_employee_benefit.view_hr_payslip_form

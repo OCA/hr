@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-10 04:45+0000\n"
-"PO-Revision-Date: 2017-06-30 08:53+0000\n"
+"POT-Creation-Date: 2017-08-19 02:40+0000\n"
+"PO-Revision-Date: 2017-08-29 08:01+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/oca/OCA-hr-8-0/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
@@ -113,13 +113,13 @@ msgstr ""
 #: field:hr.academic,create_uid:0 field:hr.certification,create_uid:0
 #: field:hr.curriculum,create_uid:0 field:hr.experience,create_uid:0
 msgid "Created by"
-msgstr ""
+msgstr "Aangemaakt door"
 
 #. module: hr_experience
 #: field:hr.academic,create_date:0 field:hr.certification,create_date:0
 #: field:hr.curriculum,create_date:0 field:hr.experience,create_date:0
 msgid "Created on"
-msgstr ""
+msgstr "Aangemaakt op"
 
 #. module: hr_experience
 #: view:hr.academic:hr_experience.view_academic_form
@@ -137,7 +137,7 @@ msgstr ""
 #: view:hr.experience:hr_experience.view_professional_form
 #: field:hr.experience,description:0
 msgid "Description"
-msgstr ""
+msgstr "Omschrijving"
 
 #. module: hr_experience
 #: field:hr.academic,diploma:0
@@ -236,13 +236,13 @@ msgstr "Laatst gewijzigd op"
 #: field:hr.academic,write_uid:0 field:hr.certification,write_uid:0
 #: field:hr.curriculum,write_uid:0 field:hr.experience,write_uid:0
 msgid "Last Updated by"
-msgstr ""
+msgstr "Laatst bijgewerkt door"
 
 #. module: hr_experience
 #: field:hr.academic,write_date:0 field:hr.certification,write_date:0
 #: field:hr.curriculum,write_date:0 field:hr.experience,write_date:0
 msgid "Last Updated on"
-msgstr ""
+msgstr "Laatst bijgewerkt op"
 
 #. module: hr_experience
 #: field:hr.academic,location:0 help:hr.academic,location:0

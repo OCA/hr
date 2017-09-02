@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-10 04:45+0000\n"
-"PO-Revision-Date: 2017-06-30 08:53+0000\n"
+"POT-Creation-Date: 2017-08-19 02:40+0000\n"
+"PO-Revision-Date: 2017-08-29 08:01+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/oca/OCA-hr-8-0/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
@@ -75,12 +75,12 @@ msgstr ""
 #. module: hr_language
 #: field:hr.language,create_uid:0
 msgid "Created by"
-msgstr ""
+msgstr "Aangemaakt door"
 
 #. module: hr_language
 #: field:hr.language,create_date:0
 msgid "Created on"
-msgstr ""
+msgstr "Aangemaakt op"
 
 #. module: hr_language
 #: selection:hr.language,name:0
@@ -100,7 +100,7 @@ msgstr ""
 #. module: hr_language
 #: field:hr.language,description:0
 msgid "Description"
-msgstr ""
+msgstr "Omschrijving"
 
 #. module: hr_language
 #: field:hr.language,display_name:0
@@ -276,12 +276,12 @@ msgstr "Laatst gewijzigd op"
 #. module: hr_language
 #: field:hr.language,write_uid:0
 msgid "Last Updated by"
-msgstr ""
+msgstr "Laatst bijgewerkt door"
 
 #. module: hr_language
 #: field:hr.language,write_date:0
 msgid "Last Updated on"
-msgstr ""
+msgstr "Laatst bijgewerkt op"
 
 #. module: hr_language
 #: selection:hr.language,name:0

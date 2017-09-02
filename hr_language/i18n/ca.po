@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-28 03:12+0000\n"
-"PO-Revision-Date: 2017-03-24 09:00+0000\n"
+"POT-Creation-Date: 2017-08-19 02:40+0000\n"
+"PO-Revision-Date: 2017-08-21 07:18+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Catalan (http://www.transifex.com/oca/OCA-hr-8-0/language/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -252,7 +252,7 @@ msgstr ""
 #: view:hr.employee:hr_language.view_employee_form
 #: view:hr.language:hr_language.view_language_form field:hr.language,name:0
 msgid "Language"
-msgstr ""
+msgstr "Idioma"
 
 #. module: hr_language
 #: view:hr.employee:hr_language.view_employee_form

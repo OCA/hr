@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-10 04:44+0000\n"
+"POT-Creation-Date: 2017-08-19 02:40+0000\n"
 "PO-Revision-Date: 2015-07-27 23:43+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/oca/OCA-hr-8-0/language/nl_NL/)\n"
@@ -31,12 +31,12 @@ msgstr ""
 #. module: hr_contract_multi_jobs
 #: field:hr.contract.job,create_uid:0
 msgid "Created by"
-msgstr ""
+msgstr "Aangemaakt door"
 
 #. module: hr_contract_multi_jobs
 #: field:hr.contract.job,create_date:0
 msgid "Created on"
-msgstr ""
+msgstr "Aangemaakt op"
 
 #. module: hr_contract_multi_jobs
 #: field:hr.contract.job,display_name:0
@@ -76,12 +76,12 @@ msgstr "Laatst gewijzigd op"
 #. module: hr_contract_multi_jobs
 #: field:hr.contract.job,write_uid:0
 msgid "Last Updated by"
-msgstr ""
+msgstr "Laatst bijgewerkt door"
 
 #. module: hr_contract_multi_jobs
 #: field:hr.contract.job,write_date:0
 msgid "Last Updated on"
-msgstr ""
+msgstr "Laatst bijgewerkt op"
 
 #. module: hr_contract_multi_jobs
 #: field:hr.contract.job,is_main_job:0
