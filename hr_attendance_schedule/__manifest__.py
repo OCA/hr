@@ -36,5 +36,5 @@
     'demo': [
         'demo/hr_attendance_schedule.xml',
     ],
-    'installable': True, 
+    'installable': True,
 }

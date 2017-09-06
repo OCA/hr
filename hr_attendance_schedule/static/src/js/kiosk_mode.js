@@ -18,12 +18,12 @@ odoo.define('hr_attendance_schedule.kiosk_mode', function(require){
     },
 
     _init_clock_loop: function() {
-      self = this;
+      var self = this;
       var update = function() {
         var date = new Date(Date.now() + self._clock_offset);
         var time_string = date.toLocaleTimeString(navigator.language, {hour: '2-digit', minute: '2-digit'});
         self.$('.o_hr_attendance_clock').text(time_string);
-      }
+      };
       this.clock_start = setInterval(update, 500);
       update();
     }

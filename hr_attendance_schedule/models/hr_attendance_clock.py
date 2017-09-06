@@ -5,6 +5,7 @@ from datetime import datetime
 from odoo import api, fields, models
 from odoo.tools.misc import DEFAULT_SERVER_DATETIME_FORMAT
 
+
 class AttendanceClock(models.Model):
     _name = 'hr_attendance_schedule.clock'
     _auto = False

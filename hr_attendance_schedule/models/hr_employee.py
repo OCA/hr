@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from odoo import api, exceptions, fields, models
+from odoo import api, exceptions, fields, models, _
 
 
 class Employee(models.Model):
@@ -8,7 +8,7 @@ class Employee(models.Model):
     schedule_id = fields.Many2one('hr_attendance_schedule.schedule', "Attendance Schedule")
 
     @api.multi
-    def attendance_action_change(self): #pragma: no cover
+    def attendance_action_change(self):  #pragma: no cover
         """ Check In/Check Out action
             Check In: create a new attendance record
             Check Out: modify check_out field of appropriate attendance record
