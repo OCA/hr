@@ -1,0 +1,8 @@
+<odoo>
+  <template id="assets_backend" name="hr_attendance_schedule_assets" inherit_id="web.assets_backend">
+    <xpath expr="." position="inside">
+      <script type="text/javascript" src="/hr_attendance_schedule/static/src/js/kiosk_mode.js" />
+      <script type="text/javascript" src="/hr_attendance_schedule/static/src/js/kiosk_confirm.js" />
+    </xpath>
+  </template>
+</odoo>

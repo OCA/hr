@@ -1,0 +1,61 @@
+<odoo>
+  <record model="ir.ui.view" id="hr_attendance_schedule_view_list">
+    <field name="name">hr_attendance_schedule.list</field>
+    <field name="model">hr_attendance_schedule.schedule</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="active" />
+        <field name="name" />
+        <field name="employee_ids" />
+        <field name="period_ids" />
+      </tree>
+    </field>
+  </record>
+
+  <record model="ir.ui.view" id="hr_attendance_schedule_schedule_view_form">
+    <field name="name">hr_attendance_schedule.schedule.form</field>
+    <field name="model">hr_attendance_schedule.schedule</field>
+    <field name="arch" type="xml">
+      <form>
+        <sheet>
+          <group col="4">
+            <field name="name" />
+            <field name="active" />
+          </group>
+          <group string="Employees">
+            <field name="employee_ids" widget="many2many" nolabel="1">
+              <tree>
+                <field name="name" />
+                <field name="job_id" />
+              </tree>
+            </field>
+          </group>
+          <group string="Periods">
+            <field name="period_ids" nolabel="1">
+              <tree editable="top" edit="true" default_order="start_datetime">
+                <field name="active"/>
+                <field name="start_datetime" />
+                <field name="week_day" />
+                <field name="duration"/>
+                <field name="grace_before_checkin" />
+                <field name="grace_after_checkin" />
+                <field name="grace_before_checkout" />
+                <field name="grace_after_checkout" />
+              </tree>
+            </field>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record model="ir.actions.act_window" id="hr_attendance_schedule_schedule_action">
+    <field name="name">Attendance Schedules</field>
+    <field name="res_model">hr_attendance_schedule.schedule</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+  <menuitem id="hr_attendance_schedule_schedule_menu" name="Schedules" parent="hr_attendance.menu_hr_attendance_manage_attendances"
+            groups="hr_attendance.group_hr_attendance_user"
+            action="hr_attendance_schedule.hr_attendance_schedule_schedule_action" />
+</odoo>

@@ -1,0 +1,85 @@
+<odoo>
+  <record id="hr_attendance_schedule_demo_schedule" model="hr_attendance_schedule.schedule">
+    <field name="name">Day</field>
+  </record>
+
+  <record id="hr_attendance_schedule_period_1" model="hr_attendance_schedule.period">
+    <field name="start_datetime">2017-01-02 08:00:00</field>
+    <field name="schedule_id" ref="hr_attendance_schedule_demo_schedule" />
+    <field name="duration">4</field>
+    <field name="grace_before_checkin">15</field>
+    <field name="grace_after_checkin">5</field>
+    <field name="grace_before_checkout">5</field>
+    <field name="grace_after_checkout">5</field>
+  </record>
+
+  <record id="hr_attendance_schedule_period_2" model="hr_attendance_schedule.period">
+    <field name="start_datetime">2017-01-02 13:00:00</field>
+    <field name="schedule_id" ref="hr_attendance_schedule_demo_schedule" />
+    <field name="duration">4</field>
+    <field name="grace_before_checkin">15</field>
+    <field name="grace_after_checkin">5</field>
+    <field name="grace_before_checkout">5</field>
+    <field name="grace_after_checkout">5</field>
+  </record>
+
+  <record id="hr_attendance_schedule_period_3" model="hr_attendance_schedule.period">
+    <field name="start_datetime">2017-01-03 08:00:00</field>
+    <field name="schedule_id" ref="hr_attendance_schedule_demo_schedule" />
+    <field name="duration">4</field>
+    <field name="grace_before_checkin">15</field>
+    <field name="grace_after_checkin">5</field>
+    <field name="grace_before_checkout">5</field>
+    <field name="grace_after_checkout">5</field>
+  </record>
+
+  <record id="hr_attendance_schedule_period_4" model="hr_attendance_schedule.period">
+    <field name="start_datetime">2017-01-03 13:00:00</field>
+    <field name="schedule_id" ref="hr_attendance_schedule_demo_schedule" />
+    <field name="duration">4</field>
+    <field name="grace_before_checkin">15</field>
+    <field name="grace_after_checkin">5</field>
+    <field name="grace_before_checkout">5</field>
+    <field name="grace_after_checkout">5</field>
+  </record>
+
+  <record id="hr_attendance_schedule_period_5" model="hr_attendance_schedule.period">
+    <field name="start_datetime">2017-01-05 08:00:00</field>
+    <field name="schedule_id" ref="hr_attendance_schedule_demo_schedule" />
+    <field name="duration">4</field>
+    <field name="grace_before_checkin">15</field>
+    <field name="grace_after_checkin">5</field>
+    <field name="grace_before_checkout">5</field>
+    <field name="grace_after_checkout">5</field>
+  </record>
+
+  <record id="hr_attendance_schedule_period_6" model="hr_attendance_schedule.period">
+    <field name="start_datetime">2017-01-06 00:00:00</field>
+    <field name="schedule_id" ref="hr_attendance_schedule_demo_schedule" />
+    <field name="duration">4</field>
+    <field name="grace_before_checkin">15</field>
+    <field name="grace_after_checkin">5</field>
+    <field name="grace_before_checkout">5</field>
+    <field name="grace_after_checkout">5</field>
+  </record>
+
+  <record id="hr_attendance_schedule_period_7" model="hr_attendance_schedule.period">
+    <field name="start_datetime">2017-01-06 23:58:00</field>
+    <field name="schedule_id" ref="hr_attendance_schedule_demo_schedule" />
+    <field name="duration">4</field>
+    <field name="grace_before_checkin">15</field>
+    <field name="grace_after_checkin">5</field>
+    <field name="grace_before_checkout">5</field>
+    <field name="grace_after_checkout">5</field>
+  </record>
+
+  <record id="hr_attendance_schedule_period_8" model="hr_attendance_schedule.period">
+    <field name="start_datetime">2017-01-08 20:00:00</field>
+    <field name="schedule_id" ref="hr_attendance_schedule_demo_schedule" />
+    <field name="duration">4</field>
+    <field name="grace_before_checkin">15</field>
+    <field name="grace_after_checkin">5</field>
+    <field name="grace_before_checkout">5</field>
+    <field name="grace_after_checkout">5</field>
+  </record>
+</odoo>
