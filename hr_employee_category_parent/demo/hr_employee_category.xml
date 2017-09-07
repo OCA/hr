@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="cat1" model="hr.employee.category">
+            <field name="name">Category 1</field>
+        </record>
+        <record id="cat2" model="hr.employee.category">
+            <field name="name">Category 2</field>
+            <field name="parent_id" ref="cat1" />
+        </record>
+        <record id="cat3" model="hr.employee.category">
+            <field name="name">Category 3</field>
+            <field name="parent_id" ref="cat2" />
+        </record>
+    </data>
+</openerp>
