@@ -30,6 +30,8 @@ Contributors
 * Savoir-faire Linux
 * Daniel Reis
 * Ivan Yelizariev
+* Nicolás Mac Rouillon
+* Yu Weng
 
 Maintainer
 ----------
