@@ -3,15 +3,16 @@
 # * hr_employee_id
 # 
 # Translators:
-# OCA Transbot <transbot@odoo-community.org>, 2016
 # Peter Hageman <hageman.p@gmail.com>, 2017
+# Cas Vissers <casvissers@brahoo.nl>, 2017
+# OCA Transbot <transbot@odoo-community.org>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-01 01:04+0000\n"
-"PO-Revision-Date: 2017-07-01 01:04+0000\n"
-"Last-Translator: Peter Hageman <hageman.p@gmail.com>, 2017\n"
+"POT-Creation-Date: 2017-11-28 01:43+0000\n"
+"PO-Revision-Date: 2017-11-28 01:43+0000\n"
+"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
 "Language-Team: Dutch (Netherlands) (https://www.transifex.com/oca/teams/23907/nl_NL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -150,7 +151,7 @@ msgid "The Employee Number must be unique across the company(s)."
 msgstr "Het Personeelsnummer moet uniek zijn binnen elk bedrijf en bedrijven."
 
 #. module: hr_employee_id
-#: code:addons/hr_employee_id/models/hr_employee.py:50
+#: code:addons/hr_employee_id/models/hr_employee.py:49
 #, python-format
 msgid ""
 "Unable to generate an Employee ID number that                 is unique."
