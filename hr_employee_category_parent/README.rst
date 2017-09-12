@@ -2,9 +2,9 @@
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 
-=====================
-HR category hierarchy
-=====================
+===========================
+HR Employee Category Parent
+===========================
 
 This module was written to restore the employee category hierarchy from v8 and before.
 
