@@ -3,14 +3,15 @@
 # * hr_employee_id
 # 
 # Translators:
-# OCA Transbot <transbot@odoo-community.org>, 2016
+# OCA Transbot <transbot@odoo-community.org>, 2017
+# Niki Waibel <niki.waibel@gmail.com>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-29 01:35+0000\n"
-"PO-Revision-Date: 2016-11-29 01:35+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2016\n"
+"POT-Creation-Date: 2017-11-28 01:43+0000\n"
+"PO-Revision-Date: 2017-11-28 01:43+0000\n"
+"Last-Translator: Niki Waibel <niki.waibel@gmail.com>, 2017\n"
 "Language-Team: German (https://www.transifex.com/oca/teams/23907/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -60,22 +61,22 @@ msgstr ""
 #. module: hr_employee_id
 #: model:ir.model.fields,field_description:hr_employee_id.field_hr_employeeid_config_settings_create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Erstellt von"
 
 #. module: hr_employee_id
 #: model:ir.model.fields,field_description:hr_employee_id.field_hr_employeeid_config_settings_create_date
 msgid "Created on"
-msgstr ""
+msgstr "Angelegt am"
 
 #. module: hr_employee_id
 #: model:ir.model.fields,field_description:hr_employee_id.field_hr_employeeid_config_settings_display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Anzeigename"
 
 #. module: hr_employee_id
 #: model:ir.model,name:hr_employee_id.model_hr_employee
 msgid "Employee"
-msgstr "Angestellte"
+msgstr "Angestellter"
 
 #. module: hr_employee_id
 #: model:ir.ui.menu,name:hr_employee_id.menu_account_config
@@ -96,7 +97,7 @@ msgstr ""
 #. module: hr_employee_id
 #: model:ir.model.fields,field_description:hr_employee_id.field_hr_employeeid_config_settings_id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: hr_employee_id
 #: model:ir.model.fields,field_description:hr_employee_id.field_hr_employeeid_config_settings_employee_id_gen_method
@@ -107,17 +108,17 @@ msgstr ""
 #. module: hr_employee_id
 #: model:ir.model.fields,field_description:hr_employee_id.field_hr_employeeid_config_settings___last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Zuletzt geändert am"
 
 #. module: hr_employee_id
 #: model:ir.model.fields,field_description:hr_employee_id.field_hr_employeeid_config_settings_write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Zuletzt aktualisiert durch"
 
 #. module: hr_employee_id
 #: model:ir.model.fields,field_description:hr_employee_id.field_hr_employeeid_config_settings_write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Zuletzt aktualisiert am"
 
 #. module: hr_employee_id
 #: model:ir.model.fields,help:hr_employee_id.field_hr_employeeid_config_settings_employee_id_random_digits
@@ -147,7 +148,7 @@ msgid "The Employee Number must be unique across the company(s)."
 msgstr ""
 
 #. module: hr_employee_id
-#: code:addons/hr_employee_id/models/hr_employee.py:50
+#: code:addons/hr_employee_id/models/hr_employee.py:49
 #, python-format
 msgid ""
 "Unable to generate an Employee ID number that                 is unique."
