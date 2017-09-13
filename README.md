@@ -17,10 +17,12 @@ addon | version | summary
 [hr_contract_default_trial_length](hr_contract_default_trial_length/) | 10.0.1.0.0 | Define default trail length for contracts
 [hr_contract_reference](hr_contract_reference/) | 10.0.1.0.0 | HR Contract Reference
 [hr_emergency_contact](hr_emergency_contact/) | 10.0.1.0.0 | HR Emergency Contact
+[hr_employee_address_improved](hr_employee_address_improved/) | 10.0.1.0.0 | HR Employee Address Improved
 [hr_employee_age](hr_employee_age/) | 10.0.1.0.0 | Age field for employee
 [hr_employee_birth_name](hr_employee_birth_name/) | 10.0.1.0.0 | Employee Birth Name
+[hr_employee_category_parent](hr_employee_category_parent/) | 10.0.1.0.0 | Categorize your employee categories
 [hr_employee_firstname](hr_employee_firstname/) | 10.0.1.0.0 | Adds First Name to Employee
-[hr_employee_id](hr_employee_id/) | 10.0.1.0.0 | Employee ID
+[hr_employee_id](hr_employee_id/) | 10.0.1.0.1 | Employee ID
 [hr_employee_phone_extension](hr_employee_phone_extension/) | 10.0.1.0.0 | Employee Phone Extension
 [hr_employee_seniority](hr_employee_seniority/) | 10.0.1.0.0 | Keep Track of Length of Employment
 [hr_employee_social_media](hr_employee_social_media/) | 10.0.1.0.0 | Employee Social Media
