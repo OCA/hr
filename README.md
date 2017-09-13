@@ -26,6 +26,7 @@ addon | version | summary
 [hr_payroll_report](hr_payroll_report/) | 9.0.1.0.0 | Analyze your payroll with the Payslip Lines BI report
 [hr_payslip_change_state](hr_payslip_change_state/) | 9.0.1.0.0 | Change the state of many payslips at a time
 [hr_public_holidays](hr_public_holidays/) | 9.0.1.0.0 | Manage Public Holidays
+[hr_skill](hr_skill/) | 9.0.1.0.0 | Skill Management
 [hr_worked_days_from_timesheet](hr_worked_days_from_timesheet/) | 9.0.1.0.0 | Adds a button to import worked days from timesheet.
 
 
@@ -75,7 +76,6 @@ addon | version | summary
 [hr_salary_rule_variable](hr_salary_rule_variable/) | 1.0 (unported) | Salary Rule Variables
 [hr_schedule](hr_schedule/) | 1.0 (unported) | Employee Shift Scheduling
 [hr_security](hr_security/) | 8.0.1.0.0 (unported) | HR Permission Groups
-[hr_skill](hr_skill/) | 8.0.1.1.0 (unported) | Skill Management
 [hr_transfer](hr_transfer/) | 1.0 (unported) | Departmental Transfer
 [hr_wage_increment](hr_wage_increment/) | 1.0 (unported) | HR Wage Increment
 [hr_webcam](hr_webcam/) | 8.0.1.0.0 (unported) | Capture employee picture with webcam
