@@ -6,9 +6,8 @@ from odoo import api, fields, models
 from odoo.tools.misc import DEFAULT_SERVER_DATETIME_FORMAT
 
 
-class AttendanceClock(models.Model):
+class AttendanceClock(models.AbstractModel):
     _name = 'hr_attendance_schedule.clock'
-    _auto = False
 
     @api.model
     def get_system_clock(self):
