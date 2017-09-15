@@ -7,7 +7,7 @@ from odoo import fields, tests
 class TestEmployee(tests.SingleTransactionCase):
     _employee = None
     _schedule = None
-    
+
     def setUp(self):
         super(TestEmployee, self).setUp()
         self._init_employee()
@@ -15,7 +15,7 @@ class TestEmployee(tests.SingleTransactionCase):
 
     def tearDown(self):
         self._employee.attendance_ids.unlink()
-        self._employee.schedule_id = self._schedule
+        self._employee.calendar_id = self._schedule
         super(TestEmployee, self).tearDown()
 
     def _init_employee(self):
@@ -24,8 +24,8 @@ class TestEmployee(tests.SingleTransactionCase):
 
     def _init_schedule(self):
         if not self._schedule:
-            self._schedule = self.env.ref('hr_attendance_schedule.hr_attendance_schedule_demo_schedule')
-            self._schedule.write({ 'employee_ids': [ (4, self._employee.id) ] })
+            self._schedule = self.env.ref('hr_attendance_schedule.res_calendar_demo_schedule')
+            self._employee.calendar_id = self._schedule
 
     def test_check_in_out_real(self):
         self._attendance('2017-01-09 08:01:11')
@@ -75,7 +75,7 @@ class TestEmployee(tests.SingleTransactionCase):
         self._assert_attendances('2017-01-18 07:57:00', False, needs_approval=True)
 
     def test_check_in_no_schedule(self):
-        self._employee.schedule_id = None
+        self._employee.calendar_id = None
         self._attendance('2017-01-16 08:01:11')
         self._attendance('2017-01-16 12:02:22')
         self._assert_attendances('2017-01-16 08:01:11', '2017-01-16 12:02:22', needs_approval=True)
@@ -98,6 +98,44 @@ class TestEmployee(tests.SingleTransactionCase):
         self._attendance('2017-01-22 19:57:11')
         self._attendance('2017-01-23 00:01:11')
         self._assert_attendances('2017-01-22 20:00:00', '2017-01-23 00:00:00', needs_approval=False)
+
+    def test_check_in_sunday_checkout_monday(self):
+        self._attendance('2017-01-22 21:58:00')
+        self._attendance('2017-01-23 02:02:00')
+        self._assert_attendances('2017-01-22 22:00:00', '2017-01-23 02:00:00', needs_approval=False)
+
+    def test_check_in_before_date_from(self):
+        self._attendance('2016-01-04 07:57:00')
+        self._assert_attendances('2016-01-04 07:57:00', False, needs_approval=True)
+
+    def test_check_in_after_date_to(self):
+        self._attendance('2018-01-08 07:57:00')
+        self._assert_attendances('2018-01-08 07:57:00', False, needs_approval=True)
+
+    def test_check_out_before_date_from(self):
+        self._attendance('2016-01-04 08:00:00')
+        self._attendance('2016-01-04 11:57:00')
+        self._assert_attendances('2016-01-04 08:00:00', '2016-01-04 11:57:00', needs_approval=True)
+
+    def test_check_out_after_date_to(self):
+        self._attendance('2018-01-08 08:00:00')
+        self._attendance('2018-01-08 11:57:00')
+        self._assert_attendances('2018-01-08 08:00:00', '2018-01-08 11:57:00', needs_approval=True)
+
+    def test_check_in_out_at_date_from(self):
+        self._attendance('2017-01-02 07:57:00')
+        self._attendance('2017-01-02 11:57:00')
+        self._assert_attendances('2017-01-02 08:00:00', '2017-01-02 12:00:00', needs_approval=False)
+
+    def test_check_in_out_at_date_to(self):
+        self._attendance('2017-02-06 07:57:00')
+        self._attendance('2017-02-06 11:57:00')
+        self._assert_attendances('2017-02-06 08:00:00', '2017-02-06 12:00:00', needs_approval=False)
+
+    def test_attendance_on_leaf(self):
+        self._attendance('2017-03-07 07:57:00')
+        self._attendance('2017-03-07 11:57:00')
+        self._assert_attendances('2017-03-07 07:57:00', '2017-03-07 11:57:00', needs_approval=True)
 
     def _assert_attendances(self, check_in, check_out, needs_approval):
         self.assertEqual(1, len(self._employee.attendance_ids))

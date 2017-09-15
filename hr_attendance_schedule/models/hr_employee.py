@@ -5,8 +5,6 @@ from odoo import api, exceptions, fields, models, _
 class Employee(models.Model):
     _inherit = 'hr.employee'
 
-    schedule_id = fields.Many2one('hr_attendance_schedule.schedule', "Attendance Schedule")
-
     @api.multi
     def attendance_action_change(self):  #pragma: no cover
         """ Check In/Check Out action
@@ -39,8 +37,8 @@ class Employee(models.Model):
             return attendance
 
     def _get_action_date(self):
-        if self.schedule_id:
+        if self.calendar_id:
             in_out = 'out' if self.attendance_state == 'checked_in' else 'in'
-            return self.schedule_id.get_action_date(in_out)
+            return self.calendar_id.get_action_date(in_out, self)
         else:
             return fields.Datetime.now(), True

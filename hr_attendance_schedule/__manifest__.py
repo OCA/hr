@@ -27,11 +27,9 @@
     'category': 'Human Resources',
     'depends': ['hr_attendance'],
     'data': [
-        'security/ir.model.access.csv',
         'views/hr_attendance.xml',
-        'views/hr_attendance_schedule.xml',
-        'views/hr_employee.xml',
         'views/hr_attendance_schedule_assets.xml',
+        'views/res_calendar_attendance.xml',
     ],
     'demo': [
         'demo/hr_attendance_schedule.xml',

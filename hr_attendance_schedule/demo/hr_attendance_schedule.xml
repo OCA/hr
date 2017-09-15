@@ -1,85 +1,123 @@
 <odoo>
-  <record id="hr_attendance_schedule_demo_schedule" model="hr_attendance_schedule.schedule">
+  <record id="res_calendar_demo_schedule" model="resource.calendar">
     <field name="name">Day</field>
   </record>
 
-  <record id="hr_attendance_schedule_period_1" model="hr_attendance_schedule.period">
-    <field name="start_datetime">2017-01-02 08:00:00</field>
-    <field name="schedule_id" ref="hr_attendance_schedule_demo_schedule" />
-    <field name="duration">4</field>
+  <record id="hr_attendance_schedule_period_1" model="resource.calendar.attendance">
+    <field name="calendar_id" ref="res_calendar_demo_schedule" />
+    <field name="name">Monday morning</field>
+    <field name="dayofweek">0</field>
+    <field name="hour_from">08</field>
+    <field name="hour_to">12</field>
+    <field name="grace_before_checkin">15</field>
+    <field name="grace_after_checkin">5</field>
+    <field name="grace_before_checkout">5</field>
+    <field name="grace_after_checkout">5</field>
+    <field name="date_from">2017-01-02 00:00:00</field>
+    <field name="date_to">2017-02-06 00:00:00</field>
+  </record>
+
+  <record id="hr_attendance_schedule_period_2" model="resource.calendar.attendance">
+    <field name="calendar_id" ref="res_calendar_demo_schedule" />
+    <field name="name">Monday afternoon</field>
+    <field name="dayofweek">0</field>
+    <field name="hour_from">13</field>
+    <field name="hour_to">17</field>
     <field name="grace_before_checkin">15</field>
     <field name="grace_after_checkin">5</field>
     <field name="grace_before_checkout">5</field>
     <field name="grace_after_checkout">5</field>
   </record>
 
-  <record id="hr_attendance_schedule_period_2" model="hr_attendance_schedule.period">
-    <field name="start_datetime">2017-01-02 13:00:00</field>
-    <field name="schedule_id" ref="hr_attendance_schedule_demo_schedule" />
-    <field name="duration">4</field>
+  <record id="hr_attendance_schedule_period_3" model="resource.calendar.attendance">
+    <field name="calendar_id" ref="res_calendar_demo_schedule" />
+    <field name="name">Tuesday morning</field>
+    <field name="dayofweek">1</field>
+    <field name="hour_from">8</field>
+    <field name="hour_to">12</field>
     <field name="grace_before_checkin">15</field>
     <field name="grace_after_checkin">5</field>
     <field name="grace_before_checkout">5</field>
     <field name="grace_after_checkout">5</field>
   </record>
 
-  <record id="hr_attendance_schedule_period_3" model="hr_attendance_schedule.period">
-    <field name="start_datetime">2017-01-03 08:00:00</field>
-    <field name="schedule_id" ref="hr_attendance_schedule_demo_schedule" />
-    <field name="duration">4</field>
+  <record id="hr_attendance_schedule_period_4" model="resource.calendar.attendance">
+    <field name="calendar_id" ref="res_calendar_demo_schedule" />
+    <field name="name">Tuesday afternoon</field>
+    <field name="dayofweek">1</field>
+    <field name="hour_from">13</field>
+    <field name="hour_to">17</field>
     <field name="grace_before_checkin">15</field>
     <field name="grace_after_checkin">5</field>
     <field name="grace_before_checkout">5</field>
     <field name="grace_after_checkout">5</field>
   </record>
 
-  <record id="hr_attendance_schedule_period_4" model="hr_attendance_schedule.period">
-    <field name="start_datetime">2017-01-03 13:00:00</field>
-    <field name="schedule_id" ref="hr_attendance_schedule_demo_schedule" />
-    <field name="duration">4</field>
+  <record id="hr_attendance_schedule_period_5" model="resource.calendar.attendance">
+    <field name="calendar_id" ref="res_calendar_demo_schedule" />
+    <field name="name">Thursday morning</field>
+    <field name="dayofweek">3</field>
+    <field name="hour_from">8</field>
+    <field name="hour_to">17</field>
     <field name="grace_before_checkin">15</field>
     <field name="grace_after_checkin">5</field>
     <field name="grace_before_checkout">5</field>
     <field name="grace_after_checkout">5</field>
   </record>
 
-  <record id="hr_attendance_schedule_period_5" model="hr_attendance_schedule.period">
-    <field name="start_datetime">2017-01-05 08:00:00</field>
-    <field name="schedule_id" ref="hr_attendance_schedule_demo_schedule" />
-    <field name="duration">4</field>
+  <record id="hr_attendance_schedule_period_6" model="resource.calendar.attendance">
+    <field name="calendar_id" ref="res_calendar_demo_schedule" />
+    <field name="name">Friday midnight</field>
+    <field name="dayofweek">4</field>
+    <field name="hour_from">0</field>
+    <field name="hour_to">4</field>
     <field name="grace_before_checkin">15</field>
     <field name="grace_after_checkin">5</field>
     <field name="grace_before_checkout">5</field>
     <field name="grace_after_checkout">5</field>
   </record>
 
-  <record id="hr_attendance_schedule_period_6" model="hr_attendance_schedule.period">
-    <field name="start_datetime">2017-01-06 00:00:00</field>
-    <field name="schedule_id" ref="hr_attendance_schedule_demo_schedule" />
-    <field name="duration">4</field>
+  <record id="hr_attendance_schedule_period_7" model="resource.calendar.attendance">
+    <field name="calendar_id" ref="res_calendar_demo_schedule" />
+    <field name="name">Tuesday morning</field>
+    <field name="dayofweek">4</field>
+    <field name="hour_from">23.966666666666665</field>
+    <field name="hour_to">3.966666666666667</field>
     <field name="grace_before_checkin">15</field>
     <field name="grace_after_checkin">5</field>
     <field name="grace_before_checkout">5</field>
     <field name="grace_after_checkout">5</field>
   </record>
 
-  <record id="hr_attendance_schedule_period_7" model="hr_attendance_schedule.period">
-    <field name="start_datetime">2017-01-06 23:58:00</field>
-    <field name="schedule_id" ref="hr_attendance_schedule_demo_schedule" />
-    <field name="duration">4</field>
+  <record id="hr_attendance_schedule_period_8" model="resource.calendar.attendance">
+    <field name="calendar_id" ref="res_calendar_demo_schedule" />
+    <field name="name">Sunday evening</field>
+    <field name="dayofweek">6</field>
+    <field name="hour_from">20</field>
+    <field name="hour_to">0</field>
     <field name="grace_before_checkin">15</field>
     <field name="grace_after_checkin">5</field>
     <field name="grace_before_checkout">5</field>
     <field name="grace_after_checkout">5</field>
   </record>
 
-  <record id="hr_attendance_schedule_period_8" model="hr_attendance_schedule.period">
-    <field name="start_datetime">2017-01-08 20:00:00</field>
-    <field name="schedule_id" ref="hr_attendance_schedule_demo_schedule" />
-    <field name="duration">4</field>
+  <record id="hr_attendance_schedule_period_9" model="resource.calendar.attendance">
+    <field name="calendar_id" ref="res_calendar_demo_schedule" />
+    <field name="name">Sunday evening cross monday</field>
+    <field name="dayofweek">6</field>
+    <field name="hour_from">22</field>
+    <field name="hour_to">2</field>
     <field name="grace_before_checkin">15</field>
     <field name="grace_after_checkin">5</field>
     <field name="grace_before_checkout">5</field>
     <field name="grace_after_checkout">5</field>
   </record>
+
+  <record id="hr_attendance_schedule_leave_1" model="resource.calendar.leaves">
+    <field name="name">Test leave</field>
+    <field name="calendar_id" ref="res_calendar_demo_schedule" />
+    <field name="date_from">2017-03-01 00:00:00</field>
+    <field name="date_to">2017-03-31 00:00:00</field>
+  </record>
+
 </odoo>

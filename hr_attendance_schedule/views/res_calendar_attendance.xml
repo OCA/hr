@@ -1,0 +1,31 @@
+<odoo>
+
+  <record model="ir.ui.view" id="resource_calendar_attendance_view_tree_inherit">
+    <field name="name">resource.calendar.attendance.view.tree.inherit</field>
+    <field name="model">resource.calendar.attendance</field>
+    <field name="inherit_id" ref="resource.view_resource_calendar_attendance_tree" />
+    <field name="arch" type="xml">
+      <field name="date_to" position="after">
+        <field name="grace_before_checkin" />
+        <field name="grace_after_checkin" />
+        <field name="grace_before_checkout" />
+        <field name="grace_after_checkout" />
+      </field>
+    </field>
+  </record>
+
+  <record model="ir.ui.view" id="resource_calendar_attendance_view_form_inherit">
+    <field name="name">resource.calendar.attendance.view.form.inherit</field>
+    <field name="model">resource.calendar.attendance</field>
+    <field name="inherit_id" ref="resource.view_resource_calendar_attendance_form" />
+    <field name="arch" type="xml">
+      <xpath expr="//group/div" position="after">
+        <field name="grace_before_checkin" />
+        <field name="grace_after_checkin" />
+        <field name="grace_before_checkout" />
+        <field name="grace_after_checkout" />
+      </xpath>
+    </field>
+  </record>
+
+</odoo>
