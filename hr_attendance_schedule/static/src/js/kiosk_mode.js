@@ -9,7 +9,7 @@ odoo.define('hr_attendance_schedule.kiosk_mode', function(require){
       var self = this;
       this.$('.o_hr_attendance_clock').text("...");
       var server_clock = new Model('hr_attendance_schedule.clock');
-      server_clock.call('get_system_clock')
+      return server_clock.call('get_system_clock')
         .then(function(data) {
           var server_date = new Date(data);
           self._clock_offset = server_date - new Date();

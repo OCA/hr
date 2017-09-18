@@ -2,7 +2,6 @@
 from datetime import datetime, timedelta
 
 from odoo import fields, models
-from odoo.tools.misc import DEFAULT_SERVER_DATETIME_FORMAT, DEFAULT_SERVER_DATE_FORMAT
 
 
 class ResourceCalendarAttendance(models.Model):
@@ -23,7 +22,7 @@ class ResourceCalendarAttendance(models.Model):
         return None, True
 
     def _init_datetimes(self):
-        self._now = datetime.strptime(fields.Datetime.now(), DEFAULT_SERVER_DATETIME_FORMAT)
+        self._now = fields.Datetime.from_string(fields.Datetime.now())
         d_day = self._get_next_weekday(int(self.dayofweek))
         self._start_datetime = d_day + timedelta(hours=self.hour_from)
         self._end_datetime = d_day + timedelta(hours=self.hour_to)
@@ -31,9 +30,8 @@ class ResourceCalendarAttendance(models.Model):
             self._end_datetime += timedelta(days=1)
 
     def _is_now_allowed(self, employee_id):
-        parse_date = lambda d: datetime.strptime(d, DEFAULT_SERVER_DATE_FORMAT).date()
-        is_after_from = not self.date_from or parse_date(self.date_from) <= self._now.date()
-        is_before_to = not self.date_to or parse_date(self.date_to) >= self._now.date()
+        is_after_from = not self.date_from or fields.Date.from_string(self.date_from) <= self._now.date()
+        is_before_to = not self.date_to or fields.Date.from_string(self.date_to) >= self._now.date()
         return is_after_from and is_before_to and not self._is_now_in_leave(employee_id)
 
     def _is_now_in_leave(self, employee_id):
