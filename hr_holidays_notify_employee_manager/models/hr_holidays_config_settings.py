@@ -10,6 +10,6 @@ class HrHolidaysConfigSettings(models.TransientModel):
 
     leave_notify_manager = fields.Boolean(
         related='company_id.leave_notify_manager',
-        string="Leave Requests notified to employee's manager",
+        string="Leave Requests notified to employee's manager (*)",
         help="When a leave request is created the employee's manager "
              "will be added as follower and notified by email.")
