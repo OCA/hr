@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="group_full_calendar_rrule" model="res.groups">
+            <field name="category_id" ref="base.module_category_hidden" />
+            <field name="name">Full RRules in resource calendars</field>
+        </record>
+    </data>
+</openerp>
