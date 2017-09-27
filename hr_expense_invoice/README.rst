@@ -1,11 +1,13 @@
 .. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
-    :alt: License
+   :target: http://www.gnu.org/licenses/agpl
+   :alt: License: AGPL-3
 
+====================================
 Set supplier invoices on HR expenses
 ====================================
 
 This module should be used when a supplier invoice is paid by an employee. It
-allows to set  a supplier invoice for each expense line, adding the
+allows to set a supplier invoice for each expense line, adding the
 corresponding journal items to transfer the debt to the employee.
 
 
@@ -22,13 +24,10 @@ You don't need to configure anything more to use this module.
 Usage
 =====
 
-Instead of coding a full expense line, select an existing supplier invoice,
-and then the rest of the fields will be auto-filled and grayed.
-
-When you generate the expenses account entries, lines with invoices filled
-will be generated as opposite of the payable move line of the invoice, and
-both will be reconciled, letting the employee payable account as the only
-open balance.
+* Create an expense sheet.
+* Add an expense line to sheet with an invoice_id selected or create one new.
+* Process expense sheet.
+* On paying expense sheet, you are reconciling supplier invoice too.
 
 Known issues / Roadmap
 ======================
@@ -42,7 +41,8 @@ Credits
 Contributors
 ------------
 
-* Pedro M. Baeza <pedro.baeza@serviciosbaeza.com>
+* Pedro M. Baeza <pedro.baeza@tecnativa.com>
+* Vicent Cubells <vicent.cubells@tecnativa.com>
 
 Icon
 ----
@@ -54,9 +54,9 @@ Icon
 Maintainer
 ----------
 
-.. image:: http://odoo-community.org/logo.png
+.. image:: https://odoo-community.org/logo.png
    :alt: Odoo Community Association
-   :target: http://odoo-community.org
+   :target: https://odoo-community.org
 
 This module is maintained by the OCA.
 
@@ -64,4 +64,4 @@ OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
 
-To contribute to this module, please visit http://odoo-community.org.
+To contribute to this module, please visit https://odoo-community.org.
