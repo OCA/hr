@@ -1,10 +1,11 @@
 # -*- coding:utf-8 -*-
 # Copyright 2015 Savoir-faire Linux. All Rights Reserved.
+# Copyright 2017 Serpent Consulting Services Pvt. Ltd.
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 {
     'name': 'HR Payroll Period',
-    'version': '9.0.1.0.0',
+    'version': '10.0.1.0.0',
     'license': 'AGPL-3',
     'category': 'Generic Modules/Human Resources',
     'summary': "Add payroll periods",
