@@ -1,9 +1,10 @@
 # -*- coding:utf-8 -*-
 # Copyright 2015 Savoir-faire Linux. All Rights Reserved.
+# Copyright 2017 Serpent Consulting Services Pvt. Ltd.
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from openerp import api, fields, models, _
-from openerp.exceptions import Warning as UserError
+from odoo import api, fields, models, _
+from odoo.exceptions import UserError
 
 
 class HrPayslip(models.Model):
@@ -27,9 +28,9 @@ class HrPayslip(models.Model):
         for slip in self:
             if slip.hr_period_id:
                 if slip.hr_period_id.company_id != slip.company_id:
-                    raise UserError("The company on the selected period must "
-                                    "be the same as the company on the "
-                                    "payslip.")
+                    raise UserError(_("""The company on the selected period must
+                                    be the same as the company on the
+                                    payslip."""))
 
     @api.onchange('company_id', 'contract_id')
     def onchange_company_id(self):
@@ -41,24 +42,18 @@ class HrPayslip(models.Model):
             self.hr_period_id = period.id if period else False
 
     @api.multi
-    def onchange_contract_id(self, date_from, date_to,
-                             employee_id=False, contract_id=False):
-        res = super(HrPayslip, self).onchange_contract_id(
-            date_from, date_to,
-            employee_id=employee_id, contract_id=contract_id)
-
-        if employee_id and contract_id:
-            employee = self.env['hr.employee'].browse(employee_id)
-            contract = self.env['hr.contract'].browse(contract_id)
-
+    @api.onchange('contract_id')
+    def onchange_contract(self):
+        res = super(HrPayslip, self).onchange_contract()
+        if self.contract_id.employee_id and self.contract_id:
+            employee = self.contract_id.employee_id
+            contract = self.contract_id
             period = self.env['hr.period'].get_next_period(
                 employee.company_id.id, contract.schedule_pay)
             if period:
-                res['value'].update({
-                    'hr_period_id': period.id if period else False,
-                    'name': _('Salary Slip of %s for %s') % (
-                        employee.name, period.name),
-                })
+                self.hr_period_id = period.id if period else False
+                self.name = _('Salary Slip of %s for %s') % (employee.name,
+                                                             period.name)
         return res
 
     @api.onchange('hr_period_id')
@@ -74,16 +69,12 @@ class HrPayslip(models.Model):
         if vals.get('payslip_run_id'):
             payslip_run = self.env['hr.payslip.run'].browse(
                 vals['payslip_run_id'])
-
             employee = self.env['hr.employee'].browse(vals['employee_id'])
             period = payslip_run.hr_period_id
-
             vals['date_payment'] = payslip_run.date_payment
             vals['hr_period_id'] = period.id
             vals['name'] = _('Salary Slip of %s for %s') % (
                 employee.name, period.name)
-
         elif vals.get('date_to') and not vals.get('date_payment'):
             vals['date_payment'] = vals['date_to']
-
         return super(HrPayslip, self).create(vals)
