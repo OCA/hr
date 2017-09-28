@@ -129,6 +129,7 @@ class HrFiscalYear(models.Model):
     )
     type_id = fields.Many2one(
         'date.range.type',
+        'Data Range Type',
         required=True,
         readonly=True,
         states={'draft': [('readonly', False)]},
@@ -233,6 +234,9 @@ class HrFiscalYear(models.Model):
             for period in fy.period_ids:
                 period.unlink()
             fy.refresh()
+        if self.date_start > self.date_stop:
+            raise UserError(_('''Date stop cannot be sooner than the date start
+                                '''))
         if self.schedule_pay == 'semi-monthly':
             period_start = datetime.strptime(
                 self.date_start, DF)

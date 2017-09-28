@@ -133,8 +133,8 @@ class HrPayslipRun(models.Model):
     def close_payslip_run(self):
         for run in self:
             if next((p for p in run.slip_ids if p.state == 'draft'), False):
-                raise UserError("The payslip batch %s still has unconfirmed "
-                                "pay slips." % run.name)
+                raise UserError(_("The payslip batch %s still has unconfirmed "
+                                "pay slips." % run.name))
         self.update_periods()
         return super(HrPayslipRun, self).close_payslip_run()
 

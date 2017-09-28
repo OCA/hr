@@ -28,9 +28,9 @@ class HrPayslip(models.Model):
         for slip in self:
             if slip.hr_period_id:
                 if slip.hr_period_id.company_id != slip.company_id:
-                    raise UserError("""The company on the selected period must
+                    raise UserError(_("""The company on the selected period must
                                     be the same as the company on the
-                                    payslip.""")
+                                    payslip."""))
 
     @api.onchange('company_id', 'contract_id')
     def onchange_company_id(self):
@@ -52,7 +52,8 @@ class HrPayslip(models.Model):
                 employee.company_id.id, contract.schedule_pay)
             if period:
                 self.hr_period_id = period.id if period else False
-                self.name = 'Salary Slip of '+employee.name+' for '+period.name
+                self.name = _('Salary Slip of %s for %s') % (employee.name,
+                                                             period.name)
         return res
 
     @api.onchange('hr_period_id')
