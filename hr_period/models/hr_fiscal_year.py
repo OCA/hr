@@ -1,10 +1,11 @@
 # -*- coding:utf-8 -*-
 # Copyright 2015 Savoir-faire Linux. All Rights Reserved.
+# Copyright 2017 Serpent Consulting Services Pvt. Ltd.
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from openerp import api, fields, models, _
-from openerp.tools import DEFAULT_SERVER_DATE_FORMAT as DF
-from openerp.exceptions import Warning as UserError
+from odoo import api, fields, models, _
+from odoo.tools import DEFAULT_SERVER_DATE_FORMAT as DF
+from odoo.exceptions import UserError
 from dateutil.relativedelta import relativedelta
 from dateutil.rrule import (YEARLY,
                             MONTHLY,
@@ -90,8 +91,7 @@ class HrFiscalYear(models.Model):
         required=True,
         readonly=True,
         states={'draft': [('readonly', False)]},
-        help="The first day of the first period of the "
-        "fiscal year.",
+        help="The first day of the first period of the fiscal year.",
         default=_default_date_start
     )
     date_stop = fields.Date(
@@ -99,8 +99,7 @@ class HrFiscalYear(models.Model):
         required=True,
         readonly=True,
         states={'draft': [('readonly', False)]},
-        help="The last day of the last period of the "
-        "fiscal year.",
+        help="The last day of the last period of the fiscal year.",
         default=_default_date_stop
     )
     period_ids = fields.One2many(
@@ -128,16 +127,15 @@ class HrFiscalYear(models.Model):
         states={'draft': [('readonly', False)]},
         default='monthly'
     )
-
     type_id = fields.Many2one(
         'date.range.type',
+        'Data Range Type',
         required=True,
         readonly=True,
         states={'draft': [('readonly', False)]},
         help="Date Range Type",
         ondelete='cascade'
     )
-
     payment_weekday = fields.Selection(
         [
             ('0', 'Sunday'),
@@ -173,13 +171,11 @@ class HrFiscalYear(models.Model):
                           strptime(self.date_start, DF)).days) + 1
         return INTERVALS[self.schedule_pay][1] * days_range / 365
 
-    @api.onchange('schedule_pay', 'date_start')
     @api.multi
+    @api.onchange('schedule_pay', 'date_start')
     def onchange_schedule(self):
         if self.schedule_pay and self.date_start:
-            year = datetime.strptime(
-                self.date_start, DF).year
-
+            year = datetime.strptime(self.date_start, DF).year
             schedule_name = next((
                 s[1] for s in get_schedules(self)
                 if s[0] == self.schedule_pay), False)
@@ -211,7 +207,6 @@ class HrFiscalYear(models.Model):
             no_interval = 6
         else:
             unit_of_time = YEARLY
-
         return {
             'name_prefix': self.name,
             'date_start': self.date_start,
@@ -239,6 +234,9 @@ class HrFiscalYear(models.Model):
             for period in fy.period_ids:
                 period.unlink()
             fy.refresh()
+        if self.date_start > self.date_stop:
+            raise UserError(_('''Date stop cannot be sooner than the date start
+                                '''))
         if self.schedule_pay == 'semi-monthly':
             period_start = datetime.strptime(
                 self.date_start, DF)
@@ -247,7 +245,6 @@ class HrFiscalYear(models.Model):
             #  Case for semi-monthly schedules
             delta_1 = relativedelta(days=14)
             delta_2 = relativedelta(months=1)
-
             i = 1
             while not period_start + delta_2 > next_year_start:
                 # create periods for one month
