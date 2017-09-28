@@ -1,9 +1,10 @@
 # -*- coding:utf-8 -*-
 # Copyright 2015 Savoir-faire Linux. All Rights Reserved.
+# Copyright 2017 Serpent Consulting Services Pvt. Ltd.
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 #
-from openerp import models, fields, api, _
-from openerp.exceptions import Warning as UserError
+from odoo import models, fields, api, _
+from odoo.exceptions import UserError
 from .hr_fiscal_year import get_schedules
 
 
@@ -31,7 +32,6 @@ class HrPeriod(models.Model):
         readonly=True,
         states={'draft': [('readonly', False)]}
     )
-
     fiscalyear_id = fields.Many2one(
         'hr.fiscalyear',
         'Fiscal Year',
@@ -113,7 +113,6 @@ class HrPeriod(models.Model):
     @api.multi
     def button_re_open(self):
         self.write({'state': 'open'})
-
         for period in self:
             fy = period.fiscalyear_id
             if fy.state != 'open':
