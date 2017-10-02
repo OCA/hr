@@ -58,6 +58,10 @@ class PayslipCase(TransactionCase):
         self.assertEqual(
             payslip.move_id.period_id.id,
             self.period_3.id)
+        for line in payslip.move_id.line_id:
+            self.assertEqual(
+                line.date,
+                self.period_3.date_stop)
 
     def test_payslip_run_1(self):
         data = self._prepare_payslip_run_data()

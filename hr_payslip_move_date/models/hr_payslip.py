@@ -27,8 +27,6 @@ class HrPayslip(models.Model):
             for slip in self:
                 if slip.move_date:
                     self.move_id.write({'date': slip.move_date})
-                    for move_line in slip.move_id.line_id:
-                        move_line.write({'date': slip.move_date})
                 else:
                     self.write({'move_date': slip.move_id.date})
         return res
