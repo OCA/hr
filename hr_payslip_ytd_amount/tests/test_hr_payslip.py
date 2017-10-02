@@ -181,26 +181,6 @@ class test_hr_payslip_line_ytd(common.TransactionCase):
             cr, uid, [self.payslip_ids[x] for x in [1, 2, 3, 5, 6]],
             {'state': 'done'}, context=context)
 
-    def tearDown(self):
-        cr, uid, context = self.cr, self.uid, self.context
-
-        self.payslip_model.write(
-            cr, uid, self.payslip_ids.values(),
-            {'state': 'draft'}, context=context)
-        self.payslip_model.unlink(
-            cr, uid, self.payslip_ids.values(), context=context)
-
-        self.contract_model.unlink(
-            cr, uid, [self.contract_id, self.contract_2_id], context=context)
-        self.employee_model.unlink(
-            cr, uid, [self.employee_id, self.employee_2_id], context=context)
-        self.rule_model.unlink(
-            cr, uid, [self.rule_id, self.rule_2_id], context=context)
-        self.structure_model.unlink(
-            cr, uid, [self.structure_id], context=context)
-
-        super(test_hr_payslip_line_ytd, self).tearDown()
-
     def test_payslip_ytd_amount(self):
         cr, uid, context = self.cr, self.uid, self.context
 

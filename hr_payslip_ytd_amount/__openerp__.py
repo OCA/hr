@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 ##############################################################################
 #
-#    Copyright (C) 2014 Savoir-faire Linux. All Rights Reserved.
+#    Copyright (C) 2014 - 2015 Savoir-faire Linux. All Rights Reserved.
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as published
@@ -34,6 +34,11 @@ after the computation of the payslip.
 The purpose of this module is to eliminate redondant rules that calculate
 the year-to-date value of other rules.
 
+The module provides a payslip report with 3 columns:
+ - The salary rule name
+ - The amount for the actual payslip
+ - The amount year-to-date
+
 Contributors
 ------------
 * David Dufresne <david.dufresne@savoirfairelinux.com>
@@ -45,9 +50,10 @@ Contributors
         'hr_payroll',
     ],
     'data': [
-        'hr_payslip_view.xml'
+        'hr_payslip_view.xml',
+        'report/hr_payslip_ytd_amount_report.xml',
     ],
     'test': [],
     'demo': [],
-    'installable': False,
+    'installable': True,
 }
