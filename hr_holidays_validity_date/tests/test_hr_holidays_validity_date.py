@@ -23,9 +23,9 @@
 #
 ##############################################################################
 
-from openerp.tests import common
-from openerp import exceptions
-from openerp.tools import DEFAULT_SERVER_DATETIME_FORMAT
+from odoo.tests import common
+from odoo import exceptions
+from odoo.tools import DEFAULT_SERVER_DATETIME_FORMAT
 from datetime import datetime, timedelta
 
 

@@ -23,8 +23,8 @@
 #
 ##############################################################################
 
-from openerp import models, fields, api, exceptions, _
-from openerp.tools import DEFAULT_SERVER_DATETIME_FORMAT
+from odoo import models, fields, api, exceptions, _
+from odoo.tools import DEFAULT_SERVER_DATETIME_FORMAT
 from datetime import datetime
 import pytz
 
@@ -55,19 +55,19 @@ class HrHolidays(models.Model):
         return date_dt.strftime(DEFAULT_SERVER_DATETIME_FORMAT)
 
     @api.constrains('holiday_status_id', 'date_from', 'date_to')
-    @api.one
     def _check_validity_date(self):
-        if self.type == 'remove' and\
-                self.holiday_status_id.use_validity_dates and\
-                self.date_from and self.date_to:
-            if self.date_from < self.holiday_status_id.date_start or\
-                    self.date_to > self.holiday_status_id.date_end:
-                tz_date_start = self._utc_to_tz(
-                    self.holiday_status_id.date_start)
-                tz_date_end = self._utc_to_tz(
-                    self.holiday_status_id.date_end)
-                raise exceptions.Warning(
-                    _("""leaves on %s type must be taken between %s and
-                    %s""") % (self.holiday_status_id.name,
-                              tz_date_start,
-                              tz_date_end))
+        for rec in self:
+            if rec.type == 'remove' and\
+                    rec.holiday_status_id.use_validity_dates and\
+                    rec.date_from and rec.date_to:
+                if rec.date_from < rec.holiday_status_id.date_start or\
+                        rec.date_to > rec.holiday_status_id.date_end:
+                    tz_date_start = rec._utc_to_tz(
+                        rec.holiday_status_id.date_start)
+                    tz_date_end = rec._utc_to_tz(
+                        rec.holiday_status_id.date_end)
+                    raise exceptions.Warning(
+                        _("""leaves on %s type must be taken between %s and
+                        %s""") % (rec.holiday_status_id.name,
+                                  tz_date_start,
+                                  tz_date_end))
