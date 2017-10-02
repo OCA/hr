@@ -31,7 +31,7 @@
               'Odoo Community Association (OCA)',
     'website': "http://acsone.eu",
     'category': 'Human resources',
-    'version': '8.0.1.0.0',
+    'version': '10.0.1.0.0',
     'license': 'AGPL-3',
     'depends': [
         'hr_holidays',
