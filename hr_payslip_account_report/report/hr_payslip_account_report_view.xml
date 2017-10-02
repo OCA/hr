@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+        <record model="ir.ui.view"
+                id="hr_payslip_account_report_tree">
+            <field name="name">hr.payslip.account.report.tree</field>
+            <field name="model">hr.payslip.account.report</field>
+            <field name="arch" type="xml">
+                <tree string="Payslip report" create="false">
+                    <field name="struct_id"/>
+                    <field name="name"/>
+                    <field name="number"/>
+                    <field name="employee_id"/>
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                    <field name="state"/>
+                    <field name="company_id" groups="base.group_multi_company"/>
+                    <field name="paid"/>
+                    <field name="contract_id"/>
+                    <field name="credit_note"/>
+                    <field name="payslip_run_id"/>
+                    <field name="move_id"/>
+                    <field name="move_date"/>
+                    <field name="move_period_id"/>
+                    <field name="move_line_account_id"/>
+                    <field name="move_line_debit" sum="Total Debit"/>
+                    <field name="move_line_credit" sum="Total Credit"/>
+                    <field name="move_line_balance" sum="Total Balance"/>
+                    <field name="move_line_name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="hr_payslip_account_report_search">
+            <field name="name">hr.payslip.account.report.search</field>
+            <field name="model">hr.payslip.account.report</field>
+            <field name="arch" type="xml">
+                <search string="Payslip report">
+                    <field name="struct_id"/>
+                    <field name="name"/>
+                    <field name="number"/>
+                    <field name="employee_id"/>
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                    <field name="state"/>
+                    <field name="company_id" groups="base.group_multi_company"/>
+                    <field name="paid"/>
+                    <field name="contract_id"/>
+                    <field name="credit_note"/>
+                    <field name="payslip_run_id"/>
+                    <field name="move_id"/>
+                    <field name="move_date"/>
+                    <field name="move_period_id"/>
+                    <field name="move_line_account_id"/>
+                    <group expand="0" name="group_by" string="Group By...">
+                        <filter string="Employee" name="group_employee_id"
+                                domain="[]"
+                                context="{'group_by':'employee_id'}"/>
+                        <filter string="Accounting Period" 
+                                name="group_move_period_id"
+                                domain="[]"
+                                context="{'group_by':'move_period_id'}"/>
+                        <filter string="Account"
+                                name="group_move_line_account_id"
+                                domain="[]"
+                                context="{'group_by':'move_line_account_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.ui.view"
+                id="hr_payslip_account_report_form">
+            <field name="name">hr.payslip.account.report.form</field>
+            <field name="model">hr.payslip.account.report</field>
+            <field name="arch" type="xml">
+                <form string="Payslip account report" create="false">
+                    <field name="struct_id"/>
+                    <field name="name"/>
+                    <field name="number"/>
+                    <field name="employee_id"/>
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                    <field name="state"/>
+                    <field name="company_id" groups="base.group_multi_company"/>
+                    <field name="paid"/>
+                    <field name="contract_id"/>
+                    <field name="credit_note"/>
+                    <field name="payslip_run_id"/>
+                    <field name="move_id"/>
+                    <field name="move_date"/>
+                    <field name="move_period_id"/>
+                    <field name="move_line_account_id"/>
+                    <field name="move_line_debit"/>
+                    <field name="move_line_credit"/>
+                    <field name="move_line_balance" sum="Total Balance"/>
+                    <field name="move_line_name"/>                    
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window"
+                id="action_hr_payslip_account_report">
+            <field name="name">Payslip Account Report</field>
+            <field name="res_model">hr.payslip.account.report</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="hr_payslip_account_report_search"/>
+        </record>
+
+        <menuitem action="action_hr_payslip_account_report"
+                  id="menu_hr_payslip_account_report"
+                  parent="hr.menu_hr_reporting"/>
+
+    </data>
+</openerp>

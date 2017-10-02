@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+        <record model="ir.ui.view"
+                id="hr_payslip_report_tree">
+            <field name="name">hr.payslip.report.tree</field>
+            <field name="model">hr.payslip.report</field>
+            <field name="arch" type="xml">
+                <tree string="Payslip report" create="false">
+                    <field name="struct_id"/>
+                    <field name="name"/>
+                    <field name="number"/>
+                    <field name="employee_id"/>
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                    <field name="state"/>
+                    <field name="company_id" groups="base.group_multi_company"/>
+                    <field name="paid"/>
+                    <field name="contract_id"/>
+                    <field name="credit_note"/>
+                    <field name="payslip_run_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="hr_payslip_report_search">
+            <field name="name">hr.payslip.report.search</field>
+            <field name="model">hr.payslip.report</field>
+            <field name="arch" type="xml">
+                <search string="Payslip report">
+                    <field name="struct_id"/>
+                    <field name="name"/>
+                    <field name="number"/>
+                    <field name="employee_id"/>
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                    <field name="state"/>
+                    <field name="company_id" groups="base.group_multi_company"/>
+                    <field name="paid"/>
+                    <field name="contract_id"/>
+                    <field name="credit_note"/>
+                    <field name="payslip_run_id"/>
+                    <group expand="0" name="group_by" string="Group By...">
+                        <filter string="Employee" name="group_employee_id"
+                                domain="[]"
+                                context="{'group_by':'employee_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.ui.view"
+                id="hr_payslip_report_form">
+            <field name="name">hr.payslip.report.tree</field>
+            <field name="model">hr.payslip.report</field>
+            <field name="arch" type="xml">
+                <form string="Payslip report" create="false">
+                    <field name="struct_id"/>
+                    <field name="name"/>
+                    <field name="number"/>
+                    <field name="employee_id"/>
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                    <field name="state"/>
+                    <field name="company_id" groups="base.group_multi_company"/>
+                    <field name="paid"/>
+                    <field name="contract_id"/>
+                    <field name="credit_note"/>
+                    <field name="payslip_run_id"/>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window"
+                id="action_hr_payslip_report">
+            <field name="name">Payslip Report</field>
+            <field name="res_model">hr.payslip.report</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="hr_payslip_report_search"/>
+        </record>
+
+        <menuitem action="action_hr_payslip_report"
+                  id="menu_hr_payslip_report"
+                  parent="hr.menu_hr_reporting"/>
+
+    </data>
+</openerp>
