@@ -1,0 +1,58 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* hr_worked_days_hourly_rate
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-11-04 12:07+0000\n"
+"PO-Revision-Date: 2015-11-04 12:07+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hr_worked_days_hourly_rate
+#: help:hr.payslip.worked_days,hourly_rate:0
+msgid "        The employee's standard hourly rate for one hour of work.\n"
+"        Example, 25 Euros per hour."
+msgstr "El salario estandar por hora trabajada.\n"
+"        Ejemplo, 25 Euros por hora."
+
+#. module: hr_worked_days_hourly_rate
+#: help:hr.payslip.worked_days,rate:0
+msgid "        The rate by which to multiply the standard hourly rate.\n"
+"        Example, an overtime hour could be paid the standard rate multiplied\n"
+"        by 150%."
+msgstr "El porcentaje por el cual se multiplica la hora estandar.\n"
+"        Ejemplo, la hora extra puede pagarsae al precio estandar multiplicandola\n"
+"        por 150%."
+
+#. module: hr_worked_days_hourly_rate
+#: field:hr.payslip.worked_days,date_from:0
+msgid "Date From"
+msgstr "Fecha desde"
+
+#. module: hr_worked_days_hourly_rate
+#: field:hr.payslip.worked_days,date_to:0
+msgid "Date To"
+msgstr "Fecha hasta"
+
+#. module: hr_worked_days_hourly_rate
+#: field:hr.payslip.worked_days,hourly_rate:0
+msgid "Hourly Rate"
+msgstr "Salario por hora"
+
+#. module: hr_worked_days_hourly_rate
+#: model:ir.model,name:hr_worked_days_hourly_rate.model_hr_payslip_worked_days
+msgid "Payslip Worked Days"
+msgstr "Días trabajados de la nómina"
+
+#. module: hr_worked_days_hourly_rate
+#: field:hr.payslip.worked_days,rate:0
+msgid "Rate (%)"
+msgstr "Porcentaje (%)"
+
