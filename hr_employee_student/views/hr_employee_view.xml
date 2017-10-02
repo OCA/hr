@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="view_employee_form" model="ir.ui.view">
+            <field name="name">hr.employee.form (hr_employee_student)</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//page[@string='HR Settings']//group" position="inside">
+                    <group name="sudent" string="Student">
+                        <field name="student_card_number" />
+                        <field name="student_card_expire_date" />
+                    </group>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</openerp>
