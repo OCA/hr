@@ -26,6 +26,7 @@ addon | version | summary
 [hr_employee_firstname](hr_employee_firstname/) | 8.0.0.0.2 | Adds First Name to Employee
 [hr_employee_gravatar](hr_employee_gravatar/) | 8.0.1.0.0 | Employees Synchronize Gravatar image
 [hr_employee_id](hr_employee_id/) | 8.0.1.0.0 | Employee ID
+[hr_employee_identification](hr_employee_identification/) | 8.0.1.0.0 | Record more data about employees' identity documents
 [hr_employee_legacy_id](hr_employee_legacy_id/) | 8.0.1.0.0 | Legacy Employee ID
 [hr_employee_no_welcome](hr_employee_no_welcome/) | 8.0.1.0.0 | Disable Employee Welcome Message
 [hr_employee_phone_extension](hr_employee_phone_extension/) | 8.0.1.0.0 | Employee Phone Extension
@@ -41,6 +42,7 @@ addon | version | summary
 [hr_family](hr_family/) | 8.0.1.2.0 | Employee Family Information
 [hr_holidays_compute_days](hr_holidays_compute_days/) | 8.0.1.0.0 | Computes the actual leave days considering rest days and public holidays
 [hr_holidays_legal_leave](hr_holidays_legal_leave/) | 8.0.1.0.0 | Allows the definition of legal/annual leave
+[hr_holidays_validity_date](hr_holidays_validity_date/) | 8.0.1.0.0 | Allow to define start and end date on holidays type.
 [hr_job_categories](hr_job_categories/) | 8.0.1.0.0 | HR Job Employee Categories
 [hr_language](hr_language/) | 8.0.0.1.0 | Language Management
 [hr_payroll_cancel](hr_payroll_cancel/) | 8.0.1.0.0 | Hr Payroll Cancel
