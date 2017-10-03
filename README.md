@@ -23,6 +23,7 @@ addon | version | summary
 [hr_employee_category_parent](hr_employee_category_parent/) | 10.0.1.0.0 | Categorize your employee categories
 [hr_employee_firstname](hr_employee_firstname/) | 10.0.1.0.0 | Adds First Name to Employee
 [hr_employee_id](hr_employee_id/) | 10.0.1.0.1 | Employee ID
+[hr_employee_legacy_id](hr_employee_legacy_id/) | 10.0.1.0.0 | Legacy Employee ID
 [hr_employee_phone_extension](hr_employee_phone_extension/) | 10.0.1.0.0 | Employee Phone Extension
 [hr_employee_seniority](hr_employee_seniority/) | 10.0.1.0.0 | Keep Track of Length of Employment
 [hr_employee_social_media](hr_employee_social_media/) | 10.0.1.0.0 | Employee Social Media
@@ -33,7 +34,10 @@ addon | version | summary
 [hr_holidays_imposed_days](hr_holidays_imposed_days/) | 10.0.1.0.0 | Imposed holidays days
 [hr_holidays_leave_auto_approve](hr_holidays_leave_auto_approve/) | 10.0.1.0.0 | Leave type for auto approval of Leaves
 [hr_holidays_legal_leave](hr_holidays_legal_leave/) | 10.0.1.0.0 | Allows the definition of legal/annual leave
+[hr_holidays_notify_employee_manager](hr_holidays_notify_employee_manager/) | 10.0.1.0.0 | Notify employee's manager by mail on Leave Requests creation.
+[hr_holidays_settings](hr_holidays_settings/) | 10.0.1.0.0 | Enables Settings Form for HR Holidays.
 [hr_public_holidays](hr_public_holidays/) | 10.0.1.0.0 | Manage Public Holidays
+[hr_worked_days_from_timesheet](hr_worked_days_from_timesheet/) | 10.0.1.0.0 | Adds a button to import worked days from timesheet.
 
 
 Unported addons
@@ -48,7 +52,6 @@ addon | version | summary
 [hr_employee_benefit](hr_employee_benefit/) | 8.0.1.0.0 (unported) | Employee Benefit
 [hr_employee_data_from_work_address](hr_employee_data_from_work_address/) | 8.0.1.0.0 (unported) | Update user's and partner's data fields from employee record
 [hr_employee_gravatar](hr_employee_gravatar/) | 8.0.1.0.0 (unported) | Employees Synchronize Gravatar image
-[hr_employee_legacy_id](hr_employee_legacy_id/) | 8.0.1.0.0 (unported) | Legacy Employee ID
 [hr_employee_reference](hr_employee_reference/) | 8.0.1.0.0 (unported) | Manage employee references
 [hr_expense_account_period](hr_expense_account_period/) | 8.0.0.1.0 (unported) | Accounting period for HR expenses journal entries
 [hr_expense_analytic_default](hr_expense_analytic_default/) | 8.0.0.1.0 (unported) | Manage default analytic account on expenses
@@ -80,7 +83,6 @@ addon | version | summary
 [hr_wage_increment](hr_wage_increment/) | 1.0 (unported) | HR Wage Increment
 [hr_webcam](hr_webcam/) | 8.0.1.0.0 (unported) | Capture employee picture with webcam
 [hr_worked_days_activity](hr_worked_days_activity/) | 1.0 (unported) | Worked Days Activity
-[hr_worked_days_from_timesheet](hr_worked_days_from_timesheet/) | 8.0.1.0.0 (unported) | Worked Days From Timesheet
 [hr_worked_days_hourly_rate](hr_worked_days_hourly_rate/) | 1.0 (unported) | Worked Days Hourly Rates
 
 [//]: # (end addons)
