@@ -50,6 +50,7 @@ addon | version | summary
 [hr_employee_legacy_id](hr_employee_legacy_id/) | 8.0.1.0.0 (unported) | Legacy Employee ID
 [hr_employee_phone_extension](hr_employee_phone_extension/) | 8.0.1.0.0 (unported) | Employee Phone Extension
 [hr_employee_seniority](hr_employee_seniority/) | 1.0 (unported) | Employee Seniority
+[hr_evaluation](hr_evaluation/) | 0.1 (unported) | Periodical Evaluations, Appraisals, Surveys
 [hr_expense_account_period](hr_expense_account_period/) | 8.0.0.1.0 (unported) | Accounting period for HR expenses journal entries
 [hr_expense_analytic_default](hr_expense_analytic_default/) | 8.0.0.1.0 (unported) | Manage default analytic account on expenses
 [hr_expense_invoice](hr_expense_invoice/) | 8.0.1.0.0 (unported) | Supplier invoices on HR expenses
