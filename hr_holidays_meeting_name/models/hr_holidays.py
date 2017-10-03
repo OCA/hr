@@ -17,9 +17,13 @@ class HrHolidays(models.Model):
     _inherit = 'hr.holidays'
 
     @api.multi
-    def _prepare_holidays_meeting_values(self):
-        res = super(HrHolidays, self)._prepare_holidays_meeting_values()
-        if not self.holiday_status_id.use_leave_name_for_meeting and \
-                self.holiday_status_id.meeting_description:
-            res['name'] = self.holiday_status_id.meeting_description
+    def action_validate(self):
+        res = super(HrHolidays, self).action_validate()
+        for record in self:
+            leave_type = record.holiday_status_id
+            if record.meeting_id and\
+                    not leave_type.use_leave_name_for_meeting and \
+                    leave_type.meeting_description:
+                record.meeting_id.name =\
+                    record.holiday_status_id.meeting_description
         return res
