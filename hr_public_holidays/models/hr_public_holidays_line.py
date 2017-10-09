@@ -24,6 +24,7 @@ class HrPublicHolidaysLine(models.Model):
         'hr.holidays.public',
         'Calendar Year',
         required=True,
+        ondelete="cascade"
     )
     variable = fields.Boolean('Date may change')
     state_ids = fields.Many2many(
