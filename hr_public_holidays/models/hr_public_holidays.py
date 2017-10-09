@@ -5,6 +5,7 @@
 from datetime import date
 from openerp import fields, models, api
 from openerp.exceptions import Warning as UserError
+from dateutil.relativedelta import relativedelta
 
 
 class HrPublicHolidays(models.Model):
