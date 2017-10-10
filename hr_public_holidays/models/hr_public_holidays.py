@@ -28,7 +28,7 @@ class HrPublicHolidays(models.Model):
     line_ids = fields.One2many(
         'hr.holidays.public.line',
         'year_id',
-        'Holiday Dates'
+        'Holiday Dates',
         copy=True
     )
     country_id = fields.Many2one(
