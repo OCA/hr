@@ -21,21 +21,19 @@
 
 {
     "name": "Language Management",
-    "version": "8.0.0.1.0",
+    "version": "10.0.0.1.0",
     "category": "Human Resources",
     "license": "AGPL-3",
-    "author": "Savoir-faire Linux,Odoo Community Association (OCA)",
+    "author": "Savoir-faire Linux, Acsone, Odoo Community Association (OCA)",
     "website": "http://www.savoirfairelinux.com",
     "depends": [
         "hr",
     ],
     'data': [
         'security/ir.model.access.csv',
-        'views/hr_language_view.xml',
+        'views/hr_employee.xml',
+        'views/hr_language.xml',
     ],
     "demo": [],
-    "test": [],
-    'installable': False,
-    "auto_install": False,
-    "images": [],
+    'installable': True,
 }

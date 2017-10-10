@@ -10,7 +10,7 @@ Usage
 =====
 
 To use this module, you need to go to
-*Human Resources* / *Configuration* / *Languages*.
+*Employees* / *Configuration* / *Languages*.
 Languages are also available on the employee form
 (*Human Resources* / *Human Resources* / *Employees*).
 
@@ -25,6 +25,7 @@ Contributors
 ------------
 
 * Savoir-faire Linux (http://www.savoirfairelinux.com)
+* François Honoré <francois.honore@acsone.eu>
 
 Maintainer
 ----------
