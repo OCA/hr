@@ -53,7 +53,7 @@ class PublicHolidaysNextYearWizard(models.TransientModel):
                 last_ph_dict[ph.country_id] = ph
 
         new_ph_ids = []
-        for last_ph in last_ph_dict.values():
+        for last_ph in list(last_ph_dict.values()):
 
             new_year = self.year or last_ph.year + 1
 
