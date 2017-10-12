@@ -19,7 +19,7 @@
 #
 ##############################################################################
 
-from openerp import api, models, fields
+from odoo import api, fields, models
 
 
 PAYS_PER_YEAR = {
@@ -79,7 +79,7 @@ class HrPayslip(models.Model):
 
         This method can be called from inside a salary rule.
 
-        Exemple
+        Example
         -------
         payslip.compute_benefits()
 

@@ -19,7 +19,7 @@
 #
 ##############################################################################
 
-from openerp import fields, models, _
+from odoo import fields, models, _
 
 
 class HrEmployeeBenefitCategory(models.Model):

@@ -19,7 +19,7 @@
 #
 ##############################################################################
 
-from openerp import api, fields, models
+from odoo import api, fields, models
 
 
 class HrSalaryRule(models.Model):
@@ -66,7 +66,8 @@ class HrSalaryRule(models.Model):
     @api.multi
     @api.returns('hr.payslip.benefit.line')
     def _filter_benefits(self, payslip, codes=False, **kwargs):
-        """ Filter the benefit records on the payslip
+        """ 
+        Filter the benefit records on the payslip
         :rtype: record set of hr.payslip.benefit.line
         """
         self.ensure_one()

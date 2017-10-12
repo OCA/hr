@@ -19,8 +19,9 @@
 #
 ##############################################################################
 
-from openerp import fields, models, _
-import openerp.addons.decimal_precision as dp
+from odoo import fields, models, _
+
+import odoo.addons.decimal_precision as dp
 
 from .hr_employee_benefit_rate import get_amount_types
 

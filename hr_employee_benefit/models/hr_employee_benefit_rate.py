@@ -18,11 +18,12 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-
-from openerp import api, fields, models, _
-from openerp.exceptions import ValidationError
-from itertools import permutations
 from datetime import datetime
+
+from odoo import api, fields, models, _
+from odoo.exceptions import ValidationError
+from itertools import permutations
+
 strptime = datetime.strptime
 
 context_today = fields.Date.context_today
@@ -100,10 +101,12 @@ class HrEmployeeBenefitRate(models.Model):
             ('annual', _('Annual')),
         ]
 
+    @api.depends()
     def _get_amounts_now(self):
         today = context_today(self)
-        self.employee_amount = self.get_amount(today)
-        self.employer_amount = self.get_amount(today, employer=True)
+        for rate in self:
+            rate.employee_amount = rate.get_amount(today)
+            rate.employer_amount = rate.get_amount(today, employer=True)
 
     @api.multi
     def get_amount(self, date, employer=False):
