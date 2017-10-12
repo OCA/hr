@@ -1,5 +1,4 @@
-<openerp>
-  <data>
+<odoo>
 
     <record id="view_hr_skill_tree" model="ir.ui.view">
         <field name="name">hr.skill.tree</field>
@@ -34,10 +33,6 @@
 
     <!-- Menu and Actions -->
 
-    <menuitem name="Skills Management"
-              parent="hr.menu_hr_configuration"
-              id="menu_hr_skill_mgt"/>
-
     <record id="open_view_skill_form" model="ir.actions.act_window">
         <field name="name">Skills</field>
         <field name="res_model">hr.skill</field>
@@ -46,22 +41,9 @@
     </record>
 
     <menuitem name="Skills"
-              parent="menu_hr_skill_mgt"
+              parent="hr.menu_human_resources_configuration"
               id="menu_open_view_skill_form"
-              action="open_view_skill_form"/>
+              action="open_view_skill_form"
+              groups="base.group_no_one"/>
 
-    <record id="open_view_skill_tree" model="ir.actions.act_window">
-        <field name="name">Skills Structure</field>
-        <field name="res_model">hr.skill</field>
-        <field name="view_type">tree</field>
-        <field name="view_id" ref="view_hr_skill_tree"/>
-        <field name="domain">[('parent_id','=',False)]</field>
-    </record>
-
-    <menuitem name="Skills Structure"
-              parent="menu_hr_skill_mgt"
-              id="menu_open_view_skill_tree"
-              action="open_view_skill_tree"/>
-
-  </data>
-</openerp>
+</odoo>
