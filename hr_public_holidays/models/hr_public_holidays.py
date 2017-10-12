@@ -3,8 +3,9 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 from datetime import date
-from openerp import fields, models, api, _
-from openerp.exceptions import Warning as UserError
+
+from odoo import fields, models, api, _
+from odoo.exceptions import Warning as UserError
 
 
 class HrPublicHolidays(models.Model):
@@ -115,7 +116,7 @@ class HrPublicHolidays(models.Model):
         :param employee_id: ID of the employee
         :return: bool
         """
-        if isinstance(selected_date, basestring):
+        if isinstance(selected_date, str):
             selected_date = fields.Date.from_string(selected_date)
         holidays_lines = self.get_holidays_list(
             selected_date.year, employee_id=employee_id)

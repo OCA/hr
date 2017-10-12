@@ -1,5 +1,5 @@
 .. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
-   :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
+   :target: https://www.gnu.org/licenses/agpl
    :alt: License: AGPL-3
 
 ==================
@@ -32,7 +32,6 @@ public holidays.
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
-   :target: https://runbot.odoo-community.org/runbot/116/10.0
 
 Known issues / Roadmap
 ======================
@@ -65,6 +64,16 @@ Contributors
 * Salton Massally (iDT Labs) <smassally@idtlabs.sl>
 * Ivan Yelizariev <yelizariev@it-projects.info>
 * Bassirou Ndaw <b.ndaw@ergobit.org>
+* Hieu, Vo Minh Bao <hieu.vmb@komit-consulting.com>
+
+Do not contact contributors directly about support or help with technical issues.
+
+Funders
+-------
+
+The development of this module has been financially supported by:
+
+* Komit https://komit-consulting.com
 
 Maintainer
 ----------
