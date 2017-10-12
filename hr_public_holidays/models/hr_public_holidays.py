@@ -121,17 +121,12 @@ class HrPublicHolidays(models.Model):
             return True
         return False
     
-    @api.returns('self', lambda value: value.id)
-    def copy(self, cr, uid, id, default=None, context=None):
-        if context is None:
-            context = {}
-        context = context.copy()
-        data = self.copy_data(cr, uid, id, default, context)
+    def copy_data(self, cr, uid, id, default=None, context=None):
+        data = super(HrPublicHolidays, self).copy_data(
+            cr, uid, id, default=default, context=context)
         data['year'] += 1
         for line in data['line_ids']:
             val = line[2]
             new_date = fields.Date.from_string(val['date'])+relativedelta(years=1)
             val['date'] = fields.Date.to_string(new_date)
-        new_id = self.create(cr, uid, data, context)
-        self.copy_translations(cr, uid, id, new_id, context)
-        return new_id
+        return data
