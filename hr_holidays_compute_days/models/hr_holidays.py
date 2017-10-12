@@ -29,7 +29,7 @@ class HrHolidays(models.Model):
 
     @api.onchange('holiday_status_id')
     def _onchange_holiday_status_id(self):
-        self._check_and_recompute_days()
+        self.number_of_days_temp = self._check_and_recompute_days()
 
     def _check_and_recompute_days(self):
         date_from = self.date_from
