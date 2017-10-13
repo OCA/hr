@@ -37,6 +37,7 @@ addon | version | summary
 [hr_holidays_notify_employee_manager](hr_holidays_notify_employee_manager/) | 10.0.1.0.0 | Notify employee's manager by mail on Leave Requests creation.
 [hr_holidays_settings](hr_holidays_settings/) | 10.0.1.0.0 | Enables Settings Form for HR Holidays.
 [hr_public_holidays](hr_public_holidays/) | 10.0.1.0.0 | Manage Public Holidays
+[hr_skill](hr_skill/) | 10.0.1.0.0 | Skill Management
 [hr_worked_days_from_timesheet](hr_worked_days_from_timesheet/) | 10.0.1.0.0 | Adds a button to import worked days from timesheet.
 
 
@@ -78,7 +79,6 @@ addon | version | summary
 [hr_salary_rule_variable](hr_salary_rule_variable/) | 1.0 (unported) | Salary Rule Variables
 [hr_schedule](hr_schedule/) | 1.0 (unported) | Employee Shift Scheduling
 [hr_security](hr_security/) | 8.0.1.0.0 (unported) | HR Permission Groups
-[hr_skill](hr_skill/) | 8.0.1.1.0 (unported) | Skill Management
 [hr_transfer](hr_transfer/) | 1.0 (unported) | Departmental Transfer
 [hr_wage_increment](hr_wage_increment/) | 1.0 (unported) | HR Wage Increment
 [hr_webcam](hr_webcam/) | 8.0.1.0.0 (unported) | Capture employee picture with webcam
