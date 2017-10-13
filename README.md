@@ -19,7 +19,7 @@ addon | version | summary
 [hr_expense_analytic_distribution](hr_expense_analytic_distribution/) | 9.0.1.0.0 | Use analytic plans in expenses
 [hr_family](hr_family/) | 9.0.1.0.0 | Employee Family Information
 [hr_holiday_notify_employee_manager](hr_holiday_notify_employee_manager/) | 9.0.1.0.0 | Notify employee's manager by mail on Leave Requests creation.
-[hr_holidays_compute_days](hr_holidays_compute_days/) | 9.0.1.0.0 | Computes the actual leave days considering rest days and public holidays
+[hr_holidays_compute_days](hr_holidays_compute_days/) | 9.0.1.0.1 | Computes the actual leave days considering rest days and public holidays
 [hr_holidays_leave_auto_approve](hr_holidays_leave_auto_approve/) | 9.0.1.0.0 | Leave type for auto approval of Leaves
 [hr_holidays_legal_leave](hr_holidays_legal_leave/) | 9.0.1.0.0 | Allows the definition of legal/annual leave
 [hr_payroll_cancel](hr_payroll_cancel/) | 9.0.1.0.0 | Hr Payroll Cancel
