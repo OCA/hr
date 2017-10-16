@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2017 ACSONE SA/NV
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+    <record model="ir.ui.view" id="hr_employee_passport_form_view">
+        <field name="name">hr.employee.passport.form (in hr_employee_passport)</field>
+        <field name="model">hr.employee.passport</field>
+        <field name="arch" type="xml">
+            <form>
+                <header/>
+                <sheet>
+                    <div class="oe_button_box" name="button_box"/>
+                    <h1>
+                        <field name="name"/>
+                    </h1>
+                    <group>
+                        <field name="description"/>
+                        <field name="end_date"/>
+                        <field name="passport_file" filename="passport_filename"/>
+                        <field name="passport_filename" invisible="1"/>
+                        <field name="is_valid"/>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="hr_employee_passport_search_view">
+        <field name="name">hr.employee.passport.search (in hr_employee_passport)</field>
+        <field name="model">hr.employee.passport</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="employee_id"/>
+                <field name="end_date"/>
+                <separator/>
+                <filter name="valid" string="Valid"
+                        domain="[('is_valid', '=', True)]"/>
+                <filter name="invalid" string="Invalid"
+                        domain="[('is_valid', '=', False)]"/>
+                <separator/>
+                <group expand="0">
+                    <filter name="group_by_employee" string="Employee"
+                            domain="[]" context="{'group_by': 'employee_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="hr_employee_passport_tree_view">
+        <field name="name">hr.employee.passport.tree (in hr_employee_passport)</field>
+        <field name="model">hr.employee.passport</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="employee_id"/>
+                <field name="end_date"/>
+                <field name="passport_filename"/>
+                <field name="is_valid"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="hr_employee_passport_act_window">
+        <field name="name">Hr Employee Passport</field>
+        <field name="res_model">hr.employee.passport</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'search_default_valid': 1}</field>
+    </record>
+
+    <record model="ir.ui.menu" id="hr_employee_passport_menu">
+        <field name="name">Employee Passports</field>
+        <field name="parent_id" ref="hr.menu_human_resources_configuration"/>
+        <field name="action" ref="hr_employee_passport_act_window"/>
+        <field name="sequence" eval="40"/>
+    </record>
+
+</odoo>

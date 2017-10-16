@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2017 ACSONE SA/NV
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+    <record model="ir.ui.view" id="hr_employee_form_view">
+        <field name="name">hr.employee.form (in hr_employee_passport)</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+
+            <page name="personal_information" position="inside">
+                <group string="Passports" name="passport">
+                    <field name="passport_ids" nolabel="1" colspan="2">
+                        <tree>
+                            <field name="end_date"/>
+                            <field name="passport_filename"/>
+                            <field name="is_valid"/>
+                        </tree>
+                    </field>
+                </group>
+            </page>
+
+        </field>
+    </record>
+
+</odoo>
