@@ -10,6 +10,17 @@ This module allows you to assign analytic distribution to expense lines
 instead of analytic accounts. This way, you can distribute the costs of an
 expense over multiple analytic accounts.
 
+Usage
+=====
+
+Create an analytic distribution and set this distribution on an expense.
+Process expense as always and analytic distribution will be propagated to move
+lines of expense.
+
+.. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
+   :alt: Try me on Runbot
+   :target: https://runbot.odoo-community.org/runbot/116/10.0
+
 Bug Tracker
 ===========
 

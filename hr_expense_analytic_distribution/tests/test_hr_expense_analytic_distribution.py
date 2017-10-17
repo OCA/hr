@@ -3,7 +3,7 @@
 # Copyright 2017 Vicent Cubells - <vicent.cubells@tecnativa.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from openerp.tests import common
+from odoo.tests import common
 
 
 class TestHrExpenseAnalyticDistribution(common.SavepointCase):
@@ -32,8 +32,10 @@ class TestHrExpenseAnalyticDistribution(common.SavepointCase):
                 }),
             ],
         })
+        cls.sheet = cls.env['hr.expense.sheet'].create({
+            'name': 'Test expense sheet',
+        })
         cls.expense = cls.env['hr.expense'].create({
-            'employee_id': cls.env.ref('hr.employee_mit').id,
             'name': 'Test expense',
             'analytic_distribution_id': cls.instance.id,
             'product_id': cls.product.id,
@@ -46,11 +48,14 @@ class TestHrExpenseAnalyticDistribution(common.SavepointCase):
     def test_hr_expense_analytic_distribution(self):
         # Expense has been submitted
         self.expense.submit_expenses()
-        # Expense is approved by admin
-        self.expense.approve_expenses()
+        # We add an expense to sheet
+        self.sheet.expense_line_ids = [(6, 0, [self.expense.id])]
+        self.assertEqual(len(self.sheet.expense_line_ids), 1)
+        # Expense is approved
+        self.sheet.approve_expense_sheets()
         # Post entries are created
-        self.expense.action_move_create()
-        for line in self.expense.account_move_id.line_ids:
+        self.sheet.action_sheet_move_create()
+        for line in self.sheet.account_move_id.line_ids:
             if line.analytic_line_ids:
                 self.assertEqual(len(line.analytic_line_ids), 2)
                 self.assertIn(self.account1, [
