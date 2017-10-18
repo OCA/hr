@@ -35,6 +35,18 @@ class TestEmployeeID(common.TransactionCase):
 
         self.assertTrue(len(employee.identification_id))
 
+    def test_custom_id(self):
+        # if we pass the ID no generation occurs.
+        # Let's set a sequence and check that is not used at all
+        self.company.write({'employee_id_gen_method': 'sequence',
+                            'employee_id_sequence': self.sequence.id})
+        number = self.sequence.number_next
+        employee = self.employee_model.create({
+            'name': 'Employee', 'identification_id': 'THERE_YOU_GO'
+        })
+        self.assertEqual(employee.identification_id, 'THERE_YOU_GO')
+        self.assertEqual(self.sequence.number_next, number)
+
     def test_configuration_default_values(self):
         # test loading of default configuration values
         self.company.write({'employee_id_gen_method': None,
