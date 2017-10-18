@@ -52,6 +52,6 @@ class HrEmployee(models.Model):
 
     @api.model
     def create(self, vals):
-        eid = self._generate_identification_id()
-        vals['identification_id'] = eid
+        if not vals.get('identification_id'):
+            vals['identification_id'] = self._generate_identification_id()
         return super(HrEmployee, self).create(vals)
