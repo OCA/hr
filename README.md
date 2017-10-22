@@ -27,6 +27,7 @@ addon | version | summary
 [hr_employee_phone_extension](hr_employee_phone_extension/) | 10.0.1.0.0 | Employee Phone Extension
 [hr_employee_seniority](hr_employee_seniority/) | 10.0.1.0.0 | Keep Track of Length of Employment
 [hr_employee_social_media](hr_employee_social_media/) | 10.0.1.0.0 | Employee Social Media
+[hr_expense_analytic_distribution](hr_expense_analytic_distribution/) | 10.0.1.0.0 | Use analytic plans in expenses
 [hr_expense_sequence](hr_expense_sequence/) | 10.0.1.0.0 | HR expense sequence
 [hr_experience](hr_experience/) | 10.0.1.0.0 | Experience Management
 [hr_family](hr_family/) | 10.0.1.0.0 | Employee Family Information
@@ -56,7 +57,6 @@ addon | version | summary
 [hr_employee_reference](hr_employee_reference/) | 8.0.1.0.0 (unported) | Manage employee references
 [hr_expense_account_period](hr_expense_account_period/) | 8.0.0.1.0 (unported) | Accounting period for HR expenses journal entries
 [hr_expense_analytic_default](hr_expense_analytic_default/) | 8.0.0.1.0 (unported) | Manage default analytic account on expenses
-[hr_expense_analytic_plans](hr_expense_analytic_plans/) | 8.0.1.0.0 (unported) | Use analytic plans in expenses
 [hr_expense_invoice](hr_expense_invoice/) | 8.0.1.0.0 (unported) | Supplier invoices on HR expenses
 [hr_expense_move_date](hr_expense_move_date/) | 8.0.1.0.0 (unported) | Move date for HR expenses journal entries
 [hr_infraction](hr_infraction/) | 1.0 (unported) | Employee Infraction Management
