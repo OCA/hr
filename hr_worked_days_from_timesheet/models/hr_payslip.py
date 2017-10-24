@@ -12,6 +12,28 @@ from odoo.exceptions import UserError
 class HrPayslip(models.Model):
     _inherit = 'hr.payslip'
 
+    @api.model
+    def prepare_worked_days(self, payslip, ts_sheet, date_from,
+                            date_to):
+        number_of_hours = 0
+        for ts in ts_sheet.timesheet_ids:
+            if date_from <= ts.date <= date_to:
+                number_of_hours += ts.unit_amount
+        # Get formated date from the timesheet sheet
+        date_from_formated = fields.Date.to_string(
+            fields.Datetime.from_string(ts_sheet.date_from))
+        if number_of_hours > 0:
+            return{
+                'name': _('Timesheet %s') % date_from_formated,
+                'number_of_hours': number_of_hours,
+                'contract_id': payslip.contract_id.id,
+                'code': 'TS',
+                'imported_from_timesheet': True,
+                'timesheet_sheet_id': ts_sheet.id,
+                'payslip_id': payslip.id,
+            }
+        return False
+
     @api.multi
     def _timesheet_mapping(self, timesheet_sheets, payslip, date_from,
                            date_to):
@@ -20,23 +42,10 @@ class HrPayslip(models.Model):
         """
         # Create one worked days record for each timesheet sheet
         for ts_sheet in timesheet_sheets:
-            # Get formated date from the timesheet sheet
-            date_from_formated = fields.Date.to_string(
-                fields.Datetime.from_string(ts_sheet.date_from))
-            number_of_hours = 0
-            for ts in ts_sheet.timesheet_ids:
-                if date_from <= ts.date <= date_to:
-                    number_of_hours += ts.unit_amount
-            if number_of_hours > 0:
-                self.env['hr.payslip.worked_days'].create({
-                    'name': _('Timesheet %s') % date_from_formated,
-                    'number_of_hours': number_of_hours,
-                    'contract_id': payslip.contract_id.id,
-                    'code': 'TS',
-                    'imported_from_timesheet': True,
-                    'timesheet_sheet_id': ts_sheet.id,
-                    'payslip_id': payslip.id,
-                })
+            worked_days_data = self.prepare_worked_days(
+                payslip, ts_sheet, date_from, date_to)
+            if worked_days_data:
+                self.env['hr.payslip.worked_days'].create(worked_days_data)
 
     @api.multi
     def _check_contract(self):
