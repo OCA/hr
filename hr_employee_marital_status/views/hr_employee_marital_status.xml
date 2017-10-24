@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="view_hr_employee_marital_status_tree" model="ir.ui.view">
+            <field name="model">hr.employee.marital.status</field>
+            <field name="arch" type="xml">
+                <tree editable="top">
+                    <field name="name" />
+                    <field name="code" />
+                </tree>
+            </field>
+        </record>
+        <act_window
+            id="action_hr_employee_marital_status"
+            name="Marital statuses"
+            res_model="hr.employee.marital.status"
+            view_mode="tree"
+        />
+        <menuitem
+            id="menu_hr_employee_marital_status"
+            parent="hr.menu_hr_configuration"
+            action="action_hr_employee_marital_status"
+        />
+    </data>
+</openerp>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="single" model="hr.employee.marital.status">
+            <field name="code">SNG</field>
+            <field name="name">Single</field>
+        </record>
+        <record id="married" model="hr.employee.marital.status">
+            <field name="code">MAR</field>
+            <field name="name">Married</field>
+        </record>
+        <record id="widower" model="hr.employee.marital.status">
+            <field name="code">WID</field>
+            <field name="name">Widower</field>
+        </record>
+        <record id="divorced" model="hr.employee.marital.status">
+            <field name="code">DIV</field>
+            <field name="name">Divorced</field>
+        </record>
+    </data>
+</openerp>
