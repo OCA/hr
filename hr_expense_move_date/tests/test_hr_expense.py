@@ -3,6 +3,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 from odoo.tests.common import TransactionCase
+from odoo.exceptions import UserError
 import time
 
 
@@ -46,3 +47,29 @@ class ExpenseMoveDateCase(TransactionCase):
         self.expense.action_sheet_move_create()
         move = self.expense.account_move_id
         self.assertEqual(self.expense.expense_line_ids.move_date, move.date)
+
+        with self.assertRaises(UserError):
+            self.expense.employee_id.address_home_id = False
+            self.expense.approve_expense_sheets()
+            self.expense.action_sheet_move_create()
+
+        with self.assertRaises(UserError):
+            self.expense_copy = self.hr_expense_sheet.create({
+                'name': 'Expense for John Smith',
+                'employee_id': self.employee.id,
+            })
+            self.expense_line_copy = self.hr_expense.create({
+                'name': 'Car Travel Expenses',
+                'employee_id': self.employee.id,
+                'product_id': self.product.id,
+                'unit_amount': 700.00,
+                'date': time.strftime('%Y-%m-%d'),
+                'move_date': time.strftime('%Y-%m-10'),
+                'tax_ids': [(6, 0, [self.tax.id])],
+                'sheet_id': self.expense_copy.id,
+                'payment_mode': 'company_account'
+            })
+            self.expense_copy.approve_expense_sheets()
+            self.expense_copy.expense_line_ids.sheet_id.bank_journal_id.\
+                default_credit_account_id = False
+            self.expense_copy.action_sheet_move_create()
