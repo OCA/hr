@@ -24,6 +24,20 @@ Usage
 
 On the employee form view you will have 2 separate fields, one for Firstname,
 second for Lastname, both required.
+In Settings > Configuration > General settings it is possible to
+recalculate name of the employees. To do that the format has to be chosen:
+
+* Lastname Firstname
+* Lastname, Firstname
+* Firstname Lastname
+
+After applying the changes, with the "Recalculate name" button
+the names can be recalculated.
+
+You can use *_get_inverse_name* method to get lastname and firstname from a simple string
+and also *_get_computed_name* to get a name form the lastname and firstname.
+These methods can be overridden to change the format specified above.
+
 
 Bug Tracker
 ===========
@@ -45,6 +59,7 @@ Contributors
 * David Dufresne <david.dufresne@savoirfairelinux.com>
 * Adrien Peiffer (ACSONE) <adrien.peiffer@acsone.eu>
 * Antonio Esposito (ONESTEIN BV) <a.esposito@onestein.nl>
+* Panarin Mykhailo <m.panarin@mobilunity.com>
 
 Maintainer
 ----------

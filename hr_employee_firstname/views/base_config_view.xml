@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+<record id="view_general_configuration" model="ir.ui.view">
+    <field name="name">Add employee_names_order config parameter</field>
+    <field name="model">base.config.settings</field>
+    <field name="inherit_id" ref="base_setup.view_general_configuration"/>
+    <field name="arch" type="xml">
+        <xpath expr="//label[@name='email_label']/.." position='after'>
+            <group>
+                <label for="employee_names_order" />
+                <div>
+                    <div>
+                        <field name="employee_names_order" class="oe_inline" />
+                        <field name="employee_names_order_changed" invisible="1"/>
+                        <button name="action_recalculate_employees_name"
+                                string="Recalculate names"
+                                icon="fa-play"
+                                type="object"
+                                help="Recalculate names for all employees. This process could take so much time if there are more than 10,000 active employees"
+                                attrs="{'invisible': [('partner_names_order_changed', '=', True)]}"/>
+                    </div>
+                </div>
+            </group>
+        </xpath>
+    </field>
+</record>
+
+</odoo>
