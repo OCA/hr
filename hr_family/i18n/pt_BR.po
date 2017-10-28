@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-17 20:43+0000\n"
-"PO-Revision-Date: 2016-11-25 14:55+0000\n"
+"POT-Creation-Date: 2017-10-03 03:00+0000\n"
+"PO-Revision-Date: 2017-10-27 11:18+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/oca/OCA-hr-8-0/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -76,12 +76,12 @@ msgstr ""
 #. module: hr_family
 #: selection:hr.employee.children,gender:0
 msgid "Female"
-msgstr ""
+msgstr "Feminino"
 
 #. module: hr_family
 #: field:hr.employee.children,gender:0
 msgid "Gender"
-msgstr ""
+msgstr "Sexo"
 
 #. module: hr_family
 #: model:ir.model,name:hr_family.model_hr_employee_children
@@ -111,7 +111,7 @@ msgstr "Última atualização em"
 #. module: hr_family
 #: selection:hr.employee.children,gender:0
 msgid "Male"
-msgstr ""
+msgstr "Masculino"
 
 #. module: hr_family
 #: field:hr.employee,fam_mother:0

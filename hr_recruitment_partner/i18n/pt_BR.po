@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-19 02:41+0000\n"
-"PO-Revision-Date: 2017-08-21 07:16+0000\n"
+"POT-Creation-Date: 2017-10-03 03:00+0000\n"
+"PO-Revision-Date: 2017-10-27 11:29+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/oca/OCA-hr-8-0/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -22,17 +22,17 @@ msgstr ""
 #. module: hr_recruitment_partner
 #: field:hr.applicant,property_account_payable:0
 msgid "Account Payable"
-msgstr ""
+msgstr "Conta de pagamento"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,property_account_receivable:0
 msgid "Account Receivable"
-msgstr ""
+msgstr "Conta de recebimento"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,type:0
 msgid "Address Type"
-msgstr ""
+msgstr "Tipo do Endereço"
 
 #. module: hr_recruitment_partner
 #: model:ir.model,name:hr_recruitment_partner.model_hr_applicant
@@ -42,12 +42,12 @@ msgstr "Aplicante"
 #. module: hr_recruitment_partner
 #: field:hr.applicant,bank_ids:0
 msgid "Banks"
-msgstr ""
+msgstr "Bancos"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,birthdate:0
 msgid "Birthdate"
-msgstr ""
+msgstr "Data de Nascimento"
 
 #. module: hr_recruitment_partner
 #: help:hr.applicant,is_company:0
@@ -81,7 +81,7 @@ msgstr ""
 #. module: hr_recruitment_partner
 #: field:hr.applicant,city:0
 msgid "City"
-msgstr ""
+msgstr "Cidade"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,commercial_partner_id:0
@@ -96,7 +96,7 @@ msgstr ""
 #. module: hr_recruitment_partner
 #: field:hr.applicant,contact_address:0
 msgid "Complete Address"
-msgstr ""
+msgstr "Endereço Completo"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,ref:0

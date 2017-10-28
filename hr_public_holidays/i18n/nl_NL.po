@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-19 02:41+0000\n"
+"POT-Creation-Date: 2017-10-03 03:00+0000\n"
 "PO-Revision-Date: 2016-04-05 07:13+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/oca/OCA-hr-8-0/language/nl_NL/)\n"
@@ -25,7 +25,7 @@ msgstr ""
 #. module: hr_public_holidays
 #: field:hr.holidays.public,country_id:0
 msgid "Country"
-msgstr ""
+msgstr "Land"
 
 #. module: hr_public_holidays
 #: field:hr.holidays.public,create_uid:0
@@ -86,7 +86,7 @@ msgstr "Laatst bijgewerkt op"
 #: field:hr.holidays.public,display_name:0
 #: field:hr.holidays.public.line,name:0
 msgid "Name"
-msgstr ""
+msgstr "Naam"
 
 #. module: hr_public_holidays
 #: view:hr.holidays.public:hr_public_holidays.view_public_holidays_form

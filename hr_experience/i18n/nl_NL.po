@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-19 02:40+0000\n"
-"PO-Revision-Date: 2017-08-29 08:01+0000\n"
+"POT-Creation-Date: 2017-10-03 03:00+0000\n"
+"PO-Revision-Date: 2017-09-22 21:17+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/oca/OCA-hr-8-0/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
@@ -250,13 +250,13 @@ msgstr "Laatst bijgewerkt op"
 #: field:hr.curriculum,location:0 help:hr.curriculum,location:0
 #: field:hr.experience,location:0 help:hr.experience,location:0
 msgid "Location"
-msgstr ""
+msgstr "Locatie"
 
 #. module: hr_experience
 #: field:hr.academic,name:0 field:hr.certification,name:0
 #: field:hr.curriculum,name:0 field:hr.experience,name:0
 msgid "Name"
-msgstr ""
+msgstr "Naam"
 
 #. module: hr_experience
 #: view:hr.academic:hr_experience.view_academic_form

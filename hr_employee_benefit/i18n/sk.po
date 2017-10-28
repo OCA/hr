@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-17 20:43+0000\n"
-"PO-Revision-Date: 2016-11-22 16:25+0000\n"
+"POT-Creation-Date: 2017-10-03 03:00+0000\n"
+"PO-Revision-Date: 2017-10-16 18:32+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Slovak (http://www.transifex.com/oca/OCA-hr-8-0/language/sk/)\n"
 "MIME-Version: 1.0\n"
@@ -200,7 +200,7 @@ msgstr ""
 #: field:hr.employee.benefit,date_end:0
 #: field:hr.employee.benefit.rate.line,date_end:0
 msgid "End Date"
-msgstr ""
+msgstr "Dátum ukončenia"
 
 #. module: hr_employee_benefit
 #: help:hr.payslip,pays_per_year:0
@@ -335,7 +335,7 @@ msgstr ""
 #: field:hr.employee.benefit,date_start:0
 #: field:hr.employee.benefit.rate.line,date_start:0
 msgid "Start Date"
-msgstr ""
+msgstr "Počiatočný dátum"
 
 #. module: hr_employee_benefit
 #: help:hr.employee.benefit,code:0 help:hr.employee.benefit.category,code:0

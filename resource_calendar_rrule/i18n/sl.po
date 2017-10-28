@@ -1,0 +1,122 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * resource_calendar_rrule
+# 
+# Translators:
+# Matjaž Mozetič <m.mozetic@matmoz.si>, 2017
+# OCA Transbot <transbot@odoo-community.org>, 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-10-03 03:00+0000\n"
+"PO-Revision-Date: 2017-10-03 03:00+0000\n"
+"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
+"Language-Team: Slovenian (https://www.transifex.com/oca/teams/23907/sl/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: sl\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
+
+#. module: resource_calendar_rrule
+#. openerp-web
+#: code:addons/resource_calendar_rrule/static/src/xml/resource_calendar_rrule.xml:61
+#, python-format
+msgid "Add a different schedule for odd weeks"
+msgstr "Dodaj drugačen urnik za lihe tedne"
+
+#. module: resource_calendar_rrule
+#: help:resource.calendar.attendance,rrule:0
+msgid "Add an arbitrary amount of repetition rules."
+msgstr "Dodaj poljubno število pravil ponavljanja."
+
+#. module: resource_calendar_rrule
+#. openerp-web
+#: code:addons/resource_calendar_rrule/static/src/xml/resource_calendar_rrule.xml:48
+#, python-format
+msgid "Afternoon"
+msgstr "Popoldan"
+
+#. module: resource_calendar_rrule
+#. openerp-web
+#: code:addons/resource_calendar_rrule/static/src/xml/resource_calendar_rrule.xml:23
+#, python-format
+msgid "Even weeks"
+msgstr "Sodi tedni"
+
+#. module: resource_calendar_rrule
+#: model:res.groups,name:resource_calendar_rrule.group_full_calendar_rrule
+msgid "Full RRules in resource calendars"
+msgstr "Polna pravila v koledarjih virov"
+
+#. module: resource_calendar_rrule
+#: code:addons/resource_calendar_rrule/models/resource_calendar.py:73
+#, python-format
+msgid "Ignoring %s"
+msgstr "Zanemarjeno %s"
+
+#. module: resource_calendar_rrule
+#. openerp-web
+#: code:addons/resource_calendar_rrule/static/src/xml/resource_calendar_rrule.xml:37
+#, python-format
+msgid "Morning"
+msgstr "Jutro"
+
+#. module: resource_calendar_rrule
+#: field:resource.calendar.attendance,rrule_preview:0
+msgid "Preview"
+msgstr "Predogled"
+
+#. module: resource_calendar_rrule
+#: field:resource.calendar.attendance,rrule:0
+msgid "Repetition"
+msgstr "Ponavljanje"
+
+#. module: resource_calendar_rrule
+#: model:ir.model,name:resource_calendar_rrule.model_resource_calendar
+msgid "Resource Calendar"
+msgstr "Koledar virov"
+
+#. module: resource_calendar_rrule
+#: code:addons/resource_calendar_rrule/models/resource_calendar.py:165
+#, python-format
+msgid "Simplified attendance %s afternoon"
+msgstr "Poenostavljena popoldanska prisotnost %s"
+
+#. module: resource_calendar_rrule
+#: code:addons/resource_calendar_rrule/models/resource_calendar.py:154
+#, python-format
+msgid "Simplified attendance %s morning"
+msgstr "Poenostavljena jutranja prisotnost %s"
+
+#. module: resource_calendar_rrule
+#. openerp-web
+#: code:addons/resource_calendar_rrule/static/src/xml/resource_calendar_rrule.xml:18
+#, python-format
+msgid "There are no attendances to show"
+msgstr "Ni prisotnosti na voljo za prikaz"
+
+#. module: resource_calendar_rrule
+#. openerp-web
+#: code:addons/resource_calendar_rrule/static/src/xml/resource_calendar_rrule.xml:26
+#, python-format
+msgid "Uneven weeks"
+msgstr "Ne sodi tedni"
+
+#. module: resource_calendar_rrule
+#. openerp-web
+#: code:addons/resource_calendar_rrule/static/src/xml/resource_calendar_rrule.xml:62
+#, python-format
+msgid "Use only one schedule for all weeks"
+msgstr "Uporabi le en urnik za vse tedne"
+
+#. module: resource_calendar_rrule
+#: model:ir.model,name:resource_calendar_rrule.model_resource_calendar_attendance
+msgid "Work Detail"
+msgstr "Delovne zadolžitve"
+
+#. module: resource_calendar_rrule
+#: field:resource.calendar,simplified_attendance:0
+msgid "Working time"
+msgstr "Delovni čas"

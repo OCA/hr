@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-19 02:41+0000\n"
-"PO-Revision-Date: 2017-08-29 08:01+0000\n"
+"POT-Creation-Date: 2017-10-03 03:00+0000\n"
+"PO-Revision-Date: 2017-09-22 13:14+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/oca/OCA-hr-8-0/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
@@ -86,7 +86,7 @@ msgstr "Laatst bijgewerkt op"
 #: view:hr.skill:hr_skill.view_hr_skill_tree
 #: view:hr.skill:hr_skill.view_skill_form field:hr.skill,name:0
 msgid "Name"
-msgstr ""
+msgstr "Naam"
 
 #. module: hr_skill
 #: field:hr.skill,parent_id:0
