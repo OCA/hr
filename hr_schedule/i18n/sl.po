@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-19 02:34+0000\n"
+"POT-Creation-Date: 2017-10-02 17:07+0000\n"
 "PO-Revision-Date: 2015-07-27 23:40+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Slovenian (http://www.transifex.com/oca/OCA-hr-7-0/language/sl/)\n"
@@ -659,7 +659,7 @@ msgstr "Koda"
 #. module: hr_schedule
 #: model:ir.model,name:hr_schedule.model_hr_schedule_template_worktime
 msgid "Work Detail"
-msgstr ""
+msgstr "Delovne zadolžitve"
 
 #. module: hr_schedule
 #: model:ir.model,name:hr_schedule.model_hr_contract_init
@@ -669,7 +669,7 @@ msgstr ""
 #. module: hr_schedule
 #: view:hr.schedule.generate:0
 msgid "Generate"
-msgstr ""
+msgstr "Ustvari"
 
 #. module: hr_schedule
 #: code:addons/hr_schedule/hr_schedule.py:1173

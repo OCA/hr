@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-19 02:34+0000\n"
+"POT-Creation-Date: 2017-10-02 17:06+0000\n"
 "PO-Revision-Date: 2015-07-27 23:39+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/oca/OCA-hr-7-0/language/nl_NL/)\n"
@@ -30,7 +30,7 @@ msgstr ""
 #. module: hr_leave_accruals
 #: field:hr.leave.accrual.line,state:0
 msgid "State"
-msgstr ""
+msgstr "Provincie"
 
 #. module: hr_leave_accruals
 #: field:hr.holidays,accrual_line_id:0
@@ -127,7 +127,7 @@ msgstr ""
 #. module: hr_leave_accruals
 #: model:ir.model,name:hr_leave_accruals.model_res_company
 msgid "Companies"
-msgstr ""
+msgstr "Bedrijven"
 
 #. module: hr_leave_accruals
 #: code:addons/hr_leave_accruals/hr_holidays_status_accrual_line.py:28

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-18 02:58+0000\n"
+"POT-Creation-Date: 2017-10-02 17:07+0000\n"
 "PO-Revision-Date: 2015-07-27 23:40+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Slovak (http://www.transifex.com/oca/OCA-hr-7-0/language/sk/)\n"
@@ -209,7 +209,7 @@ msgstr ""
 #. module: hr_schedule
 #: selection:hr.schedule.request,state:0
 msgid "Cancelled"
-msgstr ""
+msgstr "Zrušené"
 
 #. module: hr_schedule
 #: model:mail.message.subtype,description:hr_schedule.mt_alert_unresolved
@@ -275,7 +275,7 @@ msgstr ""
 #: field:hr.schedule,state:0 field:hr.schedule.alert,state:0
 #: field:hr.schedule.detail,state:0 field:hr.schedule.request,state:0
 msgid "State"
-msgstr ""
+msgstr "Stav"
 
 #. module: hr_schedule
 #: field:hr.schedule,message_follower_ids:0
@@ -594,7 +594,7 @@ msgstr "Aktívne"
 #. module: hr_schedule
 #: field:hr.schedule,date_start:0
 msgid "Start Date"
-msgstr ""
+msgstr "Počiatočný dátum"
 
 #. module: hr_schedule
 #: view:hr.schedule.alert:0
@@ -798,7 +798,7 @@ msgstr ""
 #. module: hr_schedule
 #: field:hr.schedule,date_end:0
 msgid "End Date"
-msgstr ""
+msgstr "Dátum ukončenia"
 
 #. module: hr_schedule
 #: field:hr.schedule.alert.rule,name:0 field:hr.schedule.detail,name:0

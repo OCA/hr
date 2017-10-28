@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-18 02:58+0000\n"
+"POT-Creation-Date: 2017-10-02 17:07+0000\n"
 "PO-Revision-Date: 2015-07-27 23:41+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Slovenian (http://www.transifex.com/oca/OCA-hr-7-0/language/sl/)\n"
@@ -427,7 +427,7 @@ msgstr ""
 #. module: hr_wage_increment
 #: view:wage.adjustment.employees:0
 msgid "Generate"
-msgstr ""
+msgstr "Ustvari"
 
 #. module: hr_wage_increment
 #: selection:hr.contract.wage.increment,state:0

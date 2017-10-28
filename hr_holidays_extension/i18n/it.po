@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-11 02:20+0000\n"
+"POT-Creation-Date: 2017-10-02 17:06+0000\n"
 "PO-Revision-Date: 2015-07-27 23:38+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Italian (http://www.transifex.com/oca/OCA-hr-7-0/language/it/)\n"
@@ -103,7 +103,7 @@ msgstr ""
 #. module: hr_holidays_extension
 #: view:hr.holidays:0
 msgid "Validate"
-msgstr ""
+msgstr "Conferma"
 
 #. module: hr_holidays_extension
 #: model:ir.actions.act_window,name:hr_holidays_extension.open_leave_request

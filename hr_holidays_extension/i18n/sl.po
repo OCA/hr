@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-19 02:33+0000\n"
+"POT-Creation-Date: 2017-10-02 17:06+0000\n"
 "PO-Revision-Date: 2015-07-27 23:38+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Slovenian (http://www.transifex.com/oca/OCA-hr-7-0/language/sl/)\n"
@@ -153,7 +153,7 @@ msgstr ""
 #. module: hr_holidays_extension
 #: sql_constraint:hr.holidays:0
 msgid "The start date must be anterior to the end date."
-msgstr ""
+msgstr "Začetni datum mora biti pred končnim."
 
 #. module: hr_holidays_extension
 #: field:hr.holidays,rest_days:0

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-18 02:58+0000\n"
+"POT-Creation-Date: 2017-10-02 17:06+0000\n"
 "PO-Revision-Date: 2015-07-27 23:39+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Slovak (http://www.transifex.com/oca/OCA-hr-7-0/language/sk/)\n"
@@ -103,7 +103,7 @@ msgstr ""
 #. module: hr_payroll_analysis
 #: field:hr.payroll.analysis,end_date:0
 msgid "End Date"
-msgstr ""
+msgstr "Dátum ukončenia"
 
 #. module: hr_payroll_analysis
 #: code:addons/hr_payroll_analysis/wizard/payroll_analysis.py:181
@@ -187,7 +187,7 @@ msgstr "Zrušiť"
 #. module: hr_payroll_analysis
 #: field:hr.payroll.analysis,start_date:0
 msgid "Start Date"
-msgstr ""
+msgstr "Počiatočný dátum"
 
 #. module: hr_payroll_analysis
 #: view:hr.payslip.analysis.line:0
