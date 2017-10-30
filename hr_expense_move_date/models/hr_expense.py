@@ -28,7 +28,7 @@ class HrExpense(models.Model):
             move = self.env['account.move'].create({
                 'journal_id': journal.id,
                 'company_id': self.env.user.company_id.id,
-                'date': expense.move_date,
+                'date': expense.move_date or acc_date,
                 'ref': expense.sheet_id.name,
                 # force the name to the default value, to avoid an eventual
                 # 'default_name' in the context
