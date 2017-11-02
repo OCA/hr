@@ -34,22 +34,20 @@ class HrEmployee(models.Model):
         # note the write super needs to be done before so that if constrainst
         # fail we won't change tags. Tests revealed that those writes below on
         # partner will not be rolledback by the validation error in constraint
+        old_partners = self.mapped('partner_spouse_id')
         res = super(HrEmployee, self).write(vals)
         spouse_tag_id = self.env.ref(
             'hr_employee_spouse.res_partner_category_spouse'
         ).id
-        for this in self:
-            if 'partner_spouse_id' in vals:
-                spouse_part = self.env['res.partner'].browse(
-                    vals['partner_spouse_id']
+        if 'partner_spouse_id' in vals:
+            # delete "spouse" tag from old partners
+            old_partners.with_context(
+                auth_spouse_mod=True).write(
+                    {'category_id': [(3, spouse_tag_id)]}
                 )
-                # delete "spouse" tag from old partner
-                this.partner_spouse_id.with_context(
-                    auth_spouse_mod=True).write(
-                        {'category_id': [(3, spouse_tag_id)]}
-                    )
-                # Add to the spouse partner "spouse" tag.
-                spouse_part.with_context(auth_spouse_mod=True).write(
+            # Add to the spouse partner "spouse" tag.
+            self.mapped('partner_spouse_id').with_context(
+                auth_spouse_mod=True).write(
                     {'category_id': [(4, spouse_tag_id)]}
                 )
         return res
@@ -61,9 +59,8 @@ class HrEmployee(models.Model):
         ).id
         new_empl = super(HrEmployee, self).create(vals)
         # Add to the spouse partner "spouse" tag.
-        if new_empl.partner_spouse_id:
-            new_empl.partner_spouse_id.with_context(
-                auth_spouse_mod=True).write(
-                    {'category_id': [(4, spouse_tag_id)]}
-                )
+        new_empl.partner_spouse_id.with_context(
+            auth_spouse_mod=True).write(
+                {'category_id': [(4, spouse_tag_id)]}
+            )
         return new_empl
