@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-19 02:41+0000\n"
-"PO-Revision-Date: 2017-08-21 07:55+0000\n"
+"POT-Creation-Date: 2017-10-28 04:08+0000\n"
+"PO-Revision-Date: 2017-11-03 12:15+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Indonesian (http://www.transifex.com/oca/OCA-hr-8-0/language/id/)\n"
 "MIME-Version: 1.0\n"
@@ -91,7 +91,7 @@ msgstr "Nama"
 #. module: hr_skill
 #: field:hr.skill,parent_id:0
 msgid "Parent"
-msgstr ""
+msgstr "Induk"
 
 #. module: hr_skill
 #: field:hr.skill,parent_left:0
