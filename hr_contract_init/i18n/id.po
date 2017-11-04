@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-19 02:33+0000\n"
+"POT-Creation-Date: 2017-10-28 04:01+0000\n"
 "PO-Revision-Date: 2015-07-27 23:36+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Indonesian (http://www.transifex.com/oca/OCA-hr-7-0/language/id/)\n"
@@ -47,7 +47,7 @@ msgstr ""
 #. module: hr_contract_init
 #: field:hr.contract.init,state:0
 msgid "State"
-msgstr ""
+msgstr "Bagian"
 
 #. module: hr_contract_init
 #: field:hr.contract.init,trial_period:0
@@ -57,7 +57,7 @@ msgstr ""
 #. module: hr_contract_init
 #: selection:hr.contract.init,state:0
 msgid "Draft"
-msgstr ""
+msgstr "Draf"
 
 #. module: hr_contract_init
 #: field:hr.contract.init.wage,category_ids:0

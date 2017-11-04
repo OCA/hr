@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-19 02:33+0000\n"
+"POT-Creation-Date: 2017-10-28 04:01+0000\n"
 "PO-Revision-Date: 2015-07-27 23:38+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Indonesian (http://www.transifex.com/oca/OCA-hr-7-0/language/id/)\n"
@@ -68,12 +68,12 @@ msgstr ""
 #. module: hr_employee_state
 #: field:hr.employee.termination,state:0
 msgid "State"
-msgstr ""
+msgstr "Bagian"
 
 #. module: hr_employee_state
 #: selection:hr.employee.termination,state:0
 msgid "Draft"
-msgstr ""
+msgstr "Draf"
 
 #. module: hr_employee_state
 #: selection:hr.employee,status:0
@@ -165,7 +165,7 @@ msgstr ""
 #. module: hr_employee_state
 #: field:hr.employee.termination,message_is_follower:0
 msgid "Is a Follower"
-msgstr ""
+msgstr "Ini Adalah Pengikut"
 
 #. module: hr_employee_state
 #: code:addons/hr_employee_state/hr.py:307
@@ -225,7 +225,7 @@ msgstr ""
 #. module: hr_employee_state
 #: field:hr.employee.termination,message_summary:0
 msgid "Summary"
-msgstr ""
+msgstr "Ringkasan"
 
 #. module: hr_employee_state
 #: selection:hr.employee,status:0
@@ -254,7 +254,7 @@ msgstr ""
 #: selection:hr.employee.termination,state:0
 #: model:mail.message.subtype,description:hr_employee_state.mt_alert_state_cancel
 msgid "Cancelled"
-msgstr ""
+msgstr "Dibatalkan"
 
 #. module: hr_employee_state
 #: help:hr.employee.termination,message_unread:0
@@ -311,7 +311,7 @@ msgstr ""
 msgid ""
 "Holds the Chatter summary (number of messages, ...). This summary is "
 "directly in html format in order to be inserted in kanban views."
-msgstr ""
+msgstr "Memegang ringkasan Chatter (jumlah pesan, ...). Ringkasan ini langsung dalam format html agar bisa dimasukkan dalam pandangan kanban."
 
 #. module: hr_employee_state
 #: selection:hr.employee,status:0

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-17 01:54+0000\n"
+"POT-Creation-Date: 2017-10-28 04:02+0000\n"
 "PO-Revision-Date: 2015-07-27 23:41+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Indonesian (http://www.transifex.com/oca/OCA-hr-7-0/language/id/)\n"
@@ -91,13 +91,13 @@ msgstr ""
 #: view:hr.contract.wage.increment.run:0
 #: field:hr.contract.wage.increment.run,state:0
 msgid "State"
-msgstr ""
+msgstr "Bagian"
 
 #. module: hr_wage_increment
 #: selection:hr.contract.wage.increment,state:0
 #: selection:hr.contract.wage.increment.run,state:0
 msgid "Draft"
-msgstr ""
+msgstr "Draf"
 
 #. module: hr_wage_increment
 #: field:hr.contract.wage.increment.run,name:0
@@ -285,7 +285,7 @@ msgstr ""
 #. module: hr_wage_increment
 #: selection:hr.contract.wage.increment.run,type:0
 msgid "Manual"
-msgstr ""
+msgstr "Petunjuk"
 
 #. module: hr_wage_increment
 #: model:ir.actions.act_window,name:hr_wage_increment.action_wage_adjustment_run

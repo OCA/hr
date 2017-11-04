@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-19 02:34+0000\n"
+"POT-Creation-Date: 2017-10-28 04:02+0000\n"
 "PO-Revision-Date: 2015-07-27 23:39+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Indonesian (http://www.transifex.com/oca/OCA-hr-7-0/language/id/)\n"
@@ -313,7 +313,7 @@ msgstr ""
 msgid ""
 "Holds the Chatter summary (number of messages, ...). This summary is "
 "directly in html format in order to be inserted in kanban views."
-msgstr ""
+msgstr "Memegang ringkasan Chatter (jumlah pesan, ...). Ringkasan ini langsung dalam format html agar bisa dimasukkan dalam pandangan kanban."
 
 #. module: hr_payroll_period
 #: field:hr.payroll.period.end.1,pex_critical:0
@@ -388,7 +388,7 @@ msgstr ""
 #. module: hr_payroll_period
 #: field:hr.attendance,state:0 field:hr.payroll.period,state:0
 msgid "State"
-msgstr ""
+msgstr "Bagian"
 
 #. module: hr_payroll_period
 #: field:hr.payroll.period.end.1,exact_change:0
@@ -483,7 +483,7 @@ msgstr ""
 #. module: hr_payroll_period
 #: selection:hr.payroll.period.schedule,type:0
 msgid "Manual"
-msgstr ""
+msgstr "Petunjuk"
 
 #. module: hr_payroll_period
 #: field:hr.payroll.period.end.1,cent25:0
@@ -617,7 +617,7 @@ msgstr ""
 #. module: hr_payroll_period
 #: view:hr.payroll.period.end.1:0
 msgid "Draft"
-msgstr ""
+msgstr "Draf"
 
 #. module: hr_payroll_period
 #: field:hr.payroll.period.end.1,pex_low:0
@@ -696,7 +696,7 @@ msgstr ""
 #. module: hr_payroll_period
 #: field:hr.payroll.period,message_is_follower:0
 msgid "Is a Follower"
-msgstr ""
+msgstr "Ini Adalah Pengikut"
 
 #. module: hr_payroll_period
 #: field:hr.holidays,payroll_period_state:0
@@ -763,7 +763,7 @@ msgstr ""
 #. module: hr_payroll_period
 #: field:hr.payroll.period,message_summary:0
 msgid "Summary"
-msgstr ""
+msgstr "Ringkasan"
 
 #. module: hr_payroll_period
 #: field:hr.payroll.period.end.1,ps_amendments_conf:0
@@ -810,7 +810,7 @@ msgstr ""
 #: field:hr.holidays.status,code:0 view:hr.payslip.exception.rule:0
 #: field:hr.payslip.exception.rule,code:0
 msgid "Code"
-msgstr ""
+msgstr "Kode"
 
 #. module: hr_payroll_period
 #: selection:hr.payroll.period.schedule,mo_firstday:0

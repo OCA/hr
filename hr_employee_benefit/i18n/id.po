@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-29 02:27+0000\n"
+"POT-Creation-Date: 2017-10-28 04:01+0000\n"
 "PO-Revision-Date: 2015-07-27 23:37+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Indonesian (http://www.transifex.com/oca/OCA-hr-7-0/language/id/)\n"
@@ -94,7 +94,7 @@ msgstr "Keterangan"
 #. module: hr_employee_benefit
 #: field:hr.employee.benefit.rate.line,parent_id:0
 msgid "Parent"
-msgstr ""
+msgstr "Induk"
 
 #. module: hr_employee_benefit
 #: constraint:hr.employee.benefit.rate:0
@@ -232,7 +232,7 @@ msgstr ""
 #. module: hr_employee_benefit
 #: field:hr.employee.benefit,code:0 field:hr.employee.benefit.category,code:0
 msgid "Code"
-msgstr ""
+msgstr "Kode"
 
 #. module: hr_employee_benefit
 #: help:hr.employee.benefit.category,code:0

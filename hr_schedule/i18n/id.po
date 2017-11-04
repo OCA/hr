@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-19 02:34+0000\n"
+"POT-Creation-Date: 2017-10-28 04:02+0000\n"
 "PO-Revision-Date: 2015-07-27 23:40+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Indonesian (http://www.transifex.com/oca/OCA-hr-7-0/language/id/)\n"
@@ -209,7 +209,7 @@ msgstr ""
 #. module: hr_schedule
 #: selection:hr.schedule.request,state:0
 msgid "Cancelled"
-msgstr ""
+msgstr "Dibatalkan"
 
 #. module: hr_schedule
 #: model:mail.message.subtype,description:hr_schedule.mt_alert_unresolved
@@ -275,7 +275,7 @@ msgstr ""
 #: field:hr.schedule,state:0 field:hr.schedule.alert,state:0
 #: field:hr.schedule.detail,state:0 field:hr.schedule.request,state:0
 msgid "State"
-msgstr ""
+msgstr "Bagian"
 
 #. module: hr_schedule
 #: field:hr.schedule,message_follower_ids:0
@@ -331,7 +331,7 @@ msgstr ""
 msgid ""
 "Holds the Chatter summary (number of messages, ...). This summary is "
 "directly in html format in order to be inserted in kanban views."
-msgstr ""
+msgstr "Memegang ringkasan Chatter (jumlah pesan, ...). Ringkasan ini langsung dalam format html agar bisa dimasukkan dalam pandangan kanban."
 
 #. module: hr_schedule
 #: field:hr.schedule.alert,rule_id:0
@@ -497,7 +497,7 @@ msgstr ""
 #. module: hr_schedule
 #: selection:hr.schedule,state:0 selection:hr.schedule.detail,state:0
 msgid "Draft"
-msgstr ""
+msgstr "Draf"
 
 #. module: hr_schedule
 #: selection:hr.schedule.alert.rule,severity:0
@@ -517,7 +517,7 @@ msgstr ""
 #. module: hr_schedule
 #: selection:hr.schedule.request,state:0
 msgid "Pending"
-msgstr ""
+msgstr "Ditunda"
 
 #. module: hr_schedule
 #: field:hr.schedule.alert,name:0
@@ -574,7 +574,7 @@ msgstr ""
 #: field:hr.schedule.alert,message_is_follower:0
 #: field:hr.schedule.request,message_is_follower:0
 msgid "Is a Follower"
-msgstr ""
+msgstr "Ini Adalah Pengikut"
 
 #. module: hr_schedule
 #: view:hr.schedule.alert:0
@@ -624,7 +624,7 @@ msgstr ""
 #: field:hr.schedule.alert,message_summary:0
 #: field:hr.schedule.request,message_summary:0
 msgid "Summary"
-msgstr ""
+msgstr "Ringkasan"
 
 #. module: hr_schedule
 #: field:hr.schedule.request,date:0
@@ -654,7 +654,7 @@ msgstr ""
 #. module: hr_schedule
 #: field:hr.schedule.alert.rule,code:0
 msgid "Code"
-msgstr ""
+msgstr "Kode"
 
 #. module: hr_schedule
 #: model:ir.model,name:hr_schedule.model_hr_schedule_template_worktime
