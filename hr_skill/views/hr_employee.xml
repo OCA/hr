@@ -7,7 +7,9 @@
         <field name="arch" type="xml">
             <notebook position="inside">
                 <page string="Skills">
-                    <field name="skill_ids" widget="many2many_tags"/>
+                    <group>
+                        <field name="skill_ids" widget="many2many_tags"/>
+                    </group>
                 </page>
             </notebook>
         </field>
@@ -20,13 +22,6 @@
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
         <field name="domain">[('skill_ids','child_of', active_ids)]</field>
-    </record>
-
-    <record id="hr_employee_skill_open" model="ir.values">
-        <field eval="'tree_but_open'" name="key2"/>
-        <field eval="'hr.skill'" name="model"/>
-        <field name="name">Employees by Skills</field>
-        <field eval="'ir.actions.act_window,%d'%hr_employee_normal_action_tree" name="value"/>
     </record>
 
 </odoo>
