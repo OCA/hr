@@ -1,4 +1,4 @@
-.. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
+.. image:: https://img.shields.io/badge/license-AGPL--3-blue.png
    :target: https://www.gnu.org/licenses/agpl
    :alt: License: AGPL-3
 
@@ -78,7 +78,7 @@ Credits
 Images
 ------
 
-* Odoo Community Association: `Icon <https://github.com/OCA/maintainer-tools/blob/master/template/module/static/description/icon.svg>`_.
+* Odoo Community Association: `Icon <https://odoo-community.org/logo.png>`_.
 
 Contributors
 ------------
@@ -89,13 +89,6 @@ Contributors
 * Duc, Dao Dong <duc.dd@komit-consulting.com> (https://komit-consulting.com)
 
 Do not contact contributors directly about support or help with technical issues.
-
-Funders
--------
-
-The development of this module has been financially supported by:
-
-* Komit https://komit-consulting.com
 
 Maintainer
 ----------

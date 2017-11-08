@@ -1,24 +1,3 @@
-# -*- coding:utf-8 -*-
-##############################################################################
-#
-#    Copyright (C) 2015 Savoir-faire Linux. All Rights Reserved.
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as published
-#    by
-#    the Free Software Foundation, either version 3 of the License, or
-#    (at your option) any later version.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
-#
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-##############################################################################
-
 from odoo import fields, models, _
 
 import odoo.addons.decimal_precision as dp
@@ -33,24 +12,24 @@ class HrEmployeeBenefitRateLine(models.Model):
     _description = _(__doc__)
 
     employee_amount = fields.Float(
-        'Employee Amount',
+        string='Employee Amount',
         required=True,
         digits_compute=dp.get_precision('Payroll'),
     )
     employer_amount = fields.Float(
-        'Employer Amount',
+        string='Employer Amount',
         required=True,
         digits_compute=dp.get_precision('Payroll'),
     )
     date_start = fields.Date(
-        'Start Date',
+        string='Start Date',
         required=True,
         default=fields.Date.context_today,
     )
     date_end = fields.Date('End Date')
     parent_id = fields.Many2one(
-        'hr.employee.benefit.rate',
-        'Parent',
+        comodel_name='hr.employee.benefit.rate',
+        string='Parent',
         ondelete='cascade',
         required=True,
     )
@@ -61,7 +40,7 @@ class HrEmployeeBenefitRateLine(models.Model):
         readonly=True,
     )
     category_id = fields.Many2one(
-        'hr.employee.benefit.category',
+        comodel_name='hr.employee.benefit.category',
         related='parent_id.category_id',
         string="Category",
         readonly=True,

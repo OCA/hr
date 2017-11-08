@@ -1,24 +1,3 @@
-# -*- coding:utf-8 -*-
-##############################################################################
-#
-#    Copyright (C) 2015 Savoir-faire Linux. All Rights Reserved.
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as published
-#    by
-#    the Free Software Foundation, either version 3 of the License, or
-#    (at your option) any later version.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
-#
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-##############################################################################
-
 from odoo import api, fields, models, _
 from odoo.exceptions import ValidationError
 
@@ -32,21 +11,21 @@ class HrEmployeeBenefit(models.Model):
     _description = _(__doc__)
 
     contract_id = fields.Many2one(
-        'hr.contract',
-        'Contract',
+        comodel_name='hr.contract',
+        string='Contract',
         ondelete='cascade',
         index=True,
     )
     category_id = fields.Many2one(
-        'hr.employee.benefit.category',
-        'Benefit',
+        comodel_name='hr.employee.benefit.category',
+        string='Benefit',
         required=True,
         ondelete='cascade',
         index=True,
     )
     rate_id = fields.Many2one(
-        'hr.employee.benefit.rate',
-        'Rate',
+        comodel_name='hr.employee.benefit.rate',
+        string='Rate',
         required=True,
     )
     employee_amount = fields.Float(
@@ -66,31 +45,32 @@ class HrEmployeeBenefit(models.Model):
         readonly=True,
     )
     date_start = fields.Date(
-        'Start Date', required=True,
+        string='Start Date', required=True,
         default=fields.Date.context_today,
     )
-    date_end = fields.Date('End Date')
+    date_end = fields.Date(string='End Date')
     code = fields.Char(
         related='category_id.code',
         string='Code',
     )
 
-    @api.one
     @api.constrains('category_id', 'rate_id')
     def _check_category_id(self):
         """
         Checks that the category on the benefit and the rate
         is the same
         """
-        if not self.category_id == self.rate_id.category_id:
-            raise ValidationError(
-                _('You must select a rate related to the '
-                  'selected category.'))
+        for record in self:
+            if not record.category_id == record.rate_id.category_id:
+                raise ValidationError(
+                    _('You must select a rate related to the '
+                      'selected category.'))
 
-    @api.one
+    @api.multi
     def compute_amounts(self, payslip):
-        if (
-            self.date_start <= payslip.date_from and
-            not (self.date_end and payslip.date_to > self.date_end)
-        ):
-            self.rate_id.compute_amounts(payslip)
+        for record in self:
+            if (
+                record.date_start <= payslip.date_from and
+                not (record.date_end and payslip.date_to > record.date_end)
+            ):
+                record.rate_id.compute_amounts(payslip)
