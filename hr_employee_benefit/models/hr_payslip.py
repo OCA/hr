@@ -24,15 +24,15 @@ class HrPayslip(models.Model):
         readonly=True, states={'draft': [('readonly', False)]},
     )
     pays_per_year = fields.Integer(
-        compute='_get_pays_per_year',
-        string='Number of pays per year', readonly=True,
+        compute='_compute_pays_per_year',
+        string='Number of pays per year',
         store=True,
         help="Field required to compute benefits based on an annual "
         "amount."
     )
 
     @api.depends('contract_id')
-    def _get_pays_per_year(self):
+    def _compute_pays_per_year(self):
         self.pays_per_year = PAYS_PER_YEAR.get(
             self.contract_id.schedule_pay, False)
 
@@ -46,10 +46,6 @@ class HrPayslip(models.Model):
         """
         self.ensure_one()
         return self.contract_id.benefit_line_ids
-
-    @api.multi
-    def button_compute_benefits(self):
-        self.compute_benefits()
 
     @api.multi
     def compute_benefits(self):

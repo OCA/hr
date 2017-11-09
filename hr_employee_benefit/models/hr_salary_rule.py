@@ -46,7 +46,7 @@ class HrSalaryRule(models.Model):
     @api.multi
     @api.returns('hr.payslip.benefit.line')
     def _filter_benefits(self, payslip, codes=False, **kwargs):
-        """ 
+        """
         Filter the benefit records on the payslip
         :rtype: record set of hr.payslip.benefit.line
         """

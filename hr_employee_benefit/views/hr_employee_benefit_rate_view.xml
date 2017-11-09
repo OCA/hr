@@ -5,7 +5,7 @@
         <field name="name">hr.employee.benefit.rate.form</field>
         <field name="model">hr.employee.benefit.rate</field>
         <field name="arch" type="xml">
-            <form string="Employee Benefits Rates" version="7.0">
+            <form string="Employee Benefits Rates">
                 <sheet>
                     <group>
                         <field name="name"/>

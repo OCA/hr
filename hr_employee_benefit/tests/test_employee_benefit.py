@@ -164,7 +164,7 @@ class TestEmployeeBenefit(TestEmployeeBenefitBase):
         self.assertEqual(payslip['RULE_2'], amount_rule_2)
 
     def test_compute_payslip_benefits_added_manually(self):
-        """ 
+        """
         Compute payslip with benefits added manually
         """
         self.payslip.write({
@@ -188,7 +188,7 @@ class TestEmployeeBenefit(TestEmployeeBenefitBase):
         self.assertEqual(payslip['RULE_2'], 720 / 12 + 1800)
 
     def test_compute_payslip_benefit_codes(self):
-        """ 
+        """
         Test sum_benefits with list of benefit codes as
         parameter
         """
@@ -211,7 +211,7 @@ result = rule.sum_benefits(payslip, codes=['BEN_1', 'BEN_2'], employer=True)
         self.assertEqual(payslip['RULE_2'], 40 + 720 / 12)
 
     def test_compute_payslip_no_parameter(self):
-        """ 
+        """
         Test sum_benefits when the salary rule is related to no
         employee benefit
         """

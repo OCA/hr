@@ -5,7 +5,7 @@
         <field name="name">hr.employee.benefit.category.form</field>
         <field name="model">hr.employee.benefit.category</field>
         <field name="arch" type="xml">
-            <form string="Employee Benefits" version="7.0">
+            <form string="Employee Benefits">
                 <sheet>
                     <group name="basic" colspan="2">
                         <field name="name"/>

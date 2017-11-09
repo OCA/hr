@@ -14,7 +14,7 @@
                     <group>
                         <separator string="Employee Benefits"/>
                         <div class="oe_right oe_button_box">
-                            <button string="Compute Benefits" name="button_compute_benefits" type="object" states="draft" />
+                            <button string="Compute Benefits" name="compute_benefits" type="object" states="draft" />
                         </div>
                     </group>
                     <group name="employee_benefit">

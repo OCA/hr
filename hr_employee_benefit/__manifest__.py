@@ -4,7 +4,7 @@
     'license': 'AGPL-3',
     'category': 'Generic Modules/Human Resources',
     'author': "Savoir-faire Linux, Odoo Community Association (OCA)",
-    'website': 'https://www.savoirfairelinux.com',
+    'website': 'https://github.com/OCA/hr',
     'depends': [
         'hr_payroll',
         'hr_salary_rule_reference',
@@ -17,7 +17,5 @@
         'views/hr_payslip_view.xml',
         'views/hr_salary_rule_view.xml',
     ],
-    'test': [],
-    'demo': [],
     'installable': True,
 }

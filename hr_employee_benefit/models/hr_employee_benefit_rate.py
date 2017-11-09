@@ -41,12 +41,12 @@ class HrEmployeeBenefitRate(models.Model):
         default='each_pay',
     )
     employee_amount = fields.Float(
-        compute='_get_amounts_now',
+        compute='_compute_amounts_now',
         string='Employee Contribution',
         readonly=True,
     )
     employer_amount = fields.Float(
-        compute='_get_amounts_now',
+        compute='_compute_amounts_now',
         string='Employer Contribution',
         readonly=True,
     )
@@ -82,7 +82,7 @@ class HrEmployeeBenefitRate(models.Model):
         ]
 
     @api.depends()
-    def _get_amounts_now(self):
+    def _compute_amounts_now(self):
         today = context_today(self)
         for rate in self:
             rate.employee_amount = rate.get_amount(today)

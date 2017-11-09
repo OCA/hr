@@ -61,7 +61,7 @@ class HrEmployeeBenefit(models.Model):
         is the same
         """
         for record in self:
-            if not record.category_id == record.rate_id.category_id:
+            if not record.category_id.id == record.rate_id.category_id.id:
                 raise ValidationError(
                     _('You must select a rate related to the '
                       'selected category.'))
