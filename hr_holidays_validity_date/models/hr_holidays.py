@@ -1,27 +1,6 @@
 # -*- coding: utf-8 -*-
-##############################################################################
-#
-#     This file is part of hr_holidays_validity_date,
-#     an Odoo module.
-#
 #     Copyright (c) 2015 ACSONE SA/NV (<http://acsone.eu>)
-#
-#     hr_holidays_validity_date is free software:
-#     you can redistribute it and/or modify it under the terms of the GNU
-#     Affero General Public License as published by the Free Software
-#     Foundation,either version 3 of the License, or (at your option) any
-#     later version.
-#
-#     hr_holidays_validity_date is distributed
-#     in the hope that it will be useful, but WITHOUT ANY WARRANTY; without
-#     even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
-#     PURPOSE.  See the GNU Affero General Public License for more details.
-#
-#     You should have received a copy of the GNU Affero General Public License
-#     along with hr_holidays_validity_date.
-#     If not, see <http://www.gnu.org/licenses/>.
-#
-##############################################################################
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from odoo import models, fields, api, exceptions, _
 from odoo.tools import DEFAULT_SERVER_DATETIME_FORMAT
@@ -57,11 +36,11 @@ class HrHolidays(models.Model):
     @api.constrains('holiday_status_id', 'date_from', 'date_to')
     def _check_validity_date(self):
         for rec in self:
-            if rec.type == 'remove' and\
-                    rec.holiday_status_id.use_validity_dates and\
-                    rec.date_from and rec.date_to:
-                if rec.date_from < rec.holiday_status_id.date_start or\
-                        rec.date_to > rec.holiday_status_id.date_end:
+            if (rec.type == 'remove' and
+                    rec.holiday_status_id.use_validity_dates and
+                    rec.date_from and rec.date_to):
+                if (rec.date_from < rec.holiday_status_id.date_start or
+                        rec.date_to > rec.holiday_status_id.date_end):
                     tz_date_start = rec._utc_to_tz(
                         rec.holiday_status_id.date_start)
                     tz_date_end = rec._utc_to_tz(
