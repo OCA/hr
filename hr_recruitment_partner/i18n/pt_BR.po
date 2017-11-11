@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-03 03:00+0000\n"
-"PO-Revision-Date: 2017-10-27 11:29+0000\n"
+"POT-Creation-Date: 2017-10-28 04:08+0000\n"
+"PO-Revision-Date: 2017-11-07 22:30+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/oca/OCA-hr-8-0/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -261,7 +261,7 @@ msgstr ""
 #. module: hr_recruitment_partner
 #: field:hr.applicant,mobile:0
 msgid "Mobile"
-msgstr ""
+msgstr "Móvel"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,comment:0
