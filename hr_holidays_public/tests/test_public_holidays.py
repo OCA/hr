@@ -1,10 +1,10 @@
-# -*- coding: utf-8 -*-
 # ©  2015 Salton Massally <smassally@idtlabs.sl>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 from odoo.exceptions import ValidationError
 from odoo.exceptions import Warning as UserError
 from odoo.tests import common
+from odoo.tools import test_reports
 
 
 class TestPublicHolidays(common.TransactionCase):
@@ -30,6 +30,7 @@ class TestPublicHolidays(common.TransactionCase):
             'date': '1994-10-14',
             'year_id': holiday2.id
         })
+
         holiday3 = self.holiday_model.create({
             'year': 1994,
             'country_id': self.env.ref('base.sk').id
@@ -62,6 +63,13 @@ class TestPublicHolidays(common.TransactionCase):
             }
         )
 
+    def test_name_get(self):
+        hol = self.holiday_model.create({
+            'year': 1999,
+        })
+        hol_name = hol.name_get()[0]
+        self.assertEqual(hol_name, (hol.id, str(hol.year)))
+
     def test_duplicate_year_country_fail(self):
         # ensures that duplicate year cannot be created for the same country
         with self.assertRaises(ValidationError):
@@ -81,24 +89,19 @@ class TestPublicHolidays(common.TransactionCase):
             'year': 1994,
             'country_id': self.env.ref('base.us').id
         })
+        hline = self.holiday_model_line.create({
+            'name': 'holiday x',
+            'date': '1994-11-14',
+            'year_id': holiday4.id
+        })
         with self.assertRaises(ValidationError):
             self.holiday_model_line.create({
                 'name': 'holiday x',
                 'date': '1994-11-14',
                 'year_id': holiday4.id
             })
-            self.holiday_model_line.create({
-                'name': 'holiday x',
-                'date': '1994-11-14',
-                'year_id': holiday4.id
-            })
+        hline.state_ids = [(6, 0, [self.env.ref('base.state_us_35').id])]
         with self.assertRaises(ValidationError):
-            self.holiday_model_line.create({
-                'name': 'holiday x',
-                'date': '1994-11-14',
-                'year_id': holiday4.id,
-                'state_ids': [(6, 0, [self.env.ref('base.state_us_35').id])]
-            })
             self.holiday_model_line.create({
                 'name': 'holiday x',
                 'date': '1994-11-14',
@@ -123,6 +126,18 @@ class TestPublicHolidays(common.TransactionCase):
         # ensures that correct holidays are identified for a country
         self.assertTrue(self.holiday_model.is_public_holiday(
             '1994-10-14', employee_id=self.employee.id))
+
+    def test_holiday_line_year(self):
+        # ensures that line year and holiday year are the same
+        holiday4 = self.holiday_model.create({
+            'year': 1994,
+        })
+        with self.assertRaises(ValidationError):
+            self.holiday_model_line.create({
+                'name': 'holiday x',
+                'date': '1995-11-14',
+                'year_id': holiday4.id
+            })
 
     def test_list_holidays_in_list_country_specific(self):
         # ensures that correct holidays are identified for a country
@@ -185,3 +200,25 @@ class TestPublicHolidays(common.TransactionCase):
 
         with self.assertRaises(UserError):
             wz_create_ph.create_public_holidays()
+
+    def test_report_summary_report(self):
+        self.env['hr.holidays'].create({
+            'date_from': '1995-10-20',
+            'date_to': '1995-10-21',
+            'holiday_status_id': self.env['hr.holidays.status'].search(
+                [])[0].id,
+            'employee_id': self.employee.id,
+        })
+        data = {'date_from': '1995-10-01',
+                'emp': self.env['hr.employee'].search([]).ids,
+                'holiday_type': 'both'}
+        report = self.env['hr.holidays.summary.employee'].create(data)
+        datas = {
+            'ids': [],
+            'model': 'hr.employee',
+            'form': data
+        }
+        test_reports.try_report(self.env.cr, self.env.uid,
+                                'hr_holidays.report_holidayssummary',
+                                [report.id], data=datas,
+                                report_type='qweb')
