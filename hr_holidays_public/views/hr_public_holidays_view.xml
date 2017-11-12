@@ -26,11 +26,11 @@
                         <field name="line_ids" nolabel="1">
                             <tree string="Public Holidays"
                                 editable="top">
-                                <field name="date" />
+                                <field name="date" attrs="{'readonly':[['variable_date', '=', False]]}" />
                                 <field name="name" />
                                 <field name="state_ids" widget="many2many_tags"
                                     domain="[('country_id','=',parent.country_id)]" />
-                                <field name="variable" />
+                                <field name="variable_date"/>
                             </tree>
                         </field>
                     </group>

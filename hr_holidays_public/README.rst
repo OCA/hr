@@ -1,5 +1,5 @@
-.. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
-   :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
+.. image:: https://img.shields.io/badge/license-AGPL--3-blue.png
+   :target: https://www.gnu.org/licenses/agpl
    :alt: License: AGPL-3
 
 ==================
@@ -7,13 +7,16 @@ HR Public Holidays
 ==================
 
 This module is a technical module to handle public holidays.
+The calculation of each leave can exclude rest days or public holiday.
+The calculation of each leave includes the number of hours taken from 
+.employee calendar attendances
 
 Installation
 ============
 
 To install this module, you need to:
 
-* clone the branch 10.0 of the repository https://github.com/OCA/hr
+* clone the branch 11.0 of the repository https://github.com/OCA/hr
 * add the path to this repository in your configuration (addons-path)
 * update the module list
 * search for "Public Holidays" in your addons
@@ -22,7 +25,11 @@ To install this module, you need to:
 Configuration
 =============
 
-No extra configuration needed.
+Go to Leaves -> Configuration and open a Leave Type
+
+* Check "Exclude Rest Days" to exclude resource calendar rest days
+* Check "Exclude Public Holidays" to exclude public holidays
+* Uncheck "Compute Full Days" to allow fractional days.
 
 Usage
 =====
@@ -32,11 +39,10 @@ public holidays.
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
-   :target: https://runbot.odoo-community.org/runbot/116/10.0
+   :target: https://runbot.odoo-community.org/runbot/116/11.0
 
 Known issues / Roadmap
 ======================
-
 
 
 Bug Tracker
@@ -53,7 +59,8 @@ Credits
 Images
 ------
 
-* Odoo Community Association: `Icon <https://github.com/OCA/maintainer-tools/blob/master/template/module/static/description/icon.svg>`_.
+* Odoo Community Association: `Icon <https://odoo-community.org/logo.png>`_.
+
 
 Contributors
 ------------

@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2016 Trobz
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
@@ -53,7 +52,7 @@ class PublicHolidaysNextYearWizard(models.TransientModel):
                 last_ph_dict[ph.country_id] = ph
 
         new_ph_ids = []
-        for last_ph in last_ph_dict.itervalues():
+        for last_ph in last_ph_dict.values():
 
             new_year = self.year or last_ph.year + 1
 

@@ -1,10 +1,10 @@
-# -*- coding: utf-8 -*-
 # ©  2015 2011,2013 Michael Telahun Makonnen <mmakonnen@gmail.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 from datetime import date
-from openerp import fields, models, api, _
-from openerp.exceptions import Warning as UserError
+
+from odoo import api, fields, models, _
+from odoo.exceptions import Warning as UserError
 
 
 class HrPublicHolidays(models.Model):
@@ -37,8 +37,8 @@ class HrPublicHolidays(models.Model):
     @api.multi
     @api.constrains('year', 'country_id')
     def _check_year(self):
-        for r in self:
-            r._check_year_one()
+        for line in self:
+            line._check_year_one()
 
     def _check_year_one(self):
         if self.country_id:
@@ -57,11 +57,12 @@ class HrPublicHolidays(models.Model):
     @api.multi
     @api.depends('year', 'country_id')
     def _compute_display_name(self):
-        for r in self:
-            if r.country_id:
-                r.display_name = '%s (%s)' % (r.year, r.country_id.name)
+        for line in self:
+            if line.country_id:
+                line.display_name = '%s (%s)' % (line.year,
+                                                 line.country_id.name)
             else:
-                r.display_name = r.year
+                line.display_name = line.year
 
     @api.multi
     def name_get(self):
@@ -85,11 +86,13 @@ class HrPublicHolidays(models.Model):
         if employee_id:
             employee = self.env['hr.employee'].browse(employee_id)
             if employee.address_id and employee.address_id.country_id:
-                holidays_filter.append((
-                    'country_id',
-                    'in',
-                    [False, employee.address_id.country_id.id]))
-
+                holidays_filter.append('|')
+                holidays_filter.append(('country_id', '=', False))
+                holidays_filter.append(('country_id',
+                                        '=',
+                                        employee.address_id.country_id.id))
+            else:
+                holidays_filter.append(('country_id', '=', False))
         pholidays = self.search(holidays_filter)
         if not pholidays:
             return list()
@@ -115,11 +118,14 @@ class HrPublicHolidays(models.Model):
         :param employee_id: ID of the employee
         :return: bool
         """
-        if isinstance(selected_date, basestring):
+        if isinstance(selected_date, str):
             selected_date = fields.Date.from_string(selected_date)
         holidays_lines = self.get_holidays_list(
             selected_date.year, employee_id=employee_id)
-        if holidays_lines and len(holidays_lines.filtered(
-                lambda r: r.date == fields.Date.to_string(selected_date))):
-            return True
+        if holidays_lines:
+            hol_date = holidays_lines.filtered(
+                lambda r: r.date == fields.Date.to_string(
+                    selected_date))
+            if hol_date.ids:
+                return True
         return False
