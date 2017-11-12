@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_holidayssummary" inherit_id="hr_holidays.report_holidayssummary">
+        <t t-esc="emp['sum']" position="after">
+           days
+           <t t-esc="emp['sum_hours']"/> hours
+        </t>
+    </template>
+
+</odoo>
