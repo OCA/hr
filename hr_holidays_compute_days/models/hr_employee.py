@@ -1,9 +1,7 @@
-# -*- coding: utf-8 -*-
 # ©  2015 iDT LABS (http://www.@idtlabs.sl)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from datetime import datetime, time
-from openerp import models, api
+from odoo import models, api
 
 
 class HrEmployee(models.Model):
@@ -26,12 +24,15 @@ class HrEmployee(models.Model):
         if public_holiday and self.env['hr.holidays.public'].is_public_holiday(
                 date_dt, employee_id=self.id):
             return False
-        elif schedule and self.contract_id and self.contract_id.working_hours:
-            hours = self.contract_id.working_hours.get_working_hours_of_date(
-                datetime.combine(date_dt, time.min))
-            if not hours:
+        elif schedule and self.contract_id and \
+                self.contract_id.resource_calendar_id:
+            hours = \
+                self.contract_id.resource_calendar_id._get_day_work_intervals(
+                    date_dt)
+            if not hours or hours == []:
                 return False
         elif schedule and (not self.contract_id or (
-                self.contract_id and not self.contract_id.working_hours)):
+                self.contract_id and not
+                self.contract_id.resource_calendar_id)):
             return date_dt.weekday() not in (5, 6)
         return True

@@ -1,9 +1,8 @@
-# -*- coding: utf-8 -*-
 # ©  2015 iDT LABS (http://www.@idtlabs.sl)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from openerp.tests import common
-from openerp.exceptions import ValidationError
+from odoo.tests import common
+from odoo.exceptions import ValidationError
 
 
 class TestHolidaysComputeDays(common.TransactionCase):
@@ -40,8 +39,8 @@ class TestHolidaysComputeDays(common.TransactionCase):
                 {
                     'name': 'Attendance',
                     'dayofweek': str(day),
-                    'hour_from': '08',
-                    'hour_to': '18',
+                    'hour_from': 8,
+                    'hour_to': 18,
                     'calendar_id': calendar.id
                 }
             )
@@ -53,7 +52,7 @@ class TestHolidaysComputeDays(common.TransactionCase):
                 'name': 'Contract 1',
                 'date_start': '1990-10-14',
                 'wage': 5000,
-                'working_hours': calendar.id
+                'resource_calendar_id': calendar.id
             }
         )
 
@@ -63,7 +62,7 @@ class TestHolidaysComputeDays(common.TransactionCase):
                 'name': 'Contract 2',
                 'date_start': '1990-10-01',
                 'wage': 5000,
-                'working_hours': calendar.id
+                'resource_calendar_id': calendar.id
             }
         )
 
@@ -240,23 +239,24 @@ class TestHolidaysComputeDays(common.TransactionCase):
     def test_overlap_for_non_conventional_rest_day(self):
         # let's leave schedule overlap on restday for non conventional restday
         # create calendar
-        calendar = self.calendar_model.create({
-            'name': 'Calendar'
+        calendarnew = self.calendar_model.create({
+            'name': 'Calendar New'
         })
+        calendarnew.attendance_ids.unlink()
         for day in (2, 3, 4, 5, 6):
             self.calendar_attendance_model.create(
                 {
                     'name': 'Attendance',
                     'dayofweek': str(day),
-                    'hour_from': '08',
-                    'hour_to': '18',
-                    'calendar_id': calendar[0].id
+                    'hour_from': 8,
+                    'hour_to': 18,
+                    'calendar_id': calendarnew[0].id
                 }
             )
         # create contract
         self.contract.write(
             {
-                'working_hours': calendar[0].id
+                'resource_calendar_id': calendarnew[0].id
             }
         )
         leave = self.holiday_model.new({
@@ -340,7 +340,7 @@ class TestHolidaysComputeDays(common.TransactionCase):
         # let's run test assumign employee has not schedule
         self.contract.write(
             {
-                'working_hours': False
+                'resource_calendar_id': False
             }
         )
         leave = self.holiday_model.new({
