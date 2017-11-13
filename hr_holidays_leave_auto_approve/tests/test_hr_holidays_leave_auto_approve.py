@@ -1,10 +1,9 @@
-# -*- coding: utf-8 -*-
 # Copyright 2016 Onestein (<http://www.onestein.eu>)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 from datetime import datetime, timedelta
-from openerp.tests.common import TransactionCase
-from openerp.tools import DEFAULT_SERVER_DATE_FORMAT as DF
+from odoo.tests.common import TransactionCase
+from odoo.tools import DEFAULT_SERVER_DATE_FORMAT as DF
 
 
 class TestHolidaysAutoApprove(TransactionCase):
