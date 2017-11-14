@@ -6,14 +6,8 @@
             <field name="model">hr.employee</field>
             <field name="inherit_id" ref="hr.view_employee_form"/>
             <field name="arch" type="xml">
-                <xpath expr='//page[@string="Personal Information"]' position="after">
-                    <page string="Family" groups="base.group_hr_user">
-                        <group>
-                            <group string="Spouse">
-                                <field name="partner_spouse_id"/>
-                            </group>
-                        </group>
-                    </page>
+                <xpath expr='//field[@name="marital"]' position="after">
+                     <field name="partner_spouse_id"/>
                 </xpath>
             </field>
         </record>
