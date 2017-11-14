@@ -1,34 +1,75 @@
 # -*- coding: utf-8 -*-
-# © 2016 OpenSynergy Indonesia
+# Copyright 2016-17 OpenSynergy Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from openerp.tests.common import TransactionCase
+from odoo.tests.common import TransactionCase
+from odoo.exceptions import UserError
+import time
 
 
 class ExpenseMoveDateCase(TransactionCase):
 
-    def setUp(self, *args, **kwargs):
-        result = super(ExpenseMoveDateCase, self).setUp(*args, **kwargs)
+    def setUp(self):
+        super(ExpenseMoveDateCase, self).setUp()
+        self.hr_expense = self.env['hr.expense']
+        self.hr_expense_sheet = self.env['hr.expense.sheet']
+        self.account_tax = self.env['account.tax']
+        self.product = self.env.ref('hr_expense.air_ticket')
+        self.employee = self.env.ref('hr.employee_mit')
 
-        self.expense_demo = self.env.ref('hr_expense.sep_expenses')
-        self.expense = self.expense_demo.copy()
-        self.period = self.env.ref('account.period_8')
-
-        return result
+        self.tax = self.account_tax.create({
+            'name': 'Expense 10%',
+            'amount': 10,
+            'amount_type': 'percent',
+            'type_tax_use': 'purchase',
+            'price_include': True,
+        })
+        self.product.write({
+            'supplier_taxes_id': [(6, 0, [self.tax.id])]
+        })
+        self.expense = self.hr_expense_sheet.create({
+            'name': 'Expense for John Smith',
+            'employee_id': self.employee.id,
+        })
+        self.expense_line = self.hr_expense.create({
+            'name': 'Car Travel Expenses',
+            'employee_id': self.employee.id,
+            'product_id': self.product.id,
+            'unit_amount': 700.00,
+            'date': time.strftime('%Y-%m-%d'),
+            'move_date': time.strftime('%Y-%m-10'),
+            'tax_ids': [(6, 0, [self.tax.id])],
+            'sheet_id': self.expense.id,
+        })
 
     def test_expense_1(self):
-        self.expense.signal_workflow('confirm')
-        self.expense.signal_workflow('validate')
-
-        self.expense.move_date = self.period.date_stop
-        self.expense.onchange_move_date()
-        self.assertEqual(self.expense.period_id.id, self.period.id)
-        self.expense.write({
-            'move_date': self.period.date_stop,
-            'period_id': self.expense.period_id.id,
-        })
-        self.assertEqual(self.expense.move_date, self.period.date_stop)
-        self.expense.signal_workflow('done')
-        self.assertIsNotNone(self.expense.account_move_id)
+        self.expense.approve_expense_sheets()
+        self.expense.action_sheet_move_create()
         move = self.expense.account_move_id
-        self.assertEqual(move.date, self.expense.move_date)
+        self.assertEqual(self.expense.expense_line_ids.move_date, move.date)
+
+        with self.assertRaises(UserError):
+            self.expense.employee_id.address_home_id = False
+            self.expense.approve_expense_sheets()
+            self.expense.action_sheet_move_create()
+
+        with self.assertRaises(UserError):
+            self.expense_copy = self.hr_expense_sheet.create({
+                'name': 'Expense for John Smith',
+                'employee_id': self.employee.id,
+            })
+            self.expense_line_copy = self.hr_expense.create({
+                'name': 'Car Travel Expenses',
+                'employee_id': self.employee.id,
+                'product_id': self.product.id,
+                'unit_amount': 700.00,
+                'date': time.strftime('%Y-%m-%d'),
+                'move_date': time.strftime('%Y-%m-10'),
+                'tax_ids': [(6, 0, [self.tax.id])],
+                'sheet_id': self.expense_copy.id,
+                'payment_mode': 'company_account'
+            })
+            self.expense_copy.approve_expense_sheets()
+            self.expense_copy.expense_line_ids.sheet_id.bank_journal_id.\
+                default_credit_account_id = False
+            self.expense_copy.action_sheet_move_create()
