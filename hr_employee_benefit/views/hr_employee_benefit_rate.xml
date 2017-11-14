@@ -68,7 +68,7 @@
         <menuitem
             id="menu_action_hr_employee_benefit_rate_list"
             action="action_hr_employee_benefit_rate_list"
-            parent="hr_payroll.payroll_configure"
+            parent="hr_payroll.menu_hr_payroll_configuration"
             sequence="15"
         />
 

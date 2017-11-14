@@ -43,4 +43,4 @@ class HrSalaryRule(models.Model):
 
         # Pass the rule_id parameter, because the parent function
         # has a not standard signature
-        return super(HrSalaryRule, self).compute_rule(self.id, localdict)
+        return super(HrSalaryRule, self).compute_rule(localdict)
