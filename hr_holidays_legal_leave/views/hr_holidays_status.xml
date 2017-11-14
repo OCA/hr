@@ -5,10 +5,9 @@
         <field name="model">hr.holidays.status</field>
         <field name="inherit_id" ref="hr_holidays.edit_holiday_status_form" />
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='name']"
+            <xpath expr="//field[@name='company_id']"
                     position="after">
-                <field name="company_id" groups="base.group_multi_company"/>
-                <field name="is_annual" />
+                <field name="is_annual"/>
             </xpath>
         </field>
     </record>
