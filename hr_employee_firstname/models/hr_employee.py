@@ -1,40 +1,13 @@
-# -*- coding: utf-8 -*-
 # ©  2010 - 2014 Savoir-faire Linux (<http://www.savoirfairelinux.com>)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import models, fields, api
+from odoo import api, fields, models
 
 UPDATE_PARTNER_FIELDS = ['firstname', 'lastname', 'user_id', 'address_home_id']
 
 
 class HrEmployee(models.Model):
     _inherit = 'hr.employee'
-
-    @api.model
-    def split_name(self, name):
-        clean_name = u" ".join(name.split(None)) if name else name
-        return self.env['res.partner']._get_inverse_name(clean_name)
-
-    @api.model
-    def _update_employee_names(self):
-        employees = self.search([
-            ('firstname', '=', ' '), ('lastname', '=', ' ')])
-
-        for ee in employees:
-            split_name = self.split_name(ee.name)
-            ee.write({
-                'firstname': split_name['firstname'],
-                'lastname': split_name['lastname'],
-            })
-
-    @api.model
-    def _update_partner_firstname(self, employee):
-        partners = employee.mapped('user_id.partner_id')
-        for partner in employee.mapped('address_home_id'):
-            if partner not in partners:
-                partners += partner
-        partners.write({'firstname': employee.firstname,
-                        'lastname': employee.lastname})
 
     @api.model
     def _get_name(self, lastname, firstname):
@@ -81,3 +54,29 @@ class HrEmployee(models.Model):
         if set(vals).intersection(UPDATE_PARTNER_FIELDS):
             self._update_partner_firstname(self)
         return res
+
+    @api.model
+    def split_name(self, name):
+        clean_name = " ".join(name.split(None)) if name else name
+        return self.env['res.partner']._get_inverse_name(clean_name)
+
+    @api.model
+    def _update_employee_names(self):
+        employees = self.search([
+            ('firstname', '=', ' '), ('lastname', '=', ' ')])
+
+        for ee in employees:
+            split_name = self.split_name(ee.name)
+            ee.write({
+                'firstname': split_name['firstname'],
+                'lastname': split_name['lastname'],
+            })
+
+    @api.model
+    def _update_partner_firstname(self, employee):
+        partners = employee.mapped('user_id.partner_id')
+        for partner in employee.mapped('address_home_id'):
+            if partner not in partners:
+                partners += partner
+        partners.write({'firstname': employee.firstname,
+                        'lastname': employee.lastname})
