@@ -33,9 +33,8 @@
                     <page string="Family" groups="base.group_hr_user">
                         <group>
                             <group string="Spouse">
-                                <field name="fam_spouse"/>
-                                <field name="fam_spouse_employer"/>
-                                <field name="fam_spouse_tel"/>
+                                <field name="marital_status_id"/>
+                                <field name="partner_spouse_id"/>
                             </group>
                             <group string="Parents">
                                 <field name="fam_father"/>
@@ -51,6 +50,5 @@
                 </xpath>
             </field>
         </record>
-
     </data>
 </openerp>
