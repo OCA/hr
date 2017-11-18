@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-28 04:02+0000\n"
-"PO-Revision-Date: 2017-10-28 04:02+0000\n"
+"POT-Creation-Date: 2017-11-11 03:26+0000\n"
+"PO-Revision-Date: 2017-11-11 03:26+0000\n"
 "Last-Translator: Wahyu Setiawan <wahyusetiaaa@gmail.com>, 2017\n"
 "Language-Team: Indonesian (https://www.transifex.com/oca/teams/23907/id/)\n"
 "MIME-Version: 1.0\n"
@@ -22,7 +22,7 @@ msgstr ""
 #. module: hr_payslip_report
 #: view:hr.payslip.report:0
 msgid "Group By..."
-msgstr ""
+msgstr "Dikelompokan berdasarkan .."
 
 #. module: hr_payslip_report
 #: selection:hr.payslip.report,state:0

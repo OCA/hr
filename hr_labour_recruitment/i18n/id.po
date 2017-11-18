@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-28 04:01+0000\n"
+"POT-Creation-Date: 2017-11-11 03:26+0000\n"
 "PO-Revision-Date: 2015-07-27 23:39+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Indonesian (http://www.transifex.com/oca/OCA-hr-7-0/language/id/)\n"
@@ -62,7 +62,7 @@ msgstr ""
 #. module: hr_labour_recruitment
 #: view:hr.recruitment.request:0
 msgid "Group By..."
-msgstr ""
+msgstr "Dikelompokan berdasarkan .."
 
 #. module: hr_labour_recruitment
 #: field:hr.recruitment.request,state:0
