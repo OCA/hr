@@ -20,17 +20,17 @@ msgstr ""
 #. module: hr_skill
 #: field:hr.skill,active:0
 msgid "Active"
-msgstr ""
+msgstr "Actief"
 
 #. module: hr_skill
 #: view:hr.skill:hr_skill.view_skill_form
 msgid "Child Skills"
-msgstr ""
+msgstr "Onderliggende vaardigheden"
 
 #. module: hr_skill
 #: field:hr.skill,child_ids:0
 msgid "Children"
-msgstr ""
+msgstr "Onderliggende items"
 
 #. module: hr_skill
 #: field:hr.skill,create_uid:0
@@ -50,17 +50,17 @@ msgstr "Weergavenaam"
 #. module: hr_skill
 #: model:ir.model,name:hr_skill.model_hr_employee
 msgid "Employee"
-msgstr ""
+msgstr "Werknemer"
 
 #. module: hr_skill
 #: field:hr.skill,employee_ids:0
 msgid "Employee(s)"
-msgstr ""
+msgstr "Werknemer(s)"
 
 #. module: hr_skill
 #: model:ir.actions.act_window,name:hr_skill.hr_employee_normal_action_tree
 msgid "Employees"
-msgstr ""
+msgstr "Werknemers"
 
 #. module: hr_skill
 #: field:hr.skill,id:0
@@ -91,7 +91,7 @@ msgstr "Naam"
 #. module: hr_skill
 #: field:hr.skill,parent_id:0
 msgid "Parent"
-msgstr ""
+msgstr "Bovenliggend item"
 
 #. module: hr_skill
 #: field:hr.skill,parent_left:0
@@ -106,7 +106,7 @@ msgstr ""
 #. module: hr_skill
 #: view:hr.skill:hr_skill.view_skill_form
 msgid "Skill"
-msgstr ""
+msgstr "Vaardigheid"
 
 #. module: hr_skill
 #: view:hr.employee:hr_skill.view_employee_skill_form
@@ -114,15 +114,15 @@ msgstr ""
 #: model:ir.actions.act_window,name:hr_skill.open_view_skill_form
 #: model:ir.ui.menu,name:hr_skill.menu_open_view_skill_form
 msgid "Skills"
-msgstr ""
+msgstr "Vaardigheden"
 
 #. module: hr_skill
 #: model:ir.ui.menu,name:hr_skill.menu_hr_skill_mgt
 msgid "Skills Management"
-msgstr ""
+msgstr "Vaardigheden beheer"
 
 #. module: hr_skill
 #: model:ir.actions.act_window,name:hr_skill.open_view_skill_tree
 #: model:ir.ui.menu,name:hr_skill.menu_open_view_skill_tree
 msgid "Skills Structure"
-msgstr ""
+msgstr "Vaardigheden structuur"
