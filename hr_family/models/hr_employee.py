@@ -19,6 +19,9 @@ class HrEmployee(models.Model):
     partner_spouse_id = fields.Many2one(
         'res.partner', string='Spouse', domain=[('is_company', '=', False)]
     )
+    # TODO: use birthdate from partner_contact_birthdate instead.
+    # (But if that, then also the children and parents to become partners)
+    partner_spouse_date_of_birth = fields.Date("Spouse Date of Birth")
     marital_status_id = fields.Many2one(
         'hr.employee.marital.status', string='Marital status',
     )

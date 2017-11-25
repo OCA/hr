@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-25 16:54+0000\n"
+"POT-Creation-Date: 2017-11-25 17:12+0000\n"
 "PO-Revision-Date: 2017-04-25 10:41+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Dutch (http://www.transifex.com/oca/OCA-hr-8-0/language/nl/)\n"
@@ -68,8 +68,8 @@ msgid ""
 "Error: you cannot add the spouse tag via form. Specify spouse on the "
 "employee form."
 msgstr ""
-"Fout: je kunt de echtgenoot niet toevoegen op dit formulier. Kies de echtgenoot op het "
-"werknemer formulier."
+"Fout: je kunt de echtgenoot niet toevoegen op dit formulier. Kies de "
+"echtgenoot op het werknemer formulier."
 
 #. module: hr_family
 #: code:addons/hr_family/models/res_partner.py:26
@@ -78,8 +78,8 @@ msgid ""
 "Error: you cannot create a partner with spouse tag. Create the partner and "
 "then specify spouse in the employee form."
 msgstr ""
-"Fout: je kunt geen relatie aanmaken met de echtgenoot-tag. Maak eerst de relatie "
-"aan, en kies daarna de echtgenoot op het werknemer formulier."
+"Fout: je kunt geen relatie aanmaken met de echtgenoot-tag. Maak eerst de "
+"relatie aan, en kies daarna de echtgenoot op het werknemer formulier."
 
 #. module: hr_family
 #: code:addons/hr_family/models/res_partner.py:39
@@ -88,12 +88,12 @@ msgid ""
 "Error: you cannot remove the spouse tag via form. {0} is the spouse of {1}, "
 "you must delete spouse relationship by removing the spouse tag from {1}"
 msgstr ""
-"Fout: kan de echtgenoot-tag niet verwijderen via form. {0} is de "
-"echtgenoot van {1}, eerst moet deze echtgenootrelatie verwijderd worden "
-"door de tag te verwijderen van {1}"
+"Fout: kan de echtgenoot-tag niet verwijderen via form. {0} is de echtgenoot "
+"van {1}, eerst moet deze echtgenootrelatie verwijderd worden door de tag te "
+"verwijderen van {1}"
 
 #. module: hr_family
-#: code:addons/hr_family/models/hr_employee.py:38
+#: code:addons/hr_family/models/hr_employee.py:41
 #, python-format
 msgid "Error: {0} cannot have this spouse, because already the spouse of {1}"
 msgstr ""
@@ -191,6 +191,11 @@ msgstr "Ongehuwd"
 #: model:res.partner.category,name:hr_family.res_partner_category_spouse
 msgid "Spouse"
 msgstr "Echtgenoot"
+
+#. module: hr_family
+#: field:hr.employee,partner_spouse_date_of_birth:0
+msgid "Spouse Date of Birth"
+msgstr "Echtgenoot geboortedatum"
 
 #. module: hr_family
 #: model:hr.employee.marital.status,name:hr_family.widower
