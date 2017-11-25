@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-05 02:29+0000\n"
-"PO-Revision-Date: 2017-08-11 11:55+0000\n"
+"POT-Creation-Date: 2017-10-28 04:07+0000\n"
+"PO-Revision-Date: 2017-11-23 23:27+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Galician (http://www.transifex.com/oca/OCA-hr-8-0/language/gl/)\n"
 "MIME-Version: 1.0\n"
@@ -67,7 +67,7 @@ msgstr ""
 #: view:hr.employee.benefit.rate:hr_employee_benefit.view_hr_employee_benefit_rate_filter
 #: field:hr.employee.benefit.rate.line,category_id:0
 msgid "Category"
-msgstr ""
+msgstr "Categoría"
 
 #. module: hr_employee_benefit
 #: field:hr.employee.benefit,code:0 field:hr.employee.benefit.category,code:0
@@ -222,7 +222,7 @@ msgstr ""
 #. module: hr_employee_benefit
 #: view:hr.employee.benefit.rate:hr_employee_benefit.view_hr_employee_benefit_rate_filter
 msgid "Group by..."
-msgstr ""
+msgstr "Agrupar por..."
 
 #. module: hr_employee_benefit
 #: field:hr.employee.benefit,id:0 field:hr.employee.benefit.category,id:0
@@ -345,7 +345,7 @@ msgstr ""
 #. module: hr_employee_benefit
 #: field:hr.payslip.benefit.line,source:0
 msgid "Type"
-msgstr ""
+msgstr "Tipo"
 
 #. module: hr_employee_benefit
 #: code:addons/hr_employee_benefit/models/hr_employee_benefit_rate.py:88

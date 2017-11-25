@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-07 02:29+0000\n"
-"PO-Revision-Date: 2017-01-11 15:39+0000\n"
+"POT-Creation-Date: 2017-10-28 04:07+0000\n"
+"PO-Revision-Date: 2017-11-23 23:28+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/oca/OCA-hr-8-0/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -224,7 +224,7 @@ msgstr ""
 #. module: hr_employee_benefit
 #: view:hr.employee.benefit.rate:hr_employee_benefit.view_hr_employee_benefit_rate_filter
 msgid "Group by..."
-msgstr ""
+msgstr "Grupo por..."
 
 #. module: hr_employee_benefit
 #: field:hr.employee.benefit,id:0 field:hr.employee.benefit.category,id:0

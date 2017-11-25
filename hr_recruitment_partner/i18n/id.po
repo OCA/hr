@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-28 04:08+0000\n"
-"PO-Revision-Date: 2017-11-03 12:15+0000\n"
+"PO-Revision-Date: 2017-11-23 23:25+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Indonesian (http://www.transifex.com/oca/OCA-hr-8-0/language/id/)\n"
 "MIME-Version: 1.0\n"
@@ -221,7 +221,7 @@ msgstr ""
 #. module: hr_recruitment_partner
 #: field:hr.applicant,journal_item_count:0
 msgid "Journal Items"
-msgstr ""
+msgstr "Journal Items"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,lang:0
