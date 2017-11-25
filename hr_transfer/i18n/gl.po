@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-05 02:23+0000\n"
+"POT-Creation-Date: 2017-11-18 03:23+0000\n"
 "PO-Revision-Date: 2015-07-27 23:41+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Galician (http://www.transifex.com/oca/OCA-hr-7-0/language/gl/)\n"
@@ -75,7 +75,7 @@ msgstr ""
 #. module: hr_transfer
 #: field:hr.department.transfer,message_unread:0
 msgid "Unread Messages"
-msgstr ""
+msgstr "Mensaxes sen ler"
 
 #. module: hr_transfer
 #: view:hr.department.transfer:0

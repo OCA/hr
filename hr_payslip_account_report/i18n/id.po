@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-11 03:26+0000\n"
-"PO-Revision-Date: 2017-11-11 03:26+0000\n"
+"POT-Creation-Date: 2017-11-18 03:23+0000\n"
+"PO-Revision-Date: 2017-11-18 03:23+0000\n"
 "Last-Translator: Wahyu Setiawan <wahyusetiaaa@gmail.com>, 2017\n"
 "Language-Team: Indonesian (https://www.transifex.com/oca/teams/23907/id/)\n"
 "MIME-Version: 1.0\n"
@@ -103,7 +103,7 @@ msgstr ""
 #. module: hr_payslip_account_report
 #: view:hr.payslip.account.report:0
 msgid "Total Credit"
-msgstr ""
+msgstr "Kredit total"
 
 #. module: hr_payslip_account_report
 #: field:hr.payslip.account.report,struct_id:0
@@ -129,7 +129,7 @@ msgstr ""
 #. module: hr_payslip_account_report
 #: view:hr.payslip.account.report:0
 msgid "Total Debit"
-msgstr ""
+msgstr "Debit Total"
 
 #. module: hr_payslip_account_report
 #: field:hr.payslip.account.report,date_to:0
