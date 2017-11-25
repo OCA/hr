@@ -1,27 +1,27 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # * hr_family
-# 
+#
 # Translators:
 msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-28 03:12+0000\n"
+"POT-Creation-Date: 2017-11-25 16:54+0000\n"
 "PO-Revision-Date: 2017-04-25 10:41+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Dutch (http://www.transifex.com/oca/OCA-hr-8-0/language/nl/)\n"
+"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: nl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: hr_family
 #: view:hr.employee:hr_family.hr_employee_view_form
 #: field:hr.employee,fam_children_ids:0
 msgid "Children"
-msgstr ""
+msgstr "Kinderen"
 
 #. module: hr_family
 #: field:hr.employee.children,create_uid:0
@@ -38,12 +38,12 @@ msgstr "Aangemaakt op"
 #: field:hr.employee,fam_mother_date_of_birth:0
 #: field:hr.employee.children,date_of_birth:0
 msgid "Date of Birth"
-msgstr ""
+msgstr "Geboortedatum"
 
 #. module: hr_family
-#: field:hr.employee.children,display_name:0
-msgid "Display Name"
-msgstr "Te tonen naam"
+#: model:hr.employee.marital.status,name:hr_family.divorced
+msgid "Divorced"
+msgstr "Gescheiden"
 
 #. module: hr_family
 #: field:hr.employee.children,employee_id:0
@@ -54,47 +54,81 @@ msgstr "Werknemer"
 #. module: hr_family
 #: view:hr.employee.children:hr_family.hr_children_view_tree
 msgid "Employee Children"
-msgstr ""
+msgstr "Kinderen van werknemer"
 
 #. module: hr_family
-#: field:hr.employee,fam_spouse_employer:0
+#: field:res.partner,employer:0
 msgid "Employer"
+msgstr "Werkgever"
+
+#. module: hr_family
+#: code:addons/hr_family/models/res_partner.py:46
+#, python-format
+msgid ""
+"Error: you cannot add the spouse tag via form. Specify spouse on the "
+"employee form."
 msgstr ""
+"Fout: je kunt de echtgenoot niet toevoegen op dit formulier. Kies de echtgenoot op het "
+"werknemer formulier."
+
+#. module: hr_family
+#: code:addons/hr_family/models/res_partner.py:26
+#, python-format
+msgid ""
+"Error: you cannot create a partner with spouse tag. Create the partner and "
+"then specify spouse in the employee form."
+msgstr ""
+"Fout: je kunt geen relatie aanmaken met de echtgenoot-tag. Maak eerst de relatie "
+"aan, en kies daarna de echtgenoot op het werknemer formulier."
+
+#. module: hr_family
+#: code:addons/hr_family/models/res_partner.py:39
+#, python-format
+msgid ""
+"Error: you cannot remove the spouse tag via form. {0} is the spouse of {1}, "
+"you must delete spouse relationship by removing the spouse tag from {1}"
+msgstr ""
+"Fout: kan de echtgenoot-tag niet verwijderen via form. {0} is de "
+"echtgenoot van {1}, eerst moet deze echtgenootrelatie verwijderd worden "
+"door de tag te verwijderen van {1}"
+
+#. module: hr_family
+#: code:addons/hr_family/models/hr_employee.py:38
+#, python-format
+msgid "Error: {0} cannot have this spouse, because already the spouse of {1}"
+msgstr ""
+"Fout: {0} kan niet deze echtgenoot hebben, want is reeds de echtgenoot van "
+"{1}"
 
 #. module: hr_family
 #: view:hr.employee:hr_family.hr_employee_view_form
 msgid "Family"
-msgstr ""
+msgstr "Familie"
 
 #. module: hr_family
 #: field:hr.employee,fam_father:0
 msgid "Father's Name"
-msgstr ""
+msgstr "Naam van de vader"
 
 #. module: hr_family
 #: selection:hr.employee.children,gender:0
 msgid "Female"
-msgstr ""
+msgstr "Vrouw"
 
 #. module: hr_family
 #: field:hr.employee.children,gender:0
 msgid "Gender"
-msgstr ""
+msgstr "Sexe"
 
 #. module: hr_family
 #: model:ir.model,name:hr_family.model_hr_employee_children
 msgid "HR Employee Children"
-msgstr ""
+msgstr "HR Werknemer kinderen"
 
 #. module: hr_family
 #: field:hr.employee.children,id:0
 msgid "ID"
 msgstr "ID"
-
-#. module: hr_family
-#: field:hr.employee.children,__last_update:0
-msgid "Last Modified on"
-msgstr "Laatst bijgewerkt op"
 
 #. module: hr_family
 #: field:hr.employee.children,write_uid:0
@@ -109,29 +143,62 @@ msgstr "Laatst bijgewerkt op"
 #. module: hr_family
 #: selection:hr.employee.children,gender:0
 msgid "Male"
-msgstr ""
+msgstr "Man"
+
+#. module: hr_family
+#: model:ir.model,name:hr_family.model_hr_employee_marital_status
+msgid "Marital status"
+msgstr "Burgerlijke staat"
+
+#. module: hr_family
+#: model:ir.actions.act_window,name:hr_family.action_hr_employee_marital_status
+#: model:ir.ui.menu,name:hr_family.menu_hr_employee_marital_status
+msgid "Marital statuses"
+msgstr "Burgerlijke staat"
+
+#. module: hr_family
+#: model:hr.employee.marital.status,name:hr_family.married
+msgid "Married"
+msgstr "Gehuwd"
 
 #. module: hr_family
 #: field:hr.employee,fam_mother:0
 msgid "Mother's Name"
-msgstr ""
+msgstr "Naam van de moeder"
 
 #. module: hr_family
-#: field:hr.employee,fam_spouse:0 field:hr.employee.children,name:0
+#: field:hr.employee.children,name:0
 msgid "Name"
 msgstr "Naam"
 
 #. module: hr_family
 #: view:hr.employee:hr_family.hr_employee_view_form
 msgid "Parents"
-msgstr ""
+msgstr "Ouders"
+
+#. module: hr_family
+#: model:ir.model,name:hr_family.model_res_partner
+msgid "Partner"
+msgstr "Relatie"
+
+#. module: hr_family
+#: model:hr.employee.marital.status,name:hr_family.single
+msgid "Single"
+msgstr "Ongehuwd"
 
 #. module: hr_family
 #: view:hr.employee:hr_family.hr_employee_view_form
+#: model:res.partner.category,name:hr_family.res_partner_category_spouse
 msgid "Spouse"
-msgstr ""
+msgstr "Echtgenoot"
 
 #. module: hr_family
-#: field:hr.employee,fam_spouse_tel:0
-msgid "Telephone."
-msgstr ""
+#: model:hr.employee.marital.status,name:hr_family.widower
+msgid "Widower"
+msgstr "Weduwe/Weduwnaar"
+
+#~ msgid "Display Name"
+#~ msgstr "Te tonen naam"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Laatst bijgewerkt op"
