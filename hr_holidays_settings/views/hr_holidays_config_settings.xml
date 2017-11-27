@@ -22,7 +22,9 @@
 
     <record id="hr_holidays_config_settings_action" model="ir.actions.act_window">
         <field name="name">Configure HR Holidays</field>
+        <field name="type">ir.actions.act_window</field>
         <field name="res_model">hr.holidays.config.settings</field>
+        <field name="view_type">form</field>
         <field name="view_mode">form</field>
         <field name="target">inline</field>
     </record>
@@ -31,5 +33,10 @@
               parent="hr_holidays.menu_hr_holidays_configuration" sequence="0"
               action="hr_holidays_config_settings_action"
               groups="base.group_system"/>
+
+    <menuitem id="menu_hr_holidays_status" name="Leave Types"
+          parent="hr_holidays.menu_hr_holidays_configuration" sequence="10"
+          action="hr_holidays.open_view_holiday_status"
+          groups="base.group_system"/>
 
 </odoo>
