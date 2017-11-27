@@ -1,0 +1,102 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * hr_holidays_settings
+# 
+# Translators:
+# leemannd <denis.leemann@camptocamp.com>, 2017
+# OCA Transbot <transbot@odoo-community.org>, 2017
+# guillaume bauer <guillaume.bauer@syentys.com>, 2017
+# Alexandre Fayolle <alexandre.fayolle@camptocamp.com>, 2018
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-02-23 03:46+0000\n"
+"PO-Revision-Date: 2018-02-23 03:46+0000\n"
+"Last-Translator: Alexandre Fayolle <alexandre.fayolle@camptocamp.com>, 2018\n"
+"Language-Team: French (https://www.transifex.com/oca/teams/23907/fr/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: fr\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#. module: hr_holidays_settings
+#: model:ir.ui.view,arch_db:hr_holidays_settings.hr_holidays_config_settings
+msgid ""
+"<span>(*) This configuration is related to the company you're logged "
+"into.</span>"
+msgstr ""
+"<span>(*) Cette configuration est liée à la société dans laquelle vous vous "
+"êtes connecté </span>"
+
+#. module: hr_holidays_settings
+#: model:ir.ui.view,arch_db:hr_holidays_settings.hr_holidays_config_settings
+msgid "Cancel"
+msgstr "Annuler"
+
+#. module: hr_holidays_settings
+#: model:ir.model.fields,field_description:hr_holidays_settings.field_hr_holidays_config_settings_company_id
+msgid "Company"
+msgstr "Entreprise"
+
+#. module: hr_holidays_settings
+#: model:ir.actions.act_window,name:hr_holidays_settings.hr_holidays_config_settings_action
+#: model:ir.ui.view,arch_db:hr_holidays_settings.hr_holidays_config_settings
+msgid "Configure HR Holidays"
+msgstr "Configuration des Congés"
+
+#. module: hr_holidays_settings
+#: model:ir.model.fields,field_description:hr_holidays_settings.field_hr_holidays_config_settings_create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: hr_holidays_settings
+#: model:ir.model.fields,field_description:hr_holidays_settings.field_hr_holidays_config_settings_create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: hr_holidays_settings
+#: model:ir.model.fields,field_description:hr_holidays_settings.field_hr_holidays_config_settings_display_name
+msgid "Display Name"
+msgstr "Nom affiché"
+
+#. module: hr_holidays_settings
+#: model:ir.model.fields,field_description:hr_holidays_settings.field_hr_holidays_config_settings_id
+msgid "ID"
+msgstr "ID"
+
+#. module: hr_holidays_settings
+#: model:ir.model.fields,field_description:hr_holidays_settings.field_hr_holidays_config_settings___last_update
+msgid "Last Modified on"
+msgstr "Dernière modification le"
+
+#. module: hr_holidays_settings
+#: model:ir.model.fields,field_description:hr_holidays_settings.field_hr_holidays_config_settings_write_uid
+msgid "Last Updated by"
+msgstr "Dernière modification par"
+
+#. module: hr_holidays_settings
+#: model:ir.model.fields,field_description:hr_holidays_settings.field_hr_holidays_config_settings_write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: hr_holidays_settings
+#: model:ir.ui.menu,name:hr_holidays_settings.menu_hr_holidays_status
+msgid "Leave Types"
+msgstr "Types de congés"
+
+#. module: hr_holidays_settings
+#: model:ir.ui.view,arch_db:hr_holidays_settings.hr_holidays_config_settings
+msgid "Save"
+msgstr "Sauver"
+
+#. module: hr_holidays_settings
+#: model:ir.ui.menu,name:hr_holidays_settings.menu_hr_holidays_global_settings
+msgid "Settings"
+msgstr "Configuration"
+
+#. module: hr_holidays_settings
+#: model:ir.model,name:hr_holidays_settings.model_hr_holidays_config_settings
+msgid "hr.holidays.config.settings"
+msgstr "hr.holidays.config.settings"
