@@ -35,6 +35,13 @@ For further information, please visit:
 
  * https://www.odoo.com/forum/help-1
 
+Known issues / Roadmap
+======================
+
+* Remove all birthdate fields (spouse, children, parents) and incorporate
+  them in their partners by adding dependency partner_contact_birthdate
+  and write migration script + views.
+
 Credits
 =======
 
