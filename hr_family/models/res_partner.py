@@ -24,9 +24,9 @@ class ResPartner(models.Model):
         # check if calling from create
         if not self.id and spouse_tag_id in new_categories:
             raise UserError(_(
-                'Error: you cannot create a partner with spouse tag'
-                'create the partner and then specify spouse in the'
-                'employeer form'))
+                'Error: you cannot create a partner with spouse tag. '
+                'Create the partner and then specify spouse in the '
+                'employee form.'))
         # removing from existing record
         if (spouse_tag_id in self.category_id.ids and
                 spouse_tag_id not in new_categories):
@@ -36,7 +36,7 @@ class ResPartner(models.Model):
             raise UserError(_(
                 'Error: you cannot remove the spouse tag via form.'
                 ' {0} is the spouse of {1}, you must delete spouse'
-                ' relationship be removing \'spouse\' from {1}'.format(
+                ' relationship by removing the spouse tag from {1}'.format(
                     self.name, spouse_rec.name
                 )
             ))
@@ -44,8 +44,8 @@ class ResPartner(models.Model):
         if (spouse_tag_id not in self.category_id.ids and
                 spouse_tag_id in new_categories):
             raise UserError(_(
-                'Error: you cannot add the spouse tag via form. specify '
-                ' spouse from employee form'
+                'Error: you cannot add the spouse tag via form. Specify '
+                'spouse on the employee form.'
                 ))
         return False
 
