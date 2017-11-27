@@ -1,4 +1,4 @@
-# -*- coding:utf-8 -*-
+# -*- coding: utf-8 -*-
 #
 #
 #    Copyright (C) 2011,2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
@@ -21,21 +21,28 @@
 
 {
     'name': 'Employee Family Information',
-    'version': '8.0.1.2.0',
+    'version': '8.0.1.3.0',
     'category': 'Generic Modules/Human Resources',
     'author': "Michael Telahun Makonnen <mmakonnen@gmail.com>,"
+              "Therp BV,"
               "Odoo Community Association (OCA)",
     'website': 'http://www.openerp.com',
+    'summary': 'Employee Family information tab',
     'license': 'AGPL-3',
     'depends': [
         'hr',
+    ],
+    "demo": [
+        "demo/hr_employee.xml",
     ],
     'data': [
         'security/ir.model.access.csv',
         'views/hr_children.xml',
         'views/hr_employee.xml',
+        'views/res_partner.xml',
+        "views/hr_employee_marital_status.xml",
+        'data/hr_employee_spouse_data.xml',
+        "data/hr_employee_marital_status.xml",
     ],
-    'test': [
-    ],
-    'installable': True,
+    "post_init_hook": 'post_init_hook',
 }

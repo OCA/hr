@@ -1,3 +1,5 @@
 "id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
 "access_hr_employee_children_employee","hr.employee.children_employee","model_hr_employee_children","base.group_user",1,0,0,0
 "access_hr_employee_children_user","hr.employee.children_user","model_hr_employee_children","base.group_hr_user",1,1,1,1
+read_hr_employee_marital_status,Read hr.employee.marital.status,model_hr_employee_marital_status,base.group_user,1,0,0,0
+crud_hr_employee_marital_status,CRUD hr.employee.marital.status,model_hr_employee_marital_status,base.group_hr_manager,1,1,1,1

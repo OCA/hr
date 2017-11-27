@@ -21,3 +21,5 @@
 
 from . import hr_children
 from . import hr_employee
+from . import res_partner
+from . import hr_employee_marital_status
