@@ -4,6 +4,7 @@
 
 from datetime import date
 from openerp import fields, models, api
+from openerp.tools.translate import _
 from openerp.exceptions import Warning as UserError
 from dateutil.relativedelta import relativedelta
 
@@ -36,9 +37,10 @@ class HrPublicHolidays(models.Model):
         'Country'
     )
 
-    @api.one
+    @api.multi
     @api.constrains('year', 'country_id')
     def _check_year(self):
+        self.ensure_one()
         if self.country_id:
             domain = [('year', '=', self.year),
                       ('country_id', '=', self.country_id.id),
@@ -48,13 +50,14 @@ class HrPublicHolidays(models.Model):
                       ('country_id', '=', False),
                       ('id', '!=', self.id)]
         if self.search_count(domain):
-            raise UserError('You can\'t create duplicate public holiday '
-                            'per year and/or country')
+            raise UserError(_('You can\'t create duplicate public holiday '
+                            'per year and/or country'))
         return True
 
-    @api.one
+    @api.multi
     @api.depends('year', 'country_id')
     def _compute_display_name(self):
+        self.ensure_one()
         if self.country_id:
             self.display_name = '%s (%s)' % (self.year, self.country_id.name)
         else:
@@ -121,9 +124,9 @@ class HrPublicHolidays(models.Model):
             return True
         return False
     
-    def copy_data(self, cr, uid, id, default=None, context=None):
+    def copy_data(self, *args, **kwargs):
         data = super(HrPublicHolidays, self).copy_data(
-            cr, uid, id, default=default, context=context)
+            *args, **kwargs)
         data['year'] += 1
         for line in data['line_ids']:
             val = line[2]
