@@ -39,7 +39,7 @@ addon | version | summary
 [hr_expense_product_policy](hr_expense_product_policy/) | 8.0.1.0.0 | HR Expense Product Policy
 [hr_expense_sequence](hr_expense_sequence/) | 8.0.1.0.0 | HR expense sequence
 [hr_experience](hr_experience/) | 8.0.1.1.0 | Experience Management
-[hr_family](hr_family/) | 8.0.1.2.0 | Employee Family Information
+[hr_family](hr_family/) | 8.0.1.3.0 | Employee Family information tab
 [hr_holidays_compute_days](hr_holidays_compute_days/) | 8.0.1.0.0 | Computes the actual leave days considering rest days and public holidays
 [hr_holidays_legal_leave](hr_holidays_legal_leave/) | 8.0.1.0.0 | Allows the definition of legal/annual leave
 [hr_holidays_validity_date](hr_holidays_validity_date/) | 8.0.1.0.0 | Allow to define start and end date on holidays type.
