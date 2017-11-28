@@ -4,6 +4,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 from openerp import fields, models, api
+from openerp.tools.translate import _
 from openerp.exceptions import Warning as UserError
 
 
@@ -35,13 +36,14 @@ class HrPublicHolidaysLine(models.Model):
         'Related States'
     )
 
-    @api.one
+    @api.multi
     @api.constrains('date', 'state_ids')
     def _check_date_state(self):
+        self.ensure_one()
         if fields.Date.from_string(self.date).year != self.year_id.year:
             raise UserError(
-                'Dates of holidays should be the same year '
-                'as the calendar year they are being assigned to'
+                _('Dates of holidays should be the same year '
+                'as the calendar year they are being assigned to')
             )
         if self.state_ids:
             domain = [('date', '=', self.date),
@@ -51,13 +53,13 @@ class HrPublicHolidaysLine(models.Model):
             holidays = self.search(domain)
             for holiday in holidays:
                 if self.state_ids & holiday.state_ids:
-                    raise UserError('You can\'t create duplicate public '
+                    raise UserError(_('You can\'t create duplicate public '
                                     'holiday per date %s and one of the '
-                                    'country states.' % self.date)
+                                    'country states.') % self.date)
         domain = [('date', '=', self.date),
                   ('year_id', '=', self.year_id.id),
                   ('state_ids', '=', False)]
         if self.search_count(domain) > 1:
-            raise UserError('You can\'t create duplicate public holiday '
-                            'per date %s.' % self.date)
+            raise UserError(_('You can\'t create duplicate public holiday '
+                            'per date %s.') % self.date)
         return True
