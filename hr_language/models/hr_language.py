@@ -20,14 +20,22 @@
 ###############################################################################
 
 from openerp import tools
-from openerp import models, fields
+from openerp import api, models, fields
 
 
 class hr_language(models.Model):
     _name = 'hr.language'
 
+    @api.model
+    def _get_languages_dict(self):
+        langs = tools.scan_languages()
+        newlangs = []
+        for lang in langs:
+            newlangs.append((lang[0], lang[1].split('/')[0].strip()))
+        return newlangs
+
     name = fields.Selection(
-        tools.scan_languages(),
+        _get_languages_dict,
         string=u"Language", required=True)
     description = fields.Char(
         string=u"Description", size=64, required=True)
