@@ -51,7 +51,7 @@ class HrPublicHolidays(models.Model):
                       ('id', '!=', self.id)]
         if self.search_count(domain):
             raise UserError(_('You can\'t create duplicate public holiday '
-                            'per year and/or country'))
+                              'per year and/or country'))
         return True
 
     @api.multi
