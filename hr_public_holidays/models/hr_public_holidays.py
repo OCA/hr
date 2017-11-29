@@ -123,13 +123,14 @@ class HrPublicHolidays(models.Model):
                 lambda r: r.date == fields.Date.to_string(selected_date))):
             return True
         return False
-    
+
     def copy_data(self, *args, **kwargs):
         data = super(HrPublicHolidays, self).copy_data(
             *args, **kwargs)
         data['year'] += 1
         for line in data['line_ids']:
             val = line[2]
-            new_date = fields.Date.from_string(val['date'])+relativedelta(years=1)
+            base_date = fields.Date.from_string(val['date'])
+            new_date = base_date+relativedelta(years=1)
             val['date'] = fields.Date.to_string(new_date)
         return data
