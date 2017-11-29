@@ -43,7 +43,7 @@ class HrPublicHolidaysLine(models.Model):
         if fields.Date.from_string(self.date).year != self.year_id.year:
             raise UserError(
                 _('Dates of holidays should be the same year '
-                    'as the calendar year they are being assigned to')
+                  'as the calendar year they are being assigned to')
             )
         if self.state_ids:
             domain = [('date', '=', self.date),
@@ -54,12 +54,12 @@ class HrPublicHolidaysLine(models.Model):
             for holiday in holidays:
                 if self.state_ids & holiday.state_ids:
                     raise UserError(_('You can\'t create duplicate public '
-                        'holiday per date %s and one of the '
-                        'country states.') % self.date)
+                                      'holiday per date %s and one of the '
+                                      'country states.') % self.date)
         domain = [('date', '=', self.date),
                   ('year_id', '=', self.year_id.id),
                   ('state_ids', '=', False)]
         if self.search_count(domain) > 1:
             raise UserError(_('You can\'t create duplicate public holiday '
-                            'per date %s.') % self.date)
+                              'per date %s.') % self.date)
         return True
