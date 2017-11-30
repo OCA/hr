@@ -18,7 +18,7 @@ class TestResourceCalendarRrule(test_resource.TestResource):
         })
 
     def test_60_simplified_attendance(self):
-        self.assertFalse(self.calendar.simplified_attendance)
+        self.assertEqual(self.calendar.simplified_attendance['type'], 'null')
         self.calendar.write({
             'simplified_attendance':
             self.env['resource.calendar']._default_simplified_attendance(),

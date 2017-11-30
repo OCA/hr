@@ -6,9 +6,18 @@ import pytz
 from dateutil.relativedelta import relativedelta
 from dateutil.rrule import WEEKLY
 from openerp import _, api, fields, models
+from openerp.exceptions import ValidationError
+from openerp.tools.float_utils import float_is_zero, float_round
+
 
 DEFAULT_MORNING_HOUR = 8.0
 DEFAULT_AFTERNOON_HOUR = 13.0
+DEFAULT_MAX_HOURS_PER_DAY = 12.0
+
+
+def _hours_per_day(data):
+    """ helper function to get the total hours per day """
+    return data.get('morning', 0.0) + data.get('afternoon', 0.0)
 
 
 class ResourceCalendar(models.Model):
@@ -20,56 +29,95 @@ class ResourceCalendar(models.Model):
         default=lambda self: self._default_simplified_attendance(),
     )
 
+    @api.model
+    def _get_morning_hour(self):
+        """ Hour of the day at which the morning schedule starts """
+        return float(self.env['ir.config_parameter'].get_param(
+            'resource_calendar_rrule.simplified_morning',
+            DEFAULT_MORNING_HOUR,
+        ))
+
+    @api.model
+    def _get_afternoon_hour(self):
+        """ Hour of the day at which the afternoon schedule starts """
+        return float(self.env['ir.config_parameter'].get_param(
+            'resource_calendar_rrule.simplified_afternoon',
+            DEFAULT_AFTERNOON_HOUR,
+        ))
+
+    @api.model
+    def _get_max_hours_per_day(self):
+        """ Max hours per day allowed in the schedule """
+        return float(self.env['ir.config_parameter'].get_param(
+            'resource_calendar_rrule.max_hours_per_day',
+            DEFAULT_MAX_HOURS_PER_DAY,
+        ))
+
+    def _validate_simplified_attendance(self, attendance):
+        """ Sanity check for attendance hours """
+        to_check = list(attendance.get('data', []))
+        if attendance.get('type') == 'odd':
+            to_check += attendance.get('data_odd', [])
+        for day in to_check:
+            _max = self._get_max_hours_per_day()
+            if _hours_per_day(day) > _max:
+                raise ValidationError(
+                    _("The max per day cannot exceed %.01f hours. "
+                      "(You can set this lower or higher with the "
+                      "'resource_calendar_rrule.max_hours_per_day' "
+                      "configuration parameter.)") % (_max,))
+            if self._get_afternoon_hour() + day.get('afternoon', 0.0) >= 24.0:
+                raise ValidationError(
+                    _('Afternoon shift cannot go past midnight.'))
+
+    @api.multi
+    def write(self, values):
+        to_delete = []
+        if 'simplified_attendance' in values:
+            attendance = values['simplified_attendance']
+            self._validate_simplified_attendance(attendance)
+            to_delete.extend(self.mapped('attendance_ids').ids)
+        ret = super(ResourceCalendar, self).write(values)
+        self.env['resource.calendar.attendance'].browse(to_delete).unlink()
+        return ret
+
     def _default_simplified_attendance(self):
-        result = {
+        return {
             'type': 'all',
-            'data': [],
+            'data': [dict(day=day, morning=4, afternoon=4)
+                     for day in range(5)],
             'start': fields.Date.today(),
             'stop': False,
         }
-        for day in [0, 1, 2, 3, 4]:
-            result['data'].extend([
-                {
-                    'day': day,
-                    'morning': 4,
-                    'afternoon': 4,
-                },
-            ])
-        return result
 
     @api.multi
     def _compute_simplified_attendance(self):
         for this in self:
-            for attendance in this.attendance_ids:
-                this.simplified_attendance = this\
-                    ._simplified_from_attendances()
+            this.simplified_attendance = this\
+                ._simplified_from_attendances()
 
-    @api.model
+    @api.multi
     @api.depends('attendance_ids')
-    def _simplified_from_attendances(self):
+    def _simplified_from_attendances(self, attendances=None):
         self.ensure_one()
+        if not attendances:
+            attendances = self.attendance_ids
         result = {'type': 'all', 'data': [], 'data_odd': []}
-        for day in [0, 1, 2, 3, 4, 5, 6]:
-            result['data'].append({
-                'day': day,
-                'morning': 0,
-                'afternoon': 0,
-            })
-            result['data_odd'].append({
-                'day': day,
-                'morning': 0,
-                'afternoon': 0,
-            })
+        for day in range(7):
+            result['data'].append(dict(day=day, morning=0, afternoon=0))
+            result['data_odd'].append(dict(day=day, morning=0, afternoon=0))
+        if not attendances:
+            result['type'] = 'null'
         warn = ''
         start = datetime.datetime.today().replace(tzinfo=pytz.utc)
         stop = False
-        for attendance in self.attendance_ids:
+        even_odd_occurrences = set()
+        for attendance in attendances:
             for rule in attendance.rrule._rrule:
                 if rule._byeaster or rule._bymonth or rule._bymonthday or\
                         rule._byyearday or rule._interval not in [1, 2] or\
                         rule._freq != WEEKLY or not rule._dtstart:
-                    # TODO: this neds to warn somehow if the rrule can't be
-                    # simplified
+                    # TODO: warn if the rrule can't be simplified
                     warn += _('Ignoring %s') % rule
                     continue
 
@@ -78,29 +126,27 @@ class ResourceCalendar(models.Model):
                 if rule._until and (not stop or stop > rule._until):
                     stop = rule._until
 
+                # This piece of code is meant to detect if this is an rrule
+                # implementing the simplified occurrence only for odd weeks.
+                # It looks two consecutive occurrences. If both are odd weeks,
+                # we know that this is a rule for odd weeks. Otherwise, there
+                # would be an even week in between.
                 odd = all(
-                    bool(rule._dtstart.isocalendar()[1] % 2)
+                    bool(occurrence.isocalendar()[1] % 2)
                     for occurrence in rule[:2]
                 )
-                key = float(self.env['ir.config_parameter'].get_param(
-                    'resource_calendar_rrule.simplified_afternoon',
-                    DEFAULT_AFTERNOON_HOUR,
-                )) > attendance.hour_from and 'morning' or 'afternoon'
+                even_odd_occurrences.add('odd' if odd else 'even')
 
+                # allocate this rule to the correct timeslot in the simplified
+                # attendance (timeslot = day, morning/afternoon, even/odd week)
+                key = (self.env['resource.calendar']._get_afternoon_hour() >
+                       attendance.hour_from) and 'morning' or 'afternoon'
                 for day in result['data%s' % (odd and '_odd' or '')]:
                     if day['day'] not in rule._byweekday:
                         continue
                     day[key] += attendance.hour_to - attendance.hour_from
 
-        def sum_all(x):
-            return x['morning'] + x['afternoon']
-
-        if not sum(map(sum_all, result['data'])):
-            result['data'] = result['data_odd']
-            result.pop('data_odd')
-        elif not sum(map(sum_all, result['data_odd'])):
-            result.pop('data_odd')
-        else:
+        if 'odd' in even_odd_occurrences:
             result['type'] = 'odd'
         result.update(
             start=fields.Date.to_string(start),
@@ -111,8 +157,8 @@ class ResourceCalendar(models.Model):
     @api.multi
     def _inverse_simplified_attendance(self):
         for this in self:
-            attendances = self._attendance_from_simplified()
-            this.attendance_ids.unlink()
+            attendances = this._attendance_from_simplified()
+            # this.attendance_ids.unlink()
             this.attendance_ids = attendances
 
     @api.multi
@@ -121,23 +167,26 @@ class ResourceCalendar(models.Model):
         simplified_attendance = self.simplified_attendance
         if not simplified_attendance:
             return []
+        attendance_start = simplified_attendance.get('start')
+        if not attendance_start:
+            return []
+        _type = simplified_attendance.get('type', 'null') or 'null'
+        if _type == 'null':
+            return []
+        else:
+            odd_even = _type == 'odd'
         result = []
         rule = self.env['resource.calendar.attendance']._default_rrule()[0]
-        start = fields.Datetime.from_string(simplified_attendance['start'])
+        start = fields.Datetime.from_string(attendance_start)
         start_is_even = not bool(start.isocalendar()[1] % 2)
-        odd_even = simplified_attendance['type'] == 'odd'
-        morning_hour = float(self.env['ir.config_parameter'].get_param(
-            'resource_calendar_rrule.simplified_morning',
-            DEFAULT_MORNING_HOUR,
-        ))
-        afternoon_hour = float(self.env['ir.config_parameter'].get_param(
-            'resource_calendar_rrule.simplified_afternoon',
-            DEFAULT_AFTERNOON_HOUR,
-        ))
+        morning_hour = self._get_morning_hour()
+        afternoon_hour = self._get_afternoon_hour()
+        days_done = set()
         for key in ['data'] + (['data_odd'] if odd_even else []):
-            for day in simplified_attendance[key]:
+            for day in simplified_attendance.get(key, ()):
+                weekday = day.get('day', 0)
                 day_rule = dict(
-                    rule, byweekday=[day['day']],
+                    rule, byweekday=[weekday],
                     interval=2 if odd_even else 1,
                     dtstart=fields.Datetime.to_string(
                         start + relativedelta(
@@ -150,28 +199,31 @@ class ResourceCalendar(models.Model):
                         )
                     )
                 )
-                if day['morning']:
-                    result.append(
-                        (0, 0, {
-                            'name': _('Simplified attendance %s morning') %
-                            self.env['resource.calendar.attendance']
-                            ._fields['dayofweek'].selection[day['day']][1],
-                            'rrule': [day_rule],
-                            'hour_from': morning_hour,
-                            'hour_to': morning_hour + day['morning'],
-                        })
-                    )
-                if day['afternoon']:
-                    result.append(
-                        (0, 0, {
-                            'name': _('Simplified attendance %s afternoon') %
-                            self.env['resource.calendar.attendance']
-                            ._fields['dayofweek'].selection[day['day']][1],
-                            'rrule': [day_rule],
-                            'hour_from': afternoon_hour,
-                            'hour_to': afternoon_hour + day['afternoon'],
-                        })
-                    )
+                morning_hours = day.get('morning', 0.0)
+                afternoon_hours = day.get('afternoon', 0.0)
+                if not float_is_zero(morning_hours, precision_digits=2) or \
+                        weekday not in days_done:
+                    result.append((0, 0, {
+                        'name': _('Simplified attendance %s morning') %
+                        self.env['resource.calendar.attendance']
+                        ._fields['dayofweek'].selection[day['day']][1],
+                        'rrule': [day_rule],
+                        'hour_from': morning_hour,
+                        'hour_to': morning_hour + float_round(
+                            morning_hours, precision_digits=2)
+                    }))
+                if not float_is_zero(afternoon_hours, precision_digits=2) or \
+                        weekday not in days_done:
+                    result.append((0, 0, {
+                        'name': _('Simplified attendance %s afternoon') %
+                        self.env['resource.calendar.attendance']
+                        ._fields['dayofweek'].selection[day['day']][1],
+                        'rrule': [day_rule],
+                        'hour_from': afternoon_hour,
+                        'hour_to': afternoon_hour + float_round(
+                            afternoon_hours, precision_digits=2)
+                    }))
+                days_done.add(weekday)
         return result
 
     @api.model

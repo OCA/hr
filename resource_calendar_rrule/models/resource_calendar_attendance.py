@@ -5,6 +5,7 @@ import datetime
 import pytz
 from dateutil import rrule
 from openerp import api, fields, models
+
 try:
     from openerp.addons.field_rrule import FieldRRule
 except ImportError:
