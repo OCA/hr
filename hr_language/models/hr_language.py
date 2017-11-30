@@ -19,8 +19,7 @@
 #
 ###############################################################################
 
-from openerp import tools
-from openerp import models, fields
+from openerp import tools, models, fields, api
 
 
 class hr_language(models.Model):
@@ -36,6 +35,13 @@ class hr_language(models.Model):
     can_read = fields.Boolean(u"Read", default=True, oldname='read')
     can_write = fields.Boolean(u"Write", default=True, oldname='write')
     can_speak = fields.Boolean(u"Speak", default=True, oldname='speak')
+
+    @api.onchange('name')
+    def _onchange_language(self):
+        if self.name:
+            languages = tools.scan_languages()
+            languages = dict(languages)
+            self.description = languages[self.name]
 
 
 class hr_employee(models.Model):

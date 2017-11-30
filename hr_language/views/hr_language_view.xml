@@ -68,7 +68,7 @@
     </record>
 
     <menuitem name="Languages"
-              parent="hr.menu_hr_configuration"
+              parent="hr.menu_human_resources_configuration"
               id="menu_open_view_language_form"
               action="open_view_language_form"/>
 

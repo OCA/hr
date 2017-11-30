@@ -33,13 +33,15 @@
         "hr_experience",
         "hr_skill",
         "hr_language",
+        'report'
     ],
     'data': ['hr_resume_view.xml',
              'report/report_resume.xml',
+             'report/report_resume2.xml',
              ],
     "demo": [],
     "test": [],
-    'installable': False,
+    'installable': True,
     "auto_install": False,
     "images": [],
 }
