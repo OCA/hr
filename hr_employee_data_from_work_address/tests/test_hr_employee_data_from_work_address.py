@@ -75,6 +75,9 @@ class TestHrEmployeeDataFromWorkAddress(TransactionCase):
         })
         employee.write({'user_id': user2.id})
         self.assertEqual(user2.partner_id, employee.address_id)
+        employee.write({'address_id': False})
+        employee.write({'user_id': user2.id})
+        self.assertEqual(user2.partner_id, employee.address_id)
 
     def test_03_onchange(self):
         result = self.employee1.onchange_company(
