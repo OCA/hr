@@ -21,7 +21,7 @@
 {
     "name": "User and partner data from employee",
     "version": "8.0.1.0.0",
-    "author": "Therp BV",
+    "author": "Odoo Community Association (OCA),Therp BV",
     "license": "AGPL-3",
     "category": "Human Resources",
     "summary": "Update user's and partner's data fields from employee record",

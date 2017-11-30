@@ -72,6 +72,9 @@ class HrEmployee(models.Model):
         if 'user_id' not in values:
             return
         for this in self:
+            if not this.address_id:
+                this.write({'address_id': this.user_id.partner_id.id})
+                continue
             # take some precautions
             if this.user_id.partner_id == this.address_id:
                 continue
