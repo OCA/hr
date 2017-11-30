@@ -82,7 +82,10 @@ openerp.resource_calendar_rrule = function(instance)
             switch(jQuery(e.target).data('type'))
             {
                 case 'odd':
-                    value['data_odd'] = value['data'].slice();
+                    value['data_odd'] = _.map(value['data'], function(data)
+                    {
+                        return _.clone(data);
+                    });
                 break;
                 case 'all':
                     delete value['data_odd'];
