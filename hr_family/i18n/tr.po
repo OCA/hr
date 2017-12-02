@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-24 02:15+0000\n"
-"PO-Revision-Date: 2016-12-30 21:31+0000\n"
+"POT-Creation-Date: 2017-11-30 19:07+0000\n"
+"PO-Revision-Date: 2017-11-28 21:13+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Turkish (http://www.transifex.com/oca/OCA-hr-8-0/language/tr/)\n"
 "MIME-Version: 1.0\n"
@@ -24,12 +24,19 @@ msgid "Children"
 msgstr ""
 
 #. module: hr_family
+#: field:hr.employee.marital.status,code:0
+msgid "Code"
+msgstr "Kod"
+
+#. module: hr_family
 #: field:hr.employee.children,create_uid:0
+#: field:hr.employee.marital.status,create_uid:0
 msgid "Created by"
 msgstr "Oluşturan"
 
 #. module: hr_family
 #: field:hr.employee.children,create_date:0
+#: field:hr.employee.marital.status,create_date:0
 msgid "Created on"
 msgstr "Oluşturuldu"
 
@@ -42,8 +49,14 @@ msgstr ""
 
 #. module: hr_family
 #: field:hr.employee.children,display_name:0
+#: field:hr.employee.marital.status,display_name:0
 msgid "Display Name"
 msgstr "Görünen İsim"
+
+#. module: hr_family
+#: model:hr.employee.marital.status,name:hr_family.divorced
+msgid "Divorced"
+msgstr ""
 
 #. module: hr_family
 #: field:hr.employee.children,employee_id:0
@@ -57,8 +70,38 @@ msgid "Employee Children"
 msgstr ""
 
 #. module: hr_family
-#: field:hr.employee,fam_spouse_employer:0
+#: field:res.partner,employer:0
 msgid "Employer"
+msgstr ""
+
+#. module: hr_family
+#: code:addons/hr_family/models/res_partner.py:46
+#, python-format
+msgid ""
+"Error: you cannot add the spouse tag via form. Specify spouse on the "
+"employee form."
+msgstr ""
+
+#. module: hr_family
+#: code:addons/hr_family/models/res_partner.py:26
+#, python-format
+msgid ""
+"Error: you cannot create a partner with spouse tag. Create the partner and "
+"then specify spouse in the employee form."
+msgstr ""
+
+#. module: hr_family
+#: code:addons/hr_family/models/res_partner.py:39
+#, python-format
+msgid ""
+"Error: you cannot remove the spouse tag via form. {0} is the spouse of {1}, "
+"you must delete spouse relationship by removing the spouse tag from {1}"
+msgstr ""
+
+#. module: hr_family
+#: code:addons/hr_family/models/hr_employee.py:41
+#, python-format
+msgid "Error: {0} cannot have this spouse, because already the spouse of {1}"
 msgstr ""
 
 #. module: hr_family
@@ -87,22 +130,25 @@ msgid "HR Employee Children"
 msgstr ""
 
 #. module: hr_family
-#: field:hr.employee.children,id:0
+#: field:hr.employee.children,id:0 field:hr.employee.marital.status,id:0
 msgid "ID"
 msgstr "ID"
 
 #. module: hr_family
 #: field:hr.employee.children,__last_update:0
+#: field:hr.employee.marital.status,__last_update:0
 msgid "Last Modified on"
 msgstr "Son değişiklik"
 
 #. module: hr_family
 #: field:hr.employee.children,write_uid:0
+#: field:hr.employee.marital.status,write_uid:0
 msgid "Last Updated by"
 msgstr "Son güncelleyen"
 
 #. module: hr_family
 #: field:hr.employee.children,write_date:0
+#: field:hr.employee.marital.status,write_date:0
 msgid "Last Updated on"
 msgstr "Son güncelleme"
 
@@ -112,12 +158,29 @@ msgid "Male"
 msgstr "Erkek"
 
 #. module: hr_family
+#: field:hr.employee,marital_status_id:0
+#: model:ir.model,name:hr_family.model_hr_employee_marital_status
+msgid "Marital status"
+msgstr ""
+
+#. module: hr_family
+#: model:ir.actions.act_window,name:hr_family.action_hr_employee_marital_status
+#: model:ir.ui.menu,name:hr_family.menu_hr_employee_marital_status
+msgid "Marital statuses"
+msgstr ""
+
+#. module: hr_family
+#: model:hr.employee.marital.status,name:hr_family.married
+msgid "Married"
+msgstr ""
+
+#. module: hr_family
 #: field:hr.employee,fam_mother:0
 msgid "Mother's Name"
 msgstr ""
 
 #. module: hr_family
-#: field:hr.employee,fam_spouse:0 field:hr.employee.children,name:0
+#: field:hr.employee.children,name:0 field:hr.employee.marital.status,name:0
 msgid "Name"
 msgstr "Adı"
 
@@ -127,11 +190,28 @@ msgid "Parents"
 msgstr ""
 
 #. module: hr_family
+#: model:ir.model,name:hr_family.model_res_partner
+msgid "Partner"
+msgstr "Cari"
+
+#. module: hr_family
+#: model:hr.employee.marital.status,name:hr_family.single
+msgid "Single"
+msgstr ""
+
+#. module: hr_family
 #: view:hr.employee:hr_family.hr_employee_view_form
+#: field:hr.employee,partner_spouse_id:0
+#: model:res.partner.category,name:hr_family.res_partner_category_spouse
 msgid "Spouse"
 msgstr ""
 
 #. module: hr_family
-#: field:hr.employee,fam_spouse_tel:0
-msgid "Telephone."
+#: field:hr.employee,partner_spouse_date_of_birth:0
+msgid "Spouse Date of Birth"
+msgstr ""
+
+#. module: hr_family
+#: model:hr.employee.marital.status,name:hr_family.widower
+msgid "Widower"
 msgstr ""

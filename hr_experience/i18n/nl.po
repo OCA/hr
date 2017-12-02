@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-28 03:12+0000\n"
-"PO-Revision-Date: 2017-04-25 17:36+0000\n"
+"POT-Creation-Date: 2017-11-30 19:07+0000\n"
+"PO-Revision-Date: 2017-11-28 21:13+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Dutch (http://www.transifex.com/oca/OCA-hr-8-0/language/nl/)\n"
 "MIME-Version: 1.0\n"
@@ -175,7 +175,7 @@ msgstr ""
 #: view:hr.experience:hr_experience.view_professional_form
 #: view:hr.experience:hr_experience.view_professional_tree
 msgid "Employer"
-msgstr ""
+msgstr "Werkgever"
 
 #. module: hr_experience
 #: help:hr.academic,partner_id:0 help:hr.certification,partner_id:0

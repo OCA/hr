@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-03 03:00+0000\n"
-"PO-Revision-Date: 2017-09-22 15:52+0000\n"
+"POT-Creation-Date: 2017-11-30 19:07+0000\n"
+"PO-Revision-Date: 2017-11-30 19:09+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/oca/OCA-hr-8-0/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
@@ -276,7 +276,7 @@ msgstr ""
 #. module: hr_employee_benefit
 #: field:hr.employee.benefit.rate.line,parent_id:0
 msgid "Parent"
-msgstr ""
+msgstr "Bovenliggend item"
 
 #. module: hr_employee_benefit
 #: model:ir.model,name:hr_employee_benefit.model_hr_payslip

@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-30 15:07+0000\n"
-"PO-Revision-Date: 2016-05-01 05:38+0000\n"
-"Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>\n"
+"POT-Creation-Date: 2017-11-30 19:07+0000\n"
+"PO-Revision-Date: 2017-11-28 21:13+0000\n"
+"Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Slovenian (http://www.transifex.com/oca/OCA-hr-8-0/language/sl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -168,6 +168,11 @@ msgstr "E-pošta"
 #: field:hr.applicant,employee:0
 msgid "Employee"
 msgstr "Kader"
+
+#. module: hr_recruitment_partner
+#: field:hr.applicant,employer:0
+msgid "Employer"
+msgstr "Delodajalec"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,fax:0
