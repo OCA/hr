@@ -24,7 +24,7 @@ class HrEmployee(models.Model):
     )
 
     def _first_contract(self):
-        Contract = self.env['hr.contract']
+        Contract = self.env['hr.contract'].sudo()
         return Contract.search([('employee_id', '=', self.id)],
                                order='date_start asc', limit=1)
 
