@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-02 17:06+0000\n"
+"POT-Creation-Date: 2017-11-25 04:14+0000\n"
 "PO-Revision-Date: 2015-07-27 23:38+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/oca/OCA-hr-7-0/language/nl_NL/)\n"
@@ -62,7 +62,7 @@ msgstr "Locatie"
 #: field:hr.curriculum,employee_id:0 field:hr.experience,employee_id:0
 #: model:ir.model,name:hr_experience.model_hr_employee
 msgid "Employee"
-msgstr ""
+msgstr "Werknemer"
 
 #. module: hr_experience
 #: field:hr.academic,start_date:0 field:hr.certification,start_date:0

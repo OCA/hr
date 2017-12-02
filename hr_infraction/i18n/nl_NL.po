@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-02 17:06+0000\n"
+"POT-Creation-Date: 2017-11-25 04:14+0000\n"
 "PO-Revision-Date: 2015-07-27 23:38+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/oca/OCA-hr-7-0/language/nl_NL/)\n"
@@ -76,7 +76,7 @@ msgstr ""
 #: field:hr.infraction.warning,employee_id:0
 #: model:ir.model,name:hr_infraction.model_hr_employee
 msgid "Employee"
-msgstr ""
+msgstr "Werknemer"
 
 #. module: hr_infraction
 #: selection:hr.infraction.action,type:0

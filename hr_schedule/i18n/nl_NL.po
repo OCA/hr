@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-02 17:07+0000\n"
+"POT-Creation-Date: 2017-11-25 04:15+0000\n"
 "PO-Revision-Date: 2015-07-27 23:40+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/oca/OCA-hr-7-0/language/nl_NL/)\n"
@@ -296,7 +296,7 @@ msgstr ""
 #: field:hr.schedule.detail,employee_id:0
 #: field:hr.schedule.request,employee_id:0
 msgid "Employee"
-msgstr ""
+msgstr "Werknemer"
 
 #. module: hr_schedule
 #: field:hr.schedule.request,type:0
@@ -589,7 +589,7 @@ msgstr ""
 #. module: hr_schedule
 #: field:hr.schedule.alert.rule,active:0
 msgid "Active"
-msgstr ""
+msgstr "Actief"
 
 #. module: hr_schedule
 #: field:hr.schedule,date_start:0
@@ -822,7 +822,7 @@ msgstr ""
 #: field:hr.schedule.alert.compute,employee_ids:0 view:hr.schedule.generate:0
 #: field:hr.schedule.generate,employee_ids:0
 msgid "Employees"
-msgstr ""
+msgstr "Werknemers"
 
 #. module: hr_schedule
 #: field:hr.contract,schedule_template_id:0

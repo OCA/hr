@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-02 17:06+0000\n"
+"POT-Creation-Date: 2017-11-25 04:14+0000\n"
 "PO-Revision-Date: 2015-07-27 23:39+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/oca/OCA-hr-7-0/language/nl_NL/)\n"
@@ -51,7 +51,7 @@ msgstr ""
 #: view:hr.payslip.analysis.line:0
 #: field:hr.payslip.analysis.line,employee_id:0
 msgid "Employee"
-msgstr ""
+msgstr "Werknemer"
 
 #. module: hr_payroll_analysis
 #: selection:hr.payroll.analysis,type:0
@@ -117,7 +117,7 @@ msgstr ""
 #. module: hr_payroll_analysis
 #: field:hr.payroll.analysis,employee_ids:0
 msgid "Employees"
-msgstr ""
+msgstr "Werknemers"
 
 #. module: hr_payroll_analysis
 #: field:hr.payroll.analysis,company_ids:0

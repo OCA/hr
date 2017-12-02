@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-02 17:06+0000\n"
+"POT-Creation-Date: 2017-11-25 04:14+0000\n"
 "PO-Revision-Date: 2015-07-27 23:38+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/oca/OCA-hr-7-0/language/nl_NL/)\n"
@@ -85,7 +85,7 @@ msgstr ""
 #: field:hr.employee.termination,employee_id:0
 #: model:ir.model,name:hr_employee_state.model_hr_employee
 msgid "Employee"
-msgstr ""
+msgstr "Werknemer"
 
 #. module: hr_employee_state
 #: field:hr.employee,saved_department_id:0
@@ -209,7 +209,7 @@ msgstr "Naam"
 #. module: hr_employee_state
 #: view:hr.employee.termination:0
 msgid "Employees"
-msgstr ""
+msgstr "Werknemers"
 
 #. module: hr_employee_state
 #: field:hr.employee.termination,message_ids:0
@@ -230,7 +230,7 @@ msgstr ""
 #. module: hr_employee_state
 #: selection:hr.employee,status:0
 msgid "Active"
-msgstr ""
+msgstr "Actief"
 
 #. module: hr_employee_state
 #: code:addons/hr_employee_state/hr.py:308

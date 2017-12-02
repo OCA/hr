@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-02 17:06+0000\n"
+"POT-Creation-Date: 2017-11-25 04:14+0000\n"
 "PO-Revision-Date: 2015-07-27 23:37+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/oca/OCA-hr-7-0/language/nl_NL/)\n"
@@ -94,7 +94,7 @@ msgstr "Omschrijving"
 #. module: hr_employee_benefit
 #: field:hr.employee.benefit.rate.line,parent_id:0
 msgid "Parent"
-msgstr ""
+msgstr "Bovenliggend item"
 
 #. module: hr_employee_benefit
 #: constraint:hr.employee.benefit.rate:0
