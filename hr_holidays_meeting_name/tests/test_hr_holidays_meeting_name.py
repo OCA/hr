@@ -2,9 +2,8 @@
 # Copyright 2017 ACSONE SA/NV
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from datetime import datetime, timedelta
+import time
 
-from odoo import fields
 from odoo.tests.common import TransactionCase
 
 
@@ -17,15 +16,14 @@ class HrHolidaysMeetingName(TransactionCase):
         self.employee01 = self.env.ref('hr.employee_root')
 
     def create_leave(self):
-        today = fields.Datetime.now()
-        tomorrow = fields.Datetime.to_string(
-            datetime.now() + timedelta(days=1))
+        start = time.strftime('%Y-%m-10')
+        end = time.strftime('%Y-%m-11')
         leave = self.leave_obj.create({
             'name': 'test',
             'type': 'remove',
             'holiday_type': 'employee',
-            'date_from': today,
-            'date_to': tomorrow,
+            'date_from': start,
+            'date_to': end,
             'number_of_days_temp': 1.0,
             'employee_id': self.employee01.id,
             'holiday_status_id': self.leave_type.id,
