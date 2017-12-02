@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-04 06:52+0000\n"
-"PO-Revision-Date: 2017-07-04 06:52+0000\n"
+"POT-Creation-Date: 2017-11-28 01:43+0000\n"
+"PO-Revision-Date: 2017-11-28 01:43+0000\n"
 "Last-Translator: Bole <bole@dajmi5.com>, 2017\n"
 "Language-Team: Croatian (https://www.transifex.com/oca/teams/23907/hr/)\n"
 "MIME-Version: 1.0\n"
@@ -17,11 +17,6 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Language: hr\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-
-#. module: hr_contract_default_trial_length
-#: model:ir.model,name:hr_contract_default_trial_length.model_hr_contract
-msgid "Contract"
-msgstr "Ugovor"
 
 #. module: hr_contract_default_trial_length
 #: model:ir.model,name:hr_contract_default_trial_length.model_hr_contract_type
@@ -32,6 +27,11 @@ msgstr "Vrsta ugovora"
 #: model:ir.model.fields,help:hr_contract_default_trial_length.field_hr_contract_type_trial_length
 msgid "Default contract trial length in Days"
 msgstr "Zadano trajanje ugovora u danima."
+
+#. module: hr_contract_default_trial_length
+#: model:ir.model,name:hr_contract_default_trial_length.model_hr_contract
+msgid "Employee Contract"
+msgstr ""
 
 #. module: hr_contract_default_trial_length
 #: model:ir.model.fields,field_description:hr_contract_default_trial_length.field_hr_contract_type_trial_length

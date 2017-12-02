@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-29 02:20+0000\n"
-"PO-Revision-Date: 2017-07-29 02:20+0000\n"
+"POT-Creation-Date: 2017-11-28 01:43+0000\n"
+"PO-Revision-Date: 2017-11-28 01:43+0000\n"
 "Last-Translator: BS Logics <bslogics2017@gmail.com>, 2017\n"
 "Language-Team: Hindi (India) (https://www.transifex.com/oca/teams/23907/hi_IN/)\n"
 "MIME-Version: 1.0\n"
@@ -17,11 +17,6 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Language: hi_IN\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-
-#. module: hr_contract_default_trial_length
-#: model:ir.model,name:hr_contract_default_trial_length.model_hr_contract
-msgid "Contract"
-msgstr "अनुबंध"
 
 #. module: hr_contract_default_trial_length
 #: model:ir.model,name:hr_contract_default_trial_length.model_hr_contract_type
@@ -32,6 +27,11 @@ msgstr "अनुबंध का प्रकार"
 #: model:ir.model.fields,help:hr_contract_default_trial_length.field_hr_contract_type_trial_length
 msgid "Default contract trial length in Days"
 msgstr "अनुबंध की पूर्व नियोजित अवधि, दिनों में"
+
+#. module: hr_contract_default_trial_length
+#: model:ir.model,name:hr_contract_default_trial_length.model_hr_contract
+msgid "Employee Contract"
+msgstr ""
 
 #. module: hr_contract_default_trial_length
 #: model:ir.model.fields,field_description:hr_contract_default_trial_length.field_hr_contract_type_trial_length

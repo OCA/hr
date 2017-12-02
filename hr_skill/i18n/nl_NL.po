@@ -1,0 +1,127 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * hr_skill
+# 
+# Translators:
+# Peter Hageman <hageman.p@gmail.com>, 2017
+# Cas Vissers <casvissers@brahoo.nl>, 2017
+# OCA Transbot <transbot@odoo-community.org>, 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-11-28 01:44+0000\n"
+"PO-Revision-Date: 2017-11-28 01:44+0000\n"
+"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
+"Language-Team: Dutch (Netherlands) (https://www.transifex.com/oca/teams/23907/nl_NL/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: nl_NL\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: hr_skill
+#: model:ir.model.fields,field_description:hr_skill.field_hr_skill_active
+msgid "Active"
+msgstr ""
+
+#. module: hr_skill
+#: model:ir.ui.view,arch_db:hr_skill.view_skill_form
+msgid "Child Skills"
+msgstr ""
+
+#. module: hr_skill
+#: model:ir.model.fields,field_description:hr_skill.field_hr_skill_child_ids
+msgid "Children"
+msgstr "Kinderen"
+
+#. module: hr_skill
+#: model:ir.model.fields,field_description:hr_skill.field_hr_skill_create_uid
+msgid "Created by"
+msgstr "Aangemaakt door"
+
+#. module: hr_skill
+#: model:ir.model.fields,field_description:hr_skill.field_hr_skill_create_date
+msgid "Created on"
+msgstr "Aangemaakt op"
+
+#. module: hr_skill
+#: model:ir.model.fields,field_description:hr_skill.field_hr_skill_display_name
+msgid "Display Name"
+msgstr "Weergavenaam"
+
+#. module: hr_skill
+#: model:ir.model,name:hr_skill.model_hr_employee
+msgid "Employee"
+msgstr "Werknemer"
+
+#. module: hr_skill
+#: model:ir.model.fields,field_description:hr_skill.field_hr_skill_employee_ids
+msgid "Employee(s)"
+msgstr ""
+
+#. module: hr_skill
+#: model:ir.actions.act_window,name:hr_skill.hr_employee_normal_action_tree
+msgid "Employees"
+msgstr ""
+
+#. module: hr_skill
+#: model:ir.model.fields,field_description:hr_skill.field_hr_skill_id
+msgid "ID"
+msgstr "ID"
+
+#. module: hr_skill
+#: model:ir.model.fields,field_description:hr_skill.field_hr_skill___last_update
+msgid "Last Modified on"
+msgstr "Laatst gewijzigd op"
+
+#. module: hr_skill
+#: model:ir.model.fields,field_description:hr_skill.field_hr_skill_write_uid
+msgid "Last Updated by"
+msgstr "Laatst bijgewerkt door"
+
+#. module: hr_skill
+#: model:ir.model.fields,field_description:hr_skill.field_hr_skill_write_date
+msgid "Last Updated on"
+msgstr "Laatst bijgewerkt op"
+
+#. module: hr_skill
+#: model:ir.model.fields,field_description:hr_skill.field_hr_skill_name
+#: model:ir.ui.view,arch_db:hr_skill.view_hr_skill_tree
+#: model:ir.ui.view,arch_db:hr_skill.view_skill_form
+msgid "Name"
+msgstr "Naam"
+
+#. module: hr_skill
+#: model:ir.model.fields,field_description:hr_skill.field_hr_skill_parent_id
+msgid "Parent"
+msgstr ""
+
+#. module: hr_skill
+#: model:ir.model.fields,field_description:hr_skill.field_hr_skill_parent_left
+msgid "Parent Left"
+msgstr ""
+
+#. module: hr_skill
+#: model:ir.model.fields,field_description:hr_skill.field_hr_skill_parent_right
+msgid "Parent Right"
+msgstr ""
+
+#. module: hr_skill
+#: model:ir.ui.view,arch_db:hr_skill.view_skill_form
+msgid "Skill"
+msgstr ""
+
+#. module: hr_skill
+#: model:ir.actions.act_window,name:hr_skill.open_view_skill_form
+#: model:ir.model.fields,field_description:hr_skill.field_hr_employee_skill_ids
+#: model:ir.ui.menu,name:hr_skill.menu_open_view_skill_form
+#: model:ir.ui.view,arch_db:hr_skill.view_employee_skill_form
+#: model:ir.ui.view,arch_db:hr_skill.view_hr_skill_tree
+msgid "Skills"
+msgstr ""
+
+#. module: hr_skill
+#: model:ir.model,name:hr_skill.model_hr_skill
+msgid "hr.skill"
+msgstr ""
