@@ -1,0 +1,99 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * hr_holidays_settings
+# 
+# Translators:
+# Bole <bole@dajmi5.com>, 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-02-23 03:46+0000\n"
+"PO-Revision-Date: 2018-02-23 03:46+0000\n"
+"Last-Translator: Bole <bole@dajmi5.com>, 2017\n"
+"Language-Team: Croatian (https://www.transifex.com/oca/teams/23907/hr/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: hr\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+
+#. module: hr_holidays_settings
+#: model:ir.ui.view,arch_db:hr_holidays_settings.hr_holidays_config_settings
+msgid ""
+"<span>(*) This configuration is related to the company you're logged "
+"into.</span>"
+msgstr ""
+"<span>(*) Ove postavke odnose se na tvrtku u koju ste trenutno "
+"prijavljeni.</span>"
+
+#. module: hr_holidays_settings
+#: model:ir.ui.view,arch_db:hr_holidays_settings.hr_holidays_config_settings
+msgid "Cancel"
+msgstr "Odustani"
+
+#. module: hr_holidays_settings
+#: model:ir.model.fields,field_description:hr_holidays_settings.field_hr_holidays_config_settings_company_id
+msgid "Company"
+msgstr "Organizacija"
+
+#. module: hr_holidays_settings
+#: model:ir.actions.act_window,name:hr_holidays_settings.hr_holidays_config_settings_action
+#: model:ir.ui.view,arch_db:hr_holidays_settings.hr_holidays_config_settings
+msgid "Configure HR Holidays"
+msgstr "Postvke praznika"
+
+#. module: hr_holidays_settings
+#: model:ir.model.fields,field_description:hr_holidays_settings.field_hr_holidays_config_settings_create_uid
+msgid "Created by"
+msgstr "Kreirao"
+
+#. module: hr_holidays_settings
+#: model:ir.model.fields,field_description:hr_holidays_settings.field_hr_holidays_config_settings_create_date
+msgid "Created on"
+msgstr "Kreirano"
+
+#. module: hr_holidays_settings
+#: model:ir.model.fields,field_description:hr_holidays_settings.field_hr_holidays_config_settings_display_name
+msgid "Display Name"
+msgstr "Naziv"
+
+#. module: hr_holidays_settings
+#: model:ir.model.fields,field_description:hr_holidays_settings.field_hr_holidays_config_settings_id
+msgid "ID"
+msgstr "ID"
+
+#. module: hr_holidays_settings
+#: model:ir.model.fields,field_description:hr_holidays_settings.field_hr_holidays_config_settings___last_update
+msgid "Last Modified on"
+msgstr "Zadnje modificirano"
+
+#. module: hr_holidays_settings
+#: model:ir.model.fields,field_description:hr_holidays_settings.field_hr_holidays_config_settings_write_uid
+msgid "Last Updated by"
+msgstr "Zadnji ažurirao"
+
+#. module: hr_holidays_settings
+#: model:ir.model.fields,field_description:hr_holidays_settings.field_hr_holidays_config_settings_write_date
+msgid "Last Updated on"
+msgstr "Zadnje ažurirano"
+
+#. module: hr_holidays_settings
+#: model:ir.ui.menu,name:hr_holidays_settings.menu_hr_holidays_status
+msgid "Leave Types"
+msgstr "Tipovi odsustva"
+
+#. module: hr_holidays_settings
+#: model:ir.ui.view,arch_db:hr_holidays_settings.hr_holidays_config_settings
+msgid "Save"
+msgstr "Spremi"
+
+#. module: hr_holidays_settings
+#: model:ir.ui.menu,name:hr_holidays_settings.menu_hr_holidays_global_settings
+msgid "Settings"
+msgstr "Postavke"
+
+#. module: hr_holidays_settings
+#: model:ir.model,name:hr_holidays_settings.model_hr_holidays_config_settings
+msgid "hr.holidays.config.settings"
+msgstr "hr.holidays.config.settings"
