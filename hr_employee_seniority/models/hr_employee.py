@@ -20,7 +20,7 @@ class HrEmployee(models.Model):
     )
     length_of_service = fields.Float(
         'Months of Service',
-        compute='_compute_months_service',
+        compute_sudo='_compute_months_service',
     )
 
     def _first_contract(self):
