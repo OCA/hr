@@ -1,0 +1,97 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * hr_holidays_settings
+# 
+# Translators:
+# Lukáš Spurný <lukasspurny8@gmail.com>, 2018
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-02-23 03:46+0000\n"
+"PO-Revision-Date: 2018-02-23 03:46+0000\n"
+"Last-Translator: Lukáš Spurný <lukasspurny8@gmail.com>, 2018\n"
+"Language-Team: Czech (Czech Republic) (https://www.transifex.com/oca/teams/23907/cs_CZ/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: cs_CZ\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+
+#. module: hr_holidays_settings
+#: model:ir.ui.view,arch_db:hr_holidays_settings.hr_holidays_config_settings
+msgid ""
+"<span>(*) This configuration is related to the company you're logged "
+"into.</span>"
+msgstr "(*) Tato konfigurace souvisí se společností, do které jste přihlášeni"
+
+#. module: hr_holidays_settings
+#: model:ir.ui.view,arch_db:hr_holidays_settings.hr_holidays_config_settings
+msgid "Cancel"
+msgstr "Zrušit"
+
+#. module: hr_holidays_settings
+#: model:ir.model.fields,field_description:hr_holidays_settings.field_hr_holidays_config_settings_company_id
+msgid "Company"
+msgstr "Společnost"
+
+#. module: hr_holidays_settings
+#: model:ir.actions.act_window,name:hr_holidays_settings.hr_holidays_config_settings_action
+#: model:ir.ui.view,arch_db:hr_holidays_settings.hr_holidays_config_settings
+msgid "Configure HR Holidays"
+msgstr "Konfigurace HR svátků"
+
+#. module: hr_holidays_settings
+#: model:ir.model.fields,field_description:hr_holidays_settings.field_hr_holidays_config_settings_create_uid
+msgid "Created by"
+msgstr "Vytvořil"
+
+#. module: hr_holidays_settings
+#: model:ir.model.fields,field_description:hr_holidays_settings.field_hr_holidays_config_settings_create_date
+msgid "Created on"
+msgstr "Vytvořeno"
+
+#. module: hr_holidays_settings
+#: model:ir.model.fields,field_description:hr_holidays_settings.field_hr_holidays_config_settings_display_name
+msgid "Display Name"
+msgstr "Zobrazovaný název"
+
+#. module: hr_holidays_settings
+#: model:ir.model.fields,field_description:hr_holidays_settings.field_hr_holidays_config_settings_id
+msgid "ID"
+msgstr "ID"
+
+#. module: hr_holidays_settings
+#: model:ir.model.fields,field_description:hr_holidays_settings.field_hr_holidays_config_settings___last_update
+msgid "Last Modified on"
+msgstr "Poslední změna dne"
+
+#. module: hr_holidays_settings
+#: model:ir.model.fields,field_description:hr_holidays_settings.field_hr_holidays_config_settings_write_uid
+msgid "Last Updated by"
+msgstr "Naposledy aktualizováno"
+
+#. module: hr_holidays_settings
+#: model:ir.model.fields,field_description:hr_holidays_settings.field_hr_holidays_config_settings_write_date
+msgid "Last Updated on"
+msgstr "Poslední aktualizace dne"
+
+#. module: hr_holidays_settings
+#: model:ir.ui.menu,name:hr_holidays_settings.menu_hr_holidays_status
+msgid "Leave Types"
+msgstr "Ponechat Typy"
+
+#. module: hr_holidays_settings
+#: model:ir.ui.view,arch_db:hr_holidays_settings.hr_holidays_config_settings
+msgid "Save"
+msgstr "Uložit"
+
+#. module: hr_holidays_settings
+#: model:ir.ui.menu,name:hr_holidays_settings.menu_hr_holidays_global_settings
+msgid "Settings"
+msgstr "Nastavení"
+
+#. module: hr_holidays_settings
+#: model:ir.model,name:hr_holidays_settings.model_hr_holidays_config_settings
+msgid "hr.holidays.config.settings"
+msgstr "hr.holidays.config.settings"
