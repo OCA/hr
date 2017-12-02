@@ -1,15 +1,15 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# * hr_holiday_notify_employee_manager
+# * hr_holidays_notify_employee_manager
 # 
 # Translators:
 # OCA Transbot <transbot@odoo-community.org>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 9.0c\n"
+"Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-10 01:29+0000\n"
-"PO-Revision-Date: 2017-06-10 01:29+0000\n"
+"POT-Creation-Date: 2017-11-28 01:44+0000\n"
+"PO-Revision-Date: 2017-11-28 01:44+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
 "Language-Team: Portuguese (Brazil) (https://www.transifex.com/oca/teams/23907/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -18,29 +18,40 @@ msgstr ""
 "Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#. module: hr_holiday_notify_employee_manager
-#: model:ir.model,name:hr_holiday_notify_employee_manager.model_res_company
+#. module: hr_holidays_notify_employee_manager
+#: model:ir.model,name:hr_holidays_notify_employee_manager.model_res_company
 msgid "Companies"
 msgstr "Empresas"
 
-#. module: hr_holiday_notify_employee_manager
-#: model:ir.model,name:hr_holiday_notify_employee_manager.model_hr_holidays
+#. module: hr_holidays_notify_employee_manager
+#: model:ir.model,name:hr_holidays_notify_employee_manager.model_hr_holidays
 msgid "Leave"
 msgstr ""
 
-#. module: hr_holiday_notify_employee_manager
-#: model:ir.model.fields,field_description:hr_holiday_notify_employee_manager.field_res_company_leave_notify_manager
+#. module: hr_holidays_notify_employee_manager
+#: model:ir.model.fields,field_description:hr_holidays_notify_employee_manager.field_res_company_leave_notify_manager
 msgid "Leave Requests notified to employee's manager"
 msgstr ""
 
-#. module: hr_holiday_notify_employee_manager
-#: model:ir.ui.view,arch_db:hr_holiday_notify_employee_manager.view_company_form
+#. module: hr_holidays_notify_employee_manager
+#: model:ir.model.fields,field_description:hr_holidays_notify_employee_manager.field_hr_holidays_config_settings_leave_notify_manager
+msgid "Leave Requests notified to employee's manager (*)"
+msgstr ""
+
+#. module: hr_holidays_notify_employee_manager
+#: model:ir.ui.view,arch_db:hr_holidays_notify_employee_manager.hr_holidays_config_settings
 msgid "Leaves Management"
 msgstr ""
 
-#. module: hr_holiday_notify_employee_manager
-#: model:ir.model.fields,help:hr_holiday_notify_employee_manager.field_res_company_leave_notify_manager
+#. module: hr_holidays_notify_employee_manager
+#: model:ir.model.fields,help:hr_holidays_notify_employee_manager.field_hr_holidays_config_settings_leave_notify_manager
+#: model:ir.model.fields,help:hr_holidays_notify_employee_manager.field_res_company_leave_notify_manager
 msgid ""
 "When a leave request is created the employee's manager will be added as "
 "follower and notified by email."
+msgstr ""
+
+#. module: hr_holidays_notify_employee_manager
+#: model:ir.model,name:hr_holidays_notify_employee_manager.model_hr_holidays_config_settings
+msgid "hr.holidays.config.settings"
 msgstr ""
