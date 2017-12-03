@@ -25,7 +25,7 @@ addon | version | summary
 [hr_employee_id](hr_employee_id/) | 10.0.1.0.1 | Employee ID
 [hr_employee_legacy_id](hr_employee_legacy_id/) | 10.0.1.0.0 | Legacy Employee ID
 [hr_employee_phone_extension](hr_employee_phone_extension/) | 10.0.1.0.0 | Employee Phone Extension
-[hr_employee_seniority](hr_employee_seniority/) | 10.0.1.0.0 | Keep Track of Length of Employment
+[hr_employee_seniority](hr_employee_seniority/) | 10.0.1.0.2 | Keep Track of Length of Employment
 [hr_employee_social_media](hr_employee_social_media/) | 10.0.1.0.0 | Employee Social Media
 [hr_expense_analytic_distribution](hr_expense_analytic_distribution/) | 10.0.1.0.0 | Use analytic plans in expenses
 [hr_expense_invoice](hr_expense_invoice/) | 10.0.1.0.0 | Supplier invoices on HR expenses
