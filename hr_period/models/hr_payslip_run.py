@@ -1,4 +1,4 @@
-# -*- coding:utf-8 -*-
+# -*- coding: utf-8 -*-
 # Copyright 2015 Savoir-faire Linux. All Rights Reserved.
 # Copyright 2017 Serpent Consulting Services Pvt. Ltd.
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
@@ -46,9 +46,9 @@ class HrPayslipRun(models.Model):
         for run in self:
             if run.hr_period_id:
                 if run.hr_period_id.company_id != run.company_id:
-                    raise UserError("""The company on the selected period must
-                                    be the same as the company on the
-                                    payslip batch.""")
+                    raise UserError(_("""The company on the selected period
+                        must be the same as the company on the
+                        payslip batch."""))
 
     @api.multi
     @api.constrains('hr_period_id', 'schedule_pay')
@@ -56,9 +56,9 @@ class HrPayslipRun(models.Model):
         for run in self:
             if run.hr_period_id:
                 if run.hr_period_id.schedule_pay != run.schedule_pay:
-                    raise UserError("""The schedule on the selected period must
-                                    be the same as the schedule on the
-                                    payslip batch.""")
+                    raise UserError(_("""The schedule on the selected period
+                        must be the same as the schedule on the
+                        payslip batch."""))
 
     @api.model
     def get_default_schedule(self, company_id):
