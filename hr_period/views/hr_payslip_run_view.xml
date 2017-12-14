@@ -5,6 +5,7 @@
         <field name="name">hr.payslip.run.period.form</field>
         <field name="model">hr.payslip.run</field>
         <field name="inherit_id" ref="hr_payroll.hr_payslip_run_form"/>
+        <field name="priority">1</field>
         <field name="arch" type="xml">
             <field name="name" position="after">
                 <label for="company_id" groups="base.group_multi_company"/>
