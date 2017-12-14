@@ -17,26 +17,22 @@ class HrPeriod(models.Model):
     name = fields.Char(
         'Name',
         required=True,
-        readonly=True,
         states={'draft': [('readonly', False)]}
     )
     number = fields.Integer(
         'Number',
         required=True,
-        readonly=True,
         states={'draft': [('readonly', False)]}
     )
     date_payment = fields.Date(
         'Date of Payment',
         required=True,
-        readonly=True,
         states={'draft': [('readonly', False)]}
     )
     fiscalyear_id = fields.Many2one(
         'hr.fiscalyear',
         'Fiscal Year',
         required=True,
-        readonly=True,
         states={'draft': [('readonly', False)]},
         ondelete='cascade'
     )
@@ -47,7 +43,6 @@ class HrPeriod(models.Model):
             ('done', 'Closed')
         ],
         'Status',
-        readonly=True,
         required=True,
         default='draft'
     )
@@ -72,6 +67,11 @@ class HrPeriod(models.Model):
         'Payslips',
         readonly=True
     )
+
+    type_id = fields.Many2one(
+        related='fiscalyear_id.type_id',
+    )
+
 
     @api.model
     def get_next_period(self, company_id, schedule_pay):
