@@ -18,6 +18,7 @@
                             <group>
                                 <field name="name"/>
                                 <field name="fiscalyear_id" widget="selection"/>
+                                <field name="type_id"/>
                                 <label for="date_start" string="Duration"/>
                                 <div>
                                     <field name="date_start" nolabel="1" class="oe_inline"/> -
@@ -59,7 +60,7 @@
             <field name="model">hr.period</field>
             <field name="arch" type="xml">
                 <search string="Search Period">
-                    <field name="name" filter_domain="['|', ('name', 'ilike', self), ('code', 'ilike', self)]" string="Period"/>
+                    <field name="name" filter_domain="['|', ('name', 'ilike', self), ('number', 'ilike', self)]" string="Period"/>
                     <filter string="To Close" name="draft" domain="[('state', '=', 'draft')]" icon="terp-dialog-close"/>
                 </search>
             </field>

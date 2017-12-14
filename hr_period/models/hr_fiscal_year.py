@@ -88,26 +88,21 @@ class HrFiscalYear(models.Model):
     date_start = fields.Date(
         'Start Date',
         required=True,
-        readonly=True,
         states={'draft': [('readonly', False)]},
-        help="The first day of the first period of the "
-        "fiscal year.",
+        help="The first day of the first period of the fiscal year.",
         default=_default_date_start
     )
     date_stop = fields.Date(
         'End Date',
         required=True,
-        readonly=True,
         states={'draft': [('readonly', False)]},
-        help="The last day of the last period of the "
-        "fiscal year.",
+        help="The last day of the last period of the fiscal year.",
         default=_default_date_stop
     )
     period_ids = fields.One2many(
         'hr.period',
         'fiscalyear_id',
         'Periods',
-        readonly=True,
         states={'draft': [('readonly', False)]}
     )
     state = fields.Selection(
@@ -117,28 +112,23 @@ class HrFiscalYear(models.Model):
             ('done', 'Closed'),
         ],
         'Status',
-        readonly=True,
         default='draft'
     )
     schedule_pay = fields.Selection(
         get_schedules,
         'Scheduled Pay',
         required=True,
-        readonly=True,
         states={'draft': [('readonly', False)]},
         default='monthly'
     )
-
     type_id = fields.Many2one(
-        comodel_name='date.range.type',
-        string='Date Range Type',
+        'date.range.type',
+        'Date Range Type',
         required=True,
-        readonly=True,
         states={'draft': [('readonly', False)]},
         help="Date Range Type",
         ondelete='cascade'
     )
-
     payment_weekday = fields.Selection(
         [
             ('0', 'Sunday'),
@@ -149,7 +139,6 @@ class HrFiscalYear(models.Model):
             ('5', 'Friday'),
             ('6', 'Saturday'),
         ], 'Day of Payment',
-        readonly=True,
         states={'draft': [('readonly', False)]}
     )
     payment_week = fields.Selection(
@@ -158,13 +147,11 @@ class HrFiscalYear(models.Model):
             ('1', 'Following Week'),
             ('2', 'Second Following Week'),
         ], 'Week of Payment',
-        readonly=True,
         states={'draft': [('readonly', False)]}
     )
     payment_day = fields.Selection(
         get_payment_days,
         'Day of Payment',
-        readonly=True,
         states={'draft': [('readonly', False)]}
     )
 
@@ -174,13 +161,11 @@ class HrFiscalYear(models.Model):
                           strptime(self.date_start, DF)).days) + 1
         return INTERVALS[self.schedule_pay][1] * days_range / 365
 
-    @api.onchange('schedule_pay', 'date_start')
     @api.multi
+    @api.onchange('schedule_pay', 'date_start')
     def onchange_schedule(self):
         if self.schedule_pay and self.date_start:
-            year = datetime.strptime(
-                self.date_start, DF).year
-
+            year = datetime.strptime(self.date_start, DF).year
             schedule_name = next((
                 s[1] for s in get_schedules(self)
                 if s[0] == self.schedule_pay), False)
@@ -212,7 +197,6 @@ class HrFiscalYear(models.Model):
             no_interval = 6
         else:
             unit_of_time = YEARLY
-
         return {
             'name_prefix': self.name,
             'date_start': self.date_start,
@@ -240,6 +224,9 @@ class HrFiscalYear(models.Model):
             for period in fy.period_ids:
                 period.unlink()
             fy.refresh()
+        if self.date_start > self.date_stop:
+            raise UserError(_('''Date stop cannot be sooner than the date start
+                                '''))
         if self.schedule_pay == 'semi-monthly':
             period_start = datetime.strptime(
                 self.date_start, DF)
@@ -248,7 +235,6 @@ class HrFiscalYear(models.Model):
             #  Case for semi-monthly schedules
             delta_1 = relativedelta(days=14)
             delta_2 = relativedelta(months=1)
-
             i = 1
             while not period_start + delta_2 > next_year_start:
                 # create periods for one month
@@ -265,7 +251,7 @@ class HrFiscalYear(models.Model):
             for period in self.get_ranges():
                 i += 1
                 period_start = strptime(period.get('date_start', False), DF)
-                period_end = strptime(period.get('date_end', False), DF)
+                period_end = strptime(period.get('date_stop', False), DF)
                 self._create_single_period(
                     period_start, period_end, i)
         return True
@@ -280,7 +266,7 @@ class HrFiscalYear(models.Model):
         self.write({
             'period_ids': [(0, 0, {
                 'date_start': date_start,
-                'date_end': date_stop,
+                'date_stop': date_stop,
                 'date_payment': self._get_day_of_payment(date_stop),
                 'company_id': self.company_id.id,
                 'name': _('%s Period #%s') % (self.name, number),
