@@ -60,22 +60,28 @@
         <field name="arch" type="xml">
             <search string="Search Period">
                 <field name="name" filter_domain="['|', ('name', 'ilike', self), ('number', 'ilike', self)]" string="Period"/>
+                <field name="fiscalyear_id"/>
+                <field name="date_payment"/>
+                <field name="schedule_pay"/>
+                <field name="state"/>
                 <filter string="To Close" name="draft" domain="[('state', '=', 'draft')]" icon="terp-dialog-close"/>
+                <filter string="Schedule Pay" name="schedule_pay" context="{'group_by':'schedule_pay'}"/>
             </search>
         </field>
     </record>
 
-        <record id="action_hr_period" model="ir.actions.act_window">
-            <field name="name">Payroll Periods</field>
-            <field name="res_model">hr.period</field>
-            <field name="view_type">form</field>
-            <field name="view_mode">tree,form</field>
-            <field name="context">{'search_default_open': 1}</field>
-        </record>
+    <record id="action_hr_period" model="ir.actions.act_window">
+        <field name="name">Payroll Periods</field>
+        <field name="res_model">hr.period</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('type_id.hr_period','=',True)]</field>
+        <field name="context">{'search_default_open': 1, 'search_default_schedule_pay': 1}</field>
+    </record>
 
-        <menuitem id="menu_action_hr_period"
-                  action="action_hr_period"
-                  parent="hr_payroll.menu_hr_payroll_configuration"
-                  sequence="26"/>
+    <menuitem id="menu_action_hr_period"
+              action="action_hr_period"
+              parent="hr_payroll.menu_hr_payroll_configuration"
+              sequence="26"/>
 
 </odoo>

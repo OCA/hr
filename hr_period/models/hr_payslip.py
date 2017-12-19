@@ -28,9 +28,9 @@ class HrPayslip(models.Model):
         for slip in self:
             if slip.hr_period_id:
                 if slip.hr_period_id.company_id != slip.company_id:
-                    raise UserError(_("""The company on the selected period must
-                                    be the same as the company on the
-                                    payslip."""))
+                    raise UserError(_(
+                        "The company on the selected period must be the same "
+                        "as the company on the payslip."))
 
     @api.onchange('company_id', 'contract_id')
     def onchange_company_id(self):
@@ -59,10 +59,13 @@ class HrPayslip(models.Model):
     @api.onchange('hr_period_id')
     def onchange_hr_period_id(self):
         if self.hr_period_id:
+            # dates must be updated together to prevent constraint
             period = self.hr_period_id
-            self.date_from = period.date_start
-            self.date_to = period.date_end
-            self.date_payment = period.date_payment
+            self.write({
+                'date_from': period.date_start,
+                'date_to': period.date_end,
+                'date_payment': period.date_payment
+            })
 
     @api.model
     def create(self, vals):
