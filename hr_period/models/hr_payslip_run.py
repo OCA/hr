@@ -46,9 +46,9 @@ class HrPayslipRun(models.Model):
         for run in self:
             if run.hr_period_id:
                 if run.hr_period_id.company_id != run.company_id:
-                    raise UserError(_("""The company on the selected period
-                        must be the same as the company on the
-                        payslip batch."""))
+                    raise UserError(_(
+                        "The company on the selected period must be the same "
+                        "as the company on the payslip batch."))
 
     @api.multi
     @api.constrains('hr_period_id', 'schedule_pay')
