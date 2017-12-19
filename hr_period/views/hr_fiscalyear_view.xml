@@ -66,6 +66,9 @@
         <field name="arch" type="xml">
             <search string="Search Fiscalyear">
                 <field name="name" filter_domain="[('name', 'ilike', self)]" string="Fiscal Year"/>
+                <field name="schedule_pay"/>
+                <field name="payment_weekday"/>
+                <field name="payment_day"/>
                 <filter string="Open" domain="[('state', '=', 'open')]" icon="terp-camera_test"/>
                 <filter string="Closed" domain="[('state', '=', 'done')]" icon="terp-dialog-close"/>
                 <field name="state"/>
@@ -81,6 +84,7 @@
         <field name="res_model">hr.fiscalyear</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
+        <field name="domain">[('type_id.hr_fiscal_year','=',True)]</field>
     </record>
 
     <menuitem id="menu_action_hr_fiscalyear"
