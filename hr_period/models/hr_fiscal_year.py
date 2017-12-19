@@ -60,6 +60,7 @@ def get_payment_days(self):
 
 class HrFiscalYear(models.Model):
     _name = 'hr.fiscalyear'
+    _inherit = 'date.range'
     _description = 'HR Fiscal Year'
 
     @api.model
@@ -72,34 +73,12 @@ class HrFiscalYear(models.Model):
         today = datetime.now()
         return datetime(today.year, 12, 31).strftime(DF)
 
-    name = fields.Char(
-        'Fiscal Year',
-        required=True,
-        readonly=True,
-        states={'draft': [('readonly', False)]}
-    )
-    company_id = fields.Many2one(
-        'res.company',
-        'Company',
-        required=True,
-        readonly=True,
-        states={'draft': [('readonly', False)]},
-        default=lambda obj: obj.env.user.company_id
-    )
-    date_start = fields.Date(
-        'Start Date',
-        required=True,
-        states={'draft': [('readonly', False)]},
-        help="The first day of the first period of the fiscal year.",
-        default=_default_date_start
-    )
-    date_end = fields.Date(
-        'End Date',
-        required=True,
-        states={'draft': [('readonly', False)]},
-        help="The last day of the last period of the fiscal year.",
-        default=_default_date_end
-    )
+    @api.model
+    def _default_type(self):
+        period_type = self.env['date.range.type'].search(
+            [('hr_fiscal_year', '=', True)], limit=1)
+        return period_type
+
     period_ids = fields.One2many(
         'hr.period',
         'fiscalyear_id',
@@ -123,12 +102,8 @@ class HrFiscalYear(models.Model):
         default='monthly'
     )
     type_id = fields.Many2one(
-        'date.range.type',
-        'Date Range Type',
-        required=True,
-        states={'draft': [('readonly', False)]},
-        help="Date Range Type",
-        ondelete='cascade'
+        domain=[('hr_fiscal_year', '=', True)],
+        default=_default_type
     )
     payment_weekday = fields.Selection(
         [
@@ -264,6 +239,7 @@ class HrFiscalYear(models.Model):
         :param date_end: the first day of the following period
         """
         self.ensure_one()
+        period_type = self.env['hr.period']._default_type()
         self.write({
             'period_ids': [(0, 0, {
                 'date_start': date_start,
@@ -273,7 +249,7 @@ class HrFiscalYear(models.Model):
                 'name': _('%s Period #%s') % (self.name, number),
                 'number': number,
                 'state': 'draft',
-                'type_id': self.type_id.id,
+                'type_id': period_type.id,
                 'schedule_pay': self.schedule_pay,
             })],
         })

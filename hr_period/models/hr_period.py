@@ -14,6 +14,12 @@ class HrPeriod(models.Model):
     _description = 'HR Payroll Period'
     _order = 'date_start'
 
+    @api.model
+    def _default_type(self):
+        period_type = self.env['date.range.type'].search(
+            [('hr_period', '=', True)], limit=1)
+        return period_type
+
     name = fields.Char(
         'Name',
         required=True,
@@ -69,7 +75,8 @@ class HrPeriod(models.Model):
     )
 
     type_id = fields.Many2one(
-        related='fiscalyear_id.type_id',
+        domain=[('hr_period', '=', True)],
+        default=_default_type
     )
 
     @api.model

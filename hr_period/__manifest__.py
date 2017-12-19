@@ -14,10 +14,11 @@
     'website': 'https://github.com/OCA/hr',
     'depends': [
         'hr_payroll',
-        'date_range'
+        'date_range',
     ],
     'data': [
         'data/ir_sequence_data.xml',
+        'data/date_range_type.xml',
         'security/ir.model.access.csv',
         'views/hr_period_view.xml',
         'views/hr_fiscalyear_view.xml',
