@@ -144,8 +144,9 @@ class HrPayslipRun(models.Model):
             run.hr_period_id.button_re_open()
         return super(HrPayslipRun, self).draft_payslip_run()
 
-    @api.one
+    @api.multi
     def update_periods(self):
+        self.ensure_one()
         period = self.hr_period_id
         if period:
             # Close the current period
@@ -155,6 +156,5 @@ class HrPayslipRun(models.Model):
             fiscal_year = period.fiscalyear_id
             next_period = fiscal_year.search_period(
                 number=period.number + 1)
-
             if next_period:
                 next_period.button_open()

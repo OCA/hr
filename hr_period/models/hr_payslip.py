@@ -74,16 +74,12 @@ class HrPayslip(models.Model):
         if vals.get('payslip_run_id'):
             payslip_run = self.env['hr.payslip.run'].browse(
                 vals['payslip_run_id'])
-
             employee = self.env['hr.employee'].browse(vals['employee_id'])
             period = payslip_run.hr_period_id
-
             vals['date_payment'] = payslip_run.date_payment
             vals['hr_period_id'] = period.id
             vals['name'] = _('Salary Slip of %s for %s') % (
                 employee.name, period.name)
-
         elif vals.get('date_to') and not vals.get('date_payment'):
             vals['date_payment'] = vals['date_to']
-
         return super(HrPayslip, self).create(vals)

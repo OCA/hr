@@ -67,7 +67,7 @@ class HrFiscalYear(models.Model):
         return datetime(today.year, 1, 1).strftime(DF)
 
     @api.model
-    def _default_date_stop(self):
+    def _default_date_end(self):
         today = datetime.now()
         return datetime(today.year, 12, 31).strftime(DF)
 
@@ -92,12 +92,12 @@ class HrFiscalYear(models.Model):
         help="The first day of the first period of the fiscal year.",
         default=_default_date_start
     )
-    date_stop = fields.Date(
+    date_end = fields.Date(
         'End Date',
         required=True,
         states={'draft': [('readonly', False)]},
         help="The last day of the last period of the fiscal year.",
-        default=_default_date_stop
+        default=_default_date_end
     )
     period_ids = fields.One2many(
         'hr.period',
@@ -157,7 +157,7 @@ class HrFiscalYear(models.Model):
 
     @api.multi
     def _count_range_no(self):
-        days_range = abs((strptime(self.date_stop, DF) -
+        days_range = abs((strptime(self.date_end, DF) -
                           strptime(self.date_start, DF)).days) + 1
         return INTERVALS[self.schedule_pay][1] * days_range / 365
 
@@ -224,14 +224,14 @@ class HrFiscalYear(models.Model):
             for period in fy.period_ids:
                 period.unlink()
             fy.refresh()
-        if self.date_start > self.date_stop:
+        if self.date_start > self.date_end:
             raise UserError(_('''Date stop cannot be sooner than the date start
                                 '''))
         if self.schedule_pay == 'semi-monthly':
             period_start = datetime.strptime(
                 self.date_start, DF)
             next_year_start = datetime.strptime(
-                self.date_stop, DF) + relativedelta(days=1)
+                self.date_end, DF) + relativedelta(days=1)
             #  Case for semi-monthly schedules
             delta_1 = relativedelta(days=14)
             delta_2 = relativedelta(months=1)
@@ -251,23 +251,23 @@ class HrFiscalYear(models.Model):
             for period in self.get_ranges():
                 i += 1
                 period_start = strptime(period.get('date_start', False), DF)
-                period_end = strptime(period.get('date_stop', False), DF)
+                period_end = strptime(period.get('date_end', False), DF)
                 self._create_single_period(
                     period_start, period_end, i)
         return True
 
     @api.multi
-    def _create_single_period(self, date_start, date_stop, number):
+    def _create_single_period(self, date_start, date_end, number):
         """ Create a single payroll period
         :param date_start: the first day of the actual period
-        :param date_stop: the first day of the following period
+        :param date_end: the first day of the following period
         """
         self.ensure_one()
         self.write({
             'period_ids': [(0, 0, {
                 'date_start': date_start,
-                'date_stop': date_stop,
-                'date_payment': self._get_day_of_payment(date_stop),
+                'date_end': date_end,
+                'date_payment': self._get_day_of_payment(date_end),
                 'company_id': self.company_id.id,
                 'name': _('%s Period #%s') % (self.name, number),
                 'number': number,
@@ -278,14 +278,14 @@ class HrFiscalYear(models.Model):
         })
 
     @api.multi
-    def _get_day_of_payment(self, date_stop):
+    def _get_day_of_payment(self, date_end):
         """
         Get the date of payment for a period to create
-        :param date_stop: the last day of the current period
+        :param date_end: the last day of the current period
         """
         self.ensure_one()
 
-        date_payment = date_stop
+        date_payment = date_end
         if self.schedule_pay in ['weekly', 'bi-weekly']:
             date_payment += relativedelta(weeks=int(self.payment_week))
             while date_payment.strftime('%w') != self.payment_weekday:
