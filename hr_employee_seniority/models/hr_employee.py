@@ -59,7 +59,7 @@ class HrEmployee(models.Model):
                     relativedelta(to_dt, from_dt).months + \
                     self.check_next_days(to_dt, from_dt)
 
-            contracts = Contract.search([('employee_id', '=', self.id)],
+            contracts = Contract.search([('employee_id', '=', employee.id)],
                                         order='date_start asc')
             for contract in contracts:
                 from_dt = fields.Date.from_string(contract.date_start)
