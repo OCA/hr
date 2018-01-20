@@ -57,7 +57,7 @@ class HrEmployee(models.Model):
 
     @api.model
     def split_name(self, name):
-        clean_name = u" ".join(name.split(None)) if name else name
+        clean_name = " ".join(name.split(None)) if name else name
         return self.env['res.partner']._get_inverse_name(clean_name)
 
     @api.model
