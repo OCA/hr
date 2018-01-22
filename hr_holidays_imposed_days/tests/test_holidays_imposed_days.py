@@ -56,7 +56,7 @@ class TestHolidaysImposedDays(common.TransactionCase):
              'date_to': fields.Datetime.to_string(self.today +
                                                   relativedelta(days=4)),
              'status_id': self.holiday_type.id,
-             'employee_ids': self.employee,
+             'employee_ids': [(6, 0, [self.employee.id])],
              }
         )
         self.imposed.validate()
@@ -148,7 +148,8 @@ class TestHolidaysImposedDays(common.TransactionCase):
              'date_to': fields.Datetime.to_string(self.today +
                                                   relativedelta(days=4)),
              'status_id': self.holiday_type.id,
-             'auto_confirm': True
+             'auto_confirm': True,
+             'employee_ids': [(6, 0, [self.employee2.id])]
              }
         )
         self.imposed.validate()
@@ -156,7 +157,7 @@ class TestHolidaysImposedDays(common.TransactionCase):
             [('type', '=', 'remove'),
              ('employee_id', 'in', (self.employee.id, self.employee2.id))]
         )
-        self.assertEqual(len(leaves), 2)
+        self.assertEqual(len(leaves), 1)
         self.assertEqual(leaves[0].state, 'validate')
 
     def test_same_dates(self):
