@@ -7,7 +7,7 @@
 {
     'name': 'Employee Seniority',
     'summary': 'Keep Track of Length of Employment',
-    'version': '10.0.1.0.0',
+    'version': '10.0.1.0.2',
     'category': 'Human Resources',
     'author': "Michael Telahun Makonnen <mmakonnen@gmail.com>, "
               "Camptocamp SA, "

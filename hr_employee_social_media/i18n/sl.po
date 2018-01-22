@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-03 03:37+0000\n"
-"PO-Revision-Date: 2017-03-03 03:37+0000\n"
+"POT-Creation-Date: 2017-11-28 01:43+0000\n"
+"PO-Revision-Date: 2017-11-28 01:43+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
 "Language-Team: Slovenian (https://www.transifex.com/oca/teams/23907/sl/)\n"
 "MIME-Version: 1.0\n"
@@ -74,7 +74,7 @@ msgstr "Zadnjič posodobljeno"
 #. module: hr_employee_social_media
 #: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_name
 msgid "Name"
-msgstr "Naziv"
+msgstr "Ime"
 
 #. module: hr_employee_social_media
 #: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_account_hr_social_media_id

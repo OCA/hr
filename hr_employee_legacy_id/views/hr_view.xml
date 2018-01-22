@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<openerp>
+<!-- Copyright 2015-2017 ACSONE SA/NV
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
     <data>
 
         <record id="view_employee_form" model="ir.ui.view">
@@ -7,11 +9,11 @@
             <field name="model">hr.employee</field>
             <field name="inherit_id" ref="hr.view_employee_form"/>
             <field name="arch" type="xml">
-                <data>
-                    <field name="active" position="after">
+                <xpath expr="//group[@name='active_group']" position="after">
+                    <group string="Legacy No" name="legacy_no_group">
                         <field name="legacy_no"/>
-                    </field>
-                </data>
+                    </group>
+                </xpath>
             </field>
         </record>
 
@@ -20,11 +22,9 @@
             <field name="model">hr.employee</field>
             <field name="inherit_id" ref="hr.view_employee_tree"/>
             <field name="arch" type="xml">
-                <data>
-                    <field name="name" position="after">
-                        <field name="legacy_no" invisible="1"/>
-                    </field>
-                </data>
+                <field name="name" position="after">
+                    <field name="legacy_no" invisible="1"/>
+                </field>
             </field>
         </record>
 
@@ -40,4 +40,4 @@
         </record>
         
     </data>
-</openerp>
+</odoo>

@@ -24,7 +24,7 @@ class HrEmployee(models.Model):
     )
 
     def _first_contract(self):
-        Contract = self.env['hr.contract']
+        Contract = self.env['hr.contract'].sudo()
         return Contract.search([('employee_id', '=', self.id)],
                                order='date_start asc', limit=1)
 
@@ -41,13 +41,14 @@ class HrEmployee(models.Model):
     @api.depends('contract_ids', 'initial_employment_date')
     def _compute_months_service(self):
         date_now = fields.Date.today()
+        Contract = self.env['hr.contract'].sudo()
         for employee in self:
             nb_month = 0
 
             if employee.initial_employment_date:
-                if employee.contract_ids:
-                    contract = employee._first_contract()
-                    to_dt = fields.Date.from_string(contract.date_start)
+                first_contract = employee._first_contract()
+                if first_contract:
+                    to_dt = fields.Date.from_string(first_contract.date_start)
                 else:
                     to_dt = fields.Date.from_string(date_now)
 
@@ -58,7 +59,9 @@ class HrEmployee(models.Model):
                     relativedelta(to_dt, from_dt).months + \
                     self.check_next_days(to_dt, from_dt)
 
-            for contract in employee.contract_ids:
+            contracts = Contract.search([('employee_id', '=', employee.id)],
+                                        order='date_start asc')
+            for contract in contracts:
                 from_dt = fields.Date.from_string(contract.date_start)
                 if contract.date_end and contract.date_end < date_now:
                     to_dt = fields.Date.from_string(contract.date_end)
