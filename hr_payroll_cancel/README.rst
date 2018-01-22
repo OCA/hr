@@ -26,7 +26,7 @@ Go to: Payroll -> Employee Payslip
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
-   :target: https://runbot.odoo-community.org/runbot/116/9.0
+   :target: https://runbot.odoo-community.org/runbot/116/10.0
 
 Credits
 =======
@@ -36,6 +36,7 @@ Contributors
 * Luis Torres (luis_t@vauxoo.com)
 * Aaron Henriquez (ahenriquez@eficent.com)
 * Lois Rilo (lois.rilo@eficent.com)
+* Serpent Consulting Services Pvt. Ltd. <support@serpentcs.com>
 
 Maintainer
 ----------
