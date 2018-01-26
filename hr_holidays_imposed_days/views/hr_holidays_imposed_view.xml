@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <record id="hr_holidays_imposed_view_tree" model="ir.ui.view">
+        <field name="model">hr.holidays.imposed</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="date_from"/>
+                <field name="date_to"/>
+                <field name="number_of_days"/>
+                <field name="company_id"/>
+                <field name="status_id"/>
+                <field name="employee_ids"/>
+                <field name="auto_confirm"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="hr_holidays_imposed_view_form" model="ir.ui.view">
+        <field name="model">hr.holidays.imposed</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button type="object" name="validate" string="validate" class="oe_stat_button" icon="fa-arrow-right text-success"/>
+                    </div>
+                    <group>
+                        <group name="base">
+                            <field name="name"/>
+                            <field name="date_from"/>
+                            <field name="date_to"/>
+                            <field name="number_of_days"/>
+                            <field name="auto_confirm"/>
+                        </group>
+                        <group name="extra">
+                            <field name="status_id"/>
+                            <field name="company_id"/>
+                        </group>
+                    </group>
+                    <group name="employee_ids" string="Employees">
+                        <field name="employee_ids" nolabel="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_hr_holidays_imposed_view" model="ir.actions.act_window">
+        <field name="name">Imposed Days</field>
+        <field name="res_model">hr.holidays.imposed</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_hr_holidays_imposed_view" action="action_hr_holidays_imposed_view" parent="hr_holidays.menu_hr_holidays_root" string="Imposed Days"/>
+
+</odoo>
