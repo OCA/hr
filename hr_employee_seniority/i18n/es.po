@@ -4,13 +4,14 @@
 # 
 # Translators:
 # OCA Transbot <transbot@odoo-community.org>, 2017
+# Ismael Calvo <ismaelcj@gmail.com>, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-10 19:09+0000\n"
-"PO-Revision-Date: 2017-03-10 19:09+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
+"POT-Creation-Date: 2018-02-23 03:45+0000\n"
+"PO-Revision-Date: 2018-02-23 03:45+0000\n"
+"Last-Translator: Ismael Calvo <ismaelcj@gmail.com>, 2018\n"
 "Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,11 +25,13 @@ msgid ""
 "Date of first employment if it was before the start of the first contract in"
 " the system."
 msgstr ""
+"Fecha del primer empleo si fue anterior a la fecha del primer contrato en el"
+" sistema."
 
 #. module: hr_employee_seniority
 #: model:ir.ui.view,arch_db:hr_employee_seniority.hr_employee_view_form_inherit
 msgid "Duration of Service"
-msgstr ""
+msgstr "Duración del servicio"
 
 #. module: hr_employee_seniority
 #: model:ir.model,name:hr_employee_seniority.model_hr_employee
@@ -38,9 +41,9 @@ msgstr "Empleado"
 #. module: hr_employee_seniority
 #: model:ir.model.fields,field_description:hr_employee_seniority.field_hr_employee_initial_employment_date
 msgid "Initial Date of Employment"
-msgstr ""
+msgstr "Fecha inicial de empleo"
 
 #. module: hr_employee_seniority
 #: model:ir.model.fields,field_description:hr_employee_seniority.field_hr_employee_length_of_service
 msgid "Months of Service"
-msgstr ""
+msgstr "Meses del servicio"
