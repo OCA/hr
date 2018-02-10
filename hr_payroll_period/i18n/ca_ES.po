@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-18 02:58+0000\n"
+"POT-Creation-Date: 2017-12-02 04:24+0000\n"
 "PO-Revision-Date: 2015-07-27 23:39+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Catalan (Spain) (http://www.transifex.com/oca/OCA-hr-7-0/language/ca_ES/)\n"
@@ -408,7 +408,7 @@ msgstr ""
 #. module: hr_payroll_period
 #: field:hr.payroll.period.schedule,type:0
 msgid "Type"
-msgstr ""
+msgstr "Tipus"
 
 #. module: hr_payroll_period
 #: field:hr.payroll.period.end.1,pex_medium:0
@@ -552,7 +552,7 @@ msgstr ""
 #. module: hr_payroll_period
 #: field:hr.payroll.period,date_start:0
 msgid "Start Date"
-msgstr ""
+msgstr "Data d'inici"
 
 #. module: hr_payroll_period
 #: code:addons/hr_payroll_period/wizard/payroll_period_end.py:794
@@ -810,7 +810,7 @@ msgstr ""
 #: field:hr.holidays.status,code:0 view:hr.payslip.exception.rule:0
 #: field:hr.payslip.exception.rule,code:0
 msgid "Code"
-msgstr ""
+msgstr "Codi"
 
 #. module: hr_payroll_period
 #: selection:hr.payroll.period.schedule,mo_firstday:0
@@ -982,7 +982,7 @@ msgstr ""
 #: field:hr.payroll.period,name:0 field:hr.payroll.period.schedule,name:0
 #: field:hr.payslip.exception.rule,note:0
 msgid "Description"
-msgstr ""
+msgstr "Descripció"
 
 #. module: hr_payroll_period
 #: view:hr.payroll.period.end.1:0
@@ -1030,7 +1030,7 @@ msgstr ""
 #. module: hr_payroll_period
 #: field:hr.payroll.period,date_end:0
 msgid "End Date"
-msgstr ""
+msgstr "Data final"
 
 #. module: hr_payroll_period
 #: view:hr.payroll.period.end.1:0
@@ -1040,7 +1040,7 @@ msgstr ""
 #. module: hr_payroll_period
 #: field:hr.payslip.exception,name:0 field:hr.payslip.exception.rule,name:0
 msgid "Name"
-msgstr ""
+msgstr "Nom"
 
 #. module: hr_payroll_period
 #: view:hr.payroll.period:0
