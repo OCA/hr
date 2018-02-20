@@ -1,0 +1,65 @@
+<templates>
+    <div t-name="FieldSimplifiedAttendance" class="oe_form_field_simplified_attendance">
+        <t t-set="value" t-value="widget.get('value')" />
+        <div class="start_stop" t-if="value.type != undefined &amp;&amp; !widget.options.hide_start_stop">
+            <span class="start oe_form_required"><t t-esc="widget._format_date(value.start)" /></span>
+            <t t-if="!widget.get('effective_readonly') || value.stop">
+                <span>-</span>
+                <span class="stop"><t t-esc="widget._format_date(value.stop)" /></span>
+            </t>
+        </div>
+        <t t-set="data_keys" t-value="['data']" />
+        <t t-if="value.type == 'odd'">
+            <t t-set="data_keys" t-value="['data', 'data_odd']" />
+        </t>
+        <t t-if="value.type == undefined">
+            <t t-set="data_keys" t-value="[]" />
+            <!-- TODO: this should offer to create one /-->
+            <p>There are no attendances to show</p>
+        </t>
+        <t t-foreach="data_keys" t-as="data_key">
+            <t t-if="value.type == 'odd'">
+                <t t-if="data_key == 'data'">
+                    <h3>Even weeks</h3>
+                </t>
+                <t t-if="data_key == 'data_odd'">
+                    <h3>Uneven weeks</h3>
+                </t>
+            </t>
+            <table class="table oe_form_field oe_form_field_float oe_form_required" t-att-data-key="data_key">
+                <tr>
+                    <th />
+                    <th t-foreach="widget._get_days(data_key)" t-as="day">
+                        <t t-esc="widget._format_day(day.day)" />
+                    </th>
+                </tr>
+                <tr data-time="morning">
+                    <th>Morning</th>
+                    <td t-foreach="widget._get_days(data_key)" t-as="day">
+                        <t t-if="widget.get('effective_readonly')">
+                            <t t-esc="widget._format_number(day.morning)" />
+                        </t>
+                        <t t-if="!widget.get('effective_readonly')">
+                            <input t-att-data-day="day.day" t-att-value="widget._format_number(day.morning)" />
+                        </t>
+                    </td>
+                </tr>
+                <tr data-time="afternoon">
+                    <th>Afternoon</th>
+                    <td t-foreach="widget._get_days(data_key)" t-as="day">
+                        <t t-if="widget.get('effective_readonly')">
+                            <t t-esc="widget._format_number(day.afternoon)" />
+                        </t>
+                        <t t-if="!widget.get('effective_readonly')">
+                            <input t-att-data-day="day.day" t-att-value="widget._format_number(day.afternoon)" />
+                        </t>
+                    </td>
+                </tr>
+            </table>
+        </t>
+        <div t-if="!widget.get('effective_readonly')" class="toolbar">
+            <button t-if="value.type == 'all'" class="oe_button oe_link" data-type="odd">Add a different schedule for odd weeks</button>
+            <button t-if="value.type == 'odd'" class="oe_button oe_link" data-type="all">Use only one schedule for all weeks</button>
+        </div>
+    </div>
+</templates>
