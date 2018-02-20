@@ -6,7 +6,7 @@ import pytz
 from dateutil import rrule
 from openerp import api, fields, models
 try:
-    from openerp.addons.field_rrule import FieldRRule
+    from odoo.addons.field_rrule import FieldRRule
 except ImportError:
     FieldRRule = fields.Serialized
 

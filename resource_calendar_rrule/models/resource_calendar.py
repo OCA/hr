@@ -5,7 +5,7 @@ import datetime
 import pytz
 from dateutil.relativedelta import relativedelta
 from dateutil.rrule import WEEKLY
-from openerp import _, api, fields, models
+from odoo import _, api, fields, models
 
 DEFAULT_MORNING_HOUR = 8.0
 DEFAULT_AFTERNOON_HOUR = 13.0
