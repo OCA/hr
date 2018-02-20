@@ -2,26 +2,31 @@
 //© 2017 Therp BV <http://therp.nl>
 //License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-openerp.resource_calendar_rrule = function(instance)
+odoo.define('resource_calendar_rrule', function(require)
 {
-    instance.resource_calendar_rrule.FieldSimplifiedAttendance =
-    instance.web.form.AbstractField
-    .extend(instance.web.form.ReinitializeFieldMixin, {
+    "use strict";
+    var core = require('web.core');
+    var common = require('web.form_common');
+    var formats = require('web.formats');
+    var datepicker = require('web.datepicker');
+    var _t = core._t;
+    var FieldSimplifiedAttendance = common.AbstractField
+    .extend(common.ReinitializeFieldMixin, {
         template: 'FieldSimplifiedAttendance',
         _format_number: function(number)
         {
-            return instance.web.format_value(
+            return formats.format_value(
                 number, {type: 'float_time'}, 0
             );
         },
         _format_day: function(day)
         {
             // in dateutil.rrule, MO=0, SU=6; here SU=0, SA=6
-            return Date.CultureInfo.shortestDayNames[(day + 1) % 7];
+            return moment().weekday((day + 1) % 7);
         },
         _format_date: function(date)
         {
-            return instance.web.format_value(
+            return formats.format_value(
                 date, {type: 'date'}, 0
             );
         },
@@ -49,8 +54,8 @@ openerp.resource_calendar_rrule = function(instance)
             this.$('input[data-day]').change(this.proxy('change_hours'));
             if(!this.options.hide_start_stop)
             {
-                this.start_widget = new instance.web.DateWidget(this);
-                this.stop_widget = new instance.web.DateWidget(this);
+                this.start_widget = new datepicker.DateWidget(this);
+                this.stop_widget = new datepicker.DateWidget(this);
                 this.start_widget
                     .appendTo(this.$('.start_stop span.start').empty());
                 this.stop_widget
@@ -98,7 +103,7 @@ openerp.resource_calendar_rrule = function(instance)
                 hours = 0;
             try
             {
-                hours = instance.web.parse_value(
+                hours = formats.parse_value(
                     target.val(), {type: 'float_time'}, 0
                 );
             }
@@ -108,7 +113,7 @@ openerp.resource_calendar_rrule = function(instance)
                 return;
             }
             target.closest('table').removeClass('oe_form_invalid');
-            target.val(instance.web.format_value(
+            target.val(formats.format_value(
                 hours, {type: 'float_time'}, 0
             ));
             value[
@@ -143,8 +148,8 @@ openerp.resource_calendar_rrule = function(instance)
             this.initialize_content();
         },
     });
-    instance.web.form.widgets.add(
-        'simplified_attendance',
-        'instance.resource_calendar_rrule.FieldSimplifiedAttendance'
-    );
+    core.form_widget_registry.add( 'simplified_attendance', FieldSimplifiedAttendance);
+    return {
+        FieldSimplifiedAttendance: FieldSimplifiedAttendance,
+    }
 };
