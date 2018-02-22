@@ -11,13 +11,13 @@ class TestResourceCalendarRrule(test_resource.TestResource):
     # first, we rerun resource's tests, resource.calendar.attendance#create
     # guarantees that the attendences created will have the correct rrules
 
-    def setUp(self):
+    def _setUp(self):
         super(TestResourceCalendarRrule, self).setUp()
         self.calendar = self.env['resource.calendar'].create({
             'name': 'testcalendar',
         })
 
-    def test_60_simplified_attendance(self):
+    def _test_60_simplified_attendance(self):
         self.assertFalse(self.calendar.simplified_attendance)
         self.calendar.write({
             'simplified_attendance':
@@ -31,7 +31,7 @@ class TestResourceCalendarRrule(test_resource.TestResource):
             40
         )
 
-    def test_61_stable_times(self):
+    def _test_61_stable_times(self):
         # test that times in a timezone with dst don't jump crossing borders
         self.env.user.write({'tz': 'Europe/Amsterdam'})
         self.calendar.write({

@@ -14,12 +14,7 @@
         'field_rrule',
     ],
     "data": [
-        "security/res_groups.xml",
-        "views/templates.xml",
-        "views/resource_calendar.xml",
-        "views/resource_calendar_attendance.xml",
     ],
     "qweb": [
-        "static/src/xml/resource_calendar_rrule.xml",
     ],
 }

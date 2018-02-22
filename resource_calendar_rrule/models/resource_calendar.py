@@ -14,11 +14,11 @@ DEFAULT_AFTERNOON_HOUR = 13.0
 class ResourceCalendar(models.Model):
     _inherit = 'resource.calendar'
 
-    simplified_attendance = fields.Serialized(
-        'Working time', compute='_compute_simplified_attendance',
-        inverse='_inverse_simplified_attendance',
-        default=lambda self: self._default_simplified_attendance(),
-    )
+    #simplified_attendance = fields.Serialized(
+    #    'Working time', compute='_compute_simplified_attendance',
+    #    inverse='_inverse_simplified_attendance',
+    #    default=lambda self: self._default_simplified_attendance(),
+    #)
 
     def _default_simplified_attendance(self):
         result = {
@@ -173,27 +173,30 @@ class ResourceCalendar(models.Model):
         return result
 
     @api.model
-    def get_attendances_for_weekdays(self, id, weekdays):
+    def get_attendances_for_weekday(self, day_dt):
+        self.ensure_one()
         return [
             attendance
-            for attendance in self.browse(id).attendance_ids
+            for attendance in self.attendance_ids
             if any(
-                date.weekday() in weekdays
+                date.weekday() == day_dt.weekday()
                 for date, _ in attendance._iter_rrule(
                     *self._get_check_interval()
                 )
-            )
+            ) and
+            not (attendance.date_from and fields.Date.from_string(attendance.date_from) > day_dt.date()) and
+            not (attendance.date_to and fields.Date.from_string(attendance.date_to) < day_dt.date())
         ]
 
     @api.model
-    def get_weekdays(self, id, default_weekdays=None):
-        if id is None:
+    def get_weekdays(self, default_weekdays=None):
+        if not self:
             return super(ResourceCalendar, self).get_weekdays(
                 default_weekdays=default_weekdays
             )
         return list(set(
             date.weekday()
-            for attendance in self.browse(id).attendance_ids
+            for attendance in self.attendance_ids
             for date, _ in attendance._iter_rrule(
                 *self._get_check_interval()
             )
