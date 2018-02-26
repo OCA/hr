@@ -13,28 +13,28 @@ class TestResourceCalendarRrule(test_resource.TestResource):
 
     def setUp(self):
         super(TestResourceCalendarRrule, self).setUp()
-        self.calendar = self.env['resource.calendar'].create({
+        self.simplified_calendar = self.env['resource.calendar'].create({
             'name': 'testcalendar',
         })
 
-    def test_60_simplified_attendance(self):
-        self.assertFalse(self.calendar.simplified_attendance)
-        self.calendar.write({
+    def test_90_simplified_attendance(self):
+        self.assertFalse(self.simplified_calendar.simplified_attendance)
+        self.simplified_calendar.write({
             'simplified_attendance':
-            self.env['resource.calendar']._default_simplified_attendance(),
+            self.env['resource.calendar'].default_simplified_attendance(),
         })
         self.assertEqual(
             sum(map(
                 lambda x: x['morning'] + x['afternoon'],
-                self.calendar.simplified_attendance['data'],
+                self.simplified_calendar.simplified_attendance['data'],
             )),
             40
         )
 
-    def test_61_stable_times(self):
+    def test_91_stable_times(self):
         # test that times in a timezone with dst don't jump crossing borders
         self.env.user.write({'tz': 'Europe/Amsterdam'})
-        self.calendar.write({
+        self.simplified_calendar.write({
             'attendance_ids': [(0, 0, {
                 'name': 'testattendance',
                 'rrule': [{
@@ -49,20 +49,20 @@ class TestResourceCalendarRrule(test_resource.TestResource):
             })],
         })
         # in winter, this is UTC+1
-        intervals = self.calendar.get_working_intervals_of_day(
+        intervals = self.simplified_calendar.get_working_intervals_of_day(
             fields.Datetime.from_string('2017-02-03 00:00:00'),
             fields.Datetime.from_string('2017-02-03 23:59:59'),
         )
         self.assertEqual(
             intervals,
-            [[(datetime(2017, 2, 3, 8, 0), datetime(2017, 2, 3, 16, 0))]]
+            [(datetime(2017, 2, 3, 8, 0), datetime(2017, 2, 3, 16, 0))]
         )
         # but in summer, UTC+2
-        intervals = self.calendar.get_working_intervals_of_day(
+        intervals = self.simplified_calendar.get_working_intervals_of_day(
             fields.Datetime.from_string('2017-04-03 00:00:00'),
             fields.Datetime.from_string('2017-04-03 23:59:59'),
         )
         self.assertEqual(
             intervals,
-            [[(datetime(2017, 4, 3, 7, 0), datetime(2017, 4, 3, 15, 0))]]
+            [(datetime(2017, 4, 3, 7, 0), datetime(2017, 4, 3, 15, 0))]
         )

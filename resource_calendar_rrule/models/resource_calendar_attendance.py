@@ -27,9 +27,50 @@ class ResourceCalendarAttendance(models.Model):
         # for it
         if 'rrule' not in vals and 'dayofweek' in vals:
             rrule = self._default_rrule()
-            rrule[0]['byweekday'] = [vals['dayofweek']]
+            self._adapt_start_until_from_vals(rrule[0], vals)
             vals['rrule'] = rrule
         return super(ResourceCalendarAttendance, self).create(vals)
+
+    @api.multi
+    def write(self, vals):
+        result = super(ResourceCalendarAttendance, self).write(vals)
+        if 'date_from' in vals or 'date_to' in vals or 'dayofweek' in vals:
+            for this in self.filtered('rrule'):
+                rrule = []
+                for rule in this.rrule:
+                    if rule['type'] != 'rrule':
+                        rrule.append(rule)
+                        continue
+                    rule = dict(rule)
+                    self._adapt_start_until_from_vals(rule, vals)
+                    rrule.append(rule)
+                this.write({'rrule': rrule})
+        return result
+
+    @api.model
+    def _adapt_start_until_from_vals(self, rule, vals):
+        if vals.get('date_from'):
+            rule['dtstart'] = fields.Datetime.to_string(
+                (
+                    isinstance(vals['date_from'], datetime.datetime) and
+                    vals['date_from'] or
+                    fields.Datetime.from_string(vals['date_from'])
+                ).replace(hour=0, minute=0, second=0)
+            )
+        elif 'date_from' in vals:
+            rule['dtstart'] = None
+        if vals.get('date_to'):
+            rule['until'] = fields.Datetime.to_string(
+                (
+                    isinstance(vals['date_to'], datetime.datetime) and
+                    vals['date_to'] or
+                    fields.Datetime.from_string(vals['date_to'])
+                ).replace(hour=23, minute=59, second=59)
+            )
+        elif 'date_to' in vals:
+            rule['until'] = None
+        if vals.get('dayofweek'):
+            rule['byweekday'] = [vals['dayofweek']]
 
     @api.multi
     def _compute_rrule_preview(self):
@@ -66,6 +107,10 @@ class ResourceCalendarAttendance(models.Model):
     def _iter_rrule(self, start, stop, include=True):
         """get an iterator through our rule yielding interval tuples"""
         self.ensure_one()
+        start = max(
+            fields.Datetime.from_string(self.date_from) or start, start
+        )
+        stop = min(fields.Datetime.from_string(self.date_to) or stop, stop)
         for date in self.rrule().between(start, stop, inc=include):
             date = fields.Datetime.context_timestamp(self, date)
             yield (

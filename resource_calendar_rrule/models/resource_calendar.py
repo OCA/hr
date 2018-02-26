@@ -5,7 +5,7 @@ import datetime
 import pytz
 from dateutil.relativedelta import relativedelta
 from dateutil.rrule import WEEKLY
-from openerp import _, api, fields, models
+from odoo import _, api, exceptions, fields, models, tools
 
 DEFAULT_MORNING_HOUR = 8.0
 DEFAULT_AFTERNOON_HOUR = 13.0
@@ -17,10 +17,10 @@ class ResourceCalendar(models.Model):
     simplified_attendance = fields.Serialized(
         'Working time', compute='_compute_simplified_attendance',
         inverse='_inverse_simplified_attendance',
-        default=lambda self: self._default_simplified_attendance(),
     )
 
-    def _default_simplified_attendance(self):
+    @api.model
+    def default_simplified_attendance(self):
         result = {
             'type': 'all',
             'data': [],
@@ -91,6 +91,12 @@ class ResourceCalendar(models.Model):
                     if day['day'] not in rule._byweekday:
                         continue
                     day[key] += attendance.hour_to - attendance.hour_from
+            for exdate in attendance.rrule._exdate:
+                result.setdefault('exdate', [])
+                result['exdate'].append(fields.Date.to_string(exdate))
+            for rdate in attendance.rrule._rdate:
+                result.setdefault('rdate', [])
+                result['rdate'].append(fields.Date.to_string(rdate))
 
         def sum_all(x):
             return x['morning'] + x['afternoon']
@@ -106,6 +112,10 @@ class ResourceCalendar(models.Model):
             start=fields.Date.to_string(start),
             stop=fields.Date.to_string(stop),
         )
+        if 'rdate' in result:
+            result['rdate'] = sorted(set(result['rdate']))
+        if 'exdate' in result:
+            result['exdate'] = sorted(set(result['exdate']))
         return result
 
     @api.multi
@@ -148,63 +158,116 @@ class ResourceCalendar(models.Model):
                         )
                     )
                 )
+                exdate = map(
+                    lambda x: {'type': 'exdate', 'date': x},
+                    simplified_attendance.get('exdate', [])
+                )
+                rdate = map(
+                    lambda x: {'type': 'rdate', 'date': x},
+                    simplified_attendance.get('rdate', [])
+                )
                 if day['morning']:
+                    if morning_hour + day['morning'] > 24:
+                        raise exceptions.ValidationError(_(
+                            '%.2d + %.2d is more than 24h, you seem to fill '
+                            'in times instead an amount of hours'
+                        ) % (morning_hour, day['morning']))
                     result.append(
                         (0, 0, {
                             'name': _('Simplified attendance %s morning') %
                             self.env['resource.calendar.attendance']
                             ._fields['dayofweek'].selection[day['day']][1],
-                            'rrule': [day_rule],
+                            'rrule': [day_rule] + exdate + rdate,
                             'hour_from': morning_hour,
                             'hour_to': morning_hour + day['morning'],
                         })
                     )
                 if day['afternoon']:
+                    if afternoon_hour + day['afternoon'] > 24:
+                        raise exceptions.ValidationError(_(
+                            '%02d + %02d is more then 24h, you seem to fill '
+                            'in times instead an amount of hours'
+                        ) % (afternoon_hour, day['afternoon']))
                     result.append(
                         (0, 0, {
                             'name': _('Simplified attendance %s afternoon') %
                             self.env['resource.calendar.attendance']
                             ._fields['dayofweek'].selection[day['day']][1],
-                            'rrule': [day_rule],
+                            'rrule': [day_rule] + exdate + rdate,
                             'hour_from': afternoon_hour,
                             'hour_to': afternoon_hour + day['afternoon'],
                         })
                     )
         return result
 
-    @api.model
-    def get_attendances_for_weekdays(self, id, weekdays):
-        return [
-            attendance
-            for attendance in self.browse(id).attendance_ids
-            if any(
-                date.weekday() in weekdays
-                for date, _ in attendance._iter_rrule(
-                    *self._get_check_interval()
+    @api.multi
+    @tools.ormcache('self.ids', 'day_dt')
+    def get_attendances_for_weekday(self, day_dt):
+        return sum((
+            self.env['resource.calendar.attendance'].new({
+                'name': attendance.name,
+                'dayofweek': str(day_dt.weekday()),
+                'hour_from': attendance.hour_from,
+                'hour_to': attendance.hour_to,
+                'date_from': attendance.date_from,
+                'date_to': attendance.date_to,
+            })
+            for attendance in self.mapped('attendance_ids')
+            if (
+                not attendance.date_from or
+                fields.Date.from_string(attendance.date_from) <=
+                day_dt.date()
+            ) and (
+                not attendance.date_to or
+                fields.Date.from_string(attendance.date_to) >=
+                day_dt.date()
+            ) and any(
+                date1.weekday() == day_dt.weekday() or
+                date2.weekday() == day_dt.weekday()
+                for date1, date2 in attendance._iter_rrule(
+                    *self._get_check_interval(
+                        fields.Datetime.from_string(
+                            attendance.date_from or
+                            fields.Datetime.to_string(day_dt)
+                        ),
+                        fields.Datetime.from_string(
+                            attendance.date_to and
+                            attendance.date_to + ' 23:59:59' or None
+                        )
+                    )
                 )
             )
-        ]
+        ), self.env['resource.calendar.attendance'])
 
-    @api.model
-    def get_weekdays(self, id, default_weekdays=None):
-        if id is None:
+    @api.multi
+    @tools.ormcache('self.ids', 'tuple(default_weekdays or [])')
+    def get_weekdays(self, default_weekdays=None):
+        if not self:
             return super(ResourceCalendar, self).get_weekdays(
                 default_weekdays=default_weekdays
             )
-        return list(set(
-            date.weekday()
-            for attendance in self.browse(id).attendance_ids
-            for date, _ in attendance._iter_rrule(
-                *self._get_check_interval()
-            )
-        ))
+        weekdays = set()
+        for attendance in self.attendance_ids:
+            if attendance.rrule:
+                rrule_dtstart = attendance.rrule._rrule[0]._dtstart
+                rrule_start = rrule_dtstart.replace(tzinfo=None)
+                interval = (
+                    rrule_start,
+                    rrule_start + datetime.timedelta(days=7),
+                )
+            else:
+                interval = self._get_check_interval()
+            for date, dummy in attendance._iter_rrule(*interval):
+                weekdays.add(date.weekday())
+        return list(weekdays)
 
     @api.model
-    def _get_check_interval(self):
+    def _get_check_interval(self, default_start=None, default_stop=None):
         """for some computations, we need to generate some dates and inspect
         the result. By overriding this function you can change the interval
-        used in case the default week from no doesn't work for you"""
+        used in case the default week from now doesn't work for you"""
         return (
-            datetime.datetime.now(),
+            default_start or datetime.datetime.now(),
+            default_stop or
             datetime.datetime.now() + datetime.timedelta(days=7),
         )

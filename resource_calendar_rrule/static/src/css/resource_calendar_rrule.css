@@ -1,0 +1,18 @@
+.oe_form_field_simplified_attendance table input[data-day] {
+    width: 5em;
+}
+.oe_form_field_simplified_attendance div.toolbar,
+.oe_form_field_simplified_attendance div.rdate,
+.oe_form_field_simplified_attendance div.exdate {
+    display: inline-block;
+}
+.oe_form_field_simplified_attendance div.rdate ul,
+.oe_form_field_simplified_attendance div.exdate ul {
+    display: flex;
+    padding-left: 0px;
+}
+.oe_form_field_simplified_attendance div.rdate li,
+.oe_form_field_simplified_attendance div.exdate li {
+    display: inline-block;
+    margin-right: 2px;
+}

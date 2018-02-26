@@ -14,8 +14,7 @@
         </t>
         <t t-if="value.type == undefined">
             <t t-set="data_keys" t-value="[]" />
-            <!-- TODO: this should offer to create one /-->
-            <p>There are no attendances to show</p>
+            <div class="null">There are no attendances to show. <button class="oe_button oe_link">Create</button></div>
         </t>
         <t t-foreach="data_keys" t-as="data_key">
             <t t-if="value.type == 'odd'">
@@ -57,7 +56,30 @@
                 </tr>
             </table>
         </t>
-        <div t-if="!widget.get('effective_readonly')" class="toolbar">
+        <div t-if="!widget.get('effective_readonly') &amp;&amp; !widget.options.hide_ex_r_date &amp;&amp; value.type != undefined" class="toolbar ex_r_date">
+            <span class="ex_r_date" />
+            <button class="oe_button oe_link" data-action="exdate">Exclude date</button>
+            <button class="oe_button oe_link" data-action="rdate">Include date</button>
+        </div>
+        <div t-if="!widget.options.hide_ex_r_date &amp;&amp; value.type != undefined &amp;&amp; value.exdate" class="exdate">
+            <h3>Exclude dates</h3>
+            <ul>
+                <li t-foreach="value.exdate" t-as="date">
+                    <t t-esc="widget._format_date(date)" />
+                    <a class="oe_edit_only fa fa-times o_delete" t-att-data-date="date" />
+                </li>
+            </ul>
+        </div>
+        <div t-if="!widget.options.hide_ex_r_date &amp;&amp; value.type != undefined &amp;&amp; value.rdate" class="rdate">
+            <h3>Include dates</h3>
+            <ul>
+                <li t-foreach="value.rdate" t-as="date">
+                    <t t-esc="widget._format_date(date)" />
+                    <a class="oe_edit_only fa fa-times o_delete" t-att-data-date="date" />
+                </li>
+            </ul>
+        </div>
+        <div t-if="!widget.get('effective_readonly') &amp;&amp; value.type != undefined" class="toolbar">
             <button t-if="value.type == 'all'" class="oe_button oe_link" data-type="odd">Add a different schedule for odd weeks</button>
             <button t-if="value.type == 'odd'" class="oe_button oe_link" data-type="all">Use only one schedule for all weeks</button>
         </div>
