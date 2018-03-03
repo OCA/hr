@@ -5,13 +5,14 @@
 # Translators:
 # José Antonio Cuello <inactive+Yopli2k@transifex.com>, 2017
 # OCA Transbot <transbot@odoo-community.org>, 2017
+# José Alberto Yépez <josealbertoyepez93@gmail.com>, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-28 01:44+0000\n"
-"PO-Revision-Date: 2017-11-28 01:44+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
+"POT-Creation-Date: 2018-02-23 03:46+0000\n"
+"PO-Revision-Date: 2018-02-23 03:46+0000\n"
+"Last-Translator: José Alberto Yépez <josealbertoyepez93@gmail.com>, 2018\n"
 "Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,12 +23,12 @@ msgstr ""
 #. module: hr_skill
 #: model:ir.model.fields,field_description:hr_skill.field_hr_skill_active
 msgid "Active"
-msgstr ""
+msgstr "Activo"
 
 #. module: hr_skill
 #: model:ir.ui.view,arch_db:hr_skill.view_skill_form
 msgid "Child Skills"
-msgstr ""
+msgstr "Competencias hijo"
 
 #. module: hr_skill
 #: model:ir.model.fields,field_description:hr_skill.field_hr_skill_child_ids
@@ -57,12 +58,12 @@ msgstr "Empleado"
 #. module: hr_skill
 #: model:ir.model.fields,field_description:hr_skill.field_hr_skill_employee_ids
 msgid "Employee(s)"
-msgstr ""
+msgstr "Empleado(s)"
 
 #. module: hr_skill
 #: model:ir.actions.act_window,name:hr_skill.hr_employee_normal_action_tree
 msgid "Employees"
-msgstr ""
+msgstr "Empleados"
 
 #. module: hr_skill
 #: model:ir.model.fields,field_description:hr_skill.field_hr_skill_id
@@ -94,22 +95,22 @@ msgstr "Nombre"
 #. module: hr_skill
 #: model:ir.model.fields,field_description:hr_skill.field_hr_skill_parent_id
 msgid "Parent"
-msgstr ""
+msgstr "Padre"
 
 #. module: hr_skill
 #: model:ir.model.fields,field_description:hr_skill.field_hr_skill_parent_left
 msgid "Parent Left"
-msgstr ""
+msgstr "Padre izquierda"
 
 #. module: hr_skill
 #: model:ir.model.fields,field_description:hr_skill.field_hr_skill_parent_right
 msgid "Parent Right"
-msgstr ""
+msgstr "Padre derecha"
 
 #. module: hr_skill
 #: model:ir.ui.view,arch_db:hr_skill.view_skill_form
 msgid "Skill"
-msgstr ""
+msgstr "Competencia"
 
 #. module: hr_skill
 #: model:ir.actions.act_window,name:hr_skill.open_view_skill_form
@@ -118,9 +119,9 @@ msgstr ""
 #: model:ir.ui.view,arch_db:hr_skill.view_employee_skill_form
 #: model:ir.ui.view,arch_db:hr_skill.view_hr_skill_tree
 msgid "Skills"
-msgstr ""
+msgstr "Competencias"
 
 #. module: hr_skill
 #: model:ir.model,name:hr_skill.model_hr_skill
 msgid "hr.skill"
-msgstr ""
+msgstr "hr.skill"

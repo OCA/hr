@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-04 06:53+0000\n"
-"PO-Revision-Date: 2017-07-04 06:53+0000\n"
+"POT-Creation-Date: 2018-02-23 03:46+0000\n"
+"PO-Revision-Date: 2018-02-23 03:46+0000\n"
 "Last-Translator: Bole <bole@dajmi5.com>, 2017\n"
 "Language-Team: Croatian (https://www.transifex.com/oca/teams/23907/hr/)\n"
 "MIME-Version: 1.0\n"
@@ -221,7 +221,7 @@ msgstr ""
 #. module: hr_public_holidays
 #: model:ir.model.fields,field_description:hr_public_holidays.field_public_holidays_next_year_wizard_year
 msgid "Year"
-msgstr ""
+msgstr "Godina"
 
 #. module: hr_public_holidays
 #: model:ir.model.fields,help:hr_public_holidays.field_public_holidays_next_year_wizard_year

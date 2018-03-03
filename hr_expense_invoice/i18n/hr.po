@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-28 01:43+0000\n"
-"PO-Revision-Date: 2017-11-28 01:43+0000\n"
+"POT-Creation-Date: 2018-02-23 03:45+0000\n"
+"PO-Revision-Date: 2018-02-23 03:45+0000\n"
 "Last-Translator: Bole <bole@dajmi5.com>, 2017\n"
 "Language-Team: Croatian (https://www.transifex.com/oca/teams/23907/hr/)\n"
 "MIME-Version: 1.0\n"
@@ -25,11 +25,13 @@ msgid ""
 "Cannot reconcile supplier invoice payable with generated line. Please check "
 "amounts and see if the invoice is already added or paid. Invoice: %s"
 msgstr ""
+"Nije moguće zatvaranje računa dobavljača sa generiranom stavkom. Molimo "
+"provjerite iznose i plaćanja: %s"
 
 #. module: hr_expense_invoice
 #: model:ir.model,name:hr_expense_invoice.model_hr_expense
 msgid "Expense"
-msgstr ""
+msgstr "Trošak"
 
 #. module: hr_expense_invoice
 #: model:ir.model,name:hr_expense_invoice.model_hr_expense_sheet
@@ -39,4 +41,4 @@ msgstr "Izvještaj troškova"
 #. module: hr_expense_invoice
 #: model:ir.model.fields,field_description:hr_expense_invoice.field_hr_expense_invoice_id
 msgid "Invoice"
-msgstr ""
+msgstr "Račun"

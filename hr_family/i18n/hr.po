@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-04 06:52+0000\n"
-"PO-Revision-Date: 2017-07-04 06:52+0000\n"
+"POT-Creation-Date: 2018-02-23 03:45+0000\n"
+"PO-Revision-Date: 2018-02-23 03:45+0000\n"
 "Last-Translator: Bole <bole@dajmi5.com>, 2017\n"
 "Language-Team: Croatian (https://www.transifex.com/oca/teams/23907/hr/)\n"
 "MIME-Version: 1.0\n"
@@ -133,19 +133,19 @@ msgstr "Roditelji"
 #. module: hr_family
 #: model:ir.ui.view,arch_db:hr_family.hr_employee_view_form
 msgid "Spouse"
-msgstr ""
+msgstr "Bračni drug"
 
 #. module: hr_family
 #: model:ir.model.fields,field_description:hr_family.field_hr_employee_fam_spouse
 msgid "Spouse's Name"
-msgstr ""
+msgstr "Ime bračnog druga"
 
 #. module: hr_family
 #: model:ir.model.fields,field_description:hr_family.field_hr_employee_fam_spouse_tel
 msgid "Spouse's Telephone"
-msgstr ""
+msgstr "Telefon bračnog druga"
 
 #. module: hr_family
 #: model:ir.model.fields,field_description:hr_family.field_hr_employee_fam_spouse_employer
 msgid "Spouses's Employer"
-msgstr ""
+msgstr "Poslodavac bračnog druga"

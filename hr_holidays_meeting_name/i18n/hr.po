@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-28 01:44+0000\n"
-"PO-Revision-Date: 2017-11-28 01:44+0000\n"
+"POT-Creation-Date: 2018-02-23 03:45+0000\n"
+"PO-Revision-Date: 2018-02-23 03:45+0000\n"
 "Last-Translator: Bole <bole@dajmi5.com>, 2017\n"
 "Language-Team: Croatian (https://www.transifex.com/oca/teams/23907/hr/)\n"
 "MIME-Version: 1.0\n"
@@ -31,9 +31,9 @@ msgstr "Vrsta odsustva"
 #. module: hr_holidays_meeting_name
 #: model:ir.model.fields,field_description:hr_holidays_meeting_name.field_hr_holidays_status_meeting_description
 msgid "Meeting description"
-msgstr ""
+msgstr "Opis sastanka"
 
 #. module: hr_holidays_meeting_name
 #: model:ir.model.fields,field_description:hr_holidays_meeting_name.field_hr_holidays_status_use_leave_name_for_meeting
 msgid "Use leave name for meeting description"
-msgstr ""
+msgstr "Koristi naziv odsustva kao naziv sastanka."

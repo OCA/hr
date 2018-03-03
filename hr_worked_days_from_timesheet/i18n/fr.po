@@ -3,14 +3,14 @@
 # * hr_worked_days_from_timesheet
 # 
 # Translators:
-# OCA Transbot <transbot@odoo-community.org>, 2017
+# Alexandre Fayolle <alexandre.fayolle@camptocamp.com>, 2018
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 9.0c\n"
+"Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-01 01:36+0000\n"
-"PO-Revision-Date: 2017-06-01 01:36+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
+"POT-Creation-Date: 2018-02-23 03:46+0000\n"
+"PO-Revision-Date: 2018-02-23 03:46+0000\n"
+"Last-Translator: Alexandre Fayolle <alexandre.fayolle@camptocamp.com>, 2018\n"
 "Language-Team: French (https://www.transifex.com/oca/teams/23907/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,48 +22,50 @@ msgstr ""
 #: code:addons/hr_worked_days_from_timesheet/models/hr_payslip.py:48
 #, python-format
 msgid "Contract is not defined for one or more payslips."
-msgstr ""
+msgstr "Le contrat n'est pas défini pour une ou plusieurs feuilles de paie. "
 
 #. module: hr_worked_days_from_timesheet
 #: model:ir.ui.view,arch_db:hr_worked_days_from_timesheet.view_hr_payslip_form
 msgid "Import from Timesheets"
-msgstr "Importer les feuilles de temps"
+msgstr "Importer depuis les feuilles de temps"
 
 #. module: hr_worked_days_from_timesheet
 #: model:ir.model.fields,field_description:hr_worked_days_from_timesheet.field_hr_payslip_worked_days_imported_from_timesheet
 msgid "Imported From Timesheet"
-msgstr "Importé des feuilles de temps"
+msgstr "Importé depuis les feuilles de temps"
 
 #. module: hr_worked_days_from_timesheet
 #: model:ir.model,name:hr_worked_days_from_timesheet.model_hr_payslip
 msgid "Pay Slip"
-msgstr "Bulletin de paie"
+msgstr "Feuille de paie"
 
 #. module: hr_worked_days_from_timesheet
 #: model:ir.model,name:hr_worked_days_from_timesheet.model_hr_payslip_worked_days
 msgid "Payslip Worked Days"
-msgstr "Jours travaillés"
+msgstr "Jours travaillés sur la feuille de paie"
 
 #. module: hr_worked_days_from_timesheet
-#: code:addons/hr_worked_days_from_timesheet/models/hr_payslip.py:80
+#: code:addons/hr_worked_days_from_timesheet/models/hr_payslip.py:79
 #, python-format
 msgid ""
 "Sorry, but there is no approved Timesheets for the                     "
 "entire Payslip period"
 msgstr ""
+"Désolé, il n'y a pas de feuille de temps approuvées pour l'entièreté de la "
+"période couverte par la feuille de paie. "
 
 #. module: hr_worked_days_from_timesheet
 #: model:ir.model.fields,field_description:hr_worked_days_from_timesheet.field_hr_payslip_worked_days_timesheet_sheet_id
 msgid "Timesheet"
-msgstr ""
+msgstr "Feuille de temps"
 
 #. module: hr_worked_days_from_timesheet
 #: code:addons/hr_worked_days_from_timesheet/models/hr_payslip.py:32
 #, python-format
 msgid "Timesheet %s"
-msgstr ""
+msgstr "Feuille de temps %s"
 
 #. module: hr_worked_days_from_timesheet
 #: model:ir.ui.view,arch_db:hr_worked_days_from_timesheet.view_hr_payslip_form
 msgid "Worked Days"
-msgstr "Jours Travaillés"
+msgstr "Jours travaillés"

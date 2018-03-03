@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-28 01:44+0000\n"
-"PO-Revision-Date: 2017-11-28 01:44+0000\n"
+"POT-Creation-Date: 2018-02-23 03:45+0000\n"
+"PO-Revision-Date: 2018-02-23 03:45+0000\n"
 "Last-Translator: Bole <bole@dajmi5.com>, 2017\n"
 "Language-Team: Croatian (https://www.transifex.com/oca/teams/23907/hr/)\n"
 "MIME-Version: 1.0\n"
@@ -31,17 +31,17 @@ msgstr "Odsustvo"
 #. module: hr_holidays_notify_employee_manager
 #: model:ir.model.fields,field_description:hr_holidays_notify_employee_manager.field_res_company_leave_notify_manager
 msgid "Leave Requests notified to employee's manager"
-msgstr ""
+msgstr "Zahtjevi za odsustvom poslani voditelju"
 
 #. module: hr_holidays_notify_employee_manager
 #: model:ir.model.fields,field_description:hr_holidays_notify_employee_manager.field_hr_holidays_config_settings_leave_notify_manager
 msgid "Leave Requests notified to employee's manager (*)"
-msgstr ""
+msgstr "Zahtjevi za odsustvom poslani voditelju (*)"
 
 #. module: hr_holidays_notify_employee_manager
 #: model:ir.ui.view,arch_db:hr_holidays_notify_employee_manager.hr_holidays_config_settings
 msgid "Leaves Management"
-msgstr ""
+msgstr "Upravljanje odsustvima"
 
 #. module: hr_holidays_notify_employee_manager
 #: model:ir.model.fields,help:hr_holidays_notify_employee_manager.field_hr_holidays_config_settings_leave_notify_manager
@@ -50,8 +50,10 @@ msgid ""
 "When a leave request is created the employee's manager will be added as "
 "follower and notified by email."
 msgstr ""
+"Pri kreiranju zahtjeva za odsustvom voditelj djelatnika će biti dodan kao "
+"pratitelj i obaviješten mailom."
 
 #. module: hr_holidays_notify_employee_manager
 #: model:ir.model,name:hr_holidays_notify_employee_manager.model_hr_holidays_config_settings
 msgid "hr.holidays.config.settings"
-msgstr ""
+msgstr "hr.holidays.config.settings"

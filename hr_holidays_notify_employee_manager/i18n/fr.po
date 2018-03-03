@@ -5,13 +5,14 @@
 # Translators:
 # OCA Transbot <transbot@odoo-community.org>, 2017
 # leemannd <denis.leemann@camptocamp.com>, 2017
+# Alexandre Fayolle <alexandre.fayolle@camptocamp.com>, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-28 01:44+0000\n"
-"PO-Revision-Date: 2017-11-28 01:44+0000\n"
-"Last-Translator: leemannd <denis.leemann@camptocamp.com>, 2017\n"
+"POT-Creation-Date: 2018-02-23 03:45+0000\n"
+"PO-Revision-Date: 2018-02-23 03:45+0000\n"
+"Last-Translator: Alexandre Fayolle <alexandre.fayolle@camptocamp.com>, 2018\n"
 "Language-Team: French (https://www.transifex.com/oca/teams/23907/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -32,17 +33,17 @@ msgstr "Congé"
 #. module: hr_holidays_notify_employee_manager
 #: model:ir.model.fields,field_description:hr_holidays_notify_employee_manager.field_res_company_leave_notify_manager
 msgid "Leave Requests notified to employee's manager"
-msgstr ""
+msgstr "Notification des demandes de congés au responsable de l'employé"
 
 #. module: hr_holidays_notify_employee_manager
 #: model:ir.model.fields,field_description:hr_holidays_notify_employee_manager.field_hr_holidays_config_settings_leave_notify_manager
 msgid "Leave Requests notified to employee's manager (*)"
-msgstr ""
+msgstr "Les demandes de congés sont signalées au responsable de l'employé (*)"
 
 #. module: hr_holidays_notify_employee_manager
 #: model:ir.ui.view,arch_db:hr_holidays_notify_employee_manager.hr_holidays_config_settings
 msgid "Leaves Management"
-msgstr ""
+msgstr "Gestion des congés"
 
 #. module: hr_holidays_notify_employee_manager
 #: model:ir.model.fields,help:hr_holidays_notify_employee_manager.field_hr_holidays_config_settings_leave_notify_manager
@@ -51,8 +52,10 @@ msgid ""
 "When a leave request is created the employee's manager will be added as "
 "follower and notified by email."
 msgstr ""
+"Quand une demande de congé est créée, le responsable de l'employé est abonné"
+" et reçoit une notification par email. "
 
 #. module: hr_holidays_notify_employee_manager
 #: model:ir.model,name:hr_holidays_notify_employee_manager.model_hr_holidays_config_settings
 msgid "hr.holidays.config.settings"
-msgstr ""
+msgstr "hr.holidays.config.settings"

@@ -3,14 +3,15 @@
 # * hr_employee_social_media
 # 
 # Translators:
+# Alexandre Fayolle <alexandre.fayolle@camptocamp.com>, 2017
 # leemannd <denis.leemann@camptocamp.com>, 2017
 # OCA Transbot <transbot@odoo-community.org>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-03 03:37+0000\n"
-"PO-Revision-Date: 2017-03-03 03:37+0000\n"
+"POT-Creation-Date: 2018-02-23 03:45+0000\n"
+"PO-Revision-Date: 2018-02-23 03:45+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
 "Language-Team: French (https://www.transifex.com/oca/teams/23907/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -81,20 +82,20 @@ msgstr "Nom"
 #: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_account_hr_social_media_id
 #: model:ir.ui.view,arch_db:hr_employee_social_media.hr_social_media_view_tree
 msgid "Social Media"
-msgstr "Réseau Sociaux"
+msgstr "Réseau Social"
 
 #. module: hr_employee_social_media
 #: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_employee_social_media_account_ids
 #: model:ir.ui.view,arch_db:hr_employee_social_media.view_employee_form_inherit_extension
 msgid "Social Media Accounts"
-msgstr "Compte de Réseau Sociaux"
+msgstr "Compte de Réseau Social"
 
 #. module: hr_employee_social_media
 #: model:ir.actions.act_window,name:hr_employee_social_media.action_hr_social_media
 #: model:ir.ui.menu,name:hr_employee_social_media.hr_menu_social_media
 #: model:ir.ui.view,arch_db:hr_employee_social_media.hr_social_media_view_form
 msgid "Social Medias"
-msgstr "Réseau Sociaux"
+msgstr "Réseaux Sociaux"
 
 #. module: hr_employee_social_media
 #: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_social_url
