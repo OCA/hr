@@ -46,12 +46,22 @@ class TestEmployeeFirstname(TransactionCase):
         """
         Validate the get_name method is not failing
         """
-        field_onchange = self.employee1_id._onchange_spec()
+        field_onchange = self.employee_model.new({})._onchange_spec()
         self.assertEqual(field_onchange.get('firstname'), '1')
         self.assertEqual(field_onchange.get('lastname'), '1')
-        values = {'firstname': 'Antonio', 'lastname': 'Esposito'}
-        self.employee1_id.onchange(values, 'firstname', field_onchange)
-        self.employee1_id.onchange(values, 'lastname', field_onchange)
+        values = {'firstname': 'Antonio',
+                  'lastname': 'Esposito',
+                  'name': 'test employee'}
+        for field in self.employee_model._fields:
+            if field not in values:
+                values[field] = False
+        # we work on a temporary record
+        new_record = self.employee_model.new(values)
+
+        updates = new_record.onchange(
+            values, ['firstname', 'lastname'], field_onchange)
+        values.update(updates.get('value', {}))
+        self.assertEqual(values['name'], 'Esposito Antonio')
 
     def test_auto_init_name(self):
         """
