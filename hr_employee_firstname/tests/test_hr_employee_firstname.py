@@ -46,7 +46,7 @@ class TestEmployeeFirstname(TransactionCase):
         """
         Validate the get_name method is not failing
         """
-        field_onchange = self.employee_model._onchange_spec()
+        field_onchange = self.employee_model.new({})._onchange_spec()
         self.assertEqual(field_onchange.get('firstname'), '1')
         self.assertEqual(field_onchange.get('lastname'), '1')
         values = {'firstname': 'Antonio',
