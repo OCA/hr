@@ -1,0 +1,20 @@
+<odoo>
+    <!-- Inherit Form View to Modify it -->
+    <record id="hr_contract_button_amendment" model="ir.ui.view">
+        <field name="model">hr.contract</field>
+        <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[1]" position="after">
+                <page name="Contracts Amendments" string="Amendments">
+                    <field name="amendment_ids"/>
+                </page>
+         </xpath>
+
+
+        </field>
+    </record>
+
+
+</odoo>
+
+<!--<button name="cancel_voucher" string="Cancel Voucher" type="object" states="posted" confirm="Are you sure you want to unreconcile this record?"/>-->
