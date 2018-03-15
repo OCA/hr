@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+  <record id="hr_recruitment_skill.recruitment_skill_form" model="ir.ui.view">
+    <field name="name">hr_recruitment_skill.recruitment.skill.form</field>
+    <field name="model">hr.job</field>
+    <field name="inherit_id" ref="hr.view_hr_job_form"/>
+    <field name="arch" type="xml">
+      <group name="employee_data" position="inside">
+        <group>
+          <field name="required_skill_ids" widget="many2many_tags"/>
+          <field name="desired_skill_ids" widget="many2many_tags"/>
+        </group>
+      </group>
+    </field>
+  </record>
+
+  <record id="hr_recruitment_skill.job_skill_search" model="ir.ui.view">
+    <field name="name">hr.recruitment.job.skill.search</field>
+    <field name="model">hr.job</field>
+    <field name="inherit_id" ref="hr.view_job_filter"/>
+    <field name="arch" type="xml">
+      <field name="department_id" position="after">
+        <field name="required_skill_ids" string="Required skills"
+          filter_domain="[('required_skill_ids','ilike',self)]"
+        />
+        <field name="desired_skill_ids" string="Skills"
+          filter_domain="['|',('required_skill_ids','ilike',self), ('desired_skill_ids','ilike',self)]"
+        />
+      </field>
+    </field>
+  </record>
+
+</odoo>
