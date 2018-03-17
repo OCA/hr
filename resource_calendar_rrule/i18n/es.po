@@ -3,14 +3,14 @@
 # * resource_calendar_rrule
 # 
 # Translators:
-# Pedro M. Baeza <pedro.baeza@gmail.com>, 2017
+# OCA Transbot <transbot@odoo-community.org>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-03 03:00+0000\n"
-"PO-Revision-Date: 2017-10-03 03:00+0000\n"
-"Last-Translator: Pedro M. Baeza <pedro.baeza@gmail.com>, 2017\n"
+"POT-Creation-Date: 2018-03-03 05:18+0000\n"
+"PO-Revision-Date: 2018-03-03 05:18+0000\n"
+"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
 "Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -70,7 +70,7 @@ msgstr "Previsualización"
 #. module: resource_calendar_rrule
 #: field:resource.calendar.attendance,rrule:0
 msgid "Repetition"
-msgstr ""
+msgstr "Repetición"
 
 #. module: resource_calendar_rrule
 #: model:ir.model,name:resource_calendar_rrule.model_resource_calendar
