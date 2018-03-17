@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-18 02:58+0000\n"
-"PO-Revision-Date: 2015-07-27 23:40+0000\n"
-"Last-Translator: <>\n"
+"POT-Creation-Date: 2018-02-10 04:36+0000\n"
+"PO-Revision-Date: 2018-03-12 13:01+0000\n"
+"Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Spanish (http://www.transifex.com/oca/OCA-hr-7-0/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -482,7 +482,7 @@ msgstr ""
 #: field:hr.schedule.alert.compute,date_start:0
 #: field:hr.schedule.generate,date_start:0
 msgid "Start"
-msgstr ""
+msgstr "Comienzo"
 
 #. module: hr_schedule
 #: selection:hr.schedule.request,type:0
@@ -512,7 +512,7 @@ msgstr ""
 #. module: hr_schedule
 #: field:hr.schedule.alert.compute,date_end:0
 msgid "End"
-msgstr ""
+msgstr "Fin"
 
 #. module: hr_schedule
 #: selection:hr.schedule.request,state:0
@@ -833,7 +833,7 @@ msgstr ""
 #: model:ir.ui.menu,name:hr_schedule.menu_hr_configure_schedule
 #: model:ir.ui.menu,name:hr_schedule.menu_hr_root_schedule
 msgid "Scheduling"
-msgstr ""
+msgstr "Horarios"
 
 #. module: hr_schedule
 #: view:hr.schedule.alert:0
