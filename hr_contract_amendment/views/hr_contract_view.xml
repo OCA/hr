@@ -16,5 +16,3 @@
 
 
 </odoo>
-
-<!--<button name="cancel_voucher" string="Cancel Voucher" type="object" states="posted" confirm="Are you sure you want to unreconcile this record?"/>-->

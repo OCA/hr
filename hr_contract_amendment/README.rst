@@ -3,18 +3,17 @@
    :alt: License: AGPL-3
 
 =====================
-HR CONTRACT AMENDMENT
+hr contract amendment
 =====================
 
 This module extends the functionality of HR contract to keep history of change
 and to allow you to saw when and who made contract change
 
-Installation
-============
+For usability field 'notes' is not save has save until an other fields is change,
+see write method in contract.py for comments.
 
-To install this module, you need to:
+so you can add notes to every amendment and set notes outside of amendment system
 
- just install it
 
 Usage
 =====
@@ -25,13 +24,13 @@ on save change on contract each time new amendment is create whith on change row
 Known issues / Roadmap
 ======================
 
-may add print button on amendment
+ *may add print button on amendment
 
 Bug Tracker
 ===========
 
 Bugs are tracked on `GitHub Issues
-<https://github.com/OCA/HR/issues>`_. In case of trouble, please
+<https://github.com/OCA/hr/issues>`_. In case of trouble, please
 check there if your issue has already been reported. If you spotted it first,
 help us smash it by providing detailed and welcomed feedback.
 

@@ -1,0 +1,185 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* hr_contract_amendment
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-03-09 09:32+0000\n"
+"PO-Revision-Date: 2018-03-09 10:40+0100\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: fr\n"
+"X-Generator: Poedit 1.8.7.1\n"
+
+#. module: hr_contract_amendment
+#: model:ir.model.fields,field_description:hr_contract_amendment.field_hr_contract_amendment_changes_amendment_id
+msgid "Amendment"
+msgstr "Avenant"
+
+#. module: hr_contract_amendment
+#: model:ir.model.fields,field_description:hr_contract_amendment.field_hr_contract_amendment_name
+msgid "Amendment name"
+msgstr "Intitulé avenant"
+
+#. module: hr_contract_amendment
+#: model:ir.ui.view,arch_db:hr_contract_amendment.hr_contract_button_amendment
+msgid "Amendments"
+msgstr "Avenant"
+
+#. module: hr_contract_amendment
+#: selection:hr.contract.amendment,amendment_type:0
+msgid "CHANGEMENT DE POSTE"
+msgstr "CHANGEMENT DE POSTE"
+
+#. module: hr_contract_amendment
+#: code:addons/hr_contract_amendment/models/hr_contract_amendment.py:35
+#, python-format
+msgid "CONTRACT_SITUATION"
+msgstr "SITUATION CONTRACTUELLE"
+
+#. module: hr_contract_amendment
+#: model:ir.model.fields,field_description:hr_contract_amendment.field_hr_contract_amendment_modifications_ids
+msgid "Changes"
+msgstr "Changements"
+
+#. module: hr_contract_amendment
+#: model:ir.model,name:hr_contract_amendment.model_hr_contract
+msgid "Contract"
+msgstr "Contrat"
+
+#. module: hr_contract_amendment
+#: model:ir.model.fields,field_description:hr_contract_amendment.field_hr_contract_amendment_changes_value_name
+msgid "Contract attribute name"
+msgstr "élément du contrat"
+
+#. module: hr_contract_amendment
+#: model:ir.actions.act_window,name:hr_contract_amendment.action_hr_contract_amendment
+#: model:ir.ui.menu,name:hr_contract_amendment.menu_action_hr_contract_amendment
+msgid "Contracts Amendments"
+msgstr "Avenants Contrats"
+
+#. module: hr_contract_amendment
+#: model:ir.model.fields,field_description:hr_contract_amendment.field_hr_contract_amendment_changes_create_uid
+#: model:ir.model.fields,field_description:hr_contract_amendment.field_hr_contract_amendment_create_uid
+msgid "Created by"
+msgstr "Créer par"
+
+#. module: hr_contract_amendment
+#: model:ir.model.fields,field_description:hr_contract_amendment.field_hr_contract_amendment_changes_create_date
+#: model:ir.model.fields,field_description:hr_contract_amendment.field_hr_contract_amendment_create_date
+msgid "Created on"
+msgstr "Créer le "
+
+#. module: hr_contract_amendment
+#: model:ir.model.fields,field_description:hr_contract_amendment.field_hr_contract_amendment_date
+msgid "Date"
+msgstr "Date "
+
+#. module: hr_contract_amendment
+#: model:ir.model.fields,field_description:hr_contract_amendment.field_hr_contract_amendment_changes_display_name
+#: model:ir.model.fields,field_description:hr_contract_amendment.field_hr_contract_amendment_display_name
+msgid "Display Name"
+msgstr "Nom"
+
+#. module: hr_contract_amendment
+#: selection:hr.contract.amendment,amendment_type:0
+msgid "HORAIRES DE TRAVAIL"
+msgstr "HORAIRES DE TRAVAIL"
+
+#. module: hr_contract_amendment
+#: model:ir.model,name:hr_contract_amendment.model_hr_contract_amendment
+msgid "HR contract amendment"
+msgstr "RH avenant contrat"
+
+#. module: hr_contract_amendment
+#: model:ir.model,name:hr_contract_amendment.model_hr_contract_amendment_changes
+msgid "HR contract amendment change"
+msgstr "RH modification au contrat "
+
+#. module: hr_contract_amendment
+#: model:ir.model.fields,field_description:hr_contract_amendment.field_hr_contract_amendment_changes_id
+#: model:ir.model.fields,field_description:hr_contract_amendment.field_hr_contract_amendment_id
+msgid "ID"
+msgstr "ID"
+
+#. module: hr_contract_amendment
+#: code:addons/hr_contract_amendment/models/hr_contract_amendment.py:32
+#, python-format
+msgid "JOB_CHANGE"
+msgstr "CHANGEMENT DE POSTE"
+
+#. module: hr_contract_amendment
+#: model:ir.model.fields,field_description:hr_contract_amendment.field_hr_contract_amendment___last_update
+#: model:ir.model.fields,field_description:hr_contract_amendment.field_hr_contract_amendment_changes___last_update
+msgid "Last Modified on"
+msgstr "Dernière Modification le"
+
+#. module: hr_contract_amendment
+#: model:ir.model.fields,field_description:hr_contract_amendment.field_hr_contract_amendment_changes_write_uid
+#: model:ir.model.fields,field_description:hr_contract_amendment.field_hr_contract_amendment_write_uid
+msgid "Last Updated by"
+msgstr "Dernière Modification par"
+
+#. module: hr_contract_amendment
+#: model:ir.model.fields,field_description:hr_contract_amendment.field_hr_contract_amendment_changes_write_date
+#: model:ir.model.fields,field_description:hr_contract_amendment.field_hr_contract_amendment_write_date
+msgid "Last Updated on"
+msgstr "Dernière Modification le"
+
+#. module: hr_contract_amendment
+#: selection:hr.contract.amendment,amendment_type:0
+msgid "MODIFICATION DE SALAIRE"
+msgstr "MODIFICATION DE SALAIRE"
+
+#. module: hr_contract_amendment
+#: model:ir.model.fields,field_description:hr_contract_amendment.field_hr_contract_amendment_amendment_type
+msgid "Modification type"
+msgstr "Type de changements"
+
+#. module: hr_contract_amendment
+#: model:ir.model.fields,field_description:hr_contract_amendment.field_hr_contract_amendment_changes_value_new
+msgid "New value"
+msgstr "Nouvelle valeur"
+
+#. module: hr_contract_amendment
+#: model:ir.model.fields,field_description:hr_contract_amendment.field_hr_contract_amendment_contract_id
+msgid "Referenced Contract"
+msgstr "Contrat"
+
+#. module: hr_contract_amendment
+#: model:ir.model.fields,field_description:hr_contract_amendment.field_hr_contract_amendment_user_id
+msgid "Registered by"
+msgstr "Enregistré par"
+
+#. module: hr_contract_amendment
+#: code:addons/hr_contract_amendment/models/hr_contract_amendment.py:33
+#, python-format
+msgid "SALARY_CHANGE"
+msgstr "CHANGEMENT DU SALAIRE"
+
+#. module: hr_contract_amendment
+#: selection:hr.contract.amendment,amendment_type:0
+msgid "SITUATION CONTRACTUELLE"
+msgstr "SITUATION CONTRACTUELLE"
+
+#. module: hr_contract_amendment
+#: model:ir.model.fields,field_description:hr_contract_amendment.field_hr_contract_amendment_changes_value_before
+msgid "Value before change"
+msgstr "Valeur avant modification"
+
+#. module: hr_contract_amendment
+#: code:addons/hr_contract_amendment/models/hr_contract_amendment.py:34
+#, python-format
+msgid "WORKING_HOURS_CHANGE"
+msgstr "CHANGEMENT DU TEMPS DE TRAVAIL"
+
+#. module: hr_contract_amendment
+#: model:ir.model.fields,field_description:hr_contract_amendment.field_hr_contract_amendment_ids
+msgid "contract"
+msgstr "contrat"

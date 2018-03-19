@@ -1,3 +1,5 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_hr_contract_amendment,access_hr_contract_amendment,model_hr_contract_amendment,,1,0,0,0
-access_hr_contract_amendment_changes,access_hr_contract_amendment_changes,model_hr_contract_amendment_changes,,1,0,0,0
+contract_amendment1,access_hr_contract_amendment,model_hr_contract_amendment,hr.group_hr_user,1,1,1,0
+contract_amendment,access_hr_contract_amendment,model_hr_contract_amendment,hr.group_hr_manager,1,1,1,1
+contract_amendment_changes1,access_hr_contract_amendment_changes,model_hr_contract_amendment_changes,hr.group_hr_user,1,1,1,0
+contract_amendment_changes,access_hr_contract_amendment_changes,model_hr_contract_amendment_changes,hr.group_hr_manager,1,1,1,1

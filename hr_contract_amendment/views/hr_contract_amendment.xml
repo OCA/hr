@@ -5,7 +5,7 @@
         <field name="arch" type="xml">
             <tree name="amendment_contract">
                 <field name="contract_id"/>
-                <field name="amendment_number"/>
+                <field name="name"/>
                 <field name="amendment_type"/>
                 <field name="user_id"/>
                 <field name="date"/>
@@ -20,7 +20,7 @@
                 <sheet>
                     <group>
                         <field name="contract_id"/>
-                        <field name="amendment_number"/>
+                        <field name="name"/>
                         <field name="amendment_type"/>
                         <field name="modifications_ids"/>
                     </group>
@@ -30,19 +30,20 @@
     </record>
 
 
-        <record id="action_hr_contract_amendment" model="ir.actions.act_window">
-            <field name="name">Contracts Amendments</field>
-            <field name="type">ir.actions.act_window</field>
-            <field name="res_model">hr.contract.amendment</field>
-            <field name="view_mode">tree,form</field>
-            <field name="help" type="html">
-              <p class="oe_view_nocontent_create">
+    <record id="action_hr_contract_amendment" model="ir.actions.act_window">
+        <field name="name">Contracts Amendments</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hr.contract.amendment</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
                 <!-- Add Text Here -->
-              </p><p>
+            </p>
+            <p>
                 <!-- More details about what a user can do with this object will be OK -->
-              </p>
-            </field>
-        </record>
+            </p>
+        </field>
+    </record>
 
     <record id="hr_contract_amendment_changes_view_form" model="ir.ui.view">
         <field name="model">hr.contract.amendment.changes</field>
@@ -50,8 +51,8 @@
             <form name="view_changes_form">
                 <sheet>
                     <group>
-                        <field name="amendment"/>
-                        <field name="value_name"  />
+                        <field name="amendment_id"/>
+                        <field name="value_name"/>
                         <field name="value_before"/>
                         <field name="value_new"/>
                     </group>
@@ -64,22 +65,15 @@
         <field name="model">hr.contract.amendment.changes</field>
         <field name="arch" type="xml">
             <tree name="view_changes_tree">
-                    <field name="value_name"  />
-                    <field name="value_before"/>
-                    <field name="value_new"/>
+                <field name="value_name"/>
+                <field name="value_before"/>
+                <field name="value_new"/>
             </tree>
         </field>
     </record>
-        <menuitem
-    id="hr_menu_amendment_contract"
-    name="Amendment Contracts"
-    parent="hr.menu_hr_root"
-    sequence="6"
-    groups="hr.group_hr_user"/>
 
-        <menuitem id="menu_action_hr_contract"
-              action="action_hr_contract_amendment"
-              parent="hr_menu_amendment_contract"
-              sequence="6"/>
-
+    <menuitem id="menu_action_hr_contract_amendment"
+    action="action_hr_contract_amendment"
+    parent="hr.menu_human_resources_configuration"
+    sequence="6"/>
 </odoo>

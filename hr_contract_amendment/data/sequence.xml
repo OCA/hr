@@ -1,7 +1,7 @@
-<odoo>
+<odoo noupdate="1">
     <record model="ir.sequence" id="amendment_sequence">
-        <field name="name">amendment numerotation</field>
-        <field name="code">amendment.number</field>
+        <field name="name">amendment name</field>
+        <field name="code">name</field>
         <field name="prefix">amend_</field>
         <field name="padding">4</field>
         <field name="implementation">no_gap</field>
