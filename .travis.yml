@@ -18,6 +18,8 @@ addons:
 env:
   global:
   - VERSION="10.0" TESTS="0" LINT_CHECK="0" TRANSIFEX="0"
+  - VERSION="10.0" ODOO_REPO="OCA/OCB" EXCLUDE="hr_payroll_cancel" LINT_CHECK="0"
+  - VERSION="10.0" ODOO_REPO="odoo/odoo" EXCLUDE="hr_payroll_cancel" LINT_CHECK="0"
   - TRANSIFEX_USER='transbot@odoo-community.org'
   - secure: "BP8oV2E7jR8n/gMKGTneEdSfvy4ysUVP1CCYSJl9PMzZWvFbktXIiFasB2RFGnX7Q5b6gLttpWkJXAtI//cPvg7neEENmNLGvbcIJxMdXYtvJ9m+EM3/R3lo1Xt/mtkE5N/MbTGvsGYvuhHB9ZRk3qRjmIr42TjdIwGdbMZEHS4="
   matrix:
