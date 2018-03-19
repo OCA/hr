@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<openerp>
+	<data>
+
+		<record model="ir.ui.view" id="view_hr_payroll_allowance_form">
+			<field name="name">Salary Allowances Categories</field>
+			<field name="model">hr.payroll.allowance</field>
+			<field name="arch" type="xml">
+				<form string="Payroll Allowances">
+					<sheet>
+						<div class="oe_title">
+							<label for="name" class="oe_edit_only" />
+							<h1>
+								<field name="name" nolabel="1" />
+							</h1>
+						</div>
+						<group>
+							<group>
+								<field name="code" />
+								<field name="struct_id" />
+								<field name="sequence" />
+								<field name="interval" />
+								<field name="yearly_payment_strategy"
+									attrs="{'invisible':[('interval','!=', 'yearly')], 'required':[('interval','=', 'yearly')],}" />
+								<field name="yearly_payment_prorate"
+									attrs="{'invisible':[('yearly_payment_strategy','!=', 'yearly')]}" />
+								<field name="active" />
+							</group>
+							<group>
+								<field name="register_id" />
+								<field name="rule_id" />
+							</group>
+
+						</group>
+						<notebook>
+							<page string="Reason for Allowance">
+								<field name="note" colspan="4" nolabel="1" />
+							</page>
+						</notebook>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="hr_payroll_allowance_tree">
+			<field name="name">hr.payroll.allowance.tree</field>
+			<field name="model">hr.payroll.allowance</field>
+			<field name="arch" type="xml">
+				<tree string="Payroll Allowances">
+					<field name="name" />
+					<field name="code" />
+					<field name="struct_id" />
+				</tree>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_hr_payroll_allowance">
+			<field name="name">Salary Allowances Categories</field>
+			<field name="res_model">hr.payroll.allowance</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+
+		<menuitem action="action_hr_payroll_allowance" id="menu_hr_payroll_allowance"
+			parent="hr_payroll.payroll_configure" groups="base.group_hr_user"
+			sequence="21" />
+
+
+	</data>
+</openerp>
