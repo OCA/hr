@@ -4,7 +4,6 @@
 
 {
     'name': "HR Contract Amendment",
-
     'summary': """
         HR contract Extension
         Amendment Hr contract""",
