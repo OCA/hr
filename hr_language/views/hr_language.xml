@@ -1,29 +1,5 @@
-<openerp>
-  <data>
-    <!-- Employee -->
-    <record model="ir.ui.view" id="view_employee_form">
-        <field name="name">hr.language.employee.form</field>
-        <field name="model">hr.employee</field>
-        <field name="inherit_id" ref="hr.view_employee_form"/>
-        <field name="arch" type="xml">
-            <notebook position="inside">
-                <page string="Languages" groups="base.group_hr_user">
-                    <field name="language_ids" nolabel="1" colspan="4">
-                        <tree string="Language" editable="bottom">
-                            <field name="name"/>
-                            <field name="description"/>
-                            <field name="can_read"/>
-                            <field name="can_write"/>
-                            <field name="can_speak"/>
-                        </tree>
-                    </field>
-                </page>
-            </notebook>
-        </field>
-    </record>
-
+<odoo>
     <!-- Language -->
-
     <record model="ir.ui.view" id="view_language_tree">
         <field name="name">hr.language.tree</field>
         <field name="model">hr.language</field>
@@ -68,9 +44,7 @@
     </record>
 
     <menuitem name="Languages"
-              parent="hr.menu_hr_configuration"
+              parent="hr.menu_human_resources_configuration"
               id="menu_open_view_language_form"
               action="open_view_language_form"/>
-
-  </data>
-</openerp>
+</odoo>
