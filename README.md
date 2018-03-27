@@ -40,6 +40,7 @@ addon | version | summary
 [hr_holidays_notify_employee_manager](hr_holidays_notify_employee_manager/) | 10.0.1.0.0 | Notify employee's manager by mail on Leave Requests creation.
 [hr_holidays_settings](hr_holidays_settings/) | 10.0.1.1.0 | Enables Settings Form for HR Holidays.
 [hr_holidays_validity_date](hr_holidays_validity_date/) | 10.0.1.0.0 | Allow to define start and end date on holidays type.
+[hr_language](hr_language/) | 10.0.0.1.0 | Language Management
 [hr_payroll_cancel](hr_payroll_cancel/) | 10.0.1.0.0 | Hr Payroll Cancel
 [hr_public_holidays](hr_public_holidays/) | 10.0.1.0.0 | Manage Public Holidays
 [hr_recruitment_skill](hr_recruitment_skill/) | 10.0.1.0.0 | Add skills on job position
@@ -67,7 +68,6 @@ addon | version | summary
 [hr_job_categories](hr_job_categories/) | 8.0.1.0.0 (unported) | HR Job Employee Categories
 [hr_job_hierarchy](hr_job_hierarchy/) | 1.0 (unported) | Job Hierarchy
 [hr_labour_union](hr_labour_union/) | 1.0 (unported) | Labour Union
-[hr_language](hr_language/) | 8.0.0.1.0 (unported) | Language Management
 [hr_payroll_register](hr_payroll_register/) | 1.0 (unported) | Payroll Register
 [hr_payslip_amendment](hr_payslip_amendment/) | 1.0 (unported) | Pay Slip Amendment
 [hr_payslip_move_date](hr_payslip_move_date/) | 8.0.0.1.0 (unported) | HR Payslip Move Date
