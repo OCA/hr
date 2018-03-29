@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+        <!-- Employment Termination Reason -->
+        <record id="term_contract_end_termination" model="hr.employee.termination.reason">
+            <field name="name">Termination</field>
+        </record>
+        <record id="term_contract_end_resign" model="hr.employee.termination.reason">
+            <field name="name">Resignation</field>
+        </record>
+        <record id="term_contract_end_retirement" model="hr.employee.termination.reason">
+            <field name="name">Retirement</field>
+        </record>
+        <record id="term_contract_end" model="hr.employee.termination.reason">
+            <field name="name">Contract Ended</field>
+        </record>
+        <record id="term_contract_died" model="hr.employee.termination.reason">
+            <field name="name">Died</field>
+        </record>
+        
+    </data>
+</openerp>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+    <data>
+        
+        <!-- Termination Reason -->
+        
+        <record id="open_termination_reason" model="ir.actions.act_window">
+            <field name="name">Employment Termination Reasons</field>
+            <field name="res_model">hr.employee.termination.reason</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem id="menu_hr_employee_termination_reason"
+            action="open_termination_reason"
+            parent="hr.menu_hr_configuration"
+            sequence="5"/>
+        
+    </data>
+</openerp>
