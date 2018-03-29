@@ -62,7 +62,7 @@
         </record>
         <menuitem action="open_contract_init"
             id="menu_hr_contract_init"
-            parent="hr_contract.next_id_56"
+            parent="hr_contract.hr_menu_contract"
             sequence="10"/>
         
         <!-- Initial Wages -->
@@ -80,6 +80,7 @@
             </field>
         </record>
         
+        <!-- module hr_simply was deleted
         <record id="view_init_wage_form" model="ir.ui.view">
             <field name="name">hr.contract.init.wage.form</field>
             <field name="model">hr.contract.init.wage</field>
@@ -98,6 +99,7 @@
                 </form>
             </field>
         </record>
+        -->
         
         <!-- Contract -->
         
