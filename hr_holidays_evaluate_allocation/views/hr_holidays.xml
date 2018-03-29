@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+    <data>
+        <delete model="ir.ui.menu"
+            id="hr_holidays.menu_request_approve_allocation" />
+        <delete model="ir.ui.menu" id="hr_holidays.menu_open_allocation_holidays" />
+    </data>
+</openerp>
