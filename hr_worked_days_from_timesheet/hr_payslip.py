@@ -44,11 +44,6 @@ class hr_payslip(orm.Model):
         worked_days = {}
         # Create one worked days record for each timesheet sheet
         for ts_sheet in timesheet_sheets:
-            # Get formated date from the timesheet sheet
-            date_from = datetime.strptime(
-                ts_sheet.date_from,
-                DEFAULT_SERVER_DATE_FORMAT
-            ).strftime(date_format)
             # Create a worked days record with no time
             worked_days[ts_sheet.id] = {
                 'name': _('Timesheet %s') % date_from,
@@ -146,8 +141,8 @@ class hr_payslip(orm.Model):
             if (
                 # We need only the timesheet sheets that overlap
                 # the payslip period.
-                date_from <= ts_sheet.date_from <= date_to or
-                date_from <= ts_sheet.date_to <= date_to
+                date_from <= ts_sheet.date_to and
+                ts_sheet.date_from <= date_to
 
                 # We want only approved timesheets
             ) and ts_sheet.state == 'done'
