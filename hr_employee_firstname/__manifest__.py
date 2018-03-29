@@ -19,6 +19,7 @@
     ],
     'data': [
         'views/hr_view.xml',
+        'views/base_config_view.xml',
     ],
     "post_init_hook": "post_init_hook",
     'demo': [],
