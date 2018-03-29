@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+  <data>
+   
+    <!-- Wizard view -->
+    <record id="print_run_contrib_register_form" model="ir.ui.view">
+      <field name="name">print.run.contrib_register.form</field>
+      <field name="model">print.run.contrib_register</field>
+      <field name="arch" type="xml">
+        <form string="Print Contribution Register">
+          <group>
+            <field name="contrib_register_ids" nolabel="1"/>
+          </group>
+          <footer>
+            <button name="print_contrib_register" string="Print Registers" type="object" class="oe_highlight"/>
+            or
+            <button string="Cancel" class="oe_link" special="cancel"/>
+          </footer>
+        </form>
+      </field>
+    </record>
+
+    <!-- Wizard action -->
+    <record id="action_print_run_contrib_register" model="ir.actions.act_window">
+      <field name="name">Contribution Registers</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">print.run.contrib_register</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">form</field>
+      <field name="target">new</field>
+    </record>
+
+    <!-- Action placement -->
+    <record model="ir.values" id="payroll_run_contrib_register_print">
+            <field name="model_id" ref="hr_payroll.model_hr_payslip_run"/>
+            <field name="name">Print Contrib Register</field>
+            <field name="key2">client_print_multi</field>
+            <field name="value"
+                eval="'ir.actions.act_window,' +str(ref('action_print_run_contrib_register'))"/>
+            <field name="key">action</field>
+            <field name="model">hr.payslip.run</field>
+        </record>
+
+  </data>
+</openerp>
