@@ -1,3 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- © 2013 Savoir-faire Linux
+     © 2016 OpenSynergy Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html). -->
 <openerp>
   <data>
     <!-- Employee -->
@@ -11,10 +15,12 @@
                     <field name="language_ids" nolabel="1" colspan="4">
                         <tree string="Language" editable="bottom">
                             <field name="name"/>
+                            <field name="employee_id"/>
+                            <field name="read_rating"/>
+                            <field name="speak_rating"/>
+                            <field name="listen_rating"/>
+                            <field name="write_rating"/>
                             <field name="description"/>
-                            <field name="can_read"/>
-                            <field name="can_write"/>
-                            <field name="can_speak"/>
                         </tree>
                     </field>
                 </page>
@@ -30,10 +36,12 @@
         <field name="arch" type="xml">
             <tree string="Languages">
                 <field name="employee_id"/>
+                <field name="employee_id"/>
+                <field name="read_rating"/>
+                <field name="speak_rating"/>
+                <field name="listen_rating"/>
+                <field name="write_rating"/>
                 <field name="description"/>
-                <field name="can_read"/>
-                <field name="can_write"/>
-                <field name="can_speak"/>
             </tree>
         </field>
     </record>
@@ -44,16 +52,14 @@
         <field name="arch" type="xml">
             <form string="Language">
                 <sheet>
-                    <group>
+                    <group name="main" colspan="4">
                         <field name="name"/>
-                        <field name="description"/>
                         <field name="employee_id"/>
-                        <newline/>
-                        <field name="can_read"/>
-                        <newline/>
-                        <field name="can_write"/>
-                        <newline/>
-                        <field name="can_speak"/>
+                        <field name="read_rating"/>
+                        <field name="speak_rating"/>
+                        <field name="listen_rating"/>
+                        <field name="write_rating"/>
+                        <field name="description"/>
                     </group>
                 </sheet>
             </form>
