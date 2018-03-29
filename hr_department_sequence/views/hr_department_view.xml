@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<openerp>
+<odoo>
     <data>
         
         <record id="hr_department_view" model="ir.ui.view">
@@ -35,7 +35,7 @@
             <field name="model">hr.department</field>
             <field name="inherit_id" ref="hr.view_department_tree"/>
             <field name="arch" type="xml">
-                <xpath expr="//field[@name='complete_name']" position="after">
+                <xpath expr="//field[@name='display_name']" position="after">
                     <field name="code"/>
                 </xpath>
             </field>
@@ -53,4 +53,4 @@
         </record>
 
     </data>
-</openerp>
+</odoo>
