@@ -8,7 +8,7 @@
         <field name="arch" type="xml">
             <notebook position="inside">
                 <page string="Skills">
-                    <field name="skill_ids" widget="many2many_tags"/>
+                    <field name="skill_ids" />
                 </page>
             </notebook>
         </field>

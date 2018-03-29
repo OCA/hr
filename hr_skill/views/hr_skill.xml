@@ -34,6 +34,10 @@
 
     <!-- Menu and Actions -->
 
+    <menuitem name="Skills Management"
+              parent="hr.menu_human_resources_configuration"
+              id="menu_hr_skill_mgt"/>
+
     <record id="open_view_skill_form" model="ir.actions.act_window">
         <field name="name">Skills</field>
         <field name="res_model">hr.skill</field>
@@ -42,7 +46,7 @@
     </record>
 
     <menuitem name="Skills"
-              parent="hr.menu_human_resources_configuration"
+              parent="menu_hr_skill_mgt"
               id="menu_open_view_skill_form"
               action="open_view_skill_form"/>
 
@@ -55,7 +59,7 @@
     </record>
 
     <menuitem name="Skills Structure"
-              parent="menu_open_view_skill_form"
+              parent="menu_hr_skill_mgt"
               id="menu_open_view_skill_tree"
               action="open_view_skill_tree"/>
 

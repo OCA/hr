@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_resume2_template">
+        <t t-call="report.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="report.external_layout">
+
+                    <div class="page">
+                        <div class="oe_structure"/>
+                        <div class="row">
+                            <h2>RESUME</h2>
+                            <!--<img t-if="o.image"-->
+                                 <!--t-att-src="'data:image/png;base64,%s' % o.image"-->
+                                 <!--style="max-height: 45px;"/>-->
+                            <h2>
+                                <span t-field="o.name"/>
+                            </h2>
+                            <h2>
+                                <span t-field="o.job_id.name"/>
+                            </h2>
+                        </div>
+
+                        <div class="row">
+                            <div>
+                                <h4>Biography</h4>
+                                <hr/>
+                                <span t-field="o.biography"/>
+                            </div>
+                        </div>
+                        <!--//row-->
+
+                        <div class="row">
+                            <div>
+                                <h4>Skills</h4>
+                                <hr/>
+
+                                <ul>
+                                    <t t-foreach="o.skill_ids" t-as="skill">
+                                        <li>
+                                            <span t-field="skill.name"/>
+                                        </li>
+                                    </t>
+                                </ul>
+                            </div>
+                        </div>
+                        <!--//row-->
+
+                        <div class="row">
+                            <div>
+                                <h4>Certifications</h4>
+                                <hr/>
+
+                                <ul>
+                                    <t t-foreach="o.certification_ids" t-as="line">
+                                        <li>
+                                            <p>
+                                                <strong>
+                                                    <span t-field="line.name"/>
+                                                </strong>
+                                                ,
+                                                <span t-field="line.partner_id.name"/>
+                                            </p>
+                                            <p>
+                                                <span t-field="line.start_date"/>
+                                                -
+                                                <t t-if="line.expire">
+                                                    <span t-field="line.end_date"/>
+                                                </t>
+                                                <t t-if="not line.expire">
+                                                    Now
+                                                </t>
+                                            </p>
+
+                                            <t t-if="line.certification">
+                                                <p>Certification Number:
+                                                    <span t-field="line.certification"/>
+                                                </p>
+                                            </t>
+                                        </li>
+                                    </t>
+                                </ul>
+                            </div>
+                        </div>
+                        <!--//row-->
+
+                        <div class="row">
+                            <div>
+                                <h4>Professional Experiences</h4>
+                                <hr/>
+
+                                <ul>
+                                    <t t-foreach="o.experience_ids" t-as="line">
+                                        <li>
+                                            <p>
+                                                <strong>
+                                                    <span t-field="line.name"/>
+                                                    <span t-field="line.location"/>
+                                                </strong>
+                                            </p>
+                                            <p>
+                                                <span t-field="line.start_date"/>
+                                                -
+                                                <t t-if="line.expire">
+                                                    <span t-field="line.end_date"/>
+                                                </t>
+                                                <t t-if="not line.expire">
+                                                    Now
+                                                </t>
+                                            </p>
+                                            <p>
+                                                <span t-field="line.partner_id.name"/>
+                                            </p>
+                                            <p>
+                                                <span t-field="line.description"/>
+                                            </p>
+                                        </li>
+                                    </t>
+                                </ul>
+                            </div>
+                        </div>
+                        <!--//row-->
+
+                        <div class="row">
+                            <div>
+                                <h4>Academic Background</h4>
+                                <hr/>
+
+                                <ul>
+                                    <t t-foreach="o.academic_ids" t-as="line">
+                                        <li>
+                                            <p>
+                                                <strong>
+                                                    <span t-field="line.name"/>
+                                                </strong>
+                                            </p>
+                                            <p>
+                                                <span t-field="line.start_date"/>
+                                                -
+                                                <t t-if="line.expire">
+                                                    <span t-field="line.end_date"/>
+                                                </t>
+                                                <t t-if="not line.expire">
+                                                    Now
+                                                </t>
+                                            </p>
+                                            <p>
+                                                <span t-field="line.partner_id.name"/>
+                                            </p>
+
+                                            <t t-if="line.diploma">
+                                                <p>
+                                                    <span t-field="line.diploma"/>
+                                                </p>
+                                            </t>
+
+                                            <t t-if="line.study_field">
+                                                <p>Field of Study:
+                                                    <span t-field="line.study_field"/>
+                                                </p>
+                                            </t>
+                                        </li>
+                                    </t>
+                                </ul>
+                            </div>
+                        </div>
+                        <!--//row-->
+
+                        <div class="row">
+                            <div>
+                                <h4>Languages</h4>
+                                <hr/>
+
+                                <ul>
+                                    <t t-foreach="o.language_ids" t-as="language">
+                                        <li>
+                                            <span t-field="language.description"/>:
+
+                                            <t t-if="language.can_read">
+                                                Read,
+                                            </t>
+                                            <t t-if="language.can_write">
+                                                Write,
+                                            </t>
+                                            <t t-if="language.can_speak">
+                                                Speak.
+                                            </t>
+                                        </li>
+                                    </t>
+                                </ul>
+                            </div>
+                        </div>
+                        <!--//row-->
+
+
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <report id="report_resume2"
+            string="Print CV"
+            model="hr.employee"
+            report_type="qweb-pdf"
+            file="hr_resume.report_resume2_template"
+            name="hr_resume.report_resume2_template"
+            auto="False"
+            menu="True"/>
+</odoo>
