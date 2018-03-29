@@ -17,23 +17,6 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-{
-    'name': 'Pay Slip Amendment',
-    'version': '1.0',
-    'category': 'Human Resources',
-    'author': "Michael Telahun Makonnen <mmakonnen@gmail.com>, "
-              "Odoo Community Association (OCA)",
-    'summary': "Add Amendments to Current and Future Pay Slips",
-    'website': 'http://miketelahun.wordpress.com',
-    'license': 'AGPL-3',
-    'depends': [
-        'hr_payroll',
-    ],
-    'data': [
-        'views/hr_payslip_amendment_category_view.xml',
-        'views/hr_payslip_amendment_view.xml',
-        'views/hr_payslip_amendment_workflow.xml',
-        'security/ir.model.access.csv'
-    ],
-    'installable': True,
-}
+from . import hr_payslip_amendment_category
+from . import hr_payslip_amendment
+from . import hr_payslip

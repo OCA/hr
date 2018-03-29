@@ -1,0 +1,4 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_hr_payslip_amendment_category_user","hr_payslip_amendment_category","model_hr_payslip_amendment_category","base.group_hr_manager",1,1,1,1
+"access_hr_payslip_amendment_category_read","hr_payslip_amendment_caegory_read","model_hr_payslip_amendment_category","base.group_hr_user",1,0,0,0
+"access_hr_payslip_amendment_user","hr_payslip_amendment","model_hr_payslip_amendment","base.group_hr_user",1,1,1,1
