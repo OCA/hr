@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2016 OpenSynergy Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<openerp>
+<data>
+
+<record id="hr_employee_view_form" model="ir.ui.view">
+    <field name="name">hr.employee form</field>
+    <field name="model">hr.employee</field>
+    <field name="inherit_id" ref="hr.view_employee_form"/>
+    <field name="arch" type="xml">
+        <data>
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button name="%(hr_loan_action_employee)d"
+                    class="oe_stat_button"
+                    icon="fa-money"
+                    type="action">
+                    <field name="loan_count" widget="statinfo" string="Loan(s)"/>
+                </button>
+                <button name="%(hr_loan_payment_schedule_action_employee)d"
+                    class="oe_stat_button"
+                    icon="fa-money"
+                    type="action">
+                    <div>
+                        <field name="loan_payment_schedule_count" widget="statinfo" string="Repayment(s)"/>
+                    </div>
+                </button>
+            </xpath>
+        </data>
+    </field>
+</record>
+
+</data>
+</openerp>

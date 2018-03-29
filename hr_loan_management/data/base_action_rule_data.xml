@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2016 OpenSynergy Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<openerp>
+<data>
+
+<record id="base_action_rule_01" model="base.action.rule">
+    <field name="name">Employee Loan Realization</field>
+    <field name="model_id" ref="account.model_account_move_line"/>
+    <field name="sequence" eval="1"/>
+    <field name="kind">on_write</field>
+    <field name="server_action_ids" eval="[(4, ref('hr_loan_management.ir_action_server_01'))]"/>
+    <field name="filter_id" ref="hr_loan_management.ir_filter_04"/>
+</record>
+
+<record id="base_action_rule_02" model="base.action.rule">
+    <field name="name">Employee Loan Payment</field>
+    <field name="model_id" ref="account.model_account_move_line"/>
+    <field name="sequence" eval="1"/>
+    <field name="kind">on_write</field>
+    <field name="server_action_ids" eval="[(4, ref('hr_loan_management.ir_action_server_02'))]"/>
+    <field name="filter_id" ref="hr_loan_management.ir_filter_04"/>
+</record>
+</data>
+</openerp>

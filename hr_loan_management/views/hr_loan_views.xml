@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2016 OpenSynergy Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<openerp>
+<data>
+
+<record id="hr_loan_view_tree" model="ir.ui.view">
+    <field name="name">hr.loan tree</field>
+    <field name="model">hr.loan</field>
+    <field name="arch" type="xml">
+        <tree string="Employee Loan">
+            <field name="display_name" string="# Loan"/>
+            <field name="employee_id"/>
+            <field name="request_date"/>
+            <field name="loan_type_id"/>
+            <field name="currency_id" invisible="1"/>
+            <field name="loan_amount" sum="Total Loan Amount"/>
+            <field name="manual_loan_period"/>
+            <field name="interest"/>
+            <field name="state"/>
+        </tree>
+    </field>
+</record>
+
+<record id="hr_loan_view_search" model="ir.ui.view">
+    <field name="name">hr.loan search</field>
+    <field name="model">hr.loan</field>
+    <field name="arch" type="xml">
+        <search string="Employee Loan">
+            <field name="name"/>
+            <field name="employee_id"/>
+            <field name="request_date"/>
+            <field name="loan_type_id"/>
+            <field name="state"/>
+            <group name="grp_group" string="Group By..">
+                <filter name="group_employee" string="Employee" context="{'group_by':'employee_id'}"/>
+                <filter name="group_type" string="Loan Type" context="{'group_by':'loan_type_id'}"/>
+                <filter name="group_state" string="State" context="{'group_by':'state'}"/>
+            </group>
+        </search>
+    </field>
+</record>
+
+<record id="hr_loan_view_form" model="ir.ui.view">
+    <field name="name">hr.loan form</field>
+    <field name="model">hr.loan</field>
+    <field name="arch" type="xml">
+        <form string="Employee Loan">
+            <header>
+                <button name="workflow_action_confirm" string="Confirm" type="object" class="oe_highlight" states="draft"/>
+                <button name="workflow_action_approve" string="Approve" type="object" class="oe_highlight" states="confirm" groups="hr_loan_management.loan_manager_group"/>
+                <button name="workflow_action_cancel" string="Cancel" type="object" states="draft,confirm,approve"/>
+                <field name="state" widget="statusbar"/>
+            </header>
+            <sheet>
+                <group name="group_1" colspan="4" col="2">
+                    <group name="group_1_1" colspan="1" col="2">
+                        <field name="display_name" string="# Loan" class="oe_read_only"/>
+                        <field name="name" class="oe_edit_only"/>
+                        <field name="employee_id"/>
+                        <field name="request_date"/>
+                    </group>
+                    <group name="group_1_2" colspan="1" col="2">
+                        <field name="loan_type_id"/>
+                        <field name="currency_id" invisible="1"/>
+                        <field name="maximum_loan_amount" widget="monetary" options="{'currency_field':'currency_id'}"/>
+                        <field name="loan_amount" widget="monetary" options="{'currency_field':'currency_id'}"/>
+                        <field name="maximum_installment_period"/>
+                    </group>
+                </group>
+                <notebook>
+                    <page name="page_schedule" string="Repayment Terms">
+                        <button name="action_compute_payment" type="object" string="Compute Payment" icon="gtk-execute" states="draft"/>
+                        <group name="group_schedule_1" colspan="4" col="2">
+                            <field name="date_payment"/>
+                            <field name="first_payment_date"/>
+                            <field name="interest"/>
+                            <field name="manual_loan_period"/>
+                        </group>
+                        <field name="payment_schedule_ids" colspan="4" nolabel="1" readonly="1">
+                            <tree string="Payment Schedules">
+                                <field name="schedule_date"/>
+                                <field name="principle_amount" sum="Total Principle Amount"/>
+                                <field name="interest_amount" sum="Total Interest Amount"/>
+                                <field name="interest_move_line_id" invisible="1"/>
+                                <button name="%(realize_interest_action)d" type="action"
+                                    attrs="{'invisible':[
+                                        '|',
+                                        ('state', '!=', 'active'),
+                                        '&amp;',
+                                        ('state', '=', 'active'),
+                                        ('interest_move_line_id','!=',False)]}"
+                                    string="Realize Interest" icon="gtk-execute"/>
+                                <field name="installment_amount" sum="Total Installment Amount"/>
+                                <field name="principle_payment_state"/>
+                                <field name="interest_payment_state"/>
+                                <field name="state" invisible="0"/>
+                            </tree>
+                            <form string="Payment Schedule">
+                                <header>
+                                    <button name="%(realize_interest_action)d" type="action"
+                                        attrs="{'invisible':[
+                                            '|',
+                                            ('state', '!=', 'active'),
+                                            '&amp;',
+                                            ('state', '=', 'active'),
+                                            ('interest_move_line_id','!=',False)]}"
+                                        string="Realize Interest"/>
+                                </header>
+                                <group name="group_main" colspan="4" col="2">
+                                    <field name="loan_id"/>
+                                    <field name="state" invisible="1"/>
+                                    <field name="schedule_date"/>
+                                    <field name="installment_amount" widget="monetary" options="{'currency_field':'currency_id'}"/>
+                                    <field name="currency_id" invisible="1"/>
+                                </group>
+                                <notebook colspan="4">
+                                    <page name="page_principle" string="Principle">
+                                        <group name="group_principle" colspan="4" col="2">
+                                            <field name="principle_amount" widget="monetary" options="{'currency_field':'currency_id'}"/>
+                                            <field name="principle_payment_state"/>
+                                            <field name="principle_move_id"/>
+                                            <field name="principle_move_line_id"/>
+                                        </group>
+                                    </page>
+                                    <page name="page_interest" string="Interest">
+                                        <group name="group_interest" colspan="4" col="2">
+                                            <field name="interest_amount" widget="monetary" options="{'currency_field':'currency_id'}"/>
+                                            <field name="interest_payment_state"/>
+                                            <field name="interest_move_id"/>
+                                            <field name="interest_move_line_id"/>
+                                        </group>
+                                    </page>
+                                </notebook>
+                            </form>
+                        </field>
+                        <group name="group_schedulei_2" colspan="4" col="2">
+                            <field name="total_principle_amount" widget="monetary" options="{'currency_field':'currency_id'}"/>
+                            <field name="total_interest_amount" widget="monetary" options="{'currency_field':'currency_id'}"/>
+                        </group>
+                    </page>
+                    <page name="page_realization" string="Realization">
+                        <group name="grp_realization" colspan="4" col="2">
+                            <field name="date_realization"/>
+                        </group>
+                    </page>
+                    <page name="page_accounting" string="Accounting" groups="account.group_account_user">
+                        <group name="group_receivable" colspan="4" col="2" string="Receivable">
+                            <field name="move_receivable_id"/>
+                            <field name="move_line_header_id"/>
+                            <field name="realized"/>
+                        </group>
+                    </page>
+                    <page name="page_audit" string="Audit">
+                        <group name="group_audit" colspan="4" col="3">
+                            <field name="create_date"/>
+                            <field name="create_uid" nolabel="1"/>
+                            <field name="confirm_date"/>
+                            <field name="confirm_uid" nolabel="1"/>
+                            <field name="approve_date"/>
+                            <field name="approve_uid" nolabel="1"/>
+                            <field name="realization_date"/>
+                            <field name="realization_uid" nolabel="1"/>
+                            <field name="done_date"/>
+                            <field name="done_uid" nolabel="1"/>
+                            <field name="cancel_date"/>
+                            <field name="cancel_uid" nolabel="1"/>
+                        </group>
+                    </page>
+                </notebook>
+            </sheet>
+            <div class="oe_chatter">
+                <field name="message_follower_ids" widget="mail_followers"/>
+                <field name="message_ids" widget="mail_thread"/>
+            </div>
+        </form>
+    </field>
+</record>
+
+<record id="hr_loan_action" model="ir.actions.act_window">
+    <field name="name">Employee Loans</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">hr.loan</field>
+    <field name="view_type">form</field>
+    <field name="view_mode">tree,form</field>
+    <field name="search_view_id" ref="hr_loan_view_search"/>
+</record>
+
+<menuitem 
+    id="loan_header_menu"
+    name="Employee Loan"
+    parent="hr.menu_hr_root"/>
+
+<menuitem
+    id="hr_loan_menu"
+    name="Employee Loans"
+    parent="loan_header_menu"
+    action="hr_loan_action"/>
+
+<record id="hr_loan_view_tree_my_loan" model="ir.ui.view">
+    <field name="name">hr.loan tree - My Loan</field>
+    <field name="model">hr.loan</field>
+    <field name="inherit_id" ref="hr_loan_view_tree"/>
+    <field name="mode">primary</field>
+    <field name="arch" type="xml">
+        <data>
+            <xpath expr="//field[@name='employee_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+        </data>
+    </field>
+</record>
+
+<record id="hr_loan_view_form_my_loan" model="ir.ui.view">
+    <field name="name">hr.loan form - My Loan</field>
+    <field name="model">hr.loan</field>
+    <field name="inherit_id" ref="hr_loan_view_form"/>
+    <field name="mode">primary</field>
+    <field name="arch" type="xml">
+        <data>
+            <xpath expr="//field[@name='employee_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//button[@name='workflow_action_approve']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//page[@name='page_accounting']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//page[@name='page_audit']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+        </data>
+    </field>
+</record>
+
+<record id="hr_loan_action_my_loan" model="ir.actions.act_window">
+    <field name="name">My Loans</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">hr.loan</field>
+    <field name="view_type">form</field>
+    <field name="view_mode">tree,form</field>
+    <field name="search_view_id" ref="hr_loan_view_search"/>
+    <field name="domain">[('employee_id.user_id', '=', uid)]</field>
+</record>
+
+<record id="hr_loan_act_window_tree_my_loan" model="ir.actions.act_window.view">
+    <field name="sequence" eval="1"/>
+    <field name="view_mode">tree</field>
+    <field name="view_id" ref="hr_loan_view_tree_my_loan"/>
+    <field name="act_window_id" ref="hr_loan_action_my_loan"/>
+</record>
+
+<record id="hr_loan_act_window_form_my_loan" model="ir.actions.act_window.view">
+    <field name="sequence" eval="1"/>
+    <field name="view_mode">form</field>
+    <field name="view_id" ref="hr_loan_view_form_my_loan"/>
+    <field name="act_window_id" ref="hr_loan_action_my_loan"/>
+</record>
+
+<menuitem
+    id="hr_loan_menu_my_loan"
+    name="My Loans"
+    parent="loan_header_menu"
+    action="hr_loan_action_my_loan"/>
+
+<record id="hr_loan_payment_schedule_view_search" model="ir.ui.view">
+    <field name="name">hr.loan.payment.schedule search</field>
+    <field name="model">hr.loan.payment.schedule</field>
+    <field name="arch" type="xml">
+        <search>
+            <field name="loan_id"/>
+            <field name="schedule_date"/>
+            <field name="principle_payment_state"/>
+            <field name="interest_payment_state"/>
+        </search>
+    </field>
+</record>
+
+<record id="hr_loan_payment_schedule_view_tree" model="ir.ui.view">
+    <field name="name">hr.loan.payment.schedule tree</field>
+    <field name="model">hr.loan.payment.schedule</field>
+    <field name="arch" type="xml">
+        <tree string="Employee Loan Payment Schedule" create="false" edit="false" delete="false">
+            <field name="loan_id"/>
+            <field name="employee_id"/>
+            <field name="schedule_date"/>
+            <field name="currency_id" invisible="1"/>
+            <field name="principle_amount" sum="Total Principle Amount"/>
+            <field name="interest_amount" sum="Total Interest Amount"/>
+            <field name="interest_move_line_id" invisible="1"/>
+            <button name="%(realize_interest_action)d" type="action"
+                attrs="{'invisible':[
+                    '|',
+                    ('state', '!=', 'active'),
+                    '&amp;',
+                    ('state', '=', 'active'),
+                    ('interest_move_line_id','!=',False)]}"
+                string="Realize Interest" icon="gtk-execute"/>
+            <field name="installment_amount" sum="Total Installment Amount"/>
+            <field name="principle_payment_state"/>
+            <field name="interest_payment_state"/>
+            <field name="state" invisible="1"/>
+        </tree>
+    </field>
+</record>
+
+<record id="hr_loan_payment_schedule_view_form" model="ir.ui.view">
+    <field name="name">hr.loan.payment.schedule form</field>
+    <field name="model">hr.loan.payment.schedule</field>
+    <field name="arch" type="xml">
+        <form string="Employee Loan Payment Schedule" create="false" edit="false" delete="false">
+            <header>
+                <button name="%(realize_interest_action)d" type="action"
+                    attrs="{'invisible':[
+                        '|',
+                        ('state', '!=', 'active'),
+                        '&amp;',
+                        ('state', '=', 'active'),
+                        ('interest_move_line_id','!=',False)]}"
+                    string="Realize Interest"/>
+            </header>
+            <sheet>
+                <group name="group_main" colspan="4" col="2">
+                    <field name="loan_id"/>
+                    <field name="state" invisible="1"/>
+                    <field name="employee_id"/>
+                    <field name="schedule_date"/>
+                    <field name="installment_amount" widget="monetary" options="{'currency_field':'currency_id'}"/>
+                    <field name="currency_id" invisible="1"/>
+                </group>
+                <notebook colspan="4">
+                    <page name="page_principle" string="Principle">
+                        <group name="group_principle" colspan="4" col="2">
+                            <field name="principle_amount" widget="monetary" options="{'currency_field':'currency_id'}"/>
+                            <field name="principle_payment_state"/>
+                            <field name="principle_move_id" groups="account.group_account_user"/>
+                            <field name="principle_move_line_id" groups="account.group_account_user"/>/>
+                        </group>
+                    </page>
+                    <page name="page_interest" string="Interest">
+                        <group name="group_interest" colspan="4" col="2">
+                            <field name="interest_amount" widget="monetary" options="{'currency_field':'currency_id'}"/>
+                            <field name="interest_payment_state"/>
+                            <field name="interest_move_id" groups="account.group_account_user"/>
+                            <field name="interest_move_line_id" groups="account.group_account_user"/>
+                        </group>
+                    </page>
+                </notebook>
+            </sheet>
+        </form>
+    </field>
+</record>
+
+<record id="hr_loan_payment_schedule_action" model="ir.actions.act_window">
+    <field name="name">Employee Loan Repayment Schedules</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">hr.loan.payment.schedule</field>
+    <field name="view_type">form</field>
+    <field name="view_mode">tree,form</field>
+    <field name="search_view_id" ref="hr_loan_payment_schedule_view_search"/>
+</record>
+
+<menuitem
+    id="hr_loan_payment_schedule_menu"
+    name="Repayment Schedules"
+    parent="loan_header_menu"
+    action="hr_loan_payment_schedule_action"/>
+
+<record id="hr_loan_action_employee" model="ir.actions.act_window">
+    <field name="name">Employee Loans</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">hr.loan</field>
+    <field name="view_type">form</field>
+    <field name="view_mode">tree,form</field>
+    <field name="search_view_id" ref="hr_loan_view_search"/>
+    <field name="domain">[('employee_id', '=', active_id)]</field>
+    <field name="context">{'default_employee_id': active_id}</field>
+</record>
+
+<record id="hr_loan_payment_schedule_action_employee" model="ir.actions.act_window">
+    <field name="name">Employee Loan Repayment Schedules</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">hr.loan.payment.schedule</field>
+    <field name="view_type">form</field>
+    <field name="view_mode">tree,form</field>
+    <field name="search_view_id" ref="hr_loan_payment_schedule_view_search"/>
+    <field name="domain">[('employee_id', '=', active_id)]</field>
+</record>
+</data>
+</openerp>
