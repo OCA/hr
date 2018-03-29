@@ -119,6 +119,8 @@ class ResourceCalendar(models.Model):
     def _attendance_from_simplified(self):
         self.ensure_one()
         simplified_attendance = self.simplified_attendance
+        if not simplified_attendance:
+            return []
         result = []
         rule = self.env['resource.calendar.attendance']._default_rrule()[0]
         start = fields.Datetime.from_string(simplified_attendance['start'])
