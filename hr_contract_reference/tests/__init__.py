@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright 2011,2013 Michael Telahun Makonnen
+# Copyright 2016 OpenSynergy Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from . import hr_contract
+from . import test_hr_contract_reference
