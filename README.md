@@ -14,6 +14,8 @@ Available addons
 ----------------
 addon | version | summary
 --- | --- | ---
+[hr_contract_reference](hr_contract_reference/) | 9.0.1.0.0 | HR Contract Reference
+[hr_emergency_contact](hr_emergency_contact/) | 9.0.1.0.0 | HR Emergency Contact
 [hr_employee_firstname](hr_employee_firstname/) | 9.0.1.0.0 | Adds First Name to Employee
 [hr_employee_reference](hr_employee_reference/) | 9.0.1.0.0 | Manage employee references
 [hr_expense_analytic_distribution](hr_expense_analytic_distribution/) | 9.0.1.0.0 | Use analytic plans in expenses
@@ -38,10 +40,8 @@ addon | version | summary
 [hr_contract_hourly_rate](hr_contract_hourly_rate/) | 8.0.1.0.0 (unported) | HR Contract Hourly Rate
 [hr_contract_init](hr_contract_init/) | 1.0 (unported) | Contracts - Initial Settings
 [hr_contract_multi_jobs](hr_contract_multi_jobs/) | 8.0.1.0.0 (unported) | HR Contract Multi Jobs
-[hr_contract_reference](hr_contract_reference/) | 8.0.1.0.0 (unported) | HR Contract Reference
 [hr_contract_state](hr_contract_state/) | 1.0 (unported) | Manage Employee Contracts
 [hr_department_sequence](hr_department_sequence/) | 1.0 (unported) | Add sequence on department
-[hr_emergency_contact](hr_emergency_contact/) | 1.0 (unported) | HR Emergency Contact
 [hr_employee_age](hr_employee_age/) | 8.0.1.0.0 (unported) | Age field for employee
 [hr_employee_benefit](hr_employee_benefit/) | 8.0.1.0.0 (unported) | Employee Benefit
 [hr_employee_data_from_work_address](hr_employee_data_from_work_address/) | 8.0.1.0.0 (unported) | Update user's and partner's data fields from employee record
