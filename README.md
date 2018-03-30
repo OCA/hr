@@ -46,6 +46,7 @@ addon | version | summary
 [hr_job_categories](hr_job_categories/) | 8.0.1.0.0 | HR Job Employee Categories
 [hr_language](hr_language/) | 8.0.0.1.0 | Language Management
 [hr_payroll_cancel](hr_payroll_cancel/) | 8.0.1.0.0 | Hr Payroll Cancel
+[hr_payroll_email_slip](hr_payroll_email_slip/) | 8.0.1.0.0 | Adds the ability to email employee payslip
 [hr_payslip_change_state](hr_payslip_change_state/) | 8.0.1.0.0 | Change the state of many payslips at a time
 [hr_payslip_move_date](hr_payslip_move_date/) | 8.0.0.1.0 | HR Payslip Move Date
 [hr_public_holidays](hr_public_holidays/) | 8.0.1.0.0 | Manage Public Holidays
