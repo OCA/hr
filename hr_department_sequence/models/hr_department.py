@@ -18,7 +18,7 @@
 #
 #
 
-from openerp import models, fields, api, _
+from odoo import models, fields, api, _
 
 
 class HrDepartment(models.Model):
@@ -32,13 +32,6 @@ class HrDepartment(models.Model):
     sequence = fields.Integer(string='Sequence', index=True,
                               help="Gives the sequence order when displaying "
                               "a list of departments.")
-    parent_id = fields.Many2one(ondelete='restrict')
-    parent_left = fields.Integer(string='Left Parent', index=True)
-    parent_right = fields.Integer(string='Right Parent', index=True)
-    child_ids = fields.One2many(comodel_name='hr.department',
-                                inverse_name='parent_id',
-                                string='Children Departments')
-    active = fields.Boolean(string='Active', default=True)
 
     _sql_constraints = [
         ('code_uniq', 'unique(code, company_id)',
