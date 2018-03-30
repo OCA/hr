@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_payslip_2_payment_user,hr.payslip_to_payment_order user,model_hr_payslip_to_payment_order,,1,0,0,0
