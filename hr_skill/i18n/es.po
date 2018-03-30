@@ -1,0 +1,131 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * hr_skill
+# 
+# Translators:
+# Antonio Trueba, 2016
+# Antonio Trueba, 2016
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2013
+msgid ""
+msgstr ""
+"Project-Id-Version: hr (8.0)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-05-26 02:41+0000\n"
+"PO-Revision-Date: 2016-05-24 20:25+0000\n"
+"Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
+"Language-Team: Spanish (http://www.transifex.com/oca/OCA-hr-8-0/language/es/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: es\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: hr_skill
+#: field:hr.skill,active:0
+msgid "Active"
+msgstr "Activo"
+
+#. module: hr_skill
+#: view:hr.skill:hr_skill.view_skill_form
+msgid "Child Skills"
+msgstr "Habilidades hijas"
+
+#. module: hr_skill
+#: field:hr.skill,child_ids:0
+msgid "Children"
+msgstr "Hijo"
+
+#. module: hr_skill
+#: field:hr.skill,create_uid:0
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: hr_skill
+#: field:hr.skill,create_date:0
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: hr_skill
+#: field:hr.skill,display_name:0
+msgid "Display Name"
+msgstr "Mostrar nombre"
+
+#. module: hr_skill
+#: model:ir.model,name:hr_skill.model_hr_employee
+msgid "Employee"
+msgstr "Empleado"
+
+#. module: hr_skill
+#: field:hr.skill,employee_ids:0
+msgid "Employee(s)"
+msgstr "Empleado(s)"
+
+#. module: hr_skill
+#: model:ir.actions.act_window,name:hr_skill.hr_employee_normal_action_tree
+msgid "Employees"
+msgstr "Empleados"
+
+#. module: hr_skill
+#: field:hr.skill,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: hr_skill
+#: field:hr.skill,__last_update:0
+msgid "Last Modified on"
+msgstr "Última modificación el"
+
+#. module: hr_skill
+#: field:hr.skill,write_uid:0
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: hr_skill
+#: field:hr.skill,write_date:0
+msgid "Last Updated on"
+msgstr "Última actualización en"
+
+#. module: hr_skill
+#: view:hr.skill:hr_skill.view_hr_skill_tree
+#: view:hr.skill:hr_skill.view_skill_form field:hr.skill,name:0
+msgid "Name"
+msgstr "Nombre"
+
+#. module: hr_skill
+#: field:hr.skill,parent_id:0
+msgid "Parent"
+msgstr "Padre"
+
+#. module: hr_skill
+#: field:hr.skill,parent_left:0
+msgid "Parent Left"
+msgstr ""
+
+#. module: hr_skill
+#: field:hr.skill,parent_right:0
+msgid "Parent Right"
+msgstr ""
+
+#. module: hr_skill
+#: view:hr.skill:hr_skill.view_skill_form
+msgid "Skill"
+msgstr "Habilidad"
+
+#. module: hr_skill
+#: view:hr.employee:hr_skill.view_employee_skill_form
+#: field:hr.employee,skill_ids:0 view:hr.skill:hr_skill.view_hr_skill_tree
+#: model:ir.actions.act_window,name:hr_skill.open_view_skill_form
+#: model:ir.ui.menu,name:hr_skill.menu_open_view_skill_form
+msgid "Skills"
+msgstr "Habilidades"
+
+#. module: hr_skill
+#: model:ir.ui.menu,name:hr_skill.menu_hr_skill_mgt
+msgid "Skills Management"
+msgstr "Manejo de Habilidades"
+
+#. module: hr_skill
+#: model:ir.actions.act_window,name:hr_skill.open_view_skill_tree
+#: model:ir.ui.menu,name:hr_skill.menu_open_view_skill_tree
+msgid "Skills Structure"
+msgstr "Jerarquía de Habilidades"

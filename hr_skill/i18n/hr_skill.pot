@@ -1,0 +1,92 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* hr_skill
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 7.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-11-14 22:11+0000\n"
+"PO-Revision-Date: 2013-11-14 22:11+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hr_skill
+#: field:hr.skill,name:0
+msgid "Name"
+msgstr ""
+
+#. module: hr_skill
+#: field:hr.skill,parent_id:0
+msgid "Parent"
+msgstr ""
+
+#. module: hr_skill
+#: model:ir.model,name:hr_skill.model_hr_skill
+msgid "hr.skill"
+msgstr ""
+
+#. module: hr_skill
+#: view:hr.employee:0
+#: field:hr.employee,skill_ids:0
+#: view:hr.skill:0
+#: model:ir.ui.menu,name:hr_skill.menu_open_view_skill_form
+msgid "Skills"
+msgstr ""
+
+#. module: hr_skill
+#: model:ir.actions.act_window,name:hr_skill.hr_employee_normal_action_tree
+msgid "Employees"
+msgstr ""
+
+#. module: hr_skill
+#: model:ir.ui.menu,name:hr_skill.menu_open_view_skill_tree
+msgid "Skills Structure"
+msgstr ""
+
+#. module: hr_skill
+#: model:ir.model,name:hr_skill.model_hr_employee
+msgid "Employee"
+msgstr ""
+
+#. module: hr_skill
+#: model:ir.actions.act_window,name:hr_skill.open_view_skill_tree
+msgid "Skills structure"
+msgstr ""
+
+#. module: hr_skill
+#: field:hr.skill,employee_ids:0
+msgid "Employee(s)"
+msgstr ""
+
+#. module: hr_skill
+#: model:ir.ui.menu,name:hr_skill.menu_hr_skill_mgt
+msgid "Skills Management"
+msgstr ""
+
+#. module: hr_skill
+#: field:hr.skill,active:0
+msgid "Active"
+msgstr ""
+
+#. module: hr_skill
+#: view:hr.skill:0
+#: field:hr.skill,view:0
+#: selection:hr.skill,view:0
+msgid "Skill"
+msgstr ""
+
+#. module: hr_skill
+#: field:hr.skill,child_ids:0
+msgid "Children"
+msgstr ""
+
+#. module: hr_skill
+#: selection:hr.skill,view:0
+msgid "View"
+msgstr ""
+

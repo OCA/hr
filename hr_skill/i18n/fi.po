@@ -1,0 +1,119 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * hr_skill
+# 
+# Translators:
+# Jarmo Kortetjärvi <jarmo.kortetjarvi@gmail.com>, 2016
+msgid ""
+msgstr ""
+"Project-Id-Version: hr (8.0)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-04-14 04:15+0000\n"
+"PO-Revision-Date: 2016-04-04 11:07+0000\n"
+"Last-Translator: Jarmo Kortetjärvi <jarmo.kortetjarvi@gmail.com>\n"
+"Language-Team: Finnish (http://www.transifex.com/oca/OCA-hr-8-0/language/fi/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: fi\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: hr_skill
+#: field:hr.skill,active:0
+msgid "Active"
+msgstr "Aktiivinen"
+
+#. module: hr_skill
+#: view:hr.skill:hr_skill.view_skill_form
+msgid "Child Skills"
+msgstr "Taidon alaluokat"
+
+#. module: hr_skill
+#: field:hr.skill,child_ids:0
+msgid "Children"
+msgstr "Alaluokat"
+
+#. module: hr_skill
+#: field:hr.skill,create_uid:0
+msgid "Created by"
+msgstr "Luonut"
+
+#. module: hr_skill
+#: field:hr.skill,create_date:0
+msgid "Created on"
+msgstr "Luotu"
+
+#. module: hr_skill
+#: model:ir.model,name:hr_skill.model_hr_employee
+msgid "Employee"
+msgstr "Työntekijä"
+
+#. module: hr_skill
+#: field:hr.skill,employee_ids:0
+msgid "Employee(s)"
+msgstr "Työntekijä(t)"
+
+#. module: hr_skill
+#: model:ir.actions.act_window,name:hr_skill.hr_employee_normal_action_tree
+msgid "Employees"
+msgstr "Työntekijät"
+
+#. module: hr_skill
+#: field:hr.skill,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: hr_skill
+#: field:hr.skill,write_uid:0
+msgid "Last Updated by"
+msgstr "Viimeksi päivittänyt"
+
+#. module: hr_skill
+#: field:hr.skill,write_date:0
+msgid "Last Updated on"
+msgstr "Viimeksi päivitetty"
+
+#. module: hr_skill
+#: view:hr.skill:hr_skill.view_hr_skill_tree
+#: view:hr.skill:hr_skill.view_skill_form field:hr.skill,name:0
+msgid "Name"
+msgstr "Nimi"
+
+#. module: hr_skill
+#: field:hr.skill,parent_id:0
+msgid "Parent"
+msgstr "Yllätaso"
+
+#. module: hr_skill
+#: field:hr.skill,parent_left:0
+msgid "Parent Left"
+msgstr "Vasen ylätaso"
+
+#. module: hr_skill
+#: field:hr.skill,parent_right:0
+msgid "Parent Right"
+msgstr "Oikea ylätaso"
+
+#. module: hr_skill
+#: view:hr.skill:hr_skill.view_skill_form
+msgid "Skill"
+msgstr "Taito"
+
+#. module: hr_skill
+#: view:hr.employee:hr_skill.view_employee_skill_form
+#: field:hr.employee,skill_ids:0 view:hr.skill:hr_skill.view_hr_skill_tree
+#: model:ir.actions.act_window,name:hr_skill.open_view_skill_form
+#: model:ir.ui.menu,name:hr_skill.menu_open_view_skill_form
+msgid "Skills"
+msgstr "Taidot"
+
+#. module: hr_skill
+#: model:ir.ui.menu,name:hr_skill.menu_hr_skill_mgt
+msgid "Skills Management"
+msgstr "Taitojen hallinta"
+
+#. module: hr_skill
+#: model:ir.actions.act_window,name:hr_skill.open_view_skill_tree
+#: model:ir.ui.menu,name:hr_skill.menu_open_view_skill_tree
+msgid "Skills Structure"
+msgstr "Taitojen rakenne"

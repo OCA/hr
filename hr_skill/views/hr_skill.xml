@@ -1,0 +1,49 @@
+<odoo>
+
+    <record id="view_hr_skill_tree" model="ir.ui.view">
+        <field name="name">hr.skill.tree</field>
+        <field name="model">hr.skill</field>
+        <field name="field_parent">child_ids</field>
+        <field name="arch" type="xml">
+            <tree string="Skills">
+                <field name="display_name" string="Name"/>
+                <field name="employee_ids" widget="many2many_tags"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_skill_form" model="ir.ui.view">
+        <field name="name">hr.skill.form</field>
+        <field name="model">hr.skill</field>
+        <field name="arch" type="xml">
+            <form string="Skill">
+                <group>
+                    <field name="name"/>
+                    <field name="active"/>
+                    <field name="parent_id"/>
+                </group>
+                <field name="child_ids" string="Name">
+                    <tree editable="bottom"  string="Child Skills">
+                        <field name="name"/>
+                    </tree>
+                </field>
+            </form>
+        </field>
+    </record>
+
+    <!-- Menu and Actions -->
+
+    <record id="open_view_skill_form" model="ir.actions.act_window">
+        <field name="name">Skills</field>
+        <field name="res_model">hr.skill</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Skills"
+              parent="hr.menu_human_resources_configuration"
+              id="menu_open_view_skill_form"
+              action="open_view_skill_form"
+              groups="base.group_no_one"/>
+
+</odoo>
