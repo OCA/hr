@@ -3,18 +3,15 @@
 # * hr_skill
 # 
 # Translators:
-# Rudolf Schnapka <rs@techno-flex.de>, 2015
-# Rudolf Schnapka <schnapkar@golive-saar.de>, 2015
-# Thomas A. Jaeger, 2015
-# Thomas A. Jaeger, 2015
+# OCA Transbot <transbot@odoo-community.org>, 2018
 msgid ""
 msgstr ""
-"Project-Id-Version: hr (8.0)\n"
+"Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-19 11:54+0000\n"
-"PO-Revision-Date: 2015-11-24 09:17+0000\n"
-"Last-Translator: Rudolf Schnapka <rs@techno-flex.de>\n"
-"Language-Team: German (http://www.transifex.com/oca/OCA-hr-8-0/language/de/)\n"
+"POT-Creation-Date: 2018-03-30 07:32+0000\n"
+"PO-Revision-Date: 2018-03-30 07:32+0000\n"
+"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2018\n"
+"Language-Team: German (https://www.transifex.com/oca/teams/23907/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -22,29 +19,34 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: hr_skill
-#: field:hr.skill,active:0
+#: model:ir.model.fields,field_description:hr_skill.field_hr_skill_active
 msgid "Active"
 msgstr "Aktiv"
 
 #. module: hr_skill
-#: view:hr.skill:hr_skill.view_skill_form
+#: model:ir.ui.view,arch_db:hr_skill.view_skill_form
 msgid "Child Skills"
 msgstr "Untergeordnete Fähigkeiten"
 
 #. module: hr_skill
-#: field:hr.skill,child_ids:0
+#: model:ir.model.fields,field_description:hr_skill.field_hr_skill_child_ids
 msgid "Children"
 msgstr "Untergeordnete"
 
 #. module: hr_skill
-#: field:hr.skill,create_uid:0
+#: model:ir.model.fields,field_description:hr_skill.field_hr_skill_create_uid
 msgid "Created by"
 msgstr "Erstellt von"
 
 #. module: hr_skill
-#: field:hr.skill,create_date:0
+#: model:ir.model.fields,field_description:hr_skill.field_hr_skill_create_date
 msgid "Created on"
 msgstr "Angelegt am"
+
+#. module: hr_skill
+#: model:ir.model.fields,field_description:hr_skill.field_hr_skill_display_name
+msgid "Display Name"
+msgstr "Anzeigename"
 
 #. module: hr_skill
 #: model:ir.model,name:hr_skill.model_hr_employee
@@ -52,7 +54,7 @@ msgid "Employee"
 msgstr "Angestellte"
 
 #. module: hr_skill
-#: field:hr.skill,employee_ids:0
+#: model:ir.model.fields,field_description:hr_skill.field_hr_skill_employee_ids
 msgid "Employee(s)"
 msgstr "Angestellte(r)"
 
@@ -62,61 +64,62 @@ msgid "Employees"
 msgstr "Angestellte"
 
 #. module: hr_skill
-#: field:hr.skill,id:0
+#: model:ir.model.fields,field_description:hr_skill.field_hr_skill_id
 msgid "ID"
 msgstr "ID"
 
 #. module: hr_skill
-#: field:hr.skill,write_uid:0
+#: model:ir.model.fields,field_description:hr_skill.field_hr_skill___last_update
+msgid "Last Modified on"
+msgstr "Zuletzt geändert am"
+
+#. module: hr_skill
+#: model:ir.model.fields,field_description:hr_skill.field_hr_skill_write_uid
 msgid "Last Updated by"
 msgstr "Zuletzt aktualisiert durch"
 
 #. module: hr_skill
-#: field:hr.skill,write_date:0
+#: model:ir.model.fields,field_description:hr_skill.field_hr_skill_write_date
 msgid "Last Updated on"
 msgstr "Zuletzt aktualisiert am"
 
 #. module: hr_skill
-#: view:hr.skill:hr_skill.view_hr_skill_tree
-#: view:hr.skill:hr_skill.view_skill_form field:hr.skill,name:0
+#: model:ir.model.fields,field_description:hr_skill.field_hr_skill_name
+#: model:ir.ui.view,arch_db:hr_skill.view_hr_skill_tree
+#: model:ir.ui.view,arch_db:hr_skill.view_skill_form
 msgid "Name"
 msgstr "Bezeichnung"
 
 #. module: hr_skill
-#: field:hr.skill,parent_id:0
+#: model:ir.model.fields,field_description:hr_skill.field_hr_skill_parent_id
 msgid "Parent"
 msgstr "Übergeordneter"
 
 #. module: hr_skill
-#: field:hr.skill,parent_left:0
+#: model:ir.model.fields,field_description:hr_skill.field_hr_skill_parent_left
 msgid "Parent Left"
 msgstr "Übergeordnet Links"
 
 #. module: hr_skill
-#: field:hr.skill,parent_right:0
+#: model:ir.model.fields,field_description:hr_skill.field_hr_skill_parent_right
 msgid "Parent Right"
 msgstr "Übergeordnet Rechts"
 
 #. module: hr_skill
-#: view:hr.skill:hr_skill.view_skill_form
+#: model:ir.ui.view,arch_db:hr_skill.view_skill_form
 msgid "Skill"
 msgstr "Fähigkeit"
 
 #. module: hr_skill
-#: view:hr.employee:hr_skill.view_employee_skill_form
-#: field:hr.employee,skill_ids:0 view:hr.skill:hr_skill.view_hr_skill_tree
 #: model:ir.actions.act_window,name:hr_skill.open_view_skill_form
+#: model:ir.model.fields,field_description:hr_skill.field_hr_employee_skill_ids
 #: model:ir.ui.menu,name:hr_skill.menu_open_view_skill_form
+#: model:ir.ui.view,arch_db:hr_skill.view_employee_skill_form
+#: model:ir.ui.view,arch_db:hr_skill.view_hr_skill_tree
 msgid "Skills"
 msgstr "Fähigkeiten"
 
 #. module: hr_skill
-#: model:ir.ui.menu,name:hr_skill.menu_hr_skill_mgt
-msgid "Skills Management"
-msgstr "Fähigkeitenverwaltung"
-
-#. module: hr_skill
-#: model:ir.actions.act_window,name:hr_skill.open_view_skill_tree
-#: model:ir.ui.menu,name:hr_skill.menu_open_view_skill_tree
-msgid "Skills Structure"
-msgstr "Fähigkeitenhierarchie"
+#: model:ir.model,name:hr_skill.model_hr_skill
+msgid "hr.skill"
+msgstr ""
