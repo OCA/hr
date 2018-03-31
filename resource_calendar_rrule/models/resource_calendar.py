@@ -262,3 +262,14 @@ class ResourceCalendar(models.Model):
             datetime.datetime.now(),
             datetime.datetime.now() + datetime.timedelta(days=7),
         )
+
+    def interval_remove_leaves(self, interval, leave_intervals):
+        """ Some installations use negative intervals, support them """
+        if interval and interval[0] > interval[1]:
+            flipped_interval = [interval[1], interval[0]]
+            intervals = super(ResourceCalendar, self).interval_remove_leaves(
+                flipped_interval, leave_intervals)
+            return [(i[1], i[0]) for i in intervals]
+        else:
+            return super(ResourceCalendar, self).interval_remove_leaves(
+                interval, leave_intervals)
