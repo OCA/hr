@@ -3,14 +3,15 @@
 # * hr_language
 # 
 # Translators:
+# OCA Transbot <transbot@odoo-community.org>, 2018
 msgid ""
 msgstr ""
-"Project-Id-Version: hr (8.0)\n"
+"Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-18 13:10+0000\n"
-"PO-Revision-Date: 2015-07-27 23:44+0000\n"
-"Last-Translator: <>\n"
-"Language-Team: Romanian (http://www.transifex.com/oca/OCA-hr-8-0/language/ro/)\n"
+"POT-Creation-Date: 2018-03-27 02:55+0000\n"
+"PO-Revision-Date: 2018-03-27 02:55+0000\n"
+"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2018\n"
+"Language-Team: Romanian (https://www.transifex.com/oca/teams/23907/ro/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -34,12 +35,22 @@ msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
+msgid "Basque / Euskara"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
 msgid "Bosnian / bosanski jezik"
 msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "Bulgarian / български език"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "Burmese / ဗမာစာ"
 msgstr ""
 
 #. module: hr_language
@@ -63,12 +74,12 @@ msgid "Chinese (TW) / 正體字"
 msgstr ""
 
 #. module: hr_language
-#: field:hr.language,create_uid:0
+#: model:ir.model.fields,field_description:hr_language.field_hr_language_create_uid
 msgid "Created by"
 msgstr "Creeat de către"
 
 #. module: hr_language
-#: field:hr.language,create_date:0
+#: model:ir.model.fields,field_description:hr_language.field_hr_language_create_date
 msgid "Created on"
 msgstr "Creeat în"
 
@@ -88,8 +99,13 @@ msgid "Danish / Dansk"
 msgstr ""
 
 #. module: hr_language
-#: field:hr.language,description:0
+#: model:ir.model.fields,field_description:hr_language.field_hr_language_description
 msgid "Description"
+msgstr ""
+
+#. module: hr_language
+#: model:ir.model.fields,field_description:hr_language.field_hr_language_display_name
+msgid "Display Name"
 msgstr ""
 
 #. module: hr_language
@@ -103,10 +119,15 @@ msgid "Dutch / Nederlands"
 msgstr ""
 
 #. module: hr_language
-#: field:hr.language,employee_id:0
 #: model:ir.model,name:hr_language.model_hr_employee
+#: model:ir.model.fields,field_description:hr_language.field_hr_language_employee_id
 msgid "Employee"
 msgstr "Angajat"
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "English"
+msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
@@ -116,11 +137,6 @@ msgstr ""
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "English (UK)"
-msgstr ""
-
-#. module: hr_language
-#: selection:hr.language,name:0
-msgid "English (US)"
 msgstr ""
 
 #. module: hr_language
@@ -165,6 +181,11 @@ msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
+msgid "German (CH) / Deutsch (CH)"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
 msgid "German / Deutsch"
 msgstr ""
 
@@ -194,7 +215,7 @@ msgid "Hungarian / Magyar"
 msgstr ""
 
 #. module: hr_language
-#: field:hr.language,id:0
+#: model:ir.model.fields,field_description:hr_language.field_hr_language_id
 msgid "ID"
 msgstr "ID"
 
@@ -220,6 +241,11 @@ msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
+msgid "Khmer / ភាសាខ្មែរ"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
 msgid "Korean (KP) / 한국어 (KP)"
 msgstr ""
 
@@ -229,17 +255,24 @@ msgid "Korean (KR) / 한국어 (KR)"
 msgstr ""
 
 #. module: hr_language
-#: view:hr.language:hr_language.view_language_form field:hr.language,name:0
+#: model:ir.model.fields,field_description:hr_language.field_hr_language_name
+#: model:ir.ui.view,arch_db:hr_language.hr_employee_form
+#: model:ir.ui.view,arch_db:hr_language.view_language_form
 msgid "Language"
 msgstr ""
 
 #. module: hr_language
-#: view:hr.employee:hr_language.view_employee_form
-#: field:hr.employee,language_ids:0
-#: view:hr.language:hr_language.view_language_tree
 #: model:ir.actions.act_window,name:hr_language.open_view_language_form
+#: model:ir.model.fields,field_description:hr_language.field_hr_employee_language_ids
 #: model:ir.ui.menu,name:hr_language.menu_open_view_language_form
+#: model:ir.ui.view,arch_db:hr_language.hr_employee_form
+#: model:ir.ui.view,arch_db:hr_language.view_language_tree
 msgid "Languages"
+msgstr ""
+
+#. module: hr_language
+#: model:ir.model.fields,help:hr_language.field_hr_employee_language_ids
+msgid "Languages of this employee"
 msgstr ""
 
 #. module: hr_language
@@ -248,12 +281,17 @@ msgid "Lao / ພາສາລາວ"
 msgstr ""
 
 #. module: hr_language
-#: field:hr.language,write_uid:0
+#: model:ir.model.fields,field_description:hr_language.field_hr_language___last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: hr_language
+#: model:ir.model.fields,field_description:hr_language.field_hr_language_write_uid
 msgid "Last Updated by"
 msgstr "Ultima actualizare de către"
 
 #. module: hr_language
-#: field:hr.language,write_date:0
+#: model:ir.model.fields,field_description:hr_language.field_hr_language_write_date
 msgid "Last Updated on"
 msgstr "Ultima actualizare în"
 
@@ -303,7 +341,7 @@ msgid "Portuguese / Português"
 msgstr ""
 
 #. module: hr_language
-#: field:hr.language,can_read:0
+#: model:ir.model.fields,field_description:hr_language.field_hr_language_can_read
 msgid "Read"
 msgstr ""
 
@@ -413,7 +451,7 @@ msgid "Spanish / Español"
 msgstr ""
 
 #. module: hr_language
-#: field:hr.language,can_speak:0
+#: model:ir.model.fields,field_description:hr_language.field_hr_language_can_speak
 msgid "Speak"
 msgstr ""
 
@@ -448,6 +486,11 @@ msgid "Vietnamese / Tiếng Việt"
 msgstr ""
 
 #. module: hr_language
-#: field:hr.language,can_write:0
+#: model:ir.model.fields,field_description:hr_language.field_hr_language_can_write
 msgid "Write"
+msgstr ""
+
+#. module: hr_language
+#: model:ir.model,name:hr_language.model_hr_language
+msgid "hr.language"
 msgstr ""
