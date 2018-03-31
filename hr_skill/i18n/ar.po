@@ -3,14 +3,15 @@
 # * hr_skill
 # 
 # Translators:
+# OCA Transbot <transbot@odoo-community.org>, 2018
 msgid ""
 msgstr ""
-"Project-Id-Version: hr (8.0)\n"
+"Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-30 05:19+0000\n"
-"PO-Revision-Date: 2016-02-25 21:28+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
-"Language-Team: Arabic (http://www.transifex.com/oca/OCA-hr-8-0/language/ar/)\n"
+"POT-Creation-Date: 2018-03-30 07:32+0000\n"
+"PO-Revision-Date: 2018-03-30 07:32+0000\n"
+"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2018\n"
+"Language-Team: Arabic (https://www.transifex.com/oca/teams/23907/ar/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -18,29 +19,34 @@ msgstr ""
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 
 #. module: hr_skill
-#: field:hr.skill,active:0
+#: model:ir.model.fields,field_description:hr_skill.field_hr_skill_active
 msgid "Active"
 msgstr ""
 
 #. module: hr_skill
-#: view:hr.skill:hr_skill.view_skill_form
+#: model:ir.ui.view,arch_db:hr_skill.view_skill_form
 msgid "Child Skills"
 msgstr ""
 
 #. module: hr_skill
-#: field:hr.skill,child_ids:0
+#: model:ir.model.fields,field_description:hr_skill.field_hr_skill_child_ids
 msgid "Children"
 msgstr ""
 
 #. module: hr_skill
-#: field:hr.skill,create_uid:0
+#: model:ir.model.fields,field_description:hr_skill.field_hr_skill_create_uid
 msgid "Created by"
 msgstr "انشئ من قبل"
 
 #. module: hr_skill
-#: field:hr.skill,create_date:0
+#: model:ir.model.fields,field_description:hr_skill.field_hr_skill_create_date
 msgid "Created on"
 msgstr "وقت الانشاء"
+
+#. module: hr_skill
+#: model:ir.model.fields,field_description:hr_skill.field_hr_skill_display_name
+msgid "Display Name"
+msgstr "إسم العرض"
 
 #. module: hr_skill
 #: model:ir.model,name:hr_skill.model_hr_employee
@@ -48,7 +54,7 @@ msgid "Employee"
 msgstr "الموظف"
 
 #. module: hr_skill
-#: field:hr.skill,employee_ids:0
+#: model:ir.model.fields,field_description:hr_skill.field_hr_skill_employee_ids
 msgid "Employee(s)"
 msgstr ""
 
@@ -58,61 +64,62 @@ msgid "Employees"
 msgstr ""
 
 #. module: hr_skill
-#: field:hr.skill,id:0
+#: model:ir.model.fields,field_description:hr_skill.field_hr_skill_id
 msgid "ID"
 msgstr ""
 
 #. module: hr_skill
-#: field:hr.skill,write_uid:0
+#: model:ir.model.fields,field_description:hr_skill.field_hr_skill___last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: hr_skill
+#: model:ir.model.fields,field_description:hr_skill.field_hr_skill_write_uid
 msgid "Last Updated by"
 msgstr "اخر تعديل من قبل"
 
 #. module: hr_skill
-#: field:hr.skill,write_date:0
+#: model:ir.model.fields,field_description:hr_skill.field_hr_skill_write_date
 msgid "Last Updated on"
 msgstr "اخر تعديل في"
 
 #. module: hr_skill
-#: view:hr.skill:hr_skill.view_hr_skill_tree
-#: view:hr.skill:hr_skill.view_skill_form field:hr.skill,name:0
+#: model:ir.model.fields,field_description:hr_skill.field_hr_skill_name
+#: model:ir.ui.view,arch_db:hr_skill.view_hr_skill_tree
+#: model:ir.ui.view,arch_db:hr_skill.view_skill_form
 msgid "Name"
 msgstr ""
 
 #. module: hr_skill
-#: field:hr.skill,parent_id:0
+#: model:ir.model.fields,field_description:hr_skill.field_hr_skill_parent_id
 msgid "Parent"
 msgstr ""
 
 #. module: hr_skill
-#: field:hr.skill,parent_left:0
+#: model:ir.model.fields,field_description:hr_skill.field_hr_skill_parent_left
 msgid "Parent Left"
 msgstr ""
 
 #. module: hr_skill
-#: field:hr.skill,parent_right:0
+#: model:ir.model.fields,field_description:hr_skill.field_hr_skill_parent_right
 msgid "Parent Right"
 msgstr ""
 
 #. module: hr_skill
-#: view:hr.skill:hr_skill.view_skill_form
+#: model:ir.ui.view,arch_db:hr_skill.view_skill_form
 msgid "Skill"
 msgstr ""
 
 #. module: hr_skill
-#: view:hr.employee:hr_skill.view_employee_skill_form
-#: field:hr.employee,skill_ids:0 view:hr.skill:hr_skill.view_hr_skill_tree
 #: model:ir.actions.act_window,name:hr_skill.open_view_skill_form
+#: model:ir.model.fields,field_description:hr_skill.field_hr_employee_skill_ids
 #: model:ir.ui.menu,name:hr_skill.menu_open_view_skill_form
+#: model:ir.ui.view,arch_db:hr_skill.view_employee_skill_form
+#: model:ir.ui.view,arch_db:hr_skill.view_hr_skill_tree
 msgid "Skills"
 msgstr ""
 
 #. module: hr_skill
-#: model:ir.ui.menu,name:hr_skill.menu_hr_skill_mgt
-msgid "Skills Management"
-msgstr ""
-
-#. module: hr_skill
-#: model:ir.actions.act_window,name:hr_skill.open_view_skill_tree
-#: model:ir.ui.menu,name:hr_skill.menu_open_view_skill_tree
-msgid "Skills Structure"
+#: model:ir.model,name:hr_skill.model_hr_skill
+msgid "hr.skill"
 msgstr ""
