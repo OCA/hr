@@ -3,14 +3,13 @@
 # * resource_calendar_rrule
 # 
 # Translators:
-# Matjaž Mozetič <m.mozetic@matmoz.si>, 2017
 # OCA Transbot <transbot@odoo-community.org>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-03 03:00+0000\n"
-"PO-Revision-Date: 2017-10-03 03:00+0000\n"
+"POT-Creation-Date: 2018-03-30 03:05+0000\n"
+"PO-Revision-Date: 2018-03-30 03:05+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
 "Language-Team: Slovenian (https://www.transifex.com/oca/teams/23907/sl/)\n"
 "MIME-Version: 1.0\n"
@@ -79,13 +78,13 @@ msgid "Resource Calendar"
 msgstr "Koledar virov"
 
 #. module: resource_calendar_rrule
-#: code:addons/resource_calendar_rrule/models/resource_calendar.py:165
+#: code:addons/resource_calendar_rrule/models/resource_calendar.py:167
 #, python-format
 msgid "Simplified attendance %s afternoon"
 msgstr "Poenostavljena popoldanska prisotnost %s"
 
 #. module: resource_calendar_rrule
-#: code:addons/resource_calendar_rrule/models/resource_calendar.py:154
+#: code:addons/resource_calendar_rrule/models/resource_calendar.py:156
 #, python-format
 msgid "Simplified attendance %s morning"
 msgstr "Poenostavljena jutranja prisotnost %s"
