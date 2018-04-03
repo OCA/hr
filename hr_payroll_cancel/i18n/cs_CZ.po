@@ -33,7 +33,7 @@ msgstr "Re-financovaný výplatní poplatek"
 #, python-format
 msgid ""
 "To cancel the Original Payslip the\n"
-"                    Refunded Payslip needed to be canceled first!"
+"                    Refunded Payslip needs to be canceled first!"
 msgstr ""
 "Chcete-li zrušit původní výplatní poplatek, musíte vrátit platbu na první "
 "platbu!"
