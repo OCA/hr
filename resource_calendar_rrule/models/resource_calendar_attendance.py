@@ -29,6 +29,7 @@ class ResourceCalendarAttendance(models.Model):
         if 'rrule' not in vals and 'dayofweek' in vals:
             rrule = self._default_rrule()
             rrule[0]['byweekday'] = [vals['dayofweek']]
+            rrule[0]['dtstart'] = '2010-01-01 00:00:00'
             vals['rrule'] = rrule
         return super(ResourceCalendarAttendance, self).create(vals)
 
