@@ -34,7 +34,7 @@ msgstr "Feuille de paie remboursée"
 #, python-format
 msgid ""
 "To cancel the Original Payslip the\n"
-"                    Refunded Payslip needed to be canceled first!"
+"                    Refunded Payslip needs to be canceled first!"
 msgstr ""
 "Pour annuler la feuille de paie originale, la\n"
 "                    feuille de paie remboursée doit être annulée en premier !"

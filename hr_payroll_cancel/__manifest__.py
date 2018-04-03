@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2014 - Vauxoo http://www.vauxoo.com/
 # Copyright 2017 Eficent Business and IT Consulting Services S.L.
 #   (http://www.eficent.com)
@@ -7,7 +6,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 {
     "name": "Hr Payroll Cancel",
-    "version": "10.0.1.0.0",
+    "version": "11.0.1.0.0",
     "author": "Vauxoo, Eficent, "
               "Serpent Consulting Services Pvt. Ltd.,"
               "Odoo Community Association (OCA)",
@@ -15,8 +14,8 @@
     "website": "http://www.vauxoo.com/",
     "license": "AGPL-3",
     "depends": [
+        "account_cancel",
         "hr_payroll_account",
-        "account_cancel"
     ],
     "data": [
         "views/hr_payslip_view.xml",

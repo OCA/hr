@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2014 - Vauxoo http://www.vauxoo.com/
 # Copyright 2017 Eficent Business and IT Consulting Services S.L.
 #   (http://www.eficent.com)
@@ -22,7 +21,7 @@ class HrPayslip(models.Model):
     @api.multi
     def refund_sheet(self):
         res = super(HrPayslip, self).refund_sheet()
-        self.refunded_id = eval(res['domain'])[0][2][0] or False
+        self.write({'refunded_id': eval(res['domain'])[0][2][0] or False})
         return res
 
     @api.multi
@@ -30,7 +29,8 @@ class HrPayslip(models.Model):
         for payslip in self:
             if payslip.refunded_id and payslip.refunded_id.state != 'cancel':
                 raise ValidationError(_("""To cancel the Original Payslip the
-                    Refunded Payslip needed to be canceled first!"""))
+                    Refunded Payslip needs to be canceled first!"""))
             payslip.move_id.button_cancel()
             payslip.move_id.unlink()
-            return payslip.write({'state': 'cancel'})
+
+        return self.write({'state': 'cancel'})
