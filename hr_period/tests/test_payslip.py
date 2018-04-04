@@ -45,7 +45,8 @@ class PayslipCase(test_hr_fiscalyear.TestHrFiscalyear):
         }
         return self.env['hr.contract'].create(contract_dict)
 
-    def _prepare_payslip_data(self, date_from, date_to, date_payment, company):
+    def _prepare_payslip_data(self, date_from, date_to, date_payment, company,
+                              run=None):
         data = {
             'employee_id': self.employee.id,
             'contract_id': self.contract.id,
@@ -54,6 +55,8 @@ class PayslipCase(test_hr_fiscalyear.TestHrFiscalyear):
             'date_payment': date_payment,
             'company_id': company.id,
         }
+        if run:
+            data.update(payslip_run_id=run.id)
         return data
 
     def _prepare_payslip_run_data(self, period):
@@ -169,9 +172,12 @@ class PayslipCase(test_hr_fiscalyear.TestHrFiscalyear):
         date_from = periods[1].date_start
         date_to = periods[1].date_end
         move_date = periods[1].date_payment
+        run_data = self._prepare_payslip_run_data(periods[1])
+        run = self.run_obj.create(run_data)
         data = self._prepare_payslip_data(
-            date_from, date_to, move_date, self.company)
+            date_from, date_to, move_date, self.company, run)
         payslip = self.payslip_obj.create(data)
+        self.assertEqual(payslip.hr_period_id, periods[1], 'Wrong pay period')
         payslip.write({'contract_id': self.contract2.id})
         payslip.onchange_contract()
         period = self.env['hr.period'].get_next_period(
