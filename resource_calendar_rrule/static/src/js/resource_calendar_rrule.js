@@ -27,25 +27,42 @@ openerp.resource_calendar_rrule = function(instance)
         },
         _get_days: function(data_key)
         {
+            var data = this.get('value')[data_key];
+            if (!data)
+                return this.proxy('_get_default_days')();
             var option_days = _.map(
-                this.options.days || _.keys(this.get('value')[data_key]),
+                this.options.days || _.keys(data),
                 function(v) {return Number.parseInt(v)}
             );
-            return _.filter(
-                this.get('value')[data_key],
+            var result = _.filter(
+                data,
                 function(value, key) {return _.contains(option_days, key)}
             );
+            return result;
+        },
+        _get_default_days: function() {
+            _days = [];
+            enabled_days = this.options.days || [0, 1, 2, 3, 4, 5, 6];
+            for (var i=0; i<enabled_days.length; i++) {
+                _days.push({
+                    day: enabled_days[i],
+                    morning: 4.0,
+                    afternoon: 4.0
+                });
+            }
+            return _days;
         },
         initialize_content: function()
         {
+            // bind change_type buttons
+            this.$('.toolbar').on('click', 'button[data-type]',
+                this.proxy('change_type')
+            );
             var value = this.get('value');
             if(this.get('effective_readonly'))
             {
                 return;
             }
-            this.$('.toolbar button[data-type]').click(
-                this.proxy('change_type')
-            );
             this.$('input[data-day]').change(this.proxy('change_hours'));
             if(!this.options.hide_start_stop)
             {
@@ -81,15 +98,15 @@ openerp.resource_calendar_rrule = function(instance)
             value.type = jQuery(e.target).data('type');
             switch(jQuery(e.target).data('type'))
             {
-                case 'odd':
-                    value['data_odd'] = _.map(value['data'], function(data)
-                    {
-                        return _.clone(data);
-                    });
-                break;
                 case 'all':
-                    delete value['data_odd'];
-                break;
+                    if (!value['data'])
+                        value['data'] = this.proxy('_get_default_days')();
+                case 'odd':
+                    if (!value['data_odd'])
+                        value['data_odd'] = _.map(value['data'], function(data)
+                        {
+                            return _.clone(data);
+                        });
             };
             this.set_value(_.extend({}, value));
             this.reinitialize();
