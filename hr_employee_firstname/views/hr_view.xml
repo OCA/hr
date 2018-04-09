@@ -5,8 +5,8 @@
         <field name="model">hr.employee</field>
         <field name="inherit_id" ref="hr.view_employee_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//label[@for='name']" position="replace">
-                <label for="firstname" class="oe_edit_only"/>
+            <xpath expr="//label[@for='name']" position="attributes">
+                <attribute name="invisible">1</attribute>
             </xpath>
             <xpath expr="//field[@name='name']" position="attributes">
                 <attribute name="invisible">1</attribute>
@@ -14,9 +14,10 @@
                 <attribute name="required">0</attribute>
             </xpath>
             <xpath expr="//field[@name='name']" position="after">
-                 <field name="firstname"/>
-            </xpath>
-            <xpath expr="//field[@name='name']/.." position="after">
+                <label for="firstname" class="oe_edit_only"/>
+                <h1>
+                    <field name="firstname"/>
+                 </h1>
                 <label for="lastname" class="oe_edit_only"/>
                 <h1>
                     <field name="lastname"/>
