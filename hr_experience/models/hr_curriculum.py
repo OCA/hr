@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2013 Savoir-faire Linux (<http://www.savoirfairelinux.com>).
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
@@ -8,10 +7,6 @@ from odoo import models, fields
 class HrCurriculum(models.Model):
     _name = 'hr.curriculum'
     _description = "Employee's Curriculum"
-
-    # Allow the possibility to attachements to curriculum
-    # even if it's a diploma, degree...
-    _inherit = 'ir.needaction_mixin'
 
     name = fields.Char('Name', required=True)
     employee_id = fields.Many2one('hr.employee',
