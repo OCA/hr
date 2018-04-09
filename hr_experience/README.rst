@@ -17,7 +17,7 @@ Installation
 
 To install this module, you need to:
 
-1.  Clone the branch 10.0 of the repository https://github.com/OCA/hr
+1.  Clone the branch 11.0 of the repository https://github.com/OCA/hr
 2.  Add the path to this repository in your configuration (addons-path)
 3.  Update the module list
 4.  Go to menu *Setting -> Modules -> Local Modules*
@@ -67,7 +67,7 @@ or you can:
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
-   :target: https://runbot.odoo-community.org/runbot/116/10.0
+   :target: https://runbot.odoo-community.org/runbot/116/11.0
 
 Known issues / Roadmap
 ======================
@@ -94,6 +94,7 @@ Contributors
 
 * El Hadji DEM <elhaji.dem@savoirfairelinux.com>
 * Andhitia Rama <andhitia.r@gmail.com>
+* David Dufresne <david.dufresne@numigi.com>
 
 Maintainer
 ----------
