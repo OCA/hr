@@ -367,3 +367,8 @@ msgstr "hr.certification"
 #: model:ir.model,name:hr_experience.model_hr_experience
 msgid "hr.experience"
 msgstr "hr.experience"
+
+#. module: hr_experience
+#: model:ir.ui.view,arch_db:hr_experience.view_employee_form_inherit
+msgid "Resume"
+msgstr "Curriculum"
