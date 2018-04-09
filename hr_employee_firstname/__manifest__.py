@@ -3,7 +3,7 @@
 
 {
     'name': 'HR Employee First Name, Last Name',
-    'version': '11.0.1.0.0',
+    'version': '11.0.1.0.1',
     'author': "Savoir-faire Linux, "
               "Fekete Mihai (Forest and Biomass Services Romania), "
               "Odoo Community Association (OCA)",
