@@ -34,4 +34,4 @@ class HrPayslip(models.Model):
             payslip.move_id.button_cancel()
             payslip.move_id.unlink()
 
-        return super(HrPayslip, self).action_payslip_cancel()
+        return self.write({'state': 'cancel'})
