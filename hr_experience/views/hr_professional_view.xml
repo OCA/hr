@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <!-- professional tree -->
-    <record model="ir.ui.view" id="view_professional_tree">
+    <record id="view_professional_tree" model="ir.ui.view">
         <field name="name">hr.experience.tree</field>
         <field name="model">hr.experience</field>
         <field name="type">tree</field>
@@ -17,8 +16,7 @@
         </field>
     </record>
 
-     <!-- professional form -->
-    <record model="ir.ui.view" id="view_professional_form">
+    <record id="view_professional_form" model="ir.ui.view">
         <field name="name">hr.experience.form</field>
         <field name="model">hr.experience</field>
         <field name="arch" type="xml">
@@ -44,8 +42,23 @@
         </field>
     </record>
 
-     <!-- Menu -->
-    <record model="ir.actions.act_window" id="open_view_professional_form">
+    <record id="view_experience_search" model="ir.ui.view">
+        <field name="name">hr.experience.form</field>
+        <field name="model">hr.experience</field>
+        <field name="arch" type="xml">
+            <search string="Search Professional Experiences">
+                <field name="name"/>
+                <field name="employee_id"/>
+                <field name="partner_id" string="Employer"/>
+                <group expand="0" name="group_by" string="Group By">
+                    <filter name="employee_id" string="Employee" context="{'group_by' : 'employee_id'}" />
+                    <filter name="partner_id" string="Employer" context="{'group_by': 'partner_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="open_view_professional_form" model="ir.actions.act_window">
         <field name="name">Professional Experiences</field>
         <field name="res_model">hr.experience</field>
         <field name="view_type">form</field>

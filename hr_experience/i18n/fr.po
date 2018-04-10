@@ -3,16 +3,14 @@
 # * hr_experience
 # 
 # Translators:
-# OCA Transbot <transbot@odoo-community.org>, 2017
-# leemannd <denis.leemann@camptocamp.com>, 2017
-# Alexandre Fayolle <alexandre.fayolle@camptocamp.com>, 2017
+# OCA Transbot <transbot@odoo-community.org>, 2018
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 10.0\n"
+"Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-23 03:45+0000\n"
-"PO-Revision-Date: 2018-02-23 03:45+0000\n"
-"Last-Translator: Alexandre Fayolle <alexandre.fayolle@camptocamp.com>, 2017\n"
+"POT-Creation-Date: 2018-06-07 02:58+0000\n"
+"PO-Revision-Date: 2018-06-07 02:58+0000\n"
+"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2018\n"
 "Language-Team: French (https://www.transifex.com/oca/teams/23907/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -32,42 +30,27 @@ msgid "# Certificate"
 msgstr "# Certificat"
 
 #. module: hr_experience
-#: model:ir.ui.view,arch_db:hr_experience.view_employee_form_inherit
-msgid "# Certification"
-msgstr "# Certification"
-
-#. module: hr_experience
 #: selection:hr.experience,category:0
 msgid "Academic"
 msgstr "Académique"
 
 #. module: hr_experience
+#: model:ir.ui.view,arch_db:hr_experience.view_academic_form
 #: model:ir.ui.view,arch_db:hr_experience.view_employee_form_inherit
 msgid "Academic Experience"
 msgstr "Expérience Académique"
 
 #. module: hr_experience
+#: model:ir.actions.act_window,name:hr_experience.open_view_academic_form
 #: model:ir.ui.menu,name:hr_experience.menu_open_view_academic_form
+#: model:ir.ui.view,arch_db:hr_experience.view_academic_tree
 #: model:ir.ui.view,arch_db:hr_experience.view_employee_form_inherit
 msgid "Academic Experiences"
 msgstr "Expériences Académiques"
 
 #. module: hr_experience
-#: model:ir.ui.view,arch_db:hr_experience.view_academic_form
-#: model:ir.ui.view,arch_db:hr_experience.view_employee_form_inherit
-msgid "Academic Information"
-msgstr "Information Académique"
-
-#. module: hr_experience
-#: model:ir.ui.view,arch_db:hr_experience.view_academic_form
-msgid "Academic experience"
-msgstr "Expérience académique"
-
-#. module: hr_experience
-#: model:ir.actions.act_window,name:hr_experience.open_view_academic_form
 #: model:ir.model.fields,field_description:hr_experience.field_hr_employee_academic_ids
 #: model:ir.model.fields,help:hr_experience.field_hr_employee_academic_ids
-#: model:ir.ui.view,arch_db:hr_experience.view_academic_tree
 msgid "Academic experiences"
 msgstr "Expériences adadémiques"
 
@@ -78,6 +61,7 @@ msgstr "Activités et associations"
 
 #. module: hr_experience
 #: model:ir.ui.view,arch_db:hr_experience.view_academic_form
+#: model:ir.ui.view,arch_db:hr_experience.view_employee_form_inherit
 msgid "Additional Information"
 msgstr "Autres Informations"
 
@@ -96,21 +80,23 @@ msgid "Certification"
 msgstr "Certificat"
 
 #. module: hr_experience
+#: model:ir.ui.view,arch_db:hr_experience.view_certification_form
+#: model:ir.ui.view,arch_db:hr_experience.view_employee_form_inherit
+msgid "Certification Information"
+msgstr "Information de certificat"
+
+#. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_certification_certification
 #: model:ir.model.fields,help:hr_experience.field_hr_certification_certification
 msgid "Certification Number"
 msgstr "Numéro de Certificat"
 
 #. module: hr_experience
-#: model:ir.ui.view,arch_db:hr_experience.view_certification_form
-msgid "Certification information"
-msgstr "Informations de certificat"
-
-#. module: hr_experience
 #: model:ir.actions.act_window,name:hr_experience.open_view_certification_form
 #: model:ir.model.fields,field_description:hr_experience.field_hr_employee_certification_ids
 #: model:ir.model.fields,help:hr_experience.field_hr_employee_certification_ids
 #: model:ir.ui.menu,name:hr_experience.menu_open_view_certification_form
+#: model:ir.ui.view,arch_db:hr_experience.view_certification_tree
 #: model:ir.ui.view,arch_db:hr_experience.view_employee_form_inherit
 msgid "Certifications"
 msgstr "Certifications"
@@ -132,19 +118,11 @@ msgid "Created on"
 msgstr "Créé le"
 
 #. module: hr_experience
-#: model:ir.ui.view,arch_db:hr_experience.view_academic_form
-#: model:ir.ui.view,arch_db:hr_experience.view_certification_form
-#: model:ir.ui.view,arch_db:hr_experience.view_employee_form_inherit
-#: model:ir.ui.view,arch_db:hr_experience.view_professional_form
-msgid "Dates"
-msgstr "Dates"
-
-#. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_academic_description
 #: model:ir.model.fields,field_description:hr_experience.field_hr_certification_description
 #: model:ir.model.fields,field_description:hr_experience.field_hr_curriculum_description
 #: model:ir.model.fields,field_description:hr_experience.field_hr_experience_description
-#: model:ir.ui.view,arch_db:hr_experience.view_certification_form
+#: model:ir.ui.view,arch_db:hr_experience.view_academic_form
 #: model:ir.ui.view,arch_db:hr_experience.view_employee_form_inherit
 #: model:ir.ui.view,arch_db:hr_experience.view_professional_form
 msgid "Description"
@@ -174,6 +152,9 @@ msgstr "Formation"
 #: model:ir.model.fields,field_description:hr_experience.field_hr_certification_employee_id
 #: model:ir.model.fields,field_description:hr_experience.field_hr_curriculum_employee_id
 #: model:ir.model.fields,field_description:hr_experience.field_hr_experience_employee_id
+#: model:ir.ui.view,arch_db:hr_experience.view_academic_search
+#: model:ir.ui.view,arch_db:hr_experience.view_certification_search
+#: model:ir.ui.view,arch_db:hr_experience.view_experience_search
 msgid "Employee"
 msgstr "Employé"
 
@@ -184,6 +165,7 @@ msgstr "Curriculum de l'Employé"
 
 #. module: hr_experience
 #: model:ir.ui.view,arch_db:hr_experience.view_employee_form_inherit
+#: model:ir.ui.view,arch_db:hr_experience.view_experience_search
 #: model:ir.ui.view,arch_db:hr_experience.view_professional_form
 #: model:ir.ui.view,arch_db:hr_experience.view_professional_tree
 msgid "Employer"
@@ -228,6 +210,13 @@ msgid "Field of study"
 msgstr "Domaine d'étude"
 
 #. module: hr_experience
+#: model:ir.ui.view,arch_db:hr_experience.view_academic_search
+#: model:ir.ui.view,arch_db:hr_experience.view_certification_search
+#: model:ir.ui.view,arch_db:hr_experience.view_experience_search
+msgid "Group By"
+msgstr "Grouper par"
+
+#. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_academic_id
 #: model:ir.model.fields,field_description:hr_experience.field_hr_certification_id
 #: model:ir.model.fields,field_description:hr_experience.field_hr_curriculum_id
@@ -236,6 +225,8 @@ msgid "ID"
 msgstr "ID"
 
 #. module: hr_experience
+#: model:ir.ui.view,arch_db:hr_experience.view_academic_form
+#: model:ir.ui.view,arch_db:hr_experience.view_academic_search
 #: model:ir.ui.view,arch_db:hr_experience.view_academic_tree
 #: model:ir.ui.view,arch_db:hr_experience.view_employee_form_inherit
 msgid "Institution"
@@ -243,6 +234,7 @@ msgstr "Etablissement"
 
 #. module: hr_experience
 #: model:ir.ui.view,arch_db:hr_experience.view_certification_form
+#: model:ir.ui.view,arch_db:hr_experience.view_certification_search
 #: model:ir.ui.view,arch_db:hr_experience.view_certification_tree
 #: model:ir.ui.view,arch_db:hr_experience.view_employee_form_inherit
 msgid "Issued By"
@@ -297,16 +289,8 @@ msgstr "Nom"
 #: model:ir.model.fields,field_description:hr_experience.field_hr_certification_partner_id
 #: model:ir.model.fields,field_description:hr_experience.field_hr_curriculum_partner_id
 #: model:ir.model.fields,field_description:hr_experience.field_hr_experience_partner_id
-#: model:ir.ui.view,arch_db:hr_experience.view_academic_form
-#: model:ir.ui.view,arch_db:hr_experience.view_employee_form_inherit
 msgid "Partner"
 msgstr "Contact"
-
-#. module: hr_experience
-#: model:ir.ui.view,arch_db:hr_experience.view_certification_form
-#: model:ir.ui.view,arch_db:hr_experience.view_professional_form
-msgid "Partner information"
-msgstr "Informations de contact"
 
 #. module: hr_experience
 #: model:ir.ui.view,arch_db:hr_experience.view_employee_form_inherit
@@ -336,22 +320,32 @@ msgid "Professional Experiences"
 msgstr "Expériences professionnelles"
 
 #. module: hr_experience
+#: model:ir.ui.view,arch_db:hr_experience.view_employee_form_inherit
+msgid "Resume"
+msgstr "Curriculum"
+
+#. module: hr_experience
+#: model:ir.ui.view,arch_db:hr_experience.view_academic_search
+msgid "Search Academic Experiences"
+msgstr "Chercher des expériences académiques"
+
+#. module: hr_experience
+#: model:ir.ui.view,arch_db:hr_experience.view_certification_search
+msgid "Search Certifications"
+msgstr "Chercher des certifications"
+
+#. module: hr_experience
+#: model:ir.ui.view,arch_db:hr_experience.view_experience_search
+msgid "Search Professional Experiences"
+msgstr "Chercher des expériences professionnelles"
+
+#. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_academic_start_date
 #: model:ir.model.fields,field_description:hr_experience.field_hr_certification_start_date
 #: model:ir.model.fields,field_description:hr_experience.field_hr_curriculum_start_date
 #: model:ir.model.fields,field_description:hr_experience.field_hr_experience_start_date
 msgid "Start date"
 msgstr "Date de début"
-
-#. module: hr_experience
-#: model:ir.ui.view,arch_db:hr_experience.view_certification_form
-msgid "certification"
-msgstr "certification"
-
-#. module: hr_experience
-#: model:ir.ui.view,arch_db:hr_experience.view_certification_tree
-msgid "certifications"
-msgstr "certifications"
 
 #. module: hr_experience
 #: model:ir.model,name:hr_experience.model_hr_academic
@@ -367,8 +361,3 @@ msgstr "hr.certification"
 #: model:ir.model,name:hr_experience.model_hr_experience
 msgid "hr.experience"
 msgstr "hr.experience"
-
-#. module: hr_experience
-#: model:ir.ui.view,arch_db:hr_experience.view_employee_form_inherit
-msgid "Resume"
-msgstr "Curriculum"
