@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <!-- certification tree -->
-    <record model="ir.ui.view" id="view_certification_tree">
+    <record id="view_certification_tree" model="ir.ui.view">
         <field name="name">hr.certification.tree</field>
         <field name="model">hr.certification</field>
         <field name="type">tree</field>
         <field name="arch" type="xml">
-            <tree string="certifications">
+            <tree string="Certifications">
                 <field name="name" string="Certification"/>
                 <field name="employee_id"/>
                 <field name="certification" string="# Certificate"/>
@@ -19,8 +18,7 @@
         </field>
     </record>
 
-    <!-- certification tree -->
-    <record model="ir.ui.view" id="view_certification_form">
+    <record id="view_certification_form" model="ir.ui.view">
         <field name="name">hr.certification.form</field>
         <field name="model">hr.certification</field>
         <field name="arch" type="xml">
@@ -48,8 +46,23 @@
         </field>
     </record>
 
-    <!-- Menu -->
-    <record model="ir.actions.act_window" id="open_view_certification_form">
+    <record id="view_certification_search" model="ir.ui.view">
+        <field name="name">hr.certification.form</field>
+        <field name="model">hr.certification</field>
+        <field name="arch" type="xml">
+            <search string="Search Certifications">
+                <field name="name"/>
+                <field name="employee_id"/>
+                <field name="partner_id" string="Issued By"/>
+                <group expand="0" name="group_by" string="Group By">
+                    <filter name="employee_id" string="Employee" context="{'group_by' : 'employee_id'}" />
+                    <filter name="partner_id" string="Issued By" context="{'group_by': 'partner_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="open_view_certification_form" model="ir.actions.act_window">
         <field name="name">Certifications</field>
         <field name="res_model">hr.certification</field>
         <field name="view_type">form</field>
