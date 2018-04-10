@@ -37,6 +37,7 @@ msgid "Academic"
 msgstr ""
 
 #. module: hr_experience
+#: model:ir.ui.view,arch_db:hr_experience.view_academic_form
 #: model:ir.ui.view,arch_db:hr_experience.view_employee_form_inherit
 msgid "Academic Experience"
 msgstr ""
@@ -51,11 +52,6 @@ msgstr ""
 #: model:ir.ui.view,arch_db:hr_experience.view_academic_form
 #: model:ir.ui.view,arch_db:hr_experience.view_employee_form_inherit
 msgid "Academic Information"
-msgstr ""
-
-#. module: hr_experience
-#: model:ir.ui.view,arch_db:hr_experience.view_academic_form
-msgid "Academic experience"
 msgstr ""
 
 #. module: hr_experience
@@ -98,7 +94,7 @@ msgstr ""
 
 #. module: hr_experience
 #: model:ir.ui.view,arch_db:hr_experience.view_certification_form
-msgid "Certification information"
+msgid "Certification Information"
 msgstr ""
 
 #. module: hr_experience
@@ -300,7 +296,7 @@ msgstr ""
 #. module: hr_experience
 #: model:ir.ui.view,arch_db:hr_experience.view_certification_form
 #: model:ir.ui.view,arch_db:hr_experience.view_professional_form
-msgid "Partner information"
+msgid "Partner Information"
 msgstr ""
 
 #. module: hr_experience
@@ -345,12 +341,12 @@ msgstr ""
 
 #. module: hr_experience
 #: model:ir.ui.view,arch_db:hr_experience.view_certification_form
-msgid "certification"
+msgid "Certification"
 msgstr ""
 
 #. module: hr_experience
 #: model:ir.ui.view,arch_db:hr_experience.view_certification_tree
-msgid "certifications"
+msgid "Certifications"
 msgstr ""
 
 #. module: hr_experience
