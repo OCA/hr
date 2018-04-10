@@ -13,7 +13,8 @@
                 <field name="certification" string="# Certificate"/>
                 <field name="partner_id" string="Issued By"/>
                 <field name="start_date"/>
-                <field name="end_date"/>
+                <field name="expire"/>
+                <field name="end_date" attrs="{'invisible':[('expire', '=', False)]}"/>
             </tree>
         </field>
     </record>
