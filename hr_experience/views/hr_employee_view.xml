@@ -23,21 +23,25 @@
                                 <field name="end_date"/>
                             </tree>
                             <form string="Academic Experience">
-                                <group name="main" col="4">
-                                    <field name="name" string="Academic Experience"/>
-                                    <separator string="Dates" colspan="4"/>
+                                <group name="main">
+                                    <field name="employee_id"/>
+                                    <field name="name"/>
+                                </group>
+                                <group name="dates" col="4">
                                     <field name="start_date"/>
-                                    <field name="expire"/>
-                                    <field name="end_date" attrs="{'invisible':[('expire', '=', False)]}"/>
-                                    <separator string="Partner" colspan="4"/>
+                                    <field name="end_date"/>
+                                </group>
+                                <group name="partner_info" col="4">
                                     <field name="partner_id" string="Institution"/>
                                     <field name="location"/>
-                                    <separator string="Academic Information" colspan="4"/>
+                                </group>
+                                <group string="Additional Information" col="4">
                                     <field name="diploma"/>
                                     <field name="study_field"/>
                                     <field name="activities"/>
-                                    <separator string="Description" colspan="4"/>
-                                    <field name="description" colspan="4" nolabel="1"/>
+                                </group>
+                                <group string="Description">
+                                    <field name="description" nolabel="1"/>
                                 </group>
                             </form>
                         </field>
@@ -51,17 +55,20 @@
                                 <field name="end_date"/>
                             </tree>
                             <form string="Professional Experience">
-                                <group name="main" col="4">
+                                <group name="main">
+                                    <field name="employee_id"/>
                                     <field name="name" string="Position"/>
-                                    <separator string="Dates" colspan="4"/>
+                                </group>
+                                <group name="dates" col="4">
                                     <field name="start_date"/>
-                                    <field name="expire"/>
-                                    <field name="end_date" attrs="{'invisible':[('expire', '=', False)]}"/>
-                                    <separator string="Partner" colspan="4"/>
+                                    <field name="end_date"/>
+                                </group>
+                                <group name="partner_info" col="4">
                                     <field name="partner_id" string="Employer"/>
                                     <field name="location"/>
-                                    <separator string="Description" colspan="4"/>
-                                    <field name="description" colspan="4" nolabel="1"/>
+                                </group>
+                                <group string="Description">
+                                    <field name="description" nolabel="1"/>
                                 </group>
                             </form>
                         </field>
@@ -77,17 +84,22 @@
                                 <field name="end_date" attrs="{'invisible':[('expire', '=', False)]}"/>
                             </tree>
                             <form string="Professional Experience">
-                                <group name="main" col="4">
+                                <group name="main">
+                                    <field name="employee_id"/>
                                     <field name="name" string="Certification"/>
-                                    <field name="certification" string="# Certification"/>
+                                </group>
+                                <group name="dates" col="4">
                                     <field name="start_date"/>
                                     <field name="expire"/>
                                     <field name="end_date" attrs="{'invisible':[('expire', '=', False)]}"/>
-                                    <separator string="Partner" colspan="4"/>
+                                </group>
+                                <group name="partner_info" col="4">
                                     <field name="partner_id" string="Issued By"/>
                                     <field name="location"/>
-                                    <separator string="Description" colspan="4"/>
-                                    <field name="description" colspan="4" nolabel="1"/>
+                                </group>
+                                <group string="Certification Information">
+                                    <field name="certification"/>
+                                    <field name="description"/>
                                 </group>
                             </form>
                         </field>

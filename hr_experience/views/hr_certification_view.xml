@@ -24,24 +24,24 @@
         <field name="name">hr.certification.form</field>
         <field name="model">hr.certification</field>
         <field name="arch" type="xml">
-            <form string="certification">
+            <form string="Certification">
                 <sheet>
                     <group name="main">
                         <field name="employee_id"/>
                         <field name="name" string="Certification"/>
-                        <separator string="Dates" colspan="4"/>
+                    </group>
+                    <group name="dates" col="4">
                         <field name="start_date"/>
                         <field name="expire"/>
                         <field name="end_date" attrs="{'invisible':[('expire', '=', False)]}"/>
-                        <separator string="Partner information" colspan="4"/>
+                    </group>
+                    <group name="partner_info" col="4">
                         <field name="partner_id" string="Issued By"/>
                         <field name="location"/>
-                        <group colspan="4">
-                            <separator string="Certification information" colspan="4"/>
-                            <field name="certification"/>
-                        </group>
-                        <separator string="Description" colspan="4"/>
-                        <field name="description" colspan="4" nolabel="1"/>
+                    </group>
+                    <group string="Certification Information">
+                        <field name="certification"/>
+                        <field name="description"/>
                     </group>
                 </sheet>
             </form>
