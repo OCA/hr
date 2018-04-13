@@ -77,8 +77,8 @@ class TestLeaveOverlap(common.TransactionCase):
         })
 
         r = self.leave_request_model.search([
-            ('employee_id','=',self.test_employee_id.id),
-            ('date_from','=', Datetime.to_string(
+            ('employee_id', '=', self.test_employee_id.id),
+            ('date_from', '=', Datetime.to_string(
                 self.today - timedelta(days=2))),
             ('date_to', '=', Datetime.to_string(
                 self.today - timedelta(seconds=1)))
@@ -99,8 +99,8 @@ class TestLeaveOverlap(common.TransactionCase):
         })
 
         r = self.leave_request_model.search([
-            ('employee_id','=',self.test_employee_id.id),
-            ('date_from','=', Datetime.to_string(
+            ('employee_id', '=', self.test_employee_id.id),
+            ('date_from', '=', Datetime.to_string(
                 self.today + timedelta(days=11, seconds=1))),
             ('date_to', '=', Datetime.to_string(
                 self.today + timedelta(days=12)))
@@ -121,8 +121,8 @@ class TestLeaveOverlap(common.TransactionCase):
         })
 
         r = self.leave_request_model.search([
-            ('employee_id','=',self.test_employee_id.id),
-            ('date_from','=', Datetime.to_string(
+            ('employee_id', '=', self.test_employee_id.id),
+            ('date_from', '=', Datetime.to_string(
                 self.today + timedelta(days=3))),
             ('date_to', '=', Datetime.to_string(
                 self.today + timedelta(days=4) - timedelta(seconds=1)))
@@ -130,8 +130,8 @@ class TestLeaveOverlap(common.TransactionCase):
         self.assertNotEquals(r, False)
 
         r = self.leave_request_model.search([
-            ('employee_id','=',self.test_employee_id.id),
-            ('date_from','=', Datetime.to_string(
+            ('employee_id', '=', self.test_employee_id.id),
+            ('date_from', '=', Datetime.to_string(
                 self.today + timedelta(days=7, seconds=1))),
             ('date_to', '=', Datetime.to_string(
                 self.today + timedelta(days=8)))
@@ -166,8 +166,8 @@ class TestLeaveOverlap(common.TransactionCase):
         })
 
         r = self.leave_request_model.search([
-            ('employee_id','=',self.test_employee_id.id),
-            ('date_from','=', Datetime.to_string(
+            ('employee_id', '=', self.test_employee_id.id),
+            ('date_from', '=', Datetime.to_string(
                 self.today - timedelta(days=1))),
             ('date_to', '=', Datetime.to_string(
                 self.today - timedelta(seconds=1)))
@@ -175,8 +175,8 @@ class TestLeaveOverlap(common.TransactionCase):
         self.assertNotEquals(r, False)
 
         r = self.leave_request_model.search([
-            ('employee_id','=',self.test_employee_id.id),
-            ('date_from','=', Datetime.to_string(
+            ('employee_id', '=', self.test_employee_id.id),
+            ('date_from', '=', Datetime.to_string(
                 self.today + timedelta(days=2, seconds=1))),
             ('date_to', '=', Datetime.to_string(
                 self.today + timedelta(days=4) - timedelta(seconds=1)))
@@ -184,8 +184,8 @@ class TestLeaveOverlap(common.TransactionCase):
         self.assertNotEquals(r, False)
 
         r = self.leave_request_model.search([
-            ('employee_id','=',self.test_employee_id.id),
-            ('date_from','=', Datetime.to_string(
+            ('employee_id', '=', self.test_employee_id.id),
+            ('date_from', '=', Datetime.to_string(
                 self.today + timedelta(days=7, seconds=1))),
             ('date_to', '=', Datetime.to_string(
                 self.today + timedelta(days=9) - timedelta(seconds=1)))
@@ -193,8 +193,8 @@ class TestLeaveOverlap(common.TransactionCase):
         self.assertNotEquals(r, False)
 
         r = self.leave_request_model.search([
-            ('employee_id','=',self.test_employee_id.id),
-            ('date_from','=', Datetime.to_string(
+            ('employee_id', '=', self.test_employee_id.id),
+            ('date_from', '=', Datetime.to_string(
                 self.today + timedelta(days=11, seconds=1))),
             ('date_to', '=', Datetime.to_string(
                 self.today + timedelta(days=13)))
