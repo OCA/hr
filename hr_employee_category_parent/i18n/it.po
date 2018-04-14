@@ -1,9 +1,8 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# * hr_employee_age
+# * hr_employee_category_parent
 # 
 # Translators:
-# OCA Transbot <transbot@odoo-community.org>, 2017
 # Marco Calcagni <mcalcagni@dinamicheaziendali.it>, 2018
 msgid ""
 msgstr ""
@@ -19,12 +18,18 @@ msgstr ""
 "Language: it\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#. module: hr_employee_age
-#: model:ir.model.fields,field_description:hr_employee_age.field_hr_employee_age
-msgid "Age"
-msgstr "Età"
+#. module: hr_employee_category_parent
+#: model:ir.model,name:hr_employee_category_parent.model_hr_employee_category
+msgid "Employee Category"
+msgstr "Categoria del dipendenti"
 
-#. module: hr_employee_age
-#: model:ir.model,name:hr_employee_age.model_hr_employee
-msgid "Employee"
-msgstr "Dipendente"
+#. module: hr_employee_category_parent
+#: model:ir.model.fields,field_description:hr_employee_category_parent.field_hr_employee_category_parent_id
+msgid "Parent category"
+msgstr "Categoria superiore"
+
+#. module: hr_employee_category_parent
+#: code:addons/hr_employee_category_parent/models/hr_employee_category.py:39
+#, python-format
+msgid "You can't create cyclic hierarchies"
+msgstr "Non si possono creare gerarchie cicliche"

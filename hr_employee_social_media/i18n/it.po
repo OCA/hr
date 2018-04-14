@@ -4,13 +4,14 @@
 # 
 # Translators:
 # OCA Transbot <transbot@odoo-community.org>, 2017
+# Marco Calcagni <mcalcagni@dinamicheaziendali.it>, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-03 03:37+0000\n"
-"PO-Revision-Date: 2017-03-03 03:37+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
+"POT-Creation-Date: 2018-03-31 03:38+0000\n"
+"PO-Revision-Date: 2018-03-31 03:38+0000\n"
+"Last-Translator: Marco Calcagni <mcalcagni@dinamicheaziendali.it>, 2018\n"
 "Language-Team: Italian (https://www.transifex.com/oca/teams/23907/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -39,7 +40,7 @@ msgstr "Creato il"
 #: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_account_display_name
 #: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nome visualizzato"
 
 #. module: hr_employee_social_media
 #: model:ir.model,name:hr_employee_social_media.model_hr_employee
@@ -57,7 +58,7 @@ msgstr "ID"
 #: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media___last_update
 #: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_account___last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Ultima modifica il "
 
 #. module: hr_employee_social_media
 #: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_account_write_uid
