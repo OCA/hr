@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-30 03:05+0000\n"
-"PO-Revision-Date: 2018-03-30 03:05+0000\n"
+"POT-Creation-Date: 2018-04-04 08:09+0000\n"
+"PO-Revision-Date: 2018-04-04 08:09+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
 "Language-Team: Slovenian (https://www.transifex.com/oca/teams/23907/sl/)\n"
 "MIME-Version: 1.0\n"
@@ -20,7 +20,7 @@ msgstr ""
 
 #. module: resource_calendar_rrule
 #. openerp-web
-#: code:addons/resource_calendar_rrule/static/src/xml/resource_calendar_rrule.xml:61
+#: code:addons/resource_calendar_rrule/static/src/xml/resource_calendar_rrule.xml:65
 #, python-format
 msgid "Add a different schedule for odd weeks"
 msgstr "Dodaj drugačen urnik za lihe tedne"
@@ -32,14 +32,27 @@ msgstr "Dodaj poljubno število pravil ponavljanja."
 
 #. module: resource_calendar_rrule
 #. openerp-web
-#: code:addons/resource_calendar_rrule/static/src/xml/resource_calendar_rrule.xml:48
+#: code:addons/resource_calendar_rrule/static/src/xml/resource_calendar_rrule.xml:51
 #, python-format
 msgid "Afternoon"
 msgstr "Popoldan"
 
 #. module: resource_calendar_rrule
+#: code:addons/resource_calendar_rrule/models/resource_calendar.py:71
+#, python-format
+msgid "Afternoon shift cannot go past midnight."
+msgstr ""
+
+#. module: resource_calendar_rrule
 #. openerp-web
-#: code:addons/resource_calendar_rrule/static/src/xml/resource_calendar_rrule.xml:23
+#: code:addons/resource_calendar_rrule/static/src/xml/resource_calendar_rrule.xml:72
+#, python-format
+msgid "Create schedule"
+msgstr ""
+
+#. module: resource_calendar_rrule
+#. openerp-web
+#: code:addons/resource_calendar_rrule/static/src/xml/resource_calendar_rrule.xml:26
 #, python-format
 msgid "Even weeks"
 msgstr "Sodi tedni"
@@ -50,22 +63,36 @@ msgid "Full RRules in resource calendars"
 msgstr "Polna pravila v koledarjih virov"
 
 #. module: resource_calendar_rrule
-#: code:addons/resource_calendar_rrule/models/resource_calendar.py:73
+#: code:addons/resource_calendar_rrule/models/resource_calendar.py:121
 #, python-format
 msgid "Ignoring %s"
 msgstr "Zanemarjeno %s"
 
 #. module: resource_calendar_rrule
 #. openerp-web
-#: code:addons/resource_calendar_rrule/static/src/xml/resource_calendar_rrule.xml:37
+#: code:addons/resource_calendar_rrule/static/src/xml/resource_calendar_rrule.xml:40
 #, python-format
 msgid "Morning"
 msgstr "Jutro"
 
 #. module: resource_calendar_rrule
+#. openerp-web
+#: code:addons/resource_calendar_rrule/static/src/xml/resource_calendar_rrule.xml:70
+#, python-format
+msgid "No schedule has been defined yet."
+msgstr ""
+
+#. module: resource_calendar_rrule
 #: field:resource.calendar.attendance,rrule_preview:0
 msgid "Preview"
 msgstr "Predogled"
+
+#. module: resource_calendar_rrule
+#. openerp-web
+#: code:addons/resource_calendar_rrule/static/src/xml/resource_calendar_rrule.xml:67
+#, python-format
+msgid "Remove schedule"
+msgstr ""
 
 #. module: resource_calendar_rrule
 #: field:resource.calendar.attendance,rrule:0
@@ -78,34 +105,36 @@ msgid "Resource Calendar"
 msgstr "Koledar virov"
 
 #. module: resource_calendar_rrule
-#: code:addons/resource_calendar_rrule/models/resource_calendar.py:167
+#: code:addons/resource_calendar_rrule/models/resource_calendar.py:221
 #, python-format
 msgid "Simplified attendance %s afternoon"
 msgstr "Poenostavljena popoldanska prisotnost %s"
 
 #. module: resource_calendar_rrule
-#: code:addons/resource_calendar_rrule/models/resource_calendar.py:156
+#: code:addons/resource_calendar_rrule/models/resource_calendar.py:209
 #, python-format
 msgid "Simplified attendance %s morning"
 msgstr "Poenostavljena jutranja prisotnost %s"
 
 #. module: resource_calendar_rrule
-#. openerp-web
-#: code:addons/resource_calendar_rrule/static/src/xml/resource_calendar_rrule.xml:18
+#: code:addons/resource_calendar_rrule/models/resource_calendar.py:65
 #, python-format
-msgid "There are no attendances to show"
-msgstr "Ni prisotnosti na voljo za prikaz"
+msgid ""
+"The max per day cannot exceed %.01f hours. (You can set this lower or higher"
+" with the 'resource_calendar_rrule.max_hours_per_day' configuration "
+"parameter.)"
+msgstr ""
 
 #. module: resource_calendar_rrule
 #. openerp-web
-#: code:addons/resource_calendar_rrule/static/src/xml/resource_calendar_rrule.xml:26
+#: code:addons/resource_calendar_rrule/static/src/xml/resource_calendar_rrule.xml:29
 #, python-format
 msgid "Uneven weeks"
 msgstr "Ne sodi tedni"
 
 #. module: resource_calendar_rrule
 #. openerp-web
-#: code:addons/resource_calendar_rrule/static/src/xml/resource_calendar_rrule.xml:62
+#: code:addons/resource_calendar_rrule/static/src/xml/resource_calendar_rrule.xml:66
 #, python-format
 msgid "Use only one schedule for all weeks"
 msgstr "Uporabi le en urnik za vse tedne"
