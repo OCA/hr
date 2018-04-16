@@ -60,12 +60,9 @@ class HrPayslip(models.Model):
     def onchange_hr_period_id(self):
         if self.hr_period_id:
             # dates must be updated together to prevent constraint
-            period = self.hr_period_id
-            self.write({
-                'date_from': period.date_start,
-                'date_to': period.date_end,
-                'date_payment': period.date_payment
-            })
+            self.date_from = self.hr_period_id.date_start
+            self.date_to = self.hr_period_id.date_end
+            self.date_payment = self.hr_period_id.date_payment
 
     @api.model
     def create(self, vals):
