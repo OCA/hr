@@ -34,11 +34,17 @@ class HrPayslip(models.Model):
 
     @api.onchange('company_id', 'contract_id')
     def onchange_company_id(self):
-        if self.company_id and self.contract_id:
-            contract = self.contract_id
-            period_obj = self.env['hr.period']
-            period = period_obj.get_next_period(self.company_id.id,
-                                                contract.schedule_pay)
+        if self.company_id:
+            if self.contract_id:
+                contract = self.contract_id
+                period = self.env['hr.period'].get_next_period(
+                    self.company_id.id, contract.schedule_pay)
+            else:
+                schedule_pay = self.env['hr.payslip.run'].get_default_schedule(
+                    self.company_id.id)
+                if self.company_id and schedule_pay:
+                    period = self.env['hr.period'].get_next_period(
+                        self.company_id.id, schedule_pay)
             self.hr_period_id = period.id if period else False
 
     @api.multi
