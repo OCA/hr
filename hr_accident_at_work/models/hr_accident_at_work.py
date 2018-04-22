@@ -17,10 +17,10 @@ class HrAccidentatwork(models.Model):
         ('REGULAR FREQUENCY', 'REGULAR FREQUENCY'),
     ], string='Frequency Type')
     accident_department = fields.Integer(string='Department', required=True)
-    accident_location = fields.Char(string='City')
-    number_of_employee_concerned = fields.Integer(
-        string='Number of Employee Concerned', default=1, required=True)
-    number_of_employee_concerned_acknowledge_by_social_security = \
+    accident_location = fields.Char(string='Location')
+    number_of_employee_involved = fields.Integer(
+        string='Number of Employees Involved', default=1, required=True)
+    number_of_employee_involved_acknowledge_by_social_security = \
         fields.Integer(string='Number of Employee concerned and acknowledge by'
                               ' the Social Security Authority', default=0)
     social_security_authority_decision = fields.Text(
@@ -29,10 +29,10 @@ class HrAccidentatwork(models.Model):
     accident_during_commute = fields.Boolean(string='Accident during the '
                                                     'commuting ?',
                                              default=False)
-    accident_circumstances = fields.Char(string='circumstances', required=True)
+    accident_circumstances = fields.Text(string='circumstances', required=True)
     wound_description = fields.Text(string='Wound description', required=True)
-    online_wound_declaration_done = fields.Boolean(
-        string='Online Wound Declaration Done?', default=False)
+    declaration_done = fields.Boolean(
+        string='Declaration Done?', default=False)
     work_stoppage = fields.Boolean(string='Work Stoppage')
     work_stoppage_start_date = fields.Date(string='Work Stoppage Start Date')
     work_stoppage_end_date = fields.Date(string='Work Stoppage End Date')

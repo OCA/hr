@@ -8,16 +8,10 @@
     'description': """
         HR Accident at work for OCA""",
 
-    'description': """
-        HR Accident at work for OCA
-    """,
     'license': 'AGPL-3',
     'author': "Saaslys, Odoo Community Association (OCA)",
     'website': "https://www.saaslys.com",
 
-    # Categories can be used to filter modules in modules listing
-    # Check https://github.com/odoo/odoo/blob/master/openerp/addons/base/module/module_data.xml
-    # for the full list
     'category': 'Human Resources',
     'version': '10.0.0.1.0',
 

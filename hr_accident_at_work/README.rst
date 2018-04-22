@@ -1,9 +1,9 @@
 .. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
     :alt: License: AGPL-3
 
-========================
-HR collective agreement
-========================
+====================
+HR Accident at work
+====================
 
 This module was written to add Accident at work
 

@@ -27,14 +27,14 @@
                     <field name="accident_sequence"/>
                 </group>
                 <group name="Details">
-                    <field name="number_of_employee_concerned"/>
-                    <field name="number_of_employee_concerned_acknowledge_by_social_security"/>
+                    <field name="number_of_employee_involved"/>
+                    <field name="number_of_employee_involved_acknowledge_by_social_security"/>
                     <field name="social_security_authority_decision"/>
                     <field name="accident_during_commute"/>
                     <field name="accident_almost"/>
                     <field name="accident_circumstances"/>
                     <field name="wound_description"/>
-                    <field name="online_wound_declaration_done"/>
+                    <field name="declaration_done"/>
                     <field name="work_stoppage"/>
                     <field name="work_stoppage_start_date" colspan="2"/>
                     <field name="work_stoppage_end_date" colspan="2"/>
@@ -68,4 +68,5 @@
               action="action_hr_accident_at_work_tree"
               parent="hr.menu_hr_main"
               sequence="5"/>
+
 </odoo>
