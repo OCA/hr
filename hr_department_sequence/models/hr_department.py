@@ -32,6 +32,8 @@ class HrDepartment(models.Model):
     sequence = fields.Integer(string='Sequence', index=True,
                               help="Gives the sequence order when displaying "
                               "a list of departments.")
+    parent_left = fields.Integer(string='Left parent', index=True)
+    parent_right = fields.Integer(string='Right parent', index=True)
 
     _sql_constraints = [
         ('code_uniq', 'unique(code, company_id)',
