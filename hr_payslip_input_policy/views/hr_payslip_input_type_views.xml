@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright <YEAR(S)> <AUTHOR(S)>
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<openerp>
+<data>
+
+<record id="hr_payslip_input_type_view_tree" model="ir.ui.view">
+    <field name="name">hr.payslip.input_type tree</field>
+    <field name="model">hr.payslip.input_type</field>
+    <field name="arch" type="xml">
+        <tree string="Paylsip Input Type">
+            <field name="code"/>
+            <field name="name"/>
+        </tree>
+    </field>
+</record>
+
+<record id="hr_payslip_input_type_view_form" model="ir.ui.view">
+    <field name="name">hr.payslip.input_type form</field>
+    <field name="model">hr.payslip.input_type</field>
+    <field name="arch" type="xml">
+        <form string="Paylsip Input Type">
+            <group name="group_main" colspan="4" col="2">
+                <field name="code"/>
+                <field name="name"/>
+                <field name="active"/>
+                <field name="description"/>
+            </group>
+        </form>
+    </field>
+</record>
+
+<record id="hr_payslip_input_type_action" model="ir.actions.act_window">
+    <field name="name">Payslip Input Type</field>
+    <field name="res_model">hr.payslip.input_type</field>
+    <field name="view_type">form</field>
+    <field name="view_mode">tree,form</field>
+</record>
+
+<menuitem id="hr_payslip_input_type_menu"
+    name="Input Type"
+    parent="hr_payroll.payroll_configure"
+    action="hr_payslip_input_type_action"/>
+
+
+</data>
+</openerp>

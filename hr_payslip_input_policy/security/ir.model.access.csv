@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_payslip_input_type_user,hr.payslip.input_type user,model_hr_payslip_input_type,base.group_user,1,0,0,0
+access_payslip_input_type_hr_user,hr.payslip.input_type hr user,model_hr_payslip_input_type,base.group_hr_user,1,1,1,1
+access_contract_input_type_user,hr.contract.input_type user,model_hr_contract_input_type,base.group_user,1,0,0,0
+access_contract_input_type_hr_user,hr.contract.input_type hr user,model_hr_contract_input_type,base.group_hr_user,1,1,1,1
