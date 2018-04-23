@@ -48,6 +48,7 @@ addon | version | summary
 [hr_payroll_cancel](hr_payroll_cancel/) | 8.0.1.0.0 | Hr Payroll Cancel
 [hr_payroll_email_slip](hr_payroll_email_slip/) | 8.0.1.0.0 | Adds the ability to email employee payslip
 [hr_payslip_change_state](hr_payslip_change_state/) | 8.0.1.0.0 | Change the state of many payslips at a time
+[hr_payslip_input_policy](hr_payslip_input_policy/) | 8.0.1.0.0 | Payslip Input Type Policy
 [hr_payslip_move_date](hr_payslip_move_date/) | 8.0.0.1.0 | HR Payslip Move Date
 [hr_public_holidays](hr_public_holidays/) | 8.0.1.0.0 | Manage Public Holidays
 [hr_recruitment_partner](hr_recruitment_partner/) | 8.0.1.0.0 | Automatically create a Partner for Applicants
