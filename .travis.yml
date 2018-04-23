@@ -1,7 +1,7 @@
 language: python
 
 python:
-  - "2.7"
+  - "2.7.13"
 
 sudo: false
 cache: pip
@@ -10,10 +10,6 @@ addons:
   apt:
     packages:
       - expect-dev  # provides unbuffer utility
-      - python-lxml  # because pip installation is slow
-      - python-simplejson
-      - python-serial
-      - python-yaml
 
 env:
   global:
@@ -26,9 +22,6 @@ env:
   - TESTS="1" ODOO_REPO="odoo/odoo"
   - TESTS="1" ODOO_REPO="OCA/OCB"
   - UNIT_TEST="1" ODOO_REPO="odoo/odoo"
-
-virtualenv:
-  system_site_packages: true
 
 install:
   - git clone --depth=1 https://github.com/OCA/maintainer-quality-tools.git ${HOME}/maintainer-quality-tools
