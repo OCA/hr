@@ -42,6 +42,7 @@ setuptools.setup(
         'odoo8-addon-hr_payroll_cancel',
         'odoo8-addon-hr_payroll_email_slip',
         'odoo8-addon-hr_payslip_change_state',
+        'odoo8-addon-hr_payslip_input_policy',
         'odoo8-addon-hr_payslip_move_date',
         'odoo8-addon-hr_public_holidays',
         'odoo8-addon-hr_recruitment_partner',
