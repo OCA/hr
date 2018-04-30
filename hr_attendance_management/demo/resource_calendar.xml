@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Configure the work schedule of employees (add due_hours) -->
+    <record model="resource.calendar.attendance" id="resource.calendar_attendance_mon1">
+        <field name="name">Monday morning</field>
+        <field name="dayofweek">0</field>
+        <field name="hour_from">08</field>
+        <field name="hour_to">12</field>
+        <field name="due_hours">4</field>
+        <field name="calendar_id" ref="resource.timesheet_group1"/>
+    </record>
+    <record model="resource.calendar.attendance" id="resource.calendar_attendance_mon2">
+        <field name="name">Monday evening</field>
+        <field name="dayofweek">0</field>
+        <field name="hour_from">13</field>
+        <field name="hour_to">17</field>
+        <field name="due_hours">4</field>
+        <field name="calendar_id" ref="resource.timesheet_group1"/>
+    </record>
+    <record model="resource.calendar.attendance" id="resource.calendar_attendance_tue1">
+        <field name="name">Tuesday morning</field>
+        <field name="dayofweek">1</field>
+        <field name="hour_from">08</field>
+        <field name="hour_to">12</field>
+        <field name="due_hours">4</field>
+        <field name="calendar_id" ref="resource.timesheet_group1"/>
+    </record>
+    <record model="resource.calendar.attendance" id="resource.calendar_attendance_tue2">
+        <field name="name">Tuesday evening</field>
+        <field name="dayofweek">1</field>
+        <field name="hour_from">13</field>
+        <field name="hour_to">17</field>
+        <field name="due_hours">4</field>
+        <field name="calendar_id" ref="resource.timesheet_group1"/>
+    </record>
+    <record model="resource.calendar.attendance" id="resource.calendar_attendance_wed1">
+        <field name="name">Wednesday morning</field>
+        <field name="dayofweek">2</field>
+        <field name="hour_from">08</field>
+        <field name="hour_to">12</field>
+        <field name="due_hours">4</field>
+        <field name="calendar_id" ref="resource.timesheet_group1"/>
+    </record>
+    <record model="resource.calendar.attendance" id="resource.calendar_attendance_wed2">
+        <field name="name">Wednesday evening</field>
+        <field name="dayofweek">2</field>
+        <field name="hour_from">13</field>
+        <field name="hour_to">17</field>
+        <field name="due_hours">4</field>
+        <field name="calendar_id" ref="resource.timesheet_group1"/>
+    </record>
+    <record model="resource.calendar.attendance" id="resource.calendar_attendance_thu1">
+        <field name="name">Thursday morning</field>
+        <field name="dayofweek">3</field>
+        <field name="hour_from">08</field>
+        <field name="hour_to">12</field>
+        <field name="due_hours">4</field>
+        <field name="calendar_id" ref="resource.timesheet_group1"/>
+    </record>
+    <record model="resource.calendar.attendance" id="resource.calendar_attendance_thu2">
+        <field name="name">Thursday evening</field>
+        <field name="hour_from">13</field>
+        <field name="hour_to">17</field>
+        <field name="dayofweek">3</field>
+        <field name="due_hours">4</field>
+        <field name="calendar_id" ref="resource.timesheet_group1"/>
+    </record>
+    <record model="resource.calendar.attendance" id="resource.calendar_attendance_fri1">
+        <field name="name">Friday morning</field>
+        <field name="dayofweek">4</field>
+        <field name="hour_from">08</field>
+        <field name="hour_to">12</field>
+        <field name="due_hours">4</field>
+        <field name="calendar_id" ref="resource.timesheet_group1"/>
+    </record>
+    <record model="resource.calendar.attendance" id="resource.calendar_attendance_fri2">
+        <field name="name">Friday evening</field>
+        <field name="dayofweek">4</field>
+        <field name="hour_from">13</field>
+        <field name="hour_to">17</field>
+        <field name="due_hours">4</field>
+        <field name="calendar_id" ref="resource.timesheet_group1"/>
+    </record>
+</odoo>

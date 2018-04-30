@@ -1,0 +1,10 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hr_attendance_day,hr.attendance.day,model_hr_attendance_day,base.group_user,1,1,1,1
+access_hr_attendance_break,hr.attendance.break,model_hr_attendance_break,base.group_user,1,1,1,1
+user_access_hr_weekday_coefficient,hr.weekday.coefficient,model_hr_weekday_coefficient,base.group_user,1,0,0,0
+access_hr_weekday_coefficient,hr.weekday.coefficient,model_hr_weekday_coefficient,hr_attendance.group_hr_attendance_manager,1,1,1,1
+user_hr_attendance_rules,hr.attendance.rules,model_hr_attendance_rules,base.group_user,1,0,0,0
+access_hr_attendance_rules,hr.attendance.rules,model_hr_attendance_rules,hr_attendance.group_hr_attendance_manager,1,1,1,1
+access_extra_hours_report,hr.attendance.balance.evolution.report,model_hr_attendance_balance_evolution_report,base.group_user,1,1,1,1
+access_hr_forced_due_hours,hr.forced.due.hours,model_hr_forced_due_hours,base.group_user,1,1,1,1
+access_hr_change_day_request,hr.change.day.request,model_hr_change_day_request,base.group_user,1,1,1,1

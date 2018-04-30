@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Search Definition -->
+    <record id="hr_change_day_request_search" model="ir.ui.view">
+        <field name="name">Change day request search</field>
+        <field name="model">hr.change.day.request</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="employee_id"/>
+                <field name="date1"/>
+                <field name="date2"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_hr_change_day_request" model="ir.ui.view">
+        <field name="name">Change day requests</field>
+        <field name="model">hr.change.day.request</field>
+        <field name="arch" type="xml">
+            <tree editable="top">
+                <field name="employee_id"/>
+                <field name="date1"/>
+                <field name="forced1" widget="float_time"/>
+                <field name="date2"/>
+                <field name="forced2" widget="float_time"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_hr_change_day_request_form" model="ir.ui.view">
+        <field name="name">Change day request</field>
+        <field name="model">hr.change.day.request</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="employee_id"/>
+                    <field name="date1"/>
+                    <field name="forced1" widget="float_time"/>
+                    <field name="date2"/>
+                    <field name="forced2" widget="float_time"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <act_window id="action_hr_change_day_request" name="Change day requests" res_model="hr.change.day.request" view_mode="tree"/>
+    <menuitem id="menu_view_hr_change_day_request"
+              name="Change day requests"
+              parent="hr_attendance.menu_hr_attendance_manage_attendances"
+              action="action_hr_change_day_request"
+              groups="hr_attendance.group_hr_attendance_user"
+    />
+</odoo>

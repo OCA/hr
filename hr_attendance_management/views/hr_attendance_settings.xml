@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <!-- hr attendance settings -->
+    <record id="hr_attendance_view_config"
+            model="ir.ui.view">
+        <field name="name">hr.attendance.settings.form</field>
+        <field name="model">base.config.settings</field>
+        <field name="inherit_id"
+               ref="hr_attendance.hr_attendance_view_config"/>
+        <field name="arch"
+               type="xml">
+            <field name="group_attendance_use_pin"
+                   position="after">
+                <field name="free_break" widget="float_time"/>
+                <field name="max_extra_hours" widget="float_time"/>
+            </field>
+        </field>
+    </record>
+
+    <!-- hr attendance break -->
+    <record id="view_attendance_rules_form"
+            model="ir.ui.view">
+        <field name="name">hr.attendance.rules.form</field>
+        <field name="model">hr.attendance.rules</field>
+        <field name="arch"
+               type="xml">
+            <form string="Break">
+                <group>
+                    <field name="time_from" widget="float_time"/>
+                    <field name="time_to" widget="float_time"/>
+                    <field name="due_break_total" widget="float_time"/>
+                    <field name="due_break" widget="float_time"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_attendance_rules_tree"
+            model="ir.ui.view">
+        <field name="name">hr.attendance.rules.tree</field>
+        <field name="model">hr.attendance.rules</field>
+        <field name="arch"
+               type="xml">
+            <tree editable="True"
+                  default_order="time_from">
+                <field name="time_from" widget="float_time"/>
+                <field name="time_to" widget="float_time"/>
+                <field name="due_break_total" widget="float_time"/>
+                <field name="due_break" widget="float_time"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- hr weekday coefficient -->
+    <record id="view_weekday_coefficient_form"
+            model="ir.ui.view">
+        <field name="name">hr.weekday.coefficient.form</field>
+        <field name="model">hr.weekday.coefficient</field>
+        <field name="arch"
+               type="xml">
+            <form string="Coefficient">
+                <group>
+                    <field name="day_of_week"/>
+                    <field name="category_ids"/>
+                    <field name="coefficient"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_weekday_coefficient_tree"
+            model="ir.ui.view">
+        <field name="name">hr.weekday.coefficient.tree</field>
+        <field name="model">hr.weekday.coefficient</field>
+        <field name="arch"
+               type="xml">
+            <tree default_order="day_of_week">
+                <field name="day_of_week"/>
+                <field name="category_ids"/>
+                <field name="coefficient"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Create attendance day-->
+    <record model="ir.ui.view"
+            id="create_attendance_day_wizard_form_view">
+        <field name="name">Create Attendance Day Wizard Form View</field>
+        <field name="model">create.hr.attendance.day</field>
+        <field name="arch"
+               type="xml">
+            <form string="Create attendance day">
+                <group>
+                    <group>
+                        <field name="employee_ids"/>
+                        <field name="date_from"/>
+                        <field name="date_to"/>
+                    </group>
+                </group>
+                <footer>
+                    <button name="create_attendance_day"
+                            string="CREATE"
+                            type="object"
+                            class="btn-primary"/>
+                    <button string="Cancel"
+                            class="btn-default"
+                            special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Menu -->
+    <record id="action_hr_attendance_rules"
+            model="ir.actions.act_window">
+        <field name="name">Breaks</field>
+        <field name="res_model">hr.attendance.rules</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+    <record id="action_hr_weekday_coefficient"
+            model="ir.actions.act_window">
+        <field name="name">Coefficient</field>
+        <field name="res_model">hr.weekday.coefficient</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_create_attendance_day" model="ir.actions.act_window">
+        <field name="name">Attendance day</field>
+        <field name="res_model">create.hr.attendance.day</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="create_attendance_day_wizard_form_view"/>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="menu_hr_attendance_configuration"
+              name="Configuration"
+              parent="hr_attendance.menu_hr_attendance_root"
+              sequence="99"
+              groups="hr_attendance.group_hr_attendance_manager"/>
+
+    <menuitem id="menu_hr_attendance_settings"
+              name="Attendance Settings"
+              parent="menu_hr_attendance_configuration"
+              sequence="1"/>
+
+    <menuitem id="menu_hr_attendance_rules"
+              name="Break rules"
+              parent="menu_hr_attendance_configuration"
+              sequence="2"
+              action="action_hr_attendance_rules"/>
+
+    <menuitem id="menu_hr_weekday_coefficient"
+              name="Coefficient"
+              parent="menu_hr_attendance_configuration"
+              sequence="3"
+              action="action_hr_weekday_coefficient"/>
+
+    <menuitem id="menu_attendance_day_creation"
+              name="Create attendance days"
+              action="action_create_attendance_day"
+              parent="menu_hr_attendance_configuration"/>
+
+</odoo>

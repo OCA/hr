@@ -1,0 +1,288 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* hr_attendance_management
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-08-23 06:41+0000\n"
+"PO-Revision-Date: 2016-08-23 06:41+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hr_attendance_management
+#: view:hr.employee:hr_attendance_management.hr_employe_bonus_malus
+#: view:hr.employee:hr_attendance_management.hr_employe_bonus_malus_kanban
+msgid "(hh:mm)"
+msgstr "(hh:mm)"
+
+#. module: hr_attendance_management
+#: model:ir.model,name:hr_attendance_management.model_hr_attendance
+msgid "Attendance"
+msgstr "Présence"
+
+#. module: hr_attendance_management
+#: model:ir.actions.act_window,name:hr_attendance_management.open_view_attendance_computation_creation
+msgid "Attendance Computation Creation"
+msgstr "Création du résultat Bonus/Malus Computation Creation"
+
+#. module: hr_attendance_management
+#: model:ir.actions.act_window,name:hr_attendance_management.open_view_attendance_computation_tree
+msgid "Attendance Computation Result"
+msgstr "Création du calcul Bonus-Malus"
+
+#. module: hr_attendance_management
+#: model:ir.actions.act_window,name:hr_attendance_management.compute_attendance
+msgid "Attendance Computation Wizard"
+msgstr "Attendance Computation Wizard"
+
+#. module: hr_attendance_management
+#: model:ir.ui.menu,name:hr_attendance_management.att_compu_menu_root
+msgid "Attendance computation"
+msgstr "Calcul Bonus-Malus"
+
+#. module: hr_attendance_management
+#: field:hr.attendance.computation,attendance_ids:0
+msgid "Attendance ids"
+msgstr "Présences"
+
+#. module: hr_attendance_management
+#: field:hr.holidays.status,bonus_hours:0
+msgid "Bonus hours"
+msgstr "Nbre d'heures Bonus"
+
+#. module: hr_attendance_management
+#: view:hr.attendance.computation:hr_attendance_management.hr_attendance_computation_tree
+#: field:hr.attendance.computation,bonus_malus:0
+#: view:hr.employee:hr_attendance_management.hr_employe_bonus_malus
+#: view:hr.employee:hr_attendance_management.hr_employe_bonus_malus_kanban
+#: field:hr.employee,bonus_malus:0
+msgid "Bonus/Malus"
+msgstr "Bonus/Malus"
+
+#. module: hr_attendance_management
+#: view:hr.employee:hr_attendance_management.hr_employe_bonus_malus_tree
+msgid "Bonus/Malus (hh:mm)"
+msgstr "Bonus/Malus (hh:mm)"
+
+#. module: hr_attendance_management
+#: field:resource.calendar.attendance,break_hours:0
+msgid "Break duration"
+msgstr "Durée de la pause"
+
+#. module: hr_attendance_management
+#: view:hr.attendance.computation.creation:hr_attendance_management.hr_attendance_computation_creation_wizard_form
+msgid "Computation creation wizard"
+msgstr "Assistant de création des resultat Bonus/Malus"
+
+#. module: hr_attendance_management
+#: field:hr.attendance,att_comp_result_id:0
+#: view:hr.attendance.computation:hr_attendance_management.hr_attendance_computation_form
+msgid "Computation result"
+msgstr "Résultat du calcul"
+
+#. module: hr_attendance_management
+#: view:hr.attendance.computation.wizard:hr_attendance_management.hr_attendance_computation_wizard_form
+msgid "Computation result wizard"
+msgstr "Assistant de création des result wizard"
+
+#. module: hr_attendance_management
+#: view:hr.attendance.computation:hr_attendance_management.hr_attendance_computation_search
+#: view:hr.attendance.computation:hr_attendance_management.hr_attendance_computation_tree
+msgid "Computation results"
+msgstr "Résultats du calcule"
+
+#. module: hr_attendance_management
+#: view:hr.attendance.computation.wizard:hr_attendance_management.hr_attendance_computation_wizard_form
+msgid "Compute"
+msgstr "Calculer"
+
+#. module: hr_attendance_management
+#: view:hr.attendance.computation:hr_attendance_management.hr_attendance_computation_form
+msgid "Compute attendances"
+msgstr "Calculer les présences"
+
+#. module: hr_attendance_management
+#: selection:hr.attendance.computation,state:0
+msgid "Correct"
+msgstr "Correct"
+
+#. module: hr_attendance_management
+#: view:hr.attendance.computation.creation:hr_attendance_management.hr_attendance_computation_creation_wizard_form
+msgid "Create"
+msgstr "Créer"
+
+#. module: hr_attendance_management
+#: model:ir.ui.menu,name:hr_attendance_management.att_comp_creation_menu
+msgid "Create attendance computation"
+msgstr "Création du résultat Bonus/Malus"
+
+#. module: hr_attendance_management
+#: field:hr.attendance.computation,create_uid:0
+#: field:hr.attendance.computation.creation,create_uid:0
+#: field:hr.attendance.computation.wizard,create_uid:0
+msgid "Created by"
+msgstr "Created by"
+
+#. module: hr_attendance_management
+#: field:hr.attendance.computation,create_date:0
+#: field:hr.attendance.computation.creation,create_date:0
+#: field:hr.attendance.computation.wizard,create_date:0
+msgid "Created on"
+msgstr "Created on"
+
+#. module: hr_attendance_management
+#: view:hr.attendance.computation:hr_attendance_management.hr_attendance_computation_search
+#: field:hr.attendance.computation,date:0
+msgid "Date"
+msgstr "Date"
+
+#. module: hr_attendance_management
+#: field:hr.attendance.computation.creation,date_from:0
+msgid "Date from"
+msgstr "A partir du"
+
+#. module: hr_attendance_management
+#: field:hr.attendance.computation,display_name:0
+#: field:hr.attendance.computation.creation,display_name:0
+#: field:hr.attendance.computation.wizard,display_name:0
+msgid "Display Name"
+msgstr "Nom affiché"
+
+#. module: hr_attendance_management
+#: model:ir.model.fields,field_description:hr_attendance_management.field_resource_calendar_attendance_due_hours
+msgid "Due hours"
+msgstr "Nbre d'heure due"
+
+#. module: hr_attendance_management
+#: model:ir.model.fields,field_description:hr_attendance_management.field_resource_calendar_attendance_break_hours
+msgid "Break duration"
+msgstr "Durée de la pause"
+
+#. module: hr_attendance_management
+#: view:hr.attendance.computation:hr_attendance_management.hr_attendance_computation_search
+#: field:hr.attendance.computation,employee_id:0
+#: field:hr.attendance.computation.creation,employee_id:0
+#: model:ir.model,name:hr_attendance_management.model_hr_employee
+msgid "Employee"
+msgstr "Employé"
+
+#. module: hr_attendance_management
+#: view:hr.attendance.computation:hr_attendance_management.hr_attendance_computation_search
+msgid "Group By"
+msgstr "Regroupé par"
+
+#. module: hr_attendance_management
+#: field:hr.attendance.computation,id:0
+#: field:hr.attendance.computation.creation,id:0
+#: field:hr.attendance.computation.wizard,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: hr_attendance_management
+#: selection:hr.attendance.computation,state:0
+msgid "Incorrect"
+msgstr "Incorrect"
+
+#. module: hr_attendance_management
+#: field:hr.attendance.computation,__last_update:0
+#: field:hr.attendance.computation.creation,__last_update:0
+#: field:hr.attendance.computation.wizard,__last_update:0
+msgid "Last Modified on"
+msgstr "Last Modified on"
+
+#. module: hr_attendance_management
+#: field:hr.attendance.computation,write_uid:0
+#: field:hr.attendance.computation.creation,write_uid:0
+#: field:hr.attendance.computation.wizard,write_uid:0
+msgid "Last Updated by"
+msgstr "Last Updated by"
+
+#. module: hr_attendance_management
+#: field:hr.attendance.computation,write_date:0
+#: field:hr.attendance.computation.creation,write_date:0
+#: field:hr.attendance.computation.wizard,write_date:0
+msgid "Last Updated on"
+msgstr "Last Updated on"
+
+#. module: hr_attendance_management
+#: model:ir.model,name:hr_attendance_management.model_hr_holidays
+msgid "Leave"
+msgstr "Congé"
+
+#. module: hr_attendance_management
+#: model:ir.model,name:hr_attendance_management.model_hr_holidays_status
+msgid "Leave Type"
+msgstr "Type de congé"
+
+#. module: hr_attendance_management
+#: field:hr.attendance.computation,name:0
+msgid "Name"
+msgstr "Name"
+
+#. module: hr_attendance_management
+#: view:hr.attendance.computation:hr_attendance_management.hr_attendance_computation_search
+#: field:hr.attendance.computation,note:0
+msgid "Note"
+msgstr "Note"
+
+#. module: hr_attendance_management
+#: field:hr.attendance.computation,hours_from_calendar:0
+msgid "Number of hours due"
+msgstr "Nombre d'heures dues"
+
+#. module: hr_attendance_management
+#: field:hr.attendance.computation,hours_from_attendances:0
+msgid "Number of worked hours"
+msgstr "Nombre d'heures éffectuées"
+
+#. module: hr_attendance_management
+#: model:ir.actions.server,name:hr_attendance_management.action_recompute_result
+msgid "Recompute"
+msgstr "Recalculer"
+
+#. module: hr_attendance_management
+#: field:hr.attendance,related_attendance:0
+msgid "Related attendance"
+msgstr "Présence associée"
+
+#. module: hr_attendance_management
+#: field:hr.holidays.status,keep_due_hours:0
+msgid "Remove from due hours"
+msgstr "Retrait heures contractuelles"
+
+#. module: hr_attendance_management
+#: model:ir.ui.menu,name:hr_attendance_management.att_comp_result_menu
+msgid "Results"
+msgstr "Résultats"
+
+#. module: hr_attendance_management
+#: field:hr.attendance.computation,state:0
+msgid "State"
+msgstr "State"
+
+#. module: hr_attendance_management
+#: model:ir.model,name:hr_attendance_management.model_resource_calendar_attendance
+msgid "Work Detail"
+msgstr "Détail du travail"
+
+#. module: hr_attendance_management
+#: field:hr.attendance,calendar_worked_hours:0
+msgid "Worked hours (based on calendar)"
+msgstr "Nbre d'heures travaillées"
+
+#. module: hr_attendance_management
+#: field:hr.attendance,calendar_att_ids:0
+msgid "Working schedule Lines"
+msgstr "Lignes d'horaire"
+
+#. module: hr_attendance_management
+#: view:hr.holidays:hr_attendance_management.hr_holidays_form_view
+msgid "{'readonly':[('type', '=', 'remove'),('state','not in',['draft', 'confirm'])]}"
+msgstr "{'readonly':[('type', '=', 'remove'),('state','not in',['draft', 'confirm'])]}"
+

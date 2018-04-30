@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <record model="ir.ui.view"
+            id="hr_employee_extra_hours_kanban">
+        <field name="name">HR Employee Extra Hours Kanban View</field>
+        <field name="model">hr.employee</field>
+        <field name="priority"
+               eval="20"/>
+        <field name="inherit_id"
+               ref="hr.hr_kanban_view_employees"/>
+        <field name="arch"
+               type="xml">
+            <xpath expr="//div[@class='oe_kanban_details']/ul/li" position="after">
+                <li>
+                    <field name="extra_hours" widget="float_time"/>
+                </li>
+            </xpath>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="hr_employee_extra_hours_form">
+        <field name="name">HR Employee Extra Hours Form View</field>
+        <field name="model">hr.employee</field>
+        <field name="priority" eval="20"/>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='hr_settings']" position="after">
+                <page string="Hours">
+                    <group>
+                        <field name="annual_balance" widget="float_time"/>
+                        <field name="previous_annual_balance" widget="float_time" invisible="1"/>
+                        <field name="extra_hours_lost" widget="float_time"/>
+                        <field name="attendance_days_ids"
+                               context="{'tree_view_ref': 'hr_attendance_management.hr_attendance_day_tree_from_employee'}"/>
+                    </group>
+                </page>
+            </xpath>
+            <field name="category_ids" position="after">
+                <div>
+                    <label for="extra_hours"/>
+                    <field name="extra_hours" widget="float_time"/>
+                </div>
+            </field>
+        </field>
+    </record>
+</odoo>

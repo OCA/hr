@@ -1,0 +1,71 @@
+<odoo>
+    <!-- Rule on attendance days -->
+    <record id="rule_attendance_day_employee" model="ir.rule">
+        <field name="name">Employee Own Attendance days only</field>
+        <field name="model_id" ref="model_hr_attendance_day"/>
+        <field name="domain_force">[('employee_id.user_id','=',user.id)]</field>
+        <field name="groups" eval="[(4,ref('base.group_user'))]"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="False"/>
+    </record>
+
+    <record id="rule_attendance_day_manager" model="ir.rule">
+        <field name="name">HR Manager access attendance days</field>
+        <field name="model_id" ref="model_hr_attendance_day"/>
+        <field name="domain_force">[(1,'=',1)]</field>
+        <field name="groups" eval="[(4,ref('hr.group_hr_manager'))]"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+    </record>
+
+    <!-- Rule on attendance breaks -->
+    <record id="rule_attendance_break_employee" model="ir.rule">
+        <field name="name">Employee Own Attendance Break only</field>
+        <field name="model_id" ref="model_hr_attendance_break"/>
+        <field name="domain_force">[('employee_id.user_id','=',user.id)]</field>
+        <field name="groups" eval="[(4,ref('base.group_user'))]"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="False"/>
+    </record>
+
+    <record id="rule_attendance_break_manager" model="ir.rule">
+        <field name="name">HR Manager access attendance breaks</field>
+        <field name="model_id" ref="model_hr_attendance_break"/>
+        <field name="domain_force">[(1,'=',1)]</field>
+        <field name="groups" eval="[(4,ref('hr.group_hr_manager'))]"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+    </record>
+
+    <!-- Rule on balance evolution report -->
+    <record id="rule_attendance_evolution_report_employee" model="ir.rule">
+        <field name="name">Employee Own Balance evolution only</field>
+        <field name="model_id" ref="model_hr_attendance_balance_evolution_report"/>
+        <field name="domain_force">[('employee_id.user_id','=',user.id)]</field>
+        <field name="groups" eval="[(4,ref('base.group_user'))]"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="False"/>
+        <field name="perm_create" eval="False"/>
+        <field name="perm_unlink" eval="False"/>
+    </record>
+
+    <record id="rule_attendance_evolution_report_manager" model="ir.rule">
+        <field name="name">HR Manager access all balance evolution reports</field>
+        <field name="model_id" ref="model_hr_attendance_balance_evolution_report"/>
+        <field name="domain_force">[(1,'=',1)]</field>
+        <field name="groups" eval="[(4,ref('hr.group_hr_manager'))]"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="False"/>
+        <field name="perm_create" eval="False"/>
+        <field name="perm_unlink" eval="False"/>
+    </record>
+
+</odoo>
