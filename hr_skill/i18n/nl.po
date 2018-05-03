@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-30 19:07+0000\n"
+"POT-Creation-Date: 2019-06-11 11:02+0000\n"
 "PO-Revision-Date: 2017-11-28 21:13+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Dutch (http://www.transifex.com/oca/OCA-hr-8-0/language/nl/)\n"
@@ -23,14 +23,34 @@ msgid "Active"
 msgstr "Actief"
 
 #. module: hr_skill
-#: view:hr.skill:hr_skill.view_skill_form
+#: view:hr.skill:hr_skill.view_hr_skill_form_detailed
+msgid "Approve"
+msgstr "Goedkeuren"
+
+#. module: hr_skill
+#: selection:hr.skill,state:0
+msgid "Approved"
+msgstr "Goedgekeurd"
+
+#. module: hr_skill
+#: model:hr.skill,name:hr_skill.skill_brazilian_portuguese
+msgid "Brazilian Portuguese"
+msgstr "Braziliaans Portugees"
+
+#. module: hr_skill
+#: view:hr.skill:hr_skill.view_hr_skill_form_limited
+msgid "Category"
+msgstr "Categorie"
+
+#. module: hr_skill
+#: view:hr.skill:hr_skill.view_hr_skill_form_detailed
 msgid "Child Skills"
-msgstr ""
+msgstr "Onderliggende talenten"
 
 #. module: hr_skill
 #: field:hr.skill,child_ids:0
 msgid "Children"
-msgstr "Kinderen"
+msgstr "Onderliggende records"
 
 #. module: hr_skill
 #: field:hr.skill,create_uid:0
@@ -48,6 +68,16 @@ msgid "Display Name"
 msgstr "Te tonen naam"
 
 #. module: hr_skill
+#: field:hr.skill,dummy_display_name:0
+msgid "Display name"
+msgstr "Weergavenaam"
+
+#. module: hr_skill
+#: model:hr.skill,name:hr_skill.skill_driving
+msgid "Driving"
+msgstr "Autorijden"
+
+#. module: hr_skill
 #: model:ir.model,name:hr_skill.model_hr_employee
 msgid "Employee"
 msgstr "Werknemer"
@@ -55,17 +85,32 @@ msgstr "Werknemer"
 #. module: hr_skill
 #: field:hr.skill,employee_ids:0
 msgid "Employee(s)"
-msgstr ""
+msgstr "Werknemer(s)"
 
 #. module: hr_skill
 #: model:ir.actions.act_window,name:hr_skill.hr_employee_normal_action_tree
 msgid "Employees"
-msgstr ""
+msgstr "Werknemers"
+
+#. module: hr_skill
+#: model:hr.skill,name:hr_skill.skill_european
+msgid "European"
+msgstr "Europees"
+
+#. module: hr_skill
+#: model:hr.skill,name:hr_skill.skill_german
+msgid "German"
+msgstr "Duits"
 
 #. module: hr_skill
 #: field:hr.skill,id:0
 msgid "ID"
 msgstr "ID"
+
+#. module: hr_skill
+#: model:hr.skill,name:hr_skill.skill_languages
+msgid "Languages"
+msgstr "Talen"
 
 #. module: hr_skill
 #: field:hr.skill,__last_update:0
@@ -83,46 +128,94 @@ msgid "Last Updated on"
 msgstr "Laatst bijgewerkt op"
 
 #. module: hr_skill
-#: view:hr.skill:hr_skill.view_hr_skill_tree
-#: view:hr.skill:hr_skill.view_skill_form field:hr.skill,name:0
+#: model:hr.skill,name:hr_skill.skill_latin_american
+msgid "Latin-American"
+msgstr "Latijns-Amerikaans"
+
+#. module: hr_skill
+#: model:hr.skill,name:hr_skill.skill_misc
+msgid "Misc"
+msgstr "Overig"
+
+#. module: hr_skill
+#: view:hr.skill:hr_skill.view_hr_skill_form_detailed
+#: view:hr.skill:hr_skill.view_hr_skill_tree_detailed field:hr.skill,name:0
 msgid "Name"
 msgstr "Naam"
 
 #. module: hr_skill
 #: field:hr.skill,parent_id:0
 msgid "Parent"
-msgstr ""
+msgstr "Bovenliggende"
 
 #. module: hr_skill
 #: field:hr.skill,parent_left:0
 msgid "Parent Left"
-msgstr ""
+msgstr "Linker bovenliggende"
 
 #. module: hr_skill
 #: field:hr.skill,parent_right:0
 msgid "Parent Right"
-msgstr ""
+msgstr "Rechts bovenliggende"
 
 #. module: hr_skill
-#: view:hr.skill:hr_skill.view_skill_form
+#: selection:hr.skill,state:0
+msgid "Pending"
+msgstr "In afwachting"
+
+#. module: hr_skill
+#: model:hr.skill,name:hr_skill.skill_english
+msgid "Portuguese"
+msgstr "Portugees"
+
+#. module: hr_skill
+#: view:hr.skill:hr_skill.view_hr_skill_form_detailed
+msgid "Reject"
+msgstr "Afwijzen"
+
+#. module: hr_skill
+#: view:hr.skill:hr_skill.view_hr_skill_filter
+msgid "Search Skills"
+msgstr "Talenten doorzoeken"
+
+#. module: hr_skill
+#: view:hr.skill:hr_skill.view_hr_skill_form_detailed
+#: view:hr.skill:hr_skill.view_hr_skill_form_limited
 msgid "Skill"
-msgstr ""
+msgstr "Talent"
+
+#. module: hr_skill
+#: model:res.groups,name:hr_skill.group_hr_skill_manager
+msgid "Skill manager"
+msgstr "Talentenbank beheerder"
 
 #. module: hr_skill
 #: view:hr.employee:hr_skill.view_employee_skill_form
-#: field:hr.employee,skill_ids:0 view:hr.skill:hr_skill.view_hr_skill_tree
-#: model:ir.actions.act_window,name:hr_skill.open_view_skill_form
+#: field:hr.employee,skill_ids:0
+#: view:hr.skill:hr_skill.view_hr_skill_tree_detailed
+#: model:ir.actions.act_window,name:hr_skill.open_view_skill
 #: model:ir.ui.menu,name:hr_skill.menu_open_view_skill_form
 msgid "Skills"
-msgstr ""
+msgstr "Talenten"
 
 #. module: hr_skill
 #: model:ir.ui.menu,name:hr_skill.menu_hr_skill_mgt
 msgid "Skills Management"
-msgstr ""
+msgstr "Talentenbank beheer"
 
 #. module: hr_skill
 #: model:ir.actions.act_window,name:hr_skill.open_view_skill_tree
 #: model:ir.ui.menu,name:hr_skill.menu_open_view_skill_tree
 msgid "Skills Structure"
-msgstr ""
+msgstr "Talentenbank structuur"
+
+#. module: hr_skill
+#: model:ir.actions.act_window,name:hr_skill.skills_to_approve
+#: model:ir.ui.menu,name:hr_skill.menu_skills_to_approve
+msgid "Skills to Approve"
+msgstr "Talenten goed te keuren"
+
+#. module: hr_skill
+#: field:hr.skill,state:0
+msgid "State"
+msgstr "Provincie/Staat"

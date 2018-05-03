@@ -1,67 +1,146 @@
 <openerp>
-  <data>
+    <data>
 
-    <record id="view_hr_skill_tree" model="ir.ui.view">
-        <field name="name">hr.skill.tree</field>
-        <field name="model">hr.skill</field>
-        <field name="field_parent">child_ids</field>
-        <field name="arch" type="xml">
-            <tree string="Skills">
-                <field name="display_name" string="Name"/>
-                <field name="employee_ids" widget="many2many_tags"/>
-            </tree>
-        </field>
-    </record>
+        <record id="view_hr_skill_filter" model="ir.ui.view">
+            <field name="name">hr_skill_filter</field>
+            <field name="model">hr.skill</field>
+            <field name="arch" type="xml">
+                <search string="Search Skills">
+                    <field name="dummy_display_name"/>
+               </search>
+            </field>
+        </record>
 
-    <record id="view_skill_form" model="ir.ui.view">
-        <field name="name">hr.skill.form</field>
-        <field name="model">hr.skill</field>
-        <field name="arch" type="xml">
-            <form string="Skill">
-                <group>
-                    <field name="name"/>
-                    <field name="active"/>
-                    <field name="parent_id"/>
-                </group>
-                <field name="child_ids" string="Name">
-                    <tree editable="bottom"  string="Child Skills">
+        <record id="view_hr_skill_form_limited" model="ir.ui.view">
+            <field name="name">hr.skill.form</field>
+            <field name="model">hr.skill</field>
+            <field name="arch" type="xml">
+                <form string="Skill">
+                    <group>
+                        <field name="parent_id"
+                               string="Category"
+                               domain="[('child_ids', '!=', False)]"/>
                         <field name="name"/>
-                    </tree>
-                </field>
-            </form>
-        </field>
-    </record>
+                    </group>
+                </form>
+            </field>
+        </record>
 
-    <!-- Menu and Actions -->
+        <record id="view_hr_skill_tree_detailed" model="ir.ui.view">
+            <field name="name">hr.skill.tree</field>
+            <field name="model">hr.skill</field>
+            <field name="priority">100</field>
+            <field name="field_parent">child_ids</field>
+            <field name="arch" type="xml">
+                <tree string="Skills">
+                    <field name="display_name" string="Name"/>
+                    <field name="employee_ids" widget="many2many_tags"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
 
-    <menuitem name="Skills Management"
-              parent="hr.menu_hr_configuration"
-              id="menu_hr_skill_mgt"/>
+        <record id="view_hr_skill_form_detailed" model="ir.ui.view">
+            <field name="name">hr.skill.form</field>
+            <field name="model">hr.skill</field>
+            <field name="priority">100</field>
+            <field name="arch" type="xml">
+                <form string="Skill">
+                    <header>
+                        <button name="action_approve" string="Approve" type="object" states="pending" class="btn-primary"/>
+                        <button name="action_reject" string="Reject" type="object" states="pending" class="btn-primary"/>
+                        <field name="state" widget="statusbar" statusbar_visible="pending,approved"/>
+                    </header>
+                    <group>
+                        <field name="name"/>
+                        <field name="active"/>
+                        <field name="parent_id"/>
+                    </group>
+                    <field name="child_ids" string="Name">
+                        <tree editable="bottom"  string="Child Skills">
+                            <field name="name"/>
+                        </tree>
+                    </field>
+                </form>
+            </field>
+        </record>
 
-    <record id="open_view_skill_form" model="ir.actions.act_window">
-        <field name="name">Skills</field>
-        <field name="res_model">hr.skill</field>
-        <field name="view_type">form</field>
-        <field name="view_mode">tree,form</field>
-    </record>
+        <!-- Menu and Actions -->
 
-    <menuitem name="Skills"
-              parent="menu_hr_skill_mgt"
-              id="menu_open_view_skill_form"
-              action="open_view_skill_form"/>
+        <menuitem name="Skills Management"
+                  parent="hr.menu_hr_configuration"
+                  id="menu_hr_skill_mgt"/>
 
-    <record id="open_view_skill_tree" model="ir.actions.act_window">
-        <field name="name">Skills Structure</field>
-        <field name="res_model">hr.skill</field>
-        <field name="view_type">tree</field>
-        <field name="view_id" ref="view_hr_skill_tree"/>
-        <field name="domain">[('parent_id','=',False)]</field>
-    </record>
+        <record id="open_view_skill" model="ir.actions.act_window">
+            <field name="name">Skills</field>
+            <field name="res_model">hr.skill</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" eval="False"/>
+        </record>
 
-    <menuitem name="Skills Structure"
-              parent="menu_hr_skill_mgt"
-              id="menu_open_view_skill_tree"
-              action="open_view_skill_tree"/>
+        <record id="action_skill_tree" model="ir.actions.act_window.view">
+            <field eval="1" name="sequence"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_hr_skill_tree_detailed"/>
+            <field name="act_window_id" ref="open_view_skill"/>
+        </record>
 
-  </data>
+        <record id="action_skill_form" model="ir.actions.act_window.view">
+            <field eval="2" name="sequence"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_hr_skill_form_detailed"/>
+            <field name="act_window_id" ref="open_view_skill"/>
+        </record>
+
+        <menuitem name="Skills"
+                  parent="menu_hr_skill_mgt"
+                  id="menu_open_view_skill_form"
+                  action="open_view_skill"
+                  sequence="1"/>
+
+        <record id="open_view_skill_tree" model="ir.actions.act_window">
+            <field name="name">Skills Structure</field>
+            <field name="res_model">hr.skill</field>
+            <field name="view_type">tree</field>
+            <field name="domain">[('parent_id','=',False)]</field>
+        </record>
+
+        <menuitem name="Skills Structure"
+                  parent="menu_hr_skill_mgt"
+                  id="menu_open_view_skill_tree"
+                  action="open_view_skill_tree"
+                  sequence="2"/>
+
+        <record id="skills_to_approve" model="ir.actions.act_window">
+            <field name="name">Skills to Approve</field>
+            <field name="res_model">hr.skill</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" eval="False"/>
+            <field name="domain">[('state', '=', 'pending')]</field>
+        </record>
+
+        <record id="action_skill_to_approve_tree" model="ir.actions.act_window.view">
+            <field eval="1" name="sequence"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_hr_skill_tree_detailed"/>
+            <field name="act_window_id" ref="skills_to_approve"/>
+        </record>
+
+        <record id="action_skill_to_approve_form" model="ir.actions.act_window.view">
+            <field eval="1" name="sequence"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_hr_skill_form_detailed"/>
+            <field name="act_window_id" ref="skills_to_approve"/>
+        </record>
+
+        <menuitem name="Skills to Approve"
+                  parent="hr.menu_hr_main"
+                  id="menu_skills_to_approve"
+                  action="skills_to_approve"
+                  sequence="3"
+                  groups="group_hr_skill_manager"/>
+
+    </data>
 </openerp>

@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <record id="skill_languages" model="hr.skill">
+            <field name="name">Languages</field>
+        </record>
+        <record id="skill_european" model="hr.skill">
+            <field name="name">European</field>
+            <field name="parent_id" ref="skill_languages"/>
+        </record>
+        <record id="skill_german" model="hr.skill">
+            <field name="name">German</field>
+            <field name="parent_id" ref="skill_european"/>
+        </record>
+        <record id="skill_english" model="hr.skill">
+            <field name="name">Portuguese</field>
+            <field name="parent_id" ref="skill_european"/>
+        </record>
+        <record id="skill_latin_american" model="hr.skill">
+            <field name="name">Latin-American</field>
+            <field name="parent_id" ref="skill_languages"/>
+        </record>
+        <record id="skill_brazilian_portuguese" model="hr.skill">
+            <field name="name">Brazilian Portuguese</field>
+            <field name="parent_id" ref="skill_latin_american"/>
+        </record>
+        <record id="skill_misc" model="hr.skill">
+            <field name="name">Misc</field>
+        </record>
+        <record id="skill_driving" model="hr.skill">
+            <field name="name">Driving</field>
+            <field name="parent_id" ref="skill_misc"/>
+        </record>
+    </data>
+</openerp>

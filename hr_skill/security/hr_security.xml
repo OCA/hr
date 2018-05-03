@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+
+    <!-- Skill manager -->
+    <record model="res.groups" id="group_hr_skill_manager">
+        <field name="name">Skill manager</field>
+        <field name="notes">Can add, edit or remove skills</field>
+    </record>
+
+    <!-- HR managers are skill managers by default -->
+    <record model="res.groups" id="base.group_hr_manager">
+        <field name="implied_ids" eval="[
+            (4, ref('hr_skill.group_hr_skill_manager')),
+        ]" />
+    </record>
+
+    <!-- Normal users can see approved skills, and their own skills -->
+    <record id="own_skills_or_approved" model="ir.rule">
+        <field name="name">Own Skills or Approved</field>
+        <field name="model_id" ref="model_hr_skill"/>
+        <field name="domain_force">['|',('create_uid','=',user.id),('state','=','approved')]</field>
+        <field name="groups" eval="[(4, ref('base.group_user'))]" />
+        <field eval="1" name="perm_read"/>
+        <field eval="0" name="perm_write"/>
+        <field eval="0" name="perm_unlink"/>
+        <field eval="0" name="perm_create"/>
+    </record>
+
+    <!-- Normal users can edit their own skills -->
+    <record id="edit_own_skills_only" model="ir.rule">
+        <field name="name">Edit Own Skills Only</field>
+        <field name="model_id" ref="model_hr_skill"/>
+        <field name="domain_force">[('create_uid','=',user.id)]</field>
+        <field name="groups" eval="[(4, ref('base.group_user'))]" />
+        <field eval="0" name="perm_read"/>
+        <field eval="1" name="perm_write"/>
+        <field eval="0" name="perm_unlink"/>
+        <field eval="0" name="perm_create"/>
+    </record>
+
+    <!-- Skill managers can do anything with any skills -->
+    <record id="skill_manager_rights" model="ir.rule">
+        <field name="name">Manage all Skills</field>
+        <field name="model_id" ref="model_hr_skill"/>
+        <field name="domain_force">[]</field>
+        <field name="groups" eval="[(4, ref('hr_skill.group_hr_skill_manager'))]" />
+        <field eval="1" name="perm_read"/>
+        <field eval="1" name="perm_write"/>
+        <field eval="1" name="perm_unlink"/>
+        <field eval="1" name="perm_create"/>
+    </record>
+
+</data>
+</openerp>
