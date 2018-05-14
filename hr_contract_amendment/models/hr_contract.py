@@ -30,6 +30,18 @@ class HrContract(models.Model):
                 'amendment_type': type,
                 }
 
+    def _save_changes(self, id, name, v_before, v_new):
+        self.ensure_one()
+        amendmentChangesVals = {
+            'amendment': id,
+            'value_name': name,
+            'value_before': v_before,
+            'value_new': v_new,
+        }
+        self.env[
+            'hr.contract.amendment.changes'].create(
+            amendmentChangesVals)
+
     def _save_amemdment_changes(self, vals, amendment):
         self.ensure_one()
         # retreive value name in ir.model.fields
@@ -38,20 +50,16 @@ class HrContract(models.Model):
             method = getattr(self, k)
             model_field = self.env['ir.model.fields'].search(
                 [('model', '=', 'hr.contract'), ('name', '=', k)])
-
-            save = True
             if model_field.ttype == 'many2one':
                 new = self.env[model_field.relation].browse(v)
                 value_new = new.name
                 value_before = method.name
-                if value_new == value_before:
-                    save = False
-
+                if value_new != value_before:
+                    self._save_changes(amendment.id, new.name, value_before,
+                                       value_new)
             if model_field.ttype == 'many2many':
-                # import pdb; pdb.set_trace()
                 old_ids = method.ids
                 list_ids = list(v[0][2])
-                print "old %s / new %s " % (old_ids, list_ids)
                 remove_ids = [x for x in old_ids if x not in list_ids]
                 add_ids = [x for x in list_ids if x not in old_ids]
                 if len(remove_ids) > 0:
@@ -60,15 +68,9 @@ class HrContract(models.Model):
                         value_new = "remove"
                         value_before = new.name
                         if value_new != value_before:
-                            amendmentChangesVals = {
-                                'amendment': amendment.id,
-                                'value_name': model_field.display_name,
-                                'value_before': value_before,
-                                'value_new': value_new,
-                            }
-                            self.env[
-                                'hr.contract.amendment.changes'].create(
-                                amendmentChangesVals)
+                            self._save_changes(amendment.id,
+                                               model_field.display_name,
+                                               value_before, value_new)
                 if len(add_ids) > 0:
                     for m2m_id in add_ids:
                         new = self.env[model_field.relation].browse(
@@ -76,28 +78,15 @@ class HrContract(models.Model):
                         value_new = new.name
                         value_before = ""
                         if value_new != value_before:
-                            amendmentChangesVals = {
-                                'amendment': amendment.id,
-                                'value_name': model_field.display_name,
-                                'value_before': value_before,
-                                'value_new': value_new,
-                            }
-                            self.env[
-                                'hr.contract.amendment.changes'].create(
-                                amendmentChangesVals)
-                    # save = False
+                            self._save_changes(amendment.id,
+                                               model_field.display_name,
+                                               value_before, value_new)
             else:
                 value_before = method
                 value_new = v
                 if value_before != value_new:
-                    amendmentChangesVals = {
-                        'amendment': amendment.id,
-                        'value_name': model_field.display_name,
-                        'value_before': value_before,
-                        'value_new': value_new,
-                    }
-                self.env['hr.contract.amendment.changes'].create(
-                    amendmentChangesVals)
+                    self._save_changes(amendment.id, model_field.display_name,
+                                       value_before, value_new)
 
     @api.multi
     def write(self, vals):
