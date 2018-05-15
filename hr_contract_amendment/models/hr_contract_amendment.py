@@ -25,6 +25,7 @@ class HrContractAmendment(models.Model):
         comodel_name='hr.contract', string="Referenced Contract",
         required=True)
     name = fields.Char(string="Amendment name")
+    effective_date = fields.Date(string="Effective Date")
     date = fields.Date(required=True, default=fields.Date.context_today)
     user_id = fields.Many2one('res.users', string='Registered by',
                               default=lambda self: self.env.user)

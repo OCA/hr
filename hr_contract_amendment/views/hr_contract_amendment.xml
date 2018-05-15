@@ -7,6 +7,7 @@
                 <field name="contract_id"/>
                 <field name="name"/>
                 <field name="amendment_type"/>
+                <field name="effective_date"/>
                 <field name="user_id"/>
                 <field name="date"/>
             </tree>
@@ -21,6 +22,7 @@
                     <group>
                         <field name="contract_id"/>
                         <field name="name"/>
+                        <field name="effective_date"/>
                         <field name="amendment_type"/>
                         <field name="modifications_ids"/>
                     </group>
