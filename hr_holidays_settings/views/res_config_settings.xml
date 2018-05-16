@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('settings')]" position="inside">
+                <div class="app_settings_block"
+                     data-string="Leaves management" string="Leaves Management"
+                     data-key="hr_holidays" groups="hr.group_hr_manager">
+                    <h2>Leaves Management</h2>
+                    <div class="row mt16 o_settings_container" title="Leaves Management">
+
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="hr_holidays_config_settings_action" model="ir.actions.act_window">
+        <field name="name">Configure HR Holidays</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.config.settings</field>
+        <field name="view_mode">form</field>
+        <field name="target">inline</field>
+        <field name="context">{'module' : 'hr_holidays'}</field>
+    </record>
+
+    <menuitem id="menu_hr_holidays_global_settings" name="Settings"
+          parent="hr_holidays.menu_hr_holidays_configuration" sequence="0"
+          action="hr_holidays_config_settings_action"
+          groups="base.group_system"/>
+
+    <menuitem id="menu_hr_holidays_status" name="Leave Types"
+          parent="hr_holidays.menu_hr_holidays_configuration" sequence="10"
+          action="hr_holidays.open_view_holiday_status"
+          groups="base.group_system"/>
+
+</odoo>
