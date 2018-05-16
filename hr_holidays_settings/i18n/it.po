@@ -4,14 +4,13 @@
 # 
 # Translators:
 # OCA Transbot <transbot@odoo-community.org>, 2017
-# Marco Calcagni <mcalcagni@dinamicheaziendali.it>, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-31 03:39+0000\n"
-"PO-Revision-Date: 2018-03-31 03:39+0000\n"
-"Last-Translator: Marco Calcagni <mcalcagni@dinamicheaziendali.it>, 2018\n"
+"POT-Creation-Date: 2017-11-28 01:44+0000\n"
+"PO-Revision-Date: 2017-11-28 01:44+0000\n"
+"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
 "Language-Team: Italian (https://www.transifex.com/oca/teams/23907/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -29,12 +28,12 @@ msgstr ""
 #. module: hr_holidays_settings
 #: model:ir.ui.view,arch_db:hr_holidays_settings.hr_holidays_config_settings
 msgid "Cancel"
-msgstr "Annulla"
+msgstr ""
 
 #. module: hr_holidays_settings
 #: model:ir.model.fields,field_description:hr_holidays_settings.field_hr_holidays_config_settings_company_id
 msgid "Company"
-msgstr "Azienda"
+msgstr ""
 
 #. module: hr_holidays_settings
 #: model:ir.actions.act_window,name:hr_holidays_settings.hr_holidays_config_settings_action
@@ -55,7 +54,7 @@ msgstr "Creato il"
 #. module: hr_holidays_settings
 #: model:ir.model.fields,field_description:hr_holidays_settings.field_hr_holidays_config_settings_display_name
 msgid "Display Name"
-msgstr "Nome visualizzato"
+msgstr ""
 
 #. module: hr_holidays_settings
 #: model:ir.model.fields,field_description:hr_holidays_settings.field_hr_holidays_config_settings_id
@@ -65,7 +64,7 @@ msgstr "ID"
 #. module: hr_holidays_settings
 #: model:ir.model.fields,field_description:hr_holidays_settings.field_hr_holidays_config_settings___last_update
 msgid "Last Modified on"
-msgstr "Ultima modifica il "
+msgstr ""
 
 #. module: hr_holidays_settings
 #: model:ir.model.fields,field_description:hr_holidays_settings.field_hr_holidays_config_settings_write_uid
