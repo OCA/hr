@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.form</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="hr_holidays_settings.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@data-key='hr_holidays']/div[hasclass('o_settings_container')]" position="inside">
+                <div class="col-xs-12 col-md-6 o_setting_box">
+                    <div class="o_setting_left_pane">
+                        <field name="leave_notify_manager"/>
+                    </div>
+                    <div class="o_setting_right_pane">
+                        <label for="leave_notify_manager"/>
+                        <div class="text-muted">
+                            When a leave request is created the employee's manager
+                            will be added as follower and notified by email
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
