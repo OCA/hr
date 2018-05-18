@@ -482,4 +482,6 @@ class HrAttendanceDay(models.Model):
 
     @api.multi
     def recompute_due_hours(self):
+        self._compute_total_attendance()
         self._compute_due_hours()
+        self._compute_paid_hours()

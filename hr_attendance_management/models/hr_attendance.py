@@ -53,6 +53,9 @@ class HrAttendance(models.Model):
                     # Save attendance to update attendance days after writing
                     # the change.
                     att_day_updated += att
+        if 'check_out' in vals:
+            # Update breaks
+            att_day_updated = self
 
         res = super(HrAttendance, self).write(vals)
         att_day_updated._find_related_day()
