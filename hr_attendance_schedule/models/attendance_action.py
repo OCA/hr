@@ -2,6 +2,7 @@
 from datetime import datetime, timedelta
 
 from odoo import fields
+from odoo.tools import DEFAULT_SERVER_DATETIME_FORMAT
 
 
 class AttendanceAction(object):
@@ -24,7 +25,8 @@ class AttendanceAction(object):
                     offset = matching_date - self._start_datetime
                 else:
                     offset = matching_date - self._end_datetime
-                return self._now - offset, False
+                action_date = datetime.strftime(self._now - offset, DEFAULT_SERVER_DATETIME_FORMAT)
+                return action_date, False
         return None, True
 
     def _is_now_allowed(self):
