@@ -62,6 +62,24 @@ class HrAttendance(models.Model):
 
         return res
 
+    ##########################################################################
+    #                             VIEW CALLBACKS                             #
+    ##########################################################################
+    @api.multi
+    def open_attendance(self):
+        """ Used to bypass opening a attendance in popup mode from
+        hr_attendance_day view. """
+        self.ensure_one()
+        return {
+            'type': 'ir.actions.act_window',
+            'name': 'Contract',
+            'view_type': 'form',
+            'view_mode': 'form',
+            'res_model': self._name,
+            'res_id': self.id,
+            'target': 'current',
+        }
+
     def _find_related_day(self):
         """
         Finds the existing attendance day or create one if it doesn't exist

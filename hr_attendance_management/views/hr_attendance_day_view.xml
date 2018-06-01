@@ -47,7 +47,7 @@
                                            widget="float_time"
                                            type="char" string="Logged
                                            duration"/>
-
+                                    <button name="open_attendance" type="object" icon="fa-external-link"  />
                                 </tree>
                             </field>
                             <field name="break_total" widget="float_time"/>

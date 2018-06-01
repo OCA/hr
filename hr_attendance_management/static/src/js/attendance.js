@@ -1,9 +1,10 @@
-odoo.define('hr_switzerland.attendance', function (require) {
+odoo.define('hr_attendance_management.attendance', function (require) {
 "use strict";
 
     var core = require('web.core');
 
     var hr_attendance = require('hr_attendance.my_attendances');
+    var greeting_message = require('hr_attendance.greeting_message');
 
     var Model = require('web.Model');
 
@@ -62,77 +63,29 @@ odoo.define('hr_switzerland.attendance', function (require) {
             return result;
         }
     });
-});
-
-odoo.define('hr_switzerland.exchange_days_wizard', function(require) {
-"use strict";
-
-    var greeting_message = require('hr_attendance.greeting_message');
 
     greeting_message.include({
-        start: function () {
-            window.setAttendanceMessageTimeout = function(context) {
-                return function() {
-                    setTimeout(function() {
-                        context.do_action(context.next_action, {
-                            clear_breadcrumbs: true
-                        });
-                    }, 5000);
-                }
+
+        setAttendanceMessageTimeout: function(context) {
+            return function() {
+                setTimeout(function() {
+                    context.do_action(context.next_action, {
+                        clear_breadcrumbs: true
+                    });
+                }, 5000);
             };
+        },
 
-            window.add_timeout_button_event = function(className) {
-                $('.'+className).click(window.attendance_message_timeout);
-            };
-
-            window.find_parent_by_tag_name = function (element, tag) {
-                while (element.prop('tagName').toLowerCase() !== tag.toLowerCase()) {
-                    element = element.parent();
-                }
-                return element;
-            };
-
-            // converts selection field into radio field
-            window.convert_select_into_radio = function(parent_id) {
-                var select = $('#' + parent_id).find('select').first();
-                var result = $('#dates_available_radio_selection');
-                result.html('');
-
-                select.find('option').each(function () {
-                    if ($(this).val() !== 'false') {
-                        result.append('<div class="radio"><input type="radio" name="date_select"><span class="val_text"></span></div>');
-                        var input = result.find('input').last();
-                        var val_text = result.find('.val_text').last();
-                        var date = moment($(this).val(), 'YYYY-MM-DD');
-                        input.val(date.format('YYYY-MM-DD'));
-                        val_text.html(date.format('dddd YYYY-MM-DD') + ' (' + $(this).text() + ' hours scheduled)');
-                    } else {
-                        // select first choice (select)
-                        select.val($(this).next().val());
-                    }
-                });
-                // select first choice (radio)
-                result.find('input').first().get(0).checked = true;
-                result.wrap('<p style="margin-left: 20px;"></p>');
-
-                // link radio and select fields when changes
-                result.find('input').change(function () {
-                    select.val('"' + $(this).val() + '"');
-                });
-
-                // style modifications
-                window.find_parent_by_tag_name($('#select_change_day_message'), 'table').css('margin-bottom', '-8px');
-            };
-
+        welcome_message: function () {
+            this._super();
             if (!this.attendance.due_hours && !this.attendance.check_out && this.attendance.total_attendance === 0 && !this.attendance.has_change_day_request) {
-                this.do_action('hr_attendance_management.change_day_wizard');
-                this._super();
                 // remove timeout that redirects to main page after 5 seconds
                 clearTimeout(this.return_to_main_menu);
-                window.attendance_message_timeout = window.setAttendanceMessageTimeout(this);
-            }
-            else {
-                this._super();
+                window.attendance_message_timeout = this.setAttendanceMessageTimeout(this);
+                window.add_timeout_button_event = function(className) {
+                    $('.'+className).click(window.attendance_message_timeout);
+                };
+                this.do_action('hr_attendance_management.change_day_wizard');
             }
         }
     });

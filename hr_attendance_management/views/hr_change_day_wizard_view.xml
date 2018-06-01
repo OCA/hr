@@ -1,49 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data>
-        <record id="change_day_wizard_view" model="ir.ui.view">
-            <field name="name">Change day wizard</field>
-            <field name="model">hr.change.day.wizard</field>
-            <field name="arch" type="xml">
-                 <form style="padding-top: 0px;">
-                     <group string="Change day"><div>You checked in a day you don't work in your contract. Do you want to exchange the time you do today with an other day ?</div></group>
-                        <!--<field name="test" required="True" style="height: 50px"/>-->
-                     <footer>
-                        <button type="object" class="oe_highlight" name="go_to_step2" string="Yes, I want to exchange these hours with an other day"/>
-                        <button special="cancel" class="change_day_wizard_close_button" string="No, I just want to do extra hours today"/>
-                     </footer>
-                     <script>
-                         window.add_timeout_button_event('change_day_wizard_close_button');
-                     </script>
-                </form>
-            </field>
-        </record>
-        <act_window id="change_day_wizard" name="Change day" res_model="hr.change.day.wizard" view_mode="form" target="new"/>
+    <record id="change_day_wizard_view" model="ir.ui.view">
+        <field name="name">Change day wizard</field>
+        <field name="model">hr.change.day.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <field name="state" invisible="1"/>
 
-        <record id="change_day_wizard_view_step2" model="ir.ui.view">
-            <field name="name">Change day wizard step2</field>
-            <field name="model">hr.change.day.wizard.step2</field>
-            <field name="arch" type="xml">
-                <form style="padding-top: 0px;">
-                    <group string="Day selection"><div id="select_change_day_message">Select the day you want to change in the list below</div>
-                        <span id="change_dates_available" style="display: none; ">
-                            <field name="dates"/>
-                        </span>
-                    </group>
-                    <group>
-                        <span id="dates_available_radio_selection"></span>
-                    </group>
-                    <footer>
-                        <button type="object" class="oe_highlight change_day_wizard_close_button" name="change_due_hours" string="Submit"/>
-                        <button special="cancel" class="change_day_wizard_close_button" string="Cancel"/>
-                    </footer>
-                    <script>
-                        window.convert_select_into_radio('change_dates_available');
-                        window.add_timeout_button_event('change_day_wizard_close_button');
-                    </script>
-                </form>
-            </field>
-        </record>
-        <act_window id="change_day_wizard_step2" name="Change day step2" res_model="hr.change.day.wizard.step2" view_mode="form" target="new"/>
-    </data>
+                <!-- Step 1 -->
+                <group string="Change day" states="step1">
+                    <p>You checked in a day you don't work in your contract. Do you want to exchange the time you do today with an other day ?</p>
+                </group>
+                <footer states="step1">
+                    <button type="object" class="oe_highlight" name="go_to_step2" string="Yes, I want to exchange these hours with an other day"/>
+                    <button special="cancel" class="change_day_wizard_close_button" string="No, I just want to do extra hours today"/>
+                </footer>
+
+                <!-- Step 2 -->
+                <group string="Day selection" states="step2">
+                    <field name="date_select" widget="radio" string="Select which day you want to exchange:"/>
+                </group>
+                <footer states="step2">
+                    <button type="object" class="oe_highlight change_day_wizard_close_button" name="change_due_hours" string="Submit"/>
+                    <button special="cancel" class="change_day_wizard_close_button" string="Cancel"/>
+                </footer>
+
+                <script>window.add_timeout_button_event('change_day_wizard_close_button');</script>
+            </form>
+        </field>
+    </record>
+
+    <act_window id="change_day_wizard"
+                name="Change day"
+                res_model="hr.change.day.wizard"
+                view_mode="form"
+                target="new"
+    />
 </odoo>
