@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Add a menu to Human Resources to keep the curriculum. -->
+    <menuitem id="menu_hr_experience" parent="hr.menu_hr_root" name="Experiences" sequence="95"/>
+
+    <!-- inheritEmployee -->
+    <record id="view_employee_form_inherit" model="ir.ui.view">
+        <field name="name">hr.experience.employee.form</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <notebook position="inside">
+                <page string="Resume" groups="base.group_user">
+                    <group string="Academic Experiences">
+                        <field name="academic_ids" context="{'default_employee_id': active_id}" nolabel="1">
+                            <tree string="Academic Experiences">
+                                <field name="name" string="Academic Experience"/>
+                                <field name="partner_id" string="Institution"/>
+                                <field name="diploma"/>
+                                <field name="study_field"/>
+                                <field name="start_date"/>
+                                <field name="end_date"/>
+                            </tree>
+                            <form string="Academic Experience">
+                                <group name="main">
+                                    <field name="employee_id"/>
+                                    <field name="name"/>
+                                </group>
+                                <group name="dates" col="4">
+                                    <field name="start_date"/>
+                                    <field name="end_date"/>
+                                </group>
+                                <group name="partner_info" col="4">
+                                    <field name="partner_id" string="Institution"/>
+                                    <field name="location"/>
+                                </group>
+                                <group string="Additional Information" col="4">
+                                    <field name="diploma"/>
+                                    <field name="study_field"/>
+                                    <field name="activities"/>
+                                </group>
+                                <group string="Description">
+                                    <field name="description" nolabel="1"/>
+                                </group>
+                            </form>
+                        </field>
+                    </group>
+                    <group string="Professional Experiences">
+                        <field name="experience_ids" context="{'default_employee_id': active_id}" nolabel="1">
+                            <tree string="Professional Experiences">
+                                <field name="name" string="Position"/>
+                                <field name="partner_id" string="Employer"/>
+                                <field name="start_date"/>
+                                <field name="end_date"/>
+                            </tree>
+                            <form string="Professional Experience">
+                                <group name="main">
+                                    <field name="employee_id"/>
+                                    <field name="name" string="Position"/>
+                                </group>
+                                <group name="dates" col="4">
+                                    <field name="start_date"/>
+                                    <field name="end_date"/>
+                                </group>
+                                <group name="partner_info" col="4">
+                                    <field name="partner_id" string="Employer"/>
+                                    <field name="location"/>
+                                </group>
+                                <group string="Description">
+                                    <field name="description" nolabel="1"/>
+                                </group>
+                            </form>
+                        </field>
+                    </group>
+                    <group string="Certifications">
+                        <field name="certification_ids" context="{'default_employee_id': active_id}" nolabel="1">
+                            <tree string="Certifications">
+                                <field name="name" string="Certification"/>
+                                <field name="certification" string="# Certificate"/>
+                                <field name="partner_id" string="Issued By"/>
+                                <field name="start_date"/>
+                                <field name="expire"/>
+                                <field name="end_date" attrs="{'invisible':[('expire', '=', False)]}"/>
+                            </tree>
+                            <form string="Professional Experience">
+                                <group name="main">
+                                    <field name="employee_id"/>
+                                    <field name="name" string="Certification"/>
+                                </group>
+                                <group name="dates" col="4">
+                                    <field name="start_date"/>
+                                    <field name="expire"/>
+                                    <field name="end_date" attrs="{'invisible':[('expire', '=', False)]}"/>
+                                </group>
+                                <group name="partner_info" col="4">
+                                    <field name="partner_id" string="Issued By"/>
+                                    <field name="location"/>
+                                </group>
+                                <group string="Certification Information">
+                                    <field name="certification"/>
+                                    <field name="description"/>
+                                </group>
+                            </form>
+                        </field>
+                    </group>
+                </page>
+            </notebook>
+        </field>
+    </record>
+
+</odoo>

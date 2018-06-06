@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_certification_tree" model="ir.ui.view">
+        <field name="name">hr.certification.tree</field>
+        <field name="model">hr.certification</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="Certifications">
+                <field name="name" string="Certification"/>
+                <field name="employee_id"/>
+                <field name="certification" string="# Certificate"/>
+                <field name="partner_id" string="Issued By"/>
+                <field name="start_date"/>
+                <field name="expire"/>
+                <field name="end_date" attrs="{'invisible':[('expire', '=', False)]}"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_certification_form" model="ir.ui.view">
+        <field name="name">hr.certification.form</field>
+        <field name="model">hr.certification</field>
+        <field name="arch" type="xml">
+            <form string="Certification">
+                <sheet>
+                    <group name="main">
+                        <field name="employee_id"/>
+                        <field name="name" string="Certification"/>
+                    </group>
+                    <group name="dates" col="4">
+                        <field name="start_date"/>
+                        <field name="expire"/>
+                        <field name="end_date" attrs="{'invisible':[('expire', '=', False)]}"/>
+                    </group>
+                    <group name="partner_info" col="4">
+                        <field name="partner_id" string="Issued By"/>
+                        <field name="location"/>
+                    </group>
+                    <group string="Certification Information">
+                        <field name="certification"/>
+                        <field name="description"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_certification_search" model="ir.ui.view">
+        <field name="name">hr.certification.form</field>
+        <field name="model">hr.certification</field>
+        <field name="arch" type="xml">
+            <search string="Search Certifications">
+                <field name="name"/>
+                <field name="employee_id"/>
+                <field name="partner_id" string="Issued By"/>
+                <group expand="0" name="group_by" string="Group By">
+                    <filter name="employee_id" string="Employee" context="{'group_by' : 'employee_id'}" />
+                    <filter name="partner_id" string="Issued By" context="{'group_by': 'partner_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="open_view_certification_form" model="ir.actions.act_window">
+        <field name="name">Certifications</field>
+        <field name="res_model">hr.certification</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Certifications"
+              parent="menu_hr_experience"
+              id="menu_open_view_certification_form"
+              action="open_view_certification_form"/>
+
+</odoo>
