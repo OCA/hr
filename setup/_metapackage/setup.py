@@ -9,8 +9,10 @@ setuptools.setup(
     version=version,
     install_requires=[
         'odoo11-addon-hr_employee_firstname',
+        'odoo11-addon-hr_experience',
         'odoo11-addon-hr_holidays_imposed_days',
         'odoo11-addon-hr_holidays_leave_auto_approve',
+        'odoo11-addon-hr_holidays_notify_employee_manager',
         'odoo11-addon-hr_holidays_settings',
         'odoo11-addon-hr_skill',
     ],
