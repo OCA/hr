@@ -2,8 +2,8 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 {
-    'name': "HR - Holiday Leaves Overlap",
-    'summary': """Handle leaves overlap""",
+    'name': 'HR - Holiday Leaves Overlap',
+    'summary': 'Handle leaves overlap',
     'author': 'Onestein, Odoo Community Association (OCA)',
     'license': 'AGPL-3',
     'website': 'http://www.onestein.eu',
@@ -12,6 +12,5 @@
     'depends': [
         'hr_holidays',
     ],
-    'data': [],
     'installable': True,
 }

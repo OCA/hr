@@ -10,13 +10,6 @@ This modules allows holiday leaves overlap, automatically handling them, adaptin
 splitting the new leave request in order to arrange it in a time period where other
 leaves were already registered.
 
-Configuration
-=============
-
-To configure this module, you need to:
-
-#. No configuration needed. Just install the module.
-
 Usage
 =====
 

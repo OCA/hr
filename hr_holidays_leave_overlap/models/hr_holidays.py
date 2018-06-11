@@ -1,9 +1,9 @@
 # Copyright 2018 Onestein (<http://www.onestein.eu>)
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
+from datetime import timedelta
 from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
-from datetime import timedelta
 
 
 class HrHolidays(models.Model):
@@ -60,12 +60,13 @@ class HrHolidays(models.Model):
                         timedelta(seconds=1))
                     continue
 
-                s_date = stepping_date and stepping_date[-1] or base_date[0]
-                e_date = fields.Datetime.to_string(
+                start_date = stepping_date and stepping_date[-1] or \
+                             base_date[0]
+                end_date = fields.Datetime.to_string(
                     fields.Datetime.from_string(leave.date_from) -
                     timedelta(seconds=1)
                 )
-                split_date.append((s_date, e_date))
+                split_date.append((start_date, end_date))
                 stepping_date.append(fields.Datetime.to_string(
                     fields.Datetime.from_string(leave.date_to) +
                     timedelta(seconds=1))
@@ -100,5 +101,4 @@ class HrHolidays(models.Model):
 
                 res = super(HrHolidays, self).create(new_vals)
             return res
-        else:
-            return super(HrHolidays, self).create(values)
+        return super(HrHolidays, self).create(values)

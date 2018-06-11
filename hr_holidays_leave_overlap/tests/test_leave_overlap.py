@@ -1,10 +1,10 @@
 # Copyright 2018 Onestein (<http://www.onestein.eu>)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from odoo.exceptions import ValidationError
-from odoo.tests import common
-from odoo.fields import Datetime
 from datetime import timedelta
+from odoo.exceptions import ValidationError
+from odoo.fields import Datetime
+from odoo.tests import common
 
 
 class TestLeaveOverlap(common.TransactionCase):
@@ -66,6 +66,10 @@ class TestLeaveOverlap(common.TransactionCase):
         })
 
     def test_01_left(self):
+        """When a leave request is created on a period which starts without
+        overlapping and ends within another leave request period, the new
+        leave request should be adapted to end exactly before the overlapping
+        period starts"""
         self.leave_request_model.create({
             'name': 'Test Leave Request A',
             'holiday_status_id': self.test_leave_type_id.id,
@@ -76,16 +80,20 @@ class TestLeaveOverlap(common.TransactionCase):
             'date_to': Datetime.to_string(self.today + timedelta(days=1))
         })
 
-        r = self.leave_request_model.search([
+        res = self.leave_request_model.search([
             ('employee_id', '=', self.test_employee_id.id),
             ('date_from', '=', Datetime.to_string(
                 self.today - timedelta(days=2))),
             ('date_to', '=', Datetime.to_string(
                 self.today - timedelta(seconds=1)))
         ])
-        self.assertNotEquals(r, False)
+        self.assertNotEquals(res, False)
 
     def test_02_right(self):
+        """When a leave request is created on a period which starts within
+        another leave request period and ends without overlapping, the new
+        leave request should be adapted to start exactly after the overlapping
+        period ends"""
         self.leave_request_model.create({
             'name': 'Test Leave Request B',
             'holiday_status_id': self.test_leave_type_id.id,
@@ -98,16 +106,22 @@ class TestLeaveOverlap(common.TransactionCase):
                 self.today + timedelta(days=12))
         })
 
-        r = self.leave_request_model.search([
+        res = self.leave_request_model.search([
             ('employee_id', '=', self.test_employee_id.id),
             ('date_from', '=', Datetime.to_string(
                 self.today + timedelta(days=11, seconds=1))),
             ('date_to', '=', Datetime.to_string(
                 self.today + timedelta(days=12)))
         ])
-        self.assertNotEquals(r, False)
+        self.assertNotEquals(res, False)
 
     def test_03_including(self):
+        """When a leave request is created on a period which starts and ends
+        without overlapping but including a period already covered by another,
+        leave request, the new leave request should be splitted in order to
+        create two leave requests, one covering the period right before the
+        overlapping period and the other covering the period right after the
+        overlapping period."""
         self.leave_request_model.create({
             'name': 'Test Leave Request C',
             'holiday_status_id': self.test_leave_type_id.id,
@@ -120,25 +134,28 @@ class TestLeaveOverlap(common.TransactionCase):
                 self.today + timedelta(days=8))
         })
 
-        r = self.leave_request_model.search([
+        res = self.leave_request_model.search([
             ('employee_id', '=', self.test_employee_id.id),
             ('date_from', '=', Datetime.to_string(
                 self.today + timedelta(days=3))),
             ('date_to', '=', Datetime.to_string(
                 self.today + timedelta(days=4) - timedelta(seconds=1)))
         ])
-        self.assertNotEquals(r, False)
+        self.assertNotEquals(res, False)
 
-        r = self.leave_request_model.search([
+        res = self.leave_request_model.search([
             ('employee_id', '=', self.test_employee_id.id),
             ('date_from', '=', Datetime.to_string(
                 self.today + timedelta(days=7, seconds=1))),
             ('date_to', '=', Datetime.to_string(
                 self.today + timedelta(days=8)))
         ])
-        self.assertNotEquals(r, False)
+        self.assertNotEquals(res, False)
 
     def test_04_included(self):
+        """When a leave request is created on a period completely included in
+        the period of an already existing leave request, the system shouldn't
+        allow it and raise a ValidationError"""
         with self.assertRaises(ValidationError):
             self.leave_request_model.create({
                 'name': 'Test Leave Request D',
@@ -153,6 +170,10 @@ class TestLeaveOverlap(common.TransactionCase):
             })
 
     def test_05_all(self):
+        """This test will check the more complex case in which a new leave
+        request's period includes multiple distinct periods covered by already
+         existing leave requests. In this case, the system is expected to
+         create multiple non-overlapping leave requests filling the gaps"""
         self.leave_request_model.create({
             'name': 'Test Leave Request E',
             'holiday_status_id': self.test_leave_type_id.id,
@@ -165,38 +186,38 @@ class TestLeaveOverlap(common.TransactionCase):
                 self.today + timedelta(days=13))
         })
 
-        r = self.leave_request_model.search([
+        res = self.leave_request_model.search([
             ('employee_id', '=', self.test_employee_id.id),
             ('date_from', '=', Datetime.to_string(
                 self.today - timedelta(days=1))),
             ('date_to', '=', Datetime.to_string(
                 self.today - timedelta(seconds=1)))
         ])
-        self.assertNotEquals(r, False)
+        self.assertNotEquals(res, False)
 
-        r = self.leave_request_model.search([
+        res = self.leave_request_model.search([
             ('employee_id', '=', self.test_employee_id.id),
             ('date_from', '=', Datetime.to_string(
                 self.today + timedelta(days=2, seconds=1))),
             ('date_to', '=', Datetime.to_string(
                 self.today + timedelta(days=4) - timedelta(seconds=1)))
         ])
-        self.assertNotEquals(r, False)
+        self.assertNotEquals(res, False)
 
-        r = self.leave_request_model.search([
+        res = self.leave_request_model.search([
             ('employee_id', '=', self.test_employee_id.id),
             ('date_from', '=', Datetime.to_string(
                 self.today + timedelta(days=7, seconds=1))),
             ('date_to', '=', Datetime.to_string(
                 self.today + timedelta(days=9) - timedelta(seconds=1)))
         ])
-        self.assertNotEquals(r, False)
+        self.assertNotEquals(res, False)
 
-        r = self.leave_request_model.search([
+        res = self.leave_request_model.search([
             ('employee_id', '=', self.test_employee_id.id),
             ('date_from', '=', Datetime.to_string(
                 self.today + timedelta(days=11, seconds=1))),
             ('date_to', '=', Datetime.to_string(
                 self.today + timedelta(days=13)))
         ])
-        self.assertNotEquals(r, False)
+        self.assertNotEquals(res, False)
