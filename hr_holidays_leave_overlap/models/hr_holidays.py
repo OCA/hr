@@ -11,7 +11,7 @@ class HrHolidays(models.Model):
 
     @api.model
     def create(self, values):
-        if values['type'] == 'remove':
+        if values.get('type', False) == 'remove':
 
             including = self.search([
                 ('date_from', '<', values['date_from']),
@@ -60,8 +60,10 @@ class HrHolidays(models.Model):
                         timedelta(seconds=1))
                     continue
 
-                start_date = stepping_date and stepping_date[-1] or \
-                             base_date[0]
+                start_date = (
+                    stepping_date and stepping_date[-1] or
+                    base_date[0]
+                )
                 end_date = fields.Datetime.to_string(
                     fields.Datetime.from_string(leave.date_from) -
                     timedelta(seconds=1)
