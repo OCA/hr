@@ -33,9 +33,6 @@ Known issues / Roadmap
 
 * Contract trial length can also depend on contract duration
 
-Usage
-=====
-
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
    :target: https://runbot.odoo-community.org/runbot/116/10.0
