@@ -1,7 +1,7 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # * hr_public_holidays
-# 
+#
 # Translators:
 # Bole <bole@dajmi5.com>, 2017
 msgid ""
@@ -12,21 +12,24 @@ msgstr ""
 "PO-Revision-Date: 2018-02-23 03:46+0000\n"
 "Last-Translator: Bole <bole@dajmi5.com>, 2017\n"
 "Language-Team: Croatian (https://www.transifex.com/oca/teams/23907/hr/)\n"
+"Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: hr\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
 #. module: hr_public_holidays
 #: model:ir.ui.view,arch_db:hr_public_holidays.public_holidays_next_year_wizard_view
 msgid ""
 "By default, the most recent public holidays \n"
 "                        for each country are used as template to create  \n"
-"                        public holidays for the year following the templates.\n"
+"                        public holidays for the year following the "
+"templates.\n"
 "                        <br/><br/>\n"
 "                        Normally, you should not need to input anything in \n"
-"                        optional fields and only need to click on the button \n"
+"                        optional fields and only need to click on the "
+"button \n"
 "                        \"Create\"."
 msgstr ""
 
@@ -200,9 +203,11 @@ msgstr "Predlošci"
 #: model:ir.ui.view,arch_db:hr_public_holidays.public_holidays_next_year_wizard_view
 msgid ""
 "The below optional fields are here only to handle \n"
-"                        special situations like \"2011 was a special year with \n"
+"                        special situations like \"2011 was a special year "
+"with \n"
 "                        an additional public holiday for the 150th \n"
-"                        anniversary of the Italian unification, so you want to \n"
+"                        anniversary of the Italian unification, so you want "
+"to \n"
 "                        replicate the 2010 Italian holidays to 2012.\""
 msgstr ""
 
@@ -212,7 +217,8 @@ msgid ""
 "Use this wizard to create public holidays based on the \n"
 "                        existing ones.<br/>\n"
 "                        Only the last templates of each country \n"
-"                        will be taken into account (If you select templates \n"
+"                        will be taken into account (If you select "
+"templates \n"
 "                        from 2012 and 2015 of the same country; '\n"
 "                        only the templates from 2015 will be taken into \n"
 "                        account)."
@@ -234,8 +240,8 @@ msgstr ""
 #: code:addons/hr_public_holidays/models/hr_public_holidays_line.py:57
 #, python-format
 msgid ""
-"You can't create duplicate public holiday per date %s and one of the country"
-" states."
+"You can't create duplicate public holiday per date %s and one of the country "
+"states."
 msgstr ""
 
 #. module: hr_public_holidays
