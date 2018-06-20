@@ -35,7 +35,7 @@ class TestHrHolidaysValidityDate(common.TransactionCase):
         super(TestHrHolidaysValidityDate, self).setUp()
         self.holidays_obj = self.env['hr.holidays']
         self.type01 = self.env.ref('hr_holidays.holiday_status_cl')
-        self.employee01 = self.env.ref('hr.employee_root')
+        self.employee01 = self.env.ref('hr.employee_mit')
 
     def test_holidays_without_validity(self):
         today = datetime.now().strftime(DEFAULT_SERVER_DATETIME_FORMAT)
