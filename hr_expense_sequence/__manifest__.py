@@ -6,7 +6,8 @@
 {
     'name': 'HR expense sequence',
     'version': '10.0.1.0.0',
-    'category': 'HR',
+    'license': 'AGPL-3',
+    'category': 'Human Resources',
     'author': "Serv. Tecnol. Avanzados - Pedro M. Baeza,"
               "Odoo Community Association (OCA)",
     'website': 'http://www.serviciosbaeza.com',
