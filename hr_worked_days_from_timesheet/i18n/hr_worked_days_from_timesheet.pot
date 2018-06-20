@@ -14,7 +14,7 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: hr_worked_days_from_timesheet
-#: code:addons/hr_worked_days_from_timesheet/models/hr_payslip.py:48
+#: code:addons/hr_worked_days_from_timesheet/models/hr_payslip.py:57
 #, python-format
 msgid "Contract is not defined for one or more payslips."
 msgstr ""
@@ -40,9 +40,9 @@ msgid "Payslip Worked Days"
 msgstr ""
 
 #. module: hr_worked_days_from_timesheet
-#: code:addons/hr_worked_days_from_timesheet/models/hr_payslip.py:79
+#: code:addons/hr_worked_days_from_timesheet/models/hr_payslip.py:72
 #, python-format
-msgid "Sorry, but there is no approved Timesheets for the                     entire Payslip period"
+msgid "Sorry, but there is no approved Timesheets for the                 entire Payslip period for user %s"
 msgstr ""
 
 #. module: hr_worked_days_from_timesheet
@@ -51,7 +51,7 @@ msgid "Timesheet"
 msgstr ""
 
 #. module: hr_worked_days_from_timesheet
-#: code:addons/hr_worked_days_from_timesheet/models/hr_payslip.py:32
+#: code:addons/hr_worked_days_from_timesheet/models/hr_payslip.py:27
 #, python-format
 msgid "Timesheet %s"
 msgstr ""
