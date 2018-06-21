@@ -1,8 +1,5 @@
-# -*- coding: utf-8 -*-
 # Copyright 2017 Onestein (<http://www.onestein.eu>)
-# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
-
-import datetime
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError, Warning
@@ -32,25 +29,8 @@ class HrHolidays(models.Model):
     @api.multi
     def _set_number_of_hours_temp(self):
         self.ensure_one()
-        from_dt = self._compute_datetime(self.date_from)
-        to_dt = self._compute_datetime(self.date_to)
-        work_hours = self._compute_work_hours(from_dt, to_dt)
+        work_hours = self._compute_work_hours()
         self.number_of_hours_temp = work_hours
-
-    @api.model
-    def _compute_datetime(self, date):
-        dt = False
-        if date:
-            this_year = datetime.date.today().year
-            reference_date = fields.Datetime.context_timestamp(
-                self.env.user,
-                datetime.datetime(this_year, 1, 1, 12)
-            )
-            dt = fields.Datetime.from_string(date)
-            tz_dt = fields.Datetime.context_timestamp(self.env.user, dt)
-            dt = dt + tz_dt.tzinfo._utcoffset
-            dt = dt - reference_date.tzinfo._utcoffset
-        return dt
 
     @api.multi
     def _check_dates(self):
@@ -70,30 +50,18 @@ class HrHolidays(models.Model):
             raise Warning(_('Set an employee first!'))
 
     @api.multi
-    def _compute_work_hours(self, from_dt, to_dt):
+    def _compute_work_hours(self):
         self.ensure_one()
         employee = self.employee_id
+        from_dt = fields.Datetime.from_string(self.date_from)
+        to_dt = fields.Datetime.from_string(self.date_to)
         work_hours = 0.0
         if self.date_from and self.date_to:
-            working_hours = self._get_working_hours(employee)
-            if working_hours:
-                work_hours = working_hours.get_working_hours(
-                    from_dt,
-                    to_dt,
-                    compute_leaves=True,
-                    resource_id=employee.resource_id.id)
+            emp_work_hours = employee.iter_work_hours_count(from_dt, to_dt)
+            work_hours_data = [item for item in emp_work_hours]
+            for index, (day, work_hours_count) in enumerate(work_hours_data):
+                work_hours += work_hours_count
         return work_hours
-
-    @api.model
-    def _get_working_hours(self, employee):
-        working_hours = None
-        if employee.calendar_id:
-            working_hours = employee.calendar_id
-        else:
-            contract = employee.sudo().contract_id
-            if contract and contract.working_hours:
-                working_hours = contract.working_hours
-        return working_hours
 
     @api.depends('number_of_hours_temp', 'state')
     def _compute_number_of_hours(self):
@@ -138,6 +106,14 @@ class HrHolidays(models.Model):
                     holiday.employee_id
                 )
                 holiday._check_leave_hours(leave_hours)
+
+    @api.constrains('number_of_hours_temp')
+    def _check_number_of_hours_temp(self):
+        for holiday in self:
+            if holiday.type == 'remove' and holiday.number_of_hours_temp < 0:
+                raise ValidationError(
+                    _('Hours of a leave request cannot be a negative number.')
+                )
 
     @api.model
     def _check_leave_hours(self, leave_hours):
