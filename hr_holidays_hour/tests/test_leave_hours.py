@@ -1,12 +1,11 @@
-# -*- coding: utf-8 -*-
 # Copyright 2017 Onestein (<http://www.onestein.eu>)
-# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 from odoo.tests import common
 from odoo.tools import DEFAULT_SERVER_DATETIME_FORMAT as DF
-from odoo.exceptions import Warning, ValidationError
+from odoo.exceptions import UserError, ValidationError
 
 
 class TestLeaveHours(common.TransactionCase):
@@ -42,25 +41,18 @@ class TestLeaveHours(common.TransactionCase):
 
         self.employee_1 = Employee.create({
             'name': 'Employee 1',
-            'calendar_id': self.calendar.id,
+            'resource_calendar_id': self.calendar.id,
         })
         self.employee_2 = Employee.create({
             'name': 'Employee 2',
-            'calendar_id': self.calendar.id,
+            'resource_calendar_id': self.calendar.id,
         })
         self.employee_3 = Employee.create({
             'name': 'Employee 3',
         })
         self.employee_4 = Employee.create({
             'name': 'Failing Employee',
-            'calendar_id': self.calendar.id,
-        })
-
-        self.contract_1 = self.env['hr.contract'].create({
-            'name': 'Contract 1',
-            'employee_id': self.employee_3.id,
-            'wage': 2000.0,
-            'working_hours': self.calendar.id,
+            'resource_calendar_id': self.calendar.id,
         })
 
         self.status_1 = HolidaysStatus.create({
@@ -196,9 +188,9 @@ class TestLeaveHours(common.TransactionCase):
             'date_to': self.holiday_start.strftime(DF),
         }
 
-        with self.assertRaises(Warning):
+        with self.assertRaises(UserError):
             self.leave_1.onchange(values, 'date_from', field_onchange)
-        with self.assertRaises(Warning):
+        with self.assertRaises(UserError):
             self.leave_1.onchange(values, 'date_to', field_onchange)
 
         values.update({
@@ -209,9 +201,9 @@ class TestLeaveHours(common.TransactionCase):
 
         self.leave_1.onchange(values, 'employee_id', field_onchange)
 
-        with self.assertRaises(Warning):
+        with self.assertRaises(UserError):
             self.leave_1.onchange(values, 'date_from', field_onchange)
-        with self.assertRaises(Warning):
+        with self.assertRaises(UserError):
             self.leave_1.onchange(values, 'date_to', field_onchange)
 
     def test_03_creation_fail(self):
@@ -225,70 +217,6 @@ class TestLeaveHours(common.TransactionCase):
                 'employee_id': self.employee_4.id,
                 'number_of_hours_temp': 8.0
             })
-
-    def test_04_get_work_limits(self):
-
-        Calendar = self.env['resource.calendar']
-        start_dt, work_limits = Calendar._get_work_limits(
-            self.holiday_end, self.holiday_start)
-        self.assertEqual(start_dt, self.holiday_start)
-        self.assertEqual(work_limits, [
-            (
-                self.holiday_start.replace(
-                    hour=0, minute=0, second=0, microsecond=0),
-                self.holiday_start
-            ),
-            (
-                self.holiday_end,
-                self.holiday_end.replace(
-                    hour=23, minute=59, second=59, microsecond=999999)
-            ),
-        ])
-
-        start_dt, work_limits = Calendar._get_work_limits(
-            self.holiday_end, None)
-        self.assertEqual(start_dt, self.holiday_end.replace(
-            hour=0, minute=0, second=0, microsecond=0))
-        self.assertEqual(work_limits, [
-            (
-                self.holiday_end,
-                self.holiday_end.replace(
-                    hour=23, minute=59, second=59, microsecond=999999)
-            ),
-        ])
-
-        start_dt, work_limits = Calendar._get_work_limits(
-            None, self.holiday_start)
-        self.assertEqual(start_dt, self.holiday_start)
-        self.assertEqual(work_limits, [
-            (
-                self.holiday_start.replace(
-                    hour=0, minute=0, second=0, microsecond=0),
-                self.holiday_start
-            ),
-        ])
-
-        start_dt, work_limits = Calendar._get_work_limits(None, None)
-        self.assertEqual(start_dt, datetime.today().replace(
-            hour=0, minute=0, second=0, microsecond=0))
-        self.assertEqual(work_limits, [])
-
-    def test_05_get_working_intervals_of_day(self):
-        default_interval = (
-            self.holiday_start.hour,
-            self.holiday_end.hour
-        )
-        Calendar = self.env['resource.calendar']
-        interval = Calendar.get_working_intervals_of_day(
-            self.holiday_start,
-            self.holiday_end,
-            default_interval=default_interval
-        )
-
-        self.assertEqual(interval, [(
-            self.holiday_start,
-            self.holiday_end
-        )])
 
     def test_06_compute_leaves_count(self):
         employee_list = self.employee_1 + \

@@ -1,4 +1,4 @@
-.. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
+.. image:: https://img.shields.io/badge/licence-AGPL--3-blue.png
    :target: http://www.gnu.org/licenses/agpl
    :alt: License: AGPL-3
 
@@ -35,8 +35,6 @@ If the employee wants to request half a day:
 
 In case a working time schedule is defined for an employee, the duration (in hours) will be
 automatically filled while setting the starting date and the ending date of a leave request.
-If the "Working Time" is not set for the employee, but the employee has a contract with
-a working schedule, the duration (in hours) will be automatically filled as well.
 
 Usage
 =====
@@ -68,7 +66,7 @@ a working schedule, the duration (in hours) will be automatically filled as well
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
-   :target: https://runbot.odoo-community.org/runbot/116/10.0
+   :target: https://runbot.odoo-community.org/runbot/116/11.0
 
 
 Bug Tracker
@@ -87,7 +85,7 @@ Tests for `resource_calendar` are repeated from the Odoo SA standard module `res
 Images
 ------
 
-* Odoo Community Association: `Icon <https://github.com/OCA/maintainer-tools/blob/master/template/module/static/description/icon.svg>`_.
+* Odoo Community Association: `Icon <https://odoo-community.org/logo.png>`_.
 
 Contributors
 ------------
