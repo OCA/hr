@@ -81,12 +81,12 @@ class HrHolidaysStatus(models.Model):
 
     @api.multi
     def name_get(self):
+        res = []
         if not self._context.get('employee_id', False):
             # leave counts is based on employee_id, would be
             # inaccurate if not based on correct employee
             return super(HrHolidaysStatus, self).name_get()
 
-        res = []
         for record in self:
             name = record.name
             if not record.limit:
