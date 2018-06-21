@@ -5,7 +5,7 @@
     'name': 'Leave Management in hours',
     'summary': 'Holidays, Allocation and Leave Requests in Hours',
     'author': 'Onestein, Odoo Community Association (OCA)',
-    'website': 'http://www.onestein.eu',
+    'website': 'https://github.com/OCA/hr',
     'category': 'Human Resources',
     'version': '11.0.1.0.0',
     'license': 'AGPL-3',
