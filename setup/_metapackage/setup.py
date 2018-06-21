@@ -27,6 +27,7 @@ setuptools.setup(
         'odoo10-addon-hr_experience',
         'odoo10-addon-hr_family',
         'odoo10-addon-hr_holidays_compute_days',
+        'odoo10-addon-hr_holidays_hour',
         'odoo10-addon-hr_holidays_imposed_days',
         'odoo10-addon-hr_holidays_leave_auto_approve',
         'odoo10-addon-hr_holidays_legal_leave',
