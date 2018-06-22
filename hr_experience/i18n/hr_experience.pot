@@ -1,22 +1,17 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# * hr_experience
+#	* hr_experience
 #
-# Translators:
-# OCA Transbot <transbot@odoo-community.org>, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-07 02:58+0000\n"
-"PO-Revision-Date: 2018-06-07 02:58+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2018\n"
-"Language-Team: Italian (https://www.transifex.com/oca/teams/23907/it/)\n"
-"Language: it\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: \n"
 
 #. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_employee_experience_ids
@@ -69,7 +64,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_experience.field_hr_experience_category
 #: model:ir.model.fields,help:hr_experience.field_hr_experience_category
 msgid "Category"
-msgstr "Categoria"
+msgstr ""
 
 #. module: hr_experience
 #: selection:hr.experience,category:0
@@ -77,7 +72,7 @@ msgstr "Categoria"
 #: model:ir.ui.view,arch_db:hr_experience.view_certification_tree
 #: model:ir.ui.view,arch_db:hr_experience.view_employee_form_inherit
 msgid "Certification"
-msgstr "Certificazione"
+msgstr ""
 
 #. module: hr_experience
 #: model:ir.ui.view,arch_db:hr_experience.view_certification_form
@@ -99,7 +94,7 @@ msgstr ""
 #: model:ir.ui.view,arch_db:hr_experience.view_certification_tree
 #: model:ir.ui.view,arch_db:hr_experience.view_employee_form_inherit
 msgid "Certifications"
-msgstr "Certificati"
+msgstr ""
 
 #. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_academic_create_uid
@@ -107,7 +102,7 @@ msgstr "Certificati"
 #: model:ir.model.fields,field_description:hr_experience.field_hr_curriculum_create_uid
 #: model:ir.model.fields,field_description:hr_experience.field_hr_experience_create_uid
 msgid "Created by"
-msgstr "Creato da"
+msgstr ""
 
 #. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_academic_create_date
@@ -115,7 +110,7 @@ msgstr "Creato da"
 #: model:ir.model.fields,field_description:hr_experience.field_hr_curriculum_create_date
 #: model:ir.model.fields,field_description:hr_experience.field_hr_experience_create_date
 msgid "Created on"
-msgstr "Creato il"
+msgstr ""
 
 #. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_academic_description
@@ -126,12 +121,12 @@ msgstr "Creato il"
 #: model:ir.ui.view,arch_db:hr_experience.view_employee_form_inherit
 #: model:ir.ui.view,arch_db:hr_experience.view_professional_form
 msgid "Description"
-msgstr "Descrizione"
+msgstr ""
 
 #. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_academic_diploma
 msgid "Diploma"
-msgstr "Diploma"
+msgstr ""
 
 #. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_academic_display_name
@@ -156,7 +151,7 @@ msgstr ""
 #: model:ir.ui.view,arch_db:hr_experience.view_certification_search
 #: model:ir.ui.view,arch_db:hr_experience.view_experience_search
 msgid "Employee"
-msgstr "Dipendente"
+msgstr ""
 
 #. module: hr_experience
 #: model:ir.model,name:hr_experience.model_hr_curriculum
@@ -222,7 +217,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_experience.field_hr_curriculum_id
 #: model:ir.model.fields,field_description:hr_experience.field_hr_experience_id
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 #. module: hr_experience
 #: model:ir.ui.view,arch_db:hr_experience.view_academic_form
@@ -254,7 +249,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_experience.field_hr_curriculum_write_uid
 #: model:ir.model.fields,field_description:hr_experience.field_hr_experience_write_uid
 msgid "Last Updated by"
-msgstr "Ultimo aggiornamento di"
+msgstr ""
 
 #. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_academic_write_date
@@ -262,7 +257,7 @@ msgstr "Ultimo aggiornamento di"
 #: model:ir.model.fields,field_description:hr_experience.field_hr_curriculum_write_date
 #: model:ir.model.fields,field_description:hr_experience.field_hr_experience_write_date
 msgid "Last Updated on"
-msgstr "Ultimo aggiornamento il"
+msgstr ""
 
 #. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_academic_location
@@ -282,7 +277,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_experience.field_hr_curriculum_name
 #: model:ir.model.fields,field_description:hr_experience.field_hr_experience_name
 msgid "Name"
-msgstr "Nome"
+msgstr ""
 
 #. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_academic_partner_id
@@ -361,3 +356,4 @@ msgstr ""
 #: model:ir.model,name:hr_experience.model_hr_experience
 msgid "hr.experience"
 msgstr ""
+
