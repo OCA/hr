@@ -3,22 +3,20 @@
 # * hr_experience
 #
 # Translators:
-# OCA Transbot <transbot@odoo-community.org>, 2018
+# Mehdi Zarrinkolah <mehdi1811@gmail.com>, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-06-07 02:58+0000\n"
 "PO-Revision-Date: 2018-06-07 02:58+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2018\n"
-"Language-Team: Lithuanian (https://www.transifex.com/oca/teams/23907/lt/)\n"
-"Language: lt\n"
+"Last-Translator: Mehdi Zarrinkolah <mehdi1811@gmail.com>, 2018\n"
+"Language-Team: Persian (https://www.transifex.com/oca/teams/23907/fa/)\n"
+"Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=4; plural=(n % 10 == 1 && (n % 100 > 19 || n % 100 < "
-"11) ? 0 : (n % 10 >= 2 && n % 10 <=9) && (n % 100 > 19 || n % 100 < 11) ? "
-"1 : n % 1 != 0 ? 2: 3);\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_employee_experience_ids
@@ -109,7 +107,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_experience.field_hr_curriculum_create_uid
 #: model:ir.model.fields,field_description:hr_experience.field_hr_experience_create_uid
 msgid "Created by"
-msgstr "Sukūrė"
+msgstr ""
 
 #. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_academic_create_date
@@ -117,7 +115,7 @@ msgstr "Sukūrė"
 #: model:ir.model.fields,field_description:hr_experience.field_hr_curriculum_create_date
 #: model:ir.model.fields,field_description:hr_experience.field_hr_experience_create_date
 msgid "Created on"
-msgstr "Sukurta"
+msgstr ""
 
 #. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_academic_description
@@ -141,7 +139,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_experience.field_hr_curriculum_display_name
 #: model:ir.model.fields,field_description:hr_experience.field_hr_experience_display_name
 msgid "Display Name"
-msgstr "Pavadinimas"
+msgstr ""
 
 #. module: hr_experience
 #: model:ir.ui.view,arch_db:hr_experience.view_academic_tree
@@ -158,7 +156,7 @@ msgstr ""
 #: model:ir.ui.view,arch_db:hr_experience.view_certification_search
 #: model:ir.ui.view,arch_db:hr_experience.view_experience_search
 msgid "Employee"
-msgstr "Darbuotojas"
+msgstr "کارمند "
 
 #. module: hr_experience
 #: model:ir.model,name:hr_experience.model_hr_curriculum
@@ -224,7 +222,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_experience.field_hr_curriculum_id
 #: model:ir.model.fields,field_description:hr_experience.field_hr_experience_id
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 #. module: hr_experience
 #: model:ir.ui.view,arch_db:hr_experience.view_academic_form
