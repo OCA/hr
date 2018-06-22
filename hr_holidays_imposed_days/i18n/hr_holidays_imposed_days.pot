@@ -1,22 +1,17 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# * hr_holidays_imposed_days
+#	* hr_holidays_imposed_days
 #
-# Translators:
-# Mehdi Zarrinkolah <mehdi1811@gmail.com>, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-07 02:58+0000\n"
-"PO-Revision-Date: 2018-06-07 02:58+0000\n"
-"Last-Translator: Mehdi Zarrinkolah <mehdi1811@gmail.com>, 2018\n"
-"Language-Team: Persian (https://www.transifex.com/oca/teams/23907/fa/)\n"
-"Language: fa\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Plural-Forms: \n"
 
 #. module: hr_holidays_imposed_days
 #: model:ir.model.fields,field_description:hr_holidays_imposed_days.field_hr_holidays_imposed_auto_confirm
@@ -57,7 +52,7 @@ msgstr ""
 #: model:ir.model,name:hr_holidays_imposed_days.model_hr_employee
 #: model:ir.model.fields,field_description:hr_holidays_imposed_days.field_hr_holidays_imposed_employee_ids
 msgid "Employee"
-msgstr "کارمند "
+msgstr ""
 
 #. module: hr_holidays_imposed_days
 #: model:ir.ui.view,arch_db:hr_holidays_imposed_days.hr_holidays_imposed_view_form
@@ -71,8 +66,7 @@ msgstr ""
 
 #. module: hr_holidays_imposed_days
 #: model:ir.model.fields,help:hr_holidays_imposed_days.field_hr_holidays_imposed_employee_ids
-msgid ""
-"If empty, all employees of the company will have this day/period imposed"
+msgid "If empty, all employees of the company will have this day/period imposed"
 msgstr ""
 
 #. module: hr_holidays_imposed_days
@@ -126,3 +120,4 @@ msgstr ""
 #: model:ir.ui.view,arch_db:hr_holidays_imposed_days.hr_holidays_imposed_view_form
 msgid "validate"
 msgstr ""
+
