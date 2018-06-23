@@ -1,38 +1,32 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# * hr_payslip_input_policy
+#	* hr_payslip_input_policy
 #
-# Translators:
-# OCA Transbot <transbot@odoo-community.org>, 2018
-# leemannd <denis.leemann@camptocamp.com>, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-23 06:58+0000\n"
-"PO-Revision-Date: 2018-04-23 06:58+0000\n"
-"Last-Translator: leemannd <denis.leemann@camptocamp.com>, 2018\n"
-"Language-Team: French (https://www.transifex.com/oca/teams/23907/fr/)\n"
-"Language: fr\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Plural-Forms: \n"
 
 #. module: hr_payslip_input_policy
 #: field:hr.payslip.input_type,active:0
 msgid "Active"
-msgstr "Actif"
+msgstr ""
 
 #. module: hr_payslip_input_policy
 #: field:hr.contract.input_type,amount:0
 msgid "Amount"
-msgstr "Montant"
+msgstr ""
 
 #. module: hr_payslip_input_policy
 #: field:hr.payslip.input_type,code:0
 msgid "Code"
-msgstr "Code"
+msgstr ""
 
 #. module: hr_payslip_input_policy
 #: code:addons/hr_payslip_input_policy/models/hr_payslip_input_type.py:32
@@ -45,7 +39,7 @@ msgstr ""
 #: field:hr.contract.input_type,contract_id:0
 #: model:ir.model,name:hr_payslip_input_policy.model_hr_contract
 msgid "Contract"
-msgstr "Contrat"
+msgstr ""
 
 #. module: hr_payslip_input_policy
 #: model:ir.model,name:hr_payslip_input_policy.model_hr_contract_input_type
@@ -56,29 +50,30 @@ msgstr ""
 #: field:hr.contract.input_type,create_uid:0
 #: field:hr.payslip.input_type,create_uid:0
 msgid "Created by"
-msgstr "Créé par"
+msgstr ""
 
 #. module: hr_payslip_input_policy
 #: field:hr.contract.input_type,create_date:0
 #: field:hr.payslip.input_type,create_date:0
 msgid "Created on"
-msgstr "Créé le"
+msgstr ""
 
 #. module: hr_payslip_input_policy
 #: field:hr.payslip.input_type,description:0
 msgid "Description"
-msgstr "Description"
+msgstr ""
 
 #. module: hr_payslip_input_policy
 #: field:hr.contract.input_type,display_name:0
 #: field:hr.payslip.input_type,display_name:0
 msgid "Display Name"
-msgstr "Nom à afficher"
+msgstr ""
 
 #. module: hr_payslip_input_policy
-#: field:hr.contract.input_type,id:0 field:hr.payslip.input_type,id:0
+#: field:hr.contract.input_type,id:0
+#: field:hr.payslip.input_type,id:0
 msgid "ID"
-msgstr "Id."
+msgstr ""
 
 #. module: hr_payslip_input_policy
 #: view:hr.contract:hr_payslip_input_policy.hr_contract_view_form
@@ -97,19 +92,19 @@ msgstr ""
 #: field:hr.contract.input_type,__last_update:0
 #: field:hr.payslip.input_type,__last_update:0
 msgid "Last Modified on"
-msgstr "Dernière modification le"
+msgstr ""
 
 #. module: hr_payslip_input_policy
 #: field:hr.contract.input_type,write_uid:0
 #: field:hr.payslip.input_type,write_uid:0
 msgid "Last Updated by"
-msgstr "Mis à jour par"
+msgstr ""
 
 #. module: hr_payslip_input_policy
 #: field:hr.contract.input_type,write_date:0
 #: field:hr.payslip.input_type,write_date:0
 msgid "Last Updated on"
-msgstr "Mis à jour le"
+msgstr ""
 
 #. module: hr_payslip_input_policy
 #: code:addons/hr_payslip_input_policy/models/hr_contract.py:32
@@ -121,7 +116,7 @@ msgstr ""
 #. module: hr_payslip_input_policy
 #: model:ir.model,name:hr_payslip_input_policy.model_hr_payslip
 msgid "Pay Slip"
-msgstr "Bulletin de paie"
+msgstr ""
 
 #. module: hr_payslip_input_policy
 #: view:hr.payslip.input_type:hr_payslip_input_policy.hr_payslip_input_type_view_form
@@ -144,3 +139,4 @@ msgstr ""
 #: view:hr.contract:hr_payslip_input_policy.hr_contract_view_form
 msgid "Payslip Inputs"
 msgstr ""
+
