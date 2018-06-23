@@ -14,6 +14,7 @@ setuptools.setup(
         'odoo11-addon-hr_holidays_leave_auto_approve',
         'odoo11-addon-hr_holidays_notify_employee_manager',
         'odoo11-addon-hr_holidays_settings',
+        'odoo11-addon-hr_payroll_cancel',
         'odoo11-addon-hr_skill',
     ],
     classifiers=[
