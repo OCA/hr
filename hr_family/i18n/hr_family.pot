@@ -1,60 +1,53 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# * hr_family
+#	* hr_family
 #
-# Translators:
-# danimaribeiro <danimaribeiro@gmail.com>, 2016
-# danimaribeiro <danimaribeiro@gmail.com>, 2016
 msgid ""
 msgstr ""
-"Project-Id-Version: hr (8.0)\n"
+"Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-30 19:07+0000\n"
-"PO-Revision-Date: 2017-11-28 21:13+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
-"Language-Team: Portuguese (Brazil) (http://www.transifex.com/oca/OCA-hr-8-0/"
-"language/pt_BR/)\n"
-"Language: pt_BR\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Plural-Forms: \n"
 
 #. module: hr_family
 #: view:hr.employee:hr_family.hr_employee_view_form
 #: field:hr.employee,fam_children_ids:0
 msgid "Children"
-msgstr "Filhos"
+msgstr ""
 
 #. module: hr_family
 #: field:hr.employee.marital.status,code:0
 msgid "Code"
-msgstr "Código"
+msgstr ""
 
 #. module: hr_family
 #: field:hr.employee.children,create_uid:0
 #: field:hr.employee.marital.status,create_uid:0
 msgid "Created by"
-msgstr "Criado por"
+msgstr ""
 
 #. module: hr_family
 #: field:hr.employee.children,create_date:0
 #: field:hr.employee.marital.status,create_date:0
 msgid "Created on"
-msgstr "Criado em"
+msgstr ""
 
 #. module: hr_family
 #: field:hr.employee,fam_father_date_of_birth:0
 #: field:hr.employee,fam_mother_date_of_birth:0
 #: field:hr.employee.children,date_of_birth:0
 msgid "Date of Birth"
-msgstr "Data de nascimento"
+msgstr ""
 
 #. module: hr_family
 #: field:hr.employee.children,display_name:0
 #: field:hr.employee.marital.status,display_name:0
 msgid "Display Name"
-msgstr "Nome para Mostrar"
+msgstr ""
 
 #. module: hr_family
 #: model:hr.employee.marital.status,name:hr_family.divorced
@@ -65,7 +58,7 @@ msgstr ""
 #: field:hr.employee.children,employee_id:0
 #: model:ir.model,name:hr_family.model_hr_employee
 msgid "Employee"
-msgstr "Empregado"
+msgstr ""
 
 #. module: hr_family
 #: view:hr.employee.children:hr_family.hr_children_view_tree
@@ -80,25 +73,19 @@ msgstr ""
 #. module: hr_family
 #: code:addons/hr_family/models/res_partner.py:46
 #, python-format
-msgid ""
-"Error: you cannot add the spouse tag via form. Specify spouse on the "
-"employee form."
+msgid "Error: you cannot add the spouse tag via form. Specify spouse on the employee form."
 msgstr ""
 
 #. module: hr_family
 #: code:addons/hr_family/models/res_partner.py:26
 #, python-format
-msgid ""
-"Error: you cannot create a partner with spouse tag. Create the partner and "
-"then specify spouse in the employee form."
+msgid "Error: you cannot create a partner with spouse tag. Create the partner and then specify spouse in the employee form."
 msgstr ""
 
 #. module: hr_family
 #: code:addons/hr_family/models/res_partner.py:39
 #, python-format
-msgid ""
-"Error: you cannot remove the spouse tag via form. {0} is the spouse of {1}, "
-"you must delete spouse relationship by removing the spouse tag from {1}"
+msgid "Error: you cannot remove the spouse tag via form. {0} is the spouse of {1}, you must delete spouse relationship by removing the spouse tag from {1}"
 msgstr ""
 
 #. module: hr_family
@@ -120,12 +107,12 @@ msgstr ""
 #. module: hr_family
 #: selection:hr.employee.children,gender:0
 msgid "Female"
-msgstr "Feminino"
+msgstr ""
 
 #. module: hr_family
 #: field:hr.employee.children,gender:0
 msgid "Gender"
-msgstr "Sexo"
+msgstr ""
 
 #. module: hr_family
 #: model:ir.model,name:hr_family.model_hr_employee_children
@@ -133,32 +120,33 @@ msgid "HR Employee Children"
 msgstr ""
 
 #. module: hr_family
-#: field:hr.employee.children,id:0 field:hr.employee.marital.status,id:0
+#: field:hr.employee.children,id:0
+#: field:hr.employee.marital.status,id:0
 msgid "ID"
-msgstr "Identificação"
+msgstr ""
 
 #. module: hr_family
 #: field:hr.employee.children,__last_update:0
 #: field:hr.employee.marital.status,__last_update:0
 msgid "Last Modified on"
-msgstr "Última atualização em"
+msgstr ""
 
 #. module: hr_family
 #: field:hr.employee.children,write_uid:0
 #: field:hr.employee.marital.status,write_uid:0
 msgid "Last Updated by"
-msgstr "Última atualização por"
+msgstr ""
 
 #. module: hr_family
 #: field:hr.employee.children,write_date:0
 #: field:hr.employee.marital.status,write_date:0
 msgid "Last Updated on"
-msgstr "Última atualização em"
+msgstr ""
 
 #. module: hr_family
 #: selection:hr.employee.children,gender:0
 msgid "Male"
-msgstr "Masculino"
+msgstr ""
 
 #. module: hr_family
 #: field:hr.employee,marital_status_id:0
@@ -183,9 +171,10 @@ msgid "Mother's Name"
 msgstr ""
 
 #. module: hr_family
-#: field:hr.employee.children,name:0 field:hr.employee.marital.status,name:0
+#: field:hr.employee.children,name:0
+#: field:hr.employee.marital.status,name:0
 msgid "Name"
-msgstr "Nome"
+msgstr ""
 
 #. module: hr_family
 #: view:hr.employee:hr_family.hr_employee_view_form
@@ -195,7 +184,7 @@ msgstr ""
 #. module: hr_family
 #: model:ir.model,name:hr_family.model_res_partner
 msgid "Partner"
-msgstr "Parceiro"
+msgstr ""
 
 #. module: hr_family
 #: model:hr.employee.marital.status,name:hr_family.single
@@ -218,3 +207,4 @@ msgstr ""
 #: model:hr.employee.marital.status,name:hr_family.widower
 msgid "Widower"
 msgstr ""
+

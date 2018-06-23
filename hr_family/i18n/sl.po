@@ -1,7 +1,7 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # * hr_family
-# 
+#
 # Translators:
 # Matjaž Mozetič <m.mozetic@matmoz.si>, 2015,2017
 msgid ""
@@ -11,12 +11,14 @@ msgstr ""
 "POT-Creation-Date: 2017-11-30 19:07+0000\n"
 "PO-Revision-Date: 2017-12-01 10:31+0000\n"
 "Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>\n"
-"Language-Team: Slovenian (http://www.transifex.com/oca/OCA-hr-8-0/language/sl/)\n"
+"Language-Team: Slovenian (http://www.transifex.com/oca/OCA-hr-8-0/language/"
+"sl/)\n"
+"Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: sl\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
+"%100==4 ? 2 : 3);\n"
 
 #. module: hr_family
 #: view:hr.employee:hr_family.hr_employee_view_form
@@ -81,7 +83,9 @@ msgstr "Delodajalec"
 msgid ""
 "Error: you cannot add the spouse tag via form. Specify spouse on the "
 "employee form."
-msgstr "Napaka: oznake zakonskega partnerja ne morete dodati preko obrazca. Določite zakonskega partnerja na obrazcu kadra."
+msgstr ""
+"Napaka: oznake zakonskega partnerja ne morete dodati preko obrazca. Določite "
+"zakonskega partnerja na obrazcu kadra."
 
 #. module: hr_family
 #: code:addons/hr_family/models/res_partner.py:26
@@ -89,7 +93,9 @@ msgstr "Napaka: oznake zakonskega partnerja ne morete dodati preko obrazca. Dolo
 msgid ""
 "Error: you cannot create a partner with spouse tag. Create the partner and "
 "then specify spouse in the employee form."
-msgstr "Napaka: ne morete ustvariti partnerja z oznako zakonski partner. Ustvarite partnerja ter nato določite zakonskega partnerja preko obrazca kadra."
+msgstr ""
+"Napaka: ne morete ustvariti partnerja z oznako zakonski partner. Ustvarite "
+"partnerja ter nato določite zakonskega partnerja preko obrazca kadra."
 
 #. module: hr_family
 #: code:addons/hr_family/models/res_partner.py:39
@@ -97,13 +103,17 @@ msgstr "Napaka: ne morete ustvariti partnerja z oznako zakonski partner. Ustvari
 msgid ""
 "Error: you cannot remove the spouse tag via form. {0} is the spouse of {1}, "
 "you must delete spouse relationship by removing the spouse tag from {1}"
-msgstr "Napaka: ne morete odstraniti oznake zakonski partner preko obrazca. {0} je zakonski partner od {1}, izbrisati morate relacijo zakonski partner iz {1}"
+msgstr ""
+"Napaka: ne morete odstraniti oznake zakonski partner preko obrazca. {0} je "
+"zakonski partner od {1}, izbrisati morate relacijo zakonski partner iz {1}"
 
 #. module: hr_family
 #: code:addons/hr_family/models/hr_employee.py:41
 #, python-format
 msgid "Error: {0} cannot have this spouse, because already the spouse of {1}"
-msgstr "Napaka: {0} ne more vsebovati tega zakonskega partnerja, ker je že partner od {1}"
+msgstr ""
+"Napaka: {0} ne more vsebovati tega zakonskega partnerja, ker je že partner "
+"od {1}"
 
 #. module: hr_family
 #: view:hr.employee:hr_family.hr_employee_view_form
