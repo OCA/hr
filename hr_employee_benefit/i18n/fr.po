@@ -1,7 +1,7 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # * hr_employee_benefit
-# 
+#
 # Translators:
 msgid ""
 msgstr ""
@@ -10,11 +10,12 @@ msgstr ""
 "POT-Creation-Date: 2016-07-05 18:30+0000\n"
 "PO-Revision-Date: 2016-07-04 06:42+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
-"Language-Team: French (http://www.transifex.com/oca/OCA-hr-8-0/language/fr/)\n"
+"Language-Team: French (http://www.transifex.com/oca/OCA-hr-8-0/language/"
+"fr/)\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #. module: hr_employee_benefit
@@ -212,7 +213,10 @@ msgstr "Champ requis pour calculer les montants sur une base annuel."
 msgid ""
 "Field used to enter an external identifier for a benefit category. Example, "
 "pension plans may have a registration number."
-msgstr "Champ utilisé pour entrer un identifiant externe pour une catégorie d'avantages sociaux. Par example, un régime de pension peut avoir un numéro d'enregistrement."
+msgstr ""
+"Champ utilisé pour entrer un identifiant externe pour une catégorie "
+"d'avantages sociaux. Par example, un régime de pension peut avoir un numéro "
+"d'enregistrement."
 
 #. module: hr_employee_benefit
 #: selection:hr.payslip.benefit.line,source:0
@@ -340,7 +344,8 @@ msgstr "Date de début"
 #. module: hr_employee_benefit
 #: help:hr.employee.benefit,code:0 help:hr.employee.benefit.category,code:0
 msgid "The code that can be used in the salary rules to identify the benefit"
-msgstr "Le code utilisé dans les règles de salaire pour identifier l'avantage social"
+msgstr ""
+"Le code utilisé dans les règles de salaire pour identifier l'avantage social"
 
 #. module: hr_employee_benefit
 #: field:hr.payslip.benefit.line,source:0
