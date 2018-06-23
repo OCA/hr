@@ -1,22 +1,17 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# * resource_calendar_rrule
+#	* resource_calendar_rrule
 #
-# Translators:
-# OCA Transbot <transbot@odoo-community.org>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-03 05:18+0000\n"
-"PO-Revision-Date: 2018-03-03 05:18+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
-"Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
-"Language: es\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: \n"
 
 #. module: resource_calendar_rrule
 #. openerp-web
@@ -85,7 +80,7 @@ msgstr ""
 #. module: resource_calendar_rrule
 #: field:resource.calendar.attendance,rrule_preview:0
 msgid "Preview"
-msgstr "Previsualización"
+msgstr ""
 
 #. module: resource_calendar_rrule
 #. openerp-web
@@ -97,7 +92,7 @@ msgstr ""
 #. module: resource_calendar_rrule
 #: field:resource.calendar.attendance,rrule:0
 msgid "Repetition"
-msgstr "Repetición"
+msgstr ""
 
 #. module: resource_calendar_rrule
 #: model:ir.model,name:resource_calendar_rrule.model_resource_calendar
@@ -119,10 +114,7 @@ msgstr ""
 #. module: resource_calendar_rrule
 #: code:addons/resource_calendar_rrule/models/resource_calendar.py:65
 #, python-format
-msgid ""
-"The max per day cannot exceed %.01f hours. (You can set this lower or higher "
-"with the 'resource_calendar_rrule.max_hours_per_day' configuration "
-"parameter.)"
+msgid "The max per day cannot exceed %.01f hours. (You can set this lower or higher with the 'resource_calendar_rrule.max_hours_per_day' configuration parameter.)"
 msgstr ""
 
 #. module: resource_calendar_rrule
@@ -148,3 +140,4 @@ msgstr ""
 #: field:resource.calendar,simplified_attendance:0
 msgid "Working time"
 msgstr ""
+
