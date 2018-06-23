@@ -1,22 +1,17 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# * hr_experience
+#	* hr_experience
 #
-# Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: hr (8.0)\n"
+"Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-24 02:15+0000\n"
-"PO-Revision-Date: 2016-12-27 08:25+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
-"Language-Team: French (Canada) (http://www.transifex.com/oca/OCA-hr-8-0/"
-"language/fr_CA/)\n"
-"Language: fr_CA\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Plural-Forms: \n"
 
 #. module: hr_experience
 #: field:hr.employee,experience_ids:0
@@ -63,7 +58,8 @@ msgstr ""
 
 #. module: hr_experience
 #: view:hr.academic:hr_experience.view_academic_tree
-#: field:hr.employee,academic_ids:0 help:hr.employee,academic_ids:0
+#: field:hr.employee,academic_ids:0
+#: help:hr.employee,academic_ids:0
 #: model:ir.actions.act_window,name:hr_experience.open_view_academic_form
 msgid "Academic experiences"
 msgstr ""
@@ -79,7 +75,8 @@ msgid "Additional Information"
 msgstr ""
 
 #. module: hr_experience
-#: field:hr.experience,category:0 help:hr.experience,category:0
+#: field:hr.experience,category:0
+#: help:hr.experience,category:0
 msgid "Category"
 msgstr ""
 
@@ -104,23 +101,28 @@ msgstr ""
 
 #. module: hr_experience
 #: view:hr.employee:hr_experience.view_employee_form_inherit
-#: field:hr.employee,certification_ids:0 help:hr.employee,certification_ids:0
+#: field:hr.employee,certification_ids:0
+#: help:hr.employee,certification_ids:0
 #: model:ir.actions.act_window,name:hr_experience.open_view_certification_form
 #: model:ir.ui.menu,name:hr_experience.menu_open_view_certification_form
 msgid "Certifications"
 msgstr ""
 
 #. module: hr_experience
-#: field:hr.academic,create_uid:0 field:hr.certification,create_uid:0
-#: field:hr.curriculum,create_uid:0 field:hr.experience,create_uid:0
+#: field:hr.academic,create_uid:0
+#: field:hr.certification,create_uid:0
+#: field:hr.curriculum,create_uid:0
+#: field:hr.experience,create_uid:0
 msgid "Created by"
-msgstr "Créé par"
+msgstr ""
 
 #. module: hr_experience
-#: field:hr.academic,create_date:0 field:hr.certification,create_date:0
-#: field:hr.curriculum,create_date:0 field:hr.experience,create_date:0
+#: field:hr.academic,create_date:0
+#: field:hr.certification,create_date:0
+#: field:hr.curriculum,create_date:0
+#: field:hr.experience,create_date:0
 msgid "Created on"
-msgstr "Créé le"
+msgstr ""
 
 #. module: hr_experience
 #: view:hr.academic:hr_experience.view_academic_form
@@ -133,7 +135,8 @@ msgstr ""
 #. module: hr_experience
 #: field:hr.academic,description:0
 #: view:hr.certification:hr_experience.view_certification_form
-#: field:hr.certification,description:0 field:hr.curriculum,description:0
+#: field:hr.certification,description:0
+#: field:hr.curriculum,description:0
 #: view:hr.employee:hr_experience.view_employee_form_inherit
 #: view:hr.experience:hr_experience.view_professional_form
 #: field:hr.experience,description:0
@@ -146,10 +149,12 @@ msgid "Diploma"
 msgstr ""
 
 #. module: hr_experience
-#: field:hr.academic,display_name:0 field:hr.certification,display_name:0
-#: field:hr.curriculum,display_name:0 field:hr.experience,display_name:0
+#: field:hr.academic,display_name:0
+#: field:hr.certification,display_name:0
+#: field:hr.curriculum,display_name:0
+#: field:hr.experience,display_name:0
 msgid "Display Name"
-msgstr "Afficher le nom"
+msgstr ""
 
 #. module: hr_experience
 #: view:hr.academic:hr_experience.view_academic_tree
@@ -157,8 +162,10 @@ msgid "Education"
 msgstr ""
 
 #. module: hr_experience
-#: field:hr.academic,employee_id:0 field:hr.certification,employee_id:0
-#: field:hr.curriculum,employee_id:0 field:hr.experience,employee_id:0
+#: field:hr.academic,employee_id:0
+#: field:hr.certification,employee_id:0
+#: field:hr.curriculum,employee_id:0
+#: field:hr.experience,employee_id:0
 #: model:ir.model,name:hr_experience.model_hr_employee
 msgid "Employee"
 msgstr ""
@@ -179,14 +186,18 @@ msgid "Employer"
 msgstr ""
 
 #. module: hr_experience
-#: help:hr.academic,partner_id:0 help:hr.certification,partner_id:0
-#: help:hr.curriculum,partner_id:0 help:hr.experience,partner_id:0
+#: help:hr.academic,partner_id:0
+#: help:hr.certification,partner_id:0
+#: help:hr.curriculum,partner_id:0
+#: help:hr.experience,partner_id:0
 msgid "Employer, School, University, Certification Authority"
 msgstr ""
 
 #. module: hr_experience
-#: field:hr.academic,end_date:0 field:hr.certification,end_date:0
-#: field:hr.curriculum,end_date:0 field:hr.experience,end_date:0
+#: field:hr.academic,end_date:0
+#: field:hr.certification,end_date:0
+#: field:hr.curriculum,end_date:0
+#: field:hr.experience,end_date:0
 msgid "End date"
 msgstr ""
 
@@ -196,10 +207,14 @@ msgid "Experiences"
 msgstr ""
 
 #. module: hr_experience
-#: field:hr.academic,expire:0 help:hr.academic,expire:0
-#: field:hr.certification,expire:0 help:hr.certification,expire:0
-#: field:hr.curriculum,expire:0 help:hr.curriculum,expire:0
-#: field:hr.experience,expire:0 help:hr.experience,expire:0
+#: field:hr.academic,expire:0
+#: help:hr.academic,expire:0
+#: field:hr.certification,expire:0
+#: help:hr.certification,expire:0
+#: field:hr.curriculum,expire:0
+#: help:hr.curriculum,expire:0
+#: field:hr.experience,expire:0
+#: help:hr.experience,expire:0
 msgid "Expire"
 msgstr ""
 
@@ -209,10 +224,12 @@ msgid "Field of study"
 msgstr ""
 
 #. module: hr_experience
-#: field:hr.academic,id:0 field:hr.certification,id:0 field:hr.curriculum,id:0
+#: field:hr.academic,id:0
+#: field:hr.certification,id:0
+#: field:hr.curriculum,id:0
 #: field:hr.experience,id:0
 msgid "ID"
-msgstr "Identifiant"
+msgstr ""
 
 #. module: hr_experience
 #: view:hr.academic:hr_experience.view_academic_tree
@@ -228,45 +245,58 @@ msgid "Issued By"
 msgstr ""
 
 #. module: hr_experience
-#: field:hr.academic,__last_update:0 field:hr.certification,__last_update:0
-#: field:hr.curriculum,__last_update:0 field:hr.experience,__last_update:0
+#: field:hr.academic,__last_update:0
+#: field:hr.certification,__last_update:0
+#: field:hr.curriculum,__last_update:0
+#: field:hr.experience,__last_update:0
 msgid "Last Modified on"
 msgstr ""
 
 #. module: hr_experience
-#: field:hr.academic,write_uid:0 field:hr.certification,write_uid:0
-#: field:hr.curriculum,write_uid:0 field:hr.experience,write_uid:0
+#: field:hr.academic,write_uid:0
+#: field:hr.certification,write_uid:0
+#: field:hr.curriculum,write_uid:0
+#: field:hr.experience,write_uid:0
 msgid "Last Updated by"
-msgstr "Dernière mise à jour par"
+msgstr ""
 
 #. module: hr_experience
-#: field:hr.academic,write_date:0 field:hr.certification,write_date:0
-#: field:hr.curriculum,write_date:0 field:hr.experience,write_date:0
+#: field:hr.academic,write_date:0
+#: field:hr.certification,write_date:0
+#: field:hr.curriculum,write_date:0
+#: field:hr.experience,write_date:0
 msgid "Last Updated on"
-msgstr "Dernière mise à jour le"
+msgstr ""
 
 #. module: hr_experience
-#: field:hr.academic,location:0 help:hr.academic,location:0
-#: field:hr.certification,location:0 help:hr.certification,location:0
-#: field:hr.curriculum,location:0 help:hr.curriculum,location:0
-#: field:hr.experience,location:0 help:hr.experience,location:0
+#: field:hr.academic,location:0
+#: help:hr.academic,location:0
+#: field:hr.certification,location:0
+#: help:hr.certification,location:0
+#: field:hr.curriculum,location:0
+#: help:hr.curriculum,location:0
+#: field:hr.experience,location:0
+#: help:hr.experience,location:0
 msgid "Location"
 msgstr ""
 
 #. module: hr_experience
-#: field:hr.academic,name:0 field:hr.certification,name:0
-#: field:hr.curriculum,name:0 field:hr.experience,name:0
+#: field:hr.academic,name:0
+#: field:hr.certification,name:0
+#: field:hr.curriculum,name:0
+#: field:hr.experience,name:0
 msgid "Name"
-msgstr "Nom"
+msgstr ""
 
 #. module: hr_experience
 #: view:hr.academic:hr_experience.view_academic_form
-#: field:hr.academic,partner_id:0 field:hr.certification,partner_id:0
+#: field:hr.academic,partner_id:0
+#: field:hr.certification,partner_id:0
 #: field:hr.curriculum,partner_id:0
 #: view:hr.employee:hr_experience.view_employee_form_inherit
 #: field:hr.experience,partner_id:0
 msgid "Partner"
-msgstr "Partenaire"
+msgstr ""
 
 #. module: hr_experience
 #: view:hr.certification:hr_experience.view_certification_form
@@ -302,8 +332,10 @@ msgid "Professional Experiences"
 msgstr ""
 
 #. module: hr_experience
-#: field:hr.academic,start_date:0 field:hr.certification,start_date:0
-#: field:hr.curriculum,start_date:0 field:hr.experience,start_date:0
+#: field:hr.academic,start_date:0
+#: field:hr.certification,start_date:0
+#: field:hr.curriculum,start_date:0
+#: field:hr.experience,start_date:0
 msgid "Start date"
 msgstr ""
 
@@ -316,3 +348,4 @@ msgstr ""
 #: view:hr.certification:hr_experience.view_certification_tree
 msgid "certifications"
 msgstr ""
+
