@@ -1,7 +1,7 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # * hr_recruitment_partner
-# 
+#
 # Translators:
 # Rudolf Schnapka <rs@techno-flex.de>, 2015,2017
 msgid ""
@@ -11,11 +11,12 @@ msgstr ""
 "POT-Creation-Date: 2017-11-30 19:07+0000\n"
 "PO-Revision-Date: 2017-11-28 21:13+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
-"Language-Team: German (http://www.transifex.com/oca/OCA-hr-8-0/language/de/)\n"
+"Language-Team: German (http://www.transifex.com/oca/OCA-hr-8-0/language/"
+"de/)\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: hr_recruitment_partner
@@ -51,14 +52,17 @@ msgstr "Geburtsdatum"
 #. module: hr_recruitment_partner
 #: help:hr.applicant,is_company:0
 msgid "Check if the contact is a company, otherwise it is a person"
-msgstr "Prüfen, ob der Kontakt ein Unternehmen ist, anderenfalls ist eine Person"
+msgstr ""
+"Prüfen, ob der Kontakt ein Unternehmen ist, anderenfalls ist eine Person"
 
 #. module: hr_recruitment_partner
 #: help:hr.applicant,vat_subjected:0
 msgid ""
 "Check this box if the partner is subjected to the VAT. It will be used for "
 "the VAT legal statement."
-msgstr "Diese Box anwählen, wenn der Partner Steuerpflichtig ist. Dies wird für die Umsatzsteuermeldung verwendet."
+msgstr ""
+"Diese Box anwählen, wenn der Partner Steuerpflichtig ist. Dies wird für die "
+"Umsatzsteuermeldung verwendet."
 
 #. module: hr_recruitment_partner
 #: help:hr.applicant,customer:0
@@ -70,7 +74,10 @@ msgstr "Wählen Sie diese Box an, wenn dies ein Kunde ist."
 msgid ""
 "Check this box if this contact is a supplier. If it's not checked, purchase "
 "people will not see it when encoding a purchase order."
-msgstr "Wählen Sie diese Box an, wenn dies ein Lieferant ist. Wenn dies nicht gewählt ist, sehen Einkäufer diesen Kontakt beim Erfassen von Bestellungen nicht."
+msgstr ""
+"Wählen Sie diese Box an, wenn dies ein Lieferant ist. Wenn dies nicht "
+"gewählt ist, sehen Einkäufer diesen Kontakt beim Erfassen von Bestellungen "
+"nicht."
 
 #. module: hr_recruitment_partner
 #: help:hr.applicant,employee:0
@@ -146,13 +153,20 @@ msgstr "Datum"
 #: help:hr.applicant,last_reconciliation_date:0
 msgid ""
 "Date on which the partner accounting entries were fully reconciled last "
-"time. It differs from the last date where a reconciliation has been made for"
-" this partner, as here we depict the fact that nothing more was to be "
+"time. It differs from the last date where a reconciliation has been made for "
+"this partner, as here we depict the fact that nothing more was to be "
 "reconciled at this date. This can be achieved in 2 different ways: either "
 "the last unreconciled debit/credit entry of this partner was reconciled, "
 "either the user pressed the button \"Nothing more to reconcile\" during the "
 "manual reconciliation process."
-msgstr "Datum, an dem die Buchungen des Partners das letzte Mal vollständig saldiert waren. Das mag vom Datum einer letzten Ausgleichszahlung dieses Partners abweichen, da wir hier das Datum ermitteln, an dem zum letzten Mal keine Forderungen oder Verbindlichkeiten auszugleichen waren. Dies kann auf zwei Arten erreicht werden: Entweder wird der letzte offene Posten des Partners beglichen, oder im manuellen Ausgleichsvorgang wird \"Nichts mehr auszugleichen\" getätigt."
+msgstr ""
+"Datum, an dem die Buchungen des Partners das letzte Mal vollständig saldiert "
+"waren. Das mag vom Datum einer letzten Ausgleichszahlung dieses Partners "
+"abweichen, da wir hier das Datum ermitteln, an dem zum letzten Mal keine "
+"Forderungen oder Verbindlichkeiten auszugleichen waren. Dies kann auf zwei "
+"Arten erreicht werden: Entweder wird der letzte offene Posten des Partners "
+"beglichen, oder im manuellen Ausgleichsvorgang wird \"Nichts mehr "
+"auszugleichen\" getätigt."
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,ean13:0
@@ -195,14 +209,20 @@ msgid ""
 "If opt-out is checked, this contact has refused to receive emails for mass "
 "mailing and marketing campaign. Filter 'Available for Mass Mailing' allows "
 "users to filter the partners when performing mass mailing."
-msgstr "Wenn Opt-Out gesetzt ist, hat der Empfänger dem Erhalt von Massenmailings oder Werbung nicht zugestimmt. Der Filter 'Für Massenmails verfügbar' ermöglicht das Herausfiltern dieser Partner bei Massenmailings."
+msgstr ""
+"Wenn Opt-Out gesetzt ist, hat der Empfänger dem Erhalt von Massenmailings "
+"oder Werbung nicht zugestimmt. Der Filter 'Für Massenmails verfügbar' "
+"ermöglicht das Herausfiltern dieser Partner bei Massenmailings."
 
 #. module: hr_recruitment_partner
 #: help:hr.applicant,lang:0
 msgid ""
 "If the selected language is loaded in the system, all documents related to "
 "this contact will be printed in this language. If not, it will be English."
-msgstr "Wenn die gewählte Sprache im System installiert ist, werden alle Dokumente mit Bezug auf diesen Kontakt in dieser Sprache erstellt. Ansonsten wird Englisch verwendet."
+msgstr ""
+"Wenn die gewählte Sprache im System installiert ist, werden alle Dokumente "
+"mit Bezug auf diesen Kontakt in dieser Sprache erstellt. Ansonsten wird "
+"Englisch verwendet."
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,image:0
@@ -260,7 +280,11 @@ msgid ""
 "Medium-sized image of this contact. It is automatically resized as a "
 "128x128px image, with aspect ratio preserved. Use this field in form views "
 "or some kanban views."
-msgstr "Mittelgroßes Bild. Es wird automatisch auf 128 x 128 Pixel, unter Beibehaltung der Seitenverhältnisse, umgerechnet, sofern eine Seite diese Größe überschreitet. Verwenden Sie dieses Bild in Formularen und Kanban-Sichten."
+msgstr ""
+"Mittelgroßes Bild. Es wird automatisch auf 128 x 128 Pixel, unter "
+"Beibehaltung der Seitenverhältnisse, umgerechnet, sofern eine Seite diese "
+"Größe überschreitet. Verwenden Sie dieses Bild in Formularen und Kanban-"
+"Sichten."
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,mobile:0
@@ -298,7 +322,10 @@ msgid ""
 "Policy to receive emails for new messages pushed to your personal Inbox:\n"
 "- Never: no emails are sent\n"
 "- All Messages: for every notification you receive in your Inbox"
-msgstr "Regelung für die Weiterleitung neuer Emails in Ihr persönliches Postfach:\n- Niemals: Keine Nachricht wird weitergeleitet\n- Alle Nachrichten: Jede eingehende Mitteilung in Ihrem Posteingang"
+msgstr ""
+"Regelung für die Weiterleitung neuer Emails in Ihr persönliches Postfach:\n"
+"- Niemals: Keine Nachricht wird weitergeleitet\n"
+"- Alle Nachrichten: Jede eingehende Mitteilung in Ihrem Posteingang"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,notify_email:0
@@ -325,7 +352,9 @@ msgstr "Verkaufsteam"
 msgid ""
 "Select this if you want to set company's address information  for this "
 "contact"
-msgstr "Anwählen, wenn Sie die Unternehmenanschrift für diesen Kontakt festlegen möchten"
+msgstr ""
+"Anwählen, wenn Sie die Unternehmenanschrift für diesen Kontakt festlegen "
+"möchten"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,signup_expiration:0
@@ -361,9 +390,12 @@ msgstr "Bild mit kleinen Abmessungen"
 #: help:hr.applicant,image_small:0
 msgid ""
 "Small-sized image of this contact. It is automatically resized as a 64x64px "
-"image, with aspect ratio preserved. Use this field anywhere a small image is"
-" required."
-msgstr "Kleines Bild. Dieses wird automatisch als 64 x 64 Bild, unter Beibehaltung des Seitenverhältnisses, umgerechnet. Verwenden Sie dieses Bild da, wo ein kleines Bild benötigt wird."
+"image, with aspect ratio preserved. Use this field anywhere a small image is "
+"required."
+msgstr ""
+"Kleines Bild. Dieses wird automatisch als 64 x 64 Bild, unter Beibehaltung "
+"des Seitenverhältnisses, umgerechnet. Verwenden Sie dieses Bild da, wo ein "
+"kleines Bild benötigt wird."
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,state_id:0
@@ -410,13 +442,17 @@ msgstr "Schlagworte"
 msgid ""
 "Tax Identification Number. Check the box if this contact is subjected to "
 "taxes. Used by the some of the legal statements."
-msgstr "Steueridentifikationsnummer. Anwählen, wenn dieser Kontakt Steuerpflichtig ist. Verwendet durch einige Finanzberichte."
+msgstr ""
+"Steueridentifikationsnummer. Anwählen, wenn dieser Kontakt Steuerpflichtig "
+"ist. Verwendet durch einige Finanzberichte."
 
 #. module: hr_recruitment_partner
 #: help:hr.applicant,property_account_position:0
 msgid ""
 "The fiscal position will determine taxes and accounts used for the partner."
-msgstr "Die Steuerzuordnung bestimmt die Steuern und Konten, die bei diesem Partner Anwendung finden."
+msgstr ""
+"Die Steuerzuordnung bestimmt die Steuern und Konten, die bei diesem Partner "
+"Anwendung finden."
 
 #. module: hr_recruitment_partner
 #: help:hr.applicant,tz:0
@@ -425,63 +461,83 @@ msgid ""
 "printed reports. It is important to set a value for this field. You should "
 "use the same timezone that is otherwise used to pick and render date and "
 "time values: your computer's timezone."
-msgstr "Des Partners Zeitzone, verwendet, um angepasste Datums- und Uhrzeitangaben in Drucksachen auszugeben. Es ist wichtig hier korrekte Angaben einzupflegen. Sie sollten die gleiche Zeitzone einstellen, die auch anderweitig genutzt wird, die Ihres Arbeitsplatzrechners."
+msgstr ""
+"Des Partners Zeitzone, verwendet, um angepasste Datums- und Uhrzeitangaben "
+"in Drucksachen auszugeben. Es ist wichtig hier korrekte Angaben "
+"einzupflegen. Sie sollten die gleiche Zeitzone einstellen, die auch "
+"anderweitig genutzt wird, die Ihres Arbeitsplatzrechners."
 
 #. module: hr_recruitment_partner
 #: help:hr.applicant,property_account_payable:0
 msgid ""
 "This account will be used instead of the default one as the payable account "
 "for the current partner"
-msgstr "Dieses Konto wird anstelle des Vorgabe-Kreditorenkontos dieses Partners verwendet."
+msgstr ""
+"Dieses Konto wird anstelle des Vorgabe-Kreditorenkontos dieses Partners "
+"verwendet."
 
 #. module: hr_recruitment_partner
 #: help:hr.applicant,property_account_receivable:0
 msgid ""
 "This account will be used instead of the default one as the receivable "
 "account for the current partner"
-msgstr "Dieses Konto wird anstelle des Vorgabe-Debitorenkontos dieses Partners verwendet."
+msgstr ""
+"Dieses Konto wird anstelle des Vorgabe-Debitorenkontos dieses Partners "
+"verwendet."
 
 #. module: hr_recruitment_partner
 #: help:hr.applicant,image:0
 msgid ""
 "This field holds the image used as avatar for this contact, limited to "
 "1024x1024px"
-msgstr "Dieses Feld wird für das 1024x1024px grosse Avatar-Bild dieses Kontakts verwendet"
+msgstr ""
+"Dieses Feld wird für das 1024x1024px grosse Avatar-Bild dieses Kontakts "
+"verwendet"
 
 #. module: hr_recruitment_partner
 #: help:hr.applicant,property_supplier_payment_term:0
 msgid ""
 "This payment term will be used instead of the default one for purchase "
 "orders and supplier invoices"
-msgstr "Diese Zahlungsbedingung wird anstelle der Vorgabe bei Bestellungen und Eingangsrechnungen verwendet"
+msgstr ""
+"Diese Zahlungsbedingung wird anstelle der Vorgabe bei Bestellungen und "
+"Eingangsrechnungen verwendet"
 
 #. module: hr_recruitment_partner
 #: help:hr.applicant,property_payment_term:0
 msgid ""
 "This payment term will be used instead of the default one for sale orders "
 "and customer invoices"
-msgstr "Diese Zahlungsbedingung wird anstelle der Vorgabe bei Verkaufsaufträgen und Ausgangsrechnungen verwendet"
+msgstr ""
+"Diese Zahlungsbedingung wird anstelle der Vorgabe bei Verkaufsaufträgen und "
+"Ausgangsrechnungen verwendet"
 
 #. module: hr_recruitment_partner
 #: help:hr.applicant,property_product_pricelist:0
 msgid ""
 "This pricelist will be used, instead of the default one, for sales to the "
 "current partner"
-msgstr "Diese Preisliste wird anstelle der Vorgabe bei Verkäufen an diesen Partner verwendet"
+msgstr ""
+"Diese Preisliste wird anstelle der Vorgabe bei Verkäufen an diesen Partner "
+"verwendet"
 
 #. module: hr_recruitment_partner
 #: help:hr.applicant,property_stock_customer:0
 msgid ""
 "This stock location will be used, instead of the default one, as the "
 "destination location for goods you send to this partner"
-msgstr "Dieses Lager wird anstelle der Vorgabe, als Zielort bei Warensendungen an diesen Partner, verwendet"
+msgstr ""
+"Dieses Lager wird anstelle der Vorgabe, als Zielort bei Warensendungen an "
+"diesen Partner, verwendet"
 
 #. module: hr_recruitment_partner
 #: help:hr.applicant,property_stock_supplier:0
 msgid ""
 "This stock location will be used, instead of the default one, as the source "
 "location for goods you receive from the current partner"
-msgstr "Dieses Lager wird anstelle der Vorgabe, als Herkunftsort bei Warenlieferungen von diesem Partner, verwendet"
+msgstr ""
+"Dieses Lager wird anstelle der Vorgabe, als Herkunftsort bei "
+"Warenlieferungen von diesem Partner, verwendet"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,tz:0
@@ -533,7 +589,9 @@ msgstr "Verwende Unternehmensanschrift"
 msgid ""
 "Used to select automatically the right address according to the context in "
 "sales and purchases documents."
-msgstr "Verwendet, um automatisch, im Kontext von Verkaufs- oder Einkaufsvorgängen, die richtige Anschrift zu wählen."
+msgstr ""
+"Verwendet, um automatisch, im Kontext von Verkaufs- oder Einkaufsvorgängen, "
+"die richtige Anschrift zu wählen."
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,user_ids:0

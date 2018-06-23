@@ -1,22 +1,17 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# * hr_recruitment_partner
+#	* hr_recruitment_partner
 #
-# Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: hr (8.0)\n"
+"Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-28 04:08+0000\n"
-"PO-Revision-Date: 2017-11-23 23:25+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
-"Language-Team: Indonesian (http://www.transifex.com/oca/OCA-hr-8-0/language/"
-"id/)\n"
-"Language: id\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Plural-Forms: \n"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,property_account_payable:0
@@ -55,9 +50,7 @@ msgstr ""
 
 #. module: hr_recruitment_partner
 #: help:hr.applicant,vat_subjected:0
-msgid ""
-"Check this box if the partner is subjected to the VAT. It will be used for "
-"the VAT legal statement."
+msgid "Check this box if the partner is subjected to the VAT. It will be used for the VAT legal statement."
 msgstr ""
 
 #. module: hr_recruitment_partner
@@ -67,9 +60,7 @@ msgstr ""
 
 #. module: hr_recruitment_partner
 #: help:hr.applicant,supplier:0
-msgid ""
-"Check this box if this contact is a supplier. If it's not checked, purchase "
-"people will not see it when encoding a purchase order."
+msgid "Check this box if this contact is a supplier. If it's not checked, purchase people will not see it when encoding a purchase order."
 msgstr ""
 
 #. module: hr_recruitment_partner
@@ -108,7 +99,8 @@ msgid "Contacts"
 msgstr ""
 
 #. module: hr_recruitment_partner
-#: field:hr.applicant,contract_ids:0 field:hr.applicant,contracts_count:0
+#: field:hr.applicant,contract_ids:0
+#: field:hr.applicant,contracts_count:0
 msgid "Contracts"
 msgstr ""
 
@@ -140,18 +132,11 @@ msgstr ""
 #. module: hr_recruitment_partner
 #: field:hr.applicant,date:0
 msgid "Date"
-msgstr "Tanggal"
+msgstr ""
 
 #. module: hr_recruitment_partner
 #: help:hr.applicant,last_reconciliation_date:0
-msgid ""
-"Date on which the partner accounting entries were fully reconciled last "
-"time. It differs from the last date where a reconciliation has been made for "
-"this partner, as here we depict the fact that nothing more was to be "
-"reconciled at this date. This can be achieved in 2 different ways: either "
-"the last unreconciled debit/credit entry of this partner was reconciled, "
-"either the user pressed the button \"Nothing more to reconcile\" during the "
-"manual reconciliation process."
+msgid "Date on which the partner accounting entries were fully reconciled last time. It differs from the last date where a reconciliation has been made for this partner, as here we depict the fact that nothing more was to be reconciled at this date. This can be achieved in 2 different ways: either the last unreconciled debit/credit entry of this partner was reconciled, either the user pressed the button \"Nothing more to reconcile\" during the manual reconciliation process."
 msgstr ""
 
 #. module: hr_recruitment_partner
@@ -191,23 +176,18 @@ msgstr ""
 
 #. module: hr_recruitment_partner
 #: help:hr.applicant,opt_out:0
-msgid ""
-"If opt-out is checked, this contact has refused to receive emails for mass "
-"mailing and marketing campaign. Filter 'Available for Mass Mailing' allows "
-"users to filter the partners when performing mass mailing."
+msgid "If opt-out is checked, this contact has refused to receive emails for mass mailing and marketing campaign. Filter 'Available for Mass Mailing' allows users to filter the partners when performing mass mailing."
 msgstr ""
 
 #. module: hr_recruitment_partner
 #: help:hr.applicant,lang:0
-msgid ""
-"If the selected language is loaded in the system, all documents related to "
-"this contact will be printed in this language. If not, it will be English."
+msgid "If the selected language is loaded in the system, all documents related to this contact will be printed in this language. If not, it will be English."
 msgstr ""
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,image:0
 msgid "Image"
-msgstr "Gambar"
+msgstr ""
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,invoice_ids:0
@@ -227,7 +207,7 @@ msgstr ""
 #. module: hr_recruitment_partner
 #: field:hr.applicant,journal_item_count:0
 msgid "Journal Items"
-msgstr "Journal Items"
+msgstr ""
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,lang:0
@@ -256,10 +236,7 @@ msgstr ""
 
 #. module: hr_recruitment_partner
 #: help:hr.applicant,image_medium:0
-msgid ""
-"Medium-sized image of this contact. It is automatically resized as a "
-"128x128px image, with aspect ratio preserved. Use this field in form views "
-"or some kanban views."
+msgid "Medium-sized image of this contact. It is automatically resized as a 128x128px image, with aspect ratio preserved. Use this field in form views or some kanban views."
 msgstr ""
 
 #. module: hr_recruitment_partner
@@ -294,8 +271,7 @@ msgstr ""
 
 #. module: hr_recruitment_partner
 #: help:hr.applicant,notify_email:0
-msgid ""
-"Policy to receive emails for new messages pushed to your personal Inbox:\n"
+msgid "Policy to receive emails for new messages pushed to your personal Inbox:\n"
 "- Never: no emails are sent\n"
 "- All Messages: for every notification you receive in your Inbox"
 msgstr ""
@@ -322,9 +298,7 @@ msgstr ""
 
 #. module: hr_recruitment_partner
 #: help:hr.applicant,use_parent_address:0
-msgid ""
-"Select this if you want to set company's address information  for this "
-"contact"
+msgid "Select this if you want to set company's address information  for this contact"
 msgstr ""
 
 #. module: hr_recruitment_partner
@@ -359,16 +333,13 @@ msgstr ""
 
 #. module: hr_recruitment_partner
 #: help:hr.applicant,image_small:0
-msgid ""
-"Small-sized image of this contact. It is automatically resized as a 64x64px "
-"image, with aspect ratio preserved. Use this field anywhere a small image is "
-"required."
+msgid "Small-sized image of this contact. It is automatically resized as a 64x64px image, with aspect ratio preserved. Use this field anywhere a small image is required."
 msgstr ""
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,state_id:0
 msgid "State"
-msgstr "Bagian"
+msgstr ""
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,street:0
@@ -403,84 +374,61 @@ msgstr ""
 #. module: hr_recruitment_partner
 #: field:hr.applicant,category_id:0
 msgid "Tags"
-msgstr "Tags"
+msgstr ""
 
 #. module: hr_recruitment_partner
 #: help:hr.applicant,vat:0
-msgid ""
-"Tax Identification Number. Check the box if this contact is subjected to "
-"taxes. Used by the some of the legal statements."
+msgid "Tax Identification Number. Check the box if this contact is subjected to taxes. Used by the some of the legal statements."
 msgstr ""
 
 #. module: hr_recruitment_partner
 #: help:hr.applicant,property_account_position:0
-msgid ""
-"The fiscal position will determine taxes and accounts used for the partner."
+msgid "The fiscal position will determine taxes and accounts used for the partner."
 msgstr ""
 
 #. module: hr_recruitment_partner
 #: help:hr.applicant,tz:0
-msgid ""
-"The partner's timezone, used to output proper date and time values inside "
-"printed reports. It is important to set a value for this field. You should "
-"use the same timezone that is otherwise used to pick and render date and "
-"time values: your computer's timezone."
+msgid "The partner's timezone, used to output proper date and time values inside printed reports. It is important to set a value for this field. You should use the same timezone that is otherwise used to pick and render date and time values: your computer's timezone."
 msgstr ""
 
 #. module: hr_recruitment_partner
 #: help:hr.applicant,property_account_payable:0
-msgid ""
-"This account will be used instead of the default one as the payable account "
-"for the current partner"
+msgid "This account will be used instead of the default one as the payable account for the current partner"
 msgstr ""
 
 #. module: hr_recruitment_partner
 #: help:hr.applicant,property_account_receivable:0
-msgid ""
-"This account will be used instead of the default one as the receivable "
-"account for the current partner"
+msgid "This account will be used instead of the default one as the receivable account for the current partner"
 msgstr ""
 
 #. module: hr_recruitment_partner
 #: help:hr.applicant,image:0
-msgid ""
-"This field holds the image used as avatar for this contact, limited to "
-"1024x1024px"
+msgid "This field holds the image used as avatar for this contact, limited to 1024x1024px"
 msgstr ""
 
 #. module: hr_recruitment_partner
 #: help:hr.applicant,property_supplier_payment_term:0
-msgid ""
-"This payment term will be used instead of the default one for purchase "
-"orders and supplier invoices"
+msgid "This payment term will be used instead of the default one for purchase orders and supplier invoices"
 msgstr ""
 
 #. module: hr_recruitment_partner
 #: help:hr.applicant,property_payment_term:0
-msgid ""
-"This payment term will be used instead of the default one for sale orders "
-"and customer invoices"
+msgid "This payment term will be used instead of the default one for sale orders and customer invoices"
 msgstr ""
 
 #. module: hr_recruitment_partner
 #: help:hr.applicant,property_product_pricelist:0
-msgid ""
-"This pricelist will be used, instead of the default one, for sales to the "
-"current partner"
+msgid "This pricelist will be used, instead of the default one, for sales to the current partner"
 msgstr ""
 
 #. module: hr_recruitment_partner
 #: help:hr.applicant,property_stock_customer:0
-msgid ""
-"This stock location will be used, instead of the default one, as the "
-"destination location for goods you send to this partner"
+msgid "This stock location will be used, instead of the default one, as the destination location for goods you send to this partner"
 msgstr ""
 
 #. module: hr_recruitment_partner
 #: help:hr.applicant,property_stock_supplier:0
-msgid ""
-"This stock location will be used, instead of the default one, as the source "
-"location for goods you receive from the current partner"
+msgid "This stock location will be used, instead of the default one, as the source location for goods you receive from the current partner"
 msgstr ""
 
 #. module: hr_recruitment_partner
@@ -496,7 +444,7 @@ msgstr ""
 #. module: hr_recruitment_partner
 #: field:hr.applicant,title:0
 msgid "Title"
-msgstr "Judul"
+msgstr ""
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,total_invoiced:0
@@ -530,9 +478,7 @@ msgstr ""
 
 #. module: hr_recruitment_partner
 #: help:hr.applicant,type:0
-msgid ""
-"Used to select automatically the right address according to the context in "
-"sales and purchases documents."
+msgid "Used to select automatically the right address according to the context in sales and purchases documents."
 msgstr ""
 
 #. module: hr_recruitment_partner
@@ -548,7 +494,7 @@ msgstr ""
 #. module: hr_recruitment_partner
 #: field:hr.applicant,website:0
 msgid "Website"
-msgstr "Situs Web"
+msgstr ""
 
 #. module: hr_recruitment_partner
 #: help:hr.applicant,website:0
@@ -564,3 +510,4 @@ msgstr ""
 #: field:hr.applicant,has_image:0
 msgid "unknown"
 msgstr ""
+
