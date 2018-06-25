@@ -1,0 +1,90 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * hr_contract_multi_jobs
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: hr (8.0)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-03-11 01:48+0000\n"
+"PO-Revision-Date: 2016-03-08 03:18+0000\n"
+"Last-Translator: danimaribeiro <danimaribeiro@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) (http://www.transifex.com/oca/OCA-hr-8-0/language/pt_BR/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: pt_BR\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#. module: hr_contract_multi_jobs
+#: field:hr.contract.job,contract_id:0
+#: model:ir.model,name:hr_contract_multi_jobs.model_hr_contract
+msgid "Contract"
+msgstr "Contrato"
+
+#. module: hr_contract_multi_jobs
+#: field:hr.job,contract_job_ids:0
+msgid "Contract Jobs"
+msgstr "Contrato de Trabalho"
+
+#. module: hr_contract_multi_jobs
+#: field:hr.contract.job,create_uid:0
+msgid "Created by"
+msgstr "Criado por"
+
+#. module: hr_contract_multi_jobs
+#: field:hr.contract.job,create_date:0
+msgid "Created on"
+msgstr "Criado em"
+
+#. module: hr_contract_multi_jobs
+#: field:hr.contract.job,id:0
+msgid "ID"
+msgstr ""
+
+#. module: hr_contract_multi_jobs
+#: field:hr.contract.job,job_id:0
+msgid "Job"
+msgstr ""
+
+#. module: hr_contract_multi_jobs
+#: model:ir.model,name:hr_contract_multi_jobs.model_hr_job
+msgid "Job Position"
+msgstr "Cargo"
+
+#. module: hr_contract_multi_jobs
+#: view:hr.contract:hr_contract_multi_jobs.hr_contract_view_form
+msgid "Job Positions"
+msgstr ""
+
+#. module: hr_contract_multi_jobs
+#: field:hr.contract,contract_job_ids:0
+msgid "Jobs"
+msgstr ""
+
+#. module: hr_contract_multi_jobs
+#: field:hr.contract.job,write_uid:0
+msgid "Last Updated by"
+msgstr ""
+
+#. module: hr_contract_multi_jobs
+#: field:hr.contract.job,write_date:0
+msgid "Last Updated on"
+msgstr ""
+
+#. module: hr_contract_multi_jobs
+#: field:hr.contract.job,is_main_job:0
+msgid "Main Job Position"
+msgstr ""
+
+#. module: hr_contract_multi_jobs
+#: model:ir.model,name:hr_contract_multi_jobs.model_hr_contract_job
+msgid "Relational object between contract and job"
+msgstr ""
+
+#. module: hr_contract_multi_jobs
+#: code:addons/hr_contract_multi_jobs/models/hr_contract.py:62
+#, python-format
+msgid "You must assign one and only one job position as main job position."
+msgstr ""
