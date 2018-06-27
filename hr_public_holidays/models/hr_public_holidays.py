@@ -80,6 +80,7 @@ class HrPublicHolidays(models.Model):
         :param employee_id: ID of the employee
         :return: recordset of hr.holidays.public.line
         """
+        hhplo = self.env['hr.holidays.public.line']
         holidays_filter = [('year', '=', year)]
         employee = False
         if employee_id:
@@ -92,7 +93,7 @@ class HrPublicHolidays(models.Model):
 
         pholidays = self.search(holidays_filter)
         if not pholidays:
-            return list()
+            return hhplo
 
         states_filter = [('year_id', 'in', pholidays.ids)]
         if employee and employee.address_id and employee.address_id.state_id:
@@ -103,7 +104,6 @@ class HrPublicHolidays(models.Model):
         else:
             states_filter.append(('state_ids', '=', False))
 
-        hhplo = self.env['hr.holidays.public.line']
         holidays_lines = hhplo.search(states_filter)
         return holidays_lines
 
