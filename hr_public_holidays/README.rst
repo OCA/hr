@@ -68,6 +68,7 @@ Contributors
 * Ivan Yelizariev <yelizariev@it-projects.info>
 * Bassirou Ndaw <b.ndaw@ergobit.org>
 * Tecnativa - Pedro M. Baeza
+* Nedas Zilinskas <nedas.zilinskas@xpansa.com> (Ventor, Xpansa Group <https://ventor.tech/>)
 
 Maintainer
 ----------
