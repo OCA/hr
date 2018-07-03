@@ -14,7 +14,7 @@ Installation
 
 To install this module, you need to:
 
-* clone the branch 10.0 of the repository https://github.com/OCA/hr
+* clone the branch 11.0 of the repository https://github.com/OCA/hr
 * add the path to this repository in your configuration (addons-path)
 * update the module list
 * search for "HR Contract Reference" in your addons
@@ -34,6 +34,10 @@ Usage
 When you will create a new employee contract, the field reference will be
 assigned automatically with the next number of the predefined sequence.
 
+.. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
+   :alt: Try me on Runbot
+   :target: https://runbot.odoo-community.org/runbot/116/11.0
+
 Bug Tracker
 ===========
 
@@ -50,13 +54,14 @@ Contributors
 * Michael Telahun Makonnen <mmakonnen@gmail.com>
 * Fekete Mihai <feketemihai@gmail.com>
 * Denis Leemann <denis.leemann@camptocamp.com>
+* Serpent Consulting Services Pvt. Ltd. <support@serpentcs.com>
 
 Maintainer
 ----------
 
-.. image:: http://odoo-community.org/logo.png
+.. image:: https://odoo-community.org/logo.png
    :alt: Odoo Community Association
-   :target: http://odoo-community.org
+   :target: https://odoo-community.org
 
 This module is maintained by the OCA.
 
@@ -64,4 +69,4 @@ OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
 
-To contribute to this module, please visit http://odoo-community.org.
+To contribute to this module, please visit https://odoo-community.org.
