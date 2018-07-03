@@ -4,9 +4,9 @@
         <field name="model">hr.employee</field>
         <field name="inherit_id" ref="hr.view_employee_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='birthday']" position="after">
+            <field name='birthday' position="after">
                 <field name="age"/>
-            </xpath>
+            </field>
         </field>
     </record>
 </odoo>
