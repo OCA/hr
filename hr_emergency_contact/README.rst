@@ -1,5 +1,5 @@
 .. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
-   :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
+   :target: https://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
 ====================
@@ -13,10 +13,10 @@ Installation
 
 To install this module, you need to:
 
-1.  Clone the branch 10.0 of the repository https://github.com/OCA/hr
+1.  Clone the branch 11.0 of the repository https://github.com/OCA/hr
 2.  Add the path to this repository in your configuration (addons-path)
 3.  Update the module list
-4.  Go to menu *Setting -> Modules -> Local Modules*
+4.  Go to menu *Apps -> Apps*
 5.  Search For *HR Emergency Contact*
 6.  Install the module
 
@@ -31,7 +31,7 @@ To use this module, you need to:
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
-   :target: https://runbot.odoo-community.org/runbot/116/10.0
+   :target: https://runbot.odoo-community.org/runbot/116/11.0
 
 Bug Tracker
 ===========
@@ -59,6 +59,7 @@ Contributors
 * Michael Telahun Makonnen <mmakonnen@gmail.com>
 * Andhitia Rama <andhitia.r@gmail.com>
 * Denis Leemann <denis.leemann@camptocamp.com>
+* Serpent Consulting Services Pvt. Ltd. <support@serpentcs.com>
 
 Maintainer
 ----------
