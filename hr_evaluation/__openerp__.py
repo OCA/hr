@@ -30,13 +30,13 @@
     "data": [
         'security/ir.model.access.csv',
         'security/hr_evaluation_security.xml',
-        'hr_evaluation_view.xml',
+        'views/hr_evaluation_view.xml',
         'report/hr_evaluation_report_view.xml',
-        'survey_data_appraisal.xml',
-        'hr_evaluation_data.xml',
-        'hr_evaluation_installer.xml',
+        'views/survey_data_appraisal.xml',
+        'views/hr_evaluation_data.xml',
+        'views/hr_evaluation_installer.xml',
     ],
-    "demo": ["hr_evaluation_demo.xml"],
+    "demo": ["demo/hr_evaluation_demo.xml"],
     'installable': True,
     'application': True,
 }

@@ -20,16 +20,14 @@
 ##############################################################################
 
 from datetime import datetime, timedelta
-from dateutil.relativedelta import relativedelta
-from dateutil import parser
 import time
 
-from openerp import api, fields, models
+from openerp import api, exceptions, fields, models
 from openerp.tools.translate import _
 from openerp.tools import DEFAULT_SERVER_DATETIME_FORMAT as DF
 
 
-class hr_evaluation_interview(osv.Model):
+class hr_evaluation_interview(models.Model):
     _name = 'hr.evaluation.interview'
     _inherit = 'mail.thread'
     _rec_name = 'user_to_review_id'
@@ -48,7 +46,8 @@ class hr_evaluation_interview(osv.Model):
         'hr_evaluation.plan.phase',
         'Appraisal Phase',
         required=True)
-    user_to_review_id = fields.related('evaluation_id', 'employee_id', type="many2one", relation="hr.employee", string="Employee to evaluate"),
+    user_to_review_id = fields.Many2one(related='evaluation_id.employee_id',
+                                        string="Employee to evaluate")
     user_id = fields.Many2one(
         'res.users',
         'Interviewer')
@@ -61,88 +60,86 @@ class hr_evaluation_interview(osv.Model):
         default='draft',
         required=True,
         copy=False)
-    survey_id = fields.related('phase_id', 'survey_id', string="Appraisal Form", type="many2one", relation="survey.survey"),
-    deadline = fields.related('request_id', 'deadline', type="datetime", string="Deadline"),
+    survey_id = fields.Many2one(related='phase_id.survey_id',
+                                string="Appraisal Form")
+    deadline = fields.Datetime(related='request_id.deadline',
+                               string="Deadline")
 
     @api.model
     def create(self, vals):
-        phase_obj = self.env.get('hr_evaluation.plan.phase')
-        survey_id = phase_obj.read(cr, uid, vals.get('phase_id'), fields=['survey_id'], context=context)['survey_id'][0]
+        phase_obj = self.env['hr_evaluation.plan.phase']
+        survey_id = phase_obj.browse(vals.get('phase_id')).survey_id.id
 
         if vals.get('user_id'):
-            user_obj = self.pool.get('res.users')
-            partner_id = user_obj.read(cr, uid, vals.get('user_id'), fields=['partner_id'], context=context)['partner_id'][0]
+            user_obj = self.env['res.users']
+            partner_id = user_obj.browse(vals.get('user_id')).partner_id.id
         else:
             partner_id = None
 
-        user_input_obj = self.pool.get('survey.user_input')
+        user_input_obj = self.env['survey.user_input']
 
         if not vals.get('deadline'):
-            vals['deadline'] = (datetime.now() + timedelta(days=28)).strftime(DF)
+            vals['deadline'] = (datetime.now() +
+                                timedelta(days=28)).strftime(DF)
 
-        ret = user_input_obj.create(cr, uid, {'survey_id': survey_id,
-                                            'deadline': vals.get('deadline'),
-                                            'type': 'link',
-                                            'partner_id': partner_id}, context=context)
-        vals['request_id'] = ret
-        return super(hr_evaluation_interview, self).create(cr, uid, vals, context=context)
+        ret = user_input_obj.create({'survey_id': survey_id,
+                                     'deadline': vals.get('deadline'),
+                                     'type': 'link',
+                                     'partner_id': partner_id})
+        vals['request_id'] = ret.id
+        return super(hr_evaluation_interview, self).create(vals)
 
-    def name_get(self, cr, uid, ids, context=None):
-        if not ids:
-            return []
-        reads = self.browse(cr, uid, ids, context=context)
+    @api.multi
+    def name_get(self):
         res = []
-        for record in reads:
+        for record in self:
             name = record.survey_id.title
-            res.append((record['id'], name))
+            res.append((record.id, name))
         return res
 
-    def survey_req_waiting_answer(self, cr, uid, ids, context=None):
-        request_obj = self.pool.get('survey.user_input')
-        for interview in self.browse(cr, uid, ids, context=context):
+    @api.multi
+    def survey_req_waiting_answer(self):
+        for interview in self:
             if interview.request_id:
-                request_obj.action_survey_resent(cr, uid, [interview.request_id.id], context=context)
-            self.write(cr, uid, interview.id, {'state': 'waiting_answer'}, context=context)
+                interview.request_id.action_survey_resent()
+            interview.state = 'waiting_answer'
         return True
 
-    def survey_req_done(self, cr, uid, ids, context=None):
-        for id in self.browse(cr, uid, ids, context=context):
+    @api.multi
+    def survey_req_done(self):
+        for id in self:
             flag = False
-            wating_id = 0
+            wating_id = False
             if not id.evaluation_id.id:
-                raise osv.except_osv(_('Warning!'), _("You cannot start evaluation without Appraisal."))
+                raise exceptions.UserError(
+                    _("You cannot start evaluation without Appraisal."))
             records = id.evaluation_id.survey_request_ids
             for child in records:
                 if child.state == "draft":
-                    wating_id = child.id
+                    wating_id = child
                     continue
                 if child.state != "done":
                     flag = True
             if not flag and wating_id:
-                self.survey_req_waiting_answer(cr, uid, [wating_id], context=context)
-        self.write(cr, uid, ids, {'state': 'done'}, context=context)
+                wating_id.survey_req_waiting_answer()
+        self.write({'state': 'done'})
         return True
 
-    def survey_req_cancel(self, cr, uid, ids, context=None):
-        self.write(cr, uid, ids, {'state': 'cancel'}, context=context)
+    @api.multi
+    def survey_req_cancel(self):
+        self.write({'state': 'cancel'})
         return True
 
-    def action_print_survey(self, cr, uid, ids, context=None):
-        """ If response is available then print this response otherwise print survey form (print template of the survey) """
-        context = dict(context or {})
-        interview = self.browse(cr, uid, ids, context=context)[0]
-        survey_obj = self.pool.get('survey.survey')
-        response_obj = self.pool.get('survey.user_input')
-        response = response_obj.browse(cr, uid, interview.request_id.id, context=context)
-        context.update({'survey_token': response.token})
-        return survey_obj.action_print_survey(cr, uid, [interview.survey_id.id], context=context)
+    @api.multi
+    def action_print_survey(self):
+        """ If response is available then print this response 
+            otherwise print survey form (print template of the survey) """
+        self.ensure_one()
+        return self.request_id.survey_id.with_context(
+            survey_token=self.request_id.token).action_print_survey()
 
-    def action_start_survey(self, cr, uid, ids, context=None):
-        context = dict(context or {})
-        interview = self.browse(cr, uid, ids, context=context)[0]
-        survey_obj = self.pool.get('survey.survey')
-        response_obj = self.pool.get('survey.user_input')
-        # grab the token of the response and start surveying
-        response = response_obj.browse(cr, uid, interview.request_id.id, context=context)
-        context.update({'survey_token': response.token})
-        return survey_obj.action_start_survey(cr, uid, [interview.survey_id.id], context=context)
+    @api.multi
+    def action_start_survey(self):
+        self.ensure_one()
+        return self.request_id.survey_id.with_context(
+            survey_token=self.request_id.token).action_start_survey()

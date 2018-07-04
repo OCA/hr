@@ -22,8 +22,9 @@
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 from dateutil import parser
+import time
 
-from openerp import api, fields, models
+from openerp import api, exceptions, fields, models
 from openerp.tools.translate import _
 
 
@@ -142,18 +143,29 @@ class Employee(models.Model):
     @api.model
     def run_employee_evaluation(self):  # cronjob
         now = parser.parse(datetime.now().strftime('%Y-%m-%d'))
-        obj_evaluation = self.pool.get('hr_evaluation.evaluation')
-        emp_ids = self.search(cr, uid, [('evaluation_plan_id', '<>', False), ('evaluation_date', '=', False)], context=context)
-        for emp in self.browse(cr, uid, emp_ids, context=context):
-            first_date = (now + relativedelta(months=emp.evaluation_plan_id.month_first)).strftime('%Y-%m-%d')
-            self.write(cr, uid, [emp.id], {'evaluation_date': first_date}, context=context)
+        obj_evaluation = self.env['hr_evaluation.evaluation']
+        emp_ids = self.search([('evaluation_plan_id', '<>', False), 
+                               ('evaluation_date', '=', False)])
+        for emp in emp_ids:
+            first_date = (
+                now +
+                relativedelta(months=emp.evaluation_plan_id.month_first)
+                ).strftime('%Y-%m-%d')
+            emp.evaluation_date = first_date
 
-        emp_ids = self.search(cr, uid, [('evaluation_plan_id', '<>', False), ('evaluation_date', '<=', time.strftime("%Y-%m-%d"))], context=context)
-        for emp in self.browse(cr, uid, emp_ids, context=context):
-            next_date = (now + relativedelta(months=emp.evaluation_plan_id.month_next)).strftime('%Y-%m-%d')
-            self.write(cr, uid, [emp.id], {'evaluation_date': next_date}, context=context)
-            plan_id = obj_evaluation.create(cr, uid, {'employee_id': emp.id, 'plan_id': emp.evaluation_plan_id.id}, context=context)
-            obj_evaluation.button_plan_in_progress(cr, uid, [plan_id], context=context)
+        emp_ids = self.search([
+            ('evaluation_plan_id', '<>', False), 
+            ('evaluation_date', '<=', time.strftime("%Y-%m-%d"))
+            ])
+        for emp in emp_ids:
+            next_date = (now + 
+                         relativedelta(months=emp.evaluation_plan_id.month_next)
+                         ).strftime('%Y-%m-%d')
+            emp.evaluation_date = next_date
+            plan_id = obj_evaluation.create(
+                {'employee_id': emp.id, 
+                 'plan_id': emp.evaluation_plan_id.id})
+            plan_id.button_plan_in_progress()
         return True
 
 
@@ -164,7 +176,8 @@ class Evaluation(models.Model):
     _rec_name = "employee_id"
     date = fields.Date(
         "Appraisal Deadline",
-        default=lambda *a: (parser.parse(datetime.now().strftime('%Y-%m-%d')) + relativedelta(months=+1)).strftime('%Y-%m-%d'),
+        default=lambda *a: (parser.parse(datetime.now().strftime('%Y-%m-%d'))
+                            + relativedelta(months=+1)).strftime('%Y-%m-%d'),
         required=True,
         index=True)
     employee_id  = fields.Many2one('hr.employee', "Employee", required=True)
@@ -173,14 +186,15 @@ class Evaluation(models.Model):
         'Action Plan',
         help="If the evaluation does not meet the expectations, "
              "you can propose an action plan")
-    rating = fields.selection(
+    rating = fields.Selection(
         [('0', 'Significantly below expectations'),
          ('1', 'Do not meet expectations'),
          ('2', 'Meet expectations'),
          ('3', 'Exceeds expectations'),
          ('4', 'Significantly exceeds expectations')],
         "Appreciation",
-        help="This is the appreciation on which the evaluation is summarized.")
+        help="This is the appreciation on which the evaluation is summarized."
+        )
     survey_request_ids = fields.One2many(
         'hr.evaluation.interview', 'evaluation_id', 'Appraisal Forms')
     plan_id = fields.Many2one(
@@ -198,29 +212,26 @@ class Evaluation(models.Model):
         copy=False)
     date_close = fields.Date('Ending Date', index=True)
 
-    def name_get(self, cr, uid, ids, context=None):
-        if not ids:
-            return []
-        reads = self.browse(cr, uid, ids, context=context)
+    @api.multi
+    def name_get(self):
         res = []
-        for record in reads:
+        for record in self:
             name = record.plan_id.name
             employee = record.employee_id.name_related
-            res.append((record['id'], name + ' / ' + employee))
+            res.append((record.id, name + ' / ' + employee))
         return res
 
-    def onchange_employee_id(self, cr, uid, ids, employee_id, context=None):
-        vals = {}
-        vals['plan_id'] = False
-        if employee_id:
-            employee_obj = self.pool.get('hr.employee')
-            for employee in employee_obj.browse(cr, uid, [employee_id], context=context):
-                if employee and employee.evaluation_plan_id and employee.evaluation_plan_id.id:
-                    vals.update({'plan_id': employee.evaluation_plan_id.id})
-        return {'value': vals}
+    @api.omchange('employee_id')
+    def onchange_employee_id(self):
+        self.plan_id = False
+        if (self.employee_id and 
+            employee_id.evaluation_plan_id and 
+            employee_id.evaluation_plan_id.id):
+                self.plan_id = self.employee_id.evaluation_plan_id
 
-    def button_plan_in_progress(self, cr, uid, ids, context=None):
-        hr_eval_inter_obj = self.env('hr.evaluation.interview')
+    @api.multi
+    def button_plan_in_progress(self):
+        hr_eval_inter_obj = self.env['hr.evaluation.interview']
         for evaluation in self:
             wait = False
             for phase in evaluation.plan_id.phase_ids:
@@ -234,68 +245,86 @@ class Evaluation(models.Model):
                     children = [evaluation.employee_id]
 
                 for child in children:
-                    int_id = hr_eval_inter_obj.create(cr, uid, {
+                    int_id = hr_eval_inter_obj.create({
                         'evaluation_id': evaluation.id,
                         'phase_id': phase.id,
-                        'deadline': (parser.parse(datetime.now().strftime('%Y-%m-%d')) + relativedelta(months=+1)).strftime('%Y-%m-%d'),
+                        'deadline': (
+                            parser.parse(datetime.now().strftime('%Y-%m-%d'))
+                            + relativedelta(months=+1)).strftime('%Y-%m-%d'),
                         'user_id': child.user_id.id,
-                    }, context=context)
+                    })
                     if phase.wait:
                         wait = True
                     if not wait:
-                        hr_eval_inter_obj.survey_req_waiting_answer(cr, uid, [int_id], context=context)
+                        int_id.survey_req_waiting_answer()
 
                     if (not wait) and phase.mail_feature:
-                        body = phase.mail_body % {'employee_name': child.name, 'user_signature': child.user_id.signature,
-                            'eval_name': phase.survey_id.title, 'date': time.strftime('%Y-%m-%d'), 'time': time}
+                        body = phase.mail_body % {
+                            'employee_name': child.name, 
+                            'user_signature': child.user_id.signature,
+                            'eval_name': phase.survey_id.title,
+                            'date': time.strftime('%Y-%m-%d'), 'time': time
+                            }
                         sub = phase.email_subject
                         if child.work_email:
                             vals = {'state': 'outgoing',
                                     'subject': sub,
                                     'body_html': '<pre>%s</pre>' % body,
                                     'email_to': child.work_email,
-                                    'email_from': evaluation.employee_id.work_email}
-                            self.pool.get('mail.mail').create(cr, uid, vals, context=context)
+                                    'email_from': 
+                                        evaluation.employee_id.work_email}
+                            self.env['mail.mail'].create(vals)
 
-        self.write(cr, uid, ids, {'state': 'wait'}, context=context)
+        self.write({'state': 'wait'})
         return True
 
-    def button_final_validation(self, cr, uid, ids, context=None):
-        request_obj = self.pool.get('hr.evaluation.interview')
-        self.write(cr, uid, ids, {'state': 'progress'}, context=context)
-        for evaluation in self.browse(cr, uid, ids, context=context):
-            if evaluation.employee_id and evaluation.employee_id.parent_id and evaluation.employee_id.parent_id.user_id:
-                self.message_subscribe_users(cr, uid, [evaluation.id], user_ids=[evaluation.employee_id.parent_id.user_id.id], context=context)
-            if len(evaluation.survey_request_ids) != len(request_obj.search(cr, uid, [('evaluation_id', '=', evaluation.id), ('state', 'in', ['done', 'cancel'])], context=context)):
-                raise osv.except_osv(_('Warning!'), _("You cannot change state, because some appraisal forms have not been completed."))
+    @api.multi
+    def button_final_validation(self):
+        request_obj = self.env['hr.evaluation.interview']
+        self.write({'state': 'progress'})
+        for evaluation in self:
+            if (evaluation.employee_id and 
+                evaluation.employee_id.parent_id and 
+                evaluation.employee_id.parent_id.user_id):
+                self.message_subscribe_users(
+                    user_ids=[evaluation.employee_id.parent_id.user_id.id])
+            if len(evaluation.survey_request_ids) != len(request_obj.search([
+                ('evaluation_id', '=', evaluation.id), 
+                ('state', 'in', ['done', 'cancel'])])):
+                raise exceptions.UserError(
+                    _("You cannot change state, because"
+                      " some appraisal forms have not been completed."))
         return True
 
-    def button_done(self, cr, uid, ids, context=None):
-        self.write(cr, uid, ids, {'state': 'done', 'date_close': time.strftime('%Y-%m-%d')}, context=context)
+    @api.multi
+    def button_done(self):
+        self.write({'state': 'done', 'date_close': time.strftime('%Y-%m-%d')})
         return True
 
-    def button_cancel(self, cr, uid, ids, context=None):
-        interview_obj = self.pool.get('hr.evaluation.interview')
-        evaluation = self.browse(cr, uid, ids[0], context)
-        interview_obj.survey_req_cancel(cr, uid, [r.id for r in evaluation.survey_request_ids])
-        self.write(cr, uid, ids, {'state': 'cancel'}, context=context)
+    @api.multi
+    def button_cancel(self):
+        self.ensure_one()
+        for r in self.survey_request_ids:
+            r.survey_req_cancel()
+        self.write({'state': 'cancel'})
         return True
 
-    def button_draft(self, cr, uid, ids, context=None):
-        self.write(cr, uid, ids, {'state': 'draft'}, context=context)
+    @api.multi
+    def button_draft(self):
+        self.write({'state': 'draft'})
         return True
 
-    def write(self, cr, uid, ids, vals, context=None):
+    @api.multi
+    def write(self, vals):
         if vals.get('employee_id'):
-            employee_id = self.pool.get('hr.employee').browse(cr, uid, vals.get('employee_id'), context=context)
+            employee_id = self.env['hr.employee'].browse(
+                vals.get('employee_id'))
             if employee_id.parent_id and employee_id.parent_id.user_id:
-                vals['message_follower_ids'] = [(4, employee_id.parent_id.user_id.partner_id.id)]
+                vals['message_follower_ids'] = [
+                    (4, employee_id.parent_id.user_id.partner_id.id)]
         if 'date' in vals:
             new_vals = {'deadline': vals.get('date')}
-            obj_hr_eval_iterview = self.pool.get('hr.evaluation.interview')
-            for evaluation in self.browse(cr, uid, ids, context=context):
-                for survey_req in evaluation.survey_request_ids:
-                    obj_hr_eval_iterview.write(cr, uid, [survey_req.id], new_vals, context=context)
-        return super(hr_evaluation, self).write(cr, uid, ids, vals, context=context)
-
-
+            for evaluation in self:
+                evaluation.survey_request_ids.write(new_vals)
+                    
+        return super(Evaluation, self).write(vals)
