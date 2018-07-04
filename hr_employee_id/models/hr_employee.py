@@ -1,11 +1,10 @@
-# -*- coding: utf-8 -*-
 # © 2011, 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>
 # © 2016 OpenSynergy Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 import random
 import string
-from odoo import models, fields, api, _
+from odoo import api, fields, models, _
 from odoo.exceptions import Warning as UserWarning
 
 
@@ -39,7 +38,7 @@ class HrEmployee(models.Model):
                 rnd = random.SystemRandom()
                 employee_id = ''.join(rnd.choice(string.digits)
                                       for _ in
-                                      xrange(employee_id_random_digits))
+                                      range(employee_id_random_digits))
                 if not self.search_count([('identification_id',
                                            '=',
                                            employee_id)]):
