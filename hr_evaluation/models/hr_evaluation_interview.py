@@ -20,7 +20,6 @@
 ##############################################################################
 
 from datetime import datetime, timedelta
-import time
 
 from openerp import api, exceptions, fields, models
 from openerp.tools.translate import _
@@ -87,7 +86,7 @@ class HrEvaluationInterview(models.Model):
                                      'type': 'link',
                                      'partner_id': partner_id})
         vals['request_id'] = ret.id
-        return super(hr_evaluation_interview, self).create(vals)
+        return super(HrEvaluationInterview, self).create(vals)
 
     @api.multi
     def name_get(self):

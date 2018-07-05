@@ -144,7 +144,7 @@ class Employee(models.Model):
     def run_employee_evaluation(self):  # cronjob
         now = parser.parse(datetime.now().strftime('%Y-%m-%d'))
         obj_evaluation = self.env['hr_evaluation.evaluation']
-        emp_ids = self.search([('evaluation_plan_id', '<>', False), 
+        emp_ids = self.search([('evaluation_plan_id', '<>', False),
                                ('evaluation_date', '=', False)])
         for emp in emp_ids:
             first_date = (
@@ -154,16 +154,17 @@ class Employee(models.Model):
             emp.evaluation_date = first_date
 
         emp_ids = self.search([
-            ('evaluation_plan_id', '<>', False), 
+            ('evaluation_plan_id', '<>', False),
             ('evaluation_date', '<=', time.strftime("%Y-%m-%d"))
             ])
         for emp in emp_ids:
-            next_date = (now + 
-                         relativedelta(months=emp.evaluation_plan_id.month_next)
-                         ).strftime('%Y-%m-%d')
+            next_date = (
+                now +
+                relativedelta(months=emp.evaluation_plan_id.month_next)
+                ).strftime('%Y-%m-%d')
             emp.evaluation_date = next_date
             plan_id = obj_evaluation.create(
-                {'employee_id': emp.id, 
+                {'employee_id': emp.id,
                  'plan_id': emp.evaluation_plan_id.id})
             plan_id.button_plan_in_progress()
         return True
@@ -176,8 +177,10 @@ class Evaluation(models.Model):
     _rec_name = "employee_id"
     date = fields.Date(
         "Appraisal Deadline",
-        default=lambda *a: (parser.parse(datetime.now().strftime('%Y-%m-%d'))
-                            + relativedelta(months=+1)).strftime('%Y-%m-%d'),
+        default=lambda *a: (
+            parser.parse(datetime.now().strftime('%Y-%m-%d')) +
+            relativedelta(months=+1)
+            ).strftime('%Y-%m-%d'),
         required=True,
         index=True)
     employee_id  = fields.Many2one('hr.employee', "Employee", required=True)
@@ -225,9 +228,9 @@ class Evaluation(models.Model):
     def onchange_employee_id(self):
         self.plan_id = False
         if (self.employee_id and 
-            employee_id.evaluation_plan_id and 
-            employee_id.evaluation_plan_id.id):
-                self.plan_id = self.employee_id.evaluation_plan_id
+                self.employee_id.evaluation_plan_id and 
+                self.employee_id.evaluation_plan_id.id):
+            self.plan_id = self.employee_id.evaluation_plan_id
 
     @api.multi
     def button_plan_in_progress(self):
@@ -260,10 +263,11 @@ class Evaluation(models.Model):
 
                     if (not wait) and phase.mail_feature:
                         body = phase.mail_body % {
-                            'employee_name': child.name, 
+                            'employee_name': child.name,
                             'user_signature': child.user_id.signature,
                             'eval_name': phase.survey_id.title,
-                            'date': time.strftime('%Y-%m-%d'), 'time': time
+                            'date': time.strftime('%Y-%m-%d'),
+                            'time': time
                             }
                         sub = phase.email_subject
                         if child.work_email:
@@ -271,7 +275,7 @@ class Evaluation(models.Model):
                                     'subject': sub,
                                     'body_html': '<pre>%s</pre>' % body,
                                     'email_to': child.work_email,
-                                    'email_from': 
+                                    'email_from':
                                         evaluation.employee_id.work_email}
                             self.env['mail.mail'].create(vals)
 
@@ -284,13 +288,13 @@ class Evaluation(models.Model):
         self.write({'state': 'progress'})
         for evaluation in self:
             if (evaluation.employee_id and 
-                evaluation.employee_id.parent_id and 
-                evaluation.employee_id.parent_id.user_id):
+                    evaluation.employee_id.parent_id and 
+                    evaluation.employee_id.parent_id.user_id):
                 self.message_subscribe_users(
                     user_ids=[evaluation.employee_id.parent_id.user_id.id])
             if len(evaluation.survey_request_ids) != len(request_obj.search([
-                ('evaluation_id', '=', evaluation.id), 
-                ('state', 'in', ['done', 'cancel'])])):
+                    ('evaluation_id', '=', evaluation.id), 
+                    ('state', 'in', ['done', 'cancel'])])):
                 raise exceptions.UserError(
                     _("You cannot change state, because"
                       " some appraisal forms have not been completed."))
@@ -326,5 +330,5 @@ class Evaluation(models.Model):
             new_vals = {'deadline': vals.get('date')}
             for evaluation in self:
                 evaluation.survey_request_ids.write(new_vals)
-                    
+
         return super(Evaluation, self).write(vals)

@@ -27,7 +27,7 @@ class HrEvaluationReport(models.Model):
     _name = "hr.evaluation.report"
     _description = "Evaluations Statistics"
     _auto = False
-    
+
     create_date = fields.Datetime('Create Date', readonly=True)
     delay_date = fields.Float('Delay to Start', digits=(16, 2), readonly=True)
     overpass_delay = fields.Float('Overpassed Deadline',
@@ -39,21 +39,21 @@ class HrEvaluationReport(models.Model):
     plan_id = fields.Many2one('hr_evaluation.plan', 'Plan', readonly=True)
     employee_id = fields.Many2one('hr.employee', "Employee", readonly=True)
     rating = fields.Selection([
-            ('0', 'Significantly bellow expectations'),
-            ('1', 'Did not meet expectations'),
-            ('2', 'Meet expectations'),
-            ('3', 'Exceeds expectations'),
-            ('4', 'Significantly exceeds expectations'),
+        ('0', 'Significantly bellow expectations'),
+        ('1', 'Did not meet expectations'),
+        ('2', 'Meet expectations'),
+        ('3', 'Exceeds expectations'),
+        ('4', 'Significantly exceeds expectations'),
         ], "Overall Rating", readonly=True)
     nbr =  fields.Integer('# of Requests', readonly=True)
     state =  fields.Selection([
-            ('draft', 'Draft'),
-            ('wait', 'Plan In Progress'),
-            ('progress', 'Final Validation'),
-            ('done', 'Done'),
-            ('cancel', 'Cancelled'),
+        ('draft', 'Draft'),
+        ('wait', 'Plan In Progress'),
+        ('progress', 'Final Validation'),
+        ('done', 'Done'),
+        ('cancel', 'Cancelled'),
         ], 'Status', readonly=True)
-    
+
     _order = 'create_date desc'
 
     _depends = {
@@ -79,8 +79,12 @@ class HrEvaluationReport(models.Model):
                      s.date_close as closed,
                      count(l.*) as nbr,
                      s.state,
-                     avg(extract('epoch' from age(s.create_date,CURRENT_DATE)))/(3600*24) as  delay_date,
-                     avg(extract('epoch' from age(s.date,CURRENT_DATE)))/(3600*24) as overpass_delay
+                     avg(extract('epoch' from 
+                         age(s.create_date,CURRENT_DATE)))/(3600*24) as
+                              delay_date,
+                     avg(extract('epoch' from 
+                         age(s.date,CURRENT_DATE)))/(3600*24) as 
+                             overpass_delay
                      from
                  hr_evaluation_interview l
                 LEFT JOIN
