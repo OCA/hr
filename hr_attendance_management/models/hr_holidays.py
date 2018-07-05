@@ -75,7 +75,7 @@ class HrHolidays(models.Model):
         elif start_day < date < end_day:
             duration = 24
         elif start_day <= date <= end_day:
-            if date == start_day:
+            if date == start_day or date == end_day:
                 end_time = start_time.replace(hour=23, minute=59)
             else:
                 start_time = end_time.replace(hour=0, minute=0)
