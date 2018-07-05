@@ -224,7 +224,7 @@ class Evaluation(models.Model):
             res.append((record.id, name + ' / ' + employee))
         return res
 
-    @api.omchange('employee_id')
+    @api.onchange('employee_id')
     def onchange_employee_id(self):
         self.plan_id = False
         if (self.employee_id and 
