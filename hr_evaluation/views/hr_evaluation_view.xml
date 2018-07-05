@@ -155,53 +155,65 @@
                 </button>
             </xpath>
             </field>
-        </record>
-
-        <record model="ir.ui.view" id="view_hr_evaluation_form">
-            <field name="name">hr_evaluation.evaluation.form</field>
-            <field name="model">hr_evaluation.evaluation</field>
-            <field name="arch" type="xml">
-                <form string="Appraisal">
-	                <header>
-	                    <button name="button_plan_in_progress" string="Start Appraisal" states="draft" type="object" class="oe_highlight"/>
-	                    <button name="button_final_validation" string="Validate Appraisal" states="wait" type="object" class="oe_highlight"/>
-	                    <button name="button_done" string="Done" states="progress" type="object" class="oe_highlight"/>
-	                    <button name="button_draft" string="Reset to Draft" states="cancel" type="object" />
-	                    <button name="button_cancel" string="Cancel Appraisal" states="draft,wait,progress" type="object"/>
-	                    <field name="state" widget="statusbar" statusbar_visible="draft,progress,wait,done" statusbar_colors='{"progress":"blue"}'/>
-	                </header>
-	                <sheet>
-	                    <label for="employee_id" class="oe_edit_only"/>
-	                    <h1>
-	                        <field name="employee_id" class="oe_inline" attrs="{'readonly': [('state', '=', 'done')]}" />
-	                    </h1>
-	                    <label for="plan_id" class="oe_edit_only"/>
-	                    <h2><field name="plan_id" attrs="{'readonly': [('state', '=', 'done')]}"/></h2>
-	                    <group>
-	                        <field name="date" attrs="{'readonly': [('state', '=', 'done')]}"/>
-	                        <group colspan="4" attrs="{'invisible':['|', ('state','=','draft'), ('state', '=', 'wait')]}">
-	                            <field name="rating" attrs="{'readonly':[('state','&lt;&gt;','progress')]}"/>
-	                            <field name="date_close" readonly="1"/>
-	                        </group>
-	                    </group>
-	                    <group string="Appraisal Forms" attrs="{'invisible':[('state','=','draft')]}">
-	                        <field nolabel="1" name="survey_request_ids" attrs="{'readonly': [('state', '=', 'done')]}" />
-	                    </group>
-	                    <group string="Internal Notes" attrs="{'invisible':[('state','=','draft')]}">
-	                        <field nolabel="1" name="note_action"
-	                            groups="base.group_hr_manager" placeholder="Appraisal Summary..."/>
-	                    </group>
-	                    <group string="Public Notes" attrs="{'invisible':[('state','=','draft')]}">
-	                        <field nolabel="1" name="note_summary" placeholder="Action Plan..."/>
-	                    </group>
-	                </sheet>
-	                <div class="oe_chatter">
-	                    <field name="message_follower_ids" widget="mail_followers"/>
-	                    <field name="message_ids" widget="mail_thread"/>
-	                </div>
-                </form>
-            </field>
-        </record>
+	        </record>
+	
+		<record model="ir.ui.view" id="view_hr_evaluation_form">
+			<field name="name">hr_evaluation.evaluation.form</field>
+			<field name="model">hr_evaluation.evaluation</field>
+			<field name="arch" type="xml">
+				<form string="Appraisal">
+					<header>
+						<button name="button_plan_in_progress" string="Start Appraisal"
+							states="draft" type="object" class="oe_highlight" />
+						<button name="button_final_validation" string="Validate Appraisal"
+							states="wait" type="object" class="oe_highlight" />
+						<button name="button_done" string="Done" states="progress"
+							type="object" class="oe_highlight" />
+						<button name="button_draft" string="Reset to Draft" states="cancel"
+							type="object" />
+						<button name="button_cancel" string="Cancel Appraisal"
+							states="draft,wait,progress" type="object" />
+						<field name="state" widget="statusbar" statusbar_visible="draft,progress,wait,done"
+							statusbar_colors='{"progress":"blue"}' />
+					</header>
+					<sheet>
+						<label for="employee_id" class="oe_edit_only" />
+						<h1>
+							<field name="employee_id" class="oe_inline"
+								attrs="{'readonly': [('state', '=', 'done')]}" />
+						</h1>
+						<label for="plan_id" class="oe_edit_only" />
+						<h2>
+							<field name="plan_id" attrs="{'readonly': [('state', '=', 'done')]}" />
+						</h2>
+						<group>
+							<field name="date" attrs="{'readonly': [('state', '=', 'done')]}" />
+							<group colspan="4"
+								attrs="{'invisible':['|', ('state','=','draft'), ('state', '=', 'wait')]}">
+								<field name="rating"
+									attrs="{'readonly':[('state','&lt;&gt;','progress')]}" />
+								<field name="date_close" readonly="1" />
+							</group>
+						</group>
+						<group string="Appraisal Forms" attrs="{'invisible':[('state','=','draft')]}">
+							<field nolabel="1" name="survey_request_ids"
+								attrs="{'readonly': [('state', '=', 'done')]}" />
+						</group>
+						<group string="Internal Notes" attrs="{'invisible':[('state','=','draft')]}">
+							<field nolabel="1" name="note_action" groups="base.group_hr_manager"
+								placeholder="Appraisal Summary..." />
+						</group>
+						<group string="Public Notes" attrs="{'invisible':[('state','=','draft')]}">
+							<field nolabel="1" name="note_summary" placeholder="Action Plan..." />
+						</group>
+					</sheet>
+					<div class="oe_chatter">
+						<field name="message_follower_ids" widget="mail_followers" />
+						<field name="message_ids" widget="mail_thread" />
+					</div>
+				</form>
+			</field>
+		</record>
 
         <record model="ir.ui.view" id="view_hr_evaluation_tree">
             <field name="name">hr_evaluation.evaluation.tree</field>

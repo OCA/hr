@@ -293,7 +293,7 @@ class Evaluation(models.Model):
                 self.message_subscribe_users(
                     user_ids=[evaluation.employee_id.parent_id.user_id.id])
             if len(evaluation.survey_request_ids) != len(request_obj.search([
-                    ('evaluation_id', '=', evaluation.id), 
+                    ('evaluation_id', '=', evaluation.id),
                     ('state', 'in', ['done', 'cancel'])])):
                 raise exceptions.UserError(
                     _("You cannot change state, because"
