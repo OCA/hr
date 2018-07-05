@@ -20,38 +20,40 @@
 ##############################################################################
 
 from openerp import tools
-from openerp.osv import fields, osv
+from openerp import fields, models
 
 
-class hr_evaluation_report(osv.Model):
+class HrEvaluationReport(models.Model):
     _name = "hr.evaluation.report"
     _description = "Evaluations Statistics"
     _auto = False
-    _columns = {
-        'create_date': fields.datetime('Create Date', readonly=True),
-        'delay_date': fields.float('Delay to Start', digits=(16, 2), readonly=True),
-        'overpass_delay': fields.float('Overpassed Deadline', digits=(16, 2), readonly=True),
-        'deadline': fields.date("Deadline", readonly=True),
-        'request_id': fields.many2one('survey.user_input', 'Request ID', readonly=True),
-        'closed': fields.date("Close Date", readonly=True),  # TDE FIXME master: rename into date_close
-        'plan_id': fields.many2one('hr_evaluation.plan', 'Plan', readonly=True),
-        'employee_id': fields.many2one('hr.employee', "Employee", readonly=True),
-        'rating': fields.selection([
+    
+    create_date = fields.Datetime('Create Date', readonly=True)
+    delay_date = fields.Float('Delay to Start', digits=(16, 2), readonly=True)
+    overpass_delay = fields.Float('Overpassed Deadline',
+                                  digits=(16, 2), readonly=True)
+    deadline = fields.Date("Deadline", readonly=True)
+    request_id = fields.Many2one('survey.user_input', 'Request ID',
+                                 readonly=True)
+    closed = fields.Date("Close Date", readonly=True)
+    plan_id = fields.Many2one('hr_evaluation.plan', 'Plan', readonly=True)
+    employee_id = fields.Many2one('hr.employee', "Employee", readonly=True)
+    rating = fields.Selection([
             ('0', 'Significantly bellow expectations'),
             ('1', 'Did not meet expectations'),
             ('2', 'Meet expectations'),
             ('3', 'Exceeds expectations'),
             ('4', 'Significantly exceeds expectations'),
-        ], "Overall Rating", readonly=True),
-        'nbr': fields.integer('# of Requests', readonly=True),  # TDE FIXME master: rename into nbr_requests
-        'state': fields.selection([
+        ], "Overall Rating", readonly=True)
+    nbr =  fields.Integer('# of Requests', readonly=True)
+    state =  fields.Selection([
             ('draft', 'Draft'),
             ('wait', 'Plan In Progress'),
             ('progress', 'Final Validation'),
             ('done', 'Done'),
             ('cancel', 'Cancelled'),
-        ], 'Status', readonly=True),
-    }
+        ], 'Status', readonly=True)
+    
     _order = 'create_date desc'
 
     _depends = {
@@ -94,6 +96,3 @@ class hr_evaluation_report(osv.Model):
                      s.plan_id
             )
         """)
-
-
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

@@ -27,7 +27,7 @@ from openerp.tools.translate import _
 from openerp.tools import DEFAULT_SERVER_DATETIME_FORMAT as DF
 
 
-class hr_evaluation_interview(models.Model):
+class HrEvaluationInterview(models.Model):
     _name = 'hr.evaluation.interview'
     _inherit = 'mail.thread'
     _rec_name = 'user_to_review_id'
