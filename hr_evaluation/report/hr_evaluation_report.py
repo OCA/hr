@@ -45,8 +45,8 @@ class HrEvaluationReport(models.Model):
         ('3', 'Exceeds expectations'),
         ('4', 'Significantly exceeds expectations'),
         ], "Overall Rating", readonly=True)
-    nbr =  fields.Integer('# of Requests', readonly=True)
-    state =  fields.Selection([
+    nbr = fields.Integer('# of Requests', readonly=True)
+    state = fields.Selection([
         ('draft', 'Draft'),
         ('wait', 'Plan In Progress'),
         ('progress', 'Final Validation'),
@@ -79,11 +79,11 @@ class HrEvaluationReport(models.Model):
                      s.date_close as closed,
                      count(l.*) as nbr,
                      s.state,
-                     avg(extract('epoch' from 
+                     avg(extract('epoch' from
                          age(s.create_date,CURRENT_DATE)))/(3600*24) as
                               delay_date,
-                     avg(extract('epoch' from 
-                         age(s.date,CURRENT_DATE)))/(3600*24) as 
+                     avg(extract('epoch' from
+                         age(s.date,CURRENT_DATE)))/(3600*24) as
                              overpass_delay
                      from
                  hr_evaluation_interview l

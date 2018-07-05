@@ -183,7 +183,7 @@ class Evaluation(models.Model):
             ).strftime('%Y-%m-%d'),
         required=True,
         index=True)
-    employee_id  = fields.Many2one('hr.employee', "Employee", required=True)
+    employee_id = fields.Many2one('hr.employee', "Employee", required=True)
     note_summary = fields.Text('Appraisal Summary')
     note_action = fields.Text(
         'Action Plan',
@@ -227,8 +227,8 @@ class Evaluation(models.Model):
     @api.onchange('employee_id')
     def onchange_employee_id(self):
         self.plan_id = False
-        if (self.employee_id and 
-                self.employee_id.evaluation_plan_id and 
+        if (self.employee_id and
+                self.employee_id.evaluation_plan_id and
                 self.employee_id.evaluation_plan_id.id):
             self.plan_id = self.employee_id.evaluation_plan_id
 
@@ -287,8 +287,8 @@ class Evaluation(models.Model):
         request_obj = self.env['hr.evaluation.interview']
         self.write({'state': 'progress'})
         for evaluation in self:
-            if (evaluation.employee_id and 
-                    evaluation.employee_id.parent_id and 
+            if (evaluation.employee_id and
+                    evaluation.employee_id.parent_id and
                     evaluation.employee_id.parent_id.user_id):
                 self.message_subscribe_users(
                     user_ids=[evaluation.employee_id.parent_id.user_id.id])

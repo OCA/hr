@@ -131,7 +131,7 @@ class HrEvaluationInterview(models.Model):
 
     @api.multi
     def action_print_survey(self):
-        """ If response is available then print this response 
+        """ If response is available then print this response
             otherwise print survey form (print template of the survey) """
         self.ensure_one()
         return self.request_id.survey_id.with_context(
