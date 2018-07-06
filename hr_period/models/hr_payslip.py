@@ -50,7 +50,7 @@ class HrPayslip(models.Model):
     @api.multi
     @api.onchange('contract_id')
     def onchange_contract(self):
-        res = super(HrPayslip, self).onchange_contract()
+        super(HrPayslip, self).onchange_contract()
         if self.contract_id.employee_id and self.contract_id:
             employee = self.contract_id.employee_id
             contract = self.contract_id
@@ -60,7 +60,6 @@ class HrPayslip(models.Model):
                 self.hr_period_id = period.id if period else False
                 self.name = _('Salary Slip of %s for %s') % (employee.name,
                                                              period.name)
-        return res
 
     @api.onchange('hr_period_id')
     def onchange_hr_period_id(self):
