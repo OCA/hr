@@ -42,7 +42,7 @@ addon | version | summary
 [hr_holidays_settings](hr_holidays_settings/) | 10.0.1.1.0 | Enables Settings Form for HR Holidays.
 [hr_holidays_validity_date](hr_holidays_validity_date/) | 10.0.1.0.0 | Allow to define start and end date on holidays type.
 [hr_language](hr_language/) | 10.0.0.1.0 | Language Management
-[hr_payroll_cancel](hr_payroll_cancel/) | 10.0.1.0.0 | Hr Payroll Cancel
+[hr_payroll_cancel](hr_payroll_cancel/) | 10.0.1.0.1 | Hr Payroll Cancel
 [hr_period](hr_period/) | 10.0.1.0.0 | Add payroll periods
 [hr_public_holidays](hr_public_holidays/) | 10.0.1.0.1 | Manage Public Holidays
 [hr_recruitment_skill](hr_recruitment_skill/) | 10.0.1.0.0 | Add skills on job position
