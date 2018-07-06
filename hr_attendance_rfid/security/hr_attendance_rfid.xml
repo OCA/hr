@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="group_hr_attendance_rfid" model="res.groups">
+            <field name="name">RFID Attendance</field>
+            <field name="category_id" ref="base.module_category_hr_attendance"/>
+        </record>
+    </data>
+</odoo>
