@@ -327,7 +327,7 @@ msgstr ""
 
 #. module: hr_period
 #: model:ir.model,name:hr_period.model_hr_payslip_run
-msgid "Payslip Batches"
+msgid "Payslip Run"
 msgstr ""
 
 #. module: hr_period
@@ -361,7 +361,7 @@ msgstr ""
 
 #. module: hr_period
 #: code:addons/hr_period/models/hr_payslip.py:61
-#: code:addons/hr_period/models/hr_payslip.py:82
+#: code:addons/hr_period/models/hr_payslip.py:81
 #, python-format
 msgid "Salary Slip of %s for %s"
 msgstr ""
