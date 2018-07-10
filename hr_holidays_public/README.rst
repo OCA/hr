@@ -9,23 +9,23 @@ HR Public Holidays
 This module is a technical module to handle public holidays.
 The calculation of each leave can exclude rest days or public holiday.
 The calculation of each leave includes the number of hours taken from 
-.employee calendar attendances
+employee calendar attendances
 
 Installation
 ============
 
 To install this module, you need to:
 
-* clone the branch 11.0 of the repository https://github.com/OCA/hr
-* add the path to this repository in your configuration (addons-path)
-* update the module list
-* search for "Public Holidays" in your addons
-* install the module
+#. Clone the branch 11.0 of the repository https://github.com/OCA/hr
+#. Add the path to this repository in your configuration (addons-path)
+#. Update the module list
+#. Search for "Public Holidays" in your addons
+#. Install the module
 
 Configuration
 =============
 
-Go to Leaves -> Configuration and open a Leave Type
+Go to *Leaves -> Configuration* and open a Leave Type
 
 * Check "Exclude Rest Days" to exclude resource calendar rest days
 * Check "Exclude Public Holidays" to exclude public holidays
@@ -40,10 +40,6 @@ public holidays.
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
    :target: https://runbot.odoo-community.org/runbot/116/11.0
-
-Known issues / Roadmap
-======================
-
 
 Bug Tracker
 ===========

@@ -3,14 +3,14 @@
 
 from odoo.exceptions import ValidationError
 from odoo.exceptions import Warning as UserError
-from odoo.tests import common
+from odoo.tests.common import TransactionCase
 from odoo.tools import test_reports
 
 
-class TestPublicHolidays(common.TransactionCase):
+class TestHolidaysPublic(TransactionCase):
 
     def setUp(self):
-        super(TestPublicHolidays, self).setUp()
+        super(TestHolidaysPublic, self).setUp()
         self.holiday_model = self.env["hr.holidays.public"]
         self.holiday_model_line = self.env["hr.holidays.public.line"]
         self.employee_model = self.env['hr.employee']

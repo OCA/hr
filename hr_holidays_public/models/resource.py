@@ -31,13 +31,14 @@ class ResourceCalendar(models.Model):
         if self.env.context.get('employee') and \
                 self.env.context.get('exclude_public_holidays'):
             employee = self.env.context.get('employee')[0]
-            res += employee._get_public_holidays_leaves(
+            res += employee._get_holidays_public_leaves(
                 start_datetime, end_datetime)
         return res
 
     def _iter_work_intervals(self, start_dt, end_dt,
                              resource_id, compute_leaves=True):
-        """ Lists the current resource's work intervals between the two provided
+        """ This overwrite Odoo method.
+        Lists the current resource's work intervals between the two provided
         datetimes (inclusive) expressed in UTC, for each worked day. """
         self.ensure_one()
         if not end_dt:

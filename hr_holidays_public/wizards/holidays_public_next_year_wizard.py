@@ -9,7 +9,7 @@ from odoo.exceptions import Warning as UserError
 _logger = logging.getLogger(__name__)
 
 
-class PublicHolidaysNextYearWizard(models.TransientModel):
+class HolidaysPublicNextYearWizard(models.TransientModel):
     _name = 'public.holidays.next.year.wizard'
     _description = 'Creates public holidays from existing ones'
 

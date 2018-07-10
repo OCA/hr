@@ -6,7 +6,7 @@ from odoo import api, fields, models, _
 from odoo.exceptions import Warning as UserError
 
 
-class HrPublicHolidaysLine(models.Model):
+class HrHolidaysPublicLine(models.Model):
     _name = 'hr.holidays.public.line'
     _description = 'Public Holidays Lines'
     _order = "date, name desc"
