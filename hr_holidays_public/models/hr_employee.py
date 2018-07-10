@@ -12,7 +12,7 @@ from odoo.tools import float_utils
 class HrEmployee(models.Model):
     _inherit = 'hr.employee'
 
-    def _get_public_holidays_leaves(self, start_dt, end_dt):
+    def _get_holidays_public_leaves(self, start_dt, end_dt):
         """Get the public holidays for the current employee and given dates in
         the format expected by resource methods.
         :param: start_dt: Initial datetime.
@@ -32,7 +32,10 @@ class HrEmployee(models.Model):
                     datetime.datetime.combine(date, datetime.time.max)))
         return leaves
 
-    def _get_work_days_data(self, from_datetime, to_datetime, calendar=None):
+    def get_work_days_data(self, from_datetime, to_datetime, calendar=None):
+        res = super(HrEmployee, self).get_work_days_data(
+            from_datetime=from_datetime, to_datetime=to_datetime,
+            calendar=calendar)
         self.ensure_one()
         days_count = 0.0
         total_work_time = timedelta()
@@ -46,10 +49,11 @@ class HrEmployee(models.Model):
                 (interval[1] - interval[0] for interval in day_intervals),
                 timedelta())
             total_work_time += work_time
-            days_count += (work_time.total_seconds() / 3600) / (
-                theoric_hours or work_time.total_seconds() / 3600)
-        return {
-            'days': float_utils.float_round(days_count, precision_digits=3),
-            'hours': float_utils.float_round(
-                total_work_time.total_seconds() / 3600, precision_digits=3),
-        }
+            if theoric_hours:
+                days_count += work_time.total_seconds() / 3600 / theoric_hours
+            else:
+                days_count += 1.0
+        res['days'] = float_utils.float_round(days_count, precision_digits=3)
+        res['hours'] = float_utils.float_round(
+                total_work_time.total_seconds() / 3600, precision_digits=3)
+        return res

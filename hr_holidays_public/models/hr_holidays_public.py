@@ -7,7 +7,7 @@ from odoo import api, fields, models, _
 from odoo.exceptions import Warning as UserError
 
 
-class HrPublicHolidays(models.Model):
+class HrHolidaysPublic(models.Model):
     _name = 'hr.holidays.public'
     _description = 'Public Holidays'
     _rec_name = 'year'

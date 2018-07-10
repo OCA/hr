@@ -23,6 +23,6 @@ class HrHolidaysStatus(models.Model):
     compute_full_days = fields.Boolean(
         string="Compute Full Days",
         default=True,
-        help="If enabled, the number of days computed will be always for the "
+        help="If enabled, the number of computed days will always be for the "
              "full days in the interval",
     )
