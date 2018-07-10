@@ -37,6 +37,7 @@ setuptools.setup(
         'odoo10-addon-hr_holidays_validity_date',
         'odoo10-addon-hr_language',
         'odoo10-addon-hr_payroll_cancel',
+        'odoo10-addon-hr_payslip_change_state',
         'odoo10-addon-hr_period',
         'odoo10-addon-hr_public_holidays',
         'odoo10-addon-hr_recruitment_skill',
