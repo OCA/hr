@@ -1,10 +1,8 @@
-# -*- coding: utf-8 -*-
 # Copyright 2015 iDT LABS (http://www.@idtlabs.sl)
 # Copyright 2017 Tecnativa - Pedro M. Baeza
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 from odoo.tests import common
-from odoo.tools import float_compare
 
 
 class TestHolidaysComputeDaysBase(common.SavepointCase):
@@ -141,24 +139,12 @@ class TestHolidaysComputeDays(TestHolidaysComputeDaysBase):
             'employee_id': self.employee_1.id,
         })
         holidays._onchange_data_hr_holidays_compute_days()
-        self.assertEqual(holidays.number_of_days_temp, 7)
+        self.assertEqual(holidays.number_of_days_temp, 7.0)
         self.assertEqual(
             float_compare(holidays.number_of_hours_temp,
                           88,
                           precision_rounding=3),
             0)
-
-    # Calendar is required field in resource, so can't test this
-#    def test_number_days_without_calendar(self):
-#        self.employee_1.resource_calendar_id = False
-#        holidays = self.HrHolidays.new({
-#            'date_from': '1946-12-23 00:00:00',  # Monday
-#            'date_to': '1946-12-29 23:59:59',  # Sunday
-#            'holiday_status_id': self.holiday_type_no_excludes.id,
-#            'employee_id': self.employee_1.id,
-#        })
-#        holidays._onchange_data_hr_holidays_compute_days()
-#        self.assertEqual(holidays.number_of_days_temp, 0)
 
     def test_fractional_number_days(self):
         holidays = self.HrHolidays.new({

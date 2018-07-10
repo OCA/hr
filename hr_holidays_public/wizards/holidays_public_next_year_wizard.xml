@@ -4,7 +4,7 @@
 
 <odoo>
 
-<record id="public_holidays_next_year_wizard_view" model="ir.ui.view">
+<record id="holidays_public_next_year_wizard_view" model="ir.ui.view">
     <field name="name">Create Next Year Public Holidays</field>
     <field name="model">public.holidays.next.year.wizard</field>
     <field name="arch" type="xml">

@@ -41,8 +41,8 @@ class HrHolidays(models.Model):
                 holiday.number_of_hours = holiday.number_of_hours_temp
 
     @api.onchange('employee_id')
-    def _onchange_employee(self):
-        super(HrHolidays, self)._onchange_employee()
+    def _onchange_employee_id(self):
+        super(HrHolidays, self)._onchange_employee_id()
         self._onchange_data_hr_holidays_compute_days()
 
     @api.onchange('date_from')
@@ -96,8 +96,8 @@ class HrHolidays(models.Model):
                 include_rest_days=not self.holiday_status_id.exclude_rest_days,
                 compute_full_days=self.holiday_status_id.compute_full_days,
             )
-            datas = employee._get_work_days_data(from_datetime=date_from,
-                                                 to_datetime=date_to)
+            datas = employee.get_work_days_data(from_datetime=date_from,
+                                                to_datetime=date_to)
             if datas:
                 self.number_of_days_temp = datas['days']
                 self.number_of_hours_temp = datas['hours']
