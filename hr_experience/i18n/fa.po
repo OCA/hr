@@ -9,36 +9,37 @@ msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-06-07 02:58+0000\n"
-"PO-Revision-Date: 2018-06-07 02:58+0000\n"
-"Last-Translator: Mehdi Zarrinkolah <mehdi1811@gmail.com>, 2018\n"
+"PO-Revision-Date: 2018-07-21 06:30+0000\n"
+"Last-Translator: derKonig <fshahy@gmail.com>\n"
 "Language-Team: Persian (https://www.transifex.com/oca/teams/23907/fa/)\n"
 "Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.0.1\n"
 
 #. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_employee_experience_ids
 msgid " Professional Experiences"
-msgstr ""
+msgstr " تجربیات حرفه ای"
 
 #. module: hr_experience
 #: model:ir.ui.view,arch_db:hr_experience.view_certification_tree
 #: model:ir.ui.view,arch_db:hr_experience.view_employee_form_inherit
 msgid "# Certificate"
-msgstr ""
+msgstr "# مدرک"
 
 #. module: hr_experience
 #: selection:hr.experience,category:0
 msgid "Academic"
-msgstr ""
+msgstr "آکادمیک"
 
 #. module: hr_experience
 #: model:ir.ui.view,arch_db:hr_experience.view_academic_form
 #: model:ir.ui.view,arch_db:hr_experience.view_employee_form_inherit
 msgid "Academic Experience"
-msgstr ""
+msgstr "تجربه آکادمیک"
 
 #. module: hr_experience
 #: model:ir.actions.act_window,name:hr_experience.open_view_academic_form
@@ -46,30 +47,30 @@ msgstr ""
 #: model:ir.ui.view,arch_db:hr_experience.view_academic_tree
 #: model:ir.ui.view,arch_db:hr_experience.view_employee_form_inherit
 msgid "Academic Experiences"
-msgstr ""
+msgstr "تجربیات آکادمیک"
 
 #. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_employee_academic_ids
 #: model:ir.model.fields,help:hr_experience.field_hr_employee_academic_ids
 msgid "Academic experiences"
-msgstr ""
+msgstr "تجربیات آکادمیک"
 
 #. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_academic_activities
 msgid "Activities and associations"
-msgstr ""
+msgstr "فعالیتها و ارتباطات"
 
 #. module: hr_experience
 #: model:ir.ui.view,arch_db:hr_experience.view_academic_form
 #: model:ir.ui.view,arch_db:hr_experience.view_employee_form_inherit
 msgid "Additional Information"
-msgstr ""
+msgstr "اطلاعات بیشتر"
 
 #. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_experience_category
 #: model:ir.model.fields,help:hr_experience.field_hr_experience_category
 msgid "Category"
-msgstr ""
+msgstr "دسته بندی"
 
 #. module: hr_experience
 #: selection:hr.experience,category:0
@@ -77,19 +78,19 @@ msgstr ""
 #: model:ir.ui.view,arch_db:hr_experience.view_certification_tree
 #: model:ir.ui.view,arch_db:hr_experience.view_employee_form_inherit
 msgid "Certification"
-msgstr ""
+msgstr "مدرک"
 
 #. module: hr_experience
 #: model:ir.ui.view,arch_db:hr_experience.view_certification_form
 #: model:ir.ui.view,arch_db:hr_experience.view_employee_form_inherit
 msgid "Certification Information"
-msgstr ""
+msgstr "اطلاعات مدرک"
 
 #. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_certification_certification
 #: model:ir.model.fields,help:hr_experience.field_hr_certification_certification
 msgid "Certification Number"
-msgstr ""
+msgstr "شماره مدرک"
 
 #. module: hr_experience
 #: model:ir.actions.act_window,name:hr_experience.open_view_certification_form
@@ -99,7 +100,7 @@ msgstr ""
 #: model:ir.ui.view,arch_db:hr_experience.view_certification_tree
 #: model:ir.ui.view,arch_db:hr_experience.view_employee_form_inherit
 msgid "Certifications"
-msgstr ""
+msgstr "مدارک"
 
 #. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_academic_create_uid
@@ -107,7 +108,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_experience.field_hr_curriculum_create_uid
 #: model:ir.model.fields,field_description:hr_experience.field_hr_experience_create_uid
 msgid "Created by"
-msgstr ""
+msgstr "ایجاد شده توسط"
 
 #. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_academic_create_date
@@ -115,7 +116,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_experience.field_hr_curriculum_create_date
 #: model:ir.model.fields,field_description:hr_experience.field_hr_experience_create_date
 msgid "Created on"
-msgstr ""
+msgstr "ایجاد شده در"
 
 #. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_academic_description
@@ -126,12 +127,12 @@ msgstr ""
 #: model:ir.ui.view,arch_db:hr_experience.view_employee_form_inherit
 #: model:ir.ui.view,arch_db:hr_experience.view_professional_form
 msgid "Description"
-msgstr ""
+msgstr "توضیحات"
 
 #. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_academic_diploma
 msgid "Diploma"
-msgstr ""
+msgstr "دیپلم"
 
 #. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_academic_display_name
@@ -139,12 +140,12 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_experience.field_hr_curriculum_display_name
 #: model:ir.model.fields,field_description:hr_experience.field_hr_experience_display_name
 msgid "Display Name"
-msgstr ""
+msgstr "نمایش نام"
 
 #. module: hr_experience
 #: model:ir.ui.view,arch_db:hr_experience.view_academic_tree
 msgid "Education"
-msgstr ""
+msgstr "تحصیلات"
 
 #. module: hr_experience
 #: model:ir.model,name:hr_experience.model_hr_employee
@@ -156,12 +157,12 @@ msgstr ""
 #: model:ir.ui.view,arch_db:hr_experience.view_certification_search
 #: model:ir.ui.view,arch_db:hr_experience.view_experience_search
 msgid "Employee"
-msgstr "کارمند "
+msgstr "کارمند"
 
 #. module: hr_experience
 #: model:ir.model,name:hr_experience.model_hr_curriculum
 msgid "Employee's Curriculum"
-msgstr ""
+msgstr "رزومه کارمند"
 
 #. module: hr_experience
 #: model:ir.ui.view,arch_db:hr_experience.view_employee_form_inherit
@@ -169,7 +170,7 @@ msgstr ""
 #: model:ir.ui.view,arch_db:hr_experience.view_professional_form
 #: model:ir.ui.view,arch_db:hr_experience.view_professional_tree
 msgid "Employer"
-msgstr ""
+msgstr "کارفرما"
 
 #. module: hr_experience
 #: model:ir.model.fields,help:hr_experience.field_hr_academic_partner_id
@@ -185,12 +186,12 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_experience.field_hr_curriculum_end_date
 #: model:ir.model.fields,field_description:hr_experience.field_hr_experience_end_date
 msgid "End date"
-msgstr ""
+msgstr "تاریخ پایان"
 
 #. module: hr_experience
 #: model:ir.ui.menu,name:hr_experience.menu_hr_experience
 msgid "Experiences"
-msgstr ""
+msgstr "تجربیات"
 
 #. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_academic_expire
@@ -202,19 +203,19 @@ msgstr ""
 #: model:ir.model.fields,help:hr_experience.field_hr_curriculum_expire
 #: model:ir.model.fields,help:hr_experience.field_hr_experience_expire
 msgid "Expire"
-msgstr ""
+msgstr "انقضا"
 
 #. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_academic_study_field
 msgid "Field of study"
-msgstr ""
+msgstr "رشته تحصیلی"
 
 #. module: hr_experience
 #: model:ir.ui.view,arch_db:hr_experience.view_academic_search
 #: model:ir.ui.view,arch_db:hr_experience.view_certification_search
 #: model:ir.ui.view,arch_db:hr_experience.view_experience_search
 msgid "Group By"
-msgstr ""
+msgstr "گروه بندی بر اساس"
 
 #. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_academic_id
@@ -222,7 +223,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_experience.field_hr_curriculum_id
 #: model:ir.model.fields,field_description:hr_experience.field_hr_experience_id
 msgid "ID"
-msgstr ""
+msgstr "شناسه"
 
 #. module: hr_experience
 #: model:ir.ui.view,arch_db:hr_experience.view_academic_form
@@ -230,7 +231,7 @@ msgstr ""
 #: model:ir.ui.view,arch_db:hr_experience.view_academic_tree
 #: model:ir.ui.view,arch_db:hr_experience.view_employee_form_inherit
 msgid "Institution"
-msgstr ""
+msgstr "موسسه"
 
 #. module: hr_experience
 #: model:ir.ui.view,arch_db:hr_experience.view_certification_form
@@ -238,7 +239,7 @@ msgstr ""
 #: model:ir.ui.view,arch_db:hr_experience.view_certification_tree
 #: model:ir.ui.view,arch_db:hr_experience.view_employee_form_inherit
 msgid "Issued By"
-msgstr ""
+msgstr "صادر شده توسط"
 
 #. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_academic___last_update
@@ -246,7 +247,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_experience.field_hr_curriculum___last_update
 #: model:ir.model.fields,field_description:hr_experience.field_hr_experience___last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "آخرین تغییرات در"
 
 #. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_academic_write_uid
@@ -254,7 +255,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_experience.field_hr_curriculum_write_uid
 #: model:ir.model.fields,field_description:hr_experience.field_hr_experience_write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "آخرین به روزرسانی توسط"
 
 #. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_academic_write_date
@@ -262,7 +263,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_experience.field_hr_curriculum_write_date
 #: model:ir.model.fields,field_description:hr_experience.field_hr_experience_write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "آخرین به روزرسانی در"
 
 #. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_academic_location
@@ -274,7 +275,7 @@ msgstr ""
 #: model:ir.model.fields,help:hr_experience.field_hr_curriculum_location
 #: model:ir.model.fields,help:hr_experience.field_hr_experience_location
 msgid "Location"
-msgstr ""
+msgstr "محل"
 
 #. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_academic_name
@@ -282,7 +283,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_experience.field_hr_curriculum_name
 #: model:ir.model.fields,field_description:hr_experience.field_hr_experience_name
 msgid "Name"
-msgstr ""
+msgstr "نام"
 
 #. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_academic_partner_id
@@ -290,25 +291,25 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_experience.field_hr_curriculum_partner_id
 #: model:ir.model.fields,field_description:hr_experience.field_hr_experience_partner_id
 msgid "Partner"
-msgstr ""
+msgstr "همکار"
 
 #. module: hr_experience
 #: model:ir.ui.view,arch_db:hr_experience.view_employee_form_inherit
 #: model:ir.ui.view,arch_db:hr_experience.view_professional_form
 #: model:ir.ui.view,arch_db:hr_experience.view_professional_tree
 msgid "Position"
-msgstr ""
+msgstr "سمت"
 
 #. module: hr_experience
 #: selection:hr.experience,category:0
 msgid "Professional"
-msgstr ""
+msgstr "حرفه ای"
 
 #. module: hr_experience
 #: model:ir.ui.view,arch_db:hr_experience.view_employee_form_inherit
 #: model:ir.ui.view,arch_db:hr_experience.view_professional_form
 msgid "Professional Experience"
-msgstr ""
+msgstr "تجربه حرفه ای"
 
 #. module: hr_experience
 #: model:ir.actions.act_window,name:hr_experience.open_view_professional_form
@@ -317,27 +318,27 @@ msgstr ""
 #: model:ir.ui.view,arch_db:hr_experience.view_employee_form_inherit
 #: model:ir.ui.view,arch_db:hr_experience.view_professional_tree
 msgid "Professional Experiences"
-msgstr ""
+msgstr "تجارب حرفه ای"
 
 #. module: hr_experience
 #: model:ir.ui.view,arch_db:hr_experience.view_employee_form_inherit
 msgid "Resume"
-msgstr ""
+msgstr "رزومه"
 
 #. module: hr_experience
 #: model:ir.ui.view,arch_db:hr_experience.view_academic_search
 msgid "Search Academic Experiences"
-msgstr ""
+msgstr "جستجوی تجارب آکادمیک"
 
 #. module: hr_experience
 #: model:ir.ui.view,arch_db:hr_experience.view_certification_search
 msgid "Search Certifications"
-msgstr ""
+msgstr "جستجوی مدارک"
 
 #. module: hr_experience
 #: model:ir.ui.view,arch_db:hr_experience.view_experience_search
 msgid "Search Professional Experiences"
-msgstr ""
+msgstr "جستجوی مدارک حرفه ای"
 
 #. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_academic_start_date
@@ -345,19 +346,20 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_experience.field_hr_curriculum_start_date
 #: model:ir.model.fields,field_description:hr_experience.field_hr_experience_start_date
 msgid "Start date"
-msgstr ""
+msgstr "تاریخ شروع"
 
 #. module: hr_experience
 #: model:ir.model,name:hr_experience.model_hr_academic
 msgid "hr.academic"
-msgstr ""
+msgstr "hr.academic"
 
 #. module: hr_experience
 #: model:ir.model,name:hr_experience.model_hr_certification
 msgid "hr.certification"
-msgstr ""
+msgstr "hr.certification"
 
 #. module: hr_experience
 #: model:ir.model,name:hr_experience.model_hr_experience
+#, fuzzy
 msgid "hr.experience"
-msgstr ""
+msgstr "hr.experience"
