@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-06-07 02:58+0000\n"
-"PO-Revision-Date: 2018-07-21 06:30+0000\n"
+"PO-Revision-Date: 2018-07-21 09:35+0000\n"
 "Last-Translator: derKonig <fshahy@gmail.com>\n"
 "Language-Team: Persian (https://www.transifex.com/oca/teams/23907/fa/)\n"
 "Language: fa\n"
@@ -178,7 +178,7 @@ msgstr "کارفرما"
 #: model:ir.model.fields,help:hr_experience.field_hr_curriculum_partner_id
 #: model:ir.model.fields,help:hr_experience.field_hr_experience_partner_id
 msgid "Employer, School, University, Certification Authority"
-msgstr ""
+msgstr "کارمند، مدرسه، دانشگاه، مرجع صدور"
 
 #. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_academic_end_date
@@ -356,10 +356,9 @@ msgstr "hr.academic"
 #. module: hr_experience
 #: model:ir.model,name:hr_experience.model_hr_certification
 msgid "hr.certification"
-msgstr "hr.certification"
+msgstr "منابع انسانی.مدرک"
 
 #. module: hr_experience
 #: model:ir.model,name:hr_experience.model_hr_experience
-#, fuzzy
 msgid "hr.experience"
-msgstr "hr.experience"
+msgstr "منابع انسانی.تجربه"
