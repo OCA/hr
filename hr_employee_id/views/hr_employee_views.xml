@@ -11,7 +11,7 @@
                 <h1 position="after">
                     <label for="identification_id" class="oe_edit_only"/>
                     <h3>
-                        <field name="identification_id" readonly="1"/>
+                        <field name="identification_id" readonly="1" groups="hr.group_hr_user"/>
                     </h3>
                 </h1>
             </data>
@@ -24,7 +24,7 @@
         <field name="arch" type="xml">
             <data>
                 <field name="name" position="after">
-                    <field name="identification_id"/>
+                    <field name="identification_id" groups="hr.group_hr_user"/>
                 </field>
             </data>
         </field>
@@ -35,7 +35,7 @@
         <field name="inherit_id" ref="hr.view_employee_filter"/>
         <field name="arch" type="xml">
             <field name="name" position="after">
-                <field name="identification_id"/>
+                <field name="identification_id" groups="hr.group_hr_user"/>
             </field>
         </field>
     </record>
@@ -45,9 +45,11 @@
         <field name="inherit_id" ref="hr.hr_kanban_view_employees"/>
         <field name="arch" type="xml">
             <li id="last_login" position="after">
-                <li t-if="record.identification_id.raw_value">
-                    <field name="identification_id"/>
-                </li>
+                <t t-if="record.identification_id">
+                    <li t-if="record.identification_id.raw_value" >
+                        <field name="identification_id" groups="hr.group_hr_user"/>
+                    </li>
+                </t>
             </li>
         </field>
     </record>
