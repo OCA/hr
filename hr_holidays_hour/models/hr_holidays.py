@@ -2,7 +2,7 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 from odoo import _, api, fields, models
-from odoo.exceptions import ValidationError, Warning
+from odoo.exceptions import UserError, ValidationError
 
 
 class HrHolidays(models.Model):
@@ -38,7 +38,7 @@ class HrHolidays(models.Model):
         # date_to has to be greater than date_from
         if self.date_from and self.date_to:
             if self.date_from > self.date_to:
-                raise Warning(_(
+                raise UserError(_(
                     'The start date must be anterior to the end date.'
                 ))
 
@@ -47,7 +47,7 @@ class HrHolidays(models.Model):
         self.ensure_one()
         employee = self.employee_id
         if not employee and (self.date_to or self.date_from):
-            raise Warning(_('Set an employee first!'))
+            raise UserError(_('Set an employee first!'))
 
     @api.multi
     def _compute_work_hours(self):
