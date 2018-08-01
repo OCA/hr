@@ -25,9 +25,14 @@ class Applicant(models.Model):
     _inherit = 'hr.applicant'
 
     partner_id = fields.Many2one(
-        delegate=True, required=True, ondelete='restrict')
+        delegate=True,
+        context="{'default_is_applicant': True}",
+        required=True,
+        ondelete='restrict')
 
     # Redefined fields, now stored in Partner only
+    email_from = fields.Char(related='partner_id.email')
     partner_name = fields.Char(related='partner_id.name')
     partner_mobile = fields.Char(related='partner_id.mobile')
     partner_phone = fields.Char(related='partner_id.phone')
+    email_from = fields.Char(related='partner_id.email')

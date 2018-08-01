@@ -16,6 +16,14 @@ As an additional advantage, it is easier now to add other personal and
 address details to the Applicant form, such as the photo image or the
 address details.
 
+Applicant Partner data is considered personal data so additional measures
+are needed to ensure its privacy.
+
+An "Is Applicant" flag is added to the Partner model, and set by default on
+Partner records created from the Applicant form.
+Based on it, a record access rule ensures that only authorized users
+(HR Officers) can see this Partner data.
+
 
 Configuration
 =============

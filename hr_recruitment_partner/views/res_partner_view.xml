@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="res_partner_add_applicant" model="ir.ui.view">
+            <field name="name">Partner: add Is Applicant</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="priority">100</field>
+            <field name="arch" type="xml">
+
+                <field name="title" position="after">
+                    <field name="is_applicant" />
+                </field>
+
+           </field>
+        </record>
+
+    </data>
+</openerp>

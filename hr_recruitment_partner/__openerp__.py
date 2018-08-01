@@ -22,12 +22,14 @@
 {
     'name': 'Applicants implicit Partner',
     'summary': 'Automatically create a Partner for Applicants',
-    'version': '8.0.1.0.0',
+    'version': '8.0.2.0.0',
     'category': 'Human Resources',
     'author': 'Daniel Reis, Odoo Community Association (OCA)',
     'license': 'AGPL-3',
     'data': [
+        'views/res_partner_view.xml',
         'views/hr_applicant_view.xml',
+        'security/hr_security.xml',
     ],
     'depends': [
         'hr_recruitment',

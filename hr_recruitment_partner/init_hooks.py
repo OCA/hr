@@ -26,6 +26,16 @@ def pre_init_hook(cr):
     env = Environment(cr, SUPERUSER_ID, {})
     env.cr.execute(
         'UPDATE hr_applicant SET partner_id=1 WHERE partner_id IS NULL')
+    # TODO: update partner email from applicant email_from
+    # Fix data from previous bug, where email
+    # is not being written on the Partner
+    env.cr.execute("""
+        update res_partner
+        set email = email_from
+        from hr_applicant
+        where res_partner.id= hr_applicant.partner_id
+        and hr_applicant.email_from is not null and res_partner.email is null
+    """)
 
 
 def post_init_hook(cr, pool):
@@ -37,6 +47,7 @@ def post_init_hook(cr, pool):
     # fields already cover our fields
     if not applicants:
         return
+    # Create Partner record for each Applicant
     env.cr.execute(
         'select id, name, partner_name, '
         'partner_phone, partner_mobile, email_from '
@@ -50,4 +61,15 @@ def post_init_hook(cr, pool):
             'mobile': db_data['partner_mobile'],
             'email': db_data['email_from'],
             'customer': False,
+            'is_applicant': True,
         })
+    # Ensure that all Applicants have the proper flag
+    env.cr.execute("""
+        update res_partner set is_applicant=true
+        where id in (
+            select p.id
+            from hr_applicant a
+            inner join res_partner p on p.id=a.partner_id
+            where (p.is_applicant=False or p.is_applicant IS NULL)
+        )
+    """)
