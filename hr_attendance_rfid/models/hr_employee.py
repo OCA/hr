@@ -66,7 +66,6 @@ class HrEmployee(models.Model):
                 res['error_message'] = msg
                 return res
         except Exception as e:
-            msg = e.message
-            _logger.error(msg)
-            res['error_message'] = msg
+            res['error_message'] = e
+            _logger.error(e)
         return res
