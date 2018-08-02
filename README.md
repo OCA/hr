@@ -14,6 +14,7 @@ Available addons
 ----------------
 addon | version | summary
 --- | --- | ---
+[hr_attendance_rfid](hr_attendance_rfid/) | 10.0.1.0.0 | HR Attendance RFID
 [hr_contract_default_trial_length](hr_contract_default_trial_length/) | 10.0.1.0.0 | Define default trail length for contracts
 [hr_contract_reference](hr_contract_reference/) | 10.0.1.0.0 | HR Contract Reference
 [hr_emergency_contact](hr_emergency_contact/) | 10.0.1.0.0 | HR Emergency Contact
