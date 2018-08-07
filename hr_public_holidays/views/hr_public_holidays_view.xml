@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+        <record id="view_public_holidays_tree" model="ir.ui.view">
+            <field name="name">hr.holidays.public.tree</field>
+            <field name="model">hr.holidays.public</field>
+            <field name="arch" type="xml">
+                <tree string="Public Holidays">
+                    <field name="year"/>
+                    <field name="country_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_public_holidays_form" model="ir.ui.view">
+            <field name="name">hr.holidays.public.form</field>
+            <field name="model">hr.holidays.public</field>
+            <field name="arch" type="xml">
+                <form string="Public Holidays">
+                    <group>
+                        <field name="year"/>
+                        <field name="country_id"/>
+                    </group>
+                    <newline />
+                    <group string="Public Holidays">
+                        <field name="line_ids" nolabel="1">
+                            <tree string="Public Holidays"
+                                editable="top">
+                                <field name="date" />
+                                <field name="name" />
+                                <field name="state_ids" widget="many2many_tags"
+                                    domain="[('country_id','=',parent.country_id)]" />
+                                <field name="variable" />
+                            </tree>
+                        </field>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="open_public_holidays_view" model="ir.actions.act_window">
+            <field name="name">Public Holidays</field>
+            <field name="res_model">hr.holidays.public</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="menu_hr_public_holidays"
+                  name="Public Holidays"
+                  parent="hr_holidays.menu_hr_holidays_root"
+                  sequence="20"/>
+
+        <menuitem action="open_public_holidays_view"
+                  id="menu_public_holidays_view"
+                  parent="menu_hr_public_holidays"
+                  sequence="10"/>
+
+</odoo>
