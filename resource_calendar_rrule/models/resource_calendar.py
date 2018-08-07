@@ -258,7 +258,7 @@ class ResourceCalendar(models.Model):
                     if rrule_until < start_dt_tz:
                         continue
                 # Determine interval to check for weekdays
-                rrule_start = attendance.rrule[0]
+                rrule_start = rrule_dtstart.replace(tzinfo=None)
                 interval = (
                     rrule_start,
                     rrule_start + datetime.timedelta(days=7),
