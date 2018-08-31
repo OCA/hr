@@ -53,10 +53,10 @@ class HrHolidays(models.Model):
     def _compute_work_hours(self):
         self.ensure_one()
         employee = self.employee_id
-        from_dt = fields.Datetime.from_string(self.date_from)
-        to_dt = fields.Datetime.from_string(self.date_to)
         work_hours = 0.0
         if self.date_from and self.date_to:
+            from_dt = fields.Datetime.from_string(self.date_from)
+            to_dt = fields.Datetime.from_string(self.date_to)
             emp_work_hours = employee.iter_work_hours_count(from_dt, to_dt)
             work_hours_data = [item for item in emp_work_hours]
             for index, (day, work_hours_count) in enumerate(work_hours_data):
@@ -140,6 +140,7 @@ class HrHolidays(models.Model):
 
     @api.multi
     def _prepare_create_by_category(self, employee):
+        self.ensure_one()
         values = super(HrHolidays, self)._prepare_create_by_category(employee)
         values.update({
             'number_of_hours_temp': self.number_of_hours_temp,
