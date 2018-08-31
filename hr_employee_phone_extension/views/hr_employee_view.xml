@@ -1,0 +1,15 @@
+<?xml version = "1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Inherited employee form view -->
+    <record id="view_employee_form_inherit_extension" model="ir.ui.view">
+        <field name="name">view.employee.form.inherit.extension</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <field name="mobile_phone" position="after">
+                <field name="internal_number"/>
+                <field name="short_number"/>
+            </field>
+        </field>
+    </record>
+</odoo>

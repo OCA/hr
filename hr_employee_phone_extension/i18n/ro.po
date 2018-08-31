@@ -1,0 +1,45 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * hr_employee_phone_extension
+#
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: hr (8.0)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-08-18 13:10+0000\n"
+"PO-Revision-Date: 2015-08-12 10:11+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: Romanian (http://www.transifex.com/oca/OCA-hr-8-0/language/"
+"ro/)\n"
+"Language: ro\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?"
+"2:1));\n"
+
+#. module: hr_employee_phone_extension
+#: model:ir.model,name:hr_employee_phone_extension.model_hr_employee
+msgid "Employee"
+msgstr "Angajat"
+
+#. module: hr_employee_phone_extension
+#: model:ir.model.fields,field_description:hr_employee_phone_extension.field_hr_employee_internal_number
+msgid "Internal Number"
+msgstr ""
+
+#. module: hr_employee_phone_extension
+#: model:ir.model.fields,help:hr_employee_phone_extension.field_hr_employee_internal_number
+msgid "Internal phone number."
+msgstr ""
+
+#. module: hr_employee_phone_extension
+#: model:ir.model.fields,field_description:hr_employee_phone_extension.field_hr_employee_short_number
+msgid "Short Number"
+msgstr ""
+
+#. module: hr_employee_phone_extension
+#: model:ir.model.fields,help:hr_employee_phone_extension.field_hr_employee_short_number
+msgid "Short phone number."
+msgstr ""
