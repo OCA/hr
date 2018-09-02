@@ -6,7 +6,7 @@
             <field name="model">hr.holidays.public</field>
             <field name="arch" type="xml">
                 <tree string="Public Holidays">
-                    <field name="year"/>
+                    <field name="display_name"/>
                     <field name="country_id"/>
                 </tree>
             </field>

@@ -4,7 +4,7 @@
 from datetime import date
 
 from odoo import api, fields, models, _
-from odoo.exceptions import Warning as UserError
+from odoo.exceptions import UserError
 
 
 class HrHolidaysPublic(models.Model):
@@ -17,7 +17,7 @@ class HrHolidaysPublic(models.Model):
         "Name",
         compute="_compute_display_name",
         readonly=True,
-        store=True
+        store=True,
     )
     year = fields.Integer(
         "Calendar Year",
