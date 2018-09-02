@@ -35,10 +35,10 @@ class HrEmployee(models.Model):
     def get_work_days_data(self, from_datetime, to_datetime, calendar=None):
         res = super(HrEmployee, self).get_work_days_data(
             from_datetime=from_datetime, to_datetime=to_datetime,
-            calendar=calendar)
+            calendar=calendar,
+        )
         self.ensure_one()
         days_count = 0.0
-        total_work_time = timedelta()
         calendar = calendar or self.resource_calendar_id
         for day_intervals in calendar._iter_work_intervals(
                 from_datetime, to_datetime, self.resource_id.id,
@@ -48,12 +48,9 @@ class HrEmployee(models.Model):
             work_time = sum(
                 (interval[1] - interval[0] for interval in day_intervals),
                 timedelta())
-            total_work_time += work_time
             if theoric_hours:
                 days_count += work_time.total_seconds() / 3600 / theoric_hours
             else:
                 days_count += 1.0
         res['days'] = float_utils.float_round(days_count, precision_digits=3)
-        res['hours'] = float_utils.float_round(
-                total_work_time.total_seconds() / 3600, precision_digits=3)
         return res

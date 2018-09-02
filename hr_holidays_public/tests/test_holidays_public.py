@@ -2,12 +2,13 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 from odoo.exceptions import ValidationError
-from odoo.exceptions import Warning as UserError
+from odoo.exceptions import UserError
 from odoo.tests.common import TransactionCase
-from odoo.tools import test_reports
 
 
 class TestHolidaysPublic(TransactionCase):
+    at_install = False
+    post_install = True
 
     def setUp(self):
         super(TestHolidaysPublic, self).setUp()
@@ -200,25 +201,3 @@ class TestHolidaysPublic(TransactionCase):
 
         with self.assertRaises(UserError):
             wz_create_ph.create_public_holidays()
-
-    def test_report_summary_report(self):
-        self.env['hr.holidays'].create({
-            'date_from': '1995-10-20',
-            'date_to': '1995-10-21',
-            'holiday_status_id': self.env['hr.holidays.status'].search(
-                [])[0].id,
-            'employee_id': self.employee.id,
-        })
-        data = {'date_from': '1995-10-01',
-                'emp': self.env['hr.employee'].search([]).ids,
-                'holiday_type': 'both'}
-        report = self.env['hr.holidays.summary.employee'].create(data)
-        datas = {
-            'ids': [],
-            'model': 'hr.employee',
-            'form': data
-        }
-        test_reports.try_report(self.env.cr, self.env.uid,
-                                'hr_holidays.report_holidayssummary',
-                                [report.id], data=datas,
-                                report_type='qweb')

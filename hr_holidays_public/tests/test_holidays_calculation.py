@@ -6,6 +6,9 @@ from odoo.tests import common
 
 
 class TestHolidaysComputeDaysBase(common.SavepointCase):
+    at_install = False
+    post_install = True
+
     @classmethod
     def setUpClass(cls):
         super(TestHolidaysComputeDaysBase, cls).setUpClass()
@@ -117,8 +120,6 @@ class TestHolidaysComputeDays(TestHolidaysComputeDaysBase):
         })
         holidays._onchange_data_hr_holidays_compute_days()
         self.assertEqual(holidays.number_of_days_temp, 4)
-        self.assertEqual(holidays.number_of_hours_temp, 32)
-        self.assertEqual(holidays.number_of_hours, 32)
 
     def _test_number_days_excluding_employee_2(self):
         holidays = self.HrHolidays.new({
@@ -129,7 +130,6 @@ class TestHolidaysComputeDays(TestHolidaysComputeDaysBase):
         })
         holidays._onchange_data_hr_holidays_compute_days()
         self.assertEqual(holidays.number_of_days_temp, 2)
-        self.assertEqual(holidays.number_of_hours_temp, 16)
 
     def test_number_days_not_excluding(self):
         holidays = self.HrHolidays.new({
@@ -140,11 +140,6 @@ class TestHolidaysComputeDays(TestHolidaysComputeDaysBase):
         })
         holidays._onchange_data_hr_holidays_compute_days()
         self.assertEqual(holidays.number_of_days_temp, 7.0)
-        self.assertEqual(
-            float_compare(holidays.number_of_hours_temp,
-                          88,
-                          precision_rounding=3),
-            0)
 
     def test_fractional_number_days(self):
         holidays = self.HrHolidays.new({
@@ -154,9 +149,6 @@ class TestHolidaysComputeDays(TestHolidaysComputeDaysBase):
             'employee_id': self.employee_1.id,
         })
         holidays._onchange_data_hr_holidays_compute_days()
-        self.assertEqual(
-            float_compare(holidays.number_of_days_temp,
-                          0.563,
-                          precision_rounding=3),
-            0)
-        self.assertEqual(holidays.number_of_hours_temp, 4.0)
+        self.assertAlmostEqual(
+            holidays.number_of_days_temp, 0.5, 3,
+        )

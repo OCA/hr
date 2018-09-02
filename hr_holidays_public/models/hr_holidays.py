@@ -18,28 +18,6 @@ def to_naive_user_tz(date_time, record):
 class HrHolidays(models.Model):
     _inherit = 'hr.holidays'
 
-    show_full_days = fields.Boolean(
-        string="Show Full Days",
-        related="holiday_status_id.compute_full_days")
-    number_of_hours_temp = fields.Float(
-        'Allocated Hours', copy=False, readonly=True,
-        states={'draft': [('readonly', False)],
-                'confirm': [('readonly', False)]},
-        help='Number of hours of the leave request according '
-             'to your working schedule.')
-    number_of_hours = fields.Float(
-        'Number of Hours', compute='_compute_number_of_hours',
-        store=True, track_visibility='onchange')
-
-    @api.multi
-    @api.depends('number_of_hours_temp', 'type')
-    def _compute_number_of_hours(self):
-        for holiday in self:
-            if holiday.type == 'remove':
-                holiday.number_of_hours = -holiday.number_of_hours_temp
-            else:
-                holiday.number_of_hours = holiday.number_of_hours_temp
-
     @api.onchange('employee_id')
     def _onchange_employee_id(self):
         super(HrHolidays, self)._onchange_employee_id()
@@ -47,9 +25,9 @@ class HrHolidays(models.Model):
 
     @api.onchange('date_from')
     def _onchange_date_from(self):
-        if not self.show_full_days:
+        if not self.holiday_status_id.compute_full_days:
             super(HrHolidays, self)._onchange_date_from()
-        if self.show_full_days and self.date_from:
+        if self.holiday_status_id.compute_full_days and self.date_from:
             tz_name = self.employee_id.user_id.tz or self.env.user.tz
             start_dt = to_naive_user_tz(
                 fields.Datetime.from_string(self.date_from), self)
@@ -71,7 +49,7 @@ class HrHolidays(models.Model):
     @api.onchange('date_to')
     def _onchange_date_to(self):
         super(HrHolidays, self)._onchange_date_to()
-        if self.show_full_days and self.date_to:
+        if self.holiday_status_id.compute_full_days and self.date_to:
             tz_name = self.employee_id.user_id.tz or self.env.user.tz
             end_dt = to_naive_user_tz(
                 fields.Datetime.from_string(self.date_to), self)
@@ -82,7 +60,7 @@ class HrHolidays(models.Model):
             self.date_to = fields.Datetime.to_string(dt)
         self._onchange_data_hr_holidays_compute_days()
 
-    @api.onchange('holiday_status_id')
+    @api.onchange('employee_id', 'holiday_status_id')
     def _onchange_data_hr_holidays_compute_days(self):
         if self.date_to and self.date_from and self.date_from <= self.date_to:
             date_from = fields.Datetime.from_string(self.date_from)
@@ -100,4 +78,3 @@ class HrHolidays(models.Model):
                                                 to_datetime=date_to)
             if datas:
                 self.number_of_days_temp = datas['days']
-                self.number_of_hours_temp = datas['hours']
