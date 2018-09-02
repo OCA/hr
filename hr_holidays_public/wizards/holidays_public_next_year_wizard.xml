@@ -11,33 +11,33 @@
         <form string="Create Next Year Public Holidays">
             <sheet>
                 <div>
-                        Use this wizard to create public holidays based on the 
+                        Use this wizard to create public holidays based on the
                         existing ones.<br/>
-                        Only the last templates of each country 
-                        will be taken into account (If you select templates 
+                        Only the last templates of each country
+                        will be taken into account (If you select templates
                         from 2012 and 2015 of the same country; '
-                        only the templates from 2015 will be taken into 
+                        only the templates from 2015 will be taken into
                         account).
                 </div>
                 
                 <notebook>
                     <page name="defaults" string="Defaults">
                         <div>     
-                        By default, the most recent public holidays 
-                        for each country are used as template to create  
+                        By default, the most recent public holidays
+                        for each country are used as template to create
                         public holidays for the year following the templates.
                         <br/><br/>
-                        Normally, you should not need to input anything in 
-                        optional fields and only need to click on the button 
+                        Normally, you should not need to input anything in
+                        optional fields and only need to click on the button
                         "Create".
                         </div> 
                     </page>
                     <page name="optional" string="Optional">
                         <div>
-                        The below optional fields are here only to handle 
-                        special situations like "2011 was a special year with 
-                        an additional public holiday for the 150th 
-                        anniversary of the Italian unification, so you want to 
+                        The below optional fields are here only to handle
+                        special situations like "2011 was a special year with
+                        an additional public holiday for the 150th
+                        anniversary of the Italian unification, so you want to
                         replicate the 2010 Italian holidays to 2012."
                         </div>
                         <group>
