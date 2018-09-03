@@ -21,7 +21,7 @@ class HrEmployee(models.Model):
              for leave in leaves]
         )
         for employee in self:
-            employee.leaves_count = mapping.get(employee.id)
+            employee.leaves_count = mapping.get(employee.id, 0)
 
     leaves_count = fields.Integer(
         'Number of Leaves',
