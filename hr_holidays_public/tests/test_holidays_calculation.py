@@ -121,13 +121,3 @@ class TestHolidaysComputeDays(TestHolidaysComputeDaysBase):
         })
         holidays._onchange_data_hr_holidays_public()
         self.assertEqual(holidays.number_of_days_temp, 5)
-
-    def test_fractional_number_days(self):
-        holidays = self.HrHolidays.new({
-            'date_from': '1946-12-23 00:00:00',
-            'date_to': '1946-12-23 14:00:00',
-            'holiday_status_id': self.holiday_type.id,
-            'employee_id': self.employee_1.id,
-        })
-        holidays._onchange_data_hr_holidays_public()
-        self.assertAlmostEqual(holidays.number_of_days_temp, 0.5, 3)
