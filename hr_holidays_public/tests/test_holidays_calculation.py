@@ -1,5 +1,5 @@
 # Copyright 2015 iDT LABS (http://www.@idtlabs.sl)
-# Copyright 2017 Tecnativa - Pedro M. Baeza
+# Copyright 2017-2018 Tecnativa - Pedro M. Baeza
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 from odoo.tests import common
@@ -14,13 +14,11 @@ class TestHolidaysComputeDaysBase(common.SavepointCase):
         super(TestHolidaysComputeDaysBase, cls).setUpClass()
         cls.HrHolidays = cls.env['hr.holidays']
         cls.HrHolidaysPublic = cls.env["hr.holidays.public"]
-
         # Remove timezone for controlling data better
         cls.env.user.tz = False
-
         cls.calendar = cls.env['resource.calendar'].create({
             'name': 'Calendar',
-            'attendance_ids': []
+            'attendance_ids': [],
         })
         for day in range(5):  # From monday to friday
             cls.calendar.attendance_ids = [
@@ -37,7 +35,6 @@ class TestHolidaysComputeDaysBase(common.SavepointCase):
                     'hour_to': '18',
                 }),
             ]
-
         cls.address_1 = cls.env['res.partner'].create({
             'name': 'Address 1',
             'country_id': cls.env.ref('base.uk').id,
@@ -87,30 +84,14 @@ class TestHolidaysComputeDaysBase(common.SavepointCase):
         cls.holiday_type = cls.env['hr.holidays.status'].create({
             'name': 'Leave Type Test',
             'exclude_public_holidays': True,
-            'exclude_rest_days': True,
-            'compute_full_days': True,
         })
         cls.holiday_type_no_excludes = cls.env['hr.holidays.status'].create({
             'name': 'Leave Type Test Without excludes',
             'exclude_public_holidays': False,
-            'exclude_rest_days': False,
-            'compute_full_days': False,
         })
 
 
 class TestHolidaysComputeDays(TestHolidaysComputeDaysBase):
-    def test_onchange_dates(self):
-        holidays = self.HrHolidays.new({
-            'date_from': '1946-12-20',
-            'date_to': '1946-12-21',
-            'holiday_status_id': self.holiday_type.id,
-            'employee_id': self.employee_1.id,
-        })
-        holidays._onchange_date_from()
-        self.assertEqual(holidays.date_from, '1946-12-20 00:00:00')
-        holidays._onchange_date_to()
-        self.assertEqual(holidays.date_to, '1946-12-21 23:59:59')
-
     def test_number_days_excluding_employee_1(self):
         holidays = self.HrHolidays.new({
             'date_from': '1946-12-23 00:00:00',  # Monday
@@ -118,7 +99,7 @@ class TestHolidaysComputeDays(TestHolidaysComputeDaysBase):
             'holiday_status_id': self.holiday_type.id,
             'employee_id': self.employee_1.id,
         })
-        holidays._onchange_data_hr_holidays_compute_days()
+        holidays._onchange_data_hr_holidays_public()
         self.assertEqual(holidays.number_of_days_temp, 4)
 
     def _test_number_days_excluding_employee_2(self):
@@ -128,7 +109,7 @@ class TestHolidaysComputeDays(TestHolidaysComputeDaysBase):
             'holiday_status_id': self.holiday_type.id,
             'employee_id': self.employee_2.id,
         })
-        holidays._onchange_data_hr_holidays_compute_days()
+        holidays._onchange_data_hr_holidays_public()
         self.assertEqual(holidays.number_of_days_temp, 2)
 
     def test_number_days_not_excluding(self):
@@ -138,8 +119,8 @@ class TestHolidaysComputeDays(TestHolidaysComputeDaysBase):
             'holiday_status_id': self.holiday_type_no_excludes.id,
             'employee_id': self.employee_1.id,
         })
-        holidays._onchange_data_hr_holidays_compute_days()
-        self.assertEqual(holidays.number_of_days_temp, 7.0)
+        holidays._onchange_data_hr_holidays_public()
+        self.assertEqual(holidays.number_of_days_temp, 5)
 
     def test_fractional_number_days(self):
         holidays = self.HrHolidays.new({
@@ -148,7 +129,5 @@ class TestHolidaysComputeDays(TestHolidaysComputeDaysBase):
             'holiday_status_id': self.holiday_type.id,
             'employee_id': self.employee_1.id,
         })
-        holidays._onchange_data_hr_holidays_compute_days()
-        self.assertAlmostEqual(
-            holidays.number_of_days_temp, 0.5, 3,
-        )
+        holidays._onchange_data_hr_holidays_public()
+        self.assertAlmostEqual(holidays.number_of_days_temp, 0.5, 3)

@@ -26,9 +26,9 @@ HR Holidays Public
 |badge1| |badge2| |badge3| |badge4| |badge5| 
 
 This module is a technical module to handle public holidays.
-The calculation of each leave can exclude rest days or public holiday.
-The calculation of each leave includes the number of hours taken from 
-employee calendar attendances
+
+The calculation of each leave can exclude rest public holiday, depending on
+the leave type configuration.
 
 **Table of contents**
 
@@ -40,15 +40,28 @@ Configuration
 
 Go to *Leaves -> Configuration* and open a Leave Type
 
-* Check "Exclude Rest Days" to exclude resource calendar rest days
-* Check "Exclude Public Holidays" to exclude public holidays
-* Uncheck "Compute Full Days" to allow fractional days.
+* Check "Exclude Public Holidays" to exclude public holidays.
 
 Usage
 =====
 
-Go to the menu *Leaves > Public Holidays > Public Holidays* and create your
-public holidays.
+For adding public holidays:
+
+#. Go to the menu *Leaves > Public Holidays > Public Holidays*.
+#. Create your public holidays.
+
+For using public holidays on leaves:
+
+#. Go to *Leaves > Dashboard*.
+#. Select dragging on the calendar the days you want to be on leave, or go
+   to the form view for selecting start and end dates.
+#. Select the proper "Leave Type" that has "Exclude Public Holidays" checked.
+#. If no leave type is yet specified, then default configuration is to exclude
+   public holidays.
+#. The number of days will be computed excluding public holidays that match the
+   selected employee, including global, country and state holidays.
+#. If no employee is yet selected, only global holidays will be taken into
+   account.
 
 Bug Tracker
 ===========
@@ -68,6 +81,7 @@ Authors
 
 * Michael Telahun Makonnen
 * Tecnativa
+* Fekete Mihai (Forest and Biomass Services Romania)
 
 Contributors
 ~~~~~~~~~~~~
