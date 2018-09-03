@@ -1,101 +1,159 @@
 # -*- coding: utf-8 -*-
-# ©  2015 iDT LABS (http://www.@idtlabs.sl)
+# Copyright 2015 iDT LABS (http://www.@idtlabs.sl)
+# Copyright 2017-2018 Tecnativa - Pedro M. Baeza
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from openerp import models, fields, api, _
-from openerp.exceptions import ValidationError
-from dateutil.relativedelta import relativedelta
+from odoo import api, fields, models
+from dateutil import tz
 
 
 class HrHolidays(models.Model):
     _inherit = 'hr.holidays'
 
-    @api.model
-    def _check_date_helper(self, employee_id, date):
-        status_id = self.holiday_status_id.id or self.env.context.get(
-            'holiday_status_id',
-            False)
-        if employee_id and status_id:
-            employee = self.env['hr.employee'].browse(employee_id)
-            status = self.env['hr.holidays.status'].browse(status_id)
-            if (not employee.work_scheduled_on_day(
-                    fields.Date.from_string(date),
-                    public_holiday=status.exclude_public_holidays,
-                    schedule=status.exclude_rest_days)):
-                return False
-        return True
+    def _default_from_full_day(self):
+        """Detect if we have select full day in calendar and return the
+        full day option accordingly.
+        """
+        context = self.env.context
+        if context.get('default_date_from'):
+            dt = fields.Datetime.from_string(context['default_date_from'])
+            return dt.hour == 5 and dt.minute == 0 and dt.second == 0
+        return False
 
-    @api.onchange('holiday_status_id')
-    def _onchange_holiday_status_id(self):
-        self._check_and_recompute_days()
+    def _default_to_full_day(self):
+        """Detect if we have select full day in calendar and return the
+        full day option accordingly.
+        """
+        context = self.env.context
+        if context.get('default_date_to'):
+            dt = fields.Datetime.from_string(context['default_date_to'])
+            return dt.hour == 17 and dt.minute == 0 and dt.second == 0
+        return False
 
-    @api.onchange('employee_id')
-    def _onchange_employee(self):
-        super(HrHolidays, self)._onchange_employee()
-        self._check_and_recompute_days()
+    from_full_day = fields.Boolean(
+        default=lambda self: self._default_from_full_day(),
+        readonly=True,
+        copy=False,
+        states={
+            'draft': [('readonly', False)],
+            'confirm': [('readonly', False)]
+        },
+    )
+    to_full_day = fields.Boolean(
+        default=lambda self: self._default_to_full_day(),
+        readonly=True,
+        copy=False,
+        states={
+            'draft': [('readonly', False)],
+            'confirm': [('readonly', False)]
+        },
+    )
+    date_from_full = fields.Date(
+        compute="_compute_date_from_full",
+        inverse="_inverse_date_from_full",
+        readonly=True,
+        states={
+            'draft': [('readonly', False)],
+            'confirm': [('readonly', False)]
+        },
+    )
+    date_to_full = fields.Date(
+        compute="_compute_date_to_full",
+        inverse="_inverse_date_to_full",
+        readonly=True,
+        states={
+            'draft': [('readonly', False)],
+            'confirm': [('readonly', False)]
+        },
+    )
+    # Support field for avoiding limitation on storing readonly fields
+    number_of_days_temp_related = fields.Float(
+        related="number_of_days_temp", readonly=True,
+    )
 
-    def _check_and_recompute_days(self):
-        date_from = self.date_from
-        date_to = self.date_to
-        if (date_to and date_from) and (date_from <= date_to):
-            if not self._check_date_helper(self.employee_id.id, date_from):
-                raise ValidationError(_("You cannot schedule the start date "
-                                        "on a public holiday or employee's "
-                                        "rest day"))
-            if not self._check_date_helper(self.employee_id.id, date_to):
-                raise ValidationError(_("You cannot schedule the end date "
-                                        "on a public holiday or employee's "
-                                        "rest day"))
-            self.number_of_days_temp = self._recompute_number_of_days()
+    @api.depends('date_from')
+    def _compute_date_from_full(self):
+        """Put day in employee's user timezone, or user timezone as fallback"""
+        for record in self.filtered('date_from'):
+            tz_name = record.employee_id.user_id.tz or record.env.user.tz
+            dt = fields.Datetime.from_string(record.date_from).replace(
+                tzinfo=tz.tzutc(),
+            ).astimezone(tz.gettz(tz_name)).date()
+            record.date_from_full = fields.Date.to_string(dt)
+
+    @api.depends('date_to')
+    def _compute_date_to_full(self):
+        """Put day in employee's user timezone, or user timezone as fallback"""
+        for record in self.filtered('date_to'):
+            tz_name = record.employee_id.user_id.tz or record.env.user.tz
+            dt = fields.Datetime.from_string(record.date_to).replace(
+                tzinfo=tz.tzutc(),
+            ).astimezone(tz.gettz(tz_name)).date()
+            record.date_to_full = fields.Date.to_string(dt)
+
+    def _inverse_date_from_full(self):
+        """Put start of the day in employee's user timezone, or user timezone
+        as fallback.
+        """
+        for record in self.filtered('from_full_day'):
+            tz_name = record.employee_id.user_id.tz or record.env.user.tz
+            dt = fields.Datetime.from_string(record.date_from_full).replace(
+                hour=0, minute=0, second=0, microsecond=0,
+                tzinfo=tz.gettz(tz_name),
+            ).astimezone(tz.tzutc())
+            record.date_from = fields.Datetime.to_string(dt)
+
+    def _inverse_date_to_full(self):
+        """Put end of the day in employee's user timezone, or user timezone
+        as fallback.
+        """
+        for record in self.filtered('to_full_day'):
+            tz_name = record.employee_id.user_id.tz or record.env.user.tz
+            dt = fields.Datetime.from_string(record.date_to_full).replace(
+                hour=23, minute=59, second=59, microsecond=999999,
+                tzinfo=tz.gettz(tz_name),
+            ).astimezone(tz.tzutc())
+            record.date_to = fields.Datetime.to_string(dt)
+
+    @api.onchange('date_from_full')
+    def _onchange_date_from_full(self):
+        """As inverse methods only works on save, we have to add an onchange"""
+        self._inverse_date_from_full()
+
+    @api.onchange('date_to_full')
+    def _onchange_date_to_full(self):
+        """As inverse methods only works on save, we have to add an onchange"""
+        self._inverse_date_to_full()
 
     @api.onchange('date_from')
     def _onchange_date_from(self):
-        super(HrHolidays, self)._onchange_date_from()
-        employee_id = self.employee_id.id
-        if not self._check_date_helper(employee_id, self.date_from):
-            raise ValidationError(_("You cannot schedule the start date on "
-                                    "a public holiday or employee's rest day"))
-        if (self.date_to and self.date_from) \
-           and (self.date_from <= self.date_to):
-            self.number_of_days_temp = self._recompute_number_of_days()
+        """Recompute the adjusted value after the standard computation."""
+        res = super(HrHolidays, self)._onchange_date_from()
+        self._onchange_data_hr_holidays_compute_days()
+        return res
 
     @api.onchange('date_to')
     def _onchange_date_to(self):
-        super(HrHolidays, self)._onchange_date_to()
-        employee_id = self.employee_id.id
-        if not self._check_date_helper(employee_id, self.date_to):
-            raise ValidationError(_("You cannot schedule the end date on "
-                                    "a public holiday or employee's rest day"))
-        if (self.date_to and self.date_from) \
-           and (self.date_from <= self.date_to):
-            self.number_of_days_temp = self._recompute_number_of_days()
+        """Recompute the adjusted value after the standard computation."""
+        res = super(HrHolidays, self)._onchange_date_to()
+        self._onchange_data_hr_holidays_compute_days()
+        return res
 
-    def _recompute_number_of_days(self):
-        date_from = self.date_from
-        date_to = self.date_to
-        employee_id = self.employee_id.id
-        if not date_from or not date_to:
-            return 0
-        days = self._get_number_of_days(date_from, date_to, None)
-        if date_to == date_from:
-            days = 1
-
-        status_id = self.holiday_status_id.id or self.env.context.get(
-            'holiday_status_id',
-            False)
-        if employee_id and date_from and date_to and status_id:
-            employee = self.env['hr.employee'].browse(employee_id)
-            status = self.env['hr.holidays.status'].browse(status_id)
-            date_from = fields.Date.from_string(date_from)
-            date_to = fields.Date.from_string(date_to)
-            date_dt = date_from
-            while date_dt <= date_to:
-                # if public holiday or rest day let us skip
-                if not employee.work_scheduled_on_day(
-                        date_dt,
-                        status.exclude_public_holidays,
-                        status.exclude_rest_days,
-                ):
-                    days -= 1
-                date_dt += relativedelta(days=1)
-        return days
+    @api.onchange('employee_id', 'holiday_status_id')
+    def _onchange_data_hr_holidays_compute_days(self):
+        if self.date_to and self.date_from and self.date_from <= self.date_to:
+            date_from = fields.Datetime.from_string(self.date_from)
+            date_to = fields.Datetime.from_string(self.date_to)
+            employee = self.employee_id
+            if (self.holiday_status_id.exclude_public_holidays or
+                    not self.holiday_status_id):
+                employee = employee.with_context(exclude_public_holidays=True)
+            employee = employee.with_context(
+                include_rest_days=not self.holiday_status_id.exclude_rest_days,
+                compute_full_days=self.holiday_status_id.compute_full_days,
+            )
+            days = employee.get_work_days_count(
+                from_datetime=date_from, to_datetime=date_to,
+            )
+            if days:
+                self.number_of_days_temp = days
