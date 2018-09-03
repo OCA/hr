@@ -1,9 +1,8 @@
-# -*- coding: utf-8 -*-
-# Copyright 2015 iDT LABS (http://www.@idtlabs.sl)
 # Copyright 2017-2018 Tecnativa - Pedro M. Baeza
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 from odoo import api, fields, models
+from datetime import time
 from dateutil import tz
 
 
@@ -66,7 +65,7 @@ class HrHolidays(models.Model):
             'confirm': [('readonly', False)]
         },
     )
-    # Support field for avoiding limitation on storing readonly fields
+    # Supporting field for avoiding limitation on storing readonly fields
     number_of_days_temp_related = fields.Float(
         related="number_of_days_temp", readonly=True,
     )
@@ -125,35 +124,32 @@ class HrHolidays(models.Model):
         """As inverse methods only works on save, we have to add an onchange"""
         self._inverse_date_to_full()
 
-    @api.onchange('date_from')
-    def _onchange_date_from(self):
-        """Recompute the adjusted value after the standard computation."""
-        res = super(HrHolidays, self)._onchange_date_from()
-        self._onchange_data_hr_holidays_compute_days()
-        return res
-
-    @api.onchange('date_to')
-    def _onchange_date_to(self):
-        """Recompute the adjusted value after the standard computation."""
-        res = super(HrHolidays, self)._onchange_date_to()
-        self._onchange_data_hr_holidays_compute_days()
-        return res
-
-    @api.onchange('employee_id', 'holiday_status_id')
     def _onchange_data_hr_holidays_compute_days(self):
-        if self.date_to and self.date_from and self.date_from <= self.date_to:
-            date_from = fields.Datetime.from_string(self.date_from)
-            date_to = fields.Datetime.from_string(self.date_to)
-            employee = self.employee_id
-            if (self.holiday_status_id.exclude_public_holidays or
-                    not self.holiday_status_id):
-                employee = employee.with_context(exclude_public_holidays=True)
-            employee = employee.with_context(
-                include_rest_days=not self.holiday_status_id.exclude_rest_days,
-                compute_full_days=self.holiday_status_id.compute_full_days,
+        """Trigger the number of days computation also when you change the
+        employee or the leave type.
+        """
+        self._onchange_date_to()
+
+    def _get_number_of_days(self, date_from, date_to, employee_id):
+        """Pass context variable for including rest days or change passed dates
+        when computing full days.
+        """
+        obj = self.with_context(
+            include_rest_days=not self.holiday_status_id.exclude_rest_days,
+        )
+        if self.holiday_status_id.compute_full_days:
+            dt_from = fields.Datetime.from_string(date_from)
+            date_from = fields.Datetime.to_string(
+                dt_from.combine(
+                    dt_from.date(), time(hour=0, minute=0, second=0),
+                ),
             )
-            days = employee.get_work_days_count(
-                from_datetime=date_from, to_datetime=date_to,
+            dt_to = fields.Datetime.from_string(date_to)
+            date_to = fields.Datetime.to_string(
+                dt_to.combine(
+                    dt_to.date(), time(hour=23, minute=59, second=59),
+                ),
             )
-            if days:
-                self.number_of_days_temp = days
+        return super(HrHolidays, obj)._get_number_of_days(
+            date_from, date_to, employee_id,
+        )

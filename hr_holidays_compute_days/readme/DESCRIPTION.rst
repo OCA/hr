@@ -1,6 +1,10 @@
-Computes the actual days for which employee will be on leave taking into
-account:
+It extends the computation of the number of days in leaves with:
 
-* Other leaves in the same interval.
-* Rest days (if configured in that way).
-* Public holidays (if configured in that way).
+* Possibility of including rest days (if configured in that way).
+* Force full days (if configured in that way).
+
+It also eases the manual entry of the leave, including a date selection
+instead of date and time.
+
+Finally, it limits the possibility to manually change number of days if you
+are not leave manager.
