@@ -4,71 +4,70 @@
 
 <odoo>
 
-<record id="holidays_public_next_year_wizard_view" model="ir.ui.view">
-    <field name="name">Create Next Year Public Holidays</field>
-    <field name="model">public.holidays.next.year.wizard</field>
-    <field name="arch" type="xml">
-        <form string="Create Next Year Public Holidays">
-            <sheet>
-                <div>
-                        Use this wizard to create public holidays based on the
-                        existing ones.<br/>
-                        Only the last templates of each country
-                        will be taken into account (If you select templates
-                        from 2012 and 2015 of the same country; '
-                        only the templates from 2015 will be taken into
-                        account).
-                </div>
-                
-                <notebook>
-                    <page name="defaults" string="Defaults">
-                        <div>     
-                        By default, the most recent public holidays
-                        for each country are used as template to create
-                        public holidays for the year following the templates.
-                        <br/><br/>
-                        Normally, you should not need to input anything in
-                        optional fields and only need to click on the button
-                        "Create".
-                        </div> 
-                    </page>
-                    <page name="optional" string="Optional">
-                        <div>
-                        The below optional fields are here only to handle
-                        special situations like "2011 was a special year with
-                        an additional public holiday for the 150th
-                        anniversary of the Italian unification, so you want to
-                        replicate the 2010 Italian holidays to 2012."
-                        </div>
-                        <group>
-                            <field name="template_ids" />
-                            <field name="year" />
-                        </group>
-                    </page>
-                </notebook>
-                
-            </sheet>
-            <footer>
-                <button name="create_public_holidays" string="Create" type="object" class="btn-primary"/>
-                <button string="Cancel" class="btn-default" special="cancel" />
-            </footer>
-        </form>
-    </field>
-</record>
+    <record id="holidays_public_next_year_wizard_view" model="ir.ui.view">
+        <field name="name">Create Next Year Public Holidays</field>
+        <field name="model">public.holidays.next.year.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Create Next Year Public Holidays">
+                <sheet>
+                    <div>
+                            Use this wizard to create public holidays based on the
+                            existing ones.<br/>
+                            Only the last templates of each country
+                            will be taken into account (If you select templates
+                            from 2012 and 2015 of the same country; '
+                            only the templates from 2015 will be taken into
+                            account).
+                    </div>
 
-<record id="action_create_next_year_public_holidays" model="ir.actions.act_window">
-    <field name="name">Create Next Year Public Holidays</field>
-    <field name="res_model">public.holidays.next.year.wizard</field>
-    <field name="view_type">form</field>
-    <field name="view_mode">form</field>
-    <field name="target">new</field>
-</record>
+                    <notebook>
+                        <page name="defaults" string="Defaults">
+                            <div>
+                            By default, the most recent public holidays
+                            for each country are used as template to create
+                            public holidays for the year following the templates.
+                            <br/><br/>
+                            Normally, you should not need to input anything in
+                            optional fields and only need to click on the button
+                            "Create".
+                            </div>
+                        </page>
+                        <page name="optional" string="Optional">
+                            <div>
+                            The below optional fields are here only to handle
+                            special situations like "2011 was a special year with
+                            an additional public holiday for the 150th
+                            anniversary of the Italian unification, so you want to
+                            replicate the 2010 Italian holidays to 2012."
+                            </div>
+                            <group>
+                                <field name="template_ids" />
+                                <field name="year" />
+                            </group>
+                        </page>
+                    </notebook>
 
-<menuitem action="action_create_next_year_public_holidays"
-          id="menu_create_next_year_public_holidays"
-          parent="menu_hr_public_holidays"
-          groups="hr_holidays.group_hr_holidays_manager"
-          sequence="30"/>
+                </sheet>
+                <footer>
+                    <button name="create_public_holidays" string="Create" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-default" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
 
+    <record id="action_create_next_year_public_holidays" model="ir.actions.act_window">
+        <field name="name">Create Next Year Public Holidays</field>
+        <field name="res_model">public.holidays.next.year.wizard</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem action="action_create_next_year_public_holidays"
+              id="menu_create_next_year_public_holidays"
+              parent="menu_hr_public_holidays"
+              groups="hr_holidays.group_hr_holidays_manager"
+              sequence="30"/>
 
 </odoo>

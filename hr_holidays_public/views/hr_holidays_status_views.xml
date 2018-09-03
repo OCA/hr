@@ -6,11 +6,8 @@
         <field name="model">hr.holidays.status</field>
         <field name="inherit_id" ref="hr_holidays.edit_holiday_status_form" />
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='limit']"
-                position="after">
-                <field name="exclude_rest_days"/>
+            <xpath expr="//field[@name='limit']" position="after">
                 <field name="exclude_public_holidays"/>
-                <field name="compute_full_days"/>
             </xpath>
         </field>
     </record>
