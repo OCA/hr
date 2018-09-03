@@ -5,6 +5,7 @@
    days with time. If you deselect one of these checks, you will be able to
    select also the starting/ending time of the leave.
 #. Select the proper "Leave Type".
-#. The number of days will be computed and shown according options on
-   leave type. If no leave type yet specified, then default configuration is
-   to exclude both rest days and public holidays.
+#. The number of days will be computed and shown according options on leave
+   type.
+#. If no leave type yet specified, then default configuration is to exclude
+   rest days.
