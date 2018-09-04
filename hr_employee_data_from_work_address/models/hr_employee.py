@@ -1,24 +1,8 @@
 # -*- coding: utf-8 -*-
-##############################################################################
-#
-#    OpenERP, Open Source Management Solution
-#    This module copyright (C) 2015 Therp BV (<http://therp.nl>).
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as
-#    published by the Free Software Foundation, either version 3 of the
-#    License, or (at your option) any later version.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
-#
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-##############################################################################
-from openerp import models, fields, api
+# Copyright 2015 Therp BV <http://therp.nl>
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+from openerp import _, api, fields, models
+from openerp.exceptions import AccessError
 
 
 class HrEmployee(models.Model):
@@ -87,7 +71,13 @@ class HrEmployee(models.Model):
                 continue
             old_partner = this.user_id.partner_id
             this.user_id.write({'partner_id': this.address_id.id})
-            old_partner.unlink()
+            try:
+                old_partner.unlink()
+            except AccessError:
+                old_partner.message_post(_(
+                    'Replaced by partner id {}. Deactivated, because deleting '
+                    'gave AccessError.'.format(this.address_id.id)))
+                old_partner.write({'active': False})
 
     @api.multi
     def write(self, values):
