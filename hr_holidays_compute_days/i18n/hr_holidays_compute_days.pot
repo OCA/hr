@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 10.0\n"
+"Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
@@ -25,22 +25,17 @@ msgstr ""
 
 #. module: hr_holidays_compute_days
 #: model:ir.model.fields,field_description:hr_holidays_compute_days.field_hr_holidays_date_from_full
-msgid "Date from full"
+msgid "Date From Full"
 msgstr ""
 
 #. module: hr_holidays_compute_days
 #: model:ir.model.fields,field_description:hr_holidays_compute_days.field_hr_holidays_date_to_full
-msgid "Date to full"
+msgid "Date To Full"
 msgstr ""
 
 #. module: hr_holidays_compute_days
 #: model:ir.model,name:hr_holidays_compute_days.model_hr_employee
 msgid "Employee"
-msgstr ""
-
-#. module: hr_holidays_compute_days
-#: model:ir.model.fields,field_description:hr_holidays_compute_days.field_hr_holidays_status_exclude_public_holidays
-msgid "Exclude Public Holidays"
 msgstr ""
 
 #. module: hr_holidays_compute_days
@@ -50,17 +45,12 @@ msgstr ""
 
 #. module: hr_holidays_compute_days
 #: model:ir.model.fields,field_description:hr_holidays_compute_days.field_hr_holidays_from_full_day
-msgid "From full day"
+msgid "From Full Day"
 msgstr ""
 
 #. module: hr_holidays_compute_days
 #: model:ir.ui.view,arch_db:hr_holidays_compute_days.edit_holiday_new
 msgid "Full day"
-msgstr ""
-
-#. module: hr_holidays_compute_days
-#: model:ir.model.fields,help:hr_holidays_compute_days.field_hr_holidays_status_exclude_public_holidays
-msgid "If enabled, public holidays are skipped in leave days calculation."
 msgstr ""
 
 #. module: hr_holidays_compute_days
@@ -84,12 +74,17 @@ msgid "Leave Type"
 msgstr ""
 
 #. module: hr_holidays_compute_days
+#: model:ir.model.fields,help:hr_holidays_compute_days.field_hr_holidays_number_of_days_temp_related
+msgid "Number of days of the leave request according to your working schedule."
+msgstr ""
+
+#. module: hr_holidays_compute_days
 #: model:ir.model,name:hr_holidays_compute_days.model_resource_calendar
 msgid "Resource Calendar"
 msgstr ""
 
 #. module: hr_holidays_compute_days
 #: model:ir.model.fields,field_description:hr_holidays_compute_days.field_hr_holidays_to_full_day
-msgid "To full day"
+msgid "To Full Day"
 msgstr ""
 
