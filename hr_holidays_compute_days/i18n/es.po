@@ -1,0 +1,110 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * hr_holidays_compute_days
+#
+# Translators:
+# OCA Transbot <transbot@odoo-community.org>, 2016
+# Pedro M. Baeza <pedro.baeza@gmail.com>, 2016
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-12-27 18:50+0000\n"
+"PO-Revision-Date: 2017-12-27 18:50+0000\n"
+"Last-Translator: Pedro M. Baeza <pedro.baeza@gmail.com>, 2016\n"
+"Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: hr_holidays_compute_days
+#: model:ir.model.fields,field_description:hr_holidays_compute_days.field_hr_holidays_number_of_days_temp_related
+msgid "Allocation"
+msgstr "Asignación"
+
+#. module: hr_holidays_compute_days
+#: model:ir.model.fields,field_description:hr_holidays_compute_days.field_hr_holidays_status_compute_full_days
+msgid "Compute Full Days"
+msgstr "Calcular días completos"
+
+#. module: hr_holidays_compute_days
+#: model:ir.model.fields,field_description:hr_holidays_compute_days.field_hr_holidays_date_from_full
+msgid "Date from full"
+msgstr "Fecha desde completa"
+
+#. module: hr_holidays_compute_days
+#: model:ir.model.fields,field_description:hr_holidays_compute_days.field_hr_holidays_date_to_full
+msgid "Date to full"
+msgstr "Fecha hasta completa"
+
+#. module: hr_holidays_compute_days
+#: model:ir.model,name:hr_holidays_compute_days.model_hr_employee
+msgid "Employee"
+msgstr "Empleado"
+
+#. module: hr_holidays_compute_days
+#: model:ir.model.fields,field_description:hr_holidays_compute_days.field_hr_holidays_status_exclude_public_holidays
+msgid "Exclude Public Holidays"
+msgstr "Excluir vacaciones públicas"
+
+#. module: hr_holidays_compute_days
+#: model:ir.model.fields,field_description:hr_holidays_compute_days.field_hr_holidays_status_exclude_rest_days
+msgid "Exclude Rest Days"
+msgstr "Excluir los días de descanso"
+
+#. module: hr_holidays_compute_days
+#: model:ir.model.fields,field_description:hr_holidays_compute_days.field_hr_holidays_from_full_day
+msgid "From full day"
+msgstr "Día desde completo"
+
+#. module: hr_holidays_compute_days
+#: model:ir.ui.view,arch_db:hr_holidays_compute_days.edit_holiday_new
+msgid "Full day"
+msgstr "Día completo"
+
+#. module: hr_holidays_compute_days
+#: model:ir.model.fields,help:hr_holidays_compute_days.field_hr_holidays_status_exclude_public_holidays
+msgid "If enabled, public holidays are skipped in leave days calculation."
+msgstr "Si está habilitado, las vacaciones públicas serán saltadas en el cálculo de las ausencias."
+
+#. module: hr_holidays_compute_days
+#: model:ir.model.fields,help:hr_holidays_compute_days.field_hr_holidays_status_exclude_rest_days
+msgid "If enabled, the employee's day off is skipped in leave days calculation."
+msgstr "Si está habilitado, los días de descanso del empleado serán saltados en el cálculo de las ausencias."
+
+#. module: hr_holidays_compute_days
+#: model:ir.model.fields,help:hr_holidays_compute_days.field_hr_holidays_status_compute_full_days
+msgid "If enabled, the number of days computed will be always for the full days in the interval"
+msgstr "Si está habilitado, el número de días calculado será siempre para los días completos en el intervalo"
+
+#. module: hr_holidays_compute_days
+#: model:ir.model,name:hr_holidays_compute_days.model_hr_holidays
+msgid "Leave"
+msgstr "Ausencia"
+
+#. module: hr_holidays_compute_days
+#: model:ir.model,name:hr_holidays_compute_days.model_hr_holidays_status
+msgid "Leave Type"
+msgstr "Tipo de ausencia"
+
+#. module: hr_holidays_compute_days
+#: model:ir.model,name:hr_holidays_compute_days.model_resource_calendar
+msgid "Resource Calendar"
+msgstr "Calendario recurso"
+
+#. module: hr_holidays_compute_days
+#: model:ir.model.fields,field_description:hr_holidays_compute_days.field_hr_holidays_to_full_day
+msgid "To full day"
+msgstr "Día hasta completo"
+
+#. module: hr_holidays_compute_days
+#: code:addons/hr_holidays_compute_days/models/hr_holidays.py:42
+#: code:addons/hr_holidays_compute_days/models/hr_holidays.py:56
+#, python-format
+msgid ""
+"You cannot schedule the start date on a public holiday or employee's rest day"
+msgstr ""
+"No puede programar la fecha de inicio en una vacación pública o un día de "
+"descanso del empleado."

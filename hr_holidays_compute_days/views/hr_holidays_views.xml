@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="edit_holiday_new" model="ir.ui.view">
+        <field name="name">Leave Request - Add full day + hide nº of days + show related readonly</field>
+        <field name="model">hr.holidays</field>
+        <field name="inherit_id" ref="hr_holidays.edit_holiday_new" />
+        <field name="arch" type="xml">
+            <field name="date_from" position="before">
+                <field name="from_full_day" nolabel="1" class="oe_inline"/>
+                <label string="Full day" class="oe_inline"/>
+                <label string="-" class="oe_inline"/>
+                <field name="to_full_day" nolabel="1" class="oe_inline"/>
+                <label string="Full day" class="oe_inline"/>
+                <br/>
+                <field name="date_from_full" attrs="{'required':[('type', '=', 'remove')], 'invisible': [('from_full_day', '=', False)]}" class="oe_inline"/>
+            </field>
+            <field name="date_from" position="attributes">
+                <attribute name="attrs">{'required':[('type', '=', 'remove')], 'invisible': [('from_full_day', '=', True)]}</attribute>
+            </field>
+            <field name="date_to" position="before">
+                <field name="date_to_full" attrs="{'required':[('type', '=', 'remove')], 'invisible': [('to_full_day', '=', False)]}" class="oe_inline"/>
+            </field>
+            <field name="date_to" position="attributes">
+                <attribute name="attrs">{'required':[('type', '=', 'remove')], 'invisible': [('to_full_day', '=', True)]}</attribute>
+            </field>
+            <field name="number_of_days_temp" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>
+            <field name="number_of_days_temp" position="after">
+                <field name="number_of_days_temp_related"
+                       attrs="{'readonly': [('type', '=', 'remove')]}"
+                />
+            </field>
+        </field>
+    </record>
+
+    <record id="edit_holiday_new_manager" model="ir.ui.view">
+        <field name="name">Leave Request - # of days editable for manager</field>
+        <field name="model">hr.holidays</field>
+        <field name="inherit_id" ref="edit_holiday_new" />
+        <field name="groups_id" eval="[(4, ref('hr_holidays.group_hr_holidays_manager'))]"/>
+        <field name="arch" type="xml">
+            <field name="number_of_days_temp" position="attributes">
+                <attribute name="invisible">0</attribute>
+            </field>
+            <field name="number_of_days_temp_related" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>
+        </field>
+    </record>
+
+</odoo>
