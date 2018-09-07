@@ -55,4 +55,3 @@ class HrPublicHolidays(models.Model):
         ).tm_wday in (5, 6):
             return True
         return False
-

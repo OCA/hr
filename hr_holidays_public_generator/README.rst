@@ -27,9 +27,9 @@ To extend the module one should
 * add hr_holidays_public_generator as dependency
 * create wizard that inherit "hr.holidays.public.generator"
 * implement copy public holidays function with name action_copy_%s_holidays
-  where %s id the county code
+where %s id the county code
 * implement generate public holidays function with
-  name action_generate_%s_holidays where %s id the county code
+name action_generate_%s_holidays where %s id the county code
 
 
 Known issues / Roadmap
