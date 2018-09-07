@@ -1,0 +1,130 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* hr_holidays_public_generator
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-09-07 09:38+0000\n"
+"PO-Revision-Date: 2018-09-07 09:38+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hr_holidays_public_generator
+#: model:ir.ui.view,arch_db:hr_holidays_public_generator.hr_holidays_public_generator_view
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#. module: hr_holidays_public_generator
+#: model:ir.model.fields,field_description:hr_holidays_public_generator.field_hr_holidays_public_generator_country_id
+msgid "Country"
+msgstr "Land"
+
+#. module: hr_holidays_public_generator
+#: model:ir.model.fields,field_description:hr_holidays_public_generator.field_hr_holidays_public_generator_create_uid
+msgid "Created by"
+msgstr "Erstellt von"
+
+#. module: hr_holidays_public_generator
+#: model:ir.model.fields,field_description:hr_holidays_public_generator.field_hr_holidays_public_generator_create_date
+msgid "Created on"
+msgstr "Erstellt am"
+
+#. module: hr_holidays_public_generator
+#: model:ir.model.fields,field_description:hr_holidays_public_generator.field_hr_holidays_public_generator_display_name
+msgid "Display Name"
+msgstr "Anzeigename"
+
+#. module: hr_holidays_public_generator
+#: model:ir.model.fields,field_description:hr_holidays_public_generator.field_hr_holidays_public_generator_template_id
+msgid "From Template"
+msgstr "Vorlage"
+
+#. module: hr_holidays_public_generator
+#: model:ir.ui.view,arch_db:hr_holidays_public_generator.hr_holidays_public_generator_view
+msgid "Generate"
+msgstr "Erstellen"
+
+#. module: hr_holidays_public_generator
+#: model:ir.actions.act_window,name:hr_holidays_public_generator.hr_holidays_public_generator_action
+#: model:ir.ui.menu,name:hr_holidays_public_generator.hr_holidays_public_generator_menu
+#: model:ir.ui.view,arch_db:hr_holidays_public_generator.hr_holidays_public_generator_view
+msgid "Generate Public Holidays"
+msgstr "Feiertage erstellen"
+
+#. module: hr_holidays_public_generator
+#: model:ir.model.fields,field_description:hr_holidays_public_generator.field_hr_holidays_public_generator_id
+msgid "ID"
+msgstr "ID"
+
+#. module: hr_holidays_public_generator
+#: model:ir.model.fields,field_description:hr_holidays_public_generator.field_hr_holidays_public_generator___last_update
+msgid "Last Modified on"
+msgstr "Zuletzt geändert am"
+
+#. module: hr_holidays_public_generator
+#: model:ir.model.fields,field_description:hr_holidays_public_generator.field_hr_holidays_public_generator_write_uid
+msgid "Last Updated by"
+msgstr "Zuletzt aktualisiert durch"
+
+#. module: hr_holidays_public_generator
+#: model:ir.model.fields,field_description:hr_holidays_public_generator.field_hr_holidays_public_generator_write_date
+msgid "Last Updated on"
+msgstr "Zuletzt aktualisiert am"
+
+#. module: hr_holidays_public_generator
+#: model:ir.model,name:hr_holidays_public_generator.model_hr_holidays
+msgid "Leave"
+msgstr "Urlaub"
+
+#. module: hr_holidays_public_generator
+#: model:ir.model,name:hr_holidays_public_generator.model_hr_holidays_public
+msgid "Public Holidays"
+msgstr "Feiertage"
+
+#. module: hr_holidays_public_generator
+#: model:ir.model.fields,field_description:hr_holidays_public_generator.field_hr_holidays_public_generator_state_id
+msgid "State"
+msgstr "Bundesland"
+
+#. module: hr_holidays_public_generator
+#: code:addons/hr_holidays_public_generator/models/hr_holidays_public.py:27
+#, python-format
+msgid "The start date must be anterior to the end date."
+msgstr "Das Startdatum muss vor dem Enddatum sein."
+
+#. module: hr_holidays_public_generator
+#: code:addons/hr_holidays_public_generator/wizard/hr_holidays_public_generator.py:40
+#, python-format
+msgid "There is no copy function defined for this county or\n"
+"                    the function name does not fit the requirement - action_copy_%s_holidays\n"
+"                    where %s id the county code."
+msgstr "Es gibt keine Kopierfunktion für das Land oder\n"
+"                    Der Funktionsname entspricht nicht dem Format - action_copy_%s_holidays\n"
+"                    bei dem %s die ID des Landes ist."
+
+#. module: hr_holidays_public_generator
+#: code:addons/hr_holidays_public_generator/wizard/hr_holidays_public_generator.py:49
+#, python-format
+msgid "There is no generate function defined for this county or\n"
+"                    the function name does not fit the requirement - action_generate_%s_holidays\n"
+"                    where %s is the county code."
+msgstr "Es gibt keine Erstellfunktion für das Land oder\n"
+"                    Der Funktionsname entspricht nicht dem Format - action_generate_%s_holidays\n"
+"                    bei dem %s die ID des Landes ist."
+
+#. module: hr_holidays_public_generator
+#: model:ir.model.fields,field_description:hr_holidays_public_generator.field_hr_holidays_public_generator_year
+msgid "Year"
+msgstr "Jahr"
+
+#. module: hr_holidays_public_generator
+#: model:ir.model,name:hr_holidays_public_generator.model_hr_holidays_public_generator
+msgid "hr.holidays.public.generator"
+msgstr "hr.holidays.public.generator"
+
