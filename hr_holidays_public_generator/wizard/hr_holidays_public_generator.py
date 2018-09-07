@@ -58,7 +58,7 @@ class HrHolidaysPublicGenerator(models.TransientModel):
                     """There is no copy function defined for this county or
                     the function name does not fit the requirement -
                     action_copy_%s_holidays where %s id the county code."""
-                 ))
+                ))
             getattr(self, function_name)()
         else:
             function_name = self.generate_function_generate_name()
@@ -68,5 +68,5 @@ class HrHolidaysPublicGenerator(models.TransientModel):
                     or the function name does not fit the requirement -
                     action_generate_%s_holidays where %s is
                     the county code."""
-                 ))
+                ))
             getattr(self, function_name)()

@@ -4,8 +4,8 @@
 from datetime import datetime, timedelta
 
 from odoo import _, api, fields, models
-from odoo.addons.hr_holidays_public_generator.wizard.hr_holidays_public_generator import \
-    COUNTRY_GENERATORS
+from odoo.addons.hr_holidays_public_generator.wizard.\
+    hr_holidays_public_generator import COUNTRY_GENERATORS
 from odoo.exceptions import UserError
 
 COUNTRY_GENERATORS.append("DE")
