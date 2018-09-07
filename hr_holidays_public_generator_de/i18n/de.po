@@ -1,0 +1,130 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* hr_holidays_public_generator_de
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-09-07 09:48+0000\n"
+"PO-Revision-Date: 2018-09-07 09:48+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hr_holidays_public_generator_de
+#: code:addons/hr_holidays_public_generator_de/wizard/hr_holidays_public_generator_de.py:171
+#, python-format
+msgid "All Saints' Day"
+msgstr "Allerheiligen"
+
+#. module: hr_holidays_public_generator_de
+#: code:addons/hr_holidays_public_generator_de/wizard/hr_holidays_public_generator_de.py:68
+#, python-format
+msgid "Ascension Day"
+msgstr "Christi Himmelfahrt"
+
+#. module: hr_holidays_public_generator_de
+#: code:addons/hr_holidays_public_generator_de/wizard/hr_holidays_public_generator_de.py:142
+#, python-format
+msgid "Assumption Day"
+msgstr "Mariä Himmelfahrt"
+
+#. module: hr_holidays_public_generator_de
+#: code:addons/hr_holidays_public_generator_de/wizard/hr_holidays_public_generator_de.py:117
+#, python-format
+msgid "Boxing Day"
+msgstr "2. Weihnachtsfeiertag"
+
+#. module: hr_holidays_public_generator_de
+#: code:addons/hr_holidays_public_generator_de/wizard/hr_holidays_public_generator_de.py:113
+#, python-format
+msgid "Christmas Day"
+msgstr "1. Weihnachtsfeiertag"
+
+#. module: hr_holidays_public_generator_de
+#: code:addons/hr_holidays_public_generator_de/wizard/hr_holidays_public_generator_de.py:92
+#, python-format
+msgid "Corpus Christi"
+msgstr "Fronleichnam"
+
+#. module: hr_holidays_public_generator_de
+#: code:addons/hr_holidays_public_generator_de/wizard/hr_holidays_public_generator_de.py:109
+#, python-format
+msgid "Day of German Unity"
+msgstr "Tag der Deutschen Einheit"
+
+#. module: hr_holidays_public_generator_de
+#: code:addons/hr_holidays_public_generator_de/wizard/hr_holidays_public_generator_de.py:159
+#, python-format
+msgid "Day of Reformation"
+msgstr "Reformationstag"
+
+#. module: hr_holidays_public_generator_de
+#: code:addons/hr_holidays_public_generator_de/wizard/hr_holidays_public_generator_de.py:64
+#, python-format
+msgid "Easter Monday"
+msgstr "Ostermontag"
+
+#. module: hr_holidays_public_generator_de
+#: code:addons/hr_holidays_public_generator_de/wizard/hr_holidays_public_generator_de.py:59
+#, python-format
+msgid "Easter Sunday"
+msgstr "Ostersonntag"
+
+#. module: hr_holidays_public_generator_de
+#: code:addons/hr_holidays_public_generator_de/wizard/hr_holidays_public_generator_de.py:55
+#, python-format
+msgid "Good Friday"
+msgstr "Karfreitag"
+
+#. module: hr_holidays_public_generator_de
+#: code:addons/hr_holidays_public_generator_de/wizard/hr_holidays_public_generator_de.py:105
+#, python-format
+msgid "International Workers' Day"
+msgstr "Tag der Arbeit"
+
+#. module: hr_holidays_public_generator_de
+#: code:addons/hr_holidays_public_generator_de/wizard/hr_holidays_public_generator_de.py:101
+#, python-format
+msgid "New Years's Day"
+msgstr "Neujahr"
+
+#. module: hr_holidays_public_generator_de
+#: code:addons/hr_holidays_public_generator_de/wizard/hr_holidays_public_generator_de.py:179
+#, python-format
+msgid "Repentance Day"
+msgstr "Buß- und Bettag"
+
+#. module: hr_holidays_public_generator_de
+#: code:addons/hr_holidays_public_generator_de/wizard/hr_holidays_public_generator_de.py:132
+#, python-format
+msgid "Three Kings Day"
+msgstr "Heilige Drei Könige"
+
+#. module: hr_holidays_public_generator_de
+#: code:addons/hr_holidays_public_generator_de/wizard/hr_holidays_public_generator_de.py:218
+#, python-format
+msgid "Warning"
+msgstr "Warnung"
+
+#. module: hr_holidays_public_generator_de
+#: code:addons/hr_holidays_public_generator_de/wizard/hr_holidays_public_generator_de.py:73
+#, python-format
+msgid "Whit Monday"
+msgstr "Pfingstmontag"
+
+#. module: hr_holidays_public_generator_de
+#: code:addons/hr_holidays_public_generator_de/wizard/hr_holidays_public_generator_de.py:218
+#, python-format
+msgid "You cannot copy the holidays to the same year."
+msgstr "Sie können die Feiertage nicht für dasselbe Jahr kopieren."
+
+#. module: hr_holidays_public_generator_de
+#: model:ir.model,name:hr_holidays_public_generator_de.model_hr_holidays_public_generator
+msgid "hr.holidays.public.generator"
+msgstr "hr.holidays.public.generator"
+
