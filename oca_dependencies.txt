@@ -1,1 +1,2 @@
 partner-contact
+l10n-germany
