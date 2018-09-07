@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!-- This is needed to better differentiate the new functionality -->
+    <record id="hr_holidays_public.menu_create_next_year_public_holidays" model="ir.ui.menu">
+        <field name="name">Copy Last Year Public Holidays in the New Year"</field>
+    </record>
+</odoo>
