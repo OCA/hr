@@ -9,7 +9,7 @@ from odoo.addons.hr_holidays_public_generator_de.tests.common import \
 class TestHrHolidaysPublicGenerator(TestHrHolidaysPublicGenerator):
 
     def test_action_generate_de_holidays(self):
-        self.hr_holidays_public_generator.action_generate_de_holidays()
+        self.hr_holidays_public_generator.action_run()
 
         hr_holiday_public = \
             self.HrHolidaysPublic.search([
@@ -46,7 +46,7 @@ class TestHrHolidaysPublicGenerator(TestHrHolidaysPublicGenerator):
         hr_holidays_public_generator_copy = \
             self.HrHolidaysPublicGenerator.create(wizard_data)
 
-        hr_holidays_public_generator_copy.action_copy_de_holidays()
+        hr_holidays_public_generator_copy.action_run()
 
         hr_holiday_public = \
             self.HrHolidaysPublic.search([
