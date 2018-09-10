@@ -20,8 +20,6 @@ From this menu one can:
 * generate public holidays for specific country (if there is no template set)
 * copy public holidays for specific country
 
-The module change the calculation of the leave days to exclude public holidays.
-
 To extend the module one should
 * create new module with name "hr_holidays_public_generator_<country code>"
 * add hr_holidays_public_generator as dependency
