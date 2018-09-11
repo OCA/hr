@@ -53,7 +53,7 @@ class HrHolidaysPublicGenerator(models.TransientModel):
         self.ensure_one()
         if self.template_id:
             function_name = self.generate_function_copy_name()
-            if not function_name:
+            if not hasattr(self, function_name):
                 raise UserError(_(
                     """There is no copy function defined for this county or
                     the function name does not fit the requirement -
@@ -62,7 +62,7 @@ class HrHolidaysPublicGenerator(models.TransientModel):
             getattr(self, function_name)()
         else:
             function_name = self.generate_function_generate_name()
-            if not function_name:
+            if not hasattr(self, function_name):
                 raise UserError(_(
                     """There is no generate function defined for this county
                     or the function name does not fit the requirement -
