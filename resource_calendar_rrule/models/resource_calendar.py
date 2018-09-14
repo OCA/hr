@@ -275,27 +275,33 @@ class ResourceCalendar(models.Model):
 
     @api.model
     def get_weekdays(self, id, default_weekdays=None):
+        """ Check each attendance in its own first week """
         if id is None:
             return super(ResourceCalendar, self).get_weekdays(
                 default_weekdays=default_weekdays
             )
-        return list(set(
-            date.weekday()
-            for attendance in self.browse(id).attendance_ids
-            for date, _ in attendance._iter_rrule(
-                *self._get_check_interval()
-            )
-        ))
+        weekdays = set()
+        for attendance in self.browse(id).attendance_ids:
+            if attendance.rrule:
+                rrule_dtstart = attendance.rrule._rrule[0]._dtstart
+                rrule_start = rrule_dtstart.replace(tzinfo=None)
+                interval = (
+                    rrule_start,
+                    rrule_start + datetime.timedelta(days=7),
+                )
+            else:
+                interval = self._get_check_interval()
+            for date, _ in attendance._iter_rrule(*interval):
+                weekdays.add(date.weekday())
+        return list(weekdays)
 
     @api.model
     def _get_check_interval(self):
         """for some computations, we need to generate some dates and inspect
         the result. By overriding this function you can change the interval
         used in case the default week from no doesn't work for you"""
-        return (
-            datetime.datetime.now(),
-            datetime.datetime.now() + datetime.timedelta(days=7),
-        )
+        dt = datetime.datetime.now()
+        return dt, dt + datetime.timedelta(days=7)
 
     def interval_remove_leaves(self, interval, leave_intervals):
         """ Some installations use negative intervals, support them """
