@@ -1,6 +1,8 @@
 # Copyright 2017 Onestein (<http://www.onestein.eu>)
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
+import re
+
 from odoo import fields, models, tools
 
 
@@ -14,7 +16,6 @@ class HrHolidaysRemainingLeavesUser(models.Model):
 
     def _holidays_hour_select(self):
         return """
-            ,
             sum(case when type='remove' and
                     extract(year from date_from) =
                     extract(year from current_date)
@@ -38,13 +39,23 @@ class HrHolidaysRemainingLeavesUser(models.Model):
         cr.execute("SELECT pg_get_viewdef(%s, true)", (self._table,))
         view_def = cr.fetchone()[0]
         view_def = view_def.replace("number_of_days", "number_of_hours")
-        view_def = view_def.replace(
-            "hhs.name as leave_type",
-            "{} hhs.name as leave_type".format(self._holidays_hour_select()),
-        )
+        holidays_hour_select = self._holidays_hour_select()
+        if holidays_hour_select not in view_def:
+            # The 'leave_type' query could have case-sensitive expressions
+            # It's better to use re here than the crude replace
+            # (we basically search for "hhs.name AS leave_type")
+            leave_type_query_part = re.compile(
+                '.*,(.*?leave_type).*'
+            ).match(' '.join(view_def.split('\n'))).groups()[0]
+            view_def = view_def.replace(
+                leave_type_query_part.strip(),
+                "{},\n{}".format(self._holidays_hour_select(), leave_type_query_part),
+            )
         if view_def[-1] == ';':
             view_def = view_def[:-1]
-        view_def += self._holidays_hour_group_by()
+        holidays_hour_group_by = self._holidays_hour_group_by()
+        if holidays_hour_group_by not in view_def:
+            view_def += self._holidays_hour_group_by()
         # Re-create view
         tools.drop_view_if_exists(cr, self._table)
         cr.execute("create or replace view {} as ({})".format(
