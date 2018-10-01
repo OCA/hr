@@ -30,9 +30,9 @@ class HrApplicant(models.Model):
                       ('partner_phone', '!=', False)]
             if not isinstance(applicant.id, models.NewId):
                 domain = [('id', '!=', applicant.id)] + domain
-            same_app = self.with_context(active_test=False).search(domain)
-            applicant.same_candidate_application_ids = same_app
-            applicant.same_candidate_application_count = len(same_app)
+            same_apps = self.with_context(active_test=False).search(domain)
+            applicant.same_candidate_application_ids = same_apps
+            applicant.same_candidate_application_count = len(same_apps)
 
     def action_view_applicants(self):
         action = self.env.ref('hr_recruitment.crm_case_categ0_act_job')
