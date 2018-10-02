@@ -13,10 +13,14 @@ class HrHolidays(models.Model):
     def create(self, values):
         if values.get('type', False) == 'remove':
 
+            values['employee_id'] = values.get('employee_id', False)
+            values['category_id'] = values.get('category_id', False)
+
             including = self.search([
                 ('date_from', '<', values['date_from']),
                 ('date_to', '>', values['date_to']),
                 ('employee_id', '=', values['employee_id']),
+                ('category_id', '=', values['category_id']),
                 ('type', '=', values['type']),
                 ('state', 'not in', ['cancel', 'refuse']),
             ], limit=1)
@@ -35,6 +39,7 @@ class HrHolidays(models.Model):
                 ('date_to', '>', values['date_from']),
                 ('date_to', '<=', values['date_to']),
                 ('employee_id', '=', values['employee_id']),
+                ('category_id', '=', values['category_id']),
                 ('type', '=', values['type']),
                 ('state', 'not in', ['cancel', 'refuse']),
             ], limit=1)
@@ -49,6 +54,7 @@ class HrHolidays(models.Model):
                 ('date_from', '>=', values['date_from']),
                 ('date_to', '<=', values['date_to']),
                 ('employee_id', '=', values['employee_id']),
+                ('category_id', '=', values['category_id']),
                 ('type', '=', values['type']),
                 ('state', 'not in', ['cancel', 'refuse']),
             ], order='date_from ASC')
@@ -79,6 +85,7 @@ class HrHolidays(models.Model):
                 ('date_from', '<', values['date_to']),
                 ('date_to', '>', values['date_to']),
                 ('employee_id', '=', values['employee_id']),
+                ('category_id', '=', values['category_id']),
                 ('type', '=', values['type']),
                 ('state', 'not in', ['cancel', 'refuse']),
             ], limit=1)
