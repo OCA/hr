@@ -34,13 +34,12 @@ class HrContract(models.Model):
     @api.multi
     @api.constrains('contract_job_ids')
     def _check_one_main_job(self):
-        for contract in self:
-            # if the contract has no job assigned, a main job
-            # is not required. Otherwise, one main job assigned is
-            # required.
-            if contract.contract_job_ids:
-                main_jobs = contract.contract_job_ids.filtered('is_main_job')
-                if len(main_jobs) != 1:
-                    raise UserError(
-                        _("You must assign one and only one job position "
-                          "as main job position."))
+        # if the contract has no job assigned, a main job
+        # is not required. Otherwise, one main job assigned is
+        # required.
+        for contract in self.filtered('contract_job_ids'):
+            main_jobs = contract.contract_job_ids.filtered('is_main_job')
+            if len(main_jobs) != 1:
+                raise UserError(
+                    _("You must assign one and only one job position "
+                        "as main job position."))
