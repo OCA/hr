@@ -1,8 +1,10 @@
-# -*- coding: utf-8 -*-
 # Copyright 2018 Eficent Business and IT Consulting Services, S.L.
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
 from odoo.tests.common import TransactionCase
+from odoo.tools.misc import mute_logger
+from datetime import datetime, timedelta
+from odoo.tools import DEFAULT_SERVER_DATETIME_FORMAT
 
 
 class TestHrAttendance(TransactionCase):
@@ -27,6 +29,21 @@ class TestHrAttendance(TransactionCase):
             self.rfid_card_code)
         self.assertTrue('action' in res and res['action'] == 'check_out')
         self.assertTrue('logged' in res and res['logged'])
+
+    @mute_logger('odoo.addons.hr_attendance_rfid.models.hr_employee')
+    def test_exception_code(self):
+        """Checkout is created for a future datetime"""
+        self.env['hr.attendance'].create({
+            'employee_id': self.test_employee.id,
+            'check_in': datetime.today().strftime(
+                DEFAULT_SERVER_DATETIME_FORMAT),
+            'check_out': (datetime.today()+timedelta(hours=8)).strftime(
+                DEFAULT_SERVER_DATETIME_FORMAT),
+        })
+        self.test_employee.update({'attendance_state': 'checked_in'})
+        res = self.employee_model.register_attendance(
+            self.rfid_card_code)
+        self.assertNotEquals(res['error_message'], '')
 
     def test_invalid_code(self):
         """Invalid employee"""
