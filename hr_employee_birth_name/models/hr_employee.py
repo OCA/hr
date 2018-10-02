@@ -7,6 +7,4 @@ from odoo import models, fields
 class HrEmployee(models.Model):
     _inherit = 'hr.employee'
 
-    birth_name = fields.Char(
-        string='Birth Name',
-    )
+    birth_name = fields.Char()
