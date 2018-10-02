@@ -15,15 +15,13 @@ class HrContractJob(models.Model):
     _name = 'hr.contract.job'
     _description = 'Relational object between contract and job'
 
-    name = fields.Char(string='Job', related='job_id.name', index=True)
+    name = fields.Char(string='Job Name', related='job_id.name', index=True)
     job_id = fields.Many2one(
         'hr.job',
-        string='Job',
         required=True,
         ondelete='cascade')
     contract_id = fields.Many2one(
         'hr.contract',
-        string='Contract',
         required=True,
         ondelete='cascade')
     is_main_job = fields.Boolean(
