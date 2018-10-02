@@ -28,8 +28,10 @@ class HrContract(models.Model):
         contains one and only one record with field is_main_job == True
         """
         for contract in self:
-            main_job = contract.contract_job_ids.filtered('is_main_job').job_id
-            contract.job_id = main_job
+            main_job = contract.contract_job_ids.filtered(
+                'is_main_job').mapped('job_id')
+            if main_job and len(main_job) == 1:
+                contract.job_id = main_job
 
     @api.multi
     @api.constrains('contract_job_ids')
