@@ -8,6 +8,7 @@ setuptools.setup(
     description="Meta package for oca-hr Odoo addons",
     version=version,
     install_requires=[
+        'odoo11-addon-hr_contract_multi_job',
         'odoo11-addon-hr_employee_birth_name',
         'odoo11-addon-hr_employee_firstname',
         'odoo11-addon-hr_employee_id',
