@@ -20,6 +20,7 @@
         'views/hr_holidays_public_view.xml',
         'views/hr_holidays_status_views.xml',
         'wizards/holidays_public_next_year_wizard.xml',
+        'wizards/hr_holidays_public_generator_view.xml',
     ],
     'installable': True,
 }
