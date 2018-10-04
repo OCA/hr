@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<openerp>
+<odoo>
     <record id="hr_holidays_public_generator_view" model="ir.ui.view">
         <field name="name">hr.holidays.public.generator.view</field>
         <field name="model">hr.holidays.public.generator</field>
@@ -33,4 +33,4 @@
               name="Generate Public Holidays"
               parent="hr_holidays_public.menu_hr_public_holidays"
               action="hr_holidays_public_generator_action"/>
-</openerp>
+</odoo>
