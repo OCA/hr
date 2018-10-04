@@ -12,9 +12,9 @@ COUNTRY_GENERATORS = []
 class HrHolidaysPublicGenerator(models.TransientModel):
     """
     Usage:
-    * generate public holidays for specific country (if there is no template set)
+    * generate public holidays for specific country (if there
+        is no template set)
     * copy public holidays for specific country
-    
     To extend the model one should:
     * create new module with name "hr_holidays_public_generator_<country code>"
     * create wizard that inherit "hr.holidays.public.generator"
