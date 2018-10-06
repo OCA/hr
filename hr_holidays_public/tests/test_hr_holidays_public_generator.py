@@ -55,8 +55,10 @@ class TestHrHolidaysPublicGenerator(TransactionCase):
         with self.assertRaises(UserError):
             hr_holidays_public_generator_copy.action_run()
 
-        setattr(hr_holidays_public_generator_copy,
-            'action_copy_de_holidays', dummy)
+        setattr(
+            hr_holidays_public_generator_copy,
+            'action_copy_de_holidays',
+            dummy)
         hr_holidays_public_generator_copy.action_run()
 
     def test_generate_function_name_does_not_exists(self):
@@ -76,6 +78,8 @@ class TestHrHolidaysPublicGenerator(TransactionCase):
         with self.assertRaises(UserError):
             hr_holidays_public_generator_generate.action_run()
 
-        setattr(hr_holidays_public_generator_generate,
-            'action_generate_fr_holidays', dummy)
+        setattr(
+            hr_holidays_public_generator_generate,
+            'action_generate_fr_holidays',
+            dummy)
         hr_holidays_public_generator_generate.action_run()
