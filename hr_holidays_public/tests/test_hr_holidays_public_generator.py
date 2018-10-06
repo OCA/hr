@@ -5,6 +5,7 @@
 from odoo.exceptions import UserError
 from odoo.tests.common import TransactionCase
 
+
 class TestHrHolidaysPublicGenerator(TransactionCase):
 
     def setUp(self):
@@ -62,5 +63,3 @@ class TestHrHolidaysPublicGenerator(TransactionCase):
 
         with self.assertRaises(UserError):
             hr_holidays_public_generator_generate.action_run()
-
-
