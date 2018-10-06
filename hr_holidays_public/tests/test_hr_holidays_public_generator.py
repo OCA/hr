@@ -29,13 +29,16 @@ class TestHrHolidaysPublicGenerator(TransactionCase):
             self.HrHolidaysPublicGenerator.create(wizard_data)
 
     def test_copy_function_name_does_not_exists(self):
+        def dummy():
+            return True
+
         template_id = \
             self.HrHolidaysPublic.create({
                 'year': self.TestYear,
                 'country_id': self.CountryId
             }).id
 
-        # Test Create Public Holidays for 2019 from 2019
+        # Test Create Public Holidays for 2119 from 2119
         # with not existing function for the CountryId
         CountryId = self.ref('base.fr')
         TestYear = 2119
@@ -47,11 +50,20 @@ class TestHrHolidaysPublicGenerator(TransactionCase):
         hr_holidays_public_generator_copy = \
             self.HrHolidaysPublicGenerator.create(wizard_data)
 
+        hr_holidays_public_generator_copy.onchange_template_id()
+
         with self.assertRaises(UserError):
             hr_holidays_public_generator_copy.action_run()
 
+        setattr(hr_holidays_public_generator_copy,
+            'action_copy_de_holidays', dummy)
+        hr_holidays_public_generator_copy.action_run()
+
     def test_generate_function_name_does_not_exists(self):
-        # Test Generate Public Holidays for 2018
+        def dummy():
+            return True
+
+        # Test Generate Public Holidays for 2118
         # with not existing function for the CountryId
         CountryId = self.ref('base.fr')
         wizard_data = {
@@ -63,3 +75,7 @@ class TestHrHolidaysPublicGenerator(TransactionCase):
 
         with self.assertRaises(UserError):
             hr_holidays_public_generator_generate.action_run()
+
+        setattr(hr_holidays_public_generator_generate,
+            'action_generate_fr_holidays', dummy)
+        hr_holidays_public_generator_generate.action_run()
