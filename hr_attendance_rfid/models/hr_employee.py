@@ -1,10 +1,9 @@
-# -*- coding: utf-8 -*-
 # Copyright 2017 Comunitea Servicios Tecnológicos S.L.
 # Copyright 2018 Eficent Business and IT Consulting Services, S.L.
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
 import logging
-from odoo import api, models, fields, _
+from odoo import api, fields, models, _
 _logger = logging.getLogger(__name__)
 
 
@@ -62,11 +61,10 @@ class HrEmployee(models.Model):
             else:
                 msg = _('No attendance was recorded for '
                         'employee %s') % employee.name
-                _logger.debug(msg)
+                _logger.error(msg)
                 res['error_message'] = msg
                 return res
         except Exception as e:
-            msg = e.message
-            _logger.error(msg)
-            res['error_message'] = msg
+            res['error_message'] = e
+            _logger.error(e)
         return res
