@@ -6,9 +6,9 @@
         <field name="model">hr.employee</field>
         <field name="inherit_id" ref="hr.view_employee_form"/>
         <field name="arch" type="xml">
-            <label for="name" position="replace">
+            <xpath expr="//label[@for='name']" position="replace">
                 <label for="lastname" class="oe_edit_only"/>
-            </label>
+            </xpath>
             <field name="name" position="replace">
                 <field name="name" invisible="True" nolabel="1" required="False"/>
                 <field name="lastname"/>
