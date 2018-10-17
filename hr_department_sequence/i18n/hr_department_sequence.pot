@@ -1,13 +1,11 @@
-# Translation of OpenERP Server.
+# Translation of Odoo Server.
 # This file contains the translation of the following modules:
 #	* hr_department_sequence
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: OpenERP Server 7.0\n"
+"Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-21 19:08+0000\n"
-"PO-Revision-Date: 2013-11-21 19:08+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,8 +14,19 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: hr_department_sequence
-#: field:hr.department,parent_left:0
-msgid "Left Parent"
+#: code:addons/hr_department_sequence/models/hr_department.py:52
+#, python-format
+msgid "%s (copy)"
+msgstr ""
+
+#. module: hr_department_sequence
+#: field:hr.department,active:0
+msgid "Active"
+msgstr ""
+
+#. module: hr_department_sequence
+#: view:hr.department:hr_department_sequence.hr_department_view
+msgid "Children Departments"
 msgstr ""
 
 #. module: hr_department_sequence
@@ -26,23 +35,13 @@ msgid "Code"
 msgstr ""
 
 #. module: hr_department_sequence
-#: field:hr.department,sequence:0
-msgid "Sequence"
-msgstr ""
-
-#. module: hr_department_sequence
 #: help:hr.department,sequence:0
 msgid "Gives the sequence order when displaying a list of departments."
 msgstr ""
 
 #. module: hr_department_sequence
-#: sql_constraint:hr.department:0
-msgid "The code for the department must be unique per company !"
-msgstr ""
-
-#. module: hr_department_sequence
-#: model:ir.model,name:hr_department_sequence.model_hr_department
-msgid "Department"
+#: field:hr.department,parent_left:0
+msgid "Left Parent"
 msgstr ""
 
 #. module: hr_department_sequence
@@ -51,7 +50,14 @@ msgid "Right Parent"
 msgstr ""
 
 #. module: hr_department_sequence
-#: field:hr.department,active:0
-msgid "Active"
+#: field:hr.department,sequence:0
+msgid "Sequence"
+msgstr ""
+
+#. module: hr_department_sequence
+#: code:addons/hr_department_sequence/models/hr_department.py:45
+#: sql_constraint:hr.department:0
+#, python-format
+msgid "The code for the department must be unique per company!"
 msgstr ""
 

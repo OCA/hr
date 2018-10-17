@@ -6,8 +6,6 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-31 01:53+0000\n"
-"PO-Revision-Date: 2015-01-31 01:53+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -24,5 +22,10 @@ msgstr ""
 #. module: hr_expense_sequence
 #: field:hr.expense.expense,number:0
 msgid "Number"
+msgstr ""
+
+#. module: hr_expense_sequence
+#: view:hr.expense.expense:hr_expense_sequence.view_hr_expense_filter_sequence
+msgid "['|', ('name', 'ilike', self), ('number', 'ilike', self)]"
 msgstr ""
 

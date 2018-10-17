@@ -6,8 +6,6 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-14 17:42+0000\n"
-"PO-Revision-Date: 2015-09-14 17:42+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -21,13 +19,15 @@ msgid "Added Manually"
 msgstr ""
 
 #. module: hr_employee_benefit
+#: field:hr.employee.benefit,amount_type:0
 #: view:hr.employee.benefit.rate:hr_employee_benefit.view_hr_employee_benefit_rate_filter
 #: field:hr.employee.benefit.rate,amount_type:0
+#: field:hr.employee.benefit.rate.line,amount_type:0
 msgid "Amount Type"
 msgstr ""
 
 #. module: hr_employee_benefit
-#: code:addons/hr_employee_benefit/models/hr_employee_benefit_rate.py:98
+#: code:addons/hr_employee_benefit/models/hr_employee_benefit_rate.py:100
 #, python-format
 msgid "Annual"
 msgstr ""
@@ -61,15 +61,12 @@ msgstr ""
 
 #. module: hr_employee_benefit
 #: view:hr.employee.benefit.rate:hr_employee_benefit.view_hr_employee_benefit_rate_filter
+#: field:hr.employee.benefit.rate.line,category_id:0
 msgid "Category"
 msgstr ""
 
 #. module: hr_employee_benefit
-#: model:ir.model,name:hr_employee_benefit.model_hr_employee_benefit_category
-msgid "Employee Benefit Category"
-msgstr ""
-
-#. module: hr_employee_benefit
+#: field:hr.employee.benefit,code:0
 #: field:hr.employee.benefit.category,code:0
 msgid "Code"
 msgstr ""
@@ -109,12 +106,22 @@ msgid "Description"
 msgstr ""
 
 #. module: hr_employee_benefit
-#: code:addons/hr_employee_benefit/models/hr_employee_benefit_rate.py:97
+#: field:hr.employee.benefit,display_name:0
+#: field:hr.employee.benefit.category,display_name:0
+#: field:hr.employee.benefit.rate,display_name:0
+#: field:hr.employee.benefit.rate.line,display_name:0
+#: field:hr.payslip.benefit.line,display_name:0
+msgid "Display Name"
+msgstr ""
+
+#. module: hr_employee_benefit
+#: code:addons/hr_employee_benefit/models/hr_employee_benefit_rate.py:99
 #, python-format
 msgid "Each Pay"
 msgstr ""
 
 #. module: hr_employee_benefit
+#: field:hr.employee.benefit,employee_amount:0
 #: field:hr.employee.benefit.rate.line,employee_amount:0
 msgid "Employee Amount"
 msgstr ""
@@ -129,6 +136,16 @@ msgstr ""
 #: model:ir.actions.act_window,name:hr_employee_benefit.action_hr_employee_benefit_category_list
 #: model:ir.ui.menu,name:hr_employee_benefit.menu_action_hr_employee_benefit_category_list
 msgid "Employee Benefit Categories"
+msgstr ""
+
+#. module: hr_employee_benefit
+#: model:ir.model,name:hr_employee_benefit.model_hr_employee_benefit_category
+msgid "Employee Benefit Category"
+msgstr ""
+
+#. module: hr_employee_benefit
+#: model:ir.model,name:hr_employee_benefit.model_hr_employee_benefit_rate
+msgid "Employee Benefit Rate"
 msgstr ""
 
 #. module: hr_employee_benefit
@@ -159,16 +176,19 @@ msgid "Employee Benefits Rates"
 msgstr ""
 
 #. module: hr_employee_benefit
+#: field:hr.employee.benefit.rate,employee_amount:0
 #: field:hr.payslip.benefit.line,employee_amount:0
 msgid "Employee Contribution"
 msgstr ""
 
 #. module: hr_employee_benefit
+#: field:hr.employee.benefit,employer_amount:0
 #: field:hr.employee.benefit.rate.line,employer_amount:0
 msgid "Employer Amount"
 msgstr ""
 
 #. module: hr_employee_benefit
+#: field:hr.employee.benefit.rate,employer_amount:0
 #: field:hr.payslip.benefit.line,employer_amount:0
 msgid "Employer Contribution"
 msgstr ""
@@ -177,18 +197,6 @@ msgstr ""
 #: field:hr.employee.benefit,date_end:0
 #: field:hr.employee.benefit.rate.line,date_end:0
 msgid "End Date"
-msgstr ""
-
-#. module: hr_employee_benefit
-#: code:addons/hr_employee_benefit/models/hr_employee_benefit_rate.py:86
-#, python-format
-msgid "You cannot have overlapping rates"
-msgstr ""
-
-#. module: hr_employee_benefit
-#: code:addons/hr_employee_benefit/models/hr_employee_benefit.py:85
-#, python-format
-msgid "You must select a rate related to the selected category."
 msgstr ""
 
 #. module: hr_employee_benefit
@@ -223,6 +231,15 @@ msgstr ""
 #. module: hr_employee_benefit
 #: view:hr.salary.rule:hr_employee_benefit.hr_salary_rule_form
 msgid "Inputs"
+msgstr ""
+
+#. module: hr_employee_benefit
+#: field:hr.employee.benefit,__last_update:0
+#: field:hr.employee.benefit.category,__last_update:0
+#: field:hr.employee.benefit.rate,__last_update:0
+#: field:hr.employee.benefit.rate.line,__last_update:0
+#: field:hr.payslip.benefit.line,__last_update:0
+msgid "Last Modified on"
 msgstr ""
 
 #. module: hr_employee_benefit
@@ -261,6 +278,11 @@ msgstr ""
 #. module: hr_employee_benefit
 #: model:ir.model,name:hr_employee_benefit.model_hr_payslip
 msgid "Pay Slip"
+msgstr ""
+
+#. module: hr_employee_benefit
+#: model:ir.model,name:hr_employee_benefit.model_hr_payslip_benefit_line
+msgid "Pay Slip Employee Benefit Line"
 msgstr ""
 
 #. module: hr_employee_benefit
@@ -313,6 +335,7 @@ msgid "Start Date"
 msgstr ""
 
 #. module: hr_employee_benefit
+#: help:hr.employee.benefit,code:0
 #: help:hr.employee.benefit.category,code:0
 msgid "The code that can be used in the salary rules to identify the benefit"
 msgstr ""
@@ -323,16 +346,19 @@ msgid "Type"
 msgstr ""
 
 #. module: hr_employee_benefit
+#: code:addons/hr_employee_benefit/models/hr_employee_benefit_rate.py:88
+#, python-format
+msgid "You cannot have overlapping rates"
+msgstr ""
+
+#. module: hr_employee_benefit
+#: code:addons/hr_employee_benefit/models/hr_employee_benefit.py:87
+#, python-format
+msgid "You must select a rate related to the selected category."
+msgstr ""
+
+#. module: hr_employee_benefit
 #: field:hr.employee.benefit.category,active:0
 msgid "active"
 msgstr ""
 
-#. module: hr_employee_benefit
-#: model:ir.model,name:hr_employee_benefit.model_hr_employee_benefit_rate
-msgid "Employee Benefit Rate"
-msgstr ""
-
-#. module: hr_employee_benefit
-#: model:ir.model,name:hr_employee_benefit.model_hr_payslip_benefit_line
-msgid "Pay Slip Employee Benefit Line"
-msgstr ""

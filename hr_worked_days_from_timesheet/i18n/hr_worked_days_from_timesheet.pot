@@ -1,13 +1,11 @@
-# Translation of OpenERP Server.
+# Translation of Odoo Server.
 # This file contains the translation of the following modules:
 #	* hr_worked_days_from_timesheet
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: OpenERP Server 7.0\n"
+"Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-03 17:28+0000\n"
-"PO-Revision-Date: 2014-10-03 17:28+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,30 +14,8 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: hr_worked_days_from_timesheet
-#: view:hr.payslip:0
-msgid "Worked Days"
-msgstr ""
-
-#. module: hr_worked_days_from_timesheet
-#: code:addons/hr_worked_days_from_timesheet/hr_payslip.py:47
-#, python-format
-msgid "Timesheet "
-msgstr ""
-
-#. module: hr_worked_days_from_timesheet
-#: view:hr.payslip:0
+#: view:hr.payslip:hr_worked_days_from_timesheet.view_hr_payslip_form
 msgid "Import from Timesheets"
-msgstr ""
-
-#. module: hr_worked_days_from_timesheet
-#: code:addons/hr_worked_days_from_timesheet/hr_payslip.py:108
-#, python-format
-msgid "Warning"
-msgstr ""
-
-#. module: hr_worked_days_from_timesheet
-#: field:hr.employee,timesheet_sheet_ids:0
-msgid "Timesheets"
 msgstr ""
 
 #. module: hr_worked_days_from_timesheet
@@ -48,23 +24,34 @@ msgid "Imported From Timesheet"
 msgstr ""
 
 #. module: hr_worked_days_from_timesheet
-#: model:ir.model,name:hr_worked_days_from_timesheet.model_hr_employee
-msgid "Employee"
-msgstr ""
-
-#. module: hr_worked_days_from_timesheet
 #: model:ir.model,name:hr_worked_days_from_timesheet.model_hr_payslip
 msgid "Pay Slip"
 msgstr ""
 
 #. module: hr_worked_days_from_timesheet
-#: code:addons/hr_worked_days_from_timesheet/hr_payslip.py:109
-#, python-format
-msgid "Sorry, but there is no approved Timesheets for the entire Payslip period"
+#: model:ir.model,name:hr_worked_days_from_timesheet.model_hr_payslip_worked_days
+msgid "Payslip Worked Days"
 msgstr ""
 
 #. module: hr_worked_days_from_timesheet
-#: model:ir.model,name:hr_worked_days_from_timesheet.model_hr_payslip_worked_days
-msgid "Payslip Worked Days"
+#: code:addons/hr_worked_days_from_timesheet/models/hr_payslip.py:77
+#, python-format
+msgid "Sorry, but there is no approved Timesheets for the                     entire Payslip period"
+msgstr ""
+
+#. module: hr_worked_days_from_timesheet
+#: field:hr.payslip.worked_days,timesheet_sheet_id:0
+msgid "Timesheet"
+msgstr ""
+
+#. module: hr_worked_days_from_timesheet
+#: code:addons/hr_worked_days_from_timesheet/models/hr_payslip.py:38
+#, python-format
+msgid "Timesheet %s"
+msgstr ""
+
+#. module: hr_worked_days_from_timesheet
+#: view:hr.payslip:hr_worked_days_from_timesheet.view_hr_payslip_form
+msgid "Worked Days"
 msgstr ""
 

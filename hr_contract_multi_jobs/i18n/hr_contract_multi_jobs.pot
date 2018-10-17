@@ -6,8 +6,6 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-20 10:44+0000\n"
-"PO-Revision-Date: 2015-04-20 10:44+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -37,12 +35,18 @@ msgid "Created on"
 msgstr ""
 
 #. module: hr_contract_multi_jobs
+#: field:hr.contract.job,display_name:0
+msgid "Display Name"
+msgstr ""
+
+#. module: hr_contract_multi_jobs
 #: field:hr.contract.job,id:0
 msgid "ID"
 msgstr ""
 
 #. module: hr_contract_multi_jobs
 #: field:hr.contract.job,job_id:0
+#: field:hr.contract.job,name:0
 msgid "Job"
 msgstr ""
 
@@ -59,6 +63,11 @@ msgstr ""
 #. module: hr_contract_multi_jobs
 #: field:hr.contract,contract_job_ids:0
 msgid "Jobs"
+msgstr ""
+
+#. module: hr_contract_multi_jobs
+#: field:hr.contract.job,__last_update:0
+msgid "Last Modified on"
 msgstr ""
 
 #. module: hr_contract_multi_jobs
@@ -82,7 +91,8 @@ msgid "Relational object between contract and job"
 msgstr ""
 
 #. module: hr_contract_multi_jobs
-#: code:addons/hr_contract_multi_jobs/models/hr_contract.py:0
+#: code:addons/hr_contract_multi_jobs/models/hr_contract.py:62
 #, python-format
 msgid "You must assign one and only one job position as main job position."
 msgstr ""
+

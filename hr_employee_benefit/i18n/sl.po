@@ -1,7 +1,7 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # * hr_employee_benefit
-# 
+#
 # Translators:
 # Matjaž Mozetič <m.mozetic@matmoz.si>, 2015
 msgid ""
@@ -11,12 +11,14 @@ msgstr ""
 "POT-Creation-Date: 2016-04-30 02:40+0000\n"
 "PO-Revision-Date: 2016-04-30 06:15+0000\n"
 "Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>\n"
-"Language-Team: Slovenian (http://www.transifex.com/oca/OCA-hr-8-0/language/sl/)\n"
+"Language-Team: Slovenian (http://www.transifex.com/oca/OCA-hr-8-0/language/"
+"sl/)\n"
+"Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: sl\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
+"%100==4 ? 2 : 3);\n"
 
 #. module: hr_employee_benefit
 #: selection:hr.payslip.benefit.line,source:0
@@ -213,7 +215,9 @@ msgstr "Polje potrebno za izračun dodatkov glede na letni znesek."
 msgid ""
 "Field used to enter an external identifier for a benefit category. Example, "
 "pension plans may have a registration number."
-msgstr "Polje uporabljeno za vnos zunanje identifikacije kategorije dodatka. Primer: pokojninski načrt ima lahko registracijsko številko."
+msgstr ""
+"Polje uporabljeno za vnos zunanje identifikacije kategorije dodatka. Primer: "
+"pokojninski načrt ima lahko registracijsko številko."
 
 #. module: hr_employee_benefit
 #: selection:hr.payslip.benefit.line,source:0
