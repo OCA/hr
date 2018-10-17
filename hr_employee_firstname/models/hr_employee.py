@@ -54,7 +54,7 @@ class HrEmployee(models.Model):
     @api.model
     def _update_partner_firstname(self, employee):
         partners = employee.mapped('user_id.partner_id')
-        for partner in employee.mapped('address_home_id'):
+        for partner in employee.mapped('address_id'):
             if partner not in partners:
                 partners += partner
         partners.write({'firstname': employee.firstname,
