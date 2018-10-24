@@ -1,13 +1,30 @@
-# © 2015 Salton Massally <smassally@idtlabs.sl>
-# © 2016 OpenSynergy Indonesia
+# Copyright 2015 Salton Massally <smassally@idtlabs.sl>
+# Copyright 2016 OpenSynergy Indonesia
+# Copyright 2018 Brainbean Apps (https://brainbeanapps.com)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 from odoo import fields, models
 
 
-class HumanResourcesConfiguration(models.TransientModel):
+class ResConfigSettings(models.TransientModel):
     _inherit = 'res.config.settings'
-    _name = 'hr.employeeid.config.settings'
+
+    employee_id_gen_method = fields.Selection(
+        related='company_id.employee_id_gen_method',
+        readonly=False,
+        default=lambda self: self._default_id_gen_method(),
+    )
+    employee_id_random_digits = fields.Integer(
+        related='company_id.employee_id_random_digits',
+        readonly=False,
+        default=lambda self: self._default_id_random_digits(),
+    )
+    employee_id_sequence = fields.Many2one(
+        'ir.sequence',
+        related='company_id.employee_id_sequence',
+        readonly=False,
+        default=lambda self: self._default_id_sequence(),
+    )
 
     def _default_id_gen_method(self):
         gen_method = self.env.user.company_id.employee_id_gen_method
@@ -28,25 +45,5 @@ class HumanResourcesConfiguration(models.TransientModel):
     def _default_id_sequence(self):
         sequence = self.env.user.company_id.employee_id_sequence
         if not sequence:
-            sequence = self.env.ref('hr_employee_id.seq_employeeid_ref')
+            sequence = self.env.ref('hr_employee_id.seq_hr_employee_id')
         return sequence and sequence.id or False
-
-    company_id = fields.Many2one(
-        'res.company',
-        string='Company',
-        required=True,
-        default=lambda self: self.env.user.company_id)
-
-    employee_id_gen_method = fields.Selection(
-        related='company_id.employee_id_gen_method',
-        default=_default_id_gen_method
-    )
-    employee_id_random_digits = fields.Integer(
-        related='company_id.employee_id_random_digits',
-        default=_default_id_random_digits
-    )
-    employee_id_sequence = fields.Many2one(
-        'ir.sequence',
-        related='company_id.employee_id_sequence',
-        default=_default_id_sequence
-    )
