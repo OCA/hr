@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.hr.employee.id</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="hr.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('app_settings_block') and @data-key='hr']" position="inside">
+                <h2>Employee Identifier</h2>
+                <div class="row mt16 o_settings_container">
+                    <div class="col-12 col-lg-6 o_setting_box">
+                        <div class="o_setting_right_pane">
+                            <label for="employee_id_gen_method"/>
+                            <span class="fa fa-lg fa-building-o" title="Values set here are company-specific."
+                                role="img" aria-label="Values set here are company-specific."
+                                groups="base.group_multi_company"/>
+                            <div class="row">
+                                <div class="text-muted col-lg-8">
+                                    Select &amp; configure default employee identifier generation scheme
+                                </div>
+                            </div>
+                            <div class="content-group">
+                                <div class="mt16">
+                                    <field name="employee_id_gen_method"
+                                        class="o_light_label"
+                                        domain="[('company_id', '=', company_id)]"
+                                        context="{'default_company_id': company_id}"/>
+                                </div>
+                                <div class="mt16" attrs="{'invisible': [('employee_id_gen_method','!=','random')]}">
+                                    <label for="employee_id_random_digits"/>
+                                    <field name="employee_id_random_digits"
+                                        class="o_light_label"
+                                        domain="[('company_id', '=', company_id)]"
+                                        context="{'default_company_id': company_id}"
+                                        attrs="{'required': [('employee_id_gen_method','=','random')]}"/>
+                                </div>
+                                <div class="mt16" attrs="{'invisible': [('employee_id_gen_method','!=','sequence')]}">
+                                    <label for="employee_id_sequence"/>
+                                    <field name="employee_id_sequence"
+                                        class="o_light_label"
+                                        domain="[('company_id', '=', company_id)]"
+                                        context="{'default_company_id': company_id}"
+                                        attrs="{'required': [('employee_id_gen_method','=','sequence')]}"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
