@@ -1,11 +1,15 @@
-# © 2011, 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>
-# © 2016 OpenSynergy Indonesia
+# Copyright 2011, 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>
+# Copyright 2016 OpenSynergy Indonesia
+# Copyright 2018 Brainbean Apps (https://brainbeanapps.com)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
+import logging
 import random
 import string
 from odoo import api, fields, models, _
-from odoo.exceptions import Warning as UserWarning
+from odoo.exceptions import UserError
+
+_logger = logging.getLogger(__name__)
 
 
 class HrEmployee(models.Model):
@@ -27,27 +31,32 @@ class HrEmployee(models.Model):
     def _generate_identification_id(self):
         """Generate a random employee identification number"""
         company = self.env.user.company_id
-        employee_id = False
-        if company.employee_id_gen_method == 'sequence':
-            employee_id = company.employee_id_sequence.next_by_id()
-        elif company.employee_id_gen_method == 'random':
-            employee_id_random_digits = company.employee_id_random_digits
-            tries = 0
-            max_tries = 50
-            while tries < max_tries:
+
+        for retry in range(50):
+            employee_id = False
+            if company.employee_id_gen_method == 'sequence':
+                if not company.employee_id_sequence:
+                    _logger.warning(
+                        'No sequence configured for employee ID generation'
+                    )
+                    return employee_id
+                employee_id = company.employee_id_sequence.next_by_id()
+            elif company.employee_id_gen_method == 'random':
+                employee_id_random_digits = company.employee_id_random_digits
                 rnd = random.SystemRandom()
-                employee_id = ''.join(rnd.choice(string.digits)
-                                      for _ in
-                                      range(employee_id_random_digits))
-                if not self.search_count([('identification_id',
-                                           '=',
-                                           employee_id)]):
-                    break
-                tries += 1
-            if tries == max_tries:
-                raise UserWarning(_('Unable to generate an Employee ID number that \
-                is unique.'))
-        return employee_id
+                employee_id = ''.join(
+                    rnd.choice(string.digits)
+                    for _ in range(employee_id_random_digits)
+                )
+
+            if self.search_count([('identification_id', '=', employee_id)]):
+                continue
+
+            return employee_id
+
+        raise UserError(
+            _('Unable to generate unique Employee ID in %d steps.', retry)
+        )
 
     @api.model
     def create(self, vals):
