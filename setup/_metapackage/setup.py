@@ -8,6 +8,7 @@ setuptools.setup(
     description="Meta package for oca-hr Odoo addons",
     version=version,
     install_requires=[
+        'odoo11-addon-hr_attendance_rfid',
         'odoo11-addon-hr_contract_multi_job',
         'odoo11-addon-hr_contract_reference',
         'odoo11-addon-hr_emergency_contact',
