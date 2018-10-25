@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_employee_form_add_rfid" model="ir.ui.view">
+        <field name="name">hr.employee.form.add_rfid</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr_attendance.view_employee_form_inherit_hr_attendance"/>
+        <field name="arch" type="xml">
+             <field name="pin" position="after">
+                <field name="rfid_card_code" groups="hr_attendance.group_hr_attendance_user"/>
+             </field>
+        </field>
+    </record>
+</odoo>
