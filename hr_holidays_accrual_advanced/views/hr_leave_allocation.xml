@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    Copyright 2018-2019 Brainbean Apps (https://brainbeanapps.com)
+    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
+-->
+<odoo>
+
+    <record id="hr_leave_allocation_view_form_manager" model="ir.ui.view">
+        <field name="name">hr.leave.allocation.view.form.manager.inherit.accrual</field>
+        <field name="model">hr.leave.allocation</field>
+        <field name="inherit_id" ref="hr_holidays.hr_leave_allocation_view_form_manager"/>
+        <field name="arch" type="xml">
+            <field name="accrual" position="attributes">
+                <attribute name="attrs">
+                    {
+                        'invisible': [('holiday_type', '!=', 'employee')]
+                    }
+                </attribute>
+            </field>
+            <xpath expr="//label[@for='number_of_days']" position="attributes">
+                <attribute name="attrs">
+                    {
+                        'invisible': [('accrual', '=', True)]
+                    }
+                </attribute>
+            </xpath>
+            <xpath expr="//label[@for='number_of_days']/following-sibling::*[1]" position="attributes">
+                <attribute name="attrs">
+                    {
+                        'invisible': [('accrual', '=', True)]
+                    }
+                </attribute>
+            </xpath>
+            <xpath expr="//label[@for='date_to']" position="replace" priority="20"/>
+            <xpath expr="//field[@name='date_to']/../.." position="replace" priority="20"/>
+            <xpath expr="//field[@name='accrual']/../..">
+                <group attrs="{'invisible': [('accrual', '=', False)]}">
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+
+                    <label for="limit_accrued_days"/>
+                    <div class="o_row">
+                        <field name="limit_accrued_days"/>
+                        <field name="max_accrued_days" attrs="{'invisible': [('limit_accrued_days', '=', False)]}"/>
+                    </div>
+
+                    <label for="limit_carryover_days"/>
+                    <div class="o_row">
+                        <field name="limit_carryover_days"/>
+                        <field name="max_carryover_days" attrs="{'invisible': [('limit_carryover_days', '=', False)]}"/>
+                    </div>
+
+                    <label for="limit_accumulated_days"/>
+                    <div class="o_row">
+                        <field name="limit_accumulated_days"/>
+                        <field name="max_accumulated_days" attrs="{'invisible': [('limit_accumulated_days', '=', False)]}"/>
+                    </div>
+
+                    <field name="accrual_method"/>
+
+                    <label for="number_per_interval"/>
+                    <div class="o_row">
+                        <field name="number_per_interval" class="ml8"/>
+                        <field name="unit_per_interval"/>
+                    </div>
+
+                    <label for="interval_number"/>
+                    <div class="o_row">
+                        <field name="interval_number" class="ml8"/>
+                        <field name="interval_unit"/>
+                    </div>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="hr_leave_allocation_view_form" model="ir.ui.view">
+        <field name="name">hr.leave.allocation.view.form.inherit.accrual</field>
+        <field name="model">hr.leave.allocation</field>
+        <field name="inherit_id" ref="hr_holidays.hr_leave_allocation_view_form"/>
+        <field name="arch" type="xml">
+            <header position="inside">
+                <button
+                    name="%(action_hr_leave_allocation_as_of_date)d"
+                    type="action"
+                    attrs="{'invisible': ['|', ('accrual', '=', False), ('state', 'not in', ['validate'])]}"
+                    string="Calculate as of Date"
+                    class="oe_highlight"
+                />
+            </header>
+            <field name="notes" position="before">
+                <group string="Accruements" attrs="{'invisible': ['|', ('accrual', '=', False), ('state', 'not in', ['validate'])]}">
+                    <field name="accruement_ids" nolabel="1"/>
+                </group>
+            </field>
+        </field>
+    </record>
+
+    <record id="hr_holidays_accrual_recalculate" model="ir.actions.server">
+        <field name="name">Recalculate Accrual Allocations</field>
+        <field name="type">ir.actions.server</field>
+        <field name="model_id" ref="hr_holidays.model_hr_leave_allocation"/>
+        <field name="binding_model_id" ref="hr_holidays.model_hr_leave_allocation"/>
+        <field name="state">code</field>
+        <field name="code">
+            if records:
+                action = records.action_recalculate_accrual_allocations()
+        </field>
+    </record>
+
+    <record id="hr_holidays_accrual_recalculate_all" model="ir.actions.server">
+        <field name="name">Recalculate All Accrual Allocations</field>
+        <field name="type">ir.actions.server</field>
+        <field name="model_id" ref="hr_holidays.model_hr_leave_allocation"/>
+        <field name="state">code</field>
+        <field name="code">
+            action = model.action_recalculate_accrual_allocations_all()
+        </field>
+    </record>
+
+    <menuitem
+        id="hr_holidays_accrual_recalculate_menuitem"
+        action="hr_holidays_accrual_recalculate_all"
+        name="Recalculate Accrual Allocations"
+        parent="hr_holidays.menu_hr_holidays_configuration"
+        groups="hr_holidays.group_hr_holidays_user"
+        sequence="0"/>
+
+</odoo>
