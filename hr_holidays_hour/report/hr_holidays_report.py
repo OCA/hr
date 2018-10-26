@@ -1,7 +1,7 @@
 # Copyright 2017 Onestein (<http://www.onestein.eu>)
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-from psycopg.sql import SQL, Identifier
+from psycopg2.sql import SQL, Identifier
 import re
 
 from odoo import fields, models, tools
