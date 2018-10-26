@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 11.0\n"
+"Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
@@ -42,7 +42,7 @@ msgid "RFID Attendance"
 msgstr ""
 
 #. module: hr_attendance_rfid
-#: model:ir.model.fields,field_description:hr_attendance_rfid.field_hr_employee_rfid_card_code
+#: model:ir.model.fields,field_description:hr_attendance_rfid.field_hr_employee__rfid_card_code
 msgid "RFID Card Code"
 msgstr ""
 
