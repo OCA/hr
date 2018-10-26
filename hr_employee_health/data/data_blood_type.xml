@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <!--
+      Copyright (C) 2018 Brainbean Apps (https://brainbeanapps.com)
+      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+    -->
+
+    <!-- hr.employee.blood.type -->
+    <record model="hr.employee.blood.type" id="blood_type_a_rh_neg">
+      <field name="name">A Rh-</field>
+    </record>
+    <record model="hr.employee.blood.type" id="blood_type_a_rh_pos">
+      <field name="name">A Rh+</field>
+    </record>
+    <record model="hr.employee.blood.type" id="blood_type_b_rh_neg">
+      <field name="name">B Rh-</field>
+    </record>
+    <record model="hr.employee.blood.type" id="blood_type_b_rh_pos">
+      <field name="name">B Rh+</field>
+    </record>
+    <record model="hr.employee.blood.type" id="blood_type_ab_rh_neg">
+      <field name="name">AB Rh-</field>
+    </record>
+    <record model="hr.employee.blood.type" id="blood_type_ab_rh_pos">
+      <field name="name">AB Rh+</field>
+    </record>
+    <record model="hr.employee.blood.type" id="blood_type_o_rh_neg">
+      <field name="name">O Rh-</field>
+    </record>
+    <record model="hr.employee.blood.type" id="blood_type_o_rh_pos">
+      <field name="name">O Rh+</field>
+    </record>
+
+</odoo>
