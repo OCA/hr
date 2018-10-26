@@ -1,6 +1,7 @@
 # Copyright 2017 Onestein (<http://www.onestein.eu>)
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
+from psycopg.sql import SQL, Identifier
 import re
 
 from odoo import fields, models, tools
@@ -58,6 +59,5 @@ class HrHolidaysRemainingLeavesUser(models.Model):
             view_def += self._holidays_hour_group_by()
         # Re-create view
         tools.drop_view_if_exists(cr, self._table)
-        cr.execute("create or replace view {} as ({})".format(
-            self._table, view_def,
-        ))
+        sql = 'CREATE OR REPLACE VIEW {} as (%s)' % view_def
+        cr.execute(SQL(sql).format(Identifier(self._table)))
