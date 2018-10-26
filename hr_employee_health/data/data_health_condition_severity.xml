@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <!--
+      Copyright (C) 2018 Brainbean Apps (https://brainbeanapps.com)
+      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+    -->
+
+    <!-- hr.employee.health.condition.severity -->
+    <record model="hr.employee.health.condition.severity" id="severity_life_threatening">
+      <field name="name">Life-threatening</field>
+    </record>
+    <record model="hr.employee.health.condition.severity" id="severity_extreme">
+      <field name="name">Extreme</field>
+    </record>
+    <record model="hr.employee.health.condition.severity" id="severity_major">
+      <field name="name">Major</field>
+    </record>
+    <record model="hr.employee.health.condition.severity" id="severity_moderate">
+      <field name="name">Moderate</field>
+    </record>
+    <record model="hr.employee.health.condition.severity" id="severity_minor">
+      <field name="name">Minor</field>
+    </record>
+
+</odoo>

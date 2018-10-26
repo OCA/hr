@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <!--
+      Copyright (C) 2018 Brainbean Apps (https://brainbeanapps.com)
+      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+    -->
+
+    <!-- hr.employee.health.condition.type -->
+    <record model="hr.employee.health.condition.type" id="condition_food_allergy_milk">
+      <field name="name">Food allergy: Milk</field>
+    </record>
+    <record model="hr.employee.health.condition.type" id="condition_food_allergy_eggs">
+      <field name="name">Food allergy: Eggs</field>
+    </record>
+    <record model="hr.employee.health.condition.type" id="condition_food_allergy_fish">
+      <field name="name">Food allergy: Fish</field>
+    </record>
+    <record model="hr.employee.health.condition.type" id="condition_food_allergy_crustacean_shellfish">
+      <field name="name">Food allergy: Crustacean shellfish</field>
+    </record>
+    <record model="hr.employee.health.condition.type" id="condition_food_allergy_tree_nuts">
+      <field name="name">Food allergy: Tree nuts</field>
+    </record>
+    <record model="hr.employee.health.condition.type" id="condition_food_allergy_peanuts">
+      <field name="name">Food allergy: Peanuts</field>
+    </record>
+    <record model="hr.employee.health.condition.type" id="condition_food_allergy_wheat">
+      <field name="name">Food allergy: Wheat</field>
+    </record>
+    <record model="hr.employee.health.condition.type" id="condition_food_allergy_soybeans">
+      <field name="name">Food allergy: Soybeans</field>
+    </record>
+    <record model="hr.employee.health.condition.type" id="condition_mental_illness">
+      <field name="name">Mental illnesss</field>
+    </record>
+    <record model="hr.employee.health.condition.type" id="condition_epilepsy">
+      <field name="name">Epilepsy</field>
+    </record>
+    <record model="hr.employee.health.condition.type" id="condition_diabetes">
+      <field name="name">Diabetes</field>
+    </record>
+
+</odoo>
