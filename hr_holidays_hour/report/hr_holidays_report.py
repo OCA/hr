@@ -50,7 +50,10 @@ class HrHolidaysRemainingLeavesUser(models.Model):
             ).match(' '.join(view_def.split('\n'))).groups()[0]
             view_def = view_def.replace(
                 leave_type_query_part.strip(),
-                "{},\n{}".format(self._holidays_hour_select(), leave_type_query_part),
+                "{},\n{}".format(
+                    self._holidays_hour_select(),
+                    leave_type_query_part
+                ),
             )
         if view_def[-1] == ';':
             view_def = view_def[:-1]
@@ -60,7 +63,8 @@ class HrHolidaysRemainingLeavesUser(models.Model):
         # Re-create view
         tools.drop_view_if_exists(cr, self._table)
         sql = SQL('CREATE OR REPLACE VIEW {} as {}')
-        sql.fmt = sql.format  # brutal way to escape the pylit-odoo linter (sql-injection)
+        # brutal way to escape the pylit-odoo linter (sql-injection)
+        sql.fmt = sql.format
         cr.execute(sql.fmt(
             Identifier(self._table),
             SQL(view_def)
