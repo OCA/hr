@@ -64,4 +64,4 @@ class HrHolidaysRemainingLeavesUser(models.Model):
         cr.execute(sql.fmt(
             Identifier(self._table),
             SQL(view_def)
-        )
+        ))
