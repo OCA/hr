@@ -4,7 +4,7 @@
 
 {
     'name': 'HR Public Holidays',
-    'version': '10.0.1.0.1',
+    'version': '10.0.1.1.0',
     'license': 'AGPL-3',
     'category': 'Human Resources',
     'author': "Michael Telahun Makonnen <mmakonnen@gmail.com>, "
@@ -16,6 +16,8 @@
     ],
     'data': [
         'security/ir.model.access.csv',
+        'data/ir_config_parameter.xml',
+        'templates/assets.xml',
         'views/hr_public_holidays_view.xml',
         'wizards/public_holidays_next_year_wizard.xml',
     ],

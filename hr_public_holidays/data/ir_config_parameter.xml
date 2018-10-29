@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+  <record id="public_holiday_color" model="ir.config_parameter">
+    <field name="key">calendar.public_holidays_color</field>
+    <field name="value">#7c7bad</field>
+  </record>
+
+</odoo>

@@ -11,6 +11,8 @@ This module allows to define public holidays at country or state level by year.
 These holidays will be taken into account in standard resource allocation and
 requests, and can be used by other modules as base data.
 
+As well, this module will try to highlight known holidays in calendar views.
+
 Configuration
 =============
 
@@ -33,6 +35,13 @@ On following years, you can speed up public holidays creation using a wizard:
 #. If you need to generate holidays for another year different from next one,
    or take as source another year different from the last one, go to the
    "Optional" page for configuring these parameters.
+
+To customize the color to highlight public holidays in calendar views:
+
+#. navigate to *Settings > Technical > System parameters*
+#. provide a value to `calendar.public_holidays_color` key (both hex RGB and
+   valid web color names will do, and invalid color settings would be ignored
+   completely).
 
 Usage
 =====
@@ -69,6 +78,7 @@ Contributors
 * Bassirou Ndaw <b.ndaw@ergobit.org>
 * Tecnativa - Pedro M. Baeza
 * Nedas Zilinskas <nedas.zilinskas@xpansa.com> (Ventor, Xpansa Group <https://ventor.tech/>)
+* Artem Kostyuk <a.kostyuk@mobilunity.com>
 
 Maintainer
 ----------
