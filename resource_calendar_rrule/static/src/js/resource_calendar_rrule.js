@@ -32,7 +32,7 @@ openerp.resource_calendar_rrule = function(instance)
                 return this.proxy('_get_default_days')();
             var option_days = _.map(
                 this.options.days || _.keys(data),
-                function(v) {return Number.parseInt(v)}
+                function(v) {return parseInt(v)}
             );
             var result = _.filter(
                 data,
