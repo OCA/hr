@@ -17,8 +17,10 @@ class HrHolidays(models.Model):
     @api.model
     def create(self, values):
         auto_approve = self._get_auto_approve_on_creation(values)
+        tracking_disable = self.env.context.get('tracking_disable', False)
+        tracking_disable = tracking_disable or auto_approve
         res = super(HrHolidays, self.with_context(
-            tracking_disable=auto_approve)
+            tracking_disable=tracking_disable)
         ).create(values)
         if self.sudo().env.user.has_group(
                 'hr_holidays.group_hr_holidays_user'):
