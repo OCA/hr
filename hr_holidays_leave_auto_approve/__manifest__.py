@@ -3,7 +3,7 @@
 
 {
     'name': 'Auto Approve Leaves',
-    'version': '11.0.1.0.0',
+    'version': '11.0.1.0.1',
     'license': 'AGPL-3',
     'summary': '''Leave type for auto approval of Leaves''',
     'author': 'Onestein, Odoo Community Association (OCA)',
