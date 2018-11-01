@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<openerp>
     <data noupdate="0">
         <record id="group_hr_attendance_rfid" model="res.groups">
             <field name="name">RFID Attendance</field>
-            <field name="category_id" ref="base.module_category_hr_attendance"/>
+            <field name="category_id" ref="base.module_category_human_resources"/>
         </record>
     </data>
-</odoo>
+</openerp>

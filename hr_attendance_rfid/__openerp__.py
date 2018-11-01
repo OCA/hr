@@ -5,7 +5,7 @@
 
 {
     'name': 'HR Attendance RFID',
-    'version': '10.0.1.0.0',
+    'version': '8.0.1.0.0',
     'category': 'Human Resources',
     'website': 'https://github.com/OCA/hr',
     'author': 'Comunitea,'
