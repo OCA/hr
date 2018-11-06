@@ -25,15 +25,7 @@
         <field name="view_mode">form,tree</field>
         <field name="view_id" ref="hr_payslip_change_state_form"/>
         <field name="target">new</field>
+        <field name="binding_model_id"
+            ref="hr_payroll.model_hr_payslip"/>
     </record>
-
-    <act_window name="Change state"
-        res_model="hr.payslip.change.state"
-        src_model="hr.payslip"
-        view_mode="form"
-        target="new"
-        multi="True"
-        key2="client_action_multi"
-        id="action_hr_payslip_change_state_form"/>
-
 </odoo>
