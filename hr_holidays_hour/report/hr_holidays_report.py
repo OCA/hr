@@ -1,7 +1,7 @@
 # Copyright 2017 Onestein (<http://www.onestein.eu>)
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-from psycopg2.sql import SQL, Identifier
+from psycopg2.extensions import AsIs
 import re
 
 from odoo import fields, models, tools
@@ -62,10 +62,7 @@ class HrHolidaysRemainingLeavesUser(models.Model):
             view_def += self._holidays_hour_group_by()
         # Re-create view
         tools.drop_view_if_exists(cr, self._table)
-        sql = SQL('CREATE OR REPLACE VIEW {} as {}')
-        # brutal way to escape the pylit-odoo linter (sql-injection)
-        sql.fmt = sql.format
-        cr.execute(sql.fmt(
-            Identifier(self._table),
-            SQL(view_def)
-        ))
+        cr.execute(
+            'CREATE OR REPLACE VIEW %s AS %s',
+            (AsIs(self._table), AsIs(view_def))
+        )
