@@ -7,7 +7,7 @@
     'category': 'Human Resources',
     'website': 'https://github.com/OCA/hr',
     'author':
-        'Braibean Apps, '
+        'Brainbean Apps, '
         'Odoo Community Association (OCA)',
     'license': 'AGPL-3',
     'installable': True,
