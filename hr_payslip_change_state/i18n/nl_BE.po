@@ -1,0 +1,144 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * hr_payslip_change_state
+#
+# Translators:
+# OCA Transbot <transbot@odoo-community.org>, 2016
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-12-06 03:44+0000\n"
+"PO-Revision-Date: 2016-12-06 03:44+0000\n"
+"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2016\n"
+"Language-Team: Dutch (Belgium) (https://www.transifex.com/oca/teams/23907/"
+"nl_BE/)\n"
+"Language: nl_BE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: hr_payslip_change_state
+#: model:ir.model.fields,help:hr_payslip_change_state.field_hr_payslip_change_state_state
+msgid ""
+"* When the payslip is created the status is 'Draft'.             \n"
+"* If the payslip is under verification, the status is 'Compute "
+"Sheet'.              \n"
+"* If the payslip is confirmed then status is set to 'Done'.             \n"
+"* When user cancel payslip the status is 'Rejected'."
+msgstr ""
+
+#. module: hr_payslip_change_state
+#: model:ir.model.fields,field_description:hr_payslip_change_state.field_hr_payslip_change_state_state
+msgid "Action"
+msgstr ""
+
+#. module: hr_payslip_change_state
+#: model:ir.ui.view,arch_db:hr_payslip_change_state.hr_payslip_change_state_form
+msgid "Cancel"
+msgstr "Annuleren"
+
+#. module: hr_payslip_change_state
+#: selection:hr.payslip.change.state,state:0
+msgid "Cancel Payslip"
+msgstr ""
+
+#. module: hr_payslip_change_state
+#: model:ir.actions.act_window,name:hr_payslip_change_state.action_hr_payslip_change_state_form
+#: model:ir.ui.view,arch_db:hr_payslip_change_state.hr_payslip_change_state_form
+msgid "Change state"
+msgstr ""
+
+#. module: hr_payslip_change_state
+#: model:ir.model,name:hr_payslip_change_state.model_hr_payslip_change_state
+msgid "Change state of a payslip"
+msgstr ""
+
+#. module: hr_payslip_change_state
+#: selection:hr.payslip.change.state,state:0
+msgid "Compute Sheet"
+msgstr ""
+
+#. module: hr_payslip_change_state
+#: selection:hr.payslip.change.state,state:0
+msgid "Confirm"
+msgstr ""
+
+#. module: hr_payslip_change_state
+#: model:ir.model.fields,field_description:hr_payslip_change_state.field_hr_payslip_change_state_create_uid
+msgid "Created by"
+msgstr "Gemaakt door"
+
+#. module: hr_payslip_change_state
+#: model:ir.model.fields,field_description:hr_payslip_change_state.field_hr_payslip_change_state_create_date
+msgid "Created on"
+msgstr "Gemaakt op"
+
+#. module: hr_payslip_change_state
+#: model:ir.model.fields,field_description:hr_payslip_change_state.field_hr_payslip_change_state_display_name
+msgid "Display Name"
+msgstr "Schermnaam"
+
+#. module: hr_payslip_change_state
+#: model:ir.ui.view,arch_db:hr_payslip_change_state.hr_payslip_change_state_form
+msgid "Execute"
+msgstr ""
+
+#. module: hr_payslip_change_state
+#: model:ir.model.fields,field_description:hr_payslip_change_state.field_hr_payslip_change_state_id
+msgid "ID"
+msgstr "ID"
+
+#. module: hr_payslip_change_state
+#: model:ir.model.fields,field_description:hr_payslip_change_state.field_hr_payslip_change_state___last_update
+msgid "Last Modified on"
+msgstr "Laatst Aangepast op"
+
+#. module: hr_payslip_change_state
+#: model:ir.model.fields,field_description:hr_payslip_change_state.field_hr_payslip_change_state_write_uid
+msgid "Last Updated by"
+msgstr "Laatst bijgewerkt door"
+
+#. module: hr_payslip_change_state
+#: model:ir.model.fields,field_description:hr_payslip_change_state.field_hr_payslip_change_state_write_date
+msgid "Last Updated on"
+msgstr "Laatst bijgewerkt op"
+
+#. module: hr_payslip_change_state
+#: code:addons/hr_payslip_change_state/wizard/hr_payslip_change_state.py:50
+#, python-format
+msgid "Only draft payslips can be verified,the payslip %s is in %s state"
+msgstr ""
+
+#. module: hr_payslip_change_state
+#: code:addons/hr_payslip_change_state/wizard/hr_payslip_change_state.py:58
+#, python-format
+msgid ""
+"Only payslips in states verify or draft can be confirmed, the payslip %s is "
+"in %s state"
+msgstr ""
+
+#. module: hr_payslip_change_state
+#: code:addons/hr_payslip_change_state/wizard/hr_payslip_change_state.py:43
+#, python-format
+msgid ""
+"Only rejected payslips can be reset to draft, the payslip %s is in %s state"
+msgstr ""
+
+#. module: hr_payslip_change_state
+#: code:addons/hr_payslip_change_state/wizard/hr_payslip_change_state.py:68
+#, python-format
+msgid "Payslips"
+msgstr ""
+
+#. module: hr_payslip_change_state
+#: selection:hr.payslip.change.state,state:0
+msgid "Set to Draft"
+msgstr "Terugzetten naar Concept"
+
+#. module: hr_payslip_change_state
+#: code:addons/hr_payslip_change_state/wizard/hr_payslip_change_state.py:63
+#, python-format
+msgid "The payslip %s is already canceled please deselect it"
+msgstr ""
