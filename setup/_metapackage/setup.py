@@ -26,6 +26,7 @@ setuptools.setup(
         'odoo11-addon-hr_holidays_public',
         'odoo11-addon-hr_holidays_settings',
         'odoo11-addon-hr_payroll_cancel',
+        'odoo11-addon-hr_payslip_change_state',
         'odoo11-addon-hr_skill',
     ],
     classifiers=[
