@@ -1,0 +1,269 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* hr_employee_health
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hr_employee_health
+#: model:hr.employee.blood.type,name:hr_employee_health.blood_type_a_rh_pos
+msgid "A Rh+"
+msgstr ""
+
+#. module: hr_employee_health
+#: model:hr.employee.blood.type,name:hr_employee_health.blood_type_a_rh_neg
+msgid "A Rh-"
+msgstr ""
+
+#. module: hr_employee_health
+#: model:hr.employee.blood.type,name:hr_employee_health.blood_type_ab_rh_pos
+msgid "AB Rh+"
+msgstr ""
+
+#. module: hr_employee_health
+#: model:hr.employee.blood.type,name:hr_employee_health.blood_type_ab_rh_neg
+msgid "AB Rh-"
+msgstr ""
+
+#. module: hr_employee_health
+#: model:hr.employee.blood.type,name:hr_employee_health.blood_type_b_rh_pos
+msgid "B Rh+"
+msgstr ""
+
+#. module: hr_employee_health
+#: model:hr.employee.blood.type,name:hr_employee_health.blood_type_b_rh_neg
+msgid "B Rh-"
+msgstr ""
+
+#. module: hr_employee_health
+#: model:ir.model.fields,field_description:hr_employee_health.field_hr_employee__blood_type
+msgid "Blood Type"
+msgstr ""
+
+#. module: hr_employee_health
+#: model:ir.model.fields,field_description:hr_employee_health.field_hr_employee_health_condition__type_id
+msgid "Condition"
+msgstr ""
+
+#. module: hr_employee_health
+#: model:ir.model.fields,field_description:hr_employee_health.field_hr_employee_blood_type__create_uid
+#: model:ir.model.fields,field_description:hr_employee_health.field_hr_employee_health_condition__create_uid
+#: model:ir.model.fields,field_description:hr_employee_health.field_hr_employee_health_condition_severity__create_uid
+#: model:ir.model.fields,field_description:hr_employee_health.field_hr_employee_health_condition_type__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: hr_employee_health
+#: model:ir.model.fields,field_description:hr_employee_health.field_hr_employee_blood_type__create_date
+#: model:ir.model.fields,field_description:hr_employee_health.field_hr_employee_health_condition__create_date
+#: model:ir.model.fields,field_description:hr_employee_health.field_hr_employee_health_condition_severity__create_date
+#: model:ir.model.fields,field_description:hr_employee_health.field_hr_employee_health_condition_type__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: hr_employee_health
+#: model:hr.employee.health.condition.type,name:hr_employee_health.condition_diabetes
+msgid "Diabetes"
+msgstr ""
+
+#. module: hr_employee_health
+#: model:ir.model.fields,field_description:hr_employee_health.field_hr_employee_blood_type__display_name
+#: model:ir.model.fields,field_description:hr_employee_health.field_hr_employee_health_condition__display_name
+#: model:ir.model.fields,field_description:hr_employee_health.field_hr_employee_health_condition_severity__display_name
+#: model:ir.model.fields,field_description:hr_employee_health.field_hr_employee_health_condition_type__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: hr_employee_health
+#: model:ir.model,name:hr_employee_health.model_hr_employee
+#: model:ir.model.fields,field_description:hr_employee_health.field_hr_employee_health_condition__employee_id
+msgid "Employee"
+msgstr ""
+
+#. module: hr_employee_health
+#: model_terms:ir.ui.view,arch_db:hr_employee_health.hr_employee_health_condition_view_tree
+msgid "Employee Health Conditions"
+msgstr ""
+
+#. module: hr_employee_health
+#: model:hr.employee.health.condition.type,name:hr_employee_health.condition_epilepsy
+msgid "Epilepsy"
+msgstr ""
+
+#. module: hr_employee_health
+#: model:hr.employee.health.condition.severity,name:hr_employee_health.severity_extreme
+msgid "Extreme"
+msgstr ""
+
+#. module: hr_employee_health
+#: model:hr.employee.health.condition.type,name:hr_employee_health.condition_food_allergy_crustacean_shellfish
+msgid "Food allergy: Crustacean shellfish"
+msgstr ""
+
+#. module: hr_employee_health
+#: model:hr.employee.health.condition.type,name:hr_employee_health.condition_food_allergy_eggs
+msgid "Food allergy: Eggs"
+msgstr ""
+
+#. module: hr_employee_health
+#: model:hr.employee.health.condition.type,name:hr_employee_health.condition_food_allergy_fish
+msgid "Food allergy: Fish"
+msgstr ""
+
+#. module: hr_employee_health
+#: model:hr.employee.health.condition.type,name:hr_employee_health.condition_food_allergy_milk
+msgid "Food allergy: Milk"
+msgstr ""
+
+#. module: hr_employee_health
+#: model:hr.employee.health.condition.type,name:hr_employee_health.condition_food_allergy_peanuts
+msgid "Food allergy: Peanuts"
+msgstr ""
+
+#. module: hr_employee_health
+#: model:hr.employee.health.condition.type,name:hr_employee_health.condition_food_allergy_soybeans
+msgid "Food allergy: Soybeans"
+msgstr ""
+
+#. module: hr_employee_health
+#: model:hr.employee.health.condition.type,name:hr_employee_health.condition_food_allergy_tree_nuts
+msgid "Food allergy: Tree nuts"
+msgstr ""
+
+#. module: hr_employee_health
+#: model:hr.employee.health.condition.type,name:hr_employee_health.condition_food_allergy_wheat
+msgid "Food allergy: Wheat"
+msgstr ""
+
+#. module: hr_employee_health
+#: model:ir.model,name:hr_employee_health.model_hr_employee_blood_type
+msgid "HR Employee Blood Type"
+msgstr ""
+
+#. module: hr_employee_health
+#: model:ir.model,name:hr_employee_health.model_hr_employee_health_condition
+msgid "HR Employee Health Condition"
+msgstr ""
+
+#. module: hr_employee_health
+#: model:ir.model,name:hr_employee_health.model_hr_employee_health_condition_severity
+msgid "HR Employee Health Condition Severity"
+msgstr ""
+
+#. module: hr_employee_health
+#: model:ir.model,name:hr_employee_health.model_hr_employee_health_condition_type
+msgid "HR Employee Health Condition Type"
+msgstr ""
+
+#. module: hr_employee_health
+#: model_terms:ir.ui.view,arch_db:hr_employee_health.hr_employee_view_form
+msgid "Health"
+msgstr ""
+
+#. module: hr_employee_health
+#: model:ir.model.fields,field_description:hr_employee_health.field_hr_employee__health_condition_ids
+msgid "Health Conditions"
+msgstr ""
+
+#. module: hr_employee_health
+#: model:ir.model.fields,field_description:hr_employee_health.field_hr_employee__health_notes
+msgid "Health Notes"
+msgstr ""
+
+#. module: hr_employee_health
+#: model:ir.model.fields,field_description:hr_employee_health.field_hr_employee_blood_type__id
+#: model:ir.model.fields,field_description:hr_employee_health.field_hr_employee_health_condition__id
+#: model:ir.model.fields,field_description:hr_employee_health.field_hr_employee_health_condition_severity__id
+#: model:ir.model.fields,field_description:hr_employee_health.field_hr_employee_health_condition_type__id
+msgid "ID"
+msgstr ""
+
+#. module: hr_employee_health
+#: model:ir.model.fields,field_description:hr_employee_health.field_hr_employee_blood_type____last_update
+#: model:ir.model.fields,field_description:hr_employee_health.field_hr_employee_health_condition____last_update
+#: model:ir.model.fields,field_description:hr_employee_health.field_hr_employee_health_condition_severity____last_update
+#: model:ir.model.fields,field_description:hr_employee_health.field_hr_employee_health_condition_type____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: hr_employee_health
+#: model:ir.model.fields,field_description:hr_employee_health.field_hr_employee_blood_type__write_uid
+#: model:ir.model.fields,field_description:hr_employee_health.field_hr_employee_health_condition__write_uid
+#: model:ir.model.fields,field_description:hr_employee_health.field_hr_employee_health_condition_severity__write_uid
+#: model:ir.model.fields,field_description:hr_employee_health.field_hr_employee_health_condition_type__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: hr_employee_health
+#: model:ir.model.fields,field_description:hr_employee_health.field_hr_employee_blood_type__write_date
+#: model:ir.model.fields,field_description:hr_employee_health.field_hr_employee_health_condition__write_date
+#: model:ir.model.fields,field_description:hr_employee_health.field_hr_employee_health_condition_severity__write_date
+#: model:ir.model.fields,field_description:hr_employee_health.field_hr_employee_health_condition_type__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: hr_employee_health
+#: model:hr.employee.health.condition.severity,name:hr_employee_health.severity_life_threatening
+msgid "Life-threatening"
+msgstr ""
+
+#. module: hr_employee_health
+#: model:hr.employee.health.condition.severity,name:hr_employee_health.severity_major
+msgid "Major"
+msgstr ""
+
+#. module: hr_employee_health
+#: model_terms:ir.ui.view,arch_db:hr_employee_health.hr_employee_view_form
+msgid "Medical Details"
+msgstr ""
+
+#. module: hr_employee_health
+#: model:hr.employee.health.condition.type,name:hr_employee_health.condition_mental_illness
+msgid "Mental illnesss"
+msgstr ""
+
+#. module: hr_employee_health
+#: model:hr.employee.health.condition.severity,name:hr_employee_health.severity_minor
+msgid "Minor"
+msgstr ""
+
+#. module: hr_employee_health
+#: model:hr.employee.health.condition.severity,name:hr_employee_health.severity_moderate
+msgid "Moderate"
+msgstr ""
+
+#. module: hr_employee_health
+#: model:ir.model.fields,field_description:hr_employee_health.field_hr_employee_health_condition__notes
+msgid "Notes"
+msgstr ""
+
+#. module: hr_employee_health
+#: model:hr.employee.blood.type,name:hr_employee_health.blood_type_o_rh_pos
+msgid "O Rh+"
+msgstr ""
+
+#. module: hr_employee_health
+#: model:hr.employee.blood.type,name:hr_employee_health.blood_type_o_rh_neg
+msgid "O Rh-"
+msgstr ""
+
+#. module: hr_employee_health
+#: model:ir.model.fields,field_description:hr_employee_health.field_hr_employee_health_condition__severity_id
+#: model:ir.model.fields,field_description:hr_employee_health.field_hr_employee_health_condition_severity__name
+msgid "Severity"
+msgstr ""
+
+#. module: hr_employee_health
+#: model:ir.model.fields,field_description:hr_employee_health.field_hr_employee_blood_type__name
+#: model:ir.model.fields,field_description:hr_employee_health.field_hr_employee_health_condition_type__name
+msgid "Type"
+msgstr ""
+
