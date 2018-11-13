@@ -79,6 +79,7 @@ Contributors
 * Tecnativa - Pedro M. Baeza
 * Nedas Zilinskas <nedas.zilinskas@xpansa.com> (Ventor, Xpansa Group <https://ventor.tech/>)
 * Artem Kostyuk <a.kostyuk@mobilunity.com>
+* Akim Juillerat <akim.juillerat@camptocamp.com>
 
 Maintainer
 ----------

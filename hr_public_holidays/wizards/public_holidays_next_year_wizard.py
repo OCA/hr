@@ -26,6 +26,31 @@ class PublicHolidaysNextYearWizard(models.TransientModel):
         help='Year for which you want to create the public holidays. '
         'By default, the year following the template.',
     )
+    public_holidays_next_year_day_ids = fields.One2many(
+        comodel_name='public.holidays.next.year.day.wiz',
+        inverse_name='public_holidays_next_year_wizard_id',
+        string='Next year public holidays to create',
+        help="Define next year's holiday dates",
+    )
+
+    @api.onchange('template_ids', 'year')
+    def onchange_year_template_ids(self):
+        self.ensure_one()
+        self.public_holidays_next_year_day_ids = False
+        for template in self.template_ids:
+            for line in template.line_ids:
+                last_date = fields.Date.from_string(line.date)
+                new_year = self.year or template.year + 1
+                new_day = self.env[
+                    'public.holidays.next.year.day.wiz'].new({
+                        'public_holidays_next_year_wizard_id': self.id,
+                        'template_id': template.id,
+                        'name': line.name,
+                        'variable': line.variable,
+                        'last_date': line.date,
+                        'next_date': last_date.replace(year=new_year),
+                    })
+                self.public_holidays_next_year_day_ids |= new_day
 
     @api.multi
     def create_public_holidays(self):
@@ -81,8 +106,20 @@ class PublicHolidaysNextYearWizard(models.TransientModel):
                         'includes public holidays on 29th of February '
                         '(2016, 2020...), please select a template from '
                         'another year.'))
-
-                new_date = ph_line_date.replace(year=new_year)
+                # If options were used to define next years public holidays
+                # we look for a matching day
+                if self.public_holidays_next_year_day_ids:
+                    matching = self.public_holidays_next_year_day_ids.filtered(
+                        lambda l: l.last_date == last_ph_line.date)
+                    # If no match is found, it means the user did delete this
+                    # day so we don't want to create it
+                    if not matching:
+                        continue
+                    else:
+                        new_date = matching.next_date
+                # If options were not used, keep std behaviour
+                else:
+                    new_date = ph_line_date.replace(year=new_year)
 
                 new_line_vals = last_ph_line.copy_data({
                     'date': new_date,
@@ -109,3 +146,33 @@ class PublicHolidaysNextYearWizard(models.TransientModel):
         }
 
         return action
+
+
+class HrHolidaysPublicLineVariable(models.TransientModel):
+
+    _name = 'public.holidays.next.year.day.wiz'
+
+    public_holidays_next_year_wizard_id = fields.Many2one(
+        'public.holidays.next.year.wizard',
+        readonly=True,
+    )
+    template_id = fields.Many2one(
+        'hr.holidays.public',
+        string='Template',
+        required=True,
+        readonly=True,
+    )
+    name = fields.Char(
+        required=True,
+        readonly=True,
+    )
+    last_date = fields.Date(
+        required=True,
+        readonly=True,
+    )
+    variable = fields.Boolean(
+        readonly=True,
+    )
+    next_date = fields.Date(
+        required=True,
+    )

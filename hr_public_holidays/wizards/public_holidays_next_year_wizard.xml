@@ -27,22 +27,36 @@
                         for each country are used as template to create  
                         public holidays for the year following the templates.
                         <br/><br/>
-                        Normally, you should not need to input anything in 
-                        optional fields and only need to click on the button 
-                        "Create".
-                        </div> 
+                        Should you want to modify the public holidays to be
+                        created, e.g for public holidays having variable date,
+                        please use the optional pane.
+                        </div>
                     </page>
-                    <page name="optional" string="Optional">
+                    <page name="manual" string="Manual">
                         <div>
-                        The below optional fields are here only to handle 
-                        special situations like "2011 was a special year with 
-                        an additional public holiday for the 150th 
-                        anniversary of the Italian unification, so you want to 
-                        replicate the 2010 Italian holidays to 2012."
+                        The fields below are here to manually handle the creation
+                        of public holidays.
+                        Select first the template to be used to create next year's
+                        public holidays.
+                        You can define the target year in which you want to create
+                        the holidays, but default value is the year following the
+                        template's year.
+                        The public holidays to be created are then displayed to
+                        allow you modification of the date in case of public
+                        holidays having a variable date (highlighted in red).
                         </div>
                         <group>
                             <field name="template_ids" />
                             <field name="year" />
+                            <field name="public_holidays_next_year_day_ids">
+                                <tree decoration-danger="variable" decoration-info="not variable" editable="1" create="false" >
+                                    <field name="template_id" />
+                                    <field name="name" />
+                                    <field name="variable" />
+                                    <field name="last_date" />
+                                    <field name="next_date" />
+                                </tree>
+                            </field>
                         </group>
                     </page>
                 </notebook>
