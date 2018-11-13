@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--
+      Copyright (C) 2018 Brainbean Apps (https://brainbeanapps.com)
+      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+    -->
+
+    <record id="hr_employee_health_condition_view_tree" model="ir.ui.view">
+        <field name="name">hr.employee.health.condition.view.tree</field>
+        <field name="model">hr.employee.health.condition</field>
+        <field name="arch" type="xml">
+            <tree string="Employee Health Conditions" editable="bottom">
+                <field name="type_id"/>
+                <field name="severity_id"/>
+                <field name="notes"/>
+            </tree>
+        </field>
+    </record>
+
+</odoo>
