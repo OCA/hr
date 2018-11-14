@@ -1,3 +1,4 @@
 partner-contact
 server-tools
 account-analytic
+hr_attendance_reason https://github.com/eficent/hr.git 10.0-add-hr_attendance_reason
