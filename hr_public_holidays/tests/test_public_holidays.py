@@ -153,6 +153,7 @@ class TestPublicHolidays(common.TransactionCase):
             'year': 2000
         }
         wz_create_ph = self.wizard_next_year.new(values=val)
+        wz_create_ph.onchange_year_template_ids()
 
         wz_create_ph.create_public_holidays()
 
@@ -162,6 +163,42 @@ class TestPublicHolidays(common.TransactionCase):
         res = lines.filtered(
             lambda r: r.year_id.country_id.id == self.env.ref('base.sl').id)
         self.assertEqual(len(res), 1)
+
+    def test_create_year_2000_public_holidays_with_date_change(self):
+        ph_start_ids = self.holiday_model.search([('year', '=', 1994)])
+
+        # Set 1994-10-14 as a variable holiday
+        october_fourteenth = ph_start_ids.mapped('line_ids').filtered(
+            lambda d: d.date == '1994-10-14'
+        )
+        october_fourteenth.variable = True
+        val = {
+            'template_ids': ph_start_ids,
+            'year': 2000
+        }
+        wz_create_ph = self.wizard_next_year.new(values=val)
+        wz_create_ph.onchange_year_template_ids()
+        self.assertEqual(
+            len(wz_create_ph.public_holidays_next_year_day_ids), 2)
+        october_fourteenth_line = \
+            wz_create_ph.public_holidays_next_year_day_ids.filtered(
+                lambda d: d.variable)
+        self.assertEqual(october_fourteenth_line.last_date, '1994-10-14')
+        october_fourteenth_line.next_date = '2000-10-15'
+
+        wz_create_ph.create_public_holidays()
+
+        lines = self.holiday_model.get_holidays_list(2000)
+        self.assertEqual(len(lines), 2)
+
+        res = lines.filtered(
+            lambda r: r.year_id.country_id.id == self.env.ref('base.sl').id)
+        self.assertEqual(len(res), 1)
+        # Check the new holiday is created on 15th and not 14th
+        self.assertEqual(
+            len(lines.filtered(lambda r: r.date == '2000-10-14')), 0)
+        self.assertEqual(
+            len(lines.filtered(lambda r: r.date == '2000-10-15')), 1)
 
     def test_february_29th(self):
         # Ensures that users get a UserError (not a nasty Exception) when
