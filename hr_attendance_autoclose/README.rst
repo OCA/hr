@@ -29,7 +29,7 @@ This module close stale attendances automatically. Without this module, when
 an employee forgets to check out at the end on the day and the next day the
 employee does not realize of that, then the error is propagated and all the
 attendances are wrong. With this module only the attendance with the issue is
-wrong, and the manager know the system closes the attendance, not the employee
+wrong, and the manager knows the system closes the attendance, not the employee
 
 **Table of contents**
 
@@ -39,20 +39,16 @@ wrong, and the manager know the system closes the attendance, not the employee
 Usage
 =====
 
+#. Go to *Settings > Company > Attendances*.
+#. Set the maximum number of hours allowed for an attendance.
 #. Go to *Attendances > Manage Attedances > Attendances*.
-#. Go to *Attendances > Manage Attedances > Attendances*.
-#. Attendance are autoclosed after the value specified.
+#. Attendance are autoclosed after the hours passed are bigger.
 
 Known issues / Roadmap
 ======================
 
-* Known Issues
-
 This module overwrites the standard behavior of worked_hours field in
 Odoo.
-
-
-
 
 Bug Tracker
 ===========

@@ -46,7 +46,7 @@ class HrAttendance(models.Model):
                 if reason:
                     vals = {'check_out': leave_time.strftime(
                         DEFAULT_SERVER_DATETIME_FORMAT),
-                            'attendance_reason_id': [(4, reason.id)]}
+                        'attendance_reason_id': [(4, reason.id)]}
                 else:
                     vals = {'check_out': leave_time.strftime(
                         DEFAULT_SERVER_DATETIME_FORMAT)}
