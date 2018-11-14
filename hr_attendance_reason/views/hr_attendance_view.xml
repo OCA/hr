@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="hr_attendance_view_form" model="ir.ui.view">
+        <field name="name">hr.attendance.form</field>
+        <field name="model">hr.attendance</field>
+        <field name="inherit_id" ref="hr_attendance.hr_attendance_view_form"/>
+        <field name="priority">500</field>
+        <field name="arch" type="xml">
+            <sheet position="inside">
+                <group name="reason">
+                    <group>
+                        <field name="attendance_reason_ids" widget="many2many_tags"/>
+                    </group>
+                </group>
+            </sheet>
+        </field>
+    </record>
+</odoo>
