@@ -15,7 +15,9 @@ class HrHolidays(models.Model):
         """
         context = self.env.context
         if context.get('default_date_from'):
-            dt = fields.Datetime.from_string(context['default_date_from'])
+            dt = fields.Datetime.from_string(
+                context['default_date_from']
+            ).replace(tzinfo=tz.gettz(self.env.user.tz)).astimezone(tz.tzutc())
             return dt.hour == 5 and dt.minute == 0 and dt.second == 0
         return False
 
@@ -25,7 +27,9 @@ class HrHolidays(models.Model):
         """
         context = self.env.context
         if context.get('default_date_to'):
-            dt = fields.Datetime.from_string(context['default_date_to'])
+            dt = fields.Datetime.from_string(
+                context['default_date_to']
+            ).replace(tzinfo=tz.gettz(self.env.user.tz)).astimezone(tz.tzutc())
             return dt.hour == 17 and dt.minute == 0 and dt.second == 0
         return False
 
@@ -114,12 +118,12 @@ class HrHolidays(models.Model):
             ).astimezone(tz.tzutc())
             record.date_to = fields.Datetime.to_string(dt)
 
-    @api.onchange('date_from_full')
+    @api.onchange('date_from_full', 'from_full_day')
     def _onchange_date_from_full(self):
         """As inverse methods only works on save, we have to add an onchange"""
         self._inverse_date_from_full()
 
-    @api.onchange('date_to_full')
+    @api.onchange('date_to_full', 'to_full_day')
     def _onchange_date_to_full(self):
         """As inverse methods only works on save, we have to add an onchange"""
         self._inverse_date_to_full()
