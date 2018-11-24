@@ -12,7 +12,7 @@ Installation
 
 To install this module, you need to:
 
-* clone the branch 8.0 of the repository https://github.com/OCA/hr
+* clone the branch 11.0 of the repository https://github.com/OCA/hr
 * add the path to this repository in your configuration (addons-path)
 * update the module list
 * search for "Employee Age" in your addons
@@ -27,7 +27,10 @@ shown above.
 Usage
 =====
 
-
+.. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
+   :alt: Try me on Runbot
+   :target: https://runbot.odoo-community.org/runbot/116/11.0
+   
 Known issues / Roadmap
 ======================
 
@@ -47,6 +50,7 @@ Contributors
 ------------
 
 * Salton Massally (iDT Labs) <smassally@idtlabs.sl>
+* Serpent Consulting Services Pvt. Ltd. <support@serpentcs.com>
 
 Maintainer
 ----------
