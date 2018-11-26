@@ -9,6 +9,7 @@ setuptools.setup(
     version=version,
     install_requires=[
         'odoo12-addon-hr_attendance_rfid',
+        'odoo12-addon-hr_employee_document',
         'odoo12-addon-hr_employee_health',
         'odoo12-addon-hr_employee_id',
         'odoo12-addon-hr_employee_relative',
