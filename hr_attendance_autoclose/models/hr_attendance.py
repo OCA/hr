@@ -12,23 +12,24 @@ class HrAttendance(models.Model):
     _inherit = "hr.attendance"
 
     @api.multi
-    def _compute_worked_hours(self):
+    def _compute_open_worked_hours(self):
         for attendance in self:
             if attendance.check_out:
                 delta = datetime.strptime(
                     attendance.check_out,
                     DEFAULT_SERVER_DATETIME_FORMAT) - datetime.strptime(
                     attendance.check_in, DEFAULT_SERVER_DATETIME_FORMAT)
-                worked_hours = delta.total_seconds() / 3600.0
+                open_worked_hours = delta.total_seconds() / 3600.0
             else:
                 delta = datetime.now() - datetime.strptime(
                     attendance.check_in, DEFAULT_SERVER_DATETIME_FORMAT)
-                worked_hours = delta.total_seconds() / 3600.0
-            attendance.worked_hours = worked_hours
+                open_worked_hours = delta.total_seconds() / 3600.0
+            attendance.open_worked_hours = open_worked_hours
         return True
 
-    worked_hours = fields.Float(
-        string='Worked hours', compute='_compute_worked_hours', store=False)
+    open_worked_hours = fields.Float(
+        string='Worked hours', compute='_compute_open_worked_hours',
+        store=False)
 
     @api.model
     def check_for_incomplete_attendances(self):

@@ -44,12 +44,6 @@ Usage
 #. Go to *Attendances > Manage Attedances > Attendances*.
 #. Attendance are autoclosed after the hours passed are bigger.
 
-Known issues / Roadmap
-======================
-
-This module overwrites the standard behavior of worked_hours field in
-Odoo.
-
 Bug Tracker
 ===========
 

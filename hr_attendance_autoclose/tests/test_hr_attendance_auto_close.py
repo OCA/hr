@@ -24,7 +24,7 @@ class TestHrAttendanceReason(TransactionCase):
              'check_in': dti.strftime(DF),
              'check_out': dto.strftime(DF),
              })
-        self.assertEqual(att.worked_hours, 7.0, "Wrong hours")
+        self.assertEqual(att.open_worked_hours, 7.0, "Wrong hours")
         dt = datetime.now().replace(
             hour=0, minute=0, second=0, microsecond=0) - relativedelta(
             hours=15)
@@ -33,4 +33,4 @@ class TestHrAttendanceReason(TransactionCase):
              'check_in': dt.strftime(DF),
              })
         self.att_model.check_for_incomplete_attendances()
-        self.assertEqual(att.worked_hours, 11.0, "Attendance not closed")
+        self.assertEqual(att.open_worked_hours, 11.0, "Attendance not closed")

@@ -6,7 +6,7 @@
     'name': 'HR Attendance Auto Close',
     'version': '10.0.1.0.0',
     'category': 'Human Resources',
-    'description': 'Close stale Attendances',
+    'summary': 'Close stale Attendances',
     'website': 'https://github.com/OCA/hr',
     'author': 'Odoo Community Association (OCA)',
     'license': 'AGPL-3',
@@ -17,6 +17,7 @@
     ],
     'data': [
         'data/hr_attendance_reason.xml',
+        'data/hr_attendance.xml',
         'views/hr_attendance_view.xml',
         'views/res_company_view.xml',
     ],
