@@ -1,12 +1,7 @@
 # -*- coding: utf-8 -*-
-##############################################################################
-#
-#    Copyright (C) 2018 Compassion CH (http://www.compassion.ch)
-#    @author: Stephane Eicher <seicher@compassion.ch>
-#
-#    The licence is in the file __manifest__.py
-#
-##############################################################################
+
+# Copyright (C) 2018 Compassion CH
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from . import models
 from . import wizards

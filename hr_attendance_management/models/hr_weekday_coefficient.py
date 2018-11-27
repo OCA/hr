@@ -1,12 +1,7 @@
 # -*- coding: utf-8 -*-
-##############################################################################
-#
-#    Copyright (C) 2018 Compassion CH (http://www.compassion.ch)
-#    @author: Stephane Eicher <seicher@compassion.ch>
-#
-#    The licence is in the file __manifest__.py
-#
-##############################################################################
+
+# Copyright (C) 2018 Compassion CH
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from odoo import models, fields, api
 
@@ -26,8 +21,7 @@ class HrWeekdayCoefficient(models.Model):
         ('3', 'Thursday'),
         ('4', 'Friday'),
         ('5', 'Saturday'),
-        ('6', 'Sunday'),
-        ('7', 'Default')], 'Day of Week', required=True, index=True,
+        ('6', 'Sunday'), ], 'Day of Week', required=True, index=True,
         default='0')
     category_ids = fields.Many2many('hr.employee.category',
                                     string='Employee tag')

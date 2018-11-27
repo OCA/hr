@@ -28,6 +28,7 @@
                             <field name="rule_id"/>
                             <field name="public_holiday_id"
                                    attrs="{'invisible':[('public_holiday_id', '=', False)]}"/>
+                            <field name="working_schedule_id"/>
 
                         </group>
                         <group string="Hours">

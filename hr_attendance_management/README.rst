@@ -46,6 +46,14 @@ To configure this module, go in **Attendances/Configuration/Attendance Settings*
 #. In **Leaves/Configuration/Leave Types** configure if leave types should not deduce from the due hours of
    the employees by setting *Keep due hours*
 
+To configure the cron which updates the balance of employees annually, go in **Settings/Technical/Automation/Automated Actions**:
+
+#. In the cron *Compute annual extra hours balance* choose the scheduled date on which you want to apply the process to move the extra hours of employees in their annual balance. This is typically done at the beggining of the year.
+   This process avoids the system to compute a huge amount of data after a few years of attendance.
+
+#. An second cron *Update annual extra hours balance* allows the employees or the RH manager to fix or set some of the previous attendances of the previous year, and after a few days or week the annual balance is updated with the latest modifications taken into account.
+
+
 Usage
 =====
 
@@ -63,9 +71,7 @@ new views to keep track of your extra hours evolution.
 Known issues / Roadmap
 ======================
 
-* Improve leaves requests to be able to specify how many hours it should deduct from the due hours.
-* Add possibility to define different break rules depending on the employee tags.
-* Add possibility to define different break rules depending on the day of the week.
+* Improve leaves request to be able to specify how many hours it should deduct from the due hours
 
 Bug Tracker
 ===========

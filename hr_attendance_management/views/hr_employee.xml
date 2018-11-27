@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <odoo>
-    <record model="ir.ui.view"
-            id="hr_employee_extra_hours_kanban">
+    <record model="ir.ui.view" id="hr_employee_extra_hours_kanban">
         <field name="name">HR Employee Extra Hours Kanban View</field>
         <field name="model">hr.employee</field>
         <field name="priority"
@@ -42,6 +41,9 @@
                     <field name="extra_hours" widget="float_time"/>
                 </div>
             </field>
+            <xpath expr="//field[@name='work_location']" position="replace">
+                <field name="work_location_id"/>
+            </xpath>
         </field>
     </record>
 </odoo>

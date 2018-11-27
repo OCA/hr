@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+        <!-- Attendance day -->
+        <record id="hr_attendance_day_root1" model="hr.attendance.day">
+            <field name="date"
+                   eval="(datetime.now()+relativedelta(days=-1)).strftime('%Y-%m-%d')"/>
+            <field name="employee_id" ref="hr.employee_root"/>
+        </record>
+
+        <record id="hr_attendance_day_qdp1" model="hr.attendance.day">
+            <field name="date"
+                   eval="datetime.now().strftime('%Y-%m-01')"/>
+            <field name="employee_id" ref="hr.employee_qdp"/>
+        </record>
+
+        <record id="hr_attendance_day_qdp2" model="hr.attendance.day">
+            <field name="date"
+                   eval="datetime.now().strftime('%Y-%m-02')"/>
+            <field name="employee_id" ref="hr.employee_qdp"/>
+        </record>
+
+        <record id="hr_attendance_day_qdp3" model="hr.attendance.day">
+            <field name="date"
+                   eval="datetime.now().strftime('%Y-%m-03')"/>
+            <field name="employee_id" ref="hr.employee_qdp"/>
+        </record>
+
+        <record id="hr_attendance_day_qdp4" model="hr.attendance.day">
+            <field name="date"
+                   eval="datetime.now().strftime('%Y-%m-04')"/>
+            <field name="employee_id" ref="hr.employee_qdp"/>
+        </record>
+
+        <record id="hr_attendance_day_qdp5" model="hr.attendance.day">
+            <field name="date"
+                   eval="datetime.now().strftime('%Y-%m-05')"/>
+            <field name="employee_id" ref="hr.employee_qdp"/>
+        </record>
+
+        <record id="hr_attendance_day_qdp6" model="hr.attendance.day">
+            <field name="date"
+                   eval="datetime.now().strftime('%Y-%m-06')"/>
+            <field name="employee_id" ref="hr.employee_qdp"/>
+        </record>
+
+        <record id="hr_attendance_day_qdp7" model="hr.attendance.day">
+            <field name="date"
+                   eval="datetime.now().strftime('%Y-%m-07')"/>
+            <field name="employee_id" ref="hr.employee_qdp"/>
+        </record>
+
+        <record id="hr_attendance_day_qdp8" model="hr.attendance.day">
+            <field name="date"
+                   eval="datetime.now().strftime('%Y-%m-08')"/>
+            <field name="employee_id" ref="hr.employee_qdp"/>
+        </record>
+
+        <record id="hr_attendance_day_qdp9" model="hr.attendance.day">
+            <field name="date"
+                   eval="datetime.now().strftime('%Y-%m-09')"/>
+            <field name="employee_id" ref="hr.employee_qdp"/>
+        </record>
+
+        <record id="hr_attendance_day_qdp10" model="hr.attendance.day">
+            <field name="date"
+                   eval="datetime.now().strftime('%Y-%m-10')"/>
+            <field name="employee_id" ref="hr.employee_qdp"/>
+        </record>
+</odoo>

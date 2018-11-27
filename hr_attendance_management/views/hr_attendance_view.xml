@@ -13,9 +13,11 @@
                type="xml">
             <field name="check_out"
                    position="after">
+                <field name="location_id"/>
                 <field name="worked_hours"
                        widget="float_time"/>
                 <field name="attendance_day_id"/>
+                <field name="working_schedule_id"/>
             </field>
         </field>
     </record>
@@ -57,6 +59,12 @@
                                                 <field name="worked_hours"/>
                                             </td>
                                         </tr>
+                                        <tr>
+                                            <td>Location:</td>
+                                            <td>
+                                                <field name="location_id"/>
+                                            </td>
+                                        </tr>
                                     </table>
                                 </div>
                             </div>
@@ -64,6 +72,17 @@
                     </t>
                 </templates>
             </kanban>
+        </field>
+    </record>
+
+    <record id="view_attendance_tree_location" model="ir.ui.view">
+        <field name="name">hr.attendance.tree.location</field>
+        <field name="model">hr.attendance</field>
+        <field name="inherit_id" ref="hr_attendance.view_attendance_tree"/>
+        <field name="arch" type="xml">
+            <field name="check_out" position="after">
+                <field name="location_id"/>
+            </field>
         </field>
     </record>
 

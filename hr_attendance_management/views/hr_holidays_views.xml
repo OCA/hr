@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+
+<odoo>
+    <record id="edit_holiday_status_form"
+            model="ir.ui.view">
+        <field name="name">hr.holidays.form</field>
+        <field name="model">hr.holidays</field>
+        <field name="inherit_id"
+               ref="hr_holidays.edit_holiday_new"/>
+        <field name="arch"
+               type="xml">
+            <field name="notes" position="before">
+                    <field name="attendance_day_ids"/>
+            </field>
+        </field>
+    </record>
+</odoo>

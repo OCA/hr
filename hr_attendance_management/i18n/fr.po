@@ -44,7 +44,7 @@ msgstr "Attendance Computation Wizard"
 #. module: hr_attendance_management
 #: model:ir.ui.menu,name:hr_attendance_management.att_compu_menu_root
 msgid "Attendance computation"
-msgstr "Calcul Bonus-Malus"
+msgstr "Calcul des présences"
 
 #. module: hr_attendance_management
 #: field:hr.attendance.computation,attendance_ids:0
@@ -127,7 +127,7 @@ msgstr "Création du résultat Bonus/Malus"
 #: field:hr.attendance.computation.creation,create_uid:0
 #: field:hr.attendance.computation.wizard,create_uid:0
 msgid "Created by"
-msgstr "Created by"
+msgstr "Créer par"
 
 #. module: hr_attendance_management
 #: field:hr.attendance.computation,create_date:0
@@ -223,7 +223,7 @@ msgstr "Type de congé"
 #. module: hr_attendance_management
 #: field:hr.attendance.computation,name:0
 msgid "Name"
-msgstr "Name"
+msgstr "Nom"
 
 #. module: hr_attendance_management
 #: view:hr.attendance.computation:hr_attendance_management.hr_attendance_computation_search
@@ -239,7 +239,7 @@ msgstr "Nombre d'heures dues"
 #. module: hr_attendance_management
 #: field:hr.attendance.computation,hours_from_attendances:0
 msgid "Number of worked hours"
-msgstr "Nombre d'heures éffectuées"
+msgstr "Nombre d'heures effectuées"
 
 #. module: hr_attendance_management
 #: model:ir.actions.server,name:hr_attendance_management.action_recompute_result
@@ -264,7 +264,7 @@ msgstr "Résultats"
 #. module: hr_attendance_management
 #: field:hr.attendance.computation,state:0
 msgid "State"
-msgstr "State"
+msgstr "Etat"
 
 #. module: hr_attendance_management
 #: model:ir.model,name:hr_attendance_management.model_resource_calendar_attendance

@@ -1,12 +1,7 @@
 # -*- coding: utf-8 -*-
-##############################################################################
-#
-#    Copyright (C) 2018 Compassion CH (http://www.compassion.ch)
-#    @author: Samuel Fringeli <samuel.fringeli@me.com>
-#
-#    The licence is in the file __manifest__.py
-#
-##############################################################################
+
+# Copyright (C) 2018 Compassion CH
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from odoo import models, fields, api
 
@@ -29,7 +24,7 @@ class HrChangeDayRequest(models.Model):
     forced1 = fields.Float('Hours 1', related='day1_id.forced_due_hours')
     forced2 = fields.Float('Hours 2', related='day2_id.forced_due_hours')
 
-    forced = fields.Char('Hours changed', compute='_compute_hours')
+    forced = fields.Char('Hours changed', compute='_compute_forced')
 
     @api.model
     def create(self, vals):
@@ -78,14 +73,14 @@ class HrChangeDayRequest(models.Model):
 
     @api.multi
     def unlink(self):
-        for request in self:
-            request.day1_id.unlink()
-            request.day2_id.unlink()
+        self.mapped('day1_id').unlink()
+        self.mapped('day2_id').unlink()
 
-        super(HrChangeDayRequest, self).unlink()
+        return super(HrChangeDayRequest, self).unlink()
 
     @api.multi
-    def _compute_hours(self):
+    @api.depends('forced1', 'forced2')
+    def _compute_forced(self):
         for h in self:
             h.forced = h.forced2 if h.forced != 0 else h.forced1
 

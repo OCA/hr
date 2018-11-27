@@ -1,12 +1,7 @@
 # -*- coding: utf-8 -*-
-##############################################################################
-#
-#    Copyright (C) 2018 Compassion CH (http://www.compassion.ch)
-#    @author: Eicher Stephane <seicher@compassion.ch>
-#
-#    The licence is in the file __manifest__.py
-#
-##############################################################################
+
+# Copyright (C) 2018 Compassion CH
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 import datetime
 
@@ -42,9 +37,23 @@ class HrEmployee(models.Model):
 
     today_hour_formatted = fields.Char(compute='_compute_today_hour_formatted')
 
+    work_location_id = fields.Many2one('hr.attendance.location',
+                                       string='Work Location')
+
+    work_location = fields.Char(compute='_compute_work_location')
+
     ##########################################################################
     #                             FIELDS METHODS                             #
     ##########################################################################
+
+    @api.multi
+    def _compute_work_location(self):
+        for employee in self:
+            actual_location = self.env['hr.attendance'].search([
+                ('employee_id', '=', employee.id),
+                ('check_out', '=', False)], limit=1)
+
+            employee.work_location = actual_location.location_id.name
 
     @api.multi
     @api.depends('attendance_days_ids.extra_hours', 'annual_balance')
@@ -83,6 +92,8 @@ class HrEmployee(models.Model):
             # recreated
             att_days = att_day.search(
                 [('date', '=', today), ('employee_id', '=', employee.id)])
+            if att_days:
+                continue
 
             # check that the employee is currently employed.
             contracts_valid_today = self.env['hr.contract'].search([
@@ -126,17 +137,20 @@ class HrEmployee(models.Model):
     @api.depends('today_hour')
     def _compute_extra_hours_today(self):
         for employee in self:
-            employee.extra_hours_today = \
-                '-' if float(employee.today_hour) < 0 else ''
-            employee.extra_hours_today += employee. \
-                convert_hour_to_time(employee.today_hour)
+            extra_hours_today = '-' if float(employee.today_hour) < 0 else ''
+            extra_hours_today += employee.convert_hour_to_time(
+                employee.today_hour)
+            employee.extra_hours_today = extra_hours_today
 
     @api.multi
     def _compute_time_warning_balance(self):
+        max_extra_hours = float(self.env['ir.config_parameter'].get_param(
+            'hr_attendance_management.max_extra_hours', False))
         for employee in self:
             if employee.extra_hours < 0:
                 employee.time_warning_balance = 'red'
-            elif employee.extra_hours >= 19:
+            elif max_extra_hours and \
+                    employee.extra_hours >= max_extra_hours * 2 / 3:
                 employee.time_warning_balance = 'orange'
             else:
                 employee.time_warning_balance = 'green'
@@ -155,21 +169,21 @@ class HrEmployee(models.Model):
                 ('employee_id', '=', employee.id),
                 ('date', '=', fields.Date.today())])
             employee.today_hour = \
-                employee.compute_today_hour() - current_att_day.due_hours
+                employee.calc_today_hour() - current_att_day.due_hours
 
     @api.multi
     def _compute_formatted_hours(self):
         for employee in self:
-            employee.extra_hours_formatted = \
-                '-' if employee.extra_hours < 0 else ''
-            employee.extra_hours_formatted += \
-                employee.convert_hour_to_time(abs(employee.extra_hours))
+            extra_hours_formatted = '-' if employee.extra_hours < 0 else ''
+            extra_hours_formatted += employee.convert_hour_to_time(
+                abs(employee.extra_hours))
+            employee.extra_hours_formatted = extra_hours_formatted
 
     @api.multi
     @api.depends('today_hour')
     def _compute_today_hour_formatted(self):
         for employee in self:
-            today_hour = employee.compute_today_hour()
+            today_hour = employee.calc_today_hour()
             thf = '-' if today_hour < 0 else ''
             thf += employee.convert_hour_to_time(float(today_hour))
             employee.today_hour_formatted = thf
@@ -179,7 +193,7 @@ class HrEmployee(models.Model):
         return '{:02d}:{:02d}'.format(*divmod(int(abs(float(hour) * 60)), 60))
 
     @api.multi
-    def compute_today_hour(self):
+    def calc_today_hour(self):
         self.ensure_one()
 
         today = fields.Date.today()

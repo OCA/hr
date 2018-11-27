@@ -14,6 +14,7 @@
                    position="after">
                 <field name="free_break" widget="float_time"/>
                 <field name="max_extra_hours" widget="float_time"/>
+                <field name="hours_week" widget="float_time"/>
             </field>
         </field>
     </record>
@@ -112,6 +113,14 @@
     </record>
 
     <!-- Menu -->
+    <record id="action_hr_attendance_settings" model="ir.actions.act_window">
+        <field name="name">Attendance Settings</field>
+        <field name="res_model">base.config.settings</field>
+        <field name="view_mode">form</field>
+        <field name="target">inline</field>
+        <field name="view_id" ref="hr_attendance_view_config"/>
+    </record>
+
     <record id="action_hr_attendance_rules"
             model="ir.actions.act_window">
         <field name="name">Breaks</field>
@@ -138,32 +147,28 @@
         <field name="target">new</field>
     </record>
 
-    <menuitem id="menu_hr_attendance_configuration"
-              name="Configuration"
-              parent="hr_attendance.menu_hr_attendance_root"
-              sequence="99"
-              groups="hr_attendance.group_hr_attendance_manager"/>
-
-    <menuitem id="menu_hr_attendance_settings"
+    <menuitem id="hr_attendance.menu_hr_attendance_general_settings"
               name="Attendance Settings"
-              parent="menu_hr_attendance_configuration"
-              sequence="1"/>
+              parent="hr_attendance.menu_hr_attendance_settings"
+              sequence="1"
+              action="action_hr_attendance_settings"/>
 
     <menuitem id="menu_hr_attendance_rules"
               name="Break rules"
-              parent="menu_hr_attendance_configuration"
+              parent="hr_attendance.menu_hr_attendance_settings"
               sequence="2"
               action="action_hr_attendance_rules"/>
 
     <menuitem id="menu_hr_weekday_coefficient"
               name="Coefficient"
-              parent="menu_hr_attendance_configuration"
+              parent="hr_attendance.menu_hr_attendance_settings"
               sequence="3"
               action="action_hr_weekday_coefficient"/>
 
     <menuitem id="menu_attendance_day_creation"
               name="Create attendance days"
-              action="action_create_attendance_day"
-              parent="menu_hr_attendance_configuration"/>
+              parent="hr_attendance.menu_hr_attendance_settings"
+              sequence="4"
+              action="action_create_attendance_day"/>
 
 </odoo>

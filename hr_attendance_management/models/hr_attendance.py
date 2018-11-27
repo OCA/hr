@@ -1,13 +1,6 @@
 # -*- coding: utf-8 -*-
-##############################################################################
-#
-#    Copyright (C) 2018 Compassion CH (http://www.compassion.ch)
-#    @author: Eicher Stephane <seicher@compassion.ch>
-#    @author: Emanuel Cino <ecino@compassion.ch>
-#
-#    The licence is in the file __manifest__.py
-#
-##############################################################################
+# Copyright (C) 2018 Compassion CH
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 from odoo import models, fields, api
 
 
@@ -21,11 +14,47 @@ class HrAttendance(models.Model):
                                         string='Attendance day',
                                         readonly=True)
 
-    due_hours = fields.Float(related='attendance_day_id.due_hours')
+    date = fields.Date('Date', compute='_compute_date', store=True)
+    due_hours = fields.Float(related='attendance_day_id.due_hours',
+                             readonly=True)
     total_attendance = fields.Float(
-        related='attendance_day_id.total_attendance')
+        related='attendance_day_id.total_attendance', readonly=True)
     has_change_day_request = fields.Boolean(
-        related='attendance_day_id.has_change_day_request')
+        related='attendance_day_id.has_change_day_request', readonly=True)
+    location_id = fields.Many2one('hr.attendance.location', 'Location')
+
+    # Link the resource.calendar to the attendance thus we keep a trace of
+    # due_hours
+    working_schedule_id = fields.Many2one('resource.calendar', readonly=True,
+                                          string='Working schedule')
+
+    ##########################################################################
+    #                             VIEW CALLBACKS                             #
+    ##########################################################################
+    @api.multi
+    def open_attendance(self):
+        """ Used to bypass opening a attendance in popup mode from
+        hr_attendance_day view. """
+        self.ensure_one()
+        return {
+            'type': 'ir.actions.act_window',
+            'name': 'Contract',
+            'view_type': 'form',
+            'view_mode': 'form',
+            'res_model': self._name,
+            'res_id': self.id,
+            'target': 'current',
+        }
+
+    ##########################################################################
+    #                             FIELDS METHODS                             #
+    ##########################################################################
+    @api.multi
+    @api.depends('check_in')
+    def _compute_date(self):
+        for attendance in self.filtered('check_in'):
+            date = fields.Date.from_string(attendance.check_in)
+            attendance.date = fields.Date.to_string(date)
 
     ##########################################################################
     #                               ORM METHODS                              #
@@ -35,7 +64,10 @@ class HrAttendance(models.Model):
         """ If the corresponding attendance day doesn't exist a new one is
         created"""
         new_record = super(HrAttendance, self).create(vals)
-        new_record.attendance_day_id = new_record._find_related_day()
+        att_day = new_record._find_related_day()
+        new_record.attendance_day_id = att_day
+        new_record.working_schedule_id = att_day.working_schedule_id
+        att_day.compute_breaks()
         return new_record
 
     @api.multi
@@ -62,24 +94,6 @@ class HrAttendance(models.Model):
 
         return res
 
-    ##########################################################################
-    #                             VIEW CALLBACKS                             #
-    ##########################################################################
-    @api.multi
-    def open_attendance(self):
-        """ Used to bypass opening a attendance in popup mode from
-        hr_attendance_day view. """
-        self.ensure_one()
-        return {
-            'type': 'ir.actions.act_window',
-            'name': 'Contract',
-            'view_type': 'form',
-            'view_mode': 'form',
-            'res_model': self._name,
-            'res_id': self.id,
-            'target': 'current',
-        }
-
     def _find_related_day(self):
         """
         Finds the existing attendance day or create one if it doesn't exist
@@ -88,7 +102,7 @@ class HrAttendance(models.Model):
         """
         attendance_days = self.env['hr.attendance.day']
         for attendance in self:
-            date = attendance.check_in[:10]
+            date = fields.Date.from_string(attendance.check_in)
             employee_id = attendance.employee_id.id
             attendance_day = self.env['hr.attendance.day'].search([
                 ('employee_id', '=', employee_id),
@@ -97,7 +111,7 @@ class HrAttendance(models.Model):
             if not attendance_day:
                 attendance_day = self.env['hr.attendance.day'].create({
                     'employee_id': employee_id,
-                    'date': date
+                    'date': fields.Date.to_string(date)
                 })
             else:
                 # A modified attendance should update related breaks

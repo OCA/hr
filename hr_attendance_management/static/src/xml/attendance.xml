@@ -6,6 +6,20 @@
             <h3 t-attf-style="color:{{ widget.employee.time_warning_balance }};">Total balance: <span id="total_balance"><t t-esc="widget.employee.extra_hours_formatted"/></span></h3>
             <h3>Worked today: <span id="worked_today"><t t-esc="widget.employee.today_hour_formatted"/></span></h3>
             <h3 t-attf-style="color:{{ widget.employee.time_warning_today }};">Balance today: <span id="balance_today"><t t-esc="widget.employee.extra_hours_today"/></span></h3>
+            <h3 t-if="widget.employee.attendance_state=='checked_out'">Work Location:
+               <span>
+                <select id="location" required="True" class="form-control">
+                    <t t-foreach="widget.hr_location" t-as="location">
+                        <t t-if="location.id == widget.employee.work_location_id[0]">
+                            <option t-att-value="location.id" t-att-selected="1"><t t-esc="location.name"/></option>
+                        </t>
+                        <t t-else="">
+                            <option t-att-value="location.id"><t t-esc="location.name"/></option>
+                        </t>
+                    </t>
+                </select>
+               </span>
+            </h3>
             <h3 id="message_check_in"><t t-esc="widget.employee.time_warning"/></h3>
             <div style="display: none">
                 <span id="moment_pl">date</span>
@@ -21,5 +35,6 @@
                 </t>
             </div>
         </t>
+
     </t>
 </templates>

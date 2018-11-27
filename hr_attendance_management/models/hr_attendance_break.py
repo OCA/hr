@@ -1,13 +1,6 @@
 # -*- coding: utf-8 -*-
-##############################################################################
-#
-#    Copyright (C) 2018 Compassion CH (http://www.compassion.ch)
-#    @author: Stephane Eicher <seicher@compassion.ch>
-#    @author: Emanuel Cino <ecino@compassion.ch>
-#
-#    The licence is in the file __manifest__.py
-#
-##############################################################################
+# Copyright (C) 2018 Compassion CH
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 from odoo import models, fields, api
 
 
@@ -45,6 +38,7 @@ class HrAttendanceBreak(models.Model):
     ##########################################################################
     #                             FIELDS METHODS                             #
     ##########################################################################
+    @api.depends('start', 'stop')
     @api.multi
     def _compute_name(self):
         for rd in self:
@@ -53,18 +47,17 @@ class HrAttendanceBreak(models.Model):
             elif not rd.start:
                 rd.name = 'Created by the system'
             else:
-                start = fields.Datetime.from_string(rd.start)
+                # Insert the beginning/end time of the break in is name
                 start = fields.Datetime.context_timestamp(
-                    rd.employee_id, start)
-                start = fields.Datetime.to_string(start)[-8:]
-                stop = fields.Datetime.from_string(rd.stop)
+                    rd.employee_id, fields.Datetime.from_string(rd.start))
+                start = start.strftime('%H:%M')
                 stop = fields.Datetime.context_timestamp(
-                    rd.employee_id, stop)
-                stop = fields.Datetime.to_string(stop)[-8:]
-                rd.name = start + ' - ' + stop
+                    rd.employee_id, fields.Datetime.from_string(rd.stop))
+                rd.name = start.strftime('%H:%M') + ' - ' + stop.strftime(
+                    '%H:%M')
 
     @api.multi
-    @api.depends('previous_attendance', )
+    @api.depends('previous_attendance')
     def _compute_start_stop(self):
         for rd in self:
             rd.start = rd.previous_attendance.check_out
@@ -89,6 +82,7 @@ class HrAttendanceBreak(models.Model):
             rd.total_duration = rd.original_duration + rd.additional_duration
 
     @api.multi
+    @api.depends('additional_duration')
     def _compute_system_modified(self):
         for rd in self:
-            rd.system_modified = rd.additional_duration
+            rd.system_modified = bool(rd.additional_duration)
