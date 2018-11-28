@@ -3,7 +3,7 @@
 
 {
     'name': 'Employee Phone Extension',
-    'version': '11.0.1.0.0',
+    'version': '12.0.1.0.0',
     'category': 'Human Resources',
     'author': "Savoir-faire Linux,Odoo Community Association (OCA)",
     'website': "https://github.com/oca/hr",
@@ -13,5 +13,4 @@
         'views/hr_employee_view.xml',
     ],
     'installable': True,
-    'auto_install': False,
 }
