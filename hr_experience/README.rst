@@ -67,7 +67,7 @@ or you can:
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
-   :target: https://runbot.odoo-community.org/runbot/116/11.0
+   :target: https://runbot.odoo-community.org/runbot/116/12.0
 
 Known issues / Roadmap
 ======================
@@ -95,6 +95,7 @@ Contributors
 * El Hadji DEM <elhaji.dem@savoirfairelinux.com>
 * Andhitia Rama <andhitia.r@gmail.com>
 * David Dufresne <david.dufresne@numigi.com>
+* Anand Kansagra <kansagraanand@hotmail.com>
 
 Maintainer
 ----------
