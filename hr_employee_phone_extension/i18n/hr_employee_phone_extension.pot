@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 11.0\n"
+"Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
@@ -19,22 +19,22 @@ msgid "Employee"
 msgstr ""
 
 #. module: hr_employee_phone_extension
-#: model:ir.model.fields,field_description:hr_employee_phone_extension.field_hr_employee_internal_number
+#: model:ir.model.fields,field_description:hr_employee_phone_extension.field_hr_employee__internal_number
 msgid "Internal Number"
 msgstr ""
 
 #. module: hr_employee_phone_extension
-#: model:ir.model.fields,help:hr_employee_phone_extension.field_hr_employee_internal_number
+#: model:ir.model.fields,help:hr_employee_phone_extension.field_hr_employee__internal_number
 msgid "Internal phone number."
 msgstr ""
 
 #. module: hr_employee_phone_extension
-#: model:ir.model.fields,field_description:hr_employee_phone_extension.field_hr_employee_short_number
+#: model:ir.model.fields,field_description:hr_employee_phone_extension.field_hr_employee__short_number
 msgid "Short Number"
 msgstr ""
 
 #. module: hr_employee_phone_extension
-#: model:ir.model.fields,help:hr_employee_phone_extension.field_hr_employee_short_number
+#: model:ir.model.fields,help:hr_employee_phone_extension.field_hr_employee__short_number
 msgid "Short phone number."
 msgstr ""
 
