@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <!-- Add a menu to Human Resources to keep the curriculum. -->
-    <menuitem id="menu_hr_experience" parent="hr.menu_hr_root" name="Experiences" sequence="95"/>
-
     <!-- inheritEmployee -->
     <record id="view_employee_form_inherit" model="ir.ui.view">
         <field name="name">hr.experience.employee.form</field>
@@ -108,5 +105,8 @@
             </notebook>
         </field>
     </record>
+
+    <!-- Add a menu to Human Resources to keep the curriculum. -->
+    <menuitem id="menu_hr_experience" parent="hr.menu_hr_root" name="Experiences" sequence="95"/>
 
 </odoo>

@@ -3,7 +3,7 @@
 
 {
     "name": "Experience Management",
-    "version": "11.0.1.0.1",
+    "version": "12.0.1.0.0",
     "author": "Savoir-faire Linux,"
               "OpenSynergy Indonesia,"
               "Numigi,"
@@ -13,8 +13,8 @@
     "category": "Human Resources",
     "depends": ["hr"],
     "data": [
-        "security/ir.model.access.csv",
         "security/hr_security.xml",
+        "security/ir.model.access.csv",
         "views/hr_employee_view.xml",
         "views/hr_academic_view.xml",
         "views/hr_professional_view.xml",

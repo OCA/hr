@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 11.0\n"
+"Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
@@ -46,7 +46,7 @@ msgstr ""
 #. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_employee_academic_ids
 #: model:ir.model.fields,help:hr_experience.field_hr_employee_academic_ids
-msgid "Academic experiences"
+msgid "Academic Experiences"
 msgstr ""
 
 #. module: hr_experience
@@ -179,7 +179,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_experience.field_hr_certification_end_date
 #: model:ir.model.fields,field_description:hr_experience.field_hr_curriculum_end_date
 #: model:ir.model.fields,field_description:hr_experience.field_hr_experience_end_date
-msgid "End date"
+msgid "End Date"
 msgstr ""
 
 #. module: hr_experience
@@ -201,7 +201,7 @@ msgstr ""
 
 #. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_academic_study_field
-msgid "Field of study"
+msgid "Field of Study"
 msgstr ""
 
 #. module: hr_experience
@@ -339,7 +339,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_experience.field_hr_certification_start_date
 #: model:ir.model.fields,field_description:hr_experience.field_hr_curriculum_start_date
 #: model:ir.model.fields,field_description:hr_experience.field_hr_experience_start_date
-msgid "Start date"
+msgid "Start Date"
 msgstr ""
 
 #. module: hr_experience

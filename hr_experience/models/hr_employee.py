@@ -5,12 +5,14 @@ from odoo import models, fields
 
 
 class HrEmployee(models.Model):
+    """Added academic, certification and experience details for employee."""
+
     _inherit = 'hr.employee'
 
     academic_ids = fields.One2many('hr.academic',
                                    'employee_id',
-                                   'Academic experiences',
-                                   help="Academic experiences")
+                                   'Academic Experiences',
+                                   help="Academic Experiences")
     certification_ids = fields.One2many('hr.certification',
                                         'employee_id',
                                         'Certifications',
