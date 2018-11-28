@@ -5,6 +5,8 @@ from odoo import models, fields
 
 
 class HrCurriculum(models.Model):
+    """Added the details of the curriculum."""
+
     _name = 'hr.curriculum'
     _description = "Employee's Curriculum"
 
@@ -12,8 +14,8 @@ class HrCurriculum(models.Model):
     employee_id = fields.Many2one('hr.employee',
                                   string='Employee',
                                   required=True)
-    start_date = fields.Date('Start date')
-    end_date = fields.Date('End date')
+    start_date = fields.Date('Start Date')
+    end_date = fields.Date('End Date')
     description = fields.Text('Description')
     partner_id = fields.Many2one('res.partner',
                                  'Partner',
