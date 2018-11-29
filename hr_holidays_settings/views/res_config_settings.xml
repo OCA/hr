@@ -10,9 +10,7 @@
                      data-string="Leaves management" string="Leaves Management"
                      data-key="hr_holidays" groups="hr.group_hr_manager">
                     <h2>Leaves Management</h2>
-                    <div class="row mt16 o_settings_container" title="Leaves Management">
-
-                    </div>
+                    <div class="row mt16 o_settings_container" title="Leaves Management"/>
                 </div>
             </xpath>
         </field>
