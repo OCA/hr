@@ -15,7 +15,7 @@ class HrEmployee(models.Model):
 
     identification_id = fields.Char(
         string='Identification No',
-        copy=False
+        copy=False, groups="base.group_user"
     )
 
     _sql_constraints = [
