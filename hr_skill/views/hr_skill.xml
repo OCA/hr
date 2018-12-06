@@ -6,8 +6,7 @@
         <field name="field_parent">child_ids</field>
         <field name="arch" type="xml">
             <tree string="Skills">
-                <field name="display_name" string="Name"/>
-                <field name="employee_ids" widget="many2many_tags"/>
+                <field name="display_name"/>
             </tree>
         </field>
     </record>
@@ -22,7 +21,7 @@
                     <field name="active"/>
                     <field name="parent_id"/>
                 </group>
-                <field name="child_ids" string="Name">
+                <field name="child_ids">
                     <tree editable="bottom"  string="Child Skills">
                         <field name="name"/>
                     </tree>

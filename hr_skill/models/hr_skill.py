@@ -18,12 +18,9 @@ class Skill(models.Model):
     child_ids = fields.One2many(comodel_name='hr.skill',
                                 inverse_name='parent_id',
                                 string='Children')
-    employee_ids = fields.Many2many(
-        comodel_name='hr.employee',
-        relation='skill_employee_rel',
-        column1='skill_id',
-        column2='employee_id',
-        string='Employee(s)')
+    employee_skill_ids = fields.One2many('hr.employee.skill',
+                                         'skill_id',
+                                         string='Employees')
 
     @api.multi
     def name_get(self):
