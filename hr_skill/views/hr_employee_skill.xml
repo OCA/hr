@@ -1,0 +1,74 @@
+<odoo>
+  
+    <record id="view_hr_employee_skill_form" model="ir.ui.view">
+        <field name="name">hr.employee.skill.form</field>
+        <field name="model">hr.employee.skill</field>
+        <field name="arch" type="xml">
+            <form string="Employee Skill">
+                <group>
+                    <group>
+                        <field name="employee_id"/>
+                        <field name="skill_id"/>
+                        <field name="level"/>
+                    </group>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_hr_employee_skill_tree" model="ir.ui.view">
+        <field name="name">hr.employee.skill.tree</field>
+        <field name="model">hr.employee.skill</field>
+        <field name="arch" type="xml">
+            <tree string="Employee Skills">
+                <field name="employee_id"/>
+                <field name="skill_id"/>
+                <field name="level"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Reporting -->
+    <record id="view_hr_employee_skill_graph" model="ir.ui.view">
+        <field name="name">hr.employee.skill.graph</field>
+        <field name="model">hr.employee.skill</field>
+        <field name="arch" type="xml">
+            <graph string="Employee Skills" type="bar">
+                <field name="employee_id" type="row"/>
+                <field name="skill_id" type="row"/>
+                <field name="level" type="row"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="view_hr_employee_skill_pivot" model="ir.ui.view">
+        <field name="name">hr.employee.skill.pivot</field>
+        <field name="model">hr.employee.skill</field>
+        <field name="arch" type="xml">
+            <pivot string="Employee Skills" display_quantity="true">
+                <field name="employee_id" type="row"/>
+                <field name="skill_id" type="row"/>
+                <field name="level" type="row"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="action_hr_employee_skill_report" model="ir.actions.act_window">
+        <field name="name">Employee Skills</field>
+        <field name="res_model">hr.employee.skill</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">graph,pivot</field>
+        <field name="help" type="html">
+            <p>
+                Skills Reports.
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_hr_employee_skill_reporting"
+              name="Employee Skills"
+              action="action_hr_employee_skill_report"
+              parent="hr.menu_hr_reporting_timesheet"
+              sequence="80"/>
+
+</odoo>
