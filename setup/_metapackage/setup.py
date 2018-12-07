@@ -15,6 +15,7 @@ setuptools.setup(
         'odoo12-addon-hr_employee_relative',
         'odoo12-addon-hr_employee_service',
         'odoo12-addon-hr_employee_service_contract',
+        'odoo12-addon-hr_employee_social_media',
         'odoo12-addon-hr_employee_ssn',
     ],
     classifiers=[
