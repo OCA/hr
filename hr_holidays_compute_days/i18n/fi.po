@@ -19,14 +19,29 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: hr_holidays_compute_days
+#: model:ir.model.fields,field_description:hr_holidays_compute_days.field_hr_holidays_number_of_days_temp_related
+msgid "Allocation"
+msgstr ""
+
+#. module: hr_holidays_compute_days
+#: model:ir.model.fields,field_description:hr_holidays_compute_days.field_hr_holidays_status_compute_full_days
+msgid "Compute Full Days"
+msgstr ""
+
+#. module: hr_holidays_compute_days
+#: model:ir.model.fields,field_description:hr_holidays_compute_days.field_hr_holidays_date_from_full
+msgid "Date From Full"
+msgstr ""
+
+#. module: hr_holidays_compute_days
+#: model:ir.model.fields,field_description:hr_holidays_compute_days.field_hr_holidays_date_to_full
+msgid "Date To Full"
+msgstr ""
+
+#. module: hr_holidays_compute_days
 #: model:ir.model,name:hr_holidays_compute_days.model_hr_employee
 msgid "Employee"
 msgstr "Työntekijä"
-
-#. module: hr_holidays_compute_days
-#: model:ir.model.fields,field_description:hr_holidays_compute_days.field_hr_holidays_status_exclude_public_holidays
-msgid "Exclude Public Holidays"
-msgstr ""
 
 #. module: hr_holidays_compute_days
 #: model:ir.model.fields,field_description:hr_holidays_compute_days.field_hr_holidays_status_exclude_rest_days
@@ -34,14 +49,26 @@ msgid "Exclude Rest Days"
 msgstr ""
 
 #. module: hr_holidays_compute_days
-#: model:ir.model.fields,help:hr_holidays_compute_days.field_hr_holidays_status_exclude_public_holidays
-msgid "If enabled, public holidays are skipped in leave days calculation."
+#: model:ir.model.fields,field_description:hr_holidays_compute_days.field_hr_holidays_from_full_day
+msgid "From Full Day"
+msgstr ""
+
+#. module: hr_holidays_compute_days
+#: model:ir.ui.view,arch_db:hr_holidays_compute_days.edit_holiday_new
+msgid "Full day"
 msgstr ""
 
 #. module: hr_holidays_compute_days
 #: model:ir.model.fields,help:hr_holidays_compute_days.field_hr_holidays_status_exclude_rest_days
 msgid ""
 "If enabled, the employee's day off is skipped in leave days calculation."
+msgstr ""
+
+#. module: hr_holidays_compute_days
+#: model:ir.model.fields,help:hr_holidays_compute_days.field_hr_holidays_status_compute_full_days
+msgid ""
+"If enabled, the number of days computed will be always for the full days in "
+"the interval"
 msgstr ""
 
 #. module: hr_holidays_compute_days
@@ -55,17 +82,16 @@ msgid "Leave Type"
 msgstr ""
 
 #. module: hr_holidays_compute_days
-#: code:addons/hr_holidays_compute_days/models/hr_holidays.py:46
-#: code:addons/hr_holidays_compute_days/models/hr_holidays.py:67
-#, python-format
-msgid ""
-"You cannot schedule the end date on a public holiday or employee's rest day"
+#: model:ir.model.fields,help:hr_holidays_compute_days.field_hr_holidays_number_of_days_temp_related
+msgid "Number of days of the leave request according to your working schedule."
 msgstr ""
 
 #. module: hr_holidays_compute_days
-#: code:addons/hr_holidays_compute_days/models/hr_holidays.py:42
-#: code:addons/hr_holidays_compute_days/models/hr_holidays.py:56
-#, python-format
-msgid ""
-"You cannot schedule the start date on a public holiday or employee's rest day"
+#: model:ir.model,name:hr_holidays_compute_days.model_resource_calendar
+msgid "Resource Calendar"
+msgstr ""
+
+#. module: hr_holidays_compute_days
+#: model:ir.model.fields,field_description:hr_holidays_compute_days.field_hr_holidays_to_full_day
+msgid "To Full Day"
 msgstr ""
