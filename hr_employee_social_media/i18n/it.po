@@ -20,93 +20,100 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: hr_employee_social_media
-#: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_account_account_name
+#: code:addons/hr_employee_social_media/models/hr_social_media.py:47
+#, python-format
+msgid "%s (%s)"
+msgstr ""
+
+#. module: hr_employee_social_media
+#: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_account__account_name
 msgid "Account"
 msgstr ""
 
 #. module: hr_employee_social_media
-#: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_account_create_uid
-#: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_create_uid
+#: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media__create_uid
+#: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_account__create_uid
 msgid "Created by"
 msgstr "Creato da"
 
 #. module: hr_employee_social_media
-#: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_account_create_date
-#: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_create_date
+#: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media__create_date
+#: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_account__create_date
 msgid "Created on"
 msgstr "Creato il"
 
 #. module: hr_employee_social_media
-#: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_account_display_name
-#: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_display_name
+#: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media__display_name
+#: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_account__display_name
 msgid "Display Name"
 msgstr "Nome visualizzato"
 
 #. module: hr_employee_social_media
 #: model:ir.model,name:hr_employee_social_media.model_hr_employee
-#: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_account_employee_id
+#: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_account__employee_id
 msgid "Employee"
 msgstr "Dipendente"
 
 #. module: hr_employee_social_media
-#: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_account_id
-#: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_id
+#: model:ir.model,name:hr_employee_social_media.model_hr_social_media_account
+msgid "HR Employee Social Media Account"
+msgstr ""
+
+#. module: hr_employee_social_media
+#: model:ir.model,name:hr_employee_social_media.model_hr_social_media
+msgid "HR Social Media"
+msgstr ""
+
+#. module: hr_employee_social_media
+#: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media__id
+#: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_account__id
 msgid "ID"
 msgstr "ID"
 
 #. module: hr_employee_social_media
-#: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media___last_update
-#: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_account___last_update
+#: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media____last_update
+#: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_account____last_update
 msgid "Last Modified on"
 msgstr "Ultima modifica il "
 
 #. module: hr_employee_social_media
-#: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_account_write_uid
-#: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_write_uid
+#: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media__write_uid
+#: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_account__write_uid
 msgid "Last Updated by"
 msgstr "Ultimo aggiornamento di"
 
 #. module: hr_employee_social_media
-#: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_account_write_date
-#: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_write_date
+#: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media__write_date
+#: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_account__write_date
 msgid "Last Updated on"
 msgstr "Ultimo aggiornamento il"
 
 #. module: hr_employee_social_media
-#: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_name
+#: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media__name
+#: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_account__name
 msgid "Name"
 msgstr "Nome"
 
 #. module: hr_employee_social_media
-#: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_account_hr_social_media_id
-#: model:ir.ui.view,arch_db:hr_employee_social_media.hr_social_media_view_tree
+#: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_account__hr_social_media_id
+#: model_terms:ir.ui.view,arch_db:hr_employee_social_media.hr_social_media_view_tree
 msgid "Social Media"
 msgstr ""
 
 #. module: hr_employee_social_media
-#: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_employee_social_media_account_ids
-#: model:ir.ui.view,arch_db:hr_employee_social_media.view_employee_form_inherit_extension
+#: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_employee__social_media_account_ids
+#: model_terms:ir.ui.view,arch_db:hr_employee_social_media.view_employee_form_inherit_extension
 msgid "Social Media Accounts"
 msgstr ""
 
 #. module: hr_employee_social_media
 #: model:ir.actions.act_window,name:hr_employee_social_media.action_hr_social_media
 #: model:ir.ui.menu,name:hr_employee_social_media.hr_menu_social_media
-#: model:ir.ui.view,arch_db:hr_employee_social_media.hr_social_media_view_form
+#: model_terms:ir.ui.view,arch_db:hr_employee_social_media.hr_social_media_view_form
 msgid "Social Medias"
 msgstr ""
 
 #. module: hr_employee_social_media
-#: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_social_url
+#: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media__social_url
 msgid "Website"
-msgstr ""
-
-#. module: hr_employee_social_media
-#: model:ir.model,name:hr_employee_social_media.model_hr_social_media
-msgid "hr.social.media"
-msgstr ""
-
-#. module: hr_employee_social_media
-#: model:ir.model,name:hr_employee_social_media.model_hr_social_media_account
-msgid "hr.social.media.account"
 msgstr ""
