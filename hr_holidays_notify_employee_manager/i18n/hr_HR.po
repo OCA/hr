@@ -31,6 +31,7 @@ msgid "Leave"
 msgstr "Odsustvo"
 
 #. module: hr_holidays_notify_employee_manager
+#: model:ir.model.fields,field_description:hr_holidays_notify_employee_manager.field_hr_employeeid_config_settings_leave_notify_manager
 #: model:ir.model.fields,field_description:hr_holidays_notify_employee_manager.field_res_company_leave_notify_manager
 #: model:ir.model.fields,field_description:hr_holidays_notify_employee_manager.field_res_config_settings_leave_notify_manager
 msgid "Leave Requests notified to employee's manager"
@@ -44,6 +45,7 @@ msgid ""
 msgstr ""
 
 #. module: hr_holidays_notify_employee_manager
+#: model:ir.model.fields,help:hr_holidays_notify_employee_manager.field_hr_employeeid_config_settings_leave_notify_manager
 #: model:ir.model.fields,help:hr_holidays_notify_employee_manager.field_res_company_leave_notify_manager
 #: model:ir.model.fields,help:hr_holidays_notify_employee_manager.field_res_config_settings_leave_notify_manager
 msgid ""
