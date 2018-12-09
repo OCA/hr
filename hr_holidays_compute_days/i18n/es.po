@@ -31,12 +31,14 @@ msgstr "Calcular días completos"
 
 #. module: hr_holidays_compute_days
 #: model:ir.model.fields,field_description:hr_holidays_compute_days.field_hr_holidays_date_from_full
-msgid "Date from full"
+#, fuzzy
+msgid "Date From Full"
 msgstr "Fecha desde completa"
 
 #. module: hr_holidays_compute_days
 #: model:ir.model.fields,field_description:hr_holidays_compute_days.field_hr_holidays_date_to_full
-msgid "Date to full"
+#, fuzzy
+msgid "Date To Full"
 msgstr "Fecha hasta completa"
 
 #. module: hr_holidays_compute_days
@@ -45,18 +47,14 @@ msgid "Employee"
 msgstr "Empleado"
 
 #. module: hr_holidays_compute_days
-#: model:ir.model.fields,field_description:hr_holidays_compute_days.field_hr_holidays_status_exclude_public_holidays
-msgid "Exclude Public Holidays"
-msgstr "Excluir vacaciones públicas"
-
-#. module: hr_holidays_compute_days
 #: model:ir.model.fields,field_description:hr_holidays_compute_days.field_hr_holidays_status_exclude_rest_days
 msgid "Exclude Rest Days"
 msgstr "Excluir los días de descanso"
 
 #. module: hr_holidays_compute_days
 #: model:ir.model.fields,field_description:hr_holidays_compute_days.field_hr_holidays_from_full_day
-msgid "From full day"
+#, fuzzy
+msgid "From Full Day"
 msgstr "Día desde completo"
 
 #. module: hr_holidays_compute_days
@@ -65,19 +63,21 @@ msgid "Full day"
 msgstr "Día completo"
 
 #. module: hr_holidays_compute_days
-#: model:ir.model.fields,help:hr_holidays_compute_days.field_hr_holidays_status_exclude_public_holidays
-msgid "If enabled, public holidays are skipped in leave days calculation."
-msgstr "Si está habilitado, las vacaciones públicas serán saltadas en el cálculo de las ausencias."
-
-#. module: hr_holidays_compute_days
 #: model:ir.model.fields,help:hr_holidays_compute_days.field_hr_holidays_status_exclude_rest_days
-msgid "If enabled, the employee's day off is skipped in leave days calculation."
-msgstr "Si está habilitado, los días de descanso del empleado serán saltados en el cálculo de las ausencias."
+msgid ""
+"If enabled, the employee's day off is skipped in leave days calculation."
+msgstr ""
+"Si está habilitado, los días de descanso del empleado serán saltados en el "
+"cálculo de las ausencias."
 
 #. module: hr_holidays_compute_days
 #: model:ir.model.fields,help:hr_holidays_compute_days.field_hr_holidays_status_compute_full_days
-msgid "If enabled, the number of days computed will be always for the full days in the interval"
-msgstr "Si está habilitado, el número de días calculado será siempre para los días completos en el intervalo"
+msgid ""
+"If enabled, the number of days computed will be always for the full days in "
+"the interval"
+msgstr ""
+"Si está habilitado, el número de días calculado será siempre para los días "
+"completos en el intervalo"
 
 #. module: hr_holidays_compute_days
 #: model:ir.model,name:hr_holidays_compute_days.model_hr_holidays
@@ -90,21 +90,32 @@ msgid "Leave Type"
 msgstr "Tipo de ausencia"
 
 #. module: hr_holidays_compute_days
+#: model:ir.model.fields,help:hr_holidays_compute_days.field_hr_holidays_number_of_days_temp_related
+msgid "Number of days of the leave request according to your working schedule."
+msgstr ""
+
+#. module: hr_holidays_compute_days
 #: model:ir.model,name:hr_holidays_compute_days.model_resource_calendar
 msgid "Resource Calendar"
 msgstr "Calendario recurso"
 
 #. module: hr_holidays_compute_days
 #: model:ir.model.fields,field_description:hr_holidays_compute_days.field_hr_holidays_to_full_day
-msgid "To full day"
+#, fuzzy
+msgid "To Full Day"
 msgstr "Día hasta completo"
 
-#. module: hr_holidays_compute_days
-#: code:addons/hr_holidays_compute_days/models/hr_holidays.py:42
-#: code:addons/hr_holidays_compute_days/models/hr_holidays.py:56
-#, python-format
-msgid ""
-"You cannot schedule the start date on a public holiday or employee's rest day"
-msgstr ""
-"No puede programar la fecha de inicio en una vacación pública o un día de "
-"descanso del empleado."
+#~ msgid "Exclude Public Holidays"
+#~ msgstr "Excluir vacaciones públicas"
+
+#~ msgid "If enabled, public holidays are skipped in leave days calculation."
+#~ msgstr ""
+#~ "Si está habilitado, las vacaciones públicas serán saltadas en el cálculo "
+#~ "de las ausencias."
+
+#~ msgid ""
+#~ "You cannot schedule the start date on a public holiday or employee's rest "
+#~ "day"
+#~ msgstr ""
+#~ "No puede programar la fecha de inicio en una vacación pública o un día de "
+#~ "descanso del empleado."
