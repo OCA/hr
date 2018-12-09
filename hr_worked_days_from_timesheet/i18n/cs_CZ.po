@@ -20,7 +20,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #. module: hr_worked_days_from_timesheet
-#: code:addons/hr_worked_days_from_timesheet/models/hr_payslip.py:48
+#: code:addons/hr_worked_days_from_timesheet/models/hr_payslip.py:57
 #, python-format
 msgid "Contract is not defined for one or more payslips."
 msgstr "Smlouva není definována pro jednu nebo více výplatních pásků."
@@ -46,11 +46,11 @@ msgid "Payslip Worked Days"
 msgstr "Platební lístek Pracovní dny"
 
 #. module: hr_worked_days_from_timesheet
-#: code:addons/hr_worked_days_from_timesheet/models/hr_payslip.py:79
-#, python-format
+#: code:addons/hr_worked_days_from_timesheet/models/hr_payslip.py:72
+#, fuzzy, python-format
 msgid ""
-"Sorry, but there is no approved Timesheets for the                     "
-"entire Payslip period"
+"Sorry, but there is no approved Timesheets for the                 entire "
+"Payslip period for user %s"
 msgstr ""
 "Omlouváme se, ale žádné časové listy nejsou schváleny pro celou dobu výplat"
 
@@ -60,7 +60,7 @@ msgid "Timesheet"
 msgstr "Rozvrh hodin"
 
 #. module: hr_worked_days_from_timesheet
-#: code:addons/hr_worked_days_from_timesheet/models/hr_payslip.py:32
+#: code:addons/hr_worked_days_from_timesheet/models/hr_payslip.py:27
 #, python-format
 msgid "Timesheet %s"
 msgstr "Časový rozvrh %s"
