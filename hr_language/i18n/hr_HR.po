@@ -62,17 +62,17 @@ msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
-msgid "Chinese (CN) / 简体中文"
-msgstr ""
-
-#. module: hr_language
-#: selection:hr.language,name:0
 msgid "Chinese (HK)"
 msgstr ""
 
 #. module: hr_language
 #: selection:hr.language,name:0
-msgid "Chinese (TW) / 正體字"
+msgid "Chinese (Simplified) / 简体中文"
+msgstr ""
+
+#. module: hr_language
+#: selection:hr.language,name:0
+msgid "Chinese (Traditional) / 正體字"
 msgstr ""
 
 #. module: hr_language
