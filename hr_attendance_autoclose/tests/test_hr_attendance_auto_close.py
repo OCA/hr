@@ -33,4 +33,4 @@ class TestHrAttendanceReason(TransactionCase):
              'check_in': dt.strftime(DF),
              })
         self.att_model.check_for_incomplete_attendances()
-        self.assertEqual(att.open_worked_hours, 11.0, "Attendance not closed")
+        self.assertEqual(att.worked_hours, 11.0, "Attendance not closed")

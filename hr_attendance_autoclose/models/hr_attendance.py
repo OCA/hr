@@ -40,7 +40,7 @@ class HrAttendance(models.Model):
         for att in stale_attendances:
             max_hours = att.employee_id.company_id.\
                 attendance_maximum_hours_per_day
-            if max_hours:
+            if max_hours and att.open_worked_hours > max_hours:
                 leave_time = datetime.strptime(
                     att.check_in, DEFAULT_SERVER_DATETIME_FORMAT) + timedelta(
                     hours=max_hours)
