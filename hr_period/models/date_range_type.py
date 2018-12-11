@@ -10,5 +10,5 @@ class DateRangeType(models.Model):
 
     _inherit = 'date.range.type'
 
-    hr_period = fields.Boolean(string="Is HR period?", readonly=True)
-    hr_fiscal_year = fields.Boolean(string="Is HR Fiscal Year?", readonly=True)
+    hr_period = fields.Boolean(string="Is HR period?")
+    hr_fiscal_year = fields.Boolean(string="Is HR Fiscal Year?")
