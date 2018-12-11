@@ -15,9 +15,12 @@ class HrPeriod(models.Model):
     _order = 'date_start'
 
     @api.model
-    def _default_type(self):
+    def _default_type(self, company_id=False):
+        if not company_id:
+            company_id = self.env.user.company_id.id
         period_type = self.env['date.range.type'].search(
-            [('hr_period', '=', True)], limit=1)
+            [('hr_period', '=', True),
+             ('company_id', '=', company_id)], limit=1)
         return period_type
 
     name = fields.Char(
