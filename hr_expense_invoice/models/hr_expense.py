@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2015 Pedro M. Baeza <pedro.baeza@tecnativa.com>
 # Copyright 2017 Vicent Cubells <vicent.cubells@tecnativa.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
@@ -25,6 +24,7 @@ class HrExpense(models.Model):
         self.unit_amount = self.invoice_id.residual
         self.quantity = 1.0
         self.total_amount = self.unit_amount
+        self.description = self.invoice_id.reference
 
     def _check_vals(self, vals):
         if vals.get('invoice_id'):

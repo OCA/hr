@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2017 Vicent Cubells - <vicent.cubells@tecnativa.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
@@ -61,7 +60,7 @@ class TestHrExpenseInvoice(common.SavepointCase):
         self.assertEqual(self.sheet.state, 'approve')
         self.assertFalse(self.sheet.account_move_id)
         self.assertEqual(self.invoice.state, 'open')
-        # We posrt journal entries
+        # We post journal entries
         self.sheet.action_sheet_move_create()
         self.assertEqual(self.sheet.state, 'post')
         self.assertTrue(self.sheet.account_move_id)
