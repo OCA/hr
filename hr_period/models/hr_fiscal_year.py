@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2015 Savoir-faire Linux. All Rights Reserved.
 # Copyright 2017 Serpent Consulting Services Pvt. Ltd.
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
@@ -117,7 +116,7 @@ class HrFiscalYear(models.Model):
             ('4', 'Thursday'),
             ('5', 'Friday'),
             ('6', 'Saturday'),
-        ], 'Day of Payment',
+        ], 'Weekday of Payment',
         states={'draft': [('readonly', False)]}
     )
     payment_week = fields.Selection(
@@ -136,15 +135,15 @@ class HrFiscalYear(models.Model):
 
     @api.multi
     def _count_range_no(self):
-        days_range = abs((strptime(self.date_end, DF) -
-                          strptime(self.date_start, DF)).days) + 1
+        days_range = abs((strptime(str(self.date_end), DF) -
+                          strptime(str(self.date_start), DF)).days) + 1
         return INTERVALS[self.schedule_pay][1] * days_range / 365
 
     @api.multi
     @api.onchange('schedule_pay', 'date_start')
     def onchange_schedule(self):
         if self.schedule_pay and self.date_start:
-            year = datetime.strptime(self.date_start, DF).year
+            year = datetime.strptime(str(self.date_start), DF).year
             schedule_name = next((
                 s[1] for s in get_schedules(self)
                 if s[0] == self.schedule_pay), False)
@@ -208,9 +207,9 @@ class HrFiscalYear(models.Model):
                                 '''))
         if self.schedule_pay == 'semi-monthly':
             period_start = datetime.strptime(
-                self.date_start, DF)
+                str(self.date_start), DF)
             next_year_start = datetime.strptime(
-                self.date_end, DF) + relativedelta(days=1)
+                str(self.date_end), DF) + relativedelta(days=1)
             #  Case for semi-monthly schedules
             delta_1 = relativedelta(days=14)
             delta_2 = relativedelta(months=1)
@@ -229,8 +228,10 @@ class HrFiscalYear(models.Model):
             i = 0
             for period in self.get_ranges():
                 i += 1
-                period_start = strptime(period.get('date_start', False), DF)
-                period_end = strptime(period.get('date_end', False), DF)
+                period_start = strptime(
+                    str(period.get('date_start', False)), DF)
+                period_end = strptime(
+                    str(period.get('date_end', False)), DF)
                 self._create_single_period(
                     period_start, period_end, i)
         return True
