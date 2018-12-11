@@ -6,9 +6,9 @@
         <field name="model">hr.expense</field>
         <field name="inherit_id" ref="hr_expense.hr_expense_form_view"/>
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='product_id']" position="after">
+            <field name="product_id" position="after">
                 <field name="invoice_id" context="{'default_type': 'in_invoice', 'type': 'in_invoice', 'journal_type': 'purchase'}"/>
-            </xpath>
+            </field>
             <xpath expr="//field[@name='date']" position="attributes">
                 <attribute name="attrs">{'readonly': [('invoice_id', '!=', False)]}</attribute>
             </xpath>
