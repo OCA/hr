@@ -28,6 +28,10 @@ class PayslipCase(test_hr_fiscalyear.TestHrFiscalyear):
             'name': 'Employee 1',
         })
         self.company2 = self.env['res.company'].create({'name': 'Acme'})
+        self.type_fy2 = self.create_data_range_type(
+            'test_hr_fy', 'fy', self.company2)
+        self.type2 = self.create_data_range_type(
+            'test_hr_period', 'per', self.company2)
         # create Contract
 
         self.contract = self.create_contract(
@@ -74,7 +78,7 @@ class PayslipCase(test_hr_fiscalyear.TestHrFiscalyear):
         return data
 
     def test_payslip(self):
-        fy = self.create_fiscal_year()
+        fy = self.create_fiscal_year({'type_id': self.type_fy.id})
         fy.create_periods()
         periods = self.get_periods(fy)
         fy.button_confirm()
@@ -119,11 +123,12 @@ class PayslipCase(test_hr_fiscalyear.TestHrFiscalyear):
         self.assertEqual(fy.state, 'open')
 
     def test_payslip_batch_company(self):
-        fy = self.create_fiscal_year()
+        fy = self.create_fiscal_year({'type_id': self.type_fy.id})
         fy2 = self.create_fiscal_year(
             {'company_id': self.company2.id,
              'date_start': '2016-01-01',
              'date_end': '2016-12-31',
+             'type_id': self.type_fy2.id,
              })
         fy.create_periods()
         fy2.create_periods()
@@ -156,6 +161,7 @@ class PayslipCase(test_hr_fiscalyear.TestHrFiscalyear):
              'date_start': '2016-01-01',
              'date_end': '2016-12-31',
              'schedule_pay': 'monthly',
+             'type_id': self.type_fy.id,
              })
         fy.create_periods()
         fy2 = self.create_fiscal_year(
@@ -164,6 +170,7 @@ class PayslipCase(test_hr_fiscalyear.TestHrFiscalyear):
              'date_start': '2017-01-01',
              'date_end': '2017-12-31',
              'schedule_pay': 'quarterly',
+             'type_id': self.type_fy.id,
              })
         fy2.create_periods()
         periods = self.get_periods(fy)

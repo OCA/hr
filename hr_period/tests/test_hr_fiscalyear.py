@@ -21,7 +21,8 @@ class TestHrFiscalyear(common.TransactionCase):
         self.company = self.company_model.create({'name': 'Company 1'})
 
         self.today = datetime.now().date()
-        self.type = self.create_data_range_type('test_hr_period')
+        self.type_fy = self.create_data_range_type('test_hr_fy', 'fy')
+        self.type = self.create_data_range_type('test_hr_period', 'per')
         self.vals = {
             'company_id': self.company.id,
             'date_start': '2015-01-01',
@@ -34,11 +35,18 @@ class TestHrFiscalyear(common.TransactionCase):
             'name': 'Test',
         }
 
-    def create_data_range_type(self, name):
-        return self.data_range_type_model.create({
-            'name': name,
-            'active': True
-        })
+    def create_data_range_type(self, name, hr_type, company=False):
+        if not company:
+            company = self.company
+        vals = {'name': name,
+                'active': True,
+                'company_id': company.id,
+                }
+        if hr_type == 'per':
+            vals.update(hr_period=True)
+        else:
+            vals.update(hr_fiscal_year=True)
+        return self.data_range_type_model.create(vals)
 
     def create_fiscal_year(self, vals=None):
         if vals is None:
@@ -71,13 +79,17 @@ class TestHrFiscalyear(common.TransactionCase):
         fy = self.create_fiscal_year(
             {'date_start': '2015-01-01',
              'date_end': '2015-12-31',
+             'type_id': self.type_fy.id,
              })
         fy.schedule_pay = 'weekly'
         fy.onchange_schedule()
         self.assertEqual(fy.name, '2015 - Weekly (52)')
 
     def test_confirm_periods(self):
-        fy = self.create_fiscal_year()
+        fy = self.create_fiscal_year(
+            {'type_id': self.type_fy.id,
+             'company_id': self.company.id}
+        )
         with self.assertRaises(UserError):
             fy.button_confirm()
         fy.create_periods()
@@ -90,6 +102,7 @@ class TestHrFiscalyear(common.TransactionCase):
         fy = self.create_fiscal_year(
             {'date_start': '2015-01-01',
              'date_end': '2015-12-31',
+             'type_id': self.type_fy.id,
              })
         fy.create_periods()
         periods = self.get_periods(fy)
@@ -104,6 +117,7 @@ class TestHrFiscalyear(common.TransactionCase):
         fy = self.create_fiscal_year({
             'date_start': '2015-03-16',
             'date_end': '2016-03-15',
+            'type_id': self.type_fy.id,
         })
         fy.create_periods()
         periods = self.get_periods(fy)
@@ -119,6 +133,7 @@ class TestHrFiscalyear(common.TransactionCase):
             {'date_start': '2015-01-01',
              'date_end': '2015-12-31',
              'schedule_pay': 'semi-monthly',
+             'type_id': self.type_fy.id,
              })
         fy.create_periods()
         periods = self.get_periods(fy)
@@ -135,6 +150,7 @@ class TestHrFiscalyear(common.TransactionCase):
             'date_start': '2015-03-20',
             'date_end': '2016-03-19',
             'schedule_pay': 'semi-monthly',
+            'type_id': self.type_fy.id,
         })
         fy.create_periods()
         periods = self.get_periods(fy)
@@ -153,6 +169,7 @@ class TestHrFiscalyear(common.TransactionCase):
                 'schedule_pay': 'annually',
                 'date_start': '2015-12-31',
                 'date_end': '2015-01-01',
+                'type_id': self.type_fy.id,
             })
 
     def test_create_periods_annually(self):
@@ -160,6 +177,7 @@ class TestHrFiscalyear(common.TransactionCase):
             {'date_start': '2015-01-01',
              'date_end': '2015-12-31',
              'schedule_pay': 'annually',
+             'type_id': self.type_fy.id,
              })
         fy.create_periods()
         periods = self.get_periods(fy)
@@ -171,6 +189,7 @@ class TestHrFiscalyear(common.TransactionCase):
             {'date_start': '2015-01-01',
              'date_end': '2015-12-31',
              'schedule_pay': 'semi-annually',
+             'type_id': self.type_fy.id,
              })
         fy.create_periods()
         periods = self.get_periods(fy)
@@ -182,6 +201,7 @@ class TestHrFiscalyear(common.TransactionCase):
             'date_start': '2015-03-16',
             'date_end': '2016-03-15',
             'schedule_pay': 'annually',
+            'type_id': self.type_fy.id,
         })
         fy.create_periods()
         periods = self.get_periods(fy)
@@ -193,6 +213,7 @@ class TestHrFiscalyear(common.TransactionCase):
             {'date_start': '2015-01-01',
              'date_end': '2015-12-31',
              'schedule_pay': 'weekly',
+             'type_id': self.type_fy.id,
              })
         fy.create_periods()
         periods = self.get_periods(fy)
@@ -210,7 +231,7 @@ class TestHrFiscalyear(common.TransactionCase):
             'payment_week': '0',
             'date_start': '2015-01-01',
             'date_end': '2015-12-31',
-            'type_id': self.type.id
+            'type_id': self.type_fy.id
         })
         fy.create_periods()
         periods = self.get_periods(fy)
@@ -226,6 +247,7 @@ class TestHrFiscalyear(common.TransactionCase):
             'payment_week': '2',
             'date_start': '2015-01-01',
             'date_end': '2015-12-31',
+            'type_id': self.type_fy.id
         })
         fy.create_periods()
         periods = self.get_periods(fy)
@@ -240,6 +262,7 @@ class TestHrFiscalyear(common.TransactionCase):
             'payment_day': '5',
             'date_start': '2015-01-01',
             'date_end': '2015-12-31',
+            'type_id': self.type_fy.id
         })
         fy.create_periods()
         periods = self.get_periods(fy)
@@ -254,6 +277,7 @@ class TestHrFiscalyear(common.TransactionCase):
             'payment_day': '0',
             'date_start': '2015-01-01',
             'date_end': '2015-12-31',
+            'type_id': self.type_fy.id
         })
         fy.create_periods()
         periods = self.get_periods(fy)
@@ -268,6 +292,7 @@ class TestHrFiscalyear(common.TransactionCase):
             'payment_day': '5',
             'date_start': '2015-01-01',
             'date_end': '2015-12-31',
+            'type_id': self.type_fy.id
         })
         fy.create_periods()
         periods = self.get_periods(fy)
@@ -283,6 +308,7 @@ class TestHrFiscalyear(common.TransactionCase):
             'payment_day': '0',
             'date_start': '2015-03-20',
             'date_end': '2016-03-19',
+            'type_id': self.type_fy.id
         })
         fy.create_periods()
         periods = self.get_periods(fy)
