@@ -30,7 +30,7 @@ addon | version | summary
 [hr_employee_seniority](hr_employee_seniority/) | 10.0.1.0.2 | Keep Track of Length of Employment
 [hr_employee_social_media](hr_employee_social_media/) | 10.0.1.0.0 | Employee Social Media
 [hr_expense_analytic_distribution](hr_expense_analytic_distribution/) | 10.0.1.0.0 | Use analytic plans in expenses
-[hr_expense_invoice](hr_expense_invoice/) | 10.0.1.0.0 | Supplier invoices on HR expenses
+[hr_expense_invoice](hr_expense_invoice/) | 10.0.1.0.1 | Supplier invoices on HR expenses
 [hr_expense_sequence](hr_expense_sequence/) | 10.0.1.0.0 | HR expense sequence
 [hr_experience](hr_experience/) | 10.0.1.0.0 | Experience Management
 [hr_family](hr_family/) | 10.0.1.0.0 | Employee Family Information
