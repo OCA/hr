@@ -21,7 +21,7 @@
                         </group>
                         <group colspan="4" col="4">
                             <field name="schedule_pay"/>
-                            <field name="type_id"/>
+                            <field name="type_id" domain="[('hr_fiscal_year','=',True)]"/>
                             <newline/>
                             <field name="date_start"/>
                             <field name="date_end"/>
