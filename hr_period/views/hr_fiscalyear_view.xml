@@ -8,9 +8,9 @@
         <field name="arch" type="xml">
             <form string="Fiscal Year">
                 <header>
-                    <button name="create_periods" string="Create Periods" type="object" class="oe_highlight" states="draft"/>
+                    <button name="create_periods" string="Create Periods" type="object" class="btn-primary" states="draft"/>
                     <button name="button_set_to_draft" string="Set To Draft" type="object" states="open"/>
-                    <button name="button_confirm" string="Confirm" type="object" class="oe_highlight" states="draft"/>
+                    <button name="button_confirm" string="Confirm" type="object" class="btn-primary" states="draft"/>
                     <field name="state" widget="statusbar" nolabel="1"/>
                 </header>
                 <sheet>
@@ -52,7 +52,7 @@
         <field name="name">hr.fiscalyear.tree</field>
         <field name="model">hr.fiscalyear</field>
         <field name="arch" type="xml">
-            <tree colors="blue:state == 'draft';gray:state == 'done'" string="Fiscalyear">
+            <tree decoration-info="state == 'draft'" decoration-muted="state == 'done'" name="Fiscalyear">
                 <field name="name"/>
                 <field name="company_id" groups="base.group_multi_company"/>
                 <field name="state"/>
@@ -69,11 +69,11 @@
                 <field name="schedule_pay"/>
                 <field name="payment_weekday"/>
                 <field name="payment_day"/>
-                <filter string="Open" domain="[('state', '=', 'open')]" icon="terp-camera_test"/>
-                <filter string="Closed" domain="[('state', '=', 'done')]" icon="terp-dialog-close"/>
+                <filter name="open" string="Open" domain="[('state', '=', 'open')]" icon="terp-camera_test"/>
+                <filter name="closed" string="Closed" domain="[('state', '=', 'done')]" icon="terp-dialog-close"/>
                 <field name="state"/>
                 <group expand="0" string="Group By...">
-                    <filter string="Status" context="{'group_by': 'state'}" icon="terp-stock_effects-object-colorize"/>
+                    <filter name="Status" context="{'group_by': 'state'}" icon="terp-stock_effects-object-colorize"/>
                 </group>
             </search>
         </field>
