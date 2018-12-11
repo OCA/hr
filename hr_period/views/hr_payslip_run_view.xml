@@ -40,15 +40,13 @@
                 <label for="date_start" string="Date"/>
             </xpath>
              <button name="%(hr_payroll.action_hr_payslip_by_employees)d"
-                 type="action" states="draft"
-                 class="oe_highlight"
                  position="replace">
                 <button
                     name="get_payslip_employees_wizard"
                     type="object"
                     states="draft"
                     string="Generate Payslips"
-                    class="oe_highlight"/>
+                    class="btn-primary"/>
             </button>
         </field>
     </record>
