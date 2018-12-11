@@ -74,9 +74,12 @@ class HrFiscalYear(models.Model):
         return datetime(today.year, 12, 31).strftime(DF)
 
     @api.model
-    def _default_type(self):
+    def _default_type(self, company_id=False):
+        if not company_id:
+            company_id = self.env.user.company_id.id
         period_type = self.env['date.range.type'].search(
-            [('hr_fiscal_year', '=', True)], limit=1)
+            [('hr_fiscal_year', '=', True),
+             ('company_id', '=', company_id)], limit=1)
         return period_type
 
     period_ids = fields.One2many(
@@ -239,7 +242,7 @@ class HrFiscalYear(models.Model):
         :param date_end: the first day of the following period
         """
         self.ensure_one()
-        period_type = self.env['hr.period']._default_type()
+        period_type = self.env['hr.period']._default_type(self.company_id.id)
         self.write({
             'period_ids': [(0, 0, {
                 'date_start': date_start,
