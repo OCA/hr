@@ -43,7 +43,7 @@
         <field name="name">hr.period.tree</field>
         <field name="model">hr.period</field>
         <field name="arch" type="xml">
-          <tree colors="blue:state == 'open';gray:state == 'done'" string="Payroll Period">
+          <tree decoration-info="state == 'open'" decoration-muted="state == 'done'" name="Payroll Period">
                 <field name="name"/>
                 <field name="date_start"/>
                 <field name="date_end"/>

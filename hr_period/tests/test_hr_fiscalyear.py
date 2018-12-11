@@ -1,9 +1,9 @@
-# -*- coding: utf-8 -*-
 # Copyright 2015 Savoir-faire Linux. All Rights Reserved.
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+from datetime import date
 
-from datetime import datetime
 from odoo.tests import common
+from odoo import fields
 from odoo.exceptions import UserError, ValidationError
 
 
@@ -18,9 +18,9 @@ class TestHrFiscalyear(common.TransactionCase):
         self.period_model = self.env['hr.period']
         self.data_range_type_model = self.env['date.range.type']
 
-        self.company = self.company_model.create({'name': 'Company 1'})
+        self.company = self.env.ref('base.main_company')
 
-        self.today = datetime.now().date()
+        self.today = fields.Datetime.now().date()
         self.type_fy = self.create_data_range_type('test_hr_fy', 'fy')
         self.type = self.create_data_range_type('test_hr_period', 'per')
         self.vals = {
@@ -69,11 +69,11 @@ class TestHrFiscalyear(common.TransactionCase):
 
     def check_period(self, period, date_start, date_end, date_payment):
         if date_start:
-            self.assertEqual(period.date_start, date_start)
+            self.assertEqual(str(period.date_start), date_start)
         if date_end:
-            self.assertEqual(period.date_end, date_end)
+            self.assertEqual(str(period.date_end), date_end)
         if date_payment:
-            self.assertEqual(period.date_payment, date_payment)
+            self.assertEqual(str(period.date_payment), date_payment)
 
     def test_fy_change_scheduled_pay(self):
         fy = self.create_fiscal_year(
@@ -236,10 +236,10 @@ class TestHrFiscalyear(common.TransactionCase):
         fy.create_periods()
         periods = self.get_periods(fy)
         self.assertEqual(len(periods), 52)
-        self.assertEqual(periods[0].date_payment, '2015-01-04')
-        self.assertEqual(periods[1].date_payment, '2015-01-11')
-        self.assertEqual(periods[2].date_payment, '2015-01-18')
-        self.assertEqual(periods[51].date_payment, '2015-12-27')
+        self.assertEqual(periods[0].date_payment, date(2015, 1, 4))
+        self.assertEqual(periods[1].date_payment, date(2015, 1, 11))
+        self.assertEqual(periods[2].date_payment, date(2015, 1, 18))
+        self.assertEqual(periods[51].date_payment, date(2015, 12, 27))
 
     def test_create_periods_weekly_payment_2_weeks(self):
         fy = self.create_fiscal_year({
@@ -252,10 +252,10 @@ class TestHrFiscalyear(common.TransactionCase):
         fy.create_periods()
         periods = self.get_periods(fy)
         self.assertEqual(len(periods), 52)
-        self.assertEqual(periods[0].date_payment, '2015-01-18')
-        self.assertEqual(periods[1].date_payment, '2015-01-25')
-        self.assertEqual(periods[2].date_payment, '2015-02-01')
-        self.assertEqual(periods[51].date_payment, '2016-01-10')
+        self.assertEqual(periods[0].date_payment, date(2015, 1, 18))
+        self.assertEqual(periods[1].date_payment, date(2015, 1, 25))
+        self.assertEqual(periods[2].date_payment, date(2015, 2, 1))
+        self.assertEqual(periods[51].date_payment, date(2016, 1, 10))
 
     def test_create_periods_monthly_payment_fifth_day(self):
         fy = self.create_fiscal_year({
@@ -267,10 +267,10 @@ class TestHrFiscalyear(common.TransactionCase):
         fy.create_periods()
         periods = self.get_periods(fy)
         self.assertEqual(len(periods), 12)
-        self.assertEqual(periods[0].date_payment, '2015-02-05')
-        self.assertEqual(periods[1].date_payment, '2015-03-05')
-        self.assertEqual(periods[2].date_payment, '2015-04-05')
-        self.assertEqual(periods[11].date_payment, '2016-01-05')
+        self.assertEqual(periods[0].date_payment, date(2015, 2, 5))
+        self.assertEqual(periods[1].date_payment, date(2015, 3, 5))
+        self.assertEqual(periods[2].date_payment, date(2015, 4, 5))
+        self.assertEqual(periods[11].date_payment, date(2016, 1, 5))
 
     def test_create_periods_monthly_payment_last_day(self):
         fy = self.create_fiscal_year({
@@ -282,10 +282,10 @@ class TestHrFiscalyear(common.TransactionCase):
         fy.create_periods()
         periods = self.get_periods(fy)
         self.assertEqual(len(periods), 12)
-        self.assertEqual(periods[0].date_payment, '2015-01-31')
-        self.assertEqual(periods[1].date_payment, '2015-02-28')
-        self.assertEqual(periods[2].date_payment, '2015-03-31')
-        self.assertEqual(periods[11].date_payment, '2015-12-31')
+        self.assertEqual(periods[0].date_payment, date(2015, 1, 31))
+        self.assertEqual(periods[1].date_payment, date(2015, 2, 28))
+        self.assertEqual(periods[2].date_payment, date(2015, 3, 31))
+        self.assertEqual(periods[11].date_payment, date(2015, 12, 31))
 
     def test_create_periods_semi_monthly_payment_fifth_day(self):
         fy = self.create_fiscal_year({
@@ -297,10 +297,10 @@ class TestHrFiscalyear(common.TransactionCase):
         fy.create_periods()
         periods = self.get_periods(fy)
         self.assertEqual(len(periods), 12)
-        self.assertEqual(periods[0].date_payment, '2015-02-05')
-        self.assertEqual(periods[1].date_payment, '2015-03-05')
-        self.assertEqual(periods[2].date_payment, '2015-04-05')
-        self.assertEqual(periods[11].date_payment, '2016-01-05')
+        self.assertEqual(periods[0].date_payment, date(2015, 2, 5))
+        self.assertEqual(periods[1].date_payment, date(2015, 3, 5))
+        self.assertEqual(periods[2].date_payment, date(2015, 4, 5))
+        self.assertEqual(periods[11].date_payment, date(2016, 1, 5))
 
     def test_create_periods_semi_monthly_payment_last_day(self):
         fy = self.create_fiscal_year({
@@ -313,8 +313,8 @@ class TestHrFiscalyear(common.TransactionCase):
         fy.create_periods()
         periods = self.get_periods(fy)
         self.assertEqual(len(periods), 24)
-        self.assertEqual(periods[0].date_payment, '2015-04-03')
-        self.assertEqual(periods[1].date_payment, '2015-04-19')
-        self.assertEqual(periods[2].date_payment, '2015-05-04')
-        self.assertEqual(periods[22].date_payment, '2016-03-05')
-        self.assertEqual(periods[23].date_payment, '2016-03-19')
+        self.assertEqual(periods[0].date_payment, date(2015, 4, 3))
+        self.assertEqual(periods[1].date_payment, date(2015, 4, 19))
+        self.assertEqual(periods[2].date_payment, date(2015, 5, 4))
+        self.assertEqual(periods[22].date_payment, date(2016, 3, 5))
+        self.assertEqual(periods[23].date_payment, date(2016, 3, 19))
