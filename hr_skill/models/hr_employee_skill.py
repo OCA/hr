@@ -13,3 +13,8 @@ class EmployeeSkill(models.Model):
                               ('1', 'Intermediate'),
                               ('2', 'Senior'),
                               ('3', 'Expert')], 'Level')
+
+    _sql_constraints = [
+        ('hr_employee_skill_uniq', 'unique(employee_id, skill_id)',
+         "This employee already has that skill!"),
+    ]
