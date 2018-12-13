@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
-
-    <data noupdate="1">
+<odoo noupdate="1">
 
         <record id="hr_fy_comp_rule" model="ir.rule">
             <field name="name">HR Period Rule</field>
@@ -17,5 +15,4 @@
             <field name="domain_force">[('company_id', 'child_of', [user.company_id.id])]</field>
         </record>
 
-    </data>
 </odoo>
