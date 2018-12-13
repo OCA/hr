@@ -14,7 +14,6 @@
     'website': 'https://github.com/OCA/hr',
     'depends': [
         'hr_payroll',
-        'hr_payroll_account',
         'date_range',
     ],
     'data': [
