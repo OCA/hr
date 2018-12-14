@@ -185,9 +185,8 @@ class PayslipCase(test_hr_fiscalyear.TestHrFiscalyear):
             date_from, date_to, move_date, self.company, run)
         payslip = self.payslip_obj.create(data)
         self.assertEqual(payslip.hr_period_id, periods[1], 'Wrong pay period')
-        self.contract2.journal_id = payslip.journal_id
         payslip.contract_id = self.contract2
-        payslip.onchange_contract()
+        payslip.onchange_contract_period()
         period = self.env['hr.period'].get_next_period(
             self.company.id, 'quarterly')
         self.assertEqual(payslip.hr_period_id, period)
