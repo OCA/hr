@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: hr_period
-#: code:addons/hr_period/models/hr_fiscal_year.py:249
+#: code:addons/hr_period/models/hr_fiscal_year.py:252
 #, python-format
 msgid "%s Period #%s"
 msgstr ""
@@ -107,6 +107,12 @@ msgid "Date"
 msgstr ""
 
 #. module: hr_period
+#: model:ir.model,name:hr_period.model_date_range_type
+#: model:ir.ui.view,arch_db:hr_period.view_date_range_type_hr_form_view
+msgid "Date Range Type"
+msgstr ""
+
+#. module: hr_period
 #: model:ir.model.fields,field_description:hr_period.field_hr_payslip_date_payment
 #: model:ir.model.fields,field_description:hr_period.field_hr_payslip_run_date_payment
 #: model:ir.model.fields,field_description:hr_period.field_hr_period_date_payment
@@ -114,7 +120,7 @@ msgid "Date of Payment"
 msgstr ""
 
 #. module: hr_period
-#: code:addons/hr_period/models/hr_fiscal_year.py:204
+#: code:addons/hr_period/models/hr_fiscal_year.py:207
 #, python-format
 msgid ""
 "Date stop cannot be sooner than the date start\n"
@@ -227,6 +233,11 @@ msgstr ""
 #. module: hr_period
 #: model:date.range.type,name:hr_period.date_range_hr_period
 msgid "HR Period"
+msgstr ""
+
+#. module: hr_period
+#: model:ir.ui.view,arch_db:hr_period.view_date_range_type_hr_tree
+msgid "HR range types"
 msgstr ""
 
 #. module: hr_period
@@ -349,6 +360,12 @@ msgid "Period"
 msgstr ""
 
 #. module: hr_period
+#: model:ir.actions.act_window,name:hr_period.date_range_type_hr_action
+#: model:ir.ui.menu,name:hr_period.menu_date_range_type_action
+msgid "Period Types"
+msgstr ""
+
+#. module: hr_period
 #: model:ir.model.fields,field_description:hr_period.field_hr_fiscalyear_period_ids
 msgid "Periods"
 msgstr ""
@@ -365,8 +382,8 @@ msgid "Re-Open Period"
 msgstr ""
 
 #. module: hr_period
-#: code:addons/hr_period/models/hr_payslip.py:61
-#: code:addons/hr_period/models/hr_payslip.py:81
+#: code:addons/hr_period/models/hr_payslip.py:60
+#: code:addons/hr_period/models/hr_payslip.py:80
 #, python-format
 msgid "Salary Slip of %s for %s"
 msgstr ""
@@ -520,18 +537,13 @@ msgid "Weekly (52)"
 msgstr ""
 
 #. module: hr_period
-#: code:addons/hr_period/models/hr_period.py:100
+#: code:addons/hr_period/models/hr_period.py:103
 #, python-format
 msgid "You can not set to draft a period that already has payslips computed"
 msgstr ""
 
 #. module: hr_period
-#: code:addons/hr_period/models/hr_fiscal_year.py:278
+#: code:addons/hr_period/models/hr_fiscal_year.py:281
 #, python-format
 msgid "You must create periods before confirming the fiscal year."
-msgstr ""
-
-#. module: hr_period
-#: model:ir.model,name:hr_period.model_date_range_type
-msgid "date.range.type"
 msgstr ""
