@@ -14,7 +14,7 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: hr_expense_invoice
-#: code:addons/hr_expense_invoice/models/hr_expense_sheet.py:37
+#: code:addons/hr_expense_invoice/models/hr_expense_sheet.py:40
 #, python-format
 msgid "Cannot reconcile supplier invoice payable with generated line. Please check amounts and see if the invoice is already added or paid. Invoice: %s"
 msgstr ""
