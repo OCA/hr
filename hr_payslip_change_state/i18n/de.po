@@ -10,14 +10,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-12-06 03:44+0000\n"
-"PO-Revision-Date: 2016-12-06 03:44+0000\n"
-"Last-Translator: Rudolf Schnapka <rs@techno-flex.de>, 2016\n"
+"PO-Revision-Date: 2018-12-19 13:58+0000\n"
+"Last-Translator: Maria Sparenberg <maria.sparenberg@gmx.net>\n"
 "Language-Team: German (https://www.transifex.com/oca/teams/23907/de/)\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.3\n"
 
 #. module: hr_payslip_change_state
 #: model:ir.model.fields,help:hr_payslip_change_state.field_hr_payslip_change_state_state
@@ -28,6 +29,11 @@ msgid ""
 "* If the payslip is confirmed then status is set to 'Done'.             \n"
 "* When user cancel payslip the status is 'Rejected'."
 msgstr ""
+"* Beim Erstellen des Lohnnachweises ist der Status 'Entwurf'. \n"
+"* Ist der Lohnnachweis in der Prüfung, ist der Status 'Nachweis berechnen'. "
+"\n"
+"* Ist der Lohnnachweise genehmigt, ist der Status 'Erledigt'.\n"
+"* Wird der Lohnnachweis abgebrochen, ist der Status 'Abgelehnt'."
 
 #. module: hr_payslip_change_state
 #: model:ir.model.fields,field_description:hr_payslip_change_state.field_hr_payslip_change_state_state
@@ -37,28 +43,28 @@ msgstr "Aktion"
 #. module: hr_payslip_change_state
 #: model:ir.ui.view,arch_db:hr_payslip_change_state.hr_payslip_change_state_form
 msgid "Cancel"
-msgstr "Löschen"
+msgstr "Abbrechen"
 
 #. module: hr_payslip_change_state
 #: selection:hr.payslip.change.state,state:0
 msgid "Cancel Payslip"
-msgstr ""
+msgstr "Lohnnachweis abbrechen"
 
 #. module: hr_payslip_change_state
 #: model:ir.actions.act_window,name:hr_payslip_change_state.action_hr_payslip_change_state_form
 #: model:ir.ui.view,arch_db:hr_payslip_change_state.hr_payslip_change_state_form
 msgid "Change state"
-msgstr ""
+msgstr "Status ändern"
 
 #. module: hr_payslip_change_state
 #: model:ir.model,name:hr_payslip_change_state.model_hr_payslip_change_state
 msgid "Change state of a payslip"
-msgstr ""
+msgstr "Status des Lohnnachweises ändern"
 
 #. module: hr_payslip_change_state
 #: selection:hr.payslip.change.state,state:0
 msgid "Compute Sheet"
-msgstr ""
+msgstr "Nachweis berechnen"
 
 #. module: hr_payslip_change_state
 #: selection:hr.payslip.change.state,state:0
@@ -83,7 +89,7 @@ msgstr "Anzeigename"
 #. module: hr_payslip_change_state
 #: model:ir.ui.view,arch_db:hr_payslip_change_state.hr_payslip_change_state_form
 msgid "Execute"
-msgstr ""
+msgstr "Ausführen"
 
 #. module: hr_payslip_change_state
 #: model:ir.model.fields,field_description:hr_payslip_change_state.field_hr_payslip_change_state_id
@@ -98,18 +104,20 @@ msgstr "Zuletzt geändert am"
 #. module: hr_payslip_change_state
 #: model:ir.model.fields,field_description:hr_payslip_change_state.field_hr_payslip_change_state_write_uid
 msgid "Last Updated by"
-msgstr "Zuletzt geändert durch"
+msgstr "Zuletzt aktualisiert von"
 
 #. module: hr_payslip_change_state
 #: model:ir.model.fields,field_description:hr_payslip_change_state.field_hr_payslip_change_state_write_date
 msgid "Last Updated on"
-msgstr "Zuletzt geändert am"
+msgstr "Zuletzt aktualisiert am"
 
 #. module: hr_payslip_change_state
 #: code:addons/hr_payslip_change_state/wizard/hr_payslip_change_state.py:50
 #, python-format
 msgid "Only draft payslips can be verified,the payslip %s is in %s state"
 msgstr ""
+"Nur Lohnnachweise im Status 'Entwurf' können geprüft werden. Der "
+"Lohnnachweis  %s ist im Status %s"
 
 #. module: hr_payslip_change_state
 #: code:addons/hr_payslip_change_state/wizard/hr_payslip_change_state.py:58
@@ -118,6 +126,8 @@ msgid ""
 "Only payslips in states verify or draft can be confirmed, the payslip %s is "
 "in %s state"
 msgstr ""
+"Nur Lohnnachweise im Status 'Nachweis berechnen' oder 'Entwurf' können "
+"genehmigt werden. Der Lohnnachweis %s ist im Status %s"
 
 #. module: hr_payslip_change_state
 #: code:addons/hr_payslip_change_state/wizard/hr_payslip_change_state.py:43
@@ -125,12 +135,14 @@ msgstr ""
 msgid ""
 "Only rejected payslips can be reset to draft, the payslip %s is in %s state"
 msgstr ""
+"Nur abgelehnte Lohnnachweise können in den Status 'Entwurf' zurückgesetzt "
+"werden.  Der Lohnnachweis %s ist im Status %s"
 
 #. module: hr_payslip_change_state
 #: code:addons/hr_payslip_change_state/wizard/hr_payslip_change_state.py:68
 #, python-format
 msgid "Payslips"
-msgstr ""
+msgstr "Lohnnachweise"
 
 #. module: hr_payslip_change_state
 #: selection:hr.payslip.change.state,state:0
@@ -141,4 +153,4 @@ msgstr "Auf Entwurf setzen"
 #: code:addons/hr_payslip_change_state/wizard/hr_payslip_change_state.py:63
 #, python-format
 msgid "The payslip %s is already canceled please deselect it"
-msgstr ""
+msgstr "Der Lohnnachweis %s ist bereits abgebrochen"
