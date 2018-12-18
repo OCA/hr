@@ -6,105 +6,107 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2018-12-18 15:58+0000\n"
+"Last-Translator: Maria Sparenberg <maria.sparenberg@gmx.net>\n"
 "Language-Team: none\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.3\n"
 
 #. module: hr_holidays_hour
 #: code:addons/hr_holidays_hour/models/hr_holidays.py:158
 #, python-format
 msgid "%s on %s : %.2f hour(s)"
-msgstr ""
+msgstr "%s mit Urlaubstyp: %s : %.2f Stunde(n)"
 
 #. module: hr_holidays_hour
 #: model:ir.model.fields,field_description:hr_holidays_hour.field_hr_holidays_number_of_hours_temp
 msgid "Allocation in Hours"
-msgstr ""
+msgstr "Reservierung in Stunden"
 
 #. module: hr_holidays_hour
 #: model:ir.ui.view,arch_db:hr_holidays_hour.view_holiday_allocation_tree_inherit_leave_hours
 #: model:ir.ui.view,arch_db:hr_holidays_hour.view_holiday_inherit_leave_hours
 #: model:ir.ui.view,arch_db:hr_holidays_hour.view_holiday_simple_inherit_leave_hours
 msgid "Approved Hours"
-msgstr ""
+msgstr "Genehmigte Stunden"
 
 #. module: hr_holidays_hour
 #: model:ir.model.fields,field_description:hr_holidays_hour.field_hr_holidays_remaining_leaves_user_no_of_hours
 msgid "Approved hours"
-msgstr ""
+msgstr "Genehmigte Stunden"
 
 #. module: hr_holidays_hour
 #: model:ir.model,name:hr_holidays_hour.model_hr_employee
 #: model:ir.model.fields,field_description:hr_holidays_hour.field_hr_holidays_remaining_leaves_user_employee_id
 msgid "Employee"
-msgstr ""
+msgstr "Angestellte(r)"
 
 #. module: hr_holidays_hour
 #: model:ir.model.fields,field_description:hr_holidays_hour.field_hr_employee_holiday_ids
 msgid "Holidays"
-msgstr ""
+msgstr "Feiertage"
 
 #. module: hr_holidays_hour
 #: model:ir.ui.view,arch_db:hr_holidays_hour.edit_holiday_new_inherit_leave_hours
 msgid "Hours"
-msgstr ""
+msgstr "Stunden"
 
 #. module: hr_holidays_hour
 #: model:ir.model.fields,field_description:hr_holidays_hour.field_hr_holidays_status_hours_taken
 msgid "Hours Already Taken"
-msgstr ""
+msgstr "Bereits genommene Stunden"
 
 #. module: hr_holidays_hour
 #: model:ir.model,name:hr_holidays_hour.model_hr_holidays
 msgid "Leave"
-msgstr ""
+msgstr "Urlaub"
 
 #. module: hr_holidays_hour
 #: model:ir.model,name:hr_holidays_hour.model_hr_holidays_status
 msgid "Leave Type"
-msgstr ""
+msgstr "Urlaubsart"
 
 #. module: hr_holidays_hour
 #: model:ir.model.fields,field_description:hr_holidays_hour.field_hr_holidays_status_max_hours
 msgid "Maximum Allowed Hours"
-msgstr ""
+msgstr "Maximal erlaubte Anzahl von Stunden"
 
 #. module: hr_holidays_hour
 #: model:ir.model.fields,field_description:hr_holidays_hour.field_hr_holidays_number_of_hours
 msgid "Number of hours"
-msgstr ""
+msgstr "Anzahl von Stunden"
 
 #. module: hr_holidays_hour
 #: model:ir.ui.view,arch_db:hr_holidays_hour.view_holiday_allocation_tree_inherit_leave_hours
 #: model:ir.ui.view,arch_db:hr_holidays_hour.view_holiday_inherit_leave_hours
 #: model:ir.ui.view,arch_db:hr_holidays_hour.view_holiday_simple_inherit_leave_hours
 msgid "Remaining Hours"
-msgstr ""
+msgstr "Verbleibende Stunden"
 
 #. module: hr_holidays_hour
 #: model:ir.model.fields,field_description:hr_holidays_hour.field_hr_holidays_status_remaining_hours
 msgid "Remaining hours"
-msgstr ""
+msgstr "Verbleibende Stunden"
 
 #. module: hr_holidays_hour
 #: model:ir.model.fields,field_description:hr_holidays_hour.field_hr_employee_remaining_hours_ids
 msgid "Remaining hours per Leave Type"
-msgstr ""
+msgstr "Verbleibende Stunden pro Urlaubsart"
 
 #. module: hr_holidays_hour
 #: model:ir.model,name:hr_holidays_hour.model_resource_calendar
 msgid "Resource Calendar"
-msgstr ""
+msgstr "Ressourcenkalender"
 
 #. module: hr_holidays_hour
 #: code:addons/hr_holidays_hour/models/hr_holidays.py:70
 #, python-format
 msgid "Set an employee first!"
-msgstr ""
+msgstr "Wählen Sie zuerst einen Angestellten!"
 
 #. module: hr_holidays_hour
 #: code:addons/hr_holidays_hour/models/hr_holidays.py:149
@@ -112,44 +114,47 @@ msgstr ""
 msgid "The number of remaining hours is not sufficient for this leave type.\n"
 "Please check for allocation requests awaiting validation."
 msgstr ""
+"Die Anzahl der verbleibenden Stunden dieser Urlaubsart ist nicht ausreichend."
+"\n"
+"Bitte prüfen Sie die zur Genehmigung stehenden Urlaubsanträge."
 
 #. module: hr_holidays_hour
 #: code:addons/hr_holidays_hour/models/hr_holidays.py:61
 #, python-format
 msgid "The start date must be anterior to the end date."
-msgstr ""
+msgstr "Das Startdatum muss vor dem Enddatum liegen."
 
 #. module: hr_holidays_hour
 #: model:ir.model,name:hr_holidays_hour.model_hr_holidays_remaining_leaves_user
 msgid "Total holidays by type"
-msgstr ""
+msgstr "Gesamt-Urlaub pro Urlaubsart"
 
 #. module: hr_holidays_hour
 #: model:ir.ui.view,arch_db:hr_holidays_hour.view_holiday_allocation_tree_inherit_leave_hours
 #: model:ir.ui.view,arch_db:hr_holidays_hour.view_holiday_inherit_leave_hours
 #: model:ir.ui.view,arch_db:hr_holidays_hour.view_holiday_simple_inherit_leave_hours
 msgid "Virtual Hours"
-msgstr ""
+msgstr "Virtuelle Stunden"
 
 #. module: hr_holidays_hour
 #: model:ir.ui.view,arch_db:hr_holidays_hour.view_holiday_allocation_tree_inherit_leave_hours
 #: model:ir.ui.view,arch_db:hr_holidays_hour.view_holiday_inherit_leave_hours
 #: model:ir.ui.view,arch_db:hr_holidays_hour.view_holiday_simple_inherit_leave_hours
 msgid "Virtual Remaining Hours"
-msgstr ""
+msgstr "Virtuelle, verbleibende Stunden"
 
 #. module: hr_holidays_hour
 #: model:ir.model.fields,field_description:hr_holidays_hour.field_hr_holidays_remaining_leaves_user_virtual_hours
 #: model:ir.model.fields,field_description:hr_holidays_hour.field_hr_holidays_virtual_hours
 msgid "Virtual hours"
-msgstr ""
+msgstr "Virtuelle Stunden"
 
 #. module: hr_holidays_hour
 #: model:ir.model.fields,field_description:hr_holidays_hour.field_hr_holidays_status_virtual_remaining_hours
 msgid "Virtual remaining hours"
-msgstr ""
+msgstr "Virtuelle, verbleibende Stunden"
 
 #. module: hr_holidays_hour
 #: model:ir.model.fields,field_description:hr_holidays_hour.field_hr_holidays_working_hours
 msgid "Working hours"
-msgstr ""
+msgstr "Arbeitsstunden"
