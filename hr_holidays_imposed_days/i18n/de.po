@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-30 07:32+0000\n"
-"PO-Revision-Date: 2018-12-18 13:07+0000\n"
+"PO-Revision-Date: 2018-12-19 13:58+0000\n"
 "Last-Translator: Maria Sparenberg <maria.sparenberg@gmx.net>\n"
 "Language-Team: German (https://www.transifex.com/oca/teams/23907/de/)\n"
 "Language: de\n"
@@ -22,12 +22,12 @@ msgstr ""
 #. module: hr_holidays_imposed_days
 #: model:ir.model.fields,field_description:hr_holidays_imposed_days.field_hr_holidays_imposed_auto_confirm
 msgid "Auto Confirm"
-msgstr ""
+msgstr "Automatisch bestätigen"
 
 #. module: hr_holidays_imposed_days
 #: model:ir.model.fields,field_description:hr_holidays_imposed_days.field_hr_holidays_imposed_company_id
 msgid "Company"
-msgstr ""
+msgstr "Unternehmen"
 
 #. module: hr_holidays_imposed_days
 #: model:ir.model.fields,field_description:hr_holidays_imposed_days.field_hr_holidays_imposed_create_uid
@@ -42,12 +42,12 @@ msgstr "Erstellt am"
 #. module: hr_holidays_imposed_days
 #: model:ir.model.fields,field_description:hr_holidays_imposed_days.field_hr_holidays_imposed_date_from
 msgid "Date From"
-msgstr ""
+msgstr "Startdatum"
 
 #. module: hr_holidays_imposed_days
 #: model:ir.model.fields,field_description:hr_holidays_imposed_days.field_hr_holidays_imposed_date_to
 msgid "Date To"
-msgstr ""
+msgstr "Enddatum"
 
 #. module: hr_holidays_imposed_days
 #: model:ir.model.fields,field_description:hr_holidays_imposed_days.field_hr_holidays_imposed_display_name
@@ -75,12 +75,14 @@ msgstr "ID"
 msgid ""
 "If empty, all employees of the company will have this day/period imposed"
 msgstr ""
+"Wenn Sie keine Angestellten hinzufügen, gelten diese Betriebsferien für alle "
+"Angestellten des Unternehmens"
 
 #. module: hr_holidays_imposed_days
 #: model:ir.actions.act_window,name:hr_holidays_imposed_days.action_hr_holidays_imposed_view
 #: model:ir.ui.menu,name:hr_holidays_imposed_days.menu_hr_holidays_imposed_view
 msgid "Imposed Days"
-msgstr ""
+msgstr "Betriebsferien"
 
 #. module: hr_holidays_imposed_days
 #: model:ir.model.fields,field_description:hr_holidays_imposed_days.field_hr_holidays_imposed___last_update
@@ -100,12 +102,12 @@ msgstr "Zuletzt aktualisiert am"
 #. module: hr_holidays_imposed_days
 #: model:ir.model.fields,field_description:hr_holidays_imposed_days.field_hr_holidays_imposed_status_id
 msgid "Leave type"
-msgstr ""
+msgstr "Urlaubsart"
 
 #. module: hr_holidays_imposed_days
 #: model:ir.model,name:hr_holidays_imposed_days.model_hr_holidays_imposed
 msgid "Manage imposed holidays"
-msgstr ""
+msgstr "Betriebsferien verwalten"
 
 #. module: hr_holidays_imposed_days
 #: model:ir.model.fields,field_description:hr_holidays_imposed_days.field_hr_holidays_imposed_name
@@ -115,15 +117,15 @@ msgstr "Bezeichnung"
 #. module: hr_holidays_imposed_days
 #: model:ir.model.fields,field_description:hr_holidays_imposed_days.field_hr_holidays_imposed_number_of_days
 msgid "Number Of Days"
-msgstr ""
+msgstr "Anzahl der Tage"
 
 #. module: hr_holidays_imposed_days
 #: code:addons/hr_holidays_imposed_days/models/hr_holidays_imposed.py:124
 #, python-format
 msgid "The start date must be anterior to the end date."
-msgstr ""
+msgstr "Das Startdatum muss vor dem Enddatum liegen."
 
 #. module: hr_holidays_imposed_days
 #: model:ir.ui.view,arch_db:hr_holidays_imposed_days.hr_holidays_imposed_view_form
 msgid "validate"
-msgstr ""
+msgstr "Genehmigen"
