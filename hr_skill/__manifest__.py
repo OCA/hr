@@ -4,7 +4,7 @@
 {
     "name": "Skills Management",
     "summary": "Manage your employee skills",
-    "version": "11.0.2.0.0",
+    "version": "11.0.2.1.0",
     "category": "Human Resources",
     "license": "AGPL-3",
     "author": "Savoir-faire Linux,Odoo Community Association (OCA)",
