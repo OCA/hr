@@ -171,6 +171,11 @@ msgid "Skills Reports."
 msgstr ""
 
 #. module: hr_skill
+#: sql_constraint:hr.employee.skill:0
+msgid "This employee already has that skill!"
+msgstr ""
+
+#. module: hr_skill
 #: model:ir.model,name:hr_skill.model_hr_employee_skill
 #, fuzzy
 msgid "hr.employee.skill"
