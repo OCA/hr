@@ -1,0 +1,155 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* hr_holidays_hour
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#. module: hr_holidays_hour
+#: code:addons/hr_holidays_hour/models/hr_holidays.py:158
+#, python-format
+msgid "%s on %s : %.2f hour(s)"
+msgstr ""
+
+#. module: hr_holidays_hour
+#: model:ir.model.fields,field_description:hr_holidays_hour.field_hr_holidays_number_of_hours_temp
+msgid "Allocation in Hours"
+msgstr ""
+
+#. module: hr_holidays_hour
+#: model:ir.ui.view,arch_db:hr_holidays_hour.view_holiday_allocation_tree_inherit_leave_hours
+#: model:ir.ui.view,arch_db:hr_holidays_hour.view_holiday_inherit_leave_hours
+#: model:ir.ui.view,arch_db:hr_holidays_hour.view_holiday_simple_inherit_leave_hours
+msgid "Approved Hours"
+msgstr ""
+
+#. module: hr_holidays_hour
+#: model:ir.model.fields,field_description:hr_holidays_hour.field_hr_holidays_remaining_leaves_user_no_of_hours
+msgid "Approved hours"
+msgstr ""
+
+#. module: hr_holidays_hour
+#: model:ir.model,name:hr_holidays_hour.model_hr_employee
+#: model:ir.model.fields,field_description:hr_holidays_hour.field_hr_holidays_remaining_leaves_user_employee_id
+msgid "Employee"
+msgstr ""
+
+#. module: hr_holidays_hour
+#: model:ir.model.fields,field_description:hr_holidays_hour.field_hr_employee_holiday_ids
+msgid "Holidays"
+msgstr ""
+
+#. module: hr_holidays_hour
+#: model:ir.ui.view,arch_db:hr_holidays_hour.edit_holiday_new_inherit_leave_hours
+msgid "Hours"
+msgstr ""
+
+#. module: hr_holidays_hour
+#: model:ir.model.fields,field_description:hr_holidays_hour.field_hr_holidays_status_hours_taken
+msgid "Hours Already Taken"
+msgstr ""
+
+#. module: hr_holidays_hour
+#: model:ir.model,name:hr_holidays_hour.model_hr_holidays
+msgid "Leave"
+msgstr ""
+
+#. module: hr_holidays_hour
+#: model:ir.model,name:hr_holidays_hour.model_hr_holidays_status
+msgid "Leave Type"
+msgstr ""
+
+#. module: hr_holidays_hour
+#: model:ir.model.fields,field_description:hr_holidays_hour.field_hr_holidays_status_max_hours
+msgid "Maximum Allowed Hours"
+msgstr ""
+
+#. module: hr_holidays_hour
+#: model:ir.model.fields,field_description:hr_holidays_hour.field_hr_holidays_number_of_hours
+msgid "Number of hours"
+msgstr ""
+
+#. module: hr_holidays_hour
+#: model:ir.ui.view,arch_db:hr_holidays_hour.view_holiday_allocation_tree_inherit_leave_hours
+#: model:ir.ui.view,arch_db:hr_holidays_hour.view_holiday_inherit_leave_hours
+#: model:ir.ui.view,arch_db:hr_holidays_hour.view_holiday_simple_inherit_leave_hours
+msgid "Remaining Hours"
+msgstr ""
+
+#. module: hr_holidays_hour
+#: model:ir.model.fields,field_description:hr_holidays_hour.field_hr_holidays_status_remaining_hours
+msgid "Remaining hours"
+msgstr ""
+
+#. module: hr_holidays_hour
+#: model:ir.model.fields,field_description:hr_holidays_hour.field_hr_employee_remaining_hours_ids
+msgid "Remaining hours per Leave Type"
+msgstr ""
+
+#. module: hr_holidays_hour
+#: model:ir.model,name:hr_holidays_hour.model_resource_calendar
+msgid "Resource Calendar"
+msgstr ""
+
+#. module: hr_holidays_hour
+#: code:addons/hr_holidays_hour/models/hr_holidays.py:70
+#, python-format
+msgid "Set an employee first!"
+msgstr ""
+
+#. module: hr_holidays_hour
+#: code:addons/hr_holidays_hour/models/hr_holidays.py:149
+#, python-format
+msgid "The number of remaining hours is not sufficient for this leave type.\n"
+"Please check for allocation requests awaiting validation."
+msgstr ""
+
+#. module: hr_holidays_hour
+#: code:addons/hr_holidays_hour/models/hr_holidays.py:61
+#, python-format
+msgid "The start date must be anterior to the end date."
+msgstr ""
+
+#. module: hr_holidays_hour
+#: model:ir.model,name:hr_holidays_hour.model_hr_holidays_remaining_leaves_user
+msgid "Total holidays by type"
+msgstr ""
+
+#. module: hr_holidays_hour
+#: model:ir.ui.view,arch_db:hr_holidays_hour.view_holiday_allocation_tree_inherit_leave_hours
+#: model:ir.ui.view,arch_db:hr_holidays_hour.view_holiday_inherit_leave_hours
+#: model:ir.ui.view,arch_db:hr_holidays_hour.view_holiday_simple_inherit_leave_hours
+msgid "Virtual Hours"
+msgstr ""
+
+#. module: hr_holidays_hour
+#: model:ir.ui.view,arch_db:hr_holidays_hour.view_holiday_allocation_tree_inherit_leave_hours
+#: model:ir.ui.view,arch_db:hr_holidays_hour.view_holiday_inherit_leave_hours
+#: model:ir.ui.view,arch_db:hr_holidays_hour.view_holiday_simple_inherit_leave_hours
+msgid "Virtual Remaining Hours"
+msgstr ""
+
+#. module: hr_holidays_hour
+#: model:ir.model.fields,field_description:hr_holidays_hour.field_hr_holidays_remaining_leaves_user_virtual_hours
+#: model:ir.model.fields,field_description:hr_holidays_hour.field_hr_holidays_virtual_hours
+msgid "Virtual hours"
+msgstr ""
+
+#. module: hr_holidays_hour
+#: model:ir.model.fields,field_description:hr_holidays_hour.field_hr_holidays_status_virtual_remaining_hours
+msgid "Virtual remaining hours"
+msgstr ""
+
+#. module: hr_holidays_hour
+#: model:ir.model.fields,field_description:hr_holidays_hour.field_hr_holidays_working_hours
+msgid "Working hours"
+msgstr ""
