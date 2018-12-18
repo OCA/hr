@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-10 19:09+0000\n"
-"PO-Revision-Date: 2018-12-18 13:07+0000\n"
+"PO-Revision-Date: 2018-12-19 13:58+0000\n"
 "Last-Translator: Maria Sparenberg <maria.sparenberg@gmx.net>\n"
 "Language-Team: German (https://www.transifex.com/oca/teams/23907/de/)\n"
 "Language: de\n"
@@ -65,7 +65,7 @@ msgstr "Familie"
 #. module: hr_family
 #: model:ir.model.fields,field_description:hr_family.field_hr_employee_fam_father_date_of_birth
 msgid "Father Date of Birth"
-msgstr ""
+msgstr "Geburtstag des Vaters"
 
 #. module: hr_family
 #: model:ir.model.fields,field_description:hr_family.field_hr_employee_fam_father
@@ -115,7 +115,7 @@ msgstr "Männlich"
 #. module: hr_family
 #: model:ir.model.fields,field_description:hr_family.field_hr_employee_fam_mother_date_of_birth
 msgid "Mother Date of Birth"
-msgstr ""
+msgstr "Geburtstag der Mutter"
 
 #. module: hr_family
 #: model:ir.model.fields,field_description:hr_family.field_hr_employee_fam_mother
@@ -135,19 +135,19 @@ msgstr "Eltern"
 #. module: hr_family
 #: model:ir.ui.view,arch_db:hr_family.hr_employee_view_form
 msgid "Spouse"
-msgstr "Ehegatte(-in)"
+msgstr "Ehepartner"
 
 #. module: hr_family
 #: model:ir.model.fields,field_description:hr_family.field_hr_employee_fam_spouse
 msgid "Spouse's Name"
-msgstr ""
+msgstr "Name des Ehepartners"
 
 #. module: hr_family
 #: model:ir.model.fields,field_description:hr_family.field_hr_employee_fam_spouse_tel
 msgid "Spouse's Telephone"
-msgstr ""
+msgstr "Telefonnummer des Ehepartners"
 
 #. module: hr_family
 #: model:ir.model.fields,field_description:hr_family.field_hr_employee_fam_spouse_employer
 msgid "Spouses's Employer"
-msgstr ""
+msgstr "Arbeitgeber des Ehepartners"
