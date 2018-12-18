@@ -6,26 +6,28 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2018-12-18 15:58+0000\n"
+"Last-Translator: Maria Sparenberg <maria.sparenberg@gmx.net>\n"
 "Language-Team: none\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.3\n"
 
 #. module: hr_employee_category_parent
 #: model:ir.model,name:hr_employee_category_parent.model_hr_employee_category
 msgid "Employee Category"
-msgstr ""
+msgstr "Angestelltenkategorie"
 
 #. module: hr_employee_category_parent
 #: model:ir.model.fields,field_description:hr_employee_category_parent.field_hr_employee_category_parent_id
 msgid "Parent category"
-msgstr ""
+msgstr "Übergeordnete Kategorie"
 
 #. module: hr_employee_category_parent
 #: code:addons/hr_employee_category_parent/models/hr_employee_category.py:39
 #, python-format
 msgid "You can't create cyclic hierarchies"
-msgstr ""
+msgstr "Sie können keine zyklischen Hierarchien erstellen"
