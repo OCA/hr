@@ -273,15 +273,15 @@ class ResourceCalendar(models.Model):
 
         return attendances
 
-    @api.model
-    def get_weekdays(self, id, default_weekdays=None):
+    @api.multi
+    def get_weekdays(self, default_weekdays=None):
         """ Check each attendance in its own first week """
-        if id is None:
+        if not self:
             return super(ResourceCalendar, self).get_weekdays(
                 default_weekdays=default_weekdays
             )
         weekdays = set()
-        for attendance in self.browse(id).attendance_ids:
+        for attendance in self[:1].attendance_ids:
             if attendance.rrule:
                 rrule_dtstart = attendance.rrule._rrule[0]._dtstart
                 rrule_start = rrule_dtstart.replace(tzinfo=None)
