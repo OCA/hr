@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-30 07:32+0000\n"
-"PO-Revision-Date: 2018-12-18 13:07+0000\n"
+"PO-Revision-Date: 2018-12-19 13:58+0000\n"
 "Last-Translator: Maria Sparenberg <maria.sparenberg@gmx.net>\n"
 "Language-Team: German (https://www.transifex.com/oca/teams/23907/de/)\n"
 "Language: de\n"
@@ -170,7 +170,7 @@ msgstr "Fähigkeiten-Berichte."
 #. module: hr_skill
 #: sql_constraint:hr.employee.skill:0
 msgid "This employee already has that skill!"
-msgstr ""
+msgstr "Diese(r) Angestellte hat diese Fähigkeit bereits!"
 
 #. module: hr_skill
 #: model:ir.model,name:hr_skill.model_hr_employee_skill
