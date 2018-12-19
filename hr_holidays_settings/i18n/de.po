@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-11-28 01:44+0000\n"
-"PO-Revision-Date: 2018-12-18 15:58+0000\n"
+"PO-Revision-Date: 2018-12-20 08:58+0000\n"
 "Last-Translator: Maria Sparenberg <maria.sparenberg@gmx.net>\n"
 "Language-Team: German (https://www.transifex.com/oca/teams/23907/de/)\n"
 "Language: de\n"
@@ -26,6 +26,8 @@ msgid ""
 "<span>(*) This configuration is related to the company you're logged into.</"
 "span>"
 msgstr ""
+"<span>(*) Diese Konfiguration bezieht sich auf das Unternehmen, für das Sie "
+"gerade angemeldet sind.</span>"
 
 #. module: hr_holidays_settings
 #: model:ir.ui.view,arch_db:hr_holidays_settings.hr_holidays_config_settings
@@ -35,13 +37,13 @@ msgstr "Abbrechen"
 #. module: hr_holidays_settings
 #: model:ir.model.fields,field_description:hr_holidays_settings.field_hr_holidays_config_settings_company_id
 msgid "Company"
-msgstr ""
+msgstr "Unternehmen"
 
 #. module: hr_holidays_settings
 #: model:ir.actions.act_window,name:hr_holidays_settings.hr_holidays_config_settings_action
 #: model:ir.ui.view,arch_db:hr_holidays_settings.hr_holidays_config_settings
 msgid "Configure HR Holidays"
-msgstr ""
+msgstr "Feiertage konfigurieren"
 
 #. module: hr_holidays_settings
 #: model:ir.model.fields,field_description:hr_holidays_settings.field_hr_holidays_config_settings_create_uid
@@ -81,19 +83,19 @@ msgstr "Zuletzt aktualisiert am"
 #. module: hr_holidays_settings
 #: model:ir.ui.menu,name:hr_holidays_settings.menu_hr_holidays_status
 msgid "Leave Types"
-msgstr ""
+msgstr "Urlaubsarten"
 
 #. module: hr_holidays_settings
 #: model:ir.ui.view,arch_db:hr_holidays_settings.hr_holidays_config_settings
 msgid "Save"
-msgstr ""
+msgstr "Speichern"
 
 #. module: hr_holidays_settings
 #: model:ir.ui.menu,name:hr_holidays_settings.menu_hr_holidays_global_settings
 msgid "Settings"
-msgstr ""
+msgstr "Einstellungen"
 
 #. module: hr_holidays_settings
 #: model:ir.model,name:hr_holidays_settings.model_hr_holidays_config_settings
 msgid "hr.holidays.config.settings"
-msgstr ""
+msgstr "hr.holidays.config.settings"
