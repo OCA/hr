@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-11-28 01:43+0000\n"
-"PO-Revision-Date: 2018-12-18 15:58+0000\n"
+"PO-Revision-Date: 2018-12-20 08:58+0000\n"
 "Last-Translator: Maria Sparenberg <maria.sparenberg@gmx.net>\n"
 "Language-Team: German (https://www.transifex.com/oca/teams/23907/de/)\n"
 "Language: de\n"
@@ -23,7 +23,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_emergency_contact.field_hr_employee_emergency_contact_ids
 #: model:ir.ui.view,arch_db:hr_emergency_contact.hr_employee_view_form
 msgid "Emergency Contacts"
-msgstr ""
+msgstr "Notfallkontakte"
 
 #. module: hr_emergency_contact
 #: model:ir.model,name:hr_emergency_contact.model_hr_employee
