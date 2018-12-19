@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-27 02:55+0000\n"
-"PO-Revision-Date: 2018-12-18 15:58+0000\n"
+"PO-Revision-Date: 2018-12-20 08:58+0000\n"
 "Last-Translator: Maria Sparenberg <maria.sparenberg@gmx.net>\n"
 "Language-Team: German (https://www.transifex.com/oca/teams/23907/de/)\n"
 "Language: de\n"
@@ -53,7 +53,7 @@ msgstr "Bulgarisch"
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "Burmese / ဗမာစာ"
-msgstr ""
+msgstr "Birmanisch"
 
 #. module: hr_language
 #: selection:hr.language,name:0
@@ -131,7 +131,7 @@ msgstr "Angestellte(r)"
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "English"
-msgstr ""
+msgstr "Englisch"
 
 #. module: hr_language
 #: selection:hr.language,name:0
@@ -186,7 +186,7 @@ msgstr "Georgisch"
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "German (CH) / Deutsch (CH)"
-msgstr ""
+msgstr "Deutsch (Schweiz)"
 
 #. module: hr_language
 #: selection:hr.language,name:0
@@ -246,7 +246,7 @@ msgstr "Kabylisch"
 #. module: hr_language
 #: selection:hr.language,name:0
 msgid "Khmer / ភាសាខ្មែរ"
-msgstr ""
+msgstr "Khmer"
 
 #. module: hr_language
 #: selection:hr.language,name:0
@@ -277,7 +277,7 @@ msgstr "Sprachen"
 #. module: hr_language
 #: model:ir.model.fields,help:hr_language.field_hr_employee_language_ids
 msgid "Languages of this employee"
-msgstr ""
+msgstr "Sprachen der/des Angestellten"
 
 #. module: hr_language
 #: selection:hr.language,name:0
@@ -497,4 +497,4 @@ msgstr "Schreiben"
 #. module: hr_language
 #: model:ir.model,name:hr_language.model_hr_language
 msgid "hr.language"
-msgstr ""
+msgstr "hr.language"
