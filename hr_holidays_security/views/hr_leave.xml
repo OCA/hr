@@ -1,0 +1,43 @@
+<?xml version = "1.0" encoding="utf-8"?>
+<odoo>
+    <!--
+      Copyright (C) 2018 Brainbean Apps (https://brainbeanapps.com)
+      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+    -->
+
+    <record id="hr_holidays.menu_hr_holidays_dashboard" model="ir.ui.menu">
+        <field name="groups_id" eval="[(5,0,0)]"/>
+    </record>
+
+    <record id="hr_leave_view_form" model="ir.ui.view">
+        <field name="name">hr.leave.view.form</field>
+        <field name="model">hr.leave</field>
+        <field name="inherit_id" ref="hr_holidays.hr_leave_view_form"/>
+        <field name="arch" type="xml">
+            <field name="name" position="before">
+                <field name="can_view_name" invisible="1"/>
+            </field>
+            <field name="name" position="attributes">
+                <attribute name="attrs">{'invisible': [('can_view_name', '!=', True)]}</attribute>
+            </field>
+        </field>
+    </record>
+
+    <record id="hr_leave_view_kanban" model="ir.ui.view">
+        <field name="name">hr.leave.view.kanban</field>
+        <field name="model">hr.leave</field>
+        <field name="inherit_id" ref="hr_holidays.hr_leave_view_kanban"/>
+        <field name="arch" type="xml">
+            <field name="name" position="before">
+                <field name="can_view_name"/>
+            </field>
+            <xpath expr="//t[@t-esc='record.name.value']" position="replace">
+                <t t-if="record.can_view_name">
+                    <t>$0</t>
+                </t>
+                <t t-else=""/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
