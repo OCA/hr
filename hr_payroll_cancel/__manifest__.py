@@ -6,12 +6,12 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 {
     "name": "Hr Payroll Cancel",
-    "version": "11.0.1.0.1",
+    "version": "12.0.1.0.1",
     "author": "Vauxoo, Eficent, "
               "Serpent Consulting Services Pvt. Ltd.,"
               "Odoo Community Association (OCA)",
     "category": "HR",
-    "website": "http://www.vauxoo.com/",
+    "website": "https://github.com/OCA/hr",
     "license": "AGPL-3",
     "depends": [
         "account_cancel",

@@ -36,5 +36,4 @@ class HrPayslip(models.Model):
             else:
                 payslip.move_id.reverse_moves()
                 payslip.move_id = False
-
         return self.write({'state': 'cancel'})
