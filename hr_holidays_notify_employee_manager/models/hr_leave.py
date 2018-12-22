@@ -4,8 +4,8 @@
 from odoo import api, models
 
 
-class HrHolidays(models.Model):
-    _inherit = 'hr.holidays'
+class HRLeave(models.Model):
+    _inherit = 'hr.leave'
 
     @api.multi
     def _get_approvers_to_notify(self):
@@ -18,7 +18,7 @@ class HrHolidays(models.Model):
 
     @api.model
     def create(self, vals):
-        res = super(HrHolidays, self).create(vals)
+        res = super(HRLeave, self).create(vals)
         res._notify_approvers()
         return res
 
@@ -33,5 +33,6 @@ class HrHolidays(models.Model):
             self.add_follower(approver.id)
             if approver.user_id:
                 self._message_auto_subscribe_notify(
-                    [approver.user_id.partner_id.id])
+                    [approver.user_id.partner_id.id],
+                    template='mail.message_user_assigned')
         return True
