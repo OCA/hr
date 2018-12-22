@@ -1,9 +1,12 @@
-# ©  2015 Salton Massally <smassally@idtlabs.sl>
-# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+# Copyright 2015 Salton Massally <smassally@idtlabs.sl>
+# Copyright 2018 Brainbean Apps (https://brainbeanapps.com)
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-from odoo.exceptions import ValidationError
-from odoo.exceptions import UserError
 from odoo.tests.common import TransactionCase
+
+from odoo.exceptions import UserError, ValidationError
+
+from datetime import date
 
 
 class TestHolidaysPublic(TransactionCase):
@@ -12,8 +15,8 @@ class TestHolidaysPublic(TransactionCase):
 
     def setUp(self):
         super(TestHolidaysPublic, self).setUp()
-        self.holiday_model = self.env["hr.holidays.public"]
-        self.holiday_model_line = self.env["hr.holidays.public.line"]
+        self.holiday_model = self.env['hr.holidays.public']
+        self.holiday_model_line = self.env['hr.holidays.public.line']
         self.employee_model = self.env['hr.employee']
         self.wizard_next_year = self.env['public.holidays.next.year.wizard']
 
@@ -112,21 +115,29 @@ class TestHolidaysPublic(TransactionCase):
 
     def test_isnot_holiday(self):
         # ensures that if given a date that is not an holiday it returns none
-        self.assertFalse(self.holiday_model.is_public_holiday('1995-12-10'))
+        self.assertFalse(self.holiday_model.is_public_holiday(
+            date(1995, 12, 10)
+        ))
 
     def test_is_holiday(self):
         # ensures that correct holidays are identified
-        self.assertTrue(self.holiday_model.is_public_holiday('1995-10-14'))
+        self.assertTrue(self.holiday_model.is_public_holiday(
+            date(1995, 10, 14)
+        ))
 
     def test_isnot_holiday_in_country(self):
         # ensures that correct holidays are identified for a country
         self.assertFalse(self.holiday_model.is_public_holiday(
-            '1994-11-14', employee_id=self.employee.id))
+            date(1994, 11, 14),
+            employee_id=self.employee.id
+        ))
 
     def test_is_holiday_in_country(self):
         # ensures that correct holidays are identified for a country
         self.assertTrue(self.holiday_model.is_public_holiday(
-            '1994-10-14', employee_id=self.employee.id))
+            date(1994, 10, 14),
+            employee_id=self.employee.id
+        ))
 
     def test_holiday_line_year(self):
         # ensures that line year and holiday year are the same
@@ -144,21 +155,27 @@ class TestHolidaysPublic(TransactionCase):
         # ensures that correct holidays are identified for a country
         lines = self.holiday_model.get_holidays_list(
             1994, employee_id=self.employee.id)
-        res = lines.filtered(lambda r: r.date == '1994-10-14')
+        res = lines.filtered(
+            lambda r: r.date == date(1994, 10, 14)
+        )
         self.assertEqual(len(res), 1)
         self.assertEqual(len(lines), 1)
 
     def test_list_holidays_in_list(self):
         # ensures that correct holidays are identified for a country
         lines = self.holiday_model.get_holidays_list(1995)
-        res = lines.filtered(lambda r: r.date == '1995-10-14')
+        res = lines.filtered(
+            lambda r: r.date == date(1995, 10, 14)
+        )
         self.assertEqual(len(res), 1)
         self.assertEqual(len(lines), 3)
 
     def test_create_next_year_public_holidays(self):
         self.wizard_next_year.new().create_public_holidays()
         lines = self.holiday_model.get_holidays_list(1996)
-        res = lines.filtered(lambda r: r.date == '1996-10-14')
+        res = lines.filtered(
+            lambda r: r.date == date(1996, 10, 14)
+        )
         self.assertEqual(len(res), 1)
         self.assertEqual(len(lines), 3)
 

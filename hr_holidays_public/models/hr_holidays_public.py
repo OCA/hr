@@ -1,26 +1,25 @@
-# ©  2015 2011,2013 Michael Telahun Makonnen <mmakonnen@gmail.com>
-# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+# Copyright 2015 2011,2013 Michael Telahun Makonnen <mmakonnen@gmail.com>
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 from datetime import date
 
 from odoo import api, fields, models, _
-from odoo.exceptions import UserError
+from odoo.exceptions import ValidationError
 
 
 class HrHolidaysPublic(models.Model):
     _name = 'hr.holidays.public'
     _description = 'Public Holidays'
     _rec_name = 'year'
-    _order = "year"
+    _order = 'year'
 
     display_name = fields.Char(
-        "Name",
-        compute="_compute_display_name",
-        readonly=True,
+        'Name',
+        compute='_compute_display_name',
         store=True,
     )
     year = fields.Integer(
-        "Calendar Year",
+        'Calendar Year',
         required=True,
         default=date.today().year
     )
@@ -41,17 +40,14 @@ class HrHolidaysPublic(models.Model):
             line._check_year_one()
 
     def _check_year_one(self):
-        if self.country_id:
-            domain = [('year', '=', self.year),
-                      ('country_id', '=', self.country_id.id),
-                      ('id', '!=', self.id)]
-        else:
-            domain = [('year', '=', self.year),
-                      ('country_id', '=', False),
-                      ('id', '!=', self.id)]
-        if self.search_count(domain):
-            raise UserError(_('You can\'t create duplicate public holiday '
-                              'per year and/or country'))
+        if self.search_count([
+                ('year', '=', self.year),
+                ('country_id', '=', self.country_id.id),
+                ('id', '!=', self.id)]):
+            raise ValidationError(_(
+                'You can\'t create duplicate public holiday per year and/or'
+                ' country'
+            ))
         return True
 
     @api.multi
@@ -59,8 +55,10 @@ class HrHolidaysPublic(models.Model):
     def _compute_display_name(self):
         for line in self:
             if line.country_id:
-                line.display_name = '%s (%s)' % (line.year,
-                                                 line.country_id.name)
+                line.display_name = '%s (%s)' % (
+                    line.year,
+                    line.country_id.name
+                )
             else:
                 line.display_name = line.year
 
@@ -113,18 +111,16 @@ class HrHolidaysPublic(models.Model):
     def is_public_holiday(self, selected_date, employee_id=None):
         """
         Returns True if selected_date is a public holiday for the employee
-        :param selected_date: datetime object or string
+        :param selected_date: datetime object
         :param employee_id: ID of the employee
         :return: bool
         """
-        if isinstance(selected_date, str):
-            selected_date = fields.Date.from_string(selected_date)
         holidays_lines = self.get_holidays_list(
             selected_date.year, employee_id=employee_id)
         if holidays_lines:
             hol_date = holidays_lines.filtered(
-                lambda r: r.date == fields.Date.to_string(
-                    selected_date))
+                lambda r: r.date == selected_date
+            )
             if hol_date.ids:
                 return True
         return False
@@ -133,7 +129,7 @@ class HrHolidaysPublic(models.Model):
 class HrHolidaysPublicLine(models.Model):
     _name = 'hr.holidays.public.line'
     _description = 'Public Holidays Lines'
-    _order = "date, name desc"
+    _order = 'date, name desc'
 
     name = fields.Char(
         'Name',
@@ -148,8 +144,11 @@ class HrHolidaysPublicLine(models.Model):
         'Calendar Year',
         required=True,
     )
-    variable_date = fields.Boolean('Date may change', oldname='variable',
-                                   default=True)
+    variable_date = fields.Boolean(
+        'Date may change',
+        oldname='variable',
+        default=True,
+    )
     state_ids = fields.Many2many(
         'res.country.state',
         'hr_holiday_public_state_rel',
@@ -165,29 +164,33 @@ class HrHolidaysPublicLine(models.Model):
             line._check_date_state_one()
 
     def _check_date_state_one(self):
-        if fields.Date.from_string(self.date).year != self.year_id.year:
-            raise UserError(_(
-                'Dates of holidays should be the same year '
-                'as the calendar year they are being assigned to'
+        if self.date.year != self.year_id.year:
+            raise ValidationError(_(
+                'Dates of holidays should be the same year as the calendar'
+                ' year they are being assigned to'
             ))
 
         if self.state_ids:
-            domain = [('date', '=', self.date),
-                      ('year_id', '=', self.year_id.id),
-                      ('state_ids', '!=', False),
-                      ('id', '!=', self.id)]
+            domain = [
+                ('date', '=', self.date),
+                ('year_id', '=', self.year_id.id),
+                ('state_ids', '!=', False),
+                ('id', '!=', self.id),
+            ]
             holidays = self.search(domain)
 
             for holiday in holidays:
 
                 if self.state_ids & holiday.state_ids:
-                    raise UserError(_('You can\'t create duplicate public '
-                                      'holiday per date %s and one of the '
-                                      'country states.') % self.date)
+                    raise ValidationError(_(
+                        'You can\'t create duplicate public holiday per date'
+                        ' %s and one of the country states.'
+                    ) % self.date)
         domain = [('date', '=', self.date),
                   ('year_id', '=', self.year_id.id),
                   ('state_ids', '=', False)]
         if self.search_count(domain) > 1:
-            raise UserError(_('You can\'t create duplicate public holiday '
-                              'per date %s.') % self.date)
+            raise ValidationError(_(
+                'You can\'t create duplicate public holiday per date %s.'
+            ) % self.date)
         return True

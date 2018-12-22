@@ -8,3 +8,7 @@
 * `Tecnativa <https://www.tecnativa.com>`__:
 
   * Pedro M. Baeza
+
+* `Brainbean Apps <https://brainbeanapps.com>`__:
+
+  * Alexey Pelykh <alexey.pelykh@brainbeanapps.com>

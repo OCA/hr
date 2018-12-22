@@ -1,5 +1,5 @@
 # Copyright 2016 Trobz
-# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 import logging
 
@@ -65,11 +65,9 @@ class HolidaysPublicNextYearWizard(models.TransientModel):
             new_ph_ids.append(new_ph.id)
 
             for last_ph_line in last_ph.line_ids:
-                ph_line_date = fields.Date.from_string(last_ph_line.date)
-
                 feb_29 = (
-                    ph_line_date.month == 2 and
-                    ph_line_date.day == 29)
+                    last_ph_line.date.month == 2 and
+                    last_ph_line.date.day == 29)
 
                 if feb_29:
                     # Handling this rare case would mean quite a lot of
@@ -82,7 +80,7 @@ class HolidaysPublicNextYearWizard(models.TransientModel):
                         '(2016, 2020...), please select a template from '
                         'another year.'))
 
-                new_date = ph_line_date.replace(year=new_year)
+                new_date = last_ph_line.date.replace(year=new_year)
 
                 new_ph_line_vals = {
                     'date': new_date,

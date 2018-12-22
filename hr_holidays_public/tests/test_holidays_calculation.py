@@ -1,6 +1,7 @@
 # Copyright 2015 iDT LABS (http://www.@idtlabs.sl)
 # Copyright 2017-2018 Tecnativa - Pedro M. Baeza
-# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+# Copyright 2018 Brainbean Apps
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 from odoo.tests import common
 
@@ -12,7 +13,8 @@ class TestHolidaysComputeDaysBase(common.SavepointCase):
     @classmethod
     def setUpClass(cls):
         super(TestHolidaysComputeDaysBase, cls).setUpClass()
-        cls.HrHolidays = cls.env['hr.holidays']
+        cls.HrLeave = cls.env['hr.leave']
+        cls.HrLeaveType = cls.env['hr.leave.type']
         cls.HrHolidaysPublic = cls.env["hr.holidays.public"]
         # Remove timezone for controlling data better
         cls.env.user.tz = False
@@ -81,11 +83,12 @@ class TestHolidaysComputeDaysBase(common.SavepointCase):
                 }),
             ],
         })
-        cls.holiday_type = cls.env['hr.holidays.status'].create({
+
+        cls.holiday_type = cls.HrLeaveType.create({
             'name': 'Leave Type Test',
             'exclude_public_holidays': True,
         })
-        cls.holiday_type_no_excludes = cls.env['hr.holidays.status'].create({
+        cls.holiday_type_no_excludes = cls.HrLeaveType.create({
             'name': 'Leave Type Test Without excludes',
             'exclude_public_holidays': False,
         })
@@ -93,31 +96,31 @@ class TestHolidaysComputeDaysBase(common.SavepointCase):
 
 class TestHolidaysComputeDays(TestHolidaysComputeDaysBase):
     def test_number_days_excluding_employee_1(self):
-        holidays = self.HrHolidays.new({
+        leave_request = self.HrLeave.new({
             'date_from': '1946-12-23 00:00:00',  # Monday
             'date_to': '1946-12-29 23:59:59',  # Sunday
             'holiday_status_id': self.holiday_type.id,
             'employee_id': self.employee_1.id,
         })
-        holidays._onchange_data_hr_holidays_public()
-        self.assertEqual(holidays.number_of_days_temp, 4)
+        leave_request._onchange_leave_dates()
+        self.assertEqual(leave_request.number_of_days, 4)
 
     def _test_number_days_excluding_employee_2(self):
-        holidays = self.HrHolidays.new({
+        leave_request = self.HrLeave.new({
             'date_from': '1946-12-23 00:00:00',  # Monday
             'date_to': '1946-12-29 23:59:59',  # Sunday
             'holiday_status_id': self.holiday_type.id,
             'employee_id': self.employee_2.id,
         })
-        holidays._onchange_data_hr_holidays_public()
-        self.assertEqual(holidays.number_of_days_temp, 2)
+        leave_request._onchange_leave_dates()
+        self.assertEqual(leave_request.number_of_days, 2)
 
     def test_number_days_not_excluding(self):
-        holidays = self.HrHolidays.new({
+        leave_request = self.HrLeave.new({
             'date_from': '1946-12-23 00:00:00',  # Monday
             'date_to': '1946-12-29 23:59:59',  # Sunday
             'holiday_status_id': self.holiday_type_no_excludes.id,
             'employee_id': self.employee_1.id,
         })
-        holidays._onchange_data_hr_holidays_public()
-        self.assertEqual(holidays.number_of_days_temp, 5)
+        leave_request._onchange_leave_dates()
+        self.assertEqual(leave_request.number_of_days, 5)
