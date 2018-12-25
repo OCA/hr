@@ -26,7 +26,4 @@
             'dateutil',
         ],
     },
-    'data': [
-        'views/hr_employee.xml',
-    ],
 }
