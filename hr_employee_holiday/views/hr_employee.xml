@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--
+      Copyright (C) 2018 Brainbean Apps (https://brainbeanapps.com)
+      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+    -->
+
+    <record id="hr_employee_view_form" model="ir.ui.view">
+        <field name="name">hr.employee.view.form</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Holidays">
+                    <group string="Allocations">
+                        <field name="leave_allocation_ids" nolabel="1">
+                            <tree
+                                decoration-danger="state == 'refuse'"
+                                decoration-info="state == 'draft'"
+                                decoration-bf="message_needaction == True"
+                            >
+                                <field name="holiday_status_id"/>
+                                <field name="name"/>
+                                <field name="number_of_days" string="Allocated Days" sum="Total allocated days"/>
+                                <field name="state"/>
+                                <field name="message_needaction" invisible="1"/>
+                                <button string="Approve" name="action_approve" type="object"
+                                    icon="fa-check text-success"
+                                    states="confirm"
+                                    groups="hr_holidays.group_hr_holidays_user"/>
+                                <button string="Validate" name="action_validate" type="object"
+                                    icon="fa-check text-success"
+                                    states="validate1"
+                                    groups="hr_holidays.group_hr_holidays_manager"/>
+                                <button string="Refuse" name="action_refuse" type="object"
+                                    icon="fa-ban text-danger"
+                                    states="confirm,validate,validate1"
+                                    groups="hr_holidays.group_hr_holidays_manager"/>
+                            </tree>
+                        </field>
+                        <group>
+                            <button string="Create allocation" name="action_create_leave_allocation" type="object" class="oe_highlight"
+                                groups="hr_holidays.group_hr_holidays_user"/>
+                        </group>
+                    </group>
+                    <group string="Requests">
+                        <field name="leave_request_ids" nolabel="1">
+                            <tree
+                                decoration-danger="state == 'refuse'"
+                                decoration-info="state == 'draft'"
+                                decoration-bf="message_needaction == True"
+                            >
+                                <field name="holiday_status_id"/>
+                                <field name="name"/>
+                                <field name="date_from"/>
+                                <field name="date_to"/>
+                                <field name="number_of_days" string="Number of Days" sum="Total leaves"/>
+                                <field name="state"/>
+                                <field name="message_needaction" invisible="1"/>
+                                <button string="Approve" name="action_approve" type="object"
+                                    icon="fa-check text-success"
+                                    states="confirm"
+                                    groups="hr_holidays.group_hr_holidays_user"/>
+                                <button string="Validate" name="action_validate" type="object"
+                                    icon="fa-check text-success"
+                                    states="validate1"
+                                    groups="hr_holidays.group_hr_holidays_manager"/>
+                                <button string="Refuse" name="action_refuse" type="object"
+                                    icon="fa-ban text-danger"
+                                    states="confirm,validate,validate1"
+                                    groups="hr_holidays.group_hr_holidays_manager"/>
+                            </tree>
+                        </field>
+                        <group>
+                            <button string="Create request" name="action_create_leave_request" type="object" class="oe_highlight"
+                                groups="hr_holidays.group_hr_holidays_user"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
