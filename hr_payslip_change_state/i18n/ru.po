@@ -107,13 +107,13 @@ msgid "Last Updated on"
 msgstr "Последний раз обновлено"
 
 #. module: hr_payslip_change_state
-#: code:addons/hr_payslip_change_state/wizard/hr_payslip_change_state.py:50
+#: code:addons/hr_payslip_change_state/wizard/hr_payslip_change_state.py:49
 #, python-format
 msgid "Only draft payslips can be verified,the payslip %s is in %s state"
 msgstr ""
 
 #. module: hr_payslip_change_state
-#: code:addons/hr_payslip_change_state/wizard/hr_payslip_change_state.py:58
+#: code:addons/hr_payslip_change_state/wizard/hr_payslip_change_state.py:57
 #, python-format
 msgid ""
 "Only payslips in states verify or draft can be confirmed, the payslip %s is "
@@ -121,14 +121,14 @@ msgid ""
 msgstr ""
 
 #. module: hr_payslip_change_state
-#: code:addons/hr_payslip_change_state/wizard/hr_payslip_change_state.py:43
+#: code:addons/hr_payslip_change_state/wizard/hr_payslip_change_state.py:42
 #, python-format
 msgid ""
 "Only rejected payslips can be reset to draft, the payslip %s is in %s state"
 msgstr ""
 
 #. module: hr_payslip_change_state
-#: code:addons/hr_payslip_change_state/wizard/hr_payslip_change_state.py:68
+#: code:addons/hr_payslip_change_state/wizard/hr_payslip_change_state.py:67
 #, python-format
 msgid "Payslips"
 msgstr ""
@@ -139,7 +139,7 @@ msgid "Set to Draft"
 msgstr "Установить в \"Черновик\""
 
 #. module: hr_payslip_change_state
-#: code:addons/hr_payslip_change_state/wizard/hr_payslip_change_state.py:63
+#: code:addons/hr_payslip_change_state/wizard/hr_payslip_change_state.py:62
 #, python-format
 msgid "The payslip %s is already canceled please deselect it"
 msgstr ""
