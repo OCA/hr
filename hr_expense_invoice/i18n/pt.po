@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* hr_expense_invoice
+# 	* hr_expense_invoice
 #
 msgid ""
 msgstr ""
@@ -17,9 +17,11 @@ msgstr ""
 "X-Generator: Weblate 3.1.1\n"
 
 #. module: hr_expense_invoice
-#: code:addons/hr_expense_invoice/models/hr_expense_sheet.py:37
+#: code:addons/hr_expense_invoice/models/hr_expense_sheet.py:40
 #, python-format
-msgid "Cannot reconcile supplier invoice payable with generated line. Please check amounts and see if the invoice is already added or paid. Invoice: %s"
+msgid ""
+"Cannot reconcile supplier invoice payable with generated line. Please check "
+"amounts and see if the invoice is already added or paid. Invoice: %s"
 msgstr ""
 "Não foi possível reconciliar a fatura a pagar ao fornecedor com a linha "
 "gerada. Por favor, verifique os montantes e veja se a fatura já está "
