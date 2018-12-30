@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<openerp>
-    <data>
+<odoo>
 
         <record id="hr_applicant_form_image" model="ir.ui.view">
             <field name="name">Applicant: add Image</field>
@@ -12,8 +11,14 @@
                     <field name="image" widget="image" class="oe_left oe_avatar"
                         options="{&quot;preview_image&quot;: &quot;image_medium&quot;, &quot;size&quot;: [90, 90]}"/>
                 </xpath>
+                <field name="partner_id" position="attributes">
+                    <attribute name="required">0</attribute>
+                </field>
+                <field name="partner_name" position="attributes">
+                    <attribute name="required">1</attribute>
+                </field>
+                
            </field>
         </record>
 
-    </data>
-</openerp>
+</odoo>

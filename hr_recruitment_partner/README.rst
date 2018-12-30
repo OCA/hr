@@ -58,7 +58,7 @@ Contributors
 ------------
 
 * Daniel Reis
-
+* Hans Henrik Gabelgaard
 
 Maintainer
 ----------
