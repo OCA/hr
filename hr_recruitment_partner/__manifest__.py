@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 ###############################################################################
 #
 #    Copyright (C) 2015 Daniel Reis
@@ -22,9 +20,10 @@
 {
     'name': 'Applicants implicit Partner',
     'summary': 'Automatically create a Partner for Applicants',
-    'version': '8.0.1.0.0',
+    'version': '11.0.1.0.0',
     'category': 'Human Resources',
     'author': 'Daniel Reis, Odoo Community Association (OCA)',
+    'website': 'https://github.com/OCA/hr',
     'license': 'AGPL-3',
     'data': [
         'views/hr_applicant_view.xml',
@@ -34,5 +33,5 @@
     ],
     'pre_init_hook': 'pre_init_hook',
     'post_init_hook': 'post_init_hook',
-    'installable': False,
+    'installable': True,
 }

@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 ###############################################################################
 #
 #    Copyright (C) 2015 Daniel Reis
@@ -18,8 +17,8 @@
 #
 ###############################################################################
 
-from openerp import SUPERUSER_ID
-from openerp.api import Environment
+from odoo import SUPERUSER_ID
+from odoo.api import Environment
 
 
 def pre_init_hook(cr):
@@ -45,7 +44,7 @@ def post_init_hook(cr, pool):
     applicant_data = env.cr.dictfetchall()
     for applicant, db_data in zip(applicants, applicant_data):
         applicant.partner_id = env['res.partner'].create({
-            'name': applicant.partner_name or applicant.name,
+            'name': db_data['partner_name'],
             'phone': db_data['partner_phone'],
             'mobile': db_data['partner_mobile'],
             'email': db_data['email_from'],

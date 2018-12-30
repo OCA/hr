@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 ##############################################################################
 #
 #    Copyright (C) 2015 Daniel Reis
@@ -18,16 +17,37 @@
 #
 ##############################################################################
 
-from openerp import models, fields
+from odoo import api, models, fields
 
 
 class Applicant(models.Model):
     _inherit = 'hr.applicant'
 
     partner_id = fields.Many2one(
-        delegate=True, required=True, ondelete='restrict')
+        delegate=True, ondelete='restrict')
 
     # Redefined fields, now stored in Partner only
     partner_name = fields.Char(related='partner_id.name')
     partner_mobile = fields.Char(related='partner_id.mobile')
     partner_phone = fields.Char(related='partner_id.phone')
+    image = fields.Binary(related='partner_id.image')
+
+    @api.model
+    def create(self, vals):
+        if not vals.get('partner_id', False):
+            vals['partner_id'] = (
+                self.env['res.partner']
+                .create(
+                    {
+                        'is_company': False,
+                        'name': vals.get('partner_name', False),
+                        'email': vals.get('partner_email', False),
+                        'phone': vals.get('phone', False),
+                        'mobile': vals.get('mobile', False),
+                        'image': vals.get('image', False),
+                    }
+                )
+                .id
+            )
+
+        return super(Applicant, self).create(vals)
