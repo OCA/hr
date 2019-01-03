@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# * hr_job_categories
+# * hr_job_category
 # 
 # Translators:
 msgid ""
@@ -17,22 +17,22 @@ msgstr ""
 "Language: it\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#. module: hr_job_categories
+#. module: hr_job_category
 #: field:hr.job,category_ids:0
 msgid "Associated Tags"
 msgstr ""
 
-#. module: hr_job_categories
-#: model:ir.model,name:hr_job_categories.model_hr_contract
+#. module: hr_job_category
+#: model:ir.model,name:hr_job_category.model_hr_contract
 msgid "Contract"
 msgstr "Contratto"
 
-#. module: hr_job_categories
-#: model:ir.model,name:hr_job_categories.model_hr_job
+#. module: hr_job_category
+#: model:ir.model,name:hr_job_category.model_hr_job
 msgid "Job Position"
 msgstr ""
 
-#. module: hr_job_categories
-#: view:hr.job:hr_job_categories.view_job_form
+#. module: hr_job_category
+#: view:hr.job:hr_job_category.view_job_form
 msgid "e.g. Part Time"
 msgstr ""

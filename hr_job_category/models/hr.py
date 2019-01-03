@@ -1,32 +1,13 @@
-# -*- coding:utf-8 -*-
-##############################################################################
-#
-#    Copyright (C) 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
-#    All Rights Reserved.
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as published
-#    by
-#    the Free Software Foundation, either version 3 of the License, or
-#    (at your option) any later version.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
-#
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-##############################################################################
+# Copyright 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from openerp import models, fields, api
+from odoo import models, fields, api
 import logging
 
 _logger = logging.getLogger(__name__)
 
 
-class hr_job(models.Model):
+class HRJob(models.Model):
     _inherit = 'hr.job'
 
     category_ids = fields.Many2many('hr.employee.category',
@@ -36,11 +17,12 @@ class hr_job(models.Model):
                                     string='Associated Tags')
 
 
-class hr_contract(models.Model):
+class HRContract(models.Model):
     _inherit = 'hr.contract'
 
-    @api.one
+    @api.multi
     def _remove_tags(self, employee_id=None, job_id=None):
+        # TODO write tags only once
         if not employee_id or not job_id:
             return
         employee = self.env['hr.employee'].browse(employee_id)
@@ -52,7 +34,7 @@ class hr_contract(models.Model):
             if tag in empl_tags:
                 employee.write({'category_ids': [(3, tag.id)]})
 
-    @api.one
+    @api.multi
     def _tag_employees(self, employee_id=None, job_id=None):
         if not employee_id or not job_id:
             return
@@ -67,7 +49,7 @@ class hr_contract(models.Model):
 
     @api.model
     def create(self, vals):
-        res = super(hr_contract, self).create(vals)
+        res = super().create(vals)
         self._tag_employees(vals.get('employee_id', False),
                             vals.get('job_id', False))
         return res
@@ -76,7 +58,7 @@ class hr_contract(models.Model):
     def write(self, vals):
         prev_data = self.read(['job_id'])
 
-        res = super(hr_contract, self).write(vals)
+        res = super().write(vals)
 
         # Go through each record and delete tags associated with the previous
         # job, then add the tags of the new job.
