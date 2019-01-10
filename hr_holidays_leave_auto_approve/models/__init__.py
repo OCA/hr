@@ -1,5 +1,4 @@
-# Copyright 2016 Onestein (<http://www.onestein.eu>)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from . import hr_holidays
-from . import hr_holidays_status
+from . import hr_leave
+from . import hr_leave_type
