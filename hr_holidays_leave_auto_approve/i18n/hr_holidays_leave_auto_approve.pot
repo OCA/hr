@@ -15,7 +15,7 @@ msgstr ""
 
 #. module: hr_holidays_leave_auto_approve
 #: model:ir.model.fields,field_description:hr_holidays_leave_auto_approve.field_hr_holidays_status_auto_approve
-msgid "Auto Approve"
+msgid "Auto Validate"
 msgstr ""
 
 #. module: hr_holidays_leave_auto_approve
