@@ -1,0 +1,364 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * hr_experience
+#
+# Translators:
+# OCA Transbot <transbot@odoo-community.org>, 2018
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-06-07 02:58+0000\n"
+"PO-Revision-Date: 2018-06-07 02:58+0000\n"
+"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2018\n"
+"Language-Team: Romanian (https://www.transifex.com/oca/teams/23907/ro/)\n"
+"Language: ro\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?"
+"2:1));\n"
+
+#. module: hr_experience
+#: model:ir.model.fields,field_description:hr_experience.field_hr_employee_experience_ids
+msgid " Professional Experiences"
+msgstr ""
+
+#. module: hr_experience
+#: model:ir.ui.view,arch_db:hr_experience.view_certification_tree
+#: model:ir.ui.view,arch_db:hr_experience.view_employee_form_inherit
+msgid "# Certificate"
+msgstr ""
+
+#. module: hr_experience
+#: selection:hr.experience,category:0
+msgid "Academic"
+msgstr ""
+
+#. module: hr_experience
+#: model:ir.ui.view,arch_db:hr_experience.view_academic_form
+#: model:ir.ui.view,arch_db:hr_experience.view_employee_form_inherit
+msgid "Academic Experience"
+msgstr ""
+
+#. module: hr_experience
+#: model:ir.actions.act_window,name:hr_experience.open_view_academic_form
+#: model:ir.ui.menu,name:hr_experience.menu_open_view_academic_form
+#: model:ir.ui.view,arch_db:hr_experience.view_academic_tree
+#: model:ir.ui.view,arch_db:hr_experience.view_employee_form_inherit
+msgid "Academic Experiences"
+msgstr ""
+
+#. module: hr_experience
+#: model:ir.model.fields,field_description:hr_experience.field_hr_employee_academic_ids
+#: model:ir.model.fields,help:hr_experience.field_hr_employee_academic_ids
+msgid "Academic experiences"
+msgstr ""
+
+#. module: hr_experience
+#: model:ir.model.fields,field_description:hr_experience.field_hr_academic_activities
+msgid "Activities and associations"
+msgstr ""
+
+#. module: hr_experience
+#: model:ir.ui.view,arch_db:hr_experience.view_academic_form
+#: model:ir.ui.view,arch_db:hr_experience.view_employee_form_inherit
+msgid "Additional Information"
+msgstr ""
+
+#. module: hr_experience
+#: model:ir.model.fields,field_description:hr_experience.field_hr_experience_category
+#: model:ir.model.fields,help:hr_experience.field_hr_experience_category
+msgid "Category"
+msgstr ""
+
+#. module: hr_experience
+#: selection:hr.experience,category:0
+#: model:ir.ui.view,arch_db:hr_experience.view_certification_form
+#: model:ir.ui.view,arch_db:hr_experience.view_certification_tree
+#: model:ir.ui.view,arch_db:hr_experience.view_employee_form_inherit
+msgid "Certification"
+msgstr ""
+
+#. module: hr_experience
+#: model:ir.ui.view,arch_db:hr_experience.view_certification_form
+#: model:ir.ui.view,arch_db:hr_experience.view_employee_form_inherit
+msgid "Certification Information"
+msgstr ""
+
+#. module: hr_experience
+#: model:ir.model.fields,field_description:hr_experience.field_hr_certification_certification
+#: model:ir.model.fields,help:hr_experience.field_hr_certification_certification
+msgid "Certification Number"
+msgstr ""
+
+#. module: hr_experience
+#: model:ir.actions.act_window,name:hr_experience.open_view_certification_form
+#: model:ir.model.fields,field_description:hr_experience.field_hr_employee_certification_ids
+#: model:ir.model.fields,help:hr_experience.field_hr_employee_certification_ids
+#: model:ir.ui.menu,name:hr_experience.menu_open_view_certification_form
+#: model:ir.ui.view,arch_db:hr_experience.view_certification_tree
+#: model:ir.ui.view,arch_db:hr_experience.view_employee_form_inherit
+msgid "Certifications"
+msgstr ""
+
+#. module: hr_experience
+#: model:ir.model.fields,field_description:hr_experience.field_hr_academic_create_uid
+#: model:ir.model.fields,field_description:hr_experience.field_hr_certification_create_uid
+#: model:ir.model.fields,field_description:hr_experience.field_hr_curriculum_create_uid
+#: model:ir.model.fields,field_description:hr_experience.field_hr_experience_create_uid
+msgid "Created by"
+msgstr "Creeat de către"
+
+#. module: hr_experience
+#: model:ir.model.fields,field_description:hr_experience.field_hr_academic_create_date
+#: model:ir.model.fields,field_description:hr_experience.field_hr_certification_create_date
+#: model:ir.model.fields,field_description:hr_experience.field_hr_curriculum_create_date
+#: model:ir.model.fields,field_description:hr_experience.field_hr_experience_create_date
+msgid "Created on"
+msgstr "Creeat în"
+
+#. module: hr_experience
+#: model:ir.model.fields,field_description:hr_experience.field_hr_academic_description
+#: model:ir.model.fields,field_description:hr_experience.field_hr_certification_description
+#: model:ir.model.fields,field_description:hr_experience.field_hr_curriculum_description
+#: model:ir.model.fields,field_description:hr_experience.field_hr_experience_description
+#: model:ir.ui.view,arch_db:hr_experience.view_academic_form
+#: model:ir.ui.view,arch_db:hr_experience.view_employee_form_inherit
+#: model:ir.ui.view,arch_db:hr_experience.view_professional_form
+msgid "Description"
+msgstr ""
+
+#. module: hr_experience
+#: model:ir.model.fields,field_description:hr_experience.field_hr_academic_diploma
+msgid "Diploma"
+msgstr ""
+
+#. module: hr_experience
+#: model:ir.model.fields,field_description:hr_experience.field_hr_academic_display_name
+#: model:ir.model.fields,field_description:hr_experience.field_hr_certification_display_name
+#: model:ir.model.fields,field_description:hr_experience.field_hr_curriculum_display_name
+#: model:ir.model.fields,field_description:hr_experience.field_hr_experience_display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: hr_experience
+#: model:ir.ui.view,arch_db:hr_experience.view_academic_tree
+msgid "Education"
+msgstr ""
+
+#. module: hr_experience
+#: model:ir.model,name:hr_experience.model_hr_employee
+#: model:ir.model.fields,field_description:hr_experience.field_hr_academic_employee_id
+#: model:ir.model.fields,field_description:hr_experience.field_hr_certification_employee_id
+#: model:ir.model.fields,field_description:hr_experience.field_hr_curriculum_employee_id
+#: model:ir.model.fields,field_description:hr_experience.field_hr_experience_employee_id
+#: model:ir.ui.view,arch_db:hr_experience.view_academic_search
+#: model:ir.ui.view,arch_db:hr_experience.view_certification_search
+#: model:ir.ui.view,arch_db:hr_experience.view_experience_search
+msgid "Employee"
+msgstr "Angajat"
+
+#. module: hr_experience
+#: model:ir.model,name:hr_experience.model_hr_curriculum
+msgid "Employee's Curriculum"
+msgstr ""
+
+#. module: hr_experience
+#: model:ir.ui.view,arch_db:hr_experience.view_employee_form_inherit
+#: model:ir.ui.view,arch_db:hr_experience.view_experience_search
+#: model:ir.ui.view,arch_db:hr_experience.view_professional_form
+#: model:ir.ui.view,arch_db:hr_experience.view_professional_tree
+msgid "Employer"
+msgstr ""
+
+#. module: hr_experience
+#: model:ir.model.fields,help:hr_experience.field_hr_academic_partner_id
+#: model:ir.model.fields,help:hr_experience.field_hr_certification_partner_id
+#: model:ir.model.fields,help:hr_experience.field_hr_curriculum_partner_id
+#: model:ir.model.fields,help:hr_experience.field_hr_experience_partner_id
+msgid "Employer, School, University, Certification Authority"
+msgstr ""
+
+#. module: hr_experience
+#: model:ir.model.fields,field_description:hr_experience.field_hr_academic_end_date
+#: model:ir.model.fields,field_description:hr_experience.field_hr_certification_end_date
+#: model:ir.model.fields,field_description:hr_experience.field_hr_curriculum_end_date
+#: model:ir.model.fields,field_description:hr_experience.field_hr_experience_end_date
+msgid "End date"
+msgstr ""
+
+#. module: hr_experience
+#: model:ir.ui.menu,name:hr_experience.menu_hr_experience
+msgid "Experiences"
+msgstr ""
+
+#. module: hr_experience
+#: model:ir.model.fields,field_description:hr_experience.field_hr_academic_expire
+#: model:ir.model.fields,field_description:hr_experience.field_hr_certification_expire
+#: model:ir.model.fields,field_description:hr_experience.field_hr_curriculum_expire
+#: model:ir.model.fields,field_description:hr_experience.field_hr_experience_expire
+#: model:ir.model.fields,help:hr_experience.field_hr_academic_expire
+#: model:ir.model.fields,help:hr_experience.field_hr_certification_expire
+#: model:ir.model.fields,help:hr_experience.field_hr_curriculum_expire
+#: model:ir.model.fields,help:hr_experience.field_hr_experience_expire
+msgid "Expire"
+msgstr ""
+
+#. module: hr_experience
+#: model:ir.model.fields,field_description:hr_experience.field_hr_academic_study_field
+msgid "Field of study"
+msgstr ""
+
+#. module: hr_experience
+#: model:ir.ui.view,arch_db:hr_experience.view_academic_search
+#: model:ir.ui.view,arch_db:hr_experience.view_certification_search
+#: model:ir.ui.view,arch_db:hr_experience.view_experience_search
+msgid "Group By"
+msgstr ""
+
+#. module: hr_experience
+#: model:ir.model.fields,field_description:hr_experience.field_hr_academic_id
+#: model:ir.model.fields,field_description:hr_experience.field_hr_certification_id
+#: model:ir.model.fields,field_description:hr_experience.field_hr_curriculum_id
+#: model:ir.model.fields,field_description:hr_experience.field_hr_experience_id
+msgid "ID"
+msgstr "ID"
+
+#. module: hr_experience
+#: model:ir.ui.view,arch_db:hr_experience.view_academic_form
+#: model:ir.ui.view,arch_db:hr_experience.view_academic_search
+#: model:ir.ui.view,arch_db:hr_experience.view_academic_tree
+#: model:ir.ui.view,arch_db:hr_experience.view_employee_form_inherit
+msgid "Institution"
+msgstr ""
+
+#. module: hr_experience
+#: model:ir.ui.view,arch_db:hr_experience.view_certification_form
+#: model:ir.ui.view,arch_db:hr_experience.view_certification_search
+#: model:ir.ui.view,arch_db:hr_experience.view_certification_tree
+#: model:ir.ui.view,arch_db:hr_experience.view_employee_form_inherit
+msgid "Issued By"
+msgstr ""
+
+#. module: hr_experience
+#: model:ir.model.fields,field_description:hr_experience.field_hr_academic___last_update
+#: model:ir.model.fields,field_description:hr_experience.field_hr_certification___last_update
+#: model:ir.model.fields,field_description:hr_experience.field_hr_curriculum___last_update
+#: model:ir.model.fields,field_description:hr_experience.field_hr_experience___last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: hr_experience
+#: model:ir.model.fields,field_description:hr_experience.field_hr_academic_write_uid
+#: model:ir.model.fields,field_description:hr_experience.field_hr_certification_write_uid
+#: model:ir.model.fields,field_description:hr_experience.field_hr_curriculum_write_uid
+#: model:ir.model.fields,field_description:hr_experience.field_hr_experience_write_uid
+msgid "Last Updated by"
+msgstr "Ultima actualizare de către"
+
+#. module: hr_experience
+#: model:ir.model.fields,field_description:hr_experience.field_hr_academic_write_date
+#: model:ir.model.fields,field_description:hr_experience.field_hr_certification_write_date
+#: model:ir.model.fields,field_description:hr_experience.field_hr_curriculum_write_date
+#: model:ir.model.fields,field_description:hr_experience.field_hr_experience_write_date
+msgid "Last Updated on"
+msgstr "Ultima actualizare în"
+
+#. module: hr_experience
+#: model:ir.model.fields,field_description:hr_experience.field_hr_academic_location
+#: model:ir.model.fields,field_description:hr_experience.field_hr_certification_location
+#: model:ir.model.fields,field_description:hr_experience.field_hr_curriculum_location
+#: model:ir.model.fields,field_description:hr_experience.field_hr_experience_location
+#: model:ir.model.fields,help:hr_experience.field_hr_academic_location
+#: model:ir.model.fields,help:hr_experience.field_hr_certification_location
+#: model:ir.model.fields,help:hr_experience.field_hr_curriculum_location
+#: model:ir.model.fields,help:hr_experience.field_hr_experience_location
+msgid "Location"
+msgstr ""
+
+#. module: hr_experience
+#: model:ir.model.fields,field_description:hr_experience.field_hr_academic_name
+#: model:ir.model.fields,field_description:hr_experience.field_hr_certification_name
+#: model:ir.model.fields,field_description:hr_experience.field_hr_curriculum_name
+#: model:ir.model.fields,field_description:hr_experience.field_hr_experience_name
+msgid "Name"
+msgstr ""
+
+#. module: hr_experience
+#: model:ir.model.fields,field_description:hr_experience.field_hr_academic_partner_id
+#: model:ir.model.fields,field_description:hr_experience.field_hr_certification_partner_id
+#: model:ir.model.fields,field_description:hr_experience.field_hr_curriculum_partner_id
+#: model:ir.model.fields,field_description:hr_experience.field_hr_experience_partner_id
+msgid "Partner"
+msgstr ""
+
+#. module: hr_experience
+#: model:ir.ui.view,arch_db:hr_experience.view_employee_form_inherit
+#: model:ir.ui.view,arch_db:hr_experience.view_professional_form
+#: model:ir.ui.view,arch_db:hr_experience.view_professional_tree
+msgid "Position"
+msgstr ""
+
+#. module: hr_experience
+#: selection:hr.experience,category:0
+msgid "Professional"
+msgstr ""
+
+#. module: hr_experience
+#: model:ir.ui.view,arch_db:hr_experience.view_employee_form_inherit
+#: model:ir.ui.view,arch_db:hr_experience.view_professional_form
+msgid "Professional Experience"
+msgstr ""
+
+#. module: hr_experience
+#: model:ir.actions.act_window,name:hr_experience.open_view_professional_form
+#: model:ir.model.fields,help:hr_experience.field_hr_employee_experience_ids
+#: model:ir.ui.menu,name:hr_experience.menu_open_view_professional_form
+#: model:ir.ui.view,arch_db:hr_experience.view_employee_form_inherit
+#: model:ir.ui.view,arch_db:hr_experience.view_professional_tree
+msgid "Professional Experiences"
+msgstr ""
+
+#. module: hr_experience
+#: model:ir.ui.view,arch_db:hr_experience.view_employee_form_inherit
+msgid "Resume"
+msgstr ""
+
+#. module: hr_experience
+#: model:ir.ui.view,arch_db:hr_experience.view_academic_search
+msgid "Search Academic Experiences"
+msgstr ""
+
+#. module: hr_experience
+#: model:ir.ui.view,arch_db:hr_experience.view_certification_search
+msgid "Search Certifications"
+msgstr ""
+
+#. module: hr_experience
+#: model:ir.ui.view,arch_db:hr_experience.view_experience_search
+msgid "Search Professional Experiences"
+msgstr ""
+
+#. module: hr_experience
+#: model:ir.model.fields,field_description:hr_experience.field_hr_academic_start_date
+#: model:ir.model.fields,field_description:hr_experience.field_hr_certification_start_date
+#: model:ir.model.fields,field_description:hr_experience.field_hr_curriculum_start_date
+#: model:ir.model.fields,field_description:hr_experience.field_hr_experience_start_date
+msgid "Start date"
+msgstr ""
+
+#. module: hr_experience
+#: model:ir.model,name:hr_experience.model_hr_academic
+msgid "hr.academic"
+msgstr ""
+
+#. module: hr_experience
+#: model:ir.model,name:hr_experience.model_hr_certification
+msgid "hr.certification"
+msgstr ""
+
+#. module: hr_experience
+#: model:ir.model,name:hr_experience.model_hr_experience
+msgid "hr.experience"
+msgstr ""

@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hr_academic_employee,hr.academic.employee,model_hr_academic,base.group_user,1,0,0,0
+access_hr_experience_employee,hr.experience.employee,model_hr_experience,base.group_user,1,0,0,0
+access_hr_curriculum_employee,hr_curriculum.employee,model_hr_curriculum,base.group_user,1,0,0,0
+access_hr_certification_employee,hr.certification.employee,model_hr_certification,base.group_user,1,0,0,0
+access_hr_academic_officer,hr.academic.officer,model_hr_academic,hr.group_hr_user,1,1,1,1
+access_hr_experience_officer,hr.experience.officer,model_hr_experience,hr.group_hr_user,1,1,1,1
+access_hr_curriculum_officer,hr_curriculum.officer,model_hr_curriculum,hr.group_hr_user,1,1,1,1
+access_hr_certification_officer,hr.certification.officer,model_hr_certification,hr.group_hr_user,1,1,1,1

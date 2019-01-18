@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_academic_tree" model="ir.ui.view">
+        <field name="name">hr.academic.tree</field>
+        <field name="model">hr.academic</field>
+        <field name="arch" type="xml">
+            <tree string="Academic Experiences">
+                <field name="name" string="Education"/>
+                <field name="employee_id"/>
+                <field name="partner_id" string="Institution"/>
+                <field name="diploma"/>
+                <field name="study_field"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_academic_form" model="ir.ui.view">
+        <field name="name">hr.academic.form</field>
+        <field name="model">hr.academic</field>
+        <field name="arch" type="xml">
+            <form string="Academic Experience">
+                <sheet>
+                    <group name="main">
+                        <field name="employee_id"/>
+                        <field name="name"/>
+                    </group>
+                    <group name="dates" col="4">
+                        <field name="start_date"/>
+                        <field name="end_date"/>
+                    </group>
+                    <group name="partner_info" col="4">
+                        <field name="partner_id" string="Institution"/>
+                        <field name="location"/>
+                    </group>
+                    <group string="Additional Information" col="4">
+                        <field name="diploma"/>
+                        <field name="study_field"/>
+                        <field name="activities"/>
+                    </group>
+                    <group string="Description">
+                        <field name="description" nolabel="1"/>
+                    </group>
+                </sheet>
+            </form>
+      </field>
+    </record>
+
+    <record id="view_academic_search" model="ir.ui.view">
+        <field name="name">hr.academic.form</field>
+        <field name="model">hr.academic</field>
+        <field name="arch" type="xml">
+            <search string="Search Academic Experiences">
+                <field name="name" filter_domain="['|', '|', ('name', 'ilike', self), ('diploma', 'ilike', self), ('study_field', 'ilike', self)]"/>
+                <field name="employee_id"/>
+                <field name="partner_id" string="Institution"/>
+                <group expand="0" name="group_by" string="Group By">
+                    <filter name="employee_id" string="Employee"  context="{'group_by' : 'employee_id'}" />
+                    <filter name="partner_id" string="Institution" context="{'group_by': 'partner_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="open_view_academic_form" model="ir.actions.act_window">
+        <field name="name">Academic Experiences</field>
+        <field name="res_model">hr.academic</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Academic Experiences"
+              parent="menu_hr_experience"
+              id="menu_open_view_academic_form"
+              action="open_view_academic_form"/>
+
+</odoo>

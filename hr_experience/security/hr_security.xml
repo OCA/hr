@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <record id="hr_curriculum_user_rule" model="ir.rule">
+        <field name="name">Curriculum User Rule</field>
+        <field name="model_id" ref="model_hr_curriculum"/>
+        <field name="groups" eval="[(4,ref('base.group_user'))]"/>
+        <field name="domain_force">[('employee_id.user_id','=',user.id)]</field>
+    </record>
+
+    <record id="hr_academic_user_rule" model="ir.rule">
+        <field name="name">Academic Experiences User Rule</field>
+        <field name="model_id" ref="model_hr_academic"/>
+        <field name="groups" eval="[(4,ref('base.group_user'))]"/>
+        <field name="domain_force">[('employee_id.user_id','=',user.id)]</field>
+    </record>
+
+    <record id="hr_experience_user_rule" model="ir.rule">
+        <field name="name">Profesional Experiences User Rule</field>
+        <field name="model_id" ref="model_hr_experience"/>
+        <field name="groups" eval="[(4,ref('base.group_user'))]"/>
+        <field name="domain_force">[('employee_id.user_id','=',user.id)]</field>
+    </record>
+
+    <record id="hr_certification_user_rule" model="ir.rule">
+        <field name="name">Certifications User Rule</field>
+        <field name="model_id" ref="model_hr_certification"/>
+        <field name="groups" eval="[(4,ref('base.group_user'))]"/>
+        <field name="domain_force">[('employee_id.user_id','=',user.id)]</field>
+    </record>
+
+    <record id="hr_curriculum_officer" model="ir.rule">
+        <field name="name">Curriculum Officer</field>
+        <field name="model_id" ref="model_hr_curriculum"/>
+        <field name="groups" eval="[(4,ref('hr.group_hr_user'))]"/>
+        <field name="domain_force">[(1,'=',1)]</field>
+    </record>
+
+    <record id="hr_academic_officer" model="ir.rule">
+        <field name="name">Academic Experiences Officer</field>
+        <field name="model_id" ref="model_hr_academic"/>
+        <field name="groups" eval="[(4,ref('hr.group_hr_user'))]"/>
+        <field name="domain_force">[(1,'=',1)]</field>
+    </record>
+
+    <record id="hr_experience_officer" model="ir.rule">
+        <field name="name">Profesional Experiences Officer</field>
+        <field name="model_id" ref="model_hr_experience"/>
+        <field name="groups" eval="[(4,ref('hr.group_hr_user'))]"/>
+        <field name="domain_force">[(1,'=',1)]</field>
+    </record>
+
+    <record id="hr_certification_officer" model="ir.rule">
+        <field name="name">Certifications Officer</field>
+        <field name="model_id" ref="model_hr_certification"/>
+        <field name="groups" eval="[(4,ref('hr.group_hr_user'))]"/>
+        <field name="domain_force">[(1,'=',1)]</field>
+    </record>
+
+</odoo>
