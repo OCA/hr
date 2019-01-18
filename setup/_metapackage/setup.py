@@ -17,6 +17,7 @@ setuptools.setup(
         'odoo12-addon-hr_employee_service_contract',
         'odoo12-addon-hr_employee_social_media',
         'odoo12-addon-hr_employee_ssn',
+        'odoo12-addon-hr_experience',
     ],
     classifiers=[
         'Programming Language :: Python',
