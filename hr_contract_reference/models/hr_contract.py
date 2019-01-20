@@ -7,8 +7,13 @@ from odoo import api, fields, models
 class HrContract(models.Model):
     _inherit = 'hr.contract'
 
-    name = fields.Char('Contract Reference', required=False,
-                       readonly=True, copy=False, default='/')
+    name = fields.Char(
+        'Contract Reference',
+        required=False,
+        readonly=True,
+        copy=False,
+        default='/'
+    )
 
     @api.model
     def create(self, vals):
