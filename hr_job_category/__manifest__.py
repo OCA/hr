@@ -3,7 +3,7 @@
 
 {
     'name': 'HR Job Employee Categories',
-    'version': '11.0.1.0.0',
+    'version': '12.0.1.0.0',
     'category': 'Generic Modules/Human Resources',
     'summary': 'Adds tags to employee trough contract and job position',
     'author': "Michael Telahun Makonnen <mmakonnen@gmail.com>, "
