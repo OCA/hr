@@ -10,11 +10,13 @@ _logger = logging.getLogger(__name__)
 class HRJob(models.Model):
     _inherit = 'hr.job'
 
-    category_ids = fields.Many2many('hr.employee.category',
-                                    'job_category_rel',
-                                    'job_id',
-                                    'category_id',
-                                    string='Associated Tags')
+    category_ids = fields.Many2many(
+        'hr.employee.category',
+        'job_category_rel',
+        'job_id',
+        'category_id',
+        string='Associated Tags'
+    )
 
 
 class HRContract(models.Model):
