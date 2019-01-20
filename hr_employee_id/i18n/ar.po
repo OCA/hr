@@ -10,15 +10,16 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-10 04:30+0000\n"
-"PO-Revision-Date: 2017-06-10 04:30+0000\n"
-"Last-Translator: abdullah alsabi <alsabi.abdullah@gmail.com>, 2017\n"
+"PO-Revision-Date: 2019-01-20 06:41+0000\n"
+"Last-Translator: Osoul <baruni@osoul.ly>\n"
 "Language-Team: Arabic (https://www.transifex.com/oca/teams/23907/ar/)\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
-"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+"X-Generator: Weblate 3.3\n"
 
 #. module: hr_employee_id
 #: model:ir.model.fields,field_description:hr_employee_id.field_res_company__employee_id_random_digits
@@ -51,18 +52,18 @@ msgstr "رقم الموظف"
 #: model:ir.model.fields,field_description:hr_employee_id.field_res_company__employee_id_gen_method
 #: model:ir.model.fields,field_description:hr_employee_id.field_res_config_settings__employee_id_gen_method
 msgid "Generation Method"
-msgstr ""
+msgstr "طريقة الانشاء"
 
 #. module: hr_employee_id
 #: model:ir.model.fields,field_description:hr_employee_id.field_hr_employee__identification_id
 msgid "Identification No"
-msgstr ""
+msgstr "رقم التعريف"
 
 #. module: hr_employee_id
 #: model:ir.model.fields,field_description:hr_employee_id.field_res_company__employee_id_sequence
 #: model:ir.model.fields,field_description:hr_employee_id.field_res_config_settings__employee_id_sequence
 msgid "Identifier Sequence"
-msgstr ""
+msgstr "تسلسل الترقيم"
 
 #. module: hr_employee_id
 #: model:ir.model.fields,help:hr_employee_id.field_res_company__employee_id_random_digits
