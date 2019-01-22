@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-27 02:55+0000\n"
-"PO-Revision-Date: 2018-12-20 08:58+0000\n"
+"PO-Revision-Date: 2019-01-22 17:41+0000\n"
 "Last-Translator: Maria Sparenberg <maria.sparenberg@gmx.net>\n"
 "Language-Team: German (https://www.transifex.com/oca/teams/23907/de/)\n"
 "Language: de\n"
@@ -67,15 +67,13 @@ msgstr "Chinesisch (HK)"
 
 #. module: hr_language
 #: selection:hr.language,name:0
-#, fuzzy
 msgid "Chinese (Simplified) / 简体中文"
-msgstr "Chinesisch (CN)"
+msgstr "Chinesisch (vereinfacht)"
 
 #. module: hr_language
 #: selection:hr.language,name:0
-#, fuzzy
 msgid "Chinese (Traditional) / 正體字"
-msgstr "Chinesisch (TW)"
+msgstr "Chinesisch (traditionell)"
 
 #. module: hr_language
 #: model:ir.model.fields,field_description:hr_language.field_hr_language_create_uid
