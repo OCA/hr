@@ -46,8 +46,8 @@ openerp.resource_calendar_rrule = function(instance)
             for (var i=0; i<enabled_days.length; i++) {
                 _days.push({
                     day: enabled_days[i],
-                    morning: 4.0,
-                    afternoon: 4.0
+                    morning: 0.0,
+                    afternoon: 0.0
                 });
             }
             return _days;

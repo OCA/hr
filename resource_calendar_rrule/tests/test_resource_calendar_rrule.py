@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # © 2017 Therp BV <http://therp.nl>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
-from datetime import datetime
+from datetime import datetime, timedelta
 from dateutil import rrule
 from openerp import fields
 from openerp.addons.resource.tests import test_resource
@@ -9,29 +9,66 @@ from openerp.addons.resource.tests import test_resource
 
 class TestResourceCalendarRrule(test_resource.TestResource):
     # first, we rerun resource's tests, resource.calendar.attendance#create
-    # guarantees that the attendences created will have the correct rrules
+    # guarantees that the attendances created will have the correct rrules
 
     def setUp(self):
         super(TestResourceCalendarRrule, self).setUp()
         self.calendar = self.env['resource.calendar'].create({
             'name': 'testcalendar',
         })
+        self.tomorrow = (datetime.now() + timedelta(
+            days=1)).replace(hour=0, minute=1, second=0, microsecond=0)
+        # 0:01 instead of 0:00 because of bug in Odoo
+        # More information see https://github.com/OCA/OCB/pull/725
+        self.two_weeks_later = (self.tomorrow + timedelta(
+            days=13)).replace(hour=23, minute=59)
 
     def test_60_simplified_attendance(self):
+        """ Test normal simplified schedule """
         self.assertEqual(self.calendar.simplified_attendance['type'], 'null')
-        self.calendar.write({
-            'simplified_attendance':
-            self.env['resource.calendar']._default_simplified_attendance(),
-        })
-        self.assertEqual(
-            sum(map(
-                lambda x: x['morning'] + x['afternoon'],
-                self.calendar.simplified_attendance['data'],
-            )),
-            40
+        simplified_attendance = self.calendar._default_simplified_attendance()
+        self.calendar.simplified_attendance = simplified_attendance
+        self.env.invalidate_all()
+        hours_per_week = sum(
+            x['morning'] + x['afternoon'] for x in
+            self.calendar.simplified_attendance['data'],
         )
+        self.assertEquals(hours_per_week, 40)
+        hours = self.calendar.get_working_hours(
+            self.tomorrow, self.two_weeks_later)
+        self.assertEquals(sum(hours), 80)
 
-    def test_61_stable_times(self):
+    def test_61_simplified_attendance_even_odd(self):
+        """ Test simplified schedule with even and odd weeks """
+        orig_attendance = {
+            'type': 'odd',
+            'start': fields.Date.context_today(self.calendar),
+            'data': [{
+                'day': 1,
+                'morning': 4.0,
+                'afternoon': 4.0
+            }],
+            'data_odd': [{
+                'day': 2,
+                'morning': 4.0,
+                'afternoon': 4.0
+            }]
+        }
+        self.calendar.simplified_attendance = orig_attendance
+        self.env.invalidate_all()
+        read_attendance = self.calendar.simplified_attendance
+        self.assertEquals(read_attendance['type'], 'odd')
+        even_hours_per_week = sum(
+            x['morning'] + x['afternoon'] for x in read_attendance['data'])
+        self.assertEquals(even_hours_per_week, 8)
+        odd_hours_per_week = sum(
+            x['morning'] + x['afternoon'] for x in read_attendance['data_odd'])
+        self.assertEquals(odd_hours_per_week, 8)
+        hours = self.calendar.get_working_hours(
+            self.tomorrow, self.two_weeks_later)
+        self.assertEquals(sum(hours), 16)
+
+    def test_62_stable_times(self):
         # test that times in a timezone with dst don't jump crossing borders
         self.env.user.write({'tz': 'Europe/Amsterdam'})
         self.calendar.write({
@@ -67,7 +104,7 @@ class TestResourceCalendarRrule(test_resource.TestResource):
             [[(datetime(2017, 4, 3, 7, 0), datetime(2017, 4, 3, 15, 0))]]
         )
 
-    def test_62_negative_intervals(self):
+    def test_63_negative_intervals(self):
         """ Test whether negative intervals are also allowed """
         # Create a test attendance of -40 hours in a week since 2016
         self.calendar.write({
@@ -99,7 +136,7 @@ class TestResourceCalendarRrule(test_resource.TestResource):
             (intervals_after[0][1] - intervals_after[0][0])
             ), -8)
 
-    def test_63_attendance_rrule_date_range(self):
+    def test_64_attendance_rrule_date_range(self):
         """ Test whether attendance rrule date range is respected """
         # Create a test attendance of 4 hours in a week *in 2016 only*
         self.calendar.write({

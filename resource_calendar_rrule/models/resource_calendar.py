@@ -131,9 +131,10 @@ class ResourceCalendar(models.Model):
                 # It looks two consecutive occurrences. If both are odd weeks,
                 # we know that this is a rule for odd weeks. Otherwise, there
                 # would be an even week in between.
-                odd = all(
+                occurrences = rule[:2]
+                odd = len(occurrences) == 2 and all(
                     bool(occurrence.isocalendar()[1] % 2)
-                    for occurrence in rule[:2]
+                    for occurrence in occurrences
                 )
                 even_odd_occurrences.add('odd' if odd else 'even')
 
@@ -158,32 +159,49 @@ class ResourceCalendar(models.Model):
     def _inverse_simplified_attendance(self):
         for this in self:
             attendances = this._attendance_from_simplified()
-            # this.attendance_ids.unlink()
             this.attendance_ids = attendances
 
     @api.multi
     def _attendance_from_simplified(self):
         self.ensure_one()
+
+        # Validate input
         simplified_attendance = self.simplified_attendance
         if not simplified_attendance:
             return []
         attendance_start = simplified_attendance.get('start')
         if not attendance_start:
             return []
+        if len(attendance_start) > 10:
+            raise ValidationError(_(
+                'Only date allowed as start of schedule, not datetime'))
         attendance_stop = simplified_attendance.get('stop')
+        if attendance_stop and len(attendance_stop) > 10:
+            raise ValidationError(_(
+                'Only date allowed as stop of schedule, not datetime'))
         _type = simplified_attendance.get('type', 'null') or 'null'
         if _type == 'null':
             return []
         else:
             odd_even = _type == 'odd'
-        result = []
-        rule = self.env['resource.calendar.attendance']._default_rrule()[0]
-        start = fields.Datetime.from_string(attendance_start)
+
+        # convert the start and stop dates via a naive datetime to
+        # UTC datetimes for SerializableRRuleSet
+        tz = pytz.timezone(self.env.user.tz or 'utc')
+        start = tz.localize(fields.Datetime.from_string(attendance_start))
         start_is_even = not bool(start.isocalendar()[1] % 2)
-        stop = fields.Datetime.from_string(attendance_stop)
+        start = start.astimezone(pytz.utc)
+        stop = False
+        if attendance_stop:
+            stop = tz.localize(
+                fields.Datetime.from_string(attendance_stop)
+            ).replace(hour=23, minute=59).astimezone(pytz.utc)
+
         morning_hour = self._get_morning_hour()
         afternoon_hour = self._get_afternoon_hour()
         days_done = set()
+        result = []
+        rule = self.env['resource.calendar.attendance']._default_rrule()[0]
         for key in ['data'] + (['data_odd'] if odd_even else []):
             for day in simplified_attendance.get(key, ()):
                 weekday = day.get('day', 0)
@@ -235,47 +253,64 @@ class ResourceCalendar(models.Model):
         """ A rewrite of this function """
 
         start_dt = self.env.context.get('start_dt_res_calendar')
+        end_dt = self.env.context.get('end_dt_res_calendar')
+        start_dt_utc = None
+        end_dt_utc = None
+        current_tz = pytz.timezone(self.env.user.tz or 'utc')
         if start_dt:
             start_dt = start_dt.replace(hour=0, minute=0, second=0)
-        end_dt = self.env.context.get('end_dt_res_calendar')
+            start_dt_utc = current_tz.localize(start_dt).astimezone(
+                pytz.utc).replace(tzinfo=None)
         if end_dt:
             end_dt = end_dt.replace(hour=23, minute=59, second=59)
+            end_dt_utc = current_tz.localize(
+                end_dt).astimezone(pytz.utc).replace(tzinfo=None)
 
         # Filter attendances
+        interval = None
         attendances = []
-        for attendance in self.browse(id).attendance_ids:
+        for i, attendance in enumerate(self.browse(id).attendance_ids):
+            occurrence = None
             if attendance.rrule:
-                tz = pytz.timezone(attendance.rrule.tz)
-                # Filter out attendances that dont occur in our date range
+
+                # Filter out attendances that dont occur in [start_dt, end_dt]
+                if start_dt and end_dt:
+                    occurrence = attendance.rrule.between(
+                        start_dt_utc,
+                        end_dt_utc,
+                        inc=True
+                    )
+                elif start_dt:
+                    occurrence = attendance.rrule.after(start_dt_utc, inc=True)
+                elif end_dt:
+                    occurrence = attendance.rrule.before(end_dt_utc, inc=True)
+
+                # Set interval
                 rrule_dtstart = attendance.rrule._rrule[0]._dtstart
-                rrule_until = attendance.rrule._rrule[0]._until
-                if rrule_dtstart and end_dt:
-                    end_dt_tz = end_dt.replace(tzinfo=tz)
-                    if rrule_dtstart > end_dt_tz:
-                        continue
-                if rrule_until and start_dt:
-                    start_dt_tz = start_dt.replace(tzinfo=tz)
-                    if rrule_until < start_dt_tz:
-                        continue
-                # Determine interval to check for weekdays
-                rrule_start = rrule_dtstart.replace(tzinfo=None)
-                interval = (
-                    rrule_start,
-                    rrule_start + datetime.timedelta(days=7),
-                )
-            else:
-                interval = self._get_check_interval()
-            # Filter out attendances that dont occur on our chosen weekdays
-            if not any(date.weekday() in weekdays
-                       for date, _ in attendance._iter_rrule(*interval)):
+                if rrule_dtstart:
+                    rrule_start = rrule_dtstart.replace(tzinfo=None)
+                    interval = (
+                        rrule_start,
+                        rrule_start + datetime.timedelta(days=14),
+                    )
+
+            # Fallback check on weekday
+            if (start_dt or end_dt) and not occurrence:
                 continue
+            if not interval:
+                interval = self._get_check_interval()
+            if not any(date.weekday() in weekdays
+                       for date, _ in
+                       attendance._iter_rrule(*interval)):
+                continue
+
             attendances.append(attendance)
 
         return attendances
 
     @api.multi
     def get_weekdays(self, default_weekdays=None):
-        """ Check each attendance in its own first week """
+        """ Check each attendance in its own first two weeks """
         if not self:
             return super(ResourceCalendar, self).get_weekdays(
                 default_weekdays=default_weekdays
@@ -287,11 +322,11 @@ class ResourceCalendar(models.Model):
                 rrule_start = rrule_dtstart.replace(tzinfo=None)
                 interval = (
                     rrule_start,
-                    rrule_start + datetime.timedelta(days=7),
+                    rrule_start + datetime.timedelta(days=14),
                 )
             else:
                 interval = self._get_check_interval()
-            for date, _ in attendance._iter_rrule(*interval):
+            for date, _dummy in attendance._iter_rrule(*interval):
                 weekdays.add(date.weekday())
         return list(weekdays)
 
