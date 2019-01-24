@@ -112,14 +112,14 @@ msgid "Last Updated on"
 msgstr "Zadnjič posodobljeno"
 
 #. module: hr_payslip_change_state
-#: code:addons/hr_payslip_change_state/wizard/hr_payslip_change_state.py:50
+#: code:addons/hr_payslip_change_state/wizard/hr_payslip_change_state.py:49
 #, python-format
 msgid "Only draft payslips can be verified,the payslip %s is in %s state"
 msgstr ""
 "Le osnutki plačilnih listov se lahko overijo, plačilni list %s je v stanju %s"
 
 #. module: hr_payslip_change_state
-#: code:addons/hr_payslip_change_state/wizard/hr_payslip_change_state.py:58
+#: code:addons/hr_payslip_change_state/wizard/hr_payslip_change_state.py:57
 #, python-format
 msgid ""
 "Only payslips in states verify or draft can be confirmed, the payslip %s is "
@@ -129,7 +129,7 @@ msgstr ""
 "plačilni list %s je v stanju %s"
 
 #. module: hr_payslip_change_state
-#: code:addons/hr_payslip_change_state/wizard/hr_payslip_change_state.py:43
+#: code:addons/hr_payslip_change_state/wizard/hr_payslip_change_state.py:42
 #, python-format
 msgid ""
 "Only rejected payslips can be reset to draft, the payslip %s is in %s state"
@@ -138,7 +138,7 @@ msgstr ""
 "je v stanju %s"
 
 #. module: hr_payslip_change_state
-#: code:addons/hr_payslip_change_state/wizard/hr_payslip_change_state.py:68
+#: code:addons/hr_payslip_change_state/wizard/hr_payslip_change_state.py:67
 #, python-format
 msgid "Payslips"
 msgstr "Plačilni listi"
@@ -149,7 +149,7 @@ msgid "Set to Draft"
 msgstr "Nastavi kot osnutek"
 
 #. module: hr_payslip_change_state
-#: code:addons/hr_payslip_change_state/wizard/hr_payslip_change_state.py:63
+#: code:addons/hr_payslip_change_state/wizard/hr_payslip_change_state.py:62
 #, python-format
 msgid "The payslip %s is already canceled please deselect it"
 msgstr "Plačilni list %s je že preklican. Odstranite ga iz izbora"

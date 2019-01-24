@@ -1,0 +1,43 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * hr_job_category
+#
+# Translators:
+# Rudolf Schnapka <rs@techno-flex.de>, 2016
+# Thomas A. Jaeger, 2015
+# Thomas A. Jaeger, 2015
+msgid ""
+msgstr ""
+"Project-Id-Version: hr (8.0)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-11-30 05:19+0000\n"
+"PO-Revision-Date: 2016-01-26 09:53+0000\n"
+"Last-Translator: Rudolf Schnapka <rs@techno-flex.de>\n"
+"Language-Team: German (http://www.transifex.com/oca/OCA-hr-8-0/language/"
+"de/)\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: hr_job_category
+#: model:ir.model.fields,field_description:hr_job_category.field_hr_job_category_ids
+msgid "Associated Tags"
+msgstr "Assoziierte Schlagwörter"
+
+#. module: hr_job_category
+#: model:ir.model,name:hr_job_category.model_hr_contract
+#, fuzzy
+msgid "Employee Contract"
+msgstr "Vertrag"
+
+#. module: hr_job_category
+#: model:ir.model,name:hr_job_category.model_hr_job
+msgid "Job Position"
+msgstr "Arbeitsplatzpositionen"
+
+#. module: hr_job_category
+#: model:ir.ui.view,arch_db:hr_job_category.view_job_form
+msgid "e.g. Part Time"
+msgstr "z. B. Teilzeit"
