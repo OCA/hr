@@ -16,16 +16,18 @@
         <field name="model">hr.skill</field>
         <field name="arch" type="xml">
             <form string="Skill">
-                <group>
-                    <field name="name"/>
-                    <field name="active"/>
-                    <field name="parent_id"/>
-                </group>
-                <field name="child_ids">
-                    <tree editable="bottom"  string="Child Skills">
+                <sheet>
+                    <group>
                         <field name="name"/>
-                    </tree>
-                </field>
+                        <field name="active"/>
+                        <field name="parent_id"/>
+                    </group>
+                    <field name="child_ids">
+                        <tree editable="bottom"  string="Child Skills">
+                            <field name="name"/>
+                        </tree>
+                    </field>
+                </sheet>
             </form>
         </field>
     </record>
