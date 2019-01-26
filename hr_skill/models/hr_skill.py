@@ -21,6 +21,7 @@ class Skill(models.Model):
     employee_skill_ids = fields.One2many('hr.employee.skill',
                                          'skill_id',
                                          string='Employees')
+    description = fields.Char(string="Description")
 
     @api.multi
     def name_get(self):
