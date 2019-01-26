@@ -27,6 +27,7 @@
                     <group>
                         <group>
                             <field name="parent_id"/>
+                            <field name="description"/>
                         </group>
                     </group>
                     <field name="child_ids">
