@@ -46,6 +46,11 @@ msgid "Created on"
 msgstr "Creato il"
 
 #. module: hr_skill
+#: model:ir.model.fields,field_description:hr_skill.field_hr_skill_description
+msgid "Description"
+msgstr ""
+
+#. module: hr_skill
 #: model:ir.model.fields,field_description:hr_skill.field_hr_employee_skill_display_name
 #: model:ir.model.fields,field_description:hr_skill.field_hr_skill_display_name
 msgid "Display Name"
