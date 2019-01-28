@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    Copyright 2018-2019 Brainbean Apps (https://brainbeanapps.com)
+    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+-->
+<odoo>
+
+    <record id="hr_leave_wizard_form" model="ir.ui.view">
+        <field name="name">hr.leave.wizard.form</field>
+        <field name="model">hr.leave.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="employee_id" groups="hr_holidays.group_hr_holidays_user"/>
+                        </group>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                        <group>
+                            <field
+                                name="leave_type_id"
+                                context="{'employee_id': employee_id, 'default_date_from': date_from}"
+                                options="{'no_create': True, 'no_open': True}"
+                            />
+                        </group>
+                    </group>
+                    <group colspan="2">
+                        <group>
+                            <field name="date_from"/>
+                        </group>
+                        <group>
+                            <field name="date_to"/>
+                        </group>
+                    </group>
+                    <group colspan="2">
+                        <field name="leave_type_request_unit" invisible="1"/>
+                        <field
+                            name="day_ids"
+                            context="{'leave_type_request_unit': 'day'}"
+                            attrs="{'invisible': [('leave_type_request_unit', '!=', 'day')]}"
+                            nolabel="1"
+                            colspan="2"
+                        >
+                            <tree editable="bottom" create="false" delete="false" decoration-muted="available_days == 0.0">
+                                <field name="name" string="Date"/>
+                                <field name="requested_days" sum="Total Requested"/>
+                                <field name="available_days" sum="Total Available"/>
+                            </tree>
+                        </field>
+                        <field
+                            name="interval_ids"
+                            context="{'leave_type_request_unit': 'hour'}"
+                            attrs="{'invisible': [('leave_type_request_unit', '!=', 'hour')]}"
+                            nolabel="1"
+                            colspan="2"
+                        >
+                            <tree editable="bottom" create="false" delete="false" decoration-muted="available_hours == 0.0">
+                                <field name="day_name" string="Date"/>
+                                <field name="name" string="Interval"/>
+                                <field name="requested_hours" sum="Total Requested"/>
+                                <field name="available_hours" sum="Total Available"/>
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+                <footer>
+                    <button name="action_submit" string="Submit" type="object" default_focus="1" class="oe_highlight"/>
+                    <button string="Cancel" class="oe_link" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="hr_leave_wizard_day_form" model="ir.ui.view">
+        <field name="name">hr.leave.wizard.day.form</field>
+        <field name="model">hr.leave.wizard.day</field>
+        <field name="arch" type="xml">
+            <form string="Day" create="false" edit="false">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" class="oe_inline"/></h1>
+                    </div>
+                    <group>
+                        <field name="leave_type_request_unit" invisible="1"/>
+                        <div attrs="{'invisible': [('leave_type_request_unit', '!=', 'day')]}">
+                            <label for="requested_days" string="Requested"/>
+                            <div>
+                                <field name="requested_days" nolabel="1" class="oe_inline"/>
+                                <span class="ml8">of</span>
+                                <field name="available_days" nolabel="1" class="oe_inline"/>
+                                <span class="ml8">Days</span>
+                            </div>
+                        </div>
+                        <div attrs="{'invisible': [('leave_type_request_unit', '!=', 'hour')]}">
+                            <label for="requested_hours" string="Requested"/>
+                            <div>
+                                <field name="requested_hours" nolabel="1" class="oe_inline"/>
+                                <span class="ml8">of</span>
+                                <field name="available_hours" nolabel="1" class="oe_inline"/>
+                                <span class="ml8">Hours</span>
+                            </div>
+                        </div>
+                    </group>
+                    <group string="Intervals">
+                        <field
+                            name="interval_ids"
+                            nolabel="1"
+                            context="{'leave_type_request_unit': leave_type_request_unit}"
+                        />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="hr_leave_wizard_day_tree" model="ir.ui.view">
+        <field name="name">hr.leave.wizard.day.tree</field>
+        <field name="model">hr.leave.wizard.day</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom" create="false" delete="false">
+                <field name="name" string="Date"/>
+                <field
+                    name="requested_days"
+                    invisible="context.get('leave_type_request_unit') != 'day'"
+                    sum="Total Requested"
+                />
+                <field
+                    name="available_days"
+                    invisible="context.get('leave_type_request_unit') != 'day'"
+                    sum="Total Available"
+                />
+                <field
+                    name="requested_hours"
+                    invisible="context.get('leave_type_request_unit') != 'hour'"
+                    sum="Total Requested"
+                />
+                <field
+                    name="available_hours"
+                    invisible="context.get('leave_type_request_unit') != 'hour'"
+                    sum="Total Available"
+                />
+                <field
+                    name="interval_ids"
+                    string="Intervals"
+                    widget="many2many_tags"
+                    readonly="1"
+                >
+                    <tree>
+                        <field name="display_name"/>
+                        <field name="name"/>
+                    </tree>
+                </field>
+            </tree>
+        </field>
+    </record>
+
+    <record id="hr_leave_wizard_day_interval_form" model="ir.ui.view">
+        <field name="name">hr.leave.wizard.day.interval.form</field>
+        <field name="model">hr.leave.wizard.day.interval</field>
+        <field name="arch" type="xml">
+            <form string="Interval" create="false" edit="false">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" class="oe_inline"/></h1>
+                    </div>
+                    <group>
+                        <group name="timestamp_range" colspan="2">
+                            <group>
+                                <field name="since"/>
+                            </group>
+                            <group>
+                                <field name="until"/>
+                            </group>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="leave_type_request_unit" invisible="1"/>
+                        <div attrs="{'invisible': [('leave_type_request_unit', '!=', 'day')]}">
+                            <label for="requested_days"/>
+                            <div>
+                                <field name="requested_days" nolabel="1" class="oe_inline"/>
+                                <span class="ml8">of</span>
+                                <field name="available_days" nolabel="1" class="oe_inline"/>
+                                <span class="ml8">Days</span>
+                            </div>
+                        </div>
+                        <div attrs="{'invisible': [('leave_type_request_unit', '!=', 'hour')]}">
+                            <label for="requested_hours"/>
+                            <div>
+                                <field name="requested_hours" nolabel="1" class="oe_inline"/>
+                                <span class="ml8">of</span>
+                                <field name="available_hours" nolabel="1" class="oe_inline"/>
+                                <span class="ml8">Hours</span>
+                            </div>
+                        </div>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="hr_leave_wizard_day_interval_tree" model="ir.ui.view">
+        <field name="name">hr.leave.wizard.day.interval.tree</field>
+        <field name="model">hr.leave.wizard.day.interval</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom" create="false" delete="false">
+                <field name="since"/>
+                <field name="until"/>
+                <field
+                    name="requested_days"
+                    invisible="context.get('leave_type_request_unit') != 'day'"
+                    sum="Total Requested"
+                />
+                <field
+                    name="available_days"
+                    invisible="context.get('leave_type_request_unit') != 'day'"
+                    sum="Total Available"
+                />
+                <field
+                    name="requested_hours"
+                    invisible="context.get('leave_type_request_unit') != 'hour'"
+                    sum="Total Requested"
+                />
+                <field
+                    name="available_hours"
+                    invisible="context.get('leave_type_request_unit') != 'hour'"
+                    sum="Total Available"
+                />
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_hr_holidays_my_leaves_new_request_wizard" model="ir.actions.act_window">
+        <field name="name">New Request Wizard</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hr.leave.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem
+        id="menu_hr_holidays_my_leaves_new_request_wizard"
+        parent="hr_holidays.menu_hr_holidays_my_leaves"
+        action="action_hr_holidays_my_leaves_new_request_wizard"
+        name="New Request Wizard"
+        sequence="3"
+    />
+
+</odoo>
