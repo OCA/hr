@@ -42,6 +42,7 @@ setuptools.setup(
         'odoo10-addon-hr_payslip_change_state',
         'odoo10-addon-hr_period',
         'odoo10-addon-hr_public_holidays',
+        'odoo10-addon-hr_recruitment_candidate_multi_applicant',
         'odoo10-addon-hr_recruitment_skill',
         'odoo10-addon-hr_skill',
         'odoo10-addon-hr_worked_days_from_timesheet',
