@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <record id="crm_case_form_view_job_specific" model="ir.ui.view">
+    <field name="name">view_project_form_specific</field>
+    <field name="model">hr.applicant</field>
+    <field name="inherit_id" ref="hr_recruitment.crm_case_form_view_job"/>
+    <field name="arch" type="xml">
+      <xpath expr="//div[hasclass('oe_button_box')]" position="inside">
+        <button name="action_view_applicants" class="oe_stat_button" type="object" icon="fa-users"
+                attrs="{'invisible': [('same_candidate_application_count', '=', False)]}">
+          <field name='same_candidate_application_count' string="Same Applicants" widget="statinfo"/>
+        </button>
+      </xpath>
+    </field>
+  </record>
+
+</odoo>
