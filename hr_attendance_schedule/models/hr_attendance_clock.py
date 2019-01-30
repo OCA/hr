@@ -5,6 +5,7 @@ from odoo import api, fields, models
 
 class AttendanceClock(models.AbstractModel):
     _name = 'hr_attendance_schedule.clock'
+    _description = 'Attendance Clock'
 
     @api.model
     def get_system_clock(self):

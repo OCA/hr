@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from mock import patch
 
 from odoo import fields, tests
