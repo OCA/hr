@@ -1,0 +1,28 @@
+<odoo>
+  <record model="ir.ui.view" id="hr_attendance_view_list_inherit">
+    <field name="name">hr_attendance.list</field>
+    <field name="model">hr.attendance</field>
+    <field name="inherit_id" ref="hr_attendance.view_attendance_tree" />
+    <field name="arch" type="xml">
+      <tree position="attributes">
+        <attribute name="decoration-danger">needs_approval</attribute>
+      </tree>
+      <field name="check_out" position="after">
+        <field name="needs_approval" invisible="1" />
+        <field name="real_check_in" />
+        <field name="real_check_out" />
+      </field>
+    </field>
+  </record>
+  
+  <record model="ir.ui.view" id="hr_attendance_view_form_inherit">
+    <field name="name">hr_attendance.form</field>
+    <field name="model">hr.attendance</field>
+    <field name="inherit_id" ref="hr_attendance.hr_attendance_view_form" />
+    <field name="arch" type="xml">
+      <field name="employee_id" position="after">
+        <field name="needs_approval" />
+      </field>
+    </field>
+  </record>
+</odoo>

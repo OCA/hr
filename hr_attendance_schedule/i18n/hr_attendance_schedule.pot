@@ -1,0 +1,140 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* hr_attendance_schedule
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-09-15 15:11+0000\n"
+"PO-Revision-Date: 2017-09-15 15:11+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hr_attendance_schedule
+#: model:ir.model,name:hr_attendance_schedule.model_hr_attendance
+msgid "Attendance"
+msgstr ""
+
+#. module: hr_attendance_schedule
+#: code:addons/hr_attendance_schedule/models/hr_employee.py:15
+#, python-format
+msgid "Cannot perform check in or check out on multiple employees."
+msgstr ""
+
+#. module: hr_attendance_schedule
+#: code:addons/hr_attendance_schedule/models/hr_employee.py:35
+#, python-format
+msgid "Cannot perform check out on %(empl_name)s, could not find corresponding check in. Your attendances have probably been modified manually by human resources."
+msgstr ""
+
+#. module: hr_attendance_schedule
+#: model:ir.model.fields,field_description:hr_attendance_schedule.field_hr_attendance_schedule_clock_display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: hr_attendance_schedule
+#: model:ir.model,name:hr_attendance_schedule.model_hr_employee
+msgid "Employee"
+msgstr ""
+
+#. module: hr_attendance_schedule
+#: model:ir.model.fields,field_description:hr_attendance_schedule.field_resource_calendar_attendance_grace_after_checkin
+msgid "Grace after checkin"
+msgstr ""
+
+#. module: hr_attendance_schedule
+#: model:ir.model.fields,field_description:hr_attendance_schedule.field_resource_calendar_attendance_grace_after_checkout
+msgid "Grace after checkout"
+msgstr ""
+
+#. module: hr_attendance_schedule
+#: model:ir.model.fields,field_description:hr_attendance_schedule.field_resource_calendar_attendance_grace_before_checkin
+msgid "Grace before checkin"
+msgstr ""
+
+#. module: hr_attendance_schedule
+#: model:ir.model.fields,field_description:hr_attendance_schedule.field_resource_calendar_attendance_grace_before_checkout
+msgid "Grace before checkout"
+msgstr ""
+
+#. module: hr_attendance_schedule
+#: model:ir.model.fields,help:hr_attendance_schedule.field_resource_calendar_attendance_grace_after_checkin
+msgid "Grace time after checkin in minutes"
+msgstr ""
+
+#. module: hr_attendance_schedule
+#: model:ir.model.fields,help:hr_attendance_schedule.field_resource_calendar_attendance_grace_after_checkout
+msgid "Grace time after checkout in minutes"
+msgstr ""
+
+#. module: hr_attendance_schedule
+#: model:ir.model.fields,help:hr_attendance_schedule.field_resource_calendar_attendance_grace_before_checkin
+msgid "Grace time before checkin in minutes"
+msgstr ""
+
+#. module: hr_attendance_schedule
+#: model:ir.model.fields,help:hr_attendance_schedule.field_resource_calendar_attendance_grace_before_checkout
+msgid "Grace time before checkout in minutes"
+msgstr ""
+
+#. module: hr_attendance_schedule
+#: model:ir.model.fields,field_description:hr_attendance_schedule.field_hr_attendance_schedule_clock_id
+msgid "ID"
+msgstr ""
+
+#. module: hr_attendance_schedule
+#: model:ir.model.fields,field_description:hr_attendance_schedule.field_hr_attendance_schedule_clock___last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: hr_attendance_schedule
+#: model:ir.model,name:hr_attendance_schedule.model_resource_calendar_leaves
+msgid "Leave Detail"
+msgstr ""
+
+#. module: hr_attendance_schedule
+#: model:ir.model.fields,field_description:hr_attendance_schedule.field_hr_employee_leave_ids
+#: model:ir.model.fields,field_description:hr_attendance_schedule.field_resource_resource_leave_ids
+msgid "Leaves"
+msgstr ""
+
+#. module: hr_attendance_schedule
+#: model:ir.model.fields,field_description:hr_attendance_schedule.field_hr_attendance_needs_approval
+msgid "Needs approval"
+msgstr ""
+
+#. module: hr_attendance_schedule
+#: model:ir.model.fields,field_description:hr_attendance_schedule.field_hr_attendance_real_check_in
+msgid "Real check in"
+msgstr ""
+
+#. module: hr_attendance_schedule
+#: model:ir.model.fields,field_description:hr_attendance_schedule.field_hr_attendance_real_check_out
+msgid "Real check out"
+msgstr ""
+
+#. module: hr_attendance_schedule
+#: model:ir.model,name:hr_attendance_schedule.model_resource_calendar
+msgid "Resource Calendar"
+msgstr ""
+
+#. module: hr_attendance_schedule
+#: model:ir.model,name:hr_attendance_schedule.model_resource_resource
+msgid "Resource Detail"
+msgstr ""
+
+#. module: hr_attendance_schedule
+#: model:ir.model,name:hr_attendance_schedule.model_resource_calendar_attendance
+msgid "Work Detail"
+msgstr ""
+
+#. module: hr_attendance_schedule
+#: model:ir.model,name:hr_attendance_schedule.model_hr_attendance_schedule_clock
+msgid "hr_attendance_schedule.clock"
+msgstr ""
+
