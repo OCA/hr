@@ -48,6 +48,7 @@ addon | version | summary
 [hr_payslip_change_state](hr_payslip_change_state/) | 10.0.1.0.0 | Change the state of many payslips at a time
 [hr_period](hr_period/) | 10.0.1.1.0 | Add payroll periods
 [hr_public_holidays](hr_public_holidays/) | 10.0.1.1.0 | Manage Public Holidays
+[hr_recruitment_candidate_multi_applicant](hr_recruitment_candidate_multi_applicant/) | 10.0.1.0.0 | Applications
 [hr_recruitment_skill](hr_recruitment_skill/) | 10.0.1.0.0 | Add skills on job position
 [hr_skill](hr_skill/) | 10.0.1.0.0 | Skill Management
 [hr_worked_days_from_timesheet](hr_worked_days_from_timesheet/) | 10.0.1.0.0 | Adds a button to import worked days from timesheet.
