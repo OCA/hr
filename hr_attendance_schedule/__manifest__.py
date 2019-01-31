@@ -22,7 +22,7 @@
     'version': '12.0.1.0.0',
     'author': "Métal Sartigan, Odoo Community Association (OCA)",
     "license": "AGPL-3",
-    'website': "http://www.metalsartigan.com",
+    'website': "https://github.com/OCA/hr",
     'category': 'Human Resources',
     'depends': ['hr_attendance'],
     'data': [
