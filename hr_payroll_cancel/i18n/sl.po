@@ -1,0 +1,41 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * hr_payroll_cancel
+#
+# Translators:
+# Matjaž Mozetič <m.mozetic@matmoz.si>, 2016
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-08-09 00:49+0000\n"
+"PO-Revision-Date: 2016-08-09 00:49+0000\n"
+"Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>, 2016\n"
+"Language-Team: Slovenian (https://www.transifex.com/oca/teams/23907/sl/)\n"
+"Language: sl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
+"%100==4 ? 2 : 3);\n"
+
+#. module: hr_payroll_cancel
+#: model:ir.model,name:hr_payroll_cancel.model_hr_payslip
+msgid "Pay Slip"
+msgstr ""
+
+#. module: hr_payroll_cancel
+#: model:ir.model.fields,field_description:hr_payroll_cancel.field_hr_payslip_refunded_id
+msgid "Refunded Payslip"
+msgstr ""
+
+#. module: hr_payroll_cancel
+#: code:addons/hr_payroll_cancel/models/hr_payroll.py:31
+#, python-format
+msgid ""
+"To cancel the Original Payslip the\n"
+"                    Refunded Payslip needs to be canceled first!"
+msgstr ""
+
+#~ msgid "draft,hr_check,confirm,verify,done"
+#~ msgstr "draft,hr_check,confirm,verify,done"
