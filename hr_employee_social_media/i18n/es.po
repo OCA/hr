@@ -10,25 +10,26 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-11-28 01:43+0000\n"
-"PO-Revision-Date: 2017-11-28 01:43+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
+"PO-Revision-Date: 2019-02-05 10:50+0000\n"
+"Last-Translator: Marta Vázquez Rodríguez <vazrodmar@gmail.com>\n"
 "Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.4\n"
 
 #. module: hr_employee_social_media
 #: code:addons/hr_employee_social_media/models/hr_social_media.py:47
 #, python-format
 msgid "%s (%s)"
-msgstr ""
+msgstr "%s (%s)"
 
 #. module: hr_employee_social_media
 #: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_account__account_name
 msgid "Account"
-msgstr ""
+msgstr "Cuenta"
 
 #. module: hr_employee_social_media
 #: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media__create_uid
@@ -57,12 +58,12 @@ msgstr "Empleado"
 #. module: hr_employee_social_media
 #: model:ir.model,name:hr_employee_social_media.model_hr_social_media_account
 msgid "HR Employee Social Media Account"
-msgstr ""
+msgstr "Cuenta Redes sociales Empleado"
 
 #. module: hr_employee_social_media
 #: model:ir.model,name:hr_employee_social_media.model_hr_social_media
 msgid "HR Social Media"
-msgstr ""
+msgstr "RRHH Redes Sociales"
 
 #. module: hr_employee_social_media
 #: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media__id
@@ -104,7 +105,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_employee__social_media_account_ids
 #: model_terms:ir.ui.view,arch_db:hr_employee_social_media.view_employee_form_inherit_extension
 msgid "Social Media Accounts"
-msgstr ""
+msgstr "Cuentas redes sociales"
 
 #. module: hr_employee_social_media
 #: model:ir.actions.act_window,name:hr_employee_social_media.action_hr_social_media
@@ -116,4 +117,4 @@ msgstr ""
 #. module: hr_employee_social_media
 #: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media__social_url
 msgid "Website"
-msgstr ""
+msgstr "Página web"
