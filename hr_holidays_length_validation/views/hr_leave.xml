@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--
+        Copyright 2019 Brainbean Apps (https://brainbeanapps.com)
+        License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
+    -->
+
+    <record id="action_validate_length" model="ir.actions.server">
+        <field name="name">Validate Length</field>
+        <field name="type">ir.actions.server</field>
+        <field name="model_id" ref="hr_holidays.model_hr_leave"/>
+        <field name="binding_model_id" ref="hr_holidays.model_hr_leave"/>
+        <field name="state">code</field>
+        <field name="code">
+            if records:
+                action = records.action_validate_length()
+        </field>
+    </record>
+
+</odoo>
