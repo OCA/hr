@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-11-28 01:43+0000\n"
-"PO-Revision-Date: 2019-02-05 10:50+0000\n"
+"PO-Revision-Date: 2019-02-07 17:50+0000\n"
 "Last-Translator: Marta Vázquez Rodríguez <vazrodmar@gmail.com>\n"
 "Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
 "Language: es\n"
@@ -99,7 +99,7 @@ msgstr "Nombre"
 #: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_account__hr_social_media_id
 #: model_terms:ir.ui.view,arch_db:hr_employee_social_media.hr_social_media_view_tree
 msgid "Social Media"
-msgstr ""
+msgstr "Medios de Comunicación/Redes Sociales"
 
 #. module: hr_employee_social_media
 #: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_employee__social_media_account_ids
@@ -112,7 +112,7 @@ msgstr "Cuentas redes sociales"
 #: model:ir.ui.menu,name:hr_employee_social_media.hr_menu_social_media
 #: model_terms:ir.ui.view,arch_db:hr_employee_social_media.hr_social_media_view_form
 msgid "Social Medias"
-msgstr ""
+msgstr "Redes sociales"
 
 #. module: hr_employee_social_media
 #: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media__social_url
