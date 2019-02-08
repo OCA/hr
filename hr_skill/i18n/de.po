@@ -35,6 +35,11 @@ msgid "Children"
 msgstr "Untergeordnete"
 
 #. module: hr_skill
+#: model:ir.model.fields,field_description:hr_skill.field_hr_skill_color
+msgid "Color Index"
+msgstr ""
+
+#. module: hr_skill
 #: model:ir.model.fields,field_description:hr_skill.field_hr_employee_skill_create_uid
 #: model:ir.model.fields,field_description:hr_skill.field_hr_skill_create_uid
 msgid "Created by"
