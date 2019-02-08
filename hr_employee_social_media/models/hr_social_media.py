@@ -45,6 +45,6 @@ class HrSocialMediaAccount(models.Model):
     def _compute_name(self):
         for social_media_account in self:
             social_media_account.name = _('%s (%s)') % (
-                self.account_name,
-                self.hr_social_media_id.name
+                social_media_account.account_name,
+                social_media_account.hr_social_media_id.name
             )
