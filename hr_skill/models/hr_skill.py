@@ -22,6 +22,7 @@ class Skill(models.Model):
                                          'skill_id',
                                          string='Employees')
     description = fields.Char(string="Description")
+    color = fields.Integer('Color Index', default=10)
 
     @api.multi
     def name_get(self):

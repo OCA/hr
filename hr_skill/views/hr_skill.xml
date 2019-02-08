@@ -7,6 +7,7 @@
         <field name="arch" type="xml">
             <tree string="Skills">
                 <field name="display_name"/>
+                <field name="color"/>
             </tree>
         </field>
     </record>
@@ -28,6 +29,9 @@
                         <group>
                             <field name="parent_id"/>
                             <field name="description"/>
+                        </group>
+                        <group>
+                            <field name="color"/>
                         </group>
                     </group>
                     <field name="child_ids">
