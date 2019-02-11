@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record model="ir.ui.view" id="view_company_inherit_form">
+        <field name="name">res.company.form.inherit</field>
+        <field name="inherit_id" ref="base.view_company_form"/>
+        <field name="model">res.company</field>
+        <field name="priority">19</field>
+        <field name="arch" type="xml">
+            <notebook position="inside">
+                <page string="Attendances" name="attendance">
+                    <group name="attendance">
+                        <field name="attendance_maximum_hours_per_day" widget="float_time"/>
+                    </group>
+                </page>
+            </notebook>
+        </field>
+    </record>
+
+</odoo>
