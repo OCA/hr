@@ -47,8 +47,23 @@ class HrAttendance(models.Model):
                 if reason:
                     vals = {'check_out': leave_time.strftime(
                         DEFAULT_SERVER_DATETIME_FORMAT),
-                        'attendance_reason_id': [(4, reason.id)]}
+                        'attendance_reason_ids': [(4, reason.id)]}
                 else:
                     vals = {'check_out': leave_time.strftime(
                         DEFAULT_SERVER_DATETIME_FORMAT)}
                 att.write(vals)
+
+    @api.constrains('check_in', 'check_out', 'employee_id')
+    def _check_validity(self):
+        """ If this is an automatic checkout the constraint is invalid
+        as there may be old attendances not closed
+        """
+        reason = self.env['hr.attendance.reason'].search(
+            [('code', '=', 'S-CO')], limit=1)
+        if not reason:
+            return super(HrAttendance, self)._check_validity()
+        for attendance in self:
+            if attendance.attendance_reason_ids and \
+                    reason in attendance.attendance_reason_ids:
+                return True
+        return super(HrAttendance, self)._check_validity()
