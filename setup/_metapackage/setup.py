@@ -9,6 +9,7 @@ setuptools.setup(
     version=version,
     install_requires=[
         'odoo10-addon-hr_attendance_autoclose',
+        'odoo10-addon-hr_attendance_reason',
         'odoo10-addon-hr_attendance_report_theoretical_time',
         'odoo10-addon-hr_attendance_rfid',
         'odoo10-addon-hr_contract_default_trial_length',
