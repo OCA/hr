@@ -1,0 +1,40 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* hr_attendance_autoclose
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hr_attendance_autoclose
+#: model:ir.model,name:hr_attendance_autoclose.model_hr_attendance
+msgid "Attendance"
+msgstr ""
+
+#. module: hr_attendance_autoclose
+#: model:ir.model.fields,field_description:hr_attendance_autoclose.field_res_company_attendance_maximum_hours_per_day
+msgid "Attendance Maximum Hours Per Day"
+msgstr ""
+
+#. module: hr_attendance_autoclose
+#: model:ir.ui.view,arch_db:hr_attendance_autoclose.view_company_inherit_form
+msgid "Attendances"
+msgstr ""
+
+#. module: hr_attendance_autoclose
+#: model:ir.model,name:hr_attendance_autoclose.model_res_company
+msgid "Companies"
+msgstr ""
+
+#. module: hr_attendance_autoclose
+#: model:ir.model.fields,field_description:hr_attendance_autoclose.field_hr_attendance_open_worked_hours
+msgid "Worked hours"
+msgstr ""
+
