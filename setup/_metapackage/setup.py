@@ -22,6 +22,7 @@ setuptools.setup(
         'odoo12-addon-hr_holidays_public',
         'odoo12-addon-hr_holidays_settings',
         'odoo12-addon-hr_payroll_cancel',
+        'odoo12-addon-hr_skill',
     ],
     classifiers=[
         'Programming Language :: Python',
