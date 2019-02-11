@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright 2013 Savoir-faire Linux
+    Copyright 2018-2019 Brainbean Apps
+    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+-->
+<odoo>
+
+    <record id="view_hr_skill_tree" model="ir.ui.view">
+        <field name="name">hr.skill.tree</field>
+        <field name="model">hr.skill</field>
+        <field name="field_parent">child_ids</field>
+        <field name="arch" type="xml">
+            <tree string="Skills">
+                <field name="complete_name"/>
+                <field name="color"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_skill_form" model="ir.ui.view">
+        <field name="name">hr.skill.form</field>
+        <field name="model">hr.skill</field>
+        <field name="arch" type="xml">
+            <form string="Skill">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive">
+                            <field name="active" widget="boolean_button" options="{'terminology': 'archive'}"/>
+                        </button>
+                    </div>
+                    <label for="name" class="oe_edit_only"/>
+                    <h1><field name="name"/></h1>
+                    <group>
+                        <group>
+                            <field name="parent_id"/>
+                            <field name="description"/>
+                        </group>
+                        <group>
+                            <field name="color"/>
+                        </group>
+                    </group>
+                    <group string="Sub-skills">
+                        <field name="child_ids" nolabel="1">
+                            <tree editable="bottom">
+                                <field name="name"/>
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Menu and Actions -->
+
+    <record id="open_view_skill_form" model="ir.actions.act_window">
+        <field name="name">Skills</field>
+        <field name="res_model">hr.skill</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Skills"
+              parent="hr.menu_human_resources_configuration"
+              id="menu_open_view_skill_form"
+              action="open_view_skill_form"
+              groups="base.group_no_one"/>
+
+</odoo>
