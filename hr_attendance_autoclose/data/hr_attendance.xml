@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.cron" id="check_attendance_cron">
+        <field name="name">Check Attendance</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">hours</field>
+        <field name="numbercall">-1</field>
+        <field eval="(DateTime.now() + timedelta(minutes=60)).strftime('%Y-%m-%d %H:05:00')" name="nextcall"/>
+        <field eval="True" name="doall"/>
+        <field eval="'hr.attendance'" name="model"/>
+        <field eval="'check_for_incomplete_attendances'" name="function"/>
+        <field eval="'()'" name="args"/>
+    </record>
+</odoo>
