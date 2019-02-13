@@ -3,7 +3,7 @@ the attendances report.
 
 For including some leave types in the theoretical time, you have to:
 
-#. Go to *Leaves > Configuration*.
+#. Go to *Leaves > Configuration > Leave Types*.
 #. Select leave type you want to include.
 #. Check the mark "Include in theoretical hours".
 
