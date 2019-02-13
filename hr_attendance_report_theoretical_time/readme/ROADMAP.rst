@@ -6,5 +6,5 @@
 * If you change employee's working time, theoretical hours for non attended
   days will be computed according this new calendar. You have to define
   start and end dates inside the calendar for avoiding this side effect.
-* Recompute theoretical hours of affected days when changing the leave type
-  to be included or not in theoretical time.
+* Theoretical hours of affected days when changing the leave type to be
+  included or not in theoretical time are not recomputed.

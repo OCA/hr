@@ -1,12 +1,11 @@
-# -*- coding: utf-8 -*-
-# Copyright 2018 Tecnativa - Pedro M. Baeza
+# Copyright 2018-2019 Tecnativa - Pedro M. Baeza
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 from odoo import fields, models
 
 
-class HrHolidaysStatus(models.Model):
-    _inherit = 'hr.holidays.status'
+class HrLeaveType(models.Model):
+    _inherit = 'hr.leave.type'
 
     include_in_theoretical = fields.Boolean(
         string="Include in theoretical hours",

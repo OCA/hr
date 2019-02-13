@@ -1,9 +1,10 @@
-# -*- coding: utf-8 -*-
-# Copyright 2017-2018 Tecnativa - Pedro M. Baeza
+# Copyright 2017-2019 Tecnativa - Pedro M. Baeza
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 from odoo import api, fields, models, tools
+from datetime import datetime, time
 from psycopg2.extensions import AsIs
+import pytz
 
 
 class HrAttendanceTheoreticalTimeReport(models.Model):
@@ -79,7 +80,7 @@ class HrAttendanceTheoreticalTimeReport(models.Model):
                 ), 1, 8))::bit(32)::int
             ) AS id,
             he.id AS employee_id,
-            gs AS date,
+            gs::date AS date,
             0 AS worked_hours,
             -1 AS theoretical_hours,
             0.0 AS difference
@@ -175,40 +176,29 @@ CREATE or REPLACE VIEW %s as (
     # @tools.ormcache('employee.id', 'date')
     @api.model
     def _theoretical_hours(self, employee, date):
-        """Get theoretical working hours for the day where the check in is
+        """Get theoretical working hours for the day where the check-in is
         done for that employee.
         """
-        if not employee.calendar_id:
+        if not employee.resource_id.calendar_id:
             return 0
-        dt = fields.Datetime.from_string(date)
-        from_datetime = dt.replace(
-            hour=0, minute=0, second=0, microsecond=0,
-        )
-        to_datetime = dt.replace(
-            hour=23, minute=59, second=59, microsecond=99999,
-        )
-        resource = employee.resource_id
-        # Compute manually leaves for excluding the desired ones (as it
-        # can't be done through inheritance on calendar.get_leave_intervals
-        # method)
-        leaves = []
-        for leave in resource.calendar_id.leave_ids:
-            holiday = leave.holiday_id
-            if (holiday.holiday_status_id.include_in_theoretical or
-                    (leave.resource_id and resource != leave.resource_id)):
-                continue
-            date_from = fields.Datetime.from_string(leave.date_from)
-            date_to = fields.Datetime.from_string(leave.date_to)
-            leaves.append((date_from, date_to))
-        leaves += employee._get_public_holidays_leaves(
-            from_datetime, to_datetime,
-        )
-        return resource.calendar_id.get_working_hours_of_date(
-            start_dt=from_datetime,
-            leaves=leaves,
-            compute_leaves=False,
-            resource_id=resource,
-        )
+        tz = employee.resource_id.calendar_id.tz
+        return employee.with_context(
+            exclude_public_holidays=True,
+            employee_id=employee.id,
+        ).get_work_days_data(
+            datetime.combine(date, time(0, 0, 0, 0, tzinfo=pytz.timezone(tz))),
+            datetime.combine(
+                date, time(23, 59, 59, 99999, tzinfo=pytz.timezone(tz))
+            ),
+            # Pass this domain for excluding leaves whose type is included in
+            # theoretical hours
+            domain=[
+                '|',
+                ('holiday_id', '=', False),
+                ('holiday_id.holiday_status_id.include_in_theoretical',
+                 '=', False),
+            ],
+        )['hours']
 
     @api.model
     def read_group(self, domain, fields, groupby, offset=0, limit=None,
