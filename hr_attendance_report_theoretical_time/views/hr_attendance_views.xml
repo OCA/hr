@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2019 Tecnativa - Pedro M. Baeza
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="hr_attendance_view_pivot" model="ir.ui.view">
+        <field name="name">hr.attendance.pivot - Don't show "Theoretical hours" measure</field>
+        <field name="model">hr.attendance</field>
+        <field name="inherit_id" ref="hr_attendance.hr_attendance_view_pivot"/>
+        <field name="arch" type="xml">
+            <field name="worked_hours" position="after">
+                <field name="theoretical_hours" invisible="1"/>
+            </field>
+        </field>
+    </record>
+</odoo>
