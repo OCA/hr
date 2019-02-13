@@ -1,15 +1,89 @@
-# -*- coding: utf-8 -*-
-# Copyright 2017-2018 Tecnativa - Pedro M. Baeza
+# Copyright 2017-2019 Tecnativa - Pedro M. Baeza
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-from odoo.addons.hr_holidays_compute_days.tests.test_holidays_compute_days \
-    import TestHolidaysComputeDaysBase
+from odoo.tests import common
 
 
-class TestHrAttendanceReportTheoreticalTime(TestHolidaysComputeDaysBase):
+class TestHrAttendanceReportTheoreticalTime(common.SavepointCase):
     @classmethod
     def setUpClass(cls):
-        super(TestHrAttendanceReportTheoreticalTime, cls).setUpClass()
+        super().setUpClass()
+        cls.HrLeave = cls.env['hr.leave']
+        cls.HrHolidaysPublic = cls.env["hr.holidays.public"]
+        cls.HrLeaveType = cls.env["hr.leave.type"]
+        cls.calendar = cls.env['resource.calendar'].create({
+            'name': 'Test Calendar',
+            'attendance_ids': False,
+            'tz': 'UTC',
+        })
+        for day in range(5):  # From monday to friday
+            cls.calendar.attendance_ids = [
+                (0, 0, {
+                    'name': 'Attendance',
+                    'dayofweek': str(day),
+                    'hour_from': '08',
+                    'hour_to': '12',
+                }),
+                (0, 0, {
+                    'name': 'Attendance',
+                    'dayofweek': str(day),
+                    'hour_from': '14',
+                    'hour_to': '18',
+                }),
+            ]
+        cls.address_1 = cls.env['res.partner'].create({
+            'name': 'Address 1',
+            'country_id': cls.env.ref('base.uk').id,
+        })
+        cls.address_2 = cls.env['res.partner'].create({
+            'name': 'Address 1',
+            'country_id': cls.env.ref('base.es').id,
+            'state_id': cls.env.ref('base.state_es_cr').id,
+        })
+        cls.employee_1 = cls.env['hr.employee'].create({
+            'name': 'Employee 1',
+            'resource_calendar_id': cls.calendar.id,
+            'address_id': cls.address_1.id,
+        })
+        cls.employee_2 = cls.env['hr.employee'].create({
+            'name': 'Employee 2',
+            'resource_calendar_id': cls.calendar.id,
+            'address_id': cls.address_2.id,
+        })
+        # Use a very old year for avoiding to collapse with current data
+        cls.public_holiday_global = cls.HrHolidaysPublic.create({
+            'year': 1946,
+            'line_ids': [
+                (0, 0, {
+                    'name': 'Christmas',
+                    'date': '1946-12-25',
+                }),
+            ],
+        })
+        cls.public_holiday_country = cls.HrHolidaysPublic.create({
+            'year': 1946,
+            'country_id': cls.address_2.country_id.id,
+            'line_ids': [
+                (0, 0, {
+                    'name': 'Before Christmas',
+                    'date': '1946-12-24',
+                }),
+                (0, 0, {
+                    'name': 'Even More Before Christmas',
+                    'date': '1946-12-23',
+                    'state_ids': [
+                        (6, 0, cls.address_2.state_id.ids),
+                    ]
+                }),
+            ],
+        })
+        cls.leave_type = cls.HrLeaveType.create({
+            'name': 'Leave Type Test',
+            'exclude_public_holidays': True,
+            'allocation_type': 'no',
+        })
+        # Remove timezone for controlling data better
+        cls.env.user.tz = False
         # Force employee create_date for having auto-generated report entries
         cls.env.cr.execute(
             "UPDATE hr_employee SET create_date = %s "
@@ -19,13 +93,15 @@ class TestHrAttendanceReportTheoreticalTime(TestHolidaysComputeDaysBase):
             ),
         )
         # Leave for employee 1
-        cls.leave = cls.env['hr.holidays'].create({
-            'date_from': '1946-12-26 08:00:00',
-            'date_to': '1946-12-26 18:00:00',
+        cls.leave = cls.HrLeave.create({
+            'date_from': '1946-12-26 00:00:00',
+            'date_to': '1946-12-26 23:59:59',
+            'request_date_from': '1946-12-26',
+            'request_date_to': '1946-12-26',
             'employee_id': cls.employee_1.id,
-            'holiday_status_id': cls.holiday_type.id,
-            'state': 'confirm',
+            'holiday_status_id': cls.leave_type.id,
         })
+        cls.leave._onchange_request_parameters()
         cls.leave.action_validate()
         cls.attendances = []
         for employee in (cls.employee_1, cls.employee_2):

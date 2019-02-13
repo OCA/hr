@@ -14,13 +14,13 @@ Theoretical vs Attended Time Analysis
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fhr-lightgray.png?logo=github
-    :target: https://github.com/OCA/hr/tree/10.0/hr_attendance_report_theoretical_time
+    :target: https://github.com/OCA/hr/tree/12.0/hr_attendance_report_theoretical_time
     :alt: OCA/hr
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/hr-10-0/hr-10-0-hr_attendance_report_theoretical_time
+    :target: https://translation.odoo-community.org/projects/hr-12-0/hr-12-0-hr_attendance_report_theoretical_time
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runbot-Try%20me-875A7B.png
-    :target: https://runbot.odoo-community.org/runbot/116/10.0
+    :target: https://runbot.odoo-community.org/runbot/116/12.0
     :alt: Try me on Runbot
 
 |badge1| |badge2| |badge3| |badge4| |badge5| 
@@ -72,7 +72,7 @@ the attendances report.
 
 For including some leave types in the theoretical time, you have to:
 
-#. Go to *Leaves > Configuration*.
+#. Go to *Leaves > Configuration > Leave Types*.
 #. Select leave type you want to include.
 #. Check the mark "Include in theoretical hours".
 
@@ -99,7 +99,7 @@ calendar for not leaving empty spaces between them.
 Usage
 =====
 
-#. Go to *Attendances > Reports > Theoretical vs Attended Time Analysis*.
+#. Go to *Attendances > Reporting > Theoretical vs Attended Time Analysis*.
 #. Check pivot table or look at the graph view.
 
 Known issues / Roadmap
@@ -113,8 +113,8 @@ Known issues / Roadmap
 * If you change employee's working time, theoretical hours for non attended
   days will be computed according this new calendar. You have to define
   start and end dates inside the calendar for avoiding this side effect.
-* Recompute theoretical hours of affected days when changing the leave type
-  to be included or not in theoretical time.
+* Theoretical hours of affected days when changing the leave type to be
+  included or not in theoretical time are not recomputed.
 
 Bug Tracker
 ===========
@@ -122,7 +122,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/hr/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us smashing it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/hr/issues/new?body=module:%20hr_attendance_report_theoretical_time%0Aversion:%2010.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/hr/issues/new?body=module:%20hr_attendance_report_theoretical_time%0Aversion:%2012.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -161,6 +161,6 @@ OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
 
-This module is part of the `OCA/hr <https://github.com/OCA/hr/tree/10.0/hr_attendance_report_theoretical_time>`_ project on GitHub.
+This module is part of the `OCA/hr <https://github.com/OCA/hr/tree/12.0/hr_attendance_report_theoretical_time>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
