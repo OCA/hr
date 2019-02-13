@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-30 07:32+0000\n"
-"PO-Revision-Date: 2018-12-19 13:58+0000\n"
+"PO-Revision-Date: 2019-02-13 14:50+0000\n"
 "Last-Translator: Maria Sparenberg <maria.sparenberg@gmx.net>\n"
 "Language-Team: German (https://www.transifex.com/oca/teams/23907/de/)\n"
 "Language: de\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.3\n"
+"X-Generator: Weblate 3.4\n"
 
 #. module: hr_skill
 #: model:ir.model.fields,field_description:hr_skill.field_hr_skill_active
@@ -37,7 +37,7 @@ msgstr "Untergeordnete"
 #. module: hr_skill
 #: model:ir.model.fields,field_description:hr_skill.field_hr_skill_color
 msgid "Color Index"
-msgstr ""
+msgstr "Farbindex"
 
 #. module: hr_skill
 #: model:ir.model.fields,field_description:hr_skill.field_hr_employee_skill_create_uid
@@ -54,7 +54,7 @@ msgstr "Erstellt am"
 #. module: hr_skill
 #: model:ir.model.fields,field_description:hr_skill.field_hr_skill_description
 msgid "Description"
-msgstr ""
+msgstr "Beschreibung"
 
 #. module: hr_skill
 #: model:ir.model.fields,field_description:hr_skill.field_hr_employee_skill_display_name
