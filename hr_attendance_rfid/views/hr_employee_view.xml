@@ -8,7 +8,7 @@
             <field name="inherit_id" ref="hr_attendance.hr_attendance_employee"/>
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='active']" position="after">
-                    <field name="rfid_card_code" groups="base.group_hr_attendance"/>
+                    <field name="rfid_card_code" groups="base.group_hr_user"/>
                 </xpath>
             </field>
         </record>
