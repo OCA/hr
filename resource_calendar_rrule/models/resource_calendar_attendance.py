@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-# © 2017 Therp BV <http://therp.nl>
+# Copyright 2017-2019 Therp BV <http://therp.nl>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 import datetime
 import pytz
 from dateutil import rrule
-from openerp import api, fields, models
+from odoo import api, fields, models, tools
 try:
     from openerp.addons.field_rrule import FieldRRule
 except ImportError:
@@ -100,7 +100,9 @@ class ResourceCalendarAttendance(models.Model):
             'type': 'rrule',
             'interval': 1,
             'byweekday': [0, 1, 2, 3, 4],
-            'dtstart': fields.Date.context_today(self),
+            'dtstart':
+            fields.Date.context_today(self) if not tools.config['test_enable']
+            else '2000-01-01',
         }]
 
     @api.multi
