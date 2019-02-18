@@ -102,7 +102,7 @@ class ResourceCalendarAttendance(models.Model):
             'byweekday': [0, 1, 2, 3, 4],
             'dtstart':
             fields.Date.context_today(self) if not tools.config['test_enable']
-            else '2000-01-01',
+            else '1900-01-01',
         }]
 
     @api.multi
