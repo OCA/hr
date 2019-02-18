@@ -269,5 +269,7 @@ class ResourceCalendar(models.Model):
         return (
             default_start or datetime.datetime.now(),
             default_stop or
-            datetime.datetime.now() + datetime.timedelta(days=7),
+            (
+                default_start or datetime.datetime.now()
+            ) + datetime.timedelta(days=7),
         )
