@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_employee_form_inherit_hr_attendance" model="ir.ui.view">
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr_attendance.view_employee_form_inherit_hr_attendance"/>
+        <field name="arch" type="xml">
+            <field name="manual_attendance" position="after">
+                <field name="theoretical_hours_start_date"/>
+            </field>
+        </field>
+    </record>
+</odoo>

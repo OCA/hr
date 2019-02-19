@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hr_attendance_theoretical_time_report,access_hr_attendance_theoretical_time_report,model_hr_attendance_theoretical_time_report,hr_attendance.group_hr_attendance,1,0,0,0
