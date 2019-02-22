@@ -2,20 +2,26 @@
 # Copyright 2018 Eficent Business and IT Consulting Services, S.L.
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
+from datetime import datetime, timedelta
+from openerp import fields
 from openerp.tests.common import TransactionCase
 from openerp.tools.misc import mute_logger
-from datetime import datetime, timedelta
-from openerp.tools import DEFAULT_SERVER_DATETIME_FORMAT
 
 
 class TestHrAttendance(TransactionCase):
 
     def setUp(self):
         super(TestHrAttendance, self).setUp()
-        self.employee_model = self.env['hr.employee']
-        self.test_employee = self.browse_ref('hr.employee_al')
+        self.employee_model = self.env['hr.employee'].with_context(
+            action_date=fields.Datetime.to_string(datetime.now())
+        )
+        # self.test_employee = self.browse_ref('hr.employee_al')
+        self.test_employee = self.employee_model.create({
+            'name': 'Tester',
+            'state': 'absent',
+            'rfid_card_code': '5b3f5',
+        })
         self.rfid_card_code = '5b3f5'
-        self.test_employee.rfid_card_code = self.rfid_card_code
 
     def test_valid_employee(self):
         """Valid employee"""
@@ -26,7 +32,10 @@ class TestHrAttendance(TransactionCase):
         self.assertTrue(
             'rfid_card_code' in res and
             res['rfid_card_code'] == self.rfid_card_code)
-        res = self.employee_model.register_attendance(
+        res = self.employee_model.with_context(
+            action_date=fields.Datetime.to_string(
+                datetime.now() + timedelta(hours=8)),
+        ).register_attendance(
             self.rfid_card_code)
         self.assertTrue('action' in res and res['action'] == 'check_out')
         self.assertTrue('logged' in res and res['logged'])
@@ -36,12 +45,9 @@ class TestHrAttendance(TransactionCase):
         """Checkout is created for a future datetime"""
         self.env['hr.attendance'].create({
             'employee_id': self.test_employee.id,
-            'check_in': datetime.today().strftime(
-                DEFAULT_SERVER_DATETIME_FORMAT),
-            'check_out': (datetime.today() + timedelta(hours=8)).strftime(
-                DEFAULT_SERVER_DATETIME_FORMAT),
+            'action': 'sign_out',
         })
-        self.test_employee.update({'attendance_state': 'checked_in'})
+        self.test_employee.update({'state': 'present'})
         res = self.employee_model.register_attendance(
             self.rfid_card_code)
         self.assertNotEquals(res['error_message'], '')
