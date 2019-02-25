@@ -4,8 +4,8 @@
 from odoo import fields, models
 
 
-class HrLeaveType(models.Model):
-    _inherit = 'hr.leave.type'
+class HrHolidayStatus(models.Model):
+    _inherit = 'hr.holidays.status'
 
     include_in_theoretical = fields.Boolean(
         string="Include in theoretical hours",

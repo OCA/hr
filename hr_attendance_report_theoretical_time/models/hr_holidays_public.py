@@ -27,7 +27,7 @@ class HrHolidaysPublicLine(models.Model):
         ])
         records._compute_theoretical_hours()
 
-    @api.model_create_multi
+    @api.model
     def create(self, vals_list):
         """Trigger recomputation for the date of the new lines."""
         records = super(HrHolidaysPublicLine, self).create(vals_list)

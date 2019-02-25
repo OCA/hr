@@ -17,10 +17,10 @@ Theoretical vs Attended Time Analysis
     :target: https://github.com/OCA/hr/tree/12.0/hr_attendance_report_theoretical_time
     :alt: OCA/hr
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/hr-12-0/hr-12-0-hr_attendance_report_theoretical_time
+    :target: https://translation.odoo-community.org/projects/hr-11-0/hr-11-0-hr_attendance_report_theoretical_time
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runbot-Try%20me-875A7B.png
-    :target: https://runbot.odoo-community.org/runbot/116/12.0
+    :target: https://runbot.odoo-community.org/runbot/116/11.0
     :alt: Try me on Runbot
 
 |badge1| |badge2| |badge3| |badge4| |badge5| 

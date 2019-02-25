@@ -8,13 +8,12 @@ class TestHrAttendanceReportTheoreticalTime(common.SavepointCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.HrLeave = cls.env['hr.leave']
+        cls.HrHolidays = cls.env['hr.holidays']
         cls.HrHolidaysPublic = cls.env["hr.holidays.public"]
-        cls.HrLeaveType = cls.env["hr.leave.type"]
+        cls.HrHolidaysStatus = cls.env["hr.holidays.status"]
         cls.calendar = cls.env['resource.calendar'].create({
             'name': 'Test Calendar',
             'attendance_ids': False,
-            'tz': 'UTC',
         })
         for day in range(5):  # From monday to friday
             cls.calendar.attendance_ids = [
@@ -77,10 +76,9 @@ class TestHrAttendanceReportTheoreticalTime(common.SavepointCase):
                 }),
             ],
         })
-        cls.leave_type = cls.HrLeaveType.create({
+        cls.leave_type = cls.HrHolidaysStatus.create({
             'name': 'Leave Type Test',
             'exclude_public_holidays': True,
-            'allocation_type': 'no',
         })
         # Remove timezone for controlling data better
         cls.env.user.tz = False
@@ -93,15 +91,12 @@ class TestHrAttendanceReportTheoreticalTime(common.SavepointCase):
             ),
         )
         # Leave for employee 1
-        cls.leave = cls.HrLeave.create({
+        cls.leave = cls.HrHolidays.create({
             'date_from': '1946-12-26 00:00:00',
             'date_to': '1946-12-26 23:59:59',
-            'request_date_from': '1946-12-26',
-            'request_date_to': '1946-12-26',
             'employee_id': cls.employee_1.id,
             'holiday_status_id': cls.leave_type.id,
         })
-        cls.leave._onchange_request_parameters()
         cls.leave.action_validate()
         cls.attendances = []
         for employee in (cls.employee_1, cls.employee_2):
