@@ -25,7 +25,7 @@ msgid "Pay Slip"
 msgstr ""
 
 #. module: hr_payroll_cancel
-#: model:ir.model.fields,field_description:hr_payroll_cancel.field_hr_payslip_refunded_id
+#: model:ir.model.fields,field_description:hr_payroll_cancel.field_hr_payslip__refunded_id
 msgid "Refunded Payslip"
 msgstr ""
 

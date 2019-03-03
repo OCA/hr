@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* hr_payroll_cancel
+# 	* hr_payroll_cancel
 #
 msgid ""
 msgstr ""
@@ -20,13 +20,14 @@ msgid "Pay Slip"
 msgstr ""
 
 #. module: hr_payroll_cancel
-#: model:ir.model.fields,field_description:hr_payroll_cancel.field_hr_payslip_refunded_id
+#: model:ir.model.fields,field_description:hr_payroll_cancel.field_hr_payslip__refunded_id
 msgid "Refunded Payslip"
 msgstr ""
 
 #. module: hr_payroll_cancel
 #: code:addons/hr_payroll_cancel/models/hr_payroll.py:31
 #, python-format
-msgid "To cancel the Original Payslip the\n"
+msgid ""
+"To cancel the Original Payslip the\n"
 "                    Refunded Payslip needs to be canceled first!"
 msgstr ""
