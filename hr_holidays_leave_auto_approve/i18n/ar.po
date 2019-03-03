@@ -20,22 +20,22 @@ msgstr ""
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 
 #. module: hr_holidays_leave_auto_approve
-#: model:ir.model.fields,field_description:hr_holidays_leave_auto_approve.field_hr_holidays_status_auto_approve
+#: model:ir.model.fields,field_description:hr_holidays_leave_auto_approve.field_hr_leave_type__auto_approve
 msgid "Auto Validate"
 msgstr ""
 
 #. module: hr_holidays_leave_auto_approve
-#: model:ir.model.fields,help:hr_holidays_leave_auto_approve.field_hr_holidays_status_auto_approve
+#: model:ir.model.fields,help:hr_holidays_leave_auto_approve.field_hr_leave_type__auto_approve
 msgid ""
-"If True, leaves belonging to this leave type will be automatically approved"
+"If True, leaves belonging to this leave type will be automatically validated"
 msgstr ""
 
 #. module: hr_holidays_leave_auto_approve
-#: model:ir.model,name:hr_holidays_leave_auto_approve.model_hr_holidays
+#: model:ir.model,name:hr_holidays_leave_auto_approve.model_hr_leave
 msgid "Leave"
 msgstr "إجازة"
 
 #. module: hr_holidays_leave_auto_approve
-#: model:ir.model,name:hr_holidays_leave_auto_approve.model_hr_holidays_status
+#: model:ir.model,name:hr_holidays_leave_auto_approve.model_hr_leave_type
 msgid "Leave Type"
 msgstr "نوع الإجازة"

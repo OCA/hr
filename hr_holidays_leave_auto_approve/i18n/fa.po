@@ -20,23 +20,24 @@ msgstr ""
 "X-Generator: Weblate 3.0.1\n"
 
 #. module: hr_holidays_leave_auto_approve
-#: model:ir.model.fields,field_description:hr_holidays_leave_auto_approve.field_hr_holidays_status_auto_approve
+#: model:ir.model.fields,field_description:hr_holidays_leave_auto_approve.field_hr_leave_type__auto_approve
 msgid "Auto Validate"
 msgstr "تایید خودکار"
 
 #. module: hr_holidays_leave_auto_approve
-#: model:ir.model.fields,help:hr_holidays_leave_auto_approve.field_hr_holidays_status_auto_approve
+#: model:ir.model.fields,help:hr_holidays_leave_auto_approve.field_hr_leave_type__auto_approve
+#, fuzzy
 msgid ""
-"If True, leaves belonging to this leave type will be automatically approved"
+"If True, leaves belonging to this leave type will be automatically validated"
 msgstr ""
 "اگر صحیح است ، برگ های متعلق به این الگوی خروج به صورت خودکار تایید خواهند شد"
 
 #. module: hr_holidays_leave_auto_approve
-#: model:ir.model,name:hr_holidays_leave_auto_approve.model_hr_holidays
+#: model:ir.model,name:hr_holidays_leave_auto_approve.model_hr_leave
 msgid "Leave"
 msgstr "خروج"
 
 #. module: hr_holidays_leave_auto_approve
-#: model:ir.model,name:hr_holidays_leave_auto_approve.model_hr_holidays_status
+#: model:ir.model,name:hr_holidays_leave_auto_approve.model_hr_leave_type
 msgid "Leave Type"
 msgstr "نوع خروج"

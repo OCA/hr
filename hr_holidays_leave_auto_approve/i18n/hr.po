@@ -20,24 +20,25 @@ msgstr ""
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
 #. module: hr_holidays_leave_auto_approve
-#: model:ir.model.fields,field_description:hr_holidays_leave_auto_approve.field_hr_holidays_status_auto_approve
+#: model:ir.model.fields,field_description:hr_holidays_leave_auto_approve.field_hr_leave_type__auto_approve
 msgid "Auto Validate"
 msgstr "Automatski odobri"
 
 #. module: hr_holidays_leave_auto_approve
-#: model:ir.model.fields,help:hr_holidays_leave_auto_approve.field_hr_holidays_status_auto_approve
+#: model:ir.model.fields,help:hr_holidays_leave_auto_approve.field_hr_leave_type__auto_approve
+#, fuzzy
 msgid ""
-"If True, leaves belonging to this leave type will be automatically approved"
+"If True, leaves belonging to this leave type will be automatically validated"
 msgstr ""
 "Ako je označeno, odsustva koja pripadaju ovom tipu odsustva će biti "
 "automatski odobrena."
 
 #. module: hr_holidays_leave_auto_approve
-#: model:ir.model,name:hr_holidays_leave_auto_approve.model_hr_holidays
+#: model:ir.model,name:hr_holidays_leave_auto_approve.model_hr_leave
 msgid "Leave"
 msgstr "Odsustvo"
 
 #. module: hr_holidays_leave_auto_approve
-#: model:ir.model,name:hr_holidays_leave_auto_approve.model_hr_holidays_status
+#: model:ir.model,name:hr_holidays_leave_auto_approve.model_hr_leave_type
 msgid "Leave Type"
 msgstr "Vrsta odsustva"
