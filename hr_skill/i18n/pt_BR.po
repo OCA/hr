@@ -21,52 +21,69 @@ msgstr ""
 "X-Generator: Weblate 3.1.1\n"
 
 #. module: hr_skill
-#: model:ir.model.fields,field_description:hr_skill.field_hr_skill_active
+#: code:addons/hr_skill/models/hr_employee_skill.py:49
+#, python-format
+msgid "%(employee)s, %(skill)s (%(level)s)"
+msgstr ""
+
+#. module: hr_skill
+#: code:addons/hr_skill/models/hr_skill.py:59
+#, python-format
+msgid "%(parent)s / %(own)s"
+msgstr ""
+
+#. module: hr_skill
+#: model:ir.model.fields,field_description:hr_skill.field_hr_skill__active
 msgid "Active"
 msgstr "Ativo"
 
 #. module: hr_skill
-#: model:ir.ui.view,arch_db:hr_skill.view_skill_form
-msgid "Child Skills"
-msgstr "Habilidades infantis"
-
-#. module: hr_skill
-#: model:ir.model.fields,field_description:hr_skill.field_hr_skill_child_ids
+#: model:ir.model.fields,field_description:hr_skill.field_hr_skill__child_ids
 msgid "Children"
 msgstr "Filhos"
 
 #. module: hr_skill
-#: model:ir.model.fields,field_description:hr_skill.field_hr_employee_skill_create_uid
-#: model:ir.model.fields,field_description:hr_skill.field_hr_skill_create_uid
+#: model:ir.model.fields,field_description:hr_skill.field_hr_skill__color
+msgid "Color Index"
+msgstr ""
+
+#. module: hr_skill
+#: model:ir.model.fields,field_description:hr_skill.field_hr_employee_skill__complete_name
+#: model:ir.model.fields,field_description:hr_skill.field_hr_skill__complete_name
+msgid "Complete Name"
+msgstr ""
+
+#. module: hr_skill
+#: model:ir.model.fields,field_description:hr_skill.field_hr_employee_skill__create_uid
+#: model:ir.model.fields,field_description:hr_skill.field_hr_skill__create_uid
 msgid "Created by"
 msgstr "Criado por"
 
 #. module: hr_skill
-#: model:ir.model.fields,field_description:hr_skill.field_hr_employee_skill_create_date
-#: model:ir.model.fields,field_description:hr_skill.field_hr_skill_create_date
+#: model:ir.model.fields,field_description:hr_skill.field_hr_employee_skill__create_date
+#: model:ir.model.fields,field_description:hr_skill.field_hr_skill__create_date
 msgid "Created on"
 msgstr "Criado em"
 
 #. module: hr_skill
-#: model:ir.model.fields,field_description:hr_skill.field_hr_skill_description
+#: model:ir.model.fields,field_description:hr_skill.field_hr_skill__description
 msgid "Description"
 msgstr ""
 
 #. module: hr_skill
-#: model:ir.model.fields,field_description:hr_skill.field_hr_employee_skill_display_name
-#: model:ir.model.fields,field_description:hr_skill.field_hr_skill_display_name
+#: model:ir.model.fields,field_description:hr_skill.field_hr_employee_skill__display_name
+#: model:ir.model.fields,field_description:hr_skill.field_hr_skill__display_name
 msgid "Display Name"
 msgstr "Exibir Nome"
 
 #. module: hr_skill
 #: model:ir.model,name:hr_skill.model_hr_employee
-#: model:ir.model.fields,field_description:hr_skill.field_hr_employee_skill_employee_id
+#: model:ir.model.fields,field_description:hr_skill.field_hr_employee_skill__employee_id
 msgid "Employee"
 msgstr "Empregado"
 
 #. module: hr_skill
-#: model:ir.model.fields,field_description:hr_skill.field_hr_employee_employee_skill_ids
-#: model:ir.ui.view,arch_db:hr_skill.view_hr_employee_skill_form
+#: model_terms:ir.ui.view,arch_db:hr_skill.view_hr_employee_skill_form
 #, fuzzy
 msgid "Employee Skill"
 msgstr "Empregado"
@@ -74,16 +91,16 @@ msgstr "Empregado"
 #. module: hr_skill
 #: model:ir.actions.act_window,name:hr_skill.action_hr_employee_skill_report
 #: model:ir.ui.menu,name:hr_skill.menu_hr_employee_skill_reporting
-#: model:ir.ui.view,arch_db:hr_skill.view_hr_employee_skill_graph
-#: model:ir.ui.view,arch_db:hr_skill.view_hr_employee_skill_pivot
-#: model:ir.ui.view,arch_db:hr_skill.view_hr_employee_skill_tree
+#: model_terms:ir.ui.view,arch_db:hr_skill.view_hr_employee_skill_graph
+#: model_terms:ir.ui.view,arch_db:hr_skill.view_hr_employee_skill_pivot
+#: model_terms:ir.ui.view,arch_db:hr_skill.view_hr_employee_skill_tree
 #, fuzzy
 msgid "Employee Skills"
 msgstr "Empregados"
 
 #. module: hr_skill
 #: model:ir.actions.act_window,name:hr_skill.hr_employee_normal_action_tree
-#: model:ir.model.fields,field_description:hr_skill.field_hr_skill_employee_skill_ids
+#: model:ir.model.fields,field_description:hr_skill.field_hr_skill__employee_skill_ids
 msgid "Employees"
 msgstr "Empregados"
 
@@ -93,8 +110,20 @@ msgid "Expert"
 msgstr ""
 
 #. module: hr_skill
-#: model:ir.model.fields,field_description:hr_skill.field_hr_employee_skill_id
-#: model:ir.model.fields,field_description:hr_skill.field_hr_skill_id
+#: model:ir.model,name:hr_skill.model_hr_employee_skill
+#, fuzzy
+msgid "HR Employee Skill"
+msgstr "Empregado"
+
+#. module: hr_skill
+#: model:ir.model,name:hr_skill.model_hr_skill
+#, fuzzy
+msgid "HR Skill"
+msgstr "Habilidade"
+
+#. module: hr_skill
+#: model:ir.model.fields,field_description:hr_skill.field_hr_employee_skill__id
+#: model:ir.model.fields,field_description:hr_skill.field_hr_skill__id
 msgid "ID"
 msgstr "ID"
 
@@ -109,47 +138,43 @@ msgid "Junior"
 msgstr ""
 
 #. module: hr_skill
-#: model:ir.model.fields,field_description:hr_skill.field_hr_employee_skill___last_update
-#: model:ir.model.fields,field_description:hr_skill.field_hr_skill___last_update
+#: model:ir.model.fields,field_description:hr_skill.field_hr_employee_skill____last_update
+#: model:ir.model.fields,field_description:hr_skill.field_hr_skill____last_update
 msgid "Last Modified on"
 msgstr "Última Modificação no"
 
 #. module: hr_skill
-#: model:ir.model.fields,field_description:hr_skill.field_hr_employee_skill_write_uid
-#: model:ir.model.fields,field_description:hr_skill.field_hr_skill_write_uid
+#: model:ir.model.fields,field_description:hr_skill.field_hr_employee_skill__write_uid
+#: model:ir.model.fields,field_description:hr_skill.field_hr_skill__write_uid
 msgid "Last Updated by"
 msgstr "Última Atualização por"
 
 #. module: hr_skill
-#: model:ir.model.fields,field_description:hr_skill.field_hr_employee_skill_write_date
-#: model:ir.model.fields,field_description:hr_skill.field_hr_skill_write_date
+#: model:ir.model.fields,field_description:hr_skill.field_hr_employee_skill__write_date
+#: model:ir.model.fields,field_description:hr_skill.field_hr_skill__write_date
 msgid "Last Updated on"
 msgstr "Última Atualização no"
 
 #. module: hr_skill
-#: model:ir.model.fields,field_description:hr_skill.field_hr_employee_skill_level
+#: model:ir.model.fields,field_description:hr_skill.field_hr_employee_skill__level
 msgid "Level"
 msgstr ""
 
 #. module: hr_skill
-#: model:ir.model.fields,field_description:hr_skill.field_hr_skill_name
+#: model:ir.model.fields,field_description:hr_skill.field_hr_skill__name
 msgid "Name"
 msgstr "Nome"
 
 #. module: hr_skill
-#: model:ir.model.fields,field_description:hr_skill.field_hr_skill_parent_id
+#: model:ir.model.fields,field_description:hr_skill.field_hr_skill__parent_id
 msgid "Parent"
 msgstr "Pai"
 
 #. module: hr_skill
-#: model:ir.model.fields,field_description:hr_skill.field_hr_skill_parent_left
-msgid "Parent Left"
+#: model:ir.model.fields,field_description:hr_skill.field_hr_skill__parent_path
+#, fuzzy
+msgid "Parent Path"
 msgstr "Pai Esquerdo"
-
-#. module: hr_skill
-#: model:ir.model.fields,field_description:hr_skill.field_hr_skill_parent_right
-msgid "Parent Right"
-msgstr "Pai Direito"
 
 #. module: hr_skill
 #: selection:hr.employee.skill,level:0
@@ -157,39 +182,45 @@ msgid "Senior"
 msgstr ""
 
 #. module: hr_skill
-#: model:ir.model.fields,field_description:hr_skill.field_hr_employee_skill_skill_id
-#: model:ir.ui.view,arch_db:hr_skill.view_skill_form
+#: model:ir.model.fields,field_description:hr_skill.field_hr_employee_skill__skill_id
+#: model_terms:ir.ui.view,arch_db:hr_skill.view_skill_form
 msgid "Skill"
 msgstr "Habilidade"
 
 #. module: hr_skill
 #: model:ir.actions.act_window,name:hr_skill.open_view_skill_form
+#: model:ir.model.fields,field_description:hr_skill.field_hr_employee__employee_skill_ids
 #: model:ir.ui.menu,name:hr_skill.menu_open_view_skill_form
-#: model:ir.ui.view,arch_db:hr_skill.view_employee_skill_form
-#: model:ir.ui.view,arch_db:hr_skill.view_hr_skill_tree
+#: model_terms:ir.ui.view,arch_db:hr_skill.view_employee_skill_form
+#: model_terms:ir.ui.view,arch_db:hr_skill.view_hr_skill_tree
 msgid "Skills"
 msgstr "Habilidades"
 
 #. module: hr_skill
-#: model:ir.actions.act_window,help:hr_skill.action_hr_employee_skill_report
+#: model_terms:ir.actions.act_window,help:hr_skill.action_hr_employee_skill_report
 msgid "Skills Reports."
 msgstr ""
+
+#. module: hr_skill
+#: model_terms:ir.ui.view,arch_db:hr_skill.view_skill_form
+#, fuzzy
+msgid "Sub-skills"
+msgstr "Habilidades"
 
 #. module: hr_skill
 #: sql_constraint:hr.employee.skill:0
 msgid "This employee already has that skill!"
 msgstr ""
 
-#. module: hr_skill
-#: model:ir.model,name:hr_skill.model_hr_employee_skill
-#, fuzzy
-msgid "hr.employee.skill"
-msgstr "Empregados"
+#~ msgid "Child Skills"
+#~ msgstr "Habilidades infantis"
 
-#. module: hr_skill
-#: model:ir.model,name:hr_skill.model_hr_skill
-msgid "hr.skill"
-msgstr ""
+#~ msgid "Parent Right"
+#~ msgstr "Pai Direito"
+
+#, fuzzy
+#~ msgid "hr.employee.skill"
+#~ msgstr "Empregados"
 
 #~ msgid "Employee(s)"
 #~ msgstr "Empregado(s)"
