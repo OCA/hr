@@ -207,7 +207,7 @@ class TestAttendanceDays(SavepointCase):
         # for attendance day testing
         attendances = self.all_attendances
         date_start = attendances[0].check_in
-        date_stop = attendances[-1].check_out
+        date_stop = attendances[9].check_out
         self.env['create.hr.attendance.day'].create({
             'date_from': date_start[:10],
             'date_to': date_stop[:10],
