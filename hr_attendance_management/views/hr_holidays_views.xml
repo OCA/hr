@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 
 <odoo>
-    <record id="edit_holiday_status_form"
+    <record id="edit_holiday_status_form_attendance"
             model="ir.ui.view">
         <field name="name">hr.holidays.form</field>
         <field name="model">hr.holidays</field>
@@ -10,7 +10,16 @@
         <field name="arch"
                type="xml">
             <field name="notes" position="before">
-                    <field name="attendance_day_ids"/>
+                <field name="attendance_day_ids">
+                    <tree>
+                        <field name="date"/>
+                        <field name="working_day"/>
+                        <field name="due_hours" widget="float_time" type="char"/>
+                        <field name="extra_hours" widget="float_time" type="char"/>
+                        <button name="open_attendance_day" type="object"
+                                icon="fa-external-link"/>
+                    </tree>
+                </field>
             </field>
         </field>
     </record>

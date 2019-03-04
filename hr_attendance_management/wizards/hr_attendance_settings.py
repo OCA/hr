@@ -14,17 +14,10 @@ class HrAttendanceSettings(models.TransientModel):
 
     free_break = fields.Float('Free break (hour)')
     max_extra_hours = fields.Float('Max extra hours')
-    hours_week = fields.Float('Work hours per week')
 
     ##########################################################################
     #                             PUBLIC METHODS                             #
     ##########################################################################
-    @api.multi
-    def set_hours_week(self):
-        self.env['ir.config_parameter'].set_param(
-            'hr_attendance_management.hours_week',
-            str(self.hours_week))
-
     @api.multi
     def set_free_break(self):
         self.env['ir.config_parameter'].set_param(
@@ -49,14 +42,7 @@ class HrAttendanceSettings(models.TransientModel):
                 'hr_attendance_management.free_break', '0.0')),
             'max_extra_hours': float(param_obj.get_param(
                 'hr_attendance_management.max_extra_hours', '0.0')),
-            'hours_week': float(param_obj.get_param(
-                'hr_attendance_management.hours_week', '0.0'))
         }
-
-    @api.model
-    def get_hours_week(self):
-        return float(self.env['ir.config_parameter'].get_param(
-            'hr_attendance_management.hours_week'))
 
     @api.model
     def get_free_break(self):

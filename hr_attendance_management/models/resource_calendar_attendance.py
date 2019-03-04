@@ -6,7 +6,7 @@
 
 import logging
 
-from odoo import models, fields
+from odoo import models, fields, api
 
 _logger = logging.getLogger(__name__)
 
@@ -14,4 +14,10 @@ _logger = logging.getLogger(__name__)
 class ResCalendarAttendance(models.Model):
     _inherit = 'resource.calendar.attendance'
 
-    due_hours = fields.Float()
+    due_hours = fields.Float(compute='_compute_due_hours', readonly=True)
+
+    @api.multi
+    @api.depends('hour_from', 'hour_to')
+    def _compute_due_hours(self):
+        for record in self:
+            record.due_hours = record.hour_to - record.hour_from

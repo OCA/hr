@@ -12,11 +12,5 @@
             <field name="key">hr_attendance_management.max_extra_hours</field>
             <field name="value">0</field>
         </record>
-
-        <!-- Work hours per week-->
-        <record id="hours_week" model="ir.config_parameter">
-            <field name="key">hr_attendance_management.hours_week</field>
-            <field name="value">40</field>
-        </record>
     </data>
 </odoo>

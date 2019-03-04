@@ -34,7 +34,8 @@ class HrAttendanceDay(models.Model):
     # Working schedule
     working_schedule_id = fields.Many2one('resource.calendar', store=True,
                                           string='Working schedule',
-                                          compute='_compute_working_schedule')
+                                          compute='_compute_working_schedule',
+                                          inverse='_inverse_working_schedule')
     cal_att_ids = fields.Many2many('resource.calendar.attendance', store=True,
                                    compute='_compute_cal_att_ids')
     working_day = fields.Char(compute='_compute_working_day',
@@ -99,7 +100,7 @@ class HrAttendanceDay(models.Model):
     #                             FIELDS METHODS                             #
     ##########################################################################
     @api.multi
-    @api.depends('attendance_ids', 'employee_id.contract_id')
+    @api.depends('attendance_ids')
     def _compute_working_schedule(self):
         for att_day in self:
             # Find the correspondent resource.calendar
@@ -122,6 +123,11 @@ class HrAttendanceDay(models.Model):
                     att_day.employee_id.calendar_id)
 
             att_day.working_schedule_id = schedule
+
+    def _inverse_working_schedule(self):
+        for att_day in self:
+            for att in self.attendance_ids:
+                att.working_schedule_id = att_day.working_schedule_id
 
     @api.multi
     @api.depends('working_schedule_id', 'working_schedule_id.attendance_ids')
@@ -212,7 +218,7 @@ class HrAttendanceDay(models.Model):
                 continue
 
             # Leaves
-            due_hours -= att_day.get_leave_time()
+            due_hours -= att_day.get_leave_time(due_hours)
 
             if due_hours < 0:
                 due_hours = 0
@@ -223,14 +229,15 @@ class HrAttendanceDay(models.Model):
     def _compute_total_attendance(self):
         for att_day in self.filtered('attendance_ids'):
             att_day.total_attendance = sum(
-                att_day.attendance_ids.mapped('worked_hours') or [0])
+                att_day.attendance_ids.mapped(
+                    'worked_hours') or [0])
 
     @api.multi
-    @api.depends('attendance_ids.worked_hours')
+    @api.depends('total_attendance', 'coefficient')
     def _compute_paid_hours(self):
         """
         Paid hours are the sum of the attendances minus the break time
-        added by the system if the employee didn't take enough break.
+        added by the system and multiply by the coefficient.
         """
         for att_day in self.filtered('attendance_ids'):
             paid_hours = att_day.total_attendance
@@ -240,7 +247,7 @@ class HrAttendanceDay(models.Model):
                 lambda r: r.system_modified and not r.is_offered)
 
             paid_hours -= sum(breaks.mapped('additional_duration'))
-            att_day.paid_hours = paid_hours
+            att_day.paid_hours = paid_hours * att_day.coefficient
 
     @api.multi
     def _compute_free_break_hours(self):
@@ -287,14 +294,15 @@ class HrAttendanceDay(models.Model):
                 att_day.break_ids.mapped('total_duration') or [0])
 
     @api.multi
-    @api.depends('paid_hours', 'due_hours', 'coefficient',
-                 'extra_hours_lost')
+    @api.depends('paid_hours', 'due_hours', 'extra_hours_lost')
     def _compute_extra_hours(self):
-        for att_day in self.filtered('coefficient'):
-            extra_hours = att_day.paid_hours - att_day.due_hours
-            coefficient = att_day.coefficient
-            att_day.extra_hours = (extra_hours * coefficient) - \
-                att_day.extra_hours_lost
+        sick_leave = self.env.ref('hr_holidays.holiday_status_sl')
+        for att_day in self:
+            if sick_leave in att_day.leave_ids.mapped('holiday_status_id'):
+                att_day.extra_hours = 0
+            else:
+                extra_hours = att_day.paid_hours - att_day.due_hours
+                att_day.extra_hours = extra_hours - att_day.extra_hours_lost
 
     @api.multi
     def update_extra_hours_lost(self):
@@ -454,13 +462,27 @@ class HrAttendanceDay(models.Model):
     ##########################################################################
     #                             PUBLIC METHODS                             #
     ##########################################################################
-    def get_leave_time(self):
+    @api.multi
+    def open_attendance_day(self):
+        """ Used to bypass opening a attendance in popup mode"""
+        self.ensure_one()
+        return {
+            'type': 'ir.actions.act_window',
+            'name': 'Attendance day',
+            'view_type': 'form',
+            'view_mode': 'form',
+            'res_model': self._name,
+            'res_id': self.id,
+            'target': 'current',
+        }
+
+    def get_leave_time(self, due_hours):
         """
         Compute leave duration for the day.
-        :return: leave duration (in hours)
+        :return: deduction to due hours (in hours)
         :rtype: float [0:24]
         """
-        total = 0
+        deduction = 0
         for leave in self.leave_ids:
             if leave.state != 'validate' or \
                     leave.holiday_status_id.keep_due_hours:
@@ -484,34 +506,34 @@ class HrAttendanceDay(models.Model):
 
                 date = fields.Date.from_string(self.date)
 
-                full_day = self.due_hours
+                full_day = due_hours
 
-                if leave_start_date == date == leave_end_date:
-                    total += leave.number_of_days_temp
-                elif leave_start_date < date < leave_end_date:
-                    total += full_day
+                if leave_start_date < date < leave_end_date:
+                    deduction += full_day
 
                 elif date == leave_start_date:
+                    # convert time in float
                     start = local_start.hour + local_start.minute / 60.
                     for att in self.cal_att_ids:
                         if att.hour_from <= start < att.hour_to:
-                            total += att.hour_to - start
+                            deduction += att.hour_to - start
                         elif start < att.hour_from:
-                            total += att.due_hours
+                            deduction += att.due_hours
 
                 elif date == leave_end_date:
+                    # convert time in float
                     end = local_end.hour + local_end.minute / 60.
                     for att in self.cal_att_ids:
-                        if att.hour_from < end < att.hour_to:
-                            total += end - att.hour_from
+                        if att.hour_from < end <= att.hour_to:
+                            deduction += end - att.hour_from
                         elif end > att.hour_to:
-                            total += att.due_hours
+                            deduction += att.due_hours
 
                 else:
                     _logger.error(
                         "This day doesn't correspond to this leave"
                     )
-        return total
+        return deduction
 
     @api.multi
     def compute_breaks(self):

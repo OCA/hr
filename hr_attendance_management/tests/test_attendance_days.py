@@ -269,26 +269,6 @@ class TestAttendanceDays(SavepointCase):
                 self.assertEqual(p_day.extra_hours, -8)
         self.assertEqual(pieter_balance, self.pieter.extra_hours)
 
-        # verify that the modifications to an attendance are working
-        # get gilles attendances
-        gilles_atts = self.env['hr.attendance'].search([
-            ('employee_id', '=', self.gilles.id)
-        ])
-        # get last day and modify its check-in and check-out date
-        g_att = gilles_atts[0]
-
-        # initial test value
-        self.assertEqual(g_att.worked_hours, 1)
-
-        g_att.write({'check_in': '2018-04-04 08:00:00',
-                     'check_out': '2018-04-04 17:00:00'})
-
-        self.assertEqual(g_att.check_in, '2018-04-04 08:00:00')
-        self.assertEqual(g_att.check_out, '2018-04-04 17:00:00')
-        # worked hours should be computed on the fly
-        self.assertEqual(g_att.worked_hours, 9)
-        self.assertEqual(g_att.total_attendance, 9)
-
         # test annual balance computation
         self.assertEqual(self.gilles.annual_balance, 0)
         g_previous_balance = self.gilles.previous_annual_balance

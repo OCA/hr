@@ -14,7 +14,6 @@
                    position="after">
                 <field name="free_break" widget="float_time"/>
                 <field name="max_extra_hours" widget="float_time"/>
-                <field name="hours_week" widget="float_time"/>
             </field>
         </field>
     </record>

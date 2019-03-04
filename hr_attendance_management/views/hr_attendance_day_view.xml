@@ -62,6 +62,7 @@
                             <field name="leave_ids">
                                 <tree>
                                     <field name="name"/>
+                                    <field name="holiday_status_id"/>
                                     <field name="date_from"/>
                                     <field name="date_to"/>
                                     <field name="state"/>

@@ -50,7 +50,6 @@ class HrAttendanceBreak(models.Model):
                 # Insert the beginning/end time of the break in is name
                 start = fields.Datetime.context_timestamp(
                     rd.employee_id, fields.Datetime.from_string(rd.start))
-                start = start.strftime('%H:%M')
                 stop = fields.Datetime.context_timestamp(
                     rd.employee_id, fields.Datetime.from_string(rd.stop))
                 rd.name = start.strftime('%H:%M') + ' - ' + stop.strftime(
