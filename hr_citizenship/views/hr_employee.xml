@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_form_employee_citizenship" model="ir.ui.view">
+        <field name="name">employee citizenship</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='bank_account_id']" position="after">
+                <field name="citizenship_ids" >
+                    <tree editable="bottom">
+                        <field name="sequence" widget="handle"/>
+                        <field name="country_id" class="o_address_country" required="1" options="{'no_open': True, 'no_create': True}"/>
+                        <field name="identification_id" />
+                        <field name="passport_id" />
+                    </tree>
+                </field>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
