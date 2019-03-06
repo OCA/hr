@@ -48,7 +48,7 @@
             <field name="act_from" ref="act_run_draft"/>
             <field name="act_to" ref="act_run_confirm"/>
             <field name="signal">signal_confirm</field>
-            <field name="group_id" ref="base.group_hr_manager"/>
+            <field name="group_id" ref="hr.group_hr_manager"/>
         </record>
         
         <record id="run_confirm2approve" model="workflow.transition">

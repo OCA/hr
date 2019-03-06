@@ -69,7 +69,7 @@
             <field name="act_to" ref="act_trial"/>
             <field name="condition">condition_trial_period() == True</field>
             <field name="signal">signal_confirm</field>
-            <field name="group_id" ref="base.group_hr_manager"/>
+            <field name="group_id" ref="hr.group_hr_manager"/>
         </record>
         
         <record id="draft2open" model="workflow.transition">
@@ -77,98 +77,98 @@
             <field name="act_to" ref="act_open"/>
             <field name="condition">condition_trial_period() == False</field>
             <field name="signal">signal_confirm</field>
-            <field name="group_id" ref="base.group_hr_manager"/>
+            <field name="group_id" ref="hr.group_hr_manager"/>
         </record>
         
         <record id="trial2end_trial" model="workflow.transition">
             <field name="act_from" ref="act_trial"/>
             <field name="act_to" ref="act_trial_ending"/>
             <field name="signal">signal_ending_trial</field>
-            <field name="group_id" ref="base.group_hr_manager"/>
+            <field name="group_id" ref="hr.group_hr_manager"/>
         </record>
         
         <record id="trial2pending_done" model="workflow.transition">
             <field name="act_from" ref="act_trial"/>
             <field name="act_to" ref="act_pending_done"/>
             <field name="signal">signal_pending_done</field>
-            <field name="group_id" ref="base.group_hr_user"/>
+            <field name="group_id" ref="hr.group_hr_user"/>
         </record>
         
         <record id="trial2done" model="workflow.transition">
             <field name="act_from" ref="act_trial"/>
             <field name="act_to" ref="act_done"/>
             <field name="signal">signal_done</field>
-            <field name="group_id" ref="base.group_hr_manager"/>
+            <field name="group_id" ref="hr.group_hr_manager"/>
         </record>
         
         <record id="end_trial2open" model="workflow.transition">
             <field name="act_from" ref="act_trial_ending"/>
             <field name="act_to" ref="act_open"/>
             <field name="signal">signal_open</field>
-            <field name="group_id" ref="base.group_hr_manager"/>
+            <field name="group_id" ref="hr.group_hr_manager"/>
         </record>
         
         <record id="end_trial2pending_done" model="workflow.transition">
             <field name="act_from" ref="act_trial_ending"/>
             <field name="act_to" ref="act_pending_done"/>
             <field name="signal">signal_pending_done</field>
-            <field name="group_id" ref="base.group_hr_user"/>
+            <field name="group_id" ref="hr.group_hr_user"/>
         </record>
         
         <record id="end_trial2done" model="workflow.transition">
             <field name="act_from" ref="act_trial_ending"/>
             <field name="act_to" ref="act_done"/>
             <field name="signal">signal_done</field>
-            <field name="group_id" ref="base.group_hr_manager"/>
+            <field name="group_id" ref="hr.group_hr_manager"/>
         </record>
         
         <record id="open2end_contract" model="workflow.transition">
             <field name="act_from" ref="act_open"/>
             <field name="act_to" ref="act_contract_ending"/>
             <field name="signal">signal_ending_contract</field>
-            <field name="group_id" ref="base.group_hr_manager"/>
+            <field name="group_id" ref="hr.group_hr_manager"/>
         </record>
         
         <record id="open2pending_done" model="workflow.transition">
             <field name="act_from" ref="act_open"/>
             <field name="act_to" ref="act_pending_done"/>
             <field name="signal">signal_pending_done</field>
-            <field name="group_id" ref="base.group_hr_user"/>
+            <field name="group_id" ref="hr.group_hr_user"/>
         </record>
         
         <record id="open2done" model="workflow.transition">
             <field name="act_from" ref="act_open"/>
             <field name="act_to" ref="act_done"/>
             <field name="signal">signal_done</field>
-            <field name="group_id" ref="base.group_hr_manager"/>
+            <field name="group_id" ref="hr.group_hr_manager"/>
         </record>
         
         <record id="end_contract2pending_done" model="workflow.transition">
             <field name="act_from" ref="act_contract_ending"/>
             <field name="act_to" ref="act_pending_done"/>
             <field name="signal">signal_pending_done</field>
-            <field name="group_id" ref="base.group_hr_user"/>
+            <field name="group_id" ref="hr.group_hr_user"/>
         </record>
         
         <record id="end_contract2done" model="workflow.transition">
             <field name="act_from" ref="act_contract_ending"/>
             <field name="act_to" ref="act_done"/>
             <field name="signal">signal_done</field>
-            <field name="group_id" ref="base.group_hr_manager"/>
+            <field name="group_id" ref="hr.group_hr_manager"/>
         </record>
         
         <record id="pending_done2open" model="workflow.transition">
             <field name="act_from" ref="act_pending_done"/>
             <field name="act_to" ref="act_open"/>
             <field name="signal">signal_open</field>
-            <field name="group_id" ref="base.group_hr_user"/>
+            <field name="group_id" ref="hr.group_hr_user"/>
         </record>
         
         <record id="pending_done2done" model="workflow.transition">
             <field name="act_from" ref="act_pending_done"/>
             <field name="act_to" ref="act_done"/>
             <field name="signal">signal_done</field>
-            <field name="group_id" ref="base.group_hr_manager"/>
+            <field name="group_id" ref="hr.group_hr_manager"/>
         </record>
     
     </data>

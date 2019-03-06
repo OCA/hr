@@ -48,21 +48,21 @@
             <field name="act_from" ref="act_draft"/>
             <field name="act_to" ref="act_confirm"/>
             <field name="signal">signal_confirm</field>
-            <field name="group_id" ref="base.group_hr_user"/>
+            <field name="group_id" ref="hr.group_hr_user"/>
         </record>
         
         <record id="confirm2action" model="workflow.transition">
             <field name="act_from" ref="act_confirm"/>
             <field name="act_to" ref="act_action"/>
             <field name="signal">signal_action</field>
-            <field name="group_id" ref="base.group_hr_manager"/>
+            <field name="group_id" ref="hr.group_hr_manager"/>
         </record>
         
         <record id="confirm2noaction" model="workflow.transition">
             <field name="act_from" ref="act_confirm"/>
             <field name="act_to" ref="act_noaction"/>
             <field name="signal">signal_noaction</field>
-            <field name="group_id" ref="base.group_hr_manager"/>
+            <field name="group_id" ref="hr.group_hr_manager"/>
         </record>
         
     </data>

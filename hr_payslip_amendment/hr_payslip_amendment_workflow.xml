@@ -47,7 +47,7 @@
             <field name="act_from" ref="act_draft"/>
             <field name="act_to" ref="act_validate"/>
             <field name="signal">validate</field>
-            <field name="group_id" ref="base.group_hr_manager"/>
+            <field name="group_id" ref="hr.group_hr_manager"/>
         </record>
         
         <record id="draft2cancel" model="workflow.transition">
@@ -60,14 +60,14 @@
             <field name="act_from" ref="act_validate"/>
             <field name="act_to" ref="act_cancel"/>
             <field name="signal">cancel</field>
-            <field name="group_id" ref="base.group_hr_manager"/>
+            <field name="group_id" ref="hr.group_hr_manager"/>
         </record>
         
         <record id="validate2done" model="workflow.transition">
             <field name="act_from" ref="act_validate"/>
             <field name="act_to" ref="act_done"/>
             <field name="signal">payslip_done</field>
-            <field name="group_id" ref="base.group_hr_manager"/>
+            <field name="group_id" ref="hr.group_hr_manager"/>
         </record>
         
         <record id="cancel2draft" model="workflow.transition">

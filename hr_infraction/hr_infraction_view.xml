@@ -3,7 +3,7 @@
     <data>
         
         <!-- Menu Parent -->
-        <menuitem id="menu_hr_infraction_root" name="Infractions" parent="hr.menu_hr_root" groups="base.group_hr_user" sequence="27"/>
+        <menuitem id="menu_hr_infraction_root" name="Infractions" parent="hr.menu_hr_root" groups="hr.group_hr_user" sequence="27"/>
         
         <!-- Infraction Categories -->
         
@@ -64,9 +64,9 @@
             <field name="arch" type="xml">
                 <form string="Infraction" version="7.0">
                     <header>
-                        <button name="signal_confirm" type="workflow" states="draft" groups="base.group_hr_user" string="Confirm" class="oe_highlight"/>
-                        <button name="%(action_action_wizard)s" type="action" states="confirm,action" groups="base.group_hr_manager" string="Take Action" class="oe_highlight"/>
-                        <button name="signal_noaction" type="workflow" states="confirm" groups="base.group_hr_manager" string="No Further Action" class="oe_highlight"/>
+                        <button name="signal_confirm" type="workflow" states="draft" groups="hr.group_hr_user" string="Confirm" class="oe_highlight"/>
+                        <button name="%(action_action_wizard)s" type="action" states="confirm,action" groups="hr.group_hr_manager" string="Take Action" class="oe_highlight"/>
+                        <button name="signal_noaction" type="workflow" states="confirm" groups="hr.group_hr_manager" string="No Further Action" class="oe_highlight"/>
                         <field name="state" widget="statusbar"/>
                     </header>
                     <group>

@@ -7,10 +7,10 @@
         <menuitem name="Contracts"
             id="submenu_hr_contracts"
             parent="hr.menu_hr_main"
-            sequence="100" groups="base.group_hr_user"/>
+            sequence="100" groups="hr.group_hr_user"/>
         
         <!-- Remove stock Contracts menuitem and put it in the submenu -->
-        <menuitem action="hr_contract.action_hr_contract" id="hr_contract.hr_menu_contract" parent="submenu_hr_contracts" name="Contracts" sequence="10" groups="base.group_hr_user"/>
+        <menuitem action="hr_contract.action_hr_contract" id="hr_contract.hr_menu_contract" parent="submenu_hr_contracts" name="Contracts" sequence="10" groups="hr.group_hr_user"/>
         
         <record id="hr_contract_view_tree" model="ir.ui.view">
             <field name="name">hr.contract.tree.state</field>
@@ -58,7 +58,7 @@
         <menuitem action="open_expiring_contracts"
                   id="menu_expiring_contracts"
                   parent="submenu_hr_contracts"
-                  groups="base.group_hr_user"
+                  groups="hr.group_hr_user"
                   sequence="20"/>
         
         <record id="view_draft_contracts_tree" model="ir.ui.view">
@@ -92,7 +92,7 @@
         <menuitem action="open_draft_contracts"
                   id="menu_draft_contracts"
                   parent="submenu_hr_contracts"
-                  groups="base.group_hr_user"
+                  groups="hr.group_hr_user"
                   sequence="30"/>
        
        <!-- HR Contract: Form View -->
@@ -105,11 +105,11 @@
                    <xpath expr="//div[@class='oe_title']" position="before">
                        <header>
                            <button name="signal_confirm" type="workflow" string="Confirm" 
-                                   groups="base.group_hr_manager" states="draft" class="oe_highlight"/>
+                                   groups="hr.group_hr_manager" states="draft" class="oe_highlight"/>
                            <button name="signal_open" type="workflow" string="Trial Successful"
-                                   groups="base.group_hr_manager" states="trial_ending" class="oe_highlight"/>
+                                   groups="hr.group_hr_manager" states="trial_ending" class="oe_highlight"/>
                            <button name="signal_done" type="workflow" string="End Contract"
-                                   groups="base.group_hr_manager" states="trial,trial_ending,open,contract_ending,pending_done" class="oe_highlight"/>
+                                   groups="hr.group_hr_manager" states="trial,trial_ending,open,contract_ending,pending_done" class="oe_highlight"/>
                            <field name="state" widget="statusbar"/>
                        </header>
                    </xpath>
@@ -151,7 +151,7 @@
             <field name="arch" type="xml">
                 <data>
                     <xpath expr="//button[@string='Contracts']" position="replace">
-                        <button name="%(hr_contract.act_hr_employee_2_hr_contract)d" string="Contracts" type="action" groups="base.group_hr_user"/>
+                        <button name="%(hr_contract.act_hr_employee_2_hr_contract)d" string="Contracts" type="action" groups="hr.group_hr_user"/>
                     </xpath>
                 </data>
             </field>

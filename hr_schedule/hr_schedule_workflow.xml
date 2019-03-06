@@ -46,7 +46,7 @@
             <field name="act_from" ref="act_draft"/>
             <field name="act_to" ref="act_validate"/>
             <field name="signal">signal_validate</field>
-            <field name="group_id" ref="base.group_hr_manager"/>
+            <field name="group_id" ref="hr.group_hr_manager"/>
         </record>
         
         <record id="draft2locked" model="workflow.transition">
@@ -54,7 +54,7 @@
             <field name="act_to" ref="act_locked"/>
             <field name="condition">details_locked() == True</field>
             <field name="signal">signal_lock</field>
-            <field name="group_id" ref="base.group_hr_manager"/>
+            <field name="group_id" ref="hr.group_hr_manager"/>
         </record>
         
         <record id="validate2locked" model="workflow.transition">
@@ -62,7 +62,7 @@
             <field name="act_to" ref="act_locked"/>
             <field name="condition">details_locked() == True</field>
             <field name="signal">signal_lock</field>
-            <field name="group_id" ref="base.group_hr_manager"/>
+            <field name="group_id" ref="hr.group_hr_manager"/>
         </record>
         
         <record id="locked2unlocked" model="workflow.transition">
@@ -70,7 +70,7 @@
             <field name="act_to" ref="act_unlocked"/>
             <field name="condition">details_locked() == False</field>
             <field name="signal">signal_unlock</field>
-            <field name="group_id" ref="base.group_hr_manager"/>
+            <field name="group_id" ref="hr.group_hr_manager"/>
         </record>
         
         <record id="unlocked2locked" model="workflow.transition">
@@ -78,7 +78,7 @@
             <field name="act_to" ref="act_locked"/>
             <field name="condition">details_locked() == True</field>
             <field name="signal">signal_lock</field>
-            <field name="group_id" ref="base.group_hr_manager"/>
+            <field name="group_id" ref="hr.group_hr_manager"/>
         </record>
         
         <!-- Schedule Detail -->
@@ -127,35 +127,35 @@
             <field name="act_from" ref="act_detdraft"/>
             <field name="act_to" ref="act_detvalidate"/>
             <field name="signal">signal_validate</field>
-            <field name="group_id" ref="base.group_hr_manager"/>
+            <field name="group_id" ref="hr.group_hr_manager"/>
         </record>
         
         <record id="det_draft2locked" model="workflow.transition">
             <field name="act_from" ref="act_detdraft"/>
             <field name="act_to" ref="act_detlocked"/>
             <field name="signal">signal_lock</field>
-            <field name="group_id" ref="base.group_hr_manager"/>
+            <field name="group_id" ref="hr.group_hr_manager"/>
         </record>
         
         <record id="det_validate2locked" model="workflow.transition">
             <field name="act_from" ref="act_detvalidate"/>
             <field name="act_to" ref="act_detlocked"/>
             <field name="signal">signal_lock</field>
-            <field name="group_id" ref="base.group_hr_manager"/>
+            <field name="group_id" ref="hr.group_hr_manager"/>
         </record>
         
         <record id="det_locked2unlocked" model="workflow.transition">
             <field name="act_from" ref="act_detlocked"/>
             <field name="act_to" ref="act_detunlocked"/>
             <field name="signal">signal_unlock</field>
-            <field name="group_id" ref="base.group_hr_manager"/>
+            <field name="group_id" ref="hr.group_hr_manager"/>
         </record>
         
         <record id="det_unlocked2locked" model="workflow.transition">
             <field name="act_from" ref="act_detunlocked"/>
             <field name="act_to" ref="act_detlocked"/>
             <field name="signal">signal_lock</field>
-            <field name="group_id" ref="base.group_hr_manager"/>
+            <field name="group_id" ref="hr.group_hr_manager"/>
         </record>
         
     </data>
