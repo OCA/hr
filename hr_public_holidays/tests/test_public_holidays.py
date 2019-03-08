@@ -5,6 +5,7 @@
 from odoo.exceptions import ValidationError
 from odoo.exceptions import Warning as UserError
 from odoo.tests import common
+from odoo.tools import mute_logger
 
 
 class TestPublicHolidays(common.TransactionCase):
@@ -64,15 +65,16 @@ class TestPublicHolidays(common.TransactionCase):
 
     def test_duplicate_year_country_fail(self):
         # ensures that duplicate year cannot be created for the same country
-        with self.assertRaises(ValidationError):
-            self.holiday_model.create({
-                'year': 1995,
-            })
-        with self.assertRaises(ValidationError):
-            self.holiday_model.create({
-                'year': 1994,
-                'country_id': self.env.ref('base.sl').id
-            })
+        with mute_logger('odoo.models'):
+            with self.assertRaises(ValidationError):
+                self.holiday_model.create({
+                    'year': 1995,
+                })
+            with self.assertRaises(ValidationError):
+                self.holiday_model.create({
+                    'year': 1994,
+                    'country_id': self.env.ref('base.sl').id
+                })
 
     def test_duplicate_date_state_fail(self):
         # ensures that duplicate date cannot be created for the same country
@@ -81,30 +83,31 @@ class TestPublicHolidays(common.TransactionCase):
             'year': 1994,
             'country_id': self.env.ref('base.us').id
         })
-        with self.assertRaises(ValidationError):
-            self.holiday_model_line.create({
-                'name': 'holiday x',
-                'date': '1994-11-14',
-                'year_id': holiday4.id
-            })
-            self.holiday_model_line.create({
-                'name': 'holiday x',
-                'date': '1994-11-14',
-                'year_id': holiday4.id
-            })
-        with self.assertRaises(ValidationError):
-            self.holiday_model_line.create({
-                'name': 'holiday x',
-                'date': '1994-11-14',
-                'year_id': holiday4.id,
-                'state_ids': [(6, 0, [self.env.ref('base.state_us_35').id])]
-            })
-            self.holiday_model_line.create({
-                'name': 'holiday x',
-                'date': '1994-11-14',
-                'year_id': holiday4.id,
-                'state_ids': [(6, 0, [self.env.ref('base.state_us_35').id])]
-            })
+        with mute_logger('odoo.models'):
+            with self.assertRaises(ValidationError):
+                self.holiday_model_line.create({
+                    'name': 'holiday x',
+                    'date': '1994-11-14',
+                    'year_id': holiday4.id
+                })
+                self.holiday_model_line.create({
+                    'name': 'holiday x',
+                    'date': '1994-11-14',
+                    'year_id': holiday4.id
+                })
+            with self.assertRaises(ValidationError):
+                self.holiday_model_line.create({
+                    'name': 'holiday x',
+                    'date': '1994-11-14',
+                    'year_id': holiday4.id,
+                    'state_ids': [(6, 0, [self.env.ref('base.state_us_35').id])]
+                })
+                self.holiday_model_line.create({
+                    'name': 'holiday x',
+                    'date': '1994-11-14',
+                    'year_id': holiday4.id,
+                    'state_ids': [(6, 0, [self.env.ref('base.state_us_35').id])]
+                })
 
     def test_isnot_holiday(self):
         # ensures that if given a date that is not an holiday it returns none
