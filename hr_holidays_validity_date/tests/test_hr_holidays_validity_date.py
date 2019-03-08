@@ -27,9 +27,13 @@ from odoo.tests import common
 from odoo import exceptions
 from odoo.tools import DEFAULT_SERVER_DATETIME_FORMAT
 from datetime import datetime, timedelta
+from odoo.tools import mute_logger
 
 
 class TestHrHolidaysValidityDate(common.TransactionCase):
+
+    at_install = False
+    post_install = True
 
     def setUp(self):
         super(TestHrHolidaysValidityDate, self).setUp()
@@ -55,7 +59,7 @@ class TestHrHolidaysValidityDate(common.TransactionCase):
             'holiday_status_id': self.type01.id,
             'date_from': today,
             'date_to': tommorow,
-            'number_of_days_temp': 2,
+            'number_of_days_temp': 1,
         }
         self.holidays_obj.create(leave_vals)
 
@@ -84,6 +88,7 @@ class TestHrHolidaysValidityDate(common.TransactionCase):
             'date_to': tommorow,
             'number_of_days_temp': 2,
         }
-        with self.assertRaises(exceptions.ValidationError),\
-                self.cr.savepoint():
-            self.holidays_obj.create(leave_vals)
+        with mute_logger('odoo.models'):
+            with self.assertRaises(exceptions.ValidationError),\
+                    self.cr.savepoint():
+                self.holidays_obj.create(leave_vals)
