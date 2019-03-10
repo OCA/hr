@@ -14,21 +14,6 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: hr_employee_service_contract
-#: model_terms:ir.ui.view,arch_db:hr_employee_service_contract.view_employee_form_inherit_extension
-msgid "<span class=\"ml8 mr8\">month(s)</span>"
-msgstr ""
-
-#. module: hr_employee_service_contract
-#: model_terms:ir.ui.view,arch_db:hr_employee_service_contract.view_employee_form_inherit_extension
-msgid "<span class=\"ml8 mr8\">year(s)</span>"
-msgstr ""
-
-#. module: hr_employee_service_contract
-#: model_terms:ir.ui.view,arch_db:hr_employee_service_contract.view_employee_form_inherit_extension
-msgid "<span class=\"ml8\">day(s)</span>"
-msgstr ""
-
-#. module: hr_employee_service_contract
 #: model:ir.model,name:hr_employee_service_contract.model_hr_employee
 msgid "Employee"
 msgstr ""
@@ -51,11 +36,6 @@ msgstr ""
 #. module: hr_employee_service_contract
 #: model:ir.model.fields,help:hr_employee_service_contract.field_hr_employee__last_contract_id
 msgid "Last contract of the employee"
-msgstr ""
-
-#. module: hr_employee_service_contract
-#: model_terms:ir.ui.view,arch_db:hr_employee_service_contract.view_employee_form_inherit_extension
-msgid "Service Information"
 msgstr ""
 
 #. module: hr_employee_service_contract
