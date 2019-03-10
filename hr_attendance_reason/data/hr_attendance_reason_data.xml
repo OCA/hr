@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo noupdate="1">
+
     <record id="hr_act_reason_1" model="hr.attendance.reason">
         <field name="name">Manager Manual Amend</field>
         <field name="code">MMA</field>
@@ -18,13 +19,14 @@
         <field name="name">Bad Weather</field>
         <field name="code">BW</field>
     </record>
-    <record id="hr_act_reason_4" model="hr.attendance.reason">
+    <record id="hr_act_reason_5" model="hr.attendance.reason">
         <field name="name">Bad Weather</field>
         <field name="code">BW</field>
     </record>
-    <record id="hr_act_reason_5" model="hr.attendance.reason">
+    <record id="hr_act_reason_6" model="hr.attendance.reason">
         <field name="name">Public Transport Strike</field>
         <field name="code">PTS</field>
         <field name="action_type">sign_in</field>
     </record>
+
 </odoo>
