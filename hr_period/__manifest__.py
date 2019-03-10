@@ -19,6 +19,7 @@
     'data': [
         'data/ir_sequence_data.xml',
         'data/date_range_type.xml',
+        'security/hr_period_security.xml',
         'security/ir.model.access.csv',
         'views/hr_period_view.xml',
         'views/hr_fiscalyear_view.xml',

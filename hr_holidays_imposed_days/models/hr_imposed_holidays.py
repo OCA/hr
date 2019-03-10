@@ -113,9 +113,9 @@ class HrHolidaysImposed(models.Model):
     def compute_nb_days(self, diff):
         return round(math.floor(diff))+1
 
-    @api.one
     @api.constrains('date_from', 'date_to')
     def _check_dates(self):
+        self.ensure_one()
         if ((self.date_from and self.date_to) and
                 (self.date_from > self.date_to)):
             raise ValidationError(_(

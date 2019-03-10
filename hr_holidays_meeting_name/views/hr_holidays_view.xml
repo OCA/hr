@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+
    <record id="edit_holiday_status_form" model="ir.ui.view">
         <field name="name">hr.holidays.status.form (hr_holidays_meeting_name)</field>
         <field name="model">hr.holidays.status</field>
@@ -11,4 +12,5 @@
             </xpath>
         </field>
     </record>
+
 </odoo>

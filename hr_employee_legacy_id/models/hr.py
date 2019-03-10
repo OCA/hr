@@ -1,4 +1,4 @@
-# -*- coding:utf-8 -*-
+# -*- coding: utf-8 -*-
 #
 #
 #    Copyright (C) 013 Michael Telahun Makonnen <mmakonnen@gmail.com>.
@@ -22,7 +22,7 @@
 from odoo import fields, models
 
 
-class hr_employee(models.Model):
+class HrEmployee(models.Model):
     _inherit = 'hr.employee'
 
     legacy_no = fields.Char('Legacy ID')

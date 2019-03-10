@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
 
-  <record id="hr_recruitment_skill.recruitment_skill_form" model="ir.ui.view">
+  <record id="recruitment_skill_form" model="ir.ui.view">
     <field name="name">hr_recruitment_skill.recruitment.skill.form</field>
     <field name="model">hr.job</field>
     <field name="inherit_id" ref="hr.view_hr_job_form"/>
@@ -15,7 +15,7 @@
     </field>
   </record>
 
-  <record id="hr_recruitment_skill.job_skill_search" model="ir.ui.view">
+  <record id="job_skill_search" model="ir.ui.view">
     <field name="name">hr.recruitment.job.skill.search</field>
     <field name="model">hr.job</field>
     <field name="inherit_id" ref="hr.view_job_filter"/>

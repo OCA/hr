@@ -100,13 +100,15 @@ class TestPublicHolidays(common.TransactionCase):
                     'name': 'holiday x',
                     'date': '1994-11-14',
                     'year_id': holiday4.id,
-                    'state_ids': [(6, 0, [self.env.ref('base.state_us_35').id])]
+                    'state_ids': [(6, 0,
+                                   [self.env.ref('base.state_us_35').id])]
                 })
                 self.holiday_model_line.create({
                     'name': 'holiday x',
                     'date': '1994-11-14',
                     'year_id': holiday4.id,
-                    'state_ids': [(6, 0, [self.env.ref('base.state_us_35').id])]
+                    'state_ids': [(6, 0,
+                                   [self.env.ref('base.state_us_35').id])]
                 })
 
     def test_isnot_holiday(self):
