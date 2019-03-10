@@ -35,20 +35,22 @@ class HrEmployee(models.Model):
     def _compute_first_contract_id(self):
         Contract = self.env['hr.contract']
         for employee in self:
-            employee.first_contract_id = Contract.search([
-                ('employee_id', '=', employee.id),
-                ('state', 'not in', self._service_contract_states()),
-            ], order='date_start asc', limit=1)
+            employee.first_contract_id = Contract.search(
+                employee._get_contract_filter(),
+                order='date_start asc',
+                limit=1
+            )
 
     @api.multi
     @api.depends('contract_ids')
     def _compute_last_contract_id(self):
         Contract = self.env['hr.contract']
         for employee in self:
-                employee.last_contract_id = Contract.search([
-                    ('employee_id', '=', employee.id),
-                    ('state', 'not in', self._service_contract_states()),
-                ], order='date_end desc', limit=1)
+            employee.last_contract_id = Contract.search(
+                employee._get_contract_filter(),
+                order='date_end desc',
+                limit=1
+            )
 
     @api.multi
     @api.onchange('service_hire_date')
@@ -56,9 +58,19 @@ class HrEmployee(models.Model):
         # Do nothing
         pass
 
-    @api.model
-    def _service_contract_states(self):
+    @api.multi
+    def _get_contract_filter(self):
+        self.ensure_one()
+
         return [
-            'draft',
-            'cancel',
+            ('employee_id', '=', self.id),
+            ('state', 'in', self._get_service_contract_states()),
+        ]
+
+    @api.model
+    def _get_service_contract_states(self):
+        return [
+            'open',
+            'pending',
+            'close',
         ]
