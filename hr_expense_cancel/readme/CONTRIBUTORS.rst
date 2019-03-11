@@ -2,3 +2,5 @@
 
   * Pedro M. Baeza
   * Ernesto Tejeda
+
+* Danh Vo  <https://github.com/danhvophuong>

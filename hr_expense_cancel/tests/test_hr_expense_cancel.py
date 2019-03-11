@@ -25,7 +25,7 @@ class TestHrExpenseCancel(common.TransactionCase):
         })
 
         self.expense_sheet = self.env['hr.expense.sheet'].create({
-            'employee_id': self.ref("hr.employee_root"),
+            'employee_id': self.ref("hr.employee_admin"),
             'name': 'Expense test',
             'journal_id': self.expense_journal.id,
         })
@@ -33,8 +33,8 @@ class TestHrExpenseCancel(common.TransactionCase):
 
         self.expense = self.env['hr.expense'].create({
             'name': 'Expense test',
-            'employee_id': self.ref("hr.employee_root"),
-            'product_id': self.ref('hr_expense.hotel_rent'),
+            'employee_id': self.ref("hr.employee_admin"),
+            'product_id': self.ref('hr_expense.air_ticket'),
             'unit_amount': 1,
             'quantity': 10,
             'sheet_id': self.expense_sheet.id,
