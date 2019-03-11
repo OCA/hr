@@ -14,7 +14,7 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: hr_holidays_hour
-#: code:addons/hr_holidays_hour/models/hr_holidays.py:158
+#: code:addons/hr_holidays_hour/models/hr_holidays.py:159
 #, python-format
 msgid "%s on %s : %.2f hour(s)"
 msgstr ""
@@ -100,20 +100,20 @@ msgid "Resource Calendar"
 msgstr ""
 
 #. module: hr_holidays_hour
-#: code:addons/hr_holidays_hour/models/hr_holidays.py:70
+#: code:addons/hr_holidays_hour/models/hr_holidays.py:71
 #, python-format
 msgid "Set an employee first!"
 msgstr ""
 
 #. module: hr_holidays_hour
-#: code:addons/hr_holidays_hour/models/hr_holidays.py:149
+#: code:addons/hr_holidays_hour/models/hr_holidays.py:150
 #, python-format
 msgid "The number of remaining hours is not sufficient for this leave type.\n"
 "Please check for allocation requests awaiting validation."
 msgstr ""
 
 #. module: hr_holidays_hour
-#: code:addons/hr_holidays_hour/models/hr_holidays.py:61
+#: code:addons/hr_holidays_hour/models/hr_holidays.py:62
 #, python-format
 msgid "The start date must be anterior to the end date."
 msgstr ""
