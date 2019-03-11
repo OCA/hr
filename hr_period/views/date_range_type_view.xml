@@ -25,7 +25,6 @@
                     <field name="name"/>
                     <field name="allow_overlap"/>
                     <field name="company_id" groups="base.group_multi_company" options="{'no_create': True}"/>
-                    <field name="parent_type_id"/>
                     <field name="hr_fiscal_year"/>
                     <field name="hr_period"/>
                     <field name="active"/>

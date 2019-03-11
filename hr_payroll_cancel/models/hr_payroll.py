@@ -7,7 +7,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 from odoo import api, fields, models, _
 from odoo.exceptions import ValidationError
-from odoo.tools.safe_eval import safe_eval as eval
+from odoo.tools.safe_eval import safe_eval
 
 
 class HrPayslip(models.Model):
@@ -22,7 +22,7 @@ class HrPayslip(models.Model):
     @api.multi
     def refund_sheet(self):
         res = super(HrPayslip, self).refund_sheet()
-        self.refunded_id = eval(res['domain'])[0][2][0] or False
+        self.refunded_id = safe_eval(res['domain'])[0][2][0] or False
         return res
 
     @api.multi

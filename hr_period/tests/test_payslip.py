@@ -2,6 +2,7 @@
 # Copyright 2015 Savoir-faire Linux. All Rights Reserved.
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
+from odoo.tools import mute_logger
 from . import test_hr_fiscalyear
 from odoo.exceptions import UserError, ValidationError
 
@@ -145,9 +146,10 @@ class PayslipCase(test_hr_fiscalyear.TestHrFiscalyear):
         self.payslip_obj.create(data)
         data = self._prepare_payslip_run_data(periods[0])
         run = self.run_obj.create(data)
-        with self.assertRaises(ValidationError):
-            run.write({
-                'company_id': self.company2.id})
+        with mute_logger('odoo.models'):
+            with self.assertRaises(ValidationError):
+                run.write({
+                    'company_id': self.company2.id})
         run.write({
             'hr_period_id': periods2[0].id,
             'company_id': self.company2.id})

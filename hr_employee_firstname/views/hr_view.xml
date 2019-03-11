@@ -4,6 +4,7 @@
     <record id="view_employee_form" model="ir.ui.view">
         <field name="model">hr.employee</field>
         <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="priority">400</field>
         <field name="arch" type="xml">
             <xpath expr="//label[@for='name']" position="replace">
                 <label for="firstname" class="oe_edit_only"/>

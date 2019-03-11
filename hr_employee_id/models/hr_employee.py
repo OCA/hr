@@ -6,7 +6,7 @@
 import random
 import string
 from odoo import models, fields, api, _
-from odoo.exceptions import Warning as UserWarning
+from odoo.exceptions import Warning as UserError
 
 
 class HrEmployee(models.Model):
@@ -46,7 +46,7 @@ class HrEmployee(models.Model):
                     break
                 tries += 1
             if tries == max_tries:
-                raise UserWarning(_('Unable to generate an Employee ID number that \
+                raise UserError(_('Unable to generate an Employee ID number that \
                 is unique.'))
         return employee_id
 
