@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* hr_holidays_hour
+# 	* hr_holidays_hour
 #
 msgid ""
 msgstr ""
@@ -17,7 +17,7 @@ msgstr ""
 "X-Generator: Weblate 3.3\n"
 
 #. module: hr_holidays_hour
-#: code:addons/hr_holidays_hour/models/hr_holidays.py:158
+#: code:addons/hr_holidays_hour/models/hr_holidays.py:159
 #, python-format
 msgid "%s on %s : %.2f hour(s)"
 msgstr "%s mit Urlaubstyp: %s : %.2f Stunde(n)"
@@ -103,23 +103,24 @@ msgid "Resource Calendar"
 msgstr "Ressourcenkalender"
 
 #. module: hr_holidays_hour
-#: code:addons/hr_holidays_hour/models/hr_holidays.py:70
+#: code:addons/hr_holidays_hour/models/hr_holidays.py:71
 #, python-format
 msgid "Set an employee first!"
 msgstr "Wählen Sie zuerst einen Angestellten!"
 
 #. module: hr_holidays_hour
-#: code:addons/hr_holidays_hour/models/hr_holidays.py:149
+#: code:addons/hr_holidays_hour/models/hr_holidays.py:150
 #, python-format
-msgid "The number of remaining hours is not sufficient for this leave type.\n"
+msgid ""
+"The number of remaining hours is not sufficient for this leave type.\n"
 "Please check for allocation requests awaiting validation."
 msgstr ""
-"Die Anzahl der verbleibenden Stunden dieser Urlaubsart ist nicht ausreichend."
-"\n"
+"Die Anzahl der verbleibenden Stunden dieser Urlaubsart ist nicht "
+"ausreichend.\n"
 "Bitte prüfen Sie die zur Genehmigung stehenden Urlaubsanträge."
 
 #. module: hr_holidays_hour
-#: code:addons/hr_holidays_hour/models/hr_holidays.py:61
+#: code:addons/hr_holidays_hour/models/hr_holidays.py:62
 #, python-format
 msgid "The start date must be anterior to the end date."
 msgstr "Das Startdatum muss vor dem Enddatum liegen."
