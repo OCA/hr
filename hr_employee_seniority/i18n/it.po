@@ -47,3 +47,12 @@ msgstr "Data di assunzione"
 #: model:ir.model.fields,field_description:hr_employee_seniority.field_hr_employee_length_of_service
 msgid "Months of Service"
 msgstr "Mesi di servizio"
+
+#. module: hr_employee_seniority
+#: code:addons/hr_employee_seniority/models/hr_employee.py:83
+#, fuzzy, python-format
+msgid ""
+"The initial employment date cannot be after the first contract in the system!"
+msgstr ""
+"Data di inizio rapporto di lavoro  se precedente all'inizio del primo "
+"contratto nel sistema"
