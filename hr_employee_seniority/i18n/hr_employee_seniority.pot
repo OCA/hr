@@ -38,3 +38,9 @@ msgstr ""
 msgid "Months of Service"
 msgstr ""
 
+#. module: hr_employee_seniority
+#: code:addons/hr_employee_seniority/models/hr_employee.py:83
+#, python-format
+msgid "The initial employment date cannot be after the first contract in the system!"
+msgstr ""
+
