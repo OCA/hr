@@ -9,8 +9,6 @@ odoo.define('hr_public_holidays.holidays_highlighter', function (require) {
 
     calendarView.include({
         willStart: function () {
-            var self = this;
-
             var hrHolidays = new Model('hr.holidays.public.line');
             // Tasked w/ fetching desired color from server params
             var irConfigParameter = new Model('ir.config_parameter');
@@ -19,15 +17,15 @@ odoo.define('hr_public_holidays.holidays_highlighter', function (require) {
                 'get_param', ['calendar.public_holidays_color']);
 
             return $.when(publicHolidays, holidayColor, this._super())
-                .then(function () {
+                .then(function (holidays, color) {
                     // As a result of `search_read` call is the JS object
                     // (dictionary), it's still our duty to clean up results
-                    self.publicHolidays = publicHolidays.map(
-                        function (holliday) {
-                            return holliday.date;
+                    this.publicHolidays = holidays.map(
+                        function (holiday) {
+                            return holiday.date;
                         });
-                    self.holidayColor = holidayColor;
-                });
+                    this.holidayColor = color;
+                }.bind(this));
         },
         get_fc_init_options: function () {
             var res = this._super();
