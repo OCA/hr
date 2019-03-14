@@ -18,6 +18,7 @@ setuptools.setup(
         'odoo10-addon-hr_employee_address_improved',
         'odoo10-addon-hr_employee_age',
         'odoo10-addon-hr_employee_birth_name',
+        'odoo10-addon-hr_employee_calendar_planning',
         'odoo10-addon-hr_employee_category_parent',
         'odoo10-addon-hr_employee_firstname',
         'odoo10-addon-hr_employee_id',
