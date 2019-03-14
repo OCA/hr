@@ -8,7 +8,7 @@ class Skill(models.Model):
     _parent_store = True
     _order = 'parent_left'
 
-    name = fields.Char(string='Child Ids', required=True, translate=True)
+    name = fields.Char(string='Name', required=True, translate=True)
     active = fields.Boolean(string='Active', default=True)
     parent_id = fields.Many2one(comodel_name='hr.skill',
                                 string='Parent',
