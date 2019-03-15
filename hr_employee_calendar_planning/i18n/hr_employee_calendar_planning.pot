@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 10.0\n"
+"Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
@@ -19,7 +19,7 @@ msgid "Active"
 msgstr ""
 
 #. module: hr_employee_calendar_planning
-#: code:addons/hr_employee_calendar_planning/models/hr_employee.py:22
+#: code:addons/hr_employee_calendar_planning/models/hr_employee.py:21
 #, python-format
 msgid "Auto generated calendar for employee"
 msgstr ""
@@ -57,11 +57,11 @@ msgstr ""
 
 #. module: hr_employee_calendar_planning
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar_date_end
-msgid "End"
+msgid "End Date"
 msgstr ""
 
 #. module: hr_employee_calendar_planning
-#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar_id_5184
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar_id
 msgid "ID"
 msgstr ""
 
@@ -87,7 +87,7 @@ msgstr ""
 
 #. module: hr_employee_calendar_planning
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar_date_start
-msgid "Start"
+msgid "Start Date"
 msgstr ""
 
 #. module: hr_employee_calendar_planning
