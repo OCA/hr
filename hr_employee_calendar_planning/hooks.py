@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2019 Tecnativa - Pedro M. Baeza
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
@@ -14,7 +13,7 @@ def post_init_hook(cr, registry, employees=None):
         env = api.Environment(cr, SUPERUSER_ID, {})
         if not employees:
             employees = env['hr.employee'].search([])
-        calendars = employees.mapped('calendar_id')
+        calendars = employees.mapped('resource_calendar_id')
         calendar_obj = env['resource.calendar']
         line_obj = env['resource.calendar.attendance']
         groups = line_obj.read_group(
@@ -36,12 +35,12 @@ def post_init_hook(cr, registry, employees=None):
                 )
                 attendances = []
                 for line in lines:
-                    attendances.append((0, 0, {
-                        'name': line.name,
-                        'dayofweek': line.dayofweek,
-                        'hour_from': line.hour_from,
-                        'hour_to': line.hour_to,
-                    }))
+                    data = line.copy_data({
+                        'date_from': False,
+                        'date_to': False,
+                    })[0]
+                    data.pop('calendar_id')
+                    attendances.append((0, 0, data))
                 new_calendar = calendar_obj.create({
                     'name': name,
                     'attendance_ids': attendances,
@@ -51,11 +50,11 @@ def post_init_hook(cr, registry, employees=None):
             )
         for employee in employees:
             calendar_lines = []
-            for data in calendar_mapping[employee.calendar_id]:
+            for data in calendar_mapping[employee.resource_calendar_id]:
                 calendar_lines.append((0, 0, {
                     'date_start': data[0],
                     'date_end': data[1],
                     'calendar_id': data[2].id,
                 }))
-            employee.calendar_id = False
             employee.calendar_ids = calendar_lines
+            employee.resource_calendar_id.active = False

@@ -6,10 +6,10 @@
         <field name="model">hr.employee</field>
         <field name="inherit_id" ref="hr.view_employee_form"/>
         <field name="arch" type="xml">
-            <field name="calendar_id" position="attributes">
+            <field name="resource_calendar_id" position="attributes">
                 <attribute name="invisible">1</attribute>
             </field>
-            <field name="calendar_id" position="after">
+            <field name="resource_calendar_id" position="after">
                 <field name="calendar_ids">
                     <tree editable="top">
                         <field name="date_start"/>
