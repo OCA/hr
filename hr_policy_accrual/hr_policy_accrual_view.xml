@@ -8,7 +8,7 @@
         <menuitem id="hr_holidays.menu_open_allocation_holidays"
             parent="menu_leave_allocation" action="hr_holidays.open_allocation_holidays"/>
         <menuitem id="hr_holidays.menu_request_approve_allocation"
-            parent="menu_leave_allocation" action="hr_holidays.request_approve_allocation" groups="base.group_hr_manager"/>
+            parent="menu_leave_allocation" action="hr_holidays.request_approve_allocation" groups="hr.group_hr_manager"/>
         
         <!-- Policy Lines -->
         

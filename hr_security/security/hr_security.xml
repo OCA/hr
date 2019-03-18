@@ -7,7 +7,7 @@
         <record id="group_hr_director" model="res.groups">
             <field name="name">HR Director</field>
             <field name="category_id" ref="base.module_category_human_resources"/>
-            <field name="implied_ids" eval="[(4, ref('base.group_hr_manager'))]"/>
+            <field name="implied_ids" eval="[(4, ref('hr.group_hr_manager'))]"/>
             <field name="users" eval="[(4, ref('base.user_root'))]"/>
             <field name="comment">the user will have final approval of some HR Documents</field>
         </record>

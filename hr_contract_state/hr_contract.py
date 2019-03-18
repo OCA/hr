@@ -146,7 +146,7 @@ class hr_contract(orm.Model):
         users_obj = self.pool.get('res.users')
         domain = []
 
-        if users_obj.has_group(cr, uid, 'base.group_hr_manager'):
+        if users_obj.has_group(cr, uid, 'hr.group_hr_manager'):
             domain = [
                 ('state', 'in', ['draft', 'contract_ending', 'trial_ending'])]
             return domain

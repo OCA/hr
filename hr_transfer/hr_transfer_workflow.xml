@@ -55,7 +55,7 @@
             <field name="act_from" ref="act_draft"/>
             <field name="act_to" ref="act_confirm"/>
             <field name="signal">signal_confirm</field>
-            <field name="group_id" ref="base.group_hr_user"/>
+            <field name="group_id" ref="hr.group_hr_user"/>
         </record>
         
         <record id="confirm2pending" model="workflow.transition">
@@ -63,7 +63,7 @@
             <field name="act_to" ref="act_pending"/>
             <field name="condition">effective_date_in_future()</field>
             <field name="signal">signal_pending</field>
-            <field name="group_id" ref="base.group_hr_manager"/>
+            <field name="group_id" ref="hr.group_hr_manager"/>
         </record>
         
         <record id="confirm2done" model="workflow.transition">
@@ -71,14 +71,14 @@
             <field name="act_to" ref="act_done"/>
             <field name="condition">not effective_date_in_future()</field>
             <field name="signal">signal_pending</field>
-            <field name="group_id" ref="base.group_hr_manager"/>
+            <field name="group_id" ref="hr.group_hr_manager"/>
         </record>
         
         <record id="confirm2cancel" model="workflow.transition">
             <field name="act_from" ref="act_confirm"/>
             <field name="act_to" ref="act_cancel"/>
             <field name="signal">signal_cancel</field>
-            <field name="group_id" ref="base.group_hr_manager"/>
+            <field name="group_id" ref="hr.group_hr_manager"/>
         </record>
         
         <record id="pending2done" model="workflow.transition">
@@ -86,14 +86,14 @@
             <field name="act_to" ref="act_done"/>
             <field name="condition">not effective_date_in_future()</field>
             <field name="signal">signal_done</field>
-            <field name="group_id" ref="base.group_hr_manager"/>
+            <field name="group_id" ref="hr.group_hr_manager"/>
         </record>
         
         <record id="pending2cancel" model="workflow.transition">
             <field name="act_from" ref="act_pending"/>
             <field name="act_to" ref="act_cancel"/>
             <field name="signal">signal_cancel</field>
-            <field name="group_id" ref="base.group_hr_manager"/>
+            <field name="group_id" ref="hr.group_hr_manager"/>
         </record>
 
     </data>

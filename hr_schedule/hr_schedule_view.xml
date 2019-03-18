@@ -4,17 +4,17 @@
         
         <!-- Top-level Menu -->
         <menuitem name="Time and Attendance"
-            id="menu_time_attendance" parent="hr.menu_hr_root" groups="base.group_hr_user" sequence="1"/>
+            id="menu_time_attendance" parent="hr.menu_hr_root" groups="hr.group_hr_user" sequence="1"/>
         
         <!-- Put the attendance top-level menu under our submenu -->
         <menuitem id="hr_attendance.menu_hr_attendance" name="Attendances" parent="menu_time_attendance" sequence="10" groups="base.group_hr_attendance"/>
         
         <!-- Scheduling submenu -->
         <menuitem name="Scheduling"
-            id="menu_hr_root_schedule" parent="menu_time_attendance" groups="base.group_hr_user" sequence="20"/>
+            id="menu_hr_root_schedule" parent="menu_time_attendance" groups="hr.group_hr_user" sequence="20"/>
         
         <!-- Scheduling configuration -->
-        <menuitem id="menu_hr_configure_schedule" parent="hr.menu_hr_configuration" name="Scheduling" groups="base.group_hr_manager" sequence="45"/>
+        <menuitem id="menu_hr_configure_schedule" parent="hr.menu_hr_configuration" name="Scheduling" groups="hr.group_hr_manager" sequence="45"/>
         
         <!-- Schedules -->
 
@@ -512,7 +512,7 @@
             <field name="arch" type="xml">
                 <data>
                     <xpath expr="//div[@name='button_box']" position="inside">
-                        <button name="%(act_hr_employee_2_hr_schedule)d" string="Schedule" type="action" groups="base.group_hr_user"/>
+                        <button name="%(act_hr_employee_2_hr_schedule)d" string="Schedule" type="action" groups="hr.group_hr_user"/>
                     </xpath>
                 </data>
             </field>

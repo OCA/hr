@@ -115,7 +115,7 @@ class hr_infraction(orm.Model):
     def _needaction_domain_get(self, cr, uid, context=None):
         users_obj = self.pool.get('res.users')
         domain = []
-        if users_obj.has_group(cr, uid, 'base.group_hr_manager'):
+        if users_obj.has_group(cr, uid, 'hr.group_hr_manager'):
             domain = [('state', '=', 'confirm')]
         if len(domain) == 0:
             return False

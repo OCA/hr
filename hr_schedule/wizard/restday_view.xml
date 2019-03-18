@@ -49,7 +49,7 @@
         <menuitem id="menu_restday_change"
             action="action_restday_change"
             parent="hr.menu_hr_main"
-            groups="base.group_hr_user"
+            groups="hr.group_hr_user"
             sequence="170"/>
         
     </data>

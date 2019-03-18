@@ -29,7 +29,7 @@
         <menuitem name="Wage Adjustments"
             id="submenu_hr_wage_adjust"
             parent="hr.menu_hr_main"
-            sequence="120" groups="base.group_hr_user"/>
+            sequence="120" groups="hr.group_hr_user"/>
 
         <record id="view_hr_wage_increment_filter" model="ir.ui.view">
             <field name="name">view_hr_wage_increment_filter</field>
@@ -116,7 +116,7 @@
         <menuitem action="open_wage_increment"
                   id="menu_wage_increment"
                   parent="submenu_hr_wage_adjust"
-                  groups="base.group_hr_user"
+                  groups="hr.group_hr_user"
                   sequence="10"/>
         
         
@@ -240,7 +240,7 @@
         <menuitem action="action_wage_adjustment_run"
             id="menu_wage_adjustment_run"
             parent="submenu_hr_wage_adjust"
-            groups="base.group_hr_user"
+            groups="hr.group_hr_user"
             sequence="20"/>
 
         <!-- Employee Wage History -->
@@ -259,7 +259,7 @@
             <field name="arch" type="xml">
                 <data>
                     <xpath expr="//div[@name='button_box']" position="inside">
-                        <button name="%(act_hr_employee_2_hr_wage_adjustment)d" string="Wage History" type="action" groups="base.group_hr_user"/>
+                        <button name="%(act_hr_employee_2_hr_wage_adjustment)d" string="Wage History" type="action" groups="hr.group_hr_user"/>
                     </xpath>
                 </data>
             </field>
