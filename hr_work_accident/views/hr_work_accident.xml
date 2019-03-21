@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2019 Creu Blanca
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+    <record model="ir.ui.view" id="hr_work_accident_form_view">
+        <field name="name">hr.work.accident.form (in hr_work_accident)</field>
+        <field name="model">hr.work.accident</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="finish_investigation" string="Finish Investigation" states="open" type="object" class="oe_highlight"/>
+                    <button name="back_to_open" string="Re-open" states="closed" type="object"/>
+                    <field name="state" widget="statusbar" statusbar_visible="open,closed"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only"/>
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="company_id"/>
+                            <field name="department_id"/>
+                            <field name="job_position"/>
+                            <field name="accident_type"/>
+                        </group>
+                        <group>
+                            <field name="date"/>
+                            <field name="hours_working"/>
+                            <field name="location"/>
+                        </group>
+                        <group>
+                            <field name="date_end" states="closed"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="description"/>
+                        <field name="causes"/>
+                    </group>
+                    <notebook>
+                        <page string="Affected employees">
+                            <field name="affected_employees"/>
+                        </page>
+                        <page string="Detected Risks">
+                            <field name="risks"/>
+                        </page>
+                        <page string="Corrective Actions">
+                            <field name="actions"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="hr_work_accident_tree_view">
+        <field name="name">hr.work.accident.tree (in hr_work_accident)</field>
+        <field name="model">hr.work.accident</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="company_id"/>
+                <field name="date"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="hr_work_accident_action_form_view">
+        <field name="name">hr.work.accident.action (in hr_work_accident)</field>
+        <field name="model">hr.work.accident.action</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="description"/>
+                        <field name="cost"/>
+                        <field name="action_date"/>
+                        <field name="employee_ids"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="hr_work_accident_action_tree_view">
+        <field name="name">hr.work.accident.action (in hr_work_accident)</field>
+        <field name="model">hr.work.accident.action</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="cost"/>
+                <field name="action_date"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="hr_work_accident_risk_form_view">
+        <field name="name">hr.work.accident.risk (in hr_work_accident)</field>
+        <field name="model">hr.work.accident.risk</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="description"/>
+                    </group>
+                    <group>
+                        <group>
+                            <field name="probability"/>
+                            <field name="frequency"/>
+                        </group>
+                        <group>
+                            <field name="consequences"/>
+                            <field name="magnitude"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="hr_work_accident_risk_tree_view">
+        <field name="name">hr.work.accident.risk(in hr_work_accident)</field>
+        <field name="model">hr.work.accident.risk</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="magnitude"/>
+                <field name="probability"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="hr_work_accident_employee_form_view">
+        <field name="name">hr.work.accident.employee Form</field>
+        <field name="model">hr.work.accident.employee</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="employee_id"/>
+                        </group>
+                        <group>
+                            <field name="injury_type"/>
+                            <field name="injury_severity"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="hr_work_accident_employee_tree_view">
+        <field name="name">hr.work.accident.employeetree (in
+            hr_work_accident)
+        </field>
+        <field name="model">hr.work.accident.employee</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="employee_id"/>
+                <field name="seniority_position"/>
+                <field name="injury_type"/>
+                <field name="injury_severity"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="hr_work_accident_type_act_window">
+        <field name="name">Work Accident Types</field>
+        <field name="res_model">hr.work.accident.type</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+    </record>
+
+    <record model="ir.ui.menu" id="hr_work_accident_type_menu">
+        <field name="name">Work Accident Types</field>
+        <field name="parent_id" ref="hr.menu_human_resources_configuration"/>
+        <field name="action" ref="hr_work_accident_type_act_window"/>
+        <field name="sequence" eval="16"/>
+    </record>
+
+    <record model="ir.actions.act_window" id="hr_work_accident_act_window">
+        <field name="name">Work Accidents</field>
+        <field name="res_model">hr.work.accident</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+    </record>
+
+    <record model="ir.ui.menu" id="hr_work_accident_menu">
+        <field name="name">Work Accidents</field>
+        <field name="parent_id" ref="hr.menu_hr_root"/>
+        <field name="action" ref="hr_work_accident_act_window"/>
+        <field name="sequence" eval="16"/>
+    </record>
+
+</odoo>
