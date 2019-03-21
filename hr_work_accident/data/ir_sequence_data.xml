@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo noupdate="1">
+
+    <record id="seq_attendance_warning" model="ir.sequence">
+        <field name="name">Work Accident sequence</field>
+        <field name="code">hr.work.accident</field>
+        <field name="prefix">WACC</field>
+        <field name="padding">8</field>
+    </record>
+
+</odoo>

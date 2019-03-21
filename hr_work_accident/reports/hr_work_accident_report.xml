@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2019 Creu Blanca
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+    <report id="action_agreement_report"
+            string="Accident Investigation Report"
+            model="hr.work.accident"
+            report_type="qweb-pdf"
+            name="hr_work_accident.report_accident_investigation"
+            file="hr_work_accident.report_accident_investigation"
+        />
+
+    <template id="report_accident_investigation">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2 class="text-center">Accident Investigation Report</h2>
+                        <div>
+                            <h2 t-field="o.name"/>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <div>
+                                    <strong>Company:</strong>
+                                    <span t-field="o.company_id"/>
+                                </div>
+                                <div>
+                                    <strong>Department:</strong>
+                                    <span t-field="o.department_id"/>
+                                </div>
+                            </div>
+                            <div class="col-xs-6">
+                                <div>
+                                    <strong>Job Position:</strong>
+                                    <span t-field="o.job_position"/>
+                                </div>
+                            </div>
+                        </div>
+                        <h4><strong>Incident / Illness / Accident Identification</strong></h4>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <div>
+                                    <strong>Day of Week:</strong>
+                                    <span t-field="o.day_of_week"/>
+                                </div>
+                                <div>
+                                    <strong>Date:</strong>
+                                    <span t-field="o.date"/>
+                                </div>
+                                <div>
+                                    <strong>Working Hour:</strong>
+                                    <span t-field="o.hours_working"/>
+                                </div>
+                            </div>
+                            <div class="col-xs-6">
+                                <div>
+                                    <strong>Location:</strong>
+                                    <span t-field="o.location"/>
+                                </div>
+                            </div>
+                        </div>
+                        <h4><strong>Description</strong></h4>
+                        <div>
+                            <span t-field="o.description"/>
+                        </div>
+                        <h4><strong>Causes</strong></h4>
+                        <div>
+                            <span t-field="o.causes"/>
+                        </div>
+                        <div>
+                            <h4 t-if="o.affected_employees"><strong>Injured employees</strong></h4>
+                            <table class="table table-bordered mb64">
+                                <t t-foreach="o.affected_employees" t-as="employee">
+                                    <tr><td>
+                                        <div class="row">
+                                            <div class="col-xs-4">
+                                                <div>
+                                                    <strong>Name:</strong>
+                                                    <span t-esc="employee.employee_id.name"/>
+                                                </div>
+                                                <div>
+                                                    <strong>Birth date:</strong>
+                                                    <span t-field="employee.employee_id.birthday"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-4">
+                                                <div>
+                                                    <strong>Seniority in the company:</strong>
+                                                    <span t-field="employee.seniority"/>
+                                                    <span>months</span>
+                                                </div>
+                                                <div>
+                                                    <strong>Seniority in the position:</strong>
+                                                    <span t-field="employee.seniority_position"/>
+                                                    <span>months</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-4">
+                                                <div>
+                                                    <strong>Severity:</strong>
+                                                    <span t-field="employee.injury_severity"/>
+                                                </div>
+                                                <div>
+                                                    <strong>Type:</strong>
+                                                    <span t-field="employee.injury_type"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td></tr>
+                                </t>
+                            </table>
+                        </div>
+                        <div>
+                            <h4 t-if="o.risks"><strong>Risk Evaluation</strong></h4>
+                            <table class="table table-bordered mb64">
+                                <t t-foreach="o.risks" t-as="risk">
+                                    <tr><td>
+                                        <div class="row">
+                                            <div class="col-xs-6">
+                                                <div>
+                                                    <strong>Name:</strong>
+                                                    <span t-esc="risk.name"/>
+                                                </div>
+                                                <div>
+                                                    <strong>Probability:</strong>
+                                                    <span t-field="risk.probability"/>
+                                                </div>
+                                                <div>
+                                                    <strong>Frequency:</strong>
+                                                    <span t-field="risk.frequency"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <br/>
+                                                <div>
+                                                    <strong>Consequences:</strong>
+                                                    <span t-field="risk.consequences"/>
+                                                </div>
+                                                <div>
+                                                    <strong>Magnitude:</strong>
+                                                    <span t-field="risk.magnitude"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td></tr>
+                                </t>
+                            </table>
+                        </div>
+                        <div>
+                            <h4 t-if="o.actions"><strong>Corrective Actions</strong></h4>
+                            <table class="table table-bordered mb64">
+                                <t t-foreach="o.actions" t-as="action">
+                                    <tr><td>
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <div>
+                                                    <strong>Name:</strong>
+                                                    <span t-esc="action.name"/>
+                                                </div>
+                                                <div>
+                                                    <strong>Description:</strong>
+                                                    <span t-field="action.description"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-6">
+                                                <div>
+                                                    <strong>Cost:</strong>
+                                                    <span t-field="action.cost"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <div>
+                                                    <strong>Magnitude:</strong>
+                                                    <span t-field="action.action_date"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <strong>Responsible of taking this action:</strong>
+                                                <ul>
+                                                    <t t-foreach="action.employee_ids" t-as="employee">
+                                                        <li><span t-esc="employee.name"/></li>
+                                                    </t>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </td></tr>
+                                </t>
+                            </table>
+                        </div>
+                        <div>
+                            <h4 t-if="o.state == 'closed'"><strong>Conclusion</strong></h4>
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <div>
+                                        <strong>Total cost:</strong>
+                                        <span t-field="o.total_cost"/>
+                                    </div>
+                                </div>
+                                <div class="col-xs-4">
+                                    <div>
+                                        <strong>Investigation End Date:</strong><br/>
+                                        <span t-field="o.date_end"/>
+                                    </div>
+                                </div>
+                                <div class="col-xs-4">
+                                    <div>
+                                        <strong>Signature:</strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

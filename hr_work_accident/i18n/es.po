@@ -1,0 +1,596 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* hr_work_accident
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-17 10:58+0000\n"
+"PO-Revision-Date: 2019-06-17 12:59+0200\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: es\n"
+"X-Generator: Poedit 2.0.6\n"
+
+#. module: hr_work_accident
+#: model:ir.ui.view,arch_db:hr_work_accident.report_accident_investigation
+msgid "<span>months</span>"
+msgstr "<span>meses</span>"
+
+#. module: hr_work_accident
+#: model:ir.ui.view,arch_db:hr_work_accident.report_accident_investigation
+msgid "<strong>Birth date:</strong>"
+msgstr "<strong>Fecha de Nacimiento:</strong>"
+
+#. module: hr_work_accident
+#: model:ir.ui.view,arch_db:hr_work_accident.report_accident_investigation
+msgid "<strong>Causes</strong>"
+msgstr "<strong>Causas</strong>"
+
+#. module: hr_work_accident
+#: model:ir.ui.view,arch_db:hr_work_accident.report_accident_investigation
+msgid "<strong>Company:</strong>"
+msgstr "<strong>Empresa:</strong>"
+
+#. module: hr_work_accident
+#: model:ir.ui.view,arch_db:hr_work_accident.report_accident_investigation
+msgid "<strong>Conclusion</strong>"
+msgstr "<strong>Conclusión</strong>"
+
+#. module: hr_work_accident
+#: model:ir.ui.view,arch_db:hr_work_accident.report_accident_investigation
+msgid "<strong>Consequences:</strong>"
+msgstr "<strong>Consecuencias:</strong>"
+
+#. module: hr_work_accident
+#: model:ir.ui.view,arch_db:hr_work_accident.report_accident_investigation
+msgid "<strong>Corrective Actions</strong>"
+msgstr "<strong>Acciones Correctivas</strong>"
+
+#. module: hr_work_accident
+#: model:ir.ui.view,arch_db:hr_work_accident.report_accident_investigation
+msgid "<strong>Cost:</strong>"
+msgstr "<strong>Coste:</strong>"
+
+#. module: hr_work_accident
+#: model:ir.ui.view,arch_db:hr_work_accident.report_accident_investigation
+msgid "<strong>Date:</strong>"
+msgstr "<strong>Fecha:</strong>"
+
+#. module: hr_work_accident
+#: model:ir.ui.view,arch_db:hr_work_accident.report_accident_investigation
+msgid "<strong>Day of Week:</strong>"
+msgstr "<strong>Día de la Semana:</strong>"
+
+#. module: hr_work_accident
+#: model:ir.ui.view,arch_db:hr_work_accident.report_accident_investigation
+msgid "<strong>Department:</strong>"
+msgstr "<strong>Departamento:</strong>"
+
+#. module: hr_work_accident
+#: model:ir.ui.view,arch_db:hr_work_accident.report_accident_investigation
+msgid "<strong>Description:</strong>"
+msgstr "<strong>Descripción:</strong>"
+
+#. module: hr_work_accident
+#: model:ir.ui.view,arch_db:hr_work_accident.report_accident_investigation
+msgid "<strong>Description</strong>"
+msgstr "<strong>Descripción:</strong>"
+
+#. module: hr_work_accident
+#: model:ir.ui.view,arch_db:hr_work_accident.report_accident_investigation
+msgid "<strong>Frequency:</strong>"
+msgstr "<strong>Frequencia de la Exposición:</strong>"
+
+#. module: hr_work_accident
+#: model:ir.ui.view,arch_db:hr_work_accident.report_accident_investigation
+msgid "<strong>Incident / Illness / Accident Identification</strong>"
+msgstr "<strong>Identificación accidente / enfermedad profesional / Incidente</strong>"
+
+#. module: hr_work_accident
+#: model:ir.ui.view,arch_db:hr_work_accident.report_accident_investigation
+msgid "<strong>Injured employees</strong>"
+msgstr "<strong>Empleados Lesionados</strong>"
+
+#. module: hr_work_accident
+#: model:ir.ui.view,arch_db:hr_work_accident.report_accident_investigation
+msgid "<strong>Investigation End Date:</strong><br/>"
+msgstr "<strong>Fecha de finalización de la Investigación</strong><br/>"
+
+#. module: hr_work_accident
+#: model:ir.ui.view,arch_db:hr_work_accident.report_accident_investigation
+msgid "<strong>Job Position:</strong>"
+msgstr "<strong>Posición de trabajo:</strong>"
+
+#. module: hr_work_accident
+#: model:ir.ui.view,arch_db:hr_work_accident.report_accident_investigation
+msgid "<strong>Location:</strong>"
+msgstr "<strong>Ubicación:</strong>"
+
+#. module: hr_work_accident
+#: model:ir.ui.view,arch_db:hr_work_accident.report_accident_investigation
+msgid "<strong>Magnitude:</strong>"
+msgstr "<strong>Magnitud:</strong>"
+
+#. module: hr_work_accident
+#: model:ir.ui.view,arch_db:hr_work_accident.report_accident_investigation
+msgid "<strong>Name:</strong>"
+msgstr "<strong>Nombre:</strong>"
+
+#. module: hr_work_accident
+#: model:ir.ui.view,arch_db:hr_work_accident.report_accident_investigation
+msgid "<strong>Probability:</strong>"
+msgstr "<strong>Probabilidad:</strong>"
+
+#. module: hr_work_accident
+#: model:ir.ui.view,arch_db:hr_work_accident.report_accident_investigation
+msgid "<strong>Responsible of taking this action:</strong>"
+msgstr "<strong>Responsable de la ejecución de esta acción:</strong>"
+
+#. module: hr_work_accident
+#: model:ir.ui.view,arch_db:hr_work_accident.report_accident_investigation
+msgid "<strong>Risk Evaluation</strong>"
+msgstr "<strong>Evaluación de Riesgos</strong>"
+
+#. module: hr_work_accident
+#: model:ir.ui.view,arch_db:hr_work_accident.report_accident_investigation
+msgid "<strong>Seniority in the company:</strong>"
+msgstr "<strong>Antigüedad en la Empresa:</strong>"
+
+#. module: hr_work_accident
+#: model:ir.ui.view,arch_db:hr_work_accident.report_accident_investigation
+msgid "<strong>Seniority in the position:</strong>"
+msgstr "<strong>Antigüedad en la Posición:</strong>"
+
+#. module: hr_work_accident
+#: model:ir.ui.view,arch_db:hr_work_accident.report_accident_investigation
+msgid "<strong>Severity:</strong>"
+msgstr "<strong>Grado de la Lesión:</strong>"
+
+#. module: hr_work_accident
+#: model:ir.ui.view,arch_db:hr_work_accident.report_accident_investigation
+msgid "<strong>Signature:</strong>"
+msgstr "<strong>Firma:</strong>"
+
+#. module: hr_work_accident
+#: model:ir.ui.view,arch_db:hr_work_accident.report_accident_investigation
+msgid "<strong>Total cost:</strong>"
+msgstr "<strong>Coste Final:</strong>"
+
+#. module: hr_work_accident
+#: model:ir.ui.view,arch_db:hr_work_accident.report_accident_investigation
+msgid "<strong>Type:</strong>"
+msgstr "<strong>Tipo:</strong>"
+
+#. module: hr_work_accident
+#: model:ir.ui.view,arch_db:hr_work_accident.report_accident_investigation
+msgid "<strong>Working Hour:</strong>"
+msgstr "<strong>Hora de trabajo:</strong>"
+
+#. module: hr_work_accident
+#: model:ir.model.fields,field_description:hr_work_accident.field_hr_work_accident_action_accident_id
+#: model:ir.model.fields,field_description:hr_work_accident.field_hr_work_accident_employee_accident_id
+#: model:ir.model.fields,field_description:hr_work_accident.field_hr_work_accident_risk_accident_id
+msgid "Accident"
+msgstr "Accidente"
+
+#. module: hr_work_accident
+#: model:ir.model.fields,field_description:hr_work_accident.field_hr_work_accident_date
+msgid "Accident Date"
+msgstr "Fecha del Accidente"
+
+#. module: hr_work_accident
+#: model:ir.actions.report,name:hr_work_accident.action_agreement_report
+#: model:ir.ui.view,arch_db:hr_work_accident.report_accident_investigation
+msgid "Accident Investigation Report"
+msgstr "Informe de Investigación del Accidente"
+
+#. module: hr_work_accident
+#: model:ir.model.fields,field_description:hr_work_accident.field_hr_work_accident_location
+msgid "Accident Location"
+msgstr "Ubicación del Accidente"
+
+#. module: hr_work_accident
+#: model:ir.model.fields,field_description:hr_work_accident.field_hr_work_accident_accident_type
+msgid "Accident Type"
+msgstr "Tipo de Accidente"
+
+#. module: hr_work_accident
+#: model:ir.model.fields,field_description:hr_work_accident.field_hr_work_accident_affected_employees
+#: model:ir.ui.view,arch_db:hr_work_accident.hr_work_accident_form_view
+msgid "Affected employees"
+msgstr "Empleados Afectados"
+
+#. module: hr_work_accident
+#: selection:hr.work.accident.risk,probability:0
+msgid "Almost Impossible"
+msgstr "Casi Imposible"
+
+#. module: hr_work_accident
+#: model:ir.model.fields,help:hr_work_accident.field_hr_work_accident_hours_working
+msgid "Amount of hours the employee had been working when the accident happened"
+msgstr "Número de horas que el empleado llevaba trabajando cuando ocurrió el accidente"
+
+#. module: hr_work_accident
+#: selection:hr.work.accident.risk,consequences:0
+msgid "Catastrophic"
+msgstr "Catastrofico"
+
+#. module: hr_work_accident
+#: model:ir.model.fields,field_description:hr_work_accident.field_hr_work_accident_causes
+msgid "Causes"
+msgstr "Causas"
+
+#. module: hr_work_accident
+#: selection:hr.work.accident,state:0
+msgid "Closed"
+msgstr "Cerrado"
+
+#. module: hr_work_accident
+#: model:ir.model.fields,field_description:hr_work_accident.field_hr_work_accident_company_id
+msgid "Company"
+msgstr "Compañía"
+
+#. module: hr_work_accident
+#: model:ir.model.fields,field_description:hr_work_accident.field_hr_work_accident_risk_consequences
+msgid "Consequences"
+msgstr "Consecuencias"
+
+#. module: hr_work_accident
+#: selection:hr.work.accident.risk,frequency:0
+msgid "Continuous"
+msgstr "Continuo"
+
+#. module: hr_work_accident
+#: model:ir.ui.view,arch_db:hr_work_accident.hr_work_accident_form_view
+msgid "Corrective Actions"
+msgstr "Acciones Correctivas"
+
+#. module: hr_work_accident
+#: model:ir.model.fields,field_description:hr_work_accident.field_hr_work_accident_total_cost
+msgid "Corrective actions cost"
+msgstr "Coste de las Acciones Correctivas"
+
+#. module: hr_work_accident
+#: model:ir.model.fields,field_description:hr_work_accident.field_hr_work_accident_action_cost
+msgid "Cost"
+msgstr "Coste"
+
+#. module: hr_work_accident
+#: model:ir.model.fields,field_description:hr_work_accident.field_hr_work_accident_action_create_uid
+#: model:ir.model.fields,field_description:hr_work_accident.field_hr_work_accident_create_uid
+#: model:ir.model.fields,field_description:hr_work_accident.field_hr_work_accident_employee_create_uid
+#: model:ir.model.fields,field_description:hr_work_accident.field_hr_work_accident_risk_create_uid
+#: model:ir.model.fields,field_description:hr_work_accident.field_hr_work_accident_type_create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: hr_work_accident
+#: model:ir.model.fields,field_description:hr_work_accident.field_hr_work_accident_action_create_date
+#: model:ir.model.fields,field_description:hr_work_accident.field_hr_work_accident_create_date
+#: model:ir.model.fields,field_description:hr_work_accident.field_hr_work_accident_employee_create_date
+#: model:ir.model.fields,field_description:hr_work_accident.field_hr_work_accident_risk_create_date
+#: model:ir.model.fields,field_description:hr_work_accident.field_hr_work_accident_type_create_date
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: hr_work_accident
+#: model:ir.model.fields,field_description:hr_work_accident.field_hr_work_accident_action_currency_id
+#: model:ir.model.fields,field_description:hr_work_accident.field_hr_work_accident_currency_id
+msgid "Currency"
+msgstr "Moneda"
+
+#. module: hr_work_accident
+#: model:ir.model.fields,field_description:hr_work_accident.field_hr_work_accident_day_of_week
+msgid "Day of week"
+msgstr "Día de la semana"
+
+#. module: hr_work_accident
+#: selection:hr.work.accident.employee,injury_severity:0
+msgid "Death"
+msgstr "Muerte"
+
+#. module: hr_work_accident
+#: model:ir.model.fields,field_description:hr_work_accident.field_hr_work_accident_department_id
+msgid "Department"
+msgstr "Departamento"
+
+#. module: hr_work_accident
+#: model:ir.model.fields,field_description:hr_work_accident.field_hr_work_accident_action_description
+#: model:ir.model.fields,field_description:hr_work_accident.field_hr_work_accident_description
+#: model:ir.model.fields,field_description:hr_work_accident.field_hr_work_accident_risk_description
+msgid "Description"
+msgstr "Descripción"
+
+#. module: hr_work_accident
+#: model:ir.model.fields,field_description:hr_work_accident.field_hr_work_accident_actions
+#: model:ir.model.fields,field_description:hr_work_accident.field_hr_work_accident_risks
+#: model:ir.ui.view,arch_db:hr_work_accident.hr_work_accident_form_view
+msgid "Detected Risks"
+msgstr "Riesgos detectados"
+
+#. module: hr_work_accident
+#: selection:hr.work.accident.risk,consequences:0
+msgid "Disaster"
+msgstr "Desastroso"
+
+#. module: hr_work_accident
+#: model:ir.model.fields,field_description:hr_work_accident.field_hr_work_accident_action_display_name
+#: model:ir.model.fields,field_description:hr_work_accident.field_hr_work_accident_display_name
+#: model:ir.model.fields,field_description:hr_work_accident.field_hr_work_accident_employee_display_name
+#: model:ir.model.fields,field_description:hr_work_accident.field_hr_work_accident_risk_display_name
+#: model:ir.model.fields,field_description:hr_work_accident.field_hr_work_accident_type_display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: hr_work_accident
+#: model:ir.model.fields,field_description:hr_work_accident.field_hr_work_accident_employee_employee_id
+msgid "Employee"
+msgstr "Empleado"
+
+#. module: hr_work_accident
+#: model:ir.model.fields,field_description:hr_work_accident.field_hr_work_accident_action_employee_ids
+msgid "Employees in charge"
+msgstr "Empleados a cargo"
+
+#. module: hr_work_accident
+#: model:ir.ui.view,arch_db:hr_work_accident.hr_work_accident_form_view
+msgid "Finish Investigation"
+msgstr "Finalizar Investigación"
+
+#. module: hr_work_accident
+#: model:ir.model.fields,field_description:hr_work_accident.field_hr_work_accident_risk_frequency
+msgid "Frequency"
+msgstr "Frecuencia"
+
+#. module: hr_work_accident
+#: selection:hr.work.accident.risk,frequency:0
+msgid "Frequent"
+msgstr "Frecuente"
+
+#. module: hr_work_accident
+#: selection:hr.work.accident.risk,magnitude:0
+msgid "High"
+msgstr "Alta"
+
+#. module: hr_work_accident
+#: model:ir.model,name:hr_work_accident.model_hr_work_accident
+msgid "Hr Work Accident"
+msgstr "Hr Work Accident"
+
+#. module: hr_work_accident
+#: model:ir.model.fields,field_description:hr_work_accident.field_hr_work_accident_action_id
+#: model:ir.model.fields,field_description:hr_work_accident.field_hr_work_accident_employee_id
+#: model:ir.model.fields,field_description:hr_work_accident.field_hr_work_accident_id
+#: model:ir.model.fields,field_description:hr_work_accident.field_hr_work_accident_risk_id
+#: model:ir.model.fields,field_description:hr_work_accident.field_hr_work_accident_type_id
+msgid "ID"
+msgstr "ID (identificación)"
+
+#. module: hr_work_accident
+#: selection:hr.work.accident.risk,consequences:0
+msgid "Important"
+msgstr "Importante"
+
+#. module: hr_work_accident
+#: selection:hr.work.accident.risk,frequency:0
+msgid "Inexistent"
+msgstr "Inexistente"
+
+#. module: hr_work_accident
+#: model:ir.model.fields,field_description:hr_work_accident.field_hr_work_accident_employee_injury_type
+msgid "Injury type"
+msgstr "Tipo de lesión"
+
+#. module: hr_work_accident
+#: model:ir.model.fields,field_description:hr_work_accident.field_hr_work_accident_date_end
+msgid "Investigation End Date"
+msgstr "Fecha de finalización de la Investigación"
+
+#. module: hr_work_accident
+#: model:ir.model.fields,field_description:hr_work_accident.field_hr_work_accident_job_position
+msgid "Job Position"
+msgstr "Puesto de trabajo"
+
+#. module: hr_work_accident
+#: model:ir.model.fields,field_description:hr_work_accident.field_hr_work_accident___last_update
+#: model:ir.model.fields,field_description:hr_work_accident.field_hr_work_accident_action___last_update
+#: model:ir.model.fields,field_description:hr_work_accident.field_hr_work_accident_employee___last_update
+#: model:ir.model.fields,field_description:hr_work_accident.field_hr_work_accident_risk___last_update
+#: model:ir.model.fields,field_description:hr_work_accident.field_hr_work_accident_type___last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: hr_work_accident
+#: model:ir.model.fields,field_description:hr_work_accident.field_hr_work_accident_action_write_uid
+#: model:ir.model.fields,field_description:hr_work_accident.field_hr_work_accident_employee_write_uid
+#: model:ir.model.fields,field_description:hr_work_accident.field_hr_work_accident_risk_write_uid
+#: model:ir.model.fields,field_description:hr_work_accident.field_hr_work_accident_type_write_uid
+#: model:ir.model.fields,field_description:hr_work_accident.field_hr_work_accident_write_uid
+msgid "Last Updated by"
+msgstr "Última actualización de"
+
+#. module: hr_work_accident
+#: model:ir.model.fields,field_description:hr_work_accident.field_hr_work_accident_action_write_date
+#: model:ir.model.fields,field_description:hr_work_accident.field_hr_work_accident_employee_write_date
+#: model:ir.model.fields,field_description:hr_work_accident.field_hr_work_accident_risk_write_date
+#: model:ir.model.fields,field_description:hr_work_accident.field_hr_work_accident_type_write_date
+#: model:ir.model.fields,field_description:hr_work_accident.field_hr_work_accident_write_date
+msgid "Last Updated on"
+msgstr "Última actualización en"
+
+#. module: hr_work_accident
+#: selection:hr.work.accident.risk,probability:0
+msgid "Likely"
+msgstr "Probable"
+
+#. module: hr_work_accident
+#: selection:hr.work.accident.risk,magnitude:0
+msgid "Low"
+msgstr "Bajo"
+
+#. module: hr_work_accident
+#: model:ir.model.fields,field_description:hr_work_accident.field_hr_work_accident_risk_magnitude
+msgid "Magnitude"
+msgstr "Magnitud"
+
+#. module: hr_work_accident
+#: model:ir.model.fields,field_description:hr_work_accident.field_hr_work_accident_action_name
+#: model:ir.model.fields,field_description:hr_work_accident.field_hr_work_accident_name
+#: model:ir.model.fields,field_description:hr_work_accident.field_hr_work_accident_risk_name
+#: model:ir.model.fields,field_description:hr_work_accident.field_hr_work_accident_type_name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: hr_work_accident
+#: selection:hr.work.accident.risk,magnitude:0
+msgid "Normal"
+msgstr "Normal"
+
+#. module: hr_work_accident
+#: selection:hr.work.accident.risk,frequency:0
+msgid "Ocasional"
+msgstr "Ocasional"
+
+#. module: hr_work_accident
+#: selection:hr.work.accident,state:0
+msgid "Open"
+msgstr "Abrir"
+
+#. module: hr_work_accident
+#: model:ir.model.fields,field_description:hr_work_accident.field_hr_work_accident_action_action_date
+msgid "Planned Date"
+msgstr "Fecha planeada"
+
+#. module: hr_work_accident
+#: selection:hr.work.accident.risk,probability:0
+msgid "Possible"
+msgstr "Posible"
+
+#. module: hr_work_accident
+#: model:ir.model.fields,field_description:hr_work_accident.field_hr_work_accident_risk_probability
+msgid "Probability"
+msgstr "Probabilidad"
+
+#. module: hr_work_accident
+#: selection:hr.work.accident.risk,probability:0
+msgid "Rare"
+msgstr "Raro"
+
+#. module: hr_work_accident
+#: model:ir.ui.view,arch_db:hr_work_accident.hr_work_accident_form_view
+msgid "Re-open"
+msgstr "Re-abrir"
+
+#. module: hr_work_accident
+#: model:ir.model.fields,field_description:hr_work_accident.field_hr_work_accident_employee_seniority
+msgid "Seniority in the company (in months)"
+msgstr "Antigüedad en la Empresa (en meses)"
+
+#. module: hr_work_accident
+#: model:ir.model.fields,field_description:hr_work_accident.field_hr_work_accident_employee_seniority_position
+msgid "Seniority in the position (in months)"
+msgstr "Antigüedad en la Posición (en meses)"
+
+#. module: hr_work_accident
+#: selection:hr.work.accident.employee,injury_severity:0
+#: selection:hr.work.accident.risk,consequences:0
+msgid "Serious"
+msgstr "Seria"
+
+#. module: hr_work_accident
+#: model:ir.model.fields,field_description:hr_work_accident.field_hr_work_accident_employee_injury_severity
+msgid "Severity"
+msgstr "Gravedad"
+
+#. module: hr_work_accident
+#: selection:hr.work.accident.risk,consequences:0
+msgid "Slight"
+msgstr "Leve"
+
+#. module: hr_work_accident
+#: selection:hr.work.accident.employee,injury_severity:0
+msgid "Slight wound"
+msgstr "Herida Leve"
+
+#. module: hr_work_accident
+#: model:ir.model.fields,field_description:hr_work_accident.field_hr_work_accident_state
+msgid "State"
+msgstr "Estado"
+
+#. module: hr_work_accident
+#: selection:hr.work.accident.risk,frequency:0
+msgid "Unusual"
+msgstr "Inusual"
+
+#. module: hr_work_accident
+#: selection:hr.work.accident.risk,consequences:0
+msgid "Very Serious"
+msgstr "Muy Seria"
+
+#. module: hr_work_accident
+#: selection:hr.work.accident.risk,magnitude:0
+msgid "Very high"
+msgstr "Muy alta"
+
+#. module: hr_work_accident
+#: selection:hr.work.accident.risk,probability:0
+msgid "Very likely"
+msgstr "Muy probable"
+
+#. module: hr_work_accident
+#: selection:hr.work.accident.risk,magnitude:0
+msgid "Very low"
+msgstr "Muy baja"
+
+#. module: hr_work_accident
+#: selection:hr.work.accident.risk,probability:0
+msgid "Very rare"
+msgstr "Muy rara"
+
+#. module: hr_work_accident
+#: selection:hr.work.accident.employee,injury_severity:0
+msgid "Very serious"
+msgstr "Muy Seria"
+
+#. module: hr_work_accident
+#: model:ir.actions.act_window,name:hr_work_accident.hr_work_accident_type_act_window
+#: model:ir.ui.menu,name:hr_work_accident.hr_work_accident_type_menu
+msgid "Work Accident Types"
+msgstr "Tipos de Accidentes Laborales"
+
+#. module: hr_work_accident
+#: model:ir.actions.act_window,name:hr_work_accident.hr_work_accident_act_window
+#: model:ir.ui.menu,name:hr_work_accident.hr_work_accident_menu
+msgid "Work Accidents"
+msgstr "Accidentes Laborales"
+
+#. module: hr_work_accident
+#: model:ir.model.fields,field_description:hr_work_accident.field_hr_work_accident_hours_working
+msgid "Working Hour"
+msgstr "Hora de trabajo"
+
+#. module: hr_work_accident
+#: model:ir.model,name:hr_work_accident.model_hr_work_accident_action
+msgid "hr.work.accident.action"
+msgstr "hr.work.accident.action"
+
+#. module: hr_work_accident
+#: model:ir.model,name:hr_work_accident.model_hr_work_accident_employee
+msgid "hr.work.accident.employee"
+msgstr "hr.work.accident.employee"
+
+#. module: hr_work_accident
+#: model:ir.model,name:hr_work_accident.model_hr_work_accident_risk
+msgid "hr.work.accident.risk"
+msgstr "hr.work.accident.risk"
+
+#. module: hr_work_accident
+#: model:ir.model,name:hr_work_accident.model_hr_work_accident_type
+msgid "hr.work.accident.type"
+msgstr "hr.work.accident.type"
