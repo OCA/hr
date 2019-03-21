@@ -1,70 +1,31 @@
 # -*- coding: utf-8 -*-
-##############################################################################
-#
-#    OpenERP, Open Source Management Solution
-#    This module copyright (C) 2015 Therp BV (<http://therp.nl>).
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as
-#    published by the Free Software Foundation, either version 3 of the
-#    License, or (at your option) any later version.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
-#
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-##############################################################################
+# Copyright 2015 Therp BV <http://therp.nl>
 from openerp import models, fields, api
 
 
 class HrEmployee(models.Model):
     _inherit = 'hr.employee'
 
-    work_phone = fields.Char(related=['address_id', 'phone'], store=False)
-    work_email = fields.Char(related=['address_id', 'email'], store=False)
-    mobile_phone = fields.Char(related=['address_id', 'mobile'], store=False)
+    work_phone = fields.Char(related=['address_id', 'phone'], store=True)
+    work_email = fields.Char(related=['address_id', 'email'], store=True)
+    mobile_phone = fields.Char(related=['address_id', 'mobile'], store=True)
     image = fields.Binary(related=['address_id', 'image'], store=False)
     image_medium = fields.Binary(
         related=['address_id', 'image_medium'], store=False)
     image_small = fields.Binary(
         related=['address_id', 'image_small'], store=False)
 
-    @api.multi
-    def onchange_company(self, company):
-        result = super(HrEmployee, self).onchange_company(company)
-        result['value'].pop('address_id')
-        return result
+    def _onchange_company(self):
+        """defuse entirely"""
+        pass
 
-    @api.multi
-    def onchange_address_id(self, address):
-        result = super(HrEmployee, self).onchange_address_id(address)
-        for field in ['work_phone', 'mobile_phone']:
-            if field in result['value']:
-                result['value'].pop(field)
-        return result
+    def _onchange_address(self):
+        """defuse entirely"""
+        pass
 
-    def _register_hook(self, cr):
-        # we need to reset the store parameter
-        # further, making a normal field related doesn't reset columns
-        for field in [
-            'work_phone', 'work_email', 'mobile_phone', 'image',
-            'image_medium', 'image_small',
-        ]:
-            if field in self._columns:
-                self._columns[field].store = False
-                self._fields[field].column = self._columns[field]
-            self._fields[field].store = False
-            self.pool._store_function[self._name] = [
-                spec
-                for spec in self.pool._store_function[self._name]
-                if spec[1] != field
-            ]
-
-        return super(HrEmployee, self)._register_hook(cr)
+    def _onchange_user(self):
+        """defuse entirely"""
+        pass
 
     @api.multi
     def _reassign_user_id_partner(self, values):
@@ -96,8 +57,12 @@ class HrEmployee(models.Model):
         return result
 
     @api.model
-    @api.returns('self', lambda value: value.id)
     def create(self, values):
         result = super(HrEmployee, self).create(values)
         result._reassign_user_id_partner(values)
+        return result
+
+    @api.multi
+    def read(self, fields=None, load='_classic_read'):
+        result = super(HrEmployee, self).read(fields=fields, load=load)
         return result
