@@ -82,6 +82,12 @@ class HrFiscalYear(models.Model):
              ('company_id', '=', company_id)], limit=1)
         return period_type
 
+    @api.multi
+    @api.onchange('company_id', 'type_id', 'date_start', 'date_end')
+    def onchange_type_id(self):
+        if not (self.type_id.hr_fiscal_year or self.type_id.hr_period):
+            return super(HrFiscalYear, self).onchange_type_id()
+
     period_ids = fields.One2many(
         'hr.period',
         'fiscalyear_id',
