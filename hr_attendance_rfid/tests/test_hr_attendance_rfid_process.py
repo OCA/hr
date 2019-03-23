@@ -46,7 +46,7 @@ class TestHrAttendance(TransactionCase):
         """Checkout is created for a future datetime"""
         self.env['hr.attendance'].create({
             'employee_id': self.test_employee.id,
-            'action': 'sign_out',
+            'action': 'sign_in',
         })
         self.test_employee.update({'state': 'present'})
         try:
