@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="edit_holiday_status_form" model="ir.ui.view">
+        <field name="model">hr.holidays.status</field>
+        <field name="inherit_id" ref="hr_holidays.edit_holiday_status_form"/>
+        <field name="arch" type="xml">
+            <field name="limit" position="after">
+                <field name="include_in_theoretical"/>
+            </field>
+        </field>
+    </record>
+</odoo>
