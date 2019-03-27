@@ -22,6 +22,10 @@ class TestResourceCalendarRrule(test_resource.TestResource):
         # More information see https://github.com/OCA/OCB/pull/725
         self.two_weeks_later = (self.tomorrow + timedelta(
             days=13)).replace(hour=23, minute=59)
+        today = fields.Date.from_string(
+            fields.Date.context_today(self.calendar))
+        self.last_monday = fields.Date.to_string(
+            today - timedelta(days=today.weekday()))
 
     def test_60_simplified_attendance(self):
         """ Test normal simplified schedule """
@@ -42,7 +46,7 @@ class TestResourceCalendarRrule(test_resource.TestResource):
         """ Test simplified schedule with even and odd weeks """
         orig_attendance = {
             'type': 'odd',
-            'start': fields.Date.context_today(self.calendar),
+            'start': self.last_monday,
             'data': [{
                 'day': 1,
                 'morning': 4.0,
