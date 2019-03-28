@@ -1,5 +1,6 @@
 # Copyright (C) 2014 Savoir-faire Linux. All Rights Reserved.
-# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+# Copyright 2016-2019 Onestein (<https://www.onestein.eu>)
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 import odoo
 from odoo.tests.common import TransactionCase
@@ -7,7 +8,7 @@ from odoo.tests.common import TransactionCase
 
 class TestEmployeeFirstname(TransactionCase):
     def setUp(self):
-        super(TestEmployeeFirstname, self).setUp()
+        super().setUp()
         self.employee_model = self.env['hr.employee']
 
         # Create 3 employees to concatenate the firstname and lastname
@@ -22,9 +23,9 @@ class TestEmployeeFirstname(TransactionCase):
         # Create 3 employees for split the name_related to
         # firstname and lastname
         self.employee10_id = self.employee_model.create(
-            {'name': ' Van-Eyck Jan'})
+            {'name': ' Jan Van-Eyck'})
         self.employee20_id = self.employee_model.create(
-            {'name': 'Carnaud Jean-Pierre'})
+            {'name': 'Jean-Pierre Carnaud'})
         self.employee30_id = self.employee_model.create(
             {'name': 'JenssensFamke'})
 
@@ -34,13 +35,13 @@ class TestEmployeeFirstname(TransactionCase):
         the firstname and lastname
         """
         # Check for employee1
-        self.assertEqual(self.employee1_id.name, 'Van-Eyck Jan')
+        self.assertEqual(self.employee1_id.name, 'Jan Van-Eyck')
 
         # Check for employee2
-        self.assertEqual(self.employee2_id.name, 'Carnaud Jean-Pierre')
+        self.assertEqual(self.employee2_id.name, 'Jean-Pierre Carnaud')
 
         # Check for employee3
-        self.assertEqual(self.employee3_id.name, 'Jenssens Famke')
+        self.assertEqual(self.employee3_id.name, 'Famke Jenssens')
 
     def test_onchange(self):
         """
@@ -61,7 +62,7 @@ class TestEmployeeFirstname(TransactionCase):
         updates = new_record.onchange(
             values, ['firstname', 'lastname'], field_onchange)
         values.update(updates.get('value', {}))
-        self.assertEqual(values['name'], 'Esposito Antonio')
+        self.assertEqual(values['name'], 'Antonio Esposito')
 
     def test_auto_init_name(self):
         """
@@ -81,14 +82,14 @@ class TestEmployeeFirstname(TransactionCase):
         self.assertEqual(self.employee30_id.lastname, 'JenssensFamke')
 
     def test_change_name(self):
-        self.employee1_id.write({'name': 'Carnaud-Eyck Jean-Pierre'})
+        self.employee1_id.write({'name': 'Jean-Pierre Carnaud-Eyck'})
         self.employee1_id.refresh()
 
         self.assertEqual(self.employee1_id.firstname, 'Jean-Pierre')
         self.assertEqual(self.employee1_id.lastname, 'Carnaud-Eyck')
 
     def test_change_name_with_space(self):
-        self.employee1_id.write({'name': '  Carnaud-Eyck  Jean-Pierre'})
+        self.employee1_id.write({'name': '  Jean-Pierre  Carnaud-Eyck'})
         self.employee1_id.refresh()
 
         self.assertEqual(self.employee1_id.firstname, 'Jean-Pierre')
@@ -98,13 +99,13 @@ class TestEmployeeFirstname(TransactionCase):
         self.employee1_id.write({'firstname': 'Jean-Pierre'})
         self.employee1_id.refresh()
 
-        self.assertEqual(self.employee1_id.name, 'Van-Eyck Jean-Pierre')
+        self.assertEqual(self.employee1_id.name, 'Jean-Pierre Van-Eyck')
 
     def test_change_lastname(self):
         self.employee1_id.write({'lastname': 'Carnaud'})
         self.employee1_id.refresh()
 
-        self.assertEqual(self.employee1_id.name, 'Carnaud Jan')
+        self.assertEqual(self.employee1_id.name, 'Jan Carnaud')
 
     def test_change_firstname_and_lastname(self):
         self.employee1_id.write({
@@ -112,12 +113,32 @@ class TestEmployeeFirstname(TransactionCase):
             'lastname': 'Carnaud'})
         self.employee1_id.refresh()
 
+        self.assertEqual(self.employee1_id.name, 'Jean-Pierre Carnaud')
+
+    def test_lastname_firstname(self):
+        self.env['ir.config_parameter'].sudo().set_param(
+            'partner_names_order', 'last_first')
+
+        self.employee1_id.write({'name': 'Carnaud-Eyck Jean-Pierre'})
+        self.employee1_id.refresh()
+        self.assertEqual(self.employee1_id.firstname, 'Jean-Pierre')
+        self.assertEqual(self.employee1_id.lastname, 'Carnaud-Eyck')
+
+        self.employee1_id.write({'name': '  Carnaud-Eyck  Jean-Pierre'})
+        self.employee1_id.refresh()
+        self.assertEqual(self.employee1_id.firstname, 'Jean-Pierre')
+        self.assertEqual(self.employee1_id.lastname, 'Carnaud-Eyck')
+
+        self.employee1_id.write({
+            'firstname': 'Jean-Pierre',
+            'lastname': 'Carnaud'})
+        self.employee1_id.refresh()
         self.assertEqual(self.employee1_id.name, 'Carnaud Jean-Pierre')
 
     @odoo.tests.common.at_install(False)
     @odoo.tests.common.post_install(True)
     def test_update_name_post_install(self):
-        self.empl_demo = self.env.ref('hr.employee_root')
+        empl_demo = self.env.ref('hr.employee_admin')
 
-        self.assertEqual(self.empl_demo.firstname, 'Parker')
-        self.assertEqual(self.empl_demo.lastname, 'Pieter')
+        self.assertEqual(empl_demo.firstname, 'Mitchell')
+        self.assertEqual(empl_demo.lastname, 'Admin')
