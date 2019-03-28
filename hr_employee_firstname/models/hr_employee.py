@@ -1,5 +1,6 @@
-# ©  2010 - 2014 Savoir-faire Linux (<http://www.savoirfairelinux.com>)
-# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+# Copyright 2010-2014 Savoir-faire Linux (<http://www.savoirfairelinux.com>)
+# Copyright 2016-2019 Onestein (<https://www.onestein.eu>)
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 from odoo import api, fields, models
 
@@ -13,21 +14,16 @@ class HrEmployee(models.Model):
     def _get_name(self, lastname, firstname):
         return self.env['res.partner']._get_computed_name(lastname, firstname)
 
-    @api.multi
     @api.onchange('firstname', 'lastname')
-    def get_name(self):
-        for employee in self:
-            if employee.firstname and employee.lastname:
-                employee.name = self._get_name(
-                    employee.lastname, employee.firstname)
+    def _onchange_firstname_lastname(self):
+        if self.firstname and self.lastname:
+            self.name = self._get_name(self.lastname, self.firstname)
 
     def _firstname_default(self):
         return ' ' if self.env.context.get('module') else False
 
-    firstname = fields.Char(
-        "Firstname", default=_firstname_default)
-    lastname = fields.Char(
-        "Lastname", required=True, default=_firstname_default)
+    firstname = fields.Char(default=_firstname_default)
+    lastname = fields.Char(required=True, default=_firstname_default)
 
     @api.model
     def create(self, vals):
@@ -37,8 +33,8 @@ class HrEmployee(models.Model):
         elif vals.get('name'):
             vals['lastname'] = self.split_name(vals['name'])['lastname']
             vals['firstname'] = self.split_name(vals['name'])['firstname']
-        res = super(HrEmployee, self).create(vals)
-        self._update_partner_firstname(res)
+        res = super().create(vals)
+        res._update_partner_firstname()
         return res
 
     @api.multi
@@ -50,9 +46,9 @@ class HrEmployee(models.Model):
         elif vals.get('name'):
             vals['lastname'] = self.split_name(vals['name'])['lastname']
             vals['firstname'] = self.split_name(vals['name'])['firstname']
-        res = super(HrEmployee, self).write(vals)
+        res = super().write(vals)
         if set(vals).intersection(UPDATE_PARTNER_FIELDS):
-            self._update_partner_firstname(self)
+            self._update_partner_firstname()
         return res
 
     @api.model
@@ -63,20 +59,21 @@ class HrEmployee(models.Model):
     @api.model
     def _update_employee_names(self):
         employees = self.search([
-            ('firstname', '=', ' '), ('lastname', '=', ' ')])
-
-        for ee in employees:
-            split_name = self.split_name(ee.name)
-            ee.write({
+            ('firstname', '=', ' '),
+            ('lastname', '=', ' ')
+        ])
+        for employee in employees:
+            split_name = self.split_name(employee.name)
+            employee.write({
                 'firstname': split_name['firstname'],
                 'lastname': split_name['lastname'],
             })
 
-    @api.model
-    def _update_partner_firstname(self, employee):
-        partners = employee.mapped('user_id.partner_id')
-        for partner in employee.mapped('address_home_id'):
-            if partner not in partners:
-                partners += partner
-        partners.write({'firstname': employee.firstname,
-                        'lastname': employee.lastname})
+    def _update_partner_firstname(self):
+        for employee in self:
+            partners = employee.mapped('user_id.partner_id')
+            partners |= employee.mapped('address_home_id')
+            partners.write({
+                'firstname': employee.firstname,
+                'lastname': employee.lastname,
+            })
