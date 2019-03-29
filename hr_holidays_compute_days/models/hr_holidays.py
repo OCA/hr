@@ -99,6 +99,8 @@ class HrHolidays(models.Model):
         as fallback.
         """
         for record in self.filtered('from_full_day'):
+            if not record.date_from_full:
+                continue
             tz_name = record.employee_id.user_id.tz or record.env.user.tz
             dt = fields.Datetime.from_string(record.date_from_full).replace(
                 hour=0, minute=0, second=0, microsecond=0,
@@ -111,6 +113,8 @@ class HrHolidays(models.Model):
         as fallback.
         """
         for record in self.filtered('to_full_day'):
+            if not record.date_to_full:
+                continue
             tz_name = record.employee_id.user_id.tz or record.env.user.tz
             dt = fields.Datetime.from_string(record.date_to_full).replace(
                 hour=23, minute=59, second=59, microsecond=999999,
