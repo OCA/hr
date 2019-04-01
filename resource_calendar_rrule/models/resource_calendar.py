@@ -258,11 +258,13 @@ class ResourceCalendar(models.Model):
         end_dt_utc = None
         current_tz = pytz.timezone(self.env.user.tz or 'utc')
         if start_dt:
-            start_dt = start_dt.replace(hour=0, minute=0, second=0)
+            start_dt = start_dt.replace(
+                hour=0, minute=0, second=0, microsecond=0)
             start_dt_utc = current_tz.localize(start_dt).astimezone(
                 pytz.utc).replace(tzinfo=None)
         if end_dt:
-            end_dt = end_dt.replace(hour=23, minute=59, second=59)
+            end_dt = end_dt.replace(
+                hour=23, minute=59, second=59, microsecond=0)
             end_dt_utc = current_tz.localize(
                 end_dt).astimezone(pytz.utc).replace(tzinfo=None)
 
@@ -358,7 +360,23 @@ class ResourceCalendar(models.Model):
             'start_dt_res_calendar': start_dt,
             'end_dt_res_calendar': end_dt,
         })
+        # Needed because _schedule_days does not pass end_dt to
+        # get_working_intervals_of_day.
+        if ctx.get('came_from_schedule_days') and start_dt:
+            end_of_day = start_dt.replace(hour=23, minute=59, second=59)
+            ctx.update({'end_dt_res_calendar': end_of_day})
         return super(ResourceCalendar, self).get_working_intervals_of_day(
             cr, uid, id, start_dt=start_dt, end_dt=end_dt, leaves=leaves,
+            compute_leaves=compute_leaves, resource_id=resource_id,
+            default_interval=default_interval, context=ctx)
+
+    def _schedule_days(self, cr, uid, id, days, day_date=None,
+                       compute_leaves=False, resource_id=None,
+                       default_interval=None, context=None):
+        # Signal get_working_intervals_of_day to calculate end_dt from start_dt
+        ctx = dict(context or {})
+        ctx.update({'came_from_schedule_days': True})
+        return super(ResourceCalendar, self)._schedule_days(
+            cr, uid, id, days, day_date=day_date,
             compute_leaves=compute_leaves, resource_id=resource_id,
             default_interval=default_interval, context=ctx)

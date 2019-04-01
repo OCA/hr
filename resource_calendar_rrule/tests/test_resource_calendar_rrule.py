@@ -71,6 +71,11 @@ class TestResourceCalendarRrule(test_resource.TestResource):
         hours = self.calendar.get_working_hours(
             self.tomorrow, self.two_weeks_later)
         self.assertEquals(sum(hours), 16)
+        intervals = self.calendar.schedule_days(4, day_date=self.tomorrow)[0]
+        intervals_in_next_two_weeks = [
+            i for i in intervals if i[0] < self.two_weeks_later
+        ]
+        self.assertEquals(len(intervals_in_next_two_weeks), 4)
 
     def test_62_stable_times(self):
         # test that times in a timezone with dst don't jump crossing borders
