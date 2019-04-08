@@ -25,11 +25,18 @@ msgid "Employee"
 msgstr "Werknemer"
 
 #. module: hr_employee_firstname
-#: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_firstname
+#: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee__firstname
 msgid "Firstname"
 msgstr "Voornaam"
 
 #. module: hr_employee_firstname
-#: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_lastname
+#: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee__lastname
 msgid "Lastname"
 msgstr "Achternaam"
+
+#. module: hr_employee_firstname
+#: code:addons/hr_employee_firstname/models/hr_employee.py:39
+#: code:addons/hr_employee_firstname/models/hr_employee.py:107
+#, python-format
+msgid "No name set."
+msgstr ""
