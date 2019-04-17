@@ -5,6 +5,7 @@
     'name': 'Employee own info',
     'summary': 'Employee can see own information',
     'author': 'Onestein, Odoo Community Association (OCA)',
+    'license': 'AGPL-3',
     'website': 'https://github.com/OCA/hr/',
     'category': 'Human Resources',
     'version': '12.0.1.0.0',
