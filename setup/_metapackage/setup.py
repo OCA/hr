@@ -22,6 +22,7 @@ setuptools.setup(
         'odoo12-addon-hr_employee_social_media',
         'odoo12-addon-hr_employee_ssn',
         'odoo12-addon-hr_experience',
+        'odoo12-addon-hr_holidays_credit',
         'odoo12-addon-hr_holidays_leave_auto_approve',
         'odoo12-addon-hr_holidays_length_validation',
         'odoo12-addon-hr_holidays_public',
