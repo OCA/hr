@@ -13,6 +13,7 @@ setuptools.setup(
         'odoo12-addon-hr_contract_currency',
         'odoo12-addon-hr_employee_display_own_info',
         'odoo12-addon-hr_employee_document',
+        'odoo12-addon-hr_employee_firstname',
         'odoo12-addon-hr_employee_health',
         'odoo12-addon-hr_employee_id',
         'odoo12-addon-hr_employee_relative',
