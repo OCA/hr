@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_employee_form" model="ir.ui.view">
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//label[@for='name']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='name']" position="attributes">
+                <attribute name="readonly">1</attribute>
+                <attribute name="no_label">1</attribute>
+                <attribute name="required">0</attribute>
+            </xpath>
+            <xpath expr="//h1//field[@name='name']/.." position="after">
+                <group>
+                    <field name="firstname" attrs="{'required': [('lastname', '=', False)]}"/>
+                    <field name="lastname" attrs="{'required': [('firstname', '=', False)]}"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
