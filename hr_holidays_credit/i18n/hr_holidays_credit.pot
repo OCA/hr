@@ -1,0 +1,89 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* hr_holidays_credit
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hr_holidays_credit
+#: code:addons/hr_holidays_credit/models/hr_leave_type.py:70
+#, python-format
+msgid "%(name)s (%(extra)s)"
+msgstr ""
+
+#. module: hr_holidays_credit
+#: code:addons/hr_holidays_credit/models/hr_leave_type.py:54
+#, python-format
+msgid "%g available"
+msgstr ""
+
+#. module: hr_holidays_credit
+#: code:addons/hr_holidays_credit/models/hr_leave_type.py:52
+#, python-format
+msgid "%g available + credit"
+msgstr ""
+
+#. module: hr_holidays_credit
+#: code:addons/hr_holidays_credit/models/hr_leave_type.py:62
+#, python-format
+msgid "%g used in credit"
+msgstr ""
+
+#. module: hr_holidays_credit
+#: model:ir.model.fields,field_description:hr_holidays_credit.field_hr_leave_type__allow_credit
+msgid "Allow Credit"
+msgstr ""
+
+#. module: hr_holidays_credit
+#: model:ir.model.fields,field_description:hr_holidays_credit.field_hr_leave_type__creditable_department_ids
+msgid "Creditable Departments"
+msgstr ""
+
+#. module: hr_holidays_credit
+#: model:ir.model.fields,field_description:hr_holidays_credit.field_hr_leave_type__creditable_employee_category_ids
+msgid "Creditable Employee Tags"
+msgstr ""
+
+#. module: hr_holidays_credit
+#: model:ir.model.fields,field_description:hr_holidays_credit.field_hr_leave_type__creditable_employee_ids
+msgid "Creditable Employees"
+msgstr ""
+
+#. module: hr_holidays_credit
+#: model:ir.model.fields,help:hr_holidays_credit.field_hr_leave_type__allow_credit
+msgid "If set to true, employees would be able to make requests for this leave type even if allocated amount is insufficient."
+msgstr ""
+
+#. module: hr_holidays_credit
+#: model:ir.model.fields,help:hr_holidays_credit.field_hr_leave_type__creditable_department_ids
+msgid "If set, limits credit allowance to employees of specified departments"
+msgstr ""
+
+#. module: hr_holidays_credit
+#: model:ir.model.fields,help:hr_holidays_credit.field_hr_leave_type__creditable_employee_category_ids
+msgid "If set, limits credit allowance to employees with at least one of specified tags"
+msgstr ""
+
+#. module: hr_holidays_credit
+#: model:ir.model.fields,help:hr_holidays_credit.field_hr_leave_type__creditable_employee_ids
+msgid "If set, limits credit allowance to specified employees"
+msgstr ""
+
+#. module: hr_holidays_credit
+#: model:ir.model,name:hr_holidays_credit.model_hr_leave
+msgid "Leave"
+msgstr ""
+
+#. module: hr_holidays_credit
+#: model:ir.model,name:hr_holidays_credit.model_hr_leave_type
+msgid "Leave Type"
+msgstr ""
+
