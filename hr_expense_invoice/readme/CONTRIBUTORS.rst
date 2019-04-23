@@ -2,3 +2,5 @@
 
   * Pedro M. Baeza
   * Vicent Cubells
+
+* Kitti Upariphutthiphong <kittiu@ecosoft.co.th>

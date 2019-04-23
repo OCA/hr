@@ -12,10 +12,10 @@ class HrExpenseSheet(models.Model):
 
     @api.multi
     def action_sheet_move_create(self):
-        precision = self.env['decimal.precision'].precision_get('Account')
-        expense_line_ids = self.mapped('expense_line_ids').filtered(
-            lambda r: r.invoice_id,
-        )
+        DecimalPrecision = self.env['decimal.precision']
+        precision = DecimalPrecision.precision_get('Product Price')
+        expense_line_ids = \
+            self.mapped('expense_line_ids').filtered('invoice_id')
         res = super(HrExpenseSheet, self).action_sheet_move_create()
         move_lines = self.env['account.move'].search(
             [('ref', 'in', self.mapped('name'))],
