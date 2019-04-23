@@ -9,8 +9,8 @@ class HrExpense(models.Model):
     _inherit = 'hr.expense'
 
     invoice_id = fields.Many2one(
-        comodel_name="account.invoice",
-        string='Invoice',
+        comodel_name='account.invoice',
+        string='Vendor Bill',
         domain="[('type', '=', 'in_invoice'), ('state', '=', 'open')]",
         oldname='invoice',
     )
@@ -46,10 +46,16 @@ class HrExpense(models.Model):
         self._check_vals(vals)
         return super(HrExpense, self).write(vals)
 
-    def _prepare_move_line(self, line):
-        expense = super(HrExpense, self)._prepare_move_line(line)
-        if self.invoice_id and expense['debit']:
-            expense['partner_id'] = \
-                self.invoice_id.partner_id.commercial_partner_id.id
-            expense['account_id'] = self.invoice_id.account_id.id
-        return expense
+    @api.multi
+    def _get_account_move_line_values(self):
+        move_line_values_by_expense = super()._get_account_move_line_values()
+        for expense_id, move_lines in move_line_values_by_expense.items():
+            expense = self.browse(expense_id)
+            if not expense.invoice_id:
+                return move_line_values_by_expense
+            for move_line in move_lines:
+                if move_line['debit']:
+                    move_line['partner_id'] = \
+                        expense.invoice_id.partner_id.commercial_partner_id.id
+                    move_line['account_id'] = expense.invoice_id.account_id.id
+        return move_line_values_by_expense
