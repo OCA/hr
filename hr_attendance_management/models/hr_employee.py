@@ -4,8 +4,12 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 import datetime
+import logging
 
 from odoo import models, fields, api
+from odoo.exceptions import ValidationError
+
+_logger = logging.getLogger(__name__)
 
 
 class HrEmployee(models.Model):
@@ -14,18 +18,27 @@ class HrEmployee(models.Model):
     ##########################################################################
     #                                 FIELDS                                 #
     ##########################################################################
-    extra_hours = fields.Float(compute='_compute_extra_hours',
-                               store=True)
-    extra_hours_lost = fields.Float(compute='_compute_extra_hours_lost',
-                                    store=True)
+    extra_hours_status = fields.Selection([(True, 'annual'),
+                                           (False, 'continuous')])
+    annual_balance_date = fields.Date(
+        compute='_compute_annual_balance_date')
+
     attendance_days_ids = fields.One2many('hr.attendance.day', 'employee_id',
                                           "Attendance days")
-    annual_balance = fields.Float()
+    balance = fields.Float(compute='_compute_balance', store=True)
 
-    previous_annual_balance = fields.Float()
+    extra_hours_lost = fields.Float(compute='_compute_balance', store=True)
 
-    extra_hours_formatted = fields.Char(string="Balance",
-                                        compute='_compute_formatted_hours')
+    previous_period_extra_hours_status = fields.Selection([
+        (True, 'annual'), (False, 'continuous')], readonly=True)
+    previous_period_balance = fields.Float(oldname="annual_balance")
+    previous_period_lost_hours = fields.Float()
+
+    penultimate_period_balance = fields.Float()
+    penultimate_period_lost_hours = fields.Float()
+
+    balance_formatted = fields.Char(string="Balance",
+                                    compute='_compute_formatted_hours')
 
     time_warning_balance = fields.Char(compute='_compute_time_warning_balance')
 
@@ -47,6 +60,11 @@ class HrEmployee(models.Model):
     ##########################################################################
 
     @api.multi
+    def _compute_annual_balance_date(self):
+        self.env['base.config.settings'].create({})\
+            .get_next_balance_cron_execution()
+
+    @api.multi
     def _compute_work_location(self):
         for employee in self:
             actual_location = self.env['hr.attendance'].search([
@@ -56,31 +74,84 @@ class HrEmployee(models.Model):
             employee.work_location = actual_location.location_id.name
 
     @api.multi
-    @api.depends('attendance_days_ids.extra_hours', 'annual_balance')
-    def _compute_extra_hours(self, start_date=None, end_date=None,
-                             from_start_of_employment=True):
-        if not start_date:
-            start_date = datetime.date.today().replace(month=1, day=1)
-        start_date_str = fields.Date.to_string(start_date)
-        if not end_date:
-            end_date = datetime.date.today() - datetime.timedelta(days=1)
-        end_date_str = fields.Date.to_string(end_date)
+    @api.depends('attendance_days_ids.day_balance', 'previous_period_balance',
+                 'extra_hours_status', 'previous_period_lost_hours')
+    def _compute_balance(self):
+        last_cron_execution = self.env['base.config.settings'].create({})\
+            .get_last_balance_cron_execution()
 
         for employee in self:
-            attendance_day_ids = employee.attendance_days_ids.filtered(
-                lambda r: start_date_str <= r.date <= end_date_str)
+            extra, lost = employee.past_balance_computation(
+                start_date=last_cron_execution,
+                end_date=fields.Date.today(),
+                existing_balance=employee.previous_period_balance)
 
-            extra_hours_sum = sum(attendance_day_ids.mapped('extra_hours'))
-            if from_start_of_employment:
-                extra_hours_sum += employee.annual_balance
-            employee.extra_hours = extra_hours_sum
+            employee.balance = extra
+            employee.extra_hours_lost = \
+                employee.previous_period_lost_hours + lost
 
     @api.multi
-    @api.depends('attendance_days_ids.extra_hours_lost')
-    def _compute_extra_hours_lost(self):
-        for employee in self:
-            employee.extra_hours_lost = sum(
-                employee.attendance_days_ids.mapped('extra_hours_lost') or [0])
+    def is_annual_at_date(self, date):
+        config = self.env['base.config.settings'].create({})
+        if config.get_penultimate_balance_cron_execution() \
+                < date \
+                < config.get_last_balance_cron_execution:
+            return self.previous_period_extra_hours_status
+        elif config.get_last_balance_cron_execution < date:
+            return self.extra_hours_status
+        else:
+            # undefined as we don't know the period and the status
+            raise ValueError("Date should be after the penultimate cron "
+                             "execution")
+
+    @api.multi
+    def complete_balance_computation(self, start_date=None, end_date=None,
+                                     existing_balance=0):
+        self.ensure_one()
+        config = self.env['base.config.settings'].create({})
+        max_extra_hours = self.env['base.config.settings'].create({})\
+            .get_max_extra_hours()
+        if not start_date:
+            start_date = fields.Date.to_string(
+                datetime.date.today().replace(month=1, day=1))
+        if not end_date:
+            end_date = fields.Date.to_string(datetime.date.today())
+
+        if start_date > end_date:
+            raise ValidationError("Start date must be earlier than end date.")
+        if start_date < config.get_penultimate_balance_cron_execution():
+            # too much in the past, we have no knowledge of annual status ->
+            # might yield incorrect results
+            _logger.info("Balance computation on outdated period which can "
+                         "result in incorrect results")
+
+        attendance_day_ids = self.attendance_days_ids.filtered(
+            lambda r: start_date <= r.date < end_date)
+
+        days = [start_date]
+        extra_hours_sum = [existing_balance]
+        lost_hours = [0]
+        attendance_days_sorted = sorted(attendance_day_ids,
+                                        key=lambda r: r.date)
+        for day in attendance_days_sorted:
+            days.append(day.date)
+            extra_hours_sum.append(extra_hours_sum[-1] + day.day_balance)
+            lost_hours.append(lost_hours[-1])
+            if extra_hours_sum[-1] > max_extra_hours and \
+                    not self.is_annual_at_date(day.date):
+                lost_hours[-1] += extra_hours_sum[-1] - max_extra_hours
+                extra_hours_sum[-1] = max_extra_hours
+
+        return days, extra_hours_sum, lost_hours
+
+    @api.multi
+    def past_balance_computation(self, start_date=None, end_date=None,
+                                 existing_balance=0):
+        _, extra_hours_sum, lost_hours = self.complete_balance_computation(
+            start_date=start_date,
+            end_date=end_date,
+            existing_balance=existing_balance)
+        return extra_hours_sum[-1], lost_hours[-1]
 
     @api.model
     def _cron_create_attendance(self, domain=None, day=fields.Date.today()):
@@ -108,48 +179,67 @@ class HrEmployee(models.Model):
                 })
 
     @api.model
-    def _cron_compute_annual_balance(self, update=False):
+    def _cron_compute_annual_balance(self):
+        config = self.env['base.config.settings'].create({})
         employees = self.search([])
-        if update:
-            today = datetime.date.today()
-            start_previous_year = today.replace(year=today.year-1, month=1,
-                                                day=1)
-            end_previous_year = today.replace(year=today.year-1, month=12,
-                                              day=31)
-            # updating the annual balance in case it changed since the
-            # automatic computation of 01.01.XX 00:00:01.
-            # This will put an unexpected value in compute_extra_hours. It
-            # will be recomputed when employee.annual_balance will be set
-            employees._compute_extra_hours(start_date=start_previous_year,
-                                           end_date=end_previous_year,
-                                           from_start_of_employment=False)
-            for employee in employees:
-                employee.annual_balance = employee.previous_annual_balance + \
-                    employee.extra_hours
-        else:
-            for employee in employees:
-                # This execution is done on Januray 1st, 00:00:01
-                employee.previous_annual_balance = employee.annual_balance
-                employee.annual_balance = employee.extra_hours
+        for employee in employees:
+            employee.penultimate_period_balance = \
+                employee.previous_period_balance
+            employee.penultimate_period_lost_hours = \
+                employee.previous_period_lost_hours
+            employee.previous_period_extra_hours_status = \
+                employee.extra_hours_status
+
+            new_balance = employee.balance
+            new_lost = employee.previous_period_lost_hours
+            if employee.extra_hours_status:
+                new_balance = min(config.get_max_extra_hours(), new_balance)
+                new_lost += employee.balance - new_balance
+            employee.previous_period_balance = new_balance
+            employee.previous_period_lost_hours = new_lost
+
+        config.update_balance_cron_date()
+
+    @api.model
+    def _cron_update_annual_balance(self):
+        config = self.env['base.config.settings'].create({})
+        employees = self.env['hr.employee'].search([])
+
+        last_computation = \
+            config.get_last_balance_cron_execution()
+        penultimate_computation = \
+            config.get_penultimate_balance_cron_execution()
+
+        for employee in employees:
+            extra, lost = employee.past_balance_computation(
+                start_date=penultimate_computation,
+                end_date=last_computation,
+                existing_balance=employee.penultimate_period_balance)
+
+            new_balance = extra
+            new_lost = employee.penultimate_period_lost_hours + lost
+            if employee.previous_period_extra_hours_status:
+                new_balance = min(config.get_max_extra_hours(), new_balance)
+                new_lost += extra - new_balance
+            employee.previous_period_balance = new_balance
+            employee.previous_period_lost_hours = new_lost
 
     @api.multi
     @api.depends('today_hour')
     def _compute_extra_hours_today(self):
         for employee in self:
-            extra_hours_today = '-' if float(employee.today_hour) < 0 else ''
-            extra_hours_today += employee.convert_hour_to_time(
-                employee.today_hour)
-            employee.extra_hours_today = extra_hours_today
+            employee.extra_hours_today = \
+                employee.convert_hour_to_time(employee.today_hour)
 
     @api.multi
     def _compute_time_warning_balance(self):
-        max_extra_hours = float(self.env['ir.config_parameter'].get_param(
-            'hr_attendance_management.max_extra_hours', False))
+        max_extra_hours = self.env['base.config.settings'].create({}) \
+            .get_max_extra_hours()
         for employee in self:
-            if employee.extra_hours < 0:
+            if employee.balance < 0:
                 employee.time_warning_balance = 'red'
             elif max_extra_hours and \
-                    employee.extra_hours >= max_extra_hours * 2 / 3:
+                    employee.balance >= max_extra_hours * 2 / 3:
                 employee.time_warning_balance = 'orange'
             else:
                 employee.time_warning_balance = 'green'
@@ -173,24 +263,24 @@ class HrEmployee(models.Model):
     @api.multi
     def _compute_formatted_hours(self):
         for employee in self:
-            extra_hours_formatted = '-' if employee.extra_hours < 0 else ''
-            extra_hours_formatted += employee.convert_hour_to_time(
-                abs(employee.extra_hours))
-            employee.extra_hours_formatted = extra_hours_formatted
+            employee.balance_formatted = \
+                employee.convert_hour_to_time(employee.balance)
 
     @api.multi
     @api.depends('today_hour')
     def _compute_today_hour_formatted(self):
         for employee in self:
             today_hour = employee.calc_today_hour()
-            thf = '-' if today_hour < 0 else ''
-            thf += employee.convert_hour_to_time(float(today_hour))
-            employee.today_hour_formatted = thf
+            employee.today_hour_formatted = \
+                employee.convert_hour_to_time(today_hour)
 
     @api.model
     def convert_hour_to_time(self, hour):
-        return '{:02d}:{:02d}'.format(*divmod(int(abs(float(hour) * 60)), 60))
+        formatted = '{:02d}:{:02d}'.format(*divmod(int(abs(
+            float(hour) * 60)), 60))
+        return '-' + formatted if hour < 0 else formatted
 
+    # TODO base it on att_day.total_attendance
     @api.multi
     def calc_today_hour(self):
         self.ensure_one()
@@ -205,7 +295,24 @@ class HrEmployee(models.Model):
                 worked_hours += attendance.worked_hours
             else:
                 delta = datetime.datetime.now() \
-                    - fields.Datetime.from_string(attendance.check_in)
+                        - fields.Datetime.from_string(attendance.check_in)
                 worked_hours += delta.total_seconds() / 3600.0
 
         return worked_hours
+
+    def open_balance_graph(self):
+        """
+        Populates data for history graph and open the view
+        :return: action opening the view
+        """
+        self.ensure_one()
+        self.env['balance.evolution.graph'].populate_graph(self.id)
+        return {
+            'name': 'Balance evolution',
+            'type': 'ir.actions.act_window',
+            'res_model': 'balance.evolution.graph',
+            'view_type': 'form',
+            'view_mode': 'graph',
+            'domain': [('employee_id', '=', self.id)],
+            'target': 'current',
+        }

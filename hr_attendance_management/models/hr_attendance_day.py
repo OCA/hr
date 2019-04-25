@@ -90,11 +90,9 @@ class HrAttendanceDay(models.Model):
     rule_id = fields.Many2one('hr.attendance.rules', 'Rules',
                               compute='_compute_rule_id')
 
-    # Extra hours
-    extra_hours = fields.Float("Extra hours",
-                               compute='_compute_extra_hours',
+    day_balance = fields.Float("Day balance",
+                               compute='_compute_day_balance',
                                store=True)
-    extra_hours_lost = fields.Float(readonly=True)
 
     ##########################################################################
     #                             FIELDS METHODS                             #
@@ -146,8 +144,8 @@ class HrAttendanceDay(models.Model):
             # Specific period
             att_schedule = current_cal_att.filtered(
                 lambda r: r.date_from is not False and
-                r.date_to is not False and
-                r.date_from <= att_day.date <= r.date_to)
+                          r.date_to is not False and
+                          r.date_from <= att_day.date <= r.date_to)
 
             # Period with only date_to or date_from
             if not att_schedule:
@@ -294,45 +292,21 @@ class HrAttendanceDay(models.Model):
                 att_day.break_ids.mapped('total_duration') or [0])
 
     @api.multi
-    @api.depends('paid_hours', 'due_hours', 'extra_hours_lost')
-    def _compute_extra_hours(self):
+    @api.depends('paid_hours', 'due_hours')
+    def _compute_day_balance(self):
+        for att_day in self:
+            att_day.day_balance = att_day.balance_computation()
+
+    def balance_computation(self):
+        self.ensure_one()
         sick_leave = self.env.ref('hr_holidays.holiday_status_sl')
-        for att_day in self:
-            if sick_leave in att_day.leave_ids. \
-                    filtered(lambda r: r.state == 'validate'). \
-                    mapped('holiday_status_id'):
-                att_day.extra_hours = 0
-            else:
-                extra_hours = att_day.paid_hours - att_day.due_hours
-                att_day.extra_hours = extra_hours - att_day.extra_hours_lost
 
-    @api.multi
-    def update_extra_hours_lost(self):
-        """
-        This will set the extra hours lost based on the balance evolution
-        of the employee, which is a SQL view.
-        """
-        max_extra_hours = float(self.env['ir.config_parameter'].get_param(
-            'hr_attendance_management.max_extra_hours', 0.0))
-        # First reset the extra hours lost
-        self.write({'extra_hours_lost': 0})
-
-        for att_day in self:
-            # For whatever reason, the search method is unable to search
-            # on employee field (gives wrong search results)! Therefore
-            # we use a direct SQL query.
-            self.env.cr.execute("""
-                SELECT balance FROM extra_hours_evolution_day_report
-                WHERE employee_id = %s AND hr_date = %s
-            """, [att_day.employee_id.id, att_day.date])
-            balance = self.env.cr.fetchone()
-            balance = balance[0] if balance else 0
-
-            if balance > max_extra_hours:
-                overhead = balance - max_extra_hours
-                att_day.extra_hours_lost = min(overhead, att_day.extra_hours)
-            else:
-                att_day.extra_hours_lost = 0
+        if sick_leave in self.leave_ids. \
+                filtered(lambda r: r.state == 'validate'). \
+                mapped('holiday_status_id'):
+            return 0
+        else:
+            return self.paid_hours - self.due_hours
 
     @api.multi
     def validate_extend_breaks(self):
@@ -451,18 +425,6 @@ class HrAttendanceDay(models.Model):
         rd.compute_breaks()
 
         return rd
-
-    @api.multi
-    def write(self, vals):
-        res = super(HrAttendanceDay, self).write(vals)
-        if 'paid_hours' in vals or 'coefficient' in vals:
-            for att_day in self:
-                att_days_future = self.search([
-                    ('date', '>=', att_day.date),
-                    ('employee_id', '=', att_day.employee_id.id)
-                ], order='date')
-                att_days_future.update_extra_hours_lost()
-        return res
 
     ##########################################################################
     #                             PUBLIC METHODS                             #

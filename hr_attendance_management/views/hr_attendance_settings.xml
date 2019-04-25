@@ -14,6 +14,8 @@
                    position="after">
                 <field name="free_break" widget="float_time"/>
                 <field name="max_extra_hours" widget="float_time"/>
+                <field name="last_balance_cron_execution" widget="date"/>
+                <field name="next_balance_cron_execution" widget="date"/>
             </field>
         </field>
     </record>

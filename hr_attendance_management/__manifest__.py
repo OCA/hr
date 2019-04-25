@@ -38,7 +38,7 @@
         'hr_public_holidays',
         'hr_contract'
     ],
-    'version': '10.0.1.1.4',
+    'version': '10.0.2.0.0',
     'auto_install': False,
     'website': 'https://www.compassion.ch',
     'license': 'AGPL-3',
@@ -63,12 +63,12 @@
         'views/hr_change_day_wizard_view.xml',
         'views/hr_change_day_requests.xml'
     ],
-    'demo': [
-        'demo/hr_config.xml',
-        'demo/resource_calendar.xml',
-        'demo/hr_attendance_day.xml',
-        'demo/hr_contract.xml',
-    ],
+    # 'demo': [
+    #     'demo/hr_config.xml',
+    #     'demo/resource_calendar.xml',
+    #     'demo/hr_attendance_day.xml',
+    #     'demo/hr_contract.xml',
+    # ],
     'installable': True,
     'qweb': [
         "static/src/xml/attendance.xml",

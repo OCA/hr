@@ -12,7 +12,7 @@
                type="xml">
             <xpath expr="//div[@class='oe_kanban_details']/ul/li" position="after">
                 <li>
-                    <field name="extra_hours" widget="float_time"/>
+                    <field name="balance" widget="float_time"/>
                 </li>
             </xpath>
         </field>
@@ -27,9 +27,19 @@
             <xpath expr="//page[@name='hr_settings']" position="after">
                 <page string="Hours">
                     <group>
-                        <field name="annual_balance" widget="float_time"/>
-                        <field name="previous_annual_balance" widget="float_time" invisible="1"/>
-                        <field name="extra_hours_lost" widget="float_time"/>
+
+                        <field name="previous_period_balance" widget="float_time"/>
+                        <field name="extra_hours_status" widget="float_time" invisible="1"/>
+                        <field name="extra_hours_status"/>
+                <field name="show_leaves" invisible="1"/>
+                <button name="open_balance_graph"
+                        type="object"
+                        icon="fa-calendar"
+                        string="My balance History">
+                </button>
+                        <field name="extra_hours_lost" widget="float_time" attrs="{'invisible':[('extra_hours_status', '!=', False)]}"/>
+                        <field name="previous_period_lost_hours" widget="float_time" attrs="{'invisible':[('extra_hours_status', '=', False)]}"/>
+                        <field name="annual_balance_date" widget="date" attrs="{'invisible':[('extra_hours_status', '=', False)]}"/>
                         <field name="attendance_days_ids"
                                context="{'tree_view_ref': 'hr_attendance_management.hr_attendance_day_tree_from_employee'}"/>
                     </group>
@@ -37,8 +47,8 @@
             </xpath>
             <field name="category_ids" position="after">
                 <div>
-                    <label for="extra_hours"/>
-                    <field name="extra_hours" widget="float_time"/>
+                    <label for="balance"/>
+                    <field name="balance" widget="float_time"/>
                 </div>
             </field>
             <field name="work_location" position="attributes">
