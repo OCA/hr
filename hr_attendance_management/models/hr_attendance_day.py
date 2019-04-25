@@ -117,7 +117,7 @@ class HrAttendanceDay(models.Model):
                     ('date_start', '<=', att_day.date),
                     '|', ('date_end', '=', False),
                     ('date_end', '>=', att_day.date)
-                ])
+                ], order='date_start desc', limit=1)
                 # ...or take the resource.calendar of employee
                 schedule = contracts.working_hours or (
                     att_day.employee_id.calendar_id)
@@ -443,6 +443,9 @@ class HrAttendanceDay(models.Model):
             ('employee_id', '=', rd.employee_id.id),
             ('date', '=', rd.date),
         ])
+
+        for leave in rd.leave_ids:
+            leave._compute_att_day()
 
         # compute breaks
         rd.compute_breaks()

@@ -41,9 +41,12 @@
                     <field name="extra_hours" widget="float_time"/>
                 </div>
             </field>
-            <xpath expr="//field[@name='work_location']" position="replace">
+            <field name="work_location" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>
+            <field name="work_location" position="after">
                 <field name="work_location_id"/>
-            </xpath>
+            </field>
         </field>
     </record>
 </odoo>

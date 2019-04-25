@@ -83,28 +83,27 @@ class HrEmployee(models.Model):
                 employee.attendance_days_ids.mapped('extra_hours_lost') or [0])
 
     @api.model
-    def _cron_create_attendance(self):
+    def _cron_create_attendance(self, domain=None, day=fields.Date.today()):
         att_day = self.env['hr.attendance.day']
-        employees = self.search([])
-        today = fields.Date.today()
+        employees = self.search(domain or [])
         for employee in employees:
             # check if an entry already exists. If yes, it will not be
             # recreated
             att_days = att_day.search(
-                [('date', '=', today), ('employee_id', '=', employee.id)])
+                [('date', '=', day), ('employee_id', '=', employee.id)])
             if att_days:
                 continue
 
             # check that the employee is currently employed.
             contracts_valid_today = self.env['hr.contract'].search([
                 ('employee_id', '=', employee.id),
-                ('date_start', '<=', today),
-                '|', ('date_end', '=', False), ('date_end', '>=', today)
+                ('date_start', '<=', day),
+                '|', ('date_end', '=', False), ('date_end', '>=', day)
             ])
 
             if not att_days and contracts_valid_today:
                 att_day.create({
-                    'date': today,
+                    'date': day,
                     'employee_id': employee.id
                 })
 

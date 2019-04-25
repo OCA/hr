@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Attendance day -->
+    <record id="hr_contract_01" model="hr.contract">
+        <field name="name">Jack Macklin</field>
+        <field name="type_id" ref="hr_contract.hr_contract_type_emp"/>
+        <field name="date_start" eval="(datetime.now()+relativedelta(years=-10)).strftime('%Y-%m-%d 08:00:00')"/>
+        <field name="wage">6000.00</field>
+        <field name="employee_id" ref="hr.employee_fme"/>
+    </record>
+    <record id="hr_contract_02" model="hr.contract">
+        <field name="name">Gilles Gravie</field>
+        <field name="type_id" ref="hr_contract.hr_contract_type_emp"/>
+        <field name="date_start" eval="(datetime.now()+relativedelta(months=-6)).strftime('%Y-%m-%d 08:00:00')"/>
+        <field name="wage">1337.00</field>
+        <field name="employee_id" ref="hr.employee_qdp"/>
+    </record>
+    <record id="hr_contract_03" model="hr.contract">
+        <field name="name">Pieter Parker</field>
+        <field name="type_id" ref="hr_contract.hr_contract_type_emp"/>
+        <field name="date_start" eval="'1962-08-15 08:00:00'"/>
+        <field name="wage">8400.00</field>
+        <field name="employee_id" ref="hr.employee_root"/>
+    </record>
+    <record id="hr_contract_04" model="hr.contract">
+        <field name="name">Michael Hawkins</field>
+        <field name="type_id" ref="hr_contract.hr_contract_type_emp"/>
+        <field name="date_start" eval="(datetime.now()+relativedelta(months=-6)).strftime('%Y-%m-%d 08:00:00')"/>
+        <field name="date_end" eval="(datetime.now()+relativedelta(days=-1)).strftime('%Y-%m-%d 08:00:00')"/>
+        <field name="wage">1337.00</field>
+        <field name="employee_id" ref="hr.employee_niv"/>
+    </record>
+</odoo>
