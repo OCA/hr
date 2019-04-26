@@ -1,0 +1,12 @@
+<odoo noupdate="1">
+    <record id="product_emp_advance" model="product.product">
+        <field name="name">Employee Advance</field>
+        <field name="default_code"></field>
+        <field name="type">service</field>
+        <field name="sale_ok" eval="False"/>
+        <field name="purchase_ok" eval="False"/>
+        <field name="can_be_expensed" eval="False"/>
+        <field name="supplier_taxes_id">False</field>
+        <field name="taxes_id">False</field>
+    </record>
+</odoo>
