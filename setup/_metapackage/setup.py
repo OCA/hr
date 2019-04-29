@@ -26,6 +26,7 @@ setuptools.setup(
         'odoo11-addon-hr_holidays_hour',
         'odoo11-addon-hr_holidays_imposed_days',
         'odoo11-addon-hr_holidays_leave_auto_approve',
+        'odoo11-addon-hr_holidays_leave_overlap',
         'odoo11-addon-hr_holidays_notify_employee_manager',
         'odoo11-addon-hr_holidays_public',
         'odoo11-addon-hr_holidays_settings',
