@@ -18,8 +18,10 @@ class HrEmployee(models.Model):
     ##########################################################################
     #                                 FIELDS                                 #
     ##########################################################################
-    extra_hours_status = fields.Selection([(True, 'annual'),
-                                           (False, 'continuous')])
+    extra_hours_continuous_cap = fields.Boolean(
+        help="Set this field to true if you do not want to have the employee "
+             "extra hours to be continuously capped to max_extra_hours but "
+             "only to capped at the cron execution time.")
     annual_balance_date = fields.Date(
         compute='_compute_annual_balance_date')
 
@@ -29,8 +31,7 @@ class HrEmployee(models.Model):
 
     extra_hours_lost = fields.Float(compute='_compute_balance', store=True)
 
-    previous_period_extra_hours_status = fields.Selection([
-        (True, 'annual'), (False, 'continuous')], readonly=True)
+    previous_period_extra_hours_status = fields.Boolean(readonly=True)
     previous_period_balance = fields.Float(oldname="annual_balance")
     previous_period_lost_hours = fields.Float()
 
@@ -61,8 +62,10 @@ class HrEmployee(models.Model):
 
     @api.multi
     def _compute_annual_balance_date(self):
-        self.env['base.config.settings'].create({})\
-            .get_next_balance_cron_execution()
+        for employee in self:
+            employee.annual_balance_date = \
+                self.env['base.config.settings'].create({})\
+                    .get_next_balance_cron_execution()
 
     @api.multi
     def _compute_work_location(self):
@@ -75,7 +78,7 @@ class HrEmployee(models.Model):
 
     @api.multi
     @api.depends('attendance_days_ids.day_balance', 'previous_period_balance',
-                 'extra_hours_status', 'previous_period_lost_hours')
+                 'extra_hours_continuous_cap', 'previous_period_lost_hours')
     def _compute_balance(self):
         last_cron_execution = self.env['base.config.settings'].create({})\
             .get_last_balance_cron_execution()
@@ -91,14 +94,23 @@ class HrEmployee(models.Model):
                 employee.previous_period_lost_hours + lost
 
     @api.multi
-    def is_annual_at_date(self, date):
+    def is_continuous_cap_at_date(self, date):
+        """
+        This method return the status of the employee at the specified date.
+        A True value means that the employee was capped to max_extra_hours at
+        the specified date.
+        Can Raise a ValueError if we don't have information about the period in
+        which date is.
+        :param date: The date of the desired status
+        :return: Boolean whether it was a continuous or annual capping.
+        """
         config = self.env['base.config.settings'].create({})
         if config.get_penultimate_balance_cron_execution() \
                 < date \
                 < config.get_last_balance_cron_execution:
             return self.previous_period_extra_hours_status
         elif config.get_last_balance_cron_execution < date:
-            return self.extra_hours_status
+            return self.extra_hours_continuous_cap
         else:
             # undefined as we don't know the period and the status
             raise ValueError("Date should be after the penultimate cron "
@@ -107,6 +119,21 @@ class HrEmployee(models.Model):
     @api.multi
     def complete_balance_computation(self, start_date=None, end_date=None,
                                      existing_balance=0):
+        """
+        Compute the running balances extra and lost hours of the employee
+        between start and end date. We go through the days and add the paid
+        hours, keeping an array of the value at each day.
+        :param start_date: Start date of the period of interest
+        :param end_date: End date of the period of interest
+        :param existing_balance: The extra hours balance of the employee at
+                                 start_date
+        :return: 3 lists:
+                 (a) list of each date for which we have data, sorted
+                 (b) the corresponding cumulative sum of extra hours for each
+                     day present in (a)
+                 (c) the cumulative sum of lost hours for each day in (a).
+                     (increasing values as no lost hours can be deduced).
+        """
         self.ensure_one()
         config = self.env['base.config.settings'].create({})
         max_extra_hours = self.env['base.config.settings'].create({})\
@@ -138,7 +165,7 @@ class HrEmployee(models.Model):
             extra_hours_sum.append(extra_hours_sum[-1] + day.day_balance)
             lost_hours.append(lost_hours[-1])
             if extra_hours_sum[-1] > max_extra_hours and \
-                    not self.is_annual_at_date(day.date):
+                    self.is_continuous_cap_at_date(day.date):
                 lost_hours[-1] += extra_hours_sum[-1] - max_extra_hours
                 extra_hours_sum[-1] = max_extra_hours
 
@@ -147,10 +174,20 @@ class HrEmployee(models.Model):
     @api.multi
     def past_balance_computation(self, start_date=None, end_date=None,
                                  existing_balance=0):
+        """
+        Compute the balance of extra and lost horus at end_date.
+        :param start_date: Start date of the computation
+        :param end_date: Date of desired data
+        :param existing_balance: Existing extra hours balance at start_date
+        :return: Tuple of integers (extra_hours, lost_hours)
+        """
         _, extra_hours_sum, lost_hours = self.complete_balance_computation(
             start_date=start_date,
             end_date=end_date,
             existing_balance=existing_balance)
+        if len(extra_hours_sum) < 1:
+            _logger.warning("Balance computation on period without data")
+            return 0, 0
         return extra_hours_sum[-1], lost_hours[-1]
 
     @api.model
@@ -180,6 +217,13 @@ class HrEmployee(models.Model):
 
     @api.model
     def _cron_compute_annual_balance(self):
+        """
+        Roll over the balance of extra hours for the period ranging from the
+        last call to this cron to today. The balance of the previous period
+        will be stored for recomputation in case of change.
+        :return: Nothing
+        """
+        self._update_past_period_balance()
         config = self.env['base.config.settings'].create({})
         employees = self.search([])
         for employee in employees:
@@ -188,11 +232,11 @@ class HrEmployee(models.Model):
             employee.penultimate_period_lost_hours = \
                 employee.previous_period_lost_hours
             employee.previous_period_extra_hours_status = \
-                employee.extra_hours_status
+                employee.extra_hours_extra_hours_continuous_cap
 
             new_balance = employee.balance
             new_lost = employee.previous_period_lost_hours
-            if employee.extra_hours_status:
+            if not employee.extra_hours_continuous_cap:
                 new_balance = min(config.get_max_extra_hours(), new_balance)
                 new_lost += employee.balance - new_balance
             employee.previous_period_balance = new_balance
@@ -201,7 +245,13 @@ class HrEmployee(models.Model):
         config.update_balance_cron_date()
 
     @api.model
-    def _cron_update_annual_balance(self):
+    def _update_past_period_balance(self):
+        """
+        This function is meant to be run some time after
+        _cron_compute_annual_balance(). It will update the values of the
+        previous period as these can have been changed.
+        :return: Nothing
+        """
         config = self.env['base.config.settings'].create({})
         employees = self.env['hr.employee'].search([])
 
@@ -218,7 +268,8 @@ class HrEmployee(models.Model):
 
             new_balance = extra
             new_lost = employee.penultimate_period_lost_hours + lost
-            if employee.previous_period_extra_hours_status:
+            if not employee.previous_period_extra_hours_status:
+                # not continuous extra hours -> cap at cron execution
                 new_balance = min(config.get_max_extra_hours(), new_balance)
                 new_lost += extra - new_balance
             employee.previous_period_balance = new_balance

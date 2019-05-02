@@ -75,7 +75,7 @@ class TestAnnualBalance(SavepointCase):
                     self.config.get_last_balance_cron_execution())\
                 + timedelta(days=delta)
 
-        self.michael.extra_hours_status = 1
+        self.michael.extra_hours_continuous_cap = False
         for person in [self.jack, self.michael]:
             self.create_first_attendance(self.monday, person)
             self.create_first_attendance(self.tuesday, person)
@@ -91,11 +91,11 @@ class TestAnnualBalance(SavepointCase):
         self.assertEqual(self.michael.extra_hours_lost, 0)
         # Upon switching to continuous computation, michael should loose up to
         # limit of extra hours.
-        self.michael.extra_hours_status = 0
+        self.michael.extra_hours_continuous_cap = True
         self.assertEqual(self.michael.balance, 2)
         self.assertEqual(self.michael.extra_hours_lost, 0.5)
         # Switching back should come back to 2.5 extra hours.
-        self.michael.extra_hours_status = 1
+        self.michael.extra_hours_continuous_cap = False
         self.assertEqual(self.michael.balance, 2.5)
         self.assertEqual(self.michael.extra_hours_lost, 0)
 

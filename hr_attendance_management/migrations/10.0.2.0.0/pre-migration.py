@@ -20,9 +20,7 @@ def migrate(env, version):
     cr = env.cr
 
     # compute extra hours lost until last cron execution
-    last_computation = env['ir.config_parameter'].get_param(
-            'hr_attendance_management.last_balance_cron_execution',
-            str(date.today().year) + '-01-01')
+    last_computation = str(date.today().year) + '-01-01'
     cr.execute("SELECT id FROM hr_employee")
     employees = cr.dictfetchall()
     cr.execute("ALTER TABLE hr_employee "
