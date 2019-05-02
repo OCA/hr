@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2018 Eficent Business and IT Consulting Services, S.L.
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
@@ -13,13 +12,15 @@ class TestHrAttendanceReason(TransactionCase):
 
     def setUp(self):
         super(TestHrAttendanceReason, self).setUp()
-        self.att_model = self.env['hr.attendance']
-        self.employee = self.browse_ref('hr.employee_al')
+        self.hr_attendance = self.env['hr.attendance']
+        self.employee = self.env['hr.employee'].create({
+            'name': 'Employee'
+        })
 
     def test_employee_edit(self):
         dti = datetime.now()
         dto = datetime.now() + relativedelta(hours=7)
-        att = self.att_model.create(
+        att = self.hr_attendance.create(
             {'employee_id': self.employee.id,
              'check_in': dti.strftime(DF),
              'check_out': dto.strftime(DF),
@@ -28,9 +29,21 @@ class TestHrAttendanceReason(TransactionCase):
         dt = datetime.now().replace(
             hour=0, minute=0, second=0, microsecond=0) - relativedelta(
             hours=15)
-        att = self.att_model.create(
+        att = self.hr_attendance.create(
             {'employee_id': self.employee.id,
              'check_in': dt.strftime(DF),
              })
-        self.att_model.check_for_incomplete_attendances()
+        self.hr_attendance.check_for_incomplete_attendances()
         self.assertEqual(att.worked_hours, 11.0, "Attendance not closed")
+        reason = self.env['hr.attendance.reason'].search(
+            [('code', '=', 'S-CO')], limit=1)
+        reason.unlink()
+        dti += relativedelta(hours=10)
+        dto += relativedelta(hours=10)
+        att2 = self.hr_attendance.create(
+            {'employee_id': self.employee.id,
+             'check_in': dti.strftime(DF),
+             'check_out': dto.strftime(DF),
+             })
+        self.hr_attendance.check_for_incomplete_attendances()
+        self.assertFalse(att2.attendance_reason_ids)

@@ -1,10 +1,9 @@
-# -*- coding: utf-8 -*-
 # Copyright 2018 Eficent Business and IT Consulting Services, S.L.
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
 {
     'name': 'HR Attendance Auto Close',
-    'version': '10.0.1.0.0',
+    'version': '11.0.1.0.0',
     'category': 'Human Resources',
     'summary': 'Close stale Attendances',
     'website': 'https://github.com/OCA/hr',
@@ -12,7 +11,6 @@
     'license': 'AGPL-3',
     'installable': True,
     'depends': [
-        'hr_attendance',
         'hr_attendance_reason',
     ],
     'data': [

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<odoo noupdate="1">
     <record id="hr_attendance_reason_check_out" model="hr.attendance.reason">
         <field name="name">System automatic check out due to inactivity</field>
         <field name="code">S-CO</field>
