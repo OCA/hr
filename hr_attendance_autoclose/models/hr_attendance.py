@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2018 Eficent Business and IT Consulting Services, S.L.
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
@@ -29,7 +28,7 @@ class HrAttendance(models.Model):
 
     open_worked_hours = fields.Float(
         string='Worked hours', compute='_compute_open_worked_hours',
-        store=False)
+    )
 
     @api.model
     def check_for_incomplete_attendances(self):
@@ -62,8 +61,8 @@ class HrAttendance(models.Model):
             [('code', '=', 'S-CO')], limit=1)
         if not reason:
             return super(HrAttendance, self)._check_validity()
-        for attendance in self:
-            if attendance.attendance_reason_ids and \
-                    reason in attendance.attendance_reason_ids:
-                return True
+        if self.filtered(lambda att:
+                         att.attendance_reason_ids and reason
+                         in att.attendance_reason_ids):
+            return True
         return super(HrAttendance, self)._check_validity()
