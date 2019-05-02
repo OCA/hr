@@ -20,10 +20,6 @@
         <field name="code">BW</field>
     </record>
     <record id="hr_act_reason_5" model="hr.attendance.reason">
-        <field name="name">Bad Weather</field>
-        <field name="code">BW</field>
-    </record>
-    <record id="hr_act_reason_6" model="hr.attendance.reason">
         <field name="name">Public Transport Strike</field>
         <field name="code">PTS</field>
         <field name="action_type">sign_in</field>
