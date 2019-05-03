@@ -1,9 +1,9 @@
-# -*- coding: utf-8 -*-
 # copyright  2017 Denis Leemann, Camptocamp SA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 from dateutil.relativedelta import relativedelta
 
+from odoo.exceptions import ValidationError
 from odoo.tests import common
 from odoo import fields
 
@@ -71,6 +71,11 @@ class TestHrEmployeeSeniority(common.TransactionCase):
         self.employee.write({'initial_employment_date': self.two_year_ago})
         self.assertAlmostEqual(self.employee.length_of_service, 24.0)
 
+        with self.assertRaises(ValidationError):
+            self.employee.write({
+                'initial_employment_date': self.six_months_ago
+            })
+
     def test_multiple_contracts_with_no_interval(self):
         # multiple contracts
         self.contract_model.create(
@@ -121,8 +126,8 @@ class TestHrEmployeeSeniority(common.TransactionCase):
             {
                 'employee_id': self.employee.id,
                 'name': 'Contract 1',
-                'date_start': (2017, 01, 01),
-                'date_end': (2017, 01, 03),
+                'date_start': '2017-01-01',
+                'date_end': '2017-01-03',
                 'wage': 5000
             }
         )
@@ -132,8 +137,8 @@ class TestHrEmployeeSeniority(common.TransactionCase):
             {
                 'employee_id': self.employee.id,
                 'name': 'Contract 1',
-                'date_start': (2016, 11, 01),
-                'date_end': (2016, 12, 31),
+                'date_start': '2016-11-01',
+                'date_end': '2016-12-31',
                 'wage': 5000
             }
         )
