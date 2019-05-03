@@ -10,14 +10,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-03 03:37+0000\n"
-"PO-Revision-Date: 2017-03-03 03:37+0000\n"
-"Last-Translator: José Antonio Cuello <yopli2000@gmail.com>, 2017\n"
+"PO-Revision-Date: 2019-05-03 13:03+0000\n"
+"Last-Translator: Enric Tobella <etobella@creublanca.es>\n"
 "Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.5.1\n"
 
 #. module: hr_holidays_public
 #: model:ir.ui.view,arch_db:hr_holidays_public.holidays_public_next_year_wizard_view
@@ -99,7 +100,7 @@ msgid ""
 "being assigned to"
 msgstr ""
 "Las fechas de las vacaciones deberían ser el mismo año que el año de "
-"calendario al que están siendo asignadas."
+"calendario al que están siendo asignadas"
 
 #. module: hr_holidays_public
 #: model:ir.ui.view,arch_db:hr_holidays_public.holidays_public_next_year_wizard_view
@@ -114,9 +115,8 @@ msgstr "Mostrar nombre"
 
 #. module: hr_holidays_public
 #: model:ir.model.fields,field_description:hr_holidays_public.field_hr_holidays_status_exclude_public_holidays
-#, fuzzy
 msgid "Exclude Public Holidays"
-msgstr "Vacaciones públicas"
+msgstr "Excluir vacaciones públicas"
 
 #. module: hr_holidays_public
 #: model:ir.model.fields,field_description:hr_holidays_public.field_hr_holidays_public_line_ids
@@ -281,7 +281,7 @@ msgstr "No puede crear vacaciones públicas duplicadas para la fecha %s."
 #: code:addons/hr_holidays_public/models/hr_holidays_public.py:53
 #, python-format
 msgid "You can't create duplicate public holiday per year and/or country"
-msgstr "No puede crear vacaciones públicas duplicadas para el año y/o país."
+msgstr "No puede crear vacaciones públicas duplicadas para el año y/o país"
 
 #. module: hr_holidays_public
 #: code:addons/hr_holidays_public/wizards/holidays_public_next_year_wizard.py:78
