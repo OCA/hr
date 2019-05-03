@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Break rules -->
+    <record id="break_rule_0" model="hr.attendance.rules">
+        <field name="time_from">0</field>
+        <field name="time_to">5.5</field>
+        <field name="due_break_total">0.0</field>
+        <field name="due_break">0.0</field>
+    </record>
+    <record id="break_rule_1" model="hr.attendance.rules">
+        <field name="time_from">5.5</field>
+        <field name="time_to">7</field>
+        <field name="due_break_total">0.25</field>
+        <field name="due_break">0.25</field>
+    </record>
+    <record id="break_rule_2" model="hr.attendance.rules">
+        <field name="time_from">7</field>
+        <field name="time_to">9</field>
+        <field name="due_break_total">0.5</field>
+        <field name="due_break">0.5</field>
+    </record>
+    <record id="break_rule_3" model="hr.attendance.rules">
+        <field name="time_from">9</field>
+        <field name="time_to">24</field>
+        <field name="due_break_total">1.0</field>
+        <field name="due_break">0.5</field>
+    </record>
+
+    <!-- Employee tags -->
+    <record id="employee_tag_we" model="hr.employee.category">
+        <field name="name">Works the Week-End</field>
+    </record>
+
+    <!-- Coefficients -->
+    <record id="coefficient_sunday_office" model="hr.weekday.coefficient">
+        <field name="day_of_week">6</field>
+        <field name="category_ids" eval="[(6, 0, [ref('employee_tag_we')])]"/>
+        <field name="coefficient">2</field>
+    </record>
+</odoo>

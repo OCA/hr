@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="change_day_wizard_view" model="ir.ui.view">
+        <field name="name">Change day wizard</field>
+        <field name="model">hr.change.day.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <field name="state" invisible="1"/>
+
+                <!-- Step 1 -->
+                <group string="Change day" states="step1">
+                    <p>You checked in a day you don't work in your contract. Do you want to exchange the time you do today with an other day ?</p>
+                </group>
+                <footer states="step1">
+                    <button type="object" class="oe_highlight" name="go_to_step2" string="Yes, I want to exchange these hours with an other day"/>
+                    <button special="cancel" class="change_day_wizard_close_button" string="No, I just want to do extra hours today"/>
+                </footer>
+
+                <!-- Step 2 -->
+                <group string="Day selection" states="step2">
+                    <field name="date_select" widget="radio" string="Select which day you want to exchange:"/>
+                </group>
+                <footer states="step2">
+                    <button type="object" class="oe_highlight change_day_wizard_close_button" name="change_due_hours" string="Submit"/>
+                    <button special="cancel" class="change_day_wizard_close_button" string="Cancel"/>
+                </footer>
+
+                <script>window.add_timeout_button_event('change_day_wizard_close_button');</script>
+            </form>
+        </field>
+    </record>
+
+    <act_window id="change_day_wizard"
+                name="Change day"
+                res_model="hr.change.day.wizard"
+                view_mode="form"
+                target="new"
+    />
+</odoo>

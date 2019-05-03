@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <record model="ir.ui.view"  id="hr_attendance_break_form">
+        <field name="name">HR Attendance Break Form View</field>
+        <field name="model">hr.attendance.break</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="start"/>
+                            <field name="stop"/>
+                        </group>
+                        <group>
+                            <field name="original_duration" widget="float_time"/>
+                            <field name="additional_duration" widget="float_time"/>
+                            <field name="total_duration" widget="float_time"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

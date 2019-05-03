@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <record model="ir.ui.view" id="hr_cal_att_tree">
+        <field name="name">HR Calendar Attendance tree</field>
+        <field name="model">resource.calendar.attendance</field>
+        <field name="inherit_id" ref="resource.view_resource_calendar_attendance_tree"/>
+        <field name="arch" type="xml">
+            <field name="date_to" position="after">
+                <field name="due_hours" widget="float_time"/>
+            </field>
+        </field>
+    </record>
+</odoo>

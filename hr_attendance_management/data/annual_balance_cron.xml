@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="ir_cron_compute_annual_balance"
+                model="ir.cron">
+            <field name="name">Compute annual extra hours balance</field>
+            <field name="interval_type">months</field>
+            <field name="interval_number">12</field>
+            <field name="numbercall">-1</field>
+            <field name="model">hr.employee</field>
+            <field name="function">_cron_compute_annual_balance</field>
+            <field name="nextcall" eval="datetime.now().strftime('%Y-%m-%d')"/>
+        </record>
+    </data>
+</odoo>
