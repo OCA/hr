@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # copyright 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>
 # copyright 2017 Denis Leemann, Camptocamp SA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
@@ -6,7 +5,8 @@
 import calendar
 from dateutil.relativedelta import relativedelta
 
-from odoo import api, exceptions, fields, models, _
+from odoo import api, fields, models, _
+from odoo.exceptions import ValidationError
 
 
 class HrEmployee(models.Model):
@@ -24,24 +24,22 @@ class HrEmployee(models.Model):
     )
 
     def _first_contract(self):
-        Contract = self.env['hr.contract'].sudo()
-        return Contract.search([('employee_id', '=', self.id)],
-                               order='date_start asc', limit=1)
+        hr_contract = self.env['hr.contract'].sudo()
+        return hr_contract.search([('employee_id', '=', self.id)],
+                                  order='date_start asc', limit=1)
 
     @staticmethod
     def check_next_days(date_to, date_from):
-        if date_from.day == 1:
-            days_in_month = calendar.monthrange(date_to.year, date_to.month)[1]
-            if date_to.day == days_in_month:
-                return 1
-            elif date_from.day == date_to.day + 1:
-                return 1
-        return 0
+        if date_from.day != 1:
+            return 0
+        days_in_month = calendar.monthrange(date_to.year, date_to.month)[1]
+        return 1 if date_to.day == days_in_month or \
+                    date_from.day == date_to.day + 1 else 0
 
     @api.depends('contract_ids', 'initial_employment_date')
     def _compute_months_service(self):
         date_now = fields.Date.today()
-        Contract = self.env['hr.contract'].sudo()
+        hr_contract = self.env['hr.contract'].sudo()
         for employee in self:
             nb_month = 0
 
@@ -59,8 +57,8 @@ class HrEmployee(models.Model):
                     relativedelta(to_dt, from_dt).months + \
                     self.check_next_days(to_dt, from_dt)
 
-            contracts = Contract.search([('employee_id', '=', employee.id)],
-                                        order='date_start asc')
+            contracts = hr_contract.search([('employee_id', '=', employee.id)],
+                                           order='date_start asc')
             for contract in contracts:
                 from_dt = fields.Date.from_string(contract.date_start)
                 if contract.date_end and contract.date_end < date_now:
@@ -75,11 +73,12 @@ class HrEmployee(models.Model):
 
     @api.constrains('initial_employment_date', 'contract_ids')
     def _check_initial_employment_date(self):
-        if self.initial_employment_date and len(self.contract_ids):
+        if self.initial_employment_date and self.contract_ids:
             initial_dt = fields.Date.from_string(self.initial_employment_date)
             first_contract_dt = fields.Date.from_string(
                 self._first_contract().date_start)
             if initial_dt > first_contract_dt:
-                raise exceptions.UserError(_("The initial employment date "
-                                             "cannot be after the first "
-                                             "contract in the system!"))
+                raise ValidationError(_(
+                    "The initial employment date "
+                    "cannot be after the first "
+                    "contract in the system!"))
