@@ -19,9 +19,9 @@ class HrEmployee(models.Model):
     #                                 FIELDS                                 #
     ##########################################################################
     extra_hours_continuous_cap = fields.Boolean(
-        help="Set this field to true if you do not want to have the employee "
-             "extra hours to be continuously capped to max_extra_hours but "
-             "only to capped at the cron execution time.")
+        help="Set this field to true if you want to have the employee "
+             "extra hours to be continuously capped to max_extra_hours and not"
+             " only at the cron execution time.")
     annual_balance_date = fields.Date(
         compute='_compute_annual_balance_date')
 
@@ -31,7 +31,7 @@ class HrEmployee(models.Model):
 
     extra_hours_lost = fields.Float(compute='_compute_balance', store=True)
 
-    previous_period_extra_hours_status = fields.Boolean(readonly=True)
+    previous_period_continuous_cap = fields.Boolean(readonly=True)
     previous_period_balance = fields.Float(oldname="annual_balance")
     previous_period_lost_hours = fields.Float()
 
@@ -108,7 +108,7 @@ class HrEmployee(models.Model):
         if config.get_penultimate_balance_cron_execution() \
                 < date \
                 < config.get_last_balance_cron_execution:
-            return self.previous_period_extra_hours_status
+            return self.previous_period_continuous_cap
         elif config.get_last_balance_cron_execution < date:
             return self.extra_hours_continuous_cap
         else:
@@ -231,7 +231,7 @@ class HrEmployee(models.Model):
                 employee.previous_period_balance
             employee.penultimate_period_lost_hours = \
                 employee.previous_period_lost_hours
-            employee.previous_period_extra_hours_status = \
+            employee.previous_period_continuous_cap = \
                 employee.extra_hours_extra_hours_continuous_cap
 
             new_balance = employee.balance
@@ -268,7 +268,7 @@ class HrEmployee(models.Model):
 
             new_balance = extra
             new_lost = employee.penultimate_period_lost_hours + lost
-            if not employee.previous_period_extra_hours_status:
+            if not employee.previous_period_continuous_cap:
                 # not continuous extra hours -> cap at cron execution
                 new_balance = min(config.get_max_extra_hours(), new_balance)
                 new_lost += extra - new_balance

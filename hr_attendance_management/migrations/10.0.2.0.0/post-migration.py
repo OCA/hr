@@ -28,7 +28,7 @@ def migrate(env, version):
     employees = env['hr.employee'].search([])
     employees.write({
         'extra_hours_continuous_cap': True,
-        'previous_period_extra_hours_status': True,
+        'previous_period_continuous_cap': True,
         'penultimate_period_balance': 0,
         'penultimate_period_lost_hours': 0,
     })
