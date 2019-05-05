@@ -33,3 +33,10 @@ msgstr "Primeiro nome"
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_lastname
 msgid "Lastname"
 msgstr "Último nome"
+
+#. module: hr_employee_firstname
+#: code:addons/hr_employee_firstname/models/hr_employee.py:35
+#: code:addons/hr_employee_firstname/models/hr_employee.py:91
+#, python-format
+msgid "No name set."
+msgstr ""
