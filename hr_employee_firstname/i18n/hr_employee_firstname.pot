@@ -28,3 +28,10 @@ msgstr ""
 msgid "Lastname"
 msgstr ""
 
+#. module: hr_employee_firstname
+#: code:addons/hr_employee_firstname/models/hr_employee.py:35
+#: code:addons/hr_employee_firstname/models/hr_employee.py:91
+#, python-format
+msgid "No name set."
+msgstr ""
+
