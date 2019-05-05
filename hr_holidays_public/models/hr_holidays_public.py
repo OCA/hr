@@ -191,3 +191,14 @@ class HrHolidaysPublicLine(models.Model):
             raise UserError(_('You can\'t create duplicate public holiday '
                               'per date %s.') % self.date)
         return True
+
+    @api.onchange('date')
+    def onchange_date(self):
+        if not self.variable_date:
+            self.date = False
+            return {'warning': {
+                'title': _('WARNING'),
+                'message': _(
+                    'The check that does not allow to change the date is '
+                    'enabled, the date cannot be changed for this line.'),
+            }}
