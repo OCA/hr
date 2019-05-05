@@ -199,6 +199,6 @@ class HrHolidaysPublicLine(models.Model):
             return {'warning': {
                 'title': _('WARNING'),
                 'message': _(
-                    'The check that does not allow change the date is '
+                    'The check that does not allow to change the date is '
                     'enabled, the date cannot be changed for this line.'),
             }}
