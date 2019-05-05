@@ -1,7 +1,9 @@
 # Copyright (C) 2014 Savoir-faire Linux. All Rights Reserved.
+# Copyright 2016-2019 Onestein (<https://www.onestein.eu>)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 import odoo
+from odoo.exceptions import ValidationError
 from odoo.tests.common import TransactionCase
 
 
@@ -121,3 +123,10 @@ class TestEmployeeFirstname(TransactionCase):
 
         self.assertEqual(self.empl_demo.firstname, 'Parker')
         self.assertEqual(self.empl_demo.lastname, 'Pieter')
+
+    def test_no_name(self):
+        self.employee_model.create({'firstname': 'test'})
+        self.employee_model.create({'lastname': 'test'})
+        self.employee_model.create({'name': 'test'})
+        with self.assertRaises(ValidationError):
+            self.employee_model.create({})
