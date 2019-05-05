@@ -35,8 +35,8 @@ msgid ""
 msgstr ""
 "Standardmäßig werden die aktuellsten Feiertage\n"
 "                            für jedes Land als Vorlage zum Erstellen\n"
-"                            der Feiertage der nachfolgenden Jahre verwendet."
-"\n"
+"                            der Feiertage der nachfolgenden Jahre "
+"verwendet.\n"
 "                            <br/><br/>\n"
 "                            Normalerweise muss im Reiter 'Optional' nichts "
 "weiter eingetragen, \n"
@@ -263,6 +263,14 @@ msgstr ""
 "verwendet werden.\""
 
 #. module: hr_holidays_public
+#: code:addons/hr_holidays_public/models/hr_holidays_public.py:201
+#, python-format
+msgid ""
+"The check that does not allow to change the date is enabled, the date cannot "
+"be changed for this line."
+msgstr ""
+
+#. module: hr_holidays_public
 #: model:ir.ui.view,arch_db:hr_holidays_public.holidays_public_next_year_wizard_view
 msgid ""
 "Use this wizard to create public holidays based on the\n"
@@ -283,6 +291,12 @@ msgstr ""
 "                            Beispiel: Wenn Sie die Vorlagen von 2012 und "
 "2015 für dasselbe Land \n"
 "                            hinzufügen, wird nur die von 2015 berücksichtigt."
+
+#. module: hr_holidays_public
+#: code:addons/hr_holidays_public/models/hr_holidays_public.py:200
+#, python-format
+msgid "WARNING"
+msgstr ""
 
 #. module: hr_holidays_public
 #: model:ir.model.fields,field_description:hr_holidays_public.field_public_holidays_next_year_wizard_year
