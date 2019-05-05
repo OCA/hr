@@ -213,6 +213,12 @@ msgid "The below optional fields are here only to handle\n"
 msgstr ""
 
 #. module: hr_holidays_public
+#: code:addons/hr_holidays_public/models/hr_holidays_public.py:201
+#, python-format
+msgid "The check that does not allow to change the date is enabled, the date cannot be changed for this line."
+msgstr ""
+
+#. module: hr_holidays_public
 #: model:ir.ui.view,arch_db:hr_holidays_public.holidays_public_next_year_wizard_view
 msgid "Use this wizard to create public holidays based on the\n"
 "                            existing ones.<br/>\n"
@@ -221,6 +227,12 @@ msgid "Use this wizard to create public holidays based on the\n"
 "                            from 2012 and 2015 of the same country; '\n"
 "                            only the templates from 2015 will be taken into\n"
 "                            account)."
+msgstr ""
+
+#. module: hr_holidays_public
+#: code:addons/hr_holidays_public/models/hr_holidays_public.py:200
+#, python-format
+msgid "WARNING"
 msgstr ""
 
 #. module: hr_holidays_public
