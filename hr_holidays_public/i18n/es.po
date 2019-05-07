@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-03 03:37+0000\n"
-"PO-Revision-Date: 2019-05-03 13:03+0000\n"
-"Last-Translator: Enric Tobella <etobella@creublanca.es>\n"
+"PO-Revision-Date: 2019-05-07 10:03+0000\n"
+"Last-Translator: Jaime Arroyo <jaime.arroyo@creublanca.es>\n"
 "Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -54,14 +54,14 @@ msgstr "País"
 #. module: hr_holidays_public
 #: model:ir.ui.view,arch_db:hr_holidays_public.holidays_public_next_year_wizard_view
 msgid "Create"
-msgstr ""
+msgstr "Crear"
 
 #. module: hr_holidays_public
 #: model:ir.actions.act_window,name:hr_holidays_public.action_create_next_year_public_holidays
 #: model:ir.ui.menu,name:hr_holidays_public.menu_create_next_year_public_holidays
 #: model:ir.ui.view,arch_db:hr_holidays_public.holidays_public_next_year_wizard_view
 msgid "Create Next Year Public Holidays"
-msgstr ""
+msgstr "Crear Próximo Calendario de Vacaciones Públicas"
 
 #. module: hr_holidays_public
 #: model:ir.model.fields,field_description:hr_holidays_public.field_hr_holidays_public_create_uid
@@ -80,7 +80,7 @@ msgstr "Creado el"
 #. module: hr_holidays_public
 #: model:ir.model,name:hr_holidays_public.model_public_holidays_next_year_wizard
 msgid "Creates public holidays from existing ones"
-msgstr ""
+msgstr "Crea vacaciones públicas a partir de las existentes"
 
 #. module: hr_holidays_public
 #: model:ir.model.fields,field_description:hr_holidays_public.field_hr_holidays_public_line_date
@@ -105,7 +105,7 @@ msgstr ""
 #. module: hr_holidays_public
 #: model:ir.ui.view,arch_db:hr_holidays_public.holidays_public_next_year_wizard_view
 msgid "Defaults"
-msgstr ""
+msgstr "Por defecto"
 
 #. module: hr_holidays_public
 #: model:ir.model.fields,field_description:hr_holidays_public.field_hr_holidays_public_line_display_name
@@ -134,6 +134,8 @@ msgstr "ID"
 #: model:ir.model.fields,help:hr_holidays_public.field_hr_holidays_status_exclude_public_holidays
 msgid "If enabled, public holidays are skipped in leave days calculation."
 msgstr ""
+"Si está activado, las vacaciones públicas no se tienen en cuenta en el "
+"cálculo de Ausencias."
 
 #. module: hr_holidays_public
 #: model:ir.model.fields,field_description:hr_holidays_public.field_hr_holidays_public___last_update
@@ -159,12 +161,12 @@ msgstr "Última actualización en"
 #. module: hr_holidays_public
 #: model:ir.model,name:hr_holidays_public.model_hr_holidays
 msgid "Leave"
-msgstr ""
+msgstr "Ausencia"
 
 #. module: hr_holidays_public
 #: model:ir.model,name:hr_holidays_public.model_hr_holidays_status
 msgid "Leave Type"
-msgstr ""
+msgstr "Tipo de Ausencia"
 
 #. module: hr_holidays_public
 #: model:ir.model.fields,field_description:hr_holidays_public.field_hr_holidays_public_display_name
@@ -179,11 +181,13 @@ msgid ""
 "No Public Holidays found as template. Please create the first Public "
 "Holidays manually."
 msgstr ""
+"No se encuentra plantilla de Vacaciones Públicas. Por favor, crea el primer "
+"calendario de Vacaciones Públicas manualmente."
 
 #. module: hr_holidays_public
 #: model:ir.ui.view,arch_db:hr_holidays_public.holidays_public_next_year_wizard_view
 msgid "Optional"
-msgstr ""
+msgstr "Opcional"
 
 #. module: hr_holidays_public
 #: model:ir.actions.act_window,name:hr_holidays_public.open_holidays_public_view
@@ -222,7 +226,7 @@ msgstr ""
 #. module: hr_holidays_public
 #: model:ir.model.fields,field_description:hr_holidays_public.field_public_holidays_next_year_wizard_template_ids
 msgid "Templates"
-msgstr ""
+msgstr "Plantillas"
 
 #. module: hr_holidays_public
 #: model:ir.ui.view,arch_db:hr_holidays_public.holidays_public_next_year_wizard_view
@@ -261,12 +265,12 @@ msgstr ""
 #: code:addons/hr_holidays_public/models/hr_holidays_public.py:200
 #, python-format
 msgid "WARNING"
-msgstr ""
+msgstr "AVISO"
 
 #. module: hr_holidays_public
 #: model:ir.model.fields,field_description:hr_holidays_public.field_public_holidays_next_year_wizard_year
 msgid "Year"
-msgstr ""
+msgstr "Año"
 
 #. module: hr_holidays_public
 #: model:ir.model.fields,help:hr_holidays_public.field_public_holidays_next_year_wizard_year
