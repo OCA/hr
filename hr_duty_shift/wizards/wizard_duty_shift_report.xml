@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2019 Creu Blanca
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+    <record model="ir.ui.view" id="wizard_duty_shift_form_view">
+        <field name="name">wizard.duty_shift.report.form (in hr_duty_shift)</field>
+        <field name="model">wizard.duty_shift.report</field>
+        <field name="arch" type="xml">
+            <form string="Duty Shifts Report">
+                <group>
+                    <group>
+                        <field name="date_from"/>
+                    </group>
+                    <group>
+                        <field name="date_to"/>
+                    </group>
+                </group>
+                <footer>
+                    <button name="print_report"
+                            string="Print"
+                            class="btn-primary"
+                            type="object"/>
+                    <button string="Cancel"
+                            class="btn-default"
+                            special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="wizard_duty_shift_act_window">
+        <field name="name">Duty Shifts Report</field>
+        <field name="res_model">wizard.duty_shift.report</field>
+        <field name="view_mode">form</field>
+        <field name="context">{}</field>
+        <field name="target">new</field>
+    </record>
+
+
+    <record model="ir.ui.menu" id="wizard_duty_shift_menu">
+        <field name="name">Duty Shifts Report</field>
+        <field name="parent_id" ref="hr_duty_shift_menu"/>
+        <field name="action" ref="wizard_duty_shift_act_window"/>
+        <field name="groups_id" eval="[(6, 0, [ref('hr.group_hr_manager')])]"/>
+        <field name="sequence" eval="16"/>
+    </record>
+</odoo>

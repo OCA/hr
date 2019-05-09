@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2019 Creu Blanca
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+    <record model="ir.ui.view" id="hr_employee_form_view">
+        <field name="name">hr.employee.form (in hr_duty_shift)</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button name="%(hr_duty_shift.hr_duty_shift_employee_act_window)s"
+                        type="action" groups="hr.group_hr_user"
+                        class="oe_stat_button" icon="fa-hourglass-half" string="Shifts"
+                        context="{'default_employee_id': active_id}"
+                />
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2019 Creu Blanca
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+    <record model="ir.ui.view" id="hr_duty_shift_form_view">
+        <field name="name">hr.duty.shift.form (in hr_duty_shift)</field>
+        <field name="model">hr.duty.shift</field>
+        <field name="arch" type="xml">
+            <form>
+                <header/>
+                <sheet>
+                    <div name="button_box" class="oe_button_box"/>
+                    <group>
+                        <field name="employee_id" groups="hr.group_hr_user"/>
+                        <label for="start_date" string="Dates"/>
+                        <div>
+                            <div>
+                                <field name="start_date" class="oe_inline"/>
+                                <label string="-" class="oe_inline"/>
+                                <field name="end_date" class="oe_inline"/>
+                            </div>
+                        </div>
+                        <field name="is_paid"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="hr_duty_shift_search_view">
+        <field name="name">hr.duty.shift.search (in hr_duty_shift)</field>
+        <field name="model">hr.duty.shift</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="employee_id"/>
+                <field name="is_paid"/>
+            </search>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="hr_duty_shift_tree_view">
+        <field name="name">hr.duty.shift.tree (in hr_duty_shift)</field>
+        <field name="model">hr.duty.shift</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="employee_id" groups="hr.group_hr_user"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+                <field name="is_paid"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="hr_duty_shift_act_window">
+        <field name="name">Duty Shift</field>
+        <field name="res_model">hr.duty.shift</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="hr_duty_shift_employee_act_window">
+        <field name="name">Duty Shifts</field>
+        <field name="res_model">hr.duty.shift</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('employee_id', '=', active_id)]</field>
+        <field name="context">{'default_employee_id': active_id}</field>
+    </record>
+
+    <record model="ir.ui.menu" id="hr_duty_shift_menu">
+        <field name="name">Duty Shifts</field>
+        <field name="parent_id" ref="hr_attendance.menu_hr_attendance_root"/>
+        <field name="sequence" eval="29"/>
+    </record>
+
+    <record model="ir.ui.menu" id="view_hr_duty_shift_menu">
+        <field name="name">View and Create Duty Shifts</field>
+        <field name="parent_id" ref="hr_duty_shift_menu"/>
+        <field name="groups_id" eval="[(6, 0, [ref('hr.group_hr_user')])]"/>
+        <field name="action" ref="hr_duty_shift_act_window"/>
+        <field name="sequence" eval="10"/>
+    </record>
+
+</odoo>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <report
+            id="action_report_duty_shift"
+            string="Duty Shift"
+            model="wizard.duty_shift.report"
+            report_type="qweb-pdf"
+            name="hr_duty_shift.report_duty_shift"
+            menu="False"/>
+
+    <template id="report_duty_shift">
+        <t t-call="web.html_container">
+            <t t-call="web.internal_layout">
+                <div class="page">
+                    <h3 class="mb32">Duty Shift Report</h3>
+                    <h3 class="text-center mb32">
+                        <strong>From</strong>:
+                        <t t-esc="date_from"/>
+                        <strong>To</strong>:
+                        <t t-esc="date_to"/>
+                    </h3>
+                    <table class="table table-bordered mb32"
+                           style="table-layout:auto">
+                        <thead>
+                            <tr>
+                                <th>Employee</th>
+                                <th>Total Number of Hours</th>
+                                <th>Extra Paid Number of Hours</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="values" t-as="employee">
+                                <tr>
+                                    <td>
+                                        <t t-esc="employee[0]"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="employee[1]"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="employee[2]"/>
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>
