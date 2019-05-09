@@ -232,9 +232,10 @@ class HrEmployee(models.Model):
             employee.penultimate_period_lost_hours = \
                 employee.previous_period_lost_hours
             employee.previous_period_continuous_cap = \
-                employee.extra_hours_extra_hours_continuous_cap
+                employee.extra_hours_continuous_cap
 
             new_balance = employee.balance
+
             new_lost = employee.previous_period_lost_hours
             if not employee.extra_hours_continuous_cap:
                 new_balance = min(config.get_max_extra_hours(), new_balance)

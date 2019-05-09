@@ -42,6 +42,10 @@ def migrate(env, version):
 
     cr.execute("ALTER TABLE hr_employee "
                "DROP COLUMN  yearly_hours_lost")
+    # The previous for loop set the employee.balance to zero. After multiple
+    # hours of debugging, we were not able to find the root cause of the bug.
+    # Calling _compute_balance again is a work around.
+    employees._compute_balance()
 
 
 
