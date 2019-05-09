@@ -36,7 +36,7 @@ class ResourceCalendar(models.Model):
                 is_dst=False
             ).astimezone(pytz.UTC).replace(tzinfo=None)
             shifts = self.env['hr.duty.shift'].search(
-                self.get_duty_shift_domain(datetime_start,datetime_end))
+                self.get_duty_shift_domain(datetime_start, datetime_end))
             for shift in shifts:
                 dt_f = max(
                     datetime_start,
