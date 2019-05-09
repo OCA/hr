@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="hr_leave_report_tree" model="ir.ui.view">
+        <field name="model">hr.leave.report</field>
+        <field name="inherit_id" ref="hr_holidays.hr_leave_report_tree" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='number_of_days']" position="after">
+                <field name="number_of_hours" sum="Remaining Hours"/>
+            </xpath>
+            <xpath expr="//field[@name='number_of_days']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

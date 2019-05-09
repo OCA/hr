@@ -25,67 +25,40 @@ Leave Management in hours
 
 |badge1| |badge2| |badge3| |badge4| |badge5| 
 
-The standard Odoo application "Leave Management" allows employees to create
-leave allocations and requests by defining their duration in days.
-
-By installing this module, the duration of the leaves will be expressed in hours,
-instead of days. In the leave form, a new field "duration" (in hours) will be displayed
-and the original field "duration" (in days) will be hidden.
-
-As an example, let's say that a working day for an employee is 8 hours:
-
-* 1 day = 8 hours
-* 2 days = 16 hours
-* 0.5 days (half day) = 4 hours
-* 0.125 days = 1 hour
-
-etc...
-
-If the employee wants to request a leave of one hour:
-
-* with the standard Odoo app "Leave Management" the employee would write 0.125 days
-* with module "hr_holidays_hour" installed, the employee writes 1.0 hour
-
-If the employee wants to request half a day:
-
-* with the standard Odoo app "Leave Management" the employee would write 0.5 days
-* with module "hr_holidays_hour" installed, the employee writes 4.0 hours
+The standard Odoo application "Leaves" allows end users to create
+leave allocations and leave requests with duration expressed in days or in
+hours, depending on the configuration set in the leave types.
+However in the leave summary report, in the employee form and in some other
+places, the duration is displayed in days regardless of the configuration of
+the leave type.
+This is confusing for the customers that are used to manage leaves in hours.
 
 
-In case a working time schedule is defined for an employee, the duration (in hours) will be
-automatically filled while setting the starting date and the ending date of a leave request.
+By installing this module, the duration will be displayed in hours in the following views:
+
+- Leaves Summary
+- Leaves Left (smart button in Employee form)
+- Remaining Legal Leaves (field in Employee form)
 
 **Table of contents**
 
 .. contents::
    :local:
 
-Usage
-=====
+Installation
+============
 
-To request a leave, an employee can:
+This module requires a recent version of Odoo 12.0, released after 09-05-2019 (after
+commit https://github.com/odoo/odoo/commit/2c366acbf01664c4f8d3230d402aa5f2fb46e078).
 
-#. From menu Leaves, create a Leave Request by setting the duration in hours (instead of days)
+Also it is suggested (but not mandatory) a version of Odoo 12.0 that includes
+https://github.com/odoo/odoo/pull/33290
 
-To allocate hours for an employee:
+Configuration
+=============
 
-#. From menu Leaves, create an Allocation Request by setting the duration in hours (instead of days)
-
-To fully benefit from this module, the HR Officer should set a working time schedule for the employees.
-The duration (in hours) will be automatically filled while setting the start and the end date of a leave.
-In thi cas, the employee requesting a leave is still able to adjust the hours manually.
-
-To set a working schedule for an employee:
-
-#. From menu Employees -> Employees, select one employee
-#. Set the "Working Time" field
-
-If the "Working Time" is not set for the employee, but the employee has a contract with
-a working schedule, the duration (in hours) will be automatically filled as well.
-
-#. From menu Employees -> Employees, select one employee
-#. Click on Contracts and select the employee's actual contract
-#. Set the "Working Schedule" field
+For a better usage of this module, it is suggested (but not mandatory) to set field
+'Take Leaves in' to 'Hour' in all the 'Leave Types'.
 
 Bug Tracker
 ===========
@@ -110,11 +83,6 @@ Contributors
 
 * Antonio Esposito <a.esposito@onestein.nl>
 * Andrea Stirpe <a.stirpe@onestein.nl>
-
-Other credits
-~~~~~~~~~~~~~
-
-Tests for `resource_calendar` are repeated from the Odoo SA standard module `resource`.
 
 Maintainers
 ~~~~~~~~~~~
