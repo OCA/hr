@@ -23,6 +23,9 @@ class HrDutyShift(models.Model):
         store=True,
     )
 
+    # TODO: When a duty shift is created for an employee it should create
+    # warning on leaves
+
     @api.depends('employee_id', 'start_date')
     def _compute_display_name(self):
         for r in self:

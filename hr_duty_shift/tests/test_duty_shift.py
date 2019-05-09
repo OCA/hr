@@ -27,7 +27,7 @@ class TestDutyShift(TransactionCase):
                     'country_id': self.env.ref('base.sl').id
                 }
             ).id
-        })
+        })  # This employee works 8 hours every monday
         today = fields.Date.from_string(fields.Date.today())
         self.date = today + timedelta(days=-today.weekday())
         self.start_date = datetime.combine(self.date, datetime.min.time())
@@ -53,6 +53,7 @@ class TestDutyShift(TransactionCase):
         ).get_work_days_data(
             self.start_date, self.start_date + timedelta(days=1))
         self.assertEqual(8, result['hours'])
+        # Without duties we expect to work 8 hours
         self.create_shift()
         result = self.employee.with_context(
             employee_id=self.employee.id,
@@ -60,6 +61,7 @@ class TestDutyShift(TransactionCase):
         ).get_work_days_data(
             self.start_date, self.start_date + timedelta(days=1))
         self.assertEqual(11, result['hours'])
+        # With the duty we expect to work 11 hours ( 8 + 3 )
 
     def test_resource_holiday(self):
         result = self.employee.with_context(
@@ -68,6 +70,7 @@ class TestDutyShift(TransactionCase):
         ).get_work_days_data(
             self.start_date, self.start_date + timedelta(days=1))
         self.assertEqual(8, result['hours'])
+        # Without a holiday we expect to work 8 hours
         self.env['hr.holidays.public'].create({
             'line_ids': [(0, 0, {
                 'name': 'holiday',
@@ -80,6 +83,7 @@ class TestDutyShift(TransactionCase):
         ).get_work_days_data(
             self.start_date, self.start_date + timedelta(days=1))
         self.assertEqual(0, result['hours'])
+        # With a holiday we expect to work 0 hours
         self.create_shift()
         result = self.employee.with_context(
             employee_id=self.employee.id,
@@ -87,3 +91,5 @@ class TestDutyShift(TransactionCase):
         ).get_work_days_data(
             self.start_date, self.start_date + timedelta(days=1))
         self.assertEqual(3, result['hours'])
+        # With the duty we expect to work 3 hours, as it ignores public
+        # holidays
