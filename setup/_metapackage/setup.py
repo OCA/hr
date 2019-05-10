@@ -23,6 +23,7 @@ setuptools.setup(
         'odoo12-addon-hr_employee_service_contract',
         'odoo12-addon-hr_employee_social_media',
         'odoo12-addon-hr_employee_ssn',
+        'odoo12-addon-hr_expense_invoice',
         'odoo12-addon-hr_experience',
         'odoo12-addon-hr_holidays_credit',
         'odoo12-addon-hr_holidays_leave_auto_approve',
