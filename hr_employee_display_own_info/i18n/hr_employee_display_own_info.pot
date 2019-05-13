@@ -19,7 +19,7 @@ msgid "Employee"
 msgstr ""
 
 #. module: hr_employee_display_own_info
-#: model:ir.model.fields,field_description:hr_employee_display_own_info.field_hr_employee__employee_display_personal_data
+#: model:ir.model.fields,field_description:hr_employee_display_own_info.field_hr_employee_employee_display_personal_data
 msgid "Employee Display Personal Data"
 msgstr ""
 
