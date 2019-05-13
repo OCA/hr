@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_employee_form" model="ir.ui.view">
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='user_id']" position="after">
+                <field name="employee_display_personal_data" invisible="1"/>
+            </xpath>
+            <xpath expr="//page[@name='personal_information']" position="attributes">
+                <attribute name="attrs">{'invisible': [('employee_display_personal_data', '!=', True)]}</attribute>
+                <attribute name="groups"></attribute>
+            </xpath>
+            <xpath expr="//page[@name='hr_settings']" position="attributes">
+                <attribute name="attrs">{'invisible': [('employee_display_personal_data', '!=', True)]}</attribute>
+                <attribute name="groups"></attribute>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
