@@ -19,6 +19,7 @@ setuptools.setup(
         'odoo11-addon-hr_employee_firstname',
         'odoo11-addon-hr_employee_id',
         'odoo11-addon-hr_employee_phone_extension',
+        'odoo11-addon-hr_employee_seniority',
         'odoo11-addon-hr_expense_analytic_tag',
         'odoo11-addon-hr_expense_cancel',
         'odoo11-addon-hr_expense_invoice',
