@@ -26,8 +26,11 @@ class ResourceCalendar(models.Model):
             for line in lines:
                 date = fields.Datetime.from_string(line.date)
                 leaves.append(
-                    (datetime.datetime.combine(date, datetime.time.min),
-                     datetime.datetime.combine(date, datetime.time.max)),
+                    self._interval_new(
+                        datetime.datetime.combine(date, datetime.time.min),
+                        datetime.datetime.combine(date, datetime.time.max),
+                        {'holidays': line}
+                    ),
                 )
         return leaves
 
