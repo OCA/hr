@@ -25,6 +25,7 @@ setuptools.setup(
         'odoo12-addon-hr_employee_ssn',
         'odoo12-addon-hr_expense_invoice',
         'odoo12-addon-hr_experience',
+        'odoo12-addon-hr_holidays_accrual_advanced',
         'odoo12-addon-hr_holidays_credit',
         'odoo12-addon-hr_holidays_leave_auto_approve',
         'odoo12-addon-hr_holidays_leave_repeated',
