@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--
+      Copyright 2018-2019 Brainbean Apps (https://brainbeanapps.com)
+      License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
+    -->
+
+    <record id="hr_leave_allocation_accrual_calculator" model="ir.ui.view">
+        <field name="name">hr_leave_allocation_accrual_calculator</field>
+        <field name="model">hr.leave.allocation.accrual.calculator</field>
+        <field name="arch" type="xml">
+            <form string="Accrual Leave Allocation Balance Calculator">
+                <group>
+                    <span nolabel="1">
+                        This wizard will calculate leave allocation balance as of date selected.
+                    </span>
+                </group>
+                <group>
+                    <group>
+                        <field name="date"/>
+                    </group>
+                </group>
+                <group>
+                    <group>
+                        <label for="accrued"/>
+                        <div>
+                            <field name="accrued" nolabel="1"/>
+                            <span class="ml8">day(s)</span>
+                        </div>
+                    </group>
+                    <group>
+                        <label for="balance"/>
+                        <div>
+                            <field name="balance" nolabel="1"/>
+                            <span class="ml8">day(s)</span>
+                        </div>
+                    </group>
+                </group>
+                <group string="Accruements">
+                    <field name="accruement_ids" nolabel="1"/>
+                </group>
+                <footer>
+                    <button string="Cancel" class="btn btn-default" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="hr_leave_allocation_accrual_calculator_accruement_view_form" model="ir.ui.view">
+        <field name="name">hr.leave.allocation.accrual.calculator.accruement.view.form</field>
+        <field name="model">hr.leave.allocation.accrual.calculator.accruement</field>
+        <field name="arch" type="xml">
+            <form string="Accruement" create="false" edit="false">
+                <group>
+                    <field name="calculator_id" invisible="1"/>
+                    <field name="days_accrued"/>
+                    <field name="accrued_on"/>
+                    <field name="reason"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="hr_leave_allocation_accrual_calculator_accruement_view_tree" model="ir.ui.view">
+        <field name="name">hr.leave.allocation.accrual.calculator.accruement.view.tree</field>
+        <field name="model">hr.leave.allocation.accrual.calculator.accruement</field>
+        <field name="arch" type="xml">
+            <tree string="Accruements" create="false" edit="false" delete="false">
+                <field name="calculator_id" invisible="1"/>
+                <field name="days_accrued" sum="Balance"/>
+                <field name="accrued_on"/>
+                <field name="reason"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_hr_leave_allocation_as_of_date" model="ir.actions.act_window">
+        <field name="name">Accrual Balance Calculator</field>
+        <field name="res_model">hr.leave.allocation.accrual.calculator</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="hr_leave_allocation_accrual_calculator"/>
+        <field name="target">new</field>
+    </record>
+
+    <record id="hr_leave_allocation_accruement_rule_manager" model="ir.rule">
+        <field name="name">Allocation Accruements: manager: no limit</field>
+        <field name="model_id" ref="model_hr_leave_allocation_accruement"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="groups" eval="[(4, ref('hr_holidays.group_hr_holidays_manager'))]"/>
+    </record>
+
+</odoo>

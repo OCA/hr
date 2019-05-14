@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    Copyright 2018-2019 Brainbean Apps (https://brainbeanapps.com)
+    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
+-->
+<odoo>
+
+    <record id="hr_leave_allocation_accruement_view_form" model="ir.ui.view">
+        <field name="name">hr.leave.allocation.accruement.view.form</field>
+        <field name="model">hr.leave.allocation.accruement</field>
+        <field name="arch" type="xml">
+            <form string="Accruement" create="false" edit="false">
+                <group>
+                    <field name="leave_allocation_id" invisible="1"/>
+                    <field name="days_accrued"/>
+                    <field name="accrued_on"/>
+                    <field name="reason"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="hr_leave_allocation_accruement_view_tree" model="ir.ui.view">
+        <field name="name">hr.leave.allocation.accruement.view.tree</field>
+        <field name="model">hr.leave.allocation.accruement</field>
+        <field name="arch" type="xml">
+            <tree string="Accruements" create="false" edit="false" delete="false">
+                <field name="leave_allocation_id" invisible="1"/>
+                <field name="days_accrued" sum="Balance"/>
+                <field name="accrued_on"/>
+                <field name="reason"/>
+            </tree>
+        </field>
+    </record>
+
+</odoo>
