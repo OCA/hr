@@ -1,0 +1,422 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* hr_holidays_accrual_advanced
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hr_holidays_accrual_advanced
+#: model_terms:ir.ui.view,arch_db:hr_holidays_accrual_advanced.hr_leave_allocation_accrual_calculator
+msgid "<span class=\"ml8\">day(s)</span>"
+msgstr ""
+
+#. module: hr_holidays_accrual_advanced
+#: model_terms:ir.ui.view,arch_db:hr_holidays_accrual_advanced.hr_leave_allocation_accrual_calculator
+msgid "<span nolabel=\"1\">\n"
+"                        This wizard will calculate leave allocation balance as of date selected.\n"
+"                    </span>"
+msgstr ""
+
+#. module: hr_holidays_accrual_advanced
+#: model:ir.actions.act_window,name:hr_holidays_accrual_advanced.action_hr_leave_allocation_as_of_date
+msgid "Accrual Balance Calculator"
+msgstr ""
+
+#. module: hr_holidays_accrual_advanced
+#: model_terms:ir.ui.view,arch_db:hr_holidays_accrual_advanced.hr_leave_allocation_accrual_calculator
+msgid "Accrual Leave Allocation Balance Calculator"
+msgstr ""
+
+#. module: hr_holidays_accrual_advanced
+#: model:ir.model.fields,field_description:hr_holidays_accrual_advanced.field_hr_leave_allocation__accrual_method
+msgid "Accrual Method"
+msgstr ""
+
+#. module: hr_holidays_accrual_advanced
+#: model:ir.model.fields,field_description:hr_holidays_accrual_advanced.field_hr_leave_allocation__interval_number
+msgid "Accrual Period Duration"
+msgstr ""
+
+#. module: hr_holidays_accrual_advanced
+#: model:ir.model.fields,field_description:hr_holidays_accrual_advanced.field_hr_leave_allocation__interval_unit
+msgid "Accrual Period Unit"
+msgstr ""
+
+#. module: hr_holidays_accrual_advanced
+#: model:ir.model.fields,field_description:hr_holidays_accrual_advanced.field_hr_leave_allocation_accrual_calculator__accrued
+msgid "Accrued"
+msgstr ""
+
+#. module: hr_holidays_accrual_advanced
+#: model_terms:ir.ui.view,arch_db:hr_holidays_accrual_advanced.hr_leave_allocation_accrual_calculator_accruement_view_form
+#: model_terms:ir.ui.view,arch_db:hr_holidays_accrual_advanced.hr_leave_allocation_accruement_view_form
+msgid "Accruement"
+msgstr ""
+
+#. module: hr_holidays_accrual_advanced
+#: model:ir.model.fields,field_description:hr_holidays_accrual_advanced.field_hr_leave_allocation_accrual_calculator_accruement__accrued_on
+#: model:ir.model.fields,field_description:hr_holidays_accrual_advanced.field_hr_leave_allocation_accruement__accrued_on
+msgid "Accruement Date"
+msgstr ""
+
+#. module: hr_holidays_accrual_advanced
+#: model:ir.model.fields,field_description:hr_holidays_accrual_advanced.field_hr_leave_allocation__accruement_ids
+#: model:ir.model.fields,field_description:hr_holidays_accrual_advanced.field_hr_leave_allocation_accrual_calculator__accruement_ids
+#: model_terms:ir.ui.view,arch_db:hr_holidays_accrual_advanced.hr_leave_allocation_accrual_calculator
+#: model_terms:ir.ui.view,arch_db:hr_holidays_accrual_advanced.hr_leave_allocation_accrual_calculator_accruement_view_tree
+#: model_terms:ir.ui.view,arch_db:hr_holidays_accrual_advanced.hr_leave_allocation_accruement_view_tree
+#: model_terms:ir.ui.view,arch_db:hr_holidays_accrual_advanced.hr_leave_allocation_view_form
+msgid "Accruements"
+msgstr ""
+
+#. module: hr_holidays_accrual_advanced
+#: model:ir.model.fields,field_description:hr_holidays_accrual_advanced.field_hr_leave_allocation__unit_per_interval
+msgid "Allocation Unit"
+msgstr ""
+
+#. module: hr_holidays_accrual_advanced
+#: model:ir.model.fields,help:hr_holidays_accrual_advanced.field_hr_leave_allocation__number_per_interval
+msgid "Allocation accrued per Accrual Period, measured in Allocation Units"
+msgstr ""
+
+#. module: hr_holidays_accrual_advanced
+#: model:ir.model.fields,field_description:hr_holidays_accrual_advanced.field_hr_leave_allocation__number_per_interval
+msgid "Allocation per Accrual Period"
+msgstr ""
+
+#. module: hr_holidays_accrual_advanced
+#: selection:hr.leave.allocation,accrual_method:0
+msgid "At the beginning of the period"
+msgstr ""
+
+#. module: hr_holidays_accrual_advanced
+#: selection:hr.leave.allocation,accrual_method:0
+msgid "At the end of the period"
+msgstr ""
+
+#. module: hr_holidays_accrual_advanced
+#: model:ir.model.fields,field_description:hr_holidays_accrual_advanced.field_hr_leave_allocation_accrual_calculator__balance
+#: model_terms:ir.ui.view,arch_db:hr_holidays_accrual_advanced.hr_leave_allocation_accrual_calculator_accruement_view_tree
+#: model_terms:ir.ui.view,arch_db:hr_holidays_accrual_advanced.hr_leave_allocation_accruement_view_tree
+msgid "Balance"
+msgstr ""
+
+#. module: hr_holidays_accrual_advanced
+#: model:ir.model.fields,field_description:hr_holidays_accrual_advanced.field_hr_leave_allocation__accrual_limit
+msgid "Balance limit"
+msgstr ""
+
+#. module: hr_holidays_accrual_advanced
+#: model_terms:ir.ui.view,arch_db:hr_holidays_accrual_advanced.hr_leave_allocation_view_form
+msgid "Calculate as of Date"
+msgstr ""
+
+#. module: hr_holidays_accrual_advanced
+#: model:ir.model.fields,field_description:hr_holidays_accrual_advanced.field_hr_leave_allocation_accrual_calculator_accruement__calculator_id
+msgid "Calculator"
+msgstr ""
+
+#. module: hr_holidays_accrual_advanced
+#: model_terms:ir.ui.view,arch_db:hr_holidays_accrual_advanced.hr_leave_allocation_accrual_calculator
+msgid "Cancel"
+msgstr ""
+
+#. module: hr_holidays_accrual_advanced
+#: model:ir.model.fields,field_description:hr_holidays_accrual_advanced.field_hr_leave_allocation_accrual_calculator__create_uid
+#: model:ir.model.fields,field_description:hr_holidays_accrual_advanced.field_hr_leave_allocation_accrual_calculator_accruement__create_uid
+#: model:ir.model.fields,field_description:hr_holidays_accrual_advanced.field_hr_leave_allocation_accruement__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: hr_holidays_accrual_advanced
+#: model:ir.model.fields,field_description:hr_holidays_accrual_advanced.field_hr_leave_allocation_accrual_calculator__create_date
+#: model:ir.model.fields,field_description:hr_holidays_accrual_advanced.field_hr_leave_allocation_accrual_calculator_accruement__create_date
+#: model:ir.model.fields,field_description:hr_holidays_accrual_advanced.field_hr_leave_allocation_accruement__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: hr_holidays_accrual_advanced
+#: model:ir.model.fields,field_description:hr_holidays_accrual_advanced.field_hr_leave_allocation_accrual_calculator__date
+msgid "Date"
+msgstr ""
+
+#. module: hr_holidays_accrual_advanced
+#: selection:hr.leave.allocation,unit_per_interval:0
+msgid "Day(s)"
+msgstr ""
+
+#. module: hr_holidays_accrual_advanced
+#: model:ir.model.fields,field_description:hr_holidays_accrual_advanced.field_hr_leave_allocation_accrual_calculator__display_name
+#: model:ir.model.fields,field_description:hr_holidays_accrual_advanced.field_hr_leave_allocation_accrual_calculator_accruement__display_name
+#: model:ir.model.fields,field_description:hr_holidays_accrual_advanced.field_hr_leave_allocation_accruement__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: hr_holidays_accrual_advanced
+#: model:ir.model.fields,help:hr_holidays_accrual_advanced.field_hr_leave_allocation__interval_number
+msgid "Duration of a single accrual period, measured in Accrual Period Units"
+msgstr ""
+
+#. module: hr_holidays_accrual_advanced
+#: code:addons/hr_holidays_accrual_advanced/models/hr_leave_allocation.py:612
+#, python-format
+msgid "End-of-period accruement"
+msgstr ""
+
+#. module: hr_holidays_accrual_advanced
+#: model:ir.model,name:hr_holidays_accrual_advanced.model_hr_leave_allocation_accrual_calculator
+msgid "HR Leave Allocation Accrual Calculator"
+msgstr ""
+
+#. module: hr_holidays_accrual_advanced
+#: model:ir.model,name:hr_holidays_accrual_advanced.model_hr_leave_allocation_accrual_calculator_accruement
+msgid "HR Leave Allocation Accrual Calculator Accruement"
+msgstr ""
+
+#. module: hr_holidays_accrual_advanced
+#: selection:hr.leave.allocation,unit_per_interval:0
+msgid "Hour(s)"
+msgstr ""
+
+#. module: hr_holidays_accrual_advanced
+#: model:ir.model.fields,field_description:hr_holidays_accrual_advanced.field_hr_leave_allocation_accrual_calculator__id
+#: model:ir.model.fields,field_description:hr_holidays_accrual_advanced.field_hr_leave_allocation_accrual_calculator_accruement__id
+#: model:ir.model.fields,field_description:hr_holidays_accrual_advanced.field_hr_leave_allocation_accruement__id
+msgid "ID"
+msgstr ""
+
+#. module: hr_holidays_accrual_advanced
+#: model:ir.model.fields,field_description:hr_holidays_accrual_advanced.field_hr_leave__unpaid
+#: model:ir.model.fields,field_description:hr_holidays_accrual_advanced.field_resource_calendar_leaves__unpaid
+msgid "Is Unpaid"
+msgstr ""
+
+#. module: hr_holidays_accrual_advanced
+#: model:ir.model.fields,field_description:hr_holidays_accrual_advanced.field_hr_leave__time_type
+msgid "Kind of Leave"
+msgstr ""
+
+#. module: hr_holidays_accrual_advanced
+#: model:ir.model.fields,field_description:hr_holidays_accrual_advanced.field_hr_leave_allocation_accrual_calculator____last_update
+#: model:ir.model.fields,field_description:hr_holidays_accrual_advanced.field_hr_leave_allocation_accrual_calculator_accruement____last_update
+#: model:ir.model.fields,field_description:hr_holidays_accrual_advanced.field_hr_leave_allocation_accruement____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: hr_holidays_accrual_advanced
+#: model:ir.model.fields,field_description:hr_holidays_accrual_advanced.field_hr_leave_allocation_accrual_calculator__write_uid
+#: model:ir.model.fields,field_description:hr_holidays_accrual_advanced.field_hr_leave_allocation_accrual_calculator_accruement__write_uid
+#: model:ir.model.fields,field_description:hr_holidays_accrual_advanced.field_hr_leave_allocation_accruement__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: hr_holidays_accrual_advanced
+#: model:ir.model.fields,field_description:hr_holidays_accrual_advanced.field_hr_leave_allocation_accrual_calculator__write_date
+#: model:ir.model.fields,field_description:hr_holidays_accrual_advanced.field_hr_leave_allocation_accrual_calculator_accruement__write_date
+#: model:ir.model.fields,field_description:hr_holidays_accrual_advanced.field_hr_leave_allocation_accruement__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: hr_holidays_accrual_advanced
+#: model:ir.model,name:hr_holidays_accrual_advanced.model_hr_leave
+msgid "Leave"
+msgstr ""
+
+#. module: hr_holidays_accrual_advanced
+#: model:ir.model.fields,field_description:hr_holidays_accrual_advanced.field_hr_leave_allocation_accruement__leave_allocation_id
+msgid "Leave Allocation"
+msgstr ""
+
+#. module: hr_holidays_accrual_advanced
+#: model:ir.model.fields,field_description:hr_holidays_accrual_advanced.field_resource_calendar_leaves__holiday_status_id
+msgid "Leave Type"
+msgstr ""
+
+#. module: hr_holidays_accrual_advanced
+#: model:ir.model,name:hr_holidays_accrual_advanced.model_hr_leave_allocation
+msgid "Leaves Allocation"
+msgstr ""
+
+#. module: hr_holidays_accrual_advanced
+#: model:ir.model,name:hr_holidays_accrual_advanced.model_hr_leave_allocation_accruement
+msgid "Leaves Allocation Accruement"
+msgstr ""
+
+#. module: hr_holidays_accrual_advanced
+#: model:ir.model.fields,field_description:hr_holidays_accrual_advanced.field_hr_leave_allocation__limit_accrued_days
+msgid "Limit Number of Days Accrued"
+msgstr ""
+
+#. module: hr_holidays_accrual_advanced
+#: model:ir.model.fields,field_description:hr_holidays_accrual_advanced.field_hr_leave_allocation__limit_carryover_days
+msgid "Limit Number of Days to Carryover"
+msgstr ""
+
+#. module: hr_holidays_accrual_advanced
+#: model:ir.model.fields,field_description:hr_holidays_accrual_advanced.field_hr_leave_allocation__limit_accumulated_days
+msgid "Limit Total Balance"
+msgstr ""
+
+#. module: hr_holidays_accrual_advanced
+#: model:ir.model.fields,help:hr_holidays_accrual_advanced.field_hr_leave_allocation__limit_accrued_days
+msgid "Limit total maximum number of days accrued in one accrual period."
+msgstr ""
+
+#. module: hr_holidays_accrual_advanced
+#: model:ir.model.fields,help:hr_holidays_accrual_advanced.field_hr_leave_allocation__limit_accumulated_days
+msgid "Limit total maximum number of days that can be accumulated."
+msgstr ""
+
+#. module: hr_holidays_accrual_advanced
+#: model:ir.model.fields,help:hr_holidays_accrual_advanced.field_hr_leave_allocation__limit_carryover_days
+msgid "Limit total maximum number of days to carryover to next accrual period."
+msgstr ""
+
+#. module: hr_holidays_accrual_advanced
+#: code:addons/hr_holidays_accrual_advanced/models/hr_leave_allocation.py:361
+#, python-format
+msgid "Loss due to accrued amount limit"
+msgstr ""
+
+#. module: hr_holidays_accrual_advanced
+#: code:addons/hr_holidays_accrual_advanced/models/hr_leave_allocation.py:371
+#, python-format
+msgid "Loss due to accumulation limit"
+msgstr ""
+
+#. module: hr_holidays_accrual_advanced
+#: code:addons/hr_holidays_accrual_advanced/models/hr_leave_allocation.py:309
+#, python-format
+msgid "Loss due to period carry-over limit"
+msgstr ""
+
+#. module: hr_holidays_accrual_advanced
+#: model:ir.model.fields,field_description:hr_holidays_accrual_advanced.field_hr_leave_allocation__max_accrued_days
+msgid "Max Number of Days Accrued"
+msgstr ""
+
+#. module: hr_holidays_accrual_advanced
+#: model:ir.model.fields,field_description:hr_holidays_accrual_advanced.field_hr_leave_allocation__max_carryover_days
+msgid "Max Number of Days to Carryover"
+msgstr ""
+
+#. module: hr_holidays_accrual_advanced
+#: model:ir.model.fields,help:hr_holidays_accrual_advanced.field_hr_leave_allocation__accrual_limit
+msgid "Maximum of allocation for accrual; 0 means no maximum."
+msgstr ""
+
+#. module: hr_holidays_accrual_advanced
+#: selection:hr.leave.allocation,interval_unit:0
+msgid "Month(s)"
+msgstr ""
+
+#. module: hr_holidays_accrual_advanced
+#: model:ir.model.fields,field_description:hr_holidays_accrual_advanced.field_hr_leave_allocation_accrual_calculator_accruement__days_accrued
+#: model:ir.model.fields,field_description:hr_holidays_accrual_advanced.field_hr_leave_allocation_accruement__days_accrued
+msgid "Number of Days"
+msgstr ""
+
+#. module: hr_holidays_accrual_advanced
+#: code:addons/hr_holidays_accrual_advanced/models/hr_leave_allocation.py:248
+#, python-format
+msgid "Only accrual allocations can be recalculated"
+msgstr ""
+
+#. module: hr_holidays_accrual_advanced
+#: selection:hr.leave.allocation,accrual_method:0
+msgid "Prorate"
+msgstr ""
+
+#. module: hr_holidays_accrual_advanced
+#: code:addons/hr_holidays_accrual_advanced/models/hr_leave_allocation.py:618
+#, python-format
+msgid "Prorate accruement for %s of %s days"
+msgstr ""
+
+#. module: hr_holidays_accrual_advanced
+#: model:ir.model.fields,field_description:hr_holidays_accrual_advanced.field_hr_leave_allocation_accrual_calculator_accruement__reason
+#: model:ir.model.fields,field_description:hr_holidays_accrual_advanced.field_hr_leave_allocation_accruement__reason
+msgid "Reason"
+msgstr ""
+
+#. module: hr_holidays_accrual_advanced
+#: model:ir.actions.server,name:hr_holidays_accrual_advanced.hr_holidays_accrual_recalculate
+#: model:ir.ui.menu,name:hr_holidays_accrual_advanced.hr_holidays_accrual_recalculate_menuitem
+msgid "Recalculate Accrual Allocations"
+msgstr ""
+
+#. module: hr_holidays_accrual_advanced
+#: model:ir.actions.server,name:hr_holidays_accrual_advanced.hr_holidays_accrual_recalculate_all
+msgid "Recalculate All Accrual Allocations"
+msgstr ""
+
+#. module: hr_holidays_accrual_advanced
+#: model:ir.model,name:hr_holidays_accrual_advanced.model_resource_calendar_leaves
+msgid "Resource Leaves Detail"
+msgstr ""
+
+#. module: hr_holidays_accrual_advanced
+#: code:addons/hr_holidays_accrual_advanced/models/hr_leave_allocation.py:605
+#, python-format
+msgid "Start-of-period accruement"
+msgstr ""
+
+#. module: hr_holidays_accrual_advanced
+#: model:ir.model.fields,field_description:hr_holidays_accrual_advanced.field_hr_leave_allocation__max_accumulated_days
+msgid "Total Balance Limit"
+msgstr ""
+
+#. module: hr_holidays_accrual_advanced
+#: model:ir.model.fields,help:hr_holidays_accrual_advanced.field_hr_leave_allocation__max_accrued_days
+msgid "Total maximum number of days accrued in one accrual period."
+msgstr ""
+
+#. module: hr_holidays_accrual_advanced
+#: model:ir.model.fields,help:hr_holidays_accrual_advanced.field_hr_leave_allocation__max_accumulated_days
+msgid "Total maximum number of days that can be accumulated."
+msgstr ""
+
+#. module: hr_holidays_accrual_advanced
+#: model:ir.model.fields,help:hr_holidays_accrual_advanced.field_hr_leave_allocation__max_carryover_days
+msgid "Total maximum number of days to carryover to next accrual period."
+msgstr ""
+
+#. module: hr_holidays_accrual_advanced
+#: model:ir.model.fields,help:hr_holidays_accrual_advanced.field_hr_leave_allocation__interval_unit
+msgid "Units in which Accrual Period Duration is defined"
+msgstr ""
+
+#. module: hr_holidays_accrual_advanced
+#: model:ir.model.fields,help:hr_holidays_accrual_advanced.field_hr_leave_allocation__unit_per_interval
+msgid "Units in which Allocation per Accrual Period is defined"
+msgstr ""
+
+#. module: hr_holidays_accrual_advanced
+#: code:addons/hr_holidays_accrual_advanced/models/hr_leave_allocation.py:379
+#, python-format
+msgid "Usage during accruement period"
+msgstr ""
+
+#. module: hr_holidays_accrual_advanced
+#: selection:hr.leave.allocation,interval_unit:0
+msgid "Week(s)"
+msgstr ""
+
+#. module: hr_holidays_accrual_advanced
+#: model:ir.model.fields,help:hr_holidays_accrual_advanced.field_hr_leave__time_type
+msgid "Whether this should be computed as a holiday or as work time (eg: formation)"
+msgstr ""
+
+#. module: hr_holidays_accrual_advanced
+#: selection:hr.leave.allocation,interval_unit:0
+msgid "Year(s)"
+msgstr ""
+
