@@ -16,6 +16,7 @@ setuptools.setup(
         'odoo11-addon-hr_contract_reference',
         'odoo11-addon-hr_emergency_contact',
         'odoo11-addon-hr_employee_birth_name',
+        'odoo11-addon-hr_employee_calendar_planning',
         'odoo11-addon-hr_employee_display_own_info',
         'odoo11-addon-hr_employee_firstname',
         'odoo11-addon-hr_employee_id',
