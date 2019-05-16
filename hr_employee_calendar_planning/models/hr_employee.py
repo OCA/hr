@@ -10,7 +10,7 @@ class HrEmployee(models.Model):
     calendar_ids = fields.One2many(
         comodel_name="hr.employee.calendar",
         inverse_name="employee_id",
-        string="Calendar planning",
+        string="Working Calendar plan",
     )
 
     def _regenerate_calendar(self):

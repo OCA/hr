@@ -9,14 +9,16 @@
             <field name="resource_calendar_id" position="attributes">
                 <attribute name="invisible">1</attribute>
             </field>
-            <field name="resource_calendar_id" position="after">
-                <field name="calendar_ids">
-                    <tree editable="top">
-                        <field name="date_start"/>
-                        <field name="date_end"/>
-                        <field name="calendar_id"/>
-                    </tree>
-                </field>
+            <field name="notes" position="before">
+                <group name="calendar_plan" string="Working Calendar Plan">
+                    <field name="calendar_ids" nolabel="1">
+                        <tree editable="top">
+                            <field name="date_start"/>
+                            <field name="date_end"/>
+                            <field name="calendar_id"/>
+                        </tree>
+                    </field>
+                </group>
             </field>
         </field>
     </record>
