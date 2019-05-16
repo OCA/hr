@@ -14,6 +14,11 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: hr_attendance_report_theoretical_time
+#: model:ir.ui.view,arch_db:hr_attendance_report_theoretical_time.hr_attendance_theoretical_view_filter
+msgid "Active Employees"
+msgstr ""
+
+#. module: hr_attendance_report_theoretical_time
 #: model:ir.model,name:hr_attendance_report_theoretical_time.model_hr_attendance
 msgid "Attendance"
 msgstr ""
