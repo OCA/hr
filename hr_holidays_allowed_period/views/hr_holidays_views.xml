@@ -6,12 +6,15 @@
         <field name="model">hr.holidays</field>
         <field name="inherit_id" ref="hr_holidays.edit_holiday_new"/>
         <field name="arch" type="xml">
-            <xpath expr="//div/h1/field/../.." position="before">
-                <field name="warning" style="color:red" nolabel="1"
-                           attrs="{'invisible': [('warning','=','False')]}">
-                        <br></br>
-                </field>
-            </xpath>
+            <header position="after">
+                <div class="alert alert-warning"
+                     attrs="{'invisible': [('warning', '=', False)]}"
+                     style="margin-bottom:0px;">
+                    <p><i class="fa fa-info-circle"/>
+                        <field name="warning"/>
+                    </p>
+                </div>
+            </header>
         </field>
     </record>
 </odoo>
