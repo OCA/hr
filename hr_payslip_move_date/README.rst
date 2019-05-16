@@ -37,7 +37,7 @@ Go to: Human Resources -> Payroll -> Employee Payslip
 
 - Complete the payslip details
 - Go to 'Other information', 'Accounting' section and complete the field
-'Force move date'.
+  'Force move date'.
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
