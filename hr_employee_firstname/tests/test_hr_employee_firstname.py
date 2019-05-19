@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 # Copyright (C) 2014 Savoir-faire Linux. All Rights Reserved.
-# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+# Copyright 2016-2019 Onestein (<https://www.onestein.eu>)
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 import odoo
 from odoo.tests.common import TransactionCase
@@ -47,12 +48,22 @@ class TestEmployeeFirstname(TransactionCase):
         """
         Validate the get_name method is not failing
         """
-        field_onchange = self.employee1_id._onchange_spec()
+        field_onchange = self.employee_model.new({})._onchange_spec()
         self.assertEqual(field_onchange.get('firstname'), '1')
         self.assertEqual(field_onchange.get('lastname'), '1')
-        values = {'firstname': 'Antonio', 'lastname': 'Esposito'}
-        self.employee1_id.onchange(values, 'firstname', field_onchange)
-        self.employee1_id.onchange(values, 'lastname', field_onchange)
+        values = {'firstname': 'Antonio',
+                  'lastname': 'Esposito',
+                  'name': 'test employee'}
+        for field in self.employee_model._fields:
+            if field not in values:
+                values[field] = False
+        # we work on a temporary record
+        new_record = self.employee_model.new(values)
+
+        updates = new_record.onchange(
+            values, ['firstname', 'lastname'], field_onchange)
+        values.update(updates.get('value', {}))
+        self.assertEqual(values['name'], 'Esposito Antonio')
 
     def test_auto_init_name(self):
         """
@@ -104,6 +115,26 @@ class TestEmployeeFirstname(TransactionCase):
         self.employee1_id.refresh()
 
         self.assertEqual(self.employee1_id.name, 'Carnaud Jean-Pierre')
+
+    def test_lastname_firstname(self):
+        self.env['ir.config_parameter'].sudo().set_param(
+            'partner_names_order', 'first_last')
+
+        self.employee1_id.write({'name': 'Carnaud-Eyck Jean-Pierre'})
+        self.employee1_id.refresh()
+        self.assertEqual(self.employee1_id.firstname, 'Carnaud-Eyck')
+        self.assertEqual(self.employee1_id.lastname, 'Jean-Pierre')
+
+        self.employee1_id.write({'name': '  Carnaud-Eyck  Jean-Pierre'})
+        self.employee1_id.refresh()
+        self.assertEqual(self.employee1_id.firstname, 'Carnaud-Eyck')
+        self.assertEqual(self.employee1_id.lastname, 'Jean-Pierre')
+
+        self.employee1_id.write({
+            'firstname': 'Jean-Pierre',
+            'lastname': 'Carnaud'})
+        self.employee1_id.refresh()
+        self.assertEqual(self.employee1_id.name, 'Jean-Pierre Carnaud')
 
     @odoo.tests.common.at_install(False)
     @odoo.tests.common.post_install(True)
