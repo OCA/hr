@@ -38,6 +38,6 @@ msgid "Expense Report"
 msgstr "Onkostennota"
 
 #. module: hr_expense_invoice
-#: model:ir.model.fields,field_description:hr_expense_invoice.field_hr_expense_invoice_id
-msgid "Invoice"
+#: model:ir.model.fields,field_description:hr_expense_invoice.field_hr_expense__invoice_id
+msgid "Vendor Bill"
 msgstr ""
