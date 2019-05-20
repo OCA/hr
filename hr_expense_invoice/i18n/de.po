@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* hr_expense_invoice
+# 	* hr_expense_invoice
 #
 msgid ""
 msgstr ""
@@ -19,7 +19,9 @@ msgstr ""
 #. module: hr_expense_invoice
 #: code:addons/hr_expense_invoice/models/hr_expense_sheet.py:40
 #, python-format
-msgid "Cannot reconcile supplier invoice payable with generated line. Please check amounts and see if the invoice is already added or paid. Invoice: %s"
+msgid ""
+"Cannot reconcile supplier invoice payable with generated line. Please check "
+"amounts and see if the invoice is already added or paid. Invoice: %s"
 msgstr ""
 "Der zu zahlende Restbetrag der Rechnung kann nicht mit der erstellten Zeile "
 "abgeglichen werden. Bitte prüfen Sie die Mengen und ob die Rechnung schon "
@@ -36,6 +38,9 @@ msgid "Expense Report"
 msgstr "Spesen-Bericht"
 
 #. module: hr_expense_invoice
-#: model:ir.model.fields,field_description:hr_expense_invoice.field_hr_expense_invoice_id
-msgid "Invoice"
-msgstr "Rechnung"
+#: model:ir.model.fields,field_description:hr_expense_invoice.field_hr_expense__invoice_id
+msgid "Vendor Bill"
+msgstr ""
+
+#~ msgid "Invoice"
+#~ msgstr "Rechnung"
