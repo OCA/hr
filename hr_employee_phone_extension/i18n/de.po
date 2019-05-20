@@ -24,21 +24,21 @@ msgid "Employee"
 msgstr "Angestellter"
 
 #. module: hr_employee_phone_extension
-#: model:ir.model.fields,field_description:hr_employee_phone_extension.field_hr_employee_internal_number
+#: model:ir.model.fields,field_description:hr_employee_phone_extension.field_hr_employee__internal_number
 msgid "Internal Number"
 msgstr "Interne Nummer"
 
 #. module: hr_employee_phone_extension
-#: model:ir.model.fields,help:hr_employee_phone_extension.field_hr_employee_internal_number
+#: model:ir.model.fields,help:hr_employee_phone_extension.field_hr_employee__internal_number
 msgid "Internal phone number."
 msgstr "Interne Rufnummer."
 
 #. module: hr_employee_phone_extension
-#: model:ir.model.fields,field_description:hr_employee_phone_extension.field_hr_employee_short_number
+#: model:ir.model.fields,field_description:hr_employee_phone_extension.field_hr_employee__short_number
 msgid "Short Number"
 msgstr "Rufnummer Kurzform"
 
 #. module: hr_employee_phone_extension
-#: model:ir.model.fields,help:hr_employee_phone_extension.field_hr_employee_short_number
+#: model:ir.model.fields,help:hr_employee_phone_extension.field_hr_employee__short_number
 msgid "Short phone number."
 msgstr "Kurzwahl."
