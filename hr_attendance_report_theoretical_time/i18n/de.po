@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* hr_attendance_report_theoretical_time
+# 	* hr_attendance_report_theoretical_time
 #
 msgid ""
 msgstr ""
@@ -15,6 +15,13 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.3\n"
+
+#. module: hr_attendance_report_theoretical_time
+#: model:ir.ui.view,arch_db:hr_attendance_report_theoretical_time.hr_attendance_theoretical_view_filter
+#, fuzzy
+#| msgid "Employee"
+msgid "Active Employees"
+msgstr "Angestellte(r)"
 
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.model,name:hr_attendance_report_theoretical_time.model_hr_attendance
@@ -59,7 +66,11 @@ msgstr "Angestellte(r)"
 
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.model.fields,help:hr_attendance_report_theoretical_time.field_hr_employee_theoretical_hours_start_date
-msgid "Fill this field for setting a manual start date for computing the theoretical hours independently from the attendances. If not filled, employee creation date or the calendar start date will be used (the greatest of both)."
+msgid ""
+"Fill this field for setting a manual start date for computing the "
+"theoretical hours independently from the attendances. If not filled, "
+"employee creation date or the calendar start date will be used (the greatest "
+"of both)."
 msgstr ""
 "Füllen Sie dieses Feld aus, um ein manuelles Startdatum zur Berechnung der "
 "theoretischen Stundenzahl zu setzen, unabhängig von den tatsächlichen "
@@ -74,7 +85,9 @@ msgstr "ID"
 
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.model.fields,help:hr_attendance_report_theoretical_time.field_hr_holidays_status_include_in_theoretical
-msgid "If you check this mark, leaves in this category won't reduce the number of theoretical hours in the attendance report."
+msgid ""
+"If you check this mark, leaves in this category won't reduce the number of "
+"theoretical hours in the attendance report."
 msgstr ""
 "Wenn der Haken gesetzt ist, wird Urlaub in dieser Kategorie die Anzahl der "
 "theoretischen Stunden im Anwesenheitsbericht nicht reduzieren."
@@ -93,6 +106,13 @@ msgstr "Zuletzt geändert am"
 #: model:ir.model,name:hr_attendance_report_theoretical_time.model_hr_holidays
 msgid "Leave"
 msgstr "Urlaub"
+
+#. module: hr_attendance_report_theoretical_time
+#: model:ir.model,name:hr_attendance_report_theoretical_time.model_resource_calendar_leaves
+#, fuzzy
+#| msgid "Leave Type"
+msgid "Leave Detail"
+msgstr "Urlaubsart"
 
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.model,name:hr_attendance_report_theoretical_time.model_hr_holidays_status
@@ -121,12 +141,16 @@ msgstr "Bericht zu theoretischen und tatsächlichen Anwesenheitszeiten"
 
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.model.fields,field_description:hr_attendance_report_theoretical_time.field_hr_attendance_theoretical_hours
-msgid "Theoretical hours"
+#, fuzzy
+#| msgid "Theoretical hours"
+msgid "Theoretical Hours"
 msgstr "Theoretische Zeiten"
 
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.model.fields,field_description:hr_attendance_report_theoretical_time.field_hr_employee_theoretical_hours_start_date
-msgid "Theoretical hours start date"
+#, fuzzy
+#| msgid "Theoretical hours start date"
+msgid "Theoretical Hours Start Date"
 msgstr "Startdatum der theoretischen Zeiten"
 
 #. module: hr_attendance_report_theoretical_time

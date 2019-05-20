@@ -17,6 +17,13 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: hr_attendance_report_theoretical_time
+#: model:ir.ui.view,arch_db:hr_attendance_report_theoretical_time.hr_attendance_theoretical_view_filter
+#, fuzzy
+#| msgid "Employee"
+msgid "Active Employees"
+msgstr "Empleado"
+
+#. module: hr_attendance_report_theoretical_time
 #: model:ir.model,name:hr_attendance_report_theoretical_time.model_hr_attendance
 msgid "Attendance"
 msgstr "Asistencias"
@@ -100,6 +107,13 @@ msgid "Leave"
 msgstr "Ausencia"
 
 #. module: hr_attendance_report_theoretical_time
+#: model:ir.model,name:hr_attendance_report_theoretical_time.model_resource_calendar_leaves
+#, fuzzy
+#| msgid "Leave Type"
+msgid "Leave Detail"
+msgstr "Tipo de ausencia"
+
+#. module: hr_attendance_report_theoretical_time
 #: model:ir.model,name:hr_attendance_report_theoretical_time.model_hr_holidays_status
 msgid "Leave Type"
 msgstr "Tipo de ausencia"
@@ -126,12 +140,16 @@ msgstr "Informe de tiempo teórico frente a tiempo trabajado"
 
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.model.fields,field_description:hr_attendance_report_theoretical_time.field_hr_attendance_theoretical_hours
-msgid "Theoretical hours"
+#, fuzzy
+#| msgid "Theoretical hours"
+msgid "Theoretical Hours"
 msgstr "Horas teóricas"
 
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.model.fields,field_description:hr_attendance_report_theoretical_time.field_hr_employee_theoretical_hours_start_date
-msgid "Theoretical hours start date"
+#, fuzzy
+#| msgid "Theoretical hours start date"
+msgid "Theoretical Hours Start Date"
 msgstr "Fecha de inicio horas teóricas"
 
 #. module: hr_attendance_report_theoretical_time
