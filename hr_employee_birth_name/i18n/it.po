@@ -20,7 +20,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: hr_employee_birth_name
-#: model:ir.model.fields,field_description:hr_employee_birth_name.field_hr_employee_birth_name
+#: model:ir.model.fields,field_description:hr_employee_birth_name.field_hr_employee__birth_name
 msgid "Birth Name"
 msgstr "Nome"
 
