@@ -40,6 +40,9 @@ msgid "Expense Report"
 msgstr "Rapport de dépenses"
 
 #. module: hr_expense_invoice
-#: model:ir.model.fields,field_description:hr_expense_invoice.field_hr_expense_invoice_id
-msgid "Invoice"
-msgstr "Facture"
+#: model:ir.model.fields,field_description:hr_expense_invoice.field_hr_expense__invoice_id
+msgid "Vendor Bill"
+msgstr ""
+
+#~ msgid "Invoice"
+#~ msgstr "Facture"
