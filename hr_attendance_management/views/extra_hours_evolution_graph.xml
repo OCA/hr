@@ -1,40 +1,22 @@
 <odoo>
+
     <record id="view_extra_hours_evolution_day_report" model="ir.actions.act_window">
         <field name="name">Extra hours evolution</field>
-        <field name="res_model">hr.attendance.balance.evolution.report</field>
+        <field name="res_model">balance.evolution.graph</field>
         <field name="view_type">form</field>
         <field name="view_mode">graph</field>
-        <field name="context">{"graph_mode":"line", "search_default_personal_history": 1}</field>
+        <field name="context">{"graph_mode":"line"}</field>
         <field name="help">From this report, you can see the evolution of your extra hours</field>
     </record>
 
     <record id="view_extra_hours_evolution_day_report_graph" model="ir.ui.view">
         <field name="name">hr.attendance.balance.evolution.report.graph</field>
-        <field name="model">hr.attendance.balance.evolution.report</field>
+        <field name="model">balance.evolution.graph</field>
         <field name="arch" type="xml">
             <graph string="Extra hours evolution" type="line">
-                <field name="hr_date" type="col" interval="day"/>
+                <field name="day" type="col" interval="day"/>
                 <field name="balance" type="measure" widget="float_time"/>
             </graph>
         </field>
     </record>
-
-    <record id="view_extra_hours_evolution_day_search" model="ir.ui.view">
-        <field name="name">hr.attendance.balance.evolution.report.search</field>
-        <field name="model">hr.attendance.balance.evolution.report</field>
-        <field name="arch" type="xml">
-            <search>
-                <field name="employee_id"/>
-                <filter name="personal_history" string="My history" domain="[('employee_id.user_id', '=', uid)]"/>
-            </search>
-        </field>
-    </record>
-
-    <menuitem id="menu_view_extra_hours_evolution_day_report"
-              name="Balance history"
-              parent="hr_attendance.menu_hr_attendance_manage_attendances"
-              action="view_extra_hours_evolution_day_report"
-              sequence="98"
-              groups="base.group_user"
-    />
 </odoo>

@@ -5,7 +5,6 @@ user_access_hr_weekday_coefficient,hr.weekday.coefficient,model_hr_weekday_coeff
 access_hr_weekday_coefficient,hr.weekday.coefficient,model_hr_weekday_coefficient,hr_attendance.group_hr_attendance_manager,1,1,1,1
 user_hr_attendance_rules,hr.attendance.rules,model_hr_attendance_rules,base.group_user,1,0,0,0
 access_hr_attendance_rules,hr.attendance.rules,model_hr_attendance_rules,hr_attendance.group_hr_attendance_manager,1,1,1,1
-access_extra_hours_report,hr.attendance.balance.evolution.report,model_hr_attendance_balance_evolution_report,base.group_user,1,1,1,1
 access_hr_forced_due_hours,hr.forced.due.hours,model_hr_forced_due_hours,base.group_user,1,1,1,1
 access_hr_change_day_request,hr.change.day.request,model_hr_change_day_request,base.group_user,1,1,1,1
 access_hr_location,hr.attendance.location,model_hr_attendance_location,base.group_user,1,0,0,0

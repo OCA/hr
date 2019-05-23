@@ -12,6 +12,7 @@ setuptools.setup(
         'odoo10-addon-hr_attendance_reason',
         'odoo10-addon-hr_attendance_report_theoretical_time',
         'odoo10-addon-hr_attendance_rfid',
+        'odoo10-addon-hr_citizenship',
         'odoo10-addon-hr_contract_default_trial_length',
         'odoo10-addon-hr_contract_reference',
         'odoo10-addon-hr_emergency_contact',

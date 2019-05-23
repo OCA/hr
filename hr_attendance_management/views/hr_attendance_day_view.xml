@@ -34,8 +34,7 @@
                         <group string="Hours">
                             <field name="total_attendance" widget="float_time"/>
                             <field name="paid_hours" widget="float_time"/>
-                            <field name="extra_hours" widget="float_time"/>
-                            <field name="extra_hours_lost" widget="float_time"/>
+                            <field name="day_balance" widget="float_time"/>
                         </group>
                     </group>
                     <newline/>
@@ -79,16 +78,14 @@
         <field name="model">hr.attendance.day</field>
         <field name="priority">25</field>
         <field name="arch" type="xml">
-            <tree decoration-info="extra_hours &gt;= 0"
-                  decoration-danger="extra_hours &lt; 0">
+            <tree decoration-info="day_balance &gt;= 0"
+                  decoration-danger="day_balance &lt; 0">
                 <field name="date"/>
                 <field name="working_day"/>
                 <field name="due_hours" widget="float_time" type="char"/>
                 <field name="total_attendance" widget="float_time" type="char"/>
                 <field name="paid_hours" widget="float_time" type="char"/>
-                <field name="extra_hours_lost" widget="float_time"
-                       type="char"/>
-                <field name="extra_hours" widget="float_time" type="char"/>
+                <field name="day_balance" widget="float_time" type="char"/>
 
             </tree>
         </field>
@@ -98,12 +95,12 @@
         <field name="name">HR Attendance Day Tree View</field>
         <field name="model">hr.attendance.day</field>
         <field name="arch" type="xml">
-            <tree decoration-info="extra_hours &gt;= 0" decoration-danger="extra_hours &lt; 0">
+            <tree decoration-info="day_balance &gt;= 0" decoration-danger="day_balance &lt; 0">
                 <field name="date"/>
                 <field name="working_day"/>
                 <field name="employee_id"/>
                 <field name="paid_hours" widget="float_time" type="char"/>
-                <field name="extra_hours" widget="float_time" type="char"/>
+                <field name="day_balance" widget="float_time" type="char"/>
             </tree>
         </field>
     </record>
@@ -115,8 +112,8 @@
         <field name="type">kanban</field>
         <field name="arch"
                type="xml">
-            <kanban decoration-info="extra_hours &gt;= 0"
-                    decoration-danger="extra_hours &lt; 0">
+            <kanban decoration-info="day_balance &gt;= 0"
+                    decoration-danger="day_balance &lt; 0">
                 <templates>
                     <t t-name="kanban-box">
                         <div class="oe_kanban_vignette">
@@ -140,7 +137,7 @@
                                         <tr>
                                             <td>Difference:</td>
                                             <td>
-                                                <field name="extra_hours"/>
+                                                <field name="day_balance"/>
                                             </td>
                                         </tr>
                                     </table>

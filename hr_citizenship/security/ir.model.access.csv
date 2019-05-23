@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_read_res_citizenship,edit_citizenship,model_res_citizenship,hr_citizenship.group_multi_citizenship,1,1,1,1,
+access_user_res_citizenship,employee_citizenship_user,model_res_citizenship,base.group_user,1,0,0,0,

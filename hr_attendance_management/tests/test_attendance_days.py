@@ -26,14 +26,11 @@ class TestAttendanceDays(SavepointCase):
         cls.jack.calendar_id = cls.env.ref('resource.timesheet_group1')
         cls.michael.calendar_id = cls.env.ref('resource.timesheet_group1')
 
-        # Set free break
-        cls.free_break_duration = 0.25
-        cls.env['ir.config_parameter'].set_param(
-            'hr_attendance_management.free_break',
-            str(cls.free_break_duration))
-        cls.env['ir.config_parameter'].set_param(
-            'hr_attendance_management.max_extra_hours', '20')
-
+        cls.config = cls.env['base.config.settings'].create({
+            'free_break': 0.25,
+            'max_extra_hours': 20})
+        cls.config.set_free_break()
+        cls.config.set_max_extra_hours()
         cls.pieter_leave_request =\
             cls.env.ref('hr_holidays.hr_holidays_employee1_sl')
 
@@ -55,11 +52,11 @@ class TestAttendanceDays(SavepointCase):
     #                           ATTENDANCE DAY                               #
     ##########################################################################
 
-# test create attendance, attendance day and dues_hours
-# test breaks and rules
-# test check_in/check_out
-# test holidays
-# test change day request
+    # test create attendance, attendance day and dues_hours
+    # test breaks and rules
+    # test check_in/check_out
+    # test holidays
+    # test change day request
 
 # TODO test coefficient
 
@@ -163,10 +160,9 @@ class TestAttendanceDays(SavepointCase):
             return attendance
 
         # Jack worked 8h20, he took a hour break for lunch
-        # Gilles work 10h00, he took no break
-        # so the system create one for him
+        # Gilles work 10h00, he took no break so the system create one for him
 
-        # create attendance
+        # Create attendance
         att_jack_01, att_jack_02 =\
             att_8h20_hour_break(self.jack, self.last_week[1])
         att_gilles = att_10h_no_break(self.gilles, self.last_week[1])
@@ -204,12 +200,13 @@ class TestAttendanceDays(SavepointCase):
         self.assertEqual(att_day_gilles.total_attendance,
                          att_gilles.worked_hours)
 
+
     ##########################################################################
     #                        CHECK IN / CHECK OUT                            #
     ##########################################################################
 
-    def test_check_in_check_out(self):
 
+    def test_check_in_check_out(self):
         date = self.last_week[2]
         start = date.strftime('%Y-%m-%d 07:30:00')
         attendance = self.env['hr.attendance'].create({
@@ -235,7 +232,7 @@ class TestAttendanceDays(SavepointCase):
         self.assertTrue(att_day.break_ids.is_offered is True)
 
         ####################################################
-        # add the checkout
+        # Add the checkout
         ####################################################
         attendance = self.env['hr.attendance'].search([
             ('employee_id', '=', self.jack.id),
@@ -261,10 +258,9 @@ class TestAttendanceDays(SavepointCase):
 
     def test_max_extra_hours(self):
         """
-        check the rule that limit the number of extra hour
+        Check the rule that limit the number of extra hour
 
         """
-
         #            |               michael             |
         #            |  due days  |  amount extra hours  | sum extra hour
         # week 1     |      5     |          20          |   20
@@ -274,8 +270,9 @@ class TestAttendanceDays(SavepointCase):
         date_start = self.last_week[0] - timedelta(weeks=weeks)
         date_stop = self.last_week[0] - timedelta(days=1)
 
-        self.env['ir.config_parameter'].set_param(
-            'hr_attendance_management.max_extra_hours', '20')
+        config = self.env['base.config.settings'].create({})
+        config.max_extra_hours = 20
+        config.set_max_extra_hours()
 
         # create 4 week of attendance_day
         self.env['create.hr.attendance.day'].create({
@@ -316,11 +313,11 @@ class TestAttendanceDays(SavepointCase):
                 attendances = att_01 + att_02
 
                 self.assertEqual(att_day.attendance_ids, attendances)
-                self.assertEqual(att_day.extra_hours, extra_hours)
+                self.assertEqual(att_day.balance, extra_hours)
             else:
-                self.assertEquals(att_day.extra_hours, 0)
+                self.assertEquals(att_day.balance, 0)
 
-        self.assertEqual(self.michael.extra_hours, 20)
+        self.assertEqual(self.michael.balance, 20)
         self.assertEqual(sum_extra_hours, extra_hours*5*weeks)
 
     ##########################################################################
@@ -329,17 +326,19 @@ class TestAttendanceDays(SavepointCase):
 
     def test_attendance_days_on_leave_request(self):
         """
-        approved leave request of pieter in the odoo demo database
+        Approved leave request of pieter in the odoo demo database
         should be from 20 of the current month to the 22
-        we create the attendance days as would do the cron
+        We create the attendance days as would do the cron
             _cron_create_attendance
 
         then we check that the paid hours is correct
         """
 
+        date_format = tools.DEFAULT_SERVER_DATETIME_FORMAT
+
         leave = self.pieter_leave_request
-        date_from = datetime.strptime(leave.date_from, DF)
-        date_to = datetime.strptime(leave.date_to, DF)
+        date_from = datetime.strptime(leave.date_from, date_format)
+        date_to = datetime.strptime(leave.date_to, date_format)
 
         date_data = [
             (True, date_from + timedelta(days=-1)),

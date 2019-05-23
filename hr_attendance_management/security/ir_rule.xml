@@ -45,27 +45,4 @@
         <field name="perm_unlink" eval="True"/>
     </record>
 
-    <!-- Rule on balance evolution report -->
-    <record id="rule_attendance_evolution_report_employee" model="ir.rule">
-        <field name="name">Employee Own Balance evolution only</field>
-        <field name="model_id" ref="model_hr_attendance_balance_evolution_report"/>
-        <field name="domain_force">[('employee_id.user_id','=',user.id)]</field>
-        <field name="groups" eval="[(4,ref('base.group_user'))]"/>
-        <field name="perm_read" eval="True"/>
-        <field name="perm_write" eval="False"/>
-        <field name="perm_create" eval="False"/>
-        <field name="perm_unlink" eval="False"/>
-    </record>
-
-    <record id="rule_attendance_evolution_report_manager" model="ir.rule">
-        <field name="name">HR Manager access all balance evolution reports</field>
-        <field name="model_id" ref="model_hr_attendance_balance_evolution_report"/>
-        <field name="domain_force">[(1,'=',1)]</field>
-        <field name="groups" eval="[(4,ref('hr.group_hr_manager'))]"/>
-        <field name="perm_read" eval="True"/>
-        <field name="perm_write" eval="False"/>
-        <field name="perm_create" eval="False"/>
-        <field name="perm_unlink" eval="False"/>
-    </record>
-
 </odoo>

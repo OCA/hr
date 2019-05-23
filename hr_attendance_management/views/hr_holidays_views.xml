@@ -15,7 +15,7 @@
                         <field name="date"/>
                         <field name="working_day"/>
                         <field name="due_hours" widget="float_time" type="char"/>
-                        <field name="extra_hours" widget="float_time" type="char"/>
+                        <field name="day_balance" widget="float_time" type="char"/>
                         <button name="open_attendance_day" type="object"
                                 icon="fa-external-link"/>
                     </tree>

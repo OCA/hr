@@ -19,7 +19,7 @@ odoo.define('hr_attendance_management.attendance', function (require) {
             var hr_location = new Model('hr.attendance.location');
             var hr_employee = new Model('hr.employee');
 
-            hr_employee.query(['attendance_state', 'name', 'extra_hours_formatted', 'today_hour_formatted', 'time_warning_balance', 'time_warning_today', 'extra_hours_today', 'work_location_id'])
+            hr_employee.query(['attendance_state', 'name', 'balance_formatted', 'today_hour_formatted', 'time_warning_balance', 'time_warning_today', 'extra_hours_today', 'work_location_id'])
                 .filter([['user_id', '=', self.session.uid]])
                 .all()
                 .then(function (res) {
