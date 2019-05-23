@@ -27,19 +27,24 @@
             <xpath expr="//page[@name='hr_settings']" position="after">
                 <page string="Hours">
                     <group>
-
-                        <field name="previous_period_balance" widget="float_time"/>
-                        <field name="extra_hours_continuous_cap" widget="float_time" invisible="1"/>
-                        <field name="extra_hours_continuous_cap"/>
-                <field name="show_leaves" invisible="1"/>
-                <button name="open_balance_graph"
-                        type="object"
-                        icon="fa-calendar"
-                        string="My balance History">
-                </button>
-                        <field name="extra_hours_lost" widget="float_time" attrs="{'invisible':[('extra_hours_continuous_cap', '!=', False)]}"/>
-                        <field name="previous_period_lost_hours" widget="float_time" attrs="{'invisible':[('extra_hours_continuous_cap', '=', False)]}"/>
-                        <field name="annual_balance_date" widget="date" attrs="{'invisible':[('extra_hours_continuous_cap', '=', False)]}"/>
+                        <group>
+                            <field name="previous_period_balance" widget="float_time"/>
+                            <field name="extra_hours_continuous_cap" widget="float_time" invisible="1"/>
+                            <field name="extra_hours_continuous_cap"/>
+                            <field name="show_leaves" invisible="1"/>
+                            <field name="extra_hours_lost" widget="float_time" attrs="{'invisible':[('extra_hours_continuous_cap', '!=', False)]}"/>
+                            <field name="previous_period_lost_hours" widget="float_time" attrs="{'invisible':[('extra_hours_continuous_cap', '=', False)]}"/>
+                            <field name="annual_balance_date" widget="date" attrs="{'invisible':[('extra_hours_continuous_cap', '=', False)]}"/>
+                        </group>
+                        <group>
+                            <group colspan="2" col="2">
+                                <button name="open_balance_graph"
+                                        type="object"
+                                        icon="fa-calendar"
+                                        string="My balance History">
+                                </button>
+                            </group>
+                        </group>
                         <field name="attendance_days_ids"
                                context="{'tree_view_ref': 'hr_attendance_management.hr_attendance_day_tree_from_employee'}"/>
                     </group>

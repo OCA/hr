@@ -33,7 +33,7 @@ class HrEmployee(models.Model):
 
     previous_period_continuous_cap = fields.Boolean(readonly=True)
     previous_period_balance = fields.Float(oldname="annual_balance")
-    previous_period_lost_hours = fields.Float()
+    previous_period_lost_hours = fields.Float(readonly=True)
 
     penultimate_period_balance = fields.Float()
     penultimate_period_lost_hours = fields.Float()
