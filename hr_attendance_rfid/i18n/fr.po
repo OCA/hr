@@ -1,0 +1,55 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* hr_attendance_rfid
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2019-05-23 20:19+0000\n"
+"Last-Translator: Kévin Allard <kallard@efficom-lille.com>\n"
+"Language-Team: none\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.6.1\n"
+
+#. module: hr_attendance_rfid
+#: code:addons/hr_attendance_rfid/models/hr_employee.py:53
+#, python-format
+msgid "Attendance recorded for employee %s"
+msgstr "Présence enregistrée pour l'employé(e) %s"
+
+#. module: hr_attendance_rfid
+#: model:ir.model,name:hr_attendance_rfid.model_hr_employee
+msgid "Employee"
+msgstr "Employé(e)"
+
+#. module: hr_attendance_rfid
+#: code:addons/hr_attendance_rfid/models/hr_employee.py:62
+#, python-format
+msgid "No attendance was recorded for employee %s"
+msgstr "Aucune présence n'a été enregistrée pour l'employé(e) %s"
+
+#. module: hr_attendance_rfid
+#: code:addons/hr_attendance_rfid/models/hr_employee.py:46
+#, python-format
+msgid "No employee found with card %s"
+msgstr "Aucun employé(e) trouvé avec la carte %s"
+
+#. module: hr_attendance_rfid
+#: model:res.groups,name:hr_attendance_rfid.group_hr_attendance_rfid
+msgid "RFID Attendance"
+msgstr "Présence RFID"
+
+#. module: hr_attendance_rfid
+#: model:ir.model.fields,field_description:hr_attendance_rfid.field_hr_employee__rfid_card_code
+msgid "RFID Card Code"
+msgstr "Code de carte RFID"
+
+#. module: hr_attendance_rfid
+#: sql_constraint:hr.employee:0
+msgid "The rfid code should be unique."
+msgstr "Le code rfid doit être unique."
