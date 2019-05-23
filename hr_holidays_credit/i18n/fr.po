@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2019-05-23 20:19+0000\n"
+"PO-Revision-Date: 2019-05-23 23:19+0000\n"
 "Last-Translator: Kévin Allard <kallard@efficom-lille.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -20,7 +20,7 @@ msgstr ""
 #: code:addons/hr_holidays_credit/models/hr_leave_type.py:70
 #, python-format
 msgid "%(name)s (%(extra)s)"
-msgstr ""
+msgstr "%(name)s (%(extra)s)"
 
 #. module: hr_holidays_credit
 #: code:addons/hr_holidays_credit/models/hr_leave_type.py:54
@@ -43,49 +43,55 @@ msgstr "%g utilisé en crédit"
 #. module: hr_holidays_credit
 #: model:ir.model.fields,field_description:hr_holidays_credit.field_hr_leave_type__allow_credit
 msgid "Allow Credit"
-msgstr ""
+msgstr "Autoriser le crédit"
 
 #. module: hr_holidays_credit
 #: model:ir.model.fields,field_description:hr_holidays_credit.field_hr_leave_type__creditable_department_ids
 msgid "Creditable Departments"
-msgstr ""
+msgstr "Départements admissibles"
 
 #. module: hr_holidays_credit
 #: model:ir.model.fields,field_description:hr_holidays_credit.field_hr_leave_type__creditable_employee_category_ids
 msgid "Creditable Employee Tags"
-msgstr ""
+msgstr "Mots-clés du personnel admissibles"
 
 #. module: hr_holidays_credit
 #: model:ir.model.fields,field_description:hr_holidays_credit.field_hr_leave_type__creditable_employee_ids
 msgid "Creditable Employees"
-msgstr ""
+msgstr "Employé(e)s admissibles"
 
 #. module: hr_holidays_credit
 #: model:ir.model.fields,help:hr_holidays_credit.field_hr_leave_type__allow_credit
 msgid "If set to true, employees would be able to make requests for this leave type even if allocated amount is insufficient."
 msgstr ""
+"Si la valeur est « true », les employés pourront demander ce type de congé "
+"même si le montant alloué est insuffisant."
 
 #. module: hr_holidays_credit
 #: model:ir.model.fields,help:hr_holidays_credit.field_hr_leave_type__creditable_department_ids
 msgid "If set, limits credit allowance to employees of specified departments"
 msgstr ""
+"Si défini, limite l'allocation de crédit aux employés des départements "
+"spécifiés"
 
 #. module: hr_holidays_credit
 #: model:ir.model.fields,help:hr_holidays_credit.field_hr_leave_type__creditable_employee_category_ids
 msgid "If set, limits credit allowance to employees with at least one of specified tags"
 msgstr ""
+"Si défini, limite l’allocation de crédit aux employés ayant au moins une des "
+"étiquettes spécifiées"
 
 #. module: hr_holidays_credit
 #: model:ir.model.fields,help:hr_holidays_credit.field_hr_leave_type__creditable_employee_ids
 msgid "If set, limits credit allowance to specified employees"
-msgstr ""
+msgstr "Si défini, limite l'allocation de crédit à certains employés"
 
 #. module: hr_holidays_credit
 #: model:ir.model,name:hr_holidays_credit.model_hr_leave
 msgid "Leave"
-msgstr ""
+msgstr "Congé"
 
 #. module: hr_holidays_credit
 #: model:ir.model,name:hr_holidays_credit.model_hr_leave_type
 msgid "Leave Type"
-msgstr ""
+msgstr "Type de congé"
