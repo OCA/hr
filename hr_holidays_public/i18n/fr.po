@@ -10,17 +10,19 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-03 03:37+0000\n"
-"PO-Revision-Date: 2017-03-03 03:37+0000\n"
-"Last-Translator: leemannd <denis.leemann@camptocamp.com>, 2017\n"
+"PO-Revision-Date: 2019-05-23 20:19+0000\n"
+"Last-Translator: Kévin Allard <kallard@efficom-lille.com>\n"
 "Language-Team: French (https://www.transifex.com/oca/teams/23907/fr/)\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.6.1\n"
 
 #. module: hr_holidays_public
 #: model_terms:ir.ui.view,arch_db:hr_holidays_public.holidays_public_next_year_wizard_view
+#, fuzzy
 msgid ""
 "By default, the most recent public holidays\n"
 "                            for each country are used as template to create\n"
@@ -33,6 +35,16 @@ msgid ""
 "button\n"
 "                            \"Create\"."
 msgstr ""
+"Par défaut, les derniers jours fériés\n"
+"                             pour chaque pays sont utilisés comme modèle "
+"pour créer\n"
+"                             des jours fériés pour l'année suivante.\n"
+"                             <br/> <br/>\n"
+"                             Normalement, vous n'avez besoin de rien saisir "
+"dans\n"
+"                             champs facultatifs et il suffit de cliquer sur "
+"le bouton\n"
+"                             \"Créer\"."
 
 #. module: hr_holidays_public
 #: model:ir.model.fields,field_description:hr_holidays_public.field_hr_holidays_public__year
@@ -53,14 +65,14 @@ msgstr "Pays"
 #. module: hr_holidays_public
 #: model_terms:ir.ui.view,arch_db:hr_holidays_public.holidays_public_next_year_wizard_view
 msgid "Create"
-msgstr ""
+msgstr "Créer"
 
 #. module: hr_holidays_public
 #: model:ir.actions.act_window,name:hr_holidays_public.action_create_next_year_public_holidays
 #: model:ir.ui.menu,name:hr_holidays_public.menu_create_next_year_public_holidays
 #: model_terms:ir.ui.view,arch_db:hr_holidays_public.holidays_public_next_year_wizard_view
 msgid "Create Next Year Public Holidays"
-msgstr ""
+msgstr "Créer les jours fériés de l'année prochaine"
 
 #. module: hr_holidays_public
 #: model:ir.model.fields,field_description:hr_holidays_public.field_hr_holidays_public__create_uid
@@ -79,7 +91,7 @@ msgstr "Créé le"
 #. module: hr_holidays_public
 #: model:ir.model,name:hr_holidays_public.model_public_holidays_next_year_wizard
 msgid "Creates public holidays from existing ones"
-msgstr ""
+msgstr "Crée des jours fériés à partir de ceux existants"
 
 #. module: hr_holidays_public
 #: model:ir.model.fields,field_description:hr_holidays_public.field_hr_holidays_public_line__date
@@ -89,7 +101,7 @@ msgstr "Date"
 #. module: hr_holidays_public
 #: model:ir.model.fields,field_description:hr_holidays_public.field_hr_holidays_public_line__variable_date
 msgid "Date may change"
-msgstr "La Date peux cjanger"
+msgstr "La date peut changer"
 
 #. module: hr_holidays_public
 #: code:addons/hr_holidays_public/models/hr_holidays_public.py:168
@@ -104,7 +116,7 @@ msgstr ""
 #. module: hr_holidays_public
 #: model_terms:ir.ui.view,arch_db:hr_holidays_public.holidays_public_next_year_wizard_view
 msgid "Defaults"
-msgstr ""
+msgstr "Défauts"
 
 #. module: hr_holidays_public
 #: model:ir.model.fields,field_description:hr_holidays_public.field_hr_holidays_public_line__display_name
@@ -114,9 +126,8 @@ msgstr "Nom affiché"
 
 #. module: hr_holidays_public
 #: model:ir.model.fields,field_description:hr_holidays_public.field_hr_leave_type__exclude_public_holidays
-#, fuzzy
 msgid "Exclude Public Holidays"
-msgstr "Jours fériés"
+msgstr "Exclure les jours fériés"
 
 #. module: hr_holidays_public
 #: model:ir.model.fields,field_description:hr_holidays_public.field_hr_holidays_public__line_ids
@@ -134,6 +145,7 @@ msgstr "ID"
 #: model:ir.model.fields,help:hr_holidays_public.field_hr_leave_type__exclude_public_holidays
 msgid "If enabled, public holidays are skipped in leave days calculation."
 msgstr ""
+"Si activé, les jours fériés sont ignorés dans le calcul des jours de congé."
 
 #. module: hr_holidays_public
 #: model:ir.model.fields,field_description:hr_holidays_public.field_hr_holidays_public____last_update
@@ -159,12 +171,12 @@ msgstr "Mis-à-jour le"
 #. module: hr_holidays_public
 #: model:ir.model,name:hr_holidays_public.model_hr_leave
 msgid "Leave"
-msgstr ""
+msgstr "Congé"
 
 #. module: hr_holidays_public
 #: model:ir.model,name:hr_holidays_public.model_hr_leave_type
 msgid "Leave Type"
-msgstr ""
+msgstr "Type de congé"
 
 #. module: hr_holidays_public
 #: model:ir.model.fields,field_description:hr_holidays_public.field_hr_holidays_public__display_name
@@ -179,11 +191,13 @@ msgid ""
 "No Public Holidays found as template. Please create the first Public "
 "Holidays manually."
 msgstr ""
+"Aucun jour férié trouvé comme modèle. Veuillez créer manuellement les "
+"premiers jours fériés."
 
 #. module: hr_holidays_public
 #: model_terms:ir.ui.view,arch_db:hr_holidays_public.holidays_public_next_year_wizard_view
 msgid "Optional"
-msgstr ""
+msgstr "Optionnel"
 
 #. module: hr_holidays_public
 #: model:ir.actions.act_window,name:hr_holidays_public.open_holidays_public_view
@@ -219,11 +233,16 @@ msgid ""
 "country for each year will be taken into account (If you select templates "
 "from 2012 and 2015, only the templates from 2015 will be taken into account."
 msgstr ""
+"Sélectionnez les jours fériés à utiliser comme modèle. Si non défini, les "
+"derniers jours fériés de chaque pays seront utilisés. Seuls les derniers "
+"modèles de chaque pays pour chaque année seront pris en compte (Si vous "
+"sélectionnez des modèles de 2012 et 2015, seuls les modèles de 2015 seront "
+"pris en compte)."
 
 #. module: hr_holidays_public
 #: model:ir.model.fields,field_description:hr_holidays_public.field_public_holidays_next_year_wizard__template_ids
 msgid "Templates"
-msgstr ""
+msgstr "Modèles"
 
 #. module: hr_holidays_public
 #: model_terms:ir.ui.view,arch_db:hr_holidays_public.holidays_public_next_year_wizard_view
@@ -236,6 +255,14 @@ msgid ""
 "want to\n"
 "                            replicate the 2010 Italian holidays to 2012.\""
 msgstr ""
+"Les champs facultatifs ci-dessous sont uniquement destinés à\n"
+"                             des situations spéciales comme \"2011 était une "
+"année spéciale avec\n"
+"                             un jour férié supplémentaire pour le 150\n"
+"                             anniversaire de l'unification italienne, vous "
+"voulez donc\n"
+"                             reproduire les vacances italiennes de 2010 à "
+"2012. \""
 
 #. module: hr_holidays_public
 #: model_terms:ir.ui.view,arch_db:hr_holidays_public.holidays_public_next_year_wizard_view
@@ -249,11 +276,19 @@ msgid ""
 "                            only the templates from 2015 will be taken into\n"
 "                            account)."
 msgstr ""
+"Utilisez cet assistant pour créer des jours fériés basés sur\n"
+"                             ceux existants. <br/>\n"
+"                             Seuls les derniers modèles de chaque pays\n"
+"                             seront pris en compte (si vous sélectionnez des "
+"modèles\n"
+"                             à partir de 2012 et 2015 du même pays; '\n"
+"                             seuls les modèles de 2015 seront pris en "
+"compte)."
 
 #. module: hr_holidays_public
 #: model:ir.model.fields,field_description:hr_holidays_public.field_public_holidays_next_year_wizard__year
 msgid "Year"
-msgstr ""
+msgstr "Année"
 
 #. module: hr_holidays_public
 #: model:ir.model.fields,help:hr_holidays_public.field_public_holidays_next_year_wizard__year
@@ -261,6 +296,8 @@ msgid ""
 "Year for which you want to create the public holidays. By default, the year "
 "following the template."
 msgstr ""
+"Année pour laquelle vous voulez créer les jours fériés. Par défaut, l'année "
+"suivant le modèle."
 
 #. module: hr_holidays_public
 #: code:addons/hr_holidays_public/models/hr_holidays_public.py:185
@@ -269,18 +306,20 @@ msgid ""
 "You can't create duplicate public holiday per date %s and one of the country "
 "states."
 msgstr ""
+"Vous ne pouvez pas créer un double jour férié par date %s et dans l’un des "
+"états du pays."
 
 #. module: hr_holidays_public
 #: code:addons/hr_holidays_public/models/hr_holidays_public.py:193
 #, python-format
 msgid "You can't create duplicate public holiday per date %s."
-msgstr ""
+msgstr "Vous ne pouvez dupliquer ce jour férié par date %s."
 
 #. module: hr_holidays_public
 #: code:addons/hr_holidays_public/models/hr_holidays_public.py:47
 #, python-format
 msgid "You can't create duplicate public holiday per year and/or country"
-msgstr ""
+msgstr "Vous ne pouvez pas créer de double jour férié par an et/ou par pays"
 
 #. module: hr_holidays_public
 #: code:addons/hr_holidays_public/wizards/holidays_public_next_year_wizard.py:76
@@ -290,3 +329,6 @@ msgid ""
 "public holidays on 29th of February (2016, 2020...), please select a "
 "template from another year."
 msgstr ""
+"Vous ne pouvez pas utiliser comme modèle les jours fériés d'une année qui "
+"inclut les jours fériés du 29 février (2016, 2020 ...), veuillez "
+"sélectionner un modèle d'une autre année."
