@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="edit_holiday_status_form" model="ir.ui.view">
+        <field name="name">hr.holidays.status.form (hr_holidays_validity_date)</field>
+        <field name="model">hr.holidays.status</field>
+        <field name="inherit_id" ref="hr_holidays.edit_holiday_status_form" />
+        <field name="arch" type="xml">
+            <field name="limit" position="after">
+                <field name="use_validity_dates"/>
+                <field name="restrict_dates" attrs="{'invisible': [('use_validity_dates', '=', False)]}"/>
+                <label for="date_start" string="Valid Period" attrs="{'invisible': [('use_validity_dates', '=', False)]}"/>
+                <div attrs="{'invisible': [('use_validity_dates', '=', False)]}">
+                    <div>
+                        <field name="date_start"
+                               attrs="{'required': [('use_validity_dates', '=', True)]}"
+                               class="oe_inline"/>
+                        <label string="-" class="oe_inline"/>
+                        <field name="date_end"
+                               attrs="{'required': [('use_validity_dates', '=', True)]}"
+                               class="oe_inline"/>
+                    </div>
+                </div>
+            </field>
+        </field>
+    </record>
+
+    <record id="edit_holiday_new" model="ir.ui.view">
+        <field name="name">Leave Request</field>
+        <field name="model">hr.holidays</field>
+        <field name="inherit_id" ref="hr_holidays.edit_holiday_new"/>
+        <field name="arch" type="xml">
+            <header position="after">
+                <field name="restrict_dates" invisible="1"/>
+                <div class="alert alert-warning"
+                     attrs="{'invisible': ['|', ('warning', '=', False), ('restrict_dates', '=', True)]}"
+                     style="margin-bottom:0px;">
+                    <p><i class="fa fa-info-circle"/>
+                        <field name="warning"/>
+                    </p>
+                </div>
+            </header>
+        </field>
+    </record>
+
+</odoo>
