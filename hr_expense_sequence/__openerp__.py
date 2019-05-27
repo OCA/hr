@@ -27,6 +27,7 @@
     'author': "Serv. Tecnol. Avanzados - Pedro M. Baeza,"
               "Odoo Community Association (OCA)",
     'website': 'http://www.serviciosbaeza.com',
+    "license": "AGPL-3",
     'depends': [
         'hr_expense',
     ],
