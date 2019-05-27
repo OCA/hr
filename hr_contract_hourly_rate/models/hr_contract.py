@@ -1,4 +1,3 @@
-# -*- coding:utf-8 -*-
 ##############################################################################
 #
 #    Copyright (C) 2014 Savoir-faire Linux. All Rights Reserved.
@@ -18,10 +17,10 @@
 #
 ##############################################################################
 
-from openerp import models, fields, api, exceptions, _
+from odoo import models, fields, api, exceptions, _
 
 
-class hr_contract(models.Model):
+class HrContract(models.Model):
     _inherit = 'hr.contract'
 
     salary_computation_method = fields.Selection(
@@ -71,8 +70,6 @@ class hr_contract(models.Model):
                         return rate.rate
         return False
 
-    @api.model
-    @api.depends('contract_job_ids', 'contract_job_ids.hourly_rate_class_id')
     @api.constrains('contract_job_ids')
     def _check_has_hourly_rate_class(self):
         """

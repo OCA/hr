@@ -1,4 +1,3 @@
-# -*- coding:utf-8 -*-
 ##############################################################################
 #
 #    Copyright (C) 2014 Savoir-faire Linux. All Rights Reserved.
@@ -18,11 +17,12 @@
 #
 ##############################################################################
 
-from openerp import models, fields, api, exceptions, _
+from odoo import models, fields, api, _
+from odoo.exceptions import ValidationError
 from itertools import permutations
 
 
-class hr_hourly_rate_class(models.Model):
+class HrHourlyRateClass(models.Model):
     _name = 'hr.hourly.rate.class'
     _description = 'Hourly rate class'
 
@@ -34,7 +34,6 @@ class hr_hourly_rate_class(models.Model):
                                        'hourly_rate_class_id',
                                        string='Contract Jobs')
 
-    @api.model
     @api.constrains('line_ids')
     def _check_overlapping_rates(self):
         """
@@ -42,11 +41,9 @@ class hr_hourly_rate_class(models.Model):
         """
         for hourly_rate_class in self:
             for r1, r2 in permutations(hourly_rate_class.line_ids, 2):
-                if r1.date_end and \
-                   (r1.date_start <= r2.date_start <= r1.date_end):
-                    raise exceptions.Warning(
-                        _("Error! You cannot have overlapping rates"))
-                elif not r1.date_end and (r1.date_start <= r2.date_start):
-                    raise exceptions.Warning(
+                if (r1.date_end and (
+                        r1.date_start <= r2.date_start <= r1.date_end
+                )) or (not r1.date_end and (r1.date_start <= r2.date_start)):
+                    raise ValidationError(
                         _("Error! You cannot have overlapping rates"))
         return True

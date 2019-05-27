@@ -1,4 +1,3 @@
-# -*- coding:utf-8 -*-
 ##############################################################################
 #
 #    Copyright (C) 2014 Savoir-faire Linux. All Rights Reserved.
@@ -18,10 +17,10 @@
 #
 ##############################################################################
 
-from openerp import models, fields, api
+from odoo import models, fields, api
 
 
-class hr_contract_job(models.Model):
+class HrContractJob(models.Model):
     _inherit = 'hr.contract.job'
 
     @api.multi

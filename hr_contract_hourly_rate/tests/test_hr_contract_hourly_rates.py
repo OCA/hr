@@ -1,4 +1,3 @@
-# -*- coding:utf-8 -*-
 ##############################################################################
 #
 #    Copyright (C) 2014 Savoir-faire Linux. All Rights Reserved.
@@ -19,13 +18,13 @@
 #
 ##############################################################################
 
-from openerp.tests.common import TransactionCase
-from openerp import exceptions
+from odoo.tests.common import TransactionCase
+from odoo import exceptions
 
 
-class test_contract_hourly_rate(TransactionCase):
+class TestContractHourlyRate(TransactionCase):
     def setUp(self):
-        super(test_contract_hourly_rate, self).setUp()
+        super(TestContractHourlyRate, self).setUp()
         self.employee_model = self.env['hr.employee']
         self.user_model = self.env["res.users"]
         self.contract_model = self.env["hr.contract"]

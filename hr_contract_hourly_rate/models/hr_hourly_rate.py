@@ -1,4 +1,3 @@
-# -*- coding:utf-8 -*-
 ##############################################################################
 #
 #    Copyright (C) 2014 Savoir-faire Linux. All Rights Reserved.
@@ -18,10 +17,10 @@
 #
 ##############################################################################
 
-from openerp import models, fields
+from odoo import models, fields
 
 
-class hr_hourly_rate(models.Model):
+class HrHourlyRate(models.Model):
     _name = 'hr.hourly.rate'
     _description = 'Hourly rate'
 

@@ -1,4 +1,3 @@
-# -*- coding:utf-8 -*-
 ##############################################################################
 #
 #    Copyright (C) 2014 Savoir-faire Linux. All Rights Reserved.
@@ -20,22 +19,19 @@
 
 {
     'name': 'HR Contract Hourly Rate',
-    'version': '8.0.1.0.0',
+    'version': '11.0.1.0.0',
     'license': 'AGPL-3',
     'category': 'Generic Modules/Human Resources',
     'author': 'Savoir-faire Linux, '
               'Fekete Mihai (Forest and Biomass Services Romania), '
               'Odoo Community Association (OCA)',
-    'website': 'https://www.savoirfairelinux.com/',
+    'website': 'https://github.com/OCA/hr',
     'depends': [
-        'hr_contract_multi_jobs',
+        'hr_contract_multi_job',
     ],
     'data': [
         'security/ir.model.access.csv',
         'views/hr_contract_view.xml',
         'views/hr_hourly_rate_class_view.xml',
     ],
-    'test': [],
-    'demo': [],
-    'installable': False,
 }

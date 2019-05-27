@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<openerp>
+<odoo>
         <data>
         <record id="hr_contract_view_form" model="ir.ui.view">
             <field name="name">hr.contract.view.form</field>
             <field name="model">hr.contract</field>
-            <field name="inherit_id" ref="hr_contract_multi_jobs.hr_contract_view_form"/>
+            <field name="inherit_id" ref="hr_contract_multi_job.hr_contract_view_form"/>
             <field name="arch" type="xml">
                 <field name="wage" position="replace">
                     <field name="salary_computation_method"/>
@@ -18,4 +18,4 @@
             </field>
         </record>
     </data>
-</openerp>
+</odoo>
