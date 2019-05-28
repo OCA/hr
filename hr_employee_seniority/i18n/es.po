@@ -31,7 +31,7 @@ msgstr ""
 #. module: hr_employee_seniority
 #: model:ir.ui.view,arch_db:hr_employee_seniority.hr_employee_view_form_inherit
 msgid "Duration of Service"
-msgstr "Duración del servicio"
+msgstr "Antigüedad"
 
 #. module: hr_employee_seniority
 #: model:ir.model,name:hr_employee_seniority.model_hr_employee

@@ -6,7 +6,7 @@
 {
     'name': 'Employee Seniority',
     'summary': 'Keep Track of Length of Employment',
-    'version': '11.0.1.0.0',
+    'version': '12.0.1.0.0',
     'category': 'Human Resources',
     'author': "Michael Telahun Makonnen <mmakonnen@gmail.com>, "
               "Camptocamp SA, "
@@ -14,7 +14,6 @@
     'website': 'https://github.com/OCA/hr',
     'license': 'AGPL-3',
     'depends': [
-        'hr',
         'hr_contract',
     ],
     "external_dependencies": {

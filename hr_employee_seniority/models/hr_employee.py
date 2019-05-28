@@ -18,6 +18,7 @@ class HrEmployee(models.Model):
         help='Date of first employment if it was before the start of the '
              'first contract in the system.',
     )
+
     length_of_service = fields.Float(
         'Months of Service',
         compute='_compute_months_service',
@@ -42,16 +43,14 @@ class HrEmployee(models.Model):
         hr_contract = self.env['hr.contract'].sudo()
         for employee in self:
             nb_month = 0
-
             if employee.initial_employment_date:
                 first_contract = employee._first_contract()
                 if first_contract:
-                    to_dt = fields.Date.from_string(first_contract.date_start)
+                    to_dt = first_contract.date_start
                 else:
-                    to_dt = fields.Date.from_string(date_now)
+                    to_dt = date_now
 
-                from_dt = fields.Date.from_string(
-                    employee.initial_employment_date)
+                from_dt = employee.initial_employment_date
 
                 nb_month += relativedelta(to_dt, from_dt).years * 12 + \
                     relativedelta(to_dt, from_dt).months + \
@@ -60,11 +59,11 @@ class HrEmployee(models.Model):
             contracts = hr_contract.search([('employee_id', '=', employee.id)],
                                            order='date_start asc')
             for contract in contracts:
-                from_dt = fields.Date.from_string(contract.date_start)
+                from_dt = contract.date_start
                 if contract.date_end and contract.date_end < date_now:
-                    to_dt = fields.Date.from_string(contract.date_end)
+                    to_dt = contract.date_end
                 else:
-                    to_dt = fields.Date.from_string(date_now)
+                    to_dt = date_now
                 nb_month += relativedelta(to_dt, from_dt).years * 12 + \
                     relativedelta(to_dt, from_dt).months + \
                     self.check_next_days(to_dt, from_dt)
@@ -74,9 +73,8 @@ class HrEmployee(models.Model):
     @api.constrains('initial_employment_date', 'contract_ids')
     def _check_initial_employment_date(self):
         if self.initial_employment_date and self.contract_ids:
-            initial_dt = fields.Date.from_string(self.initial_employment_date)
-            first_contract_dt = fields.Date.from_string(
-                self._first_contract().date_start)
+            initial_dt = self.initial_employment_date
+            first_contract_dt = self._first_contract().date_start
             if initial_dt > first_contract_dt:
                 raise ValidationError(_(
                     "The initial employment date "

@@ -6,9 +6,9 @@
         <field name="model">hr.employee</field>
         <field name="inherit_id" ref="hr.view_employee_tree"/>
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='work_phone']" position="before">
+            <field name="work_phone" position="before">
                 <field name="length_of_service"/>
-            </xpath>
+            </field>
         </field>
     </record>
 
