@@ -3,6 +3,7 @@
 
 from odoo.tests import common
 from ..hooks import post_init_hook
+from odoo import fields
 
 
 class TestHrEmployeeCalendarPlanning(common.SavepointCase):
@@ -60,21 +61,22 @@ class TestHrEmployeeCalendarPlanning(common.SavepointCase):
         calendar = self.employee.resource_calendar_id
         self.assertEqual(len(calendar.attendance_ids), 15)
         self.assertEqual(len(calendar.attendance_ids.filtered(
-            lambda x: x.date_from == '2020-01-01'
+            lambda x: x.date_from == fields.Date.to_date('2020-01-01')
         )), 5)
         self.assertEqual(len(calendar.attendance_ids.filtered(
-            lambda x: x.date_to == '2019-12-31'
+            lambda x: x.date_to == fields.Date.to_date('2019-12-31')
         )), 10)
+
         # Change one line
         calendar_line = self.employee.calendar_ids[0]
         calendar_line.date_end = '2019-12-30'
         calendar = self.employee.resource_calendar_id
         self.assertEqual(len(calendar.attendance_ids.filtered(
-            lambda x: x.date_to == '2019-12-30'
+            lambda x: x.date_to == fields.Date.to_date('2019-12-30')
         )), 10)
         self.employee.calendar_ids[0].unlink()
         self.assertEqual(len(calendar.attendance_ids.filtered(
-            lambda x: x.date_to == '2019-12-30'
+            lambda x: x.date_to == fields.Date.to_date('2019-12-30')
         )), 0)
         self.assertEqual(len(calendar.attendance_ids), 5)
         self.calendar2.write({
