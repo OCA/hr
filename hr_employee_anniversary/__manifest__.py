@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 {
     'name': "Employee's anniversary",
 
@@ -7,14 +6,13 @@
         """,
 
     'description': """
-        Adds a employment anniversary field next to birthday field
+        Adds a employment anniversary field next to birthday field.
     """,
 
     'author': "BerrySoft MX, Odoo Community Association (OCA)",
     'website': "https://github.com/OCA/hr",
 
     # Categories can be used to filter modules in modules listing
-    # Check https://github.com/odoo/odoo/blob/12.0/odoo/addons/base/data/ir_module_category_data.xml
     # for the full list
     'category': 'Generic Modules/Human Resources',
     'version': '0.1',
