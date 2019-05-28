@@ -3,6 +3,7 @@
 
 from odoo.tests.common import TransactionCase
 from odoo import fields
+from odoo.exceptions import ValidationError
 from datetime import datetime, time
 
 
@@ -42,3 +43,10 @@ class HRCalendarRestTime(TransactionCase):
                 today, time(23, 59, 59, 99999)),
         )['hours']
         self.assertEqual(hours, 8.0)
+
+        with self.assertRaises(ValidationError):
+            self.calendar.attendance_ids[0].write({'rest_time': 10})
+
+        self.calendar.attendance_ids[0].write({'rest_time': -1})
+        self.calendar.attendance_ids[0]._onchange_rest_time()
+        self.assertEqual(self.calendar.attendance_ids[0].rest_time, 0.0)

@@ -10,7 +10,7 @@
     'author': 'Creu Blanca, Odoo Community Association (OCA)',
     'website': 'https://github.com/OCA/hr',
     'depends': [
-        'hr_attendance',
+        'hr',
         'resource_hook',
     ],
     'data': [
