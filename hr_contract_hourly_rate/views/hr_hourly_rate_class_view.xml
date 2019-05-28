@@ -1,63 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-  <data>
+    <record id="view_hr_hourly_rate_class_form" model="ir.ui.view">
+        <field name="name">hr.hourly.rate.class.form</field>
+        <field name="model">hr.hourly.rate.class</field>
+        <field name="arch" type="xml">
+            <form string="Hourly Rate Class" version="7.0">
+                <sheet>
+                    <group col="4">
+                        <field name="name"/>
+                    </group>
+                    <group string="Hourly Rates">
+                        <field name="line_ids" colspan="2" nolabel="1">
+                            <tree editable="bottom">
+                                <field name="rate"/>
+                                <field name="date_start"/>
+                                <field name="date_end"/>
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
 
-        <record id="view_hr_hourly_rate_class_form" model="ir.ui.view">
-            <field name="name">hr.hourly.rate.class.form</field>
-            <field name="model">hr.hourly.rate.class</field>
-            <field name="arch" type="xml">
-                <form string="Hourly Rate Class" version="7.0">
-                    <sheet>
-                        <group col="4">
-                            <field name="name"/>
-                        </group>    
-                        <group string="Hourly Rates">
-                            <field name="line_ids" colspan="2" nolabel="1">
-                                <tree editable="bottom">
-                                    <field name="rate"/>
-                                    <field name="date_start"/>
-                                    <field name="date_end"/>
-                                </tree>
-                            </field>
-                        </group>
-                    </sheet>
-                </form>
-            </field>
-        </record>
+    <record id="view_hr_hourly_rate_class_tree" model="ir.ui.view">
+        <field name="name">hr.hourly.rate.class.tree</field>
+        <field name="model">hr.hourly.rate.class</field>
+        <field name="arch" type="xml">
+            <tree string="Companies">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
 
-        <record id="view_hr_hourly_rate_class_tree" model="ir.ui.view">
-            <field name="name">hr.hourly.rate.class.tree</field>
-            <field name="model">hr.hourly.rate.class</field>
-            <field name="arch" type="xml">
-                <tree string="Companies">
-                    <field name="name"/>
-                </tree>
-            </field>
-        </record>
+    <record id="view_hr_hourly_rate_class_filter" model="ir.ui.view">
+        <field name="name">Hourly Rate Classes</field>
+        <field name="model">hr.hourly.rate.class</field>
+        <field name="arch" type="xml">
+            <search string="Hourly Rate Classes">
+                <field name="name" string="Hourly Rate Class"/>
+            </search>
+         </field>
+    </record>
 
-        <record id="view_hr_hourly_rate_class_filter" model="ir.ui.view">
-            <field name="name">Hourly Rate Classes</field>
-            <field name="model">hr.hourly.rate.class</field>
-            <field name="arch" type="xml">
-                <search string="Hourly Rate Classes">
-                    <field name="name" string="Hourly Rate Class"/>
-                </search>
-             </field>
-        </record>
+    <record id="open_module_tree_hourly_rate_class" model="ir.actions.act_window">
+        <field name="name">Hourly Rate Classes</field>
+        <field name="res_model">hr.hourly.rate.class</field>
+        <field name="view_type">form</field>
+        <field name="search_view_id" ref="view_hr_hourly_rate_class_filter"/>
+    </record>
 
-        <record id="open_module_tree_hourly_rate_class" model="ir.actions.act_window">
-            <field name="name">Hourly Rate Classes</field>
-            <field name="res_model">hr.hourly.rate.class</field>
-            <field name="view_type">form</field>
-            <field name="search_view_id" ref="view_hr_hourly_rate_class_filter"/>
-        </record>
-
-        <menuitem
-            action="open_module_tree_hourly_rate_class"
-            id="menu_hr_hourly_rate_class_tree"
-            parent="hr.menu_human_resources_configuration"
-            sequence="6"
-        />
-
-  </data>
+    <menuitem
+        action="open_module_tree_hourly_rate_class"
+        id="menu_hr_hourly_rate_class_tree"
+        parent="hr.menu_human_resources_configuration"
+        sequence="6"
+    />
 </odoo>
