@@ -15,7 +15,7 @@
     # Categories can be used to filter modules in modules listing
     # for the full list
     'category': 'Generic Modules/Human Resources',
-    'version': '0.1',
+    'version': '12.0.0.0.0',
 
     # any module necessary for this one to work correctly
     'depends': ['base', 'hr'],
