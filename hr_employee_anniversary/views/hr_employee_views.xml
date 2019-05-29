@@ -1,8 +1,5 @@
 
 <odoo>
-
-  <data>
-
     <record id="hr_employee_view_form" model="ir.ui.view">
       <field name="inherit_id" ref="hr.view_employee_form" />
       <field name="name">hr.employee.form</field>
@@ -13,6 +10,4 @@
           </xpath>
       </field>
     </record>
-
-  </data>
 </odoo>
