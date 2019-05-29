@@ -11,7 +11,7 @@
 
     'author': "BerrySoft MX, Odoo Community Association (OCA)",
     'website': "https://github.com/OCA/hr",
-    
+
     # license
     'license': 'AGPL-3',
 
