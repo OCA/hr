@@ -11,6 +11,9 @@
 
     'author': "BerrySoft MX, Odoo Community Association (OCA)",
     'website': "https://github.com/OCA/hr",
+    
+    # license
+    'license': 'AGPL-3',
 
     # Categories can be used to filter modules in modules listing
     # for the full list
@@ -25,5 +28,4 @@
         # 'security/ir.model.access.csv',
         'views/hr_employee_views.xml',
     ],
-    # only loaded in demonstration mode
 }
