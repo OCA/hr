@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="hr_attendance_reason_view_form" model="ir.ui.view">
+        <field name="name">hr.attendance.reason.form</field>
+        <field name="model">hr.attendance.reason</field>
+        <field name="arch" type="xml">
+            <form string="Define attendance reason">
+                <group col="4">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="action_type"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="hr_attendance_reason_view_tree" model="ir.ui.view">
+        <field name="name">hr.attendance.reason.tree</field>
+        <field name="model">hr.attendance.reason</field>
+        <field name="arch" type="xml">
+            <tree string="Attendance reasons">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="action_type"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="hr_attendance_reason_action" model="ir.actions.act_window">
+        <field name="name">Attendance Reasons</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hr.attendance.reason</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="hr_attendance_reason_view_tree"/>
+    </record>
+
+    <menuitem id="hr_attendance_settings_redefinition_menu"
+              name="Configuration"
+              parent="hr_attendance.menu_hr_attendance_settings"
+              sequence="99"
+              action="hr_attendance.action_hr_attendance_settings"
+              groups="hr_attendance.group_hr_attendance_manager"/>
+
+    <menuitem id="hr_attendance_reason_menu" name="Reasons"
+              parent="hr_attendance.menu_hr_attendance_settings"
+              action="hr_attendance_reason_action"
+              sequence="110"
+              groups="hr_attendance.group_hr_attendance_manager"/>
+
+</odoo>
