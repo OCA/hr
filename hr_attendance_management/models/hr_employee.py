@@ -191,9 +191,11 @@ class HrEmployee(models.Model):
         return extra_hours_sum[-1], lost_hours[-1]
 
     @api.model
-    def _cron_create_attendance(self, domain=None, day=fields.Date.today()):
+    def _cron_create_attendance(self, domain=None, day=None):
         att_day = self.env['hr.attendance.day']
         employees = self.search(domain or [])
+        if day is None:
+            day = fields.Date.today()
         for employee in employees:
             # check if an entry already exists. If yes, it will not be
             # recreated
