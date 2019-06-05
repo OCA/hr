@@ -56,6 +56,11 @@ msgid "Employee"
 msgstr ""
 
 #. module: hr_employee_calendar_planning
+#: model:ir.model,name:hr_employee_calendar_planning.model_hr_employee_calendar
+msgid "Employee Calendar"
+msgstr ""
+
+#. module: hr_employee_calendar_planning
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__date_end
 msgid "End Date"
 msgstr ""
@@ -93,10 +98,5 @@ msgstr ""
 #. module: hr_employee_calendar_planning
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__calendar_id
 msgid "Working Time"
-msgstr ""
-
-#. module: hr_employee_calendar_planning
-#: model:ir.model,name:hr_employee_calendar_planning.model_hr_employee_calendar
-msgid "hr.employee.calendar"
 msgstr ""
 
