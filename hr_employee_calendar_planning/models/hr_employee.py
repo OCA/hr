@@ -42,6 +42,7 @@ class HrEmployee(models.Model):
 
 class HrEmployeeCalendar(models.Model):
     _name = 'hr.employee.calendar'
+    _description = 'Employee Calendar'
 
     date_start = fields.Date(
         string="Start Date",
