@@ -28,13 +28,12 @@
                 <page string="Hours">
                     <group>
                         <group>
-                            <field name="previous_period_balance" widget="float_time"/>
+                            <field name="current_period_start_date" widget="date"/>
                             <field name="extra_hours_continuous_cap" widget="float_time" invisible="1"/>
                             <field name="extra_hours_continuous_cap"/>
                             <field name="show_leaves" invisible="1"/>
-                            <field name="extra_hours_lost" widget="float_time" attrs="{'invisible':[('extra_hours_continuous_cap', '!=', False)]}"/>
-                            <field name="previous_period_lost_hours" widget="float_time" attrs="{'invisible':[('extra_hours_continuous_cap', '=', False)]}"/>
-                            <field name="annual_balance_date" widget="date" attrs="{'invisible':[('extra_hours_continuous_cap', '=', False)]}"/>
+                            <field name="current_period_lost_hours" widget="float_time"/>
+                            <field name="annual_balance_date" widget="date" attrs="{'invisible':[('extra_hours_continuous_cap', '=', True)]}"/>
                         </group>
                         <group>
                             <group colspan="2" col="2">

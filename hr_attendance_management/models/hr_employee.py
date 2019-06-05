@@ -24,12 +24,14 @@ class HrEmployee(models.Model):
              " only at the cron execution time.")
     annual_balance_date = fields.Date(
         compute='_compute_annual_balance_date')
+    current_period_start_date = fields.Date(
+        compute="_compute_current_period_start_date", store=False)
 
     attendance_days_ids = fields.One2many('hr.attendance.day', 'employee_id',
                                           "Attendance days")
     balance = fields.Float(compute='_compute_balance', store=True)
 
-    extra_hours_lost = fields.Float(compute='_compute_balance', store=True)
+    current_period_lost_hours = fields.Float(compute='_compute_balance', store=True)
 
     previous_period_continuous_cap = fields.Boolean(readonly=True)
     previous_period_balance = fields.Float(oldname="annual_balance")
@@ -68,6 +70,13 @@ class HrEmployee(models.Model):
                     .get_next_balance_cron_execution()
 
     @api.multi
+    def _compute_current_period_start_date(self):
+        for employee in self:
+            employee.current_period_start_date = \
+                self.env['base.config.settings'].create({}) \
+                    .get_last_balance_cron_execution()
+
+    @api.multi
     def _compute_work_location(self):
         for employee in self:
             actual_location = self.env['hr.attendance'].search([
@@ -90,8 +99,7 @@ class HrEmployee(models.Model):
                 existing_balance=employee.previous_period_balance)
 
             employee.balance = extra
-            employee.extra_hours_lost = \
-                employee.previous_period_lost_hours + lost
+            employee.extra_hours_lost = lost
 
     @api.multi
     def is_continuous_cap_at_date(self, date):
@@ -360,9 +368,10 @@ class HrEmployee(models.Model):
         self.ensure_one()
         self.env['balance.evolution.graph'].populate_graph(self.id)
         return {
-            'name': 'Balance evolution',
+            'name': 'Extra hours evolution',
             'type': 'ir.actions.act_window',
             'res_model': 'balance.evolution.graph',
+            'context': {"graph_mode": "bar"},
             'view_type': 'form',
             'view_mode': 'graph',
             'domain': [('employee_id', '=', self.id)],
