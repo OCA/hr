@@ -12,7 +12,7 @@
         <field name="inherit_id" ref="hr.view_employee_form"/>
         <field name="arch" type="xml">
             <notebook position="inside">
-                <page string="Skills">
+                <page string="Skills" name="employee_skills" groups="hr.group_hr_user">
                     <group>
                         <field name="employee_skill_ids" nolabel="1">
                             <tree editable="bottom">

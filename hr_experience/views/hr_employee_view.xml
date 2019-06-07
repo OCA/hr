@@ -8,7 +8,7 @@
         <field name="inherit_id" ref="hr.view_employee_form"/>
         <field name="arch" type="xml">
             <notebook position="inside">
-                <page string="Resume" groups="base.group_user">
+                <page string="Resume" name="resume" groups="hr.group_hr_user">
                     <group string="Academic Experiences">
                         <field name="academic_ids" context="{'default_employee_id': active_id}" nolabel="1">
                             <tree string="Academic Experiences">
