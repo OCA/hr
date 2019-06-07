@@ -1,14 +1,4 @@
 <odoo>
-
-    <record id="view_extra_hours_evolution_day_report" model="ir.actions.act_window">
-        <field name="name">Extra hours evolution</field>
-        <field name="res_model">balance.evolution.graph</field>
-        <field name="view_type">form</field>
-        <field name="view_mode">graph</field>
-        <field name="context">{"graph_mode":"line"}</field>
-        <field name="help">From this report, you can see the evolution of your extra hours</field>
-    </record>
-
     <record id="view_extra_hours_evolution_day_report_graph" model="ir.ui.view">
         <field name="name">hr.attendance.balance.evolution.report.graph</field>
         <field name="model">balance.evolution.graph</field>
