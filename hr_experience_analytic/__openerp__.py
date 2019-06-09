@@ -51,4 +51,5 @@ Contributors
         "hr_experience_analytic_view.xml",
     ],
     "installable": True,
+    'license': 'AGPL-3',
 }
