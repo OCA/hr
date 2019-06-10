@@ -22,7 +22,7 @@
 
 {
     'name': 'HR expense sequence',
-    'version': '8.0.1.0.0',
+    'version': '12.0.1.0.0',
     'category': 'HR',
     'author': "Serv. Tecnol. Avanzados - Pedro M. Baeza,"
               "Odoo Community Association (OCA)",
