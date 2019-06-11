@@ -7,7 +7,15 @@
         <field name="inherit_id" ref="hr_expense.hr_expense_view_form"/>
         <field name="arch" type="xml">
             <field name="product_id" position="after">
-                <field name="invoice_id" context="{'default_type': 'in_invoice', 'type': 'in_invoice', 'journal_type': 'purchase'}"/>
+                <field name="invoice_id"
+                  context="{'default_type': 'in_invoice', 'type': 'in_invoice', 'journal_type': 'purchase',
+                            'default_reference': reference,
+                            'default_date_invoice': date,
+                            'default_invoice_line_ids': [{'product_id': product_id,
+                                                          'name': name,
+                                                          'price_unit': unit_amount,
+                                                          'quantity': quantity, 'date_invoice': date,
+                                                          'account_id': account_id, 'invoice_line_tax_ids': tax_ids, }], }" />
             </field>
             <xpath expr="//field[@name='date']" position="attributes">
                 <attribute name="attrs">{'readonly': [('invoice_id', '!=', False)]}</attribute>
