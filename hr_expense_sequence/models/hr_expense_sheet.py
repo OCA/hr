@@ -1,5 +1,4 @@
-# -*- coding: utf-8 -*-
-# © 2014 Serv. Tecnol. Avanzados (http://www.serviciosbaeza.com)
+# Copyright 2014 Serv. Tecnol. Avanzados (http://www.serviciosbaeza.com)
 #                       Pedro M. Baeza <pedro.baeza@serviciosbaeza.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
@@ -10,7 +9,7 @@ class HrExpenseSheet(models.Model):
     _inherit = 'hr.expense.sheet'
     _rec_name = 'number'
 
-    number = fields.Char(required=True, default="/", readonly=True, copy=False)
+    number = fields.Char(required=True, default='/', readonly=True, copy=False)
 
     @api.model
     def create(self, vals):
