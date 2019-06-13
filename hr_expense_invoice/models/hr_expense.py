@@ -11,7 +11,7 @@ class HrExpense(models.Model):
     invoice_id = fields.Many2one(
         comodel_name='account.invoice',
         string='Vendor Bill',
-        domain="[('type', '=', 'in_invoice'), ('state', '=', 'open')]",
+        domain="[('type', '=', 'in_invoice'), ('state', 'in', ('draft', 'open'))]",
         oldname='invoice',
     )
 
