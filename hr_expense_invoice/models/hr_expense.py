@@ -2,7 +2,8 @@
 # Copyright 2017 Vicent Cubells <vicent.cubells@tecnativa.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import api, fields, models
+from odoo import api, fields, models, _
+from odoo.exceptions import UserError
 
 
 class HrExpense(models.Model):
@@ -13,38 +14,16 @@ class HrExpense(models.Model):
         string='Vendor Bill',
         domain="[('type', '=', 'in_invoice'), ('state', '=', 'open')]",
         oldname='invoice',
+        copy=False,
     )
 
-    @api.onchange('invoice_id')
-    def onchange_invoice_id(self):
-        self.date = self.invoice_id.date_invoice
-        self.name = self.invoice_id.number
-        self.reference = self.invoice_id.number or self.invoice_id.reference
-        self.analytic_account_id = False
-        self.unit_amount = self.invoice_id.residual
-        self.quantity = 1.0
-        self.total_amount = self.unit_amount
-        self.description = self.invoice_id.reference
-
-    def _check_vals(self, vals):
-        if vals.get('invoice_id'):
-            # Rewrite values because readonly fields are not stored
-            invoice = self.env['account.invoice'].browse(vals['invoice_id'])
-            vals['date'] = invoice.date_invoice
-            vals['analytic_account_id'] = False
-            vals['unit_amount'] = invoice.residual
-            vals['total_amount'] = invoice.residual
-            vals['quantity'] = 1.0
-
-    @api.model
-    def create(self, vals):
-        self._check_vals(vals)
-        return super(HrExpense, self).create(vals)
-
     @api.multi
-    def write(self, vals):
-        self._check_vals(vals)
-        return super(HrExpense, self).write(vals)
+    @api.constrains('invoice_id')
+    def _check_invoice_id(self):
+        for expense in self:  # Only non binding expense
+            if not expense.sheet_id and expense.invoice_id and \
+                    expense.invoice_id.state != 'open':
+                raise UserError(_("Vendor bill state must be Open"))
 
     @api.multi
     def _get_account_move_line_values(self):
