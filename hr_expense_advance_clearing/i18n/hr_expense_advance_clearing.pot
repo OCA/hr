@@ -1,0 +1,179 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* hr_expense_advance_clearing
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hr_expense_advance_clearing
+#: code:addons/hr_expense_advance_clearing/wizard/hr_expense_sheet_register_payment.py:46
+#, python-format
+msgid "A remaining advance return of %s %s with the reference <a href='/mail/view?%s'>%s</a> related to your expense %s has been made."
+msgstr ""
+
+#. module: hr_expense_advance_clearing
+#: model_terms:ir.ui.view,arch_db:hr_expense_advance_clearing.view_hr_expense_sheet_filter
+msgid "Advance"
+msgstr ""
+
+#. module: hr_expense_advance_clearing
+#: model_terms:ir.ui.view,arch_db:hr_expense_advance_clearing.view_hr_expense_sheet_filter
+msgid "Advance (not cleared)"
+msgstr ""
+
+#. module: hr_expense_advance_clearing
+#: model:ir.actions.act_window,name:hr_expense_advance_clearing.action_hr_expense_sheet_advance_clearing
+msgid "Advance Clearing"
+msgstr ""
+
+#. module: hr_expense_advance_clearing
+#: model:ir.model.fields,field_description:hr_expense_advance_clearing.field_hr_expense_sheet__advance_sheet_residual
+msgid "Advance Remaining"
+msgstr ""
+
+#. module: hr_expense_advance_clearing
+#: code:addons/hr_expense_advance_clearing/models/hr_expense_sheet.py:60
+#, python-format
+msgid "Advance clearing must not contain any advance expense line"
+msgstr ""
+
+#. module: hr_expense_advance_clearing
+#: code:addons/hr_expense_advance_clearing/models/hr_expense_sheet.py:63
+#, python-format
+msgid "Advance must contain only 1 advance expense line"
+msgstr ""
+
+#. module: hr_expense_advance_clearing
+#: code:addons/hr_expense_advance_clearing/models/hr_expense.py:55
+#, python-format
+msgid "Advance: %s has no amount to clear"
+msgstr ""
+
+#. module: hr_expense_advance_clearing
+#: model:ir.model.fields,field_description:hr_expense_advance_clearing.field_hr_expense_sheet__residual
+msgid "Amount to clear"
+msgstr ""
+
+#. module: hr_expense_advance_clearing
+#: model:ir.model.fields,help:hr_expense_advance_clearing.field_hr_expense_sheet__residual
+msgid "Amount to clear of this expense sheet in company currency"
+msgstr ""
+
+#. module: hr_expense_advance_clearing
+#: model:ir.model.fields,field_description:hr_expense_advance_clearing.field_hr_expense_sheet__advance_sheet_id
+#: model_terms:ir.ui.view,arch_db:hr_expense_advance_clearing.view_hr_expense_sheet_form
+msgid "Clear Advance"
+msgstr ""
+
+#. module: hr_expense_advance_clearing
+#: model_terms:ir.ui.view,arch_db:hr_expense_advance_clearing.view_hr_expense_sheet_filter
+msgid "Clearing"
+msgstr ""
+
+#. module: hr_expense_advance_clearing
+#: model_terms:ir.actions.act_window,help:hr_expense_advance_clearing.action_hr_expense_sheet_advance_clearing
+msgid "Create a new expense report"
+msgstr ""
+
+#. module: hr_expense_advance_clearing
+#: model:ir.model.fields,field_description:hr_expense_advance_clearing.field_hr_expense__advance
+#: model:ir.model.fields,field_description:hr_expense_advance_clearing.field_hr_expense_sheet__advance
+#: model:product.product,name:hr_expense_advance_clearing.product_emp_advance
+#: model:product.template,name:hr_expense_advance_clearing.product_emp_advance_product_template
+msgid "Employee Advance"
+msgstr ""
+
+#. module: hr_expense_advance_clearing
+#: code:addons/hr_expense_advance_clearing/models/hr_expense.py:24
+#, python-format
+msgid "Employee advance product has no payable account"
+msgstr ""
+
+#. module: hr_expense_advance_clearing
+#: code:addons/hr_expense_advance_clearing/models/hr_expense.py:30
+#, python-format
+msgid "Employee advance, all taxes must be removed"
+msgstr ""
+
+#. module: hr_expense_advance_clearing
+#: code:addons/hr_expense_advance_clearing/models/hr_expense.py:33
+#, python-format
+msgid "Employee advance, paid by must be employee"
+msgstr ""
+
+#. module: hr_expense_advance_clearing
+#: code:addons/hr_expense_advance_clearing/models/hr_expense.py:27
+#, python-format
+msgid "Employee advance, selected product is not valid"
+msgstr ""
+
+#. module: hr_expense_advance_clearing
+#: model:ir.model,name:hr_expense_advance_clearing.model_hr_expense
+msgid "Expense"
+msgstr ""
+
+#. module: hr_expense_advance_clearing
+#: model:ir.model,name:hr_expense_advance_clearing.model_hr_expense_sheet_register_payment_wizard
+msgid "Expense Register Payment Wizard"
+msgstr ""
+
+#. module: hr_expense_advance_clearing
+#: model:ir.model,name:hr_expense_advance_clearing.model_hr_expense_sheet
+msgid "Expense Report"
+msgstr ""
+
+#. module: hr_expense_advance_clearing
+#: model:ir.model.fields,help:hr_expense_advance_clearing.field_hr_expense_sheet__amount_payable
+msgid "Final regiter payment amount even after advance clearing"
+msgstr ""
+
+#. module: hr_expense_advance_clearing
+#: model_terms:ir.actions.act_window,help:hr_expense_advance_clearing.action_hr_expense_sheet_advance_clearing
+msgid "Once you have created your expense, submit it to your manager who will validate it."
+msgstr ""
+
+#. module: hr_expense_advance_clearing
+#: model:ir.model.fields,field_description:hr_expense_advance_clearing.field_hr_expense_sheet__amount_payable
+msgid "Payable Amount"
+msgstr ""
+
+#. module: hr_expense_advance_clearing
+#: model:ir.model,name:hr_expense_advance_clearing.model_account_payment
+msgid "Payments"
+msgstr ""
+
+#. module: hr_expense_advance_clearing
+#: model:ir.model.fields,help:hr_expense_advance_clearing.field_hr_expense_sheet__advance_sheet_residual
+msgid "Remaining amount to clear the selected advance sheet"
+msgstr ""
+
+#. module: hr_expense_advance_clearing
+#: model_terms:ir.ui.view,arch_db:hr_expense_advance_clearing.view_hr_expense_sheet_form
+msgid "Return Advance"
+msgstr ""
+
+#. module: hr_expense_advance_clearing
+#: model:ir.model.fields,help:hr_expense_advance_clearing.field_hr_expense_sheet__advance_sheet_id
+msgid "Show remaining advance of this employee"
+msgstr ""
+
+#. module: hr_expense_advance_clearing
+#: model:product.product,uom_name:hr_expense_advance_clearing.product_emp_advance
+#: model:product.template,uom_name:hr_expense_advance_clearing.product_emp_advance_product_template
+msgid "Unit(s)"
+msgstr ""
+
+#. module: hr_expense_advance_clearing
+#: model:product.product,weight_uom_name:hr_expense_advance_clearing.product_emp_advance
+#: model:product.template,weight_uom_name:hr_expense_advance_clearing.product_emp_advance_product_template
+msgid "kg"
+msgstr ""
+
