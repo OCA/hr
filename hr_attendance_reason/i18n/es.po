@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* hr_attendance_reason
+# 	* hr_attendance_reason
 #
 msgid ""
 msgstr ""
@@ -17,7 +17,7 @@ msgstr ""
 "X-Generator: Weblate 3.5.1\n"
 
 #. module: hr_attendance_reason
-#: model:ir.model.fields,field_description:hr_attendance_reason.field_hr_attendance_reason_action_type
+#: model:ir.model.fields,field_description:hr_attendance_reason.field_hr_attendance_reason__action_type
 msgid "Action Type"
 msgstr "Tipo de acción"
 
@@ -28,7 +28,7 @@ msgstr "Asistencia"
 
 #. module: hr_attendance_reason
 #: model:ir.model,name:hr_attendance_reason.model_hr_attendance_reason
-#: model:ir.model.fields,field_description:hr_attendance_reason.field_hr_attendance_attendance_reason_ids
+#: model:ir.model.fields,field_description:hr_attendance_reason.field_hr_attendance__attendance_reason_ids
 msgid "Attendance Reason"
 msgstr "Motivo de alerta de asistencia"
 
@@ -38,7 +38,7 @@ msgid "Attendance Reasons"
 msgstr "Motivos de alerta de asistencia"
 
 #. module: hr_attendance_reason
-#: model:ir.ui.view,arch_db:hr_attendance_reason.hr_attendance_reason_view_tree
+#: model_terms:ir.ui.view,arch_db:hr_attendance_reason.hr_attendance_reason_view_tree
 msgid "Attendance reasons"
 msgstr "Motivos de alerta de asistencia"
 
@@ -53,57 +53,57 @@ msgid "Configuration"
 msgstr "Configuración"
 
 #. module: hr_attendance_reason
-#: model:ir.model.fields,field_description:hr_attendance_reason.field_hr_attendance_reason_create_uid
+#: model:ir.model.fields,field_description:hr_attendance_reason.field_hr_attendance_reason__create_uid
 msgid "Created by"
 msgstr "Creado por"
 
 #. module: hr_attendance_reason
-#: model:ir.model.fields,field_description:hr_attendance_reason.field_hr_attendance_reason_create_date
+#: model:ir.model.fields,field_description:hr_attendance_reason.field_hr_attendance_reason__create_date
 msgid "Created on"
 msgstr "Creado el"
 
 #. module: hr_attendance_reason
-#: model:ir.ui.view,arch_db:hr_attendance_reason.hr_attendance_reason_view_form
+#: model_terms:ir.ui.view,arch_db:hr_attendance_reason.hr_attendance_reason_view_form
 msgid "Define attendance reason"
 msgstr "Definir un motivo de alerta de asistencia"
 
 #. module: hr_attendance_reason
-#: model:ir.model.fields,field_description:hr_attendance_reason.field_hr_attendance_reason_display_name
+#: model:ir.model.fields,field_description:hr_attendance_reason.field_hr_attendance_reason__display_name
 msgid "Display Name"
 msgstr "Nombre a mostrar"
 
 #. module: hr_attendance_reason
-#: model:ir.model.fields,field_description:hr_attendance_reason.field_hr_attendance_reason_id
+#: model:ir.model.fields,field_description:hr_attendance_reason.field_hr_attendance_reason__id
 msgid "ID"
 msgstr "ID"
 
 #. module: hr_attendance_reason
-#: model:ir.model.fields,field_description:hr_attendance_reason.field_hr_attendance_reason___last_update
+#: model:ir.model.fields,field_description:hr_attendance_reason.field_hr_attendance_reason____last_update
 msgid "Last Modified on"
 msgstr "Última modificación en"
 
 #. module: hr_attendance_reason
-#: model:ir.model.fields,field_description:hr_attendance_reason.field_hr_attendance_reason_write_uid
+#: model:ir.model.fields,field_description:hr_attendance_reason.field_hr_attendance_reason__write_uid
 msgid "Last Updated by"
 msgstr "Última actualización de"
 
 #. module: hr_attendance_reason
-#: model:ir.model.fields,field_description:hr_attendance_reason.field_hr_attendance_reason_write_date
+#: model:ir.model.fields,field_description:hr_attendance_reason.field_hr_attendance_reason__write_date
 msgid "Last Updated on"
 msgstr "Última actualización en"
 
 #. module: hr_attendance_reason
-#: model:ir.model.fields,help:hr_attendance_reason.field_hr_attendance_reason_action_type
+#: model:ir.model.fields,help:hr_attendance_reason.field_hr_attendance_reason__action_type
 msgid "Leave empty if it is independent"
 msgstr "Dejar vacío si es independiente"
 
 #. module: hr_attendance_reason
-#: model:ir.model.fields,field_description:hr_attendance_reason.field_hr_attendance_reason_name
+#: model:ir.model.fields,field_description:hr_attendance_reason.field_hr_attendance_reason__name
 msgid "Name"
 msgstr "Nombre"
 
 #. module: hr_attendance_reason
-#: model:ir.model.fields,field_description:hr_attendance_reason.field_hr_attendance_reason_code
+#: model:ir.model.fields,field_description:hr_attendance_reason.field_hr_attendance_reason__code
 msgid "Reason Code"
 msgstr "Código del motivo"
 
@@ -123,11 +123,13 @@ msgid "Sign out"
 msgstr "Salida"
 
 #. module: hr_attendance_reason
-#: model:ir.model.fields,help:hr_attendance_reason.field_hr_attendance_attendance_reason_ids
-msgid "Specifies the reason for signing In/signing Out in case of less or extra hours."
+#: model:ir.model.fields,help:hr_attendance_reason.field_hr_attendance__attendance_reason_ids
+msgid ""
+"Specifies the reason for signing In/signing Out in case of less or extra "
+"hours."
 msgstr "Especifica la razón de entrada/salida inusual."
 
 #. module: hr_attendance_reason
-#: model:ir.model.fields,help:hr_attendance_reason.field_hr_attendance_reason_name
+#: model:ir.model.fields,help:hr_attendance_reason.field_hr_attendance_reason__name
 msgid "Specifies the reason leaving soon or arriving late"
 msgstr "Especifica la razón por salir antes o llegar tarde"
