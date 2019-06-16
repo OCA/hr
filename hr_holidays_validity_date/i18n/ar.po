@@ -35,24 +35,43 @@ msgid "Leave Type"
 msgstr "نوع الإجازة"
 
 #. module: hr_holidays_validity_date
+#: model:ir.model.fields,field_description:hr_holidays_validity_date.field_hr_holidays_status_restrict_dates
+msgid "Restrict Dates"
+msgstr ""
+
+#. module: hr_holidays_validity_date
+#: model:ir.model.fields,field_description:hr_holidays_validity_date.field_hr_holidays_restrict_dates
+msgid "Restrict dates"
+msgstr ""
+
+#. module: hr_holidays_validity_date
 #: model:ir.model.fields,field_description:hr_holidays_validity_date.field_hr_holidays_status_date_start
 msgid "Start Date"
 msgstr ""
 
 #. module: hr_holidays_validity_date
 #: sql_constraint:hr.holidays.status:0
-msgid "The start date must be anterior to the end date."
+msgid "The start date must be greater than the end date."
 msgstr ""
 
 #. module: hr_holidays_validity_date
 #: model:ir.model.fields,field_description:hr_holidays_validity_date.field_hr_holidays_status_use_validity_dates
-msgid "Use validity dates"
+msgid "Use Validity Dates"
 msgstr ""
 
 #. module: hr_holidays_validity_date
-#: code:addons/hr_holidays_validity_date/models/hr_holidays.py:49
+#: model:ir.ui.view,arch_db:hr_holidays_validity_date.edit_holiday_status_form
+msgid "Valid Period"
+msgstr ""
+
+#. module: hr_holidays_validity_date
+#: model:ir.model.fields,field_description:hr_holidays_validity_date.field_hr_holidays_warning
+msgid "Warning"
+msgstr ""
+
+#. module: hr_holidays_validity_date
+#: code:addons/hr_holidays_validity_date/models/hr_holidays.py:54
 #, python-format
 msgid ""
-"leaves on %s type must be taken between %s and\n"
-"                        %s"
+"Warning: The selected dates are out of this holiday type's range. (%s - %s)"
 msgstr ""
