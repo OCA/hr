@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2019 Creu Blanca
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+    <record model="ir.ui.view" id="view_employee_form_inherit_hr_attendance">
+        <field name="name">hr.employee.form (in hr_attendance_autoclose)</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr_attendance.view_employee_form_inherit_hr_attendance"/>
+        <field name="arch" type="xml">
+            <field name="barcode" position="after">
+                <field name="no_autoclose"/>
+            </field>
+        </field>
+    </record>
+
+
+
+</odoo>

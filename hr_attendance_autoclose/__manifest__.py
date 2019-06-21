@@ -14,6 +14,7 @@
         'hr_attendance_reason',
     ],
     'data': [
+        'views/hr_employee.xml',
         'data/hr_attendance_reason.xml',
         'data/hr_attendance.xml',
         'views/hr_attendance_view.xml',
