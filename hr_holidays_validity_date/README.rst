@@ -14,13 +14,13 @@ HR holidays validity date
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fhr-lightgray.png?logo=github
-    :target: https://github.com/OCA/hr/tree/11.0/hr_holidays_validity_date
+    :target: https://github.com/OCA/hr/tree/12.0/hr_holidays_validity_date
     :alt: OCA/hr
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/hr-11-0/hr-11-0-hr_holidays_validity_date
+    :target: https://translation.odoo-community.org/projects/hr-12-0/hr-12-0-hr_holidays_validity_date
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runbot-Try%20me-875A7B.png
-    :target: https://runbot.odoo-community.org/runbot/116/11.0
+    :target: https://runbot.odoo-community.org/runbot/116/12.0
     :alt: Try me on Runbot
 
 |badge1| |badge2| |badge3| |badge4| |badge5| 
@@ -32,13 +32,27 @@ This module was written to define start and end date on holidays type.
 .. contents::
    :local:
 
+Changelog
+=========
+
+At first this module added two new fields to the Leave Type model, the
+start and the end of a range that meant the time interval where that type
+could be requested.
+
+In 11.0 it was added that it could be chosen whether this was a constraint or
+simply a message.
+
+In 12.0 Odoo added the range feature in their Leaves module (validity_start and
+validity_stop) so nowadays this just
+adds the feature that lets you chose if you want a warning or a constraint.
+
 Bug Tracker
 ===========
 
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/hr/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us smashing it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/hr/issues/new?body=module:%20hr_holidays_validity_date%0Aversion:%2011.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/hr/issues/new?body=module:%20hr_holidays_validity_date%0Aversion:%2012.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -70,6 +84,6 @@ OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
 
-This module is part of the `OCA/hr <https://github.com/OCA/hr/tree/11.0/hr_holidays_validity_date>`_ project on GitHub.
+This module is part of the `OCA/hr <https://github.com/OCA/hr/tree/12.0/hr_holidays_validity_date>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
