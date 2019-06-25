@@ -81,6 +81,7 @@ class TestHrAttendanceReportTheoreticalTime(common.SavepointCase):
             'name': 'Leave Type Test',
             'exclude_public_holidays': True,
             'allocation_type': 'no',
+            'validity_start': False,
         })
         # Remove timezone for controlling data better
         cls.env.user.tz = False
