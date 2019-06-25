@@ -32,6 +32,7 @@ class TestHrHolidaysLengthValidation(common.TransactionCase):
         leave_type = self.SudoLeaveType.create({
             'name': 'Leave Type #1',
             'allocation_type': 'fixed',
+            'validity_start': False,
         })
 
         allocation = self.SudoLeaveAllocation.create({
@@ -65,6 +66,7 @@ class TestHrHolidaysLengthValidation(common.TransactionCase):
         leave_type = self.SudoLeaveType.create({
             'name': 'Leave Type #2',
             'allocation_type': 'fixed',
+            'validity_start': False,
         })
 
         allocation = self.SudoLeaveAllocation.create({
@@ -109,6 +111,7 @@ class TestHrHolidaysLengthValidation(common.TransactionCase):
         leave_type = self.SudoLeaveType.create({
             'name': 'Leave Type #3',
             'allocation_type': 'fixed',
+            'validity_start': False,
         })
 
         allocation = self.SudoLeaveAllocation.create({
@@ -153,6 +156,7 @@ class TestHrHolidaysLengthValidation(common.TransactionCase):
         leave_type = self.SudoLeaveType.create({
             'name': 'Leave Type #4',
             'allocation_type': 'fixed',
+            'validity_start': False,
         })
 
         allocation = self.SudoLeaveAllocation.create({

@@ -50,6 +50,7 @@ class TestHolidaysLeaveRepeated(common.TransactionCase):
         self.status_1 = self.env['hr.leave.type'].create({
             'name': 'Repeating Status',
             'repeat': True,
+            'validity_start': False,
         })
 
         self.leave_1 = self.env['hr.leave'].create({
