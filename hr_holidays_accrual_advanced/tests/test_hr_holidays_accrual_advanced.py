@@ -234,6 +234,7 @@ class TestHrHolidaysAccrualAdvanced(common.TransactionCase):
         leave_type = self.SudoLeaveType.create({
             'name': 'Leave Type #8',
             'allocation_type': 'fixed',
+            'validity_start': False,
         })
         employee = self.SudoEmployee.create({
             'name': 'Employee #8',
@@ -249,6 +250,7 @@ class TestHrHolidaysAccrualAdvanced(common.TransactionCase):
             'name': 'Leave Type #8 (unpaid)',
             'allocation_type': 'no',
             'unpaid': True,
+            'validity_start': False,
         })
         unpaid_from = self.now - relativedelta(years=1)
         unpaid_to = self.now - relativedelta(months=6)
@@ -516,6 +518,7 @@ class TestHrHolidaysAccrualAdvanced(common.TransactionCase):
         leave_type = self.SudoLeaveType.create({
             'name': 'Leave Type #19',
             'allocation_type': 'fixed',
+            'validity_start': False,
         })
         employee = self.SudoEmployee.create({
             'name': 'Employee #19',
@@ -541,6 +544,7 @@ class TestHrHolidaysAccrualAdvanced(common.TransactionCase):
         leave_type = self.SudoLeaveType.create({
             'name': 'Leave Type #20',
             'allocation_type': 'fixed',
+            'validity_start': False,
         })
         employee = self.SudoEmployee.create({
             'name': 'Employee #20',
@@ -644,6 +648,7 @@ class TestHrHolidaysAccrualAdvanced(common.TransactionCase):
         leave_type = self.SudoLeaveType.create({
             'name': 'Leave Type #23',
             'allocation_type': 'fixed',
+            'validity_start': False,
         })
         calendar = self.SudoResourceCalendar.create({
             'name': 'Calendar #23',
@@ -703,6 +708,7 @@ class TestHrHolidaysAccrualAdvanced(common.TransactionCase):
         leave_type = self.SudoLeaveType.create({
             'name': 'Leave Type #24',
             'allocation_type': 'fixed',
+            'validity_start': False,
         })
         employee = self.SudoEmployee.create({
             'name': 'Employee #24',
