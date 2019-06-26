@@ -233,7 +233,8 @@ class HrEmployee(models.Model):
         will be stored for recomputation in case of change.
         :return: Nothing
         """
-        self._update_past_period_balance()
+        employees = self.env['hr.employee'].search([])
+        employees._update_past_period_balance()
         config = self.env['base.config.settings'].create({})
         employees = self.search([])
         for employee in employees:
@@ -255,7 +256,7 @@ class HrEmployee(models.Model):
 
         config.update_balance_cron_date()
 
-    @api.model
+    @api.multi
     def _update_past_period_balance(self):
         """
         This function is meant to be run some time after
@@ -264,14 +265,13 @@ class HrEmployee(models.Model):
         :return: Nothing
         """
         config = self.env['base.config.settings'].create({})
-        employees = self.env['hr.employee'].search([])
 
         last_computation = \
             config.get_last_balance_cron_execution()
         penultimate_computation = \
             config.get_penultimate_balance_cron_execution()
 
-        for employee in employees:
+        for employee in self:
             extra, lost = employee.past_balance_computation(
                 start_date=penultimate_computation,
                 end_date=last_computation,

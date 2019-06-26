@@ -424,11 +424,27 @@ class HrAttendanceDay(models.Model):
         # compute breaks
         rd.compute_breaks()
 
+        rd.recompute_period_if_old_day()
+
         return rd
+
+    @api.multi
+    def write(self, vals):
+        res = super(HrAttendanceDay, self).write(vals)
+        self.recompute_period_if_old_day()
+        return res
 
     ##########################################################################
     #                             PUBLIC METHODS                             #
     ##########################################################################
+    @api.multi
+    def recompute_period_if_old_day(self):
+        last_period = self.env['base.config.settings'].create({}) \
+            .get_last_balance_cron_execution()
+        for day in self:
+            if day.date < last_period:
+                day.employee_id._update_past_period_balance()
+
     @api.multi
     def open_attendance_day(self):
         """ Used to bypass opening a attendance in popup mode"""
