@@ -5,7 +5,7 @@
 import datetime
 import math
 
-from odoo import _, api, fields, models, tools
+from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
 
 HOURS_PER_DAY = 8
@@ -26,7 +26,7 @@ class HrHolidaysImposed(models.Model):
             'hr.holidays.imposed')
     )
     status_id = fields.Many2one(
-        'hr.holidays.status',
+        'hr.leave.type',
         string="Leave type",
         required=True
     )
@@ -40,7 +40,7 @@ class HrHolidaysImposed(models.Model):
     @api.multi
     def validate(self):
         for rec in self:
-            created = self.env['hr.holidays']
+            created = self.env['hr.leave.report']
             if rec.employee_ids:
                 employees = rec.employee_ids
             else:
@@ -50,7 +50,7 @@ class HrHolidaysImposed(models.Model):
             for employee in employees:
                 vals = rec._prepare_leave_from_imposed_day()
                 vals.update({'employee_id': employee.id})
-                leave = self.env['hr.holidays'].create(vals)
+                leave = self.env['hr.leave.report'].create(vals)
                 leave._onchange_date_from()
                 created |= leave
             if rec.auto_confirm:
@@ -60,11 +60,8 @@ class HrHolidaysImposed(models.Model):
     def _get_duration(self):
         """Returns a float equals to the timedelta between
            two dates given as string."""
-
         self.ensure_one()
-        from_dt = fields.Datetime.from_string(self.date_from)
-        to_dt = fields.Datetime.from_string(self.date_to)
-        timedelta = to_dt - from_dt
+        timedelta = self.date_to - self.date_from
         diff_day = timedelta.days + float(timedelta.seconds) / 86400
         return diff_day
 
@@ -90,22 +87,16 @@ class HrHolidaysImposed(models.Model):
         # will trigger an error.
         if not self.id and self.date_from and \
            self.date_to is False or self.date_from > self.date_to:
-            date_to_with_delta = datetime.datetime.strptime(
-                self.date_from,
-                tools.DEFAULT_SERVER_DATETIME_FORMAT) + datetime.timedelta(
+            self.date_to = self.date_from + datetime.timedelta(
                 hours=HOURS_PER_DAY)
-            self.date_to = str(date_to_with_delta)
 
         # date_to has to be greater than date_from
         self._check_dates()
 
         # No date_to set so far: automatically compute one HOURS_PER_DAY later
         if self.date_from and not self.date_to:
-            date_to_with_delta = datetime.datetime.strptime(
-                self.date_from,
-                tools.DEFAULT_SERVER_DATETIME_FORMAT) + datetime.timedelta(
+            self.date_to = self.date_from + datetime.timedelta(
                 hours=HOURS_PER_DAY)
-            self.date_to = str(date_to_with_delta)
 
         # Compute and update the number of days
         self._set_duration()
@@ -127,11 +118,11 @@ class HrHolidaysImposed(models.Model):
     def _prepare_leave_from_imposed_day(self):
         self.ensure_one()
         values = {
-            'number_of_days_temp': self.number_of_days,
+            'number_of_days': self.number_of_days,
             'name': self.name,
             'date_from': self.date_from,
             'date_to': self.date_to,
-            'type': 'remove',
+            'type': 'request',
             'holiday_status_id': self.status_id.id,
         }
         return values

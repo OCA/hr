@@ -28,7 +28,7 @@ class HrEmployee(models.Model):
         for imposed_day in imposed:
             leave_vals = imposed_day._prepare_leave_from_imposed_day()
             leave_vals.update({'employee_id': employee.id})
-            created_leave = self.env['hr.holidays'].create(leave_vals)
+            created_leave = self.env['hr.leave.report'].create(leave_vals)
             if imposed_day.auto_confirm:
                 created_leave.action_validate()
 
