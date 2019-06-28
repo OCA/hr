@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-30 07:32+0000\n"
-"PO-Revision-Date: 2018-12-19 13:58+0000\n"
+"PO-Revision-Date: 2019-06-28 13:42+0000\n"
 "Last-Translator: Maria Sparenberg <maria.sparenberg@gmx.net>\n"
 "Language-Team: German (https://www.transifex.com/oca/teams/23907/de/)\n"
 "Language: de\n"
@@ -17,19 +17,19 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.3\n"
+"X-Generator: Weblate 3.6.1\n"
 
 #. module: hr_skill
 #: code:addons/hr_skill/models/hr_employee_skill.py:49
 #, python-format
 msgid "%(employee)s, %(skill)s (%(level)s)"
-msgstr ""
+msgstr "%(employee)s, %(skill)s (%(level)s)"
 
 #. module: hr_skill
 #: code:addons/hr_skill/models/hr_skill.py:59
 #, python-format
 msgid "%(parent)s / %(own)s"
-msgstr ""
+msgstr "%(parent)s / %(own)s"
 
 #. module: hr_skill
 #: model:ir.model.fields,field_description:hr_skill.field_hr_skill__active
@@ -44,13 +44,13 @@ msgstr "Untergeordnete"
 #. module: hr_skill
 #: model:ir.model.fields,field_description:hr_skill.field_hr_skill__color
 msgid "Color Index"
-msgstr ""
+msgstr "Farbindex"
 
 #. module: hr_skill
 #: model:ir.model.fields,field_description:hr_skill.field_hr_employee_skill__complete_name
 #: model:ir.model.fields,field_description:hr_skill.field_hr_skill__complete_name
 msgid "Complete Name"
-msgstr ""
+msgstr "Vollständiger Name"
 
 #. module: hr_skill
 #: model:ir.model.fields,field_description:hr_skill.field_hr_employee_skill__create_uid
@@ -67,7 +67,7 @@ msgstr "Erstellt am"
 #. module: hr_skill
 #: model:ir.model.fields,field_description:hr_skill.field_hr_skill__description
 msgid "Description"
-msgstr ""
+msgstr "Beschreibung"
 
 #. module: hr_skill
 #: model:ir.model.fields,field_description:hr_skill.field_hr_employee_skill__display_name
@@ -108,13 +108,11 @@ msgstr "Experte"
 
 #. module: hr_skill
 #: model:ir.model,name:hr_skill.model_hr_employee_skill
-#, fuzzy
 msgid "HR Employee Skill"
 msgstr "Fähigkeit der/des Angestellten"
 
 #. module: hr_skill
 #: model:ir.model,name:hr_skill.model_hr_skill
-#, fuzzy
 msgid "HR Skill"
 msgstr "Fähigkeit"
 
@@ -132,7 +130,7 @@ msgstr "Mittel"
 #. module: hr_skill
 #: selection:hr.employee.skill,level:0
 msgid "Junior"
-msgstr "Junior"
+msgstr "Anfänger"
 
 #. module: hr_skill
 #: model:ir.model.fields,field_description:hr_skill.field_hr_employee_skill____last_update
@@ -169,14 +167,13 @@ msgstr "Übergeordnete Fähigkeit"
 
 #. module: hr_skill
 #: model:ir.model.fields,field_description:hr_skill.field_hr_skill__parent_path
-#, fuzzy
 msgid "Parent Path"
-msgstr "Übergeordnet (links)"
+msgstr "Pfad zur übergeordneten Fähigkeit"
 
 #. module: hr_skill
 #: selection:hr.employee.skill,level:0
 msgid "Senior"
-msgstr "Senior"
+msgstr "Fortgeschritten"
 
 #. module: hr_skill
 #: model:ir.model.fields,field_description:hr_skill.field_hr_employee_skill__skill_id
@@ -200,9 +197,8 @@ msgstr "Fähigkeiten-Berichte."
 
 #. module: hr_skill
 #: model_terms:ir.ui.view,arch_db:hr_skill.view_skill_form
-#, fuzzy
 msgid "Sub-skills"
-msgstr "Fähigkeiten"
+msgstr "Untergeordnete Fähigkeiten"
 
 #. module: hr_skill
 #: sql_constraint:hr.employee.skill:0
