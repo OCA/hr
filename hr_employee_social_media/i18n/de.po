@@ -10,25 +10,26 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-11-28 01:43+0000\n"
-"PO-Revision-Date: 2017-11-28 01:43+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
+"PO-Revision-Date: 2019-06-28 13:42+0000\n"
+"Last-Translator: Maria Sparenberg <maria.sparenberg@gmx.net>\n"
 "Language-Team: German (https://www.transifex.com/oca/teams/23907/de/)\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.6.1\n"
 
 #. module: hr_employee_social_media
 #: code:addons/hr_employee_social_media/models/hr_social_media.py:47
 #, python-format
 msgid "%s (%s)"
-msgstr ""
+msgstr "%s (%s)"
 
 #. module: hr_employee_social_media
 #: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_account__account_name
 msgid "Account"
-msgstr ""
+msgstr "Konto"
 
 #. module: hr_employee_social_media
 #: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media__create_uid
@@ -40,7 +41,7 @@ msgstr "Erstellt von"
 #: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media__create_date
 #: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_account__create_date
 msgid "Created on"
-msgstr "Angelegt am"
+msgstr "Erstellt am"
 
 #. module: hr_employee_social_media
 #: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media__display_name
@@ -52,17 +53,17 @@ msgstr "Anzeigename"
 #: model:ir.model,name:hr_employee_social_media.model_hr_employee
 #: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_account__employee_id
 msgid "Employee"
-msgstr "Angestellter"
+msgstr "Angestellte(r)"
 
 #. module: hr_employee_social_media
 #: model:ir.model,name:hr_employee_social_media.model_hr_social_media_account
 msgid "HR Employee Social Media Account"
-msgstr ""
+msgstr "Soziale Medien Konten"
 
 #. module: hr_employee_social_media
 #: model:ir.model,name:hr_employee_social_media.model_hr_social_media
 msgid "HR Social Media"
-msgstr ""
+msgstr "Soziale Medien"
 
 #. module: hr_employee_social_media
 #: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media__id
@@ -98,22 +99,22 @@ msgstr "Name"
 #: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_account__hr_social_media_id
 #: model_terms:ir.ui.view,arch_db:hr_employee_social_media.hr_social_media_view_tree
 msgid "Social Media"
-msgstr ""
+msgstr "Soziale Medien"
 
 #. module: hr_employee_social_media
 #: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_employee__social_media_account_ids
 #: model_terms:ir.ui.view,arch_db:hr_employee_social_media.view_employee_form_inherit_extension
 msgid "Social Media Accounts"
-msgstr ""
+msgstr "Soziale-Medien-Konten"
 
 #. module: hr_employee_social_media
 #: model:ir.actions.act_window,name:hr_employee_social_media.action_hr_social_media
 #: model:ir.ui.menu,name:hr_employee_social_media.hr_menu_social_media
 #: model_terms:ir.ui.view,arch_db:hr_employee_social_media.hr_social_media_view_form
 msgid "Social Medias"
-msgstr ""
+msgstr "Soziale Medien"
 
 #. module: hr_employee_social_media
 #: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media__social_url
 msgid "Website"
-msgstr ""
+msgstr "Website"
