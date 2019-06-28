@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-11-28 01:43+0000\n"
-"PO-Revision-Date: 2018-12-18 15:58+0000\n"
+"PO-Revision-Date: 2019-06-28 13:42+0000\n"
 "Last-Translator: Maria Sparenberg <maria.sparenberg@gmx.net>\n"
 "Language-Team: German (https://www.transifex.com/oca/teams/23907/de/)\n"
 "Language: de\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.3\n"
+"X-Generator: Weblate 3.6.1\n"
 
 #. module: hr_employee_seniority
 #: model:ir.model.fields,help:hr_employee_seniority.field_hr_employee_initial_employment_date
@@ -50,9 +50,9 @@ msgstr "Dienstmonate"
 
 #. module: hr_employee_seniority
 #: code:addons/hr_employee_seniority/models/hr_employee.py:81
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "The initial employment date cannot be after the first contract in the system!"
 msgstr ""
-"Dies ist das Datum der Erstanstellung, wenn der erste Vertrag vor Einführung "
-"dieses System erstellt wurde."
+"Das Datum der Erstanstellung darf nicht später als der erste Vertrag im "
+"System sein!"
