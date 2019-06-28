@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2018-12-18 15:58+0000\n"
+"PO-Revision-Date: 2019-06-28 13:42+0000\n"
 "Last-Translator: Maria Sparenberg <maria.sparenberg@gmx.net>\n"
 "Language-Team: none\n"
 "Language: de\n"
@@ -14,14 +14,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.3\n"
+"X-Generator: Weblate 3.6.1\n"
 
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.ui.view,arch_db:hr_attendance_report_theoretical_time.hr_attendance_theoretical_view_filter
-#, fuzzy
-#| msgid "Employee"
 msgid "Active Employees"
-msgstr "Angestellte(r)"
+msgstr "Aktive Angestellte"
 
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.model,name:hr_attendance_report_theoretical_time.model_hr_attendance
@@ -109,10 +107,8 @@ msgstr "Urlaub"
 
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.model,name:hr_attendance_report_theoretical_time.model_resource_calendar_leaves
-#, fuzzy
-#| msgid "Leave Type"
 msgid "Leave Detail"
-msgstr "Urlaubsart"
+msgstr "Urlaubsdetails"
 
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.model,name:hr_attendance_report_theoretical_time.model_hr_holidays_status
@@ -141,15 +137,11 @@ msgstr "Bericht zu theoretischen und tatsächlichen Anwesenheitszeiten"
 
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.model.fields,field_description:hr_attendance_report_theoretical_time.field_hr_attendance_theoretical_hours
-#, fuzzy
-#| msgid "Theoretical hours"
 msgid "Theoretical Hours"
 msgstr "Theoretische Zeiten"
 
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.model.fields,field_description:hr_attendance_report_theoretical_time.field_hr_employee_theoretical_hours_start_date
-#, fuzzy
-#| msgid "Theoretical hours start date"
 msgid "Theoretical Hours Start Date"
 msgstr "Startdatum der theoretischen Zeiten"
 
