@@ -166,7 +166,7 @@ msgid "Duration of a single accrual period, measured in Accrual Period Units"
 msgstr ""
 
 #. module: hr_holidays_accrual_advanced
-#: code:addons/hr_holidays_accrual_advanced/models/hr_leave_allocation.py:612
+#: code:addons/hr_holidays_accrual_advanced/models/hr_leave_allocation.py:672
 #, python-format
 msgid "End-of-period accruement"
 msgstr ""
@@ -281,19 +281,19 @@ msgid "Limit total maximum number of days to carryover to next accrual period."
 msgstr ""
 
 #. module: hr_holidays_accrual_advanced
-#: code:addons/hr_holidays_accrual_advanced/models/hr_leave_allocation.py:361
+#: code:addons/hr_holidays_accrual_advanced/models/hr_leave_allocation.py:385
 #, python-format
 msgid "Loss due to accrued amount limit"
 msgstr ""
 
 #. module: hr_holidays_accrual_advanced
-#: code:addons/hr_holidays_accrual_advanced/models/hr_leave_allocation.py:371
+#: code:addons/hr_holidays_accrual_advanced/models/hr_leave_allocation.py:407
 #, python-format
 msgid "Loss due to accumulation limit"
 msgstr ""
 
 #. module: hr_holidays_accrual_advanced
-#: code:addons/hr_holidays_accrual_advanced/models/hr_leave_allocation.py:309
+#: code:addons/hr_holidays_accrual_advanced/models/hr_leave_allocation.py:339
 #, python-format
 msgid "Loss due to period carry-over limit"
 msgstr ""
@@ -336,7 +336,7 @@ msgid "Prorate"
 msgstr ""
 
 #. module: hr_holidays_accrual_advanced
-#: code:addons/hr_holidays_accrual_advanced/models/hr_leave_allocation.py:618
+#: code:addons/hr_holidays_accrual_advanced/models/hr_leave_allocation.py:678
 #, python-format
 msgid "Prorate accruement for %s of %s days"
 msgstr ""
@@ -364,7 +364,7 @@ msgid "Resource Leaves Detail"
 msgstr ""
 
 #. module: hr_holidays_accrual_advanced
-#: code:addons/hr_holidays_accrual_advanced/models/hr_leave_allocation.py:605
+#: code:addons/hr_holidays_accrual_advanced/models/hr_leave_allocation.py:665
 #, python-format
 msgid "Start-of-period accruement"
 msgstr ""
@@ -400,7 +400,7 @@ msgid "Units in which Allocation per Accrual Period is defined"
 msgstr ""
 
 #. module: hr_holidays_accrual_advanced
-#: code:addons/hr_holidays_accrual_advanced/models/hr_leave_allocation.py:379
+#: code:addons/hr_holidays_accrual_advanced/models/hr_leave_allocation.py:427
 #, python-format
 msgid "Usage during accruement period"
 msgstr ""
