@@ -608,7 +608,7 @@ class TestHrHolidaysAccrualAdvanced(common.TransactionCase):
         })
 
         date_from = (
-            self.now - relativedelta(years=1) - relativedelta(days=1)
+            self.now - relativedelta(years=1) - relativedelta(months=1)
         )
         with mock.patch(_get_date_from, return_value=date_from):
             allocation._update_accrual_allocation()
