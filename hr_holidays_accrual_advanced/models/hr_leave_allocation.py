@@ -283,7 +283,7 @@ class HrLeaveAllocation(models.Model):
         if not date_to or date_to > as_of_datetime:
             date_to = as_of_datetime
 
-        _logger.info(
+        _logger.debug(
             (
                 'Calculating "%s" leave allocation for employee "%s"'
                 ' between %s and %s with %s period as of %s'
@@ -300,16 +300,6 @@ class HrLeaveAllocation(models.Model):
         total_leave_days = 0.0
         accruements = []
         while date_from < date_to:
-            if (self.limit_carryover_days
-                    and balance > self.max_carryover_days):
-                loss = self.max_carryover_days - balance
-                accruements.append(HrLeaveAllocationAccruementEntry(
-                    days_accrued=loss,
-                    accrued_on=date_from.date(),
-                    reason=_('Loss due to period carry-over limit')
-                ))
-                balance += loss
-
             period_start = date_from
             period_end = min(period_start + period, date_to)
 
@@ -326,7 +316,7 @@ class HrLeaveAllocation(models.Model):
                 period_end,
             )
 
-            _logger.info(
+            _logger.debug(
                 (
                     'Employee "%s" / allocation %s (%s - %s):'
                     ' %s days worked, %s workable days, %s leave days'
@@ -340,6 +330,28 @@ class HrLeaveAllocation(models.Model):
                 leave_days,
             )
 
+            if (self.limit_carryover_days
+                    and balance > self.max_carryover_days):
+                loss = self.max_carryover_days - balance
+                accruements.append(HrLeaveAllocationAccruementEntry(
+                    days_accrued=loss,
+                    accrued_on=date_from.date(),
+                    reason=_('Loss due to period carry-over limit')
+                ))
+                balance += loss
+
+                _logger.debug(
+                    (
+                        'Employee "%s" / allocation %s (%s - %s):'
+                        ' loss of %s due to period carry-over limit'
+                    ),
+                    self.employee_id.name,
+                    self.holiday_status_id.name,
+                    period_start,
+                    period_end,
+                    loss,
+                )
+
             accruement = self._get_days_to_accrue(
                 period_start,
                 period,
@@ -349,6 +361,18 @@ class HrLeaveAllocation(models.Model):
                 workable_days
             )
             if accruement:
+                _logger.debug(
+                    (
+                        'Employee "%s" / allocation %s (%s - %s):'
+                        ' accruement of %s'
+                    ),
+                    self.employee_id.name,
+                    self.holiday_status_id.name,
+                    period_start,
+                    period_end,
+                    accruement.days_accrued,
+                )
+
                 accruements.append(accruement)
                 balance += accruement.days_accrued
 
@@ -362,6 +386,18 @@ class HrLeaveAllocation(models.Model):
                     ))
                     balance += loss
 
+                    _logger.debug(
+                        (
+                            'Employee "%s" / allocation %s (%s - %s):'
+                            ' loss of %s due to accrued amount limit'
+                        ),
+                        self.employee_id.name,
+                        self.holiday_status_id.name,
+                        period_start,
+                        period_end,
+                        loss,
+                    )
+
                 if (self.limit_accumulated_days
                         and balance > self.max_accumulated_days):
                     loss = self.max_accumulated_days - balance
@@ -372,6 +408,18 @@ class HrLeaveAllocation(models.Model):
                     ))
                     balance += loss
 
+                    _logger.debug(
+                        (
+                            'Employee "%s" / allocation %s (%s - %s):'
+                            ' loss of %s due to accumulation limit'
+                        ),
+                        self.employee_id.name,
+                        self.holiday_status_id.name,
+                        period_start,
+                        period_end,
+                        loss,
+                    )
+
             if leave_days > 0:
                 accruements.append(HrLeaveAllocationAccruementEntry(
                     days_accrued=-leave_days,
@@ -380,6 +428,18 @@ class HrLeaveAllocation(models.Model):
                 ))
                 balance -= leave_days
                 total_leave_days += leave_days
+
+                _logger.debug(
+                    (
+                        'Employee "%s" / allocation %s (%s - %s):'
+                        ' used %s days'
+                    ),
+                    self.employee_id.name,
+                    self.holiday_status_id.name,
+                    period_start,
+                    period_end,
+                    leave_days,
+                )
 
             date_from += period
 
