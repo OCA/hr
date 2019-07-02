@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="hr_expense_sheet_register_payment_view_form" model="ir.ui.view">
+        <field name="name">hr.expense.sheet.register.payment.wizard.form.payment.difference</field>
+        <field name="model">hr.expense.sheet.register.payment.wizard</field>
+        <field name="inherit_id" ref="hr_expense.hr_expense_sheet_register_payment_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="/form/sheet/group" position="inside">
+                <group attrs="{'invisible': [('payment_difference', '=', 0.0)]}">
+                    <label for="payment_difference"/>
+                    <div>
+                        <field name="payment_difference"/>
+                        <field name="payment_difference_handling" widget="radio" nolabel="1"/>
+                        <div attrs="{'invisible': [('payment_difference_handling','=','open')]}">
+                            <label for="writeoff_account_id" class="oe_edit_only" string="Post Difference In"/>
+                            <field name="writeoff_account_id" string="Post Difference In" attrs="{'required': [('payment_difference_handling', '=', 'reconcile')]}"/>
+                            <label for="journal_id" string="Journal" attrs="{'invisible': [('amount', '!=', 0)]}"/>
+                            <field name="journal_id" string="Journal" widget="selection" attrs="{'invisible': [('amount', '!=', 0)]}"/>
+                            <label for="writeoff_label" class="oe_edit_only" string="Label"/>
+                            <field name="writeoff_label" attrs="{'required': [('payment_difference_handling', '=', 'reconcile')]}"/>
+                        </div>
+                    </div>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>
