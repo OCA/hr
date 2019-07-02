@@ -2,3 +2,4 @@
 "access_hr_skill","hr.skill","model_hr_skill","base.group_user",1,0,0,0
 "access_hr_skill_manager","hr.skill","model_hr_skill","hr.group_hr_manager",1,1,1,1
 "access_employee_skill_user","hr.employee.skill","model_hr_employee_skill","hr.group_hr_user",1,1,1,1
+"access_employee_skill","hr.employee.skill","model_hr_employee_skill","base.group_user",1,0,0,0
