@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-03 03:37+0000\n"
-"PO-Revision-Date: 2019-06-28 13:42+0000\n"
+"PO-Revision-Date: 2019-07-09 13:43+0000\n"
 "Last-Translator: Maria Sparenberg <maria.sparenberg@gmx.net>\n"
 "Language-Team: German (https://www.transifex.com/oca/teams/23907/de/)\n"
 "Language: de\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.6.1\n"
+"X-Generator: Weblate 3.7.1\n"
 
 #. module: hr_holidays_public
 #: model_terms:ir.ui.view,arch_db:hr_holidays_public.holidays_public_next_year_wizard_view
@@ -33,6 +33,15 @@ msgid ""
 "button\n"
 "                            \"Create\"."
 msgstr ""
+"Standardmäßig werden die aktuellsten Feiertage\n"
+"                            für jedes Land als Vorlage zum Erstellen\n"
+"                            der Feiertage der nachfolgenden Jahre verwendet."
+"\n"
+"                            <br/><br/>\n"
+"                            Normalerweise muss im Reiter 'Optional' nichts "
+"weiter eingetragen, \n"
+"                            sondern nur auf den Button 'Erstellen' geklickt "
+"werden."
 
 #. module: hr_holidays_public
 #: model:ir.model.fields,field_description:hr_holidays_public.field_hr_holidays_public__year
@@ -53,14 +62,14 @@ msgstr "Land"
 #. module: hr_holidays_public
 #: model_terms:ir.ui.view,arch_db:hr_holidays_public.holidays_public_next_year_wizard_view
 msgid "Create"
-msgstr "Anlegen"
+msgstr "Erstellen"
 
 #. module: hr_holidays_public
 #: model:ir.actions.act_window,name:hr_holidays_public.action_create_next_year_public_holidays
 #: model:ir.ui.menu,name:hr_holidays_public.menu_create_next_year_public_holidays
 #: model_terms:ir.ui.view,arch_db:hr_holidays_public.holidays_public_next_year_wizard_view
 msgid "Create Next Year Public Holidays"
-msgstr "Feiertage des nächsten Jahres anlegen"
+msgstr "Feiertage des neues Jahres erstellen"
 
 #. module: hr_holidays_public
 #: model:ir.model.fields,field_description:hr_holidays_public.field_hr_holidays_public__create_uid
@@ -79,7 +88,7 @@ msgstr "Erstellt am"
 #. module: hr_holidays_public
 #: model:ir.model,name:hr_holidays_public.model_public_holidays_next_year_wizard
 msgid "Creates public holidays from existing ones"
-msgstr "Feiertage von bereits Existierenden erstellen"
+msgstr "Feiertage ausgehend von den bereits Existierenden erstellen"
 
 #. module: hr_holidays_public
 #: model:ir.model.fields,field_description:hr_holidays_public.field_hr_holidays_public_line__date
@@ -244,6 +253,14 @@ msgid ""
 "want to\n"
 "                            replicate the 2010 Italian holidays to 2012.\""
 msgstr ""
+"Die hier angegebenen optionalen Felder werden nur in \n"
+"                           Ausnahmesituationen verwenden, beispielsweise:\n"
+"                           \"2011 war ein spezielles Jahr mit einem "
+"zusätzlichen Feiertag\n"
+"                           für das 150. Jubiläum der italienischen Einheit. "
+"Deswegen\n"
+"                           sollte für das Jahr 2012 die Vorlage von 2010 "
+"verwendet werden.\""
 
 #. module: hr_holidays_public
 #: model_terms:ir.ui.view,arch_db:hr_holidays_public.holidays_public_next_year_wizard_view
@@ -257,6 +274,15 @@ msgid ""
 "                            only the templates from 2015 will be taken into\n"
 "                            account)."
 msgstr ""
+"Verwenden Sie diesen Assistenten zum Erstellen der Feiertage\n"
+"                            basierend auf einer bereits existierenden "
+"Vorlage.<br/>\n"
+"                            Wenn Sie mehrere Vorlagen angeben, wird nur die "
+"aktuellste \n"
+"                            für jedes Land berücksichtigt. \n"
+"                            Beispiel: Wenn Sie die Vorlagen von 2012 und "
+"2015 für dasselbe Land \n"
+"                            hinzufügen, wird nur die von 2015 berücksichtigt."
 
 #. module: hr_holidays_public
 #: model:ir.model.fields,field_description:hr_holidays_public.field_public_holidays_next_year_wizard__year
