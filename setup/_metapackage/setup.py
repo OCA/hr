@@ -35,6 +35,7 @@ setuptools.setup(
         'odoo12-addon-hr_holidays_leave_auto_approve',
         'odoo12-addon-hr_holidays_leave_repeated',
         'odoo12-addon-hr_holidays_length_validation',
+        'odoo12-addon-hr_holidays_notify_employee_manager',
         'odoo12-addon-hr_holidays_public',
         'odoo12-addon-hr_holidays_settings',
         'odoo12-addon-hr_payroll_cancel',
