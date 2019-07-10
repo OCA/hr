@@ -14,16 +14,16 @@ HR Holidays Notify Employee Manager
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fhr-lightgray.png?logo=github
-    :target: https://github.com/OCA/hr/tree/hr_holidays_notify_employee_manager/hr_holidays_notify_employee_manager
+    :target: https://github.com/OCA/hr/tree/12.0/hr_holidays_notify_employee_manager
     :alt: OCA/hr
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/hr-hr_holidays_notify_employee_manager/hr-hr_holidays_notify_employee_manager-hr_holidays_notify_employee_manager
+    :target: https://translation.odoo-community.org/projects/hr-12-0/hr-12-0-hr_holidays_notify_employee_manager
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runbot-Try%20me-875A7B.png
-    :target: https://runbot.odoo-community.org/runbot/116/hr_holidays_notify_employee_manager
+    :target: https://runbot.odoo-community.org/runbot/116/12.0
     :alt: Try me on Runbot
 
-|badge1| |badge2| |badge3| |badge4| |badge5|
+|badge1| |badge2| |badge3| |badge4| |badge5| 
 
 This module extends the functionality of the Leaves App to make possible
 to notify by mail the manager of the employee requesting the leave.
@@ -38,17 +38,15 @@ Configuration
 
 To configure this module, you need to:
 
-#. Go to *Leaves > Configuration > Settings*.
-#. Check *Leave Requests notified to employee's manager* box.
+ #. Go to *Leaves > Configuration > Settings*.
+ #. Check *Leave Requests notified to employee's manager* box.
 
 Usage
 =====
 
 To use this module, you need to:
-
-#. Go to *Leaves > My Leaves > Leaves Requests* and create a leave request to be
-   approved.
-#. Your manager will be notified by email.
+* Go to *Leaves > My Leaves > Leaves Requests* and create a leave request to be approved.
+* Your manager will be notified by email.
 
 
 Bug Tracker
@@ -57,7 +55,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/hr/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us smashing it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/hr/issues/new?body=module:%20hr_holidays_notify_employee_manager%0Aversion:%20hr_holidays_notify_employee_manager%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/hr/issues/new?body=module:%20hr_holidays_notify_employee_manager%0Aversion:%2012.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -78,7 +76,6 @@ Contributors
 * Serpent Consulting Services Pvt. Ltd. <support@serpentcs.com>
 * Nikul Chaudhary <nikul.chaudhary.serpentcs@gmail.com>
 
-
 Maintainers
 ~~~~~~~~~~~
 
@@ -92,6 +89,6 @@ OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
 
-This module is part of the `OCA/hr <https://github.com/OCA/hr/tree/hr_holidays_notify_employee_manager/hr_holidays_notify_employee_manager>`_ project on GitHub.
+This module is part of the `OCA/hr <https://github.com/OCA/hr/tree/12.0/hr_holidays_notify_employee_manager>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
