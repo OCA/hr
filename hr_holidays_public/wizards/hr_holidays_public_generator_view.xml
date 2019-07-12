@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="hr_holidays_public_generator_view" model="ir.ui.view">
+        <field name="name">hr.holidays.public.generator.view</field>
+        <field name="model">hr.holidays.public.generator</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Generate Public Holidays">
+                <group col="2" colspan="2">
+                    <field name="year" />
+                    <field name="country_id" options="{'no_create': True}"/>
+                    <field name="state_id" options="{'no_create': True}" domain="[('country_id', '=', country_id)]"/>
+                    <field name="template_id" options="{'no_create': True}"/>
+                </group>
+                <footer>
+                    <button name="action_run" string="Generate" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-default" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="hr_holidays_public_generator_action" model="ir.actions.act_window">
+        <field name="name">Generate Public Holidays</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hr.holidays.public.generator</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="hr_holidays_public_generator_menu"
+              name="Generate Public Holidays"
+              parent="hr_holidays_public.menu_hr_public_holidays"
+              action="hr_holidays_public_generator_action"/>
+</odoo>
