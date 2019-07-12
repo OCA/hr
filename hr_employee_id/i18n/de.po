@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-11-28 01:43+0000\n"
-"PO-Revision-Date: 2018-12-18 13:07+0000\n"
+"PO-Revision-Date: 2019-07-12 14:43+0000\n"
 "Last-Translator: Maria Sparenberg <maria.sparenberg@gmx.net>\n"
 "Language-Team: German (https://www.transifex.com/oca/teams/23907/de/)\n"
 "Language: de\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.3\n"
+"X-Generator: Weblate 3.7.1\n"
 
 #. module: hr_employee_id
 #: model:ir.model.fields,field_description:hr_employee_id.field_hr_employeeid_config_settings_employee_id_random_digits
@@ -59,7 +59,7 @@ msgstr "Unternehmen"
 #: model:ir.actions.act_window,name:hr_employee_id.action_human_resources_employeeid_config
 #: model:ir.ui.view,arch_db:hr_employee_id.view_human_resources_employeeid_configuration
 msgid "Configure Employee ID"
-msgstr "Angestellten-ID konfigurieren"
+msgstr "Mitarbeiter-ID konfigurieren"
 
 #. module: hr_employee_id
 #: model:ir.model.fields,field_description:hr_employee_id.field_hr_employeeid_config_settings_create_uid
@@ -79,23 +79,23 @@ msgstr "Anzeigename"
 #. module: hr_employee_id
 #: model:ir.model,name:hr_employee_id.model_hr_employee
 msgid "Employee"
-msgstr "Angestellte(r)"
+msgstr "Mitarbeiter"
 
 #. module: hr_employee_id
 #: model:ir.ui.menu,name:hr_employee_id.menu_account_config
 msgid "Employee ID"
-msgstr "Angestellten-ID"
+msgstr "Mitarbeiter-ID"
 
 #. module: hr_employee_id
 #: model:ir.ui.view,arch_db:hr_employee_id.view_human_resources_employeeid_configuration
 msgid "Employee ID *"
-msgstr "Angestellten-ID *"
+msgstr "Mitarbeiter-ID *"
 
 #. module: hr_employee_id
 #: model:ir.model.fields,field_description:hr_employee_id.field_hr_employeeid_config_settings_employee_id_sequence
 #: model:ir.model.fields,field_description:hr_employee_id.field_res_company_employee_id_sequence
 msgid "Employee ID Sequence"
-msgstr "Angestellten-ID-Sequenz"
+msgstr "Mitarbeiter-ID-Sequenz"
 
 #. module: hr_employee_id
 #: model:ir.model.fields,field_description:hr_employee_id.field_hr_employeeid_config_settings_id
@@ -133,7 +133,7 @@ msgstr "Anzahl der Stellen für die ID"
 #: model:ir.model.fields,help:hr_employee_id.field_hr_employeeid_config_settings_employee_id_sequence
 #: model:ir.model.fields,help:hr_employee_id.field_res_company_employee_id_sequence
 msgid "Pattern to be used for employee ID Generation"
-msgstr "Muster zur Erstellung der Angestellten-ID"
+msgstr "Muster zur Erstellung der Mitarbeiter-ID"
 
 #. module: hr_employee_id
 #: selection:res.company,employee_id_gen_method:0
@@ -148,8 +148,7 @@ msgstr "Sequenz"
 #. module: hr_employee_id
 #: sql_constraint:hr.employee:0
 msgid "The Employee Number must be unique across the company(s)."
-msgstr ""
-"Die Angestellten-Nummer muss innerhalb aller Unternehmen eindeutig sein."
+msgstr "Die Mitarbeiter-Nummer muss innerhalb aller Unternehmen eindeutig sein."
 
 #. module: hr_employee_id
 #: code:addons/hr_employee_id/models/hr_employee.py:48
@@ -157,8 +156,7 @@ msgstr ""
 msgid ""
 "Unable to generate an Employee ID number that                 is unique."
 msgstr ""
-"Es ist nicht möglich, eine Angestellten-ID zu erzeugen,                 die "
-"eindeutig ist."
+"Es ist nicht möglich, eine Mitarbeiter-ID zu erzeugen, die eindeutig ist."
 
 #. module: hr_employee_id
 #: model:ir.model,name:hr_employee_id.model_hr_employeeid_config_settings
