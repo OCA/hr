@@ -69,10 +69,6 @@ class HrHolidays(models.Model):
             'confirm': [('readonly', False)]
         },
     )
-    # Supporting field for avoiding limitation on storing readonly fields
-    number_of_days_temp_related = fields.Float(
-        related="number_of_days_temp", readonly=True,
-    )
 
     @api.depends('date_from')
     def _compute_date_from_full(self):
