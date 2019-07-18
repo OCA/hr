@@ -26,7 +26,7 @@ class HrAttendance(models.Model):
 
     # Link the resource.calendar to the attendance thus we keep a trace of
     # due_hours
-    working_schedule_id = fields.Many2one('resource.calendar', readonly=True,
+    working_schedule_id = fields.Many2one('resource.calendar',
                                           string='Working schedule')
 
     ##########################################################################
