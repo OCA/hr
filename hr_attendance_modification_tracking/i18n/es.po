@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* hr_attendance_modification_tracking
+# 	* hr_attendance_modification_tracking
 #
 msgid ""
 msgstr ""
@@ -20,3 +20,18 @@ msgstr ""
 #: model:ir.model,name:hr_attendance_modification_tracking.model_hr_attendance
 msgid "Attendance"
 msgstr "Asistencia"
+
+#. module: hr_attendance_modification_tracking
+#: model:ir.model.fields,field_description:hr_attendance_modification_tracking.field_hr_attendance__check_in
+msgid "Check In"
+msgstr ""
+
+#. module: hr_attendance_modification_tracking
+#: model:ir.model.fields,field_description:hr_attendance_modification_tracking.field_hr_attendance__check_out
+msgid "Check Out"
+msgstr ""
+
+#. module: hr_attendance_modification_tracking
+#: model:ir.model.fields,field_description:hr_attendance_modification_tracking.field_hr_attendance__employee_id
+msgid "Employee"
+msgstr ""
