@@ -1,0 +1,34 @@
+<?xml version = "1.0" encoding="utf-8"?>
+<!--
+    Copyright 2018-2019 Brainbean Apps (https://brainbeanapps.com)
+    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+-->
+<odoo>
+
+    <record id="hr_leave_view_form" model="ir.ui.view">
+        <field name="name">hr.leave.form</field>
+        <field name="model">hr.leave</field>
+        <field name="inherit_id" ref="hr_holidays.hr_leave_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//label[@for='request_date_from']" position="attributes">
+                <attribute name="class">oe_edit_only</attribute>
+            </xpath>
+            <xpath expr="//label[@for='request_date_from']/following-sibling::div" position="attributes">
+                <attribute name="class">oe_edit_only</attribute>
+            </xpath>
+            <xpath expr="//label[@for='request_date_from']" position="before">
+                <label for="date_from" string="From" class="oe_read_only"/>
+                <div class="oe_read_only">
+                    <div class="o_row o_row_readonly">
+                        <field name="date_from" class="oe_inline"/>
+                        <span class="oe_inline">
+                            To
+                        </span>
+                        <field name="date_to" class="oe_inline"/>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
