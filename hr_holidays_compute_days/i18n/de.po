@@ -21,11 +21,6 @@ msgstr ""
 "X-Generator: Weblate 3.3\n"
 
 #. module: hr_holidays_compute_days
-#: model:ir.model.fields,field_description:hr_holidays_compute_days.field_hr_holidays_number_of_days_temp_related
-msgid "Allocation"
-msgstr "Reservierung"
-
-#. module: hr_holidays_compute_days
 #: model:ir.model.fields,field_description:hr_holidays_compute_days.field_hr_holidays_status_compute_full_days
 msgid "Compute Full Days"
 msgstr "volle Tage berechnen"
@@ -87,11 +82,6 @@ msgid "Leave Type"
 msgstr "Urlaubsart"
 
 #. module: hr_holidays_compute_days
-#: model:ir.model.fields,help:hr_holidays_compute_days.field_hr_holidays_number_of_days_temp_related
-msgid "Number of days of the leave request according to your working schedule."
-msgstr "Anzahl der Tage des Urlaubsantrags gemäß des Arbeitszeitplans."
-
-#. module: hr_holidays_compute_days
 #: model:ir.model,name:hr_holidays_compute_days.model_resource_calendar
 msgid "Resource Calendar"
 msgstr "Ressourcenkalender"
@@ -100,6 +90,13 @@ msgstr "Ressourcenkalender"
 #: model:ir.model.fields,field_description:hr_holidays_compute_days.field_hr_holidays_to_full_day
 msgid "To Full Day"
 msgstr "Enddatum (ganztags)"
+
+#~ msgid "Allocation"
+#~ msgstr "Reservierung"
+
+#~ msgid ""
+#~ "Number of days of the leave request according to your working schedule."
+#~ msgstr "Anzahl der Tage des Urlaubsantrags gemäß des Arbeitszeitplans."
 
 #~ msgid "Exclude Public Holidays"
 #~ msgstr "Feiertage ausschließen"

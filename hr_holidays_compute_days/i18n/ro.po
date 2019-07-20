@@ -20,11 +20,6 @@ msgstr ""
 "2:1));\n"
 
 #. module: hr_holidays_compute_days
-#: model:ir.model.fields,field_description:hr_holidays_compute_days.field_hr_holidays_number_of_days_temp_related
-msgid "Allocation"
-msgstr ""
-
-#. module: hr_holidays_compute_days
 #: model:ir.model.fields,field_description:hr_holidays_compute_days.field_hr_holidays_status_compute_full_days
 msgid "Compute Full Days"
 msgstr ""
@@ -80,11 +75,6 @@ msgstr ""
 #. module: hr_holidays_compute_days
 #: model:ir.model,name:hr_holidays_compute_days.model_hr_holidays_status
 msgid "Leave Type"
-msgstr ""
-
-#. module: hr_holidays_compute_days
-#: model:ir.model.fields,help:hr_holidays_compute_days.field_hr_holidays_number_of_days_temp_related
-msgid "Number of days of the leave request according to your working schedule."
 msgstr ""
 
 #. module: hr_holidays_compute_days
