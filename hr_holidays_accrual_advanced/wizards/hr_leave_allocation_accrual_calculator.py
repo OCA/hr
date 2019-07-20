@@ -60,16 +60,16 @@ class HrLeaveAllocationAccrualBalanceCalculator(models.TransientModel):
         'date',
     )
     def _onchange(self):
-        self._recalculate()
-
-    @api.multi
-    def _recalculate(self):
-        self.ensure_one()
+        CalculatorAccruement = self.env[
+            'hr.leave.allocation.accrual.calculator.accruement'
+        ]
+        accruement_ids = CalculatorAccruement
 
         if not self.date:
-            self.write({
+            self.update({
+                'accrued': 0.0,
                 'balance': 0.0,
-                'accruement_ids': [(5, False, False)],
+                'accruement_ids': accruement_ids,
             })
             return
 
@@ -83,16 +83,15 @@ class HrLeaveAllocationAccrualBalanceCalculator(models.TransientModel):
         )
 
         balance = 0.0
-        accruement_ids = [(5, False, False)]
         for accruement in accruements:
             balance += accruement.days_accrued
-            accruement_ids.append((0, 0, {
+            accruement_ids |= CalculatorAccruement.new({
                 'days_accrued': accruement.days_accrued,
                 'accrued_on': accruement.accrued_on,
                 'reason': accruement.reason,
-            }))
+            })
 
-        self.write({
+        self.update({
             'accrued': accrued,
             'balance': balance,
             'accruement_ids': accruement_ids,
