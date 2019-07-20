@@ -264,6 +264,11 @@ msgstr ""
 "hinzufügen, wird nur die von 2015 berücksichtigt."
 
 #. module: hr_holidays_public
+#: model:ir.model.fields,field_description:hr_holidays_public.field_hr_holidays_public_generator_state_id
+msgid "State"
+msgstr ""
+
+#. module: hr_holidays_public
 #: model:ir.model.fields,field_description:hr_holidays_public.field_public_holidays_next_year_wizard_template_ids
 msgid "Templates"
 msgstr "Vorlagen"
@@ -295,8 +300,27 @@ msgid ""
 "The check that does not allow to change the date is enabled, the date cannot "
 "be changed for this line."
 msgstr ""
-"Das Datum des Feiertags darf nicht geändert werden, weil der Haken für \""
-"Datum kann sich ändern\" nicht gesetzt ist."
+"Das Datum des Feiertags darf nicht geändert werden, weil der Haken für "
+"\"Datum kann sich ändern\" nicht gesetzt ist."
+
+#. module: hr_holidays_public
+#: code:addons/hr_holidays_public/wizards/hr_holidays_public_generator.py:70
+#, python-format
+msgid ""
+"There is no copy function defined for this county or\n"
+"                    the function name does not fit the requirement -\n"
+"                    action_copy_%s_holidays where %s id the county code."
+msgstr ""
+
+#. module: hr_holidays_public
+#: code:addons/hr_holidays_public/wizards/hr_holidays_public_generator.py:79
+#, python-format
+msgid ""
+"There is no generate function defined for this county\n"
+"                    or the function name does not fit the requirement -\n"
+"                    action_generate_%s_holidays where %s is\n"
+"                    the county code."
+msgstr ""
 
 #. module: hr_holidays_public
 #: model:ir.ui.view,arch_db:hr_holidays_public.holidays_public_next_year_wizard_view
@@ -327,6 +351,7 @@ msgid "WARNING"
 msgstr "Warnung"
 
 #. module: hr_holidays_public
+#: model:ir.model.fields,field_description:hr_holidays_public.field_hr_holidays_public_generator_year
 #: model:ir.model.fields,field_description:hr_holidays_public.field_public_holidays_next_year_wizard_year
 msgid "Year"
 msgstr "Jahr"
@@ -377,3 +402,8 @@ msgstr ""
 "Sie können keine Vorlage eines Jahres verwenden, das einen Feiertag am 29. "
 "Februar enthält (z.B. 2016, 2020, ...). Bitte wählen Sie als Vorlage ein "
 "anderes Jahr."
+
+#. module: hr_holidays_public
+#: model:ir.model,name:hr_holidays_public.model_hr_holidays_public_generator
+msgid "hr.holidays.public.generator"
+msgstr ""
