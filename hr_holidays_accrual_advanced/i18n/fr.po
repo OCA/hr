@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* hr_holidays_accrual_advanced
+# 	* hr_holidays_accrual_advanced
 #
 msgid ""
 msgstr ""
@@ -23,8 +23,10 @@ msgstr "<span class=\"ml8\">jour(s)</span>"
 
 #. module: hr_holidays_accrual_advanced
 #: model_terms:ir.ui.view,arch_db:hr_holidays_accrual_advanced.hr_leave_allocation_accrual_calculator
-msgid "<span nolabel=\"1\">\n"
-"                        This wizard will calculate leave allocation balance as of date selected.\n"
+msgid ""
+"<span nolabel=\"1\">\n"
+"                        This wizard will calculate leave allocation balance "
+"as of date selected.\n"
 "                    </span>"
 msgstr ""
 "<span nolabel=\"1\">\n"
@@ -177,7 +179,7 @@ msgstr ""
 "régularisation"
 
 #. module: hr_holidays_accrual_advanced
-#: code:addons/hr_holidays_accrual_advanced/models/hr_leave_allocation.py:612
+#: code:addons/hr_holidays_accrual_advanced/models/hr_leave_allocation.py:672
 #, python-format
 msgid "End-of-period accruement"
 msgstr ""
@@ -296,19 +298,19 @@ msgstr ""
 "de régularisation."
 
 #. module: hr_holidays_accrual_advanced
-#: code:addons/hr_holidays_accrual_advanced/models/hr_leave_allocation.py:361
+#: code:addons/hr_holidays_accrual_advanced/models/hr_leave_allocation.py:385
 #, python-format
 msgid "Loss due to accrued amount limit"
 msgstr "Perte due à la limite de montant cumulé"
 
 #. module: hr_holidays_accrual_advanced
-#: code:addons/hr_holidays_accrual_advanced/models/hr_leave_allocation.py:371
+#: code:addons/hr_holidays_accrual_advanced/models/hr_leave_allocation.py:407
 #, python-format
 msgid "Loss due to accumulation limit"
 msgstr ""
 
 #. module: hr_holidays_accrual_advanced
-#: code:addons/hr_holidays_accrual_advanced/models/hr_leave_allocation.py:309
+#: code:addons/hr_holidays_accrual_advanced/models/hr_leave_allocation.py:339
 #, python-format
 msgid "Loss due to period carry-over limit"
 msgstr ""
@@ -351,7 +353,7 @@ msgid "Prorate"
 msgstr "Prorata"
 
 #. module: hr_holidays_accrual_advanced
-#: code:addons/hr_holidays_accrual_advanced/models/hr_leave_allocation.py:618
+#: code:addons/hr_holidays_accrual_advanced/models/hr_leave_allocation.py:678
 #, python-format
 msgid "Prorate accruement for %s of %s days"
 msgstr ""
@@ -379,7 +381,7 @@ msgid "Resource Leaves Detail"
 msgstr "Détail des feuilles de ressources"
 
 #. module: hr_holidays_accrual_advanced
-#: code:addons/hr_holidays_accrual_advanced/models/hr_leave_allocation.py:605
+#: code:addons/hr_holidays_accrual_advanced/models/hr_leave_allocation.py:665
 #, python-format
 msgid "Start-of-period accruement"
 msgstr ""
@@ -415,7 +417,7 @@ msgid "Units in which Allocation per Accrual Period is defined"
 msgstr ""
 
 #. module: hr_holidays_accrual_advanced
-#: code:addons/hr_holidays_accrual_advanced/models/hr_leave_allocation.py:379
+#: code:addons/hr_holidays_accrual_advanced/models/hr_leave_allocation.py:427
 #, python-format
 msgid "Usage during accruement period"
 msgstr ""
@@ -427,7 +429,8 @@ msgstr ""
 
 #. module: hr_holidays_accrual_advanced
 #: model:ir.model.fields,help:hr_holidays_accrual_advanced.field_hr_leave__time_type
-msgid "Whether this should be computed as a holiday or as work time (eg: formation)"
+msgid ""
+"Whether this should be computed as a holiday or as work time (eg: formation)"
 msgstr ""
 
 #. module: hr_holidays_accrual_advanced
