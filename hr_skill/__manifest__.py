@@ -4,7 +4,7 @@
 {
     "name": "Skills Management",
     "summary": "Manage your employee skills",
-    "version": "12.0.1.1.0",
+    "version": "12.0.1.2.0",
     "category": "Human Resources",
     "license": "AGPL-3",
     "author": (
