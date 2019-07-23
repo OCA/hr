@@ -1,4 +1,4 @@
-# Copyright (C) 2018 Brainbean Apps (https://brainbeanapps.com)
+# Copyright (C) 2018-2019 Brainbean Apps (https://brainbeanapps.com)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from odoo import models, fields, api
@@ -107,3 +107,7 @@ class HrEmployee(models.Model):
     def _onchange_service_hire_date(self):
         if not self.service_start_date:
             self.service_start_date = self.service_hire_date
+
+    # NOTE: Support odoo/odoo@90731ad170c503cdfe89a9998fa1d1e2a5035c86
+    def _get_date_start_work(self):
+        return self.service_start_date or super()._get_date_start_work()

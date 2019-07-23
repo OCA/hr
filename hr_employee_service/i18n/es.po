@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* hr_employee_service
+# 	* hr_employee_service
 #
 msgid ""
 msgstr ""
@@ -50,6 +50,7 @@ msgstr ""
 
 #. module: hr_employee_service
 #: model:ir.model.fields,field_description:hr_employee_service.field_hr_employee__service_duration
+#: model_terms:ir.ui.view,arch_db:hr_employee_service.view_employee_form_inherit_extension
 msgid "Service Duration"
 msgstr "Antigüedad"
 
@@ -85,7 +86,9 @@ msgstr "Fecha de Inicio"
 
 #. module: hr_employee_service
 #: model:ir.model.fields,help:hr_employee_service.field_hr_employee__service_start_date
-msgid "Start date is the first day the employee actually works and this date is used for accrual leave allocations calculation"
+msgid ""
+"Start date is the first day the employee actually works and this date is "
+"used for accrual leave allocations calculation"
 msgstr ""
 "La fecha de inicio es el primer día que el empleado realmente trabaja y esta "
 "fecha se utiliza para el cálculo de las asignaciones de vacaciones devengadas"
@@ -97,7 +100,9 @@ msgstr "Fecha de finalización"
 
 #. module: hr_employee_service
 #: model:ir.model.fields,help:hr_employee_service.field_hr_employee__service_termination_date
-msgid "Termination date is the last day the employee actually works and this date is used for accrual leave allocations calculation"
+msgid ""
+"Termination date is the last day the employee actually works and this date "
+"is used for accrual leave allocations calculation"
 msgstr ""
 "La fecha de finalización es el último día que el empleado realmente trabaja "
 "y esta fecha se utiliza para el cálculo de las asignaciones de vacaciones "
