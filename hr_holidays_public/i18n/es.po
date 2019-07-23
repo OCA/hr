@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-03 03:37+0000\n"
-"PO-Revision-Date: 2019-06-26 18:42+0000\n"
+"PO-Revision-Date: 2019-07-23 11:43+0000\n"
 "Last-Translator: Jaime Arroyo <jaime.arroyo@creublanca.es>\n"
 "Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
 "Language: es\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.6.1\n"
+"X-Generator: Weblate 3.7.1\n"
 
 #. module: hr_holidays_public
 #: model_terms:ir.ui.view,arch_db:hr_holidays_public.holidays_public_next_year_wizard_view
@@ -34,6 +34,11 @@ msgid ""
 "button\n"
 "                            \"Create\"."
 msgstr ""
+"Por defect los festivos más recientes de cada país se usan como plantilla "
+"para crear el calendario del año siguiente.\n"
+"<br/><br/>\n"
+"Normalmente no hará falta que se introduzca nada, solo es necesario clica en "
+"'Crear'."
 
 #. module: hr_holidays_public
 #: model:ir.model.fields,field_description:hr_holidays_public.field_hr_holidays_public__year
@@ -100,7 +105,7 @@ msgid ""
 "being assigned to"
 msgstr ""
 "Las fechas de las vacaciones deberían ser el mismo año que el año de "
-"calendario al que están siendo asignadas."
+"calendario al que están siendo asignadas"
 
 #. module: hr_holidays_public
 #: model_terms:ir.ui.view,arch_db:hr_holidays_public.holidays_public_next_year_wizard_view
@@ -213,7 +218,7 @@ msgstr "Provincias relacionadas"
 #. module: hr_holidays_public
 #: model:ir.model,name:hr_holidays_public.model_resource_calendar
 msgid "Resource Working Time"
-msgstr ""
+msgstr "Horario de Trabajo"
 
 #. module: hr_holidays_public
 #: model:ir.model.fields,help:hr_holidays_public.field_public_holidays_next_year_wizard__template_ids
@@ -244,6 +249,10 @@ msgid ""
 "want to\n"
 "                            replicate the 2010 Italian holidays to 2012.\""
 msgstr ""
+"Los siguientes campos opcionales se usan para lidiar con casos especiales, "
+"por ejemplo en 2011 hubo un festivo extra en Italia por la celebración del "
+"150 aniversario de la unificación, así que lo que se quiere es replicar de "
+"2010 a 2012"
 
 #. module: hr_holidays_public
 #: model_terms:ir.ui.view,arch_db:hr_holidays_public.holidays_public_next_year_wizard_view
@@ -298,7 +307,7 @@ msgstr "No puede festivos duplicados para la fecha %s."
 #: code:addons/hr_holidays_public/models/hr_holidays_public.py:47
 #, python-format
 msgid "You can't create duplicate public holiday per year and/or country"
-msgstr "No puede crear festivos duplicados para el año y/o país."
+msgstr "No puede crear festivos duplicados para el año y/o país"
 
 #. module: hr_holidays_public
 #: code:addons/hr_holidays_public/wizards/holidays_public_next_year_wizard.py:76
