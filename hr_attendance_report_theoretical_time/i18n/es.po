@@ -7,14 +7,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-11-14 13:18+0000\n"
-"PO-Revision-Date: 2018-11-14 13:18+0000\n"
-"Last-Translator: <>\n"
+"PO-Revision-Date: 2019-07-23 11:43+0000\n"
+"Last-Translator: Jaime Arroyo <jaime.arroyo@creublanca.es>\n"
 "Language-Team: \n"
-"Language: \n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.7.1\n"
 
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.model,name:hr_attendance_report_theoretical_time.model_hr_attendance
@@ -126,13 +127,11 @@ msgstr "Informe de tiempo teórico frente a tiempo trabajado"
 
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.model.fields,field_description:hr_attendance_report_theoretical_time.field_hr_attendance__theoretical_hours
-#, fuzzy
 msgid "Theoretical Hours"
 msgstr "Horas teóricas"
 
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.model.fields,field_description:hr_attendance_report_theoretical_time.field_hr_employee__theoretical_hours_start_date
-#, fuzzy
 msgid "Theoretical Hours Start Date"
 msgstr "Fecha de inicio horas teóricas"
 
