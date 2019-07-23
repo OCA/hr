@@ -16,17 +16,17 @@
                     <field name="service_start_date"/>
                     <field name="service_termination_date"/>
 
+                    <label for="service_duration" groups="hr.group_hr_user"/>
                     <field name="service_duration" invisible="1"/>
-                    <label for="service_duration"/>
                     <div>
                         <field name="service_duration_years" nolabel="1"/>
-                        <span class="ml8 mr8" >year(s)</span>
+                        <span class="ml8 mr8">year(s)</span>
 
                         <field name="service_duration_months" nolabel="1"/>
-                        <span class="ml8 mr8" >month(s)</span>
+                        <span class="ml8 mr8">month(s)</span>
 
                         <field name="service_duration_days" nolabel="1"/>
-                        <span class="ml8" >day(s)</span>
+                        <span class="ml8">day(s)</span>
                     </div>
                 </group>
             </xpath>
