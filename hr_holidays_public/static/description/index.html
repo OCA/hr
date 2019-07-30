@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="generator" content="Docutils 0.15.1: http://docutils.sourceforge.net/" />
+<meta name="generator" content="Docutils 0.14: http://docutils.sourceforge.net/" />
 <title>HR Holidays Public</title>
 <style type="text/css">
 
@@ -423,6 +423,13 @@ setting third component of a tuple to a <cite>hr.holidays.public.line</cite> rec
 This may or may not be a problem, yet since this component is also being set to
 <cite>resource.calendar.attendance</cite> records in <cite>_attendance_intervals()</cite>, seems it
 should be ok.</p>
+<p>There are no restrictions to block users from modifying or removing calendar
+events linked to public holidays. There’s a suggestion to overload <cite>write</cite> and
+<cite>unlink</cite> methods of <cite>calendar.event</cite>, but it might have other impacts like
+users not being able to edit event tags, or even custom fields.</p>
+<p>Regional public holidays are shown in the public calendar. The regions will be
+noted in the description of the event, but it’ll be shown to all users. It’d
+be good to have it show only for users in these regions.</p>
 </div>
 <div class="section" id="bug-tracker">
 <h1><a class="toc-backref" href="#id4">Bug Tracker</a></h1>
@@ -440,6 +447,7 @@ If you spotted it first, help us smashing it by providing a detailed and welcome
 <li>Michael Telahun Makonnen</li>
 <li>Tecnativa</li>
 <li>Fekete Mihai (Forest and Biomass Services Romania)</li>
+<li>Druidoo</li>
 </ul>
 </div>
 <div class="section" id="contributors">
@@ -458,6 +466,10 @@ If you spotted it first, help us smashing it by providing a detailed and welcome
 </li>
 <li><a class="reference external" href="https://brainbeanapps.com">Brainbean Apps</a>:<ul>
 <li>Alexey Pelykh &lt;<a class="reference external" href="mailto:alexey.pelykh&#64;brainbeanapps.com">alexey.pelykh&#64;brainbeanapps.com</a>&gt;</li>
+</ul>
+</li>
+<li><a class="reference external" href="https://www.druidoo.io">Druidoo</a>:<ul>
+<li>Iván Todorovich &lt;<a class="reference external" href="mailto:ivan.todorovich&#64;druidoo.io">ivan.todorovich&#64;druidoo.io</a>&gt;</li>
 </ul>
 </li>
 </ul>

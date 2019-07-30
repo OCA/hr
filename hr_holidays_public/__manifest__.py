@@ -9,6 +9,7 @@
     'author': "Michael Telahun Makonnen, "
               "Tecnativa, "
               "Fekete Mihai (Forest and Biomass Services Romania),"
+              "Druidoo, "
               "Odoo Community Association (OCA)",
     'summary': "Manage Public Holidays",
     'website': 'https://github.com/OCA/hr',
@@ -16,6 +17,7 @@
         'hr_holidays',
     ],
     'data': [
+        'data/data.xml',
         'security/ir.model.access.csv',
         'views/hr_holidays_public_view.xml',
         'views/hr_leave_type.xml',

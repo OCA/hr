@@ -4,6 +4,7 @@
 from datetime import date
 
 from odoo import api, fields, models, _
+from odoo import SUPERUSER_ID
 from odoo.exceptions import ValidationError
 
 
@@ -158,6 +159,8 @@ class HrHolidaysPublicLine(models.Model):
         'Related States'
     )
 
+    meeting_id = fields.Many2one('calendar.event', string='Meeting')
+
     @api.multi
     @api.constrains('date', 'state_ids')
     def _check_date_state(self):
@@ -195,3 +198,44 @@ class HrHolidaysPublicLine(models.Model):
                 'You can\'t create duplicate public holiday per date %s.'
             ) % self.date)
         return True
+
+    @api.multi
+    def _prepare_holidays_meeting_values(self):
+        self.ensure_one()
+        categ_id = self.env.ref('hr_holidays_public.event_type_holiday', False)
+        meeting_values = {
+            'name': (
+                '%s (%s)' % (
+                    self.name,
+                    self.year_id.country_id.name
+                ) if self.year_id.country_id else self.name),
+            'description': ', '.join(self.state_ids.mapped('name')),
+            'categ_ids': [(6, 0, categ_id.ids if categ_id else [])],
+            'start': self.date,
+            'stop': self.date,
+            'allday': True,
+            'partner_ids': False,
+            'user_id': SUPERUSER_ID,
+            'state': 'open',
+            'privacy': 'confidential',
+            'show_as': 'busy',
+        }
+        return meeting_values
+
+    @api.constrains('date', 'name', 'year_id', 'state_ids')
+    def _update_calendar_event(self):
+        for rec in self:
+            if rec.meeting_id:
+                rec.meeting_id.write(rec._prepare_holidays_meeting_values())
+
+    @api.model
+    def create(self, values):
+        res = super().create(values)
+        res.meeting_id = self.env['calendar.event'].create(
+            res._prepare_holidays_meeting_values())
+        return res
+
+    @api.multi
+    def unlink(self):
+        self.mapped('meeting_id').unlink()
+        return super().unlink()

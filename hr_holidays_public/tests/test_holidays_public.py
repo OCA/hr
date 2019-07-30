@@ -218,3 +218,18 @@ class TestHolidaysPublic(TransactionCase):
 
         with self.assertRaises(UserError):
             wz_create_ph.create_public_holidays()
+
+    def test_calendar_event_created(self):
+        holiday = self.holiday_model.create({
+            'year': 2019,
+            'country_id': self.env.ref('base.us').id
+        })
+        hline = self.holiday_model_line.create({
+            'name': 'holiday x',
+            'date': '2019-07-30',
+            'year_id': holiday.id
+        })
+        meeting_id = hline.meeting_id
+        self.assertTrue(meeting_id)
+        hline.unlink()
+        self.assertFalse(meeting_id.exists())

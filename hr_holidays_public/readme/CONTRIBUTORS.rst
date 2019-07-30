@@ -12,3 +12,7 @@
 * `Brainbean Apps <https://brainbeanapps.com>`__:
 
   * Alexey Pelykh <alexey.pelykh@brainbeanapps.com>
+
+* `Druidoo <https://www.druidoo.io>`__:
+
+  * Iván Todorovich <ivan.todorovich@druidoo.io>
