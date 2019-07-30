@@ -1,4 +1,5 @@
 # Copyright 2017 Eficent Business and IT Consulting Services S.L.
+# Copyright 2019 Brainbean Apps (https://brainbeanapps.com)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from odoo.tests.common import TransactionCase
@@ -29,7 +30,17 @@ class TestNotifyEmployeeManager(TransactionCase):
             'name': 'Test employee',
             'user_id': self.user.id,
             'parent_id': self.emp_manager.id})
-        self.holiday_type = self.type_model.create({'name': 'Leave'})
+        self.holiday_type = self.type_model.create({
+            'name': 'Leave',
+            'allocation_type': 'fixed',
+        })
+        self.env['hr.leave.allocation'].create({
+            'holiday_type': 'employee',
+            'employee_id': self.employee.id,
+            'holiday_status_id': self.holiday_type.id,
+            'state': 'validate',
+            'number_of_days': 1.0,
+        })
 
     def test_add_follower_1(self):
         """Tests if the employee's manager is added as follower to the leave
