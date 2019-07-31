@@ -7,7 +7,7 @@
         <field name="priority">400</field>
         <field name="arch" type="xml">
             <field name="check_out" position="after">
-                <field name="open_worked_hours"/>
+                <field name="open_worked_hours" widget="float_time"/>
             </field>
         </field>
     </record>
@@ -19,7 +19,7 @@
         <field name="priority">400</field>
         <field name="arch" type="xml">
             <field name="check_out" position="after">
-                <field name="open_worked_hours"/>
+                <field name="open_worked_hours" widget="float_time"/>
             </field>
         </field>
     </record>
