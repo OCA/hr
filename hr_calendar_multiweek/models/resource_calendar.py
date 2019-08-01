@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # Copyright 2019 Creu Blanca
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
@@ -9,9 +10,9 @@ class ResourceCalendar(models.Model):
     _inherit = 'resource.calendar'
 
     @api.multi
-    def _get_day_attendances(self, day_date, start_time, end_time):
-        res = super()._get_day_attendances(day_date, start_time, end_time)
-        return res.filtered(lambda r: r._check_week(day_date))
+    def get_attendances_for_weekday(self, day_dt):
+        res = super(ResourceCalendar, self).get_attendances_for_weekday(day_dt)
+        return res.filtered(lambda r: r._check_week(day_dt))
 
 
 class ResourceCalendarAttendance(models.Model):
@@ -40,7 +41,7 @@ class ResourceCalendarAttendance(models.Model):
     def _get_week_number(self, day_date):
         if self.date_from:
             date_from = fields.Date.from_string(self.date_from)
-            weeks = 1 + divmod((day_date - (
+            weeks = 1 + divmod((day_date.date() - (
                 date_from + timedelta(days=-date_from.weekday()))).days, 7)[0]
         else:
             weeks = day_date.isocalendar()[1]
