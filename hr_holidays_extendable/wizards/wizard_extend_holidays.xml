@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2019 Creu Blanca
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+    <record model="ir.ui.view" id="wizard_extend_holidays_form_view">
+        <field name="name">wizard.extend.holidays.form (in hr_holidays_extendable)</field>
+        <field name="model">wizard.extend.holidays</field>
+        <field name="arch" type="xml">
+            <form string="Extend Holidays">
+                <group>
+                    <field name="holidays_id" invisible="1"/>
+                    <field name="employee_id"/>
+                    <label for="number_of_days_temp" string="Duration"/>
+                        <div>
+                            <div>
+                                <field name="date_from" class="oe_inline"/>
+                                <label string="-" class="oe_inline"/>
+                                <field name="date_to" class="oe_inline"/>
+                            </div>
+                            <div>
+                                <field name="number_of_days_temp" class="oe_inline"/> days
+                            </div>
+                        </div>
+                </group>
+                <footer>
+                    <button name="extend_holidays"
+                            string="Extend"
+                            class="btn-primary"
+                            type="object"/>
+                    <button string="Cancel"
+                            class="btn-default"
+                            special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="act_extend_holidays">
+        <field name="name">Wizard Extend Holidays</field>
+        <field name="res_model">wizard.extend.holidays</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+
+</odoo>

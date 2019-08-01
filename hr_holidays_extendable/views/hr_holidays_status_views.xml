@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2019 Creu Blanca
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+    <record model="ir.ui.view" id="edit_holiday_status_form">
+        <field name="name">hr.holidays.status.form (in hr_holidays_extendable)</field>
+        <field name="model">hr.holidays.status</field>
+        <field name="inherit_id" ref="hr_holidays.edit_holiday_status_form"/>
+        <field name="arch" type="xml">
+            <field name="limit" position="after">
+                <field name="extendable"/>
+            </field>
+        </field>
+    </record>
+
+
+
+</odoo>

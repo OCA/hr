@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2019 Creu Blanca
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+    <record model="ir.ui.view" id="edit_holiday_new">
+        <field name="name">hr.holidays.form (in hr_holidays_extendable)</field>
+        <field name="model">hr.holidays</field>
+        <field name="inherit_id" ref="hr_holidays.edit_holiday_new"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='number_of_days_temp']/.." position="after">
+                <field name="extendable" invisible="1"/>
+                <button name="%(act_extend_holidays)d" string="Extend"
+                        type="action" class="btn-primary" groups="hr.group_hr_manager"
+                        attrs="{'invisible': ['|', '|', ('state', '!=', 'validate'), ('extendable', '=', False), ('type', '=', 'add')]}"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>
