@@ -44,9 +44,23 @@
                             colspan="2"
                         >
                             <tree editable="bottom" create="false" delete="false" decoration-muted="available_days == 0.0">
+                                <field name="date" invisible="1"/>
                                 <field name="name" string="Date"/>
+                                <field name="request_amount" invisible="1"/>
                                 <field name="requested_days" sum="Total Requested"/>
                                 <field name="available_days" sum="Total Available"/>
+                                <field name="available_hours" invisible="1"/>
+                                <field name="requested_hours" invisible="1"/>
+                                <field name="interval_ids" invisible="1">
+                                    <field name="day_id" invisible="1"/>
+                                    <field name="since" invisible="1"/>
+                                    <field name="until" invisible="1"/>
+                                    <field name="request_amount" invisible="1"/>
+                                    <field name="requested_days" invisible="1"/>
+                                    <field name="available_days" invisible="1"/>
+                                    <field name="requested_hours" invisible="1"/>
+                                    <field name="available_hours" invisible="1"/>
+                                </field>
                             </tree>
                         </field>
                         <field
@@ -57,8 +71,14 @@
                             colspan="2"
                         >
                             <tree editable="bottom" create="false" delete="false" decoration-muted="available_hours == 0.0">
+                                <field name="day_id" invisible="1"/>
+                                <field name="since" invisible="1"/>
+                                <field name="until" invisible="1"/>
                                 <field name="day_name" string="Date"/>
                                 <field name="name" string="Interval"/>
+                                <field name="request_amount" invisible="1"/>
+                                <field name="requested_days" invisible="1"/>
+                                <field name="available_days" invisible="1"/>
                                 <field name="requested_hours" sum="Total Requested"/>
                                 <field name="available_hours" sum="Total Available"/>
                             </tree>
@@ -81,9 +101,11 @@
                 <sheet>
                     <div class="oe_title">
                         <h1><field name="name" class="oe_inline"/></h1>
+                        <field name="date" invisible="1"/>
                     </div>
                     <group>
                         <field name="leave_type_request_unit" invisible="1"/>
+                        <field name="request_amount" invisible="1"/>
                         <div attrs="{'invisible': [('leave_type_request_unit', '!=', 'day')]}">
                             <label for="requested_days" string="Requested"/>
                             <div>
@@ -120,7 +142,9 @@
         <field name="model">hr.leave.wizard.day</field>
         <field name="arch" type="xml">
             <tree editable="bottom" create="false" delete="false">
+                <field name="date" invisible="1"/>
                 <field name="name" string="Date"/>
+                <field name="request_amount" invisible="1"/>
                 <field
                     name="requested_days"
                     invisible="context.get('leave_type_request_unit') != 'day'"
@@ -150,6 +174,13 @@
                     <tree>
                         <field name="display_name"/>
                         <field name="name"/>
+                        <field name="since" invisible="1"/>
+                        <field name="until" invisible="1"/>
+                        <field name="request_amount" invisible="1"/>
+                        <field name="requested_days" invisible="1"/>
+                        <field name="available_days" invisible="1"/>
+                        <field name="requested_hours" invisible="1"/>
+                        <field name="available_hours" invisible="1"/>
                     </tree>
                 </field>
             </tree>
@@ -164,6 +195,7 @@
                 <sheet>
                     <div class="oe_title">
                         <h1><field name="name" class="oe_inline"/></h1>
+                        <field name="day_id" invisible="1"/>
                     </div>
                     <group>
                         <group name="timestamp_range" colspan="2">
@@ -176,6 +208,7 @@
                         </group>
                     </group>
                     <group>
+                        <field name="request_amount" invisible="1"/>
                         <field name="leave_type_request_unit" invisible="1"/>
                         <div attrs="{'invisible': [('leave_type_request_unit', '!=', 'day')]}">
                             <label for="requested_days"/>
@@ -206,8 +239,10 @@
         <field name="model">hr.leave.wizard.day.interval</field>
         <field name="arch" type="xml">
             <tree editable="bottom" create="false" delete="false">
+                <field name="day_id" invisible="1"/>
                 <field name="since"/>
                 <field name="until"/>
+                <field name="request_amount" invisible="1"/>
                 <field
                     name="requested_days"
                     invisible="context.get('leave_type_request_unit') != 'day'"

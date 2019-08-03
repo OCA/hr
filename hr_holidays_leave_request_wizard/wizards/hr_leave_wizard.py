@@ -2,6 +2,7 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 import babel.dates
+from collections import defaultdict, OrderedDict
 from datetime import datetime, time
 from dateutil.relativedelta import relativedelta
 from pytz import timezone, utc
@@ -177,6 +178,164 @@ class HrLeaveWizard(models.TransientModel):
             },
         }
 
+    @api.multi
+    def onchange(self, values, field_name, field_onchange):
+        """ Perform an onchange on the given field.
+            :param values: dictionary mapping field names to values, giving the
+                current state of modification
+            :param field_name: name of the modified field, or list of field
+                names (in view order), or False
+            :param field_onchange: dictionary mapping field names to their
+                on_change attribute
+        """
+        env = self.env
+        if isinstance(field_name, list):
+            names = field_name
+        elif field_name:
+            names = [field_name]
+        else:
+            names = []
+
+        if not all(name in self._fields for name in names):
+            return {}
+
+        def PrefixTree(model, dotnames):
+            """ Return a prefix tree for sequences of field names. """
+            if not dotnames:
+                return {}
+            # group dotnames by prefix
+            suffixes = defaultdict(list)
+            for dotname in dotnames:
+                # name, *names = dotname.split('.', 1)
+                names = dotname.split('.', 1)
+                name = names.pop(0)
+                suffixes[name].extend(names)
+            # fill in prefix tree in fields order
+            tree = OrderedDict()
+            for name, field in model._fields.items():
+                if name in suffixes:
+                    tree[name] = subtree = PrefixTree(model[name], suffixes[name])
+                    if subtree and field.type == 'one2many':
+                        subtree.pop(field.inverse_name, None)
+            return tree
+
+        class Snapshot(dict):
+            """ A dict with the values of a record, following a prefix tree. """
+            __slots__ = ()
+
+            def __init__(self, record, tree):
+                # put record in dict to include it when comparing snapshots
+                super(Snapshot, self).__init__({'<record>': record, '<tree>': tree})
+                for name, subnames in tree.items():
+                    # x2many fields are serialized as a list of line snapshots
+                    self[name] = (
+                        [Snapshot(line, subnames) for line in record[name]]
+                        if subnames else record[name]
+                    )
+
+            def diff(self, other):
+                """ Return the values in ``self`` that differ from ``other``.
+                    Requires record cache invalidation for correct output!
+                """
+                record = self['<record>']
+                result = {}
+                for name, subnames in self['<tree>'].items():
+                    if (name == 'id') or (other.get(name) == self[name]):
+                        continue
+                    if not subnames:
+                        field = record._fields[name]
+                        result[name] = field.convert_to_onchange(self[name], record, {})
+                    else:
+                        # x2many fields: serialize value as commands
+                        result[name] = commands = [(5,)]
+                        for line_snapshot in self[name]:
+                            line = line_snapshot['<record>']
+                            if not line.id:
+                                # new line: send diff from scratch
+                                line_diff = line_snapshot.diff({})
+                                commands.append((0, line.id.ref or 0, line_diff))
+                            else:
+                                # existing line: check diff from database
+                                # (requires a clean record cache!)
+                                line_diff = line_snapshot.diff(Snapshot(line, subnames))
+                                if line_diff:
+                                    # send all fields because the web client
+                                    # might need them to evaluate modifiers
+                                    line_diff = line_snapshot.diff({})
+                                    commands.append((1, line.id, line_diff))
+                                else:
+                                    commands.append((4, line.id))
+                return result
+
+        nametree = PrefixTree(self.browse(), field_onchange)
+
+        # prefetch x2many lines without data (for the initial snapshot)
+        for name, subnames in nametree.items():
+            if subnames and values.get(name):
+                # retrieve all ids in commands, and read the expected fields
+                line_ids = []
+                for cmd in values[name]:
+                    if cmd[0] in (1, 4):
+                        line_ids.append(cmd[1])
+                    elif cmd[0] == 6:
+                        line_ids.extend(cmd[2])
+                lines = self.browse()[name].browse(line_ids)
+                lines.read(list(subnames), load='_classic_write')
+
+        # create a new record with values, and attach ``self`` to it
+        with env.do_in_onchange():
+            record = self.new(values)
+            # attach ``self`` with a different context (for cache consistency)
+            record._origin = self.with_context(__onchange=True)
+
+        # make a snapshot based on the initial values of record
+        with env.do_in_onchange():
+            snapshot0 = snapshot1 = Snapshot(record, nametree)
+
+        # determine which field(s) should be triggered an onchange
+        todo = list(names or nametree)
+        done = set()
+
+        # dummy assignment: trigger invalidations on the record
+        with env.do_in_onchange():
+            for name in todo:
+                if name == 'id':
+                    continue
+                value = record[name]
+                field = self._fields[name]
+                if field.type == 'many2one' and field.delegate and not value:
+                    # do not nullify all fields of parent record for new records
+                    continue
+                record[name] = value
+
+        result = {}
+
+        # process names in order (or the keys of values if no name given)
+        while todo:
+            name = todo.pop(0)
+            if name in done:
+                continue
+            done.add(name)
+
+            with env.do_in_onchange():
+                # apply field-specific onchange methods
+                if field_onchange.get(name):
+                    record._onchange_eval(name, field_onchange[name], result)
+
+                # make a snapshot (this forces evaluation of computed fields)
+                snapshot1 = Snapshot(record, nametree)
+
+                # determine which fields have been modified
+                for name in nametree:
+                    if snapshot1[name] != snapshot0[name]:
+                        todo.append(name)
+
+        # determine values that have changed by comparing snapshots
+        self.invalidate_cache()
+        result['value'] = snapshot1.diff(snapshot0)
+
+        return result
+
 
 class HrLeaveWizardDay(models.TransientModel):
     _name = 'hr.leave.wizard.day'
@@ -247,9 +406,11 @@ class HrLeaveWizardDay(models.TransientModel):
     def _generate_intervals(self):
         HrLeaveWizardDayInterval = self.env['hr.leave.wizard.day.interval']
         for day in self:
+            interval_ids = HrLeaveWizardDayInterval
+
             employee = day.wizard_id.employee_id
-            if not employee.resource_id:  # pragma: no cover
-                day.interval_ids = [(5, 0, 0)]
+            if not employee.resource_id:
+                day.interval_ids = interval_ids
                 continue
 
             day_start = datetime.combine(day.date, time.min)
@@ -277,13 +438,14 @@ class HrLeaveWizardDay(models.TransientModel):
                 attendance_intervals - (unpaid_intervals - global_intervals)
             )
 
-            interval_ids = [(5, 0, 0)]
             for start, stop, meta in intervals:
                 values = HrLeaveWizardDayInterval._prepare_values(
                     start.astimezone(utc).replace(tzinfo=None),
                     stop.astimezone(utc).replace(tzinfo=None),
                 )
-                interval_ids += [(0, 0, values)]
+                interval_id = HrLeaveWizardDayInterval.new(values)
+                interval_id.day_id = day
+                interval_ids |= interval_id
             day.interval_ids = interval_ids
 
     @api.multi
