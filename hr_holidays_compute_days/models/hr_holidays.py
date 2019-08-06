@@ -4,6 +4,7 @@
 from odoo import api, fields, models
 from datetime import time
 from dateutil import tz
+from odoo.tools import config
 
 
 class HrHolidays(models.Model):
@@ -138,6 +139,10 @@ class HrHolidays(models.Model):
         """Pass context variable for including rest days or change passed dates
         when computing full days.
         """
+        if (config['test_enable'] and
+                not self.env.context.get('test_full_days')):
+            return super()._get_number_of_days(date_from, date_to, employee_id)
+
         obj = self.with_context(
             include_rest_days=not self.holiday_status_id.exclude_rest_days,
         )

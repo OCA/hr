@@ -11,7 +11,9 @@ class TestHolidaysComputeDaysBase(common.SavepointCase):
     @classmethod
     def setUpClass(cls):
         super(TestHolidaysComputeDaysBase, cls).setUpClass()
-        cls.HrHolidays = cls.env['hr.holidays']
+        cls.HrHolidays = cls.env['hr.holidays'].with_context(
+            test_full_days=True
+        )
         cls.calendar = cls.env['resource.calendar'].create({
             'name': 'Calendar',
         })
