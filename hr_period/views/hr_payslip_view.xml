@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_hr_payslip_form" model="ir.ui.view">
+        <field name="name">hr.payslip.period.form</field>
+        <field name="model">hr.payslip</field>
+        <field name="inherit_id" ref="hr_payroll.view_hr_payslip_form"/>
+        <field name="arch" type="xml">
+            <label for="date_from" position="before">
+                <field name="hr_period_id"
+                    domain="[
+                        ('state', '=', 'open'),
+                        ('company_id', '=', company_id)
+                    ]"/>
+            </label>
+            <field name="name" position="after">
+                <field name="date_payment"
+                    required="1"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_hr_payslip_tree" model="ir.ui.view">
+        <field name="name">hr.payslip.period.tree</field>
+        <field name="model">hr.payslip</field>
+        <field name="inherit_id" ref="hr_payroll.view_hr_payslip_tree"/>
+        <field name="arch" type="xml">
+            <field name="date_to" position="after">
+                <field name="date_payment"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_hr_payslip_filter" model="ir.ui.view">
+        <field name="name">hr.payslip.period.select</field>
+        <field name="model">hr.payslip</field>
+        <field name="inherit_id" ref="hr_payroll.view_hr_payslip_filter"/>
+        <field name="arch" type="xml">
+            <field name="date_from" position="after">
+                <field name="date_payment"/>
+            </field>
+            <filter name="employee_id" position="after">
+                <filter
+                    string="Payment Date"
+                    name="date_payment"
+                    context="{'group_by':'date_payment'}"/>
+            </filter>
+        </field>
+    </record>
+
+</odoo>

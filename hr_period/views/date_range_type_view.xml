@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="view_date_range_type_hr_tree" model="ir.ui.view">
+        <field name="name">date.range.type.hr.tree</field>
+        <field name="model">date.range.type</field>
+        <field name="arch" type="xml">
+            <tree name="HR range types">
+                <field name="name"/>
+                <field name="allow_overlap"/>
+                <field name="company_id" groups="base.group_multi_company" options="{'no_create': True}"/>
+                <field name="hr_fiscal_year"/>
+                <field name="hr_period"/>
+                <field name="active"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_date_range_type_hr_form_view" model="ir.ui.view">
+        <field name="name">date.range.type.hr.form</field>
+        <field name="model">date.range.type</field>
+        <field name="arch" type="xml">
+            <form string="Date Range Type">
+                <group col="4">
+                    <field name="name"/>
+                    <field name="allow_overlap"/>
+                    <field name="company_id" groups="base.group_multi_company" options="{'no_create': True}"/>
+                    <field name="hr_fiscal_year"/>
+                    <field name="hr_period"/>
+                    <field name="active"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="date_range_type_hr_action" model="ir.actions.act_window">
+        <field name="name">Period Types</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">date.range.type</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_ids" eval="[(5, 0, 0),
+            (0, 0, {'view_mode': 'tree', 'view_id': ref('view_date_range_type_hr_tree')}),
+            (0, 0, {'view_mode': 'form', 'view_id': ref('view_date_range_type_hr_form_view')})]"/>
+        <field name="domain">['|', ('hr_period', '=', True), ('hr_fiscal_year', '=', True)]</field>
+        <field name="context">{}</field>
+    </record>
+
+    <menuitem action="date_range_type_hr_action"
+              id="menu_date_range_type_action"
+              parent="hr_payroll.menu_hr_payroll_configuration"
+              sequence="23"/>
+</odoo>

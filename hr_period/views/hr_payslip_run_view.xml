@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="hr_payslip_run_form" model="ir.ui.view">
+        <field name="name">hr.payslip.run.period.form</field>
+        <field name="model">hr.payslip.run</field>
+        <field name="inherit_id" ref="hr_payroll.hr_payslip_run_form"/>
+        <field name="priority">1</field>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <label for="company_id" groups="base.group_multi_company"/>
+                <h3>
+                    <field name="company_id"
+                        groups="base.group_multi_company"
+                        required="1"/>
+                </h3>
+                <h3>
+                    <group>
+                        <group>
+                            <field name="hr_period_id"
+                            domain="[
+                                ('state', '=', 'open'),
+                                ('company_id', '=', company_id),
+                            ]"/>
+                        </group>
+                        <group>
+                        </group>
+                    </group>
+                </h3>
+                <group>
+                    <group>
+                        <field name="schedule_pay"/>
+                    </group>
+                    <group>
+                        <field name="date_payment" required="1"/>
+                    </group>
+                </group>
+            </field>
+            <xpath expr="//form/sheet/group/label[1]" position="replace">
+                <label for="date_start" string="Date"/>
+            </xpath>
+             <button name="%(hr_payroll.action_hr_payslip_by_employees)d"
+                 position="replace">
+                <button
+                    name="get_payslip_employees_wizard"
+                    type="object"
+                    states="draft"
+                    string="Generate Payslips"
+                    class="btn-primary"/>
+            </button>
+        </field>
+    </record>
+
+    <record id="hr_payslip_run_filter" model="ir.ui.view">
+        <field name="name">hr.payslip.run.period.search</field>
+        <field name="model">hr.payslip.run</field>
+        <field name="inherit_id" ref="hr_payroll.hr_payslip_run_filter"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="company_id"/>
+                <field name="date_payment"/>
+                <field name="schedule_pay"/>
+            </field>
+            <search position="inside">
+                <group string="Group By...">
+                    <filter
+                        string="Company"
+                        name="company_id"
+                        groups="base.group_multi_company"
+                        context="{'group_by':'company_id'}"/>
+                    <filter
+                        string="Scheduled Pay"
+                        name="schedule_pay"
+                        context="{'group_by':'schedule_pay'}"/>
+                    <filter
+                        string="Payment Date"
+                        name="date_payment"
+                        context="{'group_by':'date_payment'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="hr_payslip_run_tree" model="ir.ui.view">
+        <field name="name">hr.payslip.run.period.tree</field>
+        <field name="model">hr.payslip.run</field>
+        <field name="inherit_id" ref="hr_payroll.hr_payslip_run_tree"/>
+        <field name="arch" type="xml">
+            <field name="date_end" position="after">
+                <field name="date_payment"/>
+                <field name="schedule_pay"/>
+                <field name="company_id"
+                    groups="base.group_multi_company"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>

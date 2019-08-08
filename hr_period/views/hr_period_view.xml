@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_hr_period_form" model="ir.ui.view">
+        <field name="name">hr.period.form</field>
+        <field name="model">hr.period</field>
+        <field name="arch" type="xml">
+            <form string="Payroll Periods">
+                <header>
+                    <button name="button_open" string="Open Period" type="object" states="draft"/>
+                    <button name="button_re_open" string="Re-Open Period" type="object" states="done"/>
+                    <button name="button_close" string="Close Period" type="object" states="open"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,open,done"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="fiscalyear_id" widget="selection"/>
+                            <label for="date_start" string="Duration"/>
+                            <div>
+                                <field name="date_start" nolabel="1" class="oe_inline"/> -
+                                <field name="date_end" nolabel="1" class="oe_inline"/>
+                            </div>
+                            <field name="date_payment"/>
+                        </group>
+                        <group>
+                            <field name="schedule_pay"/>
+                            <field name="type_id" domain="[('hr_period','=',True)]"/>
+                            <field name="number"/>
+                            <field name="company_id" widget="selection" groups="base.group_multi_company"/>
+                        </group>
+                    </group>
+                    <separator string="Payslips"/>
+                    <newline/>
+                    <field name="payslip_ids" nolabel="1"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_hr_period_tree" model="ir.ui.view">
+        <field name="name">hr.period.tree</field>
+        <field name="model">hr.period</field>
+        <field name="arch" type="xml">
+          <tree decoration-info="state == 'open'" decoration-muted="state == 'done'" name="Payroll Period">
+                <field name="name"/>
+                <field name="date_start"/>
+                <field name="date_end"/>
+                <field name="date_payment"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_hr_period_search" model="ir.ui.view">
+        <field name="name">hr.period.search</field>
+        <field name="model">hr.period</field>
+        <field name="arch" type="xml">
+            <search string="Search Period">
+                <field name="name" filter_domain="['|', ('name', 'ilike', self), ('number', 'ilike', self)]" string="Period"/>
+                <field name="fiscalyear_id"/>
+                <field name="date_payment"/>
+                <field name="schedule_pay"/>
+                <field name="state"/>
+                <filter string="To Close" name="draft" domain="[('state', '=', 'draft')]" icon="terp-dialog-close"/>
+                <filter string="Schedule Pay" name="schedule_pay" context="{'group_by':'schedule_pay'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_hr_period" model="ir.actions.act_window">
+        <field name="name">Payroll Periods</field>
+        <field name="res_model">hr.period</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('type_id.hr_period','=',True)]</field>
+        <field name="context">{'search_default_open': 1, 'search_default_schedule_pay': 1}</field>
+    </record>
+
+    <menuitem id="menu_action_hr_period"
+              action="action_hr_period"
+              parent="hr_payroll.menu_hr_payroll_configuration"
+              sequence="26"/>
+
+</odoo>

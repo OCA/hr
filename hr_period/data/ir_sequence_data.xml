@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+        <record id="seq_payslip_run" model="ir.sequence">
+            <field name="name">Payslip Batch</field>
+            <field name="code">hr.payslip.run</field>
+            <field name="padding" eval="5"/>
+            <field name="prefix">PAY</field>
+        </record>
+
+</odoo>
