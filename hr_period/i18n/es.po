@@ -8,33 +8,34 @@ msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-07-27 23:36+0000\n"
-"PO-Revision-Date: 2015-07-27 23:40+0000\n"
-"Last-Translator: <>\n"
-"Language-Team: Spanish (http://www.transifex.com/oca/OCA-hr-7-0/language/"
-"es/)\n"
+"PO-Revision-Date: 2019-08-12 20:44+0000\n"
+"Last-Translator: Antonio Pérez Ruth <antonio.perez@makrin.es>\n"
+"Language-Team: Spanish (http://www.transifex.com/oca/OCA-hr-7-0/language/es/)"
+"\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.7.1\n"
 
 #. module: hr_period
 #: code:addons/hr_period/models/hr_fiscal_year.py:252
 #, python-format
 msgid "%s Period #%s"
-msgstr ""
+msgstr "%s Periodo #%s"
 
 #. module: hr_period
 #: code:addons/hr_period/models/hr_fiscal_year.py:50
 #, python-format
 msgid "%s day of the current period"
-msgstr ""
+msgstr "%s día del periodo actual"
 
 #. module: hr_period
 #: code:addons/hr_period/models/hr_fiscal_year.py:49
 #, python-format
 msgid "%s day of the next period"
-msgstr ""
+msgstr "%s día del siguiente periodo"
 
 #. module: hr_period
 #: code:addons/hr_period/models/hr_fiscal_year.py:35
