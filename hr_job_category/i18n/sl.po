@@ -21,7 +21,7 @@ msgstr ""
 "%100==4 ? 2 : 3);\n"
 
 #. module: hr_job_category
-#: model:ir.model.fields,field_description:hr_job_category.field_hr_job_category_ids
+#: model:ir.model.fields,field_description:hr_job_category.field_hr_job__category_ids
 msgid "Associated Tags"
 msgstr "Povezane oznake"
 
@@ -37,6 +37,6 @@ msgid "Job Position"
 msgstr "Delovno mesto"
 
 #. module: hr_job_category
-#: model:ir.ui.view,arch_db:hr_job_category.view_job_form
+#: model_terms:ir.ui.view,arch_db:hr_job_category.view_job_form
 msgid "e.g. Part Time"
 msgstr "npr. Občasno"
