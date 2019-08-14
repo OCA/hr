@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_job_form" model="ir.ui.view">
+        <field name="name">hr.job.category</field>
+        <field name="model">hr.job</field>
+        <field name="inherit_id" ref="hr.view_hr_job_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('oe_title')]" position="inside">
+                <label for="category_ids" class="oe_edit_only" groups="hr.group_hr_manager"/>
+                <field name="category_ids" widget="many2many_tags" placeholder="e.g. Part Time" groups="hr.group_hr_manager"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
