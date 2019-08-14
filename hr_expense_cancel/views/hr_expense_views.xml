@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2019 Tecnativa - Ernesto Tejeda
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <record id="view_hr_expense_sheet_form" model="ir.ui.view">
+        <field name="name">hr.expense.sheet.form.inherit</field>
+        <field name="model">hr.expense.sheet</field>
+        <field name="inherit_id" ref="hr_expense.view_hr_expense_sheet_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header/field[@name='state']" position="before">
+                <button name="action_cancel" states="post,done" string="Cancel" type="object" groups="account.group_account_manager" />
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
