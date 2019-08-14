@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: hr (7.0)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-07-27 23:36+0000\n"
-"PO-Revision-Date: 2019-08-12 20:44+0000\n"
-"Last-Translator: Antonio Pérez Ruth <antonio.perez@makrin.es>\n"
+"PO-Revision-Date: 2019-08-14 08:15+0000\n"
+"Last-Translator: Jaime Arroyo <jaime.arroyo@creublanca.es>\n"
 "Language-Team: Spanish (http://www.transifex.com/oca/OCA-hr-7-0/language/es/)"
 "\n"
 "Language: es\n"
@@ -41,19 +41,19 @@ msgstr "%s día del siguiente periodo"
 #: code:addons/hr_period/models/hr_fiscal_year.py:35
 #, python-format
 msgid "Annually (1)"
-msgstr ""
+msgstr "Anualmente (1)"
 
 #. module: hr_period
 #: code:addons/hr_period/models/hr_fiscal_year.py:38
 #, python-format
 msgid "Bi-monthly (6)"
-msgstr ""
+msgstr "Bi-mensual (6)"
 
 #. module: hr_period
 #: code:addons/hr_period/models/hr_fiscal_year.py:41
 #, python-format
 msgid "Bi-weekly (26)"
-msgstr ""
+msgstr "Bi-semanal (26)"
 
 #. module: hr_period
 #: model:ir.ui.view,arch_db:hr_period.view_hr_period_form
