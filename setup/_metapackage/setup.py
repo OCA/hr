@@ -39,6 +39,7 @@ setuptools.setup(
         'odoo12-addon-hr_holidays_notify_employee_manager',
         'odoo12-addon-hr_holidays_public',
         'odoo12-addon-hr_holidays_settings',
+        'odoo12-addon-hr_job_category',
         'odoo12-addon-hr_payroll_cancel',
         'odoo12-addon-hr_period',
         'odoo12-addon-hr_skill',
