@@ -9,14 +9,15 @@ msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-28 03:12+0000\n"
-"PO-Revision-Date: 2017-04-18 11:02+0000\n"
-"Last-Translator: lfreeke <lfreeke@therp.nl>\n"
+"PO-Revision-Date: 2019-08-21 15:44+0000\n"
+"Last-Translator: Gijs-Jan Otten <gj@sunflowerweb.nl>\n"
 "Language-Team: Dutch (http://www.transifex.com/oca/OCA-hr-8-0/language/nl/)\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.7.1\n"
 
 #. module: hr_employee_data_from_work_address
 #: model:res.partner.category,name:hr_employee_data_from_work_address.category_duplicate
@@ -41,22 +42,28 @@ msgstr "Waar"
 #. module: hr_employee_data_from_work_address
 #: view:hr.employee:hr_employee_data_from_work_address.view_employee_form
 #: view:res.users:hr_employee_data_from_work_address.view_users_form
+#, fuzzy
 msgid "[('employee', '=', True)]"
-msgstr ""
+msgstr "[('employee', '=', True)]"
 
 #. module: hr_employee_data_from_work_address
 #: view:hr.employee:hr_employee_data_from_work_address.view_employee_form
+#, fuzzy
 msgid ""
 "{'default_groups_ref': ['base.group_user'], 'default_partner_id': address_id}"
 msgstr ""
+"{'default_groups_ref': ['base.group_user'], 'default_partner_id': address_id}"
 
 #. module: hr_employee_data_from_work_address
 #: view:res.users:hr_employee_data_from_work_address.view_users_form
+#, fuzzy
 msgid "{'required': [('id', '!=', False)]}"
-msgstr ""
+msgstr "{'required': [('id', '!=', False)]}"
 
 #. module: hr_employee_data_from_work_address
 #: view:hr.employee:hr_employee_data_from_work_address.view_employee_form
+#, fuzzy
 msgid ""
 "{'show_address': 1, 'default_customer': False, 'default_employee': True}"
 msgstr ""
+"{'show_address': 1, 'default_customer': False, 'default_employee': True}"
