@@ -17,9 +17,16 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: hr_expense_cancel
-#: model:ir.ui.view,arch_db:hr_expense_cancel.view_hr_expense_sheet_form
+#: model_terms:ir.ui.view,arch_db:hr_expense_cancel.view_hr_expense_sheet_form
 msgid "Cancel"
 msgstr "Cancelar"
+
+#. module: hr_expense_cancel
+#: model:ir.model,name:hr_expense_cancel.model_hr_expense_sheet_register_payment_wizard
+#, fuzzy
+#| msgid "Expense Report Register Payment wizard"
+msgid "Expense Register Payment Wizard"
+msgstr "Asistente registro pago de nota de gastos"
 
 #. module: hr_expense_cancel
 #: model:ir.model,name:hr_expense_cancel.model_hr_expense_sheet
@@ -27,12 +34,7 @@ msgid "Expense Report"
 msgstr "Nota de gastos"
 
 #. module: hr_expense_cancel
-#: model:ir.model,name:hr_expense_cancel.model_hr_expense_sheet_register_payment_wizard
-msgid "Expense Report Register Payment wizard"
-msgstr "Asistente registro pago de nota de gastos"
-
-#. module: hr_expense_cancel
-#: model:ir.model.fields,field_description:hr_expense_cancel.field_account_payment_expense_sheet_id
+#: model:ir.model.fields,field_description:hr_expense_cancel.field_account_payment__expense_sheet_id
 msgid "Expense sheet"
 msgstr "Nota de gastos"
 
