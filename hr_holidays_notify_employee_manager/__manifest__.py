@@ -4,7 +4,7 @@
     "name": "HR Holidays Notify Employee Manager",
     "summary": "Notify employee's manager by mail on Leave Requests "
                "creation.",
-    "version": "12.0.1.0.0",
+    "version": "12.0.1.1.0",
     "category": "Human Resources",
     "website": "https://github.com/OCA/hr",
     "author": "Eficent, Odoo Community Association (OCA)",
