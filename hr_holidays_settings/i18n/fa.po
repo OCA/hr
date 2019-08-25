@@ -25,11 +25,6 @@ msgid "Configure HR Holidays"
 msgstr "پیکر بندی تعطیلات"
 
 #. module: hr_holidays_settings
-#: model:ir.ui.menu,name:hr_holidays_settings.menu_hr_holidays_status
-msgid "Leave Types"
-msgstr "انوع خروج"
-
-#. module: hr_holidays_settings
 #: model_terms:ir.ui.view,arch_db:hr_holidays_settings.res_config_settings_view_form
 msgid "Leaves Management"
 msgstr "مدیریت برگها"
@@ -38,3 +33,6 @@ msgstr "مدیریت برگها"
 #: model:ir.ui.menu,name:hr_holidays_settings.menu_hr_holidays_global_settings
 msgid "Settings"
 msgstr "تنظیمات"
+
+#~ msgid "Leave Types"
+#~ msgstr "انوع خروج"
