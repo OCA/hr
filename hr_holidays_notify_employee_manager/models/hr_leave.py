@@ -11,10 +11,11 @@ class HRLeave(models.Model):
     def _get_approvers_to_notify(self):
         """Defines who to notify."""
         self.ensure_one()
+        approvers = self.env['hr.employee']
         company = self.employee_id.company_id
         if company.leave_notify_manager and self.employee_id.parent_id:
-            return self.employee_id.parent_id
-        return False
+            approvers = self.employee_id.parent_id
+        return approvers
 
     @api.model
     def create(self, vals):
@@ -27,8 +28,6 @@ class HRLeave(models.Model):
         """Input: res.user"""
         self.ensure_one()
         approvers = self._get_approvers_to_notify()
-        if not approvers:
-            return True
         for approver in approvers:
             self.add_follower(approver.id)
             if approver.user_id:
