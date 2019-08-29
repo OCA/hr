@@ -5,6 +5,8 @@ from odoo import fields
 from odoo.tests import common
 
 from dateutil.relativedelta import relativedelta
+from datetime import date
+from mock import patch
 
 
 class TestHrEmployeeService(common.TransactionCase):
@@ -51,19 +53,22 @@ class TestHrEmployeeService(common.TransactionCase):
         self.assertEqual(employee.service_duration_days, 0)
 
     def test_3(self):
+        mocked_today = date(2019, 8, 27)
         employee = self.SudoEmployee.create({
             'name': 'Employee #3',
             'service_hire_date': (
-                self.today - relativedelta(months=6)
+                mocked_today - relativedelta(months=6)
             ),
             'service_start_date': (
-                self.today - relativedelta(months=6)
+                mocked_today - relativedelta(months=6)
             ),
         })
 
-        self.assertEqual(employee.service_duration_years, 0)
-        self.assertEqual(employee.service_duration_months, 6)
-        self.assertEqual(employee.service_duration_days, 0)
+        with patch('odoo.fields.Date.today') as today:
+            today.return_value = mocked_today
+            self.assertEqual(employee.service_duration_years, 0)
+            self.assertEqual(employee.service_duration_months, 6)
+            self.assertEqual(employee.service_duration_days, 0)
 
     def test_4(self):
         employee = self.SudoEmployee.create({
