@@ -99,6 +99,11 @@ msgid "ID"
 msgstr ""
 
 #. module: hr_employee_relative
+#: model:ir.model.fields,field_description:hr_employee_relative.field_hr_employee_relative__job
+msgid "Job"
+msgstr ""
+
+#. module: hr_employee_relative
 #: model:ir.model.fields,field_description:hr_employee_relative.field_hr_employee_relative____last_update
 #: model:ir.model.fields,field_description:hr_employee_relative.field_hr_employee_relative_relation____last_update
 msgid "Last Modified on"
@@ -144,6 +149,11 @@ msgstr ""
 #. module: hr_employee_relative
 #: model:ir.model.fields,field_description:hr_employee_relative.field_hr_employee_relative__partner_id
 msgid "Partner"
+msgstr ""
+
+#. module: hr_employee_relative
+#: model:ir.model.fields,field_description:hr_employee_relative.field_hr_employee_relative__phone_number
+msgid "Phone Number"
 msgstr ""
 
 #. module: hr_employee_relative

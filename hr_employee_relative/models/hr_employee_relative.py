@@ -45,6 +45,10 @@ class HrEmployeeRelative(models.Model):
     age = fields.Float(
         compute='_compute_age',
     )
+
+    job = fields.Char()
+    phone_number = fields.Char()
+
     notes = fields.Text(
         string='Notes',
     )
