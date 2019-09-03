@@ -19,6 +19,8 @@ def migrate(env, version):
         if employee[1] or employee[2] or employee[3]:
             env['hr.employee.relative'].create({
                 'employee_id': employee[0],
+                'job': employee[2],
+                'phone_number': employee[3],
                 'name': employee[1] or 'Spouse',
                 'relation_id': relation_spouse
             })
