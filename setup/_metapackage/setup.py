@@ -13,6 +13,7 @@ setuptools.setup(
         'odoo11-addon-hr_attendance_reason',
         'odoo11-addon-hr_attendance_report_theoretical_time',
         'odoo11-addon-hr_attendance_rfid',
+        'odoo11-addon-hr_calendar_rest_time',
         'odoo11-addon-hr_contract_multi_job',
         'odoo11-addon-hr_contract_reference',
         'odoo11-addon-hr_emergency_contact',
@@ -41,6 +42,7 @@ setuptools.setup(
         'odoo11-addon-hr_payroll_cancel',
         'odoo11-addon-hr_payslip_change_state',
         'odoo11-addon-hr_skill',
+        'odoo11-addon-resource_hook',
     ],
     classifiers=[
         'Programming Language :: Python',
