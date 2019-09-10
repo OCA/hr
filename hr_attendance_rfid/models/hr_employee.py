@@ -48,7 +48,7 @@ class HrEmployee(models.Model):
             res['error_message'] = msg
             return res
         try:
-            attendance = employee.attendance_action_change()
+            attendance = employee.sudo().attendance_action_change()
             if attendance:
                 msg = _('Attendance recorded for employee %s') % employee.name
                 _logger.debug(msg)
