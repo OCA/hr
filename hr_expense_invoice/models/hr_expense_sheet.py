@@ -25,7 +25,8 @@ class HrExpenseSheet(models.Model):
             c_move_lines = move_lines.filtered(
                 lambda x:
                 x.partner_id == partner and
-                x.debit == line.invoice_id.residual and
+                float_compare(x.debit, line.invoice_id.residual,
+                              precision) == 0 and
                 not x.reconciled
             )
             if len(c_move_lines) > 1:
