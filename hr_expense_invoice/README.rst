@@ -74,10 +74,6 @@ Contributors
   * Pedro M. Baeza
   * Vicent Cubells
 
-* `NuoBiT Solutions, S.L. <https://www.nuobit.com>`_:
-
-  * Eric Antones
-
 Maintainers
 ~~~~~~~~~~~
 
