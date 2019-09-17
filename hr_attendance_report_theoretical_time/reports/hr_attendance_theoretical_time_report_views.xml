@@ -57,10 +57,17 @@
               action="hr_attendance.hr_attendance_action_graph"
     />
 
-    <menuitem id="menu_hr_attendance_theoretical_report"
+    <menuitem id="menu_hr_attendance_theoretical_root"
               name="Theoretical vs Attended Time"
-              action="hr_attendance_theoretical_action"
               parent="hr_attendance.menu_hr_attendance_report"
+              sequence="15"
+              groups="hr_attendance.group_hr_attendance_user"
+    />
+
+    <menuitem id="menu_hr_attendance_theoretical_report"
+              name="All Employees"
+              action="hr_attendance_theoretical_action"
+              parent="menu_hr_attendance_theoretical_root"
               groups="hr_attendance.group_hr_attendance"
               sequence="20"
     />
