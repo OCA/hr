@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2019 Creu Blanca
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+    <record model="ir.ui.view" id="wizard_theoretical_time_form_view">
+        <field name="name">wizard.theoretical.time.form (in hr_attendance_report_theoretical_time)</field>
+        <field name="model">wizard.theoretical.time</field>
+        <field name="arch" type="xml">
+            <form string="Wizard Theoretical Time">
+                <group string="Filters">
+                    <group>
+                        <field name="department_id" options="{'no_open': True, 'no_create': True}"/>
+                    </group>
+                    <group>
+                        <field name="category_ids" widget="many2many_tags" options="{'color_field': 'color', 'no_open': True, 'no_create': True}"/>
+                    </group>
+                </group>
+                <div class="text-left">
+                   <button name="populate" string="Populate" type="object" class="btn-primary"/>
+                </div>
+                <notebook>
+                    <page string="Employees">
+                        <field name="employee_ids">
+                            <tree delete="1" editable="0">
+                                <field name="name" readonly="1"/>
+                                <field name="department_id" readonly="1"/>
+                                <field name="job_id" readonly="1"/>
+                                <field name="parent_id" readonly="1"/>
+                            </tree>
+                        </field>
+                    </page>
+                </notebook>
+                <footer>
+                    <button name="view_report" string="View Report" class="btn-primary" type="object"/>
+                    <button string="Cancel" class="btn-default" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="wizard_theoretical_time_act_window">
+        <field name="name">Select Employees to Analyze Theoretical Time</field>
+        <field name="res_model">wizard.theoretical.time</field>
+        <field name="view_mode">form</field>
+        <field name="context">{}</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="menu_hr_attendance_theoretical_report_select"
+              name="Select Employees"
+              action="wizard_theoretical_time_act_window"
+              parent="menu_hr_attendance_theoretical_root"
+              groups="hr_attendance.group_hr_attendance"
+              sequence="25"
+    />
+
+</odoo>
