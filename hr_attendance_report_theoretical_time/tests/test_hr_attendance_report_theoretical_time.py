@@ -201,3 +201,23 @@ class TestHrAttendanceReportTheoreticalTime(common.SavepointCase):
         # 1946-12-26 - Employee 1
         a = self.attendances[6]
         self.assertEqual(obj._theoretical_hours(a.employee_id, a.check_in), 8)
+
+    def test_wizard_theoretical_time(self):
+        department = self.env['hr.department'].create({'name': 'Department'})
+        tag = self.env['hr.employee.category'].create({'name': 'Tag'})
+        self.employee_1.write({
+            'department_id': department.id,
+            'category_ids': [(4, tag.id)],
+        })
+        wizard = self.env['wizard.theoretical.time'].create({
+            'department_id': department.id,
+            'category_ids': [(4, tag.id)],
+        })
+        wizard.populate()
+        report = wizard.view_report()
+        self.assertTrue(wizard.employee_ids)
+        self.assertEqual(wizard.employee_ids[0].name, self.employee_1.name)
+        self.assertEqual(
+            report['domain'],
+            [('employee_id', 'in', [self.employee_1.id])]
+        )
