@@ -26,6 +26,17 @@ class ResourceCalendar(models.Model):
         HrHolidaysPublic = self.env['hr.holidays.public']
 
         leaves = []
+        if start_dt.year != end_dt.year:
+            # This fixes the case of leave request asked over 2 years.
+            #
+            # adding 1 year to end_dt for rrule to retrieve correct years for
+            # public holidays to work
+            # rrule.rrule(rrule.YEARLY, dtstart=2019-12-22, until=2020-01-05)
+            # gives [2019]
+            # rrule.rrule(rrule.YEARLY, dtstart=2019-12-22, until=2021-01-05)
+            # gives [2019, 2020]
+            end_dt = end_dt.replace(year=end_dt.year+1)
+
         for day in rrule.rrule(rrule.YEARLY, dtstart=start_dt, until=end_dt):
             lines = HrHolidaysPublic.get_holidays_list(
                 day.year, employee_id=employee_id,
