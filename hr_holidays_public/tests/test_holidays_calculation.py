@@ -84,6 +84,20 @@ class TestHolidaysComputeDaysBase(common.SavepointCase):
             ],
         })
 
+        cls.public_holiday_global_1947 = cls.HrHolidaysPublic.create({
+            'year': 1947,
+            'line_ids': [
+                (0, 0, {
+                    'name': 'New Eve',
+                    'date': '1947-01-01',
+                }),
+                (0, 0, {
+                    'name': 'New Eve extended',
+                    'date': '1947-01-02',
+                }),
+            ],
+        })
+
         cls.holiday_type = cls.HrLeaveType.create({
             'name': 'Leave Type Test',
             'exclude_public_holidays': True,
@@ -121,6 +135,26 @@ class TestHolidaysComputeDays(TestHolidaysComputeDaysBase):
             'date_to': '1946-12-29 23:59:59',  # Sunday
             'holiday_status_id': self.holiday_type_no_excludes.id,
             'employee_id': self.employee_1.id,
+        })
+        leave_request._onchange_leave_dates()
+        self.assertEqual(leave_request.number_of_days, 5)
+
+    def test_number_days_across_year(self):
+        leave_request = self.HrLeave.new({
+            'date_from': '1946-12-23 00:00:00',  # Monday
+            'date_to': '1947-01-03 23:59:59',  # Friday
+            'holiday_status_id': self.holiday_type.id,
+            'employee_id': self.employee_1.id,
+        })
+        leave_request._onchange_leave_dates()
+        self.assertEqual(leave_request.number_of_days, 7)
+
+    def test_number_days_across_year_2(self):
+        leave_request = self.HrLeave.new({
+            'date_from': '1946-12-23 00:00:00',  # Monday
+            'date_to': '1947-01-03 23:59:59',  # Friday
+            'holiday_status_id': self.holiday_type.id,
+            'employee_id': self.employee_2.id,
         })
         leave_request._onchange_leave_dates()
         self.assertEqual(leave_request.number_of_days, 5)
