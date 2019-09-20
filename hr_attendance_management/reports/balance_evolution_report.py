@@ -28,6 +28,13 @@ class BalanceEvolutionReport(models.TransientModel):
             start_date=last_cron_execution,
             end_date=fields.Date.today(),
             existing_balance=employee.previous_period_balance)
+
+        # delete previous graph for this employee to avoid miscalculation
+        # for graph display
+        self.env['balance.evolution.graph'].search([
+            ('employee_id', '=', employee_id)
+        ]).unlink()
+
         for i, day in enumerate(days):
             self.create({
                 'employee_id': employee_id,
