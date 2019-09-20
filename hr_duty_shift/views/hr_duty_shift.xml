@@ -16,6 +16,7 @@
                         <field name="employee_id" groups="hr.group_hr_user"/>
                         <field name="start_date"/>
                         <field name="end_date"/>
+                        <field name="is_paid"/>
                     </group>
                 </sheet>
             </form>
@@ -40,6 +41,7 @@
                 <field name="employee_id" groups="hr.group_hr_user"/>
                 <field name="start_date"/>
                 <field name="end_date"/>
+                <field name="is_paid"/>
             </tree>
         </field>
     </record>
@@ -62,9 +64,9 @@
 
     <record model="ir.ui.menu" id="hr_duty_shift_menu">
         <field name="name">Duty Shifts</field>
-        <field name="parent_id" ref="hr.menu_hr_root"/>
+        <field name="parent_id" ref="hr_attendance.menu_hr_attendance_root"/>
         <field name="action" ref="hr_duty_shift_act_window"/>
-        <field name="sequence" eval="91"/>
+        <field name="sequence" eval="29"/>
     </record>
 
 </odoo>

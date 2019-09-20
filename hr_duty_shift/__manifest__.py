@@ -11,7 +11,7 @@
     'website': 'https://github.com/OCA/hr',
     'depends': [
         'hr_holidays_public',
-        'hr',
+        'hr_attendance',
     ],
     'data': [
         'security/security.xml',

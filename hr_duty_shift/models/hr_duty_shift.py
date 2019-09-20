@@ -16,6 +16,9 @@ class HrDutyShift(models.Model):
         'hr.employee', required=True,
         default=lambda r: r.env.user.employee_ids[:1]
     )
+
+    is_paid = fields.Boolean()
+
     display_name = fields.Char(
         "Name",
         compute="_compute_display_name",
