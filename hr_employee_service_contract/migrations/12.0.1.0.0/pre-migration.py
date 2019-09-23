@@ -11,7 +11,7 @@ def migrate(env, version):
         openupgrade.logged_query(
             cr, """
             UPDATE hr_employee
-            SET service_hire_date = initial_employment_date;
+            SET service_hire_date = initial_employment_date
             WHERE initial_employment_date IS NOT NULL;
             """
         )
