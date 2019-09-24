@@ -1,0 +1,152 @@
+[33m1227a4f3[m[33m ([m[1;36mHEAD -> [m[1;32m12.0-add-hr_expense_pettycash[m[33m, [m[1;31morigin/12.0-add-hr_expense_pettycash[m[33m)[m [12.0][ADD]hr_expense_petty_cash
+[33ma48c7c2b[m Update translation files
+[33m5f6376ee[m hr_employee_relative 12.0.1.1.0
+[33m3cb3f15e[m [UPD] Update hr_employee_relative.pot
+[33m6d92ab63[m [12.0][IMP] Add phone number and job to hr_employee_relative
+[33m14ce01ea[m [12.0][IMP] Add migration script hr_family -> hr_employee_relative
+[33m6d3ddd1b[m Added translation using Weblate (Spanish)
+[33mf7f22db4[m Translated using Weblate (Portuguese (Brazil))
+[33m952a3339[m Translated using Weblate (Portuguese (Brazil))
+[33m8eafb550[m Translated using Weblate (Portuguese (Brazil))
+[33m90140ecb[m Translated using Weblate (Portuguese (Brazil))
+[33mcf6270a0[m [12.0][FIX] hr_employee_service: Test 3
+[33m785d53f9[m Deleted translation using Weblate (Spanish)
+[33mea42d469[m Translated using Weblate (Portuguese (Brazil))
+[33m32b90c7d[m Update translation files
+[33m731d4cec[m Update translation files
+[33m1ad5218c[m Update translation files
+[33m116cc409[m hr_holidays_notify_employee_manager 12.0.1.1.0
+[33mb31596b4[m [12.0][FIX] hr_holidays_notify_employee_manager: Add readonly False on leave_notify_manager option
+[33m2a12e3dc[m Translated using Weblate (German)
+[33m2bec38f3[m Translated using Weblate (German)
+[33m7d89d25f[m [ADD] setup.py
+[33mde386c57[m [ADD] icon.png
+[33mc55f5f0d[m [UPD] README.rst
+[33m49a5fc95[m [UPD] Update hr_expense_cancel.pot
+[33m2c787124[m [MIG] hr_expense_cancel: Migration to 12.0
+[33m4dae37d3[m hr_expense_cancel: lets to cancel and correct expenses
+[33m5865e529[m Update translation files
+[33mf5c459c6[m Translated using Weblate (Spanish)
+[33me9b9303c[m [ADD] setup.py
+[33md5d4573c[m [UPD] README.rst
+[33me6ea11cd[m [UPD] Update hr_job_category.pot
+[33m1c1f787c[m [11.0][FIX] hr_job_category: fix access group
+[33mf3ced133[m [MIG] hr_job_category v11 to v12
+[33m7e200cc8[m Update hr_job_category.pot
+[33m0944c67d[m hr_job_category: Migrate to 11.0
+[33m7fdc3121[m Translated using Weblate (Spanish)
+[33m0d6bae20[m Translated using Weblate (Spanish)
+[33m4f871e6b[m Added translation using Weblate (Spanish)
+[33ma0908b99[m [ADD] setup.py
+[33m14265eca[m [UPD] README.rst
+[33m72fe5eb0[m [UPD] Update hr_period.pot
+[33ma2137866[m [12.0][MIG] Migrate module hr_period to v12
+[33m9eb57d2e[m [UPD] Update hr_period.pot
+[33m24e4c269[m [FIX]hr_period multicompany
+[33m2d5f8817[m Update translation files
+[33m2e79ccd5[m Translated using Weblate (French)
+[33mcf36668e[m [UPD] Update hr_period.pot
+[33mb57cf282[m [FIX] hr_period: don't fail test in onchange_contract
+[33m01fbae62[m [UPD] Update hr_period.pot
+[33mb13d63bc[m [FIX]default period on payslips
+[33mc1112381[m [FIX]on change hr period in payslips
+[33m8a1194c7[m [UPT]improve test coverage
+[33m86d16cf3[m [IMP] Improved code
+[33m3826ed88[m [UPT]Adapt to date range model
+[33md5319c52[m [MIG] hr_period v10
+[33m62e0c0c7[m Adapt hr_period to date_range module
+[33mc1716cc6[m hr_period v9
+[33mb1aa5dcc[m Migrate hr_period from 7.0 to 8.0
+[33m4df0a247[m Module hr_period
+[33m45bbd8e6[m hr_holidays_settings 12.0.1.1.0
+[33mf5f722e2[m [UPD] README.rst
+[33m885db96a[m [UPD] Update hr_holidays_settings.pot
+[33mb15cd593[m [FIX] hr_holidays_settings: duplicate Leave Types menuitem
+[33mbfcd2a9e[m [FIX] hr_holidays_accrual_advanced: wizard crash
+[33mc28bb75e[m [UPD] README.rst
+[33ma1b189f2[m [FIX] hr_holidays_notify_employee_manager: tests
+[33m60247896[m [UPD] README.rst
+[33m6b305bfc[m Update translation files
+[33m25e6187f[m hr_employee_service 12.0.1.0.1
+[33mc8e2c37a[m [IMP] hr_employee_service: support _get_date_start_work
+[33m978573f4[m Added translation using Weblate (Spanish)
+[33md328c721[m hr_skill 12.0.1.2.0
+[33mbf480d83[m [FIX] hr_skill: fix permissions
+[33ma91ff436[m [UPD] Update hr_employee_service.pot
+[33mb2be57bd[m [FIX]  hr_employee_service: Don't try to access field service_duration for getting label
+[33m1322d0bb[m Translated using Weblate (Spanish)
+[33m969d0efc[m Translated using Weblate (Spanish)
+[33mb67fd532[m Translated using Weblate (Spanish)
+[33m9a932f65[m Translated using Weblate (Spanish)
+[33mb0dcd405[m Translated using Weblate (Spanish)
+[33m4ce11ca8[m Translated using Weblate (Spanish)
+[33m110e6b06[m Translated using Weblate (Spanish)
+[33m61b8f832[m Translated using Weblate (Spanish)
+[33m0f755962[m Translated using Weblate (Spanish)
+[33m7f4a82d7[m Translated using Weblate (Spanish)
+[33m7bbf74f2[m Translated using Weblate (Spanish)
+[33m6c5791dc[m [ADD] setup.py
+[33m70fe7cd7[m [ADD] icon.png
+[33m06c282ed[m [UPD] Update hr_holidays_leave_request_wizard.pot
+[33m003916f5[m [ADD] hr_holidays_leave_request_wizard: advanced leave request wizard and default leave request editor
+[33mc3af3abf[m Update translation files
+[33mb9666ef9[m Update translation files
+[33m3a839b86[m Update translation files
+[33mdf4cfbc4[m Translated using Weblate (Spanish)
+[33mfe28a570[m Added translation using Weblate (Spanish)
+[33m2bf17fc1[m Translated using Weblate (German)
+[33m8a11ca6d[m Translated using Weblate (German)
+[33m83c0c194[m Translated using Weblate (German)
+[33mef0f9f11[m Translated using Weblate (German)
+[33m7247f7a6[m Translated using Weblate (German)
+[33m8e5f7245[m Translated using Weblate (German)
+[33mc6db8376[m [UPD] Update hr_holidays_notify_employee_manager.pot
+[33m65c02d69[m [ADD] setup.py
+[33m4779162c[m [UPD] README.rst
+[33m031e26f3[m [MIG] hr_holidays_notify_employee_manager v12
+[33mf6b62eca[m Update translation files
+[33m0b7cf10b[m Translated using Weblate (French)
+[33m20248a2a[m Update hr_holidays_notify_employee_manager.pot
+[33m21ee4641[m Translated using Weblate (Portuguese (Brazil))
+[33m8188dae9[m Translated using Weblate (Persian)
+[33mef7aadb3[m Update hr_holidays_notify_employee_manager.pot
+[33m7ba4abb9[m OCA Transbot updated translations from Transifex
+[33m3d135dd9[m hr_holidays_notify_employee_manager: Migration to 11.0
+[33ma2c0b9b2[m OCA Transbot updated translations from Transifex
+[33ma32e177c[m add company_id in view
+[33medd0e3c6[m hr_holidays_notify_employee_manager: Migration to 10.0
+[33m806a34ab[m Translated using Weblate (German)
+[33md18b68cc[m Translated using Weblate (German)
+[33mbac0977e[m [ADD] setup.py
+[33m6da9014a[m [UPD] README.rst
+[33m1e76abed[m [UPD] Update hr_attendance_modification_tracking.pot
+[33m8042f5ef[m [12.0][MIG] hr_attendance_modification_tracking
+[33m64f6b43a[m Translated using Weblate (Spanish)
+[33mc6de3cc5[m Added translation using Weblate (Spanish)
+[33mbe7e8e6c[m [UPD] Update hr_attendance_modification_tracking.pot
+[33m1ae9fb2a[m [UPD] README.rst
+[33m8d797148[m [ADD] hr_attendance_modify
+[33m8780ac5b[m hr_holidays_accrual_advanced 12.0.1.0.1
+[33m9271e626[m [UPD] Update hr_holidays_accrual_advanced.pot
+[33mfb3f9fb2[m [FIX] hr_holidays_accrual_advanced: tests and more logs
+[33m6e072260[m [12.0][ADD] Migration script from hr_employee_seniority
+[33mc1502b55[m Translated using Weblate (German)
+[33m3ca44725[m Translated using Weblate (German)
+[33md2fc7777[m Translated using Weblate (German)
+[33mfda22246[m Translated using Weblate (German)
+[33m5c9ddea9[m Translated using Weblate (German)
+[33m9764f682[m Translated using Weblate (German)
+[33m4b068979[m Translated using Weblate (German)
+[33mc624a57d[m Translated using Weblate (German)
+[33mc2bfb3fa[m hr_skill 12.0.1.1.0
+[33m7600871b[m [FIX] Allow reading skills by everyone
+[33mc12d3721[m Translated using Weblate (Spanish)
+[33m924a7025[m Translated using Weblate (Spanish)
+[33m8b17a60c[m Translated using Weblate (Spanish)
+[33m46aef791[m Translated using Weblate (Spanish)
+[33me1254f22[m Added translation using Weblate (Spanish)
+[33maa82aa28[m Added translation using Weblate (Spanish)
+[33mb723bc05[m Added translation using Weblate (Spanish)
+[33meb2b5775[m [12.0][FIX] Travis Failing Holidays Leave Type Validity
+[33m8687aa97[m Update translation files
+[33mf590a6af[m [UPD] Update hr_expense_advance_clearin

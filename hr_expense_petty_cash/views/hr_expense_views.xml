@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="hr_expense_view_form_inherit" model="ir.ui.view">
+        <field name="name">hr.expense.view.form.inherit</field>
+        <field name="model">hr.expense</field>
+        <field name="inherit_id" ref="hr_expense.hr_expense_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='payment_mode']" position="after">
+                <div attrs="{'invisible': [('payment_mode', '!=', 'petty_cash')]}">
+                    <field name="petty_cash_id" attrs="{'required': [('payment_mode', '=', 'petty_cash')]}" class="oe_inline"/>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Add Petty Cash filter -->
+    <record id="view_hr_expense_filter_inherit" model="ir.ui.view">
+        <field name="name">hr.expense.filter.inherit</field>
+        <field name="model">hr.expense</field>
+        <field name="inherit_id" ref="hr_expense.view_hr_expense_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='my_expenses']" position="after">
+                <filter string="Petty Cash" name="petty_cash" domain="[('payment_mode', '=', 'petty_cash')]"/>
+            </xpath>
+            <xpath expr="//filter[@name='status']" position="after">
+                <filter string="Petty Cash Holder" domain="[('payment_mode', '=', 'petty_cash')]" context="{'group_by': 'petty_cash_id'}" name="petty_cash_holder"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
