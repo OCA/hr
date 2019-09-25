@@ -29,7 +29,10 @@ class HrEmployee(models.Model):
 
     attendance_days_ids = fields.One2many('hr.attendance.day', 'employee_id',
                                           "Attendance days")
-    balance = fields.Float(string='Balance',compute='_compute_balance', store=True)
+    balance = fields.Float(string='Balance', compute='_compute_balance', store=True)
+    initial_balance = fields.Float(string='Initial Balance',
+                                   compute='_compute_initial_balance',
+                                   store=True)
 
     extra_hours_lost = fields.Float(compute='_compute_balance', store=True)
 
@@ -63,6 +66,11 @@ class HrEmployee(models.Model):
     ##########################################################################
 
     @api.multi
+    def _compute_initial_balance(self):
+        for employee in self:
+            employee.initial_balance = 100
+
+    @api.multi
     def _compute_annual_balance_date(self):
         for employee in self:
             employee.annual_balance_date = \
@@ -91,6 +99,17 @@ class HrEmployee(models.Model):
     def _compute_balance(self):
         last_cron_execution = self.env['base.config.settings'].create({})\
             .get_last_balance_cron_execution()
+
+        # start = fields.Date.to_string(
+        #     datetime.date.today().replace(year=2018, month=1, day=1))
+
+        # for employee in self:
+        #     extra, lost = employee.past_balance_computation(
+        #         start_date=start,
+        #         end_date=fields.Date.today(),
+        #         existing_balance=employee.initial_balance)
+        #     employee.balance = extra
+        #     employee.extra_hours_lost = lost
 
         for employee in self:
             extra, lost = employee.past_balance_computation(
@@ -255,6 +274,7 @@ class HrEmployee(models.Model):
             employee.previous_period_lost_hours = new_lost
 
         config.update_balance_cron_date()
+        # employees._update_past_period_balance()
 
     @api.multi
     def _update_past_period_balance(self):
@@ -379,3 +399,21 @@ class HrEmployee(models.Model):
             'domain': [('employee_id', '=', self.id)],
             'target': 'current',
         }
+
+    def compute_total_balance(self):
+        start = fields.Date.to_string(
+            datetime.date.today().replace(year=2018, month=1, day=1))
+        end = fields.Date.to_string(
+            datetime.date.today().replace(year=2019, month=7, day=12))
+
+        for employee in self:
+            extra, lost = employee.past_balance_computation(
+                start_date=start,
+                end_date=end,
+                existing_balance=employee.initial_balance)
+            employee.balance = extra
+            employee.extra_hours_lost = lost
+
+    def get_total_balance(self):
+        self.ensure_one()
+        self.compute_total_balance()

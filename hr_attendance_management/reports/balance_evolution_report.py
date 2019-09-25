@@ -4,7 +4,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from odoo import models, fields, api
-
+import datetime
 
 class BalanceEvolutionReport(models.TransientModel):
 
@@ -21,11 +21,13 @@ class BalanceEvolutionReport(models.TransientModel):
         :param employee_id: the employee
         :return: True
         """
-        last_cron_execution = self.env['base.config.settings'].create({}) \
-            .get_last_balance_cron_execution()
+        # last_cron_execution = self.env['base.config.settings'].create({}) \
+        #     .get_last_balance_cron_execution()
+        start_of_year = fields.Date.to_string(
+                datetime.date.today().replace(month=1, day=1))
         employee = self.env['hr.employee'].search([('id', '=', employee_id)])
         days, extra_hours_sum, _ = employee.complete_balance_computation(
-            start_date=last_cron_execution,
+            start_date=start_of_year,
             end_date=fields.Date.today(),
             existing_balance=employee.previous_period_balance)
 

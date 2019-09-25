@@ -42,6 +42,11 @@
                                         icon="fa-calendar"
                                         string="My balance History">
                                 </button>
+                                <button name="get_total_balance"
+                                        type="object"
+                                        icon="fa-calendar"
+                                        string="Get my total balance">
+                                </button>
                             </group>
                         </group>
                         <field name="attendance_days_ids"
@@ -53,6 +58,8 @@
                 <div>
                     <label for="balance"/>
                     <field name="balance" widget="float_time"/>
+                    <label for="initial_balance"/>
+                    <field name="initial_balance" widget="float_time"/>
                 </div>
             </field>
             <field name="work_location" position="attributes">
