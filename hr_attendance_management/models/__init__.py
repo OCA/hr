@@ -16,3 +16,4 @@ from . import resource_calendar_attendance
 from . import hr_forced_due_hours
 from . import hr_change_day_request
 from . import hr_attendance_location
+from . import hr_employee_balance_history

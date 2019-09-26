@@ -2,7 +2,7 @@
 # Copyright (C) 2018 Compassion CH
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 import logging
-
+import datetime
 import pytz
 
 from odoo import models, fields, api
@@ -431,7 +431,8 @@ class HrAttendanceDay(models.Model):
     @api.multi
     def write(self, vals):
         res = super(HrAttendanceDay, self).write(vals)
-        self.recompute_period_if_old_day()
+        if 'paid_hours' in vals:  # TODO check
+            self.recompute_period_if_old_day()
         return res
 
     ##########################################################################
@@ -439,11 +440,34 @@ class HrAttendanceDay(models.Model):
     ##########################################################################
     @api.multi
     def recompute_period_if_old_day(self):
-        last_period = self.env['base.config.settings'].create({}) \
-            .get_last_balance_cron_execution()
         for day in self:
-            if day.date < last_period:
-                day.employee_id._update_past_period_balance()
+            lower_bound_history = self.env['hr.employee.balance.history'].search([
+                ('employee_id', '=', day.employee_id.id),
+                ('date', '<', day.date)
+            ], order='date desc', limit=1)
+            last_history = self.env['hr.employee.balance.history'].search([
+                ('employee_id', '=', day.employee_id.id),
+            ], order='date desc', limit=1)
+
+            start_date = None
+            end_date = None
+            balance = None
+            if lower_bound_history:
+                start_date = lower_bound_history.date
+                balance = lower_bound_history.balance
+            else:
+                start_date = datetime.date.today().replace(year=2018, month=1, day=1)
+                balance = day.employee_id.initial_balance
+
+            if last_history:
+                end_date = last_history.date
+            else:
+                end_date = datetime.date.today()
+
+            day.employee_id.update_past_period(start_date=start_date,
+                                               end_date=end_date,
+                                               balance=balance)
+            day.employee_id.compute_balance()
 
     @api.multi
     def open_attendance_day(self):
