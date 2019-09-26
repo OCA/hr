@@ -445,9 +445,10 @@ class HrAttendanceDay(models.Model):
                 ('employee_id', '=', day.employee_id.id),
                 ('date', '<', day.date)
             ], order='date desc', limit=1)
-            last_history = self.env['hr.employee.balance.history'].search([
+            upper_bound_history = self.env['hr.employee.balance.history'].search([
                 ('employee_id', '=', day.employee_id.id),
-            ], order='date desc', limit=1)
+                ('date', '>=', day.date)
+            ], order='date asc', limit=1)
 
             start_date = None
             end_date = None
@@ -458,15 +459,14 @@ class HrAttendanceDay(models.Model):
             else:
                 start_date = datetime.date.today().replace(year=2018, month=1, day=1)
                 balance = day.employee_id.initial_balance
-
-            if last_history:
-                end_date = last_history.date
+            if upper_bound_history:
+                end_date = upper_bound_history.date
             else:
                 end_date = datetime.date.today()
 
-            day.employee_id.update_past_period(start_date=start_date,
-                                               end_date=end_date,
-                                               balance=balance)
+            day.employee_id.update_past_periods(start_date=start_date,
+                                                end_date=end_date,
+                                                balance=balance)
             day.employee_id.compute_balance()
 
     @api.multi

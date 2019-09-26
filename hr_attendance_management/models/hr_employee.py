@@ -99,7 +99,12 @@ class HrEmployee(models.Model):
             employee.work_location = actual_location.location_id.name
 
     @api.multi
-    @api.depends('extra_hours_continuous_cap')  # depends also 'attendance_days_ids.day_balance'
+    @api.depends('extra_hours_continuous_cap')
+    def update_period_cap(self):
+        for employee in self:
+            employee.compute_balance(store=True)
+
+    @api.multi
     def compute_balance(self, store=False):
         for employee in self:
             employee_history = self.env['hr.employee.balance.history'].search([
@@ -127,35 +132,55 @@ class HrEmployee(models.Model):
             employee.extra_hours_lost = lost
 
             if store:
+                previous_balance = None
+                if employee_history:
+                    previous_balance = employee_history[-1].balance
+                else:
+                    previous_balance = employee.initial_balance
                 self.env['hr.employee.balance.history'].create({
                     'employee_id': employee.id,
                     'date': end_date,
                     'balance': extra,
-                    'lost': lost,
-                    'continuous_cap': employee_history[-1].coninuous_cap  # TODO fix cap
+                    'previous_balance': previous_balance,
+                    'lost': lost,   # TODO lost is always == 0 at second CRON execution
+                    'continuous_cap': employee.extra_hours_continuous_cap
                 })
 
-    def update_past_period(self, start_date, end_date, balance):
+    # Called when past periods must be updated (balance), often after an update to an attendance_day
+    def update_past_periods(self, start_date, end_date, balance):
         for employee in self:
-            # Recalculate history where attendance_day was modified
             extra, lost = employee.past_balance_computation(
                 start_date=start_date,
                 end_date=end_date,
                 existing_balance=balance)
-            # Delete now irrelevant entries (with date after date of modified attendance_day)
-            self.env['hr.employee.balance.history'].search([
+
+            # Recompute period concerned by attendance_day modification
+            current_period = self.env['hr.employee.balance.history'].search([
                 ('employee_id', '=', employee.id),
-                ('date', '>=', start_date)
-            ]).unlink()
-            self.env['hr.employee.balance.history'].create({
-                'employee_id': employee.id,
-                'date': end_date,
+                ('date', '=', end_date)
+            ], limit=1)
+            current_period.write({
                 'balance': extra,
-                'lost': lost,
-                'continuous_cap': True  # TODO fix cap
+                'lost': current_period.lost,
+                'previous_balance': balance
             })
 
-    @api.multi  # TODO fix cap
+            employee_history = self.env['hr.employee.balance.history'].search([
+                ('employee_id', '=', employee.id),
+                ('date', '>', end_date)
+            ], order='date asc')
+
+            previous_balance = extra
+
+            for entry in employee_history:
+                diff = entry.balance - entry.previous_balance
+                entry.write({
+                    'previous_balance': previous_balance,
+                    'balance': previous_balance + diff,
+                })
+                previous_balance = previous_balance + diff
+
+    @api.multi
     def is_continuous_cap_at_date(self, date):
         """
         This method return the status of the employee at the specified date.
@@ -176,8 +201,9 @@ class HrEmployee(models.Model):
             if upper_bound_history:
                 return upper_bound_history.continuous_cap
             else:
+                return True   # default value TODO fix
                 # undefined as we don't know the period and the status
-                raise ValueError("Date is outside history")
+                # raise ValueError("Date is outside history")
 
     @api.multi
     def complete_balance_computation(self, start_date=None, end_date=None,
