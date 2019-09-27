@@ -93,11 +93,18 @@ class HrEmployee(models.Model):
 
     @api.multi
     def compute_balance(self, store=False):
+        """
+        Method used to compute balance we needed. It uses the history of the employee to avoid
+        recalculating the whole balance each time.
+        This is also the method used to add a new history entry (by the CRON e.g.)
+        :param store: create a new period from the last one to current day and store it if True
+        """
         for employee in self:
             employee_history = self.env['hr.employee.balance.history'].search([
                 ('employee_id', '=', employee.id)
             ])
             config = self.env['base.config.settings'].create({})
+            config.set_beginning_date()
             start_date = None
             end_date = fields.Date.to_string(datetime.date.today())
             balance = None
@@ -136,6 +143,14 @@ class HrEmployee(models.Model):
 
     # Called when past periods must be updated (balance), often after an update to an attendance_day
     def update_past_periods(self, start_date, end_date, balance):
+        """
+        This function recompute balance and lost hours for a period.
+        Used when an attendance_day was modified and when the continuous_cap of a period is modified
+        :param start_date: start date for the update
+        :param end_date: date of end of first period
+        :param balance: balance before start_date
+        :return:
+        """
         for employee in self:
             extra, lost = employee.past_balance_computation(
                 start_date=start_date,
@@ -149,7 +164,7 @@ class HrEmployee(models.Model):
             ], limit=1)
             current_period.write({
                 'balance': extra,
-                'lost': current_period.lost,
+                'lost': current_period.lost,  # TODO check why lost is often == 0 here
                 'previous_balance': balance
             })
 
@@ -401,6 +416,9 @@ class HrEmployee(models.Model):
         }
 
     def get_total_balance(self):
+        """
+        Called by a button. Calculate current balance for employee
+        """
         self.ensure_one()
         self._compute_initial_balance()
         self.compute_balance()

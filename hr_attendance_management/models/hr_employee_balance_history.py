@@ -31,6 +31,7 @@ class HrEmployeeBalanceHistory(models.Model):
                     ('date', '<', entry.date)
                 ], order='date desc', limit=1)
                 config = self.env['base.config.settings'].create({})
+                config.set_beginning_date()
                 start_date = None
                 end_date = entry.date
                 balance = None

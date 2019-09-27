@@ -14,6 +14,7 @@
                    position="after">
                 <field name="free_break" widget="float_time"/>
                 <field name="max_extra_hours" widget="float_time"/>
+                <field name="beginning_date_for_balance_computation" widget="date"/>
             </field>
         </field>
     </record>
