@@ -449,15 +449,17 @@ class HrAttendanceDay(models.Model):
                 ('employee_id', '=', day.employee_id.id),
                 ('date', '>=', day.date)
             ], order='date asc', limit=1)
+            config = self.env['base.config.settings'].create({})
 
             start_date = None
             end_date = None
             balance = None
             if lower_bound_history:
-                start_date = lower_bound_history.date
+                start_date = (datetime.datetime.strptime(lower_bound_history.date, '%Y-%m-%d') +
+                              datetime.timedelta(days=1)).strftime('%Y-%m-%d')
                 balance = lower_bound_history.balance
             else:
-                start_date = datetime.date.today().replace(year=2018, month=1, day=1)
+                start_date = config.get_beginning_date_for_balance_computation()
                 balance = day.employee_id.initial_balance
             if upper_bound_history:
                 end_date = upper_bound_history.date

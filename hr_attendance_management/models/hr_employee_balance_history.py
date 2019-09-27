@@ -30,7 +30,7 @@ class HrEmployeeBalanceHistory(models.Model):
                     ('employee_id', '=', entry.employee_id.id),
                     ('date', '<', entry.date)
                 ], order='date desc', limit=1)
-
+                config = self.env['base.config.settings'].create({})
                 start_date = None
                 end_date = entry.date
                 balance = None
@@ -39,7 +39,7 @@ class HrEmployeeBalanceHistory(models.Model):
                     start_date = previous_history_entry.date
                     balance = previous_history_entry.balance
                 else:
-                    start_date = datetime.date.today().replace(year=2018, month=1, day=1)
+                    start_date = config.get_beginning_date_for_balance_computation()
                     balance = entry.employee_id.initial_balance
 
                 entry.employee_id.update_past_periods(start_date,

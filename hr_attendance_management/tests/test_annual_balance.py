@@ -69,11 +69,12 @@ class TestAnnualBalance(SavepointCase):
         self.config.set_free_break()
         self.assertEqual(self.config.get_free_break(), 0.25)
 
-        def change_date_and_raises(delta):
-            self.config.next_balance_cron_execution = \
-                fields.Date.from_string(
-                    self.config.get_last_balance_cron_execution())\
-                + timedelta(days=delta)
+        # TODO last balance CRON execution does not exist anymore
+        # def change_date_and_raises(delta):
+        #     # self.config.next_balance_cron_execution = \
+        #     #     fields.Date.from_string(
+        #     #         self.config.get_last_balance_cron_execution())\
+        #     #     + timedelta(days=delta)
 
         self.michael.extra_hours_continuous_cap = False
         for person in [self.jack, self.michael]:
@@ -99,11 +100,7 @@ class TestAnnualBalance(SavepointCase):
         self.assertEqual(self.michael.balance, 2.5)
         self.assertEqual(self.michael.extra_hours_lost, 0)
 
-        self.assertRaises(ValidationError, change_date_and_raises(364))
-
-        # Applying the yearly cron
-
-        last_exec = self.config.get_last_balance_cron_execution()
+        # self.assertRaises(ValidationError, change_date_and_raises(364))
 
         # Execute cron
         self.jack._cron_compute_annual_balance()
@@ -112,13 +109,7 @@ class TestAnnualBalance(SavepointCase):
         self.assertEqual(self.jack.previous_period_balance, 2)
         self.assertEqual(self.jack.balance, 2)
         self.assertEqual(self.michael.balance, 2)
-        self.assertEqual(
-            self.config.get_last_balance_cron_execution(),
-            fields.Date.to_string(datetime.today()))
-        self.assertEqual(
-            self.config.get_penultimate_balance_cron_execution(),
-            last_exec)
-        self.assertRaises(ValidationError, change_date_and_raises(2))
+        # self.assertRaises(ValidationError, change_date_and_raises(2))
 
         # Now will modify an attendance in the recent past and see if the
         # update catch it correctly.
@@ -130,8 +121,6 @@ class TestAnnualBalance(SavepointCase):
         self.michael._cron_update_annual_balance()
         self.assertEqual(self.jack.balance, 2)
         self.assertEqual(self.michael.balance, 2)
-        self.assertEqual(self.jack.previous_period_lost_hours, 3.5)
-        self.assertEqual(self.michael.previous_period_lost_hours, 3.5)
 
 
 

@@ -29,11 +29,9 @@
                     <group>
                         <group>
                             <field name="current_period_start_date" widget="date"/>
-                            <field name="extra_hours_continuous_cap" widget="float_time" invisible="1"/>
                             <field name="extra_hours_continuous_cap"/>
                             <field name="show_leaves" invisible="1"/>
                             <field name="extra_hours_lost" widget="float_time"/>
-                            <field name="annual_balance_date" widget="date" attrs="{'invisible':[('extra_hours_continuous_cap', '=', True)]}"/>
                         </group>
                         <group>
                             <group colspan="2" col="2">
@@ -45,7 +43,8 @@
                                 <button name="get_total_balance"
                                         type="object"
                                         icon="fa-calendar"
-                                        string="Get my total balance">
+                                        string="Get my total balance"
+                                        groups="base.group_hr_manager">
                                 </button>
                             </group>
                         </group>
