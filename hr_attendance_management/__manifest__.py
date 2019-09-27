@@ -38,7 +38,7 @@
         'hr_public_holidays',
         'hr_contract'
     ],
-    'version': '10.0.2.0.0',
+    'version': '10.0.3.0.0',
     'auto_install': False,
     'website': 'https://www.compassion.ch',
     'license': 'AGPL-3',

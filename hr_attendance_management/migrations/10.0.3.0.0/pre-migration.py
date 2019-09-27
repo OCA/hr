@@ -10,7 +10,6 @@
 ##############################################################################
 
 from openupgradelib import openupgrade
-from datetime import date
 
 
 @openupgrade.migrate(use_env=True)
@@ -19,18 +18,19 @@ def migrate(env, version):
         return
     cr = env.cr
 
-    start_date = str(date.today().replace(year=2018, month=1, day=1))
-    # Chose this day because its one of the date of execution of the CRON
-    end_date = str(date.today().replace(year=2019, month=5, day=24))
-    cr.execute("SELECT id FROM hr_employee")
-    employees = cr.dictfetchall()
-    # Add row for temporary balance
     cr.execute("ALTER TABLE hr_employee "
-               "ADD COLUMN  temp_balance double precision")
-    for employee in employees:
-
-        balance, lost = employee.past_balance_computation(start_date, end_date, 0)
-        # Set temporary balance
-        cr.execute("UPDATE hr_employee SET temp_balance = %s "
-                   "WHERE id = %s",
-                   (balance, employee['id']))
+               "DROP COLUMN  previous_period_lost_hours")
+    cr.execute("ALTER TABLE hr_employee "
+               "DROP COLUMN  penultimate_period_lost_hours")
+    cr.execute("ALTER TABLE hr_employee "
+               "DROP COLUMN  penultimate_period_balance")
+    cr.execute("ALTER TABLE hr_employee "
+               "DROP COLUMN  previous_period_continuous_cap")
+    cr.execute("ALTER TABLE hr_employee "
+               "DROP COLUMN  previous_annual_balance")
+    # cr.execute("ALTER TABLE hr_employee "
+    #            "DROP COLUMN  previous_period_balance")
+    cr.execute("ALTER TABLE hr_employee "
+               "DROP COLUMN  last_update_balance")
+    cr.execute("ALTER TABLE hr_employee "
+               "DROP COLUMN  last_update_date")

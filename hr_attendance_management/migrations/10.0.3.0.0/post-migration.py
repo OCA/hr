@@ -10,6 +10,7 @@
 ##############################################################################
 
 from openupgradelib import openupgrade
+from datetime import date
 
 
 @openupgrade.migrate(use_env=True)
@@ -18,34 +19,41 @@ def migrate(env, version):
         return
     cr = env.cr
 
+    start_date = str(date.today().replace(year=2018, month=1, day=1))
+    # Chose this day because its one of the date of execution of the CRON
+    end_date = str(date.today().replace(year=2019, month=5, day=24))
     cr.execute("SELECT id FROM hr_employee")
-    employees = cr.dictfetchall()
+    employee_ids = cr.dictfetchall()
 
-    for employee in employees:
-        # Get balance values
-        cr.execute(
-            """
-                SELECT
-                    temp_balance, balance
-                FROM 
-                    hr_employee
-                WHERE
-                    employee_id = %s
-            """, (employee["id"]))
+    for employee in employee_ids:
 
-        temp_balance = cr.dictfetchone()["temp_balance"]
-        old_balance = cr.dictfetchone()["balance"]
+        employee_model = env['hr.employee'].search([
+            ('id', '=', employee["id"])
+        ], limit=1)
 
-        # Initial balance is the diff between old one and new one
-        initial_balance = old_balance - temp_balance
+        if employee_model:
+            new_balance, lost = employee_model.past_balance_computation(start_date, end_date, 0)
 
-        cr.execute("UPDATE hr_employee SET initial_balance = %s "
-                   "WHERE id = %s",
-                   (initial_balance, employee['id']))
+            # Get old balance value
+            cr.execute(
+                """
+                    SELECT
+                        balance
+                    FROM 
+                        hr_employee
+                    WHERE
+                        id = %s
+                """, [employee["id"]])
 
-        cr.execute("UPDATE hr_employee SET balance = %s "
-                   "WHERE id = %s",
-                   (temp_balance, employee['id']))
-        # Delete temporary row
-        cr.execute("ALTER TABLE hr_employee "
-                   "DROP COLUMN temp_balance")
+            old_balance = cr.dictfetchone()["balance"]
+
+            # Initial balance is the diff between old one and new one
+            initial_balance = old_balance - new_balance
+
+            cr.execute("UPDATE hr_employee SET initial_balance = %s "
+                       "WHERE id = %s",
+                       (initial_balance, employee['id']))
+
+            cr.execute("UPDATE hr_employee SET balance = %s "
+                       "WHERE id = %s",
+                       (new_balance, employee['id']))
