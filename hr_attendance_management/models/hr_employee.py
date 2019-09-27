@@ -64,6 +64,8 @@ class HrEmployee(models.Model):
 
     work_location = fields.Char(compute='_compute_work_location')
 
+    history_entries_ids = fields.One2many('hr.employee.balance.history', 'employee_id', string='History Periods')
+
     ##########################################################################
     #                             FIELDS METHODS                             #
     ##########################################################################
@@ -172,6 +174,7 @@ class HrEmployee(models.Model):
 
             previous_balance = extra
 
+            # Modify each following history entry
             for entry in employee_history:
                 diff = entry.balance - entry.previous_balance
                 entry.write({

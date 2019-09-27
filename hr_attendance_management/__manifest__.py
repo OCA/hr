@@ -56,6 +56,7 @@
         'views/attendance.xml',
         'views/hr_attendance_break.xml',
         'views/hr_attendance_location.xml',
+        'views/hr_employee_history_periods.xml',
         'data/attendance_computation_cron.xml',
         'data/annual_balance_cron.xml',
         'data/hr_attendance_settings.xml',

@@ -25,7 +25,7 @@
         <field name="inherit_id" ref="hr.view_employee_form"/>
         <field name="arch" type="xml">
             <xpath expr="//page[@name='hr_settings']" position="after">
-                <page string="Hours">
+                <page name="hr_hours" string="Hours">
                     <group>
                         <group>
                             <field name="current_period_start_date" widget="date"/>
@@ -68,6 +68,23 @@
             <field name="work_location" position="after">
                 <field name="work_location_id"/>
             </field>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="hr_employee_history">
+        <field name="name">HR Employee Periods History</field>
+        <field name="model">hr.employee</field>
+        <field name="priority" eval="20"/>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='hr_hours']" position="after">
+                <page string="History">
+                    <group>
+                        <field name="history_entries_ids"
+                               context="{'tree_view_ref': 'hr_attendance_management.hr_history_periods_from_employee'}"/>
+                    </group>
+                </page>
+            </xpath>
         </field>
     </record>
 </odoo>
