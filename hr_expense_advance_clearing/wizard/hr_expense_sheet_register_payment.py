@@ -19,13 +19,11 @@ class HrExpenseSheetRegisterPaymentWizard(models.TransientModel):
             res.update({'amount': sheet.amount_payable})
         return res
 
-    @api.multi
     def expense_post_payment(self):
         if self._context.get('hr_return_advance', False):
             return self.expense_post_return_advance()
         return super().expense_post_payment()
 
-    @api.multi
     def expense_post_return_advance(self):
         """ This is opposite operation of expense_post_payment(),
         it return remaining advance from employee back to company
@@ -34,11 +32,11 @@ class HrExpenseSheetRegisterPaymentWizard(models.TransientModel):
         context = dict(self._context or {})
         active_ids = context.get('active_ids', [])
         expense_sheet = self.env['hr.expense.sheet'].browse(active_ids)
-
         # Create return advance and post it
         payment = self.env['account.payment'].create(self._get_payment_vals())
         # Set new payment_type and payment entry to be Dr Bank, Cr Advance
         payment.payment_type = 'inbound'
+        payment.partner_type = 'customer'
         payment.with_context(hr_return_advance=True).post()
 
         # Log the return advance in the chatter
@@ -61,5 +59,4 @@ class HrExpenseSheetRegisterPaymentWizard(models.TransientModel):
             if line.account_id == emp_advance.property_account_expense_id:
                 account_move_lines_to_reconcile |= line
         account_move_lines_to_reconcile.reconcile()
-
         return {'type': 'ir.actions.act_window_close'}

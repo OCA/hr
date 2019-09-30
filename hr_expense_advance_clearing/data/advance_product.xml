@@ -6,7 +6,7 @@
         <field name="sale_ok" eval="False"/>
         <field name="purchase_ok" eval="False"/>
         <field name="can_be_expensed" eval="False"/>
-        <field name="supplier_taxes_id">False</field>
-        <field name="taxes_id">False</field>
+        <field name="supplier_taxes_id" eval="False"/>
+        <field name="taxes_id" eval="False"/>
     </record>
 </odoo>
