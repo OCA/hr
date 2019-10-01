@@ -1,9 +1,9 @@
 <odoo>
 
-    <record id="view_hr_expense_sheet_filter" model="ir.ui.view">
-        <field name="name">hr.expense.sheet.filter</field>
+    <record id="hr_expense_sheet_view_search" model="ir.ui.view">
+        <field name="name">hr.expense.sheet.view.search</field>
         <field name="model">hr.expense.sheet</field>
-        <field name="inherit_id" ref="hr_expense.view_hr_expense_sheet_filter"/>
+        <field name="inherit_id" ref="hr_expense.hr_expense_sheet_view_search"/>
         <field name="arch" type="xml">
             <separator position="after">
                 <filter string="Advance" name="advance_expense" domain="[('advance', '=', True)]"/>
@@ -17,7 +17,7 @@
         <field name="name">Advance Clearing</field>
         <field name="res_model">hr.expense.sheet</field>
         <field name="view_mode">form</field>
-        <field name="search_view_id" ref="view_hr_expense_sheet_filter"/>
+        <field name="search_view_id" ref="hr_expense_sheet_view_search"/>
         <field name="domain">[('employee_id.user_id', '=', uid), ('state', '!=', 'cancel')]</field>
         <field name="context">{'search_default_my_reports': 1}</field>
         <field name="help" type="html">

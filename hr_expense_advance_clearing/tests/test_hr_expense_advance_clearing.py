@@ -18,11 +18,6 @@ class TestHrExpenseAdvanceClearing(common.SavepointCase):
             'name': 'Service 1',
             'type': 'service',
         })
-        tax_account = cls.env['account.account'].search([
-            ('company_id', '=', company.id),
-            ('user_type_id', '=', cls.env.ref(
-                'account.data_account_type_non_current_liabilities').id)
-            ], limit=1)
         tax_group = cls.env['account.tax.group'].create({
             'name': 'Tax Group 1', 'sequence': 1, })
         cls.tax = cls.env['account.tax'].create({
@@ -30,9 +25,7 @@ class TestHrExpenseAdvanceClearing(common.SavepointCase):
             'amount': 10.0,
             'amount_type': 'percent',
             'type_tax_use': 'purchase',
-            'account_id': tax_account.id,
             'company_id': company.id,
-            'refund_account_id': tax_account.id,
             'tax_group_id': tax_group.id,
         })
         employee_home = cls.env['res.partner'].create({
@@ -95,7 +88,8 @@ class TestHrExpenseAdvanceClearing(common.SavepointCase):
     def _register_payment(self, expense_sheet, hr_return_advance=False):
         ctx = {'active_ids': [expense_sheet.id],
                'active_id': expense_sheet.id,
-               'hr_return_advance': hr_return_advance, }
+               'hr_return_advance': hr_return_advance,
+               'active_model': 'hr.expense.sheet', }
         PaymentWizard = self.env['hr.expense.sheet.register.payment.wizard']
         with Form(PaymentWizard.with_context(ctx)) as f:
             f.journal_id = self.journal_bank
