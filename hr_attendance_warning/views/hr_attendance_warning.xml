@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2019 Creu Blanca
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+    <record model="ir.ui.view" id="hr_attendance_warning_form_view">
+        <field name="name">hr.attendance.warning.form</field>
+        <field name="model">hr.attendance.warning</field>
+        <field name="arch" type="xml">
+            <form create="false">
+                <header>
+                    <button string="Solve"
+                            name="pending2solved"
+                            states="pending"
+                            type="object"
+                            class="btn-primary"/>
+                    <button string="Back to pending"
+                            name="solved2pending"
+                            states="solved" type="object"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="open_employee_attendances"
+                                class="oe_stat_button"
+                                type="object">
+                            <div class="fa fa-user o_button_icon"/>
+                            <div class="o_stat_info">
+                                <span class="o_stat_text">Attendances</span>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1><field name="name"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="day_date"/>
+                            <field name="employee_id"/>
+                            <field name="department_id"/>
+                            <field name="solver_comment"/>
+                        </group>
+                        <group states="solved">
+                            <field name="solved_by"/>
+                            <field name="solved_on"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Warnings">
+                            <field name="warning_line_ids">
+                                <tree string="Warnings" create="false" delete="false" decoration-muted="state == 'solved'">
+                                    <field name="message"/>
+                                    <field name="create_date"/>
+                                    <field name="state" invisible="1"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                 <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"
+                           groups="base.group_user"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="hr_attendance_warning_search_view">
+        <field name="name">hr.attendance.warning.search (in
+            hr_attendance_warning)
+        </field>
+        <field name="model">hr.attendance.warning</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="state"/>
+                <field name="employee_id"/>
+                <field name="department_id"  filter_domain="[('department_id', 'child_of', raw_value)]"/>
+                <filter name="pending" string="Pending" domain="[('state', '=', 'pending')]"/>
+                <filter name="today" string="Today"
+                        domain="[('create_date', '&gt;=', datetime.datetime.now().replace(hour=0, minute=0, second=0)),
+                        ('create_date', '&lt;=', datetime.datetime.now().replace(hour=23, minute=59, second=59))]"/>
+            </search>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="hr_attendance_warning_tree_view">
+        <field name="name">hr.attendance.warning.tree (in
+            hr_attendance_warning)
+        </field>
+        <field name="model">hr.attendance.warning</field>
+        <field name="arch" type="xml">
+            <tree decoration-muted="state == 'solved'" create="false" edit="false">
+                <field name="employee_id"/>
+                <field name="create_date"/>
+                <field name="solver_comment"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="hr_attendance_warning_line_form">
+        <field name="name">hr.attendance.warning.line.form</field>
+        <field name="model">hr.attendance.warning.line</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="message"/>
+                        <field name="employee_id"/>
+                        <field name="create_date"/>
+                    </group>
+                    <group>
+                        <field name="warning_type"/>
+                        <field name="state"/>
+                    </group>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="hr_attendance_warning_line_tree">
+        <field name="name">hr.attendance.warning.line.tree</field>
+        <field name="model">hr.attendance.warning.line</field>
+        <field name="arch" type="xml">
+            <tree decoration-success="state == 'solved'" editable="bottom">
+                <field name="employee_id"/>
+                <field name="warning_type"/>
+                <field name="state" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="open_view_hr_attendance_warning"
+            model="ir.actions.act_window">
+        <field name="name">Attendance Warnings</field>
+        <field name="res_model">hr.attendance.warning</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'search_default_pending': 1, }</field>
+    </record>
+
+    <menuitem
+            id="menu_view_course_category_form"
+            action="open_view_hr_attendance_warning"
+            parent="hr_attendance.menu_hr_attendance_root"
+            groups="hr_attendance.group_hr_attendance_user"
+            sequence="50"/>
+
+</odoo>

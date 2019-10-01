@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="show_attendance_warning" model="ir.config_parameter">
+            <field name="key">show.attendance.warning</field>
+            <field name="value">True</field>
+        </record>
+    </data>
+</odoo>

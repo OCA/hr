@@ -1,0 +1,23 @@
+.o_warning_navbar_item {
+
+    &.open .o_warning_navbar_dropdown {
+        .o-flex-display();
+        .o-flex-flow(column, nowrap);
+    }
+    .o_notification_counter {
+        .o-position-absolute(@top: 20%, @right: 1px);
+        background: @odoo-brand-optional;
+        color: white;
+        padding: 0em 0.3em;
+        font-size: 0.7em;
+    }
+    .o_warning_navbar_dropdown {
+        width: 350px;
+        padding: 0;
+    }
+}
+
+.o_view_all_warnings {
+    .btn-link;
+    padding: 5px;
+}

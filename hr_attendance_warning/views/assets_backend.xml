@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="assets_backend" name="mail assets"
+              inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/hr_attendance_warning/static/src/js/systray.js"/>
+            <link rel="stylesheet" href="/hr_attendance_warning/static/src/less/systray.less" type="text/less"/>
+        </xpath>
+    </template>
+</odoo>

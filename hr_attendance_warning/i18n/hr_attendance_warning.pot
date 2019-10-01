@@ -1,0 +1,317 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* hr_attendance_warning
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-14 11:42+0000\n"
+"PO-Revision-Date: 2019-06-14 11:42+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hr_attendance_warning
+#. openerp-web
+#: code:addons/hr_attendance_warning/static/src/xml/systray.xml:40
+#, python-format
+msgid "&nbsp;("
+msgstr ""
+
+#. module: hr_attendance_warning
+#: model:ir.ui.view,arch_db:hr_attendance_warning.hr_attendance_warning_form_view
+msgid "<span class=\"o_stat_text\">Attendances</span>"
+msgstr ""
+
+#. module: hr_attendance_warning
+#: model:ir.ui.view,arch_db:hr_attendance_warning.hr_attendance_warning_solve_form_view
+msgid "Are you sure you want to solve the selected warnings?"
+msgstr ""
+
+#. module: hr_attendance_warning
+#. openerp-web
+#: code:addons/hr_attendance_warning/static/src/xml/systray.xml:7
+#: code:addons/hr_attendance_warning/static/src/xml/systray.xml:14
+#: model:ir.actions.act_window,name:hr_attendance_warning.open_view_hr_attendance_warning
+#: model:ir.ui.menu,name:hr_attendance_warning.menu_view_course_category_form
+#, python-format
+msgid "Attendance Warnings"
+msgstr ""
+
+#. module: hr_attendance_warning
+#: model:ir.ui.view,arch_db:hr_attendance_warning.hr_attendance_warning_form_view
+msgid "Back to pending"
+msgstr ""
+
+#. module: hr_attendance_warning
+#: code:addons/hr_attendance_warning/models/hr_attendance_warning.py:203
+#, python-format
+msgid "Came to work out of working hours."
+msgstr ""
+
+#. module: hr_attendance_warning
+#: model:ir.ui.view,arch_db:hr_attendance_warning.hr_attendance_warning_solve_form_view
+msgid "Cancel"
+msgstr ""
+
+#. module: hr_attendance_warning
+#: model:ir.actions.server,name:hr_attendance_warning.ir_cron_check_attendances_issues_ir_actions_server
+#: model:ir.cron,cron_name:hr_attendance_warning.ir_cron_check_attendances_issues
+#: model:ir.cron,name:hr_attendance_warning.ir_cron_check_attendances_issues
+msgid "Check attendances issues"
+msgstr ""
+
+#. module: hr_attendance_warning
+#: model:ir.model.fields,field_description:hr_attendance_warning.field_hr_attendance_warning_solver_comment
+msgid "Comments"
+msgstr ""
+
+#. module: hr_attendance_warning
+#: model:ir.model.fields,field_description:hr_attendance_warning.field_hr_attendance_warning_create_uid
+#: model:ir.model.fields,field_description:hr_attendance_warning.field_hr_attendance_warning_line_create_uid
+#: model:ir.model.fields,field_description:hr_attendance_warning.field_hr_attendance_warning_solve_create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: hr_attendance_warning
+#: model:ir.model.fields,field_description:hr_attendance_warning.field_hr_attendance_warning_create_date
+#: model:ir.model.fields,field_description:hr_attendance_warning.field_hr_attendance_warning_day_date
+#: model:ir.model.fields,field_description:hr_attendance_warning.field_hr_attendance_warning_line_create_date
+#: model:ir.model.fields,field_description:hr_attendance_warning.field_hr_attendance_warning_solve_create_date
+msgid "Created on"
+msgstr ""
+
+#. module: hr_attendance_warning
+#: selection:hr.attendance.warning.line,warning_type:0
+msgid "Didn't check in"
+msgstr ""
+
+#. module: hr_attendance_warning
+#: code:addons/hr_attendance_warning/models/hr_attendance_warning.py:191
+#, python-format
+msgid "Didn't check in between \"%s\" and \"%s\"."
+msgstr ""
+
+#. module: hr_attendance_warning
+#: selection:hr.attendance.warning.line,warning_type:0
+msgid "Didn't check out"
+msgstr ""
+
+#. module: hr_attendance_warning
+#: code:addons/hr_attendance_warning/models/hr_attendance_warning.py:197
+#, python-format
+msgid "Didn't check out between \"%s\" and \"%s\"."
+msgstr ""
+
+#. module: hr_attendance_warning
+#: model:ir.model.fields,field_description:hr_attendance_warning.field_hr_attendance_warning_display_name
+#: model:ir.model.fields,field_description:hr_attendance_warning.field_hr_attendance_warning_line_display_name
+#: model:ir.model.fields,field_description:hr_attendance_warning.field_hr_attendance_warning_solve_display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: hr_attendance_warning
+#: model:ir.model,name:hr_attendance_warning.model_hr_employee
+#: model:ir.model.fields,field_description:hr_attendance_warning.field_hr_attendance_warning_employee_id
+#: model:ir.model.fields,field_description:hr_attendance_warning.field_hr_attendance_warning_line_employee_id
+#: model:ir.model.fields,field_description:hr_attendance_warning.field_resource_calendar_employee_ids
+msgid "Employee"
+msgstr ""
+
+#. module: hr_attendance_warning
+#: model:ir.model,name:hr_attendance_warning.model_hr_attendance_warning
+msgid "Hr Attendance Warning"
+msgstr ""
+
+#. module: hr_attendance_warning
+#: model:ir.model.fields,field_description:hr_attendance_warning.field_hr_attendance_warning_id
+#: model:ir.model.fields,field_description:hr_attendance_warning.field_hr_attendance_warning_line_id
+#: model:ir.model.fields,field_description:hr_attendance_warning.field_hr_attendance_warning_solve_id
+msgid "ID"
+msgstr ""
+
+#. module: hr_attendance_warning
+#: model:ir.model.fields,field_description:hr_attendance_warning.field_hr_attendance_warning___last_update
+#: model:ir.model.fields,field_description:hr_attendance_warning.field_hr_attendance_warning_line___last_update
+#: model:ir.model.fields,field_description:hr_attendance_warning.field_hr_attendance_warning_solve___last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: hr_attendance_warning
+#: model:ir.model.fields,field_description:hr_attendance_warning.field_hr_attendance_warning_line_write_uid
+#: model:ir.model.fields,field_description:hr_attendance_warning.field_hr_attendance_warning_solve_write_uid
+#: model:ir.model.fields,field_description:hr_attendance_warning.field_hr_attendance_warning_write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: hr_attendance_warning
+#: model:ir.model.fields,field_description:hr_attendance_warning.field_hr_attendance_warning_line_write_date
+#: model:ir.model.fields,field_description:hr_attendance_warning.field_hr_attendance_warning_solve_write_date
+#: model:ir.model.fields,field_description:hr_attendance_warning.field_hr_attendance_warning_write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: hr_attendance_warning
+#: model:ir.model.fields,field_description:hr_attendance_warning.field_resource_calendar_attendance_margin_from
+msgid "Margin from"
+msgstr ""
+
+#. module: hr_attendance_warning
+#: model:ir.model.fields,field_description:hr_attendance_warning.field_resource_calendar_attendance_margin_to
+msgid "Margin to"
+msgstr ""
+
+#. module: hr_attendance_warning
+#: model:ir.model.fields,field_description:hr_attendance_warning.field_hr_attendance_warning_line_max_int
+msgid "Max Int"
+msgstr ""
+
+#. module: hr_attendance_warning
+#: model:ir.model.fields,field_description:hr_attendance_warning.field_hr_attendance_warning_line_message
+msgid "Message"
+msgstr ""
+
+#. module: hr_attendance_warning
+#: model:ir.model.fields,field_description:hr_attendance_warning.field_hr_attendance_warning_message_preview
+msgid "Message Preview"
+msgstr ""
+
+#. module: hr_attendance_warning
+#: model:ir.model.fields,field_description:hr_attendance_warning.field_hr_attendance_warning_line_min_int
+msgid "Min Int"
+msgstr ""
+
+#. module: hr_attendance_warning
+#: model:ir.model.fields,field_description:hr_attendance_warning.field_hr_attendance_warning_name
+#: model:ir.model.fields,field_description:hr_attendance_warning.field_hr_attendance_warning_solve_name
+msgid "Name"
+msgstr ""
+
+#. module: hr_attendance_warning
+#: model:ir.model.fields,field_description:hr_attendance_warning.field_resource_calendar_attendance_next_check_from
+msgid "Next Check From"
+msgstr ""
+
+#. module: hr_attendance_warning
+#: model:ir.model.fields,field_description:hr_attendance_warning.field_resource_calendar_attendance_next_check_to
+msgid "Next Check To"
+msgstr ""
+
+#. module: hr_attendance_warning
+#. openerp-web
+#: code:addons/hr_attendance_warning/static/src/xml/systray.xml:26
+#, python-format
+msgid "No warnings to review."
+msgstr ""
+
+#. module: hr_attendance_warning
+#: selection:hr.attendance.warning.line,warning_type:0
+msgid "Not enough hours"
+msgstr ""
+
+#. module: hr_attendance_warning
+#: selection:hr.attendance.warning.line,warning_type:0
+msgid "Out of working hours"
+msgstr ""
+
+#. module: hr_attendance_warning
+#: selection:hr.attendance.warning,state:0
+#: selection:hr.attendance.warning.line,state:0
+#: model:ir.ui.view,arch_db:hr_attendance_warning.hr_attendance_warning_search_view
+msgid "Pending"
+msgstr ""
+
+#. module: hr_attendance_warning
+#: model:ir.model,name:hr_attendance_warning.model_resource_calendar
+msgid "Resource Calendar"
+msgstr ""
+
+#. module: hr_attendance_warning
+#: model:ir.ui.view,arch_db:hr_attendance_warning.hr_attendance_warning_form_view
+msgid "Solve"
+msgstr ""
+
+#. module: hr_attendance_warning
+#: model:ir.actions.act_window,name:hr_attendance_warning.hr_attendance_warning_solve_act_window
+#: model:ir.ui.view,arch_db:hr_attendance_warning.hr_attendance_warning_solve_form_view
+msgid "Solve Warnings"
+msgstr ""
+
+#. module: hr_attendance_warning
+#: selection:hr.attendance.warning,state:0
+#: selection:hr.attendance.warning.line,state:0
+msgid "Solved"
+msgstr ""
+
+#. module: hr_attendance_warning
+#: model:ir.model.fields,field_description:hr_attendance_warning.field_hr_attendance_warning_solved_by
+msgid "Solved by"
+msgstr ""
+
+#. module: hr_attendance_warning
+#: model:ir.model.fields,field_description:hr_attendance_warning.field_hr_attendance_warning_solved_on
+msgid "Solved on"
+msgstr ""
+
+#. module: hr_attendance_warning
+#: model:ir.model.fields,field_description:hr_attendance_warning.field_hr_attendance_warning_line_state
+#: model:ir.model.fields,field_description:hr_attendance_warning.field_hr_attendance_warning_state
+msgid "State"
+msgstr ""
+
+#. module: hr_attendance_warning
+#: model:ir.ui.view,arch_db:hr_attendance_warning.hr_attendance_warning_search_view
+msgid "Today"
+msgstr ""
+
+#. module: hr_attendance_warning
+#: model:ir.model.fields,field_description:hr_attendance_warning.field_hr_attendance_warning_line_warning_type
+msgid "Type"
+msgstr ""
+
+#. module: hr_attendance_warning
+#. openerp-web
+#: code:addons/hr_attendance_warning/static/src/xml/systray.xml:16
+#, python-format
+msgid "View All"
+msgstr ""
+
+#. module: hr_attendance_warning
+#: model:ir.model.fields,field_description:hr_attendance_warning.field_hr_attendance_warning_line_warning_id
+msgid "Warning"
+msgstr ""
+
+#. module: hr_attendance_warning
+#: model:ir.model.fields,field_description:hr_attendance_warning.field_hr_attendance_warning_warning_line_ids
+msgid "Warning Line"
+msgstr ""
+
+#. module: hr_attendance_warning
+#: model:ir.ui.view,arch_db:hr_attendance_warning.hr_attendance_warning_form_view
+msgid "Warnings"
+msgstr ""
+
+#. module: hr_attendance_warning
+#: model:ir.model,name:hr_attendance_warning.model_resource_calendar_attendance
+msgid "Work Detail"
+msgstr ""
+
+#. module: hr_attendance_warning
+#: model:ir.ui.view,arch_db:hr_attendance_warning.hr_attendance_warning_solve_form_view
+msgid "Yes"
+msgstr ""
+
+#. module: hr_attendance_warning
+#: model:ir.model,name:hr_attendance_warning.model_hr_attendance_warning_line
+msgid "hr.attendance.warning.line"
+msgstr ""
+
+#. module: hr_attendance_warning
+#: model:ir.model,name:hr_attendance_warning.model_hr_attendance_warning_solve
+msgid "hr.attendance.warning.solve"
+msgstr ""
+

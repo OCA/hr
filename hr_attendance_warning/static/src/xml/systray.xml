@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates>
+
+    <t t-name="att_warning.view.Menu">
+        <li class="o_mail_navbar_item o_warning_navbar_item o_hidden">
+            <a class="dropdown-toggle" data-toggle="dropdown"
+               aria-expanded="false" title="Attendance Warnings" href="#">
+                <i class="fa fa-user-times"/>
+                <span class="o_notification_counter badge"/>
+            </a>
+            <ul class="o_mail_navbar_dropdown dropdown-menu o_warning_navbar_dropdown" role="menu">
+                <li class="o_mail_navbar_dropdown_top">
+                    <div>
+                        <button type="button" class="btn btn-sm o_filter_button active">Attendance Warnings</button>
+                    </div>
+                    <button type="button" class="btn btn-sm o_view_all_warnings"> View All </button>
+                </li>
+                <li class="o_mail_navbar_dropdown_channels"/>
+            </ul>
+        </li>
+    </t>
+
+    <t t-name="att_warning.view.Data">
+        <t t-if="_.isEmpty(warnings)">
+            <li class="text-center o_no_activity">
+                <span>No warnings to review.</span>
+            </li>
+        </t>
+        <t t-foreach="warnings" t-as="warning">
+            <div class="o_mail_channel_preview o_mail_channel_preview" t-att-data-warning-id="warning.id">
+                <div class="o_mail_channel_image o_mail_channel_app">
+                    <img class="o_mail_channel_image" t-att-src="warning.icon"/>
+                </div>
+                <div class="o_channel_info">
+                    <div class="o_channel_title">
+                        <strong class="o_channel_name">
+                            <t t-esc="warning.employee"/>
+                        </strong>
+                        <span class="o_channel_counter">
+                            <t>&amp;nbsp;(<t t-esc="warning.count"/>)</t>
+                        </span>
+                        <span class="o_last_message_date"> <t t-esc="warning.date_ago"/> </span>
+                    </div>
+                    <div class="o_last_message_preview">
+                        <t t-esc="warning.name"/>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </t>
+
+</templates>
+

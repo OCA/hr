@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo noupdate="1">
+
+    <record id="seq_attendance_warning" model="ir.sequence">
+        <field name="name">Attendance Warning sequence</field>
+        <field name="code">hr.attendance.warning</field>
+        <field name="prefix">ATTW</field>
+        <field name="padding">8</field>
+    </record>
+
+</odoo>

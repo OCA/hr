@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2019 Creu Blanca
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+    <record model="ir.ui.view" id="hr_attendance_warning_solve_form_view">
+        <field name="name">hr.attendance.warning.solve.form (in hr_attendance_warning)</field>
+        <field name="model">hr.attendance.warning.solve</field>
+        <field name="arch" type="xml">
+            <form string="Solve Warnings">
+                <h5>Are you sure you want to solve the selected warnings?</h5>
+                <footer>
+                    <button name="solve_warnings"
+                            string="Yes"
+                            class="btn-primary"
+                            type="object"/>
+                    <button string="Cancel"
+                            class="btn-default"
+                            special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+
+    <act_window id="hr_attendance_warning_solve_act_window"
+        name="Solve Warnings"
+        src_model="hr.attendance.warning"
+        res_model="hr.attendance.warning.solve" multi="True"
+        view_type="form" view_mode="form"
+        key2="client_action_multi" target="new"/>
+
+</odoo>
