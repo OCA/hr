@@ -19,18 +19,18 @@ def migrate(env, version):
     cr = env.cr
 
     cr.execute("ALTER TABLE hr_employee "
-               "DROP COLUMN  previous_period_lost_hours")
+               "DROP COLUMN IF EXISTS previous_period_lost_hours")
     cr.execute("ALTER TABLE hr_employee "
-               "DROP COLUMN  penultimate_period_lost_hours")
+               "DROP COLUMN IF EXISTS penultimate_period_lost_hours")
     cr.execute("ALTER TABLE hr_employee "
-               "DROP COLUMN  penultimate_period_balance")
+               "DROP COLUMN IF EXISTS penultimate_period_balance")
     cr.execute("ALTER TABLE hr_employee "
-               "DROP COLUMN  previous_period_continuous_cap")
+               "DROP COLUMN IF EXISTS previous_period_continuous_cap")
     cr.execute("ALTER TABLE hr_employee "
-               "DROP COLUMN  previous_annual_balance")
-    # cr.execute("ALTER TABLE hr_employee "
-    #            "DROP COLUMN  previous_period_balance")
+               "DROP COLUMN IF EXISTS previous_annual_balance")
     cr.execute("ALTER TABLE hr_employee "
-               "DROP COLUMN  last_update_balance")
+               "DROP COLUMN IF EXISTS previous_period_balance CASCADE")
     cr.execute("ALTER TABLE hr_employee "
-               "DROP COLUMN  last_update_date")
+               "DROP COLUMN IF EXISTS last_update_balance")
+    cr.execute("ALTER TABLE hr_employee "
+               "DROP COLUMN IF EXISTS last_update_date")

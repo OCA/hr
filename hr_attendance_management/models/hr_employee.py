@@ -68,14 +68,17 @@ class HrEmployee(models.Model):
     @api.multi
     def _compute_current_period_start_date(self):
         for employee in self:
-
-            previous_history_entry = self.env['hr.employee.period'].search([
+            previous_period = self.env['hr.employee.period'].search([
                 ('employee_id', '=', employee.id),
                 ('end_date', '<', str(datetime.date.today()))
             ], order='end_date desc', limit=1)
 
-            employee.current_period_start_date = previous_history_entry.start_date + datetime.timedelta(days=1)
-
+            if previous_period:
+                employee.current_period_start_date = \
+                    datetime.datetime.strptime(previous_period.start_date, '%Y-%m-%d') + datetime.timedelta(days=1)
+            else:
+                config = self.env['base.config.settings'].create({})
+                employee.current_period_start_date = config.get_beginning_date_for_balance_computation()
     @api.multi
     def _compute_work_location(self):
         for employee in self:
@@ -105,21 +108,21 @@ class HrEmployee(models.Model):
             ])
             config = self.env['base.config.settings'].create({})
             config.set_beginning_date()
-            start_date = None
+            # Compute from 01.01.2018 as default
+            balance = employee.initial_balance
+            start_date = config.get_beginning_date_for_balance_computation()
             end_date = fields.Date.to_string(datetime.date.today())
-            balance = None
 
-            employee_history_sorted = sorted(employee_history, key=lambda r: r.end_date)
-            start_date = datetime.datetime.strptime(employee_history_sorted[-1].end_date, '%Y-%m-%d') +\
-                         datetime.timedelta(days=1)
-            # If there is an history for this employee, take values of last row
-            # If the period goes to today, recompute from 01.01.2018
-            if employee_history_sorted and start_date < datetime.datetime.strptime(end_date, '%Y-%m-%d'):
-                balance = employee_history_sorted[-1].balance
-            # Compute from 01.01.2018
-            else:
-                start_date = config.get_beginning_date_for_balance_computation()
-                balance = employee.initial_balance
+            if employee_history:
+                employee_history_sorted = sorted(employee_history, key=lambda r: r.end_date)
+                start_date = datetime.datetime.strptime(employee_history_sorted[-1].end_date, '%Y-%m-%d') + \
+                             datetime.timedelta(days=1)
+                # If there is an history for this employee, take values of last row
+                # If the period goes to today, recompute from 01.01.2018
+                if start_date < datetime.datetime.strptime(end_date, '%Y-%m-%d'):
+                    balance = employee_history_sorted[-1].balance
+                else:
+                    start_date = config.get_beginning_date_for_balance_computation()
 
             extra, lost = employee.past_balance_computation(
                 start_date=start_date,
@@ -322,7 +325,6 @@ class HrEmployee(models.Model):
         employees = self.search([])
         for employee in employees:
             employee.compute_balance(store=True)
-            employee.compute_balance()
 
     @api.multi
     @api.depends('today_hour')
