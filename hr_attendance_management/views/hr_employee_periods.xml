@@ -1,11 +1,12 @@
 <odoo>
     <record model="ir.ui.view" id="hr_history_periods_from_employee">
         <field name="name">HR History Tree View</field>
-        <field name="model">hr.employee.balance.history</field>
+        <field name="model">hr.employee.period</field>
         <field name="priority">25</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="date" />
+                <field name="start_date" />
+                <field name="end_date" />
                 <field name="balance" />
                 <field name="previous_balance" widget="float_time" type="char" />
                 <field name="lost" widget="float_time" type="char" />

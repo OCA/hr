@@ -44,7 +44,7 @@
                                         type="object"
                                         icon="fa-calendar"
                                         string="Get my total balance"
-                                        groups="base.group_hr_manager">
+                                        >
                                 </button>
                             </group>
                         </group>

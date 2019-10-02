@@ -22,10 +22,10 @@ class BalanceEvolutionReport(models.TransientModel):
         :return: True
         """
         employee = self.env['hr.employee'].search([('id', '=', employee_id)])
-        last_history_entry = self.env['hr.employee.balance.history'].search([
+        last_history_entry = self.env['hr.employee.period'].search([
             ('employee_id', '=', employee.id),
-            ('date', '<', str(datetime.date.today()))
-        ], order='date desc', limit=1)
+            ('end_date', '<', str(datetime.date.today()))
+        ], order='end_date desc', limit=1)
 
         start_date = None
         end_date = datetime.date.today()

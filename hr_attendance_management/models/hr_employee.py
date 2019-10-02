@@ -28,7 +28,7 @@ class HrEmployee(models.Model):
     attendance_days_ids = fields.One2many('hr.attendance.day', 'employee_id',
                                           "Attendance days")
     balance = fields.Float(string='Balance', compute='compute_balance', store=True)
-    initial_balance = fields.Float(string='Initial Balance before 2018',
+    initial_balance = fields.Float(string='Initial Balance',
                                    compute='_compute_initial_balance',
                                    store=True)
 
@@ -52,7 +52,7 @@ class HrEmployee(models.Model):
 
     work_location = fields.Char(compute='_compute_work_location')
 
-    history_entries_ids = fields.One2many('hr.employee.balance.history', 'employee_id', string='History Periods')
+    history_entries_ids = fields.One2many('hr.employee.period', 'employee_id', string='History Periods')
 
     ##########################################################################
     #                             FIELDS METHODS                             #
@@ -69,12 +69,12 @@ class HrEmployee(models.Model):
     def _compute_current_period_start_date(self):
         for employee in self:
 
-            previous_history_entry = self.env['hr.employee.balance.history'].search([
+            previous_history_entry = self.env['hr.employee.period'].search([
                 ('employee_id', '=', employee.id),
-                ('date', '<', str(datetime.date.today()))
-            ], order='date desc', limit=1)
+                ('end_date', '<', str(datetime.date.today()))
+            ], order='end_date desc', limit=1)
 
-            employee.current_period_start_date = previous_history_entry.date
+            employee.current_period_start_date = previous_history_entry.start_date + datetime.timedelta(days=1)
 
     @api.multi
     def _compute_work_location(self):
@@ -100,7 +100,7 @@ class HrEmployee(models.Model):
         :param store: create a new period from the last one to current day and store it if True
         """
         for employee in self:
-            employee_history = self.env['hr.employee.balance.history'].search([
+            employee_history = self.env['hr.employee.period'].search([
                 ('employee_id', '=', employee.id)
             ])
             config = self.env['base.config.settings'].create({})
@@ -110,8 +110,8 @@ class HrEmployee(models.Model):
             balance = None
             # If there is an history for this employee, take values of last row
             if employee_history:
-                employee_history_sorted = sorted(employee_history, key=lambda r: r.date)
-                start_date = employee_history_sorted[-1].date
+                employee_history_sorted = sorted(employee_history, key=lambda r: r.end_date)
+                start_date = datetime.datetime.strptime(employee_history_sorted[-1].end_date, '%Y-%m-%d') + datetime.timedelta(days=1)
                 balance = employee_history_sorted[-1].balance
             # Compute from 01.01.2018
             else:
@@ -132,9 +132,10 @@ class HrEmployee(models.Model):
                     previous_balance = employee_history[-1].balance
                 else:
                     previous_balance = employee.initial_balance
-                self.env['hr.employee.balance.history'].create({
+                self.env['hr.employee.period'].create({
                     'employee_id': employee.id,
-                    'date': end_date,
+                    'start_date': start_date,
+                    'end_date': end_date,
                     'balance': extra,
                     'previous_balance': previous_balance,
                     'lost': lost,   # TODO lost is always == 0 at second CRON execution
@@ -158,9 +159,9 @@ class HrEmployee(models.Model):
                 existing_balance=balance)
 
             # Recompute period concerned by attendance_day modification
-            current_period = self.env['hr.employee.balance.history'].search([
+            current_period = self.env['hr.employee.period'].search([
                 ('employee_id', '=', employee.id),
-                ('date', '=', end_date)
+                ('end_date', '=', end_date)
             ], limit=1)
             current_period.write({
                 'balance': extra,
@@ -168,10 +169,10 @@ class HrEmployee(models.Model):
                 'previous_balance': balance
             })
 
-            employee_history = self.env['hr.employee.balance.history'].search([
+            employee_history = self.env['hr.employee.period'].search([
                 ('employee_id', '=', employee.id),
-                ('date', '>', end_date)
-            ], order='date asc')
+                ('end_date', '>', end_date)
+            ], order='end_date asc')
 
             previous_balance = extra
 
@@ -197,10 +198,10 @@ class HrEmployee(models.Model):
         """
 
         for employee in self:
-            upper_bound_history = self.env['hr.employee.balance.history'].search([
+            upper_bound_history = self.env['hr.employee.period'].search([
                 ('employee_id', '=', employee.id),
-                ('date', '>=', date)
-            ], order='date asc', limit=1)
+                ('start_date', '>=', date)
+            ], order='start_date asc', limit=1)
 
             if upper_bound_history:
                 return upper_bound_history.continuous_cap
