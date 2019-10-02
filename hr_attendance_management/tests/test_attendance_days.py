@@ -4,6 +4,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 from datetime import datetime, timedelta
 from odoo.tests import SavepointCase
+from odoo import tools
 from odoo.tools import DEFAULT_SERVER_DATETIME_FORMAT as DF
 import logging
 
@@ -313,10 +314,12 @@ class TestAttendanceDays(SavepointCase):
                 attendances = att_01 + att_02
 
                 self.assertEqual(att_day.attendance_ids, attendances)
-                self.assertEqual(att_day.balance, extra_hours)
+                self.assertEqual(att_day.day_balance, extra_hours)
             else:
-                self.assertEquals(att_day.balance, 0)
+                self.assertEquals(att_day.day_balance, 0)
 
+        self.michael.extra_hours_continuous_cap = True
+        self.michael.compute_balance()
         self.assertEqual(self.michael.balance, 20)
         self.assertEqual(sum_extra_hours, extra_hours*5*weeks)
 

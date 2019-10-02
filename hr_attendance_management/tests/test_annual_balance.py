@@ -53,7 +53,7 @@ class TestAnnualBalance(SavepointCase):
         :return: None
         """
 
-        start = date.strftime('%Y-%m-%d 09:00')
+        start = date.strftime('%Y-%m-%d 08:30')
         stop = date.strftime('%Y-%m-%d 17:30')
         self.env['hr.attendance'].create({
             'check_in': start,
@@ -71,18 +71,20 @@ class TestAnnualBalance(SavepointCase):
 
         # TODO last balance CRON execution does not exist anymore
         # def change_date_and_raises(delta):
-        #     # self.config.next_balance_cron_execution = \
-        #     #     fields.Date.from_string(
-        #     #         self.config.get_last_balance_cron_execution())\
-        #     #     + timedelta(days=delta)
+        #     self.config.next_balance_cron_execution = \
+        #         fields.Date.from_string(
+        #             self.config.get_last_balance_cron_execution())\
+        #         + timedelta(days=delta)
 
         self.michael.extra_hours_continuous_cap = False
+        self.jack.extra_hours_continuous_cap = True
         for person in [self.jack, self.michael]:
             self.create_first_attendance(self.monday, person)
             self.create_first_attendance(self.tuesday, person)
             self.create_first_attendance(self.wednesday, person)
             self.create_first_attendance(self.thursday, person)
             self.create_first_attendance(self.friday, person)
+            person.compute_balance()
 
         # Both jack and michael have worked 5 days with 0.5 hours extra hours
         # each day.
@@ -93,10 +95,12 @@ class TestAnnualBalance(SavepointCase):
         # Upon switching to continuous computation, michael should loose up to
         # limit of extra hours.
         self.michael.extra_hours_continuous_cap = True
+        self.michael.compute_balance()
         self.assertEqual(self.michael.balance, 2)
         self.assertEqual(self.michael.extra_hours_lost, 0.5)
         # Switching back should come back to 2.5 extra hours.
         self.michael.extra_hours_continuous_cap = False
+        self.michael.compute_balance()
         self.assertEqual(self.michael.balance, 2.5)
         self.assertEqual(self.michael.extra_hours_lost, 0)
 
@@ -105,22 +109,19 @@ class TestAnnualBalance(SavepointCase):
         # Execute cron
         self.jack._cron_compute_annual_balance()
         # michael extra hours should be affected by the yearly cutoff
-        self.assertEqual(self.michael.previous_period_balance, 2)
-        self.assertEqual(self.jack.previous_period_balance, 2)
         self.assertEqual(self.jack.balance, 2)
-        self.assertEqual(self.michael.balance, 2)
+        self.assertEqual(self.michael.balance, 2.5)
         # self.assertRaises(ValidationError, change_date_and_raises(2))
 
         # Now will modify an attendance in the recent past and see if the
         # update catch it correctly.
         for person in [self.michael, self.jack]:
-            person.attendance_days_ids[0].attendance_ids[0].check_out = \
+            person.attendance_days_ids[-1].attendance_ids[-1].check_out = \
                 fields.Datetime.from_string(
-                    person.attendance_days_ids[0].attendance_ids[0].check_out)\
-                + timedelta(hours=3)
-        self.michael._cron_update_annual_balance()
+                    person.attendance_days_ids[-1].attendance_ids[-1].check_out) + timedelta(hours=3)
+        self.michael._cron_compute_annual_balance()
         self.assertEqual(self.jack.balance, 2)
-        self.assertEqual(self.michael.balance, 2)
+        self.assertEqual(self.michael.balance, 5.25)
 
 
 

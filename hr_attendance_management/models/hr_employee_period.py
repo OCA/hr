@@ -122,18 +122,18 @@ class HrEmployeePeriod(models.Model):
                                    origin="override")
 
             else:
-                previous_end_date = datetime.datetime.strptime(previous_period.end_date, '%Y-%m-%d')
-                # Periods not overlapping and with the space for a new one
-                if previous_period and not previous_overlapping_period \
-                        and (start_date - previous_end_date).days > 1:
-                    # Creates period between previous_period.end_date and start_date of new one
-                    self.create_period(start_date=previous_end_date + datetime.timedelta(days=1),
-                                       end_date=start_date - datetime.timedelta(days=1),
-                                       employee_id=previous_period.employee_id.id,
-                                       balance=0,
-                                       previous_balance=previous_period.balance,
-                                       continuous_cap=self.employee_id.extra_hours_continuous_cap,
-                                       origin="override")
+                if previous_period:
+                    previous_end_date = datetime.datetime.strptime(previous_period.end_date, '%Y-%m-%d')
+                    # Periods not overlapping and with the space for a new one
+                    if not previous_overlapping_period and (start_date - previous_end_date).days > 1:
+                        # Creates period between previous_period.end_date and start_date of new one
+                        self.create_period(start_date=previous_end_date + datetime.timedelta(days=1),
+                                           end_date=start_date - datetime.timedelta(days=1),
+                                           employee_id=previous_period.employee_id.id,
+                                           balance=0,
+                                           previous_balance=previous_period.balance,
+                                           continuous_cap=self.employee_id.extra_hours_continuous_cap,
+                                           origin="override")
                 if previous_overlapping_period:
                     # Modify first previous overlapping period
                     previous_overlapping_period.write({

@@ -108,10 +108,13 @@ class HrEmployee(models.Model):
             start_date = None
             end_date = fields.Date.to_string(datetime.date.today())
             balance = None
+
+            employee_history_sorted = sorted(employee_history, key=lambda r: r.end_date)
+            start_date = datetime.datetime.strptime(employee_history_sorted[-1].end_date, '%Y-%m-%d') +\
+                         datetime.timedelta(days=1)
             # If there is an history for this employee, take values of last row
-            if employee_history:
-                employee_history_sorted = sorted(employee_history, key=lambda r: r.end_date)
-                start_date = datetime.datetime.strptime(employee_history_sorted[-1].end_date, '%Y-%m-%d') + datetime.timedelta(days=1)
+            # If the period goes to today, recompute from 01.01.2018
+            if employee_history_sorted and start_date < datetime.datetime.strptime(end_date, '%Y-%m-%d'):
                 balance = employee_history_sorted[-1].balance
             # Compute from 01.01.2018
             else:
@@ -198,17 +201,15 @@ class HrEmployee(models.Model):
         """
 
         for employee in self:
-            upper_bound_history = self.env['hr.employee.period'].search([
+            period = self.env['hr.employee.period'].search([
                 ('employee_id', '=', employee.id),
-                ('start_date', '>=', date)
+                ('start_date', '<=', date),
+                ('end_date', '<=', date)
             ], order='start_date asc', limit=1)
-
-            if upper_bound_history:
-                return upper_bound_history.continuous_cap
+            if period:
+                return period.continuous_cap
             else:
-                return True   # default value TODO fix
-                # undefined as we don't know the period and the status
-                # raise ValueError("Date is outside history")
+                return employee.extra_hours_continuous_cap
 
     @api.multi
     def complete_balance_computation(self, start_date=None, end_date=None,
@@ -321,6 +322,7 @@ class HrEmployee(models.Model):
         employees = self.search([])
         for employee in employees:
             employee.compute_balance(store=True)
+            employee.compute_balance()
 
     @api.multi
     @api.depends('today_hour')

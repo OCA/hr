@@ -441,11 +441,11 @@ class HrAttendanceDay(models.Model):
     @api.multi
     def recompute_period_if_old_day(self):
         for day in self:
-            lower_bound_history = self.env['hr.employee.period'].search([
+            lower_bound_period = self.env['hr.employee.period'].search([
                 ('employee_id', '=', day.employee_id.id),
                 ('end_date', '<', day.date)
             ], order='end_date desc', limit=1)
-            upper_bound_history = self.env['hr.employee.period'].search([
+            upper_bound_period = self.env['hr.employee.period'].search([
                 ('employee_id', '=', day.employee_id.id),
                 ('start_date', '>=', day.date)
             ], order='start_date asc', limit=1)
@@ -455,22 +455,24 @@ class HrAttendanceDay(models.Model):
             start_date = None
             end_date = None
             balance = None
-            if lower_bound_history:
-                start_date = (datetime.datetime.strptime(lower_bound_history.date, '%Y-%m-%d') +
+            if lower_bound_period:
+                start_date = (datetime.datetime.strptime(lower_bound_period.end_date, '%Y-%m-%d') +
                               datetime.timedelta(days=1)).strftime('%Y-%m-%d')
-                balance = lower_bound_history.balance
+                balance = lower_bound_period.balance
             else:
                 start_date = config.get_beginning_date_for_balance_computation()
                 balance = day.employee_id.initial_balance
-            if upper_bound_history:
-                end_date = upper_bound_history.date
+            if upper_bound_period:
+                end_date = (datetime.datetime.strptime(upper_bound_period.start_date, '%Y-%m-%d') -
+                            datetime.timedelta(days=1)).strftime('%Y-%m-%d')
             else:
-                end_date = datetime.date.today()
+                end_date = datetime.datetime.today()
 
-            day.employee_id.update_past_periods(start_date=start_date,
-                                                end_date=end_date,
-                                                balance=balance)
-            day.employee_id.compute_balance()
+            if datetime.datetime.strptime(start_date, '%Y-%m-%d') < end_date:
+                day.employee_id.update_past_periods(start_date=start_date,
+                                                    end_date=end_date,
+                                                    balance=balance)
+                day.employee_id.compute_balance()
 
     @api.multi
     def open_attendance_day(self):
