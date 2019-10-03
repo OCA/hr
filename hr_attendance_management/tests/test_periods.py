@@ -65,6 +65,7 @@ class TestPeriod(SavepointCase):
             'origin': "override"
         })
 
+    # Add a period "inside" another one. 1 more periods should be created (after) and 1 should be modified
     def test_create_in_surrounding_period(self):
         start_date = datetime.today().replace(year=2019, month=2, day=2)
         end_date = datetime.today().replace(year=2019, month=3, day=3)
@@ -75,11 +76,12 @@ class TestPeriod(SavepointCase):
         all_periods = self.env['hr.employee.period'].search([
             ('employee_id', '=', self.jack.id)
         ])
-        # TODO more asserts
         self.assertEquals(initial_periods_count + 2, self.get_periods_count(self.jack.id))
 
         all_periods.unlink()
 
+    # Add a period with the previous one finishing in the bounds of the new one.
+    # The previous overlapping should be modified
     def test_create_with_previous_overlapping(self):
         start_date = datetime.today().replace(year=2019, month=5, day=1)
         end_date = datetime.today().replace(year=2019, month=8, day=1)
@@ -90,11 +92,12 @@ class TestPeriod(SavepointCase):
         all_periods = self.env['hr.employee.period'].search([
             ('employee_id', '=', self.jack.id)
         ])
-        # TODO more asserts
         self.assertEquals(initial_periods_count + 1, self.get_periods_count(self.jack.id))
 
         all_periods.unlink()
 
+    # Add a period more than 1 day after the last one.
+    # 1 more period should be added between the last one and the new one
     def test_create_with_previous_non_overlapping(self):
         start_date = datetime.today().replace(year=2019, month=10, day=5)
         end_date = datetime.today().replace(year=2019, month=11, day=1)
@@ -105,11 +108,12 @@ class TestPeriod(SavepointCase):
         all_periods = self.env['hr.employee.period'].search([
             ('employee_id', '=', self.jack.id)
         ])
-        # TODO more asserts
         self.assertEquals(initial_periods_count + 2, self.get_periods_count(self.jack.id))
 
         all_periods.unlink()
 
+    # Add a period with the previous one finishing in the bounds of the new one and
+    # the next one also beginning in the bounds of the new one. The 2 overlapping periods should be modified
     def test_create_with_previous_and_next_overlapping(self):
         start_date = datetime.today().replace(year=2018, month=10, day=1)
         end_date = datetime.today().replace(year=2019, month=2, day=1)
@@ -120,7 +124,6 @@ class TestPeriod(SavepointCase):
         all_periods = self.env['hr.employee.period'].search([
             ('employee_id', '=', self.jack.id)
         ])
-        # TODO more asserts
         self.assertEquals(initial_periods_count + 1, self.get_periods_count(self.jack.id))
 
         all_periods.unlink()
