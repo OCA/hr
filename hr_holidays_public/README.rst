@@ -112,6 +112,10 @@ Contributors
 
   * Alexey Pelykh <alexey.pelykh@brainbeanapps.com>
 
+* `Camptocamp <https://www.camptocamp.com>`__:
+
+  * Damien Crier <damien.crier@camptocamp.com>
+
 Maintainers
 ~~~~~~~~~~~
 

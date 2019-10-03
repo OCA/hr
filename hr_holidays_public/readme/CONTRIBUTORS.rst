@@ -12,3 +12,7 @@
 * `Brainbean Apps <https://brainbeanapps.com>`__:
 
   * Alexey Pelykh <alexey.pelykh@brainbeanapps.com>
+
+* `Camptocamp <https://www.camptocamp.com>`__:
+
+  * Damien Crier <damien.crier@camptocamp.com>

@@ -59,7 +59,6 @@
     <record id="action_create_next_year_public_holidays" model="ir.actions.act_window">
         <field name="name">Create Next Year Public Holidays</field>
         <field name="res_model">public.holidays.next.year.wizard</field>
-        <field name="view_type">form</field>
         <field name="view_mode">form</field>
         <field name="target">new</field>
     </record>
