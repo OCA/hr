@@ -107,6 +107,12 @@ class TestAnnualBalance(SavepointCase):
         # self.assertRaises(ValidationError, change_date_and_raises(364))
 
         # Execute cron
+        self.env['hr.employee.period'].search([
+            ('employee_id', '=', self.jack.id)
+        ]).unlink()
+        self.env['hr.employee.period'].search([
+            ('employee_id', '=', self.michael.id)
+        ]).unlink()
         self.jack._cron_compute_annual_balance()
         # michael extra hours should be affected by the yearly cutoff
         self.assertEqual(self.jack.balance, 2)

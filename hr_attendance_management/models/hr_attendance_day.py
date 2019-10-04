@@ -457,18 +457,18 @@ class HrAttendanceDay(models.Model):
             balance = None
             if lower_bound_period:
                 start_date = (datetime.datetime.strptime(lower_bound_period.end_date, '%Y-%m-%d') +
-                              datetime.timedelta(days=1)).strftime('%Y-%m-%d')
+                              datetime.timedelta(days=1))
                 balance = lower_bound_period.balance
             else:
-                start_date = config.get_beginning_date_for_balance_computation()
+                start_date = datetime.datetime.strptime(config.get_beginning_date_for_balance_computation(), '%Y-%m-%d')
                 balance = day.employee_id.initial_balance
             if upper_bound_period:
                 end_date = (datetime.datetime.strptime(upper_bound_period.start_date, '%Y-%m-%d') -
-                            datetime.timedelta(days=1)).strftime('%Y-%m-%d')
+                            datetime.timedelta(days=1))
             else:
                 end_date = datetime.datetime.today()
 
-            if datetime.datetime.strptime(start_date, '%Y-%m-%d') < end_date:
+            if start_date < end_date:
                 day.employee_id.update_past_periods(start_date=start_date,
                                                     end_date=end_date,
                                                     balance=balance)

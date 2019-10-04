@@ -79,14 +79,16 @@ class HrEmployeePeriod(models.Model):
             previous_overlapping_period = self.env['hr.employee.period'].search([
                 ('employee_id', '=', vals['employee_id']),
                 ('end_date', '>', start_date),
-                ('end_date', '<', end_date)
-            ])
+                ('end_date', '<', end_date),
+                ('start_date', '<', start_date)
+            ], order='end_date desc', limit=1)
             # period that begins before and finish after end_date
             next_overlapping_period = self.env['hr.employee.period'].search([
                 ('employee_id', '=', vals['employee_id']),
                 ('start_date', '>', start_date),
-                ('start_date', '<', end_date)
-            ])
+                ('start_date', '<', end_date),
+                ('end_date', '>', end_date)
+            ], order='start_date asc', limit=1)
             # period that begins before start_date and finish after end_date
             surrounding_period = self.env['hr.employee.period'].search([
                 ('employee_id', '=', vals['employee_id']),
@@ -97,6 +99,12 @@ class HrEmployeePeriod(models.Model):
             employee = self.env['hr.employee'].search([
                     ('id', '=', vals['employee_id'])
                 ])
+
+            if isinstance(start_date, basestring):
+                start_date = datetime.datetime.strptime(start_date, '%Y-%m-%d')
+
+            if isinstance(end_date, basestring):
+                end_date = datetime.datetime.strptime(end_date, '%Y-%m-%d')
 
             # We want to create a period inside another one
             if surrounding_period:
@@ -115,8 +123,7 @@ class HrEmployeePeriod(models.Model):
                 # Creates a period from the beginning of the surrounding period
                 # to just before the beginning of the new period
                 self.create_period(start_date=surround_start,
-                                   end_date=datetime.datetime.strptime(start_date, '%Y-%m-%d') -
-                                   datetime.timedelta(days=1),
+                                   end_date=start_date - datetime.timedelta(days=1),
                                    employee_id=employee_id.id,
                                    balance=0,
                                    previous_balance=balance_previous,
@@ -125,8 +132,7 @@ class HrEmployeePeriod(models.Model):
 
                 # Creates a period from just after the end of the new period
                 # to the end of the surrounding period
-                self.create_period(start_date=datetime.datetime.strptime(end_date, '%Y-%m-%d') +
-                                   datetime.timedelta(days=1),
+                self.create_period(start_date= end_date + datetime.timedelta(days=1),
                                    end_date=surround_end,
                                    employee_id=employee_id.id,
                                    balance=0,
@@ -134,8 +140,7 @@ class HrEmployeePeriod(models.Model):
                                    continuous_cap=surround_continuous_cap,
                                    origin="override")
 
-                employee.update_past_periods(surround_start, datetime.datetime.strptime(start_date, '%Y-%m-%d') -
-                                             datetime.timedelta(days=1), balance_previous)
+                employee.update_past_periods(surround_start, start_date - datetime.timedelta(days=1), balance_previous)
 
             else:
                 if previous_period:

@@ -324,7 +324,8 @@ class HrEmployee(models.Model):
         """
         employees = self.search([])
         for employee in employees:
-            employee.compute_balance(store=True)
+            if employee.id == 4 or employee.id == 8:  # for testing purposes
+                employee.compute_balance(store=True)
 
     @api.multi
     @api.depends('today_hour')
