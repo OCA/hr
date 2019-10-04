@@ -1,10 +1,11 @@
 # Copyright 2011, 2013 Michael Telahun Makonnen <mmakonnen@gmail.com>
 # Copyright 2016 OpenSynergy Indonesia
 # Copyright 2018 Brainbean Apps (https://brainbeanapps.com)
+# Copyright 2019 Camptocamp
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 {
     'name': 'Employee ID',
-    'version': '12.0.1.0.0',
+    'version': '13.0.1.0.0',
     'license': 'AGPL-3',
     'category': 'Generic Modules/Human Resources',
     'author':
