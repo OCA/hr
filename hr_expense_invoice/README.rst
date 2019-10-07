@@ -29,6 +29,12 @@ This module should be used when a supplier invoice is paid by an employee. It
 allows to set a supplier invoice for each expense line, adding the
 corresponding journal items to transfer the debt to the employee.
 
+There are 2 ways to reference expense to invoice.
+
+1. On expense, directly select one invoice.
+2. On expense report, use button "Create Vendor Bill" to create one invoice
+   for multiple expenses.
+
 **Table of contents**
 
 .. contents::
@@ -37,10 +43,21 @@ corresponding journal items to transfer the debt to the employee.
 Usage
 =====
 
+**Reference one invoice to an expense**
+
 * Create an expense sheet.
 * Add an expense line to sheet with an invoice_id selected or create one new.
 * Process expense sheet.
 * On paying expense sheet, you are reconciling supplier invoice too.
+
+**Create one invoice to multiple expenses**
+
+* Create an expense sheet with one or multiple expense lines
+* After approved, click button "Create Vendor Bill"
+* Select multiple expense to create an invoice, and process it.
+* New invoice will be create and link to the selected expense lines.
+* Validate newly create invoice.
+* On paying expense sheet, you are reconciling supplier invoice(s) too.
 
 Known issues / Roadmap
 ======================
