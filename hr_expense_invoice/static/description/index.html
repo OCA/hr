@@ -371,6 +371,12 @@ ul.auto-toc {
 <p>This module should be used when a supplier invoice is paid by an employee. It
 allows to set a supplier invoice for each expense line, adding the
 corresponding journal items to transfer the debt to the employee.</p>
+<p>There are 2 ways to reference expense to invoice.</p>
+<ol class="arabic simple">
+<li>On expense, directly select one invoice.</li>
+<li>On expense report, use button “Create Vendor Bill” to create one invoice
+for multiple expenses.</li>
+</ol>
 <p><strong>Table of contents</strong></p>
 <div class="contents local topic" id="contents">
 <ul class="simple">
@@ -387,11 +393,21 @@ corresponding journal items to transfer the debt to the employee.</p>
 </div>
 <div class="section" id="usage">
 <h1><a class="toc-backref" href="#id1">Usage</a></h1>
+<p><strong>Reference one invoice to an expense</strong></p>
 <ul class="simple">
 <li>Create an expense sheet.</li>
 <li>Add an expense line to sheet with an invoice_id selected or create one new.</li>
 <li>Process expense sheet.</li>
 <li>On paying expense sheet, you are reconciling supplier invoice too.</li>
+</ul>
+<p><strong>Create one invoice to multiple expenses</strong></p>
+<ul class="simple">
+<li>Create an expense sheet with one or multiple expense lines</li>
+<li>After approved, click button “Create Vendor Bill”</li>
+<li>Select multiple expense to create an invoice, and process it.</li>
+<li>New invoice will be create and link to the selected expense lines.</li>
+<li>Validate newly create invoice.</li>
+<li>On paying expense sheet, you are reconciling supplier invoice(s) too.</li>
 </ul>
 </div>
 <div class="section" id="known-issues-roadmap">
