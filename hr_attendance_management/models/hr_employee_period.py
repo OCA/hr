@@ -132,7 +132,7 @@ class HrEmployeePeriod(models.Model):
 
                 # Creates a period from just after the end of the new period
                 # to the end of the surrounding period
-                self.create_period(start_date= end_date + datetime.timedelta(days=1),
+                self.create_period(start_date=end_date + datetime.timedelta(days=1),
                                    end_date=surround_end,
                                    employee_id=employee_id.id,
                                    balance=0,
@@ -172,6 +172,11 @@ class HrEmployeePeriod(models.Model):
                     next_overlapping_period.write({
                         'start_date': end_date + datetime.timedelta(days=1)
                     })
+
+                else:
+                    employee.update_past_periods(start_date,
+                                                 end_date,
+                                                 employee.initial_balance)
 
         return res
 

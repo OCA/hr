@@ -53,7 +53,3 @@ def migrate(env, version):
             cr.execute("UPDATE hr_employee SET initial_balance = %s "
                        "WHERE id = %s",
                        (initial_balance, employee['id']))
-
-            cr.execute("UPDATE hr_employee SET balance = %s "
-                       "WHERE id = %s",
-                       (new_balance, employee['id']))

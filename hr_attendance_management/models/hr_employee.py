@@ -95,6 +95,7 @@ class HrEmployee(models.Model):
             employee.compute_balance(store=True)
 
     @api.multi
+    @api.depends('initial_balance')
     def compute_balance(self, store=False):
         """
         Method used to compute balance we needed. It uses the history of the employee to avoid
