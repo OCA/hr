@@ -143,6 +143,7 @@ class HrHolidaysPublicLine(models.Model):
         'hr.holidays.public',
         'Calendar Year',
         required=True,
+        ondelete='cascade',
     )
     variable_date = fields.Boolean(
         'Date may change',
