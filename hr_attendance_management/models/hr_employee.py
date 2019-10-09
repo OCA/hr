@@ -60,10 +60,8 @@ class HrEmployee(models.Model):
 
     @api.multi
     def _compute_initial_balance(self):
-        # TODO get value for initial_balance in DB (this value should be entered manually for each employee and
-        #  represent their balance at the beginning of 2018)
         for employee in self:
-            employee.initial_balance = 0
+            employee.initial_balance = self.env['hr.employee'].browse([employee.id]).initial_balance
 
     @api.multi
     def _compute_current_period_start_date(self):
