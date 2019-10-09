@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-16 03:47+0000\n"
-"PO-Revision-Date: 2018-12-20 08:58+0000\n"
+"PO-Revision-Date: 2019-10-09 12:36+0000\n"
 "Last-Translator: Maria Sparenberg <maria.sparenberg@gmx.net>\n"
 "Language-Team: German (https://www.transifex.com/oca/teams/23907/de/)\n"
 "Language: de\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.3\n"
+"X-Generator: Weblate 3.8\n"
 
 #. module: hr_holidays_validity_date
 #: model:ir.model.fields,field_description:hr_holidays_validity_date.field_hr_holidays_status_date_end
@@ -60,20 +60,18 @@ msgstr "Das Startdatum muss vor dem Enddatum liegen."
 
 #. module: hr_holidays_validity_date
 #: model:ir.model.fields,field_description:hr_holidays_validity_date.field_hr_holidays_status_use_validity_dates
-#, fuzzy
-#| msgid "Use validity dates"
 msgid "Use Validity Dates"
 msgstr "Zeitlich beschränkte Daten verwenden"
 
 #. module: hr_holidays_validity_date
 #: model:ir.ui.view,arch_db:hr_holidays_validity_date.edit_holiday_status_form
 msgid "Valid Period"
-msgstr ""
+msgstr "Gültiger Zeitraum"
 
 #. module: hr_holidays_validity_date
 #: model:ir.model.fields,field_description:hr_holidays_validity_date.field_hr_holidays_warning
 msgid "Warning"
-msgstr ""
+msgstr "Warnung"
 
 #. module: hr_holidays_validity_date
 #: code:addons/hr_holidays_validity_date/models/hr_holidays.py:54
