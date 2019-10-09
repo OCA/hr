@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2019-06-28 13:42+0000\n"
+"PO-Revision-Date: 2019-10-09 12:36+0000\n"
 "Last-Translator: Maria Sparenberg <maria.sparenberg@gmx.net>\n"
 "Language-Team: none\n"
 "Language: de\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.6.1\n"
+"X-Generator: Weblate 3.8\n"
 
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.ui.view,arch_db:hr_attendance_report_theoretical_time.hr_attendance_theoretical_view_filter
@@ -23,10 +23,8 @@ msgstr "Aktive Angestellte"
 
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.ui.menu,name:hr_attendance_report_theoretical_time.menu_hr_attendance_theoretical_report
-#, fuzzy
-#| msgid "Employee"
 msgid "All Employees"
-msgstr "Angestellte(r)"
+msgstr "Alle Angestellten"
 
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.model,name:hr_attendance_report_theoretical_time.model_hr_attendance
@@ -41,17 +39,17 @@ msgstr "Anwesenheitsanalyse"
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.ui.view,arch_db:hr_attendance_report_theoretical_time.wizard_theoretical_time_form_view
 msgid "Cancel"
-msgstr ""
+msgstr "Abbrechen"
 
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.model.fields,field_description:hr_attendance_report_theoretical_time.field_wizard_theoretical_time_create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Erstellt von"
 
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.model.fields,field_description:hr_attendance_report_theoretical_time.field_wizard_theoretical_time_create_date
 msgid "Created on"
-msgstr ""
+msgstr "Erstellt am"
 
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.ui.view,arch_db:hr_attendance_report_theoretical_time.hr_attendance_theoretical_view_filter
@@ -71,7 +69,7 @@ msgstr "Datum"
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.model.fields,field_description:hr_attendance_report_theoretical_time.field_wizard_theoretical_time_department_id
 msgid "Department"
-msgstr ""
+msgstr "Abteilung"
 
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.model.fields,field_description:hr_attendance_report_theoretical_time.field_hr_attendance_theoretical_time_report_difference
@@ -93,10 +91,8 @@ msgstr "Angestellte(r)"
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.model.fields,field_description:hr_attendance_report_theoretical_time.field_wizard_theoretical_time_employee_ids
 #: model:ir.ui.view,arch_db:hr_attendance_report_theoretical_time.wizard_theoretical_time_form_view
-#, fuzzy
-#| msgid "Employee"
 msgid "Employees"
-msgstr "Angestellte(r)"
+msgstr "Angestellte"
 
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.model.fields,help:hr_attendance_report_theoretical_time.field_hr_employee_theoretical_hours_start_date
@@ -115,7 +111,7 @@ msgstr ""
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.ui.view,arch_db:hr_attendance_report_theoretical_time.wizard_theoretical_time_form_view
 msgid "Filters"
-msgstr ""
+msgstr "Filter"
 
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.model.fields,field_description:hr_attendance_report_theoretical_time.field_hr_attendance_theoretical_time_report_id
@@ -146,14 +142,12 @@ msgstr "Zuletzt geändert am"
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.model.fields,field_description:hr_attendance_report_theoretical_time.field_wizard_theoretical_time_write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Zuletzt aktualisiert von"
 
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.model.fields,field_description:hr_attendance_report_theoretical_time.field_wizard_theoretical_time_write_date
-#, fuzzy
-#| msgid "Last Modified on"
 msgid "Last Updated on"
-msgstr "Zuletzt geändert am"
+msgstr "Zuletzt aktualisiert am"
 
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.model,name:hr_attendance_report_theoretical_time.model_hr_holidays
@@ -197,10 +191,8 @@ msgstr "Bericht zu theoretischen und tatsächlichen Anwesenheitszeiten"
 
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.ui.menu,name:hr_attendance_report_theoretical_time.menu_hr_attendance_theoretical_report_select
-#, fuzzy
-#| msgid "Active Employees"
 msgid "Select Employees"
-msgstr "Aktive Angestellte"
+msgstr "Angestellte wählen"
 
 #. module: hr_attendance_report_theoretical_time
 #: code:addons/hr_attendance_report_theoretical_time/wizards/wizard_theoretical_time.py:42
@@ -208,6 +200,7 @@ msgstr "Aktive Angestellte"
 #, python-format
 msgid "Select Employees to Analyze Theoretical Time"
 msgstr ""
+"Angestellte wählen um die theoretische Zeit der Anwesenheit zu analysieren."
 
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.model.fields,field_description:hr_attendance_report_theoretical_time.field_wizard_theoretical_time_category_ids
@@ -247,14 +240,12 @@ msgstr "Heute"
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.ui.view,arch_db:hr_attendance_report_theoretical_time.wizard_theoretical_time_form_view
 msgid "View Report"
-msgstr ""
+msgstr "Bericht ansehen"
 
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.ui.view,arch_db:hr_attendance_report_theoretical_time.wizard_theoretical_time_form_view
-#, fuzzy
-#| msgid "Theoretical vs Attended Time"
 msgid "Wizard Theoretical Time"
-msgstr "Theoretische vs. tatsächliche Anwesenheitszeiten"
+msgstr "Assistent für theoretische Anwesenheitszeiten"
 
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.model.fields,field_description:hr_attendance_report_theoretical_time.field_hr_attendance_theoretical_time_report_worked_hours
@@ -264,4 +255,4 @@ msgstr "Gearbeitet"
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.model,name:hr_attendance_report_theoretical_time.model_wizard_theoretical_time
 msgid "wizard.theoretical.time"
-msgstr ""
+msgstr "wizard.theoretical.time"
