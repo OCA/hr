@@ -5,3 +5,5 @@
 * `Tecnativa <https://www.tecnativa.com>`__:
 
   * Pedro M. Baeza
+
+* Kitti U. <kittiu@ecosoft.co.th>

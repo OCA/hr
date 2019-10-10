@@ -7,7 +7,7 @@ from dateutil import tz
 
 
 class HrHolidays(models.Model):
-    _inherit = 'hr.holidays'
+    _inherit = 'hr.leave'
 
     def _default_from_full_day(self):
         """Detect if we have select full day in calendar and return the
@@ -70,8 +70,8 @@ class HrHolidays(models.Model):
         },
     )
     # Supporting field for avoiding limitation on storing readonly fields
-    number_of_days_temp_related = fields.Float(
-        related="number_of_days_temp", readonly=True,
+    number_of_days_related = fields.Float(
+        related="number_of_days", readonly=True,
     )
 
     @api.depends('date_from')

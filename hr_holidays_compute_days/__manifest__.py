@@ -4,7 +4,7 @@
 
 {
     'name': 'Extended Leave Days Computation',
-    'version': '11.0.1.0.0',
+    'version': '12.0.1.0.0',
     'category': 'Human Resources',
     'license': 'AGPL-3',
     'summary': 'Allows to take into account in leave days '

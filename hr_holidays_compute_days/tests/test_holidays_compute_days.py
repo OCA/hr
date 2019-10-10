@@ -11,7 +11,7 @@ class TestHolidaysComputeDaysBase(common.SavepointCase):
     @classmethod
     def setUpClass(cls):
         super(TestHolidaysComputeDaysBase, cls).setUpClass()
-        cls.HrHolidays = cls.env['hr.holidays']
+        cls.HrHolidays = cls.env['hr.leave']
         cls.calendar = cls.env['resource.calendar'].create({
             'name': 'Calendar',
         })
@@ -34,12 +34,12 @@ class TestHolidaysComputeDaysBase(common.SavepointCase):
             'name': 'Employee 1',
             'resource_calendar_id': cls.calendar.id,
         })
-        cls.holiday_type = cls.env['hr.holidays.status'].create({
+        cls.holiday_type = cls.env['hr.leave.type'].create({
             'name': 'Leave Type Test',
             'exclude_rest_days': True,
             'compute_full_days': True,
         })
-        cls.holiday_type_no_excludes = cls.env['hr.holidays.status'].create({
+        cls.holiday_type_no_excludes = cls.env['hr.leave.type'].create({
             'name': 'Leave Type Test Without excludes',
             'exclude_rest_days': False,
             'compute_full_days': False,
@@ -77,7 +77,7 @@ class TestHolidaysComputeDays(TestHolidaysComputeDaysBase):
             'employee_id': self.employee.id,
         })
         holidays._onchange_data_hr_holidays_compute_days()
-        self.assertEqual(holidays.number_of_days_temp, 5.0)
+        self.assertEqual(holidays.number_of_days, 5.0)
 
     def test_number_days_not_excluding(self):
         holidays = self.HrHolidays.new({
@@ -87,4 +87,4 @@ class TestHolidaysComputeDays(TestHolidaysComputeDaysBase):
             'employee_id': self.employee.id,
         })
         holidays._onchange_data_hr_holidays_compute_days()
-        self.assertEqual(holidays.number_of_days_temp, 7.0)
+        self.assertEqual(holidays.number_of_days, 7.0)

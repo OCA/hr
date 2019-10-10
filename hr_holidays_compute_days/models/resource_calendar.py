@@ -1,8 +1,8 @@
 # Copyright 2017-2018 Tecnativa - Pedro M. Baeza
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+import pytz
 
 from odoo import models
-from odoo.addons.resource.models.resource import to_naive_utc
 from datetime import datetime, time
 
 
@@ -22,6 +22,13 @@ class ResourceCalendar(models.Model):
         """Return fake work intervals for full day when asking for rest days
         included through ``_get_weekdays``.
         """
+        def to_naive_utc(datetime, record):
+            tz_name = record._context.get('tz') or record.env.user.tz
+            tz = tz_name and pytz.timezone(tz_name) or pytz.UTC
+            return tz.localize(
+                datetime.replace(tzinfo=None), is_dst=False).\
+                astimezone(pytz.UTC).replace(tzinfo=None)
+
         if self.env.context.get('include_rest_days'):
             real_weekdays = self.with_context(
                 include_rest_days=False,
