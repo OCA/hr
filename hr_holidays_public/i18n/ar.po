@@ -93,7 +93,7 @@ msgid "Date may change"
 msgstr ""
 
 #. module: hr_holidays_public
-#: code:addons/hr_holidays_public/models/hr_holidays_public.py:168
+#: code:addons/hr_holidays_public/models/hr_holidays_public.py:169
 #, python-format
 msgid ""
 "Dates of holidays should be the same year as the calendar year they are "
@@ -261,7 +261,7 @@ msgid ""
 msgstr ""
 
 #. module: hr_holidays_public
-#: code:addons/hr_holidays_public/models/hr_holidays_public.py:185
+#: code:addons/hr_holidays_public/models/hr_holidays_public.py:186
 #, python-format
 msgid ""
 "You can't create duplicate public holiday per date %s and one of the country "
@@ -269,7 +269,7 @@ msgid ""
 msgstr ""
 
 #. module: hr_holidays_public
-#: code:addons/hr_holidays_public/models/hr_holidays_public.py:193
+#: code:addons/hr_holidays_public/models/hr_holidays_public.py:194
 #, python-format
 msgid "You can't create duplicate public holiday per date %s."
 msgstr ""
