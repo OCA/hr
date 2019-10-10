@@ -137,15 +137,24 @@ class HrEmployee(models.Model):
                     previous_balance = employee_history[-1].balance
                 else:
                     previous_balance = employee.initial_balance
-                self.env['hr.employee.period'].create({
-                    'employee_id': employee.id,
-                    'start_date': start_date,
-                    'end_date': end_date,
-                    'balance': extra,
-                    'previous_balance': previous_balance,
-                    'lost': lost,   # TODO lost is always == 0 at second CRON execution
-                    'continuous_cap': employee.extra_hours_continuous_cap
-                })
+                self.create_period(employee.id,
+                                   start_date,
+                                   end_date,
+                                   extra,
+                                   previous_balance,
+                                   lost,
+                                   employee.extra_hours_continuous_cap)
+
+    def create_period(self, employee_id, start_date, end_date, balance, previous_balance, lost_hours, continuous_cap):
+        self.env['hr.employee.period'].create({
+            'employee_id': employee_id,
+            'start_date': start_date,
+            'end_date': end_date,
+            'balance': balance,
+            'previous_balance': previous_balance,
+            'lost': lost_hours,
+            'continuous_cap': continuous_cap
+        })
 
     # Called when past periods must be updated (balance), often after an update to an attendance_day
     def update_past_periods(self, start_date, end_date, balance):
