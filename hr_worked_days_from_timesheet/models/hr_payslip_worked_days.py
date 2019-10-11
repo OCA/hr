@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # © 2012 Odoo Canada
 # © 2015 Acysos S.L.
 # © 2017 Eficent Business and IT Consulting Services S.L.
@@ -17,5 +16,5 @@ class HrPayslipWorkedDays(models.Model):
     )
     timesheet_sheet_id = fields.Many2one(
         string='Timesheet',
-        comodel_name='hr_timesheet_sheet.sheet'
+        comodel_name='hr_timesheet.sheet'
     )
