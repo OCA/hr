@@ -1,5 +1,5 @@
-.. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
-   :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
+.. image:: https://img.shields.io/badge/license-AGPL--3-blue.png
+   :target: https://www.gnu.org/licenses/agpl
    :alt: License: AGPL-3
 
 =============================
@@ -8,17 +8,6 @@ HR Worked Days From Timesheet
 
 This module allow you to automatically fill the 'Worked Days' of payslips with
 the information of each employee's timesheets for the payslip's period.
-
-Installation
-============
-
-To install this module, you need to:
-
-* clone the branch 10.0 of the repository https://github.com/OCA/hr
-* add the path to this repository in your configuration (addons-path)
-* update the module list
-* search for "HR Worked Days From Timesheet" in your addons
-* install the module
 
 Usage
 =====
@@ -32,7 +21,7 @@ To use this module, you need to:
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
-   :target: https://runbot.odoo-community.org/runbot/116/10.0
+   :target: https://runbot.odoo-community.org/runbot/116/12.0
    
 Bug Tracker
 ===========
