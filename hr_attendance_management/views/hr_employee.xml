@@ -57,8 +57,8 @@
                 <div>
                     <label for="balance"/>
                     <field name="balance" widget="float_time"/>
-                    <label for="initial_balance"/>
-                    <field name="initial_balance" widget="float_time"/>
+                    <label for="initial_balance_view"/>
+                    <field name="initial_balance_view" widget="float_time"/>
                 </div>
             </field>
             <field name="work_location" position="attributes">

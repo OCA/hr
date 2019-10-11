@@ -31,6 +31,8 @@ class HrEmployee(models.Model):
     initial_balance = fields.Float(string='Initial Balance',
                                    compute='_compute_initial_balance',
                                    store=True)
+    initial_balance_view = fields.Float(string="Initial balance",
+                                        compute="_compute_initial_balance_view")
 
     extra_hours_lost = fields.Float(compute='compute_balance', store=True)
 
@@ -59,9 +61,14 @@ class HrEmployee(models.Model):
     ##########################################################################
 
     @api.multi
+    def _compute_initial_balance_view(self):
+        for employee in self:
+            employee.initial_balance_view = employee.initial_balance * -1
+
+    @api.multi
     def _compute_initial_balance(self):
         for employee in self:
-            employee.initial_balance = self.env['hr.employee'].browse([employee.id]).initial_balance
+            employee.initial_balance = self.env['hr.employee'].browse([employee.id]).initial_balance * -1
 
     @api.multi
     def _compute_current_period_start_date(self):
