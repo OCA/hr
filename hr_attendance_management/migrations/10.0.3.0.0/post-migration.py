@@ -21,8 +21,8 @@ def migrate(env, version):
     cr = env.cr
 
     start_date = str(date.today().replace(year=2018, month=1, day=1))
-    # Chose this day because its one of the date of execution of the CRON
     end_date = str(date.today().replace(year=2018, month=12, day=31))
+    start_date_2019 = str(date.today().replace(year=2019, month=1, day=1))
     cr.execute("SELECT id FROM hr_employee")
     employee_ids = cr.dictfetchall()
 
@@ -49,8 +49,12 @@ def migrate(env, version):
 
             old_balance = cr.dictfetchone()["balance"]
 
-            # Initial balance is the diff between old one and new one
-            initial_balance = old_balance - new_balance
+            today = date.today()
+            # tmp_balance represent the period from beginning of 2019 to today
+            tmp_balance, tmp_lost = employee_model.past_balance_computation(start_date_2019, str(today), new_balance)
+
+            # Initial balance is the old_balance minus the balance for 2018 and minus the balance of 2019 to today
+            initial_balance = old_balance - new_balance - tmp_balance
 
             # Set initial balance of employee (represent balance before 01.01.2018)
             cr.execute("UPDATE hr_employee SET initial_balance = %s "

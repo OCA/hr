@@ -68,12 +68,13 @@ class HrEmployee(models.Model):
         for employee in self:
             previous_period = self.env['hr.employee.period'].search([
                 ('employee_id', '=', employee.id),
-                ('end_date', '<', str(datetime.date.today()))
+                ('end_date', '<=', str(datetime.date.today()))
             ], order='end_date desc', limit=1)
 
             if previous_period:
                 employee.current_period_start_date = \
-                    datetime.datetime.strptime(previous_period.start_date, '%Y-%m-%d') + datetime.timedelta(days=1)
+                    datetime.datetime.strptime(previous_period.end_date, '%Y-%m-%d')
+                # datetime.datetime.strptime(previous_period.end_date, '%Y-%m-%d') + datetime.timedelta(days=1)
             else:
                 config = self.env['base.config.settings'].create({})
                 employee.current_period_start_date = config.get_beginning_date_for_balance_computation()
@@ -114,8 +115,9 @@ class HrEmployee(models.Model):
 
             if employee_history:
                 employee_history_sorted = sorted(employee_history, key=lambda r: r.end_date)
-                start_date = datetime.datetime.strptime(employee_history_sorted[-1].end_date, '%Y-%m-%d') + \
-                             datetime.timedelta(days=1)
+                # start_date = datetime.datetime.strptime(employee_history_sorted[-1].end_date, '%Y-%m-%d') + \
+                #              datetime.timedelta(days=1)
+                start_date = datetime.datetime.strptime(employee_history_sorted[-1].end_date, '%Y-%m-%d')
                 # If there is an history for this employee, take values of last row
                 # If the period goes to today, recompute from 01.01.2018
                 if start_date < datetime.datetime.strptime(end_date, '%Y-%m-%d'):
@@ -215,7 +217,7 @@ class HrEmployee(models.Model):
             period = self.env['hr.employee.period'].search([
                 ('employee_id', '=', employee.id),
                 ('start_date', '<=', date),
-                ('end_date', '<=', date)
+                ('end_date', '>', date)
             ], order='start_date asc', limit=1)
             if period:
                 return period.continuous_cap

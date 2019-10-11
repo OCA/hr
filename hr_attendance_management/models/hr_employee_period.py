@@ -29,7 +29,7 @@ class HrEmployeePeriod(models.Model):
             if 'continuous_cap' in vals or 'end_date' in vals or 'start_date' in vals:
                 previous_period = self.env['hr.employee.period'].search([
                     ('employee_id', '=', period.employee_id.id),
-                    ('end_date', '<', period.start_date)
+                    ('end_date', '<=', period.start_date)
                 ], order='end_date desc', limit=1)
                 config = self.env['base.config.settings'].create({})
                 config.set_beginning_date()
@@ -38,8 +38,9 @@ class HrEmployeePeriod(models.Model):
                 balance = None
 
                 if previous_period:
-                    start_date = datetime.datetime.strptime(previous_period.end_date, '%Y-%m-%d') + \
-                                 datetime.timedelta(days=1)
+                    # start_date = datetime.datetime.strptime(previous_period.end_date, '%Y-%m-%d') + \
+                    #              datetime.timedelta(days=1)
+                    start_date = datetime.datetime.strptime(previous_period.end_date, '%Y-%m-%d')
                     balance = previous_period.balance
                     if 'start_date' in vals:
                         start_date = vals['start_date']
@@ -73,7 +74,7 @@ class HrEmployeePeriod(models.Model):
             # last period before start_date
             previous_period = self.env['hr.employee.period'].search([
                 ('employee_id', '=', vals['employee_id']),
-                ('end_date', '<', start_date)
+                ('end_date', '<=', start_date)
             ], order='end_date desc', limit=1)
             # period that begins before and finish after start_date
             previous_overlapping_period = self.env['hr.employee.period'].search([
@@ -123,7 +124,8 @@ class HrEmployeePeriod(models.Model):
                 # Creates a period from the beginning of the surrounding period
                 # to just before the beginning of the new period
                 self.create_period(start_date=surround_start,
-                                   end_date=start_date - datetime.timedelta(days=1),
+                                   # end_date=start_date - datetime.timedelta(days=1),
+                                   end_date=start_date,
                                    employee_id=employee_id.id,
                                    balance=0,
                                    previous_balance=balance_previous,
@@ -132,7 +134,8 @@ class HrEmployeePeriod(models.Model):
 
                 # Creates a period from just after the end of the new period
                 # to the end of the surrounding period
-                self.create_period(start_date=end_date + datetime.timedelta(days=1),
+                # start_date=end_date + datetime.timedelta(days=1)
+                self.create_period(start_date=end_date,
                                    end_date=surround_end,
                                    employee_id=employee_id.id,
                                    balance=0,
@@ -140,7 +143,8 @@ class HrEmployeePeriod(models.Model):
                                    continuous_cap=surround_continuous_cap,
                                    origin="override")
 
-                employee.update_past_periods(surround_start, start_date - datetime.timedelta(days=1), balance_previous)
+                #employee.update_past_periods(surround_start, start_date - datetime.timedelta(days=1), balance_previous)
+                employee.update_past_periods(surround_start, start_date, balance_previous)
 
             else:
                 if previous_period:
@@ -148,29 +152,33 @@ class HrEmployeePeriod(models.Model):
                     # Periods not overlapping and with the space for a new one
                     if not previous_overlapping_period and (start_date - previous_end_date).days > 1:
                         # Creates period between previous_period.end_date and start_date of new one
-                        self.create_period(start_date=previous_end_date + datetime.timedelta(days=1),
-                                           end_date=start_date - datetime.timedelta(days=1),
+                        self.create_period(start_date=previous_end_date,
+                                           # start_date=previous_end_date + datetime.timedelta(days=1)
+                                           end_date=start_date,
+                                           # end_date=start_date - datetime.timedelta(days=1),
                                            employee_id=previous_period.employee_id.id,
                                            balance=0,
                                            previous_balance=previous_period.balance,
                                            continuous_cap=self.employee_id.extra_hours_continuous_cap,
                                            origin="override")
 
-                        employee.update_past_periods(previous_end_date + datetime.timedelta(days=1),
-                                                     start_date - datetime.timedelta(days=1),
-                                                     previous_period.balance)
+                        # employee.update_past_periods(previous_end_date,
+                        #                              start_date,
+                        #                              previous_period.balance)
 
                 if previous_overlapping_period:
                     # Modify first previous overlapping period
                     previous_overlapping_period.write({
-                        'end_date': start_date - datetime.timedelta(days=1)
+                        # 'end_date': start_date - datetime.timedelta(days=1)
+                        'end_date': start_date
                     })
 
                 # A following period overlap with the new one
                 if next_overlapping_period:
                     # Modify next overlapping period
                     next_overlapping_period.write({
-                        'start_date': end_date + datetime.timedelta(days=1)
+                        # 'start_date': end_date + datetime.timedelta(days=1)
+                        'start_date': end_date
                     })
 
                 else:

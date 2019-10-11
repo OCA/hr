@@ -24,7 +24,7 @@ class BalanceEvolutionReport(models.TransientModel):
         employee = self.env['hr.employee'].search([('id', '=', employee_id)])
         last_history_entry = self.env['hr.employee.period'].search([
             ('employee_id', '=', employee.id),
-            ('end_date', '<', str(datetime.date.today()))
+            ('end_date', '<=', str(datetime.date.today()))
         ], order='end_date desc', limit=1)
 
         start_date = None
