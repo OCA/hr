@@ -1,11 +1,10 @@
-# -*- coding: utf-8 -*-
 # © 2012 Odoo Canada
 # © 2015 Acysos S.L.
 # © 2017 Eficent Business and IT Consulting Services S.L.
 # Copyright 2017 Serpent Consulting Services Pvt. Ltd.
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html)
 
-from odoo import api, fields, models, _
+from odoo import api, models, _
 from odoo.exceptions import UserError
 
 
@@ -20,8 +19,7 @@ class HrPayslip(models.Model):
             if date_from <= ts.date <= date_to:
                 number_of_hours += ts.unit_amount
         # Get formated date from the timesheet sheet
-        date_from_formated = fields.Date.to_string(
-            fields.Datetime.from_string(ts_sheet.date_from))
+        date_from_formated = ts_sheet.date_start
         if number_of_hours > 0:
             return{
                 'name': _('Timesheet %s') % date_from_formated,
@@ -60,12 +58,12 @@ class HrPayslip(models.Model):
     @api.model
     def get_timesheets_from_employee(self, employee, date_from, date_to):
         criteria = [
-            ('date_from', '>=', date_from),
-            ('date_to', '<=', date_to),
+            ('date_start', '>=', date_from),
+            ('date_end', '<=', date_to),
             ('state', '=', 'done'),
             ('employee_id', '=', employee.id),
         ]
-        ts_model = self.env['hr_timesheet_sheet.sheet']
+        ts_model = self.env['hr_timesheet.sheet']
         timesheet_sheets = ts_model.search(criteria)
         if not timesheet_sheets:
             raise UserError(

@@ -7,8 +7,6 @@
         <field name="inherit_id" ref="hr_payroll.view_hr_payslip_form"/>
         <field name="priority">400</field>
         <field name="arch" type="xml">
-            <xpath expr="//sheet/notebook/page[1]/separator[1]"
-                   position="replace"/>
             <field name="worked_days_line_ids" position="before">
                 <group>
                     <separator string="Worked Days"/>
@@ -17,6 +15,8 @@
                     </div>
                 </group>
             </field>
+            <xpath expr="//sheet/notebook/page[1]/separator[1]"
+                   position="replace"/>
         </field>
     </record>
 
