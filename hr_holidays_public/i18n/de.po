@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-03 03:37+0000\n"
-"PO-Revision-Date: 2019-05-10 14:03+0000\n"
+"PO-Revision-Date: 2019-10-11 09:37+0000\n"
 "Last-Translator: Maria Sparenberg <maria.sparenberg@gmx.net>\n"
 "Language-Team: German (https://www.transifex.com/oca/teams/23907/de/)\n"
 "Language: de\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.5.1\n"
+"X-Generator: Weblate 3.8\n"
 
 #. module: hr_holidays_public
 #: model:ir.ui.view,arch_db:hr_holidays_public.holidays_public_next_year_wizard_view
@@ -266,7 +266,7 @@ msgstr ""
 #. module: hr_holidays_public
 #: model:ir.model.fields,field_description:hr_holidays_public.field_hr_holidays_public_generator_state_id
 msgid "State"
-msgstr ""
+msgstr "Status"
 
 #. module: hr_holidays_public
 #: model:ir.model.fields,field_description:hr_holidays_public.field_public_holidays_next_year_wizard_template_ids
@@ -311,6 +311,9 @@ msgid ""
 "                    the function name does not fit the requirement -\n"
 "                    action_copy_%s_holidays where %s id the county code."
 msgstr ""
+"Für dieses Land / Ort gibt es keine Kopierfunktion oder \n"
+"der Funktionsname erfüllt die Anforderungen nicht - \n"
+"action_copy_%s_holiday, wobei %s der Landescode ist."
 
 #. module: hr_holidays_public
 #: code:addons/hr_holidays_public/wizards/hr_holidays_public_generator.py:79
@@ -321,6 +324,9 @@ msgid ""
 "                    action_generate_%s_holidays where %s is\n"
 "                    the county code."
 msgstr ""
+"Für dieses Land / Ort gibt es keine Erstellfunktion oder \n"
+"der Funktionsname erfüllt die Anforderungen nicht - \n"
+"action_generate_%s_holiday, wobei %s der Landescode ist."
 
 #. module: hr_holidays_public
 #: model:ir.ui.view,arch_db:hr_holidays_public.holidays_public_next_year_wizard_view
@@ -406,4 +412,4 @@ msgstr ""
 #. module: hr_holidays_public
 #: model:ir.model,name:hr_holidays_public.model_hr_holidays_public_generator
 msgid "hr.holidays.public.generator"
-msgstr ""
+msgstr "hr.holidays.public.generator"
