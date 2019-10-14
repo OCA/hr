@@ -1,6 +1,5 @@
 # Copyright 2017 Odoo S.A.
 # Copyright 2018 Eficent Business and IT Consulting Services, S.L.
-# Copyright 2019 Camptocamp
 # License LGPL-3 - See http://www.gnu.org/licenses/lgpl-3.0.html
 
 {
@@ -9,7 +8,6 @@
     'category': 'Human Resources',
     'website': 'https://github.com/OCA/hr',
     'author': 'Odoo S.A.,'
-              'Camptocamp,'
               'Odoo Community Association (OCA)',
     'license': 'LGPL-3',
     'installable': True,
