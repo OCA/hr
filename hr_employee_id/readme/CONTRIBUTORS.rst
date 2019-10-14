@@ -5,3 +5,4 @@
 * Simone Orsi <simone.orsi@camptocamp.com>
 * Serpent Consulting Services Pvt. Ltd. <support@serpentcs.com>
 * Alexey Pelykh <alexey.pelykh@brainbeanapps.com>
+* Damien Crier <damien.crier@camptocamp.com>
