@@ -40,6 +40,9 @@ def migrate(env, version):
     cr.execute("ALTER TABLE hr_employee "
                "ADD COLUMN IF NOT EXISTS limit_extra_hours Boolean")
 
+    cr.execute("ALTER TABLE hr_employee RENAME COLUMN balance "
+               "TO balance_copy")
+
     cr.execute("SELECT id FROM hr_employee")
     employee_ids = cr.dictfetchall()
     for employee in employee_ids:

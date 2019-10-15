@@ -55,10 +55,14 @@
             </xpath>
             <field name="category_ids" position="after">
                 <div>
-                    <label for="balance"/>
-                    <field name="balance" widget="float_time"/>
-                    <label for="initial_balance_view"/>
-                    <field name="initial_balance_view" widget="float_time"/>
+                    <div>
+                        <label for="balance"/>
+                        <field name="balance" widget="float_time"/>
+                    </div>
+                    <div>
+                        <label for="initial_balance"/>
+                        <field name="initial_balance" widget="float_time"/>
+                    </div>
                 </div>
             </field>
             <field name="work_location" position="attributes">
@@ -79,7 +83,7 @@
             <xpath expr="//page[@name='hr_hours']" position="after">
                 <page string="History">
                     <group>
-                        <field name="history_entries_ids"
+                        <field name="period_ids"
                                context="{'tree_view_ref': 'hr_attendance_management.hr_history_periods_from_employee'}"/>
                     </group>
                     <group>

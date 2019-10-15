@@ -29,12 +29,9 @@ class HrEmployee(models.Model):
                                           "Attendance days")
     balance = fields.Float(string='Balance', compute='compute_balance', store=True)
     initial_balance = fields.Float(string='Initial Balance',
-                                   compute='_compute_initial_balance',
                                    store=True)
-    initial_balance_view = fields.Float(string="Initial balance",
-                                        compute="_compute_initial_balance_view")
 
-    extra_hours_lost = fields.Float(compute='compute_balance', store=True)
+    extra_hours_lost = fields.Float()
 
     balance_formatted = fields.Char(string="Balance",
                                     compute='_compute_formatted_hours')
@@ -54,24 +51,11 @@ class HrEmployee(models.Model):
 
     work_location = fields.Char(compute='_compute_work_location')
 
-    history_entries_ids = fields.One2many('hr.employee.period', 'employee_id', string='History Periods')
+    period_ids = fields.One2many('hr.employee.period', 'employee_id', string='History Periods')
 
     ##########################################################################
     #                             FIELDS METHODS                             #
     ##########################################################################
-
-    @api.multi
-    @api.depends('initial_balance')
-    def _compute_initial_balance_view(self):
-        for employee in self:
-            if employee.initial_balance:
-                employee.initial_balance_view = employee.initial_balance * -1
-
-    @api.multi
-    @api.depends('initial_balance')
-    def _compute_initial_balance(self):
-        for employee in self:
-            employee.initial_balance = self.env['hr.employee'].browse([employee.id]).initial_balance
 
     @api.multi
     def _compute_current_period_start_date(self):
@@ -98,13 +82,15 @@ class HrEmployee(models.Model):
             employee.work_location = actual_location.location_id.name
 
     @api.multi
-    @api.depends('extra_hours_continuous_cap')
-    def update_period_cap(self):
+    @api.depends('initial_balance')
+    def _compute_periods(self):
         for employee in self:
-            employee.compute_balance(store=True)
+            periods_sorted = sorted(employee.period_ids, key=lambda r: r.end_date)
+            # employee.update_past_periods()
+
 
     @api.multi
-    @api.depends('initial_balance')
+    @api.depends('period_ids.balance')
     def compute_balance(self, store=False):
         """
         Method used to compute balance we needed. It uses the history of the employee to avoid
@@ -129,7 +115,7 @@ class HrEmployee(models.Model):
                 # If there is an history for this employee, take values of last row
                 # If the period goes to today, recompute from 01.01.2018
                 if start_date < datetime.datetime.strptime(end_date, '%Y-%m-%d'):
-                    balance = employee_history_sorted[-1].balance
+                    balance = employee_history_sorted[-1].final_balance
                 else:
                     start_date = config.get_beginning_date_for_balance_computation()
 
@@ -144,7 +130,7 @@ class HrEmployee(models.Model):
             if store:
                 previous_balance = None
                 if employee_history:
-                    previous_balance = employee_history[-1].balance
+                    previous_balance = employee_history[-1].final_balance
                 else:
                     previous_balance = employee.initial_balance
                 self.create_period(employee.id,
@@ -165,54 +151,6 @@ class HrEmployee(models.Model):
             'lost': lost_hours,
             'continuous_cap': continuous_cap
         })
-
-    # Called when past periods must be updated (balance), often after an update to an attendance_day
-    def update_past_periods(self, start_date, end_date, balance):
-        """
-        This function recompute balance and lost hours for a period.
-        Used when an attendance_day was modified and when the continuous_cap of a period is modified
-        :param start_date: start date for the update
-        :param end_date: date of end of first period
-        :param balance: balance before start_date
-        :return:
-        """
-        for employee in self:
-            extra, lost = employee.past_balance_computation(
-                start_date=start_date,
-                end_date=end_date,
-                existing_balance=balance)
-
-            current_period = self.env['hr.employee.period'].search([
-                ('employee_id', '=', employee.id),
-                ('end_date', '=', end_date),
-            ], limit=1)
-            current_period.write({
-                'balance': extra,
-                'lost': lost,
-                'previous_balance': balance
-            })
-
-            employee_next_periods = self.env['hr.employee.period'].search([
-                ('employee_id', '=', employee.id),
-                ('end_date', '>', end_date)
-            ], order='end_date asc')
-
-            previous_balance = extra
-
-            # Modify each following history entry
-            for period in employee_next_periods:
-                if period.balance == 0:
-                    period.balance, period.lost = employee.past_balance_computation(
-                        start_date=period.start_date,
-                        end_date=period.end_date,
-                        existing_balance=previous_balance
-                    )
-                period.write({
-                    'previous_balance': previous_balance,
-                    'balance': period.balance,
-                    'lost': period.lost
-                })
-                previous_balance = period.balance
 
     @api.multi
     def is_continuous_cap_at_date(self, date):
@@ -449,5 +387,4 @@ class HrEmployee(models.Model):
         Called by a button. Calculate current balance for employee
         """
         self.ensure_one()
-        self._compute_initial_balance()
         self.compute_balance()

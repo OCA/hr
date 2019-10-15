@@ -467,9 +467,8 @@ class HrAttendanceDay(models.Model):
                 end_date = datetime.datetime.today()
 
             if start_date < end_date:
-                day.employee_id.update_past_periods(start_date=start_date,
-                                                    end_date=end_date,
-                                                    balance=balance)
+                first_period = sorted(day.employee_id.periods_ids,  key=lambda r: r.end_date)[0]
+                first_period.update_past_periods(balance=balance)
                 day.employee_id.compute_balance()
 
     @api.multi

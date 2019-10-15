@@ -36,25 +36,25 @@ def migrate(env, version):
             cr.execute(
                 """
                     SELECT
-                        balance
+                        balance_copy
                     FROM 
                         hr_employee
                     WHERE
                         id = %s
                 """, [employee["id"]])
 
-            old_balance = cr.dictfetchone()["balance"]
+            old_balance = cr.dictfetchone()["balance_copy"]
 
             # Compute actual balance value of employee
             # without initial_balance taken into account
             employee_model.compute_balance()
 
             initial_balance = old_balance - employee_model.balance
+
             # Set initial balance of employee (represent balance before 01.01.2018)
             cr.execute("UPDATE hr_employee SET initial_balance = %s "
                        "WHERE id = %s",
                        (initial_balance, employee['id']))
-            employee_model.initial_balance = initial_balance
 
             # Calculate extra and lost hours for 2018
             new_period_balance, new_period_lost = employee_model.past_balance_computation(start_date, end_date, 0)
