@@ -82,6 +82,14 @@
                         <field name="history_entries_ids"
                                context="{'tree_view_ref': 'hr_attendance_management.hr_history_periods_from_employee'}"/>
                     </group>
+                    <group>
+                        <button name="create_period"
+                                type="object"
+                                icon="fa-calendar"
+                                string="Add a period"
+                                >
+                        </button>
+                    </group>
                 </page>
             </xpath>
         </field>

@@ -6,9 +6,8 @@
         <field name="arch" type="xml">
             <tree>
                 <field name="start_date" />
-                <field name="end_date" />
-                <field name="balance" />
-                <field name="previous_balance" widget="float_time" type="char" />
+                <field name="end_date_display" />
+                <field name="balance" widget="float_time" type="char" />
                 <field name="lost" widget="float_time" type="char" />
                 <field name="continuous_cap" type="boolean"/>
             </tree>

@@ -32,9 +32,6 @@ def migrate(env, version):
         ], limit=1)
 
         if employee_model:
-            # Calculate extra and lost hours for 2018
-            new_balance, lost = employee_model.past_balance_computation(start_date, end_date, 0)
-
             # Get old balance value
             cr.execute(
                 """
@@ -48,26 +45,25 @@ def migrate(env, version):
 
             old_balance = cr.dictfetchone()["balance"]
 
-            today = date.today()
-            # tmp_balance represent the period from beginning of 2019 to today
-            tmp_balance, tmp_lost = employee_model.past_balance_computation(end_date, str(today), new_balance)
+            # Compute actual balance value of employee
+            # without initial_balance taken into account
+            employee_model.compute_balance()
 
-            # Initial balance is the old_balance minus the balance for 2018 and minus the balance of 2019 to today
-            initial_balance = old_balance - new_balance - tmp_balance
-
+            initial_balance = old_balance - employee_model.balance
             # Set initial balance of employee (represent balance before 01.01.2018)
             cr.execute("UPDATE hr_employee SET initial_balance = %s "
                        "WHERE id = %s",
                        (initial_balance, employee['id']))
             employee_model.initial_balance = initial_balance
 
+            # Calculate extra and lost hours for 2018
+            new_period_balance, new_period_lost = employee_model.past_balance_computation(start_date, end_date, 0)
+
             # Create a period for the year 2018
             employee_model.create_period(employee["id"],
                                          start_date,
                                          end_date,
-                                         new_balance,
+                                         new_period_balance,
                                          initial_balance,
-                                         lost,
+                                         new_period_lost,
                                          employee_model.extra_hours_continuous_cap)
-            # Update balance value of employee (should be based on the just created period)
-            employee_model.compute_balance()

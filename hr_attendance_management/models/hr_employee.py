@@ -61,14 +61,17 @@ class HrEmployee(models.Model):
     ##########################################################################
 
     @api.multi
+    @api.depends('initial_balance')
     def _compute_initial_balance_view(self):
         for employee in self:
-            employee.initial_balance_view = employee.initial_balance * -1
+            if employee.initial_balance:
+                employee.initial_balance_view = employee.initial_balance * -1
 
     @api.multi
+    @api.depends('initial_balance')
     def _compute_initial_balance(self):
         for employee in self:
-            employee.initial_balance = self.env['hr.employee'].browse([employee.id]).initial_balance * -1
+            employee.initial_balance = self.env['hr.employee'].browse([employee.id]).initial_balance
 
     @api.multi
     def _compute_current_period_start_date(self):
@@ -122,8 +125,6 @@ class HrEmployee(models.Model):
 
             if employee_history:
                 employee_history_sorted = sorted(employee_history, key=lambda r: r.end_date)
-                # start_date = datetime.datetime.strptime(employee_history_sorted[-1].end_date, '%Y-%m-%d') + \
-                #              datetime.timedelta(days=1)
                 start_date = datetime.datetime.strptime(employee_history_sorted[-1].end_date, '%Y-%m-%d')
                 # If there is an history for this employee, take values of last row
                 # If the period goes to today, recompute from 01.01.2018
@@ -137,7 +138,7 @@ class HrEmployee(models.Model):
                 end_date=end_date,
                 existing_balance=balance)
 
-            employee.balance = extra
+            employee.balance = extra + balance
             employee.extra_hours_lost = lost
 
             if store:
@@ -181,18 +182,17 @@ class HrEmployee(models.Model):
                 end_date=end_date,
                 existing_balance=balance)
 
-            # Recompute period concerned by attendance_day modification
             current_period = self.env['hr.employee.period'].search([
                 ('employee_id', '=', employee.id),
-                ('end_date', '=', end_date)
+                ('end_date', '=', end_date),
             ], limit=1)
             current_period.write({
                 'balance': extra,
-                'lost': current_period.lost,  # TODO check why lost is often == 0 here
+                'lost': lost,
                 'previous_balance': balance
             })
 
-            employee_history = self.env['hr.employee.period'].search([
+            employee_next_periods = self.env['hr.employee.period'].search([
                 ('employee_id', '=', employee.id),
                 ('end_date', '>', end_date)
             ], order='end_date asc')
@@ -200,13 +200,19 @@ class HrEmployee(models.Model):
             previous_balance = extra
 
             # Modify each following history entry
-            for entry in employee_history:
-                diff = entry.balance - entry.previous_balance
-                entry.write({
+            for period in employee_next_periods:
+                if period.balance == 0:
+                    period.balance, period.lost = employee.past_balance_computation(
+                        start_date=period.start_date,
+                        end_date=period.end_date,
+                        existing_balance=previous_balance
+                    )
+                period.write({
                     'previous_balance': previous_balance,
-                    'balance': previous_balance + diff,
+                    'balance': period.balance,
+                    'lost': period.lost
                 })
-                previous_balance = previous_balance + diff
+                previous_balance = period.balance
 
     @api.multi
     def is_continuous_cap_at_date(self, date):

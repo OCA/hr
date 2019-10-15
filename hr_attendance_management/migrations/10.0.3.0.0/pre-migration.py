@@ -34,3 +34,27 @@ def migrate(env, version):
                "DROP COLUMN IF EXISTS last_update_balance")
     cr.execute("ALTER TABLE hr_employee "
                "DROP COLUMN IF EXISTS last_update_date")
+    cr.execute("ALTER TABLE hr_employee "
+               "DROP COLUMN IF EXISTS extra_hours")
+
+    cr.execute("ALTER TABLE hr_employee "
+               "ADD COLUMN IF NOT EXISTS limit_extra_hours Boolean")
+
+    cr.execute("SELECT id FROM hr_employee")
+    employee_ids = cr.dictfetchall()
+    for employee in employee_ids:
+        cr.execute(
+            """
+                SELECT
+                    extra_hours_continuous_cap
+                FROM 
+                    hr_employee
+                WHERE
+                    id = %s
+            """, [employee["id"]])
+
+        limit_extra_hours = cr.dictfetchone()["extra_hours_continuous_cap"]
+        cr.execute("UPDATE hr_employee SET extra_hours_continuous_cap = %s "
+                   "WHERE id = %s", (False, employee['id']))
+        cr.execute("UPDATE hr_employee SET limit_extra_hours = %s "
+                   "WHERE id = %s", (limit_extra_hours, employee['id']))
