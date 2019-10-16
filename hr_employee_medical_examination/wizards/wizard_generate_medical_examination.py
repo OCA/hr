@@ -1,14 +1,20 @@
 # Copyright 2019 Creu Blanca
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
+from datetime import date
+
 from odoo import api, fields, models, _
 
 
 class WizardGenerateMedicalExamination(models.TransientModel):
 
     _name = 'wizard.generate.medical.examination'
+    _description = 'Generation wizard for medical examinations'
 
     name = fields.Char(required=True, string='Examination Name')
+    year = fields.Char(
+        "Year", default=lambda r: str(date.today().year),
+    )
 
     employee_ids = fields.Many2many(
         comodel_name='hr.employee',
@@ -51,6 +57,7 @@ class WizardGenerateMedicalExamination(models.TransientModel):
         return {
             'name':  _('%s on %s') % (self.name, employee.name),
             'employee_id': employee.id,
+            'year': self.year,
         }
 
     @api.multi
