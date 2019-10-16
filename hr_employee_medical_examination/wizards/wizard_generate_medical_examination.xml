@@ -13,6 +13,9 @@
                     <group>
                         <field name="name"/>
                     </group>
+                    <group>
+                        <field name="year"/>
+                    </group>
                 </group>
                 <h3><strong>Filters:</strong></h3>
                 <group>
