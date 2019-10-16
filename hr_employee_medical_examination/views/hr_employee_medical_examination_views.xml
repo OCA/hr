@@ -12,7 +12,11 @@
         <field name="arch" type="xml">
             <form>
                 <header>
-                    <field name="state" widget="statusbar" clickable="True"/>
+                    <button name="back_to_pending" string="Back To Pending" type="object" states="done,cancelled,rejected"/>
+                    <button name="to_done" string="Mark as Done" type="object" class="btn btn-primary" states="pending"/>
+                    <button name="to_cancelled" string="Mark as Cancelled" type="object" class="btn btn-primary" states="pending"/>
+                    <button name="to_rejected" string="Mark as Rejected" type="object" class="btn btn-primary" states="pending"/>
+                    <field name="state" widget="statusbar"/>
                 </header>
                 <sheet>
                     <div class="oe_title">
@@ -25,11 +29,16 @@
                         <group>
                             <field name="employee_id"/>
                             <field name="date"/>
+                            <field name="year"/>
                         </group>
                         <group>
                             <field name="result"/>
                         </group>
                     </group>
+                    <div>
+                        <separator string="Note"/>
+                        <field name="note" placeholder="Add note..."/>
+                    </div>
                 </sheet>
                 <div class="oe_chatter">
                     <field name="message_follower_ids" widget="mail_followers"/>
@@ -41,14 +50,13 @@
     </record>
 
     <record model="ir.ui.view" id="hr_employee_medical_examination_search_view">
-        <field name="name">hr.employee.medical.examination.search (in
-            hr_employee_medical_examination)
-        </field>
+        <field name="name">hr.employee.medical.examination.search (in hr_employee_medical_examination)</field>
         <field name="model">hr.employee.medical.examination</field>
         <field name="arch" type="xml">
             <search>
                 <field name="name"/>
                 <field name="employee_id"/>
+                <field name="state"/>
                 <group>
                     <filter string="Passed" name="passed" domain="[('result','=','passed')]"/>
                     <filter string="Failed" name="failed" domain="[('result','=','failed')]"/>
@@ -59,13 +67,12 @@
     </record>
 
     <record model="ir.ui.view" id="hr_employee_medical_examination_tree_view">
-        <field name="name">hr.employee.medical.examination.tree (in
-            hr_employee_medical_examination)
-        </field>
+        <field name="name">hr.employee.medical.examination.tree (in hr_employee_medical_examination)</field>
         <field name="model">hr.employee.medical.examination</field>
         <field name="arch" type="xml">
             <tree>
                 <field name="name"/>
+                <field name="employee_id"/>
                 <field name="state"/>
                 <field name="result"/>
             </tree>
