@@ -1,7 +1,9 @@
 # Copyright 2019 Creu Blanca
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import fields, models
+import datetime
+
+from odoo import api, fields, models
 
 
 class HrEmployeeMedicalExamination(models.Model):
@@ -20,7 +22,8 @@ class HrEmployeeMedicalExamination(models.Model):
             ('pending', 'Pending'),
             ('done', 'Done'),
             ('cancelled', 'Cancelled'),
-        ], default='pending',
+            ("rejected", "Rejected"),
+        ], default='pending', readonly=True,
         track_visibility='onchange',
     )
 
@@ -40,3 +43,31 @@ class HrEmployeeMedicalExamination(models.Model):
         'hr.employee', string='Employee', required=True,
         track_visibility='onchange',
     )
+
+    year = fields.Char(
+        "Year", default=lambda r: str(datetime.date.today().year),
+    )
+
+    note = fields.Text(track_visibility='onchange')
+
+    @api.onchange('date')
+    def _onchange_date(self):
+        for record in self:
+            if record.date:
+                record.year = str(record.date.year)
+
+    @api.multi
+    def back_to_pending(self):
+        self.write({"state": "pending"})
+
+    @api.multi
+    def to_done(self):
+        self.write({"state": "done"})
+
+    @api.multi
+    def to_cancelled(self):
+        self.write({"state": "cancelled"})
+
+    @api.multi
+    def to_rejected(self):
+        self.write({"state": "rejected"})
