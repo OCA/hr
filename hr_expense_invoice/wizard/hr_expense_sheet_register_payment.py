@@ -4,7 +4,7 @@ from odoo import api, models
 
 
 class HrExpenseSheetRegisterPaymentWizard(models.TransientModel):
-    _inherit = 'hr.expense.sheet.register.payment.wizard'
+    _inherit = "hr.expense.sheet.register.payment.wizard"
 
     @api.multi
     def expense_post_payment(self):
