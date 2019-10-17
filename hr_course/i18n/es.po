@@ -10,11 +10,11 @@ msgstr ""
 "PO-Revision-Date: 2019-03-21 10:41+0100\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
-"Language: es\n"
 "X-Generator: Poedit 2.0.6\n"
 
 #. module: hr_course
@@ -68,11 +68,16 @@ msgid "Cancelled Course"
 msgstr "Curso cancelado"
 
 #. module: hr_course
-#: model:ir.model.fields,field_description:hr_course.field_hr_course_category_id_9820
+#: model:ir.model.fields,field_description:hr_course.field_hr_course_category_id
 #: model:ir.ui.view,arch_db:hr_course.hr_course_search_view
 #: model:ir.ui.view,arch_db:hr_course.view_course_category_search
 msgid "Category"
 msgstr "Categoría"
+
+#. module: hr_course
+#: sql_constraint:hr.course.category:0
+msgid "Category already exists !"
+msgstr "Esta categoría ya existe !"
 
 #. module: hr_course
 #: model:ir.ui.view,arch_db:hr_course.hr_course_form_view
@@ -187,7 +192,7 @@ msgid "Employee"
 msgstr "Empleado"
 
 #. module: hr_course
-#: code:addons/hr_course/models/hr_course.py:119
+#: code:addons/hr_course/models/hr_course.py:129
 #, python-format
 msgid "Employees removed from this course: <br></br>"
 msgstr "Empleados eliminados de este curso: <br></br>"
@@ -210,7 +215,7 @@ msgstr "Tiene permanencia"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee_id
-#: model:ir.model.fields,field_description:hr_course.field_hr_course_category_id
+#: model:ir.model.fields,field_description:hr_course.field_hr_course_category_id_4195
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_id
 msgid "ID"
 msgstr "ID"
@@ -258,6 +263,12 @@ msgid "Number of courses"
 msgstr "Número de cursos"
 
 #. module: hr_course
+#: model:ir.ui.view,arch_db:hr_course.hr_course_form_view
+#, fuzzy
+msgid "Pass everybody"
+msgstr "Aprobado"
+
+#. module: hr_course
 #: selection:hr.course.attendee,result:0
 msgid "Passed"
 msgstr "Aprobado"
@@ -301,12 +312,7 @@ msgid "State"
 msgstr "Estado"
 
 #. module: hr_course
-#: sql_constraint:hr.course.category:0
-msgid "Category already exists !"
-msgstr "Esta categoría ya existe !"
-
-#. module: hr_course
-#: code:addons/hr_course/models/hr_course.py:85
+#: code:addons/hr_course/models/hr_course.py:92
 #, python-format
 msgid "The start date cannot be later than the end date."
 msgstr "La fecha de inicio no puede ser posterior a la de fin."
@@ -317,15 +323,19 @@ msgid "Waiting attendees"
 msgstr "Esperando asistentes"
 
 #. module: hr_course
-#: code:addons/hr_course/models/hr_course.py:167
+#: code:addons/hr_course/models/hr_course.py:177
 #, python-format
 msgid "You cannot complete the course with pending results"
 msgstr "No se puede finalizar el curso con resultados pendientes"
 
 #. module: hr_course
 #: model:ir.ui.view,arch_db:hr_course.hr_course_form_view
-msgid "You should set a course back to draft only if you cancelled it by mistake or if some of its information is incorrect. Do you want to continue?"
-msgstr "Solo deberías devolver un curso a borrador si se ha cancelado por error o si alguna de su información es incorrecta. Quieres continuar?"
+msgid ""
+"You should set a course back to draft only if you cancelled it by mistake or "
+"if some of its information is incorrect. Do you want to continue?"
+msgstr ""
+"Solo deberías devolver un curso a borrador si se ha cancelado por error o si "
+"alguna de su información es incorrecta. Quieres continuar?"
 
 #. module: hr_course
 #: model:ir.model,name:hr_course.model_hr_course
@@ -337,7 +347,5 @@ msgstr "hr.course"
 msgid "hr.course.attendee"
 msgstr "hr.course.attendee"
 
-#. module: hr_course
-#: model:ir.model,name:hr_course.model_hr_course_result
-msgid "hr.course.result"
-msgstr "hr.course.result"
+#~ msgid "hr.course.result"
+#~ msgstr "hr.course.result"
