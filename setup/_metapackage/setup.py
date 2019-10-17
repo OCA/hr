@@ -16,6 +16,7 @@ setuptools.setup(
         'odoo11-addon-hr_calendar_rest_time',
         'odoo11-addon-hr_contract_multi_job',
         'odoo11-addon-hr_contract_reference',
+        'odoo11-addon-hr_course',
         'odoo11-addon-hr_emergency_contact',
         'odoo11-addon-hr_employee_age',
         'odoo11-addon-hr_employee_birth_name',
