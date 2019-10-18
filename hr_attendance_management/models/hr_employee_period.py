@@ -144,6 +144,11 @@ class HrEmployeePeriod(models.Model):
             surrounding_period = employee_periods.filtered(
                 lambda r: r.start_date < start_date and r.end_date > end_date)
 
+            # period that is inside the new one
+            surrounded_period = employee_periods.filtered(
+                lambda r: end_date > r.start_date > start_date and start_date < r.end_date < end_date
+            )
+
             if isinstance(start_date, basestring):
                 start_date = datetime.datetime.strptime(start_date, '%Y-%m-%d')
 
@@ -184,7 +189,6 @@ class HrEmployeePeriod(models.Model):
                                    origin="override")
 
                 period1.update_past_period()
-            # TODO add a case for when a period already exists "inside" our new period (need to delete it)
             else:
                 if previous_period:
                     previous_end_date = datetime.datetime.strptime(previous_period.end_date, '%Y-%m-%d')
@@ -225,6 +229,10 @@ class HrEmployeePeriod(models.Model):
                         'previous_period': res.id
                     })
                     # next_overlapping_period.update_past_period()
+
+                if surrounded_period:
+                    # deletes useless period
+                    surrounded_period.unlink()
 
                 res = res.update_past_period()
         return res
