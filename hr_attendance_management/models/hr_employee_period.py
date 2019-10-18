@@ -93,9 +93,9 @@ class HrEmployeePeriod(models.Model):
             existing_balance=previous_balance)
 
         self.write({
-            'final_balance': extra - self.employee_id.initial_balance
+            'final_balance': extra
         })
-        self.final_balance = extra - self.employee_id.initial_balance
+        self.final_balance = extra
 
         if self.balance == 0:
             self.write({
@@ -130,15 +130,15 @@ class HrEmployeePeriod(models.Model):
                 lambda r: r.end_date <= start_date
             ).sorted(key=lambda r: r.start_date)
             if previous_periods:
-                previous_period = previous_periods[0]
+                previous_period = previous_periods[-1]
 
             # period that begins before and finish after start_date
             previous_overlapping_period = employee_periods.filtered(
-                lambda r: end_date > r.end_date > start_date > r.start_date)
+                lambda r: end_date > r.end_date > start_date and r.start_date < start_date)
 
             # period that begins before and finish after end_date
             next_overlapping_period = employee_periods.filtered(
-                lambda r: end_date > r.end_date > start_date > r.start_date)
+                lambda r: end_date > r.start_date > start_date and r.end_date > end_date)
 
             # period that begins before start_date and finish after end_date
             surrounding_period = employee_periods.filtered(
