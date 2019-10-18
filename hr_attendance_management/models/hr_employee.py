@@ -107,36 +107,46 @@ class HrEmployee(models.Model):
             balance = employee.initial_balance
             start_date = config.get_beginning_date_for_balance_computation()
             end_date = fields.Date.to_string(datetime.date.today())
+            final_balance = None
 
             if employee_history:
                 employee_history_sorted = sorted(employee_history, key=lambda r: r.end_date)
                 start_date = datetime.datetime.strptime(employee_history_sorted[-1].end_date, '%Y-%m-%d')
-                # If there is an history for this employee, take values of last row
-                # If the period goes to today, recompute from 01.01.2018
+                # If there is an history for this employee, take values of last period
                 if start_date < datetime.datetime.strptime(end_date, '%Y-%m-%d'):
                     balance = employee_history_sorted[-1].final_balance
+                # If last period goes to today
+                elif start_date == datetime.datetime.strptime(end_date, '%Y-%m-%d'):
+                    final_balance = employee_history_sorted[-1].final_balance
+                # If the period goes to today, recompute from 01.01.2018
                 else:
                     start_date = config.get_beginning_date_for_balance_computation()
 
-            extra, lost = employee.past_balance_computation(
-                start_date=start_date,
-                end_date=end_date,
-                existing_balance=balance)
-
-            # extra represent here the whole balance
-            if start_date == config.get_beginning_date_for_balance_computation():
-                employee.balance = extra
-            # if extra does not represent whole balance, add last period final_balance to it
+            extra = None
+            lost = None
+            # If final_balance is not None, it means that there is a period with end_date == today
+            # so we just assign the value
+            if final_balance:
+                employee.balance = final_balance + employee.initial_balance
             else:
-                employee.balance = extra - balance
-            employee.extra_hours_lost = lost
+                extra, lost = employee.past_balance_computation(
+                    start_date=start_date,
+                    end_date=end_date,
+                    existing_balance=balance)
+
+                # # extra represent here the whole balance
+                # if start_date == config.get_beginning_date_for_balance_computation():
+                #     employee.balance = extra
+                # # if extra does not represent whole balance, add last period final_balance to it
+                # else:
+                #     employee.balance = extra - balance
+                employee.balance = extra
+                employee.extra_hours_lost = lost
 
             if store:
                 previous_period = None
-                final_balance = None
                 if employee_history:
                     previous_period = sorted(employee_history, key=lambda r: r.end_date)[-1]
-                    final_balance = extra - previous_period.final_balance
 
                 self.create_period(employee.id,
                                    start_date,
