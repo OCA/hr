@@ -68,3 +68,4 @@ def migrate(env, version):
                                          None,
                                          new_period_lost,
                                          employee_model.extra_hours_continuous_cap)
+            employee_model.compute_balance()

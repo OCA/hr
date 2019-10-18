@@ -127,20 +127,14 @@ class HrEmployee(models.Model):
             # If final_balance is not None, it means that there is a period with end_date == today
             # so we just assign the value
             if final_balance:
-                employee.balance = final_balance - employee.initial_balance
+                employee.balance = final_balance
             else:
                 extra, lost = employee.past_balance_computation(
                     start_date=start_date,
                     end_date=end_date,
                     existing_balance=balance)
 
-                # # extra represent here the whole balance
-                # if start_date == config.get_beginning_date_for_balance_computation():
-                #     employee.balance = extra
-                # # if extra does not represent whole balance, add last period final_balance to it
-                # else:
-                #     employee.balance = extra - balance
-                employee.balance = extra - employee.initial_balance
+                employee.balance = extra
                 employee.extra_hours_lost = lost
 
             if store:

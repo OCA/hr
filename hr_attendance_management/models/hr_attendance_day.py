@@ -468,9 +468,7 @@ class HrAttendanceDay(models.Model):
 
             if start_date < end_date:
                 first_period = sorted(day.employee_id.periods_ids,  key=lambda r: r.end_date)[0]
-                # first_period.update_past_periods(balance=balance)
                 first_period.update_past_period()
-                # day.employee_id.compute_balance()
 
     @api.multi
     def open_attendance_day(self):

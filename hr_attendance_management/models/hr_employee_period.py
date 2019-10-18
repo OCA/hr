@@ -20,7 +20,7 @@ class HrEmployeePeriod(models.Model):
     end_date = fields.Date(string='Last date of period')
     end_date_display = fields.Date(string="Last date of period",
                                    compute="_compute_display_of_end_date")
-    balance = fields.Float(readonly=True)
+    balance = fields.Float(string='Balance of period')
     final_balance = fields.Float(string="Total balance at end of period",
                                  compute='_compute_final_balance',
                                  readonly=True,
@@ -39,11 +39,10 @@ class HrEmployeePeriod(models.Model):
                 period.end_date_display = datetime.datetime.strptime(period.end_date, '%Y-%m-%d') \
                                           - datetime.timedelta(days=1)
 
-    @api.depends('previous_period.final_balance')
+    @api.depends('previous_period.final_balance', 'balance')
     def _compute_final_balance(self):
         for period in self:
-            if period.previous_period and period.start_date and period.end_date:
-                period.update_past_period()
+            period.update_past_period()
 
     def update_past_period(self):
         """
@@ -53,34 +52,12 @@ class HrEmployeePeriod(models.Model):
         for current_period in self:
             return current_period.calculate_and_write_final_balance()
 
-    # Called when past periods must be updated (balance), often after an update to an attendance_day
-    def update_past_periods(self, balance):
-        """
-        This function recompute balance and lost hours for a period and all periods after it.
-        :param balance: balance before start_date
-        :return:
-        """
-        employee = self.employee_id
-
-        for current_period in self:
-
-            # Calculate and update the current period with
-            # the correct balance and final_balance.
-            current_period.calculate_and_write_final_balance()
-
-            employee_next_periods = self.env['hr.employee.period'].search([
-                ('employee_id', '=', employee.id),
-                ('end_date', '>', current_period.end_date)
-            ], order='end_date asc')
-
-            # Modify each following history entry
-            for period in employee_next_periods:
-                period.calculate_and_write_final_balance()
-
+    # TODO call compute_balance after the modification/creation of a period
     def calculate_and_write_final_balance(self):
         start_date = self.start_date
         end_date = self.end_date
         previous_balance = None
+        balance_of_period = self.balance
 
         if self.previous_period:
             previous_balance = self.previous_period.final_balance
@@ -92,11 +69,18 @@ class HrEmployeePeriod(models.Model):
             end_date=end_date,
             existing_balance=previous_balance)
 
-        self.write({
-            'final_balance': extra
-        })
-        self.final_balance = extra
+        final_balance = extra
+        computed_balance = extra - previous_balance
+        # the balance of the period was modified by an user
+        if balance_of_period != computed_balance:
+            final_balance = final_balance + balance_of_period - computed_balance
 
+        self.write({
+            'final_balance': final_balance
+        })
+        self.final_balance = final_balance
+
+        # TODO check if the depends on balance for _compute_final_balance works with this
         if self.balance == 0:
             self.write({
                 'balance': extra - previous_balance
@@ -145,8 +129,9 @@ class HrEmployeePeriod(models.Model):
                 lambda r: r.start_date < start_date and r.end_date > end_date)
 
             # period that is inside the new one
-            surrounded_period = employee_periods.filtered(
-                lambda r: end_date > r.start_date > start_date and start_date < r.end_date < end_date
+            surrounded_periods = employee_periods.filtered(
+                lambda r: start_date <= r.start_date < end_date and start_date < r.end_date <= end_date
+                and r.id != res.id
             )
 
             if isinstance(start_date, basestring):
@@ -206,7 +191,7 @@ class HrEmployeePeriod(models.Model):
                         res.write({
                             'previous_period': period.id
                         })
-                        period.update_past_periods(previous_period.balance)
+                        period.update_past_period()
 
                     res.write({
                         'previous_period': previous_period.id
@@ -230,9 +215,10 @@ class HrEmployeePeriod(models.Model):
                     })
                     # next_overlapping_period.update_past_period()
 
-                if surrounded_period:
-                    # deletes useless period
-                    surrounded_period.unlink()
+                if surrounded_periods:
+                    for period in surrounded_periods:
+                        # deletes useless period
+                        period.unlink()
 
                 res = res.update_past_period()
         return res
