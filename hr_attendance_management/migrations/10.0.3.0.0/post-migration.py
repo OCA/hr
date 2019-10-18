@@ -20,6 +20,9 @@ def migrate(env, version):
         return
     cr = env.cr
 
+    cr.execute("ALTER TABLE hr_employee_period "
+               "ADD COLUMN IF NOT EXISTS final_balance INTEGER")
+
     start_date = str(date.today().replace(year=2018, month=1, day=1))
     end_date = str(date.today().replace(year=2019, month=1, day=1))
     cr.execute("SELECT id FROM hr_employee")
@@ -45,25 +48,23 @@ def migrate(env, version):
 
             old_balance = cr.dictfetchone()["balance_copy"]
 
-            # Compute actual balance value of employee
-            # without initial_balance taken into account
-            employee_model.compute_balance()
-
             initial_balance = old_balance - employee_model.balance
 
             # Set initial balance of employee (represent balance before 01.01.2018)
             cr.execute("UPDATE hr_employee SET initial_balance = %s "
                        "WHERE id = %s",
                        (initial_balance, employee['id']))
+            employee_model.initial_balance = initial_balance
 
             # Calculate extra and lost hours for 2018
-            new_period_balance, new_period_lost = employee_model.past_balance_computation(start_date, end_date, 0)
+            new_period_balance, new_period_lost = employee_model.past_balance_computation(
+                start_date, end_date, 0)
 
             # Create a period for the year 2018
             employee_model.create_period(employee["id"],
                                          start_date,
                                          end_date,
                                          new_period_balance,
-                                         initial_balance,
+                                         None,
                                          new_period_lost,
                                          employee_model.extra_hours_continuous_cap)

@@ -68,29 +68,28 @@ class HrEmployee(models.Model):
             if previous_period:
                 employee.current_period_start_date = \
                     datetime.datetime.strptime(previous_period.end_date, '%Y-%m-%d')
-                # datetime.datetime.strptime(previous_period.end_date, '%Y-%m-%d') + datetime.timedelta(days=1)
             else:
                 config = self.env['base.config.settings'].create({})
                 employee.current_period_start_date = config.get_beginning_date_for_balance_computation()
+
     @api.multi
     def _compute_work_location(self):
         for employee in self:
             actual_location = self.env['hr.attendance'].search([
                 ('employee_id', '=', employee.id),
                 ('check_out', '=', False)], limit=1)
-
             employee.work_location = actual_location.location_id.name
 
     @api.multi
     @api.depends('initial_balance')
     def _compute_periods(self):
         for employee in self:
-            periods_sorted = sorted(employee.period_ids, key=lambda r: r.end_date)
-            # employee.update_past_periods()
-
+            employee.period_ids = self.env['hr.employee.period'].search([
+                ('employee_id', '=', employee.id)
+            ], order="start_date asc")
+            # employee.period_ids[0].update_past_period()
 
     @api.multi
-    @api.depends('period_ids.balance')
     def compute_balance(self, store=False):
         """
         Method used to compute balance we needed. It uses the history of the employee to avoid
@@ -124,30 +123,37 @@ class HrEmployee(models.Model):
                 end_date=end_date,
                 existing_balance=balance)
 
-            employee.balance = extra + balance
+            # extra represent here the whole balance
+            if start_date == config.get_beginning_date_for_balance_computation():
+                employee.balance = extra
+            # if extra does not represent whole balance, add last period final_balance to it
+            else:
+                employee.balance = extra - balance
             employee.extra_hours_lost = lost
 
             if store:
-                previous_balance = None
+                previous_period = None
+                final_balance = None
                 if employee_history:
-                    previous_balance = employee_history[-1].final_balance
-                else:
-                    previous_balance = employee.initial_balance
+                    previous_period = sorted(employee_history, key=lambda r: r.end_date)[-1]
+                    final_balance = extra - previous_period.final_balance
+
                 self.create_period(employee.id,
                                    start_date,
                                    end_date,
                                    extra,
-                                   previous_balance,
+                                   previous_period.id,
                                    lost,
                                    employee.extra_hours_continuous_cap)
 
-    def create_period(self, employee_id, start_date, end_date, balance, previous_balance, lost_hours, continuous_cap):
-        self.env['hr.employee.period'].create({
+    def create_period(self, employee_id, start_date, end_date, balance,
+                      previous_period, lost_hours, continuous_cap):
+        return self.env['hr.employee.period'].create({
             'employee_id': employee_id,
             'start_date': start_date,
             'end_date': end_date,
             'balance': balance,
-            'previous_balance': previous_balance,
+            'previous_period': previous_period,
             'lost': lost_hours,
             'continuous_cap': continuous_cap
         })
@@ -285,8 +291,7 @@ class HrEmployee(models.Model):
         """
         employees = self.search([])
         for employee in employees:
-            if employee.id == 4 or employee.id == 8:  # for testing purposes
-                employee.compute_balance(store=True)
+            employee.compute_balance(store=True)
 
     @api.multi
     @api.depends('today_hour')
