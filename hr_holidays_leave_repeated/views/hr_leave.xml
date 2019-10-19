@@ -6,11 +6,15 @@
         <field name="inherit_id" ref="hr_holidays.hr_leave_view_form" />
         <field name="arch" type="xml">
             <xpath expr="//field[@name='holiday_status_id']" position="after">
-                <field name="holiday_type_repeat" invisible="1"/>
-                <field name="repeat_every" attrs="{'invisible':[('holiday_type_repeat','!=',True)]}"/>
-                <field name="repeat_mode" attrs="{'invisible':[('holiday_type_repeat','!=',True)]}"/>
-                <field name="repeat_end_date" attrs="{'invisible':['|',('repeat_mode','=','times'),('holiday_type_repeat','!=',True)]}"/>
-                <field name="repeat_limit" attrs="{'invisible':['|',('repeat_mode','=','date'),('holiday_type_repeat','!=',True)]}"/>
+                <div class="col-4 mr-0">
+                    <group colspan="4">
+                        <field name="holiday_type_repeat" invisible="1"/>
+                        <field name="repeat_every" attrs="{'invisible':[('holiday_type_repeat','!=',True)]}"/>
+                        <field name="repeat_mode" attrs="{'invisible':[('holiday_type_repeat','!=',True)]}"/>
+                        <field name="repeat_end_date" attrs="{'invisible':['|',('repeat_mode','=','times'),('holiday_type_repeat','!=',True)]}"/>
+                        <field name="repeat_limit" attrs="{'invisible':['|',('repeat_mode','=','date'),('holiday_type_repeat','!=',True)]}"/>
+                    </group>
+                </div>
             </xpath>
         </field>
     </record>

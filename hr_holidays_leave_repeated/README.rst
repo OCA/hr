@@ -14,13 +14,13 @@ HR Holidays leave repeated
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fhr-lightgray.png?logo=github
-    :target: https://github.com/OCA/hr/tree/12.0/hr_holidays_leave_repeated
+    :target: https://github.com/OCA/hr/tree/13.0/hr_holidays_leave_repeated
     :alt: OCA/hr
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/hr-12-0/hr-12-0-hr_holidays_leave_repeated
+    :target: https://translation.odoo-community.org/projects/hr-13-0/hr-13-0-hr_holidays_leave_repeated
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runbot-Try%20me-875A7B.png
-    :target: https://runbot.odoo-community.org/runbot/116/12.0
+    :target: https://runbot.odoo-community.org/runbot/116/13.0
     :alt: Try me on Runbot
 
 |badge1| |badge2| |badge3| |badge4| |badge5| 
@@ -67,6 +67,7 @@ Contributors
 ~~~~~~~~~~~~
 
 * Andrea Stirpe <a.stirpe@onestein.nl>
+* Murtaza Mithaiwala <https://twitter.com/MurtazaMithaiw4>
 
 Maintainers
 ~~~~~~~~~~~
@@ -81,6 +82,6 @@ OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
 
-This module is part of the `OCA/hr <https://github.com/OCA/hr/tree/12.0/hr_holidays_leave_repeated>`_ project on GitHub.
+This module is part of the `OCA/hr <https://github.com/OCA/hr/tree/13.0/hr_holidays_leave_repeated>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
