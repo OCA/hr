@@ -15,12 +15,11 @@ class HrLeave(models.Model):
     @api.model
     def create(self, values):
         auto_approve = self._get_auto_approve_on_creation(values)
-        tracking_disable = self.env.context.get('tracking_disable', False)
+        tracking_disable = self.env.context.get("tracking_disable", False)
         tracking_disable = tracking_disable or auto_approve
         res = super(
-            HrLeave, self.with_context(
-                tracking_disable=tracking_disable)
-            ).create(values)
+            HrLeave, self.with_context(tracking_disable=tracking_disable)
+        ).create(values)
         if res.can_approve and res.holiday_status_id.auto_approve:
             res.action_approve()
         return res
@@ -28,8 +27,10 @@ class HrLeave(models.Model):
     @api.model
     def _get_auto_approve_on_creation(self, values):
         auto_approve = False
-        if values.get('holiday_status_id'):
-            auto_approve = self.env['hr.leave.type'].browse(
-                values.get('holiday_status_id')
-            ).auto_approve
+        if values.get("holiday_status_id"):
+            auto_approve = (
+                self.env["hr.leave.type"]
+                .browse(values.get("holiday_status_id"))
+                .auto_approve
+            )
         return auto_approve

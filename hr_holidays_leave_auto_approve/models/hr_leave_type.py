@@ -8,6 +8,7 @@ class HrLeaveType(models.Model):
     _inherit = "hr.leave.type"
 
     auto_approve = fields.Boolean(
-        string='Auto Validate',
+        string="Auto Validate",
         help="If True, leaves belonging to this leave type will be"
-             " automatically validated")
+        " automatically validated",
+    )
