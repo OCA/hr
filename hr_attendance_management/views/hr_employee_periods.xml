@@ -8,6 +8,7 @@
                 <field name="start_date" />
                 <field name="end_date_display" />
                 <field name="balance" widget="float_time" type="char" />
+                <field name="final_balance" widget="float_time" type="char" />
                 <field name="lost" widget="float_time" type="char" />
                 <field name="continuous_cap" type="boolean"/>
             </tree>

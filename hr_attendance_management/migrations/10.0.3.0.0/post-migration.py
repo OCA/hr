@@ -69,3 +69,19 @@ def migrate(env, version):
                                          new_period_lost,
                                          employee_model.extra_hours_continuous_cap)
             employee_model.compute_balance()
+
+            cr.execute(
+                """
+                    SELECT
+                        limit_extra_hours
+                    FROM 
+                        hr_employee
+                    WHERE
+                        id = %s
+                """, [employee["id"]])
+
+            limit_extra_hours = cr.dictfetchone()["limit_extra_hours"]
+            cr.execute("UPDATE hr_employee SET extra_hours_continuous_cap = %s "
+                       "WHERE id = %s", (limit_extra_hours, employee['id']))
+            cr.execute("ALTER TABLE hr_employee "
+                       "DROP COLUMN IF EXISTS limit_extra_hours")

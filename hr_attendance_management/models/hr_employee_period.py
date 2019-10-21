@@ -42,7 +42,7 @@ class HrEmployeePeriod(models.Model):
     @api.depends('previous_period.final_balance', 'balance')
     def _compute_final_balance(self):
         for period in self:
-            period.update_past_period()
+            period.final_balance = period.update_past_period().final_balance
 
     def update_past_period(self):
         """
@@ -71,15 +71,17 @@ class HrEmployeePeriod(models.Model):
         final_balance = extra
         computed_balance = extra - previous_balance
         # the balance of the period was modified by an user
-        if balance_of_period != computed_balance:
+        if abs(balance_of_period - computed_balance) > 0.1:
             final_balance = final_balance + balance_of_period - computed_balance
 
-        self.write({
-            'final_balance': final_balance
-        })
-        self.final_balance = final_balance
+        if abs(self.final_balance - final_balance) > 0.1:
+            self.final_balance = final_balance
+            self.write({
+                'final_balance': final_balance
+            })
 
         if self.balance == 0:
+            self.balance = extra - previous_balance
             self.write({
                 'balance': extra - previous_balance
             })

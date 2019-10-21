@@ -27,9 +27,9 @@ class HrEmployee(models.Model):
 
     attendance_days_ids = fields.One2many('hr.attendance.day', 'employee_id',
                                           "Attendance days")
-    balance = fields.Float(string='Balance', compute='compute_balance', store=True)
-    initial_balance = fields.Float(string='Initial Balance',
-                                   store=True)
+    balance = fields.Float(string='Balance', compute='compute_balance',
+                           store=False)
+    initial_balance = fields.Float(string='Initial Balance')
 
     extra_hours_lost = fields.Float()
 
@@ -51,7 +51,9 @@ class HrEmployee(models.Model):
 
     work_location = fields.Char(compute='_compute_work_location')
 
-    period_ids = fields.One2many('hr.employee.period', 'employee_id', string='History Periods')
+    period_ids = fields.One2many('hr.employee.period', 'employee_id',
+                                 string='History Periods', readonly=True,
+                                 compute="_compute_periods")
 
     ##########################################################################
     #                             FIELDS METHODS                             #
@@ -87,7 +89,8 @@ class HrEmployee(models.Model):
             employee.period_ids = self.env['hr.employee.period'].search([
                 ('employee_id', '=', employee.id)
             ], order="start_date asc")
-            # employee.period_ids[0].update_past_period()
+            if len(employee.period_ids) != 0:
+                employee.period_ids[0].update_past_period()
 
     @api.multi
     def compute_balance(self, store=False):
@@ -128,6 +131,9 @@ class HrEmployee(models.Model):
             # so we just assign the value
             if final_balance:
                 employee.balance = final_balance
+                # employee.write({
+                #     'balance': final_balance
+                # })
             else:
                 extra, lost = employee.past_balance_computation(
                     start_date=start_date,
@@ -136,6 +142,10 @@ class HrEmployee(models.Model):
 
                 employee.balance = extra
                 employee.extra_hours_lost = lost
+                # employee.write({
+                #     'balance': extra,
+                #     'extra_hours_lost': lost
+                # })
 
             if store:
                 previous_period = None
