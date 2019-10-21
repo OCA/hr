@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="create_period_wizard_view" model="ir.ui.view">
+        <field name="name">Create period wizard</field>
+        <field name="model">hr.create.period.wizard</field>
+        <field name="domain">[('employee_id','in', active_ids)]</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="employee_id" invisible="1"/>
+                    <field name="start_date" widget="date"/>
+                    <field name="end_date" widget="date"/>
+                    <field name="continuous_cap"/>
+                </group>
+                <footer>
+                    <button name="create_period" string="Create period" class="oe_right oe_highlight"
+                            type="object"/>
+                    <button string="Cancel" class="oe_right" special="cancel"/>
+                </footer>
+
+            </form>
+        </field>
+    </record>
+
+    <act_window id="create_period_wizard"
+                name="Create period"
+                res_model="hr.create.period.wizard"
+                src_model="hr.employee"
+                view_mode="form"
+                target="new"
+    />
+</odoo>

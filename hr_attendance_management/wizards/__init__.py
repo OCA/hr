@@ -6,3 +6,4 @@
 from . import hr_attendance_settings
 from . import hr_change_day_wizard
 from . import migrate_module
+from . import hr_create_period_wizard

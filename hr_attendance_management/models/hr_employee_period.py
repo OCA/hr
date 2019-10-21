@@ -52,7 +52,6 @@ class HrEmployeePeriod(models.Model):
         for current_period in self:
             return current_period.calculate_and_write_final_balance()
 
-    # TODO call compute_balance after the modification/creation of a period
     def calculate_and_write_final_balance(self):
         start_date = self.start_date
         end_date = self.end_date
@@ -80,7 +79,6 @@ class HrEmployeePeriod(models.Model):
         })
         self.final_balance = final_balance
 
-        # TODO check if the depends on balance for _compute_final_balance works with this
         if self.balance == 0:
             self.write({
                 'balance': extra - previous_balance
