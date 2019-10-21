@@ -17,7 +17,7 @@ class HrEmployeePeriod(models.Model):
     _order = "start_date"
 
     start_date = fields.Date(string='First date of period')
-    end_date = fields.Date(string='Last date of period')
+    end_date = fields.Date(string='Last date of period (exclusive)')
     end_date_display = fields.Date(string="Last date of period",
                                    compute="_compute_display_of_end_date")
     balance = fields.Float(string='Balance of period')
