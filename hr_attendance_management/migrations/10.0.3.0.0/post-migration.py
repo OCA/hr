@@ -83,5 +83,3 @@ def migrate(env, version):
             limit_extra_hours = cr.dictfetchone()["limit_extra_hours"]
             cr.execute("UPDATE hr_employee SET extra_hours_continuous_cap = %s "
                        "WHERE id = %s", (limit_extra_hours, employee['id']))
-            cr.execute("ALTER TABLE hr_employee "
-                       "DROP COLUMN IF EXISTS limit_extra_hours")
