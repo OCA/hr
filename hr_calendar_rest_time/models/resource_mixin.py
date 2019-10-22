@@ -8,7 +8,7 @@ from datetime import timedelta
 class ResourceMixin(models.AbstractModel):
     _inherit = 'resource.mixin'
 
-    def _get_work_hours(self, interval):
-        return (interval[1] - interval[0]) - timedelta(hours=sum([
-            attendance.rest_time for attendance in interval[2]['attendances']
-        ]))
+    def _get_work_hours(self, start, stop, meta):
+        return (stop - start - timedelta(hours=sum([
+            attendance.rest_time for attendance in meta
+        ]))).total_seconds() / 3600

@@ -43,6 +43,8 @@ class HRCalendarRestTime(TransactionCase):
                 today, time(23, 59, 59, 99999)),
         )['hours']
         self.assertEqual(hours, 8.0)
+        self.calendar._onchange_hours_per_day()
+        self.assertEqual(self.calendar.hours_per_day, 8)
 
         with self.assertRaises(ValidationError):
             self.calendar.attendance_ids[0].write({'rest_time': 10})
@@ -50,3 +52,7 @@ class HRCalendarRestTime(TransactionCase):
         self.calendar.attendance_ids[0].write({'rest_time': -1})
         self.calendar.attendance_ids[0]._onchange_rest_time()
         self.assertEqual(self.calendar.attendance_ids[0].rest_time, 0.0)
+
+        self.calendar.attendance_ids[0].write({'rest_time': 2})
+        self.calendar.attendance_ids[0]._onchange_rest_time()
+        self.assertEqual(self.calendar.attendance_ids[0].day_period, 'all_day')
