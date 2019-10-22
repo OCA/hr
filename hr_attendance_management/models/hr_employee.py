@@ -90,7 +90,7 @@ class HrEmployee(models.Model):
                 ('employee_id', '=', employee.id)
             ], order="start_date asc")
             if len(employee.period_ids) != 0:
-                employee.period_ids[0].update_past_period()
+                employee.period_ids[0].update_period()
 
     @api.multi
     def compute_balance(self, store=False):

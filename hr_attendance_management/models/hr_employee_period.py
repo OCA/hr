@@ -42,17 +42,35 @@ class HrEmployeePeriod(models.Model):
     @api.depends('previous_period.final_balance', 'balance')
     def _compute_final_balance(self):
         for period in self:
-            period.final_balance = period.update_past_period().final_balance
+            period.final_balance = period.update_period(origin="compute").final_balance
 
-    def update_past_period(self):
+    def update_period(self, origin=None):
         """
         This function recompute balance and lost hours for one period.
         :return:
         """
         for current_period in self:
-            return current_period.calculate_and_write_final_balance()
+            balance, final_balance = current_period.calculate_balance_and_final_balance()
 
-    def calculate_and_write_final_balance(self):
+            # If we come for the compute_final_balance method, don't write but just assign value
+            if origin == "compute":
+                current_period.final_balance = final_balance
+                current_period.balance = balance
+
+            else:
+                if abs(current_period.final_balance - final_balance) > 0.1:
+                    current_period.write({
+                        'final_balance': final_balance
+                    })
+
+                if current_period.balance == 0:
+                    current_period.write({
+                        'balance': balance
+                    })
+
+            return current_period
+
+    def calculate_balance_and_final_balance(self):
         start_date = self.start_date
         end_date = self.end_date
         previous_balance = None
@@ -74,19 +92,9 @@ class HrEmployeePeriod(models.Model):
         if abs(balance_of_period - computed_balance) > 0.1:
             final_balance = final_balance + balance_of_period - computed_balance
 
-        if abs(self.final_balance - final_balance) > 0.1:
-            self.final_balance = final_balance
-            self.write({
-                'final_balance': final_balance
-            })
+        balance = extra - previous_balance
 
-        if self.balance == 0:
-            self.balance = extra - previous_balance
-            self.write({
-                'balance': extra - previous_balance
-            })
-
-        return self
+        return balance, final_balance
 
     @api.multi
     def create(self, vals):
@@ -173,7 +181,7 @@ class HrEmployeePeriod(models.Model):
                                    continuous_cap=surround_continuous_cap,
                                    origin="override")
 
-                period1.update_past_period()
+                period1.update_period()
             else:
                 if previous_period:
                     previous_end_date = datetime.datetime.strptime(previous_period.end_date, '%Y-%m-%d')
@@ -191,7 +199,7 @@ class HrEmployeePeriod(models.Model):
                         res.write({
                             'previous_period': period.id
                         })
-                        period.update_past_period()
+                        period.update_period()
 
                     res.write({
                         'previous_period': previous_period.id
@@ -204,7 +212,7 @@ class HrEmployeePeriod(models.Model):
                     res.write({
                         'previous_period': previous_overlapping_period.id
                     })
-                    previous_overlapping_period.update_past_period()
+                    previous_overlapping_period.update_period()
 
                 # A following period overlap with the new one
                 if next_overlapping_period:
@@ -220,7 +228,7 @@ class HrEmployeePeriod(models.Model):
                         # deletes useless period
                         period.unlink()
 
-                res = res.update_past_period()
+                res = res.update_period()
         return res
 
     def create_period(self, start_date, end_date, employee_id, balance,
