@@ -7,6 +7,7 @@ from odoo.exceptions import ValidationError
 
 class HrCourse(models.Model):
     _name = 'hr.course'
+    _description = 'Course'
     _inherit = 'mail.thread'
 
     name = fields.Char(
@@ -126,8 +127,9 @@ class HrCourse(models.Model):
             deleted_attendees += '- %s <br></br>'\
                                  % course_attendee.employee_id.name
         if deleted_attendees != '':
-            self.message_post(_('Employees removed from'
-                                ' this course: <br></br>' + deleted_attendees))
+            message = _('Employees removed from this course: <br></br>%s'
+                        ) % deleted_attendees
+            self.message_post(body=message)
         return {
             'state': 'in_progress',
             'course_attendee_ids': attendants
@@ -192,6 +194,7 @@ class HrCourse(models.Model):
 
 class HRCourseAttendee(models.Model):
     _name = 'hr.course.attendee'
+    _description = "Course Attendee"
 
     course_id = fields.Many2one(
         'hr.course',
