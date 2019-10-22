@@ -111,16 +111,12 @@ class HrEmployeePeriod(models.Model):
                 current_period.balance = balance
 
             else:
-                if abs(current_period.final_balance - final_balance) > 0.1:
-                    current_period.write({
-                        'final_balance': final_balance
-                    })
-
-                if abs(current_period.balance - balance) > 0.1:
-                    current_period.write({
-                        'balance': balance
-                    })
-
+                current_period.write({
+                    'balance': balance
+                })
+                current_period.write({
+                    'final_balance': final_balance
+                })
             return current_period
 
     def calculate_balance_and_final_balance(self):
