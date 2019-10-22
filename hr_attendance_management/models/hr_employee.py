@@ -109,7 +109,7 @@ class HrEmployee(models.Model):
             # Compute from 01.01.2018 as default
             balance = employee.initial_balance
             start_date = config.get_beginning_date_for_balance_computation()
-            end_date = fields.Date.to_string(datetime.date.today())
+            end_date = fields.Date.to_string(datetime.date.today() + datetime.timedelta(days=1))
             final_balance = None
 
             if employee_history:
@@ -220,7 +220,7 @@ class HrEmployee(models.Model):
             start_date = fields.Date.to_string(
                 datetime.date.today().replace(month=1, day=1))
         if not end_date:
-            end_date = fields.Date.to_string(datetime.date.today())
+            end_date = fields.Date.to_string(datetime.date.today() + datetime.timedelta(days=1))
 
         if not isinstance(start_date, basestring):
             start_date = fields.Date.to_string(start_date)
