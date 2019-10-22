@@ -63,7 +63,7 @@ class HrEmployeePeriod(models.Model):
                         'final_balance': final_balance
                     })
 
-                if current_period.balance == 0:
+                if abs(current_period.balance - balance) > 0.1:
                     current_period.write({
                         'balance': balance
                     })
@@ -126,11 +126,11 @@ class HrEmployeePeriod(models.Model):
 
             # period that begins before and finish after start_date
             previous_overlapping_period = employee_periods.filtered(
-                lambda r: end_date > r.end_date > start_date and r.start_date < start_date)
+                lambda r: end_date >= r.end_date > start_date and r.start_date < start_date)
 
             # period that begins before and finish after end_date
             next_overlapping_period = employee_periods.filtered(
-                lambda r: end_date > r.start_date > start_date and r.end_date > end_date)
+                lambda r: end_date > r.start_date > start_date and r.end_date >= end_date)
 
             # period that begins before start_date and finish after end_date
             surrounding_period = employee_periods.filtered(
@@ -206,9 +206,7 @@ class HrEmployeePeriod(models.Model):
                     })
                 if previous_overlapping_period:
                     # Modify first previous overlapping period
-                    previous_overlapping_period.write({
-                        'end_date': start_date
-                    })
+                    previous_overlapping_period.end_date = start_date
                     res.write({
                         'previous_period': previous_overlapping_period.id
                     })
@@ -221,7 +219,6 @@ class HrEmployeePeriod(models.Model):
                         'start_date': end_date,
                         'previous_period': res.id
                     })
-                    # next_overlapping_period.update_past_period()
 
                 if surrounded_periods:
                     for period in surrounded_periods:
