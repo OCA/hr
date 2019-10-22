@@ -17,6 +17,18 @@
             </data>
         </field>
     </record>
+    <record id="view_employee_form_manager" model="ir.ui.view">
+        <field name="name">hr.employee.form.inherit.manager</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="groups_id" eval="[(6, 0, ref('hr.group_hr_manager'))]"/>
+        <field name="priority" eval="50"/>
+        <field name="arch" type="xml">
+            <field name="identification_id" position="attributes">
+                <attribute name="readonly" eval="0"/>
+            </field>
+        </field>
+    </record>
     <record id="view_employee_tree" model="ir.ui.view">
         <field name="name">hr.employee.tree.inherit</field>
         <field name="model">hr.employee</field>
@@ -43,12 +55,16 @@
         <field name="name">HR - Employees Kanban</field>
         <field name="model">hr.employee</field>
         <field name="inherit_id" ref="hr.hr_kanban_view_employees"/>
+        <field name="groups_id" eval="[(6, 0, ref('hr.group_hr_user'))]"/>
         <field name="arch" type="xml">
-            <li id="last_login" position="after">
+            <xpath expr="//templates" position="before">
+                <field name="identification_id"/>
+            </xpath>
+            <xpath expr="//div[hasclass('oe_kanban_details')]/ul" position="inside">
                 <li t-if="record.identification_id.raw_value">
-                    <field name="identification_id"/>
+                    <i class="fa fa-fw fa-id-card"/> <field name="identification_id"/>
                 </li>
-            </li>
+            </xpath>
         </field>
     </record>
 
