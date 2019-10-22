@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 11.0\n"
+"Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
@@ -19,12 +19,12 @@ msgid "Attendance"
 msgstr ""
 
 #. module: hr_attendance_autoclose
-#: model:ir.model.fields,field_description:hr_attendance_autoclose.field_res_company_attendance_maximum_hours_per_day
+#: model:ir.model.fields,field_description:hr_attendance_autoclose.field_res_company__attendance_maximum_hours_per_day
 msgid "Attendance Maximum Hours Per Day"
 msgstr ""
 
 #. module: hr_attendance_autoclose
-#: model:ir.ui.view,arch_db:hr_attendance_autoclose.view_company_inherit_form
+#: model_terms:ir.ui.view,arch_db:hr_attendance_autoclose.view_company_inherit_form
 msgid "Attendances"
 msgstr ""
 
@@ -41,7 +41,17 @@ msgid "Companies"
 msgstr ""
 
 #. module: hr_attendance_autoclose
-#: model:ir.model.fields,field_description:hr_attendance_autoclose.field_hr_attendance_open_worked_hours
+#: model:ir.model.fields,field_description:hr_attendance_autoclose.field_hr_employee__no_autoclose
+msgid "Don't Autoclose Attendances"
+msgstr ""
+
+#. module: hr_attendance_autoclose
+#: model:ir.model,name:hr_attendance_autoclose.model_hr_employee
+msgid "Employee"
+msgstr ""
+
+#. module: hr_attendance_autoclose
+#: model:ir.model.fields,field_description:hr_attendance_autoclose.field_hr_attendance__open_worked_hours
 msgid "Worked hours"
 msgstr ""
 
