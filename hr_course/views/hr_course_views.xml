@@ -40,11 +40,11 @@
                            statusbar_visible="draft,waiting_attendees,in_progress,in_validation,completed"/>
                 </header>
                 <sheet string="Course">
-                    <label string="Draft Course"
+                    <label string="Draft Course" for=""
                            attrs="{'invisible': [('state','!=','draft')]}">
                         <br></br>
                     </label>
-                    <label string="Cancelled Course" style="color:red"
+                    <label string="Cancelled Course" style="color:red" for=""
                            attrs="{'invisible': [('state','!=','cancelled')]}">
                         <br></br>
                     </label>
