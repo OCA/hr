@@ -2,7 +2,7 @@
 # © 2017 Therp BV <http://therp.nl>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 import datetime
-import pytz
+import dateutil
 from dateutil.relativedelta import relativedelta
 from dateutil.rrule import WEEKLY
 from openerp import _, api, fields, models
@@ -109,7 +109,7 @@ class ResourceCalendar(models.Model):
         if not attendances:
             result['type'] = 'null'
         warn = ''
-        start = datetime.datetime.today().replace(tzinfo=pytz.utc)
+        start = datetime.datetime.today().replace(tzinfo=dateutil.tz.UTC)
         stop = False
         even_odd_occurrences = set()
         for attendance in attendances:
@@ -187,15 +187,15 @@ class ResourceCalendar(models.Model):
 
         # convert the start and stop dates via a naive datetime to
         # UTC datetimes for SerializableRRuleSet
-        tz = pytz.timezone(self.env.user.tz or 'utc')
-        start = tz.localize(fields.Datetime.from_string(attendance_start))
-        start_is_even = not bool(start.isocalendar()[1] % 2)
-        start = start.astimezone(pytz.utc)
+        start_naive = fields.Datetime.from_string(attendance_start)
+        start_is_even = not bool(start_naive.isocalendar()[1] % 2)
+        tz = dateutil.tz.gettz(self.env.user.tz or 'utc')
+        start = start_naive.replace(tzinfo=tz).astimezone(dateutil.tz.UTC)
         stop = False
         if attendance_stop:
-            stop = tz.localize(
-                fields.Datetime.from_string(attendance_stop)
-            ).replace(hour=23, minute=59).astimezone(pytz.utc)
+            stop_naive = fields.Datetime.from_string(attendance_stop)
+            stop = stop_naive.replace(tzinfo=tz).replace(
+                hour=23, minute=59).astimezone(dateutil.tz.UTC)
 
         morning_hour = self._get_morning_hour()
         afternoon_hour = self._get_afternoon_hour()
@@ -204,19 +204,23 @@ class ResourceCalendar(models.Model):
         rule = self.env['resource.calendar.attendance']._default_rrule()[0]
         for key in ['data'] + (['data_odd'] if odd_even else []):
             for day in simplified_attendance.get(key, ()):
+                start_weekday = start_naive.weekday()
                 weekday = day.get('day', 0)
-                odd_offset = relativedelta(
-                    days=(7 - start.weekday())  # skip to next monday
-                    if odd_even and (
-                        start_is_even and key == 'data_odd' or
-                        not start_is_even and key == 'data'
-                    )
-                    else 0
-                )
+                if not odd_even:
+                    start_offset = 0
+                elif start_is_even and key == 'data_odd':
+                    start_offset = 7 - start_weekday  # next week monday
+                elif not start_is_even and key == 'data':
+                    start_offset = 7 - start_weekday  # next week monday
+                elif start_weekday <= weekday:
+                    start_offset = 0  # still this week
+                else:
+                    start_offset = 14 - start_weekday  # overnext monday
                 day_rule = dict(
                     rule, byweekday=[weekday],
                     interval=2 if odd_even else 1,
-                    dtstart=fields.Datetime.to_string(start + odd_offset),
+                    dtstart=fields.Datetime.to_string(
+                        start + relativedelta(days=start_offset)),
                     until=fields.Datetime.to_string(stop)
                 )
                 morning_hours = day.get('morning', 0.0)
@@ -256,17 +260,17 @@ class ResourceCalendar(models.Model):
         end_dt = self.env.context.get('end_dt_res_calendar')
         start_dt_utc = None
         end_dt_utc = None
-        current_tz = pytz.timezone(self.env.user.tz or 'utc')
+        current_tz = dateutil.tz.gettz(self.env.user.tz or 'utc')
         if start_dt:
             start_dt = start_dt.replace(
                 hour=0, minute=0, second=0, microsecond=0)
-            start_dt_utc = current_tz.localize(start_dt).astimezone(
-                pytz.utc).replace(tzinfo=None)
+            start_dt_utc = start_dt.replace(tzinfo=current_tz).astimezone(
+                dateutil.tz.UTC).replace(tzinfo=None)
         if end_dt:
             end_dt = end_dt.replace(
                 hour=23, minute=59, second=59, microsecond=0)
-            end_dt_utc = current_tz.localize(
-                end_dt).astimezone(pytz.utc).replace(tzinfo=None)
+            end_dt_utc = end_dt.replace(tzinfo=current_tz).astimezone(
+                dateutil.tz.UTC).replace(tzinfo=None)
 
         # Filter attendances
         interval = None
