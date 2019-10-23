@@ -22,6 +22,10 @@ class ChangeDayDWizard(models.TransientModel):
 
     def create_period(self):
         for record in self:
+
+            if record.start_date >= record.end_date:
+                return ValueError("The end_date cannot be smaller than the start_date")
+
             if not record.employee_id:
                 record._compute_employee_id()
             previous_periods = record.employee_id.period_ids.filtered(

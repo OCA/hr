@@ -109,7 +109,7 @@ class HrEmployee(models.Model):
             # Compute from 01.01.2018 as default
             balance = employee.initial_balance
             start_date = config.get_beginning_date_for_balance_computation()
-            end_date = fields.Date.to_string(datetime.date.today() + datetime.timedelta(days=1))
+            end_date = fields.Date.to_string(datetime.date.today())
             final_balance = None
 
             if employee_history:

@@ -156,6 +156,9 @@ class HrEmployeePeriod(models.Model):
         start_date = vals['start_date']
         end_date = vals['end_date']
 
+        if start_date >= end_date:
+            return ValueError("The end_date cannot be smaller than the start_date")
+
         origin = None
         if 'origin' in vals:
             origin = vals['origin']

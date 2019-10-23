@@ -10,6 +10,7 @@
 ##############################################################################
 
 from openupgradelib import openupgrade
+from datetime import date
 
 
 @openupgrade.migrate(use_env=True)
@@ -42,6 +43,16 @@ def migrate(env, version):
 
     cr.execute("ALTER TABLE hr_employee RENAME COLUMN balance "
                "TO balance_copy")
+
+    # cr.execute("""
+    #     BEGIN
+    #         IF EXISTS(SELECT *
+    #             FROM hr_employee
+    #             WHERE column_name='balance')
+    #         THEN
+    #             ALTER TABLE hr_employee RENAME COLUMN balance TO balance_copy;
+    #         END IF;
+    # """)
 
     cr.execute("SELECT id FROM hr_employee")
     employee_ids = cr.dictfetchall()

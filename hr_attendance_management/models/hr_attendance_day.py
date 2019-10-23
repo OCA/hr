@@ -467,8 +467,9 @@ class HrAttendanceDay(models.Model):
                 end_date = datetime.datetime.today()
 
             if start_date < end_date:
-                first_period = sorted(day.employee_id.periods_ids,  key=lambda r: r.end_date)[0]
-                first_period.update_period()
+                periods = sorted(day.employee_id.period_ids,  key=lambda r: r.end_date)
+                if periods:
+                    periods[0].update_period()
 
     @api.multi
     def open_attendance_day(self):
