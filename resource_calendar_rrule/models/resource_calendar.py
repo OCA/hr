@@ -206,7 +206,7 @@ class ResourceCalendar(models.Model):
             for day in simplified_attendance.get(key, ()):
                 weekday = day.get('day', 0)
                 odd_offset = relativedelta(
-                    weeks=1
+                    days=(7 - start.weekday())  # skip to next monday
                     if odd_even and (
                         start_is_even and key == 'data_odd' or
                         not start_is_even and key == 'data'

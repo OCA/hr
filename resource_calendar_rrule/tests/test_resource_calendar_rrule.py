@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 # © 2017 Therp BV <http://therp.nl>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+import logging
+
 from datetime import datetime, timedelta
 from dateutil import rrule
 from openerp import fields
@@ -13,19 +15,15 @@ class TestResourceCalendarRrule(test_resource.TestResource):
 
     def setUp(self):
         super(TestResourceCalendarRrule, self).setUp()
+        self.logger = logging.getLogger(__name__)
         self.calendar = self.env['resource.calendar'].create({
             'name': 'testcalendar',
         })
-        self.tomorrow = (datetime.now() + timedelta(
-            days=1)).replace(hour=0, minute=1, second=0, microsecond=0)
         # 0:01 instead of 0:00 because of bug in Odoo
         # More information see https://github.com/OCA/OCB/pull/725
-        self.two_weeks_later = (self.tomorrow + timedelta(
-            days=13)).replace(hour=23, minute=59)
-        today = fields.Date.from_string(
-            fields.Date.context_today(self.calendar))
-        self.last_monday = fields.Date.to_string(
-            today - timedelta(days=today.weekday()))
+        self.today = datetime.now().replace(hour=0, minute=1)
+        self.two_weeks_later = (self.today + timedelta(days=13)).replace(
+            hour=23, minute=59)
 
     def test_60_simplified_attendance(self):
         """ Test normal simplified schedule """
@@ -39,43 +37,85 @@ class TestResourceCalendarRrule(test_resource.TestResource):
         )
         self.assertEquals(hours_per_week, 40)
         hours = self.calendar.get_working_hours(
-            self.tomorrow, self.two_weeks_later)
+            self.today, self.two_weeks_later)
         self.assertEquals(sum(hours), 80)
 
     def test_61_simplified_attendance_even_odd(self):
         """ Test simplified schedule with even and odd weeks """
-        orig_attendance = {
+        even_monday = fields.Date.from_string('2019-09-30')
+        odd_monday = even_monday + timedelta(days=7)
+        some_day = datetime(2019, 10, 15, 0, 1)
+        some_day_in_two_weeks = datetime(2019, 10, 28, 23, 59)
+        odd_week_start = datetime(2019, 10, 7, 0, 1)
+        odd_week_end = datetime(2019, 10, 11, 23, 59)
+        even_week_start = datetime(2019, 10, 14, 0, 1)
+        even_week_end = datetime(2019, 10, 18, 23, 59)
+        attendance_monday = {'day': 0, 'morning': 4.0, 'afternoon': 4.0}
+        attendance_friday_morning = {'day': 4, 'morning': 4.0}
+        schedules = []
+        schedules.append({
+            '_desc': 'Even/odd starting on even monday',
             'type': 'odd',
-            'start': self.last_monday,
-            'data': [{
-                'day': 1,
-                'morning': 4.0,
-                'afternoon': 4.0
-            }],
-            'data_odd': [{
-                'day': 2,
-                'morning': 4.0,
-                'afternoon': 4.0
-            }]
-        }
-        self.calendar.simplified_attendance = orig_attendance
-        self.env.invalidate_all()
-        read_attendance = self.calendar.simplified_attendance
-        self.assertEquals(read_attendance['type'], 'odd')
-        even_hours_per_week = sum(
-            x['morning'] + x['afternoon'] for x in read_attendance['data'])
-        self.assertEquals(even_hours_per_week, 8)
-        odd_hours_per_week = sum(
-            x['morning'] + x['afternoon'] for x in read_attendance['data_odd'])
-        self.assertEquals(odd_hours_per_week, 8)
-        hours = self.calendar.get_working_hours(
-            self.tomorrow, self.two_weeks_later)
-        self.assertEquals(sum(hours), 16)
-        intervals = self.calendar.schedule_days(4, day_date=self.tomorrow)[0]
-        intervals_in_next_two_weeks = [
-            i for i in intervals if i[0] < self.two_weeks_later
-        ]
-        self.assertEquals(len(intervals_in_next_two_weeks), 4)
+            'start': fields.Date.to_string(even_monday),
+            'data': [attendance_monday],
+            'data_odd': [attendance_friday_morning]
+        })
+        schedules.append({
+            '_desc': 'Even/odd starting on odd monday',
+            'type': 'odd',
+            'start': fields.Date.to_string(odd_monday),
+            'data': [attendance_monday],
+            'data_odd': [attendance_friday_morning]
+        })
+        # same schedule but now starting in week before even monday
+        for day in range(1, 7):
+            schedules.append({
+                '_desc': 'Starting {} days before even monday'.format(day),
+                'type': 'odd',
+                'start': fields.Date.to_string(
+                    odd_monday - timedelta(days=day)),
+                'data': [attendance_monday],
+                'data_odd': [attendance_friday_morning]
+            })
+
+        for schedule in schedules:
+            self.logger.info('Schedule: %s', schedule['_desc'])
+
+            # test if schedule written and read back correctly
+            self.calendar.simplified_attendance = schedule
+            self.env.invalidate_all()
+            read_schedule = self.calendar.simplified_attendance
+            self.assertEquals(read_schedule['type'], 'odd')
+            even_hours_per_week = sum(
+                x['morning'] + x['afternoon']
+                for x in read_schedule['data'])
+            self.assertEquals(even_hours_per_week, 8)
+            odd_hours_per_week = sum(
+                x['morning'] + x['afternoon']
+                for x in read_schedule['data_odd'])
+            self.assertEquals(odd_hours_per_week, 4)
+
+            # test total hours: 12 hours in 2 weeks
+            hours = self.calendar.get_working_hours(
+                some_day, some_day_in_two_weeks)
+            self.assertEquals(sum(hours), 12)
+
+            # test amount of work intervals: 3 work intervals in 2 weeks
+            intervals = self.calendar.schedule_days(
+                4, day_date=some_day)[0]
+            intervals_in_next_two_weeks = [
+                i for i in intervals if i[0] < some_day_in_two_weeks
+            ]
+            self.assertEquals(len(intervals_in_next_two_weeks), 3)
+
+            # the first odd week should have the odd schedule
+            hours = self.calendar.get_working_hours(
+                odd_week_start, odd_week_end)
+            self.assertEquals(sum(hours), 4)
+            # the first even week should have the even schedule
+            hours = self.calendar.get_working_hours(
+                even_week_start, even_week_end)
+            self.assertEquals(sum(hours), 8)
 
     def test_62_stable_times(self):
         # test that times in a timezone with dst don't jump crossing borders
