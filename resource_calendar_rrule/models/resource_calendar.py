@@ -2,9 +2,9 @@
 # © 2017 Therp BV <http://therp.nl>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 import datetime
-import dateutil
 from dateutil.relativedelta import relativedelta
 from dateutil.rrule import WEEKLY
+from dateutil.tz import gettz, tzutc
 from openerp import _, api, fields, models
 from openerp.exceptions import ValidationError
 from openerp.tools.float_utils import float_is_zero, float_round
@@ -109,7 +109,7 @@ class ResourceCalendar(models.Model):
         if not attendances:
             result['type'] = 'null'
         warn = ''
-        start = datetime.datetime.today().replace(tzinfo=dateutil.tz.UTC)
+        start = datetime.datetime.today().replace(tzinfo=tzutc())
         stop = False
         even_odd_occurrences = set()
         for attendance in attendances:
@@ -189,13 +189,13 @@ class ResourceCalendar(models.Model):
         # UTC datetimes for SerializableRRuleSet
         start_naive = fields.Datetime.from_string(attendance_start)
         start_is_even = not bool(start_naive.isocalendar()[1] % 2)
-        tz = dateutil.tz.gettz(self.env.user.tz or 'utc')
-        start = start_naive.replace(tzinfo=tz).astimezone(dateutil.tz.UTC)
+        tz = gettz(self.env.user.tz or 'utc')
+        start = start_naive.replace(tzinfo=tz).astimezone(tzutc())
         stop = False
         if attendance_stop:
             stop_naive = fields.Datetime.from_string(attendance_stop)
             stop = stop_naive.replace(tzinfo=tz).replace(
-                hour=23, minute=59).astimezone(dateutil.tz.UTC)
+                hour=23, minute=59).astimezone(tzutc())
 
         morning_hour = self._get_morning_hour()
         afternoon_hour = self._get_afternoon_hour()
@@ -260,17 +260,17 @@ class ResourceCalendar(models.Model):
         end_dt = self.env.context.get('end_dt_res_calendar')
         start_dt_utc = None
         end_dt_utc = None
-        current_tz = dateutil.tz.gettz(self.env.user.tz or 'utc')
+        current_tz = gettz(self.env.user.tz or 'utc')
         if start_dt:
             start_dt = start_dt.replace(
                 hour=0, minute=0, second=0, microsecond=0)
             start_dt_utc = start_dt.replace(tzinfo=current_tz).astimezone(
-                dateutil.tz.UTC).replace(tzinfo=None)
+                tzutc()).replace(tzinfo=None)
         if end_dt:
             end_dt = end_dt.replace(
                 hour=23, minute=59, second=59, microsecond=0)
             end_dt_utc = end_dt.replace(tzinfo=current_tz).astimezone(
-                dateutil.tz.UTC).replace(tzinfo=None)
+                tzutc()).replace(tzinfo=None)
 
         # Filter attendances
         interval = None
