@@ -1,0 +1,129 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * hr_holidays_imposed_days
+#
+# Translators:
+# Mehdi Zarrinkolah <mehdi1811@gmail.com>, 2018
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-06-07 02:58+0000\n"
+"PO-Revision-Date: 2018-07-21 10:45+0000\n"
+"Last-Translator: derKonig <fshahy@gmail.com>\n"
+"Language-Team: Persian (https://www.transifex.com/oca/teams/23907/fa/)\n"
+"Language: fa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.0.1\n"
+
+#. module: hr_holidays_imposed_days
+#: model:ir.model.fields,field_description:hr_holidays_imposed_days.field_hr_holidays_imposed_auto_confirm
+msgid "Auto Confirm"
+msgstr "تایید خودکار"
+
+#. module: hr_holidays_imposed_days
+#: model:ir.model.fields,field_description:hr_holidays_imposed_days.field_hr_holidays_imposed_company_id
+msgid "Company"
+msgstr "شرکت"
+
+#. module: hr_holidays_imposed_days
+#: model:ir.model.fields,field_description:hr_holidays_imposed_days.field_hr_holidays_imposed_create_uid
+msgid "Created by"
+msgstr "ایجاد شده توسط"
+
+#. module: hr_holidays_imposed_days
+#: model:ir.model.fields,field_description:hr_holidays_imposed_days.field_hr_holidays_imposed_create_date
+msgid "Created on"
+msgstr "ایجاد شده در"
+
+#. module: hr_holidays_imposed_days
+#: model:ir.model.fields,field_description:hr_holidays_imposed_days.field_hr_holidays_imposed_date_from
+msgid "Date From"
+msgstr "از تاریخ"
+
+#. module: hr_holidays_imposed_days
+#: model:ir.model.fields,field_description:hr_holidays_imposed_days.field_hr_holidays_imposed_date_to
+msgid "Date To"
+msgstr "تا تاریخ"
+
+#. module: hr_holidays_imposed_days
+#: model:ir.model.fields,field_description:hr_holidays_imposed_days.field_hr_holidays_imposed_display_name
+msgid "Display Name"
+msgstr "نام نمایشی"
+
+#. module: hr_holidays_imposed_days
+#: model:ir.model,name:hr_holidays_imposed_days.model_hr_employee
+#: model:ir.model.fields,field_description:hr_holidays_imposed_days.field_hr_holidays_imposed_employee_ids
+msgid "Employee"
+msgstr "کارمند "
+
+#. module: hr_holidays_imposed_days
+#: model:ir.ui.view,arch_db:hr_holidays_imposed_days.hr_holidays_imposed_view_form
+msgid "Employees"
+msgstr "کارمندان"
+
+#. module: hr_holidays_imposed_days
+#: model:ir.model.fields,field_description:hr_holidays_imposed_days.field_hr_holidays_imposed_id
+msgid "ID"
+msgstr "شناسه"
+
+#. module: hr_holidays_imposed_days
+#: model:ir.model.fields,help:hr_holidays_imposed_days.field_hr_holidays_imposed_employee_ids
+msgid ""
+"If empty, all employees of the company will have this day/period imposed"
+msgstr "اگر خالی باشد، برای تمام کارمندان شرکت  این روز/دوره اعمال خواهد شد"
+
+#. module: hr_holidays_imposed_days
+#: model:ir.actions.act_window,name:hr_holidays_imposed_days.action_hr_holidays_imposed_view
+#: model:ir.ui.menu,name:hr_holidays_imposed_days.menu_hr_holidays_imposed_view
+msgid "Imposed Days"
+msgstr "روزهای اعمال شده"
+
+#. module: hr_holidays_imposed_days
+#: model:ir.model.fields,field_description:hr_holidays_imposed_days.field_hr_holidays_imposed___last_update
+msgid "Last Modified on"
+msgstr "آخرین تغییرات در"
+
+#. module: hr_holidays_imposed_days
+#: model:ir.model.fields,field_description:hr_holidays_imposed_days.field_hr_holidays_imposed_write_uid
+msgid "Last Updated by"
+msgstr "آخرین به روزرسانی توسط"
+
+#. module: hr_holidays_imposed_days
+#: model:ir.model.fields,field_description:hr_holidays_imposed_days.field_hr_holidays_imposed_write_date
+msgid "Last Updated on"
+msgstr "آخرین به روزرسانی در"
+
+#. module: hr_holidays_imposed_days
+#: model:ir.model.fields,field_description:hr_holidays_imposed_days.field_hr_holidays_imposed_status_id
+msgid "Leave type"
+msgstr "نوع خروج"
+
+#. module: hr_holidays_imposed_days
+#: model:ir.model,name:hr_holidays_imposed_days.model_hr_holidays_imposed
+msgid "Manage imposed holidays"
+msgstr "مدیریت تعطیلات اعمال شده"
+
+#. module: hr_holidays_imposed_days
+#: model:ir.model.fields,field_description:hr_holidays_imposed_days.field_hr_holidays_imposed_name
+msgid "Name"
+msgstr "نام"
+
+#. module: hr_holidays_imposed_days
+#: model:ir.model.fields,field_description:hr_holidays_imposed_days.field_hr_holidays_imposed_number_of_days
+msgid "Number Of Days"
+msgstr "تعداد روزها"
+
+#. module: hr_holidays_imposed_days
+#: code:addons/hr_holidays_imposed_days/models/hr_holidays_imposed.py:124
+#, python-format
+msgid "The start date must be anterior to the end date."
+msgstr "تاریخ شروع باید قبل از تاریخ پایان باشد."
+
+#. module: hr_holidays_imposed_days
+#: model:ir.ui.view,arch_db:hr_holidays_imposed_days.hr_holidays_imposed_view_form
+msgid "validate"
+msgstr "اعتبار سنجی"

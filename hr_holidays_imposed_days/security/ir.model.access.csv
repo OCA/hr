@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hr_holidays_imposed_user,hr.holidays.imposed_user,model_hr_holidays_imposed,base.group_user,1,0,0,0
+access_hr_holidays_imposed_manager,hr.holidays.imposed_manager,model_hr_holidays_imposed,hr.group_hr_manager,1,1,1,1
