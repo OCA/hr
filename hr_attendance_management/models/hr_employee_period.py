@@ -156,7 +156,7 @@ class HrEmployeePeriod(models.Model):
         start_date = vals['start_date']
         end_date = vals['end_date']
 
-        if start_date >= end_date:
+        if str(start_date) >= str(end_date):
             return ValueError("The end_date cannot be smaller than the start_date")
 
         origin = None
@@ -167,7 +167,7 @@ class HrEmployeePeriod(models.Model):
             employee = res.employee_id
             if not employee:
                 employee = self.env['hr.employee'].search([
-                    ('employee_id', '=', vals['employee_id'])
+                    ('id', '=', vals['employee_id'])
                 ])
             employee_periods = employee.period_ids
 
@@ -194,20 +194,21 @@ class HrEmployeePeriod(models.Model):
 
             # We want to create a period inside another one
             if surrounding_period:
-                self.handle_surrounding_period(surrounded_periods, start_date, end_date, res)
+                self.handle_surrounding_period(surrounding_period, start_date, end_date, res)
 
-            # We must modify end_date of previous period
-            # and maybe create 1 more between the 2
-            if previous_period:
-                self.handle_previous_period(previous_period, previous_overlapping_period, start_date, res)
+            else:
+                # We must modify end_date of previous period
+                # and maybe create 1 more between the 2
+                if previous_period:
+                    self.handle_previous_period(previous_period, previous_overlapping_period, start_date, res)
 
-            # A previous period overlaps with the new one
-            if previous_overlapping_period:
-                self.handle_previous_overlapping_period(previous_overlapping_period, start_date, res)
+                # A previous period overlaps with the new one
+                if previous_overlapping_period:
+                    self.handle_previous_overlapping_period(previous_overlapping_period, start_date, res)
 
-            # A following period overlap with the new one
-            if next_overlapping_period:
-                self.handle_next_overlapping_period(next_overlapping_period, end_date, res.id)
+                # A following period overlap with the new one
+                if next_overlapping_period:
+                    self.handle_next_overlapping_period(next_overlapping_period, end_date, res.id)
 
             if surrounded_periods:
                 for period in surrounded_periods:

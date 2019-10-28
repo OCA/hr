@@ -53,7 +53,7 @@ class TestAnnualBalance(SavepointCase):
         :return: None
         """
 
-        start = date.strftime('%Y-%m-%d 08:30')
+        start = date.strftime('%Y-%m-%d 09:00')
         stop = date.strftime('%Y-%m-%d 17:30')
         self.env['hr.attendance'].create({
             'check_in': start,
@@ -127,7 +127,7 @@ class TestAnnualBalance(SavepointCase):
                     person.attendance_days_ids[-1].attendance_ids[-1].check_out) + timedelta(hours=3)
         self.michael._cron_compute_annual_balance()
         self.assertEqual(self.jack.balance, 2)
-        self.assertEqual(self.michael.balance, 5.25)
+        self.assertEqual(self.michael.balance, 5.5)
 
 
 
