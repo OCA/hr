@@ -327,6 +327,13 @@ class TestAttendanceDays(SavepointCase):
     #                             LEAVE REQUEST                              #
     ##########################################################################
 
+    def create_attendance_day(self, date, employee):
+        date_bis = datetime.strptime(date, "%Y-%m-%d").date()
+        self.env['hr.attendance.day'].create({
+            'date': date,
+            'employee_id': employee,
+        })
+
     def test_attendance_days_on_leave_request(self):
         """
         Approved leave request of pieter in the odoo demo database
@@ -356,10 +363,11 @@ class TestAttendanceDays(SavepointCase):
         }
 
         for date in data.keys():
-            self.env['hr.employee'].\
-                _cron_create_attendance(
-                domain=[('id', '=', self.pieter.id)],
-                day=date)
+            self.create_attendance_day(date, self.pieter.id)
+            # self.env['hr.employee'].\
+            #     _cron_create_attendance(
+            #     domain=[('id', '=', self.pieter.id)],
+            #     day=date)
 
         self.assertNotEqual(leave.attendance_day_ids, None)
 
