@@ -49,6 +49,26 @@ class TestAttendanceDays(SavepointCase):
             last_monday + timedelta(days=6),    # sunday
         ]
 
+        # Create rules
+        cls.env['hr.attendance.rules'].create({
+            'time_from': 0,
+            'time_to': 5,
+            'due_break': 0,
+            'due_break_total': 0
+        })
+        cls.env['hr.attendance.rules'].create({
+            'time_from': 7,
+            'time_to': 9,
+            'due_break': 0.25,
+            'due_break_total': 0.5
+        })
+        cls.env['hr.attendance.rules'].create({
+            'time_from': 9,
+            'time_to': 24,
+            'due_break': 0.75,
+            'due_break_total': 1
+        })
+
     ##########################################################################
     #                           ATTENDANCE DAY                               #
     ##########################################################################

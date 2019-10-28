@@ -262,9 +262,9 @@ class HrAttendanceDay(models.Model):
         """
         for att_day in self:
             if att_day.paid_hours:
-                hours = att_day.paid_hours - att_day.free_breaks_hours
+                hours = int(att_day.paid_hours - att_day.free_breaks_hours)
             else:
-                hours = att_day.due_hours - att_day.free_breaks_hours
+                hours = int(att_day.due_hours - att_day.free_breaks_hours)
             if hours < 0:
                 hours = 0
             att_day.rule_id = self.env['hr.attendance.rules'].search([
