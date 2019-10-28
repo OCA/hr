@@ -35,15 +35,6 @@ def migrate(env, version):
         ], limit=1)
 
         if employee_model:
-            # Create attendance_day for today
-            # date_from = str(date.today())
-            # date_to = str(date.today())
-            # env['create.hr.attendance.day'].create({
-            #     'date_from': date_from,
-            #     'date_to': date_to,
-            #     'employee_ids': [(4, employee["id"]), ]
-            # }).create_attendance_day()
-
             # Get old balance value
             cr.execute(
                 """

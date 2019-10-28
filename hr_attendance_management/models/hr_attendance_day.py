@@ -431,7 +431,7 @@ class HrAttendanceDay(models.Model):
     @api.multi
     def write(self, vals):
         res = super(HrAttendanceDay, self).write(vals)
-        if 'paid_hours' in vals:  # TODO check
+        if 'paid_hours' in vals:
             self.recompute_period_if_old_day()
         return res
 

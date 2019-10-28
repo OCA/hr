@@ -131,9 +131,6 @@ class HrEmployee(models.Model):
             # so we just assign the value
             if final_balance:
                 employee.balance = final_balance
-                # employee.write({
-                #     'balance': final_balance
-                # })
             else:
                 extra, lost = employee.past_balance_computation(
                     start_date=start_date,
@@ -142,10 +139,6 @@ class HrEmployee(models.Model):
 
                 employee.balance = extra
                 employee.extra_hours_lost = lost
-                # employee.write({
-                #     'balance': extra,
-                #     'extra_hours_lost': lost
-                # })
 
             if store:
                 previous_period = None
@@ -400,10 +393,3 @@ class HrEmployee(models.Model):
             'domain': [('employee_id', '=', self.id)],
             'target': 'current',
         }
-
-    def get_total_balance(self):
-        """
-        Called by a button. Calculate current balance for employee
-        """
-        self.ensure_one()
-        self.compute_balance()

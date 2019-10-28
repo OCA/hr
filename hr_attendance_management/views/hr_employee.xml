@@ -40,12 +40,6 @@
                                         icon="fa-calendar"
                                         string="My balance History">
                                 </button>
-                                <button name="get_total_balance"
-                                        type="object"
-                                        icon="fa-calendar"
-                                        string="Get my total balance"
-                                        >
-                                </button>
                             </group>
                         </group>
                         <field name="attendance_days_ids"
