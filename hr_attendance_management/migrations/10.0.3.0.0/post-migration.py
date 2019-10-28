@@ -13,7 +13,6 @@ from openupgradelib import openupgrade
 from datetime import date
 
 
-# TODO this migration should work but if made in year 2020, it will not create a period for the year 2019
 @openupgrade.migrate(use_env=True)
 def migrate(env, version):
     if not version:

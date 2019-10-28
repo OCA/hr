@@ -441,12 +441,11 @@ class HrAttendanceDay(models.Model):
     @api.multi
     def recompute_period_if_old_day(self):
         for day in self:
-            lower_bound_period = self.env['hr.employee.period'].search([
-                ('employee_id', '=', day.employee_id.id),
+            employee_periods = day.employee_id.period_ids
+            lower_bound_period = employee_periods.search([
                 ('end_date', '<=', day.date)
             ], order='end_date desc', limit=1)
-            upper_bound_period = self.env['hr.employee.period'].search([
-                ('employee_id', '=', day.employee_id.id),
+            upper_bound_period = employee_periods.search([
                 ('start_date', '>=', day.date)
             ], order='start_date asc', limit=1)
             config = self.env['base.config.settings'].create({})

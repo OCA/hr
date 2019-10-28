@@ -27,9 +27,8 @@ class HrEmployee(models.Model):
 
     attendance_days_ids = fields.One2many('hr.attendance.day', 'employee_id',
                                           "Attendance days")
-    balance = fields.Float(string='Balance', compute='compute_balance',
-                           store=False)
-    initial_balance = fields.Float(string='Initial Balance')
+    balance = fields.Float('Balance', compute='compute_balance', store=True)
+    initial_balance = fields.Float('Initial Balance')
 
     extra_hours_lost = fields.Float()
 
