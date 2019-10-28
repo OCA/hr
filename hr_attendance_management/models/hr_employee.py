@@ -27,7 +27,7 @@ class HrEmployee(models.Model):
 
     attendance_days_ids = fields.One2many('hr.attendance.day', 'employee_id',
                                           "Attendance days")
-    balance = fields.Float('Balance', compute='compute_balance')
+    balance = fields.Float('Balance', compute='compute_balance', store=True)
     initial_balance = fields.Float('Initial Balance')
 
     extra_hours_lost = fields.Float()
@@ -92,6 +92,7 @@ class HrEmployee(models.Model):
                 employee.period_ids[0].update_period()
 
     @api.multi
+    @api.depends('initial_balance')
     def compute_balance(self, store=False):
         """
         Method used to compute balance we needed. It uses the history of the employee to avoid
