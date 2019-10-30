@@ -35,6 +35,7 @@ setuptools.setup(
         'odoo12-addon-hr_experience',
         'odoo12-addon-hr_holidays_accrual_advanced',
         'odoo12-addon-hr_holidays_credit',
+        'odoo12-addon-hr_holidays_hour',
         'odoo12-addon-hr_holidays_leave_auto_approve',
         'odoo12-addon-hr_holidays_leave_repeated',
         'odoo12-addon-hr_holidays_leave_request_wizard',
