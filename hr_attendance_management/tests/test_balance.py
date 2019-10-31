@@ -33,7 +33,7 @@ class TestAnnualBalance(SavepointCase):
         attendances = cls.env['hr.attendance'].search([], order='check_in')
         cls.all_attendances = attendances
 
-        cls.monday = (datetime.now().date()
+        cls.monday = (datetime.today().date()
                       - timedelta(days=datetime.now().weekday() + 7))
         cls.tuesday = cls.monday + timedelta(days=1)
         cls.wednesday = cls.monday + timedelta(days=2)
@@ -44,7 +44,7 @@ class TestAnnualBalance(SavepointCase):
     #                           ATTENDANCE DAY                               #
     ##########################################################################
 
-    def create_first_attendance(self, date, employee):
+    def create_att_day_for_date_with_supp_hours(self, date, employee, hours=0):
         """
         Create an attendance for last friday from 09:00 to 17:30 for a
         duration of 8 hours and 30 minutes. A break of 30 minutes is created by
@@ -53,11 +53,21 @@ class TestAnnualBalance(SavepointCase):
         :return: None
         """
 
-        start = date.strftime('%Y-%m-%d 09:00')
-        stop = date.strftime('%Y-%m-%d 17:30')
+        start_01 = date.strftime('%Y-%m-%d 08:00')
+        stop_01 = date.strftime('%Y-%m-%d 12:00')
+        # 4h in the morning
+        start_02 = date.strftime('%Y-%m-%d 12:30')
+        stop_hour_2 = "{}:30".format(16 + hours)
+        stop_02 = date.strftime('%Y-%m-%d ' + stop_hour_2)
+        # 4h in the afternoon
         self.env['hr.attendance'].create({
-            'check_in': start,
-            'check_out': stop,
+            'check_in': start_01,
+            'check_out': stop_01,
+            'employee_id': employee.id,
+        })
+        self.env['hr.attendance'].create({
+            'check_in': start_02,
+            'check_out': stop_02,
             'employee_id': employee.id,
         })
 
@@ -79,29 +89,29 @@ class TestAnnualBalance(SavepointCase):
         self.michael.extra_hours_continuous_cap = False
         self.jack.extra_hours_continuous_cap = True
         for person in [self.jack, self.michael]:
-            self.create_first_attendance(self.monday, person)
-            self.create_first_attendance(self.tuesday, person)
-            self.create_first_attendance(self.wednesday, person)
-            self.create_first_attendance(self.thursday, person)
-            self.create_first_attendance(self.friday, person)
+            self.create_att_day_for_date_with_supp_hours(self.monday, person, 1)
+            self.create_att_day_for_date_with_supp_hours(self.tuesday, person, 1)
+            self.create_att_day_for_date_with_supp_hours(self.wednesday, person, 1)
+            self.create_att_day_for_date_with_supp_hours(self.thursday, person, 1)
+            self.create_att_day_for_date_with_supp_hours(self.friday, person, 1)
             person.compute_balance()
 
-        # Both jack and michael have worked 5 days with 0.5 hours extra hours
+        # Both jack and michael have worked 5 days with 1 hours extra hours
         # each day.
         self.assertEqual(self.jack.balance, 2)
-        self.assertEqual(self.jack.extra_hours_lost, 0.5)
-        self.assertEqual(self.michael.balance, 2.5)
+        self.assertEqual(self.jack.extra_hours_lost, 3)
+        self.assertEqual(self.michael.balance, 5)
         self.assertEqual(self.michael.extra_hours_lost, 0)
         # Upon switching to continuous computation, michael should loose up to
         # limit of extra hours.
         self.michael.extra_hours_continuous_cap = True
         self.michael.compute_balance()
         self.assertEqual(self.michael.balance, 2)
-        self.assertEqual(self.michael.extra_hours_lost, 0.5)
+        self.assertEqual(self.michael.extra_hours_lost, 3)
         # Switching back should come back to 2.5 extra hours.
         self.michael.extra_hours_continuous_cap = False
         self.michael.compute_balance()
-        self.assertEqual(self.michael.balance, 2.5)
+        self.assertEqual(self.michael.balance, 5)
         self.assertEqual(self.michael.extra_hours_lost, 0)
 
         # self.assertRaises(ValidationError, change_date_and_raises(364))
@@ -113,21 +123,20 @@ class TestAnnualBalance(SavepointCase):
         self.env['hr.employee.period'].search([
             ('employee_id', '=', self.michael.id)
         ]).unlink()
-        self.jack._cron_compute_annual_balance()
+        # self.jack._cron_compute_annual_balance()
+        self.jack.compute_balance()
         # michael extra hours should be affected by the yearly cutoff
         self.assertEqual(self.jack.balance, 2)
-        self.assertEqual(self.michael.balance, 2.5)
+        self.assertEqual(self.michael.balance, 5)
         # self.assertRaises(ValidationError, change_date_and_raises(2))
 
         # Now will modify an attendance in the recent past and see if the
         # update catch it correctly.
         for person in [self.michael, self.jack]:
-            person.attendance_days_ids[-1].attendance_ids[-1].check_out = \
+            person.attendance_days_ids[-1].attendance_ids[0].check_out = \
                 fields.Datetime.from_string(
-                    person.attendance_days_ids[-1].attendance_ids[-1].check_out) + timedelta(hours=3)
-        self.michael._cron_compute_annual_balance()
+                    person.attendance_days_ids[-1].attendance_ids[0].check_out) + timedelta(hours=3)
+        # self.michael._cron_compute_annual_balance()
+        self.jack.compute_balance()
         self.assertEqual(self.jack.balance, 2)
-        self.assertEqual(self.michael.balance, 5.5)
-
-
-
+        self.assertEqual(self.michael.balance, 5)

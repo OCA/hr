@@ -106,15 +106,20 @@ class HrEmployeePeriod(models.Model):
             # If we come for the compute_final_balance method,
             # don't write but just assign value. Else we
             # have error with recursion
-            if origin == "compute":
-                current_period.final_balance = final_balance
-                current_period.balance = balance
-
-            else:
-                current_period.write({
-                    'balance': balance,
-                    'final_balance': final_balance
-                })
+            # if origin == "compute":
+            #     current_period.final_balance = final_balance
+            #     current_period.balance = balance
+            # else:
+            #     current_period.write({
+            #         'balance': balance,
+            #         'final_balance': final_balance
+            #     })
+            # current_period.final_balance = final_balance
+            # current_period.balance = balance
+            current_period.write({
+                'balance': balance,
+                'final_balance': final_balance
+            })
             return current_period
 
     def calculate_balance_and_final_balance(self):
@@ -199,10 +204,12 @@ class HrEmployeePeriod(models.Model):
                 # and maybe create 1 more between the 2
                 if previous_period:
                     self.handle_previous_period(previous_period, previous_overlapping_period, start_date, res)
+                    previous_period.update_period()
 
                 # A previous period overlaps with the new one
                 if previous_overlapping_period:
                     self.handle_previous_overlapping_period(previous_overlapping_period, start_date, res)
+                    previous_overlapping_period.update_period()
 
                 # A following period overlap with the new one
                 if next_overlapping_period:
@@ -213,6 +220,7 @@ class HrEmployeePeriod(models.Model):
                     # deletes useless period
                     period.unlink()
 
+            # employee.period_ids.sorted(key=lambda p: p.start_date)[0].update_period()
             res = res.update_period()
         return res
 
@@ -232,11 +240,10 @@ class HrEmployeePeriod(models.Model):
             res.write({
                 'previous_period': period.id
             })
-            period.update_period()
-
-        res.write({
-            'previous_period': previous_period.id
-        })
+        else:
+            res.write({
+                'previous_period': previous_period.id
+            })
 
     def handle_surrounding_period(self, surrounding_period, start_date, end_date, res):
         surround_start = surrounding_period.start_date
@@ -278,7 +285,6 @@ class HrEmployeePeriod(models.Model):
         res.write({
             'previous_period': previous_overlapping_period.id
         })
-        previous_overlapping_period.update_period()
 
     def handle_next_overlapping_period(self, next_overlapping_period, end_date, res_id):
         # Modify next overlapping period
