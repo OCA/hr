@@ -112,9 +112,7 @@ class HrEmployeePeriod(models.Model):
 
             else:
                 current_period.write({
-                    'balance': balance
-                })
-                current_period.write({
+                    'balance': balance,
                     'final_balance': final_balance
                 })
             return current_period

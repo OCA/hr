@@ -22,7 +22,7 @@ class HrEmployee(models.Model):
         help="Set this field to true if you want to have the employee "
              "extra hours to be continuously capped to max_extra_hours and not"
              " only at the cron execution time.")
-    current_period_start_date = fields.Date(
+    current_period_start_date = fields.Date(  # TODO: check to remove!
         compute="_compute_current_period_start_date", store=False)
 
     attendance_days_ids = fields.One2many('hr.attendance.day', 'employee_id',
@@ -61,14 +61,10 @@ class HrEmployee(models.Model):
     @api.multi
     def _compute_current_period_start_date(self):
         for employee in self:
-            previous_period = self.env['hr.employee.period'].search([
-                ('employee_id', '=', employee.id),
-                ('end_date', '<=', str(datetime.date.today()))
-            ], order='end_date desc', limit=1)
-
-            if previous_period:
-                employee.current_period_start_date = \
-                    datetime.datetime.strptime(previous_period.end_date, '%Y-%m-%d')
+            previous_periods = employee.period_ids.filtered(lambda e: e.end_date <= fields.Date.today())
+            if previous_periods:
+                previous_period = previous_periods.sorted(key=lambda e: e.end_date)[-1]
+                employee.current_period_start_date = fields.Date.from_string(previous_period.end_date)
             else:
                 config = self.env['base.config.settings'].create({})
                 employee.current_period_start_date = config.get_beginning_date_for_balance_computation()
@@ -101,25 +97,22 @@ class HrEmployee(models.Model):
         :param store: create a new period from the last one to current day and store it if True
         """
         for employee in self:
-            employee_history = self.env['hr.employee.period'].search([
-                ('employee_id', '=', employee.id)
-            ])
             config = self.env['base.config.settings'].create({})
             config.set_beginning_date()
             # Compute from 01.01.2018 as default
             balance = employee.initial_balance
             start_date = config.get_beginning_date_for_balance_computation()
-            end_date = fields.Date.to_string(datetime.date.today())
+            end_date = fields.Date.today()
             final_balance = None
 
-            if employee_history:
-                employee_history_sorted = sorted(employee_history, key=lambda r: r.end_date)
-                start_date = datetime.datetime.strptime(employee_history_sorted[-1].end_date, '%Y-%m-%d')
+            if employee.period_ids:
+                employee_history_sorted = employee.period_ids.sorted(key=lambda r: r.end_date)
+                start_date = fields.Date.from_string(employee_history_sorted[-1].end_date)
                 # If there is an history for this employee, take values of last period
-                if start_date < datetime.datetime.strptime(end_date, '%Y-%m-%d'):
+                if start_date < fields.Date.from_string(end_date):
                     balance = employee_history_sorted[-1].final_balance
                 # If last period goes to today.
-                elif start_date == datetime.datetime.strptime(end_date, '%Y-%m-%d'):
+                elif start_date == fields.Date.from_string(end_date):
                     final_balance = employee_history_sorted[-1].final_balance
                 # If the period goes to today, recompute from 01.01.2018
                 else:
@@ -151,8 +144,8 @@ class HrEmployee(models.Model):
 
             if store:
                 previous_period_id = None
-                if employee_history:
-                    previous_period = sorted(employee_history, key=lambda r: r.end_date)[-1]
+                if employee.period_ids:
+                    previous_period = employee.period_ids.sorted(key=lambda r: r.end_date)[-1]
                     previous_period_id = previous_period.id
 
                 self.create_period(employee.id,
@@ -221,9 +214,9 @@ class HrEmployee(models.Model):
             .get_max_extra_hours()
         if not start_date:
             start_date = fields.Date.to_string(
-                datetime.date.today().replace(month=1, day=1))
+                fields.Date.today().replace(month=1, day=1))
         if not end_date:
-            end_date = fields.Date.to_string(datetime.date.today() + datetime.timedelta(days=1))
+            end_date = fields.Date.to_string(fields.Date.today() + datetime.timedelta(days=1))
 
         if not isinstance(start_date, basestring):
             start_date = fields.Date.to_string(start_date)
