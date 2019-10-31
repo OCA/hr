@@ -90,7 +90,7 @@ class HrEmployeePeriod(models.Model):
     @api.depends('previous_period.final_balance', 'balance')
     def _compute_final_balance(self):
         for period in self:
-            period.final_balance = period.update_period(origin="compute").final_balance
+            period.final_balance = period.update_period(origin="compute")
 
     def update_period(self, origin=None):
         """
@@ -104,23 +104,16 @@ class HrEmployeePeriod(models.Model):
             balance, final_balance = current_period.calculate_balance_and_final_balance()
 
             # If we come for the compute_final_balance method,
-            # don't write but just assign value. Else we
+            # don't write but just return value. Else we
             # have error with recursion
-            # if origin == "compute":
-            #     current_period.final_balance = final_balance
-            #     current_period.balance = balance
-            # else:
-            #     current_period.write({
-            #         'balance': balance,
-            #         'final_balance': final_balance
-            #     })
-            # current_period.final_balance = final_balance
-            # current_period.balance = balance
-            current_period.write({
-                'balance': balance,
-                'final_balance': final_balance
-            })
-            return current_period
+            if origin == "compute":
+                return final_balance
+            else:
+                current_period.write({
+                    'balance': balance,
+                    'final_balance': final_balance
+                })
+                return current_period
 
     def calculate_balance_and_final_balance(self):
         """
