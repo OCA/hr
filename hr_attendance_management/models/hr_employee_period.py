@@ -87,7 +87,7 @@ class HrEmployeePeriod(models.Model):
                 period.end_date_display = datetime.datetime.strptime(period.end_date, '%Y-%m-%d') \
                                           - datetime.timedelta(days=1)
 
-    @api.depends('previous_period.final_balance', 'balance')
+    @api.depends('previous_period.final_balance')
     def _compute_final_balance(self):
         for period in self:
             period.final_balance = period.update_period(origin="compute")
@@ -160,6 +160,9 @@ class HrEmployeePeriod(models.Model):
             origin = vals['origin']
 
         if end_date and start_date and not origin == "create":
+
+            period_to_update = None
+
             employee = res.employee_id
             if not employee:
                 employee = self.env['hr.employee'].search([
@@ -191,29 +194,30 @@ class HrEmployeePeriod(models.Model):
             # We want to create a period inside another one
             if surrounding_period:
                 self.handle_surrounding_period(surrounding_period, start_date, end_date, res)
-
             else:
                 # We must modify end_date of previous period
                 # and maybe create 1 more between the 2
                 if previous_period:
                     self.handle_previous_period(previous_period, previous_overlapping_period, start_date, res)
-                    previous_period.update_period()
+                    period_to_update = previous_period
 
-                # A previous period overlaps with the new one
+                    # A previous period overlaps with the new one
                 if previous_overlapping_period:
                     self.handle_previous_overlapping_period(previous_overlapping_period, start_date, res)
-                    previous_overlapping_period.update_period()
+                    period_to_update = previous_overlapping_period
 
                 # A following period overlap with the new one
                 if next_overlapping_period:
                     self.handle_next_overlapping_period(next_overlapping_period, end_date, res.id)
+                    period_to_update = res
 
             if surrounded_periods:
                 for period in surrounded_periods:
                     # deletes useless period
                     period.unlink()
-
-            # employee.period_ids.sorted(key=lambda p: p.start_date)[0].update_period()
+            if period_to_update:
+                period_to_update.update_period()
+            # employee.period_ids.sorted(key=lambda p: p.start_date)[0].update_period(origin="test")
             res = res.update_period()
         return res
 
@@ -233,6 +237,9 @@ class HrEmployeePeriod(models.Model):
             res.write({
                 'previous_period': period.id
             })
+
+            period.update_period()
+            previous_period.update_period()
         else:
             res.write({
                 'previous_period': previous_period.id

@@ -23,10 +23,10 @@ class TestPeriod(SavepointCase):
         cls.gilles.initial_balance = 0
 
         cls.start_date_1 = datetime.today().replace(year=2018, month=1, day=1)
-        cls.end_date_1 = datetime.today().replace(year=2018, month=6, day=1)
+        cls.end_date_1 = datetime.today().replace(year=2018, month=5, day=31)
 
         cls.start_date_2 = datetime.today().replace(year=2018, month=6, day=1)
-        cls.end_date_2 = datetime.today().replace(year=2019, month=1, day=1)
+        cls.end_date_2 = datetime.today().replace(year=2018, month=12, day=31)
 
         cls.start_date_3 = datetime.today().replace(year=2019, month=1, day=1)
         cls.end_date_3 = datetime.today().replace(year=2019, month=6, day=1)
@@ -123,7 +123,7 @@ class TestPeriod(SavepointCase):
         self.assertEquals(len(self.gilles.period_ids), 2)
         auto_created_period = self.gilles.period_ids.sorted(key=lambda p: p.start_date)[0]
         self.assertEquals(auto_created_period.balance, 2)
-        self.assertEquals(auto_created_period.final_balance, 2)
+        self.assertEquals(auto_created_period.final_balance, 3)
         self.gilles.period_ids.unlink()
 
         # Create a period for 2018
@@ -153,7 +153,7 @@ class TestPeriod(SavepointCase):
         self.assertEquals(self.gilles.balance, 3)
 
         # existing periods should be modified to make place for the new one
-        new_period_4 = self.create_period(start_date.replace(year=2018, month=6, day=1),
+        new_period_4 = self.create_period(start_date.replace(year=2018, month=7, day=1),
                                           end_date.replace(year=2019, month=2, day=1),
                                           self.gilles.id,
                                           False,
@@ -161,7 +161,7 @@ class TestPeriod(SavepointCase):
                                           None,
                                           0)
         self.assertEquals(len(self.gilles.period_ids), 4)
-        self.assertEquals(new_period_4.balance, 2)
+        self.assertEquals(new_period_4.balance, 1)
         self.assertEquals(new_period_4.final_balance, 3)
 
         self.gilles.initial_balance = 1
