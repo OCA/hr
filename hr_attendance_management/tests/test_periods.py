@@ -3,6 +3,7 @@
 # Copyright (C) 2018 Compassion CH
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
+from odoo import fields
 from datetime import datetime, timedelta
 from odoo.tests import SavepointCase
 from odoo.tools import DEFAULT_SERVER_DATETIME_FORMAT as DF
@@ -68,7 +69,7 @@ class TestPeriod(SavepointCase):
             'origin': "create"
         })
 
-    def create_att_day_for_date_with_supp_hours(self, date, hours=0):
+    def create_att_day_for_date_with_supp_hours(self, date, employee_id, hours=0):
         start_01 = date.replace(hour=8, minute=0, second=0)
         stop_01 = date.replace(hour=12, minute=0, second=0)
         # 4h in the morning
@@ -79,22 +80,55 @@ class TestPeriod(SavepointCase):
         self.env['hr.attendance'].create({
             'check_in': start_01,
             'check_out': stop_01,
-            'employee_id': self.gilles.id,
+            'employee_id': employee_id,
         })
         self.env['hr.attendance'].create({
             'check_in': start_02,
             'check_out': stop_02,
-            'employee_id': self.gilles.id,
+            'employee_id': employee_id,
         })
+
+    def add_hours_to_last_attendance_day(self, hours, employee_id):
+        last_att_day = self.env['hr.attendance.day'].search([
+            ('employee_id', '=', employee_id)
+        ], order="date asc")[-1]
+
+        last_attendance = last_att_day.attendance_ids.sorted(key=lambda a: a.date and a.check_out)[-1]
+
+        last_attendance.write({
+            'check_out': fields.Datetime.from_string(last_attendance.check_out) + timedelta(hours=hours)
+        })
+
+    def test_changing_att_day_balance(self):
+        self.gilles.period_ids.unlink()
+        # 01.01.2018
+        self.create_att_day_for_date_with_supp_hours(self.start_date_1, self.gilles.id, 1)
+        # 01.06.2018
+        self.create_att_day_for_date_with_supp_hours(self.start_date_2, self.gilles.id, 1)
+        # 01.01.2019
+        self.create_att_day_for_date_with_supp_hours(self.start_date_3, self.gilles.id, 1)
+
+        # self.assertEquals(self.gilles.balance, 0)
+        self.gilles.compute_balance(store=True)
+        self.assertEquals(len(self.gilles.period_ids), 1)
+        self.assertEquals(self.gilles.period_ids[0].final_balance, 3)
+        self.assertEquals(self.gilles.balance, 3)
+
+        self.add_hours_to_last_attendance_day(1, self.gilles.id)
+        # self.gilles.compute_balance(store=True)
+        self.assertEquals(self.gilles.balance, 4)
+        self.assertEquals(self.gilles.period_ids[0].final_balance, 4)
+
+
 
     def test_period_balances(self):
         self.gilles.period_ids.unlink()
         # 01.01.2018
-        self.create_att_day_for_date_with_supp_hours(self.start_date_1, 1)
+        self.create_att_day_for_date_with_supp_hours(self.start_date_1, self.gilles.id, 1)
         # 01.06.2018
-        self.create_att_day_for_date_with_supp_hours(self.start_date_2, 1)
+        self.create_att_day_for_date_with_supp_hours(self.start_date_2, self.gilles.id, 1)
         # 01.01.2019
-        self.create_att_day_for_date_with_supp_hours(self.start_date_3, 1)
+        self.create_att_day_for_date_with_supp_hours(self.start_date_3, self.gilles.id, 1)
 
         att_days = self.env['hr.attendance.day'].search([
             ('employee_id', '=', self.gilles.id)
@@ -102,7 +136,6 @@ class TestPeriod(SavepointCase):
         self.assertEquals(len(att_days), 3)
 
         # compute balance and store the period calculated
-        self.assertEquals(self.gilles.balance, 0)
         self.gilles.compute_balance(store=True)
         self.assertEquals(len(self.gilles.period_ids), 1)
         self.assertEquals(self.gilles.period_ids[0].final_balance, 3)

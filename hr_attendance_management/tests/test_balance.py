@@ -136,7 +136,7 @@ class TestAnnualBalance(SavepointCase):
             person.attendance_days_ids[-1].attendance_ids[0].check_out = \
                 fields.Datetime.from_string(
                     person.attendance_days_ids[-1].attendance_ids[0].check_out) + timedelta(hours=3)
-        # self.michael._cron_compute_annual_balance()
+        self.michael.compute_balance()
         self.jack.compute_balance()
         self.assertEqual(self.jack.balance, 2)
-        self.assertEqual(self.michael.balance, 5)
+        self.assertEqual(self.michael.balance, 8)
