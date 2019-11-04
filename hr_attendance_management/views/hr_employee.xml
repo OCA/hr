@@ -25,15 +25,13 @@
         <field name="inherit_id" ref="hr.view_employee_form"/>
         <field name="arch" type="xml">
             <xpath expr="//page[@name='hr_settings']" position="after">
-                <page string="Hours">
+                <page name="hr_hours" string="Hours">
                     <group>
                         <group>
                             <field name="current_period_start_date" widget="date"/>
-                            <field name="extra_hours_continuous_cap" widget="float_time" invisible="1"/>
                             <field name="extra_hours_continuous_cap"/>
                             <field name="show_leaves" invisible="1"/>
                             <field name="extra_hours_lost" widget="float_time"/>
-                            <field name="annual_balance_date" widget="date" attrs="{'invisible':[('extra_hours_continuous_cap', '=', True)]}"/>
                         </group>
                         <group>
                             <group colspan="2" col="2">
@@ -51,8 +49,14 @@
             </xpath>
             <field name="category_ids" position="after">
                 <div>
-                    <label for="balance"/>
-                    <field name="balance" widget="float_time"/>
+                    <div>
+                        <label for="balance"/>
+                        <field name="balance" widget="float_time"/>
+                    </div>
+                    <div>
+                        <label for="initial_balance"/>
+                        <field name="initial_balance" widget="float_time"/>
+                    </div>
                 </div>
             </field>
             <field name="work_location" position="attributes">
@@ -61,6 +65,23 @@
             <field name="work_location" position="after">
                 <field name="work_location_id"/>
             </field>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="hr_employee_history">
+        <field name="name">HR Employee Periods History</field>
+        <field name="model">hr.employee</field>
+        <field name="priority" eval="20"/>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='hr_hours']" position="after">
+                <page string="History">
+                    <group>
+                        <field name="period_ids"
+                               context="{'tree_view_ref': 'hr_attendance_management.hr_history_periods_from_employee'}"/>
+                    </group>
+                </page>
+            </xpath>
         </field>
     </record>
 </odoo>

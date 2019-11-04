@@ -9,3 +9,4 @@ access_hr_forced_due_hours,hr.forced.due.hours,model_hr_forced_due_hours,base.gr
 access_hr_change_day_request,hr.change.day.request,model_hr_change_day_request,base.group_user,1,1,1,1
 access_hr_location,hr.attendance.location,model_hr_attendance_location,base.group_user,1,0,0,0
 access_hr_location_admin,hr.attendance.location admin,model_hr_attendance_location,hr_attendance.group_hr_attendance_manager,1,1,1,1
+access_hr_period,hr.employee.period,model_hr_employee_period,base.group_user,1,1,1,1

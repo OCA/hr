@@ -2,7 +2,7 @@
 # Copyright (C) 2018 Compassion CH
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 import logging
-
+import datetime
 import pytz
 
 from odoo import models, fields, api
@@ -262,9 +262,9 @@ class HrAttendanceDay(models.Model):
         """
         for att_day in self:
             if att_day.paid_hours:
-                hours = att_day.paid_hours - att_day.free_breaks_hours
+                hours = int(att_day.paid_hours - att_day.free_breaks_hours)
             else:
-                hours = att_day.due_hours - att_day.free_breaks_hours
+                hours = int(att_day.due_hours - att_day.free_breaks_hours)
             if hours < 0:
                 hours = 0
             att_day.rule_id = self.env['hr.attendance.rules'].search([
@@ -431,7 +431,8 @@ class HrAttendanceDay(models.Model):
     @api.multi
     def write(self, vals):
         res = super(HrAttendanceDay, self).write(vals)
-        self.recompute_period_if_old_day()
+        if 'paid_hours' in vals:
+            self.recompute_period_if_old_day()
         return res
 
     ##########################################################################
@@ -439,11 +440,34 @@ class HrAttendanceDay(models.Model):
     ##########################################################################
     @api.multi
     def recompute_period_if_old_day(self):
-        last_period = self.env['base.config.settings'].create({}) \
-            .get_last_balance_cron_execution()
         for day in self:
-            if day.date < last_period:
-                day.employee_id._update_past_period_balance()
+            employee_periods = day.employee_id.period_ids
+            lower_bound_period = employee_periods.search([
+                ('end_date', '<=', day.date)
+            ], order='end_date desc', limit=1)
+            upper_bound_period = employee_periods.search([
+                ('start_date', '>=', day.date)
+            ], order='start_date asc', limit=1)
+            config = self.env['base.config.settings'].create({})
+            config.set_beginning_date()
+
+            start_date = None
+            end_date = None
+            if lower_bound_period:
+                start_date = datetime.datetime.strptime(lower_bound_period.end_date, '%Y-%m-%d')
+            else:
+                start_date = datetime.datetime.strptime(config.get_beginning_date_for_balance_computation(), '%Y-%m-%d')
+            if upper_bound_period:
+                end_date = datetime.datetime.strptime(upper_bound_period.start_date, '%Y-%m-%d')
+            else:
+                end_date = datetime.datetime.today()
+
+            if start_date < end_date:
+                periods = sorted(day.employee_id.period_ids,  key=lambda r: r.end_date)
+                if periods:
+                    periods[0].update_period()
+
+        self.employee_id.compute_balance()
 
     @api.multi
     def open_attendance_day(self):

@@ -4,6 +4,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 from datetime import datetime, timedelta
 from odoo.tests import SavepointCase
+from odoo import tools
 from odoo.tools import DEFAULT_SERVER_DATETIME_FORMAT as DF
 import logging
 
@@ -47,6 +48,26 @@ class TestAttendanceDays(SavepointCase):
             last_monday + timedelta(days=5),    # saturday
             last_monday + timedelta(days=6),    # sunday
         ]
+
+        # Create rules
+        cls.env['hr.attendance.rules'].create({
+            'time_from': 0,
+            'time_to': 5,
+            'due_break': 0,
+            'due_break_total': 0
+        })
+        cls.env['hr.attendance.rules'].create({
+            'time_from': 7,
+            'time_to': 9,
+            'due_break': 0.25,
+            'due_break_total': 0.5
+        })
+        cls.env['hr.attendance.rules'].create({
+            'time_from': 9,
+            'time_to': 24,
+            'due_break': 0.75,
+            'due_break_total': 1
+        })
 
     ##########################################################################
     #                           ATTENDANCE DAY                               #
@@ -313,16 +334,25 @@ class TestAttendanceDays(SavepointCase):
                 attendances = att_01 + att_02
 
                 self.assertEqual(att_day.attendance_ids, attendances)
-                self.assertEqual(att_day.balance, extra_hours)
+                self.assertEqual(att_day.day_balance, extra_hours)
             else:
-                self.assertEquals(att_day.balance, 0)
+                self.assertEquals(att_day.day_balance, 0)
 
+        self.michael.extra_hours_continuous_cap = True
+        self.michael.compute_balance()
         self.assertEqual(self.michael.balance, 20)
         self.assertEqual(sum_extra_hours, extra_hours*5*weeks)
 
     ##########################################################################
     #                             LEAVE REQUEST                              #
     ##########################################################################
+
+    def create_attendance_day(self, date, employee):
+        date_bis = datetime.strptime(date, "%Y-%m-%d").date()
+        self.env['hr.attendance.day'].create({
+            'date': date,
+            'employee_id': employee,
+        })
 
     def test_attendance_days_on_leave_request(self):
         """
@@ -353,10 +383,11 @@ class TestAttendanceDays(SavepointCase):
         }
 
         for date in data.keys():
-            self.env['hr.employee'].\
-                _cron_create_attendance(
-                domain=[('id', '=', self.pieter.id)],
-                day=date)
+            self.create_attendance_day(date, self.pieter.id)
+            # self.env['hr.employee'].\
+            #     _cron_create_attendance(
+            #     domain=[('id', '=', self.pieter.id)],
+            #     day=date)
 
         self.assertNotEqual(leave.attendance_day_ids, None)
 

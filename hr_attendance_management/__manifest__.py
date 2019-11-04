@@ -38,7 +38,7 @@
         'hr_public_holidays',
         'hr_contract'
     ],
-    'version': '10.0.2.0.0',
+    'version': '10.0.3.1.0',
     'auto_install': False,
     'website': 'https://www.compassion.ch',
     'license': 'AGPL-3',
@@ -46,6 +46,7 @@
     'data': [
         'security/ir.model.access.csv',
         'security/ir_rule.xml',
+        'views/hr_create_period_wizard_view.xml',
         'views/hr_attendance_calendar_view.xml',
         'views/hr_attendance_day_view.xml',
         'views/hr_attendance_settings.xml',
@@ -56,6 +57,7 @@
         'views/attendance.xml',
         'views/hr_attendance_break.xml',
         'views/hr_attendance_location.xml',
+        'views/hr_employee_periods.xml',
         'data/attendance_computation_cron.xml',
         'data/annual_balance_cron.xml',
         'data/hr_attendance_settings.xml',

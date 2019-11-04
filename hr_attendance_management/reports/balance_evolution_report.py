@@ -4,7 +4,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from odoo import models, fields, api
-
+import datetime
 
 class BalanceEvolutionReport(models.TransientModel):
 
@@ -21,13 +21,38 @@ class BalanceEvolutionReport(models.TransientModel):
         :param employee_id: the employee
         :return: True
         """
-        last_cron_execution = self.env['base.config.settings'].create({}) \
-            .get_last_balance_cron_execution()
         employee = self.env['hr.employee'].search([('id', '=', employee_id)])
+        last_history_entry = self.env['hr.employee.period'].search([
+            ('employee_id', '=', employee.id),
+            ('end_date', '<=', str(datetime.date.today()))
+        ], order='end_date desc', limit=1)
+
+        start_date = None
+        end_date = datetime.date.today()
+        balance = None
+
+        if last_history_entry:
+            # One day after last period
+            start_date = (datetime.datetime.strptime(last_history_entry.end_date, '%Y-%m-%d') +
+                          datetime.timedelta(days=1)).strftime('%Y-%m-%d')
+            balance = last_history_entry.balance
+        else:
+            config = self.env['base.config.settings'].create({})
+            config.set_beginning_date()
+            start_date = config.get_beginning_date_for_balance_computation()
+            balance = employee.initial_balance
+
         days, extra_hours_sum, _ = employee.complete_balance_computation(
-            start_date=last_cron_execution,
-            end_date=fields.Date.today(),
-            existing_balance=employee.previous_period_balance)
+            start_date=start_date,
+            end_date=end_date,
+            existing_balance=balance)
+
+        # delete previous graph for this employee to avoid miscalculation
+        # for graph display
+        self.env['balance.evolution.graph'].search([
+            ('employee_id', '=', employee_id)
+        ]).unlink()
+
         for i, day in enumerate(days):
             self.create({
                 'employee_id': employee_id,
