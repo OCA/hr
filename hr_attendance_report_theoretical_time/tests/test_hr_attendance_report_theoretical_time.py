@@ -146,6 +146,28 @@ class TestHrAttendanceReportTheoreticalTime(common.SavepointCase):
         self.assertEqual(self.attendances[14].theoretical_hours, 8)
         self.assertEqual(self.attendances[15].theoretical_hours, 8)
 
+    def test_theoretical_hours_recompute(self):
+        """Change calendar, and then recompute with the wizard"""
+        # Get rid of 4 hours per day so the theoretical should be 4.
+        self.calendar.attendance_ids.filtered(
+            lambda x: x.hour_from == 14.0).unlink()
+        # The attendances theoretical hours remain at 8 if not recomputed
+        self.assertEqual(self.attendances[0].theoretical_hours, 8)
+        self.assertEqual(self.attendances[1].theoretical_hours, 8)
+        # Then we run the wizard just for day 23
+        wizard = self.env['recompute.theoretical.attendance'].create({
+            'employee_ids': [(4, self.employee_1.id)],
+            'date_from': '1946-12-23 00:00:00',
+            'date_to': '1946-12-23 23:59:59',
+        })
+        wizard.action_recompute()
+        # Attendances for day 23 are recomputed
+        self.assertEqual(self.attendances[0].theoretical_hours, 4)
+        self.assertEqual(self.attendances[1].theoretical_hours, 4)
+        # Attendances for day 24 remaine as they were
+        self.assertEqual(self.attendances[2].theoretical_hours, 8)
+        self.assertEqual(self.attendances[3].theoretical_hours, 8)
+
     def test_hr_attendance_read_group(self):
         # TODO: Test when having theoretical_hours_start_date set
         # Group by employee
