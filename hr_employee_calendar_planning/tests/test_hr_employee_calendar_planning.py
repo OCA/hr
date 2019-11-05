@@ -45,6 +45,13 @@ class TestHrEmployeeCalendarPlanning(common.SavepointCase):
         cls.employee = cls.env['hr.employee'].create({
             'name': 'Test employee',
         })
+        cls.leave1 = cls.env['resource.calendar.leaves'].create({
+            'name': 'Test leave',
+            'calendar_id': cls.calendar1.id,
+            'resource_id': cls.employee.resource_id.id,
+            'date_from': '2019-06-01',
+            'date_to': '2019-06-10',
+        })
 
     def test_calendar_planning(self):
         self.employee.calendar_ids = [
@@ -98,6 +105,10 @@ class TestHrEmployeeCalendarPlanning(common.SavepointCase):
         self.assertEqual(len(self.employee.calendar_ids), 1)
         self.assertFalse(self.employee.calendar_ids.date_start)
         self.assertFalse(self.employee.calendar_ids.date_end)
+        # Check that the employee leaves are transferred to the new calendar
+        self.assertFalse(self.calendar1.leave_ids)
+        self.assertEqual(
+            self.employee.resource_calendar_id.leave_ids, self.leave1)
 
     def test_post_install_hook_several_calendaries(self):
         self.calendar1.attendance_ids[0].date_from = '2019-01-01'
