@@ -7,6 +7,15 @@
             <field name="manual_attendance" position="after">
                 <field name="theoretical_hours_start_date"/>
             </field>
+            <button name="toggle_active" position="after">
+                <button name="%(hr_attendance_theoretical_employee_action)d"
+                        context="{'search_default_employee_id': active_id}"
+                        class="oe_stat_button"
+                        icon="fa-calendar"
+                        type="action">
+                    <field name="theoretical_hours_difference" widget="statinfo" string="Hours"/>
+                </button>
+            </button>
         </field>
     </record>
 </odoo>

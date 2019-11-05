@@ -1,11 +1,20 @@
 # Copyright 2018 Tecnativa - Pedro M. Baeza
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-from odoo import fields, models
+from odoo import fields, models, api
 
 
 class HrEmployee(models.Model):
     _inherit = 'hr.employee'
+
+    @api.multi
+    def _compute_theoretical_hours_difference(self):
+        data = self.env['hr.attendance.theoretical.time.report'].read_group([('employee_id', 'in', self.ids)],
+                                                                            ['worked_hours', 'theoretical_hours',
+                                                                             'difference'], groupby='employee_id')
+        for employee in self:
+            record = list(filter(lambda d: d['employee_id'][0] == employee.id, data))
+            employee.theoretical_hours_difference = record[0]['difference']
 
     theoretical_hours_start_date = fields.Date(
         help="Fill this field for setting a manual start date for computing "
@@ -13,3 +22,4 @@ class HrEmployee(models.Model):
              "not filled, employee creation date or the calendar start date "
              "will be used (the greatest of both).",
     )
+    theoretical_hours_difference = fields.Float(string="Theoretical Hours Difference", compute="_compute_theoretical_hours_difference")
