@@ -9,6 +9,23 @@
             </field>
         </field>
     </record>
+    <record id="view_employee_form_inherit_hr_difference" model="ir.ui.view">
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <button name="toggle_active" position="after">
+                <field name="theoretical_hours_difference_visible" invisible="1"/>
+                <button name="%(hr_attendance_theoretical_employee_action)d"
+                        context="{'search_default_employee_id': active_id}"
+                        class="oe_stat_button"
+                        icon="fa-clock-o"
+                        attrs="{'invisible': [('theoretical_hours_difference_visible','=',False)]}"
+                        type="action">
+                    <field name="theoretical_hours_difference" widget="statinfo" string="Hours"/>
+                </button>
+            </button>
+        </field>
+    </record>
 
     <act_window id="recompute_employee_theoretical_attendance"
         name="Recompute Theoretical Attendance"
