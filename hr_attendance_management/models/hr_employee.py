@@ -82,7 +82,7 @@ class HrEmployee(models.Model):
             employee.work_location = actual_location.location_id.name
 
     @api.multi
-    @api.depends('initial_balance')
+    @api.depends('initial_balance', 'attendance_days_ids.paid_hours')
     def _compute_periods(self):
         for employee in self:
             employee.period_ids = self.env['hr.employee.period'].search([
@@ -92,7 +92,7 @@ class HrEmployee(models.Model):
                 employee.period_ids[0].update_period()
 
     @api.multi
-    @api.depends('initial_balance')
+    @api.depends('initial_balance', 'attendance_days_ids.paid_hours')
     def compute_balance(self, store=False):
         """
         Method used to compute balance we needed. It uses the history of the employee to avoid

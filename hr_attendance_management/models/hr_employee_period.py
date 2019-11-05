@@ -239,7 +239,7 @@ class HrEmployeePeriod(models.Model):
             datetime.datetime.strptime(previous_period.end_date, '%Y-%m-%d')
         # Periods not overlapping and with the space for a new one
         if not previous_overlapping_period \
-                and (start_date - previous_end_date.date()).days > 1:
+                and (start_date - previous_end_date).days > 1:
             # Creates period between previous_period.end_date and start_date of new one
             period = self.create_period(start_date=previous_end_date,
                                         end_date=start_date,

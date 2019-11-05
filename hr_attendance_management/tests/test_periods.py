@@ -120,11 +120,9 @@ class TestPeriod(SavepointCase):
         self.assertEquals(self.gilles.balance, 3)
 
         self.add_hours_to_last_attendance_day(1, self.gilles.id)
-        # self.gilles.compute_balance(store=True)
+        self.gilles.compute_balance()
         self.assertEquals(self.gilles.balance, 4)
         self.assertEquals(self.gilles.period_ids[0].final_balance, 4)
-
-
 
     def test_period_balances(self):
         self.gilles.period_ids.unlink()

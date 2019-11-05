@@ -53,10 +53,10 @@ class TestAnnualBalance(SavepointCase):
         :return: None
         """
 
-        start_01 = date.strftime('%Y-%m-%d 08:00')
-        stop_01 = date.strftime('%Y-%m-%d 12:00')
+        start_01 = date.strftime('%Y-%m-%d 08:00:00')
+        stop_01 = date.strftime('%Y-%m-%d 12:00:00')
         # 4h in the morning
-        start_02 = date.strftime('%Y-%m-%d 12:30')
+        start_02 = date.strftime('%Y-%m-%d 12:30:00')
         stop_hour_2 = "{}:30".format(16 + hours)
         stop_02 = date.strftime('%Y-%m-%d ' + stop_hour_2)
         # 4h in the afternoon

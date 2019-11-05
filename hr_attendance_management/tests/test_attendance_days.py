@@ -337,6 +337,8 @@ class TestAttendanceDays(SavepointCase):
                 self.assertEquals(att_day.day_balance, 0)
 
         self.michael.extra_hours_continuous_cap = True
+        # unlink periods to avoid taking the period value for extra_continuous_cap
+        self.michael.period_ids.unlink()
         self.michael.compute_balance()
         self.assertEqual(self.michael.balance, 20)
         self.assertEqual(sum_extra_hours, extra_hours*5*weeks)
