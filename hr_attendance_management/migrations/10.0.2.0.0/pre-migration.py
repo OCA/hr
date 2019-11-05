@@ -29,7 +29,7 @@ def migrate(env, version):
         cr.execute("""
             SELECT
                 SUM(extra_hours_lost) AS previous_hours_lost
-            FROM 
+            FROM
                 hr_attendance_day
             WHERE
                 employee_id = %s AND date < %s

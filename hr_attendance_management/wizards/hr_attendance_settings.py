@@ -15,7 +15,8 @@ class HrAttendanceSettings(models.TransientModel):
 
     free_break = fields.Float('Free break (hour)')
     max_extra_hours = fields.Float('Max extra hours')
-    beginning_date_for_balance_computation = fields.Date(string="Date of beginning of new computation way for balance")
+    beginning_date_for_balance_computation = fields.Date(
+        string="Date of beginning of new computation way for balance")
 
     ##########################################################################
     #                             PUBLIC METHODS                             #
@@ -27,7 +28,6 @@ class HrAttendanceSettings(models.TransientModel):
         self.env['ir.config_parameter'].set_param(
             'hr_attendance_management.beginning_date_for_balance_computation',
             str(date.today().replace(year=2018, month=1, day=1)))
-
 
     @api.multi
     def set_free_break(self):

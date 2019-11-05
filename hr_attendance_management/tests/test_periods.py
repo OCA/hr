@@ -6,7 +6,6 @@
 from odoo import fields
 from datetime import datetime, timedelta
 from odoo.tests import SavepointCase
-from odoo.tools import DEFAULT_SERVER_DATETIME_FORMAT as DF
 import logging
 
 logger = logging.getLogger(__name__)
@@ -93,20 +92,26 @@ class TestPeriod(SavepointCase):
             ('employee_id', '=', employee_id)
         ], order="date asc")[-1]
 
-        last_attendance = last_att_day.attendance_ids.sorted(key=lambda a: a.date and a.check_out)[-1]
+        last_attendance = \
+            last_att_day.attendance_ids.sorted(
+                key=lambda a: a.date and a.check_out)[-1]
 
         last_attendance.write({
-            'check_out': fields.Datetime.from_string(last_attendance.check_out) + timedelta(hours=hours)
+            'check_out': fields.Datetime.from_string(last_attendance.check_out) +
+            timedelta(hours=hours)
         })
 
     def test_changing_att_day_balance(self):
         self.gilles.period_ids.unlink()
         # 01.01.2018
-        self.create_att_day_for_date_with_supp_hours(self.start_date_1, self.gilles.id, 1)
+        self.create_att_day_for_date_with_supp_hours(
+            self.start_date_1, self.gilles.id, 1)
         # 01.06.2018
-        self.create_att_day_for_date_with_supp_hours(self.start_date_2, self.gilles.id, 1)
+        self.create_att_day_for_date_with_supp_hours(
+            self.start_date_2, self.gilles.id, 1)
         # 01.01.2019
-        self.create_att_day_for_date_with_supp_hours(self.start_date_3, self.gilles.id, 1)
+        self.create_att_day_for_date_with_supp_hours(
+            self.start_date_3, self.gilles.id, 1)
 
         # self.assertEquals(self.gilles.balance, 0)
         self.gilles.compute_balance(store=True)
@@ -124,11 +129,14 @@ class TestPeriod(SavepointCase):
     def test_period_balances(self):
         self.gilles.period_ids.unlink()
         # 01.01.2018
-        self.create_att_day_for_date_with_supp_hours(self.start_date_1, self.gilles.id, 1)
+        self.create_att_day_for_date_with_supp_hours(
+            self.start_date_1, self.gilles.id, 1)
         # 01.06.2018
-        self.create_att_day_for_date_with_supp_hours(self.start_date_2, self.gilles.id, 1)
+        self.create_att_day_for_date_with_supp_hours(
+            self.start_date_2, self.gilles.id, 1)
         # 01.01.2019
-        self.create_att_day_for_date_with_supp_hours(self.start_date_3, self.gilles.id, 1)
+        self.create_att_day_for_date_with_supp_hours(
+            self.start_date_3, self.gilles.id, 1)
 
         att_days = self.env['hr.attendance.day'].search([
             ('employee_id', '=', self.gilles.id)
@@ -143,7 +151,8 @@ class TestPeriod(SavepointCase):
 
         start_date = datetime.today().replace(year=2019, month=1, day=1)
         end_date = datetime.today()
-        # Create new period beginning in 01.01.2019, 1 more period should be created before
+        # Create new period beginning in 01.01.2019,
+        # 1 more period should be created before
         new_period = self.create_period(start_date,
                                         end_date,
                                         self.gilles.id,
@@ -154,7 +163,8 @@ class TestPeriod(SavepointCase):
         self.assertEquals(new_period.balance, 1)
         self.assertEquals(new_period.final_balance, 3)
         self.assertEquals(len(self.gilles.period_ids), 2)
-        auto_created_period = self.gilles.period_ids.sorted(key=lambda p: p.start_date)[0]
+        auto_created_period = \
+            self.gilles.period_ids.sorted(key=lambda p: p.start_date)[0]
         self.assertEquals(auto_created_period.balance, 2)
         self.assertEquals(auto_created_period.final_balance, 3)
         self.gilles.period_ids.unlink()
@@ -171,8 +181,10 @@ class TestPeriod(SavepointCase):
         self.assertEquals(new_period_2.balance, 2)
         self.assertEquals(new_period_2.final_balance, 2)
         # create a period for second half of 2019, 1 period should be auto created
-        new_period_3 = self.create_period(start_date.replace(year=2019, month=6, day=1),
-                                          end_date.replace(year=2019, month=12, day=31),
+        new_period_3 = self.create_period(start_date.replace(
+                                              year=2019, month=6, day=1),
+                                          end_date.replace(
+                                              year=2019, month=12, day=31),
                                           self.gilles.id,
                                           False,
                                           0,
@@ -181,13 +193,16 @@ class TestPeriod(SavepointCase):
         self.assertEquals(len(self.gilles.period_ids), 3)
         self.assertEquals(new_period_3.balance, 0)
         self.assertEquals(new_period_3.final_balance, 3)
-        auto_created_period = self.gilles.period_ids.sorted(key=lambda p: p.start_date)[1]
+        auto_created_period = \
+            self.gilles.period_ids.sorted(key=lambda p: p.start_date)[1]
         self.assertEquals(auto_created_period.balance, 1)
         self.assertEquals(self.gilles.balance, 3)
 
         # existing periods should be modified to make place for the new one
-        new_period_4 = self.create_period(start_date.replace(year=2018, month=7, day=1),
-                                          end_date.replace(year=2019, month=2, day=1),
+        new_period_4 = self.create_period(start_date.replace(
+                                              year=2018, month=7, day=1),
+                                          end_date.replace(
+                                              year=2019, month=2, day=1),
                                           self.gilles.id,
                                           False,
                                           0,
@@ -201,7 +216,8 @@ class TestPeriod(SavepointCase):
         self.assertEquals(new_period_4.final_balance, 4)
         self.assertEquals(self.gilles.balance, 4)
 
-    # Add a period "inside" another one. 1 more periods should be created (after) and 1 should be modified
+    # Add a period "inside" another one.
+    # 1 more periods should be created (after) and 1 should be modified
     def test_create_in_surrounding_period(self):
         start_date = datetime.today().replace(year=2019, month=2, day=2)
         end_date = datetime.today().replace(year=2019, month=3, day=3)
@@ -214,17 +230,26 @@ class TestPeriod(SavepointCase):
         old_surrounding_end_date = old_surrounding_period.end_date
 
         initial_periods_count = self.get_periods_count(self.jack.id)
-        self.create_period(start_date, end_date, self.jack.id, True, balance=0, previous_period=None, lost=0)
+        self.create_period(start_date,
+                           end_date,
+                           self.jack.id,
+                           True,
+                           balance=0,
+                           previous_period=None,
+                           lost=0)
 
         all_periods = self.env['hr.employee.period'].search([
             ('employee_id', '=', self.jack.id)
         ])
-        self.assertEquals(initial_periods_count + 2, self.get_periods_count(self.jack.id))
+        self.assertEquals(initial_periods_count + 2,
+                          self.get_periods_count(self.jack.id))
 
         previous_period = self.get_previous_period(start_date, self.jack.id)
         next_period = self.get_next_period(end_date, self.jack.id)
-        self.assertEquals(datetime.strptime(previous_period.end_date, '%Y-%m-%d').date(),
-                          start_date.date())
+        self.assertEquals(
+            datetime.strptime(previous_period.end_date, '%Y-%m-%d').date(),
+            start_date.date()
+        )
         self.assertEquals(old_surrounding_start_date, previous_period.start_date)
         self.assertEquals(next_period.end_date, old_surrounding_end_date)
         self.assertEquals(datetime.strptime(next_period.start_date, '%Y-%m-%d').date(),
@@ -247,17 +272,27 @@ class TestPeriod(SavepointCase):
         old_previous_overlapping_start_date = old_previous_overlapping.start_date
 
         initial_periods_count = self.get_periods_count(self.jack.id)
-        self.create_period(start_date, end_date, self.jack.id, True, balance=0, previous_period=None, lost=0)
+        self.create_period(start_date,
+                           end_date,
+                           self.jack.id,
+                           True,
+                           balance=0,
+                           previous_period=None,
+                           lost=0)
 
         all_periods = self.env['hr.employee.period'].search([
             ('employee_id', '=', self.jack.id)
         ])
-        self.assertEquals(initial_periods_count + 1, self.get_periods_count(self.jack.id))
+        self.assertEquals(initial_periods_count + 1,
+                          self.get_periods_count(self.jack.id))
 
         previous_period = self.get_previous_period(start_date, self.jack.id)
-        self.assertEquals(datetime.strptime(previous_period.end_date, '%Y-%m-%d').date(),
-                          start_date.date())
-        self.assertEquals(old_previous_overlapping_start_date, previous_period.start_date)
+        self.assertEquals(
+            datetime.strptime(previous_period.end_date, '%Y-%m-%d').date(),
+            start_date.date()
+        )
+        self.assertEquals(old_previous_overlapping_start_date,
+                          previous_period.start_date)
 
         next_period = self.get_next_period(end_date, self.jack.id)
         self.assertFalse(next_period)
@@ -275,18 +310,29 @@ class TestPeriod(SavepointCase):
         old_previous_end_date = old_previous_period.end_date
 
         initial_periods_count = self.get_periods_count(self.jack.id)
-        self.create_period(start_date, end_date, self.jack.id, True, balance=0, previous_period=None, lost=0)
+        self.create_period(start_date,
+                           end_date,
+                           self.jack.id,
+                           True,
+                           balance=0,
+                           previous_period=None,
+                           lost=0)
 
         all_periods = self.env['hr.employee.period'].search([
             ('employee_id', '=', self.jack.id)
         ])
-        self.assertEquals(initial_periods_count + 2, self.get_periods_count(self.jack.id))
+        self.assertEquals(initial_periods_count + 2,
+                          self.get_periods_count(self.jack.id))
 
         new_previous_period = self.get_previous_period(start_date, self.jack.id)
-        self.assertEquals(datetime.strptime(old_previous_end_date, '%Y-%m-%d').date(),
-                          datetime.strptime(new_previous_period.start_date, '%Y-%m-%d').date())
-        self.assertEquals(datetime.strptime(new_previous_period.end_date, '%Y-%m-%d').date(),
-                          start_date.date())
+        self.assertEquals(
+            datetime.strptime(old_previous_end_date, '%Y-%m-%d').date(),
+            datetime.strptime(new_previous_period.start_date, '%Y-%m-%d').date()
+        )
+        self.assertEquals(
+            datetime.strptime(new_previous_period.end_date, '%Y-%m-%d').date(),
+            start_date.date()
+        )
 
         all_periods.unlink()
 
@@ -313,20 +359,32 @@ class TestPeriod(SavepointCase):
         old_next_overlapping_end_date = old_next_overlapping.end_date
 
         initial_periods_count = self.get_periods_count(self.jack.id)
-        self.create_period(start_date, end_date, self.jack.id, True, balance=0, previous_period=None, lost=0)
+        self.create_period(start_date,
+                           end_date,
+                           self.jack.id,
+                           True,
+                           balance=0,
+                           previous_period=None,
+                           lost=0)
 
         all_periods = self.env['hr.employee.period'].search([
             ('employee_id', '=', self.jack.id)
         ])
-        self.assertEquals(initial_periods_count + 1, self.get_periods_count(self.jack.id))
+        self.assertEquals(initial_periods_count + 1,
+                          self.get_periods_count(self.jack.id))
 
         new_previous_period = self.get_previous_period(start_date, self.jack.id)
         new_next_period = self.get_next_period(end_date, self.jack.id)
-        self.assertEquals(new_previous_period.start_date, old_previous_overlapping_start_date)
-        self.assertEquals(datetime.strptime(new_previous_period.end_date, '%Y-%m-%d').date(),
-                          start_date.date())
-        self.assertEquals(datetime.strptime(new_next_period.start_date, '%Y-%m-%d').date(),
-                          end_date.date())
+        self.assertEquals(new_previous_period.start_date,
+                          old_previous_overlapping_start_date)
+        self.assertEquals(
+            datetime.strptime(new_previous_period.end_date, '%Y-%m-%d').date(),
+            start_date.date()
+        )
+        self.assertEquals(
+            datetime.strptime(new_next_period.start_date, '%Y-%m-%d').date(),
+            end_date.date()
+        )
         self.assertEquals(new_next_period.end_date, old_next_overlapping_end_date)
 
         all_periods.unlink()
@@ -349,7 +407,8 @@ class TestPeriod(SavepointCase):
             ('end_date', '<=', start_date)
         ], order='end_date desc', limit=1)
 
-    def create_period(self, start_date, end_date, employee_id, continuous_cap, balance, previous_period, lost):
+    def create_period(self, start_date, end_date, employee_id, continuous_cap,
+                      balance, previous_period, lost):
         return self.env['hr.employee.period'].create({
             'start_date': start_date,
             'end_date': end_date,

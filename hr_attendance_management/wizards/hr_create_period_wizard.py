@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
+
 import datetime
 
-from odoo import models, fields, api
+from odoo import models, fields
 
 
 class ChangeDayDWizard(models.TransientModel):
@@ -37,8 +38,10 @@ class ChangeDayDWizard(models.TransientModel):
 
             record.employee_id.create_period(record.employee_id.id,
                                              record.start_date,
-                                             # Add one day to end_date as the logic uses an exclusive superior bound
-                                             str(datetime.datetime.strptime(record.end_date, '%Y-%m-%d').date()
+                                             # Add one day to end_date as the logic
+                                             # uses an exclusive superior bound
+                                             str(datetime.datetime.strptime
+                                                 (record.end_date, '%Y-%m-%d').date()
                                                  + datetime.timedelta(days=1)),
                                              0,
                                              previous_period_id,

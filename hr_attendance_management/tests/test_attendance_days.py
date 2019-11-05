@@ -2,10 +2,10 @@
 
 # Copyright (C) 2018 Compassion CH
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+
 from datetime import datetime, timedelta
 from odoo.tests import SavepointCase
 from odoo import tools
-from odoo.tools import DEFAULT_SERVER_DATETIME_FORMAT as DF
 import logging
 
 logger = logging.getLogger(__name__)
@@ -221,11 +221,9 @@ class TestAttendanceDays(SavepointCase):
         self.assertEqual(att_day_gilles.total_attendance,
                          att_gilles.worked_hours)
 
-
     ##########################################################################
     #                        CHECK IN / CHECK OUT                            #
     ##########################################################################
-
 
     def test_check_in_check_out(self):
         date = self.last_week[2]
@@ -348,7 +346,6 @@ class TestAttendanceDays(SavepointCase):
     ##########################################################################
 
     def create_attendance_day(self, date, employee):
-        date_bis = datetime.strptime(date, "%Y-%m-%d").date()
         self.env['hr.attendance.day'].create({
             'date': date,
             'employee_id': employee,

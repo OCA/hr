@@ -61,13 +61,17 @@ class HrEmployee(models.Model):
     @api.multi
     def _compute_current_period_start_date(self):
         for employee in self:
-            previous_periods = employee.period_ids.filtered(lambda e: e.end_date <= fields.Date.today())
+            previous_periods = \
+                employee.period_ids.filtered(
+                    lambda e: e.end_date <= fields.Date.today())
             if previous_periods:
                 previous_period = previous_periods.sorted(key=lambda e: e.end_date)[-1]
-                employee.current_period_start_date = fields.Date.from_string(previous_period.end_date)
+                employee.current_period_start_date = \
+                    fields.Date.from_string(previous_period.end_date)
             else:
                 config = self.env['base.config.settings'].create({})
-                employee.current_period_start_date = config.get_beginning_date_for_balance_computation()
+                employee.current_period_start_date = \
+                    config.get_beginning_date_for_balance_computation()
 
     @api.multi
     def _compute_work_location(self):
@@ -106,8 +110,10 @@ class HrEmployee(models.Model):
             final_balance = None
 
             if employee.period_ids:
-                employee_history_sorted = employee.period_ids.sorted(key=lambda r: r.end_date)
-                start_date = fields.Date.from_string(employee_history_sorted[-1].end_date)
+                employee_history_sorted = \
+                    employee.period_ids.sorted(key=lambda r: r.end_date)
+                start_date = \
+                    fields.Date.from_string(employee_history_sorted[-1].end_date)
                 # If there is an history for this employee, take values of last period
                 if start_date < fields.Date.from_string(end_date):
                     balance = employee_history_sorted[-1].final_balance
@@ -123,7 +129,8 @@ class HrEmployee(models.Model):
             if final_balance and not employee.extra_hours_continuous_cap:
                 employee.balance = final_balance
                 employee.extra_hours_lost = 0
-            # If final_balance is not None, it means that there is a period with end_date == today
+            # If final_balance is not None,
+            # it means there is a period with end_date == today
             # so we just assign the value. The cap is taken in consideration here.
             elif final_balance:
                 max_extra_hours = self.env['base.config.settings'].create({}) \
@@ -145,7 +152,8 @@ class HrEmployee(models.Model):
             if store:
                 previous_period_id = None
                 if employee.period_ids:
-                    previous_period = employee.period_ids.sorted(key=lambda r: r.end_date)[-1]
+                    previous_period = \
+                        employee.period_ids.sorted(key=lambda r: r.end_date)[-1]
                     previous_period_id = previous_period.id
 
                 self.create_period(employee.id,
@@ -216,7 +224,8 @@ class HrEmployee(models.Model):
             start_date = fields.Date.to_string(
                 fields.Date.today().replace(month=1, day=1))
         if not end_date:
-            end_date = fields.Date.to_string(fields.Date.today() + datetime.timedelta(days=1))
+            end_date = \
+                fields.Date.to_string(fields.Date.today() + datetime.timedelta(days=1))
 
         if not isinstance(start_date, basestring):
             start_date = fields.Date.to_string(start_date)
@@ -366,17 +375,18 @@ class HrEmployee(models.Model):
 
         today = fields.Date.today()
         attendances_today = self.env['hr.attendance'].search([
-            ('employee_id', '=', self.id), ('check_in', '>=', today)])
+            ('employee_id', '=', self.id),
+            ('check_in', '>=', today)
+        ])
         worked_hours = 0
 
         for attendance in attendances_today:
             if attendance.check_out:
                 worked_hours += attendance.worked_hours
             else:
-                delta = datetime.datetime.now() \
-                        - fields.Datetime.from_string(attendance.check_in)
+                delta = datetime.datetime.now() - \
+                        fields.Datetime.from_string(attendance.check_in)
                 worked_hours += delta.total_seconds() / 3600.0
-
         return worked_hours
 
     def open_balance_graph(self):

@@ -2,9 +2,9 @@
 
 # Copyright (C) 2018 Compassion CH
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+
 from datetime import datetime, timedelta
 from odoo import fields
-from odoo.exceptions import ValidationError
 from odoo.tests import SavepointCase
 import logging
 
@@ -135,7 +135,8 @@ class TestAnnualBalance(SavepointCase):
         for person in [self.michael, self.jack]:
             person.attendance_days_ids[-1].attendance_ids[0].check_out = \
                 fields.Datetime.from_string(
-                    person.attendance_days_ids[-1].attendance_ids[0].check_out) + timedelta(hours=3)
+                    person.attendance_days_ids[-1].attendance_ids[0].check_out) + \
+                timedelta(hours=3)
         self.michael.compute_balance()
         self.jack.compute_balance()
         self.assertEqual(self.jack.balance, 2)
