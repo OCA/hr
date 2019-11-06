@@ -46,6 +46,3 @@ def migrate(env, version):
     # hours of debugging, we were not able to find the root cause of the bug.
     # Calling _compute_balance again is a work around.
     employees._compute_balance()
-
-
-

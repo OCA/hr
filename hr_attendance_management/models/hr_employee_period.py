@@ -18,8 +18,8 @@ _logger = logging.getLogger(__name__)
 def get_previous_period(employee_periods, res):
     previous_period = None
     previous_periods = employee_periods.filtered(
-            lambda r: r.end_date <= res.start_date
-        ).sorted(key=lambda r: r.start_date)
+        lambda r: r.end_date <= res.start_date)\
+        .sorted(key=lambda r: r.start_date)
     if previous_periods:
         previous_period = previous_periods[-1]
     return previous_period
@@ -84,8 +84,9 @@ class HrEmployeePeriod(models.Model):
     def _compute_display_of_end_date(self):
         for period in self:
             if period.end_date:
-                period.end_date_display = datetime.datetime.strptime(period.end_date, '%Y-%m-%d') \
-                                          - datetime.timedelta(days=1)
+                period.end_date_display = \
+                    datetime.datetime.strptime(period.end_date, '%Y-%m-%d') - \
+                    datetime.timedelta(days=1)
 
     @api.depends('previous_period.final_balance')
     def _compute_final_balance(self):
@@ -101,7 +102,8 @@ class HrEmployeePeriod(models.Model):
         :return: the current period after modification
         """
         for current_period in self:
-            balance, final_balance = current_period.calculate_balance_and_final_balance()
+            balance, final_balance = \
+                current_period.calculate_balance_and_final_balance()
 
             # If we come for the compute_final_balance method,
             # don't write but just return value. Else we
@@ -174,10 +176,12 @@ class HrEmployeePeriod(models.Model):
             previous_period = get_previous_period(employee_periods, res)
 
             # period that begins before and finish after start_date
-            previous_overlapping_period = get_previous_overlapping_period(employee_periods, res)
+            previous_overlapping_period = \
+                get_previous_overlapping_period(employee_periods, res)
 
             # period that begins before and finish after end_date
-            next_overlapping_period = get_next_overlapping_period(employee_periods, res)
+            next_overlapping_period = \
+                get_next_overlapping_period(employee_periods, res)
 
             # period that begins before start_date and finish after end_date
             surrounding_period = get_surrounding_period(employee_periods, res)
@@ -193,22 +197,30 @@ class HrEmployeePeriod(models.Model):
 
             # We want to create a period inside another one
             if surrounding_period:
-                self.handle_surrounding_period(surrounding_period, start_date, end_date, res)
+                self.handle_surrounding_period(
+                    surrounding_period, start_date, end_date, res
+                )
             else:
                 # We must modify end_date of previous period
                 # and maybe create 1 more between the 2
                 if previous_period:
-                    self.handle_previous_period(previous_period, previous_overlapping_period, start_date, res)
+                    self.handle_previous_period(
+                        previous_period, previous_overlapping_period, start_date, res
+                    )
                     period_to_update = previous_period
 
                     # A previous period overlaps with the new one
                 if previous_overlapping_period:
-                    self.handle_previous_overlapping_period(previous_overlapping_period, start_date, res)
+                    self.handle_previous_overlapping_period(
+                        previous_overlapping_period, start_date, res
+                    )
                     period_to_update = previous_overlapping_period
 
                 # A following period overlap with the new one
                 if next_overlapping_period:
-                    self.handle_next_overlapping_period(next_overlapping_period, end_date, res.id)
+                    self.handle_next_overlapping_period(
+                        next_overlapping_period, end_date, res.id
+                    )
                     period_to_update = res
 
             if surrounded_periods:
@@ -223,16 +235,19 @@ class HrEmployeePeriod(models.Model):
 
     def handle_previous_period(self, previous_period, previous_overlapping_period,
                                start_date, res):
-        previous_end_date = datetime.datetime.strptime(previous_period.end_date, '%Y-%m-%d')
+        previous_end_date = \
+            datetime.datetime.strptime(previous_period.end_date, '%Y-%m-%d')
         # Periods not overlapping and with the space for a new one
-        if not previous_overlapping_period and (start_date - previous_end_date).days > 1:
+        if not previous_overlapping_period \
+                and (start_date - previous_end_date).days > 1:
             # Creates period between previous_period.end_date and start_date of new one
             period = self.create_period(start_date=previous_end_date,
                                         end_date=start_date,
                                         employee_id=previous_period.employee_id.id,
                                         balance=0,
                                         previous_period=previous_period.id,
-                                        continuous_cap=self.employee_id.extra_hours_continuous_cap,
+                                        continuous_cap=
+                                        self.employee_id.extra_hours_continuous_cap,
                                         origin="create")
             res.write({
                 'previous_period': period.id
@@ -259,7 +274,8 @@ class HrEmployeePeriod(models.Model):
                                      end_date=start_date,
                                      employee_id=employee_id.id,
                                      balance=0,
-                                     previous_period=surround_period_previous_period_id,
+                                     previous_period=
+                                     surround_period_previous_period_id,
                                      continuous_cap=surround_continuous_cap,
                                      origin="create")
 
@@ -279,14 +295,16 @@ class HrEmployeePeriod(models.Model):
 
         period1.update_period()
 
-    def handle_previous_overlapping_period(self, previous_overlapping_period, start_date, res):
+    def handle_previous_overlapping_period(
+            self, previous_overlapping_period, start_date, res):
         # Modify first previous overlapping period
         previous_overlapping_period.end_date = start_date
         res.write({
             'previous_period': previous_overlapping_period.id
         })
 
-    def handle_next_overlapping_period(self, next_overlapping_period, end_date, res_id):
+    def handle_next_overlapping_period(
+            self, next_overlapping_period, end_date, res_id):
         # Modify next overlapping period
         next_overlapping_period.write({
             'start_date': end_date,

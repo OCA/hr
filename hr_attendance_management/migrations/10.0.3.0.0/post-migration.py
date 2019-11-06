@@ -39,7 +39,7 @@ def migrate(env, version):
                 """
                     SELECT
                         balance_copy
-                    FROM 
+                    FROM
                         hr_employee
                     WHERE
                         id = %s
@@ -56,8 +56,8 @@ def migrate(env, version):
             employee_model.initial_balance = initial_balance
 
             # Calculate extra and lost hours for 2018
-            new_period_balance, new_period_lost = employee_model.past_balance_computation(
-                start_date, end_date, 0)
+            new_period_balance, new_period_lost = \
+                employee_model.past_balance_computation(start_date, end_date, 0)
 
             # Create a period for the year 2018
             employee_model.create_period(employee["id"],

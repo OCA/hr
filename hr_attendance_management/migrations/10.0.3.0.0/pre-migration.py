@@ -50,7 +50,7 @@ def migrate(env, version):
             """
                 SELECT
                     extra_hours_continuous_cap
-                FROM 
+                FROM
                     hr_employee
                 WHERE
                     id = %s

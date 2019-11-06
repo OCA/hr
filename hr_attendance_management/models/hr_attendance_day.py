@@ -144,16 +144,15 @@ class HrAttendanceDay(models.Model):
             # Specific period
             att_schedule = current_cal_att.filtered(
                 lambda r: r.date_from is not False and
-                          r.date_to is not False and
-                          r.date_from <= att_day.date <= r.date_to)
+                r.date_to is not False and
+                r.date_from <= att_day.date <= r.date_to)
 
             # Period with only date_to or date_from
             if not att_schedule:
                 att_schedule = current_cal_att.filtered(
-                    lambda r: (r.date_from <= att_day.date and
-                               not r.date_to and r.date_from) or
-                              (r.date_to >= att_day.date and
-                               not r.date_from and r.date_to))
+                    lambda r:
+                    (r.date_from <= att_day.date and not r.date_to and r.date_from) or
+                    (r.date_to >= att_day.date and not r.date_from and r.date_to))
 
             # Default schedule
             if not att_schedule:
@@ -442,31 +441,12 @@ class HrAttendanceDay(models.Model):
     def recompute_period_if_old_day(self):
         for day in self:
             employee_periods = day.employee_id.period_ids
-            lower_bound_period = employee_periods.search([
-                ('end_date', '<=', day.date)
-            ], order='end_date desc', limit=1)
-            upper_bound_period = employee_periods.search([
-                ('start_date', '>=', day.date)
-            ], order='start_date asc', limit=1)
-            config = self.env['base.config.settings'].create({})
-            config.set_beginning_date()
-
-            start_date = None
-            end_date = None
-            if lower_bound_period:
-                start_date = datetime.datetime.strptime(lower_bound_period.end_date, '%Y-%m-%d')
-            else:
-                start_date = datetime.datetime.strptime(config.get_beginning_date_for_balance_computation(), '%Y-%m-%d')
-            if upper_bound_period:
-                end_date = datetime.datetime.strptime(upper_bound_period.start_date, '%Y-%m-%d')
-            else:
-                end_date = datetime.datetime.today()
-
-            if start_date < end_date:
-                periods = sorted(day.employee_id.period_ids,  key=lambda r: r.end_date)
-                if periods:
-                    periods[0].update_period()
-
+            period_of_day = employee_periods.search([
+                ('start_date', '<=', day.date),
+                ('end_date', '>=', day.date)
+            ], limit=1)
+            if period_of_day:
+                period_of_day.update_period()
         self.employee_id.compute_balance()
 
     @api.multi

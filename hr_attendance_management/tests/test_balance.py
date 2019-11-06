@@ -2,9 +2,9 @@
 
 # Copyright (C) 2018 Compassion CH
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+
 from datetime import datetime, timedelta
 from odoo import fields
-from odoo.exceptions import ValidationError
 from odoo.tests import SavepointCase
 import logging
 
@@ -53,10 +53,10 @@ class TestAnnualBalance(SavepointCase):
         :return: None
         """
 
-        start_01 = date.strftime('%Y-%m-%d 08:00')
-        stop_01 = date.strftime('%Y-%m-%d 12:00')
+        start_01 = date.strftime('%Y-%m-%d 08:00:00')
+        stop_01 = date.strftime('%Y-%m-%d 12:00:00')
         # 4h in the morning
-        start_02 = date.strftime('%Y-%m-%d 12:30')
+        start_02 = date.strftime('%Y-%m-%d 12:30:00')
         stop_hour_2 = "{}:30".format(16 + hours)
         stop_02 = date.strftime('%Y-%m-%d ' + stop_hour_2)
         # 4h in the afternoon
@@ -135,7 +135,8 @@ class TestAnnualBalance(SavepointCase):
         for person in [self.michael, self.jack]:
             person.attendance_days_ids[-1].attendance_ids[0].check_out = \
                 fields.Datetime.from_string(
-                    person.attendance_days_ids[-1].attendance_ids[0].check_out) + timedelta(hours=3)
+                    person.attendance_days_ids[-1].attendance_ids[0].check_out) + \
+                timedelta(hours=3)
         self.michael.compute_balance()
         self.jack.compute_balance()
         self.assertEqual(self.jack.balance, 2)

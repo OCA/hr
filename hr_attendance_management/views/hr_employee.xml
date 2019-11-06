@@ -55,7 +55,7 @@
                     </div>
                     <div>
                         <label for="initial_balance"/>
-                        <field name="initial_balance" widget="float_time"/>
+                        <field name="initial_balance" widget="float_time" groups="base.group_hr_manager"/>
                     </div>
                 </div>
             </field>
