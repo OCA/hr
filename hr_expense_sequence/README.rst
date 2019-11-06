@@ -8,10 +8,10 @@ Configuration
 
 You can change the default sequence (EX0000...) by the one of your choice
 going to Settings > Technical > Sequences & Identifiers > Sequences, and
-editing _HR expense_ record.
+editing "HR expense" record.
 
-You will only have access to that section if your section has _Technical
-features_ permission check marked.
+You will only have access to that section if your section has "Technical
+features" permission check marked.
 
 Credits
 =======
