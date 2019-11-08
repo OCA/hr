@@ -61,7 +61,7 @@ msgid "End"
 msgstr ""
 
 #. module: hr_employee_calendar_planning
-#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar_id_5184
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar_id_5194
 msgid "ID"
 msgstr ""
 
