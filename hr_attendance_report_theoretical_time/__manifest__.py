@@ -17,6 +17,7 @@
     "data": [
         "security/ir.model.access.csv",
         "security/hr_attendance_report_theoretical_time_security.xml",
+        "wizards/recompute_theoretical_attendance_views.xml",
         "views/hr_holidays_status_views.xml",
         "views/hr_employee_views.xml",
         "reports/hr_attendance_theoretical_time_report_views.xml",
