@@ -29,7 +29,7 @@
     'summary': "Manage default analytic account on expenses",
     'description': """
 Default Analytic on Expenses
-===========================
+============================
 
 This module adds 2 fields:
 
