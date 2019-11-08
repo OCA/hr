@@ -16,7 +16,7 @@ addon | version | summary
 --- | --- | ---
 [hr_attendance_autoclose](hr_attendance_autoclose/) | 10.0.1.0.0 | Close stale Attendances
 [hr_attendance_reason](hr_attendance_reason/) | 10.0.1.0.0 | HR Attendance Reason
-[hr_attendance_report_theoretical_time](hr_attendance_report_theoretical_time/) | 10.0.1.0.0 | Theoretical vs Attended Time Analysis
+[hr_attendance_report_theoretical_time](hr_attendance_report_theoretical_time/) | 10.0.2.0.0 | Theoretical vs Attended Time Analysis
 [hr_attendance_rfid](hr_attendance_rfid/) | 10.0.1.0.0 | HR Attendance RFID
 [hr_citizenship](hr_citizenship/) | 10.0.1.0.0 | Add citizenship field to employee and applicant
 [hr_contract_default_trial_length](hr_contract_default_trial_length/) | 10.0.1.0.0 | Define default trail length for contracts
