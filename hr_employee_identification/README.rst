@@ -43,8 +43,8 @@ Credits
 Images
 ------
 
-* Odoo Community Association: `Icon <https://github.com/OCA/maintainer-tools/blob/master/template/module/static/description/icon.svg>`_.
-* Fontawesome: `Icon <http://fontawesome.io/icon/id-card-o/>`_
+* Odoo Community Association: `Icon <https://github.com/OCA/maintainer-tools/blob/master/template/module/static/description/icon.svg>`__.
+* Fontawesome: `Icon <http://fontawesome.io/icon/id-card-o/>`__
 
 Contributors
 ------------
