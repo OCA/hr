@@ -37,7 +37,7 @@ Go to: Human Resources -> Payroll -> Employee Payslip
 
 - Complete the payslip details
 - Go to 'Other information', 'Accounting' section and complete the field
-'Force move date'.
+  'Force move date'.
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
@@ -47,8 +47,8 @@ Known issues / Roadmap
 ======================
 
 By default the Salary Journal should be set up with the field 'Check Date in
- Period' unflagged. Otherwise the application will raise an error message if
-  the user enters a move date corresponding to a past period.
+Period' unflagged. Otherwise the application will raise an error message if
+the user enters a move date corresponding to a past period.
 
 
 Credits
