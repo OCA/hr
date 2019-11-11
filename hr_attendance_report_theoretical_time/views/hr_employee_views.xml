@@ -9,4 +9,14 @@
             </field>
         </field>
     </record>
+
+    <act_window id="recompute_employee_theoretical_attendance"
+        name="Recompute Theoretical Attendance"
+        src_model="hr.employee"
+        res_model="recompute.theoretical.attendance"
+        context="{'default_employee_ids': active_ids, 'employee_ids': active_ids}"
+        view_type="form" view_mode="form"
+        key2="client_action_multi" target="new"
+        groups="hr_attendance.group_hr_attendance_manager"/>
+
 </odoo>
