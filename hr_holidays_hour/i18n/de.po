@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* hr_holidays_hour
+# 	* hr_holidays_hour
 #
 msgid ""
 msgstr ""
@@ -17,137 +17,122 @@ msgstr ""
 "X-Generator: Weblate 3.3\n"
 
 #. module: hr_holidays_hour
-#: code:addons/hr_holidays_hour/models/hr_holidays.py:134
-#, python-format
-msgid "%s on %s : %.2f hour(s)"
-msgstr "%s mit Urlaubstyp: %s : %.2f Stunde(n)"
-
-#. module: hr_holidays_hour
-#: model:ir.model.fields,field_description:hr_holidays_hour.field_hr_holidays_number_of_hours_temp
-msgid "Allocation in Hours"
+#: model:ir.model.fields,field_description:hr_holidays_hour.field_hr_leave_allocation__number_of_hours
+#, fuzzy
+#| msgid "Allocation in Hours"
+msgid "Allocated hours"
 msgstr "Reservierung in Stunden"
 
 #. module: hr_holidays_hour
-#: model:ir.ui.view,arch_db:hr_holidays_hour.view_holiday_allocation_tree_inherit_leave_hours
-#: model:ir.ui.view,arch_db:hr_holidays_hour.view_holiday_inherit_leave_hours
-#: model:ir.ui.view,arch_db:hr_holidays_hour.view_holiday_simple_inherit_leave_hours
-msgid "Approved Hours"
-msgstr "Genehmigte Stunden"
-
-#. module: hr_holidays_hour
-#: model:ir.model.fields,field_description:hr_holidays_hour.field_hr_holidays_remaining_leaves_user_no_of_hours
-msgid "Approved hours"
-msgstr "Genehmigte Stunden"
+#: model:ir.model.fields,field_description:hr_holidays_hour.field_hr_leave__number_of_hours
+#: model:ir.model.fields,field_description:hr_holidays_hour.field_hr_leave_report__number_of_hours
+msgid "Duration (hours)"
+msgstr ""
 
 #. module: hr_holidays_hour
 #: model:ir.model,name:hr_holidays_hour.model_hr_employee
-#: model:ir.model.fields,field_description:hr_holidays_hour.field_hr_holidays_remaining_leaves_user_employee_id
 msgid "Employee"
 msgstr "Angestellte(r)"
 
 #. module: hr_holidays_hour
-#: model:ir.model.fields,field_description:hr_holidays_hour.field_hr_employee_holiday_ids
-msgid "Holidays"
-msgstr "Feiertage"
-
-#. module: hr_holidays_hour
-#: model:ir.ui.view,arch_db:hr_holidays_hour.edit_holiday_new_inherit_leave_hours
-msgid "Hours"
-msgstr "Stunden"
-
-#. module: hr_holidays_hour
-#: model:ir.model.fields,field_description:hr_holidays_hour.field_hr_holidays_status_hours_taken
-msgid "Hours Already Taken"
-msgstr "Bereits genommene Stunden"
-
-#. module: hr_holidays_hour
-#: code:addons/hr_holidays_hour/models/hr_holidays.py:115
-#, python-format
-msgid "Hours of a leave request cannot be a negative number."
-msgstr "Die Anzahl der Stunden des Urlaubsantrags muss größer als 0 sein."
-
-#. module: hr_holidays_hour
-#: model:ir.model,name:hr_holidays_hour.model_hr_holidays
+#: model:ir.model,name:hr_holidays_hour.model_hr_leave
 msgid "Leave"
 msgstr "Urlaub"
 
 #. module: hr_holidays_hour
-#: model:ir.model,name:hr_holidays_hour.model_hr_holidays_status
-msgid "Leave Type"
-msgstr "Urlaubsart"
+#: model:ir.model,name:hr_holidays_hour.model_hr_leave_report
+msgid "Leave Summary / Report"
+msgstr ""
 
 #. module: hr_holidays_hour
-#: model:ir.model.fields,field_description:hr_holidays_hour.field_hr_holidays_status_max_hours
-msgid "Maximum Allowed Hours"
-msgstr "Maximal erlaubte Anzahl von Stunden"
+#: model:ir.model,name:hr_holidays_hour.model_hr_leave_allocation
+msgid "Leaves Allocation"
+msgstr ""
 
 #. module: hr_holidays_hour
-#: model:ir.model.fields,field_description:hr_holidays_hour.field_hr_holidays_number_of_hours
-msgid "Number Of Hours"
+#: model:ir.model.fields,field_description:hr_holidays_hour.field_hr_employee__leaves_count
+#, fuzzy
+#| msgid "Number Of Hours"
+msgid "Number of Leaves"
 msgstr "Anzahl von Stunden"
 
 #. module: hr_holidays_hour
-#: model:ir.model.fields,field_description:hr_holidays_hour.field_hr_holidays_status_remaining_hours
-#: model:ir.ui.view,arch_db:hr_holidays_hour.view_holiday_allocation_tree_inherit_leave_hours
-#: model:ir.ui.view,arch_db:hr_holidays_hour.view_holiday_inherit_leave_hours
-#: model:ir.ui.view,arch_db:hr_holidays_hour.view_holiday_simple_inherit_leave_hours
+#: model:ir.model.fields,help:hr_holidays_hour.field_hr_leave__number_of_hours
+msgid ""
+"Number of hours of the leave request according to your working schedule."
+msgstr ""
+
+#. module: hr_holidays_hour
+#: model_terms:ir.ui.view,arch_db:hr_holidays_hour.hr_leave_report_tree
 msgid "Remaining Hours"
 msgstr "Verbleibende Stunden"
 
 #. module: hr_holidays_hour
-#: model:ir.model.fields,field_description:hr_holidays_hour.field_hr_employee_remaining_hours_ids
-msgid "Remaining hours per Leave Type"
-msgstr "Verbleibende Stunden pro Urlaubsart"
-
-#. module: hr_holidays_hour
-#: code:addons/hr_holidays_hour/models/hr_holidays.py:50
-#, python-format
-msgid "Set an employee first!"
-msgstr "Wählen Sie zuerst einen Angestellten!"
-
-#. module: hr_holidays_hour
-#: code:addons/hr_holidays_hour/models/hr_holidays.py:125
-#, python-format
-msgid "The number of remaining hours is not sufficient for this leave type.\n"
-"Please check for allocation requests awaiting validation."
+#: model:ir.model.fields,help:hr_holidays_hour.field_hr_leave_allocation__number_of_hours
+msgid ""
+"UX field allowing to see and modify the allocation duration,computed in "
+"hours."
 msgstr ""
-"Die Anzahl der verbleibenden Stunden dieser Urlaubsart ist nicht ausreichend."
-"\n"
-"Bitte prüfen Sie die zur Genehmigung stehenden Urlaubsanträge."
 
 #. module: hr_holidays_hour
-#: code:addons/hr_holidays_hour/models/hr_holidays.py:41
-#, python-format
-msgid "The start date must be anterior to the end date."
-msgstr "Das Startdatum muss vor dem Enddatum liegen."
+#: model_terms:ir.ui.view,arch_db:hr_holidays_hour.view_employee_form_leave_inherit
+#, fuzzy
+#| msgid "Hours"
+msgid "hours"
+msgstr "Stunden"
 
-#. module: hr_holidays_hour
-#: model:ir.model,name:hr_holidays_hour.model_hr_holidays_remaining_leaves_user
-msgid "Total holidays by type"
-msgstr "Gesamt-Urlaub pro Urlaubsart"
+#~ msgid "%s on %s : %.2f hour(s)"
+#~ msgstr "%s mit Urlaubstyp: %s : %.2f Stunde(n)"
 
-#. module: hr_holidays_hour
-#: model:ir.model.fields,field_description:hr_holidays_hour.field_hr_holidays_virtual_hours
-#: model:ir.ui.view,arch_db:hr_holidays_hour.view_holiday_allocation_tree_inherit_leave_hours
-#: model:ir.ui.view,arch_db:hr_holidays_hour.view_holiday_inherit_leave_hours
-#: model:ir.ui.view,arch_db:hr_holidays_hour.view_holiday_simple_inherit_leave_hours
-msgid "Virtual Hours"
-msgstr "Virtuelle Stunden"
+#~ msgid "Approved Hours"
+#~ msgstr "Genehmigte Stunden"
 
-#. module: hr_holidays_hour
-#: model:ir.model.fields,field_description:hr_holidays_hour.field_hr_holidays_status_virtual_remaining_hours
-#: model:ir.ui.view,arch_db:hr_holidays_hour.view_holiday_allocation_tree_inherit_leave_hours
-#: model:ir.ui.view,arch_db:hr_holidays_hour.view_holiday_inherit_leave_hours
-#: model:ir.ui.view,arch_db:hr_holidays_hour.view_holiday_simple_inherit_leave_hours
-msgid "Virtual Remaining Hours"
-msgstr "Virtuelle, verbleibende Stunden"
+#~ msgid "Approved hours"
+#~ msgstr "Genehmigte Stunden"
 
-#. module: hr_holidays_hour
-#: model:ir.model.fields,field_description:hr_holidays_hour.field_hr_holidays_remaining_leaves_user_virtual_hours
-msgid "Virtual hours"
-msgstr "Virtuelle Stunden"
+#~ msgid "Holidays"
+#~ msgstr "Feiertage"
 
-#. module: hr_holidays_hour
-#: model:ir.model.fields,field_description:hr_holidays_hour.field_hr_holidays_working_hours
-msgid "Working Hours"
-msgstr "Arbeitsstunden"
+#~ msgid "Hours Already Taken"
+#~ msgstr "Bereits genommene Stunden"
+
+#~ msgid "Hours of a leave request cannot be a negative number."
+#~ msgstr "Die Anzahl der Stunden des Urlaubsantrags muss größer als 0 sein."
+
+#~ msgid "Leave Type"
+#~ msgstr "Urlaubsart"
+
+#~ msgid "Maximum Allowed Hours"
+#~ msgstr "Maximal erlaubte Anzahl von Stunden"
+
+#~ msgid "Remaining hours per Leave Type"
+#~ msgstr "Verbleibende Stunden pro Urlaubsart"
+
+#~ msgid "Set an employee first!"
+#~ msgstr "Wählen Sie zuerst einen Angestellten!"
+
+#~ msgid ""
+#~ "The number of remaining hours is not sufficient for this leave type.\n"
+#~ "Please check for allocation requests awaiting validation."
+#~ msgstr ""
+#~ "Die Anzahl der verbleibenden Stunden dieser Urlaubsart ist nicht "
+#~ "ausreichend.\n"
+#~ "Bitte prüfen Sie die zur Genehmigung stehenden Urlaubsanträge."
+
+#~ msgid "The start date must be anterior to the end date."
+#~ msgstr "Das Startdatum muss vor dem Enddatum liegen."
+
+#~ msgid "Total holidays by type"
+#~ msgstr "Gesamt-Urlaub pro Urlaubsart"
+
+#~ msgid "Virtual Hours"
+#~ msgstr "Virtuelle Stunden"
+
+#~ msgid "Virtual Remaining Hours"
+#~ msgstr "Virtuelle, verbleibende Stunden"
+
+#~ msgid "Virtual hours"
+#~ msgstr "Virtuelle Stunden"
+
+#~ msgid "Working Hours"
+#~ msgstr "Arbeitsstunden"
