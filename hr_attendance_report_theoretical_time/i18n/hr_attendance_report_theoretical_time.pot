@@ -34,16 +34,19 @@ msgid "Attendances Analysis"
 msgstr ""
 
 #. module: hr_attendance_report_theoretical_time
+#: model:ir.ui.view,arch_db:hr_attendance_report_theoretical_time.recompute_theoretical_attendance_form
 #: model:ir.ui.view,arch_db:hr_attendance_report_theoretical_time.wizard_theoretical_time_form_view
 msgid "Cancel"
 msgstr ""
 
 #. module: hr_attendance_report_theoretical_time
+#: model:ir.model.fields,field_description:hr_attendance_report_theoretical_time.field_recompute_theoretical_attendance_create_uid
 #: model:ir.model.fields,field_description:hr_attendance_report_theoretical_time.field_wizard_theoretical_time_create_uid
 msgid "Created by"
 msgstr ""
 
 #. module: hr_attendance_report_theoretical_time
+#: model:ir.model.fields,field_description:hr_attendance_report_theoretical_time.field_recompute_theoretical_attendance_create_date
 #: model:ir.model.fields,field_description:hr_attendance_report_theoretical_time.field_wizard_theoretical_time_create_date
 msgid "Created on"
 msgstr ""
@@ -75,6 +78,7 @@ msgstr ""
 
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.model.fields,field_description:hr_attendance_report_theoretical_time.field_hr_attendance_theoretical_time_report_display_name
+#: model:ir.model.fields,field_description:hr_attendance_report_theoretical_time.field_recompute_theoretical_attendance_display_name
 #: model:ir.model.fields,field_description:hr_attendance_report_theoretical_time.field_wizard_theoretical_time_display_name
 msgid "Display Name"
 msgstr ""
@@ -86,6 +90,7 @@ msgid "Employee"
 msgstr ""
 
 #. module: hr_attendance_report_theoretical_time
+#: model:ir.model.fields,field_description:hr_attendance_report_theoretical_time.field_recompute_theoretical_attendance_employee_ids
 #: model:ir.model.fields,field_description:hr_attendance_report_theoretical_time.field_wizard_theoretical_time_employee_ids
 #: model:ir.ui.view,arch_db:hr_attendance_report_theoretical_time.wizard_theoretical_time_form_view
 msgid "Employees"
@@ -102,7 +107,13 @@ msgid "Filters"
 msgstr ""
 
 #. module: hr_attendance_report_theoretical_time
+#: model:ir.model.fields,field_description:hr_attendance_report_theoretical_time.field_recompute_theoretical_attendance_date_from
+msgid "From"
+msgstr ""
+
+#. module: hr_attendance_report_theoretical_time
 #: model:ir.model.fields,field_description:hr_attendance_report_theoretical_time.field_hr_attendance_theoretical_time_report_id
+#: model:ir.model.fields,field_description:hr_attendance_report_theoretical_time.field_recompute_theoretical_attendance_id
 #: model:ir.model.fields,field_description:hr_attendance_report_theoretical_time.field_wizard_theoretical_time_id
 msgid "ID"
 msgstr ""
@@ -119,16 +130,19 @@ msgstr ""
 
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.model.fields,field_description:hr_attendance_report_theoretical_time.field_hr_attendance_theoretical_time_report___last_update
+#: model:ir.model.fields,field_description:hr_attendance_report_theoretical_time.field_recompute_theoretical_attendance___last_update
 #: model:ir.model.fields,field_description:hr_attendance_report_theoretical_time.field_wizard_theoretical_time___last_update
 msgid "Last Modified on"
 msgstr ""
 
 #. module: hr_attendance_report_theoretical_time
+#: model:ir.model.fields,field_description:hr_attendance_report_theoretical_time.field_recompute_theoretical_attendance_write_uid
 #: model:ir.model.fields,field_description:hr_attendance_report_theoretical_time.field_wizard_theoretical_time_write_uid
 msgid "Last Updated by"
 msgstr ""
 
 #. module: hr_attendance_report_theoretical_time
+#: model:ir.model.fields,field_description:hr_attendance_report_theoretical_time.field_recompute_theoretical_attendance_write_date
 #: model:ir.model.fields,field_description:hr_attendance_report_theoretical_time.field_wizard_theoretical_time_write_date
 msgid "Last Updated on"
 msgstr ""
@@ -166,6 +180,42 @@ msgstr ""
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.model,name:hr_attendance_report_theoretical_time.model_hr_holidays_public_line
 msgid "Public Holidays Lines"
+msgstr ""
+
+#. module: hr_attendance_report_theoretical_time
+#: model:ir.ui.view,arch_db:hr_attendance_report_theoretical_time.recompute_theoretical_attendance_form
+msgid "Recompute"
+msgstr ""
+
+#. module: hr_attendance_report_theoretical_time
+#: model:ir.model,name:hr_attendance_report_theoretical_time.model_recompute_theoretical_attendance
+msgid "Recompute Employees Attendances"
+msgstr ""
+
+#. module: hr_attendance_report_theoretical_time
+#: model:ir.actions.act_window,name:hr_attendance_report_theoretical_time.recompute_employee_theoretical_attendance
+msgid "Recompute Theoretical Attendance"
+msgstr ""
+
+#. module: hr_attendance_report_theoretical_time
+#: model:ir.actions.act_window,name:hr_attendance_report_theoretical_time.act_wizard_recompute_theoretical_attendance
+#: model:ir.ui.menu,name:hr_attendance_report_theoretical_time.menu_recompute_theoretical_attendance
+msgid "Recompute Theoretical Attendances"
+msgstr ""
+
+#. module: hr_attendance_report_theoretical_time
+#: model:ir.model.fields,help:hr_attendance_report_theoretical_time.field_recompute_theoretical_attendance_date_from
+msgid "Recompute attendances from this date"
+msgstr ""
+
+#. module: hr_attendance_report_theoretical_time
+#: model:ir.model.fields,help:hr_attendance_report_theoretical_time.field_recompute_theoretical_attendance_date_to
+msgid "Recompute attendances up to this date"
+msgstr ""
+
+#. module: hr_attendance_report_theoretical_time
+#: model:ir.model.fields,help:hr_attendance_report_theoretical_time.field_recompute_theoretical_attendance_employee_ids
+msgid "Recompute these employees attendances"
 msgstr ""
 
 #. module: hr_attendance_report_theoretical_time
@@ -213,6 +263,11 @@ msgstr ""
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.model.fields,field_description:hr_attendance_report_theoretical_time.field_hr_attendance_theoretical_time_report_theoretical_hours
 msgid "Theoric"
+msgstr ""
+
+#. module: hr_attendance_report_theoretical_time
+#: model:ir.model.fields,field_description:hr_attendance_report_theoretical_time.field_recompute_theoretical_attendance_date_to
+msgid "To"
 msgstr ""
 
 #. module: hr_attendance_report_theoretical_time
