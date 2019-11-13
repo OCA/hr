@@ -6,7 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2019-11-13 16:34+0000\n"
+"Last-Translator: Bole <bole@dajmi5.com>\n"
 "Language-Team: none\n"
 "Language: hr\n"
 "MIME-Version: 1.0\n"
@@ -14,71 +15,73 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
 "4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 3.8\n"
 
 #. module: hr_contract_multi_job
 #: model:ir.model.fields,field_description:hr_contract_multi_job.field_hr_contract_job__contract_id
 msgid "Contract"
-msgstr ""
+msgstr "Ugovor"
 
 #. module: hr_contract_multi_job
 #: model:ir.model.fields,field_description:hr_contract_multi_job.field_hr_job__contract_job_ids
 msgid "Contract Jobs"
-msgstr ""
+msgstr "Ugovorni poslovi"
 
 #. module: hr_contract_multi_job
 #: model:ir.model.fields,field_description:hr_contract_multi_job.field_hr_contract_job__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Kreirao"
 
 #. module: hr_contract_multi_job
 #: model:ir.model.fields,field_description:hr_contract_multi_job.field_hr_contract_job__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Kreirano"
 
 #. module: hr_contract_multi_job
 #: model:ir.model.fields,field_description:hr_contract_multi_job.field_hr_contract_job__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Naziv"
 
 #. module: hr_contract_multi_job
 #: model:ir.model,name:hr_contract_multi_job.model_hr_contract
 msgid "Employee Contract"
-msgstr ""
+msgstr "Ugovor djelatnika"
 
 #. module: hr_contract_multi_job
 #: model:ir.model.fields,field_description:hr_contract_multi_job.field_hr_contract_job__id
+#, fuzzy
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: hr_contract_multi_job
 #: model:ir.model.fields,field_description:hr_contract_multi_job.field_hr_contract_job__job_id
 msgid "Job"
-msgstr ""
+msgstr "Posao"
 
 #. module: hr_contract_multi_job
 #: model:ir.model.fields,field_description:hr_contract_multi_job.field_hr_contract_job__name
 msgid "Job Name"
-msgstr ""
+msgstr "Naziv posla"
 
 #. module: hr_contract_multi_job
 #: model:ir.model,name:hr_contract_multi_job.model_hr_job
 msgid "Job Position"
-msgstr ""
+msgstr "Pozicija posla"
 
 #. module: hr_contract_multi_job
 #: model_terms:ir.ui.view,arch_db:hr_contract_multi_job.hr_contract_view_form
 msgid "Job Positions"
-msgstr ""
+msgstr "Poslovne pozicije"
 
 #. module: hr_contract_multi_job
 #: model:ir.model.fields,field_description:hr_contract_multi_job.field_hr_contract__job_id
 msgid "Job Title"
-msgstr ""
+msgstr "Naslov posla"
 
 #. module: hr_contract_multi_job
 #: model:ir.model.fields,field_description:hr_contract_multi_job.field_hr_contract__contract_job_ids
 msgid "Jobs"
-msgstr ""
+msgstr "Poslovi"
 
 #. module: hr_contract_multi_job
 #: model:ir.model.fields,field_description:hr_contract_multi_job.field_hr_contract_job____last_update
