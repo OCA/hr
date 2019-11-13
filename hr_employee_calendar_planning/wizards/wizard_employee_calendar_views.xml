@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="act_wizard_employee_calendar_dates" model="ir.actions.act_window">
+        <field name="name">Add employees calendar and date range</field>
+        <field name="res_model">wizard.employee.calendar.dates</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <record id="wizard_employee_calendar_dates" model="ir.ui.view">
+        <field name="model">wizard.employee.calendar.dates</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="employee_ids" widget="many2many_tags"/>
+                        <field name="calendar_id"/>
+                        <field name="date_start"/>
+                        <field name="date_end"/>
+                    </group>
+                </group>
+                <footer>
+                    <button name="action_assign_calendar"
+                            type="object"
+                            string="Assign Calendar"
+                            class="oe_highlight"/>
+                    <button special="cancel" string="Cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+</odoo>

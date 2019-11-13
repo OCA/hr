@@ -16,6 +16,7 @@
     "data": [
         "security/ir.model.access.csv",
         "views/hr_employee_views.xml",
+        "wizards/wizard_employee_calendar_views.xml",
     ],
     "post_init_hook": "post_init_hook",
 }

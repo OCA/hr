@@ -2,7 +2,8 @@
 # Copyright 2019 Tecnativa - Pedro M. Baeza
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-from odoo import _, fields, models
+from odoo import _, api, fields, models
+from odoo.exceptions import ValidationError
 
 
 class HrEmployee(models.Model):
@@ -64,6 +65,21 @@ class HrEmployeeCalendar(models.Model):
          'CHECK(date_start <= date_end)',
          'Date end should be higher than date start'),
     ]
+
+    @api.constrains('date_start', 'date_end')
+    def _check_date(self):
+        """Employee calendars should not overlap"""
+        for calendar in self:
+            domain = [
+                ('date_start', '<=', calendar.date_end),
+                ('date_end', '>=', calendar.date_start),
+                ('employee_id', '=', calendar.employee_id.id),
+                ('id', '!=', calendar.id),
+            ]
+            ncalendars = self.search_count(domain)
+            if ncalendars:
+                raise ValidationError(_(
+                    "You can't have 2 overlaping calendars!"))
 
     def create(self, vals):
         record = super(HrEmployeeCalendar, self).create(vals)

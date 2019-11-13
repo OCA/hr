@@ -49,7 +49,7 @@ def post_init_hook(cr, registry, employees=None):
             calendar_mapping[calendar].append(
                 (lines[0].date_from, lines[0].date_to, new_calendar),
             )
-        for employee in employees:
+        for employee in employees.filtered('calendar_id'):
             calendar_lines = []
             for data in calendar_mapping[employee.calendar_id]:
                 calendar_lines.append((0, 0, {
@@ -57,5 +57,12 @@ def post_init_hook(cr, registry, employees=None):
                     'date_end': data[1],
                     'calendar_id': data[2].id,
                 }))
+            # Extract employee's existing leaves so they are passed to the new
+            # automatic calendar.
+            leaves = employee.calendar_id.leave_ids.filtered(
+                lambda x: x.resource_id == employee.resource_id)
             employee.calendar_id = False
             employee.calendar_ids = calendar_lines
+            # Now the automatic calendar has been created, so we link the
+            # leaves to that one so they count correctly.
+            leaves.write({'calendar_id': employee.calendar_id.id})

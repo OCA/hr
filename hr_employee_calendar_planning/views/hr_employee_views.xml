@@ -20,4 +20,14 @@
             </field>
         </field>
     </record>
+
+    <act_window id="wizard_assign_calendar_date_range"
+        name="Assign Calendar Date Range"
+        src_model="hr.employee"
+        res_model="wizard.employee.calendar.dates"
+        context="{'default_employee_ids': active_ids, 'employee_ids': active_ids}"
+        view_type="form" view_mode="form"
+        key2="client_action_multi" target="new"
+        groups="hr.group_hr_manager"/>
+
 </odoo>
