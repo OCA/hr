@@ -1,0 +1,58 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* hr_attendance_autoclose
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: hr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+
+#. module: hr_attendance_autoclose
+#: model:ir.model,name:hr_attendance_autoclose.model_hr_attendance
+msgid "Attendance"
+msgstr ""
+
+#. module: hr_attendance_autoclose
+#: model:ir.model.fields,field_description:hr_attendance_autoclose.field_res_company__attendance_maximum_hours_per_day
+msgid "Attendance Maximum Hours Per Day"
+msgstr ""
+
+#. module: hr_attendance_autoclose
+#: model_terms:ir.ui.view,arch_db:hr_attendance_autoclose.view_company_inherit_form
+msgid "Attendances"
+msgstr ""
+
+#. module: hr_attendance_autoclose
+#: model:ir.actions.server,name:hr_attendance_autoclose.check_attendance_cron_ir_actions_server
+#: model:ir.cron,cron_name:hr_attendance_autoclose.check_attendance_cron
+#: model:ir.cron,name:hr_attendance_autoclose.check_attendance_cron
+msgid "Check Attendance"
+msgstr ""
+
+#. module: hr_attendance_autoclose
+#: model:ir.model,name:hr_attendance_autoclose.model_res_company
+msgid "Companies"
+msgstr ""
+
+#. module: hr_attendance_autoclose
+#: model:ir.model.fields,field_description:hr_attendance_autoclose.field_hr_employee__no_autoclose
+msgid "Don't Autoclose Attendances"
+msgstr ""
+
+#. module: hr_attendance_autoclose
+#: model:ir.model,name:hr_attendance_autoclose.model_hr_employee
+msgid "Employee"
+msgstr ""
+
+#. module: hr_attendance_autoclose
+#: model:ir.model.fields,field_description:hr_attendance_autoclose.field_hr_attendance__open_worked_hours
+msgid "Worked hours"
+msgstr ""
