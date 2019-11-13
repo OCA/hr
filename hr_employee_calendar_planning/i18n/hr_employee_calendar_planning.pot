@@ -19,9 +19,44 @@ msgid "Active"
 msgstr ""
 
 #. module: hr_employee_calendar_planning
-#: code:addons/hr_employee_calendar_planning/models/hr_employee.py:22
+#: model:ir.actions.act_window,name:hr_employee_calendar_planning.act_wizard_employee_calendar_dates
+msgid "Add employees calendar and date range"
+msgstr ""
+
+#. module: hr_employee_calendar_planning
+#: model:ir.ui.view,arch_db:hr_employee_calendar_planning.wizard_employee_calendar_dates
+msgid "Assign Calendar"
+msgstr ""
+
+#. module: hr_employee_calendar_planning
+#: model:ir.actions.act_window,name:hr_employee_calendar_planning.wizard_assign_calendar_date_range
+msgid "Assign Calendar Date Range"
+msgstr ""
+
+#. module: hr_employee_calendar_planning
+#: model:ir.model,name:hr_employee_calendar_planning.model_wizard_employee_calendar_dates
+msgid "Assign calendar for a date range to employees"
+msgstr ""
+
+#. module: hr_employee_calendar_planning
+#: model:ir.model.fields,help:hr_employee_calendar_planning.field_wizard_employee_calendar_dates_calendar_id
+msgid "Assign this calendar"
+msgstr ""
+
+#. module: hr_employee_calendar_planning
+#: model:ir.model.fields,help:hr_employee_calendar_planning.field_wizard_employee_calendar_dates_employee_ids
+msgid "Assign to these employees"
+msgstr ""
+
+#. module: hr_employee_calendar_planning
+#: code:addons/hr_employee_calendar_planning/models/hr_employee.py:23
 #, python-format
 msgid "Auto generated calendar for employee"
+msgstr ""
+
+#. module: hr_employee_calendar_planning
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_wizard_employee_calendar_dates_calendar_id
+msgid "Calendar"
 msgstr ""
 
 #. module: hr_employee_calendar_planning
@@ -30,12 +65,19 @@ msgid "Calendar planning"
 msgstr ""
 
 #. module: hr_employee_calendar_planning
+#: model:ir.ui.view,arch_db:hr_employee_calendar_planning.wizard_employee_calendar_dates
+msgid "Cancel"
+msgstr ""
+
+#. module: hr_employee_calendar_planning
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar_create_uid
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_wizard_employee_calendar_dates_create_uid
 msgid "Created by"
 msgstr ""
 
 #. module: hr_employee_calendar_planning
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar_create_date
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_wizard_employee_calendar_dates_create_date
 msgid "Created on"
 msgstr ""
 
@@ -46,6 +88,7 @@ msgstr ""
 
 #. module: hr_employee_calendar_planning
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar_display_name
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_wizard_employee_calendar_dates_display_name
 msgid "Display Name"
 msgstr ""
 
@@ -56,27 +99,41 @@ msgid "Employee"
 msgstr ""
 
 #. module: hr_employee_calendar_planning
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_wizard_employee_calendar_dates_employee_ids
+msgid "Employees"
+msgstr ""
+
+#. module: hr_employee_calendar_planning
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar_date_end
 msgid "End"
 msgstr ""
 
 #. module: hr_employee_calendar_planning
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_wizard_employee_calendar_dates_date_start
+msgid "From"
+msgstr ""
+
+#. module: hr_employee_calendar_planning
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar_id_5194
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_wizard_employee_calendar_dates_id
 msgid "ID"
 msgstr ""
 
 #. module: hr_employee_calendar_planning
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar___last_update
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_wizard_employee_calendar_dates___last_update
 msgid "Last Modified on"
 msgstr ""
 
 #. module: hr_employee_calendar_planning
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar_write_uid
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_wizard_employee_calendar_dates_write_uid
 msgid "Last Updated by"
 msgstr ""
 
 #. module: hr_employee_calendar_planning
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar_write_date
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_wizard_employee_calendar_dates_write_date
 msgid "Last Updated on"
 msgstr ""
 
@@ -91,8 +148,19 @@ msgid "Start"
 msgstr ""
 
 #. module: hr_employee_calendar_planning
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_wizard_employee_calendar_dates_date_end
+msgid "To"
+msgstr ""
+
+#. module: hr_employee_calendar_planning
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar_calendar_id
 msgid "Working Time"
+msgstr ""
+
+#. module: hr_employee_calendar_planning
+#: code:addons/hr_employee_calendar_planning/models/hr_employee.py:81
+#, python-format
+msgid "You can't have 2 overlaping calendars!"
 msgstr ""
 
 #. module: hr_employee_calendar_planning
