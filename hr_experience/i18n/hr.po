@@ -9,20 +9,21 @@ msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-06-07 02:58+0000\n"
-"PO-Revision-Date: 2018-06-07 02:58+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2018\n"
+"PO-Revision-Date: 2019-11-13 16:34+0000\n"
+"Last-Translator: Bole <bole@dajmi5.com>\n"
 "Language-Team: Croatian (https://www.transifex.com/oca/teams/23907/hr/)\n"
 "Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 3.8\n"
 
 #. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_employee__experience_ids
 msgid " Professional Experiences"
-msgstr "Profesionalno iskustvo"
+msgstr " Profesionalna iskustva"
 
 #. module: hr_experience
 #: model_terms:ir.ui.view,arch_db:hr_experience.view_certification_tree
@@ -53,7 +54,6 @@ msgstr "Akademska iskustva"
 
 #. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_academic__activities
-#, fuzzy
 msgid "Activities and Associations"
 msgstr "Aktivnosti i asocijacije"
 
@@ -81,7 +81,7 @@ msgstr "Certificiranje"
 #: model_terms:ir.ui.view,arch_db:hr_experience.view_certification_form
 #: model_terms:ir.ui.view,arch_db:hr_experience.view_employee_form_inherit
 msgid "Certification Information"
-msgstr ""
+msgstr "Informacije o certificiranjima"
 
 #. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_certification__certification
@@ -182,7 +182,6 @@ msgstr "Poslodavac, Škola, Fakultet, Ovašteni certifikatori"
 #: model:ir.model.fields,field_description:hr_experience.field_hr_certification__end_date
 #: model:ir.model.fields,field_description:hr_experience.field_hr_curriculum__end_date
 #: model:ir.model.fields,field_description:hr_experience.field_hr_experience__end_date
-#, fuzzy
 msgid "End Date"
 msgstr "Završni datum"
 
@@ -205,7 +204,6 @@ msgstr "Ističe"
 
 #. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_academic__study_field
-#, fuzzy
 msgid "Field of Study"
 msgstr "Područje obrazovanja"
 
@@ -214,7 +212,7 @@ msgstr "Područje obrazovanja"
 #: model_terms:ir.ui.view,arch_db:hr_experience.view_certification_search
 #: model_terms:ir.ui.view,arch_db:hr_experience.view_experience_search
 msgid "Group By"
-msgstr ""
+msgstr "Grupiraj po"
 
 #. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_academic__id
@@ -322,29 +320,28 @@ msgstr "Profesionlna iskustva"
 #. module: hr_experience
 #: model_terms:ir.ui.view,arch_db:hr_experience.view_employee_form_inherit
 msgid "Resume"
-msgstr ""
+msgstr "Životopis"
 
 #. module: hr_experience
 #: model_terms:ir.ui.view,arch_db:hr_experience.view_academic_search
 msgid "Search Academic Experiences"
-msgstr ""
+msgstr "Pretraži akademska iskustva"
 
 #. module: hr_experience
 #: model_terms:ir.ui.view,arch_db:hr_experience.view_certification_search
 msgid "Search Certifications"
-msgstr ""
+msgstr "Pretraži certificiranja"
 
 #. module: hr_experience
 #: model_terms:ir.ui.view,arch_db:hr_experience.view_experience_search
 msgid "Search Professional Experiences"
-msgstr ""
+msgstr "Pretraži profesionalna iskustva"
 
 #. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_academic__start_date
 #: model:ir.model.fields,field_description:hr_experience.field_hr_certification__start_date
 #: model:ir.model.fields,field_description:hr_experience.field_hr_curriculum__start_date
 #: model:ir.model.fields,field_description:hr_experience.field_hr_experience__start_date
-#, fuzzy
 msgid "Start Date"
 msgstr "Početni datum"
 
