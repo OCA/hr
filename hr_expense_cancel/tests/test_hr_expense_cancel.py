@@ -45,11 +45,11 @@ class TestHrExpenseCancel(common.TransactionCase):
         ctx = dict(active_ids=self.expense_sheet.ids)
         wizard_obj = self.env['hr.expense.sheet.register.payment.wizard']
         p_methods = self.payment_journal.outbound_payment_method_ids
+        ctx.update(default_payment_type='inbound')
         return wizard_obj.with_context(ctx).create({
             'journal_id': self.payment_journal.id,
             'amount': self.expense_sheet.total_amount,
             'payment_method_id': p_methods and p_methods[0].id or False,
-            'payment_type': 'inbound',
         })
 
     def test_post_init_hook(self):

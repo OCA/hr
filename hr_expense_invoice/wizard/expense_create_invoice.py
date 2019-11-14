@@ -44,17 +44,16 @@ class HRExpenseCreateInvoice(models.TransientModel):
                     'name': x.name,
                     'price_unit': x.unit_amount,
                     'quantity': x.quantity,
-                    'date_invoice': x.date,
                     'account_id': x.account_id.id,
                     'invoice_line_tax_ids': [(6, 0, x.tax_ids.ids)], })
             for x in expenses
         ]
         invoice_vals = {
             'type': 'in_invoice',
-            'journal_type': 'purchase',
             'reference': expense.reference,
             'date_invoice': expense.date,
             'invoice_line_ids': invoice_lines, }
-        invoice = self.env['account.invoice'].create(invoice_vals)
+        invoice = self.env['account.invoice'].with_context(
+            type='purchase').create(invoice_vals)
         self.expense_ids.write({'invoice_id': invoice.id})
         return invoice
