@@ -46,7 +46,7 @@ class HrEmployee(models.Model):
                 rnd = random.SystemRandom()
                 employee_id = ''.join(
                     rnd.choice(string.digits)
-                    for _ in range(employee_id_random_digits)
+                    for x in range(employee_id_random_digits)
                 )
 
             if self.search_count([('identification_id', '=', employee_id)]):
@@ -55,7 +55,7 @@ class HrEmployee(models.Model):
             return employee_id
 
         raise UserError(
-            _('Unable to generate unique Employee ID in %d steps.', retry)
+            _('Unable to generate unique Employee ID in %d steps.') % (retry, )
         )
 
     @api.model
