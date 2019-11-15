@@ -5,14 +5,10 @@
     "version": "12.0.1.2.0",
     "category": "Human Resources",
     "website": "https://github.com/OCA/hr",
-    "author": "Tecnativa, "
-              "Odoo Community Association (OCA)",
+    "author": "Tecnativa, " "Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "installable": True,
-    "depends": [
-        "hr_attendance",
-        "hr_holidays_public",
-    ],
+    "depends": ["hr_attendance", "hr_holidays_public"],
     "data": [
         "security/ir.model.access.csv",
         "security/hr_attendance_report_theoretical_time_security.xml",
