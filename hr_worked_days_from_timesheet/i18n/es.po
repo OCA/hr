@@ -19,18 +19,18 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: hr_worked_days_from_timesheet
-#: code:addons/hr_worked_days_from_timesheet/models/hr_payslip.py:57
+#: code:addons/hr_worked_days_from_timesheet/models/hr_payslip.py:55
 #, python-format
 msgid "Contract is not defined for one or more payslips."
 msgstr ""
 
 #. module: hr_worked_days_from_timesheet
-#: model:ir.ui.view,arch_db:hr_worked_days_from_timesheet.view_hr_payslip_form
+#: model_terms:ir.ui.view,arch_db:hr_worked_days_from_timesheet.view_hr_payslip_form
 msgid "Import from Timesheets"
 msgstr "Importar desde parte de horas"
 
 #. module: hr_worked_days_from_timesheet
-#: model:ir.model.fields,field_description:hr_worked_days_from_timesheet.field_hr_payslip_worked_days_imported_from_timesheet
+#: model:ir.model.fields,field_description:hr_worked_days_from_timesheet.field_hr_payslip_worked_days__imported_from_timesheet
 msgid "Imported From Timesheet"
 msgstr "Importado desde parte de horas"
 
@@ -45,7 +45,7 @@ msgid "Payslip Worked Days"
 msgstr "Días trabajados de la nómina"
 
 #. module: hr_worked_days_from_timesheet
-#: code:addons/hr_worked_days_from_timesheet/models/hr_payslip.py:72
+#: code:addons/hr_worked_days_from_timesheet/models/hr_payslip.py:70
 #, fuzzy, python-format
 msgid ""
 "Sorry, but there is no approved Timesheets for the                 entire "
@@ -54,17 +54,17 @@ msgstr ""
 "Lo siento, no hay partes de hora aprobador para el periodo de la nómina"
 
 #. module: hr_worked_days_from_timesheet
-#: model:ir.model.fields,field_description:hr_worked_days_from_timesheet.field_hr_payslip_worked_days_timesheet_sheet_id
+#: model:ir.model.fields,field_description:hr_worked_days_from_timesheet.field_hr_payslip_worked_days__timesheet_sheet_id
 msgid "Timesheet"
 msgstr "Parte de horas"
 
 #. module: hr_worked_days_from_timesheet
-#: code:addons/hr_worked_days_from_timesheet/models/hr_payslip.py:27
+#: code:addons/hr_worked_days_from_timesheet/models/hr_payslip.py:25
 #, python-format
 msgid "Timesheet %s"
 msgstr "Parte de horas %s"
 
 #. module: hr_worked_days_from_timesheet
-#: model:ir.ui.view,arch_db:hr_worked_days_from_timesheet.view_hr_payslip_form
+#: model_terms:ir.ui.view,arch_db:hr_worked_days_from_timesheet.view_hr_payslip_form
 msgid "Worked Days"
 msgstr "Días trabajados"
