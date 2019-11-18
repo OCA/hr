@@ -8,5 +8,6 @@ class HrExpenseSheetRegisterPaymentWizard(models.TransientModel):
 
     @api.multi
     def expense_post_payment(self):
-        self = self.with_context(use_hr_expense_invoice=True)
-        return super().expense_post_payment()
+        return super(HrExpenseSheetRegisterPaymentWizard,
+                     self.with_context(use_hr_expense_invoice=True)
+                     ).expense_post_payment()
