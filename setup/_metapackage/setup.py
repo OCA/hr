@@ -47,6 +47,7 @@ setuptools.setup(
         'odoo12-addon-hr_payroll_cancel',
         'odoo12-addon-hr_period',
         'odoo12-addon-hr_skill',
+        'odoo12-addon-hr_worked_days_from_timesheet',
     ],
     classifiers=[
         'Programming Language :: Python',
