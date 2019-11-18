@@ -6,7 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2019-11-18 14:34+0000\n"
+"Last-Translator: Bole <bole@dajmi5.com>\n"
 "Language-Team: none\n"
 "Language: hr\n"
 "MIME-Version: 1.0\n"
@@ -14,80 +15,81 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
 "4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 3.8\n"
 
 #. module: hr_employee_relative
 #: model:ir.model.fields,field_description:hr_employee_relative.field_hr_employee_relative__age
 msgid "Age"
-msgstr ""
+msgstr "Dob"
 
 #. module: hr_employee_relative
 #: model:hr.employee.relative.relation,name:hr_employee_relative.relation_child
 msgid "Child"
-msgstr ""
+msgstr "Djete"
 
 #. module: hr_employee_relative
 #: model:hr.employee.relative.relation,name:hr_employee_relative.relation_cousin
 msgid "Cousin"
-msgstr ""
+msgstr "Rođak"
 
 #. module: hr_employee_relative
 #: model:ir.model.fields,field_description:hr_employee_relative.field_hr_employee_relative__create_uid
 #: model:ir.model.fields,field_description:hr_employee_relative.field_hr_employee_relative_relation__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Kreirao"
 
 #. module: hr_employee_relative
 #: model:ir.model.fields,field_description:hr_employee_relative.field_hr_employee_relative__create_date
 #: model:ir.model.fields,field_description:hr_employee_relative.field_hr_employee_relative_relation__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Kreirano"
 
 #. module: hr_employee_relative
 #: model:ir.model.fields,field_description:hr_employee_relative.field_hr_employee_relative__date_of_birth
 msgid "Date of Birth"
-msgstr ""
+msgstr "Datum rođenja"
 
 #. module: hr_employee_relative
 #: model:ir.model.fields,field_description:hr_employee_relative.field_hr_employee_relative__display_name
 #: model:ir.model.fields,field_description:hr_employee_relative.field_hr_employee_relative_relation__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Naziv"
 
 #. module: hr_employee_relative
 #: model:ir.model,name:hr_employee_relative.model_hr_employee
 #: model:ir.model.fields,field_description:hr_employee_relative.field_hr_employee_relative__employee_id
 msgid "Employee"
-msgstr ""
+msgstr "Djelatnik"
 
 #. module: hr_employee_relative
 #: model_terms:ir.ui.view,arch_db:hr_employee_relative.hr_employee_relative_view_tree
 msgid "Employee Relatives"
-msgstr ""
+msgstr "Rodbina djelatnika"
 
 #. module: hr_employee_relative
 #: selection:hr.employee.relative,gender:0
 msgid "Female"
-msgstr ""
+msgstr "Žensko"
 
 #. module: hr_employee_relative
 #: model:ir.model.fields,field_description:hr_employee_relative.field_hr_employee_relative__gender
 msgid "Gender"
-msgstr ""
+msgstr "Spol"
 
 #. module: hr_employee_relative
 #: model:hr.employee.relative.relation,name:hr_employee_relative.relation_grandchild
 msgid "Grandchild"
-msgstr ""
+msgstr "Unuk"
 
 #. module: hr_employee_relative
 #: model:hr.employee.relative.relation,name:hr_employee_relative.relation_grandparent
 msgid "Grandparent"
-msgstr ""
+msgstr "Pra roditelj"
 
 #. module: hr_employee_relative
 #: model:ir.model,name:hr_employee_relative.model_hr_employee_relative
 msgid "HR Employee Relative"
-msgstr ""
+msgstr "Rodbina djelatnika"
 
 #. module: hr_employee_relative
 #: model:ir.model,name:hr_employee_relative.model_hr_employee_relative_relation
