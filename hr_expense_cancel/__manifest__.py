@@ -3,7 +3,7 @@
 
 {
     "name": "Hr expense cancel",
-    "version": "12.0.1.0.1",
+    "version": "12.0.1.0.2",
     "author": "Tecnativa, "
               "Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/hr",
