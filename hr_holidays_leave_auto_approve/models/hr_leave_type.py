@@ -7,7 +7,10 @@ from odoo import fields, models
 class HrLeaveType(models.Model):
     _inherit = "hr.leave.type"
 
-    auto_approve = fields.Boolean(
-        string='Auto Validate',
-        help="If True, leaves belonging to this leave type will be"
-             " automatically validated")
+    auto_approve_policy = fields.Selection(
+        selection=[
+            ('no', 'No auto Validation'),
+            ('hr', 'Auto Validated by HR'),
+            ('all', 'Auto Validated by Everyone'),
+        ], default='no', required=True,
+    )

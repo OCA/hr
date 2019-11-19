@@ -27,9 +27,9 @@ class TestHolidaysAutoValidate(TransactionCase):
 
         # Create 2 leave type
         self.test_leave_type1_id = self.leave_type_model.create(
-            {'name': 'Test Leave Type1', 'auto_approve': True})
+            {'name': 'Test Leave Type1', 'auto_approve_policy': 'hr'})
         self.test_leave_type2_id = self.leave_type_model.create(
-            {'name': 'Test Leave Type2', 'auto_approve': False})
+            {'name': 'Test Leave Type2', 'auto_approve_policy': 'no'})
 
         # Create leave allocation requests for Test Leave Type1 and 2
         self.leave_allocation1 = self.leave_allocation_model.create({
@@ -118,3 +118,35 @@ class TestHolidaysAutoValidate(TransactionCase):
 
         # Check for leave2 state
         self.assertEqual(leave2.state, 'confirm')
+
+    def test_leave_request_employee_validate_all(self):
+        self.test_user_id.groups_id = [
+            (6, 0, [self.env.ref('base.group_user').id])
+        ]
+
+        today = datetime.today()
+        self.test_leave_type2_id.write({'auto_approve_policy': 'all'})
+
+        leave1 = self.leave_request_model.sudo(self.test_user_id).create({
+            'name': 'Test Leave Request 1',
+            'holiday_status_id': self.test_leave_type1_id.id,
+            'date_from': today + timedelta(days=10),
+            'date_to': today + timedelta(days=12),
+            'holiday_type': 'employee',
+            'employee_id': self.test_employee_id.id,
+        })
+
+        leave2 = self.leave_request_model.sudo(self.test_user_id).create({
+            'name': 'Test Leave Request 2',
+            'holiday_status_id': self.test_leave_type2_id.id,
+            'holiday_type': 'employee',
+            'date_from': today + timedelta(days=13),
+            'date_to': today + timedelta(days=14),
+            'employee_id': self.test_employee_id.id,
+        })
+
+        # Check for leave1 state
+        self.assertEqual(leave1.state, 'confirm')
+
+        # Check for leave2 state
+        self.assertEqual(leave2.state, 'validate')

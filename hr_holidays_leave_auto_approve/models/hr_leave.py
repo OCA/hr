@@ -12,6 +12,18 @@ class HrLeave(models.Model):
             return
         return super()._check_approval_update(state)
 
+    @api.multi
+    def _should_auto_approve(self):
+        self.ensure_one()
+        policy = self.holiday_status_id.auto_approve_policy
+        return (self.can_approve and policy == 'hr') or policy == 'all'
+
+    @api.multi
+    def _apply_auto_approve_policy(self):
+        self.filtered(
+            lambda r: r._should_auto_approve()
+        ).sudo().action_approve()
+
     @api.model
     def create(self, values):
         auto_approve = self._get_auto_approve_on_creation(values)
@@ -21,15 +33,15 @@ class HrLeave(models.Model):
             HrLeave, self.with_context(
                 tracking_disable=tracking_disable)
             ).create(values)
-        if res.can_approve and res.holiday_status_id.auto_approve:
-            res.action_approve()
+        res._apply_auto_approve_policy()
         return res
 
     @api.model
     def _get_auto_approve_on_creation(self, values):
         auto_approve = False
         if values.get('holiday_status_id'):
-            auto_approve = self.env['hr.leave.type'].browse(
+            leave_type = self.env['hr.leave.type'].browse(
                 values.get('holiday_status_id')
-            ).auto_approve
+            )
+            auto_approve = leave_type.auto_approve_policy != 'no'
         return auto_approve

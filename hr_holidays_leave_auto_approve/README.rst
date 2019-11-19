@@ -37,15 +37,16 @@ belonging to that leave type.
 Configuration
 =============
 
-Get sure that the administrative user belongs at least to the group
-Leaves/Officer.
-
-If you wish that the system automatically validates all the leave requests
+If you wish that the system automatically validates the leave requests
 belonging to a specific leave type, please follow the steps below.
 
 #. Go on the leave type configuration menu
 #. Select the leave type you wish to setup
-#. Mark the flag 'Auto Validate'.
+#. Select the auto approve policy for that leave type.
+
+The option 'Auto Validated by HR' will auto validate leave requests created by
+HR Officers while option 'Auto Validated by Everyone' will auto validate all
+leave requests of the selected type, no matter who requested it.
 
 Bug Tracker
 ===========
@@ -70,6 +71,7 @@ Contributors
 
 * Andrea Stirpe <a.stirpe@onestein.nl>
 * Antonio Esposito <a.esposito@onestein.nl>
+* Jaime Arroyo <jaime.arroyo@creublanca.es>
 
 Maintainers
 ~~~~~~~~~~~
