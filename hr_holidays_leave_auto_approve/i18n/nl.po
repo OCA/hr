@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* hr_holidays_leave_auto_approve
+# 	* hr_holidays_leave_auto_approve
 #
 msgid ""
 msgstr ""
@@ -17,16 +17,23 @@ msgstr ""
 "X-Generator: Weblate 3.5.1\n"
 
 #. module: hr_holidays_leave_auto_approve
-#: model:ir.model.fields,field_description:hr_holidays_leave_auto_approve.field_hr_leave_type__auto_approve
-msgid "Auto Validate"
+#: model:ir.model.fields,field_description:hr_holidays_leave_auto_approve.field_hr_leave_type__auto_approve_policy
+msgid "Auto Approve Policy"
+msgstr ""
+
+#. module: hr_holidays_leave_auto_approve
+#: selection:hr.leave.type,auto_approve_policy:0
+#, fuzzy
+#| msgid "Auto Validate"
+msgid "Auto Validated by Everyone"
 msgstr "Automatisch goedkeuren"
 
 #. module: hr_holidays_leave_auto_approve
-#: model:ir.model.fields,help:hr_holidays_leave_auto_approve.field_hr_leave_type__auto_approve
-msgid "If True, leaves belonging to this leave type will be automatically validated"
-msgstr ""
-"Wanneer aangevinkt, worden alle verloven voor dit type automatisch "
-"goedgekeurd"
+#: selection:hr.leave.type,auto_approve_policy:0
+#, fuzzy
+#| msgid "Auto Validate"
+msgid "Auto Validated by HR"
+msgstr "Automatisch goedkeuren"
 
 #. module: hr_holidays_leave_auto_approve
 #: model:ir.model,name:hr_holidays_leave_auto_approve.model_hr_leave
@@ -37,3 +44,17 @@ msgstr "Verlof"
 #: model:ir.model,name:hr_holidays_leave_auto_approve.model_hr_leave_type
 msgid "Leave Type"
 msgstr "Verloftype"
+
+#. module: hr_holidays_leave_auto_approve
+#: selection:hr.leave.type,auto_approve_policy:0
+#, fuzzy
+#| msgid "Auto Validate"
+msgid "No auto Validation"
+msgstr "Automatisch goedkeuren"
+
+#~ msgid ""
+#~ "If True, leaves belonging to this leave type will be automatically "
+#~ "validated"
+#~ msgstr ""
+#~ "Wanneer aangevinkt, worden alle verloven voor dit type automatisch "
+#~ "goedgekeurd"

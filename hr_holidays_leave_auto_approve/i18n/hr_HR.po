@@ -21,14 +21,18 @@ msgstr ""
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
 #. module: hr_holidays_leave_auto_approve
-#: model:ir.model.fields,field_description:hr_holidays_leave_auto_approve.field_hr_leave_type__auto_approve
-msgid "Auto Validate"
+#: model:ir.model.fields,field_description:hr_holidays_leave_auto_approve.field_hr_leave_type__auto_approve_policy
+msgid "Auto Approve Policy"
 msgstr ""
 
 #. module: hr_holidays_leave_auto_approve
-#: model:ir.model.fields,help:hr_holidays_leave_auto_approve.field_hr_leave_type__auto_approve
-msgid ""
-"If True, leaves belonging to this leave type will be automatically validated"
+#: selection:hr.leave.type,auto_approve_policy:0
+msgid "Auto Validated by Everyone"
+msgstr ""
+
+#. module: hr_holidays_leave_auto_approve
+#: selection:hr.leave.type,auto_approve_policy:0
+msgid "Auto Validated by HR"
 msgstr ""
 
 #. module: hr_holidays_leave_auto_approve
@@ -40,3 +44,8 @@ msgstr "Odsustvo"
 #: model:ir.model,name:hr_holidays_leave_auto_approve.model_hr_leave_type
 msgid "Leave Type"
 msgstr "Tip odsustva"
+
+#. module: hr_holidays_leave_auto_approve
+#: selection:hr.leave.type,auto_approve_policy:0
+msgid "No auto Validation"
+msgstr ""

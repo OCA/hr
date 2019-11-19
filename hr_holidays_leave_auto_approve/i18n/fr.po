@@ -20,18 +20,23 @@ msgstr ""
 "X-Generator: Weblate 3.6.1\n"
 
 #. module: hr_holidays_leave_auto_approve
-#: model:ir.model.fields,field_description:hr_holidays_leave_auto_approve.field_hr_leave_type__auto_approve
-msgid "Auto Validate"
+#: model:ir.model.fields,field_description:hr_holidays_leave_auto_approve.field_hr_leave_type__auto_approve_policy
+msgid "Auto Approve Policy"
+msgstr ""
+
+#. module: hr_holidays_leave_auto_approve
+#: selection:hr.leave.type,auto_approve_policy:0
+#, fuzzy
+#| msgid "Auto Validate"
+msgid "Auto Validated by Everyone"
 msgstr "Validation auto"
 
 #. module: hr_holidays_leave_auto_approve
-#: model:ir.model.fields,help:hr_holidays_leave_auto_approve.field_hr_leave_type__auto_approve
+#: selection:hr.leave.type,auto_approve_policy:0
 #, fuzzy
-msgid ""
-"If True, leaves belonging to this leave type will be automatically validated"
-msgstr ""
-"Si coché, les feuilles appartenant à ce type vont être automatiquement "
-"approuvées"
+#| msgid "Auto Validate"
+msgid "Auto Validated by HR"
+msgstr "Validation auto"
 
 #. module: hr_holidays_leave_auto_approve
 #: model:ir.model,name:hr_holidays_leave_auto_approve.model_hr_leave
@@ -42,3 +47,18 @@ msgstr "Congé"
 #: model:ir.model,name:hr_holidays_leave_auto_approve.model_hr_leave_type
 msgid "Leave Type"
 msgstr "Type de Congé"
+
+#. module: hr_holidays_leave_auto_approve
+#: selection:hr.leave.type,auto_approve_policy:0
+#, fuzzy
+#| msgid "Auto Validate"
+msgid "No auto Validation"
+msgstr "Validation auto"
+
+#, fuzzy
+#~ msgid ""
+#~ "If True, leaves belonging to this leave type will be automatically "
+#~ "validated"
+#~ msgstr ""
+#~ "Si coché, les feuilles appartenant à ce type vont être automatiquement "
+#~ "approuvées"

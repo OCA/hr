@@ -20,17 +20,23 @@ msgstr ""
 "X-Generator: Weblate 3.6.1\n"
 
 #. module: hr_holidays_leave_auto_approve
-#: model:ir.model.fields,field_description:hr_holidays_leave_auto_approve.field_hr_leave_type__auto_approve
-msgid "Auto Validate"
+#: model:ir.model.fields,field_description:hr_holidays_leave_auto_approve.field_hr_leave_type__auto_approve_policy
+msgid "Auto Approve Policy"
+msgstr ""
+
+#. module: hr_holidays_leave_auto_approve
+#: selection:hr.leave.type,auto_approve_policy:0
+#, fuzzy
+#| msgid "Auto Validate"
+msgid "Auto Validated by Everyone"
 msgstr "Automatisch genehmigen"
 
 #. module: hr_holidays_leave_auto_approve
-#: model:ir.model.fields,help:hr_holidays_leave_auto_approve.field_hr_leave_type__auto_approve
-msgid ""
-"If True, leaves belonging to this leave type will be automatically validated"
-msgstr ""
-"Wenn der Haken gesetzt ist, werden Urlaubsanträge dieser Urlaubsart "
-"automatisch genehmigt"
+#: selection:hr.leave.type,auto_approve_policy:0
+#, fuzzy
+#| msgid "Auto Validate"
+msgid "Auto Validated by HR"
+msgstr "Automatisch genehmigen"
 
 #. module: hr_holidays_leave_auto_approve
 #: model:ir.model,name:hr_holidays_leave_auto_approve.model_hr_leave
@@ -41,3 +47,17 @@ msgstr "Urlaub"
 #: model:ir.model,name:hr_holidays_leave_auto_approve.model_hr_leave_type
 msgid "Leave Type"
 msgstr "Urlaubsart"
+
+#. module: hr_holidays_leave_auto_approve
+#: selection:hr.leave.type,auto_approve_policy:0
+#, fuzzy
+#| msgid "Auto Validate"
+msgid "No auto Validation"
+msgstr "Automatisch genehmigen"
+
+#~ msgid ""
+#~ "If True, leaves belonging to this leave type will be automatically "
+#~ "validated"
+#~ msgstr ""
+#~ "Wenn der Haken gesetzt ist, werden Urlaubsanträge dieser Urlaubsart "
+#~ "automatisch genehmigt"
