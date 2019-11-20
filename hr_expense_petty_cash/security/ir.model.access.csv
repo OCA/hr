@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hr_expense_petty_cash,access_hr_expense_petty_cash,model_petty_cash,account.group_account_manager,1,1,1,1
