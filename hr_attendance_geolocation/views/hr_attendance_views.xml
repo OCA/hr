@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="hr_attendance_view_form" model="ir.ui.view">
+        <field name="model">hr.attendance</field>
+        <field name="inherit_id" ref="hr_attendance.hr_attendance_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form/sheet/group" position="after">
+                <group name="locations" col="2">
+                    <label for="check_in_location" string="Check-in Location"/>
+                    <span class="oe_inline">
+                        Latitude: <field name="check_in_latitude" nolabel="1"/><br/>
+                        Longitude: <field name="check_in_longitude" nolabel="1"/>
+                    </span>
+                    <label for="check_out_location" string="Check-out Location"/>
+                    <span class="oe_inline">
+                        Latitude: <field name="check_out_latitude" nolabel="1"/><br/>
+                        Longitude: <field name="check_out_longitude" nolabel="1"/>
+                    </span>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
