@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="hr_attendance_view_form" model="ir.ui.view">
+        <field name="model">hr.attendance</field>
+        <field name="inherit_id" ref="hr_attendance_geolocation.hr_attendance_view_form"/>
+        <field name="arch" type="xml">
+            <group name="locations" position="after">
+                <group>
+                    <widget name='map_widget'/>
+                </group>
+            </group>
+        </field>
+    </record>
+
+</odoo>

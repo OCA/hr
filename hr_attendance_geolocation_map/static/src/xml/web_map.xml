@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template>
+    <t t-extend="Map">
+        <t t-jquery="#mapLegend" t-operation="inner">
+            <span>Check-in:</span>
+            <img src="/web_widget_map/static/src/img/marker.png" class="icon" style="height:20px;"/>
+            <br/>
+            <span>Check-out:</span>
+            <img src="/web_widget_map/static/src/img/marker2.png" class="icon" style="height:20px;"/>
+        </t>
+    </t>
+</template>
