@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="hr_attendance_location_view_tree" model="ir.ui.view">
+        <field name="name">hr.attendance.location.tree</field>
+        <field name="model">hr.attendance.location</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="latitude"/>
+                <field name="longitude"/>
+                <field name="allowed_radius"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+                <field name="active"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="hr_attendance_location_view_form" model="ir.ui.view">
+        <field name="name">hr.attendance.location.form</field>
+        <field name="model">hr.attendance.location</field>
+        <field name="arch" type="xml">
+            <form string="Allowed Location">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive">
+                            <field name="active" widget="boolean_button" options="{'terminology': 'archive'}"/>
+                        </button>
+                    </div>
+                    <h1><field name="name" required="1"/></h1>
+                    <group>
+                        <field name="latitude"/>
+                        <field name="longitude"/>
+                        <field name="allowed_radius"/>
+                        <field name="company_id" groups="base.group_multi_company"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="hr_attendance_location_action" model="ir.actions.act_window">
+        <field name="name">Permitted Attendance Locations</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hr.attendance.location</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="hr_attendance_location_view_tree"/>
+    </record>
+
+    <menuitem id="hr_attendance_settings_redefinition_menu"
+              name="Configuration"
+              parent="hr_attendance.menu_hr_attendance_settings"
+              sequence="99"
+              action="hr_attendance.action_hr_attendance_settings"
+              groups="hr_attendance.group_hr_attendance_manager"/>
+
+    <menuitem id="hr_attendance_location_menu" name="Locations"
+              parent="hr_attendance.menu_hr_attendance_settings"
+              action="hr_attendance_location_action"
+              sequence="110"
+              groups="hr_attendance.group_hr_attendance_manager"/>
+
+</odoo>
