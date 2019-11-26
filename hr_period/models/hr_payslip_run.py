@@ -16,7 +16,7 @@ class HrPayslipRun(models.Model):
         readonly=True,
         states={'draft': [('readonly', False)]},
         default=lambda obj: obj.env['ir.sequence']
-        .get('hr.payslip.run')
+        .next_by_code('hr.payslip.run')
     )
     company_id = fields.Many2one(
         'res.company',
