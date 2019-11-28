@@ -10,6 +10,7 @@ class HrAttendance(models.Model):
     _inherit = "hr.attendance"
 
     @api.multi
+    @api.depends('check_out', 'check_in')
     def _compute_open_worked_hours(self):
         for attendance in self:
             if attendance.check_out:
