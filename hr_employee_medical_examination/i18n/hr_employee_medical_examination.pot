@@ -79,11 +79,6 @@ msgid "Employee Medical Examinations"
 msgstr ""
 
 #. module: hr_employee_medical_examination
-#: model:ir.ui.view,arch_db:hr_employee_medical_examination.hr_employee_medical_examination_form_view
-msgid "Employee's Name"
-msgstr ""
-
-#. module: hr_employee_medical_examination
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_wizard_generate_medical_examination_employee_ids
 #: model:ir.ui.view,arch_db:hr_employee_medical_examination.wizard_generate_medical_examination_form_view
 msgid "Employees"
@@ -97,6 +92,11 @@ msgstr ""
 #. module: hr_employee_medical_examination
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_wizard_generate_medical_examination_name
 msgid "Examination Name"
+msgstr ""
+
+#. module: hr_employee_medical_examination
+#: model:ir.ui.view,arch_db:hr_employee_medical_examination.hr_employee_medical_examination_form_view
+msgid "Examination's Name"
 msgstr ""
 
 #. module: hr_employee_medical_examination
