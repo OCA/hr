@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* hr_employee_medical_examination
+# 	* hr_employee_medical_examination
 #
 msgid ""
 msgstr ""
@@ -82,11 +82,6 @@ msgid "Employee Medical Examinations"
 msgstr "Exámenes Médicos de Empleados"
 
 #. module: hr_employee_medical_examination
-#: model:ir.ui.view,arch_db:hr_employee_medical_examination.hr_employee_medical_examination_form_view
-msgid "Employee's Name"
-msgstr "Nombre del Empleado"
-
-#. module: hr_employee_medical_examination
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_wizard_generate_medical_examination_employee_ids
 #: model:ir.ui.view,arch_db:hr_employee_medical_examination.wizard_generate_medical_examination_form_view
 msgid "Employees"
@@ -100,6 +95,13 @@ msgstr "Fecha de examinación"
 #. module: hr_employee_medical_examination
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_wizard_generate_medical_examination_name
 msgid "Examination Name"
+msgstr "Nombre del Exámen Médico"
+
+#. module: hr_employee_medical_examination
+#: model:ir.ui.view,arch_db:hr_employee_medical_examination.hr_employee_medical_examination_form_view
+#, fuzzy
+#| msgid "Examination Name"
+msgid "Examination's Name"
 msgstr "Nombre del Exámen Médico"
 
 #. module: hr_employee_medical_examination
@@ -218,3 +220,6 @@ msgstr "Ver Exámenes Médicos"
 #: model:ir.model,name:hr_employee_medical_examination.model_wizard_generate_medical_examination
 msgid "wizard.generate.medical.examination"
 msgstr "wizardgenerate.medical.examination"
+
+#~ msgid "Employee's Name"
+#~ msgstr "Nombre del Empleado"
