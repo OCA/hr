@@ -5,7 +5,7 @@ from odoo import models
 
 
 class HrLeave(models.Model):
-    _inherit = 'hr.leave'
+    _inherit = "hr.leave"
 
     def _create_resource_leave(self):
         """On leave creation, trigger the recomputation of the involved
@@ -27,17 +27,19 @@ class HrLeave(models.Model):
 
         :param: self: Leave recordset.
         """
-        to_recompute = self.env['hr.attendance']
+        to_recompute = self.env["hr.attendance"]
         for record in self.filtered(lambda x: x.date_from and x.date_to):
             from_datetime = record.date_from.replace(
-                hour=0, minute=0, second=0, microsecond=0,
+                hour=0, minute=0, second=0, microsecond=0
             )
             to_datetime = record.date_to.replace(
-                hour=23, minute=59, second=59, microsecond=99999,
+                hour=23, minute=59, second=59, microsecond=99999
             )
-            to_recompute |= self.env['hr.attendance'].search([
-                ('employee_id', '=', record.employee_id.id),
-                ('check_in', '>=', from_datetime),
-                ('check_in', '<=', to_datetime),
-            ])
+            to_recompute |= self.env["hr.attendance"].search(
+                [
+                    ("employee_id", "=", record.employee_id.id),
+                    ("check_in", ">=", from_datetime),
+                    ("check_in", "<=", to_datetime),
+                ]
+            )
         to_recompute._compute_theoretical_hours()

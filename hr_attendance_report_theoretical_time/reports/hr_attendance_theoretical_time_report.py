@@ -1,39 +1,28 @@
 # Copyright 2017-2019 Tecnativa - Pedro M. Baeza
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-from odoo import api, fields, models, tools
 from datetime import datetime, time
-from psycopg2.extensions import AsIs
+
 import pytz
+from psycopg2.extensions import AsIs
+
+from odoo import api, fields, models, tools
 
 
 class HrAttendanceTheoreticalTimeReport(models.Model):
     _name = "hr.attendance.theoretical.time.report"
     _description = "Report of theoretical time vs attendance time"
     _auto = False
-    _rec_name = 'date'
-    _order = 'date,employee_id,theoretical_hours desc'
+    _rec_name = "date"
+    _order = "date,employee_id,theoretical_hours desc"
 
     employee_id = fields.Many2one(
-        comodel_name='hr.employee',
-        string="Employee",
-        readonly=True,
+        comodel_name="hr.employee", string="Employee", readonly=True
     )
-    date = fields.Date(
-        string="Date",
-        readonly=True,
-    )
-    worked_hours = fields.Float(
-        string='Worked',
-        readonly=True,
-    )
-    theoretical_hours = fields.Float(
-        string="Theoric",
-        readonly=True,
-    )
-    difference = fields.Float(
-        readonly=True,
-    )
+    date = fields.Date(string="Date", readonly=True)
+    worked_hours = fields.Float(string="Worked", readonly=True)
+    theoretical_hours = fields.Float(string="Theoric", readonly=True)
+    difference = fields.Float(readonly=True)
 
     def _select(self):
         # We put "max" aggregation function for theoretical hours because
@@ -159,7 +148,8 @@ CREATE or REPLACE VIEW %s as (
     ) AS u
     GROUP BY %s
 )
-            """, (
+            """,
+            (
                 AsIs(self._table),
                 AsIs(self._select()),
                 AsIs(self._select_sub1()),
@@ -169,7 +159,7 @@ CREATE or REPLACE VIEW %s as (
                 AsIs(self._from_sub2()),
                 AsIs(self._where_sub2()),
                 AsIs(self._group_by()),
-            )
+            ),
         )
 
     # TODO: To be activated for performance assuring cache clearing on changes
@@ -183,60 +173,62 @@ CREATE or REPLACE VIEW %s as (
             return 0
         tz = employee.resource_id.calendar_id.tz
         return employee.with_context(
-            exclude_public_holidays=True,
-            employee_id=employee.id,
+            exclude_public_holidays=True, employee_id=employee.id
         ).get_work_days_data(
             datetime.combine(date, time(0, 0, 0, 0, tzinfo=pytz.timezone(tz))),
-            datetime.combine(
-                date, time(23, 59, 59, 99999, tzinfo=pytz.timezone(tz))
-            ),
+            datetime.combine(date, time(23, 59, 59, 99999, tzinfo=pytz.timezone(tz))),
             # Pass this domain for excluding leaves whose type is included in
             # theoretical hours
             domain=[
-                '|',
-                ('holiday_id', '=', False),
-                ('holiday_id.holiday_status_id.include_in_theoretical',
-                 '=', False),
+                "|",
+                ("holiday_id", "=", False),
+                ("holiday_id.holiday_status_id.include_in_theoretical", "=", False),
             ],
-        )['hours']
+        )[
+            "hours"
+        ]
 
     @api.model
-    def read_group(self, domain, fields, groupby, offset=0, limit=None,
-                   orderby=False, lazy=True):
+    def read_group(
+        self, domain, fields, groupby, offset=0, limit=None, orderby=False, lazy=True
+    ):
         """Compute dynamically theoretical hours amount, computing on the fly
         theoretical hours for non existing attendances with stored hours.
         This technique has proven to be more efficient than trying to call
         recursively `read_group` grouping by date and employee.
         """
         res = super(HrAttendanceTheoreticalTimeReport, self).read_group(
-            domain, fields, groupby, offset=offset, limit=limit,
-            orderby=orderby, lazy=lazy,
+            domain,
+            fields,
+            groupby,
+            offset=offset,
+            limit=limit,
+            orderby=orderby,
+            lazy=lazy,
         )
-        if 'theoretical_hours' not in fields:
+        if "theoretical_hours" not in fields:
             return res
-        full_fields = all(x in fields for x in {
-            'theoretical_hours',
-            'worked_hours',
-            'difference',
-        })
-        difference_field = 'difference' in fields
+        full_fields = all(
+            x in fields for x in {"theoretical_hours", "worked_hours", "difference"}
+        )
+        difference_field = "difference" in fields
         for line in res:
             day_dict = {}
-            records = self.search(line.get('__domain', domain))
+            records = self.search(line.get("__domain", domain))
             for record in records:
                 key = (record.employee_id.id, record.date)
                 if key not in day_dict:
                     if record.theoretical_hours < 0:
                         day_dict[key] = self._theoretical_hours(
-                            record.employee_id.sudo(), record.date,
+                            record.employee_id.sudo(), record.date
                         )
                     else:
                         day_dict[key] = record.theoretical_hours
-            line['theoretical_hours'] = sum(day_dict.values())
+            line["theoretical_hours"] = sum(day_dict.values())
             if full_fields:  # compute difference
-                line['difference'] = (
-                    (line['worked_hours'] or 0.0) - line['theoretical_hours']
-                )
+                line["difference"] = (line["worked_hours"] or 0.0) - line[
+                    "theoretical_hours"
+                ]
             elif difference_field:  # Remove wrong 0 values
-                del line['difference']
+                del line["difference"]
         return res
