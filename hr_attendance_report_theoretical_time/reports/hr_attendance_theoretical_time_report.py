@@ -127,7 +127,6 @@ class HrAttendanceTheoreticalTimeReport(models.Model):
             date
             """
 
-    @api.model_cr
     def init(self):
         tools.drop_view_if_exists(self.env.cr, self._table)
         self.env.cr.execute(
@@ -174,7 +173,7 @@ CREATE or REPLACE VIEW %s as (
         tz = employee.resource_id.calendar_id.tz
         return employee.with_context(
             exclude_public_holidays=True, employee_id=employee.id
-        ).get_work_days_data(
+        )._get_work_days_data(
             datetime.combine(date, time(0, 0, 0, 0, tzinfo=pytz.timezone(tz))),
             datetime.combine(date, time(23, 59, 59, 99999, tzinfo=pytz.timezone(tz))),
             # Pass this domain for excluding leaves whose type is included in

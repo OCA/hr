@@ -1,6 +1,6 @@
 # Copyright 2019 Tecnativa - David Vidal
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
-from odoo import api, fields, models
+from odoo import fields, models
 
 
 class RecomputeTheoreticalAttendance(models.TransientModel):
@@ -20,7 +20,6 @@ class RecomputeTheoreticalAttendance(models.TransientModel):
         string="To", required=True, help="Recompute attendances up to this date"
     )
 
-    @api.multi
     def action_recompute(self):
         self.ensure_one()
         attendances = self.env["hr.attendance"].search(

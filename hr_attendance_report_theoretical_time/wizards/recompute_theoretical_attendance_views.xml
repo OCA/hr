@@ -4,7 +4,6 @@
     <record id="act_wizard_recompute_theoretical_attendance" model="ir.actions.act_window">
         <field name="name">Recompute Theoretical Attendances</field>
         <field name="res_model">recompute.theoretical.attendance</field>
-        <field name="view_type">form</field>
         <field name="view_mode">form</field>
         <field name="target">new</field>
     </record>

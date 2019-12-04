@@ -23,10 +23,7 @@ class HrHolidaysPublicLine(models.Model):
         from_datetime = datetime.combine(date, time(0, 0, 0, 0))
         to_datetime = datetime.combine(date, time(23, 59, 59, 99999))
         records = self.env["hr.attendance"].search(
-            [
-                ("check_in", ">=", fields.Datetime.to_string(from_datetime)),
-                ("check_in", "<=", fields.Datetime.to_string(to_datetime)),
-            ]
+            [("check_in", ">=", from_datetime), ("check_in", "<=", to_datetime)]
         )
         records._compute_theoretical_hours()
 

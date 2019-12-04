@@ -29,7 +29,6 @@ class WizardTheoreticalTime(models.TransientModel):
             res.append(("department_id", "child_of", self.department_id.id))
         return res
 
-    @api.multi
     def populate(self):
         domain = self._prepare_employee_domain()
         self.employee_ids = self.env["hr.employee"].search(domain)
@@ -44,7 +43,6 @@ class WizardTheoreticalTime(models.TransientModel):
         }
         return action
 
-    @api.multi
     def view_report(self):
         self.ensure_one()
         action = {
