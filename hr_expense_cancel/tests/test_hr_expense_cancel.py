@@ -1,5 +1,5 @@
 # Copyright 2019 Tecnativa - Ernesto Tejeda
-# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 import odoo.tests.common as common
 from odoo.exceptions import UserError
@@ -10,11 +10,11 @@ from ..hooks import post_init_hook
 class TestHrExpenseCancel(common.TransactionCase):
     def setUp(self):
         super(TestHrExpenseCancel, self).setUp()
+        self.partner = self.env["res.partner"].create({"name": "Test partner"})
         self.payment_obj = self.env["account.payment"]
         self.payment_journal = self.env["account.journal"].search(
             [("type", "in", ["cash", "bank"])], limit=1
         )
-        self.payment_journal.update_posted = True
 
         self.main_company = company = self.env.ref("base.main_company")
         self.expense_journal = self.env["account.journal"].create(
@@ -23,7 +23,6 @@ class TestHrExpenseCancel(common.TransactionCase):
                 "code": "HRTPJ",
                 "type": "purchase",
                 "company_id": company.id,
-                "update_posted": True,
             }
         )
 
@@ -49,7 +48,7 @@ class TestHrExpenseCancel(common.TransactionCase):
         self.expense._onchange_product_id()
 
     def _get_payment_wizard(self):
-        ctx = dict(active_ids=self.expense_sheet.ids)
+        ctx = dict(active_ids=self.expense_sheet.ids, active_model="hr.expense.sheet")
         wizard_obj = self.env["hr.expense.sheet.register.payment.wizard"]
         p_methods = self.payment_journal.outbound_payment_method_ids
         ctx.update(default_payment_type="inbound")
@@ -58,6 +57,8 @@ class TestHrExpenseCancel(common.TransactionCase):
                 "journal_id": self.payment_journal.id,
                 "amount": self.expense_sheet.total_amount,
                 "payment_method_id": p_methods and p_methods[0].id or False,
+                "expense_sheet_id": self.expense_sheet.id,
+                "partner_id": self.partner.id,
             }
         )
 
@@ -133,9 +134,8 @@ class TestHrExpenseCancel(common.TransactionCase):
 
     def test_action_cancel_no_update_posted(self):
         journals = self.payment_journal | self.expense_journal
-        journals.write({"update_posted": False})
-        with self.assertRaises(UserError):
-            self.test_action_cancel_company_account()
+        journals.write({"restrict_mode_hash_table": True})
+        self.test_action_cancel_company_account()
         with self.assertRaises(UserError):
             self.test_action_cancel_own_account()
 
