@@ -52,7 +52,7 @@
               name="Select Employees"
               action="wizard_theoretical_time_act_window"
               parent="menu_hr_attendance_theoretical_root"
-              groups="hr_attendance.group_hr_attendance"
+              groups="hr_attendance.group_hr_attendance_user"
               sequence="25"
     />
 
