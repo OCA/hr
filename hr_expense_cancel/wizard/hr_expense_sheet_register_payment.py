@@ -10,7 +10,7 @@ class HrExpenseSheetRegisterPaymentWizard(models.TransientModel):
     def _get_payment_vals(self):
         sup = super(HrExpenseSheetRegisterPaymentWizard, self)
         res = sup._get_payment_vals()
-        expense_sheet = self.env.context.get('active_ids')
+        expense_sheet = self.env.context.get("active_ids")
         if len(expense_sheet) == 1:
             res.update(expense_sheet_id=expense_sheet[0])
         return res

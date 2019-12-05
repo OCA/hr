@@ -3,19 +3,13 @@
 
 {
     "name": "Hr expense cancel",
-    "version": "12.0.1.0.2",
-    "author": "Tecnativa, "
-              "Odoo Community Association (OCA)",
+    "version": "13.0.1.0.0",
+    "author": "Tecnativa, " "Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/hr",
     "license": "AGPL-3",
     "category": "Human Resources",
-    "depends": [
-        'hr_expense',
-        'account_cancel',
-    ],
-    'data': [
-        "views/hr_expense_views.xml",
-    ],
+    "depends": ["hr_expense", "account_cancel"],
+    "data": ["views/hr_expense_views.xml"],
     "post_init_hook": "post_init_hook",
     "installable": True,
 }
