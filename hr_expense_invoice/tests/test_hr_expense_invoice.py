@@ -1,5 +1,5 @@
 # Copyright 2017 Vicent Cubells - <vicent.cubells@tecnativa.com>
-# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
 from odoo.exceptions import UserError, ValidationError
 from odoo.tests import common
@@ -11,9 +11,7 @@ class TestHrExpenseInvoice(common.SavepointCase):
     def setUpClass(cls):
         super(TestHrExpenseInvoice, cls).setUpClass()
 
-        cls.partner = cls.env["res.partner"].create(
-            {"name": "Test partner", "supplier": True}
-        )
+        cls.partner = cls.env["res.partner"].create({"name": "Test partner"})
         employee_home = cls.env["res.partner"].create({"name": "Employee Home Address"})
         receivable = cls.env.ref("account.data_account_type_receivable").id
         expenses = cls.env.ref("account.data_account_type_expenses").id
@@ -36,10 +34,9 @@ class TestHrExpenseInvoice(common.SavepointCase):
         employee = cls.env["hr.employee"].create(
             {"name": "Employee A", "address_home_id": employee_home.id}
         )
-        cls.invoice = cls.env["account.invoice"].create(
+        cls.invoice = cls.env["account.move"].create(
             {
                 "partner_id": cls.partner.id,
-                "account_id": cls.invoice_account,
                 "type": "in_invoice",
                 "invoice_line_ids": [
                     (
@@ -115,7 +112,9 @@ class TestHrExpenseInvoice(common.SavepointCase):
         self.assertEqual(self.sheet.state, "approve")
         self.assertFalse(self.sheet.account_move_id)
         # We post journal entries
-        self.sheet.action_sheet_move_create()
+        self.sheet.with_context(
+            {"default_expense_line_ids": self.expense.id}
+        ).action_sheet_move_create()
         self.assertEqual(self.sheet.state, "post")
         self.assertTrue(self.sheet.account_move_id)
         # We make payment on expense sheet
@@ -129,13 +128,13 @@ class TestHrExpenseInvoice(common.SavepointCase):
         self.sheet.expense_line_ids = [(6, 0, [self.expense.id])]
         self.assertEqual(len(self.sheet.expense_line_ids), 1)
         # We add invoice to expense
-        self.invoice.action_invoice_open()  # residual = 100.0
+        self.invoice.action_post()  # residual = 100.0
         self.expense.invoice_id = self.invoice
         # Test that invoice can't register payment by itself
         ctx = {
             "active_ids": [self.invoice.id],
             "active_id": self.invoice.id,
-            "active_model": "account.invoice",
+            "active_model": "account.move",
         }
         PaymentWizard = self.env["account.payment"]
         view_id = "account.view_account_payment_invoice_form"
@@ -149,13 +148,15 @@ class TestHrExpenseInvoice(common.SavepointCase):
         self.sheet.approve_expense_sheets()
         self.assertEqual(self.sheet.state, "approve")
         self.assertFalse(self.sheet.account_move_id)
-        self.assertEqual(self.invoice.state, "open")
+        self.assertEqual(self.invoice.state, "posted")
         # We post journal entries
-        self.sheet.action_sheet_move_create()
+        self.sheet.with_context(
+            {"default_expense_line_ids": self.expense.id}
+        ).action_sheet_move_create()
         self.assertEqual(self.sheet.state, "post")
         self.assertTrue(self.sheet.account_move_id)
         # Invoice is now paid
-        self.assertEqual(self.invoice.state, "paid")
+        self.assertEqual(self.invoice.invoice_payment_state, "paid")
         # We make payment on expense sheet
         self._register_payment(self.sheet)
 
@@ -168,8 +169,8 @@ class TestHrExpenseInvoice(common.SavepointCase):
         self.sheet.expense_line_ids = [(6, 0, [self.expense.id, self.expense2.id])]
         self.assertEqual(len(self.sheet.expense_line_ids), 2)
         # We add invoices to expenses
-        self.invoice.action_invoice_open()
-        self.invoice2.action_invoice_open()
+        self.invoice.action_post()
+        self.invoice2.action_post()
         self.expense.invoice_id = self.invoice.id
         self.expense2.invoice_id = self.invoice2.id
         self.assertAlmostEqual(self.expense.total_amount, 100.0)
@@ -178,13 +179,15 @@ class TestHrExpenseInvoice(common.SavepointCase):
         self.sheet.approve_expense_sheets()
         self.assertEqual(self.sheet.state, "approve")
         self.assertFalse(self.sheet.account_move_id)
-        self.assertEqual(self.invoice.state, "open")
+        self.assertEqual(self.invoice.state, "posted")
         # We post journal entries
-        self.sheet.action_sheet_move_create()
+        self.sheet.with_context(
+            {"default_expense_line_ids": self.expense.id}
+        ).action_sheet_move_create()
         self.assertEqual(self.sheet.state, "post")
         self.assertTrue(self.sheet.account_move_id)
         # Invoice is now paid
-        self.assertEqual(self.invoice.state, "paid")
+        self.assertEqual(self.invoice.invoice_payment_state, "paid")
         # We make payment on expense sheet
         self._register_payment(self.sheet)
 
@@ -243,14 +246,16 @@ class TestHrExpenseInvoice(common.SavepointCase):
         invoice.account_id = self.invoice_account
         invoice2.partner_id = self.partner
         invoice2.account_id = self.invoice_account
-        invoice.action_invoice_open()
-        invoice2.action_invoice_open()
-        self.sheet.action_sheet_move_create()
+        invoice.action_post()
+        invoice2.action_post()
+        self.sheet.with_context(
+            {"default_expense_line_ids": self.expense.id}
+        ).action_sheet_move_create()
         self.assertEqual(self.sheet.state, "post")
         self.assertTrue(self.sheet.account_move_id)
         # Invoice are now paid
-        self.assertEqual(invoice.state, "paid")
-        self.assertEqual(invoice2.state, "paid")
+        self.assertEqual(invoice.state, "posted")
+        self.assertEqual(invoice2.state, "posted")
         # We make payment on expense sheet
         self._register_payment(self.sheet)
         # Click on View Invoice button link to the correct invoice
@@ -259,12 +264,12 @@ class TestHrExpenseInvoice(common.SavepointCase):
 
     def test_4_hr_expense_constraint(self):
         # Only invoice with status open is allowed
-        with self.assertRaises(ValidationError):
+        with self.assertRaises(UserError):
             self.expense.write({"invoice_id": self.invoice.id})
         # We add an expense, total_amount now = 50.0
         self.sheet.expense_line_ids = [(6, 0, [self.expense.id])]
         # We add invoice to expense
-        self.invoice.action_invoice_open()  # residual = 100.0
+        self.invoice.action_post()  # residual = 100.0
         self.expense.invoice_id = self.invoice
         # Amount must equal, expense vs invoice
         expense_line_ids = self.sheet.mapped("expense_line_ids").filtered("invoice_id")

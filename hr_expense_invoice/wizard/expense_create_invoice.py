@@ -1,5 +1,5 @@
 # Copyright 2019 Kitti U. <kittiu@ecosoft.co.th>
-# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 from odoo import _, api, fields, models
 from odoo.exceptions import UserError
 
@@ -30,7 +30,6 @@ class HRExpenseCreateInvoice(models.TransientModel):
         domain = [("id", "in", sheet.expense_line_ids.ids), ("invoice_id", "=", False)]
         return domain
 
-    @api.multi
     def create_invoice(self):
         """Use information from selected invoice to create invoice."""
         self.ensure_one()
@@ -48,21 +47,19 @@ class HRExpenseCreateInvoice(models.TransientModel):
                     "price_unit": x.unit_amount,
                     "quantity": x.quantity,
                     "account_id": x.account_id.id,
-                    "invoice_line_tax_ids": [(6, 0, x.tax_ids.ids)],
+                    "tax_ids": [(6, 0, x.tax_ids.ids)],
                 },
             )
             for x in expenses
         ]
         invoice_vals = {
             "type": "in_invoice",
-            "reference": expense.reference,
-            "date_invoice": expense.date,
+            "ref": expense.reference,
+            "invoice_date": expense.date,
             "invoice_line_ids": invoice_lines,
         }
         invoice = (
-            self.env["account.invoice"]
-            .with_context(type="purchase")
-            .create(invoice_vals)
+            self.env["account.move"].with_context(type="purchase").create(invoice_vals)
         )
         self.expense_ids.write({"invoice_id": invoice.id})
         return invoice

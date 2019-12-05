@@ -1,6 +1,6 @@
 # Copyright 2015 Pedro M. Baeza <pedro.baeza@tecnativa.com>
 # Copyright 2017 Vicent Cubells <vicent.cubells@tecnativa.com>
-# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 from odoo import _, api, fields, models
 from odoo.exceptions import UserError
@@ -13,7 +13,6 @@ class HrExpenseSheet(models.Model):
     invoice_count = fields.Integer(compute="_compute_invoice_count")
     invoice_fully_created = fields.Boolean(compute="_compute_invoice_count")
 
-    @api.multi
     def action_sheet_move_create(self):
         expense_line_ids = self.mapped("expense_line_ids").filtered("invoice_id")
         self._validate_expense_invoice(expense_line_ids)
@@ -27,17 +26,19 @@ class HrExpenseSheet(models.Model):
                 c_move_lines |= move_lines.filtered(
                     lambda x: x.partner_id == partner and x.debit and not x.reconciled
                 )
-                c_move_lines |= line.invoice_id.move_id.line_ids.filtered(
-                    lambda x: x.account_id == line.invoice_id.account_id
+                c_move_lines |= line.invoice_id.line_ids.filtered(
+                    lambda x: x.account_id
+                    == line.invoice_id.line_ids.filtered(
+                        lambda l: l.account_internal_type == "payable"
+                    ).account_id
                     and x.credit
                     and not x.reconciled
                 )
-            c_move_lines.reconcile()
+            c_move_lines.with_context(use_hr_expense_invoice=True).reconcile()
         return res
 
-    @api.multi
     def _compute_invoice_count(self):
-        Invoice = self.env["account.invoice"]
+        Invoice = self.env["account.move"]
         can_read = Invoice.check_access_rights("read", raise_exception=False)
         for sheet in self:
             sheet.invoice_count = (
@@ -55,10 +56,10 @@ class HrExpenseSheet(models.Model):
         if not invoices:
             return
         # All invoices must confirmed
-        if any(invoices.filtered(lambda i: i.state != "open")):
-            raise UserError(_("Vendor bill state must be Open"))
+        if any(invoices.filtered(lambda i: i.state != "posted")):
+            raise UserError(_("Vendor bill state must be Posted"))
         expense_amount = sum(expense_lines.mapped("total_amount"))
-        invoice_amount = sum(invoices.mapped("residual"))
+        invoice_amount = sum(invoices.mapped("amount_residual"))
         # Expense amount must equal invoice amount
         if float_compare(expense_amount, invoice_amount, precision) != 0:
             raise UserError(
@@ -68,17 +69,16 @@ class HrExpenseSheet(models.Model):
                 )
             )
 
-    @api.multi
     def action_view_invoices(self):
         self.ensure_one()
         action = {
             "name": _("Invoices"),
             "type": "ir.actions.act_window",
-            "res_model": "account.invoice",
+            "res_model": "account.move",
             "target": "current",
         }
         invoice_ids = self.expense_line_ids.mapped("invoice_id").ids
-        view = self.env.ref("account.invoice_supplier_form")
+        view = self.env.ref("account.view_move_form")
         if len(invoice_ids) == 1:
             invoice = invoice_ids[0]
             action["res_id"] = invoice
