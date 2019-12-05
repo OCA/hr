@@ -4,12 +4,13 @@ from odoo import api, models
 
 
 class AccountMoveLine(models.Model):
-    _inherit = 'account.move.line'
+    _inherit = "account.move.line"
 
     @api.multi
     def reconcile(self, writeoff_acc_id=False, writeoff_journal_id=False):
-        if self._context.get('use_hr_expense_invoice'):
+        if self._context.get("use_hr_expense_invoice"):
             self = self.filtered(lambda l: not l.reconciled)
-        res = super().reconcile(writeoff_acc_id=writeoff_acc_id,
-                                writeoff_journal_id=writeoff_journal_id)
+        res = super().reconcile(
+            writeoff_acc_id=writeoff_acc_id, writeoff_journal_id=writeoff_journal_id
+        )
         return res
