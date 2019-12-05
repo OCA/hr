@@ -49,6 +49,11 @@
         <field name="view_mode">pivot,graph</field>
     </record>
 
+    <record id="hr_attendance.menu_hr_attendance_report" model="ir.ui.menu">
+        <field name="groups_id"
+               eval="[(4, ref('hr_attendance.group_hr_attendance'))]"/>
+    </record>
+
     <menuitem id="menu_hr_attendance_report"
               name="Attendances Analysis"
               parent="hr_attendance.menu_hr_attendance_report"
@@ -61,7 +66,7 @@
               name="Theoretical vs Attended Time"
               parent="hr_attendance.menu_hr_attendance_report"
               sequence="15"
-              groups="hr_attendance.group_hr_attendance_user"
+              groups="hr_attendance.group_hr_attendance"
     />
 
     <menuitem id="menu_hr_attendance_theoretical_report"
