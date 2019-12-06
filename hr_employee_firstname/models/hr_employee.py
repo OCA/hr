@@ -41,7 +41,6 @@ class HrEmployee(models.Model):
         res._update_partner_firstname()
         return res
 
-    @api.multi
     def write(self, vals):
         if 'firstname' in vals or 'lastname' in vals:
             if 'lastname' in vals:
@@ -66,7 +65,6 @@ class HrEmployee(models.Model):
         clean_name = " ".join(name.split(None)) if name else name
         return self.env['res.partner']._get_inverse_name(clean_name)
 
-    @api.multi
     def _inverse_name(self):
         """Try to revert the effect of :meth:`._compute_name`."""
         for record in self:
