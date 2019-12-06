@@ -4,22 +4,22 @@
 
 import logging
 
-from odoo import api, fields, models, _
+from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
 
 _logger = logging.getLogger(__name__)
 
-UPDATE_PARTNER_FIELDS = ['firstname', 'lastname', 'user_id', 'address_home_id']
+UPDATE_PARTNER_FIELDS = ["firstname", "lastname", "user_id", "address_home_id"]
 
 
 class HrEmployee(models.Model):
-    _inherit = 'hr.employee'
+    _inherit = "hr.employee"
 
     @api.model
     def _get_name(self, lastname, firstname):
-        return self.env['res.partner']._get_computed_name(lastname, firstname)
+        return self.env["res.partner"]._get_computed_name(lastname, firstname)
 
-    @api.onchange('firstname', 'lastname')
+    @api.onchange("firstname", "lastname")
     def _onchange_firstname_lastname(self):
         if self.firstname or self.lastname:
             self.name = self._get_name(self.lastname, self.firstname)
@@ -29,32 +29,31 @@ class HrEmployee(models.Model):
 
     @api.model
     def create(self, vals):
-        if vals.get('firstname') or vals.get('lastname'):
-            vals['name'] = self._get_name(
-                vals.get('lastname'), vals.get('firstname'))
-        elif vals.get('name'):
-            vals['lastname'] = self.split_name(vals['name'])['lastname']
-            vals['firstname'] = self.split_name(vals['name'])['firstname']
+        if vals.get("firstname") or vals.get("lastname"):
+            vals["name"] = self._get_name(vals.get("lastname"), vals.get("firstname"))
+        elif vals.get("name"):
+            vals["lastname"] = self.split_name(vals["name"])["lastname"]
+            vals["firstname"] = self.split_name(vals["name"])["firstname"]
         else:
-            raise ValidationError(_('No name set.'))
+            raise ValidationError(_("No name set."))
         res = super().create(vals)
         res._update_partner_firstname()
         return res
 
     def write(self, vals):
-        if 'firstname' in vals or 'lastname' in vals:
-            if 'lastname' in vals:
-                lastname = vals.get('lastname')
+        if "firstname" in vals or "lastname" in vals:
+            if "lastname" in vals:
+                lastname = vals.get("lastname")
             else:
                 lastname = self.lastname
-            if 'firstname' in vals:
-                firstname = vals.get('firstname')
+            if "firstname" in vals:
+                firstname = vals.get("firstname")
             else:
                 firstname = self.firstname
-            vals['name'] = self._get_name(lastname, firstname)
-        elif vals.get('name'):
-            vals['lastname'] = self.split_name(vals['name'])['lastname']
-            vals['firstname'] = self.split_name(vals['name'])['firstname']
+            vals["name"] = self._get_name(lastname, firstname)
+        elif vals.get("name"):
+            vals["lastname"] = self.split_name(vals["name"])["lastname"]
+            vals["firstname"] = self.split_name(vals["name"])["firstname"]
         res = super().write(vals)
         if set(vals).intersection(UPDATE_PARTNER_FIELDS):
             self._update_partner_firstname()
@@ -63,14 +62,14 @@ class HrEmployee(models.Model):
     @api.model
     def split_name(self, name):
         clean_name = " ".join(name.split(None)) if name else name
-        return self.env['res.partner']._get_inverse_name(clean_name)
+        return self.env["res.partner"]._get_inverse_name(clean_name)
 
     def _inverse_name(self):
         """Try to revert the effect of :meth:`._compute_name`."""
         for record in self:
-            parts = self.env['res.partner']._get_inverse_name(record.name)
-            record.lastname = parts['lastname']
-            record.firstname = parts['firstname']
+            parts = self.env["res.partner"]._get_inverse_name(record.name)
+            record.lastname = parts["lastname"]
+            record.firstname = parts["firstname"]
 
     @api.model
     def _install_employee_firstname(self):
@@ -81,8 +80,7 @@ class HrEmployee(models.Model):
         correctly into the database. This can be called later too if needed.
         """
         # Find records with empty firstname and lastname
-        records = self.search([("firstname", "=", False),
-                               ("lastname", "=", False)])
+        records = self.search([("firstname", "=", False), ("lastname", "=", False)])
 
         # Force calculations there
         records._inverse_name()
@@ -90,16 +88,15 @@ class HrEmployee(models.Model):
 
     def _update_partner_firstname(self):
         for employee in self:
-            partners = employee.mapped('user_id.partner_id')
-            partners |= employee.mapped('address_home_id')
-            partners.write({
-                'firstname': employee.firstname,
-                'lastname': employee.lastname,
-            })
+            partners = employee.mapped("user_id.partner_id")
+            partners |= employee.mapped("address_home_id")
+            partners.write(
+                {"firstname": employee.firstname, "lastname": employee.lastname}
+            )
 
     @api.constrains("firstname", "lastname")
     def _check_name(self):
         """Ensure at least one name is set."""
         for record in self:
             if not (record.firstname or record.lastname):
-                raise ValidationError(_('No name set.'))
+                raise ValidationError(_("No name set."))
