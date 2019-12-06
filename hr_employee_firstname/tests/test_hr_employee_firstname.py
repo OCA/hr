@@ -10,24 +10,23 @@ from odoo.tests.common import TransactionCase
 class TestEmployeeFirstname(TransactionCase):
     def setUp(self):
         super().setUp()
-        self.employee_model = self.env['hr.employee']
 
         # Create 3 employees to concatenate the firstname and lastname
         # in name_related
-        self.employee1_id = self.employee_model.create(
+        self.employee1_id = self.env['hr.employee'].create(
             {'firstname': 'Jan', 'lastname': 'Van-Eyck'})
-        self.employee2_id = self.employee_model.create(
+        self.employee2_id = self.env['hr.employee'].create(
             {'firstname': 'Jean-Pierre', 'lastname': 'Carnaud'})
-        self.employee3_id = self.employee_model.create(
+        self.employee3_id = self.env['hr.employee'].create(
             {'firstname': 'Famke', 'lastname': 'Jenssens'})
 
         # Create 3 employees for split the name_related to
         # firstname and lastname
-        self.employee10_id = self.employee_model.create(
+        self.employee10_id = self.env['hr.employee'].create(
             {'name': ' Jan Van-Eyck'})
-        self.employee20_id = self.employee_model.create(
+        self.employee20_id = self.env['hr.employee'].create(
             {'name': 'Jean-Pierre Carnaud'})
-        self.employee30_id = self.employee_model.create(
+        self.employee30_id = self.env['hr.employee'].create(
             {'name': 'JenssensFamke'})
 
     def test_get_name(self):
@@ -48,17 +47,17 @@ class TestEmployeeFirstname(TransactionCase):
         """
         Validate the get_name method is not failing
         """
-        field_onchange = self.employee_model.new({})._onchange_spec()
+        field_onchange = self.env['hr.employee'].new({})._onchange_spec()
         self.assertEqual(field_onchange.get('firstname'), '1')
         self.assertEqual(field_onchange.get('lastname'), '1')
         values = {'firstname': 'Antonio',
                   'lastname': 'Esposito',
                   'name': 'test employee'}
-        for field in self.employee_model._fields:
+        for field in self.env['hr.employee']._fields:
             if field not in values:
                 values[field] = False
         # we work on a temporary record
-        new_record = self.employee_model.new(values)
+        new_record = self.env['hr.employee'].new(values)
 
         updates = new_record.onchange(
             values, ['firstname', 'lastname'], field_onchange)
@@ -145,8 +144,8 @@ class TestEmployeeFirstname(TransactionCase):
         self.assertEqual(empl_demo.lastname, 'Admin')
 
     def test_no_name(self):
-        self.employee_model.create({'firstname': 'test'})
-        self.employee_model.create({'lastname': 'test'})
-        self.employee_model.create({'name': 'test'})
+        self.env['hr.employee'].create({'firstname': 'test'})
+        self.env['hr.employee'].create({'lastname': 'test'})
+        self.env['hr.employee'].create({'name': 'test'})
         with self.assertRaises(ValidationError):
-            self.employee_model.create({})
+            self.env['hr.employee'].create({})
