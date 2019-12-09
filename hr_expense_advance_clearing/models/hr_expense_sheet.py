@@ -68,10 +68,11 @@ class HrExpenseSheet(models.Model):
     def _compute_residual(self):
         residual_company = 0.0
         emp_advance = self.env.ref('hr_expense_advance_clearing.'
-                                   'product_emp_advance')
-        for line in self.sudo().account_move_id.line_ids:
-            if line.account_id == emp_advance.property_account_expense_id:
-                residual_company += line.amount_residual
+                                   'product_emp_advance', False)
+        if emp_advance:
+            for line in self.sudo().account_move_id.line_ids:
+                if line.account_id == emp_advance.property_account_expense_id:
+                    residual_company += line.amount_residual
         self.residual = residual_company
 
     @api.multi
