@@ -17,4 +17,5 @@
         'views/hr_expense_views.xml',
     ],
     'installable': True,
+    'maintainers': ['kittiu'],
 }
