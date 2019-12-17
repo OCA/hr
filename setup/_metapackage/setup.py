@@ -46,6 +46,7 @@ setuptools.setup(
         'odoo12-addon-hr_holidays_settings',
         'odoo12-addon-hr_job_category',
         'odoo12-addon-hr_payroll_cancel',
+        'odoo12-addon-hr_payslip_change_state',
         'odoo12-addon-hr_period',
         'odoo12-addon-hr_skill',
         'odoo12-addon-hr_worked_days_from_timesheet',
