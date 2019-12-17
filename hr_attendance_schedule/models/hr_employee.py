@@ -5,13 +5,15 @@ class Employee(models.Model):
     _inherit = 'hr.employee'
 
     @api.multi
-    def attendance_action_change(self):  #pragma: no cover
+    def attendance_action_change(self):  # pragma: no cover
         """ Check In/Check Out action
             Check In: create a new attendance record
             Check Out: modify check_out field of appropriate attendance record
         """
         if len(self) > 1:
-            raise exceptions.UserError(_('Cannot perform check in or check out on multiple employees.'))
+            msg = _('Cannot perform check in or check out '
+                    'on multiple employees.')
+            raise exceptions.UserError(msg)
         action_date, needs_approval = self._get_action_date()
 
         if self.attendance_state != 'checked_in':
@@ -23,7 +25,8 @@ class Employee(models.Model):
             }
             return self.env['hr.attendance'].create(vals)
         else:
-            attendance = self.env['hr.attendance'].search([('employee_id', '=', self.id), ('check_out', '=', False)], limit=1)
+            domain = [('employee_id', '=', self.id), ('check_out', '=', False)]
+            attendance = self.env['hr.attendance'].search(domain, limit=1)
             if attendance:
                 attendance.write({
                     'check_out': action_date,
@@ -31,8 +34,10 @@ class Employee(models.Model):
                     'needs_approval': needs_approval
                 })
             else:
-                raise exceptions.UserError(_('Cannot perform check out on %(empl_name)s, could not find corresponding check in. '
-                    'Your attendances have probably been modified manually by human resources.') % {'empl_name': self.name, })
+                msg = _('Cannot perform check out on %(empl_name)s, could not '
+                        'find corresponding check in. Your attendances have '
+                        'probably been modified manually by human resources.')
+                raise exceptions.UserError(msg % {'empl_name': self.name})
             return attendance
 
     def _get_action_date(self):

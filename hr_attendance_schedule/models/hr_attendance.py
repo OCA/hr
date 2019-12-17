@@ -12,7 +12,13 @@ class Attendance(models.Model):
     def _init_column(self, column_name):
         # Set a value on existing data for required fields
         if column_name == 'real_check_in':
-            self.env.cr.execute("UPDATE hr_attendance SET real_check_in = check_in WHERE real_check_in IS NULL")
+            self.env.cr.execute(""" UPDATE hr_attendance
+                                    SET real_check_in = check_in
+                                    WHERE real_check_in IS NULL
+                                """)
         elif column_name == 'real_check_out':
-            self.env.cr.execute("UPDATE hr_attendance SET real_check_out = check_out WHERE real_check_out IS NULL")
+            self.env.cr.execute(""" UPDATE hr_attendance
+                                    SET real_check_out = check_out
+                                    WHERE real_check_out IS NULL
+                                """)
         super()._init_column(column_name)
