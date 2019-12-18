@@ -1,7 +1,7 @@
 # Copyright 2015 2011,2013 Michael Telahun Makonnen <mmakonnen@gmail.com>
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-from datetime import date
+from datetime import date, datetime, time
 
 from odoo import api, fields, models, _
 from odoo.exceptions import ValidationError
@@ -32,6 +32,8 @@ class HrHolidaysPublic(models.Model):
         'res.country',
         'Country'
     )
+
+    leave_type_id = fields.Many2one('hr.leave.type')
 
     @api.multi
     @api.constrains('year', 'country_id')
@@ -69,61 +71,25 @@ class HrHolidaysPublic(models.Model):
             result.append((rec.id, rec.display_name))
         return result
 
-    @api.model
-    @api.returns('hr.holidays.public.line')
-    def get_holidays_list(self, year, employee_id=None):
-        """
-        Returns recordset of hr.holidays.public.line
-        for the specified year and employee
-        :param year: year as string
-        :param employee_id: ID of the employee
-        :return: recordset of hr.holidays.public.line
-        """
-        holidays_filter = [('year', '=', year)]
-        employee = False
-        if employee_id:
-            employee = self.env['hr.employee'].browse(employee_id)
-            if employee.address_id and employee.address_id.country_id:
-                holidays_filter.append('|')
-                holidays_filter.append(('country_id', '=', False))
-                holidays_filter.append(('country_id',
-                                        '=',
-                                        employee.address_id.country_id.id))
-            else:
-                holidays_filter.append(('country_id', '=', False))
-        pholidays = self.search(holidays_filter)
-        if not pholidays:
-            return self.env['hr.holidays.public.line']
+    @api.multi
+    def create_leave_type(self):
+        for record in self:
+            leave_type = self.env['hr.leave.type'].create({
+                'name': _('Public Holidays %s (%s)') % (
+                    record.year, record.country_id.name
+                ),
+                'validity_start': False,
+                'allocation_type': 'no',
+                'color_name': 'black',
+            })
+            record.leave_type_id = leave_type.id
 
-        states_filter = [('year_id', 'in', pholidays.ids)]
-        if employee and employee.address_id and employee.address_id.state_id:
-            states_filter += ['|',
-                              ('state_ids', '=', False),
-                              ('state_ids', '=',
-                               employee.address_id.state_id.id)]
-        else:
-            states_filter.append(('state_ids', '=', False))
-        hhplo = self.env['hr.holidays.public.line']
-        holidays_lines = hhplo.search(states_filter)
-        return holidays_lines
-
-    @api.model
-    def is_public_holiday(self, selected_date, employee_id=None):
-        """
-        Returns True if selected_date is a public holiday for the employee
-        :param selected_date: datetime object
-        :param employee_id: ID of the employee
-        :return: bool
-        """
-        holidays_lines = self.get_holidays_list(
-            selected_date.year, employee_id=employee_id)
-        if holidays_lines:
-            hol_date = holidays_lines.filtered(
-                lambda r: r.date == selected_date
-            )
-            if hol_date.ids:
-                return True
-        return False
+    @api.multi
+    def generate_public_holidays(self):
+        for holidays_calendar in self:
+            if not holidays_calendar.leave_type_id:
+                holidays_calendar.create_leave_type()
+            holidays_calendar.line_ids.generate_leave()
 
 
 class HrHolidaysPublicLine(models.Model):
@@ -157,6 +123,28 @@ class HrHolidaysPublicLine(models.Model):
         'state_id',
         'Related States'
     )
+
+    leave_id = fields.Many2one('hr.leave')
+
+    @api.multi
+    def generate_leave(self):
+        for record in self:
+            leave = self.env['hr.leave'].create({
+                'name': "%s %s" % (record.name, record.year_id.year),
+                'holiday_status_id': record.year_id.leave_type_id.id,
+                'request_date_from': record.date,
+                'request_date_to': record.date,
+                'date_from': datetime.combine(record.date, time(0, 0, 0, 0)),
+                'date_to': datetime.combine(
+                    record.date, time(23, 59, 59, 99999)
+                ),
+                'holiday_type': 'public',
+                'employee_id': False,
+                'country_id': record.year_id.country_id.id,
+                'state_ids': [(6, 0, record.state_ids.ids)]
+            })
+            leave.action_validate()
+            record.leave_id = leave.id
 
     @api.multi
     @api.constrains('date', 'state_ids')

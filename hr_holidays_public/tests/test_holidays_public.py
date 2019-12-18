@@ -6,8 +6,6 @@ from odoo.tests.common import TransactionCase
 
 from odoo.exceptions import UserError, ValidationError
 
-from datetime import date
-
 
 class TestHolidaysPublic(TransactionCase):
     at_install = False
@@ -113,32 +111,6 @@ class TestHolidaysPublic(TransactionCase):
                 'state_ids': [(6, 0, [self.env.ref('base.state_us_35').id])]
             })
 
-    def test_isnot_holiday(self):
-        # ensures that if given a date that is not an holiday it returns none
-        self.assertFalse(self.holiday_model.is_public_holiday(
-            date(1995, 12, 10)
-        ))
-
-    def test_is_holiday(self):
-        # ensures that correct holidays are identified
-        self.assertTrue(self.holiday_model.is_public_holiday(
-            date(1995, 10, 14)
-        ))
-
-    def test_isnot_holiday_in_country(self):
-        # ensures that correct holidays are identified for a country
-        self.assertFalse(self.holiday_model.is_public_holiday(
-            date(1994, 11, 14),
-            employee_id=self.employee.id
-        ))
-
-    def test_is_holiday_in_country(self):
-        # ensures that correct holidays are identified for a country
-        self.assertTrue(self.holiday_model.is_public_holiday(
-            date(1994, 10, 14),
-            employee_id=self.employee.id
-        ))
-
     def test_holiday_line_year(self):
         # ensures that line year and holiday year are the same
         holiday4 = self.holiday_model.create({
@@ -150,51 +122,6 @@ class TestHolidaysPublic(TransactionCase):
                 'date': '1995-11-14',
                 'year_id': holiday4.id
             })
-
-    def test_list_holidays_in_list_country_specific(self):
-        # ensures that correct holidays are identified for a country
-        lines = self.holiday_model.get_holidays_list(
-            1994, employee_id=self.employee.id)
-        res = lines.filtered(
-            lambda r: r.date == date(1994, 10, 14)
-        )
-        self.assertEqual(len(res), 1)
-        self.assertEqual(len(lines), 1)
-
-    def test_list_holidays_in_list(self):
-        # ensures that correct holidays are identified for a country
-        lines = self.holiday_model.get_holidays_list(1995)
-        res = lines.filtered(
-            lambda r: r.date == date(1995, 10, 14)
-        )
-        self.assertEqual(len(res), 1)
-        self.assertEqual(len(lines), 3)
-
-    def test_create_next_year_public_holidays(self):
-        self.wizard_next_year.new().create_public_holidays()
-        lines = self.holiday_model.get_holidays_list(1996)
-        res = lines.filtered(
-            lambda r: r.date == date(1996, 10, 14)
-        )
-        self.assertEqual(len(res), 1)
-        self.assertEqual(len(lines), 3)
-
-    def test_create_year_2000_public_holidays(self):
-        ph_start_ids = self.holiday_model.search([('year', '=', 1994)])
-        val = {
-            'template_ids': ph_start_ids,
-            'year': 2000
-        }
-        wz_create_ph = self.wizard_next_year.new(values=val)
-
-        wz_create_ph.create_public_holidays()
-
-        lines = self.holiday_model.get_holidays_list(2000)
-        self.assertEqual(len(lines), 2)
-
-        res = lines.filtered(
-            lambda r: r.year_id.country_id.id == self.env.ref('base.sl').id)
-        self.assertEqual(len(res), 1)
 
     def test_february_29th(self):
         # Ensures that users get a UserError (not a nasty Exception) when

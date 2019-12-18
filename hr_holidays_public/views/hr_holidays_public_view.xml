@@ -17,27 +17,33 @@
         <field name="model">hr.holidays.public</field>
         <field name="arch" type="xml">
             <form string="Public Holidays">
-                <group name="group_main">
-                    <group name="group_main_left">
-                        <field name="year"/>
-                        <field name="country_id"/>
+                <header>
+                    <button name="generate_public_holidays" class="oe_highlight"
+                            string="Generate Leaves" type="object"/>
+                </header>
+                <sheet>
+                    <group name="group_main">
+                        <group name="group_main_left">
+                            <field name="year"/>
+                            <field name="country_id"/>
+                        </group>
+                        <group name="group_main_right">
+                            <!-- Left empty for extensions -->
+                        </group>
                     </group>
-                    <group name="group_main_right">
-                        <!-- Left empty for extensions -->
+                    <group string="Public Holidays" name="group_detail">
+                        <field name="line_ids" nolabel="1">
+                            <tree string="Public Holidays"
+                                editable="top">
+                                <field name="date" attrs="{'readonly':[['variable_date', '=', False]]}" />
+                                <field name="name" />
+                                <field name="state_ids" widget="many2many_tags"
+                                    domain="[('country_id','=',parent.country_id)]" />
+                                <field name="variable_date"/>
+                            </tree>
+                        </field>
                     </group>
-                </group>
-                <group string="Public Holidays" name="group_detail">
-                    <field name="line_ids" nolabel="1">
-                        <tree string="Public Holidays"
-                            editable="top">
-                            <field name="date" attrs="{'readonly':[['variable_date', '=', False]]}" />
-                            <field name="name" />
-                            <field name="state_ids" widget="many2many_tags"
-                                domain="[('country_id','=',parent.country_id)]" />
-                            <field name="variable_date"/>
-                        </tree>
-                    </field>
-                </group>
+                </sheet>
             </form>
         </field>
     </record>

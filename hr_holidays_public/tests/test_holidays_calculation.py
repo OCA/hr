@@ -66,6 +66,8 @@ class TestHolidaysComputeDaysBase(common.SavepointCase):
                 }),
             ],
         })
+        cls.public_holiday_global.generate_public_holidays()
+
         cls.public_holiday_country = cls.HrHolidaysPublic.create({
             'year': 1946,
             'country_id': cls.address_2.country_id.id,
@@ -83,6 +85,7 @@ class TestHolidaysComputeDaysBase(common.SavepointCase):
                 }),
             ],
         })
+        cls.public_holiday_country.generate_public_holidays()
 
         cls.public_holiday_global_1947 = cls.HrHolidaysPublic.create({
             'year': 1947,
@@ -97,6 +100,7 @@ class TestHolidaysComputeDaysBase(common.SavepointCase):
                 }),
             ],
         })
+        cls.public_holiday_global_1947.generate_public_holidays()
 
         cls.holiday_type = cls.HrLeaveType.create({
             'name': 'Leave Type Test',
