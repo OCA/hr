@@ -24,6 +24,8 @@
                     </group>
                     <group name="group_main_right">
                         <!-- Left empty for extensions -->
+                        <field name="ics_url" placeholder="https://giorni-festivi.eu/ical/italia/2019/" />
+                        <button name="load_ics_calendar" string="Load Calendar" type="object"/>
                     </group>
                 </group>
                 <group string="Public Holidays" name="group_detail">

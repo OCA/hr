@@ -21,5 +21,10 @@
         'views/hr_leave_type.xml',
         'wizards/holidays_public_next_year_wizard.xml',
     ],
-    'installable': True,
+    'external_dependencies': {
+        'python': [
+            'vobject'
+        ],
+    },
+    'installable': True
 }

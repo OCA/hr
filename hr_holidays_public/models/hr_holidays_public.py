@@ -1,10 +1,20 @@
 # Copyright 2015 2011,2013 Michael Telahun Makonnen <mmakonnen@gmail.com>
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-from datetime import date
+import logging
+import urllib.request
+from datetime import date, datetime
 
 from odoo import api, fields, models, _
 from odoo.exceptions import ValidationError
+from odoo.tools import DEFAULT_SERVER_DATE_FORMAT
+
+_logger = logging.getLogger(__name__)
+
+try:
+    import vobject
+except (ImportError, IOError) as err:
+    _logger.debug(err)
 
 
 class HrHolidaysPublic(models.Model):
@@ -23,6 +33,7 @@ class HrHolidaysPublic(models.Model):
         required=True,
         default=date.today().year
     )
+    ics_url = new_field = fields.Char(string="ICS Url", required=False)
     line_ids = fields.One2many(
         'hr.holidays.public.line',
         'year_id',
@@ -124,6 +135,41 @@ class HrHolidaysPublic(models.Model):
             if hol_date.ids:
                 return True
         return False
+
+    @staticmethod
+    def get_calendar(url):
+        response = urllib.request.urlopen(url)
+        return response.read().decode('utf-8')
+
+    @api.multi
+    def load_ics_calendar(self):
+        holidays_line_model = self.env['hr.holidays.public.line']
+
+        self.ensure_one()
+        if self.ics_url:
+            events_ics = self.get_calendar(self.ics_url)
+            for cal in vobject.readComponents(events_ics):
+                for component in cal.components():
+                    if component.name == "VEVENT":
+                        holiday_lines = holidays_line_model.search([
+                            ('year_id', '=', self.id),
+                            ('date', '=', datetime.strftime(component.dtstart.valueRepr(), DEFAULT_SERVER_DATE_FORMAT))
+                        ])
+
+                        if holiday_lines:
+                            if component.summary.valueRepr() not in holiday_lines[0].name:
+                                holiday_lines[0].name += ': ' + component.summary.valueRepr()
+                        else:
+                            if component.dtstart.valueRepr().year == self.year:
+                                holidays_line_model.create({
+                                    'name': component.summary.valueRepr(),
+                                    'date': datetime.strftime(component.dtstart.valueRepr(), DEFAULT_SERVER_DATE_FORMAT),
+                                    'year_id': self.id,
+                                    'variable_date': False,
+                                    'state_ids': False
+                                })
+
+        return True
 
 
 class HrHolidaysPublicLine(models.Model):
