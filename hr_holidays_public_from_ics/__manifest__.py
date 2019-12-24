@@ -9,7 +9,7 @@
               "Odoo Community Association (OCA)",
     'summary': """
         Load holidays from URL that points to iCal file (*.ics)""",
-    'website': "http://www.didotech.com",
+    'website': "https://github.com/OCA/hr",
     # any module necessary for this one to work correctly
     'depends': [
         'hr_holidays_public'

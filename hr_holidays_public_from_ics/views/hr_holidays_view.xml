@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="view_holidays_public_load_ics_form" model="ir.ui.view">
+        <field name="name">hr.holidays.public.ics.form</field>
+        <field name="model">hr.holidays.public</field>
+        <field name="inherit_id" ref="hr_holidays_public.view_holidays_public_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='group_main_right']" position="inside">
+                <field name="ics_url" placeholder="https://giorni-festivi.eu/ical/italia/2019/" />
+                <button name="load_ics_calendar" string="Load Calendar" type="object"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
