@@ -6,282 +6,290 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2019-12-28 20:13+0000\n"
+"Last-Translator: Carles Antoli <carlesantoli@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.10\n"
 
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.ui.menu,name:hr_attendance_report_theoretical_time.menu_hr_attendance_theoretical_report
 msgid "All Employees"
-msgstr ""
+msgstr "Tots els empleats"
 
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.model,name:hr_attendance_report_theoretical_time.model_hr_attendance
 msgid "Attendance"
-msgstr ""
+msgstr "Assistències"
 
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.ui.menu,name:hr_attendance_report_theoretical_time.menu_hr_attendance_report
 msgid "Attendances Analysis"
-msgstr ""
+msgstr "Anàlisi d'assistències"
 
 #. module: hr_attendance_report_theoretical_time
 #: model_terms:ir.ui.view,arch_db:hr_attendance_report_theoretical_time.recompute_theoretical_attendance_form
 #: model_terms:ir.ui.view,arch_db:hr_attendance_report_theoretical_time.wizard_theoretical_time_form_view
 msgid "Cancel"
-msgstr ""
+msgstr "Cancel·la"
 
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.model.fields,field_description:hr_attendance_report_theoretical_time.field_recompute_theoretical_attendance__create_uid
 #: model:ir.model.fields,field_description:hr_attendance_report_theoretical_time.field_wizard_theoretical_time__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Creat per"
 
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.model.fields,field_description:hr_attendance_report_theoretical_time.field_recompute_theoretical_attendance__create_date
 #: model:ir.model.fields,field_description:hr_attendance_report_theoretical_time.field_wizard_theoretical_time__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Creat el"
 
 #. module: hr_attendance_report_theoretical_time
 #: model_terms:ir.ui.view,arch_db:hr_attendance_report_theoretical_time.hr_attendance_theoretical_view_filter
 msgid "Current Month"
-msgstr ""
+msgstr "Mes actual"
 
 #. module: hr_attendance_report_theoretical_time
 #: model_terms:ir.ui.view,arch_db:hr_attendance_report_theoretical_time.hr_attendance_theoretical_view_filter
 msgid "Current Year"
-msgstr ""
+msgstr "Aquest any"
 
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.model.fields,field_description:hr_attendance_report_theoretical_time.field_hr_attendance_theoretical_time_report__date
 msgid "Date"
-msgstr ""
+msgstr "Data"
 
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.model.fields,field_description:hr_attendance_report_theoretical_time.field_wizard_theoretical_time__department_id
 msgid "Department"
-msgstr ""
+msgstr "Departament"
 
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.model.fields,field_description:hr_attendance_report_theoretical_time.field_hr_attendance_theoretical_time_report__difference
 msgid "Difference"
-msgstr ""
+msgstr "Diferència"
 
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.model.fields,field_description:hr_attendance_report_theoretical_time.field_hr_attendance_theoretical_time_report__display_name
 #: model:ir.model.fields,field_description:hr_attendance_report_theoretical_time.field_recompute_theoretical_attendance__display_name
 #: model:ir.model.fields,field_description:hr_attendance_report_theoretical_time.field_wizard_theoretical_time__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nom a mostrar"
 
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.model,name:hr_attendance_report_theoretical_time.model_hr_employee
 #: model:ir.model.fields,field_description:hr_attendance_report_theoretical_time.field_hr_attendance_theoretical_time_report__employee_id
 msgid "Employee"
-msgstr ""
+msgstr "Empleat"
 
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.model.fields,field_description:hr_attendance_report_theoretical_time.field_recompute_theoretical_attendance__employee_ids
 #: model:ir.model.fields,field_description:hr_attendance_report_theoretical_time.field_wizard_theoretical_time__employee_ids
 #: model_terms:ir.ui.view,arch_db:hr_attendance_report_theoretical_time.wizard_theoretical_time_form_view
 msgid "Employees"
-msgstr ""
+msgstr "Empleats"
 
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.model.fields,help:hr_attendance_report_theoretical_time.field_hr_employee__theoretical_hours_start_date
 msgid "Fill this field for setting a manual start date for computing the theoretical hours independently from the attendances. If not filled, employee creation date or the calendar start date will be used (the greatest of both)."
 msgstr ""
+"Ompli aquest camp per establir una data manual per calcular les hores "
+"teòriques independentment de les assistències. Si no està emplenat, "
+"s'utilitzarà la data de creació de l'empleat o la data de començament del "
+"calendari (la més gran de les dues)."
 
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.model,name:hr_attendance_report_theoretical_time.model_wizard_theoretical_time
 msgid "Filtered Theoretical Time"
-msgstr ""
+msgstr "Temps teòric filtrat"
 
 #. module: hr_attendance_report_theoretical_time
 #: model_terms:ir.ui.view,arch_db:hr_attendance_report_theoretical_time.wizard_theoretical_time_form_view
 msgid "Filters"
-msgstr ""
+msgstr "Filtres"
 
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.model.fields,field_description:hr_attendance_report_theoretical_time.field_recompute_theoretical_attendance__date_from
 msgid "From"
-msgstr ""
+msgstr "De"
 
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.model.fields,field_description:hr_attendance_report_theoretical_time.field_hr_attendance_theoretical_time_report__id
 #: model:ir.model.fields,field_description:hr_attendance_report_theoretical_time.field_recompute_theoretical_attendance__id
 #: model:ir.model.fields,field_description:hr_attendance_report_theoretical_time.field_wizard_theoretical_time__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.model.fields,help:hr_attendance_report_theoretical_time.field_hr_leave_type__include_in_theoretical
 msgid "If you check this mark, leaves in this category won't reduce the number of theoretical hours in the attendance report."
 msgstr ""
+"Marcant aquesta casella, les absències d'aquest tipus no reduiran el nombre "
+"d'hores teòriques en l'informe d'assistència."
 
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.model.fields,field_description:hr_attendance_report_theoretical_time.field_hr_leave_type__include_in_theoretical
 msgid "Include in theoretical hours"
-msgstr ""
+msgstr "Incloure en hores teòriques"
 
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.model.fields,field_description:hr_attendance_report_theoretical_time.field_hr_attendance_theoretical_time_report____last_update
 #: model:ir.model.fields,field_description:hr_attendance_report_theoretical_time.field_recompute_theoretical_attendance____last_update
 #: model:ir.model.fields,field_description:hr_attendance_report_theoretical_time.field_wizard_theoretical_time____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Darrera modificació el"
 
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.model.fields,field_description:hr_attendance_report_theoretical_time.field_recompute_theoretical_attendance__write_uid
 #: model:ir.model.fields,field_description:hr_attendance_report_theoretical_time.field_wizard_theoretical_time__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Darrera actualització per"
 
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.model.fields,field_description:hr_attendance_report_theoretical_time.field_recompute_theoretical_attendance__write_date
 #: model:ir.model.fields,field_description:hr_attendance_report_theoretical_time.field_wizard_theoretical_time__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Darrera modificació el"
 
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.model,name:hr_attendance_report_theoretical_time.model_hr_leave
 msgid "Leave"
-msgstr ""
+msgstr "Absència"
 
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.model,name:hr_attendance_report_theoretical_time.model_hr_leave_type
 msgid "Leave Type"
-msgstr ""
+msgstr "Tipus d'absència"
 
 #. module: hr_attendance_report_theoretical_time
 #: model_terms:ir.ui.view,arch_db:hr_attendance_report_theoretical_time.hr_attendance_theoretical_view_filter
 msgid "My Attendances"
-msgstr ""
+msgstr "Les meves assistències"
 
 #. module: hr_attendance_report_theoretical_time
 #: model_terms:ir.ui.view,arch_db:hr_attendance_report_theoretical_time.wizard_theoretical_time_form_view
 msgid "Populate"
-msgstr ""
+msgstr "Poblar"
 
 #. module: hr_attendance_report_theoretical_time
 #: model_terms:ir.ui.view,arch_db:hr_attendance_report_theoretical_time.hr_attendance_theoretical_view_filter
 msgid "Previous Month"
-msgstr ""
+msgstr "Mes anterior"
 
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.model,name:hr_attendance_report_theoretical_time.model_hr_holidays_public_line
 msgid "Public Holidays Lines"
-msgstr ""
+msgstr "Línies de dies festius"
 
 #. module: hr_attendance_report_theoretical_time
 #: model_terms:ir.ui.view,arch_db:hr_attendance_report_theoretical_time.recompute_theoretical_attendance_form
 msgid "Recompute"
-msgstr ""
+msgstr "Recalcular"
 
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.model,name:hr_attendance_report_theoretical_time.model_recompute_theoretical_attendance
 msgid "Recompute Employees Attendances"
-msgstr ""
+msgstr "Recalcular assistències d'empleats"
 
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.actions.act_window,name:hr_attendance_report_theoretical_time.recompute_employee_theoretical_attendance
 msgid "Recompute Theoretical Attendance"
-msgstr ""
+msgstr "Recalcular assistència teòrica"
 
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.actions.act_window,name:hr_attendance_report_theoretical_time.act_wizard_recompute_theoretical_attendance
 #: model:ir.ui.menu,name:hr_attendance_report_theoretical_time.menu_recompute_theoretical_attendance
 msgid "Recompute Theoretical Attendances"
-msgstr ""
+msgstr "Recalcular assistències teòriques"
 
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.model.fields,help:hr_attendance_report_theoretical_time.field_recompute_theoretical_attendance__date_from
 msgid "Recompute attendances from this date"
-msgstr ""
+msgstr "Tornar a calcular les assistències a partir d'aquesta data"
 
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.model.fields,help:hr_attendance_report_theoretical_time.field_recompute_theoretical_attendance__date_to
 msgid "Recompute attendances up to this date"
-msgstr ""
+msgstr "Tornar a calcular les assistències fins aquesta data"
 
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.model.fields,help:hr_attendance_report_theoretical_time.field_recompute_theoretical_attendance__employee_ids
 msgid "Recompute these employees attendances"
-msgstr ""
+msgstr "Recalculi l'assistència d'aquests empleats"
 
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.model,name:hr_attendance_report_theoretical_time.model_hr_attendance_theoretical_time_report
 msgid "Report of theoretical time vs attendance time"
-msgstr ""
+msgstr "Informe de temps teòric enfront de temps treballat"
 
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.ui.menu,name:hr_attendance_report_theoretical_time.menu_hr_attendance_theoretical_report_select
 msgid "Select Employees"
-msgstr ""
+msgstr "Seleccionar empleats"
 
 #. module: hr_attendance_report_theoretical_time
 #: code:addons/hr_attendance_report_theoretical_time/wizards/wizard_theoretical_time.py:43
 #: model:ir.actions.act_window,name:hr_attendance_report_theoretical_time.wizard_theoretical_time_act_window
 #, python-format
 msgid "Select Employees to Analyze Theoretical Time"
-msgstr ""
+msgstr "Seleccionar empleats per analitzar el temps teòric"
 
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.model.fields,field_description:hr_attendance_report_theoretical_time.field_wizard_theoretical_time__category_ids
 msgid "Tag"
-msgstr ""
+msgstr "Etiqueta"
 
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.model.fields,field_description:hr_attendance_report_theoretical_time.field_hr_attendance__theoretical_hours
 msgid "Theoretical Hours"
-msgstr ""
+msgstr "Hores teòriques"
 
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.model.fields,field_description:hr_attendance_report_theoretical_time.field_hr_employee__theoretical_hours_start_date
 msgid "Theoretical Hours Start Date"
-msgstr ""
+msgstr "Data d'inici hores teòriques"
 
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.ui.menu,name:hr_attendance_report_theoretical_time.menu_hr_attendance_theoretical_root
 msgid "Theoretical vs Attended Time"
-msgstr ""
+msgstr "Temps teòric vs treballat"
 
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.actions.act_window,name:hr_attendance_report_theoretical_time.hr_attendance_theoretical_action
 msgid "Theoretical vs Attended Time Analysis"
-msgstr ""
+msgstr "Anàlisi de temps teòric vs treballat"
 
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.model.fields,field_description:hr_attendance_report_theoretical_time.field_hr_attendance_theoretical_time_report__theoretical_hours
 msgid "Theoric"
-msgstr ""
+msgstr "Teòric"
 
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.model.fields,field_description:hr_attendance_report_theoretical_time.field_recompute_theoretical_attendance__date_to
 msgid "To"
-msgstr ""
+msgstr "Per"
 
 #. module: hr_attendance_report_theoretical_time
 #: model_terms:ir.ui.view,arch_db:hr_attendance_report_theoretical_time.hr_attendance_theoretical_view_filter
 msgid "Today"
-msgstr ""
+msgstr "Avui"
 
 #. module: hr_attendance_report_theoretical_time
 #: model_terms:ir.ui.view,arch_db:hr_attendance_report_theoretical_time.wizard_theoretical_time_form_view
 msgid "View Report"
-msgstr ""
+msgstr "Veure informe"
 
 #. module: hr_attendance_report_theoretical_time
 #: model_terms:ir.ui.view,arch_db:hr_attendance_report_theoretical_time.wizard_theoretical_time_form_view
 msgid "Wizard Theoretical Time"
-msgstr ""
+msgstr "Assistent temps teòric"
 
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.model.fields,field_description:hr_attendance_report_theoretical_time.field_hr_attendance_theoretical_time_report__worked_hours
 msgid "Worked"
-msgstr ""
+msgstr "Treballat"
