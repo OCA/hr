@@ -64,7 +64,7 @@ msgid "Warning"
 msgstr ""
 
 #. module: hr_holidays_validity_date
-#: code:addons/hr_holidays_validity_date/models/hr_holidays.py:54
+#: code:addons/hr_holidays_validity_date/models/hr_holidays.py:57
 #, python-format
 msgid "Warning: The selected dates are out of this holiday type's range. (%s - %s)"
 msgstr ""
