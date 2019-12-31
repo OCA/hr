@@ -27,8 +27,11 @@ class HrHolidays(models.Model):
     _inherit = "hr.holidays"
 
     warning = fields.Char(compute='_compute_warning_range')
-    restrict_dates = fields.Boolean(string='Restrict dates',
-                                    related='holiday_status_id.restrict_dates')
+    restrict_dates = fields.Boolean(
+        string='Restrict dates',
+        related='holiday_status_id.restrict_dates',
+        readonly=True,
+    )
 
     @api.model
     def _utc_to_tz(self, date):
