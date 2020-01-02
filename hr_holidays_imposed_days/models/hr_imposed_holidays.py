@@ -59,7 +59,11 @@ class HrHolidaysImposed(models.Model):
                 leave._onchange_date_from()
                 created |= leave
             if rec.auto_confirm:
-                created.action_validate()
+                need_double_validation = created.filtered(
+                    lambda h: h.double_validation)
+                created.action_approve()
+                if need_double_validation:
+                    need_double_validation.action_validate()
 
     def _get_number_of_days(self, date_from, date_to):
         """Returns a float equals to the timedelta between
