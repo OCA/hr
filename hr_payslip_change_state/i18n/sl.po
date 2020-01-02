@@ -21,7 +21,7 @@ msgstr ""
 "%100==4 ? 2 : 3);\n"
 
 #. module: hr_payslip_change_state
-#: model:ir.model.fields,help:hr_payslip_change_state.field_hr_payslip_change_state_state
+#: model:ir.model.fields,help:hr_payslip_change_state.field_hr_payslip_change_state__state
 msgid ""
 "* When the payslip is created the status is 'Draft'.             \n"
 "* If the payslip is under verification, the status is 'Compute "
@@ -36,12 +36,12 @@ msgstr ""
 "* Če uporabnik prekliče plačilni list, je ta v stanju 'Zavrnjeno'."
 
 #. module: hr_payslip_change_state
-#: model:ir.model.fields,field_description:hr_payslip_change_state.field_hr_payslip_change_state_state
+#: model:ir.model.fields,field_description:hr_payslip_change_state.field_hr_payslip_change_state__state
 msgid "Action"
 msgstr "Ukrep"
 
 #. module: hr_payslip_change_state
-#: model:ir.ui.view,arch_db:hr_payslip_change_state.hr_payslip_change_state_form
+#: model_terms:ir.ui.view,arch_db:hr_payslip_change_state.hr_payslip_change_state_form
 msgid "Cancel"
 msgstr "Preklic"
 
@@ -52,7 +52,7 @@ msgstr "Preklic plačilnega lista"
 
 #. module: hr_payslip_change_state
 #: model:ir.actions.act_window,name:hr_payslip_change_state.action_hr_payslip_change_state_form
-#: model:ir.ui.view,arch_db:hr_payslip_change_state.hr_payslip_change_state_form
+#: model_terms:ir.ui.view,arch_db:hr_payslip_change_state.hr_payslip_change_state_form
 msgid "Change state"
 msgstr "Spremeni stanje"
 
@@ -72,42 +72,42 @@ msgid "Confirm"
 msgstr "Potrdi"
 
 #. module: hr_payslip_change_state
-#: model:ir.model.fields,field_description:hr_payslip_change_state.field_hr_payslip_change_state_create_uid
+#: model:ir.model.fields,field_description:hr_payslip_change_state.field_hr_payslip_change_state__create_uid
 msgid "Created by"
 msgstr "Ustvaril"
 
 #. module: hr_payslip_change_state
-#: model:ir.model.fields,field_description:hr_payslip_change_state.field_hr_payslip_change_state_create_date
+#: model:ir.model.fields,field_description:hr_payslip_change_state.field_hr_payslip_change_state__create_date
 msgid "Created on"
 msgstr "Ustvarjeno"
 
 #. module: hr_payslip_change_state
-#: model:ir.model.fields,field_description:hr_payslip_change_state.field_hr_payslip_change_state_display_name
+#: model:ir.model.fields,field_description:hr_payslip_change_state.field_hr_payslip_change_state__display_name
 msgid "Display Name"
 msgstr "Prikazni naziv"
 
 #. module: hr_payslip_change_state
-#: model:ir.ui.view,arch_db:hr_payslip_change_state.hr_payslip_change_state_form
+#: model_terms:ir.ui.view,arch_db:hr_payslip_change_state.hr_payslip_change_state_form
 msgid "Execute"
 msgstr "Izvedi"
 
 #. module: hr_payslip_change_state
-#: model:ir.model.fields,field_description:hr_payslip_change_state.field_hr_payslip_change_state_id
+#: model:ir.model.fields,field_description:hr_payslip_change_state.field_hr_payslip_change_state__id
 msgid "ID"
 msgstr "ID"
 
 #. module: hr_payslip_change_state
-#: model:ir.model.fields,field_description:hr_payslip_change_state.field_hr_payslip_change_state___last_update
+#: model:ir.model.fields,field_description:hr_payslip_change_state.field_hr_payslip_change_state____last_update
 msgid "Last Modified on"
 msgstr "Zadnjič spremenjeno"
 
 #. module: hr_payslip_change_state
-#: model:ir.model.fields,field_description:hr_payslip_change_state.field_hr_payslip_change_state_write_uid
+#: model:ir.model.fields,field_description:hr_payslip_change_state.field_hr_payslip_change_state__write_uid
 msgid "Last Updated by"
 msgstr "Zadnjič posodobil"
 
 #. module: hr_payslip_change_state
-#: model:ir.model.fields,field_description:hr_payslip_change_state.field_hr_payslip_change_state_write_date
+#: model:ir.model.fields,field_description:hr_payslip_change_state.field_hr_payslip_change_state__write_date
 msgid "Last Updated on"
 msgstr "Zadnjič posodobljeno"
 
