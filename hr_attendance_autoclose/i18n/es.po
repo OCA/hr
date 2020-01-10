@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* hr_attendance_autoclose
+# 	* hr_attendance_autoclose
 #
 msgid ""
 msgstr ""
@@ -42,6 +42,16 @@ msgstr "Revisar asistencias"
 #: model:ir.model,name:hr_attendance_autoclose.model_res_company
 msgid "Companies"
 msgstr "Empresas"
+
+#. module: hr_attendance_autoclose
+#: model:ir.model.fields,field_description:hr_attendance_autoclose.field_hr_employee_no_autoclose
+msgid "Don't Autoclose Attendances"
+msgstr ""
+
+#. module: hr_attendance_autoclose
+#: model:ir.model,name:hr_attendance_autoclose.model_hr_employee
+msgid "Employee"
+msgstr ""
 
 #. module: hr_attendance_autoclose
 #: model:ir.model.fields,field_description:hr_attendance_autoclose.field_hr_attendance_open_worked_hours
