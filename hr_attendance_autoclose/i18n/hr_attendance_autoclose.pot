@@ -41,6 +41,16 @@ msgid "Companies"
 msgstr ""
 
 #. module: hr_attendance_autoclose
+#: model:ir.model.fields,field_description:hr_attendance_autoclose.field_hr_employee_no_autoclose
+msgid "Don't Autoclose Attendances"
+msgstr ""
+
+#. module: hr_attendance_autoclose
+#: model:ir.model,name:hr_attendance_autoclose.model_hr_employee
+msgid "Employee"
+msgstr ""
+
+#. module: hr_attendance_autoclose
 #: model:ir.model.fields,field_description:hr_attendance_autoclose.field_hr_attendance_open_worked_hours
 msgid "Worked hours"
 msgstr ""
