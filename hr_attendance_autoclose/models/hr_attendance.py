@@ -31,27 +31,36 @@ class HrAttendance(models.Model):
         string='Worked hours', compute='_compute_open_worked_hours',
     )
 
+    @api.multi
+    def autoclose_attendance(self, reason):
+        self.ensure_one()
+        max_hours = self.employee_id.company_id. \
+            attendance_maximum_hours_per_day
+        leave_time = datetime.strptime(
+            self.check_in, DEFAULT_SERVER_DATETIME_FORMAT
+        ) + timedelta(hours=max_hours)
+        vals = {'check_out': leave_time.strftime(
+            DEFAULT_SERVER_DATETIME_FORMAT)}
+        if reason:
+            vals['attendance_reason_ids'] = [(4, reason.id)]
+        self.write(vals)
+
+    @api.multi
+    def needs_autoclose(self):
+        self.ensure_one()
+        max_hours = self.employee_id.company_id.\
+            attendance_maximum_hours_per_day
+        close = not self.employee_id.no_autoclose
+        return close and max_hours and self.open_worked_hours > max_hours
+
     @api.model
     def check_for_incomplete_attendances(self):
         stale_attendances = self.search(
             [('check_out', '=', False)])
         reason = self.env['hr.attendance.reason'].search(
             [('code', '=', 'S-CO')], limit=1)
-        for att in stale_attendances:
-            max_hours = att.employee_id.company_id.\
-                attendance_maximum_hours_per_day
-            if max_hours and att.open_worked_hours > max_hours:
-                leave_time = datetime.strptime(
-                    att.check_in, DEFAULT_SERVER_DATETIME_FORMAT) + timedelta(
-                    hours=max_hours)
-                if reason:
-                    vals = {'check_out': leave_time.strftime(
-                        DEFAULT_SERVER_DATETIME_FORMAT),
-                        'attendance_reason_ids': [(4, reason.id)]}
-                else:
-                    vals = {'check_out': leave_time.strftime(
-                        DEFAULT_SERVER_DATETIME_FORMAT)}
-                att.write(vals)
+        for att in stale_attendances.filtered(lambda a: a.needs_autoclose()):
+            att.autoclose_attendance(reason)
 
     @api.constrains('check_in', 'check_out', 'employee_id')
     def _check_validity(self):
