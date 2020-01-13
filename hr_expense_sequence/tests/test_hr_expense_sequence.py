@@ -32,7 +32,7 @@ class TestHrExpenseSequence(SavepointCase):
             'unit_amount': self.product.standard_price,
             'quantity': 1,
         })
-        expense.action_submit_expenses()
+        expense.submit_expenses()
         return expense
 
     def test_create_sequence(self):
@@ -51,3 +51,6 @@ class TestHrExpenseSequence(SavepointCase):
             expense_number_2,
             'Numbers are different'
         )
+        # Search by sequence
+        res = self.env['hr.expense.sheet'].name_search(self.sheet.number)
+        self.assertTrue(res)

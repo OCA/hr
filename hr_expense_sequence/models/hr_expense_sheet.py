@@ -17,3 +17,17 @@ class HrExpenseSheet(models.Model):
             number = self.env['ir.sequence'].next_by_code('hr.expense.sheet')
             vals['number'] = number
         return super(HrExpenseSheet, self).create(vals)
+
+    @api.model
+    def name_search(self, name="", args=None, operator="ilike", limit=100):
+        # Make a search with default criteria
+        names1 = super().name_search(
+            name=name, args=args, operator=operator, limit=limit
+        )
+        # Make the other search
+        names2 = []
+        if name:
+            domain = [("number", "=ilike", name + "%")]
+            names2 = self.search(domain, limit=limit).name_get()
+        # Merge both results
+        return list(set(names1) | set(names2))[:limit]
