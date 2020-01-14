@@ -12,7 +12,7 @@ class HrChildren(models.Model):
     _description = "HR Employee Children"
 
     name = fields.Char(string="Name", required=True)
-    date_of_birth = fields.Date(string="Date of Birth", oldname="dob")
+    date_of_birth = fields.Date(string="Date of Birth")
     employee_id = fields.Many2one(
         string="Employee", comodel_name="hr.employee"
     )

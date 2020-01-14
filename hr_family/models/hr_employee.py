@@ -17,9 +17,9 @@ class HrEmployee(models.Model):
     )
     fam_father = fields.Char(string="Father's Name")
     fam_father_date_of_birth = fields.Date(
-        string="Father Date of Birth", oldname="fam_father_dob"
+        string="Father Date of Birth"
     )
     fam_mother = fields.Char(string="Mother's Name")
     fam_mother_date_of_birth = fields.Date(
-        string="Mother Date of Birth", oldname="fam_mother_dob"
+        string="Mother Date of Birth"
     )
