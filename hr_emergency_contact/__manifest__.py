@@ -4,7 +4,7 @@
 
 {
     "name": "HR Emergency Contact",
-    "version": "11.0.1.0.0",
+    "version": "12.0.1.0.0",
     "category": "Generic Modules/Human Resources",
     "author": "OpenSynergy Indonesia,Michael Telahun Makonnen,"
     "Odoo Community Association (OCA)",
