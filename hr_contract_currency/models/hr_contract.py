@@ -6,15 +6,15 @@ from odoo import api, fields, models
 
 
 class HrContract(models.Model):
-    _inherit = 'hr.contract'
+    _inherit = "hr.contract"
 
     currency_id = fields.Many2one(
-        'res.currency',
+        "res.currency",
         related=False,
         readonly=False,
         required=True,
         default=lambda self: self._get_default_currency_id(),
-        track_visibility='onchange',
+        track_visibility="onchange",
     )
 
     def _get_default_currency_id(self):
@@ -22,7 +22,7 @@ class HrContract(models.Model):
 
     @api.model
     def create(self, vals):
-        if vals.get('company_id') and not vals.get('currency_id'):
-            company = self.env['res.company'].browse(vals.get('company_id'))
-            vals['currency_id'] = company.currency_id.id
+        if vals.get("company_id") and not vals.get("currency_id"):
+            company = self.env["res.company"].browse(vals.get("company_id"))
+            vals["currency_id"] = company.currency_id.id
         return super().create(vals)
