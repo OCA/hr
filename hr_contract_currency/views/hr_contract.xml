@@ -10,7 +10,7 @@
         <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='wage']/.." position='after'>
-                <field name="currency_id"/>
+                <field name="currency_id" groups="base.group_multi_currency"/>
             </xpath>
         </field>
     </record>
