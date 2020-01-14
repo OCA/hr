@@ -9,7 +9,7 @@ class HrContract(models.Model):
 
     currency_id = fields.Many2one(
         'res.currency',
-        related=None,
+        related=False,
         readonly=False,
         required=True,
         default=lambda self: self._get_default_currency_id(),
@@ -17,5 +17,4 @@ class HrContract(models.Model):
     )
 
     def _get_default_currency_id(self):
-        return self.company_id.currency_id \
-            or self.env.user.company_id.currency_id
+        return self.company_id.currency_id or self.env.company.currency_id
