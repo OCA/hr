@@ -3,7 +3,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 {
-    "name": "HR Emergency Contact",
+    "name": "HR Employee Emergency Contact",
     "version": "12.0.1.0.0",
     "category": "Generic Modules/Human Resources",
     "author": "OpenSynergy Indonesia,Michael Telahun Makonnen,"
