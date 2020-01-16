@@ -7,10 +7,12 @@
         <field name="model">hr.employee</field>
         <field name="inherit_id" ref="hr.view_employee_form"/>
         <field name="arch" type="xml">
-            <field name="mobile_phone" position="after">
-                <field name="internal_number"/>
-                <field name="short_number"/>
-            </field>
+            <div id="o_work_employee_main" position="inside">
+                <group string="Internal Contact">
+                    <field name="internal_number"/>
+                    <field name="short_number"/>
+                </group>
+            </div>
         </field>
     </record>
 
