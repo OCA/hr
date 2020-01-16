@@ -3,18 +3,14 @@
 
 {
     "name": "Employee Age",
-    'version': '11.0.1.0.0',
-    'license': 'AGPL-3',
-    'author': "Salton Massally <smassally@idtlabs.sl>, "
-               "Odoo Community Association (OCA)",
+    "version": "11.0.1.0.0",
+    "license": "AGPL-3",
+    "author": "Salton Massally <smassally@idtlabs.sl>, "
+    "Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/hr",
     "category": "Human Resources",
     "summary": "Age field for employee",
-    "depends": [
-        "hr",
-    ],
-    "data": [
-        'views/hr_employee.xml',
-    ],
-    'installable': True,
+    "depends": ["hr"],
+    "data": ["views/hr_employee.xml"],
+    "installable": True,
 }
