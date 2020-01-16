@@ -20,21 +20,22 @@
 #
 ##############################################################################
 
-from openerp import api, models
-
-
-class HrEmployee(models.Model):
-    _inherit = "hr.employee"
-
-    @api.multi
-    def attendance_action_change(self):
-        res = super(HrEmployee, self).attendance_action_change()
-        rec = self.env['hr.attendance'].search(
-            [('employee_id', '=', self.id)], order='id desc', limit=1)
-        location = self.env.context.get('attendance_location', False)
-        if location:
-            rec.write({
-                'latitude': location[0],
-                'longitude': location[1],
-            })
-        return res
+{
+    'name': 'Hr Attendance Geolocation',
+    'summary': """
+        With this module the geolocation of the user is tracked at the
+        check-in/check-out step""",
+    'version': '8.0.1.0.0',
+    'license': 'AGPL-3',
+    'author': 'Eficent Business and IT Consulting Services S.L.,'
+              'Odoo Community Association (OCA)',
+    'website': 'https://github.com/OCA/hr',
+    'depends': [
+        'decimal_precision',
+        'hr_attendance',
+    ],
+    'data': [
+        'views/assets.xml',
+        'views/hr_attendance_views.xml',
+    ],
+}
