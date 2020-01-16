@@ -17,7 +17,7 @@ class HrEmployee(models.Model):
             age = 0
             if record.birthday:
                 age = relativedelta(
-                    fields.Date.from_string(fields.Date.today()),
-                    fields.Date.from_string(record.birthday),
+                    fields.Date.to_date(fields.Date.today()),
+                    fields.Date.to_date(record.birthday),
                 ).years
             record.age = age
