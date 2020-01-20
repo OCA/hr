@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="event_type_holiday" model="calendar.event.type">
+        <field name="name">Holidays</field>
+    </record>
+
+</odoo>
