@@ -104,7 +104,6 @@ msgid "Date may change"
 msgstr "La date peut changer"
 
 #. module: hr_holidays_public
-#: code:addons/hr_holidays_public/models/hr_holidays_public.py:169
 #: code:addons/hr_holidays_public/models/hr_holidays_public.py:172
 #, python-format
 msgid ""
@@ -306,7 +305,6 @@ msgstr ""
 "suivant le modèle."
 
 #. module: hr_holidays_public
-#: code:addons/hr_holidays_public/models/hr_holidays_public.py:186
 #: code:addons/hr_holidays_public/models/hr_holidays_public.py:189
 #, python-format
 msgid ""
@@ -317,14 +315,12 @@ msgstr ""
 "états du pays."
 
 #. module: hr_holidays_public
-#: code:addons/hr_holidays_public/models/hr_holidays_public.py:194
 #: code:addons/hr_holidays_public/models/hr_holidays_public.py:197
 #, python-format
 msgid "You can't create duplicate public holiday per date %s."
 msgstr "Vous ne pouvez dupliquer ce jour férié par date %s."
 
 #. module: hr_holidays_public
-#: code:addons/hr_holidays_public/models/hr_holidays_public.py:47
 #: code:addons/hr_holidays_public/models/hr_holidays_public.py:48
 #, python-format
 msgid "You can't create duplicate public holiday per year and/or country"
