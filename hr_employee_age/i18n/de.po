@@ -20,7 +20,7 @@ msgstr ""
 "X-Generator: Weblate 3.8\n"
 
 #. module: hr_employee_age
-#: model:ir.model.fields,field_description:hr_employee_age.field_hr_employee_age
+#: model:ir.model.fields,field_description:hr_employee_age.field_hr_employee__age
 msgid "Age"
 msgstr "Alter"
 

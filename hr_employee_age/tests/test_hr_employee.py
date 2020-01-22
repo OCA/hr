@@ -8,13 +8,13 @@ from odoo.tests import common
 class TestHrEmployee(common.TransactionCase):
     def setUp(self):
         super(TestHrEmployee, self).setUp()
-        self.emp_root = self.env.ref("hr.employee_root")
-        self.emp_root.write({"birthday": "1990-05-15"})
+        self.employee_admin = self.env.ref("hr.employee_admin")
+        self.employee_admin.write({"birthday": "1990-05-15"})
 
     def test_compute_age(self):
-        self.emp_root._compute_age()
+        self.employee_admin._compute_age()
         age = relativedelta(
-            fields.Date.to_date(fields.Date.today()),
-            fields.Date.to_date(self.emp_root.birthday),
+            fields.Date.today(),
+            self.employee_admin.birthday,
         ).years
-        self.assertEqual(self.emp_root.age, age)
+        self.assertEqual(self.employee_admin.age, age)
