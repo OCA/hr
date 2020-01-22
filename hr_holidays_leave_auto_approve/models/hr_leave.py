@@ -27,12 +27,14 @@ class HrLeave(models.Model):
     @api.model
     def create(self, values):
         auto_approve = self._get_auto_approve_on_creation(values)
-        tracking_disable = self.env.context.get('tracking_disable', False)
-        tracking_disable = tracking_disable or auto_approve
-        res = super(
-            HrLeave, self.with_context(
-                tracking_disable=tracking_disable)
-            ).create(values)
+        tracking_disable = self.env.context.get('tracking_disable')
+        mail_skip = self.env.context.get('mail_activity_automation_skip')
+        ctx = self.env.context.copy()
+        ctx.update({
+            'tracking_disable': tracking_disable or auto_approve,
+            'mail_activity_automation_skip': mail_skip or auto_approve,
+        })
+        res = super(HrLeave, self.with_context(ctx)).create(values)
         res._apply_auto_approve_policy()
         return res
 
