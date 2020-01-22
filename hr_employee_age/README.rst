@@ -37,17 +37,11 @@ Installation
 
 To install this module, you need to:
 
-* clone the branch 11.0 of the repository https://github.com/OCA/hr
+* clone the branch 12.0 of the repository https://github.com/OCA/hr
 * add the path to this repository in your configuration (addons-path)
 * update the module list
 * search for "Employee Age" in your addons
 * install the module
-
-Configuration
-=============
-
-This module does not require any special configuration apart from enabling it as
-shown above.
 
 Usage
 =====
