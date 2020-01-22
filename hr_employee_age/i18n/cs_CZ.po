@@ -20,7 +20,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #. module: hr_employee_age
-#: model:ir.model.fields,field_description:hr_employee_age.field_hr_employee_age
+#: model:ir.model.fields,field_description:hr_employee_age.field_hr_employee__age
 msgid "Age"
 msgstr "Stáří"
 
