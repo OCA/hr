@@ -34,8 +34,7 @@ class HrAttendance(models.Model):
     @api.multi
     def autoclose_attendance(self, reason):
         self.ensure_one()
-        max_hours = self.employee_id.company_id. \
-            attendance_maximum_hours_per_day
+        max_hours = self.employee_id.get_max_hours_per_day()
         leave_time = datetime.strptime(
             self.check_in, DEFAULT_SERVER_DATETIME_FORMAT
         ) + timedelta(hours=max_hours)
@@ -48,8 +47,7 @@ class HrAttendance(models.Model):
     @api.multi
     def needs_autoclose(self):
         self.ensure_one()
-        max_hours = self.employee_id.company_id.\
-            attendance_maximum_hours_per_day
+        max_hours = self.employee_id.get_max_hours_per_day()
         close = not self.employee_id.no_autoclose
         return close and max_hours and self.open_worked_hours > max_hours
 
