@@ -1,39 +1,36 @@
-# -*- coding: utf-8 -*-
 # Copyright (C) 2017-Today: Odoo Community Association (OCA)
-# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
+
 from odoo import models, fields, tools
 
 
-class HrLanguage(models.Model):
-    _name = 'hr.language'
+class HrEmployeeLanguage(models.Model):
+    _name = 'hr.employee.language'
+    _description = 'HR Employee Language'
 
     name = fields.Selection(
         tools.scan_languages(),
-        "Language",
+        string="Language",
         required=True,
     )
     description = fields.Char(
-        "Description",
         size=64,
         required=True,
     )
     employee_id = fields.Many2one(
         'hr.employee',
-        "Employee",
+        string="Employee",
         required=True,
     )
     can_read = fields.Boolean(
-        "Read",
+        string="Read",
         default=True,
-        oldname='read',
     )
     can_write = fields.Boolean(
-        "Write",
+        string="Write",
         default=True,
-        oldname='write',
     )
     can_speak = fields.Boolean(
-        "Speak",
+        string="Speak",
         default=True,
-        oldname='speak',
     )
