@@ -15,7 +15,6 @@ class HrEmployeeLanguage(models.Model):
     )
     description = fields.Char(
         size=64,
-        required=True,
     )
     employee_id = fields.Many2one(
         'hr.employee',
@@ -32,5 +31,9 @@ class HrEmployeeLanguage(models.Model):
     )
     can_speak = fields.Boolean(
         string="Speak",
+        default=True,
+    )
+    can_listen = fields.Boolean(
+        string="Listen",
         default=True,
     )

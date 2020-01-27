@@ -41,7 +41,7 @@ To use this module, you need to:
 * select *Languages* Tab and add language.
 
 For filter language all employee, you can go to
-*Employees* > *Configuration* > *Languages*
+*Employees* > *Languages*
 
 Bug Tracker
 ===========
