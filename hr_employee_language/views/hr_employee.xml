@@ -14,6 +14,7 @@
                             <field name="can_read"/>
                             <field name="can_write"/>
                             <field name="can_speak"/>
+                            <field name="can_listen"/>
                         </tree>
                     </field>
                 </page>
