@@ -1,5 +1,5 @@
 # Copyright 2017 Comunitea Servicios Tecnológicos S.L.
-# Copyright 2018 Eficent Business and IT Consulting Services, S.L.
+# Copyright 2018 ForgeFlow, S.L.
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
 import logging
@@ -63,7 +63,7 @@ class HrEmployee(models.Model):
                     res["action"] = "check_in"
                 return res
             else:
-                msg = _("No attendance was recorded for " "employee %s") % employee.name
+                msg = _("No attendance was recorded for employee %s") % employee.name
                 _logger.error(msg)
                 res["error_message"] = msg
                 return res

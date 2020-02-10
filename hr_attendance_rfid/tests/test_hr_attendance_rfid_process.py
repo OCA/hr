@@ -1,19 +1,20 @@
-# Copyright 2018 Eficent Business and IT Consulting Services, S.L.
+# Copyright 2018 ForgeFlow, S.L.
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 from datetime import datetime, timedelta
 
 from odoo import fields
-from odoo.tests.common import TransactionCase
+from odoo.tests.common import SavepointCase
 from odoo.tools.misc import mute_logger
 
 
-class TestHrAttendance(TransactionCase):
-    def setUp(self):
-        super(TestHrAttendance, self).setUp()
-        self.employee_model = self.env["hr.employee"]
-        self.test_employee = self.browse_ref("hr.employee_al")
-        self.rfid_card_code = "5b3f5"
-        self.test_employee.rfid_card_code = self.rfid_card_code
+class TestHrAttendance(SavepointCase):
+    @classmethod
+    def setUpClass(cls):
+        super(TestHrAttendance, cls).setUpClass()
+        cls.employee_model = cls.env["hr.employee"]
+        cls.test_employee = cls.env.ref("hr.employee_al")
+        cls.rfid_card_code = "5b3f5"
+        cls.test_employee.rfid_card_code = cls.rfid_card_code
 
     def test_valid_employee(self):
         """Valid employee"""
@@ -33,7 +34,7 @@ class TestHrAttendance(TransactionCase):
         self.env["hr.attendance"].create(
             {
                 "employee_id": self.test_employee.id,
-                "check_in": fields.Date.today(),
+                "check_in": fields.Datetime.today(),
                 "check_out": fields.Datetime.to_string(
                     datetime.today() + timedelta(hours=8)
                 ),
