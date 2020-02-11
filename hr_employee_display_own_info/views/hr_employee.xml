@@ -16,6 +16,21 @@
                 <attribute name="attrs">{'invisible': [('employee_display_personal_data', '!=', True)]}</attribute>
                 <attribute name="groups"></attribute>
             </xpath>
+            <xpath expr="//field[@name='km_home_work']" position="attributes">
+                <attribute name="groups"></attribute>
+            </xpath>
+            <xpath expr="//field[@name='place_of_birth']" position="attributes">
+                <attribute name="groups"></attribute>
+            </xpath>
+            <xpath expr="//field[@name='country_of_birth']" position="attributes">
+                <attribute name="groups"></attribute>
+            </xpath>
+            <xpath expr="//field[@name='identification_id']" position="attributes">
+                <attribute name="groups"></attribute>
+            </xpath>
+            <xpath expr="//field[@name='passport_id']" position="attributes">
+                <attribute name="groups"></attribute>
+            </xpath>
         </field>
     </record>
 
