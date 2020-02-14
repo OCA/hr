@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2020 Creu Blanca
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+    <record model="ir.ui.view" id="view_department_form">
+        <field name="name">hr.department.form (in hr_department_channel)</field>
+        <field name="model">hr.department</field>
+        <field name="inherit_id" ref="hr.view_department_form"/>
+        <field name="arch" type="xml">
+            <sheet position="before">
+                <header>
+                    <button name="%(hr_department_channel.wizard_create_department_channel_act_window)d"
+                            type="action" string="Create Channel" groups="hr.group_hr_manager"/>
+                </header>
+            </sheet>
+            <field name="manager_id" position="after">
+                <field name="department_channel_ids" widget="many2many_tags"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>
