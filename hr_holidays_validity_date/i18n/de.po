@@ -20,67 +20,68 @@ msgstr ""
 "X-Generator: Weblate 3.3\n"
 
 #. module: hr_holidays_validity_date
-#: model:ir.model.fields,field_description:hr_holidays_validity_date.field_hr_holidays_status_date_end
-msgid "Expiry Date"
-msgstr "Verfallsdatum"
+#: model_terms:ir.ui.view,arch_db:hr_holidays_validity_date.hr_leave_view_form
+msgid ""
+"<i class=\"fa fa-info-circle\" role=\"alert\" aria-label=\"Warning\" title="
+"\"Warning\"/>"
+msgstr ""
 
 #. module: hr_holidays_validity_date
-#: model:ir.model,name:hr_holidays_validity_date.model_hr_holidays
+#: model:ir.model.fields,help:hr_holidays_validity_date.field_hr_leave__restrict_dates
+#: model:ir.model.fields,help:hr_holidays_validity_date.field_hr_leave_type__restrict_dates
+msgid ""
+"Check this if you want to forbid requesting leaves outside this range, "
+"otherwise it will just display a warning to the user."
+msgstr ""
+
+#. module: hr_holidays_validity_date
+#: model:ir.model,name:hr_holidays_validity_date.model_hr_leave
 msgid "Leave"
 msgstr "Urlaub"
 
 #. module: hr_holidays_validity_date
-#: model:ir.model,name:hr_holidays_validity_date.model_hr_holidays_status
+#: model:ir.model,name:hr_holidays_validity_date.model_hr_leave_type
 msgid "Leave Type"
 msgstr "Urlaubsart"
 
 #. module: hr_holidays_validity_date
-#: model:ir.model.fields,field_description:hr_holidays_validity_date.field_hr_holidays_status_restrict_dates
+#: model:ir.model.fields,field_description:hr_holidays_validity_date.field_hr_leave_type__restrict_dates
 #, fuzzy
 #| msgid "Start Date"
-msgid "Restrict Dates"
+msgid "Restrict"
 msgstr "Startdatum"
 
 #. module: hr_holidays_validity_date
-#: model:ir.model.fields,field_description:hr_holidays_validity_date.field_hr_holidays_restrict_dates
+#: model:ir.model.fields,field_description:hr_holidays_validity_date.field_hr_leave__restrict_dates
 msgid "Restrict dates"
 msgstr ""
 
 #. module: hr_holidays_validity_date
-#: model:ir.model.fields,field_description:hr_holidays_validity_date.field_hr_holidays_status_date_start
-msgid "Start Date"
-msgstr "Startdatum"
-
-#. module: hr_holidays_validity_date
-#: sql_constraint:hr.holidays.status:0
-#, fuzzy
-#| msgid "The start date must be anterior to the end date."
-msgid "The start date must be greater than the end date."
-msgstr "Das Startdatum muss vor dem Enddatum liegen."
-
-#. module: hr_holidays_validity_date
-#: model:ir.model.fields,field_description:hr_holidays_validity_date.field_hr_holidays_status_use_validity_dates
-#, fuzzy
-#| msgid "Use validity dates"
-msgid "Use Validity Dates"
-msgstr "Zeitlich beschränkte Daten verwenden"
-
-#. module: hr_holidays_validity_date
-#: model:ir.ui.view,arch_db:hr_holidays_validity_date.edit_holiday_status_form
-msgid "Valid Period"
+#: model:ir.model.fields,field_description:hr_holidays_validity_date.field_hr_leave__warning_validity
+msgid "Warning Validity"
 msgstr ""
 
 #. module: hr_holidays_validity_date
-#: model:ir.model.fields,field_description:hr_holidays_validity_date.field_hr_holidays_warning
-msgid "Warning"
-msgstr ""
-
-#. module: hr_holidays_validity_date
-#: code:addons/hr_holidays_validity_date/models/hr_holidays.py:54
+#: code:addons/hr_holidays_validity_date/models/hr_leave.py:43
 #, python-format
-msgid ""
-"Warning: The selected dates are out of this holiday type's range. (%s - %s)"
+msgid "Warning: You can take %s only between %s and %s"
 msgstr ""
+
+#~ msgid "Expiry Date"
+#~ msgstr "Verfallsdatum"
+
+#~ msgid "Start Date"
+#~ msgstr "Startdatum"
+
+#, fuzzy
+#~| msgid "The start date must be anterior to the end date."
+#~ msgid "The start date must be greater than the end date."
+#~ msgstr "Das Startdatum muss vor dem Enddatum liegen."
+
+#, fuzzy
+#~| msgid "Use validity dates"
+#~ msgid "Use Validity Dates"
+#~ msgstr "Zeitlich beschränkte Daten verwenden"
 
 #~ msgid ""
 #~ "leaves on %s type must be taken between %s and\n"
