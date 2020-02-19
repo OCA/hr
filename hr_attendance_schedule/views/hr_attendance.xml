@@ -23,6 +23,10 @@
       <field name="employee_id" position="after">
         <field name="needs_approval" />
       </field>
+      <field name="check_out" position="after">
+        <field name="real_check_in" />
+        <field name="real_check_out" />
+      </field>
     </field>
   </record>
 </odoo>
