@@ -1,6 +1,8 @@
+from odoo import fields, models
+
 from datetime import datetime, timedelta
 
-from odoo import fields, models
+import pytz
 
 
 class ResourceCalendarAttendance(models.Model):
@@ -36,7 +38,14 @@ class ResourceCalendarAttendance(models.Model):
         end = d_day + timedelta(hours=self.hour_to)
         if end <= start:
             end += timedelta(days=1)
-        return start, end
+        utc_start = self._convert_attendance_dt_to_utc_dt(start)
+        utc_end = self._convert_attendance_dt_to_utc_dt(end)
+        return utc_start, utc_end
+
+    def _convert_attendance_dt_to_utc_dt(self, dt):
+        """We consider OdooBot's timezone to be the system timezone"""
+        local_dt = pytz.timezone(self.sudo().env.user.tz).localize(dt)
+        return local_dt.astimezone(pytz.utc).replace(tzinfo=None)
 
     def _create_datetime_from_dayofweek(self):
         some_monday = datetime(2017, 1, 2)

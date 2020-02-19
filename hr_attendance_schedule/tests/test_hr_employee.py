@@ -1,8 +1,8 @@
-from datetime import datetime
+from odoo import fields, tests
+
 from mock import patch
 
-from odoo import fields, tests
-from odoo.tools import DEFAULT_SERVER_DATETIME_FORMAT
+import pytz
 
 
 class TestEmployee(tests.SingleTransactionCase):
@@ -35,10 +35,10 @@ class TestEmployee(tests.SingleTransactionCase):
         self._attendance('2017-01-09 08:01:11')
         self._attendance('2017-01-09 11:57:11')
         attendance = self._employee.attendance_ids[0]
-        expected_in = datetime.strptime('2017-01-09 08:01:11',
-                                        DEFAULT_SERVER_DATETIME_FORMAT)
-        expected_out = datetime.strptime('2017-01-09 11:57:11',
-                                         DEFAULT_SERVER_DATETIME_FORMAT)
+        expected_in = self._user_dt_to_system_dt(
+            fields.Datetime.to_datetime('2017-01-09 08:01:11'))
+        expected_out = self._user_dt_to_system_dt(
+            fields.Datetime.to_datetime('2017-01-09 11:57:11'))
         self.assertEqual(expected_in, attendance.real_check_in)
         self.assertEqual(expected_out, attendance.real_check_out)
 
@@ -170,20 +170,24 @@ class TestEmployee(tests.SingleTransactionCase):
     def _assert_attendances(self, check_in, check_out, needs_approval):
         self.assertEqual(1, len(self._employee.attendance_ids))
         attendance = self._employee.attendance_ids[0]
-        check_in = check_in and \
-                   datetime.strptime(check_in,
-                                     DEFAULT_SERVER_DATETIME_FORMAT)
-        check_out = check_out and \
-                    datetime.strptime(check_out,
-                                      DEFAULT_SERVER_DATETIME_FORMAT)
+        check_in = check_in and fields.Datetime.to_datetime(check_in)
+        check_out = check_out and fields.Datetime.to_datetime(check_out)
+        check_in = self._user_dt_to_system_dt(check_in)
         self.assertEqual(check_in, attendance.check_in)
         if check_out:
+            check_out = self._user_dt_to_system_dt(check_out)
             self.assertEqual(check_out, attendance.check_out)
         else:
             self.assertFalse(attendance.check_out)
         self.assertEqual(needs_approval, attendance.needs_approval)
 
-    def _attendance(self, time):
-        with patch.object(fields.Datetime, 'now', return_value=time):
+    def _user_dt_to_system_dt(self, user_time):
+        user_time = fields.Datetime.to_datetime(user_time)
+        user_time = pytz.timezone(self.env.user.tz).localize(user_time)
+        return user_time.astimezone(pytz.utc).replace(tzinfo=None)
+
+    def _attendance(self, user_time):
+        system_time = self._user_dt_to_system_dt(user_time)
+        with patch.object(fields.Datetime, 'now', return_value=system_time):
             self._employee.attendance_manual(
                 'hr_attendance.hr_attendance_action_my_attendances')
