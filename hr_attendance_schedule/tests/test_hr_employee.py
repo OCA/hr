@@ -5,31 +5,16 @@ from mock import patch
 import pytz
 
 
-class TestEmployee(tests.SingleTransactionCase):
-    _employee = None
-    _schedule = None
-
-    def setUp(self):
-        super(TestEmployee, self).setUp()
-        self._init_employee()
-        self._init_schedule()
-
-    def tearDown(self):
-        self._employee.attendance_ids.unlink()
-        self._employee.resource_calendar_id = self._schedule
-        super(TestEmployee, self).tearDown()
-
-    def _init_employee(self):
-        if not self._employee:
-            self._employee = self.env.ref('hr.employee_chs')  # David Samson
-
-    def _init_schedule(self):
-        if not self._schedule or not self._empty_schedule:
-            self._empty_schedule = self.env.ref(
-                'hr_attendance_schedule.res_calendar_demo_schedule_empty')
-            self._schedule = self.env.ref(
-                'hr_attendance_schedule.res_calendar_demo_schedule')
-            self._employee.resource_calendar_id = self._schedule
+class TestEmployee(tests.SavepointCase):
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        cls._employee = cls.env.ref('hr.employee_chs')  # David Samson
+        cls._empty_schedule = cls.env.ref(
+            'hr_attendance_schedule.res_calendar_demo_schedule_empty')
+        cls._schedule = cls.env.ref(
+            'hr_attendance_schedule.res_calendar_demo_schedule')
+        cls._employee.resource_calendar_id = cls._schedule
 
     def test_check_in_out_real(self):
         self._attendance('2017-01-09 08:01:11')
