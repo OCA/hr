@@ -53,11 +53,9 @@ class WizardTheoreticalTime(models.TransientModel):
     @api.multi
     def view_report(self):
         self.ensure_one()
-        action = {
-            'type': 'ir.actions.act_window',
-            'name': 'Theoretical vs Attended Time Analysis',
-            'res_model': 'hr.attendance.theoretical.time.report',
-            'domain': [('employee_id', 'in', self.employee_ids.ids)],
-            'view_mode': 'pivot,graph',
-        }
+        action = self.env.ref(
+            'hr_attendance_report_theoretical_time.'
+            'hr_attendance_theoretical_action'
+        ).read()[0]
+        action['domain'] = [('employee_id', 'in', self.employee_ids.ids)]
         return action
