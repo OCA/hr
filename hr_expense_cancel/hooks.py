@@ -13,8 +13,9 @@ def post_init_hook(cr, registry):
             expense_lines = sheet.expense_line_ids
             if any(exp.payment_mode == 'own_account' for exp in expense_lines):
                 amls = sheet.account_move_id.mapped('line_ids')
-                reconcile = amls.mapped('full_reconcile_id')
-                aml_payment = reconcile.reconciled_line_ids.filtered(
-                    lambda r: r not in amls)
-                payment = aml_payment.mapped('payment_id')
-                payment.write({'expense_sheet_id': sheet.id})
+                reconciles = amls.mapped('full_reconcile_id')
+                for reconcile in reconciles:
+                    aml_payment = reconcile.reconciled_line_ids.filtered(
+                        lambda r: r not in amls)
+                    payment = aml_payment.mapped('payment_id')
+                    payment.write({'expense_sheet_id': sheet.id})
