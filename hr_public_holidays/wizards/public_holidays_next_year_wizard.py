@@ -52,18 +52,17 @@ class PublicHolidaysNextYearWizard(models.TransientModel):
             else:
                 last_ph_dict[ph.country_id] = ph
 
-        new_ph_ids = []
+        all_new_ph_values = []
+
         for last_ph in last_ph_dict.itervalues():
 
             new_year = self.year or last_ph.year + 1
 
-            new_ph_vals = {
+            new_ph_vals = last_ph.copy_data({
                 'year': new_year,
-            }
+            })[0]
 
-            new_ph = last_ph.copy(new_ph_vals)
-
-            new_ph_ids.append(new_ph.id)
+            line_values = []
 
             for last_ph_line in last_ph.line_ids:
                 ph_line_date = fields.Date.from_string(last_ph_line.date)
@@ -85,11 +84,19 @@ class PublicHolidaysNextYearWizard(models.TransientModel):
 
                 new_date = ph_line_date.replace(year=new_year)
 
-                new_ph_line_vals = {
+                new_line_vals = last_ph_line.copy_data({
                     'date': new_date,
-                    'year_id': new_ph.id,
-                }
-                last_ph_line.copy(new_ph_line_vals)
+                })[0]
+                new_line_vals.pop('year_id')
+                line_values.append((0, 0, new_line_vals))
+
+            new_ph_vals['line_ids'] = line_values
+            all_new_ph_values.append(new_ph_vals)
+
+        new_ph_ids = []
+        for new_ph_to_create in all_new_ph_values:
+            new_ph = ph_env.create(new_ph_to_create)
+            new_ph_ids.append(new_ph.id)
 
         domain = [['id', 'in', new_ph_ids]]
 
