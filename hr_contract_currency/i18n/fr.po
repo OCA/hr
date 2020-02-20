@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* hr_contract_currency
+# 	* hr_contract_currency
 #
 msgid ""
 msgstr ""
@@ -17,11 +17,13 @@ msgstr ""
 "X-Generator: Weblate 3.6.1\n"
 
 #. module: hr_contract_currency
+#: model:ir.model,name:hr_contract_currency.model_hr_contract
+#, fuzzy
+#| msgid "Employee Contract"
+msgid "Contract"
+msgstr "Contrat de l'employé(e)"
+
+#. module: hr_contract_currency
 #: model:ir.model.fields,field_description:hr_contract_currency.field_hr_contract__currency_id
 msgid "Currency"
 msgstr "Devise"
-
-#. module: hr_contract_currency
-#: model:ir.model,name:hr_contract_currency.model_hr_contract
-msgid "Employee Contract"
-msgstr "Contrat de l'employé(e)"
