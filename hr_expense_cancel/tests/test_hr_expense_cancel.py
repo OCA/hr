@@ -14,7 +14,8 @@ class TestHrExpenseCancel(common.TransactionCase):
         self.payment_journal = self.env["account.journal"].search(
             [("type", "in", ["cash", "bank"])], limit=1
         )
-        self.payment_journal.update_posted = True
+        # self.payment_journal.update_posted = True
+        self.payment_journal.restrict_mode_hash_table = False
 
         self.main_company = company = self.env.ref("base.main_company")
         self.expense_journal = self.env["account.journal"].create(
@@ -23,7 +24,8 @@ class TestHrExpenseCancel(common.TransactionCase):
                 "code": "HRTPJ",
                 "type": "purchase",
                 "company_id": company.id,
-                "update_posted": True,
+                # "update_posted": True,
+                "restrict_mode_hash_table": False,
             }
         )
 
@@ -49,17 +51,38 @@ class TestHrExpenseCancel(common.TransactionCase):
         self.expense._onchange_product_id()
 
     def _get_payment_wizard(self):
-        ctx = dict(active_ids=self.expense_sheet.ids)
+        context = {
+            "active_id": self.expense_sheet.id,
+            "active_ids": self.expense_sheet.ids,
+            "active_model": "hr.expense.sheet",
+            "default_payment_type": "inbound",
+        }
         wizard_obj = self.env["hr.expense.sheet.register.payment.wizard"]
         p_methods = self.payment_journal.outbound_payment_method_ids
-        ctx.update(default_payment_type="inbound")
-        return wizard_obj.with_context(ctx).create(
+        return wizard_obj.with_context(context).create(
             {
                 "journal_id": self.payment_journal.id,
                 "amount": self.expense_sheet.total_amount,
                 "payment_method_id": p_methods and p_methods[0].id or False,
             }
         )
+
+    def test_action_cancel_company_account(self):
+        self.expense.payment_mode = "company_account"
+        self.expense_sheet.action_sheet_move_create()
+
+        payment = self.payment_obj.search(
+            [("expense_sheet_id", "=", self.expense_sheet.id)]
+        )
+        self.assertEqual(len(payment), 1)
+        self.assertTrue(self.expense_sheet.account_move_id)
+
+        self.expense_sheet.action_cancel()
+        payment = self.payment_obj.search(
+            [("expense_sheet_id", "=", self.expense_sheet.id)]
+        )
+        self.assertFalse(payment)
+        self.assertFalse(self.expense_sheet.account_move_id)
 
     def test_post_init_hook(self):
         self.expense_sheet.action_sheet_move_create()
@@ -124,32 +147,7 @@ class TestHrExpenseCancel(common.TransactionCase):
         self.assertFalse(len(payment), 1)
         self.assertTrue(self.expense_sheet.account_move_id)
 
-        self.expense_sheet.action_cancel()
-        payment = self.payment_obj.search(
-            [("expense_sheet_id", "=", self.expense_sheet.id)]
-        )
-        self.assertFalse(payment)
-        self.assertFalse(self.expense_sheet.account_move_id)
-
-    def test_action_cancel_no_update_posted(self):
-        journals = self.payment_journal | self.expense_journal
-        journals.write({"update_posted": False})
-        with self.assertRaises(UserError):
-            self.test_action_cancel_company_account()
-        with self.assertRaises(UserError):
-            self.test_action_cancel_own_account()
-
-    def test_action_cancel_company_account(self):
-        self.expense.payment_mode = "company_account"
-        self.expense_sheet.action_sheet_move_create()
-
-        payment = self.payment_obj.search(
-            [("expense_sheet_id", "=", self.expense_sheet.id)]
-        )
-        self.assertEqual(len(payment), 1)
-        self.assertTrue(self.expense_sheet.account_move_id)
-
-        self.expense_sheet.action_cancel()
+        self.expense_sheet.with_context(force_delete=True).action_cancel()
         payment = self.payment_obj.search(
             [("expense_sheet_id", "=", self.expense_sheet.id)]
         )
@@ -168,7 +166,7 @@ class TestHrExpenseCancel(common.TransactionCase):
         self.assertEqual(len(payment), 1)
         self.assertTrue(self.expense_sheet.account_move_id)
 
-        self.expense_sheet.action_cancel()
+        self.expense_sheet.with_context(force_delete=True).action_cancel()
         payment = self.payment_obj.search(
             [("expense_sheet_id", "=", self.expense_sheet.id)]
         )

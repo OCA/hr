@@ -1,13 +1,13 @@
 # Copyright 2019 Tecnativa - Ernesto Tejeda
+# Copyright 2019 Tecnativa - Manuel Calero
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from odoo import api, models
+from odoo import models
 
 
 class HrExpenseSheet(models.Model):
     _inherit = "hr.expense.sheet"
 
-    @api.multi
     def action_cancel(self):
         for sheet in self:
             account_move = sheet.account_move_id
@@ -34,7 +34,9 @@ class HrExpenseSheet(models.Model):
                 account_move.unlink()
             sheet.state = "submit"
 
-    @api.multi
+    def action_cancel_with_context(self):
+        return self.with_context(force_delete=True).action_cancel()
+
     def action_sheet_move_create(self):
         res = super(HrExpenseSheet, self).action_sheet_move_create()
         if self.expense_line_ids[0].payment_mode == "company_account":
@@ -59,5 +61,6 @@ class HrExpenseSheet(models.Model):
         for rec in payments:
             for move in rec.move_line_ids.mapped("move_id"):
                 move.button_cancel()
-                move.unlink()
+                # move.unlink()
+                move.with_context(force_delete=True).unlink()
             rec.state = "cancelled"
