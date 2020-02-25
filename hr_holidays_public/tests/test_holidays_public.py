@@ -171,30 +171,18 @@ class TestHolidaysPublic(TransactionCase):
         self.assertEqual(len(lines), 3)
 
     def test_create_next_year_public_holidays(self):
-        self.wizard_next_year.new().create_public_holidays()
+        last_year = self.holiday_model.search([('year', '=', 1995)])
+        wz_create_ph = self.wizard_next_year.new({
+            'template_id': last_year.id
+        })
+        wz_create_ph._onchange_template_id()
+        wz_create_ph.create_public_holidays()
         lines = self.holiday_model.get_holidays_list(1996)
         res = lines.filtered(
             lambda r: r.date == date(1996, 10, 14)
         )
         self.assertEqual(len(res), 1)
         self.assertEqual(len(lines), 3)
-
-    def test_create_year_2000_public_holidays(self):
-        ph_start_ids = self.holiday_model.search([('year', '=', 1994)])
-        val = {
-            'template_ids': ph_start_ids,
-            'year': 2000
-        }
-        wz_create_ph = self.wizard_next_year.new(values=val)
-
-        wz_create_ph.create_public_holidays()
-
-        lines = self.holiday_model.get_holidays_list(2000)
-        self.assertEqual(len(lines), 2)
-
-        res = lines.filtered(
-            lambda r: r.year_id.country_id.id == self.env.ref('base.sl').id)
-        self.assertEqual(len(res), 1)
 
     def test_february_29th(self):
         # Ensures that users get a UserError (not a nasty Exception) when
@@ -212,7 +200,7 @@ class TestHolidaysPublic(TransactionCase):
         })
 
         val = {
-            'template_ids': holiday_tw_2016
+            'template_id': holiday_tw_2016
         }
         wz_create_ph = self.wizard_next_year.new(values=val)
 
@@ -233,3 +221,33 @@ class TestHolidaysPublic(TransactionCase):
         self.assertTrue(meeting_id)
         hline.unlink()
         self.assertFalse(meeting_id.exists())
+
+    def test_pending_lines(self):
+        holiday_tw_2016 = self.holiday_model.create({
+            'year': 2016,
+            'country_id': self.env.ref('base.tw').id
+        })
+        self.holiday_model_line.create({
+            'name': 'Holiday 1',
+            'date': '2016-02-20',
+            'year_id': holiday_tw_2016.id,
+        })
+        self.holiday_model_line.create({
+            'name': 'Holiday 1',
+            'date': '2016-03-20',
+            'year_id': holiday_tw_2016.id,
+            'variable_date': False
+        })
+        val = {
+            'template_id': holiday_tw_2016
+        }
+        wz_create_ph = self.wizard_next_year.new(values=val)
+        wz_create_ph._onchange_template_id()
+        self.assertEqual(len(wz_create_ph.pending_lines), 1)
+        wz_create_ph.pending_lines[0].date = '2017-02-22'
+        wz_create_ph.create_public_holidays()
+        lines = self.holiday_model.get_holidays_list(2017)
+        res = lines.filtered(
+            lambda r: r.date == date(2017, 2, 22)
+        )
+        self.assertEqual(len(res), 1)
