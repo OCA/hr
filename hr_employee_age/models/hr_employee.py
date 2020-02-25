@@ -10,7 +10,6 @@ class HrEmployee(models.Model):
 
     age = fields.Integer(string="Age", readonly=True, compute="_compute_age")
 
-    @api.multi
     @api.depends("birthday")
     def _compute_age(self):
         for record in self:
