@@ -49,7 +49,7 @@ class TestHrExpenseCancel(common.TransactionCase):
             'journal_id': self.payment_journal.id,
             'amount': self.expense_sheet.total_amount,
             'payment_method_id': p_methods and p_methods[0].id or False,
-            'payment_type': 'inbound',
+            # 'payment_type': 'inbound',
         })
 
     def test_post_init_hook(self):

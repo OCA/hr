@@ -11,3 +11,5 @@ class AccountPayment(models.Model):
         comodel_name="hr.expense.sheet",
         string="Expense sheet",
     )
+    # missing selection in v10, needed for the logic
+    state = fields.Selection(selection_add=[('cancelled', 'Cancelled')])
