@@ -43,7 +43,7 @@ class TestHrExpenseCancel(common.TransactionCase):
 
     def _get_payment_wizard(self):
         ctx = dict(active_ids=self.expense_sheet.ids)
-        wizard_obj = self.env['hr.expense.sheet.register.payment.wizard']
+        wizard_obj = self.env['hr.expense.register.payment.wizard']
         p_methods = self.payment_journal.outbound_payment_method_ids
         return wizard_obj.with_context(ctx).create({
             'journal_id': self.payment_journal.id,

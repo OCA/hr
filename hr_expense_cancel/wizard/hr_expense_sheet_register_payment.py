@@ -5,7 +5,7 @@ from odoo import models
 
 
 class HrExpenseSheetRegisterPaymentWizard(models.TransientModel):
-    _inherit = "hr.expense.sheet.register.payment.wizard"
+    _inherit = "hr.expense.register.payment.wizard"
 
     def _get_payment_vals(self):
         sup = super(HrExpenseSheetRegisterPaymentWizard, self)
