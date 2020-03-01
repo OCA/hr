@@ -1,4 +1,5 @@
 # Copyright 2018 Brainbean Apps (https://brainbeanapps.com)
+# Copyright 2020 Onestein (<https://www.onestein.eu>)
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
 from odoo import fields
@@ -32,5 +33,27 @@ class TestHrContractCurrency(common.TransactionCase):
 
         self.assertEqual(
             employee.contract_id.currency_id,
+            self.env.user.company_id.currency_id
+        )
+
+    def test_2(self):
+        my_company = self.env['res.company'].create({
+            'name': 'My Company',
+            'currency_id': self.env.ref("base.CHF").id,
+        })
+        contract = self.Contract.create({
+            'name': 'Contract #2',
+            'wage': 1000.0,
+            'date_start': self.today,
+            'date_end': self.today,
+            'company_id': my_company.id,
+        })
+
+        self.assertEqual(
+            contract.currency_id,
+            self.env.ref("base.CHF")
+        )
+        self.assertNotEqual(
+            contract.currency_id,
             self.env.user.company_id.currency_id
         )
