@@ -22,16 +22,29 @@ msgstr ""
 
 #. module: hr_public_holidays
 #: model:ir.ui.view,arch_db:hr_public_holidays.public_holidays_next_year_wizard_view
+#, fuzzy
+#| msgid ""
+#| "By default, the most recent public holidays \n"
+#| "                        for each country are used as template to "
+#| "create  \n"
+#| "                        public holidays for the year following the "
+#| "templates.\n"
+#| "                        <br/><br/>\n"
+#| "                        Normally, you should not need to input anything "
+#| "in \n"
+#| "                        optional fields and only need to click on the "
+#| "button \n"
+#| "                        \"Create\"."
 msgid ""
 "By default, the most recent public holidays \n"
 "                        for each country are used as template to create  \n"
 "                        public holidays for the year following the "
 "templates.\n"
 "                        <br/><br/>\n"
-"                        Normally, you should not need to input anything in \n"
-"                        optional fields and only need to click on the "
-"button \n"
-"                        \"Create\"."
+"                        Should you want to modify the public holidays to be\n"
+"                        created, e.g for public holidays having variable "
+"date,\n"
+"                        please use the optional pane."
 msgstr ""
 "Standardmäßig werden die aktuellsten Feiertage\n"
 "                            für jedes Land als Vorlage zum Erstellen\n"
@@ -74,6 +87,7 @@ msgstr "Feiertage des neues Jahres erstellen"
 #. module: hr_public_holidays
 #: model:ir.model.fields,field_description:hr_public_holidays.field_hr_holidays_public_create_uid
 #: model:ir.model.fields,field_description:hr_public_holidays.field_hr_holidays_public_line_create_uid
+#: model:ir.model.fields,field_description:hr_public_holidays.field_public_holidays_next_year_day_wiz_create_uid
 #: model:ir.model.fields,field_description:hr_public_holidays.field_public_holidays_next_year_wizard_create_uid
 msgid "Created by"
 msgstr "Erstellt von"
@@ -81,6 +95,7 @@ msgstr "Erstellt von"
 #. module: hr_public_holidays
 #: model:ir.model.fields,field_description:hr_public_holidays.field_hr_holidays_public_create_date
 #: model:ir.model.fields,field_description:hr_public_holidays.field_hr_holidays_public_line_create_date
+#: model:ir.model.fields,field_description:hr_public_holidays.field_public_holidays_next_year_day_wiz_create_date
 #: model:ir.model.fields,field_description:hr_public_holidays.field_public_holidays_next_year_wizard_create_date
 msgid "Created on"
 msgstr "Erstellt am"
@@ -116,7 +131,13 @@ msgid "Defaults"
 msgstr "Standardeinstellungen"
 
 #. module: hr_public_holidays
+#: model:ir.model.fields,help:hr_public_holidays.field_public_holidays_next_year_wizard_public_holidays_next_year_day_ids
+msgid "Define next year's holiday dates"
+msgstr ""
+
+#. module: hr_public_holidays
 #: model:ir.model.fields,field_description:hr_public_holidays.field_hr_holidays_public_line_display_name
+#: model:ir.model.fields,field_description:hr_public_holidays.field_public_holidays_next_year_day_wiz_display_name
 #: model:ir.model.fields,field_description:hr_public_holidays.field_public_holidays_next_year_wizard_display_name
 msgid "Display Name"
 msgstr "Anzeigename"
@@ -129,6 +150,7 @@ msgstr "Urlaubsdaten"
 #. module: hr_public_holidays
 #: model:ir.model.fields,field_description:hr_public_holidays.field_hr_holidays_public_id
 #: model:ir.model.fields,field_description:hr_public_holidays.field_hr_holidays_public_line_id
+#: model:ir.model.fields,field_description:hr_public_holidays.field_public_holidays_next_year_day_wiz_id
 #: model:ir.model.fields,field_description:hr_public_holidays.field_public_holidays_next_year_wizard_id
 msgid "ID"
 msgstr "ID"
@@ -136,6 +158,7 @@ msgstr "ID"
 #. module: hr_public_holidays
 #: model:ir.model.fields,field_description:hr_public_holidays.field_hr_holidays_public___last_update
 #: model:ir.model.fields,field_description:hr_public_holidays.field_hr_holidays_public_line___last_update
+#: model:ir.model.fields,field_description:hr_public_holidays.field_public_holidays_next_year_day_wiz___last_update
 #: model:ir.model.fields,field_description:hr_public_holidays.field_public_holidays_next_year_wizard___last_update
 msgid "Last Modified on"
 msgstr "Zuletzt geändert am"
@@ -143,6 +166,7 @@ msgstr "Zuletzt geändert am"
 #. module: hr_public_holidays
 #: model:ir.model.fields,field_description:hr_public_holidays.field_hr_holidays_public_line_write_uid
 #: model:ir.model.fields,field_description:hr_public_holidays.field_hr_holidays_public_write_uid
+#: model:ir.model.fields,field_description:hr_public_holidays.field_public_holidays_next_year_day_wiz_write_uid
 #: model:ir.model.fields,field_description:hr_public_holidays.field_public_holidays_next_year_wizard_write_uid
 msgid "Last Updated by"
 msgstr "Zuletzt aktualisiert von"
@@ -150,18 +174,44 @@ msgstr "Zuletzt aktualisiert von"
 #. module: hr_public_holidays
 #: model:ir.model.fields,field_description:hr_public_holidays.field_hr_holidays_public_line_write_date
 #: model:ir.model.fields,field_description:hr_public_holidays.field_hr_holidays_public_write_date
+#: model:ir.model.fields,field_description:hr_public_holidays.field_public_holidays_next_year_day_wiz_write_date
 #: model:ir.model.fields,field_description:hr_public_holidays.field_public_holidays_next_year_wizard_write_date
 msgid "Last Updated on"
 msgstr "Zuletzt aktualisiert am"
 
 #. module: hr_public_holidays
+#: model:ir.model.fields,field_description:hr_public_holidays.field_public_holidays_next_year_day_wiz_last_date
+#, fuzzy
+#| msgid "Last Updated by"
+msgid "Last date"
+msgstr "Zuletzt aktualisiert von"
+
+#. module: hr_public_holidays
+#: model:ir.ui.view,arch_db:hr_public_holidays.public_holidays_next_year_wizard_view
+msgid "Manual"
+msgstr ""
+
+#. module: hr_public_holidays
 #: model:ir.model.fields,field_description:hr_public_holidays.field_hr_holidays_public_display_name
 #: model:ir.model.fields,field_description:hr_public_holidays.field_hr_holidays_public_line_name
+#: model:ir.model.fields,field_description:hr_public_holidays.field_public_holidays_next_year_day_wiz_name
 msgid "Name"
 msgstr "Bezeichnung"
 
 #. module: hr_public_holidays
-#: code:addons/hr_public_holidays/wizards/public_holidays_next_year_wizard.py:41
+#: model:ir.model.fields,field_description:hr_public_holidays.field_public_holidays_next_year_day_wiz_next_date
+msgid "Next date"
+msgstr ""
+
+#. module: hr_public_holidays
+#: model:ir.model.fields,field_description:hr_public_holidays.field_public_holidays_next_year_wizard_public_holidays_next_year_day_ids
+#, fuzzy
+#| msgid "Create Next Year Public Holidays"
+msgid "Next year public holidays to create"
+msgstr "Feiertage des neues Jahres erstellen"
+
+#. module: hr_public_holidays
+#: code:addons/hr_public_holidays/wizards/public_holidays_next_year_wizard.py:66
 #, python-format
 msgid ""
 "No Public Holidays found as template. Please create the first Public "
@@ -170,11 +220,6 @@ msgstr ""
 "Es wurde keine Vorlage für Feiertage gefunden. Bitte erstellen Sie die "
 "Feiertage einmalig manuell, um diese dann als Vorlage für das nächste Jahr "
 "zu verwenden."
-
-#. module: hr_public_holidays
-#: model:ir.ui.view,arch_db:hr_public_holidays.public_holidays_next_year_wizard_view
-msgid "Optional"
-msgstr "Optional"
 
 #. module: hr_public_holidays
 #: model:ir.actions.act_window,name:hr_public_holidays.open_public_holidays_view
@@ -189,6 +234,13 @@ msgstr "Feiertage"
 #. module: hr_public_holidays
 #: model:ir.model,name:hr_public_holidays.model_hr_holidays_public_line
 msgid "Public Holidays Lines"
+msgstr "Feiertagszeilen"
+
+#. module: hr_public_holidays
+#: model:ir.model.fields,field_description:hr_public_holidays.field_public_holidays_next_year_day_wiz_public_holidays_next_year_wizard_id
+#, fuzzy
+#| msgid "Public Holidays Lines"
+msgid "Public holidays next year wizard id"
 msgstr "Feiertagszeilen"
 
 #. module: hr_public_holidays
@@ -211,6 +263,13 @@ msgstr ""
 "hinzufügen, wird nur die von 2015 berücksichtigt."
 
 #. module: hr_public_holidays
+#: model:ir.model.fields,field_description:hr_public_holidays.field_public_holidays_next_year_day_wiz_template_id
+#, fuzzy
+#| msgid "Templates"
+msgid "Template"
+msgstr "Vorlagen"
+
+#. module: hr_public_holidays
 #: model:ir.model.fields,field_description:hr_public_holidays.field_public_holidays_next_year_wizard_template_ids
 msgid "Templates"
 msgstr "Vorlagen"
@@ -218,22 +277,22 @@ msgstr "Vorlagen"
 #. module: hr_public_holidays
 #: model:ir.ui.view,arch_db:hr_public_holidays.public_holidays_next_year_wizard_view
 msgid ""
-"The below optional fields are here only to handle \n"
-"                        special situations like \"2011 was a special year "
-"with \n"
-"                        an additional public holiday for the 150th \n"
-"                        anniversary of the Italian unification, so you want "
-"to \n"
-"                        replicate the 2010 Italian holidays to 2012.\""
+"The fields below are here to manually handle the creation\n"
+"                        of public holidays.\n"
+"                        Select first the template to be used to create next "
+"year's\n"
+"                        public holidays.\n"
+"                        You can define the target year in which you want to "
+"create\n"
+"                        the holidays, but default value is the year "
+"following the\n"
+"                        template's year.\n"
+"                        The public holidays to be created are then displayed "
+"to\n"
+"                        allow you modification of the date in case of "
+"public\n"
+"                        holidays having a variable date (highlighted in red)."
 msgstr ""
-"Die hier angegebenen optionalen Felder werden nur in \n"
-"                           Ausnahmesituationen verwenden, beispielsweise:\n"
-"                           \"2011 war ein spezielles Jahr mit einem "
-"zusätzlichen Feiertag\n"
-"                           für das 150. Jubiläum der italienischen Einheit. "
-"Deswegen\n"
-"                           sollte für das Jahr 2012 die Vorlage von 2010 "
-"verwendet werden.\""
 
 #. module: hr_public_holidays
 #: model:ir.ui.view,arch_db:hr_public_holidays.public_holidays_next_year_wizard_view
@@ -256,6 +315,11 @@ msgstr ""
 "                            Beispiel: Wenn Sie die Vorlagen von 2012 und "
 "2015 für dasselbe Land \n"
 "                            hinzufügen, wird nur die von 2015 berücksichtigt."
+
+#. module: hr_public_holidays
+#: model:ir.model.fields,field_description:hr_public_holidays.field_public_holidays_next_year_day_wiz_variable
+msgid "Variable"
+msgstr ""
 
 #. module: hr_public_holidays
 #: model:ir.model.fields,field_description:hr_public_holidays.field_public_holidays_next_year_wizard_year
@@ -298,7 +362,7 @@ msgstr ""
 "erstellen"
 
 #. module: hr_public_holidays
-#: code:addons/hr_public_holidays/wizards/public_holidays_next_year_wizard.py:78
+#: code:addons/hr_public_holidays/wizards/public_holidays_next_year_wizard.py:103
 #, python-format
 msgid ""
 "You cannot use as template the public holidays of a year that includes "
@@ -308,3 +372,30 @@ msgstr ""
 "Sie können keine Vorlage eines Jahres verwenden, das einen Feiertag am 29. "
 "Februar enthält (z.B. 2016, 2020, ...). Bitte wählen Sie als Vorlage ein "
 "anderes Jahr."
+
+#. module: hr_public_holidays
+#: model:ir.model,name:hr_public_holidays.model_public_holidays_next_year_day_wiz
+msgid "public.holidays.next.year.day.wiz"
+msgstr ""
+
+#~ msgid "Optional"
+#~ msgstr "Optional"
+
+#~ msgid ""
+#~ "The below optional fields are here only to handle \n"
+#~ "                        special situations like \"2011 was a special year "
+#~ "with \n"
+#~ "                        an additional public holiday for the 150th \n"
+#~ "                        anniversary of the Italian unification, so you "
+#~ "want to \n"
+#~ "                        replicate the 2010 Italian holidays to 2012.\""
+#~ msgstr ""
+#~ "Die hier angegebenen optionalen Felder werden nur in \n"
+#~ "                           Ausnahmesituationen verwenden, "
+#~ "beispielsweise:\n"
+#~ "                           \"2011 war ein spezielles Jahr mit einem "
+#~ "zusätzlichen Feiertag\n"
+#~ "                           für das 150. Jubiläum der italienischen "
+#~ "Einheit. Deswegen\n"
+#~ "                           sollte für das Jahr 2012 die Vorlage von 2010 "
+#~ "verwendet werden.\""
