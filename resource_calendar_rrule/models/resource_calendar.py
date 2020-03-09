@@ -111,7 +111,7 @@ class ResourceCalendar(models.Model):
         warn = ''
         start = datetime.datetime.today().replace(tzinfo=tzutc())
         stop = False
-        even_odd_occurrences = set()
+        even_odd_occurrences = 0
         for attendance in attendances:
             for rule in attendance.rrule._rrule:
                 if rule._byeaster or rule._bymonth or rule._bymonthday or\
@@ -131,12 +131,14 @@ class ResourceCalendar(models.Model):
                 # It looks two consecutive occurrences. If both are odd weeks,
                 # we know that this is a rule for odd weeks. Otherwise, there
                 # would be an even week in between.
-                occurrences = rule[:2]
-                odd = len(occurrences) == 2 and all(
-                    bool(occurrence.isocalendar()[1] % 2)
-                    for occurrence in occurrences
-                )
-                even_odd_occurrences.add('odd' if odd else 'even')
+                odd = False
+                if rule._interval == 2:
+                    occurrences = rule[:2]
+                    odd = len(occurrences) == 2 and all(
+                        bool(occurrence.isocalendar()[1] % 2)
+                        for occurrence in occurrences
+                    )
+                    even_odd_occurrences += 1
 
                 # allocate this rule to the correct timeslot in the simplified
                 # attendance (timeslot = day, morning/afternoon, even/odd week)
@@ -147,7 +149,7 @@ class ResourceCalendar(models.Model):
                         continue
                     day[key] += attendance.hour_to - attendance.hour_from
 
-        if 'odd' in even_odd_occurrences:
+        if even_odd_occurrences:
             result['type'] = 'odd'
         result.update(
             start=fields.Date.to_string(start),
