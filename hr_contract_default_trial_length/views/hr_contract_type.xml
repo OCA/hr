@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="hr_contract_type_view_form" model="ir.ui.view">
+        <field name="name">hr.contract.type.view.form</field>
+        <field name="model">hr.contract.type</field>
+        <field name="inherit_id" ref="hr_contract.hr_contract_type_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group" position="after">
+                <group>
+                    <label for="trial_length" string="Default Trial Length"/>
+                    <div name="trial">
+                        <field name="trial_length" nolabel="1"/>
+                        <span> days</span>
+                    </div>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="hr_contract_type_view_tree" model="ir.ui.view">
+        <field name="name">hr.contract.type.view.tree</field>
+        <field name="model">hr.contract.type</field>
+        <field name="inherit_id" ref="hr_contract.hr_contract_type_view_tree"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="trial_length"/>
+            </field>
+        </field>
+    </record>
+</odoo>
