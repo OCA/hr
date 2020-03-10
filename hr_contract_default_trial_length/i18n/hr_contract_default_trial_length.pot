@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 10.0\n"
+"Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
@@ -14,8 +14,18 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: hr_contract_default_trial_length
+#: model:ir.ui.view,arch_db:hr_contract_default_trial_length.hr_contract_type_view_form
+msgid "<span> days</span>"
+msgstr ""
+
+#. module: hr_contract_default_trial_length
 #: model:ir.model,name:hr_contract_default_trial_length.model_hr_contract_type
 msgid "Contract Type"
+msgstr ""
+
+#. module: hr_contract_default_trial_length
+#: model:ir.ui.view,arch_db:hr_contract_default_trial_length.hr_contract_type_view_form
+msgid "Default Trial Length"
 msgstr ""
 
 #. module: hr_contract_default_trial_length
@@ -30,6 +40,6 @@ msgstr ""
 
 #. module: hr_contract_default_trial_length
 #: model:ir.model.fields,field_description:hr_contract_default_trial_length.field_hr_contract_type_trial_length
-msgid "Trial length"
+msgid "Trial Length"
 msgstr ""
 
