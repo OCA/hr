@@ -2,7 +2,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 {
     "name": "HR Employee Language",
-    "version": "12.0.1.0.0",
+    "version": "13.0.1.0.0",
     "category": "Human Resources",
     "license": "AGPL-3",
     "author": "Savoir-faire Linux, Acsone, Odoo Community Association (OCA)",
