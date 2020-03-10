@@ -20,13 +20,13 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
-#. module: hr_emergency_contact
-#: model:ir.model.fields,field_description:hr_emergency_contact.field_hr_employee_emergency_contact_ids
-#: model:ir.ui.view,arch_db:hr_emergency_contact.hr_employee_view_form
+#. module: hr_employee_emergency_contact
+#: model:ir.model.fields,field_description:hr_employee_emergency_contact.field_hr_employee__emergency_contact_ids
+#: model_terms:ir.ui.view,arch_db:hr_employee_emergency_contact.hr_employee_view_form
 msgid "Emergency Contacts"
 msgstr ""
 
-#. module: hr_emergency_contact
-#: model:ir.model,name:hr_emergency_contact.model_hr_employee
+#. module: hr_employee_emergency_contact
+#: model:ir.model,name:hr_employee_emergency_contact.model_hr_employee
 msgid "Employee"
 msgstr "Djelatnik"

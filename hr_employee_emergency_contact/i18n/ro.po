@@ -19,13 +19,13 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?"
 "2:1));\n"
 
-#. module: hr_emergency_contact
-#: model:ir.model.fields,field_description:hr_emergency_contact.field_hr_employee_emergency_contact_ids
-#: model:ir.ui.view,arch_db:hr_emergency_contact.hr_employee_view_form
+#. module: hr_employee_emergency_contact
+#: model:ir.model.fields,field_description:hr_employee_emergency_contact.field_hr_employee__emergency_contact_ids
+#: model_terms:ir.ui.view,arch_db:hr_employee_emergency_contact.hr_employee_view_form
 msgid "Emergency Contacts"
 msgstr ""
 
-#. module: hr_emergency_contact
-#: model:ir.model,name:hr_emergency_contact.model_hr_employee
+#. module: hr_employee_emergency_contact
+#: model:ir.model,name:hr_employee_emergency_contact.model_hr_employee
 msgid "Employee"
 msgstr "Angajat"

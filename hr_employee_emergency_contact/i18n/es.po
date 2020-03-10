@@ -10,8 +10,8 @@ msgstr ""
 "POT-Creation-Date: 2016-03-23 01:40+0000\n"
 "PO-Revision-Date: 2019-07-03 18:42+0000\n"
 "Last-Translator: David Alonso (Solvos) <david.alonso@solvos.es>\n"
-"Language-Team: Spanish (http://www.transifex.com/oca/OCA-hr-8-0/language/es/)"
-"\n"
+"Language-Team: Spanish (http://www.transifex.com/oca/OCA-hr-8-0/language/"
+"es/)\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,13 +19,13 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.7.1\n"
 
-#. module: hr_emergency_contact
-#: model:ir.model.fields,field_description:hr_emergency_contact.field_hr_employee_emergency_contact_ids
-#: model:ir.ui.view,arch_db:hr_emergency_contact.hr_employee_view_form
+#. module: hr_employee_emergency_contact
+#: model:ir.model.fields,field_description:hr_employee_emergency_contact.field_hr_employee__emergency_contact_ids
+#: model_terms:ir.ui.view,arch_db:hr_employee_emergency_contact.hr_employee_view_form
 msgid "Emergency Contacts"
 msgstr "Contactos de emergencia"
 
-#. module: hr_emergency_contact
-#: model:ir.model,name:hr_emergency_contact.model_hr_employee
+#. module: hr_employee_emergency_contact
+#: model:ir.model,name:hr_employee_emergency_contact.model_hr_employee
 msgid "Employee"
 msgstr "Empleado"
