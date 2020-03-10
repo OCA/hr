@@ -23,6 +23,7 @@ setuptools.setup(
         'odoo12-addon-hr_employee_calendar_planning',
         'odoo12-addon-hr_employee_display_own_info',
         'odoo12-addon-hr_employee_document',
+        'odoo12-addon-hr_employee_emergency_contact',
         'odoo12-addon-hr_employee_firstname',
         'odoo12-addon-hr_employee_health',
         'odoo12-addon-hr_employee_id',
