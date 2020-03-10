@@ -50,7 +50,7 @@ msgid "Employee Contract"
 msgstr "Contrato"
 
 #. module: hr_contract_multi_job
-#: model:ir.model.fields,field_description:hr_contract_multi_job.field_hr_contract_job_id_4652
+#: model:ir.model.fields,field_description:hr_contract_multi_job.field_hr_contract_job_id_4653
 msgid "ID"
 msgstr ""
 
