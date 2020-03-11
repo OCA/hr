@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_petty_cash_form" model="ir.ui.view">
+        <field name="name">petty.cash.form</field>
+        <field name="model">petty.cash</field>
+        <field name="arch" type="xml">
+            <form string="Petty Cash">
+               <sheet>
+                   <group>
+                       <group name="data">
+                           <field name="partner_id" context="{'default_supplier': True, 'default_customer': False}"/>
+                           <field name="account_id"/>
+                       </group>
+                       <group name="petty_cash">
+                           <field name="petty_cash_limit"/>
+                           <field name="petty_cash_balance"/>
+                       </group>
+                   </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_petty_cash_list" model="ir.ui.view">
+        <field name="name">petty.cash.list</field>
+        <field name="model">petty.cash</field>
+        <field name="arch" type="xml">
+            <tree string="Petty Cash" toolbar="1" >
+                <field name="partner_id"/>
+                <field name="account_id"/>
+                <field name="petty_cash_limit" sum="Limit"/>
+                <field name="petty_cash_balance" sum="Balance"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_petty_cash_kanban" model="ir.ui.view">
+        <field name="name">petty.cash.kanban</field>
+        <field name="model">petty.cash</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile">
+                <field name="partner_id"/>
+                <field name="petty_cash_balance"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="row">
+                                <div class="col-6">
+                                    <strong><field name="partner_id"/></strong>
+                                </div>
+                                <div class="col-6 text-right">
+                                    <field name="petty_cash_balance"/>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_petty_cash_search" model="ir.ui.view">
+        <field name="name">petty.cash.search</field>
+        <field name="model">petty.cash</field>
+        <field name="arch" type="xml">
+            <search string="Petty Cash">
+                <group expand="0" string="Group By"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_petty_cash" model="ir.actions.act_window">
+        <field name="name">Petty Cash</field>
+        <field name="res_model">petty.cash</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="search_view_id" ref="view_petty_cash_search"/>
+        <field name="view_id" ref="view_petty_cash_list"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new petty cash holder
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_petty_cash"
+              name="Petty Cash"
+              action="action_petty_cash"
+              parent="account.account_account_menu"/>
+
+</odoo>
