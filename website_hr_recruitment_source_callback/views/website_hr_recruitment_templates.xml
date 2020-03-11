@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="thankyou" name="thankyou callback" inherit_id="website_hr_recruitment.thankyou">
+        <xpath expr="//div[@id='wrap']" position="before">
+            <t t-if="js_script">
+                <t t-raw="js_script" />
+            </t> 
+        </xpath>
+    </template>
+
+</odoo>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <record id="utm_source_view_form" model="ir.ui.view">
+        <field name="name">utm.source.form.js.snippet</field>
+        <field name="model">utm.source</field>
+        <field name="inherit_id" ref="utm.utm_source_view_form"/>
+        <field name="arch" type="xml">
+
+            <field name="name" position="after">
+                <field name="js_callback_snippet"/>
+            </field>
+
+        </field>
+    </record>
+
+
+</odoo>
+
