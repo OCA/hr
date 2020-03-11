@@ -48,8 +48,9 @@ class ResourceCalendarAttendance(models.Model):
         return local_dt.astimezone(pytz.utc).replace(tzinfo=None)
 
     def _create_datetime_from_dayofweek(self):
-        some_monday = datetime(2017, 1, 2)
-        return some_monday + timedelta(days=int(self.dayofweek))
+        now = fields.Datetime.now().replace(hour=0, minute=0, second=0, microsecond=0)
+        monday_this_week = now - timedelta(days=now.weekday())
+        return monday_this_week + timedelta(days=int(self.dayofweek))
 
     def _is_now_allowed(self, now, employee_id):
         is_after_from = not self.date_from or \
