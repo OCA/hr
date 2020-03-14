@@ -25,6 +25,11 @@ msgid "Employee"
 msgstr "Angajat"
 
 #. module: hr_employee_phone_extension
+#: model_terms:ir.ui.view,arch_db:hr_employee_phone_extension.view_employee_form
+msgid "Internal Contact"
+msgstr ""
+
+#. module: hr_employee_phone_extension
 #: model:ir.model.fields,field_description:hr_employee_phone_extension.field_hr_employee__internal_number
 msgid "Internal Number"
 msgstr ""
