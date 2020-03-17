@@ -31,6 +31,7 @@ setuptools.setup(
         'odoo11-addon-hr_expense_analytic_tag',
         'odoo11-addon-hr_expense_cancel',
         'odoo11-addon-hr_expense_invoice',
+        'odoo11-addon-hr_expense_sequence',
         'odoo11-addon-hr_experience',
         'odoo11-addon-hr_family',
         'odoo11-addon-hr_holidays_compute_days',
