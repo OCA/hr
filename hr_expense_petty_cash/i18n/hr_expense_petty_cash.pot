@@ -1,0 +1,178 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* hr_expense_petty_cash
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hr_expense_petty_cash
+#: code:addons/hr_expense_petty_cash/models/account_invoice.py:25
+#: code:addons/hr_expense_petty_cash/models/account_invoice.py:74
+#, python-format
+msgid "%s is not a petty cash holder"
+msgstr ""
+
+#. module: hr_expense_petty_cash
+#: model:ir.model.fields,field_description:hr_expense_petty_cash.field_petty_cash__petty_cash_balance
+#: model_terms:ir.ui.view,arch_db:hr_expense_petty_cash.view_petty_cash_list
+msgid "Balance"
+msgstr ""
+
+#. module: hr_expense_petty_cash
+#: selection:hr.expense,payment_mode:0
+msgid "Company"
+msgstr ""
+
+#. module: hr_expense_petty_cash
+#: model_terms:ir.actions.act_window,help:hr_expense_petty_cash.action_petty_cash
+msgid "Create a new petty cash holder"
+msgstr ""
+
+#. module: hr_expense_petty_cash
+#: model:ir.model.fields,field_description:hr_expense_petty_cash.field_petty_cash__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: hr_expense_petty_cash
+#: model:ir.model.fields,field_description:hr_expense_petty_cash.field_petty_cash__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: hr_expense_petty_cash
+#: model:ir.model.fields,field_description:hr_expense_petty_cash.field_petty_cash__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: hr_expense_petty_cash
+#: selection:hr.expense,payment_mode:0
+msgid "Employee (to reimburse)"
+msgstr ""
+
+#. module: hr_expense_petty_cash
+#: model:ir.model,name:hr_expense_petty_cash.model_hr_expense
+msgid "Expense"
+msgstr ""
+
+#. module: hr_expense_petty_cash
+#: model:ir.model,name:hr_expense_petty_cash.model_hr_expense_sheet
+msgid "Expense Report"
+msgstr ""
+
+#. module: hr_expense_petty_cash
+#: model_terms:ir.ui.view,arch_db:hr_expense_petty_cash.view_petty_cash_search
+msgid "Group By"
+msgstr ""
+
+#. module: hr_expense_petty_cash
+#: model:ir.model.fields,field_description:hr_expense_petty_cash.field_petty_cash__id
+msgid "ID"
+msgstr ""
+
+#. module: hr_expense_petty_cash
+#: model:ir.model,name:hr_expense_petty_cash.model_account_invoice
+msgid "Invoice"
+msgstr ""
+
+#. module: hr_expense_petty_cash
+#: model:ir.model.fields,field_description:hr_expense_petty_cash.field_petty_cash____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: hr_expense_petty_cash
+#: model:ir.model.fields,field_description:hr_expense_petty_cash.field_petty_cash__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: hr_expense_petty_cash
+#: model:ir.model.fields,field_description:hr_expense_petty_cash.field_petty_cash__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: hr_expense_petty_cash
+#: model_terms:ir.ui.view,arch_db:hr_expense_petty_cash.view_petty_cash_list
+msgid "Limit"
+msgstr ""
+
+#. module: hr_expense_petty_cash
+#: model:ir.model.fields,field_description:hr_expense_petty_cash.field_petty_cash__petty_cash_limit
+msgid "Max Limit"
+msgstr ""
+
+#. module: hr_expense_petty_cash
+#: code:addons/hr_expense_petty_cash/models/hr_expense_sheet.py:50
+#, python-format
+msgid "Not enough money in petty cash holder.\n"
+"You are requesting %s%s, but the balance is %s%s."
+msgstr ""
+
+#. module: hr_expense_petty_cash
+#: model:ir.model.fields,field_description:hr_expense_petty_cash.field_hr_expense__payment_mode
+#: model:ir.model.fields,field_description:hr_expense_petty_cash.field_hr_expense_sheet__payment_mode
+msgid "Paid By"
+msgstr ""
+
+#. module: hr_expense_petty_cash
+#: selection:hr.expense,payment_mode:0
+#: model:ir.actions.act_window,name:hr_expense_petty_cash.action_petty_cash
+#: model:ir.model,name:hr_expense_petty_cash.model_petty_cash
+#: model:ir.model.fields,field_description:hr_expense_petty_cash.field_account_invoice__is_petty_cash
+#: model:ir.ui.menu,name:hr_expense_petty_cash.menu_petty_cash
+#: model_terms:ir.ui.view,arch_db:hr_expense_petty_cash.view_hr_expense_filter_inherit
+#: model_terms:ir.ui.view,arch_db:hr_expense_petty_cash.view_hr_expense_sheet_filter_inherit
+#: model_terms:ir.ui.view,arch_db:hr_expense_petty_cash.view_petty_cash_form
+#: model_terms:ir.ui.view,arch_db:hr_expense_petty_cash.view_petty_cash_list
+#: model_terms:ir.ui.view,arch_db:hr_expense_petty_cash.view_petty_cash_search
+msgid "Petty Cash"
+msgstr ""
+
+#. module: hr_expense_petty_cash
+#: model:ir.model.fields,field_description:hr_expense_petty_cash.field_petty_cash__account_id
+msgid "Petty Cash Account"
+msgstr ""
+
+#. module: hr_expense_petty_cash
+#: model:ir.model.fields,field_description:hr_expense_petty_cash.field_petty_cash__partner_id
+#: model_terms:ir.ui.view,arch_db:hr_expense_petty_cash.view_hr_expense_filter_inherit
+#: model_terms:ir.ui.view,arch_db:hr_expense_petty_cash.view_hr_expense_sheet_filter_inherit
+msgid "Petty Cash Holder"
+msgstr ""
+
+#. module: hr_expense_petty_cash
+#: sql_constraint:petty.cash:0
+msgid "Petty Cash Holder must be unique!"
+msgstr ""
+
+#. module: hr_expense_petty_cash
+#: code:addons/hr_expense_petty_cash/models/account_invoice.py:39
+#, python-format
+msgid "Petty Cash balance is %s %s.\n"
+"Max amount to add is %s %s."
+msgstr ""
+
+#. module: hr_expense_petty_cash
+#: model:ir.model.fields,field_description:hr_expense_petty_cash.field_hr_expense__petty_cash_id
+#: model:ir.model.fields,field_description:hr_expense_petty_cash.field_hr_expense_sheet__petty_cash_id
+msgid "Petty cash holder"
+msgstr ""
+
+#. module: hr_expense_petty_cash
+#: code:addons/hr_expense_petty_cash/models/account_invoice.py:69
+#, python-format
+msgid "Please select petty cash holder"
+msgstr ""
+
+#. module: hr_expense_petty_cash
+#: code:addons/hr_expense_petty_cash/models/hr_expense.py:35
+#: code:addons/hr_expense_petty_cash/models/hr_expense_sheet.py:33
+#, python-format
+msgid "You cannot create report from many petty cash holders."
+msgstr ""
+
