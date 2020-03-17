@@ -37,6 +37,7 @@ setuptools.setup(
         'odoo12-addon-hr_expense_advance_clearing',
         'odoo12-addon-hr_expense_cancel',
         'odoo12-addon-hr_expense_invoice',
+        'odoo12-addon-hr_expense_petty_cash',
         'odoo12-addon-hr_expense_sequence',
         'odoo12-addon-hr_expense_tier_validation',
         'odoo12-addon-hr_experience',
