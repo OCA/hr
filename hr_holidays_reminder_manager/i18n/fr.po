@@ -1,0 +1,103 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* hr_holidays_reminder_manager
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-18 08:50+0000\n"
+"PO-Revision-Date: 2020-03-18 08:50+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hr_holidays_reminder_manager
+#: model_terms:ir.ui.view,arch_db:hr_holidays_reminder_manager.res_config_settings_view_form
+msgid "Choose a period"
+msgstr "Choisir une période"
+
+#. module: hr_holidays_reminder_manager
+#: model:ir.model,name:hr_holidays_reminder_manager.model_res_company
+msgid "Companies"
+msgstr "Sociétés"
+
+#. module: hr_holidays_reminder_manager
+#: model:ir.model,name:hr_holidays_reminder_manager.model_res_config_settings
+msgid "Config Settings"
+msgstr "Paramètres de config"
+
+#. module: hr_holidays_reminder_manager
+#: model:ir.model,name:hr_holidays_reminder_manager.model_hr_employee
+msgid "Employee"
+msgstr "Employé"
+
+#. module: hr_holidays_reminder_manager
+#: model_terms:ir.ui.view,arch_db:hr_holidays_reminder_manager.message_reminder_hr_managers
+msgid "Hi"
+msgstr "Bonjour"
+
+#. module: hr_holidays_reminder_manager
+#: model:ir.model.fields,field_description:hr_holidays_reminder_manager.field_hr_employee__hr_manager
+msgid "Is a HR Manager"
+msgstr "Est un responsable RH"
+
+#. module: hr_holidays_reminder_manager
+#: model:ir.model,name:hr_holidays_reminder_manager.model_hr_leave
+msgid "Leave"
+msgstr "Congé"
+
+#. module: hr_holidays_reminder_manager
+#: model:ir.model.fields,field_description:hr_holidays_reminder_manager.field_hr_leave__reminder_id
+msgid "Mail"
+msgstr "Courriel"
+
+#. module: hr_holidays_reminder_manager
+#: selection:res.company,leave_reminder_period:0
+msgid "One day"
+msgstr "Un jour"
+
+#. module: hr_holidays_reminder_manager
+#: selection:res.company,leave_reminder_period:0
+msgid "One week"
+msgstr "Une semaine"
+
+#. module: hr_holidays_reminder_manager
+#: model:ir.model.fields,field_description:hr_holidays_reminder_manager.field_res_company__leave_reminder_period
+#: model:ir.model.fields,field_description:hr_holidays_reminder_manager.field_res_config_settings__leave_reminder_period
+msgid "Period before notifying the HR manager"
+msgstr "Période avant notification pour le responsable RH"
+
+#. module: hr_holidays_reminder_manager
+#: model_terms:ir.ui.view,arch_db:hr_holidays_reminder_manager.message_reminder_hr_managers
+msgid "Reminder of employee's leave"
+msgstr "Rappel de congé pour l'employé"
+
+#. module: hr_holidays_reminder_manager
+#: selection:res.company,leave_reminder_period:0
+msgid "Three days"
+msgstr "Trois jours"
+
+#. module: hr_holidays_reminder_manager
+#: selection:res.company,leave_reminder_period:0
+msgid "Two days"
+msgstr "Deux jours"
+
+#. module: hr_holidays_reminder_manager
+#: selection:res.company,leave_reminder_period:0
+msgid "Two weeks"
+msgstr "Deux semaines"
+
+#. module: hr_holidays_reminder_manager
+#: model_terms:ir.ui.view,arch_db:hr_holidays_reminder_manager.message_reminder_hr_managers
+msgid "View"
+msgstr "Voir"
+
+#. module: hr_holidays_reminder_manager
+#: model_terms:ir.ui.view,arch_db:hr_holidays_reminder_manager.message_reminder_hr_managers
+msgid "You have been assigned to the"
+msgstr "Vous avez été assigné·e à "
+
