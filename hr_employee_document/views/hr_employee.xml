@@ -23,6 +23,9 @@
                     <field name="documents_count" widget="statinfo" string="Documents"/>
                 </button>
             </div>
+            <xpath expr="//div[hasclass('oe_chatter')]" position="before">
+                <div class="o_attachment_preview" />
+            </xpath>
         </field>
     </record>
 
