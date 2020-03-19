@@ -1,6 +1,9 @@
 # Copyright 2020 Creu Blanca
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
+from datetime import timedelta
+
+
 from odoo import api, models
 from odoo.tools.float_utils import float_round
 
@@ -8,6 +11,11 @@ from odoo.tools.float_utils import float_round
 class ResourceCalendar(models.Model):
 
     _inherit = 'resource.calendar'
+
+    def _get_work_hours(self, start, stop, meta):
+        return (stop - start - timedelta(hours=sum([
+            attendance.rest_time for attendance in meta
+        ]))).total_seconds() / 3600
 
     @api.onchange('attendance_ids')
     def _onchange_hours_per_day(self):
