@@ -16,6 +16,7 @@ setuptools.setup(
         'odoo12-addon-hr_attendance_rfid',
         'odoo12-addon-hr_calendar_rest_time',
         'odoo12-addon-hr_contract_currency',
+        'odoo12-addon-hr_contract_document',
         'odoo12-addon-hr_contract_multi_job',
         'odoo12-addon-hr_contract_rate',
         'odoo12-addon-hr_course',
