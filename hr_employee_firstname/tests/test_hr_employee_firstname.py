@@ -149,3 +149,7 @@ class TestEmployeeFirstname(TransactionCase):
         self.env["hr.employee"].create({"name": "test"})
         with self.assertRaises(ValidationError):
             self.env["hr.employee"].create({})
+
+    def test_no_firstname_and_lastname(self):
+        with self.assertRaises(ValidationError):
+            self.employee1_id.write({"firstname": "", "lastname": ""})
