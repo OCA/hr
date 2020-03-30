@@ -115,3 +115,16 @@ class TestHrEmployeeService(common.TransactionCase):
         self.assertEqual(employee.service_duration_years, 0)
         self.assertEqual(employee.service_duration_months, 0)
         self.assertEqual(employee.service_duration_days, 1)
+
+    def test_8(self):
+        employee = self.SudoEmployee.create(
+            {
+                "name": "Employee #8",
+                "service_hire_date": (self.today - relativedelta(days=1)),
+                "service_start_date": (self.today - relativedelta(days=1)),
+                "service_termination_date": (self.today - relativedelta(years=1)),
+            }
+        )
+
+        self.assertEqual(employee.service_duration, 0)
+        employee._get_date_start_work()
