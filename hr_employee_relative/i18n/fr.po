@@ -66,7 +66,7 @@ msgid "Employee Relatives"
 msgstr "Proches"
 
 #. module: hr_employee_relative
-#: selection:hr.employee.relative,gender:0
+#: model:ir.model.fields.selection,name:hr_employee_relative.selection__hr_employee_relative__gender__female
 msgid "Female"
 msgstr "Feminin"
 
@@ -125,7 +125,7 @@ msgid "Last Updated on"
 msgstr "Dernière mise à jour le"
 
 #. module: hr_employee_relative
-#: selection:hr.employee.relative,gender:0
+#: model:ir.model.fields.selection,name:hr_employee_relative.selection__hr_employee_relative__gender__male
 msgid "Male"
 msgstr "Masculin"
 
@@ -140,7 +140,7 @@ msgid "Notes"
 msgstr "Notes"
 
 #. module: hr_employee_relative
-#: selection:hr.employee.relative,gender:0
+#: model:ir.model.fields.selection,name:hr_employee_relative.selection__hr_employee_relative__gender__other
 msgid "Other"
 msgstr "Autre"
 
