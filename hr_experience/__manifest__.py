@@ -3,11 +3,11 @@
 
 {
     "name": "Experience Management",
-    "version": "12.0.1.0.0",
+    "version": "13.0.1.0.0",
     "author": "Savoir-faire Linux,"
-              "OpenSynergy Indonesia,"
-              "Numigi,"
-              "Odoo Community Association (OCA)",
+    "OpenSynergy Indonesia,"
+    "Numigi,"
+    "Odoo Community Association (OCA)",
     "website": "https://github.com/oca/hr",
     "license": "AGPL-3",
     "category": "Human Resources",
@@ -20,5 +20,5 @@
         "views/hr_professional_view.xml",
         "views/hr_certification_view.xml",
     ],
-    'installable': True
+    "installable": True,
 }
