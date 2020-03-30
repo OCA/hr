@@ -17,7 +17,7 @@ class HrEmployee(models.Model):
         groups="hr.group_hr_user",
         track_visibility="onchange",
         help=(
-            "Hire date is normally the date an employee completes new hire" " paperwork"
+            "Hire date is normally the date an employee completes new hire paperwork"
         ),
     )
     service_start_date = fields.Date(
@@ -64,7 +64,6 @@ class HrEmployee(models.Model):
         compute="_compute_service_duration_display",
     )
 
-    @api.multi
     @api.depends("service_start_date", "service_termination_date")
     def _compute_service_duration(self):
         for record in self:
@@ -78,7 +77,6 @@ class HrEmployee(models.Model):
             else:
                 record.service_duration = 0
 
-    @api.multi
     @api.depends("service_start_date", "service_termination_date")
     def _compute_service_duration_display(self):
         for record in self:
@@ -95,7 +93,6 @@ class HrEmployee(models.Model):
                 record.service_duration_months = 0
                 record.service_duration_days = 0
 
-    @api.multi
     @api.onchange("service_hire_date")
     def _onchange_service_hire_date(self):
         if not self.service_start_date:
