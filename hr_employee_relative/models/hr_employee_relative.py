@@ -12,11 +12,11 @@ class HrEmployeeRelative(models.Model):
     _name = "hr.employee.relative"
     _description = "HR Employee Relative"
 
-    employee_id = fields.Many2one(string="Employee", comodel_name="hr.employee",)
+    employee_id = fields.Many2one(string="Employee", comodel_name="hr.employee")
     relation_id = fields.Many2one(
-        "hr.employee.relative.relation", string="Relation", required=True,
+        "hr.employee.relative.relation", string="Relation", required=True
     )
-    name = fields.Char(string="Name", required=True,)
+    name = fields.Char(string="Name", required=True)
     partner_id = fields.Many2one(
         "res.partner",
         string="Partner",
@@ -26,13 +26,13 @@ class HrEmployeeRelative(models.Model):
         string="Gender",
         selection=[("male", "Male"), ("female", "Female"), ("other", "Other")],
     )
-    date_of_birth = fields.Date(string="Date of Birth",)
-    age = fields.Float(compute="_compute_age",)
+    date_of_birth = fields.Date(string="Date of Birth")
+    age = fields.Float(compute="_compute_age")
 
     job = fields.Char()
     phone_number = fields.Char()
 
-    notes = fields.Text(string="Notes",)
+    notes = fields.Text(string="Notes")
 
     @api.depends("date_of_birth")
     def _compute_age(self):

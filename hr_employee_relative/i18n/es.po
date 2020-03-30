@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* hr_employee_relative
+# 	* hr_employee_relative
 #
 msgid ""
 msgstr ""
@@ -66,7 +66,7 @@ msgid "Employee Relatives"
 msgstr "Parientes de Empleados"
 
 #. module: hr_employee_relative
-#: selection:hr.employee.relative,gender:0
+#: model:ir.model.fields.selection,name:hr_employee_relative.selection__hr_employee_relative__gender__female
 msgid "Female"
 msgstr "Femenino"
 
@@ -125,7 +125,7 @@ msgid "Last Updated on"
 msgstr "Última actualización el"
 
 #. module: hr_employee_relative
-#: selection:hr.employee.relative,gender:0
+#: model:ir.model.fields.selection,name:hr_employee_relative.selection__hr_employee_relative__gender__male
 msgid "Male"
 msgstr "Masculino"
 
@@ -140,7 +140,7 @@ msgid "Notes"
 msgstr "Notas"
 
 #. module: hr_employee_relative
-#: selection:hr.employee.relative,gender:0
+#: model:ir.model.fields.selection,name:hr_employee_relative.selection__hr_employee_relative__gender__other
 msgid "Other"
 msgstr "Otro"
 
