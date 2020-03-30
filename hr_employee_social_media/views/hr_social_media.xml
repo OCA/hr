@@ -41,7 +41,6 @@
     <record id="action_hr_social_media" model="ir.actions.act_window">
         <field name="name">Social Medias</field>
         <field name="res_model">hr.social.media</field>
-        <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
     </record>
     <menuitem
