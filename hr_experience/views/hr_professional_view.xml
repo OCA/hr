@@ -65,7 +65,6 @@
     <record id="open_view_professional_form" model="ir.actions.act_window">
         <field name="name">Professional Experiences</field>
         <field name="res_model">hr.experience</field>
-        <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
     </record>
     <menuitem
