@@ -243,7 +243,6 @@ class HrFiscalYear(models.Model):
         :param date_end: the first day of the following period
         """
         self.ensure_one()
-        period_type = self.env['hr.period']._default_type(self.company_id.id)
         self.write({
             'period_ids': [(0, 0, {
                 'date_start': date_start,
@@ -253,7 +252,7 @@ class HrFiscalYear(models.Model):
                 'name': _('%s Period #%s') % (self.name, number),
                 'number': number,
                 'state': 'draft',
-                'type_id': period_type.id,
+                'type_id': self.type_id.id,
                 'schedule_pay': self.schedule_pay,
             })],
         })
