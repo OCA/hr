@@ -51,7 +51,7 @@
 
     <record id="hr_attendance.menu_hr_attendance_report" model="ir.ui.menu">
         <field name="action"/>
-        <field name="groups_id" eval="[(4, ref('hr_attendance.group_hr_attendance_user'))]"/>
+        <field name="groups_id" eval="[(4, ref('hr_attendance.group_hr_attendance'))]"/>
     </record>
 
     <menuitem id="menu_hr_attendance_report"
