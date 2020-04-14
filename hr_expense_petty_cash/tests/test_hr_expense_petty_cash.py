@@ -159,7 +159,7 @@ class TestHrExpensePettyCash(common.TransactionCase):
             expense._onchange_product_id()
 
         # Submitted to Manager
-        expense_report.action_submit_sheet()
+        expense_report.submit_expenses()
         self.assertEquals(expense_report.state, 'submit')
 
         # Approve
@@ -192,7 +192,7 @@ class TestHrExpensePettyCash(common.TransactionCase):
             expense._onchange_product_id()
 
         # Submitted to Manager
-        expense_report.action_submit_sheet()
+        expense_report.submit_expenses()
         self.assertEquals(expense_report.state, 'submit')
 
         # Approve
@@ -228,7 +228,7 @@ class TestHrExpensePettyCash(common.TransactionCase):
         expense_2._onchange_product_id()
         expense = self.env['hr.expense'].search([('id', 'in', (
             expense_1.id, expense_2.id))])
-        expense.action_submit_expenses()
+        expense.submit_expenses()
 
     def test_multiexpense_multipettycashholder(self):
         pc_holder_1 = self.create_petty_cash_holder(self.partner_1, 1000)
@@ -254,4 +254,4 @@ class TestHrExpensePettyCash(common.TransactionCase):
         expenses = self.env['hr.expense'].search([(
             'id', 'in', (expense_1.id, expense_2.id))])
         with self.assertRaises(ValidationError):
-            expenses.action_submit_expenses()
+            expenses.submit_expenses()

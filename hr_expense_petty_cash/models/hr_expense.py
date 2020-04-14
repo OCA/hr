@@ -20,8 +20,8 @@ class HrExpense(models.Model):
     )
 
     @api.multi
-    def action_submit_expenses(self):
-        res = super().action_submit_expenses()
+    def submit_expenses(self):
+        res = super().submit_expenses()
         context = res['context']
         context['default_expense_line_ids'] = self.ids
         context['default_name'] = self[0].name if len(self) == 1 else ''
@@ -36,8 +36,8 @@ class HrExpense(models.Model):
                                     'many petty cash holders.'))
 
     @api.multi
-    def _get_account_move_line_values(self):
-        res = super()._get_account_move_line_values()
+    def _move_line_get(self):
+        res = super()._move_line_get()
         for expense in self.filtered(
                 lambda p: p.payment_mode == 'petty_cash'):
             line = res[expense.id][1]
