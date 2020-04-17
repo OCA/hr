@@ -129,8 +129,8 @@ msgid "Number of days"
 msgstr ""
 
 #. module: hr_holidays_imposed_days
-#: code:addons/hr_holidays_imposed_days/models/hr_imposed_holidays.py:95
-#: code:addons/hr_holidays_imposed_days/models/hr_imposed_holidays.py:121
+#: code:addons/hr_holidays_imposed_days/models/hr_imposed_holidays.py:99
+#: code:addons/hr_holidays_imposed_days/models/hr_imposed_holidays.py:125
 #, python-format
 msgid "The start date must be anterior to the end date."
 msgstr ""
