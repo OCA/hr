@@ -42,7 +42,7 @@ def post_load_hook():
         )
         day_total = defaultdict(float)
         for start, stop, meta in intervals:
-            day_total[start.date()] += (stop - start).total_seconds() / 3600
+            day_total[start.date()] += self._get_work_hours(start, stop, meta)
 
         # actual hours per day
         if compute_leaves:
