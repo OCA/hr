@@ -196,16 +196,6 @@ msgid "Name"
 msgstr "Nom"
 
 #. module: hr_holidays_public
-#: code:addons/hr_holidays_public/wizards/holidays_public_next_year_wizard.py:40
-#, python-format
-msgid ""
-"No Public Holidays found as template. Please create the first Public "
-"Holidays manually."
-msgstr ""
-"No s'ha trobat plantilla de Festius. Si us plau, creu el primer calendari de "
-"Festius manualment."
-
-#. module: hr_holidays_public
 #: model:ir.model.fields,field_description:hr_holidays_public.field_public_holidays_next_year_wizard__pending_lines
 msgid "Pending Lines"
 msgstr ""
@@ -322,17 +312,6 @@ msgid "You can't create duplicate public holiday per year and/or country"
 msgstr "No pot crear festius duplicats per a l'any i/o país"
 
 #. module: hr_holidays_public
-#: code:addons/hr_holidays_public/wizards/holidays_public_next_year_wizard.py:76
-#, python-format
-msgid ""
-"You cannot use as template the public holidays of a year that includes "
-"public holidays on 29th of February (2016, 2020...), please select a "
-"template from another year."
-msgstr ""
-"No es pot utilitzar com a plantilla un calendari que inclou un festiu el 29 "
-"de Febrer, si us plau seleccioni una plantilla d'un altre any."
-
-#. module: hr_holidays_public
 #: code:addons/hr_holidays_public/wizards/holidays_public_next_year_wizard.py:88
 #, fuzzy, python-format
 #| msgid ""
@@ -346,6 +325,21 @@ msgid ""
 msgstr ""
 "No es pot utilitzar com a plantilla un calendari que inclou un festiu el 29 "
 "de Febrer, si us plau seleccioni una plantilla d'un altre any."
+
+#~ msgid ""
+#~ "No Public Holidays found as template. Please create the first Public "
+#~ "Holidays manually."
+#~ msgstr ""
+#~ "No s'ha trobat plantilla de Festius. Si us plau, creu el primer calendari "
+#~ "de Festius manualment."
+
+#~ msgid ""
+#~ "You cannot use as template the public holidays of a year that includes "
+#~ "public holidays on 29th of February (2016, 2020...), please select a "
+#~ "template from another year."
+#~ msgstr ""
+#~ "No es pot utilitzar com a plantilla un calendari que inclou un festiu el "
+#~ "29 de Febrer, si us plau seleccioni una plantilla d'un altre any."
 
 #~ msgid ""
 #~ "By default, the most recent public holidays\n"
