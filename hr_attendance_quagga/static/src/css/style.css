@@ -1,0 +1,17 @@
+#btn-stop{
+	display: none;
+	margin: 0 auto;
+}
+#btn-start{
+	margin: 0 auto;
+}
+#scanner-container{
+	display: none;
+	margin-bottom: 20px;
+}
+.modal-attendance{
+	text-align: center;
+}
+.text-attendance{
+	font-size: 20px;
+}
