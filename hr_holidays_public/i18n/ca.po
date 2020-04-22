@@ -19,21 +19,10 @@ msgstr ""
 #. module: hr_holidays_public
 #: model_terms:ir.ui.view,arch_db:hr_holidays_public.holidays_public_next_year_wizard_view
 msgid ""
-"By default, the most recent public holidays\n"
-"                            for each country are used as template to create\n"
-"                            public holidays for the year following the "
-"templates.\n"
-"                            <br/><br/>\n"
-"                            Normally, you should not need to input anything "
-"in\n"
-"                            optional fields and only need to click on the "
-"button\n"
-"                            \"Create\"."
+"<i class=\"fa fa-info-circle\"/>\n"
+"                        <span>Warning: A public holidays calendar for this "
+"country and year already exists!</span>"
 msgstr ""
-"Per defecte els festius més recents de cada país s'utilitzen com a plantilla "
-"per crear el calendari de l'any següent.\n"
-"<br/> <br/>\n"
-"Normalment no caldrà que s'introdueixi res, només cal clica a 'Crea'."
 
 #. module: hr_holidays_public
 #: model:ir.model.fields,field_description:hr_holidays_public.field_hr_holidays_public__year
@@ -48,6 +37,7 @@ msgstr "Cancel·lar"
 
 #. module: hr_holidays_public
 #: model:ir.model.fields,field_description:hr_holidays_public.field_hr_holidays_public__country_id
+#: model:ir.model.fields,field_description:hr_holidays_public.field_public_holidays_next_year_wizard__country_id
 msgid "Country"
 msgstr "País"
 
@@ -66,6 +56,7 @@ msgstr "Crea els festius de l'any vinent"
 #. module: hr_holidays_public
 #: model:ir.model.fields,field_description:hr_holidays_public.field_hr_holidays_public__create_uid
 #: model:ir.model.fields,field_description:hr_holidays_public.field_hr_holidays_public_line__create_uid
+#: model:ir.model.fields,field_description:hr_holidays_public.field_hr_holidays_public_line_transient__create_uid
 #: model:ir.model.fields,field_description:hr_holidays_public.field_public_holidays_next_year_wizard__create_uid
 msgid "Created by"
 msgstr "Creat per"
@@ -73,6 +64,7 @@ msgstr "Creat per"
 #. module: hr_holidays_public
 #: model:ir.model.fields,field_description:hr_holidays_public.field_hr_holidays_public__create_date
 #: model:ir.model.fields,field_description:hr_holidays_public.field_hr_holidays_public_line__create_date
+#: model:ir.model.fields,field_description:hr_holidays_public.field_hr_holidays_public_line_transient__create_date
 #: model:ir.model.fields,field_description:hr_holidays_public.field_public_holidays_next_year_wizard__create_date
 msgid "Created on"
 msgstr "Creat el"
@@ -84,6 +76,7 @@ msgstr "Crea festius a partir dels ja existents"
 
 #. module: hr_holidays_public
 #: model:ir.model.fields,field_description:hr_holidays_public.field_hr_holidays_public_line__date
+#: model:ir.model.fields,field_description:hr_holidays_public.field_hr_holidays_public_line_transient__date
 msgid "Date"
 msgstr "Data"
 
@@ -104,11 +97,26 @@ msgstr ""
 
 #. module: hr_holidays_public
 #: model_terms:ir.ui.view,arch_db:hr_holidays_public.holidays_public_next_year_wizard_view
-msgid "Defaults"
-msgstr "Predeterminat"
+msgid "Days to Review"
+msgstr ""
+
+#. module: hr_holidays_public
+#: model_terms:ir.ui.view,arch_db:hr_holidays_public.holidays_public_next_year_wizard_view
+msgid ""
+"Days to review are those that were marked with variable date\n"
+"                        in template's calendar. Here you can modify the date "
+"in case\n"
+"                        it is not the same than in the template."
+msgstr ""
+
+#. module: hr_holidays_public
+#: model:ir.model.fields,field_description:hr_holidays_public.field_hr_holidays_public_line_transient__name
+msgid "Description"
+msgstr ""
 
 #. module: hr_holidays_public
 #: model:ir.model.fields,field_description:hr_holidays_public.field_hr_holidays_public_line__display_name
+#: model:ir.model.fields,field_description:hr_holidays_public.field_hr_holidays_public_line_transient__display_name
 #: model:ir.model.fields,field_description:hr_holidays_public.field_public_holidays_next_year_wizard__display_name
 msgid "Display Name"
 msgstr "Nom de visualització"
@@ -126,6 +134,7 @@ msgstr "Dates de festius"
 #. module: hr_holidays_public
 #: model:ir.model.fields,field_description:hr_holidays_public.field_hr_holidays_public__id
 #: model:ir.model.fields,field_description:hr_holidays_public.field_hr_holidays_public_line__id
+#: model:ir.model.fields,field_description:hr_holidays_public.field_hr_holidays_public_line_transient__id
 #: model:ir.model.fields,field_description:hr_holidays_public.field_public_holidays_next_year_wizard__id
 msgid "ID"
 msgstr "ID"
@@ -139,6 +148,7 @@ msgstr ""
 #. module: hr_holidays_public
 #: model:ir.model.fields,field_description:hr_holidays_public.field_hr_holidays_public____last_update
 #: model:ir.model.fields,field_description:hr_holidays_public.field_hr_holidays_public_line____last_update
+#: model:ir.model.fields,field_description:hr_holidays_public.field_hr_holidays_public_line_transient____last_update
 #: model:ir.model.fields,field_description:hr_holidays_public.field_public_holidays_next_year_wizard____last_update
 msgid "Last Modified on"
 msgstr "Darrera modificació de"
@@ -146,6 +156,7 @@ msgstr "Darrera modificació de"
 #. module: hr_holidays_public
 #: model:ir.model.fields,field_description:hr_holidays_public.field_hr_holidays_public__write_uid
 #: model:ir.model.fields,field_description:hr_holidays_public.field_hr_holidays_public_line__write_uid
+#: model:ir.model.fields,field_description:hr_holidays_public.field_hr_holidays_public_line_transient__write_uid
 #: model:ir.model.fields,field_description:hr_holidays_public.field_public_holidays_next_year_wizard__write_uid
 msgid "Last Updated by"
 msgstr "Darrera actualització de"
@@ -153,6 +164,7 @@ msgstr "Darrera actualització de"
 #. module: hr_holidays_public
 #: model:ir.model.fields,field_description:hr_holidays_public.field_hr_holidays_public__write_date
 #: model:ir.model.fields,field_description:hr_holidays_public.field_hr_holidays_public_line__write_date
+#: model:ir.model.fields,field_description:hr_holidays_public.field_hr_holidays_public_line_transient__write_date
 #: model:ir.model.fields,field_description:hr_holidays_public.field_public_holidays_next_year_wizard__write_date
 msgid "Last Updated on"
 msgstr "Darrera actualització el"
@@ -166,6 +178,11 @@ msgstr "Absència"
 #: model:ir.model,name:hr_holidays_public.model_hr_leave_type
 msgid "Leave Type"
 msgstr "Tipus absència"
+
+#. module: hr_holidays_public
+#: model:ir.model.fields,field_description:hr_holidays_public.field_hr_holidays_public_line_transient__line_id
+msgid "Line"
+msgstr ""
 
 #. module: hr_holidays_public
 #: model:ir.model.fields,field_description:hr_holidays_public.field_hr_holidays_public_line__meeting_id
@@ -189,9 +206,9 @@ msgstr ""
 "Festius manualment."
 
 #. module: hr_holidays_public
-#: model_terms:ir.ui.view,arch_db:hr_holidays_public.holidays_public_next_year_wizard_view
-msgid "Optional"
-msgstr "Opcional"
+#: model:ir.model.fields,field_description:hr_holidays_public.field_public_holidays_next_year_wizard__pending_lines
+msgid "Pending Lines"
+msgstr ""
 
 #. module: hr_holidays_public
 #: model:ir.actions.act_window,name:hr_holidays_public.open_holidays_public_view
@@ -220,59 +237,54 @@ msgid "Resource Working Time"
 msgstr "Horari de treball"
 
 #. module: hr_holidays_public
-#: model:ir.model.fields,help:hr_holidays_public.field_public_holidays_next_year_wizard__template_ids
-msgid ""
-"Select the public holidays to use as template. If not set, latest public "
-"holidays of each country will be used. Only the last templates of each "
-"country for each year will be taken into account (If you select templates "
-"from 2012 and 2015, only the templates from 2015 will be taken into account."
+#: model:ir.model.fields,help:hr_holidays_public.field_public_holidays_next_year_wizard__template_id
+msgid "Select the public holidays to use as template."
 msgstr ""
-"Seleccioneu el calendari de festius a fer servir com a plantilla. Si no se "
-"selecciona, el calendari més recent es farà servir per a cada país. Només la "
-"plantilla més recent s'utilitzarà per a cada país (si seleccioneu una "
-"plantilla de 2012 i una altra de 2015, només es tindrà en compte la de l'any "
-"2015)."
 
 #. module: hr_holidays_public
-#: model:ir.model.fields,field_description:hr_holidays_public.field_public_holidays_next_year_wizard__template_ids
-msgid "Templates"
+#: model:ir.model.fields,field_description:hr_holidays_public.field_hr_holidays_public_line_transient__state_ids
+msgid "State"
+msgstr ""
+
+#. module: hr_holidays_public
+#: model:ir.model.fields,field_description:hr_holidays_public.field_public_holidays_next_year_wizard__template_id
+#, fuzzy
+#| msgid "Templates"
+msgid "Template"
 msgstr "Plantilles"
 
 #. module: hr_holidays_public
 #: model_terms:ir.ui.view,arch_db:hr_holidays_public.holidays_public_next_year_wizard_view
 msgid ""
-"The below optional fields are here only to handle\n"
-"                            special situations like \"2011 was a special "
-"year with\n"
-"                            an additional public holiday for the 150th\n"
-"                            anniversary of the Italian unification, so you "
-"want to\n"
-"                            replicate the 2010 Italian holidays to 2012.\""
+"Use this wizard to create public holidays based on existing ones.\n"
+"                        If this is the first time you are creating a "
+"calendar,\n"
+"                        you should create it manually since this wizard "
+"takes\n"
+"                        previous years' calendars as templates.<br/>"
 msgstr ""
-"Els següents camps opcionals es fan servir per bregar amb casos especials, "
-"per exemple en 2011 hi va haver un festiu extra a Itàlia per la celebració "
-"de el 150 aniversari de la unificació, així que el que es vol és replicar de "
-"2010 a 2012"
 
 #. module: hr_holidays_public
 #: model_terms:ir.ui.view,arch_db:hr_holidays_public.holidays_public_next_year_wizard_view
-msgid ""
-"Use this wizard to create public holidays based on the\n"
-"                            existing ones.<br/>\n"
-"                            Only the last templates of each country\n"
-"                            will be taken into account (If you select "
-"templates\n"
-"                            from 2012 and 2015 of the same country; '\n"
-"                            only the templates from 2015 will be taken into\n"
-"                            account)."
+msgid "Warning"
 msgstr ""
-"Utilitza aquest wizard per crear el calendari de Festius a partir\n"
-"                            dels ja existents.<br/>\n"
-"                            Només la plantilla més recent s'utilitzarà\n"
-"                            per a cada país (si seleccioneu una plantilla de "
-"2012\n"
-"                             i una altra de 2015, només es tindrà en compte "
-"la de l'any 2015)."
+
+#. module: hr_holidays_public
+#: model:ir.model.fields,field_description:hr_holidays_public.field_public_holidays_next_year_wizard__warning_existing
+msgid "Warning Existing"
+msgstr ""
+
+#. module: hr_holidays_public
+#: model:ir.model.fields,field_description:hr_holidays_public.field_hr_holidays_public_line_transient__wizard_id
+msgid "Wizard"
+msgstr ""
+
+#. module: hr_holidays_public
+#: model:ir.model,name:hr_holidays_public.model_hr_holidays_public_line_transient
+#, fuzzy
+#| msgid "Public Holidays Lines"
+msgid "Wizard Public Holiday Lines"
+msgstr "Línies d'Festius"
 
 #. module: hr_holidays_public
 #: model:ir.model.fields,field_description:hr_holidays_public.field_public_holidays_next_year_wizard__year
@@ -319,3 +331,88 @@ msgid ""
 msgstr ""
 "No es pot utilitzar com a plantilla un calendari que inclou un festiu el 29 "
 "de Febrer, si us plau seleccioni una plantilla d'un altre any."
+
+#. module: hr_holidays_public
+#: code:addons/hr_holidays_public/wizards/holidays_public_next_year_wizard.py:88
+#, fuzzy, python-format
+#| msgid ""
+#| "You cannot use as template the public holidays of a year that includes "
+#| "public holidays on 29th of February (2016, 2020...), please select a "
+#| "template from another year."
+msgid ""
+"You cannot use as template the public holidays of a year that includes "
+"public holidays on 29th of February(2016, 2020...), please select a template "
+"from another year."
+msgstr ""
+"No es pot utilitzar com a plantilla un calendari que inclou un festiu el 29 "
+"de Febrer, si us plau seleccioni una plantilla d'un altre any."
+
+#~ msgid ""
+#~ "By default, the most recent public holidays\n"
+#~ "                            for each country are used as template to "
+#~ "create\n"
+#~ "                            public holidays for the year following the "
+#~ "templates.\n"
+#~ "                            <br/><br/>\n"
+#~ "                            Normally, you should not need to input "
+#~ "anything in\n"
+#~ "                            optional fields and only need to click on the "
+#~ "button\n"
+#~ "                            \"Create\"."
+#~ msgstr ""
+#~ "Per defecte els festius més recents de cada país s'utilitzen com a "
+#~ "plantilla per crear el calendari de l'any següent.\n"
+#~ "<br/> <br/>\n"
+#~ "Normalment no caldrà que s'introdueixi res, només cal clica a 'Crea'."
+
+#~ msgid "Defaults"
+#~ msgstr "Predeterminat"
+
+#~ msgid "Optional"
+#~ msgstr "Opcional"
+
+#~ msgid ""
+#~ "Select the public holidays to use as template. If not set, latest public "
+#~ "holidays of each country will be used. Only the last templates of each "
+#~ "country for each year will be taken into account (If you select templates "
+#~ "from 2012 and 2015, only the templates from 2015 will be taken into "
+#~ "account."
+#~ msgstr ""
+#~ "Seleccioneu el calendari de festius a fer servir com a plantilla. Si no "
+#~ "se selecciona, el calendari més recent es farà servir per a cada país. "
+#~ "Només la plantilla més recent s'utilitzarà per a cada país (si "
+#~ "seleccioneu una plantilla de 2012 i una altra de 2015, només es tindrà en "
+#~ "compte la de l'any 2015)."
+
+#~ msgid ""
+#~ "The below optional fields are here only to handle\n"
+#~ "                            special situations like \"2011 was a special "
+#~ "year with\n"
+#~ "                            an additional public holiday for the 150th\n"
+#~ "                            anniversary of the Italian unification, so "
+#~ "you want to\n"
+#~ "                            replicate the 2010 Italian holidays to 2012.\""
+#~ msgstr ""
+#~ "Els següents camps opcionals es fan servir per bregar amb casos "
+#~ "especials, per exemple en 2011 hi va haver un festiu extra a Itàlia per "
+#~ "la celebració de el 150 aniversari de la unificació, així que el que es "
+#~ "vol és replicar de 2010 a 2012"
+
+#~ msgid ""
+#~ "Use this wizard to create public holidays based on the\n"
+#~ "                            existing ones.<br/>\n"
+#~ "                            Only the last templates of each country\n"
+#~ "                            will be taken into account (If you select "
+#~ "templates\n"
+#~ "                            from 2012 and 2015 of the same country; '\n"
+#~ "                            only the templates from 2015 will be taken "
+#~ "into\n"
+#~ "                            account)."
+#~ msgstr ""
+#~ "Utilitza aquest wizard per crear el calendari de Festius a partir\n"
+#~ "                            dels ja existents.<br/>\n"
+#~ "                            Només la plantilla més recent s'utilitzarà\n"
+#~ "                            per a cada país (si seleccioneu una plantilla "
+#~ "de 2012\n"
+#~ "                             i una altra de 2015, només es tindrà en "
+#~ "compte la de l'any 2015)."
