@@ -1,0 +1,45 @@
+<odoo>
+  <data>
+    <!-- employee kanban view specifically for hr_attendance (to check in/out) -->
+    <record id="hr_employees_view_kanban_ntf" model="ir.ui.view">
+      <field name="name">hr.employee.kanban_ntf</field>
+      <field name="model">hr.employee</field>
+      <field name="priority">99</field>
+      <field name="inherit_id" ref="hr_attendance.hr_employees_view_kanban" />
+      <field name="arch" type="xml">
+        <div class="oe_kanban_global_click" position="replace">
+          <div class="oe_kanban_global_click"
+          t-att-barcode="record.barcode.value">
+            <div class="o_kanban_image">
+              <img t-att-src="kanban_image('hr.employee', 'image_medium', record.id.value)" />
+            </div>
+            <div class="oe_kanban_details">
+              <div id="textbox">
+                <div class="col-xs-11" style="padding:0px">
+                  <strong>
+                    <field name="name" />
+                  </strong>
+                </div>
+                <div class="col-xs-1" style="padding:0px">
+                  <field name="attendance_state"
+                  widget="hr_attendance_kanban_presence_indicator" />
+                </div>
+              </div>
+              <ul>
+                <li t-if="record.job_id.raw_value">
+                  <field name="job_id" />
+                </li>
+                <li t-if="record.work_location.raw_value">
+                  <field name="work_location" />
+                </li>
+                <li t-if="record.barcode.raw_value">
+                  <field name="barcode" />
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </field>
+    </record>
+  </data>
+</odoo>

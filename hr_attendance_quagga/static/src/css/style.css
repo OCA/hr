@@ -1,0 +1,18 @@
+#btn-stop{
+	display: none;
+}
+#scanner-container{
+	display: none;
+}
+.modal-attendance{
+	text-align: center;
+}
+.text-attendance{
+	font-size: 20px;
+}
+.o_hr_attendance_kiosk_mode{
+	-ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    position: absolute !important;
+    top: 50%;
+}

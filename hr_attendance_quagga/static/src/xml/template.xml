@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-extend="HrAttendanceKioskMode">
+        <t t-jquery="img" t-operation="after">
+        	<audio id="audio" src="/hr_attendance_quagga/static/src/sound/beep.mp3" style="display:none"></audio>
+            <div id="scanner-container"></div>
+        </t>
+        <t t-jquery=".o_hr_attendance_kiosk_mode h2" t-operation="replace">
+            <button type="button" id="btn-start" class="btn btn-warning btn-lg btn-block">Scan your badge</button>
+            <button type="button" id="btn-stop" class="btn btn-danger btn-lg btn-block">Stop Scan</button>
+        </t>
+    </t>
+
+</templates>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="assets_backend" name="account assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <script src="/hr_attendance_quagga/static/src/js/quagga.js"></script>
+                <script src="/hr_attendance_quagga/static/src/js/quagga_script.js"></script>
+                <link rel="stylesheet" href="/hr_attendance_quagga/static/src/css/style.css" type="text/css"/>
+            </xpath>
+        </template>
+    </data>
+</odoo>
