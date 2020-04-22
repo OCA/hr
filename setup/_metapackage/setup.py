@@ -12,6 +12,7 @@ setuptools.setup(
         'odoo13-addon-hr_employee_age',
         'odoo13-addon-hr_employee_firstname',
         'odoo13-addon-hr_employee_phone_extension',
+        'odoo13-addon-hr_employee_service',
     ],
     classifiers=[
         'Programming Language :: Python',
