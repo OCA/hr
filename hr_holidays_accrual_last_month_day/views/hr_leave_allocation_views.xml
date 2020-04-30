@@ -1,0 +1,14 @@
+<odoo>
+    <record id="hr_leave_allocation_view_form_last_month_day" model="ir.ui.view">
+        <field name="name">hr.leave.allocation.view.form.last.month.day</field>
+        <field name="model">hr.leave.allocation</field>
+        <field name="inherit_id" ref="hr_holidays.hr_leave_allocation_view_form_manager"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet//group//div/div" position="before">
+                <div class="o_row" attrs="{'invisible': [('interval_unit', '!=', 'months')]}">
+                    Force last month day <field name="force_last_month_day"/>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
