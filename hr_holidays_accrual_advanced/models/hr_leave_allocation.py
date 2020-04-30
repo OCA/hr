@@ -3,6 +3,7 @@
 
 import logging
 
+import calendar
 from collections import namedtuple, defaultdict
 from math import ceil
 from datetime import datetime, timedelta
@@ -110,6 +111,8 @@ class HrLeaveAllocation(models.Model):
             ('prorate', 'Prorate'),
             ('period_start', 'At the beginning of the period'),
             ('period_end', 'At the end of the period'),
+            ('start_of_month', 'First day of month'),
+            ('end_of_month', 'Last day of month'),
         ],
         string='Accrual Method',
         default='prorate',
@@ -239,6 +242,18 @@ class HrLeaveAllocation(models.Model):
 
         for allocation in allocations:
             allocation._update_accrual_allocation()
+
+        holidays = self.search([
+            ('accrual', '=', True), ('employee_id.active', '=', True),
+            ('state', '=', 'validate'), ('holiday_type', '=', 'employee'),
+            ('accrual_method', 'in', ('start_of_month', 'end_of_month')), '|', ('date_to', '=', False),
+            ('date_to', '>', fields.Datetime.now()), ('nextcall', '!=', False)])
+        for holiday in holidays:
+            if holiday.accrual_method == 'start_of_month':
+                holiday.nextcall = holiday.nextcall.replace(day=1)
+            elif holiday. accrual_method == 'end_of_month':
+                last_day_of_month = calendar.monthrange(holiday.nextcall.year, holiday.nextcall.month)[1]
+                holiday.nextcall = holiday.nextcall.replace(day=last_day_of_month)
 
     @api.multi
     def _update_accrual_allocation(self):

@@ -5,5 +5,8 @@ introducing following extra features:
  * Accrual allocation history
  * Accrual allocation calculator ("How many leave days I'll have in 3 months from today?")
  * Various accrual methods
+   - Start/End of Period
+   - Prorate
+   - Start/End of Month
  * Various limits to express complex corporate accrual leave policies
  * Takes into account employee service period instead of ``create_date``
