@@ -4,7 +4,7 @@
         <field name="model">hr.leave.allocation</field>
         <field name="inherit_id" ref="hr_holidays.hr_leave_allocation_view_form_manager"/>
         <field name="arch" type="xml">
-            <xpath expr="//sheet/group/div/div" position="before">
+            <xpath expr="//field[@name='accrual']" position="after">
                 <div class="o_row" attrs="{'invisible': [('interval_unit', '!=', 'months')]}">
                     Force last month day <field name="force_last_month_day"/>
                 </div>
