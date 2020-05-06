@@ -1,7 +1,7 @@
 # Copyright 2019 Tecnativa - Pedro M. Baeza
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-from odoo import _, api, fields, models
+from odoo import _, fields, models
 
 
 class HrEmployee(models.Model):
@@ -50,6 +50,7 @@ class HrEmployee(models.Model):
 class HrEmployeeCalendar(models.Model):
     _name = "hr.employee.calendar"
     _description = "Employee Calendar"
+    _order = "date_end desc"
 
     date_start = fields.Date(string="Start Date",)
     date_end = fields.Date(string="End Date",)
@@ -68,20 +69,17 @@ class HrEmployeeCalendar(models.Model):
         ),
     ]
 
-    @api.model
     def create(self, vals):
         record = super(HrEmployeeCalendar, self).create(vals)
         record.employee_id._regenerate_calendar()
         return record
 
-    @api.multi
     def write(self, vals):
         res = super(HrEmployeeCalendar, self).write(vals)
         for employee in self.mapped("employee_id"):
             employee._regenerate_calendar()
         return res
 
-    @api.multi
     def unlink(self):
         employees = self.mapped("employee_id")
         res = super(HrEmployeeCalendar, self).unlink()
