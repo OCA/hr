@@ -1,11 +1,11 @@
 # Copyright 2019 Tecnativa - Pedro M. Baeza
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-from odoo import api, fields, models, _
+from odoo import _, api, fields, models
 
 
 class HrEmployee(models.Model):
-    _inherit = 'hr.employee'
+    _inherit = "hr.employee"
 
     calendar_ids = fields.One2many(
         comodel_name="hr.employee.calendar",
@@ -16,23 +16,30 @@ class HrEmployee(models.Model):
     def _regenerate_calendar(self):
         self.ensure_one()
         if not self.resource_calendar_id or self.resource_calendar_id.active:
-            self.resource_calendar_id = self.env['resource.calendar'].create({
-                'active': False,
-                'name': _(
-                    'Auto generated calendar for employee'
-                ) + ' %s' % self.name,
-                'attendance_ids': [],
-            }).id
+            self.resource_calendar_id = (
+                self.env["resource.calendar"]
+                .create(
+                    {
+                        "active": False,
+                        "name": _("Auto generated calendar for employee")
+                        + " %s" % self.name,
+                        "attendance_ids": [],
+                    }
+                )
+                .id
+            )
         else:
             self.resource_calendar_id.attendance_ids.unlink()
         vals_list = []
         for line in self.calendar_ids:
             for attendance_line in line.calendar_id.attendance_ids:
-                data = attendance_line.copy_data({
-                    'calendar_id': self.resource_calendar_id.id,
-                    'date_from': line.date_start,
-                    'date_to': line.date_end,
-                })[0]
+                data = attendance_line.copy_data(
+                    {
+                        "calendar_id": self.resource_calendar_id.id,
+                        "date_from": line.date_start,
+                        "date_to": line.date_end,
+                    }
+                )[0]
                 vals_list.append((0, 0, data))
         self.resource_calendar_id.attendance_ids = vals_list
 
@@ -41,30 +48,24 @@ class HrEmployee(models.Model):
 
 
 class HrEmployeeCalendar(models.Model):
-    _name = 'hr.employee.calendar'
-    _description = 'Employee Calendar'
+    _name = "hr.employee.calendar"
+    _description = "Employee Calendar"
 
-    date_start = fields.Date(
-        string="Start Date",
-    )
-    date_end = fields.Date(
-        string="End Date",
-    )
+    date_start = fields.Date(string="Start Date",)
+    date_end = fields.Date(string="End Date",)
     employee_id = fields.Many2one(
-        comodel_name="hr.employee",
-        string="Employee",
-        required=True,
+        comodel_name="hr.employee", string="Employee", required=True,
     )
     calendar_id = fields.Many2one(
-        comodel_name="resource.calendar",
-        string="Working Time",
-        required=True,
+        comodel_name="resource.calendar", string="Working Time", required=True,
     )
 
     _sql_constraints = [
-        ('date_consistency',
-         'CHECK(date_start <= date_end)',
-         'Date end should be higher than date start'),
+        (
+            "date_consistency",
+            "CHECK(date_start <= date_end)",
+            "Date end should be higher than date start",
+        ),
     ]
 
     @api.model
@@ -76,13 +77,13 @@ class HrEmployeeCalendar(models.Model):
     @api.multi
     def write(self, vals):
         res = super(HrEmployeeCalendar, self).write(vals)
-        for employee in self.mapped('employee_id'):
+        for employee in self.mapped("employee_id"):
             employee._regenerate_calendar()
         return res
 
     @api.multi
     def unlink(self):
-        employees = self.mapped('employee_id')
+        employees = self.mapped("employee_id")
         res = super(HrEmployeeCalendar, self).unlink()
         for employee in employees:
             employee._regenerate_calendar()
