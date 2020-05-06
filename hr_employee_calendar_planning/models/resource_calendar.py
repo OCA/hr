@@ -1,15 +1,14 @@
 # Copyright 2019 Tecnativa - Pedro M. Baeza
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-from odoo import api, fields, models
+from odoo import fields, models
 
 
 class ResourceCalendar(models.Model):
     _inherit = "resource.calendar"
 
-    active = fields.Boolean(default=True,)
+    active = fields.Boolean(default=True)
 
-    @api.multi
     def write(self, vals):
         res = super(ResourceCalendar, self).write(vals)
         for record in self.filtered("active"):
