@@ -92,7 +92,7 @@ class TestHrEmployeeCalendarPlanning(common.SavepointCase):
             ),
             10,
         )
-        self.employee.calendar_ids[0].unlink()
+        calendar_line.unlink()
         self.assertEqual(
             len(
                 calendar.attendance_ids.filtered(
