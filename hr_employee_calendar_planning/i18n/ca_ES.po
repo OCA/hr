@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* hr_employee_calendar_planning
+# 	* hr_employee_calendar_planning
 #
 msgid ""
 msgstr ""
@@ -20,7 +20,7 @@ msgid "Active"
 msgstr ""
 
 #. module: hr_employee_calendar_planning
-#: code:addons/hr_employee_calendar_planning/models/hr_employee.py:21
+#: code:addons/hr_employee_calendar_planning/models/hr_employee.py:0
 #, python-format
 msgid "Auto generated calendar for employee"
 msgstr ""
@@ -41,7 +41,7 @@ msgid "Created on"
 msgstr ""
 
 #. module: hr_employee_calendar_planning
-#: sql_constraint:hr.employee.calendar:0
+#: model:ir.model.constraint,message:hr_employee_calendar_planning.constraint_hr_employee_calendar_date_consistency
 msgid "Date end should be higher than date start"
 msgstr ""
 

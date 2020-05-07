@@ -36,8 +36,8 @@ class TestHrEmployeeCalendarPlanning(common.SavepointCase):
                     {
                         "name": "Attendance",
                         "dayofweek": str(day),
-                        "hour_from": "14",
-                        "hour_to": "18",
+                        "hour_from": "13",
+                        "hour_to": "17",
                     },
                 ),
             ]
@@ -119,6 +119,20 @@ class TestHrEmployeeCalendarPlanning(common.SavepointCase):
             }
         )
         self.assertEqual(len(calendar.attendance_ids), 6)
+
+        # 2 week calendars
+        self.employee.calendar_ids = [
+            (0, 0, {"date_end": "2019-12-31", "calendar_id": self.calendar1.id})
+        ]
+        self.calendar1.switch_calendar_type()
+
+        self.assertTrue(self.employee.resource_calendar_id.two_weeks_calendar)
+
+        # Calendar 1 has 20 lines + Calendar 2 has 6 lines that are duplicated
+        # in the odd and even week + even week label + odd week label
+        self.assertEqual(
+            len(self.employee.resource_calendar_id.attendance_ids), 20 + 6 * 2 + 2
+        )
 
     def test_post_install_hook(self):
         self.employee.resource_calendar_id = self.calendar1.id
