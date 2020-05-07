@@ -11,10 +11,11 @@ class ResourceCalendar(models.Model):
 
     def write(self, vals):
         res = super(ResourceCalendar, self).write(vals)
-        for record in self.filtered("active"):
-            calendars = self.env["hr.employee.calendar"].search(
-                [("calendar_id", "=", record.id)]
-            )
-            for employee in calendars.mapped("employee_id"):
-                employee._regenerate_calendar()
+        if "attendance_ids" in vals:
+            for record in self.filtered("active"):
+                calendars = self.env["hr.employee.calendar"].search(
+                    [("calendar_id", "=", record.id)]
+                )
+                for employee in calendars.mapped("employee_id"):
+                    employee._regenerate_calendar()
         return res
