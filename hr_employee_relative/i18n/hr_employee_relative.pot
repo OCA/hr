@@ -1,12 +1,12 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* hr_employee_relative
+# 	* hr_employee_relative
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 12.0\n"
+"Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: <>\n"
+"Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -63,7 +63,7 @@ msgid "Employee Relatives"
 msgstr ""
 
 #. module: hr_employee_relative
-#: selection:hr.employee.relative,gender:0
+#: model:ir.model.fields.selection,name:hr_employee_relative.selection__hr_employee_relative__gender__female
 msgid "Female"
 msgstr ""
 
@@ -122,7 +122,7 @@ msgid "Last Updated on"
 msgstr ""
 
 #. module: hr_employee_relative
-#: selection:hr.employee.relative,gender:0
+#: model:ir.model.fields.selection,name:hr_employee_relative.selection__hr_employee_relative__gender__male
 msgid "Male"
 msgstr ""
 
@@ -137,7 +137,7 @@ msgid "Notes"
 msgstr ""
 
 #. module: hr_employee_relative
-#: selection:hr.employee.relative,gender:0
+#: model:ir.model.fields.selection,name:hr_employee_relative.selection__hr_employee_relative__gender__other
 msgid "Other"
 msgstr ""
 
@@ -182,4 +182,3 @@ msgstr ""
 #: model:hr.employee.relative.relation,name:hr_employee_relative.relation_spouse
 msgid "Spouse"
 msgstr ""
-
