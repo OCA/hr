@@ -15,5 +15,6 @@
     ],
     "data": [
         "views/employee_view.xml",
+        "data/ir_cron.xml"
     ],
 }
