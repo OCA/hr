@@ -31,19 +31,19 @@
             <xpath expr='//notebook' position="inside">
                 <page string="Family" groups="hr.group_hr_user">
                     <group>
-                        <group string="Spouse">
+                        <group string="Spouse" name="fam_spouse">
                             <field name="fam_spouse"/>
                             <field name="fam_spouse_employer"/>
                             <field name="fam_spouse_tel"/>
                         </group>
-                        <group string="Parents">
+                        <group string="Parents" name="fam_parents">
                             <field name="fam_father"/>
                             <field name="fam_father_date_of_birth"/>
                             <field name="fam_mother"/>
                             <field name="fam_mother_date_of_birth"/>
                         </group>
                     </group>
-                    <group string="Children">
+                    <group string="Children" name="fam_children">
                         <field name="fam_children_ids" nolabel="1"/>
                     </group>
                 </page>
