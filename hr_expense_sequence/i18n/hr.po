@@ -25,11 +25,11 @@ msgid "Expense Report"
 msgstr "Izvještaj troškova"
 
 #. module: hr_expense_sequence
-#: model_terms:ir.ui.view,arch_db:hr_expense_sequence.report_expense_sheet
+#: model:ir.ui.view,arch_db:hr_expense_sequence.report_expense_sheet
 msgid "Expenses Report"
 msgstr "Izvještaji troškova"
 
 #. module: hr_expense_sequence
-#: model:ir.model.fields,field_description:hr_expense_sequence.field_hr_expense_sheet__number
+#: model:ir.model.fields,field_description:hr_expense_sequence.field_hr_expense_sheet_number
 msgid "Number"
 msgstr "Broj"
