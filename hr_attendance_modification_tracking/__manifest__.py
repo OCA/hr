@@ -1,13 +1,14 @@
 # Copyright 2019 Creu Blanca
+# Copyright 2020 Landoo
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 {
-    'name': 'Hr Attendance Modification Tracking',
+    'name': 'HR Attendance Modification Tracking',
     'summary': """
         Attendance changes will now be registered in the chatter.""",
-    'version': '12.0.1.0.0',
+    'version': '12.0.1.1.0',
     'license': 'AGPL-3',
-    'author': 'Creu Blanca,Odoo Community Association (OCA)',
+    'author': 'Creu Blanca, Landoo, Odoo Community Association (OCA)',
     'website': 'https://github.com/OCA/hr',
     'depends': [
         'hr_attendance',
@@ -15,6 +16,7 @@
     ],
     'data': [
         'views/hr_attendance_view.xml',
+        'views/hr_attendance_view_tree.xml'
     ],
     'installable': True,
 }

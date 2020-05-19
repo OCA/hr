@@ -9,6 +9,9 @@
         <field name="model">hr.attendance</field>
         <field name="inherit_id" ref="hr_attendance.hr_attendance_view_form"/>
         <field name="arch" type="xml">
+             <field name="check_out"  position="after">
+                <field name="time_changed_manually"/>
+            </field>
             <sheet position="after">
                 <div class="oe_chatter">
                     <field name="message_follower_ids" widget="mail_followers"
