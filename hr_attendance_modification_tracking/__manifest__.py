@@ -16,7 +16,6 @@
     ],
     'data': [
         'views/hr_attendance_view.xml',
-        'views/hr_attendance_view_tree.xml'
     ],
     'installable': True,
 }
