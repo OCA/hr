@@ -74,7 +74,7 @@ odoo.define('hr_attendance_geolocation.attendances_geolocation', function (requi
             this._rpc({
                 model: 'hr.employee',
                 method: 'attendance_manual',
-                args: [[this.employee_id], this.next_action, null, [position.coords.latitude, position.coords.longitude]],
+                args: [[this.employee_id], this.next_action, this.$('.o_hr_attendance_PINbox').val(), [position.coords.latitude, position.coords.longitude]],
             })
             .then(function(result) {
                 if (result.action) {
