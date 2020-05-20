@@ -22,7 +22,7 @@
     <record id="hr_attendance_theoretical_view_pivot" model="ir.ui.view">
         <field name="model">hr.attendance.theoretical.time.report</field>
         <field name="arch" type="xml">
-            <pivot disable_linking="1">
+            <pivot string="Attendances" disable_linking="1">
                 <field name="employee_id" type="row"/>
                 <field name="date" type="col"/>
                 <field name="worked_hours" type="measure" widget="float_time"/>
