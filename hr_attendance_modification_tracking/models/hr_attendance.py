@@ -1,8 +1,9 @@
 # Copyright 2019 Creu Blanca
+# Copyright 2020 Landoo
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import fields, models
-from odoo.odoo import api
+from odoo import api, fields, models
+from datetime import timedelta
 
 
 class HrAttendance(models.Model):
@@ -27,20 +28,19 @@ class HrAttendance(models.Model):
     )
 
     @api.one
-    @api.depends('check_in','check_out')
+    @api.depends('message_ids.tracking_value_ids')
     def _compute_time_changed_manually(self):
-        if len(self.message_ids) > 3 and not self.time_changed_manually:
-            for message_attendance in self.message_ids:
-                if len(message_attendance.tracking_value_ids) > 0:
-                    tracking_filtered = message_attendance.tracking_value_ids.filtered(lambda t: t.old_value_datetime and (t.field =='check_in' or t.field =='check_out'))
-                    if tracking_filtered:
+        if not self.time_changed_manually:
+            # For manual attendance, tolerance to consider it acceptable
+            tolerance = timedelta(seconds=60)
+            for tracking in self.message_ids.mapped('tracking_value_ids'):
+                if (tracking.field in ['check_in', 'check_out']):
+                    # Attendance created from kiosk or check-in/check-out screen
+                    if tracking.old_value_datetime:
                         self.time_changed_manually = True
-
-    def write(self,values):
-        result = super(HrAttendance, self).write(values)
-        if len(self.message_ids) > 3 and not self.time_changed_manually:
-            self._compute_time_changed_manually()
-            self.write(values)
-        return result
-
-
+                    # Attendance created in form view, if check-in and check-out are in admitted tolerance,
+                    # they will not be considered "manually changed"
+                    else:
+                        diff = abs(tracking.new_value_datetime - tracking.mail_message_id.date)
+                        if diff > tolerance:
+                            self.time_changed_manually = True
