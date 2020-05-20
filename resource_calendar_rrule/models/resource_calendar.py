@@ -277,12 +277,26 @@ class ResourceCalendar(models.Model):
         # Filter attendances
         interval = None
         attendances = []
-        for i, attendance in enumerate(self.browse(id).attendance_ids):
+        for attendance in (
+            self.browse(id)
+            # Every context has a separate cache, which kills performance.
+            # Normalizing the cache for this lookup helps.
+            .with_context(start_dt_res_calendar=None, end_dt_res_calendar=None)
+            .attendance_ids
+        ):
             occurrence = None
             if attendance.rrule:
 
                 # Filter out attendances that dont occur in [start_dt, end_dt]
-                if start_dt and end_dt:
+
+                # rrule.between() is very slow, among other things because of
+                # a timezone conversion.
+                # A lot of the time we can tell from the weekday that the rrule
+                # doesn't apply, which saves us a .between() call.
+                byweekday = next(iter(attendance.rrule))["byweekday"]
+                if byweekday and not set(byweekday) & set(weekdays):
+                    occurrence = []
+                elif start_dt and end_dt:
                     occurrence = attendance.rrule.between(
                         start_dt_utc,
                         end_dt_utc,
