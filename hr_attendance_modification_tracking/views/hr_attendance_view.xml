@@ -10,7 +10,7 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
         <field name="model">hr.attendance</field>
         <field name="inherit_id" ref="hr_attendance.hr_attendance_view_form"/>
         <field name="arch" type="xml">
-             <field name="check_out"  position="after">
+            <field name="check_out" position="after">
                 <field name="time_changed_manually"/>
             </field>
             <sheet position="after">
@@ -23,33 +23,35 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
         </field>
     </record>
 
-<!--  insert in tree view 'Time Changed' new field  -->
-       <record id="hr_attendance_view_tree" model="ir.ui.view">
-        <field name="name">hr.attendance.view.tree</field>
+    <!--  insert in tree view 'Time Changed' new field  -->
+    <record id="hr_attendance_view_tree" model="ir.ui.view">
+        <field name="name">hr.attendance.tree</field>
         <field name="model">hr.attendance</field>
         <field name="type">tree</field>
         <field name="inherit_id" ref="hr_attendance.view_attendance_tree"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='check_out']" position="after">
-                     <field name="time_changed_manually"/>
+                <field name="time_changed_manually"/>
             </xpath>
         </field>
     </record>
 
-<!--  insert in search filter and Group by usint a new field 'Time Changed'  -->
-    	<record id="project_view_search_inherit" model="ir.ui.view">
-		<field name="name">hr.attendance.inherited.view</field>
-		<field name="model">hr.attendance</field>
-		<field name="inherit_id" ref="hr_attendance.hr_attendance_view_filter"/>
-		<field name="arch" type="xml">
+    <!--  insert in search filter and Group by using a new field 'Time Changed'  -->
+    <record id="hr_attendance_view_search" model="ir.ui.view">
+        <field name="name">hr.attendance.search</field>
+        <field name="model">hr.attendance</field>
+        <field name="type">search</field>
+        <field name="inherit_id" ref="hr_attendance.hr_attendance_view_filter"/>
+        <field name="arch" type="xml">
             <filter name="nocheckout" position="after">
-                <filter string="Time Changed" name="time_changed_manually" domain="[('time_changed_manually', '=', True)]"/>
-			</filter>
-			<filter name="groupby_check_out" position="after">
+                <filter name="time_changed_manually" string="Time Changed"
+                        domain="[('time_changed_manually', '=', True)]"/>
+            </filter>
+            <filter name="groupby_check_out" position="after">
                 <field name="time_changed_manually" string="Time Changed"/>
-				<filter name="time_changed_manually" string="Time Changed" context="{'group_by':'time_changed_manually'}"/>
-			</filter>
-		</field>
-	</record>
-
+                <filter name="group_by_time_changed_manually" string="Time Changed"
+                        context="{'group_by':'time_changed_manually'}"/>
+            </filter>
+        </field>
+    </record>
 </odoo>

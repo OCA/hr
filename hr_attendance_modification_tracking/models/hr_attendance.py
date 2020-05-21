@@ -25,24 +25,27 @@ class HrAttendance(models.Model):
         compute="_compute_time_changed_manually",
         default=False,
         store=True,
-        help="This attendance has been manually changed by user. If attendance is created from form view, a 60 "
-             "seconds tolerance will be applied."
+        help="This attendance has been manually changed by user. If attendance"
+             " is created from form view, a 60 seconds tolerance will "
+             "be applied."
     )
 
     @api.depends('message_ids.tracking_value_ids')
     def _compute_time_changed_manually(self):
         for record in self:
-            if not self.time_changed_manually:
+            if not record.time_changed_manually:
                 # For manual attendance, tolerance to consider it acceptable
                 tolerance = timedelta(seconds=60)
-                for tracking in self.message_ids.mapped('tracking_value_ids'):
-                    if (tracking.field in ['check_in', 'check_out']):
-                        # Attendance created from kiosk or check-in/check-out screen
-                        if tracking.old_value_datetime:
-                            self.time_changed_manually = True
-                        # Attendance created in form view, if check-in and check-out are in admitted tolerance,
+                for track in record.message_ids.mapped('tracking_value_ids'):
+                    if (track.field in ['check_in', 'check_out']):
+                        # Attendance created from kiosk or check-in/check-out
+                        if track.old_value_datetime:
+                            record.time_changed_manually = True
+                        # Attendance created in form view, if check-in and
+                        # check-out are in admitted tolerance,
                         # they will not be considered "manually changed"
                         else:
-                            diff = abs(tracking.new_value_datetime - tracking.mail_message_id.date)
+                            diff = abs(track.new_value_datetime
+                                       - track.mail_message_id.date)
                             if diff > tolerance:
-                                self.time_changed_manually = True
+                                record.time_changed_manually = True
