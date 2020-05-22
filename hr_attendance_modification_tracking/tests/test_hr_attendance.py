@@ -49,7 +49,7 @@ class TestHrAttendanceTracking(TransactionCase):
                                          'check_in': dti.strftime(DF),
                                          })
         self.assertEqual(att.time_changed_manually, True, "Use case 3: Wrong value, "
-                                                          "tolerance exceeded")
+                                                          "tolerance exceeded.")
         # Use case 4:
         # Create an attendance with correct (now - 15 sec) check-in and correct
         # (now + 15 sec) check-out.
@@ -62,7 +62,7 @@ class TestHrAttendanceTracking(TransactionCase):
                                          'check_out': dto.strftime(DF),
                                          })
         self.assertEqual(att.time_changed_manually, False, "Use case 4: Wrong value, "
-                                                           "tolerance not exceeded  ")
+                                                           "tolerance not exceeded.")
         # Use case 5:
         # Change previous attendance check-out to now + 1 hour
         # Expected: manually_changed = True
