@@ -48,4 +48,3 @@ class HrAttendance(models.Model):
                                        - track.mail_message_id.date)
                             if diff > tolerance:
                                 record.time_changed_manually = True
-
