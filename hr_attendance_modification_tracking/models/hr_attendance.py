@@ -21,7 +21,6 @@ class HrAttendance(models.Model):
     )
     time_changed_manually = fields.Boolean(
         string="Time changed",
-        required=False,
         compute="_compute_time_changed_manually",
         default=False,
         store=True,
@@ -49,3 +48,4 @@ class HrAttendance(models.Model):
                                        - track.mail_message_id.date)
                             if diff > tolerance:
                                 record.time_changed_manually = True
+
