@@ -27,6 +27,7 @@ Employee external Partner
 
 Add the following fields to employee
 
+* is_external
 * hr_external_partner_id
 
 **Table of contents**
@@ -42,6 +43,9 @@ the Partner but works in the Company.
 
 This Employee can be a real person or a "virtual" one: on second case is the Partner 
 that defines the "real" person who works when requested.
+
+On Employees select an Employee and check option that he is an external, 
+then associate the Partner.
 
 Changelog
 =========
