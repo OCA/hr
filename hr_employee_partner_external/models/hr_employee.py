@@ -11,6 +11,8 @@ class EmployeePartner(models.Model):
 
     _inherit = 'hr.employee'
 
+    # set employee as external
+    is_external = fields.Boolean('Is an external Employee', default=False)
     # Partner reference
     hr_external_partner_id = fields.Many2one(
         'res.partner',
