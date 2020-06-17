@@ -18,3 +18,8 @@ msgstr ""
 msgid "Resource Mixin"
 msgstr ""
 
+#. module: resource_hook
+#: model:ir.model,name:resource_hook.model_resource_calendar
+msgid "Resource Working Time"
+msgstr ""
+
