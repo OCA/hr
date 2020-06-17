@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="action_org_chart_overview" model="ir.actions.client">
+            <field name="name">Organizational Chart</field>
+            <field name="tag">hr_org_chart_overview</field>
+            <field name="target">main</field>
+        </record>
+        <menuitem
+            parent="hr.hr_menu_hr_reports"
+            id="menu_org_chart_overview_report"
+            action="action_org_chart_overview"
+            sequence="1"
+        />
+    </data>
+</odoo>
