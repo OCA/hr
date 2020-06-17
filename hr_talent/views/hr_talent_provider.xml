@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    Copyright 2020 Brainbean Apps (https://brainbeanapps.com)
+    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+-->
+<odoo>
+
+    <record model="ir.ui.view" id="hr_talent_provider_form">
+        <field name="name">hr.talent.provider.form</field>
+        <field name="model">hr.talent.provider</field>
+        <field name="arch" type="xml">
+            <form string="Talent Provider">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button class="oe_stat_button" type="object" name="toggle_active" icon="fa-archive">
+                            <field name="active" widget="boolean_button" options='{"terminology": "active"}'/>
+                        </button>
+                    </div>
+                    <div class="oe_title" name="title">
+                        <label for="name" string="Name" class="oe_edit_only"/>
+                        <h1>
+                            <field name="name" placeholder="New provider name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group groups="base.group_multi_company">
+                            <field name="company_id"/>
+                        </group>
+                        <group>
+                            <field
+                                name="service"
+                                widget="dynamic_dropdown"
+                                values="values_service"
+                            />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="hr_talent_provider_tree">
+        <field name="name">hr.talent.provider.tree</field>
+        <field name="model">hr.talent.provider</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="service"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="hr_talent_provider_filter">
+        <field name="name">hr.talent.provider.filter</field>
+        <field name="model">hr.talent.provider</field>
+        <field name="arch" type="xml">
+            <search string="Talent Providers">
+                <filter name="active" string="Inactive" domain="[('active', '=', False)]"/>
+            </search>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_hr_talent_providers">
+        <field name="name">Talent Providers</field>
+        <field name="res_model">hr.talent.provider</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        parent="hr_recruitment.menu_hr_recruitment_configuration"
+        id="menu_hr_talent_providers"
+        action="action_hr_talent_providers"
+    />
+
+</odoo>
