@@ -7,11 +7,12 @@ from openupgradelib import openupgrade
 @openupgrade.migrate()
 def migrate(env, version):
     cr = env.cr
-    if openupgrade.column_exists(cr, 'hr_employee', 'initial_employment_date'):
+    if openupgrade.column_exists(cr, "hr_employee", "initial_employment_date"):
         openupgrade.logged_query(
-            cr, """
+            cr,
+            """
             UPDATE hr_employee
             SET service_hire_date = initial_employment_date
             WHERE initial_employment_date IS NOT NULL;
-            """
+            """,
         )
