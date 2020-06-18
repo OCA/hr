@@ -15,7 +15,6 @@ class HrLeave(models.Model):
 
         super(HrLeave, uncreditable_requests)._check_holidays()
 
-    @api.multi
     def _is_holiday_credit_allowed(self):
         self.ensure_one()
 
