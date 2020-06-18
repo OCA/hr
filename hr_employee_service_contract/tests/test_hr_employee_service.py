@@ -33,7 +33,7 @@ class TestHrEmployeeService(common.TransactionCase):
                             "date_start": self.today - relativedelta(years=3),
                             "date_end": self.today - relativedelta(years=1),
                         },
-                    ),
+                    )
                 ],
             }
         )
@@ -59,7 +59,7 @@ class TestHrEmployeeService(common.TransactionCase):
                             "state": "open",
                             "date_start": self.today - relativedelta(years=3),
                         },
-                    ),
+                    )
                 ],
             }
         )
@@ -92,7 +92,7 @@ class TestHrEmployeeService(common.TransactionCase):
                             "name": "Employee #3 Contract #2",
                             "wage": 5000.0,
                             "state": "open",
-                            "date_start": self.today - relativedelta(years=3),
+                            "date_start": self.today - relativedelta(months=6),
                         },
                     ),
                 ],
@@ -127,8 +127,7 @@ class TestHrEmployeeService(common.TransactionCase):
                             "name": "Employee #4 Contract #2",
                             "wage": 5000.0,
                             "state": "close",
-                            "date_start": self.today - relativedelta(years=3),
-                            "date_end": self.today - relativedelta(years=2),
+                            "date_start": self.today - relativedelta(months=6),
                         },
                     ),
                 ],
@@ -138,9 +137,7 @@ class TestHrEmployeeService(common.TransactionCase):
         self.assertEqual(
             employee.service_start_date, self.today - relativedelta(years=5)
         )
-        self.assertEqual(
-            employee.service_termination_date, self.today - relativedelta(years=1)
-        )
+        self.assertEqual(employee.service_termination_date, False)
 
     def test_5(self):
         employee = self.SudoEmployee.create({"name": "Employee #5"})

@@ -26,7 +26,6 @@ class HrEmployee(models.Model):
         string="Termination Date", readonly=True, related="last_contract_id.date_end",
     )
 
-    @api.multi
     @api.depends("contract_ids")
     def _compute_first_contract_id(self):
         Contract = self.env["hr.contract"]
@@ -35,7 +34,6 @@ class HrEmployee(models.Model):
                 employee._get_contract_filter(), order="date_start asc", limit=1
             )
 
-    @api.multi
     @api.depends("contract_ids")
     def _compute_last_contract_id(self):
         Contract = self.env["hr.contract"]
@@ -44,13 +42,11 @@ class HrEmployee(models.Model):
                 employee._get_contract_filter(), order="date_end desc", limit=1
             )
 
-    @api.multi
     @api.onchange("service_hire_date")
     def _onchange_service_hire_date(self):  # pragma: no cover
         # Do nothing
         pass
 
-    @api.multi
     def _get_contract_filter(self):
         self.ensure_one()
 
@@ -61,8 +57,4 @@ class HrEmployee(models.Model):
 
     @api.model
     def _get_service_contract_states(self):
-        return [
-            "open",
-            "pending",
-            "close",
-        ]
+        return ["open", "pending", "close"]
