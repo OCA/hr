@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Copyright 2019 Stefano Consolaro (PNLUG <http://odoo.pnlug.it>)
+         License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl) 
+    -->
+
+    <!-- Inherit employee form view to add new field partner -->
+    <record id="employee_form_inherit_partner" model="ir.ui.view">
+        <field name="name">hr.employee</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='department_id']" position="after">
+                <field name="is_external"/>
+                <field name="hr_external_partner_id"
+                    attrs="{'invisible':[('is_external','=',False)],
+                            'required': [('is_external','=', True)]}"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
