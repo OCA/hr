@@ -2,7 +2,7 @@
 <odoo>
     <template
         id="assets_backend"
-        name="business game assets"
+        name="hr_org_chart_overview assets"
         inherit_id="web.assets_backend"
     >
         <xpath expr="." position="inside">

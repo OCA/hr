@@ -10,6 +10,9 @@ odoo.define("hr_org_chart_overview", function(require) {
             "click .node": "_onClickNode",
             "click #print-pdf": "_onPrintPDF",
             "keyup #key-word": "_onKeyUpSearch",
+            "click #zoom-in": "_onClickZoomIn",
+            "click #zoom-out": "_onClickZoomOut",
+            "click #toggle-pan": "_onClickTogglePan",
         },
 
         init: function(parent) {
@@ -49,6 +52,15 @@ odoo.define("hr_org_chart_overview", function(require) {
             this.$buttons.prepend(`
                 <button type="button" id="print-pdf" class="btn btn-primary o-kanban-button-new" accesskey="p">
                     Print PDF
+                </button>
+                <button type="button" id="zoom-in" class="btn btn-primary o-kanban-button-new" accesskey="+">
+                    <i class="fa fa-plus" title="Zoom In"></i>
+                </button>
+                <button type="button" id="toggle-pan" class="btn o-kanban-button-new" accesskey="m">
+                    <i class="fa fa-arrows" title="Toggle Pan"></i>
+                </button>
+                <button type="button" id="zoom-out" class="btn btn-primary o-kanban-button-new" accesskey="-">
+                    <i class="fa fa-minus" title="Zoom Out"></i>
                 </button>
             `);
         },
@@ -100,6 +112,7 @@ odoo.define("hr_org_chart_overview", function(require) {
                 .find(".node")
                 .filter(function(index, node) {
                     $(node).removeClass("matched");
+                    $(node).removeClass("retained");
                     if (
                         $(node)
                             .text()
@@ -199,6 +212,28 @@ odoo.define("hr_org_chart_overview", function(require) {
         _onPrintPDF: function(ev) {
             ev.preventDefault();
             this.oc.export(this.oc.exportFilename, "pdf");
+        },
+
+        _onClickZoomIn: function(ev) {
+            ev.preventDefault();
+            this.oc.setChartScale(this.oc.$chart, 1.1);
+        },
+
+        _onClickZoomOut: function(ev) {
+            ev.preventDefault();
+            this.oc.setChartScale(this.oc.$chart, 0.9);
+        },
+
+        _onClickTogglePan: function(ev) {
+            ev.preventDefault();
+            var update_pan_to = !this.oc.options.pan;
+            this.oc.options.pan = update_pan_to;
+            this.oc.setOptions("pan", update_pan_to);
+            if (update_pan_to === true) {
+                $("#toggle-pan").addClass("btn-primary");
+            } else {
+                $("#toggle-pan").removeClass("btn-primary");
+            }
         },
 
         _onPrintPNG: function(ev) {
