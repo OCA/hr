@@ -1,6 +1,7 @@
 .custom_control_panel .o_control_panel {
     position: fixed;
     width: 100%;
+    z-index: 1;
 }
 
 .image img {
