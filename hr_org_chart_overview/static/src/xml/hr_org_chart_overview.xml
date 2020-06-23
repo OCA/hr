@@ -2,7 +2,7 @@
 <templates>
     <t t-name="HrOrgChartOverview">
         <div class="custom_control_panel">
-            <t t-call="ControlPanel" />
+            <t t-call-assess="ControlPanel" t-css="False" />
         </div>
         <div id="chart-container" />
     </t>
