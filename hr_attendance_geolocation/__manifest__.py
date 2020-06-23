@@ -6,7 +6,7 @@
     'summary': """
         With this module the geolocation of the user is tracked at the
         check-in/check-out step""",
-    'version': '12.0.1.0.0',
+    'version': '12.0.1.0.1',
     'license': 'AGPL-3',
     'author': 'Eficent Business and IT Consulting Services S.L.,'
               'Odoo Community Association (OCA)',
