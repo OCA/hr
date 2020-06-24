@@ -4,8 +4,7 @@
 {
     "name": "Personal Protective Equipment (PPE) Management",
     "version": "12.0.1.0.0",
-    "author": "Escodoo"
-              "Odoo Community Association (OCA)",
+    "author": "Escodoo, Odoo Community Association (OCA)",
     "website": "https://github.com/oca/hr",
     "license": "AGPL-3",
     "category": "Human Resources",
