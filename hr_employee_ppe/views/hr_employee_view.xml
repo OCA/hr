@@ -12,7 +12,7 @@
                     <group string="Personal Protective Equipment (PPE)">
                         <field name="ppe_ids" context="{'default_employee_id': active_id}" nolabel="1">
                             <tree string="PPE">
-                                <field name="name" string="PPE"/>
+                                <field name="ppe_id" string="PPE"/>
                                 <field name="certification" string="# Certificate"/>
                                 <field name="partner_id" string="Issued By"/>
                                 <field name="start_date"/>
@@ -21,10 +21,29 @@
                                 <field name="status"/>
                             </tree>
                             <form string="PPE">
-                                <group string="Certification Information">
-                                    <field name="certification"/>
-                                    <field name="description"/>
-                                </group>
+                                <header>
+                                    <field name='status' widget='statusbar' statusbar_visible='valid,expired'/>
+                                </header>
+                                <sheet>
+                                    <group name="main">
+                                        <field name="name" invisible="1" />
+                                        <field name="employee_id" default="employee_id" readonly="True"/>
+                                        <field name="ppe_id" string="PPE"/>
+                                    </group>
+                                    <group name="dates" col="4">
+                                        <field name="start_date"/>
+                                        <field name="expire"/>
+                                        <field name="end_date" attrs="{'invisible':[('expire', '=', False)]}"/>
+                                    </group>
+                                    <group name="partner_info" col="4">
+                                        <field name="partner_id" string="Issued By"/>
+                                        <field name="location"/>
+                                    </group>
+                                    <group string="Certification Information">
+                                        <field name="certification"/>
+                                        <field name="description"/>
+                                    </group>
+                                </sheet>
                             </form>
                         </field>
                     </group>

@@ -4,7 +4,7 @@
 {
     "name": "Personal Protective Equipment (PPE) Management",
     "version": "12.0.1.0.0",
-    "author": "Escodoo,"
+    "author": "Escodoo"
               "Odoo Community Association (OCA)",
     "website": "https://github.com/oca/hr",
     "license": "AGPL-3",
@@ -18,6 +18,7 @@
         "views/hr_employee_view.xml",
         "views/hr_employee_ppe_view.xml",
         'views/hr_employee_ppe_equipment.xml',
+        'data/hr_employee_ppe_cron.xml',
     ],
     'demo': [
         'demo/hr_employee_ppe_demo.xml',
