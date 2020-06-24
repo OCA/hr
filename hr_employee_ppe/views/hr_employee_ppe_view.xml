@@ -39,11 +39,11 @@
                         <field name="expire"/>
                         <field name="end_date" attrs="{'invisible':[('expire', '=', False)]}"/>
                     </group>
-                    <group name="partner_info" col="4">
-                        <field name="partner_id"/>
-                        <field name="location"/>
+                    <group name="directions_info">
+                        <field name="indications"/>
                     </group>
                     <group string="Certification Information">
+                        <field name="partner_id"/>
                         <field name="certification"/>
                         <field name="description"/>
                     </group>
