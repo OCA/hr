@@ -6,8 +6,6 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-24 03:12+0000\n"
-"PO-Revision-Date: 2020-06-24 03:12+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -182,6 +180,11 @@ msgid "If checked, some messages have a delivery error."
 msgstr ""
 
 #. module: hr_employee_ppe
+#: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_employee_ppe__indications
+msgid "Indications"
+msgstr ""
+
+#. module: hr_employee_ppe
 #: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_employee_ppe__message_is_follower
 #: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_employee_ppe_equipment__message_is_follower
 msgid "Is Follower"
@@ -213,12 +216,6 @@ msgid "Last Updated on"
 msgstr ""
 
 #. module: hr_employee_ppe
-#: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_employee_ppe__location
-#: model:ir.model.fields,help:hr_employee_ppe.field_hr_employee_ppe__location
-msgid "Location"
-msgstr ""
-
-#. module: hr_employee_ppe
 #: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_employee_ppe__message_main_attachment_id
 #: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_employee_ppe_equipment__message_main_attachment_id
 msgid "Main Attachment"
@@ -244,7 +241,6 @@ msgstr ""
 
 #. module: hr_employee_ppe
 #: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_employee_ppe__name
-#: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_employee_ppe_equipment__name
 msgid "Name"
 msgstr ""
 
@@ -379,12 +375,18 @@ msgstr ""
 
 #. module: hr_employee_ppe
 #: model:ir.model.fields,help:hr_employee_ppe.field_hr_employee_ppe_equipment__product_id
-msgid "Select the PPE from the product list. Please note that the PPE must be a consumable product."
+msgid "Select the PPE from the product list.\n"
+"            Please note that the PPE must be a consumable product."
 msgstr ""
 
 #. module: hr_employee_ppe
 #: model:ir.model.fields,help:hr_employee_ppe.field_hr_employee_ppe_equipment__expirable
 msgid "Select this option if the PPE has expiry date."
+msgstr ""
+
+#. module: hr_employee_ppe
+#: model:ir.model.fields,help:hr_employee_ppe.field_hr_employee_ppe__indications
+msgid "Situations in which the employee should use this equipment."
 msgstr ""
 
 #. module: hr_employee_ppe
@@ -454,9 +456,10 @@ msgid "Website communication history"
 msgstr ""
 
 #. module: hr_employee_ppe
-#: code:addons/hr_employee_ppe/models/hr_employee_ppe.py:96
+#: code:addons/hr_employee_ppe/models/hr_employee_ppe.py:95
 #, python-format
-msgid "You must inform start date and end date for expirable PPEs."
+msgid "You must inform start date and\n"
+"                            end date for expirable PPEs."
 msgstr ""
 
 #. module: hr_employee_ppe

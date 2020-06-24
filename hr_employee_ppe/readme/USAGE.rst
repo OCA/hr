@@ -1,9 +1,9 @@
 To manage PPEs allocation to employees, you will have to populate a list of equipments first.
 
-1. Go to menu *Human Resources -> PPE -> Equipment*
+1. Go to menu *Employees -> PPEs -> Equipments*
 
 Then you can allocate:
 
-1. Go to menu *Human Resources -> Human Resources -> Employees*
-2. Open employee data
-3. Goto *PPE* tab
+1. Go to menu *Employees -> Employees*
+2. Select an employee
+3. Go to *PPE* tab

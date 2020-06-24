@@ -9,11 +9,11 @@ class HrEmployeePpeEquipment(models.Model):
     _name = 'hr.employee.ppe.equipment'
     _description = 'Personal Protective Equipments - Equipment List'
     _inherit = ['mail.thread', 'mail.activity.mixin']
+    _rec_name = 'product_id'
 
-    name = fields.Char()
     product_id = fields.Many2one(
         required=True,
-        help="""Select the PPE from the product list. 
+        help="""Select the PPE from the product list.
             Please note that the PPE must be a consumable product.""",
         comodel_name='product.product',
         domain="[('type', '=', 'consu')]"
