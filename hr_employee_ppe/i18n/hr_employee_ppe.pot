@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-08 18:30+0000\n"
-"PO-Revision-Date: 2020-06-08 18:30+0000\n"
+"POT-Creation-Date: 2020-06-24 03:12+0000\n"
+"PO-Revision-Date: 2020-06-24 03:12+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,29 +16,43 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: hr_employee_ppe
+#: code:addons/hr_employee_ppe/models/hr_employee_ppe.py:66
+#, python-format
+msgid " to "
+msgstr ""
+
+#. module: hr_employee_ppe
 #: model_terms:ir.ui.view,arch_db:hr_employee_ppe.view_employee_form_inherit
-#: model_terms:ir.ui.view,arch_db:hr_employee_ppe.view_ppe_tree
 msgid "# Certificate"
 msgstr ""
 
 #. module: hr_employee_ppe
 #: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_employee_ppe__message_needaction
+#: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_employee_ppe_equipment__message_needaction
 msgid "Action Needed"
 msgstr ""
 
 #. module: hr_employee_ppe
 #: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_employee_ppe__activity_ids
+#: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_employee_ppe_equipment__activity_ids
 msgid "Activities"
 msgstr ""
 
 #. module: hr_employee_ppe
 #: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_employee_ppe__activity_state
+#: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_employee_ppe_equipment__activity_state
 msgid "Activity State"
 msgstr ""
 
 #. module: hr_employee_ppe
 #: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_employee_ppe__message_attachment_count
+#: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_employee_ppe_equipment__message_attachment_count
 msgid "Attachment Count"
+msgstr ""
+
+#. module: hr_employee_ppe
+#: model:ir.model.fields,help:hr_employee_ppe.field_hr_employee_ppe__partner_id
+msgid "Certification Authority"
 msgstr ""
 
 #. module: hr_employee_ppe
@@ -52,11 +66,6 @@ msgstr ""
 #: model:ir.model.fields,help:hr_employee_ppe.field_hr_employee_ppe__certification
 #: model:ir.model.fields,help:hr_employee_ppe.field_hr_employee_ppe__status
 msgid "Certification Number"
-msgstr ""
-
-#. module: hr_employee_ppe
-#: model_terms:ir.ui.view,arch_db:hr_employee_ppe.view_ppe_tree
-msgid "Personal Protective Equipment"
 msgstr ""
 
 #. module: hr_employee_ppe
@@ -90,17 +99,18 @@ msgid "Employee"
 msgstr ""
 
 #. module: hr_employee_ppe
-#: model:ir.model.fields,help:hr_employee_ppe.field_hr_employee_ppe__partner_id
-msgid "Employer, School, University, Certification Authority"
-msgstr ""
-
-#. module: hr_employee_ppe
 #: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_employee_ppe__end_date
 msgid "End Date"
 msgstr ""
 
 #. module: hr_employee_ppe
-#: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_employee_ppe__name
+#: code:addons/hr_employee_ppe/models/hr_employee_ppe.py:101
+#, python-format
+msgid "End date cannot occur earlier than the start date."
+msgstr ""
+
+#. module: hr_employee_ppe
+#: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_employee_ppe__ppe_id
 msgid "Equipment"
 msgstr ""
 
@@ -116,7 +126,6 @@ msgstr ""
 
 #. module: hr_employee_ppe
 #: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_employee_ppe__expire
-#: model:ir.model.fields,help:hr_employee_ppe.field_hr_employee_ppe__expire
 msgid "Expire"
 msgstr ""
 
@@ -127,16 +136,19 @@ msgstr ""
 
 #. module: hr_employee_ppe
 #: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_employee_ppe__message_follower_ids
+#: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_employee_ppe_equipment__message_follower_ids
 msgid "Followers"
 msgstr ""
 
 #. module: hr_employee_ppe
 #: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_employee_ppe__message_channel_ids
+#: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_employee_ppe_equipment__message_channel_ids
 msgid "Followers (Channels)"
 msgstr ""
 
 #. module: hr_employee_ppe
 #: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_employee_ppe__message_partner_ids
+#: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_employee_ppe_equipment__message_partner_ids
 msgid "Followers (Partners)"
 msgstr ""
 
@@ -153,29 +165,32 @@ msgstr ""
 
 #. module: hr_employee_ppe
 #: model:ir.model.fields,help:hr_employee_ppe.field_hr_employee_ppe__message_unread
+#: model:ir.model.fields,help:hr_employee_ppe.field_hr_employee_ppe_equipment__message_unread
 msgid "If checked new messages require your attention."
 msgstr ""
 
 #. module: hr_employee_ppe
 #: model:ir.model.fields,help:hr_employee_ppe.field_hr_employee_ppe__message_needaction
+#: model:ir.model.fields,help:hr_employee_ppe.field_hr_employee_ppe_equipment__message_needaction
 msgid "If checked, new messages require your attention."
 msgstr ""
 
 #. module: hr_employee_ppe
 #: model:ir.model.fields,help:hr_employee_ppe.field_hr_employee_ppe__message_has_error
+#: model:ir.model.fields,help:hr_employee_ppe.field_hr_employee_ppe_equipment__message_has_error
 msgid "If checked, some messages have a delivery error."
 msgstr ""
 
 #. module: hr_employee_ppe
 #: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_employee_ppe__message_is_follower
+#: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_employee_ppe_equipment__message_is_follower
 msgid "Is Follower"
 msgstr ""
 
 #. module: hr_employee_ppe
+#: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_employee_ppe__partner_id
 #: model_terms:ir.ui.view,arch_db:hr_employee_ppe.view_employee_form_inherit
-#: model_terms:ir.ui.view,arch_db:hr_employee_ppe.view_employee_ppe_form
 #: model_terms:ir.ui.view,arch_db:hr_employee_ppe.view_employee_ppe_search
-#: model_terms:ir.ui.view,arch_db:hr_employee_ppe.view_ppe_tree
 msgid "Issued By"
 msgstr ""
 
@@ -205,73 +220,92 @@ msgstr ""
 
 #. module: hr_employee_ppe
 #: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_employee_ppe__message_main_attachment_id
+#: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_employee_ppe_equipment__message_main_attachment_id
 msgid "Main Attachment"
 msgstr ""
 
 #. module: hr_employee_ppe
+#: model:product.product,name:hr_employee_ppe.hr_employee_ppe_demo_1
+#: model:product.template,name:hr_employee_ppe.hr_employee_ppe_demo_1_product_template
+msgid "Mask for COVID-19"
+msgstr ""
+
+#. module: hr_employee_ppe
 #: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_employee_ppe__message_has_error
+#: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_employee_ppe_equipment__message_has_error
 msgid "Message Delivery error"
 msgstr ""
 
 #. module: hr_employee_ppe
 #: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_employee_ppe__message_ids
+#: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_employee_ppe_equipment__message_ids
 msgid "Messages"
 msgstr ""
 
 #. module: hr_employee_ppe
+#: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_employee_ppe__name
 #: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_employee_ppe_equipment__name
 msgid "Name"
 msgstr ""
 
 #. module: hr_employee_ppe
 #: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_employee_ppe__activity_date_deadline
+#: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_employee_ppe_equipment__activity_date_deadline
 msgid "Next Activity Deadline"
 msgstr ""
 
 #. module: hr_employee_ppe
 #: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_employee_ppe__activity_summary
+#: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_employee_ppe_equipment__activity_summary
 msgid "Next Activity Summary"
 msgstr ""
 
 #. module: hr_employee_ppe
 #: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_employee_ppe__activity_type_id
+#: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_employee_ppe_equipment__activity_type_id
 msgid "Next Activity Type"
 msgstr ""
 
 #. module: hr_employee_ppe
 #: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_employee_ppe__message_needaction_counter
+#: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_employee_ppe_equipment__message_needaction_counter
 msgid "Number of Actions"
 msgstr ""
 
 #. module: hr_employee_ppe
 #: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_employee_ppe__message_has_error_counter
+#: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_employee_ppe_equipment__message_has_error_counter
 msgid "Number of error"
 msgstr ""
 
 #. module: hr_employee_ppe
 #: model:ir.model.fields,help:hr_employee_ppe.field_hr_employee_ppe__message_needaction_counter
+#: model:ir.model.fields,help:hr_employee_ppe.field_hr_employee_ppe_equipment__message_needaction_counter
 msgid "Number of messages which requires an action"
 msgstr ""
 
 #. module: hr_employee_ppe
 #: model:ir.model.fields,help:hr_employee_ppe.field_hr_employee_ppe__message_has_error_counter
+#: model:ir.model.fields,help:hr_employee_ppe.field_hr_employee_ppe_equipment__message_has_error_counter
 msgid "Number of messages with delivery error"
 msgstr ""
 
 #. module: hr_employee_ppe
 #: model:ir.model.fields,help:hr_employee_ppe.field_hr_employee_ppe__message_unread_counter
+#: model:ir.model.fields,help:hr_employee_ppe.field_hr_employee_ppe_equipment__message_unread_counter
 msgid "Number of unread messages"
 msgstr ""
 
 #. module: hr_employee_ppe
 #: selection:hr.employee.ppe,activity_state:0
+#: selection:hr.employee.ppe.equipment,activity_state:0
 msgid "Overdue"
 msgstr ""
 
 #. module: hr_employee_ppe
 #: model_terms:ir.ui.view,arch_db:hr_employee_ppe.view_employee_form_inherit
 #: model_terms:ir.ui.view,arch_db:hr_employee_ppe.view_employee_ppe_form
-#: model_terms:ir.ui.view,arch_db:hr_employee_ppe.view_ppe_tree
+#: model_terms:ir.ui.view,arch_db:hr_employee_ppe.view_employee_ppe_search
 msgid "PPE"
 msgstr ""
 
@@ -282,11 +316,18 @@ msgstr ""
 
 #. module: hr_employee_ppe
 #: model:ir.ui.menu,name:hr_employee_ppe.menu_open_view_employee_ppe_form
+#: model_terms:ir.ui.view,arch_db:hr_employee_ppe.view_ppe_tree
 msgid "PPE Allocation"
 msgstr ""
 
 #. module: hr_employee_ppe
-#: model:ir.actions.act_window,name:hr_employee_ppe.open_view_employee_ppe_form
+#: model:ir.actions.server,name:hr_employee_ppe.hr_employee_ppe_cron_ir_actions_server
+#: model:ir.cron,cron_name:hr_employee_ppe.hr_employee_ppe_cron
+#: model:ir.cron,name:hr_employee_ppe.hr_employee_ppe_cron
+msgid "PPE's expiry date verification"
+msgstr ""
+
+#. module: hr_employee_ppe
 #: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_employee__ppe_ids
 #: model:ir.model.fields,help:hr_employee_ppe.field_hr_employee__ppe_ids
 #: model:ir.ui.menu,name:hr_employee_ppe.menu_hr_employee_ppe
@@ -294,13 +335,19 @@ msgid "PPEs"
 msgstr ""
 
 #. module: hr_employee_ppe
-#: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_employee_ppe__partner_id
-msgid "Partner"
+#: model_terms:ir.ui.view,arch_db:hr_employee_ppe.view_employee_form_inherit
+msgid "Personal Protective Equipment (PPE)"
 msgstr ""
 
 #. module: hr_employee_ppe
-#: model_terms:ir.ui.view,arch_db:hr_employee_ppe.view_employee_form_inherit
-msgid "Personal Protective Equipment (PPE)"
+#: model:ir.model,name:hr_employee_ppe.model_hr_employee_ppe
+#: model_terms:ir.ui.view,arch_db:hr_employee_ppe.view_ppe_tree
+msgid "Personal Protective Equipments"
+msgstr ""
+
+#. module: hr_employee_ppe
+#: model:ir.actions.act_window,name:hr_employee_ppe.open_view_employee_ppe_form
+msgid "Personal Protective Equipments (PPEs)"
 msgstr ""
 
 #. module: hr_employee_ppe
@@ -310,11 +357,18 @@ msgstr ""
 
 #. module: hr_employee_ppe
 #: selection:hr.employee.ppe,activity_state:0
+#: selection:hr.employee.ppe.equipment,activity_state:0
 msgid "Planned"
 msgstr ""
 
 #. module: hr_employee_ppe
+#: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_employee_ppe_equipment__product_id
+msgid "Product"
+msgstr ""
+
+#. module: hr_employee_ppe
 #: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_employee_ppe__activity_user_id
+#: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_employee_ppe_equipment__activity_user_id
 msgid "Responsible User"
 msgstr ""
 
@@ -324,17 +378,29 @@ msgid "Search PPEs"
 msgstr ""
 
 #. module: hr_employee_ppe
+#: model:ir.model.fields,help:hr_employee_ppe.field_hr_employee_ppe_equipment__product_id
+msgid "Select the PPE from the product list. Please note that the PPE must be a consumable product."
+msgstr ""
+
+#. module: hr_employee_ppe
+#: model:ir.model.fields,help:hr_employee_ppe.field_hr_employee_ppe_equipment__expirable
+msgid "Select this option if the PPE has expiry date."
+msgstr ""
+
+#. module: hr_employee_ppe
 #: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_employee_ppe__start_date
 msgid "Start Date"
 msgstr ""
 
 #. module: hr_employee_ppe
 #: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_employee_ppe__status
+#: model_terms:ir.ui.view,arch_db:hr_employee_ppe.view_employee_ppe_search
 msgid "Status"
 msgstr ""
 
 #. module: hr_employee_ppe
 #: model:ir.model.fields,help:hr_employee_ppe.field_hr_employee_ppe__activity_state
+#: model:ir.model.fields,help:hr_employee_ppe.field_hr_employee_ppe_equipment__activity_state
 msgid "Status based on activities\n"
 "Overdue: Due date is already passed\n"
 "Today: Activity date is today\n"
@@ -343,16 +409,30 @@ msgstr ""
 
 #. module: hr_employee_ppe
 #: selection:hr.employee.ppe,activity_state:0
+#: selection:hr.employee.ppe.equipment,activity_state:0
 msgid "Today"
 msgstr ""
 
 #. module: hr_employee_ppe
+#: model:ir.model.fields,help:hr_employee_ppe.field_hr_employee_ppe__expire
+msgid "True if the PPE expires"
+msgstr ""
+
+#. module: hr_employee_ppe
+#: model:product.product,uom_name:hr_employee_ppe.hr_employee_ppe_demo_1
+#: model:product.template,uom_name:hr_employee_ppe.hr_employee_ppe_demo_1_product_template
+msgid "Unit(s)"
+msgstr ""
+
+#. module: hr_employee_ppe
 #: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_employee_ppe__message_unread
+#: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_employee_ppe_equipment__message_unread
 msgid "Unread Messages"
 msgstr ""
 
 #. module: hr_employee_ppe
 #: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_employee_ppe__message_unread_counter
+#: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_employee_ppe_equipment__message_unread_counter
 msgid "Unread Messages Counter"
 msgstr ""
 
@@ -363,16 +443,25 @@ msgstr ""
 
 #. module: hr_employee_ppe
 #: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_employee_ppe__website_message_ids
+#: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_employee_ppe_equipment__website_message_ids
 msgid "Website Messages"
 msgstr ""
 
 #. module: hr_employee_ppe
 #: model:ir.model.fields,help:hr_employee_ppe.field_hr_employee_ppe__website_message_ids
+#: model:ir.model.fields,help:hr_employee_ppe.field_hr_employee_ppe_equipment__website_message_ids
 msgid "Website communication history"
 msgstr ""
 
 #. module: hr_employee_ppe
-#: model:ir.model,name:hr_employee_ppe.model_hr_employee_ppe
-msgid "hr.employee.ppe"
+#: code:addons/hr_employee_ppe/models/hr_employee_ppe.py:96
+#, python-format
+msgid "You must inform start date and end date for expirable PPEs."
+msgstr ""
+
+#. module: hr_employee_ppe
+#: model:product.product,weight_uom_name:hr_employee_ppe.hr_employee_ppe_demo_1
+#: model:product.template,weight_uom_name:hr_employee_ppe.hr_employee_ppe_demo_1_product_template
+msgid "kg"
 msgstr ""
 
