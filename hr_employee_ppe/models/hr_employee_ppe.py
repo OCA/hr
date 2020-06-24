@@ -40,9 +40,9 @@ class HrEmployeePPE(models.Model):
         string='Issued By',
         help='Certification Authority'
     )
-    location = fields.Char(
-        string='Location',
-        help='Location'
+    indications = fields.Text(
+        string='Indications',
+        help='Situations in which the employee should use this equipment.'
     )
     expire = fields.Boolean(
         string='Expire',
@@ -63,7 +63,7 @@ class HrEmployeePPE(models.Model):
     @api.onchange('ppe_id', 'employee_id', 'end_date', 'start_date')
     def verify_expiracy(self):
         if self.ppe_id and self.employee_id:
-            self.name = self.ppe_id.name + _(' to ') + self.employee_id.name
+            self.name = self.ppe_id.product_id.name + _(' to ') + self.employee_id.name
 
         self.expire = self.ppe_id.expirable
 
@@ -73,7 +73,7 @@ class HrEmployeePPE(models.Model):
         if self.expire and self.end_date:
             if self.end_date < fields.Date.today():
                 self.status = 'expired'
-            else: 
+            else:
                 self.status = 'valid'
 
     @api.model
@@ -92,7 +92,8 @@ class HrEmployeePPE(models.Model):
             if self.expire:
                 if not record.end_date or not record.start_date:
                     raise ValidationError(
-                        _('You must inform start date and end date for expirable PPEs.')
+                        _("""You must inform start date and
+                            end date for expirable PPEs.""")
                     )
                 if record.end_date and record.start_date:
                     if record.end_date < record.start_date:

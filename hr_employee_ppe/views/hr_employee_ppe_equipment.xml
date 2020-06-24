@@ -11,7 +11,7 @@
             <form>
                 <sheet>
                     <group>
-                        <field name="name" invisible="1"/>
+                        <!-- <field name="name" invisible="1"/> -->
                         <field name="product_id"/>
                         <field name="expirable"/>
                     </group>
@@ -36,7 +36,6 @@
         <field name="model">hr.employee.ppe.equipment</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="name"/>
                 <field name="product_id"/>
                 <field name="expirable"/>
             </tree>

@@ -38,7 +38,8 @@ Then you can allocate:
 Known issues / Roadmap
 ======================
 
-This module is not connected to any fiscal or legal obligations. As it is intended only for informational purposes, anyone who needs connections to other modules can use this as base for development.
+* Define mandatory PPEs list associated to a job position (Thanks @mymage for your idea) 
+* This module is not connected to any fiscal or legal obligations. As it is intended only for informational purposes, anyone who needs connections to other modules can use this as base for development.
 
 Bug Tracker
 ===========
