@@ -1,6 +1,7 @@
-# Copyright (C) 2014 Savoir-faire Linux. All Rights Reserved.
+# Copyright 2014 Savoir-faire Linux. All Rights Reserved.
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
+from odoo.exceptions import UserError
 from odoo.tests.common import TransactionCase
 
 
@@ -71,10 +72,12 @@ class TestContractMultiJob(TransactionCase):
         when contract has two assigned jobs
         and raise error since both are set as main jobs.
         """
-        self.assertRaises(
-            exceptions.ValidationError,
-            self.contract_id.write,
-            {'contract_job_ids': [(0, 0, {'job_id': self.job_id.id,
-                                          'is_main_job': True}),
-                                  (0, 0, {'job_id': self.job_2_id.id,
-                                          'is_main_job': True})]})
+        with self.assertRaises(UserError):
+            self.contract_id.write(
+                {
+                    "contract_job_ids": [
+                        (0, 0, {"job_id": self.job_id.id, "is_main_job": True}),
+                        (0, 0, {"job_id": self.job_2_id.id, "is_main_job": True}),
+                    ]
+                }
+            )
