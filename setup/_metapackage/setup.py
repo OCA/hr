@@ -15,6 +15,7 @@ setuptools.setup(
         'odoo13-addon-hr_employee_phone_extension',
         'odoo13-addon-hr_employee_relative',
         'odoo13-addon-hr_employee_service',
+        'odoo13-addon-hr_employee_ssn',
         'odoo13-addon-hr_org_chart_overview',
     ],
     classifiers=[
