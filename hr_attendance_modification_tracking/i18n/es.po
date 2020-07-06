@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 11.0\n"
+"Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2019-07-23 11:43+0000\n"
 "Last-Translator: Jaime Arroyo <jaime.arroyo@creublanca.es>\n"
@@ -35,3 +35,4 @@ msgstr "Salida"
 #: model:ir.model.fields,field_description:hr_attendance_modification_tracking.field_hr_attendance__employee_id
 msgid "Employee"
 msgstr "Empleado"
+
