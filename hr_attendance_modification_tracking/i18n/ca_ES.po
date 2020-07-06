@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* hr_attendance_modification_tracking
+# 	* hr_attendance_modification_tracking
 #
 msgid ""
 msgstr ""
@@ -32,4 +32,21 @@ msgstr ""
 #. module: hr_attendance_modification_tracking
 #: model:ir.model.fields,field_description:hr_attendance_modification_tracking.field_hr_attendance__employee_id
 msgid "Employee"
+msgstr ""
+
+#. module: hr_attendance_modification_tracking
+#: model:ir.model.fields,help:hr_attendance_modification_tracking.field_hr_attendance__time_changed_manually
+msgid ""
+"This attendance has been manually changed by user. If attendance is created "
+"from form view, a 60 seconds tolerance will be applied."
+msgstr ""
+
+#. module: hr_attendance_modification_tracking
+#: model_terms:ir.ui.view,arch_db:hr_attendance_modification_tracking.hr_attendance_view_search
+msgid "Time Changed"
+msgstr ""
+
+#. module: hr_attendance_modification_tracking
+#: model:ir.model.fields,field_description:hr_attendance_modification_tracking.field_hr_attendance__time_changed_manually
+msgid "Time changed"
 msgstr ""
