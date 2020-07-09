@@ -370,13 +370,16 @@ ul.auto-toc {
 <p><a class="reference external" href="https://odoo-community.org/page/development-status"><img alt="Beta" src="https://img.shields.io/badge/maturity-Beta-yellow.png" /></a> <a class="reference external" href="http://www.gnu.org/licenses/agpl-3.0-standalone.html"><img alt="License: AGPL-3" src="https://img.shields.io/badge/licence-AGPL--3-blue.png" /></a> <a class="reference external" href="https://github.com/OCA/hr/tree/12.0/hr_attendance_modification_tracking"><img alt="OCA/hr" src="https://img.shields.io/badge/github-OCA%2Fhr-lightgray.png?logo=github" /></a> <a class="reference external" href="https://translation.odoo-community.org/projects/hr-12-0/hr-12-0-hr_attendance_modification_tracking"><img alt="Translate me on Weblate" src="https://img.shields.io/badge/weblate-Translate%20me-F47D42.png" /></a> <a class="reference external" href="https://runbot.odoo-community.org/runbot/116/12.0"><img alt="Try me on Runbot" src="https://img.shields.io/badge/runbot-Try%20me-875A7B.png" /></a></p>
 <p>Attendance changes will now be registered in the chatter.
 This will help prevent cheating in check-in or check-out time.
-List and form views also include this change information.
-Use cases:
-1) Attendances created from kiosk or check-in/check-out screens, are created as automatic.
-If their check-in or check-out dates are modified by any user, attendances are checked as
-‘Manually changed’.
-2) Attendances created from form view will apply a 60 seconds tolerance between entered and real times.
-If this tolerance is surpassed, attendances are checked as ‘Manually changed’.</p>
+List and form views also include this change information.</p>
+<p>Use cases:</p>
+<ul class="simple">
+<li>Attendances created from kiosk or check-in/check-out screens, are created as automatic. If their check-in or check-out dates are modified by any user, attendances are checked as ‘Manually changed’.</li>
+<li>Attendances created from form view will apply a 60 seconds tolerance between entered and real times. If this tolerance is surpassed, attendances are checked as ‘Manually changed’.</li>
+</ul>
+<p>Note:</p>
+<ul class="simple">
+<li>Attendances already created won’t be checked automatically on installation since it could take a large amount of time. If this is wanted it will be necessary to do it manually later.</li>
+</ul>
 <p><strong>Table of contents</strong></p>
 <div class="contents local topic" id="contents">
 <ul class="simple">
