@@ -12,10 +12,10 @@
     'website': 'https://github.com/OCA/hr',
     'depends': [
         'hr_attendance',
-        'mail',
     ],
     'data': [
         'views/hr_attendance_view.xml',
     ],
+    "pre_init_hook": "pre_init_hook",
     'installable': True,
 }
