@@ -35,7 +35,7 @@ class HrAttendance(models.Model):
             if not record.time_changed_manually:
                 # For manual attendance, tolerance to consider it acceptable
                 tolerance = timedelta(seconds=60)
-                for track in record.message_ids.mapped('tracking_value_ids'):
+                for track in record.message_ids.sudo().mapped('tracking_value_ids'):
                     if (track.field in ['check_in', 'check_out']):
                         # Attendance created from kiosk or check-in/check-out
                         if track.old_value_datetime:
