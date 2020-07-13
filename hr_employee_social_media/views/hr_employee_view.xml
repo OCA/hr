@@ -1,0 +1,24 @@
+<?xml version = "1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_employee_form_inherit_extension" model="ir.ui.view">
+      <field name="name">view.employee.form.inherit.extension</field>
+      <field name="model">hr.employee</field>
+      <field name="inherit_id" ref="hr.view_employee_form"/>
+      <field name="arch" type="xml">
+
+        <xpath expr="//page[@name='public']/group"  position="inside">
+          <group name="social_media" string="Social Media Accounts">
+            <field name="social_media_account_ids" nolabel="1">
+              <tree editable="bottom">
+                <field name='hr_social_media_id'/>
+                <field name='account_name'/>
+              </tree>
+            </field>
+          </group>
+        </xpath>
+
+      </field>
+    </record>
+
+</odoo>

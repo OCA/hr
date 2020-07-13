@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo noupdate="1">
+
+    <record id="hr_social_media_skype" model="hr.social.media">
+      <field name="name">Skype</field>
+      <field name='social_url'>https://www.skype.com</field>
+    </record>
+    <record id="hr_social_media_twitter" model="hr.social.media">
+      <field name="name">Twitter</field>
+      <field name='social_url'>https://twitter.com</field>
+    </record>
+    <record id="hr_social_media_whatsapp" model="hr.social.media">
+      <field name="name">Whatsapp</field>
+      <field name='social_url'>https://www.whatsapp.com</field>
+    </record>
+
+</odoo>
