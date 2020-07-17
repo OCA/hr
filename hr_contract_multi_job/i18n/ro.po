@@ -1,0 +1,117 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * hr_contract_multi_jobs
+#
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: hr (8.0)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-04-30 02:40+0000\n"
+"PO-Revision-Date: 2016-04-28 14:58+0000\n"
+"Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
+"Language-Team: Romanian (http://www.transifex.com/oca/OCA-hr-8-0/language/"
+"ro/)\n"
+"Language: ro\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?"
+"2:1));\n"
+
+#. module: hr_contract_multi_job
+#: model:ir.model.fields,field_description:hr_contract_multi_job.field_hr_contract_job__contract_id
+msgid "Contract"
+msgstr "Contract"
+
+#. module: hr_contract_multi_job
+#: model:ir.model.fields,field_description:hr_contract_multi_job.field_hr_job__contract_job_ids
+msgid "Contract Jobs"
+msgstr "Funcții"
+
+#. module: hr_contract_multi_job
+#: model:ir.model.fields,field_description:hr_contract_multi_job.field_hr_contract_job__create_uid
+msgid "Created by"
+msgstr "Creeat de către"
+
+#. module: hr_contract_multi_job
+#: model:ir.model.fields,field_description:hr_contract_multi_job.field_hr_contract_job__create_date
+msgid "Created on"
+msgstr "Creeat în"
+
+#. module: hr_contract_multi_job
+#: model:ir.model.fields,field_description:hr_contract_multi_job.field_hr_contract_job__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: hr_contract_multi_job
+#: model:ir.model,name:hr_contract_multi_job.model_hr_contract
+#, fuzzy
+msgid "Employee Contract"
+msgstr "Contract"
+
+#. module: hr_contract_multi_job
+#: model:ir.model.fields,field_description:hr_contract_multi_job.field_hr_contract_job__id
+msgid "ID"
+msgstr "ID"
+
+#. module: hr_contract_multi_job
+#: model:ir.model.fields,field_description:hr_contract_multi_job.field_hr_contract_job__job_id
+msgid "Job"
+msgstr "Funcție"
+
+#. module: hr_contract_multi_job
+#: model:ir.model.fields,field_description:hr_contract_multi_job.field_hr_contract_job__name
+msgid "Job Name"
+msgstr ""
+
+#. module: hr_contract_multi_job
+#: model:ir.model,name:hr_contract_multi_job.model_hr_job
+msgid "Job Position"
+msgstr "Funcție"
+
+#. module: hr_contract_multi_job
+#: model_terms:ir.ui.view,arch_db:hr_contract_multi_job.hr_contract_view_form
+msgid "Job Positions"
+msgstr "Funcții"
+
+#. module: hr_contract_multi_job
+#: model:ir.model.fields,field_description:hr_contract_multi_job.field_hr_contract__job_id
+msgid "Job Title"
+msgstr ""
+
+#. module: hr_contract_multi_job
+#: model:ir.model.fields,field_description:hr_contract_multi_job.field_hr_contract__contract_job_ids
+msgid "Jobs"
+msgstr "Funcții"
+
+#. module: hr_contract_multi_job
+#: model:ir.model.fields,field_description:hr_contract_multi_job.field_hr_contract_job____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: hr_contract_multi_job
+#: model:ir.model.fields,field_description:hr_contract_multi_job.field_hr_contract_job__write_uid
+msgid "Last Updated by"
+msgstr "Ultima actualizare de către"
+
+#. module: hr_contract_multi_job
+#: model:ir.model.fields,field_description:hr_contract_multi_job.field_hr_contract_job__write_date
+msgid "Last Updated on"
+msgstr "Ultima actualizare în"
+
+#. module: hr_contract_multi_job
+#: model:ir.model.fields,field_description:hr_contract_multi_job.field_hr_contract_job__is_main_job
+msgid "Main Job Position"
+msgstr "Funcție Principală"
+
+#. module: hr_contract_multi_job
+#: model:ir.model,name:hr_contract_multi_job.model_hr_contract_job
+msgid "Relational object between contract and job"
+msgstr "Obiect relaționar între Contracte și Funcții"
+
+#. module: hr_contract_multi_job
+#: code:addons/hr_contract_multi_job/models/hr_contract.py:46
+#, python-format
+msgid "You must assign one and only one job position as main job position."
+msgstr ""
