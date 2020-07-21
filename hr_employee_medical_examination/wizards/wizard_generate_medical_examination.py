@@ -3,7 +3,7 @@
 
 from datetime import date
 
-from odoo import _, api, fields, models
+from odoo import _, fields, models
 
 
 class WizardGenerateMedicalExamination(models.TransientModel):
@@ -26,7 +26,6 @@ class WizardGenerateMedicalExamination(models.TransientModel):
             res.append(("department_id", "child_of", self.department_id.id))
         return res
 
-    @api.multi
     def populate(self):
         domain = self._prepare_employee_domain()
         employees = self.env["hr.employee"].search(domain)
@@ -49,7 +48,6 @@ class WizardGenerateMedicalExamination(models.TransientModel):
             "year": self.year,
         }
 
-    @api.multi
     def create_medical_examinations(self):
         exams = self.env["hr.employee.medical.examination"]
         for form in self:
