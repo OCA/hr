@@ -25,7 +25,6 @@ class HrEmployee(models.Model):
         for record in self:
             record.medical_examination_count = len(record.medical_examination_ids)
 
-    @api.multi
     def _compute_can_see_examinations_button(self):
         for record in self:
             record.can_see_examinations_button = (
