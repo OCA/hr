@@ -17,7 +17,7 @@ msgstr ""
 "X-Generator: Weblate 3.8\n"
 
 #. module: hr_employee_medical_examination
-#: code:addons/hr_employee_medical_examination/wizards/wizard_generate_medical_examination.py:58
+#: code:addons/hr_employee_medical_examination/wizards/wizard_generate_medical_examination.py:0
 #, python-format
 msgid "%s on %s"
 msgstr "%s en %s"
@@ -38,6 +38,11 @@ msgid "Activities"
 msgstr ""
 
 #. module: hr_employee_medical_examination
+#: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee_medical_examination__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: hr_employee_medical_examination
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee_medical_examination__activity_state
 msgid "Activity State"
 msgstr ""
@@ -55,7 +60,6 @@ msgstr ""
 #. module: hr_employee_medical_examination
 #: model_terms:ir.ui.view,arch_db:hr_employee_medical_examination.hr_employee_medical_examination_form_view
 #, fuzzy
-#| msgid "Pending"
 msgid "Back To Pending"
 msgstr "Pendiente"
 
@@ -70,7 +74,7 @@ msgid "Cancel"
 msgstr "Cancelar"
 
 #. module: hr_employee_medical_examination
-#: selection:hr.employee.medical.examination,state:0
+#: model:ir.model.fields.selection,name:hr_employee_medical_examination.selection__hr_employee_medical_examination__state__cancelled
 msgid "Cancelled"
 msgstr "Cancelado"
 
@@ -98,7 +102,7 @@ msgid "Display Name"
 msgstr "Nombre a Mostrar"
 
 #. module: hr_employee_medical_examination
-#: selection:hr.employee.medical.examination,state:0
+#: model:ir.model.fields.selection,name:hr_employee_medical_examination.selection__hr_employee_medical_examination__state__done
 msgid "Done"
 msgstr "Hecho"
 
@@ -135,7 +139,7 @@ msgid "Examination Name"
 msgstr "Nombre del Exámen Médico"
 
 #. module: hr_employee_medical_examination
-#: selection:hr.employee.medical.examination,result:0
+#: model:ir.model.fields.selection,name:hr_employee_medical_examination.selection__hr_employee_medical_examination__result__failed
 #: model_terms:ir.ui.view,arch_db:hr_employee_medical_examination.hr_employee_medical_examination_search_view
 msgid "Failed"
 msgstr "Suspendido"
@@ -166,7 +170,7 @@ msgid "Generate Medical Examination"
 msgstr "Generar Exámenes Médicos"
 
 #. module: hr_employee_medical_examination
-#: code:addons/hr_employee_medical_examination/wizards/wizard_generate_medical_examination.py:46
+#: code:addons/hr_employee_medical_examination/wizards/wizard_generate_medical_examination.py:0
 #: model:ir.actions.act_window,name:hr_employee_medical_examination.wizard_generate_medical_examination_act_window
 #: model:ir.ui.menu,name:hr_employee_medical_examination.hr_employee_medical_examination_generate_wizard
 #, python-format
@@ -176,7 +180,6 @@ msgstr "Generar Exámenes Médicos"
 #. module: hr_employee_medical_examination
 #: model:ir.model,name:hr_employee_medical_examination.model_wizard_generate_medical_examination
 #, fuzzy
-#| msgid "Generate Medical Examinations"
 msgid "Generation wizard for medical examinations"
 msgstr "Generar Exámenes Médicos"
 
@@ -192,17 +195,24 @@ msgid "ID"
 msgstr "ID"
 
 #. module: hr_employee_medical_examination
-#: model:ir.model.fields,help:hr_employee_medical_examination.field_hr_employee_medical_examination__message_unread
-msgid "If checked new messages require your attention."
+#: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee_medical_examination__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: hr_employee_medical_examination
+#: model:ir.model.fields,help:hr_employee_medical_examination.field_hr_employee_medical_examination__activity_exception_icon
+msgid "Icon to indicate an exception activity."
 msgstr ""
 
 #. module: hr_employee_medical_examination
 #: model:ir.model.fields,help:hr_employee_medical_examination.field_hr_employee_medical_examination__message_needaction
+#: model:ir.model.fields,help:hr_employee_medical_examination.field_hr_employee_medical_examination__message_unread
 msgid "If checked, new messages require your attention."
 msgstr ""
 
 #. module: hr_employee_medical_examination
 #: model:ir.model.fields,help:hr_employee_medical_examination.field_hr_employee_medical_examination__message_has_error
+#: model:ir.model.fields,help:hr_employee_medical_examination.field_hr_employee_medical_examination__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
 msgstr ""
 
@@ -242,7 +252,6 @@ msgstr ""
 #. module: hr_employee_medical_examination
 #: model_terms:ir.ui.view,arch_db:hr_employee_medical_examination.hr_employee_medical_examination_form_view
 #, fuzzy
-#| msgid "Cancelled"
 msgid "Mark as Cancelled"
 msgstr "Cancelado"
 
@@ -316,7 +325,7 @@ msgstr ""
 
 #. module: hr_employee_medical_examination
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee_medical_examination__message_has_error_counter
-msgid "Number of error"
+msgid "Number of errors"
 msgstr ""
 
 #. module: hr_employee_medical_examination
@@ -335,26 +344,16 @@ msgid "Number of unread messages"
 msgstr ""
 
 #. module: hr_employee_medical_examination
-#: selection:hr.employee.medical.examination,activity_state:0
-msgid "Overdue"
-msgstr ""
-
-#. module: hr_employee_medical_examination
-#: selection:hr.employee.medical.examination,result:0
+#: model:ir.model.fields.selection,name:hr_employee_medical_examination.selection__hr_employee_medical_examination__result__passed
 #: model_terms:ir.ui.view,arch_db:hr_employee_medical_examination.hr_employee_medical_examination_search_view
 msgid "Passed"
 msgstr "Aprobado"
 
 #. module: hr_employee_medical_examination
-#: selection:hr.employee.medical.examination,state:0
+#: model:ir.model.fields.selection,name:hr_employee_medical_examination.selection__hr_employee_medical_examination__state__pending
 #: model_terms:ir.ui.view,arch_db:hr_employee_medical_examination.hr_employee_medical_examination_search_view
 msgid "Pending"
 msgstr "Pendiente"
-
-#. module: hr_employee_medical_examination
-#: selection:hr.employee.medical.examination,activity_state:0
-msgid "Planned"
-msgstr ""
 
 #. module: hr_employee_medical_examination
 #: model_terms:ir.ui.view,arch_db:hr_employee_medical_examination.wizard_generate_medical_examination_form_view
@@ -362,7 +361,7 @@ msgid "Populate"
 msgstr "Buscar"
 
 #. module: hr_employee_medical_examination
-#: selection:hr.employee.medical.examination,state:0
+#: model:ir.model.fields.selection,name:hr_employee_medical_examination.selection__hr_employee_medical_examination__state__rejected
 msgid "Rejected"
 msgstr ""
 
@@ -375,6 +374,11 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee_medical_examination__result
 msgid "Result"
 msgstr "Resultado"
+
+#. module: hr_employee_medical_examination
+#: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee_medical_examination__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
 
 #. module: hr_employee_medical_examination
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee_medical_examination__state
@@ -391,8 +395,8 @@ msgid ""
 msgstr ""
 
 #. module: hr_employee_medical_examination
-#: selection:hr.employee.medical.examination,activity_state:0
-msgid "Today"
+#: model:ir.model.fields,help:hr_employee_medical_examination.field_hr_employee_medical_examination__activity_exception_decoration
+msgid "Type of the exception activity on record."
 msgstr ""
 
 #. module: hr_employee_medical_examination
@@ -409,16 +413,6 @@ msgstr ""
 #: model:ir.ui.menu,name:hr_employee_medical_examination.hr_employee_medical_examination_all
 msgid "View Medical Examinations"
 msgstr "Ver Exámenes Médicos"
-
-#. module: hr_employee_medical_examination
-#: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee_medical_examination__website_message_ids
-msgid "Website Messages"
-msgstr ""
-
-#. module: hr_employee_medical_examination
-#: model:ir.model.fields,help:hr_employee_medical_examination.field_hr_employee_medical_examination__website_message_ids
-msgid "Website communication history"
-msgstr ""
 
 #. module: hr_employee_medical_examination
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee_medical_examination__year
