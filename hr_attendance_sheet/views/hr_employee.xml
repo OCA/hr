@@ -1,0 +1,14 @@
+<odoo>
+    <record id="hr_attendance_employee_view_form" model="ir.ui.view" >
+        <field name="name">hr.attendance.employee.form</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr_attendance.view_employee_form_inherit_hr_attendance"/>
+        <field name="arch" type="xml">
+            <field name="manual_attendance" position="after">
+                <field name="use_attendance_sheets" string="Attendance Sheets" attrs="{'invisible':[('manual_attendance','=',False)]}"/>
+                <field name="attendance_admin" attrs="{'invisible':[('manual_attendance','=',False)]}"/>
+                <field name="hours_to_work" attrs="{'invisible':[('use_attendance_sheets','=',False)]}"/>
+            </field>
+        </field>
+    </record>
+</odoo>
