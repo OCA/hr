@@ -1,0 +1,201 @@
+<odoo>
+    <record id="hr_attendance_sheet_view_tree" model="ir.ui.view">
+        <field name="name">hr.attendance.sheet.tree</field>
+        <field name="model">hr.attendance.sheet</field>
+        <field name="arch" type="xml">
+            <tree string="Attendance sheets" decoration-danger="state=='draft'" decoration-info="state=='confirm'" decoration-success="state=='done'" decoration-it="state=='locked'">
+                <field name="name"/>
+                <field name="state"/>
+                <field name="employee_id"/>
+                <field name="total_time" widget="timesheet_uom"/>
+                <field name="overtime" widget="timesheet_uom"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="hr_attendance_sheet_view_form" model="ir.ui.view">
+        <field name="name">hr.attendance.sheet.form</field>
+        <field name="model">hr.attendance.sheet</field>
+        <field name="arch" type="xml">
+            <form string="Attendance Sheet">
+                <header>
+                    <button
+                        name="action_attendance_sheet_confirm"
+                        string="Submit to Reviewer"
+                        type="object"
+                        class="oe_highlight"
+                        attrs="{'invisible': [('state', '!=', 'draft')]}"/>
+                    <button
+                        name="action_attendance_sheet_done"
+                        string="Approve"
+                        type="object"
+                        class="oe_highlight"
+                        attrs="{'invisible': ['|', ('can_review', '!=', True), ('state', '!=', 'confirm')]}"/>
+                    <button
+                        name="action_attendance_sheet_lock"
+                        string="Lock"
+                        type="object"
+                        class="oe_highlight"
+                        attrs="{'invisible': ['|', ('can_review', '!=', True), ('state', '!=', 'done')]}"
+                        groups="hr_attendance.group_hr_attendance_manager"/>
+                    <button
+                        name="action_attendance_sheet_unlock"
+                        string="Unlock"
+                        type="object"
+                        class="oe_highlight"
+                        attrs="{'invisible': ['|', ('can_review', '!=', True), ('state', '!=', 'locked')]}"
+                        groups="hr_attendance.group_hr_attendance_manager"/>
+                    <button
+                        name="action_attendance_sheet_draft"
+                        string="Set to Draft"
+                        type="object"
+                        attrs="{'invisible': ['|', ('can_review', '!=', True), ('state', '!=', 'done')]}"/>
+                    <button
+                        name="action_attendance_sheet_refuse"
+                        string="Refuse"
+                        type="object"
+                        attrs="{'invisible': ['|', ('can_review', '!=', True), ('state', '!=', 'confirm')]}"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group col="4" colspan="2">
+                        <field name="employee_id"/>
+                        <field name="working_hours"/>
+                        <field name="department_id"/>
+                        <field name="hours_to_work"/>
+                        <field name="manager_id"/>
+                        <field name="review_policy"/>
+                        <field name="attendance_admin"/>
+                    </group>
+                    <group col="4" colspan="2">
+                        <field name="date_start"/>
+                        <field name="date_end"/>
+                    </group>
+                    <notebook>
+                        <page string="Check-in/Check-out">
+                            <button string="Check in/out" name="attendance_action_change" type="object" class="btn-primary" attrs="{'invisible': [('state', '!=', 'draft')]}"/>
+                            <group name="time" col="4" colspan="2">
+                                <field name="total_time" widget="timesheet_uom"/>
+                                <field name="overtime" widget="timesheet_uom"/>
+                            </group>
+                            <group name="attendance">
+                                <field name="attendance_ids" attrs="{'readonly': ['|', ('can_review', '!=', True), ('state', '=', 'done')]}" nolabel="1" options="{'no_create_edit': True, 'no_create': True, 'no_open': True}" context="{'default_employee_id': employee_id, 'default_attendance_sheet_id': active_id}">
+                                    <tree>
+                                        <field name="employee_id" invisible="1"/>
+                                        <field name="attendance_sheet_id" invisible="1"/>
+                                        <field name="check_in"/>
+                                        <field name="check_out"/>
+                                        <field name="auto_lunch" readonly="1"/>
+                                        <field name="override_auto_lunch" readonly="1"/>
+                                        <field name="duration" widget="timesheet_uom"/>
+                                    </tree>
+                                </field>
+                            </group>
+                            <group name="review" string="Review Information">
+                                <field name="reviewer_id" readonly="1"/>
+                                <field name="reviewed_on" readonly="1"/>
+                                <field name="company_id"/>
+                                <field name="can_review" invisible="1"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"
+                           widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"
+                           options="{'post_refresh': 'recipients'}"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="hr_attendance_sheet_view_search" model="ir.ui.view">
+        <field name="name">hr.attendance.sheet.search</field>
+        <field name="model">hr.attendance.sheet</field>
+        <field name="arch" type="xml">
+            <search string="HR Attendance Sheet Search">
+                <filter string="My Sheets" name="my_attendance_sheets" domain="[('employee_id.user_id.id', '=', uid)]" />
+                <separator/>
+                <filter string="Draft" name="draft" domain="[('state', '=', 'draft')]" />
+                <filter string="To Review" name="confirm" domain="[('state', '=', 'confirm')]" />
+                <filter string="Approved" name="done" domain="[('state', '=', 'done')]" />
+                <filter string="Locked" name="locked" domain="[('state', '=', 'locked')]" />
+                <separator/>
+                <field name="employee_id"/>
+                <field name="department_id"/>
+                <field name="manager_id"/>
+                <field name="attendance_admin"/>
+                <separator/>
+                <filter string="Current Period" name="current_period" domain="['&amp;',('date_start','&lt;=', context_today().strftime('%Y-%m-%d')),('date_end','&gt;', context_today().strftime('%Y-%m-%d'))]" help="Overdue invoices, maturity date passed"/>
+                <filter string="Previous Periods" name="previous_periods" domain="[('date_start','&lt;', context_today().strftime('%Y-%m-%d'))]"/>
+                <group expand="0" string="Group By">
+                    <filter name="state" string="Stage" context="{'group_by':'state'}"/>
+                    <filter name="employee" string="Employee" context="{'group_by':'employee_id'}"/>
+                    <separator/>
+                    <filter name="groupby_date_start" string="Start Date" context="{'group_by': 'date_start'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="hr_attendance_sheet_manager_action" model="ir.actions.act_window">
+        <field name="name">All Attendance Sheets</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hr.attendance.sheet</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="hr_attendance_sheet_view_tree"/>
+    </record>
+    <record id="hr_attendance_sheet_employee_action" model="ir.actions.act_window">
+        <field name="name">My Attendance Sheets</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hr.attendance.sheet</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('employee_id.user_id','=', uid)]</field>
+        <field name="view_id" ref="hr_attendance_sheet_view_tree"/>
+    </record>
+    <record id="hr_attendance_sheet_my_employees_action" model="ir.actions.act_window">
+        <field name="name">My Employee's Attendance Sheets</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hr.attendance.sheet</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('employee_id.user_id', '!=', uid), '|', ('employee_id.parent_id.user_id', '=', uid),('department_id.attendance_admin.user_id', '=', uid)]</field>
+        <field name="view_id" ref="hr_attendance_sheet_view_tree"/>
+    </record>
+
+    <menuitem id="hr_attendance_sheet_manager_menu"
+              name="Attendance Sheets"
+              parent="hr_attendance.menu_hr_attendance_manage_attendances"
+              action="hr_attendance_sheet_manager_action"
+              sequence="9"
+              groups="hr_attendance.group_hr_attendance_manager"/>
+
+    <menuitem id="hr_attendance_sheet_main_menu"
+              name="Attendance Sheets"
+              parent="hr_attendance.menu_hr_attendance_root"
+              sequence="10"
+              groups="hr_attendance.group_hr_attendance"/>
+
+    <menuitem id="hr_attendance_sheet_my_menu"
+              name="My Attendance Sheets"
+              parent="hr_attendance_sheet_main_menu"
+              action="hr_attendance_sheet_employee_action"
+              sequence="20"
+              groups="hr_attendance.group_hr_attendance"/>
+
+    <menuitem id="hr_attendance_sheet_employee_menu"
+              name="Employee's Attendance Sheets"
+              parent="hr_attendance_sheet_main_menu"
+              action="hr_attendance_sheet_my_employees_action"
+              sequence="30"
+              groups="hr_attendance.group_hr_attendance"/>
+</odoo>

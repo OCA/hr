@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hr_attendance_sheet_employee,hr.attendance.reason.employee,model_hr_attendance_sheet,hr_attendance.group_hr_attendance,1,1,0,0
+access_hr_attendance_sheet_user,hr.attendance.reason.user,model_hr_attendance_sheet,hr_attendance.group_hr_attendance_user,1,1,1,0
+access_hr_attendance_sheet_manager,hr.attendance.reason.manager,model_hr_attendance_sheet,hr_attendance.group_hr_attendance_manager,1,1,1,1
+access_hr_attendance_sheet_base,hr.attendance.reason.employee,model_hr_attendance_sheet,base.group_user,1,0,0,0

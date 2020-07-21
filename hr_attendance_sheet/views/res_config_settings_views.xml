@@ -1,0 +1,84 @@
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.hr.attendance</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="55"/>
+        <field name="inherit_id" ref="hr_attendance.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('settings')]/div[@groups='hr_attendance.group_hr_attendance_manager']/div[position()=1]" position="after">
+                <h2>Attendance Sheets</h2>
+                <div class="row mt16 o_settings_container" name="hr_attendance_sheet" id="hr_attendance_sheet">
+                    <div class="col-xs-12 col-md-6 o_setting_box">
+                        <div class="o_setting_right_pane">
+                            <label for="attendance_sheet_range"/>
+                            <span class="fa fa-lg fa-building-o" title="Values set here are company-specific." aria-label="Values set here are company-specific." groups="base.group_multi_company" role="img"/>
+                            <div class="text-muted">
+                                Choose which attendance sheet ranges should be used by default
+                            </div>
+                            <div class="content-group">
+                                <div class="mt16">
+                                    <field name="attendance_sheet_range" class="o_light_label" widget="selection" required="1"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-6 o_setting_box" attrs="{'invisible':[('attendance_sheet_range','not in', ('WEEKLY', 'BIWEEKLY'))], 'required':[('attendance_sheet_range', 'in', ('WEEKLY', 'BIWEEKLY'))]}">
+                        <div class="o_setting_right_pane">
+                            <label for="attendance_week_start"/>
+                            <span class="fa fa-lg fa-building-o" title="Values set here are company-specific." aria-label="Values set here are company-specific." groups="base.group_multi_company" role="img"/>
+                            <div class="text-muted">
+                                Choose the week start day.
+                            </div>
+                            <div class="content-group">
+                                <div class="mt16">
+                                    <field name="attendance_week_start" class="o_light_label" widget="selection" required="1"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-6 o_setting_box">
+                        <div class="o_setting_right_pane">
+                            <label for="attendance_sheet_review_policy"/>
+                            <span class="fa fa-lg fa-building-o" title="Values set here are company-specific." aria-label="Values set here are company-specific." groups="base.group_multi_company" role="img"/>
+                            <div class="text-muted">
+                                Choose attendance sheets review policy. Either HR only, Manager (Set on Employee) or Attendance Admin (Set on Department) or all three.
+                            </div>
+                            <div class="content-group">
+                                <div class="mt16">
+                                    <field name="attendance_sheet_review_policy" class="o_light_label" widget="radio" required="1"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h2>Attendance Rules</h2>
+                <div class="row mt16 o_settings_container" name="attendance_rules" id="attendance_rules">
+                    <div class="col-12 col-lg-6 o_setting_box">
+                        <div class="o_setting_left_pane">
+                            <field name="auto_lunch"/>
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="auto_lunch"/>
+                            <span class="fa fa-lg fa-building-o" title="Values set here are company-specific." aria-label="Values set here are company-specific." groups="base.group_multi_company" role="img"/>
+                            <div class="text-muted">
+                                Choose if lunches are auto calculated after a certain duration. If a single attendance surpasses the duration, an auto lunch will be applied. If there are multiple attendances, but the time between them is shorter than the lunch time, then an auto lunch will be applied.
+                            </div>
+                            <div class="content-group" attrs="{'invisible': [('auto_lunch', '=', False)]}">
+                                <div class="row mt16">
+                                    <label for="auto_lunch_duration" class="col-lg-4 o_light_label"/>
+                                    <field name="auto_lunch_duration" class="oe_inline"/> Hours
+                                </div>
+                            </div>
+                            <div class="content-group" attrs="{'invisible': [('auto_lunch', '=', False)]}">
+                                <div class="row mt16">
+                                    <label for="auto_lunch_hours" class="col-lg-4 o_light_label"/>
+                                    <field name="auto_lunch_hours" class="oe_inline"/> Hours
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
