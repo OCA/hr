@@ -43,7 +43,7 @@ class TestHrEmployeeMedicalExamination(TransactionCase):
         self.assertEqual(examination.name, "Examination 2019 on Employee 1")
         self.assertEqual(self.employee1.medical_examination_count, 2)
         self.assertTrue(self.employee1.can_see_examinations_button)
-        examination.write({"date": "05-05-2018"})
+        examination.write({"date": "2018-05-05"})
         examination._onchange_date()
         self.assertEqual(examination.year, "2018")
         examination.to_done()

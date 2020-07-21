@@ -46,18 +46,14 @@ class HrEmployeeMedicalExamination(models.Model):
             if record.date:
                 record.year = str(record.date.year)
 
-    @api.multi
     def back_to_pending(self):
         self.write({"state": "pending"})
 
-    @api.multi
     def to_done(self):
         self.write({"state": "done"})
 
-    @api.multi
     def to_cancelled(self):
         self.write({"state": "cancelled"})
 
-    @api.multi
     def to_rejected(self):
         self.write({"state": "rejected"})
