@@ -7,6 +7,11 @@
               "Odoo Community Association (OCA)",
     'website': 'https://github.com/OCA/hr',
     'license': 'AGPL-3',
+    'external_dependencies': {
+        'python': [
+            'phonenumbers',
+        ],
+    },
     'depends': [
         'phone_validation',
         'hr',
