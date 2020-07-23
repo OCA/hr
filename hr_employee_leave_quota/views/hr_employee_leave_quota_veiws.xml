@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!-- employee in notebook -->
+    <record id="hr_employee_leave_quota_view_tree" model="ir.ui.view">
+        <field name="name">hr.employee.leave.quota.view.tree</field>
+        <field name="model">hr.employee.leave.quota</field>
+        <field name="arch" type="xml">
+            <tree string="Holiday Quota" editable="bottom">
+                <field name="leave_type" />
+                <field name="quota" />
+                <field name="used_days" />
+                <field name="balance" />
+            </tree>
+        </field>
+    </record>
+    <record id="hr_employee_view_form" model="ir.ui.view">
+        <field name="name">hr.employee.view.form</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Holiday Quota" groups="hr.group_hr_user">
+                    <field name="leave_type_ids" nolabel="1" />
+                </page>
+            </xpath>
+        </field>
+    </record>
+    <!-- Leave Request Form-->
+    <record id="hr_employee_leave_request_from" model="ir.ui.view">
+        <field name="name">hr.employee.leave.request.form</field>
+        <field name="model">hr.employee.leave.request</field>
+        <field name="arch" type="xml">
+            <form string="Holiday Quota">
+                <header>
+                    <button
+                        name="button_submit_approved"
+                        type="object"
+                        states="draft"
+                        string="Submit for Approval"
+                    />
+                    <button
+                        name="button_approve"
+                        type="object"
+                        states="waiting"
+                        string="Approved"
+                        groups="hr.group_hr_manager"
+                    />
+                    <button
+                        name="button_rejected"
+                        type="object"
+                        states="draft,waiting"
+                        string="Rejected"
+                    />
+                    <field
+                        name="state"
+                        widget="statusbar"
+                        statusbar_visible="draft,waiting,approved"
+                        readonly="1"
+                    />
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="employee_id" />
+                        </group>
+                        <group>
+                            <field name="approver_id" />
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Holiday Quota">
+                            <field name="request_line_ids">
+                                <tree name="request_line" editable="bottom">
+                                    <field name="leave_type" />
+                                    <field name="date_start" />
+                                    <field name="date_end" />
+                                    <field name="leave_days" />
+                                    <field name="balance" />
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- Leave Request Tree-->
+    <record id="hr_employee_leave_request_line_view_tree" model="ir.ui.view">
+        <field name="name">hr.employee.leave.request.line.view.tree</field>
+        <field name="model">hr.employee.leave.request</field>
+        <field name="arch" type="xml">
+            <tree string="Holiday Quota">
+                <field name="employee_id" />
+                <field name="approver_id" />
+                <field name="state" />
+            </tree>
+        </field>
+    </record>
+    <!-- Leave Request Manu-->
+    <record model="ir.actions.act_window" id="contact_list_action">
+        <field name="name">Leave Request</field>
+        <field name="res_model">hr.employee.leave.request</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="hr_employee_leave_request_line_view_tree" />
+    </record>
+    <menuitem
+        id="menu_leave_quota_pro_mgt"
+        parent="hr.menu_hr_employee_payroll"
+        action="contact_list_action"
+    />
+</odoo>
