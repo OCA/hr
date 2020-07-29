@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2019 Creu Blanca
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="act_medical_examination_employee" model="ir.actions.act_window">
+        <field name="name">Medical Examinations</field>
+        <field name="res_model">hr.employee.medical.examination</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{
+                'search_default_employee_id': [active_id],
+                'default_employee_id': active_id,
+            }</field>
+    </record>
+    <record model="ir.ui.view" id="view_employee_form">
+        <field name="name">hr.employee.form (in hr_employee_medical_examination)</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form" />
+        <field name="arch" type="xml">
+            <div name="button_box" position="inside">
+                <field name="can_see_examinations_button" invisible="1" />
+                <button
+                    name="%(act_medical_examination_employee)d"
+                    class="oe_stat_button"
+                    icon="fa-medkit"
+                    type="action"
+                    attrs="{'invisible': [('can_see_examinations_button', '=', False)]}"
+                >
+                    <field
+                        name="medical_examination_count"
+                        widget="statinfo"
+                        string="Medical Examinations"
+                    />
+                </button>
+            </div>
+        </field>
+    </record>
+</odoo>
