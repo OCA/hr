@@ -13,6 +13,7 @@ setuptools.setup(
         'odoo13-addon-hr_employee_age',
         'odoo13-addon-hr_employee_calendar_planning',
         'odoo13-addon-hr_employee_firstname',
+        'odoo13-addon-hr_employee_medical_examination',
         'odoo13-addon-hr_employee_phone_extension',
         'odoo13-addon-hr_employee_relative',
         'odoo13-addon-hr_employee_service',
