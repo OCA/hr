@@ -1,1 +1,3 @@
 Add a javascript code to proper utm_source in a proper field
+
+To set got to `Link Tracker`/`UTMs`/`Source`
