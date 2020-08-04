@@ -26,7 +26,7 @@ class HrEmployee(models.Model):
         string="Termination Date", readonly=True, related="last_contract_id.date_end",
     )
 
-    @api.depends("contract_ids")
+    @api.depends("contract_ids", "contract_ids.date_start")
     def _compute_first_contract_id(self):
         Contract = self.env["hr.contract"]
         for employee in self:
@@ -34,7 +34,7 @@ class HrEmployee(models.Model):
                 employee._get_contract_filter(), order="date_start asc", limit=1
             )
 
-    @api.depends("contract_ids")
+    @api.depends("contract_ids", "contract_ids.date_end")
     def _compute_last_contract_id(self):
         Contract = self.env["hr.contract"]
         for employee in self:
