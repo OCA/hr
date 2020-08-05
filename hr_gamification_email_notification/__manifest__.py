@@ -9,7 +9,7 @@
     "summary": """Send Email to all the Employees with all the award given in
      the last week.""",
     "category": "Helpdesk",
-    "maintainers": "Open Source Integrators",
+    "maintainers": ["Khalid-SerpentCS"],
     "website": "http://www.opensourceintegrators.com",
     "depends": ["hr_gamification"],
     "data": ["data/ir_cron_data.xml", "data/badge.xml", "views/badge.xml"],
