@@ -31,7 +31,7 @@ class HrEmployee(models.Model):
     )
 
     @api.multi
-    @api.depends('contract_ids')
+    @api.depends('contract_ids', 'contract_ids.date_start')
     def _compute_first_contract_id(self):
         Contract = self.env['hr.contract']
         for employee in self:
@@ -42,7 +42,7 @@ class HrEmployee(models.Model):
             )
 
     @api.multi
-    @api.depends('contract_ids')
+    @api.depends('contract_ids', 'contract_ids.date_end')
     def _compute_last_contract_id(self):
         Contract = self.env['hr.contract']
         for employee in self:
