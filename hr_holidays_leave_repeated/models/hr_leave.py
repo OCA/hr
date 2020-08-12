@@ -36,17 +36,17 @@ class HrLeave(models.Model):
             from_dt = from_dt + relativedelta(days=days)
             to_dt = to_dt + relativedelta(days=days)
 
+            user_from_dt = fields.Datetime.context_timestamp(user, from_dt)
+            user_to_dt = fields.Datetime.context_timestamp(user, to_dt)
+            from_dt = from_dt - user_from_dt.tzinfo._utcoffset
+            from_dt = from_dt + orig_from_dt.tzinfo._utcoffset
+            to_dt = to_dt - user_to_dt.tzinfo._utcoffset
+            to_dt = to_dt + orig_to_dt.tzinfo._utcoffset
+
             new_work_hours = calendar.get_work_hours_count(
                 from_dt, to_dt, compute_leaves=True)
             if new_work_hours and work_hours <= new_work_hours:
                 break
-
-        user_from_dt = fields.Datetime.context_timestamp(user, from_dt)
-        user_to_dt = fields.Datetime.context_timestamp(user, to_dt)
-        from_dt = from_dt - user_from_dt.tzinfo._utcoffset
-        from_dt = from_dt + orig_from_dt.tzinfo._utcoffset
-        to_dt = to_dt - user_to_dt.tzinfo._utcoffset
-        to_dt = to_dt + orig_to_dt.tzinfo._utcoffset
 
         return from_dt, to_dt
 
