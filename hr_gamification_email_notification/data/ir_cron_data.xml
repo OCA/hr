@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="ir_cron_badge_emails" model="ir.cron">
+        <field name="name">Badge Awards Emails</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">weeks</field>
+        <field name="numbercall">-1</field>
+        <field name="doall" eval="False"/>
+        <field name="model_id" ref="model_mail_channel"/>
+        <field name="code">model._send_badge_awards_emails()</field>
+        <field name="state">code</field>
+    </record>
+</odoo>
