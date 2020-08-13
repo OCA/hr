@@ -1,0 +1,26 @@
+<odoo>
+    <record id="badge_user_list_view" model="ir.ui.view">
+        <field name="name">Badge User List View</field>
+        <field name="model">gamification.badge.user</field>
+        <field name="arch" type="xml">
+            <tree string="Badge User List" create="false">
+                <field name="badge_name"/>
+                <field name="badge_id"/>
+                <field name="user_id"/>
+                <field name="sender_id"/>
+                <field name="challenge_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="badge_user_list_action" model="ir.actions.act_window">
+        <field name="name">User Badge</field>
+        <field name="res_model">gamification.badge.user</field>
+        <field name="view_mode">tree</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+    </record>
+
+    <menuitem id="gamification_badge_user_list_menu_hr" parent="hr_gamification.menu_hr_gamification" action="badge_user_list_action"
+    groups="hr.group_hr_user"/>
+</odoo>
