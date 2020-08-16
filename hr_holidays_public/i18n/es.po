@@ -126,7 +126,6 @@ msgstr "Excluir vacaciones públicas"
 #. module: hr_holidays_public
 #: model:ir.model.fields,field_description:hr_holidays_public.field_hr_holidays_public_generator_template_id
 #, fuzzy
-#| msgid "Templates"
 msgid "From Template"
 msgstr "Plantillas"
 
@@ -140,7 +139,6 @@ msgstr ""
 #: model:ir.ui.menu,name:hr_holidays_public.hr_holidays_public_generator_menu
 #: model:ir.ui.view,arch_db:hr_holidays_public.hr_holidays_public_generator_view
 #, fuzzy
-#| msgid "Public Holidays"
 msgid "Generate Public Holidays"
 msgstr "Vacaciones públicas"
 
