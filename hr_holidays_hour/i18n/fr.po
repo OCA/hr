@@ -19,7 +19,6 @@ msgstr ""
 #. module: hr_holidays_hour
 #: model:ir.model.fields,field_description:hr_holidays_hour.field_hr_leave_allocation__number_of_hours
 #, fuzzy
-#| msgid "Allocation in Hours"
 msgid "Allocated hours"
 msgstr "Allocation en heures"
 
@@ -52,7 +51,6 @@ msgstr ""
 #. module: hr_holidays_hour
 #: model:ir.model.fields,field_description:hr_holidays_hour.field_hr_employee__leaves_count
 #, fuzzy
-#| msgid "Number Of Hours"
 msgid "Number of Leaves"
 msgstr "Nombre d'heures"
 
@@ -77,7 +75,6 @@ msgstr ""
 #. module: hr_holidays_hour
 #: model_terms:ir.ui.view,arch_db:hr_holidays_hour.view_employee_form_leave_inherit
 #, fuzzy
-#| msgid "Hours"
 msgid "hours"
 msgstr "Heures"
 
