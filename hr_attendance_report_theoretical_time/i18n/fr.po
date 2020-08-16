@@ -19,7 +19,6 @@ msgstr ""
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.ui.menu,name:hr_attendance_report_theoretical_time.menu_hr_attendance_theoretical_report
 #, fuzzy
-#| msgid "Employee"
 msgid "All Employees"
 msgstr "Employé(e)"
 
@@ -94,7 +93,6 @@ msgstr "Employé(e)"
 #: model:ir.model.fields,field_description:hr_attendance_report_theoretical_time.field_wizard_theoretical_time__employee_ids
 #: model_terms:ir.ui.view,arch_db:hr_attendance_report_theoretical_time.wizard_theoretical_time_form_view
 #, fuzzy
-#| msgid "Employee"
 msgid "Employees"
 msgstr "Employé(e)"
 
@@ -115,7 +113,6 @@ msgstr ""
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.model,name:hr_attendance_report_theoretical_time.model_wizard_theoretical_time
 #, fuzzy
-#| msgid "Theoretical vs Attended Time"
 msgid "Filtered Theoretical Time"
 msgstr "Durée théorique / Durée réelle"
 
@@ -168,7 +165,6 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_attendance_report_theoretical_time.field_recompute_theoretical_attendance__write_date
 #: model:ir.model.fields,field_description:hr_attendance_report_theoretical_time.field_wizard_theoretical_time__write_date
 #, fuzzy
-#| msgid "Last Modified on"
 msgid "Last Updated on"
 msgstr "Dernière modification le"
 
@@ -250,7 +246,6 @@ msgstr "Rapport de durée théorique / durée de présence"
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.ui.menu,name:hr_attendance_report_theoretical_time.menu_hr_attendance_theoretical_report_select
 #, fuzzy
-#| msgid "Employee"
 msgid "Select Employees"
 msgstr "Employé(e)"
 
@@ -310,7 +305,6 @@ msgstr ""
 #. module: hr_attendance_report_theoretical_time
 #: model_terms:ir.ui.view,arch_db:hr_attendance_report_theoretical_time.wizard_theoretical_time_form_view
 #, fuzzy
-#| msgid "Theoretical vs Attended Time"
 msgid "Wizard Theoretical Time"
 msgstr "Durée théorique / Durée réelle"
 
