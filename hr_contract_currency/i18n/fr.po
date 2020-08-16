@@ -19,7 +19,6 @@ msgstr ""
 #. module: hr_contract_currency
 #: model:ir.model,name:hr_contract_currency.model_hr_contract
 #, fuzzy
-#| msgid "Employee Contract"
 msgid "Contract"
 msgstr "Contrat de l'employé(e)"
 
