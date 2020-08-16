@@ -211,7 +211,6 @@ msgstr ""
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.actions.act_window,name:hr_attendance_report_theoretical_time.recompute_employee_theoretical_attendance
 #, fuzzy
-#| msgid "Report of theoretical time vs attendance time"
 msgid "Recompute Theoretical Attendance"
 msgstr "Informe de tiempo teórico frente a tiempo trabajado"
 
@@ -219,7 +218,6 @@ msgstr "Informe de tiempo teórico frente a tiempo trabajado"
 #: model:ir.actions.act_window,name:hr_attendance_report_theoretical_time.act_wizard_recompute_theoretical_attendance
 #: model:ir.ui.menu,name:hr_attendance_report_theoretical_time.menu_recompute_theoretical_attendance
 #, fuzzy
-#| msgid "Report of theoretical time vs attendance time"
 msgid "Recompute Theoretical Attendances"
 msgstr "Informe de tiempo teórico frente a tiempo trabajado"
 
