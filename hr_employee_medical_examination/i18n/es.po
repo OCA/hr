@@ -55,7 +55,6 @@ msgstr ""
 #. module: hr_employee_medical_examination
 #: model_terms:ir.ui.view,arch_db:hr_employee_medical_examination.hr_employee_medical_examination_form_view
 #, fuzzy
-#| msgid "Pending"
 msgid "Back To Pending"
 msgstr "Pendiente"
 
@@ -176,7 +175,6 @@ msgstr "Generar Exámenes Médicos"
 #. module: hr_employee_medical_examination
 #: model:ir.model,name:hr_employee_medical_examination.model_wizard_generate_medical_examination
 #, fuzzy
-#| msgid "Generate Medical Examinations"
 msgid "Generation wizard for medical examinations"
 msgstr "Generar Exámenes Médicos"
 
@@ -242,7 +240,6 @@ msgstr ""
 #. module: hr_employee_medical_examination
 #: model_terms:ir.ui.view,arch_db:hr_employee_medical_examination.hr_employee_medical_examination_form_view
 #, fuzzy
-#| msgid "Cancelled"
 msgid "Mark as Cancelled"
 msgstr "Cancelado"
 
