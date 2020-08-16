@@ -32,7 +32,6 @@ msgstr "Tipo de contrato"
 #. module: hr_contract_default_trial_length
 #: model:ir.ui.view,arch_db:hr_contract_default_trial_length.hr_contract_type_view_form
 #, fuzzy
-#| msgid "Default contract trial length in Days"
 msgid "Default Trial Length"
 msgstr "Duração padrão em dias do contrato de experiência"
 

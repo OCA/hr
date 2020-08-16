@@ -33,7 +33,6 @@ msgstr "Type du contrat"
 #. module: hr_contract_default_trial_length
 #: model:ir.ui.view,arch_db:hr_contract_default_trial_length.hr_contract_type_view_form
 #, fuzzy
-#| msgid "Trial length"
 msgid "Default Trial Length"
 msgstr "Période d'essai"
 
@@ -50,6 +49,5 @@ msgstr "Contrat"
 #. module: hr_contract_default_trial_length
 #: model:ir.model.fields,field_description:hr_contract_default_trial_length.field_hr_contract_type_trial_length
 #, fuzzy
-#| msgid "Trial length"
 msgid "Trial Length"
 msgstr "Période d'essai"
