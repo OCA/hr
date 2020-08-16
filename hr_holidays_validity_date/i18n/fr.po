@@ -38,7 +38,6 @@ msgstr "Type de Congé"
 #. module: hr_holidays_validity_date
 #: model:ir.model.fields,field_description:hr_holidays_validity_date.field_hr_holidays_status_restrict_dates
 #, fuzzy
-#| msgid "Start Date"
 msgid "Restrict Dates"
 msgstr "Date de début"
 
@@ -55,14 +54,12 @@ msgstr "Date de début"
 #. module: hr_holidays_validity_date
 #: sql_constraint:hr.holidays.status:0
 #, fuzzy
-#| msgid "The start date must be anterior to the end date."
 msgid "The start date must be greater than the end date."
 msgstr "La date de début doit être antérieure à la date de fin."
 
 #. module: hr_holidays_validity_date
 #: model:ir.model.fields,field_description:hr_holidays_validity_date.field_hr_holidays_status_use_validity_dates
 #, fuzzy
-#| msgid "Use validity dates"
 msgid "Use Validity Dates"
 msgstr "Utiliser les dates de validité"
 

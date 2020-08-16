@@ -52,7 +52,6 @@ msgstr ""
 #. module: hr_holidays_validity_date
 #: sql_constraint:hr.holidays.status:0
 #, fuzzy
-#| msgid "The start date must be anterior to the end date."
 msgid "The start date must be greater than the end date."
 msgstr "Početni datum mora prethoditi završnom."
 
