@@ -272,7 +272,6 @@ msgstr ""
 #. module: hr_holidays_public
 #: model:ir.model,name:hr_holidays_public.model_hr_holidays_public_line_transient
 #, fuzzy
-#| msgid "Public Holidays Lines"
 msgid "Wizard Public Holiday Lines"
 msgstr "Dni wolne od pracy - pozycje"
 

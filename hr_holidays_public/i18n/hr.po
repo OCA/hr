@@ -242,7 +242,6 @@ msgstr ""
 #. module: hr_holidays_public
 #: model:ir.model.fields,field_description:hr_holidays_public.field_public_holidays_next_year_wizard__template_id
 #, fuzzy
-#| msgid "Templates"
 msgid "Template"
 msgstr "Predlošci"
 
@@ -275,7 +274,6 @@ msgstr ""
 #. module: hr_holidays_public
 #: model:ir.model,name:hr_holidays_public.model_hr_holidays_public_line_transient
 #, fuzzy
-#| msgid "Public Holidays Lines"
 msgid "Wizard Public Holiday Lines"
 msgstr "Stavke državnih praznika"
 
