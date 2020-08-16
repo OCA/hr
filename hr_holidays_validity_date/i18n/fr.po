@@ -48,7 +48,6 @@ msgstr "Type de Congé"
 #. module: hr_holidays_validity_date
 #: model:ir.model.fields,field_description:hr_holidays_validity_date.field_hr_leave_type__restrict_dates
 #, fuzzy
-#| msgid "Start Date"
 msgid "Restrict"
 msgstr "Date de début"
 
