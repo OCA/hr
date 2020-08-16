@@ -24,7 +24,6 @@ msgstr ""
 #. module: hr_expense_invoice
 #: model_terms:ir.ui.view,arch_db:hr_expense_invoice.hr_expense_create_invoice_form
 #, fuzzy
-#| msgid "Invoice"
 msgid "Create Invoice"
 msgstr "Rechnung"
 
@@ -32,7 +31,6 @@ msgstr "Rechnung"
 #: model:ir.actions.act_window,name:hr_expense_invoice.action_expense_create_invoice
 #: model_terms:ir.ui.view,arch_db:hr_expense_invoice.hr_expense_sheet_form_view_inherit_sale_expense
 #, fuzzy
-#| msgid "Vendor Bill"
 msgid "Create Vendor Bill"
 msgstr "Lieferantenrechnung"
 
@@ -79,7 +77,6 @@ msgstr "Spesen-Bericht"
 #. module: hr_expense_invoice
 #: model:ir.model.fields,field_description:hr_expense_invoice.field_hr_expense_create_invoice__expense_ids
 #, fuzzy
-#| msgid "Expense"
 msgid "Expenses"
 msgstr "Spesen"
 
@@ -91,7 +88,6 @@ msgstr ""
 #. module: hr_expense_invoice
 #: model:ir.model.fields,field_description:hr_expense_invoice.field_hr_expense_sheet__invoice_count
 #, fuzzy
-#| msgid "Invoice"
 msgid "Invoice Count"
 msgstr "Rechnung"
 
@@ -104,7 +100,6 @@ msgstr ""
 #: code:addons/hr_expense_invoice/models/hr_expense_sheet.py:75
 #: model_terms:ir.ui.view,arch_db:hr_expense_invoice.hr_expense_sheet_form_view_inherit_sale_expense
 #, fuzzy, python-format
-#| msgid "Invoice"
 msgid "Invoices"
 msgstr "Rechnung"
 

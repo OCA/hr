@@ -27,7 +27,6 @@ msgstr ""
 #. module: hr_expense_invoice
 #: model_terms:ir.ui.view,arch_db:hr_expense_invoice.hr_expense_create_invoice_form
 #, fuzzy
-#| msgid "Invoice"
 msgid "Create Invoice"
 msgstr "Faktura"
 
@@ -80,7 +79,6 @@ msgstr "Zpráva o výdajích"
 #. module: hr_expense_invoice
 #: model:ir.model.fields,field_description:hr_expense_invoice.field_hr_expense_create_invoice__expense_ids
 #, fuzzy
-#| msgid "Expense"
 msgid "Expenses"
 msgstr "Výdaje"
 
@@ -92,7 +90,6 @@ msgstr ""
 #. module: hr_expense_invoice
 #: model:ir.model.fields,field_description:hr_expense_invoice.field_hr_expense_sheet__invoice_count
 #, fuzzy
-#| msgid "Invoice"
 msgid "Invoice Count"
 msgstr "Faktura"
 
@@ -105,7 +102,6 @@ msgstr ""
 #: code:addons/hr_expense_invoice/models/hr_expense_sheet.py:75
 #: model_terms:ir.ui.view,arch_db:hr_expense_invoice.hr_expense_sheet_form_view_inherit_sale_expense
 #, fuzzy, python-format
-#| msgid "Invoice"
 msgid "Invoices"
 msgstr "Faktura"
 

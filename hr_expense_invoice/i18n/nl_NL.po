@@ -78,7 +78,6 @@ msgstr "Onkostennota"
 #. module: hr_expense_invoice
 #: model:ir.model.fields,field_description:hr_expense_invoice.field_hr_expense_create_invoice__expense_ids
 #, fuzzy
-#| msgid "Expense Report"
 msgid "Expenses"
 msgstr "Onkostennota"
 
