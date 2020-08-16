@@ -157,7 +157,6 @@ msgstr "Laatst bijgewerkt op"
 #. module: hr_public_holidays
 #: model:ir.model.fields,field_description:hr_public_holidays.field_public_holidays_next_year_day_wiz_last_date
 #, fuzzy
-#| msgid "Last Updated by"
 msgid "Last date"
 msgstr "Laatst bijgewerkt door"
 
@@ -181,7 +180,6 @@ msgstr ""
 #. module: hr_public_holidays
 #: model:ir.model.fields,field_description:hr_public_holidays.field_public_holidays_next_year_wizard_public_holidays_next_year_day_ids
 #, fuzzy
-#| msgid "Creates public holidays from existing ones"
 msgid "Next year public holidays to create"
 msgstr "Maakt feestdagen aan van bestaande"
 
@@ -211,7 +209,6 @@ msgstr "Feestdagen-regels"
 #. module: hr_public_holidays
 #: model:ir.model.fields,field_description:hr_public_holidays.field_public_holidays_next_year_day_wiz_public_holidays_next_year_wizard_id
 #, fuzzy
-#| msgid "Public Holidays Lines"
 msgid "Public holidays next year wizard id"
 msgstr "Feestdagen-regels"
 
@@ -232,7 +229,6 @@ msgstr ""
 #. module: hr_public_holidays
 #: model:ir.model.fields,field_description:hr_public_holidays.field_public_holidays_next_year_day_wiz_template_id
 #, fuzzy
-#| msgid "Templates"
 msgid "Template"
 msgstr "Sjablonen"
 
