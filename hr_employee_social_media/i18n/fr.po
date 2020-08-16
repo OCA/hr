@@ -21,6 +21,12 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #. module: hr_employee_social_media
+#: code:addons/hr_employee_social_media/models/hr_social_media.py:47
+#, python-format
+msgid "%s (%s)"
+msgstr ""
+
+#. module: hr_employee_social_media
 #: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_account_account_name
 msgid "Account"
 msgstr "Compte"
@@ -50,6 +56,16 @@ msgid "Employee"
 msgstr "Employé"
 
 #. module: hr_employee_social_media
+#: model:ir.model,name:hr_employee_social_media.model_hr_social_media_account
+msgid "HR Employee Social Media Account"
+msgstr ""
+
+#. module: hr_employee_social_media
+#: model:ir.model,name:hr_employee_social_media.model_hr_social_media
+msgid "HR Social Media"
+msgstr ""
+
+#. module: hr_employee_social_media
 #: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_account_id
 #: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_id
 msgid "ID"
@@ -74,6 +90,7 @@ msgid "Last Updated on"
 msgstr "Dernière mise à jour le"
 
 #. module: hr_employee_social_media
+#: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_account_name
 #: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_name
 msgid "Name"
 msgstr "Nom"
@@ -102,12 +119,8 @@ msgstr "Réseaux Sociaux"
 msgid "Website"
 msgstr "Site Internet"
 
-#. module: hr_employee_social_media
-#: model:ir.model,name:hr_employee_social_media.model_hr_social_media
-msgid "hr.social.media"
-msgstr "hr.social.media"
+#~ msgid "hr.social.media"
+#~ msgstr "hr.social.media"
 
-#. module: hr_employee_social_media
-#: model:ir.model,name:hr_employee_social_media.model_hr_social_media_account
-msgid "hr.social.media.account"
-msgstr "hr.social.media.account"
+#~ msgid "hr.social.media.account"
+#~ msgstr "hr.social.media.account"

@@ -21,6 +21,12 @@ msgstr ""
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
 #. module: hr_employee_social_media
+#: code:addons/hr_employee_social_media/models/hr_social_media.py:47
+#, python-format
+msgid "%s (%s)"
+msgstr ""
+
+#. module: hr_employee_social_media
 #: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_account_account_name
 msgid "Account"
 msgstr ""
@@ -50,6 +56,16 @@ msgid "Employee"
 msgstr "Djelatnik"
 
 #. module: hr_employee_social_media
+#: model:ir.model,name:hr_employee_social_media.model_hr_social_media_account
+msgid "HR Employee Social Media Account"
+msgstr ""
+
+#. module: hr_employee_social_media
+#: model:ir.model,name:hr_employee_social_media.model_hr_social_media
+msgid "HR Social Media"
+msgstr ""
+
+#. module: hr_employee_social_media
 #: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_account_id
 #: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_id
 msgid "ID"
@@ -74,6 +90,7 @@ msgid "Last Updated on"
 msgstr ""
 
 #. module: hr_employee_social_media
+#: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_account_name
 #: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_name
 msgid "Name"
 msgstr "Naziv"
@@ -100,14 +117,4 @@ msgstr ""
 #. module: hr_employee_social_media
 #: model:ir.model.fields,field_description:hr_employee_social_media.field_hr_social_media_social_url
 msgid "Website"
-msgstr ""
-
-#. module: hr_employee_social_media
-#: model:ir.model,name:hr_employee_social_media.model_hr_social_media
-msgid "hr.social.media"
-msgstr ""
-
-#. module: hr_employee_social_media
-#: model:ir.model,name:hr_employee_social_media.model_hr_social_media_account
-msgid "hr.social.media.account"
 msgstr ""
