@@ -27,7 +27,6 @@ msgstr "شرکت ها"
 #. module: hr_holidays_notify_employee_manager
 #: model:ir.model,name:hr_holidays_notify_employee_manager.model_res_config_settings
 #, fuzzy
-#| msgid "res.config.settings"
 msgid "Config Settings"
 msgstr "منبع.پیکربندی.تنظیمات"
 
