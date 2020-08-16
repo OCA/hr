@@ -24,14 +24,12 @@ msgstr ""
 #. module: hr_holidays_leave_auto_approve
 #: selection:hr.leave.type,auto_approve_policy:0
 #, fuzzy
-#| msgid "Auto Validate"
 msgid "Auto Validated by Everyone"
 msgstr "Automatisch goedkeuren"
 
 #. module: hr_holidays_leave_auto_approve
 #: selection:hr.leave.type,auto_approve_policy:0
 #, fuzzy
-#| msgid "Auto Validate"
 msgid "Auto Validated by HR"
 msgstr "Automatisch goedkeuren"
 
@@ -48,7 +46,6 @@ msgstr "Verloftype"
 #. module: hr_holidays_leave_auto_approve
 #: selection:hr.leave.type,auto_approve_policy:0
 #, fuzzy
-#| msgid "Auto Validate"
 msgid "No auto Validation"
 msgstr "Automatisch goedkeuren"
 
