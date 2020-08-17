@@ -39,6 +39,7 @@ setuptools.setup(
         'odoo12-addon-hr_employee_social_media',
         'odoo12-addon-hr_employee_ssn',
         'odoo12-addon-hr_expense_advance_clearing',
+        'odoo12-addon-hr_expense_advance_clearing_sequence',
         'odoo12-addon-hr_expense_cancel',
         'odoo12-addon-hr_expense_invoice',
         'odoo12-addon-hr_expense_payment_difference',
