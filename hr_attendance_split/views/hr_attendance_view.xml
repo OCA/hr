@@ -1,0 +1,30 @@
+<odoo>
+    <record id="hr_attendance_split_attendance_view_list" model="ir.ui.view">
+        <field name="name">hr.attendance.split.attendance.list</field>
+        <field name="model">hr.attendance</field>
+        <field name="inherit_id" ref="hr_attendance.view_attendance_tree"/>
+        <field name="arch" type="xml">
+            <field name="check_out" position="after">
+                <field name="split_attendance" readonly="1"/>
+            </field>
+        </field>
+    </record>
+    <record id="hr_attendance_split_attendance_view_form" model="ir.ui.view">
+        <field name="name">hr.attendance.split.attendance.form</field>
+        <field name="model">hr.attendance</field>
+        <field name="inherit_id" ref="hr_attendance.hr_attendance_view_form"/>
+        <field name="arch" type="xml">
+            <sheet position="inside">
+                <group>
+                    <field name="split_attendance" invisible="1"/>
+                    <field name="related_attendance_id" readonly="1" attrs="{'invisible': [('split_attendance', '=', False)]}"/>
+                </group>
+            </sheet>
+            <sheet position="before">
+                <div class="alert alert-info text-center mb-3" attrs="{'invisible': [('split_attendance', '=', False)]}" role="alert">
+                    Note: This attendance is part of another attendance because it went overnight into the next day. If an attendance start time and end time cross days then they are broken up into multiple records.
+                </div>
+            </sheet>
+        </field>
+    </record>
+</odoo>
