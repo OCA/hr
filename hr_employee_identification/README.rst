@@ -23,7 +23,7 @@ Usage
 
 To use this module, you need to:
 
-#. open some employee form and fill in your values in the tab `Personal Information`
+#. open some employee form and fill in your values in the tab `Private Information`
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
     :alt: Try me on Runbot
