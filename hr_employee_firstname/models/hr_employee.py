@@ -29,6 +29,19 @@ class HrEmployee(models.Model):
 
     @api.model
     def create(self, vals):
+        self._prepare_vals_on_create_firstname_lastname(vals)
+        res = super().create(vals)
+        res._update_partner_firstname()
+        return res
+
+    def write(self, vals):
+        self._prepare_vals_on_write_firstname_lastname(vals)
+        res = super().write(vals)
+        if set(vals).intersection(UPDATE_PARTNER_FIELDS):
+            self._update_partner_firstname()
+        return res
+
+    def _prepare_vals_on_create_firstname_lastname(self, vals):
         if vals.get("firstname") or vals.get("lastname"):
             vals["name"] = self._get_name(vals.get("lastname"), vals.get("firstname"))
         elif vals.get("name"):
@@ -36,11 +49,8 @@ class HrEmployee(models.Model):
             vals["firstname"] = self.split_name(vals["name"])["firstname"]
         else:
             raise ValidationError(_("No name set."))
-        res = super().create(vals)
-        res._update_partner_firstname()
-        return res
 
-    def write(self, vals):
+    def _prepare_vals_on_write_firstname_lastname(self, vals):
         if "firstname" in vals or "lastname" in vals:
             if "lastname" in vals:
                 lastname = vals.get("lastname")
@@ -54,10 +64,6 @@ class HrEmployee(models.Model):
         elif vals.get("name"):
             vals["lastname"] = self.split_name(vals["name"])["lastname"]
             vals["firstname"] = self.split_name(vals["name"])["firstname"]
-        res = super().write(vals)
-        if set(vals).intersection(UPDATE_PARTNER_FIELDS):
-            self._update_partner_firstname()
-        return res
 
     @api.model
     def split_name(self, name):
