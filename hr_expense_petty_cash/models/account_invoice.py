@@ -64,6 +64,7 @@ class AccountInvoice(models.Model):
     @api.onchange('is_petty_cash', 'partner_id')
     def _onchange_is_petty_cash(self):
         self.invoice_line_ids = False
+        ctx = self._context.copy()
         if self.is_petty_cash:
             if not self.partner_id:
                 raise ValidationError(_('Please select petty cash holder'))
@@ -74,3 +75,6 @@ class AccountInvoice(models.Model):
                 raise ValidationError(_('%s is not a petty cash holder') %
                                       self.partner_id.name)
             self._add_petty_cash_invoice_line(petty_cash)
+            if petty_cash.journal_id:
+                ctx.update({'default_journal_id': petty_cash.journal_id.id})
+        self.journal_id = self.with_context(ctx)._default_journal()

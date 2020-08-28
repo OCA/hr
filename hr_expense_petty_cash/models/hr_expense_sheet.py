@@ -8,6 +8,17 @@ from odoo.exceptions import ValidationError
 class HrExpenseSheet(models.Model):
     _inherit = 'hr.expense.sheet'
 
+    @api.model
+    def _default_journal_id(self):
+        """ Update expense journal from petty cash """
+        journal = super()._default_journal_id()
+        petty_cash_obj = self.env['petty.cash']
+        petty_cash = self._context.get('default_petty_cash_id', False)
+        if petty_cash:
+            petty_cash_id = petty_cash_obj.browse(petty_cash)
+            journal = petty_cash_id.journal_id.id or journal
+        return journal
+
     payment_mode = fields.Selection(
         selection_add=[('petty_cash', 'Petty Cash')],
     )
@@ -17,6 +28,9 @@ class HrExpenseSheet(models.Model):
         ondelete='restrict',
         readonly=True,
         compute='_compute_petty_cash',
+    )
+    journal_id = fields.Many2one(
+        default=_default_journal_id
     )
 
     @api.depends('expense_line_ids', 'payment_mode')

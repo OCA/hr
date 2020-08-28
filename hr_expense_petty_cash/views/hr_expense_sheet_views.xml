@@ -9,6 +9,9 @@
             <xpath expr="//field[@name='payment_mode']" position="after">
                 <field name="petty_cash_id" attrs="{'invisible': [('payment_mode', '!=', 'petty_cash')]}"/>
             </xpath>
+            <field name="journal_id" position="attributes">
+                <attribute name="attrs">{'invisible': [('payment_mode', 'not in', ['own_account', 'petty_cash'])]}</attribute>
+            </field>
         </field>
     </record>
 

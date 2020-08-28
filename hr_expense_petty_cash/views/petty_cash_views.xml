@@ -11,6 +11,7 @@
                        <group name="data">
                            <field name="partner_id" context="{'default_supplier': True, 'default_customer': False}"/>
                            <field name="account_id"/>
+                           <field name="journal_id"/>
                        </group>
                        <group name="petty_cash">
                            <field name="petty_cash_limit"/>
@@ -29,6 +30,7 @@
             <tree string="Petty Cash" toolbar="1" >
                 <field name="partner_id"/>
                 <field name="account_id"/>
+                <field name="journal_id"/>
                 <field name="petty_cash_limit" sum="Limit"/>
                 <field name="petty_cash_balance" sum="Balance"/>
             </tree>

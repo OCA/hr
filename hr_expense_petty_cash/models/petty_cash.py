@@ -28,6 +28,9 @@ class PettyCash(models.Model):
         string='Balance',
         compute='_compute_petty_cash_balance',
     )
+    journal_id = fields.Many2one(
+        comodel_name='account.journal',
+    )
     _sql_constraints = [
         ('partner_uniq', 'unique(partner_id)',
          'Petty Cash Holder must be unique!'),
