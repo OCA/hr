@@ -72,11 +72,27 @@ class HrEmployee(models.Model):
         clean_name = " ".join(name.split(None)) if name else name
         return self.env['res.partner']._get_inverse_name(clean_name)
 
+    @api.model
+    def _get_names_order(self):
+        return self.env['res.partner']._get_names_order()
+
     @api.multi
     def _inverse_name(self):
         """Try to revert the effect of :method:`._compute_name`."""
+        order = self._get_names_order()
         for record in self:
             parts = self.env['res.partner']._get_inverse_name(record.name)
+            if len(parts) > 2:
+                keys = [item for item in parts.keys() if item not in [
+                    'firstname', 'lastname']]
+                additional_parts = ''
+                if order == 'last_first':
+                    field = 'lastname'
+                else:
+                    field = 'firstname'
+                for key in keys:
+                    additional_parts += ' ' + parts[key] if parts[key] else ''
+                parts[field] += additional_parts
             record.lastname = parts['lastname']
             record.firstname = parts['firstname']
 
