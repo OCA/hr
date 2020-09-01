@@ -28,7 +28,7 @@ addon | version | summary
 [hr_employee_calendar_planning](hr_employee_calendar_planning/) | 10.0.1.1.0 | Employee Calendar Planning
 [hr_employee_category_parent](hr_employee_category_parent/) | 10.0.1.0.0 | Categorize your employee categories
 [hr_employee_data_from_work_address](hr_employee_data_from_work_address/) | 10.0.1.0.0 | Update user's and partner's data fields from employee record
-[hr_employee_firstname](hr_employee_firstname/) | 10.0.1.1.0 | Adds First Name to Employee
+[hr_employee_firstname](hr_employee_firstname/) | 10.0.1.1.1 | Adds First Name to Employee
 [hr_employee_id](hr_employee_id/) | 10.0.1.1.0 | Employee ID
 [hr_employee_legacy_id](hr_employee_legacy_id/) | 10.0.1.0.0 | Legacy Employee ID
 [hr_employee_phone_extension](hr_employee_phone_extension/) | 10.0.1.0.0 | Employee Phone Extension
