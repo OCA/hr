@@ -5,7 +5,7 @@
 
 {
     'name': 'HR Employee First Name, Last Name',
-    'version': '10.0.1.1.0',
+    'version': '10.0.1.1.1',
     'author': "Savoir-faire Linux, "
               "Fekete Mihai (Forest and Biomass Services Romania), "
               "Onestein, "
