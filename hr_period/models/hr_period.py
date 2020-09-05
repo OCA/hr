@@ -81,6 +81,8 @@ class HrPeriod(models.Model):
         domain=[('hr_period', '=', True)],
         default=_default_type
     )
+    parent_id = fields.Many2one(
+        comodel_name='hr.period', string="Parent", index=1)
 
     @api.model
     def get_next_period(self, company_id, schedule_pay):
