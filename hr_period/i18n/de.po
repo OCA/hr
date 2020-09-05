@@ -10,8 +10,8 @@ msgstr ""
 "POT-Creation-Date: 2015-07-27 23:36+0000\n"
 "PO-Revision-Date: 2018-12-20 08:58+0000\n"
 "Last-Translator: Maria Sparenberg <maria.sparenberg@gmx.net>\n"
-"Language-Team: German (http://www.transifex.com/oca/OCA-hr-7-0/language/de/)"
-"\n"
+"Language-Team: German (http://www.transifex.com/oca/OCA-hr-7-0/language/"
+"de/)\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -314,6 +314,11 @@ msgid "Open Period"
 msgstr "Offene Periode"
 
 #. module: hr_period
+#: model:ir.model.fields,field_description:hr_period.field_hr_period_parent_id
+msgid "Parent"
+msgstr ""
+
+#. module: hr_period
 #: model:ir.model,name:hr_period.model_hr_payslip
 msgid "Pay Slip"
 msgstr "Lohnnachweis"
@@ -544,7 +549,7 @@ msgid "Weekly (52)"
 msgstr "Wöchentlich (52)"
 
 #. module: hr_period
-#: code:addons/hr_period/models/hr_period.py:103
+#: code:addons/hr_period/models/hr_period.py:105
 #, python-format
 msgid "You can not set to draft a period that already has payslips computed"
 msgstr ""
