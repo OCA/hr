@@ -8,4 +8,9 @@ class HrEmployeeHealthConditionSeverity(models.Model):
     _name = "hr.employee.health.condition.severity"
     _description = "HR Employee Health Condition Severity"
 
-    name = fields.Char(string="Severity", required=True, translate=True)
+    name = fields.Char(
+        string="Severity",
+        required=True,
+        translate=True,
+        help="Health condition severity of an employee.",
+    )

@@ -10,10 +10,10 @@
         <field name="inherit_id" ref="hr.view_employee_form" />
         <field name="arch" type="xml">
             <xpath expr="//notebook" position="inside">
-                <page string="Health" groups="hr.group_hr_user">
+                <page name="health" string="Health" groups="hr.group_hr_user">
                     <field name="health_condition_ids" />
-                    <group string='Medical Details'>
-                        <field name="blood_type" />
+                    <group name="medical_details" string='Medical Details'>
+                        <field name="blood_type_id" />
                         <field name="health_notes" />
                     </group>
                 </page>

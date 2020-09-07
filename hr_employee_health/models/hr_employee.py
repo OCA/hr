@@ -12,10 +12,16 @@ class HrEmployee(models.Model):
         comodel_name="hr.employee.health.condition",
         inverse_name="employee_id",
         groups="hr.group_hr_user",
+        help="Health condition of an employee.",
     )
-    blood_type = fields.Many2one(
+    blood_type_id = fields.Many2one(
         string="Blood Type",
         comodel_name="hr.employee.blood.type",
         groups="hr.group_hr_user",
+        help="Blood group of an employee.",
     )
-    health_notes = fields.Text(string="Health Notes", groups="hr.group_hr_user",)
+    health_notes = fields.Text(
+        string="Health Notes",
+        groups="hr.group_hr_user",
+        help="Employees health related notes.",
+    )

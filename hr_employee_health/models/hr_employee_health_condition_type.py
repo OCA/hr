@@ -8,4 +8,9 @@ class HrEmployeeHealthConditionType(models.Model):
     _name = "hr.employee.health.condition.type"
     _description = "HR Employee Health Condition Type"
 
-    name = fields.Char(string="Type", required=True, translate=True)
+    name = fields.Char(
+        string="Type",
+        required=True,
+        translate=True,
+        help="health condition of an employee.",
+    )
