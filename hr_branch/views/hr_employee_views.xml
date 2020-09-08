@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="view_employee_branch_form">
+        <field name="name">hr.employee.branch.form</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='department_id']" position="attributes">
+                <attribute name="domain">[('branch_id', '=', address_id)]</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>
