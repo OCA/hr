@@ -3,6 +3,7 @@
 
 from odoo import api, fields, models, _
 from odoo.exceptions import ValidationError
+from odoo.tools import float_compare
 
 
 class HrExpenseSheet(models.Model):
@@ -59,7 +60,9 @@ class HrExpenseSheet(models.Model):
                 amount_company = rec.currency_id._convert(
                     amount, company_currency, rec.company_id,
                     rec.accounting_date or fields.Date.today())
-                if amount_company > balance:
+                prec = rec.currency_id.rounding
+                if float_compare(
+                        amount_company, balance, precision_rounding=prec) == 1:
                     raise ValidationError(
                         _('Not enough money in petty cash holder.\n'
                           'You are requesting %s%s, '

@@ -3,6 +3,7 @@
 
 from odoo import api, fields, models, _
 from odoo.exceptions import ValidationError
+from odoo.tools import float_compare
 
 
 class AccountInvoice(models.Model):
@@ -34,7 +35,9 @@ class AccountInvoice(models.Model):
             amount_company = rec.currency_id._convert(
                 amount, company_currency, rec.company_id,
                 rec.date_invoice or fields.Date.today())
-            if amount_company > max_amount:
+            prec = rec.currency_id.rounding
+            if float_compare(
+                    amount_company, max_amount, precision_rounding=prec) == 1:
                 raise ValidationError(
                     _('Petty Cash balance is %s %s.\n'
                       'Max amount to add is %s %s.') %
