@@ -3,6 +3,7 @@
 
 from odoo import api, fields, models, _
 from odoo.exceptions import ValidationError
+from odoo.tools import float_compare
 
 
 class AccountInvoice(models.Model):
@@ -34,7 +35,9 @@ class AccountInvoice(models.Model):
             amount_company = rec.currency_id._convert(
                 amount, company_currency, rec.company_id,
                 rec.date_invoice or fields.Date.today())
-            if amount_company > max_amount:
+            prec = rec.currency_id.rounding
+            if float_compare(
+                    amount_company, max_amount, precision_rounding=prec) == 1:
                 raise ValidationError(
                     _('Petty Cash balance is %s %s.\n'
                       'Max amount to add is %s %s.') %
@@ -64,6 +67,7 @@ class AccountInvoice(models.Model):
     @api.onchange('is_petty_cash', 'partner_id')
     def _onchange_is_petty_cash(self):
         self.invoice_line_ids = False
+        ctx = self._context.copy()
         if self.is_petty_cash:
             if not self.partner_id:
                 raise ValidationError(_('Please select petty cash holder'))
@@ -74,3 +78,6 @@ class AccountInvoice(models.Model):
                 raise ValidationError(_('%s is not a petty cash holder') %
                                       self.partner_id.name)
             self._add_petty_cash_invoice_line(petty_cash)
+            if petty_cash.journal_id:
+                ctx.update({'default_journal_id': petty_cash.journal_id.id})
+        self.journal_id = self.with_context(ctx)._default_journal()

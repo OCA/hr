@@ -2,7 +2,7 @@
 
 #. Go to Invoicing > Configuration > Petty Cash
 #. Create a new petty cash holder
-#. Select Petty Cash Account
+#. Select Petty Cash Account and Journal (optional)
 
 **Add Balance for Petty Cash Holder**
 
@@ -22,3 +22,6 @@
 #. Go to Expenses > My Expense Reports
 #. Create a new expense report
 #. Select or Create expenses Paid by Petty Cash and same Petty Cash Holder
+
+Note : Bill and Expense will default journal from petty cash holder,
+if you configure journal in petty cash holder.
