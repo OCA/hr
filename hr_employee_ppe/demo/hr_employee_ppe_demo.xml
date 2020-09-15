@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2020 Escodoo
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo noupdate="1">
+    <record model="product.product" id="hr_employee_ppe_demo_1">
+        <field name="name">Mask for COVID-19</field>
+    </record>
+    
+    <record model="hr.employee.ppe.equipment" id="hr_employee_ppe_demo_2">
+        <field name="product_id" ref="hr_employee_ppe_demo_1" />
+        <field name="expirable">True</field>
+    </record>
+
+    <record model="hr.employee.ppe" id="hr_employee_ppe_demo_3">
+       <field name="name">Mask for COVID-19 to Abigail Peterson</field>
+       <field name="ppe_id" ref="hr_employee_ppe_demo_2" />
+       <field name="employee_id" ref="hr.employee_hne" />
+       <field name="expire">True</field>
+       <field name="start_date">2020-01-01</field>
+       <field name="end_date">2020-12-31</field>
+       <field name="partner_id" ref="base.res_partner_12" />
+       <field name="indications">Whenever close to other person</field>
+       <field name="certification">CA 1234567890</field>
+       <field name="description">Mask appropriate for COVID-19</field>
+    </record>
+</odoo>
