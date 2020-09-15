@@ -33,6 +33,7 @@ setuptools.setup(
         'odoo12-addon-hr_employee_medical_examination',
         'odoo12-addon-hr_employee_partner_external',
         'odoo12-addon-hr_employee_phone_extension',
+        'odoo12-addon-hr_employee_ppe',
         'odoo12-addon-hr_employee_relative',
         'odoo12-addon-hr_employee_service',
         'odoo12-addon-hr_employee_service_contract',
