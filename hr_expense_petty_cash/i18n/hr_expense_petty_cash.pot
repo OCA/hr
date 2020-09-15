@@ -14,9 +14,7 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: hr_expense_petty_cash
-#: code:addons/hr_expense_petty_cash/models/account_invoice.py:25
 #: code:addons/hr_expense_petty_cash/models/account_invoice.py:26
-#: code:addons/hr_expense_petty_cash/models/account_invoice.py:74
 #: code:addons/hr_expense_petty_cash/models/account_invoice.py:78
 #, python-format
 msgid "%s is not a petty cash holder"
@@ -119,7 +117,6 @@ msgid "Max Limit"
 msgstr ""
 
 #. module: hr_expense_petty_cash
-#: code:addons/hr_expense_petty_cash/models/hr_expense_sheet.py:50
 #: code:addons/hr_expense_petty_cash/models/hr_expense_sheet.py:67
 #, python-format
 msgid "Not enough money in petty cash holder.\n"
@@ -164,7 +161,6 @@ msgid "Petty Cash Holder must be unique!"
 msgstr ""
 
 #. module: hr_expense_petty_cash
-#: code:addons/hr_expense_petty_cash/models/account_invoice.py:39
 #: code:addons/hr_expense_petty_cash/models/account_invoice.py:42
 #, python-format
 msgid "Petty Cash balance is %s %s.\n"
@@ -178,7 +174,6 @@ msgid "Petty cash holder"
 msgstr ""
 
 #. module: hr_expense_petty_cash
-#: code:addons/hr_expense_petty_cash/models/account_invoice.py:69
 #: code:addons/hr_expense_petty_cash/models/account_invoice.py:73
 #, python-format
 msgid "Please select petty cash holder"
@@ -191,7 +186,6 @@ msgstr ""
 
 #. module: hr_expense_petty_cash
 #: code:addons/hr_expense_petty_cash/models/hr_expense.py:35
-#: code:addons/hr_expense_petty_cash/models/hr_expense_sheet.py:33
 #: code:addons/hr_expense_petty_cash/models/hr_expense_sheet.py:48
 #, python-format
 msgid "You cannot create report from many petty cash holders."
