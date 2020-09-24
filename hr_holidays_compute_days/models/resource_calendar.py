@@ -8,14 +8,6 @@ from dateutil import rrule
 import pytz
 
 
-def to_naive_user_tz(datetime, record):
-    tz_name = record.env.context.get('tz') or record.env.user.tz
-    tz = tz_name and pytz.timezone(tz_name) or pytz.UTC
-    return pytz.UTC.localize(
-        datetime.replace(tzinfo=None), is_dst=False,
-    ).astimezone(tz).replace(tzinfo=None)
-
-
 class ResourceCalendar(models.Model):
     _inherit = 'resource.calendar'
 
@@ -30,8 +22,6 @@ class ResourceCalendar(models.Model):
         """ Lists the current resource's work intervals between the two
         provided datetimes (inclusive) expressed in UTC, for each worked day.
         """
-        start_dt = to_naive_user_tz(start_dt, self.env.user)
-        end_dt = to_naive_user_tz(end_dt, self.env.user)
         real_weekdays = self._get_weekdays()
         if self.env.context.get('include_rest_days'):
             full_weekdays = range(7)
