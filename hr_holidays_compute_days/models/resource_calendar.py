@@ -5,7 +5,6 @@
 
 from odoo import models
 from dateutil import rrule
-import pytz
 
 class ResourceCalendar(models.Model):
     _inherit = 'resource.calendar'
