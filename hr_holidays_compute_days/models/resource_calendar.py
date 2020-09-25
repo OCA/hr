@@ -6,6 +6,7 @@
 from odoo import models
 from dateutil import rrule
 
+
 class ResourceCalendar(models.Model):
     _inherit = 'resource.calendar'
 
@@ -25,8 +26,8 @@ class ResourceCalendar(models.Model):
             full_weekdays = range(7)
         else:
             full_weekdays = real_weekdays
-        for day in rrule.rrule(rrule.DAILY, dtstart=start_dt.date(), until=end_dt.date(),
-                               byweekday=full_weekdays):
+        for day in rrule.rrule(rrule.DAILY, dtstart=start_dt.date(),
+                               until=end_dt.date(), byweekday=full_weekdays):
             start_date = (
                 start_dt if day.date() == start_dt.date() else day.replace(
                     hour=0, minute=0, second=0, microsecond=0,

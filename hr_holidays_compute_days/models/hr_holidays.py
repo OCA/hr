@@ -161,3 +161,5 @@ class HrHolidays(models.Model):
             )
             if days:
                 self.number_of_days_temp = days
+
+
