@@ -148,6 +148,10 @@ class HrHolidays(models.Model):
         if self.date_to and self.date_from and self.date_from <= self.date_to:
             date_from = fields.Datetime.from_string(self.date_from)
             date_to = fields.Datetime.from_string(self.date_to)
+            # The current user might not be linked to an employee
+            # Odoo will handle the error when saving
+            if not self.employee_id:
+                return
             employee = self.employee_id
             if (self.holiday_status_id.exclude_public_holidays or
                     not self.holiday_status_id):
