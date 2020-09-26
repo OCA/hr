@@ -74,5 +74,7 @@ class HrEmployee(models.Model):
                 (interval[1] - interval[0] for interval in day_intervals),
                 timedelta(),
             )
-            days_count += work_time.total_seconds() / 3600 / theoric_hours
+            # We convert hours in days according to calendar "UOM" if present
+            cal_uom = calendar.uom_id.factor or theoric_hours
+            days_count += work_time.total_seconds() / 3600 / cal_uom
         return round(days_count, 2)
