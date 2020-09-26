@@ -159,5 +159,4 @@ class HrHolidays(models.Model):
             days = employee.get_work_days_count(
                 from_datetime=date_from, to_datetime=date_to,
             )
-            if days:
-                self.number_of_days_temp = days
+            self.number_of_days_temp = days or 0
