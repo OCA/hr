@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <template id="portal_my_home_menu_HR" name="Portal layout : HR hr_applicants menu entries" inherit_id="portal.portal_breadcrumbs" priority="50">
+            <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+                <li t-if="page_name == 'hr_applicant' or hr_applicant" t-attf-class="breadcrumb-item #{'active ' if not hr_applicant else ''}">
+                    <a t-if="hr_applicant" t-attf-href="/my/hr_applicants?{{ keep_query() }}">Job Applications</a>
+                    <t t-else="">Job Applications</t>
+                </li>
+                <li t-if="hr_applicant" class="breadcrumb-item active">#<span t-field="hr_applicant.id" /></li>
+            </xpath>
+        </template>
+
+        <template id="portal_my_home_HR_hr_applicant" name="Portal My Home : HR Job Applications" inherit_id="portal.portal_my_home" priority="50">
+            <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+                <t t-if="hr_applicant_count" t-call="portal.portal_docs_entry">
+                    <t t-set="title">Job Applications</t>
+                    <t t-set="url" t-value="'/my/hr_applicants'" />
+                    <t t-set="count" t-value="hr_applicant_count" />
+                </t>
+            </xpath>
+        </template>
+
+        <template id="portal_my_HR_hr_applicants" name="HR Job Applications">
+            <t t-call="portal.portal_layout">
+                <t t-set="breadcrumbs_searchbar" t-value="True" />
+
+                <t t-call="portal.portal_searchbar">
+                    <t t-set="title">Job Applications</t>
+                </t>
+                <div t-if="not hr_applicants" class="alert alert-info">
+                    There are currently no job applications for your account.
+                </div>
+                <t t-if="hr_applicants" t-call="portal.portal_table">
+                    <thead>
+                        <tr>
+                            <th class="w-100">Name</th>
+                            <th />
+                        </tr>
+                    </thead>
+                    <t t-foreach="hr_applicants" t-as="hr_applicant">
+                        <tr>
+                            <td>
+                                <a t-attf-href="/recruitment/hr_applicant/#{hr_applicant.id}"><span t-field="hr_applicant.job_id.name" /></a>
+                            </td>
+                            <td />
+                        </tr>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+        <template id="hr_applicants_followup" name="Job Applications">
+            <t t-call="portal.portal_layout">
+                <t t-set="wrapwrap_classes" t-value="'o_portal_bg_dark'" />
+
+                <t t-set="o_portal_fullwidth_alert" groups="hr_recruitment.group_hr_recruitment_manager">
+                    <t t-call="portal.portal_back_in_edit_mode">
+                        <t t-set="backend_url" t-value="'/web#return_label=Website&amp;model=hr.applicant&amp;id=%s&amp;view_type=form' % (hr_applicant.id)" />
+                    </t>
+                </t>
+
+                <t t-call="portal.portal_record_layout">
+                    <t t-set="card_header">
+                        <div class="row no-gutters">
+                            <div class="col-md">
+                                <h5 class="mb-1 mb-md-0">
+                                    <span t-field="hr_applicant.job_id.name" />
+                                    <small class="text-muted"> (#<span t-field="hr_applicant.id" />)</small>
+                                </h5>
+                            </div>
+                            <div class="col-md text-md-right">
+                                <small class="text-right">Job State:</small>
+                                <span t-field="hr_applicant.job_id.state" class="badge badge-pill badge-info" title="Current State of this Job" />
+                            </div>
+                            <div class="col-md text-md-right">
+                                <small class="text-right">Application Stage:</small>
+                                <span t-field="hr_applicant.stage_id" class="badge badge-pill badge-info" title="Current Stage of this Application" />
+                            </div>
+                        </div>
+                    </t>
+                    <t t-set="card_body">
+                        <div class="row mb-4">
+                            <h1 class="col-lg-12">
+                                <span t-field="hr_applicant.job_id.name" />
+                            </h1>
+                            <div t-if="hr_applicant.job_id.department_id" class="col-lg-12" t-raw="hr_applicant.job_id.department_id.name" />
+                            <div t-if="hr_applicant.job_id.description" class="col-lg-12" t-raw="hr_applicant.job_id.description" />
+                            <div t-else="" class="col-lg-10">
+                                <em class="text-muted"><small>No description</small></em>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+                <!-- chatter -->
+                <div id="hr_applicant_communication" class="mt-4">
+                    <h2>Communication</h2>
+                    <t t-call="portal.message_thread">
+                        <t t-set="object" t-value="hr_applicant" />
+                    </t>
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>

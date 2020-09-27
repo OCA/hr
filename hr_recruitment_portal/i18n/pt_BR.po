@@ -1,0 +1,85 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* hr_recruitment_portal
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-09-27 20:06+0000\n"
+"PO-Revision-Date: 2020-09-27 17:09-0300\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 2.4.1\n"
+"Last-Translator: Marcel Savegnago <marcel.savegnago@gmail.com>\n"
+"Language: pt_BR\n"
+
+#. module: hr_recruitment_portal
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_portal.hr_applicants_followup
+msgid "<em class=\"text-muted\"><small>No description</small></em>"
+msgstr "<em class=\"text-muted\"><small>Sem descrição</small></em>"
+
+#. module: hr_recruitment_portal
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_portal.hr_applicants_followup
+msgid "<small class=\"text-right\">Application Stage:</small>"
+msgstr "<small class=\"text-right\">Estágio da Candidatura:</small>"
+
+#. module: hr_recruitment_portal
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_portal.hr_applicants_followup
+msgid "<small class=\"text-right\">Job State:</small>"
+msgstr "<small class=\"text-right\">Situação da Vaga:</small>"
+
+#. module: hr_recruitment_portal
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_portal.hr_applicants_followup
+msgid "Communication"
+msgstr "Comunicação"
+
+#. module: hr_recruitment_portal
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_portal.hr_applicants_followup
+msgid "Current Stage of this Application"
+msgstr "Estágio Atual desta Candidatura"
+
+#. module: hr_recruitment_portal
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_portal.hr_applicants_followup
+msgid "Current State of this Job"
+msgstr "Estado Atual desta Vaga"
+
+#. module: hr_recruitment_portal
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_portal.portal_my_HR_hr_applicants
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_portal.portal_my_home_HR_hr_applicant
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_portal.portal_my_home_menu_HR
+msgid "Job Applications"
+msgstr "Candidaturas a Trabalho"
+
+#. module: hr_recruitment_portal
+#: code:addons/hr_recruitment_portal/controllers/portal.py:42
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_portal.portal_my_HR_hr_applicants
+#, python-format
+msgid "Name"
+msgstr "Nome"
+
+#. module: hr_recruitment_portal
+#: code:addons/hr_recruitment_portal/controllers/portal.py:41
+#, python-format
+msgid "Newest"
+msgstr "Mais Recente"
+
+#. module: hr_recruitment_portal
+#: code:addons/hr_recruitment_portal/controllers/portal.py:45
+#, python-format
+msgid "Search <span class=\"nolabel\"> (in Content)</span>"
+msgstr "Pesquisar <span class=\"nolabel\"> (em Conteúdo)</span>"
+
+#. module: hr_recruitment_portal
+#: code:addons/hr_recruitment_portal/controllers/portal.py:47
+#, python-format
+msgid "Search in All"
+msgstr "Pesquisa em Todos"
+
+#. module: hr_recruitment_portal
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_portal.portal_my_HR_hr_applicants
+msgid "There are currently no job applications for your account."
+msgstr "No momento, não há candidaturas de emprego para sua conta."
