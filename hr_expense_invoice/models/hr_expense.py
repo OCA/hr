@@ -1,5 +1,6 @@
-# Copyright 2015 Pedro M. Baeza <pedro.baeza@tecnativa.com>
-# Copyright 2017 Vicent Cubells <vicent.cubells@tecnativa.com>
+# Copyright 2015 Tecnativa - Pedro M. Baeza
+# Copyright 2017 Tecnativa - Vicent Cubells
+# Copyright 2020 Tecnativa - David Vidal
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from odoo import api, fields, models, _
@@ -17,7 +18,6 @@ class HrExpense(models.Model):
         copy=False,
     )
 
-    @api.multi
     @api.constrains('invoice_id')
     def _check_invoice_id(self):
         for expense in self:  # Only non binding expense
@@ -25,7 +25,6 @@ class HrExpense(models.Model):
                     expense.invoice_id.state != 'open':
                 raise UserError(_("Vendor bill state must be Open"))
 
-    @api.multi
     def _get_account_move_line_values(self):
         move_line_values_by_expense = super()._get_account_move_line_values()
         for expense_id, move_lines in move_line_values_by_expense.items():
@@ -38,3 +37,11 @@ class HrExpense(models.Model):
                         expense.invoice_id.partner_id.commercial_partner_id.id
                     move_line['account_id'] = expense.invoice_id.account_id.id
         return move_line_values_by_expense
+
+    @api.onchange("invoice_id")
+    def _onchange_invoice_id(self):
+        """Get expense amount from invoice amount. Otherwise it will do a
+           mismatch when trying to post the account move."""
+        if self.invoice_id:
+            self.quantity = 1
+            self.unit_amount = self.invoice_id.amount_total

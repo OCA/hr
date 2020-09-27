@@ -90,6 +90,7 @@ Contributors
 
   * Pedro M. Baeza
   * Vicent Cubells
+  * David Vidal
 
 * Kitti Upariphutthiphong <kittiu@ecosoft.co.th>
 
