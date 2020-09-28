@@ -1,0 +1,41 @@
+<odoo>
+    <data>
+        <record id="group_hr_recruitment_officer_own_documents" model="res.groups">
+            <field name="name">Officer (own documents)</field>
+            <field name="category_id" ref="base.module_category_hr_recruitment"/>
+            <field name="implied_ids" eval="[(4, ref('hr_recruitment.group_hr_recruitment_user'))]"/>
+        </record>
+        <record id="hr_recruitment.group_hr_recruitment_manager" model="res.groups">
+            <field
+                name="implied_ids"
+                eval="[(3, ref('hr_recruitment.group_hr_recruitment_user')), (4, ref('group_hr_recruitment_officer_own_documents'))]"
+            />
+        </record>
+    </data>
+    <data noupdate="1">
+        <record model="ir.rule" id="hr_job_group_hr_recruitment_manager_rule">
+            <field name="name">View job positions (manager)</field>
+            <field name="model_id" ref="hr_recruitment.model_hr_job" />
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('hr_recruitment.group_hr_recruitment_manager'))]" />
+        </record>
+        <record model="ir.rule" id="hr_applicant_group_hr_recruitment_manager_rule">
+            <field name="name">View applications (manager)</field>
+            <field name="model_id" ref="hr_recruitment.model_hr_applicant" />
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('hr_recruitment.group_hr_recruitment_manager'))]" />
+        </record>
+        <record model="ir.rule" id="hr_job_group_hr_recruitment_officer_own_documents_rule">
+            <field name="name">View job positions (own responsible)</field>
+            <field name="model_id" ref="hr_recruitment.model_hr_job" />
+            <field name="domain_force">[('hr_responsible_id', '=', user.id)]</field>
+            <field name="groups" eval="[(4,ref('group_hr_recruitment_officer_own_documents'))]" />
+        </record>
+        <record model="ir.rule" id="hr_applicant_group_hr_recruitment_officer_own_documents_rule">
+            <field name="name">View applications (own responsible)</field>
+            <field name="model_id" ref="hr_recruitment.model_hr_applicant" />
+            <field name="domain_force">[('user_id', '=', user.id)]</field>
+            <field name="groups" eval="[(4,ref('group_hr_recruitment_officer_own_documents'))]" />
+        </record>
+    </data>
+</odoo>
