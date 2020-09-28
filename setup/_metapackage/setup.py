@@ -24,6 +24,7 @@ setuptools.setup(
         'odoo10-addon-hr_employee_data_from_work_address',
         'odoo10-addon-hr_employee_firstname',
         'odoo10-addon-hr_employee_id',
+        'odoo10-addon-hr_employee_lastnames',
         'odoo10-addon-hr_employee_legacy_id',
         'odoo10-addon-hr_employee_phone_extension',
         'odoo10-addon-hr_employee_seniority',
