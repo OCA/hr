@@ -30,6 +30,7 @@ addon | version | summary
 [hr_employee_data_from_work_address](hr_employee_data_from_work_address/) | 10.0.1.0.0 | Update user's and partner's data fields from employee record
 [hr_employee_firstname](hr_employee_firstname/) | 10.0.1.1.1 | Adds First Name to Employee
 [hr_employee_id](hr_employee_id/) | 10.0.1.1.0 | Employee ID
+[hr_employee_lastnames](hr_employee_lastnames/) | 10.0.1.0.1 | Split Name in First Name, Father's Last Name and Mother's Last Name
 [hr_employee_legacy_id](hr_employee_legacy_id/) | 10.0.1.0.0 | Legacy Employee ID
 [hr_employee_phone_extension](hr_employee_phone_extension/) | 10.0.1.0.0 | Employee Phone Extension
 [hr_employee_seniority](hr_employee_seniority/) | 10.0.1.0.2 | Keep Track of Length of Employment
