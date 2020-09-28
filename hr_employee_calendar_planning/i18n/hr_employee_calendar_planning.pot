@@ -114,7 +114,7 @@ msgid "From"
 msgstr ""
 
 #. module: hr_employee_calendar_planning
-#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar_id_5194
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar_id_5196
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_wizard_employee_calendar_dates_id
 msgid "ID"
 msgstr ""
