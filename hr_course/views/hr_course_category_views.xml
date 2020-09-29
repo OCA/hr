@@ -33,7 +33,6 @@
     <record id="open_view_course_category_form" model="ir.actions.act_window">
         <field name="name">Course Categories</field>
         <field name="res_model">hr.course.category</field>
-        <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
     </record>
     <menuitem
