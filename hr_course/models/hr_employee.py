@@ -17,7 +17,6 @@ class HrEmployee(models.Model):
         for r in self:
             r.count_courses = len(r.courses_ids)
 
-    @api.multi
     def action_view_course(self):
         action = self.env.ref("hr_course.action_view_course")
         result = action.read()[0]
