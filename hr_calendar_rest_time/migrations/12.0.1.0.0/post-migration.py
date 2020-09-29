@@ -5,6 +5,6 @@ from openupgradelib import openupgrade
 
 @openupgrade.migrate()
 def migrate(env, version):
-    calendars = env['resource.calendar'].search([])
+    calendars = env["resource.calendar"].search([])
     for calendar in calendars:
         calendar._onchange_hours_per_day()
