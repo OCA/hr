@@ -26,7 +26,7 @@ msgstr ""
 #. module: hr_job_category
 #: model:ir.model,name:hr_job_category.model_hr_contract
 #, fuzzy
-msgid "Employee Contract"
+msgid "Contract"
 msgstr "Contratto"
 
 #. module: hr_job_category
