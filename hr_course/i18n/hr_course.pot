@@ -4,23 +4,19 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 11.0\n"
+"Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-21 09:30+0000\n"
-"PO-Revision-Date: 2019-03-21 10:41+0100\n"
-"Last-Translator: <>\n"
+"Last-Translator: \n"
 "Language-Team: \n"
-"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
+"Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
-"X-Generator: Poedit 2.0.6\n"
 
 #. module: hr_course
 #: model:ir.model.fields.selection,name:hr_course.selection__hr_course_attendee__result__absent
 msgid "Absent"
-msgstr "Ausente"
+msgstr ""
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__message_needaction
@@ -30,7 +26,7 @@ msgstr ""
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee__active
 msgid "Active"
-msgstr "Activo"
+msgstr ""
 
 #. module: hr_course
 #: model:ir.model.fields,help:hr_course.field_hr_course__permanence_time
@@ -42,7 +38,7 @@ msgstr ""
 #. module: hr_course
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_form_view
 msgid "Assign attendees"
-msgstr "Asignar asistentes"
+msgstr ""
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__message_attachment_count
@@ -52,49 +48,49 @@ msgstr ""
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__attendant_ids
 msgid "Attendant"
-msgstr "Asistente"
+msgstr ""
 
 #. module: hr_course
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_form_view
 msgid "Attendees"
-msgstr "Asistentes"
+msgstr ""
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__authorized_by
 msgid "Authorized by"
-msgstr "Autorizado por"
+msgstr ""
 
 #. module: hr_course
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_form_view
 msgid "Back to Draft"
-msgstr "Devolver a borrador"
+msgstr ""
 
 #. module: hr_course
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_form_view
 msgid "Cancel Course"
-msgstr "Cancelar curso"
+msgstr ""
 
 #. module: hr_course
 #: model:ir.model.fields.selection,name:hr_course.selection__hr_course__state__cancelled
 msgid "Cancelled"
-msgstr "Cancelado"
+msgstr ""
 
 #. module: hr_course
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_form_view
 msgid "Cancelled Course"
-msgstr "Curso cancelado"
+msgstr ""
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__category_id
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_search_view
 #: model_terms:ir.ui.view,arch_db:hr_course.view_course_category_search
 msgid "Category"
-msgstr "Categoría"
+msgstr ""
 
 #. module: hr_course
 #: model:ir.model.constraint,message:hr_course.constraint_hr_course_category_name_uniq
 msgid "Category already exists !"
-msgstr "Esta categoría ya existe !"
+msgstr ""
 
 #. module: hr_course
 #: model:ir.model.fields,help:hr_course.field_hr_course__permanence
@@ -106,25 +102,25 @@ msgstr ""
 #. module: hr_course
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_form_view
 msgid "Complete Course"
-msgstr "Curso finalizado"
+msgstr ""
 
 #. module: hr_course
 #: model:ir.model.fields.selection,name:hr_course.selection__hr_course__state__completed
 msgid "Completed"
-msgstr "Finalizado"
+msgstr ""
 
 #. module: hr_course
 #: model:ir.model,name:hr_course.model_hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee__course_id
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_form_view
 msgid "Course"
-msgstr "Curso"
+msgstr ""
 
 #. module: hr_course
 #: model:ir.model,name:hr_course.model_hr_course_attendee
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__course_attendee_ids
 msgid "Course Attendee"
-msgstr "Asistente al curso"
+msgstr ""
 
 #. module: hr_course
 #: model:ir.actions.act_window,name:hr_course.open_view_course_category_form
@@ -133,37 +129,37 @@ msgstr "Asistente al curso"
 #: model_terms:ir.ui.view,arch_db:hr_course.view_course_category_list
 #: model_terms:ir.ui.view,arch_db:hr_course.view_course_category_search
 msgid "Course Categories"
-msgstr "Tipos de cursos"
+msgstr ""
 
 #. module: hr_course
 #: model:ir.model,name:hr_course.model_hr_course_category
 msgid "Course Category"
-msgstr "Tipo de curso"
+msgstr ""
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__cost
 msgid "Course Cost"
-msgstr "Coste del curso"
+msgstr ""
 
 #. module: hr_course
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_search_view
 msgid "Course Name"
-msgstr "Nombre del curso"
+msgstr ""
 
 #. module: hr_course
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_form_view
 msgid "Course Results"
-msgstr "Resultado del curso"
+msgstr ""
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_category__name
 msgid "Course category"
-msgstr "Tipo del curso"
+msgstr ""
 
 #. module: hr_course
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_form_view
 msgid "Course name"
-msgstr "Nombre del curso"
+msgstr ""
 
 #. module: hr_course
 #: model:ir.actions.act_window,name:hr_course.action_hr_course
@@ -173,66 +169,66 @@ msgstr "Nombre del curso"
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_form_view
 #: model_terms:ir.ui.view,arch_db:hr_course.view_hr_employee_form
 msgid "Courses"
-msgstr "Cursos"
+msgstr ""
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__create_uid
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee__create_uid
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_category__create_uid
 msgid "Created by"
-msgstr "Creado por"
+msgstr ""
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__create_date
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee__create_date
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_category__create_date
 msgid "Created on"
-msgstr "Creado en"
+msgstr ""
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__currency_id
 msgid "Currency"
-msgstr "Moneda"
+msgstr ""
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__display_name
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee__display_name
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_category__display_name
 msgid "Display Name"
-msgstr "Nombre a mostrar"
+msgstr ""
 
 #. module: hr_course
 #: model:ir.model.fields.selection,name:hr_course.selection__hr_course__state__draft
 msgid "Draft"
-msgstr "Borrador"
+msgstr ""
 
 #. module: hr_course
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_form_view
 msgid "Draft Course"
-msgstr "Curso en borrador"
+msgstr ""
 
 #. module: hr_course
 #: model:ir.model,name:hr_course.model_hr_employee
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee__employee_id
 msgid "Employee"
-msgstr "Empleado"
+msgstr ""
 
 #. module: hr_course
 #: code:addons/hr_course/models/hr_course.py:0
-#, fuzzy, python-format
+#, python-format
 msgid "Employees removed from this course: <br></br>%s"
-msgstr "Empleados eliminados de este curso: <br></br>"
+msgstr ""
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__end_date
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee__course_end
 msgid "End date"
-msgstr "Fecha final"
+msgstr ""
 
 #. module: hr_course
 #: model:ir.model.fields.selection,name:hr_course.selection__hr_course_attendee__result__failed
 msgid "Failed"
-msgstr "Suspendido"
+msgstr ""
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__message_follower_ids
@@ -252,14 +248,14 @@ msgstr ""
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__permanence
 msgid "Has Permanence"
-msgstr "Tiene permanencia"
+msgstr ""
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__id
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee__id
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_category__id
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 #. module: hr_course
 #: model:ir.model.fields,help:hr_course.field_hr_course__message_needaction
@@ -276,12 +272,12 @@ msgstr ""
 #. module: hr_course
 #: model:ir.model.fields.selection,name:hr_course.selection__hr_course__state__in_progress
 msgid "In progress"
-msgstr "En progreso"
+msgstr ""
 
 #. module: hr_course
 #: model:ir.model.fields.selection,name:hr_course.selection__hr_course__state__in_validation
 msgid "In validation"
-msgstr "En corrección"
+msgstr ""
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__message_is_follower
@@ -293,21 +289,21 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee____last_update
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_category____last_update
 msgid "Last Modified on"
-msgstr "Última modificación en"
+msgstr ""
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__write_uid
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee__write_uid
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_category__write_uid
 msgid "Last Updated by"
-msgstr "Última actualización de"
+msgstr ""
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__write_date
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee__write_date
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_category__write_date
 msgid "Last Updated on"
-msgstr "Última actualización en"
+msgstr ""
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__message_main_attachment_id
@@ -328,24 +324,22 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__name
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee__name
 msgid "Name"
-msgstr "Nombre"
+msgstr ""
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__message_needaction_counter
-#, fuzzy
 msgid "Number of Actions"
-msgstr "Número de cursos"
+msgstr ""
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_employee__count_courses
 msgid "Number of courses"
-msgstr "Número de cursos"
+msgstr ""
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__message_has_error_counter
-#, fuzzy
 msgid "Number of errors"
-msgstr "Número de cursos"
+msgstr ""
 
 #. module: hr_course
 #: model:ir.model.fields,help:hr_course.field_hr_course__message_needaction_counter
@@ -359,9 +353,8 @@ msgstr ""
 
 #. module: hr_course
 #: model:ir.model.fields,help:hr_course.field_hr_course__message_unread_counter
-#, fuzzy
 msgid "Number of unread messages"
-msgstr "Número de cursos"
+msgstr ""
 
 #. module: hr_course
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_form_view
@@ -371,27 +364,27 @@ msgstr ""
 #. module: hr_course
 #: model:ir.model.fields.selection,name:hr_course.selection__hr_course_attendee__result__passed
 msgid "Passed"
-msgstr "Aprobado"
+msgstr ""
 
 #. module: hr_course
 #: model:ir.model.fields.selection,name:hr_course.selection__hr_course_attendee__result__pending
 msgid "Pending"
-msgstr "Pendiente"
+msgstr ""
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__permanence_time
 msgid "Permanence time"
-msgstr "Tiempo de permanencia"
+msgstr ""
 
 #. module: hr_course
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_form_view
 msgid "Rate Course"
-msgstr "Corregir curso"
+msgstr ""
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee__result
 msgid "Result"
-msgstr "Resultado"
+msgstr ""
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__message_has_sms_error
@@ -401,26 +394,26 @@ msgstr ""
 #. module: hr_course
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_form_view
 msgid "Start Course"
-msgstr "Empezar curso"
+msgstr ""
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__start_date
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee__course_start
 msgid "Start date"
-msgstr "Fecha de inicio"
+msgstr ""
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__state
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee__state
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_search_view
 msgid "State"
-msgstr "Estado"
+msgstr ""
 
 #. module: hr_course
 #: code:addons/hr_course/models/hr_course.py:0
 #, python-format
 msgid "The start date cannot be later than the end date."
-msgstr "La fecha de inicio no puede ser posterior a la de fin."
+msgstr ""
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__message_unread
@@ -435,7 +428,7 @@ msgstr ""
 #. module: hr_course
 #: model:ir.model.fields.selection,name:hr_course.selection__hr_course__state__waiting_attendees
 msgid "Waiting attendees"
-msgstr "Esperando asistentes"
+msgstr ""
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__website_message_ids
@@ -451,26 +444,11 @@ msgstr ""
 #: code:addons/hr_course/models/hr_course.py:0
 #, python-format
 msgid "You cannot complete the course with pending results"
-msgstr "No se puede finalizar el curso con resultados pendientes"
+msgstr ""
 
 #. module: hr_course
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_form_view
 msgid ""
-"You should set a course back to draft only if you cancelled it by mistake or "
-"if some of its information is incorrect. Do you want to continue?"
+"You should set a course back to draft only if you cancelled it by mistake or"
+" if some of its information is incorrect. Do you want to continue?"
 msgstr ""
-"Solo deberías devolver un curso a borrador si se ha cancelado por error o si "
-"alguna de su información es incorrecta. Quieres continuar?"
-
-#, fuzzy
-#~ msgid "Pass everybody"
-#~ msgstr "Aprobado"
-
-#~ msgid "hr.course"
-#~ msgstr "hr.course"
-
-#~ msgid "hr.course.attendee"
-#~ msgstr "hr.course.attendee"
-
-#~ msgid "hr.course.result"
-#~ msgstr "hr.course.result"

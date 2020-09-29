@@ -121,7 +121,7 @@
                             <div class="text-right" states="in_validation">
                                 <br />
                                 <button
-                                    string="Pass everybody"
+                                    string="Pass all"
                                     name="all_passed"
                                     type="object"
                                     class="btn-primary"
@@ -191,23 +191,24 @@
         <field name="model">hr.course.attendee</field>
         <field name="arch" type="xml">
             <form>
-                <group>
-                    <field name="course_id" />
-                    <field name="employee_id" />
-                    <field name="state" />
-                    <field name="result" />
-                </group>
-                <group>
-                    <field name="course_start" />
-                    <field name="course_end" />
-                </group>
+                <sheet>
+                    <group>
+                        <field name="course_id" />
+                        <field name="employee_id" />
+                        <field name="state" />
+                        <field name="result" />
+                    </group>
+                    <group>
+                        <field name="course_start" />
+                        <field name="course_end" />
+                    </group>
+                </sheet>
             </form>
         </field>
     </record>
     <record id="action_hr_course" model="ir.actions.act_window">
         <field name="name">Courses</field>
         <field name="res_model">hr.course</field>
-        <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
     </record>
     <menuitem
