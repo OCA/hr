@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <record id="res_config_settings_view_form" model="ir.ui.view">
+            <field name="name">res.config.settings.view.form.inherit.hr.expense.analytic</field>
+            <field name="model">res.config.settings</field>
+            <field name="priority" eval="85"/>
+            <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[hasclass('settings')]" position="inside">
+                    <div class="app_settings_block" data-string="Expenses" string="Expenses" data-key="hr_expense" groups="hr_expense.group_hr_expense_manager">
+                        <h2>Analytics</h2>
+                            <div class="row mt16 o_settings_container" id="analytic">
+                            <div class="col-12 col-lg-6 o_setting_box" title="Allows you to use the analytic accounting." groups="account.group_account_user">
+                                <div class="o_setting_left_pane">
+                                    <field name="group_analytic_accounting"/>
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <label for="group_analytic_accounting"/>
+                                    <div class="text-muted">
+                                        Track costs &amp; revenues by project, department, etc.
+                                    </div>
+                                    <div class="content-group" attrs="{'invisible': [('group_analytic_accounting', '=', False)]}">
+                                        <div class="mt16" id="analytic_account_link">
+                                            <button name="%(analytic.action_analytic_account_form)d" icon="fa-arrow-right" type="action" string="Analytic Accounts" class="btn-link"/>
+                                        </div>
+                                        <div id="analytic_account_groups_link">
+                                            <button name="%(analytic.account_analytic_group_action)d" icon="fa-arrow-right" type="action" string="Analytic Account Groups" class="btn-link"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="o_setting_right_pane" attrs="{'invisible': [('group_analytic_accounting', '=', False)]}">
+                                    <span title="Default Analytic Account for Expenses"/>
+                                    <div class="o_form_label">
+                                        Default Analytic Account for Expenses
+                                    </div>
+                                    <div class="content-group">
+                                        <div class="row mt16">
+                                            <label string="Default Analytic Account" for="expense_analytic_id" class="col-lg-3 o_light_label"/>
+                                            <field name="expense_analytic_id"/>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+</odoo>
