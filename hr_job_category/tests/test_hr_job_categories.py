@@ -14,7 +14,8 @@ class TestHrJobCategories(common.TransactionCase):
         self.contract_model = self.env["hr.contract"]
 
         # Create a employee
-        self.employee_id = self.employee_model.create({"name": "Employee 1"})
+        self.employee_id_1 = self.employee_model.create({"name": "Employee 1"})
+        self.employee_id_2 = self.employee_model.create({"name": "Employee 2"})
 
         # Create two employee categories
         self.categ_id = self.employee_categ_model.create({"name": "Category 1"})
@@ -31,7 +32,7 @@ class TestHrJobCategories(common.TransactionCase):
 
         # Create one contract
         self.contract_id = self.contract_model.create(
-            {"name": "Contract 1", "employee_id": self.employee_id.id, "wage": 50000}
+            {"name": "Contract 1", "employee_id": self.employee_id_1.id, "wage": 50000}
         )
 
     def test_write_computes_with_normal_args(self):
@@ -44,13 +45,25 @@ class TestHrJobCategories(common.TransactionCase):
         # Check if job categories are written to the employee
         self.contract_id.write({"job_id": self.job_id.id})
         job_categ = [categ.id for categ in self.job_id.category_ids]
-        empl_categ = [categ.id for categ in self.employee_id.category_ids]
+        empl_categ = [categ.id for categ in self.employee_id_1.category_ids]
 
         self.assertTrue(all(x in empl_categ for x in job_categ))
+
+        self.contract_id.write({"job_id": False})
+        self.assertFalse(self.employee_id_1.category_ids)
 
         # Check if job2 categories are written to the employee
         self.contract_id.write({"job_id": self.job_2_id.id})
         job_categ = [categ.id for categ in self.job_2_id.category_ids]
-        empl_categ = [categ.id for categ in self.employee_id.category_ids]
+        empl_categ = [categ.id for categ in self.employee_id_1.category_ids]
 
         self.assertTrue(all(x in empl_categ for x in job_categ))
+
+        self.contract_id.write({"employee_id": self.employee_id_2.id})
+        self.assertFalse(self.employee_id_1.category_ids)
+        job_categ = [categ.id for categ in self.job_2_id.category_ids]
+        empl_categ = [categ.id for categ in self.employee_id_2.category_ids]
+        self.assertTrue(all(x in empl_categ for x in job_categ))
+
+        self.contract_id.unlink()
+        self.assertFalse(self.employee_id_2.category_ids)
