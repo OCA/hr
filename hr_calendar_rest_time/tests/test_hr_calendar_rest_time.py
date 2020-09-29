@@ -36,7 +36,7 @@ class HRCalendarRestTime(TransactionCase):
         """We expect that the number of effective working hours
         should be 8 hours"""
         today = fields.Date.from_string(fields.Date.today())
-        hours = self.employee.get_work_days_data(
+        hours = self.employee._get_work_days_data(
             datetime.combine(today, time(0, 0, 0, 0)),
             datetime.combine(today, time(23, 59, 59, 99999)),
         )["hours"]

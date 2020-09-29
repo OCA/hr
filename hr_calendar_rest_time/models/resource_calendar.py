@@ -3,34 +3,19 @@
 
 from datetime import timedelta
 
-from odoo import api, models
-from odoo.tools.float_utils import float_round
+from odoo import models
 
 
 class ResourceCalendar(models.Model):
 
     _inherit = "resource.calendar"
 
-    def _get_work_hours(self, start, stop, meta):
+    def _get_work_hours_interval(self, start, stop, meta):
         return (
             stop
             - start
             - timedelta(hours=sum([attendance.rest_time for attendance in meta]))
         ).total_seconds() / 3600
 
-    @api.onchange("attendance_ids")
-    def _onchange_hours_per_day(self):
-        if self.env.context.get("use_old_onchange_hours_per_day"):
-            return super()._onchange_hours_per_day()
-        attendances = self.attendance_ids.filtered(
-            lambda att: not att.date_from and not att.date_to
-        )
-        hour_count = 0.0
-        for att in attendances:
-            hour_count += att.hour_to - att.hour_from - att.rest_time
-
-        if attendances:
-            self.hours_per_day = float_round(
-                hour_count / float(len(set(attendances.mapped("dayofweek")))),
-                precision_digits=2,
-            )
+    def _get_work_hours_attendance(self, attendance):
+        return attendance.hour_to - attendance.hour_from - attendance.rest_time

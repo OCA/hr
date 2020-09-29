@@ -3,7 +3,9 @@
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
 <odoo>
     <record model="ir.ui.view" id="resource_calendar_attendance_tree_view">
-        <field name="name">resource.calendar.attendance.tree (in cb_lunch_time)</field>
+        <field
+            name="name"
+        >resource.calendar.attendance.tree (in hr_calendar_rest_time)</field>
         <field name="model">resource.calendar.attendance</field>
         <field
             name="inherit_id"
