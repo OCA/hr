@@ -7,35 +7,32 @@ from odoo.tests import common
 class TestHrJobCategories(common.TransactionCase):
     def setUp(self):
         super(TestHrJobCategories, self).setUp()
-        self.employee_model = self.env['hr.employee']
-        self.employee_categ_model = self.env['hr.employee.category']
-        self.user_model = self.env['res.users']
-        self.job_model = self.env['hr.job']
-        self.contract_model = self.env['hr.contract']
+        self.employee_model = self.env["hr.employee"]
+        self.employee_categ_model = self.env["hr.employee.category"]
+        self.user_model = self.env["res.users"]
+        self.job_model = self.env["hr.job"]
+        self.contract_model = self.env["hr.contract"]
 
         # Create a employee
-        self.employee_id = self.employee_model.create({'name': 'Employee 1'})
+        self.employee_id = self.employee_model.create({"name": "Employee 1"})
 
         # Create two employee categories
-        self.categ_id = self.employee_categ_model.create(
-            {'name': 'Category 1'})
-        self.categ_2_id = self.employee_categ_model.create(
-            {'name': 'Category 2'})
+        self.categ_id = self.employee_categ_model.create({"name": "Category 1"})
+        self.categ_2_id = self.employee_categ_model.create({"name": "Category 2"})
 
         # Create two jobs
         self.job_id = self.job_model.create(
-            {'name': 'Job 1',
-             'category_ids': [(6, 0, [self.categ_id.id])]})
+            {"name": "Job 1", "category_ids": [(6, 0, [self.categ_id.id])]}
+        )
 
         self.job_2_id = self.job_model.create(
-            {'name': 'Job 2',
-             'category_ids': [(6, 0, [self.categ_2_id.id])]})
+            {"name": "Job 2", "category_ids": [(6, 0, [self.categ_2_id.id])]}
+        )
 
         # Create one contract
         self.contract_id = self.contract_model.create(
-            {'name': 'Contract 1',
-             'employee_id': self.employee_id.id,
-             'wage': 50000})
+            {"name": "Contract 1", "employee_id": self.employee_id.id, "wage": 50000}
+        )
 
     def test_write_computes_with_normal_args(self):
         """
@@ -45,14 +42,14 @@ class TestHrJobCategories(common.TransactionCase):
         Check if the job categories are written to the employee.
         """
         # Check if job categories are written to the employee
-        self.contract_id.write({'job_id': self.job_id.id})
+        self.contract_id.write({"job_id": self.job_id.id})
         job_categ = [categ.id for categ in self.job_id.category_ids]
         empl_categ = [categ.id for categ in self.employee_id.category_ids]
 
         self.assertTrue(all(x in empl_categ for x in job_categ))
 
         # Check if job2 categories are written to the employee
-        self.contract_id.write({'job_id': self.job_2_id.id})
+        self.contract_id.write({"job_id": self.job_2_id.id})
         job_categ = [categ.id for categ in self.job_2_id.category_ids]
         empl_categ = [categ.id for categ in self.employee_id.category_ids]
 
