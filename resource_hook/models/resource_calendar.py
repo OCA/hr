@@ -5,7 +5,7 @@ from odoo import models
 
 
 class ResourceCalendar(models.Model):
-    _inherit = 'resource.calendar'
+    _inherit = "resource.calendar"
 
     def _get_work_hours(self, start, stop, meta):
         """

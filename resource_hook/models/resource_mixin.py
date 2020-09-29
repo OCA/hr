@@ -5,7 +5,7 @@ from odoo import models
 
 
 class ResourceMixin(models.AbstractModel):
-    _inherit = 'resource.mixin'
+    _inherit = "resource.mixin"
 
     def _get_work_hours(self, start, stop, meta):
         """

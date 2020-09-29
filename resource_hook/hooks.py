@@ -1,22 +1,29 @@
-from odoo.addons.resource.models.resource_mixin import ResourceMixin, ROUNDING_FACTOR
-from odoo.addons.resource.models.resource import ResourceCalendar
-from datetime import timedelta
-from odoo.tools import float_utils
-from pytz import utc
 from collections import defaultdict
+from datetime import timedelta
+
+from pytz import utc
+
+from odoo.tools import float_utils
+
+from odoo.addons.resource.models.resource import ResourceCalendar
+from odoo.addons.resource.models.resource_mixin import ROUNDING_FACTOR, ResourceMixin
 
 
 def post_load_hook():
-    if not hasattr(ResourceMixin, 'get_work_days_data_original'):
-        ResourceMixin.get_work_days_data_original = \
-            ResourceMixin.get_work_days_data
-    if not hasattr(ResourceCalendar, 'get_work_hours_count_original'):
-        ResourceCalendar.get_work_hours_count_original = \
+    if not hasattr(ResourceMixin, "get_work_days_data_original"):
+        ResourceMixin.get_work_days_data_original = ResourceMixin.get_work_days_data
+    if not hasattr(ResourceCalendar, "get_work_hours_count_original"):
+        ResourceCalendar.get_work_hours_count_original = (
             ResourceCalendar.get_work_hours_count
+        )
 
     def __new_get_work_days_data(
-            self, from_datetime, to_datetime, compute_leaves=True,
-            calendar=None, domain=None
+        self,
+        from_datetime,
+        to_datetime,
+        compute_leaves=True,
+        calendar=None,
+        domain=None,
     ):
         """
             By default the resource calendar is used, but it can be
@@ -41,9 +48,7 @@ def post_load_hook():
         # in order to compute the total hours on the first and last days
         from_full = from_datetime - timedelta(days=1)
         to_full = to_datetime + timedelta(days=1)
-        intervals = calendar._attendance_intervals(
-            from_full, to_full, resource
-        )
+        intervals = calendar._attendance_intervals(from_full, to_full, resource)
         day_total = defaultdict(float)
         for start, stop, meta in intervals:
             day_total[start.date()] += self._get_work_hours(start, stop, meta)
@@ -63,14 +68,13 @@ def post_load_hook():
 
         # compute number of days as quarters
         days = sum(
-            float_utils.round(
-                ROUNDING_FACTOR * day_hours[day] / day_total[day]
-            ) / ROUNDING_FACTOR
+            float_utils.round(ROUNDING_FACTOR * day_hours[day] / day_total[day])
+            / ROUNDING_FACTOR
             for day in day_hours
         )
         return {
-            'days': days,
-            'hours': sum(day_hours.values()),
+            "days": days,
+            "hours": sum(day_hours.values()),
         }
 
     def __new_get_work_hours_count(
@@ -97,8 +101,7 @@ def post_load_hook():
             intervals = self._attendance_intervals(start_dt, end_dt)
 
         return sum(
-            self._get_work_hours(start, stop, meta)
-            for start, stop, meta in intervals
+            self._get_work_hours(start, stop, meta) for start, stop, meta in intervals
         )
 
     ResourceMixin.get_work_days_data = __new_get_work_days_data
