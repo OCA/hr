@@ -27,7 +27,8 @@ msgstr "Etiquetas Associadas"
 
 #. module: hr_job_category
 #: model:ir.model,name:hr_job_category.model_hr_contract
-msgid "Employee Contract"
+#, fuzzy
+msgid "Contract"
 msgstr "Contrato do Empregado"
 
 #. module: hr_job_category
