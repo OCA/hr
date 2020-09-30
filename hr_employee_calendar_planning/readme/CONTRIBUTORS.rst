@@ -6,6 +6,6 @@
 
   * Jaime Arroyo
 
-* `Eficent <https://www.eficent.com/>`_:
+* `ForgeFlow <https://www.forgeflow.com/>`_:
 
-  * Jordi Ballester Alomar (jordi.ballester@eficent.com)
+  * Jordi Ballester Alomar (jordi.ballester@forgeflow.com)
