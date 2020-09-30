@@ -23,7 +23,7 @@ Employee Calendar Planning
     :target: https://runbot.odoo-community.org/runbot/116/13.0
     :alt: Try me on Runbot
 
-|badge1| |badge2| |badge3| |badge4| |badge5| 
+|badge1| |badge2| |badge3| |badge4| |badge5|
 
 This module allows to manage employee working time with profiles by date
 intervals.
@@ -97,9 +97,9 @@ Contributors
 
   * Jaime Arroyo
 
-* `Eficent <https://www.eficent.com/>`_:
+* `ForgeFlow <https://www.forgeflow.com/>`_:
 
-  * Jordi Ballester Alomar (jordi.ballester@eficent.com)
+  * Jordi Ballester Alomar (jordi.ballester@forgeflow.com)
 
 Maintainers
 ~~~~~~~~~~~
