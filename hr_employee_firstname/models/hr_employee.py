@@ -26,8 +26,7 @@ class HrEmployee(models.Model):
     @api.model
     def create(self, vals):
         if vals.get('firstname') or vals.get('lastname'):
-            vals['name'] = self._get_name(
-                vals.get('lastname'), vals.get('firstname'))
+            vals['name'] = self._get_employee_name(vals, create=True)
         elif vals.get('name'):
             vals['lastname'] = self.split_name(vals['name'])['lastname']
             vals['firstname'] = self.split_name(vals['name'])['firstname']
@@ -40,15 +39,7 @@ class HrEmployee(models.Model):
     @api.multi
     def write(self, vals):
         if 'firstname' in vals or 'lastname' in vals:
-            if 'lastname' in vals:
-                lastname = vals.get('lastname')
-            else:
-                lastname = self.lastname
-            if 'firstname' in vals:
-                firstname = vals.get('firstname')
-            else:
-                firstname = self.firstname
-            vals['name'] = self._get_name(lastname, firstname)
+            vals['name'] = self._get_employee_name(vals)
         elif vals.get('name'):
             vals['lastname'] = self.split_name(vals['name'])['lastname']
             vals['firstname'] = self.split_name(vals['name'])['firstname']
@@ -56,6 +47,18 @@ class HrEmployee(models.Model):
         if set(vals).intersection(UPDATE_PARTNER_FIELDS):
             self._update_partner_firstname(self)
         return res
+
+    def _get_employee_name(self, vals, create=False):
+        """Return the new name using lastname and firstname"""
+        if 'lastname' in vals or create:
+            lastname = vals.get('lastname')
+        else:
+            lastname = self.lastname
+        if 'firstname' in vals or create:
+            firstname = vals.get('firstname')
+        else:
+            firstname = self.firstname
+        return self._get_name(lastname, firstname)
 
     @api.model
     def split_name(self, name):

@@ -1,8 +1,6 @@
-# -*- coding: utf-8 -*-
 import logging
 
-from odoo import api, fields, models, _
-from odoo.exceptions import UserError
+from odoo import api, fields, models
 from odoo.addons.hr_employee_firstname.models.hr_employee import UPDATE_PARTNER_FIELDS
 
 _logger = logging.getLogger(__name__)
@@ -18,50 +16,43 @@ class HrEmployee(models.Model):
     lastname2 = fields.Char("Second last name")
 
     @api.model
+    def create(self, vals):
+        if vals.get('name'):
+            vals['lastname2'] = self.split_name(vals['name'])['lastname2']
+        res = super(HrEmployee, self).create(vals)
+        self._update_partner_firstname(res)
+        return res
+
+    @api.multi
+    def write(self, vals):
+        if vals.get('name'):
+            vals['lastname2'] = self.split_name(vals['name'])['lastname2']
+        res = super(HrEmployee, self).write(vals)
+        if set(vals).intersection(UPDATE_PARTNER_FIELDS):
+            self._update_partner_firstname(self)
+        return res
+
+    @api.model
     def _get_name_lastnames(self, lastname, firstname, lastname2=None):
         return self.env['res.partner']._get_computed_name(
             lastname, firstname, lastname2)
 
-    def _prepare_vals_on_create_firstname_lastname(self, vals):
-        values = vals.copy()
-        res = super(HrEmployee, self)._prepare_vals_on_create_firstname_lastname(values)
-        if any([field in vals for field in 'firstname', 'lastname', 'lastname2']):
-            vals['name'] = self._get_name_lastnames(
-                vals.get('lastname'), vals.get('firstname'), vals.get('lastname2'))
-        elif vals.get('name'):
-            name_splitted = self.split_name(vals['name'])
-            vals['firstname'] = name_splitted['firstname']
-            vals['lastname'] = name_splitted['lastname']
-            vals['lastname2'] = name_splitted['lastname2']
+    def _get_employee_name(self, vals, create=False):
+        if 'lastname' in vals or create:
+            lastname = vals.get('lastname')
         else:
-            raise UserError(_('No name set.'))
-        return res
+            lastname = self.lastname
+        if 'firstname' in vals or create:
+            firstname = vals.get('firstname')
+        else:
+            firstname = self.firstname
+        if 'lastname2' in vals or create:
+            lastname2 = vals.get('lastname2')
+        else:
+            lastname2 = self.lastname2
+        return self._get_name_lastnames(lastname, firstname, lastname2)
 
-    def _prepare_vals_on_write_firstname_lastname(self, vals):
-        values = vals.copy()
-        res = super(HrEmployee, self)._prepare_vals_on_write_firstname_lastname(values)
-        if any([field in vals for field in 'firstname', 'lastname', 'lastname2']):
-            if 'lastname' in vals:
-                lastname = vals['lastname']
-            else:
-                lastname = self.lastname
-            if 'firstname' in vals:
-                firstname = vals['firstname']
-            else:
-                firstname = self.firstname
-            if 'lastname2' in vals:
-                lastname2 = vals['lastname2']
-            else:
-                lastname2 = self.lastname2
-            vals['name'] = self._get_name_lastnames(lastname, firstname, lastname2)
-        elif vals.get('name'):
-            name_splitted = self.split_name(vals['name'])
-            vals['lastname'] = name_splitted['lastname']
-            vals['firstname'] = name_splitted['firstname']
-            vals['lastname2'] = name_splitted['lastname2']
-        return res
-
-    def _update_partner_firstname(self):
+    def _update_partner_firstname(self, employee):
         for employee in self:
             partners = employee.mapped('user_id.partner_id')
             partners |= employee.mapped('address_home_id')
