@@ -90,8 +90,6 @@ class TestHolidaysComputeDaysBase(common.SavepointCase):
             'exclude_rest_days': False,
             'compute_full_days': False,
         })
-        # Remove timezone for controlling data better
-        cls.env.user.tz = False
 
 
 class TestHolidaysComputeDays(TestHolidaysComputeDaysBase):
@@ -164,3 +162,4 @@ class TestHolidaysComputeDays(TestHolidaysComputeDaysBase):
         })
         holidays._onchange_data_hr_holidays_compute_days()
         self.assertEqual(holidays.number_of_days_temp, 0.5)
+
