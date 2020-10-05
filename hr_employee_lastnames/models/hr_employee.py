@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 import logging
 
 from odoo import api, fields, models, _
@@ -25,7 +24,7 @@ class HrEmployee(models.Model):
     def _prepare_vals_on_create_firstname_lastname(self, vals):
         values = vals.copy()
         res = super(HrEmployee, self)._prepare_vals_on_create_firstname_lastname(values)
-        if any([field in vals for field in 'firstname', 'lastname', 'lastname2']):
+        if any([field in vals for field in ('firstname', 'lastname', 'lastname2')]):
             vals['name'] = self._get_name_lastnames(
                 vals.get('lastname'), vals.get('firstname'), vals.get('lastname2'))
         elif vals.get('name'):
@@ -40,7 +39,7 @@ class HrEmployee(models.Model):
     def _prepare_vals_on_write_firstname_lastname(self, vals):
         values = vals.copy()
         res = super(HrEmployee, self)._prepare_vals_on_write_firstname_lastname(values)
-        if any([field in vals for field in 'firstname', 'lastname', 'lastname2']):
+        if any([field in vals for field in ('firstname', 'lastname', 'lastname2')]):
             if 'lastname' in vals:
                 lastname = vals['lastname']
             else:
@@ -61,16 +60,15 @@ class HrEmployee(models.Model):
             vals['lastname2'] = name_splitted['lastname2']
         return res
 
-    def _update_partner_firstname(self):
-        for employee in self:
-            partners = employee.mapped('user_id.partner_id')
+    def _update_partner_firstname(self, employee):
+        partners = employee.mapped('user_id.partner_id')
+        for _partner in employee.mapped('address_home_id'):
             partners |= employee.mapped('address_home_id')
-            partners.write({
-                'firstname': employee.firstname,
-                'lastname': employee.lastname,
-                'lastname2': employee.lastname2,
-            })
-        return
+        partners.write({
+            'firstname': employee.firstname,
+            'lastname': employee.lastname,
+            'lastname2': employee.lastname2,
+        })
 
     @api.multi
     def _inverse_name(self):
