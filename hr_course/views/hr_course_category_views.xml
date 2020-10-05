@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_course_category_form" model="ir.ui.view">
+        <field name="name">hr.course.category.form</field>
+        <field name="model">hr.course.category</field>
+        <field name="arch" type="xml">
+            <form string="Course Categories">
+                <group>
+                    <field name="name" />
+                </group>
+            </form>
+        </field>
+    </record>
+    <record id="view_course_category_search" model="ir.ui.view">
+        <field name="name">hr.course.category.search</field>
+        <field name="model">hr.course.category</field>
+        <field name="arch" type="xml">
+            <search string="Course Categories">
+                <field name="name" string="Category" />
+            </search>
+        </field>
+    </record>
+    <record id="view_course_category_list" model="ir.ui.view">
+        <field name="name">hr.course.category.list</field>
+        <field name="model">hr.course.category</field>
+        <field eval="8" name="priority" />
+        <field name="arch" type="xml">
+            <tree string="Course Categories">
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+    <record id="open_view_course_category_form" model="ir.actions.act_window">
+        <field name="name">Course Categories</field>
+        <field name="res_model">hr.course.category</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem
+        id="menu_view_course_category_form"
+        action="open_view_course_category_form"
+        parent="hr.menu_human_resources_configuration"
+        sequence="10"
+    />
+</odoo>

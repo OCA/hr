@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2019 Creu Blanca
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record model="ir.ui.view" id="hr_course_form_view">
+        <field name="name">hr.course.form (in hr_courses)</field>
+        <field name="model">hr.course</field>
+        <field name="arch" type="xml">
+            <form string="Courses">
+                <header>
+                    <button
+                        string="Assign attendees"
+                        name="draft2waiting"
+                        states="draft"
+                        type="object"
+                        class="btn-primary"
+                        groups="hr.group_hr_manager"
+                    />
+                    <button
+                        string="Start Course"
+                        name="waiting2inprogress"
+                        states="waiting_attendees"
+                        type="object"
+                        class="btn-primary"
+                        groups="hr.group_hr_manager"
+                    />
+                    <button
+                        string="Rate Course"
+                        name="inprogress2validation"
+                        states="in_progress"
+                        type="object"
+                        class="btn-primary"
+                        groups="hr.group_hr_manager"
+                    />
+                    <button
+                        string="Complete Course"
+                        name="validation2complete"
+                        states="in_validation"
+                        type="object"
+                        class="btn-primary"
+                        groups="hr.group_hr_manager"
+                    />
+                    <button
+                        string="Cancel Course"
+                        name="cancel_course"
+                        states="draft,waiting_attendees,in_progress,in_validation"
+                        type="object"
+                        groups="hr.group_hr_manager"
+                    />
+                    <button
+                        name="back2draft"
+                        type="object"
+                        string="Back to Draft"
+                        states="cancelled,waiting_attendees,in_progress,in_validation,completed"
+                        groups="hr.group_hr_manager"
+                        confirm="You should set a course back to draft only if you cancelled it by mistake or if some of its information is incorrect. Do you want to continue?"
+                    />
+                    <field
+                        name="state"
+                        widget="statusbar"
+                        statusbar_visible="draft,waiting_attendees,in_progress,in_validation,completed"
+                    />
+                </header>
+                <sheet string="Course">
+                    <label
+                        string="Draft Course"
+                        for=""
+                        attrs="{'invisible': [('state','!=','draft')]}"
+                    >
+                        <br />
+                    </label>
+                    <label
+                        string="Cancelled Course"
+                        style="color:red"
+                        for=""
+                        attrs="{'invisible': [('state','!=','cancelled')]}"
+                    >
+                        <br />
+                    </label>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only" />
+                        <h1>
+                            <field name="name" placeholder="Course name" />
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="category_id" />
+                            <field
+                                name="cost"
+                                widget="monetary"
+                                options="{'currency_field': 'currency_id'}"
+                            />
+                            <field
+                                name="currency_id"
+                                groups="base.group_multi_currency"
+                            />
+                            <field name="authorized_by" />
+                            <field name="permanence" />
+                            <field
+                                name="permanence_time"
+                                attrs="{'invisible': [('permanence','=',False)]}"
+                            />
+                        </group>
+                        <group>
+                            <field name="start_date" />
+                            <field name="end_date" />
+                        </group>
+                    </group>
+                    <notebook>
+                        <page
+                            string="Attendees"
+                            attrs="{'invisible': [('state','not in',['draft', 'waiting_attendees','cancelled'])]}"
+                        >
+                            <field name="attendant_ids" />
+                        </page>
+                        <page
+                            string="Course Results"
+                            attrs="{'invisible': [('state','not in',['in_progress','in_validation','completed'])]}"
+                        >
+                            <div class="text-right" states="in_validation">
+                                <br />
+                                <button
+                                    string="Pass all"
+                                    name="all_passed"
+                                    type="object"
+                                    class="btn-primary"
+                                    groups="hr.group_hr_manager"
+                                />
+                            </div>
+                            <field name="course_attendee_ids" widget="one2many_list" />
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field
+                        name="message_follower_ids"
+                        widget="mail_followers"
+                        groups="base.group_user"
+                    />
+                    <field name="message_ids" widget="mail_thread" />
+                </div>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="hr_course_search_view">
+        <field name="name">hr.course.search</field>
+        <field name="model">hr.course</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" string="Course Name" />
+                <field name="category_id" string="Category" />
+                <field name="state" string="State" />
+            </search>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="hr_course_tree_view">
+        <field name="name">hr.course.tree</field>
+        <field name="model">hr.course</field>
+        <field name="arch" type="xml">
+            <tree
+                decoration-success="state=='completed'"
+                decoration-muted="state=='cancelled'"
+            >
+                <field name="name" />
+                <field name="start_date" />
+                <field name="end_date" />
+                <field name="state" />
+            </tree>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="hr_course_attendee_tree_view">
+        <field name="name">hr.course.attendee.tree</field>
+        <field name="model">hr.course.attendee</field>
+        <field name="priority">30</field>
+        <field name="arch" type="xml">
+            <tree
+                decoration-success="result=='passed'"
+                decoration-danger="result=='failed' or result=='absent'"
+                editable="bottom"
+                create="false"
+                delete="false"
+            >
+                <field name="employee_id" />
+                <field name="result" />
+            </tree>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="hr_course_attendee_form_view">
+        <field name="name">hr.course.attendee.form</field>
+        <field name="model">hr.course.attendee</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="course_id" />
+                        <field name="employee_id" />
+                        <field name="state" />
+                        <field name="result" />
+                    </group>
+                    <group>
+                        <field name="course_start" />
+                        <field name="course_end" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_hr_course" model="ir.actions.act_window">
+        <field name="name">Courses</field>
+        <field name="res_model">hr.course</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem
+        id="menu_hr_course"
+        name="Courses"
+        parent="hr.menu_hr_root"
+        groups="hr.group_hr_manager"
+        action="action_hr_course"
+    />
+</odoo>
