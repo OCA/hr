@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from odoo import SUPERUSER_ID
 from odoo.api import Environment
 
