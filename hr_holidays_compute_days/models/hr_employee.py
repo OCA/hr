@@ -77,5 +77,5 @@ class HrEmployee(models.Model):
             # We convert hours in days according to calendar "UOM" if present
             cal_uom = calendar.uom_id.factor or theoric_hours
             days_count += work_time.total_seconds() / 3600 / cal_uom
-        # round to 4 decimals (as one minute is a 4 decimal day)
+        # round to be replaced by UOM minutes / seconds
         return round(days_count, 4)

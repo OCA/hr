@@ -32,6 +32,34 @@ class TestHolidaysComputeDaysBase(common.SavepointCase):
                     'hour_to': '18',
                 }),
             ]
+        # Calendar for an FTE of 80/100 with presence Monday and Friday AM only
+        cls.calendar_FTE_80 = cls.env['resource.calendar'].create({
+            'name': 'Calendar FTE 80/100',
+        })
+        for day in ['1','2','3']:  # From Tuesday to Thursday (8H)
+            cls.calendar_FTE_80.attendance_ids = [
+                (0, 0, {
+                    'name': 'Attendance',
+                    'dayofweek': str(day),
+                    'hour_from': '08',
+                    'hour_to': '12',
+                }),
+                (0, 0, {
+                    'name': 'Attendance All Day',
+                    'dayofweek': str(day),
+                    'hour_from': '14',
+                    'hour_to': '18',
+                }),
+            ]
+        for day in ['0', '4']:  # monday to wednesday (4H)
+            cls.calendar_FTE_80.attendance_ids = [
+                (0, 0, {
+                    'name': 'Attendance AM only',
+                    'dayofweek': str(day),
+                    'hour_from': '08',
+                    'hour_to': '12',
+                }),
+            ]
         cls.address_1 = cls.env['res.partner'].create({
             'name': 'Address 1',
             'country_id': cls.env.ref('base.uk').id,
@@ -40,6 +68,10 @@ class TestHolidaysComputeDaysBase(common.SavepointCase):
             'name': 'Address 1',
             'country_id': cls.env.ref('base.es').id,
             'state_id': cls.env.ref('base.state_es_cr').id,
+        })
+        cls.address_be = cls.env['res.partner'].create({
+            'name': 'Address (Belgium)',
+            'country_id': cls.env.ref('base.be').id,
         })
         cls.employee_1 = cls.env['hr.employee'].create({
             'name': 'Employee 1',
@@ -50,6 +82,11 @@ class TestHolidaysComputeDaysBase(common.SavepointCase):
             'name': 'Employee 2',
             'calendar_id': cls.calendar.id,
             'address_id': cls.address_2.id,
+        })
+        cls.employee_be = cls.env['hr.employee'].create({
+            'name': 'Employee (Belgium)',
+            'calendar_id': cls.calendar_FTE_80.id,
+            'address_id': cls.address_be.id,
         })
         # Use a very old year for avoiding to collapse with current data
         cls.public_holiday_global = cls.HrHolidaysPublic.create({
@@ -88,6 +125,12 @@ class TestHolidaysComputeDaysBase(common.SavepointCase):
             'name': 'Leave Type Test Without excludes',
             'exclude_public_holidays': False,
             'exclude_rest_days': False,
+            'compute_full_days': False,
+        })
+        cls.holiday_type_hours = cls.env['hr.holidays.status'].create({
+            'name': 'Leave Type Test',
+            'exclude_public_holidays': True,
+            'exclude_rest_days': True,
             'compute_full_days': False,
         })
 
@@ -163,3 +206,66 @@ class TestHolidaysComputeDays(TestHolidaysComputeDaysBase):
         holidays._onchange_data_hr_holidays_compute_days()
         self.assertEqual(holidays.number_of_days_temp, 0.5)
 
+    def test_fractional_number_days_time_off(self):
+        holidays = self.HrHolidays.new({
+            'date_from': '1946-12-24 07:00:00',
+            'date_to': '1946-12-24 08:00:00',
+            'holiday_status_id': self.holiday_type_hours,
+            'employee_id': self.employee_be.id,
+        })
+        holidays._onchange_data_hr_holidays_compute_days()
+        self.assertEqual(holidays.number_of_days_temp, 0)
+
+    def test_fractional_number_days_am(self):
+        holidays = self.HrHolidays.new({
+            'date_from': '1946-12-23 08:00:00',
+            'date_to': '1946-12-23 14:00:00',
+            'holiday_status_id': self.holiday_type_hours,
+            'employee_id': self.employee_1.id,
+        })
+        holidays._onchange_data_hr_holidays_compute_days()
+        self.assertEqual(holidays.number_of_days_temp, 0.5)
+
+    def test_fractional_number_days_pm(self):
+        holidays = self.HrHolidays.new({
+            'date_from': '1946-12-23 12:00:00',
+            'date_to': '1946-12-23 16:00:00',
+            'holiday_status_id': self.holiday_type_hours,
+            'employee_id': self.employee_1.id,
+        })
+        holidays._onchange_data_hr_holidays_compute_days()
+        self.assertEqual(holidays.number_of_days_temp, 0.375)
+
+    def test_fractional_number_days_1H(self):
+        holidays = self.HrHolidays.new({
+            'date_from': '1946-12-23 14:00:00',
+            'date_to': '1946-12-23 15:00:00',
+            'holiday_status_id': self.holiday_type_hours,
+            'employee_id': self.employee_1.id,
+        })
+        holidays._onchange_data_hr_holidays_compute_days()
+        self.assertEqual(holidays.number_of_days_temp, 0.125)
+
+    def test_fractional_number_days_35MIN(self):
+        holidays = self.HrHolidays.new({
+            'date_from': '1946-12-23 15:00:00',
+            'date_to': '1946-12-23 15:35:00',
+            'holiday_status_id': self.holiday_type_hours,
+            'employee_id': self.employee_1.id,
+        })
+        holidays._onchange_data_hr_holidays_compute_days()
+        self.assertEqual(holidays.number_of_days_temp, 0.0729)
+
+    # Employee with 80% FTE (monday/friday AM only), one public day 25/12 (Wednesday)
+    # From 23/12 08:00 to 31/12 10:00
+    # Holiday type compute full days = False
+    # Should compute 0.5 + 1 + 0 + 1 + 0.5 + 0 + 0 + 0.5 + 0.25 =   3.75
+    def test_fractional_number_days_FTE_80(self):
+        holidays = self.HrHolidays.new({
+            'date_from': '1946-12-23 08:00:00',
+            'date_to': '1946-12-31 10:00:00',
+            'holiday_status_id': self.holiday_type_hours,
+            'employee_id': self.employee_be.id,
+        })
+        holidays._onchange_data_hr_holidays_compute_days()
+        self.assertEqual(holidays.number_of_days_temp, 3.75)
