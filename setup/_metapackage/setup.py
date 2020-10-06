@@ -25,6 +25,7 @@ setuptools.setup(
         'odoo11-addon-hr_employee_display_own_info',
         'odoo11-addon-hr_employee_firstname',
         'odoo11-addon-hr_employee_id',
+        'odoo11-addon-hr_employee_lastnames',
         'odoo11-addon-hr_employee_medical_examination',
         'odoo11-addon-hr_employee_phone_extension',
         'odoo11-addon-hr_employee_seniority',
