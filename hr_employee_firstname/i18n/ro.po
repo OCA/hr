@@ -36,7 +36,9 @@ msgstr "Nume"
 
 #. module: hr_employee_firstname
 #: code:addons/hr_employee_firstname/models/hr_employee.py:39
+#: code:addons/hr_employee_firstname/models/hr_employee.py:53
 #: code:addons/hr_employee_firstname/models/hr_employee.py:107
+#: code:addons/hr_employee_firstname/models/hr_employee.py:113
 #, python-format
 msgid "No name set."
 msgstr ""
