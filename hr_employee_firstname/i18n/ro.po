@@ -26,12 +26,16 @@ msgstr "Angajat"
 
 #. module: hr_employee_firstname
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_firstname
-msgid "Firstname"
+#, fuzzy
+#| msgid "Firstname"
+msgid "First name"
 msgstr "Prenume"
 
 #. module: hr_employee_firstname
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_lastname
-msgid "Lastname"
+#, fuzzy
+#| msgid "Lastname"
+msgid "Last name"
 msgstr "Nume"
 
 #. module: hr_employee_firstname
