@@ -60,15 +60,15 @@ class HrEmployee(models.Model):
             vals['lastname2'] = name_splitted['lastname2']
         return res
 
-    def _update_partner_firstname(self, employee):
-        partners = employee.mapped('user_id.partner_id')
-        for _partner in employee.mapped('address_home_id'):
+    def _update_partner_firstname(self):
+        for employee in self:
+            partners = employee.mapped('user_id.partner_id')
             partners |= employee.mapped('address_home_id')
-        partners.write({
-            'firstname': employee.firstname,
-            'lastname': employee.lastname,
-            'lastname2': employee.lastname2,
-        })
+            partners.write({
+                'firstname': employee.firstname,
+                'lastname': employee.lastname,
+                'lastname2': employee.lastname2,
+            })
 
     @api.multi
     def _inverse_name(self):
