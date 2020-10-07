@@ -36,7 +36,7 @@ class TestHolidaysComputeDaysBase(common.SavepointCase):
         cls.calendar_FTE_80 = cls.env['resource.calendar'].create({
             'name': 'Calendar FTE 80/100',
         })
-        for day in ['1','2','3']:  # From Tuesday to Thursday (8H)
+        for day in ['1', '2', '3']:  # From Tuesday to Thursday (8H)
             cls.calendar_FTE_80.attendance_ids = [
                 (0, 0, {
                     'name': 'Attendance',
@@ -133,13 +133,15 @@ class TestHolidaysComputeDaysBase(common.SavepointCase):
             'exclude_rest_days': True,
             'compute_full_days': False,
         })
-        # In Odoo, date values are always displayed to the user according to the BROWSER timezone
-        # While on the other hand many parts of the code does convert dates according to
-        # user's preference (cls.env.user.tz)
+        # Date values are always displayed according to the BROWSER timezone
+        # While on the other hand many parts of the code does convert dates according
+        # to user's preference (cls.env.user.tz)
         # A mismatch between browser's and user's timezone lead to wrong behavior
         # See also https://github.com/odoo/odoo/issues/28518
-        # Here we set timezone to 'GB' (corresponding to browser's timezone in unit-test mode)
+        # Here we set timezone to 'GB' (corresponding to browser's
+        # timezone in unit-test mode)
         cls.env.user.tz = 'GB'
+
 
 class TestHolidaysComputeDays(TestHolidaysComputeDaysBase):
     def test_onchange_dates(self):

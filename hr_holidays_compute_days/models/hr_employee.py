@@ -30,12 +30,16 @@ class HrEmployee(models.Model):
             for line in lines:
                 date = fields.Datetime.from_string(line.date)
                 tz_info = fields.Datetime.context_timestamp(self, date).tzinfo
-                working_start_date = date.replace(hour=0, minute=0, second=0, microsecond=0)
+                working_start_date = date.replace(
+                    hour=0, minute=0, second=0, microsecond=0
+                )
                 working_end_date = date.replace(
-                        hour=23, minute=59, second=59, microsecond=999999,
-                    )
-                working_start_date = working_start_date.replace(tzinfo=tz_info).astimezone(pytz.UTC).replace(tzinfo=None)
-                working_end_date = working_end_date.replace(tzinfo=tz_info).astimezone(pytz.UTC).replace(tzinfo=None)
+                    hour=23, minute=59, second=59, microsecond=999999,
+                )
+                working_start_date = working_start_date.replace(tzinfo=tz_info)\
+                    .astimezone(pytz.UTC).replace(tzinfo=None)
+                working_end_date = working_end_date.replace(tzinfo=tz_info)\
+                    .astimezone(pytz.UTC).replace(tzinfo=None)
                 leaves.append((
                     working_start_date,
                     working_end_date,
