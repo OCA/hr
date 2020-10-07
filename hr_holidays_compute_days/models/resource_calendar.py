@@ -28,6 +28,8 @@ class ResourceCalendar(models.Model):
             full_weekdays = real_weekdays
         for day in rrule.rrule(rrule.DAILY, dtstart=start_dt.date(),
                                until=end_dt.date(), byweekday=full_weekdays):
+            # get_working_intervals_of_day can only accept interval of one day
+            # the following intends to split it in two intervals
             start_date = (
                 start_dt if day.date() == start_dt.date() else day.replace(
                     hour=0, minute=0, second=0, microsecond=0,
