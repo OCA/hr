@@ -133,7 +133,13 @@ class TestHolidaysComputeDaysBase(common.SavepointCase):
             'exclude_rest_days': True,
             'compute_full_days': False,
         })
-
+        # In Odoo, date values are always displayed to the user according to the BROWSER timezone
+        # While on the other hand many parts of the code does convert dates according to
+        # user's preference (cls.env.user.tz)
+        # A mismatch between browser's and user's timezone lead to wrong behavior
+        # See also https://github.com/odoo/odoo/issues/28518
+        # Here we set timezone to 'GB' (corresponding to browser's timezone in unit-test mode)
+        cls.env.user.tz = 'GB'
 
 class TestHolidaysComputeDays(TestHolidaysComputeDaysBase):
     def test_onchange_dates(self):
@@ -234,7 +240,7 @@ class TestHolidaysComputeDays(TestHolidaysComputeDaysBase):
             'employee_id': self.employee_1.id,
         })
         holidays._onchange_data_hr_holidays_compute_days()
-        self.assertEqual(holidays.number_of_days_temp, 0.375)
+        self.assertEqual(holidays.number_of_days_temp, 0.25)
 
     def test_fractional_number_days_1H(self):
         holidays = self.HrHolidays.new({
