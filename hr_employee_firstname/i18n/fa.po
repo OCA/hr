@@ -26,13 +26,13 @@ msgstr "کارمند"
 
 #. module: hr_employee_firstname
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee__firstname
-msgid "Firstname"
-msgstr "نام"
+msgid "First name"
+msgstr ""
 
 #. module: hr_employee_firstname
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee__lastname
-msgid "Lastname"
-msgstr "نام خانوادگی"
+msgid "Last name"
+msgstr ""
 
 #. module: hr_employee_firstname
 #: code:addons/hr_employee_firstname/models/hr_employee.py:53
@@ -40,3 +40,9 @@ msgstr "نام خانوادگی"
 #, python-format
 msgid "No name set."
 msgstr ""
+
+#~ msgid "Firstname"
+#~ msgstr "نام"
+
+#~ msgid "Lastname"
+#~ msgstr "نام خانوادگی"
