@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_gamification_badge_pivot" model="ir.ui.view">
+         <field name="name">gamification.badge.report.pivot</field>
+         <field name="model">gamification.badge.report</field>
+         <field name="arch" type="xml">
+             <pivot string="Badge Report" disable_linking="True">
+                 <field name="employee_id" type="row" />
+                 <field name="total" type="measure" />
+             </pivot>
+         </field>
+    </record>
+
+    <record id="view_gamification_badge_graph" model="ir.ui.view">
+         <field name="name">gamification.badge.report.graph</field>
+         <field name="model">gamification.badge.report</field>
+         <field name="arch" type="xml">
+             <graph string="Badge Report">
+                <field name="employee_id" type="row"/>
+                <field name="total"  type="measure"/>
+             </graph>
+         </field>
+    </record>
+
+    <record id="action_badge_report_all" model="ir.actions.act_window">
+        <field name="name">Badge Report</field>
+        <field name="res_model">gamification.badge.report</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">graph,pivot</field>
+    </record>
+
+    <menuitem
+        id="gamification_badge_menu"
+        name="Badge Report"
+        action="action_badge_report_all"
+        parent="hr.menu_hr_reporting_timesheet"
+        sequence="10"/>
+</odoo>
