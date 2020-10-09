@@ -1,0 +1,41 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * hr_job_category
+#
+# Translators:
+# Antonio Trueba, 2016
+msgid ""
+msgstr ""
+"Project-Id-Version: hr (8.0)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-11-30 05:19+0000\n"
+"PO-Revision-Date: 2016-02-10 16:53+0000\n"
+"Last-Translator: Antonio Trueba\n"
+"Language-Team: Spanish (http://www.transifex.com/oca/OCA-hr-8-0/language/"
+"es/)\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: hr_job_category
+#: model:ir.model.fields,field_description:hr_job_category.field_hr_job__category_ids
+msgid "Associated Tags"
+msgstr "Etiquetas asociadas"
+
+#. module: hr_job_category
+#: model:ir.model,name:hr_job_category.model_hr_contract
+#, fuzzy
+msgid "Employee Contract"
+msgstr "Contrato"
+
+#. module: hr_job_category
+#: model:ir.model,name:hr_job_category.model_hr_job
+msgid "Job Position"
+msgstr ""
+
+#. module: hr_job_category
+#: model_terms:ir.ui.view,arch_db:hr_job_category.view_job_form
+msgid "e.g. Part Time"
+msgstr "p.e., Tiempo parcial"

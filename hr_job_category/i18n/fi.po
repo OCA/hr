@@ -1,0 +1,40 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * hr_job_category
+#
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: hr (8.0)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-04-14 04:15+0000\n"
+"PO-Revision-Date: 2016-04-04 11:09+0000\n"
+"Last-Translator: Jarmo Kortetjärvi <jarmo.kortetjarvi@gmail.com>\n"
+"Language-Team: Finnish (http://www.transifex.com/oca/OCA-hr-8-0/language/"
+"fi/)\n"
+"Language: fi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: hr_job_category
+#: model:ir.model.fields,field_description:hr_job_category.field_hr_job__category_ids
+msgid "Associated Tags"
+msgstr ""
+
+#. module: hr_job_category
+#: model:ir.model,name:hr_job_category.model_hr_contract
+#, fuzzy
+msgid "Employee Contract"
+msgstr "Sopimus"
+
+#. module: hr_job_category
+#: model:ir.model,name:hr_job_category.model_hr_job
+msgid "Job Position"
+msgstr ""
+
+#. module: hr_job_category
+#: model_terms:ir.ui.view,arch_db:hr_job_category.view_job_form
+msgid "e.g. Part Time"
+msgstr ""
