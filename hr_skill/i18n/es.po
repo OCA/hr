@@ -10,15 +10,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-30 07:32+0000\n"
-"PO-Revision-Date: 2019-07-03 18:42+0000\n"
-"Last-Translator: David Alonso (Solvos) <david.alonso@solvos.es>\n"
+"PO-Revision-Date: 2020-10-09 13:08+0000\n"
+"Last-Translator: j-zaballa <jonzaballa@digital5.es>\n"
 "Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.7.1\n"
+"X-Generator: Weblate 3.10\n"
 
 #. module: hr_skill
 #: model:ir.model.fields,field_description:hr_skill.field_hr_skill_active
@@ -38,7 +38,7 @@ msgstr "Hijo"
 #. module: hr_skill
 #: model:ir.model.fields,field_description:hr_skill.field_hr_skill_color
 msgid "Color Index"
-msgstr ""
+msgstr "Índice de color"
 
 #. module: hr_skill
 #: model:ir.model.fields,field_description:hr_skill.field_hr_employee_skill_create_uid
@@ -147,12 +147,12 @@ msgstr "Padre"
 #. module: hr_skill
 #: model:ir.model.fields,field_description:hr_skill.field_hr_skill_parent_left
 msgid "Parent Left"
-msgstr ""
+msgstr "Padre izquierdo"
 
 #. module: hr_skill
 #: model:ir.model.fields,field_description:hr_skill.field_hr_skill_parent_right
 msgid "Parent Right"
-msgstr ""
+msgstr "Padre derecho"
 
 #. module: hr_skill
 #: selection:hr.employee.skill,level:0
@@ -176,7 +176,7 @@ msgstr "Habilidades"
 #. module: hr_skill
 #: model:ir.actions.act_window,help:hr_skill.action_hr_employee_skill_report
 msgid "Skills Reports."
-msgstr "Informes de Habilidades"
+msgstr "Informes de habilidades."
 
 #. module: hr_skill
 #: sql_constraint:hr.employee.skill:0
