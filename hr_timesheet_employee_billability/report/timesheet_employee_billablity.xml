@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_timesheet_employee_billablity_pivot" model="ir.ui.view">
+         <field name="name">timesheet.employee.billablity.pivot</field>
+         <field name="model">timesheet.employee.billablity</field>
+         <field name="arch" type="xml">
+             <pivot string="Timesheet Employee Billablity" disable_linking="True">
+                <field name="employee_id" type="row" />
+                <field name="billable"  type="measure"/>
+                <field name="non_billable"  type="measure"/>
+                <field name="working_day"  type="measure"/>
+             </pivot>
+         </field>
+    </record>
+
+    <record id="view_timesheet_employee_billablity_graph" model="ir.ui.view">
+         <field name="name">timesheet.employee.billablity.graph</field>
+         <field name="model">timesheet.employee.billablity</field>
+         <field name="arch" type="xml">
+             <graph string="Timesheet Employee Billablity">
+                <field name="employee_id" type="row"/>
+                <field name="billable"  type="measure"/>
+                <field name="non_billable"  type="measure"/>
+                <field name="working_day"  type="measure"/>
+             </graph>
+         </field>
+    </record>
+
+    <record id="action_timesheet_employee_billablity_all" model="ir.actions.act_window">
+        <field name="name">Timesheet Employee Billablity</field>
+        <field name="res_model">timesheet.employee.billablity</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">graph,pivot</field>
+    </record>
+
+    <menuitem
+        id="timesheet_employee_billablity_menu"
+        name="Timesheet Employee Billablity"
+        action="action_timesheet_employee_billablity_all"
+        parent="hr.menu_hr_reporting_timesheet"
+        sequence="10"/>
+</odoo>
