@@ -20,6 +20,7 @@ setuptools.setup(
         'odoo13-addon-hr_employee_relative',
         'odoo13-addon-hr_employee_service',
         'odoo13-addon-hr_employee_ssn',
+        'odoo13-addon-hr_job_category',
         'odoo13-addon-hr_org_chart_overview',
     ],
     classifiers=[
