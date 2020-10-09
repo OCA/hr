@@ -18,7 +18,7 @@ msgstr ""
 "X-Generator: Poedit 2.0.6\n"
 
 #. module: hr_course
-#: selection:hr.course.attendee,result:0
+#: model:ir.model.fields.selection,name:hr_course.selection__hr_course_attendee__result__absent
 msgid "Absent"
 msgstr "Ausente"
 
@@ -31,6 +31,13 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee__active
 msgid "Active"
 msgstr "Activo"
+
+#. module: hr_course
+#: model:ir.model.fields,help:hr_course.field_hr_course__permanence_time
+msgid ""
+"Amount of time the employee is restricted to stay in the company by "
+"participating to this course."
+msgstr ""
 
 #. module: hr_course
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_form_view
@@ -68,7 +75,7 @@ msgid "Cancel Course"
 msgstr "Cancelar curso"
 
 #. module: hr_course
-#: selection:hr.course,state:0
+#: model:ir.model.fields.selection,name:hr_course.selection__hr_course__state__cancelled
 msgid "Cancelled"
 msgstr "Cancelado"
 
@@ -85,9 +92,16 @@ msgid "Category"
 msgstr "Categoría"
 
 #. module: hr_course
-#: sql_constraint:hr.course.category:0
+#: model:ir.model.constraint,message:hr_course.constraint_hr_course_category_name_uniq
 msgid "Category already exists !"
 msgstr "Esta categoría ya existe !"
+
+#. module: hr_course
+#: model:ir.model.fields,help:hr_course.field_hr_course__permanence
+msgid ""
+"Check if the participants of this course are restricted to stay in the "
+"company for a certain period of time."
+msgstr ""
 
 #. module: hr_course
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_form_view
@@ -95,7 +109,7 @@ msgid "Complete Course"
 msgstr "Curso finalizado"
 
 #. module: hr_course
-#: selection:hr.course,state:0
+#: model:ir.model.fields.selection,name:hr_course.selection__hr_course__state__completed
 msgid "Completed"
 msgstr "Finalizado"
 
@@ -188,7 +202,7 @@ msgid "Display Name"
 msgstr "Nombre a mostrar"
 
 #. module: hr_course
-#: selection:hr.course,state:0
+#: model:ir.model.fields.selection,name:hr_course.selection__hr_course__state__draft
 msgid "Draft"
 msgstr "Borrador"
 
@@ -204,7 +218,7 @@ msgid "Employee"
 msgstr "Empleado"
 
 #. module: hr_course
-#: code:addons/hr_course/models/hr_course.py:130
+#: code:addons/hr_course/models/hr_course.py:0
 #, fuzzy, python-format
 msgid "Employees removed from this course: <br></br>%s"
 msgstr "Empleados eliminados de este curso: <br></br>"
@@ -216,7 +230,7 @@ msgid "End date"
 msgstr "Fecha final"
 
 #. module: hr_course
-#: selection:hr.course.attendee,result:0
+#: model:ir.model.fields.selection,name:hr_course.selection__hr_course_attendee__result__failed
 msgid "Failed"
 msgstr "Suspendido"
 
@@ -248,27 +262,24 @@ msgid "ID"
 msgstr "ID"
 
 #. module: hr_course
-#: model:ir.model.fields,help:hr_course.field_hr_course__message_unread
-msgid "If checked new messages require your attention."
-msgstr ""
-
-#. module: hr_course
 #: model:ir.model.fields,help:hr_course.field_hr_course__message_needaction
+#: model:ir.model.fields,help:hr_course.field_hr_course__message_unread
 msgid "If checked, new messages require your attention."
 msgstr ""
 
 #. module: hr_course
 #: model:ir.model.fields,help:hr_course.field_hr_course__message_has_error
+#: model:ir.model.fields,help:hr_course.field_hr_course__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
 msgstr ""
 
 #. module: hr_course
-#: selection:hr.course,state:0
+#: model:ir.model.fields.selection,name:hr_course.selection__hr_course__state__in_progress
 msgid "In progress"
 msgstr "En progreso"
 
 #. module: hr_course
-#: selection:hr.course,state:0
+#: model:ir.model.fields.selection,name:hr_course.selection__hr_course__state__in_validation
 msgid "In validation"
 msgstr "En corrección"
 
@@ -333,7 +344,7 @@ msgstr "Número de cursos"
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__message_has_error_counter
 #, fuzzy
-msgid "Number of error"
+msgid "Number of errors"
 msgstr "Número de cursos"
 
 #. module: hr_course
@@ -354,17 +365,16 @@ msgstr "Número de cursos"
 
 #. module: hr_course
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_form_view
-#, fuzzy
-msgid "Pass everybody"
-msgstr "Aprobado"
+msgid "Pass all"
+msgstr ""
 
 #. module: hr_course
-#: selection:hr.course.attendee,result:0
+#: model:ir.model.fields.selection,name:hr_course.selection__hr_course_attendee__result__passed
 msgid "Passed"
 msgstr "Aprobado"
 
 #. module: hr_course
-#: selection:hr.course.attendee,result:0
+#: model:ir.model.fields.selection,name:hr_course.selection__hr_course_attendee__result__pending
 msgid "Pending"
 msgstr "Pendiente"
 
@@ -382,6 +392,11 @@ msgstr "Corregir curso"
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee__result
 msgid "Result"
 msgstr "Resultado"
+
+#. module: hr_course
+#: model:ir.model.fields,field_description:hr_course.field_hr_course__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
 
 #. module: hr_course
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_form_view
@@ -402,7 +417,7 @@ msgid "State"
 msgstr "Estado"
 
 #. module: hr_course
-#: code:addons/hr_course/models/hr_course.py:93
+#: code:addons/hr_course/models/hr_course.py:0
 #, python-format
 msgid "The start date cannot be later than the end date."
 msgstr "La fecha de inicio no puede ser posterior a la de fin."
@@ -418,22 +433,12 @@ msgid "Unread Messages Counter"
 msgstr ""
 
 #. module: hr_course
-#: selection:hr.course,state:0
+#: model:ir.model.fields.selection,name:hr_course.selection__hr_course__state__waiting_attendees
 msgid "Waiting attendees"
 msgstr "Esperando asistentes"
 
 #. module: hr_course
-#: model:ir.model.fields,field_description:hr_course.field_hr_course__website_message_ids
-msgid "Website Messages"
-msgstr ""
-
-#. module: hr_course
-#: model:ir.model.fields,help:hr_course.field_hr_course__website_message_ids
-msgid "Website communication history"
-msgstr ""
-
-#. module: hr_course
-#: code:addons/hr_course/models/hr_course.py:179
+#: code:addons/hr_course/models/hr_course.py:0
 #, python-format
 msgid "You cannot complete the course with pending results"
 msgstr "No se puede finalizar el curso con resultados pendientes"
@@ -446,6 +451,10 @@ msgid ""
 msgstr ""
 "Solo deberías devolver un curso a borrador si se ha cancelado por error o si "
 "alguna de su información es incorrecta. Quieres continuar?"
+
+#, fuzzy
+#~ msgid "Pass everybody"
+#~ msgstr "Aprobado"
 
 #~ msgid "hr.course"
 #~ msgstr "hr.course"
