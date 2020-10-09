@@ -9,20 +9,20 @@ msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-06-07 02:58+0000\n"
-"PO-Revision-Date: 2019-07-03 18:42+0000\n"
-"Last-Translator: David Alonso (Solvos) <david.alonso@solvos.es>\n"
+"PO-Revision-Date: 2020-10-09 13:08+0000\n"
+"Last-Translator: j-zaballa <jonzaballa@digital5.es>\n"
 "Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.7.1\n"
+"X-Generator: Weblate 3.10\n"
 
 #. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_employee_experience_ids
 msgid " Professional Experiences"
-msgstr "Experiencia profesional"
+msgstr " Experiencia profesional"
 
 #. module: hr_experience
 #: model:ir.ui.view,arch_db:hr_experience.view_certification_tree
@@ -90,7 +90,7 @@ msgstr "Información de certificaciones"
 #: model:ir.model.fields,field_description:hr_experience.field_hr_certification_certification
 #: model:ir.model.fields,help:hr_experience.field_hr_certification_certification
 msgid "Certification Number"
-msgstr "Número de certificaciones"
+msgstr "Número de certificación"
 
 #. module: hr_experience
 #: model:ir.actions.act_window,name:hr_experience.open_view_certification_form
@@ -132,7 +132,7 @@ msgstr "Descripción"
 #. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_academic_diploma
 msgid "Diploma"
-msgstr "Diploma"
+msgstr "Título"
 
 #. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_academic_display_name
@@ -170,7 +170,7 @@ msgstr "Currículo del empleado"
 #: model:ir.ui.view,arch_db:hr_experience.view_professional_form
 #: model:ir.ui.view,arch_db:hr_experience.view_professional_tree
 msgid "Employer"
-msgstr "Empresario"
+msgstr "Empresa"
 
 #. module: hr_experience
 #: model:ir.model.fields,help:hr_experience.field_hr_academic_partner_id
@@ -178,7 +178,7 @@ msgstr "Empresario"
 #: model:ir.model.fields,help:hr_experience.field_hr_curriculum_partner_id
 #: model:ir.model.fields,help:hr_experience.field_hr_experience_partner_id
 msgid "Employer, School, University, Certification Authority"
-msgstr "Empleado, Escuela, Universidad, Autoridad Certificadora"
+msgstr "Empresa, escuela, universidad, autoridad certificadora"
 
 #. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_academic_end_date
@@ -203,7 +203,7 @@ msgstr "Experiencias"
 #: model:ir.model.fields,help:hr_experience.field_hr_curriculum_expire
 #: model:ir.model.fields,help:hr_experience.field_hr_experience_expire
 msgid "Expire"
-msgstr ""
+msgstr "Expira"
 
 #. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_academic_study_field
@@ -239,7 +239,7 @@ msgstr "Institución"
 #: model:ir.ui.view,arch_db:hr_experience.view_certification_tree
 #: model:ir.ui.view,arch_db:hr_experience.view_employee_form_inherit
 msgid "Issued By"
-msgstr ""
+msgstr "Emitida por"
 
 #. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_academic___last_update
@@ -323,22 +323,22 @@ msgstr "Experiencias profesionales"
 #. module: hr_experience
 #: model:ir.ui.view,arch_db:hr_experience.view_employee_form_inherit
 msgid "Resume"
-msgstr ""
+msgstr "Currículum"
 
 #. module: hr_experience
 #: model:ir.ui.view,arch_db:hr_experience.view_academic_search
 msgid "Search Academic Experiences"
-msgstr ""
+msgstr "Búsqueda de experiencias académicas"
 
 #. module: hr_experience
 #: model:ir.ui.view,arch_db:hr_experience.view_certification_search
 msgid "Search Certifications"
-msgstr ""
+msgstr "Búsqueda de certificaciones"
 
 #. module: hr_experience
 #: model:ir.ui.view,arch_db:hr_experience.view_experience_search
 msgid "Search Professional Experiences"
-msgstr ""
+msgstr "Búsqueda de experiencias profesionales"
 
 #. module: hr_experience
 #: model:ir.model.fields,field_description:hr_experience.field_hr_academic_start_date
