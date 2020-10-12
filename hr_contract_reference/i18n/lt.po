@@ -20,6 +20,11 @@ msgstr ""
 "%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #. module: hr_contract_reference
+#: model:ir.model.fields,field_description:hr_contract_reference.field_hr_contract__name
+msgid "Contract Reference"
+msgstr ""
+
+#. module: hr_contract_reference
 #: model:ir.model,name:hr_contract_reference.model_hr_contract
 msgid "Employee Contract"
 msgstr "Darbuotojo kontraktas"
