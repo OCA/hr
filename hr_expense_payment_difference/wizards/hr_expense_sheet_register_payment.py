@@ -30,9 +30,17 @@ class HrExpenseSheetRegisterPaymentWizard(models.TransientModel):
              "that will hold the payment difference",
     )
 
+    @api.model
+    def default_get(self, fields):
+        res = super().default_get(fields)
+        active_id = self._context.get('active_id')
+        if self._context.get('active_model') == 'hr.expense.sheet' and active_id:
+            sheet = self.env['hr.expense.sheet'].browse(active_id)
+            res['amount'] = sheet.residual
+        return res
+
     def _get_payment_vals(self):
-        res = super(
-            HrExpenseSheetRegisterPaymentWizard, self)._get_payment_vals()
+        res = super()._get_payment_vals()
         res.update({
             'payment_difference_handling': self.payment_difference_handling,
             'writeoff_account_id': self.writeoff_account_id.id,
@@ -44,7 +52,7 @@ class HrExpenseSheetRegisterPaymentWizard(models.TransientModel):
     def _compute_payment_amount(self):
         active_id = self._context.get('active_id', False)
         expense_sheet = self.env['hr.expense.sheet'].browse(active_id)
-        return expense_sheet.total_amount
+        return expense_sheet.residual
 
     @api.depends('amount', 'payment_date', 'currency_id')
     def _compute_payment_difference(self):
