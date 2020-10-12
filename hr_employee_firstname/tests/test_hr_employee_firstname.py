@@ -135,8 +135,7 @@ class TestEmployeeFirstname(TransactionCase):
         self.employee1_id.refresh()
         self.assertEqual(self.employee1_id.name, "Carnaud Jean-Pierre")
 
-    @odoo.tests.common.at_install(False)
-    @odoo.tests.common.post_install(True)
+    @odoo.tests.tagged("-at_install", "post_install")
     def test_update_name_post_install(self):
         empl_demo = self.env.ref("hr.employee_admin")
 
