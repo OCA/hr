@@ -20,6 +20,7 @@ Available addons
 addon | version | summary
 --- | --- | ---
 [hr_branch](hr_branch/) | 14.0.1.0.0 | Allow define company branch for employee process
+[hr_employee_firstname](hr_employee_firstname/) | 14.0.1.0.0 | Adds First Name to Employee
 
 [//]: # (end addons)
 
