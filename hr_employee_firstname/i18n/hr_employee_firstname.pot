@@ -25,7 +25,7 @@ msgstr ""
 
 #. module: hr_employee_firstname
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee__firstname
-msgid "Firstname"
+msgid "First name"
 msgstr ""
 
 #. module: hr_employee_firstname
@@ -40,7 +40,7 @@ msgstr ""
 
 #. module: hr_employee_firstname
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee__lastname
-msgid "Lastname"
+msgid "Last name"
 msgstr ""
 
 #. module: hr_employee_firstname
