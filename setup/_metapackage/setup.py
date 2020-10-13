@@ -9,6 +9,7 @@ setuptools.setup(
     version=version,
     install_requires=[
         'odoo14-addon-hr_branch',
+        'odoo14-addon-hr_employee_firstname',
     ],
     classifiers=[
         'Programming Language :: Python',
