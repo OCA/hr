@@ -5,18 +5,14 @@ from odoo import api, fields, models
 
 
 class HrContract(models.Model):
-    _inherit = 'hr.contract'
+    _inherit = "hr.contract"
 
     name = fields.Char(
-        'Contract Reference',
-        required=False,
-        readonly=True,
-        copy=False,
-        default='/'
+        "Contract Reference", required=False, readonly=True, copy=False, default="/"
     )
 
     @api.model
     def create(self, vals):
-        if vals.get('name', '/') == '/':
-            vals['name'] = self.env['ir.sequence'].next_by_code('contract.ref')
+        if vals.get("name", "/") == "/":
+            vals["name"] = self.env["ir.sequence"].next_by_code("contract.ref")
         return super(HrContract, self).create(vals)
