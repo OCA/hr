@@ -30,7 +30,7 @@ class TestEmployeeLastnames(TransactionCase):
         self.employee30_id = self.employee_model.create({"name": "JenssensFamke"})
 
     def test_get_name_lastnames(self):
-        """ Validate the _get_name_lastnames method is concatenating
+        """Validate the _get_name_lastnames method is concatenating
         the firstname and lastnames
         """
         # Check for employee1
@@ -43,8 +43,7 @@ class TestEmployeeLastnames(TransactionCase):
         self.assertEqual(self.employee3_id.name, "Jenssens Famke")
 
     def test_onchange(self):
-        """ Validate the _get_name_lastnames method is not failing
-        """
+        """Validate the _get_name_lastnames method is not failing"""
         field_onchange = self.employee_model.new({})._onchange_spec()
         self.assertEqual(field_onchange.get("firstname"), "1")
         self.assertEqual(field_onchange.get("lastname"), "1")
@@ -67,7 +66,7 @@ class TestEmployeeLastnames(TransactionCase):
         self.assertEqual(values["name"], "Pedro Perez Hernandez")
 
     def test_auto_init_name(self):
-        """ Validate the create method if the name is split
+        """Validate the create method if the name is split
         in firstname and lastnames
         """
         # Check for employee10
