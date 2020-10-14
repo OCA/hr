@@ -10,12 +10,14 @@ class HrEmployee(models.Model):
     first_contract_id = fields.Many2one(
         "hr.contract",
         compute="_compute_first_contract_id",
+        store=True,
         string="First Contract",
         help="First contract of the employee",
     )
     last_contract_id = fields.Many2one(
         "hr.contract",
         compute="_compute_last_contract_id",
+        store=True,
         string="Last Contract",
         help="Last contract of the employee",
     )
@@ -26,7 +28,7 @@ class HrEmployee(models.Model):
         string="Termination Date", readonly=True, related="last_contract_id.date_end",
     )
 
-    @api.depends("contract_ids", "contract_ids.date_start")
+    @api.depends("contract_ids", "contract_ids.state", "contract_ids.date_start")
     def _compute_first_contract_id(self):
         Contract = self.env["hr.contract"]
         for employee in self:
@@ -34,7 +36,7 @@ class HrEmployee(models.Model):
                 employee._get_contract_filter(), order="date_start asc", limit=1
             )
 
-    @api.depends("contract_ids", "contract_ids.date_end")
+    @api.depends("contract_ids", "contract_ids.state", "contract_ids.date_end")
     def _compute_last_contract_id(self):
         Contract = self.env["hr.contract"]
         for employee in self:
