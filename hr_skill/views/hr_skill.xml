@@ -64,7 +64,6 @@
     <record id="open_view_skill_form" model="ir.actions.act_window">
         <field name="name">Skills</field>
         <field name="res_model">hr.skill</field>
-        <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
     </record>
     <menuitem

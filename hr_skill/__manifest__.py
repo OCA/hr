@@ -12,6 +12,7 @@
     ),
     "website": "https://github.com/OCA/hr",
     "depends": ["hr"],
+    "excludes": ["hr_skills"],
     "data": [
         "security/ir.model.access.csv",
         "views/hr_skill.xml",

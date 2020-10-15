@@ -28,8 +28,10 @@
         <field name="name">Employees</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">hr.employee</field>
-        <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
-        <field name="domain">[('employee_skill_ids', 'child_of', active_ids)]</field>
+        <field name="domain">[('employee_skill_ids',
+                                'child_of',
+                                active_ids)]
+        </field>
     </record>
 </odoo>

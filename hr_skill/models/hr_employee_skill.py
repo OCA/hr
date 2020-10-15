@@ -10,8 +10,8 @@ class EmployeeSkill(models.Model):
     _description = "HR Employee Skill"
     _rec_name = "complete_name"
 
-    employee_id = fields.Many2one(string="Employee", comodel_name="hr.employee",)
-    skill_id = fields.Many2one(string="Skill", comodel_name="hr.skill",)
+    employee_id = fields.Many2one(string="Employee", comodel_name="hr.employee")
+    skill_id = fields.Many2one(string="Skill", comodel_name="hr.skill")
     level = fields.Selection(
         string="Level",
         selection=[
@@ -33,7 +33,6 @@ class EmployeeSkill(models.Model):
         ),
     ]
 
-    @api.multi
     @api.depends("employee_id.name", "skill_id.name", "level")
     def _compute_complete_name(self):
         levels = dict(self._fields["level"].selection)

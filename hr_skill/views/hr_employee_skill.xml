@@ -57,7 +57,6 @@
     <record id="action_hr_employee_skill_report" model="ir.actions.act_window">
         <field name="name">Employee Skills</field>
         <field name="res_model">hr.employee.skill</field>
-        <field name="view_type">form</field>
         <field name="view_mode">graph,pivot</field>
         <field name="help" type="html">
             <p>
