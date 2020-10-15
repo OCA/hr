@@ -32,7 +32,7 @@ msgid "Last name"
 msgstr "Primer Apellido"
 
 #. module: hr_employee_lastnames
-#: code:addons/hr_employee_lastnames/models/hr_employee.py:36
+#: code:addons/hr_employee_lastnames/models/hr_employee.py:0
 #, python-format
 msgid "No name set."
 msgstr "Sin nombre establecido."
