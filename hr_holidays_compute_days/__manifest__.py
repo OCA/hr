@@ -5,7 +5,7 @@
 
 {
     'name': 'Employee Compute Leave Days',
-    'version': '10.0.3.1.0',
+    'version': '10.0.3.1.1',
     'category': 'Human Resources',
     'license': 'AGPL-3',
     'summary': 'Computes the actual leave days '
