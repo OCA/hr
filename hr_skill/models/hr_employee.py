@@ -6,10 +6,8 @@ from odoo import fields, models
 
 
 class Employee(models.Model):
-    _inherit = 'hr.employee'
+    _inherit = "hr.employee"
 
     employee_skill_ids = fields.One2many(
-        string='Skills',
-        comodel_name='hr.employee.skill',
-        inverse_name='employee_id',
+        string="Skills", comodel_name="hr.employee.skill", inverse_name="employee_id",
     )
