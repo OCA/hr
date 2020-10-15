@@ -23,7 +23,7 @@ Employee Compute Leave Days
     :target: https://runbot.odoo-community.org/runbot/116/10.0
     :alt: Try me on Runbot
 
-|badge1| |badge2| |badge3| |badge4| |badge5|
+|badge1| |badge2| |badge3| |badge4| |badge5| 
 
 Computes the actual days for which employee will be on leave taking into
 account:
@@ -99,10 +99,6 @@ Contributors
 * `Tecnativa <https://www.tecnativa.com>`__:
 
   * Pedro M. Baeza
-
-* `Acsone <https://https://www.acsone.eu/>`__:
-
-  * Régis Pirard <regis.pirard@acsone.eu>
 
 Maintainers
 ~~~~~~~~~~~
