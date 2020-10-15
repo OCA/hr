@@ -40,7 +40,7 @@ addon | version | summary
 [hr_expense_sequence](hr_expense_sequence/) | 10.0.1.0.0 | HR expense sequence
 [hr_experience](hr_experience/) | 10.0.1.0.0 | Experience Management
 [hr_family](hr_family/) | 10.0.1.1.0 | Employee Family Information
-[hr_holidays_compute_days](hr_holidays_compute_days/) | 10.0.3.1.0 | Computes the actual leave days considering rest days and public holidays
+[hr_holidays_compute_days](hr_holidays_compute_days/) | 10.0.3.1.1 | Computes the actual leave days considering rest days and public holidays
 [hr_holidays_hour](hr_holidays_hour/) | 10.0.1.0.0 | Holidays, Allocation and Leave Requests in Hours
 [hr_holidays_imposed_days](hr_holidays_imposed_days/) | 10.0.1.0.1 | Imposed holidays days
 [hr_holidays_leave_auto_approve](hr_holidays_leave_auto_approve/) | 10.0.1.0.1 | Leave type for auto approval of Leaves
