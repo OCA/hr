@@ -5,15 +5,6 @@
 
 from odoo import models
 from dateutil import rrule
-import pytz
-
-
-def to_naive_user_tz(datetime, record):
-    tz_name = record.env.context.get('tz') or record.env.user.tz
-    tz = tz_name and pytz.timezone(tz_name) or pytz.UTC
-    return pytz.UTC.localize(
-        datetime.replace(tzinfo=None), is_dst=False,
-    ).astimezone(tz).replace(tzinfo=None)
 
 
 class ResourceCalendar(models.Model):
@@ -30,15 +21,15 @@ class ResourceCalendar(models.Model):
         """ Lists the current resource's work intervals between the two
         provided datetimes (inclusive) expressed in UTC, for each worked day.
         """
-        start_dt = to_naive_user_tz(start_dt, self.env.user)
-        end_dt = to_naive_user_tz(end_dt, self.env.user)
         real_weekdays = self._get_weekdays()
         if self.env.context.get('include_rest_days'):
             full_weekdays = range(7)
         else:
             full_weekdays = real_weekdays
-        for day in rrule.rrule(rrule.DAILY, dtstart=start_dt, until=end_dt,
-                               byweekday=full_weekdays):
+        for day in rrule.rrule(rrule.DAILY, dtstart=start_dt.date(),
+                               until=end_dt.date(), byweekday=full_weekdays):
+            # get_working_intervals_of_day can only accept interval of one day
+            # the following intends to split it in two intervals
             start_date = (
                 start_dt if day.date() == start_dt.date() else day.replace(
                     hour=0, minute=0, second=0, microsecond=0,

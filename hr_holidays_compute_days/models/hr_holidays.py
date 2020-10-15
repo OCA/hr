@@ -100,24 +100,26 @@ class HrHolidays(models.Model):
         as fallback.
         """
         for record in self.filtered('from_full_day'):
-            tz_name = record.employee_id.user_id.tz or record.env.user.tz
-            dt = fields.Datetime.from_string(record.date_from_full).replace(
-                hour=0, minute=0, second=0, microsecond=0,
-                tzinfo=tz.gettz(tz_name),
-            ).astimezone(tz.tzutc())
-            record.date_from = fields.Datetime.to_string(dt)
+            if record.date_from_full:
+                tz_name = record.employee_id.user_id.tz or record.env.user.tz
+                dt = fields.Datetime.from_string(record.date_from_full).replace(
+                    hour=0, minute=0, second=0, microsecond=0,
+                    tzinfo=tz.gettz(tz_name),
+                ).astimezone(tz.tzutc())
+                record.date_from = fields.Datetime.to_string(dt)
 
     def _inverse_date_to_full(self):
         """Put end of the day in employee's user timezone, or user timezone
         as fallback.
         """
         for record in self.filtered('to_full_day'):
-            tz_name = record.employee_id.user_id.tz or record.env.user.tz
-            dt = fields.Datetime.from_string(record.date_to_full).replace(
-                hour=23, minute=59, second=59, microsecond=999999,
-                tzinfo=tz.gettz(tz_name),
-            ).astimezone(tz.tzutc())
-            record.date_to = fields.Datetime.to_string(dt)
+            if record.date_to_full:
+                tz_name = record.employee_id.user_id.tz or record.env.user.tz
+                dt = fields.Datetime.from_string(record.date_to_full).replace(
+                    hour=23, minute=59, second=59, microsecond=999999,
+                    tzinfo=tz.gettz(tz_name),
+                ).astimezone(tz.tzutc())
+                record.date_to = fields.Datetime.to_string(dt)
 
     @api.onchange('date_from_full', 'from_full_day')
     def _onchange_date_from_full(self):
@@ -148,6 +150,10 @@ class HrHolidays(models.Model):
         if self.date_to and self.date_from and self.date_from <= self.date_to:
             date_from = fields.Datetime.from_string(self.date_from)
             date_to = fields.Datetime.from_string(self.date_to)
+            # The current user might not be linked to an employee
+            # Odoo will handle the error when saving
+            if not self.employee_id:
+                return
             employee = self.employee_id
             if (self.holiday_status_id.exclude_public_holidays or
                     not self.holiday_status_id):
@@ -159,5 +165,4 @@ class HrHolidays(models.Model):
             days = employee.get_work_days_count(
                 from_datetime=date_from, to_datetime=date_to,
             )
-            if days:
-                self.number_of_days_temp = days
+            self.number_of_days_temp = days or 0
