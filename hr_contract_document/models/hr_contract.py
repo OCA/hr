@@ -1,7 +1,7 @@
 # Copyright 2020 Brainbean Apps (https://brainbeanapps.com)
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
-from odoo import api, fields, models
+from odoo import fields, models
 
 
 class HrContract(models.Model):
@@ -30,7 +30,6 @@ class HrContract(models.Model):
             employee.document_ids = result[employee.id]
             employee.documents_count = len(employee.document_ids)
 
-    @api.multi
     def action_get_attachment_tree_view(self):
         action = self.env.ref("base.action_attachment").read()[0]
         action["context"] = {
