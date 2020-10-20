@@ -33,7 +33,6 @@ class TestHrContractDocument(common.TransactionCase):
                 "res_id": contract.id,
                 "datas": b64encode(b"My attachment"),
                 "name": "doc.txt",
-                "datas_fname": "doc.txt",
             }
         )
 
