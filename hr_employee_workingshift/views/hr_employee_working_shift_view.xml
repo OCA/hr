@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- views -->
+
+    <record id="view_workingshift_tree" model="ir.ui.view">
+        <field name="name">hr.workingshift.tree</field>
+        <field name="model">hr.workingshift</field>
+        <field name="arch" type="xml">
+            <tree string="Working Shift">
+                <field name="company_id"/>
+                <field name="code"/>
+                <field name="name"/>
+                <field name="active"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="hr_workingshift_view_form" model="ir.ui.view">
+        <field name="name">hr.workingshift.form</field>
+        <field name="model">hr.workingshift</field>
+        <field name="arch" type="xml">
+            <form string="Working Shift">
+                <sheet>
+                    <group>
+                        <field name="company_id"/>
+                        <field name="code"/>
+                        <field name="name"/>
+                        <field name="active"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="hr_workingshift_view_filter" model="ir.ui.view">
+        <field name="name">hr_workingshift_view_filter</field>
+        <field name="model">hr.workingshift</field>
+        <field name="arch" type="xml">
+            <search string="Working Shift Search">
+                <field name="company_id"/>
+                <field name="code"/>
+                <field name="name"/>
+                <field name="active"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- actions -->
+
+    <record id="hr_workingshift_action" model="ir.actions.act_window">
+        <field name="name">Working Shift</field>
+        <field name="res_model">hr.workingshift</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="hr_workingshift_view_filter" />
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create the first working shift
+            </p>
+        </field>
+    </record>
+
+
+    <record id="view_employeeworkingshift_form" model="ir.ui.view">
+            <field name="name">hr.employeeworkingshift.form</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+              <field name="job_title" position="after">
+                  <field name="shift_id"/>
+              </field>
+            </field>
+    </record>
+
+    <!-- Menus -->
+
+    <menuitem id="menu_hr_workingshit_view" name="Working Shift" parent="hr.menu_hr_root" sequence="91" groups="hr.group_hr_user" action="hr_workingshift_action"/>
+
+</odoo>
