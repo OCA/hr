@@ -237,5 +237,5 @@ class HrHolidaysPublicLine(models.Model):
 
     @api.multi
     def unlink(self):
-        self.mapped('meeting_id').unlink()
+        self.mapped('meeting_id').unlink(can_be_deleted=True)
         return super().unlink()
