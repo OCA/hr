@@ -1,7 +1,6 @@
 import logging
 
-from odoo import _, api, fields, models
-from odoo.exceptions import UserError
+from odoo import api, fields, models
 
 from odoo.addons.hr_employee_firstname.models.hr_employee import UPDATE_PARTNER_FIELDS
 
@@ -19,9 +18,25 @@ class HrEmployee(models.Model):
 
     @api.model
     def _get_name_lastnames(self, lastname, firstname, lastname2=None):
-        return self.env["res.partner"]._get_computed_name(
-            lastname, firstname, lastname2
-        )
+        order = self._get_names_order()
+        names = list()
+        if order == "first_last":
+            if firstname:
+                names.append(firstname)
+            if lastname:
+                names.append(lastname)
+            if lastname2:
+                names.append(lastname2)
+        else:
+            if lastname:
+                names.append(lastname)
+            if lastname2:
+                names.append(lastname2)
+            if names and firstname and order == "last_first_comma":
+                names[-1] = names[-1] + ","
+            if firstname:
+                names.append(firstname)
+        return " ".join(names)
 
     def _prepare_vals_on_create_firstname_lastname(self, vals):
         values = vals.copy()
@@ -35,8 +50,6 @@ class HrEmployee(models.Model):
             vals["firstname"] = name_splitted["firstname"]
             vals["lastname"] = name_splitted["lastname"]
             vals["lastname2"] = name_splitted["lastname2"]
-        else:
-            raise UserError(_("No name set."))
         return res
 
     def _prepare_vals_on_write_firstname_lastname(self, vals):
@@ -75,10 +88,52 @@ class HrEmployee(models.Model):
                 }
             )
 
+    @api.model
+    def _get_inverse_name(self, name):
+        """Compute the inverted name."""
+        result = {
+            "firstname": False,
+            "lastname": name or False,
+            "lastname2": False,
+        }
+
+        if not name:
+            return result
+
+        order = self._get_names_order()
+        result.update(super(HrEmployee, self)._get_inverse_name(name))
+
+        if order in ("first_last", "last_first_comma"):
+            parts = self._split_part("lastname", result)
+            if parts:
+                result.update({"lastname": parts[0], "lastname2": u" ".join(parts[1:])})
+        else:
+            parts = self._split_part("firstname", result)
+            if parts:
+                result.update(
+                    {"firstname": parts[-1], "lastname2": u" ".join(parts[:-1])}
+                )
+        return result
+
+    def _split_part(self, name_part, name_split):
+        """Split a given part of a name.
+
+        :param name_split: The parts of the name
+        :type dict
+
+        :param name_part: The part to split
+        :type str
+        """
+        name = name_split.get(name_part, False)
+        parts = name.split(" ", 1) if name else []
+        if not name or len(parts) < 2:
+            return False
+        return parts
+
     def _inverse_name(self):
         """Try to revert the effect of :method:`._compute_name`."""
         for record in self:
-            parts = self.env["res.partner"]._get_inverse_name(record.name)
+            parts = self._get_inverse_name(record.name)
             record.write(
                 {
                     "lastname": parts["lastname"],
