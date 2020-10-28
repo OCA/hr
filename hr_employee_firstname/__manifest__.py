@@ -13,8 +13,8 @@
     "license": "AGPL-3",
     "category": "Human Resources",
     "summary": "Adds First Name to Employee",
-    "depends": ["hr", "partner_firstname"],
-    "data": ["views/hr_view.xml"],
+    "depends": ["hr"],
+    "data": ["views/hr_view.xml", "views/base_config_view.xml"],
     "post_init_hook": "post_init_hook",
     "installable": True,
 }

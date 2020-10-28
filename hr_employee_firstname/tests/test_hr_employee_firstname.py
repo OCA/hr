@@ -118,7 +118,7 @@ class TestEmployeeFirstname(TransactionCase):
 
     def test_lastname_firstname(self):
         self.env["ir.config_parameter"].sudo().set_param(
-            "partner_names_order", "last_first"
+            "employee_names_order", "last_first"
         )
 
         self.employee1_id.write({"name": "Carnaud-Eyck Jean-Pierre"})
@@ -153,3 +153,22 @@ class TestEmployeeFirstname(TransactionCase):
     def test_no_firstname_and_lastname(self):
         with self.assertRaises(ValidationError):
             self.employee1_id.write({"firstname": "", "lastname": ""})
+
+    def test_change_firstname_and_lastname_with_set_last_first_comma(self):
+        self.env["ir.config_parameter"].sudo().set_param(
+            "employee_names_order", "last_first_comma"
+        )
+        self.employee1_id.write({"firstname": "Jean-Pierre", "lastname": "Carnaud"})
+        self.employee1_id.refresh()
+
+        self.assertEqual(self.employee1_id.name, "Carnaud, Jean-Pierre")
+
+    def test_change_name_with_space_with_set_last_first_comma(self):
+        self.env["ir.config_parameter"].sudo().set_param(
+            "employee_names_order", "last_first_comma"
+        )
+        self.employee1_id.write({"name": "  Carnaud-Eyck,  Jean-Pierre"})
+        self.employee1_id.refresh()
+
+        self.assertEqual(self.employee1_id.firstname, "Jean-Pierre")
+        self.assertEqual(self.employee1_id.lastname, "Carnaud-Eyck")
