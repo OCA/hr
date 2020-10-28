@@ -1,3 +1,4 @@
+from odoo import exceptions
 from odoo.tests.common import TransactionCase
 
 
@@ -5,7 +6,7 @@ class TestEmployeeLastnames(TransactionCase):
     def setUp(self):
         super(TestEmployeeLastnames, self).setUp()
         self.env["ir.config_parameter"].sudo().set_param(
-            "partner_names_order", "first_last"
+            "employee_names_order", "first_last"
         )
         self.employee_model = self.env["hr.employee"]
 
@@ -85,6 +86,13 @@ class TestEmployeeLastnames(TransactionCase):
         self.assertEqual(self.employee30_id.lastname, "JenssensFamke")
         self.assertEqual(self.employee30_id.lastname2, False)
 
+        employee_without_name = self.employee_model
+        with self.assertRaises(exceptions.ValidationError):
+            employee_without_name = self.employee_model.create(
+                {"firstname": "", "lastname": ""}
+            )
+        self.assertEqual(employee_without_name, self.employee_model)
+
     def test_change_name(self):
         self.employee1_id.write({"name": "Pedro Martinez Torres"})
         self.employee1_id.refresh()
@@ -118,3 +126,39 @@ class TestEmployeeLastnames(TransactionCase):
         self.employee1_id.refresh()
 
         self.assertEqual(self.employee1_id.name, "Jean-Pierre Fernandez Carnaud")
+
+    def test_change_lastname_with_set_last_first(self):
+        self.env["ir.config_parameter"].sudo().set_param(
+            "employee_names_order", "last_first"
+        )
+        self.employee1_id.write({"lastname": "Lopez"})
+        self.employee1_id.refresh()
+
+        self.assertEqual(self.employee1_id.name, "Lopez Gonzalez Manuel")
+
+    def test_change_name_with_set_last_first(self):
+        self.env["ir.config_parameter"].sudo().set_param(
+            "employee_names_order", "last_first"
+        )
+        self.employee1_id.write({"name": "Martinez Torres Pedro"})
+        self.employee1_id.refresh()
+
+        self.assertEqual(self.employee1_id.firstname, "Pedro")
+        self.assertEqual(self.employee1_id.lastname, "Martinez")
+        self.assertEqual(self.employee1_id.lastname2, "Torres")
+
+        self.employee1_id.write({"name": ""})
+        self.employee1_id.refresh()
+
+        self.assertEqual(self.employee1_id.firstname, "Pedro")
+        self.assertEqual(self.employee1_id.lastname, "Martinez")
+        self.assertEqual(self.employee1_id.lastname2, "Torres")
+
+    def test_change_lastname_with_set_last_first_comma(self):
+        self.env["ir.config_parameter"].sudo().set_param(
+            "employee_names_order", "last_first_comma"
+        )
+        self.employee1_id.write({"lastname": "Lopez"})
+        self.employee1_id.refresh()
+
+        self.assertEqual(self.employee1_id.name, "Lopez Gonzalez, Manuel")
