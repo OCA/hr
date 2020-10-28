@@ -3,18 +3,18 @@
 
 {
     "name": "HR Employee First Name, Last Name",
-    "version": "14.0.1.0.0",
+    "version": "14.0.2.0.0",
     "author": "Savoir-faire Linux, "
     "Fekete Mihai (Forest and Biomass Services Romania), "
     "Onestein, "
     "Odoo Community Association (OCA)",
     "maintainer": "Savoir-faire Linux",
-    "website": "https://github.com/OCA/hr/",
+    "website": "https://github.com/OCA/hr",
     "license": "AGPL-3",
     "category": "Human Resources",
     "summary": "Adds First Name to Employee",
-    "depends": ["hr", "partner_firstname"],
-    "data": ["views/hr_view.xml"],
+    "depends": ["hr"],
+    "data": ["views/hr_view.xml", "views/base_config_view.xml"],
     "post_init_hook": "post_init_hook",
     "installable": True,
 }
