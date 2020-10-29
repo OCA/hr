@@ -11,6 +11,6 @@
     "installable": True,
     "application": False,
     "summary": "Documents attached to the employee profile",
-    "depends": ["hr", "document"],
+    "depends": ["hr"],
     "data": ["views/hr_employee.xml"],
 }
