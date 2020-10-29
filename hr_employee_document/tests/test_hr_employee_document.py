@@ -23,7 +23,6 @@ class TestHrEmployeeDocument(common.TransactionCase):
                 "res_id": employee.id,
                 "datas": base64.b64encode(b"My attachment"),
                 "name": "doc.txt",
-                "datas_fname": "doc.txt",
             }
         )
 
