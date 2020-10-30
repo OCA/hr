@@ -11,5 +11,6 @@ class HrAttendance(models.Model):
     attendance_reason_ids = fields.Many2many(
         comodel_name="hr.attendance.reason",
         string="Attendance Reason",
-        help='Specifies the reason for signing In/signing Out in case of '
-             'less or extra hours.')
+        help="Specifies the reason for signing In/signing Out in case of "
+        "less or extra hours.",
+    )

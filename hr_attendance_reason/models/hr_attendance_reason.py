@@ -9,16 +9,17 @@ class HrAttendanceReason(models.Model):
     _name = "hr.attendance.reason"
     _description = "Attendance Reason"
 
-    _sql_constraints = [
-        ('unique_code', 'UNIQUE(code)', 'Code must be unique')
-    ]
+    _sql_constraints = [("unique_code", "UNIQUE(code)", "Code must be unique")]
 
     name = fields.Char(
-        String='Reason',
-        help='Specifies the reason leaving soon or arriving late',
-        required=True, index=True)
-    code = fields.Char('Reason Code')
+        String="Reason",
+        help="Specifies the reason leaving soon or arriving late",
+        required=True,
+        index=True,
+    )
+    code = fields.Char("Reason Code")
     action_type = fields.Selection(
-        [('sign_in', 'Sign in'),
-         ('sign_out', 'Sign out')],
-        string="Action Type", help="Leave empty if it is independent")
+        [("sign_in", "Sign in"), ("sign_out", "Sign out")],
+        string="Action Type",
+        help="Leave empty if it is independent",
+    )
