@@ -26,4 +26,4 @@ class TestHrAttendanceReason(TransactionCase):
         self.assertEqual(
             att.attendance_reason_ids.ids, self.att_reason.ids, "Bad Attendance Reason"
         )
-        self.employee.attendance_action_change()
+        self.employee._attendance_action_change()

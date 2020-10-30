@@ -28,7 +28,6 @@
         <field name="name">Attendance Reasons</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">hr.attendance.reason</field>
-        <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
         <field name="view_id" ref="hr_attendance_reason_view_tree" />
     </record>
