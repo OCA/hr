@@ -76,6 +76,13 @@ Contributors
 * Joao Carassato <joao.carassato@escodoo.com.br>
 * Fernando Colus <fernando.colus@escodoo.com.br>
 
+Other credits
+~~~~~~~~~~~~~
+
+The development of this module has been financially supported by:
+
+* Escodoo - `https://www.escodoo.com.br <https://www.escodoo.com.br>`_
+
 Maintainers
 ~~~~~~~~~~~
 
@@ -88,6 +95,17 @@ This module is maintained by the OCA.
 OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
+
+.. |maintainer-marcelsavegnago| image:: https://github.com/marcelsavegnago.png?size=40px
+    :target: https://github.com/marcelsavegnago
+    :alt: marcelsavegnago
+.. |maintainer-eduaparicio| image:: https://github.com/eduaparicio.png?size=40px
+    :target: https://github.com/eduaparicio
+    :alt: eduaparicio
+
+Current `maintainers <https://odoo-community.org/page/maintainer-role>`__:
+
+|maintainer-marcelsavegnago| |maintainer-eduaparicio| 
 
 This module is part of the `OCA/hr <https://github.com/OCA/hr/tree/12.0/hr_employee_ppe>`_ project on GitHub.
 
