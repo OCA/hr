@@ -9,9 +9,9 @@
 
   * Pedro M. Baeza
 
-* `Brainbean Apps <https://brainbeanapps.com>`__:
+* `CorporateHub <https://corporatehub.eu/>`__
 
-  * Alexey Pelykh <alexey.pelykh@brainbeanapps.com>
+  * Alexey Pelykh <alexey.pelykh@corphub.eu>
 
 * `Druidoo <https://www.druidoo.io>`__:
 
