@@ -23,7 +23,7 @@ Skills Management
     :target: https://runbot.odoo-community.org/runbot/116/12.0
     :alt: Try me on Runbot
 
-|badge1| |badge2| |badge3| |badge4| |badge5| 
+|badge1| |badge2| |badge3| |badge4| |badge5|
 
 This module allows you to manage your employees skills.
 
@@ -56,7 +56,7 @@ Authors
 ~~~~~~~
 
 * Savoir-faire Linux
-* Brainbean Apps
+* CorporateHub
 
 Contributors
 ~~~~~~~~~~~~
@@ -66,7 +66,9 @@ Contributors
 * Ivan Yelizariev
 * Julien Laloux
 * Duc, Dao Dong <duc.dd@komit-consulting.com> (https://komit-consulting.com)
-* Alexey Pelykh <alexey.pelykh@brainbeanapps.com>
+* `CorporateHub <https://corporatehub.eu/>`__
+
+  * Alexey Pelykh <alexey.pelykh@corphub.eu>
 
 Other credits
 ~~~~~~~~~~~~~

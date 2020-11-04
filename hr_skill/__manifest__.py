@@ -1,4 +1,5 @@
 # Copyright 2013 Savoir-faire Linux
+# Copyright 2020 CorporateHub (https://corporatehub.eu)
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 {
@@ -9,7 +10,7 @@
     "license": "AGPL-3",
     "author": (
         "Savoir-faire Linux, "
-        "Brainbean Apps, "
+        "CorporateHub, "
         "Odoo Community Association (OCA)"
     ),
     "website": "https://github.com/OCA/hr",

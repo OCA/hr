@@ -23,7 +23,7 @@ Employee ID
     :target: https://runbot.odoo-community.org/runbot/116/12.0
     :alt: Try me on Runbot
 
-|badge1| |badge2| |badge3| |badge4| |badge5| 
+|badge1| |badge2| |badge3| |badge4| |badge5|
 
 Company wide unique employee ID. Supports:
 
@@ -92,7 +92,7 @@ Credits
 Authors
 ~~~~~~~
 
-* Brainbean Apps
+* CorporateHub
 * Michael Telahun Makonnen
 * OpenSynergy Indonesia
 * Camptocamp
@@ -106,7 +106,9 @@ Contributors
 * Andhitia Rama (OpenSynergy Indonesia) <andhitia.r@gmail.com>
 * Simone Orsi <simone.orsi@camptocamp.com>
 * Serpent Consulting Services Pvt. Ltd. <support@serpentcs.com>
-* Alexey Pelykh <alexey.pelykh@brainbeanapps.com>
+* `CorporateHub <https://corporatehub.eu/>`__
+
+  * Alexey Pelykh <alexey.pelykh@corphub.eu>
 
 Maintainers
 ~~~~~~~~~~~
