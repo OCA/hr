@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2019 Creu Blanca
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record model="ir.ui.view" id="resource_calendar_attendance_tree_view">
+        <field
+            name="name"
+        >resource.calendar.attendance.tree (in hr_calendar_rest_time)</field>
+        <field name="model">resource.calendar.attendance</field>
+        <field
+            name="inherit_id"
+            ref="resource.view_resource_calendar_attendance_tree"
+        />
+        <field name="arch" type="xml">
+            <field name="date_to" position="after">
+                <field name="rest_time" widget="float_time" />
+            </field>
+        </field>
+    </record>
+</odoo>
