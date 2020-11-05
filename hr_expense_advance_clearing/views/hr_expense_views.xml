@@ -40,6 +40,9 @@
             <field name="analytic_account_id" position="attributes">
                 <attribute name="attrs">{'invisible': [('advance', '!=', False)]}</attribute>
             </field>
+            <field name="analytic_tag_ids" position="attributes">
+                <attribute name="attrs">{'invisible': [('advance', '!=', False)]}</attribute>
+            </field>
         </field>
     </record>
 
