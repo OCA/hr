@@ -9,6 +9,7 @@ setuptools.setup(
     version=version,
     install_requires=[
         'odoo13-addon-hr_branch',
+        'odoo13-addon-hr_calendar_rest_time',
         'odoo13-addon-hr_contract_currency',
         'odoo13-addon-hr_contract_multi_job',
         'odoo13-addon-hr_course',
