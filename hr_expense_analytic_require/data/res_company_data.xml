@@ -5,7 +5,7 @@
             <field name="name">Main Analytic Account</field>
         </record>
 
-        <record id="test_company" model="base.res.company">
+        <record id="base.main_company" model="res.company">
             <field name="default_expense_analytic_id" ref="analytic_main_company"/>
         </record>
     </data>
