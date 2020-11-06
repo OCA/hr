@@ -19,6 +19,7 @@
     "data": [
         "views/res_company_view.xml",
         "views/res_config_settings_views.xml",
+        "views/hr_expense_views.xml"
     ],
     "auto_install": False,
     "application": False,
