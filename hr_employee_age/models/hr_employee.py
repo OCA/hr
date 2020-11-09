@@ -8,7 +8,7 @@ from odoo import api, fields, models
 class HrEmployee(models.Model):
     _inherit = "hr.employee"
 
-    age = fields.Integer(string="Age", readonly=True, compute="_compute_age")
+    age = fields.Integer(compute="_compute_age")
 
     @api.depends("birthday")
     def _compute_age(self):
