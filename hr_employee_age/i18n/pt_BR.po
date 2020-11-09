@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-03-11 01:48+0000\n"
-"PO-Revision-Date: 2020-07-01 20:19+0000\n"
-"Last-Translator: Rodrigo Macedo <rmsolucoeseminformatic4@gmail.com>\n"
+"PO-Revision-Date: 2021-03-13 03:46+0000\n"
+"Last-Translator: Eder Brito <britoederr@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/oca/OCA-hr-8-0/"
 "language/pt_BR/)\n"
 "Language: pt_BR\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.10\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #. module: hr_employee_age
 #: model:ir.model.fields,field_description:hr_employee_age.field_hr_employee__age
@@ -27,4 +27,4 @@ msgstr "Idade"
 #. module: hr_employee_age
 #: model:ir.model,name:hr_employee_age.model_hr_employee
 msgid "Employee"
-msgstr "Empregado"
+msgstr "Funcionário"

@@ -8,7 +8,7 @@ from odoo.tests import common
 
 class TestHrEmployee(common.TransactionCase):
     def setUp(self):
-        super(TestHrEmployee, self).setUp()
+        super().setUp()
         self.employee_admin = self.env.ref("hr.employee_admin")
         self.employee_admin.write({"birthday": "1990-05-15"})
 
