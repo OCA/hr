@@ -1,0 +1,48 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* hr_expense_receipt_require
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hr_expense_receipt_require
+#: model:ir.model,name:hr_expense_receipt_require.model_hr_expense
+msgid "Expense"
+msgstr ""
+
+#. module: hr_expense_receipt_require
+#: model:ir.model,name:hr_expense_receipt_require.model_hr_expense_sheet
+msgid "Expense Report"
+msgstr ""
+
+#. module: hr_expense_receipt_require
+#: model:ir.model,name:hr_expense_receipt_require.model_product_template
+msgid "Product Template"
+msgstr ""
+
+#. module: hr_expense_receipt_require
+#: model:ir.model.fields,field_description:hr_expense_receipt_require.field_product_product__expense_receipt_required
+#: model:ir.model.fields,field_description:hr_expense_receipt_require.field_product_template__expense_receipt_required
+msgid "Require a receipt"
+msgstr ""
+
+#. module: hr_expense_receipt_require
+#: code:addons/hr_expense_receipt_require/models/hr_expense.py:29
+#, python-format
+msgid "You need to provide a receipt to submit %s expense!"
+msgstr ""
+
+#. module: hr_expense_receipt_require
+#: code:addons/hr_expense_receipt_require/models/hr_expense.py:15
+#, python-format
+msgid "You need to provide a receipt to submit this expense!"
+msgstr ""
+
