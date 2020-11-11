@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-03 03:37+0000\n"
-"PO-Revision-Date: 2019-07-23 11:43+0000\n"
+"PO-Revision-Date: 2020-11-11 13:08+0000\n"
 "Last-Translator: Jaime Arroyo <jaime.arroyo@creublanca.es>\n"
 "Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
 "Language: es\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.7.1\n"
+"X-Generator: Weblate 3.10\n"
 
 #. module: hr_holidays_public
 #: model_terms:ir.ui.view,arch_db:hr_holidays_public.holidays_public_next_year_wizard_view
@@ -27,6 +27,9 @@ msgid ""
 "                        <span>Warning: A public holidays calendar for this "
 "country and year already exists!</span>"
 msgstr ""
+"<i class=\"fa fa-info-circle\"/>\n"
+"                        <span>Alerta: Un calendario de festivos para ese año "
+"y país ya exists!</span>"
 
 #. module: hr_holidays_public
 #: model:ir.model.fields,field_description:hr_holidays_public.field_hr_holidays_public__year
@@ -102,7 +105,7 @@ msgstr ""
 #. module: hr_holidays_public
 #: model_terms:ir.ui.view,arch_db:hr_holidays_public.holidays_public_next_year_wizard_view
 msgid "Days to Review"
-msgstr ""
+msgstr "Días a revisar"
 
 #. module: hr_holidays_public
 #: model_terms:ir.ui.view,arch_db:hr_holidays_public.holidays_public_next_year_wizard_view
@@ -112,11 +115,16 @@ msgid ""
 "in case\n"
 "                        it is not the same than in the template."
 msgstr ""
+"Los días a revisar son aquellos que se marcaron como \"La fecha puede "
+"cambiar\"\n"
+"                        en la plantilla del calendario. Aquí puedes "
+"modificar la fecha en caso\n"
+"                        de que no coincida con la de la plantilla."
 
 #. module: hr_holidays_public
 #: model:ir.model.fields,field_description:hr_holidays_public.field_hr_holidays_public_line_transient__name
 msgid "Description"
-msgstr ""
+msgstr "Descripción"
 
 #. module: hr_holidays_public
 #: model:ir.model.fields,field_description:hr_holidays_public.field_hr_holidays_public_line__display_name
@@ -187,12 +195,12 @@ msgstr "Tipo de Ausencia"
 #. module: hr_holidays_public
 #: model:ir.model.fields,field_description:hr_holidays_public.field_hr_holidays_public_line_transient__line_id
 msgid "Line"
-msgstr ""
+msgstr "Línea"
 
 #. module: hr_holidays_public
 #: model:ir.model.fields,field_description:hr_holidays_public.field_hr_holidays_public_line__meeting_id
 msgid "Meeting"
-msgstr ""
+msgstr "Reunión"
 
 #. module: hr_holidays_public
 #: model:ir.model.fields,field_description:hr_holidays_public.field_hr_holidays_public__display_name
@@ -203,7 +211,7 @@ msgstr "Nombre"
 #. module: hr_holidays_public
 #: model:ir.model.fields,field_description:hr_holidays_public.field_public_holidays_next_year_wizard__pending_lines
 msgid "Pending Lines"
-msgstr ""
+msgstr "Líneas pendientes"
 
 #. module: hr_holidays_public
 #: model:ir.actions.act_window,name:hr_holidays_public.open_holidays_public_view
@@ -234,18 +242,17 @@ msgstr "Horario de Trabajo"
 #. module: hr_holidays_public
 #: model:ir.model.fields,help:hr_holidays_public.field_public_holidays_next_year_wizard__template_id
 msgid "Select the public holidays to use as template."
-msgstr ""
+msgstr "Selecciona el calendario de Festivos a usar como plantilla."
 
 #. module: hr_holidays_public
 #: model:ir.model.fields,field_description:hr_holidays_public.field_hr_holidays_public_line_transient__state_ids
 msgid "State"
-msgstr ""
+msgstr "Estado"
 
 #. module: hr_holidays_public
 #: model:ir.model.fields,field_description:hr_holidays_public.field_public_holidays_next_year_wizard__template_id
-#, fuzzy
 msgid "Template"
-msgstr "Plantillas"
+msgstr "Plantilla"
 
 #. module: hr_holidays_public
 #: model_terms:ir.ui.view,arch_db:hr_holidays_public.holidays_public_next_year_wizard_view
@@ -257,25 +264,30 @@ msgid ""
 "takes\n"
 "                        previous years' calendars as templates.<br/>"
 msgstr ""
+"Use esta ventana para crear el calendario de festivos basándose en una "
+"plantilla existente.\n"
+"                        Si es la primera vez que crea un calendario,\n"
+"                        este se deberá crear manualmente, ya que se toma "
+"como\n"
+"                        plantilla el calendario del año anterior.<br/>"
 
 #. module: hr_holidays_public
 #: model_terms:ir.ui.view,arch_db:hr_holidays_public.holidays_public_next_year_wizard_view
 msgid "Warning"
-msgstr ""
+msgstr "Alerta"
 
 #. module: hr_holidays_public
 #: model:ir.model.fields,field_description:hr_holidays_public.field_public_holidays_next_year_wizard__warning_existing
 msgid "Warning Existing"
-msgstr ""
+msgstr "Alerta Existente"
 
 #. module: hr_holidays_public
 #: model:ir.model.fields,field_description:hr_holidays_public.field_hr_holidays_public_line_transient__wizard_id
 msgid "Wizard"
-msgstr ""
+msgstr "Ventana"
 
 #. module: hr_holidays_public
 #: model:ir.model,name:hr_holidays_public.model_hr_holidays_public_line_transient
-#, fuzzy
 msgid "Wizard Public Holiday Lines"
 msgstr "Líneas de Festivos"
 
@@ -316,7 +328,7 @@ msgstr "No puede crear festivos duplicados para el año y/o país"
 
 #. module: hr_holidays_public
 #: code:addons/hr_holidays_public/wizards/holidays_public_next_year_wizard.py:88
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "You cannot use as template the public holidays of a year that includes "
 "public holidays on 29th of February(2016, 2020...), please select a template "
