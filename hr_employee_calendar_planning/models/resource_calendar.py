@@ -14,6 +14,8 @@ class ResourceCalendar(models.Model):
     @api.multi
     def write(self, vals):
         res = super(ResourceCalendar, self).write(vals)
+        if 'attendance_ids' not in vals:
+            return res
         for record in self.filtered('active'):
             calendars = self.env['hr.employee.calendar'].search([
                 ('calendar_id', '=', record.id)
