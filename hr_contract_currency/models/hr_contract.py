@@ -14,7 +14,7 @@ class HrContract(models.Model):
         readonly=False,
         required=True,
         default=lambda self: self._get_default_currency_id(),
-        track_visibility="onchange",
+        tracking=True,
     )
 
     def _get_default_currency_id(self):
