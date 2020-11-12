@@ -15,7 +15,7 @@ class HrEmployee(models.Model):
     service_hire_date = fields.Date(
         string="Hire Date",
         groups="hr.group_hr_user",
-        track_visibility="onchange",
+        tracking=True,
         help=(
             "Hire date is normally the date an employee completes new hire paperwork"
         ),
@@ -23,7 +23,7 @@ class HrEmployee(models.Model):
     service_start_date = fields.Date(
         string="Start Date",
         groups="hr.group_hr_user",
-        track_visibility="onchange",
+        tracking=True,
         help=(
             "Start date is the first day the employee actually works and"
             " this date is used for accrual leave allocations calculation"
@@ -32,7 +32,7 @@ class HrEmployee(models.Model):
     service_termination_date = fields.Date(
         string="Termination Date",
         groups="hr.group_hr_user",
-        track_visibility="onchange",
+        tracking=True,
         help=(
             "Termination date is the last day the employee actually works and"
             " this date is used for accrual leave allocations calculation"
