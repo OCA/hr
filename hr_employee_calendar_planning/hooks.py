@@ -32,7 +32,8 @@ def post_init_hook(cr, registry, employees=None):
                 new_calendar = calendar
             else:
                 name = calendar.name + " {}-{}".format(
-                    lines[0].date_from, lines[0].date_to,
+                    lines[0].date_from,
+                    lines[0].date_to,
                 )
                 attendances = []
                 for line in lines:
