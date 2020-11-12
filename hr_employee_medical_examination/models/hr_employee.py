@@ -9,7 +9,8 @@ class HrEmployee(models.Model):
     _inherit = "hr.employee"
 
     medical_examination_ids = fields.One2many(
-        comodel_name="hr.employee.medical.examination", inverse_name="employee_id",
+        comodel_name="hr.employee.medical.examination",
+        inverse_name="employee_id",
     )
 
     medical_examination_count = fields.Integer(
