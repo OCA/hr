@@ -114,13 +114,21 @@ class HrEmployeeCalendar(models.Model):
     _description = "Employee Calendar"
     _order = "date_end desc"
 
-    date_start = fields.Date(string="Start Date",)
-    date_end = fields.Date(string="End Date",)
+    date_start = fields.Date(
+        string="Start Date",
+    )
+    date_end = fields.Date(
+        string="End Date",
+    )
     employee_id = fields.Many2one(
-        comodel_name="hr.employee", string="Employee", required=True,
+        comodel_name="hr.employee",
+        string="Employee",
+        required=True,
     )
     calendar_id = fields.Many2one(
-        comodel_name="resource.calendar", string="Working Time", required=True,
+        comodel_name="resource.calendar",
+        string="Working Time",
+        required=True,
     )
 
     _sql_constraints = [
