@@ -12,11 +12,20 @@ class WizardGenerateMedicalExamination(models.TransientModel):
     _description = "Generation wizard for medical examinations"
 
     name = fields.Char(required=True, string="Examination Name")
-    year = fields.Char("Year", default=lambda r: str(date.today().year),)
+    year = fields.Char(
+        "Year",
+        default=lambda r: str(date.today().year),
+    )
 
     employee_ids = fields.Many2many(comodel_name="hr.employee", string="Employees")
-    department_id = fields.Many2one(comodel_name="hr.department", string="Department",)
-    job_id = fields.Many2one(comodel_name="hr.job", string="Job",)
+    department_id = fields.Many2one(
+        comodel_name="hr.department",
+        string="Department",
+    )
+    job_id = fields.Many2one(
+        comodel_name="hr.job",
+        string="Job",
+    )
 
     def _prepare_employee_domain(self):
         res = []
