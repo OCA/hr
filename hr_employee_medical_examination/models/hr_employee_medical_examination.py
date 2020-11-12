@@ -12,7 +12,10 @@ class HrEmployeeMedicalExamination(models.Model):
     _description = "Hr Employee Medical Examination"
     _inherit = ["mail.thread", "mail.activity.mixin"]
 
-    name = fields.Char(required=True, track_visibility="onchange",)
+    name = fields.Char(
+        required=True,
+        tracking=True,
+    )
 
     state = fields.Selection(
         selection=[
@@ -23,22 +26,28 @@ class HrEmployeeMedicalExamination(models.Model):
         ],
         default="pending",
         readonly=True,
-        track_visibility="onchange",
+        tracking=True,
     )
 
-    date = fields.Date(string="Examination Date", track_visibility="onchange",)
+    date = fields.Date(
+        string="Examination Date",
+        tracking=True,
+    )
     result = fields.Selection(
         selection=[("failed", "Failed"), ("passed", "Passed")],
-        track_visibility="onchange",
+        tracking=True,
     )
 
     employee_id = fields.Many2one(
-        "hr.employee", string="Employee", required=True, track_visibility="onchange",
+        "hr.employee",
+        string="Employee",
+        required=True,
+        tracking=True,
     )
 
     year = fields.Char("Year", default=lambda r: str(datetime.date.today().year))
 
-    note = fields.Text(track_visibility="onchange")
+    note = fields.Text(tracking=True)
 
     @api.onchange("date")
     def _onchange_date(self):
