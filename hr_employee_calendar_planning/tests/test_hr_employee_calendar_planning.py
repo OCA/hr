@@ -166,8 +166,10 @@ class TestHrEmployeeCalendarPlanning(common.SavepointCase):
         self.assertEqual(len(self.calendar1.attendance_ids), 10)
         self.assertEqual(len(self.employee.calendar_ids), 2)
         self.assertEqual(
-            len(self.employee.calendar_ids[0].calendar_id.attendance_ids), 2,
+            len(self.employee.calendar_ids[0].calendar_id.attendance_ids),
+            2,
         )
         self.assertEqual(
-            len(self.employee.calendar_ids[1].calendar_id.attendance_ids), 8,
+            len(self.employee.calendar_ids[1].calendar_id.attendance_ids),
+            8,
         )
