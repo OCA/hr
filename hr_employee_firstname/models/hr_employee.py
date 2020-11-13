@@ -4,7 +4,7 @@
 
 import logging
 
-from odoo import _, api, fields, models
+from odoo import _, api, models
 from odoo.exceptions import ValidationError
 
 _logger = logging.getLogger(__name__)
@@ -23,9 +23,6 @@ class HrEmployee(models.Model):
     def _onchange_firstname_lastname(self):
         if self.firstname or self.lastname:
             self.name = self._get_name(self.lastname, self.firstname)
-
-    firstname = fields.Char()
-    lastname = fields.Char()
 
     @api.model
     def create(self, vals):
