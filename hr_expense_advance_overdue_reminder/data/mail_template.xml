@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="overdue_advance_reminder_mail_template" model="mail.template">
+        <field name="name">Overdue Advance Reminder</field>
+        <field name="model_id" ref="hr_expense_advance_overdue_reminder.model_advance_overdue_reminder_step"/>
+        <field name="auto_delete" eval="False"/>
+        <field name="lang">${object.partner_id.lang}</field>
+        <field name="user_signature" eval="True"/>
+        <field name="email_from">${object.user_id.email or object.company_id.email}</field>
+        <field name="email_to">${object.partner_id.email}</field>
+        <field name="subject">${object.company_id.name} - Overdue advance reminder n°${object.counter}</field>
+        <field name="body_html"><![CDATA[
+<div style="margin: 0px; padding: 0px; font-size: 13px;">
+<p>Dear ${object.partner_id.name},</p>
+
+<p>According to our books, the following expense advance are overdue:</p>
+
+<table style="border-spacing: 0; border-collapse: collapse; width: 100%; text-align: center;">
+    <tr>
+        <th style="padding: 5px; border: 1px solid black;">Expense Number</th>
+        <th style="padding: 5px; border: 1px solid black;">Expense Name</th>
+        <th style="padding: 5px; border: 1px solid black;">Date</th>
+        <th style="padding: 5px; border: 1px solid black;">Due Date</th>
+        <th style="padding: 5px; border: 1px solid black;">Paid By</th>
+        <th style="padding: 5px; border: 1px solid black;">Total Amount</th>
+        <th style="padding: 5px; border: 1px solid black;">Residual</th>
+        <th style="padding: 5px; border: 1px solid black;">Past Reminders</th>
+    </tr>
+% for exp in object.expense_sheet_ids:
+    <tr>
+        <td style="padding: 5px; border: 1px solid black;">${exp.number}</td>
+        <td style="padding: 5px; border: 1px solid black;">${exp.name}</td>
+        <td style="padding: 5px; border: 1px solid black;">${format_date(exp.account_move_id.date)}</td>
+        <td style="padding: 5px; border: 1px solid black;">${format_date(exp.date_due)}</td>
+        <td style="padding: 5px; border: 1px solid black;">${exp.get_payment_mode(exp.payment_mode)}</td>
+        <td style="padding: 5px; border: 1px solid black; text-align: right;">${format_amount(exp.total_amount, exp.currency_id)}</td>
+        <td style="padding: 5px; border: 1px solid black; text-align: right;">${format_amount(exp.residual, exp.currency_id)}</td>
+        <td style="padding: 5px; border: 1px solid black;">${exp.overdue_reminder_counter}</td>
+    </tr>
+% endfor
+% for (currency, total_residual) in object.total_residual():
+    <tr>
+        <td/><td/><td/><td/>
+        <td style="padding: 5px; border: 1px solid black; font-weight: bold; text-align: right;">Total Residual in ${currency.name}:</td>
+        <td style="padding: 5px; border: 1px solid black; font-weight: bold; text-align: right;">${format_amount(total_residual, currency)}</td>
+        <td/>
+    </tr>
+% endfor
+</table>
+
+<p>If you made a clearing for these advance a few days ago, please ignore this email.</p>
+
+% if object.company_id.overdue_reminder_attach_invoice:
+<p>You will find enclosed the overdue advance.</p>
+% endif
+
+% if object.counter > 2:
+<p>Despite several reminders, we are disappointed to see that these overdue advance are still not clearing. In order to avoid legal proceedings, we urge you to clearing these overdue advance in the next days.</p>
+% endif
+
+<p>Regards,</p>
+
+</div>]]>
+        </field>
+    </record>
+</odoo>

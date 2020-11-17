@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="hr_advance_overdue_step_form" model="ir.ui.view">
+        <field name="name">advance.overdue.reminder.step.form</field>
+        <field name="model">advance.overdue.reminder.step</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="validate" type="object" string="Validate" class="btn-primary" states="draft"/>
+                    <button name="skip" type="object" string="Skip" class="btn-default" states="draft"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <h1>
+                        <label for="name" string="Draft" attrs="{'invisible': [('state','!=', 'draft')]}"/>
+                        <field name="name" readonly="1" class="oe_inline" attrs="{'invisible': [('state', '=', 'draft')]}"/>
+                    </h1>
+                    <group name="main" col="4">
+                        <field name="commercial_partner_id"/>
+                        <field name="counter"/>
+                        <field name="partner_id" domain="[('id', 'child_of', commercial_partner_id)]"/>
+                        <field name="partner_phone" widget="phone"/>
+                        <field name="partner_email" widget="email"/>
+                        <field name="partner_mobile" widget="phone"/>
+                    </group>
+                    <group attrs="{'invisible': [('warn_unreconciled_move_line_ids', '=', [])]}" string="WARNING: unreconciled payments/refunds">
+                        <field name="warn_unreconciled_move_line_ids" nolabel="1"/>
+                    </group>
+                    <group attrs="{'invisible': [('warn_unreconciled_move_line_ids', '=', [])]}">
+                        <div name="unreconciled_move_line_normal">
+                            <field name="unreconciled_move_line_normal" class="oe_inline"/>
+                            <label for="unreconciled_move_line_normal"/>
+                        </div>
+                    </group>
+                    <group name="expense_advance">
+                        <field name="expense_sheet_ids" nolabel="1">
+                            <tree create="false" edit="false">
+                                <field name="number"/>
+                                <field name="employee_id"/>
+                                <field name="accounting_date"/>
+                                <field name="date_due"/>
+                                <field name="name" string="Order Ref"/>
+                                <field name="payment_mode"/>
+                                <field name="total_amount" sum="Total"/>
+                                <field name="residual" sum="Total"/>
+                                <field name="overdue_reminder_counter" string="Current Remind Counter"/>
+                                <field name="overdue_reminder_last_date" string="Last Reminder"/>
+                                <field name="state" invisible="1"/>
+
+                            </tree>
+                        </field>
+                    </group>
+                    <group name="reminder_type">
+                        <field name="reminder_type"/>
+                    </group>
+                    <group name="phone" attrs="{'invisible': [('reminder_type', '!=', 'phone')]}">
+                        <field name="result_id" widget="selection" attrs="{'required': [('reminder_type', '=', 'phone')]}"/>
+                        <field name="result_notes"/>
+                        <field name="create_activity"/>
+                    </group>
+                    <group name="phone_activity" attrs="{'invisible': ['|', ('reminder_type', '!=', 'phone'), ('create_activity', '=', False)]}" col="4">
+                        <field name="activity_type_id" attrs="{'required': [('create_activity', '=', True)]}"/>
+                        <field name="activity_deadline" attrs="{'required': [('create_activity', '=', True)]}"/>
+                        <field name="activity_summary"/>
+                        <field name="activity_user_id" attrs="{'required': [('create_activity', '=', True)]}"/>
+                        <field name="activity_note" colspan="4" nolabel="1"/>
+                    </group>
+                    <group name="mail" attrs="{'invisible': [('reminder_type', '!=', 'mail')]}">
+                        <field name="mail_subject"/>
+                        <field name="mail_body" colspan="2" nolabel="1"/>
+                    </group>
+                    <group attrs="{'invisible': [('reminder_type', '!=', 'post')]}" col="1">
+                        <button name="print_expense_advance" type="object" string="Print Overdue Advance" class="btn-primary"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="hr_advance_overdue_step_tree" model="ir.ui.view">
+        <field name="name">advance.overdue.reminder.step.tree</field>
+        <field name="model">advance.overdue.reminder.step</field>
+        <field name="mode">primary</field>
+        <field name="inherit_id" ref="account_invoice_overdue_reminder.overdue_reminder_step_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="attributes">
+                <attribute name="decoration-info">state == 'draft'</attribute>
+                <attribute name="decoration-muted">state == 'skipped'</attribute>
+            </xpath>
+            <xpath expr="//tree" position="inside">
+                <field name="state"/>
+            </xpath>
+            <field name="commercial_partner_id" position="before">
+                <field name="name"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="action_overdue_step_mass" model="ir.actions.act_window">
+        <field name="name">Overdue Advance</field>
+        <field name="res_model">advance.overdue.reminder.step</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

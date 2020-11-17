@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_hr_expense_sheet_form" model="ir.ui.view">
+        <field name="name">view.hr.expense.sheet.form</field>
+        <field name="model">hr.expense.sheet</field>
+        <field name="inherit_id" ref="hr_expense.view_hr_expense_sheet_form"/>
+        <field name="arch" type="xml">
+            <field name="state" position="before">
+                <button name="%(action_advance_overdue_reminder)d" string="Overdue Reminder" type="action"
+                        context="{'default_partner_ids': [address_id], 'overdue_sheet_ids': context.get('active_ids', False)}"
+                        attrs="{'invisible': ['|', '|', ('overdue', '=', False), ('no_overdue_reminder', '=', True), ('residual', '=', 0.0)]}"
+                        groups="hr.group_hr_manager"
+                        class="btn-primary"/>
+            </field>
+            <field name="residual" position="after">
+                <field name="date_due"/>
+            </field>
+            <notebook position="inside">
+                <page name="overdue_reminder" string="Overdue Reminder" attrs="{'invisible': [('overdue', '=', False)]}" groups="hr.group_hr_manager">
+                    <group name="overdue_reminder_main" col="4">
+                        <field name="overdue_reminder_counter"/>
+                        <field name="no_overdue_reminder"/>
+                        <field name="overdue" invisible="1"/>
+                    </group>
+                    <group name="overdue_reminder_lines">
+                        <field name="overdue_reminder_ids" nolabel="1">
+                            <tree editable="bottom" decoration-info="action_reminder_type == 'phone'">
+                                <field name="counter"/>
+                                <field name="action_date"/>
+                                <field name="action_partner_id"/>
+                                <field name="expense_sheet_id" invisible="1"/>
+                                <field name="action_user_id"/>
+                                <field name="action_reminder_type"/>
+                                <field name="action_result_id"/>
+                                <field name="action_result_notes"/>
+                            </tree>
+                        </field>
+                    </group>
+                </page>
+            </notebook>
+        </field>
+    </record>
+
+    <record id="view_hr_expense_sheet_filter" model="ir.ui.view">
+        <field name="name">hr.expense.sheet.filter</field>
+        <field name="model">hr.expense.sheet</field>
+        <field name="inherit_id" ref="hr_expense.view_hr_expense_sheet_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//search" position="inside">
+                <filter name="overdue_date" string="Overdue Date" domain="[('date_due', '&lt;', datetime.date.today().strftime('%Y-%m-%d'))]" />
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_hr_expense_sheet_overdue_tree" model="ir.ui.view">
+        <field name="name">hr.expense.sheet.overdue.tree</field>
+        <field name="model">hr.expense.sheet</field>
+        <field name="mode">primary</field>
+        <field name="inherit_id" ref="hr_expense.view_hr_expense_sheet_tree"/>
+        <field name="arch" type="xml">
+            <field name="accounting_date" position="after">
+                <field name="date_due"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="action_hr_expense_sheet_overdue_all" model="ir.actions.act_window">
+        <field name="name">To Overdue</field>
+        <field name="res_model">hr.expense.sheet</field>
+        <field name="view_mode">tree,kanban,form,pivot,graph,activity</field>
+        <field name="search_view_id" ref="view_hr_expense_sheet_filter"/>
+        <field name="view_id" ref="view_hr_expense_sheet_overdue_tree"/>
+        <field name="domain">[('advance', '!=', False), ('residual', '>', 0.0), ('state', '=', 'done')]</field>
+        <field name="context">{'search_default_overdue_date': 1, 'overdue_advance': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_empty_folder">
+                No expense reports to overdue
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_hr_expense_sheet_overdue_reports"
+        sequence="10"
+        parent="hr_expense.menu_hr_expense_report"
+        action="action_hr_expense_sheet_overdue_all"
+        groups="hr_expense.group_hr_expense_manager"/>
+
+    <!-- Main menu Overdue -->
+    <menuitem id="menu_hr_expense_overdue"
+        name="Employee Overdue"
+        sequence="5"
+        parent="hr_expense.menu_hr_expense_root"
+        groups="hr_expense.group_hr_expense_manager"/>
+
+    <menuitem id="menu_advance_overdue_reminder_view"
+        name="Overdue Letters"
+        sequence="1"
+        action="action_overdue_step_mass"
+        parent="menu_hr_expense_overdue"/>
+
+    <menuitem id="menu_advance_overdue_reminder_wizard"
+        name="Overdue Reminder"
+        action="action_advance_overdue_reminder"
+        parent="menu_hr_expense_overdue"/>
+
+    <!-- <act_window
+        id="action_advance_overdue_reminder"
+        name="Overdue Reminder"
+        res_model="hr.advance.overdue.reminder.wizard"
+        src_model="hr.expense.sheet"
+        view_mode="form"
+        groups="hr_expense.group_hr_expense_manager"
+        key2="client_action_multi"
+        target="new"
+    /> -->
+
+    <record id="hr_overdue_advamce_action_server" model="ir.actions.server">
+        <field name="name">Overdue Reminder</field>
+        <field name="type">ir.actions.server</field>
+        <field name="model_id" ref="model_hr_expense_sheet"/>
+        <field name="binding_model_id" ref="model_hr_expense_sheet"/>
+        <field name="state">code</field>
+        <field name="code">
+if records:
+    action = records.action_overdue_reminder()
+        </field>
+    </record>
+
+</odoo>
