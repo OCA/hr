@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="public_holidays_resource_calendar_leaves_wizard_view_form" model="ir.ui.view">
+        <field name="name">Create Resource Leaves from Public Holidays</field>
+        <field name="model">public.holidays.resource.calendar.leaves.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div>
+                        Use this wizard to generate global leaves for resource calendar from public holidays.
+                    </div>
+                    <group>
+                        <group>
+                            <field name="holidays_id"/>
+                            <field name="calendar_id"/>
+                            <field name="replace"/>
+                        </group>
+                    </group>
+                </sheet>
+                <footer>
+                    <button name="create_leaves" string="Generate" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-default" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="public_holidays_resource_calendar_leaves_wizard_action" model="ir.actions.act_window">
+        <field name="name">Generate Resource Leaves</field>
+        <field name="res_model">public.holidays.resource.calendar.leaves.wizard</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="public_holidays_resource_calendar_leaves_wizard_action_menu"
+        action="public_holidays_resource_calendar_leaves_wizard_action"
+        parent="menu_hr_public_holidays"
+        groups="hr_holidays.group_hr_holidays_manager"
+        sequence="50"/>
+</odoo>
