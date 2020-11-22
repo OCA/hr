@@ -24,7 +24,6 @@ msgstr "Cancelar"
 #. module: hr_expense_cancel
 #: model:ir.model,name:hr_expense_cancel.model_hr_expense_sheet_register_payment_wizard
 #, fuzzy
-#| msgid "Expense Report Register Payment wizard"
 msgid "Expense Register Payment Wizard"
 msgstr "Asistente registro pago de nota de gastos"
 
