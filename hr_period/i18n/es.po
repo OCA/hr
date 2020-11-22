@@ -552,7 +552,6 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_period.field_hr_fiscalyear__type_name
 #: model:ir.model.fields,field_description:hr_period.field_hr_period__type_name
 #, fuzzy
-#| msgid "Name"
 msgid "Type Name"
 msgstr "Nombre"
 
