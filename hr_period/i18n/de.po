@@ -471,7 +471,6 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_period.field_hr_fiscalyear__date_start
 #: model:ir.model.fields,field_description:hr_period.field_hr_period__date_start
 #, fuzzy
-#| msgid "Start Date"
 msgid "Start date"
 msgstr "Anfangsdatum"
 
@@ -554,7 +553,6 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_period.field_hr_fiscalyear__type_name
 #: model:ir.model.fields,field_description:hr_period.field_hr_period__type_name
 #, fuzzy
-#| msgid "Name"
 msgid "Type Name"
 msgstr "Name"
 
