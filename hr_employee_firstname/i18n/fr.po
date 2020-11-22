@@ -26,14 +26,12 @@ msgstr "Employé"
 #. module: hr_employee_firstname
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_firstname
 #, fuzzy
-#| msgid "Firstname"
 msgid "First name"
 msgstr "Prénom"
 
 #. module: hr_employee_firstname
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_lastname
 #, fuzzy
-#| msgid "Lastname"
 msgid "Last name"
 msgstr "Nom"
 
