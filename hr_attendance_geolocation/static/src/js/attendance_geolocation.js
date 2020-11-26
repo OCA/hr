@@ -5,6 +5,7 @@ odoo.define("hr_attendance_geolocation.attendances_geolocation", function(requir
     var KioskConfirm = require("hr_attendance.kiosk_confirm");
 
     MyAttendances.include({
+        // eslint-disable-next-line no-unused-vars
         init: function(parent, action) {
             this._super.apply(this, arguments);
             this.location = (null, null);
@@ -15,12 +16,12 @@ odoo.define("hr_attendance_geolocation.attendances_geolocation", function(requir
             var options = {
                 enableHighAccuracy: true,
                 timeout: 5000,
-                maximumAge: 0,
+                maximumAge: 60000,
             };
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(
                     self._manual_attendance.bind(self),
-                    self._getPositionError,
+                    self._getPositionError.bind(self),
                     options
                 );
             }
@@ -45,7 +46,14 @@ odoo.define("hr_attendance_geolocation.attendances_geolocation", function(requir
             });
         },
         _getPositionError: function(error) {
-            console.warn("ERROR(${error.code}): ${error.message}");
+            console.warn("ERROR(" + error.code + "): " + error.message);
+            const position = {
+                coords: {
+                    latitude: 0.0,
+                    longitude: 0.0,
+                },
+            };
+            this._manual_attendance(position);
         },
     });
 
@@ -67,6 +75,7 @@ odoo.define("hr_attendance_geolocation.attendances_geolocation", function(requir
                 true
             ),
         }),
+        // eslint-disable-next-line no-unused-vars
         init: function(parent, action) {
             this._super.apply(this, arguments);
             this.pin_pad = false;
@@ -81,18 +90,20 @@ odoo.define("hr_attendance_geolocation.attendances_geolocation", function(requir
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(
                     self._manual_attendance.bind(self),
-                    self._getPositionError,
+                    self._getPositionError.bind(self),
                     options
                 );
             }
         },
         _manual_attendance: function(position) {
             var self = this;
+            var pinBoxVal = null;
             if (this.pin_pad) {
                 this.$(".o_hr_attendance_pin_pad_button_ok").attr(
                     "disabled",
                     "disabled"
                 );
+                pinBoxVal = this.$(".o_hr_attendance_PINbox").val();
             }
             this._rpc({
                 model: "hr.employee",
@@ -100,7 +111,7 @@ odoo.define("hr_attendance_geolocation.attendances_geolocation", function(requir
                 args: [
                     [this.employee_id],
                     this.next_action,
-                    this.$(".o_hr_attendance_PINbox").val(),
+                    pinBoxVal,
                     [position.coords.latitude, position.coords.longitude],
                 ],
             }).then(function(result) {
@@ -121,7 +132,14 @@ odoo.define("hr_attendance_geolocation.attendances_geolocation", function(requir
             });
         },
         _getPositionError: function(error) {
-            console.warn("ERROR(${error.code}): ${error.message}");
+            console.warn("ERROR(" + error.code + "): " + error.message);
+            const position = {
+                coords: {
+                    latitude: 0.0,
+                    longitude: 0.0,
+                },
+            };
+            this._manual_attendance(position);
         },
     });
 });

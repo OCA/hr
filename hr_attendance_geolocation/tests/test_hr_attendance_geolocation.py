@@ -9,7 +9,7 @@ class TestHrAttendanceGeolocation(TransactionCase):
         super(TestHrAttendanceGeolocation, self).setUp()
         self.hr_attendance_model = self.env["hr.attendance"]
         self.hr_employee_model = self.env["hr.employee"]
-        self.employee = self.hr_employee_model.create({"name": "Employee A",})
+        self.employee = self.hr_employee_model.create({"name": "Employee A"})
         self.location = ["41.3910970", "2.1548569"]
 
     def test_attendance_geolocation(self):
