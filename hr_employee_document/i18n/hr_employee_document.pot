@@ -14,22 +14,34 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: hr_employee_document
+#: model:ir.model,name:hr_employee_document.model_hr_employee_base
+msgid "Basic Employee"
+msgstr ""
+
+#. module: hr_employee_document
 #: model_terms:ir.ui.view,arch_db:hr_employee_document.ir_attachment_view_search
 msgid "Content"
 msgstr ""
 
 #. module: hr_employee_document
-#: model:ir.model.fields,field_description:hr_employee_document.field_hr_employee__documents_count
+#: model:ir.model.fields,field_description:hr_employee_document.field_hr_employee__document_count
+#: model:ir.model.fields,field_description:hr_employee_document.field_hr_employee_base__document_count
+#: model:ir.model.fields,field_description:hr_employee_document.field_hr_employee_public__document_count
 msgid "Document Count"
 msgstr ""
 
 #. module: hr_employee_document
-#: model:ir.model.fields,field_description:hr_employee_document.field_hr_employee__document_ids
+#: model_terms:ir.ui.view,arch_db:hr_employee_document.hr_employee_public_view_form
 #: model_terms:ir.ui.view,arch_db:hr_employee_document.hr_employee_view_form
 msgid "Documents"
 msgstr ""
 
 #. module: hr_employee_document
-#: model:ir.model,name:hr_employee_document.model_hr_employee
-msgid "Employee"
+#: model:ir.model.fields,field_description:hr_employee_document.field_hr_employee_public__is_logged
+msgid "Is Logged"
+msgstr ""
+
+#. module: hr_employee_document
+#: model:ir.model,name:hr_employee_document.model_hr_employee_public
+msgid "Public Employee"
 msgstr ""
