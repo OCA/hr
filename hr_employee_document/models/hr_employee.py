@@ -4,33 +4,23 @@
 from odoo import fields, models
 
 
-class HrEmployee(models.Model):
-    _inherit = "hr.employee"
+class HrEmployeeBase(models.AbstractModel):
+    _inherit = "hr.employee.base"
 
-    document_ids = fields.One2many(
-        "ir.attachment",
-        compute="_compute_document_ids",
-        groups="hr.group_hr_user",
-        string="Documents",
-    )
-    documents_count = fields.Integer(
-        compute="_compute_document_ids",
-        groups="hr.group_hr_user",
-        string="Document Count",
+    document_count = fields.Integer(
+        compute="_compute_document_count", string="Document Count",
     )
 
-    def _compute_document_ids(self):
-        attachments = self.env["ir.attachment"].search(
-            [("res_model", "=", self._name), ("res_id", "in", self.ids)]
+    def _compute_document_count(self):
+        self.documents_count = 0
+        attachment_groups = self.env["ir.attachment"].read_group(
+            [("res_model", "=", "hr.employee"), ("res_id", "in", self.ids)],
+            ["res_id"],
+            ["res_id"],
         )
-
-        result = dict.fromkeys(self.ids, self.env["ir.attachment"])
-        for attachment in attachments:
-            result[attachment.res_id] |= attachment
-
-        for employee in self:
-            employee.document_ids = result[employee.id]
-            employee.documents_count = len(employee.document_ids)
+        count_dict = {x["res_id"]: x["res_id_count"] for x in attachment_groups}
+        for record in self:
+            record.document_count = count_dict.get(record.id, 0)
 
     def action_get_attachment_tree_view(self):
         action = self.env.ref("base.action_attachment").read()[0]
