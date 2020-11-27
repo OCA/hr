@@ -17,11 +17,7 @@
                     name="action_get_attachment_tree_view"
                     type="object"
                 >
-                    <field
-                        name="documents_count"
-                        widget="statinfo"
-                        string="Documents"
-                    />
+                    <field name="document_count" widget="statinfo" string="Documents" />
                 </button>
             </div>
             <xpath expr="//div[hasclass('oe_chatter')]" position="before">
