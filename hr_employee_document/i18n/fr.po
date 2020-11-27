@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* hr_employee_document
+# 	* hr_employee_document
 #
 msgid ""
 msgstr ""
@@ -17,22 +17,37 @@ msgstr ""
 "X-Generator: Weblate 3.6.1\n"
 
 #. module: hr_employee_document
+#: model:ir.model,name:hr_employee_document.model_hr_employee_base
+msgid "Basic Employee"
+msgstr ""
+
+#. module: hr_employee_document
 #: model_terms:ir.ui.view,arch_db:hr_employee_document.ir_attachment_view_search
 msgid "Content"
 msgstr "Contenu"
 
 #. module: hr_employee_document
-#: model:ir.model.fields,field_description:hr_employee_document.field_hr_employee__documents_count
+#: model:ir.model.fields,field_description:hr_employee_document.field_hr_employee__document_count
+#: model:ir.model.fields,field_description:hr_employee_document.field_hr_employee_base__document_count
+#: model:ir.model.fields,field_description:hr_employee_document.field_hr_employee_public__document_count
 msgid "Document Count"
 msgstr "Nombre de documents"
 
 #. module: hr_employee_document
-#: model:ir.model.fields,field_description:hr_employee_document.field_hr_employee__document_ids
+#: model_terms:ir.ui.view,arch_db:hr_employee_document.hr_employee_public_view_form
 #: model_terms:ir.ui.view,arch_db:hr_employee_document.hr_employee_view_form
 msgid "Documents"
 msgstr "Documents"
 
 #. module: hr_employee_document
-#: model:ir.model,name:hr_employee_document.model_hr_employee
-msgid "Employee"
-msgstr "Employé(e)"
+#: model:ir.model.fields,field_description:hr_employee_document.field_hr_employee_public__is_logged
+msgid "Is Logged"
+msgstr ""
+
+#. module: hr_employee_document
+#: model:ir.model,name:hr_employee_document.model_hr_employee_public
+msgid "Public Employee"
+msgstr ""
+
+#~ msgid "Employee"
+#~ msgstr "Employé(e)"
