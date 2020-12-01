@@ -9,4 +9,5 @@ class HrContract(models.Model):
 
     # defuse this, it makes no sense when this module is active
     def _compute_calendar_mismatch(self):
-        return False
+        for contract in self:
+            contract.calendar_mismatch = False
