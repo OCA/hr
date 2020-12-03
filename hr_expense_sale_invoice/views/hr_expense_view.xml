@@ -1,0 +1,14 @@
+<odoo>
+    <record id="hr_expense_form_custom_osi" model="ir.ui.view">
+        <field name="name">hr.expense.custom.form</field>
+        <field name="model">hr.expense</field>
+        <field name="inherit_id" ref="sale_expense.hr_expense_form_view_inherit_sale_expense"/>
+        <field name="arch" type="xml">
+            <field name="sale_order_id" position="replace">
+            </field>
+            <field name="analytic_account_id" position="after">
+                <field name="sale_order_id" attrs="{'required': [('analytic_account_id','!=',False)]}"/>
+            </field>
+        </field>
+    </record>
+</odoo>
