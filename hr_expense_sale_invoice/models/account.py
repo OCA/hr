@@ -15,6 +15,7 @@ class AccountAnalyticLine(models.Model):
             a new one (upselling expenses).
         """
         # determine SO : first SO open linked to AA
+        super(AccountAnalyticLine, self)._sale_determine_order()
         sale_order_map = self._sale_determine_order()
         # determine so line
         value_to_write = {}
