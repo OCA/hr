@@ -12,11 +12,21 @@
             <field name="spouse_complete_name" position="replace" />
             <field name="spouse_birthdate" position="replace" />
             <field name="children" position="replace" />
-            <xpath expr="//notebook" position="inside">
-                <page string="Relatives" groups="hr.group_hr_user">
-                    <field name="relative_ids" nolabel="1" />
-                </page>
-            </xpath>
+            <div name="button_box" position="inside">
+                <button
+                    name="action_view_relatives"
+                    class="oe_stat_button"
+                    icon="fa-child"
+                    type="object"
+                    groups="hr.group_hr_manager"
+                >
+                    <field
+                        name="relatives_count"
+                        widget="statinfo"
+                        string="Relatives"
+                    />
+                </button>
+            </div>
         </field>
     </record>
 </odoo>
