@@ -1,5 +1,6 @@
 # Copyright 2018 Brainbean Apps (https://brainbeanapps.com)
 # Copyright 2020 CorporateHub (https://corporatehub.eu)
+# Copyright 2020 Tecnativa - Víctor Martínez
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
 {
@@ -13,5 +14,5 @@
     "application": False,
     "summary": "Documents attached to the employee profile",
     "depends": ["hr"],
-    "data": ["views/hr_employee.xml"],
+    "data": ["views/hr_employee.xml", "views/hr_employee_public.xml"],
 }
