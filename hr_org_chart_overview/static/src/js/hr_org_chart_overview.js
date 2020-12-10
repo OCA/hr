@@ -206,7 +206,7 @@ odoo.define("hr_org_chart_overview", function(require) {
 
         _onClickNode: function(ev) {
             ev.preventDefault();
-            this._openEmployeeFormView(parseInt(ev.currentTarget.id));
+            this._openEmployeeFormView(parseInt(ev.currentTarget.id, 10));
         },
 
         _onPrintPDF: function(ev) {
