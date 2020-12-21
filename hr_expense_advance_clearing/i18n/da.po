@@ -6,83 +6,87 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2020-12-21 14:03+0000\n"
+"Last-Translator: Hans Henrik Gabelgaard <hhg@gabelgaard.org>\n"
 "Language-Team: none\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #. module: hr_expense_advance_clearing
 #: code:addons/hr_expense_advance_clearing/wizard/hr_expense_sheet_register_payment.py:46
 #, python-format
 msgid "A remaining advance return of %s %s with the reference <a href='/mail/view?%s'>%s</a> related to your expense %s has been made."
 msgstr ""
+"En returnering af det udestående udlæg på %s %s med referencen <a href='/"
+"mail/view?%s'>%s</a> vedrørende dit udlæg %ser blevet oprettet."
 
 #. module: hr_expense_advance_clearing
 #: model_terms:ir.ui.view,arch_db:hr_expense_advance_clearing.view_hr_expense_sheet_filter
 msgid "Advance"
-msgstr ""
+msgstr "Aconto"
 
 #. module: hr_expense_advance_clearing
 #: model_terms:ir.ui.view,arch_db:hr_expense_advance_clearing.view_hr_expense_sheet_filter
 msgid "Advance (not cleared)"
-msgstr ""
+msgstr "Aconto (ikke afregnet)"
 
 #. module: hr_expense_advance_clearing
 #: model:ir.actions.act_window,name:hr_expense_advance_clearing.action_hr_expense_sheet_advance_clearing
 msgid "Advance Clearing"
-msgstr ""
+msgstr "Aconto afregning"
 
 #. module: hr_expense_advance_clearing
 #: model:ir.model.fields,field_description:hr_expense_advance_clearing.field_hr_expense_sheet__advance_sheet_residual
 msgid "Advance Remaining"
-msgstr ""
+msgstr "Udestående aconto"
 
 #. module: hr_expense_advance_clearing
 #: code:addons/hr_expense_advance_clearing/models/hr_expense_sheet.py:60
 #, python-format
 msgid "Advance clearing must not contain any advance expense line"
-msgstr ""
+msgstr "Aconto afregning må ikke indeholde en aconto udbetalings linie"
 
 #. module: hr_expense_advance_clearing
 #: code:addons/hr_expense_advance_clearing/models/hr_expense_sheet.py:63
 #, python-format
 msgid "Advance must contain only 1 advance expense line"
-msgstr ""
+msgstr "Aconto udbetaling må kun indeholde aconto udlægs linier"
 
 #. module: hr_expense_advance_clearing
 #: code:addons/hr_expense_advance_clearing/models/hr_expense.py:55
 #, python-format
 msgid "Advance: %s has no amount to clear"
-msgstr ""
+msgstr "Aconto: %s har intet beløb til afregning"
 
 #. module: hr_expense_advance_clearing
 #: model:ir.model.fields,field_description:hr_expense_advance_clearing.field_hr_expense_sheet__residual
 msgid "Amount to clear"
-msgstr ""
+msgstr "Beløb til afregning"
 
 #. module: hr_expense_advance_clearing
 #: model:ir.model.fields,help:hr_expense_advance_clearing.field_hr_expense_sheet__residual
 msgid "Amount to clear of this expense sheet in company currency"
-msgstr ""
+msgstr "Beløb til afregning på dette udlægsark i firma valuta"
 
 #. module: hr_expense_advance_clearing
 #: model:ir.model.fields,field_description:hr_expense_advance_clearing.field_hr_expense_sheet__advance_sheet_id
 #: model_terms:ir.ui.view,arch_db:hr_expense_advance_clearing.view_hr_expense_sheet_form
 msgid "Clear Advance"
-msgstr ""
+msgstr "Afregn aconto"
 
 #. module: hr_expense_advance_clearing
 #: model_terms:ir.ui.view,arch_db:hr_expense_advance_clearing.view_hr_expense_sheet_filter
 msgid "Clearing"
-msgstr ""
+msgstr "Afregning"
 
 #. module: hr_expense_advance_clearing
 #: model_terms:ir.actions.act_window,help:hr_expense_advance_clearing.action_hr_expense_sheet_advance_clearing
 msgid "Create a new expense report"
-msgstr ""
+msgstr "Opret ny udlægsrapport"
 
 #. module: hr_expense_advance_clearing
 #: model:ir.model.fields,field_description:hr_expense_advance_clearing.field_hr_expense__advance
@@ -90,46 +94,46 @@ msgstr ""
 #: model:product.product,name:hr_expense_advance_clearing.product_emp_advance
 #: model:product.template,name:hr_expense_advance_clearing.product_emp_advance_product_template
 msgid "Employee Advance"
-msgstr ""
+msgstr "Medarbejder aconto"
 
 #. module: hr_expense_advance_clearing
 #: code:addons/hr_expense_advance_clearing/models/hr_expense.py:24
 #, python-format
 msgid "Employee advance product has no payable account"
-msgstr ""
+msgstr "Medarbejder aconto har ingen vareforbrugskonto"
 
 #. module: hr_expense_advance_clearing
 #: code:addons/hr_expense_advance_clearing/models/hr_expense.py:30
 #, python-format
 msgid "Employee advance, all taxes must be removed"
-msgstr ""
+msgstr "Medarbejder acotno, alle afgifter skal være fjernet"
 
 #. module: hr_expense_advance_clearing
 #: code:addons/hr_expense_advance_clearing/models/hr_expense.py:33
 #, python-format
 msgid "Employee advance, paid by must be employee"
-msgstr ""
+msgstr "Medarbejder aconto, betalt af skal være medarbejder"
 
 #. module: hr_expense_advance_clearing
 #: code:addons/hr_expense_advance_clearing/models/hr_expense.py:27
 #, python-format
 msgid "Employee advance, selected product is not valid"
-msgstr ""
+msgstr "Medarbejder aconto, valgt produkt er ikke gyldigt"
 
 #. module: hr_expense_advance_clearing
 #: model:ir.model,name:hr_expense_advance_clearing.model_hr_expense
 msgid "Expense"
-msgstr ""
+msgstr "Udlæg"
 
 #. module: hr_expense_advance_clearing
 #: model:ir.model,name:hr_expense_advance_clearing.model_hr_expense_sheet_register_payment_wizard
 msgid "Expense Register Payment Wizard"
-msgstr ""
+msgstr "Udlæg registrer betalingsguide"
 
 #. module: hr_expense_advance_clearing
 #: model:ir.model,name:hr_expense_advance_clearing.model_hr_expense_sheet
 msgid "Expense Report"
-msgstr ""
+msgstr "Udlægs rapport"
 
 #. module: hr_expense_advance_clearing
 #: model:ir.model.fields,help:hr_expense_advance_clearing.field_hr_expense_sheet__amount_payable
@@ -140,40 +144,43 @@ msgstr ""
 #: model_terms:ir.actions.act_window,help:hr_expense_advance_clearing.action_hr_expense_sheet_advance_clearing
 msgid "Once you have created your expense, submit it to your manager who will validate it."
 msgstr ""
+"Når du har oprettet din udgift, skal du sende den til din leder, som skal "
+"godkende den."
 
 #. module: hr_expense_advance_clearing
 #: model:ir.model.fields,field_description:hr_expense_advance_clearing.field_hr_expense_sheet__amount_payable
 msgid "Payable Amount"
-msgstr ""
+msgstr "Skyldigt beløb"
 
 #. module: hr_expense_advance_clearing
 #: model:ir.model,name:hr_expense_advance_clearing.model_account_payment
 msgid "Payments"
-msgstr ""
+msgstr "Betalinger"
 
 #. module: hr_expense_advance_clearing
 #: model:ir.model.fields,help:hr_expense_advance_clearing.field_hr_expense_sheet__advance_sheet_residual
 msgid "Remaining amount to clear the selected advance sheet"
-msgstr ""
+msgstr "Åbentstående beløb til afregning på det valgte aconto udlægsark"
 
 #. module: hr_expense_advance_clearing
 #: model_terms:ir.ui.view,arch_db:hr_expense_advance_clearing.view_hr_expense_sheet_form
 msgid "Return Advance"
-msgstr ""
+msgstr "Returner aconto"
 
 #. module: hr_expense_advance_clearing
 #: model:ir.model.fields,help:hr_expense_advance_clearing.field_hr_expense_sheet__advance_sheet_id
 msgid "Show remaining advance of this employee"
-msgstr ""
+msgstr "Vis åbentstående aconto på denne medarbejder"
 
 #. module: hr_expense_advance_clearing
 #: model:product.product,uom_name:hr_expense_advance_clearing.product_emp_advance
 #: model:product.template,uom_name:hr_expense_advance_clearing.product_emp_advance_product_template
 msgid "Unit(s)"
-msgstr ""
+msgstr "Enhed(er)"
 
 #. module: hr_expense_advance_clearing
 #: model:product.product,weight_uom_name:hr_expense_advance_clearing.product_emp_advance
 #: model:product.template,weight_uom_name:hr_expense_advance_clearing.product_emp_advance_product_template
+#, fuzzy
 msgid "kg"
-msgstr ""
+msgstr "kg"
