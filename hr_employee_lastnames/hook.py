@@ -26,4 +26,4 @@ def post_init_hook(cr, _):
     cr.execute("UPDATE hr_employee SET firstname = NULL, lastname = NULL")
     env = Environment(cr, SUPERUSER_ID, {})
     env["hr.employee"]._install_employee_lastnames()
-    env["ir.config_parameter"].sudo().set_param("partner_names_order", "first_last")
+    env["ir.config_parameter"].sudo().set_param("employee_names_order", "first_last")
