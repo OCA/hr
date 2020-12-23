@@ -32,12 +32,9 @@ msgid "Last name"
 msgstr "Primer Apellido"
 
 #. module: hr_employee_lastnames
-#: code:addons/hr_employee_lastnames/models/hr_employee.py:0
-#, python-format
-msgid "No name set."
-msgstr "Sin nombre establecido."
-
-#. module: hr_employee_lastnames
 #: model:ir.model.fields,field_description:hr_employee_lastnames.field_hr_employee__lastname2
 msgid "Second last name"
 msgstr "Segundo Apellido"
+
+#~ msgid "No name set."
+#~ msgstr "Sin nombre establecido."
