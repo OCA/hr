@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <templates>
-        <t t-name="ControlPanel">
+    <t t-name="ControlPanel">
         <div class="o_control_panel">
             <div>
                 <div class="o_cp_top_left">
@@ -14,7 +14,11 @@
             </div>
             <div>
                 <div class="o_cp_left">
-                    <div class="o_cp_buttons" role="toolbar" aria-label="Control panel toolbar" />
+                    <div
+                        class="o_cp_buttons"
+                        role="toolbar"
+                        aria-label="Control panel toolbar"
+                    />
                     <aside class="o_cp_sidebar" />
                 </div>
             </div>
