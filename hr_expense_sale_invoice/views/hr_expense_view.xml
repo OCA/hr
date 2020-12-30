@@ -7,7 +7,7 @@
             <field name="sale_order_id" position="replace">
             </field>
             <field name="analytic_account_id" position="after">
-                <field name="sale_order_id" attrs="{'required': [('analytic_account_id','!=',False)]}"/>
+                <field name="sale_order_id" />
             </field>
         </field>
     </record>
