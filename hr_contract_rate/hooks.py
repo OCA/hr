@@ -1,11 +1,12 @@
 # Copyright 2020 Brainbean Apps (https://brainbeanapps.com)
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
-from odoo import api, SUPERUSER_ID
+from odoo import SUPERUSER_ID, api
 
 
 def pre_init_hook(cr):
-    cr.execute("""
+    cr.execute(
+        """
         ALTER TABLE hr_contract
             ADD amount numeric;
         COMMENT
@@ -18,11 +19,12 @@ def pre_init_hook(cr):
             IS 'Period of Amount';
         UPDATE hr_contract
             SET amount = wage, amount_period = 'month';
-    """)
+    """
+    )
 
 
 def post_init_hook(cr, registry):
     env = api.Environment(cr, SUPERUSER_ID, {})
-    contracts = env['hr.contract'].search([])
+    contracts = env["hr.contract"].search([])
     contracts._inverse_wage()
     contracts._compute_wage()
