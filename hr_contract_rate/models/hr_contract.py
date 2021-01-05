@@ -71,7 +71,6 @@ class HrContract(models.Model):
         """ Hook for extensions """
         return self._default_work_days_per_month() / 5.0
 
-    @api.multi
     def _get_wage_from_amount(self):
         """ Hook for extensions """
         self.ensure_one()
@@ -95,7 +94,6 @@ class HrContract(models.Model):
             wage = self.amount / 12.0
         return wage, is_wage_accurate
 
-    @api.multi
     @api.depends(
         "amount",
         "amount_period",
@@ -110,7 +108,6 @@ class HrContract(models.Model):
             contract.approximate_wage = 0 if is_wage_accurate else wage
             contract.wage = wage if is_wage_accurate else 0
 
-    @api.multi
     def _inverse_wage(self):
         if self.env.context.get("hr_contract_inverse_wage_skip"):
             return
