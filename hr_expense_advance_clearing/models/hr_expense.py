@@ -51,7 +51,7 @@ class HrExpense(models.Model):
                                    'product_emp_advance')
         sheets = self.mapped('sheet_id').filtered('advance_sheet_id')
         sheets_x = sheets.filtered(lambda x: x.advance_sheet_residual <= 0.0)
-        if sheets_x:  # Advance Sheets with no residual left
+        if sheets_x:  # Advance Sheets with no clearing residual left
             raise ValidationError(_('Advance: %s has no amount to clear') %
                                   ', '.join(sheets_x.mapped('name')))
         for sheet in sheets:

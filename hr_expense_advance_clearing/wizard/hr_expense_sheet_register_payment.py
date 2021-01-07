@@ -14,7 +14,7 @@ class HrExpenseSheetRegisterPaymentWizard(models.TransientModel):
         ctx = self._context.copy()
         sheet = self.env['hr.expense.sheet'].browse(ctx.get('active_id'))
         if ctx.get('hr_return_advance', False):
-            res.update({'amount': sheet.residual})
+            res.update({'amount': sheet.clearing_residual})
         else:
             res.update({'amount': sheet.amount_payable})
         return res
