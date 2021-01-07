@@ -7,13 +7,13 @@ from odoo import models, fields
 class HRExpenseSheet(models.Model):
     _inherit = 'hr.expense.sheet'
 
-    residual = fields.Monetary(
-        compute='_compute_residual',
+    difference_residual = fields.Monetary(
+        compute='_compute_difference_residual',
     )
 
-    def _compute_residual(self):
+    def _compute_difference_residual(self):
         for sheet in self:
             types = ('payable', 'receivable')
             lines = sheet.account_move_id.line_ids.filtered(
                 lambda l: l.account_id.user_type_id.type in types)
-            sheet.residual = abs(sum(lines.mapped('amount_residual')))
+            sheet.difference_residual = abs(sum(lines.mapped('amount_residual')))
