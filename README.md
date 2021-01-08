@@ -7,6 +7,8 @@ Human Resources
 
 Odoo modules related to Human Resources management.
 
+This is a test, please ignore
+
 
 
 
