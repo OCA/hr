@@ -14,16 +14,6 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: hr_expense_payment_difference
-#: model:ir.model.fields,field_description:hr_expense_payment_difference.field_hr_expense_sheet__residual
-msgid "Amount to clear"
-msgstr ""
-
-#. module: hr_expense_payment_difference
-#: model:ir.model.fields,help:hr_expense_payment_difference.field_hr_expense_sheet__residual
-msgid "Amount to clear of this expense sheet in company currency"
-msgstr ""
-
-#. module: hr_expense_payment_difference
 #: model:ir.model.fields,help:hr_expense_payment_difference.field_hr_expense_sheet_register_payment_wizard__writeoff_label
 msgid "Change label of the counterpart that will hold the payment difference"
 msgstr ""
@@ -31,6 +21,11 @@ msgstr ""
 #. module: hr_expense_payment_difference
 #: model:ir.model.fields,field_description:hr_expense_payment_difference.field_hr_expense_sheet_register_payment_wizard__writeoff_account_id
 msgid "Difference Account"
+msgstr ""
+
+#. module: hr_expense_payment_difference
+#: model:ir.model.fields,field_description:hr_expense_payment_difference.field_hr_expense_sheet__difference_residual
+msgid "Difference Residual"
 msgstr ""
 
 #. module: hr_expense_payment_difference
