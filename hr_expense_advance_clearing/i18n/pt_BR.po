@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* hr_expense_advance_clearing
+# 	* hr_expense_advance_clearing
 #
 msgid ""
 msgstr ""
@@ -19,7 +19,9 @@ msgstr ""
 #. module: hr_expense_advance_clearing
 #: code:addons/hr_expense_advance_clearing/wizard/hr_expense_sheet_register_payment.py:46
 #, python-format
-msgid "A remaining advance return of %s %s with the reference <a href='/mail/view?%s'>%s</a> related to your expense %s has been made."
+msgid ""
+"A remaining advance return of %s %s with the reference <a href='/mail/view?"
+"%s'>%s</a> related to your expense %s has been made."
 msgstr ""
 "Uma devolução no valor residual de %s %s do adiantamento com referência <a "
 "href='/mail/view?%s'>%s</a> relativo à sua despesa %s foi efetuada."
@@ -63,12 +65,12 @@ msgid "Advance: %s has no amount to clear"
 msgstr "Adiantamento: %s não possui saldo para abatimento"
 
 #. module: hr_expense_advance_clearing
-#: model:ir.model.fields,field_description:hr_expense_advance_clearing.field_hr_expense_sheet__residual
+#: model:ir.model.fields,field_description:hr_expense_advance_clearing.field_hr_expense_sheet__clearing_residual
 msgid "Amount to clear"
 msgstr "Valor para abatimento"
 
 #. module: hr_expense_advance_clearing
-#: model:ir.model.fields,help:hr_expense_advance_clearing.field_hr_expense_sheet__residual
+#: model:ir.model.fields,help:hr_expense_advance_clearing.field_hr_expense_sheet__clearing_residual
 msgid "Amount to clear of this expense sheet in company currency"
 msgstr "Valor para abatimento desta filha de despesa na moeda da empresa"
 
@@ -142,7 +144,9 @@ msgstr "Registro final do valor pago, mesmo após abatimento do adiantamento"
 
 #. module: hr_expense_advance_clearing
 #: model_terms:ir.actions.act_window,help:hr_expense_advance_clearing.action_hr_expense_sheet_advance_clearing
-msgid "Once you have created your expense, submit it to your manager who will validate it."
+msgid ""
+"Once you have created your expense, submit it to your manager who will "
+"validate it."
 msgstr "Quando criar a sua despesa, envie-na ao seu gerente para validação."
 
 #. module: hr_expense_advance_clearing
