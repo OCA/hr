@@ -7,7 +7,7 @@
         <field name="arch" type="xml">
             <separator position="after">
                 <filter string="Advance" name="advance_expense" domain="[('advance', '=', True)]"/>
-                <filter string="Advance (not cleared)" name="advance_expense_uncleared" domain="[('advance', '=', True), ('residual', '>', 0.0)]"/>
+                <filter string="Advance (not cleared)" name="advance_expense_uncleared" domain="[('advance', '=', True), ('clearing_residual', '>', 0.0)]"/>
                 <filter string="Clearing" name="advance_clearing" domain="[('advance_sheet_id', '!=', False)]"/>
             </separator>
         </field>
@@ -53,10 +53,10 @@
         <field name="arch" type="xml">
             <field name="state" position="before">
                 <button name="open_clear_advance" type="object" string="Clear Advance" class="oe_highlight"
-                  attrs="{'invisible': ['|', '|', ('advance', '=', False), ('state', '!=', 'done'), ('residual', '=', 0.0)]}"
+                  attrs="{'invisible': ['|', '|', ('advance', '=', False), ('state', '!=', 'done'), ('clearing_residual', '=', 0.0)]}"
                   groups="account.group_account_manager" />
                 <button name="%(hr_expense.hr_expense_sheet_register_payment_wizard_action)d" type="action" string="Return Advance"
-                  attrs="{'invisible': ['|', '|', ('advance', '=', False), ('state', '!=', 'done'), ('residual', '=', 0.0)]}"
+                  attrs="{'invisible': ['|', '|', ('advance', '=', False), ('state', '!=', 'done'), ('clearing_residual', '=', 0.0)]}"
                   context="{'hr_return_advance': True, 'partner_id': address_id}" groups="account.group_account_manager"/>
             </field>
             <h1 position="after">
@@ -66,7 +66,7 @@
             <xpath expr="/form/sheet/group/group" position="after">
                 <group>
                     <field name="advance_sheet_id" attrs="{'invisible': [('advance', '=', True)]}"/>
-                    <field name="residual" attrs="{'invisible': [('advance', '=', False)]}"/>
+                    <field name="clearing_residual" attrs="{'invisible': [('advance', '=', False)]}"/>
                     <field name="advance_sheet_residual" attrs="{'invisible': [('advance_sheet_id', '=', False)]}"/>
                 </group>
             </xpath>

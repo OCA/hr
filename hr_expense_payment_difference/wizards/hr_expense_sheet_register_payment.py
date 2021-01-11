@@ -36,7 +36,7 @@ class HrExpenseSheetRegisterPaymentWizard(models.TransientModel):
         active_id = self._context.get('active_id')
         if self._context.get('active_model') == 'hr.expense.sheet' and active_id:
             sheet = self.env['hr.expense.sheet'].browse(active_id)
-            res['amount'] = sheet.residual
+            res['amount'] = sheet.difference_residual
         return res
 
     def _get_payment_vals(self):
@@ -52,7 +52,7 @@ class HrExpenseSheetRegisterPaymentWizard(models.TransientModel):
     def _compute_payment_amount(self):
         active_id = self._context.get('active_id', False)
         expense_sheet = self.env['hr.expense.sheet'].browse(active_id)
-        return expense_sheet.residual
+        return expense_sheet.difference_residual
 
     @api.depends('amount', 'payment_date', 'currency_id')
     def _compute_payment_difference(self):
