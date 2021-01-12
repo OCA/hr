@@ -12,6 +12,7 @@ setuptools.setup(
         'odoo13-addon-hr_calendar_rest_time',
         'odoo13-addon-hr_contract_currency',
         'odoo13-addon-hr_contract_multi_job',
+        'odoo13-addon-hr_contract_reference',
         'odoo13-addon-hr_course',
         'odoo13-addon-hr_employee_age',
         'odoo13-addon-hr_employee_calendar_planning',
