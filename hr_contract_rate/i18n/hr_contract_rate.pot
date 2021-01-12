@@ -1,12 +1,12 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* hr_contract_rate
+# 	* hr_contract_rate
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 12.0\n"
+"Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: <>\n"
+"Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,13 +20,13 @@ msgid "Amount"
 msgstr ""
 
 #. module: hr_contract_rate
-#: selection:hr.contract,amount_period:0
-msgid "Day"
+#: model:ir.model,name:hr_contract_rate.model_hr_contract
+msgid "Contract"
 msgstr ""
 
 #. module: hr_contract_rate
-#: model:ir.model,name:hr_contract_rate.model_hr_contract
-msgid "Employee Contract"
+#: model:ir.model.fields.selection,name:hr_contract_rate.selection__hr_contract__amount_period__day
+msgid "Day"
 msgstr ""
 
 #. module: hr_contract_rate
@@ -45,7 +45,7 @@ msgid "Employee's monthly gross wage."
 msgstr ""
 
 #. module: hr_contract_rate
-#: selection:hr.contract,amount_period:0
+#: model:ir.model.fields.selection,name:hr_contract_rate.selection__hr_contract__amount_period__hour
 msgid "Hour"
 msgstr ""
 
@@ -70,7 +70,7 @@ msgid "Is Wage Accurate"
 msgstr ""
 
 #. module: hr_contract_rate
-#: selection:hr.contract,amount_period:0
+#: model:ir.model.fields.selection,name:hr_contract_rate.selection__hr_contract__amount_period__month
 msgid "Month"
 msgstr ""
 
@@ -85,7 +85,7 @@ msgid "Period of employee's contract amount"
 msgstr ""
 
 #. module: hr_contract_rate
-#: selection:hr.contract,amount_period:0
+#: model:ir.model.fields.selection,name:hr_contract_rate.selection__hr_contract__amount_period__quarter
 msgid "Quarter"
 msgstr ""
 
@@ -105,7 +105,7 @@ msgid "Wage (approximate)"
 msgstr ""
 
 #. module: hr_contract_rate
-#: selection:hr.contract,amount_period:0
+#: model:ir.model.fields.selection,name:hr_contract_rate.selection__hr_contract__amount_period__week
 msgid "Week"
 msgstr ""
 
@@ -125,7 +125,6 @@ msgid "Work weeks (per month)"
 msgstr ""
 
 #. module: hr_contract_rate
-#: selection:hr.contract,amount_period:0
+#: model:ir.model.fields.selection,name:hr_contract_rate.selection__hr_contract__amount_period__year
 msgid "Year"
 msgstr ""
-
