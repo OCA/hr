@@ -1,4 +1,4 @@
-odoo.define("hr_org_chart_overview", function(require) {
+odoo.define("hr_org_chart_overview", function (require) {
     "use strict";
 
     var core = require("web.core");
@@ -15,7 +15,7 @@ odoo.define("hr_org_chart_overview", function(require) {
             "click #toggle-pan": "_onClickTogglePan",
         },
 
-        init: function(parent) {
+        init: function (parent) {
             this.orgChartData = {};
             this.actionManager = parent;
             console.log(this.actionManager);
@@ -25,13 +25,13 @@ odoo.define("hr_org_chart_overview", function(require) {
         /**
          * @override
          */
-        willStart: function() {
+        willStart: function () {
             var self = this;
 
             var def = this._rpc({
                 model: "hr.employee",
                 method: "get_organization_data",
-            }).then(function(res) {
+            }).then(function (res) {
                 self.orgChartData = res;
                 return;
             });
@@ -39,7 +39,7 @@ odoo.define("hr_org_chart_overview", function(require) {
             return Promise.all([def, this._super.apply(this, arguments)]);
         },
 
-        _getNodeTemplate: function(data) {
+        _getNodeTemplate: function (data) {
             return `
                 <span class="image"><img src="data:image/png;base64,${data.image}"/></span>
                 <div class="title">${data.name}</div>
@@ -47,7 +47,7 @@ odoo.define("hr_org_chart_overview", function(require) {
             `;
         },
 
-        _renderButtons: function() {
+        _renderButtons: function () {
             this.$buttons = this.$(".o_cp_buttons");
             this.$buttons.prepend(`
                 <button type="button" id="print-pdf" class="btn btn-primary o-kanban-button-new" accesskey="p">
@@ -65,7 +65,7 @@ odoo.define("hr_org_chart_overview", function(require) {
             `);
         },
 
-        _renderSearchView: function() {
+        _renderSearchView: function () {
             this.$searchView = this.$(".o_cp_searchview");
             this.$searchView.prepend(`
                 <div class="o_searchview" role="search" aria-autocomplete="list">
@@ -76,20 +76,20 @@ odoo.define("hr_org_chart_overview", function(require) {
             `);
         },
 
-        _renderBreadcrumb: function() {
+        _renderBreadcrumb: function () {
             this.$breadcrumb = this.$(".breadcrumb");
             this.$breadcrumb.prepend(`
                 <li class="breadcrumb-item active">Organizational Chart</li>
             `);
         },
 
-        _updateControlPanel: function() {
+        _updateControlPanel: function () {
             this._renderButtons();
             this._renderSearchView();
             this._renderBreadcrumb();
         },
 
-        start: function() {
+        start: function () {
             this.oc = this.$("#chart-container").orgchart({
                 data: this.orgChartData,
                 nodeContent: "title",
@@ -102,7 +102,7 @@ odoo.define("hr_org_chart_overview", function(require) {
             return this._super.apply(this, arguments);
         },
 
-        _filterNodes: function(keyWord) {
+        _filterNodes: function (keyWord) {
             var show = false;
             var $chart = this.$(".orgchart");
             // Disalbe the expand/collapse feture
@@ -110,23 +110,13 @@ odoo.define("hr_org_chart_overview", function(require) {
             // Distinguish the matched nodes and the unmatched nodes according to the given key word
             $chart
                 .find(".node")
-                .filter(function(index, node) {
+                .filter(function (index, node) {
                     $(node).removeClass("matched");
                     $(node).removeClass("retained");
-                    if (
-                        $(node)
-                            .text()
-                            .toLowerCase()
-                            .indexOf(keyWord) > -1
-                    ) {
+                    if ($(node).text().toLowerCase().indexOf(keyWord) > -1) {
                         show = true;
                     }
-                    return (
-                        $(node)
-                            .text()
-                            .toLowerCase()
-                            .indexOf(keyWord) > -1
-                    );
+                    return $(node).text().toLowerCase().indexOf(keyWord) > -1;
                 })
                 .addClass("matched")
                 .closest("table")
@@ -135,7 +125,7 @@ odoo.define("hr_org_chart_overview", function(require) {
                 .find(".node")
                 .addClass("retained");
             // Hide the unmatched nodes
-            $chart.find(".matched,.retained").each(function(index, node) {
+            $chart.find(".matched,.retained").each(function (index, node) {
                 $(node)
                     .removeClass("slide-up")
                     .closest(".nodes")
@@ -158,17 +148,9 @@ odoo.define("hr_org_chart_overview", function(require) {
                     .addClass("hidden");
             });
             // Hide the redundant descendant nodes of the matched nodes
-            $chart.find(".matched").each(function(index, node) {
-                if (
-                    !$(node)
-                        .closest("tr")
-                        .siblings(":last")
-                        .find(".matched").length
-                ) {
-                    $(node)
-                        .closest("tr")
-                        .siblings()
-                        .addClass("hidden");
+            $chart.find(".matched").each(function (index, node) {
+                if (!$(node).closest("tr").siblings(":last").find(".matched").length) {
+                    $(node).closest("tr").siblings().addClass("hidden");
                 }
             });
 
@@ -179,7 +161,7 @@ odoo.define("hr_org_chart_overview", function(require) {
             }
         },
 
-        _clearFilterResults: function() {
+        _clearFilterResults: function () {
             this.$(".orgchart")
                 .removeClass("noncollapsable")
                 .find(".node")
@@ -192,39 +174,39 @@ odoo.define("hr_org_chart_overview", function(require) {
                 .removeClass("slide-up slide-right slide-left");
         },
 
-        _openEmployeeFormView: function(id) {
+        _openEmployeeFormView: function (id) {
             var self = this;
             // Go to the employee form view
             self._rpc({
                 model: "hr.employee",
                 method: "get_formview_action",
                 args: [[id]],
-            }).then(function(action) {
+            }).then(function (action) {
                 self.trigger_up("do_action", {action: action});
             });
         },
 
-        _onClickNode: function(ev) {
+        _onClickNode: function (ev) {
             ev.preventDefault();
             this._openEmployeeFormView(parseInt(ev.currentTarget.id));
         },
 
-        _onPrintPDF: function(ev) {
+        _onPrintPDF: function (ev) {
             ev.preventDefault();
             this.oc.export(this.oc.exportFilename, "pdf");
         },
 
-        _onClickZoomIn: function(ev) {
+        _onClickZoomIn: function (ev) {
             ev.preventDefault();
             this.oc.setChartScale(this.oc.$chart, 1.1);
         },
 
-        _onClickZoomOut: function(ev) {
+        _onClickZoomOut: function (ev) {
             ev.preventDefault();
             this.oc.setChartScale(this.oc.$chart, 0.9);
         },
 
-        _onClickTogglePan: function(ev) {
+        _onClickTogglePan: function (ev) {
             ev.preventDefault();
             var update_pan_to = !this.oc.options.pan;
             this.oc.options.pan = update_pan_to;
@@ -236,12 +218,12 @@ odoo.define("hr_org_chart_overview", function(require) {
             }
         },
 
-        _onPrintPNG: function(ev) {
+        _onPrintPNG: function (ev) {
             ev.preventDefault();
             this.oc.export(this.oc.exportFilename);
         },
 
-        _onKeyUpSearch: function(ev) {
+        _onKeyUpSearch: function (ev) {
             var value = ev.target.value.toLowerCase();
             if (value.length === 0) {
                 this._clearFilterResults();
