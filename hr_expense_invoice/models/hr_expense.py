@@ -1,4 +1,4 @@
-# Copyright 2015 Tecnativa - Pedro M. Baeza
+# Copyright 2015-2020 Tecnativa - Pedro M. Baeza
 # Copyright 2017 Tecnativa - Vicent Cubells
 # Copyright 2020 Tecnativa - David Vidal
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
@@ -41,7 +41,10 @@ class HrExpense(models.Model):
     @api.onchange("invoice_id")
     def _onchange_invoice_id(self):
         """Get expense amount from invoice amount. Otherwise it will do a
-           mismatch when trying to post the account move."""
+        mismatch when trying to post the account move. We do that ensuring we
+        have the same total amount with quantity 1 and without taxes.
+        """
         if self.invoice_id:
             self.quantity = 1
             self.unit_amount = self.invoice_id.amount_total
+            self.tax_ids = [(5, )]
