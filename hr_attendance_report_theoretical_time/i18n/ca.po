@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* hr_attendance_report_theoretical_time
+# 	* hr_attendance_report_theoretical_time
 #
 msgid ""
 msgstr ""
@@ -96,7 +96,11 @@ msgstr "Empleats"
 
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.model.fields,help:hr_attendance_report_theoretical_time.field_hr_employee__theoretical_hours_start_date
-msgid "Fill this field for setting a manual start date for computing the theoretical hours independently from the attendances. If not filled, employee creation date or the calendar start date will be used (the greatest of both)."
+msgid ""
+"Fill this field for setting a manual start date for computing the "
+"theoretical hours independently from the attendances. If not filled, "
+"employee creation date or the calendar start date will be used (the greatest "
+"of both)."
 msgstr ""
 "Ompliu aquest camp per establir una data manual per calcular les hores "
 "teòriques independentment de les assistències. Si no està emplenat, "
@@ -127,7 +131,9 @@ msgstr "ID"
 
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.model.fields,help:hr_attendance_report_theoretical_time.field_hr_leave_type__include_in_theoretical
-msgid "If you check this mark, leaves in this category won't reduce the number of theoretical hours in the attendance report."
+msgid ""
+"If you check this mark, leaves in this category won't reduce the number of "
+"theoretical hours in the attendance report."
 msgstr ""
 "Marcant aquesta casella, les absències d'aquest tipus no reduiran el nombre "
 "d'hores teòriques en l'informe d'assistència."
@@ -234,6 +240,7 @@ msgstr "Seleccionar empleats"
 
 #. module: hr_attendance_report_theoretical_time
 #: code:addons/hr_attendance_report_theoretical_time/wizards/wizard_theoretical_time.py:43
+#: code:addons/hr_attendance_report_theoretical_time/wizards/wizard_theoretical_time.py:44
 #: model:ir.actions.act_window,name:hr_attendance_report_theoretical_time.wizard_theoretical_time_act_window
 #, python-format
 msgid "Select Employees to Analyze Theoretical Time"

@@ -251,6 +251,7 @@ msgstr "Employé(e)"
 
 #. module: hr_attendance_report_theoretical_time
 #: code:addons/hr_attendance_report_theoretical_time/wizards/wizard_theoretical_time.py:43
+#: code:addons/hr_attendance_report_theoretical_time/wizards/wizard_theoretical_time.py:44
 #: model:ir.actions.act_window,name:hr_attendance_report_theoretical_time.wizard_theoretical_time_act_window
 #, python-format
 msgid "Select Employees to Analyze Theoretical Time"
