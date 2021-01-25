@@ -1,4 +1,5 @@
 # Copyright 2019 Creu Blanca
+# Copyright 2021 Tecnativa - Víctor Martínez
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from odoo import api, fields, models, _
@@ -58,4 +59,7 @@ class WizardTheoreticalTime(models.TransientModel):
             'hr_attendance_theoretical_action'
         ).read()[0]
         action['domain'] = [('employee_id', 'in', self.employee_ids.ids)]
+        action[
+            'context'
+        ] = "{'search_default_previous_month': 1, 'search_default_current_month': 1}"
         return action
