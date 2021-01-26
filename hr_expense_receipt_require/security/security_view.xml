@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright 2018-2019 Brainbean Apps (https://brainbeanapps.com)
+    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
+-->
+<odoo>
+    <record model="res.groups" id="expenses_can_skip_required_attachment">
+        <field name="name">Expenses-can skip required attachment</field>
+    </record>
+</odoo>
