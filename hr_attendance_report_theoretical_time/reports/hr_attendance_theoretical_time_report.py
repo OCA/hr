@@ -1,4 +1,5 @@
 # Copyright 2017-2019 Tecnativa - Pedro M. Baeza
+# Copyright 2021 Tecnativa - Víctor Martínez
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 from odoo import api, fields, models, tools
@@ -17,6 +18,11 @@ class HrAttendanceTheoreticalTimeReport(models.Model):
     employee_id = fields.Many2one(
         comodel_name='hr.employee',
         string="Employee",
+        readonly=True,
+    )
+    department_id = fields.Many2one(
+        comodel_name='hr.department',
+        string="Department",
         readonly=True,
     )
     date = fields.Date(
@@ -42,6 +48,7 @@ class HrAttendanceTheoreticalTimeReport(models.Model):
         return """
             min(id) AS id,
             employee_id,
+            department_id,
             date,
             sum(worked_hours) AS worked_hours,
             max(theoretical_hours) AS theoretical_hours,
@@ -57,6 +64,7 @@ class HrAttendanceTheoreticalTimeReport(models.Model):
                 ('x'||substr(MD5('HA' || ha.id::text), 1, 8))::bit(32)::int
             ) AS id,
             ha.employee_id AS employee_id,
+            he.department_id AS department_id,
             ha.check_in::date AS date,
             ha.worked_hours AS worked_hours,
             ha.theoretical_hours AS theoretical_hours,
@@ -66,6 +74,7 @@ class HrAttendanceTheoreticalTimeReport(models.Model):
     def _from_sub1(self):
         return """
             hr_attendance ha
+            LEFT JOIN hr_employee AS he ON ha.employee_id = he.id
             """
 
     def _where_sub1(self):
@@ -80,6 +89,7 @@ class HrAttendanceTheoreticalTimeReport(models.Model):
                 ), 1, 8))::bit(32)::int
             ) AS id,
             he.id AS employee_id,
+            he.department_id AS department_id,
             gs::date AS date,
             0 AS worked_hours,
             -1 AS theoretical_hours,
@@ -135,6 +145,7 @@ class HrAttendanceTheoreticalTimeReport(models.Model):
     def _group_by(self):
         return """
             employee_id,
+            department_id,
             date
             """
 

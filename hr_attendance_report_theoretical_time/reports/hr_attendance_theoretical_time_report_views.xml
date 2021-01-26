@@ -22,6 +22,7 @@
         <field name="arch" type="xml">
             <pivot disable_linking="1">
                 <field name="employee_id" type="row"/>
+                <field name="department_id" />
                 <field name="date" type="col"/>
                 <field name="worked_hours" type="measure" widget="float_time"/>
                 <field name="theoretical_hours" type="measure" widget="float_time"/>
@@ -35,6 +36,7 @@
         <field name="arch" type="xml">
             <graph>
                 <field name="employee_id"/>
+                <field name="department_id"/>
                 <field name="date"/>
                 <field name="theoretical_hours" type="measure"/>
             </graph>
