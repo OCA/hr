@@ -6,4 +6,4 @@ from odoo import fields, models
 class ProductTemplate(models.Model):
     _inherit = "product.template"
 
-    expense_receipt_required = fields.Boolean('Require a receipt')
+    expense_receipt_required = fields.Boolean("Require a receipt")

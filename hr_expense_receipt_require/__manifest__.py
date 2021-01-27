@@ -13,9 +13,7 @@
     "category": "Human Resources",
     "maintainers": ["Khalid-SerpentCS"],
     "website": "https://github.com/OCA/hr",
-    "depends": [
-        "hr_expense"
-    ],
+    "depends": ["hr_expense"],
     "data": [
         "views/hr_expense_views.xml",
         "views/hr_expense_sheet_form.xml",
