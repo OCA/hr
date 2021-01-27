@@ -7,18 +7,12 @@ from odoo.exceptions import UserError
 class HrExpense(models.Model):
     _inherit = "hr.expense"
 
-    allow_without_attachment = fields.Boolean(
-        default=False, string="Allow lines without attachment"
-    )
-
     @api.multi
     def action_submit_expenses(self):
         for rec in self:
-            if (
-                rec.product_id.expense_receipt_required and not rec.attachment_number
-            ) and not rec.allow_without_attachment:
+            if rec.product_id.expense_receipt_required and not rec.attachment_number:
                 raise UserError(
-                    _("You need to provide a receipt" " to submit this expense!")
+                    _("You need to provide a receipt to submit this expense!")
                 )
         return super(HrExpense, self).action_submit_expenses()
 
@@ -39,7 +33,7 @@ class HrExpenseSheet(models.Model):
                     and not expense.attachment_number
                 ) and not rec.allow_without_attachment:
                     raise UserError(
-                        _("You need to provide a receipt to " "submit %s expense!")
+                        _("You need to provide a receipt to submit %s expense!")
                         % expense.name
                     )
 
