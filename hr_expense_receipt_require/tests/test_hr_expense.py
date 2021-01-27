@@ -51,3 +51,25 @@ class TestHrExpense(common.TransactionCase):
         expense_line._onchange_product_id()
         with self.assertRaises(UserError):
             expense.action_submit_sheet()
+
+    def test_flight_expense_report_submission_allow_without_attachment(self):
+        expense = self.env["hr.expense.sheet"].create(
+            {
+                "name": "Expense for Abigail Peterson",
+                "employee_id": self.env.ref("hr.employee_hne").id,
+                "allow_without_attachment": True,
+            }
+        )
+        expense_line = self.env["hr.expense"].create(
+            {
+                "name": "Flight Expense",
+                "employee_id": self.env.ref("hr.employee_hne").id,
+                "product_id": self.product_expense.id,
+                "unit_amount": 700.00,
+                "quantity": 1,
+                "sheet_id": expense.id,
+            }
+        )
+        expense_line._onchange_product_id()
+        expense.action_submit_sheet()
+        self.assertEqual(expense_line.state, "reported")
