@@ -10,7 +10,9 @@ class HrExpense(models.Model):
     @api.multi
     def action_submit_expenses(self):
         for rec in self:
-            if rec.product_id.expense_receipt_required and not rec.attachment_number:
+            if (
+                rec.product_id.expense_receipt_required and not rec.attachment_number
+            ) and not rec.sheet_id.allow_without_attachment:
                 raise UserError(
                     _("You need to provide a receipt to submit this expense!")
                 )
