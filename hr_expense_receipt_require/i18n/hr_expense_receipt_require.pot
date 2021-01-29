@@ -14,6 +14,11 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: hr_expense_receipt_require
+#: model:ir.model.fields,field_description:hr_expense_receipt_require.field_hr_expense_sheet__allow_without_attachment
+msgid "Allow lines without attachment"
+msgstr ""
+
+#. module: hr_expense_receipt_require
 #: model:ir.model,name:hr_expense_receipt_require.model_hr_expense
 msgid "Expense"
 msgstr ""
@@ -21,6 +26,11 @@ msgstr ""
 #. module: hr_expense_receipt_require
 #: model:ir.model,name:hr_expense_receipt_require.model_hr_expense_sheet
 msgid "Expense Report"
+msgstr ""
+
+#. module: hr_expense_receipt_require
+#: model:res.groups,name:hr_expense_receipt_require.expenses_can_skip_required_attachment
+msgid "Expenses-can skip required attachment"
 msgstr ""
 
 #. module: hr_expense_receipt_require
@@ -35,13 +45,13 @@ msgid "Require a receipt"
 msgstr ""
 
 #. module: hr_expense_receipt_require
-#: code:addons/hr_expense_receipt_require/models/hr_expense.py:29
+#: code:addons/hr_expense_receipt_require/models/hr_expense.py:38
 #, python-format
 msgid "You need to provide a receipt to submit %s expense!"
 msgstr ""
 
 #. module: hr_expense_receipt_require
-#: code:addons/hr_expense_receipt_require/models/hr_expense.py:15
+#: code:addons/hr_expense_receipt_require/models/hr_expense.py:17
 #, python-format
 msgid "You need to provide a receipt to submit this expense!"
 msgstr ""
