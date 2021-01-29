@@ -40,11 +40,16 @@ Configuration
 * Create or select a product
 * Check the box "Require a receipt"
 
+Some users may be able to ignore the attachment requirements.
+This may be useful where a single document may need to be split into several different expense lines.
+The users allowed this must be added to the "Expenses-can skip required attachment" security group.
+
 Usage
 =====
 
 * Create an expense with the previous product
-* Try to submit the expense without an attachment --> "You need to
+* Try to submit the expense without an attachment 
+* If not in expenses_can_skip_required_attachment group--> "You need to
                            provide a receipt to submit this expense!"
 * Upload a file as an attachment and re-submit
 
