@@ -64,7 +64,7 @@ class HrAttendanceTheoreticalTimeReport(models.Model):
                 ('x'||substr(MD5('HA' || ha.id::text), 1, 8))::bit(32)::int
             ) AS id,
             ha.employee_id AS employee_id,
-            he.department_id AS department_id,
+            hahe.department_id AS department_id,
             ha.check_in::date AS date,
             ha.worked_hours AS worked_hours,
             ha.theoretical_hours AS theoretical_hours,
@@ -74,7 +74,7 @@ class HrAttendanceTheoreticalTimeReport(models.Model):
     def _from_sub1(self):
         return """
             hr_attendance ha
-            LEFT JOIN hr_employee AS he ON ha.employee_id = he.id
+            LEFT JOIN hr_employee AS hahe ON ha.employee_id = hahe.id
             """
 
     def _where_sub1(self):
