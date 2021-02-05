@@ -14,6 +14,7 @@ setuptools.setup(
         'odoo14-addon-hr_employee_relative',
         'odoo14-addon-hr_employee_service',
         'odoo14-addon-hr_employee_ssn',
+        'odoo14-addon-hr_org_chart_overview',
     ],
     classifiers=[
         'Programming Language :: Python',
