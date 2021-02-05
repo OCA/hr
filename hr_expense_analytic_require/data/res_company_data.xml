@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="analytic_main_company" model="account.analytic.account">
+            <field name="name">Main Analytic Account</field>
+        </record>
+
+        <record id="base.main_company" model="res.company">
+            <field name="default_expense_analytic_id" ref="analytic_main_company"/>
+        </record>
+    </data>
+</odoo>
