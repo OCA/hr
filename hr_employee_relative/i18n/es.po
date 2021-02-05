@@ -27,6 +27,11 @@ msgid "Child"
 msgstr "Hijo(a)"
 
 #. module: hr_employee_relative
+#: model_terms:ir.actions.act_window,help:hr_employee_relative.action_employee_relatives
+msgid "Click 'Create' to add a new Relative"
+msgstr ""
+
+#. module: hr_employee_relative
 #: model:hr.employee.relative.relation,name:hr_employee_relative.relation_cousin
 msgid "Cousin"
 msgstr "Primo(a)"
@@ -166,10 +171,16 @@ msgid "Relation"
 msgstr "Parentesco"
 
 #. module: hr_employee_relative
+#: model:ir.actions.act_window,name:hr_employee_relative.action_employee_relatives
 #: model:ir.model.fields,field_description:hr_employee_relative.field_hr_employee__relative_ids
 #: model_terms:ir.ui.view,arch_db:hr_employee_relative.hr_employee_view_form
 msgid "Relatives"
 msgstr "Parientes"
+
+#. module: hr_employee_relative
+#: model:ir.model.fields,field_description:hr_employee_relative.field_hr_employee__relatives_count
+msgid "Relatives Count"
+msgstr ""
 
 #. module: hr_employee_relative
 #: model:hr.employee.relative.relation,name:hr_employee_relative.relation_sibling
