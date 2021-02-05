@@ -21,4 +21,10 @@
             </tree>
         </field>
     </record>
+    <record id="action_employee_relatives" model="ir.actions.act_window">
+        <field name="name">Relatives</field>
+        <field name="res_model">hr.employee.relative</field>
+        <field name="view_mode">tree</field>
+        <field name="help">Click 'Create' to add a new Relative</field>
+    </record>
 </odoo>

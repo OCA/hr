@@ -7,17 +7,11 @@ from dateutil.relativedelta import relativedelta
 
 from odoo.tests import Form, common
 
-_ns = "hr_employee_relative"
-
 
 class TestHrEmployeeRelatives(common.TransactionCase):
     def setUp(self):
         super().setUp()
-        self.Employee = self.env["hr.employee"]
-        self.EmployeeRelative = self.env["hr.employee.relative"]
-
-    def test_age_calculation(self):
-        employee = self.Employee.create(
+        self.employee = self.env["hr.employee"].create(
             {
                 "name": "Employee",
                 "relative_ids": [
@@ -25,7 +19,9 @@ class TestHrEmployeeRelatives(common.TransactionCase):
                         0,
                         0,
                         {
-                            "relation_id": self.env.ref(_ns + ".relation_sibling").id,
+                            "relation_id": self.env.ref(
+                                "hr_employee_relative.relation_sibling"
+                            ).id,
                             "partner_id": self.env.ref("base.res_partner_1").id,
                             "name": "Relative",
                             "date_of_birth": datetime.now() + relativedelta(years=-42),
@@ -34,17 +30,23 @@ class TestHrEmployeeRelatives(common.TransactionCase):
                 ],
             }
         )
-        relative = self.EmployeeRelative.browse(employee.relative_ids[0].id)
+
+    def test_view_relatives(self):
+        action = self.employee.action_view_relatives()
+        self.assertEqual(action["domain"], [("employee_id", "=", self.employee.id)])
+
+    def test_relatives_count(self):
+        self.assertEqual(self.employee.relatives_count, 1)
+
+    def test_age_calculation(self):
+        relative = self.env["hr.employee.relative"].browse(
+            self.employee.relative_ids[0].id
+        )
         self.assertEqual(int(relative.age), 42)
         # onchange partner
-        ctx = {
-            "active_ids": [relative.id],
-            "active_id": relative.id,
-            "active_model": "hr.employee.relative",
-        }
         self.assertEqual(relative.name, "Relative")
-        with Form(self.EmployeeRelative.with_context(ctx)) as f:
+        with Form(self.env["hr.employee.relative"]) as f:
             f.partner_id = self.env.ref("base.res_partner_2")
-            f.relation_id = self.env.ref(_ns + ".relation_sibling")
+            f.relation_id = self.env.ref("hr_employee_relative.relation_sibling")
         relative = f.save()
         self.assertEqual(relative.name, relative.partner_id.display_name)
