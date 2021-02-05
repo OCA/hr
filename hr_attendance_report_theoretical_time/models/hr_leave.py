@@ -1,11 +1,47 @@
 # Copyright 2017-2019 Tecnativa - Pedro M. Baeza
+# Copyright 2021 Tecnativa - Víctor Martínez
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 from odoo import models
+from odoo.exceptions import ValidationError
+import logging
+
+_logger = logging.getLogger(__name__)
 
 
 class HrLeave(models.Model):
     _inherit = 'hr.leave'
+
+    def recompute_leave_dates(self):
+        """Recompute leaves if resource_calendar update after create record, although
+        it is strange, it has been possible to change the work schedule"""
+        for item in self:
+            vals = item.read()[0]
+            for key in vals:
+                if isinstance(vals[key], tuple):
+                    vals[key] = vals[key][0]
+            virtual = self.env["hr.leave"].new(vals)
+            virtual._onchange_request_parameters()
+            if (
+                virtual.date_from != item.date_from
+                or virtual.date_to != item.date_to
+            ):
+                try:
+                    item.write({
+                        "date_from": virtual.date_from,
+                        "date_to": virtual.date_to,
+                    })
+                    # change resource_calendar_leaves
+                    resource = self.env['resource.calendar.leaves'].search([
+                        ('holiday_id', '=', item.id)
+                    ])
+                    if resource:
+                        resource.write({
+                            "date_from": item.date_from,
+                            "date_to": item.date_to,
+                        })
+                except ValidationError:
+                    _logger.info("Skip: Some leaves overlap on same day")
 
     def _create_resource_leave(self):
         """On leave creation, trigger the recomputation of the involved

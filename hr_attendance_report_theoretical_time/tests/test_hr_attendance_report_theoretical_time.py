@@ -22,12 +22,12 @@ class TestHrAttendanceReportTheoreticalTime(common.SavepointCase):
                     'name': 'Attendance',
                     'dayofweek': str(day),
                     'hour_from': '08',
-                    'hour_to': '12',
+                    'hour_to': '13',
                 }),
                 (0, 0, {
                     'name': 'Attendance',
                     'dayofweek': str(day),
-                    'hour_from': '14',
+                    'hour_from': '15',
                     'hour_to': '18',
                 }),
             ]
@@ -94,7 +94,7 @@ class TestHrAttendanceReportTheoreticalTime(common.SavepointCase):
             ),
         )
         # Leave for employee 1
-        cls.leave = cls.HrLeave.create({
+        cls.leave = cls.HrLeave.with_context(bypass_override_dates=True).create({
             'date_from': '1946-12-26 00:00:00',
             'date_to': '1946-12-26 23:59:59',
             'request_date_from': '1946-12-26',
@@ -148,9 +148,11 @@ class TestHrAttendanceReportTheoreticalTime(common.SavepointCase):
 
     def test_theoretical_hours_recompute(self):
         """Change calendar, and then recompute with the wizard"""
-        # Get rid of 4 hours per day so the theoretical should be 4.
+        self.assertEqual(self.leave.number_of_hours_display, 8.0)
+        # Get rid of 5+3 hours per day so the theoretical should be 3.
         self.calendar.attendance_ids.filtered(
-            lambda x: x.hour_from == 14.0).unlink()
+            lambda x: x.hour_from == 08.0).unlink()
+        self.assertEqual(self.leave.number_of_hours_display, 3.0)
         # The attendances theoretical hours remain at 8 if not recomputed
         self.assertEqual(self.attendances[0].theoretical_hours, 8)
         self.assertEqual(self.attendances[1].theoretical_hours, 8)
@@ -162,11 +164,30 @@ class TestHrAttendanceReportTheoreticalTime(common.SavepointCase):
         })
         wizard.action_recompute()
         # Attendances for day 23 are recomputed
-        self.assertEqual(self.attendances[0].theoretical_hours, 4)
-        self.assertEqual(self.attendances[1].theoretical_hours, 4)
+        self.assertEqual(self.attendances[0].theoretical_hours, 3)
+        self.assertEqual(self.attendances[1].theoretical_hours, 3)
         # Attendances for day 24 remaine as they were
         self.assertEqual(self.attendances[2].theoretical_hours, 8)
         self.assertEqual(self.attendances[3].theoretical_hours, 8)
+
+    def test_theoretical_hours_recompute_laves(self):
+        leave_prev = {
+            "date_from": self.leave.date_from,
+            "date_to": self.leave.date_to,
+        }
+        item_attendance_ids = self.calendar.attendance_ids.filtered(
+            lambda x: x.dayofweek == "3"
+        )
+        item_attendance_ids[0].hour_from = "07"
+        wizard = self.env['recompute.theoretical.attendance'].create({
+            'employee_ids': [(4, self.employee_1.id)],
+            'date_from': '1946-12-26 00:00:00',
+            'date_to': '1946-12-26 23:59:59',
+        })
+        wizard.action_recompute()
+        # Leave for day 26 are recomputed
+        self.assertNotEqual(self.leave.date_from, leave_prev["date_from"])
+        self.assertEqual(self.leave.date_to, leave_prev["date_to"])
 
     def test_hr_attendance_read_group(self):
         # TODO: Test when having theoretical_hours_start_date set
