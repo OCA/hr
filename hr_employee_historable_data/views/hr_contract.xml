@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="hr_contract_view_form" model="ir.ui.view">
+        <field name="name">view.contract.form.historable.data</field>
+        <field name="model">hr.contract</field>
+        <field name="inherit_id" ref="hr_contract.hr_contract_view_form" />
+        <field name="arch" type="xml">
+            <!-- TODO broken when open from employee -->
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button
+                    name="%(action_hr_contract_wage_history)d"
+                    string="Contract Wages"
+                    type="action"
+                    icon="fa-bars"
+                    context="{'default_contract_id': active_id}"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>

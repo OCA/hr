@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="hr_contract_wage_view_form" model="ir.ui.view">
+        <field name="name">hr.contract.wage.form</field>
+        <field name="model">hr.contract.wage</field>
+        <field name="arch" type="xml">
+            <form string="Contract Wage">
+                <sheet>
+                    <group>
+                        <field name="contract_id" />
+                        <field name="wage" />
+                        <field name="type_id" />
+                        <field name="date_start" />
+                        <field name="date_end" />
+                        <field name="company_id" invisible="1" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="hr_contract_wage_view_tree" model="ir.ui.view">
+        <field name="name">hr.contract.wage.tree</field>
+        <field name="model">hr.contract.wage</field>
+        <field name="arch" type="xml">
+            <tree string="Contracts Wages" editable="bottom">
+                <field name="contract_id" />
+                <field name="wage" />
+                <field name="type_id" />
+                <field name="date_start" />
+                <field name="date_end" />
+                <field name="company_id" invisible="1" />
+            </tree>
+        </field>
+    </record>
+    <record id="action_hr_contract_wage_history" model="ir.actions.act_window">
+        <field name="name">Contracts Wages</field>
+        <field name="res_model">hr.contract.wage</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('contract_id', '=', active_id)]</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+            Create a new contract
+            </p>
+        </field>
+    </record>
+    <record id="hr_employee_marital_view_form" model="ir.ui.view">
+        <field name="name">hr.employee.marital.form</field>
+        <field name="model">hr.employee.marital</field>
+        <field name="arch" type="xml">
+            <form string="Employee marital status">
+                <sheet>
+                    <group>
+                        <field name="employee_id" />
+                        <field name="marital" />
+                        <field name="type_id" />
+                        <field name="date_start" />
+                        <field name="date_end" />
+                        <field name="company_id" invisible="1" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="hr_employee_marital_view_tree" model="ir.ui.view">
+        <field name="name">hr.employee.marital.tree</field>
+        <field name="model">hr.employee.marital</field>
+        <field name="arch" type="xml">
+            <tree string="Employee marital status" editable="bottom">
+                <field name="employee_id" />
+                <field name="marital" />
+                <field name="type_id" />
+                <field name="date_start" />
+                <field name="date_end" />
+                <field name="company_id" invisible="1" />
+            </tree>
+        </field>
+    </record>
+    <record id="action_hr_employee_marital_history" model="ir.actions.act_window">
+        <field name="name">Employee marital status</field>
+        <field name="res_model">hr.employee.marital</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('employee_id', '=', active_id)]</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+            Create a new marital status
+            </p>
+        </field>
+    </record>
+    <record id="hr_employee_workpermit_view_form" model="ir.ui.view">
+        <field name="name">hr.employee.workpermit.form</field>
+        <field name="model">hr.employee.workpermit</field>
+        <field name="arch" type="xml">
+            <form string="Employee visa">
+                <sheet>
+                    <group>
+                        <field name="employee_id" />
+                        <field name="visa" />
+                        <field name="permit_no" />
+                        <field name="type_id" />
+                        <field name="date_start" />
+                        <field name="date_end" />
+                        <field name="company_id" invisible="1" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="hr_employee_workpermit_view_tree" model="ir.ui.view">
+        <field name="name">hr.employee.workpermit.tree</field>
+        <field name="model">hr.employee.workpermit</field>
+        <field name="arch" type="xml">
+            <tree string="Employee visa" editable="bottom">
+                <field name="employee_id" />
+                <field name="visa" />
+                <field name="permit_no" />
+                <field name="type_id" />
+                <field name="date_start" />
+                <field name="date_end" />
+                <field name="company_id" invisible="1" />
+            </tree>
+        </field>
+    </record>
+    <record id="action_hr_employee_workpermit_history" model="ir.actions.act_window">
+        <field name="name">Employee workpermit</field>
+        <field name="res_model">hr.employee.workpermit</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('employee_id', '=', active_id)]</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+            Create a new workpermit
+            </p>
+        </field>
+    </record>
+</odoo>

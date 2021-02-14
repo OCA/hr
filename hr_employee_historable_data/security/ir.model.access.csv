@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hr_employee_workpermit_employee,hr_employee_workpermit_employee,model_hr_employee_workpermit,base.group_user,1,0,0,0
+access_hr_employee_workpermit_user,hr_employee_workpermit_user,model_hr_employee_workpermit,hr.group_hr_manager,1,1,1,1
+access_hr_employee_marital_employee,hr_employee_marital_employee,model_hr_employee_marital,base.group_user,1,0,0,0
+access_hr_employee_marital_user,hr_employee_marital_user,model_hr_employee_marital,hr.group_hr_manager,1,1,1,1
+access_hr_contract_wage_employee,hr_contract_wage_employee,model_hr_contract_wage,base.group_user,1,0,0,0
+access_hr_contract_wage_user,hr_contract_wage_user,model_hr_contract_wage,hr.group_hr_manager,1,1,1,1
