@@ -1,0 +1,1 @@
+This addon allows to keep historical data for changes on marital status, visa and contract wage
