@@ -51,9 +51,9 @@ class HrEmployee(models.Model):
     @api.model
     def _is_partner_firstname_installed(self):
         return bool(
-            self.env["ir.module.module"].search(
-                [("name", "=", "partner_firstname"), ("state", "=", "installed")]
-            )
+            self.env["ir.module.module"]
+            .sudo()
+            .search([("name", "=", "partner_firstname"), ("state", "=", "installed")])
         )
 
     @api.model
