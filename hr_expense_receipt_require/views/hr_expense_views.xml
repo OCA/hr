@@ -10,4 +10,16 @@
                 </xpath>
             </field>
         </record>
+
+        <record id="hr_expense.hr_expense_submit_action_server" model="ir.actions.server">
+            <field name="name">Submit Report</field>
+            <field name="type">ir.actions.server</field>
+            <field name="model_id" ref="hr_expense.model_hr_expense"/>
+            <field name="binding_model_id" ref="hr_expense.model_hr_expense"/>
+            <field name="state">code</field>
+            <field name="code">
+if records:
+    action = records.with_context({'select_multi_records': True}).action_submit_expenses()
+            </field>
+        </record>
 </odoo>

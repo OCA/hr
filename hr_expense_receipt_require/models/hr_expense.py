@@ -9,6 +9,10 @@ class HrExpense(models.Model):
 
     @api.multi
     def action_submit_expenses(self):
+        context = self._context or {}
+        if context.get('select_multi_records') and\
+                self.user_has_groups('hr_expense_receipt_require.expenses_can_skip_required_attachment'):
+            return super(HrExpense, self).action_submit_expenses()
         for rec in self:
             if (
                 rec.product_id.expense_receipt_required and not rec.attachment_number
@@ -31,8 +35,8 @@ class HrExpenseSheet(models.Model):
         for rec in self:
             for expense in rec.expense_line_ids:
                 if (
-                    expense.product_id.expense_receipt_required
-                    and not expense.attachment_number
+                    expense.product_id.expense_receipt_required and not
+                    expense.attachment_number
                 ) and not rec.allow_without_attachment:
                     raise UserError(
                         _("You need to provide a receipt to submit %s expense!")
