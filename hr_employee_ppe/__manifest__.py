@@ -11,7 +11,8 @@
     "license": "AGPL-3",
     "category": "Human Resources",
     "depends": ["hr",
-                'mail'],
+                'mail',
+                'product'],
     "data": [
         "security/hr_security.xml",
         'security/hr_employee_ppe_equipment.xml',
