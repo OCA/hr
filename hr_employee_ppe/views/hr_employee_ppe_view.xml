@@ -14,7 +14,7 @@
                 <field name="start_date"/>
                 <field name="expire"/>
                 <field name="end_date" attrs="{'invisible':[('expire', '=', False)]}"/>
-                <field name="status"/>
+                <field name="status" widget="label_selection" options="{'classes': {'expired': 'danger', 'valid': 'success'}}"/>
             </tree>
         </field>
     </record>
@@ -26,10 +26,14 @@
         <field name="arch" type="xml">
             <form string="PPE">
                 <header>
-                    <field name='status' widget='statusbar' statusbar_visible='valid,expired'/>
                 </header>
                 <sheet>
                     <field name="name" invisible="1"/>
+                    <field name="status" invisible="1"/>
+					<div class="badge-pill badge-danger float-right"
+                         attrs="{'invisible': [('status', '!=', 'expired')]}">Expired</div>
+					<div class="badge-pill badge-success float-right"
+                         attrs="{'invisible': [('status', '!=', 'valid')]}">Valid</div>
                     <group name="main">
                         <field name="employee_id"/>
                         <field name="ppe_id"/>
@@ -37,7 +41,8 @@
                     <group name="dates" col="4">
                         <field name="start_date"/>
                         <field name="expire"/>
-                        <field name="end_date" attrs="{'invisible':[('expire', '=', False)]}"/>
+                        <field name="end_date"
+                               attrs="{'invisible':[('expire', '=', False)], 'required': [('expire', '=', True)]}"/>
                     </group>
                     <group name="directions_info">
                         <field name="indications"/>
@@ -71,25 +76,33 @@
                 <templates>
                     <t t-name="kanban-box">
                         <div t-attf-class="oe_kanban_content oe_kanban_global_click">
-                            <div>
-                                <strong class="o_kanban_record_title"><span><field name="ppe_id"/></span></strong>
-                            </div>
-                            <div>
-                                <span class="o_kanban_record_subtitle"><field name="employee_id"/></span>
-                            </div>
-                            <div class="o_kanban_record_bottom">
-                                <div class="oe_kanban_bottom_left">
-                                    <field name="end_date" attrs="{'invisible':[('expire', '=', False)]}"/>
-                                </div>
-                                <div class="oe_kanban_bottom_right">
-                                    <img 
-                                        t-att-src="kanban_image('res.users', 'image_small', record.employee_id.raw_value)" 
-                                        t-att-title="record.employee_id.value" 
-                                        t-att-alt="record.employee_id.value" 
-                                        width="24" 
-                                        height="24" 
-                                        class="oe_kanban_avatar float-right"
-                                    />
+                            <div class="oe_kanban_global_click o_kanban_record_has_image_fill">
+                                <div class="oe_kanban_details">
+                                    <div class="o_kanban_record_top">
+                                        <div class="o_kanban_record_headings">
+                                            <strong class="o_kanban_record_title">
+                                                <strong class="o_kanban_record_title"><span><field name="ppe_id"/></span></strong>
+                                            </strong>
+
+                                            <div>
+                                                <span class="o_kanban_record_subtitle"><field name="employee_id"/></span>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <span class="oe_kanban_bottom_right">
+                                                <field name="status" widget="label_selection"
+                                                       options="{'classes': {'expired': 'danger', 'valid': 'success'}}"/>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="o_kanban_record_bottom">
+                                        <div class="oe_kanban_bottom_left">
+                                            <field name="end_date" attrs="{'invisible':[('expire', '=', False)]}"/>
+                                        </div>
+                                        <div class="oe_kanban_bottom_right">
+                                            <img t-att-src="kanban_image('hr.employee', 'image_small', record.employee_id.raw_value)" t-att-title="record.employee_id.value" t-att-alt="record.employee_id.value" width="24" height="24" class="oe_kanban_avatar float-right"/>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -101,7 +114,7 @@
 
     <!-- SEARCH -->
     <record id="view_employee_ppe_search" model="ir.ui.view">
-        <field name="name">hr.employee.ppe.form</field>
+        <field name="name">hr.employee.ppe.search</field>
         <field name="model">hr.employee.ppe</field>
         <field name="arch" type="xml">
             <search string="Search PPEs">
