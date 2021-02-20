@@ -3,7 +3,7 @@
 
 {
     "name": "Personal Protective Equipment (PPE) Management",
-    "version": "12.0.1.0.0",
+    "version": "12.0.1.1.0",
     "author": "Escodoo, Odoo Community Association (OCA)",
     'maintainers': ['marcelsavegnago', 'eduaparicio'],
     'images': ['static/description/banner.png'],
@@ -11,7 +11,8 @@
     "license": "AGPL-3",
     "category": "Human Resources",
     "depends": ["hr",
-                'mail'],
+                'mail',
+                'product'],
     "data": [
         "security/hr_security.xml",
         'security/hr_employee_ppe_equipment.xml',
