@@ -14,7 +14,7 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: hr_employee_ppe
-#: code:addons/hr_employee_ppe/models/hr_employee_ppe.py:66
+#: code:addons/hr_employee_ppe/models/hr_employee_ppe.py:51
 #, python-format
 msgid " to "
 msgstr ""
@@ -62,7 +62,6 @@ msgstr ""
 #. module: hr_employee_ppe
 #: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_employee_ppe__certification
 #: model:ir.model.fields,help:hr_employee_ppe.field_hr_employee_ppe__certification
-#: model:ir.model.fields,help:hr_employee_ppe.field_hr_employee_ppe__status
 msgid "Certification Number"
 msgstr ""
 
@@ -102,7 +101,7 @@ msgid "End Date"
 msgstr ""
 
 #. module: hr_employee_ppe
-#: code:addons/hr_employee_ppe/models/hr_employee_ppe.py:101
+#: code:addons/hr_employee_ppe/models/hr_employee_ppe.py:89
 #, python-format
 msgid "End date cannot occur earlier than the start date."
 msgstr ""
@@ -129,7 +128,14 @@ msgstr ""
 
 #. module: hr_employee_ppe
 #: selection:hr.employee.ppe,status:0
+#: model_terms:ir.ui.view,arch_db:hr_employee_ppe.view_employee_ppe_form
 msgid "Expired"
+msgstr ""
+
+#. module: hr_employee_ppe
+#: model:product.product,name:hr_employee_ppe.hr_employee_ppe_product2
+#: model:product.template,name:hr_employee_ppe.hr_employee_ppe_product2_product_template
+msgid "Face Shield"
 msgstr ""
 
 #. module: hr_employee_ppe
@@ -222,8 +228,8 @@ msgid "Main Attachment"
 msgstr ""
 
 #. module: hr_employee_ppe
-#: model:product.product,name:hr_employee_ppe.hr_employee_ppe_demo_1
-#: model:product.template,name:hr_employee_ppe.hr_employee_ppe_demo_1_product_template
+#: model:product.product,name:hr_employee_ppe.hr_employee_ppe_product1
+#: model:product.template,name:hr_employee_ppe.hr_employee_ppe_product1_product_template
 msgid "Mask for COVID-19"
 msgstr ""
 
@@ -302,6 +308,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:hr_employee_ppe.view_employee_form_inherit
 #: model_terms:ir.ui.view,arch_db:hr_employee_ppe.view_employee_ppe_form
 #: model_terms:ir.ui.view,arch_db:hr_employee_ppe.view_employee_ppe_search
+#: model:product.category,name:hr_employee_ppe.product_category_ppe
 msgid "PPE"
 msgstr ""
 
@@ -314,6 +321,11 @@ msgstr ""
 #: model:ir.ui.menu,name:hr_employee_ppe.menu_open_view_employee_ppe_form
 #: model_terms:ir.ui.view,arch_db:hr_employee_ppe.view_ppe_tree
 msgid "PPE Allocation"
+msgstr ""
+
+#. module: hr_employee_ppe
+#: model:ir.model.fields,help:hr_employee_ppe.field_hr_employee_ppe__status
+msgid "PPE Status"
 msgstr ""
 
 #. module: hr_employee_ppe
@@ -421,8 +433,10 @@ msgid "True if the PPE expires"
 msgstr ""
 
 #. module: hr_employee_ppe
-#: model:product.product,uom_name:hr_employee_ppe.hr_employee_ppe_demo_1
-#: model:product.template,uom_name:hr_employee_ppe.hr_employee_ppe_demo_1_product_template
+#: model:product.product,uom_name:hr_employee_ppe.hr_employee_ppe_product1
+#: model:product.product,uom_name:hr_employee_ppe.hr_employee_ppe_product2
+#: model:product.template,uom_name:hr_employee_ppe.hr_employee_ppe_product1_product_template
+#: model:product.template,uom_name:hr_employee_ppe.hr_employee_ppe_product2_product_template
 msgid "Unit(s)"
 msgstr ""
 
@@ -440,6 +454,7 @@ msgstr ""
 
 #. module: hr_employee_ppe
 #: selection:hr.employee.ppe,status:0
+#: model_terms:ir.ui.view,arch_db:hr_employee_ppe.view_employee_ppe_form
 msgid "Valid"
 msgstr ""
 
@@ -456,15 +471,17 @@ msgid "Website communication history"
 msgstr ""
 
 #. module: hr_employee_ppe
-#: code:addons/hr_employee_ppe/models/hr_employee_ppe.py:95
+#: code:addons/hr_employee_ppe/models/hr_employee_ppe.py:81
 #, python-format
 msgid "You must inform start date and\n"
 "                            end date for expirable PPEs."
 msgstr ""
 
 #. module: hr_employee_ppe
-#: model:product.product,weight_uom_name:hr_employee_ppe.hr_employee_ppe_demo_1
-#: model:product.template,weight_uom_name:hr_employee_ppe.hr_employee_ppe_demo_1_product_template
+#: model:product.product,weight_uom_name:hr_employee_ppe.hr_employee_ppe_product1
+#: model:product.product,weight_uom_name:hr_employee_ppe.hr_employee_ppe_product2
+#: model:product.template,weight_uom_name:hr_employee_ppe.hr_employee_ppe_product1_product_template
+#: model:product.template,weight_uom_name:hr_employee_ppe.hr_employee_ppe_product2_product_template
 msgid "kg"
 msgstr ""
 
