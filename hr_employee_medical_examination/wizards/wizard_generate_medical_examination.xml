@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2019 Creu Blanca
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record model="ir.ui.view" id="wizard_generate_medical_examination_form_view">
+        <field
+            name="name"
+        >wizard.generate.medical.examination.form (in hr_employee_medical_examination)</field>
+        <field name="model">wizard.generate.medical.examination</field>
+        <field name="arch" type="xml">
+            <form string="Generate Medical Examination">
+                <group>
+                    <group>
+                        <field name="name" />
+                    </group>
+                    <group>
+                        <field name="year" />
+                    </group>
+                </group>
+                <h3>
+                    <strong>Filters:</strong>
+                </h3>
+                <group>
+                    <group>
+                        <field name="department_id" />
+                    </group>
+                    <group>
+                        <field name="job_id" />
+                    </group>
+                </group>
+                <div class="text-left">
+                    <button
+                        name="populate"
+                        string="Populate"
+                        type="object"
+                        class="btn-primary"
+                    />
+                </div>
+                <notebook>
+                    <page string="Employees">
+                        <field name="employee_ids">
+                            <tree delete="1" editable="0">
+                                <field name="name" readonly="1" />
+                                <field name="department_id" readonly="1" />
+                                <field name="job_id" readonly="1" />
+                                <field name="parent_id" readonly="1" />
+                            </tree>
+                        </field>
+                    </page>
+                </notebook>
+                <footer>
+                    <button
+                        name="create_medical_examinations"
+                        string="Generate"
+                        class="btn-primary"
+                        type="object"
+                    />
+                    <button string="Cancel" class="btn-default" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record
+        model="ir.actions.act_window"
+        id="wizard_generate_medical_examination_act_window"
+    >
+        <field name="name">Generate Medical Examinations</field>
+        <field name="res_model">wizard.generate.medical.examination</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+    <menuitem
+        id="hr_employee_medical_examination_generate_wizard"
+        name="Generate Medical Examinations"
+        parent="hr_employee_medical_examination.hr_employee_medical_examination_menu"
+        action="wizard_generate_medical_examination_act_window"
+        groups="hr.group_hr_manager"
+        sequence="2"
+    />
+</odoo>
