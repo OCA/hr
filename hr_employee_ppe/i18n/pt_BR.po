@@ -8,17 +8,17 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-02-20 17:47+0000\n"
 "PO-Revision-Date: 2021-02-20 14:48-0300\n"
+"Last-Translator: Marcel Savegnago <marcel.savegnago@gmail.com>\n"
 "Language-Team: \n"
+"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Poedit 2.4.1\n"
-"Last-Translator: Marcel Savegnago <marcel.savegnago@gmail.com>\n"
-"Language: pt_BR\n"
 
 #. module: hr_employee_ppe
-#: code:addons/hr_employee_ppe/models/hr_employee_ppe.py:49
+#: code:addons/hr_employee_ppe/models/hr_employee_ppe.py:51
 #, python-format
 msgid " to "
 msgstr " para "
@@ -105,7 +105,7 @@ msgid "End Date"
 msgstr "Data Final"
 
 #. module: hr_employee_ppe
-#: code:addons/hr_employee_ppe/models/hr_employee_ppe.py:86
+#: code:addons/hr_employee_ppe/models/hr_employee_ppe.py:89
 #, python-format
 msgid "End date cannot occur earlier than the start date."
 msgstr "A data de término não pode ocorrer antes da data de início."
@@ -132,8 +132,15 @@ msgstr "Expirar"
 
 #. module: hr_employee_ppe
 #: selection:hr.employee.ppe,status:0
+#: model_terms:ir.ui.view,arch_db:hr_employee_ppe.view_employee_ppe_form
 msgid "Expired"
 msgstr "Expirado"
+
+#. module: hr_employee_ppe
+#: model:product.product,name:hr_employee_ppe.hr_employee_ppe_product2
+#: model:product.template,name:hr_employee_ppe.hr_employee_ppe_product2_product_template
+msgid "Face Shield"
+msgstr ""
 
 #. module: hr_employee_ppe
 #: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_employee_ppe__message_follower_ids
@@ -225,6 +232,12 @@ msgid "Main Attachment"
 msgstr "Anexo Principal"
 
 #. module: hr_employee_ppe
+#: model:product.product,name:hr_employee_ppe.hr_employee_ppe_product1
+#: model:product.template,name:hr_employee_ppe.hr_employee_ppe_product1_product_template
+msgid "Mask for COVID-19"
+msgstr ""
+
+#. module: hr_employee_ppe
 #: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_employee_ppe__message_has_error
 #: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_employee_ppe_equipment__message_has_error
 msgid "Message Delivery error"
@@ -299,6 +312,7 @@ msgstr "Vencido(a)"
 #: model_terms:ir.ui.view,arch_db:hr_employee_ppe.view_employee_form_inherit
 #: model_terms:ir.ui.view,arch_db:hr_employee_ppe.view_employee_ppe_form
 #: model_terms:ir.ui.view,arch_db:hr_employee_ppe.view_employee_ppe_search
+#: model:product.category,name:hr_employee_ppe.product_category_ppe
 msgid "PPE"
 msgstr "EPI"
 
@@ -431,6 +445,14 @@ msgid "True if the PPE expires"
 msgstr "Verdade se o EPI expirar"
 
 #. module: hr_employee_ppe
+#: model:product.product,uom_name:hr_employee_ppe.hr_employee_ppe_product1
+#: model:product.product,uom_name:hr_employee_ppe.hr_employee_ppe_product2
+#: model:product.template,uom_name:hr_employee_ppe.hr_employee_ppe_product1_product_template
+#: model:product.template,uom_name:hr_employee_ppe.hr_employee_ppe_product2_product_template
+msgid "Unit(s)"
+msgstr ""
+
+#. module: hr_employee_ppe
 #: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_employee_ppe__message_unread
 #: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_employee_ppe_equipment__message_unread
 msgid "Unread Messages"
@@ -444,11 +466,24 @@ msgstr "Contador de Mensagens Não Lidas"
 
 #. module: hr_employee_ppe
 #: selection:hr.employee.ppe,status:0
+#: model_terms:ir.ui.view,arch_db:hr_employee_ppe.view_employee_ppe_form
 msgid "Valid"
 msgstr "Válido"
 
 #. module: hr_employee_ppe
-#: code:addons/hr_employee_ppe/models/hr_employee_ppe.py:78
+#: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_employee_ppe__website_message_ids
+#: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_employee_ppe_equipment__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: hr_employee_ppe
+#: model:ir.model.fields,help:hr_employee_ppe.field_hr_employee_ppe__website_message_ids
+#: model:ir.model.fields,help:hr_employee_ppe.field_hr_employee_ppe_equipment__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: hr_employee_ppe
+#: code:addons/hr_employee_ppe/models/hr_employee_ppe.py:81
 #, python-format
 msgid ""
 "You must inform start date and\n"
@@ -456,3 +491,11 @@ msgid ""
 msgstr ""
 "Você deve informar a data de início e\n"
 "                            data final para EPIs expirados."
+
+#. module: hr_employee_ppe
+#: model:product.product,weight_uom_name:hr_employee_ppe.hr_employee_ppe_product1
+#: model:product.product,weight_uom_name:hr_employee_ppe.hr_employee_ppe_product2
+#: model:product.template,weight_uom_name:hr_employee_ppe.hr_employee_ppe_product1_product_template
+#: model:product.template,weight_uom_name:hr_employee_ppe.hr_employee_ppe_product2_product_template
+msgid "kg"
+msgstr ""
