@@ -6,8 +6,6 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-20 17:47+0000\n"
-"PO-Revision-Date: 2021-02-20 17:47+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,7 +14,8 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: hr_employee_ppe
-#: code:addons/hr_employee_ppe/models/hr_employee_ppe.py:49
+#: code:addons/hr_employee_ppe/models/hr_employee_ppe.py:51
+#: code:addons/hr_employee_ppe/models/hr_employee_ppe.py:66
 #, python-format
 msgid " to "
 msgstr ""
@@ -103,7 +102,8 @@ msgid "End Date"
 msgstr ""
 
 #. module: hr_employee_ppe
-#: code:addons/hr_employee_ppe/models/hr_employee_ppe.py:86
+#: code:addons/hr_employee_ppe/models/hr_employee_ppe.py:89
+#: code:addons/hr_employee_ppe/models/hr_employee_ppe.py:101
 #, python-format
 msgid "End date cannot occur earlier than the start date."
 msgstr ""
@@ -130,7 +130,14 @@ msgstr ""
 
 #. module: hr_employee_ppe
 #: selection:hr.employee.ppe,status:0
+#: model_terms:ir.ui.view,arch_db:hr_employee_ppe.view_employee_ppe_form
 msgid "Expired"
+msgstr ""
+
+#. module: hr_employee_ppe
+#: model:product.product,name:hr_employee_ppe.hr_employee_ppe_product2
+#: model:product.template,name:hr_employee_ppe.hr_employee_ppe_product2_product_template
+msgid "Face Shield"
 msgstr ""
 
 #. module: hr_employee_ppe
@@ -223,6 +230,12 @@ msgid "Main Attachment"
 msgstr ""
 
 #. module: hr_employee_ppe
+#: model:product.product,name:hr_employee_ppe.hr_employee_ppe_product1
+#: model:product.template,name:hr_employee_ppe.hr_employee_ppe_product1_product_template
+msgid "Mask for COVID-19"
+msgstr ""
+
+#. module: hr_employee_ppe
 #: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_employee_ppe__message_has_error
 #: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_employee_ppe_equipment__message_has_error
 msgid "Message Delivery error"
@@ -297,6 +310,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:hr_employee_ppe.view_employee_form_inherit
 #: model_terms:ir.ui.view,arch_db:hr_employee_ppe.view_employee_ppe_form
 #: model_terms:ir.ui.view,arch_db:hr_employee_ppe.view_employee_ppe_search
+#: model:product.category,name:hr_employee_ppe.product_category_ppe
 msgid "PPE"
 msgstr ""
 
@@ -421,6 +435,14 @@ msgid "True if the PPE expires"
 msgstr ""
 
 #. module: hr_employee_ppe
+#: model:product.product,uom_name:hr_employee_ppe.hr_employee_ppe_product1
+#: model:product.product,uom_name:hr_employee_ppe.hr_employee_ppe_product2
+#: model:product.template,uom_name:hr_employee_ppe.hr_employee_ppe_product1_product_template
+#: model:product.template,uom_name:hr_employee_ppe.hr_employee_ppe_product2_product_template
+msgid "Unit(s)"
+msgstr ""
+
+#. module: hr_employee_ppe
 #: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_employee_ppe__message_unread
 #: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_employee_ppe_equipment__message_unread
 msgid "Unread Messages"
@@ -434,13 +456,35 @@ msgstr ""
 
 #. module: hr_employee_ppe
 #: selection:hr.employee.ppe,status:0
+#: model_terms:ir.ui.view,arch_db:hr_employee_ppe.view_employee_ppe_form
 msgid "Valid"
 msgstr ""
 
 #. module: hr_employee_ppe
-#: code:addons/hr_employee_ppe/models/hr_employee_ppe.py:78
+#: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_employee_ppe__website_message_ids
+#: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_employee_ppe_equipment__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: hr_employee_ppe
+#: model:ir.model.fields,help:hr_employee_ppe.field_hr_employee_ppe__website_message_ids
+#: model:ir.model.fields,help:hr_employee_ppe.field_hr_employee_ppe_equipment__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: hr_employee_ppe
+#: code:addons/hr_employee_ppe/models/hr_employee_ppe.py:81
+#: code:addons/hr_employee_ppe/models/hr_employee_ppe.py:95
 #, python-format
 msgid "You must inform start date and\n"
 "                            end date for expirable PPEs."
+msgstr ""
+
+#. module: hr_employee_ppe
+#: model:product.product,weight_uom_name:hr_employee_ppe.hr_employee_ppe_product1
+#: model:product.product,weight_uom_name:hr_employee_ppe.hr_employee_ppe_product2
+#: model:product.template,weight_uom_name:hr_employee_ppe.hr_employee_ppe_product1_product_template
+#: model:product.template,weight_uom_name:hr_employee_ppe.hr_employee_ppe_product2_product_template
+msgid "kg"
 msgstr ""
 
