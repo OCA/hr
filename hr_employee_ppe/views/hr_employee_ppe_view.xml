@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-
     <!-- TREE -->
     <record id="view_ppe_tree" model="ir.ui.view">
         <field name="name">hr.employee.ppe.tree</field>
@@ -8,17 +7,20 @@
         <field name="type">tree</field>
         <field name="arch" type="xml">
             <tree string="Personal Protective Equipments">
-                <field name="name" string="PPE Allocation" invisible="1"/>
-                <field name="employee_id"/>
-                <field name="ppe_id"/>
-                <field name="start_date"/>
-                <field name="expire"/>
-                <field name="end_date" attrs="{'invisible':[('expire', '=', False)]}"/>
-                <field name="status" widget="label_selection" options="{'classes': {'expired': 'danger', 'valid': 'success'}}"/>
+                <field name="name" string="PPE Allocation" invisible="1" />
+                <field name="employee_id" />
+                <field name="ppe_id" />
+                <field name="start_date" />
+                <field name="expire" />
+                <field name="end_date" attrs="{'invisible':[('expire', '=', False)]}" />
+                <field
+                    name="status"
+                    widget="label_selection"
+                    options="{'classes': {'expired': 'danger', 'valid': 'success'}}"
+                />
             </tree>
         </field>
     </record>
-
     <!-- FORM -->
     <record id="view_employee_ppe_form" model="ir.ui.view">
         <field name="name">hr.employee.ppe.form</field>
@@ -28,79 +30,108 @@
                 <header>
                 </header>
                 <sheet>
-                    <field name="name" invisible="1"/>
-                    <field name="status" invisible="1"/>
-					<div class="badge-pill badge-danger float-right"
-                         attrs="{'invisible': [('status', '!=', 'expired')]}">Expired</div>
-					<div class="badge-pill badge-success float-right"
-                         attrs="{'invisible': [('status', '!=', 'valid')]}">Valid</div>
+                    <field name="name" invisible="1" />
+                    <field name="status" invisible="1" />
+                    <div
+                        class="badge-pill badge-danger float-right"
+                        attrs="{'invisible': [('status', '!=', 'expired')]}"
+                    >Expired</div>
+                    <div
+                        class="badge-pill badge-success float-right"
+                        attrs="{'invisible': [('status', '!=', 'valid')]}"
+                    >Valid</div>
                     <group name="main">
-                        <field name="employee_id"/>
-                        <field name="ppe_id"/>
+                        <field name="employee_id" />
+                        <field name="ppe_id" />
                     </group>
                     <group name="dates" col="4">
-                        <field name="start_date"/>
-                        <field name="expire"/>
-                        <field name="end_date"
-                               attrs="{'invisible':[('expire', '=', False)], 'required': [('expire', '=', True)]}"/>
+                        <field name="start_date" />
+                        <field name="expire" />
+                        <field
+                            name="end_date"
+                            attrs="{'invisible':[('expire', '=', False)], 'required': [('expire', '=', True)]}"
+                        />
                     </group>
                     <group name="directions_info">
-                        <field name="indications"/>
+                        <field name="indications" />
                     </group>
                     <group string="Certification Information">
-                        <field name="partner_id"/>
-                        <field name="certification"/>
-                        <field name="description"/>
+                        <field name="partner_id" />
+                        <field name="certification" />
+                        <field name="description" />
                     </group>
                 </sheet>
                 <div class="oe_chatter">
-                    <field name="message_follower_ids" widget="mail_followers"/>
-                    <field name="activity_ids" widget="mail_activity"/>
-                    <field name="message_ids" widget="mail_thread"/>
+                    <field name="message_follower_ids" widget="mail_followers" />
+                    <field name="activity_ids" widget="mail_activity" />
+                    <field name="message_ids" widget="mail_thread" />
                 </div>
             </form>
         </field>
     </record>
-
     <!-- KANBAN -->
     <record model="ir.ui.view" id="view_employee_ppe_kanban">
         <field name="name">hr.employee.ppe.kanban</field>
         <field name="model">hr.employee.ppe</field>
         <field name="arch" type="xml">
-            <kanban class="o_kanban_mobile" archivable="false" default_group_by="employee_id">
-                <field name="ppe_id"/>
-                <field name="employee_id"/>
-                <field name="start_date"/>
-                <field name="expire"/>
-                <field name="end_date" attrs="{'invisible':[('expire', '=', False)]}"/>
+            <kanban
+                class="o_kanban_mobile"
+                archivable="false"
+                default_group_by="employee_id"
+            >
+                <field name="ppe_id" />
+                <field name="employee_id" />
+                <field name="start_date" />
+                <field name="expire" />
+                <field name="end_date" attrs="{'invisible':[('expire', '=', False)]}" />
                 <templates>
                     <t t-name="kanban-box">
                         <div t-attf-class="oe_kanban_content oe_kanban_global_click">
-                            <div class="oe_kanban_global_click o_kanban_record_has_image_fill">
+                            <div
+                                class="oe_kanban_global_click o_kanban_record_has_image_fill"
+                            >
                                 <div class="oe_kanban_details">
                                     <div class="o_kanban_record_top">
                                         <div class="o_kanban_record_headings">
                                             <strong class="o_kanban_record_title">
-                                                <strong class="o_kanban_record_title"><span><field name="ppe_id"/></span></strong>
+                                                <strong class="o_kanban_record_title">
+                                                    <span>
+                                                        <field name="ppe_id" />
+                                                    </span>
+                                                </strong>
                                             </strong>
-
                                             <div>
-                                                <span class="o_kanban_record_subtitle"><field name="employee_id"/></span>
+                                                <span class="o_kanban_record_subtitle">
+                                                    <field name="employee_id" />
+                                                </span>
                                             </div>
                                         </div>
                                         <div>
                                             <span class="oe_kanban_bottom_right">
-                                                <field name="status" widget="label_selection"
-                                                       options="{'classes': {'expired': 'danger', 'valid': 'success'}}"/>
+                                                <field
+                                                    name="status"
+                                                    widget="label_selection"
+                                                    options="{'classes': {'expired': 'danger', 'valid': 'success'}}"
+                                                />
                                             </span>
                                         </div>
                                     </div>
                                     <div class="o_kanban_record_bottom">
                                         <div class="oe_kanban_bottom_left">
-                                            <field name="end_date" attrs="{'invisible':[('expire', '=', False)]}"/>
+                                            <field
+                                                name="end_date"
+                                                attrs="{'invisible':[('expire', '=', False)]}"
+                                            />
                                         </div>
                                         <div class="oe_kanban_bottom_right">
-                                            <img t-att-src="kanban_image('hr.employee', 'image_small', record.employee_id.raw_value)" t-att-title="record.employee_id.value" t-att-alt="record.employee_id.value" width="24" height="24" class="oe_kanban_avatar float-right"/>
+                                            <img
+                                                t-att-src="kanban_image('hr.employee', 'image_small', record.employee_id.raw_value)"
+                                                t-att-title="record.employee_id.value"
+                                                t-att-alt="record.employee_id.value"
+                                                width="24"
+                                                height="24"
+                                                class="oe_kanban_avatar float-right"
+                                            />
                                         </div>
                                     </div>
                                 </div>
@@ -111,38 +142,52 @@
             </kanban>
         </field>
     </record>
-
     <!-- SEARCH -->
     <record id="view_employee_ppe_search" model="ir.ui.view">
         <field name="name">hr.employee.ppe.search</field>
         <field name="model">hr.employee.ppe</field>
         <field name="arch" type="xml">
             <search string="Search PPEs">
-                <field name="name"/>
-                <field name="status"/>
-                <field name="end_date"/>
-                <field name="employee_id"/>
-                <field name="partner_id" string="Issued By"/>
+                <field name="name" />
+                <field name="status" />
+                <field name="end_date" />
+                <field name="employee_id" />
+                <field name="partner_id" string="Issued By" />
                 <group expand="0" name="group_by" string="Group By">
-                    <filter name="status" string="Status" context="{'group_by' : 'status'}" />
-                    <filter name="ppe_id" string="PPE" context="{'group_by' : 'ppe_id'}" />
-                    <filter name="employee_id" string="Employee" context="{'group_by' : 'employee_id'}" />
-                    <filter name="partner_id" string="Issued By" context="{'group_by': 'partner_id'}"/>
+                    <filter
+                        name="status"
+                        string="Status"
+                        context="{'group_by' : 'status'}"
+                    />
+                    <filter
+                        name="ppe_id"
+                        string="PPE"
+                        context="{'group_by' : 'ppe_id'}"
+                    />
+                    <filter
+                        name="employee_id"
+                        string="Employee"
+                        context="{'group_by' : 'employee_id'}"
+                    />
+                    <filter
+                        name="partner_id"
+                        string="Issued By"
+                        context="{'group_by': 'partner_id'}"
+                    />
                 </group>
             </search>
         </field>
     </record>
-
     <record id="open_view_employee_ppe_form" model="ir.actions.act_window">
         <field name="name">Personal Protective Equipments (PPEs)</field>
         <field name="res_model">hr.employee.ppe</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form,kanban</field>
     </record>
-
-    <menuitem name="PPE Allocation"
-              parent="menu_hr_employee_ppe"
-              id="menu_open_view_employee_ppe_form"
-              action="open_view_employee_ppe_form"/>
-
+    <menuitem
+        name="PPE Allocation"
+        parent="menu_hr_employee_ppe"
+        id="menu_open_view_employee_ppe_form"
+        action="open_view_employee_ppe_form"
+    />
 </odoo>

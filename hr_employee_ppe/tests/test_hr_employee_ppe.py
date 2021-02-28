@@ -21,7 +21,7 @@ class TestHREmployeePPE(SavepointCase):
 
         self.hr_employee_ppe1.status = "valid"
         self.env["hr.employee.ppe"].cron_ppe_expiry_verification()
-        self.assertEqual(self.hr_employee_ppe1.status, 'expired')
+        self.assertEqual(self.hr_employee_ppe1.status, "expired")
 
         self.hr_employee_ppe1.end_date = (datetime.now() + timedelta(days=1)).strftime(
             "%Y-%m-%d"
@@ -33,6 +33,7 @@ class TestHREmployeePPE(SavepointCase):
         self.assertEqual(self.hr_employee_ppe2.status, "valid")
 
         self.hr_employee_ppe1._compute_name()
-        self.assertEqual(self.hr_employee_ppe1.name,
-                         "Mask for COVID-19 to Abigail Peterson")
+        self.assertEqual(
+            self.hr_employee_ppe1.name, "Mask for COVID-19 to Abigail Peterson"
+        )
         self.assertEqual(self.hr_employee_ppe1.expire, True)
