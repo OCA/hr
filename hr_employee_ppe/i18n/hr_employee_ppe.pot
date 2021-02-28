@@ -15,7 +15,6 @@ msgstr ""
 
 #. module: hr_employee_ppe
 #: code:addons/hr_employee_ppe/models/hr_employee_ppe.py:51
-#: code:addons/hr_employee_ppe/models/hr_employee_ppe.py:66
 #, python-format
 msgid " to "
 msgstr ""
@@ -103,7 +102,6 @@ msgstr ""
 
 #. module: hr_employee_ppe
 #: code:addons/hr_employee_ppe/models/hr_employee_ppe.py:89
-#: code:addons/hr_employee_ppe/models/hr_employee_ppe.py:101
 #, python-format
 msgid "End date cannot occur earlier than the start date."
 msgstr ""
@@ -474,7 +472,6 @@ msgstr ""
 
 #. module: hr_employee_ppe
 #: code:addons/hr_employee_ppe/models/hr_employee_ppe.py:81
-#: code:addons/hr_employee_ppe/models/hr_employee_ppe.py:95
 #, python-format
 msgid "You must inform start date and\n"
 "                            end date for expirable PPEs."
