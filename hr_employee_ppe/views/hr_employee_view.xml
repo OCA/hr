@@ -1,47 +1,64 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-
     <!-- inheritEmployee -->
     <record id="view_employee_form_inherit" model="ir.ui.view">
         <field name="name">hr.employee.ppe.employee.form</field>
         <field name="model">hr.employee</field>
-        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="inherit_id" ref="hr.view_employee_form" />
         <field name="arch" type="xml">
             <notebook position="inside">
                 <page string="PPE" groups="base.group_user">
                     <group string="Personal Protective Equipment (PPE)">
-                        <field name="ppe_ids" context="{'default_employee_id': active_id}" nolabel="1">
+                        <field
+                            name="ppe_ids"
+                            context="{'default_employee_id': active_id}"
+                            nolabel="1"
+                        >
                             <tree string="PPE">
-                                <field name="ppe_id" string="PPE"/>
-                                <field name="certification" string="# Certificate"/>
-                                <field name="partner_id" string="Issued By"/>
-                                <field name="start_date"/>
-                                <field name="expire"/>
-                                <field name="end_date" attrs="{'invisible':[('expire', '=', False)]}"/>
-                                <field name="status"/>
+                                <field name="ppe_id" string="PPE" />
+                                <field name="certification" string="# Certificate" />
+                                <field name="partner_id" string="Issued By" />
+                                <field name="start_date" />
+                                <field name="expire" />
+                                <field
+                                    name="end_date"
+                                    attrs="{'invisible':[('expire', '=', False)]}"
+                                />
+                                <field name="status" />
                             </tree>
                             <form string="PPE">
                                 <header>
-                                    <field name='status' widget='statusbar' statusbar_visible='valid,expired'/>
+                                    <field
+                                        name='status'
+                                        widget='statusbar'
+                                        statusbar_visible='valid,expired'
+                                    />
                                 </header>
                                 <sheet>
                                     <group name="main">
                                         <field name="name" invisible="1" />
-                                        <field name="employee_id" default="employee_id" readonly="True"/>
-                                        <field name="ppe_id" string="PPE"/>
+                                        <field
+                                            name="employee_id"
+                                            default="employee_id"
+                                            readonly="True"
+                                        />
+                                        <field name="ppe_id" string="PPE" />
                                     </group>
                                     <group name="dates" col="4">
-                                        <field name="start_date"/>
-                                        <field name="expire"/>
-                                        <field name="end_date" attrs="{'invisible':[('expire', '=', False)]}"/>
+                                        <field name="start_date" />
+                                        <field name="expire" />
+                                        <field
+                                            name="end_date"
+                                            attrs="{'invisible':[('expire', '=', False)]}"
+                                        />
                                     </group>
                                     <group name="directions_info">
-                                        <field name="indications"/>
+                                        <field name="indications" />
                                     </group>
                                     <group string="Certification Information">
-                                        <field name="partner_id" string="Issued By"/>
-                                        <field name="certification"/>
-                                        <field name="description"/>
+                                        <field name="partner_id" string="Issued By" />
+                                        <field name="certification" />
+                                        <field name="description" />
                                     </group>
                                 </sheet>
                             </form>
@@ -51,8 +68,11 @@
             </notebook>
         </field>
     </record>
-
     <!-- Add a menu to Human Resources to keep the ppe. -->
-    <menuitem id="menu_hr_employee_ppe" parent="hr.menu_hr_root" name="PPEs" sequence="95"/>
-
+    <menuitem
+        id="menu_hr_employee_ppe"
+        parent="hr.menu_hr_root"
+        name="PPEs"
+        sequence="95"
+    />
 </odoo>
