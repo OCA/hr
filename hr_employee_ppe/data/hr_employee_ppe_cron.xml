@@ -1,9 +1,8 @@
-<?xml version="1.0" encoding='UTF-8'?>
+<?xml version="1.0" encoding='UTF-8' ?>
 <odoo noupdate="1">
-
     <record model="ir.cron" id="hr_employee_ppe_cron">
         <field name="name">PPE's expiry date verification</field>
-        <field name="model_id" ref="model_hr_employee_ppe"/>
+        <field name="model_id" ref="model_hr_employee_ppe" />
         <field name="state">code</field>
         <field name="code">model.cron_ppe_expiry_verification()</field>
         <field name="user_id" ref="base.user_root" />
@@ -12,5 +11,4 @@
         <field name="numbercall">-1</field>
         <field eval="False" name="doall" />
     </record>
-
 </odoo>
