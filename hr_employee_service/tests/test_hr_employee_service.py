@@ -25,7 +25,7 @@ class TestHrEmployeeService(common.TransactionCase):
                 "name": "Employee #1",
                 "service_hire_date": (self.today - relativedelta(years=3)),
                 "service_start_date": (self.today - relativedelta(years=3)),
-                "service_termination_date": (self.today - relativedelta(years=1)),
+                "departure_date": (self.today - relativedelta(years=1)),
             }
         )
 
@@ -122,7 +122,7 @@ class TestHrEmployeeService(common.TransactionCase):
                 "name": "Employee #8",
                 "service_hire_date": (self.today - relativedelta(days=1)),
                 "service_start_date": (self.today - relativedelta(days=1)),
-                "service_termination_date": (self.today - relativedelta(years=1)),
+                "departure_date": (self.today - relativedelta(years=1)),
             }
         )
 
