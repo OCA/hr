@@ -31,8 +31,7 @@ class HrEmployee(models.Model):
     )
     service_termination_date = fields.Date(
         string="Termination Date",
-        groups="hr.group_hr_user",
-        tracking=True,
+        related="departure_date",
         help=(
             "Termination date is the last day the employee actually works and"
             " this date is used for accrual leave allocations calculation"
