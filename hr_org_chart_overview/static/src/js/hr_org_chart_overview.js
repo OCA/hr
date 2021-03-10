@@ -8,6 +8,7 @@ odoo.define("hr_org_chart_overview", function(require) {
         contentTemplate: "HrOrgChartOverview",
         events: {
             "click .node": "_onClickNode",
+            "click #change-orientation": "_onChangeOrientation",
             "click #print-pdf": "_onPrintPDF",
             "keyup #key-word": "_onKeyUpSearch",
             "click #zoom-in": "_onClickZoomIn",
@@ -16,6 +17,7 @@ odoo.define("hr_org_chart_overview", function(require) {
         },
 
         init: function(parent) {
+            this.direction = "t2b";
             this.orgChartData = {};
             this.actionManager = parent;
             console.log(this.actionManager);
@@ -50,6 +52,9 @@ odoo.define("hr_org_chart_overview", function(require) {
         _renderButtons: function() {
             this.$buttons = this.$(".o_cp_buttons");
             this.$buttons.prepend(`
+                <button type="button" id="change-orientation" class="btn btn-primary o-kanban-button-new" accesskey="p">
+                    Change Orientation
+                </button>
                 <button type="button" id="print-pdf" class="btn btn-primary o-kanban-button-new" accesskey="p">
                     Print PDF
                 </button>
@@ -248,6 +253,21 @@ odoo.define("hr_org_chart_overview", function(require) {
             } else {
                 this._filterNodes(value);
             }
+        },
+
+        _onChangeOrientation: function(ev) {
+            ev.preventDefault();
+            if (this.direction === "t2b") {
+                this.direction = "l2r";
+            } else {
+                this.direction = "t2b";
+            }
+            this.oc.init({
+                data: this.orgChartData,
+                nodeContent: "title",
+                nodeTemplate: this._getNodeTemplate,
+                direction: this.direction,
+            });
         },
     });
 

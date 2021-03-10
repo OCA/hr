@@ -45,6 +45,8 @@ will redirect the user to the form view of that employee.
 Using the search bar, the user can filter the chart by entering the employee
 name or department. To clear the filter, delete all introduced characters.
 
+Switch between Horizontal and Vertical Display by clicking on the change orientation button.
+
 Bug Tracker
 ===========
 
