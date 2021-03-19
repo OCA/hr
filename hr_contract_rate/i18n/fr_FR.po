@@ -6,29 +6,31 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2021-03-19 15:46+0000\n"
+"Last-Translator: Sandrine (ACSONE) <sandrine.ravet@acsone.eu>\n"
 "Language-Team: none\n"
 "Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #. module: hr_contract_rate
 #: model:ir.model.fields,field_description:hr_contract_rate.field_hr_contract__amount
 #: model_terms:ir.ui.view,arch_db:hr_contract_rate.hr_contract_view_form
 msgid "Amount"
-msgstr ""
+msgstr "Salaire"
 
 #. module: hr_contract_rate
 #: model:ir.model,name:hr_contract_rate.model_hr_contract
 msgid "Contract"
-msgstr ""
+msgstr "Contrat"
 
 #. module: hr_contract_rate
 #: model:ir.model.fields.selection,name:hr_contract_rate.selection__hr_contract__amount_period__day
 msgid "Day"
-msgstr ""
+msgstr "Jour"
 
 #. module: hr_contract_rate
 #: model:ir.model.fields,help:hr_contract_rate.field_hr_contract__amount
@@ -48,7 +50,7 @@ msgstr ""
 #. module: hr_contract_rate
 #: model:ir.model.fields.selection,name:hr_contract_rate.selection__hr_contract__amount_period__hour
 msgid "Hour"
-msgstr ""
+msgstr "Heure"
 
 #. module: hr_contract_rate
 #: model:ir.model.fields,help:hr_contract_rate.field_hr_contract__work_days_per_month
@@ -73,12 +75,12 @@ msgstr ""
 #. module: hr_contract_rate
 #: model:ir.model.fields.selection,name:hr_contract_rate.selection__hr_contract__amount_period__month
 msgid "Month"
-msgstr ""
+msgstr "Mois"
 
 #. module: hr_contract_rate
 #: model:ir.model.fields,field_description:hr_contract_rate.field_hr_contract__amount_period
 msgid "Period of Amount"
-msgstr ""
+msgstr "Périodicité"
 
 #. module: hr_contract_rate
 #: model:ir.model.fields,help:hr_contract_rate.field_hr_contract__amount_period
@@ -88,17 +90,17 @@ msgstr ""
 #. module: hr_contract_rate
 #: model:ir.model.fields.selection,name:hr_contract_rate.selection__hr_contract__amount_period__quarter
 msgid "Quarter"
-msgstr ""
+msgstr "Trimestre"
 
 #. module: hr_contract_rate
 #: model_terms:ir.ui.view,arch_db:hr_contract_rate.hr_contract_view_form
 msgid "Salary and Advantages"
-msgstr ""
+msgstr "Salaire et avantages"
 
 #. module: hr_contract_rate
 #: model:ir.model.fields,field_description:hr_contract_rate.field_hr_contract__wage
 msgid "Wage"
-msgstr ""
+msgstr "Salaire"
 
 #. module: hr_contract_rate
 #: model:ir.model.fields,field_description:hr_contract_rate.field_hr_contract__approximate_wage
@@ -108,7 +110,7 @@ msgstr ""
 #. module: hr_contract_rate
 #: model:ir.model.fields.selection,name:hr_contract_rate.selection__hr_contract__amount_period__week
 msgid "Week"
-msgstr ""
+msgstr "Semaine"
 
 #. module: hr_contract_rate
 #: model:ir.model.fields,field_description:hr_contract_rate.field_hr_contract__work_days_per_month
@@ -128,4 +130,4 @@ msgstr ""
 #. module: hr_contract_rate
 #: model:ir.model.fields.selection,name:hr_contract_rate.selection__hr_contract__amount_period__year
 msgid "Year"
-msgstr ""
+msgstr "Année"
