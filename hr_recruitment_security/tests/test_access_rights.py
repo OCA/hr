@@ -1,12 +1,7 @@
 # Copyright 2020 Tecnativa - Víctor Martínez
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
-import logging
-
-from odoo.exceptions import AccessError
 from odoo.tests.common import SavepointCase
-
-_logger = logging.getLogger(__name__)
 
 
 class TestHrRecruitmentSecurity(SavepointCase):
@@ -34,7 +29,11 @@ class TestHrRecruitmentSecurity(SavepointCase):
                 "login": "hr_user",
                 "email": "hr_user@example.com",
                 "groups_id": [
-                    (6, 0, [cls.env.ref("hr_recruitment.group_hr_recruitment_user").id])
+                    (
+                        6,
+                        0,
+                        [cls.env.ref("hr_recruitment.group_hr_recruitment_user").id],
+                    )
                 ],
             }
         )
@@ -137,7 +136,7 @@ class TestHrRecruitmentSecurity(SavepointCase):
         self.assertEqual(
             len(
                 self.env["hr.job"]
-                .sudo(self.user_hr_officer_own_documents)
+                .with_user(self.user_hr_officer_own_documents)
                 .search([])
                 .ids
             ),
@@ -146,7 +145,7 @@ class TestHrRecruitmentSecurity(SavepointCase):
         self.assertEqual(
             len(
                 self.env["hr.applicant"]
-                .sudo(self.user_hr_officer_own_documents)
+                .with_user(self.user_hr_officer_own_documents)
                 .search([])
                 .ids
             ),
@@ -157,7 +156,7 @@ class TestHrRecruitmentSecurity(SavepointCase):
         self.assertEqual(
             len(
                 self.env["hr.job"]
-                .sudo(self.user_hr_ruser)
+                .with_user(self.user_hr_ruser)
                 .search([("name", "=", "hr_recruitment_security")])
                 .ids
             ),
@@ -166,7 +165,7 @@ class TestHrRecruitmentSecurity(SavepointCase):
         self.assertEqual(
             len(
                 self.env["hr.applicant"]
-                .sudo(self.user_hr_ruser)
+                .with_user(self.user_hr_ruser)
                 .search([("name", "=", "hr_recruitment_security")])
                 .ids
             ),
@@ -177,7 +176,7 @@ class TestHrRecruitmentSecurity(SavepointCase):
         self.assertEqual(
             len(
                 self.env["hr.job"]
-                .sudo(self.user_hr_recruitment_manager)
+                .with_user(self.user_hr_recruitment_manager)
                 .search([("name", "=", "hr_recruitment_security")])
                 .ids
             ),
@@ -186,7 +185,7 @@ class TestHrRecruitmentSecurity(SavepointCase):
         self.assertEqual(
             len(
                 self.env["hr.applicant"]
-                .sudo(self.user_hr_recruitment_manager)
+                .with_user(self.user_hr_recruitment_manager)
                 .search([("name", "=", "hr_recruitment_security")])
                 .ids
             ),
@@ -194,8 +193,7 @@ class TestHrRecruitmentSecurity(SavepointCase):
         )
 
     def test_access_user_without_groups(self):
-        with self.assertRaises(AccessError):
-            self.env["hr.job"].sudo(self.user_without_groups).read()
-
-        with self.assertRaises(AccessError):
-            self.env["hr.applicant"].sudo(self.user_without_groups).read()
+        job = self.env["hr.job"].with_user(self.user_without_groups).read()
+        self.assertFalse(job)
+        applicant = self.env["hr.applicant"].with_user(self.user_without_groups).read()
+        self.assertFalse(applicant)

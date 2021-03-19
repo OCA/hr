@@ -2,7 +2,10 @@
     <data>
         <record id="group_hr_recruitment_officer_own_documents" model="res.groups">
             <field name="name">Officer (own documents)</field>
-            <field name="category_id" ref="base.module_category_hr_recruitment" />
+            <field
+                name="category_id"
+                ref="base.module_category_human_resources_recruitment"
+            />
             <field
                 name="implied_ids"
                 eval="[(4, ref('hr_recruitment.group_hr_recruitment_user'))]"

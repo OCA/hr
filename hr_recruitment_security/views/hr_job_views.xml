@@ -1,0 +1,11 @@
+<odoo>
+    <record id="hr_job_survey" model="ir.ui.view">
+        <field name="model">hr.job</field>
+        <field name="inherit_id" ref="hr_recruitment.hr_job_survey" />
+        <field name="arch" type="xml">
+            <field name="user_id" position="after">
+                <field name="hr_responsible_id" />
+            </field>
+        </field>
+    </record>
+</odoo>

@@ -2,7 +2,7 @@
 
 {
     "name": "Recruitment responsible security",
-    "version": "12.0.1.0.0",
+    "version": "13.0.1.0.0",
     "category": "Human Resources",
     "development_status": "Production/Stable",
     "author": "Tecnativa, Odoo Community Association (OCA)",
@@ -11,7 +11,7 @@
     "license": "AGPL-3",
     "depends": ["hr_recruitment"],
     "maintainers": ["victoralmau"],
-    "data": ["security/security.xml"],
+    "data": ["security/security.xml", "views/hr_job_views.xml"],
     "installable": True,
     "auto_install": False,
 }
