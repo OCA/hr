@@ -2,6 +2,7 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
 import logging
+
 from odoo.exceptions import AccessError
 from odoo.tests.common import SavepointCase
 
@@ -22,9 +23,7 @@ class TestHrRecruitmentSecurity(SavepointCase):
                 "login": "hr_officer_own_documents",
                 "email": "hr_officer_own_documents@example.com",
                 "groups_id": [
-                    (6, 0, [cls.env.ref(
-                        "hr_recruitment_security.%s" % group_name
-                        ).id])
+                    (6, 0, [cls.env.ref("hr_recruitment_security.%s" % group_name).id])
                 ],
             }
         )
@@ -46,9 +45,11 @@ class TestHrRecruitmentSecurity(SavepointCase):
                 "login": "hr_recruitment_manager",
                 "email": "hr_recruitment_manager@example.com",
                 "groups_id": [
-                    (6, 0, [
-                        cls.env.ref("hr_recruitment.group_hr_recruitment_manager").id
-                    ])
+                    (
+                        6,
+                        0,
+                        [cls.env.ref("hr_recruitment.group_hr_recruitment_manager").id],
+                    )
                 ],
             }
         )
@@ -62,74 +63,94 @@ class TestHrRecruitmentSecurity(SavepointCase):
             }
         )
         # hr_job
-        cls.env["hr.job"].create((
-            {
-                "name": "hr_recruitment_security"
-            },
-            {
-                "name": "hr_recruitment_security",
-                "hr_responsible_id": cls.user_hr_ruser.id,
-            },
-            {
-                "name": "hr_recruitment_security",
-                "hr_responsible_id": cls.user_hr_recruitment_manager.id,
-            },
-            {
-                "name": "hr_recruitment_security",
-                "hr_responsible_id": cls.user_hr_officer_own_documents.id
-            }
-        ))
+        cls.env["hr.job"].create(
+            (
+                {"name": "hr_recruitment_security"},
+                {
+                    "name": "hr_recruitment_security",
+                    "hr_responsible_id": cls.user_hr_ruser.id,
+                },
+                {
+                    "name": "hr_recruitment_security",
+                    "hr_responsible_id": cls.user_hr_recruitment_manager.id,
+                },
+                {
+                    "name": "hr_recruitment_security",
+                    "hr_responsible_id": cls.user_hr_officer_own_documents.id,
+                },
+            )
+        )
         # hr_applicant
-        cls.env["hr.applicant"].create((
-            {
-                "job_id": cls.env["hr.job"].search([
-                    ('name', '=', 'hr_recruitment_security'),
-                    ('hr_responsible_id', '=', False)
-                ])[0].id,
-                "name": "hr_recruitment_security"
-            },
-            {
-                "job_id": cls.env["hr.job"].search([
-                    ('name', '=', 'hr_recruitment_security'),
-                    ('hr_responsible_id', '=', False)
-                ])[0].id,
-                "name": "hr_recruitment_security",
-                "user_id": cls.user_hr_ruser.id
-            },
-            {
-                "job_id": cls.env["hr.job"].search([
-                    ('name', '=', 'hr_recruitment_security'),
-                    ('hr_responsible_id', '=', False)
-                ])[0].id,
-                "name": "hr_recruitment_security",
-                "user_id": cls.user_hr_recruitment_manager.id
-            },
-            {
-                "job_id": cls.env["hr.job"].search([
-                    ('name', '=', 'hr_recruitment_security'),
-                    ('hr_responsible_id', '=', False)
-                ])[0].id,
-                "name": "hr_recruitment_security",
-                "user_id": cls.user_hr_officer_own_documents.id
-            }
-        ))
+        cls.env["hr.applicant"].create(
+            (
+                {
+                    "job_id": cls.env["hr.job"]
+                    .search(
+                        [
+                            ("name", "=", "hr_recruitment_security"),
+                            ("hr_responsible_id", "=", False),
+                        ]
+                    )[0]
+                    .id,
+                    "name": "hr_recruitment_security",
+                },
+                {
+                    "job_id": cls.env["hr.job"]
+                    .search(
+                        [
+                            ("name", "=", "hr_recruitment_security"),
+                            ("hr_responsible_id", "=", False),
+                        ]
+                    )[0]
+                    .id,
+                    "name": "hr_recruitment_security",
+                    "user_id": cls.user_hr_ruser.id,
+                },
+                {
+                    "job_id": cls.env["hr.job"]
+                    .search(
+                        [
+                            ("name", "=", "hr_recruitment_security"),
+                            ("hr_responsible_id", "=", False),
+                        ]
+                    )[0]
+                    .id,
+                    "name": "hr_recruitment_security",
+                    "user_id": cls.user_hr_recruitment_manager.id,
+                },
+                {
+                    "job_id": cls.env["hr.job"]
+                    .search(
+                        [
+                            ("name", "=", "hr_recruitment_security"),
+                            ("hr_responsible_id", "=", False),
+                        ]
+                    )[0]
+                    .id,
+                    "name": "hr_recruitment_security",
+                    "user_id": cls.user_hr_officer_own_documents.id,
+                },
+            )
+        )
 
     def test_access_user_user_hr_officer_own_documents(self):
         self.assertEqual(
             len(
                 self.env["hr.job"]
                 .sudo(self.user_hr_officer_own_documents)
-                .search([]).ids
+                .search([])
+                .ids
             ),
-            1
+            1,
         )
         self.assertEqual(
             len(
                 self.env["hr.applicant"]
                 .sudo(self.user_hr_officer_own_documents)
-                .search([]).ids
+                .search([])
+                .ids
             ),
-            1
+            1,
         )
 
     def test_access_user_hr_user(self):
@@ -137,21 +158,19 @@ class TestHrRecruitmentSecurity(SavepointCase):
             len(
                 self.env["hr.job"]
                 .sudo(self.user_hr_ruser)
-                .search([
-                    ('name', '=', 'hr_recruitment_security')
-                ]).ids
+                .search([("name", "=", "hr_recruitment_security")])
+                .ids
             ),
-            4
+            4,
         )
         self.assertEqual(
             len(
                 self.env["hr.applicant"]
                 .sudo(self.user_hr_ruser)
-                .search([
-                    ('name', '=', 'hr_recruitment_security')
-                ]).ids
+                .search([("name", "=", "hr_recruitment_security")])
+                .ids
             ),
-            4
+            4,
         )
 
     def test_access_user_hr_recruitment_manager(self):
@@ -159,21 +178,19 @@ class TestHrRecruitmentSecurity(SavepointCase):
             len(
                 self.env["hr.job"]
                 .sudo(self.user_hr_recruitment_manager)
-                .search([
-                    ('name', '=', 'hr_recruitment_security')
-                ]).ids
+                .search([("name", "=", "hr_recruitment_security")])
+                .ids
             ),
-            4
+            4,
         )
         self.assertEqual(
             len(
                 self.env["hr.applicant"]
                 .sudo(self.user_hr_recruitment_manager)
-                .search([
-                    ('name', '=', 'hr_recruitment_security')
-                ]).ids
+                .search([("name", "=", "hr_recruitment_security")])
+                .ids
             ),
-            4
+            4,
         )
 
     def test_access_user_without_groups(self):

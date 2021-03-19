@@ -11,9 +11,7 @@
     "license": "AGPL-3",
     "depends": ["hr_recruitment"],
     "maintainers": ["victoralmau"],
-    "data": [
-        "security/security.xml"
-    ],
+    "data": ["security/security.xml"],
     "installable": True,
     "auto_install": False,
 }
