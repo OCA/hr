@@ -9,6 +9,7 @@ setuptools.setup(
     version=version,
     install_requires=[
         'odoo14-addon-hr_branch',
+        'odoo14-addon-hr_contract_reference',
         'odoo14-addon-hr_employee_age',
         'odoo14-addon-hr_employee_firstname',
         'odoo14-addon-hr_employee_lastnames',
