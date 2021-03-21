@@ -20,6 +20,7 @@ Available addons
 addon | version | summary
 --- | --- | ---
 [hr_branch](hr_branch/) | 14.0.1.0.0 | Allow define company branch for employee process
+[hr_contract_reference](hr_contract_reference/) | 14.0.1.0.0 | HR Contract Reference
 [hr_employee_age](hr_employee_age/) | 14.0.1.0.0 | Age field for employee
 [hr_employee_firstname](hr_employee_firstname/) | 14.0.2.0.1 | Adds First Name to Employee
 [hr_employee_lastnames](hr_employee_lastnames/) | 14.0.2.0.0 | Split Name in First Name, Father's Last Name and Mother's Last Name
