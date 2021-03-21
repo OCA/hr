@@ -14,6 +14,7 @@ setuptools.setup(
         'odoo14-addon-hr_employee_firstname',
         'odoo14-addon-hr_employee_lastnames',
         'odoo14-addon-hr_employee_medical_examination',
+        'odoo14-addon-hr_employee_phone_extension',
         'odoo14-addon-hr_employee_relative',
         'odoo14-addon-hr_employee_service',
         'odoo14-addon-hr_employee_ssn',
