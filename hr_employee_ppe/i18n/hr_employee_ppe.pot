@@ -470,6 +470,18 @@ msgid "Valid"
 msgstr ""
 
 #. module: hr_employee_ppe
+#: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_employee_ppe__website_message_ids
+#: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_employee_ppe_equipment__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: hr_employee_ppe
+#: model:ir.model.fields,help:hr_employee_ppe.field_hr_employee_ppe__website_message_ids
+#: model:ir.model.fields,help:hr_employee_ppe.field_hr_employee_ppe_equipment__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: hr_employee_ppe
 #: code:addons/hr_employee_ppe/models/hr_employee_ppe.py:0
 #, python-format
 msgid ""
