@@ -23,6 +23,7 @@ setuptools.setup(
         'odoo13-addon-hr_employee_lastnames',
         'odoo13-addon-hr_employee_medical_examination',
         'odoo13-addon-hr_employee_phone_extension',
+        'odoo13-addon-hr_employee_ppe',
         'odoo13-addon-hr_employee_relative',
         'odoo13-addon-hr_employee_service',
         'odoo13-addon-hr_employee_service_contract',
