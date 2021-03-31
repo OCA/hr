@@ -4,7 +4,7 @@
 
 {
     'name': 'Supplier invoices on HR expenses',
-    'version': '12.0.1.4.0',
+    'version': '12.0.1.5.0',
     'category': 'Human Resources',
     'author': 'Tecnativa, '
               'Odoo Community Association (OCA)',
