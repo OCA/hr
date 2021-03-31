@@ -21,55 +21,9 @@ msgstr ""
 "X-Generator: Weblate 4.3.2\n"
 
 #. module: hr_expense_invoice
-#: model_terms:ir.ui.view,arch_db:hr_expense_invoice.hr_expense_create_invoice_form
-msgid "Cancel"
-msgstr "Annuler"
-
-#. module: hr_expense_invoice
-#: model_terms:ir.ui.view,arch_db:hr_expense_invoice.hr_expense_create_invoice_form
-msgid "Create Invoice"
-msgstr "Créer une facture"
-
-#. module: hr_expense_invoice
-#: model:ir.actions.act_window,name:hr_expense_invoice.action_expense_create_invoice
-#: model_terms:ir.ui.view,arch_db:hr_expense_invoice.hr_expense_sheet_form_view_inherit_sale_expense
-msgid "Create Vendor Bill"
-msgstr "Créer une facture fournisseur"
-
-#. module: hr_expense_invoice
-#: model_terms:ir.ui.view,arch_db:hr_expense_invoice.hr_expense_create_invoice_form
-msgid "Create Vendor Bill from Expense"
-msgstr "Créer une facture fournisseur depuis une note de frais"
-
-#. module: hr_expense_invoice
-#: model:ir.model,name:hr_expense_invoice.model_hr_expense_create_invoice
-msgid "Create invoice from expense report"
-msgstr "Créer une facture depuis un rapport de dépense"
-
-#. module: hr_expense_invoice
-#: model:ir.model.fields,field_description:hr_expense_invoice.field_hr_expense_create_invoice__create_uid
-msgid "Created by"
-msgstr "Créé par"
-
-#. module: hr_expense_invoice
-#: model:ir.model.fields,field_description:hr_expense_invoice.field_hr_expense_create_invoice__create_date
-msgid "Created on"
-msgstr "Créé le"
-
-#. module: hr_expense_invoice
-#: model:ir.model.fields,field_description:hr_expense_invoice.field_hr_expense_create_invoice__display_name
-msgid "Display Name"
-msgstr "Nom affiché"
-
-#. module: hr_expense_invoice
 #: model:ir.model,name:hr_expense_invoice.model_hr_expense
 msgid "Expense"
 msgstr "Note de frais"
-
-#. module: hr_expense_invoice
-#: model:ir.model,name:hr_expense_invoice.model_hr_expense_sheet_register_payment_wizard
-msgid "Expense Register Payment Wizard"
-msgstr "Assistant d'enregistrement de paiement de dépense"
 
 #. module: hr_expense_invoice
 #: model:ir.model,name:hr_expense_invoice.model_hr_expense_sheet
@@ -77,26 +31,12 @@ msgid "Expense Report"
 msgstr "Rapport de dépenses"
 
 #. module: hr_expense_invoice
-#: model:ir.model.fields,field_description:hr_expense_invoice.field_hr_expense_create_invoice__expense_ids
-msgid "Expenses"
-msgstr "Note de frais"
-
-#. module: hr_expense_invoice
-#: model:ir.model.fields,field_description:hr_expense_invoice.field_hr_expense_create_invoice__id
-msgid "ID"
-msgstr "ID"
-
-#. module: hr_expense_invoice
 #: model:ir.model.fields,field_description:hr_expense_invoice.field_hr_expense_sheet__invoice_count
 msgid "Invoice Count"
 msgstr "Nombre de factures"
 
 #. module: hr_expense_invoice
-#: model:ir.model.fields,field_description:hr_expense_invoice.field_hr_expense_sheet__invoice_fully_created
-msgid "Invoice Fully Created"
-msgstr "Facture créée"
-
-#. module: hr_expense_invoice
+#: code:addons/hr_expense_invoice/models/hr_expense_sheet.py:70
 #: code:addons/hr_expense_invoice/models/hr_expense_sheet.py:75
 #: model_terms:ir.ui.view,arch_db:hr_expense_invoice.hr_expense_sheet_form_view_inherit_sale_expense
 #, python-format
@@ -109,21 +49,6 @@ msgid "Journal Item"
 msgstr "Écriture comptable"
 
 #. module: hr_expense_invoice
-#: model:ir.model.fields,field_description:hr_expense_invoice.field_hr_expense_create_invoice____last_update
-msgid "Last Modified on"
-msgstr "Dernière modification le"
-
-#. module: hr_expense_invoice
-#: model:ir.model.fields,field_description:hr_expense_invoice.field_hr_expense_create_invoice__write_uid
-msgid "Last Updated by"
-msgstr "Dernière mise à jour par"
-
-#. module: hr_expense_invoice
-#: model:ir.model.fields,field_description:hr_expense_invoice.field_hr_expense_create_invoice__write_date
-msgid "Last Updated on"
-msgstr "Dernière mise à jour le"
-
-#. module: hr_expense_invoice
 #: code:addons/hr_expense_invoice/wizard/expense_create_invoice.py:40
 #, python-format
 msgid "No valid expenses to create invoice"
@@ -133,13 +58,6 @@ msgstr "Pas de note de frais valide pour créer une facture"
 #: model:ir.model,name:hr_expense_invoice.model_account_payment
 msgid "Payments"
 msgstr "Paiements"
-
-#. module: hr_expense_invoice
-#: model_terms:ir.ui.view,arch_db:hr_expense_invoice.hr_expense_create_invoice_form
-msgid "Please select expense line to create new vendor bill:"
-msgstr ""
-"Veuillez sélectionner une ligne de dépense pour créer une facture "
-"fournisseur :"
 
 #. module: hr_expense_invoice
 #: code:addons/hr_expense_invoice/models/account_payment.py:15
@@ -161,6 +79,7 @@ msgid "Vendor Bill"
 msgstr "Facture fournisseur"
 
 #. module: hr_expense_invoice
+#: code:addons/hr_expense_invoice/models/hr_expense_sheet.py:63
 #: code:addons/hr_expense_invoice/models/hr_expense_sheet.py:68
 #, python-format
 msgid ""
@@ -173,10 +92,61 @@ msgstr ""
 
 #. module: hr_expense_invoice
 #: code:addons/hr_expense_invoice/models/hr_expense.py:26
+#: code:addons/hr_expense_invoice/models/hr_expense_sheet.py:57
 #: code:addons/hr_expense_invoice/models/hr_expense_sheet.py:62
 #, python-format
 msgid "Vendor bill state must be Open"
 msgstr "La facture fournisseur doit être ouverte"
+
+#~ msgid "Cancel"
+#~ msgstr "Annuler"
+
+#~ msgid "Create Invoice"
+#~ msgstr "Créer une facture"
+
+#~ msgid "Create Vendor Bill"
+#~ msgstr "Créer une facture fournisseur"
+
+#~ msgid "Create Vendor Bill from Expense"
+#~ msgstr "Créer une facture fournisseur depuis une note de frais"
+
+#~ msgid "Create invoice from expense report"
+#~ msgstr "Créer une facture depuis un rapport de dépense"
+
+#~ msgid "Created by"
+#~ msgstr "Créé par"
+
+#~ msgid "Created on"
+#~ msgstr "Créé le"
+
+#~ msgid "Display Name"
+#~ msgstr "Nom affiché"
+
+#~ msgid "Expense Register Payment Wizard"
+#~ msgstr "Assistant d'enregistrement de paiement de dépense"
+
+#~ msgid "Expenses"
+#~ msgstr "Note de frais"
+
+#~ msgid "ID"
+#~ msgstr "ID"
+
+#~ msgid "Invoice Fully Created"
+#~ msgstr "Facture créée"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Dernière modification le"
+
+#~ msgid "Last Updated by"
+#~ msgstr "Dernière mise à jour par"
+
+#~ msgid "Last Updated on"
+#~ msgstr "Dernière mise à jour le"
+
+#~ msgid "Please select expense line to create new vendor bill:"
+#~ msgstr ""
+#~ "Veuillez sélectionner une ligne de dépense pour créer une facture "
+#~ "fournisseur :"
 
 #~ msgid ""
 #~ "Cannot reconcile supplier invoice payable with generated line. Please "
