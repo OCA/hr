@@ -37,7 +37,6 @@ msgstr "Nombre de factures"
 
 #. module: hr_expense_invoice
 #: code:addons/hr_expense_invoice/models/hr_expense_sheet.py:70
-#: code:addons/hr_expense_invoice/models/hr_expense_sheet.py:75
 #: model_terms:ir.ui.view,arch_db:hr_expense_invoice.hr_expense_sheet_form_view_inherit_sale_expense
 #, python-format
 msgid "Invoices"
@@ -47,12 +46,6 @@ msgstr "Factures"
 #: model:ir.model,name:hr_expense_invoice.model_account_move_line
 msgid "Journal Item"
 msgstr "Écriture comptable"
-
-#. module: hr_expense_invoice
-#: code:addons/hr_expense_invoice/wizard/expense_create_invoice.py:40
-#, python-format
-msgid "No valid expenses to create invoice"
-msgstr "Pas de note de frais valide pour créer une facture"
 
 #. module: hr_expense_invoice
 #: model:ir.model,name:hr_expense_invoice.model_account_payment
@@ -68,19 +61,12 @@ msgstr ""
 "autorisé"
 
 #. module: hr_expense_invoice
-#: code:addons/hr_expense_invoice/wizard/expense_create_invoice.py:23
-#, python-format
-msgid "This action is allowed only in Approved sate"
-msgstr "Cette action n'est autorisée qu'en état approuvé"
-
-#. module: hr_expense_invoice
 #: model:ir.model.fields,field_description:hr_expense_invoice.field_hr_expense__invoice_id
 msgid "Vendor Bill"
 msgstr "Facture fournisseur"
 
 #. module: hr_expense_invoice
 #: code:addons/hr_expense_invoice/models/hr_expense_sheet.py:63
-#: code:addons/hr_expense_invoice/models/hr_expense_sheet.py:68
 #, python-format
 msgid ""
 "Vendor bill amount mismatch!\n"
@@ -93,10 +79,15 @@ msgstr ""
 #. module: hr_expense_invoice
 #: code:addons/hr_expense_invoice/models/hr_expense.py:26
 #: code:addons/hr_expense_invoice/models/hr_expense_sheet.py:57
-#: code:addons/hr_expense_invoice/models/hr_expense_sheet.py:62
 #, python-format
 msgid "Vendor bill state must be Open"
 msgstr "La facture fournisseur doit être ouverte"
+
+#~ msgid "No valid expenses to create invoice"
+#~ msgstr "Pas de note de frais valide pour créer une facture"
+
+#~ msgid "This action is allowed only in Approved sate"
+#~ msgstr "Cette action n'est autorisée qu'en état approuvé"
 
 #~ msgid "Cancel"
 #~ msgstr "Annuler"
