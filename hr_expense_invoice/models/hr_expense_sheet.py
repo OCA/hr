@@ -1,5 +1,6 @@
-# Copyright 2015 Pedro M. Baeza <pedro.baeza@tecnativa.com>
-# Copyright 2017 Vicent Cubells <vicent.cubells@tecnativa.com>
+# Copyright 2015 Tecnativa - Pedro M. Baeza
+# Copyright 2017 Tecnativa - Vicent Cubells
+# Copyright 2021 Tecnativa - Víctor Martínez
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from odoo import models, fields, api, _
@@ -11,9 +12,6 @@ class HrExpenseSheet(models.Model):
     _inherit = "hr.expense.sheet"
 
     invoice_count = fields.Integer(
-        compute='_compute_invoice_count',
-    )
-    invoice_fully_created = fields.Boolean(
         compute='_compute_invoice_count',
     )
 
@@ -46,9 +44,6 @@ class HrExpenseSheet(models.Model):
         for sheet in self:
             sheet.invoice_count = can_read and \
                 len(sheet.expense_line_ids.mapped('invoice_id')) or 0
-            sheet.invoice_fully_created = \
-                not any(self.mapped('expense_line_ids').
-                        filtered(lambda l: not l.invoice_id))
 
     @api.model
     def _validate_expense_invoice(self, expense_lines):
