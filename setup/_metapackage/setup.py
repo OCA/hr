@@ -19,6 +19,7 @@ setuptools.setup(
         'odoo13-addon-hr_employee_calendar_planning',
         'odoo13-addon-hr_employee_document',
         'odoo13-addon-hr_employee_firstname',
+        'odoo13-addon-hr_employee_identification',
         'odoo13-addon-hr_employee_language',
         'odoo13-addon-hr_employee_lastnames',
         'odoo13-addon-hr_employee_medical_examination',
