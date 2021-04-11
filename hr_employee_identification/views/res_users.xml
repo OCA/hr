@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="res_users_view_form_profile" model="ir.ui.view">
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="hr.res_users_view_form_profile" />
+        <field name="arch" type="xml">
+            <field name="identification_id" position="before">
+                <field
+                    name="identification_type_id"
+                    attrs="{'readonly': [('can_edit', '=', False)]}"
+                />
+            </field>
+            <field name="identification_id" position="after">
+                <field
+                    name="identification_expiry_date"
+                    attrs="{'readonly': [('can_edit', '=', False)]}"
+                />
+            </field>
+        </field>
+    </record>
+</odoo>
