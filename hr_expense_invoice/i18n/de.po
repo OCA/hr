@@ -96,7 +96,6 @@ msgid ""
 msgstr ""
 
 #. module: hr_expense_invoice
-#: code:addons/hr_expense_invoice/models/hr_expense.py:26
 #: code:addons/hr_expense_invoice/models/hr_expense.py:67
 #: code:addons/hr_expense_invoice/models/hr_expense_sheet.py:57
 #, python-format
