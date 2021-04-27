@@ -20,6 +20,11 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: hr_expense_invoice
+#: model_terms:ir.ui.view,arch_db:hr_expense_invoice.hr_expense_sheet_form_view_inherit_sale_expense
+msgid "Create Vendor Bill"
+msgstr ""
+
+#. module: hr_expense_invoice
 #: model:ir.model,name:hr_expense_invoice.model_hr_expense
 msgid "Expense"
 msgstr ""
@@ -28,6 +33,22 @@ msgstr ""
 #: model:ir.model,name:hr_expense_invoice.model_hr_expense_sheet
 msgid "Expense Report"
 msgstr "Onkostennota"
+
+#. module: hr_expense_invoice
+#: model:ir.model.fields,help:hr_expense_invoice.field_hr_expense__sheet_id_state
+msgid "Expense Report State"
+msgstr ""
+
+#. module: hr_expense_invoice
+#: model:ir.model.fields,field_description:hr_expense_invoice.field_account_invoice__expense_ids
+#, fuzzy
+msgid "Expenses"
+msgstr "Onkostennota"
+
+#. module: hr_expense_invoice
+#: model:ir.model,name:hr_expense_invoice.model_account_invoice
+msgid "Invoice"
+msgstr ""
 
 #. module: hr_expense_invoice
 #: model:ir.model.fields,field_description:hr_expense_invoice.field_hr_expense_sheet__invoice_count
@@ -58,6 +79,11 @@ msgid "Register payment on expense's invoice is not allowed"
 msgstr ""
 
 #. module: hr_expense_invoice
+#: model:ir.model.fields,field_description:hr_expense_invoice.field_hr_expense__sheet_id_state
+msgid "Sheet state"
+msgstr ""
+
+#. module: hr_expense_invoice
 #: model:ir.model.fields,field_description:hr_expense_invoice.field_hr_expense__invoice_id
 msgid "Vendor Bill"
 msgstr ""
@@ -72,11 +98,16 @@ msgstr ""
 
 #. module: hr_expense_invoice
 #: code:addons/hr_expense_invoice/models/hr_expense.py:26
+#: code:addons/hr_expense_invoice/models/hr_expense.py:67
 #: code:addons/hr_expense_invoice/models/hr_expense_sheet.py:57
 #, python-format
 msgid "Vendor bill state must be Open"
 msgstr ""
 
-#, fuzzy
-#~ msgid "Expenses"
-#~ msgstr "Onkostennota"
+#. module: hr_expense_invoice
+#: code:addons/hr_expense_invoice/models/account_invoice.py:23
+#, python-format
+msgid ""
+"You can't change the total amount, as there's an expense linked to this "
+"invoice."
+msgstr ""

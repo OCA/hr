@@ -21,6 +21,11 @@ msgstr ""
 "X-Generator: Weblate 4.3.2\n"
 
 #. module: hr_expense_invoice
+#: model_terms:ir.ui.view,arch_db:hr_expense_invoice.hr_expense_sheet_form_view_inherit_sale_expense
+msgid "Create Vendor Bill"
+msgstr "Créer une facture fournisseur"
+
+#. module: hr_expense_invoice
 #: model:ir.model,name:hr_expense_invoice.model_hr_expense
 msgid "Expense"
 msgstr "Note de frais"
@@ -29,6 +34,21 @@ msgstr "Note de frais"
 #: model:ir.model,name:hr_expense_invoice.model_hr_expense_sheet
 msgid "Expense Report"
 msgstr "Rapport de dépenses"
+
+#. module: hr_expense_invoice
+#: model:ir.model.fields,help:hr_expense_invoice.field_hr_expense__sheet_id_state
+msgid "Expense Report State"
+msgstr ""
+
+#. module: hr_expense_invoice
+#: model:ir.model.fields,field_description:hr_expense_invoice.field_account_invoice__expense_ids
+msgid "Expenses"
+msgstr "Note de frais"
+
+#. module: hr_expense_invoice
+#: model:ir.model,name:hr_expense_invoice.model_account_invoice
+msgid "Invoice"
+msgstr ""
 
 #. module: hr_expense_invoice
 #: model:ir.model.fields,field_description:hr_expense_invoice.field_hr_expense_sheet__invoice_count
@@ -61,6 +81,11 @@ msgstr ""
 "autorisé"
 
 #. module: hr_expense_invoice
+#: model:ir.model.fields,field_description:hr_expense_invoice.field_hr_expense__sheet_id_state
+msgid "Sheet state"
+msgstr ""
+
+#. module: hr_expense_invoice
 #: model:ir.model.fields,field_description:hr_expense_invoice.field_hr_expense__invoice_id
 msgid "Vendor Bill"
 msgstr "Facture fournisseur"
@@ -78,10 +103,19 @@ msgstr ""
 
 #. module: hr_expense_invoice
 #: code:addons/hr_expense_invoice/models/hr_expense.py:26
+#: code:addons/hr_expense_invoice/models/hr_expense.py:67
 #: code:addons/hr_expense_invoice/models/hr_expense_sheet.py:57
 #, python-format
 msgid "Vendor bill state must be Open"
 msgstr "La facture fournisseur doit être ouverte"
+
+#. module: hr_expense_invoice
+#: code:addons/hr_expense_invoice/models/account_invoice.py:23
+#, python-format
+msgid ""
+"You can't change the total amount, as there's an expense linked to this "
+"invoice."
+msgstr ""
 
 #~ msgid "No valid expenses to create invoice"
 #~ msgstr "Pas de note de frais valide pour créer une facture"
@@ -94,9 +128,6 @@ msgstr "La facture fournisseur doit être ouverte"
 
 #~ msgid "Create Invoice"
 #~ msgstr "Créer une facture"
-
-#~ msgid "Create Vendor Bill"
-#~ msgstr "Créer une facture fournisseur"
 
 #~ msgid "Create Vendor Bill from Expense"
 #~ msgstr "Créer une facture fournisseur depuis une note de frais"
@@ -115,9 +146,6 @@ msgstr "La facture fournisseur doit être ouverte"
 
 #~ msgid "Expense Register Payment Wizard"
 #~ msgstr "Assistant d'enregistrement de paiement de dépense"
-
-#~ msgid "Expenses"
-#~ msgstr "Note de frais"
 
 #~ msgid "ID"
 #~ msgstr "ID"
