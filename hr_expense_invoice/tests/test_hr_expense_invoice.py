@@ -165,13 +165,54 @@ class TestHrExpenseInvoice(common.SavepointCase):
         # We make payment on expense sheet
         self._register_payment(self.sheet)
 
-    def test_4_hr_expense_constraint(self):
-        # Only invoice with status open is allowed
+    def test_3_hr_test_expense_create_invoice(self):
+        # There is no expense lines in sheet
+        self.assertEqual(len(self.sheet.expense_line_ids), 0)
+        # We add 2 expenses
+        self.sheet.expense_line_ids = [(6, 0, [self.expense.id, self.expense2.id])]
+        self.sheet.approve_expense_sheets()
+        self.assertEqual(len(self.sheet.expense_line_ids), 2)
+        self.expense.action_expense_create_invoice()
+        self.assertTrue(self.expense.invoice_id)
+        self.assertEqual(self.sheet.invoice_count, 1)
+        self.sheet.invalidate_cache()
+        self.expense2.action_expense_create_invoice()
+        self.assertTrue(self.expense2.invoice_id)
+        self.assertEqual(self.sheet.invoice_count, 2)
+        # Only change invoice not assigned to expense yet
         with self.assertRaises(ValidationError):
-            self.expense.write({'invoice_id': self.invoice.id})
+            self.expense.invoice_id.amount_total = 60
+        # Force to change
+        invoice = self.expense2.invoice_id
+        self.expense2.invoice_id = False
+        invoice.amount_total = 50
+        self.assertEqual(self.expense2.total_amount, 50)
+        # Set invoice_id again to expense2
+        self.expense2.invoice_id = invoice
+        # Validate invoices
+        self.expense.invoice_id.partner_id = self.partner
+        self.expense.invoice_id.account_id = self.invoice_account
+        self.expense.invoice_id.action_invoice_open()
+        self.expense2.invoice_id.partner_id = self.partner
+        self.expense2.invoice_id.account_id = self.invoice_account
+        self.expense2.invoice_id.action_invoice_open()
+        self.sheet.action_sheet_move_create()
+        self.assertEqual(self.sheet.state, "post")
+        self.assertTrue(self.sheet.account_move_id)
+        # Invoice are now paid
+        self.assertEqual(self.expense.invoice_id.state, "paid")
+        self.assertEqual(self.expense2.invoice_id.state, "paid")
+        # We make payment on expense sheet
+        self._register_payment(self.sheet)
+        # Click on View Invoice button link to the correct invoice
+        res = self.sheet.action_view_invoices()
+        self.assertEqual(res["view_mode"], "tree,form")
+
+    def test_4_hr_expense_constraint(self):
         # We add an expense, total_amount now = 50.0
         self.sheet.expense_line_ids = [(6, 0, [self.expense.id])]
         # We add invoice to expense
+        self.invoice.amount_total = 100
         self.invoice.action_invoice_open()  # residual = 100.0
         self.expense.invoice_id = self.invoice
         # Amount must equal, expense vs invoice
