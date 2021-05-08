@@ -1,0 +1,60 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* hr_calendar_multiweek
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hr_calendar_multiweek
+#: model:ir.model.fields,field_description:hr_calendar_multiweek.field_resource_calendar_attendance_calendar_week_number
+msgid "Calendar Week Number"
+msgstr ""
+
+#. module: hr_calendar_multiweek
+#: sql_constraint:resource.calendar.attendance:0
+msgid "Calendar week number must be greater than 1"
+msgstr ""
+
+#. module: hr_calendar_multiweek
+#: model:ir.model,name:hr_calendar_multiweek.model_resource_calendar
+msgid "Resource Calendar"
+msgstr ""
+
+#. module: hr_calendar_multiweek
+#: model:ir.model.fields,help:hr_calendar_multiweek.field_resource_calendar_attendance_calendar_week_number
+msgid "Total number of weeks to use for the rule"
+msgstr ""
+
+#. module: hr_calendar_multiweek
+#: model:ir.model.fields,field_description:hr_calendar_multiweek.field_resource_calendar_attendance_week_number
+msgid "Week Number"
+msgstr ""
+
+#. module: hr_calendar_multiweek
+#: sql_constraint:resource.calendar.attendance:0
+msgid "Week number must be greater than 1"
+msgstr ""
+
+#. module: hr_calendar_multiweek
+#: sql_constraint:resource.calendar.attendance:0
+msgid "Week number must be less or equal than calendar week number"
+msgstr ""
+
+#. module: hr_calendar_multiweek
+#: model:ir.model.fields,help:hr_calendar_multiweek.field_resource_calendar_attendance_week_number
+msgid "Week when the rule must be applied"
+msgstr ""
+
+#. module: hr_calendar_multiweek
+#: model:ir.model,name:hr_calendar_multiweek.model_resource_calendar_attendance
+msgid "Work Detail"
+msgstr ""
+
