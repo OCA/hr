@@ -1,0 +1,104 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* hr_employee_calendar_planning
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2020-01-16 20:00+0000\n"
+"Last-Translator: Carles Antoli <carlesantoli@hotmail.com>\n"
+"Language-Team: none\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.10\n"
+
+#. module: hr_employee_calendar_planning
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_resource_calendar__active
+msgid "Active"
+msgstr "Activo"
+
+#. module: hr_employee_calendar_planning
+#: code:addons/hr_employee_calendar_planning/models/hr_employee.py:0
+#, python-format
+msgid "Auto generated calendar for employee"
+msgstr "Horario autogenerado para el empleado"
+
+#. module: hr_employee_calendar_planning
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee__calendar_ids
+msgid "Calendar planning"
+msgstr "Plan de Horario"
+
+#. module: hr_employee_calendar_planning
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: hr_employee_calendar_planning
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: hr_employee_calendar_planning
+#: model:ir.model.constraint,message:hr_employee_calendar_planning.constraint_hr_employee_calendar_date_consistency
+msgid "Date end should be higher than date start"
+msgstr "La fecha de fin debe ser mayor que la de inicio"
+
+#. module: hr_employee_calendar_planning
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__display_name
+msgid "Display Name"
+msgstr "Nombre a mostrar"
+
+#. module: hr_employee_calendar_planning
+#: model:ir.model,name:hr_employee_calendar_planning.model_hr_employee
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__employee_id
+msgid "Employee"
+msgstr "Empleado"
+
+#. module: hr_employee_calendar_planning
+#: model:ir.model,name:hr_employee_calendar_planning.model_hr_employee_calendar
+msgid "Employee Calendar"
+msgstr "Horario del Empleado"
+
+#. module: hr_employee_calendar_planning
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__date_end
+msgid "End Date"
+msgstr "Fecha de finalización"
+
+#. module: hr_employee_calendar_planning
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__id
+msgid "ID"
+msgstr "ID"
+
+#. module: hr_employee_calendar_planning
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar____last_update
+msgid "Last Modified on"
+msgstr "Última modificación el"
+
+#. module: hr_employee_calendar_planning
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__write_uid
+msgid "Last Updated by"
+msgstr "Última modificación por"
+
+#. module: hr_employee_calendar_planning
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__write_date
+msgid "Last Updated on"
+msgstr "Última modificación el"
+
+#. module: hr_employee_calendar_planning
+#: model:ir.model,name:hr_employee_calendar_planning.model_resource_calendar
+msgid "Resource Working Time"
+msgstr "Tiempo de trabajo"
+
+#. module: hr_employee_calendar_planning
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__date_start
+msgid "Start Date"
+msgstr "Fecha de Inicio"
+
+#. module: hr_employee_calendar_planning
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__calendar_id
+msgid "Working Time"
+msgstr "Tiempo de Trabajo"
