@@ -13,6 +13,7 @@ setuptools.setup(
         'odoo11-addon-hr_attendance_reason',
         'odoo11-addon-hr_attendance_report_theoretical_time',
         'odoo11-addon-hr_attendance_rfid',
+        'odoo11-addon-hr_calendar_multiweek',
         'odoo11-addon-hr_calendar_rest_time',
         'odoo11-addon-hr_contract_default_trial_length',
         'odoo11-addon-hr_contract_multi_job',
