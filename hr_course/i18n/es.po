@@ -215,7 +215,7 @@ msgstr "Tiene permanencia"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee_id
-#: model:ir.model.fields,field_description:hr_course.field_hr_course_category_id_4197
+#: model:ir.model.fields,field_description:hr_course.field_hr_course_category_id_4199
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_id
 msgid "ID"
 msgstr "ID"
