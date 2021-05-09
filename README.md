@@ -23,6 +23,7 @@ addon | version | summary
 [hr_contract_multi_job](hr_contract_multi_job/) | 14.0.1.0.0 | HR Contract Multi Jobs
 [hr_contract_reference](hr_contract_reference/) | 14.0.1.0.0 | HR Contract Reference
 [hr_employee_age](hr_employee_age/) | 14.0.1.0.0 | Age field for employee
+[hr_employee_calendar_planning](hr_employee_calendar_planning/) | 14.0.1.0.1 | Employee Calendar Planning
 [hr_employee_firstname](hr_employee_firstname/) | 14.0.2.0.1 | Adds First Name to Employee
 [hr_employee_lastnames](hr_employee_lastnames/) | 14.0.2.0.0 | Split Name in First Name, Father's Last Name and Mother's Last Name
 [hr_employee_medical_examination](hr_employee_medical_examination/) | 14.0.1.0.0 | Adds information about employee's medical examinations
