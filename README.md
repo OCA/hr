@@ -20,6 +20,7 @@ Available addons
 addon | version | summary
 --- | --- | ---
 [hr_branch](hr_branch/) | 14.0.1.0.0 | Allow define company branch for employee process
+[hr_contract_currency](hr_contract_currency/) | 14.0.1.0.0 | Employee's contract currency
 [hr_contract_multi_job](hr_contract_multi_job/) | 14.0.1.0.0 | HR Contract Multi Jobs
 [hr_contract_reference](hr_contract_reference/) | 14.0.1.0.0 | HR Contract Reference
 [hr_employee_age](hr_employee_age/) | 14.0.1.0.0 | Age field for employee
