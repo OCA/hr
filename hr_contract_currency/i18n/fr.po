@@ -26,3 +26,18 @@ msgstr "Contrat de l'employé(e)"
 #: model:ir.model.fields,field_description:hr_contract_currency.field_hr_contract__currency_id
 msgid "Currency"
 msgstr "Devise"
+
+#. module: hr_contract_currency
+#: model:ir.model.fields,field_description:hr_contract_currency.field_hr_contract__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: hr_contract_currency
+#: model:ir.model.fields,field_description:hr_contract_currency.field_hr_contract__id
+msgid "ID"
+msgstr ""
+
+#. module: hr_contract_currency
+#: model:ir.model.fields,field_description:hr_contract_currency.field_hr_contract____last_update
+msgid "Last Modified on"
+msgstr ""
