@@ -21,6 +21,16 @@ msgid "%s is not a petty cash holder"
 msgstr ""
 
 #. module: hr_expense_petty_cash
+#: model:ir.model.fields,field_description:hr_expense_petty_cash.field_petty_cash__active
+msgid "Active"
+msgstr ""
+
+#. module: hr_expense_petty_cash
+#: model_terms:ir.ui.view,arch_db:hr_expense_petty_cash.view_petty_cash_search
+msgid "Archived"
+msgstr ""
+
+#. module: hr_expense_petty_cash
 #: model:ir.model.fields,field_description:hr_expense_petty_cash.field_petty_cash__petty_cash_balance
 #: model_terms:ir.ui.view,arch_db:hr_expense_petty_cash.view_petty_cash_list
 msgid "Balance"
@@ -88,6 +98,7 @@ msgstr ""
 
 #. module: hr_expense_petty_cash
 #: model:ir.model.fields,field_description:hr_expense_petty_cash.field_petty_cash__journal_id
+#: model_terms:ir.ui.view,arch_db:hr_expense_petty_cash.view_petty_cash_search
 msgid "Journal"
 msgstr ""
 
@@ -145,6 +156,7 @@ msgstr ""
 
 #. module: hr_expense_petty_cash
 #: model:ir.model.fields,field_description:hr_expense_petty_cash.field_petty_cash__account_id
+#: model_terms:ir.ui.view,arch_db:hr_expense_petty_cash.view_petty_cash_search
 msgid "Petty Cash Account"
 msgstr ""
 
@@ -152,6 +164,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_expense_petty_cash.field_petty_cash__partner_id
 #: model_terms:ir.ui.view,arch_db:hr_expense_petty_cash.view_hr_expense_filter_inherit
 #: model_terms:ir.ui.view,arch_db:hr_expense_petty_cash.view_hr_expense_sheet_filter_inherit
+#: model_terms:ir.ui.view,arch_db:hr_expense_petty_cash.view_petty_cash_search
 msgid "Petty Cash Holder"
 msgstr ""
 
