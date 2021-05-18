@@ -46,7 +46,8 @@ class HrEmployee(models.Model):
     def _compute_last_contract_id(self):
         Contract = self.env['hr.contract']
         for employee in self:
-            employee.last_contract_id = self._get_last_contract_id(employee.id)
+            last_contract_id = self._get_last_contract_id(employee.id)
+            employee.last_contract_id = Contract.browse(last_contract_id)
     
     @api.multi
     @api.onchange('service_hire_date')
@@ -54,8 +55,10 @@ class HrEmployee(models.Model):
         # Do nothing
         pass
 
-    @api.multi
     def _get_last_contract_id(self, employee_id):
+        '''If the date_end of the contract is empty, need to take the date_start of this
+        contract to avoid getting an empty date when sorting in descending order
+        '''
         cr = self.env.cr
         query = '''SELECT c.id
                 FROM hr_contract c
@@ -64,8 +67,8 @@ class HrEmployee(models.Model):
                 ORDER BY COALESCE(c.date_end, c.date_start) DESC
                 LIMIT 1'''
         cr.execute(query, (employee_id, tuple(self._get_service_contract_states())))
-        contract_ids = cr.fetchone()
-        return self.env['hr.contract'].browse(contract_ids)
+        result = cr.fetchone()
+        return result and result[0]
     
     @api.multi
     def _get_contract_filter(self):
