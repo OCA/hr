@@ -14,6 +14,7 @@
                         <!-- <field name="name" invisible="1"/> -->
                         <field name="product_id"/>
                         <field name="expirable"/>
+                        <field name="indications"/>
                     </group>
                 </sheet>
                 <div class="oe_chatter"></div>
@@ -52,9 +53,9 @@
 
     <record model="ir.ui.menu" id="hr_employee_ppe_equipment_menu">
         <field name="name">Equipments</field>
-        <field name="parent_id" ref="menu_hr_employee_ppe"/> 
+        <field name="parent_id" ref="menu_hr_employee_ppe"/>
         <field name="action" ref="hr_employee_ppe_equipment_act_window"/>
-        <field name="sequence" eval="99"/> 
+        <field name="sequence" eval="99"/>
     </record>
 
 </odoo>

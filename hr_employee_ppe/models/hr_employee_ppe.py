@@ -50,8 +50,9 @@ class HrEmployeePPE(models.Model):
             if (rec.ppe_id.product_id.name and rec.employee_id.name):
                 rec.name = rec.ppe_id.product_id.name + _(" to ") + rec.employee_id.name
                 rec.expire = rec.ppe_id.expirable
+                rec.indications = rec.ppe_id.indications
 
-    @api.depends("end_date", "start_date")
+    @api.depends("end_date", "start_date", "ppe_id", "employee_id")
     def _compute_status(self):
         for rec in self:
             if not rec.expire:
@@ -75,7 +76,7 @@ class HrEmployeePPE(models.Model):
     @api.constrains("start_date", "end_date")
     def _check_dates(self):
         for record in self:
-            if self.expire:
+            if record.expire:
                 if not record.end_date or not record.start_date:
                     raise ValidationError(
                         _(
@@ -83,8 +84,7 @@ class HrEmployeePPE(models.Model):
                             end date for expirable PPEs."""
                         )
                     )
-                if record.end_date and record.start_date:
-                    if record.end_date < record.start_date:
-                        raise ValidationError(
-                            _("End date cannot occur earlier than the start date.")
-                        )
+                if record.end_date < record.start_date:
+                    raise ValidationError(
+                        _("End date cannot occur earlier than the start date.")
+                    )

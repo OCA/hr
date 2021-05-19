@@ -23,7 +23,7 @@ Personal Protective Equipment (PPE) Management
     :target: https://runbot.odoo-community.org/runbot/116/12.0
     :alt: Try me on Runbot
 
-|badge1| |badge2| |badge3| |badge4| |badge5| 
+|badge1| |badge2| |badge3| |badge4| |badge5|
 
 This module allows you to manage allocation of PPE to your employees.
 
@@ -105,7 +105,7 @@ promote its widespread use.
 
 Current `maintainers <https://odoo-community.org/page/maintainer-role>`__:
 
-|maintainer-marcelsavegnago| |maintainer-eduaparicio| 
+|maintainer-marcelsavegnago| |maintainer-eduaparicio|
 
 This module is part of the `OCA/hr <https://github.com/OCA/hr/tree/12.0/hr_employee_ppe>`_ project on GitHub.
 
