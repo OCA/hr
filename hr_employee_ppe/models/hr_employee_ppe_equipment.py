@@ -21,6 +21,10 @@ class HrEmployeePpeEquipment(models.Model):
     expirable = fields.Boolean(
         help='Select this option if the PPE has expiry date.'
     )
+    indications = fields.Text(
+        string="Indications",
+        help="Situations in which the employee should use this equipment.",
+    )
 
     @api.onchange('product_id')
     def update_name(self):

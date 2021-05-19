@@ -21,6 +21,8 @@
         "views/hr_employee_ppe_view.xml",
         'views/hr_employee_ppe_equipment.xml',
         'data/hr_employee_ppe_cron.xml',
+        'reports/hr_employee_ppe_report_template.xml',
+        'reports/hr_employee_ppe_report.xml'
     ],
     'demo': [
         'demo/hr_employee_ppe_demo.xml',
