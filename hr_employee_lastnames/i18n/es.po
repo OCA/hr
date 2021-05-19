@@ -24,7 +24,7 @@ msgstr "Empleado"
 #. module: hr_employee_lastnames
 #: model:ir.model.fields,field_description:hr_employee_lastnames.field_hr_employee__firstname
 msgid "First name"
-msgstr "Nombre Propio"
+msgstr "Nombres"
 
 #. module: hr_employee_lastnames
 #: model:ir.model.fields,field_description:hr_employee_lastnames.field_hr_employee__lastname

@@ -27,12 +27,12 @@ msgstr "Empleado"
 #. module: hr_employee_phone_extension
 #: model_terms:ir.ui.view,arch_db:hr_employee_phone_extension.view_employee_form
 msgid "Internal Contact"
-msgstr ""
+msgstr "Contacto Interno"
 
 #. module: hr_employee_phone_extension
 #: model:ir.model.fields,field_description:hr_employee_phone_extension.field_hr_employee__internal_number
 msgid "Internal Number"
-msgstr "Número interno"
+msgstr "Número Interno"
 
 #. module: hr_employee_phone_extension
 #: model:ir.model.fields,help:hr_employee_phone_extension.field_hr_employee__internal_number

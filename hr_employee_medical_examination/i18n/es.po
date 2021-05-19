@@ -30,12 +30,12 @@ msgstr "<strong>Filtros:</strong>"
 #. module: hr_employee_medical_examination
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee_medical_examination__message_needaction
 msgid "Action Needed"
-msgstr ""
+msgstr "Accion Necesaria"
 
 #. module: hr_employee_medical_examination
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee_medical_examination__activity_ids
 msgid "Activities"
-msgstr ""
+msgstr "Actividades"
 
 #. module: hr_employee_medical_examination
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee_medical_examination__activity_exception_decoration
@@ -316,7 +316,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee_medical_examination__note
 #: model_terms:ir.ui.view,arch_db:hr_employee_medical_examination.hr_employee_medical_examination_form_view
 msgid "Note"
-msgstr ""
+msgstr "Nota"
 
 #. module: hr_employee_medical_examination
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee_medical_examination__message_needaction_counter

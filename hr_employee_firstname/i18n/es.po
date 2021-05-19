@@ -38,12 +38,12 @@ msgstr "Orden de los Nombres de Empleados"
 #. module: hr_employee_firstname
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee__firstname
 msgid "First name"
-msgstr ""
+msgstr "Nombres"
 
 #. module: hr_employee_firstname
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee__lastname
 msgid "Last name"
-msgstr ""
+msgstr "Apellidos"
 
 #. module: hr_employee_firstname
 #: code:addons/hr_employee_firstname/models/hr_employee.py:0

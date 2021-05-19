@@ -37,7 +37,7 @@ msgstr "Mostrar Nombre"
 #. module: hr_employee_identification
 #: model:ir.model,name:hr_employee_identification.model_hr_employee
 msgid "Employee"
-msgstr ""
+msgstr "Empleado"
 
 #. module: hr_employee_identification
 #: field:hr.employee.identification.type,id:0
@@ -47,23 +47,23 @@ msgstr "ID"
 #. module: hr_employee_identification
 #: field:hr.employee,identification_expiry_date:0
 msgid "Identification expiry"
-msgstr ""
+msgstr "Vencimiento de ID"
 
 #. module: hr_employee_identification
 #: field:hr.employee,identification_type_id:0
 msgid "Identification type"
-msgstr ""
+msgstr "Tipo de Documento"
 
 #. module: hr_employee_identification
 #: model:ir.actions.act_window,name:hr_employee_identification.action_hr_employee_identification_type
 #: model:ir.ui.menu,name:hr_employee_identification.menu_hr_employee_identification_type
 msgid "Identification types"
-msgstr ""
+msgstr "Tipos de Documentos"
 
 #. module: hr_employee_identification
 #: model:ir.model,name:hr_employee_identification.model_hr_employee_identification_type
 msgid "Identification/Passport"
-msgstr ""
+msgstr "DNI/CUIL/Pasaporte"
 
 #. module: hr_employee_identification
 #: field:hr.employee.identification.type,__last_update:0

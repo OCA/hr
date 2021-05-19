@@ -33,7 +33,7 @@ msgstr "Contrato"
 #. module: hr_job_category
 #: model:ir.model,name:hr_job_category.model_hr_job
 msgid "Job Position"
-msgstr ""
+msgstr "Posicion de Trabajo"
 
 #. module: hr_job_category
 #: model_terms:ir.ui.view,arch_db:hr_job_category.view_job_form

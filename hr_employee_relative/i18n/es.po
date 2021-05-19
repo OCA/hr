@@ -29,7 +29,7 @@ msgstr "Hijo(a)"
 #. module: hr_employee_relative
 #: model_terms:ir.actions.act_window,help:hr_employee_relative.action_employee_relatives
 msgid "Click 'Create' to add a new Relative"
-msgstr ""
+msgstr "Presiona 'Crear? para agregar un Pariente"
 
 #. module: hr_employee_relative
 #: model:hr.employee.relative.relation,name:hr_employee_relative.relation_cousin
@@ -180,7 +180,7 @@ msgstr "Parientes"
 #. module: hr_employee_relative
 #: model:ir.model.fields,field_description:hr_employee_relative.field_hr_employee__relatives_count
 msgid "Relatives Count"
-msgstr ""
+msgstr "Cantidad de Parientes"
 
 #. module: hr_employee_relative
 #: model:hr.employee.relative.relation,name:hr_employee_relative.relation_sibling
