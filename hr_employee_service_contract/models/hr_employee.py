@@ -48,7 +48,7 @@ class HrEmployee(models.Model):
         for employee in self:
             last_contract_id = self._get_last_contract_id(employee.id)
             employee.last_contract_id = Contract.browse(last_contract_id)
-    
+
     @api.multi
     @api.onchange('service_hire_date')
     def _onchange_service_hire_date(self):  # pragma: no cover
@@ -69,7 +69,7 @@ class HrEmployee(models.Model):
         cr.execute(query, (employee_id, tuple(self._get_service_contract_states())))
         result = cr.fetchone()
         return result and result[0]
-    
+
     @api.multi
     def _get_contract_filter(self):
         self.ensure_one()
