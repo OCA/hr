@@ -140,14 +140,15 @@ class TestHrEmployeeService(common.TransactionCase):
     def test_6(self):
         employee = self.SudoEmployee.create({
             'name': 'Employee #6',
-        })
-        contract_1 = self.Contract.create({
-            'name': 'Employee #6 Contract #1',
-            'employee_id': employee.id,
-            'wage': 5000.0,
-            'state': 'open',
-            'date_start': self.today - relativedelta(years=5),
-            'date_end': self.today - relativedelta(years=1),
+            'contract_ids': [
+                (0, 0, {
+                    'name': 'Employee #6 Contract #1',
+                    'wage': 5000.0,
+                    'state': 'close',
+                    'date_start': self.today - relativedelta(years=5),
+                    'date_end': self.today - relativedelta(years=1),
+                }),
+            ],
         })
         contract_2 = self.Contract.create({
             'name': 'Employee #6 Contract #2',
@@ -167,4 +168,37 @@ class TestHrEmployeeService(common.TransactionCase):
         self.assertEqual(
             employee.service_termination_date,
             False
+        )
+
+    def test_7(self):
+        employee = self.SudoEmployee.create({
+            'name': 'Employee #7',
+            'contract_ids': [
+                (0, 0, {
+                    'name': 'Employee #7 Contract #1',
+                    'wage': 5000.0,
+                    'state': 'close',
+                    'date_start': self.today - relativedelta(years=3),
+                    'date_end': False,
+                }),
+            ],
+        })
+        contract_2 = self.Contract.create({
+            'name': 'Employee #7 Contract #2',
+            'employee_id': employee.id,
+            'wage': 6000.0,
+            'state': 'open',
+            'date_start': self.today - relativedelta(years=2),
+            'date_end': False,
+        })
+
+        self.assertEqual(
+            employee.service_termination_date,
+            False
+        )
+
+        contract_2.write({'date_end': self.today})
+        self.assertEqual(
+            employee.service_termination_date,
+            self.today
         )
