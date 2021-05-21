@@ -42,7 +42,7 @@ class HrEmployee(models.Model):
             )
 
     @api.multi
-    @api.depends('contract_ids', 'contract_ids.date_end', 'contract_ids.state')
+    @api.depends('contract_ids', 'contract_ids.date_start', 'contract_ids.date_end', 'contract_ids.state')
     def _compute_last_contract_id(self):
         Contract = self.env['hr.contract']
         for employee in self:
@@ -64,7 +64,7 @@ class HrEmployee(models.Model):
                 FROM hr_contract c
                 WHERE c.employee_id = %s
                     AND c.state IN %s
-                ORDER BY COALESCE(c.date_end, c.date_start) DESC
+                ORDER BY c.date_start DESC, COALESCE(c.date_end, c.date_start) DESC
                 LIMIT 1'''
         cr.execute(query, (employee_id, tuple(self._get_service_contract_states())))
         result = cr.fetchone()
