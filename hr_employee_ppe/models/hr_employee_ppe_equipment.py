@@ -1,7 +1,7 @@
 # Copyright 2020 Escodoo
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import api, fields, models
+from odoo import fields, models
 
 
 class HrEmployeePpeEquipment(models.Model):
@@ -25,7 +25,3 @@ class HrEmployeePpeEquipment(models.Model):
         string="Indications",
         help="Situations in which the employee should use this equipment.",
     )
-
-    @api.onchange('product_id')
-    def update_name(self):
-        self.name = self.product_id.name
