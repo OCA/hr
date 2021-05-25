@@ -107,6 +107,8 @@ class HrAttendanceTheoreticalTimeReport(models.Model):
             LEFT JOIN
                 resource_calendar_attendance rca
                     ON rca.calendar_id = rr.calendar_id
+            INNER JOIN
+                hr_leave hl ON he.id = hl.employee_id
             CROSS JOIN
                 generate_series(
                     greatest(
@@ -139,7 +141,7 @@ class HrAttendanceTheoreticalTimeReport(models.Model):
 
     def _where_sub2(self):
         return """
-            rca.id IS NOT NULL
+            rca.id IS NOT NULL AND (gs::date < hl.date_from::date OR gs::date > hl.date_to::date)
             """
 
     def _group_by(self):
