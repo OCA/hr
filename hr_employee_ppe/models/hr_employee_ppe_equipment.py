@@ -25,7 +25,3 @@ class HrEmployeePpeEquipment(models.Model):
         string="Indications",
         help="Situations in which the employee should use this equipment.",
     )
-
-    @api.onchange('product_id')
-    def update_name(self):
-        self.name = self.product_id.name

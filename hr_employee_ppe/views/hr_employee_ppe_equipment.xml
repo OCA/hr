@@ -11,7 +11,6 @@
             <form>
                 <sheet>
                     <group>
-                        <!-- <field name="name" invisible="1"/> -->
                         <field name="product_id"/>
                         <field name="expirable"/>
                         <field name="indications"/>
@@ -19,16 +18,6 @@
                 </sheet>
                 <div class="oe_chatter"></div>
             </form>
-        </field>
-    </record>
-
-    <record model="ir.ui.view" id="hr_employee_ppe_equipment_search_view">
-        <field name="name">hr.employee.ppe.equipment.search (in hr_employee_ppe)</field>
-        <field name="model">hr.employee.ppe.equipment</field>
-        <field name="arch" type="xml">
-            <search>
-                <!-- TODO -->
-            </search>
         </field>
     </record>
 
@@ -41,14 +30,6 @@
                 <field name="expirable"/>
             </tree>
         </field>
-    </record>
-
-    <record model="ir.actions.act_window" id="hr_employee_ppe_equipment_act_window">
-        <field name="name">PPE - Equipment</field> <!-- TODO -->
-        <field name="res_model">hr.employee.ppe.equipment</field>
-        <field name="view_mode">tree,form</field>
-        <field name="domain">[]</field>
-        <field name="context">{}</field>
     </record>
 
     <record model="ir.ui.menu" id="hr_employee_ppe_equipment_menu">

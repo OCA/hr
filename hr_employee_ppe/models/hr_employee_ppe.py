@@ -13,7 +13,7 @@ class HrEmployeePPE(models.Model):
     _inherit = ["mail.thread", "mail.activity.mixin"]
 
     name = fields.Char(
-        compute='_compute_name',
+        compute='_compute_fields',
     )
     ppe_id = fields.Many2one(
         string="Equipment", required=True, comodel_name="hr.employee.ppe.equipment",
@@ -45,7 +45,7 @@ class HrEmployeePPE(models.Model):
     )
 
     @api.depends('ppe_id', 'employee_id')
-    def _compute_name(self):
+    def _compute_fields(self):
         for rec in self:
             if (rec.ppe_id.product_id.name and rec.employee_id.name):
                 rec.name = rec.ppe_id.product_id.name + _(" to ") + rec.employee_id.name
