@@ -4,6 +4,7 @@ from odoo import api, fields, models
 from odoo.tools.translate import _
 import datetime
 
+
 class Employee(models.Model):
     _inherit = ['hr.employee']
 
@@ -27,10 +28,11 @@ class Employee(models.Model):
             d = self.env['hr.department'].browse(remove_member)
             d.write({'member_ids': [(3, employee_id)]})
 
+
 class Department(models.Model):
     _inherit = ['hr.department']
 
     members_ids = fields.Many2many(
         'hr.employee', 'department_member_rel',
-        'department_ids', 'member_id', 
+        'department_ids', 'member_id',
         string='Members')

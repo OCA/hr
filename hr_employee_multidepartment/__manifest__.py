@@ -3,8 +3,10 @@
     'version': '12.0.0.0.1',
     'depends': [
     ],
-    'author': "Som Energia SCCL",
-    'website': 'https://www.somenergia.coop',
+    'author': """Som Energia SCCL,
+    Odoo Community Association (OCA)
+    """,
+    'website': 'https://github.com/OCA/hr',
     'category': 'Human Resources',
     'summary': """ 
     Add multidepartment feature.
@@ -13,7 +15,7 @@
     'demo': [
     ],
     'data': [
-		'views/hr_employee_views.xml',
+        'views/hr_employee_views.xml',
     ],
     'installable': True,
     'application': True,
