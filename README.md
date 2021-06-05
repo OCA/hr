@@ -23,6 +23,7 @@ addon | version | summary
 [hr_contract_currency](hr_contract_currency/) | 14.0.1.0.0 | Employee's contract currency
 [hr_contract_multi_job](hr_contract_multi_job/) | 14.0.1.0.0 | HR Contract Multi Jobs
 [hr_contract_reference](hr_contract_reference/) | 14.0.1.0.0 | HR Contract Reference
+[hr_department_code](hr_department_code/) | 14.0.1.0.0 | HR department code
 [hr_employee_age](hr_employee_age/) | 14.0.1.0.0 | Age field for employee
 [hr_employee_calendar_planning](hr_employee_calendar_planning/) | 14.0.1.0.1 | Employee Calendar Planning
 [hr_employee_firstname](hr_employee_firstname/) | 14.0.2.0.1 | Adds First Name to Employee
