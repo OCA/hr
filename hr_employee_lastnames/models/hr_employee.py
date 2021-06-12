@@ -1,6 +1,6 @@
 import logging
 
-from odoo import api, fields, models
+from odoo import api, models
 
 from odoo.addons.hr_employee_firstname.models.hr_employee import UPDATE_PARTNER_FIELDS
 
@@ -11,10 +11,6 @@ UPDATE_PARTNER_FIELDS += ["lastname2"]
 
 class HrEmployee(models.Model):
     _inherit = "hr.employee"
-
-    firstname = fields.Char("First name")
-    lastname = fields.Char("Last name")
-    lastname2 = fields.Char("Second last name")
 
     @api.model
     def _get_name_lastnames(self, lastname, firstname, lastname2=None):
