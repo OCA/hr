@@ -6,6 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-06-15 13:41+0000\n"
+"PO-Revision-Date: 2021-06-15 13:41+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -14,27 +16,75 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: hr_holidays_credit
-#: code:addons/hr_holidays_credit/models/hr_leave_type.py:70
+#: code:addons/hr_holidays_credit/models/hr_leave_type.py:92
 #, python-format
 msgid "%(name)s (%(extra)s)"
 msgstr ""
 
 #. module: hr_holidays_credit
-#: code:addons/hr_holidays_credit/models/hr_leave_type.py:54
+#: code:addons/hr_holidays_credit/models/hr_leave_type.py:67
 #, python-format
-msgid "%g available"
+msgid "%g %s available"
 msgstr ""
 
 #. module: hr_holidays_credit
-#: code:addons/hr_holidays_credit/models/hr_leave_type.py:52
+#: code:addons/hr_holidays_credit/models/hr_leave_type.py:86
 #, python-format
-msgid "%g available + credit"
+msgid "%g %s used in credit"
+msgstr ""
+
+#. module: hr_holidays_credit
+#: code:addons/hr_holidays_credit/models/hr_leave_type.py:56
+#, python-format
+msgid "%g day available"
+msgstr ""
+
+#. module: hr_holidays_credit
+#: code:addons/hr_holidays_credit/models/hr_leave_type.py:75
+#, python-format
+msgid "%g day used in credit"
+msgstr ""
+
+#. module: hr_holidays_credit
+#: code:addons/hr_holidays_credit/models/hr_leave_type.py:58
+#, python-format
+msgid "%g days available"
+msgstr ""
+
+#. module: hr_holidays_credit
+#: code:addons/hr_holidays_credit/models/hr_leave_type.py:77
+#, python-format
+msgid "%g days used in credit"
 msgstr ""
 
 #. module: hr_holidays_credit
 #: code:addons/hr_holidays_credit/models/hr_leave_type.py:62
 #, python-format
-msgid "%g used in credit"
+msgid "%g hour available"
+msgstr ""
+
+#. module: hr_holidays_credit
+#: code:addons/hr_holidays_credit/models/hr_leave_type.py:81
+#, python-format
+msgid "%g hour used in credit"
+msgstr ""
+
+#. module: hr_holidays_credit
+#: code:addons/hr_holidays_credit/models/hr_leave_type.py:64
+#, python-format
+msgid "%g hours available"
+msgstr ""
+
+#. module: hr_holidays_credit
+#: code:addons/hr_holidays_credit/models/hr_leave_type.py:83
+#, python-format
+msgid "%g hours used in credit"
+msgstr ""
+
+#. module: hr_holidays_credit
+#: code:addons/hr_holidays_credit/models/hr_leave_type.py:70
+#, python-format
+msgid "+ credit"
 msgstr ""
 
 #. module: hr_holidays_credit
