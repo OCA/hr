@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2021 Creu Blanca
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record model="ir.ui.view" id="hr_personal_equipment_request_form_view">
+        <field
+            name="name"
+        >hr.personal.equipment.request.form (in hr_personal_equipment_stock)</field>
+        <field name="model">hr.personal.equipment.request</field>
+        <field
+            name="inherit_id"
+            ref="hr_personal_equipment_request.hr_personal_equipment_request_form_view"
+        />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='employee_id']" position="after">
+                <field
+                    name="location_id"
+                    attrs="{'readonly': [('state', '!=', 'draft')]}"
+                />
+                <field
+                    name="procurement_group_id"
+                    invisible="1"
+                    attrs="{'readonly': [('state', '!=', 'draft')]}"
+                />
+            </xpath>
+            <xpath expr="//tree/field[@name='state']" position="before">
+                <field name="qty_delivered" />
+                <field name="location_id" invisible="1" />
+                <field name="procurement_group_id" invisible="1" />
+            </xpath>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="hr_personal_equipment_request_form_view_picking">
+        <field
+            name="name"
+        >hr.personal.equipment.request.form (in hr_personal_equipment_stock)</field>
+        <field name="model">hr.personal.equipment.request</field>
+        <field
+            name="inherit_id"
+            ref="hr_personal_equipment_request.hr_personal_equipment_request_form_view"
+        />
+        <field name="groups_id" eval="[(4,ref('stock.group_stock_user'))]" />
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button
+                    type="object"
+                    name="action_view_pickings"
+                    class="oe_stat_button"
+                    icon="fa-truck"
+                    attrs="{'invisible': [('picking_count','&lt;','1')]}"
+                >
+                    <field name="picking_count" widget="statinfo" string="Pickings" />
+                </button>
+            </xpath>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="hr_personal_equipment_request_tree_view">
+        <field
+            name="name"
+        >hr.personal.equipment.request.tree (in hr_personal_equipment_stock)</field>
+        <field name="model">hr.personal.equipment.request</field>
+        <field
+            name="inherit_id"
+            ref="hr_personal_equipment_request.hr_personal_equipment_request_tree_view"
+        />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='employee_id']" position="after">
+                <field name="location_id" />
+            </xpath>
+        </field>
+    </record>
+</odoo>

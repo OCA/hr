@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2021 Creu Blanca
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record model="ir.ui.view" id="procurement_group_form_view">
+        <field
+            name="name"
+        >procurement.group.form (in hr_personal_equipment_stock)</field>
+        <field name="model">procurement.group</field>
+        <field name="inherit_id" ref="stock.procurement_group_form_view" />
+        <field name="groups_id" eval="[(4,ref('stock.group_stock_user'))]" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='move_type']" position="after">
+                <field name="equipment_request_id" />
+            </xpath>
+        </field>
+    </record>
+</odoo>
