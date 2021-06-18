@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2021 Creu Blanca
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record model="ir.ui.view" id="hr_personal_equipment_form_view">
+        <field
+            name="name"
+        >hr.personal.equipment.form (in hr_personal_equipment_stock)</field>
+        <field name="model">hr.personal.equipment</field>
+        <field
+            name="inherit_id"
+            ref="hr_personal_equipment_request.hr_personal_equipment_form_view"
+        />
+        <field name="arch" type="xml">
+            <button name="validate_allocation" position="attributes">
+                <attribute
+                    name="attrs"
+                >{'invisible': ['|', ('skip_procurement', '=', False), ('state', '!=', 'accepted')]}</attribute>
+            </button>
+            <field name="equipment_request_id" position='after'>
+                <field name="location_id" />
+                <field name="procurement_group_id" invisible="1" />
+                <field name="skip_procurement" />
+            </field>
+            <field name="quantity" position="before">
+                <field name="qty_delivered" />
+            </field>
+            <field name="quantity" position="attributes">
+                <attributes name="invisible">1</attributes>
+            </field>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="hr_personal_equipment_tree_view">
+        <field
+            name="name"
+        >hr.personal.equipment.tree (in hr_personal_equipment_stock)</field>
+        <field name="model">hr.personal.equipment</field>
+        <field
+            name="inherit_id"
+            ref="hr_personal_equipment_request.hr_personal_equipment_tree_view"
+        />
+        <field name="arch" type="xml">
+            <field name="quantity" position="before">
+                <field name="qty_delivered" />
+            </field>
+            <field name="quantity" position="attributes">
+                <attributes name="invisible">1</attributes>
+            </field>
+        </field>
+    </record>
+</odoo>
