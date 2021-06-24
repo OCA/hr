@@ -1,12 +1,13 @@
 # Copyright 2020 Pavlov Media
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
-from odoo import api, fields, models, _
-from odoo.tools import DEFAULT_SERVER_DATETIME_FORMAT, DEFAULT_SERVER_DATE_FORMAT
-from odoo.exceptions import UserError
+from datetime import datetime
 
 import pytz
-from datetime import datetime
+
+from odoo import _, api, fields, models
+from odoo.exceptions import UserError
+from odoo.tools import DEFAULT_SERVER_DATE_FORMAT, DEFAULT_SERVER_DATETIME_FORMAT
 
 
 class HrAttendance(models.Model):

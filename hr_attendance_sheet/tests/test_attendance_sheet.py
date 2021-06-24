@@ -2,11 +2,12 @@
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
 from datetime import timedelta
+
 from dateutil.relativedelta import relativedelta
 
 from odoo import fields
-from odoo.tests.common import Form, TransactionCase
 from odoo.exceptions import UserError
+from odoo.tests.common import Form, TransactionCase
 
 
 class TestAttendanceSheet(TransactionCase):
