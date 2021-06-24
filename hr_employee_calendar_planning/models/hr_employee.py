@@ -50,8 +50,8 @@ class HrEmployee(models.Model):
         two_weeks = bool(
             self.calendar_ids.mapped("calendar_id").filtered("two_weeks_calendar")
         )
-        if not self.resource_calendar_id or self.resource_calendar_id.active:
-            self.resource_calendar_id = (
+        if not self.resource_id.calendar_id or self.resource_id.calendar_id.active:
+            self.resource_id.calendar_id = (
                 self.env["resource.calendar"]
                 .create(
                     {
@@ -104,6 +104,11 @@ class HrEmployee(models.Model):
             SECTION_LINES[0][2]["sequence"] = -seq
             vals_list = SECTION_LINES + vals_list
         self.resource_calendar_id.attendance_ids = vals_list
+        # Set the hours per day to the last (top date end) calendar line to apply
+        if self.calendar_ids:
+            self.resource_calendar_id.hours_per_day = self.calendar_ids[
+                0
+            ].calendar_id.hours_per_day
 
     def regenerate_calendar(self):
         self._regenerate_calendar()
