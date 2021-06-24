@@ -54,7 +54,6 @@
     >
         <field name="name">Attendances</field>
         <field name="res_model">hr.attendance</field>
-        <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
     </record>
 </odoo>

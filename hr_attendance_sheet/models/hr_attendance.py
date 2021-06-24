@@ -99,9 +99,9 @@ class HrAttendance(models.Model):
                     if attendance_sheet_ids.state not in ("locked", "done"):
                         attendance.attendance_sheet_id = attendance_sheet_ids or False
 
-    @api.multi
     def _compute_duration(self):
         for rec in self:
+            rec.duration = 0.0
             if rec.check_in and rec.check_out:
                 delta = rec.check_out - rec.check_in
                 rec.duration = delta.total_seconds() / 3600
@@ -167,14 +167,12 @@ class HrAttendance(models.Model):
                     rec.write({"auto_lunch": False})
 
     # Unlink/Write/Create Methods
-    @api.multi
     def unlink(self):
         """Restrict to delete attendance from confirmed/locked sheet"""
         for attendance in self:
             attendance._get_attendance_state()
         return super(HrAttendance, self).unlink()
 
-    @api.multi
     def write(self, vals):
         """Restrict to write attendance from confirmed/locked sheet."""
         protected_fields = ["employee_id", "check_in", "check_out"]

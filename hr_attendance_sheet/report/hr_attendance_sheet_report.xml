@@ -1,21 +1,28 @@
 <odoo>
-    <report
-        id="hr_attendance_sheet_document"
-        model="hr.attendance.sheet"
-        string="Attendance Sheet"
-        name="hr_attendance_sheet.report_hr_attendance_sheet_document"
-        file="hr_attendance_sheet.report_hr_attendance_sheet_document"
-        report_type="qweb-pdf"
-    />
-
-    <report
-        id="hr_attendance_sheet_preview"
-        model="hr.attendance.sheet"
-        string="Attendance Sheet Preview"
-        name="hr_attendance_sheet.report_hr_attendance_sheet_document"
-        file="hr_attendance_sheet.report_hr_attendance_sheet_document"
-        report_type="qweb-html"
-    />
+    <record id="hr_attendance_sheet_document" model="ir.actions.report">
+        <field name="name">Attendance Sheet</field>
+        <field name="model">hr.attendance.sheet</field>
+        <field name="report_type">qweb-pdf</field>
+        <field
+            name="report_name"
+        >hr_attendance_sheet.report_hr_attendance_sheet_document</field>
+        <field
+            name="report_file"
+        >hr_attendance_sheet.report_hr_attendance_sheet_document</field>
+        <field name="binding_model_id" ref="model_hr_attendance_sheet" />
+    </record>
+    <record id="hr_attendance_sheet_preview" model="ir.actions.report">
+        <field name="name">Attendance Sheet Preview</field>
+        <field name="model">hr.attendance.sheet</field>
+        <field name="report_type">qweb-html</field>
+        <field
+            name="report_name"
+        >hr_attendance_sheet.report_hr_attendance_sheet_document</field>
+        <field
+            name="report_file"
+        >hr_attendance_sheet.report_hr_attendance_sheet_document</field>
+        <field name="binding_model_id" ref="model_hr_attendance_sheet" />
+    </record>
 
     <template id="report_hr_attendance_sheet_document">
         <t t-name="hr_attendance_sheet.report_hr_attendance_sheet_document">

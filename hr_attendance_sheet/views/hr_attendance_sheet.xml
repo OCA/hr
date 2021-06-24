@@ -222,7 +222,6 @@
         <field name="name">All Attendance Sheets</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">hr.attendance.sheet</field>
-        <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
         <field name="view_id" ref="hr_attendance_sheet_view_tree" />
     </record>
@@ -230,7 +229,6 @@
         <field name="name">My Attendance Sheets</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">hr.attendance.sheet</field>
-        <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
         <field name="domain">[('employee_id.user_id','=', uid)]</field>
         <field name="view_id" ref="hr_attendance_sheet_view_tree" />
@@ -239,7 +237,6 @@
         <field name="name">My Employee's Attendance Sheets</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">hr.attendance.sheet</field>
-        <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
         <field
             name="domain"

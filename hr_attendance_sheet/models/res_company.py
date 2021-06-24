@@ -44,11 +44,10 @@ class ResCompany(models.Model):
             else:
                 return company.date_start + relativedelta(months=1, day=1, days=-1)
 
-    @api.multi
     def write(self, vals):
         res = super().write(vals)
         if vals.get("date_start") or vals.get("attendance_sheet_range"):
-            self.write({"date_end": self.set_date_end(self.id)})
+            vals.update({"date_end": self.set_date_end(company=self.id)})
         return res
 
     @api.model

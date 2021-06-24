@@ -16,7 +16,7 @@ class HrAttendanceSheet(models.Model):
     _inherit = ["mail.thread", "mail.activity.mixin"]
 
     active = fields.Boolean(string="Active", default=True)
-    name = fields.Char(compute="_compute_name", context_dependent=True)
+    name = fields.Char(compute="_compute_name")
     employee_id = fields.Many2one("hr.employee", string="Employee", required=True)
     user_id = fields.Many2one(
         "res.users", related="employee_id.user_id", string="User", store=True
@@ -34,7 +34,7 @@ class HrAttendanceSheet(models.Model):
             ("locked", "Locked"),
         ],
         default="draft",
-        track_visibility="onchange",
+        tracking=True,
         string="Status",
         required=True,
         readonly=True,
@@ -66,7 +66,7 @@ class HrAttendanceSheet(models.Model):
         string="Can Review", compute="_compute_can_review", search="_search_can_review"
     )
     reviewer_id = fields.Many2one(
-        "hr.employee", string="Reviewer", readonly=True, track_visibility="onchange"
+        "hr.employee", string="Reviewer", readonly=True, tracking=True
     )
     reviewed_on = fields.Datetime(string="Reviewed On", readonly=True)
     review_policy = fields.Selection(
@@ -80,6 +80,10 @@ class HrAttendanceSheet(models.Model):
         is set on the department.""",
         related="department_id.attendance_admin",
     )
+
+    def _valid_field_parameter(self, field, name):
+        # I can't even
+        return name == "tracking" or super()._valid_field_parameter(field, name)
 
     # Automation Methods
     def activity_update(self):
@@ -129,7 +133,7 @@ class HrAttendanceSheet(models.Model):
                 raise UserError(
                     _(
                         "Date From and Date To for Attendance \
-                                   must be set on the Company %s"
+must be set on the Company %s"
                     )
                     % employee.company_id.name
                 )
@@ -155,15 +159,15 @@ class HrAttendanceSheet(models.Model):
             [("use_attendance_sheets", "!=", False)]
         )
         for company_id in companies:
-            if datetime.today().date() > company_id.date_end:
+            if company_id.date_end and datetime.today().date() > company_id.date_end:
                 company_id.date_start = company_id.date_end + relativedelta(days=1)
                 company_id.set_date_end(company_id.id)
 
     # Compute Methods
-    @api.multi
     @api.depends("employee_id", "date_start", "date_end")
     def _compute_name(self):
         for sheet in self:
+            sheet.name = False
             if sheet.employee_id and sheet.date_start and sheet.date_end:
                 sheet.name = (
                     sheet.employee_id.name
@@ -185,7 +189,9 @@ class HrAttendanceSheet(models.Model):
     @api.depends("attendance_ids.duration")
     def _compute_total_time(self):
         for sheet in self:
-            sheet.total_time = sum(sheet.mapped("attendance_ids.duration"))
+            sheet.total_time = 0.0
+            if sheet.attendance_ids:
+                sheet.total_time = sum(sheet.mapped("attendance_ids.duration"))
 
     @api.depends("total_time")
     def _compute_overtime(self):
@@ -198,11 +204,12 @@ class HrAttendanceSheet(models.Model):
 
     @api.depends("review_policy")
     def _compute_can_review(self):
+        self.can_review = False
         for sheet in self:
-            sheet.can_review = self.env.user in sheet._get_possible_reviewers()
+            if self.env.user in sheet._get_possible_reviewers():
+                sheet.can_review = True
 
     # Reviewer Methods
-    @api.multi
     def _get_possible_reviewers(self):
         res = self.env["res.users"].browse(SUPERUSER_ID)
         if self.review_policy == "hr":
@@ -235,11 +242,10 @@ class HrAttendanceSheet(models.Model):
                 )
         return res
 
-    @api.multi
     def _check_can_review(self):
         if self.filtered(lambda x: not x.can_review and x.review_policy == "hr"):
             raise UserError(_("""Only a HR Officer can review the sheet."""))
-        if self.filtered(
+        elif self.filtered(
             lambda x: not x.can_review and x.review_policy == "employee_manager"
         ):
             raise UserError(
@@ -248,7 +254,7 @@ class HrAttendanceSheet(models.Model):
             the sheet."""
                 )
             )
-        if self.filtered(
+        elif self.filtered(
             lambda x: not x.can_review and x.review_policy == "hr_or_manager"
         ):
             raise UserError(
@@ -257,6 +263,8 @@ class HrAttendanceSheet(models.Model):
             Officer/Manager can review the sheet."""
                 )
             )
+        else:
+            return True
 
     # Create/Write Methods
     @api.model
@@ -279,7 +287,6 @@ class HrAttendanceSheet(models.Model):
         attendances._compute_attendance_sheet_id()
         return res
 
-    @api.multi
     def write(self, values):
         """Prevent writing on a locked sheet."""
         protected_fields = [
@@ -301,12 +308,10 @@ class HrAttendanceSheet(models.Model):
         return super(HrAttendanceSheet, self).write(values)
 
     # BUTTON ACTIONS
-    @api.multi
     def attendance_action_change(self):
         """Call to perform Check In/Check Out action"""
-        return self.employee_id.attendance_action_change()
+        return self.employee_id._attendance_action_change()
 
-    @api.multi
     def action_attendance_sheet_confirm(self):
         """Restrict to submit sheet contains attendance without checkout."""
         for sheet in self:
@@ -324,7 +329,6 @@ class HrAttendanceSheet(models.Model):
                     )
                 )
 
-    @api.multi
     def action_attendance_sheet_draft(self):
         """Convert to Draft button."""
         if self.filtered(lambda sheet: sheet.state != "done"):
@@ -334,7 +338,6 @@ class HrAttendanceSheet(models.Model):
         self.activity_update()
         return True
 
-    @api.multi
     def action_attendance_sheet_done(self):
         """Approve button."""
         if self.filtered(lambda sheet: sheet.state != "confirm"):
@@ -345,7 +348,7 @@ class HrAttendanceSheet(models.Model):
             )
             if not ids_not_checkout:
                 reviewer = self.env["hr.employee"].search(
-                    [("user_id", "=", self.env.uid)], limit=1
+                    [("user_id", "=", self.env.user.id)], limit=1
                 )
                 if not reviewer:
                     raise UserError(
@@ -373,7 +376,6 @@ class HrAttendanceSheet(models.Model):
                 )
         return True
 
-    @api.multi
     def action_attendance_sheet_lock(self):
         """Lock button to lock the sheet and prevent any changes."""
         if self.filtered(lambda sheet: sheet.state != "done"):
@@ -384,7 +386,6 @@ class HrAttendanceSheet(models.Model):
             self.write({"state": "locked"})
         return True
 
-    @api.multi
     def action_attendance_sheet_unlock(self):
         """Unlock button, moves back to Confirm (Must have HR Group)."""
         if not self.env.user.has_group("hr_attendance.group_hr_attendance_user"):
@@ -393,7 +394,6 @@ class HrAttendanceSheet(models.Model):
             self.write({"state": "done"})
         return True
 
-    @api.multi
     def action_attendance_sheet_refuse(self):
         """Refuse button sending back to draft."""
         if self.filtered(lambda sheet: sheet.state != "confirm"):
