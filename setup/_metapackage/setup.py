@@ -14,6 +14,7 @@ setuptools.setup(
         'odoo14-addon-hr_contract_reference',
         'odoo14-addon-hr_department_code',
         'odoo14-addon-hr_employee_age',
+        'odoo14-addon-hr_employee_birth_name',
         'odoo14-addon-hr_employee_calendar_planning',
         'odoo14-addon-hr_employee_firstname',
         'odoo14-addon-hr_employee_lastnames',
