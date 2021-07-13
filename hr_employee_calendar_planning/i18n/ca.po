@@ -17,6 +17,12 @@ msgstr ""
 "X-Generator: Weblate 3.10\n"
 
 #. module: hr_employee_calendar_planning
+#: code:addons/hr_employee_calendar_planning/models/resource_calendar.py:0
+#, python-format
+msgid "%s is used in %s employee(s). You should change them first."
+msgstr ""
+
+#. module: hr_employee_calendar_planning
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_resource_calendar__active
 msgid "Active"
 msgstr "Actiu"
@@ -48,7 +54,9 @@ msgid "Date end should be higher than date start"
 msgstr "La data de fi ha de ser més gran que la d'inici"
 
 #. module: hr_employee_calendar_planning
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee__display_name
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__display_name
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_resource_calendar__display_name
 msgid "Display Name"
 msgstr "Nom a mostrar"
 
@@ -69,12 +77,23 @@ msgid "End Date"
 msgstr "Data de finalització"
 
 #. module: hr_employee_calendar_planning
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee__id
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__id
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_resource_calendar__id
 msgid "ID"
 msgstr "ID"
 
 #. module: hr_employee_calendar_planning
+#: model:ir.model.fields,help:hr_employee_calendar_planning.field_resource_calendar__active
+msgid ""
+"If the active field is set to false, it will allow you to hide the Working "
+"Time without removing it."
+msgstr ""
+
+#. module: hr_employee_calendar_planning
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee____last_update
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar____last_update
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_resource_calendar____last_update
 msgid "Last Modified on"
 msgstr "Darrera modificació el"
 

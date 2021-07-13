@@ -6,15 +6,22 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2020-01-16 20:00+0000\n"
+"POT-Creation-Date: 2021-07-16 06:07+0000\n"
+"PO-Revision-Date: 2021-07-16 08:08+0200\n"
 "Last-Translator: Carles Antoli <carlesantoli@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: \n"
+"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.10\n"
+"X-Generator: Poedit 2.3\n"
+
+#. module: hr_employee_calendar_planning
+#: code:addons/hr_employee_calendar_planning/models/resource_calendar.py:0
+#, python-format
+msgid "%s is used in %s employee(s). You should change them first."
+msgstr "%s se usa en %s empleado(s). Debería cambiarlo primero."
 
 #. module: hr_employee_calendar_planning
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_resource_calendar__active
@@ -48,7 +55,9 @@ msgid "Date end should be higher than date start"
 msgstr "La fecha de fin debe ser mayor que la de inicio"
 
 #. module: hr_employee_calendar_planning
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee__display_name
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__display_name
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_resource_calendar__display_name
 msgid "Display Name"
 msgstr "Nombre a mostrar"
 
@@ -69,12 +78,25 @@ msgid "End Date"
 msgstr "Fecha de finalización"
 
 #. module: hr_employee_calendar_planning
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee__id
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__id
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_resource_calendar__id
 msgid "ID"
 msgstr "ID"
 
 #. module: hr_employee_calendar_planning
+#: model:ir.model.fields,help:hr_employee_calendar_planning.field_resource_calendar__active
+msgid ""
+"If the active field is set to false, it will allow you to hide the Working "
+"Time without removing it."
+msgstr ""
+"Si el campo activo se establece en falso, le permitirá ocultar el tiempo de "
+"trabajo sin eliminarlo."
+
+#. module: hr_employee_calendar_planning
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee____last_update
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar____last_update
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_resource_calendar____last_update
 msgid "Last Modified on"
 msgstr "Última modificación el"
 
