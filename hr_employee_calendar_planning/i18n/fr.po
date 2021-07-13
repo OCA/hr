@@ -17,6 +17,12 @@ msgstr ""
 "X-Generator: Weblate 4.3.2\n"
 
 #. module: hr_employee_calendar_planning
+#: code:addons/hr_employee_calendar_planning/models/resource_calendar.py:0
+#, python-format
+msgid "%s is used in %s employee(s). You should change them first."
+msgstr ""
+
+#. module: hr_employee_calendar_planning
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_resource_calendar__active
 msgid "Active"
 msgstr "Actif"

@@ -1,7 +1,8 @@
 # Copyright 2019 Tecnativa - Pedro M. Baeza
+# Copyright 2021 Tecnativa - Víctor Martínez
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-from odoo import fields
+from odoo import exceptions, fields
 from odoo.tests import common
 
 from ..hooks import post_init_hook
@@ -173,3 +174,13 @@ class TestHrEmployeeCalendarPlanning(common.SavepointCase):
             len(self.employee.calendar_ids[1].calendar_id.attendance_ids),
             8,
         )
+
+    def test_resource_calendar_constraint(self):
+        self.employee.calendar_ids = [
+            (0, 0, {"date_end": "2019-12-31", "calendar_id": self.calendar1.id})
+        ]
+        with self.assertRaises(exceptions.ValidationError):
+            self.calendar1.write({"active": False})
+        self.employee.write({"calendar_ids": [(2, self.employee.calendar_ids.id)]})
+        self.calendar1.write({"active": False})
+        self.assertFalse(self.calendar1.active)
