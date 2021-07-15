@@ -32,7 +32,6 @@
                                     <field
                                         name="employee_id_gen_method"
                                         class="o_light_label"
-                                        domain="[('company_id', '=', company_id)]"
                                         context="{'default_company_id': company_id}"
                                     />
                                 </div>
@@ -44,7 +43,6 @@
                                     <field
                                         name="employee_id_random_digits"
                                         class="o_light_label"
-                                        domain="[('company_id', '=', company_id)]"
                                         context="{'default_company_id': company_id}"
                                         attrs="{'required': [('employee_id_gen_method','=','random')]}"
                                     />
