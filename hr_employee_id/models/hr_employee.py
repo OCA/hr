@@ -33,7 +33,8 @@ class HrEmployee(models.Model):
         """Generate a random employee identification number"""
         company = self.env.user.company_id
 
-        for retry in range(50):
+        steps = 0
+        for _retry in range(50):
             employee_id = False
             if company.employee_id_gen_method == "sequence":
                 if not company.employee_id_sequence:
@@ -48,12 +49,13 @@ class HrEmployee(models.Model):
                 )
 
             if self.search_count([("identification_id", "=", employee_id)]):
+                steps += 1
                 continue
 
             return employee_id
 
         raise UserError(
-            _("Unable to generate unique Employee ID in %d steps.") % (retry,)
+            _("Unable to generate unique Employee ID in %d steps.") % (steps,)
         )
 
     @api.model
