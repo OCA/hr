@@ -78,3 +78,70 @@ class TestEmployeeID(common.TransactionCase):
         self.assertTrue(config.employee_id_gen_method == "random")
         self.assertTrue(config.employee_id_random_digits == 5)
         self.assertFalse(config.employee_id_sequence is False)
+
+    def test_configuration_set_default_values(self):
+        """test loading of default values when the company fields are empty"""
+
+        company = self.env.company
+        company.employee_id_gen_method = False
+        company.employee_id_random_digits = False
+
+        config_model = self.env["res.config.settings"]
+        config = config_model.create({})
+
+        self.assertEqual(config.employee_id_gen_method, "random")
+        self.assertEqual(config.employee_id_random_digits, 5)
+
+    def test_multi_company_res_config(self):
+        """Test different values for different companies."""
+
+        DIGITS2 = 12
+        METHOD2 = "sequence"
+
+        Settings = self.env["res.config.settings"]
+        company = self.env.company
+        fields = list(Settings.fields_get())
+
+        # Settings for first company
+        vals1 = self.company.default_get(
+            [
+                "employee_id_gen_method",
+                "employee_id_random_digits",
+                "employee_id_sequence",
+            ]
+        )
+        vals1.update({"employee_id_random_digits": 6})
+        Settings.create(vals1).execute()
+
+        # Set company 2 as main company
+        company2 = self.env["res.company"].create({"name": "oobO"})
+        self.env.user.write(
+            {"company_ids": [(4, self.company.id)], "company_id": company2.id}
+        )
+
+        # Set company 2 settings and read them back
+        #
+        sequence2 = (
+            self.env["ir.sequence"]
+            .with_company(company2.id)
+            .create({"name": "EE ID2", "code": "hr.employee.id2"})
+        )
+        self.assertEqual(sequence2.company_id.id, company2.id)
+        vals2 = {
+            "employee_id_random_digits": DIGITS2,
+            "employee_id_gen_method": METHOD2,
+            "employee_id_sequence": sequence2.id,
+        }
+        Settings.create(vals2).execute()
+        res2 = Settings.default_get(fields)
+
+        # Change back to first company and read its settings
+        self.env.user.write({"company_id": company.id})
+        res1 = Settings.default_get(fields)
+
+        self.assertNotEqual(res1["employee_id_random_digits"], DIGITS2)
+        self.assertNotEqual(res1["employee_id_gen_method"], METHOD2)
+        self.assertNotEqual(res1["employee_id_sequence"], sequence2.id)
+        self.assertEqual(res2["employee_id_random_digits"], DIGITS2)
+        self.assertEqual(res2["employee_id_gen_method"], METHOD2)
+        self.assertEqual(res2["employee_id_sequence"], sequence2.id)
