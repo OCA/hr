@@ -20,12 +20,8 @@ msgstr ""
 #. module: hr_employee_calendar_planning
 #: code:addons/hr_employee_calendar_planning/models/resource_calendar.py:0
 #, python-format
-msgid ""
-"%s is related to %s employee(s) in calendar planing, you should change it "
-"first."
+msgid "%s is used in %s employee(s). You should change them first."
 msgstr ""
-"%s está relacionado a %s empleado(s) en las horas laborales, deberías "
-"cambiarlo primero."
 
 #. module: hr_employee_calendar_planning
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_resource_calendar__active
@@ -113,3 +109,10 @@ msgstr "Fecha de Inicio"
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__calendar_id
 msgid "Working Time"
 msgstr "Tiempo de Trabajo"
+
+#~ msgid ""
+#~ "%s is related to %s employee(s) in calendar planing, you should change it "
+#~ "first."
+#~ msgstr ""
+#~ "%s está relacionado a %s empleado(s) en las horas laborales, deberías "
+#~ "cambiarlo primero."
