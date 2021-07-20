@@ -10,7 +10,7 @@
     """,
     'website': 'https://github.com/OCA/hr',
     'category': 'Human Resources',
-    'summary': """ 
+    'summary': """
     Add multidepartment feature.
     """,
     'license': 'AGPL-3',
