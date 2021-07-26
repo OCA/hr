@@ -198,6 +198,7 @@ msgstr "Moneda"
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__display_name
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee__display_name
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_category__display_name
+#: model:ir.model.fields,field_description:hr_course.field_hr_employee__display_name
 msgid "Display Name"
 msgstr "Nombre a mostrar"
 
@@ -258,6 +259,7 @@ msgstr "Tiene permanencia"
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__id
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee__id
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_category__id
+#: model:ir.model.fields,field_description:hr_course.field_hr_employee__id
 msgid "ID"
 msgstr "ID"
 
@@ -292,6 +294,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_course.field_hr_course____last_update
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee____last_update
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_category____last_update
+#: model:ir.model.fields,field_description:hr_course.field_hr_employee____last_update
 msgid "Last Modified on"
 msgstr "Última modificación en"
 
