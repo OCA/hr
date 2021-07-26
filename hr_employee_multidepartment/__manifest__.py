@@ -1,7 +1,9 @@
 {
     'name': "HR Employee Multidepartment",
-    'version': '12.0.0.0.1',
+    'version': '12.0.0.0.2',
     'depends': [
+        'hr',
+        'hr_holidays',
     ],
     'author': """Som Energia SCCL,
     Odoo Community Association (OCA)
@@ -16,6 +18,7 @@
     ],
     'data': [
         'views/hr_employee_views.xml',
+        'views/hr_leave_views.xml',
     ],
     'installable': True,
     'application': True,

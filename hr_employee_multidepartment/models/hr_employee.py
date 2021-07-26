@@ -13,26 +13,29 @@ class Employee(models.Model):
         'employee_id', 'department_id',
         string='Departments')
 
-    @api.onchange('department_ids')
-    def _add_member_department(self):
-        old_dept_ids = self._origin.department_ids.ids + self._origin.department_id.ids
-        new_dept_ids = self.department_ids.ids
-        add_member = set(new_dept_ids) - set(old_dept_ids)
-        remove_member = set(old_dept_ids) - set(new_dept_ids)
-        #import pudb;pu.db
-        employee_id = self._origin.id
-        if add_member:
-            d = self.env['hr.department'].browse(add_member)
-            d.write({'member_ids': [(4, employee_id)]})
-        if remove_member:
-            d = self.env['hr.department'].browse(remove_member)
-            d.write({'member_ids': [(3, employee_id)]})
-
-
 class Department(models.Model):
     _inherit = ['hr.department']
 
     members_ids = fields.Many2many(
-        'hr.employee', 'department_member_rel',
-        'department_ids', 'member_id',
+        'hr.employee', 'employee_department_rel',
+        'department_id', 'employee_id',
         string='Members')
+
+class HrLeave(models.Model):
+    _inherit = ['hr.leave']
+
+    sharing_departments_with_employee = fields.Boolean(
+        compute='_has_common_dep',
+        store=True,
+    )
+
+    @api.depends('sharing_department_with_employee')
+    def _has_common_dep(self):
+        members = []
+        for department in self.employee_id.department_ids:
+            # This will add regular members in department_id
+            members += department.member_ids.ids
+            # This will add members in department_ids relation
+            members += department.members_ids.ids
+        self.sharing_departments_with_employee = self.env.uid in members
+
