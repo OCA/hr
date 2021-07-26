@@ -12,7 +12,9 @@ class HrCourse(models.Model):
 
     name = fields.Char(string="Name", required=True, tracking=True)
     category_id = fields.Many2one(
-        "hr.course.category", string="Category", required=True,
+        "hr.course.category",
+        string="Category",
+        required=True,
     )
 
     start_date = fields.Date(
@@ -184,7 +186,10 @@ class HRCourseAttendee(models.Model):
     _description = "Course Attendee"
 
     course_id = fields.Many2one(
-        "hr.course", ondelete="cascade", readonly=True, required=True,
+        "hr.course",
+        ondelete="cascade",
+        readonly=True,
+        required=True,
     )
     name = fields.Char(related="course_id.name", readonly=True)
     employee_id = fields.Many2one("hr.employee", readonly=True)
