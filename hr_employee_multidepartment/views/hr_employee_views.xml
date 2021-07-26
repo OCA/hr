@@ -6,7 +6,7 @@
         <field name="inherit_id" ref="hr.view_employee_form"/>
         <field name="arch" type="xml">
 			<field name="department_id" position="after">
-				<field name="department_ids"/>
+				<field name="department_ids" widget="many2many_tags" options="{'no_create_edit' : True}"/>
 			</field>
 		</field>
 	</record>
