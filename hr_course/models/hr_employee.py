@@ -9,7 +9,10 @@ class HrEmployee(models.Model):
     )
 
     courses_ids = fields.One2many(
-        "hr.course.attendee", "employee_id", string="Courses", readonly=True,
+        "hr.course.attendee",
+        "employee_id",
+        string="Courses",
+        readonly=True,
     )
 
     @api.depends("courses_ids")
