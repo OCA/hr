@@ -23,6 +23,21 @@ class ResourceCalendar(models.Model):
                     % (item.name, total_items)
                 )
 
+    @api.constrains("company_id")
+    def _check_company_id(self):
+        for item in self.filtered("company_id"):
+            total_items = self.env["hr.employee.calendar"].search_count(
+                [
+                    ("calendar_id.company_id", "=", item.company_id.id),
+                    ("employee_id.company_id", "!=", item.company_id.id),
+                ]
+            )
+            if total_items:
+                raise ValidationError(
+                    _("%s is used in %s employee(s) related to another company.")
+                    % (item.name, total_items)
+                )
+
     def write(self, vals):
         res = super(ResourceCalendar, self).write(vals)
         if "attendance_ids" in vals:
