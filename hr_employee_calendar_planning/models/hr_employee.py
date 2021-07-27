@@ -124,8 +124,12 @@ class HrEmployeeCalendar(models.Model):
     employee_id = fields.Many2one(
         comodel_name="hr.employee", string="Employee", required=True,
     )
+    company_id = fields.Many2one(related="employee_id.company_id")
     calendar_id = fields.Many2one(
-        comodel_name="resource.calendar", string="Working Time", required=True,
+        comodel_name="resource.calendar",
+        string="Working Time",
+        required=True,
+        check_company=True,
     )
 
     _sql_constraints = [

@@ -182,3 +182,14 @@ class TestHrEmployeeCalendarPlanning(common.SavepointCase):
         self.employee.write({"calendar_ids": [(2, self.employee.calendar_ids.id)]})
         self.calendar1.write({"active": False})
         self.assertFalse(self.calendar1.active)
+
+    def test_resource_calendar_constraint_company_id(self):
+        main_company = self.env.ref("base.main_company")
+        self.calendar1.company_id = main_company
+        self.employee.company_id = main_company
+        self.employee.calendar_ids = [
+            (0, 0, {"date_end": "2019-12-31", "calendar_id": self.calendar1.id})
+        ]
+        company2 = self.env["res.company"].create({"name": "Test company"})
+        with self.assertRaises(exceptions.ValidationError):
+            self.calendar1.company_id = company2
