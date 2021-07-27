@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-16 06:07+0000\n"
-"PO-Revision-Date: 2021-07-16 08:08+0200\n"
+"POT-Creation-Date: 2021-07-28 06:32+0000\n"
+"PO-Revision-Date: 2021-07-28 08:34+0200\n"
 "Last-Translator: Carles Antoli <carlesantoli@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: es\n"
@@ -20,8 +20,14 @@ msgstr ""
 #. module: hr_employee_calendar_planning
 #: code:addons/hr_employee_calendar_planning/models/resource_calendar.py:0
 #, python-format
+msgid "%s is used in %s employee(s) related to another company."
+msgstr "%s está usado con el  empleado(s) %s relacionado con otra compañía."
+
+#. module: hr_employee_calendar_planning
+#: code:addons/hr_employee_calendar_planning/models/resource_calendar.py:0
+#, python-format
 msgid "%s is used in %s employee(s). You should change them first."
-msgstr "%s se usa en %s empleado(s). Debería cambiarlo primero."
+msgstr "%s está usado con el empleado(s) %s . Deberías cambiarlo primero."
 
 #. module: hr_employee_calendar_planning
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_resource_calendar__active
@@ -38,6 +44,11 @@ msgstr "Horario autogenerado para el empleado"
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee__calendar_ids
 msgid "Calendar planning"
 msgstr "Plan de Horario"
+
+#. module: hr_employee_calendar_planning
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__company_id
+msgid "Company"
+msgstr "Compañía"
 
 #. module: hr_employee_calendar_planning
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__create_uid
