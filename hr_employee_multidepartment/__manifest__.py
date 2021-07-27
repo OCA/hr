@@ -1,6 +1,6 @@
 {
     'name': "HR Employee Multidepartment",
-    'version': '12.0.0.0.2',
+    'version': '12.0.0.0.4',
     'depends': [
         'hr',
         'hr_holidays',

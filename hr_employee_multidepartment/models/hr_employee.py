@@ -27,7 +27,8 @@ class HrLeave(models.Model):
         store=True,
     )
 
-    @api.depends('sharing_department_with_employee')
+    @api.one
+    @api.depends('sharing_departments_with_employee')
     def _has_common_dep(self):
         members = []
         for department in self.employee_id.department_ids:

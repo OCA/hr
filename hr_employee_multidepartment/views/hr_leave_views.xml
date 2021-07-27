@@ -8,7 +8,7 @@
 			<search>
                 <filter string="All My Department's Leaves"
                         name="all_my_departments"
-                        domain="[('sharing_department_with_employee', '=', True)]"
+                        domain="[('sharing_departments_with_employee', '=', True)]"
                         help="All My Department's Leaves"
                 />
             </search>
