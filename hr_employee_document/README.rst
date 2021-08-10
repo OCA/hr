@@ -25,12 +25,21 @@ HR Employee Document
 
 |badge1| |badge2| |badge3| |badge4| |badge5| 
 
-This module allows to attach documents to the employee profile.
+This module displays a button on the employee's profile to view linked attachments, both
+for HR officers/managers and the own employee, so you can use it as employee document storage.
 
 **Table of contents**
 
 .. contents::
    :local:
+
+Known issues / Roadmap
+======================
+
+This module adds read permission to the employee model; the rest of the model data will
+be available to the employee.
+If another module grants permissions to the employee model (Pre-officer for example),
+I will need to create a rule to extend the basic permissions.
 
 Bug Tracker
 ===========
