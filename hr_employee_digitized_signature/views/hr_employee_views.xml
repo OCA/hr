@@ -1,0 +1,12 @@
+<odoo>
+    <record id="view_employee_form" model="ir.ui.view">
+        <field name="name">hr.employee.form</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form" />
+        <field name="arch" type="xml">
+            <field name="country_of_birth" position="after">
+                <field name="signature" widget="signature" />
+            </field>
+        </field>
+    </record>
+</odoo>
