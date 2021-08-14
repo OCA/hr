@@ -17,24 +17,24 @@ TODO: add repo description.
 
 Available addons
 ----------------
-addon | version | summary
---- | --- | ---
-[hr_branch](hr_branch/) | 14.0.1.0.0 | Allow define company branch for employee process
-[hr_contract_currency](hr_contract_currency/) | 14.0.1.0.0 | Employee's contract currency
-[hr_contract_multi_job](hr_contract_multi_job/) | 14.0.1.0.0 | HR Contract Multi Jobs
-[hr_contract_reference](hr_contract_reference/) | 14.0.1.0.0 | HR Contract Reference
-[hr_department_code](hr_department_code/) | 14.0.1.0.0 | HR department code
-[hr_employee_age](hr_employee_age/) | 14.0.1.0.0 | Age field for employee
-[hr_employee_birth_name](hr_employee_birth_name/) | 14.0.1.0.0 | Employee Birth Name
-[hr_employee_calendar_planning](hr_employee_calendar_planning/) | 14.0.1.1.0 | Employee Calendar Planning
-[hr_employee_firstname](hr_employee_firstname/) | 14.0.3.0.0 | Adds First Name to Employee
-[hr_employee_lastnames](hr_employee_lastnames/) | 14.0.3.0.0 | Split Name in First Name, Father's Last Name and Mother's Last Name
-[hr_employee_medical_examination](hr_employee_medical_examination/) | 14.0.1.0.0 | Adds information about employee's medical examinations
-[hr_employee_phone_extension](hr_employee_phone_extension/) | 14.0.1.0.0 | Employee Phone Extension
-[hr_employee_relative](hr_employee_relative/) | 14.0.1.0.0 | Allows storing information about employee's family
-[hr_employee_service](hr_employee_service/) | 14.0.1.0.0 | Employee service information & duration
-[hr_employee_ssn](hr_employee_ssn/) | 14.0.1.0.0 | View/edit employee's SSN & SIN fields
-[hr_org_chart_overview](hr_org_chart_overview/) | 14.0.1.0.0 | Organizational Chart Overview
+addon | version | maintainers | summary
+--- | --- | --- | ---
+[hr_branch](hr_branch/) | 14.0.1.0.0 | [![luistorresm](https://github.com/luistorresm.png?size=30px)](https://github.com/luistorresm) | Allow define company branch for employee process
+[hr_contract_currency](hr_contract_currency/) | 14.0.1.0.0 |  | Employee's contract currency
+[hr_contract_multi_job](hr_contract_multi_job/) | 14.0.1.0.0 |  | HR Contract Multi Jobs
+[hr_contract_reference](hr_contract_reference/) | 14.0.1.0.0 |  | HR Contract Reference
+[hr_department_code](hr_department_code/) | 14.0.1.0.0 |  | HR department code
+[hr_employee_age](hr_employee_age/) | 14.0.1.0.0 |  | Age field for employee
+[hr_employee_birth_name](hr_employee_birth_name/) | 14.0.1.0.0 |  | Employee Birth Name
+[hr_employee_calendar_planning](hr_employee_calendar_planning/) | 14.0.1.1.0 |  | Employee Calendar Planning
+[hr_employee_firstname](hr_employee_firstname/) | 14.0.3.0.0 |  | Adds First Name to Employee
+[hr_employee_lastnames](hr_employee_lastnames/) | 14.0.3.0.0 |  | Split Name in First Name, Father's Last Name and Mother's Last Name
+[hr_employee_medical_examination](hr_employee_medical_examination/) | 14.0.1.0.0 |  | Adds information about employee's medical examinations
+[hr_employee_phone_extension](hr_employee_phone_extension/) | 14.0.1.0.0 |  | Employee Phone Extension
+[hr_employee_relative](hr_employee_relative/) | 14.0.1.0.0 |  | Allows storing information about employee's family
+[hr_employee_service](hr_employee_service/) | 14.0.1.0.0 |  | Employee service information & duration
+[hr_employee_ssn](hr_employee_ssn/) | 14.0.1.0.0 |  | View/edit employee's SSN & SIN fields
+[hr_org_chart_overview](hr_org_chart_overview/) | 14.0.1.0.0 |  | Organizational Chart Overview
 
 [//]: # (end addons)
 
