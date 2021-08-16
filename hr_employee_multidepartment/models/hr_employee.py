@@ -22,19 +22,26 @@ class Department(models.Model):
 class HrLeave(models.Model):
     _inherit = ['hr.leave']
 
-    sharing_departments_with_employee = fields.Boolean(
-        compute='_has_common_dep',
-        store=True,
+    common_department_with_user = fields.Boolean(
+        compute='_common_department_with_user',
     )
 
-    @api.one
-    @api.depends('sharing_departments_with_employee')
-    def _has_common_dep(self):
-        members = []
-        for department in self.employee_id.department_ids:
-            # This will add regular members in department_id
-            members += department.member_ids.ids
-            # This will add members in department_ids relation
-            members += department.members_ids.ids
-        self.sharing_departments_with_employee = self.env.uid in members
+    _defaults = {
+        'common_department_with_user': False
+    }
 
+    @api.one
+    @api.depends('employee_id.department_id', 'employee_id.department_ids')
+    def _common_department_with_user(self):
+        # This will check members in department_id field
+        if any(employee in self.env.user.employee_ids.ids for employee in self.department_id.member_ids.ids):
+            self.common_department_with_user = True
+            return
+
+        for department in self.employee_id.department_ids:
+            # This will check members in department_ids relation
+            if any(employee in self.env.user.employee_ids.ids for employee in department.members_ids.ids):
+                self.common_department_with_user = True
+                return
+
+        self.common_department_with_user = False
