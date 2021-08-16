@@ -3,8 +3,6 @@
 
 from odoo.tests import common
 
-from datetime import datetime
-from dateutil.relativedelta import relativedelta
 
 class TestHrEmployeeMultidepartment(common.TransactionCase):
 
@@ -18,12 +16,12 @@ class TestHrEmployeeMultidepartment(common.TransactionCase):
             'user_id': self.env.uid,
             'name': 'Employee 1',
             'department_id': self.department.id,
-            'department_ids': [(6,0,[self.department.id])]
+            'department_ids': [(6, 0, [self.department.id])]
         })
         self.employee2 = self.env['hr.employee'].create({
             'name': 'Employee 2',
             'department_id': self.department.id,
-            'department_ids': [(6,0,[self.department.id])]
+            'department_ids': [(6, 0, [self.department.id])]
         })
         self.employee3 = self.env['hr.employee'].create({
             'name': 'Employee 3',
@@ -37,14 +35,14 @@ class TestHrEmployeeMultidepartment(common.TransactionCase):
         leave = self.env["hr.leave"].create({"employee_id": self.employee3.id})
         self.assertFalse(leave.common_department_with_user)
 
-    def test_leave__common_department_single_department_field_with_user_TrueFalse(self):
+    def test_leave__common_department_single_department_False(self):
         leave = self.env["hr.leave"].create({"employee_id": self.employee3.id})
         self.assertFalse(leave.common_department_with_user)
-        self.Employee.write({'id': self.employee3.id, 'department_id': self.department.id})
+        self.employee3.write({'department_id': self.department.id})
         self.assertFalse(leave.common_department_with_user)
 
-    def test_leave__common_department_multiple_department_field_with_user_TrueFalse(self):
+    def test_leave__common_department_multiple_department_True(self):
         leave = self.env["hr.leave"].create({"employee_id": self.employee3.id})
         self.assertFalse(leave.common_department_with_user)
-        self.employee3.write({'department_ids': [(6,0,[self.department.id])]})
+        self.employee3.write({'department_ids': [(6, 0, [self.department.id])]})
         self.assertTrue(leave.common_department_with_user)
