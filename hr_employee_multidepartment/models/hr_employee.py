@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 from odoo import api, fields, models
 
 
@@ -23,25 +21,22 @@ class HrLeave(models.Model):
     _inherit = ['hr.leave']
 
     common_department_with_user = fields.Boolean(
-        compute='_common_department_with_user',
+        compute='_compute_common_department_with_user',
+        default=False,
     )
 
-    _defaults = {
-        'common_department_with_user': False
-    }
-
-    @api.one
     @api.depends('employee_id.department_id', 'employee_id.department_ids')
-    def _common_department_with_user(self):
-        # This will check members in department_id field
-        if any(employee in self.env.user.employee_ids.ids for employee in self.department_id.member_ids.ids):
-            self.common_department_with_user = True
-            return
-
-        for department in self.employee_id.department_ids:
-            # This will check members in department_ids relation
-            if any(employee in self.env.user.employee_ids.ids for employee in department.members_ids.ids):
-                self.common_department_with_user = True
+    def _compute_common_department_with_user(self):
+        for record in self:
+            # This will check members in department_id field
+            if any(employee in record.env.user.employee_ids.ids for employee in record.department_id.member_ids.ids):
+                record.common_department_with_user = True
                 return
 
-        self.common_department_with_user = False
+            for department in record.employee_id.department_ids:
+                # This will check members in department_ids relation
+                if any(employee in record.env.user.employee_ids.ids for employee in department.members_ids.ids):
+                    record.common_department_with_user = True
+                    return
+
+            record.common_department_with_user = False
