@@ -20,29 +20,21 @@ class TestHrEmployeeMultidepartment(common.TransactionCase):
         })
         self.employee2 = self.env['hr.employee'].create({
             'name': 'Employee 2',
-            'department_id': self.department.id,
-            'department_ids': [(6, 0, [self.department.id])]
         })
         self.employee3 = self.env['hr.employee'].create({
             'name': 'Employee 3',
         })
 
-    def test_leave__common_department_with_user_True(self):
-        leave = self.env["hr.leave"].create({"employee_id": self.employee2.id})
-        self.assertTrue(leave.common_department_with_user)
-
-    def test_leave__common_department_with_user_False(self):
-        leave = self.env["hr.leave"].create({"employee_id": self.employee3.id})
-        self.assertFalse(leave.common_department_with_user)
-
-    def test_leave__common_department_single_department_False(self):
-        leave = self.env["hr.leave"].create({"employee_id": self.employee3.id})
-        self.assertFalse(leave.common_department_with_user)
-        self.employee3.write({'department_id': self.department.id})
-        self.assertFalse(leave.common_department_with_user)
-
-    def test_leave__common_department_multiple_department_True(self):
-        leave = self.env["hr.leave"].create({"employee_id": self.employee3.id})
-        self.assertFalse(leave.common_department_with_user)
-        self.employee3.write({'department_ids': [(6, 0, [self.department.id])]})
-        self.assertTrue(leave.common_department_with_user)
+    def test_leave__multidepartment_True(self):
+        self.employee3.write({
+            'department_ids': [(6, 0, [self.department.id])],
+            'department_id': self.department.id
+        })
+        self.assertEqual(
+            self.employee1.department_id, self.employee3.department_id)
+        self.assertEqual(
+            self.employee1.department_ids, self.employee3.department_ids)
+        self.assertNotEqual(
+            self.employee1.department_ids, self.employee2.department_ids)
+        self.assertNotEqual(
+            self.employee1.department_id, self.employee2.department_id)
