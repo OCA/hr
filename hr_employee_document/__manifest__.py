@@ -14,5 +14,9 @@
     "application": False,
     "summary": "Documents attached to the employee profile",
     "depends": ["hr"],
-    "data": ["views/hr_employee.xml", "views/hr_employee_public.xml"],
+    "data": [
+        "security/security.xml",
+        "views/hr_employee.xml",
+        "views/hr_employee_public.xml",
+    ],
 }
