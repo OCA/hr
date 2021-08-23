@@ -53,7 +53,7 @@ class HrExpense(models.Model):
             {
                 "invoice_id": invoice.id,
                 "quantity": 1,
-                "tax_ids": False,
+                "tax_ids": [(5, )],
                 "unit_amount": invoice.amount_total,
             }
         )
