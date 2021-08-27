@@ -100,4 +100,4 @@ class HrEmployee(models.Model):
 
     # NOTE: Support odoo/odoo@90731ad170c503cdfe89a9998fa1d1e2a5035c86
     def _get_date_start_work(self):
-        return self.service_start_date or super()._get_date_start_work()
+        return self.sudo().service_start_date or super()._get_date_start_work()
