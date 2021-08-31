@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2021 Tecnativa - João Marques -->
+<odoo>
+    <data noupdate="1">
+        <!-- Message Subtype related to Job Positions -->
+        <record id="mt_hr_applicant_new" model="mail.message.subtype">
+            <field name="name">New Applicant</field>
+            <field name="description">Applicant created</field>
+            <field name="res_model">hr.job</field>
+            <field name="default" eval="False" />
+            <field name="parent_id" ref="hr_recruitment.mt_applicant_new" />
+            <field name="relation_field">job_id</field>
+        </record>
+    </data>
+</odoo>
