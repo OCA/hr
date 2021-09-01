@@ -10,13 +10,14 @@ class ResourceCalendar(models.Model):
     active = fields.Boolean(
         default=True,
     )
+    auto_generate = fields.Boolean()
 
     @api.multi
     def write(self, vals):
         res = super(ResourceCalendar, self).write(vals)
         if 'attendance_ids' not in vals:
             return res
-        for record in self.filtered('active'):
+        for record in self.filtered(lambda x: not x.auto_generate):
             calendars = self.env['hr.employee.calendar'].search([
                 ('calendar_id', '=', record.id)
             ])

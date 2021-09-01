@@ -15,9 +15,10 @@ class HrEmployee(models.Model):
 
     def _regenerate_calendar(self):
         self.ensure_one()
-        if not self.resource_calendar_id or self.resource_calendar_id.active:
+        if not self.resource_calendar_id or not self.resource_calendar_id.auto_generate:
             self.resource_calendar_id = self.env['resource.calendar'].create({
                 'active': False,
+                'auto_generate': True,
                 'name': _(
                     'Auto generated calendar for employee'
                 ) + ' %s' % self.name,
