@@ -27,7 +27,6 @@ msgid "Auto Generate"
 msgstr ""
 
 #. module: hr_employee_calendar_planning
-#: code:addons/hr_employee_calendar_planning/models/hr_employee.py:21
 #: code:addons/hr_employee_calendar_planning/models/hr_employee.py:22
 #, python-format
 msgid "Auto generated calendar for employee"
