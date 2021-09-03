@@ -50,12 +50,16 @@ class HrEmployee(models.Model):
         two_weeks = bool(
             self.calendar_ids.mapped("calendar_id").filtered("two_weeks_calendar")
         )
-        if not self.resource_id.calendar_id or self.resource_id.calendar_id.active:
+        if (
+            not self.resource_id.calendar_id
+            or not self.resource_id.calendar_id.auto_generate
+        ):
             self.resource_id.calendar_id = (
                 self.env["resource.calendar"]
                 .create(
                     {
                         "active": False,
+                        "auto_generate": True,
                         "name": _("Auto generated calendar for employee")
                         + " %s" % self.name,
                         "attendance_ids": [],
