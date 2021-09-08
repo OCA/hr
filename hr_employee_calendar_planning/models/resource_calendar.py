@@ -10,6 +10,7 @@ class ResourceCalendar(models.Model):
     _inherit = "resource.calendar"
 
     active = fields.Boolean(default=True)
+    auto_generate = fields.Boolean()
 
     @api.constrains("active")
     def _check_active(self):
@@ -41,7 +42,7 @@ class ResourceCalendar(models.Model):
     def write(self, vals):
         res = super(ResourceCalendar, self).write(vals)
         if "attendance_ids" in vals:
-            for record in self.filtered("active"):
+            for record in self.filtered(lambda x: not x.auto_generate):
                 calendars = self.env["hr.employee.calendar"].search(
                     [("calendar_id", "=", record.id)]
                 )

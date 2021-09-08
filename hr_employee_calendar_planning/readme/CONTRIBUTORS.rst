@@ -1,6 +1,7 @@
 * `Tecnativa <https://www.tecnativa.com>`_:
 
   * Pedro M. Baeza
+  * Víctor Martínez
 
 * `Creu Blanca <https://www.creu-blanca.es/>`_:
 

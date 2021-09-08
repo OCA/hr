@@ -92,6 +92,7 @@ Contributors
 * `Tecnativa <https://www.tecnativa.com>`_:
 
   * Pedro M. Baeza
+  * Víctor Martínez
 
 * `Creu Blanca <https://www.creu-blanca.es/>`_:
 
@@ -115,6 +116,17 @@ This module is maintained by the OCA.
 OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
+
+.. |maintainer-victoralmau| image:: https://github.com/victoralmau.png?size=40px
+    :target: https://github.com/victoralmau
+    :alt: victoralmau
+.. |maintainer-pedrobaeza| image:: https://github.com/pedrobaeza.png?size=40px
+    :target: https://github.com/pedrobaeza
+    :alt: pedrobaeza
+
+Current `maintainers <https://odoo-community.org/page/maintainer-role>`__:
+
+|maintainer-victoralmau| |maintainer-pedrobaeza| 
 
 This module is part of the `OCA/hr <https://github.com/OCA/hr/tree/14.0/hr_employee_calendar_planning>`_ project on GitHub.
 
