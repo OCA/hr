@@ -32,6 +32,11 @@ msgid "Active"
 msgstr ""
 
 #. module: hr_employee_calendar_planning
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_resource_calendar__auto_generate
+msgid "Auto Generate"
+msgstr ""
+
+#. module: hr_employee_calendar_planning
 #: code:addons/hr_employee_calendar_planning/models/hr_employee.py:0
 #, python-format
 msgid "Auto generated calendar for employee"
