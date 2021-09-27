@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2021 Creu Blanca
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record model="ir.ui.view" id="hr_personal_equipment_request_form_view">
+        <field
+            name="name"
+        >hr.personal.equipment.request.form (in hr_employee_ppe)</field>
+        <field name="model">hr.personal.equipment.request</field>
+        <field
+            name="inherit_id"
+            ref="hr_personal_equipment_request.hr_personal_equipment_request_form_view"
+        />
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='cancel_request']" position="before">
+                <button
+                    type="object"
+                    name="action_view_ppe_report"
+                    string="Print Receipt of PPE"
+                    groups="hr.group_hr_user"
+                    attrs="{'invisible':['|',('contains_ppe','=',False), ('state', 'not in', ('draft', 'accepted'))]}"
+                />
+            </xpath>
+            <xpath
+                expr="//group[@name='employee']//field[@name='employee_id']"
+                position="after"
+            >
+                <field name="contains_ppe" invisible="1" string="Contains PPE" />
+            </xpath>
+            <xpath expr="//notebook//field[@name='product_id']" position="after">
+                <field name="is_ppe" string="Is PPE" />
+                <field name="indications" invisible="1" />
+            </xpath>
+            <xpath expr="//notebook//field[@name='start_date']" position="after">
+                <field name="expire_ppe" string="Expirable" />
+                <field name="expiry_date" />
+                <field name="certification" groups="hr.group_hr_user" />
+            </xpath>
+        </field>
+    </record>
+</odoo>
