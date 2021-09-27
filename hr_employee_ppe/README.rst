@@ -26,6 +26,9 @@ Personal Protective Equipment (PPE) Management
 |badge1| |badge2| |badge3| |badge4| |badge5| 
 
 This module allows you to manage allocation of PPE to your employees.
+A product can be marked as ppe and additional information as duration and indications can also be added.
+If ppe products are selected in a equipment request, a button to print a receipt of PPE will appear.
+In addition, a chron will check every day if an allocation has been expired.
 
 **Table of contents**
 
@@ -36,19 +39,6 @@ Installation
 ============
 
 To install this module, you need to have HR module installed or it will be requested during installation.
-
-Usage
-=====
-
-To manage PPEs allocation to employees, you will have to populate a list of equipments first.
-
-1. Go to menu *Employees -> PPEs -> Equipments*
-
-Then you can allocate:
-
-1. Go to menu *Employees -> Employees*
-2. Select an employee
-3. Go to *PPE* tab
 
 Bug Tracker
 ===========
@@ -75,6 +65,7 @@ Contributors
 * Marcel Savegnago <marcel.savegnago@escodoo.com.br>
 * Joao Carassato <joao.carassato@escodoo.com.br>
 * Fernando Colus <fernando.colus@escodoo.com.br>
+* Alba Riera <alba.riera@creublanca.es>
 
 Other credits
 ~~~~~~~~~~~~~
@@ -82,6 +73,7 @@ Other credits
 The development of this module has been financially supported by:
 
 * Escodoo - `https://www.escodoo.com.br <https://www.escodoo.com.br>`_
+* Creu Blanca - `https://www.creublanca.es <https://www.creublanca.es>`_
 
 Maintainers
 ~~~~~~~~~~~

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!-- TREE -->
+    <record id="hr_personal_equipment_tree_view" model="ir.ui.view">
+        <field name="name">hr.personal.equipment.tree</field>
+        <field name="model">hr.personal.equipment</field>
+        <field
+            name="inherit_id"
+            ref="hr_personal_equipment_request.hr_personal_equipment_tree_view"
+        />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='start_date']" position="after">
+                <field name="expire_ppe" string="Expirable" />
+                <field name="expiry_date" />
+            </xpath>
+        </field>
+    </record>
+    <!-- FORM -->
+    <record model="ir.ui.view" id="hr_personal_equipment_form_view">
+        <field name="name">hr.personal.equipment.form (in hr_employee_ppe)</field>
+        <field name="model">hr.personal.equipment</field>
+        <field
+            name="inherit_id"
+            ref="hr_personal_equipment_request.hr_personal_equipment_form_view"
+        />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='product_id']" position="after">
+                <field
+                    name="is_ppe"
+                    string="Is PPE"
+                    readonly="1"
+                    attrs="{'invisible':[('is_ppe', '=', False)]}"
+                />
+            </xpath>
+            <xpath expr="//field[@name='start_date']" position="before">
+                <field
+                    name="expire_ppe"
+                    string="Expirable"
+                    attrs="{'invisible':[('is_ppe', '=', False)],'readonly': [('state', 'not in', ('draft','accepted'))]}"
+                />
+            </xpath>
+            <field name="expiry_date" position="attributes">
+                <attribute name="attrs">
+                {'invisible':['&amp;', ('state', '!=', 'expired'), ('expire_ppe', '=', False)],'readonly': [('state', 'not in', ('draft','accepted'))]}
+                </attribute>
+            </field>
+            <xpath expr="//group[@name='date']" position="after">
+                <group
+                    name="directions_info"
+                    string="PPE Indications"
+                    attrs="{'invisible':[('is_ppe', '=', False)]}"
+                >
+                    <field
+                        name="indications"
+                        attrs="{'invisible':[('is_ppe', '=', False)]}"
+                        readonly="1"
+                    />
+                </group>
+                <group
+                    string="Certification Information"
+                    attrs="{'invisible':[('is_ppe', '=', False)]}"
+                >
+                    <field
+                        name="issued_by"
+                        attrs="{'invisible':[('is_ppe', '=', False)]}"
+                        readonly="1"
+                    />
+                    <field
+                        name="certification"
+                        attrs="{'invisible':[('is_ppe', '=', False)],'readonly': [('state', 'not in', ('draft','accepted'))]}"
+                    />
+                </group>
+            </xpath>
+        </field>
+    </record>
+    <record id="hr_personal_equipment_form_view_base_user" model="ir.ui.view">
+        <field name="name">hr.personal.equipment.form (in hr_employee_ppe)</field>
+        <field name="model">hr.personal.equipment</field>
+        <field
+            name="inherit_id"
+            ref="hr_employee_ppe.hr_personal_equipment_form_view"
+        />
+        <field name="groups_id" eval="[(6,0,[ref('base.group_user')])]" />
+        <field name="arch" type="xml">
+            <field name="expire_ppe" position="attributes">
+                <attribute name="readonly">True</attribute>
+            </field>
+            <field name="expire_ppe" position="attributes">
+                <attribute name="readonly">True</attribute>
+            </field>
+            <field name="start_date" position="attributes">
+                <attribute name="readonly">True</attribute>
+            </field>
+            <field name="expiry_date" position="attributes">
+                <attribute name="readonly">True</attribute>
+            </field>
+            <field name="certification" position="attributes">
+                <attribute name="readonly">True</attribute>
+            </field>
+        </field>
+    </record>
+</odoo>
