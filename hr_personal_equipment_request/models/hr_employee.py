@@ -1,16 +1,15 @@
 # Copyright 2021 Creu Blanca
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import fields, models, _
+from odoo import _, fields, models
 
 
 class HrEmployee(models.Model):
 
-    _inherit = 'hr.employee'
+    _inherit = "hr.employee"
 
     equipment_request_ids = fields.One2many(
-        comodel_name="hr.personal.equipment.request",
-        inverse_name="employee_id",
+        comodel_name="hr.personal.equipment.request", inverse_name="employee_id",
     )
 
     personal_equipment_ids = fields.One2many(
@@ -40,8 +39,8 @@ class HrEmployee(models.Model):
             "type": "ir.actions.act_window",
             "res_model": "hr.personal.equipment.request",
             "view_mode": "tree,form",
-            "context": {'group_by': 'state'},
-            "domain": [("id", "in", self.equipment_request_ids.ids)]
+            "context": {"group_by": "state"},
+            "domain": [("id", "in", self.equipment_request_ids.ids)],
         }
 
     def action_open_personal_equipment(self):
@@ -50,7 +49,7 @@ class HrEmployee(models.Model):
             "name": _("Personal Equipment"),
             "type": "ir.actions.act_window",
             "res_model": "hr.personal.equipment",
-            "context": {'group_by': 'state'},
+            "context": {"group_by": "state"},
             "view_mode": "tree,form",
-            "domain": [("id", "in", self.personal_equipment_ids.ids)]
+            "domain": [("id", "in", self.personal_equipment_ids.ids)],
         }

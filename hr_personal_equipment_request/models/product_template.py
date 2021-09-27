@@ -6,7 +6,8 @@ from odoo import fields, models
 
 class ProductTemplate(models.Model):
 
-    _inherit = 'product.template'
+    _inherit = "product.template"
 
-    is_personal_equipment = fields.Boolean(default=False,
-                                           string="Is Employee Personal Equipment")
+    is_personal_equipment = fields.Boolean(
+        default=False, string="Is Employee Personal Equipment"
+    )
