@@ -65,6 +65,10 @@
                             name="start_date"
                             attrs="{'readonly': [('state', 'not in', ('draft','accepted'))]}"
                         />
+                        <field
+                            name="expiry_date"
+                            attrs="{'readonly': [('state', 'not in', ('draft','accepted'))], 'invisible': [('state', '!=', 'expired')]}"
+                        />
                     </group>
                 </sheet>
                 <div class="oe_chatter">
