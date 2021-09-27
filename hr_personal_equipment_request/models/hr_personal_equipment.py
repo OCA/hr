@@ -2,6 +2,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from odoo import api, fields, models
+from odoo.fields import Date
 
 
 class HrPersonalEquipment(models.Model):
@@ -30,9 +31,10 @@ class HrPersonalEquipment(models.Model):
             ("cancelled", "Cancelled"),
         ],
         default="draft",
-        track_visibility=True,
+        tracking=True,
     )
     start_date = fields.Date()
+    expiry_date = fields.Date()
     equipment_request_id = fields.Many2one(
         comodel_name="hr.personal.equipment.request", required=True, ondelete="cascade"
     )
@@ -56,6 +58,8 @@ class HrPersonalEquipment(models.Model):
         for rec in self:
             if rec.product_id.name and rec.employee_id.name:
                 rec.name = "{} to {}".format(rec.product_id.name, rec.employee_id.name)
+            else:
+                rec.name = False
 
     def _validate_allocation_vals(self):
         return {
@@ -72,6 +76,8 @@ class HrPersonalEquipment(models.Model):
     def expire_allocation(self):
         for rec in self:
             rec.state = "expired"
+            if not rec.expiry_date:
+                rec.expiry_date = Date.today()
 
     def _accept_request_vals(self):
         return {"state": "accepted"}
