@@ -26,7 +26,7 @@ class HrPersonalEquipmentRequest(models.Model):
     state = fields.Selection(
         [("draft", "Draft"), ("accepted", "Accepted"), ("cancelled", "Cancelled")],
         default="draft",
-        track_visibility=True,
+        tracking=True,
     )
     observations = fields.Text()
 
