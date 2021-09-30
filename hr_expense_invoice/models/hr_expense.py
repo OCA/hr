@@ -71,7 +71,7 @@ class HrExpense(models.Model):
         for expense_id, move_lines in move_line_values_by_expense.items():
             expense = self.browse(expense_id)
             if not expense.invoice_id:
-                return move_line_values_by_expense
+                continue
             for move_line in move_lines:
                 if move_line['debit']:
                     move_line['partner_id'] = \
