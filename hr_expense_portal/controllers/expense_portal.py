@@ -8,9 +8,9 @@ from odoo.http import request
 from odoo.addons.portal.controllers.portal import CustomerPortal, pager as portal_pager
 
 
-class ExpensePortal(CustomerPortal):
+class TestUi(CustomerPortal):
     def _prepare_portal_layout_values(self):
-        values = super(ExpensePortal, self)._prepare_portal_layout_values()
+        values = super(TestUi, self)._prepare_portal_layout_values()
         values["expense_count"] = request.env["hr.expense"].search_count([])
         return values
 
