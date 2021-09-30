@@ -222,3 +222,22 @@ class TestHrExpenseInvoice(common.SavepointCase):
             self.sheet._validate_expense_invoice(expense_line_ids)
         self.expense.write({'unit_amount': 100.0})  # set to 100.0
         self.sheet._validate_expense_invoice(expense_line_ids)
+
+    def test_5_hr_test_multi_invoice(self):
+        # We add 2 expenses
+        self.expense.unit_amount = 200.0
+        self.expense2.unit_amount = 100.0
+        self.sheet.expense_line_ids = [(6, 0, [self.expense.id,
+                                               self.expense2.id])]
+        # We add invoice to expense
+        self.invoice.action_invoice_open()
+        self.expense2.invoice_id = self.invoice.id
+        # We approve sheet
+        self.sheet.approve_expense_sheets()
+        # We post journal entries
+        self.sheet.action_sheet_move_create()
+        line_expense_2 = self.sheet.account_move_id.line_ids.filtered(
+            lambda x: x.debit == 100
+        )
+        self.assertEqual(line_expense_2.partner_id, self.invoice.partner_id)
+        self.assertEqual(line_expense_2.account_id, self.invoice.account_id)
