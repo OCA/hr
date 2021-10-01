@@ -46,7 +46,6 @@ class TestUi(CustomerPortal):
             sortby = "date"
         sort_order = searchbar_sortings[sortby]["order"]
 
-        archive_groups = self._get_archive_groups("hr.expense", domain)
         if date_begin and date_end:
             domain += [
                 ("create_date", ">", date_begin),
@@ -74,7 +73,6 @@ class TestUi(CustomerPortal):
                 "expenses": expense.sudo(),
                 "page_name": "expense",
                 "pager": pager,
-                "archive_groups": archive_groups,
                 "default_url": "/my/expenses",
                 "searchbar_sortings": searchbar_sortings,
                 "sortby": sortby,
@@ -97,6 +95,7 @@ class TestUi(CustomerPortal):
             .sudo()
             .search([("res_model", "=", "hr.expense"), ("res_id", "=", expense_id)])
         )
+        attachment_ids.generate_access_token()
         values = self._expense_get_page_view_values(expense_sudo, access_token, **kw)
         values["attachment_ids"] = attachment_ids
         return request.render("hr_expense_portal.portal_my_expense", values)
