@@ -11,6 +11,7 @@ class HrEmployee(models.Model):
         "hr.contract",
         compute="_compute_first_contract_id",
         store=True,
+        prefetch=False,
         string="First Contract",
         help="First contract of the employee",
     )
@@ -18,14 +19,21 @@ class HrEmployee(models.Model):
         "hr.contract",
         compute="_compute_last_contract_id",
         store=True,
+        prefetch=False,
         string="Last Contract",
         help="Last contract of the employee",
     )
     service_start_date = fields.Date(
-        string="Start Date", readonly=True, related="first_contract_id.date_start",
+        string="Start Date",
+        readonly=True,
+        related="first_contract_id.date_start",
+        prefetch=False,
     )
     service_termination_date = fields.Date(
-        string="Termination Date", readonly=True, related="last_contract_id.date_end",
+        string="Termination Date",
+        readonly=True,
+        related="last_contract_id.date_end",
+        prefetch=False,
     )
 
     @api.depends("contract_ids", "contract_ids.state", "contract_ids.date_start")
