@@ -4,7 +4,7 @@
 
 {
     "name": "HR Employee Service from Contracts",
-    "version": "13.0.1.0.0",
+    "version": "13.0.1.0.1",
     "category": "Human Resources",
     "website": "https://github.com/OCA/hr",
     "author": "CorporateHub, Odoo Community Association (OCA)",
