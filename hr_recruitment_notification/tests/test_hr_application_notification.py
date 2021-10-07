@@ -39,7 +39,7 @@ class TestHrApplicationSecurity(SavepointCase):
             {"name": "Test Job Application for Notification", "job_id": self.job.id}
         )
         new_application_message = application.message_ids.filtered(
-            lambda m: self.new_application_mt.description in m.body
+            lambda m: m.subtype_id == self.new_application_mt.parent_id
         )
         self.assertTrue(
             self.user.partner_id in new_application_message.notified_partner_ids
