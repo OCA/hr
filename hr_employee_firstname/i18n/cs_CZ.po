@@ -21,6 +21,11 @@ msgstr ""
 "<= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
 
 #. module: hr_employee_firstname
+#: model:ir.model,name:hr_employee_firstname.model_hr_employee_base
+msgid "Basic Employee"
+msgstr ""
+
+#. module: hr_employee_firstname
 #: model:ir.model,name:hr_employee_firstname.model_res_config_settings
 msgid "Config Settings"
 msgstr ""
@@ -42,8 +47,20 @@ msgid "First name"
 msgstr ""
 
 #. module: hr_employee_firstname
+#: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_base__firstname
+#: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_public__firstname
+msgid "Firstname"
+msgstr ""
+
+#. module: hr_employee_firstname
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee__lastname
 msgid "Last name"
+msgstr ""
+
+#. module: hr_employee_firstname
+#: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_base__lastname
+#: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_public__lastname
+msgid "Lastname"
 msgstr ""
 
 #. module: hr_employee_firstname
@@ -55,4 +72,9 @@ msgstr ""
 #. module: hr_employee_firstname
 #: model:ir.model.fields,help:hr_employee_firstname.field_res_config_settings__employee_names_order
 msgid "Order to compose employee fullname"
+msgstr ""
+
+#. module: hr_employee_firstname
+#: model:ir.model,name:hr_employee_firstname.model_hr_employee_public
+msgid "Public Employee"
 msgstr ""
