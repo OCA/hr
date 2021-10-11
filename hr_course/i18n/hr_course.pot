@@ -434,6 +434,16 @@ msgid "Waiting attendees"
 msgstr ""
 
 #. module: hr_course
+#: model:ir.model.fields,field_description:hr_course.field_hr_course__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: hr_course
+#: model:ir.model.fields,help:hr_course.field_hr_course__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: hr_course
 #: code:addons/hr_course/models/hr_course.py:0
 #, python-format
 msgid "You cannot complete the course with pending results"
