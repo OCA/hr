@@ -342,3 +342,18 @@ class TestHrEmployeeCalendarPlanning(common.SavepointCase):
         company2 = self.env["res.company"].create({"name": "Test company"})
         with self.assertRaises(exceptions.ValidationError):
             self.calendar1.company_id = company2
+
+    def test_employee_with_calendar_ids(self):
+        employee = self.env["hr.employee"].create(
+            {
+                "name": "Test employee",
+                "calendar_ids": [
+                    (
+                        0,
+                        0,
+                        {"date_start": "2020-01-01", "calendar_id": self.calendar2.id},
+                    ),
+                ],
+            }
+        )
+        self.assertTrue(employee.resource_calendar_id.auto_generate)
