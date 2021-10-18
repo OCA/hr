@@ -3,7 +3,7 @@
 
 {
     "name": "HR Employee First Name, Last Name",
-    "version": "14.0.3.0.0",
+    "version": "15.0.1.0.0",
     "author": "Savoir-faire Linux, "
     "Fekete Mihai (Forest and Biomass Services Romania), "
     "Onestein, "
