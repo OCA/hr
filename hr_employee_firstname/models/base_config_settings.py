@@ -12,7 +12,6 @@ class ResConfigSettings(models.TransientModel):
     _inherit = "res.config.settings"
 
     employee_names_order = fields.Selection(
-        string="Employee Names Order",
         selection="_employee_names_order_selection",
         help="Order to compose employee fullname",
         config_parameter="employee_names_order",
