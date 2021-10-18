@@ -50,25 +50,7 @@ class HrEmployee(models.Model):
         two_weeks = bool(
             self.calendar_ids.mapped("calendar_id").filtered("two_weeks_calendar")
         )
-        if (
-            not self.resource_id.calendar_id
-            or not self.resource_id.calendar_id.auto_generate
-        ):
-            self.resource_calendar_id = (
-                self.env["resource.calendar"]
-                .create(
-                    {
-                        "active": False,
-                        "auto_generate": True,
-                        "name": _("Auto generated calendar for employee")
-                        + " %s" % self.name,
-                        "attendance_ids": [],
-                        "two_weeks_calendar": two_weeks,
-                    }
-                )
-                .id
-            )
-        else:
+        if self.resource_id.calendar_id.auto_generate:
             self.resource_calendar_id.attendance_ids.unlink()
             self.resource_calendar_id.two_weeks_calendar = two_weeks
         seq = 0
@@ -99,11 +81,39 @@ class HrEmployee(models.Model):
                     )[0]
                     seq += 1
                     vals_list.append((0, 0, data))
-        self.resource_calendar_id.attendance_ids = vals_list
+        # Autogenerate
+        if not self.resource_id.calendar_id.auto_generate:
+            self.resource_id.calendar_id = (
+                self.env["resource.calendar"]
+                .create(
+                    {
+                        "active": False,
+                        "auto_generate": True,
+                        "name": _("Auto generated calendar for employee")
+                        + " %s" % self.name,
+                        "attendance_ids": vals_list,
+                        "two_weeks_calendar": two_weeks,
+                    }
+                )
+                .id
+            )
+        else:
+            self.resource_calendar_id.attendance_ids = vals_list
+        # Set the hours per day to the last (top date end) calendar line to apply
+        if self.calendar_ids:
+            self.resource_calendar_id.hours_per_day = self.calendar_ids[
+                0
+            ].calendar_id.hours_per_day
 
     def regenerate_calendar(self):
         for item in self:
             item._regenerate_calendar()
+
+    @api.model_create_multi
+    def create(self, vals_list):
+        res = super().create(vals_list)
+        res.filtered("calendar_ids").regenerate_calendar()
+        return res
 
 
 class HrEmployeeCalendar(models.Model):
