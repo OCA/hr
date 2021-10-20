@@ -2,7 +2,7 @@
 <odoo noupdate="1">
     <record model="ir.rule" id="hr_employee_course_rule">
         <field name="name">hr.employee.course.rule</field>
-        <field name="model_id" ref="model_hr_course" />
+        <field name="model_id" ref="model_hr_course_schedule" />
         <field
             name="domain_force"
         >[('attendant_ids', 'in', user.employee_ids.ids)]</field>
@@ -11,7 +11,7 @@
     </record>
     <record model="ir.rule" id="hr_employee_course_manager_rule">
         <field name="name">hr.employee.course.rule</field>
-        <field name="model_id" ref="model_hr_course" />
+        <field name="model_id" ref="model_hr_course_schedule" />
         <field name="domain_force">[(1, '=', 1)]</field>
         <field name="groups" eval="[(4, ref('hr.group_hr_manager'))]" />
         <field name="global" eval="False" />
