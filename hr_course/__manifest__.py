@@ -15,6 +15,8 @@
         "security/ir.model.access.csv",
         "views/hr_course_category_views.xml",
         "views/hr_course_views.xml",
+        "views/hr_course_schedule_views.xml",
         "views/hr_employee_views.xml",
     ],
+    "demo": ["demo/hr_course.xml"],
 }

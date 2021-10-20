@@ -1,6 +1,8 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_hr_course,access_hr_course,model_hr_course,base.group_user,1,0,0,0
 access_hr_course_manager,access_hr_course_manager,model_hr_course,hr.group_hr_manager,1,1,1,1
+access_hr_course_schedule,access_hr_course_schedule,model_hr_course_schedule,base.group_user,1,0,0,0
+access_hr_course_schedule_manager,access_hr_course_schedule_manager,model_hr_course_schedule,hr.group_hr_manager,1,1,1,1
 access_hr_course_attendee,access_hr_course_attendee,model_hr_course_attendee,base.group_user,1,0,0,0
 access_hr_course_attendee_manager,access_hr_course_attendee_manager,model_hr_course_attendee,hr.group_hr_manager,1,1,1,1
 access_hr_course_category,access_hr_course_category,model_hr_course_category,base.group_user,1,0,0,0
