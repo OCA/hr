@@ -30,7 +30,7 @@
                 decoration-success="state!='cancelled' and result=='passed'"
                 decoration-danger="state!='cancelled' and (result=='failed' or result=='absent')"
             >
-                <field name="course_id" />
+                <field name="course_schedule_id" />
                 <field name="state" />
                 <field name="course_start" />
                 <field name="course_end" />
