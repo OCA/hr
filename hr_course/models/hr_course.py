@@ -5,17 +5,13 @@ from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
 
 
-class HrCourse(models.Model):
-    _name = "hr.course"
-    _description = "Course"
+class HrCourseSchedule(models.Model):
+    _name = "hr.course.schedule"
+    _description = "Course Schedule"
     _inherit = "mail.thread"
 
     name = fields.Char(string="Name", required=True, tracking=True)
-    category_id = fields.Many2one(
-        "hr.course.category",
-        string="Category",
-        required=True,
-    )
+    course_id = fields.Many2one("hr.course", string="Course", required=True)
 
     start_date = fields.Date(
         string="Start date",
@@ -43,22 +39,6 @@ class HrCourse(models.Model):
         states={"draft": [("readonly", False)]},
         tracking=True,
     )
-    permanence = fields.Boolean(
-        string="Has Permanence",
-        readonly=True,
-        states={"draft": [("readonly", False)]},
-        tracking=True,
-        help="Check if the participants of this course are restricted to"
-        " stay in the company for a certain period of time.",
-    )
-    permanence_time = fields.Char(
-        string="Permanence time",
-        readonly=True,
-        states={"draft": [("readonly", False)]},
-        tracking=True,
-        help="Amount of time the employee is restricted to stay in the"
-        " company by participating to this course.",
-    )
     state = fields.Selection(
         [
             ("draft", "Draft"),
@@ -73,6 +53,12 @@ class HrCourse(models.Model):
         default="draft",
         tracking=True,
     )
+
+    comment = fields.Text("Comment")
+    training_company_id = fields.Many2one("res.partner", string="Training company")
+    instructor_ids = fields.Many2many("res.partner", string="Instructor")
+    place = fields.Char("Place")
+
     attendant_ids = fields.Many2many(
         "hr.employee",
         readonly=True,
@@ -80,7 +66,7 @@ class HrCourse(models.Model):
     )
     course_attendee_ids = fields.One2many(
         "hr.course.attendee",
-        inverse_name="course_id",
+        inverse_name="course_schedule_id",
         readonly=True,
         states={"in_validation": [("readonly", False)]},
     )
@@ -97,17 +83,11 @@ class HrCourse(models.Model):
         for attendee in self.course_attendee_ids:
             attendee.result = "passed"
 
-    @api.onchange("permanence")
-    def _onchange_permanence(self):
-        self.permanence_time = False
-
     def _draft2waiting_values(self):
-        return {
-            "state": "waiting_attendees",
-        }
+        return {"state": "waiting_attendees"}
 
     def _attendee_values(self, attendee):
-        return {"employee_id": attendee.id, "course_id": self.id}
+        return {"employee_id": attendee.id, "course_schedule_id": self.id}
 
     def _waiting2inprogress_values(self):
         attendants = []
@@ -130,24 +110,16 @@ class HrCourse(models.Model):
         return {"state": "in_progress", "course_attendee_ids": attendants}
 
     def _inprogress2validation_values(self):
-        return {
-            "state": "in_validation",
-        }
+        return {"state": "in_validation"}
 
     def _validation2complete_values(self):
-        return {
-            "state": "completed",
-        }
+        return {"state": "completed"}
 
     def _back2draft_values(self):
-        return {
-            "state": "draft",
-        }
+        return {"state": "draft"}
 
     def _cancel_course_values(self):
-        return {
-            "state": "cancelled",
-        }
+        return {"state": "cancelled"}
 
     def draft2waiting(self):
         for record in self:
@@ -185,17 +157,14 @@ class HRCourseAttendee(models.Model):
     _name = "hr.course.attendee"
     _description = "Course Attendee"
 
-    course_id = fields.Many2one(
-        "hr.course",
-        ondelete="cascade",
-        readonly=True,
-        required=True,
+    course_schedule_id = fields.Many2one(
+        "hr.course.schedule", ondelete="cascade", readonly=True, required=True
     )
-    name = fields.Char(related="course_id.name", readonly=True)
+    name = fields.Char(related="course_schedule_id.name", readonly=True)
     employee_id = fields.Many2one("hr.employee", readonly=True)
-    course_start = fields.Date(related="course_id.start_date", readonly=True)
-    course_end = fields.Date(related="course_id.end_date", readonly=True)
-    state = fields.Selection(related="course_id.state", readonly=True)
+    course_start = fields.Date(related="course_schedule_id.start_date", readonly=True)
+    course_end = fields.Date(related="course_schedule_id.end_date", readonly=True)
+    state = fields.Selection(related="course_schedule_id.state", readonly=True)
     result = fields.Selection(
         [
             ("passed", "Passed"),
@@ -212,11 +181,48 @@ class HRCourseAttendee(models.Model):
         return [(1, self.id, {"active": False})]
 
 
+class HrCourse(models.Model):
+    _name = "hr.course"
+    _description = "Course"
+    _inherit = "mail.thread"
+
+    name = fields.Char(string="Name", required=True, tracking=True)
+    category_id = fields.Many2one(
+        "hr.course.category", string="Category", required=True
+    )
+
+    permanence = fields.Boolean(
+        string="Has Permanence",
+        readonly=True,
+        default=False,
+        tracking=True,
+    )
+    permanence_time = fields.Char(
+        string="Permanence time",
+        readonly=True,
+        tracking=True,
+    )
+
+    content = fields.Html()
+    objective = fields.Html()
+
+    evaluation_criteria = fields.Html()
+
+    course_schedule_ids = fields.One2many(
+        "hr.course.schedule",
+        inverse_name="course_id",
+        readonly=True,
+    )
+
+    @api.onchange("permanence")
+    def _onchange_permanence(self):
+        self.permanence_time = False
+
+
 class HRCourseCategory(models.Model):
     _name = "hr.course.category"
     _description = "Course Category"
+
     name = fields.Char(string="Course category", required=True)
 
-    _sql_constraints = [
-        ("name_uniq", "unique (name)", "Category already exists !"),
-    ]
+    _sql_constraints = [("name_uniq", "unique (name)", "Category already exists !")]
