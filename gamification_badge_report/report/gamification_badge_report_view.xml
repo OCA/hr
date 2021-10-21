@@ -23,7 +23,6 @@
     <record id="action_badge_report_all" model="ir.actions.act_window">
         <field name="name">Badge Report</field>
         <field name="res_model">gamification.badge.report</field>
-        <field name="view_type">form</field>
         <field name="view_mode">graph,pivot</field>
     </record>
     <menuitem
