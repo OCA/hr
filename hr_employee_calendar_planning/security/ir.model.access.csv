@@ -1,3 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_hr_employee_calendar_planning_user,access_hr_employee_calendar,model_hr_employee_calendar,base.group_user,1,0,0,0
 access_hr_employee_calendar_planning_manager,access_hr_employee_calendar,model_hr_employee_calendar,hr.group_hr_user,1,1,1,1
+access_wizard_generate_calendar_planning,access_wizard_generate_calendar_planning,model_wizard_generate_calendar_planning,hr.group_hr_user,1,1,1,1

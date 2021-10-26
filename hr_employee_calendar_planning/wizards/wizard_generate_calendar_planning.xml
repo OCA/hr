@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="wizard_generate_calendar_planning_form_view">
+        <field name="name">wizard.generate.calendar.planning.form.view</field>
+        <field name="model">wizard.generate.calendar.planning</field>
+        <field name="arch" type="xml">
+            <form string="Generate Calendar Planning">
+                <group>
+                    <field name="employee_id" invisible="1" />
+                </group>
+                <group colspan="4">
+                    <separator string="Calendar Planning" colspan="4" />
+                    <newline />
+                    <field
+                        name="calendar_ids"
+                        context="{'default_employee_id': employee_id}"
+                        nolabel="1"
+                        widget="one2many"
+                    >
+                        <tree editable="bottom">
+                            <field name="company_id" invisible="1" />
+                            <field name="employee_id" invisible="1" />
+                            <field name="date_start" />
+                            <field name="date_end" />
+                            <field name="calendar_id" />
+                        </tree>
+                    </field>
+                </group>
+                <group colspan="4">
+                    <separator string="Employees" colspan="4" />
+                    <newline />
+                    <field name="employee_ids" nolabel="1" />
+                </group>
+                <footer>
+                    <button
+                        name="create_calendar_planning"
+                        string="Generate"
+                        class="btn-primary"
+                        type="object"
+                    />
+                    <button string="Cancel" class="btn-default" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record
+        model="ir.actions.act_window"
+        id="wizard_generate_calendar_planning_act_window"
+    >
+        <field name="name">Generate Calendar Planning</field>
+        <field name="res_model">wizard.generate.calendar.planning</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="wizard_generate_calendar_planning_form_view" />
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="hr.model_hr_employee" />
+    </record>
+</odoo>
