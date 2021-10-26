@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_attendance_tree" model="ir.ui.view">
+        <field name="name">hr.attendance.tree</field>
+        <field name="model">hr.attendance</field>
+        <field name="inherit_id" ref="hr_attendance.view_attendance_tree"/>
+        <field name="priority">400</field>
+        <field name="arch" type="xml">
+            <field name="check_in" position="before">
+                <field name="is_check_in_rfid" invisible="1" />
+                <button icon="fa-check-circle" attrs="{'invisible': [('is_check_in_rfid', '=', False)]}"/>
+            </field>
+            <field name="check_out" position="before">
+                <field name="is_check_out_rfid" invisible="1" />
+                <button icon="fa-check-circle" attrs="{'invisible': [('is_check_out_rfid', '=', False)]}"/>
+            </field>
+            <xpath expr="//tree" position="attributes">
+                <attribute name="decoration-danger">is_check_in_rfid == False or is_check_out_rfid == False</attribute>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

@@ -19,6 +19,7 @@
     ],
     'data': [
         'views/hr_employee_view.xml',
+        'views/hr_attendance_view.xml',
         'security/hr_attendance_rfid.xml',
         'security/ir.model.access.csv',
     ],

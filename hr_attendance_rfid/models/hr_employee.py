@@ -56,8 +56,10 @@ class HrEmployee(models.Model):
                 res['logged'] = True
                 if attendance.check_out:
                     res['action'] = 'check_out'
+                    attendance.is_check_out_rfid = True
                 else:
                     res['action'] = 'check_in'
+                    attendance.is_check_in_rfid = True
                 return res
             else:
                 msg = _('No attendance was recorded for '
