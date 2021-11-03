@@ -23,11 +23,14 @@ class HrPersonalEquipmentRequest(models.Model):
         inverse_name="equipment_request_id",
         copy=True,
     )
+    allocations_count = fields.Integer(compute="_compute_allocation_count")
+
     state = fields.Selection(
         [("draft", "Draft"), ("accepted", "Accepted"), ("cancelled", "Cancelled")],
         default="draft",
         tracking=True,
     )
+
     observations = fields.Text()
 
     def _default_employee_id(self):
@@ -50,3 +53,19 @@ class HrPersonalEquipmentRequest(models.Model):
         for rec in self:
             rec.state = "cancelled"
             rec.line_ids.update({"state": "cancelled"})
+
+    def _compute_equipment_request_count(self):
+        self.equipment_request_count = len(self.equipment_request_ids)
+
+    def _compute_allocation_count(self):
+        self.allocations_count = len(self.line_ids)
+
+    def action_open_personal_equipment(self):
+        self.ensure_one()
+        return {
+            "name": _("Allocations"),
+            "type": "ir.actions.act_window",
+            "res_model": "hr.personal.equipment",
+            "view_mode": "tree,form",
+            "domain": [("id", "in", self.line_ids.ids)],
+        }

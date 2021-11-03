@@ -29,7 +29,21 @@
                     <field name="state" widget="statusbar" />
                 </header>
                 <sheet>
-                    <div name="button_box" class="oe_button_box" />
+                    <div name="button_box" class="oe_button_box">
+                        <button
+                            name="action_open_personal_equipment"
+                            type="object"
+                            icon="fa-briefcase"
+                            attrs="{'invisible': [('allocations_count', '=', 0)]}"
+                        >
+                            <!-- TODO: IN version 14.0 (with fa 5.0) we could put a t-shirt as icon -->
+                            <field
+                                name="allocations_count"
+                                string="Allocations"
+                                widget="statinfo"
+                            />
+                        </button>
+                    </div>
                     <group name="employee">
                         <field name="name" invisible="1" />
                         <field
