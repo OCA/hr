@@ -38,14 +38,14 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee__firstname
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_base__firstname
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_public__firstname
-msgid "Firstname"
+msgid "First name"
 msgstr ""
 
 #. module: hr_employee_firstname
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee__lastname
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_base__lastname
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_public__lastname
-msgid "Lastname"
+msgid "Last name"
 msgstr ""
 
 #. module: hr_employee_firstname
