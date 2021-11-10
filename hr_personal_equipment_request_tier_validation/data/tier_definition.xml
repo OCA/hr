@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    Copyright 2021 Creu Blanca
+    License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
+-->
+<odoo noupdate="1">
+    <record id="tier_definition_personal_equipment_request" model="tier.definition">
+        <field name="name">Personal Equipment Request Tier Validation</field>
+        <field name="model_id" ref="model_hr_personal_equipment_request" />
+        <field name="review_type">group</field>
+        <field name="reviewer_group_id" ref='hr.group_hr_user' />
+    </record>
+</odoo>
