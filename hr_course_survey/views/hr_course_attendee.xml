@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2021 Creu Blanca
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record model="ir.ui.view" id="hr_course_attendee_tree_view">
+        <field name="name">hr.course.attendee.tree</field>
+        <field name="model">hr.course.attendee</field>
+        <field name="inherit_id" ref="hr_course.hr_course_attendee_tree_view" />
+        <field name="groups_id" eval="[(4, ref('hr.group_hr_manager'))]" />
+        <field name="arch" type="xml">
+            <field name="result" position="after">
+                <field
+                    name="survey_answer_id"
+                    attrs="{'invisible': [('survey_answer_id', '=', False)]}"
+                />
+                <button
+                    name="resend_survey"
+                    string="Retry"
+                    type="object"
+                    icon="fa-repeat text-success"
+                    attrs="{'column_invisible': [('parent.state', 'not in', ('in_validation'))], 'invisible': ['|', ('result', '!=', 'failed'), ('survey_answer_id', '=', False)]}"
+                />
+            </field>
+        </field>
+    </record>
+</odoo>
