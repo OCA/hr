@@ -5,29 +5,16 @@ from openupgradelib import openupgrade  # pylint: disable=W7936
 _models_renames = [
     ("hr.course", "hr.course.schedule"),
 ]
+_column_renames = {
+    "hr_course_attendee": [("course_id", "course_schedule_id")],
+}
+_table_renames = [("hr_course", "hr_course_schedule")]
 
 
 @openupgrade.migrate()
 def migrate(env, version):
-    openupgrade.rename_models(env, _models_renames)
-
-    openupgrade.logged_query(
-        env.cr,
-        """
-        SELECT id, name, category_id, permanence, permanence_time
-        INTO hr_course
-        FROM hr_course_schedule
-        """,
-    )
-
-    openupgrade.logged_query(
-        env.cr, "ALTER TABLE hr_course_schedule ADD course_id int4"
-    )
-
-    openupgrade.logged_query(
-        env.cr,
-        """
-        UPDATE hr_course_schedule
-        SET course_id = id
-        """,
-    )
+    if openupgrade.table_exists(env.cr, "hr_course_schedule"):
+        return
+    openupgrade.rename_models(env.cr, _models_renames)
+    openupgrade.rename_tables(env.cr, _table_renames)
+    openupgrade.rename_columns(env.cr, _column_renames)
