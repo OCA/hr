@@ -1,3 +1,4 @@
+
 To create a Course go to Employees -> Courses.
 
 To create a Training Schedule go to Employees -> Courses Schedule.
