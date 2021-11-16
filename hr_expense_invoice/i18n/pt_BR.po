@@ -6,81 +6,83 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2021-11-16 20:36+0000\n"
+"Last-Translator: Marcel Savegnago <marcel.savegnago@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #. module: hr_expense_invoice
 #: model_terms:ir.ui.view,arch_db:hr_expense_invoice.hr_expense_sheet_form_view_inherit_sale_expense
 msgid "Create Vendor Bill"
-msgstr ""
+msgstr "Criar Fatura de Fornecedor"
 
 #. module: hr_expense_invoice
 #: model:ir.model,name:hr_expense_invoice.model_hr_expense
 msgid "Expense"
-msgstr ""
+msgstr "Despesa"
 
 #. module: hr_expense_invoice
 #: model:ir.model,name:hr_expense_invoice.model_hr_expense_sheet
 msgid "Expense Report"
-msgstr ""
+msgstr "Relatório de Despesas"
 
 #. module: hr_expense_invoice
 #: model:ir.model.fields,help:hr_expense_invoice.field_hr_expense__sheet_id_state
 msgid "Expense Report State"
-msgstr ""
+msgstr "Estado do Relatório de Despesa"
 
 #. module: hr_expense_invoice
 #: model:ir.model.fields,field_description:hr_expense_invoice.field_account_invoice__expense_ids
 msgid "Expenses"
-msgstr ""
+msgstr "Despesas"
 
 #. module: hr_expense_invoice
 #: model:ir.model,name:hr_expense_invoice.model_account_invoice
 msgid "Invoice"
-msgstr ""
+msgstr "Fatura"
 
 #. module: hr_expense_invoice
 #: model:ir.model.fields,field_description:hr_expense_invoice.field_hr_expense_sheet__invoice_count
 msgid "Invoice Count"
-msgstr ""
+msgstr "Contagem de Fatura"
 
 #. module: hr_expense_invoice
 #: code:addons/hr_expense_invoice/models/hr_expense_sheet.py:70
 #: model_terms:ir.ui.view,arch_db:hr_expense_invoice.hr_expense_sheet_form_view_inherit_sale_expense
 #, python-format
 msgid "Invoices"
-msgstr ""
+msgstr "Faturas"
 
 #. module: hr_expense_invoice
 #: model:ir.model,name:hr_expense_invoice.model_account_move_line
 msgid "Journal Item"
-msgstr ""
+msgstr "Item de Diário"
 
 #. module: hr_expense_invoice
 #: model:ir.model,name:hr_expense_invoice.model_account_payment
 msgid "Payments"
-msgstr ""
+msgstr "Pagamentos"
 
 #. module: hr_expense_invoice
 #: code:addons/hr_expense_invoice/models/account_payment.py:15
 #, python-format
 msgid "Register payment on expense's invoice is not allowed"
-msgstr ""
+msgstr "O registro de pagamento da fatura desta despesa não está habilitado"
 
 #. module: hr_expense_invoice
 #: model:ir.model.fields,field_description:hr_expense_invoice.field_hr_expense__sheet_id_state
 msgid "Sheet state"
-msgstr ""
+msgstr "Estado da Planilha"
 
 #. module: hr_expense_invoice
 #: model:ir.model.fields,field_description:hr_expense_invoice.field_hr_expense__invoice_id
 msgid "Vendor Bill"
-msgstr ""
+msgstr "Fatura de Fornecedor"
 
 #. module: hr_expense_invoice
 #: code:addons/hr_expense_invoice/models/hr_expense_sheet.py:63
@@ -88,16 +90,21 @@ msgstr ""
 msgid "Vendor bill amount mismatch!\n"
 "Please make sure amount in vendor bills equal to amount of its expense lines"
 msgstr ""
+"A conta do fornecedor não está de acordo!\n"
+"Por favor certifique-se de que o valor nas contas do fornecedor seja igual "
+"ao valor de suas linhas de despesas"
 
 #. module: hr_expense_invoice
 #: code:addons/hr_expense_invoice/models/hr_expense.py:67
 #: code:addons/hr_expense_invoice/models/hr_expense_sheet.py:57
 #, python-format
 msgid "Vendor bill state must be Open"
-msgstr ""
+msgstr "O estado da fatura do fornecedor deve ser Aberto"
 
 #. module: hr_expense_invoice
 #: code:addons/hr_expense_invoice/models/account_invoice.py:23
 #, python-format
 msgid "You can't change the total amount, as there's an expense linked to this invoice."
 msgstr ""
+"Você não pode alterar o valor total, pois há uma despesa ligada a essa "
+"fatura."
