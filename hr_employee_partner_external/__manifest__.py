@@ -4,12 +4,12 @@
 {
     "name": "Employee external Partner",
     "summary": "Associate an external Partner to Employee",
-    "version": "12.0.1.0.0",
+    "version": "13.0.1.0.0",
     "category": "Human Resources",
     "author": "Stefano Consolaro Associazione PNLUG - Gruppo Odoo, "
     "Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/hr",
     "license": "AGPL-3",
-    "depends": ["hr",],
-    "data": ["views/hr_employee.xml",],
+    "depends": ["hr"],
+    "data": ["views/hr_employee.xml"],
 }
