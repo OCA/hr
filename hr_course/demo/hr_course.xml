@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="hr_course_category_it" model="hr.course.category">
+        <field name="name">Department IT</field>
+    </record>
+    <record id="hr_course_category_language" model="hr.course.category">
+        <field name="name">Languages</field>
+    </record>
+    <record id="hr_course_qsa" model="hr.course">
+        <field name="name">Qualified Security Assessor Training (QSA)</field>
+        <field name="category_id" ref="hr_course_category_it" />
+    </record>
+    <record id="hr_course_isa" model="hr.course">
+        <field name="name">Internal Security Assessor Training (ISA)</field>
+        <field name="category_id" ref="hr_course_category_it" />
+    </record>
+    <record id="hr_course_schedule_qsa_october" model="hr.course.schedule">
+        <field name="name">QSA October</field>
+        <field name="course_id" ref="hr_course_qsa" />
+        <field name="start_date">2021-10-21</field>
+        <field name="end_date">2021-10-21</field>
+        <field name="cost">100</field>
+        <field name="authorized_by" ref="hr.employee_hne" />
+    </record>
+    <record id="hr_course_schedule_qsa_november" model="hr.course.schedule">
+        <field name="name">QSA November</field>
+        <field name="course_id" ref="hr_course_qsa" />
+        <field name="start_date">2021-11-29</field>
+        <field name="end_date">2021-11-29</field>
+        <field name="cost">100</field>
+        <field name="authorized_by" ref="hr.employee_hne" />
+    </record>
+</odoo>
