@@ -19,6 +19,7 @@ setuptools.setup(
         'odoo14-addon-hr_employee_calendar_planning',
         'odoo14-addon-hr_employee_digitized_signature',
         'odoo14-addon-hr_employee_firstname',
+        'odoo14-addon-hr_employee_id',
         'odoo14-addon-hr_employee_lastnames',
         'odoo14-addon-hr_employee_medical_examination',
         'odoo14-addon-hr_employee_phone_extension',
