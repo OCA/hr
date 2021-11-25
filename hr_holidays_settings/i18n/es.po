@@ -21,11 +21,6 @@ msgstr ""
 "X-Generator: Weblate 3.5.1\n"
 
 #. module: hr_holidays_settings
-#: model:ir.actions.act_window,name:hr_holidays_settings.hr_holidays_config_settings_action
-msgid "Configure HR Holidays"
-msgstr "Configurar Vacaciones HR"
-
-#. module: hr_holidays_settings
 #: model:ir.ui.menu,name:hr_holidays_settings.menu_hr_holidays_status
 msgid "Leave Types"
 msgstr "Tipos de Ausencia"
@@ -36,9 +31,13 @@ msgid "Leaves Management"
 msgstr "Gestión de ausencias"
 
 #. module: hr_holidays_settings
+#: model:ir.actions.act_window,name:hr_holidays_settings.hr_holidays_config_settings_action
 #: model:ir.ui.menu,name:hr_holidays_settings.menu_hr_holidays_global_settings
 msgid "Settings"
 msgstr "Configuración"
+
+#~ msgid "Configure HR Holidays"
+#~ msgstr "Configurar Vacaciones HR"
 
 #~ msgid ""
 #~ "<span>(*) This configuration is related to the company you're logged into."

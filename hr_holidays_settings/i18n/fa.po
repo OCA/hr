@@ -20,11 +20,6 @@ msgstr ""
 "X-Generator: Weblate 3.0.1\n"
 
 #. module: hr_holidays_settings
-#: model:ir.actions.act_window,name:hr_holidays_settings.hr_holidays_config_settings_action
-msgid "Configure HR Holidays"
-msgstr "پیکر بندی تعطیلات"
-
-#. module: hr_holidays_settings
 #: model:ir.ui.menu,name:hr_holidays_settings.menu_hr_holidays_status
 msgid "Leave Types"
 msgstr "انوع خروج"
@@ -35,6 +30,10 @@ msgid "Leaves Management"
 msgstr "مدیریت برگها"
 
 #. module: hr_holidays_settings
+#: model:ir.actions.act_window,name:hr_holidays_settings.hr_holidays_config_settings_action
 #: model:ir.ui.menu,name:hr_holidays_settings.menu_hr_holidays_global_settings
 msgid "Settings"
 msgstr "تنظیمات"
+
+#~ msgid "Configure HR Holidays"
+#~ msgstr "پیکر بندی تعطیلات"

@@ -19,11 +19,6 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: hr_holidays_settings
-#: model:ir.actions.act_window,name:hr_holidays_settings.hr_holidays_config_settings_action
-msgid "Configure HR Holidays"
-msgstr ""
-
-#. module: hr_holidays_settings
 #: model:ir.ui.menu,name:hr_holidays_settings.menu_hr_holidays_status
 msgid "Leave Types"
 msgstr ""
@@ -34,6 +29,7 @@ msgid "Leaves Management"
 msgstr ""
 
 #. module: hr_holidays_settings
+#: model:ir.actions.act_window,name:hr_holidays_settings.hr_holidays_config_settings_action
 #: model:ir.ui.menu,name:hr_holidays_settings.menu_hr_holidays_global_settings
 msgid "Settings"
 msgstr ""
