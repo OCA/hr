@@ -45,6 +45,11 @@ msgid "Leave Type"
 msgstr "Urlaubsart"
 
 #. module: hr_holidays_validity_date
+#: model:ir.model,name:hr_holidays_validity_date.model_hr_leave_allocation
+msgid "Leaves Allocation"
+msgstr ""
+
+#. module: hr_holidays_validity_date
 #: model:ir.model.fields,field_description:hr_holidays_validity_date.field_hr_leave_type__restrict_dates
 #, fuzzy
 msgid "Restrict"

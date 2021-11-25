@@ -26,8 +26,8 @@ msgid ""
 "<i class=\"fa fa-info-circle\" role=\"alert\" aria-label=\"Warning\" title="
 "\"Warning\"/>"
 msgstr ""
-"<i class=\"fa fa-info-circle\" role=\"alert\" aria-label=\"Aviso\" title=\""
-"Aviso\"/>"
+"<i class=\"fa fa-info-circle\" role=\"alert\" aria-label=\"Aviso\" title="
+"\"Aviso\"/>"
 
 #. module: hr_holidays_validity_date
 #: model:ir.model.fields,help:hr_holidays_validity_date.field_hr_leave__restrict_dates
@@ -48,6 +48,11 @@ msgstr "Ausencia"
 #: model:ir.model,name:hr_holidays_validity_date.model_hr_leave_type
 msgid "Leave Type"
 msgstr "Tipo de ausencia"
+
+#. module: hr_holidays_validity_date
+#: model:ir.model,name:hr_holidays_validity_date.model_hr_leave_allocation
+msgid "Leaves Allocation"
+msgstr ""
 
 #. module: hr_holidays_validity_date
 #: model:ir.model.fields,field_description:hr_holidays_validity_date.field_hr_leave_type__restrict_dates
