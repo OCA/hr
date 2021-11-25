@@ -1,0 +1,160 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * hr_employee_id
+#
+# Translators:
+# Bole <bole@dajmi5.com>, 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-11-28 01:43+0000\n"
+"PO-Revision-Date: 2017-11-28 01:43+0000\n"
+"Last-Translator: Bole <bole@dajmi5.com>, 2017\n"
+"Language-Team: Croatian (Croatia) (https://www.transifex.com/oca/teams/23907/"
+"hr_HR/)\n"
+"Language: hr_HR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+
+#. module: hr_employee_id
+#: model:ir.model.fields,field_description:hr_employee_id.field_res_company__employee_id_random_digits
+#: model:ir.model.fields,field_description:hr_employee_id.field_res_config_settings__employee_id_random_digits
+msgid "# of Digits"
+msgstr "# znamenaka"
+
+#. module: hr_employee_id
+#: model_terms:ir.ui.view,arch_db:hr_employee_id.res_config_settings_view_form
+msgid ""
+"<span class=\"fa fa-lg fa-building-o\" title=\"Values set here are company-"
+"specific.\" role=\"img\" aria-label=\"Values set here are company-specific."
+"\" groups=\"base.group_multi_company\"/>"
+msgstr ""
+
+#. module: hr_employee_id
+#: model:ir.model,name:hr_employee_id.model_res_company
+msgid "Companies"
+msgstr "Poduzeća"
+
+#. module: hr_employee_id
+#: model:ir.model,name:hr_employee_id.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
+
+#. module: hr_employee_id
+#: model:ir.model,name:hr_employee_id.model_hr_employee
+msgid "Employee"
+msgstr "Djelatnik"
+
+#. module: hr_employee_id
+#: model_terms:ir.ui.view,arch_db:hr_employee_id.res_config_settings_view_form
+#, fuzzy
+msgid "Employee Identifier"
+msgstr "ID djelatnika"
+
+#. module: hr_employee_id
+#: model:ir.model.fields,field_description:hr_employee_id.field_res_company__employee_id_gen_method
+#: model:ir.model.fields,field_description:hr_employee_id.field_res_config_settings__employee_id_gen_method
+#, fuzzy
+msgid "Generation Method"
+msgstr "Metoda generianja ID-a"
+
+#. module: hr_employee_id
+#: model:ir.model.fields,field_description:hr_employee_id.field_hr_employee__identification_id
+msgid "Identification No"
+msgstr ""
+
+#. module: hr_employee_id
+#: model:ir.model.fields,field_description:hr_employee_id.field_res_company__employee_id_sequence
+#: model:ir.model.fields,field_description:hr_employee_id.field_res_config_settings__employee_id_sequence
+msgid "Identifier Sequence"
+msgstr ""
+
+#. module: hr_employee_id
+#: model:ir.model.fields,help:hr_employee_id.field_res_company__employee_id_random_digits
+#: model:ir.model.fields,help:hr_employee_id.field_res_config_settings__employee_id_random_digits
+#, fuzzy
+msgid "Number of digits in employee identifier"
+msgstr "Broj znamenaka za konstrukciju ID-a"
+
+#. module: hr_employee_id
+#: model:ir.model.fields,help:hr_employee_id.field_res_company__employee_id_sequence
+#: model:ir.model.fields,help:hr_employee_id.field_res_config_settings__employee_id_sequence
+#, fuzzy
+msgid "Pattern to be used for employee identifier generation"
+msgstr "Uzorak prema kojem se generira ID"
+
+#. module: hr_employee_id
+#: selection:res.company,employee_id_gen_method:0
+msgid "Random"
+msgstr "Slučajno"
+
+#. module: hr_employee_id
+#: model_terms:ir.ui.view,arch_db:hr_employee_id.res_config_settings_view_form
+msgid "Select &amp; configure default employee identifier generation scheme"
+msgstr ""
+
+#. module: hr_employee_id
+#: selection:res.company,employee_id_gen_method:0
+msgid "Sequence"
+msgstr "Sljedno"
+
+#. module: hr_employee_id
+#: sql_constraint:hr.employee:0
+msgid "The Employee Number must be unique across the company(s)."
+msgstr "ID broj djelatnika mora biti jedinstven za poduzeće(a)."
+
+#. module: hr_employee_id
+#: code:addons/hr_employee_id/models/hr_employee.py:58
+#, fuzzy, python-format
+msgid "Unable to generate unique Employee ID in %d steps."
+msgstr "Nije moguće generiranje jedinstvenog ID djelatnika."
+
+#~ msgid ""
+#~ "<span>(*) This configuration is related to the company you're logged into."
+#~ "</span>"
+#~ msgstr ""
+#~ "<span>(*) ove postavke su povezane sa poduzećem u koje ste trenutno "
+#~ "prijavljeni.</span>"
+
+#~ msgid "Apply"
+#~ msgstr "Primjeni"
+
+#~ msgid "Cancel"
+#~ msgstr "Odustani"
+
+#~ msgid "Company"
+#~ msgstr "Poduzeće"
+
+#~ msgid "Configure Employee ID"
+#~ msgstr "Postavke ID-a djelatnika"
+
+#~ msgid "Created by"
+#~ msgstr "Kreirao"
+
+#~ msgid "Created on"
+#~ msgstr "Kreirano"
+
+#~ msgid "Display Name"
+#~ msgstr "Naziv"
+
+#~ msgid "Employee ID *"
+#~ msgstr "ID djelatnika *"
+
+#~ msgid "Employee ID Sequence"
+#~ msgstr "Sekvenca ID-a djelatnika"
+
+#~ msgid "ID"
+#~ msgstr "ID"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Zadnje ažurirano"
+
+#~ msgid "Last Updated by"
+#~ msgstr "Zadnji ažurirao"
+
+#~ msgid "hr.employeeid.config.settings"
+#~ msgstr "hr.employeeid.config.settings"

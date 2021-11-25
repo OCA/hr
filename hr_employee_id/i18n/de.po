@@ -1,0 +1,138 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * hr_employee_id
+#
+# Translators:
+# OCA Transbot <transbot@odoo-community.org>, 2017
+# Niki Waibel <niki.waibel@gmail.com>, 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-11-28 01:43+0000\n"
+"PO-Revision-Date: 2019-07-12 14:43+0000\n"
+"Last-Translator: Maria Sparenberg <maria.sparenberg@gmx.net>\n"
+"Language-Team: German (https://www.transifex.com/oca/teams/23907/de/)\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.7.1\n"
+
+#. module: hr_employee_id
+#: model:ir.model.fields,field_description:hr_employee_id.field_res_company__employee_id_random_digits
+#: model:ir.model.fields,field_description:hr_employee_id.field_res_config_settings__employee_id_random_digits
+msgid "# of Digits"
+msgstr "# der Zeichen"
+
+#. module: hr_employee_id
+#: model_terms:ir.ui.view,arch_db:hr_employee_id.res_config_settings_view_form
+msgid ""
+"<span class=\"fa fa-lg fa-building-o\" title=\"Values set here are company-"
+"specific.\" role=\"img\" aria-label=\"Values set here are company-specific."
+"\" groups=\"base.group_multi_company\"/>"
+msgstr ""
+"<span class=\"fa fa-lg fa-building-o\" title=\"Die hier gesetzten Werte sind "
+"firmenspezifisch.\" role=\"img\" aria-label=\"Die hier gesetzten Werte sind "
+"firmenspezifisch.\" groups=\"base.group_multi_company\"/>"
+
+#. module: hr_employee_id
+#: model:ir.model,name:hr_employee_id.model_res_company
+msgid "Companies"
+msgstr "Unternehmen"
+
+#. module: hr_employee_id
+#: model:ir.model,name:hr_employee_id.model_res_config_settings
+msgid "Config Settings"
+msgstr "Konfigurationseinstellungen"
+
+#. module: hr_employee_id
+#: model:ir.model,name:hr_employee_id.model_hr_employee
+msgid "Employee"
+msgstr "Mitarbeiter"
+
+#. module: hr_employee_id
+#: model_terms:ir.ui.view,arch_db:hr_employee_id.res_config_settings_view_form
+msgid "Employee Identifier"
+msgstr "Mitarbeiter-ID"
+
+#. module: hr_employee_id
+#: model:ir.model.fields,field_description:hr_employee_id.field_res_company__employee_id_gen_method
+#: model:ir.model.fields,field_description:hr_employee_id.field_res_config_settings__employee_id_gen_method
+msgid "Generation Method"
+msgstr "Erstellungsmethode"
+
+#. module: hr_employee_id
+#: model:ir.model.fields,field_description:hr_employee_id.field_hr_employee__identification_id
+msgid "Identification No"
+msgstr "ID-Nummer"
+
+#. module: hr_employee_id
+#: model:ir.model.fields,field_description:hr_employee_id.field_res_company__employee_id_sequence
+#: model:ir.model.fields,field_description:hr_employee_id.field_res_config_settings__employee_id_sequence
+msgid "Identifier Sequence"
+msgstr "ID-Sequenz"
+
+#. module: hr_employee_id
+#: model:ir.model.fields,help:hr_employee_id.field_res_company__employee_id_random_digits
+#: model:ir.model.fields,help:hr_employee_id.field_res_config_settings__employee_id_random_digits
+msgid "Number of digits in employee identifier"
+msgstr "Dies ist die Anzahl der Zeichen für die Mitarbeiter-ID."
+
+#. module: hr_employee_id
+#: model:ir.model.fields,help:hr_employee_id.field_res_company__employee_id_sequence
+#: model:ir.model.fields,help:hr_employee_id.field_res_config_settings__employee_id_sequence
+msgid "Pattern to be used for employee identifier generation"
+msgstr "Dies ist das verwendete Muster zur Erstellung von Mitarbeiter-IDs."
+
+#. module: hr_employee_id
+#: selection:res.company,employee_id_gen_method:0
+msgid "Random"
+msgstr "Zufällig"
+
+#. module: hr_employee_id
+#: model_terms:ir.ui.view,arch_db:hr_employee_id.res_config_settings_view_form
+msgid "Select &amp; configure default employee identifier generation scheme"
+msgstr ""
+"Bitte das standardmäßig verwendete ID-Erstellungsmuster wählen und "
+"konfigurieren."
+
+#. module: hr_employee_id
+#: selection:res.company,employee_id_gen_method:0
+msgid "Sequence"
+msgstr "Sequenz"
+
+#. module: hr_employee_id
+#: sql_constraint:hr.employee:0
+msgid "The Employee Number must be unique across the company(s)."
+msgstr "Die Mitarbeiter-ID muss über alle Unternehmen hinweg eindeutig sein."
+
+#. module: hr_employee_id
+#: code:addons/hr_employee_id/models/hr_employee.py:58
+#, python-format
+msgid "Unable to generate unique Employee ID in %d steps."
+msgstr ""
+"Es ist nicht möglich, eine eindeutige Mitarbeiter-ID in %d Schritten zu "
+"erzeugen."
+
+#~ msgid "Created by"
+#~ msgstr "Erstellt von"
+
+#~ msgid "Created on"
+#~ msgstr "Angelegt am"
+
+#~ msgid "Display Name"
+#~ msgstr "Anzeigename"
+
+#~ msgid "ID"
+#~ msgstr "ID"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Zuletzt geändert am"
+
+#~ msgid "Last Updated by"
+#~ msgstr "Zuletzt aktualisiert durch"
+
+#~ msgid "Last Updated on"
+#~ msgstr "Zuletzt aktualisiert am"

@@ -1,0 +1,164 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * hr_employee_id
+#
+# Translators:
+# OCA Transbot <transbot@odoo-community.org>, 2017
+# leemannd <denis.leemann@camptocamp.com>, 2017
+# guillaume bauer <guillaume.bauer@syentys.com>, 2017
+# Alexandre Fayolle <alexandre.fayolle@camptocamp.com>, 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-02-23 03:45+0000\n"
+"PO-Revision-Date: 2018-02-23 03:45+0000\n"
+"Last-Translator: Alexandre Fayolle <alexandre.fayolle@camptocamp.com>, 2017\n"
+"Language-Team: French (https://www.transifex.com/oca/teams/23907/fr/)\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#. module: hr_employee_id
+#: model:ir.model.fields,field_description:hr_employee_id.field_res_company__employee_id_random_digits
+#: model:ir.model.fields,field_description:hr_employee_id.field_res_config_settings__employee_id_random_digits
+msgid "# of Digits"
+msgstr "# de chiffres"
+
+#. module: hr_employee_id
+#: model_terms:ir.ui.view,arch_db:hr_employee_id.res_config_settings_view_form
+msgid ""
+"<span class=\"fa fa-lg fa-building-o\" title=\"Values set here are company-"
+"specific.\" role=\"img\" aria-label=\"Values set here are company-specific."
+"\" groups=\"base.group_multi_company\"/>"
+msgstr ""
+
+#. module: hr_employee_id
+#: model:ir.model,name:hr_employee_id.model_res_company
+msgid "Companies"
+msgstr "Entreprises"
+
+#. module: hr_employee_id
+#: model:ir.model,name:hr_employee_id.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
+
+#. module: hr_employee_id
+#: model:ir.model,name:hr_employee_id.model_hr_employee
+msgid "Employee"
+msgstr "Employé"
+
+#. module: hr_employee_id
+#: model_terms:ir.ui.view,arch_db:hr_employee_id.res_config_settings_view_form
+#, fuzzy
+msgid "Employee Identifier"
+msgstr "ID de l'employé"
+
+#. module: hr_employee_id
+#: model:ir.model.fields,field_description:hr_employee_id.field_res_company__employee_id_gen_method
+#: model:ir.model.fields,field_description:hr_employee_id.field_res_config_settings__employee_id_gen_method
+#, fuzzy
+msgid "Generation Method"
+msgstr "Méthode de génération de l'ID"
+
+#. module: hr_employee_id
+#: model:ir.model.fields,field_description:hr_employee_id.field_hr_employee__identification_id
+msgid "Identification No"
+msgstr ""
+
+#. module: hr_employee_id
+#: model:ir.model.fields,field_description:hr_employee_id.field_res_company__employee_id_sequence
+#: model:ir.model.fields,field_description:hr_employee_id.field_res_config_settings__employee_id_sequence
+msgid "Identifier Sequence"
+msgstr ""
+
+#. module: hr_employee_id
+#: model:ir.model.fields,help:hr_employee_id.field_res_company__employee_id_random_digits
+#: model:ir.model.fields,help:hr_employee_id.field_res_config_settings__employee_id_random_digits
+#, fuzzy
+msgid "Number of digits in employee identifier"
+msgstr "Nombre de chiffres pour fabriquer l'ID"
+
+#. module: hr_employee_id
+#: model:ir.model.fields,help:hr_employee_id.field_res_company__employee_id_sequence
+#: model:ir.model.fields,help:hr_employee_id.field_res_config_settings__employee_id_sequence
+#, fuzzy
+msgid "Pattern to be used for employee identifier generation"
+msgstr "Modèle à utiliser pour la génération de l'ID"
+
+#. module: hr_employee_id
+#: selection:res.company,employee_id_gen_method:0
+msgid "Random"
+msgstr "Aléatoire"
+
+#. module: hr_employee_id
+#: model_terms:ir.ui.view,arch_db:hr_employee_id.res_config_settings_view_form
+msgid "Select &amp; configure default employee identifier generation scheme"
+msgstr ""
+
+#. module: hr_employee_id
+#: selection:res.company,employee_id_gen_method:0
+msgid "Sequence"
+msgstr "Séquence"
+
+#. module: hr_employee_id
+#: sql_constraint:hr.employee:0
+msgid "The Employee Number must be unique across the company(s)."
+msgstr "Le numéro d'employé doit être unique par société(s)."
+
+#. module: hr_employee_id
+#: code:addons/hr_employee_id/models/hr_employee.py:58
+#, fuzzy, python-format
+msgid "Unable to generate unique Employee ID in %d steps."
+msgstr "Impossible de générer le numéro d'ID employé qui doit être unique."
+
+#~ msgid ""
+#~ "<span>(*) This configuration is related to the company you're logged into."
+#~ "</span>"
+#~ msgstr ""
+#~ "<span>(*) Cette configuration est liée à la société dans laquelle vous "
+#~ "vous êtes connecté </span>"
+
+#~ msgid "Apply"
+#~ msgstr "Appliquer"
+
+#~ msgid "Cancel"
+#~ msgstr "Annuler"
+
+#~ msgid "Company"
+#~ msgstr "Entreprise"
+
+#~ msgid "Configure Employee ID"
+#~ msgstr "Renseigner l'ID de l'employé"
+
+#~ msgid "Created by"
+#~ msgstr "Créé par"
+
+#~ msgid "Created on"
+#~ msgstr "Créé le"
+
+#~ msgid "Display Name"
+#~ msgstr "Nom affiché"
+
+#~ msgid "Employee ID *"
+#~ msgstr "ID de l'employé *"
+
+#~ msgid "Employee ID Sequence"
+#~ msgstr "Séquence de l'ID de l'employé"
+
+#~ msgid "ID"
+#~ msgstr "ID"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Dernière modification le"
+
+#~ msgid "Last Updated by"
+#~ msgstr "Dernière modification par"
+
+#~ msgid "Last Updated on"
+#~ msgstr "Dernière mise à jour le"
+
+#~ msgid "hr.employeeid.config.settings"
+#~ msgstr "hr.employeeid.config.settings"
