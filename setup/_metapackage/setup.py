@@ -49,6 +49,7 @@ setuptools.setup(
         'odoo12-addon-hr_expense_payment_difference',
         'odoo12-addon-hr_expense_petty_cash',
         'odoo12-addon-hr_expense_petty_cash_sequence',
+        'odoo12-addon-hr_expense_portal',
         'odoo12-addon-hr_expense_receipt_require',
         'odoo12-addon-hr_expense_sequence',
         'odoo12-addon-hr_expense_tier_validation',
