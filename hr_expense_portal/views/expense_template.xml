@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="portal_my_home_customer_expense" name="Portal My Home : customer Expense" inherit_id="portal.portal_my_home" priority="30">
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="title">My Expense</t>
+                <t t-set="url" t-value="'/my/expenses'"/>
+                <t t-set="count" t-value="expense_count"/>
+            </t>
+        </xpath>
+    </template>
+    <template id="portal_layout_customer_expense" name="Portal layout : customer Expense" inherit_id="portal.portal_breadcrumbs" priority="25">
+        <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+            <li t-if="page_name == 'expense'" t-attf-class="breadcrumb-item #{'active ' if communication else ''}">
+                <a t-attf-href="/my/expenses?{{ keep_query() }}">My Expenses</a>
+            </li>
+            <li t-if="expense" t-attf-href="/my/expense/#{expense.id}?{{ keep_query() }}" class="breadcrumb-item active">
+                <t t-esc="expense.name"/>
+            </li>
+        </xpath>
+    </template>
+
+    <template id="portal_my_expenses" name="My Expense">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Expense</t>
+            </t>
+            <t t-if="not expenses">
+                <p>There are currently no Expense for your account.</p>
+            </t>
+            <t t-if="expenses" t-call="portal.portal_table">
+                <thead>
+                    <tr class="active">
+                        <th>Description</th>
+                        <th class="text-right">Date</th>
+                        <th>Employee</th>
+                        <th class="text-right">Total</th>
+                    </tr>
+                </thead>
+                <t t-foreach="expenses" t-as="expense">
+                    <tr>
+                        <td>
+                            <a t-attf-href="/my/expense/#{expense.id}?{{ keep_query() }}">
+                                <t t-esc="expense.name"/>
+                            </a>
+                        </td>
+                        <td class="text-right">
+                            <span t-field="expense.date"/>
+                        </td>
+                        <td>
+                            <span t-esc="expense.employee_id and expense.employee_id.display_name"/>
+                        </td>
+                        <td class="text-right">
+                            <span t-field="expense.total_amount"/>
+                        </td>
+                    </tr>
+                </t>
+            </t>
+        </t>
+    </template>
+    <template id="portal_my_expense" name="My Communication">
+        <t t-call="portal.portal_layout">
+            <t t-call="portal.portal_record_layout">
+                <t t-set="card_header">
+                    <div class="row no-gutters">
+                        <div class="col-md">
+                            <h5 class="mb-1 mb-md-0">
+                                <span t-field="expense.name"/>
+                                <small class="text-muted">
+                                    (#<span t-field="expense.id"/>)
+                                </small>
+                            </h5>
+                        </div>
+                        <div class="col-md text-md-right">
+                            <small class="text-right">Status:</small>
+                            <span t-field="expense.state" class=" badge badge-pill badge-info" title="Current stage of this Expense"/>
+                        </div>
+                    </div>
+                </t>
+                <t t-set="card_body">
+                    <table class="table">
+                        <tr>
+                            <th style="border-top: none;">
+                                Product
+                            </th>
+                            <td style="border-top: none;">
+                                <t t-if="expense.product_id">    
+                                    <span t-esc="expense.product_id.display_name"/>
+                                </t>
+                            </td>
+                            <th style="border-top: none;">
+                                Bill Reference
+                            </th>
+                            <td style="border-top: none;">
+                                <span t-field="expense.reference" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th style="border-top: none;">
+                                Unit Price
+                            </th>
+                            <td style="border-top: none;">
+                                <span t-field="expense.unit_amount"/>
+                            </td>
+                            <th style="border-top: none;">
+                                Date
+                            </th>
+                            <td style="border-top: none;">
+                                <span t-field="expense.date" t-options="{'widget': 'date'}" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th style="border-top: none;">
+                                Quantity
+                            </th>
+                            <td style="border-top: none;">
+                                <span t-field="expense.quantity"/>
+                            </td>
+                            <th style="border-top: none;">
+                                Employee
+                            </th>
+                            <td style="border-top: none;">
+                                <t t-if="expense.employee_id">
+                                    <span t-field="expense.employee_id.display_name" />
+                                </t>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th style="border-top: none;">
+                                Total
+                            </th>
+                            <td style="border-top: none;">
+                                <span t-field="expense.total_amount"/>
+                            </td>
+                            <th style="border-top: none;">
+                                Sale order
+                            </th>
+                            <td style="border-top: none;">
+                                <t t-if="expense.sale_order_id">
+                                    <span t-field="expense.sale_order_id.display_name"/>
+                                </t>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th style="border-top: none;">
+                                Paid By
+                            </th>
+                            <td style="border-top: none;">
+                               <span t-field="expense.payment_mode" />
+                            </td>
+                        </tr>
+                    </table>
+                    <div class="row" t-if="attachment_ids">
+                        <div t-if="attachment_ids" t-attf-class="col-12 col-lg-5 o_project_portal_attachments col-lg-12">
+                            <hr class="mb-1 d-none d-lg-block"/>
+                            <strong class="d-block mb-2">Attachments</strong>
+                            <div class="row">
+                                <div class="col col-lg-12">
+                                    <ul class="list-group">
+                                    
+                                        <a t-attf-href="/web/content/#{attachment.id}?download=true&amp;access_token=#{attachment.access_token}" class="list-group-item list-group-item-action d-flex align-items-center oe_attachments py-1 px-2" t-foreach="attachment_ids" t-as="attachment"  target="_blank" data-no-post-process="">
+                                            <div class="oe_attachment_embedded o_image o_image_small mr-2 mr-lg-3" t-att-title="attachment.name" t-att-data-mimetype="attachment.mimetype" t-attf-data-src="/web/image/#{attachment.id}/50x40?access_token=#{attachment.access_token}" style="height: 48px;"/>
+                                            <div class="oe_attachment_name text-truncate">
+                                                <t t-esc="attachment.name"/>
+                                            </div>
+                                        </a>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+            <div id="hr_expense_communication" class="mt-4">
+                <h2>Communication</h2>
+                <t t-call="portal.message_thread">
+                    <t t-set="object" t-value="expense"/>
+                </t>
+            </div>
+        </t>
+    </template>
+</odoo>
