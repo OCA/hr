@@ -87,11 +87,7 @@ class HrEmployee(models.Model):
     @api.model
     def _get_inverse_name(self, name):
         """Compute the inverted name."""
-        result = {
-            "firstname": False,
-            "lastname": name or False,
-            "lastname2": False,
-        }
+        result = {"firstname": False, "lastname": name or False, "lastname2": False}
 
         if not name:
             return result
