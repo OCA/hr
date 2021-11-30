@@ -2,7 +2,7 @@
 # Copyright 2018 Brainbean Apps
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-from odoo import models
+from odoo import api, models
 
 
 class HrLeave(models.Model):
@@ -22,3 +22,13 @@ class HrLeave(models.Model):
             date_to,
             employee_id,
         )
+
+    @api.depends("number_of_days")
+    def _compute_number_of_hours_display(self):
+        if self.holiday_status_id.exclude_public_holidays or not self.holiday_status_id:
+            instance = self.with_context(
+                exclude_public_holidays=True, employee_id=self.employee_id.id
+            )
+        else:
+            instance = self
+        return super(HrLeave, instance)._compute_number_of_hours_display()
