@@ -2,7 +2,7 @@
 
 {
     "name": "Recruitment responsible security",
-    "version": "13.0.1.0.0",
+    "version": "13.0.1.0.1",
     "category": "Human Resources",
     "development_status": "Production/Stable",
     "author": "Tecnativa, Odoo Community Association (OCA)",
