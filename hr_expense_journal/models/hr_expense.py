@@ -9,8 +9,10 @@ class HrExpense(models.Model):
 
     payment_type_id = fields.Many2one("account.journal", string="Payment Journal")
 
-    def _create_sheet_from_expenses(self):
-        res = super()._create_sheet_from_expenses()
-        if self.payment_type_id:
-            res.update({"bank_journal_id": self.payment_type_id.id})
+    def action_submit_expenses(self):
+        res = super().action_submit_expenses()
+        if self[0].payment_type_id:
+            res['context'].update(
+                {'default_bank_journal_id': self[0].payment_type_id.id}
+            )
         return res
