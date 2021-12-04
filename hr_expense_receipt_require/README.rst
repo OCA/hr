@@ -47,11 +47,11 @@ The users allowed this must be added to the "Expenses-can skip required attachme
 Usage
 =====
 
-* Create an expense with the previous product
-* Try to submit the expense without an attachment 
-* If not in expenses_can_skip_required_attachment group--> "You need to
-                           provide a receipt to submit this expense!"
-* Upload a file as an attachment and re-submit
+* Create an Expense Report containing a product configured to require attachment
+* Try to submit the Expense Report without an attachment
+* Unless user is member of the "Can skip required attachments" group,
+  a validation error will prevent submitting the Expense Report
+* Upload a file attachment on the expense line and re-submit
 
 Bug Tracker
 ===========
