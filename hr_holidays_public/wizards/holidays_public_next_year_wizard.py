@@ -106,6 +106,7 @@ class HolidaysPublicNextYearWizard(models.TransientModel):
             new_vals = {
                 'year_id': new_calendar.id,
                 'date': fields.Date.to_string(date),
+                'meeting_id': False,
             }
             line.copy(new_vals)
 
@@ -114,6 +115,7 @@ class HolidaysPublicNextYearWizard(models.TransientModel):
                 'year_id': new_calendar.id,
                 'name': line.name,
                 'date': line.date,
+                'meeting_id': False,
             }
             line.line_id.copy(new_vals)
 
