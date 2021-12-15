@@ -1,0 +1,33 @@
+<odoo>
+    <record id="hr_expense_form_view_inherit" model="ir.ui.view">
+        <field name="model">hr.expense</field>
+        <field name="inherit_id" ref="hr_expense.hr_expense_view_form" />
+        <field name="arch" type="xml">
+
+            <xpath expr="//sheet/group/group[3]" position="inside">
+                <field
+                    name="payment_type_id"
+                    attrs="{'invisible': [('payment_mode', '!=', 'company_account')]}"
+                    domain="[('type', '=', 'bank')]"
+                />
+            </xpath>
+
+        </field>
+    </record>
+    <record id="hr_expense_sheet_view_inherit" model="ir.ui.view">
+        <field name="model">hr.expense.sheet</field>
+        <field name="inherit_id" ref="hr_expense.view_hr_expense_sheet_form" />
+        <field name="arch" type="xml">
+
+            <field name="expense_line_ids" position="attributes">
+                <!-- Can add only Expenses matching the payment mode and payment journal -->
+                <attribute name="domain">
+                    [('state', '=', 'draft'), ('employee_id', '=', employee_id), ('company_id', '=', company_id),
+                    ('payment_mode', '=', payment_mode),
+                    '|', ('payment_type_id', '=', bank_journal_id), ('payment_type_id', '=', False)]
+                </attribute>
+            </field>
+
+        </field>
+    </record>
+</odoo>
