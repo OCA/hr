@@ -46,6 +46,7 @@ setuptools.setup(
         'odoo12-addon-hr_expense_analytic_require',
         'odoo12-addon-hr_expense_cancel',
         'odoo12-addon-hr_expense_invoice',
+        'odoo12-addon-hr_expense_journal',
         'odoo12-addon-hr_expense_payment_difference',
         'odoo12-addon-hr_expense_petty_cash',
         'odoo12-addon-hr_expense_petty_cash_sequence',
