@@ -96,3 +96,14 @@
 .orgchart .level-4 .image img {
     border: solid 1px #cc0066;
 }
+
+/* Hide the very first 3 rows (that represent the pseudo root element) */
+.orgchart > table > tr:nth-child(-n + 3) {
+    display: none;
+}
+
+/* in the .node class of the root, search for the first children of root and
+    hide their topEdge arrow which is associated to the pseudo root elemen */
+.orgchart > table > tr.nodes > td > table > tbody > tr > td > div.node > i.topEdge {
+    display: none;
+}

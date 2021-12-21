@@ -1,6 +1,7 @@
 # Copyright 2020 ForgeFlow S.L. (https://www.forgeflow.com)
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
-from odoo import api, models
+from odoo import _, api, models
+from odoo.exceptions import ValidationError
 
 org_chart_classes = {
     0: "level-0",
@@ -13,6 +14,11 @@ org_chart_classes = {
 
 class HrEmployee(models.Model):
     _inherit = "hr.employee"
+
+    @api.constrains("parent_id")
+    def _check_parent_id(self):
+        if not self._check_recursion():
+            raise ValidationError(_("You cannot assign manager recursively."))
 
     def _get_employee_domain(self, parent_id):
         company = self.env.company
@@ -63,13 +69,17 @@ class HrEmployee(models.Model):
     def get_organization_data(self):
         # First get employee with no manager
         domain = self._get_employee_domain(False)
-        top_employee = self.search(domain, limit=1)
-        data = top_employee._get_employee_data()
-
-        # If any child we fetch data recursively for childs of top employee
-        top_employee_child_ids = self.search(self._get_employee_domain(top_employee.id))
-        if top_employee_child_ids:
-            data.update(
-                {"children": self._get_children_data(top_employee_child_ids, 1)}
+        data = {"id": None, "name": "", "title": "", "children": []}
+        top_employees = self.search(domain)
+        for top_employee in top_employees:
+            child_data = top_employee._get_employee_data()
+            # If any child we fetch data recursively for childs of top employee
+            top_employee_child_ids = self.search(
+                self._get_employee_domain(top_employee.id)
             )
+            if top_employee_child_ids:
+                child_data.update(
+                    {"children": self._get_children_data(top_employee_child_ids, 1)}
+                )
+            data.get("children").append(child_data)
         return data
