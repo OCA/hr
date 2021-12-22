@@ -9,7 +9,8 @@ class HrEmployee(models.Model):
     _inherit = "hr.employee"
 
     equipment_request_ids = fields.One2many(
-        comodel_name="hr.personal.equipment.request", inverse_name="employee_id",
+        comodel_name="hr.personal.equipment.request",
+        inverse_name="employee_id",
     )
 
     personal_equipment_ids = fields.One2many(
