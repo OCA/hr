@@ -24,10 +24,21 @@ msgid "Associated Tags"
 msgstr ""
 
 #. module: hr_job_category
+#: model:ir.model.fields,field_description:hr_job_category.field_hr_contract__display_name
+#: model:ir.model.fields,field_description:hr_job_category.field_hr_job__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: hr_job_category
 #: model:ir.model,name:hr_job_category.model_hr_contract
-#, fuzzy
-msgid "Contract"
-msgstr "Contratto"
+msgid "Employee Contract"
+msgstr ""
+
+#. module: hr_job_category
+#: model:ir.model.fields,field_description:hr_job_category.field_hr_contract__id
+#: model:ir.model.fields,field_description:hr_job_category.field_hr_job__id
+msgid "ID"
+msgstr ""
 
 #. module: hr_job_category
 #: model:ir.model,name:hr_job_category.model_hr_job
@@ -35,6 +46,16 @@ msgid "Job Position"
 msgstr ""
 
 #. module: hr_job_category
+#: model:ir.model.fields,field_description:hr_job_category.field_hr_contract____last_update
+#: model:ir.model.fields,field_description:hr_job_category.field_hr_job____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: hr_job_category
 #: model_terms:ir.ui.view,arch_db:hr_job_category.view_job_form
 msgid "e.g. Part Time"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Contract"
+#~ msgstr "Contratto"
