@@ -44,26 +44,40 @@ class TestHrJobCategories(common.TransactionCase):
         """
         # Check if job categories are written to the employee
         self.contract_id.write({"job_id": self.job_id.id})
-        job_categ = [categ.id for categ in self.job_id.category_ids]
-        empl_categ = [categ.id for categ in self.employee_id_1.category_ids]
-
-        self.assertTrue(all(x in empl_categ for x in job_categ))
+        self.contract_id.refresh()
+        self.assertTrue(self.employee_id_1.category_ids)
+        self.assertTrue(
+            all(
+                x in self.employee_id_1.category_ids.ids
+                for x in self.job_id.category_ids.ids
+            )
+        )
 
         self.contract_id.write({"job_id": False})
         self.assertFalse(self.employee_id_1.category_ids)
 
         # Check if job2 categories are written to the employee
         self.contract_id.write({"job_id": self.job_2_id.id})
-        job_categ = [categ.id for categ in self.job_2_id.category_ids]
-        empl_categ = [categ.id for categ in self.employee_id_1.category_ids]
-
-        self.assertTrue(all(x in empl_categ for x in job_categ))
-
+        self.contract_id.flush()
+        self.assertTrue(
+            all(
+                x in self.employee_id_1.category_ids.ids
+                for x in self.job_2_id.category_ids.ids
+            )
+        )
         self.contract_id.write({"employee_id": self.employee_id_2.id})
+        self.contract_id.write({"job_id": self.job_2_id.id})
+        # We need to force the job, as it is modified by a compute
+        self.employee_id_1.refresh()
+        self.employee_id_2.refresh()
         self.assertFalse(self.employee_id_1.category_ids)
-        job_categ = [categ.id for categ in self.job_2_id.category_ids]
-        empl_categ = [categ.id for categ in self.employee_id_2.category_ids]
-        self.assertTrue(all(x in empl_categ for x in job_categ))
+        self.job_2_id.refresh()
+        self.assertTrue(
+            all(
+                x in self.employee_id_2.category_ids.ids
+                for x in self.job_2_id.category_ids.ids
+            )
+        )
 
         self.contract_id.unlink()
         self.assertFalse(self.employee_id_2.category_ids)

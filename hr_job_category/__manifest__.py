@@ -5,7 +5,7 @@
     "name": "HR Job Employee Categories",
     "version": "14.0.1.0.0",
     "category": "Generic Modules/Human Resources",
-    "summary": "Adds tags to employee trough contract and job position",
+    "summary": "Adds tags to employee through contract and job position",
     "author": "Michael Telahun Makonnen <mmakonnen@gmail.com>, "
     "Savoir-faire Linux, "
     "Fekete Mihai (FBSR), "
