@@ -9,7 +9,6 @@ class ResourceCalendarAttendance(models.Model):
 
     _inherit = 'resource.calendar.attendance'
 
-    day_period = fields.Selection(selection_add=[('all_day', 'All Day')])
     rest_time = fields.Float(string='Rest Time')
 
     @api.onchange('rest_time')
@@ -17,8 +16,6 @@ class ResourceCalendarAttendance(models.Model):
         # avoid negative or after midnight
         self.rest_time = min(self.rest_time, 23.99)
         self.rest_time = max(self.rest_time, 0.0)
-        if self.rest_time:
-            self.day_period = 'all_day'
 
     @api.constrains('hour_from', 'hour_to', 'rest_time')
     def _check_rest_time(self):

@@ -55,4 +55,3 @@ class HRCalendarRestTime(TransactionCase):
 
         self.calendar.attendance_ids[0].write({'rest_time': 2})
         self.calendar.attendance_ids[0]._onchange_rest_time()
-        self.assertEqual(self.calendar.attendance_ids[0].day_period, 'all_day')
