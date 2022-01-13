@@ -17,11 +17,6 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: passport_expiration
-#: model:ir.model.fields,field_description:passport_expiration.field_hr_employee__display_name
-msgid "Display Name"
-msgstr "Nom affiché"
-
-#. module: passport_expiration
 #: model:ir.model,name:passport_expiration.model_hr_employee
 msgid "Employee"
 msgstr "Employé"
@@ -36,12 +31,8 @@ msgstr "Date d'expiration"
 msgid "Expiration date of the passport."
 msgstr "Date d'expiration du passeport."
 
-#. module: passport_expiration
-#: model:ir.model.fields,field_description:passport_expiration.field_hr_employee__id
-msgid "ID"
-msgstr ""
+#~ msgid "Display Name"
+#~ msgstr "Nom affiché"
 
-#. module: passport_expiration
-#: model:ir.model.fields,field_description:passport_expiration.field_hr_employee____last_update
-msgid "Last Modified on"
-msgstr "Dernière modification le"
+#~ msgid "Last Modified on"
+#~ msgstr "Dernière modification le"

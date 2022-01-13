@@ -8,5 +8,7 @@ class HrEmployee(models.Model):
     _inherit = "hr.employee"
 
     passport_expiration_date = fields.Date(
-        "Expiration Date", help="Expiration date of the passport."
+        "Expiration Date",
+        help="Expiration date of the passport.",
+        groups="hr.group_hr_user",
     )
