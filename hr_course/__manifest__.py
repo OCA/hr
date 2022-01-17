@@ -13,10 +13,14 @@
     "data": [
         "security/course_security.xml",
         "security/ir.model.access.csv",
+        "data/ir_cron_data.xml",
+        "data/mail_template.xml",
+        "data/mail_channel.xml",
         "views/hr_course_category_views.xml",
         "views/hr_course_views.xml",
         "views/hr_course_schedule_views.xml",
         "views/hr_employee_views.xml",
+        "views/hr_settings.xml",
     ],
     "demo": ["demo/hr_course.xml"],
 }

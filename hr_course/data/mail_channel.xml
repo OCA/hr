@@ -1,0 +1,6 @@
+<odoo noupdate="0">
+    <!-- Channel -->
+    <record id="mail_channel_course_validity" model="mail.channel">
+        <field name="name">Course validity expiration notification</field>
+    </record>
+</odoo>

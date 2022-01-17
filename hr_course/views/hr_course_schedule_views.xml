@@ -100,6 +100,7 @@
                             <field name="instructor_ids" widget="many2many_tags" />
                             <field name="place" />
                             <field name="comment" />
+                            <field name="validity_end_date" />
                         </group>
                         <group>
                             <field name="start_date" />
@@ -163,6 +164,7 @@
                 <field name="name" />
                 <field name="start_date" />
                 <field name="end_date" />
+                <field name="validity_end_date" />
                 <field name="state" />
             </tree>
         </field>

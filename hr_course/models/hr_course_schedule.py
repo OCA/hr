@@ -1,7 +1,12 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
+import logging
+from datetime import timedelta
+
 from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
+
+_logger = logging.getLogger(__name__)
 
 
 class HrCourseSchedule(models.Model):
@@ -11,7 +16,7 @@ class HrCourseSchedule(models.Model):
 
     name = fields.Char(string="Name", required=True, tracking=True)
     course_id = fields.Many2one("hr.course", string="Course", required=True)
-
+    validity_end_date = fields.Date()
     start_date = fields.Date(
         string="Start date",
         readonly=True,
@@ -69,6 +74,54 @@ class HrCourseSchedule(models.Model):
         readonly=True,
         states={"in_validation": [("readonly", False)]},
     )
+
+    course_expiration_alert_sent = fields.Boolean()
+
+    @api.model
+    def send_course_expiration_notification_email(self):
+        company_id = self.env.context.get("company_id") or self.env.company.id
+        channel = (
+            self.env["res.company"].browse(company_id).course_expiration_channel_id
+        )
+
+        if not channel:
+            _logger.info("no channel found for course expiration alerts")
+            return False
+
+        email_template = self.env.ref(
+            "hr_course.mail_template_validity_reminder"
+        ).with_context(lang=self.env.company.partner_id.lang)
+        email_values = email_template.generate_email(self.ids, ["body_html", "subject"])
+
+        values = email_values[self.id]
+        self.with_context(email_from=channel.alias_id.display_name,).message_post(
+            body=values["body_html"],
+            channel_ids=channel.ids,
+            message_type="email",
+            subject=values["subject"],
+        )
+        return True
+
+    @api.model
+    def process_validity(self):
+        company_id = self.env.context.get("company_id") or self.env.company.id
+        course_expiration_alerting_delay = (
+            self.env["res.company"].browse(company_id).course_expiration_alerting_delay
+        )
+
+        for course_schedule in self:
+            if course_schedule.validity_end_date:
+                if (
+                    course_schedule.validity_end_date
+                    - timedelta(days=course_expiration_alerting_delay)
+                    <= fields.Date.today()
+                ):
+                    course_schedule.course_expiration_alert_sent = True
+                    course_schedule.send_course_expiration_notification_email()
+
+    def _cron_check_validity_date(self):
+        items = self.search([("course_expiration_alert_sent", "=", False)])
+        items.process_validity()
 
     @api.constrains("start_date", "end_date")
     def _check_start_end_dates(self):
