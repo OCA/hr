@@ -8,15 +8,6 @@
         <field name="arch" type="xml">
             <form string="Courses">
                 <sheet string="Course">
-                    <div
-                        class="o_form_label"
-                        attrs="{'invisible': [('state','!=','draft')]}"
-                    >Draft Course</div>
-                    <div
-                        class="o_form_label"
-                        style="color:red"
-                        attrs="{'invisible': [('state','!=','cancelled')]}"
-                    >Cancelled Course </div>
                     <div class="oe_title">
                         <h1>
                             <field name="name" placeholder="Course name" />
