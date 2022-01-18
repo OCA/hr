@@ -189,6 +189,9 @@ class TestHREmployeePPE(TransactionCase):
         self.assertTrue(personal_equipment_request.contains_ppe)
 
     def test_action_view_ppe_report(self):
+        self.env.company.external_report_layout_id = self.env.ref(
+            "web.external_layout_standard"
+        ).id
         action = self.personal_equipment_request.action_view_ppe_report()
         self.assertEqual(action["name"], "Receipt of Personal protection Equipment")
         self.assertEqual(len(action["context"]["active_ids"]), 1)
