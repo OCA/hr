@@ -25,7 +25,7 @@ HR Course
 
 |badge1| |badge2| |badge3| |badge4| |badge5| 
 
-This module allows your to manage employee's training courses and all its
+This module allows your to manage employee's training courses, course dates and all its
 validation process.
 
 **Table of contents**
@@ -38,10 +38,12 @@ Usage
 
 To create a Course go to Employees -> Courses.
 
-Fill the information and click assign attendees to continue. Assign them and
-then start the course.
+To create a Training Schedule go to Employees -> Courses Schedule.
 
-One it has finished you must enter the results and finish the course.
+Fill the information and click assign attendees to continue. Assign them and
+then start the course session.
+
+One it has finished you must enter the results and finish the course session.
 
 Bug Tracker
 ===========
