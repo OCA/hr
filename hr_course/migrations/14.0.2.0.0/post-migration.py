@@ -37,5 +37,5 @@ def migrate(env, version):
     """,
     )
     openupgrade.load_data(
-        env.cr, "hr_course", "migrations/13.0.2.0.0/noupdate_changes.xml"
+        env.cr, "hr_course", "migrations/14.0.2.0.0/noupdate_changes.xml"
     )
