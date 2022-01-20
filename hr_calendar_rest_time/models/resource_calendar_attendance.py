@@ -9,7 +9,9 @@ class ResourceCalendarAttendance(models.Model):
 
     _inherit = "resource.calendar.attendance"
 
-    day_period = fields.Selection(selection_add=[("all_day", "All Day")])
+    day_period = fields.Selection(
+        selection_add=[("all_day", "All Day")], ondelete={"all_day": "cascade"}
+    )
     rest_time = fields.Float(string="Rest Time")
 
     @api.onchange("rest_time")
