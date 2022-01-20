@@ -23,7 +23,7 @@ addon | version | maintainers | summary
 [hr_contract_currency](hr_contract_currency/) | 14.0.1.0.0 |  | Employee's contract currency
 [hr_contract_multi_job](hr_contract_multi_job/) | 14.0.1.0.0 |  | HR Contract Multi Jobs
 [hr_contract_reference](hr_contract_reference/) | 14.0.1.0.0 |  | HR Contract Reference
-[hr_course](hr_course/) | 14.0.1.0.0 |  | This module allows your to manage employee's training courses
+[hr_course](hr_course/) | 14.0.2.0.0 |  | This module allows your to manage employee's training courses
 [hr_department_code](hr_department_code/) | 14.0.1.0.0 |  | HR department code
 [hr_employee_age](hr_employee_age/) | 14.0.1.0.0 |  | Age field for employee
 [hr_employee_birth_name](hr_employee_birth_name/) | 14.0.1.0.0 |  | Employee Birth Name
