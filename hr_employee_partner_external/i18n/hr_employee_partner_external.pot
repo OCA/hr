@@ -1,0 +1,35 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* hr_employee_partner_external
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hr_employee_partner_external
+#: model:ir.model,name:hr_employee_partner_external.model_hr_employee
+msgid "Employee"
+msgstr ""
+
+#. module: hr_employee_partner_external
+#: model:ir.model.fields,field_description:hr_employee_partner_external.field_hr_employee__hr_external_partner_id
+msgid "External Partner"
+msgstr ""
+
+#. module: hr_employee_partner_external
+#: model:ir.model.fields,field_description:hr_employee_partner_external.field_hr_employee__is_external
+msgid "Is an external Employee"
+msgstr ""
+
+#. module: hr_employee_partner_external
+#: model:ir.model.fields,help:hr_employee_partner_external.field_hr_employee__hr_external_partner_id
+msgid "Partner that administrate Employee that works in the Company"
+msgstr ""
+
