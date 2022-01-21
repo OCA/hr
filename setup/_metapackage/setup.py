@@ -35,6 +35,7 @@ setuptools.setup(
         'odoo13-addon-hr_job_category',
         'odoo13-addon-hr_org_chart_overview',
         'odoo13-addon-hr_personal_equipment_request',
+        'odoo13-addon-hr_personal_equipment_request_tier_validation',
         'odoo13-addon-hr_recruitment_notification',
         'odoo13-addon-hr_recruitment_security',
         'odoo13-addon-resource_hook',
