@@ -1,2 +1,3 @@
 partner-contact
+product-variant
 server-ux
