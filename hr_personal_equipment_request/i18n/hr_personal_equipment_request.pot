@@ -388,7 +388,6 @@ msgid "Personal Equipment Request by %s"
 msgstr ""
 
 #. module: hr_personal_equipment_request
-#: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment__product_id
 #: model_terms:ir.ui.view,arch_db:hr_personal_equipment_request.hr_personal_equipment_search_view
 msgid "Product"
 msgstr ""
@@ -396,6 +395,11 @@ msgstr ""
 #. module: hr_personal_equipment_request
 #: model:ir.model,name:hr_personal_equipment_request.model_product_template
 msgid "Product Template"
+msgstr ""
+
+#. module: hr_personal_equipment_request
+#: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment__product_id
+msgid "Product Variant"
 msgstr ""
 
 #. module: hr_personal_equipment_request
