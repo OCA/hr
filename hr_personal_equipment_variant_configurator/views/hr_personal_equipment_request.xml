@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2021 Creu Blanca
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record model="ir.ui.view" id="hr_personal_equipment_request_form_view">
+        <field
+            name="name"
+        >hr.personal.equipment.request.form (in hr_personal_equipment_variant_configurator)</field>
+        <field name="model">hr.personal.equipment.request</field>
+        <field
+            name="inherit_id"
+            ref="hr_personal_equipment_request.hr_personal_equipment_request_form_view"
+        />
+        <field name="arch" type="xml">
+            <xpath expr="//tree[@name='equipment_lines']" position="attributes">
+                <attribute name="editable" />
+            </xpath>
+            <xpath expr="//group[@name='equipment_lines_form']" position="before">
+                <group name="group_variant_configurator_head">
+                    <field name="product_tmpl_id" required="1" />
+                    <field
+                        name="product_attribute_ids"
+                        widget="one2many"
+                        attrs="{'invisible': [('product_attribute_ids', '=', [])]}"
+                        nolabel="1"
+                        colspan="2"
+                    >
+                        <tree create="0" delete="0" editable="1">
+                            <field name="owner_model" invisible="1" />
+                            <field name="owner_id" invisible="1" />
+                            <field name="attribute_id" />
+                            <field
+                                name="possible_value_ids"
+                                widget="many2many_tags"
+                                invisible="1"
+                            />
+                            <field name="product_tmpl_id" invisible="1" />
+                            <field name="value_id" />
+                        </tree>
+                    </field>
+                    <field name="can_create_product" invisible="1" />
+                    <field
+                        name="create_product_variant"
+                        attrs="{'invisible':[('can_create_product', '=', False)]}"
+                    />
+                </group>
+            </xpath>
+            <xpath expr="//group//field[@name='product_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>
