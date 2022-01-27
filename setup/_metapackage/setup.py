@@ -16,6 +16,7 @@ setuptools.setup(
         'odoo13-addon-hr_contract_multi_job',
         'odoo13-addon-hr_contract_rate',
         'odoo13-addon-hr_contract_reference',
+        'odoo13-addon-hr_contract_type',
         'odoo13-addon-hr_course',
         'odoo13-addon-hr_course_survey',
         'odoo13-addon-hr_employee_age',
