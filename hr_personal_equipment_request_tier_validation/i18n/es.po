@@ -6,23 +6,25 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2022-02-01 17:33+0000\n"
+"Last-Translator: Alba Riera <alba.riera@creublanca.es>\n"
 "Language-Team: none\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #. module: hr_personal_equipment_request_tier_validation
 #: model:tier.definition,name:hr_personal_equipment_request_tier_validation.tier_definition_personal_equipment_request
 msgid "Personal Equipment Request Tier Validation"
-msgstr ""
+msgstr "Solicitar Validación Solicitud de Equipamiento Personal"
 
 #. module: hr_personal_equipment_request_tier_validation
 #: model:ir.model,name:hr_personal_equipment_request_tier_validation.model_hr_personal_equipment_request
 msgid "This model allows to create a personal equipment request"
-msgstr ""
+msgstr "Este modelo permite crear solicitudes de equipamiento personal"
 
 #. module: hr_personal_equipment_request_tier_validation
 #: model:ir.model,name:hr_personal_equipment_request_tier_validation.model_tier_definition
