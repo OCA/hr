@@ -37,7 +37,6 @@
     </record>
     <record model="ir.actions.act_window" id="hr_contract_type_act_window">
         <field name="name">Contract Types</field>
-        <!-- TODO -->
         <field name="res_model">hr.contract.type</field>
         <field name="view_mode">tree,form</field>
         <field name="domain">[]</field>
