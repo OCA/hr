@@ -148,7 +148,10 @@
         >hr.personal.equipment.request.tree (in hr_personal_equipment_request)</field>
         <field name="model">hr.personal.equipment.request</field>
         <field name="arch" type="xml">
-            <tree>
+            <tree
+                decoration-success="state=='accepted'"
+                decoration-muted="state=='cancelled'"
+            >
                 <field name="name" />
                 <field name="employee_id" groups="hr.group_hr_user" />
                 <field name="create_date" />
