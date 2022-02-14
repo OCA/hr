@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2022-02-03 14:33+0000\n"
+"PO-Revision-Date: 2022-02-14 15:17+0000\n"
 "Last-Translator: Olga Marco Puértolas <olga.marco@creublanca.es>\n"
 "Language-Team: none\n"
 "Language: es\n"
@@ -86,12 +86,12 @@ msgstr "Transferencias"
 #: model:ir.model.fields,field_description:hr_personal_equipment_stock.field_hr_personal_equipment__procurement_group_id
 #: model:ir.model.fields,field_description:hr_personal_equipment_stock.field_hr_personal_equipment_request__procurement_group_id
 msgid "Procurement Group"
-msgstr ""
+msgstr "Grupo de Adquisiciones"
 
 #. module: hr_personal_equipment_stock
 #: model:ir.model.fields,field_description:hr_personal_equipment_stock.field_hr_personal_equipment__skip_procurement
 msgid "Skip Procurement"
-msgstr ""
+msgstr "Saltar Adquisiciones"
 
 #. module: hr_personal_equipment_stock
 #: model:ir.model,name:hr_personal_equipment_stock.model_stock_move
@@ -101,12 +101,12 @@ msgstr "Movimiento de stock"
 #. module: hr_personal_equipment_stock
 #: model:ir.model.fields,field_description:hr_personal_equipment_stock.field_hr_personal_equipment__move_ids
 msgid "Stock Moves"
-msgstr ""
+msgstr "Movimientos de existencias"
 
 #. module: hr_personal_equipment_stock
 #: model:ir.model,name:hr_personal_equipment_stock.model_stock_rule
 msgid "Stock Rule"
-msgstr ""
+msgstr "Regla de existencias"
 
 #. module: hr_personal_equipment_stock
 #: model:ir.model,name:hr_personal_equipment_stock.model_hr_personal_equipment_request
