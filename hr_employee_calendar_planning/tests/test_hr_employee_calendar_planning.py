@@ -11,7 +11,7 @@ from ..hooks import post_init_hook
 class TestHrEmployeeCalendarPlanning(common.SavepointCase):
     @classmethod
     def setUpClass(cls):
-        super(TestHrEmployeeCalendarPlanning, cls).setUpClass()
+        super().setUpClass()
         resource_calendar = cls.env["resource.calendar"]
         cls.calendar1 = resource_calendar.create(
             {"name": "Test calendar 1", "attendance_ids": []}
@@ -144,6 +144,155 @@ class TestHrEmployeeCalendarPlanning(common.SavepointCase):
             len(self.employee.resource_calendar_id.attendance_ids), 20 + 6 * 2 + 2
         )
 
+    def test_calendar_planning_two_weeks(self):
+        self.calendar1.switch_calendar_type()
+        self.employee.calendar_ids = [
+            (0, 0, {"date_end": "2019-12-31", "calendar_id": self.calendar1.id}),
+            (0, 0, {"date_start": "2020-01-01", "calendar_id": self.calendar2.id}),
+        ]
+        self.assertEqual(
+            len(self.employee.resource_calendar_id.attendance_ids), 20 + 5 * 2 + 2
+        )
+        items = self.employee.resource_calendar_id.attendance_ids
+        items_with_sections = items.filtered(lambda x: x.display_type)
+        self.assertEqual(len(items_with_sections), 2)
+        items_date_to = items.filtered(
+            lambda x: x.date_to == fields.Date.to_date("2019-12-31")
+        )
+        self.assertEqual(len(items_date_to), 20)
+        self.assertEqual(len(items_date_to.filtered(lambda x: x.week_type == "0")), 10)
+        self.assertEqual(len(items_date_to.filtered(lambda x: x.week_type == "1")), 10)
+        items_date_from = items.filtered(
+            lambda x: x.date_from == fields.Date.to_date("2020-01-01")
+        )
+        self.assertEqual(len(items_date_from), 10)
+        self.assertEqual(len(items_date_from.filtered(lambda x: x.week_type == "0")), 5)
+        self.assertEqual(len(items_date_from.filtered(lambda x: x.week_type == "1")), 5)
+        items_without_sections = items - items_with_sections
+        self.assertEqual(
+            len(items_without_sections.filtered(lambda x: x.week_type == "0")), 10 + 5
+        )
+        self.assertEqual(
+            len(items_without_sections.filtered(lambda x: x.week_type == "1")), 10 + 5
+        )
+        self.calendar2.switch_calendar_type()
+        items = self.employee.resource_calendar_id.attendance_ids
+        items_with_sections = items.filtered(lambda x: x.display_type)
+        items_without_sections = items - items_with_sections
+        self.assertEqual(len(items), 20 + 20 + 2)
+        self.assertEqual(len(items_with_sections), 2)
+        items_date_to = items.filtered(
+            lambda x: x.date_to == fields.Date.to_date("2019-12-31")
+        )
+        self.assertEqual(len(items_date_to), 20)
+        items_date_from = items.filtered(
+            lambda x: x.date_from == fields.Date.to_date("2020-01-01")
+        )
+        self.assertEqual(len(items_date_from), 20)
+        items_week_0 = items_without_sections.filtered(lambda x: x.week_type == "0")
+        self.assertEqual(len(items_week_0), 10 + 10)
+        self.assertEqual(
+            len(
+                items_week_0.filtered(
+                    lambda x: x.date_to == fields.Date.to_date("2019-12-31")
+                )
+            ),
+            5 + 5,
+        )
+        self.assertEqual(
+            len(
+                items_week_0.filtered(
+                    lambda x: x.date_from == fields.Date.to_date("2020-01-01")
+                )
+            ),
+            5 + 5,
+        )
+        items_week_1 = items_without_sections.filtered(lambda x: x.week_type == "1")
+        self.assertEqual(len(items_week_1), 10 + 10)
+        self.assertEqual(
+            len(
+                items_week_1.filtered(
+                    lambda x: x.date_to == fields.Date.to_date("2019-12-31")
+                )
+            ),
+            5 + 5,
+        )
+        self.assertEqual(
+            len(
+                items_week_1.filtered(
+                    lambda x: x.date_from == fields.Date.to_date("2020-01-01")
+                )
+            ),
+            5 + 5,
+        )
+
+    def test_calendar_planning_two_weeks_multi(self):
+        self.calendar1.switch_calendar_type()
+        self.calendar2.switch_calendar_type()
+        self.employee.calendar_ids = [
+            (0, 0, {"date_end": "2019-12-31", "calendar_id": self.calendar1.id}),
+            (
+                0,
+                0,
+                {
+                    "date_start": "2020-01-01",
+                    "date_end": "2020-01-31",
+                    "calendar_id": self.calendar2.id,
+                },
+            ),
+            (
+                0,
+                0,
+                {
+                    "date_start": "2020-02-01",
+                    "date_end": "2020-02-02",
+                    "calendar_id": self.calendar1.id,
+                },
+            ),
+            (0, 0, {"date_start": "2020-01-03", "calendar_id": self.calendar2.id}),
+        ]
+        items = self.employee.resource_calendar_id.attendance_ids
+        items_with_sections = items.filtered(lambda x: x.display_type)
+        items_without_sections = items - items_with_sections
+        self.assertEqual(len(items), (20 * 2) + (20 * 2) + 2)
+        self.assertEqual(len(items_with_sections), 2)
+        items_week_0 = items_without_sections.filtered(lambda x: x.week_type == "0")
+        self.assertEqual(
+            len(
+                items_week_0.filtered(
+                    lambda x: x.date_to == fields.Date.to_date("2019-12-31")
+                )
+            ),
+            10,
+        )
+        self.assertEqual(
+            len(
+                items_week_0.filtered(
+                    lambda x: x.date_to == fields.Date.to_date("2020-01-31")
+                )
+            ),
+            10,
+        )
+        self.assertEqual(
+            len(
+                items_week_0.filtered(
+                    lambda x: x.date_to == fields.Date.to_date("2020-02-02")
+                )
+            ),
+            10,
+        )
+        self.assertEqual(
+            len(
+                items_week_0.filtered(
+                    lambda x: x.date_from == fields.Date.to_date("2020-01-03")
+                )
+            ),
+            10,
+        )
+        self.assertEqual(len(items_week_0), 20 + 20)
+        items_week_1 = items_without_sections.filtered(lambda x: x.week_type == "1")
+        self.assertEqual(len(items_week_0), len(items_week_1))
+
     def test_post_install_hook(self):
         self.employee.resource_calendar_id = self.calendar1.id
         post_init_hook(self.env.cr, self.env.registry, self.employee)
@@ -195,3 +344,18 @@ class TestHrEmployeeCalendarPlanning(common.SavepointCase):
         company2 = self.env["res.company"].create({"name": "Test company"})
         with self.assertRaises(exceptions.ValidationError):
             self.calendar1.company_id = company2
+
+    def test_employee_with_calendar_ids(self):
+        employee = self.env["hr.employee"].create(
+            {
+                "name": "Test employee",
+                "calendar_ids": [
+                    (
+                        0,
+                        0,
+                        {"date_start": "2020-01-01", "calendar_id": self.calendar2.id},
+                    ),
+                ],
+            }
+        )
+        self.assertTrue(employee.resource_calendar_id.auto_generate)

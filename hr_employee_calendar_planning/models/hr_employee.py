@@ -50,11 +50,40 @@ class HrEmployee(models.Model):
         two_weeks = bool(
             self.calendar_ids.mapped("calendar_id").filtered("two_weeks_calendar")
         )
-        if (
-            not self.resource_id.calendar_id
-            or not self.resource_id.calendar_id.auto_generate
-        ):
-            self.resource_calendar_id = (
+        if self.resource_id.calendar_id.auto_generate:
+            self.resource_calendar_id.attendance_ids.unlink()
+            self.resource_calendar_id.two_weeks_calendar = two_weeks
+        seq = 0
+        for week in ["0", "1"] if two_weeks else ["0"]:
+            if two_weeks:
+                section_vals = SECTION_LINES[int(week)]
+                section_vals[2]["sequence"] = seq
+                vals_list.append(section_vals)
+                seq += 1
+            for line in self.calendar_ids:
+                if line.calendar_id.two_weeks_calendar:
+                    attendances = line.calendar_id.attendance_ids.filtered(
+                        lambda x: x.week_type == week
+                    )
+                else:
+                    attendances = line.calendar_id.attendance_ids
+                for attendance_line in attendances:
+                    if attendance_line.display_type == "line_section":
+                        continue
+                    data = attendance_line.copy_data(
+                        {
+                            "calendar_id": self.resource_calendar_id.id,
+                            "date_from": line.date_start,
+                            "date_to": line.date_end,
+                            "week_type": week if two_weeks else False,
+                            "sequence": seq,
+                        }
+                    )[0]
+                    seq += 1
+                    vals_list.append((0, 0, data))
+        # Autogenerate
+        if not self.resource_id.calendar_id.auto_generate:
+            self.resource_id.calendar_id = (
                 self.env["resource.calendar"]
                 .create(
                     {
@@ -62,55 +91,29 @@ class HrEmployee(models.Model):
                         "auto_generate": True,
                         "name": _("Auto generated calendar for employee")
                         + " %s" % self.name,
-                        "attendance_ids": [],
+                        "attendance_ids": vals_list,
                         "two_weeks_calendar": two_weeks,
                     }
                 )
                 .id
             )
         else:
-            self.resource_calendar_id.attendance_ids.unlink()
-            self.resource_calendar_id.two_weeks_calendar = two_weeks
-        seq = 0
-        for line in self.calendar_ids:
-            for attendance_line in line.calendar_id.attendance_ids:
-                if attendance_line.display_type == "line_section":
-                    continue
-                duplicate = two_weeks and not line.calendar_id.two_weeks_calendar
-                week_odd = attendance_line.week_type == "1"
-                data = attendance_line.copy_data(
-                    {
-                        "calendar_id": self.resource_calendar_id.id,
-                        "date_from": line.date_start,
-                        "date_to": line.date_end,
-                        "week_type": "0" if duplicate else attendance_line.week_type,
-                        "sequence": seq + 26 if week_odd else 24 - seq,
-                        # To make sure sequence of odd weeks is greater than 25
-                        # and sequence of even weeks is less than 25, as in
-                        # /resource/models/resource.py#L266
-                    }
-                )[0]
-                seq += 1
-                vals_list.append((0, 0, data))
-                if duplicate:
-                    data = attendance_line.copy_data(
-                        {
-                            "calendar_id": self.resource_calendar_id.id,
-                            "date_from": line.date_start,
-                            "date_to": line.date_end,
-                            "week_type": "1",
-                            "sequence": seq + 26,
-                        },
-                    )[0]
-                    seq += 1
-                    vals_list += [(0, 0, data)]
-        if two_weeks:
-            SECTION_LINES[0][2]["sequence"] = -seq
-            vals_list = SECTION_LINES + vals_list
-        self.resource_calendar_id.attendance_ids = vals_list
+            self.resource_calendar_id.attendance_ids = vals_list
+        # Set the hours per day to the last (top date end) calendar line to apply
+        if self.calendar_ids:
+            self.resource_calendar_id.hours_per_day = self.calendar_ids[
+                0
+            ].calendar_id.hours_per_day
 
     def regenerate_calendar(self):
-        self._regenerate_calendar()
+        for item in self:
+            item._regenerate_calendar()
+
+    @api.model_create_multi
+    def create(self, vals_list):
+        res = super().create(vals_list)
+        res.filtered("calendar_ids").regenerate_calendar()
+        return res
 
 
 class HrEmployeeCalendar(models.Model):
