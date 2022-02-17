@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="hr_employee_hour_tree_view" model="ir.ui.view">
+        <field name="name">hr.employee.hour.tree</field>
+        <field name="model">hr.employee.hour</field>
+        <field name="arch" type="xml">
+            <tree string="Contract Hours">
+                <field name="type" optional="show"/>
+                <field name="unplanned" optional="hide"/>
+                <field name="name" optional="show"/>
+                <field name="employee_id" optional="show"/>
+                <field name="project_id" optional="show"/>
+                <field name="analytic_group_id"/>
+                <field name="date" optional="show"/>
+                <field name="hours_qty" optional="show"/>
+                <field name="days_qty" optional="show"/>
+                <field name="model_id" optional="hide"/>
+                <field name="res_id" optional="hide"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="hr_employee_hour_search_view" model="ir.ui.view">
+        <field name="name">hr.employee.hour.search</field>
+        <field name="model">hr.employee.hour</field>
+        <field name="arch" type="xml">
+            <search string="Contract Hours">
+                <field name="date"/>
+                <field name="name"/>
+                <field name="type"/>
+                <field name="employee_id"/>
+                <field name="project_id"/>
+                <field name="analytic_group_id"/>
+                <group expand="1" string="Group By">
+                    <filter name="analytic_group_id" string="Analytic Group" context="{'group_by':'analytic_group_id'}"/>
+                    <filter name="type" string="Type" context="{'group_by':'type'}"/>
+                    <filter name="employee" string="Employee" context="{'group_by':'employee_id'}"/>
+                    <filter name="project" string="Project" context="{'group_by':'project_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_hr_employee_hour" model="ir.actions.act_window">
+        <field name="name">Contract Hours</field>
+        <field name="res_model">hr.employee.hour</field>
+        <field name="view_mode">tree</field>
+        <field name="search_view_id" ref="hr_employee_hour_search_view"/>
+        <field name="context">{
+            'group_by': [],
+            'search_default_filter_date': 1}
+        </field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No data yet!
+            </p>
+            <p>
+                Regenerate data with the "Regenerate" button
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_hr_employee_hour" name="Employee Hours"
+              groups="base.group_user"
+              parent="menu_hr_report_dashboard" sequence="10"
+              action="action_hr_employee_hour"/>
+
+</odoo>

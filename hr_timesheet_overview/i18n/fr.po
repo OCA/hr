@@ -1,0 +1,335 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* hr_timesheet_overview
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-09 14:39+0000\n"
+"PO-Revision-Date: 2022-02-09 15:40+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: fr\n"
+"X-Generator: Poedit 3.0\n"
+
+#. module: hr_timesheet_overview
+#: model:ir.model.fields,field_description:hr_timesheet_overview.field_hr_employee_hour__active
+msgid "Active"
+msgstr ""
+
+#. module: hr_timesheet_overview
+#: model_terms:ir.ui.view,arch_db:hr_timesheet_overview.hr_employee_hour_report_dashboard_view
+#: model_terms:ir.ui.view,arch_db:hr_timesheet_overview.hr_employee_hour_report_graph_view
+msgid "Activity Analysis"
+msgstr "Analyse d'activité"
+
+#. module: hr_timesheet_overview
+#: model:ir.model.fields,field_description:hr_timesheet_overview.field_hr_employee_hour__analytic_group_id
+#: model:ir.model.fields,field_description:hr_timesheet_overview.field_hr_employee_hour_report__analytic_group_id
+#: model_terms:ir.ui.view,arch_db:hr_timesheet_overview.hr_employee_hour_search_view
+msgid "Analytic Group"
+msgstr "Groupe analytique"
+
+#. module: hr_timesheet_overview
+#: model:ir.model.fields,field_description:hr_timesheet_overview.field_hr_employee_hour__company_id
+#: model:ir.model.fields,field_description:hr_timesheet_overview.field_hr_employee_hour_report__company_id
+msgid "Company"
+msgstr "Société"
+
+#. module: hr_timesheet_overview
+#: code:addons/hr_timesheet_overview/models/hr_employee_hour.py:0
+#: model:ir.model,name:hr_timesheet_overview.model_hr_contract
+#: model:ir.model.fields.selection,name:hr_timesheet_overview.selection__hr_employee_hour__type__contract
+#: model:ir.model.fields.selection,name:hr_timesheet_overview.selection__hr_employee_hour_report__type__contract
+#, python-format
+msgid "Contract"
+msgstr "Contrat"
+
+#. module: hr_timesheet_overview
+#: model:ir.actions.act_window,name:hr_timesheet_overview.action_hr_employee_hour
+#: model_terms:ir.ui.view,arch_db:hr_timesheet_overview.hr_employee_hour_search_view
+#: model_terms:ir.ui.view,arch_db:hr_timesheet_overview.hr_employee_hour_tree_view
+msgid "Contract Hours"
+msgstr "Heures contrat"
+
+#. module: hr_timesheet_overview
+#: model_terms:ir.ui.view,arch_db:hr_timesheet_overview.hr_employee_hour_report_dashboard_view
+msgid "Contract vs Timesheets"
+msgstr "Contrat vs Heures travaillées"
+
+#. module: hr_timesheet_overview
+#: model:ir.model.fields,field_description:hr_timesheet_overview.field_hr_employee_hour__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: hr_timesheet_overview
+#: model:ir.model.fields,field_description:hr_timesheet_overview.field_hr_employee_hour__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: hr_timesheet_overview
+#: model:ir.model.fields,field_description:hr_timesheet_overview.field_hr_employee_hour__date
+#: model:ir.model.fields,field_description:hr_timesheet_overview.field_hr_employee_hour_report__date
+msgid "Date"
+msgstr ""
+
+#. module: hr_timesheet_overview
+#: model:ir.model.fields,field_description:hr_timesheet_overview.field_hr_employee_hour__days_qty
+msgid "Day Qty"
+msgstr "Qté en jour"
+
+#. module: hr_timesheet_overview
+#: model:ir.model.fields,field_description:hr_timesheet_overview.field_hr_employee_hour_report__days_qty
+#: model:ir.model.fields,field_description:hr_timesheet_overview.field_hr_employee_hour_report__days_qty_abs
+msgid "Days"
+msgstr "Jours"
+
+#. module: hr_timesheet_overview
+#: model:ir.model.fields,field_description:hr_timesheet_overview.field_hr_employee_hour__name
+msgid "Description"
+msgstr ""
+
+#. module: hr_timesheet_overview
+#: model:ir.model.fields,field_description:hr_timesheet_overview.field_hr_contract__display_name
+#: model:ir.model.fields,field_description:hr_timesheet_overview.field_hr_employee_hour__display_name
+#: model:ir.model.fields,field_description:hr_timesheet_overview.field_hr_employee_hour_report__display_name
+msgid "Display Name"
+msgstr "Nom affiché"
+
+#. module: hr_timesheet_overview
+#: model:ir.model.fields,field_description:hr_timesheet_overview.field_hr_employee_hour__employee_id
+#: model:ir.model.fields,field_description:hr_timesheet_overview.field_hr_employee_hour_report__employee_id
+#: model_terms:ir.ui.view,arch_db:hr_timesheet_overview.hr_employee_hour_report_search_view
+#: model_terms:ir.ui.view,arch_db:hr_timesheet_overview.hr_employee_hour_search_view
+msgid "Employee"
+msgstr "Employé"
+
+#. module: hr_timesheet_overview
+#: model:ir.ui.menu,name:hr_timesheet_overview.menu_hr_employee_hour
+msgid "Employee Hours"
+msgstr "Heures de l'employé"
+
+#. module: hr_timesheet_overview
+#: model_terms:ir.ui.view,arch_db:hr_timesheet_overview.hr_employee_hour_report_search_view
+#: model_terms:ir.ui.view,arch_db:hr_timesheet_overview.hr_employee_hour_search_view
+msgid "Group By"
+msgstr "Grouper par"
+
+#. module: hr_timesheet_overview
+#: model:ir.actions.server,name:hr_timesheet_overview.ir_cron_timesheet_hours_overview_update_ir_actions_server
+#: model:ir.cron,cron_name:hr_timesheet_overview.ir_cron_timesheet_hours_overview_update
+#: model:ir.cron,name:hr_timesheet_overview.ir_cron_timesheet_hours_overview_update
+msgid "HR Employee Hours Report: Update Data"
+msgstr "Rapport d'heures des employés : mise à jour"
+
+#. module: hr_timesheet_overview
+#: model:ir.actions.server,name:hr_timesheet_overview.ir_cron_timesheet_hours_overview_force_ir_actions_server
+#: model:ir.cron,cron_name:hr_timesheet_overview.ir_cron_timesheet_hours_overview_force
+#: model:ir.cron,name:hr_timesheet_overview.ir_cron_timesheet_hours_overview_force
+msgid "HR Employee Hours Report: Wipe All Data and Regenerate"
+msgstr "Rapport d'heures des employés : Suppression complète et regénération"
+
+#. module: hr_timesheet_overview
+#: model:ir.model,name:hr_timesheet_overview.model_hr_employee_hour
+msgid "HR Employee Hours per day"
+msgstr "Rapport d'heures des employés par jours"
+
+#. module: hr_timesheet_overview
+#: model:ir.ui.menu,name:hr_timesheet_overview.menu_hr_report_dashboard
+msgid "HR dashboard"
+msgstr "Dashboard RH"
+
+#. module: hr_timesheet_overview
+#: model:ir.model.fields,field_description:hr_timesheet_overview.field_hr_employee_hour_report__hours_qty
+#: model:ir.model.fields,field_description:hr_timesheet_overview.field_hr_employee_hour_report__hours_qty_abs
+msgid "Hours"
+msgstr "Heures"
+
+#. module: hr_timesheet_overview
+#: model:ir.model.fields,field_description:hr_timesheet_overview.field_hr_employee_hour__hours_qty
+msgid "Hours Qty"
+msgstr "Qté en heures"
+
+#. module: hr_timesheet_overview
+#: model:ir.actions.act_window,name:hr_timesheet_overview.action_hr_employee_hour_report
+#: model:ir.ui.menu,name:hr_timesheet_overview.menu_hr_employee_hour_report
+#: model_terms:ir.ui.view,arch_db:hr_timesheet_overview.hr_employee_hour_report_pivot_view
+#: model_terms:ir.ui.view,arch_db:hr_timesheet_overview.hr_employee_hour_report_search_view
+#: model_terms:ir.ui.view,arch_db:hr_timesheet_overview.hr_employee_hour_report_tree_view
+msgid "Hours Report"
+msgstr "Rapport d'heures"
+
+#. module: hr_timesheet_overview
+#: model:ir.model.fields,field_description:hr_timesheet_overview.field_hr_contract__id
+#: model:ir.model.fields,field_description:hr_timesheet_overview.field_hr_employee_hour__id
+#: model:ir.model.fields,field_description:hr_timesheet_overview.field_hr_employee_hour_report__id
+msgid "ID"
+msgstr ""
+
+#. module: hr_timesheet_overview
+#: model:ir.model.fields,field_description:hr_timesheet_overview.field_hr_employee_hour__is_invalidated
+msgid "Invalidated"
+msgstr "Invalidé"
+
+#. module: hr_timesheet_overview
+#: model:ir.model.fields,field_description:hr_timesheet_overview.field_hr_contract____last_update
+#: model:ir.model.fields,field_description:hr_timesheet_overview.field_hr_employee_hour____last_update
+#: model:ir.model.fields,field_description:hr_timesheet_overview.field_hr_employee_hour_report____last_update
+msgid "Last Modified on"
+msgstr "Dernière modification le"
+
+#. module: hr_timesheet_overview
+#: model:ir.model.fields,field_description:hr_timesheet_overview.field_hr_employee_hour__write_uid
+msgid "Last Updated by"
+msgstr "Dernière modification par"
+
+#. module: hr_timesheet_overview
+#: model:ir.model.fields,field_description:hr_timesheet_overview.field_hr_employee_hour__write_date
+msgid "Last Updated on"
+msgstr "Dernière modification le"
+
+#. module: hr_timesheet_overview
+#: code:addons/hr_timesheet_overview/models/hr_employee_hour.py:0
+#: model:ir.model.fields.selection,name:hr_timesheet_overview.selection__hr_employee_hour__type__leave
+#: model:ir.model.fields.selection,name:hr_timesheet_overview.selection__hr_employee_hour_report__type__leave
+#, python-format
+msgid "Leave"
+msgstr "Absence"
+
+#. module: hr_timesheet_overview
+#: model:ir.model.fields,field_description:hr_timesheet_overview.field_hr_employee_hour_report__leave_type
+msgid "Leave Type"
+msgstr "Type d'absence"
+
+#. module: hr_timesheet_overview
+#: model:ir.model.fields,field_description:hr_timesheet_overview.field_hr_employee_hour__manager_id
+#: model:ir.model.fields,field_description:hr_timesheet_overview.field_hr_employee_hour_report__manager_id
+msgid "Manager"
+msgstr "Responsable"
+
+#. module: hr_timesheet_overview
+#: model:ir.model.fields,field_description:hr_timesheet_overview.field_hr_employee_hour__model_id
+msgid "Model"
+msgstr "Modèle"
+
+#. module: hr_timesheet_overview
+#: model:ir.model.fields,field_description:hr_timesheet_overview.field_hr_employee_hour__model_name
+msgid "Model Name"
+msgstr "Nom du modèle"
+
+#. module: hr_timesheet_overview
+#: model_terms:ir.ui.view,arch_db:hr_timesheet_overview.hr_employee_hour_report_search_view
+msgid "My report"
+msgstr "Mon rapport"
+
+#. module: hr_timesheet_overview
+#: model_terms:ir.ui.view,arch_db:hr_timesheet_overview.hr_employee_hour_report_search_view
+msgid "My team"
+msgstr "Mon équipe"
+
+#. module: hr_timesheet_overview
+#: model_terms:ir.actions.act_window,help:hr_timesheet_overview.action_hr_employee_hour
+#: model_terms:ir.actions.act_window,help:hr_timesheet_overview.action_hr_employee_hour_report
+msgid "No data yet!"
+msgstr "Pas de donnée !"
+
+#. module: hr_timesheet_overview
+#: model_terms:ir.ui.view,arch_db:hr_timesheet_overview.hr_employee_hour_report_dashboard_view
+msgid "Overtime (+) or Undertime (-)"
+msgstr "Temps supplémentaire (+) ou Temps restant (-)"
+
+#. module: hr_timesheet_overview
+#: model:ir.model.fields,field_description:hr_timesheet_overview.field_hr_employee_hour_report__percentage
+msgid "Percentage"
+msgstr "Pourcentage"
+
+#. module: hr_timesheet_overview
+#: model:ir.model.fields,field_description:hr_timesheet_overview.field_hr_employee_hour__project_id
+#: model:ir.model.fields,field_description:hr_timesheet_overview.field_hr_employee_hour_report__project_id
+#: model_terms:ir.ui.view,arch_db:hr_timesheet_overview.hr_employee_hour_search_view
+msgid "Project"
+msgstr "Projet"
+
+#. module: hr_timesheet_overview
+#: model_terms:ir.actions.act_window,help:hr_timesheet_overview.action_hr_employee_hour
+msgid "Regenerate data with the \"Regenerate\" button"
+msgstr "Regénérer les données avec le bouton \"Regénérer\""
+
+#. module: hr_timesheet_overview
+#: model:ir.model.fields,help:hr_timesheet_overview.field_hr_employee_hour__user_id
+msgid "Related user name for the resource to manage its access."
+msgstr ""
+
+#. module: hr_timesheet_overview
+#: model:ir.model.fields,field_description:hr_timesheet_overview.field_hr_employee_hour__res_id
+msgid "Ressource ID"
+msgstr ""
+
+#. module: hr_timesheet_overview
+#: model_terms:ir.ui.view,arch_db:hr_timesheet_overview.hr_employee_hour_report_search_view
+msgid "This Year"
+msgstr "Cette année"
+
+#. module: hr_timesheet_overview
+#: model_terms:ir.ui.view,arch_db:hr_timesheet_overview.hr_employee_hour_report_search_view
+msgid "This Year Until Today"
+msgstr "Cette année jusqu'à aujourd'hui"
+
+#. module: hr_timesheet_overview
+#: code:addons/hr_timesheet_overview/models/hr_employee_hour.py:0
+#: model:ir.model.fields.selection,name:hr_timesheet_overview.selection__hr_employee_hour__type__timesheet
+#: model:ir.model.fields.selection,name:hr_timesheet_overview.selection__hr_employee_hour_report__type__timesheet
+#, python-format
+msgid "Timesheet"
+msgstr "Feuilles d'heures"
+
+#. module: hr_timesheet_overview
+#: model:ir.model.fields,field_description:hr_timesheet_overview.field_hr_employee_hour__type
+#: model:ir.model.fields,field_description:hr_timesheet_overview.field_hr_employee_hour_report__type
+#: model_terms:ir.ui.view,arch_db:hr_timesheet_overview.hr_employee_hour_search_view
+msgid "Type"
+msgstr ""
+
+#. module: hr_timesheet_overview
+#: model:ir.model.fields,field_description:hr_timesheet_overview.field_hr_employee_hour__unplanned
+msgid "Unplanned"
+msgstr "Non planifié"
+
+#. module: hr_timesheet_overview
+#: model_terms:ir.ui.view,arch_db:hr_timesheet_overview.hr_employee_hour_report_search_view
+msgid "Until today"
+msgstr "Jusqu'à aujourd'hui"
+
+#. module: hr_timesheet_overview
+#: model:ir.model.fields,field_description:hr_timesheet_overview.field_hr_employee_hour__user_id
+#: model:ir.model.fields,field_description:hr_timesheet_overview.field_hr_employee_hour_report__user_id
+#: model_terms:ir.ui.view,arch_db:hr_timesheet_overview.hr_employee_hour_report_search_view
+msgid "User"
+msgstr "Utilisateur"
+
+#. module: hr_timesheet_overview
+#: model:ir.model.fields,help:hr_timesheet_overview.field_hr_employee_hour__is_invalidated
+msgid "Will be reprocessed at next cron execution"
+msgstr ""
+
+#. module: hr_timesheet_overview
+#: code:addons/hr_timesheet_overview/models/hr_employee_hour.py:0
+#: model:ir.model.constraint,message:hr_timesheet_overview.constraint_hr_employee_hour_uniqueness
+#, python-format
+msgid "You can't have two hour lines with same fields: %s)"
+msgstr ""
+
+#. module: hr_timesheet_overview
+#: model_terms:ir.ui.view,arch_db:hr_timesheet_overview.hr_employee_hour_report_dashboard_view
+msgid "hours"
+msgstr "Heures"
+
+#. module: hr_timesheet_overview
+#: model:ir.model,name:hr_timesheet_overview.model_hr_employee_hour_report
+msgid "hr.employee.hour.report"
+msgstr ""
