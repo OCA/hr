@@ -17,11 +17,11 @@ class HrEmployeeHourReport(models.Model):
     date = fields.Date("Date")
     type = fields.Selection(TYPE_SELECTION, "Type")
     leave_type = fields.Char("Leave Type")
-    employee_id = fields.Many2one('hr.employee', "Employee")
+    employee_id = fields.Many2one("hr.employee", "Employee")
     manager_id = fields.Many2one("hr.employee", "Manager")
     user_id = fields.Many2one("res.users", "User")
     company_id = fields.Many2one("res.company", "Company")
-    project_id = fields.Many2one('project.project', "Project")
+    project_id = fields.Many2one("project.project", "Project")
     analytic_group_id = fields.Many2one("account.analytic.group")
     days_qty = fields.Float("Days")
     days_qty_abs = fields.Float("Days")
@@ -31,14 +31,7 @@ class HrEmployeeHourReport(models.Model):
 
     @api.model
     def read_group(
-        self,
-        domain,
-        fields,
-        groupby,
-        offset=0,
-        limit=None,
-        orderby=False,
-        lazy=True,
+        self, domain, fields, groupby, offset=0, limit=None, orderby=False, lazy=True
     ):
         # Add the percentage values
         # Force addition of this fields if not in the view specification
@@ -60,9 +53,7 @@ class HrEmployeeHourReport(models.Model):
         hours_total = get_grant_total(result, "hours_qty_abs")
         for rec in result:
             if hours_total:
-                rec["percentage"] = (
-                    rec.get("hours_qty_abs", 0.0) / hours_total
-                ) * 100
+                rec["percentage"] = (rec.get("hours_qty_abs", 0.0) / hours_total) * 100
         return result
 
     def select_hook_custom_fields(self):
@@ -112,7 +103,7 @@ class HrEmployeeHourReport(models.Model):
             {self.select_hook_negative_quantities()}
             {self.select_hook_absolute_quantities()}
             {self.select_hook_custom_fields()}""".rstrip().rstrip(
-            ','
+            ","
         )
 
     def _from(self):
@@ -136,7 +127,7 @@ class HrEmployeeHourReport(models.Model):
             heh.name,
             heh.type,
             {self.group_by_hook_custom_fields()}""".rstrip().rstrip(
-            ','
+            ","
         )
 
     def init(self):

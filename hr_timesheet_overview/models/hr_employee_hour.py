@@ -1,5 +1,5 @@
 # Copyright 2021 Camptocamp SA
-# License LGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 import datetime
 import logging
 
@@ -13,11 +13,7 @@ TYPE_SELECTION = [
     ("leave", _("Leave")),
     ("timesheet", _("Timesheet")),
 ]
-DEFAULT_TIME_QTY = {
-    "hours_qty": HOURS_PER_DAY,
-    "days_qty": 1.0,
-    "type": "default",
-}
+DEFAULT_TIME_QTY = {"hours_qty": HOURS_PER_DAY, "days_qty": 1.0, "type": "default"}
 
 _logger = logging.getLogger(__name__)
 
@@ -31,9 +27,7 @@ def get_end_of_day(date, attendances):
             hour_from = attendance.hour_from
         if not hour_to or hour_to < attendance.hour_to:
             hour_to = attendance.hour_to
-    return datetime.datetime.combine(
-        date, odoo_float_time_to_datetime_time(hour_to)
-    )
+    return datetime.datetime.combine(date, odoo_float_time_to_datetime_time(hour_to))
 
 
 def odoo_float_time_to_datetime_time(dec_hour):
@@ -94,26 +88,18 @@ class HrEmployeeHour(models.Model):
     manager_id = fields.Many2one(
         "hr.employee", related="employee_id.parent_id", store=True
     )
-    user_id = fields.Many2one(
-        "res.users", related="employee_id.user_id", store=True
-    )
+    user_id = fields.Many2one("res.users", related="employee_id.user_id", store=True)
     company_id = fields.Many2one(
         "res.company", related="employee_id.company_id", store=True
     )
     project_id = fields.Many2one("project.project", readonly=True)
-    analytic_group_id = fields.Many2one(
-        "account.analytic.group", readonly=True
-    )
-    model_id = fields.Many2one(
-        "ir.model", "Model", readonly=True, ondelete='set null'
-    )
+    analytic_group_id = fields.Many2one("account.analytic.group", readonly=True)
+    model_id = fields.Many2one("ir.model", "Model", readonly=True, ondelete="set null")
     model_name = fields.Char("Model Name", related="model_id.name", store=True)
     res_id = fields.Integer("Ressource ID", readonly=True, required=True)
 
     is_invalidated = fields.Boolean(
-        "Invalidated",
-        default=False,
-        help="Will be reprocessed at next cron execution",
+        "Invalidated", default=False, help="Will be reprocessed at next cron execution"
     )
 
     _sql_constraints = [
@@ -122,7 +108,7 @@ class HrEmployeeHour(models.Model):
             f"UNIQUE({','.join(get_valid_search_fields())})",
             _(
                 "You can't have two hour lines with same fields: %s)".format(
-                    ','.join(get_valid_search_fields())
+                    ",".join(get_valid_search_fields())
                 )
             ),
         )
@@ -148,12 +134,10 @@ class HrEmployeeHour(models.Model):
         return hours_qty or calendar.hours_per_day, days_qty or 1.0
 
     @api.model
-    def _prepare_attendance_value(
-        self, contract, date, exclude_global_leaves=True
-    ):
+    def _prepare_attendance_value(self, contract, date, exclude_global_leaves=True):
         """ Returns attendance values for this date
 
-        This attendence is a matrix product of contractual hours by day
+        This attendance is a matrix product of contractual hours by day
         and week days for this date (NOT the `hr.attendance` model).
 
         :param employee: an employee record
@@ -196,7 +180,7 @@ class HrEmployeeHour(models.Model):
     ):
         """ Retrieve attendances (from resource module) values mapped by date
 
-        These attendencies are the matrix product of contractual hours by day
+        These attendances are the matrix product of contractual hours by day
         and week days (NOT the `hr.attendance` model).
 
         Warning: it is intended to be injected in context to reduce calls
@@ -236,11 +220,7 @@ class HrEmployeeHour(models.Model):
         """ Hook to allow proper override of name value
         Called in `_prepare_timesheets_lines` method
         """
-        return (
-            timesheet.account_id.name
-            if timesheet.holiday_id
-            else timesheet.name
-        )
+        return timesheet.account_id.name if timesheet.holiday_id else timesheet.name
 
     def _prepare_timesheet_line(self, timesheet):
         """ Retrieve a timesheet line values
@@ -320,9 +300,7 @@ class HrEmployeeHour(models.Model):
         return values_list
 
     @api.model
-    def _prepare_values(
-        self, employee, date_from=None, date_to=fields.Date().today()
-    ):
+    def _prepare_values(self, employee, date_from=None, date_to=fields.Date().today()):
         """ Return a list of dict with computed values for this employee
 
         :param employee: an employee record
@@ -332,9 +310,7 @@ class HrEmployeeHour(models.Model):
         if not date_from:
             date_from = employee.first_contract_date
         attendances_by_date = self.env.context.get("attendances_by_date", [])
-        timesheet_values = self._prepare_timesheets_lines(
-            employee, date_from, date_to
-        )
+        timesheet_values = self._prepare_timesheets_lines(employee, date_from, date_to)
         return list(attendances_by_date.values()) + timesheet_values
 
     @api.model
