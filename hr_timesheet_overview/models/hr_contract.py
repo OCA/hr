@@ -1,18 +1,17 @@
-# Copyright 2021 Camptocamp SA
+# Copyright 2022 Camptocamp SA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
-from odoo import models
+
+from odoo import api, fields, models
 
 
 class Contract(models.Model):
     _inherit = "hr.contract"
 
-    def write(self, values):
-        result = super().write(values)
-        self.env["hr.employee.hour"].search(
-            [
-                ("employee_id", "in", self.mapped("employee_id.id")),
-                ("model_name", "=", self._name),
-                ("res_id", "in", self.ids),
-            ]
-        ).write({"is_invalidated": True})
-        return result
+    last_hours_report_date = fields.Date(
+        help="Date from which start compute hours report"
+    )
+
+    @api.onchange("date_start")
+    def onchange_date_start(self):
+        if self.date_start:
+            self.last_hours_report_date = self.date_start

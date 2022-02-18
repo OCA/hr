@@ -1,0 +1,3 @@
+- Limit cases about hours on weekend and hours worked at night between 2 days.
+- Unit tests are not already done (will be managed later on)
+- Add restriction

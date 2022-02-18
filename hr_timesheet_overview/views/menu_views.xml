@@ -1,7 +1,28 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
 
-    <menuitem id="menu_hr_report_dashboard" name="HR dashboard"
-              groups="base.group_user"
-              parent="base.menu_board_root" sequence="5"/>
+    <menuitem
+        id="menu_hr_report_dashboard"
+        name="HR dashboard"
+        parent="base.menu_board_root"
+        sequence="5"
+    />
+
+    <menuitem
+        id="menu_hr_employee_hour"
+        name="Employee Hours"
+        groups="base.group_user"
+        parent="menu_hr_report_dashboard"
+        sequence="10"
+        action="action_hr_employee_hour"
+    />
+
+    <menuitem
+        id="menu_hr_employee_hour_report"
+        name="Hours Dasboard"
+        parent="menu_hr_report_dashboard"
+        sequence="20"
+        action="action_hr_employee_hour_report"
+    />
+
 </odoo>
