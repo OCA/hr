@@ -5,6 +5,7 @@
     "name": "Employee identification",
     "version": "13.0.1.0.0",
     "author": "Therp BV,Onestein,Odoo Community Association (OCA)",
+    "website": "https://github.com/OCA/hr",
     "license": "AGPL-3",
     "category": "Human Resources",
     "summary": "Record more data about employee's identity documents",

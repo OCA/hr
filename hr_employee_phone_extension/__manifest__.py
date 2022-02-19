@@ -6,7 +6,7 @@
     "version": "13.0.1.0.0",
     "category": "Human Resources",
     "author": "Savoir-faire Linux,Odoo Community Association (OCA)",
-    "website": "https://github.com/oca/hr",
+    "website": "https://github.com/OCA/hr",
     "license": "AGPL-3",
     "depends": ["hr"],
     "data": ["views/hr_employee_view.xml"],
