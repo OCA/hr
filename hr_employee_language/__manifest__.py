@@ -6,7 +6,7 @@
     "category": "Human Resources",
     "license": "AGPL-3",
     "author": "Savoir-faire Linux, Acsone, Odoo Community Association (OCA)",
-    "website": "https://github.com/OCA/hr/",
+    "website": "https://github.com/OCA/hr",
     "depends": ["hr"],
     "data": [
         "security/ir.model.access.csv",
