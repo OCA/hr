@@ -232,7 +232,6 @@ class HrEmployeeHour(models.Model):
         default hours and day quantity are used (cf: `DEFAULT_TIME_QTY`)
 
         :param employee: an employee record
-        :param date_from: a datetime.date object (default first contract date, included)
         """
         uom_hour = self.env.ref("uom.product_uom_hour")
         project = timesheet.project_id
