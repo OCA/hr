@@ -40,6 +40,13 @@ class HrEmployee(models.Model):
     def regenerate_calendar(self):
         self._regenerate_calendar()
 
+    @api.model
+    def create(self, vals):
+        record = super(HrEmployee, self).create(vals)
+        if record.calendar_ids:
+            record.regenerate_calendar()
+        return record
+
 
 class HrEmployeeCalendar(models.Model):
     _name = 'hr.employee.calendar'
