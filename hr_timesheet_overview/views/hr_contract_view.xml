@@ -6,7 +6,7 @@
         <field name="inherit_id" ref="hr_contract.hr_contract_view_form" />
         <field name="arch" type="xml">
             <field name="date_end" position="after">
-                <field name="last_hours_report_date" />
+                <field name="hours_report_last_update" />
             </field>
         </field>
     </record>

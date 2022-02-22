@@ -6,7 +6,7 @@
         <field name="inherit_id" ref="hr.view_employee_form" />
         <field name="arch" type="xml">
             <field name="user_id" position="before">
-                <field name="last_hours_report_date" />
+                <field name="hours_report_last_update" />
             </field>
         </field>
     </record>

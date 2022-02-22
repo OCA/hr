@@ -17,7 +17,7 @@ class TestHours(SavepointCase):
             {
                 "name": "Test contract",
                 "employee_id": cls.test_employee.id,
-                "last_hours_report_date": "2022-02-01",
+                "hours_report_last_update": "2022-02-01",
                 "wage": 100,
             }
         )
@@ -25,11 +25,13 @@ class TestHours(SavepointCase):
     @freeze_time("2022-02-10")
     def test_contract_dates(self):
         self.assertEqual(
-            self.test_employee.last_hours_report_date.strftime("%Y-%m-%d"), "2022-02-01"
+            self.test_employee.hours_report_last_update.strftime("%Y-%m-%d"),
+            "2022-02-01",
         )
         self.hour_obj.action_generate_data(employee_ids=self.test_employee.ids)
         self.assertEqual(
-            self.test_employee.last_hours_report_date.strftime("%Y-%m-%d"), "2022-02-10"
+            self.test_employee.hours_report_last_update.strftime("%Y-%m-%d"),
+            "2022-02-10",
         )
 
     @freeze_time("2022-02-10")

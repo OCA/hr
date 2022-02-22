@@ -195,10 +195,10 @@ class HrEmployeeHour(models.Model):
         for contract in employee.contract_ids:
             _logger.debug(
                 f"""process contract '{contract.name}'
-                from {contract.last_hours_report_date} to {date_to}"""
+                from {contract.hours_report_last_update} to {date_to}"""
             )
             ranged_dates = generate_dates_from_range(
-                contract.last_hours_report_date, date_to
+                contract.hours_report_last_update, date_to
             )
             for date in ranged_dates:
                 if date_from <= date >= date_to:
@@ -295,16 +295,16 @@ class HrEmployeeHour(models.Model):
         :param force: purge all lines related to params before regenerating
         """
         employees = self.env["hr.employee"].browse(employee_ids)
-        employees = employees.filtered(lambda emp: emp.last_hours_report_date)
+        employees = employees.filtered(lambda emp: emp.hours_report_last_update)
         if not employees:
             employees = self.env["hr.employee"].search(
                 [
-                    ("last_hours_report_date", "!=", False),
+                    ("hours_report_last_update", "!=", False),
                 ]
             )
 
         for employee in employees:
-            date_from = employee.last_hours_report_date
+            date_from = employee.hours_report_last_update
             existing_lines = self.search(
                 [
                     ("employee_id", "=", employee.id),
@@ -317,7 +317,7 @@ class HrEmployeeHour(models.Model):
             _logger.info(f"Generating hours for '{employee.name}' from {date_from}")
             self._create_values_per_employee(employee, date_from)
             employee.contract_ids.update(
-                {"last_hours_report_date": fields.Date.today()}
+                {"hours_report_last_update": fields.Date.today()}
             )
 
     def _create_values_per_employee(self, employee, date):

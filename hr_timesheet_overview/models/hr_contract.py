@@ -7,11 +7,11 @@ from odoo import api, fields, models
 class HrContract(models.Model):
     _inherit = "hr.contract"
 
-    last_hours_report_date = fields.Date(
+    hours_report_last_update = fields.Date(
         help="Date from which start compute hours report"
     )
 
     @api.onchange("date_start")
     def onchange_date_start(self):
         if self.date_start:
-            self.last_hours_report_date = self.date_start
+            self.hours_report_last_update = self.date_start
