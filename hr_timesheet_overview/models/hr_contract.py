@@ -4,7 +4,7 @@
 from odoo import api, fields, models
 
 
-class Contract(models.Model):
+class HrContract(models.Model):
     _inherit = "hr.contract"
 
     last_hours_report_date = fields.Date(
