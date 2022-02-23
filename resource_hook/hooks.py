@@ -173,7 +173,7 @@ def post_load_hook():  # noqa: C901
         )[resource.id]
         result = defaultdict(float)
         for start, stop, meta in intervals:
-            result[start.date()] += self._get_work_hours_interval(start, stop, meta)
+            result[start.date()] += calendar._get_work_hours_interval(start, stop, meta)
         return sorted(result.items())
 
     def __new_list_leaves(self, from_datetime, to_datetime, calendar=None, domain=None):
