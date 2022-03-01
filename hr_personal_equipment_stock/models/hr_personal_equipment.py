@@ -98,8 +98,8 @@ class HrPersonalEquipment(models.Model):
                     allocation.quantity,
                     allocation.product_uom_id,
                     allocation.location_id,
-                    allocation.name,
-                    allocation.name,
+                    allocation.equipment_request_id.name,
+                    allocation.equipment_request_id.name,
                     allocation._get_company(),
                     values,
                 )
