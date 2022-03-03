@@ -33,7 +33,6 @@ msgstr "Tiempo de descanso"
 
 #. module: hr_calendar_rest_time
 #: code:addons/hr_calendar_rest_time/models/resource_calendar_attendance.py:25
-#: code:addons/hr_calendar_rest_time/models/resource_calendar_attendance.py:28
 #, python-format
 msgid "Rest time cannot be greater than the interval time"
 msgstr "El tiempo de descanso no puede ser superior al del intervalo de tiempo"
