@@ -22,7 +22,7 @@ addon | version | maintainers | summary
 --- | --- | --- | ---
 [gamification_badge_report](gamification_badge_report/) | 13.0.1.0.0 | [![AmmarOfficewalaSerpentcs](https://github.com/AmmarOfficewalaSerpentcs.png?size=30px)](https://github.com/AmmarOfficewalaSerpentcs) | Send Email to all the Employees with all the award given in the last week.
 [hr_branch](hr_branch/) | 13.0.1.0.1 | [![luistorresm](https://github.com/luistorresm.png?size=30px)](https://github.com/luistorresm) | Allow define company branch for employee process
-[hr_calendar_rest_time](hr_calendar_rest_time/) | 13.0.1.0.0 |  | Adds rest time to the calendar attendance records.
+[hr_calendar_rest_time](hr_calendar_rest_time/) | 13.0.2.0.0 |  | Adds rest time to the calendar attendance records.
 [hr_contract_currency](hr_contract_currency/) | 13.0.1.0.0 |  | Employee's contract currency
 [hr_contract_document](hr_contract_document/) | 13.0.1.0.0 |  | Documents attached to the contact
 [hr_contract_multi_job](hr_contract_multi_job/) | 13.0.1.0.0 |  | HR Contract Multi Jobs
