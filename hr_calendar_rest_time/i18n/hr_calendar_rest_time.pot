@@ -14,16 +14,6 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: hr_calendar_rest_time
-#: model:ir.model.fields.selection,name:hr_calendar_rest_time.selection__resource_calendar_attendance__day_period__all_day
-msgid "All Day"
-msgstr ""
-
-#. module: hr_calendar_rest_time
-#: model:ir.model.fields,field_description:hr_calendar_rest_time.field_resource_calendar_attendance__day_period
-msgid "Day Period"
-msgstr ""
-
-#. module: hr_calendar_rest_time
 #: model:ir.model,name:hr_calendar_rest_time.model_resource_mixin
 msgid "Resource Mixin"
 msgstr ""
