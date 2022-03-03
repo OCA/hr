@@ -23,20 +23,34 @@ class HrLeave(models.Model):
             employee_id,
         )
 
-    @api.depends("number_of_days")
+    @api.multi
+    @api.depends("date_from", "date_to")
     def _compute_number_of_hours_display(self):
-        """If the leave is validated, no call to `_get_number_of_days` is done, so we
-        need to inject the context here for including the public holidays if applicable.
+        for holiday in self:
 
-        For such cases, we need to serialize the call to super in fragments.
-        """
-        to_serialize = self.filtered(
-            lambda x: x.state == "validate"
-            and x.holiday_status_id.exclude_public_holidays
-        )
-        for leave in to_serialize:
-            leave = leave.with_context(
-                exclude_public_holidays=True, employee_id=leave.employee_id.id
-            )
-            super(HrLeave, leave)._compute_number_of_hours_display()
-        return super(HrLeave, self - to_serialize)._compute_number_of_hours_display()
+            super(HrLeave, holiday)._compute_number_of_hours_display()
+
+            if holiday.date_from and holiday.date_to:
+                date_from = holiday.date_from
+                date_to = holiday.date_to
+                calendar = holiday.employee_id.sudo(
+                ).resource_calendar_id or self.env.user.company_id.resource_calendar_id
+
+                if holiday.holiday_status_id.exclude_public_holidays:
+                    number_of_hours = calendar.with_context(
+                        exclude_public_holidays=True,
+                        employee_id=holiday.employee_id.id).get_work_hours_count(
+                        date_from, date_to
+                    )
+                else:
+                    # Even if we do not exclude public holidays,
+                    # we should use employee's work calendar
+                    # to compute the number of hours
+                    number_of_hours = calendar.with_context(
+                        employee_id=holiday.employee_id.id).get_work_hours_count(
+                        date_from, date_to)
+
+                holiday.number_of_hours_display = number_of_hours
+
+            else:
+                holiday.number_of_hours_display = 0
