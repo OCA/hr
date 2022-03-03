@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* hr_calendar_rest_time
+# 	* hr_calendar_rest_time
 #
 msgid ""
 msgstr ""
@@ -15,26 +15,6 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 4.3.2\n"
-
-#. module: hr_calendar_rest_time
-#: selection:resource.calendar.attendance,day_period:0
-msgid "Afternoon"
-msgstr "Mañana"
-
-#. module: hr_calendar_rest_time
-#: selection:resource.calendar.attendance,day_period:0
-msgid "All Day"
-msgstr "Todo el día"
-
-#. module: hr_calendar_rest_time
-#: model:ir.model.fields,field_description:hr_calendar_rest_time.field_resource_calendar_attendance__day_period
-msgid "Day Period"
-msgstr "Periodo del día"
-
-#. module: hr_calendar_rest_time
-#: selection:resource.calendar.attendance,day_period:0
-msgid "Morning"
-msgstr "Mañana"
 
 #. module: hr_calendar_rest_time
 #: model:ir.model,name:hr_calendar_rest_time.model_resource_mixin
@@ -52,6 +32,7 @@ msgid "Rest Time"
 msgstr "Tiempo de descanso"
 
 #. module: hr_calendar_rest_time
+#: code:addons/hr_calendar_rest_time/models/resource_calendar_attendance.py:25
 #: code:addons/hr_calendar_rest_time/models/resource_calendar_attendance.py:28
 #, python-format
 msgid "Rest time cannot be greater than the interval time"
@@ -61,3 +42,15 @@ msgstr "El tiempo de descanso no puede ser superior al del intervalo de tiempo"
 #: model:ir.model,name:hr_calendar_rest_time.model_resource_calendar_attendance
 msgid "Work Detail"
 msgstr "Detalle de trabajo"
+
+#~ msgid "Afternoon"
+#~ msgstr "Mañana"
+
+#~ msgid "All Day"
+#~ msgstr "Todo el día"
+
+#~ msgid "Day Period"
+#~ msgstr "Periodo del día"
+
+#~ msgid "Morning"
+#~ msgstr "Mañana"
