@@ -16,10 +16,9 @@ class Contract(models.Model):
     @api.depends("contract_ids.state", "contract_ids.hours_report_last_update")
     def _compute_report_contract_date(self):
         for employee in self:
-            contracts = employee._get_first_contracts()
-            if contracts:
-                employee.hours_report_last_update = min(
-                    contracts.mapped("hours_report_last_update")
-                )
-            else:
-                employee.hours_report_last_update = False
+            employee.hours_report_last_update = (
+                employee.contract_id.hours_report_last_update
+            )
+
+    def get_active_contracts(self):
+        return self.contract_ids.filtered(lambda c: c.state == "open")

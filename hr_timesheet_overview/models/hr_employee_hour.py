@@ -58,6 +58,11 @@ def generate_dates_from_range(start_date, end_date=None):
     ]
 
 
+def get_valid_search_fields():
+    """ Returns unicity constrained fields for `HrEmployeeHour` """
+    return "date", "employee_id", "model_name", "res_id", "type"
+
+
 class HrEmployeeHour(models.Model):
     _name = "hr.employee.hour"
     _description = "HR Employee Hours per day"
@@ -91,6 +96,18 @@ class HrEmployeeHour(models.Model):
     model_name = fields.Char("Model Name", readonly=True, required=True)
     res_id = fields.Integer("Ressource ID", readonly=True, required=True)
 
+    _sql_constraints = [
+        (
+            "uniqueness",
+            f"UNIQUE({','.join(get_valid_search_fields())})",
+            _(
+                "You can't have two hour lines with same fields: {})".format(
+                    ",".join(get_valid_search_fields())
+                )
+            ),
+        )
+    ]
+
     @api.model
     def read_group(
         self, domain, fields, groupby, offset=0, limit=None, orderby=False, lazy=True
@@ -119,7 +136,7 @@ class HrEmployeeHour(models.Model):
         return result
 
     @api.model
-    def get_time_quantities_from_calendar(self, calendar, attendances=None):
+    def get_time_quantities_from_calendar(self, calendar, attendances):
         """Process each attendance by summing morning and afternoon hours
         and defining day percentage correspondingly (0.5 if only morning,
         1.0 if both).
@@ -127,8 +144,6 @@ class HrEmployeeHour(models.Model):
         By default, hours_per_day from calendar is returned and 1 full day.
         """
         hours_qty = days_qty = 0.0
-        if not attendances:
-            attendances = []
         for attendance in attendances:
             hours_qty += attendance.hour_to - attendance.hour_from
             if attendance.day_period == "morning":
@@ -178,7 +193,7 @@ class HrEmployeeHour(models.Model):
         return values
 
     @api.model
-    def _get_attendances_values(self, employee, date_from):
+    def _get_attendances_values(self, contract, date_from):
         """Retrieve attendances (from resource module) values mapped by date
 
         These attendances are the matrix product of contractual hours by day
@@ -192,20 +207,19 @@ class HrEmployeeHour(models.Model):
         """
         date_to = fields.Date.today()
         values_by_date = {}
-        for contract in employee.contract_ids:
-            _logger.debug(
-                f"""process contract '{contract.name}'
-                from {contract.hours_report_last_update} to {date_to}"""
-            )
-            ranged_dates = generate_dates_from_range(
-                contract.hours_report_last_update, date_to
-            )
-            for date in ranged_dates:
-                if date_from <= date >= date_to:
-                    continue
-                values = self._prepare_attendance_value(contract, date)
-                if values:
-                    values_by_date[date] = values
+        _logger.debug(
+            f"""process contract '{contract.name}'
+            from {contract.hours_report_last_update} to {date_to}"""
+        )
+        ranged_dates = generate_dates_from_range(
+            contract.hours_report_last_update, date_to
+        )
+        for date in ranged_dates:
+            if date_from <= date >= date_to:
+                continue
+            values = self._prepare_attendance_value(contract, date)
+            if values:
+                values_by_date[date] = values
         return list(values_by_date.values())
 
     @api.model
@@ -222,7 +236,7 @@ class HrEmployeeHour(models.Model):
         """
         return timesheet.account_id.name if timesheet.holiday_id else timesheet.name
 
-    def _prepare_timesheet_line(self, timesheet):
+    def _prepare_timesheet_line(self, timesheet, calendar):
         """Retrieve a timesheet line values
 
         Day ratio quantity is a percentage of consumed hours relative to the
@@ -243,7 +257,7 @@ class HrEmployeeHour(models.Model):
 
         # TODO?
         # If attendance hours qty is empty, it is an extra work day
-        days_qty = hours_qty / timesheet.employee_id.resource_calendar_id.hours_per_day
+        days_qty = hours_qty / calendar.hours_per_day
 
         values = {
             "name": self._hook_get_name_from_timesheet(timesheet),
@@ -278,7 +292,10 @@ class HrEmployeeHour(models.Model):
         )
         values_list = []
         for timesheet in timesheets:
-            values = self._prepare_timesheet_line(timesheet)
+            # use calendar from current contract
+            values = self._prepare_timesheet_line(
+                timesheet, calendar=employee.contract_id.resource_calendar_id
+            )
             if values:
                 values_list.append(values)
         return values_list
@@ -304,23 +321,46 @@ class HrEmployeeHour(models.Model):
             )
 
         for employee in employees:
-            date_from = employee.hours_report_last_update
-            existing_lines = self.search(
-                [
-                    ("employee_id", "=", employee.id),
-                    ("date", ">=", date_from),
-                ]
-            )
-            if existing_lines:
-                _logger.info(f"Purge hours for '{employee.name}' from {date_from}")
-                existing_lines.unlink()
-            _logger.info(f"Generating hours for '{employee.name}' from {date_from}")
-            self._create_values_per_employee(employee, date_from)
-            employee.contract_ids.update(
-                {"hours_report_last_update": fields.Date.today()}
-            )
+            self.create_employee_values(employee)
+            for contract in employee.get_active_contracts():
+                self.create_contract_values(contract)
 
-    def _create_values_per_employee(self, employee, date):
-        att_vals = self._get_attendances_values(employee, date)
+    def create_employee_values(self, employee):
+        self._create_timesheets_records(employee, employee.hours_report_last_update)
+
+    def create_contract_values(self, contract):
+        date_from = contract.hours_report_last_update
+        self._create_contract_records(contract, date_from)
+        contract.update({"hours_report_last_update": fields.Date.today()})
+
+    def _create_contract_records(self, contract, date):
+        self._clean_records(contract.employee_id, date, contract)
+        _logger.info(
+            f"Generating contract hours for '{contract.employee_id.name}' from {date}"
+        )
+        att_vals = self._get_attendances_values(contract, date)
+        self.create(att_vals)
+
+    def _create_timesheets_records(self, employee, date):
+        hr_obj = self.env["account.analytic.line"]
+        self._clean_records(employee, employee.hours_report_last_update, hr_obj)
+        _logger.info(f"Generating timesheet hours for '{employee.name}' from {date}")
         ts_vals = self._prepare_timesheets_lines(employee, date)
-        self.create(att_vals + ts_vals)
+        self.create(ts_vals)
+
+    def _clean_records(self, employee, date_from, obj):
+        domain = [
+            ("employee_id", "=", employee.id),
+            ("date", ">=", date_from),
+            ("model_name", "=", obj._name),
+        ]
+        if obj.id:
+            domain.append(
+                ("res_id", "=", obj.id),
+            )
+        existing_lines = self.search(domain)
+        if existing_lines:
+            _logger.info(
+                f"Purge hours for '{employee.name}' from {date_from} model{obj._name}"
+            )
+            existing_lines.unlink()
