@@ -9,8 +9,8 @@
             <field name="job_id" position="attributes">
                 <attribute name="readonly">1</attribute>
             </field>
-            <group name="main_info" position="after">
-                <group name="group_contract" colspan="6">
+            <field name="hr_responsible_id" position="after">
+                
                     <separator name="job_position" string="Job Positions" />
                     <field name="contract_job_ids" colspan="6" nolabel="1">
                         <tree editable="bottom">
@@ -18,8 +18,8 @@
                             <field name="is_main_job" />
                         </tree>
                     </field>
-                </group>
-            </group>
+                
+            </field>
         </field>
     </record>
 </odoo>
