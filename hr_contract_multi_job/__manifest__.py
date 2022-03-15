@@ -6,7 +6,7 @@
     "name": "HR Contract Multi Jobs",
     "version": "15.0.1.0.0",
     "license": "AGPL-3",
-    "category": "Generic Modules/Human Resources",
+    "category": "Human Resources",
     "author": "Savoir-faire Linux, "
     "Fekete Mihai (Forest and Biomass Services Romania), "
     "Odoo Community Association (OCA)",
