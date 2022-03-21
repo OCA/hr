@@ -6,15 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2020-02-05 22:13+0000\n"
-"Last-Translator: Carles Antoli <carlesantoli@hotmail.com>\n"
+"PO-Revision-Date: 2022-03-21 14:18+0000\n"
+"Last-Translator: Noel estudillo <noelestudilloviera@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.10\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #. module: hr_holidays_public
 #: model_terms:ir.ui.view,arch_db:hr_holidays_public.holidays_public_next_year_wizard_view
@@ -23,6 +23,9 @@ msgid ""
 "                        <span>Warning: A public holidays calendar for this "
 "country and year already exists!</span>"
 msgstr ""
+"<i class=\"fa fa-info-circle\"/>\n"
+"                        <span>Avís: ja existeix un calendari de dies festius "
+"per a aquest país i any!</span>"
 
 #. module: hr_holidays_public
 #: model:ir.model.fields,field_description:hr_holidays_public.field_hr_holidays_public__year
@@ -98,7 +101,7 @@ msgstr ""
 #. module: hr_holidays_public
 #: model_terms:ir.ui.view,arch_db:hr_holidays_public.holidays_public_next_year_wizard_view
 msgid "Days to Review"
-msgstr ""
+msgstr "Dies per revisar"
 
 #. module: hr_holidays_public
 #: model_terms:ir.ui.view,arch_db:hr_holidays_public.holidays_public_next_year_wizard_view
@@ -108,11 +111,15 @@ msgid ""
 "in case\n"
 "                        it is not the same than in the template."
 msgstr ""
+"Els dies a revisar són els que s'han marcat amb data variable\n"
+"                      al calendari de la plantilla. Aquí podeu modificar la "
+"data per si de cas\n"
+"                        no és el mateix que a la plantilla."
 
 #. module: hr_holidays_public
 #: model:ir.model.fields,field_description:hr_holidays_public.field_hr_holidays_public_line_transient__name
 msgid "Description"
-msgstr ""
+msgstr "Description"
 
 #. module: hr_holidays_public
 #: model:ir.model.fields,field_description:hr_holidays_public.field_hr_holidays_public_line__display_name
@@ -182,7 +189,7 @@ msgstr "Tipus absència"
 #. module: hr_holidays_public
 #: model:ir.model.fields,field_description:hr_holidays_public.field_hr_holidays_public_line_transient__line_id
 msgid "Line"
-msgstr ""
+msgstr "Línia"
 
 #. module: hr_holidays_public
 #: model:ir.model.fields,field_description:hr_holidays_public.field_hr_holidays_public_line__meeting_id
@@ -198,7 +205,7 @@ msgstr "Nom"
 #. module: hr_holidays_public
 #: model:ir.model.fields,field_description:hr_holidays_public.field_public_holidays_next_year_wizard__pending_lines
 msgid "Pending Lines"
-msgstr ""
+msgstr "Línies pendents"
 
 #. module: hr_holidays_public
 #: model:ir.actions.act_window,name:hr_holidays_public.open_holidays_public_view
@@ -229,16 +236,15 @@ msgstr "Horari de treball"
 #. module: hr_holidays_public
 #: model:ir.model.fields,help:hr_holidays_public.field_public_holidays_next_year_wizard__template_id
 msgid "Select the public holidays to use as template."
-msgstr ""
+msgstr "Seleccioneu els dies festius que voleu utilitzar com a plantilla."
 
 #. module: hr_holidays_public
 #: model:ir.model.fields,field_description:hr_holidays_public.field_hr_holidays_public_line_transient__state_ids
 msgid "State"
-msgstr ""
+msgstr "Estat"
 
 #. module: hr_holidays_public
 #: model:ir.model.fields,field_description:hr_holidays_public.field_public_holidays_next_year_wizard__template_id
-#, fuzzy
 msgid "Template"
 msgstr "Plantilles"
 
@@ -252,27 +258,31 @@ msgid ""
 "takes\n"
 "                        previous years' calendars as templates.<br/>"
 msgstr ""
+"Utilitzeu aquest assistent per crear dies festius basats en els existents.\n"
+"                        Si és la primera vegada que creeu un calendari,\n"
+"                        hauríeu de crear-lo manualment, ja que aquest "
+"assistent pren\n"
+"                        calendaris d'anys anteriors com a plantilles.<br/>"
 
 #. module: hr_holidays_public
 #: model_terms:ir.ui.view,arch_db:hr_holidays_public.holidays_public_next_year_wizard_view
 msgid "Warning"
-msgstr ""
+msgstr "Avís"
 
 #. module: hr_holidays_public
 #: model:ir.model.fields,field_description:hr_holidays_public.field_public_holidays_next_year_wizard__warning_existing
 msgid "Warning Existing"
-msgstr ""
+msgstr "Avís existent"
 
 #. module: hr_holidays_public
 #: model:ir.model.fields,field_description:hr_holidays_public.field_hr_holidays_public_line_transient__wizard_id
 msgid "Wizard"
-msgstr ""
+msgstr "Assistent"
 
 #. module: hr_holidays_public
 #: model:ir.model,name:hr_holidays_public.model_hr_holidays_public_line_transient
-#, fuzzy
 msgid "Wizard Public Holiday Lines"
-msgstr "Línies d'Festius"
+msgstr "Wizard Línies de vacances públiques"
 
 #. module: hr_holidays_public
 #: model:ir.model.fields,field_description:hr_holidays_public.field_public_holidays_next_year_wizard__year
@@ -311,7 +321,7 @@ msgstr "No pot crear festius duplicats per a l'any i/o país"
 
 #. module: hr_holidays_public
 #: code:addons/hr_holidays_public/wizards/holidays_public_next_year_wizard.py:88
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "You cannot use as template the public holidays of a year that includes "
 "public holidays on 29th of February(2016, 2020...), please select a template "
