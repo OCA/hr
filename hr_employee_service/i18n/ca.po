@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2021-05-11 13:47+0000\n"
-"Last-Translator: Haftec <hmahamud@tecnihand.com>\n"
+"PO-Revision-Date: 2022-03-21 14:17+0000\n"
+"Last-Translator: Noel estudillo <noelestudilloviera@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
@@ -34,7 +34,7 @@ msgstr "<span class=\"ml8\">dia(es)</span>"
 #. module: hr_employee_service
 #: model:ir.model.fields,field_description:hr_employee_service.field_hr_employee__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nom de visualització"
 
 #. module: hr_employee_service
 #: model:ir.model,name:hr_employee_service.model_hr_employee
@@ -57,7 +57,7 @@ msgstr ""
 #. module: hr_employee_service
 #: model:ir.model.fields,field_description:hr_employee_service.field_hr_employee__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: hr_employee_service
 #: model:ir.model.fields,field_description:hr_employee_service.field_hr_employee____last_update
