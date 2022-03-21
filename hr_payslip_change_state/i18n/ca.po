@@ -10,14 +10,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-12-31 03:30+0000\n"
-"PO-Revision-Date: 2016-12-31 03:30+0000\n"
-"Last-Translator: Carles Antoli <carlesantoli@hotmail.com>, 2017\n"
+"PO-Revision-Date: 2022-03-21 14:18+0000\n"
+"Last-Translator: Noel estudillo <noelestudilloviera@gmail.com>\n"
 "Language-Team: Catalan (https://www.transifex.com/oca/teams/23907/ca/)\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #. module: hr_payslip_change_state
 #: model:ir.model.fields,help:hr_payslip_change_state.field_hr_payslip_change_state__state
@@ -28,11 +29,16 @@ msgid ""
 "* If the payslip is confirmed then status is set to 'Done'.             \n"
 "* When user cancel payslip the status is 'Rejected'."
 msgstr ""
+"* Quan es crea la nòmina, l'estat és 'Esborrany'.     \n"
+"* Si la nòmina està en procés de verificació, l'estat és \"Full de càlcul\""
+".            \n"
+"* Si es confirma la nòmina, l'estat es defineix com a \"Fet\".          \n"
+"* Quan l'usuari cancel·la la nòmina, l'estat és \"Rebutjat\"."
 
 #. module: hr_payslip_change_state
 #: model:ir.model.fields,field_description:hr_payslip_change_state.field_hr_payslip_change_state__state
 msgid "Action"
-msgstr ""
+msgstr "Action"
 
 #. module: hr_payslip_change_state
 #: model_terms:ir.ui.view,arch_db:hr_payslip_change_state.hr_payslip_change_state_form
@@ -42,23 +48,23 @@ msgstr "Cancel·la"
 #. module: hr_payslip_change_state
 #: selection:hr.payslip.change.state,state:0
 msgid "Cancel Payslip"
-msgstr ""
+msgstr "Cancel·la la butlleta de pagament"
 
 #. module: hr_payslip_change_state
 #: model:ir.actions.act_window,name:hr_payslip_change_state.action_hr_payslip_change_state_form
 #: model_terms:ir.ui.view,arch_db:hr_payslip_change_state.hr_payslip_change_state_form
 msgid "Change state"
-msgstr ""
+msgstr "Canvia d'estat"
 
 #. module: hr_payslip_change_state
 #: model:ir.model,name:hr_payslip_change_state.model_hr_payslip_change_state
 msgid "Change state of a payslip"
-msgstr ""
+msgstr "Canviar l'estat d'una nòmina"
 
 #. module: hr_payslip_change_state
 #: selection:hr.payslip.change.state,state:0
 msgid "Compute Sheet"
-msgstr ""
+msgstr "Full de càlcul"
 
 #. module: hr_payslip_change_state
 #: selection:hr.payslip.change.state,state:0
@@ -83,7 +89,7 @@ msgstr "Veure el nom"
 #. module: hr_payslip_change_state
 #: model_terms:ir.ui.view,arch_db:hr_payslip_change_state.hr_payslip_change_state_form
 msgid "Execute"
-msgstr ""
+msgstr "Executar"
 
 #. module: hr_payslip_change_state
 #: model:ir.model.fields,field_description:hr_payslip_change_state.field_hr_payslip_change_state__id
@@ -110,6 +116,8 @@ msgstr "Darrera Actualització el"
 #, python-format
 msgid "Only draft payslips can be verified,the payslip %s is in %s state"
 msgstr ""
+"Només es poden verificar els esborranys de nòmines, el nòmine %s es troba en "
+"estat %s"
 
 #. module: hr_payslip_change_state
 #: code:addons/hr_payslip_change_state/wizard/hr_payslip_change_state.py:57
@@ -118,6 +126,8 @@ msgid ""
 "Only payslips in states verify or draft can be confirmed, the payslip %s is "
 "in %s state"
 msgstr ""
+"Només es poden confirmar les nòmines dels estats verificats o esborranys, la "
+"nòmina %s està a l'estat %s"
 
 #. module: hr_payslip_change_state
 #: code:addons/hr_payslip_change_state/wizard/hr_payslip_change_state.py:42
@@ -125,20 +135,22 @@ msgstr ""
 msgid ""
 "Only rejected payslips can be reset to draft, the payslip %s is in %s state"
 msgstr ""
+"Només les nòmines rebutjades es poden restablir a esborrany, la nòmina %s "
+"està en estat %s"
 
 #. module: hr_payslip_change_state
 #: code:addons/hr_payslip_change_state/wizard/hr_payslip_change_state.py:67
 #, python-format
 msgid "Payslips"
-msgstr ""
+msgstr "Fulls de pagament"
 
 #. module: hr_payslip_change_state
 #: selection:hr.payslip.change.state,state:0
 msgid "Set to Draft"
-msgstr ""
+msgstr "Estableix com a Esborrany"
 
 #. module: hr_payslip_change_state
 #: code:addons/hr_payslip_change_state/wizard/hr_payslip_change_state.py:62
 #, python-format
 msgid "The payslip %s is already canceled please deselect it"
-msgstr ""
+msgstr "La nòmina %s ja està cancel·lada, si us plau, deseleccioneu-la"
