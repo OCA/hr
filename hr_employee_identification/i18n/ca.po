@@ -9,14 +9,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-03 03:00+0000\n"
-"PO-Revision-Date: 2017-10-03 03:00+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
+"PO-Revision-Date: 2022-03-22 13:17+0000\n"
+"Last-Translator: Noel estudillo <noelestudilloviera@gmail.com>\n"
 "Language-Team: Catalan (https://www.transifex.com/oca/teams/23907/ca/)\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #. module: hr_employee_identification
 #: field:hr.employee.identification.type,create_uid:0
@@ -36,7 +37,7 @@ msgstr "Veure el nom"
 #. module: hr_employee_identification
 #: model:ir.model,name:hr_employee_identification.model_hr_employee
 msgid "Employee"
-msgstr ""
+msgstr "Empleat"
 
 #. module: hr_employee_identification
 #: field:hr.employee.identification.type,id:0
@@ -46,23 +47,23 @@ msgstr "ID"
 #. module: hr_employee_identification
 #: field:hr.employee,identification_expiry_date:0
 msgid "Identification expiry"
-msgstr ""
+msgstr "Caducitat de la identificació"
 
 #. module: hr_employee_identification
 #: field:hr.employee,identification_type_id:0
 msgid "Identification type"
-msgstr ""
+msgstr "Tipus d'identificació"
 
 #. module: hr_employee_identification
 #: model:ir.actions.act_window,name:hr_employee_identification.action_hr_employee_identification_type
 #: model:ir.ui.menu,name:hr_employee_identification.menu_hr_employee_identification_type
 msgid "Identification types"
-msgstr ""
+msgstr "Tipus d'identificació"
 
 #. module: hr_employee_identification
 #: model:ir.model,name:hr_employee_identification.model_hr_employee_identification_type
 msgid "Identification/Passport"
-msgstr ""
+msgstr "Identificació/Passaport"
 
 #. module: hr_employee_identification
 #: field:hr.employee.identification.type,__last_update:0
