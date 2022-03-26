@@ -43,14 +43,14 @@ class ResourceCalendar(models.Model):
             for line in lines:
                 leaves.append(
                     (
-                        datetime.combine(
+                        tz.localize(datetime.combine(
                             line.date,
                             time.min
-                        ).replace(tzinfo=tz),
-                        datetime.combine(
+                        )),
+                        tz.localize(datetime.combine(
                             line.date,
                             time.max
-                        ).replace(tzinfo=tz),
+                        )),
                         self.env['resource.calendar.leaves']
                     ),
                 )
