@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2022-03-29 14:56+0000\n"
+"PO-Revision-Date: 2022-03-29 15:01+0000\n"
 "Last-Translator: Rafa Martínez <rmartinez@puntsistemes.es>\n"
 "Language-Team: none\n"
 "Language: es\n"
@@ -408,13 +408,13 @@ msgstr "Nº de Equipos personal"
 #: model:ir.actions.act_window,name:hr_personal_equipment_request.hr_personal_equipment_request_act_window
 #: model:ir.ui.menu,name:hr_personal_equipment_request.hr_personal_equipment_request_menu
 msgid "Personal Equipment Request"
-msgstr "Solicitud de Equipo personal"
+msgstr "Solicitud de Equipo individual"
 
 #. module: hr_personal_equipment_request
 #: code:addons/hr_personal_equipment_request/models/hr_personal_equipment_request.py:0
 #, python-format
 msgid "Personal Equipment Request by %s"
-msgstr "Equipo personal solicitado por %s"
+msgstr "Equipo individual solicitado por %s"
 
 #. module: hr_personal_equipment_request
 #: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment__product_id
@@ -473,7 +473,7 @@ msgstr ""
 #. module: hr_personal_equipment_request
 #: model:ir.model,name:hr_personal_equipment_request.model_hr_personal_equipment_request
 msgid "This model allows to create a personal equipment request"
-msgstr "Este modelo permite crear una solicitud de equipo personal"
+msgstr "Este modelo permite crear una solicitud de equipo individual"
 
 #. module: hr_personal_equipment_request
 #: model:ir.model.fields,help:hr_personal_equipment_request.field_hr_personal_equipment__activity_exception_decoration
