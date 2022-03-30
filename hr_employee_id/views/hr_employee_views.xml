@@ -7,7 +7,9 @@
         <field name="inherit_id" ref="hr.view_employee_form" />
         <field name="groups_id" eval="[(6, 0, [ref('hr.group_hr_user') ])]" />
         <field name="arch" type="xml">
-            <field name="identification_id" position="replace" />
+            <field name="identification_id" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>
             <xpath expr="//div[hasclass('oe_title')]" position="inside">
                 <label for="identification_id" class="oe_edit_only" />
                 <h3>
