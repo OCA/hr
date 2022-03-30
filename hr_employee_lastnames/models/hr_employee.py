@@ -102,12 +102,12 @@ class HrEmployee(models.Model):
         if order in ("first_last", "last_first_comma"):
             parts = self._split_part("lastname", result)
             if parts:
-                result.update({"lastname": parts[0], "lastname2": u" ".join(parts[1:])})
+                result.update({"lastname": parts[0], "lastname2": " ".join(parts[1:])})
         else:
             parts = self._split_part("firstname", result)
             if parts:
                 result.update(
-                    {"firstname": parts[-1], "lastname2": u" ".join(parts[:-1])}
+                    {"firstname": parts[-1], "lastname2": " ".join(parts[:-1])}
                 )
         return result
 
