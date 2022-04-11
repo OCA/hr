@@ -1,7 +1,10 @@
 # Copyright 2019 Tecnativa - Pedro M. Baeza
+# Copyright 2022 Tecnativa - Víctor Martínez
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 from odoo import _, api, fields, models
+from odoo.exceptions import UserError
+from odoo.tools import config
 
 SECTION_LINES = [
     (
@@ -88,6 +91,7 @@ class HrEmployee(models.Model):
                 .create(
                     {
                         "active": False,
+                        "company_id": self.company_id.id,
                         "auto_generate": True,
                         "name": _("Auto generated calendar for employee")
                         + " %s" % self.name,
@@ -112,6 +116,12 @@ class HrEmployee(models.Model):
     @api.model_create_multi
     def create(self, vals_list):
         res = super().create(vals_list)
+        if (
+            not self.env.context.get("skip_employee_calendars_required")
+            and not config["test_enable"]
+            and res.filtered(lambda x: not x.calendar_ids)
+        ):
+            raise UserError(_("You can not create employees without any calendar."))
         res.filtered("calendar_ids").regenerate_calendar()
         return res
 
