@@ -1,14 +1,15 @@
 
 [![Runboat](https://img.shields.io/badge/runboat-Try%20me-875A7B.png)](https://runboat.odoo-community.org/builds?repo=OCA/hr&target_branch=14.0)
-[![Build Status](https://travis-ci.com/OCA/hr.svg?branch=14.0)](https://travis-ci.com/OCA/hr)
+[![Pre-commit Status](https://github.com/OCA/hr/actions/workflows/pre-commit.yml/badge.svg?branch=14.0)](https://github.com/OCA/hr/actions/workflows/pre-commit.yml?query=branch%3A14.0)
+[![Build Status](https://github.com/OCA/hr/actions/workflows/test.yml/badge.svg?branch=14.0)](https://github.com/OCA/hr/actions/workflows/test.yml?query=branch%3A14.0)
 [![codecov](https://codecov.io/gh/OCA/hr/branch/14.0/graph/badge.svg)](https://codecov.io/gh/OCA/hr)
 [![Translation Status](https://translation.odoo-community.org/widgets/hr-14-0/-/svg-badge.svg)](https://translation.odoo-community.org/engage/hr-14-0/?utm_source=widget)
 
 <!-- /!\ do not modify above this line -->
 
-# hr
+# HR modules
 
-TODO: add repo description.
+Set of general modules related to HR management
 
 <!-- /!\ do not modify below this line -->
 
