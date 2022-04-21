@@ -85,7 +85,14 @@
         >hr.personal.equipment.tree (in hr_personal_equipment_request)</field>
         <field name="model">hr.personal.equipment</field>
         <field name="arch" type="xml">
-            <tree string="Employee Personal Equipments" create="0">
+            <tree
+                string="Employee Personal Equipments"
+                create="0"
+                decoration-info="state=='accepted'"
+                decoration-success="state=='valid'"
+                decoration-muted="state=='cancelled'"
+                decoration-danger="state=='expired'"
+            >
                 <field name="name" invisible="1" />
                 <field name="product_id" />
                 <field name="employee_id" groups="hr.group_hr_user" />
