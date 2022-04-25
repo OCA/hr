@@ -139,3 +139,9 @@ msgstr "Date de début"
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__calendar_id
 msgid "Working Time"
 msgstr "Horaire de travail"
+
+#. module: hr_employee_calendar_planning
+#: code:addons/hr_employee_calendar_planning/models/hr_employee.py:0
+#, python-format
+msgid "You can not create employees without any calendar."
+msgstr ""
