@@ -31,6 +31,7 @@ class ResourceCalendar(models.Model):
                 [
                     ("calendar_id.company_id", "=", item.company_id.id),
                     ("employee_id.company_id", "!=", item.company_id.id),
+                    ("employee_id.company_id", "!=", False),
                 ]
             )
             if total_items:
