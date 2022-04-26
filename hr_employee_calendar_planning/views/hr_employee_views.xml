@@ -10,10 +10,7 @@
                 <attribute name="invisible">1</attribute>
             </field>
             <field name="resource_calendar_id" position="after">
-                <field
-                    name="calendar_ids"
-                    context="{'default_company_id': parent.company_id}"
-                >
+                <field name="calendar_ids" context="{'default_company_id': company_id}">
                     <tree editable="top">
                         <field name="company_id" invisible="1" />
                         <field name="date_start" />
