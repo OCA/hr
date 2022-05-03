@@ -22,7 +22,7 @@ class HrPayslipRun(models.Model):
         "res.company",
         "Company",
         states={"close": [("readonly", True)]},
-        default=lambda obj: obj.env.user.company_id,
+        default=lambda obj: obj.env.company,
     )
     hr_period_id = fields.Many2one(
         "hr.period", string="Period", states={"close": [("readonly", True)]}
@@ -34,7 +34,6 @@ class HrPayslipRun(models.Model):
         get_schedules, "Scheduled Pay", states={"close": [("readonly", True)]}
     )
 
-    @api.multi
     @api.constrains("hr_period_id", "company_id")
     def _check_period_company(self):
         for run in self:
@@ -47,7 +46,6 @@ class HrPayslipRun(models.Model):
                         )
                     )
 
-    @api.multi
     @api.constrains("hr_period_id", "schedule_pay")
     def _check_period_schedule(self):
         for run in self:
@@ -70,7 +68,6 @@ class HrPayslipRun(models.Model):
         )
         return fys[0].schedule_pay if fys else "monthly"
 
-    @api.multi
     @api.onchange("company_id", "schedule_pay")
     def onchange_company_id(self):
         self.ensure_one()
@@ -102,11 +99,10 @@ class HrPayslipRun(models.Model):
             vals.update({"date_payment": vals["date_end"]})
         return super(HrPayslipRun, self).create(vals)
 
-    @api.multi
     def get_payslip_employees_wizard(self):
         """Replace the static action used to call the wizard"""
         self.ensure_one()
-        view = self.env.ref("hr_payroll.view_hr_payslip_by_employees")
+        view = self.env.ref("payroll.view_hr_payslip_by_employees")
 
         company = self.company_id
 
@@ -125,7 +121,6 @@ class HrPayslipRun(models.Model):
             "type": "ir.actions.act_window",
             "name": _("Generate Payslips"),
             "res_model": "hr.payslip.employees",
-            "view_type": "form",
             "view_mode": "form",
             "view_id": view.id,
             "target": "new",
@@ -136,7 +131,6 @@ class HrPayslipRun(models.Model):
             },
         }
 
-    @api.multi
     def close_payslip_run(self):
         for run in self:
             if next((p for p in run.slip_ids if p.state == "draft"), False):
@@ -149,13 +143,11 @@ class HrPayslipRun(models.Model):
         self.update_periods()
         return super(HrPayslipRun, self).close_payslip_run()
 
-    @api.multi
     def draft_payslip_run(self):
         for run in self:
             run.hr_period_id.button_re_open()
         return super(HrPayslipRun, self).draft_payslip_run()
 
-    @api.multi
     def update_periods(self):
         self.ensure_one()
         period = self.hr_period_id

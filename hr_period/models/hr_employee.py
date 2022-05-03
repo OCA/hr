@@ -4,8 +4,8 @@
 from odoo import api, fields, models
 
 
-class HrEmployee(models.Model):
-    _inherit = "hr.employee"
+class HrEmployee(models.AbstractModel):
+    _inherit = "hr.employee.base"
 
     contract_id = fields.Many2one(search="_search_contract")
 

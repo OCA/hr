@@ -4,7 +4,7 @@
     <record id="hr_payslip_run_form" model="ir.ui.view">
         <field name="name">hr.payslip.run.period.form</field>
         <field name="model">hr.payslip.run</field>
-        <field name="inherit_id" ref="hr_payroll.hr_payslip_run_form" />
+        <field name="inherit_id" ref="payroll.hr_payslip_run_view_form" />
         <field name="priority">1</field>
         <field name="arch" type="xml">
             <field name="name" position="after">
@@ -40,13 +40,19 @@
                     </group>
                 </group>
             </field>
-            <xpath expr="//form/sheet/group/label[1]" position="replace">
+            <xpath expr="//form/sheet/group/label[1]" position="attributes">
+                <attributes name="invisible">1</attributes>
+            </xpath>
+            <xpath expr="//form/sheet/group/label[1]" position="after">
                 <label for="date_start" string="Date" />
             </xpath>
              <button
-                name="%(hr_payroll.action_hr_payslip_by_employees)d"
-                position="replace"
+                name="%(payroll.action_hr_payslip_by_employees)d"
+                position="attributes"
             >
+                 <attributes name="invisible">1</attributes>
+            </button>
+            <button name="%(payroll.action_hr_payslip_by_employees)d" position="after">
                 <button
                     name="get_payslip_employees_wizard"
                     type="object"
@@ -61,7 +67,7 @@
     <record id="hr_payslip_run_filter" model="ir.ui.view">
         <field name="name">hr.payslip.run.period.search</field>
         <field name="model">hr.payslip.run</field>
-        <field name="inherit_id" ref="hr_payroll.hr_payslip_run_filter" />
+        <field name="inherit_id" ref="payroll.hr_payslip_run_view_search" />
         <field name="arch" type="xml">
             <field name="name" position="after">
                 <field name="company_id" />
@@ -94,7 +100,7 @@
     <record id="hr_payslip_run_tree" model="ir.ui.view">
         <field name="name">hr.payslip.run.period.tree</field>
         <field name="model">hr.payslip.run</field>
-        <field name="inherit_id" ref="hr_payroll.hr_payslip_run_tree" />
+        <field name="inherit_id" ref="payroll.hr_payslip_run_view_tree" />
         <field name="arch" type="xml">
             <field name="date_end" position="after">
                 <field name="date_payment" />

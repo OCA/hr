@@ -17,7 +17,9 @@ class HrPeriod(models.Model):
     @api.model
     def _default_type(self, company_id=False):
         if not company_id:
-            company_id = self.env.user.company_id.id
+            company_id = self.env.company
+        if not isinstance(company_id, int):
+            company_id = company_id.id
         period_type = self.env["date.range.type"].search(
             [("hr_period", "=", True), ("company_id", "=", company_id)], limit=1
         )
@@ -55,8 +57,8 @@ class HrPeriod(models.Model):
         get_schedules,
         "Scheduled Pay",
         required=True,
-        readonly=True,
         states={"draft": [("readonly", False)]},
+        default="monthly",
     )
     payslip_ids = fields.One2many(
         "hr.payslip", "hr_period_id", "Payslips", readonly=True
@@ -81,7 +83,6 @@ class HrPeriod(models.Model):
         )
         return period if period else False
 
-    @api.multi
     def button_set_to_draft(self):
         for period in self:
             if period.payslip_ids:
@@ -94,11 +95,9 @@ class HrPeriod(models.Model):
 
         self.write({"state": "draft"})
 
-    @api.multi
     def button_open(self):
         self.write({"state": "open"})
 
-    @api.multi
     def button_close(self):
         self.write({"state": "done"})
         for period in self:
@@ -108,7 +107,6 @@ class HrPeriod(models.Model):
             if all(p.state == "done" for p in fy.period_ids):
                 fy.write({"state": "done"})
 
-    @api.multi
     def button_re_open(self):
         self.write({"state": "open"})
         for period in self:

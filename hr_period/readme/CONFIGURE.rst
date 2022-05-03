@@ -1,6 +1,6 @@
 Create a fiscal year
 ~~~~~~~~~~~~~~~~~~~~
-Go to: Human Resources -> Configuration -> Payroll -> Payroll Fiscal Year
+Go to: Payroll -> Configuration -> Payroll Fiscal Year
 
  - Select a type of schedule, e.g. monthly
  - Select a duration, e.g. from 2015-01-01 to 2015-12-31

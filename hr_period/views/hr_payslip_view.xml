@@ -4,7 +4,7 @@
     <record id="view_hr_payslip_form" model="ir.ui.view">
         <field name="name">hr.payslip.period.form</field>
         <field name="model">hr.payslip</field>
-        <field name="inherit_id" ref="hr_payroll.view_hr_payslip_form" />
+        <field name="inherit_id" ref="payroll.hr_payslip_view_form" />
         <field name="arch" type="xml">
             <label for="date_from" position="before">
                 <field
@@ -24,7 +24,7 @@
     <record id="view_hr_payslip_tree" model="ir.ui.view">
         <field name="name">hr.payslip.period.tree</field>
         <field name="model">hr.payslip</field>
-        <field name="inherit_id" ref="hr_payroll.view_hr_payslip_tree" />
+        <field name="inherit_id" ref="payroll.hr_payslip_view_tree" />
         <field name="arch" type="xml">
             <field name="date_to" position="after">
                 <field name="date_payment" />
@@ -35,7 +35,7 @@
     <record id="view_hr_payslip_filter" model="ir.ui.view">
         <field name="name">hr.payslip.period.select</field>
         <field name="model">hr.payslip</field>
-        <field name="inherit_id" ref="hr_payroll.view_hr_payslip_filter" />
+        <field name="inherit_id" ref="payroll.hr_payslip_view_search" />
         <field name="arch" type="xml">
             <field name="date_from" position="after">
                 <field name="date_payment" />

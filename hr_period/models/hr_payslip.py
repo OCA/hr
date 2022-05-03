@@ -19,7 +19,6 @@ class HrPayslip(models.Model):
         "Date of Payment", readonly=True, states={"draft": [("readonly", False)]}
     )
 
-    @api.multi
     @api.constrains("hr_period_id", "company_id")
     def _check_period_company(self):
         for slip in self:
@@ -50,7 +49,6 @@ class HrPayslip(models.Model):
                     )
             self.hr_period_id = period.id if period else False
 
-    @api.multi
     @api.onchange("contract_id")
     def onchange_contract_period(self):
         if self.contract_id.employee_id and self.contract_id:
