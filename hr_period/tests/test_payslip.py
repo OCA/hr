@@ -1,7 +1,7 @@
 # Copyright 2015 Savoir-faire Linux. All Rights Reserved.
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo.exceptions import UserError, ValidationError
+from odoo.exceptions import UserError
 from odoo.tools import DEFAULT_SERVER_DATE_FORMAT as DF
 
 from . import test_hr_fiscalyear
@@ -156,7 +156,7 @@ class PayslipCase(test_hr_fiscalyear.TestHrFiscalyear):
         self.payslip_obj.create(data)
         data = self._prepare_payslip_run_data(periods[0])
         run = self.run_obj.create(data)
-        with self.assertRaises(ValidationError):
+        with self.assertRaises(UserError):
             run.write({"company_id": self.company2.id})
         run.write({"hr_period_id": periods2[0].id, "company_id": self.company2.id})
         run.onchange_company_id()

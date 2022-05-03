@@ -74,9 +74,9 @@ class HrFiscalYear(models.Model):
     @api.model
     def _default_type(self, company_id=False):
         if not company_id:
-            company_id = self.env.user.company_id.id
+            company_id = self.env.company
         period_type = self.env["date.range.type"].search(
-            [("hr_fiscal_year", "=", True), ("company_id", "=", company_id)], limit=1
+            [("hr_fiscal_year", "=", True), ("company_id", "=", company_id.id)], limit=1
         )
         return period_type
 
@@ -128,7 +128,6 @@ class HrFiscalYear(models.Model):
         get_payment_days, "Day of Payment", states={"draft": [("readonly", False)]}
     )
 
-    @api.multi
     def _count_range_no(self):
         days_range = (
             abs(
@@ -141,7 +140,6 @@ class HrFiscalYear(models.Model):
         )
         return INTERVALS[self.schedule_pay][1] * days_range / 365
 
-    @api.multi
     @api.onchange("schedule_pay", "date_start")
     def onchange_schedule(self):
         if self.schedule_pay and self.date_start:
@@ -182,20 +180,18 @@ class HrFiscalYear(models.Model):
             "date_start": self.date_start,
             "type_id": self.type_id.id,
             "company_id": self.company_id.id,
-            "unit_of_time": unit_of_time,
+            "unit_of_time": str(unit_of_time),
             "duration_count": no_interval,
             "count": self._count_range_no(),
         }
 
-    @api.multi
     def get_ranges(self):
         self.ensure_one()
         vals = self.get_generator_vals()
         range_generator = self.env["date.range.generator"].create(vals)
-        date_ranges = range_generator._compute_date_ranges()
+        date_ranges = range_generator._generate_date_ranges()
         return date_ranges
 
-    @api.multi
     def create_periods(self):
         """
         Create every periods a payroll fiscal year
@@ -241,7 +237,6 @@ class HrFiscalYear(models.Model):
                 self._create_single_period(period_start, period_end, i)
         return True
 
-    @api.multi
     def _create_single_period(self, date_start, date_end, number):
         """Create a single payroll period
         :param date_start: the first day of the actual period
@@ -271,7 +266,6 @@ class HrFiscalYear(models.Model):
             }
         )
 
-    @api.multi
     def _get_day_of_payment(self, date_end):
         """
         Get the date of payment for a period to create
@@ -288,7 +282,6 @@ class HrFiscalYear(models.Model):
             date_payment += relativedelta(days=int(self.payment_day))
         return date_payment
 
-    @api.multi
     def button_confirm(self):
         for fy in self:
             if not fy.period_ids:
@@ -300,14 +293,12 @@ class HrFiscalYear(models.Model):
             first_period = fy.period_ids.sorted(key=lambda p: p.number)[0]
             first_period.button_open()
 
-    @api.multi
     def button_set_to_draft(self):
         # Set all periods to draft
         periods = self.mapped("period_ids")
         periods.button_set_to_draft()
         self.state = "draft"
 
-    @api.multi
     def search_period(self, number):
         return next(
             (p for p in self.period_ids if p.number == number), self.env["hr.period"]

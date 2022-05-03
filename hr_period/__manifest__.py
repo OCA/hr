@@ -4,14 +4,14 @@
 
 {
     "name": "HR Payroll Period",
-    "version": "12.0.1.0.1",
+    "version": "14.0.1.0.0",
     "license": "AGPL-3",
     "category": "Generic Modules/Human Resources",
     "summary": "Add payroll periods",
     "author": "Savoir-faire Linux, " "Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/hr",
     "depends": [
-        "hr_payroll",
+        "payroll",
         "date_range",
     ],
     "data": [
