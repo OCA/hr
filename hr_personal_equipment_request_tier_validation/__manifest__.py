@@ -5,7 +5,7 @@
     "name": "Hr Personal Equipment Request Tier Validation",
     "summary": """
         Enables tier validation from hr.personal.equipment.request""",
-    "version": "13.0.1.0.0",
+    "version": "14.0.1.0.0",
     "license": "AGPL-3",
     "author": "Creu Blanca,Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/hr",
