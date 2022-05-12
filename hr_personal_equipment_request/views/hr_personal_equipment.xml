@@ -86,7 +86,6 @@
         <field name="model">hr.personal.equipment</field>
         <field name="arch" type="xml">
             <tree
-                string="Employee Personal Equipments"
                 create="0"
                 decoration-info="state=='accepted'"
                 decoration-success="state=='valid'"
