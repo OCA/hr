@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 14.0\n"
+"Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -52,7 +52,7 @@ msgstr ""
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__authorized_by
-msgid "Authorized by"
+msgid "Authorized By"
 msgstr ""
 
 #. module: hr_course
@@ -131,7 +131,6 @@ msgstr ""
 #: model:ir.actions.act_window,name:hr_course.open_view_course_category_form
 #: model:ir.ui.menu,name:hr_course.menu_view_course_category_form
 #: model_terms:ir.ui.view,arch_db:hr_course.view_course_category_form
-#: model_terms:ir.ui.view,arch_db:hr_course.view_course_category_list
 #: model_terms:ir.ui.view,arch_db:hr_course.view_course_category_search
 msgid "Course Categories"
 msgstr ""
@@ -217,7 +216,6 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee__display_name
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_category__display_name
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__display_name
-#: model:ir.model.fields,field_description:hr_course.field_hr_employee__display_name
 msgid "Display Name"
 msgstr ""
 
@@ -246,7 +244,7 @@ msgstr ""
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee__course_end
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__end_date
-msgid "End date"
+msgid "End Date"
 msgstr ""
 
 #. module: hr_course
@@ -271,15 +269,15 @@ msgid "Followers"
 msgstr ""
 
 #. module: hr_course
-#: model:ir.model.fields,field_description:hr_course.field_hr_course__message_channel_ids
-#: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__message_channel_ids
-msgid "Followers (Channels)"
-msgstr ""
-
-#. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__message_partner_ids
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__message_partner_ids
 msgid "Followers (Partners)"
+msgstr ""
+
+#. module: hr_course
+#: model:ir.model.fields,field_description:hr_course.field_hr_course__has_message
+#: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__has_message
+msgid "Has Message"
 msgstr ""
 
 #. module: hr_course
@@ -292,7 +290,6 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee__id
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_category__id
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__id
-#: model:ir.model.fields,field_description:hr_course.field_hr_employee__id
 msgid "ID"
 msgstr ""
 
@@ -338,7 +335,6 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee____last_update
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_category____last_update
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule____last_update
-#: model:ir.model.fields,field_description:hr_course.field_hr_employee____last_update
 msgid "Last Modified on"
 msgstr ""
 
@@ -441,7 +437,7 @@ msgstr ""
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__permanence_time
-msgid "Permanence time"
+msgid "Permanence Time"
 msgstr ""
 
 #. module: hr_course
@@ -478,7 +474,7 @@ msgstr ""
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee__course_start
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__start_date
-msgid "Start date"
+msgid "Start Date"
 msgstr ""
 
 #. module: hr_course
@@ -513,18 +509,6 @@ msgstr ""
 #. module: hr_course
 #: model:ir.model.fields.selection,name:hr_course.selection__hr_course_schedule__state__waiting_attendees
 msgid "Waiting attendees"
-msgstr ""
-
-#. module: hr_course
-#: model:ir.model.fields,field_description:hr_course.field_hr_course__website_message_ids
-#: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__website_message_ids
-msgid "Website Messages"
-msgstr ""
-
-#. module: hr_course
-#: model:ir.model.fields,help:hr_course.field_hr_course__website_message_ids
-#: model:ir.model.fields,help:hr_course.field_hr_course_schedule__website_message_ids
-msgid "Website communication history"
 msgstr ""
 
 #. module: hr_course
