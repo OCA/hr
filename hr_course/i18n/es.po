@@ -244,7 +244,7 @@ msgstr "Empleado"
 #. module: hr_course
 #: code:addons/hr_course/models/hr_course_schedule.py:0
 #, python-format
-msgid "Employees removed from this course: <br></br>%s"
+msgid "Employees removed from this course: <br></br>"
 msgstr "Empleados eliminados de este curso: <br></br>"
 
 #. module: hr_course
