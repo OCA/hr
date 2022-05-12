@@ -86,7 +86,8 @@ msgstr "¿Está seguro de que desea aceptar esta solicitud de equipo individual?
 #. module: hr_personal_equipment_request
 #: model_terms:ir.ui.view,arch_db:hr_personal_equipment_request.hr_personal_equipment_request_form_view
 msgid "Are you sure you want to cancel this personal equipment request?"
-msgstr "¿Está seguro de que desea cancelar esta solicitud de equipo individual?"
+msgstr ""
+"¿Está seguro de que desea cancelar esta solicitud de equipo individual?"
 
 #. module: hr_personal_equipment_request
 #: model_terms:ir.ui.view,arch_db:hr_personal_equipment_request.hr_personal_equipment_form_view
@@ -131,10 +132,8 @@ msgid "Created on"
 msgstr "Creado el"
 
 #. module: hr_personal_equipment_request
-#: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_employee__display_name
 #: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment__display_name
 #: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment_request__display_name
-#: model:ir.model.fields,field_description:hr_personal_equipment_request.field_product_template__display_name
 msgid "Display Name"
 msgstr "Nombre mostrado"
 
@@ -157,11 +156,6 @@ msgstr "Empleado"
 #: model_terms:ir.ui.view,arch_db:hr_personal_equipment_request.product_template_form_view
 msgid "Employee Personal Equipment"
 msgstr "Empleado del equipo individual"
-
-#. module: hr_personal_equipment_request
-#: model_terms:ir.ui.view,arch_db:hr_personal_equipment_request.hr_personal_equipment_tree_view
-msgid "Employee Personal Equipments"
-msgstr "Empleado de los equipos individuales"
 
 #. module: hr_personal_equipment_request
 #: code:addons/hr_personal_equipment_request/models/hr_employee.py:0
@@ -199,12 +193,6 @@ msgid "Followers"
 msgstr "Seguidores"
 
 #. module: hr_personal_equipment_request
-#: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment__message_channel_ids
-#: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment_request__message_channel_ids
-msgid "Followers (Channels)"
-msgstr "Seguidores (Canales)"
-
-#. module: hr_personal_equipment_request
 #: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment__message_partner_ids
 #: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment_request__message_partner_ids
 msgid "Followers (Partners)"
@@ -222,10 +210,14 @@ msgid "Group By"
 msgstr "Agrupar por"
 
 #. module: hr_personal_equipment_request
-#: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_employee__id
+#: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment__has_message
+#: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment_request__has_message
+msgid "Has Message"
+msgstr ""
+
+#. module: hr_personal_equipment_request
 #: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment__id
 #: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment_request__id
-#: model:ir.model.fields,field_description:hr_personal_equipment_request.field_product_template__id
 msgid "ID"
 msgstr ""
 
@@ -276,10 +268,8 @@ msgid "Is Follower"
 msgstr "Es un seguidor"
 
 #. module: hr_personal_equipment_request
-#: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_employee____last_update
 #: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment____last_update
 #: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment_request____last_update
-#: model:ir.model.fields,field_description:hr_personal_equipment_request.field_product_template____last_update
 msgid "Last Modified on"
 msgstr "Última modificación el"
 
@@ -324,6 +314,12 @@ msgstr "Mi fecha límite de actividad"
 #: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment_request__name
 msgid "Name"
 msgstr "Nombre"
+
+#. module: hr_personal_equipment_request
+#: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment__activity_calendar_event_id
+#: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment_request__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr ""
 
 #. module: hr_personal_equipment_request
 #: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment__activity_date_deadline
@@ -510,14 +506,14 @@ msgstr "Valido"
 msgid "Validate"
 msgstr "Validar"
 
-#. module: hr_personal_equipment_request
-#: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment__website_message_ids
-#: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment_request__website_message_ids
-msgid "Website Messages"
-msgstr "Mensajes del sitio web"
+#~ msgid "Employee Personal Equipments"
+#~ msgstr "Empleado de los equipos individuales"
 
-#. module: hr_personal_equipment_request
-#: model:ir.model.fields,help:hr_personal_equipment_request.field_hr_personal_equipment__website_message_ids
-#: model:ir.model.fields,help:hr_personal_equipment_request.field_hr_personal_equipment_request__website_message_ids
-msgid "Website communication history"
-msgstr "Historial de comunicaciones del sitio web"
+#~ msgid "Followers (Channels)"
+#~ msgstr "Seguidores (Canales)"
+
+#~ msgid "Website Messages"
+#~ msgstr "Mensajes del sitio web"
+
+#~ msgid "Website communication history"
+#~ msgstr "Historial de comunicaciones del sitio web"
