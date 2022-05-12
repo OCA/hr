@@ -25,7 +25,7 @@
         <field name="model">hr.course.category</field>
         <field eval="8" name="priority" />
         <field name="arch" type="xml">
-            <tree string="Course Categories">
+            <tree>
                 <field name="name" />
             </tree>
         </field>

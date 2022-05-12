@@ -23,7 +23,6 @@ class HRCourseAttendee(models.Model):
             ("absent", "Absent"),
             ("pending", "Pending"),
         ],
-        string="Result",
         default="pending",
     )
     active = fields.Boolean(default=True, readonly=True)
@@ -37,7 +36,7 @@ class HrCourse(models.Model):
     _description = "Course"
     _inherit = "mail.thread"
 
-    name = fields.Char(string="Name", required=True, tracking=True)
+    name = fields.Char(required=True, tracking=True)
     category_id = fields.Many2one(
         "hr.course.category", string="Category", required=True
     )
@@ -49,7 +48,6 @@ class HrCourse(models.Model):
         tracking=True,
     )
     permanence_time = fields.Char(
-        string="Permanence time",
         readonly=True,
         tracking=True,
     )
