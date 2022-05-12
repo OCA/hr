@@ -9,17 +9,15 @@ class HrCourseSchedule(models.Model):
     _description = "Course Schedule"
     _inherit = "mail.thread"
 
-    name = fields.Char(string="Name", required=True, tracking=True)
+    name = fields.Char(required=True, tracking=True)
     course_id = fields.Many2one("hr.course", string="Course", required=True)
 
     start_date = fields.Date(
-        string="Start date",
         readonly=True,
         states={"draft": [("readonly", False)]},
         tracking=True,
     )
     end_date = fields.Date(
-        string="End date",
         readonly=True,
         states={"draft": [("readonly", False)]},
         tracking=True,
@@ -31,7 +29,6 @@ class HrCourseSchedule(models.Model):
     )
     cost = fields.Monetary(string="Course Cost", required=True, tracking=True)
     authorized_by = fields.Many2one(
-        string="Authorized by",
         comodel_name="hr.employee",
         required=True,
         readonly=True,
@@ -53,10 +50,10 @@ class HrCourseSchedule(models.Model):
         tracking=True,
     )
 
-    comment = fields.Text("Comment")
+    comment = fields.Text()
     training_company_id = fields.Many2one("res.partner", string="Training company")
     instructor_ids = fields.Many2many("res.partner", string="Instructor")
-    place = fields.Char("Place")
+    place = fields.Char()
 
     attendant_ids = fields.Many2many(
         "hr.employee",
