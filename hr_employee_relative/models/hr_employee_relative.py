@@ -16,14 +16,13 @@ class HrEmployeeRelative(models.Model):
     relation_id = fields.Many2one(
         "hr.employee.relative.relation", string="Relation", required=True
     )
-    name = fields.Char(string="Name", required=True)
+    name = fields.Char(required=True)
     partner_id = fields.Many2one(
         "res.partner",
         string="Partner",
         domain=["&", ("is_company", "=", False), ("type", "=", "contact")],
     )
     gender = fields.Selection(
-        string="Gender",
         selection=[("male", "Male"), ("female", "Female"), ("other", "Other")],
     )
     date_of_birth = fields.Date(string="Date of Birth")
@@ -32,7 +31,7 @@ class HrEmployeeRelative(models.Model):
     job = fields.Char()
     phone_number = fields.Char()
 
-    notes = fields.Text(string="Notes")
+    notes = fields.Text()
 
     @api.depends("date_of_birth")
     def _compute_age(self):
