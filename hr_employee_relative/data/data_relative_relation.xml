@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<odoo>
-    <data noupdate="1">
+<odoo noupdate="1">
         <!--
           Copyright (C) 2018 Brainbean Apps (https://brainbeanapps.com)
           License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
@@ -30,5 +29,4 @@
         <record model="hr.employee.relative.relation" id="relation_grandchild">
             <field name="name">Grandchild</field>
         </record>
-    </data>
 </odoo>

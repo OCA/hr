@@ -43,7 +43,7 @@ class TestHrEmployeeRelatives(common.TransactionCase):
             "active_model": "hr.employee.relative",
         }
         self.assertEqual(relative.name, "Relative")
-        with Form(self.EmployeeRelative.with_context(ctx)) as f:
+        with Form(self.EmployeeRelative.with_context(**ctx)) as f:
             f.partner_id = self.env.ref("base.res_partner_2")
             f.relation_id = self.env.ref(_ns + ".relation_sibling")
         relative = f.save()
