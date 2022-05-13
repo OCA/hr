@@ -13,7 +13,6 @@ class WizardGenerateMedicalExamination(models.TransientModel):
 
     name = fields.Char(required=True, string="Examination Name")
     year = fields.Char(
-        "Year",
         default=lambda r: str(date.today().year),
     )
 
@@ -52,7 +51,11 @@ class WizardGenerateMedicalExamination(models.TransientModel):
 
     def _create_examination_vals(self, employee):
         return {
-            "name": _("%s on %s") % (self.name, employee.name),
+            "name": _("%(name)s on %(employee)s")
+            % {
+                "name": self.name,
+                "employee": employee.name,
+            },
             "employee_id": employee.id,
             "year": self.year,
         }
