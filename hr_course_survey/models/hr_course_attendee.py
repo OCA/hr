@@ -33,14 +33,14 @@ class HrCourseAttendee(models.Model):
             ._render_template(
                 template.subject,
                 "survey.user_input",
-                self.survey_answer_id.id,
+                [self.survey_answer_id.id],
                 post_process=True,
             )
         )
         body = self.env["mail.template"]._render_template(
             template.body_html,
             "survey.user_input",
-            self.survey_answer_id.id,
+            [self.survey_answer_id.id],
             post_process=True,
         )
         # post the message
