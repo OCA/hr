@@ -9,7 +9,8 @@ class HrCourseSchedule(models.Model):
     _inherit = "hr.course.schedule"
 
     examination_survey_id = fields.Many2one(
-        "survey.survey", related="course_id.examination_survey_id",
+        "survey.survey",
+        related="course_id.examination_survey_id",
     )
 
     def inprogress2validation(self):
