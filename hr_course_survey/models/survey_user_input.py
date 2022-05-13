@@ -15,7 +15,7 @@ class SurveyUserInput(models.Model):
     def _attendee_write_vals(self):
         return {
             "result": "failed"
-            if not self.quizz_passed and self.survey_id.scoring_type != "no_scoring"
+            if not self.scoring_success and self.survey_id.scoring_type != "no_scoring"
             else "passed"
         }
 

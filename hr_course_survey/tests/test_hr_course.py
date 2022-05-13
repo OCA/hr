@@ -6,7 +6,7 @@ from odoo.exceptions import ValidationError
 from odoo.addons.survey.tests import common
 
 
-class TestHrCourse(common.SurveyCase):
+class TestHrCourse(common.TestSurveyCommon):
     def setUp(self):
         super(TestHrCourse, self).setUp()
         self.survey = (
@@ -96,9 +96,11 @@ class TestHrCourse(common.SurveyCase):
         self._add_answer_line(
             self.question,
             answer,
-            self.question.labels_ids.filtered(lambda l: l.value == "Choice1").id,
+            self.question.suggested_answer_ids.filtered(
+                lambda l: l.value == "Choice1"
+            ).id,
             answer_type="suggestion",
-            answer_fname="value_suggested",
+            answer_fname="suggested_answer_id",
         )
         answer._mark_done()
         self.assertEqual(self.course_schedule.course_attendee_ids.result, "failed")
@@ -111,9 +113,11 @@ class TestHrCourse(common.SurveyCase):
         self._add_answer_line(
             self.question,
             answer,
-            self.question.labels_ids.filtered(lambda l: l.value == "Choice0").id,
+            self.question.suggested_answer_ids.filtered(
+                lambda l: l.value == "Choice0"
+            ).id,
             answer_type="suggestion",
-            answer_fname="value_suggested",
+            answer_fname="suggested_answer_id",
         )
         answer._mark_done()
         self.assertEqual(self.course_schedule.course_attendee_ids.result, "passed")
