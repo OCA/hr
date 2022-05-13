@@ -45,7 +45,7 @@ class HrEmployeeMedicalExamination(models.Model):
         tracking=True,
     )
 
-    year = fields.Char("Year", default=lambda r: str(datetime.date.today().year))
+    year = fields.Char(default=lambda r: str(datetime.date.today().year))
 
     note = fields.Text(tracking=True)
 
