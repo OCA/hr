@@ -18,7 +18,6 @@ class TestHrCourse(common.TestSurveyCommon):
                     "access_mode": "public",
                     "users_login_required": True,
                     "users_can_go_back": False,
-                    "state": "open",
                     "scoring_type": "scoring_without_answers",
                 }
             )
