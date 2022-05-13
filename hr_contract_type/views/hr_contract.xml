@@ -20,6 +20,13 @@
             <field name="job_id" position="after">
                 <field name="contract_type_id" />
             </field>
+            <filter name="group_by_state" position="after">
+                <filter
+                    name="filter_contract_type"
+                    string="Contract Type"
+                    context="{'group_by' : 'contract_type_id'}"
+                />
+            </filter>
         </field>
     </record>
     <record model="ir.ui.view" id="hr_contract_tree_view">
