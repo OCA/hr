@@ -38,7 +38,6 @@ class HrEmployee(models.Model):
         ),
     )
     service_duration = fields.Integer(
-        string="Service Duration",
         groups="hr.group_hr_user",
         readonly=True,
         compute="_compute_service_duration",
