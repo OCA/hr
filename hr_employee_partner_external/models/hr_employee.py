@@ -13,7 +13,9 @@ class EmployeePartner(models.Model):
 
     # set employee as external
     is_external = fields.Boolean(
-        "Is an external Employee", default=False, groups="hr.group_hr_user",
+        "Is an external Employee",
+        default=False,
+        groups="hr.group_hr_user",
     )
     # Partner reference
     hr_external_partner_id = fields.Many2one(
