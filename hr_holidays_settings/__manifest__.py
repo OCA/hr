@@ -9,8 +9,6 @@
     "author": "Eficent, Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "depends": ["hr_holidays"],
-    "data": [
-        "views/res_config_settings.xml"
-    ],
+    "data": ["views/res_config_settings.xml"],
     "installable": True,
 }
