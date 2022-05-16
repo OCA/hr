@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="workspace_subsidy_view_form" model="ir.ui.view">
+        <field name="model">workspace.item.subsidy</field>
+        <field name="arch" type="xml">
+            <form string="Subsidy">
+                <sheet>
+                    <h1>
+                        <field name="name"/>
+                    </h1>
+                    <group>
+                        <field name="description"/>
+                        <field name="date"/>
+                    </group>
+                    <group>
+                        <field name="item_ids" context="{'default_subsidy_id': active_id}">
+                            <tree>
+                                <field name="name"/>
+                                <field name="description"/>
+                                <field name="internal_reference"/>
+                                <field name="workspace_id"/>
+                                <field name="workspace_location"/>
+                                <field name="employee_id"/>
+                                <field name="employee_location"/>
+                                <field name="company"/>
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+    <record id="workspace_subsidy_view_tree" model="ir.ui.view">
+        <field name="model">workspace.item.subsidy</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="description"/>
+                <field name="date"/>
+                <field name="item_count"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

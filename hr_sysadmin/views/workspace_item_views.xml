@@ -1,0 +1,152 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="workspace_item_view_search" model="ir.ui.view">
+        <field name="model">workspace.item</field>
+        <field name="arch" type="xml">
+            <search string="Items">
+                <field name="name" string="Internal reference, name, cpu, ram, employee, workspace or subsidy" filter_domain="['|', '|', '|', '|', '|', '|',
+                    ('internal_reference','ilike',self),
+                    ('name','ilike',self),
+                    ('cpu','ilike',self),
+                    ('ram','ilike',self),
+                    ('employee_id','ilike',self),
+                    ('workspace_id','ilike',self),
+                    ('subsidy_id', 'ilike', self)]"/>
+                <field name="internal_reference"/>
+                <field name="name"/>
+                <field name="cpu"/>
+                <field name="ram"/>
+                <field name="employee_id"/>
+                <field name="workspace_id"/>
+                <field name="subsidy_id"/>
+                <group string="Group By" name="groupby">
+                    <filter string="Workspaces" name="workspace_items" context="{'group_by':'workspace_id'}"/>
+                    <filter string="Products" name="product_items" context="{'group_by':'product_id'}"/>
+                    <filter string="Employee" name="employee_items" context="{'group_by':'employee_id'}"/>
+                    <filter string="Company" name="company_items" context="{'group_by':'company'}"/>
+                    <filter string="Is bookable" name="bookable_items" domain="[('is_bookable','=',True)]"/>
+                </group>
+            </search>
+        </field>
+    </record>
+    <record id="workspace_item_view_kanban" model="ir.ui.view">
+        <field name="model">workspace.item</field>
+        <field name="arch" type="xml">
+            <kanban string="Items" default_group_by="workspace_id">
+                <field name="id"/>
+                <field name="image"/>
+                <field name="name"/>
+                <field name="internal_reference"/>
+                <field name="sn"/>
+                <field name="workspace_location"/>
+                <field name="employee_location"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div class="o_kanban_image">
+                                <img alt="Item" t-att-src="kanban_image('workspace.item', 'image', record.id.raw_value)"/>
+                            </div>
+                            <div t-attf-class="oe_kanban_content">
+                                <h3>
+                                    <field name="internal_reference"/>
+                                    <field name="name"/>
+                                </h3>
+                                <div attrs="{'invisible':[('sn','=',False)]}">
+                                    <b>SN:</b>
+                                    <field name="sn"/>
+                                </div>
+                                <b>Location:</b>
+                                <field name="workspace_location" attrs="{'invisible':[('workspace_location','=',False)]}"/>
+                                <field name="employee_location" attrs="{'invisible':[('employee_location','=',False)]}"/>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+    <record id="workspace_item_view_tree" model="ir.ui.view">
+        <field name="model">workspace.item</field>
+        <field name="arch" type="xml">
+            <tree string="Item">
+                <field name="name"/>
+                <field name="internal_reference"/>
+                <field name="workspace_id"/>
+                <field name="workspace_location"/>
+                <field name="employee_id"/>
+                <field name="employee_location"/>
+                <field name="cpu"/>
+                <field name="ram"/>
+                <field name="subsidy_id"/>
+                <field name="company"/>
+            </tree>
+        </field>
+    </record>
+    <record id="workspace_item_view_form" model="ir.ui.view">
+        <field name="model">workspace.item</field>
+        <field name="arch" type="xml">
+            <form string="Item">
+                <sheet>
+                    <field name="image" widget="image" class="oe_avatar"/>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="description"/>
+                    </group>
+                    <notebook>
+                        <page name="information" string="Information">
+                            <group>
+                                <group>
+                                    <field name="internal_reference"/>
+                                    <field name="sn"/>
+                                </group>
+                                <group>
+                                    <field name="product_id" context="{'default_internal_equipment':1,'default_comission_free':0,'default_sale_ok':0,'default_purchase_ok':0,'default_type':'consu'}" groups="sysadmin_base.group_sysadmin_sysadmin"/>
+                                </group>
+                            </group>
+                            <group>
+                                <group>
+                                    <field name="workspace_id"/>
+                                    <field name="workspace_location"/>
+                                </group>
+                                <group>
+                                    <field name="employee_id"/>
+                                    <field name="employee_location"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page name="show_hardware_properties" string="Hardware Properties">
+                            <group>
+                                <field name="cpu" placeholder="iX-XXXXNN / AMD XXXXX X / etc"/>
+                                <field name="ram"/>
+                                <field name="data_storage" placeholder="1TB-HDD / 512GB-SSD"/>
+                            </group>
+                            <group>
+                                <field name="ip" placeholder="X.X.X.X"/>
+                                <field name="os_version"/>
+                                <field name="microsoft_office_mail"/>
+                            </group>
+                        </page>
+                        <page name="other" string="Others">
+                            <group>
+                                <field name="subsidy_id"/>
+                                <field name="company"/>
+                            </group>
+                            <group>
+                                <field name="is_bookable" groups="sysadmin_base.group_sysadmin_sysadmin"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+</odoo>

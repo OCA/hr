@@ -1,0 +1,165 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="workspace_workspace_view_tree" model="ir.ui.view">
+        <field name="model">workspace.workspace</field>
+        <field name="arch" type="xml">
+            <tree string="Workspace">
+                <field name="name"/>
+                <field name="description"/>
+                <field name="location"/>
+                <field name="workspace_id"/>
+                <field name="item_count"/>
+                <field name="employee_ids"/>
+                <field name="employee_item_count"/>
+                <field name="workspace_ids"/>
+                <field name="internal_item_count"/>
+            </tree>
+        </field>
+    </record>
+    <record id="workspace_workspace_view_form" model="ir.ui.view">
+        <field name="model">workspace.workspace</field>
+        <field name="arch" type="xml">
+            <form string="Workspace">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button class="oe_stat_button" name="button_employee_item_count" icon="fa-th-list" type="object" attrs="{'invisible':[('employee_item_count','=',0)]}">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_value">
+                                    <field name="employee_item_count"/>
+                                </span>
+                                <span class="o_stat_text">Emplo. Items</span>
+                            </div>
+                        </button>
+                        <button class="oe_stat_button" name="button_internal_item_count" icon="fa-th-list" type="object" attrs="{'invisible':[('internal_item_count','=',0)]}">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_value">
+                                    <field name="internal_item_count"/>
+                                </span>
+                                <span class="o_stat_text">Internal Items</span>
+                            </div>
+                        </button>
+                    </div>
+                    <h1>
+                        <field name="name"/>
+                    </h1>
+                    <group>
+                        <field name="description"/>
+                        <field name="location"/>
+                    </group>
+                    <group>
+                        <field name="workspace_id"/>
+                    </group>
+                    <notebook>
+                        <page string="Items" name="workspace_items">
+                            <field name="item_ids" context="{'default_workspace_id': active_id}">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="internal_reference"/>
+                                    <field name="description"/>
+                                    <field name="sn"/>
+                                    <field name="product_id" context="{'default_internal_equipment':1,'default_sale_ok':0,'default_type':'product'}"/>
+                                    <field name="subsidy_id"/>
+                                    <field name="company"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Employees" name="workspace_employees">
+                            <field name="employee_ids" options="{'no_create': True}">
+                                <tree create="true">
+                                    <field name="name"/>
+                                    <field name="has_voip_switchboard_access"/>
+                                    <field name="has_keys"/>
+                                    <field name="has_alarm"/>
+                                    <field name="is_trainee"/>
+                                    <field name="work_location"/>
+                                    <field name="work_email"/>
+                                    <field name="item_count"/>
+                                    <field name="workspace_ids"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Workspaces" name="workspace_workspaces">
+                            <field name="workspace_ids" context="{'default_workspace_id': active_id}">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="description"/>
+                                    <field name="location"/>
+                                    <field name="item_count"/>
+                                    <field name="employee_ids"/>
+                                    <field name="employee_item_count"/>
+                                    <field name="workspace_ids"/>
+                                    <field name="internal_item_count"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+    <record id="workspace_workspace_view_kanban" model="ir.ui.view">
+        <field name="model">workspace.workspace</field>
+        <field name="arch" type="xml">
+            <kanban string="Workspaces" default_group_by="location">
+                <field name="name"/>
+                <field name="workspace_id"/>
+                <field name="item_ids"/>
+                <field name="item_count"/>
+                <field name="internal_item_count"/>
+                <field name="employee_count"/>
+                <field name="workspace_ids"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div t-attf-class="oe_kanban_content">
+                                <h3>
+                                    <field name="name"/>
+                                </h3>
+                                <div attrs="{'invisible':[('item_ids','=',())]}">
+                                    <b>Items:</b>
+                                    <field name="item_count"/>
+                                </div>
+                                <div attrs="{'invisible':[('employee_count','=',0)]}">
+                                    <p/>
+                                    <b>Employees:</b>
+                                    <field name="employee_count"/>
+                                </div>
+                                <div attrs="{'invisible':[('employee_item_count','=',0)]}">
+                                    <b>Employee Item Count:</b>
+                                    <field name="employee_item_count"/>
+                                </div>
+                                <div attrs="{'invisible':[('workspace_id','=',False)]}">
+                                    <p/>
+                                    <b>Workspace parent:</b>
+                                    <field name="workspace_id"/>
+                                </div>
+                                <div attrs="{'invisible':[('workspace_ids','=',())]}">
+                                    <p/>
+                                    <b>Workspaces:</b>
+                                    <field name="workspace_ids"/>
+                                </div>
+                                <div attrs="{'invisible':[('internal_item_count','&lt;',1)]}">
+                                    <b>Internal Item Count:</b>
+                                    <field name="internal_item_count"/>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+    <record id="workspace_workspace_view_search" model="ir.ui.view">
+        <field name="model">workspace.workspace</field>
+        <field name="arch" type="xml">
+            <search string="Workspaces">
+                <filter string="Location" name="workspace_location" context="{'group_by':'location'}"/>
+                <filter string="Workspaces" name="workspace_workspaces" context="{'group_by':'workspace_id'}"/>
+            </search>
+        </field>
+    </record>
+</odoo>

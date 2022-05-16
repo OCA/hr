@@ -1,0 +1,707 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* sysadmin_base
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-08-24 10:19+0000\n"
+"PO-Revision-Date: 2021-08-24 10:19+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: sysadmin_base
+#: model_terms:ir.ui.view,arch_db:sysadmin_base.workspace_workspace_view_kanban
+msgid "<b>Employee Item Count:</b>"
+msgstr "<b>Recuento de elementos de empleados:</b>"
+
+#. module: sysadmin_base
+#: model_terms:ir.ui.view,arch_db:sysadmin_base.workspace_workspace_view_kanban
+msgid "<b>Employees:</b>"
+msgstr "<b>Empleados:</b>"
+
+#. module: sysadmin_base
+#: model_terms:ir.ui.view,arch_db:sysadmin_base.workspace_workspace_view_kanban
+msgid "<b>Internal Item Count:</b>"
+msgstr "<b>Recuento de elementos internos:</b>"
+
+#. module: sysadmin_base
+#: model_terms:ir.ui.view,arch_db:sysadmin_base.workspace_workspace_view_kanban
+msgid "<b>Items:</b>"
+msgstr "<b>Elementos:</b>"
+
+#. module: sysadmin_base
+#: model_terms:ir.ui.view,arch_db:sysadmin_base.workspace_item_view_kanban
+msgid "<b>Location:</b>"
+msgstr "<b>Ubicación:</b>"
+
+#. module: sysadmin_base
+#: model_terms:ir.ui.view,arch_db:sysadmin_base.workspace_item_view_kanban
+msgid "<b>SN:</b>"
+msgstr "<b>Número de Serie:</b>"
+
+#. module: sysadmin_base
+#: model_terms:ir.ui.view,arch_db:sysadmin_base.workspace_workspace_view_kanban
+msgid "<b>Workspace parent:</b>"
+msgstr "<b>Espacio de trabajo padre:</b>"
+
+#. module: sysadmin_base
+#: model_terms:ir.ui.view,arch_db:sysadmin_base.workspace_workspace_view_kanban
+msgid "<b>Workspaces:</b>"
+msgstr "<b>Espacios de trabajo:</b>"
+
+#. module: sysadmin_base
+#: model_terms:ir.ui.view,arch_db:sysadmin_base.workspace_workspace_view_form
+msgid "<span class=\"o_stat_text\">Emplo. Items</span>"
+msgstr "<span class=\"o_stat_text\">Elem. empleados</span>"
+
+#. module: sysadmin_base
+#: model_terms:ir.ui.view,arch_db:sysadmin_base.workspace_workspace_view_form
+msgid "<span class=\"o_stat_text\">Internal Items</span>"
+msgstr "<span class=\"o_stat_text\">Elem. internos</span>"
+
+#. module: sysadmin_base
+#: model_terms:ir.ui.view,arch_db:sysadmin_base.product_template_form_view
+#: model_terms:ir.ui.view,arch_db:sysadmin_base.view_employee_form
+msgid "<span class=\"o_stat_text\">Items</span>"
+msgstr "<span class=\"o_stat_text\">Elementos</span>"
+
+#. module: sysadmin_base
+#: model_terms:ir.ui.view,arch_db:sysadmin_base.employee_internal_tools_view_form
+#: model_terms:ir.ui.view,arch_db:sysadmin_base.employee_items_view_form
+msgid "Accept"
+msgstr "Aceptar"
+
+#. module: sysadmin_base
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item__message_needaction
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item_subsidy__message_needaction
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_workspace__message_needaction
+msgid "Action Needed"
+msgstr "Acción requerida"
+
+#. module: sysadmin_base
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item__activity_ids
+msgid "Activities"
+msgstr "Actividades"
+
+#. module: sysadmin_base
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item__activity_state
+msgid "Activity State"
+msgstr "Estado de la actividad"
+
+#. module: sysadmin_base
+#: model:ir.model,name:sysadmin_base.model_hr_employee_internal_tools
+#: model_terms:ir.ui.view,arch_db:sysadmin_base.employee_internal_tools_view_form
+msgid "Assistant to edit internal tools of employees"
+msgstr "Asistente para editar herramientas internas de los empleados"
+
+#. module: sysadmin_base
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item__message_attachment_count
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item_subsidy__message_attachment_count
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_workspace__message_attachment_count
+msgid "Attachment Count"
+msgstr "Conteo de archivos adjuntos"
+
+#. module: sysadmin_base
+#: model:mail.activity.type,name:sysadmin_base.mail_activity_data_booking
+msgid "Booking"
+msgstr "Reserva"
+
+#. module: sysadmin_base
+#: model:res.groups,name:sysadmin_base.group_sysadmin_booking
+msgid "Booking of Items"
+msgstr "Reserva de elementos"
+
+#. module: sysadmin_base
+#: model_terms:ir.ui.view,arch_db:sysadmin_base.employee_internal_tools_view_form
+#: model_terms:ir.ui.view,arch_db:sysadmin_base.employee_items_view_form
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: sysadmin_base
+#: model:ir.actions.act_window,name:sysadmin_base.action_list_catalogue
+#: model:ir.ui.menu,name:sysadmin_base.menu_internal_equipment_products
+msgid "Catalogue"
+msgstr "Catálogo"
+
+#. module: sysadmin_base
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item__company
+#: model_terms:ir.ui.view,arch_db:sysadmin_base.workspace_item_view_search
+msgid "Company"
+msgstr "Compañía"
+
+#. module: sysadmin_base
+#: model:ir.model.fields,field_description:sysadmin_base.field_hr_employee_internal_tools__create_uid
+#: model:ir.model.fields,field_description:sysadmin_base.field_hr_employee_items__create_uid
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item__create_uid
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item_subsidy__create_uid
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_workspace__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: sysadmin_base
+#: model:ir.model.fields,field_description:sysadmin_base.field_hr_employee_internal_tools__create_date
+#: model:ir.model.fields,field_description:sysadmin_base.field_hr_employee_items__create_date
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item__create_date
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item_subsidy__create_date
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_workspace__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: sysadmin_base
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item__data_storage
+msgid "Data storage"
+msgstr "Almacenamiento de datos"
+
+#. module: sysadmin_base
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item_subsidy__date
+msgid "Date"
+msgstr "Fecha"
+
+#. module: sysadmin_base
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item__description
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item_subsidy__description
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_workspace__description
+msgid "Description"
+msgstr "Descripción"
+
+#. module: sysadmin_base
+#: model:ir.model.fields,field_description:sysadmin_base.field_hr_employee_internal_tools__display_name
+#: model:ir.model.fields,field_description:sysadmin_base.field_hr_employee_items__display_name
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item__display_name
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item_subsidy__display_name
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_workspace__display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: sysadmin_base
+#: model:ir.model.fields,field_description:sysadmin_base.field_hr_employee_items__does_employee_have_it
+msgid "Does the employee have it?"
+msgstr "¿El empleado lo tiene?"
+
+#. module: sysadmin_base
+#: code:addons/sysadmin_base/models/hr_employee.py:56
+#: model_terms:ir.ui.view,arch_db:sysadmin_base.view_employee_form
+#, python-format
+msgid "Edit Internal Tools"
+msgstr "Editar Herramientas internas"
+
+#. module: sysadmin_base
+#: model:ir.model,name:sysadmin_base.model_hr_employee
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item__employee_id
+#: model_terms:ir.ui.view,arch_db:sysadmin_base.workspace_item_view_search
+msgid "Employee"
+msgstr "Empleado"
+
+#. module: sysadmin_base
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_workspace__employee_count
+msgid "Employee Count"
+msgstr "Recuento de empleados"
+
+#. module: sysadmin_base
+#: model:ir.model.fields,field_description:sysadmin_base.field_hr_employee_internal_tools__employee_id
+msgid "Employee ID"
+msgstr "ID de empleado"
+
+#. module: sysadmin_base
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_workspace__employee_item_count
+msgid "Employee Item Count"
+msgstr "Recuento de elementos de empleados"
+
+#. module: sysadmin_base
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item__employee_location
+msgid "Employee location"
+msgstr "Ubicación del empleado"
+
+#. module: sysadmin_base
+#: model:res.groups,name:sysadmin_base.group_sysadmin_employee
+msgid "Employee self-management of Items"
+msgstr "Autogestión de elementos por parte de los empleados"
+
+#. module: sysadmin_base
+#: code:addons/sysadmin_base/wizards/hr_employee_items.py:43
+#: model:ir.actions.act_window,name:sysadmin_base.action_list_employees
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_workspace__employee_ids
+#: model:ir.ui.menu,name:sysadmin_base.menu_employees
+#: model:ir.ui.menu,name:sysadmin_base.menu_employees_submenu
+#: model_terms:ir.ui.view,arch_db:sysadmin_base.workspace_workspace_view_form
+#, python-format
+msgid "Employees"
+msgstr "Empleados"
+
+#. module: sysadmin_base
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item__failed_message_ids
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item_subsidy__failed_message_ids
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_workspace__failed_message_ids
+msgid "Failed Messages"
+msgstr "Mensajes Fallidos"
+
+#. module: sysadmin_base
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item__message_follower_ids
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item_subsidy__message_follower_ids
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_workspace__message_follower_ids
+msgid "Followers"
+msgstr "Seguidores"
+
+#. module: sysadmin_base
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item__message_channel_ids
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item_subsidy__message_channel_ids
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_workspace__message_channel_ids
+msgid "Followers (Channels)"
+msgstr "Seguidores (Canales)"
+
+#. module: sysadmin_base
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item__message_partner_ids
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item_subsidy__message_partner_ids
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_workspace__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Seguidores (Empresas)"
+
+#. module: sysadmin_base
+#: model_terms:ir.ui.view,arch_db:sysadmin_base.product_template_form_view
+msgid "General Information"
+msgstr "Información General"
+
+#. module: sysadmin_base
+#: model_terms:ir.ui.view,arch_db:sysadmin_base.workspace_item_view_search
+msgid "Group By"
+msgstr "Agrupar por"
+
+#. module: sysadmin_base
+#: model_terms:ir.ui.view,arch_db:sysadmin_base.workspace_item_view_form
+msgid "Hardware Properties"
+msgstr "Propiedades de hardware"
+
+#. module: sysadmin_base
+#: model:ir.model.fields,field_description:sysadmin_base.field_hr_employee__has_voip_switchboard_access
+#: model:ir.model.fields,field_description:sysadmin_base.field_hr_employee_internal_tools__has_voip_switchboard_access
+#: model_terms:ir.ui.view,arch_db:sysadmin_base.view_employee_filter
+msgid "Has VoIP Switchboard access"
+msgstr "Tiene acceso a Centralita VoIP"
+
+#. module: sysadmin_base
+#: model:ir.model.fields,help:sysadmin_base.field_workspace_item__message_unread
+#: model:ir.model.fields,help:sysadmin_base.field_workspace_item_subsidy__message_unread
+#: model:ir.model.fields,help:sysadmin_base.field_workspace_workspace__message_unread
+msgid "If checked new messages require your attention."
+msgstr "Si está marcado, hay nuevos mensajes que requieren su atención"
+
+#. module: sysadmin_base
+#: model:ir.model.fields,help:sysadmin_base.field_workspace_item__message_needaction
+#: model:ir.model.fields,help:sysadmin_base.field_workspace_item_subsidy__message_needaction
+#: model:ir.model.fields,help:sysadmin_base.field_workspace_workspace__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "Si está marcado, hay nuevos mensajes que requieren su atención."
+
+#. module: sysadmin_base
+#: model:ir.model.fields,help:sysadmin_base.field_workspace_item__message_has_error
+#: model:ir.model.fields,help:sysadmin_base.field_workspace_item_subsidy__message_has_error
+#: model:ir.model.fields,help:sysadmin_base.field_workspace_workspace__message_has_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Si se encuentra marcado, algunos mensajes tienen error de envío."
+
+#. module: sysadmin_base
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item__image
+msgid "Image"
+msgstr "Imagen"
+
+#. module: sysadmin_base
+#: model:ir.model.fields,field_description:sysadmin_base.field_product_product__information
+#: model:ir.model.fields,field_description:sysadmin_base.field_product_template__information
+#: model_terms:ir.ui.view,arch_db:sysadmin_base.workspace_item_view_form
+msgid "Information"
+msgstr "Información"
+
+#. module: sysadmin_base
+#: model_terms:ir.ui.view,arch_db:sysadmin_base.product_template_search_view
+msgid "Internal Equipment"
+msgstr "Equipo interno"
+
+#. module: sysadmin_base
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_workspace__internal_item_count
+msgid "Internal Item Count"
+msgstr "Recuento de elementos internos"
+
+#. module: sysadmin_base
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item__internal_reference
+msgid "Internal Reference"
+msgstr "Referencia interna"
+
+#. module: sysadmin_base
+#: sql_constraint:workspace.item:0
+msgid "Internal Reference already exists!"
+msgstr "La referencia interna ya existe"
+
+#. module: sysadmin_base
+#: model_terms:ir.ui.view,arch_db:sysadmin_base.view_employee_form
+msgid "Internal Tools"
+msgstr "Herramientas internas"
+
+#. module: sysadmin_base
+#: model:ir.model.fields,field_description:sysadmin_base.field_product_product__internal_equipment
+#: model:ir.model.fields,field_description:sysadmin_base.field_product_template__internal_equipment
+msgid "Internal equipment"
+msgstr "Equipo interno"
+
+#. module: sysadmin_base
+#: model_terms:ir.ui.view,arch_db:sysadmin_base.workspace_item_view_search
+msgid "Internal reference, name, cpu, ram, employee, workspace or subsidy"
+msgstr "Referencia interna, nombre, cpu, ram, empleado, espacio de trabajo o subvención"
+
+#. module: sysadmin_base
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item__message_is_follower
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item_subsidy__message_is_follower
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_workspace__message_is_follower
+msgid "Is Follower"
+msgstr "Es un seguidor"
+
+#. module: sysadmin_base
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item__is_bookable
+#: model_terms:ir.ui.view,arch_db:sysadmin_base.workspace_item_view_search
+msgid "Is bookable"
+msgstr "Se puede reservar"
+
+#. module: sysadmin_base
+#: model:ir.model.fields,field_description:sysadmin_base.field_hr_employee__is_trainee
+#: model:ir.model.fields,field_description:sysadmin_base.field_hr_employee_internal_tools__is_trainee
+#: model_terms:ir.ui.view,arch_db:sysadmin_base.view_employee_filter
+msgid "Is trainee"
+msgstr "En prácticas"
+
+#. module: sysadmin_base
+#: model:ir.model,name:sysadmin_base.model_workspace_item
+#: model_terms:ir.ui.view,arch_db:sysadmin_base.workspace_item_view_form
+#: model_terms:ir.ui.view,arch_db:sysadmin_base.workspace_item_view_kanban
+#: model_terms:ir.ui.view,arch_db:sysadmin_base.workspace_item_view_tree
+msgid "Item"
+msgstr "Elemento"
+
+#. module: sysadmin_base
+#: model:ir.model.fields,field_description:sysadmin_base.field_hr_employee__item_count
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item_subsidy__item_count
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_workspace__item_count
+msgid "Item Count"
+msgstr "Recuento de Elementos"
+
+#. module: sysadmin_base
+#: code:addons/sysadmin_base/models/hr_employee.py:42
+#: model:ir.actions.act_window,name:sysadmin_base.action_list_items
+#: model:ir.model.fields,field_description:sysadmin_base.field_hr_employee__item_ids
+#: model:ir.model.fields,field_description:sysadmin_base.field_product_product__item_count
+#: model:ir.model.fields,field_description:sysadmin_base.field_product_template__item_count
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item_subsidy__item_ids
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_workspace__item_ids
+#: model:ir.ui.menu,name:sysadmin_base.menu_items
+#: model_terms:ir.ui.view,arch_db:sysadmin_base.view_employee_form
+#: model_terms:ir.ui.view,arch_db:sysadmin_base.workspace_item_view_kanban
+#: model_terms:ir.ui.view,arch_db:sysadmin_base.workspace_item_view_search
+#: model_terms:ir.ui.view,arch_db:sysadmin_base.workspace_workspace_view_form
+#, python-format
+msgid "Items"
+msgstr "Elementos"
+
+#. module: sysadmin_base
+#: model:ir.actions.act_window,name:sysadmin_base.action_list_items_of_employees
+#: model:ir.ui.menu,name:sysadmin_base.menu_items_of_employees
+msgid "Items of Employees"
+msgstr "Elementos de empleados"
+
+#. module: sysadmin_base
+#: model:ir.model.fields,field_description:sysadmin_base.field_hr_employee_internal_tools____last_update
+#: model:ir.model.fields,field_description:sysadmin_base.field_hr_employee_items____last_update
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item____last_update
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item_subsidy____last_update
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_workspace____last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: sysadmin_base
+#: model:ir.model.fields,field_description:sysadmin_base.field_hr_employee_internal_tools__write_uid
+#: model:ir.model.fields,field_description:sysadmin_base.field_hr_employee_items__write_uid
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item__write_uid
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item_subsidy__write_uid
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_workspace__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: sysadmin_base
+#: model:ir.model.fields,field_description:sysadmin_base.field_hr_employee_internal_tools__write_date
+#: model:ir.model.fields,field_description:sysadmin_base.field_hr_employee_items__write_date
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item__write_date
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item_subsidy__write_date
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_workspace__write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: sysadmin_base
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_workspace__location
+#: model_terms:ir.ui.view,arch_db:sysadmin_base.workspace_workspace_view_search
+msgid "Location"
+msgstr "Ubicación"
+
+#. module: sysadmin_base
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item__message_main_attachment_id
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item_subsidy__message_main_attachment_id
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_workspace__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "Adjuntos principales"
+
+#. module: sysadmin_base
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item__message_has_error
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item_subsidy__message_has_error
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_workspace__message_has_error
+msgid "Message Delivery error"
+msgstr "Error de Envío de Mensaje"
+
+#. module: sysadmin_base
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item__message_ids
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item_subsidy__message_ids
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_workspace__message_ids
+msgid "Messages"
+msgstr "Mensajes"
+
+#. module: sysadmin_base
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item__microsoft_office_mail
+msgid "Microsoft Office Mail"
+msgstr "Correo de Microsoft Office"
+
+#. module: sysadmin_base
+#: model:ir.actions.act_window,name:sysadmin_base.action_list_employee_workspace_items
+#: model:ir.ui.menu,name:sysadmin_base.menu_employee_workspace_items
+msgid "My Workspace Items"
+msgstr "Elementos de mis espacios de trabajo"
+
+#. module: sysadmin_base
+#: model:ir.model.fields,field_description:sysadmin_base.field_hr_employee_internal_tools__name
+#: model:ir.model.fields,field_description:sysadmin_base.field_hr_employee_items__name
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item__name
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item_subsidy__name
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_workspace__name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: sysadmin_base
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "Siguiente plazo de actividad"
+
+#. module: sysadmin_base
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item__activity_summary
+msgid "Next Activity Summary"
+msgstr "Resumen de la siguiente actividad"
+
+#. module: sysadmin_base
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item__activity_type_id
+msgid "Next Activity Type"
+msgstr "Siguiente tipo de actividad"
+
+#. module: sysadmin_base
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item__message_needaction_counter
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item_subsidy__message_needaction_counter
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_workspace__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Número de acciones"
+
+#. module: sysadmin_base
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item__message_has_error_counter
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item_subsidy__message_has_error_counter
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_workspace__message_has_error_counter
+msgid "Number of error"
+msgstr "Número de error"
+
+#. module: sysadmin_base
+#: model:ir.model.fields,help:sysadmin_base.field_workspace_item__message_needaction_counter
+#: model:ir.model.fields,help:sysadmin_base.field_workspace_item_subsidy__message_needaction_counter
+#: model:ir.model.fields,help:sysadmin_base.field_workspace_workspace__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr "Número de mensajes que requieren una acción"
+
+#. module: sysadmin_base
+#: model:ir.model.fields,help:sysadmin_base.field_workspace_item__message_has_error_counter
+#: model:ir.model.fields,help:sysadmin_base.field_workspace_item_subsidy__message_has_error_counter
+#: model:ir.model.fields,help:sysadmin_base.field_workspace_workspace__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Número de mensajes con error de envío"
+
+#. module: sysadmin_base
+#: model:ir.model.fields,help:sysadmin_base.field_workspace_item__message_unread_counter
+#: model:ir.model.fields,help:sysadmin_base.field_workspace_item_subsidy__message_unread_counter
+#: model:ir.model.fields,help:sysadmin_base.field_workspace_workspace__message_unread_counter
+msgid "Number of unread messages"
+msgstr "Número de mensajes no leidos"
+
+#. module: sysadmin_base
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item__os_version
+msgid "OS Version"
+msgstr "Versión Sistema Operativo"
+
+#. module: sysadmin_base
+#: model_terms:ir.ui.view,arch_db:sysadmin_base.workspace_item_view_form
+msgid "Others"
+msgstr "Otros"
+
+#. module: sysadmin_base
+#: selection:workspace.item,activity_state:0
+msgid "Overdue"
+msgstr "Atrasada"
+
+#. module: sysadmin_base
+#: selection:workspace.item,activity_state:0
+msgid "Planned"
+msgstr "Planeada"
+
+#. module: sysadmin_base
+#: model:ir.model.fields,field_description:sysadmin_base.field_hr_employee_items__product_id
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item__product_id
+msgid "Product"
+msgstr "Producto"
+
+#. module: sysadmin_base
+#: model:ir.model,name:sysadmin_base.model_product_template
+msgid "Product Template"
+msgstr "Plantilla de producto"
+
+#. module: sysadmin_base
+#: model_terms:ir.ui.view,arch_db:sysadmin_base.workspace_item_view_search
+msgid "Products"
+msgstr "Productos"
+
+#. module: sysadmin_base
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item__activity_user_id
+msgid "Responsible User"
+msgstr "Usuario responsable"
+
+#. module: sysadmin_base
+#: model:ir.model,name:sysadmin_base.model_hr_employee_items
+msgid "Returns the employees that has or not the selected element"
+msgstr "Devuelve a los empleados que tienen o no el elemento seleccionado"
+
+#. module: sysadmin_base
+#: sql_constraint:workspace.item:0
+msgid "SN already exists!"
+msgstr "¡Ya existe el Nº de serie!"
+
+#. module: sysadmin_base
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item__sn
+msgid "Serial Number"
+msgstr "Número de Serie"
+
+#. module: sysadmin_base
+#: model:ir.model.fields,help:sysadmin_base.field_workspace_item__activity_state
+msgid "Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr "Estado basado en actividades\n"
+"Vencida: la fecha tope ya ha pasado\n"
+"Hoy: La fecha tope es hoy\n"
+"Planificada: futuras actividades."
+
+#. module: sysadmin_base
+#: model:ir.actions.act_window,name:sysadmin_base.action_list_subsidies
+#: model:ir.ui.menu,name:sysadmin_base.menu_subsidies
+msgid "Subsidies"
+msgstr "Subvenciones"
+
+#. module: sysadmin_base
+#: model:ir.model,name:sysadmin_base.model_workspace_item_subsidy
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item__subsidy_id
+#: model_terms:ir.ui.view,arch_db:sysadmin_base.workspace_subsidy_view_form
+msgid "Subsidy"
+msgstr "Subvención"
+
+#. module: sysadmin_base
+#: model:ir.module.category,description:sysadmin_base.module_sysadmin
+msgid "SysAdmin permission"
+msgstr "Permisos de SysAdmin"
+
+#. module: sysadmin_base
+#: model_terms:ir.ui.view,arch_db:sysadmin_base.product_template_form_view
+msgid "Technical Properties"
+msgstr "Características técnicas"
+
+#. module: sysadmin_base
+#: model:res.groups,comment:sysadmin_base.group_sysadmin_sysadmin
+msgid "The user will have access to all configuration of SysAdmin."
+msgstr "El usuario podrá acceder a toda la configuración de SysAdmin"
+
+#. module: sysadmin_base
+#: selection:workspace.item,activity_state:0
+msgid "Today"
+msgstr "Hoy"
+
+#. module: sysadmin_base
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item__message_unread
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item_subsidy__message_unread
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_workspace__message_unread
+msgid "Unread Messages"
+msgstr "Mensajes por leer"
+
+#. module: sysadmin_base
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item__message_unread_counter
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item_subsidy__message_unread_counter
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_workspace__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr "Contador de mensajes sin leer"
+
+#. module: sysadmin_base
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item__website_message_ids
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item_subsidy__website_message_ids
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_workspace__website_message_ids
+msgid "Website Messages"
+msgstr "Mensajes del sitio web"
+
+#. module: sysadmin_base
+#: model:ir.model.fields,help:sysadmin_base.field_workspace_item__website_message_ids
+#: model:ir.model.fields,help:sysadmin_base.field_workspace_item_subsidy__website_message_ids
+#: model:ir.model.fields,help:sysadmin_base.field_workspace_workspace__website_message_ids
+msgid "Website communication history"
+msgstr "Historial de comunicaciones del sitio web"
+
+#. module: sysadmin_base
+#: model:ir.model,name:sysadmin_base.model_workspace_workspace
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item__workspace_id
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_workspace__workspace_id
+#: model_terms:ir.ui.view,arch_db:sysadmin_base.workspace_workspace_view_form
+#: model_terms:ir.ui.view,arch_db:sysadmin_base.workspace_workspace_view_tree
+msgid "Workspace"
+msgstr "Espacio de trabajo"
+
+#. module: sysadmin_base
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_item__workspace_location
+msgid "Workspace location"
+msgstr "Ubicación del espacio de trabajo"
+
+#. module: sysadmin_base
+#: model:ir.actions.act_window,name:sysadmin_base.action_list_workspaces
+#: model:ir.model.fields,field_description:sysadmin_base.field_hr_employee__workspace_ids
+#: model:ir.model.fields,field_description:sysadmin_base.field_hr_employee_internal_tools__workspace_ids
+#: model:ir.model.fields,field_description:sysadmin_base.field_workspace_workspace__workspace_ids
+#: model:ir.ui.menu,name:sysadmin_base.menu_workspaces
+#: model_terms:ir.ui.view,arch_db:sysadmin_base.employee_internal_tools_view_form
+#: model_terms:ir.ui.view,arch_db:sysadmin_base.view_employee_form
+#: model_terms:ir.ui.view,arch_db:sysadmin_base.workspace_item_view_search
+#: model_terms:ir.ui.view,arch_db:sysadmin_base.workspace_workspace_view_form
+#: model_terms:ir.ui.view,arch_db:sysadmin_base.workspace_workspace_view_kanban
+#: model_terms:ir.ui.view,arch_db:sysadmin_base.workspace_workspace_view_search
+msgid "Workspaces"
+msgstr "Espacios de trabajo"
+
+#. module: sysadmin_base
+#: model:ir.model.fields,field_description:sysadmin_base.field_hr_employee__has_keys
+#: model:ir.model.fields,field_description:sysadmin_base.field_hr_employee_internal_tools__has_keys
+#: model_terms:ir.ui.view,arch_db:sysadmin_base.view_employee_filter
+msgid "Has Keys"
+msgstr "Tiene llaves"
+
+#. module: sysadmin_base
+#: model:ir.model.fields,field_description:sysadmin_base.field_hr_employee__has_alarm
+#: model:ir.model.fields,field_description:sysadmin_base.field_hr_employee_internal_tools__has_alarm
+#: model_terms:ir.ui.view,arch_db:sysadmin_base.view_employee_filter
+msgid "Alarm"
+msgstr "Alarma"

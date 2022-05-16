@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="employee_items_view_form" model="ir.ui.view">
+        <field name="model">hr.employee.items</field>
+        <field name="arch" type="xml">
+            <form>
+                <h1 class="oe_title">
+                    <label for="name" class="oe_edit_only"/>
+                    <field name="name"/>
+                </h1>
+                <group>
+                    <field name="product_id" options="{'no_create_edit':True}"/>
+                    <field name="does_employee_have_it"/>
+                </group>
+                <footer>
+                    <button name="employee_items_action" type="object" string="Accept" class="oe_highlight"/>
+                    <button special="cancel" string="Cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="employee_items_view_tree" model="ir.ui.view">
+        <field name="model">hr.employee.items</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="product_id"/>
+                <field name="does_employee_have_it"/>
+            </tree>
+        </field>
+    </record>
+</odoo>
