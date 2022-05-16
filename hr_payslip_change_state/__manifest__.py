@@ -9,9 +9,7 @@
     "category": "Human Resources",
     "website": "https://github.com/OCA/hr",
     "author": "Eficent, Odoo Community Association (OCA)",
-    "depends": [
-        'hr_payroll_cancel'
-    ],
+    "depends": ["hr_payroll_cancel"],
     "data": [
         "wizard/hr_payslip_change_state_view.xml",
     ],
