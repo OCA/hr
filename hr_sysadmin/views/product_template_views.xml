@@ -5,7 +5,7 @@
         <field name="inherit_id" ref="product.product_template_form_view"/>
         <field name="type">form</field>
         <field name="arch" type="xml">
-            <button name="toggle_active" position="after">
+            <xpath expr="//div[@name='button_box']" position="inside">
                 <button class="oe_stat_button" name="product_item_count" icon="fa-th-list" type="object" groups="sysadmin_base.group_sysadmin_sysadmin">
                     <div class="o_field_widget o_stat_info">
                         <span class="o_stat_value">
@@ -14,7 +14,7 @@
                         <span class="o_stat_text">Items</span>
                     </div>
                 </button>
-            </button>
+            </xpath>
             <xpath expr="//div/field[@name='sale_ok']/.." position="after">
                 <div groups="sysadmin_base.group_sysadmin_sysadmin">
                     <field name="internal_equipment"/>
