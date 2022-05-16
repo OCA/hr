@@ -26,7 +26,6 @@ class HrPayslipChangeState(models.TransientModel):
              \n* When user cancel payslip the status is 'Rejected'.",
     )
 
-    @api.multi
     def change_state_confirm(self):
         record_ids = self.env.context.get("active_ids", False)
         payslip_obj = self.env["hr.payslip"]
@@ -81,7 +80,6 @@ class HrPayslipChangeState(models.TransientModel):
         return {
             "domain": "[('id','in', [" + ",".join(map(str, record_ids)) + "])]",
             "name": _("Payslips"),
-            "view_type": "form",
             "view_mode": "tree,form",
             "res_model": "hr.payslip",
             "view_id": False,

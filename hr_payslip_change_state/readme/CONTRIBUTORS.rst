@@ -3,3 +3,5 @@
 * Andhitia Rama <andhitia.r@gmail.com>
 * Lois Rilo <lois.rilo@eficent.com>
 * Serpent Consulting Services Pvt. Ltd. <support@serpentcs.com>
+* Juany Davila <juany.davila@forgeflow.com>
+
