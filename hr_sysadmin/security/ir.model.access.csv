@@ -1,13 +1,13 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-sysadmin_group_workspaces_access,SysAdmin Workspaces managing,model_workspace_workspace,sysadmin_base.group_sysadmin_sysadmin,1,1,1,1
-sysadmin_group_workspace_items_access,SysAdmin Workspace Items managing,model_workspace_item,sysadmin_base.group_sysadmin_sysadmin,1,1,1,1
-sysadmin_group_item_subsidies_access,SysAdmin Items Subsidies managing,model_workspace_item_subsidy,sysadmin_base.group_sysadmin_sysadmin,1,1,1,1
-sysadmin_group_hr_employee_access,SysAdmin Employee managing,model_hr_employee,sysadmin_base.group_sysadmin_sysadmin,1,0,0,0
-employee_group_workspace_items_access,Employees Workspaces Items view and modify,model_workspace_item,sysadmin_base.group_sysadmin_employee,1,1,0,0
-employee_group_workspaces_view,Employees Workspaces view,model_workspace_workspace,sysadmin_base.group_sysadmin_employee,1,0,0,0
-booking_group_workspace_item_view,Employees Workspace items view and edit,model_workspace_item,sysadmin_base.group_sysadmin_booking,1,1,0,0
+sysadmin_group_workspaces_access,SysAdmin Workspaces managing,model_workspace_workspace,hr_sysadmin.group_sysadmin_sysadmin,1,1,1,1
+sysadmin_group_workspace_items_access,SysAdmin Workspace Items managing,model_workspace_item,hr_sysadmin.group_sysadmin_sysadmin,1,1,1,1
+sysadmin_group_item_subsidies_access,SysAdmin Items Subsidies managing,model_workspace_item_subsidy,hr_sysadmin.group_sysadmin_sysadmin,1,1,1,1
+sysadmin_group_hr_employee_access,SysAdmin Employee managing,model_hr_employee,hr_sysadmin.group_sysadmin_sysadmin,1,0,0,0
+employee_group_workspace_items_access,Employees Workspaces Items view and modify,model_workspace_item,hr_sysadmin.group_sysadmin_employee,1,1,0,0
+employee_group_workspaces_view,Employees Workspaces view,model_workspace_workspace,hr_sysadmin.group_sysadmin_employee,1,0,0,0
+booking_group_workspace_item_view,Employees Workspace items view and edit,model_workspace_item,hr_sysadmin.group_sysadmin_booking,1,1,0,0
 internal_user_workspace_items_view,Internal User Workspaces Items view,model_workspace_item,base.group_user,1,0,0,0
 internal_user_workspaces_view,Internal User Workspaces view,model_workspace_workspace,base.group_user,1,0,0,0
-sysadmin_group_stock_move_view,SysAdmin Stock Move view,stock.model_stock_move,sysadmin_base.group_sysadmin_sysadmin,1,0,0,0
-sysadmin_group_product_product_access,SysAdmin Products managing,product.model_product_product,sysadmin_base.group_sysadmin_sysadmin,1,0,0,0
-sysadmin_group_product_template_access,SysAdmin Product Templates managing,product.model_product_template,sysadmin_base.group_sysadmin_sysadmin,1,0,0,0
+sysadmin_group_stock_move_view,SysAdmin Stock Move view,stock.model_stock_move,hr_sysadmin.group_sysadmin_sysadmin,1,0,0,0
+sysadmin_group_product_product_access,SysAdmin Products managing,product.model_product_product,hr_sysadmin.group_sysadmin_sysadmin,1,0,0,0
+sysadmin_group_product_template_access,SysAdmin Product Templates managing,product.model_product_template,hr_sysadmin.group_sysadmin_sysadmin,1,0,0,0

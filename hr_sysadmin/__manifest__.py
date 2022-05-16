@@ -28,6 +28,7 @@
     'depends': [
         'hr',
         'product',
+        'stock',
     ],
     'data': [
         'data/mail_activity_data.xml',
