@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="view_employee_form" model="ir.ui.view">
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <div name="button_box" position="inside">
+                <button class="oe_stat_button" name="button_employee_items" icon="fa-th-list" type="object" groups="sysadmin_base.group_sysadmin_sysadmin">
+                    <div class="o_field_widget o_stat_info">
+                        <span class="o_stat_text">Items</span>
+                    </div>
+                </button>
+            </div>
+            <page name="public" position="after">
+                <page name="internal_tools" string="Internal Tools" groups="sysadmin_base.group_sysadmin_sysadmin">
+                    <button string="Edit Internal Tools" name="action_button_internal_tools" type="object" groups="sysadmin_base.group_sysadmin_sysadmin"/>
+                    <group>
+                        <field name="has_voip_switchboard_access"/>
+                        <field name="has_keys"/>
+                        <field name="has_alarm"/>
+                        <field name="is_trainee"/>
+                    </group>
+                    <notebook>
+                        <page name="employee_items" string="Items">
+                            <field name="item_ids" context="{'default_employee_id': active_id}">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="description"/>
+                                    <field name="internal_reference"/>
+                                    <field name="workspace_id"/>
+                                    <field name="workspace_location"/>
+                                    <field name="subsidy_id"/>
+                                    <field name="company"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page name="employee_workspaces" string="Workspaces">
+                            <field name="workspace_ids">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="description"/>
+                                    <field name="location"/>
+                                    <field name="workspace_id"/>
+                                    <field name="item_count"/>
+                                    <field name="employee_ids"/>
+                                    <field name="employee_item_count"/>
+                                    <field name="workspace_ids"/>
+                                    <field name="internal_item_count"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </page>
+            </page>
+        </field>
+    </record>
+    <record id="view_employee_tree" model="ir.ui.view">
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_tree"/>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <field name="work_phone" position="after">
+                <field name="has_voip_switchboard_access"/>
+                <field name="has_keys"/>
+                <field name="has_alarm"/>
+                <field name="is_trainee"/>
+            </field>
+        </field>
+    </record>
+    <record id="view_employee_filter" model="ir.ui.view">
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_filter"/>
+        <field name="type">search</field>
+        <field name="arch" type="xml">
+            <filter name="activities_upcoming_all" position="after">
+                <separator/>
+                <filter name="voip_switchboard_access" string="Has VoIP Switchboard access" domain="[('has_voip_switchboard_access','=',True)]"/>
+                <filter name="filter_has_keys" string="Has Keys" domain="[('has_keys','=',True)]"/>
+                <filter name="filter_alarm" string="Alarm" domain="[('has_alarm','=',True)]"/>
+            </filter>
+            <filter name="group_job" position="after">
+                <filter name="group_is_trainee" string="Is trainee" domain="[]" context="{'group_by':'is_trainee'}"/>
+            </filter>
+        </field>
+    </record>
+</odoo>

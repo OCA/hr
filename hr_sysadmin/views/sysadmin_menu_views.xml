@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="action_list_catalogue" model="ir.actions.act_window">
+        <field name="name">Catalogue</field>
+        <field name="res_model">product.template</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="search_view_id" ref="product.product_template_search_view"/>
+        <field name="context">{
+            'search_default_internal_equipment':1,
+            'default_internal_equipment':1,
+            'default_comission_free':0,
+            'default_sale_ok':0,
+            'default_purchase_ok':0,
+            'default_type':'consu',
+            'search_default_group_categ_id': 1,}</field>
+    </record>
+    <record id="action_list_employees" model="ir.actions.act_window">
+        <field name="name">Employees</field>
+        <field name="res_model">hr.employee</field>
+        <field name="view_mode">kanban,tree,form</field>
+    </record>
+    <record id="action_list_items_of_employees" model="ir.actions.act_window">
+        <field name="name">Items of Employees</field>
+        <field name="res_model">hr.employee.items</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <record id="action_list_workspaces" model="ir.actions.act_window">
+        <field name="name">Workspaces</field>
+        <field name="res_model">workspace.workspace</field>
+        <field name="view_mode">kanban,tree,form</field>
+    </record>
+    <record id="action_list_items" model="ir.actions.act_window">
+        <field name="name">Items</field>
+        <field name="res_model">workspace.item</field>
+        <field name="view_mode">tree,kanban,pivot,form</field>
+    </record>
+    <record id="action_list_subsidies" model="ir.actions.act_window">
+        <field name="name">Subsidies</field>
+        <field name="res_model">workspace.item.subsidy</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <record id="action_list_employee_workspace_items" model="ir.actions.act_window">
+        <field name="name">My Workspace Items</field>
+        <field name="res_model">workspace.item</field>
+        <field name="view_mode">kanban</field>
+        <field name="domain">[('workspace_id.employee_ids.user_id', '=', uid)]</field>
+    </record>
+    <menuitem id="menu_sysadmin_root" name="SysAdmin" groups="group_sysadmin_sysadmin,group_sysadmin_employee,group_sysadmin_booking" web_icon="sysadmin_base,static/description/icon.png"/>
+    <menuitem id="menu_internal_equipment_products" name="Catalogue" parent="menu_sysadmin_root" action="action_list_catalogue" sequence="1" groups="group_sysadmin_sysadmin"/>
+    <menuitem id="menu_employees_submenu" name="Employees" parent="menu_sysadmin_root" sequence="2" groups="group_sysadmin_sysadmin"/>
+    <menuitem id="menu_employees" name="Employees" parent="menu_employees_submenu" action="action_list_employees" sequence="1" groups="group_sysadmin_sysadmin"/>
+    <menuitem id="menu_items_of_employees" name="Items of Employees" parent="menu_employees_submenu" action="action_list_items_of_employees" sequence="2" groups="group_sysadmin_sysadmin"/>
+    <menuitem id="menu_workspaces" name="Workspaces" parent="menu_sysadmin_root" action="action_list_workspaces" sequence="3" groups="group_sysadmin_sysadmin"/>
+    <menuitem id="menu_items" name="Items" parent="menu_sysadmin_root" action="action_list_items" sequence="4" groups="group_sysadmin_sysadmin,group_sysadmin_booking"/>
+    <menuitem id="menu_subsidies" name="Subsidies" parent="menu_sysadmin_root" action="action_list_subsidies" sequence="5" groups="group_sysadmin_sysadmin"/>
+    <menuitem id="menu_employee_workspace_items" name="My Workspace Items" parent="menu_sysadmin_root" action="action_list_employee_workspace_items" sequence="6" groups="group_sysadmin_employee"/>
+</odoo>
