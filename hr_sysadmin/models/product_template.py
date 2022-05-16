@@ -18,12 +18,12 @@ class ProductTemplate(models.Model):
         compute='_compute_item_count',
     )
 
-    @api.one
     def _compute_item_count(self):
-        self.item_count = self.env['workspace.item'].search(
-            [('product_id', '=', self.id)],
-            count=True,
-        )
+        for rec in self:
+            rec.item_count = self.env['workspace.item'].search(
+                [('product_id', '=', rec.id)],
+                count=True,
+            )
 
     def product_item_count(self):
         return{

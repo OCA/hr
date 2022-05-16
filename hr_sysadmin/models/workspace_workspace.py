@@ -57,18 +57,16 @@ class Workspace(models.Model):
         compute='_compute_employee_item_count',
     )
 
-    @api.one
     def _compute_item_count(self):
-        self.item_count = 0
-        for item in self.item_ids:
-            self.item_count += 1
+        for rec in self:
+            rec.item_count = len(rec.item_ids)
 
-    @api.one
     def _compute_employee_count(self):
-        self.employee_count = self.env['hr.employee'].search(
-            [('workspace_ids', 'like', self.id)],
-            count=True,
-        )
+        for rec in self:
+            rec.employee_count = self.env['hr.employee'].search(
+                [('workspace_ids', 'like', rec.id)],
+                count=True,
+            )
 
     def _internal_workspaces(self):
         internal_workspaces = self.workspace_ids
@@ -77,14 +75,14 @@ class Workspace(models.Model):
                 internal_workspaces += workspace._internal_workspaces()
         return internal_workspaces
 
-    @api.one
     @api.depends('workspace_ids')
     def _compute_internal_item_count(self):
-        self.internal_item_count = 0
-        if self._internal_workspaces():
-            for workspace in self._internal_workspaces():
-                for item in workspace.item_ids:
-                    self.internal_item_count += 1
+        for rec in self:
+            rec.internal_item_count = 0
+            if rec._internal_workspaces():
+                for workspace in rec._internal_workspaces():
+                    for item in workspace.item_ids:
+                        rec.internal_item_count += 1
 
     def button_internal_item_count(self):
         workspaces = self._internal_workspaces()
@@ -97,14 +95,14 @@ class Workspace(models.Model):
             'domain': [('workspace_id', 'in', workspaces.ids)],
         }
 
-    @api.one
     @api.depends('employee_ids')
     def _compute_employee_item_count(self):
-        self.employee_item_count = 0
-        if len(self.employee_ids) > 0:
-            for employee in self.employee_ids:
-                for item in employee.item_ids:
-                    self.employee_item_count += 1
+        for rec in self:
+            rec.employee_item_count = 0
+            if len(rec.employee_ids) > 0:
+                for employee in rec.employee_ids:
+                    for item in employee.item_ids:
+                        rec.employee_item_count += 1
 
     def button_employee_item_count(self):
         return{

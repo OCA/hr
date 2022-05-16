@@ -28,8 +28,6 @@ class WorkspaceItemSubsidy(models.Model):
         compute="_compute_item_count",
     )
 
-    @api.one
     def _compute_item_count(self):
-        self.item_count = 0
-        for item in self.item_ids:
-            self.item_count += 1
+        for rec in self:
+            rec.item_count = len(rec.item_count)
