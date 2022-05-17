@@ -105,7 +105,7 @@ class HrPersonalEquipment(models.Model):
                 )
                 self.env["procurement.group"].sudo().run([procurement])
             except UserError as error:
-                errors.append(error.name)
+                errors.append(error.args[0])
         if errors:
             raise UserError("\n".join(errors))
         return True
