@@ -10,8 +10,8 @@ class StockPicking(models.Model):
 
     equipment_request_id = fields.Many2one(related="group_id.equipment_request_id")
 
-    def action_done(self):
-        super().action_done()
+    def _action_done(self):
+        super()._action_done()
         if self.equipment_request_id:
             for move in self.move_ids_without_package:
                 if move.state == "done":

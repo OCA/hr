@@ -9,7 +9,7 @@
         <field name="groups_id" eval="[(4, ref('hr.group_hr_user'))]" />
         <field name="arch" type="xml">
             <xpath
-                expr="//page[@name='extra']//group//field[@name='priority']"
+                expr="//page[@name='extra']//group//field[@name='company_id']"
                 position="after"
             >
                 <field name="equipment_request_id" />
