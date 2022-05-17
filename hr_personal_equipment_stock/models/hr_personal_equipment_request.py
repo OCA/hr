@@ -51,6 +51,6 @@ class HrPersonalEquipmentRequest(models.Model):
 
     def action_view_pickings(self):
         self.ensure_one()
-        action = self.env.ref("stock.action_picking_tree_all").read()[0]
+        action = self.env.ref("stock.action_picking_tree_all").sudo().read()[0]
         action["domain"] = [("equipment_request_id", "=", self.id)]
         return action
