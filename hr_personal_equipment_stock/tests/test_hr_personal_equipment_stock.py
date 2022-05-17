@@ -167,7 +167,7 @@ class TestHRPersonalEquipment(TransactionCase):
         move = allocation.move_ids[0]
         move.quantity_done = allocation.quantity
         picking = self.personal_equipment_request.picking_ids[0]
-        picking.action_done()
+        picking._action_done()
         self.assertEqual(allocation.qty_delivered, allocation.quantity)
         self.assertEqual(allocation.state, "valid")
 
@@ -201,7 +201,7 @@ class TestHRPersonalEquipment(TransactionCase):
         move = allocation.move_ids[0]
         move.quantity_done = allocation.quantity - 1
         picking = self.personal_equipment_request.picking_ids[0]
-        picking.action_done()
+        picking._action_done()
         back_order = self.personal_equipment_request.picking_ids[1]
         back_order.action_cancel()
         self.assertEqual(allocation.qty_delivered, allocation.quantity - 1)
