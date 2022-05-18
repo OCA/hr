@@ -14,11 +14,6 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: hr_contract_reference
-#: model:ir.model,name:hr_contract_reference.model_hr_contract
-msgid "Contract"
-msgstr ""
-
-#. module: hr_contract_reference
 #: model:ir.model.fields,field_description:hr_contract_reference.field_hr_contract__name
 msgid "Contract Reference"
 msgstr ""
@@ -26,6 +21,11 @@ msgstr ""
 #. module: hr_contract_reference
 #: model:ir.model.fields,field_description:hr_contract_reference.field_hr_contract__display_name
 msgid "Display Name"
+msgstr ""
+
+#. module: hr_contract_reference
+#: model:ir.model,name:hr_contract_reference.model_hr_contract
+msgid "Employee Contract"
 msgstr ""
 
 #. module: hr_contract_reference
