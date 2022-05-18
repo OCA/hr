@@ -17,11 +17,6 @@ msgstr ""
 "X-Generator: Weblate 4.3.2\n"
 
 #. module: hr_contract_currency
-#: model:ir.model,name:hr_contract_currency.model_hr_contract
-msgid "Contract"
-msgstr "Vertrag"
-
-#. module: hr_contract_currency
 #: model:ir.model.fields,field_description:hr_contract_currency.field_hr_contract__currency_id
 msgid "Currency"
 msgstr "Währung"
@@ -32,6 +27,11 @@ msgid "Display Name"
 msgstr "Anzeigename"
 
 #. module: hr_contract_currency
+#: model:ir.model,name:hr_contract_currency.model_hr_contract
+msgid "Employee Contract"
+msgstr ""
+
+#. module: hr_contract_currency
 #: model:ir.model.fields,field_description:hr_contract_currency.field_hr_contract__id
 msgid "ID"
 msgstr "ID"
@@ -40,3 +40,6 @@ msgstr "ID"
 #: model:ir.model.fields,field_description:hr_contract_currency.field_hr_contract____last_update
 msgid "Last Modified on"
 msgstr "Zuletzt geändert am"
+
+#~ msgid "Contract"
+#~ msgstr "Vertrag"
