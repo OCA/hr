@@ -10,8 +10,8 @@ msgstr ""
 "POT-Creation-Date: 2015-08-18 13:10+0000\n"
 "PO-Revision-Date: 2021-07-09 14:48+0000\n"
 "Last-Translator: Maria Sparenberg <maria.sparenberg@gmx.net>\n"
-"Language-Team: German (http://www.transifex.com/oca/OCA-hr-8-0/language/de/)"
-"\n"
+"Language-Team: German (http://www.transifex.com/oca/OCA-hr-8-0/language/"
+"de/)\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,6 +25,21 @@ msgid "Contract Reference"
 msgstr "Vertragsreferenz"
 
 #. module: hr_contract_reference
+#: model:ir.model.fields,field_description:hr_contract_reference.field_hr_contract__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: hr_contract_reference
 #: model:ir.model,name:hr_contract_reference.model_hr_contract
 msgid "Employee Contract"
 msgstr "Arbeitsvertrag"
+
+#. module: hr_contract_reference
+#: model:ir.model.fields,field_description:hr_contract_reference.field_hr_contract__id
+msgid "ID"
+msgstr ""
+
+#. module: hr_contract_reference
+#: model:ir.model.fields,field_description:hr_contract_reference.field_hr_contract____last_update
+msgid "Last Modified on"
+msgstr ""
