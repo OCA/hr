@@ -19,7 +19,6 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #. module: hr_contract_multi_job
-#: model:ir.model,name:hr_contract_multi_job.model_hr_contract
 #: model:ir.model.fields,field_description:hr_contract_multi_job.field_hr_contract_job__contract_id
 msgid "Contract"
 msgstr "Contrato"
@@ -40,12 +39,22 @@ msgid "Created on"
 msgstr "Criado em"
 
 #. module: hr_contract_multi_job
+#: model:ir.model.fields,field_description:hr_contract_multi_job.field_hr_contract__display_name
 #: model:ir.model.fields,field_description:hr_contract_multi_job.field_hr_contract_job__display_name
+#: model:ir.model.fields,field_description:hr_contract_multi_job.field_hr_job__display_name
 msgid "Display Name"
 msgstr ""
 
 #. module: hr_contract_multi_job
+#: model:ir.model,name:hr_contract_multi_job.model_hr_contract
+#, fuzzy
+msgid "Employee Contract"
+msgstr "Contrato"
+
+#. module: hr_contract_multi_job
+#: model:ir.model.fields,field_description:hr_contract_multi_job.field_hr_contract__id
 #: model:ir.model.fields,field_description:hr_contract_multi_job.field_hr_contract_job__id
+#: model:ir.model.fields,field_description:hr_contract_multi_job.field_hr_job__id
 msgid "ID"
 msgstr ""
 
@@ -80,7 +89,9 @@ msgid "Jobs"
 msgstr ""
 
 #. module: hr_contract_multi_job
+#: model:ir.model.fields,field_description:hr_contract_multi_job.field_hr_contract____last_update
 #: model:ir.model.fields,field_description:hr_contract_multi_job.field_hr_contract_job____last_update
+#: model:ir.model.fields,field_description:hr_contract_multi_job.field_hr_job____last_update
 msgid "Last Modified on"
 msgstr ""
 
@@ -109,7 +120,3 @@ msgstr ""
 #, python-format
 msgid "You must assign one and only one job position as main job position."
 msgstr ""
-
-#, fuzzy
-#~ msgid "Employee Contract"
-#~ msgstr "Contrato"
