@@ -14,7 +14,6 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: hr_contract_multi_job
-#: model:ir.model,name:hr_contract_multi_job.model_hr_contract
 #: model:ir.model.fields,field_description:hr_contract_multi_job.field_hr_contract_job__contract_id
 msgid "Contract"
 msgstr ""
@@ -39,6 +38,11 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_contract_multi_job.field_hr_contract_job__display_name
 #: model:ir.model.fields,field_description:hr_contract_multi_job.field_hr_job__display_name
 msgid "Display Name"
+msgstr ""
+
+#. module: hr_contract_multi_job
+#: model:ir.model,name:hr_contract_multi_job.model_hr_contract
+msgid "Employee Contract"
 msgstr ""
 
 #. module: hr_contract_multi_job
