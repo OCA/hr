@@ -1,6 +1,6 @@
 # © 2012 Odoo Canada
 # © 2015 Acysos S.L.
-# © 2017 Eficent Business and IT Consulting Services S.L.
+# © 2017 ForgeFlow S.L.
 # Copyright 2017 Serpent Consulting Services Pvt. Ltd.
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html)
 
@@ -19,10 +19,12 @@ class HrPayslip(models.Model):
                 number_of_hours += ts.unit_amount
         # Get formated date from the timesheet sheet
         date_from_formated = ts_sheet.date_start
-        if number_of_hours > 0:
+        number_of_days = (date_to - date_from).days
+        if number_of_hours > 0 and number_of_days > 0:
             return {
                 "name": _("Timesheet %s") % date_from_formated,
                 "number_of_hours": number_of_hours,
+                "number_of_days": number_of_days,
                 "contract_id": payslip.contract_id.id,
                 "code": "TS",
                 "imported_from_timesheet": True,
@@ -31,7 +33,6 @@ class HrPayslip(models.Model):
             }
         return False
 
-    @api.multi
     def _timesheet_mapping(self, timesheet_sheets, payslip, date_from, date_to):
         """This function takes timesheet objects imported from the timesheet
         module and creates a dict of worked days to be created in the payslip.
@@ -44,7 +45,6 @@ class HrPayslip(models.Model):
             if worked_days_data:
                 self.env["hr.payslip.worked_days"].create(worked_days_data)
 
-    @api.multi
     def _check_contract(self):
         """Contract is not required field for payslips, yet it is for
         payslips.worked_days."""
@@ -67,14 +67,12 @@ class HrPayslip(models.Model):
         if not timesheet_sheets:
             raise UserError(
                 _(
-                    "Sorry, but there is no approved Timesheets for the \
-                entire Payslip period for user %s"
+                    "Sorry, but there is no approved Timesheets "
+                    "for the entire Payslip period for user {}".format(employee.name)
                 )
-                % employee.name,
             )
         return timesheet_sheets
 
-    @api.multi
     def import_worked_days(self):
         """This method retreives the employee's timesheets for a payslip period
         and creates worked days records from the imported timesheets
