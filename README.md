@@ -42,6 +42,7 @@ addon | version | maintainers | summary
 [hr_employee_ssn](hr_employee_ssn/) | 14.0.1.0.0 |  | View/edit employee's SSN & SIN fields
 [hr_job_category](hr_job_category/) | 14.0.1.0.0 |  | Adds tags to employee through contract and job position
 [hr_org_chart_overview](hr_org_chart_overview/) | 14.0.1.0.0 |  | Organizational Chart Overview
+[hr_period](hr_period/) | 14.0.1.0.0 |  | Add payroll periods
 [hr_personal_equipment_request](hr_personal_equipment_request/) | 14.0.1.0.0 |  | This addon allows to manage employee personal equipment
 [hr_recruitment_notification](hr_recruitment_notification/) | 14.0.1.0.0 | [![joao-p-marques](https://github.com/joao-p-marques.png?size=30px)](https://github.com/joao-p-marques) | Configure automatic notifications for new applications
 
