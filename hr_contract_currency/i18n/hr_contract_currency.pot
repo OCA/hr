@@ -14,11 +14,6 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: hr_contract_currency
-#: model:ir.model,name:hr_contract_currency.model_hr_contract
-msgid "Contract"
-msgstr ""
-
-#. module: hr_contract_currency
 #: model:ir.model.fields,field_description:hr_contract_currency.field_hr_contract__currency_id
 msgid "Currency"
 msgstr ""
@@ -26,6 +21,11 @@ msgstr ""
 #. module: hr_contract_currency
 #: model:ir.model.fields,field_description:hr_contract_currency.field_hr_contract__display_name
 msgid "Display Name"
+msgstr ""
+
+#. module: hr_contract_currency
+#: model:ir.model,name:hr_contract_currency.model_hr_contract
+msgid "Employee Contract"
 msgstr ""
 
 #. module: hr_contract_currency
