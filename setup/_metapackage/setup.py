@@ -26,6 +26,7 @@ setuptools.setup(
         'odoo14-addon-hr_employee_ppe',
         'odoo14-addon-hr_employee_relative',
         'odoo14-addon-hr_employee_service',
+        'odoo14-addon-hr_employee_service_contract',
         'odoo14-addon-hr_employee_ssn',
         'odoo14-addon-hr_holidays_settings',
         'odoo14-addon-hr_job_category',
