@@ -26,12 +26,12 @@
                     <field
                         name="ppe_duration"
                         string="PPE Duration"
-                        attrs="{'invisible': [('expirable_ppe', '=', False)], 'required': [('expirable_ppe', '!=', False)]}"
+                        attrs="{'invisible': ['|', ('expirable_ppe', '=', False), ('is_ppe', '=', False)], 'required': [('expirable_ppe', '!=', False), ('is_ppe', '!=', False)]}"
                     />
                     <field
                         name="ppe_interval_type"
                         string="PPE Interval Type"
-                        attrs="{'invisible': [('expirable_ppe', '=', False)], 'required': [('expirable_ppe', '!=', False)]}"
+                        attrs="{'invisible': ['|', ('expirable_ppe', '=', False), ('is_ppe', '=', False)], 'required': [('expirable_ppe', '!=', False), ('is_ppe', '!=', False)]}"
                     />
                 </group>
             </page>
