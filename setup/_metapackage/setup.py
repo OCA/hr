@@ -8,6 +8,7 @@ setuptools.setup(
     description="Meta package for oca-hr Odoo addons",
     version=version,
     install_requires=[
+        'odoo-addon-hr_course>=15.0dev,<15.1dev',
         'odoo-addon-hr_employee_firstname>=15.0dev,<15.1dev',
         'odoo-addon-hr_employee_lastnames>=15.0dev,<15.1dev',
         'odoo-addon-hr_employee_service>=15.0dev,<15.1dev',
