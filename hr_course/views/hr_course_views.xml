@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2019 Creu Blanca
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="hr_course_form_view" model="ir.ui.view">
+        <field name="name">hr.course.form</field>
+        <field name="model">hr.course</field>
+        <field name="arch" type="xml">
+            <form string="Courses">
+                <sheet string="Course">
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Course name" />
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="category_id" />
+                            <field name="permanence" />
+                            <field
+                                name="permanence_time"
+                                attrs="{'invisible': [('permanence','=',False)]}"
+                            />
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="content" string="Content">
+                            <field name="content" />
+                        </page>
+                        <page name="objective" string="Objective">
+                            <field name="objective" />
+                        </page>
+                        <page name="evaluation_criteria" string="Evaluation criteria">
+                            <field name="evaluation_criteria" />
+                        </page>
+                        <page string="Schedules">
+                            <field name="course_schedule_ids" />
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="hr_course_tree_view" model="ir.ui.view">
+        <field name="name">hr.course.tree</field>
+        <field name="model">hr.course</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="category_id" />
+                <field name="content" />
+                <field name="objective" />
+            </tree>
+        </field>
+    </record>
+    <record id="action_hr_course" model="ir.actions.act_window">
+        <field name="name">Courses</field>
+        <field name="res_model">hr.course</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem
+        id="menu_hr_course"
+        name="Courses"
+        parent="hr.menu_hr_root"
+        groups="hr.group_hr_manager"
+    />
+    <menuitem
+        id="menu_hr_course_courses"
+        name="Courses"
+        parent="hr_course.menu_hr_course"
+        groups="hr.group_hr_manager"
+        action="action_hr_course"
+    />
+</odoo>
