@@ -12,6 +12,7 @@ setuptools.setup(
         'odoo14-addon-hr_contract_currency',
         'odoo14-addon-hr_contract_multi_job',
         'odoo14-addon-hr_contract_reference',
+        'odoo14-addon-hr_contract_type',
         'odoo14-addon-hr_course',
         'odoo14-addon-hr_course_survey',
         'odoo14-addon-hr_department_code',
