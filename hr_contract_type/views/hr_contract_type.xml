@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2021 Creu Blanca
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record model="ir.ui.view" id="hr_contract_type_form_view">
+        <field name="name">hr.contract.type.form (in hr_contract_type)</field>
+        <field name="model">hr.contract.type</field>
+        <field name="arch" type="xml">
+            <form>
+                <header />
+                <sheet>
+                    <group>
+                        <field name="name" />
+                    </group>
+                </sheet>
+                <div class="oe_chatter" />
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="hr_contract_type_search_view">
+        <field name="name">hr.contract.type.search (in hr_contract_type)</field>
+        <field name="model">hr.contract.type</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" />
+            </search>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="hr_contract_type_tree_view">
+        <field name="name">hr.contract.type.tree (in hr_contract_type)</field>
+        <field name="model">hr.contract.type</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="hr_contract_type_act_window">
+        <field name="name">Contract Types</field>
+        <field name="res_model">hr.contract.type</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+    </record>
+    <record model="ir.ui.menu" id="hr_contract_type_menu">
+        <field name="name">Contract Types</field>
+        <field
+            name="parent_id"
+            ref="hr_contract.menu_human_resources_configuration_contract"
+        />
+        <field name="action" ref="hr_contract_type_act_window" />
+        <field name="sequence" eval="16" />
+    </record>
+</odoo>
