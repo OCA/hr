@@ -23,6 +23,7 @@ setuptools.setup(
         'odoo14-addon-hr_employee_id',
         'odoo14-addon-hr_employee_lastnames',
         'odoo14-addon-hr_employee_medical_examination',
+        'odoo14-addon-hr_employee_partner_external',
         'odoo14-addon-hr_employee_phone_extension',
         'odoo14-addon-hr_employee_ppe',
         'odoo14-addon-hr_employee_relative',
