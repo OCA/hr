@@ -103,7 +103,7 @@ msgstr "Asistente"
 #. module: hr_course_survey
 #: model:mail.template,subject:hr_course_survey.mail_template_user_input_invite
 msgid "Participate to ${object.survey_id.title} survey"
-msgstr "Participa a en la encuesta ${object.surey_id.title}"
+msgstr "Participa a en la encuesta ${object.survey_id.title}"
 
 #. module: hr_course_survey
 #: model_terms:ir.ui.view,arch_db:hr_course_survey.hr_course_attendee_tree_view
