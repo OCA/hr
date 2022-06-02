@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_partner_form_reference" model="ir.ui.view">
+        <field name="name">res.partner.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form" />
+        <field name="arch" type="xml">
+            <field name="vat" position="before">
+                <field name="is_employee" invisible="1" />
+                <field
+                    name="hr_employee_id"
+                    attrs="{'invisible': [('is_employee', '=', False)]}"
+                />
+            </field>
+        </field>
+    </record>
+
+</odoo>
