@@ -1,7 +1,7 @@
 # Copyright (C) 2018-2019 Brainbean Apps (https://brainbeanapps.com)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from datetime import timedelta
+from datetime import datetime, time, timedelta
 from math import fabs
 
 from dateutil.relativedelta import relativedelta
@@ -99,4 +99,8 @@ class HrEmployee(models.Model):
 
     # NOTE: Support odoo/odoo@90731ad170c503cdfe89a9998fa1d1e2a5035c86
     def _get_date_start_work(self):
-        return self.sudo().service_start_date or super()._get_date_start_work()
+        service_start_date = self.sudo().service_start_date
+        if service_start_date:
+            return datetime.combine(service_start_date, time(0, 0, 0))
+        else:
+            return super()._get_date_start_work()
