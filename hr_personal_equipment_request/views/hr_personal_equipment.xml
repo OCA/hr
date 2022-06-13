@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2021 Creu Blanca
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record model="ir.ui.view" id="hr_personal_equipment_form_view">
+        <field
+            name="name"
+        >hr.personal.equipment.form (in hr_personal_equipment_request)</field>
+        <field name="model">hr.personal.equipment</field>
+        <field name="arch" type="xml">
+            <form string="Employee Personal Equipment" create="0">
+                <header>
+                    <button
+                        type="object"
+                        string="Validate"
+                        name="validate_allocation"
+                        confirm="Are you sure you want to validate this personal equipment allocation?"
+                        class="oe_highlight"
+                        states="accepted"
+                        groups="hr.group_hr_user"
+                    />
+                    <button
+                        type="object"
+                        string="Expire"
+                        name="expire_allocation"
+                        confirm="Are you sure you want to expire this personal equipment allocation?"
+                        states="valid"
+                        groups="hr.group_hr_user"
+                    />
+                    <field
+                        name="state"
+                        widget="statusbar"
+                        statusbar_visible="draft,accepted,valid,expired"
+                    />
+                </header>
+                <sheet>
+                    <field name="name" invisible="1" />
+                    <group name="main">
+                        <field
+                            name="employee_id"
+                            attrs="{'readonly': [('state', '!=', 'draft')]}"
+                            groups="hr.group_hr_user"
+                        />
+                        <field
+                            name="product_id"
+                            attrs="{'readonly': [('state', '!=', 'draft')]}"
+                        />
+                        <field
+                            name="quantity"
+                            attrs="{'readonly': [('state', '!=', 'draft')]}"
+                        />
+                        <field
+                            name="product_uom_id"
+                            attrs="{'readonly': [('state', '!=', 'draft')]}"
+                        />
+                    </group>
+                    <group>
+                        <field
+                            name="equipment_request_id"
+                            attrs="{'readonly': [('state', '!=', 'draft')]}"
+                        />
+                    </group>
+                    <group name="date">
+                        <field
+                            name="start_date"
+                            attrs="{'readonly': [('state', 'not in', ('draft','accepted'))]}"
+                        />
+                        <field
+                            name="expiry_date"
+                            attrs="{'readonly': [('state', 'not in', ('draft','accepted'))], 'invisible': [('state', '!=', 'expired')]}"
+                        />
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers" />
+                    <field name="activity_ids" widget="mail_activity" />
+                    <field name="message_ids" widget="mail_thread" />
+                </div>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="hr_personal_equipment_tree_view">
+        <field
+            name="name"
+        >hr.personal.equipment.tree (in hr_personal_equipment_request)</field>
+        <field name="model">hr.personal.equipment</field>
+        <field name="arch" type="xml">
+            <tree
+                create="0"
+                decoration-info="state=='accepted'"
+                decoration-success="state=='valid'"
+                decoration-muted="state=='cancelled'"
+                decoration-danger="state=='expired'"
+            >
+                <field name="name" invisible="1" />
+                <field name="product_id" />
+                <field name="employee_id" groups="hr.group_hr_user" />
+                <field name="quantity" />
+                <field name="product_uom_id" />
+                <field name="start_date" />
+                <field name="state" />
+                <field name="equipment_request_id" invisible="1" />
+            </tree>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="hr_personal_equipment_search_view">
+        <field
+            name="name"
+        >hr.personal.equipment.search (in hr_personal_equipment_request)</field>
+        <field name="model">hr.personal.equipment</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" />
+                <field name="state" />
+                <field name="employee_id" groups="hr.group_hr_user" />
+                <field name="product_id" />
+                <group expand="0" name="group_by" string="Group By">
+                    <filter
+                        name="filter_state"
+                        string="State"
+                        context="{'group_by' : 'state'}"
+                    />
+                    <filter
+                        name="filter_product_id"
+                        string="Product"
+                        context="{'group_by' : 'product_id'}"
+                    />
+                    <filter
+                        name="filter_employee_id"
+                        string="Employee"
+                        context="{'group_by' : 'employee_id'}"
+                    />
+                </group>
+                <filter
+                    string="In Draft"
+                    name="filter_draft_state"
+                    domain="[('state', '=', 'draft')]"
+                />
+                <filter
+                    string="Accepted"
+                    name="filter_accepted_state"
+                    domain="[('state', '=', 'accepted')]"
+                />
+                <filter
+                    string="Valid"
+                    name="filter_valid_state"
+                    domain="[('state', '=', 'valid')]"
+                />
+                <filter
+                    string="Expired"
+                    name="filter_expired_state"
+                    domain="[('state', '=', 'expired')]"
+                />
+            </search>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="hr_personal_equipment_act_window">
+        <field name="name">Allocations</field>
+        <field name="res_model">hr.personal.equipment</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{'search_default_filter_valid_state':1}</field>
+    </record>
+    <record model="ir.ui.menu" id="hr_personal_equipment_menu">
+        <field name="name">Personal Equipment</field>
+        <field name="parent_id" ref="hr.menu_hr_root" />
+        <field name="sequence" eval="16" />
+    </record>
+    <record model="ir.ui.menu" id="hr_personal_equipment_allocations_menu">
+        <field name="name">Allocations</field>
+        <field name="parent_id" ref="hr_personal_equipment_menu" />
+        <field name="action" ref="hr_personal_equipment_act_window" />
+        <field name="sequence" eval="16" />
+    </record>
+</odoo>

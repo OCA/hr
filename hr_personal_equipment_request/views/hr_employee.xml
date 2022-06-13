@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2021 Creu Blanca
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record model="ir.ui.view" id="hr_employee_form_view">
+        <field name="name">hr.employee.form (in hr_personal_equipment_request)</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button
+                    name="action_open_equipment_request"
+                    type="object"
+                    icon="fa-hand-o-up"
+                    attrs="{'invisible': [('equipment_request_count', '=', 0)]}"
+                >
+                    <field
+                        name="equipment_request_count"
+                        string="PE Request"
+                        widget="statinfo"
+                    />
+                </button>
+                <button
+                    name="action_open_personal_equipment"
+                    type="object"
+                    icon="fa-briefcase"
+                    attrs="{'invisible': [('personal_equipment_count', '=', 0)]}"
+                >
+                    <!-- TODO: IN version 14.0 (with fa 5.0) we could put a t-shirt as icon -->
+                    <field
+                        name="personal_equipment_count"
+                        string="PE"
+                        widget="statinfo"
+                    />
+                </button>
+            </xpath>
+        </field>
+    </record>
+</odoo>
