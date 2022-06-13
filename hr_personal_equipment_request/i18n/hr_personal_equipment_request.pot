@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 14.0\n"
+"Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -126,10 +126,8 @@ msgid "Created on"
 msgstr ""
 
 #. module: hr_personal_equipment_request
-#: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_employee__display_name
 #: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment__display_name
 #: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment_request__display_name
-#: model:ir.model.fields,field_description:hr_personal_equipment_request.field_product_template__display_name
 msgid "Display Name"
 msgstr ""
 
@@ -151,11 +149,6 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:hr_personal_equipment_request.hr_personal_equipment_form_view
 #: model_terms:ir.ui.view,arch_db:hr_personal_equipment_request.product_template_form_view
 msgid "Employee Personal Equipment"
-msgstr ""
-
-#. module: hr_personal_equipment_request
-#: model_terms:ir.ui.view,arch_db:hr_personal_equipment_request.hr_personal_equipment_tree_view
-msgid "Employee Personal Equipments"
 msgstr ""
 
 #. module: hr_personal_equipment_request
@@ -194,12 +187,6 @@ msgid "Followers"
 msgstr ""
 
 #. module: hr_personal_equipment_request
-#: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment__message_channel_ids
-#: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment_request__message_channel_ids
-msgid "Followers (Channels)"
-msgstr ""
-
-#. module: hr_personal_equipment_request
 #: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment__message_partner_ids
 #: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment_request__message_partner_ids
 msgid "Followers (Partners)"
@@ -217,10 +204,14 @@ msgid "Group By"
 msgstr ""
 
 #. module: hr_personal_equipment_request
-#: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_employee__id
+#: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment__has_message
+#: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment_request__has_message
+msgid "Has Message"
+msgstr ""
+
+#. module: hr_personal_equipment_request
 #: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment__id
 #: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment_request__id
-#: model:ir.model.fields,field_description:hr_personal_equipment_request.field_product_template__id
 msgid "ID"
 msgstr ""
 
@@ -271,10 +262,8 @@ msgid "Is Follower"
 msgstr ""
 
 #. module: hr_personal_equipment_request
-#: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_employee____last_update
 #: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment____last_update
 #: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment_request____last_update
-#: model:ir.model.fields,field_description:hr_personal_equipment_request.field_product_template____last_update
 msgid "Last Modified on"
 msgstr ""
 
@@ -499,16 +488,4 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:hr_personal_equipment_request.hr_personal_equipment_form_view
 #: model_terms:ir.ui.view,arch_db:hr_personal_equipment_request.hr_personal_equipment_request_form_view
 msgid "Validate"
-msgstr ""
-
-#. module: hr_personal_equipment_request
-#: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment__website_message_ids
-#: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment_request__website_message_ids
-msgid "Website Messages"
-msgstr ""
-
-#. module: hr_personal_equipment_request
-#: model:ir.model.fields,help:hr_personal_equipment_request.field_hr_personal_equipment__website_message_ids
-#: model:ir.model.fields,help:hr_personal_equipment_request.field_hr_personal_equipment_request__website_message_ids
-msgid "Website communication history"
 msgstr ""
