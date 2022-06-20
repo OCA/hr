@@ -59,7 +59,9 @@ class HrPayslip(models.Model):
             )
             if period:
                 self.hr_period_id = period.id if period else False
-                self.name = _("Salary Slip of %s for %s") % (employee.name, period.name)
+                self.name = _("Salary Slip of {} for {}").format(
+                    employee.name, period.name
+                )
 
     @api.onchange("hr_period_id")
     def onchange_hr_period_id(self):
@@ -77,7 +79,9 @@ class HrPayslip(models.Model):
             period = payslip_run.hr_period_id
             vals["date_payment"] = payslip_run.date_payment
             vals["hr_period_id"] = period.id
-            vals["name"] = _("Salary Slip of %s for %s") % (employee.name, period.name)
+            vals["name"] = _("Salary Slip of {} for {}").format(
+                employee.name, period.name
+            )
         elif vals.get("date_to") and not vals.get("date_payment"):
             vals["date_payment"] = vals["date_to"]
         return super(HrPayslip, self).create(vals)

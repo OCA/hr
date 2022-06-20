@@ -25,10 +25,8 @@ class HrPeriod(models.Model):
         )
         return period_type
 
-    name = fields.Char("Name", required=True, states={"draft": [("readonly", False)]})
-    number = fields.Integer(
-        "Number", required=True, states={"draft": [("readonly", False)]}
-    )
+    name = fields.Char(required=True, states={"draft": [("readonly", False)]})
+    number = fields.Integer(required=True, states={"draft": [("readonly", False)]})
     date_payment = fields.Date(
         "Date of Payment", required=True, states={"draft": [("readonly", False)]}
     )

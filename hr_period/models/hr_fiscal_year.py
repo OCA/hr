@@ -255,7 +255,7 @@ class HrFiscalYear(models.Model):
                             "date_end": date_end,
                             "date_payment": self._get_day_of_payment(date_end),
                             "company_id": self.company_id.id,
-                            "name": _("%s Period #%s") % (self.name, number),
+                            "name": _("{} Period {}").format(self.name, number),
                             "number": number,
                             "state": "draft",
                             "type_id": period_type.id,
@@ -286,7 +286,7 @@ class HrFiscalYear(models.Model):
         for fy in self:
             if not fy.period_ids:
                 raise UserError(
-                    _("You must create periods before confirming " "the fiscal year.")
+                    _("You must create periods before confirming the fiscal year.")
                 )
         self.state = "open"
         for fy in self:
