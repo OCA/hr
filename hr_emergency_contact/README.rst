@@ -13,7 +13,7 @@ Installation
 
 To install this module, you need to:
 
-1.  Clone the branch 11.0 of the repository https://github.com/OCA/hr
+1.  Clone the branch 15.0 of the repository https://github.com/OCA/hr
 2.  Add the path to this repository in your configuration (addons-path)
 3.  Update the module list
 4.  Go to menu *Apps -> Apps*
@@ -60,6 +60,7 @@ Contributors
 * Andhitia Rama <andhitia.r@gmail.com>
 * Denis Leemann <denis.leemann@camptocamp.com>
 * Serpent Consulting Services Pvt. Ltd. <support@serpentcs.com>
+* Sulivan Lominchar <slominchar@archeti.com>
 
 Maintainer
 ----------
