@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 14.0\n"
+"Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -46,7 +46,6 @@ msgid "Date of Birth"
 msgstr ""
 
 #. module: hr_employee_relative
-#: model:ir.model.fields,field_description:hr_employee_relative.field_hr_employee__display_name
 #: model:ir.model.fields,field_description:hr_employee_relative.field_hr_employee_relative__display_name
 #: model:ir.model.fields,field_description:hr_employee_relative.field_hr_employee_relative_relation__display_name
 msgid "Display Name"
@@ -56,11 +55,6 @@ msgstr ""
 #: model:ir.model,name:hr_employee_relative.model_hr_employee
 #: model:ir.model.fields,field_description:hr_employee_relative.field_hr_employee_relative__employee_id
 msgid "Employee"
-msgstr ""
-
-#. module: hr_employee_relative
-#: model_terms:ir.ui.view,arch_db:hr_employee_relative.hr_employee_relative_view_tree
-msgid "Employee Relatives"
 msgstr ""
 
 #. module: hr_employee_relative
@@ -94,7 +88,6 @@ msgid "HR Employee Relative Relation"
 msgstr ""
 
 #. module: hr_employee_relative
-#: model:ir.model.fields,field_description:hr_employee_relative.field_hr_employee__id
 #: model:ir.model.fields,field_description:hr_employee_relative.field_hr_employee_relative__id
 #: model:ir.model.fields,field_description:hr_employee_relative.field_hr_employee_relative_relation__id
 msgid "ID"
@@ -106,7 +99,6 @@ msgid "Job"
 msgstr ""
 
 #. module: hr_employee_relative
-#: model:ir.model.fields,field_description:hr_employee_relative.field_hr_employee____last_update
 #: model:ir.model.fields,field_description:hr_employee_relative.field_hr_employee_relative____last_update
 #: model:ir.model.fields,field_description:hr_employee_relative.field_hr_employee_relative_relation____last_update
 msgid "Last Modified on"
