@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2019 Creu Blanca
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record model="ir.ui.view" id="hr_employee_medical_examination_form_view">
+        <field name="name">hr.employee.medical.examination.form (in
+            hr_employee_medical_examination)
+        </field>
+        <field name="model">hr.employee.medical.examination</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button
+                        name="back_to_pending"
+                        string="Back To Pending"
+                        type="object"
+                        states="done,cancelled,rejected"
+                    />
+                    <button
+                        name="to_done"
+                        string="Mark as Done"
+                        type="object"
+                        class="btn btn-primary"
+                        states="pending"
+                    />
+                    <button
+                        name="to_cancelled"
+                        string="Mark as Cancelled"
+                        type="object"
+                        class="btn btn-primary"
+                        states="pending"
+                    />
+                    <button
+                        name="to_rejected"
+                        string="Mark as Rejected"
+                        type="object"
+                        class="btn btn-primary"
+                        states="pending"
+                    />
+                    <field name="state" widget="statusbar" />
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only" />
+                        <h1>
+                            <field name="name" placeholder="Employee's Name" />
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="employee_id" />
+                            <field name="date" />
+                            <field name="year" />
+                        </group>
+                        <group>
+                            <field name="result" />
+                        </group>
+                    </group>
+                    <div>
+                        <separator string="Note" />
+                        <field name="note" placeholder="Add note..." />
+                    </div>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers" />
+                    <field name="activity_ids" widget="mail_activity" />
+                    <field name="message_ids" widget="mail_thread" />
+                </div>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="hr_employee_medical_examination_search_view">
+        <field
+            name="name"
+        >hr.employee.medical.examination.search (in hr_employee_medical_examination)</field>
+        <field name="model">hr.employee.medical.examination</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" />
+                <field name="employee_id" />
+                <field name="state" />
+                <group>
+                    <filter
+                        string="Passed"
+                        name="passed"
+                        domain="[('result','=','passed')]"
+                    />
+                    <filter
+                        string="Failed"
+                        name="failed"
+                        domain="[('result','=','failed')]"
+                    />
+                </group>
+                <filter
+                    string="Pending"
+                    name="pending"
+                    domain="[('state','=','pending')]"
+                />
+            </search>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="hr_employee_medical_examination_tree_view">
+        <field
+            name="name"
+        >hr.employee.medical.examination.tree (in hr_employee_medical_examination)</field>
+        <field name="model">hr.employee.medical.examination</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="employee_id" />
+                <field name="state" />
+                <field name="result" />
+            </tree>
+        </field>
+    </record>
+    <record
+        model="ir.actions.act_window"
+        id="hr_employee_medical_examination_act_window"
+    >
+        <field name="name">Employee Medical Examinations</field>
+        <field name="res_model">hr.employee.medical.examination</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem
+        id="hr_employee_medical_examination_menu"
+        name="Medical Examinations"
+        parent="hr.menu_hr_root"
+        sequence="95"
+    />
+    <menuitem
+        id="hr_employee_medical_examination_all"
+        name="View Medical Examinations"
+        parent="hr_employee_medical_examination_menu"
+        action="hr_employee_medical_examination_act_window"
+        sequence="1"
+    />
+</odoo>
