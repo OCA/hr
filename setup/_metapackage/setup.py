@@ -11,6 +11,7 @@ setuptools.setup(
         'odoo-addon-hr_course>=15.0dev,<15.1dev',
         'odoo-addon-hr_employee_firstname>=15.0dev,<15.1dev',
         'odoo-addon-hr_employee_lastnames>=15.0dev,<15.1dev',
+        'odoo-addon-hr_employee_medical_examination>=15.0dev,<15.1dev',
         'odoo-addon-hr_employee_service>=15.0dev,<15.1dev',
         'odoo-addon-hr_personal_equipment_request>=15.0dev,<15.1dev',
     ],
