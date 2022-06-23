@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo noupdate="1">
+        <!--
+          Copyright (C) 2018 Brainbean Apps (https://brainbeanapps.com)
+          License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+        -->
+        <!-- hr.employee.relative.relation -->
+        <record model="hr.employee.relative.relation" id="relation_spouse">
+            <field name="name">Spouse</field>
+        </record>
+        <record model="hr.employee.relative.relation" id="relation_significant_other">
+            <field name="name">Significant Other</field>
+        </record>
+        <record model="hr.employee.relative.relation" id="relation_child">
+            <field name="name">Child</field>
+        </record>
+        <record model="hr.employee.relative.relation" id="relation_parent">
+            <field name="name">Parent</field>
+        </record>
+        <record model="hr.employee.relative.relation" id="relation_sibling">
+            <field name="name">Sibling</field>
+        </record>
+        <record model="hr.employee.relative.relation" id="relation_cousin">
+            <field name="name">Cousin</field>
+        </record>
+        <record model="hr.employee.relative.relation" id="relation_grandparent">
+            <field name="name">Grandparent</field>
+        </record>
+        <record model="hr.employee.relative.relation" id="relation_grandchild">
+            <field name="name">Grandchild</field>
+        </record>
+</odoo>
