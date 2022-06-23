@@ -48,6 +48,7 @@ addon | version | maintainers | summary
 [hr_employee_service_contract](hr_employee_service_contract/) | 13.0.1.0.1 |  | Employee service information & duration based on employee's contracts
 [hr_employee_ssn](hr_employee_ssn/) | 13.0.1.0.0 |  | View/edit employee's SSN & SIN fields
 [hr_job_category](hr_job_category/) | 13.0.1.0.0 |  | Adds tags to employee trough contract and job position
+[hr_leave_hour](hr_leave_hour/) | 13.0.1.0.0 |  | Custom hours with float fields
 [hr_org_chart_overview](hr_org_chart_overview/) | 13.0.1.1.1 |  | Organizational Chart Overview
 [hr_personal_equipment_request](hr_personal_equipment_request/) | 13.0.1.0.0 |  | This addon allows to manage employee personal equipment
 [hr_personal_equipment_request_tier_validation](hr_personal_equipment_request_tier_validation/) | 13.0.1.0.0 |  | Enables tier validation from hr.personal.equipment.request
