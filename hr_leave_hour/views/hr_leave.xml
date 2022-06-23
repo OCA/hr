@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2021 Creu Blanca
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record model="ir.ui.view" id="hr_leave_view_form">
+        <field name="name">hr.leave.form (in hr_leave_hour)</field>
+        <field name="model">hr.leave</field>
+        <field name="inherit_id" ref="hr_holidays.hr_leave_view_form" />
+        <field name="arch" type="xml">
+            <field name="request_hour_from" position="attributes">
+                <attribute name="invisible">1</attribute>
+                <attribute name="attrs">{}</attribute>
+            </field>
+            <field name="request_hour_from" position="after">
+                <field
+                    name="request_time_hour_from"
+                    widget="float_time"
+                    attrs="{
+                        'readonly': [('state', '=', 'validate')],
+                        'required': [('request_unit_hours', '=', True)],
+                        'invisible': [('request_unit_hours', '=', False)]}"
+                />
+            </field>
+            <field name="request_hour_to" position="attributes">
+                <attribute name="invisible">1</attribute>
+                <attribute name="attrs">{}</attribute>
+            </field>
+            <field name="request_hour_to" position="after">
+                <field
+                    name="request_time_hour_to"
+                    widget="float_time"
+                    attrs="{
+                        'readonly': [('state', '=', 'validate')],
+                        'required': [('request_unit_hours', '=', True)],
+                        'invisible': [('request_unit_hours', '=', False)]}"
+                />
+            </field>
+        </field>
+    </record>
+</odoo>
