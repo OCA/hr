@@ -35,6 +35,7 @@ setuptools.setup(
         'odoo13-addon-hr_employee_service_contract',
         'odoo13-addon-hr_employee_ssn',
         'odoo13-addon-hr_job_category',
+        'odoo13-addon-hr_leave_hour',
         'odoo13-addon-hr_org_chart_overview',
         'odoo13-addon-hr_personal_equipment_request',
         'odoo13-addon-hr_personal_equipment_request_tier_validation',
