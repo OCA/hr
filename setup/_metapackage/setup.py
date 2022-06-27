@@ -36,6 +36,7 @@ setuptools.setup(
         'odoo14-addon-hr_org_chart_overview',
         'odoo14-addon-hr_period',
         'odoo14-addon-hr_personal_equipment_request',
+        'odoo14-addon-hr_personal_equipment_request_tier_validation',
         'odoo14-addon-hr_personal_equipment_stock',
         'odoo14-addon-hr_recruitment_notification',
     ],
