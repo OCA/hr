@@ -2,3 +2,7 @@
 * Serpent Consulting Services Pvt. Ltd. <support@serpentcs.com>
 * Saran Lim. <saranl@ecosoft.co.th>
 * Komsan Somwong <komsans@ecosoft.co.th>
+
+* `Pesol <https://www.pesol.es>`__:
+
+  * Pedro Evaristo Gonzalez Sanchez <pedro.gonzalez@pesol.es>
