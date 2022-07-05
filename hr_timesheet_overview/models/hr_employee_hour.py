@@ -19,7 +19,7 @@ _logger = logging.getLogger(__name__)
 
 
 def get_end_of_day(date, attendances):
-    """ Returns the datetime corresponding to the end of the day """
+    """Returns the datetime corresponding to the end of the day"""
     hour_from = 0.0
     hour_to = 0.0
     for attendance in attendances:
@@ -50,7 +50,7 @@ def odoo_float_time_to_datetime_time(dec_hour):
 
 
 def generate_dates_from_range(start_date, end_date=None):
-    """ Prepare a list of date to be processed """
+    """Prepare a list of date to be processed"""
     if not end_date:
         end_date = fields.Date().today()
     return [
@@ -60,7 +60,7 @@ def generate_dates_from_range(start_date, end_date=None):
 
 
 def get_valid_search_fields():
-    """ Returns unicity constrained fields for `HrEmployeeHour` """
+    """Returns unicity constrained fields for `HrEmployeeHour`"""
     return "date", "employee_id", "model_name", "res_id", "type"
 
 
@@ -127,7 +127,7 @@ class HrEmployeeHour(models.Model):
             return result
 
         def get_grant_total(groups, key):
-            """ Return the sum of this key's values for all records """
+            """Return the sum of this key's values for all records"""
             return sum([rec.get(key, 0.0) for rec in groups])
 
         hours_total = get_grant_total(result, "hours_qty")
