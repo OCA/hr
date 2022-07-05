@@ -7,6 +7,7 @@ import logging
 from dateutil.relativedelta import relativedelta
 
 from odoo import _, api, fields, models
+from odoo.tools import float_is_zero
 
 TYPE_SELECTION = [
     ("contract", _("Contract")),
@@ -257,7 +258,9 @@ class HrEmployeeHour(models.Model):
 
         # TODO?
         # If attendance hours qty is empty, it is an extra work day
-        days_qty = hours_qty / calendar.hours_per_day
+        days_qty = 0
+        if not float_is_zero(calendar.hours_per_day, precision_digits=2):
+            days_qty = hours_qty / calendar.hours_per_day
 
         values = {
             "name": self._hook_get_name_from_timesheet(timesheet),
