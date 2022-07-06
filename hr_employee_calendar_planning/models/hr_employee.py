@@ -97,6 +97,7 @@ class HrEmployee(models.Model):
                         + " %s" % self.name,
                         "attendance_ids": vals_list,
                         "two_weeks_calendar": two_weeks,
+                        "tz": self.tz,  # take employee timezone as default
                     }
                 )
                 .id
@@ -108,6 +109,34 @@ class HrEmployee(models.Model):
             self.resource_calendar_id.hours_per_day = self.calendar_ids[
                 0
             ].calendar_id.hours_per_day
+            # set global leaves
+            self.resource_calendar_id.global_leave_ids = [
+                (
+                    6,
+                    0,
+                    self.copy_global_leaves(),
+                )
+            ]
+
+    def copy_global_leaves(self):
+        self.ensure_one()
+        leave_ids = []
+        for calendar in self.calendar_ids:
+            global_leaves = calendar.calendar_id.global_leave_ids
+            if calendar.date_start:
+                global_leaves = global_leaves.filtered(
+                    lambda x: x.date_from.date() >= calendar.date_start
+                )
+            if calendar.date_end:
+                global_leaves = global_leaves.filtered(
+                    lambda x: x.date_to.date() <= calendar.date_end
+                )
+            leave_ids += global_leaves.ids
+        vals = [
+            leave.copy_data({})[0]
+            for leave in self.env["resource.calendar.leaves"].browse(leave_ids)
+        ]
+        return self.env["resource.calendar.leaves"].create(vals).ids
 
     def regenerate_calendar(self):
         for item in self:
