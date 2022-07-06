@@ -42,7 +42,7 @@ class ResourceCalendar(models.Model):
 
     def write(self, vals):
         res = super(ResourceCalendar, self).write(vals)
-        if "attendance_ids" in vals:
+        if "attendance_ids" in vals or "global_leave_ids" in vals:
             for record in self.filtered(lambda x: not x.auto_generate):
                 calendars = self.env["hr.employee.calendar"].search(
                     [("calendar_id", "=", record.id)]
