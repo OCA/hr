@@ -4,8 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 14.0\n"
+"Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-08-29 06:53+0000\n"
+"PO-Revision-Date: 2022-08-29 06:53+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,13 +18,17 @@ msgstr ""
 #. module: hr_employee_calendar_planning
 #: code:addons/hr_employee_calendar_planning/models/resource_calendar.py:0
 #, python-format
-msgid "%s is used in %s employee(s) related to another company."
+msgid ""
+"%(item_name)s is used in %(total_items)s employee(s) related to another "
+"company."
 msgstr ""
 
 #. module: hr_employee_calendar_planning
 #: code:addons/hr_employee_calendar_planning/models/resource_calendar.py:0
 #, python-format
-msgid "%s is used in %s employee(s). You should change them first."
+msgid ""
+"%(item_name)s is used in %(total_items)s employee(s).You should change them "
+"first."
 msgstr ""
 
 #. module: hr_employee_calendar_planning
@@ -67,9 +73,7 @@ msgid "Date end should be higher than date start"
 msgstr ""
 
 #. module: hr_employee_calendar_planning
-#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee__display_name
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__display_name
-#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_resource_calendar__display_name
 msgid "Display Name"
 msgstr ""
 
@@ -90,9 +94,7 @@ msgid "End Date"
 msgstr ""
 
 #. module: hr_employee_calendar_planning
-#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee__id
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__id
-#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_resource_calendar__id
 msgid "ID"
 msgstr ""
 
@@ -104,9 +106,7 @@ msgid ""
 msgstr ""
 
 #. module: hr_employee_calendar_planning
-#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee____last_update
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar____last_update
-#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_resource_calendar____last_update
 msgid "Last Modified on"
 msgstr ""
 
