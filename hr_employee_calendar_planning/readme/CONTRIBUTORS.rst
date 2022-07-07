@@ -12,3 +12,7 @@
   * Jordi Ballester Alomar (jordi.ballester@forgeflow.com)
 
   * Nattapong W. <aphon61bank@gmail.com>
+
+* `Pesol <https://www.pesol.es>`__:
+
+  * Pedro Evaristo Gonzalez Sanchez <pedro.gonzalez@pesol.es>
