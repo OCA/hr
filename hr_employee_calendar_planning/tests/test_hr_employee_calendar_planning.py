@@ -8,7 +8,7 @@ from odoo.tests import common
 from ..hooks import post_init_hook
 
 
-class TestHrEmployeeCalendarPlanning(common.SavepointCase):
+class TestHrEmployeeCalendarPlanning(common.TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
