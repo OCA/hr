@@ -8,10 +8,10 @@ from odoo.tests import common
 from ..hooks import post_init_hook
 
 
-class TestHrEmployeeCalendarPlanning(common.SavepointCase):
+class TestHrEmployeeCalendarPlanning(common.TransactionCase):
     @classmethod
     def setUpClass(cls):
-        super().setUpClass()
+        super(TestHrEmployeeCalendarPlanning, cls).setUpClass()
         resource_calendar = cls.env["resource.calendar"]
         cls.calendar1 = resource_calendar.create(
             {"name": "Test calendar 1", "attendance_ids": []}

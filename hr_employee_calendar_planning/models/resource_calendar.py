@@ -20,8 +20,12 @@ class ResourceCalendar(models.Model):
             )
             if total_items:
                 raise ValidationError(
-                    _("%s is used in %s employee(s). You should change them first.")
-                    % (item.name, total_items)
+                    _(
+                        "%(item_name)s is used in %(total_items)s employee(s)."
+                        "You should change them first.",
+                        item_name=item.name,
+                        total_items=total_items,
+                    )
                 )
 
     @api.constrains("company_id")
@@ -36,8 +40,12 @@ class ResourceCalendar(models.Model):
             )
             if total_items:
                 raise ValidationError(
-                    _("%s is used in %s employee(s) related to another company.")
-                    % (item.name, total_items)
+                    _(
+                        "%(item_name)s is used in %(total_items)s employee(s)"
+                        " related to another company.",
+                        item_name=item.name,
+                        total_items=total_items,
+                    )
                 )
 
     def write(self, vals):
