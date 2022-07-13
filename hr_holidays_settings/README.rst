@@ -70,7 +70,6 @@ Contributors
   * Alexey Pelykh <alexey.pelykh@corphub.eu>
 * Juany Davila <juany.davila@forgeflow.com>
 
-
 Maintainers
 ~~~~~~~~~~~
 
