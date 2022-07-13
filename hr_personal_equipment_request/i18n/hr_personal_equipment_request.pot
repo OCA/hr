@@ -310,6 +310,12 @@ msgid "Name"
 msgstr ""
 
 #. module: hr_personal_equipment_request
+#: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment__activity_calendar_event_id
+#: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment_request__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr ""
+
+#. module: hr_personal_equipment_request
 #: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment__activity_date_deadline
 #: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment_request__activity_date_deadline
 msgid "Next Activity Deadline"
