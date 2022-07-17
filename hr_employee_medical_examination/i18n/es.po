@@ -19,8 +19,8 @@ msgstr ""
 #. module: hr_employee_medical_examination
 #: code:addons/hr_employee_medical_examination/wizards/wizard_generate_medical_examination.py:0
 #, python-format
-msgid "%s on %s"
-msgstr "%s en %s"
+msgid "%(name)s on %(employee)s"
+msgstr ""
 
 #. module: hr_employee_medical_examination
 #: model_terms:ir.ui.view,arch_db:hr_employee_medical_examination.wizard_generate_medical_examination_form_view
@@ -101,7 +101,6 @@ msgid "Department"
 msgstr "Departamento"
 
 #. module: hr_employee_medical_examination
-#: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee__display_name
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee_medical_examination__display_name
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_wizard_generate_medical_examination__display_name
 msgid "Display Name"
@@ -156,11 +155,6 @@ msgid "Followers"
 msgstr ""
 
 #. module: hr_employee_medical_examination
-#: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee_medical_examination__message_channel_ids
-msgid "Followers (Channels)"
-msgstr ""
-
-#. module: hr_employee_medical_examination
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee_medical_examination__message_partner_ids
 msgid "Followers (Partners)"
 msgstr ""
@@ -195,12 +189,16 @@ msgid "Generation wizard for medical examinations"
 msgstr "Generar Exámenes Médicos"
 
 #. module: hr_employee_medical_examination
+#: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee_medical_examination__has_message
+msgid "Has Message"
+msgstr ""
+
+#. module: hr_employee_medical_examination
 #: model:ir.model,name:hr_employee_medical_examination.model_hr_employee_medical_examination
 msgid "Hr Employee Medical Examination"
 msgstr "Hr  Employee Medical Examination"
 
 #. module: hr_employee_medical_examination
-#: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee__id
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee_medical_examination__id
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_wizard_generate_medical_examination__id
 msgid "ID"
@@ -239,7 +237,6 @@ msgid "Job"
 msgstr "Puesto de Trabajo"
 
 #. module: hr_employee_medical_examination
-#: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee____last_update
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee_medical_examination____last_update
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_wizard_generate_medical_examination____last_update
 msgid "Last Modified on"
@@ -314,6 +311,11 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee_medical_examination__name
 msgid "Name"
 msgstr "Nombre"
+
+#. module: hr_employee_medical_examination
+#: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee_medical_examination__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr ""
 
 #. module: hr_employee_medical_examination
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee_medical_examination__activity_date_deadline
@@ -433,20 +435,13 @@ msgid "View Medical Examinations"
 msgstr "Ver Exámenes Médicos"
 
 #. module: hr_employee_medical_examination
-#: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee_medical_examination__website_message_ids
-msgid "Website Messages"
-msgstr ""
-
-#. module: hr_employee_medical_examination
-#: model:ir.model.fields,help:hr_employee_medical_examination.field_hr_employee_medical_examination__website_message_ids
-msgid "Website communication history"
-msgstr ""
-
-#. module: hr_employee_medical_examination
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee_medical_examination__year
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_wizard_generate_medical_examination__year
 msgid "Year"
 msgstr ""
+
+#~ msgid "%s on %s"
+#~ msgstr "%s en %s"
 
 #~ msgid "wizard.generate.medical.examination"
 #~ msgstr "wizardgenerate.medical.examination"
