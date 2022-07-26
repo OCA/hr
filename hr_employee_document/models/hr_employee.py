@@ -13,7 +13,7 @@ class HrEmployeeBase(models.AbstractModel):
     )
 
     def _compute_document_count(self):
-        self.documents_count = 0
+        self.document_count = 0
         attachment_groups = self.env["ir.attachment"].read_group(
             [("res_model", "=", "hr.employee"), ("res_id", "in", self.ids)],
             ["res_id"],
@@ -24,7 +24,7 @@ class HrEmployeeBase(models.AbstractModel):
             record.document_count = count_dict.get(record.id, 0)
 
     def action_get_attachment_tree_view(self):
-        action = self.env.ref("base.action_attachment").read()[0]
+        action = self.env.ref("base.action_attachment").sudo().read()[0]
         action["context"] = {
             "default_res_model": self._name,
             "default_res_id": self.ids[0],

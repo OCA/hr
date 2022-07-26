@@ -1,10 +1,10 @@
 # Copyright 2018 Brainbean Apps (https://brainbeanapps.com)
-# Copyright 2021 Tecnativa - Víctor Martínez
+# Copyright 2021-2022 Tecnativa - Víctor Martínez
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
 import base64
 
-from odoo.tests import common
+from odoo.tests import common, new_test_user
 
 
 class TestHrEmployeeDocument(common.TransactionCase):
@@ -15,8 +15,25 @@ class TestHrEmployeeDocument(common.TransactionCase):
         self.SudoEmployee = self.Employee.sudo()
         self.Attachment = self.env["ir.attachment"]
         self.SudoAttachment = self.Attachment.sudo()
-        self.employee_1 = self.SudoEmployee.create({"name": "Employee #1"})
-        self.employee_2 = self.SudoEmployee.create({"name": "Employee #2"})
+        self.user_1 = new_test_user(
+            self.env,
+            login="Test user employee 1",
+        )
+        self.user_2 = new_test_user(
+            self.env,
+            login="Test user employee 2",
+        )
+        self.user_manager = new_test_user(
+            self.env,
+            login="Test user manager",
+            groups="hr.group_hr_user",
+        )
+        self.employee_1 = (
+            self.SudoEmployee.create({"name": "Employee #1", "user_id": self.user_1.id})
+        ).with_user(self.user_1)
+        self.employee_2 = (
+            self.SudoEmployee.create({"name": "Employee #2", "user_id": self.user_2.id})
+        ).with_user(self.user_2)
 
     def _create_attachment(self, employee_id):
         return self.SudoAttachment.create(
@@ -27,17 +44,6 @@ class TestHrEmployeeDocument(common.TransactionCase):
                 "name": "doc.txt",
             }
         )
-
-    def _create_user_from_employee(self, employee_id):
-        user = self.env["res.users"].create(
-            {
-                "name": employee_id.name,
-                "login": employee_id.name,
-                "groups_id": [(6, 0, [self.env.ref("base.group_user").id])],
-            }
-        )
-        employee_id.user_id = user.id
-        return user
 
     def test_employee_attachment(self):
         self._create_attachment(self.employee_1)
@@ -51,36 +57,18 @@ class TestHrEmployeeDocument(common.TransactionCase):
         self.assertNotEqual(employee_public.action_get_attachment_tree_view(), None)
 
     def test_attachments_access(self):
-        # create records (users and attachments)
-        user_manager = self.env["res.users"].create(
-            {
-                "name": "user_manager",
-                "login": "user_manager",
-                "groups_id": [
-                    (
-                        6,
-                        0,
-                        [
-                            self.env.ref("base.group_user").id,
-                            self.env.ref("hr.group_hr_user").id,
-                        ],
-                    )
-                ],
-            }
-        )
-        user_1 = self._create_user_from_employee(self.employee_1)
-        user_2 = self._create_user_from_employee(self.employee_2)
+        # create attachments
         attachment_1 = self._create_attachment(self.employee_1)
         attachment_2 = self._create_attachment(self.employee_2)
         # user_1
-        records = self.Attachment.with_user(user_1).search([])
+        records = self.Attachment.with_user(self.user_1).search([])
         self.assertTrue(attachment_1 in records)
         self.assertFalse(attachment_2 in records)
         # user_2
-        records = self.Attachment.with_user(user_2).search([])
+        records = self.Attachment.with_user(self.user_2).search([])
         self.assertFalse(attachment_1 in records)
         self.assertTrue(attachment_2 in records)
         # user_manager
-        records = self.Attachment.with_user(user_manager).search([])
+        records = self.Attachment.with_user(self.user_manager).search([])
         self.assertTrue(attachment_1 in records)
         self.assertTrue(attachment_2 in records)
