@@ -8,7 +8,8 @@ class HrEmployeeBase(models.AbstractModel):
     _inherit = "hr.employee.base"
 
     document_count = fields.Integer(
-        compute="_compute_document_count", string="Document Count",
+        compute="_compute_document_count",
+        string="Document Count",
     )
 
     def _compute_document_count(self):
