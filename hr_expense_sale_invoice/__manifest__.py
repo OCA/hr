@@ -13,7 +13,7 @@
     "maintainers": ["Khalid-SerpentCS"],
     "website": "https://github.com/OCA/hr",
     "depends": ["sale_expense"],
-    "data": ["views/hr_expense_view.xml", "views/account_invoice_views.xml"],
+    "data": ["views/hr_expense_view.xml", "views/account_move_views.xml"],
     "auto_install": False,
     "application": False,
     "installable": True,

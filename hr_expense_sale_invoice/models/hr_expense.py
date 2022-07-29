@@ -7,5 +7,5 @@ class HrExpense(models.Model):
     _inherit = "hr.expense"
 
     expense_invoice_id = fields.Many2one(
-        "account.invoice", string="Invoice", readonly=True, copy=False
+        "account.move", string="Invoice", readonly=True, copy=False
     )

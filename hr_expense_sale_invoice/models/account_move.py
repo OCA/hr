@@ -3,8 +3,8 @@
 from odoo import api, fields, models
 
 
-class AccountInvoice(models.Model):
-    _inherit = "account.invoice"
+class AccountMove(models.Model):
+    _inherit = "account.move"
 
     expense_ids = fields.One2many(
         "hr.expense", "expense_invoice_id", string="Expenses", readonly=True, copy=False
@@ -13,31 +13,21 @@ class AccountInvoice(models.Model):
         "Number of expenses", compute="_compute_expense_count"
     )
 
-    @api.multi
     @api.depends("expense_ids")
     def _compute_expense_count(self):
-        expense_data = self.env["hr.expense"].read_group(
-            [("expense_invoice_id", "in", self.ids)],
-            ["expense_invoice_id"],
-            ["expense_invoice_id"],
-        )
-        mapped_data = {
-            t["expense_invoice_id"][0]: t["expense_invoice_id_count"]
-            for t in expense_data
-        }
         for invoice in self:
-            invoice.expense_count = mapped_data.get(invoice.id, 0)
+            invoice.expense_count = len(invoice.expense_ids)
 
 
-class AccountInvoiceLine(models.Model):
-    _inherit = "account.invoice.line"
+class AccountMoveLine(models.Model):
+    _inherit = "account.move.line"
 
-    @api.model
-    def create(self, values):
-        invoice_line = super(AccountInvoiceLine, self).create(values)
+    @api.model_create_multi
+    def create(self, vals_list):
+        invoice_line = super(AccountMoveLine, self).create(vals_list)
         if (
-            invoice_line.invoice_id.type == "out_invoice"
-            and invoice_line.invoice_id.state == "draft"
+            invoice_line.move_id.move_type == "out_invoice"
+            and invoice_line.move_id.state == "draft"
         ):
             sale_line_delivery = invoice_line.sale_line_ids.filtered(
                 lambda sol: sol.product_id.invoice_policy == "delivery"
@@ -53,7 +43,7 @@ class AccountInvoiceLine(models.Model):
                 )
                 expenses.write(
                     {
-                        "expense_invoice_id": invoice_line.invoice_id.id,
+                        "expense_invoice_id": invoice_line.move_id.id,
                     }
                 )
         return invoice_line
