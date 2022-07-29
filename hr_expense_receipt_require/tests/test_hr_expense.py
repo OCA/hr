@@ -48,7 +48,7 @@ class TestHrExpense(common.TransactionCase):
                 "sheet_id": expense.id,
             }
         )
-        expense_line._onchange_product_id()
+        expense_line._onchange_product_id_date_account_id()
         with self.assertRaises(UserError):
             expense.action_submit_sheet()
 
@@ -70,6 +70,6 @@ class TestHrExpense(common.TransactionCase):
                 "sheet_id": expense.id,
             }
         )
-        expense_line._onchange_product_id()
+        expense_line._onchange_product_id_date_account_id()
         expense.action_submit_sheet()
         self.assertEqual(expense_line.state, "reported")

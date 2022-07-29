@@ -8,7 +8,7 @@
                 <field name="user_id" position="after">
                     <field
                     name="allow_without_attachment"
-                    group="base.expenses_can_skip_required_attachment"
+                    groups="hr_expense_receipt_require.expenses_can_skip_required_attachment"
                 />
                 </field>
             </field>
