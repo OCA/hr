@@ -1,0 +1,146 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* hr_employee_calendar_planning
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2022-08-05 01:07+0000\n"
+"Last-Translator: Nicolas Rodriguez Sande <nicolasrsande@gmail.com>\n"
+"Language-Team: none\n"
+"Language: es_AR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.3.2\n"
+
+#. module: hr_employee_calendar_planning
+#: code:addons/hr_employee_calendar_planning/models/resource_calendar.py:0
+#, python-format
+msgid "%s is used in %s employee(s) related to another company."
+msgstr "%s está siendo usada en %s empleados(s) relacionados con otra compañía."
+
+#. module: hr_employee_calendar_planning
+#: code:addons/hr_employee_calendar_planning/models/resource_calendar.py:0
+#, python-format
+msgid "%s is used in %s employee(s). You should change them first."
+msgstr "%s está siendo usado en los empleados %s. Debes cambiarlo primero."
+
+#. module: hr_employee_calendar_planning
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_resource_calendar__active
+msgid "Active"
+msgstr "Activo"
+
+#. module: hr_employee_calendar_planning
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_resource_calendar__auto_generate
+msgid "Auto Generate"
+msgstr "Autogenerar"
+
+#. module: hr_employee_calendar_planning
+#: code:addons/hr_employee_calendar_planning/models/hr_employee.py:0
+#, python-format
+msgid "Auto generated calendar for employee"
+msgstr "Calendario autogenerado para el empleado"
+
+#. module: hr_employee_calendar_planning
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee__calendar_ids
+msgid "Calendar planning"
+msgstr "Planeamiento de calendario"
+
+#. module: hr_employee_calendar_planning
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__company_id
+msgid "Company"
+msgstr "Empresa"
+
+#. module: hr_employee_calendar_planning
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: hr_employee_calendar_planning
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__create_date
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: hr_employee_calendar_planning
+#: model:ir.model.constraint,message:hr_employee_calendar_planning.constraint_hr_employee_calendar_date_consistency
+msgid "Date end should be higher than date start"
+msgstr "Fecha final debe ser posterior a la fecha inicial"
+
+#. module: hr_employee_calendar_planning
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee__display_name
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__display_name
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_resource_calendar__display_name
+msgid "Display Name"
+msgstr "Nombre para mostrar"
+
+#. module: hr_employee_calendar_planning
+#: model:ir.model,name:hr_employee_calendar_planning.model_hr_employee
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__employee_id
+msgid "Employee"
+msgstr "Empleado"
+
+#. module: hr_employee_calendar_planning
+#: model:ir.model,name:hr_employee_calendar_planning.model_hr_employee_calendar
+msgid "Employee Calendar"
+msgstr "Calendario del empleado"
+
+#. module: hr_employee_calendar_planning
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__date_end
+msgid "End Date"
+msgstr "Fecha hasta"
+
+#. module: hr_employee_calendar_planning
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee__id
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__id
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_resource_calendar__id
+msgid "ID"
+msgstr "ID"
+
+#. module: hr_employee_calendar_planning
+#: model:ir.model.fields,help:hr_employee_calendar_planning.field_resource_calendar__active
+msgid ""
+"If the active field is set to false, it will allow you to hide the Working "
+"Time without removing it."
+msgstr ""
+"Si el campo activo es falso, te permite ocultar este registro sin removerlo."
+
+#. module: hr_employee_calendar_planning
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee____last_update
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar____last_update
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_resource_calendar____last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: hr_employee_calendar_planning
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: hr_employee_calendar_planning
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__write_date
+msgid "Last Updated on"
+msgstr "Última actualización en"
+
+#. module: hr_employee_calendar_planning
+#: model:ir.model,name:hr_employee_calendar_planning.model_resource_calendar
+msgid "Resource Working Time"
+msgstr "Tiempo de trabajo del recurso"
+
+#. module: hr_employee_calendar_planning
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__date_start
+msgid "Start Date"
+msgstr "Fecha inicio"
+
+#. module: hr_employee_calendar_planning
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__calendar_id
+msgid "Working Time"
+msgstr "Tiempo de trabajo"
+
+#. module: hr_employee_calendar_planning
+#: code:addons/hr_employee_calendar_planning/models/hr_employee.py:0
+#, python-format
+msgid "You can not create employees without any calendar."
+msgstr "No puedes crear empleados sin asignarles ningún calendario."
