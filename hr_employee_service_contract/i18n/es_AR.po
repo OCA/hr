@@ -6,58 +6,60 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2022-08-05 16:06+0000\n"
+"Last-Translator: Nicolas Rodriguez Sande <nicolasrsande@gmail.com>\n"
 "Language-Team: none\n"
 "Language: es_AR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #. module: hr_employee_service_contract
 #: model:ir.model.fields,field_description:hr_employee_service_contract.field_hr_employee__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nombre para mostrar"
 
 #. module: hr_employee_service_contract
 #: model:ir.model,name:hr_employee_service_contract.model_hr_employee
 msgid "Employee"
-msgstr ""
+msgstr "Empleado"
 
 #. module: hr_employee_service_contract
 #: model:ir.model.fields,field_description:hr_employee_service_contract.field_hr_employee__first_contract_id
 msgid "First Contract"
-msgstr ""
+msgstr "Primer contrato"
 
 #. module: hr_employee_service_contract
 #: model:ir.model.fields,help:hr_employee_service_contract.field_hr_employee__first_contract_id
 msgid "First contract of the employee"
-msgstr ""
+msgstr "Primer contrato del empleado"
 
 #. module: hr_employee_service_contract
 #: model:ir.model.fields,field_description:hr_employee_service_contract.field_hr_employee__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: hr_employee_service_contract
 #: model:ir.model.fields,field_description:hr_employee_service_contract.field_hr_employee__last_contract_id
 msgid "Last Contract"
-msgstr ""
+msgstr "Ultimo contrato"
 
 #. module: hr_employee_service_contract
 #: model:ir.model.fields,field_description:hr_employee_service_contract.field_hr_employee____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Última modificación en"
 
 #. module: hr_employee_service_contract
 #: model:ir.model.fields,help:hr_employee_service_contract.field_hr_employee__last_contract_id
 msgid "Last contract of the employee"
-msgstr ""
+msgstr "Último contrato del empleado"
 
 #. module: hr_employee_service_contract
 #: model:ir.model.fields,field_description:hr_employee_service_contract.field_hr_employee__service_start_date
 msgid "Start Date"
-msgstr ""
+msgstr "Fecha de inicio"
 
 #. module: hr_employee_service_contract
 #: model:ir.model.fields,help:hr_employee_service_contract.field_hr_employee__service_start_date
@@ -65,11 +67,13 @@ msgid ""
 "Start date is the first day the employee actually works and this date is "
 "used for accrual leave allocations calculation"
 msgstr ""
+"La fecha de inicio es el primer dia que el empleado realmente trabajo y esta "
+"fecha es usada para calcular ausencias de forma precisa"
 
 #. module: hr_employee_service_contract
 #: model:ir.model.fields,field_description:hr_employee_service_contract.field_hr_employee__service_termination_date
 msgid "Termination Date"
-msgstr ""
+msgstr "Fecha de terminacion"
 
 #. module: hr_employee_service_contract
 #: model:ir.model.fields,help:hr_employee_service_contract.field_hr_employee__service_termination_date
@@ -77,3 +81,5 @@ msgid ""
 "Termination date is the last day the employee actually works and this date "
 "is used for accrual leave allocations calculation"
 msgstr ""
+"La fecha de terminación es el ultimo dia que el empleado trabajó y se "
+"utiliza para calcular precisamente las ausencias"
