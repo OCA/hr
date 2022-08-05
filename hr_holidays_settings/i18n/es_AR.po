@@ -6,25 +6,27 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2022-08-05 16:06+0000\n"
+"Last-Translator: Nicolas Rodriguez Sande <nicolasrsande@gmail.com>\n"
 "Language-Team: none\n"
 "Language: es_AR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #. module: hr_holidays_settings
 #: model:ir.actions.act_window,name:hr_holidays_settings.hr_holidays_config_settings_action
 msgid "Configure HR Holidays"
-msgstr ""
+msgstr "Configurar HR Holidays"
 
 #. module: hr_holidays_settings
 #: model_terms:ir.ui.view,arch_db:hr_holidays_settings.res_config_settings_view_form
 msgid "Leaves Management"
-msgstr ""
+msgstr "Gestión de ausencias"
 
 #. module: hr_holidays_settings
 #: model:ir.ui.menu,name:hr_holidays_settings.menu_hr_holidays_global_settings
 msgid "Settings"
-msgstr ""
+msgstr "Opciones"
