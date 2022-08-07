@@ -6,96 +6,98 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2022-08-07 10:06+0000\n"
+"Last-Translator: neveroils <maiolif@mgftools.com>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #. module: hr_course
 #: selection:hr.course.attendee,result:0
 msgid "Absent"
-msgstr ""
+msgstr "Assente"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee_active
 msgid "Active"
-msgstr ""
+msgstr "Attivo"
 
 #. module: hr_course
 #: model:ir.ui.view,arch_db:hr_course.hr_course_form_view
 msgid "Assign attendees"
-msgstr ""
+msgstr "Assegna corsisti"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_attendant_ids
 msgid "Attendant"
-msgstr ""
+msgstr "Corsista"
 
 #. module: hr_course
 #: model:ir.ui.view,arch_db:hr_course.hr_course_form_view
 msgid "Attendees"
-msgstr ""
+msgstr "Corsisti"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_authorized_by
 msgid "Authorized by"
-msgstr ""
+msgstr "Autorizzato da"
 
 #. module: hr_course
 #: model:ir.ui.view,arch_db:hr_course.hr_course_form_view
 msgid "Back to Draft"
-msgstr ""
+msgstr "Ritorna a Bozza"
 
 #. module: hr_course
 #: model:ir.ui.view,arch_db:hr_course.hr_course_form_view
 msgid "Cancel Course"
-msgstr ""
+msgstr "Cancella Corso"
 
 #. module: hr_course
 #: selection:hr.course,state:0
 msgid "Cancelled"
-msgstr ""
+msgstr "Cancellato"
 
 #. module: hr_course
 #: model:ir.ui.view,arch_db:hr_course.hr_course_form_view
 msgid "Cancelled Course"
-msgstr ""
+msgstr "Corso Cancellato"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_category_id
 #: model:ir.ui.view,arch_db:hr_course.hr_course_search_view
 #: model:ir.ui.view,arch_db:hr_course.view_course_category_search
 msgid "Category"
-msgstr ""
+msgstr "Categoria"
 
 #. module: hr_course
 #: sql_constraint:hr.course.category:0
 msgid "Category already exists !"
-msgstr ""
+msgstr "Categoria già esistente!"
 
 #. module: hr_course
 #: model:ir.ui.view,arch_db:hr_course.hr_course_form_view
 msgid "Complete Course"
-msgstr ""
+msgstr "Completa Corso"
 
 #. module: hr_course
 #: selection:hr.course,state:0
 msgid "Completed"
-msgstr ""
+msgstr "Completato"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee_course_id
 #: model:ir.ui.view,arch_db:hr_course.hr_course_form_view
 msgid "Course"
-msgstr ""
+msgstr "Corso"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_course_attendee_ids
 msgid "Course Attendee"
-msgstr ""
+msgstr "Corsista"
 
 #. module: hr_course
 #: model:ir.actions.act_window,name:hr_course.open_view_course_category_form
@@ -104,37 +106,37 @@ msgstr ""
 #: model:ir.ui.view,arch_db:hr_course.view_course_category_list
 #: model:ir.ui.view,arch_db:hr_course.view_course_category_search
 msgid "Course Categories"
-msgstr ""
+msgstr "Categorie Corso"
 
 #. module: hr_course
 #: model:ir.model,name:hr_course.model_hr_course_category
 msgid "Course Category"
-msgstr ""
+msgstr "Categoria Corso"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_cost
 msgid "Course Cost"
-msgstr ""
+msgstr "Costo Corso"
 
 #. module: hr_course
 #: model:ir.ui.view,arch_db:hr_course.hr_course_search_view
 msgid "Course Name"
-msgstr ""
+msgstr "Nome Corso"
 
 #. module: hr_course
 #: model:ir.ui.view,arch_db:hr_course.hr_course_form_view
 msgid "Course Results"
-msgstr ""
+msgstr "Risultati Corso"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_category_name
 msgid "Course category"
-msgstr ""
+msgstr "Categoria corso"
 
 #. module: hr_course
 #: model:ir.ui.view,arch_db:hr_course.hr_course_form_view
 msgid "Course name"
-msgstr ""
+msgstr "Nome corso"
 
 #. module: hr_course
 #: model:ir.actions.act_window,name:hr_course.action_hr_course
@@ -144,197 +146,199 @@ msgstr ""
 #: model:ir.ui.view,arch_db:hr_course.hr_course_form_view
 #: model:ir.ui.view,arch_db:hr_course.view_hr_employee_form
 msgid "Courses"
-msgstr ""
+msgstr "Corsi"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee_create_uid
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_category_create_uid
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Creato da"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee_create_date
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_category_create_date
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_create_date
 msgid "Created on"
-msgstr ""
+msgstr "Creato il"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_currency_id
 msgid "Currency"
-msgstr ""
+msgstr "Valuta"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee_display_name
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_category_display_name
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nome Display"
 
 #. module: hr_course
 #: selection:hr.course,state:0
 msgid "Draft"
-msgstr ""
+msgstr "Bozza"
 
 #. module: hr_course
 #: model:ir.ui.view,arch_db:hr_course.hr_course_form_view
 msgid "Draft Course"
-msgstr ""
+msgstr "Bozza Corso"
 
 #. module: hr_course
 #: model:ir.model,name:hr_course.model_hr_employee
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee_employee_id
 msgid "Employee"
-msgstr ""
+msgstr "Impiegato"
 
 #. module: hr_course
 #: code:addons/hr_course/models/hr_course.py:129
 #, python-format
 msgid "Employees removed from this course: <br></br>"
-msgstr ""
+msgstr "Impiegati rimossi da questo corso: <br></br>"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee_course_end
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_end_date
 msgid "End date"
-msgstr ""
+msgstr "Data fine"
 
 #. module: hr_course
 #: selection:hr.course.attendee,result:0
 msgid "Failed"
-msgstr ""
+msgstr "Fallito"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_permanence
 msgid "Has Permanence"
-msgstr ""
+msgstr "Ha Frequenza"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee_id
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_category_id_4199
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: hr_course
 #: selection:hr.course,state:0
 msgid "In progress"
-msgstr ""
+msgstr "In corso"
 
 #. module: hr_course
 #: selection:hr.course,state:0
 msgid "In validation"
-msgstr ""
+msgstr "In validazione"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course___last_update
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee___last_update
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_category___last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Data Ultima Modifica"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee_write_uid
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_category_write_uid
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Utente Ultima Modifica"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee_write_date
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_category_write_date
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Data Ultima Modifica"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee_name
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_name
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_employee_count_courses
 msgid "Number of courses"
-msgstr ""
+msgstr "Numero di corsi"
 
 #. module: hr_course
 #: model:ir.ui.view,arch_db:hr_course.hr_course_form_view
 msgid "Pass everybody"
-msgstr ""
+msgstr "Promuovi tutti"
 
 #. module: hr_course
 #: selection:hr.course.attendee,result:0
 msgid "Passed"
-msgstr ""
+msgstr "Promosso"
 
 #. module: hr_course
 #: selection:hr.course.attendee,result:0
 msgid "Pending"
-msgstr ""
+msgstr "In attesa"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_permanence_time
 msgid "Permanence time"
-msgstr ""
+msgstr "Tempo frequenza"
 
 #. module: hr_course
 #: model:ir.ui.view,arch_db:hr_course.hr_course_form_view
 msgid "Rate Course"
-msgstr ""
+msgstr "Valuta Corso"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee_result
 msgid "Result"
-msgstr ""
+msgstr "Risultato"
 
 #. module: hr_course
 #: model:ir.ui.view,arch_db:hr_course.hr_course_form_view
 msgid "Start Course"
-msgstr ""
+msgstr "Inizia Corso"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee_course_start
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_start_date
 msgid "Start date"
-msgstr ""
+msgstr "Data inizio"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee_state
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_state
 #: model:ir.ui.view,arch_db:hr_course.hr_course_search_view
 msgid "State"
-msgstr ""
+msgstr "Stato"
 
 #. module: hr_course
 #: code:addons/hr_course/models/hr_course.py:92
 #, python-format
 msgid "The start date cannot be later than the end date."
-msgstr ""
+msgstr "La data di inizio non può essere posteriore alla data di fine."
 
 #. module: hr_course
 #: selection:hr.course,state:0
 msgid "Waiting attendees"
-msgstr ""
+msgstr "In attesa corsisti"
 
 #. module: hr_course
 #: code:addons/hr_course/models/hr_course.py:177
 #, python-format
 msgid "You cannot complete the course with pending results"
-msgstr ""
+msgstr "Non puoi completare il corso con risultati in attesa"
 
 #. module: hr_course
 #: model:ir.ui.view,arch_db:hr_course.hr_course_form_view
 msgid "You should set a course back to draft only if you cancelled it by mistake or if some of its information is incorrect. Do you want to continue?"
 msgstr ""
+"Dovresti reimpostare un corso come bozza solo se lo hai cancellato per "
+"errore o se alcune sue informazioni non sono corrette. Vuoi continuare?"
 
 #. module: hr_course
 #: model:ir.model,name:hr_course.model_hr_course
 msgid "hr.course"
-msgstr ""
+msgstr "hr.course"
 
 #. module: hr_course
 #: model:ir.model,name:hr_course.model_hr_course_attendee
 msgid "hr.course.attendee"
-msgstr ""
+msgstr "hr.course.attendee"
