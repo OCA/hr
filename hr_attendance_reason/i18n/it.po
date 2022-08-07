@@ -6,126 +6,128 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2022-08-07 07:07+0000\n"
+"Last-Translator: neveroils <maiolif@mgftools.com>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #. module: hr_attendance_reason
 #: model:ir.model.fields,field_description:hr_attendance_reason.field_hr_attendance_reason_action_type
 msgid "Action Type"
-msgstr ""
+msgstr "Tipo Azione"
 
 #. module: hr_attendance_reason
 #: model:ir.model,name:hr_attendance_reason.model_hr_attendance
 msgid "Attendance"
-msgstr ""
+msgstr "Presenza"
 
 #. module: hr_attendance_reason
 #: model:ir.model,name:hr_attendance_reason.model_hr_attendance_reason
 #: model:ir.model.fields,field_description:hr_attendance_reason.field_hr_attendance_attendance_reason_ids
 msgid "Attendance Reason"
-msgstr ""
+msgstr "Motivo Presenza"
 
 #. module: hr_attendance_reason
 #: model:ir.actions.act_window,name:hr_attendance_reason.hr_attendance_reason_action
 msgid "Attendance Reasons"
-msgstr ""
+msgstr "Motivi Presenza"
 
 #. module: hr_attendance_reason
 #: model:ir.ui.view,arch_db:hr_attendance_reason.hr_attendance_reason_view_tree
 msgid "Attendance reasons"
-msgstr ""
+msgstr "Motivi presenza"
 
 #. module: hr_attendance_reason
 #: sql_constraint:hr.attendance.reason:0
 msgid "Code must be unique"
-msgstr ""
+msgstr "Il codice deve essere univoco"
 
 #. module: hr_attendance_reason
 #: model:ir.ui.menu,name:hr_attendance_reason.hr_attendance_settings_redefinition_menu
 msgid "Configuration"
-msgstr ""
+msgstr "Configurazione"
 
 #. module: hr_attendance_reason
 #: model:ir.model.fields,field_description:hr_attendance_reason.field_hr_attendance_reason_create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Creato da"
 
 #. module: hr_attendance_reason
 #: model:ir.model.fields,field_description:hr_attendance_reason.field_hr_attendance_reason_create_date
 msgid "Created on"
-msgstr ""
+msgstr "Creato il"
 
 #. module: hr_attendance_reason
 #: model:ir.ui.view,arch_db:hr_attendance_reason.hr_attendance_reason_view_form
 msgid "Define attendance reason"
-msgstr ""
+msgstr "Definisci il motivo presenza"
 
 #. module: hr_attendance_reason
 #: model:ir.model.fields,field_description:hr_attendance_reason.field_hr_attendance_reason_display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nome Visualizzato"
 
 #. module: hr_attendance_reason
 #: model:ir.model.fields,field_description:hr_attendance_reason.field_hr_attendance_reason_id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: hr_attendance_reason
 #: model:ir.model.fields,field_description:hr_attendance_reason.field_hr_attendance_reason___last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Data Ultima Modifica"
 
 #. module: hr_attendance_reason
 #: model:ir.model.fields,field_description:hr_attendance_reason.field_hr_attendance_reason_write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Utente Ultimo Aggiornamento"
 
 #. module: hr_attendance_reason
 #: model:ir.model.fields,field_description:hr_attendance_reason.field_hr_attendance_reason_write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Data Ultima Modifica"
 
 #. module: hr_attendance_reason
 #: model:ir.model.fields,help:hr_attendance_reason.field_hr_attendance_reason_action_type
 msgid "Leave empty if it is independent"
-msgstr ""
+msgstr "Lasciare vuoto se è indipendente"
 
 #. module: hr_attendance_reason
 #: model:ir.model.fields,field_description:hr_attendance_reason.field_hr_attendance_reason_name
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 #. module: hr_attendance_reason
 #: model:ir.model.fields,field_description:hr_attendance_reason.field_hr_attendance_reason_code
 msgid "Reason Code"
-msgstr ""
+msgstr "Codice Motivo"
 
 #. module: hr_attendance_reason
 #: model:ir.ui.menu,name:hr_attendance_reason.hr_attendance_reason_menu
 msgid "Reasons"
-msgstr ""
+msgstr "Motivi"
 
 #. module: hr_attendance_reason
 #: selection:hr.attendance.reason,action_type:0
 msgid "Sign in"
-msgstr ""
+msgstr "Ingresso"
 
 #. module: hr_attendance_reason
 #: selection:hr.attendance.reason,action_type:0
 msgid "Sign out"
-msgstr ""
+msgstr "Uscita"
 
 #. module: hr_attendance_reason
 #: model:ir.model.fields,help:hr_attendance_reason.field_hr_attendance_attendance_reason_ids
 msgid "Specifies the reason for signing In/signing Out in case of less or extra hours."
-msgstr ""
+msgstr "Specifica le motivazioni per ingresso e uscita in caso di ore extra."
 
 #. module: hr_attendance_reason
 #: model:ir.model.fields,help:hr_attendance_reason.field_hr_attendance_reason_name
 msgid "Specifies the reason leaving soon or arriving late"
-msgstr ""
+msgstr "Specifica il motivo per un arrivo in ritardo o un'uscita in anticipo"
