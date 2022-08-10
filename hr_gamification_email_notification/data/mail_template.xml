@@ -1,17 +1,28 @@
-<odoo noupdate="1">
+<?xml version="1.0" ?>
+<odoo>
     <record id="email_template_badge_weekly_awards" model="mail.template">
             <field name="name">Received Badges</field>
             <field name="subject">Weekly Awards</field>
-            <field name="model_id" ref="hr_gamification_email_notification.model_mail_channel"/>
-            <field name="partner_to">${ctx['partner_ids']}</field>
-            <field name="lang">${object.create_uid.lang}</field>
+            <field
+            name="model_id"
+            ref="hr_gamification_email_notification.model_mail_channel"
+        />
+            <field name="partner_to">{{ ctx['partner_ids'] }}</field>
+            <field name="lang">{{ object.create_uid.lang }}</field>
             <field name="body_html" type="xml">
                     <p>
-                    Dear Employee,<br/>
-                    Below are the award given in the last week.
+                    Dear Employee,<br />
+                    Below are the award given
                     </p>
-                        <table width="900" border="1" cellpadding="2" style="min-width: 800px; background-color: white; border-collapse:collapse;">
-                            <thead style="background-color: blue;color: white;text-align: left;">
+                        <table
+                width="900"
+                border="1"
+                cellpadding="2"
+                style="min-width: 800px; background-color: white; border-collapse:collapse;"
+            >
+                            <thead
+                    style="background-color: blue;color: white;text-align: left;"
+                >
                                 <tr>
                                     <th>Badge</th>
                                     <th width="350">Comment</th>
@@ -20,36 +31,53 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                % set badges = ctx.get('badge_ids', False)
-                                % for badge in badges
+                                <t
+                        t-set="badges"
+                        t-value="ctx.get('badge_ids', False)"
+                    />
+                                <t t-foreach="badges" t-as="badge">
                                 <tr>
-                                    <td style="color: blue;">${badge.badge_name or ''}</td>
-                                    <td>${badge.comment or ''}</td>
-                                    <td>${badge.create_date or ''}</td>
-                                    <td>${badge.user_id.name or ''}</td>
+                                    <td style="color: blue;"><span
+                                    t-esc="badge.badge_name or '' "
+                                /></td>
+                                    <td><span t-esc="badge.comment or '' " /></td>
+                                    <td><span t-esc="badge.create_date or '' " /></td>
+                                    <td><span t-esc="badge.user_id.name or '' " /></td>
                                 </tr>
-                                % endfor
+                                </t>
                             </tbody>
                         </table>
 
             <div align="center" style="min-width: 590px;">
-            <table border="0" cellpadding="0" cellspacing="0" width="590" style=" font-family: 'Verdana Regular'; color: #454748; min-width: 590px; background-color: white; font-size: 11px; padding: 0px 8px 0px 8px; border-collapse:separate;">
+            <table
+                    border="0"
+                    cellpadding="0"
+                    cellspacing="0"
+                    width="590"
+                    style=" font-family: 'Verdana Regular'; color: #454748; min-width: 590px; background-color: white; font-size: 11px; padding: 0px 8px 0px 8px; border-collapse:separate;"
+                >
                 <tr>
                     <td valign="middle" align="left">
-                         ${user.company_id.name}
+                         <span t-esc="user.company_id.name or '' " />
                     </td>
                     <td valign="middle" align="right" style="opacity: 0.7;">
-                        ${user.company_id.phone}
-                        % if user.company_id.email:
-                            | <a href="'mailto:%s' % ${user.company_id.email}" style="text-decoration:none; color: #454748;">
-                                ${user.company_id.email}
+                        <span t-esc="user.company_id.phone or '' " />
+                        <t t-if="user.company_id.email">
+                            <a
+                                    href="'mailto:%s' % ${user.company_id.email}"
+                                    style="text-decoration:none; color: #454748;"
+                                >
+                                <span t-esc="user.company_id.email or '' " />
                             </a>
-                        % endif
-                        % if user.company_id.website:
-                            | <a href="${user.company_id.website}" style="text-decoration:none; color: #454748;">
-                                ${user.company_id.website}
+                        </t>
+                        <t t-if="user.company_id.website">
+                            <a
+                                    href="'mailto:%s' % ${user.company_id.email}"
+                                    style="text-decoration:none; color: #454748;"
+                                >
+                                <span t-esc="user.company_id.website or '' " />
                             </a>
-                        % endif
+                        </t>
                     </td>
                 </tr>
             </table>
@@ -57,4 +85,3 @@
             </field>
         </record>
 </odoo>
-

@@ -1,52 +1,84 @@
 <odoo>
 
-    <record id="hr_gamification_email_notification.email_template_badge_weekly_awards" model="mail.template">
-        <field name="body_html" type="xml">
-            <p>Congratulations to everyone who earned badges last week.  Many thanks for your contributions to the team!</p>
-            <table width="900" border="1" cellpadding="2" style="min-width: 800px; background-color: white; border-collapse:collapse;">
-                <thead style="background-color: blue;color: white;text-align: left;">
-                    <tr>
-                        <th>Badge</th>
-                        <th width="350">Comment</th>
-                        <th>Awarded On</th>
-                        <th>Awarded To</th>
-                    </tr>
-                </thead>
-                <tbody>
-                                % set badges = ctx.get('badge_ids', False)
-                                % for badge in badges
-                    <tr>
-                        <td style="color: blue;">${badge.badge_name or ''}</td>
-                        <td>${badge.comment or ''}</td>
-                        <td>${badge.create_date or ''}</td>
-                        <td>${badge.user_id.name or ''}</td>
-                    </tr>
-                                % endfor
-                </tbody>
+    <record
+        id="hr_gamification_email_notification.email_template_badge_weekly_awards"
+        model="mail.template"
+    >
+        <field name="body_html" type="html">
+        <p
+            >Congratulations to everyone who earned badges last week.  Many thanks for your contributions to the team!</p>
+            <table
+                border="0"
+                cellpadding="0"
+                cellspacing="0"
+                style="padding-top: 16px; background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;"
+            ><tr><td align="center">
+            <table
+                            width="900"
+                            border="1"
+                            cellpadding="2"
+                            style="min-width: 800px; background-color: white; border-collapse:collapse;"
+                        >
+            <thead style="background-color: blue;color: white;text-align: left;">
+                <tr>
+                    <th>Badge</th>
+                    <th width="350">Comment</th>
+                    <th>Awarded On</th>
+                    <th>Awarded To</th>
+                </tr>
+            </thead>
+            <tbody>
+                <t t-set="badges" t-value="ctx.get('badge_ids', False)" />
+                <t t-foreach="badges" t-as="badge">
+                <tr>
+                    <td style="color: blue;"><span
+                                                t-esc="badge.badge_name or '' "
+                                            /></td>
+                    <td><span t-esc="badge.comment or '' " /></td>
+                    <td><span t-esc="badge.create_date or '' " /></td>
+                    <td><span t-esc="badge.user_id.name or '' " /></td>
+                </tr>
+                </t>
+            </tbody>
+            </table>
+            </td></tr>
             </table>
 
             <div align="center" style="min-width: 590px;">
-                <table border="0" cellpadding="0" cellspacing="0" width="590" style=" font-family: 'Verdana Regular'; color: #454748; min-width: 590px; background-color: white; font-size: 11px; padding: 0px 8px 0px 8px; border-collapse:separate;">
-                    <tr>
-                        <td valign="middle" align="left">
-                         ${user.company_id.name}
-                        </td>
-                        <td valign="middle" align="right" style="opacity: 0.7;">
-                        ${user.company_id.phone}
-                        % if user.company_id.email:
-                            |                            <a href="'mailto:%s' % ${user.company_id.email}" style="text-decoration:none; color: #454748;">
-                                ${user.company_id.email}
+            <table
+                    border="0"
+                    cellpadding="0"
+                    cellspacing="0"
+                    width="590"
+                    style=" font-family: 'Verdana Regular'; color: #454748; min-width: 590px; background-color: white; font-size: 11px; padding: 0px 8px 0px 8px; border-collapse:separate;"
+                >
+                <tr>
+                    <td valign="middle" align="left">
+                         <span t-esc="user.company_id.name or '' " />
+                    </td>
+                    <td valign="middle" align="right" style="opacity: 0.7;">
+                        <span t-esc="user.company_id.phone or '' " />
+                        <t t-if="user.company_id.email">
+                            <a
+                                    href="'mailto:%s' % ${user.company_id.email}"
+                                    style="text-decoration:none; color: #454748;"
+                                >
+                                <span t-esc="user.company_id.email or '' " />
                             </a>
-                        % endif
-                        % if user.company_id.website:
-                            |                            <a href="${user.company_id.website}" style="text-decoration:none; color: #454748;">
-                                ${user.company_id.website}
+                        </t>
+                        <t t-if="user.company_id.website">
+                            <a
+                                    href="'mailto:%s' % ${user.company_id.email}"
+                                    style="text-decoration:none; color: #454748;"
+                                >
+                                <span t-esc="user.company_id.website or '' " />
                             </a>
-                        % endif
-                        </td>
-                    </tr>
-                </table>
+                        </t>
+                    </td>
+                </tr>
+            </table>
             </div>
+
         </field>
     </record>
 
@@ -54,12 +86,12 @@
         <field name="name">Badge User List View</field>
         <field name="model">gamification.badge.user</field>
         <field name="arch" type="xml">
-            <tree string="Badge User List" create="false">
-                <field name="badge_name"/>
-                <field name="badge_id"/>
-                <field name="user_id"/>
-                <field name="sender_id"/>
-                <field name="challenge_id"/>
+            <tree create="false">
+                <field name="badge_name" />
+                <field name="badge_id" />
+                <field name="user_id" />
+                <field name="sender_id" />
+                <field name="challenge_id" />
             </tree>
         </field>
     </record>
@@ -72,6 +104,10 @@
         <field name="context">{}</field>
     </record>
 
-    <menuitem id="gamification_badge_user_list_menu_hr" parent="hr_gamification.menu_hr_gamification" action="badge_user_list_action"
-    groups="hr.group_hr_user"/>
+    <menuitem
+        id="gamification_badge_user_list_menu_hr"
+        parent="hr_gamification.menu_hr_gamification"
+        action="badge_user_list_action"
+        groups="hr.group_hr_user"
+    />
 </odoo>
