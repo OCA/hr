@@ -6,7 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2022-08-22 12:07+0000\n"
+"Last-Translator: Bole <bole@dajmi5.com>\n"
 "Language-Team: none\n"
 "Language: hr\n"
 "MIME-Version: 1.0\n"
@@ -14,65 +15,66 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #. module: hr_period
 #: code:addons/hr_period/models/hr_fiscal_year.py:0
-#, python-format
+#, fuzzy, python-format
 msgid "%s Period #%s"
-msgstr ""
+msgstr "%s Period #%s"
 
 #. module: hr_period
 #: code:addons/hr_period/models/hr_fiscal_year.py:0
 #, python-format
 msgid "%s day of the current period"
-msgstr ""
+msgstr "%s dana u trenutnom periodu"
 
 #. module: hr_period
 #: code:addons/hr_period/models/hr_fiscal_year.py:0
 #, python-format
 msgid "%s day of the next period"
-msgstr ""
+msgstr "%s dana iz sljedećeg perioda"
 
 #. module: hr_period
 #: model:ir.model.fields,field_description:hr_period.field_hr_fiscalyear__active
 #: model:ir.model.fields,field_description:hr_period.field_hr_period__active
 msgid "Active"
-msgstr ""
+msgstr "Aktivan"
 
 #. module: hr_period
 #: code:addons/hr_period/models/hr_fiscal_year.py:0
 #, python-format
 msgid "Annually (1)"
-msgstr ""
+msgstr "Godišnje (1)"
 
 #. module: hr_period
 #: model:ir.model,name:hr_period.model_hr_employee_base
 msgid "Basic Employee"
-msgstr ""
+msgstr "Djelatnik"
 
 #. module: hr_period
 #: code:addons/hr_period/models/hr_fiscal_year.py:0
 #, python-format
 msgid "Bi-monthly (6)"
-msgstr ""
+msgstr "Dvomjesečno (6)"
 
 #. module: hr_period
 #: code:addons/hr_period/models/hr_fiscal_year.py:0
 #, python-format
 msgid "Bi-weekly (26)"
-msgstr ""
+msgstr "Dvotjedno (26)"
 
 #. module: hr_period
 #: model_terms:ir.ui.view,arch_db:hr_period.view_hr_period_form
 msgid "Close Period"
-msgstr ""
+msgstr "Zatvori period"
 
 #. module: hr_period
 #: model:ir.model.fields.selection,name:hr_period.selection__hr_fiscalyear__state__done
 #: model:ir.model.fields.selection,name:hr_period.selection__hr_period__state__done
 #: model_terms:ir.ui.view,arch_db:hr_period.view_hr_fiscalyear_search
 msgid "Closed"
-msgstr ""
+msgstr "Zatvoren"
 
 #. module: hr_period
 #: model:ir.model.fields,field_description:hr_period.field_hr_fiscalyear__company_id
@@ -81,69 +83,69 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_period.field_hr_period__company_id
 #: model_terms:ir.ui.view,arch_db:hr_period.hr_payslip_run_filter
 msgid "Company"
-msgstr ""
+msgstr "Tvrtka"
 
 #. module: hr_period
 #: model_terms:ir.ui.view,arch_db:hr_period.view_hr_fiscalyear_form
 msgid "Confirm"
-msgstr ""
+msgstr "Potvrdi"
 
 #. module: hr_period
 #: model:ir.model.fields,field_description:hr_period.field_hr_employee_base__contract_id
 #: model:ir.model.fields,field_description:hr_period.field_hr_employee_public__contract_id
 msgid "Contract"
-msgstr ""
+msgstr "Ugovor"
 
 #. module: hr_period
 #: model_terms:ir.ui.view,arch_db:hr_period.view_hr_fiscalyear_form
 msgid "Create Periods"
-msgstr ""
+msgstr "Kreiraj periode"
 
 #. module: hr_period
 #: model:ir.model.fields,field_description:hr_period.field_hr_fiscalyear__create_uid
 #: model:ir.model.fields,field_description:hr_period.field_hr_period__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Kerirao"
 
 #. module: hr_period
 #: model:ir.model.fields,field_description:hr_period.field_hr_fiscalyear__create_date
 #: model:ir.model.fields,field_description:hr_period.field_hr_period__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Kreirano"
 
 #. module: hr_period
 #: model:ir.model.fields,field_description:hr_period.field_hr_employee__contract_id
 msgid "Current Contract"
-msgstr ""
+msgstr "Trenutni ugovor"
 
 #. module: hr_period
 #: model:ir.model.fields,help:hr_period.field_hr_employee__contract_id
 msgid "Current contract of the employee"
-msgstr ""
+msgstr "Trenutni ugovor djelatnika"
 
 #. module: hr_period
 #: code:addons/hr_period/models/hr_fiscal_year.py:0
 #, python-format
 msgid "Daily (365)"
-msgstr ""
+msgstr "Dnevno (365)"
 
 #. module: hr_period
 #: model_terms:ir.ui.view,arch_db:hr_period.hr_payslip_run_form
 msgid "Date"
-msgstr ""
+msgstr "Datum"
 
 #. module: hr_period
 #: model:ir.model,name:hr_period.model_date_range_type
 #: model_terms:ir.ui.view,arch_db:hr_period.view_date_range_type_hr_form_view
 msgid "Date Range Type"
-msgstr ""
+msgstr "Tip raspona datuma"
 
 #. module: hr_period
 #: model:ir.model.fields,field_description:hr_period.field_hr_payslip__date_payment
 #: model:ir.model.fields,field_description:hr_period.field_hr_payslip_run__date_payment
 #: model:ir.model.fields,field_description:hr_period.field_hr_period__date_payment
 msgid "Date of Payment"
-msgstr ""
+msgstr "Datum plaćanja"
 
 #. module: hr_period
 #: code:addons/hr_period/models/hr_fiscal_year.py:0
@@ -156,12 +158,12 @@ msgstr ""
 #. module: hr_period
 #: model:ir.model.fields,field_description:hr_period.field_hr_fiscalyear__payment_day
 msgid "Day of Payment"
-msgstr ""
+msgstr "Dan plaćanja"
 
 #. module: hr_period
 #: model:ir.model.fields,help:hr_period.field_hr_contract__schedule_pay
 msgid "Defines the frequency of the wage payment."
-msgstr ""
+msgstr "Definira frekvenciju isplate plaće."
 
 #. module: hr_period
 #: model:ir.model.fields,field_description:hr_period.field_date_range_type__display_name
@@ -173,99 +175,99 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_period.field_hr_payslip_run__display_name
 #: model:ir.model.fields,field_description:hr_period.field_hr_period__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Naziv"
 
 #. module: hr_period
 #: model:ir.model.fields.selection,name:hr_period.selection__hr_fiscalyear__state__draft
 #: model:ir.model.fields.selection,name:hr_period.selection__hr_period__state__draft
 msgid "Draft"
-msgstr ""
+msgstr "Nacrt"
 
 #. module: hr_period
 #: model_terms:ir.ui.view,arch_db:hr_period.view_hr_period_form
 msgid "Duration"
-msgstr ""
+msgstr "Trajanje"
 
 #. module: hr_period
 #: model:ir.model,name:hr_period.model_hr_contract
 msgid "Employee Contract"
-msgstr ""
+msgstr "Ugovor djelatnika"
 
 #. module: hr_period
 #: model:ir.model.fields,field_description:hr_period.field_hr_fiscalyear__date_end
 #: model:ir.model.fields,field_description:hr_period.field_hr_period__date_end
 msgid "End date"
-msgstr ""
+msgstr "Završni datum"
 
 #. module: hr_period
 #: code:addons/hr_period/models/hr_fiscal_year.py:0
 #, python-format
 msgid "Fifth"
-msgstr ""
+msgstr "Peti"
 
 #. module: hr_period
 #: code:addons/hr_period/models/hr_fiscal_year.py:0
 #, python-format
 msgid "First"
-msgstr ""
+msgstr "Prvi"
 
 #. module: hr_period
 #: model:ir.model.fields,field_description:hr_period.field_hr_period__fiscalyear_id
 #: model_terms:ir.ui.view,arch_db:hr_period.view_hr_fiscalyear_form
 #: model_terms:ir.ui.view,arch_db:hr_period.view_hr_fiscalyear_search
 msgid "Fiscal Year"
-msgstr ""
+msgstr "Fiskalna godina"
 
 #. module: hr_period
 #: model:ir.model.fields.selection,name:hr_period.selection__hr_fiscalyear__payment_week__1
 msgid "Following Week"
-msgstr ""
+msgstr "Sljedeći tjedan"
 
 #. module: hr_period
 #: code:addons/hr_period/models/hr_fiscal_year.py:0
 #, python-format
 msgid "Fourth"
-msgstr ""
+msgstr "Četvrti"
 
 #. module: hr_period
 #: model:ir.model.fields.selection,name:hr_period.selection__hr_fiscalyear__payment_weekday__5
 msgid "Friday"
-msgstr ""
+msgstr "Petak"
 
 #. module: hr_period
 #: code:addons/hr_period/models/hr_payslip_run.py:0
 #: model_terms:ir.ui.view,arch_db:hr_period.hr_payslip_run_form
 #, python-format
 msgid "Generate Payslips"
-msgstr ""
+msgstr "Generiraj obračune"
 
 #. module: hr_period
 #: model:ir.model,name:hr_period.model_hr_payslip_employees
 msgid "Generate payslips for all selected employees"
-msgstr ""
+msgstr "Generiraj obračune za sve odabrane djelatnike"
 
 #. module: hr_period
 #: model_terms:ir.ui.view,arch_db:hr_period.hr_payslip_run_filter
 #: model_terms:ir.ui.view,arch_db:hr_period.view_hr_fiscalyear_search
 #: model_terms:ir.ui.view,arch_db:hr_period.view_hr_period_search
 msgid "Group By..."
-msgstr ""
+msgstr "Grupiraj po..."
 
 #. module: hr_period
 #: model:date.range.type,name:hr_period.date_range_hr_fiscal_year
 #: model:ir.model,name:hr_period.model_hr_fiscalyear
 msgid "HR Fiscal Year"
-msgstr ""
+msgstr "HR fiskalna godina"
 
 #. module: hr_period
 #: model:ir.model,name:hr_period.model_hr_period
 msgid "HR Payroll Period"
-msgstr ""
+msgstr "HR period obračuna plaće"
 
 #. module: hr_period
 #: model:date.range.type,name:hr_period.date_range_hr_period
 msgid "HR Period"
-msgstr ""
+msgstr "HR Period"
 
 #. module: hr_period
 #: model:ir.model.fields,field_description:hr_period.field_date_range_type__id
@@ -277,7 +279,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_period.field_hr_payslip_run__id
 #: model:ir.model.fields,field_description:hr_period.field_hr_period__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: hr_period
 #: model:ir.model.fields,field_description:hr_period.field_date_range_type__hr_fiscal_year
@@ -293,7 +295,7 @@ msgstr ""
 #: code:addons/hr_period/models/hr_fiscal_year.py:0
 #, python-format
 msgid "Last"
-msgstr ""
+msgstr "Zadnji"
 
 #. module: hr_period
 #: model:ir.model.fields,field_description:hr_period.field_date_range_type____last_update
