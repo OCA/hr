@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-07-04 06:52+0000\n"
-"PO-Revision-Date: 2022-08-22 21:07+0000\n"
+"PO-Revision-Date: 2022-08-23 12:08+0000\n"
 "Last-Translator: Bole <bole@dajmi5.com>\n"
 "Language-Team: Croatian (https://www.transifex.com/oca/teams/23907/hr/)\n"
 "Language: hr\n"
@@ -85,7 +85,7 @@ msgstr "Ime nije postavljeno."
 #. module: hr_employee_firstname
 #: model:ir.model.fields,help:hr_employee_firstname.field_res_config_settings__employee_names_order
 msgid "Order to compose employee fullname"
-msgstr ""
+msgstr "Redosljed sastavljanja punog imena djelatnika"
 
 #~ msgid "Firstname"
 #~ msgstr "Ime"
