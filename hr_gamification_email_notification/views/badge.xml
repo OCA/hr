@@ -1,9 +1,6 @@
 <odoo>
 
-    <record
-        id="hr_gamification_email_notification.email_template_badge_weekly_awards"
-        model="mail.template"
-    >
+    <record id="email_template_badge_weekly_awards_inherit" model="mail.template">
         <field name="body_html" type="html">
         <p
             >Congratulations to everyone who earned badges last week.  Many thanks for your contributions to the team!</p>

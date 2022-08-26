@@ -20,7 +20,8 @@ class MailChannel(models.Model):
         for partner_id in channel_general.channel_last_seen_partner_ids:
             partner_ids.append(partner_id.partner_id.id)
         template = self.env.ref(
-            "hr_gamification_email_notification." "email_template_badge_weekly_awards"
+            "hr_gamification_email_notification."
+            "email_template_badge_weekly_awards_inherit"
         )
         date_before_aweek = fields.Date.today() - timedelta(days=7)
         badge_ids = self.env["gamification.badge.user"].search(
