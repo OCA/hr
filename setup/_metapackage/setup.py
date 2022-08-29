@@ -9,6 +9,7 @@ setuptools.setup(
     version=version,
     install_requires=[
         'odoo-addon-hr_course>=15.0dev,<15.1dev',
+        'odoo-addon-hr_employee_age>=15.0dev,<15.1dev',
         'odoo-addon-hr_employee_firstname>=15.0dev,<15.1dev',
         'odoo-addon-hr_employee_lastnames>=15.0dev,<15.1dev',
         'odoo-addon-hr_employee_medical_examination>=15.0dev,<15.1dev',
