@@ -14,6 +14,7 @@ setuptools.setup(
         'odoo12-addon-hr_attendance_reason',
         'odoo12-addon-hr_attendance_report_theoretical_time',
         'odoo12-addon-hr_attendance_rfid',
+        'odoo12-addon-hr_attendance_sheet',
         'odoo12-addon-hr_calendar_rest_time',
         'odoo12-addon-hr_contract_currency',
         'odoo12-addon-hr_contract_document',
