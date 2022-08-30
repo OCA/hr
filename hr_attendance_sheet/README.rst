@@ -14,24 +14,26 @@ HR Attendance Sheet
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fhr-lightgray.png?logo=github
-    :target: https://github.com/OCA/hr/tree/12.0/hr_attendance_rfid
+    :target: https://github.com/OCA/hr/tree/12.0/hr_attendance_sheet
     :alt: OCA/hr
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/hr-12-0/hr-12-0-hr_attendance_rfid
+    :target: https://translation.odoo-community.org/projects/hr-12-0/hr-12-0-hr_attendance_sheet
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runbot-Try%20me-875A7B.png
     :target: https://runbot.odoo-community.org/runbot/116/12.0
     :alt: Try me on Runbot
 
-|badge1| |badge2| |badge3| |badge4| |badge5|
+|badge1| |badge2| |badge3| |badge4| |badge5| 
 
 This module extends attendance and adds sheets and other features.
 Feature List:
 
 * Attendance sheets, generated Daily, Weekly, Bi-Weekly or Monthly
-* Auto lunch calculation in the duration if attendance duration surpasses time.
-* Split attendance at midnight is attendance crosses to the next day.
-* Approval process for 'HR', 'Manger' and 'Manager or HR'
+* Auto lunch calculation option in the duration if attendance duration surpasses time.
+* Several Approval Options
+  * HR Manager/Officer,
+  * Employee's Manager or Attendance Admin
+  * Manager or HR or Employee's Manager or Attendance Admin
 
 **Table of contents**
 
@@ -45,13 +47,13 @@ Attendance Sheet Configuration:
 #. Go to *Attendances -> Configuration*.
 #. Set the Attendance Sheet Range to be used to calculate start/end dates
 on the sheet when they are created.
-#. Set the Attendance Sheet Review Policy for who cab review sheets.
-#. Choose Split Overnight Attendance if you want attendances that cross
-overnight to be split into two attendances at midnight.
+#. Set the Attendance Sheet Review Policy for who can review sheets.
 #. Choose Auto Lunch if you want a lunch calculated automatically. Duration is
 maximum hours where a lunch would be calculated with the lunch duration.
 For example, duration set to 5hrs, lunch set to .5hrs, if attendance is 6hours
 then the duration on the attendance would show 5.5hrs due to the auto lunch.
+Note: if there is two attendances and there is enough time between them, then
+auto lunch won't be applied.
 
 Employee Configuration:
 #. Go to *Attendances -> Manage Attendances -> Employees*.
@@ -70,10 +72,6 @@ the attendance sheet checked on their employee record.
 #. Sheets will have a start/end time based on the period set in settings.
 #. Attendances that have dates between the sheet start/end time will
 automatically be put into the sheet.
-#. Split overnight attendance (if enabled) is used if attendances shouldn't
-cross overnight and will generate another attendance for the next day, split
-at midnight of the timezone that is set on the employee record. A banner will
-show on the attendance stating that a split has been applied.
 #. Auto lunch (if enabled) will be calculated in the attendance duration if the
 duration exceeds the auto lunch setting. A banner will show on the attendance
 stating that an auto lunch has been applied.
@@ -86,7 +84,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/hr/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us smashing it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/hr/issues/new?body=module:%20hr_attendance_rfid%0Aversion:%2012.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/hr/issues/new?body=module:%20hr_attendance_sheet%0Aversion:%2012.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -96,7 +94,7 @@ Credits
 Authors
 ~~~~~~~
 
-* Pavlov Media
+* Odoo S.A.
 
 Contributors
 ~~~~~~~~~~~~
