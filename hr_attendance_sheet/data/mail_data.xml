@@ -1,0 +1,8 @@
+<odoo noupdate="1">
+    <!-- Leave specific activities -->
+    <record id="mail_act_attendance_sheet_approval" model="mail.activity.type">
+        <field name="name">Attendance Sheet Approval</field>
+        <field name="icon">fa-sun-o</field>
+        <field name="res_model_id" ref="hr_attendance_sheet.model_hr_attendance_sheet"/>
+    </record>
+</odoo>

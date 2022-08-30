@@ -1,0 +1,12 @@
+<odoo>
+    <record id="ir_cron_attendance_sheet_creation" model="ir.cron">
+        <field name="name">Attendance Sheets: Create Sheets</field>
+        <field name="interval_number">4</field>
+        <field name="interval_type">hours</field>
+        <field name="numbercall">-1</field>
+        <field name="doall" eval="False"/>
+        <field name="model_id" ref="model_hr_attendance_sheet"/>
+        <field name="code">model._create_sheet_id()</field>
+        <field name="state">code</field>
+    </record>
+</odoo>

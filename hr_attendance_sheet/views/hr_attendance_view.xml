@@ -1,0 +1,47 @@
+<odoo>
+    <record id="hr_attendance_sheet_attendance_view_tree" model="ir.ui.view">
+        <field name="name">hr.attendance.sheet.attendance.tree</field>
+        <field name="model">hr.attendance</field>
+        <field name="inherit_id" ref="hr_attendance.view_attendance_tree"/>
+        <field name="arch" type="xml">
+           <field name="check_out" position="after">
+               <field name="attendance_sheet_id"/>
+               <field name="auto_lunch"/>
+               <field name="override_auto_lunch"/>
+               <field name="duration" widget="timesheet_uom"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="hr_attendance_sheet_attendance_view_form" model="ir.ui.view">
+        <field name="name">hr.attendance.sheet.attendance.form</field>
+        <field name="model">hr.attendance</field>
+        <field name="inherit_id" ref="hr_attendance.hr_attendance_view_form"/>
+        <field name="arch" type="xml">
+            <sheet position="inside">
+                <group name="duration_sheet">
+                    <group>
+                        <field name="auto_lunch_enabled" invisible="1"/>
+                        <field name="auto_lunch" invisible="1"/>
+                        <field name="override_auto_lunch" attrs="{'invisible': [('auto_lunch_enabled', '=', False)]}"/>
+                        <field name="override_reason" attrs="{'required': [('override_auto_lunch', '=', True)], 'invisible': [('override_auto_lunch', '=', False)]}"/>
+                        <field name="duration" widget="timesheet_uom"/>
+                        <field name="attendance_sheet_id"/>
+                    </group>
+                </group>
+            </sheet>
+            <sheet position="before">
+                <div class="alert alert-info text-center mb-3" attrs="{'invisible': [('auto_lunch', '=', False)]}" role="alert">
+                    Note: This attendance contains an automatically applied lunch period since the duration surpassed the maximum hours allowed without a lunch.
+                </div>
+            </sheet>
+        </field>
+    </record>
+
+    <record id="hr_attendance_sheet_attendance_action_employee" model="ir.actions.act_window">
+        <field name="name">Attendances</field>
+        <field name="res_model">hr.attendance</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>
