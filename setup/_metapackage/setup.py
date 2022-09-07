@@ -40,6 +40,7 @@ setuptools.setup(
         'odoo14-addon-hr_personal_equipment_request_tier_validation',
         'odoo14-addon-hr_personal_equipment_stock',
         'odoo14-addon-hr_recruitment_notification',
+        'odoo14-addon-hr_worked_days_from_timesheet',
     ],
     classifiers=[
         'Programming Language :: Python',
