@@ -35,6 +35,7 @@ addon | version | maintainers | summary
 [hr_employee_service](hr_employee_service/) | 15.0.1.0.0 |  | Employee service information & duration
 [hr_employee_service_contract](hr_employee_service_contract/) | 15.0.1.0.0 |  | Employee service information & duration based on employee's contracts
 [hr_holidays_settings](hr_holidays_settings/) | 15.0.1.0.0 |  | Enables Settings Form for HR Holidays.
+[hr_job_category](hr_job_category/) | 15.0.1.0.0 |  | Adds tags to employee through contract and job position
 [hr_personal_equipment_request](hr_personal_equipment_request/) | 15.0.1.0.0 |  | This addon allows to manage employee personal equipment
 
 [//]: # (end addons)
