@@ -12,6 +12,7 @@ setuptools.setup(
         'odoo-addon-hr_course>=15.0dev,<15.1dev',
         'odoo-addon-hr_emergency_contact>=15.0dev,<15.1dev',
         'odoo-addon-hr_employee_age>=15.0dev,<15.1dev',
+        'odoo-addon-hr_employee_birth_name>=15.0dev,<15.1dev',
         'odoo-addon-hr_employee_calendar_planning>=15.0dev,<15.1dev',
         'odoo-addon-hr_employee_firstname>=15.0dev,<15.1dev',
         'odoo-addon-hr_employee_lastnames>=15.0dev,<15.1dev',
