@@ -22,6 +22,7 @@ setuptools.setup(
         'odoo-addon-hr_employee_service>=15.0dev,<15.1dev',
         'odoo-addon-hr_employee_service_contract>=15.0dev,<15.1dev',
         'odoo-addon-hr_holidays_settings>=15.0dev,<15.1dev',
+        'odoo-addon-hr_job_category>=15.0dev,<15.1dev',
         'odoo-addon-hr_personal_equipment_request>=15.0dev,<15.1dev',
     ],
     classifiers=[
