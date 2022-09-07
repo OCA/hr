@@ -23,7 +23,7 @@ HR Worked Days From Timesheet
     :target: https://runbot.odoo-community.org/runbot/116/14.0
     :alt: Try me on Runbot
 
-|badge1| |badge2| |badge3| |badge4| |badge5|
+|badge1| |badge2| |badge3| |badge4| |badge5| 
 
 This module allow you to automatically fill the 'Worked Days' of payslips with
 the information of each employee's timesheets for the payslip's period.
@@ -73,7 +73,6 @@ Contributors
 * Lois Rilo Antelo <lois.rilo@forgeflow.com>
 * Serpent Consulting Services Pvt. Ltd. <support@serpentcs.com>
 * Juany Davila <juany.davila@forgeflow.com>
-
 
 Maintainers
 ~~~~~~~~~~~
