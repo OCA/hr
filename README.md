@@ -53,6 +53,7 @@ addon | version | maintainers | summary
 [hr_personal_equipment_request_tier_validation](hr_personal_equipment_request_tier_validation/) | 14.0.1.0.0 |  | Enables tier validation from hr.personal.equipment.request
 [hr_personal_equipment_stock](hr_personal_equipment_stock/) | 14.0.1.0.0 |  | This addon allows to integrate hr_personal_equipment_request with stock
 [hr_recruitment_notification](hr_recruitment_notification/) | 14.0.1.0.0 | [![joao-p-marques](https://github.com/joao-p-marques.png?size=30px)](https://github.com/joao-p-marques) | Configure automatic notifications for new applications
+[hr_worked_days_from_timesheet](hr_worked_days_from_timesheet/) | 14.0.1.0.0 |  | Adds a button to import worked days from timesheet.
 
 [//]: # (end addons)
 
