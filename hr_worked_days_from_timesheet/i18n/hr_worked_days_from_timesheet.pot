@@ -49,7 +49,7 @@ msgstr ""
 
 #. module: hr_worked_days_from_timesheet
 #: model:ir.model,name:hr_worked_days_from_timesheet.model_hr_payslip
-msgid "Pay Slip"
+msgid "Payslip"
 msgstr ""
 
 #. module: hr_worked_days_from_timesheet
