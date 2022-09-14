@@ -353,11 +353,6 @@ msgid "Open Period"
 msgstr ""
 
 #. module: hr_period
-#: model:ir.model,name:hr_period.model_hr_payslip
-msgid "Pay Slip"
-msgstr ""
-
-#. module: hr_period
 #: model_terms:ir.ui.view,arch_db:hr_period.hr_payslip_run_filter
 #: model_terms:ir.ui.view,arch_db:hr_period.view_hr_payslip_filter
 msgid "Payment Date"
@@ -374,6 +369,11 @@ msgstr ""
 #: model:ir.ui.menu,name:hr_period.menu_action_hr_period
 #: model_terms:ir.ui.view,arch_db:hr_period.view_hr_period_form
 msgid "Payroll Periods"
+msgstr ""
+
+#. module: hr_period
+#: model:ir.model,name:hr_period.model_hr_payslip
+msgid "Payslip"
 msgstr ""
 
 #. module: hr_period
