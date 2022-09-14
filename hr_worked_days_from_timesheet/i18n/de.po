@@ -55,8 +55,8 @@ msgstr ""
 
 #. module: hr_worked_days_from_timesheet
 #: model:ir.model,name:hr_worked_days_from_timesheet.model_hr_payslip
-msgid "Pay Slip"
-msgstr "Lohnnachweis"
+msgid "Payslip"
+msgstr ""
 
 #. module: hr_worked_days_from_timesheet
 #: model:ir.model,name:hr_worked_days_from_timesheet.model_hr_payslip_worked_days
@@ -86,6 +86,9 @@ msgstr "Zeitnachweis %s"
 #: model_terms:ir.ui.view,arch_db:hr_worked_days_from_timesheet.view_hr_payslip_form
 msgid "Worked Days"
 msgstr "Arbeitstage"
+
+#~ msgid "Pay Slip"
+#~ msgstr "Lohnnachweis"
 
 #~ msgid ""
 #~ "Sorry, but there is no approved Timesheets for the                 entire "
