@@ -21,6 +21,7 @@ Available addons
 ----------------
 addon | version | maintainers | summary
 --- | --- | --- | ---
+[gamification_badge_report](gamification_badge_report/) | 14.0.1.0.0 | [![AmmarOfficewalaSerpentcs](https://github.com/AmmarOfficewalaSerpentcs.png?size=30px)](https://github.com/AmmarOfficewalaSerpentcs) | Send Email to all the Employees with all the award given in the last week.
 [hr_branch](hr_branch/) | 14.0.1.0.0 | [![luistorresm](https://github.com/luistorresm.png?size=30px)](https://github.com/luistorresm) | Allow define company branch for employee process
 [hr_contract_currency](hr_contract_currency/) | 14.0.1.0.0 |  | Employee's contract currency
 [hr_contract_multi_job](hr_contract_multi_job/) | 14.0.1.0.0 |  | HR Contract Multi Jobs
