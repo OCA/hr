@@ -8,6 +8,7 @@ setuptools.setup(
     description="Meta package for oca-hr Odoo addons",
     version=version,
     install_requires=[
+        'odoo14-addon-gamification_badge_report',
         'odoo14-addon-hr_branch',
         'odoo14-addon-hr_contract_currency',
         'odoo14-addon-hr_contract_multi_job',
