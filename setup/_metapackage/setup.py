@@ -55,6 +55,7 @@ setuptools.setup(
         'odoo12-addon-hr_expense_receipt_require',
         'odoo12-addon-hr_expense_sequence',
         'odoo12-addon-hr_expense_tier_validation',
+        'odoo12-addon-hr_expense_type',
         'odoo12-addon-hr_experience',
         'odoo12-addon-hr_holidays_accrual_advanced',
         'odoo12-addon-hr_holidays_credit',
