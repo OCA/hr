@@ -4,11 +4,11 @@ from odoo import fields, models
 
 
 class ResConfigSettings(models.TransientModel):
-    _inherit = 'res.config.settings'
+    _inherit = "res.config.settings"
 
     expense_analytic_id = fields.Many2one(
-        'account.analytic.account',
+        "account.analytic.account",
         string="Default Analytic Account for Expenses",
-        related='company_id.default_expense_analytic_id',
-        readonly=False
+        related="company_id.default_expense_analytic_id",
+        readonly=False,
     )
