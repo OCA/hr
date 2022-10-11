@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_lv_allocation_user,access_lv_allocation_user,model_hr_lv_allocation,hr.group_hr_user,1,0,0,0
+access_lv_allocation_manager,access_lv_allocation_manager,model_hr_lv_allocation,hr.group_hr_manager,1,1,1,1
+access_lv_allocation_wizard_user,access_lv_allocation_wizard_user,model_generate_lv_allocation_requests,hr.group_hr_user,1,0,0,0
+access_lv_allocation_wizard_manager,access_lv_allocation_wizard_manager,model_generate_lv_allocation_requests,hr.group_hr_manager,1,1,1,1

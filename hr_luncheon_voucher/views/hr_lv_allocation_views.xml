@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="hr_lv_allocation_search" model="ir.ui.view">
+        <field name="name">hr.lv.allocation.search</field>
+        <field name="model">hr.lv.allocation</field>
+        <field name="arch" type="xml">
+            <search string="Luncheon vouchers allocations">
+                <field name="state" />
+                <filter
+                    name="draft"
+                    string="Draft"
+                    domain="[('state', '=', 'draft')]"
+                />
+                <filter
+                    name="confirmed"
+                    string="Confirmed"
+                    domain="[('state', '=', 'confirmed')]"
+                />
+                <filter
+                    name="distributed"
+                    string="Distributed"
+                    domain="[('state', '=', 'distributed')]"
+                />
+            </search>
+        </field>
+    </record>
+
+    <record id="hr_lv_allocation_tree" model="ir.ui.view">
+        <field name="name">hr.lv.allocation.tree</field>
+        <field name="model">hr.lv.allocation</field>
+        <field name="arch" type="xml">
+            <tree string="Luncheon vouchers allocations">
+                <header>
+                    <button
+                        type="object"
+                        name="confirm_allocation"
+                        string="Confirm"
+                        class="btn-primary"
+                    />
+                    <button
+                        type="object"
+                        name="distribute_allocation"
+                        string="Distribute Vouchers"
+                        class="btn-primary"
+                    />
+                    <button
+                        type="object"
+                        name="back_to_draft"
+                        string="Back to draft"
+                        class="btn-secundary"
+                    />
+                    <button
+                        type="object"
+                        name="adjust_distribution"
+                        string="Adjust distribution"
+                        class="btn-secundary"
+                    />
+                </header>
+                <field name="distrib_campaign_name" />
+                <field name="employee_id" />
+                <field name="state" />
+                <field name="date_from" widget="date" />
+                <field name="date_to" widget="date" />
+                <field name="number_acquired_lv" />
+                <field name="number_dued_lv" />
+                <field name="number_distributed_lv" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="hr_lv_allocation_form" model="ir.ui.view">
+        <field name="name">hr.lv.allocation.form</field>
+        <field name="model">hr.lv.allocation</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <header>
+                    <button
+                        type="object"
+                        name="confirm_allocation"
+                        string="Confirm"
+                        class="btn-primary"
+                        attrs="{'invisible': [('state', '!=', 'draft')]}"
+                    />
+                    <button
+                        type="object"
+                        name="distribute_allocation"
+                        string="Distribute Vouchers"
+                        class="btn-primary"
+                        attrs="{'invisible': [('state', '!=', 'confirmed')]}"
+                    />
+                    <button
+                        type="object"
+                        name="back_to_draft"
+                        string="Back to draft"
+                        class="btn-secundary"
+                        attrs="{'invisible': [('state', '=', 'draft')]}"
+                    />
+                    <button
+                        type="object"
+                        name="adjust_distribution"
+                        string="Adjust distribution"
+                        class="btn-secundary"
+                        attrs="{'invisible': [('state', '!=', 'draft')]}"
+                    />
+                </header>
+                <sheet>
+                    <h1>
+                        <field name="name" />
+                    </h1>
+                    <group string="Request context">
+                        <field name="distrib_campaign_name" />
+                        <field name="employee_id" />
+                        <field name="state" />
+                        <field name="date_from" widget="date" />
+                        <field name="date_to" widget="date" />
+                    </group>
+                    <group string="Luncheon vouchers calculation">
+                        <field name="number_acquired_lv" />
+                        <field name="number_dued_lv" />
+                        <field name="number_distributed_lv" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="act_lv_allocations" model="ir.actions.act_window">
+        <field name="name">Luncheon vouchers allocations</field>
+        <field name="res_model">hr.lv.allocation</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <menuitem
+        id="menu_hr_lv_allocations"
+        action="act_lv_allocations"
+        parent="hr.menu_hr_employee_payroll"
+        sequence="1"
+        name="Luncheon vouchers"
+    />
+
+</odoo>

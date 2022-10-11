@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_event_type_luncheonvoucher_tree" model="ir.ui.view">
+        <field name="name">event.type.luncheonvoucher</field>
+        <field name="model">calendar.event.type</field>
+        <field name="inherit_id" ref="calendar.view_calendar_event_type_tree" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="remove_luncheon_voucher" />
+            </xpath>
+        </field>
+    </record>
+</odoo>

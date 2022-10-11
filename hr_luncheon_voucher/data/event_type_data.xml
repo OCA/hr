@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<odoo>
+    <data>
+        <record id="categ_meet_free_lunch" model="calendar.event.type">
+            <field name="name">Free lunch</field>
+            <field name="ref">categ_meet_free_lunch</field>
+            <field name="remove_luncheon_voucher">1</field>
+        </record>
+
+        <record id="categ_meet_offsite" model="calendar.event.type">
+            <field name="name">Off-site</field>
+            <field name="ref">categ_meet_offsite</field>
+            <field name="remove_luncheon_voucher">1</field>
+        </record>
+    </data>
+</odoo>

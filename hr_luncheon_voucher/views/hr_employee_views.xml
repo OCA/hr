@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="view_employee_form_lv" model="ir.ui.view">
+        <field name="name">hr.employee.form.lv</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form" />
+        <field name="arch" type="xml">
+            <header position="inside">
+                <button
+                    type="object"
+                    name="refresh_lv_values"
+                    string="Refresh Luncheon Vouchers"
+                    class="btn-secundary"
+                />
+            </header>
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button
+                    type="object"
+                    name="action_lv_allocations"
+                    class="oe_stat_button"
+                    icon="fa-ticket"
+                >
+                    <field
+                        name="total_acquired_lv"
+                        widget="statinfo"
+                        string="Acquired"
+                    />
+                </button>
+                <button
+                    type="object"
+                    name="action_lv_allocations"
+                    class="oe_stat_button"
+                    icon="fa-ticket"
+                >
+                    <field
+                        name="distributed_lv"
+                        widget="statinfo"
+                        string="Distributed"
+                    />
+                </button>
+                <button
+                    type="object"
+                    name="action_lv_allocations"
+                    class="oe_stat_button"
+                    icon="fa-ticket"
+                >
+                    <field name="dued_lv" widget="statinfo" string="Dued" />
+                </button>
+            </xpath>
+            <xpath expr="//page[@name='hr_settings']/group" position="inside">
+                <group name="luncheon_vouchers" string="Luncheon Vouchers">
+                    <field name="default_monthly_lv" />
+                    <field name="lv_allocations_ids" />
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_employee_tree_lv" model="ir.ui.view">
+        <field name="name">view_employee_tree_lv</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_tree" />
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+                <header>
+                    <button
+                        type="object"
+                        name="action_lv_allocations_requests_wizard"
+                        string="Generate Luncheon Vouchers Allocations"
+                        class="btn-primary"
+                    />
+                </header>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="lv_allocations_requests_wizard" model="ir.ui.view">
+            <field name="name">lv.allocations.requests.wizard</field>
+            <field name="model">generate.lv.allocation.requests</field>
+            <field name="arch" type="xml">
+                <form string="Create Luncheon Vouchers allocations requests">
+                    <group name="dates" string="Period to consider">
+                        <group>
+                            <field name="distrib_campaign_name" />
+                            <field name="date_from" widget="date" />
+                            <field name="date_to" widget="date" />
+                        </group>
+                    </group>
+                    <footer>
+                        <button
+                            string="Create allocations requests"
+                            name="generate_lv_allocations"
+                            type="object"
+                            class="btn-primary"
+                        />
+                        <button
+                            string="Cancel"
+                            class="btn-secondary"
+                            special="cancel"
+                        />
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record
+            id="lv_allocations_requests_wizard_action"
+            model="ir.actions.act_window"
+        >
+            <field name="name">Create Luncheon Vouchers allocations requests</field>
+            <field name="res_model">generate.lv.allocation.requests</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="lv_allocations_requests_wizard" />
+            <field name="target">new</field>
+        </record>
+    </data>
+</odoo>
