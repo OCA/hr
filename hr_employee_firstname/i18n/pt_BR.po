@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-01-28 02:12+0000\n"
-"PO-Revision-Date: 2022-09-26 16:07+0000\n"
+"PO-Revision-Date: 2022-10-12 02:35+0000\n"
 "Last-Translator: Douglas Custódio <douglascstd@yahoo.com>\n"
 "Language-Team: Portuguese (Brazil) (https://www.transifex.com/oca/teams/"
 "23907/pt_BR/)\n"
@@ -46,7 +46,7 @@ msgstr "Funcionário"
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_res_config_settings__employee_names_order
 #: model_terms:ir.ui.view,arch_db:hr_employee_firstname.res_config_settings_view_form
 msgid "Employee Names Order"
-msgstr ""
+msgstr "Ordem de Nome dos Funcionários"
 
 #. module: hr_employee_firstname
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee__firstname
