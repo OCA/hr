@@ -13,7 +13,8 @@ class HrContract(models.Model):
         compute="_compute_document_ids",
     )
     documents_count = fields.Integer(
-        compute="_compute_document_ids", string="Document Count",
+        compute="_compute_document_ids",
+        string="Document Count",
     )
 
     def _compute_document_ids(self):
