@@ -20,24 +20,17 @@ msgstr ""
 #: model:mail.template,body_html:hr_course.mail_template_validity_reminder
 msgid ""
 "<div>\n"
-"                    <p>Hi,</p>\n"
-"                    <p>The validity time of the course ${object.name} will end up soon. You maybe need to plan a new one. </p>\n"
-"                    <p>The concerned employees are:</p>\n"
-"                    % for employee in object.course_attendee_ids.mapped(\"employee_id.name\"):\n"
-"                    <p>${employee}</p>\n"
-"                    % endfor\n"
-"                </div>\n"
-"            "
+"                <p>Hi,</p>\n"
+"                <p>The validity time of the course ${object.name} will end "
+"up soon. You maybe need to plan a new one. </p>\n"
+"                <p>The concerned employees are:</p>\n"
+"                % for employee in object.course_attendee_ids."
+"mapped(\"employee_id.name\"):\n"
+"                <p>${employee}</p>\n"
+"                % endfor\n"
+"            </div>\n"
+"        "
 msgstr ""
-"<div>\n"
-"                    <p>Bonjour</p>\n"
-"                    <p>La durée de validité de la formation ${object.name} arrive à son terme. Vous avez peut-être besoin de la replanifier. </p>\n"
-"                    <p>Les employés concernés sont:</p>\n"
-"                    % for employee in object.course_attendee_ids.mapped(\"employee_id.name\"):\n"
-"                    <p>${employee}</p>\n"
-"                    % endfor\n"
-"                </div>\n"
-"            "
 
 #. module: hr_course
 #: model:ir.model.fields.selection,name:hr_course.selection__hr_course_attendee__result__absent
@@ -155,11 +148,6 @@ msgid "Convocatory"
 msgstr "Convocataire"
 
 #. module: hr_course
-#: model_terms:ir.ui.view,arch_db:hr_course.hr_course_schedule_form_view
-msgid "Convocation"
-msgstr "Convocation"
-
-#. module: hr_course
 #: model:ir.model,name:hr_course.model_hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee__course_id
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__course_id
@@ -243,7 +231,6 @@ msgstr "Alerte de fin de validité"
 #: model_terms:ir.ui.view,arch_db:hr_course.view_hr_employee_form
 msgid "Courses"
 msgstr "Formations"
-
 
 #. module: hr_course
 #: model:ir.actions.act_window,name:hr_course.action_hr_course_schedule
@@ -373,7 +360,6 @@ msgstr "Permanent"
 msgid "ID"
 msgstr "ID"
 
-
 #. module: hr_course
 #: model:ir.model.fields,help:hr_course.field_hr_course__message_needaction
 #: model:ir.model.fields,help:hr_course.field_hr_course__message_unread
@@ -384,7 +370,9 @@ msgstr "Si coché, de nouveaux messages doivent être consultés"
 
 #. module: hr_course
 #: model:ir.model.fields,help:hr_course.field_hr_course__message_has_error
+#: model:ir.model.fields,help:hr_course.field_hr_course__message_has_sms_error
 #: model:ir.model.fields,help:hr_course.field_hr_course_schedule__message_has_error
+#: model:ir.model.fields,help:hr_course.field_hr_course_schedule__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
 msgstr "Si coché, certains messages n'ont pu être délivré (Erreur)"
 
@@ -544,6 +532,12 @@ msgid "Result"
 msgstr "Résultat"
 
 #. module: hr_course
+#: model:ir.model.fields,field_description:hr_course.field_hr_course__message_has_sms_error
+#: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: hr_course
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_form_view
 msgid "Schedules"
 msgstr "Planning"
@@ -605,16 +599,60 @@ msgid "Waiting attendees"
 msgstr "En attente des participants"
 
 #. module: hr_course
+#: model:ir.model.fields,field_description:hr_course.field_hr_course__website_message_ids
+#: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: hr_course
+#: model:ir.model.fields,help:hr_course.field_hr_course__website_message_ids
+#: model:ir.model.fields,help:hr_course.field_hr_course_schedule__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: hr_course
 #: code:addons/hr_course/models/hr_course_schedule.py:0
 #, python-format
 msgid "You cannot complete the course with pending results"
-msgstr "Vous ne pouvez pas terminer la formation tant que des évaluations sont manquantes"
+msgstr ""
+"Vous ne pouvez pas terminer la formation tant que des évaluations sont "
+"manquantes"
 
 #. module: hr_course
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_schedule_form_view
 msgid ""
-"You should set a course back to draft only if you cancelled it by mistake or"
-" if some of its information is incorrect. Do you want to continue?"
+"You should set a course back to draft only if you cancelled it by mistake or "
+"if some of its information is incorrect. Do you want to continue?"
 msgstr ""
-"Vous devriez repasser une formation à l'état brouillon seulement si vous l'avez annulée par erreur ou"
-" si certaines des informations entrées sont incorrectes. Voulez-vous continuer?"
+"Vous devriez repasser une formation à l'état brouillon seulement si vous "
+"l'avez annulée par erreur ou si certaines des informations entrées sont "
+"incorrectes. Voulez-vous continuer?"
+
+#~ msgid ""
+#~ "<div>\n"
+#~ "                    <p>Hi,</p>\n"
+#~ "                    <p>The validity time of the course ${object.name} "
+#~ "will end up soon. You maybe need to plan a new one. </p>\n"
+#~ "                    <p>The concerned employees are:</p>\n"
+#~ "                    % for employee in object.course_attendee_ids."
+#~ "mapped(\"employee_id.name\"):\n"
+#~ "                    <p>${employee}</p>\n"
+#~ "                    % endfor\n"
+#~ "                </div>\n"
+#~ "            "
+#~ msgstr ""
+#~ "<div>\n"
+#~ "                    <p>Bonjour</p>\n"
+#~ "                    <p>La durée de validité de la formation ${object."
+#~ "name} arrive à son terme. Vous avez peut-être besoin de la replanifier. </"
+#~ "p>\n"
+#~ "                    <p>Les employés concernés sont:</p>\n"
+#~ "                    % for employee in object.course_attendee_ids."
+#~ "mapped(\"employee_id.name\"):\n"
+#~ "                    <p>${employee}</p>\n"
+#~ "                    % endfor\n"
+#~ "                </div>\n"
+#~ "            "
+
+#~ msgid "Convocation"
+#~ msgstr "Convocation"

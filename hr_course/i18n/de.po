@@ -15,6 +15,22 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #. module: hr_course
+#: model:mail.template,body_html:hr_course.mail_template_validity_reminder
+msgid ""
+"<div>\n"
+"                <p>Hi,</p>\n"
+"                <p>The validity time of the course ${object.name} will end "
+"up soon. You maybe need to plan a new one. </p>\n"
+"                <p>The concerned employees are:</p>\n"
+"                % for employee in object.course_attendee_ids."
+"mapped(\"employee_id.name\"):\n"
+"                <p>${employee}</p>\n"
+"                % endfor\n"
+"            </div>\n"
+"        "
+msgstr ""
+
+#. module: hr_course
 #: model:ir.model.fields.selection,name:hr_course.selection__hr_course_attendee__result__absent
 msgid "Absent"
 msgstr ""
@@ -28,6 +44,12 @@ msgstr ""
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee__active
 msgid "Active"
+msgstr ""
+
+#. module: hr_course
+#: model:ir.model.fields,field_description:hr_course.field_res_company__course_expiration_alerting_delay
+#: model:ir.model.fields,field_description:hr_course.field_res_config_settings__course_expiration_alerting_delay
+msgid "Alerting delay before end of validity (days)"
 msgstr ""
 
 #. module: hr_course
@@ -93,6 +115,11 @@ msgid "Comment"
 msgstr ""
 
 #. module: hr_course
+#: model:ir.model,name:hr_course.model_res_company
+msgid "Companies"
+msgstr ""
+
+#. module: hr_course
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_schedule_form_view
 msgid "Complete Course"
 msgstr ""
@@ -100,6 +127,11 @@ msgstr ""
 #. module: hr_course
 #: model:ir.model.fields.selection,name:hr_course.selection__hr_course_schedule__state__completed
 msgid "Completed"
+msgstr ""
+
+#. module: hr_course
+#: model:ir.model,name:hr_course.model_res_config_settings
+msgid "Config Settings"
 msgstr ""
 
 #. module: hr_course
@@ -115,6 +147,7 @@ msgstr ""
 
 #. module: hr_course
 #: model:ir.model,name:hr_course.model_hr_course
+#: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee__course_id
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__course_id
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_form_view
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_schedule_form_view
@@ -148,6 +181,12 @@ msgid "Course Cost"
 msgstr ""
 
 #. module: hr_course
+#: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee__course_expiration_alert_sent
+#: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__course_expiration_alert_sent
+msgid "Course Expiration Alert Sent"
+msgstr ""
+
+#. module: hr_course
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_schedule_search_view
 msgid "Course Name"
 msgstr ""
@@ -175,12 +214,18 @@ msgid "Course name"
 msgstr ""
 
 #. module: hr_course
+#: model:mail.channel,name:hr_course.mail_channel_course_validity
+msgid "Course validity expiration notification"
+msgstr ""
+
+#. module: hr_course
 #: model:ir.actions.act_window,name:hr_course.action_hr_course
 #: model:ir.actions.act_window,name:hr_course.action_view_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_employee__courses_ids
 #: model:ir.ui.menu,name:hr_course.menu_hr_course
 #: model:ir.ui.menu,name:hr_course.menu_hr_course_courses
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_form_view
+#: model_terms:ir.ui.view,arch_db:hr_course.res_config_settings_view_form
 #: model_terms:ir.ui.view,arch_db:hr_course.view_hr_employee_form
 msgid "Courses"
 msgstr ""
@@ -219,6 +264,8 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_category__display_name
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__display_name
 #: model:ir.model.fields,field_description:hr_course.field_hr_employee__display_name
+#: model:ir.model.fields,field_description:hr_course.field_res_company__display_name
+#: model:ir.model.fields,field_description:hr_course.field_res_config_settings__display_name
 msgid "Display Name"
 msgstr ""
 
@@ -248,6 +295,11 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee__course_end
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__end_date
 msgid "End date"
+msgstr ""
+
+#. module: hr_course
+#: model:mail.template,subject:hr_course.mail_template_validity_reminder
+msgid "End of validity for a course"
 msgstr ""
 
 #. module: hr_course
@@ -284,6 +336,13 @@ msgid "Followers (Partners)"
 msgstr ""
 
 #. module: hr_course
+#: model:ir.actions.server,name:hr_course.ir_cron_post_wip_ir_actions_server
+#: model:ir.cron,cron_name:hr_course.ir_cron_post_wip
+#: model:ir.cron,name:hr_course.ir_cron_post_wip
+msgid "HR Course: Check validity date"
+msgstr ""
+
+#. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__permanence
 msgid "Has Permanence"
 msgstr ""
@@ -294,6 +353,8 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_category__id
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__id
 #: model:ir.model.fields,field_description:hr_course.field_hr_employee__id
+#: model:ir.model.fields,field_description:hr_course.field_res_company__id
+#: model:ir.model.fields,field_description:hr_course.field_res_config_settings__id
 msgid "ID"
 msgstr ""
 
@@ -340,6 +401,8 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_category____last_update
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule____last_update
 #: model:ir.model.fields,field_description:hr_course.field_hr_employee____last_update
+#: model:ir.model.fields,field_description:hr_course.field_res_company____last_update
+#: model:ir.model.fields,field_description:hr_course.field_res_config_settings____last_update
 msgid "Last Modified on"
 msgstr ""
 
@@ -357,6 +420,12 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_category__write_date
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__write_date
 msgid "Last Updated on"
+msgstr ""
+
+#. module: hr_course
+#: model:ir.model.fields,field_description:hr_course.field_res_company__course_expiration_channel_id
+#: model:ir.model.fields,field_description:hr_course.field_res_config_settings__course_expiration_channel_id
+msgid "Mailing list to alert"
 msgstr ""
 
 #. module: hr_course
@@ -472,6 +541,11 @@ msgid "Schedules"
 msgstr ""
 
 #. module: hr_course
+#: model:ir.model.fields,help:hr_course.field_hr_course_attendee__course_expiration_alert_sent
+msgid "Shows if notification email for course was sent"
+msgstr ""
+
+#. module: hr_course
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_schedule_form_view
 msgid "Start Course"
 msgstr ""
@@ -512,6 +586,12 @@ msgid "Unread Messages Counter"
 msgstr ""
 
 #. module: hr_course
+#: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee__course_validity_end_date
+#: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__validity_end_date
+msgid "Validity End Date"
+msgstr ""
+
+#. module: hr_course
 #: model:ir.model.fields.selection,name:hr_course.selection__hr_course_schedule__state__waiting_attendees
 msgid "Waiting attendees"
 msgstr ""
@@ -537,6 +617,6 @@ msgstr ""
 #. module: hr_course
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_schedule_form_view
 msgid ""
-"You should set a course back to draft only if you cancelled it by mistake or"
-" if some of its information is incorrect. Do you want to continue?"
+"You should set a course back to draft only if you cancelled it by mistake or "
+"if some of its information is incorrect. Do you want to continue?"
 msgstr ""
