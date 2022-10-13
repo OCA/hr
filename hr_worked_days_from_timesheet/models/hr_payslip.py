@@ -17,12 +17,12 @@ class HrPayslip(models.Model):
         for ts in ts_sheet.timesheet_ids:
             if date_from <= ts.date <= date_to:
                 number_of_hours += ts.unit_amount
-        # Get formated date from the timesheet sheet
-        date_from_formated = ts_sheet.date_start
+        # Get formatted date from the timesheet sheet
+        date_from_formatted = ts_sheet.date_start
         number_of_days = (date_to - date_from).days
         if number_of_hours > 0 and number_of_days > 0:
             return {
-                "name": _("Timesheet %s") % date_from_formated,
+                "name": _("Timesheet %s") % date_from_formatted,
                 "number_of_hours": number_of_hours,
                 "number_of_days": number_of_days,
                 "contract_id": payslip.contract_id.id,
@@ -67,15 +67,15 @@ class HrPayslip(models.Model):
         if not timesheet_sheets:
             raise UserError(
                 _(
-                    "Sorry, but there is no approved Timesheets "
-                    "for the entire Payslip period for user {}".format(employee.name)
-                )
+                    "Sorry, but there is no approved Timesheets for "
+                    "the entire Payslip period for user {}"
+                ).format(employee.name)
             )
         return timesheet_sheets
 
     def import_worked_days(self):
-        """This method retreives the employee's timesheets for a payslip period
-        and creates worked days records from the imported timesheets
+        """This method retrieves the employee's timesheet for a payslip period
+        and creates worked days records from the imported timesheet
         """
         self._check_contract()
         for payslip in self:
