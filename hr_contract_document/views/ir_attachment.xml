@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    Copyright 2020 Brainbean Apps (https://brainbeanapps.com)
+    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
+-->
+<odoo>
+    <record id="ir_attachment_view_search" model="ir.ui.view">
+        <field name="name">ir.attachment.search.inherit.contract</field>
+        <field name="model">ir.attachment</field>
+        <field name="mode">primary</field>
+        <field name="inherit_id" ref="base.view_attachment_search" />
+        <field name="arch" type="xml">
+            <field name="create_date" position="after">
+                <field name="index_content" string="Content" />
+            </field>
+            <xpath expr="//filter[@name='my_documents_filter']" position="attributes">
+                <attribute name='invisible'>1</attribute>
+            </xpath>
+            <xpath expr="//filter[@name='url_filter']" position="attributes">
+                <attribute name='invisible'>1</attribute>
+            </xpath>
+            <xpath expr="//filter[@name='binary_filter']" position="attributes">
+                <attribute name='invisible'>1</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>
