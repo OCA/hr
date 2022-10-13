@@ -11,6 +11,7 @@ setuptools.setup(
         'odoo14-addon-gamification_badge_report',
         'odoo14-addon-hr_branch',
         'odoo14-addon-hr_contract_currency',
+        'odoo14-addon-hr_contract_document',
         'odoo14-addon-hr_contract_multi_job',
         'odoo14-addon-hr_contract_reference',
         'odoo14-addon-hr_contract_type',
