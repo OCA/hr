@@ -10,8 +10,8 @@
                         name="all_my_departments"
                         domain="['|', '|', '|', ('employee_id.department_id.member_ids.user_id', 'ilike', uid),
                             ('employee_id.department_id.members_ids.user_id', 'ilike', uid),
-                            ('employee_id.department_ids.member_ids.user_id', 'ilike', uid),
-                            ('employee_id.department_ids.members_ids.user_id', 'ilike', uid)]"
+                            ('employee_id.secondary_department_ids.member_ids.user_id', 'ilike', uid),
+                            ('employee_id.secondary_department_ids.members_ids.user_id', 'ilike', uid)]"
                         help="All My Department's Leaves"
                 />
             </search>
