@@ -6,8 +6,8 @@
         <field name="inherit_id" ref="hr_holidays.view_hr_holidays_filter"/>
         <field name="arch" type="xml">
             <search>
-                <filter string="All My Department's Leaves"
-                        name="all_my_departments"
+                <filter string="My Secondary Department's Leaves"
+                        name="my_secondary_departments"
                         domain="['|', '|', '|', ('employee_id.department_id.member_ids.user_id', 'ilike', uid),
                             ('employee_id.department_id.members_ids.user_id', 'ilike', uid),
                             ('employee_id.secondary_department_ids.member_ids.user_id', 'ilike', uid),
