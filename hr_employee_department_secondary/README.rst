@@ -25,7 +25,8 @@ HR Employee Multidepartment
 
 |badge1| |badge2| |badge3| |badge4| |badge5| 
 
-This module extends the functionality of allow assign more than one Department to an Employee
+This module extends the functionality of allow assign secondary departments to an Employee.
+The main department can't be in the secondary departments list.
 
 **Table of contents**
 
@@ -63,6 +64,6 @@ OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
 
-This module is part of the `OCA/hr <https://github.com/OCA/hr/tree/12.0/hr_employee_multidepartment>`_ project on GitHub.
+This module is part of the `OCA/hr <https://github.com/OCA/hr/`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.

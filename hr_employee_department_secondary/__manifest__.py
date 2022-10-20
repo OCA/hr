@@ -1,5 +1,5 @@
 {
-    'name': "HR Employee Multidepartment",
+    'name': "HR Employee Departments secondary",
     'version': '12.0.0.0.4',
     'depends': [
         'hr',
@@ -11,7 +11,7 @@
     'website': 'https://github.com/OCA/hr',
     'category': 'Human Resources',
     'summary': """
-    Add multidepartment feature.
+    Add secondary departments feature.
     """,
     'license': 'AGPL-3',
     'demo': [
