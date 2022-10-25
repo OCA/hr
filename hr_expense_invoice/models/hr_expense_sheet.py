@@ -56,7 +56,7 @@ class HrExpenseSheet(models.Model):
         if any(invoices.filtered(lambda i: i.state != 'open')):
             raise UserError(_('Vendor bill state must be Open'))
         expense_amount = sum(expense_lines.mapped('total_amount'))
-        invoice_amount = sum(invoices.mapped('residual'))
+        invoice_amount = sum(invoices.mapped('amount_total'))
         # Expense amount must equal invoice amount
         if float_compare(expense_amount, invoice_amount, precision) != 0:
             raise UserError(
