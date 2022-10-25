@@ -1,0 +1,37 @@
+<odoo>
+
+    <record id="view_hr_expense_sheet_tree" model="ir.ui.view">
+        <field name="name">hr.expense.sheet.tree (in hr_expense_advance_clearing_consolidation)</field>
+        <field name="model">hr.expense.sheet</field>
+        <field name="inherit_id" ref="hr_expense.view_hr_expense_sheet_tree"/>
+        <field name="arch" type="xml">
+            <field name="state" position="before">
+                <field name="clearing_residual"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_hr_expense_sheet_filter" model="ir.ui.view">
+        <field name="name">hr.expense.sheet.filter (in hr_expense_advance_clearing_consolidation)</field>
+        <field name="model">hr.expense.sheet</field>
+        <field name="inherit_id" ref="hr_expense_advance_clearing.view_hr_expense_sheet_filter"/>
+        <field name="arch" type="xml">
+            <filter name="advance_expense_uncleared" position="after">
+                <filter string="Consolidated Advance" name="consolidated_advance" domain="[('is_consolidated_advance', '=', True)]"/>
+            </filter>
+        </field>
+    </record>
+
+    <record id="hr_expense_sheet_consolidate_open_advances" model="ir.actions.server">
+        <field name="name">Consolidate Open Advances</field>
+        <field name="type">ir.actions.server</field>
+        <field name="model_id" ref="model_hr_expense_sheet"/>
+        <field name="binding_model_id" ref="model_hr_expense_sheet"/>
+        <field name="state">code</field>
+        <field name="code">
+if records:
+    action = records.consolidate_open_advances()
+        </field>
+    </record>
+
+</odoo>
