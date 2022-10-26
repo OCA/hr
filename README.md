@@ -26,7 +26,7 @@ addon | version | maintainers | summary
 [hr_emergency_contact](hr_emergency_contact/) | 15.0.1.0.0 |  | HR Emergency Contact
 [hr_employee_age](hr_employee_age/) | 15.0.1.0.0 |  | Age field for employee
 [hr_employee_birth_name](hr_employee_birth_name/) | 15.0.1.0.0 |  | Employee Birth Name
-[hr_employee_calendar_planning](hr_employee_calendar_planning/) | 15.0.1.0.0 | [![victoralmau](https://github.com/victoralmau.png?size=30px)](https://github.com/victoralmau) [![pedrobaeza](https://github.com/pedrobaeza.png?size=30px)](https://github.com/pedrobaeza) | Employee Calendar Planning
+[hr_employee_calendar_planning](hr_employee_calendar_planning/) | 15.0.1.1.0 | [![victoralmau](https://github.com/victoralmau.png?size=30px)](https://github.com/victoralmau) [![pedrobaeza](https://github.com/pedrobaeza.png?size=30px)](https://github.com/pedrobaeza) | Employee Calendar Planning
 [hr_employee_firstname](hr_employee_firstname/) | 15.0.1.0.0 |  | Adds First Name to Employee
 [hr_employee_lastnames](hr_employee_lastnames/) | 15.0.1.0.0 |  | Split Name in First Name, Father's Last Name and Mother's Last Name
 [hr_employee_medical_examination](hr_employee_medical_examination/) | 15.0.1.0.0 |  | Adds information about employee's medical examinations
