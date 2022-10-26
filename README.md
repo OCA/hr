@@ -59,7 +59,7 @@ addon | version | maintainers | summary
 [hr_expense_advance_clearing_sequence](hr_expense_advance_clearing_sequence/) | 12.0.1.0.0 |  | HR Expense Advance Clearing Sequence
 [hr_expense_analytic_require](hr_expense_analytic_require/) | 12.0.1.0.0 | [![Khalid-SerpentCS](https://github.com/Khalid-SerpentCS.png?size=30px)](https://github.com/Khalid-SerpentCS) | This module allows you to make the analytic account on an expense a required field.
 [hr_expense_cancel](hr_expense_cancel/) | 12.0.1.0.2 |  | Hr expense cancel
-[hr_expense_invoice](hr_expense_invoice/) | 12.0.2.0.2 |  | Supplier invoices on HR expenses
+[hr_expense_invoice](hr_expense_invoice/) | 12.0.2.0.3 |  | Supplier invoices on HR expenses
 [hr_expense_journal](hr_expense_journal/) | 12.0.1.0.0 | [![dreispt](https://github.com/dreispt.png?size=30px)](https://github.com/dreispt) | Set the Journal for the payment type used to pay the expense
 [hr_expense_payment_difference](hr_expense_payment_difference/) | 12.0.1.1.0 |  | Payment Difference on HR expenses
 [hr_expense_petty_cash](hr_expense_petty_cash/) | 12.0.1.2.0 |  | Petty Cash
