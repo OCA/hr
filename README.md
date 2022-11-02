@@ -78,7 +78,7 @@ addon | version | maintainers | summary
 [hr_holidays_leave_request_wizard](hr_holidays_leave_request_wizard/) | 12.0.1.0.0 |  | Leave request wizard and leave request creation/editing form
 [hr_holidays_length_validation](hr_holidays_length_validation/) | 12.0.1.0.0 |  | Leave's length validation
 [hr_holidays_notify_employee_manager](hr_holidays_notify_employee_manager/) | 12.0.1.1.0 |  | Notify employee's manager by mail on Leave Requests creation.
-[hr_holidays_public](hr_holidays_public/) | 12.0.1.1.2 |  | Manage Public Holidays
+[hr_holidays_public](hr_holidays_public/) | 12.0.1.1.3 |  | Manage Public Holidays
 [hr_holidays_settings](hr_holidays_settings/) | 12.0.1.1.0 |  | Enables Settings Form for HR Holidays.
 [hr_holidays_validity_date](hr_holidays_validity_date/) | 12.0.1.1.0 |  | Allow to define start and end date on holidays type.
 [hr_job_category](hr_job_category/) | 12.0.1.0.0 |  | Adds tags to employee trough contract and job position
