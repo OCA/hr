@@ -11,20 +11,7 @@
     "author": "Savoir-faire Linux, " "Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/hr",
     "depends": [
-        "payroll",
-        "date_range",
-    ],
-    "data": [
-        "security/ir.model.access.csv",
-        "security/hr_period_security.xml",
-        "data/ir_sequence_data.xml",
-        "data/date_range_type.xml",
-        "views/date_range_type_view.xml",
-        "views/hr_period_view.xml",
-        "views/hr_fiscalyear_view.xml",
-        "views/hr_payslip_view.xml",
-        "views/hr_payslip_run_view.xml",
-        "views/hr_payslip_employee_view.xml",
+        "hr_payroll_period",
     ],
     "installable": True,
 }
