@@ -41,61 +41,6 @@ batch name and the company on the payslip batch.
 .. contents::
    :local:
 
-Installation
-============
-
-Install the payroll of your localization, then install this module.
-
-Configuration
-=============
-
-Create a fiscal year
-~~~~~~~~~~~~~~~~~~~~
-Go to: Payroll -> Configuration -> Payroll Fiscal Year
-
- - Select a type of schedule, e.g. monthly
- - Select a duration, e.g. from 2015-01-01 to 2015-12-31
- - Select when the payment is done, e.g. the second day of the next period
- - Click on create periods, then confirm
-
-The first period of the year is now open and ready to be used.
-
-Some companies have employees paid at different types of schedule.
-In that case, you need to create as many fiscal years as types of schedule
-required. The same applies in a multi-company configuration.
-
-Usage
-=====
-
-Create a payslip batch
-~~~~~~~~~~~~~~~~~~~~~~
-Go to: Human Resources -> Payroll -> Payslip Batches
-
-The first period of the fiscal year is already selected.
-You may change it if you manage multiple types of schedules.
-
- - Click on Generate Payslips
-
-The employees paid with the selected schedule are automatically selected.
-
- - Click on Generate
-
- - Confirm your payslips
-
- - Click on Close
-
-The payroll period is closed automatically and the next one is open.
-
-Known issues / Roadmap
-======================
-
-#. Currently it is not possible to close the HR fiscal year before the end of
-   the end of the last period. When implementing this feature, contracts and
-   opened payslips should be updated with the new period assigned.
-#. It is not possible to use the date_range module in server tools to generate
-   semi-monthly periods so those periods are generated as in previous versions.
-#. The date_range module does not allow to create a period for just one day.
-
 Bug Tracker
 ===========
 

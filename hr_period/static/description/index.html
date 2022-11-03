@@ -379,84 +379,17 @@ batch name and the company on the payslip batch.</p>
 <p><strong>Table of contents</strong></p>
 <div class="contents local topic" id="contents">
 <ul class="simple">
-<li><a class="reference internal" href="#installation" id="id1">Installation</a></li>
-<li><a class="reference internal" href="#configuration" id="id2">Configuration</a><ul>
-<li><a class="reference internal" href="#create-a-fiscal-year" id="id3">Create a fiscal year</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#usage" id="id4">Usage</a><ul>
-<li><a class="reference internal" href="#create-a-payslip-batch" id="id5">Create a payslip batch</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#known-issues-roadmap" id="id6">Known issues / Roadmap</a></li>
-<li><a class="reference internal" href="#bug-tracker" id="id7">Bug Tracker</a></li>
-<li><a class="reference internal" href="#credits" id="id8">Credits</a><ul>
-<li><a class="reference internal" href="#authors" id="id9">Authors</a></li>
-<li><a class="reference internal" href="#contributors" id="id10">Contributors</a></li>
-<li><a class="reference internal" href="#maintainers" id="id11">Maintainers</a></li>
+<li><a class="reference internal" href="#bug-tracker" id="id1">Bug Tracker</a></li>
+<li><a class="reference internal" href="#credits" id="id2">Credits</a><ul>
+<li><a class="reference internal" href="#authors" id="id3">Authors</a></li>
+<li><a class="reference internal" href="#contributors" id="id4">Contributors</a></li>
+<li><a class="reference internal" href="#maintainers" id="id5">Maintainers</a></li>
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="installation">
-<h1><a class="toc-backref" href="#id1">Installation</a></h1>
-<p>Install the payroll of your localization, then install this module.</p>
-</div>
-<div class="section" id="configuration">
-<h1><a class="toc-backref" href="#id2">Configuration</a></h1>
-<div class="section" id="create-a-fiscal-year">
-<h2><a class="toc-backref" href="#id3">Create a fiscal year</a></h2>
-<p>Go to: Payroll -&gt; Configuration -&gt; Payroll Fiscal Year</p>
-<blockquote>
-<ul class="simple">
-<li>Select a type of schedule, e.g. monthly</li>
-<li>Select a duration, e.g. from 2015-01-01 to 2015-12-31</li>
-<li>Select when the payment is done, e.g. the second day of the next period</li>
-<li>Click on create periods, then confirm</li>
-</ul>
-</blockquote>
-<p>The first period of the year is now open and ready to be used.</p>
-<p>Some companies have employees paid at different types of schedule.
-In that case, you need to create as many fiscal years as types of schedule
-required. The same applies in a multi-company configuration.</p>
-</div>
-</div>
-<div class="section" id="usage">
-<h1><a class="toc-backref" href="#id4">Usage</a></h1>
-<div class="section" id="create-a-payslip-batch">
-<h2><a class="toc-backref" href="#id5">Create a payslip batch</a></h2>
-<p>Go to: Human Resources -&gt; Payroll -&gt; Payslip Batches</p>
-<p>The first period of the fiscal year is already selected.
-You may change it if you manage multiple types of schedules.</p>
-<blockquote>
-<ul class="simple">
-<li>Click on Generate Payslips</li>
-</ul>
-</blockquote>
-<p>The employees paid with the selected schedule are automatically selected.</p>
-<blockquote>
-<ul class="simple">
-<li>Click on Generate</li>
-<li>Confirm your payslips</li>
-<li>Click on Close</li>
-</ul>
-</blockquote>
-<p>The payroll period is closed automatically and the next one is open.</p>
-</div>
-</div>
-<div class="section" id="known-issues-roadmap">
-<h1><a class="toc-backref" href="#id6">Known issues / Roadmap</a></h1>
-<ol class="arabic simple">
-<li>Currently it is not possible to close the HR fiscal year before the end of
-the end of the last period. When implementing this feature, contracts and
-opened payslips should be updated with the new period assigned.</li>
-<li>It is not possible to use the date_range module in server tools to generate
-semi-monthly periods so those periods are generated as in previous versions.</li>
-<li>The date_range module does not allow to create a period for just one day.</li>
-</ol>
 </div>
 <div class="section" id="bug-tracker">
-<h1><a class="toc-backref" href="#id7">Bug Tracker</a></h1>
+<h1><a class="toc-backref" href="#id1">Bug Tracker</a></h1>
 <p>Bugs are tracked on <a class="reference external" href="https://github.com/OCA/hr/issues">GitHub Issues</a>.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us smashing it by providing a detailed and welcomed
@@ -464,15 +397,15 @@ If you spotted it first, help us smashing it by providing a detailed and welcome
 <p>Do not contact contributors directly about support or help with technical issues.</p>
 </div>
 <div class="section" id="credits">
-<h1><a class="toc-backref" href="#id8">Credits</a></h1>
+<h1><a class="toc-backref" href="#id2">Credits</a></h1>
 <div class="section" id="authors">
-<h2><a class="toc-backref" href="#id9">Authors</a></h2>
+<h2><a class="toc-backref" href="#id3">Authors</a></h2>
 <ul class="simple">
 <li>Savoir-faire Linux</li>
 </ul>
 </div>
 <div class="section" id="contributors">
-<h2><a class="toc-backref" href="#id10">Contributors</a></h2>
+<h2><a class="toc-backref" href="#id4">Contributors</a></h2>
 <ul class="simple">
 <li>David Dufresne &lt;<a class="reference external" href="mailto:david.dufresne&#64;savoirfairelinux.com">david.dufresne&#64;savoirfairelinux.com</a>&gt;</li>
 <li>Maxime Chambreuil &lt;<a class="reference external" href="mailto:maxime.chambreuil&#64;savoirfairelinux.com">maxime.chambreuil&#64;savoirfairelinux.com</a>&gt;</li>
@@ -485,7 +418,7 @@ If you spotted it first, help us smashing it by providing a detailed and welcome
 </ul>
 </div>
 <div class="section" id="maintainers">
-<h2><a class="toc-backref" href="#id11">Maintainers</a></h2>
+<h2><a class="toc-backref" href="#id5">Maintainers</a></h2>
 <p>This module is maintained by the OCA.</p>
 <a class="reference external image-reference" href="https://odoo-community.org"><img alt="Odoo Community Association" src="https://odoo-community.org/logo.png" /></a>
 <p>OCA, or the Odoo Community Association, is a nonprofit organization whose
