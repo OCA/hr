@@ -11,8 +11,8 @@ msgstr ""
 "POT-Creation-Date: 2017-01-28 02:12+0000\n"
 "PO-Revision-Date: 2022-10-12 02:35+0000\n"
 "Last-Translator: Douglas Custódio <douglascstd@yahoo.com>\n"
-"Language-Team: Portuguese (Brazil) (https://www.transifex.com/oca/teams/"
-"23907/pt_BR/)\n"
+"Language-Team: Portuguese (Brazil) (https://www.transifex.com/oca/"
+"teams/23907/pt_BR/)\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -31,13 +31,6 @@ msgid "Config Settings"
 msgstr ""
 
 #. module: hr_employee_firstname
-#: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee__display_name
-#: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_base__display_name
-#: model:ir.model.fields,field_description:hr_employee_firstname.field_res_config_settings__display_name
-msgid "Display Name"
-msgstr "Nome de Exibição"
-
-#. module: hr_employee_firstname
 #: model:ir.model,name:hr_employee_firstname.model_hr_employee
 msgid "Employee"
 msgstr "Funcionário"
@@ -52,29 +45,15 @@ msgstr "Ordem de Nome dos Funcionários"
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee__firstname
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_base__firstname
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_public__firstname
-msgid "First name"
-msgstr "Nome"
-
-#. module: hr_employee_firstname
-#: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee__id
-#: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_base__id
-#: model:ir.model.fields,field_description:hr_employee_firstname.field_res_config_settings__id
-msgid "ID"
-msgstr ""
-
-#. module: hr_employee_firstname
-#: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee____last_update
-#: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_base____last_update
-#: model:ir.model.fields,field_description:hr_employee_firstname.field_res_config_settings____last_update
-msgid "Last Modified on"
-msgstr ""
+msgid "Firstname"
+msgstr "Primeiro nome"
 
 #. module: hr_employee_firstname
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee__lastname
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_base__lastname
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_public__lastname
-msgid "Last name"
-msgstr "Sobrenome"
+msgid "Lastname"
+msgstr "Último nome"
 
 #. module: hr_employee_firstname
 #: code:addons/hr_employee_firstname/models/hr_employee.py:0
@@ -87,8 +66,11 @@ msgstr "Nenhum nome definido."
 msgid "Order to compose employee fullname"
 msgstr ""
 
-#~ msgid "Firstname"
-#~ msgstr "Primeiro nome"
+#~ msgid "Display Name"
+#~ msgstr "Nome de Exibição"
 
-#~ msgid "Lastname"
-#~ msgstr "Último nome"
+#~ msgid "First name"
+#~ msgstr "Nome"
+
+#~ msgid "Last name"
+#~ msgstr "Sobrenome"
