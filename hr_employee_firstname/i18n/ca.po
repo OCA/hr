@@ -27,13 +27,6 @@ msgid "Config Settings"
 msgstr ""
 
 #. module: hr_employee_firstname
-#: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee__display_name
-#: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_base__display_name
-#: model:ir.model.fields,field_description:hr_employee_firstname.field_res_config_settings__display_name
-msgid "Display Name"
-msgstr ""
-
-#. module: hr_employee_firstname
 #: model:ir.model,name:hr_employee_firstname.model_hr_employee
 msgid "Employee"
 msgstr "Empleat"
@@ -48,29 +41,15 @@ msgstr "Ordre dels noms d'empleats"
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee__firstname
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_base__firstname
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_public__firstname
-msgid "First name"
-msgstr "Nom"
-
-#. module: hr_employee_firstname
-#: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee__id
-#: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_base__id
-#: model:ir.model.fields,field_description:hr_employee_firstname.field_res_config_settings__id
-msgid "ID"
+msgid "Firstname"
 msgstr ""
-
-#. module: hr_employee_firstname
-#: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee____last_update
-#: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_base____last_update
-#: model:ir.model.fields,field_description:hr_employee_firstname.field_res_config_settings____last_update
-msgid "Last Modified on"
-msgstr "Darrera modificació el"
 
 #. module: hr_employee_firstname
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee__lastname
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_base__lastname
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_public__lastname
-msgid "Last name"
-msgstr "Cognoms"
+msgid "Lastname"
+msgstr ""
 
 #. module: hr_employee_firstname
 #: code:addons/hr_employee_firstname/models/hr_employee.py:0
@@ -82,3 +61,12 @@ msgstr "No s'ha definit cap nom."
 #: model:ir.model.fields,help:hr_employee_firstname.field_res_config_settings__employee_names_order
 msgid "Order to compose employee fullname"
 msgstr ""
+
+#~ msgid "First name"
+#~ msgstr "Nom"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Darrera modificació el"
+
+#~ msgid "Last name"
+#~ msgstr "Cognoms"
