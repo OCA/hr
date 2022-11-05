@@ -1,0 +1,88 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * hr_employee_firstname
+#
+# Translators:
+# OCA Transbot <transbot@odoo-community.org>, 2018
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-06-07 02:58+0000\n"
+"PO-Revision-Date: 2018-06-07 02:58+0000\n"
+"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2018\n"
+"Language-Team: Lithuanian (https://www.transifex.com/oca/teams/23907/lt/)\n"
+"Language: lt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=4; plural=(n % 10 == 1 && (n % 100 > 19 || n % 100 < "
+"11) ? 0 : (n % 10 >= 2 && n % 10 <=9) && (n % 100 > 19 || n % 100 < 11) ? "
+"1 : n % 1 != 0 ? 2: 3);\n"
+
+#. module: hr_employee_firstname
+#: model:ir.model,name:hr_employee_firstname.model_hr_employee_base
+msgid "Basic Employee"
+msgstr ""
+
+#. module: hr_employee_firstname
+#: model:ir.model,name:hr_employee_firstname.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
+
+#. module: hr_employee_firstname
+#: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee__display_name
+#: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_base__display_name
+#: model:ir.model.fields,field_description:hr_employee_firstname.field_res_config_settings__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: hr_employee_firstname
+#: model:ir.model,name:hr_employee_firstname.model_hr_employee
+msgid "Employee"
+msgstr "Darbuotojas"
+
+#. module: hr_employee_firstname
+#: model:ir.model.fields,field_description:hr_employee_firstname.field_res_config_settings__employee_names_order
+#: model_terms:ir.ui.view,arch_db:hr_employee_firstname.res_config_settings_view_form
+msgid "Employee Names Order"
+msgstr ""
+
+#. module: hr_employee_firstname
+#: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee__firstname
+#: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_base__firstname
+#: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_public__firstname
+msgid "First name"
+msgstr ""
+
+#. module: hr_employee_firstname
+#: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee__id
+#: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_base__id
+#: model:ir.model.fields,field_description:hr_employee_firstname.field_res_config_settings__id
+msgid "ID"
+msgstr ""
+
+#. module: hr_employee_firstname
+#: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee____last_update
+#: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_base____last_update
+#: model:ir.model.fields,field_description:hr_employee_firstname.field_res_config_settings____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: hr_employee_firstname
+#: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee__lastname
+#: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_base__lastname
+#: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_public__lastname
+msgid "Last name"
+msgstr ""
+
+#. module: hr_employee_firstname
+#: code:addons/hr_employee_firstname/models/hr_employee.py:0
+#, python-format
+msgid "No name set."
+msgstr ""
+
+#. module: hr_employee_firstname
+#: model:ir.model.fields,help:hr_employee_firstname.field_res_config_settings__employee_names_order
+msgid "Order to compose employee fullname"
+msgstr ""
