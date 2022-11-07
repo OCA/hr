@@ -53,12 +53,14 @@ class HrEmployee(models.Model):
             .search([("name", "=", "partner_firstname"), ("state", "=", "installed")])
         )
 
-    @api.model
-    def create(self, vals):
-        self._prepare_vals_on_create_firstname_lastname(vals)
-        res = super().create(vals)
+    @api.model_create_multi
+    def create(self, vals_list):
+        for vals in vals_list:
+            self._prepare_vals_on_create_firstname_lastname(vals)
+        res = super().create(vals_list)
         if self._is_partner_firstname_installed():
-            res._update_partner_firstname()
+            for employee in res:
+                employee._update_partner_firstname()
         return res
 
     def write(self, vals):
