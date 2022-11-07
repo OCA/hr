@@ -56,6 +56,7 @@ addon | version | maintainers | summary
 [hr_employee_social_media](hr_employee_social_media/) | 12.0.1.0.0 |  | Employee Social Media
 [hr_employee_ssn](hr_employee_ssn/) | 12.0.1.0.0 |  | View/edit employee's SSN & SIN fields
 [hr_expense_advance_clearing](hr_expense_advance_clearing/) | 12.0.1.3.0 | [![kittiu](https://github.com/kittiu.png?size=30px)](https://github.com/kittiu) | Employee Advance and Clearing
+[hr_expense_advance_clearing_consolidation](hr_expense_advance_clearing_consolidation/) | 12.0.1.0.0 |  | HR Expense Advance Clearing Consolidation
 [hr_expense_advance_clearing_sequence](hr_expense_advance_clearing_sequence/) | 12.0.1.0.0 |  | HR Expense Advance Clearing Sequence
 [hr_expense_analytic_require](hr_expense_analytic_require/) | 12.0.1.0.0 | [![Khalid-SerpentCS](https://github.com/Khalid-SerpentCS.png?size=30px)](https://github.com/Khalid-SerpentCS) | This module allows you to make the analytic account on an expense a required field.
 [hr_expense_cancel](hr_expense_cancel/) | 12.0.1.0.2 |  | Hr expense cancel
