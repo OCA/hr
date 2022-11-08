@@ -44,14 +44,14 @@ msgstr "Reihenfolge der Namen"
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee__firstname
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_base__firstname
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_public__firstname
-msgid "Firstname"
+msgid "First name"
 msgstr "Vorname"
 
 #. module: hr_employee_firstname
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee__lastname
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_base__lastname
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_public__lastname
-msgid "Lastname"
+msgid "Last name"
 msgstr "Nachname"
 
 #. module: hr_employee_firstname
@@ -65,17 +65,17 @@ msgstr "Es wurde kein Name eingetragen."
 msgid "Order to compose employee fullname"
 msgstr "Reihenfolge für die Zusammensetzung des vollen Namens"
 
+#~ msgid "Firstname"
+#~ msgstr "Vorname"
+
+#~ msgid "Lastname"
+#~ msgstr "Nachname"
+
 #~ msgid "Display Name"
 #~ msgstr "Anzeigename"
-
-#~ msgid "First name"
-#~ msgstr "Vorname"
 
 #~ msgid "ID"
 #~ msgstr "ID"
 
 #~ msgid "Last Modified on"
 #~ msgstr "Zuletzt geändert am"
-
-#~ msgid "Last name"
-#~ msgstr "Nachname"

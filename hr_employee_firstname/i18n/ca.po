@@ -41,15 +41,15 @@ msgstr "Ordre dels noms d'empleats"
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee__firstname
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_base__firstname
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_public__firstname
-msgid "Firstname"
-msgstr ""
+msgid "First name"
+msgstr "Nom"
 
 #. module: hr_employee_firstname
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee__lastname
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_base__lastname
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_public__lastname
-msgid "Lastname"
-msgstr ""
+msgid "Last name"
+msgstr "Cognoms"
 
 #. module: hr_employee_firstname
 #: code:addons/hr_employee_firstname/models/hr_employee.py:0
@@ -62,11 +62,5 @@ msgstr "No s'ha definit cap nom."
 msgid "Order to compose employee fullname"
 msgstr ""
 
-#~ msgid "First name"
-#~ msgstr "Nom"
-
 #~ msgid "Last Modified on"
 #~ msgstr "Darrera modificació el"
-
-#~ msgid "Last name"
-#~ msgstr "Cognoms"
