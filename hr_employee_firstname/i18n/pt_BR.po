@@ -45,15 +45,15 @@ msgstr "Ordem de Nome dos Funcionários"
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee__firstname
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_base__firstname
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_public__firstname
-msgid "Firstname"
-msgstr "Primeiro nome"
+msgid "First name"
+msgstr "Nome"
 
 #. module: hr_employee_firstname
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee__lastname
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_base__lastname
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_public__lastname
-msgid "Lastname"
-msgstr "Último nome"
+msgid "Last name"
+msgstr "Sobrenome"
 
 #. module: hr_employee_firstname
 #: code:addons/hr_employee_firstname/models/hr_employee.py:0
@@ -66,11 +66,11 @@ msgstr "Nenhum nome definido."
 msgid "Order to compose employee fullname"
 msgstr ""
 
+#~ msgid "Firstname"
+#~ msgstr "Primeiro nome"
+
+#~ msgid "Lastname"
+#~ msgstr "Último nome"
+
 #~ msgid "Display Name"
 #~ msgstr "Nome de Exibição"
-
-#~ msgid "First name"
-#~ msgstr "Nome"
-
-#~ msgid "Last name"
-#~ msgstr "Sobrenome"
