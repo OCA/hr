@@ -22,6 +22,7 @@ Available addons
 addon | version | maintainers | summary
 --- | --- | --- | ---
 [hr_employee_firstname](hr_employee_firstname/) | 16.0.1.0.0 |  | Adds First Name to Employee
+[hr_employee_lastnames](hr_employee_lastnames/) | 16.0.1.0.0 |  | Split Name in First Name, Father's Last Name and Mother's Last Name
 
 [//]: # (end addons)
 
