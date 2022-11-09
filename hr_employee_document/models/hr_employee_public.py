@@ -16,7 +16,7 @@ class HrEmployeePublic(models.Model):
                 record.is_logged = True
 
     def action_get_attachment_tree_view(self):
-        action = self.env.ref("base.action_attachment").sudo().read()[0]
+        action = self.env["ir.actions.act_window"]._for_xml_id("base.action_attachment")
         action["context"] = {
             "default_res_model": "hr.employee",
             "default_res_id": self.env.user.employee_id.id,
