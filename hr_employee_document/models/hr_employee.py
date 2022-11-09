@@ -9,7 +9,6 @@ class HrEmployeeBase(models.AbstractModel):
 
     document_count = fields.Integer(
         compute="_compute_document_count",
-        string="Document Count",
     )
 
     def _compute_document_count(self):
@@ -24,7 +23,7 @@ class HrEmployeeBase(models.AbstractModel):
             record.document_count = count_dict.get(record.id, 0)
 
     def action_get_attachment_tree_view(self):
-        action = self.env.ref("base.action_attachment").sudo().read()[0]
+        action = self.env["ir.actions.act_window"]._for_xml_id("base.action_attachment")
         action["context"] = {
             "default_res_model": self._name,
             "default_res_id": self.ids[0],

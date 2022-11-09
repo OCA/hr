@@ -5,70 +5,82 @@
 import base64
 
 from odoo.tests import common, new_test_user
+from odoo.tests.common import users
 
 
 class TestHrEmployeeDocument(common.TransactionCase):
     def setUp(self):
         super().setUp()
-        self.Employee = self.env["hr.employee"]
-        self.EmployeePublic = self.env["hr.employee.public"]
-        self.SudoEmployee = self.Employee.sudo()
-        self.Attachment = self.env["ir.attachment"]
-        self.SudoAttachment = self.Attachment.sudo()
-        self.user_1 = new_test_user(
-            self.env,
-            login="Test user employee 1",
+        ctx = {
+            "mail_create_nolog": True,
+            "mail_create_nosubscribe": True,
+            "mail_notrack": True,
+            "no_reset_password": True,
+        }
+        self.user_1 = new_test_user(self.env, login="test-user-1", context=ctx)
+        self.user_2 = new_test_user(self.env, login="test-user-2", context=ctx)
+        new_test_user(
+            self.env, login="test-user-manager", groups="hr.group_hr_user", context=ctx
         )
-        self.user_2 = new_test_user(
-            self.env,
-            login="Test user employee 2",
+        self.employee_1 = self.env["hr.employee"].create(
+            {"name": "Employee #1", "user_id": self.user_1.id}
         )
-        self.user_manager = new_test_user(
-            self.env,
-            login="Test user manager",
-            groups="hr.group_hr_user",
+        self.employee_2 = self.env["hr.employee"].create(
+            {"name": "Employee #2", "user_id": self.user_2.id}
         )
-        self.employee_1 = (
-            self.SudoEmployee.create({"name": "Employee #1", "user_id": self.user_1.id})
-        ).with_user(self.user_1)
-        self.employee_2 = (
-            self.SudoEmployee.create({"name": "Employee #2", "user_id": self.user_2.id})
-        ).with_user(self.user_2)
 
     def _create_attachment(self, employee_id):
-        return self.SudoAttachment.create(
-            {
-                "res_model": self.Employee._name,
-                "res_id": employee_id.id,
-                "datas": base64.b64encode(b"My attachment"),
-                "name": "doc.txt",
-            }
+        return (
+            self.env["ir.attachment"]
+            .sudo()
+            .create(
+                {
+                    "res_model": employee_id._name,
+                    "res_id": employee_id.id,
+                    "datas": base64.b64encode(b"My attachment"),
+                    "name": "doc.txt",
+                }
+            )
         )
 
+    @users("test-user-1")
     def test_employee_attachment(self):
-        self._create_attachment(self.employee_1)
-        self.assertEqual(self.employee_1.document_count, 1)
-        employee_public = self.EmployeePublic.browse(self.employee_1.id)
+        employee = self.env.user.employee_id
+        self._create_attachment(employee)
+        self.assertEqual(employee.document_count, 1)
+        employee_public = self.env["hr.employee.public"].browse(employee.id)
         self.assertEqual(employee_public.document_count, 1)
 
+    @users("test-user-2")
     def test_employee_attachment_tree_view(self):
-        self.assertNotEqual(self.employee_2.action_get_attachment_tree_view(), None)
-        employee_public = self.EmployeePublic.browse(self.employee_2.id)
+        employee = self.env.user.employee_id
+        self.assertNotEqual(employee.action_get_attachment_tree_view(), None)
+        employee_public = self.env["hr.employee.public"].browse(employee.id)
         self.assertNotEqual(employee_public.action_get_attachment_tree_view(), None)
 
-    def test_attachments_access(self):
+    @users("test-user-1")
+    def test_attachments_access_user_1(self):
         # create attachments
         attachment_1 = self._create_attachment(self.employee_1)
         attachment_2 = self._create_attachment(self.employee_2)
-        # user_1
-        records = self.Attachment.with_user(self.user_1).search([])
-        self.assertTrue(attachment_1 in records)
-        self.assertFalse(attachment_2 in records)
-        # user_2
-        records = self.Attachment.with_user(self.user_2).search([])
-        self.assertFalse(attachment_1 in records)
-        self.assertTrue(attachment_2 in records)
-        # user_manager
-        records = self.Attachment.with_user(self.user_manager).search([])
-        self.assertTrue(attachment_1 in records)
-        self.assertTrue(attachment_2 in records)
+        records = self.env["ir.attachment"].search([])
+        self.assertIn(attachment_1, records)
+        self.assertNotIn(attachment_2, records)
+
+    @users("test-user-2")
+    def test_attachments_access_user_2(self):
+        # create attachments
+        attachment_1 = self._create_attachment(self.employee_1)
+        attachment_2 = self._create_attachment(self.employee_2)
+        records = self.env["ir.attachment"].search([])
+        self.assertNotIn(attachment_1, records)
+        self.assertIn(attachment_2, records)
+
+    @users("test-user-manager")
+    def test_attachments_access_user_manager(self):
+        # create attachments
+        attachment_1 = self._create_attachment(self.employee_1)
+        attachment_2 = self._create_attachment(self.employee_2)
+        records = self.env["ir.attachment"].search([])
+        self.assertIn(attachment_1, records)
+        self.assertIn(attachment_2, records)
