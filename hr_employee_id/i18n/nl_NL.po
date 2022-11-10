@@ -112,7 +112,7 @@ msgstr "Het Personeelsnummer moet uniek zijn binnen elk bedrijf en bedrijven."
 #: code:addons/hr_employee_id/models/hr_employee.py:58
 #, fuzzy, python-format
 msgid "Unable to generate unique Employee ID in %d steps."
-msgstr "Niet in staat om een uniek personeelsnummer te genereren."
+msgstr ""
 
 #~ msgid ""
 #~ "<span>(*) This configuration is related to the company you're logged into."
