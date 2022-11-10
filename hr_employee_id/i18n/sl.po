@@ -110,7 +110,7 @@ msgstr "Številka kadra mora biti unikatna v sklopu družbe (družb)."
 #: code:addons/hr_employee_id/models/hr_employee.py:58
 #, fuzzy, python-format
 msgid "Unable to generate unique Employee ID in %d steps."
-msgstr "Ni možno ustvariti ID številke kadra, ki bi bila unikatna."
+msgstr ""
 
 #~ msgid "Created by"
 #~ msgstr "Ustvaril"

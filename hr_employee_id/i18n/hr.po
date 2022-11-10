@@ -107,7 +107,7 @@ msgstr "Šifra djelatnika mora biti jedinstvena unutar(između) poduzeća"
 #: code:addons/hr_employee_id/models/hr_employee.py:58
 #, fuzzy, python-format
 msgid "Unable to generate unique Employee ID in %d steps."
-msgstr "Nije moguće generirati jedinstvenu šifru djelatnika."
+msgstr ""
 
 #~ msgid ""
 #~ "<span>(*) This configuration is related to the company you're logged into."
