@@ -11,9 +11,8 @@
                 <attribute name="invisible">1</attribute>
             </field>
             <xpath expr="//div[hasclass('oe_title')]" position="inside">
-                <label for="identification_id" class="oe_edit_only" />
                 <h3>
-                    <field name="identification_id" />
+                    <field name="identification_id" placeholder="Identification No" />
                 </h3>
             </xpath>
         </field>

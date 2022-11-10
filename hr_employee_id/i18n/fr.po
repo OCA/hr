@@ -112,7 +112,7 @@ msgstr "Le numéro d'employé doit être unique par société(s)."
 #: code:addons/hr_employee_id/models/hr_employee.py:58
 #, fuzzy, python-format
 msgid "Unable to generate unique Employee ID in %d steps."
-msgstr "Impossible de générer le numéro d'ID employé qui doit être unique."
+msgstr "Impossible de générer le numéro d'ID employé qui doit être unique en %d étapes."
 
 #~ msgid ""
 #~ "<span>(*) This configuration is related to the company you're logged into."
