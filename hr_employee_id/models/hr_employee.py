@@ -55,11 +55,13 @@ class HrEmployee(models.Model):
             return employee_id
 
         raise UserError(
-            _("Unable to generate unique Employee ID in %d steps.") % (steps,)
+            _("Unable to generate unique Employee ID in %(num)d steps.")
+            % {"num": steps}
         )
 
-    @api.model
-    def create(self, vals):
-        if not vals.get("identification_id"):
-            vals["identification_id"] = self._generate_identification_id()
-        return super(HrEmployee, self).create(vals)
+    @api.model_create_multi
+    def create(self, lst_vals):
+        for vals in lst_vals:
+            if not vals.get("identification_id"):
+                vals["identification_id"] = self._generate_identification_id()
+        return super(HrEmployee, self).create(lst_vals)

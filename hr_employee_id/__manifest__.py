@@ -5,7 +5,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 {
     "name": "Employee ID",
-    "version": "14.0.1.0.0",
+    "version": "16.0.1.0.0",
     "license": "AGPL-3",
     "category": "Generic Modules/Human Resources",
     "author": "CorporateHub, "
