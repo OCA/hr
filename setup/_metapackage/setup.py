@@ -10,6 +10,7 @@ setuptools.setup(
     install_requires=[
         'odoo-addon-hr_employee_firstname>=16.0dev,<16.1dev',
         'odoo-addon-hr_employee_lastnames>=16.0dev,<16.1dev',
+        'odoo-addon-hr_employee_partner_external>=16.0dev,<16.1dev',
     ],
     classifiers=[
         'Programming Language :: Python',
