@@ -76,6 +76,10 @@ class HrEmployee(models.Model):
         elif vals.get("name"):
             vals["lastname"] = self.split_name(vals["name"])["lastname"]
             vals["firstname"] = self.split_name(vals["name"])["firstname"]
+        elif vals.get("user_id"):
+            vals["name"] = self.env["res.users"].browse(vals["user_id"]).name
+            vals["lastname"] = self.split_name(vals["name"])["lastname"]
+            vals["firstname"] = self.split_name(vals["name"])["firstname"]
         else:
             raise ValidationError(_("No name set."))
 
