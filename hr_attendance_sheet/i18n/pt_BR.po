@@ -6,100 +6,105 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2022-11-16 20:44+0000\n"
+"Last-Translator: Douglas Custódio <douglascstd@yahoo.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.14.1\n"
 
 #. module: hr_attendance_sheet
 #: model_terms:ir.ui.view,arch_db:hr_attendance_sheet.res_config_settings_view_form
 msgid "<span class=\"fa fa-lg fa-building-o\" title=\"Values set here are company-specific.\" aria-label=\"Values set here are company-specific.\" groups=\"base.group_multi_company\" role=\"img\"/>"
 msgstr ""
+"<span class=\"fa fa-lg fa-building-o\" title=\"Values set here are company-"
+"specific.\" aria-label=\"Valores definidor aqui são específicos da empresa.\""
+" groups=\"base.group_multi_company\" role=\"img\"/>"
 
 #. module: hr_attendance_sheet
 #: model_terms:ir.ui.view,arch_db:hr_attendance_sheet.report_hr_attendance_sheet_document
 msgid "<strong>Check-In</strong>"
-msgstr ""
+msgstr "<strong>Entrada</strong>"
 
 #. module: hr_attendance_sheet
 #: model_terms:ir.ui.view,arch_db:hr_attendance_sheet.report_hr_attendance_sheet_document
 msgid "<strong>Check-Out</strong>"
-msgstr ""
+msgstr "<strong>Saída</strong>"
 
 #. module: hr_attendance_sheet
 #: model_terms:ir.ui.view,arch_db:hr_attendance_sheet.report_hr_attendance_sheet_document
 msgid "<strong>Duration</strong>"
-msgstr ""
+msgstr "<strong>Duração</strong>"
 
 #. module: hr_attendance_sheet
 #: model:ir.model.fields,field_description:hr_attendance_sheet.field_hr_attendance_sheet__message_needaction
 msgid "Action Needed"
-msgstr ""
+msgstr "Necessita Ação"
 
 #. module: hr_attendance_sheet
 #: model:ir.model.fields,field_description:hr_attendance_sheet.field_hr_attendance_sheet__active
 msgid "Active"
-msgstr ""
+msgstr "Ativo"
 
 #. module: hr_attendance_sheet
 #: model:ir.model.fields,field_description:hr_attendance_sheet.field_hr_attendance_sheet__activity_ids
 msgid "Activities"
-msgstr ""
+msgstr "Atividades"
 
 #. module: hr_attendance_sheet
 #: model:ir.model.fields,field_description:hr_attendance_sheet.field_hr_attendance_sheet__activity_state
 msgid "Activity State"
-msgstr ""
+msgstr "Situação da Atividade"
 
 #. module: hr_attendance_sheet
 #: model:ir.actions.act_window,name:hr_attendance_sheet.hr_attendance_sheet_manager_action
 msgid "All Attendance Sheets"
-msgstr ""
+msgstr "Todas Planilhas de Presença"
 
 #. module: hr_attendance_sheet
 #: model:ir.model.fields,help:hr_attendance_sheet.field_hr_attendance__auto_lunch_enabled
 #: model:ir.model.fields,help:hr_attendance_sheet.field_res_company__auto_lunch
 msgid "Applies a lunch period if duration is over the max time."
-msgstr ""
+msgstr "Aplica um período de almoço se a duração é além do tempo máximo."
 
 #. module: hr_attendance_sheet
 #: model_terms:ir.ui.view,arch_db:hr_attendance_sheet.report_hr_attendance_sheet_document
 msgid "Approval Information"
-msgstr ""
+msgstr "Informação de Aprovação"
 
 #. module: hr_attendance_sheet
 #: model_terms:ir.ui.view,arch_db:hr_attendance_sheet.hr_attendance_sheet_view_form
 msgid "Approve"
-msgstr ""
+msgstr "Aprovar"
 
 #. module: hr_attendance_sheet
 #: selection:hr.attendance.sheet,state:0
 #: model_terms:ir.ui.view,arch_db:hr_attendance_sheet.hr_attendance_sheet_view_search
 msgid "Approved"
-msgstr ""
+msgstr "Aprovado"
 
 #. module: hr_attendance_sheet
 #: model_terms:ir.ui.view,arch_db:hr_attendance_sheet.report_hr_attendance_sheet_document
 msgid "Approved On:"
-msgstr ""
+msgstr "Aprovado em:"
 
 #. module: hr_attendance_sheet
 #: model_terms:ir.ui.view,arch_db:hr_attendance_sheet.report_hr_attendance_sheet_document
 msgid "Approver:"
-msgstr ""
+msgstr "Aprovador:"
 
 #. module: hr_attendance_sheet
 #: model:ir.model.fields,field_description:hr_attendance_sheet.field_hr_attendance_sheet__message_attachment_count
 msgid "Attachment Count"
-msgstr ""
+msgstr "Contagem de anexos"
 
 #. module: hr_attendance_sheet
 #: model:ir.model,name:hr_attendance_sheet.model_hr_attendance
 msgid "Attendance"
-msgstr ""
+msgstr "Presença"
 
 #. module: hr_attendance_sheet
 #: model:ir.model.fields,field_description:hr_attendance_sheet.field_hr_attendance__attendance_admin
@@ -107,12 +112,12 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_attendance_sheet.field_hr_department__attendance_admin
 #: model:ir.model.fields,field_description:hr_attendance_sheet.field_hr_employee__attendance_admin
 msgid "Attendance Admin"
-msgstr ""
+msgstr "Administrador do Presença"
 
 #. module: hr_attendance_sheet
 #: model_terms:ir.ui.view,arch_db:hr_attendance_sheet.res_config_settings_view_form
 msgid "Attendance Rules"
-msgstr ""
+msgstr "Regras de Presença"
 
 #. module: hr_attendance_sheet
 #: model:ir.actions.report,name:hr_attendance_sheet.hr_attendance_sheet_document
@@ -120,29 +125,29 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:hr_attendance_sheet.hr_attendance_sheet_view_form
 #: model_terms:ir.ui.view,arch_db:hr_attendance_sheet.report_hr_attendance_sheet_document
 msgid "Attendance Sheet"
-msgstr ""
+msgstr "Planilha de Presença"
 
 #. module: hr_attendance_sheet
 #: model:mail.activity.type,name:hr_attendance_sheet.mail_act_attendance_sheet_approval
 msgid "Attendance Sheet Approval"
-msgstr ""
+msgstr "Aprovação de Planilha de Presença"
 
 #. module: hr_attendance_sheet
 #: model:ir.actions.report,name:hr_attendance_sheet.hr_attendance_sheet_preview
 msgid "Attendance Sheet Preview"
-msgstr ""
+msgstr "Visualizar Planilha de Presença"
 
 #. module: hr_attendance_sheet
 #: model:ir.model.fields,field_description:hr_attendance_sheet.field_res_company__attendance_sheet_range
 #: model:ir.model.fields,field_description:hr_attendance_sheet.field_res_config_settings__attendance_sheet_range
 msgid "Attendance Sheet Range"
-msgstr ""
+msgstr "Intervalo de Planilha de Presença"
 
 #. module: hr_attendance_sheet
 #: model:ir.model.fields,field_description:hr_attendance_sheet.field_res_company__attendance_sheet_review_policy
 #: model:ir.model.fields,field_description:hr_attendance_sheet.field_res_config_settings__attendance_sheet_review_policy
 msgid "Attendance Sheet Review Policy"
-msgstr ""
+msgstr "Política Revisão de Planilha de Presença"
 
 #. module: hr_attendance_sheet
 #: model:ir.ui.menu,name:hr_attendance_sheet.hr_attendance_sheet_main_menu
@@ -150,75 +155,75 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:hr_attendance_sheet.hr_attendance_employee_view_form
 #: model_terms:ir.ui.view,arch_db:hr_attendance_sheet.res_config_settings_view_form
 msgid "Attendance Sheets"
-msgstr ""
+msgstr "Planilhas de Presença"
 
 #. module: hr_attendance_sheet
 #: model:ir.actions.server,name:hr_attendance_sheet.ir_cron_attendance_sheet_creation_ir_actions_server
 #: model:ir.cron,cron_name:hr_attendance_sheet.ir_cron_attendance_sheet_creation
 #: model:ir.cron,name:hr_attendance_sheet.ir_cron_attendance_sheet_creation
 msgid "Attendance Sheets: Create Sheets"
-msgstr ""
+msgstr "Planilhas de Presença: Criar Planilhas"
 
 #. module: hr_attendance_sheet
 #: model_terms:ir.ui.view,arch_db:hr_attendance_sheet.hr_attendance_sheet_view_tree
 msgid "Attendance sheets"
-msgstr ""
+msgstr "Planilhas de presença"
 
 #. module: hr_attendance_sheet
 #: model:ir.actions.act_window,name:hr_attendance_sheet.hr_attendance_sheet_attendance_action_employee
 #: model:ir.model.fields,field_description:hr_attendance_sheet.field_hr_attendance_sheet__attendance_ids
 msgid "Attendances"
-msgstr ""
+msgstr "Presenças"
 
 #. module: hr_attendance_sheet
 #: model:ir.model.fields,field_description:hr_attendance_sheet.field_res_company__auto_lunch
 #: model:ir.model.fields,field_description:hr_attendance_sheet.field_res_config_settings__auto_lunch
 msgid "Auto Lunch"
-msgstr ""
+msgstr "Lançamento automático"
 
 #. module: hr_attendance_sheet
 #: model:ir.model.fields,field_description:hr_attendance_sheet.field_hr_attendance__auto_lunch
 msgid "Auto Lunch Applied"
-msgstr ""
+msgstr "Aplicação de Lançamento Automático"
 
 #. module: hr_attendance_sheet
 #: model:ir.model.fields,field_description:hr_attendance_sheet.field_hr_attendance__auto_lunch_enabled
 msgid "Auto Lunch Enabled"
-msgstr ""
+msgstr "Habilitação de Lançamento Automático"
 
 #. module: hr_attendance_sheet
 #: selection:res.company,attendance_sheet_range:0
 msgid "Bi-Week"
-msgstr ""
+msgstr "Bi-Semana"
 
 #. module: hr_attendance_sheet
 #: model:ir.model.fields,field_description:hr_attendance_sheet.field_hr_attendance_sheet__can_review
 msgid "Can Review"
-msgstr ""
+msgstr "Pode Revisar"
 
 #. module: hr_attendance_sheet
 #: code:addons/hr_attendance_sheet/models/hr_attendance_sheet.py:340
 #, python-format
 msgid "Cannot approve a non-submitted sheet."
-msgstr ""
+msgstr "Não é possível aprovar uma planilha não enviada."
 
 #. module: hr_attendance_sheet
 #: code:addons/hr_attendance_sheet/models/hr_attendance_sheet.py:379
 #, python-format
 msgid "Cannot lock a non-approved sheet."
-msgstr ""
+msgstr "Não pode bloquear uma planilha não aprovada."
 
 #. module: hr_attendance_sheet
 #: code:addons/hr_attendance_sheet/models/hr_attendance_sheet.py:399
 #, python-format
 msgid "Cannot reject a non-submitted sheet."
-msgstr ""
+msgstr "Não pode rejeitar uma planilha não aprovada."
 
 #. module: hr_attendance_sheet
 #: code:addons/hr_attendance_sheet/models/hr_attendance_sheet.py:330
 #, python-format
 msgid "Cannot revert to draft a non-approved sheet."
-msgstr ""
+msgstr "Não é possível reverter para rascunho uma planilha não enviada."
 
 #. module: hr_attendance_sheet
 #: model_terms:ir.ui.view,arch_db:hr_attendance_sheet.hr_attendance_sheet_view_form
@@ -234,6 +239,9 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:hr_attendance_sheet.res_config_settings_view_form
 msgid "Choose attendance sheets review policy. Either HR only, Manager (Set on Employee) or Attendance Admin (Set on Department) or all three."
 msgstr ""
+"Escolha a política de revisão de planilhas de presença. Ou somente RH, "
+"Gerente (Definido no Funcionário) ou Administrador do Presença (Definido no "
+"Departamento) ou todos os três."
 
 #. module: hr_attendance_sheet
 #: model_terms:ir.ui.view,arch_db:hr_attendance_sheet.res_config_settings_view_form
@@ -243,49 +251,50 @@ msgstr ""
 #. module: hr_attendance_sheet
 #: model_terms:ir.ui.view,arch_db:hr_attendance_sheet.res_config_settings_view_form
 msgid "Choose the week start day."
-msgstr ""
+msgstr "Escolha o dia de início da semana."
 
 #. module: hr_attendance_sheet
 #: model_terms:ir.ui.view,arch_db:hr_attendance_sheet.res_config_settings_view_form
 msgid "Choose which attendance sheet ranges should be used by default"
 msgstr ""
+"Escolha qual intervalo de planilha de presença deve ser usado como padrão"
 
 #. module: hr_attendance_sheet
 #: model:ir.model,name:hr_attendance_sheet.model_res_company
 msgid "Companies"
-msgstr ""
+msgstr "Empresa"
 
 #. module: hr_attendance_sheet
 #: model:ir.model.fields,field_description:hr_attendance_sheet.field_hr_attendance__company_id
 #: model:ir.model.fields,field_description:hr_attendance_sheet.field_hr_attendance_sheet__company_id
 msgid "Company"
-msgstr ""
+msgstr "Empresa"
 
 #. module: hr_attendance_sheet
 #: model:ir.model,name:hr_attendance_sheet.model_res_config_settings
 msgid "Config Settings"
-msgstr ""
+msgstr "Ajustes de configuração"
 
 #. module: hr_attendance_sheet
 #: model:ir.model.fields,field_description:hr_attendance_sheet.field_hr_attendance_sheet__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Criado por"
 
 #. module: hr_attendance_sheet
 #: model:ir.model.fields,field_description:hr_attendance_sheet.field_hr_attendance_sheet__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Criado Em"
 
 #. module: hr_attendance_sheet
 #: model_terms:ir.ui.view,arch_db:hr_attendance_sheet.hr_attendance_sheet_view_search
 msgid "Current Period"
-msgstr ""
+msgstr "Período Atual"
 
 #. module: hr_attendance_sheet
 #: model:ir.model.fields,field_description:hr_attendance_sheet.field_hr_attendance_sheet__date_start
 #: model:ir.model.fields,field_description:hr_attendance_sheet.field_res_company__date_start
 msgid "Date From"
-msgstr ""
+msgstr "Data a partir"
 
 #. module: hr_attendance_sheet
 #: code:addons/hr_attendance_sheet/models/hr_attendance_sheet.py:129
@@ -297,7 +306,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_attendance_sheet.field_hr_attendance_sheet__date_end
 #: model:ir.model.fields,field_description:hr_attendance_sheet.field_res_company__date_end
 msgid "Date To"
-msgstr ""
+msgstr "Data Até"
 
 #. module: hr_attendance_sheet
 #: selection:res.company,attendance_sheet_range:0
