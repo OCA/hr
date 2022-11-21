@@ -5,9 +5,9 @@
     "name": "Hr Personal Equipment Variant Configurator",
     "summary": """
         Manage variants of personal equipment""",
-    "version": "13.0.1.0.0",
+    "version": "14.0.1.0.0",
     "license": "AGPL-3",
-    "author": "Creu Blanca, Odoo Community Association (OCA)",
+    "author": "CreuBlanca, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/hr",
     "depends": ["hr_personal_equipment_request", "product_variant_configurator"],
     "data": ["views/hr_personal_equipment_request.xml"],
