@@ -22,6 +22,53 @@ msgid "Adds personal equipment information and allocation"
 msgstr "Añade información de equipamiento personal y su asignación"
 
 #. module: hr_personal_equipment_variant_configurator
+#: model:ir.model.fields,field_description:hr_personal_equipment_variant_configurator.field_hr_personal_equipment__can_create_product
+msgid "Can Create Product"
+msgstr ""
+
+#. module: hr_personal_equipment_variant_configurator
+#: model:ir.model.fields,field_description:hr_personal_equipment_variant_configurator.field_hr_personal_equipment__create_product_variant
+msgid "Create product now!"
+msgstr ""
+
+#. module: hr_personal_equipment_variant_configurator
+#: model:ir.model.fields,field_description:hr_personal_equipment_variant_configurator.field_hr_personal_equipment__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: hr_personal_equipment_variant_configurator
+#: model:ir.model.fields,field_description:hr_personal_equipment_variant_configurator.field_hr_personal_equipment__id
+msgid "ID"
+msgstr ""
+
+#. module: hr_personal_equipment_variant_configurator
+#: model:ir.model.fields,field_description:hr_personal_equipment_variant_configurator.field_hr_personal_equipment____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: hr_personal_equipment_variant_configurator
+#: model:ir.model.fields,field_description:hr_personal_equipment_variant_configurator.field_hr_personal_equipment__price_extra
+msgid "Price Extra"
+msgstr ""
+
+#. module: hr_personal_equipment_variant_configurator
+#: model:ir.model.fields,help:hr_personal_equipment_variant_configurator.field_hr_personal_equipment__price_extra
+msgid ""
+"Price Extra: Extra price for the variant with the currently selected "
+"attributes values on sale price. eg. 200 price extra, 1000 + 200 = 1200."
+msgstr ""
+
+#. module: hr_personal_equipment_variant_configurator
 #: model:ir.model.fields,field_description:hr_personal_equipment_variant_configurator.field_hr_personal_equipment__product_tmpl_id
 msgid "Product Template"
 msgstr "Producto"
+
+#. module: hr_personal_equipment_variant_configurator
+#: model:ir.model.fields,field_description:hr_personal_equipment_variant_configurator.field_hr_personal_equipment__product_id
+msgid "Product Variant"
+msgstr ""
+
+#. module: hr_personal_equipment_variant_configurator
+#: model:ir.model.fields,field_description:hr_personal_equipment_variant_configurator.field_hr_personal_equipment__product_attribute_ids
+msgid "Product attributes"
+msgstr ""
