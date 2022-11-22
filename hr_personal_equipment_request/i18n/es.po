@@ -86,7 +86,8 @@ msgstr "¿Está seguro de que desea aceptar esta solicitud de equipo individual?
 #. module: hr_personal_equipment_request
 #: model_terms:ir.ui.view,arch_db:hr_personal_equipment_request.hr_personal_equipment_request_form_view
 msgid "Are you sure you want to cancel this personal equipment request?"
-msgstr "¿Está seguro de que desea cancelar esta solicitud de equipo individual?"
+msgstr ""
+"¿Está seguro de que desea cancelar esta solicitud de equipo individual?"
 
 #. module: hr_personal_equipment_request
 #: model_terms:ir.ui.view,arch_db:hr_personal_equipment_request.hr_personal_equipment_form_view
@@ -417,7 +418,6 @@ msgid "Personal Equipment Request by %s"
 msgstr "Equipo individual solicitado por %s"
 
 #. module: hr_personal_equipment_request
-#: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment__product_id
 #: model_terms:ir.ui.view,arch_db:hr_personal_equipment_request.hr_personal_equipment_search_view
 msgid "Product"
 msgstr "Producto"
@@ -426,6 +426,11 @@ msgstr "Producto"
 #: model:ir.model,name:hr_personal_equipment_request.model_product_template
 msgid "Product Template"
 msgstr "Plantilla de producto"
+
+#. module: hr_personal_equipment_request
+#: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment__product_id
+msgid "Product Variant"
+msgstr ""
 
 #. module: hr_personal_equipment_request
 #: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment__quantity
