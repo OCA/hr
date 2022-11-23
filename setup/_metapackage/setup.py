@@ -16,6 +16,7 @@ setuptools.setup(
         'odoo-addon-hr_employee_calendar_planning>=15.0dev,<15.1dev',
         'odoo-addon-hr_employee_document>=15.0dev,<15.1dev',
         'odoo-addon-hr_employee_firstname>=15.0dev,<15.1dev',
+        'odoo-addon-hr_employee_id>=15.0dev,<15.1dev',
         'odoo-addon-hr_employee_lastnames>=15.0dev,<15.1dev',
         'odoo-addon-hr_employee_medical_examination>=15.0dev,<15.1dev',
         'odoo-addon-hr_employee_partner_external>=15.0dev,<15.1dev',
