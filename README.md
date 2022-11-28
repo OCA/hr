@@ -23,6 +23,7 @@ addon | version | maintainers | summary
 --- | --- | --- | ---
 [hr_contract_reference](hr_contract_reference/) | 15.0.1.0.0 |  | HR Contract Reference
 [hr_course](hr_course/) | 15.0.1.0.0 |  | This module allows your to manage employee's training courses
+[hr_department_code](hr_department_code/) | 15.0.1.0.0 |  | HR department code
 [hr_emergency_contact](hr_emergency_contact/) | 15.0.1.0.0 |  | HR Emergency Contact
 [hr_employee_age](hr_employee_age/) | 15.0.1.0.0 |  | Age field for employee
 [hr_employee_birth_name](hr_employee_birth_name/) | 15.0.1.0.0 |  | Employee Birth Name
