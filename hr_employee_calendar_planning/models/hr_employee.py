@@ -106,11 +106,11 @@ class HrEmployee(models.Model):
             self.resource_calendar_id.attendance_ids = vals_list
         # Set the hours per day to the last (top date end) calendar line to apply
         if self.calendar_ids:
-            self.resource_calendar_id.hours_per_day = self.calendar_ids[
+            self.resource_id.calendar_id.hours_per_day = self.calendar_ids[
                 0
             ].calendar_id.hours_per_day
             # set global leaves
-            self.resource_calendar_id.global_leave_ids = [
+            self.resource_id.calendar_id.global_leave_ids = [
                 (
                     6,
                     0,
