@@ -40,6 +40,7 @@ Contributors
 ------------
 
 * Antonio Esposito <a.esposito@onestein.nl>
+* Sulivan Lominchar <slominchar@archeti.com>
 
 Maintainer
 ----------
