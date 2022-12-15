@@ -40,6 +40,7 @@ addon | version | maintainers | summary
 [hr_employee_ssn](hr_employee_ssn/) | 15.0.1.0.0 |  | View/edit employee's SSN & SIN fields
 [hr_holidays_settings](hr_holidays_settings/) | 15.0.1.0.0 |  | Enables Settings Form for HR Holidays.
 [hr_job_category](hr_job_category/) | 15.0.1.0.0 |  | Adds tags to employee through contract and job position
+[hr_org_chart_overview](hr_org_chart_overview/) | 15.0.1.0.0 |  | Organizational Chart Overview
 [hr_personal_equipment_request](hr_personal_equipment_request/) | 15.0.1.0.0 |  | This addon allows to manage employee personal equipment
 
 [//]: # (end addons)
