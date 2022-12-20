@@ -94,7 +94,7 @@ class TestEmployeeLastnames(TransactionCase):
 
     def test_change_name(self):
         self.employee1_id.write({"name": "Pedro Martinez Torres"})
-        self.employee1_id.refresh()
+        self.employee1_id.invalidate_recordset()
 
         self.assertEqual(self.employee1_id.firstname, "Pedro")
         self.assertEqual(self.employee1_id.lastname, "Martinez")
@@ -102,7 +102,7 @@ class TestEmployeeLastnames(TransactionCase):
 
     def test_change_name_with_space(self):
         self.employee1_id.write({"name": "  Jean-Pierre Carnaud-Eyck"})
-        self.employee1_id.refresh()
+        self.employee1_id.invalidate_recordset()
 
         self.assertEqual(self.employee1_id.firstname, "Jean-Pierre")
         self.assertEqual(self.employee1_id.lastname, "Carnaud-Eyck")
@@ -110,19 +110,19 @@ class TestEmployeeLastnames(TransactionCase):
 
     def test_change_firstname(self):
         self.employee1_id.write({"firstname": "Pedro"})
-        self.employee1_id.refresh()
+        self.employee1_id.invalidate_recordset()
 
         self.assertEqual(self.employee1_id.name, "Pedro Fernandez Gonzalez")
 
     def test_change_lastname(self):
         self.employee1_id.write({"lastname": "Lopez"})
-        self.employee1_id.refresh()
+        self.employee1_id.invalidate_recordset()
 
         self.assertEqual(self.employee1_id.name, "Manuel Lopez Gonzalez")
 
     def test_change_firstname_and_lastnames(self):
         self.employee1_id.write({"firstname": "Jean-Pierre", "lastname2": "Carnaud"})
-        self.employee1_id.refresh()
+        self.employee1_id.invalidate_recordset()
 
         self.assertEqual(self.employee1_id.name, "Jean-Pierre Fernandez Carnaud")
 
@@ -131,7 +131,7 @@ class TestEmployeeLastnames(TransactionCase):
             "employee_names_order", "last_first"
         )
         self.employee1_id.write({"lastname": "Lopez"})
-        self.employee1_id.refresh()
+        self.employee1_id.invalidate_recordset()
 
         self.assertEqual(self.employee1_id.name, "Lopez Gonzalez Manuel")
 
@@ -140,14 +140,14 @@ class TestEmployeeLastnames(TransactionCase):
             "employee_names_order", "last_first"
         )
         self.employee1_id.write({"name": "Martinez Torres Pedro"})
-        self.employee1_id.refresh()
+        self.employee1_id.invalidate_recordset()
 
         self.assertEqual(self.employee1_id.firstname, "Pedro")
         self.assertEqual(self.employee1_id.lastname, "Martinez")
         self.assertEqual(self.employee1_id.lastname2, "Torres")
 
         self.employee1_id.write({"name": ""})
-        self.employee1_id.refresh()
+        self.employee1_id.invalidate_recordset()
 
         self.assertEqual(self.employee1_id.firstname, "Pedro")
         self.assertEqual(self.employee1_id.lastname, "Martinez")
@@ -158,6 +158,6 @@ class TestEmployeeLastnames(TransactionCase):
             "employee_names_order", "last_first_comma"
         )
         self.employee1_id.write({"lastname": "Lopez"})
-        self.employee1_id.refresh()
+        self.employee1_id.invalidate_recordset()
 
         self.assertEqual(self.employee1_id.name, "Lopez Gonzalez, Manuel")
