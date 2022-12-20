@@ -7,7 +7,7 @@ from odoo.exceptions import ValidationError
 
 class TestHrCourse(common.TransactionCase):
     def setUp(self):
-        super(TestHrCourse, self).setUp()
+        super().setUp()
         self.course_categ = self.env["hr.course.category"].create(
             {"name": "Category 1"}
         )
