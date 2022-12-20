@@ -63,6 +63,7 @@ msgid "Adds personal equipment information and allocation"
 msgstr ""
 
 #. module: hr_personal_equipment_request
+#. odoo-python
 #: code:addons/hr_personal_equipment_request/models/hr_personal_equipment_request.py:0
 #: model:ir.actions.act_window,name:hr_personal_equipment_request.hr_personal_equipment_act_window
 #: model:ir.ui.menu,name:hr_personal_equipment_request.hr_personal_equipment_allocations_menu
@@ -153,6 +154,7 @@ msgid "Employee Personal Equipment"
 msgstr ""
 
 #. module: hr_personal_equipment_request
+#. odoo-python
 #: code:addons/hr_personal_equipment_request/models/hr_employee.py:0
 #: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_employee__equipment_request_ids
 #: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment__equipment_request_id
@@ -230,9 +232,7 @@ msgstr ""
 
 #. module: hr_personal_equipment_request
 #: model:ir.model.fields,help:hr_personal_equipment_request.field_hr_personal_equipment__message_needaction
-#: model:ir.model.fields,help:hr_personal_equipment_request.field_hr_personal_equipment__message_unread
 #: model:ir.model.fields,help:hr_personal_equipment_request.field_hr_personal_equipment_request__message_needaction
-#: model:ir.model.fields,help:hr_personal_equipment_request.field_hr_personal_equipment_request__message_unread
 msgid "If checked, new messages require your attention."
 msgstr ""
 
@@ -311,12 +311,6 @@ msgid "Name"
 msgstr ""
 
 #. module: hr_personal_equipment_request
-#: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment__activity_calendar_event_id
-#: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment_request__activity_calendar_event_id
-msgid "Next Activity Calendar Event"
-msgstr ""
-
-#. module: hr_personal_equipment_request
 #: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment__activity_date_deadline
 #: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment_request__activity_date_deadline
 msgid "Next Activity Deadline"
@@ -359,12 +353,6 @@ msgid "Number of messages with delivery error"
 msgstr ""
 
 #. module: hr_personal_equipment_request
-#: model:ir.model.fields,help:hr_personal_equipment_request.field_hr_personal_equipment__message_unread_counter
-#: model:ir.model.fields,help:hr_personal_equipment_request.field_hr_personal_equipment_request__message_unread_counter
-msgid "Number of unread messages"
-msgstr ""
-
-#. module: hr_personal_equipment_request
 #: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment_request__observations
 #: model_terms:ir.ui.view,arch_db:hr_personal_equipment_request.hr_personal_equipment_request_form_view
 msgid "Observations"
@@ -381,6 +369,7 @@ msgid "PE Request"
 msgstr ""
 
 #. module: hr_personal_equipment_request
+#. odoo-python
 #: code:addons/hr_personal_equipment_request/models/hr_employee.py:0
 #: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_employee__personal_equipment_ids
 #: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment_request__line_ids
@@ -402,20 +391,17 @@ msgid "Personal Equipment Request"
 msgstr ""
 
 #. module: hr_personal_equipment_request
+#. odoo-python
 #: code:addons/hr_personal_equipment_request/models/hr_personal_equipment_request.py:0
 #, python-format
 msgid "Personal Equipment Request by %s"
 msgstr ""
 
 #. module: hr_personal_equipment_request
+#: model:ir.model,name:hr_personal_equipment_request.model_product_template
 #: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment__product_id
 #: model_terms:ir.ui.view,arch_db:hr_personal_equipment_request.hr_personal_equipment_search_view
 msgid "Product"
-msgstr ""
-
-#. module: hr_personal_equipment_request
-#: model:ir.model,name:hr_personal_equipment_request.model_product_template
-msgid "Product Template"
 msgstr ""
 
 #. module: hr_personal_equipment_request
@@ -471,18 +457,6 @@ msgstr ""
 #. module: hr_personal_equipment_request
 #: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment__product_uom_id
 msgid "Unit of Measure"
-msgstr ""
-
-#. module: hr_personal_equipment_request
-#: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment__message_unread
-#: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment_request__message_unread
-msgid "Unread Messages"
-msgstr ""
-
-#. module: hr_personal_equipment_request
-#: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment__message_unread_counter
-#: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment_request__message_unread_counter
-msgid "Unread Messages Counter"
 msgstr ""
 
 #. module: hr_personal_equipment_request

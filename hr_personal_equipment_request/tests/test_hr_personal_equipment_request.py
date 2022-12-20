@@ -59,6 +59,7 @@ class TestHRPersonalEquipmentRequest(TransactionCase):
             .create(
                 {
                     "name": "Personal Equipment Request Test",
+                    "employee_id": self.employee.id,
                     "line_ids": [(0, 0, line) for line in lines],
                 }
             )
@@ -69,6 +70,13 @@ class TestHRPersonalEquipmentRequest(TransactionCase):
         self.assertEqual(
             self.personal_equipment_request.name,
             "Personal Equipment Request by Employee Test",
+        )
+
+    def test_request_default_employee(self):
+        self.assertTrue(self.personal_equipment_request.employee_id)
+        self.assertEqual(
+            self.personal_equipment_request.employee_id.id,
+            self.employee.id,
         )
 
     def test_accept_request(self):
@@ -127,5 +135,6 @@ class TestHRPersonalEquipmentRequest(TransactionCase):
         self.assertEqual(action["res_model"], "hr.personal.equipment")
         self.assertEqual(self.employee.personal_equipment_count, 0)
         self.personal_equipment_request.accept_request()
-        self.personal_equipment_request.refresh()
+        self.personal_equipment_request.invalidate_recordset()
+        self.employee.invalidate_recordset()
         self.assertEqual(self.employee.personal_equipment_count, 2)
