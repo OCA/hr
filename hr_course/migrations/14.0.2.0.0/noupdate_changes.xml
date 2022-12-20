@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<odoo>
-    <record model="ir.rule" id="hr_employee_course_rule">
-        <field name="model_id" ref="model_hr_course_schedule" />
-    </record>
-    <record model="ir.rule" id="hr_employee_course_manager_rule">
-        <field name="model_id" ref="model_hr_course_schedule" />
-    </record>
-</odoo>

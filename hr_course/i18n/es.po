@@ -56,8 +56,8 @@ msgstr "Asistentes"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__authorized_by
-msgid "Authorized by"
-msgstr "Autorizado por"
+msgid "Authorized By"
+msgstr ""
 
 #. module: hr_course
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_schedule_form_view
@@ -135,7 +135,6 @@ msgstr "Asistente al curso"
 #: model:ir.actions.act_window,name:hr_course.open_view_course_category_form
 #: model:ir.ui.menu,name:hr_course.menu_view_course_category_form
 #: model_terms:ir.ui.view,arch_db:hr_course.view_course_category_form
-#: model_terms:ir.ui.view,arch_db:hr_course.view_course_category_list
 #: model_terms:ir.ui.view,arch_db:hr_course.view_course_category_search
 msgid "Course Categories"
 msgstr "Tipos de cursos"
@@ -221,7 +220,6 @@ msgstr "Moneda"
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee__display_name
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_category__display_name
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__display_name
-#: model:ir.model.fields,field_description:hr_course.field_hr_employee__display_name
 msgid "Display Name"
 msgstr "Nombre a mostrar"
 
@@ -242,16 +240,17 @@ msgid "Employee"
 msgstr "Empleado"
 
 #. module: hr_course
+#. odoo-python
 #: code:addons/hr_course/models/hr_course_schedule.py:0
 #, python-format
-msgid "Employees removed from this course: <br></br>"
-msgstr "Empleados eliminados de este curso: <br></br>"
+msgid "Employees removed from this course: <br></br>%s"
+msgstr ""
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee__course_end
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__end_date
-msgid "End date"
-msgstr "Fecha final"
+msgid "End Date"
+msgstr ""
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__evaluation_criteria
@@ -275,16 +274,16 @@ msgid "Followers"
 msgstr "Seguidores"
 
 #. module: hr_course
-#: model:ir.model.fields,field_description:hr_course.field_hr_course__message_channel_ids
-#: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__message_channel_ids
-msgid "Followers (Channels)"
-msgstr "Seguidores (Canales)"
-
-#. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__message_partner_ids
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__message_partner_ids
 msgid "Followers (Partners)"
 msgstr "Seguidores (Socios)"
+
+#. module: hr_course
+#: model:ir.model.fields,field_description:hr_course.field_hr_course__has_message
+#: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__has_message
+msgid "Has Message"
+msgstr ""
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__permanence
@@ -296,15 +295,12 @@ msgstr "Tiene permanencia"
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee__id
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_category__id
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__id
-#: model:ir.model.fields,field_description:hr_course.field_hr_employee__id
 msgid "ID"
 msgstr "ID"
 
 #. module: hr_course
 #: model:ir.model.fields,help:hr_course.field_hr_course__message_needaction
-#: model:ir.model.fields,help:hr_course.field_hr_course__message_unread
 #: model:ir.model.fields,help:hr_course.field_hr_course_schedule__message_needaction
-#: model:ir.model.fields,help:hr_course.field_hr_course_schedule__message_unread
 msgid "If checked, new messages require your attention."
 msgstr "Si está marcado, los nuevos mensajes requieren su atención."
 
@@ -342,7 +338,6 @@ msgstr "Es Seguidor"
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee____last_update
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_category____last_update
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule____last_update
-#: model:ir.model.fields,field_description:hr_course.field_hr_employee____last_update
 msgid "Last Modified on"
 msgstr "Última modificación en"
 
@@ -417,12 +412,6 @@ msgid "Number of messages with delivery error"
 msgstr "Número de mensajes con error de entrega"
 
 #. module: hr_course
-#: model:ir.model.fields,help:hr_course.field_hr_course__message_unread_counter
-#: model:ir.model.fields,help:hr_course.field_hr_course_schedule__message_unread_counter
-msgid "Number of unread messages"
-msgstr "Número de mensajes no leídos"
-
-#. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__objective
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_form_view
 msgid "Objective"
@@ -445,8 +434,8 @@ msgstr "Pendiente"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__permanence_time
-msgid "Permanence time"
-msgstr "Tiempo de permanencia"
+msgid "Permanence Time"
+msgstr ""
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__place
@@ -482,8 +471,8 @@ msgstr "Empezar curso"
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee__course_start
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__start_date
-msgid "Start date"
-msgstr "Fecha de inicio"
+msgid "Start Date"
+msgstr ""
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee__state
@@ -492,6 +481,7 @@ msgid "State"
 msgstr "Estado"
 
 #. module: hr_course
+#. odoo-python
 #: code:addons/hr_course/models/hr_course_schedule.py:0
 #, python-format
 msgid "The start date cannot be later than the end date."
@@ -503,35 +493,12 @@ msgid "Training company"
 msgstr "Empresa de formación"
 
 #. module: hr_course
-#: model:ir.model.fields,field_description:hr_course.field_hr_course__message_unread
-#: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__message_unread
-msgid "Unread Messages"
-msgstr "Mensajes sin leer"
-
-#. module: hr_course
-#: model:ir.model.fields,field_description:hr_course.field_hr_course__message_unread_counter
-#: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__message_unread_counter
-msgid "Unread Messages Counter"
-msgstr "Contador de mensajes no leídos"
-
-#. module: hr_course
 #: model:ir.model.fields.selection,name:hr_course.selection__hr_course_schedule__state__waiting_attendees
 msgid "Waiting attendees"
 msgstr "Esperando asistentes"
 
 #. module: hr_course
-#: model:ir.model.fields,field_description:hr_course.field_hr_course__website_message_ids
-#: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__website_message_ids
-msgid "Website Messages"
-msgstr "Mensajes del sitio web"
-
-#. module: hr_course
-#: model:ir.model.fields,help:hr_course.field_hr_course__website_message_ids
-#: model:ir.model.fields,help:hr_course.field_hr_course_schedule__website_message_ids
-msgid "Website communication history"
-msgstr "Historial de comunicación del sitio web"
-
-#. module: hr_course
+#. odoo-python
 #: code:addons/hr_course/models/hr_course_schedule.py:0
 #, python-format
 msgid "You cannot complete the course with pending results"
@@ -545,6 +512,40 @@ msgid ""
 msgstr ""
 "Solo deberías devolver un curso a borrador si se ha cancelado por error o si "
 "alguna de su información es incorrecta. Quieres continuar?"
+
+#~ msgid "Authorized by"
+#~ msgstr "Autorizado por"
+
+#, python-format
+#~ msgid "Employees removed from this course: <br></br>"
+#~ msgstr "Empleados eliminados de este curso: <br></br>"
+
+#~ msgid "End date"
+#~ msgstr "Fecha final"
+
+#~ msgid "Followers (Channels)"
+#~ msgstr "Seguidores (Canales)"
+
+#~ msgid "Number of unread messages"
+#~ msgstr "Número de mensajes no leídos"
+
+#~ msgid "Permanence time"
+#~ msgstr "Tiempo de permanencia"
+
+#~ msgid "Start date"
+#~ msgstr "Fecha de inicio"
+
+#~ msgid "Unread Messages"
+#~ msgstr "Mensajes sin leer"
+
+#~ msgid "Unread Messages Counter"
+#~ msgstr "Contador de mensajes no leídos"
+
+#~ msgid "Website Messages"
+#~ msgstr "Mensajes del sitio web"
+
+#~ msgid "Website communication history"
+#~ msgstr "Historial de comunicación del sitio web"
 
 #~ msgid "hr.course"
 #~ msgstr "hr.course"
