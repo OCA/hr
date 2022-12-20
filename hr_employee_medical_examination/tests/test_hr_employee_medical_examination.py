@@ -6,7 +6,7 @@ from odoo.tests.common import TransactionCase
 
 class TestHrEmployeeMedicalExamination(TransactionCase):
     def setUp(self):
-        super(TestHrEmployeeMedicalExamination, self).setUp()
+        super().setUp()
 
         self.department = self.env["hr.department"].create({"name": "Department"})
 
