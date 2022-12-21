@@ -86,33 +86,33 @@ class TestEmployeeFirstname(TransactionCase):
 
     def test_change_name(self):
         self.employee1_id.write({"name": "Jean-Pierre Carnaud-Eyck"})
-        self.employee1_id.refresh()
+        self.employee1_id.invalidate_recordset()
 
         self.assertEqual(self.employee1_id.firstname, "Jean-Pierre")
         self.assertEqual(self.employee1_id.lastname, "Carnaud-Eyck")
 
     def test_change_name_with_space(self):
         self.employee1_id.write({"name": "  Jean-Pierre  Carnaud-Eyck"})
-        self.employee1_id.refresh()
+        self.employee1_id.invalidate_recordset()
 
         self.assertEqual(self.employee1_id.firstname, "Jean-Pierre")
         self.assertEqual(self.employee1_id.lastname, "Carnaud-Eyck")
 
     def test_change_firstname(self):
         self.employee1_id.write({"firstname": "Jean-Pierre"})
-        self.employee1_id.refresh()
+        self.employee1_id.invalidate_recordset()
 
         self.assertEqual(self.employee1_id.name, "Jean-Pierre Van-Eyck")
 
     def test_change_lastname(self):
         self.employee1_id.write({"lastname": "Carnaud"})
-        self.employee1_id.refresh()
+        self.employee1_id.invalidate_recordset()
 
         self.assertEqual(self.employee1_id.name, "Jan Carnaud")
 
     def test_change_firstname_and_lastname(self):
         self.employee1_id.write({"firstname": "Jean-Pierre", "lastname": "Carnaud"})
-        self.employee1_id.refresh()
+        self.employee1_id.invalidate_recordset()
 
         self.assertEqual(self.employee1_id.name, "Jean-Pierre Carnaud")
 
@@ -122,17 +122,17 @@ class TestEmployeeFirstname(TransactionCase):
         )
 
         self.employee1_id.write({"name": "Carnaud-Eyck Jean-Pierre"})
-        self.employee1_id.refresh()
+        self.employee1_id.invalidate_recordset()
         self.assertEqual(self.employee1_id.firstname, "Jean-Pierre")
         self.assertEqual(self.employee1_id.lastname, "Carnaud-Eyck")
 
         self.employee1_id.write({"name": "  Carnaud-Eyck  Jean-Pierre"})
-        self.employee1_id.refresh()
+        self.employee1_id.invalidate_recordset()
         self.assertEqual(self.employee1_id.firstname, "Jean-Pierre")
         self.assertEqual(self.employee1_id.lastname, "Carnaud-Eyck")
 
         self.employee1_id.write({"firstname": "Jean-Pierre", "lastname": "Carnaud"})
-        self.employee1_id.refresh()
+        self.employee1_id.invalidate_recordset()
         self.assertEqual(self.employee1_id.name, "Carnaud Jean-Pierre")
 
     @odoo.tests.tagged("-at_install", "post_install")
@@ -158,7 +158,7 @@ class TestEmployeeFirstname(TransactionCase):
             "employee_names_order", "last_first_comma"
         )
         self.employee1_id.write({"firstname": "Jean-Pierre", "lastname": "Carnaud"})
-        self.employee1_id.refresh()
+        self.employee1_id.invalidate_recordset()
 
         self.assertEqual(self.employee1_id.name, "Carnaud, Jean-Pierre")
 
@@ -167,7 +167,7 @@ class TestEmployeeFirstname(TransactionCase):
             "employee_names_order", "last_first_comma"
         )
         self.employee1_id.write({"name": "  Carnaud-Eyck,  Jean-Pierre"})
-        self.employee1_id.refresh()
+        self.employee1_id.invalidate_recordset()
 
         self.assertEqual(self.employee1_id.firstname, "Jean-Pierre")
         self.assertEqual(self.employee1_id.lastname, "Carnaud-Eyck")
