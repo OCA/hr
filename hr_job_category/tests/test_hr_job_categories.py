@@ -73,7 +73,7 @@ class TestHrJobCategories(common.TransactionCase):
         # We need to force the job, as it is modified by a compute
         self.employee_id_1.refresh()
         self.employee_id_2.refresh()
-        # self.assertFalse(self.employee_id_1.category_ids)
+        self.assertFalse(self.employee_id_1.category_ids)
         self.job_2_id.refresh()
         self.assertTrue(
             all(
