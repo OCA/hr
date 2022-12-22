@@ -126,3 +126,19 @@ class TestHrJobCategories(common.TransactionCase):
         self.assertIn(
             self.job_2_id.category_ids.ids[0], self.employee_id_1.category_ids.ids
         )
+
+    def test_unlink_contract(self):
+        """When we unlink a contract, it should remove only the tags related to it"""
+        self.employee_id_1.write({"category_ids": self.categ_3_id})
+        self.contract_id.write({"job_id": self.job_id.id})
+        self.contract_id.refresh()
+
+        # We have two tags (from job and the manual added one)
+        self.assertEqual(len(self.employee_id_1.category_ids.ids), 2)
+
+        self.contract_id.unlink()
+        self.assertEqual(len(self.employee_id_1.category_ids.ids), 1)
+        self.assertIn(self.categ_3_id.id, self.employee_id_1.category_ids.ids)
+        self.assertNotIn(
+            self.job_id.category_ids.ids[0], self.employee_id_1.category_ids.ids
+        )
