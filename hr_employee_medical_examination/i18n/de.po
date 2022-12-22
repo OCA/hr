@@ -15,6 +15,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #. module: hr_employee_medical_examination
+#. odoo-python
 #: code:addons/hr_employee_medical_examination/wizards/wizard_generate_medical_examination.py:0
 #, python-format
 msgid "%(name)s on %(employee)s"
@@ -172,6 +173,7 @@ msgid "Generate Medical Examination"
 msgstr ""
 
 #. module: hr_employee_medical_examination
+#. odoo-python
 #: code:addons/hr_employee_medical_examination/wizards/wizard_generate_medical_examination.py:0
 #: model:ir.actions.act_window,name:hr_employee_medical_examination.wizard_generate_medical_examination_act_window
 #: model:ir.ui.menu,name:hr_employee_medical_examination.hr_employee_medical_examination_generate_wizard
@@ -212,7 +214,6 @@ msgstr ""
 
 #. module: hr_employee_medical_examination
 #: model:ir.model.fields,help:hr_employee_medical_examination.field_hr_employee_medical_examination__message_needaction
-#: model:ir.model.fields,help:hr_employee_medical_examination.field_hr_employee_medical_examination__message_unread
 msgid "If checked, new messages require your attention."
 msgstr ""
 
@@ -308,11 +309,6 @@ msgid "Name"
 msgstr ""
 
 #. module: hr_employee_medical_examination
-#: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee_medical_examination__activity_calendar_event_id
-msgid "Next Activity Calendar Event"
-msgstr ""
-
-#. module: hr_employee_medical_examination
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee_medical_examination__activity_date_deadline
 msgid "Next Activity Deadline"
 msgstr ""
@@ -351,11 +347,6 @@ msgstr ""
 #. module: hr_employee_medical_examination
 #: model:ir.model.fields,help:hr_employee_medical_examination.field_hr_employee_medical_examination__message_has_error_counter
 msgid "Number of messages with delivery error"
-msgstr ""
-
-#. module: hr_employee_medical_examination
-#: model:ir.model.fields,help:hr_employee_medical_examination.field_hr_employee_medical_examination__message_unread_counter
-msgid "Number of unread messages"
 msgstr ""
 
 #. module: hr_employee_medical_examination
@@ -412,16 +403,6 @@ msgstr ""
 #. module: hr_employee_medical_examination
 #: model:ir.model.fields,help:hr_employee_medical_examination.field_hr_employee_medical_examination__activity_exception_decoration
 msgid "Type of the exception activity on record."
-msgstr ""
-
-#. module: hr_employee_medical_examination
-#: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee_medical_examination__message_unread
-msgid "Unread Messages"
-msgstr ""
-
-#. module: hr_employee_medical_examination
-#: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee_medical_examination__message_unread_counter
-msgid "Unread Messages Counter"
 msgstr ""
 
 #. module: hr_employee_medical_examination
