@@ -81,3 +81,21 @@ class TestHrJobCategories(common.TransactionCase):
 
         self.contract_id.unlink()
         self.assertFalse(self.employee_id_2.category_ids)
+
+    def test_add_new_tags_with_already_present_tags(self):
+        """
+        When a tag is manually added, adding new tags from a contract shouldn't remove
+        them
+        """
+        categ_3_id = self.employee_categ_model.create({"name": "Category 3"})
+        self.employee_id_1.write({"category_ids": categ_3_id})
+        # We have added manually a tag
+        self.assertEquals(len(self.employee_id_1.category_ids.ids),1)
+        self.assertEquals(self.employee_id_1.category_ids.ids[0], categ_3_id.id)
+        # We are now adding contract with 1 job category
+        # The employee should now have two tags
+        self.contract_id.write({"job_id": self.job_id.id})
+        self.contract_id.refresh()
+        self.assertEquals(len(self.employee_id_1.category_ids.ids),2)
+        self.assertEquals(self.employee_id_1.category_ids.ids[0], categ_3_id.id)
+        self.assertEquals(self.employee_id_1.category_ids.ids[1], self.job_2_id.category_ids.ids[0])
