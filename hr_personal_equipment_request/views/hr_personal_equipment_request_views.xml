@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2021 Creu Blanca
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record model="ir.ui.view" id="hr_personal_equipment_request_form_view">
+        <field
+            name="name"
+        >hr.personal.equipment.request.form (in hr_personal_equipment_request)</field>
+        <field name="model">hr.personal.equipment.request</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button
+                        type="object"
+                        string="Accept"
+                        name="accept_request"
+                        confirm="Are you sure you want to accept this personal equipment request?"
+                        class="oe_highlight"
+                        states="draft"
+                        groups="hr.group_hr_user"
+                    />
+                    <button
+                        type="object"
+                        string="Cancel"
+                        confirm="Are you sure you want to cancel this personal equipment request?"
+                        name="cancel_request"
+                        states="draft"
+                    />
+                    <field name="state" widget="statusbar" />
+                </header>
+                <sheet>
+                    <div name="button_box" class="oe_button_box">
+                        <button
+                            name="action_open_personal_equipment"
+                            type="object"
+                            icon="fa-briefcase"
+                            attrs="{'invisible': [('allocations_count', '=', 0)]}"
+                        >
+                            <!-- TODO: IN version 14.0 (with fa 5.0) we could put a t-shirt as icon -->
+                            <field
+                                name="allocations_count"
+                                string="Allocations"
+                                widget="statinfo"
+                            />
+                        </button>
+                    </div>
+                    <group name="employee">
+                        <field name="name" invisible="1" />
+                        <field
+                            name="employee_id"
+                            attrs="{'readonly': [('state', '!=', 'draft')]}"
+                            groups="hr.group_hr_user"
+                        />
+                    </group>
+                    <notebook>
+                        <page string="Personal Equipment">
+                            <field
+                                name="line_ids"
+                                mode="tree,form"
+                                attrs="{'readonly': [('state', '!=', 'draft')]}"
+                            >
+                                <tree editable="bottom" name="equipment_lines">
+                                    <field name="product_id" />
+                                    <field name="quantity" />
+                                    <field name="product_uom_id" />
+                                    <field
+                                        name="start_date"
+                                        groups="hr.group_hr_user"
+                                    />
+                                    <field name="state" readonly="1" />
+                                    <field name="equipment_request_id" invisible="1" />
+                                    <field name="employee_id" invisible="1" />
+                                </tree>
+                                <form>
+                                    <header>
+                                        <button
+                                            type="object"
+                                            string="Validate"
+                                            name="validate_allocation"
+                                            confirm="Are you sure you want to validate this personal equipment allocation?"
+                                            class="oe_highlight"
+                                            states="accepted"
+                                            groups="hr.group_hr_user"
+                                        />
+                                    </header>
+                                    <group name="equipment_lines_form">
+                                        <field name="product_id" />
+                                        <field name="quantity" />
+                                        <field name="product_uom_id" />
+                                        <field
+                                            name="start_date"
+                                            groups="hr.group_hr_user"
+                                        />
+                                        <field
+                                            name="state"
+                                            readonly="1"
+                                            invisible="1"
+                                        />
+                                        <field name="employee_id" invisible="1" />
+                                    </group>
+                                </form>
+                            </field>
+                        </page>
+                        <page
+                            name="observations"
+                            string="Observations"
+                            groups="hr.group_hr_user"
+                        >
+                            <field
+                                name="observations"
+                                attrs="{'readonly': [('state', '!=', 'draft')]}"
+                            />
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers" />
+                    <field name="activity_ids" widget="mail_activity" />
+                    <field name="message_ids" widget="mail_thread" />
+                </div>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="hr_personal_equipment_request_search_view">
+        <field
+            name="name"
+        >hr.personal.equipment.request.search (in hr_personal_equipment_request)</field>
+        <field name="model">hr.personal.equipment.request</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="employee_id" groups="hr.group_hr_user" />
+                <filter
+                    string="In Draft"
+                    name="filter_draft_state"
+                    domain="[('state', '=', 'draft')]"
+                />
+                <filter
+                    string="Accepted"
+                    name="filter_accepted_state"
+                    domain="[('state', '=', 'accepted')]"
+                />
+            </search>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="hr_personal_equipment_request_tree_view">
+        <field
+            name="name"
+        >hr.personal.equipment.request.tree (in hr_personal_equipment_request)</field>
+        <field name="model">hr.personal.equipment.request</field>
+        <field name="arch" type="xml">
+            <tree
+                decoration-success="state=='accepted'"
+                decoration-muted="state=='cancelled'"
+            >
+                <field name="name" />
+                <field name="employee_id" groups="hr.group_hr_user" />
+                <field name="create_date" />
+                <field name="state" />
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="hr_personal_equipment_request_act_window">
+        <field name="name">Personal Equipment Request</field>
+        <field name="res_model">hr.personal.equipment.request</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field
+            name="context"
+        >{'search_default_filter_draft_state':1,'search_default_filter_accepted_state':1}</field>
+    </record>
+    <record model="ir.ui.menu" id="hr_personal_equipment_request_menu">
+        <field name="name">Personal Equipment Request</field>
+        <field name="parent_id" ref="hr_personal_equipment_menu" />
+        <field name="action" ref="hr_personal_equipment_request_act_window" />
+        <field name="sequence" eval="1" />
+    </record>
+</odoo>
