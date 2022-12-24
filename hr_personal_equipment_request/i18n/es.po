@@ -65,6 +65,7 @@ msgid "Adds personal equipment information and allocation"
 msgstr "Agrega información y asignación del equipo individual"
 
 #. module: hr_personal_equipment_request
+#. odoo-python
 #: code:addons/hr_personal_equipment_request/models/hr_personal_equipment_request.py:0
 #: model:ir.actions.act_window,name:hr_personal_equipment_request.hr_personal_equipment_act_window
 #: model:ir.ui.menu,name:hr_personal_equipment_request.hr_personal_equipment_allocations_menu
@@ -158,6 +159,7 @@ msgid "Employee Personal Equipment"
 msgstr "Empleado del equipo individual"
 
 #. module: hr_personal_equipment_request
+#. odoo-python
 #: code:addons/hr_personal_equipment_request/models/hr_employee.py:0
 #: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_employee__equipment_request_ids
 #: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment__equipment_request_id
@@ -235,9 +237,7 @@ msgstr "Icono para indicar una actividad de excepción."
 
 #. module: hr_personal_equipment_request
 #: model:ir.model.fields,help:hr_personal_equipment_request.field_hr_personal_equipment__message_needaction
-#: model:ir.model.fields,help:hr_personal_equipment_request.field_hr_personal_equipment__message_unread
 #: model:ir.model.fields,help:hr_personal_equipment_request.field_hr_personal_equipment_request__message_needaction
-#: model:ir.model.fields,help:hr_personal_equipment_request.field_hr_personal_equipment_request__message_unread
 msgid "If checked, new messages require your attention."
 msgstr "Si está marcado hay nuevos mensajes que requieren su atención."
 
@@ -316,12 +316,6 @@ msgid "Name"
 msgstr "Nombre"
 
 #. module: hr_personal_equipment_request
-#: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment__activity_calendar_event_id
-#: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment_request__activity_calendar_event_id
-msgid "Next Activity Calendar Event"
-msgstr ""
-
-#. module: hr_personal_equipment_request
 #: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment__activity_date_deadline
 #: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment_request__activity_date_deadline
 msgid "Next Activity Deadline"
@@ -364,12 +358,6 @@ msgid "Number of messages with delivery error"
 msgstr "Número de mensajes con error de envío"
 
 #. module: hr_personal_equipment_request
-#: model:ir.model.fields,help:hr_personal_equipment_request.field_hr_personal_equipment__message_unread_counter
-#: model:ir.model.fields,help:hr_personal_equipment_request.field_hr_personal_equipment_request__message_unread_counter
-msgid "Number of unread messages"
-msgstr "Número de mensajes no leidos"
-
-#. module: hr_personal_equipment_request
 #: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment_request__observations
 #: model_terms:ir.ui.view,arch_db:hr_personal_equipment_request.hr_personal_equipment_request_form_view
 msgid "Observations"
@@ -386,6 +374,7 @@ msgid "PE Request"
 msgstr "Solicitud de EP"
 
 #. module: hr_personal_equipment_request
+#. odoo-python
 #: code:addons/hr_personal_equipment_request/models/hr_employee.py:0
 #: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_employee__personal_equipment_ids
 #: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment_request__line_ids
@@ -407,21 +396,18 @@ msgid "Personal Equipment Request"
 msgstr "Solicitud de Equipo individual"
 
 #. module: hr_personal_equipment_request
+#. odoo-python
 #: code:addons/hr_personal_equipment_request/models/hr_personal_equipment_request.py:0
 #, python-format
 msgid "Personal Equipment Request by %s"
 msgstr "Equipo individual solicitado por %s"
 
 #. module: hr_personal_equipment_request
+#: model:ir.model,name:hr_personal_equipment_request.model_product_template
 #: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment__product_id
 #: model_terms:ir.ui.view,arch_db:hr_personal_equipment_request.hr_personal_equipment_search_view
 msgid "Product"
 msgstr "Producto"
-
-#. module: hr_personal_equipment_request
-#: model:ir.model,name:hr_personal_equipment_request.model_product_template
-msgid "Product Template"
-msgstr "Plantilla de producto"
 
 #. module: hr_personal_equipment_request
 #: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment__quantity
@@ -483,18 +469,6 @@ msgid "Unit of Measure"
 msgstr "Unidad de medida"
 
 #. module: hr_personal_equipment_request
-#: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment__message_unread
-#: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment_request__message_unread
-msgid "Unread Messages"
-msgstr "Mensajes sin leer"
-
-#. module: hr_personal_equipment_request
-#: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment__message_unread_counter
-#: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment_request__message_unread_counter
-msgid "Unread Messages Counter"
-msgstr "Nº de mensajes sin leer"
-
-#. module: hr_personal_equipment_request
 #: model:ir.model.fields.selection,name:hr_personal_equipment_request.selection__hr_personal_equipment__state__valid
 #: model_terms:ir.ui.view,arch_db:hr_personal_equipment_request.hr_personal_equipment_search_view
 msgid "Valid"
@@ -505,6 +479,18 @@ msgstr "Valido"
 #: model_terms:ir.ui.view,arch_db:hr_personal_equipment_request.hr_personal_equipment_request_form_view
 msgid "Validate"
 msgstr "Validar"
+
+#~ msgid "Number of unread messages"
+#~ msgstr "Número de mensajes no leidos"
+
+#~ msgid "Product Template"
+#~ msgstr "Plantilla de producto"
+
+#~ msgid "Unread Messages"
+#~ msgstr "Mensajes sin leer"
+
+#~ msgid "Unread Messages Counter"
+#~ msgstr "Nº de mensajes sin leer"
 
 #~ msgid "Employee Personal Equipments"
 #~ msgstr "Empleado de los equipos individuales"
