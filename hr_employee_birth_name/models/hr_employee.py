@@ -9,4 +9,4 @@ from odoo import fields, models
 class HrEmployee(models.Model):
     _inherit = "hr.employee"
 
-    birth_name = fields.Char()
+    birth_name = fields.Char(groups="hr.group_hr_user")
