@@ -14,7 +14,7 @@
                 <field name="partner_id" />
                 <field name="gender" />
                 <field name="date_of_birth" />
-                <field name="age" readonly="1" />
+                <field name="age" />
                 <field name="phone_number" />
                 <field name="job" />
                 <field name="notes" />
