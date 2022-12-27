@@ -12,20 +12,17 @@ class HrEmployeeRelative(models.Model):
     _name = "hr.employee.relative"
     _description = "HR Employee Relative"
 
-    employee_id = fields.Many2one(string="Employee", comodel_name="hr.employee")
-    relation_id = fields.Many2one(
-        "hr.employee.relative.relation", string="Relation", required=True
-    )
+    employee_id = fields.Many2one(comodel_name="hr.employee")
+    relation_id = fields.Many2one("hr.employee.relative.relation", required=True)
     name = fields.Char(required=True)
     partner_id = fields.Many2one(
         "res.partner",
-        string="Partner",
         domain=["&", ("is_company", "=", False), ("type", "=", "contact")],
     )
     gender = fields.Selection(
         selection=[("male", "Male"), ("female", "Female"), ("other", "Other")],
     )
-    date_of_birth = fields.Date(string="Date of Birth")
+    date_of_birth = fields.Date()
     age = fields.Float(compute="_compute_age")
 
     job = fields.Char()
