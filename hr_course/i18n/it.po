@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2022-12-28 22:49+0000\n"
-"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
+"PO-Revision-Date: 2022-12-29 16:49+0000\n"
+"Last-Translator: Francesco Foresti <francesco.foresti@ooops404.com>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -332,19 +332,19 @@ msgstr "Non superato"
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__message_follower_ids
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__message_follower_ids
 msgid "Followers"
-msgstr "Seguaci"
+msgstr "Seguito da"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__message_channel_ids
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__message_channel_ids
 msgid "Followers (Channels)"
-msgstr "Followers (Canali)"
+msgstr "Seguito da (Canali)"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__message_partner_ids
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__message_partner_ids
 msgid "Followers (Partners)"
-msgstr "Followers (Clienti)"
+msgstr "Seguito da (Partners)"
 
 #. module: hr_course
 #: model:ir.actions.server,name:hr_course.ir_cron_post_wip_ir_actions_server
