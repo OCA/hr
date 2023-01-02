@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2022-12-29 16:46+0000\n"
+"PO-Revision-Date: 2023-01-02 12:07+0000\n"
 "Last-Translator: Francesco Foresti <francesco.foresti@ooops404.com>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -85,12 +85,12 @@ msgstr "Ultima modifica il"
 #. module: hr_attendance_reason
 #: model:ir.model.fields,field_description:hr_attendance_reason.field_hr_attendance_reason_write_uid
 msgid "Last Updated by"
-msgstr "Utente Ultimo Aggiornamento"
+msgstr "Ultimo aggiornamento di"
 
 #. module: hr_attendance_reason
 #: model:ir.model.fields,field_description:hr_attendance_reason.field_hr_attendance_reason_write_date
 msgid "Last Updated on"
-msgstr "Data Ultima Modifica"
+msgstr "Ultimo aggiornamento il"
 
 #. module: hr_attendance_reason
 #: model:ir.model.fields,help:hr_attendance_reason.field_hr_attendance_reason_action_type
