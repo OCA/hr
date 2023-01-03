@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-30 07:32+0000\n"
-"PO-Revision-Date: 2022-12-29 16:46+0000\n"
+"PO-Revision-Date: 2023-01-03 12:50+0000\n"
 "Last-Translator: Francesco Foresti <francesco.foresti@ooops404.com>\n"
 "Language-Team: Italian (https://www.transifex.com/oca/teams/23907/it/)\n"
 "Language: it\n"
@@ -37,7 +37,7 @@ msgstr "Figli"
 #. module: hr_skill
 #: model:ir.model.fields,field_description:hr_skill.field_hr_skill_color
 msgid "Color Index"
-msgstr "Palette Colori"
+msgstr "Indice colore"
 
 #. module: hr_skill
 #: model:ir.model.fields,field_description:hr_skill.field_hr_employee_skill_create_uid
