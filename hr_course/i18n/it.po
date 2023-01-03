@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2022-12-30 11:53+0000\n"
+"PO-Revision-Date: 2023-01-03 12:51+0000\n"
 "Last-Translator: Francesco Foresti <francesco.foresti@ooops404.com>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -72,7 +72,7 @@ msgstr "Assegna partecipanti"
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__message_attachment_count
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__message_attachment_count
 msgid "Attachment Count"
-msgstr "Numero Allegati"
+msgstr "Numero allegati"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__attendant_ids
