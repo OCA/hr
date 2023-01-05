@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="view_hr_contract_form">
+        <field name="name">hr.contract.form leave</field>
+        <field name="model">hr.contract</field>
+        <field name="inherit_id" ref="hr_contract.hr_contract_view_form" />
+        <field name="priority" eval="20" />
+        <field name="arch" type="xml">
+            <notebook position="inside">
+                <page name="leaves" string="Leaves">
+                    <button
+                        name="l10n_no_action_new_leave"
+                        type="object"
+                        string="Create new leave"
+                    />
+                    <field name="leave_ids">
+                        <tree create="0">
+                            <field name="date_from" />
+                            <field name="date_to" />
+                            <field name="employee_id" />
+                            <field name="state" invisible="1" />
+                        </tree>
+                    </field>
+                </page>
+            </notebook>
+        </field>
+    </record>
+</odoo>
