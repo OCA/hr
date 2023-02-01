@@ -6,7 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2023-02-01 20:46+0000\n"
+"Last-Translator: Bole <bole@dajmi5.com>\n"
 "Language-Team: none\n"
 "Language: hr\n"
 "MIME-Version: 1.0\n"
@@ -14,6 +15,7 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.14.1\n"
 
 #. module: hr_employee_medical_examination
 #. odoo-python
@@ -25,138 +27,138 @@ msgstr ""
 #. module: hr_employee_medical_examination
 #: model_terms:ir.ui.view,arch_db:hr_employee_medical_examination.wizard_generate_medical_examination_form_view
 msgid "<strong>Filters:</strong>"
-msgstr ""
+msgstr "<strong>Filteri:</strong>"
 
 #. module: hr_employee_medical_examination
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee_medical_examination__message_needaction
 msgid "Action Needed"
-msgstr ""
+msgstr "Potrebna radnja"
 
 #. module: hr_employee_medical_examination
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee_medical_examination__activity_ids
 msgid "Activities"
-msgstr ""
+msgstr "Aktivnosti"
 
 #. module: hr_employee_medical_examination
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee_medical_examination__activity_exception_decoration
 msgid "Activity Exception Decoration"
-msgstr ""
+msgstr "Dekoracija izuzetka aktivnosti"
 
 #. module: hr_employee_medical_examination
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee_medical_examination__activity_state
 msgid "Activity State"
-msgstr ""
+msgstr "Status aktivnosti"
 
 #. module: hr_employee_medical_examination
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee_medical_examination__activity_type_icon
 msgid "Activity Type Icon"
-msgstr ""
+msgstr "Ikona tipa aktivnosti"
 
 #. module: hr_employee_medical_examination
 #: model_terms:ir.ui.view,arch_db:hr_employee_medical_examination.hr_employee_medical_examination_form_view
 msgid "Add note..."
-msgstr ""
+msgstr "Dodaj bilješku..."
 
 #. module: hr_employee_medical_examination
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee_medical_examination__message_attachment_count
 msgid "Attachment Count"
-msgstr ""
+msgstr "Broj priloga"
 
 #. module: hr_employee_medical_examination
 #: model_terms:ir.ui.view,arch_db:hr_employee_medical_examination.hr_employee_medical_examination_form_view
 msgid "Back To Pending"
-msgstr ""
+msgstr "Nazad na U tijeku"
 
 #. module: hr_employee_medical_examination
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee__can_see_examinations_button
 msgid "Can See Examinations Button"
-msgstr ""
+msgstr "Može vidjeti gumb Pregleda"
 
 #. module: hr_employee_medical_examination
 #: model_terms:ir.ui.view,arch_db:hr_employee_medical_examination.wizard_generate_medical_examination_form_view
 msgid "Cancel"
-msgstr ""
+msgstr "Odustani"
 
 #. module: hr_employee_medical_examination
 #: model:ir.model.fields.selection,name:hr_employee_medical_examination.selection__hr_employee_medical_examination__state__cancelled
 msgid "Cancelled"
-msgstr ""
+msgstr "Otkazano"
 
 #. module: hr_employee_medical_examination
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee_medical_examination__create_uid
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_wizard_generate_medical_examination__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Kreirao"
 
 #. module: hr_employee_medical_examination
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee_medical_examination__create_date
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_wizard_generate_medical_examination__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Kreirano"
 
 #. module: hr_employee_medical_examination
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_wizard_generate_medical_examination__department_id
 msgid "Department"
-msgstr ""
+msgstr "Odjel"
 
 #. module: hr_employee_medical_examination
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee_medical_examination__display_name
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_wizard_generate_medical_examination__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Naziv"
 
 #. module: hr_employee_medical_examination
 #: model:ir.model.fields.selection,name:hr_employee_medical_examination.selection__hr_employee_medical_examination__state__done
 msgid "Done"
-msgstr ""
+msgstr "Gotovo"
 
 #. module: hr_employee_medical_examination
 #: model:ir.model,name:hr_employee_medical_examination.model_hr_employee
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee_medical_examination__employee_id
 msgid "Employee"
-msgstr ""
+msgstr "Djelatnik"
 
 #. module: hr_employee_medical_examination
 #: model:ir.actions.act_window,name:hr_employee_medical_examination.hr_employee_medical_examination_act_window
 msgid "Employee Medical Examinations"
-msgstr ""
+msgstr "Medicinski pregledi djelatnika"
 
 #. module: hr_employee_medical_examination
 #: model_terms:ir.ui.view,arch_db:hr_employee_medical_examination.hr_employee_medical_examination_form_view
 msgid "Employee's Name"
-msgstr ""
+msgstr "Naziv djelatnika"
 
 #. module: hr_employee_medical_examination
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_wizard_generate_medical_examination__employee_ids
 #: model_terms:ir.ui.view,arch_db:hr_employee_medical_examination.wizard_generate_medical_examination_form_view
 msgid "Employees"
-msgstr ""
+msgstr "Djelatnici"
 
 #. module: hr_employee_medical_examination
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee_medical_examination__date
 msgid "Examination Date"
-msgstr ""
+msgstr "Datum pregleda"
 
 #. module: hr_employee_medical_examination
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_wizard_generate_medical_examination__name
 msgid "Examination Name"
-msgstr ""
+msgstr "Naziv pregleda"
 
 #. module: hr_employee_medical_examination
 #: model:ir.model.fields.selection,name:hr_employee_medical_examination.selection__hr_employee_medical_examination__result__failed
 #: model_terms:ir.ui.view,arch_db:hr_employee_medical_examination.hr_employee_medical_examination_search_view
 msgid "Failed"
-msgstr ""
+msgstr "Nije zadovoljio"
 
 #. module: hr_employee_medical_examination
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee_medical_examination__message_follower_ids
 msgid "Followers"
-msgstr ""
+msgstr "Pratitelji"
 
 #. module: hr_employee_medical_examination
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee_medical_examination__message_partner_ids
 msgid "Followers (Partners)"
-msgstr ""
+msgstr "Pratitelji (partneri)"
 
 #. module: hr_employee_medical_examination
 #: model:ir.model.fields,help:hr_employee_medical_examination.field_hr_employee_medical_examination__activity_type_icon
@@ -166,12 +168,12 @@ msgstr ""
 #. module: hr_employee_medical_examination
 #: model_terms:ir.ui.view,arch_db:hr_employee_medical_examination.wizard_generate_medical_examination_form_view
 msgid "Generate"
-msgstr ""
+msgstr "Generiraj"
 
 #. module: hr_employee_medical_examination
 #: model_terms:ir.ui.view,arch_db:hr_employee_medical_examination.wizard_generate_medical_examination_form_view
 msgid "Generate Medical Examination"
-msgstr ""
+msgstr "Generiraj medicinski pregled"
 
 #. module: hr_employee_medical_examination
 #. odoo-python
@@ -180,33 +182,33 @@ msgstr ""
 #: model:ir.ui.menu,name:hr_employee_medical_examination.hr_employee_medical_examination_generate_wizard
 #, python-format
 msgid "Generate Medical Examinations"
-msgstr ""
+msgstr "Generiraj medicinske preglede"
 
 #. module: hr_employee_medical_examination
 #: model:ir.model,name:hr_employee_medical_examination.model_wizard_generate_medical_examination
 msgid "Generation wizard for medical examinations"
-msgstr ""
+msgstr "Čarobnjak za generiranje medicinskih pregleda"
 
 #. module: hr_employee_medical_examination
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee_medical_examination__has_message
 msgid "Has Message"
-msgstr ""
+msgstr "Ima poruka"
 
 #. module: hr_employee_medical_examination
 #: model:ir.model,name:hr_employee_medical_examination.model_hr_employee_medical_examination
 msgid "Hr Employee Medical Examination"
-msgstr ""
+msgstr "Medicinski pregled djelatnika"
 
 #. module: hr_employee_medical_examination
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee_medical_examination__id
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_wizard_generate_medical_examination__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: hr_employee_medical_examination
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee_medical_examination__activity_exception_icon
 msgid "Icon"
-msgstr ""
+msgstr "Ikona"
 
 #. module: hr_employee_medical_examination
 #: model:ir.model.fields,help:hr_employee_medical_examination.field_hr_employee_medical_examination__activity_exception_icon
@@ -232,19 +234,19 @@ msgstr ""
 #. module: hr_employee_medical_examination
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_wizard_generate_medical_examination__job_id
 msgid "Job"
-msgstr ""
+msgstr "Posao"
 
 #. module: hr_employee_medical_examination
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee_medical_examination____last_update
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_wizard_generate_medical_examination____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Zadnje modificirano"
 
 #. module: hr_employee_medical_examination
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee_medical_examination__write_uid
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_wizard_generate_medical_examination__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Zadnje ažurirano"
 
 #. module: hr_employee_medical_examination
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee_medical_examination__write_date
@@ -255,39 +257,39 @@ msgstr ""
 #. module: hr_employee_medical_examination
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee_medical_examination__message_main_attachment_id
 msgid "Main Attachment"
-msgstr ""
+msgstr "Glavni prilog"
 
 #. module: hr_employee_medical_examination
 #: model_terms:ir.ui.view,arch_db:hr_employee_medical_examination.hr_employee_medical_examination_form_view
 msgid "Mark as Cancelled"
-msgstr ""
+msgstr "Označi kao otkazano"
 
 #. module: hr_employee_medical_examination
 #: model_terms:ir.ui.view,arch_db:hr_employee_medical_examination.hr_employee_medical_examination_form_view
 msgid "Mark as Done"
-msgstr ""
+msgstr "Označi kao gotovo"
 
 #. module: hr_employee_medical_examination
 #: model_terms:ir.ui.view,arch_db:hr_employee_medical_examination.hr_employee_medical_examination_form_view
 msgid "Mark as Rejected"
-msgstr ""
+msgstr "Označi kao odbijeno"
 
 #. module: hr_employee_medical_examination
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee__medical_examination_ids
 msgid "Medical Examination"
-msgstr ""
+msgstr "Medicinski pregled"
 
 #. module: hr_employee_medical_examination
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee__medical_examination_count
 msgid "Medical Examination Count"
-msgstr ""
+msgstr "Broj medicinskih pregleda"
 
 #. module: hr_employee_medical_examination
 #: model:ir.actions.act_window,name:hr_employee_medical_examination.act_medical_examination_employee
 #: model:ir.ui.menu,name:hr_employee_medical_examination.hr_employee_medical_examination_menu
 #: model_terms:ir.ui.view,arch_db:hr_employee_medical_examination.view_employee_form
 msgid "Medical Examinations"
-msgstr ""
+msgstr "Medicinski pregledi"
 
 #. module: hr_employee_medical_examination
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee_medical_examination__message_has_error
