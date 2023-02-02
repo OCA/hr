@@ -32,7 +32,7 @@ class HrContract(models.Model):
             employee.documents_count = len(employee.document_ids)
 
     def action_get_attachment_tree_view(self):
-        action = self.env.ref("base.action_attachment").read()[0]
+        action = self.env["ir.actions.act_window"]._for_xml_id("base.action_attachment")
         action["context"] = {
             "default_res_model": self._name,
             "default_res_id": self.ids[0],
