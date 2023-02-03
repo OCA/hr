@@ -21,7 +21,8 @@ class HrEmployee(models.Model):
             r.count_courses = len(r.courses_ids)
 
     def action_view_course(self):
-        action = self.env.ref("hr_course.action_view_course")
-        result = action.read()[0]
+        result = self.env["ir.actions.act_window"]._for_xml_id(
+            "hr_course.action_view_course"
+        )
         result["domain"] = [("employee_id", "=", self.id)]
         return result
