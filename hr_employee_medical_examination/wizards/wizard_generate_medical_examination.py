@@ -64,11 +64,9 @@ class WizardGenerateMedicalExamination(models.TransientModel):
                 exams |= self.env["hr.employee.medical.examination"].create(
                     form._create_examination_vals(employee)
                 )
-        action = self.env.ref(
+        result = self.env["ir.actions.act_window"]._for_xml_id(
             "hr_employee_medical_examination.hr_employee"
             "_medical_examination_act_window",
-            False,
         )
-        result = action.read()[0]
         result["domain"] = [("id", "in", exams.ids)]
         return result
