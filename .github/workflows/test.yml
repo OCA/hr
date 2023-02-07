@@ -11,7 +11,7 @@ on:
 
 jobs:
   unreleased-deps:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     name: Detect unreleased dependencies
     steps:
       - uses: actions/checkout@v2
