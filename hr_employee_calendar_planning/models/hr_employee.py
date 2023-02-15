@@ -1,5 +1,5 @@
 # Copyright 2019 Tecnativa - Pedro M. Baeza
-# Copyright 2022 Tecnativa - Víctor Martínez
+# Copyright 2022-2023 Tecnativa - Víctor Martínez
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 from odoo import _, api, fields, models
@@ -45,6 +45,7 @@ class HrEmployee(models.Model):
         comodel_name="hr.employee.calendar",
         inverse_name="employee_id",
         string="Calendar planning",
+        copy=True,
     )
 
     def _regenerate_calendar(self):
@@ -112,6 +113,14 @@ class HrEmployee(models.Model):
     def regenerate_calendar(self):
         for item in self:
             item._regenerate_calendar()
+
+    def copy(self, default=None):
+        self.ensure_one()
+        new = super().copy(default)
+        # Define a good main calendar for being able to regenerate it later
+        new.resource_id.calendar_id = fields.first(new.calendar_ids).calendar_id
+        new.filtered("calendar_ids").regenerate_calendar()
+        return new
 
     @api.model_create_multi
     def create(self, vals_list):
