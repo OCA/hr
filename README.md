@@ -33,7 +33,7 @@ addon | version | maintainers | summary
 [hr_course](hr_course/) | 13.0.2.0.0 |  | This module allows your to manage employee's training courses
 [hr_course_survey](hr_course_survey/) | 13.0.1.0.0 |  | Evaluate a course using a Schedule
 [hr_employee_age](hr_employee_age/) | 13.0.1.0.0 |  | Age field for employee
-[hr_employee_calendar_planning](hr_employee_calendar_planning/) | 13.0.1.5.0 | [![victoralmau](https://github.com/victoralmau.png?size=30px)](https://github.com/victoralmau) [![pedrobaeza](https://github.com/pedrobaeza.png?size=30px)](https://github.com/pedrobaeza) | Employee Calendar Planning
+[hr_employee_calendar_planning](hr_employee_calendar_planning/) | 13.0.1.5.1 | [![victoralmau](https://github.com/victoralmau.png?size=30px)](https://github.com/victoralmau) [![pedrobaeza](https://github.com/pedrobaeza.png?size=30px)](https://github.com/pedrobaeza) | Employee Calendar Planning
 [hr_employee_document](hr_employee_document/) | 13.0.3.0.0 |  | Documents attached to the employee profile
 [hr_employee_firstname](hr_employee_firstname/) | 13.0.2.1.0 |  | Adds First Name to Employee
 [hr_employee_identification](hr_employee_identification/) | 13.0.1.0.0 |  | Record more data about employee's identity documents
