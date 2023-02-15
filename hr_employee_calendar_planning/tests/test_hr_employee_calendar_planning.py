@@ -1,5 +1,5 @@
 # Copyright 2019 Tecnativa - Pedro M. Baeza
-# Copyright 2021 Tecnativa - Víctor Martínez
+# Copyright 2021-2023 Tecnativa - Víctor Martínez
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 from odoo import exceptions, fields
@@ -415,3 +415,19 @@ class TestHrEmployeeCalendarPlanning(common.TransactionCase):
         )
         # test that global leaves on original calendar are not changed
         self.assertEqual(global_leave_ids_cal1, self.calendar1.global_leave_ids.ids)
+
+    def test_employee_copy(self):
+        self.employee.calendar_ids = [
+            (0, 0, {"date_end": "2019-12-31", "calendar_id": self.calendar1.id}),
+            (0, 0, {"date_start": "2020-01-01", "calendar_id": self.calendar2.id}),
+        ]
+        self.assertTrue(self.employee.resource_calendar_id)
+        self.assertTrue(self.employee.resource_calendar_id.auto_generate)
+        employee2 = self.employee.copy()
+        self.assertIn(self.calendar1, employee2.mapped("calendar_ids.calendar_id"))
+        self.assertIn(self.calendar2, employee2.mapped("calendar_ids.calendar_id"))
+        self.assertTrue(employee2.resource_calendar_id)
+        self.assertTrue(employee2.resource_calendar_id.auto_generate)
+        self.assertNotEqual(
+            self.employee.resource_calendar_id, employee2.resource_calendar_id
+        )
