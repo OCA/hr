@@ -45,8 +45,8 @@ msgstr "Creado en"
 
 #. module: hr_employee_relative
 #: model:ir.model.fields,field_description:hr_employee_relative.field_hr_employee_relative__date_of_birth
-msgid "Date of Birth"
-msgstr "Fecha de nacimiento"
+msgid "Date Of Birth"
+msgstr ""
 
 #. module: hr_employee_relative
 #: model:ir.model.fields,field_description:hr_employee_relative.field_hr_employee_relative__display_name
@@ -59,11 +59,6 @@ msgstr "Nombre a mostrar"
 #: model:ir.model.fields,field_description:hr_employee_relative.field_hr_employee_relative__employee_id
 msgid "Employee"
 msgstr "Empleado"
-
-#. module: hr_employee_relative
-#: model_terms:ir.ui.view,arch_db:hr_employee_relative.hr_employee_relative_view_tree
-msgid "Employee Relatives"
-msgstr "Parientes de Empleados"
 
 #. module: hr_employee_relative
 #: model:ir.model.fields.selection,name:hr_employee_relative.selection__hr_employee_relative__gender__female
@@ -167,6 +162,10 @@ msgstr "Parentesco"
 
 #. module: hr_employee_relative
 #: model:ir.model.fields,field_description:hr_employee_relative.field_hr_employee__relative_ids
+msgid "Relative"
+msgstr ""
+
+#. module: hr_employee_relative
 #: model_terms:ir.ui.view,arch_db:hr_employee_relative.hr_employee_view_form
 msgid "Relatives"
 msgstr "Parientes"
@@ -185,3 +184,9 @@ msgstr "Pareja"
 #: model:hr.employee.relative.relation,name:hr_employee_relative.relation_spouse
 msgid "Spouse"
 msgstr "Cónyugue"
+
+#~ msgid "Date of Birth"
+#~ msgstr "Fecha de nacimiento"
+
+#~ msgid "Employee Relatives"
+#~ msgstr "Parientes de Empleados"
