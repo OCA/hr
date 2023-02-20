@@ -17,26 +17,20 @@ msgstr ""
 "X-Generator: Weblate 4.3.2\n"
 
 #. module: hr_employee_digitized_signature
-#: model:ir.model.fields,field_description:hr_employee_digitized_signature.field_hr_employee__display_name
-msgid "Display Name"
-msgstr "Anzeigename"
-
-#. module: hr_employee_digitized_signature
 #: model:ir.model,name:hr_employee_digitized_signature.model_hr_employee
 msgid "Employee"
 msgstr "Mitarbeiter"
 
 #. module: hr_employee_digitized_signature
-#: model:ir.model.fields,field_description:hr_employee_digitized_signature.field_hr_employee__id
-msgid "ID"
-msgstr "ID"
-
-#. module: hr_employee_digitized_signature
-#: model:ir.model.fields,field_description:hr_employee_digitized_signature.field_hr_employee____last_update
-msgid "Last Modified on"
-msgstr "Zuletzt geändert am"
-
-#. module: hr_employee_digitized_signature
 #: model:ir.model.fields,field_description:hr_employee_digitized_signature.field_hr_employee__signature
 msgid "Signature"
 msgstr "Unterschrift"
+
+#~ msgid "Display Name"
+#~ msgstr "Anzeigename"
+
+#~ msgid "ID"
+#~ msgstr "ID"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Zuletzt geändert am"
