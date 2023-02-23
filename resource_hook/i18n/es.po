@@ -17,6 +17,24 @@ msgstr ""
 "X-Generator: Weblate 4.3.2\n"
 
 #. module: resource_hook
+#: model:ir.model.fields,field_description:resource_hook.field_resource_calendar__display_name
+#: model:ir.model.fields,field_description:resource_hook.field_resource_mixin__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: resource_hook
+#: model:ir.model.fields,field_description:resource_hook.field_resource_calendar__id
+#: model:ir.model.fields,field_description:resource_hook.field_resource_mixin__id
+msgid "ID"
+msgstr ""
+
+#. module: resource_hook
+#: model:ir.model.fields,field_description:resource_hook.field_resource_calendar____last_update
+#: model:ir.model.fields,field_description:resource_hook.field_resource_mixin____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: resource_hook
 #: model:ir.model,name:resource_hook.model_resource_mixin
 msgid "Resource Mixin"
 msgstr "Mezcla de recursos"
