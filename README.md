@@ -58,6 +58,7 @@ addon | version | maintainers | summary
 [hr_personal_equipment_variant_configurator](hr_personal_equipment_variant_configurator/) | 14.0.1.0.0 |  | Manage variants of personal equipment
 [hr_recruitment_notification](hr_recruitment_notification/) | 14.0.1.0.0 | [![joao-p-marques](https://github.com/joao-p-marques.png?size=30px)](https://github.com/joao-p-marques) | Configure automatic notifications for new applications
 [hr_worked_days_from_timesheet](hr_worked_days_from_timesheet/) | 14.0.1.0.0 |  | Adds a button to import worked days from timesheet.
+[resource_hook](resource_hook/) | 14.0.1.0.0 |  | Extends the resource with hooks to standard methods.
 
 [//]: # (end addons)
 
