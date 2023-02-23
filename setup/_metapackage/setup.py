@@ -45,6 +45,7 @@ setuptools.setup(
         'odoo14-addon-hr_personal_equipment_variant_configurator',
         'odoo14-addon-hr_recruitment_notification',
         'odoo14-addon-hr_worked_days_from_timesheet',
+        'odoo14-addon-resource_hook',
     ],
     classifiers=[
         'Programming Language :: Python',
