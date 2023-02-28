@@ -34,7 +34,24 @@
                             <field name="evaluation_criteria" />
                         </page>
                         <page string="Schedules">
-                            <field name="course_schedule_ids" />
+                            <field name="course_schedule_ids" nolabel="1">
+                                <tree editable="bottom">
+                                    <field name="name" />
+                                    <field
+                                        name="cost"
+                                        widget="monetary"
+                                        options="{'currency_field': 'currency_id'}"
+                                    />
+                                    <field
+                                        name="currency_id"
+                                        groups="base.group_multi_currency"
+                                    />
+                                    <field name="authorized_by" />
+                                    <field name="start_date" />
+                                    <field name="end_date" />
+                                    <field name="state" />
+                                </tree>
+                            </field>
                         </page>
                     </notebook>
                 </sheet>
