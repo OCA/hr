@@ -12,12 +12,12 @@ class HrPersonalEquipmentRequest(models.Model):
 
     def _compute_contains_ppe(self):
         for rec in self:
+            contains_ppe = False
             for line in rec.line_ids:
                 if line.is_ppe:
-                    rec.contains_ppe = True
-                    return
-                else:
-                    rec.contains_ppe = False
+                    contains_ppe = True
+                    break
+            rec.contains_ppe = contains_ppe
 
     def action_view_ppe_report(self):
         report = self.env["ir.actions.report"]._get_report_from_name(
