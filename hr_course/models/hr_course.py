@@ -191,12 +191,8 @@ class HrCourse(models.Model):
         "hr.course.category", string="Category", required=True
     )
 
-    permanence = fields.Boolean(
-        string="Has Permanence", readonly=True, default=False, tracking=True,
-    )
-    permanence_time = fields.Char(
-        string="Permanence time", readonly=True, tracking=True,
-    )
+    permanence = fields.Boolean(string="Has Permanence", default=False, tracking=True)
+    permanence_time = fields.Char(string="Permanence time", tracking=True)
 
     content = fields.Html()
     objective = fields.Html()
@@ -204,7 +200,7 @@ class HrCourse(models.Model):
     evaluation_criteria = fields.Html()
 
     course_schedule_ids = fields.One2many(
-        "hr.course.schedule", inverse_name="course_id", readonly=True,
+        "hr.course.schedule", inverse_name="course_id"
     )
 
     @api.onchange("permanence")
