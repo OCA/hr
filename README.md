@@ -30,7 +30,7 @@ addon | version | maintainers | summary
 [hr_contract_rate](hr_contract_rate/) | 13.0.1.0.0 |  | Employee's contract rate and period
 [hr_contract_reference](hr_contract_reference/) | 13.0.1.0.0 |  | HR Contract Reference
 [hr_contract_type](hr_contract_type/) | 13.0.1.0.0 | [![etobella](https://github.com/etobella.png?size=30px)](https://github.com/etobella) | Add a Type for Contracts
-[hr_course](hr_course/) | 13.0.2.0.0 |  | This module allows your to manage employee's training courses
+[hr_course](hr_course/) | 13.0.2.1.0 |  | This module allows your to manage employee's training courses
 [hr_course_survey](hr_course_survey/) | 13.0.1.0.0 |  | Evaluate a course using a Schedule
 [hr_employee_age](hr_employee_age/) | 13.0.1.0.0 |  | Age field for employee
 [hr_employee_calendar_planning](hr_employee_calendar_planning/) | 13.0.1.5.1 | [![victoralmau](https://github.com/victoralmau.png?size=30px)](https://github.com/victoralmau) [![pedrobaeza](https://github.com/pedrobaeza.png?size=30px)](https://github.com/pedrobaeza) | Employee Calendar Planning
