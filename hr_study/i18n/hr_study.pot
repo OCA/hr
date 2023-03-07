@@ -1,0 +1,83 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* hr_study
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-03-07 16:18+0000\n"
+"PO-Revision-Date: 2023-03-07 16:18+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hr_study
+#: model:ir.model.fields,field_description:hr_study.field_hr_study__company_id
+msgid "Company"
+msgstr ""
+
+#. module: hr_study
+#: model:ir.model.fields,field_description:hr_study.field_hr_study__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: hr_study
+#: model:ir.model.fields,field_description:hr_study.field_hr_study__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: hr_study
+#: model:ir.model.fields,field_description:hr_study.field_hr_study__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: hr_study
+#: model:ir.model,name:hr_study.model_hr_employee
+msgid "Employee"
+msgstr ""
+
+#. module: hr_study
+#: model:ir.model.fields,field_description:hr_study.field_hr_study__id
+msgid "ID"
+msgstr ""
+
+#. module: hr_study
+#: model:ir.model.fields,field_description:hr_study.field_hr_study____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: hr_study
+#: model:ir.model.fields,field_description:hr_study.field_hr_study__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: hr_study
+#: model:ir.model.fields,field_description:hr_study.field_hr_study__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: hr_study
+#: model:ir.model.fields,field_description:hr_study.field_hr_study__name
+msgid "Name"
+msgstr ""
+
+#. module: hr_study
+#: model:ir.model.fields,field_description:hr_study.field_hr_study__sequence
+msgid "Sequence"
+msgstr ""
+
+#. module: hr_study
+#: model:ir.actions.act_window,name:hr_study.action_hr_study
+#: model:ir.ui.menu,name:hr_study.menu_hr_study
+msgid "Studies"
+msgstr ""
+
+#. module: hr_study
+#: model:ir.model,name:hr_study.model_hr_study
+#: model:ir.model.fields,field_description:hr_study.field_hr_employee__study_id
+msgid "Study"
+msgstr ""
