@@ -36,13 +36,13 @@ class HrCourseAttendee(models.Model):
                 [self.survey_answer_id.id],
                 post_process=True,
             )
-        )
+        )[self.survey_answer_id.id]
         body = self.env["mail.template"]._render_template(
             template.body_html,
             "survey.user_input",
             [self.survey_answer_id.id],
             post_process=True,
-        )
+        )[self.survey_answer_id.id]
         # post the message
         mail_values = {
             "email_from": tools.formataddr((self.env.user.name, self.env.user.email)),
