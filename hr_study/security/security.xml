@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="rule_multi_company_hr_study" model="ir.rule">
+        <field name="name">Hr Study multi-company</field>
+        <field name="model_id" ref="model_hr_study" />
+        <field
+            name="domain_force"
+        >['|',('company_id','=',False),('company_id','in',company_ids)]</field>
+    </record>
+</odoo>

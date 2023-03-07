@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="hr_study_a" model="hr.study">
+        <field name="name">Study A</field>
+        <field name="sequence">10</field>
+    </record>
+    <record id="hr_study_b" model="hr.study">
+        <field name="name">Study B</field>
+        <field name="sequence">20</field>
+    </record>
+</odoo>
