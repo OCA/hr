@@ -29,7 +29,7 @@ addon | version | maintainers | summary
 [hr_contract_multi_job](hr_contract_multi_job/) | 14.0.1.0.0 |  | HR Contract Multi Jobs
 [hr_contract_reference](hr_contract_reference/) | 14.0.1.0.0 |  | HR Contract Reference
 [hr_contract_type](hr_contract_type/) | 14.0.1.0.0 | [![etobella](https://github.com/etobella.png?size=30px)](https://github.com/etobella) | Add a Type for Contracts
-[hr_course](hr_course/) | 14.0.3.0.2 |  | This module allows your to manage employee's training courses
+[hr_course](hr_course/) | 14.0.3.0.3 |  | This module allows your to manage employee's training courses
 [hr_course_survey](hr_course_survey/) | 14.0.1.0.0 |  | Evaluate a course using a Schedule
 [hr_department_code](hr_department_code/) | 14.0.1.0.0 |  | HR department code
 [hr_employee_age](hr_employee_age/) | 14.0.1.0.0 |  | Age field for employee
