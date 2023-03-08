@@ -56,6 +56,7 @@ addon | version | maintainers | summary
 [hr_personal_equipment_variant_configurator](hr_personal_equipment_variant_configurator/) | 13.0.1.0.0 |  | Manage variants of personal equipment
 [hr_recruitment_notification](hr_recruitment_notification/) | 13.0.1.0.0 | [![joao-p-marques](https://github.com/joao-p-marques.png?size=30px)](https://github.com/joao-p-marques) | Configure automatic notifications for new applications
 [hr_recruitment_security](hr_recruitment_security/) | 13.0.1.0.1 | [![victoralmau](https://github.com/victoralmau.png?size=30px)](https://github.com/victoralmau) | See only your documents in recruitment
+[hr_study](hr_study/) | 13.0.1.0.0 | [![victoralmau](https://github.com/victoralmau.png?size=30px)](https://github.com/victoralmau) | Structured study field for employees
 [resource_hook](resource_hook/) | 13.0.1.0.1 |  | Extends the resource with hooks to standard methods.
 
 [//]: # (end addons)
