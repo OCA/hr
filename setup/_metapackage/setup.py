@@ -43,6 +43,7 @@ setuptools.setup(
         'odoo13-addon-hr_personal_equipment_variant_configurator',
         'odoo13-addon-hr_recruitment_notification',
         'odoo13-addon-hr_recruitment_security',
+        'odoo13-addon-hr_study',
         'odoo13-addon-resource_hook',
     ],
     classifiers=[
