@@ -18,7 +18,10 @@ class TestHrStudy(common.SavepointCase):
             "no_reset_password": True,
         }
         new_test_user(
-            cls.env, login="test-hr_user", groups="hr.group_hr_user", context=ctx,
+            cls.env,
+            login="test-hr_user",
+            groups="hr.group_hr_user",
+            context=ctx,
         )
 
     @users("test-hr_user")
