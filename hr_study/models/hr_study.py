@@ -10,5 +10,5 @@ class HrStudy(models.Model):
     _order = "sequence, id"
 
     sequence = fields.Integer(default=10)
-    name = fields.Char(string="Name", required=True, tracking=True)
+    name = fields.Char(required=True)
     company_id = fields.Many2one(comodel_name="res.company")
