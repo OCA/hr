@@ -25,21 +25,15 @@ msgid "Contract Reference"
 msgstr "Referência do contrato"
 
 #. module: hr_contract_reference
-#: model:ir.model.fields,field_description:hr_contract_reference.field_hr_contract__display_name
-msgid "Display Name"
-msgstr "Nome de Exibição"
-
-#. module: hr_contract_reference
 #: model:ir.model,name:hr_contract_reference.model_hr_contract
 msgid "Employee Contract"
 msgstr "Contrato do Empregado"
 
-#. module: hr_contract_reference
-#: model:ir.model.fields,field_description:hr_contract_reference.field_hr_contract__id
-msgid "ID"
-msgstr "ID"
+#~ msgid "Display Name"
+#~ msgstr "Nome de Exibição"
 
-#. module: hr_contract_reference
-#: model:ir.model.fields,field_description:hr_contract_reference.field_hr_contract____last_update
-msgid "Last Modified on"
-msgstr "Última Modificação em"
+#~ msgid "ID"
+#~ msgstr "ID"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Última Modificação em"
