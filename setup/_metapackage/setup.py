@@ -31,6 +31,7 @@ setuptools.setup(
         'odoo-addon-hr_org_chart_overview>=15.0dev,<15.1dev',
         'odoo-addon-hr_personal_equipment_request>=15.0dev,<15.1dev',
         'odoo-addon-hr_study>=15.0dev,<15.1dev',
+        'odoo-addon-hr_worked_days_from_timesheet>=15.0dev,<15.1dev',
     ],
     classifiers=[
         'Programming Language :: Python',
