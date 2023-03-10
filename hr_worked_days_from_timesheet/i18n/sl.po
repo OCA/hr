@@ -1,0 +1,97 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * hr_worked_days_from_timesheet
+#
+# Translators:
+# OCA Transbot <transbot@odoo-community.org>, 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 9.0c\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-06-01 01:36+0000\n"
+"PO-Revision-Date: 2017-06-01 01:36+0000\n"
+"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
+"Language-Team: Slovenian (https://www.transifex.com/oca/teams/23907/sl/)\n"
+"Language: sl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
+"%100==4 ? 2 : 3);\n"
+
+#. module: hr_worked_days_from_timesheet
+#: code:addons/hr_worked_days_from_timesheet/models/hr_payslip.py:0
+#, python-format
+msgid "Contract is not defined for one or more payslips."
+msgstr ""
+
+#. module: hr_worked_days_from_timesheet
+#: model:ir.model.fields,field_description:hr_worked_days_from_timesheet.field_hr_payslip__display_name
+#: model:ir.model.fields,field_description:hr_worked_days_from_timesheet.field_hr_payslip_worked_days__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: hr_worked_days_from_timesheet
+#: model:ir.model.fields,field_description:hr_worked_days_from_timesheet.field_hr_payslip__id
+#: model:ir.model.fields,field_description:hr_worked_days_from_timesheet.field_hr_payslip_worked_days__id
+msgid "ID"
+msgstr ""
+
+#. module: hr_worked_days_from_timesheet
+#: model_terms:ir.ui.view,arch_db:hr_worked_days_from_timesheet.view_hr_payslip_form
+msgid "Import from Timesheets"
+msgstr "Uvozi iz časovnic"
+
+#. module: hr_worked_days_from_timesheet
+#: model:ir.model.fields,field_description:hr_worked_days_from_timesheet.field_hr_payslip_worked_days__imported_from_timesheet
+msgid "Imported From Timesheet"
+msgstr "Uvoženo iz časovnic"
+
+#. module: hr_worked_days_from_timesheet
+#: model:ir.model.fields,field_description:hr_worked_days_from_timesheet.field_hr_payslip____last_update
+#: model:ir.model.fields,field_description:hr_worked_days_from_timesheet.field_hr_payslip_worked_days____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: hr_worked_days_from_timesheet
+#: model:ir.model,name:hr_worked_days_from_timesheet.model_hr_payslip
+msgid "Payslip"
+msgstr ""
+
+#. module: hr_worked_days_from_timesheet
+#: model:ir.model,name:hr_worked_days_from_timesheet.model_hr_payslip_worked_days
+msgid "Payslip Worked Days"
+msgstr "Delovnih dni na plačilni listi"
+
+#. module: hr_worked_days_from_timesheet
+#: code:addons/hr_worked_days_from_timesheet/models/hr_payslip.py:0
+#, python-format
+msgid ""
+"Sorry, but there is no approved Timesheets for the entire Payslip period for "
+"user {}"
+msgstr ""
+
+#. module: hr_worked_days_from_timesheet
+#: model:ir.model.fields,field_description:hr_worked_days_from_timesheet.field_hr_payslip_worked_days__timesheet_sheet_id
+msgid "Timesheet"
+msgstr "Časovnica"
+
+#. module: hr_worked_days_from_timesheet
+#: code:addons/hr_worked_days_from_timesheet/models/hr_payslip.py:0
+#, python-format
+msgid "Timesheet %s"
+msgstr "Časovnica %s"
+
+#. module: hr_worked_days_from_timesheet
+#: model_terms:ir.ui.view,arch_db:hr_worked_days_from_timesheet.view_hr_payslip_form
+msgid "Worked Days"
+msgstr "Delovnih dni"
+
+#~ msgid "Pay Slip"
+#~ msgstr "Plačilni list"
+
+#, fuzzy
+#~ msgid ""
+#~ "Sorry, but there is no approved Timesheets for the                 entire "
+#~ "Payslip period for user %s"
+#~ msgstr "Za celotno obdobje plačilne liste ni odobrenih časovnic."
