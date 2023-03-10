@@ -15,7 +15,7 @@ class HrContract(models.Model):
         "hr.job", string="Job Title", compute="_compute_main_job_position", store=True
     )
 
-    @api.depends("contract_job_ids")
+    @api.depends("contract_job_ids.is_main_job")
     def _compute_main_job_position(self):
         """
         Get the main job position from the field contract_job_ids which
@@ -27,6 +27,8 @@ class HrContract(models.Model):
             )
             if main_job and len(main_job) == 1:
                 contract.job_id = main_job
+            else:
+                contract.job_id = False
 
     @api.constrains("contract_job_ids")
     def _check_one_main_job(self):
