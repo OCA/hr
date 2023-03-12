@@ -7,7 +7,7 @@
     "author": "Escodoo, Odoo Community Association (OCA)",
     'maintainers': ['marcelsavegnago', 'eduaparicio'],
     'images': ['static/description/banner.png'],
-    "website": "https://github.com/oca/hr",
+    "website": "https://github.com/OCA/hr",
     "license": "AGPL-3",
     "category": "Human Resources",
     "depends": ["hr",

@@ -8,7 +8,7 @@
               "OpenSynergy Indonesia,"
               "Numigi,"
               "Odoo Community Association (OCA)",
-    "website": "https://github.com/oca/hr",
+    "website": "https://github.com/OCA/hr",
     "license": "AGPL-3",
     "category": "Human Resources",
     "depends": ["hr"],

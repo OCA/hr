@@ -5,7 +5,7 @@
     'author': "Vauxoo, "
               "Odoo Community Association (OCA)",
     'maintainer': 'Vauxoo',
-    'website': 'https://github.com/OCA/hr/',
+    'website': 'https://github.com/OCA/hr',
     'license': 'AGPL-3',
     'category': 'Human Resources',
     'summary': "Split Name in First Name, Father's Last Name and Mother's Last Name",
