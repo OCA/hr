@@ -4,7 +4,7 @@
 
 {
     "name": "HR Contract Rate",
-    "version": "13.0.1.0.0",
+    "version": "14.0.1.0.0",
     "category": "Human Resources",
     "website": "https://github.com/OCA/hr",
     "author": "CorporateHub, " "Odoo Community Association (OCA)",
