@@ -20,7 +20,10 @@ class HrContract(models.Model):
         store=True,
         help="Employee's monthly gross wage (approximate)",
     )
-    is_wage_accurate = fields.Boolean(compute="_compute_wage", store=True,)
+    is_wage_accurate = fields.Boolean(
+        compute="_compute_wage",
+        store=True,
+    )
     work_hours_per_month = fields.Float(
         string="Work hours (per month)",
         default=lambda self: self._default_work_hours_per_month(),
@@ -58,21 +61,21 @@ class HrContract(models.Model):
 
     @api.model
     def _default_work_hours_per_month(self):
-        """ Hook for extensions """
+        """Hook for extensions"""
         return 2080.0 / 12.0
 
     @api.model
     def _default_work_days_per_month(self):
-        """ Hook for extensions """
+        """Hook for extensions"""
         return self._default_work_hours_per_month() / 8.0
 
     @api.model
     def _default_work_weeks_per_month(self):
-        """ Hook for extensions """
+        """Hook for extensions"""
         return self._default_work_days_per_month() / 5.0
 
     def _get_wage_from_amount(self):
-        """ Hook for extensions """
+        """Hook for extensions"""
         self.ensure_one()
         if self.amount_period == "hour":
             is_wage_accurate = False
