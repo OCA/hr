@@ -7,7 +7,7 @@
     "version": "14.0.1.0.0",
     "category": "Human Resources",
     "website": "https://github.com/OCA/hr",
-    "author": "CorporateHub, " "Odoo Community Association (OCA)",
+    "author": "CorporateHub, Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "installable": True,
     "application": False,
@@ -16,4 +16,5 @@
     "post_init_hook": "post_init_hook",
     "depends": ["hr_contract"],
     "data": ["views/hr_contract.xml"],
+    "mantainers": ["nimarosa"],
 }
