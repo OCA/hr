@@ -11,8 +11,8 @@ from odoo.tests import common
 
 
 class TestHrEmployeeService(common.TransactionCase):
-    def setUp(self):
-        super().setUp()
+    def setUpClass(self):
+        super().setUpClass()
 
         self.today = fields.Date.today()
         self.now = fields.Datetime.now()
