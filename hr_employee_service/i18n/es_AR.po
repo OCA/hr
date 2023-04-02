@@ -6,95 +6,99 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2023-04-02 22:27+0000\n"
+"Last-Translator: Nicolas Rodriguez Sande <nicolasrsande@gmail.com>\n"
 "Language-Team: none\n"
 "Language: es_AR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.14.1\n"
 
 #. module: hr_employee_service
 #: model_terms:ir.ui.view,arch_db:hr_employee_service.view_employee_form_inherit_extension
 msgid "<span class=\"ml8 mr8\">month(s)</span>"
-msgstr ""
+msgstr "<span class=\"ml8 mr8\">mes(es)</span>"
 
 #. module: hr_employee_service
 #: model_terms:ir.ui.view,arch_db:hr_employee_service.view_employee_form_inherit_extension
 msgid "<span class=\"ml8 mr8\">year(s)</span>"
-msgstr ""
+msgstr "<span class=\"ml8 mr8\">año(s)</span>"
 
 #. module: hr_employee_service
 #: model_terms:ir.ui.view,arch_db:hr_employee_service.view_employee_form_inherit_extension
 msgid "<span class=\"ml8\">day(s)</span>"
-msgstr ""
+msgstr "<span class=\"ml8\">dia(s)</span>"
 
 #. module: hr_employee_service
 #: model:ir.model.fields,field_description:hr_employee_service.field_hr_employee__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nombre para mostrar"
 
 #. module: hr_employee_service
 #: model:ir.model,name:hr_employee_service.model_hr_employee
 msgid "Employee"
-msgstr ""
+msgstr "Empleado"
 
 #. module: hr_employee_service
 #: model:ir.model.fields,field_description:hr_employee_service.field_hr_employee__service_hire_date
 msgid "Hire Date"
-msgstr ""
+msgstr "Fecha de contratación"
 
 #. module: hr_employee_service
 #: model:ir.model.fields,help:hr_employee_service.field_hr_employee__service_hire_date
 msgid ""
 "Hire date is normally the date an employee completes new hire paperwork"
 msgstr ""
+"La fecha de contratación es normalmente la fecha en la que el empleado "
+"completo su alta en la empresa"
 
 #. module: hr_employee_service
 #: model:ir.model.fields,field_description:hr_employee_service.field_hr_employee__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: hr_employee_service
 #: model:ir.model.fields,field_description:hr_employee_service.field_hr_employee____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Última modificación en"
 
 #. module: hr_employee_service
 #: model:ir.model.fields,field_description:hr_employee_service.field_hr_employee__service_duration
 #: model_terms:ir.ui.view,arch_db:hr_employee_service.view_employee_form_inherit_extension
 msgid "Service Duration"
-msgstr ""
+msgstr "Duración del servicio"
 
 #. module: hr_employee_service
 #: model:ir.model.fields,field_description:hr_employee_service.field_hr_employee__service_duration_days
 msgid "Service Duration (days)"
-msgstr ""
+msgstr "Duración del servicio (dias)"
 
 #. module: hr_employee_service
 #: model:ir.model.fields,field_description:hr_employee_service.field_hr_employee__service_duration_months
 msgid "Service Duration (months)"
-msgstr ""
+msgstr "Duración del servicio (meses)"
 
 #. module: hr_employee_service
 #: model:ir.model.fields,field_description:hr_employee_service.field_hr_employee__service_duration_years
 msgid "Service Duration (years)"
-msgstr ""
+msgstr "Duración del servicio (años)"
 
 #. module: hr_employee_service
 #: model_terms:ir.ui.view,arch_db:hr_employee_service.view_employee_form_inherit_extension
 msgid "Service Information"
-msgstr ""
+msgstr "Información del servicio"
 
 #. module: hr_employee_service
 #: model:ir.model.fields,help:hr_employee_service.field_hr_employee__service_duration
 msgid "Service duration in days"
-msgstr ""
+msgstr "Duración del servicio en dias"
 
 #. module: hr_employee_service
 #: model:ir.model.fields,field_description:hr_employee_service.field_hr_employee__service_start_date
 msgid "Start Date"
-msgstr ""
+msgstr "Fecha de Inicio"
 
 #. module: hr_employee_service
 #: model:ir.model.fields,help:hr_employee_service.field_hr_employee__service_start_date
@@ -102,11 +106,13 @@ msgid ""
 "Start date is the first day the employee actually works and this date is "
 "used for accrual leave allocations calculation"
 msgstr ""
+"La fecha de inicio es en general el primer dia que el empleado comienza a "
+"trabajar y es usada para el calculo de ausencias"
 
 #. module: hr_employee_service
 #: model:ir.model.fields,field_description:hr_employee_service.field_hr_employee__service_termination_date
 msgid "Termination Date"
-msgstr ""
+msgstr "Fecha de Fin"
 
 #. module: hr_employee_service
 #: model:ir.model.fields,help:hr_employee_service.field_hr_employee__service_termination_date
@@ -114,3 +120,5 @@ msgid ""
 "Termination date is the last day the employee actually works and this date "
 "is used for accrual leave allocations calculation"
 msgstr ""
+"La fecha de fin es el ultimo dia en el que el empleado trabaja en la empresa "
+"y es la fecha usada para el cálculo de ausencias"
