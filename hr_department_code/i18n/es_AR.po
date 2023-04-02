@@ -6,35 +6,37 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2023-04-03 08:10+0000\n"
+"Last-Translator: Nicolas Rodriguez Sande <nicolasrsande@gmail.com>\n"
 "Language-Team: none\n"
 "Language: es_AR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.14.1\n"
 
 #. module: hr_department_code
 #: model:ir.model.fields,field_description:hr_department_code.field_hr_department__code
 msgid "Code"
-msgstr ""
+msgstr "Codigo"
 
 #. module: hr_department_code
 #: model:ir.model,name:hr_department_code.model_hr_department
 msgid "Department"
-msgstr ""
+msgstr "Departamento"
 
 #. module: hr_department_code
 #: model:ir.model.fields,field_description:hr_department_code.field_hr_department__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nombre para mostrar"
 
 #. module: hr_department_code
 #: model:ir.model.fields,field_description:hr_department_code.field_hr_department__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: hr_department_code
 #: model:ir.model.fields,field_description:hr_department_code.field_hr_department____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Última modificación en"
