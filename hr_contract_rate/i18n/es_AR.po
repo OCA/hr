@@ -6,141 +6,143 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2023-04-02 22:27+0000\n"
+"Last-Translator: Nicolas Rodriguez Sande <nicolasrsande@gmail.com>\n"
 "Language-Team: none\n"
 "Language: es_AR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.14.1\n"
 
 #. module: hr_contract_rate
 #: model:ir.model.fields,field_description:hr_contract_rate.field_hr_contract__amount
 #: model_terms:ir.ui.view,arch_db:hr_contract_rate.hr_contract_view_form
 msgid "Amount"
-msgstr ""
+msgstr "Importe"
 
 #. module: hr_contract_rate
 #: model:ir.model.fields.selection,name:hr_contract_rate.selection__hr_contract__amount_period__day
 msgid "Day"
-msgstr ""
+msgstr "Dia"
 
 #. module: hr_contract_rate
 #: model:ir.model.fields,field_description:hr_contract_rate.field_hr_contract__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nombre para mostrar"
 
 #. module: hr_contract_rate
 #: model:ir.model,name:hr_contract_rate.model_hr_contract
 msgid "Employee Contract"
-msgstr ""
+msgstr "Contrato del Empleado"
 
 #. module: hr_contract_rate
 #: model:ir.model.fields,help:hr_contract_rate.field_hr_contract__amount
 msgid "Employee's contract amount per period"
-msgstr ""
+msgstr "Importe del contrato por periodo"
 
 #. module: hr_contract_rate
 #: model:ir.model.fields,help:hr_contract_rate.field_hr_contract__approximate_wage
 msgid "Employee's monthly gross wage (approximate)"
-msgstr ""
+msgstr "Sueldo Bruto (aproximado)"
 
 #. module: hr_contract_rate
 #: model:ir.model.fields,help:hr_contract_rate.field_hr_contract__wage
 msgid "Employee's monthly gross wage."
-msgstr ""
+msgstr "Sueldo bruto."
 
 #. module: hr_contract_rate
 #: model:ir.model.fields.selection,name:hr_contract_rate.selection__hr_contract__amount_period__hour
 msgid "Hour"
-msgstr ""
+msgstr "Hora"
 
 #. module: hr_contract_rate
 #: model:ir.model.fields,help:hr_contract_rate.field_hr_contract__work_days_per_month
 msgid "How many work days there is in an average month"
-msgstr ""
+msgstr "Cuantos dias hay en un mes promedio"
 
 #. module: hr_contract_rate
 #: model:ir.model.fields,help:hr_contract_rate.field_hr_contract__work_hours_per_month
 msgid "How many work hours there is in an average month"
-msgstr ""
+msgstr "Horas en un mes promedio"
 
 #. module: hr_contract_rate
 #: model:ir.model.fields,help:hr_contract_rate.field_hr_contract__work_weeks_per_month
 msgid "How many work weeks there is in an average month"
-msgstr ""
+msgstr "Semanas en un mes promedio"
 
 #. module: hr_contract_rate
 #: model:ir.model.fields,field_description:hr_contract_rate.field_hr_contract__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: hr_contract_rate
 #: model:ir.model.fields,field_description:hr_contract_rate.field_hr_contract__is_wage_accurate
 msgid "Is Wage Accurate"
-msgstr ""
+msgstr "Es importe fijo"
 
 #. module: hr_contract_rate
 #: model:ir.model.fields,field_description:hr_contract_rate.field_hr_contract____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Última modificación en"
 
 #. module: hr_contract_rate
 #: model:ir.model.fields.selection,name:hr_contract_rate.selection__hr_contract__amount_period__month
 msgid "Month"
-msgstr ""
+msgstr "Mes"
 
 #. module: hr_contract_rate
 #: model:ir.model.fields,field_description:hr_contract_rate.field_hr_contract__amount_period
 msgid "Period of Amount"
-msgstr ""
+msgstr "Periodo del importe"
 
 #. module: hr_contract_rate
 #: model:ir.model.fields,help:hr_contract_rate.field_hr_contract__amount_period
 msgid "Period of employee's contract amount"
-msgstr ""
+msgstr "Importe del periodo"
 
 #. module: hr_contract_rate
 #: model:ir.model.fields.selection,name:hr_contract_rate.selection__hr_contract__amount_period__quarter
 msgid "Quarter"
-msgstr ""
+msgstr "Cuatrimestre"
 
 #. module: hr_contract_rate
 #: model_terms:ir.ui.view,arch_db:hr_contract_rate.hr_contract_view_form
 msgid "Salary and Advantages"
-msgstr ""
+msgstr "Sueldo y Ventajas"
 
 #. module: hr_contract_rate
 #: model:ir.model.fields,field_description:hr_contract_rate.field_hr_contract__wage
 msgid "Wage"
-msgstr ""
+msgstr "Sueldo"
 
 #. module: hr_contract_rate
 #: model:ir.model.fields,field_description:hr_contract_rate.field_hr_contract__approximate_wage
 msgid "Wage (approximate)"
-msgstr ""
+msgstr "Sueldo (aproximado)"
 
 #. module: hr_contract_rate
 #: model:ir.model.fields.selection,name:hr_contract_rate.selection__hr_contract__amount_period__week
 msgid "Week"
-msgstr ""
+msgstr "Semana"
 
 #. module: hr_contract_rate
 #: model:ir.model.fields,field_description:hr_contract_rate.field_hr_contract__work_days_per_month
 msgid "Work days (per month)"
-msgstr ""
+msgstr "Dias laborables (por mes)"
 
 #. module: hr_contract_rate
 #: model:ir.model.fields,field_description:hr_contract_rate.field_hr_contract__work_hours_per_month
 msgid "Work hours (per month)"
-msgstr ""
+msgstr "Horas laborables (por mes)"
 
 #. module: hr_contract_rate
 #: model:ir.model.fields,field_description:hr_contract_rate.field_hr_contract__work_weeks_per_month
 msgid "Work weeks (per month)"
-msgstr ""
+msgstr "Semanas laborables (por mes)"
 
 #. module: hr_contract_rate
 #: model:ir.model.fields.selection,name:hr_contract_rate.selection__hr_contract__amount_period__year
 msgid "Year"
-msgstr ""
+msgstr "Año"
