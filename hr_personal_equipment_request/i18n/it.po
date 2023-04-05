@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-04-04 15:24+0000\n"
+"PO-Revision-Date: 2023-04-05 11:25+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -201,13 +201,13 @@ msgstr "Seguito da"
 #: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment__message_channel_ids
 #: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment_request__message_channel_ids
 msgid "Followers (Channels)"
-msgstr "Seguito da (Canali)"
+msgstr "Seguito da (canali)"
 
 #. module: hr_personal_equipment_request
 #: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment__message_partner_ids
 #: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment_request__message_partner_ids
 msgid "Followers (Partners)"
-msgstr "Seguito da (Partners)"
+msgstr "Seguito da (partner)"
 
 #. module: hr_personal_equipment_request
 #: model:ir.model.fields,help:hr_personal_equipment_request.field_hr_personal_equipment__activity_type_icon
