@@ -17,19 +17,9 @@ msgstr ""
 "X-Generator: Weblate 4.14.1\n"
 
 #. module: hr_employee_phone_extension
-#: model:ir.model.fields,field_description:hr_employee_phone_extension.field_hr_employee__display_name
-msgid "Display Name"
-msgstr "Nombre para mostrar"
-
-#. module: hr_employee_phone_extension
 #: model:ir.model,name:hr_employee_phone_extension.model_hr_employee
 msgid "Employee"
 msgstr "Empleado"
-
-#. module: hr_employee_phone_extension
-#: model:ir.model.fields,field_description:hr_employee_phone_extension.field_hr_employee__id
-msgid "ID"
-msgstr "ID"
 
 #. module: hr_employee_phone_extension
 #: model_terms:ir.ui.view,arch_db:hr_employee_phone_extension.view_employee_form
@@ -47,11 +37,6 @@ msgid "Internal phone number."
 msgstr "Numero telefonico de interno."
 
 #. module: hr_employee_phone_extension
-#: model:ir.model.fields,field_description:hr_employee_phone_extension.field_hr_employee____last_update
-msgid "Last Modified on"
-msgstr "Última modificación en"
-
-#. module: hr_employee_phone_extension
 #: model:ir.model.fields,field_description:hr_employee_phone_extension.field_hr_employee__short_number
 msgid "Short Number"
 msgstr "Numero corto"
@@ -60,3 +45,12 @@ msgstr "Numero corto"
 #: model:ir.model.fields,help:hr_employee_phone_extension.field_hr_employee__short_number
 msgid "Short phone number."
 msgstr "Numero corto."
+
+#~ msgid "Display Name"
+#~ msgstr "Nombre para mostrar"
+
+#~ msgid "ID"
+#~ msgstr "ID"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Última modificación en"

@@ -9,5 +9,5 @@ class HrEmployee(models.Model):
 
     _inherit = "hr.employee"
 
-    internal_number = fields.Char("Internal Number", help="Internal phone number.")
-    short_number = fields.Char("Short Number", help="Short phone number.")
+    internal_number = fields.Char(help="Internal phone number.")
+    short_number = fields.Char(help="Short phone number.")
