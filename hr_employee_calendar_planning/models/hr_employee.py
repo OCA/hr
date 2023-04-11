@@ -157,6 +157,7 @@ class HrEmployee(models.Model):
         if (
             not self.env.context.get("skip_employee_calendars_required")
             and not config["test_enable"]
+            and not self.env.context.get("install_mode")
             and res.filtered(lambda x: not x.calendar_ids)
         ):
             raise UserError(_("You can not create employees without any calendar."))
