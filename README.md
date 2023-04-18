@@ -35,6 +35,7 @@ addon | version | maintainers | summary
 [hr_employee_lastnames](hr_employee_lastnames/) | 15.0.1.0.0 |  | Split Name in First Name, Father's Last Name and Mother's Last Name
 [hr_employee_medical_examination](hr_employee_medical_examination/) | 15.0.1.0.0 |  | Adds information about employee's medical examinations
 [hr_employee_partner_external](hr_employee_partner_external/) | 15.0.1.0.0 |  | Associate an external Partner to Employee
+[hr_employee_phone_extension](hr_employee_phone_extension/) | 15.0.1.0.0 |  | Employee Phone Extension
 [hr_employee_relative](hr_employee_relative/) | 15.0.1.0.0 |  | Allows storing information about employee's family
 [hr_employee_service](hr_employee_service/) | 15.0.1.0.0 |  | Employee service information & duration
 [hr_employee_service_contract](hr_employee_service_contract/) | 15.0.1.0.0 |  | Employee service information & duration based on employee's contracts
