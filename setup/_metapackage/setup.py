@@ -22,6 +22,7 @@ setuptools.setup(
         'odoo-addon-hr_employee_lastnames>=15.0dev,<15.1dev',
         'odoo-addon-hr_employee_medical_examination>=15.0dev,<15.1dev',
         'odoo-addon-hr_employee_partner_external>=15.0dev,<15.1dev',
+        'odoo-addon-hr_employee_phone_extension>=15.0dev,<15.1dev',
         'odoo-addon-hr_employee_relative>=15.0dev,<15.1dev',
         'odoo-addon-hr_employee_service>=15.0dev,<15.1dev',
         'odoo-addon-hr_employee_service_contract>=15.0dev,<15.1dev',
