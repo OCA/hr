@@ -104,3 +104,21 @@ class HrEmployee(models.Model):
             return datetime.combine(service_start_date, time(0, 0, 0))
         else:
             return super()._get_date_start_work()
+
+    def get_service_duration_from_date(self, date=None):
+        """
+        Returns the employee service duration for the given date.
+        This function is used in OCA/payroll modules as a helper function
+        to calculate employee service duration calculated for the given date.
+        """
+        self.ensure_one()
+        if not date or not self.service_start_date:
+            return {"years": 0, "months": 0, "days": 0}
+        if date > self.service_start_date:
+            service_duration = relativedelta(date, self.service_start_date)
+            return {
+                "years": service_duration.years,
+                "months": service_duration.months,
+                "days": service_duration.days,
+            }
+        return {"years": 0, "months": 0, "days": 0}
