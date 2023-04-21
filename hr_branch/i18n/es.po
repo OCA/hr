@@ -23,8 +23,8 @@ msgstr "Sucursal"
 
 #. module: hr_branch
 #: model:ir.model,name:hr_branch.model_hr_department
-msgid "HR Department"
-msgstr "Departamento Recursos Humanos"
+msgid "Department"
+msgstr ""
 
 #. module: hr_branch
 #: model:ir.model.fields,help:hr_branch.field_hr_department__branch_id
@@ -34,3 +34,6 @@ msgid ""
 msgstr ""
 "Indique la sucursal del departamento, para asegurarse que el empleado es "
 "asignado correctamente"
+
+#~ msgid "HR Department"
+#~ msgstr "Departamento Recursos Humanos"

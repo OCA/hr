@@ -27,23 +27,14 @@ msgid "Department"
 msgstr "Abteilung"
 
 #. module: hr_branch
-#: model:ir.model.fields,field_description:hr_branch.field_hr_department__display_name
-msgid "Display Name"
-msgstr "Anzeigename"
-
-#. module: hr_branch
-#: model:ir.model.fields,field_description:hr_branch.field_hr_department__id
-msgid "ID"
-msgstr "ID"
-
-#. module: hr_branch
 #: model:ir.model.fields,help:hr_branch.field_hr_department__branch_id
 msgid ""
 "Indicate the department branch, to ensure that the employees are assigned "
 "correctly"
 msgstr ""
 
-#. module: hr_branch
-#: model:ir.model.fields,field_description:hr_branch.field_hr_department____last_update
-msgid "Last Modified on"
-msgstr ""
+#~ msgid "Display Name"
+#~ msgstr "Anzeigename"
+
+#~ msgid "ID"
+#~ msgstr "ID"
