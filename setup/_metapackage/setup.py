@@ -10,6 +10,7 @@ setuptools.setup(
     install_requires=[
         'odoo-addon-hr_branch>=15.0dev,<15.1dev',
         'odoo-addon-hr_contract_employee_calendar_planning>=15.0dev,<15.1dev',
+        'odoo-addon-hr_contract_multi_job>=15.0dev,<15.1dev',
         'odoo-addon-hr_contract_reference>=15.0dev,<15.1dev',
         'odoo-addon-hr_course>=15.0dev,<15.1dev',
         'odoo-addon-hr_department_code>=15.0dev,<15.1dev',
