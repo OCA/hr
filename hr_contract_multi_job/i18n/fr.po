@@ -40,9 +40,7 @@ msgid "Created on"
 msgstr "Créé le"
 
 #. module: hr_contract_multi_job
-#: model:ir.model.fields,field_description:hr_contract_multi_job.field_hr_contract__display_name
 #: model:ir.model.fields,field_description:hr_contract_multi_job.field_hr_contract_job__display_name
-#: model:ir.model.fields,field_description:hr_contract_multi_job.field_hr_job__display_name
 msgid "Display Name"
 msgstr ""
 
@@ -53,9 +51,7 @@ msgid "Employee Contract"
 msgstr "Contrat"
 
 #. module: hr_contract_multi_job
-#: model:ir.model.fields,field_description:hr_contract_multi_job.field_hr_contract__id
 #: model:ir.model.fields,field_description:hr_contract_multi_job.field_hr_contract_job__id
-#: model:ir.model.fields,field_description:hr_contract_multi_job.field_hr_job__id
 msgid "ID"
 msgstr "ID"
 
@@ -90,9 +86,7 @@ msgid "Jobs"
 msgstr "Postes"
 
 #. module: hr_contract_multi_job
-#: model:ir.model.fields,field_description:hr_contract_multi_job.field_hr_contract____last_update
 #: model:ir.model.fields,field_description:hr_contract_multi_job.field_hr_contract_job____last_update
-#: model:ir.model.fields,field_description:hr_contract_multi_job.field_hr_job____last_update
 msgid "Last Modified on"
 msgstr "Dernière modification le"
 
