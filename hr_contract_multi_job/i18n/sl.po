@@ -41,9 +41,7 @@ msgid "Created on"
 msgstr "Ustvarjeno"
 
 #. module: hr_contract_multi_job
-#: model:ir.model.fields,field_description:hr_contract_multi_job.field_hr_contract__display_name
 #: model:ir.model.fields,field_description:hr_contract_multi_job.field_hr_contract_job__display_name
-#: model:ir.model.fields,field_description:hr_contract_multi_job.field_hr_job__display_name
 msgid "Display Name"
 msgstr "Prikazni naziv"
 
@@ -54,9 +52,7 @@ msgid "Employee Contract"
 msgstr "Pogodba"
 
 #. module: hr_contract_multi_job
-#: model:ir.model.fields,field_description:hr_contract_multi_job.field_hr_contract__id
 #: model:ir.model.fields,field_description:hr_contract_multi_job.field_hr_contract_job__id
-#: model:ir.model.fields,field_description:hr_contract_multi_job.field_hr_job__id
 msgid "ID"
 msgstr "ID"
 
@@ -91,9 +87,7 @@ msgid "Jobs"
 msgstr "Zaposlitve"
 
 #. module: hr_contract_multi_job
-#: model:ir.model.fields,field_description:hr_contract_multi_job.field_hr_contract____last_update
 #: model:ir.model.fields,field_description:hr_contract_multi_job.field_hr_contract_job____last_update
-#: model:ir.model.fields,field_description:hr_contract_multi_job.field_hr_job____last_update
 msgid "Last Modified on"
 msgstr "Zadnjič spremenjeno"
 
