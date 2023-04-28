@@ -23,13 +23,13 @@
                     />
                     <field name="service_duration" invisible="1" />
                     <label for="service_duration" string="Service Duration" />
-                    <div>
+                    <div class="o_row" name="div_service_duration">
                         <field name="service_duration_years" nolabel="1" />
-                        <span class="ml8 mr8">year(s)</span>
+                        <span>year(s)</span>
                         <field name="service_duration_months" nolabel="1" />
-                        <span class="ml8 mr8">month(s)</span>
+                        <span>month(s)</span>
                         <field name="service_duration_days" nolabel="1" />
-                        <span class="ml8">day(s)</span>
+                        <span>day(s)</span>
                     </div>
                 </group>
             </xpath>
