@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-03-12 12:02+0000\n"
-"PO-Revision-Date: 2023-04-06 16:30+0000\n"
+"PO-Revision-Date: 2023-05-02 10:01+0000\n"
 "Last-Translator: Sebastiano Picchi <sebapicchi@yahoo.it>\n"
 "Language-Team: Italian (http://www.transifex.com/oca/OCA-hr-8-0/language/it/)"
 "\n"
@@ -28,7 +28,7 @@ msgstr "Contratto"
 #. module: hr_contract_multi_job
 #: model:ir.model.fields,field_description:hr_contract_multi_job.field_hr_job__contract_job_ids
 msgid "Contract Jobs"
-msgstr ""
+msgstr "Lavori a contratto"
 
 #. module: hr_contract_multi_job
 #: model:ir.model.fields,field_description:hr_contract_multi_job.field_hr_contract_job__create_uid
