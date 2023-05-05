@@ -152,22 +152,21 @@ class HrEmployee(models.Model):
         return new
 
     def _sync_user(self, user, employee_has_image=False):
+        """Set calendar_ids from 'Create employee' button from user and set date_start
+        as today is totally correct in a real use case.
+        On the other hand, in test use cases it is problematic to define today in
+        date_start because fixed dates are frequently used.
+        Frequently used case (hr_holidays_natural_period):
+        - Creation of employee linked to a new user.
+        - Creation of a hr.leave record linked to the employee with fixed dates
+        (from 2021-01-02 to 2021-01-05).
+        - The number of days of hr.leave will be 0 because."""
         res = super()._sync_user(user=user, employee_has_image=employee_has_image)
-        # set calendar_ids from Create employee button from user
-        res.update(
-            {
-                "calendar_ids": [
-                    (
-                        0,
-                        0,
-                        {
-                            "date_start": fields.Date.today(),
-                            "calendar_id": user.company_id.resource_calendar_id.id,
-                        },
-                    ),
-                ]
-            }
-        )
+        calendar_data = {
+            "date_start": fields.Date.today() if not config["test_enable"] else False,
+            "calendar_id": user.company_id.resource_calendar_id.id,
+        }
+        res.update({"calendar_ids": [(0, 0, calendar_data)]})
         return res
 
     @api.model_create_multi
