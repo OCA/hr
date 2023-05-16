@@ -161,7 +161,6 @@ class HrEmployee(models.Model):
                         0,
                         0,
                         {
-                            "date_start": fields.Date.today(),
                             "calendar_id": user.company_id.resource_calendar_id.id,
                         },
                     ),
