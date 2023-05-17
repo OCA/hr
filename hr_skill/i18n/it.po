@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-30 07:32+0000\n"
-"PO-Revision-Date: 2023-04-10 19:23+0000\n"
+"PO-Revision-Date: 2023-05-17 14:34+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: Italian (https://www.transifex.com/oca/teams/23907/it/)\n"
 "Language: it\n"
@@ -87,7 +87,7 @@ msgstr "Skills Dipendente"
 #: model:ir.actions.act_window,name:hr_skill.hr_employee_normal_action_tree
 #: model:ir.model.fields,field_description:hr_skill.field_hr_skill_employee_skill_ids
 msgid "Employees"
-msgstr "Impiegati"
+msgstr "Dipendenti"
 
 #. module: hr_skill
 #: selection:hr.employee.skill,level:0
