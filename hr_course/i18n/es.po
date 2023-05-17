@@ -292,7 +292,7 @@ msgstr "Empleado"
 #: code:addons/hr_course/models/hr_course_schedule.py:0
 #, python-format
 msgid "Employees removed from this course: <br></br>%s"
-msgstr "Empleados eliminados de este curso: <br></br>"
+msgstr "Empleados eliminados de este curso: <br></br>%s"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee__course_end
