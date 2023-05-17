@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-03-12 12:02+0000\n"
-"PO-Revision-Date: 2023-05-02 10:01+0000\n"
-"Last-Translator: Sebastiano Picchi <sebapicchi@yahoo.it>\n"
+"PO-Revision-Date: 2023-05-17 13:34+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: Italian (http://www.transifex.com/oca/OCA-hr-8-0/language/it/)"
 "\n"
 "Language: it\n"
@@ -82,7 +82,7 @@ msgstr "Posizioni lavorative"
 #. module: hr_contract_multi_job
 #: model:ir.model.fields,field_description:hr_contract_multi_job.field_hr_contract__job_id
 msgid "Job Title"
-msgstr "Titolo di lavoro"
+msgstr "Titolo professionale"
 
 #. module: hr_contract_multi_job
 #: model:ir.model.fields,field_description:hr_contract_multi_job.field_hr_contract__contract_job_ids
@@ -121,5 +121,5 @@ msgstr "Oggetto di relazione tra contratto e lavoro"
 #, python-format
 msgid "You must assign one and only one job position as main job position."
 msgstr ""
-"Devi assegnare una e una sola posizione lavorativa come posizione lavorativa "
-"principale."
+"Bisogna assegnare una e una sola posizione lavorativa come posizione "
+"lavorativa principale."
