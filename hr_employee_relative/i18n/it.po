@@ -6,40 +6,42 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2023-05-18 11:21+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.14.1\n"
 
 #. module: hr_employee_relative
 #: model:ir.model.fields,field_description:hr_employee_relative.field_hr_employee_relative__age
 msgid "Age"
-msgstr ""
+msgstr "Età"
 
 #. module: hr_employee_relative
 #: model:hr.employee.relative.relation,name:hr_employee_relative.relation_child
 msgid "Child"
-msgstr ""
+msgstr "Figlio"
 
 #. module: hr_employee_relative
 #: model:hr.employee.relative.relation,name:hr_employee_relative.relation_cousin
 msgid "Cousin"
-msgstr ""
+msgstr "Cugino"
 
 #. module: hr_employee_relative
 #: model:ir.model.fields,field_description:hr_employee_relative.field_hr_employee_relative__create_uid
 #: model:ir.model.fields,field_description:hr_employee_relative.field_hr_employee_relative_relation__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Creato da"
 
 #. module: hr_employee_relative
 #: model:ir.model.fields,field_description:hr_employee_relative.field_hr_employee_relative__create_date
 #: model:ir.model.fields,field_description:hr_employee_relative.field_hr_employee_relative_relation__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Creato il"
 
 #. module: hr_employee_relative
 #: model:ir.model.fields,field_description:hr_employee_relative.field_hr_employee_relative__date_of_birth
