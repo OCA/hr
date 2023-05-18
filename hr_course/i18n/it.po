@@ -6,15 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-04-26 15:34+0000\n"
-"Last-Translator: Francesco Foresti <francesco.foresti@ooops404.com>\n"
+"PO-Revision-Date: 2023-05-18 16:43+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.1\n"
+"X-Generator: Weblate 4.16.4\n"
 
 #. module: hr_course
 #: model:mail.template,body_html:hr_course.mail_template_validity_reminder
@@ -77,7 +77,7 @@ msgstr "Numero allegati"
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__attendant_ids
 msgid "Attendant"
-msgstr "Assistente"
+msgstr "Partecipante"
 
 #. module: hr_course
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_schedule_form_view
@@ -92,12 +92,12 @@ msgstr "Autorizzato da"
 #. module: hr_course
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_schedule_form_view
 msgid "Back to Draft"
-msgstr "Reimposta in bozza"
+msgstr "Reimposta a bozza"
 
 #. module: hr_course
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_schedule_form_view
 msgid "Cancel Course"
-msgstr "Annulla Corso"
+msgstr "Annulla corso"
 
 #. module: hr_course
 #: model:ir.model.fields.selection,name:hr_course.selection__hr_course_schedule__state__cancelled
@@ -107,7 +107,7 @@ msgstr "Annullato"
 #. module: hr_course
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_schedule_form_view
 msgid "Cancelled Course"
-msgstr "Corso Annullato"
+msgstr "Corso annullato"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__category_id
@@ -133,7 +133,7 @@ msgstr "Aziende"
 #. module: hr_course
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_schedule_form_view
 msgid "Complete Course"
-msgstr "Corso Completo"
+msgstr "Completa corso"
 
 #. module: hr_course
 #: model:ir.model.fields.selection,name:hr_course.selection__hr_course_schedule__state__completed
@@ -154,7 +154,7 @@ msgstr "Contenuto"
 #. module: hr_course
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_schedule_form_view
 msgid "Convocatory"
-msgstr "Convocativo"
+msgstr "Convocazione"
 
 #. module: hr_course
 #: model:ir.model,name:hr_course.model_hr_course
@@ -179,17 +179,17 @@ msgstr "Partecipante al corso"
 #: model_terms:ir.ui.view,arch_db:hr_course.view_course_category_list
 #: model_terms:ir.ui.view,arch_db:hr_course.view_course_category_search
 msgid "Course Categories"
-msgstr "Categorie Corso"
+msgstr "Categorie corso"
 
 #. module: hr_course
 #: model:ir.model,name:hr_course.model_hr_course_category
 msgid "Course Category"
-msgstr "Categoria Corso"
+msgstr "Categoria corso"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__cost
 msgid "Course Cost"
-msgstr "Costo Corso"
+msgstr "Costo corso"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee__course_expiration_alert_sent
@@ -200,29 +200,29 @@ msgstr "Avviso di scadenza del corso inviato"
 #. module: hr_course
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_schedule_search_view
 msgid "Course Name"
-msgstr "Nome Corso"
+msgstr "Nome corso"
 
 #. module: hr_course
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_schedule_form_view
 msgid "Course Results"
-msgstr "Risultati Corso"
+msgstr "Risultati corso"
 
 #. module: hr_course
 #: model:ir.model,name:hr_course.model_hr_course_schedule
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__course_schedule_ids
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee__course_schedule_id
 msgid "Course Schedule"
-msgstr "Calendario Corso"
+msgstr "Calendario corso"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_category__name
 msgid "Course category"
-msgstr "Categoria Corso"
+msgstr "Categoria corso"
 
 #. module: hr_course
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_form_view
 msgid "Course name"
-msgstr "Nome Corso"
+msgstr "Nome corso"
 
 #. module: hr_course
 #: model:mail.channel,name:hr_course.mail_channel_course_validity
@@ -246,7 +246,7 @@ msgstr "Corsi"
 #: model:ir.ui.menu,name:hr_course.menu_hr_course_schedule
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_schedule_form_view
 msgid "Courses Schedule"
-msgstr "Calendario Corsi"
+msgstr "Calendario corsi"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__create_uid
@@ -288,7 +288,7 @@ msgstr "Bozza"
 #. module: hr_course
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_schedule_form_view
 msgid "Draft Course"
-msgstr "Corso in Bozza"
+msgstr "Corso bozza"
 
 #. module: hr_course
 #: model:ir.model,name:hr_course.model_hr_employee
@@ -356,7 +356,7 @@ msgstr "Corso HR: verifica la data di validità"
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__permanence
 msgid "Has Permanence"
-msgstr "Validità permanente"
+msgstr "Ha frequenza"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__id
@@ -393,12 +393,12 @@ msgstr "In corso"
 #. module: hr_course
 #: model:ir.model.fields.selection,name:hr_course.selection__hr_course_schedule__state__in_validation
 msgid "In validation"
-msgstr "in validazione"
+msgstr "In validazione"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__instructor_ids
 msgid "Instructor"
-msgstr "Istruttore"
+msgstr "Docente"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__message_is_follower
@@ -508,7 +508,7 @@ msgstr "Obbiettivo"
 #. module: hr_course
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_schedule_form_view
 msgid "Pass everybody"
-msgstr "Tutti superato"
+msgstr "Promuovi tutti"
 
 #. module: hr_course
 #: model:ir.model.fields.selection,name:hr_course.selection__hr_course_attendee__result__passed
@@ -523,7 +523,7 @@ msgstr "In attesa"
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__permanence_time
 msgid "Permanence time"
-msgstr "Periodo di validità"
+msgstr "Tempo frequenza"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__place
@@ -533,7 +533,7 @@ msgstr "Luogo"
 #. module: hr_course
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_schedule_form_view
 msgid "Rate Course"
-msgstr "Valuta Corso"
+msgstr "Valuta il corso"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee__result
@@ -559,7 +559,7 @@ msgstr "Mostra se è stata inviata un'e-mail di notifica per il corso"
 #. module: hr_course
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_schedule_form_view
 msgid "Start Course"
-msgstr "Inizia Corso"
+msgstr "Inizia corso"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee__course_start
@@ -582,7 +582,7 @@ msgstr "La data di inizio non può essere successiva alla data di fine."
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__training_company_id
 msgid "Training company"
-msgstr "Azienda/Ente formatore"
+msgstr "Azienda formatrice"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__message_unread
@@ -631,5 +631,5 @@ msgid ""
 "You should set a course back to draft only if you cancelled it by mistake or"
 " if some of its information is incorrect. Do you want to continue?"
 msgstr ""
-"Dovresti reimpostare un corso come bozza solo se lo hai cancellato per "
-"errore o se alcune sue informazioni non sono corrette. Vuoi continuare?"
+"Si dovrebbe reimpostare un corso come bozza solo se lo si è cancellato per "
+"errore o se alcune sue informazioni non sono corrette. Continuare?"
