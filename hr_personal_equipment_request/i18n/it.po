@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-05-18 13:36+0000\n"
+"PO-Revision-Date: 2023-05-22 15:12+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.16.4\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: hr_personal_equipment_request
 #: model_terms:ir.ui.view,arch_db:hr_personal_equipment_request.hr_personal_equipment_request_form_view
@@ -62,7 +62,7 @@ msgstr "Icona tipo attività"
 #. module: hr_personal_equipment_request
 #: model:ir.model,name:hr_personal_equipment_request.model_hr_personal_equipment
 msgid "Adds personal equipment information and allocation"
-msgstr "Aggiunge informazioni su materiali personali e assegnazione"
+msgstr "Aggiunge informazioni su attrezzatura personale e assegnazione"
 
 #. module: hr_personal_equipment_request
 #: code:addons/hr_personal_equipment_request/models/hr_personal_equipment_request.py:0
@@ -181,7 +181,7 @@ msgstr "Conteggio richiesta attrezzatura"
 #. module: hr_personal_equipment_request
 #: model_terms:ir.ui.view,arch_db:hr_personal_equipment_request.hr_personal_equipment_form_view
 msgid "Expire"
-msgstr "Fai scadere"
+msgstr "Scadenza"
 
 #. module: hr_personal_equipment_request
 #: model:ir.model.fields.selection,name:hr_personal_equipment_request.selection__hr_personal_equipment__state__expired
@@ -269,7 +269,7 @@ msgstr "In bozza"
 #: model:ir.model.fields,field_description:hr_personal_equipment_request.field_product_product__is_personal_equipment
 #: model:ir.model.fields,field_description:hr_personal_equipment_request.field_product_template__is_personal_equipment
 msgid "Is Employee Personal Equipment"
-msgstr "È attrezzatura personale dipendente"
+msgstr "È un'attrezzatura personale dipendente"
 
 #. module: hr_personal_equipment_request
 #: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment__message_is_follower
@@ -384,12 +384,12 @@ msgstr "Osservazioni"
 #. module: hr_personal_equipment_request
 #: model_terms:ir.ui.view,arch_db:hr_personal_equipment_request.hr_employee_form_view
 msgid "PE"
-msgstr "MP"
+msgstr "AP"
 
 #. module: hr_personal_equipment_request
 #: model_terms:ir.ui.view,arch_db:hr_personal_equipment_request.hr_employee_form_view
 msgid "PE Request"
-msgstr "Richiesta MP"
+msgstr "Richiesta AP"
 
 #. module: hr_personal_equipment_request
 #: code:addons/hr_personal_equipment_request/models/hr_employee.py:0
