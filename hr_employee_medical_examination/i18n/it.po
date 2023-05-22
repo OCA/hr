@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-05-18 21:29+0000\n"
+"PO-Revision-Date: 2023-05-22 15:08+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.16.4\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: hr_employee_medical_examination
 #. odoo-python
@@ -109,7 +109,7 @@ msgstr "Nome visualizzato"
 #. module: hr_employee_medical_examination
 #: model:ir.model.fields.selection,name:hr_employee_medical_examination.selection__hr_employee_medical_examination__state__done
 msgid "Done"
-msgstr "Completato"
+msgstr "Completata"
 
 #. module: hr_employee_medical_examination
 #: model:ir.model,name:hr_employee_medical_examination.model_hr_employee
@@ -120,7 +120,7 @@ msgstr "Dipendente"
 #. module: hr_employee_medical_examination
 #: model:ir.actions.act_window,name:hr_employee_medical_examination.hr_employee_medical_examination_act_window
 msgid "Employee Medical Examinations"
-msgstr "Visita medico dipendente"
+msgstr "Visita medica dipendente"
 
 #. module: hr_employee_medical_examination
 #: model_terms:ir.ui.view,arch_db:hr_employee_medical_examination.hr_employee_medical_examination_form_view
@@ -172,7 +172,7 @@ msgstr "Genera"
 #. module: hr_employee_medical_examination
 #: model_terms:ir.ui.view,arch_db:hr_employee_medical_examination.wizard_generate_medical_examination_form_view
 msgid "Generate Medical Examination"
-msgstr "Venera visita medica"
+msgstr "Genera visita medica"
 
 #. module: hr_employee_medical_examination
 #. odoo-python
