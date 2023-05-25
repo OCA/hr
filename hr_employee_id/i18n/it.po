@@ -10,14 +10,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-31 03:38+0000\n"
-"PO-Revision-Date: 2018-03-31 03:38+0000\n"
-"Last-Translator: Marco Calcagni <mcalcagni@dinamicheaziendali.it>, 2017\n"
+"PO-Revision-Date: 2023-05-25 12:08+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: Italian (https://www.transifex.com/oca/teams/23907/it/)\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: hr_employee_id
 #: model:ir.model.fields,field_description:hr_employee_id.field_res_company__employee_id_random_digits
@@ -32,6 +33,9 @@ msgid ""
 "specific.\" role=\"img\" aria-label=\"Values set here are company-specific."
 "\" groups=\"base.group_multi_company\"/>"
 msgstr ""
+"<span class=\"fa fa-lg fa-building-o\" title=\"I valori impostati qui sono "
+"specifici per azienda.\" role=\"img\" aria-label=\"I valori impostati qui "
+"sono specifici per azienda.\" groups=\"base.group_multi_company\"/>"
 
 #. module: hr_employee_id
 #: model:ir.model,name:hr_employee_id.model_res_company
@@ -41,7 +45,7 @@ msgstr "Aziende"
 #. module: hr_employee_id
 #: model:ir.model,name:hr_employee_id.model_res_config_settings
 msgid "Config Settings"
-msgstr ""
+msgstr "Impostazioni configurazione"
 
 #. module: hr_employee_id
 #: model:ir.model,name:hr_employee_id.model_hr_employee
@@ -50,41 +54,37 @@ msgstr "Dipendente"
 
 #. module: hr_employee_id
 #: model_terms:ir.ui.view,arch_db:hr_employee_id.res_config_settings_view_form
-#, fuzzy
 msgid "Employee Identifier"
-msgstr "Matricola dipendente"
+msgstr "Identificativo dipendente"
 
 #. module: hr_employee_id
 #: model:ir.model.fields,field_description:hr_employee_id.field_res_company__employee_id_gen_method
 #: model:ir.model.fields,field_description:hr_employee_id.field_res_config_settings__employee_id_gen_method
-#, fuzzy
 msgid "Generation Method"
-msgstr "Metodo di generazione matricole"
+msgstr "Metodo di generazione"
 
 #. module: hr_employee_id
 #: model:ir.model.fields,field_description:hr_employee_id.field_hr_employee__identification_id
 msgid "Identification No"
-msgstr ""
+msgstr "Nr. identificazione"
 
 #. module: hr_employee_id
 #: model:ir.model.fields,field_description:hr_employee_id.field_res_company__employee_id_sequence
 #: model:ir.model.fields,field_description:hr_employee_id.field_res_config_settings__employee_id_sequence
 msgid "Identifier Sequence"
-msgstr ""
+msgstr "Sequenza identificazione"
 
 #. module: hr_employee_id
 #: model:ir.model.fields,help:hr_employee_id.field_res_company__employee_id_random_digits
 #: model:ir.model.fields,help:hr_employee_id.field_res_config_settings__employee_id_random_digits
-#, fuzzy
 msgid "Number of digits in employee identifier"
-msgstr "Numero di caratteri per le matricole dipendente"
+msgstr "Numero di caratteri per l'identificativo dipendente"
 
 #. module: hr_employee_id
 #: model:ir.model.fields,help:hr_employee_id.field_res_company__employee_id_sequence
 #: model:ir.model.fields,help:hr_employee_id.field_res_config_settings__employee_id_sequence
-#, fuzzy
 msgid "Pattern to be used for employee identifier generation"
-msgstr "Modello da usare per la generazione delle matricole"
+msgstr "Modello da usare per la generazione dell'identificativo dipendente"
 
 #. module: hr_employee_id
 #: selection:res.company,employee_id_gen_method:0
@@ -95,6 +95,8 @@ msgstr "Casuale"
 #: model_terms:ir.ui.view,arch_db:hr_employee_id.res_config_settings_view_form
 msgid "Select &amp; configure default employee identifier generation scheme"
 msgstr ""
+"Seleziona &amp; configura lo schema predefinito di generazione "
+"identificativo dipendente"
 
 #. module: hr_employee_id
 #: selection:res.company,employee_id_gen_method:0
@@ -108,9 +110,9 @@ msgstr "La matricola dipendente deve essere univoca per le società."
 
 #. module: hr_employee_id
 #: code:addons/hr_employee_id/models/hr_employee.py:58
-#, fuzzy, python-format
+#, python-format
 msgid "Unable to generate unique Employee ID in %d steps."
-msgstr "Impossibile generare una matricola dipendente che sia univoca."
+msgstr "Impossibile generare un ID dipendente univoco dopo %d prove."
 
 #~ msgid ""
 #~ "<span>(*) This configuration is related to the company you're logged into."
