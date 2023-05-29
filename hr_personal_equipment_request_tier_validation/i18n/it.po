@@ -6,98 +6,100 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2023-05-29 15:08+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: hr_personal_equipment_request_tier_validation
 #: model:ir.model.fields,field_description:hr_personal_equipment_request_tier_validation.field_hr_personal_equipment_request__can_review
 msgid "Can Review"
-msgstr ""
+msgstr "Può approvare"
 
 #. module: hr_personal_equipment_request_tier_validation
 #: model:ir.model.fields,field_description:hr_personal_equipment_request_tier_validation.field_hr_personal_equipment_request__display_name
 #: model:ir.model.fields,field_description:hr_personal_equipment_request_tier_validation.field_tier_definition__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nome visualizzato"
 
 #. module: hr_personal_equipment_request_tier_validation
 #: model:ir.model.fields,field_description:hr_personal_equipment_request_tier_validation.field_hr_personal_equipment_request__has_comment
 msgid "Has Comment"
-msgstr ""
+msgstr "Ha commenti"
 
 #. module: hr_personal_equipment_request_tier_validation
 #: model:ir.model.fields,field_description:hr_personal_equipment_request_tier_validation.field_hr_personal_equipment_request__id
 #: model:ir.model.fields,field_description:hr_personal_equipment_request_tier_validation.field_tier_definition__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: hr_personal_equipment_request_tier_validation
 #: model:ir.model.fields,field_description:hr_personal_equipment_request_tier_validation.field_hr_personal_equipment_request____last_update
 #: model:ir.model.fields,field_description:hr_personal_equipment_request_tier_validation.field_tier_definition____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Ultima modifica il"
 
 #. module: hr_personal_equipment_request_tier_validation
 #: model:ir.model.fields,field_description:hr_personal_equipment_request_tier_validation.field_hr_personal_equipment_request__need_validation
 msgid "Need Validation"
-msgstr ""
+msgstr "Richiede approvazione"
 
 #. module: hr_personal_equipment_request_tier_validation
 #: model:ir.model.fields,field_description:hr_personal_equipment_request_tier_validation.field_hr_personal_equipment_request__next_review
 msgid "Next Review"
-msgstr ""
+msgstr "Prossima approvazione"
 
 #. module: hr_personal_equipment_request_tier_validation
 #: model:tier.definition,name:hr_personal_equipment_request_tier_validation.tier_definition_personal_equipment_request
 msgid "Personal Equipment Request Tier Validation"
-msgstr ""
+msgstr "Livello validazione richiesta attrezzatura personale"
 
 #. module: hr_personal_equipment_request_tier_validation
 #: model:ir.model.fields,field_description:hr_personal_equipment_request_tier_validation.field_hr_personal_equipment_request__rejected
 msgid "Rejected"
-msgstr ""
+msgstr "Respinta"
 
 #. module: hr_personal_equipment_request_tier_validation
 #: model:ir.model.fields,field_description:hr_personal_equipment_request_tier_validation.field_hr_personal_equipment_request__rejected_message
 msgid "Rejected Message"
-msgstr ""
+msgstr "Messaggio rifiutato"
 
 #. module: hr_personal_equipment_request_tier_validation
 #: model:ir.model.fields,field_description:hr_personal_equipment_request_tier_validation.field_hr_personal_equipment_request__reviewer_ids
 msgid "Reviewers"
-msgstr ""
+msgstr "Revisori"
 
 #. module: hr_personal_equipment_request_tier_validation
 #: model:ir.model,name:hr_personal_equipment_request_tier_validation.model_hr_personal_equipment_request
 msgid "This model allows to create a personal equipment request"
-msgstr ""
+msgstr "Questo modello permette di creare una richiesta attrezzatura personale"
 
 #. module: hr_personal_equipment_request_tier_validation
 #: model:ir.model,name:hr_personal_equipment_request_tier_validation.model_tier_definition
 msgid "Tier Definition"
-msgstr ""
+msgstr "Definizione livello"
 
 #. module: hr_personal_equipment_request_tier_validation
 #: model:ir.model.fields,field_description:hr_personal_equipment_request_tier_validation.field_hr_personal_equipment_request__to_validate_message
 msgid "To Validate Message"
-msgstr ""
+msgstr "Messaggio da approvare"
 
 #. module: hr_personal_equipment_request_tier_validation
 #: model:ir.model.fields,field_description:hr_personal_equipment_request_tier_validation.field_hr_personal_equipment_request__validated
 msgid "Validated"
-msgstr ""
+msgstr "Approvato"
 
 #. module: hr_personal_equipment_request_tier_validation
 #: model:ir.model.fields,field_description:hr_personal_equipment_request_tier_validation.field_hr_personal_equipment_request__validated_message
 msgid "Validated Message"
-msgstr ""
+msgstr "Messaggio approvato"
 
 #. module: hr_personal_equipment_request_tier_validation
 #: model:ir.model.fields,field_description:hr_personal_equipment_request_tier_validation.field_hr_personal_equipment_request__review_ids
 msgid "Validations"
-msgstr ""
+msgstr "Approvazioni"
