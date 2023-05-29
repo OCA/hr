@@ -66,6 +66,7 @@ class HrCourseSchedule(models.Model):
         readonly=True,
         states={"in_validation": [("readonly", False)]},
     )
+    note = fields.Text()
 
     @api.constrains("start_date", "end_date")
     def _check_start_end_dates(self):
