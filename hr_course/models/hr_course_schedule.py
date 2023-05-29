@@ -76,6 +76,7 @@ class HrCourseSchedule(models.Model):
     )
 
     course_expiration_alert_sent = fields.Boolean()
+    note = fields.Text()
 
     @api.model
     def send_course_expiration_notification_email(self):

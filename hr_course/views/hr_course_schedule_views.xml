@@ -130,6 +130,13 @@
                             </div>
                             <field name="course_attendee_ids" widget="one2many_list" />
                         </page>
+                        <page
+                            name="note"
+                            string="Internal notes"
+                            groups="hr.group_hr_manager"
+                        >
+                            <field name="note" />
+                        </page>
                     </notebook>
                 </sheet>
                 <div class="oe_chatter">
