@@ -6,77 +6,79 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2023-05-30 17:08+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: hr_study
 #: model:ir.model.fields,field_description:hr_study.field_hr_study__company_id
 msgid "Company"
-msgstr ""
+msgstr "Azienda"
 
 #. module: hr_study
 #: model:ir.model.fields,field_description:hr_study.field_hr_study__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Creato da"
 
 #. module: hr_study
 #: model:ir.model.fields,field_description:hr_study.field_hr_study__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Creato il"
 
 #. module: hr_study
 #: model:ir.model.fields,field_description:hr_study.field_hr_study__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nome visualizzato"
 
 #. module: hr_study
 #: model:ir.model,name:hr_study.model_hr_employee
 msgid "Employee"
-msgstr ""
+msgstr "Dipendente"
 
 #. module: hr_study
 #: model:ir.model.fields,field_description:hr_study.field_hr_study__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: hr_study
 #: model:ir.model.fields,field_description:hr_study.field_hr_study____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Ultima modifica il"
 
 #. module: hr_study
 #: model:ir.model.fields,field_description:hr_study.field_hr_study__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Ultimo aggiornamento di"
 
 #. module: hr_study
 #: model:ir.model.fields,field_description:hr_study.field_hr_study__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Ultimo aggiornamento il"
 
 #. module: hr_study
 #: model:ir.model.fields,field_description:hr_study.field_hr_study__name
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 #. module: hr_study
 #: model:ir.model.fields,field_description:hr_study.field_hr_study__sequence
 msgid "Sequence"
-msgstr ""
+msgstr "Sequenza"
 
 #. module: hr_study
 #: model:ir.actions.act_window,name:hr_study.action_hr_study
 #: model:ir.ui.menu,name:hr_study.menu_hr_study
 msgid "Studies"
-msgstr ""
+msgstr "Formazione"
 
 #. module: hr_study
 #: model:ir.model,name:hr_study.model_hr_study
 #: model:ir.model.fields,field_description:hr_study.field_hr_employee__study_id
 msgid "Study"
-msgstr ""
+msgstr "Formazione"
