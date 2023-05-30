@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-03 03:00+0000\n"
-"PO-Revision-Date: 2023-04-17 16:34+0000\n"
+"PO-Revision-Date: 2023-05-30 12:08+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: Italian (https://www.transifex.com/oca/teams/23907/it/)\n"
 "Language: it\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.1\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: hr_employee_identification
 #: field:hr.employee.identification.type,create_uid:0
@@ -48,23 +48,23 @@ msgstr "ID"
 #. module: hr_employee_identification
 #: field:hr.employee,identification_expiry_date:0
 msgid "Identification expiry"
-msgstr ""
+msgstr "Scadenza identificazione"
 
 #. module: hr_employee_identification
 #: field:hr.employee,identification_type_id:0
 msgid "Identification type"
-msgstr ""
+msgstr "Tipo identificazione"
 
 #. module: hr_employee_identification
 #: model:ir.actions.act_window,name:hr_employee_identification.action_hr_employee_identification_type
 #: model:ir.ui.menu,name:hr_employee_identification.menu_hr_employee_identification_type
 msgid "Identification types"
-msgstr ""
+msgstr "Tipi identificazione"
 
 #. module: hr_employee_identification
 #: model:ir.model,name:hr_employee_identification.model_hr_employee_identification_type
 msgid "Identification/Passport"
-msgstr ""
+msgstr "Identificazione/passaporto"
 
 #. module: hr_employee_identification
 #: field:hr.employee.identification.type,__last_update:0
