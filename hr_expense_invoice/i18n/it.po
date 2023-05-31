@@ -1,0 +1,103 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* hr_expense_invoice
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#. module: hr_expense_invoice
+#: model_terms:ir.ui.view,arch_db:hr_expense_invoice.hr_expense_sheet_form_view_inherit_sale_expense
+msgid "Create Vendor Bill"
+msgstr ""
+
+#. module: hr_expense_invoice
+#: model:ir.model,name:hr_expense_invoice.model_hr_expense
+msgid "Expense"
+msgstr ""
+
+#. module: hr_expense_invoice
+#: model:ir.model,name:hr_expense_invoice.model_hr_expense_sheet
+msgid "Expense Report"
+msgstr ""
+
+#. module: hr_expense_invoice
+#: model:ir.model.fields,help:hr_expense_invoice.field_hr_expense__sheet_id_state
+msgid "Expense Report State"
+msgstr ""
+
+#. module: hr_expense_invoice
+#: model:ir.model.fields,field_description:hr_expense_invoice.field_account_invoice__expense_ids
+msgid "Expenses"
+msgstr ""
+
+#. module: hr_expense_invoice
+#: model:ir.model,name:hr_expense_invoice.model_account_invoice
+msgid "Invoice"
+msgstr ""
+
+#. module: hr_expense_invoice
+#: model:ir.model.fields,field_description:hr_expense_invoice.field_hr_expense_sheet__invoice_count
+msgid "Invoice Count"
+msgstr ""
+
+#. module: hr_expense_invoice
+#: code:addons/hr_expense_invoice/models/hr_expense_sheet.py:70
+#: model_terms:ir.ui.view,arch_db:hr_expense_invoice.hr_expense_sheet_form_view_inherit_sale_expense
+#, python-format
+msgid "Invoices"
+msgstr ""
+
+#. module: hr_expense_invoice
+#: model:ir.model,name:hr_expense_invoice.model_account_move_line
+msgid "Journal Item"
+msgstr ""
+
+#. module: hr_expense_invoice
+#: model:ir.model,name:hr_expense_invoice.model_account_payment
+msgid "Payments"
+msgstr ""
+
+#. module: hr_expense_invoice
+#: code:addons/hr_expense_invoice/models/account_payment.py:15
+#, python-format
+msgid "Register payment on expense's invoice is not allowed"
+msgstr ""
+
+#. module: hr_expense_invoice
+#: model:ir.model.fields,field_description:hr_expense_invoice.field_hr_expense__sheet_id_state
+msgid "Sheet state"
+msgstr ""
+
+#. module: hr_expense_invoice
+#: model:ir.model.fields,field_description:hr_expense_invoice.field_hr_expense__invoice_id
+msgid "Vendor Bill"
+msgstr ""
+
+#. module: hr_expense_invoice
+#: code:addons/hr_expense_invoice/models/hr_expense_sheet.py:63
+#, python-format
+msgid "Vendor bill amount mismatch!\n"
+"Please make sure amount in vendor bills equal to amount of its expense lines"
+msgstr ""
+
+#. module: hr_expense_invoice
+#: code:addons/hr_expense_invoice/models/hr_expense.py:67
+#: code:addons/hr_expense_invoice/models/hr_expense_sheet.py:57
+#, python-format
+msgid "Vendor bill state must be Open"
+msgstr ""
+
+#. module: hr_expense_invoice
+#: code:addons/hr_expense_invoice/models/account_invoice.py:23
+#, python-format
+msgid "You can't change the total amount, as there's an expense linked to this invoice."
+msgstr ""
