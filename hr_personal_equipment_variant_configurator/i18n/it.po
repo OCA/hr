@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-05-25 12:08+0000\n"
+"PO-Revision-Date: 2023-05-31 16:09+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -19,7 +19,7 @@ msgstr ""
 #. module: hr_personal_equipment_variant_configurator
 #: model:ir.model,name:hr_personal_equipment_variant_configurator.model_hr_personal_equipment
 msgid "Adds personal equipment information and allocation"
-msgstr "Aggiunge informazioni su attrezzatura personale e assegnazione"
+msgstr "Aggiunge informazioni e assegnazione su attrezzatura individuale"
 
 #. module: hr_personal_equipment_variant_configurator
 #: model:ir.model.fields,field_description:hr_personal_equipment_variant_configurator.field_hr_personal_equipment__can_create_product
