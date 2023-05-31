@@ -26,7 +26,7 @@ addon | version | maintainers | summary
 [hr_attendance_modification_tracking](hr_attendance_modification_tracking/) | 12.0.2.0.1 |  | Attendance changes will now be registered in the chatter.
 [hr_attendance_reason](hr_attendance_reason/) | 12.0.1.0.0 |  | HR Attendance Reason
 [hr_attendance_report_theoretical_time](hr_attendance_report_theoretical_time/) | 12.0.1.5.1 |  | Theoretical vs Attended Time Analysis
-[hr_attendance_rfid](hr_attendance_rfid/) | 12.0.1.1.0 |  | HR Attendance RFID
+[hr_attendance_rfid](hr_attendance_rfid/) | 12.0.1.1.1 |  | HR Attendance RFID
 [hr_attendance_sheet](hr_attendance_sheet/) | 12.0.1.0.0 |  | Group attendances into attendance sheets.
 [hr_calendar_rest_time](hr_calendar_rest_time/) | 12.0.2.0.0 |  | Adds rest time to the calendar attendance records.
 [hr_contract_currency](hr_contract_currency/) | 12.0.1.1.0 |  | Employee's contract currency
