@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-05-31 15:08+0000\n"
+"PO-Revision-Date: 2023-05-31 15:10+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -238,7 +238,8 @@ msgstr ""
 #. module: hr_employee_ppe
 #: model:ir.model,name:hr_employee_ppe.model_hr_personal_equipment_request
 msgid "This model allows to create a personal equipment request"
-msgstr "Questo modello permette di creare una richiesta attrezzatura personale"
+msgstr ""
+"Questo modello permette di creare una richiesta attrezzatura individuale"
 
 #. module: hr_employee_ppe
 #: model:ir.model.fields,help:hr_employee_ppe.field_hr_personal_equipment__expire_ppe
