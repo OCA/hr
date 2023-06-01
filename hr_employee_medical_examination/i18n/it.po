@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-05-22 16:08+0000\n"
+"PO-Revision-Date: 2023-06-01 15:09+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -70,7 +70,7 @@ msgstr "Torna ai sospesi"
 #. module: hr_employee_medical_examination
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee__can_see_examinations_button
 msgid "Can See Examinations Button"
-msgstr "Può visualizzare pulsante visita"
+msgstr "Può visualizzare pulsante visite"
 
 #. module: hr_employee_medical_examination
 #: model_terms:ir.ui.view,arch_db:hr_employee_medical_examination.wizard_generate_medical_examination_form_view
@@ -119,7 +119,7 @@ msgstr "Dipendente"
 #. module: hr_employee_medical_examination
 #: model:ir.actions.act_window,name:hr_employee_medical_examination.hr_employee_medical_examination_act_window
 msgid "Employee Medical Examinations"
-msgstr "Visita medica dipendente"
+msgstr "Visite mediche dipendente"
 
 #. module: hr_employee_medical_examination
 #: model_terms:ir.ui.view,arch_db:hr_employee_medical_examination.hr_employee_medical_examination_form_view
