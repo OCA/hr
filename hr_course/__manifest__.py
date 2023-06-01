@@ -5,7 +5,7 @@
     "name": "HR Course",
     "summary": """
         This module allows your to manage employee's training courses""",
-    "version": "14.0.3.0.3",
+    "version": "14.0.3.0.4",
     "license": "AGPL-3",
     "author": "Creu Blanca,Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/hr",
