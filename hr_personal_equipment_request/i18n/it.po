@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-05-31 18:09+0000\n"
+"PO-Revision-Date: 2023-06-01 15:09+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -76,26 +76,26 @@ msgstr "Conteggio assegnazioni"
 #: model_terms:ir.ui.view,arch_db:hr_personal_equipment_request.hr_personal_equipment_request_form_view
 msgid "Are you sure you want to accept this personal equipment request?"
 msgstr ""
-"Sei sicuro di voler accettare questa richiesta di attrezzatura individuale?"
+"Si vuole veramente accettare questa richiesta di attrezzatura individuale?"
 
 #. module: hr_personal_equipment_request
 #: model_terms:ir.ui.view,arch_db:hr_personal_equipment_request.hr_personal_equipment_request_form_view
 msgid "Are you sure you want to cancel this personal equipment request?"
 msgstr ""
-"Sei sicuro di voler annullare questa richiesta di attrezzatura individuale?"
+"Si vuole veramente annullare questa richiesta di attrezzatura individuale?"
 
 #. module: hr_personal_equipment_request
 #: model_terms:ir.ui.view,arch_db:hr_personal_equipment_request.hr_personal_equipment_form_view
 msgid "Are you sure you want to expire this personal equipment allocation?"
 msgstr ""
-"Sei sicuro di voler far scadere questa richiesta di attrezzatura individuale?"
+"Si vuole veramente far scadere questa richiesta di attrezzatura individuale?"
 
 #. module: hr_personal_equipment_request
 #: model_terms:ir.ui.view,arch_db:hr_personal_equipment_request.hr_personal_equipment_form_view
 #: model_terms:ir.ui.view,arch_db:hr_personal_equipment_request.hr_personal_equipment_request_form_view
 msgid "Are you sure you want to validate this personal equipment allocation?"
 msgstr ""
-"Sei sicuro di voler validare questa richiesta di attrezzatura individuale?"
+"Si vuole veramente validare questa richiesta di attrezzatura individuale?"
 
 #. module: hr_personal_equipment_request
 #: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment__message_attachment_count
