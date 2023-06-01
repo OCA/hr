@@ -21,9 +21,11 @@ msgstr ""
 msgid ""
 "<div>\n"
 "                <p>Hi,</p>\n"
-"                <p>The validity time of the course ${object.name} will end up soon. You maybe need to plan a new one. </p>\n"
+"                <p>The validity time of the course ${object.name} will end "
+"up soon. You maybe need to plan a new one. </p>\n"
 "                <p>The concerned employees are:</p>\n"
-"                % for employee in object.course_attendee_ids.mapped(\"employee_id.name\"):\n"
+"                % for employee in object.course_attendee_ids."
+"mapped(\"employee_id.name\"):\n"
 "                <p>${employee}</p>\n"
 "                % endfor\n"
 "            </div>\n"
@@ -34,8 +36,8 @@ msgstr ""
 "                <p>Il tempo di validità del corso ${object.name} scadrà "
 "presto. Forse devi pianificarne uno nuovo </p>\n"
 "                <p>I dipendenti interessati sono:</p>\n"
-"                % for employee in object.course_attendee_ids.mapped("
-"\"employee_id.name\"):\n"
+"                % for employee in object.course_attendee_ids."
+"mapped(\"employee_id.name\"):\n"
 "                <p>${employee}</p>\n"
 "                % endfor\n"
 "            </div>\n"
@@ -401,6 +403,11 @@ msgid "Instructor"
 msgstr "Docente"
 
 #. module: hr_course
+#: model_terms:ir.ui.view,arch_db:hr_course.hr_course_schedule_form_view
+msgid "Internal notes"
+msgstr ""
+
+#. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__message_is_follower
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__message_is_follower
 msgid "Is Follower"
@@ -463,6 +470,11 @@ msgstr "Messaggi"
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__name
 msgid "Name"
 msgstr "Nome"
+
+#. module: hr_course
+#: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__note
+msgid "Note"
+msgstr ""
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__message_needaction_counter
@@ -628,8 +640,8 @@ msgstr "Non puoi completare il corso con risultati in sospeso"
 #. module: hr_course
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_schedule_form_view
 msgid ""
-"You should set a course back to draft only if you cancelled it by mistake or"
-" if some of its information is incorrect. Do you want to continue?"
+"You should set a course back to draft only if you cancelled it by mistake or "
+"if some of its information is incorrect. Do you want to continue?"
 msgstr ""
 "Si dovrebbe reimpostare un corso come bozza solo se lo si è cancellato per "
 "errore o se alcune sue informazioni non sono corrette. Continuare?"
