@@ -154,19 +154,20 @@ class HrEmployee(models.Model):
     def _sync_user(self, user, employee_has_image=False):
         res = super()._sync_user(user=user, employee_has_image=employee_has_image)
         # set calendar_ids from Create employee button from user
-        res.update(
-            {
-                "calendar_ids": [
-                    (
-                        0,
-                        0,
-                        {
-                            "calendar_id": user.company_id.resource_calendar_id.id,
-                        },
-                    ),
-                ]
-            }
-        )
+        if not self.calendar_ids:
+            res.update(
+                {
+                    "calendar_ids": [
+                        (
+                            0,
+                            0,
+                            {
+                                "calendar_id": user.company_id.resource_calendar_id.id,
+                            },
+                        ),
+                    ]
+                }
+            )
         return res
 
     @api.model_create_multi
