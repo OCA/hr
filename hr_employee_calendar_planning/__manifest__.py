@@ -9,7 +9,11 @@
     "license": "AGPL-3",
     "installable": True,
     "depends": ["hr"],
-    "data": ["security/ir.model.access.csv", "views/hr_employee_views.xml"],
+    "data": [
+        "security/ir.model.access.csv",
+        "views/hr_employee_views.xml",
+        "views/resource_calendar_views.xml",
+    ],
     "post_init_hook": "post_init_hook",
     "maintainers": ["victoralmau", "pedrobaeza"],
 }
