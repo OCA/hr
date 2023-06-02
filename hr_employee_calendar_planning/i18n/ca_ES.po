@@ -17,13 +17,17 @@ msgstr ""
 #. module: hr_employee_calendar_planning
 #: code:addons/hr_employee_calendar_planning/models/resource_calendar.py:0
 #, python-format
-msgid "%s is used in %s employee(s) related to another company."
+msgid ""
+"%(item_name)s is used in %(total_items)s employee(s) related to another "
+"company."
 msgstr ""
 
 #. module: hr_employee_calendar_planning
 #: code:addons/hr_employee_calendar_planning/models/resource_calendar.py:0
 #, python-format
-msgid "%s is used in %s employee(s). You should change them first."
+msgid ""
+"%(item_name)s is used in %(total_items)s employee(s).You should change them "
+"first."
 msgstr ""
 
 #. module: hr_employee_calendar_planning
@@ -68,9 +72,7 @@ msgid "Date end should be higher than date start"
 msgstr ""
 
 #. module: hr_employee_calendar_planning
-#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee__display_name
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__display_name
-#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_resource_calendar__display_name
 msgid "Display Name"
 msgstr ""
 
@@ -82,7 +84,13 @@ msgstr ""
 
 #. module: hr_employee_calendar_planning
 #: model:ir.model,name:hr_employee_calendar_planning.model_hr_employee_calendar
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_resource_calendar__employee_calendar_ids
 msgid "Employee Calendar"
+msgstr ""
+
+#. module: hr_employee_calendar_planning
+#: model_terms:ir.ui.view,arch_db:hr_employee_calendar_planning.resource_calendar_form
+msgid "Employee Calendars"
 msgstr ""
 
 #. module: hr_employee_calendar_planning
@@ -91,9 +99,7 @@ msgid "End Date"
 msgstr ""
 
 #. module: hr_employee_calendar_planning
-#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee__id
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__id
-#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_resource_calendar__id
 msgid "ID"
 msgstr ""
 
@@ -105,9 +111,7 @@ msgid ""
 msgstr ""
 
 #. module: hr_employee_calendar_planning
-#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee____last_update
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar____last_update
-#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_resource_calendar____last_update
 msgid "Last Modified on"
 msgstr ""
 

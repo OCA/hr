@@ -11,12 +11,18 @@ class ResourceCalendar(models.Model):
 
     active = fields.Boolean(default=True)
     auto_generate = fields.Boolean()
+    employee_calendar_ids = fields.One2many("hr.employee.calendar", "calendar_id")
 
     @api.constrains("active")
     def _check_active(self):
         for item in self:
             total_items = self.env["hr.employee.calendar"].search_count(
-                [("calendar_id", "=", item.id)]
+                [
+                    ("calendar_id", "=", item.id),
+                    "|",
+                    ("date_end", "=", False),
+                    ("date_end", "<=", fields.Date.today()),
+                ]
             )
             if total_items:
                 raise ValidationError(
