@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-05-18 16:43+0000\n"
+"PO-Revision-Date: 2023-06-05 08:09+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.16.4\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: hr_course
 #: model:mail.template,body_html:hr_course.mail_template_validity_reminder
@@ -405,7 +405,7 @@ msgstr "Docente"
 #. module: hr_course
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_schedule_form_view
 msgid "Internal notes"
-msgstr ""
+msgstr "Note interne"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__message_is_follower
@@ -474,7 +474,7 @@ msgstr "Nome"
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__note
 msgid "Note"
-msgstr ""
+msgstr "Nota"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__message_needaction_counter
