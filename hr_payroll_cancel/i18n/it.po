@@ -6,23 +6,25 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2023-06-05 17:09+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: hr_payroll_cancel
 #: model:ir.model,name:hr_payroll_cancel.model_hr_payslip
 msgid "Pay Slip"
-msgstr ""
+msgstr "Busta paga"
 
 #. module: hr_payroll_cancel
 #: model:ir.model.fields,field_description:hr_payroll_cancel.field_hr_payslip__refunded_id
 msgid "Refunded Payslip"
-msgstr ""
+msgstr "Busta paga rimborsata"
 
 #. module: hr_payroll_cancel
 #: code:addons/hr_payroll_cancel/models/hr_payroll.py:31
@@ -30,3 +32,5 @@ msgstr ""
 msgid "To cancel the Original Payslip the\n"
 "                    Refunded Payslip needs to be canceled first!"
 msgstr ""
+"Per annullare la busta paga originale la\n"
+"                    busta paga rimborsata deve prima essere annullata!"
