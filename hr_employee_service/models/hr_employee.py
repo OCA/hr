@@ -99,3 +99,21 @@ class HrEmployee(models.Model):
     # NOTE: Support odoo/odoo@90731ad170c503cdfe89a9998fa1d1e2a5035c86
     def _get_date_start_work(self):
         return self.sudo().service_start_date or super()._get_date_start_work()
+
+    def get_service_duration_from_date(self, date=None):
+        """
+        Returns the employee service duration for the given date.
+        This function is used in OCA/payroll modules as a helper function
+        to calculate employee service duration calculated for the given date.
+        """
+        self.ensure_one()
+        if date and self.service_start_date and date > self.service_start_date:
+            service_duration = relativedelta(date, self.service_start_date)
+            res = {
+                "years": service_duration.years,
+                "months": service_duration.months,
+                "days": service_duration.days,
+            }
+        else:
+            res = {"years": 0, "months": 0, "days": 0}
+        return res
