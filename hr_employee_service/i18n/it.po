@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-06-05 17:09+0000\n"
+"PO-Revision-Date: 2023-06-06 10:09+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -82,7 +82,7 @@ msgstr "Durata servizio in giorni"
 #. module: hr_employee_service
 #: model:ir.model.fields,field_description:hr_employee_service.field_hr_employee__service_start_date
 msgid "Start Date"
-msgstr "Data di inizio"
+msgstr "Data inizio"
 
 #. module: hr_employee_service
 #: model:ir.model.fields,help:hr_employee_service.field_hr_employee__service_start_date
