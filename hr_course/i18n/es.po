@@ -329,6 +329,11 @@ msgid "Instructor"
 msgstr "Instructor"
 
 #. module: hr_course
+#: model_terms:ir.ui.view,arch_db:hr_course.hr_course_schedule_form_view
+msgid "Internal notes"
+msgstr ""
+
+#. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__message_is_follower
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__message_is_follower
 msgid "Is Follower"
@@ -382,6 +387,11 @@ msgstr "Mensajes"
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__name
 msgid "Name"
 msgstr "Nombre"
+
+#. module: hr_course
+#: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__note
+msgid "Note"
+msgstr ""
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__message_needaction_counter
