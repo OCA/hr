@@ -20,7 +20,8 @@ msgstr ""
 #: code:addons/hr_employee_calendar_planning/models/resource_calendar.py:0
 #, python-format
 msgid "%s is used in %s employee(s) related to another company."
-msgstr "%s está siendo usada en %s empleados(s) relacionados con otra compañía."
+msgstr ""
+"%s está siendo usada en %s empleados(s) relacionados con otra compañía."
 
 #. module: hr_employee_calendar_planning
 #: code:addons/hr_employee_calendar_planning/models/resource_calendar.py:0
@@ -84,8 +85,14 @@ msgstr "Empleado"
 
 #. module: hr_employee_calendar_planning
 #: model:ir.model,name:hr_employee_calendar_planning.model_hr_employee_calendar
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_resource_calendar__employee_calendar_ids
 msgid "Employee Calendar"
 msgstr "Calendario del empleado"
+
+#. module: hr_employee_calendar_planning
+#: model_terms:ir.ui.view,arch_db:hr_employee_calendar_planning.resource_calendar_form
+msgid "Employee Calendars"
+msgstr ""
 
 #. module: hr_employee_calendar_planning
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__date_end
