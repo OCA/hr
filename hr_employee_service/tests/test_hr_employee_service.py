@@ -128,3 +128,42 @@ class TestHrEmployeeService(common.TransactionCase):
 
         self.assertEqual(employee.service_duration, 0)
         employee._get_date_start_work()
+
+    def test_get_service_duration_from_date_1(self):
+        employee = self.SudoEmployee.create(
+            {
+                "name": "Employee #9",
+                "service_hire_date": (self.today - relativedelta(years=1)),
+                "service_start_date": (self.today - relativedelta(years=1)),
+            }
+        )
+        search_date = self.today - relativedelta(months=10)
+        result = employee.get_service_duration_from_date(search_date)
+        self.assertEqual(result["years"], 0)
+        self.assertEqual(result["months"], 2)
+
+    def test_get_service_duration_from_date_2(self):
+        employee = self.SudoEmployee.create(
+            {
+                "name": "Employee #10",
+                "service_hire_date": (self.today - relativedelta(years=1)),
+                "service_start_date": (self.today - relativedelta(years=1)),
+            }
+        )
+        search_date = None
+        result = employee.get_service_duration_from_date(search_date)
+        self.assertEqual(result["years"], 0)
+        self.assertEqual(result["months"], 0)
+
+    def test_get_service_duration_from_date_3(self):
+        employee = self.SudoEmployee.create(
+            {
+                "name": "Employee #11",
+                "service_hire_date": None,
+                "service_start_date": (self.today - relativedelta(years=1)),
+            }
+        )
+        search_date = self.today - relativedelta(months=10)
+        result = employee.get_service_duration_from_date(search_date)
+        self.assertEqual(result["years"], 0)
+        self.assertEqual(result["months"], 2)
