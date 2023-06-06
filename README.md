@@ -31,6 +31,7 @@ addon | version | maintainers | summary
 [hr_employee_phone_extension](hr_employee_phone_extension/) | 16.0.1.0.0 |  | Employee Phone Extension
 [hr_employee_relative](hr_employee_relative/) | 16.0.1.0.0 |  | Allows storing information about employee's family
 [hr_employee_ssn](hr_employee_ssn/) | 16.0.1.0.0 |  | View/edit employee's SSN & SIN fields
+[hr_holidays_settings](hr_holidays_settings/) | 16.0.1.0.0 |  | Enables Settings Form for HR Holidays.
 [hr_personal_equipment_request](hr_personal_equipment_request/) | 16.0.1.0.0 |  | This addon allows to manage employee personal equipment
 
 [//]: # (end addons)
