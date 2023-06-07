@@ -35,6 +35,7 @@ addon | version | maintainers | summary
 [hr_department_code](hr_department_code/) | 14.0.1.0.0 |  | HR department code
 [hr_employee_age](hr_employee_age/) | 14.0.1.0.0 |  | Age field for employee
 [hr_employee_birth_name](hr_employee_birth_name/) | 14.0.1.0.1 |  | Employee Birth Name
+[hr_employee_birthday_mail](hr_employee_birthday_mail/) | 14.0.1.0.0 |  | Automating birthday mail messages and fostering for a positive work environment.
 [hr_employee_calendar_planning](hr_employee_calendar_planning/) | 14.0.1.6.0 | [![victoralmau](https://github.com/victoralmau.png?size=30px)](https://github.com/victoralmau) [![pedrobaeza](https://github.com/pedrobaeza.png?size=30px)](https://github.com/pedrobaeza) | Employee Calendar Planning
 [hr_employee_digitized_signature](hr_employee_digitized_signature/) | 14.0.1.0.0 | [![newtratip](https://github.com/newtratip.png?size=30px)](https://github.com/newtratip) | Employee Digitized Signature
 [hr_employee_document](hr_employee_document/) | 14.0.1.0.0 |  | Documents attached to the employee profile
