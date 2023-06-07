@@ -10,15 +10,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-31 03:38+0000\n"
-"PO-Revision-Date: 2023-01-02 12:07+0000\n"
-"Last-Translator: Francesco Foresti <francesco.foresti@ooops404.com>\n"
+"PO-Revision-Date: 2023-06-07 09:09+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: Italian (https://www.transifex.com/oca/teams/23907/it/)\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.1\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: hr_employee_id
 #: model:ir.model.fields,field_description:hr_employee_id.field_hr_employeeid_config_settings_employee_id_random_digits
@@ -133,7 +133,7 @@ msgstr "Numero di caratteri per le matricole dipendente"
 #: model:ir.model.fields,help:hr_employee_id.field_hr_employeeid_config_settings_employee_id_sequence
 #: model:ir.model.fields,help:hr_employee_id.field_res_company_employee_id_sequence
 msgid "Pattern to be used for employee ID Generation"
-msgstr "Modello da usare per la generazione delle matricole"
+msgstr "Modello da usare per la generazione ID dipendente"
 
 #. module: hr_employee_id
 #: selection:res.company,employee_id_gen_method:0
