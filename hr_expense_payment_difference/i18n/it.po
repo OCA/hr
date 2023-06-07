@@ -6,80 +6,83 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2023-06-07 09:08+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: hr_expense_payment_difference
 #: model:ir.model.fields,help:hr_expense_payment_difference.field_hr_expense_sheet_register_payment_wizard__writeoff_label
 msgid "Change label of the counterpart that will hold the payment difference"
 msgstr ""
+"Modifica etichetta della controparte che terrà la differenza di pagamento"
 
 #. module: hr_expense_payment_difference
 #: model:ir.model.fields,field_description:hr_expense_payment_difference.field_hr_expense_sheet_register_payment_wizard__writeoff_account_id
 msgid "Difference Account"
-msgstr ""
+msgstr "Conto differenza"
 
 #. module: hr_expense_payment_difference
 #: model:ir.model.fields,field_description:hr_expense_payment_difference.field_hr_expense_sheet__difference_residual
 msgid "Difference Residual"
-msgstr ""
+msgstr "Residuo differenza"
 
 #. module: hr_expense_payment_difference
 #: model:ir.model,name:hr_expense_payment_difference.model_hr_expense_sheet_register_payment_wizard
 msgid "Expense Register Payment Wizard"
-msgstr ""
+msgstr "Procedura guidata pagamento registro spese"
 
 #. module: hr_expense_payment_difference
 #: model:ir.model,name:hr_expense_payment_difference.model_hr_expense_sheet
 msgid "Expense Report"
-msgstr ""
+msgstr "Nota spese"
 
 #. module: hr_expense_payment_difference
 #: model_terms:ir.ui.view,arch_db:hr_expense_payment_difference.hr_expense_sheet_register_payment_view_form
 msgid "Journal"
-msgstr ""
+msgstr "Registro"
 
 #. module: hr_expense_payment_difference
 #: model:ir.model.fields,field_description:hr_expense_payment_difference.field_hr_expense_sheet_register_payment_wizard__writeoff_label
 msgid "Journal Item Label"
-msgstr ""
+msgstr "Etichetta movimento contabile"
 
 #. module: hr_expense_payment_difference
 #: selection:hr.expense.sheet.register.payment.wizard,payment_difference_handling:0
 msgid "Keep open"
-msgstr ""
+msgstr "Mantenere aperto"
 
 #. module: hr_expense_payment_difference
 #: model_terms:ir.ui.view,arch_db:hr_expense_payment_difference.hr_expense_sheet_register_payment_view_form
 msgid "Label"
-msgstr ""
+msgstr "Etichetta"
 
 #. module: hr_expense_payment_difference
 #: selection:hr.expense.sheet.register.payment.wizard,payment_difference_handling:0
 msgid "Mark invoice as fully paid"
-msgstr ""
+msgstr "Segna fattura come completamente pagata"
 
 #. module: hr_expense_payment_difference
 #: model:ir.model.fields,field_description:hr_expense_payment_difference.field_hr_expense_sheet_register_payment_wizard__payment_difference
 msgid "Payment Difference"
-msgstr ""
+msgstr "Differenza pagamento"
 
 #. module: hr_expense_payment_difference
 #: model:ir.model.fields,field_description:hr_expense_payment_difference.field_hr_expense_sheet_register_payment_wizard__payment_difference_handling
 msgid "Payment Difference Handling"
-msgstr ""
+msgstr "Gestione differenza pagamento"
 
 #. module: hr_expense_payment_difference
 #: model:ir.model,name:hr_expense_payment_difference.model_account_payment
 msgid "Payments"
-msgstr ""
+msgstr "Pagamenti"
 
 #. module: hr_expense_payment_difference
 #: model_terms:ir.ui.view,arch_db:hr_expense_payment_difference.hr_expense_sheet_register_payment_view_form
 msgid "Post Difference In"
-msgstr ""
+msgstr "Carica differenza in"
