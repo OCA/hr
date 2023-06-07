@@ -6,61 +6,65 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2023-06-07 09:08+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: hr_attendance_geolocation
 #: model_terms:ir.ui.view,arch_db:hr_attendance_geolocation.hr_attendance_view_form
 msgid "<br/>\n"
 "                        Longitude:"
 msgstr ""
+"<br/>\n"
+"                        Longitudine:"
 
 #. module: hr_attendance_geolocation
 #: model:ir.model,name:hr_attendance_geolocation.model_hr_attendance
 msgid "Attendance"
-msgstr ""
+msgstr "Presenza"
 
 #. module: hr_attendance_geolocation
 #: model:ir.model.fields,field_description:hr_attendance_geolocation.field_hr_attendance__check_in_latitude
 msgid "Check-in Latitude"
-msgstr ""
+msgstr "Latitudine check-in"
 
 #. module: hr_attendance_geolocation
 #: model_terms:ir.ui.view,arch_db:hr_attendance_geolocation.hr_attendance_view_form
 msgid "Check-in Location"
-msgstr ""
+msgstr "Ubicazione check-in"
 
 #. module: hr_attendance_geolocation
 #: model:ir.model.fields,field_description:hr_attendance_geolocation.field_hr_attendance__check_in_longitude
 msgid "Check-in Longitude"
-msgstr ""
+msgstr "Longitudine check-in"
 
 #. module: hr_attendance_geolocation
 #: model:ir.model.fields,field_description:hr_attendance_geolocation.field_hr_attendance__check_out_latitude
 msgid "Check-out Latitude"
-msgstr ""
+msgstr "Latitudine check-out"
 
 #. module: hr_attendance_geolocation
 #: model_terms:ir.ui.view,arch_db:hr_attendance_geolocation.hr_attendance_view_form
 msgid "Check-out Location"
-msgstr ""
+msgstr "Ubicazione check-out"
 
 #. module: hr_attendance_geolocation
 #: model:ir.model.fields,field_description:hr_attendance_geolocation.field_hr_attendance__check_out_longitude
 msgid "Check-out Longitude"
-msgstr ""
+msgstr "Longitudine check-out"
 
 #. module: hr_attendance_geolocation
 #: model:ir.model,name:hr_attendance_geolocation.model_hr_employee
 msgid "Employee"
-msgstr ""
+msgstr "Dipendente"
 
 #. module: hr_attendance_geolocation
 #: model_terms:ir.ui.view,arch_db:hr_attendance_geolocation.hr_attendance_view_form
 msgid "Latitude:"
-msgstr ""
+msgstr "Latitudine:"
