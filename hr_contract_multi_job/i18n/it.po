@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-03-12 12:02+0000\n"
-"PO-Revision-Date: 2023-05-17 14:34+0000\n"
+"PO-Revision-Date: 2023-06-07 13:11+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: Italian (http://www.transifex.com/oca/OCA-hr-8-0/language/it/)"
 "\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.1\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: hr_contract_multi_job
 #: model:ir.model.fields,field_description:hr_contract_multi_job.field_hr_contract_job_contract_id
@@ -43,7 +43,7 @@ msgstr "Creato il"
 #. module: hr_contract_multi_job
 #: model:ir.model.fields,field_description:hr_contract_multi_job.field_hr_contract_job_display_name
 msgid "Display Name"
-msgstr "Nome Visualizzato"
+msgstr "Nome visualizzato"
 
 #. module: hr_contract_multi_job
 #: model:ir.model,name:hr_contract_multi_job.model_hr_contract
