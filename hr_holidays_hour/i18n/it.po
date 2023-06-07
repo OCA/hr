@@ -6,66 +6,71 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2023-06-07 09:08+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: hr_holidays_hour
 #: model:ir.model.fields,field_description:hr_holidays_hour.field_hr_leave_allocation__number_of_hours
 msgid "Allocated hours"
-msgstr ""
+msgstr "Ore assegnate"
 
 #. module: hr_holidays_hour
 #: model:ir.model.fields,field_description:hr_holidays_hour.field_hr_leave__number_of_hours
 #: model:ir.model.fields,field_description:hr_holidays_hour.field_hr_leave_report__number_of_hours
 msgid "Duration (hours)"
-msgstr ""
+msgstr "Durata (ore)"
 
 #. module: hr_holidays_hour
 #: model:ir.model,name:hr_holidays_hour.model_hr_employee
 msgid "Employee"
-msgstr ""
+msgstr "Dipendente"
 
 #. module: hr_holidays_hour
 #: model:ir.model,name:hr_holidays_hour.model_hr_leave
 msgid "Leave"
-msgstr ""
+msgstr "Permesso"
 
 #. module: hr_holidays_hour
 #: model:ir.model,name:hr_holidays_hour.model_hr_leave_report
 msgid "Leave Summary / Report"
-msgstr ""
+msgstr "Riepilogo / resoconto permesso"
 
 #. module: hr_holidays_hour
 #: model:ir.model,name:hr_holidays_hour.model_hr_leave_allocation
 msgid "Leaves Allocation"
-msgstr ""
+msgstr "Distribuzione permessi"
 
 #. module: hr_holidays_hour
 #: model:ir.model.fields,field_description:hr_holidays_hour.field_hr_employee__leaves_count
 msgid "Number of Leaves"
-msgstr ""
+msgstr "Numero di permessi"
 
 #. module: hr_holidays_hour
 #: model:ir.model.fields,help:hr_holidays_hour.field_hr_leave__number_of_hours
 msgid "Number of hours of the leave request according to your working schedule."
 msgstr ""
+"Numero di ore della richiesta permesso in accordo al lavoro programmato."
 
 #. module: hr_holidays_hour
 #: model_terms:ir.ui.view,arch_db:hr_holidays_hour.hr_leave_report_tree
 msgid "Remaining Hours"
-msgstr ""
+msgstr "Ore residue"
 
 #. module: hr_holidays_hour
 #: model:ir.model.fields,help:hr_holidays_hour.field_hr_leave_allocation__number_of_hours
 msgid "UX field allowing to see and modify the allocation duration,computed in hours."
 msgstr ""
+"Campo UX che consente la visualizzazione e la modifica della durata "
+"assegnata, calcolata in ore."
 
 #. module: hr_holidays_hour
 #: model_terms:ir.ui.view,arch_db:hr_holidays_hour.view_employee_form_leave_inherit
 msgid "hours"
-msgstr ""
+msgstr "ore"
