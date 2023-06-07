@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-12-06 03:44+0000\n"
-"PO-Revision-Date: 2023-04-17 16:38+0000\n"
+"PO-Revision-Date: 2023-06-07 09:08+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: Italian (https://www.transifex.com/oca/teams/23907/it/)\n"
 "Language: it\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.1\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: hr_payslip_change_state
 #: model:ir.model.fields,help:hr_payslip_change_state.field_hr_payslip_change_state__state
@@ -29,6 +29,11 @@ msgid ""
 "* If the payslip is confirmed then status is set to 'Done'.             \n"
 "* When user cancel payslip the status is 'Rejected'."
 msgstr ""
+"* Quando viene creata la busta paga è in stato 'Bozza'.             \n"
+"* Se la busta paga è in verifica, lo stato è 'Calcola scheda'.              "
+"\n"
+"* Se la busta paga è confermata lo stato è 'Completata'.             \n"
+"* Quando l'utente annulla la busta paga lo stato è 'Respinta'."
 
 #. module: hr_payslip_change_state
 #: model:ir.model.fields,field_description:hr_payslip_change_state.field_hr_payslip_change_state__state
@@ -43,23 +48,23 @@ msgstr "Annulla"
 #. module: hr_payslip_change_state
 #: selection:hr.payslip.change.state,state:0
 msgid "Cancel Payslip"
-msgstr ""
+msgstr "Annulla busta paga"
 
 #. module: hr_payslip_change_state
 #: model:ir.actions.act_window,name:hr_payslip_change_state.action_hr_payslip_change_state_form
 #: model_terms:ir.ui.view,arch_db:hr_payslip_change_state.hr_payslip_change_state_form
 msgid "Change state"
-msgstr ""
+msgstr "Cambia stato"
 
 #. module: hr_payslip_change_state
 #: model:ir.model,name:hr_payslip_change_state.model_hr_payslip_change_state
 msgid "Change state of a payslip"
-msgstr ""
+msgstr "Cambia stato di una busta paga"
 
 #. module: hr_payslip_change_state
 #: selection:hr.payslip.change.state,state:0
 msgid "Compute Sheet"
-msgstr ""
+msgstr "Calcola scheda"
 
 #. module: hr_payslip_change_state
 #: selection:hr.payslip.change.state,state:0
@@ -84,7 +89,7 @@ msgstr "Nome visualizzato"
 #. module: hr_payslip_change_state
 #: model_terms:ir.ui.view,arch_db:hr_payslip_change_state.hr_payslip_change_state_form
 msgid "Execute"
-msgstr ""
+msgstr "Esegui"
 
 #. module: hr_payslip_change_state
 #: model:ir.model.fields,field_description:hr_payslip_change_state.field_hr_payslip_change_state__id
@@ -111,6 +116,8 @@ msgstr "Ultimo aggiornamento il"
 #, python-format
 msgid "Only draft payslips can be verified,the payslip %s is in %s state"
 msgstr ""
+"Solo le buste paga in bozza possono essere verificate, la busta paga %s è in "
+"stato %s"
 
 #. module: hr_payslip_change_state
 #: code:addons/hr_payslip_change_state/wizard/hr_payslip_change_state.py:57
@@ -119,6 +126,8 @@ msgid ""
 "Only payslips in states verify or draft can be confirmed, the payslip %s is "
 "in %s state"
 msgstr ""
+"Solo le buste paga in stato verificato possono essere confermate, la busta "
+"paga %s è in stato %s"
 
 #. module: hr_payslip_change_state
 #: code:addons/hr_payslip_change_state/wizard/hr_payslip_change_state.py:42
@@ -126,12 +135,14 @@ msgstr ""
 msgid ""
 "Only rejected payslips can be reset to draft, the payslip %s is in %s state"
 msgstr ""
+"Solo le buste paga respinte possono essere riportate in bozza, la busta paga "
+"%s è in stato %s"
 
 #. module: hr_payslip_change_state
 #: code:addons/hr_payslip_change_state/wizard/hr_payslip_change_state.py:67
 #, python-format
 msgid "Payslips"
-msgstr ""
+msgstr "Buste paga"
 
 #. module: hr_payslip_change_state
 #: selection:hr.payslip.change.state,state:0
@@ -142,4 +153,4 @@ msgstr "Imposta a Bozza"
 #: code:addons/hr_payslip_change_state/wizard/hr_payslip_change_state.py:62
 #, python-format
 msgid "The payslip %s is already canceled please deselect it"
-msgstr ""
+msgstr "La busta paga %s è già annullata, deselezionarla"
