@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-11-30 19:07+0000\n"
-"PO-Revision-Date: 2023-05-18 15:31+0000\n"
+"PO-Revision-Date: 2023-06-07 11:09+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: Italian (http://www.transifex.com/oca/OCA-hr-8-0/language/it/)"
 "\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.16.4\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: hr_family
 #: view:hr.employee:hr_family.hr_employee_view_form
@@ -55,7 +55,7 @@ msgstr "Data di nascita"
 #: field:hr.employee.children,display_name:0
 #: field:hr.employee.marital.status,display_name:0
 msgid "Display Name"
-msgstr "Nome da visualizzare"
+msgstr "Nome visualizzato"
 
 #. module: hr_family
 #: model:hr.employee.marital.status,name:hr_family.divorced
