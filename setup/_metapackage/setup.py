@@ -22,6 +22,7 @@ setuptools.setup(
         'odoo14-addon-hr_department_code',
         'odoo14-addon-hr_employee_age',
         'odoo14-addon-hr_employee_birth_name',
+        'odoo14-addon-hr_employee_birthday_mail',
         'odoo14-addon-hr_employee_calendar_planning',
         'odoo14-addon-hr_employee_digitized_signature',
         'odoo14-addon-hr_employee_document',
