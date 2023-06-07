@@ -10,15 +10,16 @@ msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-01-14 03:17+0000\n"
-"PO-Revision-Date: 2017-01-14 17:50+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
-"Language-Team: Italian (http://www.transifex.com/oca/OCA-hr-8-0/language/"
-"it/)\n"
+"PO-Revision-Date: 2023-06-07 11:09+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
+"Language-Team: Italian (http://www.transifex.com/oca/OCA-hr-8-0/language/it/)"
+"\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: hr_experience
 #: field:hr.employee,experience_ids:0
@@ -151,7 +152,7 @@ msgstr "Diploma"
 #: field:hr.academic,display_name:0 field:hr.certification,display_name:0
 #: field:hr.curriculum,display_name:0 field:hr.experience,display_name:0
 msgid "Display Name"
-msgstr "Nome da visualizzare"
+msgstr "Nome visualizzato"
 
 #. module: hr_experience
 #: view:hr.academic:hr_experience.view_academic_tree
