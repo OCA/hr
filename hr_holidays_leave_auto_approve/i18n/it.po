@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-06-05 17:09+0000\n"
+"PO-Revision-Date: 2023-06-07 09:08+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -24,12 +24,12 @@ msgstr "Politica di auto approvazione"
 #. module: hr_holidays_leave_auto_approve
 #: selection:hr.leave.type,auto_approve_policy:0
 msgid "Auto Validated by Everyone"
-msgstr "Auto validata da tutti"
+msgstr "Auto approvata da tutti"
 
 #. module: hr_holidays_leave_auto_approve
 #: selection:hr.leave.type,auto_approve_policy:0
 msgid "Auto Validated by HR"
-msgstr "Auto validata da RU"
+msgstr "Auto approvata da RU"
 
 #. module: hr_holidays_leave_auto_approve
 #: model:ir.model,name:hr_holidays_leave_auto_approve.model_hr_leave
