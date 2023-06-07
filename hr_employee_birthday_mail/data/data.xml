@@ -1,0 +1,171 @@
+<odoo noupdate="1">
+        <record id="email_template_birthday_1" model="mail.template">
+            <field name="name">Birthday Email 1</field>
+            <field name="model_id" ref="hr.model_hr_employee" />
+            <field name="subject">🎂 Happy Birthday, ${object.name}!</field>
+            <field name="email_from">${object.company_id.email}</field>
+            <field name="email_to">${object.work_email}</field>
+            <field name="body_html" type="html">
+                <div style="background-color:#f2f3f5; padding:20px;">
+                    <h2
+                    style="color:#4267b2; text-align:center;"
+                >Happy Birthday, ${object.name}!</h2>
+                    <p style="font-size:16px; text-align:center;">
+                        Another trip around the sun, and you don't look a day older! We wish you a fantastic day full of joy and surprises. May this year bring you closer to your dreams and bless you with abundance and joy. 🎉
+                    </p>
+                    <p style="font-size:16px; text-align:center;">
+                        Remember, you're not getting older, you're gaining more experience. And with each passing year, you become a more valuable member of our team. Here's to an amazing birthday and a year filled with adventure! 🥳
+                    </p>
+                    <p style="font-size:16px; text-align:center;">
+                        Cheers to you on your special day, ${object.name}!
+                    </p>
+                </div>
+            </field>
+        </record>
+
+        <record id="email_template_birthday_2" model="mail.template">
+            <field name="name">Birthday Email 2</field>
+            <field name="model_id" ref="hr.model_hr_employee" />
+            <field name="subject">🎂 Celebrating You Today, ${object.name}!</field>
+            <field name="email_from">${object.company_id.email}</field>
+            <field name="email_to">${object.work_email}</field>
+            <field name="body_html" type="html">
+                <div style="background-color:#f2f3f5; padding:20px;">
+                    <h2
+                    style="color:#4267b2; text-align:center;"
+                >🎉 Let's Celebrate, ${object.name}! 🎉</h2>
+                    <p style="font-size:16px; text-align:center;">
+                        Today, we celebrate not just any birthday, but YOUR birthday: a day when a truly exceptional person came into this world.
+                    </p>
+                    <p style="font-size:16px; text-align:center;">
+                        Age is just a number, and the wrinkles are merely where the smiles have been. Remember, you're not getting older, you're just becoming a classic!
+                    </p>
+                    <p style="font-size:16px; text-align:center;">
+                        Your birthday is a special milestone on this journey of life, and we're thrilled to share it with you. Today is about celebrating all that you are and all that you will be.
+                    </p>
+                    <p style="font-size:16px; text-align:center;">
+                        So here's to you, ${object.name}! Wishing you an abundance of fun, joy and cake on your special day. Have an unforgettable birthday! 🥳🎈
+                    </p>
+                </div>
+            </field>
+        </record>
+
+        <record id="email_template_birthday_3" model="mail.template">
+            <field name="name">Birthday Email 3</field>
+            <field name="model_id" ref="hr.model_hr_employee" />
+            <field name="subject">🎂 ${object.name}!, It's Your Day!</field>
+            <field name="email_from">${object.company_id.email}</field>
+            <field name="email_to">${object.work_email}</field>
+            <field name="body_html" type="html">
+                <div style="background-color:#f2f3f5; padding:20px;">
+                    <h2
+                    style="color:#4267b2; text-align:center;"
+                >🎂 Hey there, ${object.name}! It's Your Special Day! 🎂</h2>
+                    <p style="font-size:16px; text-align:center;">
+                        Birthdays are nature's way of telling us to eat more cake and ice cream. And, as it happens to be your birthday, we feel you deserve to have as much as you want!
+                    </p>
+                    <p style="font-size:16px; text-align:center;">
+                        Today, we're not just celebrating your birthday. We're celebrating you: the invaluable part of our team, the cheer-bringer, the problem-solver, the ray of sunshine in the office.
+                    </p>
+                    <p style="font-size:16px; text-align:center;">
+                        On this day, we hope you enjoy all the wonderful things life has to offer and spend it doing what you love the most. Remember, today is about you and only you. Make sure you enjoy it to the fullest!
+                    </p>
+                    <p style="font-size:16px; text-align:center;">
+                        So sit back, relax, and let the good vibes roll. Happy Birthday, ${object.name}! We hope this day brings you nothing but joy and happiness. 🥳🎉
+                    </p>
+                </div>
+            </field>
+        </record>
+
+        <record id="email_template_coworkers_1" model="mail.template">
+            <field name="name">Coworker's Birthday Email 1</field>
+            <field name="model_id" ref="hr.model_hr_employee" />
+            <field
+            name="subject"
+        >🎉 Birthday Alert: It's ${ctx['birthday_employee']}'s special day!</field>
+            <field name="email_from">${object.company_id.email}</field>
+            <field name="email_to">${object.work_email}</field>
+            <field name="body_html" type="html">
+                <div style="background-color:#f2f3f5; padding:20px;">
+                    <h2
+                    style="color:#4267b2; text-align:center;"
+                >🎉 Birthday Alert 🎉</h2>
+                    <p style="font-size:16px; text-align:center;">Hi ${object.name},</p>
+                    <p
+                    style="font-size:16px; text-align:center;"
+                >Something feels different today, right? There's an extra sparkle in the air and a spring in our steps. Wondering why?</p>
+                    <p style="font-size:16px; text-align:center;">It's because it's <b
+                    >${ctx['birthday_employee']}</b>'s birthday! 🎂</p>
+                    <p
+                    style="font-size:16px; text-align:center;"
+                >So, let's crank up the joy and celebration in the office today. Don't forget to wish them a happy birthday and make this day even more special for them! 🎈🎁</p>
+                </div>
+            </field>
+        </record>
+
+
+        <record id="email_template_coworkers_2" model="mail.template">
+            <field name="name">Coworker's Birthday Email 2</field>
+            <field name="model_id" ref="hr.model_hr_employee" />
+            <field name="subject">🎉 Cake Alert: ${ctx['birthday_employee']}</field>
+            <field name="email_from">${object.company_id.email}</field>
+            <field name="email_to">${object.work_email}</field>
+            <field name="body_html" type="html">
+                <div style="background-color:#f2f3f5; padding:20px;">
+                    <h2
+                    style="color:#4267b2; text-align:center;"
+                >🎉 Birthday Alert: ${ctx['birthday_employee']} is another year wiser! 🎉</h2>
+                    <p
+                    style="font-size:16px; text-align:center;"
+                >Hey there, ${object.name},</p>
+                    <p style="font-size:16px; text-align:center;">
+                        Guess what? We're fortunate enough to have a birthday in our midst today! Yes, it's <b
+                    >${ctx['birthday_employee']}'s</b> big day!
+                    </p>
+                    <p style="font-size:16px; text-align:center;">
+                        Take a moment, when you can, to send them your good wishes and contribute to a positive atmosphere today. Remember, even a simple 'Happy Birthday' can make someone's day!
+                    </p>
+                    <p style="font-size:16px; text-align:center;">
+                        Let's all help make ${ctx['birthday_employee']} feel appreciated and valued on their special day! 🎈🎁
+                    </p>
+                    <p style="font-size:16px; text-align:center;">
+                        Thank you for your continuous effort in making our workplace a supportive and friendly environment!
+                    </p>
+                </div>
+            </field>
+        </record>
+
+        <record id="email_template_coworkers_3" model="mail.template">
+            <field name="name">Coworker's Birthday Email 3</field>
+            <field name="model_id" ref="hr.model_hr_employee" />
+            <field
+            name="subject"
+        >🎉 Time to Celebrate: ${ctx['birthday_employee']}'s Birthday!</field>
+            <field name="email_from">${object.company_id.email}</field>
+            <field name="email_to">${object.work_email}</field>
+            <field name="body_html" type="html">
+                <div style="background-color:#f2f3f5; padding:20px;">
+                    <h2 style="color:#4267b2; text-align:center;">
+                        🎂 It's Time to Celebrate: ${ctx['birthday_employee']}'s Birthday!
+                    </h2>
+                    <p
+                    style="font-size:16px; text-align:center;"
+                >Hello, ${object.name}!</p>
+                    <p style="font-size:16px; text-align:center;">
+                        Today, we're celebrating the birthday of a valued team member, <b
+                    >${ctx['birthday_employee']}</b>.
+                    </p>
+                    <p style="font-size:16px; text-align:center;">
+                        This day is a special one, and we encourage you to reach out and wish them a 'Happy Birthday'. A small gesture can make a big difference!
+                    </p>
+                    <p style="font-size:16px; text-align:center;">
+                        Let's make this day memorable for ${ctx['birthday_employee']}! 🎉🎁
+                    </p>
+                    <p style="font-size:16px; text-align:center;">
+                        Remember, our team is our greatest strength. Thanks for contributing to this wonderful work environment!
+                    </p>
+                </div>
+            </field>
+        </record>
+
+</odoo>
