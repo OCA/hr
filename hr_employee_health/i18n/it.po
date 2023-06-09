@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-06-09 12:08+0000\n"
+"PO-Revision-Date: 2023-06-09 15:08+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -94,7 +94,7 @@ msgstr "Dipendente"
 #. module: hr_employee_health
 #: model_terms:ir.ui.view,arch_db:hr_employee_health.hr_employee_health_condition_view_tree
 msgid "Employee Health Conditions"
-msgstr "Condizioni salute dipendente"
+msgstr "Condizioni di salute dipendente"
 
 #. module: hr_employee_health
 #: model:hr.employee.health.condition.type,name:hr_employee_health.condition_epilepsy
@@ -149,37 +149,37 @@ msgstr "Allergia alimentare: grano"
 #. module: hr_employee_health
 #: model:ir.model,name:hr_employee_health.model_hr_employee_blood_type
 msgid "HR Employee Blood Type"
-msgstr ""
+msgstr "Gruppo sanguigno dipendente RU"
 
 #. module: hr_employee_health
 #: model:ir.model,name:hr_employee_health.model_hr_employee_health_condition
 msgid "HR Employee Health Condition"
-msgstr ""
+msgstr "Condizione di salute dipendente RU"
 
 #. module: hr_employee_health
 #: model:ir.model,name:hr_employee_health.model_hr_employee_health_condition_severity
 msgid "HR Employee Health Condition Severity"
-msgstr ""
+msgstr "Gravità condizione di salute dipendente RU"
 
 #. module: hr_employee_health
 #: model:ir.model,name:hr_employee_health.model_hr_employee_health_condition_type
 msgid "HR Employee Health Condition Type"
-msgstr ""
+msgstr "Tipo condizione di salute dipendente RU"
 
 #. module: hr_employee_health
 #: model_terms:ir.ui.view,arch_db:hr_employee_health.hr_employee_view_form
 msgid "Health"
-msgstr ""
+msgstr "Salute"
 
 #. module: hr_employee_health
 #: model:ir.model.fields,field_description:hr_employee_health.field_hr_employee__health_condition_ids
 msgid "Health Conditions"
-msgstr ""
+msgstr "Condizioni di salute"
 
 #. module: hr_employee_health
 #: model:ir.model.fields,field_description:hr_employee_health.field_hr_employee__health_notes
 msgid "Health Notes"
-msgstr ""
+msgstr "Note salute"
 
 #. module: hr_employee_health
 #: model:ir.model.fields,field_description:hr_employee_health.field_hr_employee_blood_type__id
@@ -187,7 +187,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_employee_health.field_hr_employee_health_condition_severity__id
 #: model:ir.model.fields,field_description:hr_employee_health.field_hr_employee_health_condition_type__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: hr_employee_health
 #: model:ir.model.fields,field_description:hr_employee_health.field_hr_employee_blood_type____last_update
@@ -195,7 +195,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_employee_health.field_hr_employee_health_condition_severity____last_update
 #: model:ir.model.fields,field_description:hr_employee_health.field_hr_employee_health_condition_type____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Ultima modifica il"
 
 #. module: hr_employee_health
 #: model:ir.model.fields,field_description:hr_employee_health.field_hr_employee_blood_type__write_uid
@@ -203,7 +203,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_employee_health.field_hr_employee_health_condition_severity__write_uid
 #: model:ir.model.fields,field_description:hr_employee_health.field_hr_employee_health_condition_type__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Ultimo aggiornamento di"
 
 #. module: hr_employee_health
 #: model:ir.model.fields,field_description:hr_employee_health.field_hr_employee_blood_type__write_date
@@ -211,61 +211,61 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_employee_health.field_hr_employee_health_condition_severity__write_date
 #: model:ir.model.fields,field_description:hr_employee_health.field_hr_employee_health_condition_type__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Ultimo aggiornamento il"
 
 #. module: hr_employee_health
 #: model:hr.employee.health.condition.severity,name:hr_employee_health.severity_life_threatening
 msgid "Life-threatening"
-msgstr ""
+msgstr "Pericolo per la vita"
 
 #. module: hr_employee_health
 #: model:hr.employee.health.condition.severity,name:hr_employee_health.severity_major
 msgid "Major"
-msgstr ""
+msgstr "Maggiore"
 
 #. module: hr_employee_health
 #: model_terms:ir.ui.view,arch_db:hr_employee_health.hr_employee_view_form
 msgid "Medical Details"
-msgstr ""
+msgstr "Dettagli medici"
 
 #. module: hr_employee_health
 #: model:hr.employee.health.condition.type,name:hr_employee_health.condition_mental_illness
 msgid "Mental illnesss"
-msgstr ""
+msgstr "Malattia mentale"
 
 #. module: hr_employee_health
 #: model:hr.employee.health.condition.severity,name:hr_employee_health.severity_minor
 msgid "Minor"
-msgstr ""
+msgstr "Minore"
 
 #. module: hr_employee_health
 #: model:hr.employee.health.condition.severity,name:hr_employee_health.severity_moderate
 msgid "Moderate"
-msgstr ""
+msgstr "Moderato"
 
 #. module: hr_employee_health
 #: model:ir.model.fields,field_description:hr_employee_health.field_hr_employee_health_condition__notes
 msgid "Notes"
-msgstr ""
+msgstr "Note"
 
 #. module: hr_employee_health
 #: model:hr.employee.blood.type,name:hr_employee_health.blood_type_o_rh_pos
 msgid "O Rh+"
-msgstr ""
+msgstr "O Rh+"
 
 #. module: hr_employee_health
 #: model:hr.employee.blood.type,name:hr_employee_health.blood_type_o_rh_neg
 msgid "O Rh-"
-msgstr ""
+msgstr "O Rh-"
 
 #. module: hr_employee_health
 #: model:ir.model.fields,field_description:hr_employee_health.field_hr_employee_health_condition__severity_id
 #: model:ir.model.fields,field_description:hr_employee_health.field_hr_employee_health_condition_severity__name
 msgid "Severity"
-msgstr ""
+msgstr "Gravità"
 
 #. module: hr_employee_health
 #: model:ir.model.fields,field_description:hr_employee_health.field_hr_employee_blood_type__name
 #: model:ir.model.fields,field_description:hr_employee_health.field_hr_employee_health_condition_type__name
 msgid "Type"
-msgstr ""
+msgstr "Tipo"
