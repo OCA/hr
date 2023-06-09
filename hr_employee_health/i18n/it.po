@@ -6,53 +6,55 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2023-06-09 12:08+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: hr_employee_health
 #: model:hr.employee.blood.type,name:hr_employee_health.blood_type_a_rh_pos
 msgid "A Rh+"
-msgstr ""
+msgstr "A Rh+"
 
 #. module: hr_employee_health
 #: model:hr.employee.blood.type,name:hr_employee_health.blood_type_a_rh_neg
 msgid "A Rh-"
-msgstr ""
+msgstr "A Rh-"
 
 #. module: hr_employee_health
 #: model:hr.employee.blood.type,name:hr_employee_health.blood_type_ab_rh_pos
 msgid "AB Rh+"
-msgstr ""
+msgstr "AB Rh+"
 
 #. module: hr_employee_health
 #: model:hr.employee.blood.type,name:hr_employee_health.blood_type_ab_rh_neg
 msgid "AB Rh-"
-msgstr ""
+msgstr "AB Rh-"
 
 #. module: hr_employee_health
 #: model:hr.employee.blood.type,name:hr_employee_health.blood_type_b_rh_pos
 msgid "B Rh+"
-msgstr ""
+msgstr "B Rh+"
 
 #. module: hr_employee_health
 #: model:hr.employee.blood.type,name:hr_employee_health.blood_type_b_rh_neg
 msgid "B Rh-"
-msgstr ""
+msgstr "B Rh-"
 
 #. module: hr_employee_health
 #: model:ir.model.fields,field_description:hr_employee_health.field_hr_employee__blood_type
 msgid "Blood Type"
-msgstr ""
+msgstr "Gruppo sanguigno"
 
 #. module: hr_employee_health
 #: model:ir.model.fields,field_description:hr_employee_health.field_hr_employee_health_condition__type_id
 msgid "Condition"
-msgstr ""
+msgstr "Condizione"
 
 #. module: hr_employee_health
 #: model:ir.model.fields,field_description:hr_employee_health.field_hr_employee_blood_type__create_uid
@@ -60,7 +62,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_employee_health.field_hr_employee_health_condition_severity__create_uid
 #: model:ir.model.fields,field_description:hr_employee_health.field_hr_employee_health_condition_type__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Creato da"
 
 #. module: hr_employee_health
 #: model:ir.model.fields,field_description:hr_employee_health.field_hr_employee_blood_type__create_date
@@ -68,12 +70,12 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_employee_health.field_hr_employee_health_condition_severity__create_date
 #: model:ir.model.fields,field_description:hr_employee_health.field_hr_employee_health_condition_type__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Creato il"
 
 #. module: hr_employee_health
 #: model:hr.employee.health.condition.type,name:hr_employee_health.condition_diabetes
 msgid "Diabetes"
-msgstr ""
+msgstr "Diabete"
 
 #. module: hr_employee_health
 #: model:ir.model.fields,field_description:hr_employee_health.field_hr_employee_blood_type__display_name
@@ -81,68 +83,68 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_employee_health.field_hr_employee_health_condition_severity__display_name
 #: model:ir.model.fields,field_description:hr_employee_health.field_hr_employee_health_condition_type__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nome visualizzato"
 
 #. module: hr_employee_health
 #: model:ir.model,name:hr_employee_health.model_hr_employee
 #: model:ir.model.fields,field_description:hr_employee_health.field_hr_employee_health_condition__employee_id
 msgid "Employee"
-msgstr ""
+msgstr "Dipendente"
 
 #. module: hr_employee_health
 #: model_terms:ir.ui.view,arch_db:hr_employee_health.hr_employee_health_condition_view_tree
 msgid "Employee Health Conditions"
-msgstr ""
+msgstr "Condizioni salute dipendente"
 
 #. module: hr_employee_health
 #: model:hr.employee.health.condition.type,name:hr_employee_health.condition_epilepsy
 msgid "Epilepsy"
-msgstr ""
+msgstr "Epilessia"
 
 #. module: hr_employee_health
 #: model:hr.employee.health.condition.severity,name:hr_employee_health.severity_extreme
 msgid "Extreme"
-msgstr ""
+msgstr "Estrema"
 
 #. module: hr_employee_health
 #: model:hr.employee.health.condition.type,name:hr_employee_health.condition_food_allergy_crustacean_shellfish
 msgid "Food allergy: Crustacean shellfish"
-msgstr ""
+msgstr "Allergia alimentare: crostacei"
 
 #. module: hr_employee_health
 #: model:hr.employee.health.condition.type,name:hr_employee_health.condition_food_allergy_eggs
 msgid "Food allergy: Eggs"
-msgstr ""
+msgstr "Allergia alimentare: uova"
 
 #. module: hr_employee_health
 #: model:hr.employee.health.condition.type,name:hr_employee_health.condition_food_allergy_fish
 msgid "Food allergy: Fish"
-msgstr ""
+msgstr "Allergia alimentare: pesce"
 
 #. module: hr_employee_health
 #: model:hr.employee.health.condition.type,name:hr_employee_health.condition_food_allergy_milk
 msgid "Food allergy: Milk"
-msgstr ""
+msgstr "Allergia alimentare: latte"
 
 #. module: hr_employee_health
 #: model:hr.employee.health.condition.type,name:hr_employee_health.condition_food_allergy_peanuts
 msgid "Food allergy: Peanuts"
-msgstr ""
+msgstr "Allergia alimentare: arachidi"
 
 #. module: hr_employee_health
 #: model:hr.employee.health.condition.type,name:hr_employee_health.condition_food_allergy_soybeans
 msgid "Food allergy: Soybeans"
-msgstr ""
+msgstr "Allergia alimentare: soia"
 
 #. module: hr_employee_health
 #: model:hr.employee.health.condition.type,name:hr_employee_health.condition_food_allergy_tree_nuts
 msgid "Food allergy: Tree nuts"
-msgstr ""
+msgstr "Allergia alimentare: noci"
 
 #. module: hr_employee_health
 #: model:hr.employee.health.condition.type,name:hr_employee_health.condition_food_allergy_wheat
 msgid "Food allergy: Wheat"
-msgstr ""
+msgstr "Allergia alimentare: grano"
 
 #. module: hr_employee_health
 #: model:ir.model,name:hr_employee_health.model_hr_employee_blood_type
