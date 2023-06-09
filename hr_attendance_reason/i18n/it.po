@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-06-07 13:11+0000\n"
+"PO-Revision-Date: 2023-06-09 14:10+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -30,12 +30,12 @@ msgstr "Presenza"
 #: model:ir.model,name:hr_attendance_reason.model_hr_attendance_reason
 #: model:ir.model.fields,field_description:hr_attendance_reason.field_hr_attendance_attendance_reason_ids
 msgid "Attendance Reason"
-msgstr "Motivo Presenza"
+msgstr "Motivo presenza"
 
 #. module: hr_attendance_reason
 #: model:ir.actions.act_window,name:hr_attendance_reason.hr_attendance_reason_action
 msgid "Attendance Reasons"
-msgstr "Motivi Presenza"
+msgstr "Motivi presenza"
 
 #. module: hr_attendance_reason
 #: model:ir.ui.view,arch_db:hr_attendance_reason.hr_attendance_reason_view_tree
@@ -65,7 +65,7 @@ msgstr "Creato il"
 #. module: hr_attendance_reason
 #: model:ir.ui.view,arch_db:hr_attendance_reason.hr_attendance_reason_view_form
 msgid "Define attendance reason"
-msgstr "Definisci il motivo presenza"
+msgstr "Definire il motivo presenza"
 
 #. module: hr_attendance_reason
 #: model:ir.model.fields,field_description:hr_attendance_reason.field_hr_attendance_reason_display_name
@@ -105,7 +105,7 @@ msgstr "Nome"
 #. module: hr_attendance_reason
 #: model:ir.model.fields,field_description:hr_attendance_reason.field_hr_attendance_reason_code
 msgid "Reason Code"
-msgstr "Codice Motivo"
+msgstr "Codice motivo"
 
 #. module: hr_attendance_reason
 #: model:ir.ui.menu,name:hr_attendance_reason.hr_attendance_reason_menu
@@ -125,9 +125,9 @@ msgstr "Uscita"
 #. module: hr_attendance_reason
 #: model:ir.model.fields,help:hr_attendance_reason.field_hr_attendance_attendance_reason_ids
 msgid "Specifies the reason for signing In/signing Out in case of less or extra hours."
-msgstr "Specifica le motivazioni per ingresso e uscita in caso di ore extra."
+msgstr "Specifica il motivo di entrata/uscita in caso di ore in più o in meno."
 
 #. module: hr_attendance_reason
 #: model:ir.model.fields,help:hr_attendance_reason.field_hr_attendance_reason_name
 msgid "Specifies the reason leaving soon or arriving late"
-msgstr "Specifica il motivo per un arrivo in ritardo o un'uscita in anticipo"
+msgstr "Specifica il motivo per l'uscita anticipata o l'arrivo in ritardo"
