@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-30 07:32+0000\n"
-"PO-Revision-Date: 2023-06-07 13:10+0000\n"
+"PO-Revision-Date: 2023-06-10 11:10+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: Italian (https://www.transifex.com/oca/teams/23907/it/)\n"
 "Language: it\n"
@@ -72,7 +72,7 @@ msgstr "Dipendente"
 #: model:ir.model.fields,field_description:hr_skill.field_hr_employee_employee_skill_ids
 #: model:ir.ui.view,arch_db:hr_skill.view_hr_employee_skill_form
 msgid "Employee Skill"
-msgstr "Skill Dipendente"
+msgstr "Capacità dipendente"
 
 #. module: hr_skill
 #: model:ir.actions.act_window,name:hr_skill.action_hr_employee_skill_report
@@ -81,7 +81,7 @@ msgstr "Skill Dipendente"
 #: model:ir.ui.view,arch_db:hr_skill.view_hr_employee_skill_pivot
 #: model:ir.ui.view,arch_db:hr_skill.view_hr_employee_skill_tree
 msgid "Employee Skills"
-msgstr "Skills Dipendente"
+msgstr "Capacità dipendente"
 
 #. module: hr_skill
 #: model:ir.actions.act_window,name:hr_skill.hr_employee_normal_action_tree
@@ -175,12 +175,12 @@ msgstr "Competenze"
 #. module: hr_skill
 #: model:ir.actions.act_window,help:hr_skill.action_hr_employee_skill_report
 msgid "Skills Reports."
-msgstr "Reports Competenze."
+msgstr "Resoconti competenze."
 
 #. module: hr_skill
 #: sql_constraint:hr.employee.skill:0
 msgid "This employee already has that skill!"
-msgstr "Questo impiegato ha già questa skill!"
+msgstr "Questo impiegato ha già questa capacità!"
 
 #. module: hr_skill
 #: model:ir.model,name:hr_skill.model_hr_employee_skill
