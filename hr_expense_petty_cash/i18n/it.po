@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-06-07 09:08+0000\n"
+"PO-Revision-Date: 2023-06-10 11:09+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -21,63 +21,63 @@ msgstr ""
 #: code:addons/hr_expense_petty_cash/models/account_invoice.py:78
 #, python-format
 msgid "%s is not a petty cash holder"
-msgstr ""
+msgstr "%s non è una cassetta fondo spese"
 
 #. module: hr_expense_petty_cash
 #: model:ir.model.fields,field_description:hr_expense_petty_cash.field_petty_cash__active
 msgid "Active"
-msgstr ""
+msgstr "Attivo"
 
 #. module: hr_expense_petty_cash
 #: model_terms:ir.ui.view,arch_db:hr_expense_petty_cash.view_petty_cash_search
 msgid "Archived"
-msgstr ""
+msgstr "Archiviato"
 
 #. module: hr_expense_petty_cash
 #: model:ir.model.fields,field_description:hr_expense_petty_cash.field_petty_cash__petty_cash_balance
 #: model_terms:ir.ui.view,arch_db:hr_expense_petty_cash.view_petty_cash_list
 msgid "Balance"
-msgstr ""
+msgstr "Saldo"
 
 #. module: hr_expense_petty_cash
 #: selection:hr.expense,payment_mode:0
 msgid "Company"
-msgstr ""
+msgstr "Azienda"
 
 #. module: hr_expense_petty_cash
 #: model_terms:ir.actions.act_window,help:hr_expense_petty_cash.action_petty_cash
 msgid "Create a new petty cash holder"
-msgstr ""
+msgstr "Crea una nuova cassetta fondo spese"
 
 #. module: hr_expense_petty_cash
 #: model:ir.model.fields,field_description:hr_expense_petty_cash.field_petty_cash__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Creato da"
 
 #. module: hr_expense_petty_cash
 #: model:ir.model.fields,field_description:hr_expense_petty_cash.field_petty_cash__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Creato il"
 
 #. module: hr_expense_petty_cash
 #: model:ir.model.fields,field_description:hr_expense_petty_cash.field_petty_cash__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nome visualizzato"
 
 #. module: hr_expense_petty_cash
 #: selection:hr.expense,payment_mode:0
 msgid "Employee (to reimburse)"
-msgstr ""
+msgstr "Dipendente (da rimborsare)"
 
 #. module: hr_expense_petty_cash
 #: model:ir.model,name:hr_expense_petty_cash.model_hr_expense
 msgid "Expense"
-msgstr ""
+msgstr "Spesa"
 
 #. module: hr_expense_petty_cash
 #: model:ir.model.fields,field_description:hr_expense_petty_cash.field_hr_expense_sheet__journal_id
 msgid "Expense Journal"
-msgstr ""
+msgstr "Registro spese"
 
 #. module: hr_expense_petty_cash
 #: model:ir.model,name:hr_expense_petty_cash.model_hr_expense_sheet
@@ -87,48 +87,48 @@ msgstr "Nota spese"
 #. module: hr_expense_petty_cash
 #: model_terms:ir.ui.view,arch_db:hr_expense_petty_cash.view_petty_cash_search
 msgid "Group By"
-msgstr ""
+msgstr "Raggruppa per"
 
 #. module: hr_expense_petty_cash
 #: model:ir.model.fields,field_description:hr_expense_petty_cash.field_petty_cash__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: hr_expense_petty_cash
 #: model:ir.model,name:hr_expense_petty_cash.model_account_invoice
 msgid "Invoice"
-msgstr ""
+msgstr "Fattura"
 
 #. module: hr_expense_petty_cash
 #: model:ir.model.fields,field_description:hr_expense_petty_cash.field_petty_cash__journal_id
 #: model_terms:ir.ui.view,arch_db:hr_expense_petty_cash.view_petty_cash_search
 msgid "Journal"
-msgstr ""
+msgstr "Registro"
 
 #. module: hr_expense_petty_cash
 #: model:ir.model.fields,field_description:hr_expense_petty_cash.field_petty_cash____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Ultima modifica il"
 
 #. module: hr_expense_petty_cash
 #: model:ir.model.fields,field_description:hr_expense_petty_cash.field_petty_cash__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Ultimo aggiornamento di"
 
 #. module: hr_expense_petty_cash
 #: model:ir.model.fields,field_description:hr_expense_petty_cash.field_petty_cash__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Ultimo aggiornamento il"
 
 #. module: hr_expense_petty_cash
 #: model_terms:ir.ui.view,arch_db:hr_expense_petty_cash.view_petty_cash_list
 msgid "Limit"
-msgstr ""
+msgstr "Limite"
 
 #. module: hr_expense_petty_cash
 #: model:ir.model.fields,field_description:hr_expense_petty_cash.field_petty_cash__petty_cash_limit
 msgid "Max Limit"
-msgstr ""
+msgstr "Limite massimo"
 
 #. module: hr_expense_petty_cash
 #: code:addons/hr_expense_petty_cash/models/hr_expense_sheet.py:67
@@ -136,12 +136,14 @@ msgstr ""
 msgid "Not enough money in petty cash holder.\n"
 "You are requesting %s%s, but the balance is %s%s."
 msgstr ""
+"Non c'è abbastanza denaro nella cassetta fondo spese.\n"
+"È stato richiesto %s%s, ma il saldo è %s%s."
 
 #. module: hr_expense_petty_cash
 #: model:ir.model.fields,field_description:hr_expense_petty_cash.field_hr_expense__payment_mode
 #: model:ir.model.fields,field_description:hr_expense_petty_cash.field_hr_expense_sheet__payment_mode
 msgid "Paid By"
-msgstr ""
+msgstr "Pagato da"
 
 #. module: hr_expense_petty_cash
 #: selection:hr.expense,payment_mode:0
@@ -155,13 +157,13 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:hr_expense_petty_cash.view_petty_cash_list
 #: model_terms:ir.ui.view,arch_db:hr_expense_petty_cash.view_petty_cash_search
 msgid "Petty Cash"
-msgstr ""
+msgstr "Fondo spese"
 
 #. module: hr_expense_petty_cash
 #: model:ir.model.fields,field_description:hr_expense_petty_cash.field_petty_cash__account_id
 #: model_terms:ir.ui.view,arch_db:hr_expense_petty_cash.view_petty_cash_search
 msgid "Petty Cash Account"
-msgstr ""
+msgstr "Conto fondo spese"
 
 #. module: hr_expense_petty_cash
 #: model:ir.model.fields,field_description:hr_expense_petty_cash.field_petty_cash__partner_id
@@ -169,12 +171,12 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:hr_expense_petty_cash.view_hr_expense_sheet_filter_inherit
 #: model_terms:ir.ui.view,arch_db:hr_expense_petty_cash.view_petty_cash_search
 msgid "Petty Cash Holder"
-msgstr ""
+msgstr "Cassetta fondo spese"
 
 #. module: hr_expense_petty_cash
 #: sql_constraint:petty.cash:0
 msgid "Petty Cash Holder must be unique!"
-msgstr ""
+msgstr "La cassetta fondo spese deve essere univoca!"
 
 #. module: hr_expense_petty_cash
 #: code:addons/hr_expense_petty_cash/models/account_invoice.py:42
@@ -182,27 +184,29 @@ msgstr ""
 msgid "Petty Cash balance is %s %s.\n"
 "Max amount to add is %s %s."
 msgstr ""
+"Il saldo del fondo spese è %s %s.\n"
+"Il valore massimo da aggiungere è %s %s."
 
 #. module: hr_expense_petty_cash
 #: model:ir.model.fields,field_description:hr_expense_petty_cash.field_hr_expense__petty_cash_id
 #: model:ir.model.fields,field_description:hr_expense_petty_cash.field_hr_expense_sheet__petty_cash_id
 msgid "Petty cash holder"
-msgstr ""
+msgstr "Cassetta fondo spese"
 
 #. module: hr_expense_petty_cash
 #: code:addons/hr_expense_petty_cash/models/account_invoice.py:73
 #, python-format
 msgid "Please select petty cash holder"
-msgstr ""
+msgstr "Selezionare la cassetta fondo spese"
 
 #. module: hr_expense_petty_cash
 #: model:ir.model.fields,help:hr_expense_petty_cash.field_hr_expense_sheet__journal_id
 msgid "The journal used when the expense is done."
-msgstr ""
+msgstr "Il registro da usare quando è fatta la spesa."
 
 #. module: hr_expense_petty_cash
 #: code:addons/hr_expense_petty_cash/models/hr_expense.py:35
 #: code:addons/hr_expense_petty_cash/models/hr_expense_sheet.py:48
 #, python-format
 msgid "You cannot create report from many petty cash holders."
-msgstr ""
+msgstr "Non si può creare un resoconto da più cassette fondi spese."
