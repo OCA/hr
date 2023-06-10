@@ -9,26 +9,27 @@ msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-30 07:32+0000\n"
-"PO-Revision-Date: 2018-03-30 07:32+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2018\n"
+"PO-Revision-Date: 2023-06-10 11:09+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: Italian (https://www.transifex.com/oca/teams/23907/it/)\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: hr_skill
 #: code:addons/hr_skill/models/hr_employee_skill.py:49
 #, python-format
 msgid "%(employee)s, %(skill)s (%(level)s)"
-msgstr ""
+msgstr "%(employee)s, %(skill)s (%(level)s)"
 
 #. module: hr_skill
 #: code:addons/hr_skill/models/hr_skill.py:59
 #, python-format
 msgid "%(parent)s / %(own)s"
-msgstr ""
+msgstr "%(parent)s / %(own)s"
 
 #. module: hr_skill
 #: model:ir.model.fields,field_description:hr_skill.field_hr_skill__active
@@ -38,18 +39,18 @@ msgstr "Attivo"
 #. module: hr_skill
 #: model:ir.model.fields,field_description:hr_skill.field_hr_skill__child_ids
 msgid "Children"
-msgstr ""
+msgstr "Figli"
 
 #. module: hr_skill
 #: model:ir.model.fields,field_description:hr_skill.field_hr_skill__color
 msgid "Color Index"
-msgstr ""
+msgstr "Indice colore"
 
 #. module: hr_skill
 #: model:ir.model.fields,field_description:hr_skill.field_hr_employee_skill__complete_name
 #: model:ir.model.fields,field_description:hr_skill.field_hr_skill__complete_name
 msgid "Complete Name"
-msgstr ""
+msgstr "Nome completo"
 
 #. module: hr_skill
 #: model:ir.model.fields,field_description:hr_skill.field_hr_employee_skill__create_uid
@@ -66,13 +67,13 @@ msgstr "Creato il"
 #. module: hr_skill
 #: model:ir.model.fields,field_description:hr_skill.field_hr_skill__description
 msgid "Description"
-msgstr ""
+msgstr "Descrizione"
 
 #. module: hr_skill
 #: model:ir.model.fields,field_description:hr_skill.field_hr_employee_skill__display_name
 #: model:ir.model.fields,field_description:hr_skill.field_hr_skill__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nome visualizzato"
 
 #. module: hr_skill
 #: model:ir.model,name:hr_skill.model_hr_employee
@@ -82,9 +83,8 @@ msgstr "Dipendente"
 
 #. module: hr_skill
 #: model_terms:ir.ui.view,arch_db:hr_skill.view_hr_employee_skill_form
-#, fuzzy
 msgid "Employee Skill"
-msgstr "Dipendente"
+msgstr "Capacità dipendente"
 
 #. module: hr_skill
 #: model:ir.actions.act_window,name:hr_skill.action_hr_employee_skill_report
@@ -92,31 +92,29 @@ msgstr "Dipendente"
 #: model_terms:ir.ui.view,arch_db:hr_skill.view_hr_employee_skill_graph
 #: model_terms:ir.ui.view,arch_db:hr_skill.view_hr_employee_skill_pivot
 #: model_terms:ir.ui.view,arch_db:hr_skill.view_hr_employee_skill_tree
-#, fuzzy
 msgid "Employee Skills"
-msgstr "Dipendente"
+msgstr "Capacità dipendente"
 
 #. module: hr_skill
 #: model:ir.actions.act_window,name:hr_skill.hr_employee_normal_action_tree
 #: model:ir.model.fields,field_description:hr_skill.field_hr_skill__employee_skill_ids
 msgid "Employees"
-msgstr ""
+msgstr "Dipendenti"
 
 #. module: hr_skill
 #: selection:hr.employee.skill,level:0
 msgid "Expert"
-msgstr ""
+msgstr "Esperto"
 
 #. module: hr_skill
 #: model:ir.model,name:hr_skill.model_hr_employee_skill
-#, fuzzy
 msgid "HR Employee Skill"
-msgstr "Dipendente"
+msgstr "Capacità dipendente RU"
 
 #. module: hr_skill
 #: model:ir.model,name:hr_skill.model_hr_skill
 msgid "HR Skill"
-msgstr ""
+msgstr "Capacità RU"
 
 #. module: hr_skill
 #: model:ir.model.fields,field_description:hr_skill.field_hr_employee_skill__id
@@ -127,18 +125,18 @@ msgstr "ID"
 #. module: hr_skill
 #: selection:hr.employee.skill,level:0
 msgid "Intermediate"
-msgstr ""
+msgstr "Intermedio"
 
 #. module: hr_skill
 #: selection:hr.employee.skill,level:0
 msgid "Junior"
-msgstr ""
+msgstr "Junior"
 
 #. module: hr_skill
 #: model:ir.model.fields,field_description:hr_skill.field_hr_employee_skill____last_update
 #: model:ir.model.fields,field_description:hr_skill.field_hr_skill____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Ultima modifica il"
 
 #. module: hr_skill
 #: model:ir.model.fields,field_description:hr_skill.field_hr_employee_skill__write_uid
@@ -155,7 +153,7 @@ msgstr "Ultimo aggiornamento il"
 #. module: hr_skill
 #: model:ir.model.fields,field_description:hr_skill.field_hr_employee_skill__level
 msgid "Level"
-msgstr ""
+msgstr "Livello"
 
 #. module: hr_skill
 #: model:ir.model.fields,field_description:hr_skill.field_hr_skill__name
@@ -165,23 +163,23 @@ msgstr "Nome"
 #. module: hr_skill
 #: model:ir.model.fields,field_description:hr_skill.field_hr_skill__parent_id
 msgid "Parent"
-msgstr ""
+msgstr "Padre"
 
 #. module: hr_skill
 #: model:ir.model.fields,field_description:hr_skill.field_hr_skill__parent_path
 msgid "Parent Path"
-msgstr ""
+msgstr "Percorso padre"
 
 #. module: hr_skill
 #: selection:hr.employee.skill,level:0
 msgid "Senior"
-msgstr ""
+msgstr "Senior"
 
 #. module: hr_skill
 #: model:ir.model.fields,field_description:hr_skill.field_hr_employee_skill__skill_id
 #: model_terms:ir.ui.view,arch_db:hr_skill.view_skill_form
 msgid "Skill"
-msgstr ""
+msgstr "Capacità"
 
 #. module: hr_skill
 #: model:ir.actions.act_window,name:hr_skill.open_view_skill_form
@@ -190,19 +188,19 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:hr_skill.view_employee_skill_form
 #: model_terms:ir.ui.view,arch_db:hr_skill.view_hr_skill_tree
 msgid "Skills"
-msgstr ""
+msgstr "Capacità"
 
 #. module: hr_skill
 #: model_terms:ir.actions.act_window,help:hr_skill.action_hr_employee_skill_report
 msgid "Skills Reports."
-msgstr ""
+msgstr "Resoconti capacità."
 
 #. module: hr_skill
 #: model_terms:ir.ui.view,arch_db:hr_skill.view_skill_form
 msgid "Sub-skills"
-msgstr ""
+msgstr "Sotto capacità"
 
 #. module: hr_skill
 #: sql_constraint:hr.employee.skill:0
 msgid "This employee already has that skill!"
-msgstr ""
+msgstr "Questo impiegato ha già questa capacità!"
