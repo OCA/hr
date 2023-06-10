@@ -9,14 +9,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-03 03:37+0000\n"
-"PO-Revision-Date: 2017-03-03 03:37+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2016\n"
+"PO-Revision-Date: 2023-06-10 11:09+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: Italian (https://www.transifex.com/oca/teams/23907/it/)\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: hr_holidays_public
 #: model_terms:ir.ui.view,arch_db:hr_holidays_public.holidays_public_next_year_wizard_view
@@ -25,35 +26,38 @@ msgid ""
 "                        <span>Warning: A public holidays calendar for this "
 "country and year already exists!</span>"
 msgstr ""
+"<i class=\"fa fa-info-circle\"/>\n"
+"                        <span>Attenzione: esiste già un calendario delle "
+"festività pubbliche per questo anno e azienda!</span>"
 
 #. module: hr_holidays_public
 #: model:ir.model.fields,field_description:hr_holidays_public.field_hr_holidays_public__year
 #: model:ir.model.fields,field_description:hr_holidays_public.field_hr_holidays_public_line__year_id
 msgid "Calendar Year"
-msgstr ""
+msgstr "Anno del calendario"
 
 #. module: hr_holidays_public
 #: model_terms:ir.ui.view,arch_db:hr_holidays_public.holidays_public_next_year_wizard_view
 msgid "Cancel"
-msgstr ""
+msgstr "Annulla"
 
 #. module: hr_holidays_public
 #: model:ir.model.fields,field_description:hr_holidays_public.field_hr_holidays_public__country_id
 #: model:ir.model.fields,field_description:hr_holidays_public.field_public_holidays_next_year_wizard__country_id
 msgid "Country"
-msgstr ""
+msgstr "Nazione"
 
 #. module: hr_holidays_public
 #: model_terms:ir.ui.view,arch_db:hr_holidays_public.holidays_public_next_year_wizard_view
 msgid "Create"
-msgstr ""
+msgstr "Crea"
 
 #. module: hr_holidays_public
 #: model:ir.actions.act_window,name:hr_holidays_public.action_create_next_year_public_holidays
 #: model:ir.ui.menu,name:hr_holidays_public.menu_create_next_year_public_holidays
 #: model_terms:ir.ui.view,arch_db:hr_holidays_public.holidays_public_next_year_wizard_view
 msgid "Create Next Year Public Holidays"
-msgstr ""
+msgstr "Crea i giorni festivi del prossimo anno"
 
 #. module: hr_holidays_public
 #: model:ir.model.fields,field_description:hr_holidays_public.field_hr_holidays_public__create_uid
@@ -74,18 +78,18 @@ msgstr "Creato il"
 #. module: hr_holidays_public
 #: model:ir.model,name:hr_holidays_public.model_public_holidays_next_year_wizard
 msgid "Creates public holidays from existing ones"
-msgstr ""
+msgstr "Crea giorni festivi da quelli esistenti"
 
 #. module: hr_holidays_public
 #: model:ir.model.fields,field_description:hr_holidays_public.field_hr_holidays_public_line__date
 #: model:ir.model.fields,field_description:hr_holidays_public.field_hr_holidays_public_line_transient__date
 msgid "Date"
-msgstr ""
+msgstr "Data"
 
 #. module: hr_holidays_public
 #: model:ir.model.fields,field_description:hr_holidays_public.field_hr_holidays_public_line__variable_date
 msgid "Date may change"
-msgstr ""
+msgstr "Data variabile"
 
 #. module: hr_holidays_public
 #: code:addons/hr_holidays_public/models/hr_holidays_public.py:172
@@ -94,11 +98,13 @@ msgid ""
 "Dates of holidays should be the same year as the calendar year they are "
 "being assigned to"
 msgstr ""
+"Le date delle vacanze dovrebbero coincidere con l'anno solare a cui sono "
+"state assegnate"
 
 #. module: hr_holidays_public
 #: model_terms:ir.ui.view,arch_db:hr_holidays_public.holidays_public_next_year_wizard_view
 msgid "Days to Review"
-msgstr ""
+msgstr "Giorni da revisionare"
 
 #. module: hr_holidays_public
 #: model_terms:ir.ui.view,arch_db:hr_holidays_public.holidays_public_next_year_wizard_view
@@ -108,28 +114,32 @@ msgid ""
 "in case\n"
 "                        it is not the same than in the template."
 msgstr ""
+"I giorni da revisionare sono quelli impostati con data variabile\n"
+"                        nel calendario del modello. Qui si può modificare la "
+"data nel caso\n"
+"                        sia diversa da quella del modello."
 
 #. module: hr_holidays_public
 #: model:ir.model.fields,field_description:hr_holidays_public.field_hr_holidays_public_line_transient__name
 msgid "Description"
-msgstr ""
+msgstr "Descrizione"
 
 #. module: hr_holidays_public
 #: model:ir.model.fields,field_description:hr_holidays_public.field_hr_holidays_public_line__display_name
 #: model:ir.model.fields,field_description:hr_holidays_public.field_hr_holidays_public_line_transient__display_name
 #: model:ir.model.fields,field_description:hr_holidays_public.field_public_holidays_next_year_wizard__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nome visualizzato"
 
 #. module: hr_holidays_public
 #: model:ir.model.fields,field_description:hr_holidays_public.field_hr_leave_type__exclude_public_holidays
 msgid "Exclude Public Holidays"
-msgstr ""
+msgstr "Escludi i giorni festivi"
 
 #. module: hr_holidays_public
 #: model:ir.model.fields,field_description:hr_holidays_public.field_hr_holidays_public__line_ids
 msgid "Holiday Dates"
-msgstr ""
+msgstr "Date dei festivi"
 
 #. module: hr_holidays_public
 #: model:ir.model.fields,field_description:hr_holidays_public.field_hr_holidays_public__id
