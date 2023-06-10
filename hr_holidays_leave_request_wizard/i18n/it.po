@@ -6,37 +6,39 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2023-06-10 11:09+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: hr_holidays_leave_request_wizard
 #: code:addons/hr_holidays_leave_request_wizard/wizards/hr_leave_wizard.py:445
 #, python-format
 msgid "%(since)s - %(until)s"
-msgstr ""
+msgstr "%(since)s - %(until)s"
 
 #. module: hr_holidays_leave_request_wizard
 #: model_terms:ir.ui.view,arch_db:hr_holidays_leave_request_wizard.hr_leave_wizard_day_form
 #: model_terms:ir.ui.view,arch_db:hr_holidays_leave_request_wizard.hr_leave_wizard_day_interval_form
 msgid "<span class=\"ml8\">Days</span>"
-msgstr ""
+msgstr "<span class=\"ml8\">Giorni</span>"
 
 #. module: hr_holidays_leave_request_wizard
 #: model_terms:ir.ui.view,arch_db:hr_holidays_leave_request_wizard.hr_leave_wizard_day_form
 #: model_terms:ir.ui.view,arch_db:hr_holidays_leave_request_wizard.hr_leave_wizard_day_interval_form
 msgid "<span class=\"ml8\">Hours</span>"
-msgstr ""
+msgstr "<span class=\"ml8\">Ore</span>"
 
 #. module: hr_holidays_leave_request_wizard
 #: model_terms:ir.ui.view,arch_db:hr_holidays_leave_request_wizard.hr_leave_wizard_day_form
 #: model_terms:ir.ui.view,arch_db:hr_holidays_leave_request_wizard.hr_leave_wizard_day_interval_form
 msgid "<span class=\"ml8\">of</span>"
-msgstr ""
+msgstr "<span class=\"ml8\">di</span>"
 
 #. module: hr_holidays_leave_request_wizard
 #: model_terms:ir.ui.view,arch_db:hr_holidays_leave_request_wizard.hr_leave_view_form
@@ -44,37 +46,40 @@ msgid "<span class=\"oe_inline\">\n"
 "                            To\n"
 "                        </span>"
 msgstr ""
+"<span class=\"oe_inline\">\n"
+"                            Al\n"
+"                        </span>"
 
 #. module: hr_holidays_leave_request_wizard
 #: model:ir.model.fields,field_description:hr_holidays_leave_request_wizard.field_hr_leave_wizard_day__available_days
 #: model:ir.model.fields,field_description:hr_holidays_leave_request_wizard.field_hr_leave_wizard_day_interval__available_days
 msgid "Available (days)"
-msgstr ""
+msgstr "Disponibile (giorni)"
 
 #. module: hr_holidays_leave_request_wizard
 #: model:ir.model.fields,field_description:hr_holidays_leave_request_wizard.field_hr_leave_wizard_day__available_hours
 #: model:ir.model.fields,field_description:hr_holidays_leave_request_wizard.field_hr_leave_wizard_day_interval__available_hours
 msgid "Available (hours)"
-msgstr ""
+msgstr "Disponibile (ore)"
 
 #. module: hr_holidays_leave_request_wizard
 #: model_terms:ir.ui.view,arch_db:hr_holidays_leave_request_wizard.hr_leave_wizard_form
 msgid "Cancel"
-msgstr ""
+msgstr "Annulla"
 
 #. module: hr_holidays_leave_request_wizard
 #: model:ir.model.fields,field_description:hr_holidays_leave_request_wizard.field_hr_leave_wizard__create_uid
 #: model:ir.model.fields,field_description:hr_holidays_leave_request_wizard.field_hr_leave_wizard_day__create_uid
 #: model:ir.model.fields,field_description:hr_holidays_leave_request_wizard.field_hr_leave_wizard_day_interval__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Creato da"
 
 #. module: hr_holidays_leave_request_wizard
 #: model:ir.model.fields,field_description:hr_holidays_leave_request_wizard.field_hr_leave_wizard__create_date
 #: model:ir.model.fields,field_description:hr_holidays_leave_request_wizard.field_hr_leave_wizard_day__create_date
 #: model:ir.model.fields,field_description:hr_holidays_leave_request_wizard.field_hr_leave_wizard_day_interval__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Creato il"
 
 #. module: hr_holidays_leave_request_wizard
 #: model:ir.model.fields,field_description:hr_holidays_leave_request_wizard.field_hr_leave_wizard_day__date
@@ -82,83 +87,83 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:hr_holidays_leave_request_wizard.hr_leave_wizard_day_tree
 #: model_terms:ir.ui.view,arch_db:hr_holidays_leave_request_wizard.hr_leave_wizard_form
 msgid "Date"
-msgstr ""
+msgstr "Data"
 
 #. module: hr_holidays_leave_request_wizard
 #: sql_constraint:hr.leave.wizard.day:0
 msgid "Date has to be unique!"
-msgstr ""
+msgstr "La data deve essere univoca!"
 
 #. module: hr_holidays_leave_request_wizard
 #: model:ir.model.fields,field_description:hr_holidays_leave_request_wizard.field_hr_leave_wizard_day_interval__day_id
 #: model_terms:ir.ui.view,arch_db:hr_holidays_leave_request_wizard.hr_leave_wizard_day_form
 msgid "Day"
-msgstr ""
+msgstr "Giorno"
 
 #. module: hr_holidays_leave_request_wizard
 #: model:ir.model.fields,field_description:hr_holidays_leave_request_wizard.field_hr_leave_wizard_day_interval__day_name
 msgid "Day Name"
-msgstr ""
+msgstr "Nome giorno"
 
 #. module: hr_holidays_leave_request_wizard
 #: model:ir.model.fields,field_description:hr_holidays_leave_request_wizard.field_hr_leave_wizard__day_ids
 msgid "Days"
-msgstr ""
+msgstr "Giorni"
 
 #. module: hr_holidays_leave_request_wizard
 #: model:ir.model.fields,field_description:hr_holidays_leave_request_wizard.field_hr_leave_wizard__name
 msgid "Description"
-msgstr ""
+msgstr "Descrizione"
 
 #. module: hr_holidays_leave_request_wizard
 #: model:ir.model.fields,field_description:hr_holidays_leave_request_wizard.field_hr_leave_wizard__display_name
 #: model:ir.model.fields,field_description:hr_holidays_leave_request_wizard.field_hr_leave_wizard_day__display_name
 #: model:ir.model.fields,field_description:hr_holidays_leave_request_wizard.field_hr_leave_wizard_day_interval__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nome visualizzato"
 
 #. module: hr_holidays_leave_request_wizard
 #: model:ir.model.fields,field_description:hr_holidays_leave_request_wizard.field_hr_leave_wizard__employee_id
 msgid "Employee"
-msgstr ""
+msgstr "Dipendente"
 
 #. module: hr_holidays_leave_request_wizard
 #: model:ir.model.fields,field_description:hr_holidays_leave_request_wizard.field_hr_leave_wizard__date_to
 msgid "End Date"
-msgstr ""
+msgstr "Data fine"
 
 #. module: hr_holidays_leave_request_wizard
 #: model_terms:ir.ui.view,arch_db:hr_holidays_leave_request_wizard.hr_leave_view_form
 msgid "From"
-msgstr ""
+msgstr "Dal"
 
 #. module: hr_holidays_leave_request_wizard
 #: model:ir.model,name:hr_holidays_leave_request_wizard.model_hr_leave_wizard
 msgid "HR Leave Wizard"
-msgstr ""
+msgstr "Procedura guidata permessi RU"
 
 #. module: hr_holidays_leave_request_wizard
 #: model:ir.model,name:hr_holidays_leave_request_wizard.model_hr_leave_wizard_day
 msgid "HR Leave Wizard Day"
-msgstr ""
+msgstr "Giorno procedura guidata permessi RU"
 
 #. module: hr_holidays_leave_request_wizard
 #: model:ir.model,name:hr_holidays_leave_request_wizard.model_hr_leave_wizard_day_interval
 msgid "HR Leave Wizard Day Interval"
-msgstr ""
+msgstr "Intervallo procedura guidata permessi RU"
 
 #. module: hr_holidays_leave_request_wizard
 #: model:ir.model.fields,field_description:hr_holidays_leave_request_wizard.field_hr_leave_wizard__id
 #: model:ir.model.fields,field_description:hr_holidays_leave_request_wizard.field_hr_leave_wizard_day__id
 #: model:ir.model.fields,field_description:hr_holidays_leave_request_wizard.field_hr_leave_wizard_day_interval__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: hr_holidays_leave_request_wizard
 #: model_terms:ir.ui.view,arch_db:hr_holidays_leave_request_wizard.hr_leave_wizard_day_interval_form
 #: model_terms:ir.ui.view,arch_db:hr_holidays_leave_request_wizard.hr_leave_wizard_form
 msgid "Interval"
-msgstr ""
+msgstr "Intervallo"
 
 #. module: hr_holidays_leave_request_wizard
 #: model:ir.model.fields,field_description:hr_holidays_leave_request_wizard.field_hr_leave_wizard__interval_ids
@@ -166,123 +171,123 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:hr_holidays_leave_request_wizard.hr_leave_wizard_day_form
 #: model_terms:ir.ui.view,arch_db:hr_holidays_leave_request_wizard.hr_leave_wizard_day_tree
 msgid "Intervals"
-msgstr ""
+msgstr "Intervalli"
 
 #. module: hr_holidays_leave_request_wizard
 #: model:ir.model.fields,field_description:hr_holidays_leave_request_wizard.field_hr_leave_wizard____last_update
 #: model:ir.model.fields,field_description:hr_holidays_leave_request_wizard.field_hr_leave_wizard_day____last_update
 #: model:ir.model.fields,field_description:hr_holidays_leave_request_wizard.field_hr_leave_wizard_day_interval____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Ultima modifica il"
 
 #. module: hr_holidays_leave_request_wizard
 #: model:ir.model.fields,field_description:hr_holidays_leave_request_wizard.field_hr_leave_wizard__write_uid
 #: model:ir.model.fields,field_description:hr_holidays_leave_request_wizard.field_hr_leave_wizard_day__write_uid
 #: model:ir.model.fields,field_description:hr_holidays_leave_request_wizard.field_hr_leave_wizard_day_interval__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Ultimo aggiornamento di"
 
 #. module: hr_holidays_leave_request_wizard
 #: model:ir.model.fields,field_description:hr_holidays_leave_request_wizard.field_hr_leave_wizard__write_date
 #: model:ir.model.fields,field_description:hr_holidays_leave_request_wizard.field_hr_leave_wizard_day__write_date
 #: model:ir.model.fields,field_description:hr_holidays_leave_request_wizard.field_hr_leave_wizard_day_interval__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Ultimo aggiornamento il"
 
 #. module: hr_holidays_leave_request_wizard
 #: model:ir.model,name:hr_holidays_leave_request_wizard.model_hr_leave
 msgid "Leave"
-msgstr ""
+msgstr "Permesso"
 
 #. module: hr_holidays_leave_request_wizard
 #: model:ir.model.fields,field_description:hr_holidays_leave_request_wizard.field_hr_leave_wizard__leave_type_id
 msgid "Leave Type"
-msgstr ""
+msgstr "Tipo di permesso"
 
 #. module: hr_holidays_leave_request_wizard
 #: model:ir.model.fields,field_description:hr_holidays_leave_request_wizard.field_hr_leave_wizard_day__name
 #: model:ir.model.fields,field_description:hr_holidays_leave_request_wizard.field_hr_leave_wizard_day_interval__name
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 #. module: hr_holidays_leave_request_wizard
 #: model:ir.actions.act_window,name:hr_holidays_leave_request_wizard.action_hr_holidays_my_leaves_new_request_wizard
 #: model:ir.ui.menu,name:hr_holidays_leave_request_wizard.menu_hr_holidays_my_leaves_new_request_wizard
 msgid "New Request Wizard"
-msgstr ""
+msgstr "Procedura guidata nuova richiesta"
 
 #. module: hr_holidays_leave_request_wizard
 #: model:ir.model.fields,field_description:hr_holidays_leave_request_wizard.field_hr_leave_wizard_day__request_amount
 #: model:ir.model.fields,field_description:hr_holidays_leave_request_wizard.field_hr_leave_wizard_day_interval__request_amount
 msgid "Request (%)"
-msgstr ""
+msgstr "Richiesta (%)"
 
 #. module: hr_holidays_leave_request_wizard
 #: model_terms:ir.ui.view,arch_db:hr_holidays_leave_request_wizard.hr_leave_wizard_day_form
 msgid "Requested"
-msgstr ""
+msgstr "Richiesta"
 
 #. module: hr_holidays_leave_request_wizard
 #: model:ir.model.fields,field_description:hr_holidays_leave_request_wizard.field_hr_leave_wizard_day__requested_days
 #: model:ir.model.fields,field_description:hr_holidays_leave_request_wizard.field_hr_leave_wizard_day_interval__requested_days
 msgid "Requested (days)"
-msgstr ""
+msgstr "Richiesta (giorni)"
 
 #. module: hr_holidays_leave_request_wizard
 #: model:ir.model.fields,field_description:hr_holidays_leave_request_wizard.field_hr_leave_wizard_day__requested_hours
 #: model:ir.model.fields,field_description:hr_holidays_leave_request_wizard.field_hr_leave_wizard_day_interval__requested_hours
 msgid "Requested (hours)"
-msgstr ""
+msgstr "Richiesta (ore)"
 
 #. module: hr_holidays_leave_request_wizard
 #: model:ir.model.fields,field_description:hr_holidays_leave_request_wizard.field_hr_leave_wizard_day_interval__since
 msgid "Since"
-msgstr ""
+msgstr "Dal"
 
 #. module: hr_holidays_leave_request_wizard
 #: model:ir.model.fields,field_description:hr_holidays_leave_request_wizard.field_hr_leave_wizard__date_from
 msgid "Start Date"
-msgstr ""
+msgstr "Data inizio"
 
 #. module: hr_holidays_leave_request_wizard
 #: model_terms:ir.ui.view,arch_db:hr_holidays_leave_request_wizard.hr_leave_wizard_form
 msgid "Submit"
-msgstr ""
+msgstr "Invia"
 
 #. module: hr_holidays_leave_request_wizard
 #: model:ir.model.fields,field_description:hr_holidays_leave_request_wizard.field_hr_leave_wizard__leave_type_request_unit
 #: model:ir.model.fields,field_description:hr_holidays_leave_request_wizard.field_hr_leave_wizard_day__leave_type_request_unit
 #: model:ir.model.fields,field_description:hr_holidays_leave_request_wizard.field_hr_leave_wizard_day_interval__leave_type_request_unit
 msgid "Take Leaves in"
-msgstr ""
+msgstr "Prendere permessi in"
 
 #. module: hr_holidays_leave_request_wizard
 #: model_terms:ir.ui.view,arch_db:hr_holidays_leave_request_wizard.hr_leave_wizard_day_interval_tree
 #: model_terms:ir.ui.view,arch_db:hr_holidays_leave_request_wizard.hr_leave_wizard_day_tree
 #: model_terms:ir.ui.view,arch_db:hr_holidays_leave_request_wizard.hr_leave_wizard_form
 msgid "Total Available"
-msgstr ""
+msgstr "Disponibile totale"
 
 #. module: hr_holidays_leave_request_wizard
 #: model_terms:ir.ui.view,arch_db:hr_holidays_leave_request_wizard.hr_leave_wizard_day_interval_tree
 #: model_terms:ir.ui.view,arch_db:hr_holidays_leave_request_wizard.hr_leave_wizard_day_tree
 #: model_terms:ir.ui.view,arch_db:hr_holidays_leave_request_wizard.hr_leave_wizard_form
 msgid "Total Requested"
-msgstr ""
+msgstr "Richiesto totale"
 
 #. module: hr_holidays_leave_request_wizard
 #: code:addons/hr_holidays_leave_request_wizard/wizards/hr_leave_wizard.py:129
 #, python-format
 msgid "Unknown leave type request unit: %s"
-msgstr ""
+msgstr "Unità richiesta tipo permesso non conosciuta: %s"
 
 #. module: hr_holidays_leave_request_wizard
 #: model:ir.model.fields,field_description:hr_holidays_leave_request_wizard.field_hr_leave_wizard_day_interval__until
 msgid "Until"
-msgstr ""
+msgstr "Fino a"
 
 #. module: hr_holidays_leave_request_wizard
 #: model:ir.model.fields,field_description:hr_holidays_leave_request_wizard.field_hr_leave_wizard_day__wizard_id
 #: model:ir.model.fields,field_description:hr_holidays_leave_request_wizard.field_hr_leave_wizard_day_interval__wizard_id
 msgid "Wizard"
-msgstr ""
+msgstr "Procedura guidata"
