@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-06-07 09:08+0000\n"
+"PO-Revision-Date: 2023-06-14 09:08+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -45,7 +45,7 @@ msgstr "Riepilogo / resoconto permesso"
 #. module: hr_holidays_hour
 #: model:ir.model,name:hr_holidays_hour.model_hr_leave_allocation
 msgid "Leaves Allocation"
-msgstr "Distribuzione permessi"
+msgstr "Assegnazione permessi"
 
 #. module: hr_holidays_hour
 #: model:ir.model.fields,field_description:hr_holidays_hour.field_hr_employee__leaves_count
