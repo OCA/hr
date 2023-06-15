@@ -24,8 +24,8 @@ msgid ""
 "%(item_name)s is used in %(total_items)s employee(s) related to another "
 "company."
 msgstr ""
-"%(item_name)s está usado en %(total_items)s empleado/a(s) relacionado/a(s) con "
-"otra compañía."
+"%(item_name)s está usado en %(total_items)s empleado/a(s) relacionado/a(s) "
+"con otra compañía."
 
 #. module: hr_employee_calendar_planning
 #: code:addons/hr_employee_calendar_planning/models/resource_calendar.py:0
@@ -91,8 +91,14 @@ msgstr "Empleado"
 
 #. module: hr_employee_calendar_planning
 #: model:ir.model,name:hr_employee_calendar_planning.model_hr_employee_calendar
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_resource_calendar__employee_calendar_ids
 msgid "Employee Calendar"
 msgstr "Horario del Empleado"
+
+#. module: hr_employee_calendar_planning
+#: model_terms:ir.ui.view,arch_db:hr_employee_calendar_planning.resource_calendar_form
+msgid "Employee Calendars"
+msgstr ""
 
 #. module: hr_employee_calendar_planning
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__date_end
