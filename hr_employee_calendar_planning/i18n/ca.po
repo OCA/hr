@@ -19,14 +19,18 @@ msgstr ""
 #. module: hr_employee_calendar_planning
 #: code:addons/hr_employee_calendar_planning/models/resource_calendar.py:0
 #, python-format
-msgid "%s is used in %s employee(s) related to another company."
-msgstr "%s s'utilitza en %s empleats relacionats amb una altra empresa."
+msgid ""
+"%(item_name)s is used in %(total_items)s employee(s) related to another "
+"company."
+msgstr ""
 
 #. module: hr_employee_calendar_planning
 #: code:addons/hr_employee_calendar_planning/models/resource_calendar.py:0
 #, python-format
-msgid "%s is used in %s employee(s). You should change them first."
-msgstr "%s s'utilitza en %s empleat(s). Primer els hauries de canviar."
+msgid ""
+"%(item_name)s is used in %(total_items)s employee(s).You should change them "
+"first."
+msgstr ""
 
 #. module: hr_employee_calendar_planning
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_resource_calendar__active
@@ -70,9 +74,7 @@ msgid "Date end should be higher than date start"
 msgstr "La data de fi ha de ser més gran que la d'inici"
 
 #. module: hr_employee_calendar_planning
-#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee__display_name
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__display_name
-#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_resource_calendar__display_name
 msgid "Display Name"
 msgstr "Nom a mostrar"
 
@@ -84,8 +86,14 @@ msgstr "Empleat"
 
 #. module: hr_employee_calendar_planning
 #: model:ir.model,name:hr_employee_calendar_planning.model_hr_employee_calendar
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_resource_calendar__employee_calendar_ids
 msgid "Employee Calendar"
 msgstr "Horari de l'empleat"
+
+#. module: hr_employee_calendar_planning
+#: model_terms:ir.ui.view,arch_db:hr_employee_calendar_planning.resource_calendar_form
+msgid "Employee Calendars"
+msgstr ""
 
 #. module: hr_employee_calendar_planning
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__date_end
@@ -93,9 +101,7 @@ msgid "End Date"
 msgstr "Data de finalització"
 
 #. module: hr_employee_calendar_planning
-#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee__id
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__id
-#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_resource_calendar__id
 msgid "ID"
 msgstr "ID"
 
@@ -109,9 +115,7 @@ msgstr ""
 "treball sense eliminar-lo."
 
 #. module: hr_employee_calendar_planning
-#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee____last_update
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar____last_update
-#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_resource_calendar____last_update
 msgid "Last Modified on"
 msgstr "Darrera modificació el"
 
@@ -145,3 +149,11 @@ msgstr "Temps de treball"
 #, python-format
 msgid "You can not create employees without any calendar."
 msgstr ""
+
+#, python-format
+#~ msgid "%s is used in %s employee(s) related to another company."
+#~ msgstr "%s s'utilitza en %s empleats relacionats amb una altra empresa."
+
+#, python-format
+#~ msgid "%s is used in %s employee(s). You should change them first."
+#~ msgstr "%s s'utilitza en %s empleat(s). Primer els hauries de canviar."
