@@ -83,7 +83,13 @@ msgstr ""
 
 #. module: hr_employee_calendar_planning
 #: model:ir.model,name:hr_employee_calendar_planning.model_hr_employee_calendar
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_resource_calendar__employee_calendar_ids
 msgid "Employee Calendar"
+msgstr ""
+
+#. module: hr_employee_calendar_planning
+#: model_terms:ir.ui.view,arch_db:hr_employee_calendar_planning.resource_calendar_form
+msgid "Employee Calendars"
 msgstr ""
 
 #. module: hr_employee_calendar_planning
