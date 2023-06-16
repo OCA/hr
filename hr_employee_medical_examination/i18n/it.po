@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-06-12 09:09+0000\n"
+"PO-Revision-Date: 2023-06-16 14:10+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -207,7 +207,7 @@ msgstr "ID"
 #. module: hr_employee_medical_examination
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee_medical_examination__activity_exception_icon
 msgid "Icon"
-msgstr "icona"
+msgstr "Icona"
 
 #. module: hr_employee_medical_examination
 #: model:ir.model.fields,help:hr_employee_medical_examination.field_hr_employee_medical_examination__activity_exception_icon
