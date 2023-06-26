@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-06-07 17:08+0000\n"
+"PO-Revision-Date: 2023-06-26 13:09+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -29,12 +29,12 @@ msgstr "Spesa"
 #. module: hr_expense_invoice
 #: model:ir.model,name:hr_expense_invoice.model_hr_expense_sheet
 msgid "Expense Report"
-msgstr "Nota spese"
+msgstr "Resoconto spesa"
 
 #. module: hr_expense_invoice
 #: model:ir.model.fields,help:hr_expense_invoice.field_hr_expense__sheet_id_state
 msgid "Expense Report State"
-msgstr "Stato nota spese"
+msgstr "Stato resoconto spesa"
 
 #. module: hr_expense_invoice
 #: model:ir.model.fields,field_description:hr_expense_invoice.field_account_invoice__expense_ids
@@ -72,7 +72,7 @@ msgstr "Pagamenti"
 #: code:addons/hr_expense_invoice/models/account_payment.py:15
 #, python-format
 msgid "Register payment on expense's invoice is not allowed"
-msgstr "Non è consentito il pagamento in cassa sulle spese della fattura"
+msgstr "Non è consentito registrare il pagamento sulla fattura delle spese"
 
 #. module: hr_expense_invoice
 #: model:ir.model.fields,field_description:hr_expense_invoice.field_hr_expense__sheet_id_state
