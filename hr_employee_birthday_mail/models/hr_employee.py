@@ -11,11 +11,13 @@ class HrEmployee(models.Model):
 
     allow_birthday_wishes = fields.Boolean(
         default=False,
+        groups="hr.group_hr_user",
         help="Check this box if you want to allow birthday wishes from our company "
         "and allow the others to be notified of your birthday.",
     )
     notify_others_birthday = fields.Boolean(
         default=False,
+        groups="hr.group_hr_user",
         help="Check this box if you want to be notified about other coworkers' birthdays.",
     )
 
