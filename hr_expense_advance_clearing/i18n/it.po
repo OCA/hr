@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-06-26 13:09+0000\n"
+"PO-Revision-Date: 2023-06-28 09:09+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -70,7 +70,7 @@ msgstr "Valore da liquidare"
 #. module: hr_expense_advance_clearing
 #: model:ir.model.fields,help:hr_expense_advance_clearing.field_hr_expense_sheet__clearing_residual
 msgid "Amount to clear of this expense sheet in company currency"
-msgstr "Valore da liquidare di questa nota spese nella valuta dell'azienda"
+msgstr "Valore da liquidare di questo foglio spese nella valuta dell'azienda"
 
 #. module: hr_expense_advance_clearing
 #: model:ir.model.fields,field_description:hr_expense_advance_clearing.field_hr_expense_sheet__advance_sheet_id
@@ -133,7 +133,7 @@ msgstr "Procedura guidata pagamento registro spese"
 #. module: hr_expense_advance_clearing
 #: model:ir.model,name:hr_expense_advance_clearing.model_hr_expense_sheet
 msgid "Expense Report"
-msgstr "Resoconto spesa"
+msgstr "Nota spese"
 
 #. module: hr_expense_advance_clearing
 #: model:ir.model.fields,help:hr_expense_advance_clearing.field_hr_expense_sheet__amount_payable
