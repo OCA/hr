@@ -122,6 +122,23 @@ class HrEmployee(models.Model):
         new.filtered("calendar_ids").regenerate_calendar()
         return new
 
+    def _sync_user(self, user):
+        res = super()._sync_user(user=user)
+        # set calendar_ids from Create employee button from user
+        if not self.calendar_ids:
+            res.update(
+                {
+                    "calendar_ids": [
+                        (
+                            0,
+                            0,
+                            {"calendar_id": user.company_id.resource_calendar_id.id},
+                        ),
+                    ]
+                }
+            )
+        return res
+
     @api.model_create_multi
     def create(self, vals_list):
         res = super().create(vals_list)
