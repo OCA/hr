@@ -19,6 +19,8 @@ class TestHrEmployeeCalendarPlanning(common.SavepointCase):
                 mail_create_nosubscribe=True,
                 mail_notrack=True,
                 no_reset_password=True,
+                tracking_disable=True,
+                test_hr_employee_calendar_planning=True,
             )
         )
         resource_calendar = cls.env["resource.calendar"]
@@ -73,6 +75,8 @@ class TestHrEmployeeCalendarPlanning(common.SavepointCase):
                 "date_to": "2019-06-10",
             }
         )
+        # By default a calendar_ids is set, we remove it to better clarify the tests.
+        cls.employee.write({"calendar_ids": [(2, cls.employee.calendar_ids.id)]})
 
     def test_calendar_planning(self):
         self.employee.calendar_ids = [
