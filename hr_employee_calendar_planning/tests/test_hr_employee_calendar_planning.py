@@ -19,6 +19,8 @@ class TestHrEmployeeCalendarPlanning(common.TransactionCase):
                 mail_create_nosubscribe=True,
                 mail_notrack=True,
                 no_reset_password=True,
+                tracking_disable=True,
+                test_hr_employee_calendar_planning=True,
             )
         )
         resource_calendar = cls.env["resource.calendar"]
@@ -98,6 +100,8 @@ class TestHrEmployeeCalendarPlanning(common.TransactionCase):
             (6, 0, [cls.global_leave1.id, cls.global_leave2.id])
         ]
         cls.calendar2.global_leave_ids = [(6, 0, [cls.global_leave3.id])]
+        # By default a calendar_ids is set, we remove it to better clarify the tests.
+        cls.employee.write({"calendar_ids": [(2, cls.employee.calendar_ids.id)]})
 
     def test_calendar_planning(self):
         self.employee.calendar_ids = [
