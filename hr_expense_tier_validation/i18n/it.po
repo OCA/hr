@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-06-28 09:09+0000\n"
+"PO-Revision-Date: 2023-06-30 10:08+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -22,7 +22,7 @@ msgid "<i class=\"fa fa-info-circle\"/>\n"
 "                        This expense report needs to be validated."
 msgstr ""
 "<i class=\"fa fa-info-circle\"/>\n"
-"                        Questa nota spese deve essere approvata."
+"                        Questa nota spese deve essere validata."
 
 #. module: hr_expense_tier_validation
 #: model_terms:ir.ui.view,arch_db:hr_expense_tier_validation.view_hr_expense_sheet_form
@@ -31,8 +31,9 @@ msgstr "<i class=\"fa fa-thumbs-down\"/> L'operazione è stata <b>rifiutata</b>.
 
 #. module: hr_expense_tier_validation
 #: model_terms:ir.ui.view,arch_db:hr_expense_tier_validation.view_hr_expense_sheet_form
+#, fuzzy
 msgid "<i class=\"fa fa-thumbs-up\"/> Operation has been <b>validated</b>!"
-msgstr "<i class=\"fa fa-thumbs-up\"/> L'operazione è stata <b>approvata</b>!"
+msgstr "<i class=\"fa fa-thumbs-up\"/> L'operazione è stata <b>validata</b>!"
 
 #. module: hr_expense_tier_validation
 #: model:ir.model,name:hr_expense_tier_validation.model_hr_expense_sheet
@@ -42,7 +43,7 @@ msgstr "Nota spese"
 #. module: hr_expense_tier_validation
 #: model_terms:ir.ui.view,arch_db:hr_expense_tier_validation.view_hr_expense_sheet_filter
 msgid "Expense report validated and ready to be approved"
-msgstr "Nota spese approvata e pronta ad essere accettata"
+msgstr "Nota spese validata e pronta ad essere approvata"
 
 #. module: hr_expense_tier_validation
 #: model_terms:ir.ui.view,arch_db:hr_expense_tier_validation.view_hr_expense_sheet_filter
@@ -62,12 +63,12 @@ msgstr "Rifiuta"
 #. module: hr_expense_tier_validation
 #: model_terms:ir.ui.view,arch_db:hr_expense_tier_validation.view_hr_expense_sheet_form
 msgid "Request Validation"
-msgstr "Richiedi approvazione"
+msgstr "Richiedi validazione"
 
 #. module: hr_expense_tier_validation
 #: model_terms:ir.ui.view,arch_db:hr_expense_tier_validation.view_hr_expense_sheet_form
 msgid "Restart Validation"
-msgstr "Riavvia approvazione"
+msgstr "Riavvia validazione"
 
 #. module: hr_expense_tier_validation
 #: model:ir.model,name:hr_expense_tier_validation.model_tier_definition
