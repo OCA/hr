@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-06-28 16:09+0000\n"
+"PO-Revision-Date: 2023-06-30 10:08+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -76,7 +76,7 @@ msgstr "Valore da liquidare di questo foglio spese nella valuta dell'azienda"
 #: model:ir.model.fields,field_description:hr_expense_advance_clearing.field_hr_expense_sheet__advance_sheet_id
 #: model_terms:ir.ui.view,arch_db:hr_expense_advance_clearing.view_hr_expense_sheet_form
 msgid "Clear Advance"
-msgstr "Annulla anticipo"
+msgstr "Liquida anticipo"
 
 #. module: hr_expense_advance_clearing
 #: model_terms:ir.ui.view,arch_db:hr_expense_advance_clearing.view_hr_expense_sheet_filter
@@ -106,7 +106,7 @@ msgstr "Il prodotto anticipo dipendente non ha un conto pagabile"
 #: code:addons/hr_expense_advance_clearing/models/hr_expense.py:30
 #, python-format
 msgid "Employee advance, all taxes must be removed"
-msgstr "Anticipo dipendente, tutte le tasse devono essere rimosse"
+msgstr "Anticipo dipendente, devono essere rimosse tutte le tasse"
 
 #. module: hr_expense_advance_clearing
 #: code:addons/hr_expense_advance_clearing/models/hr_expense.py:33
@@ -166,7 +166,7 @@ msgstr "Valore residuo per liquidare il foglio anticipo selezionato"
 #. module: hr_expense_advance_clearing
 #: model_terms:ir.ui.view,arch_db:hr_expense_advance_clearing.view_hr_expense_sheet_form
 msgid "Return Advance"
-msgstr "Rimborso residuo"
+msgstr "Rimborso anticipo"
 
 #. module: hr_expense_advance_clearing
 #: model:ir.model.fields,help:hr_expense_advance_clearing.field_hr_expense_sheet__advance_sheet_id
