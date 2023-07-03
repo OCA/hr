@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-06-30 10:09+0000\n"
+"PO-Revision-Date: 2023-07-03 11:09+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -47,12 +47,12 @@ msgstr "Ultima modifica il"
 #. module: hr_personal_equipment_request_tier_validation
 #: model:ir.model.fields,field_description:hr_personal_equipment_request_tier_validation.field_hr_personal_equipment_request__need_validation
 msgid "Need Validation"
-msgstr "Richiede approvazione"
+msgstr "Richiede conferma"
 
 #. module: hr_personal_equipment_request_tier_validation
 #: model:ir.model.fields,field_description:hr_personal_equipment_request_tier_validation.field_hr_personal_equipment_request__next_review
 msgid "Next Review"
-msgstr "Prossima approvazione"
+msgstr "Prossima revisione"
 
 #. module: hr_personal_equipment_request_tier_validation
 #: model:tier.definition,name:hr_personal_equipment_request_tier_validation.tier_definition_personal_equipment_request
@@ -103,4 +103,4 @@ msgstr "Messaggio validato"
 #. module: hr_personal_equipment_request_tier_validation
 #: model:ir.model.fields,field_description:hr_personal_equipment_request_tier_validation.field_hr_personal_equipment_request__review_ids
 msgid "Validations"
-msgstr "Approvazioni"
+msgstr "Validazioni"
