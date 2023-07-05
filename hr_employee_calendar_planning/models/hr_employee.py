@@ -48,6 +48,16 @@ class HrEmployee(models.Model):
         copy=True,
     )
 
+    @api.model
+    def default_get(self, fields):
+        """Set calendar_ids default value to cover all use cases."""
+        vals = super().default_get(fields)
+        if "calendar_ids" in fields and not vals.get("calendar_ids"):
+            vals["calendar_ids"] = [
+                (0, 0, {"calendar_id": self.env.company.resource_calendar_id.id}),
+            ]
+        return vals
+
     def _regenerate_calendar(self):
         self.ensure_one()
         vals_list = []
@@ -151,28 +161,10 @@ class HrEmployee(models.Model):
         new.filtered("calendar_ids").regenerate_calendar()
         return new
 
-    def _sync_user(self, user, employee_has_image=False):
-        res = super()._sync_user(user=user, employee_has_image=employee_has_image)
-        # set calendar_ids from Create employee button from user
-        if not self.calendar_ids:
-            res.update(
-                {
-                    "calendar_ids": [
-                        (
-                            0,
-                            0,
-                            {
-                                "calendar_id": user.company_id.resource_calendar_id.id,
-                            },
-                        ),
-                    ]
-                }
-            )
-        return res
-
     @api.model_create_multi
     def create(self, vals_list):
         res = super().create(vals_list)
+        # Avoid creating an employee without calendars
         if (
             not self.env.context.get("skip_employee_calendars_required")
             and not config["test_enable"]
@@ -196,9 +188,7 @@ class HrEmployeeCalendar(models.Model):
         string="End Date",
     )
     employee_id = fields.Many2one(
-        comodel_name="hr.employee",
-        string="Employee",
-        required=True,
+        comodel_name="hr.employee", string="Employee", required=True, ondelete="cascade"
     )
     company_id = fields.Many2one(related="employee_id.company_id")
     calendar_id = fields.Many2one(
@@ -206,6 +196,7 @@ class HrEmployeeCalendar(models.Model):
         string="Working Time",
         required=True,
         check_company=True,
+        ondelete="restrict",
     )
 
     _sql_constraints = [
