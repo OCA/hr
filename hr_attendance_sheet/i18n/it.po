@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-06-22 13:09+0000\n"
+"PO-Revision-Date: 2023-07-08 11:10+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -228,7 +228,7 @@ msgstr "Impossibile reimpostare a bozza un prospetto non approvato."
 #. module: hr_attendance_sheet
 #: model_terms:ir.ui.view,arch_db:hr_attendance_sheet.hr_attendance_sheet_view_form
 msgid "Check in/out"
-msgstr "Check in/out"
+msgstr "Check-in/out"
 
 #. module: hr_attendance_sheet
 #: model_terms:ir.ui.view,arch_db:hr_attendance_sheet.hr_attendance_sheet_view_form
@@ -322,7 +322,7 @@ msgstr "Giorno"
 #. module: hr_attendance_sheet
 #: model:ir.model.fields,help:hr_attendance_sheet.field_hr_attendance_sheet__working_hours
 msgid "Define the schedule of resource"
-msgstr "Definire la schedulazione delle risorse"
+msgstr "Definire la schedulazione della risorsa"
 
 #. module: hr_attendance_sheet
 #: model:ir.model.fields,field_description:hr_attendance_sheet.field_hr_attendance_sheet__department_id
@@ -371,7 +371,7 @@ msgstr "Responsabile dipendente o amministratore presenza"
 #. module: hr_attendance_sheet
 #: model:ir.model.fields,help:hr_attendance_sheet.field_hr_attendance__override_auto_lunch
 msgid "Enable if you don't want the auto lunch to calculate."
-msgstr "Abilitare se non si vuole per non calcolare il pranzo automatico."
+msgstr "Abilitare se non si vuole calcolare il pranzo automatico."
 
 #. module: hr_attendance_sheet
 #: model:ir.model.fields,help:hr_attendance_sheet.field_res_company__auto_lunch_hours
@@ -750,7 +750,7 @@ msgstr "Politica di revisione"
 #. module: hr_attendance_sheet
 #: model:ir.model.fields,field_description:hr_attendance_sheet.field_hr_attendance_sheet__reviewed_on
 msgid "Reviewed On"
-msgstr "Revisionata da"
+msgstr "Revisionata il"
 
 #. module: hr_attendance_sheet
 #: model:ir.model.fields,field_description:hr_attendance_sheet.field_hr_attendance_sheet__reviewer_id
@@ -940,7 +940,7 @@ msgstr "Settimana"
 #: model:ir.model.fields,field_description:hr_attendance_sheet.field_res_company__attendance_week_start
 #: model:ir.model.fields,field_description:hr_attendance_sheet.field_res_config_settings__attendance_week_start
 msgid "Week Starting Day"
-msgstr "Giorno inizio settimana"
+msgstr "Giorno di inizio settimana"
 
 #. module: hr_attendance_sheet
 #: model:ir.model.fields,field_description:hr_attendance_sheet.field_hr_attendance_sheet__working_hours
