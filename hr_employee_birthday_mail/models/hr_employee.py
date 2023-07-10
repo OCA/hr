@@ -13,10 +13,12 @@ class HrEmployee(models.Model):
         default=False,
         help="Check this box if you want to allow birthday wishes from our company "
         "and allow the others to be notified of your birthday.",
+        groups="hr.group_hr_user",
     )
     notify_others_birthday = fields.Boolean(
         default=False,
         help="Check this box if you want to be notified about other coworkers' birthdays.",
+        groups="hr.group_hr_user",
     )
 
     @api.model
