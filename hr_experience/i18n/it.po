@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-01-14 03:17+0000\n"
-"PO-Revision-Date: 2023-06-07 11:09+0000\n"
-"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
+"PO-Revision-Date: 2023-07-12 14:10+0000\n"
+"Last-Translator: Francesco Foresti <francesco.foresti@ooops404.com>\n"
 "Language-Team: Italian (http://www.transifex.com/oca/OCA-hr-8-0/language/it/)"
 "\n"
 "Language: it\n"
@@ -254,7 +254,7 @@ msgstr "Ultimo aggiornamento il"
 #: field:hr.curriculum,location:0 help:hr.curriculum,location:0
 #: field:hr.experience,location:0 help:hr.experience,location:0
 msgid "Location"
-msgstr "Posizione"
+msgstr "Ubicazione"
 
 #. module: hr_experience
 #: field:hr.academic,name:0 field:hr.certification,name:0
