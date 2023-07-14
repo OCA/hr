@@ -1,0 +1,109 @@
+.custom_control_panel .o_control_panel {
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+}
+
+.image img {
+    max-height: 120px;
+    max-width: 120px;
+    border-radius: 50%;
+}
+
+.orgchart {
+    margin-top: 50px;
+    background: #f9f9f9 !important;
+
+    .node .title {
+        font-size: 1rem;
+        min-width: 200px;
+    }
+    .node .content {
+        font-size: 1rem;
+    }
+}
+
+.o-filter-button {
+    margin-right: 10px;
+}
+
+.orgchart td.left,
+.orgchart td.right,
+.orgchart td.top {
+    border-color: #aaa !important;
+}
+
+.orgchart td > .down {
+    background-color: #aaa !important;
+}
+
+.orgchart .level-0 .title {
+    background-color: #006699 !important;
+}
+
+.orgchart .level-0 .content {
+    border-color: #006699 !important;
+}
+
+.orgchart .level-0 .image img {
+    border: solid 1px #006699;
+}
+
+.orgchart .level-1 .title {
+    background-color: #009933 !important;
+}
+
+.orgchart .level-1 .content {
+    border-color: #009933 !important;
+}
+
+.orgchart .level-1 .image img {
+    border: solid 1px #009933;
+}
+
+.orgchart .level-2 .title {
+    background-color: #993366 !important;
+}
+
+.orgchart .level-2 .content {
+    border-color: #993366 !important;
+}
+
+.orgchart .level-2 .image img {
+    border: solid 1px #993366;
+}
+
+.orgchart .level-3 .title {
+    background-color: #996633 !important;
+}
+
+.orgchart .level-3 .content {
+    border-color: #996633 !important;
+}
+
+.orgchart .level-3 .image img {
+    border: solid 1px #996633;
+}
+
+.orgchart .level-4 .title {
+    background-color: #cc0066 !important;
+}
+
+.orgchart .level-4 .content {
+    border-color: #cc0066 !important;
+}
+
+.orgchart .level-4 .image img {
+    border: solid 1px #cc0066;
+}
+
+/* Hide the very first 3 rows (that represent the pseudo root element) */
+.orgchart > table > tr:nth-child(-n + 3) {
+    display: none;
+}
+
+/* in the .node class of the root, search for the first children of root and
+    hide their topEdge arrow which is associated to the pseudo root elemen */
+.orgchart > table > tr.nodes > td > table > tbody > tr > td > div.node > i.topEdge {
+    display: none;
+}

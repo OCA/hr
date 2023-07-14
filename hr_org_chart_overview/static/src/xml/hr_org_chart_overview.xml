@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates>
+    <t t-name="ControlPanel">
+        <div class="o_control_panel">
+            <div>
+                <div class="o_cp_top_left">
+                    <ol class="breadcrumb" role="navigation" />
+                </div>
+                <div class="o_cp_top_right">
+                    <div class="o_cp_searchview" role="search">
+                        <t t-if="widget.withSearchBar" t-call="SearchView" />
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="o_cp_left">
+                    <div
+                        class="o_cp_buttons"
+                        role="toolbar"
+                        aria-label="Control panel toolbar"
+                    />
+                    <aside class="o_cp_sidebar" />
+                </div>
+            </div>
+        </div>
+    </t>
+    <t t-name="HrOrgChartOverview">
+        <div class="custom_control_panel">
+            <t t-call="ControlPanel" />
+        </div>
+        <div id="chart-container" />
+    </t>
+</templates>
