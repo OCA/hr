@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-05-31 15:10+0000\n"
+"PO-Revision-Date: 2023-07-18 11:10+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -249,7 +249,7 @@ msgstr "Vero se il DPI scade"
 #. module: hr_employee_ppe
 #: model:ir.model.fields.selection,name:hr_employee_ppe.selection__product_template__ppe_interval_type__weeks
 msgid "Weeks"
-msgstr "Settimana"
+msgstr "Settimane"
 
 #. module: hr_employee_ppe
 #: model_terms:ir.ui.view,arch_db:hr_employee_ppe.hr_employee_ppe_report_template
