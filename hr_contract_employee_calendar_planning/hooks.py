@@ -14,7 +14,7 @@ def post_init_hook(cr, registry, employees=None):
 
     for employee in employees.filtered("contract_ids"):
         contract_calendar_lines = []
-        for contract in employee.contract_ids:
+        for contract in employee.contract_ids.sorted("date_start"):
             date_start = contract.date_start
             date_end = contract.date_end
             # filter calendar_ids to check for overlaps with contracts
@@ -26,7 +26,7 @@ def post_init_hook(cr, registry, employees=None):
             )
             if cal_ids:
                 _logger.info(f"{contract} is overlapping with {cal_ids}")
-                for calendar in cal_ids:
+                for calendar in cal_ids.sorted("date_start"):
                     if date_start and calendar.date_start != date_start:
                         _logger.info(
                             f"changing date_start of {calendar} "
@@ -39,6 +39,7 @@ def post_init_hook(cr, registry, employees=None):
                             f"from {calendar.date_end} to {date_end}"
                         )
                         calendar.date_end = date_end
+                    break
             else:
                 _logger.info(
                     f"adding new calendar_id for {contract.employee_id.name}: "
