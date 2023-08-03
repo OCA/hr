@@ -6,15 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2019-12-03 16:06+0000\n"
-"Last-Translator: Pedro S. Lopez <pedroslopez@me.com>\n"
+"PO-Revision-Date: 2023-08-03 21:10+0000\n"
+"Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
 "Language-Team: none\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: hr_employee_relative
 #: model:ir.model.fields,field_description:hr_employee_relative.field_hr_employee_relative__age
@@ -46,7 +46,7 @@ msgstr "Creado en"
 #. module: hr_employee_relative
 #: model:ir.model.fields,field_description:hr_employee_relative.field_hr_employee_relative__date_of_birth
 msgid "Date Of Birth"
-msgstr ""
+msgstr "Fecha de nacimiento"
 
 #. module: hr_employee_relative
 #: model:ir.model.fields,field_description:hr_employee_relative.field_hr_employee_relative__display_name
@@ -163,7 +163,7 @@ msgstr "Parentesco"
 #. module: hr_employee_relative
 #: model:ir.model.fields,field_description:hr_employee_relative.field_hr_employee__relative_ids
 msgid "Relative"
-msgstr ""
+msgstr "Relativo"
 
 #. module: hr_employee_relative
 #: model_terms:ir.ui.view,arch_db:hr_employee_relative.hr_employee_view_form
