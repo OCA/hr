@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-03-21 09:30+0000\n"
-"PO-Revision-Date: 2022-02-02 13:33+0000\n"
-"Last-Translator: Olga Marco Puértolas <olga.marco@creublanca.es>\n"
+"PO-Revision-Date: 2023-08-03 21:10+0000\n"
+"Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
 "Language-Team: \n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.3.2\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: hr_course
 #: model:ir.model.fields.selection,name:hr_course.selection__hr_course_attendee__result__absent
@@ -57,7 +57,7 @@ msgstr "Asistentes"
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__authorized_by
 msgid "Authorized By"
-msgstr ""
+msgstr "Autorizado por"
 
 #. module: hr_course
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_schedule_form_view
@@ -244,13 +244,13 @@ msgstr "Empleado"
 #: code:addons/hr_course/models/hr_course_schedule.py:0
 #, python-format
 msgid "Employees removed from this course: <br></br>%s"
-msgstr ""
+msgstr "Empleados eliminados de este curso: <br></br>%s"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee__course_end
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__end_date
 msgid "End Date"
-msgstr ""
+msgstr "Fecha final"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__evaluation_criteria
@@ -283,7 +283,7 @@ msgstr "Seguidores (Socios)"
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__has_message
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__has_message
 msgid "Has Message"
-msgstr ""
+msgstr "Tiene mensaje"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__permanence
@@ -330,7 +330,7 @@ msgstr "Instructor"
 #. module: hr_course
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_schedule_form_view
 msgid "Internal notes"
-msgstr ""
+msgstr "Notas internas"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__message_is_follower
@@ -390,7 +390,7 @@ msgstr "Nombre"
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__note
 msgid "Note"
-msgstr ""
+msgstr "Nota"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__message_needaction_counter
@@ -445,7 +445,7 @@ msgstr "Pendiente"
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__permanence_time
 msgid "Permanence Time"
-msgstr ""
+msgstr "Tiempo de permanencia"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__place
@@ -482,7 +482,7 @@ msgstr "Empezar curso"
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee__course_start
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__start_date
 msgid "Start Date"
-msgstr ""
+msgstr "Fecha de inicio"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee__state
