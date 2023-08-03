@@ -411,8 +411,8 @@ msgstr "Numero di errori"
 #. module: hr_course
 #: model:ir.model.fields,help:hr_course.field_hr_course__message_needaction_counter
 #: model:ir.model.fields,help:hr_course.field_hr_course_schedule__message_needaction_counter
-msgid "Number of messages which requires an action"
-msgstr "Numero di messaggi che richiedono un'azione"
+msgid "Number of messages requiring action"
+msgstr ""
 
 #. module: hr_course
 #: model:ir.model.fields,help:hr_course.field_hr_course__message_has_error_counter
@@ -521,3 +521,6 @@ msgid ""
 msgstr ""
 "Si dovrebbe reimpostare un corso come bozza solo se lo si è cancellato per "
 "errore o se alcune sue informazioni non sono corrette. Continuare?"
+
+#~ msgid "Number of messages which requires an action"
+#~ msgstr "Numero di messaggi che richiedono un'azione"
