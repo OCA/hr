@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-06-16 14:10+0000\n"
+"PO-Revision-Date: 2023-09-04 18:38+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -244,9 +244,7 @@ msgstr "Se selezionata, nuovi messaggi richiedono attenzione."
 
 #. module: hr_personal_equipment_request
 #: model:ir.model.fields,help:hr_personal_equipment_request.field_hr_personal_equipment__message_has_error
-#: model:ir.model.fields,help:hr_personal_equipment_request.field_hr_personal_equipment__message_has_sms_error
 #: model:ir.model.fields,help:hr_personal_equipment_request.field_hr_personal_equipment_request__message_has_error
-#: model:ir.model.fields,help:hr_personal_equipment_request.field_hr_personal_equipment_request__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
 msgstr "Se selezionata, alcuni messaggi hanno un errore di consegna."
 
@@ -338,7 +336,7 @@ msgstr "Riepilogo prossima attività"
 #: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment__activity_type_id
 #: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment_request__activity_type_id
 msgid "Next Activity Type"
-msgstr "Tipologia prossima attività"
+msgstr "Tipo prossima attività"
 
 #. module: hr_personal_equipment_request
 #: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment__message_needaction_counter
@@ -355,7 +353,7 @@ msgstr "Numero di errori"
 #. module: hr_personal_equipment_request
 #: model:ir.model.fields,help:hr_personal_equipment_request.field_hr_personal_equipment__message_needaction_counter
 #: model:ir.model.fields,help:hr_personal_equipment_request.field_hr_personal_equipment_request__message_needaction_counter
-msgid "Number of messages which requires an action"
+msgid "Number of messages requiring action"
 msgstr "Numero di messaggi che richiedono un'azione"
 
 #. module: hr_personal_equipment_request
@@ -428,12 +426,6 @@ msgid "Responsible User"
 msgstr "Utente responsabile"
 
 #. module: hr_personal_equipment_request
-#: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment__message_has_sms_error
-#: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment_request__message_has_sms_error
-msgid "SMS Delivery error"
-msgstr "Errore consegna SMS"
-
-#. module: hr_personal_equipment_request
 #: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment__start_date
 msgid "Start Date"
 msgstr "Data inizio"
@@ -487,3 +479,9 @@ msgstr "Valida"
 #: model_terms:ir.ui.view,arch_db:hr_personal_equipment_request.hr_personal_equipment_request_form_view
 msgid "Validate"
 msgstr "Approva"
+
+#~ msgid "SMS Delivery error"
+#~ msgstr "Errore consegna SMS"
+
+#~ msgid "Number of messages which requires an action"
+#~ msgstr "Numero di messaggi che richiedono un'azione"
