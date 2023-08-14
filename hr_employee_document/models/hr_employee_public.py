@@ -20,13 +20,12 @@ class HrEmployeePublic(models.Model):
         action["context"] = {
             "default_res_model": "hr.employee",
             "default_res_id": self.env.user.employee_id.id,
+            "search_attachments_from_hr_employee": True,
         }
-        action["domain"] = str(
-            [
-                ("res_model", "=", "hr.employee"),
-                ("res_id", "=", self.env.user.employee_id.id),
-            ]
-        )
+        action["domain"] = [
+            ("res_model", "=", "hr.employee"),
+            ("res_id", "=", self.env.user.employee_id.id),
+        ]
         action["search_view_id"] = (
             self.env.ref("hr_employee_document.ir_attachment_view_search").id,
         )
