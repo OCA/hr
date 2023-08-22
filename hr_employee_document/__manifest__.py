@@ -15,7 +15,6 @@
     "summary": "Documents attached to the employee profile",
     "depends": ["hr"],
     "data": [
-        "security/security.xml",
         "views/hr_employee.xml",
         "views/hr_employee_public.xml",
     ],
