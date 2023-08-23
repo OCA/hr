@@ -25,6 +25,7 @@ addon | version | maintainers | summary
 [hr_employee_age](hr_employee_age/) | 16.0.1.0.1 |  | Age field for employee
 [hr_employee_birthday_mail](hr_employee_birthday_mail/) | 16.0.1.0.0 |  | Automating birthday mail messages and fostering for a positive work environment.
 [hr_employee_digitized_signature](hr_employee_digitized_signature/) | 16.0.1.0.0 | [![newtratip](https://github.com/newtratip.png?size=30px)](https://github.com/newtratip) | Employee Digitized Signature
+[hr_employee_document](hr_employee_document/) | 16.0.1.0.0 |  | Documents attached to the employee profile
 [hr_employee_firstname](hr_employee_firstname/) | 16.0.1.0.1 |  | Adds First Name to Employee
 [hr_employee_lastnames](hr_employee_lastnames/) | 16.0.1.0.1 |  | Split Name in First Name, Father's Last Name and Mother's Last Name
 [hr_employee_medical_examination](hr_employee_medical_examination/) | 16.0.1.0.0 |  | Adds information about employee's medical examinations
