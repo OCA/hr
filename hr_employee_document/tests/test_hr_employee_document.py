@@ -95,3 +95,13 @@ class TestHrEmployeeDocument(common.TransactionCase):
         records = self.env["ir.attachment"].search([])
         self.assertIn(attachment_1, records)
         self.assertIn(attachment_2, records)
+
+    @users("test-user-1")
+    def test_is_logged(self):
+        employee = self.env.user.employee_id
+        employee_public = self.env["hr.employee.public"].browse(employee.id)
+        self.assertTrue(employee_public.is_logged)
+
+        employee = self.employee_2
+        employee_public = self.env["hr.employee.public"].browse(employee.id)
+        self.assertFalse(employee_public.is_logged)
