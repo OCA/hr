@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-10-20 18:46+0000\n"
-"PO-Revision-Date: 2022-02-01 20:33+0000\n"
-"Last-Translator: Rodrigo Macedo <rmsolucoeseminformatica@protonmail.com>\n"
+"PO-Revision-Date: 2023-08-29 20:37+0000\n"
+"Last-Translator: Douglas Custódio <douglascstd@yahoo.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/oca/OCA-hr-8-0/"
 "language/pt_BR/)\n"
 "Language: pt_BR\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.3.2\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: hr_contract_reference
 #: model:ir.model.fields,field_description:hr_contract_reference.field_hr_contract__name
@@ -32,7 +32,7 @@ msgstr ""
 #. module: hr_contract_reference
 #: model:ir.model,name:hr_contract_reference.model_hr_contract
 msgid "Employee Contract"
-msgstr "Contrato do Empregado"
+msgstr "Contrato de Funcionário"
 
 #. module: hr_contract_reference
 #: model:ir.model.fields,field_description:hr_contract_reference.field_hr_contract__id
