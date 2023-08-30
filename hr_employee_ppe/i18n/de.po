@@ -99,15 +99,19 @@ msgstr ""
 #. module: hr_employee_ppe
 #: model_terms:ir.ui.view,arch_db:hr_employee_ppe.hr_employee_ppe_report_template
 msgid ""
-"I agree to wear the equipment when facing the exposure it is designed to protect against.\n"
-"                            I acknowledge that my failure to do so may subject me to disciplinary action."
+"I agree to wear the equipment when facing the exposure it is designed to "
+"protect against.\n"
+"                            I acknowledge that my failure to do so may "
+"subject me to disciplinary action."
 msgstr ""
 
 #. module: hr_employee_ppe
 #: model_terms:ir.ui.view,arch_db:hr_employee_ppe.hr_employee_ppe_report_template
 msgid ""
-"I, the undersigned accept the PPE that my employer is providing to me. I further acknowledge that I have been instructed\n"
-"                            in how to wear and maintain it. If it is lost or damaged, I will report the same to my employer promptly for replacement."
+"I, the undersigned accept the PPE that my employer is providing to me. I "
+"further acknowledge that I have been instructed\n"
+"                            in how to wear and maintain it. If it is lost or "
+"damaged, I will report the same to my employer promptly for replacement."
 msgstr ""
 
 #. module: hr_employee_ppe
