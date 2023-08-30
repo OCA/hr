@@ -7,30 +7,30 @@ msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-02-20 17:47+0000\n"
-"PO-Revision-Date: 2021-02-20 14:48-0300\n"
-"Last-Translator: Marcel Savegnago <marcel.savegnago@gmail.com>\n"
+"PO-Revision-Date: 2023-08-30 16:53+0000\n"
+"Last-Translator: Douglas Custódio <douglascstd@yahoo.com>\n"
 "Language-Team: \n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 2.4.1\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: hr_employee_ppe
 #: model_terms:ir.ui.view,arch_db:hr_employee_ppe.hr_employee_ppe_report_template
 msgid "<span>Date:</span>"
-msgstr ""
+msgstr "<span>Data:</span>"
 
 #. module: hr_employee_ppe
 #: model_terms:ir.ui.view,arch_db:hr_employee_ppe.hr_employee_ppe_report_template
 msgid "<span>Signature:</span>"
-msgstr ""
+msgstr "<span>Assinatura:</span>"
 
 #. module: hr_employee_ppe
 #: model:ir.model,name:hr_employee_ppe.model_hr_personal_equipment
 msgid "Adds personal equipment information and allocation"
-msgstr ""
+msgstr "Adiciona informações e alocação de equipamentos pessoais"
 
 #. module: hr_employee_ppe
 #: model_terms:ir.ui.view,arch_db:hr_employee_ppe.hr_personal_equipment_form_view
@@ -46,28 +46,28 @@ msgstr "Número de Certificação"
 #. module: hr_employee_ppe
 #: model_terms:ir.ui.view,arch_db:hr_employee_ppe.hr_personal_equipment_request_form_view
 msgid "Contains PPE"
-msgstr ""
+msgstr "Contém EPI"
 
 #. module: hr_employee_ppe
 #: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_personal_equipment_request__contains_ppe
 msgid "Contains Ppe"
-msgstr ""
+msgstr "Contém Epi"
 
 #. module: hr_employee_ppe
 #: model:ir.model.fields.selection,name:hr_employee_ppe.selection__product_template__ppe_interval_type__days
 msgid "Days"
-msgstr ""
+msgstr "Dias"
 
 #. module: hr_employee_ppe
 #: model_terms:ir.ui.view,arch_db:hr_employee_ppe.product_template_form_view
 msgid "Employee PPE"
-msgstr ""
+msgstr "EPI de Funcionário"
 
 #. module: hr_employee_ppe
 #: code:addons/hr_employee_ppe/models/hr_personal_equipment.py:0
 #, python-format
 msgid "End date cannot occur earlier than start date."
-msgstr ""
+msgstr "Data final não pode ocorrer antes da data de início."
 
 #. module: hr_employee_ppe
 #: model_terms:ir.ui.view,arch_db:hr_employee_ppe.hr_personal_equipment_form_view
@@ -80,17 +80,17 @@ msgstr "Expirado"
 #: model:ir.model.fields,field_description:hr_employee_ppe.field_product_product__expirable_ppe
 #: model:ir.model.fields,field_description:hr_employee_ppe.field_product_template__expirable_ppe
 msgid "Expirable Ppe"
-msgstr ""
+msgstr "EPI Expirável"
 
 #. module: hr_employee_ppe
 #: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_personal_equipment__expire_ppe
 msgid "Expire Ppe"
-msgstr ""
+msgstr "Expirar EPI"
 
 #. module: hr_employee_ppe
 #: model:ir.model.fields.selection,name:hr_employee_ppe.selection__product_template__ppe_interval_type__hours
 msgid "Hours"
-msgstr ""
+msgstr "Horas"
 
 #. module: hr_employee_ppe
 #: model_terms:ir.ui.view,arch_db:hr_employee_ppe.hr_employee_ppe_report_template
@@ -100,6 +100,10 @@ msgid ""
 "                            I acknowledge that my failure to do so may "
 "subject me to disciplinary action."
 msgstr ""
+"Concordo em usar o equipamento quando enfrentar a exposição contra a qual "
+"foi projetado para proteger.\n"
+"                             Reconheço que minha falha em fazê-lo pode me "
+"sujeitar a ações disciplinares."
 
 #. module: hr_employee_ppe
 #: model_terms:ir.ui.view,arch_db:hr_employee_ppe.hr_employee_ppe_report_template
@@ -109,6 +113,11 @@ msgid ""
 "                            in how to wear and maintain it. If it is lost or "
 "damaged, I will report the same to my employer promptly for replacement."
 msgstr ""
+"Eu, abaixo assinado, aceito o EPI que meu empregador me fornece. Reconheço "
+"ainda que fui instruído\n"
+"                             em como usá-lo e mantê-lo. Se for perdido ou "
+"danificado, informarei o mesmo ao meu empregador imediatamente para "
+"substituição."
 
 #. module: hr_employee_ppe
 #: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_personal_equipment__indications
@@ -122,21 +131,21 @@ msgstr "Indicações"
 #: model:ir.model.fields,field_description:hr_employee_ppe.field_product_product__ppe_interval_type
 #: model:ir.model.fields,field_description:hr_employee_ppe.field_product_template__ppe_interval_type
 msgid "Interval Unit"
-msgstr ""
+msgstr "Unidade de Intervalo"
 
 #. module: hr_employee_ppe
 #: model_terms:ir.ui.view,arch_db:hr_employee_ppe.hr_personal_equipment_form_view
 #: model_terms:ir.ui.view,arch_db:hr_employee_ppe.hr_personal_equipment_request_form_view
 #: model_terms:ir.ui.view,arch_db:hr_employee_ppe.product_template_form_view
 msgid "Is PPE"
-msgstr ""
+msgstr "É EPI"
 
 #. module: hr_employee_ppe
 #: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_personal_equipment__is_ppe
 #: model:ir.model.fields,field_description:hr_employee_ppe.field_product_product__is_ppe
 #: model:ir.model.fields,field_description:hr_employee_ppe.field_product_template__is_ppe
 msgid "Is Ppe"
-msgstr ""
+msgstr "É Epi"
 
 #. module: hr_employee_ppe
 #: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_personal_equipment__issued_by
@@ -146,34 +155,34 @@ msgstr "Publicado Por"
 #. module: hr_employee_ppe
 #: model:ir.model.fields.selection,name:hr_employee_ppe.selection__product_template__ppe_interval_type__minutes
 msgid "Minutes"
-msgstr ""
+msgstr "Minutos"
 
 #. module: hr_employee_ppe
 #: model:ir.model.fields.selection,name:hr_employee_ppe.selection__product_template__ppe_interval_type__months
 msgid "Months"
-msgstr ""
+msgstr "Meses"
 
 #. module: hr_employee_ppe
 #: model_terms:ir.ui.view,arch_db:hr_employee_ppe.product_template_form_view
 msgid "PPE Duration"
-msgstr ""
+msgstr "Duração do EPI"
 
 #. module: hr_employee_ppe
 #: model_terms:ir.ui.view,arch_db:hr_employee_ppe.hr_personal_equipment_form_view
 #: model_terms:ir.ui.view,arch_db:hr_employee_ppe.product_template_form_view
 msgid "PPE Indications"
-msgstr ""
+msgstr "Indicações do EPI"
 
 #. module: hr_employee_ppe
 #: model_terms:ir.ui.view,arch_db:hr_employee_ppe.product_template_form_view
 msgid "PPE Interval Type"
-msgstr ""
+msgstr "Tipo de Intervalo do EPI"
 
 #. module: hr_employee_ppe
 #: model:ir.model.fields,field_description:hr_employee_ppe.field_product_product__ppe_duration
 #: model:ir.model.fields,field_description:hr_employee_ppe.field_product_template__ppe_duration
 msgid "PPE duration"
-msgstr ""
+msgstr "Duração do EPI"
 
 #. module: hr_employee_ppe
 #: model:ir.actions.server,name:hr_employee_ppe.hr_employee_ppe_cron_ir_actions_server
@@ -185,7 +194,7 @@ msgstr "Verificação da data de validade do EPI"
 #. module: hr_employee_ppe
 #: model_terms:ir.ui.view,arch_db:hr_employee_ppe.hr_personal_equipment_request_form_view
 msgid "Print Receipt of PPE"
-msgstr ""
+msgstr "Imprimir Recibo de EPI"
 
 #. module: hr_employee_ppe
 #: model_terms:ir.ui.view,arch_db:hr_employee_ppe.hr_employee_ppe_report_template
@@ -195,22 +204,22 @@ msgstr "Produto"
 #. module: hr_employee_ppe
 #: model:ir.model,name:hr_employee_ppe.model_product_template
 msgid "Product Template"
-msgstr ""
+msgstr "Modelo Produto"
 
 #. module: hr_employee_ppe
 #: model_terms:ir.ui.view,arch_db:hr_employee_ppe.hr_employee_ppe_report_template
 msgid "Quantity"
-msgstr ""
+msgstr "Quantidade"
 
 #. module: hr_employee_ppe
 #: model_terms:ir.ui.view,arch_db:hr_employee_ppe.hr_employee_ppe_report_template
 msgid "Receipt of Personal Protection Equipment"
-msgstr ""
+msgstr "Recebimento de Equipamentos de Proteção Individual"
 
 #. module: hr_employee_ppe
 #: model:ir.actions.report,name:hr_employee_ppe.hr_employee_ppe_report
 msgid "Receipt of Personal protection Equipment"
-msgstr ""
+msgstr "Recebimento de Equipamento de Proteção Individual"
 
 #. module: hr_employee_ppe
 #: model:ir.model.fields,help:hr_employee_ppe.field_product_product__expirable_ppe
@@ -229,11 +238,13 @@ msgstr "Situações em que o funcionário deve usar este equipamento."
 msgid ""
 "Situations in which the employee should use this equipment. Only for ppe"
 msgstr ""
+"Situações em que o funcionário deverá utilizar este equipamento. Somente "
+"para EPI"
 
 #. module: hr_employee_ppe
 #: model:ir.model,name:hr_employee_ppe.model_hr_personal_equipment_request
 msgid "This model allows to create a personal equipment request"
-msgstr ""
+msgstr "Este modelo permite criar uma requisição de equipamento pessoal"
 
 #. module: hr_employee_ppe
 #: model:ir.model.fields,help:hr_employee_ppe.field_hr_personal_equipment__expire_ppe
@@ -243,17 +254,17 @@ msgstr "Verdade se o EPI expirar"
 #. module: hr_employee_ppe
 #: model:ir.model.fields.selection,name:hr_employee_ppe.selection__product_template__ppe_interval_type__weeks
 msgid "Weeks"
-msgstr ""
+msgstr "Semanas"
 
 #. module: hr_employee_ppe
 #: model_terms:ir.ui.view,arch_db:hr_employee_ppe.hr_employee_ppe_report_template
 msgid "is providing"
-msgstr ""
+msgstr "está fornecendo"
 
 #. module: hr_employee_ppe
 #: model_terms:ir.ui.view,arch_db:hr_employee_ppe.hr_employee_ppe_report_template
 msgid "with the following Personal Protection Equipment (PPE):"
-msgstr ""
+msgstr "com o seguinte Equipamento de Proteção Individual (EPI):"
 
 #~ msgid " to "
 #~ msgstr " para "
