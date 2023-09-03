@@ -412,8 +412,8 @@ msgstr "Número de errores"
 #. module: hr_course
 #: model:ir.model.fields,help:hr_course.field_hr_course__message_needaction_counter
 #: model:ir.model.fields,help:hr_course.field_hr_course_schedule__message_needaction_counter
-msgid "Number of messages which requires an action"
-msgstr "Número de mensajes que requieren una acción"
+msgid "Number of messages requiring action"
+msgstr ""
 
 #. module: hr_course
 #: model:ir.model.fields,help:hr_course.field_hr_course__message_has_error_counter
@@ -522,6 +522,9 @@ msgid ""
 msgstr ""
 "Solo deberías devolver un curso a borrador si se ha cancelado por error o si "
 "alguna de su información es incorrecta. Quieres continuar?"
+
+#~ msgid "Number of messages which requires an action"
+#~ msgstr "Número de mensajes que requieren una acción"
 
 #~ msgid "Authorized by"
 #~ msgstr "Autorizado por"
