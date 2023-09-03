@@ -354,8 +354,8 @@ msgstr "Numero de errores"
 #. module: hr_personal_equipment_request
 #: model:ir.model.fields,help:hr_personal_equipment_request.field_hr_personal_equipment__message_needaction_counter
 #: model:ir.model.fields,help:hr_personal_equipment_request.field_hr_personal_equipment_request__message_needaction_counter
-msgid "Number of messages which requires an action"
-msgstr "Número de mensajes que requieren una acción"
+msgid "Number of messages requiring action"
+msgstr ""
 
 #. module: hr_personal_equipment_request
 #: model:ir.model.fields,help:hr_personal_equipment_request.field_hr_personal_equipment__message_has_error_counter
@@ -485,6 +485,9 @@ msgstr "Valido"
 #: model_terms:ir.ui.view,arch_db:hr_personal_equipment_request.hr_personal_equipment_request_form_view
 msgid "Validate"
 msgstr "Validar"
+
+#~ msgid "Number of messages which requires an action"
+#~ msgstr "Número de mensajes que requieren una acción"
 
 #~ msgid "Number of unread messages"
 #~ msgstr "Número de mensajes no leidos"
