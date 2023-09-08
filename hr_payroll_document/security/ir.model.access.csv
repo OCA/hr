@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+payroll_management_wizard,payroll.management.wizard,model_payroll_management_wizard,hr.group_hr_manager,1,1,1,1
+ir_attachment_payroll_custom,ir.attachment.payroll.custom,model_ir_attachment_payroll_custom,hr.group_hr_manager,1,1,1,1
