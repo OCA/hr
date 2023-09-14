@@ -8,17 +8,20 @@ class TestEmployeeDisplayOwnInfo(TransactionCase):
     def setUp(self):
         super(TestEmployeeDisplayOwnInfo, self).setUp()
 
-        self.user_test = self.env.ref("base.user_demo")
-        self.employee = self.env["hr.employee"].create(
+        self.user_test = self.env["res.users"].create(
             {
-                "name": "Employee",
+                "name": "user_test",
+                "login": "user_test",
+                "email": "usertest@example.com",
+                "groups_id": False,
             }
         )
+        self.employee = self.env["hr.employee"].create({"name": "Employee"})
 
     def test_01(self):
         self.assertFalse(self.user_test.has_group("hr.group_hr_user"))
         self.assertFalse(
-            self.employee.sudo(self.user_test).employee_display_personal_data
+            self.employee.with_user(self.user_test).employee_display_personal_data
         )
 
     def test_02(self):
@@ -29,5 +32,5 @@ class TestEmployeeDisplayOwnInfo(TransactionCase):
         self.employee.write({"user_id": self.user_test.id})
         self.assertFalse(self.user_test.has_group("hr.group_hr_user"))
         self.assertTrue(
-            self.employee.sudo(self.user_test).employee_display_personal_data
+            self.employee.with_user(self.user_test).employee_display_personal_data
         )

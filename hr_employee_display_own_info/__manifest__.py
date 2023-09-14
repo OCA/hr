@@ -8,12 +8,8 @@
     "license": "AGPL-3",
     "website": "https://github.com/OCA/hr",
     "category": "Human Resources",
-    "version": "12.0.1.0.0",
-    "depends": [
-        "hr",
-    ],
-    "data": [
-        "views/hr_employee.xml",
-    ],
+    "version": "15.0.1.0.0",
+    "depends": ["hr"],
+    "data": ["views/hr_employee.xml"],
     "installable": True,
 }
