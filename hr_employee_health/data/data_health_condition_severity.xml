@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <odoo noupdate="1">
     <!--
       Copyright (C) 2018 Brainbean Apps (https://brainbeanapps.com)
@@ -6,7 +6,10 @@
     -->
 
     <!-- hr.employee.health.condition.severity -->
-    <record model="hr.employee.health.condition.severity" id="severity_life_threatening">
+    <record
+        model="hr.employee.health.condition.severity"
+        id="severity_life_threatening"
+    >
       <field name="name">Life-threatening</field>
     </record>
     <record model="hr.employee.health.condition.severity" id="severity_extreme">

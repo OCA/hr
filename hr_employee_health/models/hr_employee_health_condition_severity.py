@@ -5,11 +5,7 @@ from odoo import fields, models
 
 
 class HrEmployeeHealthConditionSeverity(models.Model):
-    _name = 'hr.employee.health.condition.severity'
-    _description = 'HR Employee Health Condition Severity'
+    _name = "hr.employee.health.condition.severity"
+    _description = "HR Employee Health Condition Severity"
 
-    name = fields.Char(
-        string='Severity',
-        required=True,
-        translate=True
-    )
+    name = fields.Char(string="Severity", required=True, translate=True)
