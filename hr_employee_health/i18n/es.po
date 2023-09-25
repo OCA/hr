@@ -1,50 +1,49 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* hr_employee_health
+# 	* hr_employee_health
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 12.0\n"
+"Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2019-07-15 11:43+0000\n"
-"Last-Translator: David Alonso (Solvos) <david.alonso@solvos.es>\n"
-"Language-Team: none\n"
-"Language: es\n"
+"POT-Creation-Date: 2023-09-25 06:46+0000\n"
+"PO-Revision-Date: 2023-09-25 06:46+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.7.1\n"
+"Plural-Forms: \n"
 
 #. module: hr_employee_health
 #: model:hr.employee.blood.type,name:hr_employee_health.blood_type_a_rh_pos
 msgid "A Rh+"
-msgstr "A Rh+"
+msgstr ""
 
 #. module: hr_employee_health
 #: model:hr.employee.blood.type,name:hr_employee_health.blood_type_a_rh_neg
 msgid "A Rh-"
-msgstr "A Rh-"
+msgstr ""
 
 #. module: hr_employee_health
 #: model:hr.employee.blood.type,name:hr_employee_health.blood_type_ab_rh_pos
 msgid "AB Rh+"
-msgstr "AB Rh+"
+msgstr ""
 
 #. module: hr_employee_health
 #: model:hr.employee.blood.type,name:hr_employee_health.blood_type_ab_rh_neg
 msgid "AB Rh-"
-msgstr "AB Rh-"
+msgstr ""
 
 #. module: hr_employee_health
 #: model:hr.employee.blood.type,name:hr_employee_health.blood_type_b_rh_pos
 msgid "B Rh+"
-msgstr "B Rh+"
+msgstr ""
 
 #. module: hr_employee_health
 #: model:hr.employee.blood.type,name:hr_employee_health.blood_type_b_rh_neg
 msgid "B Rh-"
-msgstr "B Rh-"
+msgstr ""
 
 #. module: hr_employee_health
 #: model:ir.model.fields,field_description:hr_employee_health.field_hr_employee__blood_type
@@ -187,7 +186,7 @@ msgstr "Notas de salud"
 #: model:ir.model.fields,field_description:hr_employee_health.field_hr_employee_health_condition_severity__id
 #: model:ir.model.fields,field_description:hr_employee_health.field_hr_employee_health_condition_type__id
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 #. module: hr_employee_health
 #: model:ir.model.fields,field_description:hr_employee_health.field_hr_employee_blood_type____last_update
@@ -251,12 +250,12 @@ msgstr "Notas"
 #. module: hr_employee_health
 #: model:hr.employee.blood.type,name:hr_employee_health.blood_type_o_rh_pos
 msgid "O Rh+"
-msgstr "O Rh+"
+msgstr ""
 
 #. module: hr_employee_health
 #: model:hr.employee.blood.type,name:hr_employee_health.blood_type_o_rh_neg
 msgid "O Rh-"
-msgstr "O Rh-"
+msgstr ""
 
 #. module: hr_employee_health
 #: model:ir.model.fields,field_description:hr_employee_health.field_hr_employee_health_condition__severity_id

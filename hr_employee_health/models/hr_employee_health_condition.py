@@ -21,6 +21,4 @@ class HrEmployeeHealthCondition(models.Model):
         "hr.employee.health.condition.severity",
         string="Severity",
     )
-    notes = fields.Text(
-        string="Notes",
-    )
+    notes = fields.Text()

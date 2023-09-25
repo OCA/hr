@@ -14,11 +14,9 @@ class HrEmployee(models.Model):
         groups="hr.group_hr_user",
     )
     blood_type = fields.Many2one(
-        string="Blood Type",
         comodel_name="hr.employee.blood.type",
         groups="hr.group_hr_user",
     )
     health_notes = fields.Text(
-        string="Health Notes",
         groups="hr.group_hr_user",
     )
