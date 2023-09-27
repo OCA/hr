@@ -91,8 +91,10 @@ class HrEmployee(models.Model):
                 firstname = self.firstname
             vals["name"] = self._get_name(lastname, firstname)
         elif vals.get("name"):
-            vals["lastname"] = self.split_name(vals["name"])["lastname"]
-            vals["firstname"] = self.split_name(vals["name"])["firstname"]
+            for rec in self:
+                if not rec.name or rec.name != vals.get("name"):
+                    vals["lastname"] = self.split_name(vals["name"])["lastname"]
+                    vals["firstname"] = self.split_name(vals["name"])["firstname"]
 
     @api.model
     def _get_whitespace_cleaned_name(self, name, comma=False):

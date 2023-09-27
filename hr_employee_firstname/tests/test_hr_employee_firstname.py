@@ -171,3 +171,11 @@ class TestEmployeeFirstname(TransactionCase):
 
         self.assertEqual(self.employee1_id.firstname, "Jean-Pierre")
         self.assertEqual(self.employee1_id.lastname, "Carnaud-Eyck")
+
+    def test_change_name_with_the_same_name(self):
+        self.employee1_id.write(
+            {"firstname": "Maxime Françis", "lastname": "Patrick Dubois"}
+        )
+        self.employee1_id.write({"name": "Maxime Françis Patrick Dubois"})
+        self.assertEqual(self.employee1_id.firstname, "Maxime Françis")
+        self.assertEqual(self.employee1_id.lastname, "Patrick Dubois")
