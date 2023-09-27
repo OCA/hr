@@ -66,10 +66,12 @@ class HrEmployee(models.Model):
                 lastname2 = self.lastname2
             vals["name"] = self._get_name_lastnames(lastname, firstname, lastname2)
         elif vals.get("name"):
-            name_splitted = self.split_name(vals["name"])
-            vals["lastname"] = name_splitted["lastname"]
-            vals["firstname"] = name_splitted["firstname"]
-            vals["lastname2"] = name_splitted["lastname2"]
+            for rec in self:
+                if rec.name != vals.get("name"):
+                    name_splitted = self.split_name(vals["name"])
+                    vals["lastname"] = name_splitted["lastname"]
+                    vals["firstname"] = name_splitted["firstname"]
+                    vals["lastname2"] = name_splitted["lastname2"]
         return res
 
     def _update_partner_firstname(self):
