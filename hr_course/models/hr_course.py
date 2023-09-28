@@ -8,7 +8,7 @@ from odoo import api, fields, models
 class HrCourse(models.Model):
     _name = "hr.course"
     _description = "Course"
-    _inherit = "mail.thread"
+    _inherit = ["mail.thread", "mail.activity.mixin"]
 
     name = fields.Char(string="Name", required=True, tracking=True)
     category_id = fields.Many2one(
