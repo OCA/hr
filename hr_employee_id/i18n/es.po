@@ -48,6 +48,13 @@ msgid "Config Settings"
 msgstr "Ajustes de Configuración"
 
 #. module: hr_employee_id
+#: model:ir.model.fields,field_description:hr_employee_id.field_hr_employee__display_name
+#: model:ir.model.fields,field_description:hr_employee_id.field_res_company__display_name
+#: model:ir.model.fields,field_description:hr_employee_id.field_res_config_settings__display_name
+msgid "Display Name"
+msgstr "Mostrar nombre"
+
+#. module: hr_employee_id
 #: model:ir.model,name:hr_employee_id.model_hr_employee
 msgid "Employee"
 msgstr "Empleado"
@@ -64,6 +71,13 @@ msgid "Generation Method"
 msgstr "Método de generación"
 
 #. module: hr_employee_id
+#: model:ir.model.fields,field_description:hr_employee_id.field_hr_employee__id
+#: model:ir.model.fields,field_description:hr_employee_id.field_res_company__id
+#: model:ir.model.fields,field_description:hr_employee_id.field_res_config_settings__id
+msgid "ID"
+msgstr "ID"
+
+#. module: hr_employee_id
 #: model:ir.model.fields,field_description:hr_employee_id.field_hr_employee__identification_id
 msgid "Identification No"
 msgstr "Número de identificación"
@@ -73,6 +87,13 @@ msgstr "Número de identificación"
 #: model:ir.model.fields,field_description:hr_employee_id.field_res_config_settings__employee_id_sequence
 msgid "Identifier Sequence"
 msgstr "Identificador de secuencia"
+
+#. module: hr_employee_id
+#: model:ir.model.fields,field_description:hr_employee_id.field_hr_employee____last_update
+#: model:ir.model.fields,field_description:hr_employee_id.field_res_company____last_update
+#: model:ir.model.fields,field_description:hr_employee_id.field_res_config_settings____last_update
+msgid "Last Modified on"
+msgstr "Última modificación el"
 
 #. module: hr_employee_id
 #: model:ir.model.fields,help:hr_employee_id.field_res_company__employee_id_random_digits
@@ -87,7 +108,7 @@ msgid "Pattern to be used for employee identifier generation"
 msgstr "Patrón a usar para la generación del identificador de empleado"
 
 #. module: hr_employee_id
-#: selection:res.company,employee_id_gen_method:0
+#: model:ir.model.fields.selection,name:hr_employee_id.selection__res_company__employee_id_gen_method__random
 msgid "Random"
 msgstr "Aleatorio"
 
@@ -99,17 +120,17 @@ msgstr ""
 "empleado"
 
 #. module: hr_employee_id
-#: selection:res.company,employee_id_gen_method:0
+#: model:ir.model.fields.selection,name:hr_employee_id.selection__res_company__employee_id_gen_method__sequence
 msgid "Sequence"
 msgstr "Secuencia"
 
 #. module: hr_employee_id
-#: sql_constraint:hr.employee:0
+#: model:ir.model.constraint,message:hr_employee_id.constraint_hr_employee_identification_id_uniq
 msgid "The Employee Number must be unique across the company(s)."
 msgstr "El ID de empleado debe ser único en la(s) compañía(s)."
 
 #. module: hr_employee_id
-#: code:addons/hr_employee_id/models/hr_employee.py:58
+#: code:addons/hr_employee_id/models/hr_employee.py:0
 #, python-format
 msgid "Unable to generate unique Employee ID in %d steps."
 msgstr "No se puede generar ID de empleado único en %d pasos."
@@ -139,20 +160,11 @@ msgstr "No se puede generar ID de empleado único en %d pasos."
 #~ msgid "Created on"
 #~ msgstr "Creado el"
 
-#~ msgid "Display Name"
-#~ msgstr "Mostrar nombre"
-
 #~ msgid "Employee ID *"
 #~ msgstr "ID de empleado*"
 
 #~ msgid "Employee ID Sequence"
 #~ msgstr "Secuencia del ID de empleado"
-
-#~ msgid "ID"
-#~ msgstr "ID"
-
-#~ msgid "Last Modified on"
-#~ msgstr "Última modificación el"
 
 #~ msgid "Last Updated by"
 #~ msgstr "Última actualización por"
