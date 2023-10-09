@@ -23,6 +23,11 @@ msgid "Code"
 msgstr "Código"
 
 #. module: hr_expense_type
+#: model:ir.model.fields,field_description:hr_expense_type.field_hr_expense_type__company_id
+msgid "Company"
+msgstr ""
+
+#. module: hr_expense_type
 #: model:ir.model.fields,field_description:hr_expense_type.field_hr_expense_type__create_uid
 msgid "Created by"
 msgstr "Creado por"
