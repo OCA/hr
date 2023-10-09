@@ -24,27 +24,27 @@ msgid "Control panel toolbar"
 msgstr "Kontrollpanelens verktygsfält"
 
 #. module: hr_org_chart_overview
-#: model:ir.model.fields,field_description:hr_org_chart_overview.field_hr_employee__display_name
-msgid "Display Name"
-msgstr "Visningsnamn"
-
-#. module: hr_org_chart_overview
 #: model:ir.model,name:hr_org_chart_overview.model_hr_employee
 msgid "Employee"
 msgstr "Anställd"
-
-#. module: hr_org_chart_overview
-#: model:ir.model.fields,field_description:hr_org_chart_overview.field_hr_employee__id
-msgid "ID"
-msgstr "ID"
-
-#. module: hr_org_chart_overview
-#: model:ir.model.fields,field_description:hr_org_chart_overview.field_hr_employee____last_update
-msgid "Last Modified on"
-msgstr "Senast ändrad den"
 
 #. module: hr_org_chart_overview
 #: model:ir.actions.client,name:hr_org_chart_overview.action_org_chart_overview
 #: model:ir.ui.menu,name:hr_org_chart_overview.menu_org_chart_overview_report
 msgid "Organizational Chart"
 msgstr "Organisationsschema"
+
+#. module: hr_org_chart_overview
+#: code:addons/hr_org_chart_overview/models/hr_employee.py:0
+#, python-format
+msgid "You cannot assign manager recursively."
+msgstr ""
+
+#~ msgid "Display Name"
+#~ msgstr "Visningsnamn"
+
+#~ msgid "ID"
+#~ msgstr "ID"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Senast ändrad den"
