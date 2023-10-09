@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* hr_attendance_reason
+# 	* hr_attendance_reason
 #
 msgid ""
 msgstr ""
@@ -122,7 +122,9 @@ msgstr ""
 
 #. module: hr_attendance_reason
 #: model:ir.model.fields,help:hr_attendance_reason.field_hr_attendance__attendance_reason_ids
-msgid "Specifies the reason for signing In/signing Out in case of less or extra hours."
+msgid ""
+"Specifies the reason for signing In/signing Out in case of less or extra "
+"hours."
 msgstr ""
 
 #. module: hr_attendance_reason
