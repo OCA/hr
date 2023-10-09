@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* hr_holidays_leave_repeated
+# 	* hr_holidays_leave_repeated
 #
 msgid ""
 msgstr ""
@@ -97,7 +97,9 @@ msgstr "La data fine ripetizione non può essere nel passato"
 #. module: hr_holidays_leave_repeated
 #: code:addons/hr_holidays_leave_repeated/models/hr_leave.py:58
 #, python-format
-msgid "The repetition is based on workdays: the duration of the leave request must not exceed 1 day."
+msgid ""
+"The repetition is based on workdays: the duration of the leave request must "
+"not exceed 1 day."
 msgstr ""
 "La ripetizione è in giorni lavorativi: la durata del permesso richiesto non "
 "può essere superiore ad un giorno."
@@ -105,7 +107,9 @@ msgstr ""
 #. module: hr_holidays_leave_repeated
 #: code:addons/hr_holidays_leave_repeated/models/hr_leave.py:76
 #, python-format
-msgid "The repetition is every four weeks: the duration of the leave request must not exceed 28 days."
+msgid ""
+"The repetition is every four weeks: the duration of the leave request must "
+"not exceed 28 days."
 msgstr ""
 "La ripetizione è ogni quattro settimane: la durata del permesso richiesto "
 "non può superare i 28 giorni."
@@ -113,7 +117,9 @@ msgstr ""
 #. module: hr_holidays_leave_repeated
 #: code:addons/hr_holidays_leave_repeated/models/hr_leave.py:70
 #, python-format
-msgid "The repetition is every two weeks: the duration of the leave request must not exceed 2 weeks."
+msgid ""
+"The repetition is every two weeks: the duration of the leave request must "
+"not exceed 2 weeks."
 msgstr ""
 "La ripetizione è ogni due settimane: la durata del permesso richiesto non "
 "può superare le due settimane."
@@ -121,7 +127,9 @@ msgstr ""
 #. module: hr_holidays_leave_repeated
 #: code:addons/hr_holidays_leave_repeated/models/hr_leave.py:64
 #, python-format
-msgid "The repetition is every week: the duration of the leave request must not exceed 1 week."
+msgid ""
+"The repetition is every week: the duration of the leave request must not "
+"exceed 1 week."
 msgstr ""
 "La ripetizione è ogni settimana: la durata del permesso richiesto non può "
 "superare la settimana."
