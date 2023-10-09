@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* hr_attendance_rfid
+# 	* hr_attendance_rfid
 #
 msgid ""
 msgstr ""
