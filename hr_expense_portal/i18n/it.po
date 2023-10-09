@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* hr_expense_portal
+# 	* hr_expense_portal
 #
 msgid ""
 msgstr ""
