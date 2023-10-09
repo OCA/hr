@@ -26,18 +26,6 @@ msgid "Contract is not defined for one or more payslips."
 msgstr "Smlouva není definována pro jednu nebo více výplatních pásků."
 
 #. module: hr_worked_days_from_timesheet
-#: model:ir.model.fields,field_description:hr_worked_days_from_timesheet.field_hr_payslip__display_name
-#: model:ir.model.fields,field_description:hr_worked_days_from_timesheet.field_hr_payslip_worked_days__display_name
-msgid "Display Name"
-msgstr ""
-
-#. module: hr_worked_days_from_timesheet
-#: model:ir.model.fields,field_description:hr_worked_days_from_timesheet.field_hr_payslip__id
-#: model:ir.model.fields,field_description:hr_worked_days_from_timesheet.field_hr_payslip_worked_days__id
-msgid "ID"
-msgstr ""
-
-#. module: hr_worked_days_from_timesheet
 #: model_terms:ir.ui.view,arch_db:hr_worked_days_from_timesheet.view_hr_payslip_form
 msgid "Import from Timesheets"
 msgstr "Import z časových lístků"
@@ -46,12 +34,6 @@ msgstr "Import z časových lístků"
 #: model:ir.model.fields,field_description:hr_worked_days_from_timesheet.field_hr_payslip_worked_days__imported_from_timesheet
 msgid "Imported From Timesheet"
 msgstr "Importováno z časového rozvrhu"
-
-#. module: hr_worked_days_from_timesheet
-#: model:ir.model.fields,field_description:hr_worked_days_from_timesheet.field_hr_payslip____last_update
-#: model:ir.model.fields,field_description:hr_worked_days_from_timesheet.field_hr_payslip_worked_days____last_update
-msgid "Last Modified on"
-msgstr ""
 
 #. module: hr_worked_days_from_timesheet
 #: model:ir.model,name:hr_worked_days_from_timesheet.model_hr_payslip
