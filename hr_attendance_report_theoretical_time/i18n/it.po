@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* hr_attendance_report_theoretical_time
+# 	* hr_attendance_report_theoretical_time
 #
 msgid ""
 msgstr ""
@@ -97,7 +97,11 @@ msgstr "Dipendenti"
 
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.model.fields,help:hr_attendance_report_theoretical_time.field_hr_employee__theoretical_hours_start_date
-msgid "Fill this field for setting a manual start date for computing the theoretical hours independently from the attendances. If not filled, employee creation date or the calendar start date will be used (the greatest of both)."
+msgid ""
+"Fill this field for setting a manual start date for computing the "
+"theoretical hours independently from the attendances. If not filled, "
+"employee creation date or the calendar start date will be used (the greatest "
+"of both)."
 msgstr ""
 "Compilare questo campo per impostare manualmente la data iniziale per il "
 "calcolo delle ore teoriche indipendentemente dalle presenze. Se non "
@@ -128,7 +132,9 @@ msgstr "ID"
 
 #. module: hr_attendance_report_theoretical_time
 #: model:ir.model.fields,help:hr_attendance_report_theoretical_time.field_hr_leave_type__include_in_theoretical
-msgid "If you check this mark, leaves in this category won't reduce the number of theoretical hours in the attendance report."
+msgid ""
+"If you check this mark, leaves in this category won't reduce the number of "
+"theoretical hours in the attendance report."
 msgstr ""
 "Se selezionata, i permessi in questa categoria non riducono le ore di "
 "presenza teorica nel resoconto delle presenze."
