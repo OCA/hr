@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* hr_employee_service_contract
+# 	* hr_employee_service_contract
 #
 msgid ""
 msgstr ""
@@ -49,7 +49,9 @@ msgstr "Startdatum"
 
 #. module: hr_employee_service_contract
 #: model:ir.model.fields,help:hr_employee_service_contract.field_hr_employee__service_start_date
-msgid "Start date is the first day the employee actually works and this date is used for accrual leave allocations calculation"
+msgid ""
+"Start date is the first day the employee actually works and this date is "
+"used for accrual leave allocations calculation"
 msgstr ""
 "Das Startdatum ist der Tag, an dem der Mitarbeiter das erste Mal tatsächlich "
 "arbeitet. Das Datum wird auch für die Berechnung des angehäuften "
@@ -62,7 +64,9 @@ msgstr "Enddatum"
 
 #. module: hr_employee_service_contract
 #: model:ir.model.fields,help:hr_employee_service_contract.field_hr_employee__service_termination_date
-msgid "Termination date is the last day the employee actually works and this date is used for accrual leave allocations calculation"
+msgid ""
+"Termination date is the last day the employee actually works and this date "
+"is used for accrual leave allocations calculation"
 msgstr ""
 "Das Enddatum ist der Tag, an dem der Mitarbeiter das letzte Mal tatsächlich "
 "arbeitet. Das Datum wird auch für die Berechnung des angehäuften "
