@@ -30,13 +30,6 @@ msgid "Config Settings"
 msgstr "Konfigurationseinstellungen"
 
 #. module: hr_employee_firstname
-#: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee__display_name
-#: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_base__display_name
-#: model:ir.model.fields,field_description:hr_employee_firstname.field_res_config_settings__display_name
-msgid "Display Name"
-msgstr "Anzeigename"
-
-#. module: hr_employee_firstname
 #: model:ir.model,name:hr_employee_firstname.model_hr_employee
 msgid "Employee"
 msgstr "Mitarbeiter"
@@ -55,20 +48,6 @@ msgid "First name"
 msgstr "Vorname"
 
 #. module: hr_employee_firstname
-#: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee__id
-#: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_base__id
-#: model:ir.model.fields,field_description:hr_employee_firstname.field_res_config_settings__id
-msgid "ID"
-msgstr "ID"
-
-#. module: hr_employee_firstname
-#: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee____last_update
-#: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_base____last_update
-#: model:ir.model.fields,field_description:hr_employee_firstname.field_res_config_settings____last_update
-msgid "Last Modified on"
-msgstr "Zuletzt geändert am"
-
-#. module: hr_employee_firstname
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee__lastname
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_base__lastname
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_public__lastname
@@ -85,6 +64,15 @@ msgstr "Es wurde kein Name eingetragen."
 #: model:ir.model.fields,help:hr_employee_firstname.field_res_config_settings__employee_names_order
 msgid "Order to compose employee fullname"
 msgstr "Reihenfolge für die Zusammensetzung des vollen Namens"
+
+#~ msgid "Display Name"
+#~ msgstr "Anzeigename"
+
+#~ msgid "ID"
+#~ msgstr "ID"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Zuletzt geändert am"
 
 #~ msgid "Firstname"
 #~ msgstr "Vorname"
