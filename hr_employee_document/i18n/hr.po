@@ -28,6 +28,12 @@ msgid "Content"
 msgstr "Sadržaj"
 
 #. module: hr_employee_document
+#: model:ir.model.fields,field_description:hr_employee_document.field_hr_employee_base__display_name
+#: model:ir.model.fields,field_description:hr_employee_document.field_hr_employee_public__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: hr_employee_document
 #: model:ir.model.fields,field_description:hr_employee_document.field_hr_employee__document_count
 #: model:ir.model.fields,field_description:hr_employee_document.field_hr_employee_base__document_count
 #: model:ir.model.fields,field_description:hr_employee_document.field_hr_employee_public__document_count
@@ -41,8 +47,20 @@ msgid "Documents"
 msgstr "Dokumenti"
 
 #. module: hr_employee_document
+#: model:ir.model.fields,field_description:hr_employee_document.field_hr_employee_base__id
+#: model:ir.model.fields,field_description:hr_employee_document.field_hr_employee_public__id
+msgid "ID"
+msgstr ""
+
+#. module: hr_employee_document
 #: model:ir.model.fields,field_description:hr_employee_document.field_hr_employee_public__is_logged
 msgid "Is Logged"
+msgstr ""
+
+#. module: hr_employee_document
+#: model:ir.model.fields,field_description:hr_employee_document.field_hr_employee_base____last_update
+#: model:ir.model.fields,field_description:hr_employee_document.field_hr_employee_public____last_update
+msgid "Last Modified on"
 msgstr ""
 
 #. module: hr_employee_document
