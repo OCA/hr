@@ -32,11 +32,6 @@ msgid "<span class=\"ml8\">day(s)</span>"
 msgstr "<span class=\"ml8\">dia(s)</span>"
 
 #. module: hr_employee_service
-#: model:ir.model.fields,field_description:hr_employee_service.field_hr_employee__display_name
-msgid "Display Name"
-msgstr "Nome de Exibição"
-
-#. module: hr_employee_service
 #: model:ir.model,name:hr_employee_service.model_hr_employee
 msgid "Employee"
 msgstr "Funcionário"
@@ -48,21 +43,10 @@ msgstr "Data de Contratação"
 
 #. module: hr_employee_service
 #: model:ir.model.fields,help:hr_employee_service.field_hr_employee__service_hire_date
-msgid ""
-"Hire date is normally the date an employee completes new hire paperwork"
+msgid "Hire date is normally the date an employee completes new hire paperwork"
 msgstr ""
 "A data de contratação é normalmente a data em que um funcionário preenche a "
 "nova papelada de contratação"
-
-#. module: hr_employee_service
-#: model:ir.model.fields,field_description:hr_employee_service.field_hr_employee__id
-msgid "ID"
-msgstr "ID"
-
-#. module: hr_employee_service
-#: model:ir.model.fields,field_description:hr_employee_service.field_hr_employee____last_update
-msgid "Last Modified on"
-msgstr "Última Modificação em"
 
 #. module: hr_employee_service
 #: model:ir.model.fields,field_description:hr_employee_service.field_hr_employee__service_duration
@@ -123,3 +107,12 @@ msgstr ""
 "A data de desligamento é o último dia em que o funcionário realmente "
 "trabalha e esta data é usada para o cálculo de alocações de férias por "
 "acumulação"
+
+#~ msgid "Display Name"
+#~ msgstr "Nome de Exibição"
+
+#~ msgid "ID"
+#~ msgstr "ID"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Última Modificação em"

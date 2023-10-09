@@ -32,11 +32,6 @@ msgid "<span class=\"ml8\">day(s)</span>"
 msgstr "<span class=\"ml8\">dia(es)</span>"
 
 #. module: hr_employee_service
-#: model:ir.model.fields,field_description:hr_employee_service.field_hr_employee__display_name
-msgid "Display Name"
-msgstr "Nom de visualització"
-
-#. module: hr_employee_service
 #: model:ir.model,name:hr_employee_service.model_hr_employee
 msgid "Employee"
 msgstr "Empleat"
@@ -48,21 +43,10 @@ msgstr "Data de contractació"
 
 #. module: hr_employee_service
 #: model:ir.model.fields,help:hr_employee_service.field_hr_employee__service_hire_date
-msgid ""
-"Hire date is normally the date an employee completes new hire paperwork"
+msgid "Hire date is normally the date an employee completes new hire paperwork"
 msgstr ""
 "La data de contractació és normalment la data en la qual l'empleat completa "
 "la paperassa de contractació"
-
-#. module: hr_employee_service
-#: model:ir.model.fields,field_description:hr_employee_service.field_hr_employee__id
-msgid "ID"
-msgstr "ID"
-
-#. module: hr_employee_service
-#: model:ir.model.fields,field_description:hr_employee_service.field_hr_employee____last_update
-msgid "Last Modified on"
-msgstr "Darrera modificació el"
 
 #. module: hr_employee_service
 #: model:ir.model.fields,field_description:hr_employee_service.field_hr_employee__service_duration
@@ -123,3 +107,12 @@ msgstr ""
 "La data de finalització és l'últim dia que l'empleat realment treballa i "
 "aquesta data s'utilitza per al càlcul de les assignacions de vacances "
 "reportades"
+
+#~ msgid "Display Name"
+#~ msgstr "Nom de visualització"
+
+#~ msgid "ID"
+#~ msgstr "ID"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Darrera modificació el"
