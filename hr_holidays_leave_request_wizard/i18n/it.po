@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* hr_holidays_leave_request_wizard
+# 	* hr_holidays_leave_request_wizard
 #
 msgid ""
 msgstr ""
@@ -42,7 +42,8 @@ msgstr "<span class=\"ml8\">di</span>"
 
 #. module: hr_holidays_leave_request_wizard
 #: model_terms:ir.ui.view,arch_db:hr_holidays_leave_request_wizard.hr_leave_view_form
-msgid "<span class=\"oe_inline\">\n"
+msgid ""
+"<span class=\"oe_inline\">\n"
 "                            To\n"
 "                        </span>"
 msgstr ""
