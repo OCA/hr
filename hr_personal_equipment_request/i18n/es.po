@@ -80,7 +80,8 @@ msgstr "Está seguro que quiere aceptar esta petición de equipamiento personal?
 #. module: hr_personal_equipment_request
 #: model_terms:ir.ui.view,arch_db:hr_personal_equipment_request.hr_personal_equipment_request_form_view
 msgid "Are you sure you want to cancel this personal equipment request?"
-msgstr "Está seguro que quiere cancelar esta petición de equipamiento personal?"
+msgstr ""
+"Está seguro que quiere cancelar esta petición de equipamiento personal?"
 
 #. module: hr_personal_equipment_request
 #: model_terms:ir.ui.view,arch_db:hr_personal_equipment_request.hr_personal_equipment_form_view
