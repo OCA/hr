@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* hr_worked_days_from_timesheet
+# 	* hr_worked_days_from_timesheet
 #
 msgid ""
 msgstr ""
@@ -45,7 +45,9 @@ msgstr "Giorni lavorativi in busta paga"
 #. module: hr_worked_days_from_timesheet
 #: code:addons/hr_worked_days_from_timesheet/models/hr_payslip.py:70
 #, python-format
-msgid "Sorry, but there is no approved Timesheets for the                 entire Payslip period for user %s"
+msgid ""
+"Sorry, but there is no approved Timesheets for the                 entire "
+"Payslip period for user %s"
 msgstr ""
 "Non ci sono fogli ore approvati per l'intero periodo                 della "
 "busta paga per l'utente %s"
