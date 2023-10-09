@@ -23,14 +23,19 @@ msgid "Amount"
 msgstr "Salaire"
 
 #. module: hr_contract_rate
-#: model:ir.model,name:hr_contract_rate.model_hr_contract
-msgid "Contract"
-msgstr "Contrat"
-
-#. module: hr_contract_rate
 #: model:ir.model.fields.selection,name:hr_contract_rate.selection__hr_contract__amount_period__day
 msgid "Day"
 msgstr "Jour"
+
+#. module: hr_contract_rate
+#: model:ir.model.fields,field_description:hr_contract_rate.field_hr_contract__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: hr_contract_rate
+#: model:ir.model,name:hr_contract_rate.model_hr_contract
+msgid "Employee Contract"
+msgstr ""
 
 #. module: hr_contract_rate
 #: model:ir.model.fields,help:hr_contract_rate.field_hr_contract__amount
@@ -68,8 +73,18 @@ msgid "How many work weeks there is in an average month"
 msgstr ""
 
 #. module: hr_contract_rate
+#: model:ir.model.fields,field_description:hr_contract_rate.field_hr_contract__id
+msgid "ID"
+msgstr ""
+
+#. module: hr_contract_rate
 #: model:ir.model.fields,field_description:hr_contract_rate.field_hr_contract__is_wage_accurate
 msgid "Is Wage Accurate"
+msgstr ""
+
+#. module: hr_contract_rate
+#: model:ir.model.fields,field_description:hr_contract_rate.field_hr_contract____last_update
+msgid "Last Modified on"
 msgstr ""
 
 #. module: hr_contract_rate
@@ -131,3 +146,6 @@ msgstr ""
 #: model:ir.model.fields.selection,name:hr_contract_rate.selection__hr_contract__amount_period__year
 msgid "Year"
 msgstr "Année"
+
+#~ msgid "Contract"
+#~ msgstr "Contrat"
