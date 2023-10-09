@@ -20,17 +20,17 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: hr_employee_identification
-#: field:hr.employee.identification.type,create_uid:0
+#: model:ir.model.fields,field_description:hr_employee_identification.field_hr_employee_identification_type__create_uid
 msgid "Created by"
 msgstr "Opprettet av"
 
 #. module: hr_employee_identification
-#: field:hr.employee.identification.type,create_date:0
+#: model:ir.model.fields,field_description:hr_employee_identification.field_hr_employee_identification_type__create_date
 msgid "Created on"
 msgstr "Opprettet den"
 
 #. module: hr_employee_identification
-#: field:hr.employee.identification.type,display_name:0
+#: model:ir.model.fields,field_description:hr_employee_identification.field_hr_employee_identification_type__display_name
 msgid "Display Name"
 msgstr "Visnings navn"
 
@@ -40,18 +40,20 @@ msgid "Employee"
 msgstr ""
 
 #. module: hr_employee_identification
-#: field:hr.employee.identification.type,id:0
+#: model:ir.model.fields,field_description:hr_employee_identification.field_hr_employee_identification_type__id
 msgid "ID"
 msgstr "ID"
 
 #. module: hr_employee_identification
-#: field:hr.employee,identification_expiry_date:0
-msgid "Identification expiry"
+#: model:ir.model.fields,field_description:hr_employee_identification.field_hr_employee__identification_type_id
+#: model:ir.model.fields,field_description:hr_employee_identification.field_res_users__identification_type_id
+msgid "Identification Type"
 msgstr ""
 
 #. module: hr_employee_identification
-#: field:hr.employee,identification_type_id:0
-msgid "Identification type"
+#: model:ir.model.fields,field_description:hr_employee_identification.field_hr_employee__identification_expiry_date
+#: model:ir.model.fields,field_description:hr_employee_identification.field_res_users__identification_expiry_date
+msgid "Identification expiry"
 msgstr ""
 
 #. module: hr_employee_identification
@@ -66,21 +68,26 @@ msgid "Identification/Passport"
 msgstr ""
 
 #. module: hr_employee_identification
-#: field:hr.employee.identification.type,__last_update:0
+#: model:ir.model.fields,field_description:hr_employee_identification.field_hr_employee_identification_type____last_update
 msgid "Last Modified on"
 msgstr "Sist oppdatert "
 
 #. module: hr_employee_identification
-#: field:hr.employee.identification.type,write_uid:0
+#: model:ir.model.fields,field_description:hr_employee_identification.field_hr_employee_identification_type__write_uid
 msgid "Last Updated by"
 msgstr "Sist oppdatert av"
 
 #. module: hr_employee_identification
-#: field:hr.employee.identification.type,write_date:0
+#: model:ir.model.fields,field_description:hr_employee_identification.field_hr_employee_identification_type__write_date
 msgid "Last Updated on"
 msgstr "Sist oppdatert"
 
 #. module: hr_employee_identification
-#: field:hr.employee.identification.type,name:0
+#: model:ir.model.fields,field_description:hr_employee_identification.field_hr_employee_identification_type__name
 msgid "Name"
 msgstr "Navn"
+
+#. module: hr_employee_identification
+#: model:ir.model,name:hr_employee_identification.model_res_users
+msgid "Users"
+msgstr ""
