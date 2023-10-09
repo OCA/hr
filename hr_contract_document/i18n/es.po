@@ -22,9 +22,9 @@ msgid "Content"
 msgstr "Contenido"
 
 #. module: hr_contract_document
-#: model:ir.model,name:hr_contract_document.model_hr_contract
-msgid "Contract"
-msgstr "Contrato"
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract__display_name
+msgid "Display Name"
+msgstr ""
 
 #. module: hr_contract_document
 #: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract__documents_count
@@ -36,3 +36,21 @@ msgstr "Recuento de documentos"
 #: model_terms:ir.ui.view,arch_db:hr_contract_document.hr_contract_view_form
 msgid "Documents"
 msgstr "Documentos"
+
+#. module: hr_contract_document
+#: model:ir.model,name:hr_contract_document.model_hr_contract
+msgid "Employee Contract"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract__id
+msgid "ID"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#~ msgid "Contract"
+#~ msgstr "Contrato"
