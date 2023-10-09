@@ -26,17 +26,11 @@ msgstr "Code"
 msgid "Department"
 msgstr "Abteilung"
 
-#. module: hr_department_code
-#: model:ir.model.fields,field_description:hr_department_code.field_hr_department__display_name
-msgid "Display Name"
-msgstr "Anzeigename"
+#~ msgid "Display Name"
+#~ msgstr "Anzeigename"
 
-#. module: hr_department_code
-#: model:ir.model.fields,field_description:hr_department_code.field_hr_department__id
-msgid "ID"
-msgstr "ID"
+#~ msgid "ID"
+#~ msgstr "ID"
 
-#. module: hr_department_code
-#: model:ir.model.fields,field_description:hr_department_code.field_hr_department____last_update
-msgid "Last Modified on"
-msgstr "Zuletzt geändert am"
+#~ msgid "Last Modified on"
+#~ msgstr "Zuletzt geändert am"
