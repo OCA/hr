@@ -48,8 +48,7 @@ msgstr "Data de contractació"
 
 #. module: hr_employee_service
 #: model:ir.model.fields,help:hr_employee_service.field_hr_employee__service_hire_date
-msgid ""
-"Hire date is normally the date an employee completes new hire paperwork"
+msgid "Hire date is normally the date an employee completes new hire paperwork"
 msgstr ""
 "La data de contractació és normalment la data en la qual l'empleat completa "
 "la paperassa de contractació"

@@ -48,8 +48,7 @@ msgstr "Data de Contratação"
 
 #. module: hr_employee_service
 #: model:ir.model.fields,help:hr_employee_service.field_hr_employee__service_hire_date
-msgid ""
-"Hire date is normally the date an employee completes new hire paperwork"
+msgid "Hire date is normally the date an employee completes new hire paperwork"
 msgstr ""
 "A data de contratação é normalmente a data em que um funcionário preenche a "
 "nova papelada de contratação"
