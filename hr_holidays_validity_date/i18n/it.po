@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* hr_holidays_validity_date
+# 	* hr_holidays_validity_date
 #
 msgid ""
 msgstr ""
@@ -18,7 +18,9 @@ msgstr ""
 
 #. module: hr_holidays_validity_date
 #: model_terms:ir.ui.view,arch_db:hr_holidays_validity_date.hr_leave_view_form
-msgid "<i class=\"fa fa-info-circle\" role=\"alert\" aria-label=\"Warning\" title=\"Warning\"/>"
+msgid ""
+"<i class=\"fa fa-info-circle\" role=\"alert\" aria-label=\"Warning\" title="
+"\"Warning\"/>"
 msgstr ""
 "<i class=\"fa fa-info-circle\" role=\"alert\" aria-label=\"Warning\" title="
 "\"Warning\"/>"
@@ -26,7 +28,9 @@ msgstr ""
 #. module: hr_holidays_validity_date
 #: model:ir.model.fields,help:hr_holidays_validity_date.field_hr_leave__restrict_dates
 #: model:ir.model.fields,help:hr_holidays_validity_date.field_hr_leave_type__restrict_dates
-msgid "Check this if you want to forbid requesting leaves outside this range, otherwise it will just display a warning to the user."
+msgid ""
+"Check this if you want to forbid requesting leaves outside this range, "
+"otherwise it will just display a warning to the user."
 msgstr ""
 "Selezionare se si desidera impedire la richiesta di permessi fuori "
 "dall'intervallo, altrimenti verrà semplicemente visualizzata un'allerta "
