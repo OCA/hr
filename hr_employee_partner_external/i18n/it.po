@@ -18,6 +18,11 @@ msgstr ""
 "X-Generator: Poedit 2.3.1\n"
 
 #. module: hr_employee_partner_external
+#: model:ir.model.fields,field_description:hr_employee_partner_external.field_hr_employee__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: hr_employee_partner_external
 #: model:ir.model,name:hr_employee_partner_external.model_hr_employee
 msgid "Employee"
 msgstr "Dipendente"
@@ -28,9 +33,19 @@ msgid "External Partner"
 msgstr "Partner esterno"
 
 #. module: hr_employee_partner_external
+#: model:ir.model.fields,field_description:hr_employee_partner_external.field_hr_employee__id
+msgid "ID"
+msgstr ""
+
+#. module: hr_employee_partner_external
 #: model:ir.model.fields,field_description:hr_employee_partner_external.field_hr_employee__is_external
 msgid "Is an external Employee"
 msgstr "È un dipendente esterno"
+
+#. module: hr_employee_partner_external
+#: model:ir.model.fields,field_description:hr_employee_partner_external.field_hr_employee____last_update
+msgid "Last Modified on"
+msgstr ""
 
 #. module: hr_employee_partner_external
 #: model:ir.model.fields,help:hr_employee_partner_external.field_hr_employee__hr_external_partner_id
