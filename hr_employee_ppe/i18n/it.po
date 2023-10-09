@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* hr_employee_ppe
+# 	* hr_employee_ppe
 #
 msgid ""
 msgstr ""
@@ -390,7 +390,8 @@ msgstr "Cerca DPI"
 
 #. module: hr_employee_ppe
 #: model:ir.model.fields,help:hr_employee_ppe.field_hr_employee_ppe_equipment__product_id
-msgid "Select the PPE from the product list.\n"
+msgid ""
+"Select the PPE from the product list.\n"
 "            Please note that the PPE must be a consumable product."
 msgstr ""
 "Selezionare il DPI dall'elenco prodotti.\n"
@@ -420,7 +421,8 @@ msgstr "Stati"
 #. module: hr_employee_ppe
 #: model:ir.model.fields,help:hr_employee_ppe.field_hr_employee_ppe__activity_state
 #: model:ir.model.fields,help:hr_employee_ppe.field_hr_employee_ppe_equipment__activity_state
-msgid "Status based on activities\n"
+msgid ""
+"Status based on activities\n"
 "Overdue: Due date is already passed\n"
 "Today: Activity date is today\n"
 "Planned: Future activities."
@@ -482,7 +484,8 @@ msgstr "Cronologia comunicazioni sito web"
 #. module: hr_employee_ppe
 #: code:addons/hr_employee_ppe/models/hr_employee_ppe.py:81
 #, python-format
-msgid "You must inform start date and\n"
+msgid ""
+"You must inform start date and\n"
 "                            end date for expirable PPEs."
 msgstr ""
 "Bisogna comunicare la data inizio e\n"
