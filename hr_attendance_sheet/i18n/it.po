@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* hr_attendance_sheet
+# 	* hr_attendance_sheet
 #
 msgid ""
 msgstr ""
@@ -18,7 +18,10 @@ msgstr ""
 
 #. module: hr_attendance_sheet
 #: model_terms:ir.ui.view,arch_db:hr_attendance_sheet.res_config_settings_view_form
-msgid "<span class=\"fa fa-lg fa-building-o\" title=\"Values set here are company-specific.\" aria-label=\"Values set here are company-specific.\" groups=\"base.group_multi_company\" role=\"img\"/>"
+msgid ""
+"<span class=\"fa fa-lg fa-building-o\" title=\"Values set here are company-"
+"specific.\" aria-label=\"Values set here are company-specific.\" groups="
+"\"base.group_multi_company\" role=\"img\"/>"
 msgstr ""
 "<span class=\"fa fa-lg fa-building-o\" title=\"I valori impostati qui sono "
 "specifici per azienda.\" aria-label=\"I valori impostati qui sono specifici "
@@ -237,7 +240,9 @@ msgstr "Check-in/Check-out"
 
 #. module: hr_attendance_sheet
 #: model_terms:ir.ui.view,arch_db:hr_attendance_sheet.res_config_settings_view_form
-msgid "Choose attendance sheets review policy. Either HR only, Manager (Set on Employee) or Attendance Admin (Set on Department) or all three."
+msgid ""
+"Choose attendance sheets review policy. Either HR only, Manager (Set on "
+"Employee) or Attendance Admin (Set on Department) or all three."
 msgstr ""
 "Selezionare la politica revisione prospetti presenza. O solo RU, "
 "responsabile (impostato sul dipendente) o amministratore presenza (impostato "
@@ -245,7 +250,11 @@ msgstr ""
 
 #. module: hr_attendance_sheet
 #: model_terms:ir.ui.view,arch_db:hr_attendance_sheet.res_config_settings_view_form
-msgid "Choose if lunches are auto calculated after a certain duration. If a single attendance surpasses the duration, an auto lunch will be applied. If there are multiple attendances, but the time between them is shorter than the lunch time, then an auto lunch will be applied."
+msgid ""
+"Choose if lunches are auto calculated after a certain duration. If a single "
+"attendance surpasses the duration, an auto lunch will be applied. If there "
+"are multiple attendances, but the time between them is shorter than the "
+"lunch time, then an auto lunch will be applied."
 msgstr ""
 "Scegliere se i pranzi sono calcolati automaticamente dopo una certa durata. "
 "Se una singola presenza supera la durata, verrà applicato un pranzo "
@@ -302,7 +311,9 @@ msgstr "Dalla data"
 #. module: hr_attendance_sheet
 #: code:addons/hr_attendance_sheet/models/hr_attendance_sheet.py:129
 #, python-format
-msgid "Date From and Date To for Attendance                                    must be set on the Company %s"
+msgid ""
+"Date From and Date To for Attendance                                    must "
+"be set on the Company %s"
 msgstr ""
 "La data inizio e la data fine per la "
 "presenza                                    deve essere impostata "
@@ -384,7 +395,9 @@ msgstr ""
 #. module: hr_attendance_sheet
 #: model:ir.model.fields,help:hr_attendance_sheet.field_hr_attendance_sheet__hours_to_work
 #: model:ir.model.fields,help:hr_attendance_sheet.field_hr_employee__hours_to_work
-msgid "Expected working hours based on company policy. This is used              on attendance sheets to calculate overtime values."
+msgid ""
+"Expected working hours based on company policy. This is used              on "
+"attendance sheets to calculate overtime values."
 msgstr ""
 "Ore di lavoro previste in base alla politica aziendale. Queste sono "
 "utilizzate              nei prospetti presenza per calcolare i valori degli "
@@ -490,7 +503,8 @@ msgstr "Se selezionata, alcuni messaggi hanno un errore di consegna."
 
 #. module: hr_attendance_sheet
 #: model:ir.model.fields,help:hr_attendance_sheet.field_hr_department__attendance_admin
-msgid "In addition to the employees manager, this person can\n"
+msgid ""
+"In addition to the employees manager, this person can\n"
 "        administer attendances for all employees in the department."
 msgstr ""
 "In aggiunta al responsabile dipendente, questa persona può\n"
@@ -500,8 +514,10 @@ msgstr ""
 #: model:ir.model.fields,help:hr_attendance_sheet.field_hr_attendance__attendance_admin
 #: model:ir.model.fields,help:hr_attendance_sheet.field_hr_attendance_sheet__attendance_admin
 #: model:ir.model.fields,help:hr_attendance_sheet.field_hr_employee__attendance_admin
-msgid "In addition to the employees manager, this person can\n"
-"        administer attendances for all employees in the department. This field\n"
+msgid ""
+"In addition to the employees manager, this person can\n"
+"        administer attendances for all employees in the department. This "
+"field\n"
 "        is set on the department."
 msgstr ""
 "In aggiunta al responsabile dipendente, questa persona può\n"
@@ -512,7 +528,8 @@ msgstr ""
 #. module: hr_attendance_sheet
 #: code:addons/hr_attendance_sheet/models/hr_attendance_sheet.py:351
 #, python-format
-msgid "In order to review a attendance sheet,\n"
+msgid ""
+"In order to review a attendance sheet,\n"
 "                    your user needs to be linked to an employee record."
 msgstr ""
 "Per revisionare un prospetto presenza,\n"
@@ -623,7 +640,9 @@ msgstr "Tipo prossima attività"
 
 #. module: hr_attendance_sheet
 #: model_terms:ir.ui.view,arch_db:hr_attendance_sheet.hr_attendance_sheet_attendance_view_form
-msgid "Note: This attendance contains an automatically applied lunch period since the duration surpassed the maximum hours allowed without a lunch."
+msgid ""
+"Note: This attendance contains an automatically applied lunch period since "
+"the duration surpassed the maximum hours allowed without a lunch."
 msgstr ""
 "Nota: questa presenza contiene un pranzo inserito automaticamente perché la "
 "durata ha superato il numero massimo di ore consentite senza pranzo."
@@ -662,7 +681,8 @@ msgstr "Solo un incaricato RU può revisionare il prospetto."
 #. module: hr_attendance_sheet
 #: code:addons/hr_attendance_sheet/models/hr_attendance_sheet.py:245
 #, python-format
-msgid "Only the Manager of the Employee can review\n"
+msgid ""
+"Only the Manager of the Employee can review\n"
 "            the sheet."
 msgstr ""
 "Solo il responsabile del dipendente può revisionare\n"
@@ -671,7 +691,8 @@ msgstr ""
 #. module: hr_attendance_sheet
 #: code:addons/hr_attendance_sheet/models/hr_attendance_sheet.py:254
 #, python-format
-msgid "Only the Manager of the Employee or an HR\n"
+msgid ""
+"Only the Manager of the Employee or an HR\n"
 "            Officer/Manager can review the sheet."
 msgstr ""
 "Solo il responsabile del dipendente o un addetto/responsabile\n"
@@ -799,7 +820,8 @@ msgstr "Stati"
 
 #. module: hr_attendance_sheet
 #: model:ir.model.fields,help:hr_attendance_sheet.field_hr_attendance_sheet__activity_state
-msgid "Status based on activities\n"
+msgid ""
+"Status based on activities\n"
 "Overdue: Due date is already passed\n"
 "Today: Activity date is today\n"
 "Planned: Future activities."
@@ -834,7 +856,9 @@ msgstr "Intervallo del tuo prospetto presenza."
 #. module: hr_attendance_sheet
 #: code:addons/hr_attendance_sheet/models/hr_attendance_sheet.py:368
 #, python-format
-msgid "The sheet cannot be approved as it does not contain an equal number of sign ins and sign outs."
+msgid ""
+"The sheet cannot be approved as it does not contain an equal number of sign "
+"ins and sign outs."
 msgstr ""
 "Il prospetto non può essere approvato perché non contiene un numero uguale "
 "di ingressi ed uscite."
@@ -842,7 +866,9 @@ msgstr ""
 #. module: hr_attendance_sheet
 #: code:addons/hr_attendance_sheet/models/hr_attendance_sheet.py:320
 #, python-format
-msgid "The sheet cannot be validated as it does not contain an equal number of check-ins and check-outs."
+msgid ""
+"The sheet cannot be validated as it does not contain an equal number of "
+"check-ins and check-outs."
 msgstr ""
 "Il prospetto non può essere validato perché non contiene un numero uguale di "
 "check-in e check-out."
@@ -900,7 +926,10 @@ msgstr "Utilizza prospetto presenza"
 
 #. module: hr_attendance_sheet
 #: model:ir.model.fields,help:hr_attendance_sheet.field_hr_employee__use_attendance_sheets
-msgid "Used in the attendance sheet auto creation process. Employees              that have the 'Hourly' type will have attendance sheets              automatically created"
+msgid ""
+"Used in the attendance sheet auto creation process. Employees              "
+"that have the 'Hourly' type will have attendance sheets              "
+"automatically created"
 msgstr ""
 "Utilizzato nel processo di creazione automatica del prospetto presenza. I "
 "dipendenti              che hanno il tipo 'Orario' avranno prospetti "
