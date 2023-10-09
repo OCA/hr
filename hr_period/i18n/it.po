@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* hr_period
+# 	* hr_period
 #
 msgid ""
 msgstr ""
@@ -64,8 +64,7 @@ msgid "Close Period"
 msgstr "Chiudi periodo"
 
 #. module: hr_period
-#: selection:hr.fiscalyear,state:0
-#: selection:hr.period,state:0
+#: selection:hr.fiscalyear,state:0 selection:hr.period,state:0
 #: model_terms:ir.ui.view,arch_db:hr_period.view_hr_fiscalyear_search
 msgid "Closed"
 msgstr "Chiuso"
@@ -133,7 +132,8 @@ msgstr "Data pagamento"
 #. module: hr_period
 #: code:addons/hr_period/models/hr_fiscal_year.py:206
 #, python-format
-msgid "Date stop cannot be sooner than the date start\n"
+msgid ""
+"Date stop cannot be sooner than the date start\n"
 "                                "
 msgstr ""
 "La data fine non può essere antecedente alla data inizio\n"
@@ -156,8 +156,7 @@ msgid "Display Name"
 msgstr "Nome visualizzato"
 
 #. module: hr_period
-#: selection:hr.fiscalyear,state:0
-#: selection:hr.period,state:0
+#: selection:hr.fiscalyear,state:0 selection:hr.period,state:0
 msgid "Draft"
 msgstr "Bozza"
 
@@ -320,8 +319,7 @@ msgid "Number"
 msgstr "Numero"
 
 #. module: hr_period
-#: selection:hr.fiscalyear,state:0
-#: selection:hr.period,state:0
+#: selection:hr.fiscalyear,state:0 selection:hr.period,state:0
 #: model_terms:ir.ui.view,arch_db:hr_period.view_hr_fiscalyear_search
 msgid "Open"
 msgstr "Aperto"
@@ -492,7 +490,9 @@ msgstr ""
 #. module: hr_period
 #: code:addons/hr_period/models/hr_payslip_run.py:48
 #, python-format
-msgid "The company on the selected period must be the same as the company on the payslip batch."
+msgid ""
+"The company on the selected period must be the same as the company on the "
+"payslip batch."
 msgstr ""
 "L'azienda del periodo selezionato deve essere la stessa del gruppo busta "
 "paga."
@@ -500,7 +500,9 @@ msgstr ""
 #. module: hr_period
 #: code:addons/hr_period/models/hr_payslip.py:30
 #, python-format
-msgid "The company on the selected period must be the same as the company on the payslip."
+msgid ""
+"The company on the selected period must be the same as the company on the "
+"payslip."
 msgstr ""
 "L'azienda del periodo selezionato deve essere la stessa della busta paga."
 
@@ -513,7 +515,8 @@ msgstr "Il gruppo buste paga %s ha ancora buste paga non confermate."
 #. module: hr_period
 #: code:addons/hr_period/models/hr_payslip_run.py:58
 #, python-format
-msgid "The schedule on the selected period\n"
+msgid ""
+"The schedule on the selected period\n"
 "                        must be the same as the schedule on the\n"
 "                        payslip batch."
 msgstr ""
@@ -579,7 +582,8 @@ msgstr "Settimanalmente (52)"
 #: code:addons/hr_period/models/hr_period.py:102
 #, python-format
 msgid "You can not set to draft a period that already has payslips computed"
-msgstr "Non si può impostare a bozza un periodo che ha già buste paga calcolate"
+msgstr ""
+"Non si può impostare a bozza un periodo che ha già buste paga calcolate"
 
 #. module: hr_period
 #: code:addons/hr_period/models/hr_fiscal_year.py:282
