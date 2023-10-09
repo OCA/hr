@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* hr_holidays_credit
+# 	* hr_holidays_credit
 #
 msgid ""
 msgstr ""
@@ -62,7 +62,9 @@ msgstr "Dipendenti accreditabili"
 
 #. module: hr_holidays_credit
 #: model:ir.model.fields,help:hr_holidays_credit.field_hr_leave_type__allow_credit
-msgid "If set to true, employees would be able to make requests for this leave type even if allocated amount is insufficient."
+msgid ""
+"If set to true, employees would be able to make requests for this leave type "
+"even if allocated amount is insufficient."
 msgstr ""
 "Se impostata a vero, i dipendenti saranno abilitati a fare richieste per "
 "questo tipo di permesso anche se l'ammontare allocato è insufficiente."
@@ -76,7 +78,9 @@ msgstr ""
 
 #. module: hr_holidays_credit
 #: model:ir.model.fields,help:hr_holidays_credit.field_hr_leave_type__creditable_employee_category_ids
-msgid "If set, limits credit allowance to employees with at least one of specified tags"
+msgid ""
+"If set, limits credit allowance to employees with at least one of specified "
+"tags"
 msgstr ""
 "Se impostata, limita la concessione di credito ai dipendenti con almeno una "
 "etichetta specifica"

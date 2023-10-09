@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* hr_holidays_credit
+# 	* hr_holidays_credit
 #
 msgid ""
 msgstr ""
@@ -62,7 +62,9 @@ msgstr "Employé(e)s admissibles"
 
 #. module: hr_holidays_credit
 #: model:ir.model.fields,help:hr_holidays_credit.field_hr_leave_type__allow_credit
-msgid "If set to true, employees would be able to make requests for this leave type even if allocated amount is insufficient."
+msgid ""
+"If set to true, employees would be able to make requests for this leave type "
+"even if allocated amount is insufficient."
 msgstr ""
 "Si la valeur est « true », les employés pourront demander ce type de congé "
 "même si le montant alloué est insuffisant."
@@ -76,7 +78,9 @@ msgstr ""
 
 #. module: hr_holidays_credit
 #: model:ir.model.fields,help:hr_holidays_credit.field_hr_leave_type__creditable_employee_category_ids
-msgid "If set, limits credit allowance to employees with at least one of specified tags"
+msgid ""
+"If set, limits credit allowance to employees with at least one of specified "
+"tags"
 msgstr ""
 "Si défini, limite l’allocation de crédit aux employés ayant au moins une des "
 "étiquettes spécifiées"
