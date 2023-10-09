@@ -74,7 +74,6 @@ msgstr "Nom"
 
 #. module: hr_employee_firstname
 #: code:addons/hr_employee_firstname/models/hr_employee.py:0
-#: code:addons/hr_employee_firstname/models/hr_employee.py:0
 #, python-format
 msgid "No name set."
 msgstr ""
