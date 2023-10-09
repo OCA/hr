@@ -17,13 +17,9 @@ msgstr ""
 "X-Generator: Weblate 4.3.2\n"
 
 #. module: hr_contract_type
-#: model:ir.model,name:hr_contract_type.model_hr_contract
-msgid "Contract"
-msgstr "Contrato"
-
-#. module: hr_contract_type
 #: model:ir.model,name:hr_contract_type.model_hr_contract_type
 #: model:ir.model.fields,field_description:hr_contract_type.field_hr_contract__contract_type_id
+#: model_terms:ir.ui.view,arch_db:hr_contract_type.hr_contract_search_view
 msgid "Contract Type"
 msgstr "Tipo de Contrato"
 
@@ -44,16 +40,24 @@ msgid "Created on"
 msgstr "Creado en"
 
 #. module: hr_contract_type
+#: model:ir.model.fields,field_description:hr_contract_type.field_hr_contract__display_name
 #: model:ir.model.fields,field_description:hr_contract_type.field_hr_contract_type__display_name
 msgid "Display Name"
 msgstr "Nombre para mostrar"
 
 #. module: hr_contract_type
+#: model:ir.model,name:hr_contract_type.model_hr_contract
+msgid "Employee Contract"
+msgstr ""
+
+#. module: hr_contract_type
+#: model:ir.model.fields,field_description:hr_contract_type.field_hr_contract__id
 #: model:ir.model.fields,field_description:hr_contract_type.field_hr_contract_type__id
 msgid "ID"
 msgstr "ID"
 
 #. module: hr_contract_type
+#: model:ir.model.fields,field_description:hr_contract_type.field_hr_contract____last_update
 #: model:ir.model.fields,field_description:hr_contract_type.field_hr_contract_type____last_update
 msgid "Last Modified on"
 msgstr "Última modificación en"
@@ -72,3 +76,6 @@ msgstr "Última actualización en"
 #: model:ir.model.fields,field_description:hr_contract_type.field_hr_contract_type__name
 msgid "Name"
 msgstr "Nombre"
+
+#~ msgid "Contract"
+#~ msgstr "Contrato"
