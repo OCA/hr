@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* hr_personal_equipment_request
+# 	* hr_personal_equipment_request
 #
 msgid ""
 msgstr ""
@@ -414,7 +414,8 @@ msgstr "Stato"
 #. module: hr_personal_equipment_request
 #: model:ir.model.fields,help:hr_personal_equipment_request.field_hr_personal_equipment__activity_state
 #: model:ir.model.fields,help:hr_personal_equipment_request.field_hr_personal_equipment_request__activity_state
-msgid "Status based on activities\n"
+msgid ""
+"Status based on activities\n"
 "Overdue: Due date is already passed\n"
 "Today: Activity date is today\n"
 "Planned: Future activities."
