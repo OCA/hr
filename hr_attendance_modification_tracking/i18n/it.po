@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* hr_attendance_modification_tracking
+# 	* hr_attendance_modification_tracking
 #
 msgid ""
 msgstr ""
@@ -38,7 +38,9 @@ msgstr "Dipendente"
 
 #. module: hr_attendance_modification_tracking
 #: model:ir.model.fields,help:hr_attendance_modification_tracking.field_hr_attendance__time_changed_manually
-msgid "This attendance has been manually changed by user. If attendance is created from form view, a 60 seconds tolerance will be applied."
+msgid ""
+"This attendance has been manually changed by user. If attendance is created "
+"from form view, a 60 seconds tolerance will be applied."
 msgstr ""
 "Questa presenza è stata modificata manualmente da un utente. Se la presenza "
 "è creata da una vista scheda, sarà applicata una tolleranza di 60 secondi."
