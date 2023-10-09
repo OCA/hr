@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* hr_expense_advance_clearing_consolidation
+# 	* hr_expense_advance_clearing_consolidation
 #
 msgid ""
 msgstr ""
@@ -57,7 +57,9 @@ msgstr "Para consolidar isso é necessário selecionar mais de um pagamento."
 #. module: hr_expense_advance_clearing_consolidation
 #: code:addons/hr_expense_advance_clearing_consolidation/models/hr_expense_sheet.py:26
 #, python-format
-msgid "You cannot consolidate advances from different employees. Please select only advances from the same employee."
+msgid ""
+"You cannot consolidate advances from different employees. Please select only "
+"advances from the same employee."
 msgstr ""
 "Você não pode consolidar adiantamentos de funcionários diferentes. Por favor "
 "selecione somente adiantamentos do mesmo funcionário."
@@ -65,7 +67,9 @@ msgstr ""
 #. module: hr_expense_advance_clearing_consolidation
 #: code:addons/hr_expense_advance_clearing_consolidation/models/hr_expense_sheet.py:46
 #, python-format
-msgid "You cannot consolidate advances that are linked to an expense report that is open."
+msgid ""
+"You cannot consolidate advances that are linked to an expense report that is "
+"open."
 msgstr ""
 "Você não pode consolidar adiantamentos the estão ligados a um relatório de "
 "despesa aberto."
