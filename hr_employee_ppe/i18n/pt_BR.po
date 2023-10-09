@@ -59,6 +59,13 @@ msgid "Days"
 msgstr "Dias"
 
 #. module: hr_employee_ppe
+#: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_personal_equipment__display_name
+#: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_personal_equipment_request__display_name
+#: model:ir.model.fields,field_description:hr_employee_ppe.field_product_template__display_name
+msgid "Display Name"
+msgstr "Nome exibido"
+
+#. module: hr_employee_ppe
 #: model_terms:ir.ui.view,arch_db:hr_employee_ppe.product_template_form_view
 msgid "Employee PPE"
 msgstr "EPI de Funcionário"
@@ -120,6 +127,13 @@ msgstr ""
 "substituição."
 
 #. module: hr_employee_ppe
+#: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_personal_equipment__id
+#: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_personal_equipment_request__id
+#: model:ir.model.fields,field_description:hr_employee_ppe.field_product_template__id
+msgid "ID"
+msgstr "ID"
+
+#. module: hr_employee_ppe
 #: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_personal_equipment__indications
 #: model:ir.model.fields,field_description:hr_employee_ppe.field_product_product__indications
 #: model:ir.model.fields,field_description:hr_employee_ppe.field_product_template__indications
@@ -151,6 +165,13 @@ msgstr "É Epi"
 #: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_personal_equipment__issued_by
 msgid "Issued By"
 msgstr "Publicado Por"
+
+#. module: hr_employee_ppe
+#: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_personal_equipment____last_update
+#: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_personal_equipment_request____last_update
+#: model:ir.model.fields,field_description:hr_employee_ppe.field_product_template____last_update
+msgid "Last Modified on"
+msgstr "Última modificação em"
 
 #. module: hr_employee_ppe
 #: model:ir.model.fields.selection,name:hr_employee_ppe.selection__product_template__ppe_interval_type__minutes
@@ -296,9 +317,6 @@ msgstr "com o seguinte Equipamento de Proteção Individual (EPI):"
 #~ msgid "Description"
 #~ msgstr "Descrição"
 
-#~ msgid "Display Name"
-#~ msgstr "Nome exibido"
-
 #~ msgid "Employee"
 #~ msgstr "Funcionário"
 
@@ -332,9 +350,6 @@ msgstr "com o seguinte Equipamento de Proteção Individual (EPI):"
 #~ msgid "Group By"
 #~ msgstr "Agrupar por"
 
-#~ msgid "ID"
-#~ msgstr "ID"
-
 #~ msgid "If checked new messages require your attention."
 #~ msgstr "Se marcado, novas mensagens solicitarão sua atenção."
 
@@ -346,9 +361,6 @@ msgstr "com o seguinte Equipamento de Proteção Individual (EPI):"
 
 #~ msgid "Is Follower"
 #~ msgstr "É um seguidor"
-
-#~ msgid "Last Modified on"
-#~ msgstr "Última modificação em"
 
 #~ msgid "Last Updated by"
 #~ msgstr "Última atualização por"
