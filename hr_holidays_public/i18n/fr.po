@@ -269,8 +269,8 @@ msgstr ""
 "calendrier,\n"
 "                         vous devez le créer manuellement car cet assistant "
 "prend les\n"
-"                         calendriers des années précédentes comme modèles. <"
-"br/>"
+"                         calendriers des années précédentes comme modèles. "
+"<br/>"
 
 #. module: hr_holidays_public
 #: model_terms:ir.ui.view,arch_db:hr_holidays_public.holidays_public_next_year_wizard_view
