@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* hr_holidays_hour
+# 	* hr_holidays_hour
 #
 msgid ""
 msgstr ""
@@ -54,7 +54,8 @@ msgstr "Numero di permessi"
 
 #. module: hr_holidays_hour
 #: model:ir.model.fields,help:hr_holidays_hour.field_hr_leave__number_of_hours
-msgid "Number of hours of the leave request according to your working schedule."
+msgid ""
+"Number of hours of the leave request according to your working schedule."
 msgstr ""
 "Numero di ore della richiesta permesso in accordo al lavoro programmato."
 
@@ -65,7 +66,9 @@ msgstr "Ore residue"
 
 #. module: hr_holidays_hour
 #: model:ir.model.fields,help:hr_holidays_hour.field_hr_leave_allocation__number_of_hours
-msgid "UX field allowing to see and modify the allocation duration,computed in hours."
+msgid ""
+"UX field allowing to see and modify the allocation duration,computed in "
+"hours."
 msgstr ""
 "Campo UX che consente la visualizzazione e la modifica della durata "
 "assegnata, calcolata in ore."
