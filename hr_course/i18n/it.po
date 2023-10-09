@@ -536,8 +536,8 @@ msgstr "Non puoi completare il corso con risultati in sospeso"
 #. module: hr_course
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_schedule_form_view
 msgid ""
-"You should set a course back to draft only if you cancelled it by mistake or"
-" if some of its information is incorrect. Do you want to continue?"
+"You should set a course back to draft only if you cancelled it by mistake or "
+"if some of its information is incorrect. Do you want to continue?"
 msgstr ""
 "Si dovrebbe reimpostare un corso come bozza solo se lo si è cancellato per "
 "errore o se alcune sue informazioni non sono corrette. Continuare?"
