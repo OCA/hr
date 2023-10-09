@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* hr_holidays_accrual_advanced
+# 	* hr_holidays_accrual_advanced
 #
 msgid ""
 msgstr ""
@@ -23,8 +23,10 @@ msgstr "<span class=\"ml8\">giorno(i)</span>"
 
 #. module: hr_holidays_accrual_advanced
 #: model_terms:ir.ui.view,arch_db:hr_holidays_accrual_advanced.hr_leave_allocation_accrual_calculator
-msgid "<span nolabel=\"1\">\n"
-"                        This wizard will calculate leave allocation balance as of date selected.\n"
+msgid ""
+"<span nolabel=\"1\">\n"
+"                        This wizard will calculate leave allocation balance "
+"as of date selected.\n"
 "                    </span>"
 msgstr ""
 "<span nolabel=\"1\">\n"
@@ -398,7 +400,8 @@ msgstr "Massimo totale giorni che possono essere accumulati."
 #. module: hr_holidays_accrual_advanced
 #: model:ir.model.fields,help:hr_holidays_accrual_advanced.field_hr_leave_allocation__max_carryover_days
 msgid "Total maximum number of days to carryover to next accrual period."
-msgstr "Massimo totale giorni da posticipare al successivo periodo di accumulo."
+msgstr ""
+"Massimo totale giorni da posticipare al successivo periodo di accumulo."
 
 #. module: hr_holidays_accrual_advanced
 #: model:ir.model.fields,help:hr_holidays_accrual_advanced.field_hr_leave_allocation__interval_unit
@@ -423,8 +426,10 @@ msgstr "Settimana(e)"
 
 #. module: hr_holidays_accrual_advanced
 #: model:ir.model.fields,help:hr_holidays_accrual_advanced.field_hr_leave__time_type
-msgid "Whether this should be computed as a holiday or as work time (eg: formation)"
-msgstr "Se deve essere calcolato come vacanza o tempo lavorato (es. formazione)"
+msgid ""
+"Whether this should be computed as a holiday or as work time (eg: formation)"
+msgstr ""
+"Se deve essere calcolato come vacanza o tempo lavorato (es. formazione)"
 
 #. module: hr_holidays_accrual_advanced
 #: selection:hr.leave.allocation,interval_unit:0
