@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* hr_expense_petty_cash
+# 	* hr_expense_petty_cash
 #
 msgid ""
 msgstr ""
@@ -133,7 +133,8 @@ msgstr "Limite massimo"
 #. module: hr_expense_petty_cash
 #: code:addons/hr_expense_petty_cash/models/hr_expense_sheet.py:67
 #, python-format
-msgid "Not enough money in petty cash holder.\n"
+msgid ""
+"Not enough money in petty cash holder.\n"
 "You are requesting %s%s, but the balance is %s%s."
 msgstr ""
 "Non c'è abbastanza denaro assegnato al titolare della piccola cassa.\n"
@@ -181,7 +182,8 @@ msgstr "Il titolare piccola cassa deve essere univoco!"
 #. module: hr_expense_petty_cash
 #: code:addons/hr_expense_petty_cash/models/account_invoice.py:42
 #, python-format
-msgid "Petty Cash balance is %s %s.\n"
+msgid ""
+"Petty Cash balance is %s %s.\n"
 "Max amount to add is %s %s."
 msgstr ""
 "Il saldo della piccola cassa è %s %s.\n"
