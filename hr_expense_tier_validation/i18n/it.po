@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* hr_expense_tier_validation
+# 	* hr_expense_tier_validation
 #
 msgid ""
 msgstr ""
@@ -18,7 +18,8 @@ msgstr ""
 
 #. module: hr_expense_tier_validation
 #: model_terms:ir.ui.view,arch_db:hr_expense_tier_validation.view_hr_expense_sheet_form
-msgid "<i class=\"fa fa-info-circle\"/>\n"
+msgid ""
+"<i class=\"fa fa-info-circle\"/>\n"
 "                        This expense report needs to be validated."
 msgstr ""
 "<i class=\"fa fa-info-circle\"/>\n"
@@ -27,7 +28,8 @@ msgstr ""
 #. module: hr_expense_tier_validation
 #: model_terms:ir.ui.view,arch_db:hr_expense_tier_validation.view_hr_expense_sheet_form
 msgid "<i class=\"fa fa-thumbs-down\"/> Operation has been <b>rejected</b>."
-msgstr "<i class=\"fa fa-thumbs-down\"/> L'operazione è stata <b>rifiutata</b>."
+msgstr ""
+"<i class=\"fa fa-thumbs-down\"/> L'operazione è stata <b>rifiutata</b>."
 
 #. module: hr_expense_tier_validation
 #: model_terms:ir.ui.view,arch_db:hr_expense_tier_validation.view_hr_expense_sheet_form
