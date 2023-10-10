@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* hr_expense_invoice
+# 	* hr_expense_invoice
 #
 msgid ""
 msgstr ""
@@ -87,7 +87,8 @@ msgstr "Fatura de Fornecedor"
 #. module: hr_expense_invoice
 #: code:addons/hr_expense_invoice/models/hr_expense_sheet.py:63
 #, python-format
-msgid "Vendor bill amount mismatch!\n"
+msgid ""
+"Vendor bill amount mismatch!\n"
 "Please make sure amount in vendor bills equal to amount of its expense lines"
 msgstr ""
 "A conta do fornecedor não está de acordo!\n"
@@ -104,7 +105,9 @@ msgstr "O estado da fatura do fornecedor deve ser Aberto"
 #. module: hr_expense_invoice
 #: code:addons/hr_expense_invoice/models/account_invoice.py:23
 #, python-format
-msgid "You can't change the total amount, as there's an expense linked to this invoice."
+msgid ""
+"You can't change the total amount, as there's an expense linked to this "
+"invoice."
 msgstr ""
 "Você não pode alterar o valor total, pois há uma despesa ligada a essa "
 "fatura."
