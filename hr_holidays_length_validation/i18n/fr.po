@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* hr_holidays_length_validation
+# 	* hr_holidays_length_validation
 #
 msgid ""
 msgstr ""
@@ -25,8 +25,9 @@ msgstr "%s%s sur %s pour %.2f jour(s)"
 #. module: hr_holidays_length_validation
 #: code:addons/hr_holidays_length_validation/models/hr_leave.py:35
 #, python-format
-msgid "Following leaves have outdated length:\n"
-"	 %s"
+msgid ""
+"Following leaves have outdated length:\n"
+"\t %s"
 msgstr ""
 
 #. module: hr_holidays_length_validation
