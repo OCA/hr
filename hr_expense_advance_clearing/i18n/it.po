@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* hr_expense_advance_clearing
+# 	* hr_expense_advance_clearing
 #
 msgid ""
 msgstr ""
@@ -19,10 +19,12 @@ msgstr ""
 #. module: hr_expense_advance_clearing
 #: code:addons/hr_expense_advance_clearing/wizard/hr_expense_sheet_register_payment.py:46
 #, python-format
-msgid "A remaining advance return of %s %s with the reference <a href='/mail/view?%s'>%s</a> related to your expense %s has been made."
+msgid ""
+"A remaining advance return of %s %s with the reference <a href='/mail/view?"
+"%s'>%s</a> related to your expense %s has been made."
 msgstr ""
-"Un anticipo rimborso residuo di %s%s con riferimento <a href='/mail/"
-"view?%s'>%s</a> relativo alla spesa %s è stato eseguito."
+"Un anticipo rimborso residuo di %s%s con riferimento <a href='/mail/view?%s'>"
+"%s</a> relativo alla spesa %s è stato eseguito."
 
 #. module: hr_expense_advance_clearing
 #: model_terms:ir.ui.view,arch_db:hr_expense_advance_clearing.view_hr_expense_sheet_filter
@@ -48,7 +50,8 @@ msgstr "Residuo anticipo"
 #: code:addons/hr_expense_advance_clearing/models/hr_expense_sheet.py:60
 #, python-format
 msgid "Advance clearing must not contain any advance expense line"
-msgstr "La liquidazione anticipo non deve contenere nessuna riga anticipo spesa"
+msgstr ""
+"La liquidazione anticipo non deve contenere nessuna riga anticipo spesa"
 
 #. module: hr_expense_advance_clearing
 #: code:addons/hr_expense_advance_clearing/models/hr_expense_sheet.py:63
@@ -143,7 +146,9 @@ msgstr ""
 
 #. module: hr_expense_advance_clearing
 #: model_terms:ir.actions.act_window,help:hr_expense_advance_clearing.action_hr_expense_sheet_advance_clearing
-msgid "Once you have created your expense, submit it to your manager who will validate it."
+msgid ""
+"Once you have created your expense, submit it to your manager who will "
+"validate it."
 msgstr ""
 "Una volta creata la spesa, inviarla al proprio responsabile per la "
 "validazione."
