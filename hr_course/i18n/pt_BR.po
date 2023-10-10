@@ -49,6 +49,30 @@ msgid "Active"
 msgstr "Ativa"
 
 #. module: hr_course
+#: model:ir.model.fields,field_description:hr_course.field_hr_course__activity_ids
+#: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: hr_course
+#: model:ir.model.fields,field_description:hr_course.field_hr_course__activity_exception_decoration
+#: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: hr_course
+#: model:ir.model.fields,field_description:hr_course.field_hr_course__activity_state
+#: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: hr_course
+#: model:ir.model.fields,field_description:hr_course.field_hr_course__activity_type_icon
+#: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_res_company__course_expiration_alerting_delay
 #: model:ir.model.fields,field_description:hr_course.field_res_config_settings__course_expiration_alerting_delay
 msgid "Alerting delay before end of validity (days)"
@@ -338,6 +362,12 @@ msgid "Followers (Partners)"
 msgstr ""
 
 #. module: hr_course
+#: model:ir.model.fields,help:hr_course.field_hr_course__activity_type_icon
+#: model:ir.model.fields,help:hr_course.field_hr_course_schedule__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: hr_course
 #: model:ir.actions.server,name:hr_course.ir_cron_post_wip_ir_actions_server
 #: model:ir.cron,cron_name:hr_course.ir_cron_post_wip
 #: model:ir.cron,name:hr_course.ir_cron_post_wip
@@ -358,6 +388,18 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_course.field_res_company__id
 #: model:ir.model.fields,field_description:hr_course.field_res_config_settings__id
 msgid "ID"
+msgstr ""
+
+#. module: hr_course
+#: model:ir.model.fields,field_description:hr_course.field_hr_course__activity_exception_icon
+#: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: hr_course
+#: model:ir.model.fields,help:hr_course.field_hr_course__activity_exception_icon
+#: model:ir.model.fields,help:hr_course.field_hr_course_schedule__activity_exception_icon
+msgid "Icon to indicate an exception activity."
 msgstr ""
 
 #. module: hr_course
@@ -454,10 +496,34 @@ msgid "Messages"
 msgstr ""
 
 #. module: hr_course
+#: model:ir.model.fields,field_description:hr_course.field_hr_course__my_activity_date_deadline
+#: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__name
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee__name
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__name
 msgid "Name"
+msgstr ""
+
+#. module: hr_course
+#: model:ir.model.fields,field_description:hr_course.field_hr_course__activity_date_deadline
+#: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: hr_course
+#: model:ir.model.fields,field_description:hr_course.field_hr_course__activity_summary
+#: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: hr_course
+#: model:ir.model.fields,field_description:hr_course.field_hr_course__activity_type_id
+#: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__activity_type_id
+msgid "Next Activity Type"
 msgstr ""
 
 #. module: hr_course
@@ -537,6 +603,12 @@ msgid "Rate Course"
 msgstr ""
 
 #. module: hr_course
+#: model:ir.model.fields,field_description:hr_course.field_hr_course__activity_user_id
+#: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee__result
 msgid "Result"
 msgstr ""
@@ -575,6 +647,16 @@ msgid "State"
 msgstr ""
 
 #. module: hr_course
+#: model:ir.model.fields,help:hr_course.field_hr_course__activity_state
+#: model:ir.model.fields,help:hr_course.field_hr_course_schedule__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: hr_course
 #: code:addons/hr_course/models/hr_course_schedule.py:0
 #, python-format
 msgid "The start date cannot be later than the end date."
@@ -583,6 +665,12 @@ msgstr ""
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__training_company_id
 msgid "Training company"
+msgstr ""
+
+#. module: hr_course
+#: model:ir.model.fields,help:hr_course.field_hr_course__activity_exception_decoration
+#: model:ir.model.fields,help:hr_course.field_hr_course_schedule__activity_exception_decoration
+msgid "Type of the exception activity on record."
 msgstr ""
 
 #. module: hr_course
