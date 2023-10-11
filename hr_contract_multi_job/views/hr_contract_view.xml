@@ -11,7 +11,7 @@
             </field>
             <group name="top_info_right" position="after">
                 <group string="Job Positions" name="group_contract">
-                    <field name="contract_job_ids" nolabel="1">
+                    <field name="contract_job_ids">
                         <tree editable="bottom">
                             <field name="job_id" />
                             <field name="is_main_job" />
