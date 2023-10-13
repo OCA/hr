@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-31 03:38+0000\n"
-"PO-Revision-Date: 2023-05-30 12:09+0000\n"
+"PO-Revision-Date: 2023-10-13 10:36+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: Italian (https://www.transifex.com/oca/teams/23907/it/)\n"
 "Language: it\n"
@@ -23,7 +23,7 @@ msgstr ""
 #. module: hr_employee_phone_extension
 #: model:ir.model.fields,field_description:hr_employee_phone_extension.field_hr_employee__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nome visualizzato"
 
 #. module: hr_employee_phone_extension
 #: model:ir.model,name:hr_employee_phone_extension.model_hr_employee
@@ -33,7 +33,7 @@ msgstr "Dipendente"
 #. module: hr_employee_phone_extension
 #: model:ir.model.fields,field_description:hr_employee_phone_extension.field_hr_employee__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: hr_employee_phone_extension
 #: model_terms:ir.ui.view,arch_db:hr_employee_phone_extension.view_employee_form
@@ -53,7 +53,7 @@ msgstr "Numero interno telefonico."
 #. module: hr_employee_phone_extension
 #: model:ir.model.fields,field_description:hr_employee_phone_extension.field_hr_employee____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Ultima modifica il"
 
 #. module: hr_employee_phone_extension
 #: model:ir.model.fields,field_description:hr_employee_phone_extension.field_hr_employee__short_number
