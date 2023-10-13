@@ -7,20 +7,20 @@ msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-06 18:47+0000\n"
-"PO-Revision-Date: 2020-06-06 20:50+0200\n"
-"Last-Translator: \n"
+"PO-Revision-Date: 2023-10-13 10:36+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: \n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.3.1\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: hr_employee_partner_external
 #: model:ir.model.fields,field_description:hr_employee_partner_external.field_hr_employee__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nome visualizzato"
 
 #. module: hr_employee_partner_external
 #: model:ir.model,name:hr_employee_partner_external.model_hr_employee
@@ -35,7 +35,7 @@ msgstr "Partner esterno"
 #. module: hr_employee_partner_external
 #: model:ir.model.fields,field_description:hr_employee_partner_external.field_hr_employee__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: hr_employee_partner_external
 #: model:ir.model.fields,field_description:hr_employee_partner_external.field_hr_employee__is_external
@@ -45,7 +45,7 @@ msgstr "È un dipendente esterno"
 #. module: hr_employee_partner_external
 #: model:ir.model.fields,field_description:hr_employee_partner_external.field_hr_employee____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Ultima modifica il"
 
 #. module: hr_employee_partner_external
 #: model:ir.model.fields,help:hr_employee_partner_external.field_hr_employee__hr_external_partner_id
