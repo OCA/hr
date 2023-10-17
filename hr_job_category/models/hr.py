@@ -73,7 +73,7 @@ class HRContract(models.Model):
             job_id = prev_data.get(contract.id)
             if job_id:
                 contract._remove_tags(job_id)
-                self._tag_employees(contract.employee_id.id, contract.job_id.id)
+                self._tag_employees(contract.job_id.id)
         return res
 
     def unlink(self):
