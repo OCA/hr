@@ -58,7 +58,10 @@ class HRContract(models.Model):
         return res
 
     def write(self, vals):
-        prev_data = self.read(["job_id"])
+        prev_data = {
+            res["id"]: res["job_id"][0]
+            for res in self.read(["job_id"]) if res["job_id"]
+        }
         if "employee_id" in vals and self.employee_id != vals.get("employee_id"):
             self._remove_tags(self.employee_id.id, self.job_id.id)
         res = super().write(vals)
