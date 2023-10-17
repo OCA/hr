@@ -77,11 +77,13 @@ class HRContract(models.Model):
         return res
 
     def unlink(self):
-        prev_data = self.read(["job_id"])
-        # Go through each record and delete tags associated with the previous
-        # job, then add the tags of the new job.
-        #
+        prev_data = {
+            res["id"]: res["job_id"][0]
+            for res in self.read(["job_id"]) if res["job_id"]
+        }
+        # Go through each record and delete tags associated with the previous job
         for contract in self:
-            for data in prev_data:
-                self._remove_tags(contract.employee_id.id, data["job_id"][0])
-        return super(HRContract, self).unlink()
+            job_id = prev_data.get(contract.id)
+            if job_id:
+                contract._remove_tags(job_id)
+        return super().unlink()
