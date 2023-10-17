@@ -23,19 +23,19 @@ class HRJob(models.Model):
 class HRContract(models.Model):
     _inherit = "hr.contract"
 
-    def _remove_tags(self, employee_id=None, job_id=None):
-        # TODO write tags only once
-        if not employee_id or not job_id:
-            return
-        employee = self.env["hr.employee"].browse(employee_id)
-        empl_tags = employee.category_ids
+    def _remove_tags(job_id):
         job = self.env["hr.job"].browse(job_id)
-        _logger.debug(
-            "Removing employee tags if tag exists on contract " "job: %s", empl_tags
-        )
-        for tag in job.category_ids:
-            if tag in empl_tags:
-                employee.write({"category_ids": [(3, tag.id)]})
+        for employee in self.mapped("employee_id"):
+            _logger.debug(
+                "Removing employee tags if tags exist on contract job: %s",
+                employee.category_ids,
+            )
+            tags_to_remove = [
+                (3, tag.id)
+                for tag in job.category_ids & employee.category_ids
+            ]
+            if tags_to_remove:
+                employee.write({"category_ids": tags_to_remove})
 
     def _tag_employees(self, employee_id=None, job_id=None):
         if not employee_id or not job_id:
