@@ -37,18 +37,18 @@ class HRContract(models.Model):
             if tags_to_remove:
                 employee.write({"category_ids": tags_to_remove})
 
-    def _tag_employees(self, employee_id=None, job_id=None):
-        if not employee_id or not job_id:
-            return
-        employee = self.env["hr.employee"].browse(employee_id)
-        empl_tags = employee.category_ids
+    def _tag_employees(self, job_id):
         job = self.env["hr.job"].browse(job_id)
-        for tag in job.category_ids:
-            if tag not in empl_tags:
-                _logger.debug(
-                    "Adding employee tag if job tag doesn't " "exists: %s", tag.name
-                )
-                employee.write({"category_ids": [(4, tag.id)]})
+        _logger.debug(
+            "Adding employee tags if job tags doesn't exist: %s", job.category_ids
+        )
+        for employee in self.mapped("employee_id"):
+            tags_to_add = [
+                (4, tag.id)
+                for tag in job.category_ids - employee.category_ids
+            ]
+            if tags_to_add:
+                employee.write(tags_to_add)
 
     @api.model
     def create(self, vals):
