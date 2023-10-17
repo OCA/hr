@@ -70,13 +70,9 @@ class HRContract(models.Model):
         #
 
         for contract in self:
-            for data in prev_data:
-                if (
-                    data.get("id") == contract.id
-                    and data["job_id"]
-                    and data["job_id"][0] != contract.job_id.id
-                ):
-                    self._remove_tags(contract.employee_id.id, data["job_id"][0])
+            job_id = prev_data.get(contract.id)
+            if job_id:
+                contract._remove_tags(job_id)
                 self._tag_employees(contract.employee_id.id, contract.job_id.id)
         return res
 
