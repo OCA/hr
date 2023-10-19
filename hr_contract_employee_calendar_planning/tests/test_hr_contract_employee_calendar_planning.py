@@ -6,8 +6,19 @@ from ..hooks import post_init_hook
 
 
 class TestHrContractEmployeeCalendarPlanning(TestContractCommon):
-    def setUp(self):
-        super().setUp()
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        cls.env = cls.env(
+            context=dict(
+                cls.env.context,
+                mail_create_nolog=True,
+                mail_create_nosubscribe=True,
+                mail_notrack=True,
+                no_reset_password=True,
+                tracking_disable=True,
+            )
+        )
         calendar_ids = [
             (
                 0,
@@ -15,7 +26,7 @@ class TestHrContractEmployeeCalendarPlanning(TestContractCommon):
                 {
                     "date_start": False,
                     "date_end": datetime.strptime("2020-11-30", "%Y-%m-%d").date(),
-                    "calendar_id": self.env["resource.calendar"].browse([2]).id,
+                    "calendar_id": cls.env["resource.calendar"].browse([2]).id,
                 },
             ),
             (
@@ -24,11 +35,11 @@ class TestHrContractEmployeeCalendarPlanning(TestContractCommon):
                 {
                     "date_start": datetime.strptime("2020-12-01", "%Y-%m-%d").date(),
                     "date_end": False,
-                    "calendar_id": self.env["resource.calendar"].browse([1]).id,
+                    "calendar_id": cls.env["resource.calendar"].browse([1]).id,
                 },
             ),
         ]
-        self.employee.calendar_ids = calendar_ids
+        cls.employee.calendar_ids = calendar_ids
 
     def test_calendar_migration_from_contracts(self):
         self.contract1 = self.env["hr.contract"].create(
