@@ -37,7 +37,7 @@ addon | version | maintainers | summary
 [hr_course](hr_course/) | 12.0.1.0.0 |  | This module allows your to manage employee's training courses
 [hr_employee_age](hr_employee_age/) | 12.0.1.0.0 |  | Age field for employee
 [hr_employee_birth_name](hr_employee_birth_name/) | 12.0.1.0.0 |  | Employee Birth Name
-[hr_employee_calendar_planning](hr_employee_calendar_planning/) | 12.0.1.1.1 |  | Employee Calendar Planning
+[hr_employee_calendar_planning](hr_employee_calendar_planning/) | 12.0.1.1.2 |  | Employee Calendar Planning
 [hr_employee_display_own_info](hr_employee_display_own_info/) | 12.0.1.0.0 |  | Employee can see own information
 [hr_employee_document](hr_employee_document/) | 12.0.1.1.0 |  | Documents attached to the employee profile
 [hr_employee_emergency_contact](hr_employee_emergency_contact/) | 12.0.1.0.0 |  | HR Employee Emergency Contact
