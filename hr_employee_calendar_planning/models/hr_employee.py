@@ -47,6 +47,15 @@ class HrEmployee(models.Model):
             record.regenerate_calendar()
         return record
 
+    @api.multi
+    def copy_data(self, default=None):
+        if default is None:
+            default = {}
+        res = super(HrEmployee, self).copy_data(default)
+        for element in res:
+            if element.get('resource_calendar_id', False):
+                element['resource_calendar_id'] = self.env['res.company']._company_default_get().resource_calendar_id.id
+        return res
 
 class HrEmployeeCalendar(models.Model):
     _name = 'hr.employee.calendar'
