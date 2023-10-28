@@ -244,9 +244,7 @@ msgstr "Se selezionata, nuovi messaggi richiedono attenzione."
 
 #. module: hr_personal_equipment_request
 #: model:ir.model.fields,help:hr_personal_equipment_request.field_hr_personal_equipment__message_has_error
-#: model:ir.model.fields,help:hr_personal_equipment_request.field_hr_personal_equipment__message_has_sms_error
 #: model:ir.model.fields,help:hr_personal_equipment_request.field_hr_personal_equipment_request__message_has_error
-#: model:ir.model.fields,help:hr_personal_equipment_request.field_hr_personal_equipment_request__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
 msgstr "Se selezionata, alcuni messaggi hanno un errore di consegna."
 
@@ -436,12 +434,6 @@ msgid "Responsible User"
 msgstr "Utente responsabile"
 
 #. module: hr_personal_equipment_request
-#: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment__message_has_sms_error
-#: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment_request__message_has_sms_error
-msgid "SMS Delivery error"
-msgstr "Errore consegna SMS"
-
-#. module: hr_personal_equipment_request
 #: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment__start_date
 msgid "Start Date"
 msgstr "Data inizio"
@@ -519,3 +511,6 @@ msgstr "Messaggi sito web"
 #: model:ir.model.fields,help:hr_personal_equipment_request.field_hr_personal_equipment_request__website_message_ids
 msgid "Website communication history"
 msgstr "Cronologia comunicazioni sito web"
+
+#~ msgid "SMS Delivery error"
+#~ msgstr "Errore consegna SMS"
