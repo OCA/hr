@@ -221,7 +221,6 @@ msgstr "Se selezionata, nuovi messaggi richiedono attenzione."
 
 #. module: hr_employee_medical_examination
 #: model:ir.model.fields,help:hr_employee_medical_examination.field_hr_employee_medical_examination__message_has_error
-#: model:ir.model.fields,help:hr_employee_medical_examination.field_hr_employee_medical_examination__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
 msgstr "Se selezionata, alcuni messaggi hanno un errore di consegna."
 
@@ -389,11 +388,6 @@ msgid "Result"
 msgstr "Risultato"
 
 #. module: hr_employee_medical_examination
-#: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee_medical_examination__message_has_sms_error
-msgid "SMS Delivery error"
-msgstr "Errore consegna SMS"
-
-#. module: hr_employee_medical_examination
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee_medical_examination__state
 msgid "State"
 msgstr "Stato"
@@ -426,6 +420,9 @@ msgstr "Visualizza visite mediche"
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_wizard_generate_medical_examination__year
 msgid "Year"
 msgstr "Anno"
+
+#~ msgid "SMS Delivery error"
+#~ msgstr "Errore consegna SMS"
 
 #~ msgid "Number of messages which requires an action"
 #~ msgstr "Numero di messaggi che richiedono un'azione"
