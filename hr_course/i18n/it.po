@@ -305,9 +305,7 @@ msgstr "Se selezionata, nuovi messaggi richiedono attenzione."
 
 #. module: hr_course
 #: model:ir.model.fields,help:hr_course.field_hr_course__message_has_error
-#: model:ir.model.fields,help:hr_course.field_hr_course__message_has_sms_error
 #: model:ir.model.fields,help:hr_course.field_hr_course_schedule__message_has_error
-#: model:ir.model.fields,help:hr_course.field_hr_course_schedule__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
 msgstr "Se selezionata, alcuni messaggi hanno un errore di consegna."
 
@@ -462,12 +460,6 @@ msgid "Result"
 msgstr "Risultato"
 
 #. module: hr_course
-#: model:ir.model.fields,field_description:hr_course.field_hr_course__message_has_sms_error
-#: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__message_has_sms_error
-msgid "SMS Delivery error"
-msgstr "Errore consegna SMS"
-
-#. module: hr_course
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_form_view
 msgid "Schedules"
 msgstr "Calendari"
@@ -521,6 +513,9 @@ msgid ""
 msgstr ""
 "Si dovrebbe reimpostare un corso come bozza solo se lo si è cancellato per "
 "errore o se alcune sue informazioni non sono corrette. Continuare?"
+
+#~ msgid "SMS Delivery error"
+#~ msgstr "Errore consegna SMS"
 
 #~ msgid "Number of messages which requires an action"
 #~ msgstr "Numero di messaggi che richiedono un'azione"
