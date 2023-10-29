@@ -306,9 +306,7 @@ msgstr "Si está marcado, los nuevos mensajes requieren su atención."
 
 #. module: hr_course
 #: model:ir.model.fields,help:hr_course.field_hr_course__message_has_error
-#: model:ir.model.fields,help:hr_course.field_hr_course__message_has_sms_error
 #: model:ir.model.fields,help:hr_course.field_hr_course_schedule__message_has_error
-#: model:ir.model.fields,help:hr_course.field_hr_course_schedule__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
 msgstr "Si está marcado, algunos mensajes tienen un error de entrega."
 
@@ -463,12 +461,6 @@ msgid "Result"
 msgstr "Resultado"
 
 #. module: hr_course
-#: model:ir.model.fields,field_description:hr_course.field_hr_course__message_has_sms_error
-#: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__message_has_sms_error
-msgid "SMS Delivery error"
-msgstr "Error de entrega de SMS"
-
-#. module: hr_course
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_form_view
 msgid "Schedules"
 msgstr "Horarios"
@@ -522,6 +514,9 @@ msgid ""
 msgstr ""
 "Solo deberías devolver un curso a borrador si se ha cancelado por error o si "
 "alguna de su información es incorrecta. Quieres continuar?"
+
+#~ msgid "SMS Delivery error"
+#~ msgstr "Error de entrega de SMS"
 
 #~ msgid "Number of messages which requires an action"
 #~ msgstr "Número de mensajes que requieren una acción"
