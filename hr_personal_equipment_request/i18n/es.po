@@ -243,9 +243,7 @@ msgstr "Si está marcado hay nuevos mensajes que requieren su atención."
 
 #. module: hr_personal_equipment_request
 #: model:ir.model.fields,help:hr_personal_equipment_request.field_hr_personal_equipment__message_has_error
-#: model:ir.model.fields,help:hr_personal_equipment_request.field_hr_personal_equipment__message_has_sms_error
 #: model:ir.model.fields,help:hr_personal_equipment_request.field_hr_personal_equipment_request__message_has_error
-#: model:ir.model.fields,help:hr_personal_equipment_request.field_hr_personal_equipment_request__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
 msgstr "Si se encuentra marcado, algunos mensajes tienen error de envío."
 
@@ -427,12 +425,6 @@ msgid "Responsible User"
 msgstr "Usuario responsable"
 
 #. module: hr_personal_equipment_request
-#: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment__message_has_sms_error
-#: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment_request__message_has_sms_error
-msgid "SMS Delivery error"
-msgstr "Error de envío del SMS"
-
-#. module: hr_personal_equipment_request
 #: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment__start_date
 msgid "Start Date"
 msgstr "Fecha de inicio"
@@ -485,6 +477,9 @@ msgstr "Valido"
 #: model_terms:ir.ui.view,arch_db:hr_personal_equipment_request.hr_personal_equipment_request_form_view
 msgid "Validate"
 msgstr "Validar"
+
+#~ msgid "SMS Delivery error"
+#~ msgstr "Error de envío del SMS"
 
 #~ msgid "Number of messages which requires an action"
 #~ msgstr "Número de mensajes que requieren una acción"
