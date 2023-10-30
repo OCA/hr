@@ -101,6 +101,11 @@ msgid "Validated Message"
 msgstr "Messaggio validato"
 
 #. module: hr_personal_equipment_request_tier_validation
+#: model:ir.model.fields,field_description:hr_personal_equipment_request_tier_validation.field_hr_personal_equipment_request__validation_status
+msgid "Validation Status"
+msgstr ""
+
+#. module: hr_personal_equipment_request_tier_validation
 #: model:ir.model.fields,field_description:hr_personal_equipment_request_tier_validation.field_hr_personal_equipment_request__review_ids
 msgid "Validations"
 msgstr "Validazioni"
