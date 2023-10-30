@@ -191,7 +191,6 @@ msgstr "Participante do Curso"
 #: model:ir.actions.act_window,name:hr_course.open_view_course_category_form
 #: model:ir.ui.menu,name:hr_course.menu_view_course_category_form
 #: model_terms:ir.ui.view,arch_db:hr_course.view_course_category_form
-#: model_terms:ir.ui.view,arch_db:hr_course.view_course_category_list
 #: model_terms:ir.ui.view,arch_db:hr_course.view_course_category_search
 msgid "Course Categories"
 msgstr "Categorias de Cursos"
@@ -412,9 +411,7 @@ msgstr "Se selecionado, há novas mensagens que requerem a sua atenção."
 
 #. module: hr_course
 #: model:ir.model.fields,help:hr_course.field_hr_course__message_has_error
-#: model:ir.model.fields,help:hr_course.field_hr_course__message_has_sms_error
 #: model:ir.model.fields,help:hr_course.field_hr_course_schedule__message_has_error
-#: model:ir.model.fields,help:hr_course.field_hr_course_schedule__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
 msgstr "Se estiver marcado, algumas mensagens têm um erro de entrega."
 
@@ -614,12 +611,6 @@ msgid "Result"
 msgstr "Resultado"
 
 #. module: hr_course
-#: model:ir.model.fields,field_description:hr_course.field_hr_course__message_has_sms_error
-#: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__message_has_sms_error
-msgid "SMS Delivery error"
-msgstr "Erro de Envio de SMS"
-
-#. module: hr_course
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_form_view
 msgid "Schedules"
 msgstr "Horários"
@@ -722,3 +713,6 @@ msgid ""
 msgstr ""
 "Deve retornar um curso ao estado rascunho apenas se o cancelar por engano ou "
 "se algumas das suas informações estiverem incorretas. Quer continuar?"
+
+#~ msgid "SMS Delivery error"
+#~ msgstr "Erro de Envio de SMS"
