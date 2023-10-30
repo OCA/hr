@@ -59,11 +59,6 @@ msgid "Employee"
 msgstr ""
 
 #. module: hr_employee_relative
-#: model_terms:ir.ui.view,arch_db:hr_employee_relative.hr_employee_relative_view_tree
-msgid "Employee Relatives"
-msgstr ""
-
-#. module: hr_employee_relative
 #: model:ir.model.fields.selection,name:hr_employee_relative.selection__hr_employee_relative__gender__female
 msgid "Female"
 msgstr ""
