@@ -30,7 +30,7 @@ addon | version | maintainers | summary
 [hr_contract_rate](hr_contract_rate/) | 14.0.1.0.0 |  | Employee's contract rate and period
 [hr_contract_reference](hr_contract_reference/) | 14.0.1.0.0 |  | HR Contract Reference
 [hr_contract_type](hr_contract_type/) | 14.0.1.0.0 | [![etobella](https://github.com/etobella.png?size=30px)](https://github.com/etobella) | Add a Type for Contracts
-[hr_course](hr_course/) | 14.0.3.1.0 |  | This module allows your to manage employee's training courses
+[hr_course](hr_course/) | 14.0.3.1.1 |  | This module allows your to manage employee's training courses
 [hr_course_survey](hr_course_survey/) | 14.0.1.0.2 |  | Evaluate a course using a Schedule
 [hr_department_code](hr_department_code/) | 14.0.1.0.0 |  | HR department code
 [hr_employee_age](hr_employee_age/) | 14.0.1.0.0 |  | Age field for employee
@@ -40,24 +40,24 @@ addon | version | maintainers | summary
 [hr_employee_digitized_signature](hr_employee_digitized_signature/) | 14.0.1.0.0 | [![newtratip](https://github.com/newtratip.png?size=30px)](https://github.com/newtratip) | Employee Digitized Signature
 [hr_employee_document](hr_employee_document/) | 14.0.1.0.0 |  | Documents attached to the employee profile
 [hr_employee_firstname](hr_employee_firstname/) | 14.0.3.0.0 |  | Adds First Name to Employee
-[hr_employee_id](hr_employee_id/) | 14.0.1.0.0 |  | Employee ID
+[hr_employee_id](hr_employee_id/) | 14.0.1.0.1 |  | Employee ID
 [hr_employee_lastnames](hr_employee_lastnames/) | 14.0.3.0.0 |  | Split Name in First Name, Father's Last Name and Mother's Last Name
-[hr_employee_medical_examination](hr_employee_medical_examination/) | 14.0.1.0.1 |  | Adds information about employee's medical examinations
+[hr_employee_medical_examination](hr_employee_medical_examination/) | 14.0.1.0.2 |  | Adds information about employee's medical examinations
 [hr_employee_partner_external](hr_employee_partner_external/) | 14.0.1.0.0 |  | Associate an external Partner to Employee
 [hr_employee_phone_extension](hr_employee_phone_extension/) | 14.0.1.0.0 |  | Employee Phone Extension
 [hr_employee_ppe](hr_employee_ppe/) | 14.0.1.0.1 | [![marcelsavegnago](https://github.com/marcelsavegnago.png?size=30px)](https://github.com/marcelsavegnago) [![eduaparicio](https://github.com/eduaparicio.png?size=30px)](https://github.com/eduaparicio) | Personal Protective Equipment (PPE) Management
-[hr_employee_relative](hr_employee_relative/) | 14.0.1.0.0 |  | Allows storing information about employee's family
+[hr_employee_relative](hr_employee_relative/) | 14.0.1.0.1 |  | Allows storing information about employee's family
 [hr_employee_service](hr_employee_service/) | 14.0.1.2.0 |  | Employee service information & duration
 [hr_employee_service_contract](hr_employee_service_contract/) | 14.0.1.0.0 |  | Employee service information & duration based on employee's contracts
 [hr_employee_ssn](hr_employee_ssn/) | 14.0.1.0.0 |  | View/edit employee's SSN & SIN fields
 [hr_job_category](hr_job_category/) | 14.0.1.0.0 |  | Adds tags to employee through contract and job position
-[hr_org_chart_overview](hr_org_chart_overview/) | 14.0.1.0.0 |  | Organizational Chart Overview
+[hr_org_chart_overview](hr_org_chart_overview/) | 14.0.1.0.1 |  | Organizational Chart Overview
 [hr_period](hr_period/) | 14.0.1.0.0 |  | Add payroll periods
-[hr_personal_equipment_request](hr_personal_equipment_request/) | 14.0.1.0.0 |  | This addon allows to manage employee personal equipment
-[hr_personal_equipment_request_tier_validation](hr_personal_equipment_request_tier_validation/) | 14.0.1.0.0 |  | Enables tier validation from hr.personal.equipment.request
+[hr_personal_equipment_request](hr_personal_equipment_request/) | 14.0.1.0.1 |  | This addon allows to manage employee personal equipment
+[hr_personal_equipment_request_tier_validation](hr_personal_equipment_request_tier_validation/) | 14.0.1.0.1 |  | Enables tier validation from hr.personal.equipment.request
 [hr_personal_equipment_stock](hr_personal_equipment_stock/) | 14.0.1.0.0 |  | This addon allows to integrate hr_personal_equipment_request with stock
 [hr_personal_equipment_variant_configurator](hr_personal_equipment_variant_configurator/) | 14.0.1.0.0 |  | Manage variants of personal equipment
-[hr_recruitment_notification](hr_recruitment_notification/) | 14.0.1.0.0 | [![joao-p-marques](https://github.com/joao-p-marques.png?size=30px)](https://github.com/joao-p-marques) | Configure automatic notifications for new applications
+[hr_recruitment_notification](hr_recruitment_notification/) | 14.0.1.0.1 | [![joao-p-marques](https://github.com/joao-p-marques.png?size=30px)](https://github.com/joao-p-marques) | Configure automatic notifications for new applications
 [hr_worked_days_from_timesheet](hr_worked_days_from_timesheet/) | 14.0.1.0.0 |  | Adds a button to import worked days from timesheet.
 [resource_hook](resource_hook/) | 14.0.1.0.0 |  | Extends the resource with hooks to standard methods.
 
