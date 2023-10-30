@@ -154,11 +154,6 @@ msgid "Employee Personal Equipment"
 msgstr ""
 
 #. module: hr_personal_equipment_request
-#: model_terms:ir.ui.view,arch_db:hr_personal_equipment_request.hr_personal_equipment_tree_view
-msgid "Employee Personal Equipments"
-msgstr ""
-
-#. module: hr_personal_equipment_request
 #: code:addons/hr_personal_equipment_request/models/hr_employee.py:0
 #: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_employee__equipment_request_ids
 #: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment__equipment_request_id
