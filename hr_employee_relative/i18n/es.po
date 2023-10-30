@@ -62,11 +62,6 @@ msgid "Employee"
 msgstr "Empleado"
 
 #. module: hr_employee_relative
-#: model_terms:ir.ui.view,arch_db:hr_employee_relative.hr_employee_relative_view_tree
-msgid "Employee Relatives"
-msgstr "Parientes de Empleados"
-
-#. module: hr_employee_relative
 #: model:ir.model.fields.selection,name:hr_employee_relative.selection__hr_employee_relative__gender__female
 msgid "Female"
 msgstr "Femenino"
@@ -188,3 +183,6 @@ msgstr "Pareja"
 #: model:hr.employee.relative.relation,name:hr_employee_relative.relation_spouse
 msgid "Spouse"
 msgstr "Cónyugue"
+
+#~ msgid "Employee Relatives"
+#~ msgstr "Parientes de Empleados"
