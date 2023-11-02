@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-07-12 12:11+0000\n"
-"Last-Translator: Francesco Foresti <francesco.foresti@ooops404.com>\n"
+"PO-Revision-Date: 2023-11-02 10:38+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -816,7 +816,7 @@ msgstr "Dichiarare il motivo della disabilitazione del pranzo automatico."
 #. module: hr_attendance_sheet
 #: model:ir.model.fields,field_description:hr_attendance_sheet.field_hr_attendance_sheet__state
 msgid "Status"
-msgstr "Stati"
+msgstr "Stato"
 
 #. module: hr_attendance_sheet
 #: model:ir.model.fields,help:hr_attendance_sheet.field_hr_attendance_sheet__activity_state
