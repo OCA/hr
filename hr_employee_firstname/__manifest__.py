@@ -3,12 +3,12 @@
 
 {
     "name": "HR Employee First Name, Last Name",
-    "version": "16.0.1.0.1",
+    "version": "16.0.1.0.2",
     "author": "Savoir-faire Linux, "
     "Fekete Mihai (Forest and Biomass Services Romania), "
     "Onestein, "
     "Odoo Community Association (OCA)",
-    "maintainer": "Savoir-faire Linux",
+    "maintainers": ["Savoir-faire Linux", "luisg123v"],
     "website": "https://github.com/OCA/hr",
     "license": "AGPL-3",
     "category": "Human Resources",
