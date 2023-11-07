@@ -121,13 +121,8 @@ class HrEmployee(models.Model):
                 0
             ].calendar_id.hours_per_day
             # set global leaves
-            self.resource_id.calendar_id.global_leave_ids = [
-                (
-                    6,
-                    0,
-                    self.copy_global_leaves(),
-                )
-            ]
+            self.resource_id.calendar_id.global_leave_ids.unlink()
+            self.copy_global_leaves()
 
     def copy_global_leaves(self):
         self.ensure_one()
@@ -144,7 +139,7 @@ class HrEmployee(models.Model):
                 )
             leave_ids += global_leaves.ids
         vals = [
-            leave.copy_data({})[0]
+            leave.copy_data({"calendar_id": self.resource_id.calendar_id.id})[0]
             for leave in self.env["resource.calendar.leaves"].browse(leave_ids)
         ]
         return self.env["resource.calendar.leaves"].create(vals).ids
