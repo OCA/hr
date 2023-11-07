@@ -21,6 +21,7 @@ Available addons
 ----------------
 addon | version | maintainers | summary
 --- | --- | --- | ---
+[hr_announcement](hr_announcement/) | 15.0.1.0.0 |  | Announcement
 [hr_branch](hr_branch/) | 15.0.1.0.0 | [![luistorresm](https://github.com/luistorresm.png?size=30px)](https://github.com/luistorresm) | Allow define company branch for employee process
 [hr_contract_employee_calendar_planning](hr_contract_employee_calendar_planning/) | 15.0.1.0.1 |  | Hr Contract Employee Calendar Planning
 [hr_contract_multi_job](hr_contract_multi_job/) | 15.0.1.0.0 |  | HR Contract Multi Jobs

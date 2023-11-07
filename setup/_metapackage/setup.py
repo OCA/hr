@@ -8,6 +8,7 @@ setuptools.setup(
     description="Meta package for oca-hr Odoo addons",
     version=version,
     install_requires=[
+        'odoo-addon-hr_announcement>=15.0dev,<15.1dev',
         'odoo-addon-hr_branch>=15.0dev,<15.1dev',
         'odoo-addon-hr_contract_employee_calendar_planning>=15.0dev,<15.1dev',
         'odoo-addon-hr_contract_multi_job>=15.0dev,<15.1dev',
