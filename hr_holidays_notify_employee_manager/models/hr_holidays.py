@@ -13,7 +13,7 @@ class HrHolidays(models.Model):
         """Defines who to notify."""
         self.ensure_one()
         company = self.employee_id.company_id
-        if company.leave_notify_manager and self.employee_id.parent_id:
+        if company.sudo().leave_notify_manager and self.employee_id.parent_id:
             return self.employee_id.parent_id
         return False
 
