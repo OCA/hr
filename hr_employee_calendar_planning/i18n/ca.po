@@ -17,6 +17,7 @@ msgstr ""
 "X-Generator: Weblate 4.3.2\n"
 
 #. module: hr_employee_calendar_planning
+#. odoo-python
 #: code:addons/hr_employee_calendar_planning/models/resource_calendar.py:0
 #, python-format
 msgid ""
@@ -25,6 +26,7 @@ msgid ""
 msgstr ""
 
 #. module: hr_employee_calendar_planning
+#. odoo-python
 #: code:addons/hr_employee_calendar_planning/models/resource_calendar.py:0
 #, python-format
 msgid ""
@@ -43,6 +45,7 @@ msgid "Auto Generate"
 msgstr "Generació automàtica"
 
 #. module: hr_employee_calendar_planning
+#. odoo-python
 #: code:addons/hr_employee_calendar_planning/models/hr_employee.py:0
 #, python-format
 msgid "Auto generated calendar for employee"
@@ -145,6 +148,7 @@ msgid "Working Time"
 msgstr "Temps de treball"
 
 #. module: hr_employee_calendar_planning
+#. odoo-python
 #: code:addons/hr_employee_calendar_planning/models/hr_employee.py:0
 #, python-format
 msgid "You can not create employees without any calendar."
