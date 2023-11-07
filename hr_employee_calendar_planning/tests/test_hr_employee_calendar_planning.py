@@ -5,6 +5,8 @@
 from odoo import exceptions, fields
 from odoo.tests import common, new_test_user
 
+from odoo.addons.base.tests.common import DISABLED_MAIL_CONTEXT
+
 from ..hooks import post_init_hook
 
 
@@ -12,17 +14,7 @@ class TestHrEmployeeCalendarPlanning(common.TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.env = cls.env(
-            context=dict(
-                cls.env.context,
-                mail_create_nolog=True,
-                mail_create_nosubscribe=True,
-                mail_notrack=True,
-                no_reset_password=True,
-                tracking_disable=True,
-                test_hr_employee_calendar_planning=True,
-            )
-        )
+        cls.env = cls.env(context=dict(cls.env.context, **DISABLED_MAIL_CONTEXT))
         resource_calendar = cls.env["resource.calendar"]
         cls.calendar1 = resource_calendar.create(
             {"name": "Test calendar 1", "attendance_ids": []}
@@ -129,7 +121,9 @@ class TestHrEmployeeCalendarPlanning(common.TransactionCase):
         )
 
         # Change one line
-        calendar_line = self.employee.calendar_ids[0]
+        calendar_line = self.employee.calendar_ids.filtered(
+            lambda x: x.date_end == fields.Date.to_date("2019-12-31")
+        )
         calendar_line.date_end = "2019-12-30"
         calendar = self.employee.resource_calendar_id
         self.assertEqual(
@@ -414,7 +408,6 @@ class TestHrEmployeeCalendarPlanning(common.TransactionCase):
     def test_copy_global_leaves(self):
         # test that global leaves are combined from calendar_ids
         global_leave_ids_cal1 = self.calendar1.global_leave_ids.ids
-        # self.employee.calendar_ids.unlink()
         self.employee.calendar_ids = [
             (0, 0, {"date_end": "2020-03-03", "calendar_id": self.calendar1.id}),
             (0, 0, {"date_start": "2020-03-03", "calendar_id": self.calendar2.id}),
