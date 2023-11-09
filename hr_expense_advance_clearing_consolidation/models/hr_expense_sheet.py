@@ -1,7 +1,7 @@
 # Copyright 2022 - TODAY, Marcel Savegnago <marcel.savegnago@escodoo.com.br>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import _, api, fields, models
+from odoo import _, fields, models
 from odoo.exceptions import UserError
 
 
@@ -12,8 +12,7 @@ class HrExpenseSheet(models.Model):
         string="Is Consolidated Advance", readonly=True
     )
 
-    @api.multi
-    def _consolidate_open_advances(self):
+    def _consolidate_open_advances(self):  # noqa: C901
         if not len(self) > 1:
             raise UserError(
                 _(
@@ -47,7 +46,6 @@ class HrExpenseSheet(models.Model):
                     "report that is open."
                 )
             )
-
         writeoff_lines = self.env["account.move.line"]
         emp_advance = self.env.ref("hr_expense_advance_clearing." "product_emp_advance")
 
@@ -128,14 +126,12 @@ class HrExpenseSheet(models.Model):
 
             return consolidated_advance
 
-    @api.multi
     def consolidate_open_advances(self):
         if self.env.user.has_group("account.group_account_manager"):
             self._consolidate_open_advances()
         else:
             raise UserError(_("You do not have permission to perform this action."))
 
-    @api.multi
     def _log_consolidation_open_advance(self, advances, consolidated_advance):
         consolidated_advance.message_post(
             body="%s %s"
@@ -146,7 +142,7 @@ class HrExpenseSheet(models.Model):
         )
         for advance in advances:
             advance.message_post(
-                body="%s"
+                body=_("%s")
                 % (
                     _("This advance was consolidated in the advance: %s (ID %s)")
                     % (consolidated_advance.name or "n/a", consolidated_advance.id)

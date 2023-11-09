@@ -18,10 +18,7 @@
             name="name"
         >hr.expense.sheet.filter (in hr_expense_advance_clearing_consolidation)</field>
         <field name="model">hr.expense.sheet</field>
-        <field
-            name="inherit_id"
-            ref="hr_expense_advance_clearing.view_hr_expense_sheet_filter"
-        />
+        <field name="inherit_id" ref="hr_expense.hr_expense_sheet_view_search" />
         <field name="arch" type="xml">
             <filter name="advance_expense_uncleared" position="after">
                 <filter
