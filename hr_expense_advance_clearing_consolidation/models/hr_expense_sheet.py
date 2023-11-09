@@ -1,16 +1,15 @@
 # Copyright 2022 - TODAY, Marcel Savegnago <marcel.savegnago@escodoo.com.br>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import api, fields, models, _
+from odoo import _, api, fields, models
 from odoo.exceptions import UserError
 
 
 class HrExpenseSheet(models.Model):
-    _inherit = 'hr.expense.sheet'
+    _inherit = "hr.expense.sheet"
 
     is_consolidated_advance = fields.Boolean(
-        string='Is Consolidated Advance',
-        readonly=True
+        string="Is Consolidated Advance", readonly=True
     )
 
     @api.multi
@@ -35,11 +34,11 @@ class HrExpenseSheet(models.Model):
         if any(rec.state != "done" for rec in self):
             raise UserError(_("You cannot consolidate advances that are not paid."))
 
-        if self.env['hr.expense.sheet'].search(
+        if self.env["hr.expense.sheet"].search(
             [
-                ('advance', '=', False),
-                ('state', '!=', 'done'),
-                ('advance_sheet_id', 'in', self.ids)
+                ("advance", "=", False),
+                ("state", "!=", "done"),
+                ("advance_sheet_id", "in", self.ids),
             ]
         ):
             raise UserError(
@@ -134,12 +133,22 @@ class HrExpenseSheet(models.Model):
         if self.env.user.has_group("account.group_account_manager"):
             self._consolidate_open_advances()
         else:
-            raise UserError(
-                _("You do not have permission to perform this action.")
-            )
+            raise UserError(_("You do not have permission to perform this action."))
 
     @api.multi
     def _log_consolidation_open_advance(self, advances, consolidated_advance):
-        consolidated_advance.message_post(body='%s %s' % (_("Consolidated advances:"), ", ".join('%s (ID %s)' % (p.name or 'n/a', p.id) for p in advances)))
+        consolidated_advance.message_post(
+            body="%s %s"
+            % (
+                _("Consolidated advances:"),
+                ", ".join("%s (ID %s)" % (p.name or "n/a", p.id) for p in advances),
+            )
+        )
         for advance in advances:
-            advance.message_post(body='%s' % (_("This advance was consolidated in the advance: %s (ID %s)") % (consolidated_advance.name or 'n/a', consolidated_advance.id)))
+            advance.message_post(
+                body="%s"
+                % (
+                    _("This advance was consolidated in the advance: %s (ID %s)")
+                    % (consolidated_advance.name or "n/a", consolidated_advance.id)
+                )
+            )
