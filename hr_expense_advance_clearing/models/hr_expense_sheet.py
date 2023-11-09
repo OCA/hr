@@ -46,7 +46,6 @@ class HrExpenseSheet(models.Model):
         help="Final regiter payment amount even after advance clearing",
     )
 
-    @api.multi
     @api.depends("expense_line_ids")
     def _compute_advance(self):
         for sheet in self:
@@ -56,7 +55,6 @@ class HrExpenseSheet(models.Model):
             )
         return
 
-    @api.one
     @api.constrains("advance_sheet_id", "expense_line_ids")
     def _check_advance_expense(self):
         advance_lines = self.expense_line_ids.filtered("advance")
@@ -69,7 +67,6 @@ class HrExpenseSheet(models.Model):
                 _("Advance must contain only 1 " "advance expense line")
             )
 
-    @api.one
     @api.depends("account_move_id.line_ids.amount_residual")
     def _compute_clearing_residual(self):
         residual_company = 0.0
@@ -82,7 +79,6 @@ class HrExpenseSheet(models.Model):
                     residual_company += line.amount_residual
         self.clearing_residual = residual_company
 
-    @api.multi
     def _compute_amount_payable(self):
         for sheet in self:
             rec_lines = sheet.account_move_id.line_ids.filtered(
@@ -90,7 +86,6 @@ class HrExpenseSheet(models.Model):
             )
             sheet.amount_payable = -sum(rec_lines.mapped("amount_residual"))
 
-    @api.multi
     def action_sheet_move_create(self):
         res = super(HrExpenseSheet, self).action_sheet_move_create()
         # Reconcile advance of this sheet with the advance_sheet
@@ -109,7 +104,6 @@ class HrExpenseSheet(models.Model):
             adv_move_lines.reconcile()
         return res
 
-    @api.multi
     def open_clear_advance(self):
         self.ensure_one()
         action = self.env.ref(
