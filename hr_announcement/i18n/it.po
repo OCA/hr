@@ -6,55 +6,57 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2023-11-12 17:41+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: hr_announcement
 #: model:ir.model.fields,field_description:hr_announcement.field_announcement__announcement_type
 msgid "Announcement Type"
-msgstr ""
+msgstr "Tipo comunicazione"
 
 #. module: hr_announcement
 #: model:ir.model.fields.selection,name:hr_announcement.selection__announcement__announcement_type__department
 msgid "Department"
-msgstr ""
+msgstr "Reparto"
 
 #. module: hr_announcement
 #: model:ir.model.fields,field_description:hr_announcement.field_announcement__department_ids
 msgid "Departments"
-msgstr ""
+msgstr "Reparti"
 
 #. module: hr_announcement
 #: model:ir.model.fields.selection,name:hr_announcement.selection__announcement__announcement_type__employee
 msgid "Employee"
-msgstr ""
+msgstr "Dipendente"
 
 #. module: hr_announcement
 #: model:ir.model.fields,field_description:hr_announcement.field_announcement__employee_ids
 msgid "Employees"
-msgstr ""
+msgstr "Dipendenti"
 
 #. module: hr_announcement
 #: model:ir.model.fields.selection,name:hr_announcement.selection__announcement__announcement_type__job_position
 msgid "Job Position"
-msgstr ""
+msgstr "Posizione lavorativa"
 
 #. module: hr_announcement
 #: model:ir.model.fields,field_description:hr_announcement.field_announcement__position_ids
 msgid "Job Positions"
-msgstr ""
+msgstr "Posizioni lavorative"
 
 #. module: hr_announcement
 #: model:ir.model,name:hr_announcement.model_announcement
 msgid "User announcements"
-msgstr ""
+msgstr "Comunicazioni utenti"
 
 #. module: hr_announcement
 #: model:ir.model,name:hr_announcement.model_res_users
 msgid "Users"
-msgstr ""
+msgstr "Utenti"
