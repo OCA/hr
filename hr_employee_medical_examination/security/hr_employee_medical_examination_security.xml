@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo noupdate="1">
+        <record id="hr_medical_examination_rule_base" model="ir.rule">
+            <field name="name">Base User: Only own examinations</field>
+            <field
+            name="model_id"
+            ref="hr_employee_medical_examination.model_hr_employee_medical_examination"
+        />
+            <field name="domain_force">[('employee_id.user_id','=',user.id)]</field>
+            <field name="groups" eval="[(6, 0, [ref('base.group_user')])]" />
+        </record>
+        <record id="hr_medical_examination_rule_manager" model="ir.rule">
+            <field name="name">Manager: All Examinations</field>
+            <field
+            name="model_id"
+            ref="hr_employee_medical_examination.model_hr_employee_medical_examination"
+        />
+            <field name="domain_force">[(1,'=',1)]</field>
+            <field name="groups" eval="[(6, 0, [ref('hr.group_hr_manager')])]" />
+        </record>
+</odoo>
