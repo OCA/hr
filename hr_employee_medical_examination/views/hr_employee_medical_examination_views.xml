@@ -14,28 +14,28 @@
                         name="back_to_pending"
                         string="Back To Pending"
                         type="object"
-                        states="done,cancelled,rejected"
+                        invisible="state not in ['done','cancelled','rejected']"
                     />
                     <button
                         name="to_done"
                         string="Mark as Done"
                         type="object"
                         class="btn btn-primary"
-                        states="pending"
+                        invisible="state !='pending'"
                     />
                     <button
                         name="to_cancelled"
                         string="Mark as Cancelled"
                         type="object"
                         class="btn btn-primary"
-                        states="pending"
+                        invisible="state !='pending'"
                     />
                     <button
                         name="to_rejected"
                         string="Mark as Rejected"
                         type="object"
                         class="btn btn-primary"
-                        states="pending"
+                        invisible="state !='pending'"
                     />
                     <field name="state" widget="statusbar" />
                 </header>

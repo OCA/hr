@@ -7,7 +7,6 @@ from odoo import api, fields, models
 
 
 class HrEmployeeMedicalExamination(models.Model):
-
     _name = "hr.employee.medical.examination"
     _description = "Hr Employee Medical Examination"
     _inherit = ["mail.thread", "mail.activity.mixin"]
