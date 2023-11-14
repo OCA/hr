@@ -19,8 +19,8 @@
                             <field name="permanence" />
                             <field
                                 name="permanence_time"
-                                attrs="{'invisible': [('permanence','=',False)]}"
-                            />
+                                invisible="not permanence"
+                            /><!-- attrs="{'invisible': [('permanence','=',False)]}" -->
                         </group>
                     </group>
                     <notebook>

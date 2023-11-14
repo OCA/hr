@@ -13,13 +13,9 @@ class HrCourseSchedule(models.Model):
     course_id = fields.Many2one("hr.course", string="Course", required=True)
 
     start_date = fields.Date(
-        readonly=True,
-        states={"draft": [("readonly", False)]},
         tracking=True,
     )
     end_date = fields.Date(
-        readonly=True,
-        states={"draft": [("readonly", False)]},
         tracking=True,
     )
     currency_id = fields.Many2one(
@@ -31,8 +27,6 @@ class HrCourseSchedule(models.Model):
     authorized_by = fields.Many2one(
         comodel_name="hr.employee",
         required=True,
-        readonly=True,
-        states={"draft": [("readonly", False)]},
         tracking=True,
     )
     state = fields.Selection(
