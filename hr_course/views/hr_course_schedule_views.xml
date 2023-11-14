@@ -15,7 +15,7 @@
                         type="object"
                         class="btn-primary"
                         groups="hr.group_hr_manager"
-                    /><!--states="draft" -->
+                    />
                     <button
                         string="Start Course"
                         name="waiting2inprogress"
@@ -120,7 +120,7 @@
                             <div
                                 class="text-right"
                                 invisible="state !='in_validation'"
-                            ><!-- states="in_validation"-->
+                            >
                                 <br />
                                 <button
                                     string="Pass everybody"
