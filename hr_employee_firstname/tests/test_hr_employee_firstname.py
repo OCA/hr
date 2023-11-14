@@ -5,6 +5,7 @@
 import odoo
 from odoo.exceptions import ValidationError
 from odoo.tests.common import TransactionCase
+from odoo.tools import submap
 
 
 class TestEmployeeFirstname(TransactionCase):
@@ -49,9 +50,18 @@ class TestEmployeeFirstname(TransactionCase):
         """
         Validate the get_name method is not failing
         """
-        field_onchange = self.env["hr.employee"].new({})._onchange_spec()
-        self.assertEqual(field_onchange.get("firstname"), "1")
-        self.assertEqual(field_onchange.get("lastname"), "1")
+        # Check that fields used to generate the name and also name field
+        # are empty before onchange
+        fields_spec = self.env["hr.employee"]._get_fields_spec()
+        self.assertEqual(
+            submap(fields_spec, ("firstname", "lastname", "name")),
+            {
+                "firstname": {},
+                "lastname": {},
+                "name": {},
+            },
+        )
+
         values = {
             "firstname": "Antonio",
             "lastname": "Esposito",
@@ -63,7 +73,7 @@ class TestEmployeeFirstname(TransactionCase):
         # we work on a temporary record
         new_record = self.env["hr.employee"].new(values)
 
-        updates = new_record.onchange(values, ["firstname", "lastname"], field_onchange)
+        updates = new_record.onchange(values, ["firstname", "lastname"], fields_spec)
         values.update(updates.get("value", {}))
         self.assertEqual(values["name"], "Antonio Esposito")
 
