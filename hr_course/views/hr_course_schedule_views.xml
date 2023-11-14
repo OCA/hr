@@ -117,10 +117,7 @@
                             string="Course Results"
                             invisible="state not in ['in_progress','in_validation','completed']"
                         >
-                            <div
-                                class="text-right"
-                                invisible="state !='in_validation'"
-                            >
+                            <div class="text-right" invisible="state !='in_validation'">
                                 <br />
                                 <button
                                     string="Pass everybody"
