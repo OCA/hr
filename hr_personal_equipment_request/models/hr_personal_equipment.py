@@ -6,7 +6,6 @@ from odoo.fields import Date
 
 
 class HrPersonalEquipment(models.Model):
-
     _name = "hr.personal.equipment"
     _description = "Adds personal equipment information and allocation"
     _inherit = ["mail.thread", "mail.activity.mixin"]
@@ -57,7 +56,7 @@ class HrPersonalEquipment(models.Model):
     def _compute_name(self):
         for rec in self:
             if rec.product_id.name and rec.employee_id.name:
-                rec.name = "{} to {}".format(rec.product_id.name, rec.employee_id.name)
+                rec.name = f"{rec.product_id.name} to {rec.employee_id.name}"
             else:
                 rec.name = False
 

@@ -16,7 +16,7 @@
                         name="accept_request"
                         confirm="Are you sure you want to accept this personal equipment request?"
                         class="oe_highlight"
-                        states="draft"
+                        invisible="state != 'draft'"
                         groups="hr.group_hr_user"
                     />
                     <button
@@ -24,7 +24,7 @@
                         string="Cancel"
                         confirm="Are you sure you want to cancel this personal equipment request?"
                         name="cancel_request"
-                        states="draft"
+                        invisible="state != 'draft'"
                     />
                     <field name="state" widget="statusbar" />
                 </header>
@@ -34,7 +34,7 @@
                             name="action_open_personal_equipment"
                             type="object"
                             icon="fa-briefcase"
-                            attrs="{'invisible': [('allocations_count', '=', 0)]}"
+                            invisible="allocations_count == 0"
                         >
                             <!-- TODO: IN version 14.0 (with fa 5.0) we could put a t-shirt as icon -->
                             <field
@@ -48,7 +48,7 @@
                         <field name="name" invisible="1" />
                         <field
                             name="employee_id"
-                            attrs="{'readonly': [('state', '!=', 'draft')]}"
+                            readonly="state != 'draft'"
                             groups="hr.group_hr_user"
                         />
                     </group>
@@ -57,7 +57,7 @@
                             <field
                                 name="line_ids"
                                 mode="tree,form"
-                                attrs="{'readonly': [('state', '!=', 'draft')]}"
+                                readonly="state != 'draft'"
                             >
                                 <tree editable="bottom" name="equipment_lines">
                                     <field name="product_id" />
@@ -79,7 +79,7 @@
                                             name="validate_allocation"
                                             confirm="Are you sure you want to validate this personal equipment allocation?"
                                             class="oe_highlight"
-                                            states="accepted"
+                                            invisible="state != 'accepted'"
                                             groups="hr.group_hr_user"
                                         />
                                     </header>
@@ -106,10 +106,7 @@
                             string="Observations"
                             groups="hr.group_hr_user"
                         >
-                            <field
-                                name="observations"
-                                attrs="{'readonly': [('state', '!=', 'draft')]}"
-                            />
+                            <field name="observations" readonly="state != 'draft'" />
                         </page>
                     </notebook>
                 </sheet>

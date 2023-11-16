@@ -266,12 +266,6 @@ msgid "Is Follower"
 msgstr "Es un seguidor"
 
 #. module: hr_personal_equipment_request
-#: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment____last_update
-#: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment_request____last_update
-msgid "Last Modified on"
-msgstr "Última modificación el"
-
-#. module: hr_personal_equipment_request
 #: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment__write_uid
 #: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment_request__write_uid
 msgid "Last Updated by"
@@ -282,12 +276,6 @@ msgstr "Última actualización por"
 #: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment_request__write_date
 msgid "Last Updated on"
 msgstr "Última actualización el"
-
-#. module: hr_personal_equipment_request
-#: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment__message_main_attachment_id
-#: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment_request__message_main_attachment_id
-msgid "Main Attachment"
-msgstr "Adjuntos principales"
 
 #. module: hr_personal_equipment_request
 #: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment__message_has_error
@@ -402,6 +390,7 @@ msgstr "Solicitud de Equipo individual"
 #. module: hr_personal_equipment_request
 #. odoo-python
 #: code:addons/hr_personal_equipment_request/models/hr_personal_equipment_request.py:0
+#: code:addons/hr_personal_equipment_request/tests/test_hr_personal_equipment_request.py:0
 #, python-format
 msgid "Personal Equipment Request by %s"
 msgstr "Equipo individual solicitado por %s"
@@ -480,6 +469,12 @@ msgstr "Validar"
 
 #~ msgid "SMS Delivery error"
 #~ msgstr "Error de envío del SMS"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Última modificación el"
+
+#~ msgid "Main Attachment"
+#~ msgstr "Adjuntos principales"
 
 #~ msgid "Number of messages which requires an action"
 #~ msgstr "Número de mensajes que requieren una acción"
