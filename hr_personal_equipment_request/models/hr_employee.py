@@ -5,7 +5,6 @@ from odoo import _, fields, models
 
 
 class HrEmployee(models.Model):
-
     _inherit = "hr.employee"
 
     equipment_request_ids = fields.One2many(
