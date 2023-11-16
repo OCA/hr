@@ -13,8 +13,8 @@
                 <field name="is_external" />
                 <field
                     name="hr_external_partner_id"
-                    attrs="{'invisible':[('is_external','=',False)],
-                            'required': [('is_external','=', True)]}"
+                    invisible="not is_external"
+                    required="is_external"
                 />
             </xpath>
         </field>
