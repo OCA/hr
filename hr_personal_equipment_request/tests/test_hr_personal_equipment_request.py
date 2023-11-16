@@ -1,28 +1,30 @@
 # Copyright 2021 Creu Blanca
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
+from odoo import _
 from odoo.tests import TransactionCase
 
 
 class TestHRPersonalEquipmentRequest(TransactionCase):
-    def setUp(self):
-        super().setUp()
-        self.product_personal_equipment_1 = self.env["product.template"].create(
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        cls.product_personal_equipment_1 = cls.env["product.template"].create(
             {
                 "name": "Product Test Personal Equipment 1",
                 "is_personal_equipment": True,
-                "uom_id": self.env.ref("uom.product_uom_unit").id,
+                "uom_id": cls.env.ref("uom.product_uom_unit").id,
             }
         )
-        self.product_personal_equipment_2 = self.env["product.template"].create(
+        cls.product_personal_equipment_2 = cls.env["product.template"].create(
             {
                 "name": "Product Test Personal Equipment 2",
                 "is_personal_equipment": True,
-                "uom_id": self.env.ref("uom.product_uom_unit").id,
+                "uom_id": cls.env.ref("uom.product_uom_unit").id,
             }
         )
-        self.user = (
-            self.env["res.users"]
+        cls.user = (
+            cls.env["res.users"]
             .sudo()
             .create(
                 {
@@ -30,36 +32,36 @@ class TestHRPersonalEquipmentRequest(TransactionCase):
                     "login": "user@test.com",
                     "email": "user@test.com",
                     "groups_id": [
-                        (4, self.env.ref("base.group_user").id),
-                        (4, self.env.ref("hr.group_hr_user").id),
+                        (4, cls.env.ref("base.group_user").id),
+                        (4, cls.env.ref("hr.group_hr_user").id),
                     ],
                 }
             )
         )
-        self.employee = self.env["hr.employee"].create(
-            {"name": "Employee Test", "user_id": self.user.id}
+        cls.employee = cls.env["hr.employee"].create(
+            {"name": "Employee Test", "user_id": cls.user.id}
         )
 
         lines = [
             {
                 "name": "Personal Equipment 1",
-                "product_id": self.product_personal_equipment_1.product_variant_id.id,
+                "product_id": cls.product_personal_equipment_1.product_variant_id.id,
                 "quantity": 3,
             },
             {
                 "name": "Personal Equipment 2",
-                "product_id": self.product_personal_equipment_2.product_variant_id.id,
+                "product_id": cls.product_personal_equipment_2.product_variant_id.id,
                 "quantity": 2,
             },
         ]
 
-        self.personal_equipment_request = (
-            self.env["hr.personal.equipment.request"]
-            .with_user(self.user.id)
+        cls.personal_equipment_request = (
+            cls.env["hr.personal.equipment.request"]
+            .with_user(cls.user.id)
             .create(
                 {
                     "name": "Personal Equipment Request Test",
-                    "employee_id": self.employee.id,
+                    "employee_id": cls.employee.id,
                     "line_ids": [(0, 0, line) for line in lines],
                 }
             )
@@ -69,7 +71,7 @@ class TestHRPersonalEquipmentRequest(TransactionCase):
         self.assertTrue(self.personal_equipment_request.name)
         self.assertEqual(
             self.personal_equipment_request.name,
-            "Personal Equipment Request by Employee Test",
+            _("Personal Equipment Request by %s") % "Employee Test",
         )
 
     def test_request_default_employee(self):

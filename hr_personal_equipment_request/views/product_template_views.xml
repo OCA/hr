@@ -20,7 +20,7 @@
                 <page
                     name="personal_equipment"
                     string="Employee Personal Equipment"
-                    attrs="{'invisible': [('is_personal_equipment', '=', False)]}"
+                    invisible="not is_personal_equipment"
                 >
                 </page>
             </xpath>

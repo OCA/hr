@@ -12,7 +12,7 @@
                     name="action_open_equipment_request"
                     type="object"
                     icon="fa-hand-o-up"
-                    attrs="{'invisible': [('equipment_request_count', '=', 0)]}"
+                    invisible="equipment_request_count == 0"
                 >
                     <field
                         name="equipment_request_count"
@@ -24,7 +24,7 @@
                     name="action_open_personal_equipment"
                     type="object"
                     icon="fa-briefcase"
-                    attrs="{'invisible': [('personal_equipment_count', '=', 0)]}"
+                    invisible="personal_equipment_count == 0"
                 >
                     <!-- TODO: IN version 14.0 (with fa 5.0) we could put a t-shirt as icon -->
                     <field

@@ -5,7 +5,6 @@ from odoo import _, api, fields, models
 
 
 class HrPersonalEquipmentRequest(models.Model):
-
     _name = "hr.personal.equipment.request"
     _description = "This model allows to create a personal equipment request"
     _inherit = ["mail.thread", "mail.activity.mixin"]

@@ -369,8 +369,9 @@ ul.auto-toc {
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !! source digest: sha256:c2e4d816b2325ecac17625c9c563499d3f1a0a7d48f16690ecbed0c1bcf3ccf8
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-<p><a class="reference external image-reference" href="https://odoo-community.org/page/development-status"><img alt="Beta" src="https://img.shields.io/badge/maturity-Beta-yellow.png" /></a> <a class="reference external image-reference" href="http://www.gnu.org/licenses/agpl-3.0-standalone.html"><img alt="License: AGPL-3" src="https://img.shields.io/badge/licence-AGPL--3-blue.png" /></a> <a class="reference external image-reference" href="https://github.com/OCA/hr/tree/16.0/hr_personal_equipment_request"><img alt="OCA/hr" src="https://img.shields.io/badge/github-OCA%2Fhr-lightgray.png?logo=github" /></a> <a class="reference external image-reference" href="https://translation.odoo-community.org/projects/hr-16-0/hr-16-0-hr_personal_equipment_request"><img alt="Translate me on Weblate" src="https://img.shields.io/badge/weblate-Translate%20me-F47D42.png" /></a> <a class="reference external image-reference" href="https://runboat.odoo-community.org/builds?repo=OCA/hr&amp;target_branch=16.0"><img alt="Try me on Runboat" src="https://img.shields.io/badge/runboat-Try%20me-875A7B.png" /></a></p>
-<p>This module allows to create a personal equipment request and manage allocation of employee personal equipment.</p>
+<p><a class="reference external image-reference" href="https://odoo-community.org/page/development-status"><img alt="Beta" src="https://img.shields.io/badge/maturity-Beta-yellow.png" /></a> <a class="reference external image-reference" href="http://www.gnu.org/licenses/agpl-3.0-standalone.html"><img alt="License: AGPL-3" src="https://img.shields.io/badge/licence-AGPL--3-blue.png" /></a> <a class="reference external image-reference" href="https://github.com/OCA/hr/tree/17.0/hr_personal_equipment_request"><img alt="OCA/hr" src="https://img.shields.io/badge/github-OCA%2Fhr-lightgray.png?logo=github" /></a> <a class="reference external image-reference" href="https://translation.odoo-community.org/projects/hr-17-0/hr-17-0-hr_personal_equipment_request"><img alt="Translate me on Weblate" src="https://img.shields.io/badge/weblate-Translate%20me-F47D42.png" /></a> <a class="reference external image-reference" href="https://runboat.odoo-community.org/builds?repo=OCA/hr&amp;target_branch=17.0"><img alt="Try me on Runboat" src="https://img.shields.io/badge/runboat-Try%20me-875A7B.png" /></a></p>
+<p>This module allows to create a personal equipment request and manage
+allocation of employee personal equipment.</p>
 <p><strong>Table of contents</strong></p>
 <div class="contents local topic" id="contents">
 <ul class="simple">
@@ -386,29 +387,35 @@ ul.auto-toc {
 </div>
 <div class="section" id="usage">
 <h1><a class="toc-backref" href="#toc-entry-1">Usage</a></h1>
-<p>First, products which can be requested by employees should be marked as employee personal equipment.
-1. Go to <em>Products</em> (In <em>Inventory</em> App for example).
-2. Select a product.
-3. Mark the <em>Is Employee Personal Equipment</em> flag.(An additional page appears which serves as a hook if additional fields are needed).</p>
-<p>To create a personal equipment request, a common user should follow the next steps:
-1. Go to menu <em>Employees -&gt; Personal Equipment-&gt; Employee Personal Equipment Request</em>
-2. Current employee is set as default. (An Hr Officer can change the employee if needed).
-3. At <em>Personal Equipment</em> select the equipments you want to request.
-4. Add “Observations” at <em>Observations</em> if desired.</p>
-<p>Then, an HR Manager should:
-1. If everything is correct, “Accept” the request.
-2. Finally, when the equipment is given to the employee, the allocation should be validated. This can be done in two ways:
-a) Click the allocation in the equipment request that you want to validate, the form view will be opened, and click “Validate”.
-b) Go to <em>Employees -&gt; Personal Equipment-&gt; Allocations</em>. Select the corresponding allocation and click “Validate”.</p>
-<p>A common user can only see its own allocations. The HR Officer can see all of them.</p>
-<p>If needed, the allocation can be expired clicking the button “Expire”, which can be found at the allocation form view.</p>
+<p>First, products which can be requested by employees should be marked as
+employee personal equipment. 1. Go to <em>Products</em> (In <em>Inventory</em> App for
+example). 2. Select a product. 3. Mark the <em>Is Employee Personal
+Equipment</em> flag.(An additional page appears which serves as a hook if
+additional fields are needed).</p>
+<p>To create a personal equipment request, a common user should follow the
+next steps: 1. Go to menu <em>Employees -&gt; Personal Equipment-&gt; Employee
+Personal Equipment Request</em> 2. Current employee is set as default. (An
+Hr Officer can change the employee if needed). 3. At <em>Personal
+Equipment</em> select the equipments you want to request. 4. Add
+“Observations” at <em>Observations</em> if desired.</p>
+<p>Then, an HR Manager should: 1. If everything is correct, “Accept” the
+request. 2. Finally, when the equipment is given to the employee, the
+allocation should be validated. This can be done in two ways: a) Click
+the allocation in the equipment request that you want to validate, the
+form view will be opened, and click “Validate”. b) Go to <em>Employees -&gt;
+Personal Equipment-&gt; Allocations</em>. Select the corresponding allocation
+and click “Validate”.</p>
+<p>A common user can only see its own allocations. The HR Officer can see
+all of them.</p>
+<p>If needed, the allocation can be expired clicking the button “Expire”,
+which can be found at the allocation form view.</p>
 </div>
 <div class="section" id="bug-tracker">
 <h1><a class="toc-backref" href="#toc-entry-2">Bug Tracker</a></h1>
 <p>Bugs are tracked on <a class="reference external" href="https://github.com/OCA/hr/issues">GitHub Issues</a>.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-<a class="reference external" href="https://github.com/OCA/hr/issues/new?body=module:%20hr_personal_equipment_request%0Aversion:%2016.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**">feedback</a>.</p>
+<a class="reference external" href="https://github.com/OCA/hr/issues/new?body=module:%20hr_personal_equipment_request%0Aversion:%2017.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**">feedback</a>.</p>
 <p>Do not contact contributors directly about support or help with technical issues.</p>
 </div>
 <div class="section" id="credits">
@@ -423,6 +430,10 @@ If you spotted it first, help us to smash it by providing a detailed and welcome
 <h2><a class="toc-backref" href="#toc-entry-5">Contributors</a></h2>
 <ul class="simple">
 <li>Alba Riera &lt;<a class="reference external" href="mailto:alba.riera&#64;creublanca.es">alba.riera&#64;creublanca.es</a>&gt;</li>
+<li><a class="reference external" href="https://apsl.tech">APSL</a>:<ul>
+<li>Antoni Marroig &lt;<a class="reference external" href="mailto:amarroig&#64;apsl.net">amarroig&#64;apsl.net</a>&gt;</li>
+</ul>
+</li>
 </ul>
 </div>
 <div class="section" id="maintainers">
@@ -432,7 +443,7 @@ If you spotted it first, help us to smash it by providing a detailed and welcome
 <p>OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.</p>
-<p>This module is part of the <a class="reference external" href="https://github.com/OCA/hr/tree/16.0/hr_personal_equipment_request">OCA/hr</a> project on GitHub.</p>
+<p>This module is part of the <a class="reference external" href="https://github.com/OCA/hr/tree/17.0/hr_personal_equipment_request">OCA/hr</a> project on GitHub.</p>
 <p>You are welcome to contribute. To learn how please visit <a class="reference external" href="https://odoo-community.org/page/Contribute">https://odoo-community.org/page/Contribute</a>.</p>
 </div>
 </div>
