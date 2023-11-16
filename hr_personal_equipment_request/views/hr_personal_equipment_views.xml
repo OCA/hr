@@ -16,7 +16,7 @@
                         name="validate_allocation"
                         confirm="Are you sure you want to validate this personal equipment allocation?"
                         class="oe_highlight"
-                        states="accepted"
+                        invisible="state != 'accepted'"
                         groups="hr.group_hr_user"
                     />
                     <button
@@ -24,7 +24,7 @@
                         string="Expire"
                         name="expire_allocation"
                         confirm="Are you sure you want to expire this personal equipment allocation?"
-                        states="valid"
+                        invisible="state != 'valid'"
                         groups="hr.group_hr_user"
                     />
                     <field
@@ -38,36 +38,28 @@
                     <group name="main">
                         <field
                             name="employee_id"
-                            attrs="{'readonly': [('state', '!=', 'draft')]}"
+                            readonly="state != 'draft'"
                             groups="hr.group_hr_user"
                         />
-                        <field
-                            name="product_id"
-                            attrs="{'readonly': [('state', '!=', 'draft')]}"
-                        />
-                        <field
-                            name="quantity"
-                            attrs="{'readonly': [('state', '!=', 'draft')]}"
-                        />
-                        <field
-                            name="product_uom_id"
-                            attrs="{'readonly': [('state', '!=', 'draft')]}"
-                        />
+                        <field name="product_id" readonly="state != 'draft'" />
+                        <field name="quantity" readonly="state != 'draft'" />
+                        <field name="product_uom_id" readonly="state != 'draft'" />
                     </group>
                     <group>
                         <field
                             name="equipment_request_id"
-                            attrs="{'readonly': [('state', '!=', 'draft')]}"
+                            readonly="state != 'draft'"
                         />
                     </group>
                     <group name="date">
                         <field
                             name="start_date"
-                            attrs="{'readonly': [('state', 'not in', ('draft','accepted'))]}"
+                            readonly="state not in  ['draft','accepted']"
                         />
                         <field
                             name="expiry_date"
-                            attrs="{'readonly': [('state', 'not in', ('draft','accepted'))], 'invisible': [('state', '!=', 'expired')]}"
+                            readonly="state not in  ['draft','accepted']"
+                            invisible="state != 'expired'"
                         />
                     </group>
                 </sheet>
