@@ -1,0 +1,9 @@
+- Miquel Raïch \<<miquel.raich@forgeflow.com>\>
+- Andrea Stirpe \<<a.stirpe@onestein.nl>\>
+- Dennis Sluijk \<<d.sluijk@onestein.nl>\>
+- Anand Kansagra \<<kansagraanand@hotmail.com>\>
+- [CorporateHub](https://corporatehub.eu/)
+  - Alexey Pelykh \<<alexey.pelykh@corphub.eu>\>
+- Juany Davila \<<juany.davila@forgeflow.com>\>
+- \[APSL\](<https://apsl.tech>):
+  - Antoni Marroig \<<toni.marroig1@gmail.com>\>
