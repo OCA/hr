@@ -32,6 +32,11 @@ msgid "Leaves Management"
 msgstr "Gestion des congés"
 
 #. module: hr_holidays_settings
+#: model_terms:ir.ui.view,arch_db:hr_holidays_settings.res_config_settings_view_form
+msgid "Leaves management"
+msgstr ""
+
+#. module: hr_holidays_settings
 #: model:ir.ui.menu,name:hr_holidays_settings.menu_hr_holidays_global_settings
 msgid "Settings"
 msgstr "Paramètres"
