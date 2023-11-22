@@ -26,6 +26,7 @@ msgstr ""
 #. module: hr_employee_document
 #: model:ir.model.fields,field_description:hr_employee_document.field_hr_employee_base__display_name
 #: model:ir.model.fields,field_description:hr_employee_document.field_hr_employee_public__display_name
+#: model:ir.model.fields,field_description:hr_employee_document.field_ir_rule__display_name
 msgid "Display Name"
 msgstr ""
 
@@ -45,6 +46,7 @@ msgstr ""
 #. module: hr_employee_document
 #: model:ir.model.fields,field_description:hr_employee_document.field_hr_employee_base__id
 #: model:ir.model.fields,field_description:hr_employee_document.field_hr_employee_public__id
+#: model:ir.model.fields,field_description:hr_employee_document.field_ir_rule__id
 msgid "ID"
 msgstr ""
 
@@ -56,10 +58,16 @@ msgstr ""
 #. module: hr_employee_document
 #: model:ir.model.fields,field_description:hr_employee_document.field_hr_employee_base____last_update
 #: model:ir.model.fields,field_description:hr_employee_document.field_hr_employee_public____last_update
+#: model:ir.model.fields,field_description:hr_employee_document.field_ir_rule____last_update
 msgid "Last Modified on"
 msgstr ""
 
 #. module: hr_employee_document
 #: model:ir.model,name:hr_employee_document.model_hr_employee_public
 msgid "Public Employee"
+msgstr ""
+
+#. module: hr_employee_document
+#: model:ir.model,name:hr_employee_document.model_ir_rule
+msgid "Record Rule"
 msgstr ""
