@@ -26,6 +26,7 @@ addon | version | maintainers | summary
 [hr_contract_employee_calendar_planning](hr_contract_employee_calendar_planning/) | 15.0.1.0.1 |  | Hr Contract Employee Calendar Planning
 [hr_contract_multi_job](hr_contract_multi_job/) | 15.0.1.0.0 |  | HR Contract Multi Jobs
 [hr_contract_reference](hr_contract_reference/) | 15.0.1.0.0 |  | HR Contract Reference
+[hr_contract_type](hr_contract_type/) | 15.0.1.0.0 | [![etobella](https://github.com/etobella.png?size=30px)](https://github.com/etobella) | Add a Type for Contracts
 [hr_course](hr_course/) | 15.0.1.1.1 |  | This module allows your to manage employee's training courses
 [hr_department_code](hr_department_code/) | 15.0.1.0.0 |  | HR department code
 [hr_emergency_contact](hr_emergency_contact/) | 15.0.1.0.0 |  | HR Emergency Contact
