@@ -1,0 +1,159 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* hr_employee_calendar_planning
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2022-03-21 14:17+0000\n"
+"Last-Translator: Noel estudillo <noelestudilloviera@gmail.com>\n"
+"Language-Team: none\n"
+"Language: ca\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.3.2\n"
+
+#. module: hr_employee_calendar_planning
+#: code:addons/hr_employee_calendar_planning/models/resource_calendar.py:0
+#, python-format
+msgid ""
+"%(item_name)s is used in %(total_items)s employee(s) related to another "
+"company."
+msgstr ""
+
+#. module: hr_employee_calendar_planning
+#: code:addons/hr_employee_calendar_planning/models/resource_calendar.py:0
+#, python-format
+msgid ""
+"%(item_name)s is used in %(total_items)s employee(s).You should change them "
+"first."
+msgstr ""
+
+#. module: hr_employee_calendar_planning
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_resource_calendar__active
+msgid "Active"
+msgstr "Actiu"
+
+#. module: hr_employee_calendar_planning
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_resource_calendar__auto_generate
+msgid "Auto Generate"
+msgstr "Generació automàtica"
+
+#. module: hr_employee_calendar_planning
+#: code:addons/hr_employee_calendar_planning/models/hr_employee.py:0
+#, python-format
+msgid "Auto generated calendar for employee"
+msgstr "Horari autogenerat per a l'empleat"
+
+#. module: hr_employee_calendar_planning
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee__calendar_ids
+msgid "Calendar planning"
+msgstr "Pla d'horari"
+
+#. module: hr_employee_calendar_planning
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__company_id
+msgid "Company"
+msgstr "Companyia"
+
+#. module: hr_employee_calendar_planning
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__create_uid
+msgid "Created by"
+msgstr "Creat per"
+
+#. module: hr_employee_calendar_planning
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__create_date
+msgid "Created on"
+msgstr "Creat el"
+
+#. module: hr_employee_calendar_planning
+#: model:ir.model.constraint,message:hr_employee_calendar_planning.constraint_hr_employee_calendar_date_consistency
+msgid "Date end should be higher than date start"
+msgstr "La data de fi ha de ser més gran que la d'inici"
+
+#. module: hr_employee_calendar_planning
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__display_name
+msgid "Display Name"
+msgstr "Nom a mostrar"
+
+#. module: hr_employee_calendar_planning
+#: model:ir.model,name:hr_employee_calendar_planning.model_hr_employee
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__employee_id
+msgid "Employee"
+msgstr "Empleat"
+
+#. module: hr_employee_calendar_planning
+#: model:ir.model,name:hr_employee_calendar_planning.model_hr_employee_calendar
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_resource_calendar__employee_calendar_ids
+msgid "Employee Calendar"
+msgstr "Horari de l'empleat"
+
+#. module: hr_employee_calendar_planning
+#: model_terms:ir.ui.view,arch_db:hr_employee_calendar_planning.resource_calendar_form
+msgid "Employee Calendars"
+msgstr ""
+
+#. module: hr_employee_calendar_planning
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__date_end
+msgid "End Date"
+msgstr "Data de finalització"
+
+#. module: hr_employee_calendar_planning
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__id
+msgid "ID"
+msgstr "ID"
+
+#. module: hr_employee_calendar_planning
+#: model:ir.model.fields,help:hr_employee_calendar_planning.field_resource_calendar__active
+msgid ""
+"If the active field is set to false, it will allow you to hide the Working "
+"Time without removing it."
+msgstr ""
+"Si el camp actiu està definit com a fals, us permetrà ocultar el temps de "
+"treball sense eliminar-lo."
+
+#. module: hr_employee_calendar_planning
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar____last_update
+msgid "Last Modified on"
+msgstr "Darrera modificació el"
+
+#. module: hr_employee_calendar_planning
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__write_uid
+msgid "Last Updated by"
+msgstr "Darrera modificació per"
+
+#. module: hr_employee_calendar_planning
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__write_date
+msgid "Last Updated on"
+msgstr "Darrera modificació el"
+
+#. module: hr_employee_calendar_planning
+#: model:ir.model,name:hr_employee_calendar_planning.model_resource_calendar
+msgid "Resource Working Time"
+msgstr "Temps de treball"
+
+#. module: hr_employee_calendar_planning
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__date_start
+msgid "Start Date"
+msgstr "Data d'Inici"
+
+#. module: hr_employee_calendar_planning
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__calendar_id
+msgid "Working Time"
+msgstr "Temps de treball"
+
+#. module: hr_employee_calendar_planning
+#: code:addons/hr_employee_calendar_planning/models/hr_employee.py:0
+#, python-format
+msgid "You can not create employees without any calendar."
+msgstr ""
+
+#, python-format
+#~ msgid "%s is used in %s employee(s) related to another company."
+#~ msgstr "%s s'utilitza en %s empleats relacionats amb una altra empresa."
+
+#, python-format
+#~ msgid "%s is used in %s employee(s). You should change them first."
+#~ msgstr "%s s'utilitza en %s empleat(s). Primer els hauries de canviar."

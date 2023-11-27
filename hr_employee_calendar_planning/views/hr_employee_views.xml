@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2019 Tecnativa - Pedro M. Baeza
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="view_employee_form" model="ir.ui.view">
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form" />
+        <field name="arch" type="xml">
+            <field name="resource_calendar_id" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>
+            <field name="resource_calendar_id" position="after">
+                <sheet colspan="2">
+                    <field name="calendar_ids" nolabel="1">
+                        <tree editable="top">
+                            <field name="company_id" invisible="1" />
+                            <field name="date_start" />
+                            <field name="date_end" />
+                            <field
+                                name="calendar_id"
+                                context="{'default_company_id': company_id}"
+                            />
+                        </tree>
+                    </field>
+                </sheet>
+            </field>
+        </field>
+    </record>
+    <record id="hr_employee_public_view_form" model="ir.ui.view">
+        <field name="name">hr.employee.public.form</field>
+        <field name="model">hr.employee.public</field>
+        <field name="inherit_id" ref="hr.hr_employee_public_view_form" />
+        <field name="arch" type="xml">
+            <field name="resource_calendar_id" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>
+        </field>
+    </record>
+</odoo>
