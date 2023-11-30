@@ -33,3 +33,4 @@ class IrRule(models.Model):
         ):
             extra_domain = [[("id", "in", user.employee_ids.ids)]]
             res = expression.AND(extra_domain + [res])
+        return res
