@@ -41,6 +41,7 @@ class TestHrContractEmployeeCalendarPlanning(TestContractCommon):
                 "date_end": datetime.strptime("2020-11-30", "%Y-%m-%d").date(),
             }
         )
+        self.employee.calendar_ids.unlink()
         calendar_ids = self.env["hr.employee.calendar"].create(
             [
                 {
@@ -57,7 +58,6 @@ class TestHrContractEmployeeCalendarPlanning(TestContractCommon):
                 },
             ]
         )
-        self.employee.calendar_ids = [(6, 0, calendar_ids.ids)]
         start_dt = datetime(2019, 1, 1, 0, 0, 0)
         end_dt = datetime(2019, 1, 2, 0, 0, 0)
         self.assertEqual(
@@ -77,3 +77,27 @@ class TestHrContractEmployeeCalendarPlanning(TestContractCommon):
             ),
         )
         self.assertTrue(calendar_ids.ids < self.employee.calendar_ids.ids)
+
+    def test_contract_create(self):
+        self.employee.resource_calendar_id = self.env["resource.calendar"].browse([1])
+        self.env["hr.contract"].create(
+            {
+                "name": "contract1",
+                "wage": 1,
+                "state": "close",
+                "employee_id": self.employee.id,
+                "date_start": datetime.strptime("2018-11-30", "%Y-%m-%d").date(),
+                "date_end": datetime.strptime("2019-11-30", "%Y-%m-%d").date(),
+                "resource_calendar_id": self.env["resource.calendar"].browse([2]).id,
+            }
+        )
+        self.assertEqual(self.employee.resource_calendar_id.id, 1)
+
+    def test_contract_write(self):
+        self.employee.resource_calendar_id = self.env["resource.calendar"].browse([1])
+        self.env["hr.contract"].write(
+            {
+                "resource_calendar_id": 2,
+            }
+        )
+        self.assertEqual(self.employee.resource_calendar_id.id, 1)

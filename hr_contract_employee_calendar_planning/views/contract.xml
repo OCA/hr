@@ -6,7 +6,7 @@
         <field name="priority">999</field>
         <field name="arch" type="xml">
             <xpath expr="//label[@for='resource_calendar_id']" position="replace" />
-            <xpath expr="//field[@name='resource_calendar_id']" position="replace">
+            <xpath expr="//div[@id='resource_calendar_warning']" position="replace">
                 <field name="resource_calendar_id" invisible="1" />
             </xpath>
         </field>
