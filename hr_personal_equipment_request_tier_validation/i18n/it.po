@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-12-06 13:35+0000\n"
+"PO-Revision-Date: 2023-12-14 10:36+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -67,7 +67,7 @@ msgstr "Respinta"
 #. module: hr_personal_equipment_request_tier_validation
 #: model:ir.model.fields,field_description:hr_personal_equipment_request_tier_validation.field_hr_personal_equipment_request__rejected_message
 msgid "Rejected Message"
-msgstr "Messaggio rifiuto"
+msgstr "Messaggio rifiutato"
 
 #. module: hr_personal_equipment_request_tier_validation
 #: model:ir.model.fields,field_description:hr_personal_equipment_request_tier_validation.field_hr_personal_equipment_request__reviewer_ids
