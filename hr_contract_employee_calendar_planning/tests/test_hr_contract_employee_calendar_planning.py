@@ -41,6 +41,7 @@ class TestHrContractEmployeeCalendarPlanning(TestContractCommon):
                 "date_end": datetime.strptime("2020-11-30", "%Y-%m-%d").date(),
             }
         )
+        self.employee.calendar_ids.unlink()
         calendar_ids = self.env["hr.employee.calendar"].create(
             [
                 {
@@ -57,7 +58,6 @@ class TestHrContractEmployeeCalendarPlanning(TestContractCommon):
                 },
             ]
         )
-        self.employee.calendar_ids = [(6, 0, calendar_ids.ids)]
         start_dt = datetime(2019, 1, 1, 0, 0, 0)
         end_dt = datetime(2019, 1, 2, 0, 0, 0)
         self.assertEqual(
