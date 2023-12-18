@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-11-02 10:38+0000\n"
+"PO-Revision-Date: 2023-12-18 09:36+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -974,7 +974,7 @@ msgstr "Giorno di inizio settimana"
 #. module: hr_attendance_sheet
 #: model:ir.model.fields,field_description:hr_attendance_sheet.field_hr_attendance_sheet__working_hours
 msgid "Working Hours"
-msgstr "Orario lavoro"
+msgstr "Orario lavorativo"
 
 #. module: hr_attendance_sheet
 #: code:addons/hr_attendance_sheet/models/hr_attendance_sheet.py:292
