@@ -13,12 +13,12 @@ def post_init_hook(cr, _):
     # (firstname, lastname and lastname2).
     #
     # For example:
-    #  After install hr_employee_fisrtname and before install hr_employee_lastnames:
+    #  After install hr_employee_fisrtname and before install hr_employee_second_lastname:
     #     name = 'John Peterson Clinton'
     #     firstname = 'John'
     #     lastname = 'Peterson Clinton'
     #
-    #  After install hr_employee_lastnames:
+    #  After install hr_employee_second_lastname:
     #     name = 'John Peterson Clinton'
     #     firstname = 'John'
     #     lastname = 'Peterson'

@@ -2,9 +2,9 @@ from odoo import exceptions
 from odoo.tests.common import TransactionCase
 
 
-class TestEmployeeLastnames(TransactionCase):
+class TestEmployeeSecondLastname(TransactionCase):
     def setUp(self):
-        super(TestEmployeeLastnames, self).setUp()
+        super(TestEmployeeSecondLastname, self).setUp()
         self.env["ir.config_parameter"].sudo().set_param(
             "employee_names_order", "first_last"
         )
