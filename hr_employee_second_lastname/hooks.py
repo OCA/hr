@@ -1,8 +1,4 @@
-from odoo import SUPERUSER_ID
-from odoo.api import Environment
-
-
-def post_init_hook(cr, _):
+def post_init_hook(env):
     # This SQL statement is necessary to call _install_employee_lastnames() and
     # set name fields correctly.
     #
@@ -23,7 +19,6 @@ def post_init_hook(cr, _):
     #     firstname = 'John'
     #     lastname = 'Peterson'
     #     lastname2 = 'Clinton'
-    cr.execute("UPDATE hr_employee SET firstname = NULL, lastname = NULL")
-    env = Environment(cr, SUPERUSER_ID, {})
+    env.cr.execute("UPDATE hr_employee SET firstname = NULL, lastname = NULL")
     env["hr.employee"]._install_employee_lastnames()
     env["ir.config_parameter"].sudo().set_param("employee_names_order", "first_last")
