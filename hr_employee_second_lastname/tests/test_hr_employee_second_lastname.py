@@ -1,10 +1,11 @@
 from odoo import exceptions
 from odoo.tests.common import TransactionCase
+from odoo.tools import submap
 
 
 class TestEmployeeSecondLastname(TransactionCase):
     def setUp(self):
-        super(TestEmployeeSecondLastname, self).setUp()
+        super().setUp()
         self.env["ir.config_parameter"].sudo().set_param(
             "employee_names_order", "first_last"
         )
@@ -45,9 +46,18 @@ class TestEmployeeSecondLastname(TransactionCase):
 
     def test_onchange(self):
         """Validate the _get_name_lastnames method is not failing"""
-        field_onchange = self.employee_model.new({})._onchange_spec()
-        self.assertEqual(field_onchange.get("firstname"), "1")
-        self.assertEqual(field_onchange.get("lastname"), "1")
+        # Check that fields used to generate the name and also name field
+        # are empty before onchange
+        fields_spec = self.env["hr.employee"]._get_fields_spec()
+        self.assertEqual(
+            submap(fields_spec, ("firstname", "lastname", "lastname2", "name")),
+            {
+                "firstname": {},
+                "lastname": {},
+                "lastname2": {},
+                "name": {},
+            },
+        )
         values = {
             "firstname": "Pedro",
             "lastname": "Perez",
@@ -61,7 +71,7 @@ class TestEmployeeSecondLastname(TransactionCase):
         new_record = self.employee_model.new(values)
 
         updates = new_record.onchange(
-            values, ["firstname", "lastname", "lastname2"], field_onchange
+            values, ["firstname", "lastname", "lastname2"], fields_spec
         )
         values.update(updates.get("value", {}))
         self.assertEqual(values["name"], "Pedro Perez Hernandez")
