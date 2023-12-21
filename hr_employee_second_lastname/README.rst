@@ -28,8 +28,8 @@ HR Employee First Name and Two Last Names
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
-This module allows you to add firstname and lastnames (Father an Mother Last Name) in employee form,
-and concatenate both in name field.
+This module allows you to add firstname and lastnames (Father an Mother
+Last Name) in employee form, and concatenate both in name field.
 
 **Table of contents**
 
@@ -39,8 +39,10 @@ and concatenate both in name field.
 Usage
 =====
 
-#. Go to *Employees*
-#. On the employee form view you will have 3 separate fields, one for Firstname, second for Lastname, both required and Mother's Last Name (optional).
+1. Go to *Employees*
+2. On the employee form view you will have 3 separate fields, one for
+   Firstname, second for Lastname, both required and Mother's Last Name
+   (optional).
 
 Bug Tracker
 ===========
@@ -56,18 +58,18 @@ Credits
 =======
 
 Authors
-~~~~~~~
+-------
 
 * Vauxoo
 
 Contributors
-~~~~~~~~~~~~
+------------
 
-* Luis Escobar <lescobar@vauxoo.com>
-* Hugo Adan <hugo@vauxoo.com>
+-  Luis Escobar <lescobar@vauxoo.com>
+-  Hugo Adan <hugo@vauxoo.com>
 
 Maintainers
-~~~~~~~~~~~
+-----------
 
 This module is maintained by the OCA.
 
