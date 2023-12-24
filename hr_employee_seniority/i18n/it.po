@@ -10,14 +10,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-31 03:38+0000\n"
-"PO-Revision-Date: 2018-03-31 03:38+0000\n"
-"Last-Translator: Marco Calcagni <mcalcagni@dinamicheaziendali.it>, 2018\n"
+"PO-Revision-Date: 2023-12-24 19:36+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: Italian (https://www.transifex.com/oca/teams/23907/it/)\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: hr_employee_seniority
 #: model:ir.model.fields,help:hr_employee_seniority.field_hr_employee_initial_employment_date
@@ -25,7 +26,7 @@ msgid ""
 "Date of first employment if it was before the start of the first contract in "
 "the system."
 msgstr ""
-"Data di inizio rapporto di lavoro  se precedente all'inizio del primo "
+"Data di inizio rapporto di lavoro se precedente all'inizio del primo "
 "contratto nel sistema"
 
 #. module: hr_employee_seniority
@@ -50,9 +51,9 @@ msgstr "Mesi di servizio"
 
 #. module: hr_employee_seniority
 #: code:addons/hr_employee_seniority/models/hr_employee.py:83
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "The initial employment date cannot be after the first contract in the system!"
 msgstr ""
-"Data di inizio rapporto di lavoro  se precedente all'inizio del primo "
-"contratto nel sistema"
+"Data di inizio rapporto di lavoro se precedente all'inizio del primo "
+"contratto nel sistema!"
