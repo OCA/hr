@@ -16,33 +16,33 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 4.14.1\n"
 
-#. module: hr_employee_lastnames
-#: model:ir.model,name:hr_employee_lastnames.model_hr_employee_base
+#. module: hr_employee_second_lastname
+#: model:ir.model,name:hr_employee_second_lastname.model_hr_employee_base
 msgid "Basic Employee"
 msgstr "Dipendente base"
 
-#. module: hr_employee_lastnames
-#: model:ir.model,name:hr_employee_lastnames.model_hr_employee
+#. module: hr_employee_second_lastname
+#: model:ir.model,name:hr_employee_second_lastname.model_hr_employee
 msgid "Employee"
 msgstr "Dipendente"
 
-#. module: hr_employee_lastnames
-#: model:ir.model.fields,field_description:hr_employee_lastnames.field_hr_employee__firstname
-#: model:ir.model.fields,field_description:hr_employee_lastnames.field_hr_employee_base__firstname
-#: model:ir.model.fields,field_description:hr_employee_lastnames.field_hr_employee_public__firstname
+#. module: hr_employee_second_lastname
+#: model:ir.model.fields,field_description:hr_employee_second_lastname.field_hr_employee__firstname
+#: model:ir.model.fields,field_description:hr_employee_second_lastname.field_hr_employee_base__firstname
+#: model:ir.model.fields,field_description:hr_employee_second_lastname.field_hr_employee_public__firstname
 msgid "First name"
 msgstr "Nome"
 
-#. module: hr_employee_lastnames
-#: model:ir.model.fields,field_description:hr_employee_lastnames.field_hr_employee__lastname
-#: model:ir.model.fields,field_description:hr_employee_lastnames.field_hr_employee_base__lastname
-#: model:ir.model.fields,field_description:hr_employee_lastnames.field_hr_employee_public__lastname
+#. module: hr_employee_second_lastname
+#: model:ir.model.fields,field_description:hr_employee_second_lastname.field_hr_employee__lastname
+#: model:ir.model.fields,field_description:hr_employee_second_lastname.field_hr_employee_base__lastname
+#: model:ir.model.fields,field_description:hr_employee_second_lastname.field_hr_employee_public__lastname
 msgid "Last name"
 msgstr "Cognome"
 
-#. module: hr_employee_lastnames
-#: model:ir.model.fields,field_description:hr_employee_lastnames.field_hr_employee__lastname2
-#: model:ir.model.fields,field_description:hr_employee_lastnames.field_hr_employee_base__lastname2
-#: model:ir.model.fields,field_description:hr_employee_lastnames.field_hr_employee_public__lastname2
+#. module: hr_employee_second_lastname
+#: model:ir.model.fields,field_description:hr_employee_second_lastname.field_hr_employee__lastname2
+#: model:ir.model.fields,field_description:hr_employee_second_lastname.field_hr_employee_base__lastname2
+#: model:ir.model.fields,field_description:hr_employee_second_lastname.field_hr_employee_public__lastname2
 msgid "Second last name"
 msgstr "Secondo cognome"
