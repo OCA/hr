@@ -162,7 +162,8 @@ class HrHolidays(models.Model):
                 include_rest_days=not self.holiday_status_id.exclude_rest_days,
                 compute_full_days=self.holiday_status_id.compute_full_days,
             )
-            days = employee.get_work_days_count(
-                from_datetime=date_from, to_datetime=date_to,
-            )
-            self.number_of_days_temp = days or 0
+            if employee:
+                days = employee.get_work_days_count(
+                    from_datetime=date_from, to_datetime=date_to,
+                )
+                self.number_of_days_temp = days or 0
