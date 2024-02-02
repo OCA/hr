@@ -25,9 +25,10 @@ class StockMove(models.Model):
         return keys_sorted
 
     def _action_cancel(self):
-        super()._action_cancel()
+        res = super()._action_cancel()
         for rec in self.sudo():
             if not rec.personal_equipment_id.qty_delivered:
                 rec.personal_equipment_id.update({"state": "cancelled"})
             else:
                 rec.personal_equipment_id.update({"state": "valid"})
+        return res

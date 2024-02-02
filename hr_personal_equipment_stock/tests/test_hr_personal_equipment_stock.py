@@ -6,50 +6,51 @@ from odoo.tests import TransactionCase
 
 
 class TestHRPersonalEquipment(TransactionCase):
-    def setUp(self):
-        super().setUp()
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
 
-        self.warehouse = self.env.ref("stock.warehouse0")
-        self.company = self.env.ref("base.main_company")
-        self.ressuply_loc = self.env["stock.location"].create(
+        cls.warehouse = cls.env.ref("stock.warehouse0")
+        cls.company = cls.env.ref("base.main_company")
+        cls.ressuply_loc = cls.env["stock.location"].create(
             {
                 "name": "Warehouse Test",
-                "location_id": self.warehouse.view_location_id.id,
+                "location_id": cls.warehouse.view_location_id.id,
             }
         )
-        self.location_employee = self.env["stock.location"].create(
+        cls.location_employee = cls.env["stock.location"].create(
             {
                 "name": "Employee Personal Equipment Virtual Location",
-                "location_id": self.warehouse.view_location_id.id,
+                "location_id": cls.warehouse.view_location_id.id,
                 "usage": "transit",
                 "is_personal_equipment_location": True,
             }
         )
-        self.route = self.env["stock.location.route"].create(
+        cls.route = cls.env["stock.location.route"].create(
             {
                 "name": "Employee Personal Equipment Route",
                 "product_categ_selectable": False,
                 "product_selectable": True,
-                "company_id": self.company.id,
+                "company_id": cls.company.id,
                 "sequence": 10,
             }
         )
-        self.env["stock.rule"].create(
+        cls.env["stock.rule"].create(
             {
                 "name": "Employee Personal Equipment Rule",
-                "route_id": self.route.id,
-                "location_src_id": self.ressuply_loc.id,
-                "location_id": self.location_employee.id,
+                "route_id": cls.route.id,
+                "location_src_id": cls.ressuply_loc.id,
+                "location_id": cls.location_employee.id,
                 "action": "pull",
-                "picking_type_id": self.warehouse.int_type_id.id,
+                "picking_type_id": cls.warehouse.int_type_id.id,
                 "procure_method": "make_to_stock",
-                "warehouse_id": self.warehouse.id,
-                "company_id": self.company.id,
+                "warehouse_id": cls.warehouse.id,
+                "company_id": cls.company.id,
                 "propagate_cancel": "False",
             }
         )
-        self.user = (
-            self.env["res.users"]
+        cls.user = (
+            cls.env["res.users"]
             .sudo()
             .create(
                 {
@@ -57,57 +58,57 @@ class TestHRPersonalEquipment(TransactionCase):
                     "login": "user@test.com",
                     "email": "user@test.com",
                     "groups_id": [
-                        (4, self.env.ref("base.group_user").id),
-                        (4, self.env.ref("hr.group_hr_user").id),
-                        (4, self.env.ref("stock.group_stock_manager").id),
+                        (4, cls.env.ref("base.group_user").id),
+                        (4, cls.env.ref("hr.group_hr_user").id),
+                        (4, cls.env.ref("stock.group_stock_manager").id),
                     ],
                 }
             )
         )
-        self.employee = self.env["hr.employee"].create(
-            {"name": "Employee Test", "user_id": self.user.id}
+        cls.employee = cls.env["hr.employee"].create(
+            {"name": "Employee Test", "user_id": cls.user.id}
         )
-        self.product_personal_equipment_1 = self.env["product.template"].create(
+        cls.product_personal_equipment_1 = cls.env["product.template"].create(
             {
                 "name": "Product Test Personal Equipment",
                 "is_personal_equipment": True,
-                "route_ids": [(6, 0, self.route.ids)],
+                "route_ids": [(6, 0, cls.route.ids)],
                 "qty_available": 100,
                 "type": "product",
-                "uom_id": self.env.ref("uom.product_uom_unit").id,
+                "uom_id": cls.env.ref("uom.product_uom_unit").id,
             }
         )
-        self.product_personal_equipment_2 = self.env["product.template"].create(
+        cls.product_personal_equipment_2 = cls.env["product.template"].create(
             {
                 "name": "Service Test Personal Equipment 2",
                 "is_personal_equipment": True,
                 "type": "service",
-                "uom_id": self.env.ref("uom.product_uom_unit").id,
+                "uom_id": cls.env.ref("uom.product_uom_unit").id,
             }
         )
         lines = [
             {
                 "name": "Personal Equipment 1",
-                "product_id": self.product_personal_equipment_1.product_variant_id.id,
+                "product_id": cls.product_personal_equipment_1.product_variant_id.id,
                 "quantity": 3,
-                "product_uom_id": self.env.ref("uom.product_uom_unit").id,
+                "product_uom_id": cls.env.ref("uom.product_uom_unit").id,
             },
             {
                 "name": "Personal Equipment 2",
-                "product_id": self.product_personal_equipment_2.product_variant_id.id,
+                "product_id": cls.product_personal_equipment_2.product_variant_id.id,
                 "quantity": 2,
-                "product_uom_id": self.env.ref("uom.product_uom_unit").id,
+                "product_uom_id": cls.env.ref("uom.product_uom_unit").id,
             },
         ]
 
-        self.personal_equipment_request = (
-            self.env["hr.personal.equipment.request"]
-            .with_user(self.user.id)
+        cls.personal_equipment_request = (
+            cls.env["hr.personal.equipment.request"]
+            .with_user(cls.user.id)
             .create(
                 {
                     "name": "Personal Equipment Request Test",
                     "line_ids": [(0, 0, line) for line in lines],
-                    "location_id": self.location_employee.id,
+                    "location_id": cls.location_employee.id,
                 }
             )
         )
