@@ -1,0 +1,55 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* hr_employee_document
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2023-09-05 21:36+0000\n"
+"Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
+"Language-Team: none\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
+
+#. module: hr_employee_document
+#: model:ir.model,name:hr_employee_document.model_hr_employee_base
+msgid "Basic Employee"
+msgstr "Empleado Básico"
+
+#. module: hr_employee_document
+#: model_terms:ir.ui.view,arch_db:hr_employee_document.ir_attachment_view_search
+msgid "Content"
+msgstr "Contenido"
+
+#. module: hr_employee_document
+#: model:ir.model.fields,field_description:hr_employee_document.field_hr_employee__document_count
+#: model:ir.model.fields,field_description:hr_employee_document.field_hr_employee_base__document_count
+#: model:ir.model.fields,field_description:hr_employee_document.field_hr_employee_public__document_count
+msgid "Document Count"
+msgstr "Recuento de Documentos"
+
+#. module: hr_employee_document
+#: model_terms:ir.ui.view,arch_db:hr_employee_document.hr_employee_public_view_form
+#: model_terms:ir.ui.view,arch_db:hr_employee_document.hr_employee_view_form
+msgid "Documents"
+msgstr "Documentos"
+
+#. module: hr_employee_document
+#: model:ir.model.fields,field_description:hr_employee_document.field_hr_employee_public__is_logged
+msgid "Is Logged"
+msgstr "Está registrado/a"
+
+#. module: hr_employee_document
+#: model:ir.model,name:hr_employee_document.model_hr_employee_public
+msgid "Public Employee"
+msgstr "Empleado Público"
+
+#. module: hr_employee_document
+#: model:ir.model,name:hr_employee_document.model_ir_rule
+msgid "Record Rule"
+msgstr "Regla de Registro"
