@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--
+      Copyright (C) 2018 Brainbean Apps (https://brainbeanapps.com)
+      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+    -->
+    <record id="hr_employee_relative_view_tree" model="ir.ui.view">
+        <field name="name">hr.employee.relative.view.tree</field>
+        <field name="model">hr.employee.relative</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="relation_id" />
+                <field name="name" />
+                <field name="partner_id" />
+                <field name="gender" />
+                <field name="date_of_birth" />
+                <field name="age" />
+                <field name="phone_number" />
+                <field name="job" />
+                <field name="notes" />
+            </tree>
+        </field>
+    </record>
+</odoo>
