@@ -61,7 +61,7 @@ def migrate(env, version):
             'valid',
             ppe_equipment.product_id,
             hr_ppe.start_date,
-            hr_ppe.expiry_date,
+            hr_ppe.end_date,
             hr_ppe.indications,
             hr_ppe.expire,
             hr_ppe.certification,
