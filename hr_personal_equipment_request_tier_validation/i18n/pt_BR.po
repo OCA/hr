@@ -85,6 +85,11 @@ msgid "Tier Definition"
 msgstr "Definição de Nível"
 
 #. module: hr_personal_equipment_request_tier_validation
+#: model:ir.model.fields,field_description:hr_personal_equipment_request_tier_validation.field_hr_personal_equipment_request__tier_validation_before_write
+msgid "Tier Validation Before Write"
+msgstr ""
+
+#. module: hr_personal_equipment_request_tier_validation
 #: model:ir.model.fields,field_description:hr_personal_equipment_request_tier_validation.field_hr_personal_equipment_request__to_validate_message
 msgid "To Validate Message"
 msgstr "Mensagem para Validar"
