@@ -7,3 +7,6 @@
 * Anand Kansagra <kansagraanand@hotmail.com>
 * Saran Lim. <saranl@ecosoft.co.th>
 * aphon61bank <aphon61bank@gmail.com>
+* `Tecnativa <https://www.tecnativa.com>`_:
+
+    * Carolina Fernandez
