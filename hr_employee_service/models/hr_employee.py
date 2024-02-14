@@ -96,10 +96,6 @@ class HrEmployee(models.Model):
         if not self.service_start_date:
             self.service_start_date = self.service_hire_date
 
-    # NOTE: Support odoo/odoo@90731ad170c503cdfe89a9998fa1d1e2a5035c86
-    def _get_date_start_work(self):
-        return self.sudo().service_start_date or super()._get_date_start_work()
-
     def get_service_duration_from_date(self, date=None):
         """
         Returns the employee service duration for the given date.
