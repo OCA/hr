@@ -127,7 +127,6 @@ class TestHrEmployeeService(common.TransactionCase):
         )
 
         self.assertEqual(employee.service_duration, 0)
-        employee._get_date_start_work()
 
     def test_get_service_duration_from_date(self):
         employee = self.SudoEmployee.create(
