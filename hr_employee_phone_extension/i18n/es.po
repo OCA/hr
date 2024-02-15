@@ -9,8 +9,9 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-02-25 02:06+0000\n"
-"PO-Revision-Date: 2023-10-09 07:38+0000\n"
-"Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
+"PO-Revision-Date: 2024-02-15 12:37+0000\n"
+"Last-Translator: carolinafernandez-tecnativa <carolina.fernandez@tecnativa."
+"com>\n"
 "Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -49,14 +50,14 @@ msgstr "Número de teléfono interno."
 #: model:ir.model.fields,field_description:hr_employee_phone_extension.field_hr_employee_base__short_number
 #: model:ir.model.fields,field_description:hr_employee_phone_extension.field_hr_employee_public__short_number
 msgid "Short Number"
-msgstr "Número corto"
+msgstr "Nº de extensión telefónica"
 
 #. module: hr_employee_phone_extension
 #: model:ir.model.fields,help:hr_employee_phone_extension.field_hr_employee__short_number
 #: model:ir.model.fields,help:hr_employee_phone_extension.field_hr_employee_base__short_number
 #: model:ir.model.fields,help:hr_employee_phone_extension.field_hr_employee_public__short_number
 msgid "Short phone number."
-msgstr "Número de teléfono corto."
+msgstr "Nº de extensión telefónica."
 
 #~ msgid "Employee"
 #~ msgstr "Empleado"
