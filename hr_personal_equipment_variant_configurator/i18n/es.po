@@ -6,15 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2022-02-01 17:33+0000\n"
-"Last-Translator: Alba Riera <alba.riera@creublanca.es>\n"
+"PO-Revision-Date: 2024-02-18 18:36+0000\n"
+"Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
 "Language-Team: none\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.3.2\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: hr_personal_equipment_variant_configurator
 #: model:ir.model,name:hr_personal_equipment_variant_configurator.model_hr_personal_equipment
@@ -24,32 +24,32 @@ msgstr "Añade información de equipamiento personal y su asignación"
 #. module: hr_personal_equipment_variant_configurator
 #: model:ir.model.fields,field_description:hr_personal_equipment_variant_configurator.field_hr_personal_equipment__can_create_product
 msgid "Can Create Product"
-msgstr ""
+msgstr "Puede Crear Producto"
 
 #. module: hr_personal_equipment_variant_configurator
 #: model:ir.model.fields,field_description:hr_personal_equipment_variant_configurator.field_hr_personal_equipment__create_product_variant
 msgid "Create product now!"
-msgstr ""
+msgstr "¡Crear producto ahora!"
 
 #. module: hr_personal_equipment_variant_configurator
 #: model:ir.model.fields,field_description:hr_personal_equipment_variant_configurator.field_hr_personal_equipment__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Mostrar Nombre"
 
 #. module: hr_personal_equipment_variant_configurator
 #: model:ir.model.fields,field_description:hr_personal_equipment_variant_configurator.field_hr_personal_equipment__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: hr_personal_equipment_variant_configurator
 #: model:ir.model.fields,field_description:hr_personal_equipment_variant_configurator.field_hr_personal_equipment____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Última Modificación el"
 
 #. module: hr_personal_equipment_variant_configurator
 #: model:ir.model.fields,field_description:hr_personal_equipment_variant_configurator.field_hr_personal_equipment__price_extra
 msgid "Price Extra"
-msgstr ""
+msgstr "Precio Extra"
 
 #. module: hr_personal_equipment_variant_configurator
 #: model:ir.model.fields,help:hr_personal_equipment_variant_configurator.field_hr_personal_equipment__price_extra
@@ -57,6 +57,8 @@ msgid ""
 "Price Extra: Extra price for the variant with the currently selected "
 "attributes values on sale price. eg. 200 price extra, 1000 + 200 = 1200."
 msgstr ""
+"Precio extra: Precio extra de venta para la variante con los valores de "
+"atributos seleccionados. Por ejemplo. 200 de precio extra, 1000 + 200 = 1200."
 
 #. module: hr_personal_equipment_variant_configurator
 #: model:ir.model.fields,field_description:hr_personal_equipment_variant_configurator.field_hr_personal_equipment__product_tmpl_id
@@ -66,9 +68,9 @@ msgstr "Producto"
 #. module: hr_personal_equipment_variant_configurator
 #: model:ir.model.fields,field_description:hr_personal_equipment_variant_configurator.field_hr_personal_equipment__product_id
 msgid "Product Variant"
-msgstr ""
+msgstr "Variante del Producto"
 
 #. module: hr_personal_equipment_variant_configurator
 #: model:ir.model.fields,field_description:hr_personal_equipment_variant_configurator.field_hr_personal_equipment__product_attribute_ids
 msgid "Product attributes"
-msgstr ""
+msgstr "Atributos de producto"
