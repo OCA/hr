@@ -6,15 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2022-03-29 17:17+0000\n"
-"Last-Translator: Rafa Martínez <rmartinez@puntsistemes.es>\n"
+"PO-Revision-Date: 2024-02-18 21:33+0000\n"
+"Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
 "Language-Team: none\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.3.2\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: hr_employee_ppe
 #: model_terms:ir.ui.view,arch_db:hr_employee_ppe.hr_employee_ppe_report_template
@@ -106,6 +106,10 @@ msgid ""
 "                            I acknowledge that my failure to do so may "
 "subject me to disciplinary action."
 msgstr ""
+"Acepto llevar el equipo cuando me enfrente a la exposición contra la que "
+"está diseñado para protegerme.\n"
+"                            Reconozco que mi incumplimiento puede ser objeto "
+"de medidas disciplinarias."
 
 #. module: hr_employee_ppe
 #: model_terms:ir.ui.view,arch_db:hr_employee_ppe.hr_employee_ppe_report_template
@@ -115,13 +119,18 @@ msgid ""
 "                            in how to wear and maintain it. If it is lost or "
 "damaged, I will report the same to my employer promptly for replacement."
 msgstr ""
+"Yo, el abajo firmante, acepto el EPI que mi empleador me proporciona. "
+"Reconozco además que he sido instruido\n"
+"                            sobre cómo llevarlo y mantenerlo. En caso de "
+"pérdida o deterioro, informaré inmediatamente a mi empleador para su "
+"sustitución."
 
 #. module: hr_employee_ppe
 #: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_personal_equipment__id
 #: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_personal_equipment_request__id
 #: model:ir.model.fields,field_description:hr_employee_ppe.field_product_template__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: hr_employee_ppe
 #: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_personal_equipment__indications
@@ -269,7 +278,7 @@ msgstr "Semanas"
 #. module: hr_employee_ppe
 #: model_terms:ir.ui.view,arch_db:hr_employee_ppe.hr_employee_ppe_report_template
 msgid "is providing"
-msgstr ""
+msgstr "está proporcionando"
 
 #. module: hr_employee_ppe
 #: model_terms:ir.ui.view,arch_db:hr_employee_ppe.hr_employee_ppe_report_template
