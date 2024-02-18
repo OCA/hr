@@ -6,69 +6,71 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2024-02-18 18:36+0000\n"
+"Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
 "Language-Team: none\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: hr_employee_document
 #: model:ir.model,name:hr_employee_document.model_hr_employee_base
 msgid "Basic Employee"
-msgstr ""
+msgstr "Empleado Básico"
 
 #. module: hr_employee_document
 #: model_terms:ir.ui.view,arch_db:hr_employee_document.ir_attachment_view_search
 msgid "Content"
-msgstr ""
+msgstr "Contenido"
 
 #. module: hr_employee_document
 #: model:ir.model.fields,field_description:hr_employee_document.field_hr_employee_base__display_name
 #: model:ir.model.fields,field_description:hr_employee_document.field_hr_employee_public__display_name
 #: model:ir.model.fields,field_description:hr_employee_document.field_ir_rule__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Mostrar Nombre"
 
 #. module: hr_employee_document
 #: model:ir.model.fields,field_description:hr_employee_document.field_hr_employee__document_count
 #: model:ir.model.fields,field_description:hr_employee_document.field_hr_employee_base__document_count
 #: model:ir.model.fields,field_description:hr_employee_document.field_hr_employee_public__document_count
 msgid "Document Count"
-msgstr ""
+msgstr "Recuento de Documento"
 
 #. module: hr_employee_document
 #: model_terms:ir.ui.view,arch_db:hr_employee_document.hr_employee_public_view_form
 #: model_terms:ir.ui.view,arch_db:hr_employee_document.hr_employee_view_form
 msgid "Documents"
-msgstr ""
+msgstr "Documentos"
 
 #. module: hr_employee_document
 #: model:ir.model.fields,field_description:hr_employee_document.field_hr_employee_base__id
 #: model:ir.model.fields,field_description:hr_employee_document.field_hr_employee_public__id
 #: model:ir.model.fields,field_description:hr_employee_document.field_ir_rule__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: hr_employee_document
 #: model:ir.model.fields,field_description:hr_employee_document.field_hr_employee_public__is_logged
 msgid "Is Logged"
-msgstr ""
+msgstr "Está registrado/a"
 
 #. module: hr_employee_document
 #: model:ir.model.fields,field_description:hr_employee_document.field_hr_employee_base____last_update
 #: model:ir.model.fields,field_description:hr_employee_document.field_hr_employee_public____last_update
 #: model:ir.model.fields,field_description:hr_employee_document.field_ir_rule____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Última Modificación el"
 
 #. module: hr_employee_document
 #: model:ir.model,name:hr_employee_document.model_hr_employee_public
 msgid "Public Employee"
-msgstr ""
+msgstr "Empleado Público"
 
 #. module: hr_employee_document
 #: model:ir.model,name:hr_employee_document.model_ir_rule
 msgid "Record Rule"
-msgstr ""
+msgstr "Regla de Registro"
