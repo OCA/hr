@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-03-21 09:30+0000\n"
-"PO-Revision-Date: 2023-05-17 13:34+0000\n"
-"Last-Translator: Ioan Galan (Studio73) <ioan@studio73.es>\n"
+"PO-Revision-Date: 2024-02-18 18:36+0000\n"
+"Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
 "Language-Team: \n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.1\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: hr_course
 #: model:mail.template,body_html:hr_course.mail_template_validity_reminder
@@ -32,6 +32,17 @@ msgid ""
 "            </div>\n"
 "        "
 msgstr ""
+"<div>\n"
+"                <p>Hola,</p>\n"
+"                <p>El tiempo de validez del curso ${object.name} finalizará "
+"pronto. Quizás necesites planificar uno nuevo. </p>\n"
+"                <p>Los empleados afectados son:</p>\n"
+"                % para empleado en object.course_attendee_ids.mapped("
+"\"employee_id.name\"):\n"
+"                <p>${employee}</p>\n"
+"                % final para\n"
+"            </div>\n"
+"        "
 
 #. module: hr_course
 #: model:ir.model.fields.selection,name:hr_course.selection__hr_course_attendee__result__absent
@@ -53,31 +64,31 @@ msgstr "Activo"
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__activity_ids
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__activity_ids
 msgid "Activities"
-msgstr ""
+msgstr "Actividades"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__activity_exception_decoration
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__activity_exception_decoration
 msgid "Activity Exception Decoration"
-msgstr ""
+msgstr "Decoración de Excepción de la Actividad"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__activity_state
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__activity_state
 msgid "Activity State"
-msgstr ""
+msgstr "Estado de la Actividad"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__activity_type_icon
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__activity_type_icon
 msgid "Activity Type Icon"
-msgstr ""
+msgstr "Icono de Tipo de Actividad"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_res_company__course_expiration_alerting_delay
 #: model:ir.model.fields,field_description:hr_course.field_res_config_settings__course_expiration_alerting_delay
 msgid "Alerting delay before end of validity (days)"
-msgstr ""
+msgstr "Plazo de alerta antes del fin de validez (días)"
 
 #. module: hr_course
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_schedule_form_view
@@ -144,7 +155,7 @@ msgstr "Comentario"
 #. module: hr_course
 #: model:ir.model,name:hr_course.model_res_company
 msgid "Companies"
-msgstr ""
+msgstr "Compañías"
 
 #. module: hr_course
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_schedule_form_view
@@ -159,7 +170,7 @@ msgstr "Finalizado"
 #. module: hr_course
 #: model:ir.model,name:hr_course.model_res_config_settings
 msgid "Config Settings"
-msgstr ""
+msgstr "Ajustes Config"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__content
@@ -210,7 +221,7 @@ msgstr "Coste del curso"
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee__course_expiration_alert_sent
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__course_expiration_alert_sent
 msgid "Course Expiration Alert Sent"
-msgstr ""
+msgstr "Alerta de Expiración de Curso Enviada"
 
 #. module: hr_course
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_schedule_search_view
@@ -242,7 +253,7 @@ msgstr "Nombre del curso"
 #. module: hr_course
 #: model:mail.channel,name:hr_course.mail_channel_course_validity
 msgid "Course validity expiration notification"
-msgstr ""
+msgstr "Notificación de expiración de validez del curso"
 
 #. module: hr_course
 #: model:ir.actions.act_window,name:hr_course.action_hr_course
@@ -326,7 +337,7 @@ msgstr "Fecha final"
 #. module: hr_course
 #: model:mail.template,subject:hr_course.mail_template_validity_reminder
 msgid "End of validity for a course"
-msgstr ""
+msgstr "Fin de validez de un curso"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__evaluation_criteria
@@ -365,14 +376,14 @@ msgstr "Seguidores (Socios)"
 #: model:ir.model.fields,help:hr_course.field_hr_course__activity_type_icon
 #: model:ir.model.fields,help:hr_course.field_hr_course_schedule__activity_type_icon
 msgid "Font awesome icon e.g. fa-tasks"
-msgstr ""
+msgstr "Fuente Iconos Sorprendentes , por ejemplo fa-tasks"
 
 #. module: hr_course
 #: model:ir.actions.server,name:hr_course.ir_cron_post_wip_ir_actions_server
 #: model:ir.cron,cron_name:hr_course.ir_cron_post_wip
 #: model:ir.cron,name:hr_course.ir_cron_post_wip
 msgid "HR Course: Check validity date"
-msgstr ""
+msgstr "Curso de RRHH: Comprobar fecha de validez"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__permanence
@@ -394,13 +405,13 @@ msgstr "ID"
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__activity_exception_icon
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__activity_exception_icon
 msgid "Icon"
-msgstr ""
+msgstr "Icono"
 
 #. module: hr_course
 #: model:ir.model.fields,help:hr_course.field_hr_course__activity_exception_icon
 #: model:ir.model.fields,help:hr_course.field_hr_course_schedule__activity_exception_icon
 msgid "Icon to indicate an exception activity."
-msgstr ""
+msgstr "Icono para indicar la excepción de la actividad."
 
 #. module: hr_course
 #: model:ir.model.fields,help:hr_course.field_hr_course__message_needaction
@@ -434,7 +445,7 @@ msgstr "Instructor"
 #. module: hr_course
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_schedule_form_view
 msgid "Internal notes"
-msgstr ""
+msgstr "Notas internas"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__message_is_follower
@@ -473,7 +484,7 @@ msgstr "Última actualización en"
 #: model:ir.model.fields,field_description:hr_course.field_res_company__course_expiration_channel_id
 #: model:ir.model.fields,field_description:hr_course.field_res_config_settings__course_expiration_channel_id
 msgid "Mailing list to alert"
-msgstr ""
+msgstr "Lista de correo para alertar"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__message_main_attachment_id
@@ -497,7 +508,7 @@ msgstr "Mensajes"
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__my_activity_date_deadline
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__my_activity_date_deadline
 msgid "My Activity Deadline"
-msgstr ""
+msgstr "Fecha Límite de mi Actividad"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__name
@@ -510,24 +521,24 @@ msgstr "Nombre"
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__activity_date_deadline
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__activity_date_deadline
 msgid "Next Activity Deadline"
-msgstr ""
+msgstr "Fecha Límite de la Siguiente Actividad"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__activity_summary
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__activity_summary
 msgid "Next Activity Summary"
-msgstr ""
+msgstr "Resumen de Próxima Actividad"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__activity_type_id
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__activity_type_id
 msgid "Next Activity Type"
-msgstr ""
+msgstr "Tipo Actividad Siguiente"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__note
 msgid "Note"
-msgstr ""
+msgstr "Nota"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__message_needaction_counter
@@ -604,7 +615,7 @@ msgstr "Corregir curso"
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__activity_user_id
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__activity_user_id
 msgid "Responsible User"
-msgstr ""
+msgstr "Usuario Responsable"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee__result
@@ -620,6 +631,7 @@ msgstr "Horarios"
 #: model:ir.model.fields,help:hr_course.field_hr_course_attendee__course_expiration_alert_sent
 msgid "Shows if notification email for course was sent"
 msgstr ""
+"Muestra si se ha enviado el correo electrónico de notificación del curso"
 
 #. module: hr_course
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_schedule_form_view
@@ -647,6 +659,10 @@ msgid ""
 "Today: Activity date is today\n"
 "Planned: Future activities."
 msgstr ""
+"Status basado en actividades\n"
+"Atrasado: La fecha de entrega ya ha pasado\n"
+"Hoy: Fecha de actividad es hoy\n"
+"Planeado: Actividades futuras."
 
 #. module: hr_course
 #: code:addons/hr_course/models/hr_course_schedule.py:0
@@ -663,7 +679,7 @@ msgstr "Empresa de formación"
 #: model:ir.model.fields,help:hr_course.field_hr_course__activity_exception_decoration
 #: model:ir.model.fields,help:hr_course.field_hr_course_schedule__activity_exception_decoration
 msgid "Type of the exception activity on record."
-msgstr ""
+msgstr "Tipo de actividad excepcional registrada."
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__message_unread
@@ -681,7 +697,7 @@ msgstr "Contador de mensajes no leídos"
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee__course_validity_end_date
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__validity_end_date
 msgid "Validity End Date"
-msgstr ""
+msgstr "Fecha Fin de Validez"
 
 #. module: hr_course
 #: model:ir.model.fields.selection,name:hr_course.selection__hr_course_schedule__state__waiting_attendees
