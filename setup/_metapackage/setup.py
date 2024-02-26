@@ -24,6 +24,7 @@ setuptools.setup(
         'odoo-addon-hr_employee_ssn>=16.0dev,<16.1dev',
         'odoo-addon-hr_holidays_settings>=16.0dev,<16.1dev',
         'odoo-addon-hr_personal_equipment_request>=16.0dev,<16.1dev',
+        'odoo-addon-hr_professional_category>=16.0dev,<16.1dev',
     ],
     classifiers=[
         'Programming Language :: Python',
