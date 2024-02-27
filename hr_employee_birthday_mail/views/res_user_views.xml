@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="res_users_birthday_mail_inherit" model="ir.ui.view">
+        <field name="name">res.users.birthday.mail.inherit</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="hr.res_users_view_form_profile" />
+        <field name="arch" type="xml">
+            <field name="birthday" position="after">
+                <field
+                    name="allow_birthday_wishes"
+                    attrs="{'readonly': [('can_edit', '=', False)]}"
+                />
+                <field
+                    name="notify_others_birthday"
+                    attrs="{'readonly': [('can_edit', '=', False)], 'invisible': [('allow_birthday_wishes', '=', False)]}"
+                />
+            </field>
+        </field>
+    </record>
+</odoo>
