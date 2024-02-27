@@ -1,0 +1,101 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* hr_professional_category
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2024-03-12 10:33+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
+
+#. module: hr_professional_category
+#: model:ir.model.fields,field_description:hr_professional_category.field_hr_professional_category__active
+msgid "Active"
+msgstr "Attiva"
+
+#. module: hr_professional_category
+#: model_terms:ir.ui.view,arch_db:hr_professional_category.hr_professional_category_tree_view_form
+#: model_terms:ir.ui.view,arch_db:hr_professional_category.hr_professional_category_view_search
+msgid "Archived"
+msgstr "In archivio"
+
+#. module: hr_professional_category
+#: model_terms:ir.actions.act_window,help:hr_professional_category.hr_professional_category_action
+msgid "Click to create a Professional Category."
+msgstr "Fare clic per creare un categoria professionale."
+
+#. module: hr_professional_category
+#: model:ir.model.fields,field_description:hr_professional_category.field_hr_professional_category__code
+msgid "Code"
+msgstr "Codice"
+
+#. module: hr_professional_category
+#: model:ir.model.fields,field_description:hr_professional_category.field_hr_professional_category__company_id
+msgid "Company"
+msgstr "Azienda"
+
+#. module: hr_professional_category
+#: model:ir.model,name:hr_professional_category.model_hr_contract
+msgid "Contract"
+msgstr "Contratto"
+
+#. module: hr_professional_category
+#: model:ir.model.fields,field_description:hr_professional_category.field_hr_professional_category__create_uid
+msgid "Created by"
+msgstr "Creato da"
+
+#. module: hr_professional_category
+#: model:ir.model.fields,field_description:hr_professional_category.field_hr_professional_category__create_date
+msgid "Created on"
+msgstr "Creato il"
+
+#. module: hr_professional_category
+#: model:ir.model.fields,field_description:hr_professional_category.field_hr_professional_category__display_name
+msgid "Display Name"
+msgstr "Nome visualizzato"
+
+#. module: hr_professional_category
+#: model:ir.model.fields,field_description:hr_professional_category.field_hr_professional_category__id
+msgid "ID"
+msgstr "ID"
+
+#. module: hr_professional_category
+#: model:ir.model.fields,field_description:hr_professional_category.field_hr_professional_category____last_update
+msgid "Last Modified on"
+msgstr "Ultima modifica il"
+
+#. module: hr_professional_category
+#: model:ir.model.fields,field_description:hr_professional_category.field_hr_professional_category__write_uid
+msgid "Last Updated by"
+msgstr "Ultimo aggiornamento di"
+
+#. module: hr_professional_category
+#: model:ir.model.fields,field_description:hr_professional_category.field_hr_professional_category__write_date
+msgid "Last Updated on"
+msgstr "Ultimo aggiornamento il"
+
+#. module: hr_professional_category
+#: model:ir.model.fields,field_description:hr_professional_category.field_hr_professional_category__name
+msgid "Name"
+msgstr "Nome"
+
+#. module: hr_professional_category
+#: model:ir.ui.menu,name:hr_professional_category.menu_hr_professional_category_action
+msgid "Professional Categories"
+msgstr "Categorie professionali"
+
+#. module: hr_professional_category
+#: model:ir.actions.act_window,name:hr_professional_category.hr_professional_category_action
+#: model:ir.model,name:hr_professional_category.model_hr_professional_category
+#: model:ir.model.fields,field_description:hr_professional_category.field_hr_contract__professional_category_id
+#: model_terms:ir.ui.view,arch_db:hr_professional_category.hr_contract_view_search
+msgid "Professional Category"
+msgstr "Categoria professionale"
