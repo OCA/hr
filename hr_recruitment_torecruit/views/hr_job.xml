@@ -4,7 +4,7 @@
         <field name="model">hr.job</field>
         <field name="inherit_id" ref="hr.view_hr_job_form" />
         <field name="arch" type="xml">
-            <field name="no_of_recruitment" position="after">
+            <field name="website_published" position="before">
                 <field name="to_recruit" />
             </field>
         </field>
