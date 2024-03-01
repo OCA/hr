@@ -12,7 +12,7 @@ class TestHRJobPostionPublish(BaseCommon):
             {
                 "name": "Test Job",
                 "no_of_recruitment": 3,
-                "is_published": True,
+                "website_published": True,
             }
         )
         cls.employee_1 = cls.env["hr.employee"].create(
@@ -57,13 +57,14 @@ class TestHRJobPostionPublish(BaseCommon):
         )
 
     def test_job_postion_published(self):
-        self.assertTrue(self.job.is_published)
+        self.assertTrue(self.job.website_published)
+        self.assertEqual(self.job.to_recruit, self.job.no_of_recruitment)
         self.contract_1.state = "open"
         self.contract_2.state = "open"
         self.contract_3.state = "open"
-        self.assertEqual(self.job.to_recruit, self.job.no_of_recruitment)
-        self.assertFalse(self.job.is_published)
+        self.assertEqual(self.job.to_recruit, 0)
+        self.assertFalse(self.job.website_published)
         self.contract_3.unlink()
-        self.assertNotEqual(self.job.to_recruit, self.job.no_of_recruitment)
+        self.assertEqual(self.job.to_recruit, 1)
         self.job._compute_to_recruit()
-        self.assertTrue(self.job.is_published)
+        self.assertTrue(self.job.website_published)
