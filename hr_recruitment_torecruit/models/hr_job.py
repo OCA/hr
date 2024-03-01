@@ -1,9 +1,10 @@
-from odoo import fields, models
+from odoo import api, fields, models
 
 
 class HrJob(models.Model):
     _inherit = "hr.job"
 
+    @api.depends("no_of_recruitment")
     def _compute_to_recruit(self):
         contract_obj = self.env["hr.contract"]
         for rec in self:

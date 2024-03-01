@@ -62,9 +62,10 @@ class TestHRJobPostionPublish(BaseCommon):
         self.contract_1.state = "open"
         self.contract_2.state = "open"
         self.contract_3.state = "open"
+        self.job._compute_to_recruit()
         self.assertEqual(self.job.to_recruit, 0)
         self.assertFalse(self.job.website_published)
         self.contract_3.unlink()
-        self.assertEqual(self.job.to_recruit, 1)
         self.job._compute_to_recruit()
+        self.assertEqual(self.job.to_recruit, 1)
         self.assertTrue(self.job.website_published)
