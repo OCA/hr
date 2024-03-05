@@ -1,0 +1,42 @@
+<odoo>
+    <record id="view_hr_job_form_inherit_hr_recruitment" model="ir.ui.view">
+        <field name="name">hr.job.form</field>
+        <field name="model">hr.job</field>
+        <field name="inherit_id" ref="hr.view_hr_job_form" />
+        <field name="arch" type="xml">
+            <field name="website_published" position="before">
+                <field name="to_recruit" />
+            </field>
+        </field>
+    </record>
+
+    <record id="view_hr_job_kanban_inherit_hr_recruitment" model="ir.ui.view">
+        <field name="name">hr.job.kanban</field>
+        <field name="model">hr.job</field>
+        <field name="inherit_id" ref="hr_recruitment.view_hr_job_kanban" />
+        <field name="arch" type="xml">
+            <field name="application_count" position="after">
+                <field name="to_recruit" />
+            </field>
+            <xpath expr="//ul/li[1]" position="inside">
+                <span
+                    t-attf-class="{{ record.to_recruit.raw_value &gt; 0 ? 'to-recruit' : 'text-secondary' }}"
+                    groups="hr_recruitment.group_hr_recruitment_interviewer"
+                >
+                    <field name="to_recruit" /> To be recruited
+                </span>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="hr_job_view_tree_inherit_inherit_hr_recruitment" model="ir.ui.view">
+        <field name="name">hr.job tree</field>
+        <field name="model">hr.job</field>
+        <field name="inherit_id" ref="hr_recruitment.hr_job_view_tree_inherit" />
+        <field name="arch" type="xml">
+            <field name="no_of_recruitment" position="after">
+                <field name="to_recruit" />
+            </field>
+        </field>
+    </record>
+</odoo>
