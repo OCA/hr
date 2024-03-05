@@ -38,6 +38,7 @@ addon | version | maintainers | summary
 [hr_holidays_settings](hr_holidays_settings/) | 16.0.1.0.0 |  | Enables Settings Form for HR Holidays.
 [hr_personal_equipment_request](hr_personal_equipment_request/) | 16.0.1.0.0 |  | This addon allows to manage employee personal equipment
 [hr_professional_category](hr_professional_category/) | 16.0.1.0.0 | [![victoralmau](https://github.com/victoralmau.png?size=30px)](https://github.com/victoralmau) | HR Professional Category
+[hr_recruitment_torecruit](hr_recruitment_torecruit/) | 16.0.1.0.1 |  | Age field for employee
 
 [//]: # (end addons)
 
