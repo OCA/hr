@@ -500,6 +500,18 @@ msgid "Waiting attendees"
 msgstr "Esperando asistentes"
 
 #. module: hr_course
+#: model:ir.model.fields,field_description:hr_course.field_hr_course__website_message_ids
+#: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__website_message_ids
+msgid "Website Messages"
+msgstr "Mensajes del sitio web"
+
+#. module: hr_course
+#: model:ir.model.fields,help:hr_course.field_hr_course__website_message_ids
+#: model:ir.model.fields,help:hr_course.field_hr_course_schedule__website_message_ids
+msgid "Website communication history"
+msgstr "Historial de comunicación del sitio web"
+
+#. module: hr_course
 #. odoo-python
 #: code:addons/hr_course/models/hr_course_schedule.py:0
 #, python-format
@@ -548,12 +560,6 @@ msgstr ""
 
 #~ msgid "Unread Messages Counter"
 #~ msgstr "Contador de mensajes no leídos"
-
-#~ msgid "Website Messages"
-#~ msgstr "Mensajes del sitio web"
-
-#~ msgid "Website communication history"
-#~ msgstr "Historial de comunicación del sitio web"
 
 #~ msgid "hr.course"
 #~ msgstr "hr.course"
