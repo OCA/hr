@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<odoo>
+    <record id="hr_workspaces_action" model="ir.actions.act_window">
+        <field name="name">Workspaces</field>
+        <field name="res_model">maintenance.workspace</field>
+        <field name="view_mode">kanban,tree,form</field>
+    </record>
+    <menuitem
+        id="menu_workspaces"
+        name="Workspaces"
+        parent="maintenance.menu_maintenance_title"
+        action="hr_workspaces_action"
+        sequence="3"
+        groups="maintenance.group_equipment_manager"
+    />
+</odoo>
