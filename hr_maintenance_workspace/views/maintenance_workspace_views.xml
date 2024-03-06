@@ -1,0 +1,138 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<odoo>
+    <record id="maintenance_workspace_view_tree" model="ir.ui.view">
+        <field name="model">maintenance.workspace</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="description" optional="show" />
+                <field name="location" optional="show" />
+                <field name="equipment_count" optional="show" />
+                <field name="employee_ids" optional="show" />
+                <field name="employee_equipment_count" optional="show" />
+            </tree>
+        </field>
+    </record>
+    <record id="maintenance_workspace_view_form" model="ir.ui.view">
+        <field name="model">maintenance.workspace</field>
+        <field name="arch" type="xml">
+            <form string="Workspace">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button
+                            class="oe_stat_button"
+                            name="button_employee_equipment_count"
+                            icon="fa-th-list"
+                            type="object"
+                            attrs="{'invisible':[('employee_equipment_count','=',0)]}"
+                        >
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_value">
+                                    <field name="employee_equipment_count" />
+                                </span>
+                                <span class="o_stat_text">Emplo. Equipments</span>
+                            </div>
+                        </button>
+                    </div>
+                    <h1>
+                        <field name="name" />
+                    </h1>
+                    <group>
+                        <field name="description" />
+                        <field name="location" />
+                    </group>
+                    <notebook>
+                        <page string="Equipments" name="workspace_equipments">
+                            <field
+                                name="equipment_ids"
+                                context="{'default_workspace_id': active_id}"
+                            >
+                                <tree>
+                                    <field name="name" />
+                                    <field name="serial_no" />
+                                    <field name="employee_id" string="Employee" />
+                                    <field name="department_id" string="Department" />
+                                    <field name="workspace_id" string="Workspace" />
+                                    <field name="owner_user_id" string="Owner" />
+                                    <field
+                                        name="assign_date"
+                                        groups="base.group_no_one"
+                                    />
+                                    <field name="technician_user_id" />
+                                    <field name="category_id" />
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Employees" name="workspace_employees">
+                            <field name="employee_ids" options="{'no_create': True}">
+                                <tree create="true">
+                                    <field name="name" />
+                                    <field name="work_location" />
+                                    <field name="work_email" />
+                                    <field name="equipment_count" />
+                                    <field name="workspace_ids" />
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers" />
+                    <field name="message_ids" widget="mail_thread" />
+                </div>
+            </form>
+        </field>
+    </record>
+    <record id="maintenance_workspace_view_kanban" model="ir.ui.view">
+        <field name="model">maintenance.workspace</field>
+        <field name="arch" type="xml">
+            <kanban string="Workspaces" default_group_by="location">
+                <field name="name" />
+                <field name="equipment_ids" />
+                <field name="equipment_count" />
+                <field name="employee_count" />
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div t-attf-class="oe_kanban_content">
+                                <h3>
+                                    <field name="name" />
+                                </h3>
+                                <div attrs="{'invisible':[('equipment_ids','=',())]}">
+                                    <b>Equipments:</b>
+                                    <field name="equipment_count" />
+                                </div>
+                                <div attrs="{'invisible':[('employee_count','=',0)]}">
+                                    <p />
+                                    <b>Employees:</b>
+                                    <field name="employee_count" />
+                                </div>
+                                <div
+                                    attrs="{'invisible':[('employee_equipment_count','=',0)]}"
+                                >
+                                    <b>Employee Equipment Count:</b>
+                                    <field name="employee_equipment_count" />
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+    <record id="maintenance_workspace_view_search" model="ir.ui.view">
+        <field name="model">maintenance.workspace</field>
+        <field name="arch" type="xml">
+            <search string="Workspaces">
+                <field name="name" />
+                <field name="description" />
+                <field name="location" />
+                <filter
+                    string="Location"
+                    name="workspace_location"
+                    context="{'group_by':'location'}"
+                />
+            </search>
+        </field>
+    </record>
+</odoo>
