@@ -51,6 +51,7 @@ addon | version | maintainers | summary
 [hr_employee_service_contract](hr_employee_service_contract/) | 14.0.1.0.0 |  | Employee service information & duration based on employee's contracts
 [hr_employee_ssn](hr_employee_ssn/) | 14.0.1.0.0 |  | View/edit employee's SSN & SIN fields
 [hr_job_category](hr_job_category/) | 14.0.1.0.0 |  | Adds tags to employee through contract and job position
+[hr_maintenance_workspace](hr_maintenance_workspace/) | 14.0.1.0.0 | [![valentincastravete](https://github.com/valentincastravete.png?size=30px)](https://github.com/valentincastravete) [![JorgeQuinteros](https://github.com/JorgeQuinteros.png?size=30px)](https://github.com/JorgeQuinteros) | Allows to assign equipments and employees to workspaces.
 [hr_org_chart_overview](hr_org_chart_overview/) | 14.0.1.0.1 |  | Organizational Chart Overview
 [hr_period](hr_period/) | 14.0.1.0.0 |  | Add payroll periods
 [hr_personal_equipment_request](hr_personal_equipment_request/) | 14.0.1.0.1 |  | This addon allows to manage employee personal equipment
