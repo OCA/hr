@@ -1,4 +1,5 @@
 <odoo>
+
     <record id="view_hr_job_form_inherit_hr_recruitment" model="ir.ui.view">
         <field name="name">hr.job.form</field>
         <field name="model">hr.job</field>
@@ -39,4 +40,21 @@
             </field>
         </field>
     </record>
+
+    <record id="hr_job_view_search_inherit_inherit_hr_recruitment" model="ir.ui.view">
+        <field name="name">hr.job search</field>
+        <field name="model">hr.job</field>
+        <field name="inherit_id" ref="hr.view_job_filter" />
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='archived']" position="after">
+                <separator />
+                <filter
+                    name="to_recruit"
+                    string="To recruit"
+                    domain="[('to_recruit', '>', 0)]"
+                />
+            </xpath>
+        </field>
+    </record>
+
 </odoo>
