@@ -16,4 +16,6 @@ class HrJob(models.Model):
             else:
                 rec.website_published = False
 
-    to_recruit = fields.Integer(string="To be recruited", compute="_compute_to_recruit")
+    to_recruit = fields.Integer(
+        string="To be recruited", compute="_compute_to_recruit", store=True
+    )
