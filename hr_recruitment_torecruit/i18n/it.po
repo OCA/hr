@@ -17,6 +17,11 @@ msgstr ""
 "X-Generator: Weblate 4.17\n"
 
 #. module: hr_recruitment_torecruit
+#: model:ir.model,name:hr_recruitment_torecruit.model_hr_contract
+msgid "Contract"
+msgstr ""
+
+#. module: hr_recruitment_torecruit
 #: model:ir.model,name:hr_recruitment_torecruit.model_hr_job
 msgid "Job Position"
 msgstr "Posizione lavorativa"
@@ -26,3 +31,8 @@ msgstr "Posizione lavorativa"
 #: model_terms:ir.ui.view,arch_db:hr_recruitment_torecruit.view_hr_job_kanban_inherit_hr_recruitment
 msgid "To be recruited"
 msgstr "Da assumere"
+
+#. module: hr_recruitment_torecruit
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_torecruit.hr_job_view_search_inherit_inherit_hr_recruitment
+msgid "To recruit"
+msgstr ""
