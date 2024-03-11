@@ -14,6 +14,11 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: hr_recruitment_torecruit
+#: model:ir.model,name:hr_recruitment_torecruit.model_hr_contract
+msgid "Contract"
+msgstr ""
+
+#. module: hr_recruitment_torecruit
 #: model:ir.model,name:hr_recruitment_torecruit.model_hr_job
 msgid "Job Position"
 msgstr ""
@@ -22,4 +27,9 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_recruitment_torecruit.field_hr_job__to_recruit
 #: model_terms:ir.ui.view,arch_db:hr_recruitment_torecruit.view_hr_job_kanban_inherit_hr_recruitment
 msgid "To be recruited"
+msgstr ""
+
+#. module: hr_recruitment_torecruit
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_torecruit.hr_job_view_search_inherit_inherit_hr_recruitment
+msgid "To recruit"
 msgstr ""
