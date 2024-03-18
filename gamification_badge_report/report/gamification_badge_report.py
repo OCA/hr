@@ -12,7 +12,7 @@ class GamificationBadgeReport(models.Model):
     _rec_name = "employee_id"
 
     employee_id = fields.Many2one("hr.employee", string="Employee")
-    total = fields.Integer(string="Total")
+    total = fields.Integer()
 
     _depends = {"hr.employee": ["name"]}
 
