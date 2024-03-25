@@ -121,7 +121,6 @@ class HrEmployee(models.Model):
                 0
             ].calendar_id.hours_per_day
             # set global leaves
-            self.resource_id.calendar_id.global_leave_ids.unlink()
             self.copy_global_leaves()
 
     def copy_global_leaves(self):
@@ -140,9 +139,28 @@ class HrEmployee(models.Model):
             leave_ids += global_leaves.ids
         vals = [
             leave.copy_data({"calendar_id": self.resource_id.calendar_id.id})[0]
-            for leave in self.env["resource.calendar.leaves"].browse(leave_ids)
+            for leave in self.env["resource.calendar.leaves"].search(
+                [("id", "in", leave_ids)], order="date_from asc"
+            )
         ]
-        return self.env["resource.calendar.leaves"].create(vals).ids
+        existing_leaves_mapping = {
+            e.date_from: e for e in self.resource_id.calendar_id.global_leave_ids
+        }
+        requested_create_dates = [(e.get("date_from"), e.get("date_to")) for e in vals]
+        new_vals = [
+            v
+            for v in vals
+            if not (
+                v.get("date_from") in existing_leaves_mapping
+                and v.get("date_to")
+                == existing_leaves_mapping[v.get("date_from")].date_to
+            )
+        ]
+        to_unlink = self.resource_id.calendar_id.global_leave_ids.filtered(
+            lambda x: (x.date_from, x.date_to) not in requested_create_dates
+        )
+        to_unlink.unlink()
+        return self.env["resource.calendar.leaves"].create(new_vals).ids
 
     def regenerate_calendar(self):
         for item in self:
