@@ -23,16 +23,36 @@ class HRJob(models.Model):
 class HRContract(models.Model):
     _inherit = "hr.contract"
 
-    def _tag_employees(self, job_id):
-        if job_id:
+    def _remove_tags(self, job_id):
+        if isinstance(job_id, int):
             job = self.env["hr.job"].browse(job_id)
-            self.mapped("employee_id").write(
-                {"category_ids": [(6, 0, job.category_ids.ids)]}
-            )
         else:
-            for contract in self:
-                categories = contract.job_id and contract.job_id.category_ids.ids or []
-                contract.employee_id.write({"category_ids": [(6, 0, categories)]})
+            job = job_id
+        for employee in self.mapped("employee_id"):
+            _logger.debug(
+                "Removing employee tags if tags exist on contract job: %s",
+                employee.category_ids,
+            )
+            tags_to_remove = [
+                (3, tag.id) for tag in job.category_ids & employee.category_ids
+            ]
+            if tags_to_remove:
+                employee.write({"category_ids": tags_to_remove})
+
+    def _tag_employees(self, job_id):
+        if isinstance(job_id, int):
+            job = self.env["hr.job"].browse(job_id)
+        else:
+            job = job_id
+        _logger.debug(
+            "Adding employee tags if job tags doesn't exist: %s", job.category_ids
+        )
+        for employee in self.mapped("employee_id"):
+            tags_to_add = [
+                (4, tag.id) for tag in job.category_ids - employee.category_ids
+            ]
+            if tags_to_add:
+                employee.write({"category_ids": tags_to_add})
 
     @api.model
     def create(self, vals):
@@ -42,13 +62,29 @@ class HRContract(models.Model):
         return res
 
     def write(self, vals):
-        if "employee_id" in vals:
-            self.mapped("employee_id").write({"category_ids": [(5,)]})
+        prev_data = {
+            res["id"]: res["job_id"][0]
+            for res in self.read(["job_id"])
+            if res["job_id"]
+        }
+        for record in self:
+            if "employee_id" in vals and record.employee_id != vals.get("employee_id"):
+                record._remove_tags(record.job_id)
         res = super().write(vals)
-        if "job_id" in vals or ("employee_id" in vals and vals["employee_id"]):
-            self._tag_employees(vals.get("job_id"))
+        # Go through each record and delete tags associated with the previous
+        # job, then add the tags of the new job.
+        #
+        if "job_id" in vals:
+            for contract in self:
+                job_id = prev_data.get(contract.id)
+                if job_id:
+                    contract._remove_tags(job_id)
+                self._tag_employees(contract.job_id)
         return res
 
     def unlink(self):
-        self.mapped("employee_id").write({"category_ids": [(5,)]})
+        # Go through each record and delete tags associated with the previous job
+        for contract in self:
+            if contract.job_id:
+                contract._remove_tags(contract.job_id)
         return super().unlink()
