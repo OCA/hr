@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2024-03-23 07:00+0000\n"
+"PO-Revision-Date: 2024-03-31 01:58+0000\n"
 "Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
 "Language-Team: none\n"
 "Language: es\n"
@@ -418,10 +418,7 @@ msgstr "Ver Exámenes Médicos"
 #. module: hr_employee_medical_examination
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee_medical_examination__website_message_ids
 msgid "Website Messages"
-msgstr ""
-"La tasa de margen es [ Margen teórico / precio de venta (Wo Tax) ] de la "
-"forma del producto (no basado en valores históricos). Si no hay precio de "
-"venta, se mostrará 999.0"
+msgstr "Mensajes de Sitio Web"
 
 #. module: hr_employee_medical_examination
 #: model:ir.model.fields,help:hr_employee_medical_examination.field_hr_employee_medical_examination__website_message_ids
