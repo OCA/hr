@@ -11,7 +11,9 @@ class TestEmployeeID(common.TransactionCase):
         super(TestEmployeeID, self).setUp()
         self.employee_model = self.env["hr.employee"]
         self.company = self.env.ref("base.main_company")
-        self.sequence = self.env.ref("hr_employee_id.seq_hr_employee_id")
+        self.sequence = self.env.ref(
+            "hr_employee_number_generate_and_search.seq_hr_employee_id"
+        )
 
     def test_random_id_generation(self):
         # test ID generation for random

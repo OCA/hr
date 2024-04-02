@@ -45,5 +45,7 @@ class ResConfigSettings(models.TransientModel):
     def _default_id_sequence(self):
         sequence = self.env.user.company_id.employee_id_sequence
         if not sequence:
-            sequence = self.env.ref("hr_employee_id.seq_hr_employee_id")
+            sequence = self.env.ref(
+                "hr_employee_number_generate_and_search.seq_hr_employee_id"
+            )
         return sequence and sequence.id or False
