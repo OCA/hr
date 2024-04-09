@@ -445,3 +445,12 @@ class TestHrEmployeeCalendarPlanning(common.TransactionCase):
             user.company_id.resource_calendar_id,
             user.employee_id.mapped("calendar_ids.calendar_id"),
         )
+
+    def test_create_employee_multi(self):
+        employees = self.env["hr.employee"].create(
+            [
+                {"name": "multi employee 1"},
+                {"name": "multi employee 2"},
+            ]
+        )
+        self.assertEqual(len(employees), 2)
