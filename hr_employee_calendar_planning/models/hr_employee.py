@@ -222,9 +222,10 @@ class HrEmployeeCalendar(models.Model):
 
     @api.model_create_multi
     def create(self, vals):
-        record = super(HrEmployeeCalendar, self).create(vals)
-        record.employee_id._regenerate_calendar()
-        return record
+        res = super(HrEmployeeCalendar, self).create(vals)
+        for employee in res.mapped("employee_id"):
+            employee._regenerate_calendar()
+        return res
 
     def write(self, vals):
         res = super(HrEmployeeCalendar, self).write(vals)
