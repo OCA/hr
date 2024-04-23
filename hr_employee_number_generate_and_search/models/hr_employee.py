@@ -70,7 +70,7 @@ class HrEmployee(models.Model):
         for emp in self:
             name = emp.name
             if emp.employee_number:
-                name = "[" + str(emp.employee_number) + "]" + str(name)
+                name = "[" + str(emp.employee_number) + "] " + str(name)
             res.append((emp.id, name))
         return res
 
