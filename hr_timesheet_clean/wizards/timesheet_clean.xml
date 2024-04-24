@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2024 ACSONE SA/NV
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="timesheet_clean_form_view" model="ir.ui.view">
+        <field name="name">timesheet.clean.form (in hr_timesheet_clean)</field>
+        <field name="model">timesheet.clean</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="date_from" />
+                        <field name="date_to" />
+                    </group>
+                    <group />
+                </group>
+                <footer>
+                    <button
+                        name="action_clean"
+                        string="Clean"
+                        type="object"
+                        class="btn-primary"
+                        confirm="Do you really want to clean timesheet lines now?"
+                    />
+                    <button string="Cancel" class="btn-default" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="timesheet_clean_action" model="ir.actions.act_window">
+        <field name="name">Timesheet clean</field>
+        <field name="res_model">timesheet.clean</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="view_id" ref="timesheet_clean_form_view" />
+    </record>
+
+    <menuitem
+        id="timesheet_clean_menu"
+        parent="hr_timesheet.menu_hr_time_tracking"
+        sequence="20"
+        action="timesheet_clean_action"
+        name="Timesheet clean"
+    />
+</odoo>
