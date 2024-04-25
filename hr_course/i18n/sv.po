@@ -6,107 +6,109 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2024-04-25 08:00+0000\n"
+"Last-Translator: jakobkrabbe <jakob@syscare.se>\n"
 "Language-Team: none\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: hr_course
 #: model:ir.model.fields.selection,name:hr_course.selection__hr_course_attendee__result__absent
 msgid "Absent"
-msgstr ""
+msgstr "Frånvarande"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__message_needaction
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__message_needaction
 msgid "Action Needed"
-msgstr ""
+msgstr "Åtgärd Krävs"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee__active
 msgid "Active"
-msgstr ""
+msgstr "Aktiv"
 
 #. module: hr_course
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_schedule_form_view
 msgid "Assign attendees"
-msgstr ""
+msgstr "Tilldela deltagare"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__message_attachment_count
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__message_attachment_count
 msgid "Attachment Count"
-msgstr ""
+msgstr "Antal Bilagor"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__attendant_ids
 msgid "Attendant"
-msgstr ""
+msgstr "Deltagare"
 
 #. module: hr_course
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_schedule_form_view
 msgid "Attendees"
-msgstr ""
+msgstr "Deltagare"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__authorized_by
 msgid "Authorized By"
-msgstr ""
+msgstr "Auktoriserad av"
 
 #. module: hr_course
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_schedule_form_view
 msgid "Back to Draft"
-msgstr ""
+msgstr "Tillbaka till utkast"
 
 #. module: hr_course
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_schedule_form_view
 msgid "Cancel Course"
-msgstr ""
+msgstr "Avbryt kursen"
 
 #. module: hr_course
 #: model:ir.model.fields.selection,name:hr_course.selection__hr_course_schedule__state__cancelled
 msgid "Cancelled"
-msgstr ""
+msgstr "Avbruten"
 
 #. module: hr_course
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_schedule_form_view
 msgid "Cancelled Course"
-msgstr ""
+msgstr "Avbruten kurs"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__category_id
 #: model_terms:ir.ui.view,arch_db:hr_course.view_course_category_search
 msgid "Category"
-msgstr ""
+msgstr "Kategori"
 
 #. module: hr_course
 #: model:ir.model.constraint,message:hr_course.constraint_hr_course_category_name_uniq
 msgid "Category already exists !"
-msgstr ""
+msgstr "Kategorin finns redan!"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__comment
 msgid "Comment"
-msgstr ""
+msgstr "Kommentar"
 
 #. module: hr_course
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_schedule_form_view
 msgid "Complete Course"
-msgstr ""
+msgstr "Slutför en kurs"
 
 #. module: hr_course
 #: model:ir.model.fields.selection,name:hr_course.selection__hr_course_schedule__state__completed
 msgid "Completed"
-msgstr ""
+msgstr "Slutförd"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__content
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_form_view
 msgid "Content"
-msgstr ""
+msgstr "Innehåll"
 
 #. module: hr_course
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_schedule_form_view
@@ -120,13 +122,13 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_schedule_form_view
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_schedule_search_view
 msgid "Course"
-msgstr ""
+msgstr "Kurs"
 
 #. module: hr_course
 #: model:ir.model,name:hr_course.model_hr_course_attendee
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__course_attendee_ids
 msgid "Course Attendee"
-msgstr ""
+msgstr "Kursdeltagare"
 
 #. module: hr_course
 #: model:ir.actions.act_window,name:hr_course.open_view_course_category_form
@@ -134,44 +136,44 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:hr_course.view_course_category_form
 #: model_terms:ir.ui.view,arch_db:hr_course.view_course_category_search
 msgid "Course Categories"
-msgstr ""
+msgstr "Kurskategorier"
 
 #. module: hr_course
 #: model:ir.model,name:hr_course.model_hr_course_category
 msgid "Course Category"
-msgstr ""
+msgstr "Kurskategori"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__cost
 msgid "Course Cost"
-msgstr ""
+msgstr "Kurskostnad"
 
 #. module: hr_course
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_schedule_search_view
 msgid "Course Name"
-msgstr ""
+msgstr "Kursnamn"
 
 #. module: hr_course
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_schedule_form_view
 msgid "Course Results"
-msgstr ""
+msgstr "Kursresultat"
 
 #. module: hr_course
 #: model:ir.model,name:hr_course.model_hr_course_schedule
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__course_schedule_ids
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee__course_schedule_id
 msgid "Course Schedule"
-msgstr ""
+msgstr "Kursschema"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_category__name
 msgid "Course category"
-msgstr ""
+msgstr "Kurskategori"
 
 #. module: hr_course
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_form_view
 msgid "Course name"
-msgstr ""
+msgstr "Kursnamn"
 
 #. module: hr_course
 #: model:ir.actions.act_window,name:hr_course.action_hr_course
@@ -182,14 +184,14 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_form_view
 #: model_terms:ir.ui.view,arch_db:hr_course.view_hr_employee_form
 msgid "Courses"
-msgstr ""
+msgstr "Kurser"
 
 #. module: hr_course
 #: model:ir.actions.act_window,name:hr_course.action_hr_course_schedule
 #: model:ir.ui.menu,name:hr_course.menu_hr_course_schedule
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_schedule_form_view
 msgid "Courses Schedule"
-msgstr ""
+msgstr "Kursscheman"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__create_uid
@@ -197,7 +199,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_category__create_uid
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Skapad av"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__create_date
@@ -205,12 +207,12 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_category__create_date
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Skapad den"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__currency_id
 msgid "Currency"
-msgstr ""
+msgstr "Valuta"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__display_name
@@ -218,74 +220,74 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_category__display_name
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Visningsnamn"
 
 #. module: hr_course
 #: model:ir.model.fields.selection,name:hr_course.selection__hr_course_schedule__state__draft
 msgid "Draft"
-msgstr ""
+msgstr "Utkast"
 
 #. module: hr_course
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_schedule_form_view
 msgid "Draft Course"
-msgstr ""
+msgstr "Kursutkast"
 
 #. module: hr_course
 #: model:ir.model,name:hr_course.model_hr_employee
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee__employee_id
 msgid "Employee"
-msgstr ""
+msgstr "Anställd"
 
 #. module: hr_course
 #. odoo-python
 #: code:addons/hr_course/models/hr_course_schedule.py:0
 #, python-format
 msgid "Employees removed from this course: <br></br>%s"
-msgstr ""
+msgstr "Anställd borttagen från denna kursen: <br></br>%s"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee__course_end
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__end_date
 msgid "End Date"
-msgstr ""
+msgstr "Slutdatum"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__evaluation_criteria
 msgid "Evaluation Criteria"
-msgstr ""
+msgstr "Utvärderingskriteria"
 
 #. module: hr_course
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_form_view
 msgid "Evaluation criteria"
-msgstr ""
+msgstr "Utvärderingskriteria"
 
 #. module: hr_course
 #: model:ir.model.fields.selection,name:hr_course.selection__hr_course_attendee__result__failed
 msgid "Failed"
-msgstr ""
+msgstr "Misslyckades"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__message_follower_ids
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__message_follower_ids
 msgid "Followers"
-msgstr ""
+msgstr "Följare"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__message_partner_ids
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__message_partner_ids
 msgid "Followers (Partners)"
-msgstr ""
+msgstr "Följare (kontakter)"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__has_message
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__has_message
 msgid "Has Message"
-msgstr ""
+msgstr "Har meddelande"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__permanence
 msgid "Has Permanence"
-msgstr ""
+msgstr "Beständighetstid"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__id
@@ -293,45 +295,45 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_category__id
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: hr_course
 #: model:ir.model.fields,help:hr_course.field_hr_course__message_needaction
 #: model:ir.model.fields,help:hr_course.field_hr_course_schedule__message_needaction
 msgid "If checked, new messages require your attention."
-msgstr ""
+msgstr "Om markerad så finns det meddelanden som kräver din uppmärksamhet."
 
 #. module: hr_course
 #: model:ir.model.fields,help:hr_course.field_hr_course__message_has_error
 #: model:ir.model.fields,help:hr_course.field_hr_course_schedule__message_has_error
 msgid "If checked, some messages have a delivery error."
-msgstr ""
+msgstr "Om markerad, en del meddelanden har leveransfel."
 
 #. module: hr_course
 #: model:ir.model.fields.selection,name:hr_course.selection__hr_course_schedule__state__in_progress
 msgid "In progress"
-msgstr ""
+msgstr "Pågående"
 
 #. module: hr_course
 #: model:ir.model.fields.selection,name:hr_course.selection__hr_course_schedule__state__in_validation
 msgid "In validation"
-msgstr ""
+msgstr "I validering"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__instructor_ids
 msgid "Instructor"
-msgstr ""
+msgstr "Instruktör"
 
 #. module: hr_course
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_schedule_form_view
 msgid "Internal notes"
-msgstr ""
+msgstr "Interna anteckningar"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__message_is_follower
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__message_is_follower
 msgid "Is Follower"
-msgstr ""
+msgstr "Är Följare"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course____last_update
@@ -339,7 +341,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_category____last_update
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Senast redigerad"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__write_uid
@@ -347,7 +349,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_category__write_uid
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Senast uppdaterad av"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__write_date
@@ -355,165 +357,165 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_category__write_date
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Senast uppdaterad den"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__message_main_attachment_id
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__message_main_attachment_id
 msgid "Main Attachment"
-msgstr ""
+msgstr "Huvudbilaga"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__message_has_error
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__message_has_error
 msgid "Message Delivery error"
-msgstr ""
+msgstr "Leveransfels meddelande"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__message_ids
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__message_ids
 msgid "Messages"
-msgstr ""
+msgstr "Meddelanden"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__name
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee__name
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__name
 msgid "Name"
-msgstr ""
+msgstr "Namn"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__note
 msgid "Note"
-msgstr ""
+msgstr "Anteckning"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__message_needaction_counter
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__message_needaction_counter
 msgid "Number of Actions"
-msgstr ""
+msgstr "Antal åtgärder"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_employee__count_courses
 msgid "Number of courses"
-msgstr ""
+msgstr "Antal kurser"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__message_has_error_counter
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__message_has_error_counter
 msgid "Number of errors"
-msgstr ""
+msgstr "Antal fel"
 
 #. module: hr_course
 #: model:ir.model.fields,help:hr_course.field_hr_course__message_needaction_counter
 #: model:ir.model.fields,help:hr_course.field_hr_course_schedule__message_needaction_counter
 msgid "Number of messages requiring action"
-msgstr ""
+msgstr "Antal meddelanden som kräver åtgärd"
 
 #. module: hr_course
 #: model:ir.model.fields,help:hr_course.field_hr_course__message_has_error_counter
 #: model:ir.model.fields,help:hr_course.field_hr_course_schedule__message_has_error_counter
 msgid "Number of messages with delivery error"
-msgstr ""
+msgstr "Antal meddelanden med leveransfel"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__objective
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_form_view
 msgid "Objective"
-msgstr ""
+msgstr "Sakligt"
 
 #. module: hr_course
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_schedule_form_view
 msgid "Pass everybody"
-msgstr ""
+msgstr "Godkänn samtliga"
 
 #. module: hr_course
 #: model:ir.model.fields.selection,name:hr_course.selection__hr_course_attendee__result__passed
 msgid "Passed"
-msgstr ""
+msgstr "Godkänd"
 
 #. module: hr_course
 #: model:ir.model.fields.selection,name:hr_course.selection__hr_course_attendee__result__pending
 msgid "Pending"
-msgstr ""
+msgstr "Avvaktande"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__permanence_time
 msgid "Permanence Time"
-msgstr ""
+msgstr "Beständighetstid"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__place
 msgid "Place"
-msgstr ""
+msgstr "Plats"
 
 #. module: hr_course
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_schedule_form_view
 msgid "Rate Course"
-msgstr ""
+msgstr "Betygsätt kursen"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee__result
 msgid "Result"
-msgstr ""
+msgstr "Resultat"
 
 #. module: hr_course
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_form_view
 msgid "Schedules"
-msgstr ""
+msgstr "Scheman"
 
 #. module: hr_course
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_schedule_form_view
 msgid "Start Course"
-msgstr ""
+msgstr "Starta kurs"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee__course_start
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__start_date
 msgid "Start Date"
-msgstr ""
+msgstr "Startdatum"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee__state
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__state
 msgid "State"
-msgstr ""
+msgstr "Läge"
 
 #. module: hr_course
 #. odoo-python
 #: code:addons/hr_course/models/hr_course_schedule.py:0
 #, python-format
 msgid "The start date cannot be later than the end date."
-msgstr ""
+msgstr "Startdatumet kan inte vara senare än slutdatumet."
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__training_company_id
 msgid "Training company"
-msgstr ""
+msgstr "Utbildningsföretag"
 
 #. module: hr_course
 #: model:ir.model.fields.selection,name:hr_course.selection__hr_course_schedule__state__waiting_attendees
 msgid "Waiting attendees"
-msgstr ""
+msgstr "Väntande deltagare"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__website_message_ids
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__website_message_ids
 msgid "Website Messages"
-msgstr ""
+msgstr "Webbplatsmeddelanden"
 
 #. module: hr_course
 #: model:ir.model.fields,help:hr_course.field_hr_course__website_message_ids
 #: model:ir.model.fields,help:hr_course.field_hr_course_schedule__website_message_ids
 msgid "Website communication history"
-msgstr ""
+msgstr "Webbplatsens kommunikationshistorik"
 
 #. module: hr_course
 #. odoo-python
 #: code:addons/hr_course/models/hr_course_schedule.py:0
 #, python-format
 msgid "You cannot complete the course with pending results"
-msgstr ""
+msgstr "Du kan inte slutföra kursen med väntande resultat"
 
 #. module: hr_course
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_schedule_form_view
@@ -521,3 +523,5 @@ msgid ""
 "You should set a course back to draft only if you cancelled it by mistake or"
 " if some of its information is incorrect. Do you want to continue?"
 msgstr ""
+"Du bör endast återställa en kurs till utkast om du avbröt den av misstag "
+"eller om en del av informationen är felaktig. Vill du fortsätta?"
