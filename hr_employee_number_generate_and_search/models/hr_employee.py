@@ -71,7 +71,8 @@ class HrEmployee(models.Model):
             name = emp.name
             if emp.employee_number:
                 name = "[" + str(emp.employee_number) + "] " + str(name)
-            res.append((emp.id, name))
+            if emp.id and name:
+                res.append((emp.id, name))
         return res
 
     @api.model
