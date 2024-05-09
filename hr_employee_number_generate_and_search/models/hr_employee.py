@@ -65,35 +65,14 @@ class HrEmployee(models.Model):
         return super(HrEmployee, self).create(vals)
 
     def name_get(self):
-        if self.check_access_rights("read", raise_exception=False):
-            self.browse(self.ids).read(["name", "employee_number"])
-            return [
-                (
-                    employee.id,
-                    "%s%s"
-                    % (
-                        employee.employee_number
-                        and "[%s] " % employee.employee_number
-                        or "",
-                        employee.name,
-                    ),
-                )
-                for employee in self
-            ]
-        employees = self.env["hr.employee.public"].browse(self.ids)
-        return [
-            (
-                employee.id,
-                "%s%s"
-                % (
-                    employee.employee_number
-                    and "[%s] " % employee.employee_number
-                    or "",
-                    employee.name,
-                ),
-            )
-            for employee in employees
-        ]
+        res = super().name_get()
+        res = []
+        for emp in self:
+            name = emp.name
+            if emp.employee_number:
+                name = "[" + str(emp.employee_number) + "] " + str(name)
+            res.append((emp.id, name))
+        return res
 
     @api.model
     def _name_search(self, name, args=None, operator="ilike", limit=100):
