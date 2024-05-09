@@ -94,3 +94,10 @@ class HrEmployee(models.Model):
             )
             for employee in employees
         ]
+
+    @api.model
+    def _name_search(self, name, args=None, operator="ilike", limit=100):
+        args = args if args is not None else []
+        args += ["|", ("name", operator, name), ("employee_number", operator, name)]
+        empl_ids = self.search(args, limit=limit)
+        return empl_ids.name_get()
