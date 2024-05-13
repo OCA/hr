@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<odoo>
+    <function name="write" model="ir.model.data">
+        <value
+            model="ir.model.data"
+            search="[('module', '=', 'hr_holidays'), ('name', 'in',['hr_leave_rule_officer_update','hr_leave_allocation_rule_officer_read','hr_leave_allocation_rule_officer_update'])]"
+        />
+        <value eval="{'noupdate': False}" />
+    </function>
+</odoo>
