@@ -61,6 +61,11 @@
         <field name="arch" type="xml">
             <xpath
                 expr="//button[@name='%(hr_holidays_attendance.hr_leave_allocation_overtime_manager_action)d']"
+            >
+                <field name="total_overtime" invisible="1" />
+            </xpath>
+            <xpath
+                expr="//button[@name='%(hr_holidays_attendance.hr_leave_allocation_overtime_manager_action)d']"
                 position="attributes"
             >
                 <attribute
