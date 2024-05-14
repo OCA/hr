@@ -9,11 +9,7 @@
         <field name="inherit_id" ref="hr.view_employee_form" />
         <field name="arch" type="xml">
             <field name="coach_id" position="after">
-                <field
-                    name="total_overtime"
-                    invisible="1"
-                    groups="hr.group_hr_user,hr_employee_group_overview_readonly.group_hr_overview_readonly"
-                />
+                <field name="total_overtime" invisible="1" />
             </field>
             <page name="personal_information" position="attributes">
                 <attribute name="groups">
