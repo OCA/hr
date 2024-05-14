@@ -6,7 +6,7 @@ from odoo.tests import common
 
 class TestHrJobCategories(common.TransactionCase):
     def setUp(self):
-        super(TestHrJobCategories, self).setUp()
+        super().setUp()
         self.employee_model = self.env["hr.employee"]
         self.employee_categ_model = self.env["hr.employee.category"]
         self.user_model = self.env["res.users"]
@@ -47,7 +47,6 @@ class TestHrJobCategories(common.TransactionCase):
         """
         # Check if job categories are written to the employee
         self.contract_id.write({"job_id": self.job_id.id})
-        self.contract_id.refresh()
         self.assertTrue(self.employee_id_1.category_ids)
         self.assertTrue(
             all(
@@ -61,7 +60,6 @@ class TestHrJobCategories(common.TransactionCase):
 
         # Check if job2 categories are written to the employee
         self.contract_id.write({"job_id": self.job_2_id.id})
-        self.contract_id.flush()
         self.assertTrue(
             all(
                 x in self.employee_id_1.category_ids.ids
@@ -70,11 +68,7 @@ class TestHrJobCategories(common.TransactionCase):
         )
         self.contract_id.write({"employee_id": self.employee_id_2.id})
         self.contract_id.write({"job_id": self.job_2_id.id})
-        # We need to force the job, as it is modified by a compute
-        self.employee_id_1.refresh()
-        self.employee_id_2.refresh()
         self.assertFalse(self.employee_id_1.category_ids)
-        self.job_2_id.refresh()
         self.assertTrue(
             all(
                 x in self.employee_id_2.category_ids.ids
@@ -97,7 +91,6 @@ class TestHrJobCategories(common.TransactionCase):
         # We are now adding contract with 1 job category
         # The employee should now have two tags
         self.contract_id.write({"job_id": self.job_id.id})
-        self.contract_id.refresh()
         self.assertEqual(len(self.employee_id_1.category_ids.ids), 2)
         self.assertIn(self.categ_3_id.id, self.employee_id_1.category_ids.ids)
         self.assertIn(
@@ -108,7 +101,6 @@ class TestHrJobCategories(common.TransactionCase):
         """Changing the job position removes previous tags and add the new ones"""
         self.employee_id_1.write({"category_ids": self.categ_3_id})
         self.contract_id.write({"job_id": self.job_id.id})
-        self.contract_id.refresh()
 
         # We have two tags (from job and the manual added one)
         self.assertEqual(len(self.employee_id_1.category_ids.ids), 2)
@@ -116,7 +108,6 @@ class TestHrJobCategories(common.TransactionCase):
         # We change the contract of the employe
         # We should now have the tag
         self.contract_id.write({"job_id": self.job_2_id.id})
-        self.contract_id.flush()
 
         self.assertEqual(len(self.employee_id_1.category_ids.ids), 2)
         self.assertIn(self.categ_3_id.id, self.employee_id_1.category_ids.ids)
@@ -131,7 +122,6 @@ class TestHrJobCategories(common.TransactionCase):
         """When we unlink a contract, it should remove only the tags related to it"""
         self.employee_id_1.write({"category_ids": self.categ_3_id})
         self.contract_id.write({"job_id": self.job_id.id})
-        self.contract_id.refresh()
 
         # We have two tags (from job and the manual added one)
         self.assertEqual(len(self.employee_id_1.category_ids.ids), 2)
