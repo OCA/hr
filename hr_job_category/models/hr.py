@@ -68,7 +68,11 @@ class HRContract(models.Model):
             if res["job_id"]
         }
         for record in self:
-            if "employee_id" in vals and record.employee_id != vals.get("employee_id"):
+            if (
+                "employee_id" in vals
+                and record.employee_id
+                and record.employee_id.id != vals.get("employee_id")
+            ):
                 record._remove_tags(record.job_id)
         res = super().write(vals)
         # Go through each record and delete tags associated with the previous
