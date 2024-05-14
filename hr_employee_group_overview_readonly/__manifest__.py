@@ -16,7 +16,7 @@
         "hr_contract",
         "hr_fleet",
         "hr_attendance",
-        "hr_skills",
+        "hr_skills_slides",
         "hr_work_entry",
         "hr_gamification",
     ],
