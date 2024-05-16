@@ -13,5 +13,9 @@ class HolidaysAllocation(models.Model):
         ) and not self.env.user.has_group(
             "hr_holidays_team_manager.group_hr_holidays_officer"
         ):
+            validated_holidays = self.filtered(
+                lambda holiday: holiday.state == "validate"
+            )
+            (self - validated_holidays).write({"state": "confirm"})
             raise ValidationError(_("Team managers can't approve time off allocations"))
         return super().action_validate()
