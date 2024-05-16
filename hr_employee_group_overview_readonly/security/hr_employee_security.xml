@@ -10,7 +10,7 @@
     </record>
 
     <record id="hr.group_hr_user" model="res.groups">
-        <field name="name">Employees / User: read only</field>
+        <field name="name">User: read only</field>
     </record>
 
     <record id="res_partner_portal_public_rule" model="ir.rule">
@@ -26,7 +26,7 @@
 
 
      <record id="group_hr_officer" model="res.groups">
-        <field name="name">Employees / HR Officer</field>
+        <field name="name">HR Officer</field>
         <field name="implied_ids" eval="[(4, ref('hr.group_hr_user'))]" />
         <field
             name="category_id"
@@ -59,6 +59,10 @@
     <record id="group_hr_overview_readonly" model="res.groups">
         <field name="name">Employees:- HR Overview Readonly</field>
         <field name="implied_ids" eval="[(4, ref('hr.group_hr_user'))]" />
+        <field
+            name="category_id"
+            ref="base.module_category_human_resources_employees"
+        />
     </record>
 
     <record id="hr_skills.hr_skill_rule_hr_user" model="ir.rule">
