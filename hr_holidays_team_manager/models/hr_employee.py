@@ -3,8 +3,8 @@
 from odoo import api, models
 
 
-class HrEmployeeBase(models.AbstractModel):
-    _inherit = "hr.employee.base"
+class HrEmployeePrivate(models.Model):
+    _inherit = "hr.employee"
 
     def search(self, args, offset=0, limit=None, order=None, count=False):
         params = self.env.context.get("params")
@@ -23,7 +23,11 @@ class HrEmployeeBase(models.AbstractModel):
                     employee_id = self.env.user.with_context(by_pass=True).employee_ids
                     if employee_id:
                         args += [
-                            ("department_id", "=", employee_id[0].department_id.id)
+                            (
+                                "department_id",
+                                "=",
+                                self.env.user.employee_id.department_id.id,
+                            )
                         ]
 
         return super().search(
@@ -47,7 +51,11 @@ class HrEmployeeBase(models.AbstractModel):
                     employee_id = self.env.user.with_context(by_pass=True).employee_ids
                     if employee_id:
                         args += [
-                            ("department_id", "=", employee_id[0].department_id.id)
+                            (
+                                "department_id",
+                                "=",
+                                self.env.user.employee_id.department_id.id,
+                            )
                         ]
 
         return super().name_search(name=name, args=args, operator=operator, limit=limit)
