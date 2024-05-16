@@ -36,3 +36,22 @@ class TestHREmployeePPE(SavepointCase):
         self.assertEqual(self.hr_employee_ppe1.name,
                          "Mask for COVID-19 to Abigail Peterson")
         self.assertEqual(self.hr_employee_ppe1.expire, True)
+
+    def test_hr_employee_ppe_multi(self):
+        employee = self.env.ref('hr.employee_hne')
+        today = datetime.now().strftime('%Y-%m-%d')
+        tomorrow = (datetime.now() + timedelta(days=1)).strftime('%Y-%m-%d')
+        employee.write({
+            'ppe_ids': [
+                (0, 0, {
+                    'ppe_id': self.hr_employee_ppe1.id,
+                    'start_date': today,
+                    'end_date': tomorrow,
+                }),
+                (0, 0, {
+                    'ppe_id': self.hr_employee_ppe2.id,
+                    'start_date': today,
+                    'end_date': tomorrow,
+                }),
+            ],
+        })
