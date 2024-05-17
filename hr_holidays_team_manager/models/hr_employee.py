@@ -48,6 +48,7 @@ class HrEmployeePrivate(models.Model):
                 ):
                     if args is None:
                         args = []
+                    employee_id = self.env.user.with_context(by_pass=True).employee_ids
                     if employee_id:
                         args += [
                             (
