@@ -20,9 +20,9 @@ msgstr ""
 "X-Generator: Weblate 4.17\n"
 
 #. module: hr_employee_phone_extension
-#: model:ir.model,name:hr_employee_phone_extension.model_hr_employee
-msgid "Employee"
-msgstr "Empleado"
+#: model:ir.model,name:hr_employee_phone_extension.model_hr_employee_base
+msgid "Basic Employee"
+msgstr ""
 
 #. module: hr_employee_phone_extension
 #: model_terms:ir.ui.view,arch_db:hr_employee_phone_extension.hr_employee_public_view_form
@@ -57,3 +57,6 @@ msgstr "Número corto"
 #: model:ir.model.fields,help:hr_employee_phone_extension.field_hr_employee_public__short_number
 msgid "Short phone number."
 msgstr "Número de teléfono corto."
+
+#~ msgid "Employee"
+#~ msgstr "Empleado"
