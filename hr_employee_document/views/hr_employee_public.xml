@@ -17,7 +17,7 @@
                     class="oe_stat_button"
                     icon="fa-book"
                     name="action_get_attachment_tree_view"
-                    attrs="{'invisible': [('is_logged', '=', False)]}"
+                    invisible="not is_logged"
                     type="object"
                 >
                     <field name="document_count" widget="statinfo" string="Documents" />

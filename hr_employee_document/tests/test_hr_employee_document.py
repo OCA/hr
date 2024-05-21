@@ -9,11 +9,12 @@ from odoo.tests.common import users
 
 
 class TestHrEmployeeDocument(common.TransactionCase):
-    def setUp(self):
-        super().setUp()
-        self.env = self.env(
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        cls.env = cls.env(
             context=dict(
-                self.env.context,
+                cls.env.context,
                 mail_create_nolog=True,
                 mail_create_nosubscribe=True,
                 mail_notrack=True,
@@ -21,16 +22,17 @@ class TestHrEmployeeDocument(common.TransactionCase):
                 tracking_disable=True,
             )
         )
-        self.user_1 = new_test_user(self.env, login="test-user-1")
-        self.user_2 = new_test_user(self.env, login="test-user-2")
-        new_test_user(self.env, login="test-user-manager", groups="hr.group_hr_user")
-        self.employee_1 = self.env["hr.employee"].create(
-            {"name": "Employee #1", "user_id": self.user_1.id}
+        cls.user_1 = new_test_user(cls.env, login="test-user-1")
+        cls.user_2 = new_test_user(cls.env, login="test-user-2")
+        new_test_user(cls.env, login="test-user-manager", groups="hr.group_hr_user")
+        cls.employee_1 = cls.env["hr.employee"].create(
+            {"name": "Employee #1", "user_id": cls.user_1.id}
         )
-        self.employee_2 = self.env["hr.employee"].create(
-            {"name": "Employee #2", "user_id": self.user_2.id}
+        cls.employee_2 = cls.env["hr.employee"].create(
+            {"name": "Employee #2", "user_id": cls.user_2.id}
         )
 
+    @classmethod
     def _create_attachment(self, employee_id):
         return (
             self.env["ir.attachment"]
@@ -45,14 +47,7 @@ class TestHrEmployeeDocument(common.TransactionCase):
             )
         )
 
-    @users("test-user-1")
-    def test_employee_attachment(self):
-        employee = self.env.user.employee_id
-        self._create_attachment(employee)
-        self.assertEqual(employee.document_count, 1)
-        employee_public = self.env["hr.employee.public"].browse(employee.id)
-        self.assertEqual(employee_public.document_count, 1)
-
+    @classmethod
     def _get_attachments_from_employee(self, employee):
         res = employee.action_get_attachment_tree_view()
         return (
@@ -60,6 +55,18 @@ class TestHrEmployeeDocument(common.TransactionCase):
             .with_context(**res["context"])
             .search(res["domain"])
         )
+
+    @users("test-user-1")
+    def test_employee_attachment(self):
+        employee = self.env.user.employee_id
+        self._create_attachment(employee)
+        self.assertEqual(employee.document_count, 1)
+        employee_public = (
+            self.env["hr.employee.public"]
+            .browse(employee.id)
+            .with_context(search_attachments_from_hr_employee=True)
+        )
+        self.assertEqual(employee_public.document_count, 1)
 
     @users("test-user-2")
     def test_employee_attachment_tree_view(self):
