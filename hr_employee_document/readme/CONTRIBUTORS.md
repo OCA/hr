@@ -10,3 +10,6 @@
 
 - Alberto Nieto de Pablos \<<alberto.nieto@braintec.com>\>
   (<https://braintec.com>)
+
+- [APSL-Nagarro](https://www.apsl.tech):
+  - Antoni Marroig \<<amarroig@apsl.net>\>
