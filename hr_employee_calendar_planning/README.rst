@@ -17,13 +17,13 @@ Employee Calendar Planning
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fhr-lightgray.png?logo=github
-    :target: https://github.com/OCA/hr/tree/16.0/hr_employee_calendar_planning
+    :target: https://github.com/OCA/hr/tree/17.0/hr_employee_calendar_planning
     :alt: OCA/hr
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/hr-16-0/hr-16-0-hr_employee_calendar_planning
+    :target: https://translation.odoo-community.org/projects/hr-17-0/hr-17-0-hr_employee_calendar_planning
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runboat-Try%20me-875A7B.png
-    :target: https://runboat.odoo-community.org/builds?repo=OCA/hr&target_branch=16.0
+    :target: https://runboat.odoo-community.org/builds?repo=OCA/hr&target_branch=17.0
     :alt: Try me on Runboat
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
@@ -32,11 +32,12 @@ This module allows to manage employee working time with profiles by date
 intervals.
 
 The profiles are regular working time calendars, but they are treated as
-master ones here, allowing you to compose complexes working times by dates.
+master ones here, allowing you to compose complexes working times by
+dates.
 
-Under the hook, a unique working time is created for each employee with the
-proper composition for not affecting the rest of the functionality linked to
-this model.
+Under the hook, a unique working time is created for each employee with
+the proper composition for not affecting the rest of the functionality
+linked to this model.
 
 **Table of contents**
 
@@ -46,30 +47,29 @@ this model.
 Installation
 ============
 
-During the installation of the module, current working times are split by
-start/end dates for having consistent data, and the potential new composed
-calendar planning is saved instead on the employee.
+During the installation of the module, current working times are split
+by start/end dates for having consistent data, and the potential new
+composed calendar planning is saved instead on the employee.
 
 Configuration
 =============
 
-#. Go to *Employees > Employees*.
-#. Open or create a new one.
-#. On the "Work Information" tab, fill the section "Working Hours" with:
+1. Go to *Employees > Employees*.
+2. Open or create a new one.
+3. On the "Work Information" tab, fill the section "Working Hours" with:
 
-   * Starting date (optional).
-   * Ending date (optional).
-   * Working time to apply during that date interval.
+   -  Starting date (optional).
+   -  Ending date (optional).
+   -  Working time to apply during that date interval.
 
 Known issues / Roadmap
 ======================
 
-
-* Add a wizard for generating next year calendar planning based on current one
-  in batch.
-* Add constraint for avoiding planning lines overlapping.
-* Avoid the regeneration of whole private calendars each time a change is
-  detected.
+-  Add a wizard for generating next year calendar planning based on
+   current one in batch.
+-  Add constraint for avoiding planning lines overlapping.
+-  Avoid the regeneration of whole private calendars each time a change
+   is detected.
 
 Bug Tracker
 ===========
@@ -77,7 +77,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/hr/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/hr/issues/new?body=module:%20hr_employee_calendar_planning%0Aversion:%2016.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/hr/issues/new?body=module:%20hr_employee_calendar_planning%0Aversion:%2017.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -85,34 +85,33 @@ Credits
 =======
 
 Authors
-~~~~~~~
+-------
 
 * Tecnativa
 
 Contributors
-~~~~~~~~~~~~
+------------
 
-* `Tecnativa <https://www.tecnativa.com>`_:
+-  `Tecnativa <https://www.tecnativa.com>`__:
 
-  * Pedro M. Baeza
-  * Víctor Martínez
+   -  Pedro M. Baeza
+   -  Víctor Martínez
 
-* `Creu Blanca <https://www.creu-blanca.es/>`_:
+-  `Creu Blanca <https://www.creu-blanca.es/>`__:
 
-  * Jaime Arroyo
+   -  Jaime Arroyo
 
-* `ForgeFlow <https://www.forgeflow.com/>`_:
+-  `ForgeFlow <https://www.forgeflow.com/>`__:
 
-  * Jordi Ballester Alomar (jordi.ballester@forgeflow.com)
+   -  Jordi Ballester Alomar (jordi.ballester@forgeflow.com)
+   -  Nattapong W. <aphon61bank@gmail.com>
 
-  * Nattapong W. <aphon61bank@gmail.com>
+-  `Pesol <https://www.pesol.es>`__:
 
-* `Pesol <https://www.pesol.es>`__:
-
-  * Pedro Evaristo Gonzalez Sanchez <pedro.gonzalez@pesol.es>
+   -  Pedro Evaristo Gonzalez Sanchez <pedro.gonzalez@pesol.es>
 
 Maintainers
-~~~~~~~~~~~
+-----------
 
 This module is maintained by the OCA.
 
@@ -135,6 +134,6 @@ Current `maintainers <https://odoo-community.org/page/maintainer-role>`__:
 
 |maintainer-victoralmau| |maintainer-pedrobaeza| 
 
-This module is part of the `OCA/hr <https://github.com/OCA/hr/tree/16.0/hr_employee_calendar_planning>`_ project on GitHub.
+This module is part of the `OCA/hr <https://github.com/OCA/hr/tree/17.0/hr_employee_calendar_planning>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
