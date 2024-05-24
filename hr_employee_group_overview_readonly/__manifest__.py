@@ -10,12 +10,9 @@
     "website": "https://github.com/OCA/hr",
     "category": "Accounting",
     "depends": [
-        "hr",
-        "hr_holidays",
         "hr_holidays_attendance",
         "hr_contract",
         "hr_fleet",
-        "hr_attendance",
         "hr_skills_slides",
         "hr_work_entry",
         "hr_gamification",
