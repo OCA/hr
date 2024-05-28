@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--
+      Copyright 2018 Brainbean Apps (https://brainbeanapps.com)
+      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+    -->
+    <record id="hr_employee_view_form" model="ir.ui.view">
+        <field name="name">hr.employee.view.form.inherit.document</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form" />
+        <field name="arch" type="xml">
+            <div name="button_box" position="inside">
+                <button
+                    class="oe_stat_button"
+                    icon="fa-book"
+                    name="action_get_attachment_tree_view"
+                    type="object"
+                    groups="hr.group_hr_user"
+                >
+                    <field name="document_count" widget="statinfo" string="Documents" />
+                </button>
+            </div>
+            <xpath expr="//div[hasclass('oe_chatter')]" position="before">
+                <div class="o_attachment_preview" />
+            </xpath>
+        </field>
+    </record>
+    <record id="ir_attachment_view_search" model="ir.ui.view">
+        <field name="name">ir.attachment.search.inherit.employee</field>
+        <field name="model">ir.attachment</field>
+        <field name="mode">primary</field>
+        <field name="inherit_id" ref="base.view_attachment_search" />
+        <field name="arch" type="xml">
+            <field name="create_date" position="after">
+                <field name="index_content" string="Content" />
+            </field>
+            <xpath expr="//filter[@name='my_documents_filter']" position="attributes">
+                <attribute name='invisible'>1</attribute>
+            </xpath>
+            <xpath expr="//filter[@name='url_filter']" position="attributes">
+                <attribute name='invisible'>1</attribute>
+            </xpath>
+            <xpath expr="//filter[@name='binary_filter']" position="attributes">
+                <attribute name='invisible'>1</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>
