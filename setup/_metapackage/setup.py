@@ -22,6 +22,7 @@ setuptools.setup(
         'odoo-addon-hr_employee_partner_external>=16.0dev,<16.1dev',
         'odoo-addon-hr_employee_phone_extension>=16.0dev,<16.1dev',
         'odoo-addon-hr_employee_relative>=16.0dev,<16.1dev',
+        'odoo-addon-hr_employee_service>=16.0dev,<16.1dev',
         'odoo-addon-hr_employee_ssn>=16.0dev,<16.1dev',
         'odoo-addon-hr_holidays_settings>=16.0dev,<16.1dev',
         'odoo-addon-hr_personal_equipment_request>=16.0dev,<16.1dev',
