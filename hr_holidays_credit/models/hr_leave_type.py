@@ -32,8 +32,7 @@ class HrLeaveType(models.Model):
         string='Creditable Departments',
         comodel_name='hr.department',
         help=(
-            'If set, limits credit allowance to employees of specified'
-            ' departments'
+            'If set, limits credit allowance to employees of specified departments'
         ),
     )
 
@@ -47,24 +46,57 @@ class HrLeaveType(models.Model):
 
             extra = None
             if record.allocation_type != 'no' and context_employee_id:
-                if record.virtual_remaining_leaves >= 0:
-                    if record.allow_credit:
-                        extra = _('%g available + credit')
-                    else:
-                        extra = _('%g available')
-                    extra = extra % (
-                        float_round(
-                            record.virtual_remaining_leaves,
-                            precision_digits=2
-                        ) or 0.0,
+                amount = (
+                    float_round(
+                        record.virtual_remaining_leaves, precision_digits=2
                     )
-                elif record.allow_credit:
-                    extra = _('%g used in credit') % (
-                        float_round(
-                            -record.virtual_remaining_leaves,
-                            precision_digits=2
-                        ) or 0.0,
-                    )
+                    or 0.0
+                )
+                if amount >= 0:
+                    if record.request_unit == 'day':
+                        if not record.allow_credit:
+                            if abs(amount) <= 1:
+                                extra = _('%g day available') % amount
+                            else:
+                                extra = _('%g days available') % amount
+                        else:
+                            if abs(amount) <= 1:
+                                extra = _('%g day available + credit') % amount
+                            else:
+                                extra = (
+                                    _('%g days available + credit') % amount
+                                )
+
+                    elif record.request_unit == 'hour':
+                        if not record.allow_credit:
+                            if abs(amount) <= 1:
+                                extra = _('%g hour available') % amount
+                            else:
+                                extra = _('%g hours available') % amount
+                        else:
+                            if abs(amount) <= 1:
+                                extra = (
+                                    _('%g hour available + credit') % amount
+                                )
+                            else:
+                                extra = (
+                                    _('%g hours available + credit') % amount
+                                )
+
+                elif amount < 0:
+                    amount = abs(amount)
+                    if record.request_unit == 'day':
+                        extra = (
+                            _('%g day used in credit') % amount
+                            if abs(amount) <= 1
+                            else _('%g days used in credit') % amount
+                        )
+                    elif record.request_unit == 'hour':
+                        extra = (
+                            _('%g hour used in credit') % amount
+                            if abs(amount) <= 1
+                            else _('%g hours used in credit') % amount
+                        )
 
             if extra:
                 record_name = _('%(name)s (%(extra)s)') % {
