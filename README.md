@@ -72,7 +72,7 @@ addon | version | maintainers | summary
 [hr_expense_type](hr_expense_type/) | 12.0.1.0.0 | [![cubells](https://github.com/cubells.png?size=30px)](https://github.com/cubells) | Ability to add type in expenses.
 [hr_experience](hr_experience/) | 12.0.1.0.0 |  | Experience Management
 [hr_holidays_accrual_advanced](hr_holidays_accrual_advanced/) | 12.0.1.0.2 |  | Advanced accrual leaves allocation
-[hr_holidays_credit](hr_holidays_credit/) | 12.0.1.0.0 |  | Enable negative leave balance for employees
+[hr_holidays_credit](hr_holidays_credit/) | 12.0.1.1.0 |  | Enable negative leave balance for employees
 [hr_holidays_hour](hr_holidays_hour/) | 12.0.1.0.0 |  | Leave Allocation and Requests in Hours
 [hr_holidays_leave_auto_approve](hr_holidays_leave_auto_approve/) | 12.0.2.0.1 |  | Leave type for auto-validation of Leaves
 [hr_holidays_leave_repeated](hr_holidays_leave_repeated/) | 12.0.1.0.1 |  | Define periodical leaves
