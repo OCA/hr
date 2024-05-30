@@ -17,28 +17,82 @@ msgstr ""
 "X-Generator: Weblate 3.6.1\n"
 
 #. module: hr_holidays_credit
-#: code:addons/hr_holidays_credit/models/hr_leave_type.py:70
+#: code:addons/hr_holidays_credit/models/hr_leave_type.py:102
 #, python-format
 msgid "%(name)s (%(extra)s)"
 msgstr "%(name)s (%(extra)s)"
 
 #. module: hr_holidays_credit
-#: code:addons/hr_holidays_credit/models/hr_leave_type.py:54
+#: code:addons/hr_holidays_credit/models/hr_leave_type.py:59
 #, python-format
-msgid "%g available"
-msgstr "%g disponible"
+msgid "%g day available"
+msgstr ""
 
 #. module: hr_holidays_credit
-#: code:addons/hr_holidays_credit/models/hr_leave_type.py:52
+#: code:addons/hr_holidays_credit/models/hr_leave_type.py:64
 #, python-format
-msgid "%g available + credit"
-msgstr "%g disponible + credit"
+msgid "%g day available + credit"
+msgstr ""
 
 #. module: hr_holidays_credit
-#: code:addons/hr_holidays_credit/models/hr_leave_type.py:62
+#: code:addons/hr_holidays_credit/models/hr_leave_type.py:90
 #, python-format
-msgid "%g used in credit"
-msgstr "%g utilisé en crédit"
+msgid "%g day used in credit"
+msgstr ""
+
+#. module: hr_holidays_credit
+#: code:addons/hr_holidays_credit/models/hr_leave_type.py:61
+#, python-format
+msgid "%g days available"
+msgstr ""
+
+#. module: hr_holidays_credit
+#: code:addons/hr_holidays_credit/models/hr_leave_type.py:67
+#, python-format
+msgid "%g days available + credit"
+msgstr ""
+
+#. module: hr_holidays_credit
+#: code:addons/hr_holidays_credit/models/hr_leave_type.py:92
+#, python-format
+msgid "%g days used in credit"
+msgstr ""
+
+#. module: hr_holidays_credit
+#: code:addons/hr_holidays_credit/models/hr_leave_type.py:73
+#, python-format
+msgid "%g hour available"
+msgstr ""
+
+#. module: hr_holidays_credit
+#: code:addons/hr_holidays_credit/models/hr_leave_type.py:79
+#, python-format
+msgid "%g hour available + credit"
+msgstr ""
+
+#. module: hr_holidays_credit
+#: code:addons/hr_holidays_credit/models/hr_leave_type.py:96
+#, python-format
+msgid "%g hour used in credit"
+msgstr ""
+
+#. module: hr_holidays_credit
+#: code:addons/hr_holidays_credit/models/hr_leave_type.py:75
+#, python-format
+msgid "%g hours available"
+msgstr ""
+
+#. module: hr_holidays_credit
+#: code:addons/hr_holidays_credit/models/hr_leave_type.py:83
+#, python-format
+msgid "%g hours available + credit"
+msgstr ""
+
+#. module: hr_holidays_credit
+#: code:addons/hr_holidays_credit/models/hr_leave_type.py:98
+#, python-format
+msgid "%g hours used in credit"
+msgstr ""
 
 #. module: hr_holidays_credit
 #: model:ir.model.fields,field_description:hr_holidays_credit.field_hr_leave_type__allow_credit
@@ -99,3 +153,15 @@ msgstr "Congé"
 #: model:ir.model,name:hr_holidays_credit.model_hr_leave_type
 msgid "Leave Type"
 msgstr "Type de congé"
+
+#, python-format
+#~ msgid "%g available"
+#~ msgstr "%g disponible"
+
+#, python-format
+#~ msgid "%g available + credit"
+#~ msgstr "%g disponible + credit"
+
+#, python-format
+#~ msgid "%g used in credit"
+#~ msgstr "%g utilisé en crédit"
