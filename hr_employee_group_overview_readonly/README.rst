@@ -68,7 +68,6 @@ Contributors
 
 * Murtaza Mithaiwala <mmithaiwala@opensourceintegrators.com>
 
-
 Maintainers
 ~~~~~~~~~~~
 

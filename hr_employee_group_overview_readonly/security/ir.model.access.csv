@@ -11,7 +11,6 @@ hr.access_hr_plan_wizard,access.hr.plan.wizard,hr.model_hr_plan_wizard,hr.group_
 hr.access_hr_departure_wizard,access.hr.departure.wizard,hr.model_hr_departure_wizard,hr.group_hr_user,1,0,0,0
 hr.access_hr_contract_type_manager,hr.contract.type.manager,hr.model_hr_contract_type,hr.group_hr_user,1,0,0,0
 access_hr_contract_readonly_users,hr.contract.readonly,hr_contract.model_hr_contract,hr.group_hr_user,1,0,0,0
-
 hr.access_hr_departure_reason,hr.access_hr_departure_reason_user,hr.model_hr_departure_reason,hr.group_hr_user,1,0,0,0
 hr_work_entry.access_hr_work_entry_employee,access_hr_work_entry_employee,hr_work_entry.model_hr_user_work_entry_employee,hr.group_hr_user,1,0,0,0
 hr_work_entry.access_hr_work_entry_officer,access_hr_work_entry_officer,hr_work_entry.model_hr_work_entry,hr.group_hr_user,1,0,0,0
@@ -34,7 +33,6 @@ hr_gamification.badge_user_officer,"Badge-user Officer",gamification.model_gamif
 access_hr_contract_history_user,hr.contract.history.user,hr_contract.model_hr_contract_history,hr.group_hr_user,1,0,0,0
 access_res_partner_hr_user,access_res_partner_hr_user,base.model_res_partner,hr.group_hr_user,1,0,0,0
 access_hr_users_employee,hr.holidays.employee.users,hr_holidays.model_hr_leave,hr.group_hr_user,1,0,0,0
-
 access_hr_employee_category_officer,hr.employee.category.officer,hr.model_hr_employee_category,hr_employee_group_overview_readonly.group_hr_officer,1,1,1,1
 access_hr_resource_calendar_officer,hr.employee.resource.calendar.officer,resource.model_resource_calendar,hr_employee_group_overview_readonly.group_hr_officer,1,1,1,1
 access_hr_employee_officer,hr.employee user,hr.model_hr_employee,hr_employee_group_overview_readonly.group_hr_officer,1,1,1,1
@@ -60,12 +58,8 @@ access_hr_skill_officer,hr.skill,hr_skills.model_hr_skill,hr_employee_group_over
 access_hr_employee_skill_officer,hr.employee.skill,hr_skills.model_hr_employee_skill,hr_employee_group_overview_readonly.group_hr_officer,1,1,1,1
 access_hr_employee_skill_report_officer,hr.employee.skill.report,hr_skills.model_hr_employee_skill_report,hr_employee_group_overview_readonly.group_hr_officer,1,1,1,1
 access_hr_employee_skill_log_officer,hr.employee.skill.log,hr_skills.model_hr_employee_skill_log,hr_employee_group_overview_readonly.group_hr_officer,1,1,1,0
-
 challenge_hr_officer,"Challenge Hr Officer",gamification.model_gamification_challenge,hr_employee_group_overview_readonly.group_hr_officer,1,1,1,1
 challenge_line_hr_officer,"Challenge Line HR Officer",gamification.model_gamification_challenge_line,hr_employee_group_overview_readonly.group_hr_officer,1,1,1,1
 badge_hr_officer,"Badge HR Officer",gamification.model_gamification_badge,hr_employee_group_overview_readonly.group_hr_officer,1,1,1,1
 badge_user_hr_officer,"Badge-user HR Officer",gamification.model_gamification_badge_user,hr_employee_group_overview_readonly.group_hr_officer,1,1,1,1
-
-
-
 hr_holidays.access_hr_holidays_employee_request,hr.holidays.employee.request,hr_holidays.model_hr_leave,base.group_user,1,0,0,0
