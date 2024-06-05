@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="hr_payroll.action_report_payslip" model="ir.actions.report">
+        <field name="report_name">hr_payroll.report_payslip_lang</field>
+    </record>
+
+    <template id="report_payslip" inherit_id="hr_payroll.report_payslip">
+        <xpath expr="//h2[@id='payslip_name']" position="before">
+            <t t-set="display_currency" t-value="o.contract_id.currency_id" />
+        </xpath>
+        <xpath expr="//*[contains(@t-options, 'monetary')]" position="attributes">
+            <attribute name="t-options">
+                {"widget": "monetary", "display_currency": display_currency}
+            </attribute>
+        </xpath>
+        <xpath expr="//span[contains(@t-esc, 'line.total')]" position="attributes">
+            <attribute name="t-options">
+                {"widget": "monetary", "display_currency": display_currency}
+            </attribute>
+        </xpath>
+        <xpath
+            expr="//span[contains(@t-out, 'worked_days.amount')]"
+            position="attributes"
+        >
+            <attribute name="t-options">
+                {"widget": "monetary", "display_currency": display_currency}
+            </attribute>
+        </xpath>
+    </template>
+</odoo>

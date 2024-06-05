@@ -1,0 +1,2 @@
+- [Newlogic](https://newlogic.com/odoo)
+  - Baptiste P. \<<baptiste@newlogic.com>\>
