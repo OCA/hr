@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!--
     Copyright 2018 Brainbean Apps (https://brainbeanapps.com)
+    Copyright 2024 Newlogic (https://newlogic.com)
     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 -->
 <odoo>
@@ -8,8 +9,15 @@
         <field name="model">hr.contract</field>
         <field name="inherit_id" ref="hr_contract.hr_contract_view_form" />
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='wage']" position='after'>
-                <field name="currency_id" groups="base.group_multi_currency" />
+            <xpath expr="//group[@name='salary']" position='after'>
+                <group name="salary_currency">
+                    <field
+                        name="currency_id"
+                        string="Currency"
+                        options="{'no_create': True}"
+                        groups="base.group_multi_currency"
+                    />
+                </group>
             </xpath>
         </field>
     </record>
