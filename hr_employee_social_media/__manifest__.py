@@ -9,7 +9,7 @@
     'category': 'Human Resources',
     'author':
         'CorporateHub, '
-        'Camptocamp SA, '
+        'Camptocamp, '
         'Odoo Community Association (OCA)',
     'website': 'https://github.com/OCA/hr',
     'license': 'AGPL-3',
