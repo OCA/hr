@@ -7,7 +7,7 @@
     'version': '10.0.1.0.1',
     'category': 'Human Resources',
     'license': 'AGPL-3',
-    'author': 'Camptocamp SA, '
+    'author': 'Camptocamp, '
               'Odoo Community Association (OCA)',
     'website': 'http://www.camptocamp.com',
     'depends': ['hr_holidays'],
