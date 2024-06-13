@@ -9,7 +9,7 @@
     'version': '11.0.1.0.0',
     'category': 'Human Resources',
     'author': "Michael Telahun Makonnen <mmakonnen@gmail.com>, "
-              "Camptocamp SA, "
+              "Camptocamp, "
               "Odoo Community Association (OCA)",
     'website': 'https://github.com/OCA/hr',
     'license': 'AGPL-3',
