@@ -52,6 +52,11 @@ msgid "Employee"
 msgstr ""
 
 #. module: hr_employee_phone_pin
+#: model:ir.model.fields,field_description:hr_employee_phone_pin.field_hr_employee_public__is_current_user
+msgid "Is Current User"
+msgstr ""
+
+#. module: hr_employee_phone_pin
 #: model:ir.model.fields,field_description:hr_employee_phone_pin.field_hr_employee__mobile_phone_pin
 #: model:ir.model.fields,field_description:hr_employee_phone_pin.field_hr_employee_public__mobile_phone_pin
 msgid "Mobile phone PIN"
