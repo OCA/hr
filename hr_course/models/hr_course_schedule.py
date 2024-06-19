@@ -49,16 +49,9 @@ class HrCourseSchedule(models.Model):
     instructor_ids = fields.Many2many("res.partner", string="Instructor")
     place = fields.Char()
 
-    attendant_ids = fields.Many2many(
-        "hr.employee",
-        readonly=True,
-        states={"waiting_attendees": [("readonly", False)]},
-    )
+    attendant_ids = fields.Many2many("hr.employee")
     course_attendee_ids = fields.One2many(
-        "hr.course.attendee",
-        inverse_name="course_schedule_id",
-        readonly=True,
-        states={"in_validation": [("readonly", False)]},
+        "hr.course.attendee", inverse_name="course_schedule_id"
     )
     note = fields.Text()
 
