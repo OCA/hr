@@ -18,7 +18,7 @@
         <field name="model">hr.department</field>
         <field name="inherit_id" ref="hr.view_department_tree" />
         <field name="arch" type="xml">
-            <field name="display_name" position="after">
+            <field name="name" position="after">
                 <field name="code" optional="show" />
             </field>
         </field>
