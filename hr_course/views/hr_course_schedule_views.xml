@@ -111,7 +111,10 @@
                             string="Attendees"
                             invisible="state not in ['draft', 'waiting_attendees','cancelled']"
                         >
-                            <field name="attendant_ids" />
+                            <field
+                                name="attendant_ids"
+                                readonly="state not in ['waiting_attendees']"
+                            />
                         </page>
                         <page
                             string="Course Results"
@@ -127,7 +130,11 @@
                                     groups="hr.group_hr_manager"
                                 />
                             </div>
-                            <field name="course_attendee_ids" widget="one2many_list" />
+                            <field
+                                name="course_attendee_ids"
+                                widget="one2many_list"
+                                invisible="state not in ['in_validation']"
+                            />
                         </page>
                         <page
                             name="note"

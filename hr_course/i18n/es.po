@@ -337,14 +337,6 @@ msgid "Is Follower"
 msgstr "Es Seguidor"
 
 #. module: hr_course
-#: model:ir.model.fields,field_description:hr_course.field_hr_course____last_update
-#: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee____last_update
-#: model:ir.model.fields,field_description:hr_course.field_hr_course_category____last_update
-#: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule____last_update
-msgid "Last Modified on"
-msgstr "Última modificación en"
-
-#. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__write_uid
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee__write_uid
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_category__write_uid
@@ -359,12 +351,6 @@ msgstr "Última actualización de"
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__write_date
 msgid "Last Updated on"
 msgstr "Última actualización en"
-
-#. module: hr_course
-#: model:ir.model.fields,field_description:hr_course.field_hr_course__message_main_attachment_id
-#: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__message_main_attachment_id
-msgid "Main Attachment"
-msgstr "Archivo adjunto principal"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__message_has_error
@@ -514,6 +500,12 @@ msgid ""
 msgstr ""
 "Solo deberías devolver un curso a borrador si se ha cancelado por error o si "
 "alguna de su información es incorrecta. Quieres continuar?"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Última modificación en"
+
+#~ msgid "Main Attachment"
+#~ msgstr "Archivo adjunto principal"
 
 #~ msgid "SMS Delivery error"
 #~ msgstr "Error de entrega de SMS"
