@@ -10,13 +10,12 @@ class Department(models.Model):
 
     code = fields.Char()
 
-    def name_get(self):
-        res = []
-        for dep in self:
-            name = dep.name
-            if dep.code:
-                name = ("[%(code)s] %(name)s") % {"code": dep.code, "name": name}
-            res.append((dep.id, name))
+    @api.depends_context("hierarchical_naming")
+    def _compute_display_name(self):
+        res = super()._compute_display_name()
+        for record in self:
+            if record.code:
+                record.display_name = f"[{record.code}] {record.display_name}"
         return res
 
     @api.model
