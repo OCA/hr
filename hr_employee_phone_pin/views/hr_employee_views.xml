@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_employee_form" model="ir.ui.view">
+        <field name="name">view.employee.form</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form" />
+        <field name="arch" type="xml">
+            <field name="mobile_phone" position="after">
+                <field
+                    name="mobile_phone_pin"
+                    groups="hr_employee_phone_pin.group_mobile_phone_pin_manager"
+                />
+                <field
+                    name="mobile_phone_puk"
+                    groups="hr_employee_phone_pin.group_mobile_phone_pin_manager"
+                />
+            </field>
+        </field>
+    </record>
+</odoo>
