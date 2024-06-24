@@ -27,9 +27,10 @@ class HrContract(models.Model):
         for rec in self:
             rec.currency_id = rec.company_id.currency_id
 
-    @api.model
-    def create(self, vals):
-        if vals.get("company_id") and not vals.get("currency_id"):
-            company = self.env["res.company"].browse(vals.get("company_id"))
-            vals["currency_id"] = company.currency_id.id
-        return super().create(vals)
+    @api.model_create_multi
+    def create(self, val_list):
+        for vals in val_list:
+            if vals.get("company_id") and not vals.get("currency_id"):
+                company = self.env["res.company"].browse(vals.get("company_id"))
+                vals["currency_id"] = company.currency_id.id
+        return super().create(val_list)
