@@ -49,5 +49,10 @@ msgstr ""
 msgid "Public Employee"
 msgstr ""
 
+#. module: hr_employee_document
+#: model:ir.model,name:hr_employee_document.model_ir_rule
+msgid "Record Rule"
+msgstr ""
+
 #~ msgid "Employee"
 #~ msgstr "Employé(e)"
