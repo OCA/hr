@@ -5,7 +5,7 @@
 
 {
     "name": "HR Employee Document",
-    "version": "14.0.2.0.1",
+    "version": "14.0.2.0.2",
     "category": "Human Resources",
     "website": "https://github.com/OCA/hr",
     "author": "CorporateHub, Odoo Community Association (OCA)",
