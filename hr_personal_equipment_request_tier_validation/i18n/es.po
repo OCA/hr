@@ -22,27 +22,14 @@ msgid "Can Review"
 msgstr "Puede Revisar"
 
 #. module: hr_personal_equipment_request_tier_validation
-#: model:ir.model.fields,field_description:hr_personal_equipment_request_tier_validation.field_hr_personal_equipment_request__display_name
-#: model:ir.model.fields,field_description:hr_personal_equipment_request_tier_validation.field_tier_definition__display_name
-msgid "Display Name"
-msgstr "Mostrar Nombre"
-
-#. module: hr_personal_equipment_request_tier_validation
 #: model:ir.model.fields,field_description:hr_personal_equipment_request_tier_validation.field_hr_personal_equipment_request__has_comment
 msgid "Has Comment"
 msgstr "Tiene Comentario"
 
 #. module: hr_personal_equipment_request_tier_validation
-#: model:ir.model.fields,field_description:hr_personal_equipment_request_tier_validation.field_hr_personal_equipment_request__id
-#: model:ir.model.fields,field_description:hr_personal_equipment_request_tier_validation.field_tier_definition__id
-msgid "ID"
-msgstr "ID"
-
-#. module: hr_personal_equipment_request_tier_validation
-#: model:ir.model.fields,field_description:hr_personal_equipment_request_tier_validation.field_hr_personal_equipment_request____last_update
-#: model:ir.model.fields,field_description:hr_personal_equipment_request_tier_validation.field_tier_definition____last_update
-msgid "Last Modified on"
-msgstr "Última Modificación el"
+#: model:ir.model.fields,field_description:hr_personal_equipment_request_tier_validation.field_hr_personal_equipment_request__is_reevaluation_required
+msgid "Is Reevaluation Required"
+msgstr ""
 
 #. module: hr_personal_equipment_request_tier_validation
 #: model:ir.model.fields,field_description:hr_personal_equipment_request_tier_validation.field_hr_personal_equipment_request__need_validation
@@ -85,11 +72,6 @@ msgid "Tier Definition"
 msgstr "Definición del Nivel"
 
 #. module: hr_personal_equipment_request_tier_validation
-#: model:ir.model.fields,field_description:hr_personal_equipment_request_tier_validation.field_hr_personal_equipment_request__tier_validation_before_write
-msgid "Tier Validation Before Write"
-msgstr "Validación de Niveles Antes de la Escritura"
-
-#. module: hr_personal_equipment_request_tier_validation
 #: model:ir.model.fields,field_description:hr_personal_equipment_request_tier_validation.field_hr_personal_equipment_request__to_validate_message
 msgid "To Validate Message"
 msgstr "Para Validar el Mensaje"
@@ -113,3 +95,15 @@ msgstr "Estado de Validación"
 #: model:ir.model.fields,field_description:hr_personal_equipment_request_tier_validation.field_hr_personal_equipment_request__review_ids
 msgid "Validations"
 msgstr "Validaciones"
+
+#~ msgid "Display Name"
+#~ msgstr "Mostrar Nombre"
+
+#~ msgid "ID"
+#~ msgstr "ID"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Última Modificación el"
+
+#~ msgid "Tier Validation Before Write"
+#~ msgstr "Validación de Niveles Antes de la Escritura"
