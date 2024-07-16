@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 15.0\n"
+"Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -14,11 +14,11 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: hr_contract_reference
-#: model:ir.model.fields,field_description:hr_contract_reference.field_hr_contract__name
-msgid "Contract Reference"
+#: model:ir.model,name:hr_contract_reference.model_hr_contract
+msgid "Contract"
 msgstr ""
 
 #. module: hr_contract_reference
-#: model:ir.model,name:hr_contract_reference.model_hr_contract
-msgid "Employee Contract"
+#: model:ir.model.fields,field_description:hr_contract_reference.field_hr_contract__name
+msgid "Contract Reference"
 msgstr ""
