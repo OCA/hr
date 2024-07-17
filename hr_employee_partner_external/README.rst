@@ -80,6 +80,9 @@ Contributors
 ------------
 
 -  Stefano Consolaro <stefano.consolaro@mymage.it>
+-  `APSL-Nagarro <https://apsl.tech>`__:
+
+   -  Bernat Obrador <bobrador@apsl.net>
 
 Maintainers
 -----------
