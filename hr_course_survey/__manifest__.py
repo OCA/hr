@@ -5,7 +5,7 @@
     "name": "Hr Course Survey",
     "summary": """
         Evaluate a course using a Schedule""",
-    "version": "14.0.1.0.2",
+    "version": "16.0.1.0.0",
     "license": "AGPL-3",
     "author": "Creu Blanca,Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/hr",
@@ -14,7 +14,6 @@
         "data/mail.xml",
         "views/hr_course_attendee.xml",
         "views/hr_course.xml",
-        "views/hr_course_schedule.xml",
     ],
     "demo": [],
 }
