@@ -11,8 +11,9 @@ class HrContract(models.Model):
         "Contract Reference", required=False, readonly=True, copy=False, default="/"
     )
 
-    @api.model
-    def create(self, vals):
-        if vals.get("name", "/") == "/":
-            vals["name"] = self.env["ir.sequence"].next_by_code("contract.ref")
-        return super(HrContract, self).create(vals)
+    @api.model_create_multi
+    def create(self, vals_list):
+        for vals in vals_list:
+            if vals.get("name", "/") == "/":
+                vals["name"] = self.env["ir.sequence"].next_by_code("contract.ref")
+        return super().create(vals_list)
