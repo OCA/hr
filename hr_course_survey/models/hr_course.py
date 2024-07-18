@@ -10,5 +10,5 @@ class HrCourse(models.Model):
 
     examination_survey_id = fields.Many2one(
         "survey.survey",
-        domain=[("state", "=", "open"), ("scoring_type", "!=", "no_scoring")],
+        domain=[("scoring_type", "!=", "no_scoring")],
     )

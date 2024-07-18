@@ -18,7 +18,6 @@ class TestHrCourse(common.TestSurveyCommon):
                     "access_mode": "public",
                     "users_login_required": True,
                     "users_can_go_back": False,
-                    "state": "open",
                     "scoring_type": "scoring_without_answers",
                 }
             )
@@ -35,7 +34,9 @@ class TestHrCourse(common.TestSurveyCommon):
         )
         self.course_categ = self.env["hr.course.category"].create({"name": "Category1"})
         self.employee1 = self.env["hr.employee"].create({"name": "Employee1"})
-        self.employee2 = self.env["hr.employee"].create({"name": "Employee2"})
+        self.employee2 = self.env["hr.employee"].create(
+            {"name": "Employee2", "user_id": self.survey_manager.id}
+        )
         self.course = self.env["hr.course"].create(
             {
                 "name": "Test Course",
@@ -78,13 +79,59 @@ class TestHrCourse(common.TestSurveyCommon):
         self.assertEqual(self.course_schedule.state, "in_progress")
         self.assertEqual(len(self.course_schedule.course_attendee_ids), 2)
         self.assertFalse(self.course_schedule.course_attendee_ids[0].survey_answer_id)
-        self.course_schedule.attendant_ids = [(2, self.employee2.id, 0)]
+        self.course_schedule.attendant_ids = [(3, self.employee2.id, 0)]
         self.course_schedule.waiting2inprogress()
         self.assertEqual(len(self.course_schedule.attendant_ids), 1)
         self.assertEqual(len(self.course_schedule.course_attendee_ids), 1)
         self.employee1._compute_count_courses()
         self.assertEqual(self.employee1.count_courses, 1)
         self.employee1.action_view_course()
+
+        self.course_schedule.inprogress2validation()
+        self.assertEqual(self.course_schedule.state, "in_validation")
+        self.assertEqual(self.course_schedule.course_attendee_ids.result, "pending")
+        with self.assertRaises(ValidationError):
+            self.course_schedule.course_attendee_ids.resend_survey()
+        answer = self.course_schedule.course_attendee_ids.survey_answer_id
+        self.assertTrue(answer.hr_course_attendee_ids)
+        self._add_answer_line(
+            self.question,
+            answer,
+            self.question.suggested_answer_ids.filtered(
+                lambda l: l.value == "Choice1"
+            ).id,
+            answer_type="suggestion",
+            answer_fname="suggested_answer_id",
+        )
+        answer._mark_done()
+        self.assertEqual(self.course_schedule.course_attendee_ids.result, "failed")
+        self.course_schedule.course_attendee_ids.resend_survey()
+        self.assertNotEqual(
+            answer, self.course_schedule.course_attendee_ids.survey_answer_id
+        )
+        answer = self.course_schedule.course_attendee_ids.survey_answer_id
+        self.assertTrue(answer.hr_course_attendee_ids)
+        self._add_answer_line(
+            self.question,
+            answer,
+            self.question.suggested_answer_ids.filtered(
+                lambda l: l.value == "Choice0"
+            ).id,
+            answer_type="suggestion",
+            answer_fname="suggested_answer_id",
+        )
+        answer._mark_done()
+        self.assertEqual(self.course_schedule.course_attendee_ids.result, "passed")
+        with self.assertRaises(ValidationError):
+            self.course_schedule.course_attendee_ids.resend_survey()
+
+        self.course_schedule.attendant_ids = [(6, 0, [self.employee2.id])]
+        self.course_schedule.waiting2inprogress()
+        self.assertEqual(len(self.course_schedule.attendant_ids), 1)
+        self.assertEqual(len(self.course_schedule.course_attendee_ids), 1)
+        self.employee2._compute_count_courses()
+        self.assertEqual(self.employee2.count_courses, 1)
+        self.employee2.action_view_course()
 
         self.course_schedule.inprogress2validation()
         self.assertEqual(self.course_schedule.state, "in_validation")
