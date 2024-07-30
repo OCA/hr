@@ -27,8 +27,8 @@ msgstr "Etiquetas Associadas"
 
 #. module: hr_job_category
 #: model:ir.model,name:hr_job_category.model_hr_contract
-msgid "Employee Contract"
-msgstr ""
+msgid "Contract"
+msgstr "Contrato"
 
 #. module: hr_job_category
 #: model:ir.model,name:hr_job_category.model_hr_job
@@ -42,6 +42,3 @@ msgstr "ex. Meio período"
 
 #~ msgid "Display Name"
 #~ msgstr "Nome de Exibição"
-
-#~ msgid "Contract"
-#~ msgstr "Contrato"
