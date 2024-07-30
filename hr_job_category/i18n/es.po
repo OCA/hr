@@ -27,8 +27,9 @@ msgstr "Etiquetas asociadas"
 
 #. module: hr_job_category
 #: model:ir.model,name:hr_job_category.model_hr_contract
-msgid "Employee Contract"
-msgstr "Contrato de empleado"
+#, fuzzy
+msgid "Contract"
+msgstr "Contrato"
 
 #. module: hr_job_category
 #: model:ir.model,name:hr_job_category.model_hr_job
@@ -40,6 +41,5 @@ msgstr "Puesto de trabajo"
 msgid "e.g. Part Time"
 msgstr "p.e., Tiempo parcial"
 
-#, fuzzy
-#~ msgid "Contract"
-#~ msgstr "Contrato"
+#~ msgid "Employee Contract"
+#~ msgstr "Contrato de empleado"
