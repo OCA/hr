@@ -1,41 +1,42 @@
 # Copyright 2014 Savoir-faire Linux
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo.tests import common
+from odoo.addons.base.tests.common import BaseCommon
 
 
-class TestHrJobCategories(common.TransactionCase):
-    def setUp(self):
-        super().setUp()
-        self.employee_model = self.env["hr.employee"]
-        self.employee_categ_model = self.env["hr.employee.category"]
-        self.user_model = self.env["res.users"]
-        self.job_model = self.env["hr.job"]
-        self.contract_model = self.env["hr.contract"]
+class TestHrJobCategories(BaseCommon):
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        cls.employee_model = cls.env["hr.employee"]
+        cls.employee_categ_model = cls.env["hr.employee.category"]
+        cls.user_model = cls.env["res.users"]
+        cls.job_model = cls.env["hr.job"]
+        cls.contract_model = cls.env["hr.contract"]
 
         # Create a employee
-        self.employee_id_1 = self.employee_model.create({"name": "Employee 1"})
-        self.employee_id_2 = self.employee_model.create({"name": "Employee 2"})
+        cls.employee_id_1 = cls.employee_model.create({"name": "Employee 1"})
+        cls.employee_id_2 = cls.employee_model.create({"name": "Employee 2"})
 
         # Create two employee categories for job positions
-        self.categ_id = self.employee_categ_model.create({"name": "Category 1"})
-        self.categ_2_id = self.employee_categ_model.create({"name": "Category 2"})
+        cls.categ_id = cls.employee_categ_model.create({"name": "Category 1"})
+        cls.categ_2_id = cls.employee_categ_model.create({"name": "Category 2"})
 
         # Create an employee category to be used out of job positions
-        self.categ_3_id = self.employee_categ_model.create({"name": "Category 3"})
+        cls.categ_3_id = cls.employee_categ_model.create({"name": "Category 3"})
 
         # Create two jobs
-        self.job_id = self.job_model.create(
-            {"name": "Job 1", "category_ids": [(6, 0, [self.categ_id.id])]}
+        cls.job_id = cls.job_model.create(
+            {"name": "Job 1", "category_ids": [(6, 0, [cls.categ_id.id])]}
         )
 
-        self.job_2_id = self.job_model.create(
-            {"name": "Job 2", "category_ids": [(6, 0, [self.categ_2_id.id])]}
+        cls.job_2_id = cls.job_model.create(
+            {"name": "Job 2", "category_ids": [(6, 0, [cls.categ_2_id.id])]}
         )
 
         # Create one contract
-        self.contract_id = self.contract_model.create(
-            {"name": "Contract 1", "employee_id": self.employee_id_1.id, "wage": 50000}
+        cls.contract_id = cls.contract_model.create(
+            {"name": "Contract 1", "employee_id": cls.employee_id_1.id, "wage": 50000}
         )
 
     def test_write_computes_with_normal_args(self):
