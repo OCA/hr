@@ -32,10 +32,10 @@
         <field name="name">Time off: Team manager time off same department</field>
         <field name="model_id" ref="hr_holidays.model_hr_leave" />
         <field name="domain_force">['|','|','|',
-                ('employee_id.department_id', 'in',[user.employee_ids.department_id.id]),
-                ('employee_ids.department_id', 'in', [user.employee_ids.department_id.id]),
-                ('employee_id.department_id', 'child_of',[user.employee_ids.department_id.id]),
-                ('employee_ids.department_id', 'child_of',[user.employee_ids.department_id.id])
+                ('employee_id.department_id', 'in',user.employee_ids.department_id.ids),
+                ('employee_ids.department_id', 'in', user.employee_ids.department_id.ids),
+                ('employee_id.department_id', 'child_of',user.employee_ids.department_id.ids),
+                ('employee_ids.department_id', 'child_of',user.employee_ids.department_id.ids)
                 ]
         </field>
         <field name="groups" eval="[(4, ref('hr_holidays.group_hr_holidays_user'))]" />
@@ -52,10 +52,10 @@
         >Time off: Team manager time off allocation same department</field>
         <field name="model_id" ref="hr_holidays.model_hr_leave_allocation" />
         <field name="domain_force">['|','|','|',
-                ('employee_id.department_id', 'in',[user.employee_ids.department_id.id]),
-                ('employee_ids.department_id', 'in', [user.employee_ids.department_id.id]),
-                ('employee_id.department_id', 'child_of',[user.employee_ids.department_id.id]),
-                ('employee_ids.department_id', 'child_of',[user.employee_ids.department_id.id])
+                ('employee_id.department_id', 'in',user.employee_ids.department_id.ids),
+                ('employee_ids.department_id', 'in', user.employee_ids.department_id.ids),
+                ('employee_id.department_id', 'child_of',user.employee_ids.department_id.ids),
+                ('employee_ids.department_id', 'child_of',user.employee_ids.department_id.ids)
                 ]
         </field>
         <field name="groups" eval="[(4, ref('hr_holidays.group_hr_holidays_user'))]" />

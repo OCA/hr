@@ -58,7 +58,7 @@ class TestHRHolidaysTeamManager(BaseCommon):
             {
                 "name": "Test employee 4",
                 "department_id": cls.child_department.id,
-                "work_email": "test@demo.com",
+                "work_email": "testchild@demo.com",
             }
         )
 
