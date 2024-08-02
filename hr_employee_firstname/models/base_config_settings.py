@@ -3,7 +3,7 @@
 
 import logging
 
-from odoo import fields, models
+from odoo import _, fields, models
 
 _logger = logging.getLogger(__name__)
 
@@ -21,9 +21,9 @@ class ResConfigSettings(models.TransientModel):
 
     def _employee_names_order_selection(self):
         return [
-            ("last_first", "Lastname Firstname"),
-            ("last_first_comma", "Lastname, Firstname"),
-            ("first_last", "Firstname Lastname"),
+            ("last_first", _("Lastname Firstname")),
+            ("last_first_comma", _("Lastname, Firstname")),
+            ("first_last", _("Firstname Lastname")),
         ]
 
     def _employee_names_order_default(self):
