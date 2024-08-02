@@ -29,6 +29,11 @@ class TestHRHolidaysTeamManager(BaseCommon):
                 "name": "Test Department 2",
             }
         )
+
+        cls.child_department = cls.env["hr.department"].create(
+            {"name": "Test Department 2", "parent_id": cls.department.id}
+        )
+
         cls.employee_1 = cls.emp_obj.create(
             {
                 "name": "Test employee 1",
@@ -48,6 +53,15 @@ class TestHRHolidaysTeamManager(BaseCommon):
                 "work_email": "test@demo.com",
             }
         )
+
+        cls.employee_4 = cls.emp_obj.create(
+            {
+                "name": "Test employee 4",
+                "department_id": cls.child_department.id,
+                "work_email": "test@demo.com",
+            }
+        )
+
         cls.leave_type = cls.env["hr.leave.type"].create(
             {
                 "requires_allocation": "no",
@@ -62,7 +76,7 @@ class TestHRHolidaysTeamManager(BaseCommon):
         employee_ids = (
             self.emp_obj.with_context(hr_leave=True).with_user(self.user).name_search()
         )
-        self.assertEqual(len(employee_ids), 2)
+        self.assertEqual(len(employee_ids), 3)
         self.assertEqual(employee_ids[0][0], self.employee_1.id)
         self.assertEqual(employee_ids[1][0], self.employee_3.id)
         self.leaves = self.env["hr.leave"].create(
@@ -93,7 +107,7 @@ class TestHRHolidaysTeamManager(BaseCommon):
             .with_user(self.user)
             .name_search()
         )
-        self.assertEqual(len(employee_ids), 2)
+        self.assertEqual(len(employee_ids), 3)
         self.assertEqual(employee_ids[0][0], self.employee_1.id)
         self.assertEqual(employee_ids[1][0], self.employee_3.id)
 

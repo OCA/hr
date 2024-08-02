@@ -23,11 +23,17 @@ class HrEmployeePrivate(models.Model):
                     employee_id = self.env.user.with_context(by_pass=True).employee_ids
                     if employee_id:
                         args += [
+                            "|",
                             (
                                 "department_id",
                                 "=",
                                 self.env.user.employee_id.department_id.id,
-                            )
+                            ),
+                            (
+                                "department_id",
+                                "child_of",
+                                self.env.user.employee_id.department_id.id,
+                            ),
                         ]
 
         return super().search(
@@ -51,11 +57,17 @@ class HrEmployeePrivate(models.Model):
                     employee_id = self.env.user.with_context(by_pass=True).employee_ids
                     if employee_id:
                         args += [
+                            "|",
                             (
                                 "department_id",
                                 "=",
                                 self.env.user.employee_id.department_id.id,
-                            )
+                            ),
+                            (
+                                "department_id",
+                                "child_of",
+                                self.env.user.employee_id.department_id.id,
+                            ),
                         ]
 
         return super().name_search(name=name, args=args, operator=operator, limit=limit)
