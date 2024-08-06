@@ -19,7 +19,7 @@
                             <field name="permanence" />
                             <field
                                 name="permanence_time"
-                                attrs="{'invisible': [('permanence','=',False)]}"
+                                invisible="not 'permanence'"
                             />
                         </group>
                     </group>

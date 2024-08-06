@@ -14,12 +14,10 @@ class HrCourseSchedule(models.Model):
 
     start_date = fields.Date(
         readonly=True,
-        states={"draft": [("readonly", False)]},
         tracking=True,
     )
     end_date = fields.Date(
         readonly=True,
-        states={"draft": [("readonly", False)]},
         tracking=True,
     )
     currency_id = fields.Many2one(
@@ -32,7 +30,6 @@ class HrCourseSchedule(models.Model):
         comodel_name="hr.employee",
         required=True,
         readonly=True,
-        states={"draft": [("readonly", False)]},
         tracking=True,
     )
     state = fields.Selection(
@@ -58,13 +55,11 @@ class HrCourseSchedule(models.Model):
     attendant_ids = fields.Many2many(
         "hr.employee",
         readonly=True,
-        states={"waiting_attendees": [("readonly", False)]},
     )
     course_attendee_ids = fields.One2many(
         "hr.course.attendee",
         inverse_name="course_schedule_id",
         readonly=True,
-        states={"in_validation": [("readonly", False)]},
     )
     note = fields.Text()
 
