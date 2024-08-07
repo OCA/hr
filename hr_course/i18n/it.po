@@ -336,14 +336,6 @@ msgid "Is Follower"
 msgstr "Segue"
 
 #. module: hr_course
-#: model:ir.model.fields,field_description:hr_course.field_hr_course____last_update
-#: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee____last_update
-#: model:ir.model.fields,field_description:hr_course.field_hr_course_category____last_update
-#: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule____last_update
-msgid "Last Modified on"
-msgstr "Ultima modifica il"
-
-#. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__write_uid
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee__write_uid
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_category__write_uid
@@ -358,12 +350,6 @@ msgstr "Ultimo aggiornamento di"
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__write_date
 msgid "Last Updated on"
 msgstr "Ultimo aggiornamento il"
-
-#. module: hr_course
-#: model:ir.model.fields,field_description:hr_course.field_hr_course__message_main_attachment_id
-#: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__message_main_attachment_id
-msgid "Main Attachment"
-msgstr "Allegato principale"
 
 #. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__message_has_error
@@ -513,6 +499,12 @@ msgid ""
 msgstr ""
 "Si dovrebbe reimpostare un corso come bozza solo se lo si è cancellato per "
 "errore o se alcune sue informazioni non sono corrette. Continuare?"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Ultima modifica il"
+
+#~ msgid "Main Attachment"
+#~ msgstr "Allegato principale"
 
 #~ msgid "SMS Delivery error"
 #~ msgstr "Errore consegna SMS"

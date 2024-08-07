@@ -334,14 +334,6 @@ msgid "Is Follower"
 msgstr ""
 
 #. module: hr_course
-#: model:ir.model.fields,field_description:hr_course.field_hr_course____last_update
-#: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee____last_update
-#: model:ir.model.fields,field_description:hr_course.field_hr_course_category____last_update
-#: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule____last_update
-msgid "Last Modified on"
-msgstr ""
-
-#. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__write_uid
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee__write_uid
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_category__write_uid
@@ -355,12 +347,6 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_category__write_date
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__write_date
 msgid "Last Updated on"
-msgstr ""
-
-#. module: hr_course
-#: model:ir.model.fields,field_description:hr_course.field_hr_course__message_main_attachment_id
-#: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__message_main_attachment_id
-msgid "Main Attachment"
 msgstr ""
 
 #. module: hr_course
