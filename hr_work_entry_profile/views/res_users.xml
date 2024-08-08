@@ -12,7 +12,7 @@
                     type="object"
                     class="oe_stat_button"
                     id="open_work_entries"
-                    attrs="{'invisible': [('employee_id', '=', False)]}"
+                    invisible="not employee_id"
                     icon="fa-calendar"
                     name="action_open_work_entries"
                     string="Work Entries"
