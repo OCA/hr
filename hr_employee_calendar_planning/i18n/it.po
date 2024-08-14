@@ -122,11 +122,6 @@ msgstr ""
 "lavorato senza eliminarlo."
 
 #. module: hr_employee_calendar_planning
-#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar____last_update
-msgid "Last Modified on"
-msgstr "Ultima modifica il"
-
-#. module: hr_employee_calendar_planning
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__write_uid
 msgid "Last Updated by"
 msgstr "Ultimo aggiornamento di"
@@ -157,3 +152,6 @@ msgstr "Orario lavoro"
 #, python-format
 msgid "You can not create employees without any calendar."
 msgstr "Non è possibile creare un dipendente senza un calendario."
+
+#~ msgid "Last Modified on"
+#~ msgstr "Ultima modifica il"
