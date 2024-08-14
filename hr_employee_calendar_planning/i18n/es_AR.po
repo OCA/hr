@@ -117,11 +117,6 @@ msgstr ""
 "Si el campo activo es falso, te permite ocultar este registro sin removerlo."
 
 #. module: hr_employee_calendar_planning
-#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar____last_update
-msgid "Last Modified on"
-msgstr "Última modificación en"
-
-#. module: hr_employee_calendar_planning
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__write_uid
 msgid "Last Updated by"
 msgstr "Última actualización por"
@@ -152,6 +147,9 @@ msgstr "Tiempo de trabajo"
 #, python-format
 msgid "You can not create employees without any calendar."
 msgstr "No puedes crear empleados sin asignarles ningún calendario."
+
+#~ msgid "Last Modified on"
+#~ msgstr "Última modificación en"
 
 #, python-format
 #~ msgid "%s is used in %s employee(s) related to another company."

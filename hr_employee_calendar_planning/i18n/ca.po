@@ -118,11 +118,6 @@ msgstr ""
 "treball sense eliminar-lo."
 
 #. module: hr_employee_calendar_planning
-#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar____last_update
-msgid "Last Modified on"
-msgstr "Darrera modificació el"
-
-#. module: hr_employee_calendar_planning
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__write_uid
 msgid "Last Updated by"
 msgstr "Darrera modificació per"
@@ -153,6 +148,9 @@ msgstr "Temps de treball"
 #, python-format
 msgid "You can not create employees without any calendar."
 msgstr ""
+
+#~ msgid "Last Modified on"
+#~ msgstr "Darrera modificació el"
 
 #, python-format
 #~ msgid "%s is used in %s employee(s) related to another company."

@@ -114,11 +114,6 @@ msgid ""
 msgstr ""
 
 #. module: hr_employee_calendar_planning
-#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar____last_update
-msgid "Last Modified on"
-msgstr ""
-
-#. module: hr_employee_calendar_planning
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__write_uid
 msgid "Last Updated by"
 msgstr ""

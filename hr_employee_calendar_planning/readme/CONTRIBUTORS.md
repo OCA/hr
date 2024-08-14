@@ -6,5 +6,5 @@
 - [ForgeFlow](https://www.forgeflow.com/):
   - Jordi Ballester Alomar (<jordi.ballester@forgeflow.com>)
   - Nattapong W. \<<aphon61bank@gmail.com>\>
-- [Pesol](https://www.pesol.es):
-  - Pedro Evaristo Gonzalez Sanchez \<<pedro.gonzalez@pesol.es>\>
+- [PeGon](https://www.pegon.ch):
+  - Pedro Evaristo Gonzalez Sanchez \<<pedro.gonzalez@pegon.ch>\>

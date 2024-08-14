@@ -77,7 +77,7 @@ class HrEmployee(models.Model):
             for line in self.calendar_ids:
                 if line.calendar_id.two_weeks_calendar:
                     attendances = line.calendar_id.attendance_ids.filtered(
-                        lambda x: x.week_type == week
+                        lambda x, w=week: x.week_type == w
                     )
                 else:
                     attendances = line.calendar_id.attendance_ids
@@ -130,11 +130,11 @@ class HrEmployee(models.Model):
             global_leaves = calendar.calendar_id.global_leave_ids
             if calendar.date_start:
                 global_leaves = global_leaves.filtered(
-                    lambda x: x.date_from.date() >= calendar.date_start
+                    lambda x, c=calendar: x.date_from.date() >= c.date_start
                 )
             if calendar.date_end:
                 global_leaves = global_leaves.filtered(
-                    lambda x: x.date_to.date() <= calendar.date_end
+                    lambda x, c=calendar: x.date_from.date() <= c.date_end
                 )
             leave_ids += global_leaves.ids
         vals = [
@@ -185,7 +185,8 @@ class HrEmployee(models.Model):
             and res.filtered(lambda x: not x.calendar_ids)
         ):
             raise UserError(_("You can not create employees without any calendar."))
-        res.filtered("calendar_ids").regenerate_calendar()
+        for employee in res.filtered("calendar_ids"):
+            employee.sudo().regenerate_calendar()
         return res
 
 
@@ -222,20 +223,20 @@ class HrEmployeeCalendar(models.Model):
 
     @api.model_create_multi
     def create(self, vals):
-        res = super(HrEmployeeCalendar, self).create(vals)
-        for employee in res.mapped("employee_id"):
-            employee._regenerate_calendar()
-        return res
+        calendars = super().create(vals)
+        for calendar in calendars:
+            calendar.employee_id.sudo()._regenerate_calendar()
+        return calendars
 
     def write(self, vals):
-        res = super(HrEmployeeCalendar, self).write(vals)
+        res = super().write(vals)
         for employee in self.mapped("employee_id"):
             employee._regenerate_calendar()
         return res
 
     def unlink(self):
         employees = self.mapped("employee_id")
-        res = super(HrEmployeeCalendar, self).unlink()
+        res = super().unlink()
         for employee in employees:
             employee._regenerate_calendar()
         return res
