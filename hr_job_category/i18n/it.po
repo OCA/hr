@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-03-12 12:02+0000\n"
-"PO-Revision-Date: 2023-05-17 14:34+0000\n"
+"PO-Revision-Date: 2024-08-14 17:58+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
-"Language-Team: Italian (http://www.transifex.com/oca/OCA-hr-8-0/language/"
-"it/)\n"
+"Language-Team: Italian (http://www.transifex.com/oca/OCA-hr-8-0/language/it/)"
+"\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.1\n"
+"X-Generator: Weblate 5.6.2\n"
 
 #. module: hr_job_category
 #: model:ir.model.fields,field_description:hr_job_category.field_hr_job__category_ids
@@ -26,7 +26,6 @@ msgstr "Etichette associate"
 
 #. module: hr_job_category
 #: model:ir.model,name:hr_job_category.model_hr_contract
-#, fuzzy
 msgid "Contract"
 msgstr "Contratto"
 
