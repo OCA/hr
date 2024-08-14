@@ -25,8 +25,9 @@ msgstr ""
 
 #. module: hr_job_category
 #: model:ir.model,name:hr_job_category.model_hr_contract
-msgid "Employee Contract"
-msgstr ""
+#, fuzzy
+msgid "Contract"
+msgstr "Sopimus"
 
 #. module: hr_job_category
 #: model:ir.model,name:hr_job_category.model_hr_job
@@ -37,7 +38,3 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:hr_job_category.view_job_form
 msgid "e.g. Part Time"
 msgstr ""
-
-#, fuzzy
-#~ msgid "Contract"
-#~ msgstr "Sopimus"
