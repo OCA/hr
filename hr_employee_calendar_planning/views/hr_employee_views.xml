@@ -13,7 +13,7 @@
                 <sheet colspan="2">
                     <field name="calendar_ids" nolabel="1">
                         <tree editable="top">
-                            <field name="company_id" invisible="1" />
+                            <field name="company_id" column_invisible="True" />
                             <field name="date_start" />
                             <field name="date_end" />
                             <field
@@ -23,16 +23,6 @@
                         </tree>
                     </field>
                 </sheet>
-            </field>
-        </field>
-    </record>
-    <record id="hr_employee_public_view_form" model="ir.ui.view">
-        <field name="name">hr.employee.public.form</field>
-        <field name="model">hr.employee.public</field>
-        <field name="inherit_id" ref="hr.hr_employee_public_view_form" />
-        <field name="arch" type="xml">
-            <field name="resource_calendar_id" position="attributes">
-                <attribute name="invisible">1</attribute>
             </field>
         </field>
     </record>

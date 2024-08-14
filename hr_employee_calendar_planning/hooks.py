@@ -3,14 +3,11 @@
 
 from collections import defaultdict
 
-from odoo import SUPERUSER_ID, api
 
-
-def post_init_hook(cr, registry, employees=None):
+def post_init_hook(env, employees=None):
     """Split current calendars by date ranges and assign new ones for
     having proper initial data.
     """
-    env = api.Environment(cr, SUPERUSER_ID, {})
     if not employees:
         employees = env["hr.employee"].search([])
     calendars = employees.mapped("resource_calendar_id")
@@ -59,7 +56,7 @@ def post_init_hook(cr, registry, employees=None):
         # Extract employee's existing leaves so they are passed to the new
         # automatic calendar.
         leaves = employee.resource_calendar_id.leave_ids.filtered(
-            lambda x: x.resource_id == employee.resource_id
+            lambda x, e=employee: x.resource_id == e.resource_id
         )
         employee.calendar_ids = calendar_lines
         employee.resource_calendar_id.active = False

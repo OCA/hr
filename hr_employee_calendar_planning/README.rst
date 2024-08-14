@@ -106,9 +106,9 @@ Contributors
    -  Jordi Ballester Alomar (jordi.ballester@forgeflow.com)
    -  Nattapong W. <aphon61bank@gmail.com>
 
--  `Pesol <https://www.pesol.es>`__:
+-  `PeGon <https://www.pegon.ch>`__:
 
-   -  Pedro Evaristo Gonzalez Sanchez <pedro.gonzalez@pesol.es>
+   -  Pedro Evaristo Gonzalez Sanchez <pedro.gonzalez@pegon.ch>
 
 Maintainers
 -----------
