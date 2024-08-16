@@ -3,6 +3,9 @@
 # Copyright 2018 Brainbean Apps (https://brainbeanapps.com)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
+from unittest.mock import patch
+
+from odoo.exceptions import UserError
 from odoo.tests import common
 
 
@@ -145,3 +148,23 @@ class TestEmployeeID(common.TransactionCase):
         self.assertEqual(res2["employee_id_random_digits"], DIGITS2)
         self.assertEqual(res2["employee_id_gen_method"], METHOD2)
         self.assertEqual(res2["employee_id_sequence"], sequence2.id)
+
+    def test_generate_identification_id_exception(self):
+        sequence = self.sequence
+        company = self.company
+        company.employee_id_gen_method = "sequence"
+        company.employee_id_sequence = sequence.id
+
+        # Create an user with 00001 identification_id
+        self.employee_model.create(
+            {"name": "First Employee", "identification_id": "00001"}
+        )
+
+        # Override the company employee_id_sequence sequence next_by_id
+        # method to always return 00001
+        with patch(
+            "odoo.addons.base.models.ir_sequence.IrSequence.next_by_id",
+            return_value="00001",
+        ):
+            with self.assertRaises(UserError):
+                self.employee_model.create({"name": "Second Employee"})
