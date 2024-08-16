@@ -80,6 +80,7 @@ Contributors
 
    -  Pedro M. Baeza
    -  Víctor Martínez
+   -  Juan José Seguí
 
 Maintainers
 -----------
