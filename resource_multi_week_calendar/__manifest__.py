@@ -8,7 +8,7 @@
         Allow a calendar to alternate between multiple weeks.""",
     "version": "16.0.1.0.0",
     "category": "Hidden",
-    "website": "https://coopiteasy.be",
+    "website": "https://github.com/OCA/hr",
     "author": "Coop IT Easy SC, Odoo Community Association (OCA)",
     "maintainers": ["carmenbianca"],
     "license": "AGPL-3",
@@ -16,7 +16,9 @@
     "depends": [
         "resource",
     ],
-    "data": [],
+    "data": [
+        "views/resource_calendar_views.xml",
+    ],
     "demo": [],
     "qweb": [],
 }

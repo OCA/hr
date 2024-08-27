@@ -79,6 +79,16 @@ class ResourceCalendar(models.Model):
         recursive=True,
     )
 
+    def copy(self, default=None):
+        self.ensure_one()
+        if default is None:
+            default = {}
+        sequences = sorted(self.family_calendar_ids.mapped("week_sequence"))
+        if sequences:
+            # Assign highest value sequence.
+            default["week_sequence"] = sequences[-1] + 1
+        return super().copy(default=default)
+
     @api.depends(
         "child_calendar_ids",
         "parent_calendar_id",
