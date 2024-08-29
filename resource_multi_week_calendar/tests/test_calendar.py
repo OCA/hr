@@ -7,6 +7,7 @@ import datetime
 from freezegun import freeze_time
 
 from odoo.exceptions import ValidationError
+from odoo.fields import Command
 from odoo.tests.common import TransactionCase
 
 
@@ -198,3 +199,90 @@ class TestCalendarWeekEpoch(CalendarCase):
             child._compute_current_week()
             self.assertEqual(child.current_week_number, 2)
             self.assertEqual(child.current_calendar_id, child)
+
+
+class TestMultiCalendar(CalendarCase):
+    def setUp(self):
+        super().setUpClass()
+        # The parent calendar has attendances by default: Every weekday from 8
+        # to 12, and 13 to 17.
+        self.child_calendar = self.create_simple_child()
+        # In the child calendar, only work the mornings.
+        self.child_calendar.attendance_ids = False
+        self.child_calendar.attendance_ids = [
+            Command.create(
+                {
+                    "name": "Monday Morning",
+                    "dayofweek": "0",
+                    "hour_from": 8,
+                    "hour_to": 12,
+                    "day_period": "morning",
+                }
+            ),
+            Command.create(
+                {
+                    "name": "Tuesday Morning",
+                    "dayofweek": "1",
+                    "hour_from": 8,
+                    "hour_to": 12,
+                    "day_period": "morning",
+                }
+            ),
+            Command.create(
+                {
+                    "name": "Wednesday Morning",
+                    "dayofweek": "2",
+                    "hour_from": 8,
+                    "hour_to": 12,
+                    "day_period": "morning",
+                }
+            ),
+            Command.create(
+                {
+                    "name": "Thursday Morning",
+                    "dayofweek": "3",
+                    "hour_from": 8,
+                    "hour_to": 12,
+                    "day_period": "morning",
+                }
+            ),
+            Command.create(
+                {
+                    "name": "Friday Morning",
+                    "dayofweek": "4",
+                    "hour_from": 8,
+                    "hour_to": 12,
+                    "day_period": "morning",
+                }
+            ),
+        ]
+
+    def test_count_work_hours_two_weeks(self):
+        hours = self.parent_calendar.get_work_hours_count(
+            # 1st of July is a Monday.
+            datetime.datetime.fromisoformat("2024-07-01T00:00:00+00:00"),
+            datetime.datetime.fromisoformat("2024-07-14T23:59:59+00:00"),
+        )
+        # 40 from the parent, 20 from the child
+        self.assertEqual(hours, 60)
+
+    def test_count_work_hours_from_child(self):
+        # It doesn't matter whether you call the method from the child.
+        hours = self.child_calendar.get_work_hours_count(
+            datetime.datetime.fromisoformat("2024-07-01T00:00:00+00:00"),
+            datetime.datetime.fromisoformat("2024-07-14T23:59:59+00:00"),
+        )
+        self.assertEqual(hours, 60)
+
+    def test_count_work_hours_weeks_separately(self):
+        self.parent_calendar.multi_week_epoch_date = "2024-07-01"
+        hours = self.parent_calendar.get_work_hours_count(
+            datetime.datetime.fromisoformat("2024-07-01T00:00:00+00:00"),
+            datetime.datetime.fromisoformat("2024-07-07T23:59:59+00:00"),
+        )
+        self.assertEqual(hours, 40)
+        hours = self.parent_calendar.get_work_hours_count(
+            datetime.datetime.fromisoformat("2024-07-08T00:00:00+00:00"),
+            datetime.datetime.fromisoformat("2024-07-14T23:59:59+00:00"),
+        )
+        self.assertEqual(hours, 20)
