@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 import math
-from datetime import timedelta
+from datetime import datetime, timedelta
 
 from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
@@ -135,6 +135,18 @@ class ResourceCalendar(models.Model):
             days=self.multi_week_epoch_date.weekday()
         )
 
+    def _get_week_number(self, day=None):
+        self.ensure_one()
+        if day is None:
+            day = fields.Date.today()
+        if isinstance(day, datetime):
+            day = day.date()
+        family_size = len(self.family_calendar_ids)
+        weeks_since_epoch = math.floor(
+            (day - self._get_first_day_of_epoch_week()).days / 7
+        )
+        return (weeks_since_epoch % family_size) + 1
+
     @api.depends(
         "multi_week_epoch_date",
         "week_number",
@@ -143,12 +155,7 @@ class ResourceCalendar(models.Model):
     )
     def _compute_current_week(self):
         for calendar in self:
-            family_size = len(calendar.family_calendar_ids)
-            weeks_since_epoch = math.floor(
-                (fields.Date.today() - calendar._get_first_day_of_epoch_week()).days / 7
-            )
-            current_week_number = (weeks_since_epoch % family_size) + 1
-            # TODO: does this work in the negative, too?
+            current_week_number = calendar._get_week_number()
             calendar.current_week_number = current_week_number
             calendar.current_calendar_id = calendar.family_calendar_ids.filtered(
                 lambda item: item.week_number == current_week_number
@@ -215,3 +222,69 @@ class ResourceCalendar(models.Model):
                         )
                         % calendar.name
                     )
+
+    @api.model
+    def _split_into_weeks(self, start_dt, end_dt):
+        # TODO: This method splits weeks on the timezone of start_dt. Maybe it
+        # should split weeks on the timezone of the calendar. It is not
+        # immediately clear to me how to implement that.
+        current_start = start_dt
+        while current_start < end_dt:
+            # Calculate the end of the week (Monday 00:00:00, the threshold
+            # of Sunday-to-Monday.)
+            days_until_monday = 7 - current_start.weekday()
+            week_end = current_start + timedelta(days=days_until_monday)
+            week_end = week_end.replace(hour=0, minute=0, second=0, microsecond=0)
+
+            current_end = min(week_end, end_dt)
+            yield (current_start, current_end)
+
+            # Move to the next week (start of next Monday)
+            current_start = current_end
+
+    def _attendance_intervals_batch(
+        self, start_dt, end_dt, resources=None, domain=None, tz=None
+    ):
+        self.ensure_one()
+        if not self.is_multi_week:
+            return super()._attendance_intervals_batch(
+                start_dt, end_dt, resources=resources, domain=domain, tz=tz
+            )
+
+        if self.parent_calendar_id:
+            return self.parent_calendar_id._attendance_intervals_batch(
+                start_dt, end_dt, resources=resources, domain=domain, tz=tz
+            )
+        calendars_by_week = {
+            calendar.week_number: calendar
+            for calendar in self | self.child_calendar_ids
+        }
+        results = []
+
+        # Calculate each week separately, choosing the correct calendar for each
+        # week.
+        for week_start, week_end in self._split_into_weeks(start_dt, end_dt):
+            results.append(
+                super(
+                    ResourceCalendar,
+                    calendars_by_week[self._get_week_number(week_start)].with_context(
+                        # This context is not used here, but could possibly be
+                        # used by other modules that use this module. I am not
+                        # sure how useful it is.
+                        recursive_multi_week=True
+                    ),
+                )._attendance_intervals_batch(
+                    week_start, week_end, resources=resources, domain=domain, tz=tz
+                )
+            )
+
+        # Aggregate the results from each week.
+        result = {}
+        for item in results:
+            for resource, intervals in item.items():
+                if resource not in result:
+                    result[resource] = intervals
+                else:
+                    result[resource] |= intervals
+
+        return result

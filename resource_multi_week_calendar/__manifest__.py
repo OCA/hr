@@ -19,6 +19,4 @@
     "data": [
         "views/resource_calendar_views.xml",
     ],
-    "demo": [],
-    "qweb": [],
 }
