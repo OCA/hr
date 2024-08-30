@@ -79,7 +79,8 @@ class TestCalendarIsMultiweek(CalendarCase):
 
 class TestCalendarWeekNumber(CalendarCase):
     def test_solo(self):
-        self.assertEqual(self.parent_calendar.week_number, 1)
+        # Parents don't have a week number.
+        self.assertEqual(self.parent_calendar.week_number, 0)
 
     def test_children(self):
         # The parent's sequence should not matter.
@@ -99,104 +100,124 @@ class TestCalendarWeekNumber(CalendarCase):
                 "week_sequence": 30,
             }
         )
-        self.assertEqual(self.parent_calendar.week_number, 1)
-        self.assertEqual(one.week_number, 2)
-        self.assertEqual(two.week_number, 3)
+        self.assertEqual(self.parent_calendar.week_number, 0)
+        self.assertEqual(one.week_number, 1)
+        self.assertEqual(two.week_number, 2)
 
         # Change the order.
         one.week_sequence = 31
-        self.assertEqual(one.week_number, 3)
-        self.assertEqual(two.week_number, 2)
+        self.assertEqual(one.week_number, 2)
+        self.assertEqual(two.week_number, 1)
 
 
 class TestCalendarWeekEpoch(CalendarCase):
     @freeze_time("1970-01-08")
     def test_compute_current_week_no_family(self):
-        self.assertEqual(self.parent_calendar.current_week_number, 1)
-        self.assertEqual(self.parent_calendar.current_calendar_id, self.parent_calendar)
+        self.assertEqual(self.parent_calendar.current_week_number, 0)
+        self.assertFalse(self.parent_calendar.current_calendar_id)
 
+    # 1970-01-01 is a Thursday.
     @freeze_time("1970-01-01")
-    def test_compute_current_week_same_day(self):
+    def test_compute_current_week_solo(self):
         child = self.create_simple_child()
         self.assertEqual(child.current_week_number, 1)
-        self.assertEqual(child.current_calendar_id, self.parent_calendar)
+        self.assertEqual(child.current_calendar_id, child)
+
+    # 1970-01-01 is a Thursday.
+    @freeze_time("1970-01-01")
+    def test_compute_current_week_same_day(self):
+        child_1 = self.create_simple_child()
+        child_2 = self.create_simple_child()
+        self.assertEqual(child_1.current_week_number, 1)
+        self.assertEqual(child_1.current_calendar_id, child_1)
+        # Test against the others, too, which should have the same result.
+        self.assertEqual(self.parent_calendar.current_week_number, 1)
+        self.assertEqual(self.parent_calendar.current_calendar_id, child_1)
+        self.assertEqual(child_2.current_week_number, 1)
+        self.assertEqual(child_2.current_calendar_id, child_1)
 
     # 1969-12-29 is a Monday.
     @freeze_time("1969-12-29")
     def test_compute_current_week_first_day_of_week(self):
-        child = self.create_simple_child()
-        self.assertEqual(child.current_week_number, 1)
-        self.assertEqual(child.current_calendar_id, self.parent_calendar)
+        child_1 = self.create_simple_child()
+        self.create_simple_child()
+        self.assertEqual(child_1.current_week_number, 1)
+        self.assertEqual(child_1.current_calendar_id, child_1)
 
     # 1969-12-28 is a Sunday.
     @freeze_time("1969-12-28")
     def test_compute_current_week_one_week_ago(self):
-        child = self.create_simple_child()
-        self.assertEqual(child.current_week_number, 2)
-        self.assertEqual(child.current_calendar_id, child)
-        # Test against parent, too, which should have the same result.
-        self.assertEqual(self.parent_calendar.current_week_number, 2)
-        self.assertEqual(self.parent_calendar.current_calendar_id, child)
+        child_1 = self.create_simple_child()
+        child_2 = self.create_simple_child()
+        self.assertEqual(child_1.current_week_number, 2)
+        self.assertEqual(child_1.current_calendar_id, child_2)
 
     # 1970-01-04 is a Sunday.
     @freeze_time("1970-01-04")
     def test_compute_current_week_last_day_of_week(self):
-        child = self.create_simple_child()
-        self.assertEqual(child.current_week_number, 1)
-        self.assertEqual(child.current_calendar_id, self.parent_calendar)
+        child_1 = self.create_simple_child()
+        self.create_simple_child()
+        self.assertEqual(child_1.current_week_number, 1)
+        self.assertEqual(child_1.current_calendar_id, child_1)
 
     # 1970-01-05 is a Monday.
     @freeze_time("1970-01-05")
     def test_compute_current_week_next_week(self):
-        child = self.create_simple_child()
-        self.assertEqual(child.current_week_number, 2)
-        self.assertEqual(child.current_calendar_id, child)
+        child_1 = self.create_simple_child()
+        child_2 = self.create_simple_child()
+        self.assertEqual(child_1.current_week_number, 2)
+        self.assertEqual(child_1.current_calendar_id, child_2)
 
     # 1970-01-12 is a Monday.
     @freeze_time("1970-01-12")
     def test_compute_current_week_in_two_weeks(self):
-        child = self.create_simple_child()
-        self.assertEqual(child.current_week_number, 1)
-        self.assertEqual(child.current_calendar_id, self.parent_calendar)
+        child_1 = self.create_simple_child()
+        self.create_simple_child()
+        self.assertEqual(child_1.current_week_number, 1)
+        self.assertEqual(child_1.current_calendar_id, child_1)
 
     # 1970-01-12 is a Monday.
     @freeze_time("1970-01-12")
     def test_compute_current_week_in_two_weeks_three_calendars(self):
         self.create_simple_child()
-        child_2 = self.create_simple_child()
-        self.assertEqual(child_2.current_week_number, 3)
-        self.assertEqual(child_2.current_calendar_id, child_2)
+        self.create_simple_child()
+        child_3 = self.create_simple_child()
+        self.assertEqual(child_3.current_week_number, 3)
+        self.assertEqual(child_3.current_calendar_id, child_3)
 
     # 1970-01-04 is a Sunday.
     @freeze_time("1970-01-04")
     def test_compute_current_week_when_day_changes(self):
-        child = self.create_simple_child()
-        self.assertEqual(child.current_week_number, 1)
-        self.assertEqual(child.current_calendar_id, self.parent_calendar)
+        child_1 = self.create_simple_child()
+        child_2 = self.create_simple_child()
+        self.assertEqual(child_1.current_week_number, 1)
+        self.assertEqual(child_1.current_calendar_id, child_1)
         with freeze_time("1970-01-05"):
             # This re-compute shouldn't technically be needed... Maybe there's a
             # cache?
-            child._compute_current_week()
-            self.assertEqual(child.current_week_number, 2)
-            self.assertEqual(child.current_calendar_id, child)
+            child_1._compute_current_week()
+            self.assertEqual(child_1.current_week_number, 2)
+            self.assertEqual(child_1.current_calendar_id, child_2)
 
     # 2024-07-01 is a Monday.
     @freeze_time("2024-07-01")
     def test_compute_current_week_non_unix(self):
-        child = self.create_simple_child()
+        child_1 = self.create_simple_child()
+        self.create_simple_child()
         self.parent_calendar.multi_week_epoch_date = "2024-07-08"
-        self.assertEqual(child.current_week_number, 2)
+        self.assertEqual(child_1.current_week_number, 2)
 
 
 class TestMultiCalendar(CalendarCase):
     def setUp(self):
         super().setUpClass()
-        # The parent calendar has attendances by default: Every weekday from 8
+        # The child_1 calendar has attendances by default: Every weekday from 8
         # to 12, and 13 to 17.
-        self.child_calendar = self.create_simple_child()
+        self.child_1 = self.create_simple_child()
+        self.child_2 = self.create_simple_child()
         # In the child calendar, only work the mornings.
-        self.child_calendar.attendance_ids = False
-        self.child_calendar.attendance_ids = [
+        self.child_2.attendance_ids = False
+        self.child_2.attendance_ids = [
             Command.create(
                 {
                     "name": "Monday Morning",
@@ -255,7 +276,7 @@ class TestMultiCalendar(CalendarCase):
 
     def test_count_work_hours_from_child(self):
         # It doesn't matter whether you call the method from the child.
-        hours = self.child_calendar.get_work_hours_count(
+        hours = self.child_2.get_work_hours_count(
             datetime.datetime.fromisoformat("2024-07-01T00:00:00+00:00"),
             datetime.datetime.fromisoformat("2024-07-14T23:59:59+00:00"),
         )

@@ -33,11 +33,19 @@
                         name="multi_week_epoch_date"
                         attrs="{'invisible': [('parent_calendar_id', '!=', False)]}"
                     />
-                    <field name="week_number" />
+                    <field
+                        name="week_number"
+                        attrs="{'invisible': [('parent_calendar_id', '=', False)]}"
+                    />
                     <field name="current_week_number" />
                     <field name="current_calendar_id" />
                 </group>
             </group>
+            <xpath expr="//page[@name='working_hours']" position="attributes">
+                <attribute name="attrs">
+                    {'invisible': [('child_calendar_ids', '!=', [])]}
+                </attribute>
+            </xpath>
         </field>
     </record>
 </odoo>
