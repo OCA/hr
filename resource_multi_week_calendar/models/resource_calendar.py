@@ -27,6 +27,8 @@ class ResourceCalendar(models.Model):
         string="Alternating Working Times",
         copy=True,
     )
+    # These are all your siblings (including yourself) if you are a child, or
+    # all your children if you are a parent.
     family_calendar_ids = fields.One2many(
         comodel_name="resource.calendar",
         compute="_compute_family_calendar_ids",
@@ -89,7 +91,7 @@ class ResourceCalendar(models.Model):
     def _compute_family_calendar_ids(self):
         for calendar in self:
             parent = calendar.parent_calendar_id or calendar
-            calendar.family_calendar_ids = parent | parent.child_calendar_ids
+            calendar.family_calendar_ids = parent.child_calendar_ids
 
     @api.depends(
         "child_calendar_ids",
@@ -113,13 +115,14 @@ class ResourceCalendar(models.Model):
             if parent:
                 for week_number, sibling in enumerate(
                     parent.child_calendar_ids.sorted(lambda item: item.week_sequence),
-                    start=2,
+                    start=1,
                 ):
                     if calendar == sibling:
                         calendar.week_number = week_number
                         break
             else:
-                calendar.week_number = 1
+                # Parent calendars have no week number.
+                calendar.week_number = 0
 
     def _get_first_day_of_epoch_week(self):
         self.ensure_one()
@@ -128,6 +131,8 @@ class ResourceCalendar(models.Model):
 
     def _get_week_number(self, day=None):
         self.ensure_one()
+        if not self.is_multi_week:
+            return 0
         if day is None:
             day = fields.Date.today()
         if isinstance(day, datetime):
@@ -142,7 +147,6 @@ class ResourceCalendar(models.Model):
         "multi_week_epoch_date",
         "week_number",
         "family_calendar_ids",
-        # TODO: current date. Port company_today or add a cron. Or don't store.
     )
     def _compute_current_week(self):
         for calendar in self:
@@ -219,13 +223,8 @@ class ResourceCalendar(models.Model):
                 start_dt, end_dt, resources=resources, domain=domain, tz=tz
             )
 
-        if self.parent_calendar_id:
-            return self.parent_calendar_id._attendance_intervals_batch(
-                start_dt, end_dt, resources=resources, domain=domain, tz=tz
-            )
         calendars_by_week = {
-            calendar.week_number: calendar
-            for calendar in self | self.child_calendar_ids
+            calendar.week_number: calendar for calendar in self.family_calendar_ids
         }
         results = []
 
