@@ -67,16 +67,8 @@ class ResourceCalendar(models.Model):
         help="""When using alternating weeks, the week which contains the
         specified date becomes the first week, and all subsequent weeks
         alternate in order.""",
-        # required=True,
-        # default="1970-01-01",
-        # Compute this on child calendars; write this manually on parent
-        # calendars. Would use 'related=', but that wouldn't work here. Although
-        # technically, the value of this field on child calendars isn't super
-        # pertinent.
-        compute="_compute_multi_week_epoch_date",
-        readonly=False,
-        store=True,
-        recursive=True,
+        required=True,
+        default="1970-01-01",
     )
 
     def copy(self, default=None):
@@ -131,9 +123,8 @@ class ResourceCalendar(models.Model):
 
     def _get_first_day_of_epoch_week(self):
         self.ensure_one()
-        return self.multi_week_epoch_date - timedelta(
-            days=self.multi_week_epoch_date.weekday()
-        )
+        epoch_date = self.get_multi_week_epoch_date()
+        return epoch_date - timedelta(days=epoch_date.weekday())
 
     def _get_week_number(self, day=None):
         self.ensure_one()
@@ -160,16 +151,6 @@ class ResourceCalendar(models.Model):
             calendar.current_calendar_id = calendar.family_calendar_ids.filtered(
                 lambda item: item.week_number == current_week_number
             )
-
-    @api.depends("parent_calendar_id.multi_week_epoch_date")
-    def _compute_multi_week_epoch_date(self):
-        for calendar in self:
-            parent = calendar.parent_calendar_id
-            if parent:
-                calendar.multi_week_epoch_date = parent.multi_week_epoch_date
-            else:
-                # A default value.
-                calendar.multi_week_epoch_date = "1970-01-01"
 
     @api.constrains("parent_calendar_id", "child_calendar_ids")
     def _check_child_is_not_parent(self):
@@ -204,24 +185,11 @@ class ResourceCalendar(models.Model):
                     }
                 )
 
-    @api.constrains("parent_calendar_id", "multi_week_epoch_date")
-    def _check_epoch_date_matches_parent(self):
-        for calendar in self:
-            if calendar.parent_calendar_id:
-                if (
-                    calendar.multi_week_epoch_date
-                    != calendar.parent_calendar_id.multi_week_epoch_date
-                ):
-                    # Because the epoch date is hidden on the views of children,
-                    # this should not happen. However, for sanity, we do this
-                    # check anyway.
-                    raise ValidationError(
-                        _(
-                            "Working Time '%s' has an epoch date which does not"
-                            " match its Main Working Time's. This should not happen."
-                        )
-                        % calendar.name
-                    )
+    def get_multi_week_epoch_date(self):
+        self.ensure_one()
+        if self.parent_calendar_id:
+            return self.parent_calendar_id.multi_week_epoch_date
+        return self.multi_week_epoch_date
 
     @api.model
     def _split_into_weeks(self, start_dt, end_dt):
