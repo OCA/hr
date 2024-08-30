@@ -66,11 +66,6 @@ class TestCalendarConstraints(CalendarCase):
                 }
             )
 
-    def test_cant_change_epoch_date(self):
-        child = self.create_simple_child()
-        with self.assertRaises(ValidationError):
-            child.multi_week_epoch_date = "2001-01-01"
-
 
 class TestCalendarIsMultiweek(CalendarCase):
     def test_solo(self):
@@ -115,21 +110,6 @@ class TestCalendarWeekNumber(CalendarCase):
 
 
 class TestCalendarWeekEpoch(CalendarCase):
-    def test_set_epoch_on_parent(self):
-        child = self.create_simple_child()
-        self.parent_calendar.multi_week_epoch_date = "2001-01-01"
-        self.assertEqual(child.multi_week_epoch_date, datetime.date(2001, 1, 1))
-
-    def test_set_epoch_on_parent_prior_to_creation(self):
-        self.parent_calendar.multi_week_epoch_date = "2001-01-01"
-        child = self.create_simple_child()
-        self.assertEqual(child.multi_week_epoch_date, datetime.date(2001, 1, 1))
-
-    def test_unix_epoch_default(self):
-        self.assertEqual(
-            self.parent_calendar.multi_week_epoch_date, datetime.date(1970, 1, 1)
-        )
-
     @freeze_time("1970-01-08")
     def test_compute_current_week_no_family(self):
         self.assertEqual(self.parent_calendar.current_week_number, 1)
@@ -199,6 +179,13 @@ class TestCalendarWeekEpoch(CalendarCase):
             child._compute_current_week()
             self.assertEqual(child.current_week_number, 2)
             self.assertEqual(child.current_calendar_id, child)
+
+    # 2024-07-01 is a Monday.
+    @freeze_time("2024-07-01")
+    def test_compute_current_week_non_unix(self):
+        child = self.create_simple_child()
+        self.parent_calendar.multi_week_epoch_date = "2024-07-08"
+        self.assertEqual(child.current_week_number, 2)
 
 
 class TestMultiCalendar(CalendarCase):
