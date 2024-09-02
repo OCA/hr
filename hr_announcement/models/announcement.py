@@ -36,8 +36,8 @@ class Announcement(models.Model):
         itself"""
         for announcement in self:
             for employee in announcement.employee_ids.filtered(
-                lambda x: x.user_id
-                and announcement
+                lambda x, ann=announcement: x.user_id
+                and ann
                 not in (
                     x.user_id.read_announcement_ids + x.user_id.unread_announcement_ids
                 )

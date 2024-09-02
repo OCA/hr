@@ -81,6 +81,7 @@ Contributors
 -  `Tecnativa <https://www.tecnativa.com>`__:
 
    -  Pilar Vargas
+   -  Juan José Seguí
 
 Maintainers
 -----------
