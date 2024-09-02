@@ -7,11 +7,10 @@ import datetime
 from freezegun import freeze_time
 
 from odoo.exceptions import ValidationError
-from odoo.fields import Command
-from odoo.tests.common import TransactionCase
+from odoo.tests.common import SavepointCase
 
 
-class CalendarCase(TransactionCase):
+class CalendarCase(SavepointCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -56,15 +55,15 @@ class TestCalendarConstraints(CalendarCase):
                 "week_sequence": 1,
             }
         )
+        parent_of_parent = self.Calendar.create(
+            {
+                "name": "Parent of parent",
+                # This value is kind of arbitrary here.
+                "week_sequence": 2,
+            }
+        )
         with self.assertRaises(ValidationError):
-            self.Calendar.create(
-                {
-                    "name": "Parent of parent",
-                    "child_calendar_ids": self.parent_calendar.ids,
-                    # This value is kind of arbitrary here.
-                    "week_sequence": 2,
-                }
-            )
+            parent_of_parent.child_calendar_ids = self.parent_calendar
 
 
 class TestCalendarIsMultiweek(CalendarCase):
@@ -220,50 +219,60 @@ class TestMultiCalendar(CalendarCase):
         # In the child calendar, only work the mornings.
         self.child_2.attendance_ids = False
         self.child_2.attendance_ids = [
-            Command.create(
+            (
+                0,
+                False,
                 {
                     "name": "Monday Morning",
                     "dayofweek": "0",
                     "hour_from": 8,
                     "hour_to": 12,
                     "day_period": "morning",
-                }
+                },
             ),
-            Command.create(
+            (
+                0,
+                False,
                 {
                     "name": "Tuesday Morning",
                     "dayofweek": "1",
                     "hour_from": 8,
                     "hour_to": 12,
                     "day_period": "morning",
-                }
+                },
             ),
-            Command.create(
+            (
+                0,
+                False,
                 {
                     "name": "Wednesday Morning",
                     "dayofweek": "2",
                     "hour_from": 8,
                     "hour_to": 12,
                     "day_period": "morning",
-                }
+                },
             ),
-            Command.create(
+            (
+                0,
+                False,
                 {
                     "name": "Thursday Morning",
                     "dayofweek": "3",
                     "hour_from": 8,
                     "hour_to": 12,
                     "day_period": "morning",
-                }
+                },
             ),
-            Command.create(
+            (
+                0,
+                False,
                 {
                     "name": "Friday Morning",
                     "dayofweek": "4",
                     "hour_from": 8,
                     "hour_to": 12,
                     "day_period": "morning",
-                }
+                },
             ),
         ]
 

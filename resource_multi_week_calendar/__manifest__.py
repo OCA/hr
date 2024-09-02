@@ -6,7 +6,7 @@
     "name": "Multi-week calendars",
     "summary": """
         Allow a calendar to alternate between multiple weeks.""",
-    "version": "16.0.1.0.0",
+    "version": "12.0.1.0.0",
     "category": "Hidden",
     "website": "https://github.com/OCA/hr",
     "author": "Coop IT Easy SC, Odoo Community Association (OCA)",

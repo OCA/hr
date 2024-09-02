@@ -7,6 +7,7 @@ from datetime import datetime, timedelta
 
 from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
+from odoo.addons.resource.models.resource import Intervals
 
 
 class ResourceCalendar(models.Model):
@@ -221,44 +222,27 @@ class ResourceCalendar(models.Model):
             # Move to the next week (start of next Monday)
             current_start = current_end
 
-    def _attendance_intervals_batch(
-        self, start_dt, end_dt, resources=None, domain=None, tz=None
-    ):
+    def _attendance_intervals(self, start_dt, end_dt, resource=None):
         self.ensure_one()
         if not self.is_multi_week:
-            return super()._attendance_intervals_batch(
-                start_dt, end_dt, resources=resources, domain=domain, tz=tz
-            )
+            return super()._attendance_intervals(start_dt, end_dt, resource=resource)
 
         calendars_by_week = {
             calendar.week_number: calendar for calendar in self.multi_week_calendar_ids
         }
-        results = []
+        result = Intervals()
 
         # Calculate each week separately, choosing the correct calendar for each
         # week.
         for week_start, week_end in self._split_into_weeks(start_dt, end_dt):
-            results.append(
-                super(
-                    ResourceCalendar,
-                    calendars_by_week[self._get_week_number(week_start)].with_context(
-                        # This context is not used here, but could possibly be
-                        # used by other modules that use this module. I am not
-                        # sure how useful it is.
-                        recursive_multi_week=True
-                    ),
-                )._attendance_intervals_batch(
-                    week_start, week_end, resources=resources, domain=domain, tz=tz
-                )
-            )
-
-        # Aggregate the results from each week.
-        result = {}
-        for item in results:
-            for resource, intervals in item.items():
-                if resource not in result:
-                    result[resource] = intervals
-                else:
-                    result[resource] |= intervals
+            result |= super(
+                ResourceCalendar,
+                calendars_by_week[self._get_week_number(week_start)].with_context(
+                    # This context is not used here, but could possibly be
+                    # used by other modules that use this module. I am not
+                    # sure how useful it is.
+                    recursive_multi_week=True
+                ),
+            )._attendance_intervals(week_start, week_end, resource=resource)
 
         return result
