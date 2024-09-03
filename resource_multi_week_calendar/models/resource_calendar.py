@@ -143,6 +143,15 @@ class ResourceCalendar(models.Model):
         )
         return (weeks_since_epoch % family_size) + 1
 
+    def _get_calendar(self, day=None):
+        self.ensure_one()
+        if not self.is_multi_week:
+            return self
+        week_number = self._get_week_number(day=day)
+        return self.family_calendar_ids.filtered(
+            lambda item: item.week_number == week_number
+        )
+
     @api.depends(
         "multi_week_epoch_date",
         "week_number",
@@ -152,9 +161,7 @@ class ResourceCalendar(models.Model):
         for calendar in self:
             current_week_number = calendar._get_week_number()
             calendar.current_week_number = current_week_number
-            calendar.current_calendar_id = calendar.family_calendar_ids.filtered(
-                lambda item: item.week_number == current_week_number
-            )
+            calendar.current_calendar_id = calendar._get_calendar()
 
     @api.constrains("parent_calendar_id", "child_calendar_ids")
     def _check_child_is_not_parent(self):
