@@ -42,7 +42,7 @@
                         attrs="{'invisible': [('parent_calendar_id', '=', False)]}"
                     />
                     <field name="current_week_number" />
-                    <field name="current_calendar_id" />
+                    <field name="current_multi_week_calendar_id" />
                 </group>
             </group>
             <xpath expr="//page[@name='working_hours']" position="attributes">

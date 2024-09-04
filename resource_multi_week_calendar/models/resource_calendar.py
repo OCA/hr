@@ -15,23 +15,20 @@ class ResourceCalendar(models.Model):
     parent_calendar_id = fields.Many2one(
         comodel_name="resource.calendar",
         domain=[("parent_calendar_id", "=", False)],
-        # TODO: should this cascade instead?
-        ondelete="set null",
+        ondelete="cascade",
         string="Main Working Time",
     )
     child_calendar_ids = fields.One2many(
         comodel_name="resource.calendar",
         inverse_name="parent_calendar_id",
-        # TODO: this causes a recursion error, but seems correct to me.
-        # domain=[("child_calendar_ids", "=", [])],
         string="Alternating Working Times",
         copy=True,
     )
     # These are all your siblings (including yourself) if you are a child, or
-    # all your children if you are a parent.
-    family_calendar_ids = fields.One2many(
+    # all your children if you are a parent. This is not a sorted set.
+    multi_week_calendar_ids = fields.One2many(
         comodel_name="resource.calendar",
-        compute="_compute_family_calendar_ids",
+        compute="_compute_multi_week_calendar_ids",
         recursive=True,
     )
     is_multi_week = fields.Boolean(compute="_compute_is_multi_week", store=True)
@@ -58,7 +55,7 @@ class ResourceCalendar(models.Model):
         compute="_compute_current_week",
         recursive=True,
     )
-    current_calendar_id = fields.Many2one(
+    current_multi_week_calendar_id = fields.Many2one(
         comodel_name="resource.calendar",
         compute="_compute_current_week",
         recursive=True,
@@ -77,7 +74,7 @@ class ResourceCalendar(models.Model):
         self.ensure_one()
         if default is None:
             default = {}
-        sequences = sorted(self.family_calendar_ids.mapped("week_sequence"))
+        sequences = sorted(self.multi_week_calendar_ids.mapped("week_sequence"))
         if sequences:
             # Assign highest value sequence.
             default["week_sequence"] = sequences[-1] + 1
@@ -88,10 +85,10 @@ class ResourceCalendar(models.Model):
         "parent_calendar_id",
         "parent_calendar_id.child_calendar_ids",
     )
-    def _compute_family_calendar_ids(self):
+    def _compute_multi_week_calendar_ids(self):
         for calendar in self:
             parent = calendar.parent_calendar_id or calendar
-            calendar.family_calendar_ids = parent.child_calendar_ids
+            calendar.multi_week_calendar_ids = parent.child_calendar_ids
 
     @api.depends(
         "child_calendar_ids",
@@ -137,31 +134,33 @@ class ResourceCalendar(models.Model):
             day = fields.Date.today()
         if isinstance(day, datetime):
             day = day.date()
-        family_size = len(self.family_calendar_ids)
+        family_size = len(self.multi_week_calendar_ids)
         weeks_since_epoch = math.floor(
             (day - self._get_first_day_of_epoch_week()).days / 7
         )
         return (weeks_since_epoch % family_size) + 1
 
-    def _get_calendar(self, day=None):
+    def _get_multi_week_calendar(self, day=None):
         self.ensure_one()
         if not self.is_multi_week:
             return self
         week_number = self._get_week_number(day=day)
-        return self.family_calendar_ids.filtered(
+        return self.multi_week_calendar_ids.filtered(
             lambda item: item.week_number == week_number
         )
 
     @api.depends(
         "multi_week_epoch_date",
         "week_number",
-        "family_calendar_ids",
+        "multi_week_calendar_ids",
     )
     def _compute_current_week(self):
         for calendar in self:
             current_week_number = calendar._get_week_number()
             calendar.current_week_number = current_week_number
-            calendar.current_calendar_id = calendar._get_calendar()
+            calendar.current_multi_week_calendar_id = (
+                calendar._get_multi_week_calendar()
+            )
 
     @api.constrains("parent_calendar_id", "child_calendar_ids")
     def _check_child_is_not_parent(self):
@@ -231,7 +230,7 @@ class ResourceCalendar(models.Model):
             )
 
         calendars_by_week = {
-            calendar.week_number: calendar for calendar in self.family_calendar_ids
+            calendar.week_number: calendar for calendar in self.multi_week_calendar_ids
         }
         results = []
 

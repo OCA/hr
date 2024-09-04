@@ -114,14 +114,16 @@ class TestCalendarWeekEpoch(CalendarCase):
     @freeze_time("1970-01-08")
     def test_compute_current_week_no_family(self):
         self.assertEqual(self.parent_calendar.current_week_number, 0)
-        self.assertFalse(self.parent_calendar.current_calendar_id)
+        self.assertEqual(
+            self.parent_calendar.current_multi_week_calendar_id, self.parent_calendar
+        )
 
     # 1970-01-01 is a Thursday.
     @freeze_time("1970-01-01")
     def test_compute_current_week_solo(self):
         child = self.create_simple_child()
         self.assertEqual(child.current_week_number, 1)
-        self.assertEqual(child.current_calendar_id, child)
+        self.assertEqual(child.current_multi_week_calendar_id, child)
 
     # 1970-01-01 is a Thursday.
     @freeze_time("1970-01-01")
@@ -129,12 +131,12 @@ class TestCalendarWeekEpoch(CalendarCase):
         child_1 = self.create_simple_child()
         child_2 = self.create_simple_child()
         self.assertEqual(child_1.current_week_number, 1)
-        self.assertEqual(child_1.current_calendar_id, child_1)
+        self.assertEqual(child_1.current_multi_week_calendar_id, child_1)
         # Test against the others, too, which should have the same result.
         self.assertEqual(self.parent_calendar.current_week_number, 1)
-        self.assertEqual(self.parent_calendar.current_calendar_id, child_1)
+        self.assertEqual(self.parent_calendar.current_multi_week_calendar_id, child_1)
         self.assertEqual(child_2.current_week_number, 1)
-        self.assertEqual(child_2.current_calendar_id, child_1)
+        self.assertEqual(child_2.current_multi_week_calendar_id, child_1)
 
     # 1969-12-29 is a Monday.
     @freeze_time("1969-12-29")
@@ -142,7 +144,7 @@ class TestCalendarWeekEpoch(CalendarCase):
         child_1 = self.create_simple_child()
         self.create_simple_child()
         self.assertEqual(child_1.current_week_number, 1)
-        self.assertEqual(child_1.current_calendar_id, child_1)
+        self.assertEqual(child_1.current_multi_week_calendar_id, child_1)
 
     # 1969-12-28 is a Sunday.
     @freeze_time("1969-12-28")
@@ -150,7 +152,7 @@ class TestCalendarWeekEpoch(CalendarCase):
         child_1 = self.create_simple_child()
         child_2 = self.create_simple_child()
         self.assertEqual(child_1.current_week_number, 2)
-        self.assertEqual(child_1.current_calendar_id, child_2)
+        self.assertEqual(child_1.current_multi_week_calendar_id, child_2)
 
     # 1970-01-04 is a Sunday.
     @freeze_time("1970-01-04")
@@ -158,7 +160,7 @@ class TestCalendarWeekEpoch(CalendarCase):
         child_1 = self.create_simple_child()
         self.create_simple_child()
         self.assertEqual(child_1.current_week_number, 1)
-        self.assertEqual(child_1.current_calendar_id, child_1)
+        self.assertEqual(child_1.current_multi_week_calendar_id, child_1)
 
     # 1970-01-05 is a Monday.
     @freeze_time("1970-01-05")
@@ -166,7 +168,7 @@ class TestCalendarWeekEpoch(CalendarCase):
         child_1 = self.create_simple_child()
         child_2 = self.create_simple_child()
         self.assertEqual(child_1.current_week_number, 2)
-        self.assertEqual(child_1.current_calendar_id, child_2)
+        self.assertEqual(child_1.current_multi_week_calendar_id, child_2)
 
     # 1970-01-12 is a Monday.
     @freeze_time("1970-01-12")
@@ -174,7 +176,7 @@ class TestCalendarWeekEpoch(CalendarCase):
         child_1 = self.create_simple_child()
         self.create_simple_child()
         self.assertEqual(child_1.current_week_number, 1)
-        self.assertEqual(child_1.current_calendar_id, child_1)
+        self.assertEqual(child_1.current_multi_week_calendar_id, child_1)
 
     # 1970-01-12 is a Monday.
     @freeze_time("1970-01-12")
@@ -183,7 +185,7 @@ class TestCalendarWeekEpoch(CalendarCase):
         self.create_simple_child()
         child_3 = self.create_simple_child()
         self.assertEqual(child_3.current_week_number, 3)
-        self.assertEqual(child_3.current_calendar_id, child_3)
+        self.assertEqual(child_3.current_multi_week_calendar_id, child_3)
 
     # 1970-01-04 is a Sunday.
     @freeze_time("1970-01-04")
@@ -191,13 +193,13 @@ class TestCalendarWeekEpoch(CalendarCase):
         child_1 = self.create_simple_child()
         child_2 = self.create_simple_child()
         self.assertEqual(child_1.current_week_number, 1)
-        self.assertEqual(child_1.current_calendar_id, child_1)
+        self.assertEqual(child_1.current_multi_week_calendar_id, child_1)
         with freeze_time("1970-01-05"):
             # This re-compute shouldn't technically be needed... Maybe there's a
             # cache?
             child_1._compute_current_week()
             self.assertEqual(child_1.current_week_number, 2)
-            self.assertEqual(child_1.current_calendar_id, child_2)
+            self.assertEqual(child_1.current_multi_week_calendar_id, child_2)
 
     # 2024-07-01 is a Monday.
     @freeze_time("2024-07-01")
