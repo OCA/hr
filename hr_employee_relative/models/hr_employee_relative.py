@@ -23,7 +23,9 @@ class HrEmployeeRelative(models.Model):
         selection=[("male", "Male"), ("female", "Female"), ("other", "Other")],
     )
     date_of_birth = fields.Date()
-    age = fields.Float(compute="_compute_age")
+    age_year = fields.Integer(string="Age (Years)", compute="_compute_age")
+    age_month = fields.Integer(string="Age (Months)")
+    age_day = fields.Integer(string="Age (Days)")
 
     job = fields.Char()
     phone_number = fields.Char()
@@ -33,8 +35,15 @@ class HrEmployeeRelative(models.Model):
     @api.depends("date_of_birth")
     def _compute_age(self):
         for record in self:
-            age = relativedelta(datetime.now(), record.date_of_birth)
-            record.age = age.years + (age.months / 12)
+            if record.date_of_birth:
+                age = relativedelta(datetime.now(), record.date_of_birth)
+                record.age_year = age.years
+                record.age_month = age.months
+                record.age_day = age.days
+            else:
+                record.age_year = 0
+                record.age_month = 0
+                record.age_day = 0
 
     @api.onchange("partner_id")
     def _onchange_partner_id(self):
