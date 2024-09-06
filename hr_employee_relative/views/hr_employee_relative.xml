@@ -14,7 +14,9 @@
                 <field name="partner_id" />
                 <field name="gender" />
                 <field name="date_of_birth" />
-                <field name="age" />
+                <field name="age_year" string="Age (Years)" />
+                <field name="age_month" string="Age (Months)" optional="hide" />
+                <field name="age_day" string="Age (Days)" optional="hide" />
                 <field name="phone_number" />
                 <field name="job" />
                 <field name="notes" />
