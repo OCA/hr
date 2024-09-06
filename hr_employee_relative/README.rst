@@ -65,6 +65,11 @@ Contributors
 -  Alberto Nieto de Pablos <alberto.nieto@braintec.com>
    (https://braintec.com)
 
+-  `APSL-Nagarro <https://apsl.tech>`__:
+
+   -  Patryk Pyczko ppyczko@apsl.net
+   -  Bernat Obrador bobrador@apsl.net
+
 Maintainers
 -----------
 
