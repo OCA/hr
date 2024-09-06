@@ -17,9 +17,22 @@ msgstr ""
 "X-Generator: Weblate 4.17\n"
 
 #. module: hr_employee_relative
-#: model:ir.model.fields,field_description:hr_employee_relative.field_hr_employee_relative__age
-msgid "Age"
-msgstr "Âge"
+#: model:ir.model.fields,field_description:hr_employee_relative.field_hr_employee_relative__age_day
+#: model_terms:ir.ui.view,arch_db:hr_employee_relative.hr_employee_relative_view_tree
+msgid "Age (Days)"
+msgstr ""
+
+#. module: hr_employee_relative
+#: model:ir.model.fields,field_description:hr_employee_relative.field_hr_employee_relative__age_month
+#: model_terms:ir.ui.view,arch_db:hr_employee_relative.hr_employee_relative_view_tree
+msgid "Age (Months)"
+msgstr ""
+
+#. module: hr_employee_relative
+#: model:ir.model.fields,field_description:hr_employee_relative.field_hr_employee_relative__age_year
+#: model_terms:ir.ui.view,arch_db:hr_employee_relative.hr_employee_relative_view_tree
+msgid "Age (Years)"
+msgstr ""
 
 #. module: hr_employee_relative
 #: model:hr.employee.relative.relation,name:hr_employee_relative.relation_child
@@ -102,12 +115,6 @@ msgid "Job"
 msgstr "Métier"
 
 #. module: hr_employee_relative
-#: model:ir.model.fields,field_description:hr_employee_relative.field_hr_employee_relative____last_update
-#: model:ir.model.fields,field_description:hr_employee_relative.field_hr_employee_relative_relation____last_update
-msgid "Last Modified on"
-msgstr "Dernière modification le"
-
-#. module: hr_employee_relative
 #: model:ir.model.fields,field_description:hr_employee_relative.field_hr_employee_relative__write_uid
 #: model:ir.model.fields,field_description:hr_employee_relative.field_hr_employee_relative_relation__write_uid
 msgid "Last Updated by"
@@ -184,6 +191,12 @@ msgstr "Autre"
 #: model:hr.employee.relative.relation,name:hr_employee_relative.relation_spouse
 msgid "Spouse"
 msgstr "Époux / Épouse"
+
+#~ msgid "Age"
+#~ msgstr "Âge"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Dernière modification le"
 
 #~ msgid "Date of Birth"
 #~ msgstr "Date de naissance"
