@@ -400,6 +400,15 @@ work with various other modules. Most notably, <tt class="docutils literal">hr_h
 without modification.</p>
 <p>The existing base Odoo two-week calendar functionality is hidden rather than
 disabled. This may or may not be desirable.</p>
+<p>The module may need improvements for timezone handling; this is currently
+untested. <tt class="docutils literal">_split_into_weeks</tt> splits weeks on the timezone of the datetime
+objects passed to it instead of on the timezone of the calendar. The calculation
+of the current week number uses <tt class="docutils literal">fields.Date.today()</tt> instead of the
+environment’s or calendar’s timezone. Finally, child calendars may have a
+different timezone compared to their parent, which is probably not a desired
+feature.</p>
+<p>This module assumes that a week always starts on a Monday. Upstream Odoo appears
+to do the same, but this may not be desired by certain audiences.</p>
 </div>
 <div class="section" id="bug-tracker">
 <h1><a class="toc-backref" href="#toc-entry-2">Bug Tracker</a></h1>
