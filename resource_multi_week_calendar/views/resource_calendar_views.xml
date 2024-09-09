@@ -9,6 +9,11 @@
                 <attribute name="attrs" />
                 <attribute name="invisible">1</attribute>
             </button>
+            <field name="hours_per_day" position="attributes">
+                <attribute
+                    name="attrs"
+                >{'invisible': [('child_calendar_ids', '!=', [])]}</attribute>
+            </field>
             <group name="resource_details" position="inside">
                 <group name="multi_week">
                     <!-- TODO: Should this be readonly? If it is, you cannot add
