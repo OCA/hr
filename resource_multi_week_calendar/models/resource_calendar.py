@@ -43,8 +43,10 @@ class ResourceCalendar(models.Model):
     # constraint method is called before all children/siblings are saved,
     # meaning that they can conflict with each other in this interim stage.
     #
-    # If this value is not unique, the behaviour is undefined. Fortunately, this
-    # should not happen in regular Odoo usage.
+    # If this value is not unique, the order is preserved between the identical
+    # elements. The elements of child_calendar_ids are always sorted by _order,
+    # which is id by default. The value may not be unique when new calendars are
+    # added.
     week_sequence = fields.Integer(default=0)
     week_number = fields.Integer(
         compute="_compute_week_number",
@@ -134,17 +136,18 @@ class ResourceCalendar(models.Model):
             day = fields.Date.today()
         if isinstance(day, datetime):
             day = day.date()
-        family_size = len(self.multi_week_calendar_ids)
+        calendar_count = len(self.multi_week_calendar_ids)
         weeks_since_epoch = math.floor(
             (day - self._get_first_day_of_epoch_week()).days / 7
         )
-        return (weeks_since_epoch % family_size) + 1
+        return (weeks_since_epoch % calendar_count) + 1
 
     def _get_multi_week_calendar(self, day=None):
         self.ensure_one()
         if not self.is_multi_week:
             return self
         week_number = self._get_week_number(day=day)
+        # Should return a 1-item recordset. If it does not, we've hit a bug.
         return self.multi_week_calendar_ids.filtered(
             lambda item: item.week_number == week_number
         )
@@ -156,11 +159,9 @@ class ResourceCalendar(models.Model):
     )
     def _compute_current_week(self):
         for calendar in self:
-            current_week_number = calendar._get_week_number()
-            calendar.current_week_number = current_week_number
-            calendar.current_multi_week_calendar_id = (
-                calendar._get_multi_week_calendar()
-            )
+            current_calendar = calendar._get_multi_week_calendar()
+            calendar.current_multi_week_calendar_id = current_calendar
+            calendar.current_week_number = current_calendar.week_number
 
     @api.constrains("parent_calendar_id", "child_calendar_ids")
     def _check_child_is_not_parent(self):
