@@ -58,18 +58,12 @@ msgid "Days"
 msgstr "Giorni"
 
 #. module: hr_employee_ppe
-#: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_personal_equipment__display_name
-#: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_personal_equipment_request__display_name
-#: model:ir.model.fields,field_description:hr_employee_ppe.field_product_template__display_name
-msgid "Display Name"
-msgstr "Nome visualizzato"
-
-#. module: hr_employee_ppe
 #: model_terms:ir.ui.view,arch_db:hr_employee_ppe.product_template_form_view
 msgid "Employee PPE"
 msgstr "DPI dipendente"
 
 #. module: hr_employee_ppe
+#. odoo-python
 #: code:addons/hr_employee_ppe/models/hr_personal_equipment.py:0
 #, python-format
 msgid "End date cannot occur earlier than start date."
@@ -126,13 +120,6 @@ msgstr ""
 "sostituzione."
 
 #. module: hr_employee_ppe
-#: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_personal_equipment__id
-#: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_personal_equipment_request__id
-#: model:ir.model.fields,field_description:hr_employee_ppe.field_product_template__id
-msgid "ID"
-msgstr "ID"
-
-#. module: hr_employee_ppe
 #: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_personal_equipment__indications
 #: model:ir.model.fields,field_description:hr_employee_ppe.field_product_product__indications
 #: model:ir.model.fields,field_description:hr_employee_ppe.field_product_template__indications
@@ -164,13 +151,6 @@ msgstr "È un DPI"
 #: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_personal_equipment__issued_by
 msgid "Issued By"
 msgstr "Distribuito da"
-
-#. module: hr_employee_ppe
-#: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_personal_equipment____last_update
-#: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_personal_equipment_request____last_update
-#: model:ir.model.fields,field_description:hr_employee_ppe.field_product_template____last_update
-msgid "Last Modified on"
-msgstr "Ultima modifica il"
 
 #. module: hr_employee_ppe
 #: model:ir.model.fields.selection,name:hr_employee_ppe.selection__product_template__ppe_interval_type__minutes
@@ -206,8 +186,6 @@ msgstr "Durata DPI"
 
 #. module: hr_employee_ppe
 #: model:ir.actions.server,name:hr_employee_ppe.hr_employee_ppe_cron_ir_actions_server
-#: model:ir.cron,cron_name:hr_employee_ppe.hr_employee_ppe_cron
-#: model:ir.cron,name:hr_employee_ppe.hr_employee_ppe_cron
 msgid "PPE's expiry date verification"
 msgstr "Verifica data scadenza DPI"
 
@@ -217,14 +195,10 @@ msgid "Print Receipt of PPE"
 msgstr "Stampa ricevuta DPI"
 
 #. module: hr_employee_ppe
+#: model:ir.model,name:hr_employee_ppe.model_product_template
 #: model_terms:ir.ui.view,arch_db:hr_employee_ppe.hr_employee_ppe_report_template
 msgid "Product"
 msgstr "Prodotto"
-
-#. module: hr_employee_ppe
-#: model:ir.model,name:hr_employee_ppe.model_product_template
-msgid "Product Template"
-msgstr "Modello prodotto"
 
 #. module: hr_employee_ppe
 #: model_terms:ir.ui.view,arch_db:hr_employee_ppe.hr_employee_ppe_report_template
@@ -285,3 +259,15 @@ msgstr "sta fornendo"
 #: model_terms:ir.ui.view,arch_db:hr_employee_ppe.hr_employee_ppe_report_template
 msgid "with the following Personal Protection Equipment (PPE):"
 msgstr "con il seguente dispositivo di protezione individuale (DPI):"
+
+#~ msgid "Display Name"
+#~ msgstr "Nome visualizzato"
+
+#~ msgid "ID"
+#~ msgstr "ID"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Ultima modifica il"
+
+#~ msgid "Product Template"
+#~ msgstr "Modello prodotto"
