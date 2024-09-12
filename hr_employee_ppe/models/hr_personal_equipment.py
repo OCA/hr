@@ -10,7 +10,6 @@ from odoo.addons.base.models.ir_cron import _intervalTypes
 
 
 class HrPersonalEquipment(models.Model):
-
     _name = "hr.personal.equipment"
     _inherit = ["hr.personal.equipment"]
 
