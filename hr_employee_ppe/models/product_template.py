@@ -10,7 +10,6 @@ class ProductTemplate(models.Model):
 
     is_ppe = fields.Boolean(default=False)
     indications = fields.Text(
-        string="Indications",
         help="Situations in which the employee should use this equipment. Only for ppe",
     )
     expirable_ppe = fields.Boolean(

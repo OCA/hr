@@ -38,13 +38,13 @@
                                             t-if="line.is_ppe"
                                         >
                                             <td>
-                                                <t t-esc="line.product_id.name" />
+                                                <t t-out="line.product_id.name" />
                                             </td>
                                             <td>
-                                                <t t-esc="line.quantity" />
+                                                <t t-out="line.quantity" />
                                             </td>
                                             <td>
-                                                <t t-esc="line.indications" />
+                                                <t t-out="line.indications" />
                                             </td>
                                         </tr>
                                     </t>
