@@ -1,0 +1,269 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* hr_employee_ppe
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hr_employee_ppe
+#: model_terms:ir.ui.view,arch_db:hr_employee_ppe.hr_employee_ppe_report_template
+msgid "<span>Date:</span>"
+msgstr ""
+
+#. module: hr_employee_ppe
+#: model_terms:ir.ui.view,arch_db:hr_employee_ppe.hr_employee_ppe_report_template
+msgid "<span>Signature:</span>"
+msgstr ""
+
+#. module: hr_employee_ppe
+#: model:ir.model,name:hr_employee_ppe.model_hr_personal_equipment
+msgid "Adds personal equipment information and allocation"
+msgstr ""
+
+#. module: hr_employee_ppe
+#: model_terms:ir.ui.view,arch_db:hr_employee_ppe.hr_personal_equipment_form_view
+msgid "Certification Information"
+msgstr ""
+
+#. module: hr_employee_ppe
+#: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_personal_equipment__certification
+#: model:ir.model.fields,help:hr_employee_ppe.field_hr_personal_equipment__certification
+msgid "Certification Number"
+msgstr ""
+
+#. module: hr_employee_ppe
+#: model_terms:ir.ui.view,arch_db:hr_employee_ppe.hr_personal_equipment_request_form_view
+msgid "Contains PPE"
+msgstr ""
+
+#. module: hr_employee_ppe
+#: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_personal_equipment_request__contains_ppe
+msgid "Contains Ppe"
+msgstr ""
+
+#. module: hr_employee_ppe
+#: model:ir.model.fields.selection,name:hr_employee_ppe.selection__product_template__ppe_interval_type__days
+msgid "Days"
+msgstr ""
+
+#. module: hr_employee_ppe
+#: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_personal_equipment__display_name
+#: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_personal_equipment_request__display_name
+#: model:ir.model.fields,field_description:hr_employee_ppe.field_product_template__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: hr_employee_ppe
+#: model_terms:ir.ui.view,arch_db:hr_employee_ppe.product_template_form_view
+msgid "Employee PPE"
+msgstr ""
+
+#. module: hr_employee_ppe
+#: code:addons/hr_employee_ppe/models/hr_personal_equipment.py:0
+#, python-format
+msgid "End date cannot occur earlier than start date."
+msgstr ""
+
+#. module: hr_employee_ppe
+#: model_terms:ir.ui.view,arch_db:hr_employee_ppe.hr_personal_equipment_form_view
+#: model_terms:ir.ui.view,arch_db:hr_employee_ppe.hr_personal_equipment_request_form_view
+#: model_terms:ir.ui.view,arch_db:hr_employee_ppe.hr_personal_equipment_tree_view
+msgid "Expirable"
+msgstr ""
+
+#. module: hr_employee_ppe
+#: model:ir.model.fields,field_description:hr_employee_ppe.field_product_product__expirable_ppe
+#: model:ir.model.fields,field_description:hr_employee_ppe.field_product_template__expirable_ppe
+msgid "Expirable Ppe"
+msgstr ""
+
+#. module: hr_employee_ppe
+#: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_personal_equipment__expire_ppe
+msgid "Expire Ppe"
+msgstr ""
+
+#. module: hr_employee_ppe
+#: model:ir.model.fields.selection,name:hr_employee_ppe.selection__product_template__ppe_interval_type__hours
+msgid "Hours"
+msgstr ""
+
+#. module: hr_employee_ppe
+#: model_terms:ir.ui.view,arch_db:hr_employee_ppe.hr_employee_ppe_report_template
+msgid ""
+"I agree to wear the equipment when facing the exposure it is designed to protect against.\n"
+"                            I acknowledge that my failure to do so may subject me to disciplinary action."
+msgstr ""
+
+#. module: hr_employee_ppe
+#: model_terms:ir.ui.view,arch_db:hr_employee_ppe.hr_employee_ppe_report_template
+msgid ""
+"I, the undersigned accept the PPE that my employer is providing to me. I further acknowledge that I have been instructed\n"
+"                            in how to wear and maintain it. If it is lost or damaged, I will report the same to my employer promptly for replacement."
+msgstr ""
+
+#. module: hr_employee_ppe
+#: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_personal_equipment__id
+#: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_personal_equipment_request__id
+#: model:ir.model.fields,field_description:hr_employee_ppe.field_product_template__id
+msgid "ID"
+msgstr ""
+
+#. module: hr_employee_ppe
+#: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_personal_equipment__indications
+#: model:ir.model.fields,field_description:hr_employee_ppe.field_product_product__indications
+#: model:ir.model.fields,field_description:hr_employee_ppe.field_product_template__indications
+#: model_terms:ir.ui.view,arch_db:hr_employee_ppe.hr_employee_ppe_report_template
+msgid "Indications"
+msgstr ""
+
+#. module: hr_employee_ppe
+#: model:ir.model.fields,field_description:hr_employee_ppe.field_product_product__ppe_interval_type
+#: model:ir.model.fields,field_description:hr_employee_ppe.field_product_template__ppe_interval_type
+msgid "Interval Unit"
+msgstr ""
+
+#. module: hr_employee_ppe
+#: model_terms:ir.ui.view,arch_db:hr_employee_ppe.hr_personal_equipment_form_view
+#: model_terms:ir.ui.view,arch_db:hr_employee_ppe.hr_personal_equipment_request_form_view
+#: model_terms:ir.ui.view,arch_db:hr_employee_ppe.product_template_form_view
+msgid "Is PPE"
+msgstr ""
+
+#. module: hr_employee_ppe
+#: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_personal_equipment__is_ppe
+#: model:ir.model.fields,field_description:hr_employee_ppe.field_product_product__is_ppe
+#: model:ir.model.fields,field_description:hr_employee_ppe.field_product_template__is_ppe
+msgid "Is Ppe"
+msgstr ""
+
+#. module: hr_employee_ppe
+#: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_personal_equipment__issued_by
+msgid "Issued By"
+msgstr ""
+
+#. module: hr_employee_ppe
+#: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_personal_equipment____last_update
+#: model:ir.model.fields,field_description:hr_employee_ppe.field_hr_personal_equipment_request____last_update
+#: model:ir.model.fields,field_description:hr_employee_ppe.field_product_template____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: hr_employee_ppe
+#: model:ir.model.fields.selection,name:hr_employee_ppe.selection__product_template__ppe_interval_type__minutes
+msgid "Minutes"
+msgstr ""
+
+#. module: hr_employee_ppe
+#: model:ir.model.fields.selection,name:hr_employee_ppe.selection__product_template__ppe_interval_type__months
+msgid "Months"
+msgstr ""
+
+#. module: hr_employee_ppe
+#: model_terms:ir.ui.view,arch_db:hr_employee_ppe.product_template_form_view
+msgid "PPE Duration"
+msgstr ""
+
+#. module: hr_employee_ppe
+#: model_terms:ir.ui.view,arch_db:hr_employee_ppe.hr_personal_equipment_form_view
+#: model_terms:ir.ui.view,arch_db:hr_employee_ppe.product_template_form_view
+msgid "PPE Indications"
+msgstr ""
+
+#. module: hr_employee_ppe
+#: model_terms:ir.ui.view,arch_db:hr_employee_ppe.product_template_form_view
+msgid "PPE Interval Type"
+msgstr ""
+
+#. module: hr_employee_ppe
+#: model:ir.model.fields,field_description:hr_employee_ppe.field_product_product__ppe_duration
+#: model:ir.model.fields,field_description:hr_employee_ppe.field_product_template__ppe_duration
+msgid "PPE duration"
+msgstr ""
+
+#. module: hr_employee_ppe
+#: model:ir.actions.server,name:hr_employee_ppe.hr_employee_ppe_cron_ir_actions_server
+#: model:ir.cron,cron_name:hr_employee_ppe.hr_employee_ppe_cron
+#: model:ir.cron,name:hr_employee_ppe.hr_employee_ppe_cron
+msgid "PPE's expiry date verification"
+msgstr ""
+
+#. module: hr_employee_ppe
+#: model_terms:ir.ui.view,arch_db:hr_employee_ppe.hr_personal_equipment_request_form_view
+msgid "Print Receipt of PPE"
+msgstr ""
+
+#. module: hr_employee_ppe
+#: model_terms:ir.ui.view,arch_db:hr_employee_ppe.hr_employee_ppe_report_template
+msgid "Product"
+msgstr ""
+
+#. module: hr_employee_ppe
+#: model:ir.model,name:hr_employee_ppe.model_product_template
+msgid "Product Template"
+msgstr ""
+
+#. module: hr_employee_ppe
+#: model_terms:ir.ui.view,arch_db:hr_employee_ppe.hr_employee_ppe_report_template
+msgid "Quantity"
+msgstr ""
+
+#. module: hr_employee_ppe
+#: model_terms:ir.ui.view,arch_db:hr_employee_ppe.hr_employee_ppe_report_template
+msgid "Receipt of Personal Protection Equipment"
+msgstr ""
+
+#. module: hr_employee_ppe
+#: model:ir.actions.report,name:hr_employee_ppe.hr_employee_ppe_report
+msgid "Receipt of Personal protection Equipment"
+msgstr ""
+
+#. module: hr_employee_ppe
+#: model:ir.model.fields,help:hr_employee_ppe.field_product_product__expirable_ppe
+#: model:ir.model.fields,help:hr_employee_ppe.field_product_template__expirable_ppe
+msgid "Select this option if the PPE has expiry date."
+msgstr ""
+
+#. module: hr_employee_ppe
+#: model:ir.model.fields,help:hr_employee_ppe.field_hr_personal_equipment__indications
+msgid "Situations in which the employee should use this equipment."
+msgstr ""
+
+#. module: hr_employee_ppe
+#: model:ir.model.fields,help:hr_employee_ppe.field_product_product__indications
+#: model:ir.model.fields,help:hr_employee_ppe.field_product_template__indications
+msgid ""
+"Situations in which the employee should use this equipment. Only for ppe"
+msgstr ""
+
+#. module: hr_employee_ppe
+#: model:ir.model,name:hr_employee_ppe.model_hr_personal_equipment_request
+msgid "This model allows to create a personal equipment request"
+msgstr ""
+
+#. module: hr_employee_ppe
+#: model:ir.model.fields,help:hr_employee_ppe.field_hr_personal_equipment__expire_ppe
+msgid "True if the PPE expires"
+msgstr ""
+
+#. module: hr_employee_ppe
+#: model:ir.model.fields.selection,name:hr_employee_ppe.selection__product_template__ppe_interval_type__weeks
+msgid "Weeks"
+msgstr ""
+
+#. module: hr_employee_ppe
+#: model_terms:ir.ui.view,arch_db:hr_employee_ppe.hr_employee_ppe_report_template
+msgid "is providing"
+msgstr ""
+
+#. module: hr_employee_ppe
+#: model_terms:ir.ui.view,arch_db:hr_employee_ppe.hr_employee_ppe_report_template
+msgid "with the following Personal Protection Equipment (PPE):"
+msgstr ""

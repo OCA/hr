@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="hr_employee_ppe_report_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc" t-if="doc.contains_ppe">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h3
+                            class="text-center"
+                        >Receipt of Personal Protection Equipment</h3>
+                        <br />
+                        <div name="employee_name">
+                            <span
+                                t-field="doc.employee_id.company_id.name"
+                            /> is providing <u>
+                                <span t-field="doc.employee_id.name" />
+                            </u> with the following Personal Protection Equipment (PPE):
+                        </div>
+                        <br />
+                        <table class="table table-condensed">
+                            <tbody>
+                                <div>
+                                    <t>
+                                        <tr>
+                                            <th>
+                                           Product
+                                       </th>
+                                            <th>
+                                           Quantity
+                                       </th>
+                                            <th>
+                                           Indications
+                                       </th>
+                                        </tr>
+                                        <tr
+                                            t-foreach="doc.line_ids"
+                                            t-as="line"
+                                            t-if="line.is_ppe"
+                                        >
+                                            <td>
+                                                <t t-out="line.product_id.name" />
+                                            </td>
+                                            <td>
+                                                <t t-out="line.quantity" />
+                                            </td>
+                                            <td>
+                                                <t t-out="line.indications" />
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </div>
+                            </tbody>
+                        </table>
+                        <p>
+                            I, the undersigned accept the PPE that my employer is providing to me. I further acknowledge that I have been instructed
+                            in how to wear and maintain it. If it is lost or damaged, I will report the same to my employer promptly for replacement.
+                        </p>
+                        <p>
+                            I agree to wear the equipment when facing the exposure it is designed to protect against.
+                            I acknowledge that my failure to do so may subject me to disciplinary action.
+                        </p>
+                        <div class="row">
+                            <div class="col-4 text-left">
+                                <span>Signature:</span>
+                            </div>
+                            <div class="col-4 text-right">
+                                <span>Date:</span>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>
