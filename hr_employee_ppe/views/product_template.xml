@@ -12,26 +12,25 @@
                     <field
                         name="is_ppe"
                         string="Is PPE"
-                        attrs="{'invisible': [('is_personal_equipment', '=', False)]}"
+                        invisible="not is_personal_equipment"
                     />
                     <field
                         name="indications"
                         string="PPE Indications"
-                        attrs="{'invisible': [('is_ppe', '=', False)]}"
+                        invisible="not is_ppe"
                     />
-                    <field
-                        name="expirable_ppe"
-                        attrs="{'invisible': [('is_ppe', '=', False)]}"
-                    />
+                    <field name="expirable_ppe" invisible="not is_ppe" />
                     <field
                         name="ppe_duration"
                         string="PPE Duration"
-                        attrs="{'invisible': [('expirable_ppe', '=', False)], 'required': [('expirable_ppe', '!=', False)]}"
+                        invisible="not expirable_ppe"
+                        required="expirable_ppe"
                     />
                     <field
                         name="ppe_interval_type"
                         string="PPE Interval Type"
-                        attrs="{'invisible': [('expirable_ppe', '=', False)], 'required': [('expirable_ppe', '!=', False)]}"
+                        invisible="not expirable_ppe"
+                        required="expirable_ppe"
                     />
                 </group>
             </page>

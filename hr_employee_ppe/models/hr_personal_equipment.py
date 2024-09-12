@@ -51,8 +51,9 @@ class HrPersonalEquipment(models.Model):
         return res
 
     def validate_allocation(self):
-        super().validate_allocation()
+        res = super().validate_allocation()
         self._check_dates()
+        return res
 
     @api.model
     def cron_ppe_expiry_verification(self, date_ref=None):
