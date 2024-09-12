@@ -18,7 +18,7 @@
                     name="action_view_ppe_report"
                     string="Print Receipt of PPE"
                     groups="hr.group_hr_user"
-                    attrs="{'invisible':['|',('contains_ppe','=',False), ('state', 'not in', ('draft', 'accepted'))]}"
+                    invisible="(not contains_ppe) or state not in ['draft', 'accepted']"
                 />
             </xpath>
             <xpath
