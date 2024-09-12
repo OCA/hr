@@ -5,7 +5,6 @@ from odoo import fields, models
 
 
 class HrPersonalEquipmentRequest(models.Model):
-
     _inherit = "hr.personal.equipment.request"
 
     contains_ppe = fields.Boolean(compute="_compute_contains_ppe")
