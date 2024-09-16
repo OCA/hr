@@ -104,6 +104,7 @@ msgid "The Employee Number must be unique across the company(s)."
 msgstr ""
 
 #. module: hr_employee_id
+#. odoo-python
 #: code:addons/hr_employee_id/models/hr_employee.py:0
 #, python-format
 msgid "Unable to generate unique Employee ID in %d steps."
