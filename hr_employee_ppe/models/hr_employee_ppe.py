@@ -75,7 +75,7 @@ class HrEmployeePPE(models.Model):
     @api.constrains("start_date", "end_date")
     def _check_dates(self):
         for record in self:
-            if self.expire:
+            if record.expire:
                 if not record.end_date or not record.start_date:
                     raise ValidationError(
                         _(
