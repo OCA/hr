@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="resource_calendar_form" model="ir.ui.view">
+        <field name="name">resource.calendar.form</field>
+        <field name="model">resource.calendar</field>
+        <field name="inherit_id" ref="resource.resource_calendar_form" />
+        <field name="arch" type="xml">
+            <field name="hours_per_day" position="attributes">
+                <attribute
+                    name="attrs"
+                >{'invisible': [('child_calendar_ids', '!=', [])]}</attribute>
+            </field>
+            <xpath expr="//field[@name='company_id']/.." position="after">
+                <group name="multi_week">
+                    <!-- TODO: Should this be readonly? If it is, you cannot add
+                         duplicated records to an existing relation. -->
+                    <field
+                        name="parent_calendar_id"
+                        attrs="{'invisible': [('parent_calendar_id', '=', False)]}"
+                        readonly="1"
+                    />
+                    <field
+                        name="child_calendar_ids"
+                        attrs="{'invisible': [('parent_calendar_id', '!=', False)]}"
+                    >
+                        <tree>
+                            <field name="week_sequence" widget="handle" />
+                            <field name="name" />
+                        </tree>
+                    </field>
+                </group>
+                <field name="is_multi_week" invisible="1" />
+                <group
+                    name="multi_week_current"
+                    attrs="{'invisible': [('is_multi_week', '=', False)]}"
+                >
+                    <field
+                        name="multi_week_epoch_date"
+                        attrs="{'invisible': [('parent_calendar_id', '!=', False)]}"
+                    />
+                    <field
+                        name="week_number"
+                        attrs="{'invisible': [('parent_calendar_id', '=', False)]}"
+                    />
+                    <field name="current_week_number" />
+                    <field name="current_multi_week_calendar_id" />
+                </group>
+            </xpath>
+            <!-- Hide the pages -->
+            <xpath expr="//field[@name='attendance_ids']/.." position="attributes">
+                <attribute name="attrs">
+                    {'invisible': [('child_calendar_ids', '!=', [])]}
+                </attribute>
+            </xpath>
+            <xpath expr="//field[@name='global_leave_ids']/.." position="attributes">
+                <attribute name="attrs">
+                    {'invisible': [('child_calendar_ids', '!=', [])]}
+                </attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_resource_calendar_search" model="ir.ui.view">
+        <field name="name">resource.calendar.search</field>
+        <field name="model">resource.calendar</field>
+        <field name="inherit_id" ref="resource.view_resource_calendar_search" />
+        <field name="arch" type="xml">
+            <xpath expr="//search" position="inside">
+                <filter
+                    string="Only Main Working Times"
+                    name="only_parent_calendars"
+                    domain="[('parent_calendar_id', '=', False)]"
+                />
+            </xpath>
+        </field>
+    </record>
+
+    <record id="resource.action_resource_calendar_form" model="ir.actions.act_window">
+        <field name="context">{'search_default_only_parent_calendars': 1}</field>
+    </record>
+</odoo>
