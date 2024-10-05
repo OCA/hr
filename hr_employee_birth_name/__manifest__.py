@@ -7,7 +7,7 @@
     "name": "Employee Birth Name",
     "version": "14.0.1.0.1",
     "category": "Human Resources",
-    "author": "Camptocamp SA,Odoo Community Association (OCA),"
+    "author": "Camptocamp,Odoo Community Association (OCA),"
     "Open Source Integrators",
     "website": "https://github.com/OCA/hr",
     "license": "AGPL-3",
