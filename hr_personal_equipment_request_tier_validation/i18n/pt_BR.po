@@ -1,0 +1,116 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* hr_personal_equipment_request_tier_validation
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2024-05-20 19:38+0000\n"
+"Last-Translator: Rodrigo Macedo <sottomaiormacedotec@users.noreply."
+"translation.odoo-community.org>\n"
+"Language-Team: none\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.17\n"
+
+#. module: hr_personal_equipment_request_tier_validation
+#: model:ir.model.fields,field_description:hr_personal_equipment_request_tier_validation.field_hr_personal_equipment_request__can_review
+msgid "Can Review"
+msgstr "Pode Revisar"
+
+#. module: hr_personal_equipment_request_tier_validation
+#: model:ir.model.fields,field_description:hr_personal_equipment_request_tier_validation.field_hr_personal_equipment_request__display_name
+#: model:ir.model.fields,field_description:hr_personal_equipment_request_tier_validation.field_tier_definition__display_name
+msgid "Display Name"
+msgstr "Nome exibido"
+
+#. module: hr_personal_equipment_request_tier_validation
+#: model:ir.model.fields,field_description:hr_personal_equipment_request_tier_validation.field_hr_personal_equipment_request__has_comment
+msgid "Has Comment"
+msgstr "Tem Comentário"
+
+#. module: hr_personal_equipment_request_tier_validation
+#: model:ir.model.fields,field_description:hr_personal_equipment_request_tier_validation.field_hr_personal_equipment_request__id
+#: model:ir.model.fields,field_description:hr_personal_equipment_request_tier_validation.field_tier_definition__id
+msgid "ID"
+msgstr "ID"
+
+#. module: hr_personal_equipment_request_tier_validation
+#: model:ir.model.fields,field_description:hr_personal_equipment_request_tier_validation.field_hr_personal_equipment_request____last_update
+#: model:ir.model.fields,field_description:hr_personal_equipment_request_tier_validation.field_tier_definition____last_update
+msgid "Last Modified on"
+msgstr "Ultima modificação em"
+
+#. module: hr_personal_equipment_request_tier_validation
+#: model:ir.model.fields,field_description:hr_personal_equipment_request_tier_validation.field_hr_personal_equipment_request__need_validation
+msgid "Need Validation"
+msgstr "Necessita Validação"
+
+#. module: hr_personal_equipment_request_tier_validation
+#: model:ir.model.fields,field_description:hr_personal_equipment_request_tier_validation.field_hr_personal_equipment_request__next_review
+msgid "Next Review"
+msgstr "Próxima Revisão"
+
+#. module: hr_personal_equipment_request_tier_validation
+#: model:tier.definition,name:hr_personal_equipment_request_tier_validation.tier_definition_personal_equipment_request
+msgid "Personal Equipment Request Tier Validation"
+msgstr "Camada de Aprovação Requisitada para Equipamento Pessoal"
+
+#. module: hr_personal_equipment_request_tier_validation
+#: model:ir.model.fields,field_description:hr_personal_equipment_request_tier_validation.field_hr_personal_equipment_request__rejected
+msgid "Rejected"
+msgstr "Rejeitada"
+
+#. module: hr_personal_equipment_request_tier_validation
+#: model:ir.model.fields,field_description:hr_personal_equipment_request_tier_validation.field_hr_personal_equipment_request__rejected_message
+msgid "Rejected Message"
+msgstr "Mensagem da Rejeição"
+
+#. module: hr_personal_equipment_request_tier_validation
+#: model:ir.model.fields,field_description:hr_personal_equipment_request_tier_validation.field_hr_personal_equipment_request__reviewer_ids
+msgid "Reviewers"
+msgstr "Revisores"
+
+#. module: hr_personal_equipment_request_tier_validation
+#: model:ir.model,name:hr_personal_equipment_request_tier_validation.model_hr_personal_equipment_request
+msgid "This model allows to create a personal equipment request"
+msgstr "Este modelo permite criar uma requisição de equipamento pessoal"
+
+#. module: hr_personal_equipment_request_tier_validation
+#: model:ir.model,name:hr_personal_equipment_request_tier_validation.model_tier_definition
+msgid "Tier Definition"
+msgstr "Definição de Nível"
+
+#. module: hr_personal_equipment_request_tier_validation
+#: model:ir.model.fields,field_description:hr_personal_equipment_request_tier_validation.field_hr_personal_equipment_request__tier_validation_before_write
+msgid "Tier Validation Before Write"
+msgstr "Validação de nível antes da gravação"
+
+#. module: hr_personal_equipment_request_tier_validation
+#: model:ir.model.fields,field_description:hr_personal_equipment_request_tier_validation.field_hr_personal_equipment_request__to_validate_message
+msgid "To Validate Message"
+msgstr "Mensagem para Validar"
+
+#. module: hr_personal_equipment_request_tier_validation
+#: model:ir.model.fields,field_description:hr_personal_equipment_request_tier_validation.field_hr_personal_equipment_request__validated
+msgid "Validated"
+msgstr "Validado"
+
+#. module: hr_personal_equipment_request_tier_validation
+#: model:ir.model.fields,field_description:hr_personal_equipment_request_tier_validation.field_hr_personal_equipment_request__validated_message
+msgid "Validated Message"
+msgstr "Mensagem da Validação"
+
+#. module: hr_personal_equipment_request_tier_validation
+#: model:ir.model.fields,field_description:hr_personal_equipment_request_tier_validation.field_hr_personal_equipment_request__validation_status
+msgid "Validation Status"
+msgstr "Status de Validação"
+
+#. module: hr_personal_equipment_request_tier_validation
+#: model:ir.model.fields,field_description:hr_personal_equipment_request_tier_validation.field_hr_personal_equipment_request__review_ids
+msgid "Validations"
+msgstr "Validações"
