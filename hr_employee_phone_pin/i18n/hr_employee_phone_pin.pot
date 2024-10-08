@@ -1,0 +1,93 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* hr_employee_phone_pin
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hr_employee_phone_pin
+#: model:res.groups,comment:hr_employee_phone_pin.group_mobile_phone_pin_manager
+msgid ""
+"\n"
+"            The user will have an access for changing the PIN and PUK of the\n"
+"            employee's corporate phone."
+msgstr ""
+
+#. module: hr_employee_phone_pin
+#: model:res.groups,comment:hr_employee_phone_pin.group_mobile_phone_pin_user
+msgid ""
+"\n"
+"            The user will have an access for seeing the PIN and PUK of the\n"
+"            employee's corporate phone on its employee record."
+msgstr ""
+
+#. module: hr_employee_phone_pin
+#: model:res.groups,name:hr_employee_phone_pin.group_mobile_phone_pin_manager
+msgid "Change PIN/PUK"
+msgstr ""
+
+#. module: hr_employee_phone_pin
+#: model:ir.model.fields,help:hr_employee_phone_pin.field_hr_employee__mobile_phone_pin
+#: model:ir.model.fields,help:hr_employee_phone_pin.field_hr_employee_public__mobile_phone_pin
+msgid "Corporate mobile's PIN, should be a 4 digit number"
+msgstr ""
+
+#. module: hr_employee_phone_pin
+#: model:ir.model.fields,help:hr_employee_phone_pin.field_hr_employee__mobile_phone_puk
+#: model:ir.model.fields,help:hr_employee_phone_pin.field_hr_employee_public__mobile_phone_puk
+msgid "Corporate mobile's PUK, should be a 8 digit number"
+msgstr ""
+
+#. module: hr_employee_phone_pin
+#: model:ir.model,name:hr_employee_phone_pin.model_hr_employee
+msgid "Employee"
+msgstr ""
+
+#. module: hr_employee_phone_pin
+#: model:ir.model.fields,field_description:hr_employee_phone_pin.field_hr_employee_public__is_current_user
+msgid "Is Current User"
+msgstr ""
+
+#. module: hr_employee_phone_pin
+#: model:ir.model.fields,field_description:hr_employee_phone_pin.field_hr_employee__mobile_phone_pin
+#: model:ir.model.fields,field_description:hr_employee_phone_pin.field_hr_employee_public__mobile_phone_pin
+msgid "Mobile phone PIN"
+msgstr ""
+
+#. module: hr_employee_phone_pin
+#. odoo-python
+#: code:addons/hr_employee_phone_pin/models/hr_employee.py:0
+#, python-format
+msgid "Mobile phone PIN should be a 4 digit number."
+msgstr ""
+
+#. module: hr_employee_phone_pin
+#: model:ir.model.fields,field_description:hr_employee_phone_pin.field_hr_employee__mobile_phone_puk
+#: model:ir.model.fields,field_description:hr_employee_phone_pin.field_hr_employee_public__mobile_phone_puk
+msgid "Mobile phone PUK"
+msgstr ""
+
+#. module: hr_employee_phone_pin
+#. odoo-python
+#: code:addons/hr_employee_phone_pin/models/hr_employee.py:0
+#, python-format
+msgid "Mobile phone PUK should be a 8 digit number."
+msgstr ""
+
+#. module: hr_employee_phone_pin
+#: model:ir.model,name:hr_employee_phone_pin.model_hr_employee_public
+msgid "Public Employee"
+msgstr ""
+
+#. module: hr_employee_phone_pin
+#: model:res.groups,name:hr_employee_phone_pin.group_mobile_phone_pin_user
+msgid "See PIN/PUK"
+msgstr ""

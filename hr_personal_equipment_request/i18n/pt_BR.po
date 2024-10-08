@@ -6,15 +6,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2022-10-12 02:35+0000\n"
-"Last-Translator: Douglas Custódio <douglascstd@yahoo.com>\n"
+"PO-Revision-Date: 2024-07-06 20:58+0000\n"
+"Last-Translator: Rodrigo Sottomaior Macedo "
+"<sottomaiormacedotec@sottomaiormacedo.tech>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.3.2\n"
+"X-Generator: Weblate 5.6.2\n"
 
 #. module: hr_personal_equipment_request
 #: model_terms:ir.ui.view,arch_db:hr_personal_equipment_request.hr_personal_equipment_request_form_view
@@ -109,31 +110,31 @@ msgstr ""
 #. module: hr_personal_equipment_request
 #: model_terms:ir.ui.view,arch_db:hr_personal_equipment_request.hr_personal_equipment_request_form_view
 msgid "Cancel"
-msgstr ""
+msgstr "Cancelar"
 
 #. module: hr_personal_equipment_request
 #: model:ir.model.fields.selection,name:hr_personal_equipment_request.selection__hr_personal_equipment__state__cancelled
 #: model:ir.model.fields.selection,name:hr_personal_equipment_request.selection__hr_personal_equipment_request__state__cancelled
 msgid "Cancelled"
-msgstr ""
+msgstr "Cancelado"
 
 #. module: hr_personal_equipment_request
 #: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment__create_uid
 #: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment_request__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Criado por"
 
 #. module: hr_personal_equipment_request
 #: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment__create_date
 #: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment_request__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Criado em"
 
 #. module: hr_personal_equipment_request
 #: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment__display_name
 #: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment_request__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nome de Exibição"
 
 #. module: hr_personal_equipment_request
 #: model:ir.model.fields.selection,name:hr_personal_equipment_request.selection__hr_personal_equipment__state__draft

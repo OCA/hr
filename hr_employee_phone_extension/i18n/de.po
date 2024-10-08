@@ -20,31 +20,43 @@ msgstr ""
 "X-Generator: Weblate 4.3.2\n"
 
 #. module: hr_employee_phone_extension
-#: model:ir.model,name:hr_employee_phone_extension.model_hr_employee
-msgid "Employee"
-msgstr "Mitarbeiter"
+#: model:ir.model,name:hr_employee_phone_extension.model_hr_employee_base
+msgid "Basic Employee"
+msgstr ""
 
 #. module: hr_employee_phone_extension
+#: model_terms:ir.ui.view,arch_db:hr_employee_phone_extension.hr_employee_public_view_form
 #: model_terms:ir.ui.view,arch_db:hr_employee_phone_extension.view_employee_form
 msgid "Internal Contact"
 msgstr "Interner Kontakt"
 
 #. module: hr_employee_phone_extension
 #: model:ir.model.fields,field_description:hr_employee_phone_extension.field_hr_employee__internal_number
+#: model:ir.model.fields,field_description:hr_employee_phone_extension.field_hr_employee_base__internal_number
+#: model:ir.model.fields,field_description:hr_employee_phone_extension.field_hr_employee_public__internal_number
 msgid "Internal Number"
 msgstr "Interne Nummer"
 
 #. module: hr_employee_phone_extension
 #: model:ir.model.fields,help:hr_employee_phone_extension.field_hr_employee__internal_number
+#: model:ir.model.fields,help:hr_employee_phone_extension.field_hr_employee_base__internal_number
+#: model:ir.model.fields,help:hr_employee_phone_extension.field_hr_employee_public__internal_number
 msgid "Internal phone number."
 msgstr "Interne Telefonnr."
 
 #. module: hr_employee_phone_extension
 #: model:ir.model.fields,field_description:hr_employee_phone_extension.field_hr_employee__short_number
+#: model:ir.model.fields,field_description:hr_employee_phone_extension.field_hr_employee_base__short_number
+#: model:ir.model.fields,field_description:hr_employee_phone_extension.field_hr_employee_public__short_number
 msgid "Short Number"
 msgstr "Kurzwahl"
 
 #. module: hr_employee_phone_extension
 #: model:ir.model.fields,help:hr_employee_phone_extension.field_hr_employee__short_number
+#: model:ir.model.fields,help:hr_employee_phone_extension.field_hr_employee_base__short_number
+#: model:ir.model.fields,help:hr_employee_phone_extension.field_hr_employee_public__short_number
 msgid "Short phone number."
 msgstr "Dies ist Kurzform der Telefonnummer."
+
+#~ msgid "Employee"
+#~ msgstr "Mitarbeiter"
