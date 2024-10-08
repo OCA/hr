@@ -4,7 +4,7 @@ from odoo.tests.common import TransactionCase
 
 class TestEmployeeLastnames(TransactionCase):
     def setUp(self):
-        super(TestEmployeeLastnames, self).setUp()
+        super().setUp()
         self.env["ir.config_parameter"].sudo().set_param(
             "employee_names_order", "first_last"
         )
