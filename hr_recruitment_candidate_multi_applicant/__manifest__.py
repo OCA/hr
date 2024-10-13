@@ -5,7 +5,7 @@
  'summary': 'Applications',
  'version': '10.0.1.0.0',
  'category': 'Human Resources',
- 'author': 'Camptocamp SA,Odoo Community Association (OCA)',
+ 'author': 'Camptocamp,Odoo Community Association (OCA)',
  'license': 'AGPL-3',
  'depends': ['hr_recruitment'],
  'website': 'https://odoo-community.org/',
