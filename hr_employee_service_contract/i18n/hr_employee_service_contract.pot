@@ -1,0 +1,63 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* hr_employee_service_contract
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hr_employee_service_contract
+#: model:ir.model,name:hr_employee_service_contract.model_hr_employee
+msgid "Employee"
+msgstr ""
+
+#. module: hr_employee_service_contract
+#: model:ir.model.fields,field_description:hr_employee_service_contract.field_hr_employee__first_contract_id
+msgid "First Contract"
+msgstr ""
+
+#. module: hr_employee_service_contract
+#: model:ir.model.fields,help:hr_employee_service_contract.field_hr_employee__first_contract_id
+msgid "First contract of the employee"
+msgstr ""
+
+#. module: hr_employee_service_contract
+#: model:ir.model.fields,field_description:hr_employee_service_contract.field_hr_employee__last_contract_id
+msgid "Last Contract"
+msgstr ""
+
+#. module: hr_employee_service_contract
+#: model:ir.model.fields,help:hr_employee_service_contract.field_hr_employee__last_contract_id
+msgid "Last contract of the employee"
+msgstr ""
+
+#. module: hr_employee_service_contract
+#: model:ir.model.fields,field_description:hr_employee_service_contract.field_hr_employee__service_start_date
+msgid "Start Date"
+msgstr ""
+
+#. module: hr_employee_service_contract
+#: model:ir.model.fields,help:hr_employee_service_contract.field_hr_employee__service_start_date
+msgid ""
+"Start date is the first day the employee actually works and this date is "
+"used for accrual leave allocations calculation"
+msgstr ""
+
+#. module: hr_employee_service_contract
+#: model:ir.model.fields,field_description:hr_employee_service_contract.field_hr_employee__service_termination_date
+msgid "Termination Date"
+msgstr ""
+
+#. module: hr_employee_service_contract
+#: model:ir.model.fields,help:hr_employee_service_contract.field_hr_employee__service_termination_date
+msgid ""
+"Termination date is the last day the employee actually works and this date "
+"is used for accrual leave allocations calculation"
+msgstr ""
