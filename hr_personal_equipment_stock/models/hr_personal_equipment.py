@@ -111,8 +111,9 @@ class HrPersonalEquipment(models.Model):
         return True
 
     def _accept_request(self):
-        super()._accept_request()
+        res = super()._accept_request()
         self._action_launch_procurement_rule()
+        return res
 
     def _validate_allocation_vals(self):
         res = super()._validate_allocation_vals()
