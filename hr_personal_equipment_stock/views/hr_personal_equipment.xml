@@ -26,7 +26,7 @@
                 <field name="qty_delivered" />
             </field>
             <field name="quantity" position="attributes">
-                <attributes name="invisible">1</attributes>
+                <attribute name="invisible">1</attribute>
             </field>
         </field>
     </record>
@@ -44,7 +44,7 @@
                 <field name="qty_delivered" />
             </field>
             <field name="quantity" position="attributes">
-                <attributes name="invisible">1</attributes>
+                <attribute name="invisible">1</attribute>
             </field>
         </field>
     </record>

@@ -27,17 +27,6 @@ msgid "Delivered Quantity"
 msgstr "Cantidad Entregada"
 
 #. module: hr_personal_equipment_stock
-#: model:ir.model.fields,field_description:hr_personal_equipment_stock.field_hr_personal_equipment__display_name
-#: model:ir.model.fields,field_description:hr_personal_equipment_stock.field_hr_personal_equipment_request__display_name
-#: model:ir.model.fields,field_description:hr_personal_equipment_stock.field_procurement_group__display_name
-#: model:ir.model.fields,field_description:hr_personal_equipment_stock.field_stock_location__display_name
-#: model:ir.model.fields,field_description:hr_personal_equipment_stock.field_stock_move__display_name
-#: model:ir.model.fields,field_description:hr_personal_equipment_stock.field_stock_picking__display_name
-#: model:ir.model.fields,field_description:hr_personal_equipment_stock.field_stock_rule__display_name
-msgid "Display Name"
-msgstr "Mostrar Nombre"
-
-#. module: hr_personal_equipment_stock
 #: model:ir.model.fields,field_description:hr_personal_equipment_stock.field_stock_move__personal_equipment_id
 msgid "Employee Personal Equipment"
 msgstr "Equipamiento Personal de Empleado"
@@ -49,17 +38,6 @@ msgid "Equipment Request"
 msgstr "Solicitud de equipamiento"
 
 #. module: hr_personal_equipment_stock
-#: model:ir.model.fields,field_description:hr_personal_equipment_stock.field_hr_personal_equipment__id
-#: model:ir.model.fields,field_description:hr_personal_equipment_stock.field_hr_personal_equipment_request__id
-#: model:ir.model.fields,field_description:hr_personal_equipment_stock.field_procurement_group__id
-#: model:ir.model.fields,field_description:hr_personal_equipment_stock.field_stock_location__id
-#: model:ir.model.fields,field_description:hr_personal_equipment_stock.field_stock_move__id
-#: model:ir.model.fields,field_description:hr_personal_equipment_stock.field_stock_picking__id
-#: model:ir.model.fields,field_description:hr_personal_equipment_stock.field_stock_rule__id
-msgid "ID"
-msgstr "ID"
-
-#. module: hr_personal_equipment_stock
 #: model:ir.model,name:hr_personal_equipment_stock.model_stock_location
 msgid "Inventory Locations"
 msgstr "Ubicaciones de inventario"
@@ -68,17 +46,6 @@ msgstr "Ubicaciones de inventario"
 #: model:ir.model.fields,field_description:hr_personal_equipment_stock.field_stock_location__is_personal_equipment_location
 msgid "Is personal equipment location?"
 msgstr "Es una ubicación de equipamiento personal?"
-
-#. module: hr_personal_equipment_stock
-#: model:ir.model.fields,field_description:hr_personal_equipment_stock.field_hr_personal_equipment____last_update
-#: model:ir.model.fields,field_description:hr_personal_equipment_stock.field_hr_personal_equipment_request____last_update
-#: model:ir.model.fields,field_description:hr_personal_equipment_stock.field_procurement_group____last_update
-#: model:ir.model.fields,field_description:hr_personal_equipment_stock.field_stock_location____last_update
-#: model:ir.model.fields,field_description:hr_personal_equipment_stock.field_stock_move____last_update
-#: model:ir.model.fields,field_description:hr_personal_equipment_stock.field_stock_picking____last_update
-#: model:ir.model.fields,field_description:hr_personal_equipment_stock.field_stock_rule____last_update
-msgid "Last Modified on"
-msgstr "Última Modificación el"
 
 #. module: hr_personal_equipment_stock
 #: model:ir.model.fields,field_description:hr_personal_equipment_stock.field_hr_personal_equipment__location_id
@@ -150,3 +117,12 @@ msgstr "Este modelo permite crear solicitudes de equipamiento personal"
 #: model:ir.model,name:hr_personal_equipment_stock.model_stock_picking
 msgid "Transfer"
 msgstr "Transferencia"
+
+#~ msgid "Display Name"
+#~ msgstr "Mostrar Nombre"
+
+#~ msgid "ID"
+#~ msgstr "ID"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Última Modificación el"

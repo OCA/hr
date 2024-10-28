@@ -8,10 +8,12 @@ class StockPicking(models.Model):
 
     _inherit = "stock.picking"
 
-    equipment_request_id = fields.Many2one(related="group_id.equipment_request_id")
+    equipment_request_id = fields.Many2one(
+        related="group_id.equipment_request_id", store=True
+    )
 
     def _action_done(self):
-        super()._action_done()
+        res = super()._action_done()
         if self.equipment_request_id:
             for move in self.move_ids_without_package:
                 if move.state == "done":
@@ -28,3 +30,4 @@ class StockPicking(models.Model):
                         if qty_done:
                             if qty_initial <= qty_done:
                                 line.validate_allocation()
+        return res

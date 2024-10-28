@@ -6,10 +6,9 @@
         <field name="name">stock.move.form (in hr_personal_equipment_stock)</field>
         <field name="model">stock.move</field>
         <field name="inherit_id" ref="stock.view_move_form" />
-        <field name="groups_id" eval="[(4,ref('stock.group_stock_user'))]" />
         <field name="arch" type="xml">
             <field name="reference" position="after">
-                <field name="personal_equipment_id" />
+                <field name="personal_equipment_id" groups="stock.group_stock_user" />
             </field>
         </field>
     </record>
