@@ -5,7 +5,7 @@
 import odoo
 from odoo.exceptions import ValidationError
 from odoo.tests.common import TransactionCase
-from odoo.tools import submap
+from odoo.tools.misc import submap
 
 
 class TestEmployeeFirstname(TransactionCase):
