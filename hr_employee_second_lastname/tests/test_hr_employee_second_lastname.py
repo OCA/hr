@@ -1,6 +1,6 @@
 from odoo import exceptions
 from odoo.tests.common import TransactionCase
-from odoo.tools import submap
+from odoo.tools.misc import submap
 
 
 class TestEmployeeSecondLastname(TransactionCase):
