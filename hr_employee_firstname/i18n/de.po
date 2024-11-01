@@ -44,20 +44,19 @@ msgstr "Reihenfolge der Namen"
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee__firstname
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_base__firstname
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_public__firstname
-msgid "First name"
+msgid "Firstname"
 msgstr "Vorname"
 
 #. module: hr_employee_firstname
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee__lastname
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_base__lastname
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_public__lastname
-msgid "Last name"
+msgid "Lastname"
 msgstr "Nachname"
 
 #. module: hr_employee_firstname
 #. odoo-python
 #: code:addons/hr_employee_firstname/models/hr_employee.py:0
-#, python-format
 msgid "No name set."
 msgstr "Es wurde kein Name eingetragen."
 
@@ -66,10 +65,10 @@ msgstr "Es wurde kein Name eingetragen."
 msgid "Order to compose employee fullname"
 msgstr "Reihenfolge für die Zusammensetzung des vollen Namens"
 
-#~ msgid "Firstname"
+#~ msgid "First name"
 #~ msgstr "Vorname"
 
-#~ msgid "Lastname"
+#~ msgid "Last name"
 #~ msgstr "Nachname"
 
 #~ msgid "Display Name"

@@ -44,20 +44,19 @@ msgstr "Orden de los Nombres de Empleados"
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee__firstname
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_base__firstname
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_public__firstname
-msgid "First name"
-msgstr "Nombre de pila"
+msgid "Firstname"
+msgstr "Nombre propio"
 
 #. module: hr_employee_firstname
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee__lastname
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_base__lastname
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_public__lastname
-msgid "Last name"
-msgstr "Apellido"
+msgid "Lastname"
+msgstr "Apellidos"
 
 #. module: hr_employee_firstname
 #. odoo-python
 #: code:addons/hr_employee_firstname/models/hr_employee.py:0
-#, python-format
 msgid "No name set."
 msgstr "Sin nombre establecido."
 
@@ -66,8 +65,8 @@ msgstr "Sin nombre establecido."
 msgid "Order to compose employee fullname"
 msgstr "Orden para componer el nombre completo del empleado"
 
-#~ msgid "Firstname"
-#~ msgstr "Nombre propio"
+#~ msgid "First name"
+#~ msgstr "Nombre de pila"
 
-#~ msgid "Lastname"
-#~ msgstr "Apellidos"
+#~ msgid "Last name"
+#~ msgstr "Apellido"
