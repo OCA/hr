@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<odoo>
+
+    <record id="base.res_partner_rule_private_group" model="ir.rule">
+        <field name="name">res.partner.rule.private.group</field>
+        <field name="perm_read" eval="True" />
+        <field name="perm_write" eval="False" />
+        <field name="perm_create" eval="False" />
+        <field name="perm_unlink" eval="False" />
+    </record>
+
+    <record id="hr.group_hr_user" model="res.groups">
+        <field name="name">User: read only</field>
+    </record>
+
+    <record id="res_partner_portal_public_rule" model="ir.rule">
+        <field name="name">Employee/Read only</field>
+        <field name="model_id" ref="base.model_res_partner" />
+        <field name="domain_force">[('type', '=', 'private')]</field>
+        <field name="groups" eval="[Command.link(ref('hr.group_hr_user'))]" />
+        <field name="perm_read" eval="True" />
+        <field name="perm_create" eval="False" />
+        <field name="perm_write" eval="False" />
+        <field name="perm_unlink" eval="False" />
+    </record>
+
+
+     <record id="group_hr_officer" model="res.groups">
+        <field name="name">HR Officer</field>
+        <field name="implied_ids" eval="[(4, ref('hr.group_hr_user'))]" />
+        <field
+            name="category_id"
+            ref="base.module_category_human_resources_employees"
+        />
+    </record>
+
+     <record id="res_partner_rule_private_group_officer" model="ir.rule">
+            <field name="name">res.partner.rule.private.group.officer</field>
+            <field name="model_id" ref="base.model_res_partner" />
+            <field name="domain_force">
+                [('type', '=', 'private')]
+            </field>
+            <field
+            name="groups"
+            eval="[
+                Command.link(ref('hr_employee_group_overview_readonly.group_hr_officer'))
+            ]"
+        />
+            <field name="perm_read" eval="True" />
+            <field name="perm_write" eval="True" />
+            <field name="perm_create" eval="True" />
+            <field name="perm_unlink" eval="True" />
+        </record>
+
+    <record id="hr.group_hr_manager" model="res.groups">
+        <field name="implied_ids" eval="[(6, 0, [ref('group_hr_officer')])]" />
+    </record>
+
+    <record id="group_hr_overview_readonly" model="res.groups">
+        <field name="name">Employees:- HR Overview Readonly</field>
+        <field name="implied_ids" eval="[(4, ref('hr.group_hr_user'))]" />
+        <field
+            name="category_id"
+            ref="base.module_category_human_resources_employees"
+        />
+    </record>
+
+    <record id="hr_skills.hr_skill_rule_hr_user" model="ir.rule">
+        <field name="groups" eval="[(6, 0, [ref('group_hr_officer')])]" />
+    </record>
+
+    <record id="hr_skills.hr_resume_rule_employee_hr_user" model="ir.rule">
+        <field name="groups" eval="[(6, 0, [ref('group_hr_officer')])]" />
+    </record>
+    <record id="hr_fleet.hr_fleet_rule_vehicle_visibility_hr_officier" model="ir.rule">
+        <field name="groups" eval="[(6, 0, [ref('group_hr_officer')])]" />
+    </record>
+    <record id="gamification.goal_gamification_manager_visibility" model="ir.rule">
+        <field name="groups" eval="[(6, 0, [ref('group_hr_officer')])]" />
+    </record>
+
+
+   <record id="hr_attendance_view_all_readonly" model="ir.rule">
+        <field name="name">hr_attendance_view_all_readonly</field>
+        <field name="model_id" ref="hr_attendance.model_hr_attendance" />
+        <field name="domain_force">
+            [(1, '=', 1)]
+        </field>
+        <field
+            name="groups"
+            eval="[
+            Command.link(ref('hr_employee_group_overview_readonly.group_hr_overview_readonly'))
+        ]"
+        />
+        <field name="perm_read" eval="True" />
+        <field name="perm_write" eval="False" />
+        <field name="perm_create" eval="False" />
+        <field name="perm_unlink" eval="False" />
+    </record>
+
+
+</odoo>

@@ -36,7 +36,7 @@ class HrEmployee(models.Model):
 
     def _prepare_vals_on_create_firstname_lastname(self, vals):
         values = vals.copy()
-        res = super(HrEmployee, self)._prepare_vals_on_create_firstname_lastname(values)
+        res = super()._prepare_vals_on_create_firstname_lastname(values)
         if any([field in vals for field in ("firstname", "lastname", "lastname2")]):
             vals["name"] = self._get_name_lastnames(
                 vals.get("lastname"), vals.get("firstname"), vals.get("lastname2")
@@ -50,7 +50,7 @@ class HrEmployee(models.Model):
 
     def _prepare_vals_on_write_firstname_lastname(self, vals):
         values = vals.copy()
-        res = super(HrEmployee, self)._prepare_vals_on_write_firstname_lastname(values)
+        res = super()._prepare_vals_on_write_firstname_lastname(values)
         if any([field in vals for field in ("firstname", "lastname", "lastname2")]):
             if "lastname" in vals:
                 lastname = vals["lastname"]
@@ -97,7 +97,7 @@ class HrEmployee(models.Model):
             return result
 
         order = self._get_names_order()
-        result.update(super(HrEmployee, self)._get_inverse_name(name))
+        result.update(super()._get_inverse_name(name))
 
         if order in ("first_last", "last_first_comma"):
             parts = self._split_part("lastname", result)

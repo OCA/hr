@@ -35,7 +35,7 @@ class HrEmployeeBase(models.AbstractModel):
         ):
             if (
                 self.env.context.get("search_attachments_from_hr_employee")
-                or self == self.env.user.employee_ids
+                or self in self.env.user.employee_ids
             ):
                 return True
         return super().check_access_rights(

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="group_mobile_phone_pin_manager" model="res.groups">
+        <field name="name">Change PIN/PUK</field>
+        <field name="comment">
+            The user will have an access for changing the PIN and PUK of the
+            employee's corporate phone.</field>
+        <field name="category_id" ref="base.module_category_usability" />
+    </record>
+    <record id="group_mobile_phone_pin_user" model="res.groups">
+        <field name="name">See PIN/PUK</field>
+        <field name="comment">
+            The user will have an access for seeing the PIN and PUK of the
+            employee's corporate phone on its employee record.</field>
+        <field name="category_id" ref="base.module_category_usability" />
+    </record>
+</odoo>

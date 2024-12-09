@@ -1,0 +1,137 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<odoo>
+    <record
+        id="view_employee_form_readonly_inherit_personal_information"
+        model="ir.ui.view"
+    >
+        <field name="name">hr.employee.form</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form" />
+        <field name="arch" type="xml">
+            <field name="coach_id" position="after">
+                <field name="total_overtime" invisible="1" />
+            </field>
+            <page name="personal_information" position="attributes">
+                <attribute name="groups">
+                    hr.group_hr_user,hr_employee_group_overview_readonly.group_hr_overview_readonly</attribute>
+            </page>
+        </field>
+    </record>
+
+
+    <record
+        id="view_employee_form_action_time_off_dashboard_inherit"
+        model="ir.ui.view"
+    >
+        <field name="name">hr.employee.leave.form.inherit</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr_holidays.view_employee_form_leave_inherit" />
+        <field name="priority">111</field>
+        <field name="arch" type="xml">
+            <xpath
+                expr="//button[@name='action_time_off_dashboard'][1]"
+                position="attributes"
+            >
+                <attribute name="groups">
+                    base.group_user,hr_employee_group_overview_readonly.group_hr_overview_readonly</attribute>
+            </xpath>
+            <xpath
+                expr="//button[@name='action_time_off_dashboard'][2]"
+                position="attributes"
+            >
+                <attribute name="groups">
+                    base.group_user,hr_employee_group_overview_readonly.group_hr_overview_readonly</attribute>
+                <attribute name="attrs">{}</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="inherit_hr_leave_allocation_overtime_manager_action" model="ir.ui.view">
+        <field name="name">hr.holidays.attendance.employee.view.form.inherit</field>
+        <field name="model">hr.employee</field>
+        <field
+            name="inherit_id"
+            ref="hr_holidays_attendance.hr_employee_view_form_inherit"
+        />
+        <field name="priority">121</field>
+        <field name="arch" type="xml">
+            <xpath
+                expr="//button[@name='%(hr_holidays_attendance.hr_leave_allocation_overtime_manager_action)d']"
+            >
+                <field name="total_overtime" invisible="1" />
+            </xpath>
+            <xpath
+                expr="//button[@name='%(hr_holidays_attendance.hr_leave_allocation_overtime_manager_action)d']"
+                position="attributes"
+            >
+                <attribute
+                    name="groups"
+                >hr_holidays.group_hr_holidays_user,hr_employee_group_overview_readonly.group_hr_overview_readonly</attribute>
+            </xpath>
+        </field>
+    </record>
+
+
+
+    <record
+        id="view_employee_form_action_open_contract_history_dashboard_inherit"
+        model="ir.ui.view"
+    >
+        <field name="name">hr.hr.employee.view.form2</field>
+        <field name="model">hr.employee</field>
+        <field name="priority">122</field>
+        <field name="inherit_id" ref="hr_contract.hr_hr_employee_view_form2" />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//button[@name='action_open_contract_history']"
+                position="attributes"
+            >
+                <attribute name="groups">
+                    hr_contract.group_hr_contract_manager,hr_employee_group_overview_readonly.group_hr_overview_readonly</attribute>
+            </xpath>
+        </field>
+    </record>
+
+
+    <record id="payroll_hr_employee_view_form_cars_inherit" model="ir.ui.view">
+        <field name="name">hr.employee.form.inherit.hr.fleet</field>
+        <field name="model">hr.employee</field>
+        <field name="priority">123</field>
+        <field name="inherit_id" ref="hr_fleet.view_employee_form" />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//button[@name='action_open_employee_cars']"
+                position="attributes"
+            >
+                <attribute name="groups">
+                    hr_employee_group_overview_readonly.group_hr_overview_readonly,fleet.fleet_group_manager</attribute>
+            </xpath>
+        </field>
+    </record>
+
+
+    <record id="view_employee_form_inherit_hr_attendance_inherit" model="ir.ui.view">
+        <field name="name">hr.employee</field>
+        <field name="model">hr.employee</field>
+        <field
+            name="inherit_id"
+            ref="hr_attendance.view_employee_form_inherit_hr_attendance"
+        />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//button[@name='%(hr_attendance.hr_attendance_action)d']"
+                position="attributes"
+            >
+                <attribute name="groups">
+                    hr_attendance.group_hr_attendance_user,hr_employee_group_overview_readonly.group_hr_overview_readonly</attribute>
+            </xpath>
+            <xpath
+                expr="//button[@name='%(hr_attendance.hr_attendance_overtime_action)d']"
+                position="attributes"
+            >
+                <attribute name="groups">
+                    hr_attendance.group_hr_attendance_user,hr_employee_group_overview_readonly.group_hr_overview_readonly</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

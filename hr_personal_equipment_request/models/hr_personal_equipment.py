@@ -64,9 +64,11 @@ class HrPersonalEquipment(models.Model):
     def _validate_allocation_vals(self):
         return {
             "state": "valid",
-            "start_date": fields.Date.context_today(self)
-            if not self.start_date
-            else self.start_date,
+            "start_date": (
+                fields.Date.context_today(self)
+                if not self.start_date
+                else self.start_date
+            ),
         }
 
     def validate_allocation(self):

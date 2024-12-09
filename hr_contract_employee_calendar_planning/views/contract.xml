@@ -1,0 +1,29 @@
+<odoo>
+    <record id="hr_contract_employee_calendar_planning_form" model="ir.ui.view">
+        <field name="name">hr.contract.employee.calendar.planning.form</field>
+        <field name="model">hr.contract</field>
+        <field name="inherit_id" ref="hr_contract.hr_contract_view_form" />
+        <field name="priority">999</field>
+        <field name="arch" type="xml">
+            <xpath expr="//label[@for='resource_calendar_id']" position="replace" />
+            <xpath expr="//div[@id='resource_calendar_warning']" position="replace">
+                <field name="resource_calendar_id" invisible="1" />
+            </xpath>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="hr_contract_employee_calendar_history_form">
+        <field name="name">hr.contract.employee.calendar.planning.history.form</field>
+        <field name="model">hr.contract.history</field>
+        <field name="inherit_id" ref="hr_contract.hr_contract_history_view_form" />
+        <field name="priority">999</field>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='resource_calendar_id']" position="replace">
+                <field name="resource_calendar_id" invisible="1" />
+            </xpath>
+            <xpath expr="//tree/field[@name='resource_calendar_id']" position="replace">
+                <field name="resource_calendar_id" invisible="1" />
+            </xpath>
+        </field>
+    </record>
+</odoo>

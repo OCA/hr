@@ -1,0 +1,65 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+hr.access_hr_employee_category_user,hr.employee.category.user,hr.model_hr_employee_category,hr.group_hr_user,1,0,0,0
+hr.access_hr_resource_calendar_user,hr.employee.resource.calendar.user,resource.model_resource_calendar,hr.group_hr_user,1,0,0,0
+hr.access_hr_employee_user,hr.employee user,hr.model_hr_employee,hr.group_hr_user,1,0,0,0
+hr.access_hr_employee_resource_user,resource.resource.user,resource.model_resource_resource,hr.group_hr_user,1,0,0,0
+hr.access_hr_department_user,hr.department.user,hr.model_hr_department,hr.group_hr_user,1,0,0,0
+hr.access_hr_job_user,hr.job user,hr.model_hr_job,hr.group_hr_user,1,0,0,0
+hr.access_hr_plan_activity_type_hr_user,hr.access_hr_plan_activity_type,hr.model_hr_plan_activity_type,hr.group_hr_user,1,0,0,0
+hr.access_hr_plan_hr_user,hr.access_hr_plan_hr_user,hr.model_hr_plan,hr.group_hr_user,1,0,0,0
+hr.access_hr_plan_wizard,access.hr.plan.wizard,hr.model_hr_plan_wizard,hr.group_hr_user,1,0,0,0
+hr.access_hr_departure_wizard,access.hr.departure.wizard,hr.model_hr_departure_wizard,hr.group_hr_user,1,0,0,0
+hr.access_hr_contract_type_manager,hr.contract.type.manager,hr.model_hr_contract_type,hr.group_hr_user,1,0,0,0
+access_hr_contract_readonly_users,hr.contract.readonly,hr_contract.model_hr_contract,hr.group_hr_user,1,0,0,0
+hr.access_hr_departure_reason,hr.access_hr_departure_reason_user,hr.model_hr_departure_reason,hr.group_hr_user,1,0,0,0
+hr_work_entry.access_hr_work_entry_employee,access_hr_work_entry_employee,hr_work_entry.model_hr_user_work_entry_employee,hr.group_hr_user,1,0,0,0
+hr_work_entry.access_hr_work_entry_officer,access_hr_work_entry_officer,hr_work_entry.model_hr_work_entry,hr.group_hr_user,1,0,0,0
+hr_fleet.hr_fleet_vehicle_access_right_hr_officer,hr_fleet_vehicle_access_right_hr_officer,hr_fleet.model_fleet_vehicle,hr.group_hr_user,1,0,0,0
+access_fleet_hr_users,fleet_vehicle_cost_hr_usres,fleet.model_fleet_vehicle_assignation_log,hr.group_hr_user,1,0,0,0
+hr_contract.access_hr_resource_calendar_user,hr.employee.resource.calendar.user,resource.model_resource_calendar,hr.group_hr_user,1,0,0,0
+hr_contract.access_hr_resource_calendar_attendance_user,hr.employee.resource.calendar.attendance.user,resource.model_resource_calendar_attendance,hr.group_hr_user,1,0,0,0
+hr_skills.access_hr_resume_line,hr.resume.line,hr_skills.model_hr_resume_line,hr.group_hr_user,1,0,0,0
+hr_skills.access_hr_resume_line_type,hr.resume.line.type,hr_skills.model_hr_resume_line_type,hr.group_hr_user,1,0,0,0
+hr_skills.access_hr_skill_type,hr.skill.type,hr_skills.model_hr_skill_type,hr.group_hr_user,1,0,0,0
+hr_skills.access_hr_skill_level,hr.skill.level,hr_skills.model_hr_skill_level,hr.group_hr_user,1,0,0,0
+hr_skills.access_hr_skill,hr.skill,hr_skills.model_hr_skill,hr.group_hr_user,1,0,0,0
+hr_skills.access_hr_employee_skill,hr.employee.skill,hr_skills.model_hr_employee_skill,hr.group_hr_user,1,0,0,0
+hr_skills.access_hr_employee_skill_report,hr.employee.skill.report,hr_skills.model_hr_employee_skill_report,hr.group_hr_user,1,0,0,0
+hr_skills.access_hr_employee_skill_log,hr.employee.skill.log,hr_skills.model_hr_employee_skill_log,hr.group_hr_user,1,0,0,0
+hr_gamification.challenge_officer,"Challenge Officer",gamification.model_gamification_challenge,hr.group_hr_user,1,0,0,0
+hr_gamification.challenge_line_officer,"Challenge Line Officer",gamification.model_gamification_challenge_line,hr.group_hr_user,1,0,0,0
+hr_gamification.badge_officer,"Badge Officer",gamification.model_gamification_badge,hr.group_hr_user,1,0,0,0
+hr_gamification.badge_user_officer,"Badge-user Officer",gamification.model_gamification_badge_user,hr.group_hr_user,1,0,0,0
+access_hr_contract_history_user,hr.contract.history.user,hr_contract.model_hr_contract_history,hr.group_hr_user,1,0,0,0
+access_res_partner_hr_user,access_res_partner_hr_user,base.model_res_partner,hr.group_hr_user,1,0,0,0
+access_hr_users_employee,hr.holidays.employee.users,hr_holidays.model_hr_leave,hr.group_hr_user,1,0,0,0
+access_hr_employee_category_officer,hr.employee.category.officer,hr.model_hr_employee_category,hr_employee_group_overview_readonly.group_hr_officer,1,1,1,1
+access_hr_resource_calendar_officer,hr.employee.resource.calendar.officer,resource.model_resource_calendar,hr_employee_group_overview_readonly.group_hr_officer,1,1,1,1
+access_hr_employee_officer,hr.employee user,hr.model_hr_employee,hr_employee_group_overview_readonly.group_hr_officer,1,1,1,1
+access_hr_employee_resource_officer,resource.resource.officer,resource.model_resource_resource,hr_employee_group_overview_readonly.group_hr_officer,1,1,1,1
+access_hr_department_officer,hr.department.officer,hr.model_hr_department,hr_employee_group_overview_readonly.group_hr_officer,1,1,1,1
+access_hr_job_officer,hr.job user,hr.model_hr_job,hr_employee_group_overview_readonly.group_hr_officer,1,1,1,1
+access_hr_plan_activity_type_hr_officer,hr.access_hr_plan_activity_type,hr.model_hr_plan_activity_type,hr_employee_group_overview_readonly.group_hr_officer,1,1,1,1
+access_hr_plan_hr_officer,hr.access_hr_plan_hr_officer,hr.model_hr_plan,hr_employee_group_overview_readonly.group_hr_officer,1,1,1,1
+access_hr_plan_wizard_officer,access.hr.plan.wizard,hr.model_hr_plan_wizard,hr_employee_group_overview_readonly.group_hr_officer,1,1,1,0
+access_hr_departure_wizard_officer,access.hr.departure.wizard,hr.model_hr_departure_wizard,hr_employee_group_overview_readonly.group_hr_officer,1,1,1,0
+access_hr_contract_type_manager_officer,hr.contract.type.manager,hr.model_hr_contract_type,hr_employee_group_overview_readonly.group_hr_officer,1,1,1,1
+access_hr_departure_reason_officer,hr.access_hr_departure_reason_officer,hr.model_hr_departure_reason,hr_employee_group_overview_readonly.group_hr_officer,1,1,1,0
+access_hr_work_entry_employee_officer,access_hr_work_entry_employee,hr_work_entry.model_hr_user_work_entry_employee,hr_employee_group_overview_readonly.group_hr_officer,1,1,1,1
+access_hr_work_entry_hr_officer,access_hr_work_entry_hr_officer,hr_work_entry.model_hr_work_entry,hr_employee_group_overview_readonly.group_hr_officer,1,1,1,0
+hr_fleet_vehicle_access_right_hr_officer_1,hr_fleet_vehicle_access_right_hr_officer,hr_fleet.model_fleet_vehicle,hr_employee_group_overview_readonly.group_hr_officer,1,0,0,0
+access_hr_resource_calendar_officer_1,hr.employee.resource.calendar.officer,resource.model_resource_calendar,hr_employee_group_overview_readonly.group_hr_officer,1,1,1,1
+access_hr_resource_calendar_attendance_officer,hr.employee.resource.calendar.attendance.officer,resource.model_resource_calendar_attendance,hr_employee_group_overview_readonly.group_hr_officer,1,1,1,1
+access_hr_resume_line__officer,hr.resume.line,hr_skills.model_hr_resume_line,hr_employee_group_overview_readonly.group_hr_officer,1,1,1,1
+access_hr_resume_line_type_officer,hr.resume.line.type,hr_skills.model_hr_resume_line_type,hr_employee_group_overview_readonly.group_hr_officer,1,1,1,1
+access_hr_skill_type_officer,hr.skill.type,hr_skills.model_hr_skill_type,hr_employee_group_overview_readonly.group_hr_officer,1,1,1,1
+access_hr_skill_level_officer,hr.skill.level,hr_skills.model_hr_skill_level,hr_employee_group_overview_readonly.group_hr_officer,1,1,1,1
+access_hr_skill_officer,hr.skill,hr_skills.model_hr_skill,hr_employee_group_overview_readonly.group_hr_officer,1,1,1,1
+access_hr_employee_skill_officer,hr.employee.skill,hr_skills.model_hr_employee_skill,hr_employee_group_overview_readonly.group_hr_officer,1,1,1,1
+access_hr_employee_skill_report_officer,hr.employee.skill.report,hr_skills.model_hr_employee_skill_report,hr_employee_group_overview_readonly.group_hr_officer,1,1,1,1
+access_hr_employee_skill_log_officer,hr.employee.skill.log,hr_skills.model_hr_employee_skill_log,hr_employee_group_overview_readonly.group_hr_officer,1,1,1,0
+challenge_hr_officer,"Challenge Hr Officer",gamification.model_gamification_challenge,hr_employee_group_overview_readonly.group_hr_officer,1,1,1,1
+challenge_line_hr_officer,"Challenge Line HR Officer",gamification.model_gamification_challenge_line,hr_employee_group_overview_readonly.group_hr_officer,1,1,1,1
+badge_hr_officer,"Badge HR Officer",gamification.model_gamification_badge,hr_employee_group_overview_readonly.group_hr_officer,1,1,1,1
+badge_user_hr_officer,"Badge-user HR Officer",gamification.model_gamification_badge_user,hr_employee_group_overview_readonly.group_hr_officer,1,1,1,1
+hr_holidays.access_hr_holidays_employee_request,hr.holidays.employee.request,hr_holidays.model_hr_leave,base.group_user,1,0,0,0
