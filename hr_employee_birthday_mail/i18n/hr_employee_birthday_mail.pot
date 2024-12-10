@@ -94,6 +94,7 @@ msgstr ""
 
 #. module: hr_employee_birthday_mail
 #: model:ir.model.fields,field_description:hr_employee_birthday_mail.field_hr_employee__allow_birthday_wishes
+#: model:ir.model.fields,field_description:hr_employee_birthday_mail.field_res_users__allow_birthday_wishes
 msgid "Allow Birthday Wishes"
 msgstr ""
 
@@ -125,6 +126,7 @@ msgstr ""
 
 #. module: hr_employee_birthday_mail
 #: model:ir.model.fields,help:hr_employee_birthday_mail.field_hr_employee__allow_birthday_wishes
+#: model:ir.model.fields,help:hr_employee_birthday_mail.field_res_users__allow_birthday_wishes
 msgid ""
 "Check this box if you want to allow birthday wishes from our company and "
 "allow the others to be notified of your birthday."
@@ -132,6 +134,7 @@ msgstr ""
 
 #. module: hr_employee_birthday_mail
 #: model:ir.model.fields,help:hr_employee_birthday_mail.field_hr_employee__notify_others_birthday
+#: model:ir.model.fields,help:hr_employee_birthday_mail.field_res_users__notify_others_birthday
 msgid ""
 "Check this box if you want to be notified about other coworkers' birthdays."
 msgstr ""
@@ -158,7 +161,13 @@ msgstr ""
 
 #. module: hr_employee_birthday_mail
 #: model:ir.model.fields,field_description:hr_employee_birthday_mail.field_hr_employee__notify_others_birthday
+#: model:ir.model.fields,field_description:hr_employee_birthday_mail.field_res_users__notify_others_birthday
 msgid "Notify Others Birthday"
+msgstr ""
+
+#. module: hr_employee_birthday_mail
+#: model:ir.model,name:hr_employee_birthday_mail.model_res_users
+msgid "User"
 msgstr ""
 
 #. module: hr_employee_birthday_mail
