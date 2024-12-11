@@ -6,43 +6,45 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2024-12-11 10:06+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.6.2\n"
 
 #. module: hr_employee_service_contract
 #: model:ir.model,name:hr_employee_service_contract.model_hr_employee
 msgid "Employee"
-msgstr ""
+msgstr "Dipendente"
 
 #. module: hr_employee_service_contract
 #: model:ir.model.fields,field_description:hr_employee_service_contract.field_hr_employee__first_contract_id
 msgid "First Contract"
-msgstr ""
+msgstr "Primo contatto"
 
 #. module: hr_employee_service_contract
 #: model:ir.model.fields,help:hr_employee_service_contract.field_hr_employee__first_contract_id
 msgid "First contract of the employee"
-msgstr ""
+msgstr "Primo contratto del dipendente"
 
 #. module: hr_employee_service_contract
 #: model:ir.model.fields,field_description:hr_employee_service_contract.field_hr_employee__last_contract_id
 msgid "Last Contract"
-msgstr ""
+msgstr "Ultimo contratto"
 
 #. module: hr_employee_service_contract
 #: model:ir.model.fields,help:hr_employee_service_contract.field_hr_employee__last_contract_id
 msgid "Last contract of the employee"
-msgstr ""
+msgstr "Ultimo contratto del dipendente"
 
 #. module: hr_employee_service_contract
 #: model:ir.model.fields,field_description:hr_employee_service_contract.field_hr_employee__service_start_date
 msgid "Start Date"
-msgstr ""
+msgstr "Data inizio"
 
 #. module: hr_employee_service_contract
 #: model:ir.model.fields,help:hr_employee_service_contract.field_hr_employee__service_start_date
@@ -50,11 +52,13 @@ msgid ""
 "Start date is the first day the employee actually works and this date is "
 "used for accrual leave allocations calculation"
 msgstr ""
+"La data inizio è il primo giorno in cui il dipendente ha effettivamente "
+"lavorato e questa data è utilizzata per il calcolo preciso delle ferie"
 
 #. module: hr_employee_service_contract
 #: model:ir.model.fields,field_description:hr_employee_service_contract.field_hr_employee__service_termination_date
 msgid "Termination Date"
-msgstr ""
+msgstr "Data risoluzione"
 
 #. module: hr_employee_service_contract
 #: model:ir.model.fields,help:hr_employee_service_contract.field_hr_employee__service_termination_date
@@ -62,3 +66,5 @@ msgid ""
 "Termination date is the last day the employee actually works and this date "
 "is used for accrual leave allocations calculation"
 msgstr ""
+"La data risoluzione è l'ultimo giorno in cui il dipendente ha effettivamente "
+"lavorato e questa data è utilizzata per il calcolo preciso delle ferie"
