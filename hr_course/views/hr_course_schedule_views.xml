@@ -145,14 +145,7 @@
                         </page>
                     </notebook>
                 </sheet>
-                <div class="oe_chatter">
-                    <field
-                        name="message_follower_ids"
-                        widget="mail_followers"
-                        groups="base.group_user"
-                    />
-                    <field name="message_ids" widget="mail_thread" />
-                </div>
+                <chatter />
             </form>
         </field>
     </record>
@@ -166,11 +159,11 @@
             </search>
         </field>
     </record>
-    <record id="hr_course_schedule_tree_view" model="ir.ui.view">
-        <field name="name">hr.course.schedule.tree</field>
+    <record id="hr_course_schedule_list_view" model="ir.ui.view">
+        <field name="name">hr.course.schedule.list</field>
         <field name="model">hr.course.schedule</field>
         <field name="arch" type="xml">
-            <tree
+            <list
                 decoration-success="state=='completed'"
                 decoration-muted="state=='cancelled'"
             >
@@ -178,15 +171,15 @@
                 <field name="start_date" />
                 <field name="end_date" />
                 <field name="state" />
-            </tree>
+            </list>
         </field>
     </record>
-    <record id="hr_course_attendee_tree_view" model="ir.ui.view">
-        <field name="name">hr.course.attendee.tree</field>
+    <record id="hr_course_attendee_list_view" model="ir.ui.view">
+        <field name="name">hr.course.attendee.list</field>
         <field name="model">hr.course.attendee</field>
         <field name="priority">30</field>
         <field name="arch" type="xml">
-            <tree
+            <list
                 decoration-success="result=='passed'"
                 decoration-danger="result=='failed' or result=='absent'"
                 editable="bottom"
@@ -195,7 +188,7 @@
             >
                 <field name="employee_id" />
                 <field name="result" />
-            </tree>
+            </list>
         </field>
     </record>
     <record id="hr_course_attendee_form_view" model="ir.ui.view">
@@ -219,7 +212,7 @@
     <record id="action_hr_course_schedule" model="ir.actions.act_window">
         <field name="name">Courses Schedule</field>
         <field name="res_model">hr.course.schedule</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
     <menuitem
         id="menu_hr_course_schedule"

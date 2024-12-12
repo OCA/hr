@@ -18,12 +18,12 @@
             </div>
         </field>
     </record>
-    <record model="ir.ui.view" id="hr_course_attendee_tree_employee_view">
-        <field name="name">hr.course.attendee.tree.employee</field>
+    <record model="ir.ui.view" id="hr_course_attendee_list_employee_view">
+        <field name="name">hr.course.attendee.list.employee</field>
         <field name="model">hr.course.attendee</field>
         <field name="priority">100</field>
         <field name="arch" type="xml">
-            <tree
+            <list
                 create="false"
                 delete="false"
                 decoration-muted="state=='cancelled'"
@@ -35,17 +35,17 @@
                 <field name="course_start" />
                 <field name="course_end" />
                 <field name="result" />
-            </tree>
+            </list>
         </field>
     </record>
     <record id="action_view_course" model="ir.actions.act_window">
         <field name="name">Courses</field>
         <field name="res_model">hr.course.attendee</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
         <field
             name="view_ids"
             eval="[(5,0,0),
-                          (0,0,{'view_mode':'tree', 'view_id': ref('hr_course_attendee_tree_employee_view')}),
+                          (0,0,{'view_mode':'list', 'view_id': ref('hr_course_attendee_list_employee_view')}),
                           (0,0,{'view_mode':'form'})]"
         />
     </record>
