@@ -16,14 +16,9 @@ class TestHrDepartmentCode(TransactionCase):
     def test_name_get_department(self):
         department1 = self.create_department("Department1")
         self.assertEqual(department1.name, "Department1")
-        self.assertEqual(department1.name_get()[0][1], "Department1")
+        self.assertEqual(department1.display_name, "Department1")
 
-    def test_name_search_department(self):
-        department2 = self.create_department("Department2", code="D2")
+        department2 = self.create_department("Department2", code="DPT2")
         self.assertEqual(department2.name, "Department2")
-        self.assertEqual(department2.code, "D2")
-        self.assertEqual(department2.name_get()[0][1], "[D2] Department2")
-        check_method1 = department2.name_search(
-            name="D2", operator="ilike", args=[("id", "=", department2.id)]
-        )
-        self.assertEqual(check_method1[0][0], department2.id)
+        self.assertEqual(department2.code, "DPT2")
+        self.assertEqual(department2.display_name, "[DPT2] Department2")

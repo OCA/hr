@@ -11,18 +11,10 @@ class Department(models.Model):
     code = fields.Char()
 
     @api.depends_context("hierarchical_naming")
+    @api.depends("code", "name")
     def _compute_display_name(self):
         res = super()._compute_display_name()
         for record in self:
             if record.code:
                 record.display_name = f"[{record.code}] {record.display_name}"
         return res
-
-    @api.model
-    def name_search(self, name, args=None, operator="ilike", limit=100):
-        args = args or []
-        domain = []
-        if name:
-            domain = ["|", ("code", operator, name), ("name", operator, name)]
-        department = self.search(domain + args, limit=limit)
-        return department.name_get()
