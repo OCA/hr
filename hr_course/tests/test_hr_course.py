@@ -1,32 +1,32 @@
 # Copyright 2019 Creu Blanca
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-import odoo.tests.common as common
 from odoo.exceptions import ValidationError
 
+from odoo.addons.base.tests.common import BaseCommon
 
-class TestHrCourse(common.TransactionCase):
-    def setUp(self):
-        super().setUp()
-        self.course_categ = self.env["hr.course.category"].create(
-            {"name": "Category 1"}
-        )
-        self.employee1 = self.env["hr.employee"].create({"name": "Employee 1"})
-        self.employee2 = self.env["hr.employee"].create({"name": "Employee 2"})
-        self.course_id = self.env["hr.course"].create(
+
+class TestHrCourse(BaseCommon):
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        cls.course_categ = cls.env["hr.course.category"].create({"name": "Category 1"})
+        cls.employee1 = cls.env["hr.employee"].create({"name": "Employee 1"})
+        cls.employee2 = cls.env["hr.employee"].create({"name": "Employee 2"})
+        cls.course_id = cls.env["hr.course"].create(
             {
                 "name": "Course name",
-                "category_id": self.course_categ.id,
+                "category_id": cls.course_categ.id,
                 "permanence": True,
                 "permanence_time": "1 month",
             }
         )
-        self.course_schedule_id = self.env["hr.course.schedule"].create(
+        cls.course_schedule_id = cls.env["hr.course.schedule"].create(
             {
                 "name": "Convocatory",
-                "course_id": self.course_id.id,
+                "course_id": cls.course_id.id,
                 "cost": 100,
-                "authorized_by": self.employee1.id,
+                "authorized_by": cls.employee1.id,
                 "start_date": "2019-02-15",
                 "end_date": "2019-02-20",
             }
