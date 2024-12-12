@@ -20,20 +20,20 @@
             </search>
         </field>
     </record>
-    <record id="view_course_category_list" model="ir.ui.view">
-        <field name="name">hr.course.category.list</field>
+    <record id="view_course_category_tree" model="ir.ui.view">
+        <field name="name">hr.course.category.tree</field>
         <field name="model">hr.course.category</field>
         <field eval="8" name="priority" />
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="name" />
-            </tree>
+            </list>
         </field>
     </record>
     <record id="open_view_course_category_form" model="ir.actions.act_window">
         <field name="name">Course Categories</field>
         <field name="res_model">hr.course.category</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
     <menuitem
         id="menu_view_course_category_form"
