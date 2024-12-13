@@ -63,36 +63,32 @@
                         />
                     </group>
                 </sheet>
-                <div class="oe_chatter">
-                    <field name="message_follower_ids" widget="mail_followers" />
-                    <field name="activity_ids" widget="mail_activity" />
-                    <field name="message_ids" widget="mail_thread" />
-                </div>
+                <chatter />
             </form>
         </field>
     </record>
-    <record model="ir.ui.view" id="hr_personal_equipment_tree_view">
+    <record model="ir.ui.view" id="hr_personal_equipment_list_view">
         <field
             name="name"
-        >hr.personal.equipment.tree (in hr_personal_equipment_request)</field>
+        >hr.personal.equipment.list (in hr_personal_equipment_request)</field>
         <field name="model">hr.personal.equipment</field>
         <field name="arch" type="xml">
-            <tree
+            <list
                 create="0"
                 decoration-info="state=='accepted'"
                 decoration-success="state=='valid'"
                 decoration-muted="state=='cancelled'"
                 decoration-danger="state=='expired'"
             >
-                <field name="name" invisible="1" />
+                <field name="name" column_invisible="1" />
                 <field name="product_id" />
                 <field name="employee_id" groups="hr.group_hr_user" />
                 <field name="quantity" />
                 <field name="product_uom_id" />
                 <field name="start_date" />
                 <field name="state" />
-                <field name="equipment_request_id" invisible="1" />
-            </tree>
+                <field name="equipment_request_id" column_invisible="1" />
+            </list>
         </field>
     </record>
     <record model="ir.ui.view" id="hr_personal_equipment_search_view">
@@ -149,7 +145,7 @@
     <record model="ir.actions.act_window" id="hr_personal_equipment_act_window">
         <field name="name">Allocations</field>
         <field name="res_model">hr.personal.equipment</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
         <field name="domain">[]</field>
         <field name="context">{'search_default_filter_valid_state':1}</field>
     </record>

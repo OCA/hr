@@ -26,7 +26,6 @@
                     icon="fa-briefcase"
                     invisible="personal_equipment_count == 0"
                 >
-                    <!-- TODO: IN version 14.0 (with fa 5.0) we could put a t-shirt as icon -->
                     <field
                         name="personal_equipment_count"
                         string="PE"
