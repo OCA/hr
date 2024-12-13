@@ -14,17 +14,17 @@ class HrEmployeeBase(models.AbstractModel):
 
     def _compute_document_count(self):
         self.document_count = 0
-        attachment_groups = self.env["ir.attachment"].read_group(
+        results = self.env["ir.attachment"]._read_group(
             [("res_model", "=", "hr.employee"), ("res_id", "in", self.ids)],
-            ["res_id"],
-            ["res_id"],
+            groupby=["res_id"],
+            aggregates=["__count"],
         )
-        count_dict = {x["res_id"]: x["res_id_count"] for x in attachment_groups}
+        count_dict = {res_id: count for res_id, count in results}
         for record in self:
             record.document_count = count_dict.get(record.id, 0)
 
     @api.model
-    def check_access_rights(self, operation, raise_exception=True):
+    def check_access(self, operation):
         """Return access to the hr.employee model if we pass a specific context,
         is a trick to list the attachments related to an employee."""
         if (
@@ -38,9 +38,7 @@ class HrEmployeeBase(models.AbstractModel):
                 or self in self.env.user.employee_ids
             ):
                 return True
-        return super().check_access_rights(
-            operation=operation, raise_exception=raise_exception
-        )
+        return super().check_access(operation=operation)
 
     def action_get_attachment_tree_view(self):
         action = self.env["ir.actions.act_window"]._for_xml_id("base.action_attachment")
