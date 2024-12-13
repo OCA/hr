@@ -8,3 +8,4 @@
   - Nattapong W. \<<aphon61bank@gmail.com>\>
 - [PeGon](https://www.pegon.ch):
   - Pedro Evaristo Gonzalez Sanchez \<<pedro.gonzalez@pegon.ch>\>
+- `Heliconia Solutions Pvt. Ltd. <https://www.heliconia.io>`_

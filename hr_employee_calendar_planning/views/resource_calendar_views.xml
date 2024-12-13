@@ -9,12 +9,12 @@
             <notebook position="inside">
                 <page name="employee_calendar" string="Employee Calendars">
                     <field name="employee_calendar_ids">
-                        <tree editable="top" create="0">
+                        <list editable="top" create="0">
                             <field name="company_id" invisible="1" />
                             <field name="date_start" />
                             <field name="date_end" />
                             <field name="employee_id" />
-                        </tree>
+                        </list>
                     </field>
                 </page>
             </notebook>

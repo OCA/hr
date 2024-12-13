@@ -148,6 +148,3 @@ msgstr "Horaire de travail"
 #, python-format
 msgid "You can not create employees without any calendar."
 msgstr ""
-
-#~ msgid "Last Modified on"
-#~ msgstr "Dernière modification le"

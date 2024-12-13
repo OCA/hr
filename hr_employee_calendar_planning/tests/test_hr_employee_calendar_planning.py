@@ -1,20 +1,20 @@
 # Copyright 2019 Tecnativa - Pedro M. Baeza
-# Copyright 2021-2023 Tecnativa - Víctor Martínez
+# Copyright 2021-2025 Tecnativa - Víctor Martínez
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 from odoo import exceptions, fields
-from odoo.tests import common, new_test_user
+from odoo.tests import new_test_user
+from odoo.tools import mute_logger
 
-from odoo.addons.base.tests.common import DISABLED_MAIL_CONTEXT
+from odoo.addons.base.tests.common import BaseCommon
 
 from ..hooks import post_init_hook
 
 
-class TestHrEmployeeCalendarPlanning(common.TransactionCase):
+class TestHrEmployeeCalendarPlanning(BaseCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.env = cls.env(context=dict(cls.env.context, **DISABLED_MAIL_CONTEXT))
         resource_calendar = cls.env["resource.calendar"]
         cls.calendar1 = resource_calendar.create(
             {"name": "Test calendar 1", "attendance_ids": []}
@@ -95,6 +95,7 @@ class TestHrEmployeeCalendarPlanning(common.TransactionCase):
         # By default a calendar_ids is set, we remove it to better clarify the tests.
         cls.employee.write({"calendar_ids": [(2, cls.employee.calendar_ids.id)]})
 
+    @mute_logger("odoo.models.unlink")
     def test_calendar_planning(self):
         self.employee.calendar_ids = [
             (0, 0, {"date_end": "2019-12-31", "calendar_id": self.calendar1.id}),
@@ -179,6 +180,7 @@ class TestHrEmployeeCalendarPlanning(common.TransactionCase):
         )
         self.assertEqual(len(attendances_without_lunch), 20 + 6 * 2 + 2)
 
+    @mute_logger("odoo.models.unlink")
     def test_calendar_planning_two_weeks(self):
         self.calendar1.switch_calendar_type()
         self.employee.calendar_ids = [
@@ -275,6 +277,7 @@ class TestHrEmployeeCalendarPlanning(common.TransactionCase):
             5 + 5,
         )
 
+    @mute_logger("odoo.models.unlink")
     def test_calendar_planning_two_weeks_multi(self):
         self.calendar1.switch_calendar_type()
         self.calendar2.switch_calendar_type()
@@ -374,6 +377,7 @@ class TestHrEmployeeCalendarPlanning(common.TransactionCase):
             {"Global Leave 1", "Global Leave 2"},
         )
 
+    @mute_logger("odoo.models.unlink")
     def test_post_install_hook_several_calendaries(self):
         self.calendar1.attendance_ids[0].date_from = "2019-01-01"
         self.calendar1.attendance_ids[1].date_from = "2019-01-01"
@@ -392,6 +396,7 @@ class TestHrEmployeeCalendarPlanning(common.TransactionCase):
             8,
         )
 
+    @mute_logger("odoo.models.unlink")
     def test_resource_calendar_constraint(self):
         self.employee.calendar_ids = [
             (0, 0, {"date_end": "2019-12-31", "calendar_id": self.calendar1.id})
@@ -428,6 +433,7 @@ class TestHrEmployeeCalendarPlanning(common.TransactionCase):
         )
         self.assertTrue(employee.resource_calendar_id.auto_generate)
 
+    @mute_logger("odoo.models.unlink")
     def test_copy_global_leaves(self):
         # test that global leaves are combined from calendar_ids
         global_leave_ids_cal1 = self.calendar1.global_leave_ids.ids
@@ -445,6 +451,7 @@ class TestHrEmployeeCalendarPlanning(common.TransactionCase):
         # test that global leaves on original calendar are not changed
         self.assertEqual(global_leave_ids_cal1, self.calendar1.global_leave_ids.ids)
 
+    @mute_logger("odoo.models.unlink")
     def test_employee_copy(self):
         self.employee.calendar_ids = [
             (0, 0, {"date_end": "2019-12-31", "calendar_id": self.calendar1.id}),

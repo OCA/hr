@@ -153,6 +153,3 @@ msgstr "Tiempo de Trabajo"
 #, python-format
 msgid "You can not create employees without any calendar."
 msgstr "No puede crear empleados sin ningún calendario."
-
-#~ msgid "Last Modified on"
-#~ msgstr "Última modificación el"

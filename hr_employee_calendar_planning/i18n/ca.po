@@ -148,14 +148,3 @@ msgstr "Temps de treball"
 #, python-format
 msgid "You can not create employees without any calendar."
 msgstr ""
-
-#~ msgid "Last Modified on"
-#~ msgstr "Darrera modificació el"
-
-#, python-format
-#~ msgid "%s is used in %s employee(s) related to another company."
-#~ msgstr "%s s'utilitza en %s empleats relacionats amb una altra empresa."
-
-#, python-format
-#~ msgid "%s is used in %s employee(s). You should change them first."
-#~ msgstr "%s s'utilitza en %s empleat(s). Primer els hauries de canviar."
