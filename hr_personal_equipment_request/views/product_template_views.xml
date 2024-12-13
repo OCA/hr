@@ -21,8 +21,7 @@
                     name="personal_equipment"
                     string="Employee Personal Equipment"
                     invisible="not is_personal_equipment"
-                >
-                </page>
+                />
             </xpath>
         </field>
     </record>
