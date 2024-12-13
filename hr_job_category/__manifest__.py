@@ -3,7 +3,7 @@
 
 {
     "name": "HR Job Employee Categories",
-    "version": "17.0.1.0.1",
+    "version": "18.0.1.0.0",
     "category": "Generic Modules/Human Resources",
     "summary": "Adds tags to employee through contract and job position",
     "author": "Michael Telahun Makonnen <mmakonnen@gmail.com>, "

@@ -1,5 +1,6 @@
 # Copyright 2014 Savoir-faire Linux
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+from odoo import Command
 
 from odoo.addons.base.tests.common import BaseCommon
 
@@ -27,11 +28,11 @@ class TestHrJobCategories(BaseCommon):
 
         # Create two jobs
         cls.job_id = cls.job_model.create(
-            {"name": "Job 1", "category_ids": [(6, 0, [cls.categ_id.id])]}
+            {"name": "Job 1", "category_ids": [Command.set([cls.categ_id.id])]}
         )
 
         cls.job_2_id = cls.job_model.create(
-            {"name": "Job 2", "category_ids": [(6, 0, [cls.categ_2_id.id])]}
+            {"name": "Job 2", "category_ids": [Command.set([cls.categ_2_id.id])]}
         )
 
         # Create one contract
