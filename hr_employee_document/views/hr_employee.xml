@@ -20,7 +20,7 @@
                     <field name="document_count" widget="statinfo" string="Documents" />
                 </button>
             </div>
-            <xpath expr="//div[hasclass('oe_chatter')]" position="before">
+            <xpath expr="//chatter" position="before">
                 <div class="o_attachment_preview" />
             </xpath>
         </field>

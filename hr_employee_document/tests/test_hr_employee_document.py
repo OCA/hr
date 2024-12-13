@@ -4,11 +4,13 @@
 
 import base64
 
-from odoo.tests import common, new_test_user
+from odoo.tests import new_test_user
 from odoo.tests.common import users
 
+from odoo.addons.base.tests.common import BaseCommon
 
-class TestHrEmployeeDocument(common.TransactionCase):
+
+class TestHrEmployeeDocument(BaseCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -26,10 +28,10 @@ class TestHrEmployeeDocument(common.TransactionCase):
         cls.user_2 = new_test_user(cls.env, login="test-user-2")
         new_test_user(cls.env, login="test-user-manager", groups="hr.group_hr_user")
         cls.employee_1 = cls.env["hr.employee"].create(
-            {"name": "Employee #1", "user_id": cls.user_1.id}
+            [{"name": "Employee #1", "user_id": cls.user_1.id}]
         )
         cls.employee_2 = cls.env["hr.employee"].create(
-            {"name": "Employee #2", "user_id": cls.user_2.id}
+            [{"name": "Employee #2", "user_id": cls.user_2.id}]
         )
 
     @classmethod
@@ -38,12 +40,15 @@ class TestHrEmployeeDocument(common.TransactionCase):
             self.env["ir.attachment"]
             .sudo()
             .create(
-                {
-                    "res_model": employee_id._name,
-                    "res_id": employee_id.id,
-                    "datas": base64.b64encode(b"My attachment"),
-                    "name": "doc.txt",
-                }
+                [
+                    {
+                        "res_model": employee_id._name,
+                        "res_id": employee_id.id,
+                        "datas": base64.b64encode(b"My attachment"),
+                        "name": "doc.txt",
+                        "public": True,
+                    }
+                ]
             )
         )
 
@@ -112,3 +117,43 @@ class TestHrEmployeeDocument(common.TransactionCase):
         employee = self.employee_2
         employee_public = self.env["hr.employee.public"].browse(employee.id)
         self.assertFalse(employee_public.is_logged)
+
+    @users("test-user-1")
+    def test_check_access_read_employee(self):
+        employee = self.env["hr.employee"].search(
+            [("user_id", "=", self.env.user.id)], limit=1
+        )
+        self.assertTrue(employee, "Employee record for test-user-1 should exist")
+
+        employee_with_context = employee.with_context(
+            search_attachments_from_hr_employee=True
+        )
+        self.assertEqual(
+            employee_with_context._name, "hr.employee", "Model should be hr.employee"
+        )
+        self.assertTrue(
+            employee_with_context.check_access("read"),
+            "Non-HR user should have read access with "
+            "search_attachments_from_hr_employee context",
+        )
+
+        self.assertTrue(
+            employee.check_access("read"),
+            "Non-HR user should have read access to their own employee record",
+        )
+
+        other_employee = self.employee_2
+        access = other_employee.check_access("read")
+        self.assertFalse(
+            access,
+            "Non-HR user should not have read access to another employee's record",
+        )
+
+    @users("test-user-1")
+    def test_compute_domain_coverage(self):
+        domain = (
+            self.env["ir.rule"]
+            .with_context(search_attachments_from_hr_employee=True)
+            ._compute_domain("hr.employee")
+        )
+        self.assertIsNotNone(domain)
