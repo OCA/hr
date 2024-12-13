@@ -7,3 +7,4 @@
 - Juany Davila \<<juany.davila@forgeflow.com>\>
 - \[APSL\](<https://apsl.tech>):
   - Antoni Marroig \<<toni.marroig1@gmail.com>\>
+- `Heliconia Solutions Pvt. Ltd. <https://www.heliconia.io>`_
