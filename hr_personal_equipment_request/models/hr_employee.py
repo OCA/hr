@@ -1,7 +1,7 @@
 # Copyright 2021 Creu Blanca
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import _, fields, models
+from odoo import fields, models
 
 
 class HrEmployee(models.Model):
@@ -27,18 +27,20 @@ class HrEmployee(models.Model):
     )
 
     def _compute_equipment_request_count(self):
-        self.equipment_request_count = len(self.equipment_request_ids)
+        for rec in self:
+            rec.equipment_request_count = len(rec.equipment_request_ids)
 
     def _compute_personal_equipment_count(self):
-        self.personal_equipment_count = len(self.personal_equipment_ids)
+        for rec in self:
+            rec.personal_equipment_count = len(rec.personal_equipment_ids)
 
     def action_open_equipment_request(self):
         self.ensure_one()
         return {
-            "name": _("Equipment Request"),
+            "name": self.env._("Equipment Request"),
             "type": "ir.actions.act_window",
             "res_model": "hr.personal.equipment.request",
-            "view_mode": "tree,form",
+            "view_mode": "list,form",
             "context": {"group_by": "state"},
             "domain": [("id", "in", self.equipment_request_ids.ids)],
         }
@@ -46,10 +48,10 @@ class HrEmployee(models.Model):
     def action_open_personal_equipment(self):
         self.ensure_one()
         return {
-            "name": _("Personal Equipment"),
+            "name": self.env._("Personal Equipment"),
             "type": "ir.actions.act_window",
             "res_model": "hr.personal.equipment",
             "context": {"group_by": "state"},
-            "view_mode": "tree,form",
+            "view_mode": "list,form",
             "domain": [("id", "in", self.personal_equipment_ids.ids)],
         }

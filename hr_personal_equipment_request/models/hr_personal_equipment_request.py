@@ -1,7 +1,7 @@
 # Copyright 2021 Creu Blanca
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import _, api, fields, models
+from odoo import api, fields, models
 
 
 class HrPersonalEquipmentRequest(models.Model):
@@ -38,7 +38,9 @@ class HrPersonalEquipmentRequest(models.Model):
     @api.depends("employee_id")
     def _compute_name(self):
         for rec in self:
-            rec.name = _("Personal Equipment Request by %s") % rec.employee_id.name
+            rec.name = (
+                self.env._("Personal Equipment Request by %s") % rec.employee_id.name
+            )
 
     def accept_request(self):
         for rec in self:
@@ -57,14 +59,15 @@ class HrPersonalEquipmentRequest(models.Model):
         self.equipment_request_count = len(self.equipment_request_ids)
 
     def _compute_allocation_count(self):
-        self.allocations_count = len(self.line_ids)
+        for rec in self:
+            rec.allocations_count = len(rec.line_ids)
 
     def action_open_personal_equipment(self):
         self.ensure_one()
         return {
-            "name": _("Allocations"),
+            "name": self.env._("Allocations"),
             "type": "ir.actions.act_window",
             "res_model": "hr.personal.equipment",
-            "view_mode": "tree,form",
+            "view_mode": "list,form",
             "domain": [("id", "in", self.line_ids.ids)],
         }
