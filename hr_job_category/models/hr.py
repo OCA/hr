@@ -54,11 +54,12 @@ class HRContract(models.Model):
             if tags_to_add:
                 employee.write({"category_ids": tags_to_add})
 
-    @api.model
-    def create(self, vals):
-        res = super().create(vals)
-        if "job_id" in vals:
-            res._tag_employees(vals.get("job_id"))
+    @api.model_create_multi
+    def create(self, vals_list):
+        res = super().create(vals_list)
+        for vals in vals_list:
+            if "job_id" in vals:
+                res._tag_employees(vals.get("job_id"))
         return res
 
     def write(self, vals):
