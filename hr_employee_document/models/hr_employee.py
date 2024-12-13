@@ -24,7 +24,7 @@ class HrEmployeeBase(models.AbstractModel):
             record.document_count = count_dict.get(record.id, 0)
 
     @api.model
-    def check_access_rights(self, operation, raise_exception=True):
+    def check_access(self, operation):
         """Return access to the hr.employee model if we pass a specific context,
         is a trick to list the attachments related to an employee."""
         if (
@@ -38,9 +38,7 @@ class HrEmployeeBase(models.AbstractModel):
                 or self in self.env.user.employee_ids
             ):
                 return True
-        return super().check_access_rights(
-            operation=operation, raise_exception=raise_exception
-        )
+        return super().check_access(operation=operation)
 
     def action_get_attachment_tree_view(self):
         action = self.env["ir.actions.act_window"]._for_xml_id("base.action_attachment")
