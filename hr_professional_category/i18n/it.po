@@ -68,11 +68,6 @@ msgid "ID"
 msgstr "ID"
 
 #. module: hr_professional_category
-#: model:ir.model.fields,field_description:hr_professional_category.field_hr_professional_category____last_update
-msgid "Last Modified on"
-msgstr "Ultima modifica il"
-
-#. module: hr_professional_category
 #: model:ir.model.fields,field_description:hr_professional_category.field_hr_professional_category__write_uid
 msgid "Last Updated by"
 msgstr "Ultimo aggiornamento di"
@@ -99,3 +94,6 @@ msgstr "Categorie professionali"
 #: model_terms:ir.ui.view,arch_db:hr_professional_category.hr_contract_view_search
 msgid "Professional Category"
 msgstr "Categoria professionale"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Ultima modifica il"
