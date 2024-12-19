@@ -2,7 +2,7 @@
 # Copyright 2024 Tecnativa - Víctor Martínez
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-from odoo import fields, models
+from odoo import api, fields, models
 
 
 class HrProfessionalCategory(models.Model):
@@ -21,5 +21,7 @@ class HrProfessionalCategory(models.Model):
         index=True,
     )
 
-    def name_get(self):
-        return [(x.id, "%d - %s" % (x.code, x.name)) for x in self]
+    @api.depends("code")
+    def _compute_display_name(self):
+        for record in self:
+            record.display_name = f"{record.code} - {record.name}"

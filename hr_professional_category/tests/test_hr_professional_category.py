@@ -31,6 +31,6 @@ class TestHrProfessionalCategory(BaseCommon):
 
     def test_hr_professional_category_name(self):
         self.assertEqual(self.contract.professional_category_id, self.category)
-        res = self.category.name_get()
-        expected_name = "%s - %s" % (self.category.code, self.category.name)
-        self.assertEqual(res[0][1], expected_name)
+        self.assertEqual(
+            self.category.display_name, f"{self.category.code} - {self.category.name}"
+        )
