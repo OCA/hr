@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+     <record id="hr_timesheet_line_external_partner_search" model="ir.ui.view">
+            <field name="name">account.analytic.line.external.partner.search</field>
+            <field name="model">account.analytic.line</field>
+            <field name="inherit_id" ref="hr_timesheet.hr_timesheet_line_search" />
+            <field name="arch" type="xml">
+                <field name="employee_id" position="after">
+                    <field name="is_external" />
+                    <field name="external_partner_id" />
+                </field>
+                <filter name="month" position="after">
+                    <filter
+                    name="is_external"
+                    string="External Employee"
+                    domain="[('is_external', '=', True)]"
+                />
+                    <filter
+                    name="is_external"
+                    string="Internal Employee"
+                    domain="[('is_external', '=', False)]"
+                />
+                </filter>
+                <filter name="groupby_employee" position="after">
+                    <filter
+                    string="External Partner"
+                    name="groupby_external_partner"
+                    domain="[]"
+                    context="{'group_by': 'external_partner_id'}"
+                />
+                </filter>
+            </field>
+        </record>
+</odoo>
