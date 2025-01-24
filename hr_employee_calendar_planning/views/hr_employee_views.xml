@@ -5,6 +5,9 @@
     <record id="view_employee_form" model="ir.ui.view">
         <field name="model">hr.employee</field>
         <field name="inherit_id" ref="hr.view_employee_form" />
+        <!-- It is necessary to set a high priority to avoid that if hr_contract
+        is installed later, the calendar is still hidden. !-->
+        <field name="priority">99</field>
         <field name="arch" type="xml">
             <field name="resource_calendar_id" position="attributes">
                 <attribute name="invisible">1</attribute>
