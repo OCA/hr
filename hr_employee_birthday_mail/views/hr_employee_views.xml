@@ -11,7 +11,7 @@
                         <field name="allow_birthday_wishes" />
                         <field
                             name="notify_others_birthday"
-                            attrs="{'invisible': [('allow_birthday_wishes', '=', False)]}"
+                            invisible="not allow_birthday_wishes"
                         />
                     </group>
                 </page>
