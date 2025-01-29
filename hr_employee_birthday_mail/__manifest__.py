@@ -3,8 +3,9 @@
 {
     "name": "HR Employee Birthday Mail",
     "summary": """
-        Automating birthday mail messages and fostering for a positive work environment.""",
-    "version": "16.0.1.1.0",
+        Automating birthday mail messages and fostering for a positive work environment.
+        """,
+    "version": "17.0.1.1.0",
     "license": "AGPL-3",
     "author": "ForgeFlow, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/hr",
