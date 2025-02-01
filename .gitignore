@@ -1,6 +1,12 @@
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
+<<<<<<< before updating
+=======
+/.venv
+/.pytest_cache
+/.ruff_cache
+>>>>>>> after updating
 
 # C extensions
 *.so
@@ -20,6 +26,19 @@ var/
 *.egg-info/
 .installed.cfg
 *.egg
+
+# Windows installers
+*.msi
+
+# Debian packages
+*.deb
+
+# Redhat packages
+*.rpm
+
+# MacOS packages
+*.dmg
+*.pkg
 
 # Installer logs
 pip-log.txt
