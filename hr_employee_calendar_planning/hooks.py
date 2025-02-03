@@ -55,11 +55,11 @@ def post_init_hook(env, employees=None):
             )
         # Extract employee's existing leaves so they are passed to the new
         # automatic calendar.
-        leaves = employee.resource_calendar_id.leave_ids.filtered(
-            lambda x, e=employee: x.resource_id == e.resource_id
-        )
         employee.calendar_ids = calendar_lines
         employee.resource_calendar_id.active = False
         # Now the automatic calendar has been created, so we link the
         # leaves to that one so they count correctly.
+        leaves = employee.resource_calendar_id.leave_ids.filtered(
+            lambda x, e=employee: x.resource_id == e.resource_id
+        )
         leaves.write({"calendar_id": employee.resource_calendar_id.id})
