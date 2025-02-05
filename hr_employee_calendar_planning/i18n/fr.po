@@ -19,7 +19,6 @@ msgstr ""
 #. module: hr_employee_calendar_planning
 #. odoo-python
 #: code:addons/hr_employee_calendar_planning/models/resource_calendar.py:0
-#, python-format
 msgid ""
 "%(item_name)s is used in %(total_items)s employee(s) related to another "
 "company."
@@ -28,7 +27,6 @@ msgstr ""
 #. module: hr_employee_calendar_planning
 #. odoo-python
 #: code:addons/hr_employee_calendar_planning/models/resource_calendar.py:0
-#, python-format
 msgid ""
 "%(item_name)s is used in %(total_items)s employee(s).You should change them "
 "first."
@@ -47,7 +45,6 @@ msgstr ""
 #. module: hr_employee_calendar_planning
 #. odoo-python
 #: code:addons/hr_employee_calendar_planning/models/hr_employee.py:0
-#, python-format
 msgid "Auto generated calendar for employee"
 msgstr "Calendrier généré automatiquement pour les employés"
 
@@ -145,6 +142,5 @@ msgstr "Horaire de travail"
 #. module: hr_employee_calendar_planning
 #. odoo-python
 #: code:addons/hr_employee_calendar_planning/models/hr_employee.py:0
-#, python-format
 msgid "You can not create employees without any calendar."
 msgstr ""
