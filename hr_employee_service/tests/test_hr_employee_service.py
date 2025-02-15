@@ -2,9 +2,9 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
 from datetime import date
+from unittest.mock import patch
 
 from dateutil.relativedelta import relativedelta
-from mock import patch
 
 from odoo import fields
 from odoo.tests import common
