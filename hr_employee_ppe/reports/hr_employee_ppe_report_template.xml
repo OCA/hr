@@ -11,10 +11,10 @@
                         <br />
                         <div name="employee_name">
                             <span
-                                t-field="doc.employee_id.company_id.name"
-                            /> is providing <u>
-                                <span t-field="doc.employee_id.name" />
-                            </u> with the following Personal Protection Equipment (PPE):
+                            t-field="doc.employee_id.company_id.name"
+                        /> is providing <u>
+                            <span t-field="doc.employee_id.name" />
+                        </u> with the following Personal Protection Equipment (PPE):
                         </div>
                         <br />
                         <table class="table table-condensed">
