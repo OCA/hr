@@ -3,7 +3,7 @@
 
 from datetime import date
 
-from odoo import _, api, fields, models
+from odoo import api, fields, models
 from odoo.exceptions import ValidationError
 
 from odoo.addons.base.models.ir_cron import _intervalTypes
@@ -71,5 +71,5 @@ class HrPersonalEquipment(models.Model):
                 start_date = record.start_date if record.start_date else date.today()
                 if record.expiry_date < start_date:
                     raise ValidationError(
-                        _("End date cannot occur earlier than start date.")
+                        self.env._("End date cannot occur earlier than start date.")
                     )

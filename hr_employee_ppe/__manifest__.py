@@ -3,7 +3,7 @@
 
 {
     "name": "Personal Protective Equipment (PPE) Management",
-    "version": "17.0.1.0.0",
+    "version": "18.0.1.0.0",
     "author": "Escodoo, Odoo Community Association (OCA)",
     "maintainers": ["marcelsavegnago", "eduaparicio"],
     "images": ["static/description/banner.png"],
