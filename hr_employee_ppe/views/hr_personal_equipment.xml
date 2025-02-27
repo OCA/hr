@@ -6,7 +6,7 @@
         <field name="model">hr.personal.equipment</field>
         <field
             name="inherit_id"
-            ref="hr_personal_equipment_request.hr_personal_equipment_tree_view"
+            ref="hr_personal_equipment_request.hr_personal_equipment_list_view"
         />
         <field name="arch" type="xml">
             <xpath expr="//field[@name='start_date']" position="after">
