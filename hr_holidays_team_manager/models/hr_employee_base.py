@@ -6,7 +6,7 @@ from odoo import api, models
 class HrEmployeeBase(models.AbstractModel):
     _inherit = "hr.employee.base"
 
-    def search(self, args, offset=0, limit=None, order=None, count=False):
+    def search(self, domain, offset=0, limit=None, order=None):
         params = self.env.context.get("params")
         if params:
             model = params.get("model")
@@ -18,17 +18,15 @@ class HrEmployeeBase(models.AbstractModel):
                         "hr_holidays_team_manager.group_hr_holidays_officer"
                     )
                 ):
-                    if args is None:
-                        args = []
+                    if domain is None:
+                        domain = []
                     employee_id = self.env.user.with_context(by_pass=True).employee_ids
                     if employee_id:
-                        args += [
+                        domain += [
                             ("department_id", "=", employee_id[0].department_id.id)
                         ]
 
-        return super().search(
-            args, offset=offset, limit=limit, order=order, count=count
-        )
+        return super().search(domain, offset=offset, limit=limit, order=order)
 
     @api.model
     def name_search(self, name="", args=None, operator="ilike", limit=100):

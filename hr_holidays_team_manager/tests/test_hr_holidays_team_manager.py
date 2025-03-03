@@ -1,4 +1,4 @@
-from odoo import fields
+from odoo import Command, fields
 from odoo.exceptions import ValidationError
 from odoo.tools import relativedelta
 
@@ -15,7 +15,7 @@ class TestHRHolidaysTeamManager(BaseCommon):
                 "name": "Test User 1",
                 "login": "test",
                 "groups_id": [
-                    (4, cls.env.ref("hr_holidays.group_hr_holidays_user").id)
+                    Command.link(cls.env.ref("hr_holidays.group_hr_holidays_user").id)
                 ],
             }
         )
@@ -106,7 +106,7 @@ class TestHRHolidaysTeamManager(BaseCommon):
             }
         )
         with self.assertRaises(ValidationError):
-            self.leaves.with_user(self.user).action_confirm()
+            self.leaves.with_user(self.user).action_validate()
 
         leave_ids = (
             self.env["hr.leave.allocation"]

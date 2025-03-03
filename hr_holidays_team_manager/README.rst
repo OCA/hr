@@ -66,6 +66,9 @@ Contributors
 ------------
 
 - Murtaza Mithaiwala <mmithaiwala@opensourceintegrators.com>
+- `Heliconia Solutions Pvt. Ltd. <https://www.heliconia.io>`__
+
+  - Bhavesh Heliconia
 
 Maintainers
 -----------
