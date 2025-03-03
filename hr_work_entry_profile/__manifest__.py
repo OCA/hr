@@ -9,7 +9,7 @@
     "author": "Mint System GmbH, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/hr",
     "category": "Human Resources",
-    "version": "17.0.1.0.0",
+    "version": "18.0.1.0.0",
     "license": "AGPL-3",
     "depends": ["hr_work_entry"],
     "data": ["views/res_users.xml"],
