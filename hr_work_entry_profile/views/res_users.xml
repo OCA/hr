@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
-
     <record id="res_users_view_form_profile" model="ir.ui.view">
         <field name="name">hr_work_entry_profile.res_users_view_form_profile</field>
         <field name="model">res.users</field>
@@ -16,10 +15,8 @@
                     icon="fa-calendar"
                     name="action_open_work_entries"
                     string="Work Entries"
-                >
-                </button>
+                />
             </div>
         </field>
     </record>
-
 </odoo>
