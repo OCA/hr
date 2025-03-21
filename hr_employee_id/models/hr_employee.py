@@ -58,9 +58,9 @@ class HrEmployee(models.Model):
             _("Unable to generate unique Employee ID in %d steps.") % (steps,)
         )
 
-    @api.model
+    @api.model_create_multi
     def create(self, vals_list):
-        records = super(HrEmployee, self).create(vals_list)
+        records = super().create(vals_list)
 
         for record in records:
             if not record.identification_id:
