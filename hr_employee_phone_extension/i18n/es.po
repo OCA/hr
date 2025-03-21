@@ -58,6 +58,3 @@ msgstr "Nº de extensión telefónica"
 #: model:ir.model.fields,help:hr_employee_phone_extension.field_hr_employee_public__short_number
 msgid "Short phone number."
 msgstr "Nº de extensión telefónica."
-
-#~ msgid "Employee"
-#~ msgstr "Empleado"

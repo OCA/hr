@@ -54,15 +54,3 @@ msgstr "Numero corto"
 #: model:ir.model.fields,help:hr_employee_phone_extension.field_hr_employee_public__short_number
 msgid "Short phone number."
 msgstr "Numero corto."
-
-#~ msgid "Employee"
-#~ msgstr "Empleado"
-
-#~ msgid "Display Name"
-#~ msgstr "Nombre para mostrar"
-
-#~ msgid "ID"
-#~ msgstr "ID"
-
-#~ msgid "Last Modified on"
-#~ msgstr "Última modificación en"

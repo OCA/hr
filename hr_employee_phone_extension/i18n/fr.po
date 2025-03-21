@@ -56,6 +56,3 @@ msgstr "Numéro court"
 #: model:ir.model.fields,help:hr_employee_phone_extension.field_hr_employee_public__short_number
 msgid "Short phone number."
 msgstr "Forme courte du numéro de téléphone."
-
-#~ msgid "Employee"
-#~ msgstr "Employé"
