@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <menuitem
+        name="Organization"
+        id="organization_menu"
+        web_icon="hr_governance,static/description/icon.png"
+    >
+        <menuitem
+            name="Governance Chart"
+            id="chart_menu"
+            sequence="1"
+            action="hr_governance.governance_circle_action"
+        />
+        <menuitem
+            name="Roles"
+            id="organization_role_menu"
+            sequence="2"
+            action="hr_governance.governance_circle_normal_view_action"
+        />
+        <menuitem
+            name="Roles - Members"
+            id="role_member_menu"
+            sequence="3"
+            action="hr_governance.governance_circle_member_action"
+        />
+        <menuitem
+            name="Reorganization"
+            id="reorganization_menu"
+            sequence="4"
+            action="hr_governance.reorganization_action"
+        />
+        <menuitem
+            name="Role type"
+            id="role_type_menu"
+            sequence="5"
+            action="governance_role_type_action"
+            groups="hr_governance.governance_group_manager"
+        />
+    </menuitem>
+</odoo>

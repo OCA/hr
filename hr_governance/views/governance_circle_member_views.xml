@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="governance_circle_member_view_search" model="ir.ui.view">
+        <field name="model">governance.circle.member.rel</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="circle_id" string="Circle/Role name" />
+                <field name="member_id" string="Energized by (employee)" />
+                <field name="focus" />
+            </search>
+        </field>
+    </record>
+    <record id="governance_circle_member_rel_view_tree" model="ir.ui.view">
+        <field name="model">governance.circle.member.rel</field>
+        <field name="arch" type="xml">
+            <tree create="false" edit="false">
+                <field name="circle_id" />
+                <field name="member_id" />
+                <field name="percentage" widget="percentage" />
+                <field name="focus" />
+            </tree>
+        </field>
+    </record>
+    <record id="governance_circle_member_action" model="ir.actions.act_window">
+        <field name="name">Roles - Members</field>
+        <field name="res_model">governance.circle.member.rel</field>
+        <field name="view_mode">tree</field>
+    </record>
+</odoo>
