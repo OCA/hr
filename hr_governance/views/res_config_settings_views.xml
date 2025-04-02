@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.hr.governance</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="70" />
+        <field name="inherit_id" ref="base_setup.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="inside">
+                <app
+                    data-string="Organization"
+                    string="Organization"
+                    name="hr_governance"
+                    groups="hr_governance.governance_group_manager"
+                >
+                    <block title="UI Configuration" name="ui_config_block">
+                        <setting string="Greyscale Mode" id="greyscale_mode_setting">
+                            <field name="governance_check_grayscale" />
+                            <div class="content-group">
+                                <div
+                                    class="text-muted mt16"
+                                >Change Chart's Color Mode</div>
+                            </div>
+                        </setting>
+                    </block>
+                    <block title="Roles" name="role_config_block">
+                        <setting
+                            string="Single Assignee Mode"
+                            id="single_assignee_mode_setting"
+                        >
+                            <field name="governance_single_assignee_mode" />
+                            <div class="content-group">
+                                <div
+                                    class="text-muted mt16"
+                                >Single Member per Role</div>
+                            </div>
+                        </setting>
+                    </block>
+                </app>
+            </xpath>
+        </field>
+    </record>
+</odoo>

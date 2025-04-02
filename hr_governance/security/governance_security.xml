@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="module_category_hr_governance" model="ir.module.category">
+        <field name="name">Organization</field>
+        <field name="sequence">1</field>
+    </record>
+    <record id="governance_group_user" model="res.groups">
+        <field name="name">User</field>
+        <field name="category_id" ref="hr_governance.module_category_hr_governance" />
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]" />
+    </record>
+    <record id="governance_group_manager" model="res.groups">
+        <field name="name">Administrator</field>
+        <field name="category_id" ref="hr_governance.module_category_hr_governance" />
+        <field name="implied_ids" eval="[(4, ref('governance_group_user'))]" />
+        <field
+            name="users"
+            eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"
+        />
+    </record>
+</odoo>

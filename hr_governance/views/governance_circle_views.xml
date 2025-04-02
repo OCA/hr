@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="governance_circle_view_search" model="ir.ui.view">
+        <field name="model">governance.circle</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" />
+                <field
+                    name="member_ids"
+                    string="Employee"
+                    filter_domain="[('member_rel_ids', 'ilike', self)]"
+                />
+                <field name="purpose" />
+                <field name="authority" />
+                <field name="expectation" />
+            </search>
+        </field>
+    </record>
+    <record id="governance_circle_view_search_normal" model="ir.ui.view">
+        <field name="model">governance.circle</field>
+        <field name="inherit_id" ref="hr_governance.governance_circle_view_search" />
+        <field name="arch" type="xml">
+            <xpath expr="//search" position="inside">
+                <searchpanel>
+                    <field
+                        name="parent_id"
+                        string="Hierarchy"
+                        icon="fa-building"
+                        enable_counters="1"
+                    />
+                </searchpanel>
+            </xpath>
+        </field>
+    </record>
+    <record id="governance_circle_view_circle_pack" model="ir.ui.view">
+        <field name="model">governance.circle</field>
+        <field name="arch" type="xml">
+            <circle_pack />
+        </field>
+    </record>
+    <record id="governance_circle_view_tree" model="ir.ui.view">
+        <field name="model">governance.circle</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+    <record id="governance_circle_view_form" model="ir.ui.view">
+        <field name="model">governance.circle</field>
+        <field name="arch" type="xml">
+            <form string="Circle">
+                <sheet>
+                    <span invisible="not is_circle">Circle</span>
+                    <span invisible="is_circle">Role</span>
+                    <h1>
+                        <field name="name" />
+                        <field name="is_addable" invisible="1" />
+                        <field name="is_circle" invisible="1" />
+                    </h1>
+                    <group>
+                        <div colspan="2" invisible="not is_circle">
+                            <label for="member_ids" />
+                            <field
+                                name="member_ids"
+                                widget="clickable_many2many_avatar_user"
+                                readonly="1"
+                            />
+                        </div>
+                    </group>
+                    <br />
+                    <group invisible="is_circle">
+                        <div colspan="2">
+                            <field
+                                name="member_rel_ids"
+                                nolabel="1"
+                                options="{'create': [('is_addable','=',True)]}"
+                            >
+                                <tree editable="bottom">
+                                    <field name="member_id" />
+                                    <field name="percentage" widget="percentage" />
+                                    <field name="focus" />
+                                </tree>
+                            </field>
+                        </div>
+                    </group>
+                    <group>
+                        <field name="is_editable" invisible="1" />
+                        <div colspan="2">
+                            <label for="purpose" />
+                            <field name="purpose" readonly="not is_editable" />
+                        </div>
+                        <div colspan="2">
+                            <label for="expectation" />
+                            <field name="expectation" readonly="not is_editable" />
+                        </div>
+                        <div colspan="2">
+                            <label for="authority" />
+                            <field name="authority" readonly="not is_editable" />
+                        </div>
+                    </group>
+                    <group>
+                        <group>
+                            <field name="is_color_field_invisible" invisible="1" />
+                            <field
+                                name="color"
+                                widget="circlepack_color_picker"
+                                invisible="is_color_field_invisible"
+                                readonly="not is_editable"
+                            />
+                            <field name="child_ids" invisible="1" />
+                        </group>
+                        <group groups="hr_governance.governance_group_manager">
+                            <field name="suitable_type_ids" invisible="1" />
+                            <field name="type_id" invisible="is_circle" />
+                        </group>
+                        <group groups="hr_governance.governance_group_manager">
+                            <field
+                                name="parent_id"
+                                options="{'no_open': True, 'no_create': True}"
+                            />
+                            <field name="shape_type" invisible="is_circle" />
+                        </group>
+                    </group>
+                    <br />
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" />
+                        <field name="activity_ids" />
+                        <field name="message_ids" widget="mail_thread" />
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="governance_circle_action" model="ir.actions.act_window">
+        <field name="name">Governance</field>
+        <field name="res_model">governance.circle</field>
+        <field name="view_mode">circle_pack,form</field>
+    </record>
+    <record id="governance_circle_normal_view_action" model="ir.actions.act_window">
+        <field name="name">Governance</field>
+        <field name="res_model">governance.circle</field>
+        <field
+            name="search_view_id"
+            ref="hr_governance.governance_circle_view_search_normal"
+        />
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

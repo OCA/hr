@@ -1,0 +1,154 @@
+.o_circle_pack_view {
+    img.o_avatar {
+        height: 36px;
+    }
+
+    .o_last_breadcrumb_item span.text-truncate {
+        display: none;
+    }
+    .o_content {
+        overflow: hidden;
+
+        .o_circle_packing_container {
+            display: flex;
+            flex-flow: row nowrap;
+            width: 100%;
+            height: 100%;
+            align-items: stretch;
+
+            .o_circle_packing_svg_container {
+                padding-top: 10px;
+                height: 85vh;
+
+                .matched {
+                    stroke: #000;
+                    stroke-opacity: 1;
+                    stroke-width: 4px;
+                    opacity: 1;
+                }
+
+                .tooltip {
+                    opacity: 1;
+                    max-width: 320px;
+                    white-space: nowrap;
+
+                    font-size: 18px;
+                    font-family: Arial;
+                    font-weight: bold;
+                    text-align: center;
+                }
+
+                polygon {
+                    cursor: pointer;
+                    stroke: #000000;
+                    stroke-opacity: 1;
+                    transition-property: stroke-opacity, opacity;
+                    transition-duration: 0.4s;
+                }
+
+                circle {
+                    cursor: pointer;
+                    opacity: 0.85;
+                    transition-property: stroke-opacity, opacity;
+                    transition-duration: 0.4s;
+                }
+
+                circle:hover.clicked {
+                    stroke: #000;
+                    stroke-opacity: 1;
+                    opacity: 1;
+                    transition-duration: 0.05s;
+                }
+
+                circle:hover {
+                    stroke: #a9aaac;
+                    stroke-opacity: 1;
+                    opacity: 1;
+                    transition-duration: 0.05s;
+                }
+
+                .clicked {
+                    stroke: #000;
+                    stroke-opacity: 1;
+                    opacity: 1;
+                    transition-duration: 0.05s;
+                }
+
+                .text-container div {
+                    color: #374151;
+                    font-size: 22px;
+                    font-family: Arial;
+                    font-weight: bold;
+
+                    word-wrap: anywhere;
+                    text-align: center;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    height: 100%;
+                }
+            }
+
+            .chart-splitter {
+                flex: 0 0 auto;
+
+                position: relative;
+                box-sizing: border-box;
+                width: 3px;
+                height: 100%;
+                border-left-width: 1px;
+                border-left-style: solid;
+                border-left-color: black;
+                border-right-width: 1px;
+                border-right-style: solid;
+                border-right-color: black;
+                cursor: ew-resize;
+
+                -webkit-touch-callout: none;
+                -webkit-user-select: none;
+                -khtml-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+
+                &:before {
+                    content: "";
+                    position: absolute;
+                    z-index: 1;
+                    top: 50%;
+                    right: 100%;
+                    height: 18px;
+                    width: 2px;
+                    margin-top: -18px / 2;
+                    border-left-color: black;
+                    border-left-width: 1px;
+                    border-left-style: solid;
+                }
+
+                &:after {
+                    content: "";
+                    position: absolute;
+                    z-index: 1;
+                    top: 50%;
+                    left: 100%;
+                    height: 18px;
+                    width: 2px;
+                    margin-top: -18px / 2;
+                    border-right-color: black;
+                    border-right-width: 1px;
+                    border-right-style: solid;
+                }
+            }
+
+            .form_wrapper {
+                width: 100%;
+                height: 100%;
+                overflow-x: auto;
+
+                .o_form_sheet_bg {
+                    padding: 0;
+                }
+            }
+        }
+    }
+}

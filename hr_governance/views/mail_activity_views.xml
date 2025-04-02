@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="reorganization_mail_activity_view_search" model="ir.ui.view">
+        <field name="model">mail.activity</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="res_name" string="Circle/Role" />
+                <field name="user_id" />
+                <group expand="0" string="Group By">
+                    <filter
+                        string="Circle/Role"
+                        name="res_name"
+                        context="{'group_by': 'res_name'}"
+                    />
+                    <filter
+                        string="Assigned to"
+                        name="user_id"
+                        context="{'group_by': 'user_id'}"
+                    />
+                </group>
+            </search>
+        </field>
+    </record>
+    <record id="reorganization_view_list" model="ir.ui.view">
+        <field name="model">mail.activity</field>
+        <field name="inherit_id" ref="mail.mail_activity_view_tree" />
+        <field name="arch" type="xml">
+            <field name="res_name" position="attributes">
+                <attribute name="string">Circle/Role</attribute>
+            </field>
+            <field name="date_deadline" position="after">
+                <field name="user_id" />
+            </field>
+        </field>
+    </record>
+    <record id="reorganization_action" model="ir.actions.act_window">
+        <field name="name">Reorganization</field>
+        <field name="res_model">mail.activity</field>
+        <field name="view_mode">tree</field>
+        <field name="domain">[('res_model', '=', "governance.circle")]</field>
+        <field
+            name="context"
+        >{'tree_view_ref': 'hr_governance.reorganization_view_list','search_view_ref':'hr_governance.reorganization_mail_activity_view_search'}</field>
+    </record>
+</odoo>

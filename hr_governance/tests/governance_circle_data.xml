@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo noupdate="1">
+
+    <!-- <record id="root" model="governance.circle" context="{'default_is_circle': True}">
+        <field name="name">Root</field>
+        <field name="is_root">True</field>
+    </record> -->
+
+    <record
+        id="internal_projects"
+        model="governance.circle"
+        context="{'default_is_circle': True}"
+    >
+        <field name="name">Internal Projects</field>
+        <field name="parent_id" eval="ref('hr_governance.root')" />
+    </record>
+    <record
+        id="bs_circle"
+        model="governance.circle"
+        context="{'default_is_circle': True}"
+    >
+        <field name="name">Business Solutions</field>
+        <field name="parent_id" eval="ref('hr_governance.root')" />
+    </record>
+    <record
+        id="gs_circle"
+        model="governance.circle"
+        context="{'default_is_circle': True}"
+    >
+        <field name="name">Geospatial Solutions</field>
+        <field name="parent_id" eval="ref('hr_governance.root')" />
+    </record>
+    <record
+        id="is_circle"
+        model="governance.circle"
+        context="{'default_is_circle': True}"
+    >
+        <field name="name">Infrastructure Solutions</field>
+        <field name="parent_id" eval="ref('hr_governance.root')" />
+    </record>
+    <record
+        id="marketing_circle"
+        model="governance.circle"
+        context="{'default_is_circle': True}"
+    >
+        <field name="name">Marketing &amp; Communication</field>
+        <field name="parent_id" eval="ref('hr_governance.root')" />
+    </record>
+    <record
+        id="people_culture_circle"
+        model="governance.circle"
+        context="{'default_is_circle': True}"
+    >
+        <field name="name">People &amp; Culture</field>
+        <field name="parent_id" eval="ref('hr_governance.root')" />
+    </record>
+    <record
+        id="finance_circle"
+        model="governance.circle"
+        context="{'default_is_circle': True}"
+    >
+        <field name="name">Finance</field>
+        <field name="parent_id" eval="ref('hr_governance.root')" />
+    </record>
+    <record
+        id="security_circle"
+        model="governance.circle"
+        context="{'default_is_circle': True}"
+    >
+        <field name="name">Security</field>
+        <field name="purpose">Make sure the circle runs smoothly</field>
+        <field name="parent_id" eval="ref('hr_governance.root')" />
+    </record>
+    <record
+        id="subscription_gc"
+        model="governance.circle"
+        context="{'default_is_circle': True}"
+    >
+        <field name="name">Subscriptions Solutions</field>
+        <field name="parent_id" eval="ref('hr_governance.root')" />
+    </record>
+
+    <!-- internal -->
+    <record
+        id="way_we_work_gc"
+        model="governance.circle"
+        context="{'default_is_circle': True}"
+    >
+        <field name="name">The Way We Work</field>
+        <field name="parent_id" eval="ref('hr_governance.internal_projects')" />
+    </record>
+    <record id="rse_gc" model="governance.circle" context="{'default_is_circle': True}">
+        <field name="name">RSE</field>
+        <field name="parent_id" eval="ref('hr_governance.internal_projects')" />
+    </record>
+
+    <!-- business solutions -->
+    <record
+        id="grammont_gc"
+        model="governance.circle"
+        context="{'default_is_circle': True}"
+    >
+        <field name="name">Grammont</field>
+        <field name="parent_id" eval="ref('hr_governance.bs_circle')" />
+    </record>
+    <record
+        id="mtblanc_gc"
+        model="governance.circle"
+        context="{'default_is_circle': True}"
+    >
+        <field name="name">Montblanc</field>
+        <field name="parent_id" eval="ref('hr_governance.bs_circle')" />
+    </record>
+    <record
+        id="weissenstein_gc"
+        model="governance.circle"
+        context="{'default_is_circle': True}"
+    >
+        <field name="name">Weissenstein</field>
+        <field name="parent_id" eval="ref('hr_governance.bs_circle')" />
+    </record>
+
+    <!-- gs solutions -->
+
+    <!-- is solutions -->
+
+
+</odoo>
