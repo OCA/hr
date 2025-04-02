@@ -1,0 +1,31 @@
+$o-circlepack-colors: (
+    #ffffff,
+    #d0d1d3,
+    #b3ffc5,
+    #b9f0ff,
+    #c9d9cb,
+    #e0f9ff,
+    #e9ccff,
+    #eaecc1,
+    #f5d9d9,
+    #fcffbe,
+    #ffe1a5
+);
+
+@for $size from 1 through length($o-circlepack-colors) {
+    .o_circlepack_colorlist_item_color_#{$size} {
+        background-color: nth($o-circlepack-colors, $size);
+    }
+}
+
+.o_circlepack_colorlist_item_color_0 {
+    background: linear-gradient(
+        45deg,
+        rgba($dropdown-bg, 0) 0%,
+        rgba($dropdown-bg, 0) 48%,
+        $danger 48%,
+        $danger 52%,
+        rgba($dropdown-bg, 0) 52%,
+        rgba($dropdown-bg, 0) 100%
+    );
+}

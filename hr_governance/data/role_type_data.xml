@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo noupdate="1">
+
+    <record id="memory_gct" model="governance.role.type">
+        <field name="name">Memory</field>
+        <field name="type">structure</field>
+        <field
+            name="purpose"
+        >To ensure that registers are properly kept, providing everyone with access to the information required by each role to manage its activities, in particular by transferring all decisions and information shared at meetings to the information system.</field>
+    </record>
+
+    <record id="facilitation_gct" model="governance.role.type">
+        <field name="name">Facilitation</field>
+        <field name="type">structure</field>
+        <field
+            name="purpose"
+        >To ensure that meetings are run efficiently and humanely, so as to obtain clear results within the allotted time, in response to the issues raised by circle members: validating projects, modifying structural or regulatory elements, making collective decisions, sharing relevant information, defining objectives and priorities.</field>
+    </record>
+
+    <record id="steering_gct" model="governance.role.type">
+        <field name="name">Steering</field>
+        <field name="type">structure</field>
+        <field name="is_steering_role">True</field>
+        <field
+            name="purpose"
+        >To ensure that the circle's activity meets its raison d'être, its expectations and the objectives set by the encompassing circle, and remains consistent with the company's raison d'être and values.
+
+To take care of its members, ensuring that each one plays a role in line with his or her skills and motivation.</field>
+    </record>
+
+
+</odoo>

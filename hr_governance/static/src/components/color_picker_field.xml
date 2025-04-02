@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+
+    <t t-name="hr_governance.CirclePackColorPickerField">
+        <CirclePackingColorList
+            canToggle="!props.readonly"
+            colors="constructor.RECORD_COLORS"
+            forceExpanded="false"
+            onColorSelected.bind="switchColor"
+            selectedColor="props.record.data[props.name] || 0"
+        />
+    </t>
+
+</templates>
