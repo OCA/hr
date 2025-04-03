@@ -7,7 +7,7 @@ from odoo.exceptions import ValidationError
 class HrCourseSchedule(models.Model):
     _name = "hr.course.schedule"
     _description = "Course Schedule"
-    _inherit = "mail.thread"
+    _inherit = ["mail.thread", "mail.activity.mixin"]
 
     name = fields.Char(required=True, tracking=True)
     course_id = fields.Many2one("hr.course", string="Course", required=True)

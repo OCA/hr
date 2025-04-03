@@ -144,6 +144,7 @@
                         widget="mail_followers"
                         groups="base.group_user"
                     />
+                    <field name="activity_ids" widget="mail_activity" />
                     <field name="message_ids" widget="mail_thread" />
                 </div>
             </form>
