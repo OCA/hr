@@ -24,8 +24,8 @@ class HrEmployeeRelative(models.Model):
     )
     date_of_birth = fields.Date()
     age_year = fields.Integer(string="Age (Years)", compute="_compute_age")
-    age_month = fields.Integer(string="Age (Months)")
-    age_day = fields.Integer(string="Age (Days)")
+    age_month = fields.Integer(string="Age (Months)", compute="_compute_age")
+    age_day = fields.Integer(string="Age (Days)", compute="_compute_age")
 
     job = fields.Char()
     phone_number = fields.Char()
