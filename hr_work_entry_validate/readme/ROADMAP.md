@@ -1,0 +1,1 @@
+- Add an action on calendar view to validate displayed work entries.
