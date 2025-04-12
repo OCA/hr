@@ -1,0 +1,1 @@
+- In case resource calendar is using half-day attendances you get 2 work entries per day, when timesheets are per day, so we do not know on which work entry the timesheets should be attributed. So far they are divided by number of work entries for the day.
