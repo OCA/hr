@@ -8,10 +8,12 @@ class HrWorkEntry(models.Model):
     _inherit = "hr.work.entry"
 
     timesheet_duration = fields.Float(compute="_compute_timesheet_duration", store=True)
-    timesheet_conflict = fields.Boolean(
-        compute="_compute_timesheet_conflict", store=True, readonly=False
+    is_hatched = fields.Boolean(
+        compute="_compute_timesheet_conflict",
+        string="Timesheet Conflict",
+        store=True,
+        readonly=False,
     )
-    is_hatched = fields.Boolean(related="timesheet_conflict")
 
     @api.depends("date_start", "employee_id")
     def _compute_timesheet_duration(self):
@@ -40,7 +42,7 @@ class HrWorkEntry(models.Model):
     @api.depends("duration", "timesheet_duration")
     def _compute_timesheet_conflict(self):
         for entry in self:
-            entry.timesheet_conflict = entry.duration > 0.0 and (
+            entry.is_hatched = entry.duration > 0.0 and (
                 entry.timesheet_duration == 0.0
                 or entry.timesheet_duration > entry.duration * 2
             )
