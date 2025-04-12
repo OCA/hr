@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+     <record id="work_entry_type_leave" model="hr.work.entry.type">
+        <field name="name">Not working day</field>
+        <field name="code">NOTWORK</field>
+        <field name="color">3</field>
+        <field name="is_leave">False</field>
+    </record>
+</odoo>
