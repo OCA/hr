@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="hr_work_entry_view_calendar" model="ir.ui.view">
+        <field name="name">hr.work.entry.calendar</field>
+        <field name="model">hr.work.entry</field>
+        <field name="arch" type="xml">
+            <calendar
+                string="Work Entry"
+                date_start="date_start"
+                date_stop="date_stop"
+                mode="month"
+                quick_create="0"
+                color="color"
+                event_limit="5"
+                js_class="work_entries_calendar"
+            >
+                <field name="state" />
+            </calendar>
+        </field>
+    </record>
+
+    <record id="hr_work_entry_view_form" model="ir.ui.view">
+        <field name="name">hr.work.entry.form</field>
+        <field name="model">hr.work.entry</field>
+        <field name="arch" type="xml">
+            <form string="Work Entry">
+                <header>
+                    <field
+                        name="state"
+                        widget="statusbar"
+                        readonly="1"
+                        statusbar_visible="draft,validated,conflict"
+                    />
+                </header>
+                <div
+                    class="alert alert-warning text-center"
+                    role="alert"
+                    invisible="state != 'validated'"
+                >
+                    Note: Validated work entries cannot be modified.
+                </div>
+                <div invisible="state != 'conflict'">
+                    <div
+                        class="alert alert-warning"
+                        role="alert"
+                        invisible="work_entry_type_id"
+                        name="work_entry_undefined"
+                    >
+                        This work entry cannot be validated. The work entry type is undefined.
+                    </div>
+                </div>
+                <sheet>
+                    <group>
+                        <group>
+                            <field
+                                name="name"
+                                string="Description"
+                                placeholder="Work Entry Name"
+                                readonly="state == 'validated'"
+                            />
+                            <field
+                                name="work_entry_type_id"
+                                readonly="state == 'validated'"
+                                options="{'no_create': True, 'no_open': True}"
+                            />
+                        </group>
+                        <group>
+                            <field name="date_start" readonly="state != 'draft'" />
+                            <field
+                                name="date_stop"
+                                required="1"
+                                readonly="state != 'draft'"
+                            />
+                            <label for="duration" />
+                            <div class="o_row mw-50 mw-sm-25">
+                                <field
+                                    name="duration"
+                                    nolabel="1"
+                                    widget="float_time"
+                                    class="o_hr_narrow_field"
+                                    readonly="state != 'draft'"
+                                />
+                                <span>Hours</span>
+                            </div>
+                            <field name="company_id" invisible="1" />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="hr_work_entry_view_tree" model="ir.ui.view">
+        <field name="name">hr.work.entry.list</field>
+        <field name="model">hr.work.entry</field>
+        <field name="arch" type="xml">
+            <list multi_edit="1" sample="1">
+                <field name="name" />
+                <field
+                    name="work_entry_type_id"
+                    options="{'no_create': True, 'no_open': True}"
+                />
+                <field name="code" optional="hidden" />
+                <field name="external_code" optional="hidden" />
+                <field name="duration" widget="float_time" readonly="1" />
+                <field name="state" />
+                <field name="date_start" string="Beginning" readonly="1" />
+                <field name="date_stop" string="End" readonly="1" />
+            </list>
+        </field>
+    </record>
+
+    <record id="hr_work_entry_view_pivot" model="ir.ui.view">
+        <field name="name">hr.work.entry.pivot</field>
+        <field name="model">hr.work.entry</field>
+        <field name="arch" type="xml">
+            <pivot string="Work Entries" sample="1">
+                <field name="duration" widget="float_time" type="measure" />
+                <field name="work_entry_type_id" type="col" />
+            </pivot>
+        </field>
+    </record>
+
+    <record id="hr_work_entry_view_search" model="ir.ui.view">
+        <field name="name">hr.work.entry.filter</field>
+        <field name="model">hr.work.entry</field>
+        <field name="arch" type="xml">
+            <search string="Search Work Entry">
+                <field name="work_entry_type_id" />
+                <field name="name" />
+                <filter
+                    name="work_entries_error"
+                    string="Conflicting"
+                    domain="[('state', '=', 'conflict')]"
+                />
+                <separator />
+                <filter name="date_filter" string="Date" date="date_start" />
+                <filter
+                    name="current_month"
+                    string="Current Month"
+                    domain="[
+                    ('date_stop', '&gt;=', (context_today()).strftime('%Y-%m-01')),
+                    ('date_start', '&lt;', (context_today() + relativedelta(months=1)).strftime('%Y-%m-01'))]"
+                />
+                <separator />
+                <filter
+                    name="group_work_entry_type"
+                    string="Type"
+                    context="{'group_by': 'work_entry_type_id'}"
+                />
+                <filter
+                    name="group_start_date"
+                    string="Start Date"
+                    context="{'group_by': 'date_start'}"
+                />
+                <separator />
+                <filter
+                    name="archived"
+                    string="Archived"
+                    domain="[('active', '=', False)]"
+                />
+            </search>
+        </field>
+    </record>
+
+    <record id="hr_work_entry_action" model="ir.actions.act_window">
+        <field name="name">Work Entry</field>
+        <field name="res_model">hr.work.entry</field>
+        <field name="view_mode">calendar,list,form,pivot</field>
+        <field name="domain">[('employee_id.user_id', '=', uid)]</field>
+        <field name="context">{}</field>
+        <field name="search_view_id" ref="hr_work_entry_view_search" />
+    </record>
+
+    <record id="hr_work_entry_action_calendar_view" model="ir.actions.act_window.view">
+        <field name="sequence" eval="1" />
+        <field name="view_mode">calendar</field>
+        <field name="view_id" ref="hr_work_entry_view_calendar" />
+        <field name="act_window_id" ref="hr_work_entry_action" />
+    </record>
+    <record id="hr_work_entry_action_tree_view" model="ir.actions.act_window.view">
+        <field name="sequence" eval="2" />
+        <field name="view_mode">list</field>
+        <field name="view_id" ref="hr_work_entry_view_tree" />
+        <field name="act_window_id" ref="hr_work_entry_action" />
+    </record>
+    <record id="hr_work_entry_action_pivot_view" model="ir.actions.act_window.view">
+        <field name="sequence" eval="4" />
+        <field name="view_mode">pivot</field>
+        <field name="view_id" ref="hr_work_entry_view_pivot" />
+        <field name="act_window_id" ref="hr_work_entry_action" />
+    </record>
+    <record id="hr_work_entry_action_form_view" model="ir.actions.act_window.view">
+        <field name="sequence" eval="4" />
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="hr_work_entry_view_form" />
+        <field name="act_window_id" ref="hr_work_entry_action" />
+    </record>
+    <menuitem
+        id="menu_my_work_entry"
+        name="My Work Entries"
+        action="hr_work_entry_action"
+        sequence="20"
+        parent="hr.menu_hr_root"
+    />
+</odoo>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+    <t
+        t-name="hr_work_entry_validate.calendar.controlButtons"
+        t-inherit="hr_work_entry_contract.calendar.controlButtons"
+        t-inherit-mode="extension"
+    >
+        <xpath expr="//button" position="attributes">
+            <attribute name="t-if">isHrUser</attribute>
+            <attribute name="class" add="me-2" remove="ms-3" separator=" " />
+        </xpath>
+        <xpath expr="//button" position="after">
+            <button
+                t-if="displayValidateButton"
+                class="btn btn-secondary"
+                t-on-click="validate"
+                title="Validate period work entries"
+                t-att-disabled="!anyDraft"
+            >Validate period</button>
+        </xpath>
+    </t>
+</templates>
