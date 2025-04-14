@@ -25,17 +25,17 @@ class AccountAnalyticLine(models.Model):
         res = super().create(vals_list)
         work_entries = res._get_work_entry()
         if work_entries:
-            work_entries._compute_timesheet_count()
+            work_entries._compute_timesheet_duration()
         return res
 
     def write(self, vals):
         res = super().write(vals)
         if "unit_amount" in vals or "employee_id" in vals or "date" in vals:
-            self._get_work_entry()._compute_timesheet_count()
+            self._get_work_entry()._compute_timesheet_duration()
         return res
 
     def unlink(self):
         work_entries = self._get_work_entry()
         res = super().unlink()
-        work_entries._compute_timesheet_count()
+        work_entries._compute_timesheet_duration()
         return res
