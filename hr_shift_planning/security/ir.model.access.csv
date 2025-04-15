@@ -1,0 +1,16 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_shift_slot_user,shift.slot.user,model_hr_shift_plan_slot,group_hr_shift_user,1,0,0,0
+access_shift_slot_manager,shift.slot.manager,model_hr_shift_plan_slot,group_hr_shift_manager,1,1,1,0
+access_shift_slot_admin,shift.slot.admin,model_hr_shift_plan_slot,group_hr_shift_admin,1,1,1,1
+
+access_shift_template_user,shift.template.user,model_hr_shift_plan_template,group_hr_shift_user,1,0,0,0
+access_shift_template_manager,shift.template.manager,model_hr_shift_plan_template,group_hr_shift_manager,1,1,1,0
+access_shift_template_admin,shift.template.admin,model_hr_shift_plan_template,group_hr_shift_admin,1,1,1,1
+
+access_shift_position_user,shift.position.user,model_hr_shift_position,group_hr_shift_user,1,0,0,0
+access_shift_position_manager,shift.position.manager,model_hr_shift_position,group_hr_shift_manager,1,1,1,0
+access_shift_position_admin,shift.position.admin,model_hr_shift_position,group_hr_shift_admin,1,1,1,1
+
+access_shift_timeperiod_user,shift.timeperiod.user,model_hr_shift_timeperiod,group_hr_shift_user,1,0,0,0
+access_shift_timeperiod_manager,shift.timeperiod.manager,model_hr_shift_timeperiod,group_hr_shift_manager,1,1,1,0
+access_shift_timeperiod_admin,shift.timeperiod.admin,model_hr_shift_timeperiod,group_hr_shift_admin,1,1,1,1
