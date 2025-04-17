@@ -5,7 +5,6 @@ from odoo import api, fields, models
 
 
 class StockMove(models.Model):
-
     _inherit = "stock.move"
     personal_equipment_id = fields.Many2one(
         "hr.personal.equipment", "Employee Personal Equipment"

@@ -5,7 +5,6 @@ from odoo import fields, models
 
 
 class StockLocation(models.Model):
-
     _inherit = "stock.location"
 
     is_personal_equipment_location = fields.Boolean(
