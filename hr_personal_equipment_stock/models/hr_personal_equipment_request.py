@@ -5,7 +5,6 @@ from odoo import api, fields, models
 
 
 class HrPersonalEquipmentRequest(models.Model):
-
     _inherit = "hr.personal.equipment.request"
 
     location_id = fields.Many2one(

@@ -8,7 +8,7 @@
     "version": "16.0.1.0.0",
     "license": "AGPL-3",
     "author": "Creu Blanca,Odoo Community Association (OCA)",
-    "website": "https://github.com/OCA/hr",
+    "website": "https://github.com/OCA/maintenance",
     "depends": ["hr_personal_equipment_request", "stock"],
     "data": [
         "views/stock_location.xml",

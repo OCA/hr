@@ -6,7 +6,6 @@ from odoo.exceptions import UserError
 
 
 class HrPersonalEquipment(models.Model):
-
     _inherit = "hr.personal.equipment"
 
     location_id = fields.Many2one(related="equipment_request_id.location_id")
@@ -57,7 +56,6 @@ class HrPersonalEquipment(models.Model):
         return self.product_id.type not in ("consu", "product")
 
     def _prepare_procurement_values(self, group_id=False):
-
         """Prepare specific key for moves or other components that
         will be created from a procurement rule
         coming from a stock request. This method could be override
