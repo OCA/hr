@@ -16,13 +16,6 @@ class StockMove(models.Model):
         distinct_fields.append("personal_equipment_id")
         return distinct_fields
 
-    @api.model
-    def _prepare_merge_move_sort_method(self, move):
-        move.ensure_one()
-        keys_sorted = super()._prepare_merge_move_sort_method(move)
-        keys_sorted.append(move.personal_equipment_id.id)
-        return keys_sorted
-
     def _action_cancel(self):
         res = super()._action_cancel()
         for rec in self.sudo():

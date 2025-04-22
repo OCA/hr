@@ -13,17 +13,14 @@
         />
         <field name="arch" type="xml">
             <xpath expr="//field[@name='employee_id']" position="after">
-                <field
-                    name="location_id"
-                    attrs="{'readonly': [('state', '!=', 'draft')]}"
-                />
+                <field name="location_id" readonly="state != 'draft'" />
                 <field
                     name="procurement_group_id"
                     invisible="1"
-                    attrs="{'readonly': [('state', '!=', 'draft')]}"
+                    readonly="state != 'draft'"
                 />
             </xpath>
-            <xpath expr="//tree/field[@name='state']" position="before">
+            <xpath expr="//list/field[@name='state']" position="before">
                 <field name="qty_delivered" />
                 <field name="location_id" invisible="1" />
                 <field name="procurement_group_id" invisible="1" />
@@ -46,7 +43,7 @@
                     name="action_view_pickings"
                     class="oe_stat_button"
                     icon="fa-truck"
-                    attrs="{'invisible': [('picking_count','&lt;','1')]}"
+                    invisible="picking_count &lt;1"
                     groups="stock.group_stock_user"
                 >
                     <field name="picking_count" widget="statinfo" string="Pickings" />
@@ -61,7 +58,7 @@
         <field name="model">hr.personal.equipment.request</field>
         <field
             name="inherit_id"
-            ref="hr_personal_equipment_request.hr_personal_equipment_request_tree_view"
+            ref="hr_personal_equipment_request.hr_personal_equipment_request_list_view"
         />
         <field name="arch" type="xml">
             <xpath expr="//field[@name='employee_id']" position="after">

@@ -74,7 +74,7 @@ class TestHRPersonalEquipment(TransactionCase):
                 "is_personal_equipment": True,
                 "route_ids": [(6, 0, cls.route.ids)],
                 "qty_available": 100,
-                "type": "product",
+                "type": "consu",
                 "uom_id": cls.env.ref("uom.product_uom_unit").id,
             }
         )
@@ -166,7 +166,8 @@ class TestHRPersonalEquipment(TransactionCase):
         self.personal_equipment_request.accept_request()
         allocation = self.personal_equipment_request.line_ids[0]
         move = allocation.move_ids[0]
-        move.quantity_done = allocation.quantity
+        move.quantity = allocation.quantity
+        move.picked = True
         picking = self.personal_equipment_request.picking_ids[0]
         picking._action_done()
         self.assertEqual(allocation.qty_delivered, allocation.quantity)
@@ -200,7 +201,8 @@ class TestHRPersonalEquipment(TransactionCase):
         self.personal_equipment_request.accept_request()
         self.assertEqual(allocation.state, "accepted")
         move = allocation.move_ids[0]
-        move.quantity_done = allocation.quantity - 1
+        move.quantity = allocation.quantity - 1
+        move.picked = True
         picking = self.personal_equipment_request.picking_ids[0]
         picking._action_done()
         back_order = self.personal_equipment_request.picking_ids[1]
