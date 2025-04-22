@@ -13,20 +13,17 @@ class StockPicking(models.Model):
 
     def _action_done(self):
         res = super()._action_done()
-        if self.equipment_request_id:
-            for move in self.move_ids_without_package:
-                if move.state == "done":
-                    request_lines = self.equipment_request_id.sudo().line_ids.filtered(
-                        lambda x: x.product_id == move.product_id
-                    )
-                    for line in request_lines:
-                        qty_initial = line.product_uom_id._compute_quantity(
-                            line.quantity, line.product_uom_id
+        for picking in self:
+            if picking.equipment_request_id:
+                for move in picking.move_ids_without_package:
+                    if move.state == "done":
+                        request_lines = (
+                            picking.equipment_request_id.sudo().line_ids.filtered(
+                                lambda x, move=move: x.product_id == move.product_id
+                            )
                         )
-                        qty_done = line.product_uom_id._compute_quantity(
-                            line.qty_delivered, line.product_uom_id
-                        )
-                        if qty_done:
-                            if qty_initial <= qty_done:
-                                line.validate_allocation()
+                        for line in request_lines:
+                            if line.qty_delivered:
+                                if line.quantity <= line.qty_delivered:
+                                    line.validate_allocation()
         return res

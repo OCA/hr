@@ -5,10 +5,10 @@
     "name": "Hr Personal Equipment Stock",
     "summary": """
         This addon allows to integrate hr_personal_equipment_request with stock""",
-    "version": "16.0.1.0.0",
+    "version": "18.0.1.0.0",
     "license": "AGPL-3",
     "author": "Creu Blanca,Odoo Community Association (OCA)",
-    "website": "https://github.com/OCA/maintenance",
+    "website": "https://github.com/OCA/hr",
     "depends": ["hr_personal_equipment_request", "stock"],
     "data": [
         "views/stock_location.xml",
@@ -19,4 +19,6 @@
         "views/stock_picking.xml",
     ],
     "auto_install": True,
+    "installable": True,
+    "application": False,
 }

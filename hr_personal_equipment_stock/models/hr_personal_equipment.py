@@ -45,7 +45,8 @@ class HrPersonalEquipment(models.Model):
         for line in self:
             qty = 0.0
             for move in line.move_ids.filtered(
-                lambda r: r.state == "done" and line.product_id == r.product_id
+                lambda r, line=line: r.state == "done"
+                and line.product_id == r.product_id
             ):
                 qty += move.product_uom._compute_quantity(
                     move.product_uom_qty, line.product_uom_id
@@ -53,7 +54,7 @@ class HrPersonalEquipment(models.Model):
             line.qty_delivered = qty
 
     def _skip_procurement(self):
-        return self.product_id.type not in ("consu", "product")
+        return self.product_id.type == "service"
 
     def _prepare_procurement_values(self, group_id=False):
         """Prepare specific key for moves or other components that
