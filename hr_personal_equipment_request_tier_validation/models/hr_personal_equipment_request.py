@@ -9,7 +9,7 @@ class HrPersonalEquipmentRequest(models.Model):
     _name = "hr.personal.equipment.request"
     _inherit = ["hr.personal.equipment.request", "tier.validation"]
     _tier_validation_manual_config = False
-    _tier_validation_buttons_xpath = "/form/header/button[last()-1]"
+    _tier_validation_buttons_xpath = "/form/header/button[@name='cancel_request']"
 
     _state_to = ["accepted"]
     _cancel_state = "cancelled"
