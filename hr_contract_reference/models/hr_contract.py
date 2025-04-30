@@ -15,4 +15,4 @@ class HrContract(models.Model):
     def create(self, vals):
         if vals.get("name", "/") == "/":
             vals["name"] = self.env["ir.sequence"].next_by_code("contract.ref")
-        return super(HrContract, self).create(vals)
+        return super().create(vals)
