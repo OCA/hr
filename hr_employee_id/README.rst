@@ -17,28 +17,28 @@ Employee ID
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fhr-lightgray.png?logo=github
-    :target: https://github.com/OCA/hr/tree/16.0/hr_employee_id
+    :target: https://github.com/OCA/hr/tree/18.0/hr_employee_id
     :alt: OCA/hr
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/hr-16-0/hr-16-0-hr_employee_id
+    :target: https://translation.odoo-community.org/projects/hr-18-0/hr-18-0-hr_employee_id
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runboat-Try%20me-875A7B.png
-    :target: https://runboat.odoo-community.org/builds?repo=OCA/hr&target_branch=16.0
+    :target: https://runboat.odoo-community.org/builds?repo=OCA/hr&target_branch=18.0
     :alt: Try me on Runboat
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
 Company wide unique employee ID. Supports:
 
-* Random ID Generation
-* Sequence
+- Random ID Generation
+- Sequence
 
 This module supports sequence of employee ID which will be generated
 automatically from the sequence predefined.
 
-Nevertheless, if you need a difference ID in particular cases
-you can pass a custom value for `identification_id`: if you do it
-no automatic generation happens.
+Nevertheless, if you need a difference ID in particular cases you can
+pass a custom value for \`identificationid\`: if you do it no automatic
+generation happens.
 
 **Table of contents**
 
@@ -50,23 +50,23 @@ Installation
 
 To install this module, you need to:
 
-* clone the branch 11.0 of the repository https://github.com/OCA/hr
-* add the path to this repository in your configuration (addons-path)
-* update the module list
-* search for "Employee Identification Numbers" in your addons
-* install the module
+- clone the branch 11.0 of the repository https://github.com/OCA/hr
+- add the path to this repository in your configuration (addons-path)
+- update the module list
+- search for "Employee Identification Numbers" in your addons
+- install the module
 
 Configuration
 =============
 
-If you want to modify the format of the sequence, go to
-Settings -> Technical -> Sequences & Identifiers -> Sequences
-and search for the "Employee ID" sequence, where you modify
-its prefix and numbering formats.
+If you want to modify the format of the sequence, go to Settings ->
+Technical -> Sequences & Identifiers -> Sequences and search for the
+"Employee ID" sequence, where you modify its prefix and numbering
+formats.
 
-To configure the 'ID Generation Method', the '# of Digits' and
-the 'Sequence', activate the developer mode and go to
-Employees -> Configuration -> Employee ID.
+To configure the 'ID Generation Method', the '# of Digits' and the
+'Sequence', activate the developer mode and go to Employees ->
+Configuration -> Employee ID.
 
 Usage
 =====
@@ -77,7 +77,8 @@ assigned automatically with the next number of the predefined sequence.
 Known issues / Roadmap
 ======================
 
-* When installing the module, the ID of existing employees is not generated automatically
+- When installing the module, the ID of existing employees is not
+  generated automatically
 
 Bug Tracker
 ===========
@@ -85,7 +86,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/hr/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/hr/issues/new?body=module:%20hr_employee_id%0Aversion:%2016.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/hr/issues/new?body=module:%20hr_employee_id%0Aversion:%2018.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -93,7 +94,7 @@ Credits
 =======
 
 Authors
-~~~~~~~
+-------
 
 * CorporateHub
 * Michael Telahun Makonnen
@@ -101,20 +102,20 @@ Authors
 * Camptocamp
 
 Contributors
-~~~~~~~~~~~~
+------------
 
-* Michael Telahun Makonnen <mmakonnen@gmail.com>
-* Adrien Peiffer (ACSONE) <adrien.peiffer@acsone.eu>
-* Salton Massally (iDT Labs) <smassally@idtlabs.sl>
-* Andhitia Rama (OpenSynergy Indonesia) <andhitia.r@gmail.com>
-* Simone Orsi <simone.orsi@camptocamp.com>
-* Serpent Consulting Services Pvt. Ltd. <support@serpentcs.com>
-* `CorporateHub <https://corporatehub.eu/>`__
+- Michael Telahun Makonnen <mmakonnen@gmail.com>
+- Adrien Peiffer (ACSONE) <adrien.peiffer@acsone.eu>
+- Salton Massally (iDT Labs) <smassally@idtlabs.sl>
+- Andhitia Rama (OpenSynergy Indonesia) <andhitia.r@gmail.com>
+- Simone Orsi <simone.orsi@camptocamp.com>
+- Serpent Consulting Services Pvt. Ltd. <support@serpentcs.com>
+- `CorporateHub <https://corporatehub.eu/>`__
 
-  * Alexey Pelykh <alexey.pelykh@corphub.eu>
+  - Alexey Pelykh <alexey.pelykh@corphub.eu>
 
 Maintainers
-~~~~~~~~~~~
+-----------
 
 This module is maintained by the OCA.
 
@@ -126,6 +127,6 @@ OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
 
-This module is part of the `OCA/hr <https://github.com/OCA/hr/tree/16.0/hr_employee_id>`_ project on GitHub.
+This module is part of the `OCA/hr <https://github.com/OCA/hr/tree/18.0/hr_employee_id>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
