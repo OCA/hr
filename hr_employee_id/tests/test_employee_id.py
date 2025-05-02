@@ -44,9 +44,21 @@ class TestEmployeeID(common.TransactionCase):
     def test_no_sequences_id_generation(self):
         # test ID generation for a provided sequence
         self.company.write({"employee_id_gen_method": "sequence"})
-        employee = self.employee_model.create({"name": "Employee"})
+        with self.assertLogs(
+            "odoo.addons.hr_employee_id.models.hr_employee", level="WARNING"
+        ) as capture:
+            employee = self.employee_model.create({"name": "Employee"})
 
         self.assertEqual(employee.identification_id, False)
+        self.assertEqual(
+            capture.output,
+            [
+                (
+                    "WARNING:odoo.addons.hr_employee_id.models.hr_employee:No sequence "
+                    "configured for employee ID generation"
+                ),
+            ],
+        )
 
     def test_custom_id(self):
         # if we pass the ID no generation occurs.
