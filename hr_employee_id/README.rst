@@ -66,7 +66,7 @@ formats.
 
 To configure the 'ID Generation Method', the '# of Digits' and the
 'Sequence', activate the developer mode and go to Employees ->
-Configuration -> Employee ID.
+Configuration -> Settings -> Employee Identifier
 
 Usage
 =====
