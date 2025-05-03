@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2024-05-30 13:35+0000\n"
+"PO-Revision-Date: 2025-05-03 12:24+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 5.10.4\n"
 
 #. module: hr_employee_service
 #: model_terms:ir.ui.view,arch_db:hr_employee_service.view_employee_form_inherit_extension
@@ -91,7 +91,7 @@ msgid ""
 "used for accrual leave allocations calculation"
 msgstr ""
 "La data inizio è il primo giorno in cui il dipendente ha effettivamente "
-"lavorato e questa data è utilizzata per il calcolo preciso delle ferie"
+"lavorato e questa data è utilizzata per il calcolo preciso delle assenze"
 
 #. module: hr_employee_service
 #: model:ir.model.fields,field_description:hr_employee_service.field_hr_employee__service_termination_date
