@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* passport_expiration
+# 	* hr_employee_expiration_date
 #
 msgid ""
 msgstr ""
@@ -16,18 +16,18 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
-#. module: passport_expiration
-#: model:ir.model,name:passport_expiration.model_hr_employee
+#. module: hr_employee_expiration_date
+#: model:ir.model,name:hr_employee_expiration_date.model_hr_employee
 msgid "Employee"
 msgstr "Employé"
 
-#. module: passport_expiration
-#: model:ir.model.fields,field_description:passport_expiration.field_hr_employee__passport_expiration_date
+#. module: hr_employee_expiration_date
+#: model:ir.model.fields,field_description:hr_employee_expiration_date.field_hr_employee__hr_employee_expiration_date_date
 msgid "Expiration Date"
 msgstr "Date d'expiration"
 
-#. module: passport_expiration
-#: model:ir.model.fields,help:passport_expiration.field_hr_employee__passport_expiration_date
+#. module: hr_employee_expiration_date
+#: model:ir.model.fields,help:hr_employee_expiration_date.field_hr_employee__hr_employee_expiration_date_date
 msgid "Expiration date of the passport."
 msgstr "Date d'expiration du passeport."
 
