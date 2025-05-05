@@ -39,12 +39,12 @@
                 <notebook>
                     <page string="Employees">
                         <field name="employee_ids">
-                            <tree delete="1" editable="0">
+                            <list delete="1" edit="0" model="hr.employee">
                                 <field name="name" readonly="1" />
                                 <field name="department_id" readonly="1" />
                                 <field name="job_id" readonly="1" />
                                 <field name="parent_id" readonly="1" />
-                            </tree>
+                            </list>
                         </field>
                     </page>
                 </notebook>

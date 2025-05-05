@@ -5,7 +5,7 @@
     <record id="act_medical_examination_employee" model="ir.actions.act_window">
         <field name="name">Medical Examinations</field>
         <field name="res_model">hr.employee.medical.examination</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
         <field name="context">{
                 'search_default_employee_id': [active_id],
                 'default_employee_id': active_id,
@@ -23,7 +23,7 @@
                     class="oe_stat_button"
                     icon="fa-medkit"
                     type="action"
-                    attrs="{'invisible': [('can_see_examinations_button', '=', False)]}"
+                    invisible="not can_see_examinations_button"
                 >
                     <field
                         name="medical_examination_count"
