@@ -7,7 +7,6 @@ from odoo import _, fields, models
 
 
 class WizardGenerateMedicalExamination(models.TransientModel):
-
     _name = "wizard.generate.medical.examination"
     _description = "Generation wizard for medical examinations"
 
