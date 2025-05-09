@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="hr_contract_renew_view_form" model="ir.ui.view">
+        <field name="model">hr.contract.renew.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Renew Contract">
+                <header />
+                <sheet>
+                    <group>
+                        <field name="date_end" />
+                    </group>
+                </sheet>
+                <footer>
+                    <button
+                        name="action_renew_contract"
+                        string="Renew"
+                        class="btn-primary"
+                        type="object"
+                    />
+                    <button string="Cancel" class="btn-default" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="action_open_renew_contract_wizard" model="ir.actions.act_window">
+        <field name="name">Renew Contract</field>
+        <field name="res_model">hr.contract.renew.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="hr_contract_renew_view_form" />
+        <field name="target">new</field>
+        <field name="context"> {"default_contract_id": active_id}</field>
+    </record>
+</odoo>
