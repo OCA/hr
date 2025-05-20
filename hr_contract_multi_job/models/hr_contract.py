@@ -1,7 +1,7 @@
 # Copyright 2014 Savoir-faire Linux. All Rights Reserved.
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import _, api, fields, models
+from odoo import api, fields, models
 from odoo.exceptions import UserError
 
 
@@ -39,7 +39,7 @@ class HrContract(models.Model):
             main_jobs = contract.contract_job_ids.filtered("is_main_job")
             if len(main_jobs) != 1:
                 raise UserError(
-                    _(
+                    self.env._(
                         "You must assign one and only one job position "
                         "as main job position."
                     )

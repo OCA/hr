@@ -76,6 +76,7 @@ Contributors
 -  Fekete Mihai <feketemihai@gmail.com>
 -  Serpent Consulting Services Pvt. Ltd. <support@serpentcs.com>
 -  Pimolnat Suntian <pimolnats@ecosoft.co.th>
+-  Do Anh Duy <duyda@trobz.com>
 
 Maintainers
 -----------

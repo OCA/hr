@@ -1,70 +1,72 @@
 # Copyright 2014 Savoir-faire Linux. All Rights Reserved.
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
+from odoo import Command
 from odoo.exceptions import UserError
 from odoo.tests.common import TransactionCase
 
 
 class TestContractMultiJob(TransactionCase):
-    def setUp(self):
-        super().setUp()
-        self.employee_model = self.env["hr.employee"]
-        self.user_model = self.env["res.users"]
-        self.contract_model = self.env["hr.contract"]
-        self.job_model = self.env["hr.job"]
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        cls.employee_model = cls.env["hr.employee"]
+        cls.user_model = cls.env["res.users"]
+        cls.contract_model = cls.env["hr.contract"]
+        cls.job_model = cls.env["hr.job"]
 
         # Create an employee
-        self.employee_id = self.employee_model.create({"name": "Employee 1"})
+        cls.employee = cls.employee_model.create({"name": "Employee 1"})
 
         # Create 2 jobs
-        self.job_id = self.job_model.create({"name": "Job 1"})
+        cls.job_1 = cls.job_model.create({"name": "Job 1"})
 
-        self.job_2_id = self.job_model.create({"name": "Job 2"})
+        cls.job_2 = cls.job_model.create({"name": "Job 2"})
 
         # Create a contract
-        self.contract_id = self.contract_model.create(
-            {"employee_id": self.employee_id.id, "name": "Contract 1", "wage": 50000}
+        cls.contract = cls.contract_model.create(
+            {"employee_id": cls.employee.id, "name": "Contract 1", "wage": 50000}
         )
 
     def test_no_main_jobs(self):
         """
         Validate the _check_one_main_job method
         when contract has no assigned job
-        and check job_id is False.
+        and check job_1 is False.
         """
-        self.contract_id.write({"contract_job_ids": []})
-        self.assertFalse(self.contract_id.job_id is False)
+        self.contract.contract_job_ids = [Command.clear()]
+        self.assertFalse(self.contract.job_id is False)
 
     def test_one_main_jobs(self):
         """
         Validate the _check_one_main_job method
         when contract has one assigned job
-        and check is the job_id is set.
+        and check is the job_1 is set.
         """
-        self.contract_id.write(
+        self.contract.write(
             {
                 "contract_job_ids": [
-                    (0, 0, {"job_id": self.job_id.id, "is_main_job": True})
+                    Command.create({"job_id": self.job_1.id, "is_main_job": True})
                 ]
             }
         )
-        self.assertEqual(self.contract_id.job_id.id, self.job_id.id)
+        self.assertEqual(self.contract.job_id.id, self.job_1.id)
 
     def test_two_contract_jobs_one_main_job(self):
         """
         Validate the _check_one_main_job method
         when contract has two assigned jobs
-        and check is the job_id is set as main job.
+        and check is the job_1 is set as main job.
         """
-        self.contract_id.write(
+        self.contract.write(
             {
                 "contract_job_ids": [
-                    (0, 0, {"job_id": self.job_id.id, "is_main_job": True}),
-                    (0, 0, {"job_id": self.job_2_id.id, "is_main_job": False}),
+                    Command.create({"job_id": self.job_1.id, "is_main_job": True}),
+                    Command.create({"job_id": self.job_2.id, "is_main_job": False}),
                 ]
             }
         )
-        self.assertEqual(self.contract_id.job_id.id, self.job_id.id)
+        self.assertEqual(self.contract.job_id.id, self.job_1.id)
 
     def test_two_contract_jobs_two_main_job(self):
         """
@@ -73,11 +75,11 @@ class TestContractMultiJob(TransactionCase):
         and raise error since both are set as main jobs.
         """
         with self.assertRaises(UserError):
-            self.contract_id.write(
+            self.contract.write(
                 {
                     "contract_job_ids": [
-                        (0, 0, {"job_id": self.job_id.id, "is_main_job": True}),
-                        (0, 0, {"job_id": self.job_2_id.id, "is_main_job": True}),
+                        Command.create({"job_id": self.job_1.id, "is_main_job": True}),
+                        Command.create({"job_id": self.job_2.id, "is_main_job": True}),
                     ]
                 }
             )
