@@ -7,7 +7,7 @@ from odoo.tests.common import TransactionCase
 
 class TestContractMultiJob(TransactionCase):
     def setUp(self):
-        super(TestContractMultiJob, self).setUp()
+        super().setUp()
         self.employee_model = self.env["hr.employee"]
         self.user_model = self.env["res.users"]
         self.contract_model = self.env["hr.contract"]
