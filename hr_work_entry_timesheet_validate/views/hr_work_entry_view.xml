@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2025- Le Filament (https://le-filament.com)
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <record id="hr_work_entry_timesheet_validate_view_calendar" model="ir.ui.view">
+        <field name="name">hr.work.entry.calendar.with_timesheet_validate</field>
+        <field name="model">hr.work.entry</field>
+        <field
+            name="inherit_id"
+            ref="hr_work_entry_validate.hr_work_entry_view_calendar"
+        />
+        <field name="arch" type="xml">
+            <field name="state" position="after">
+                <field name="duration" widget="float_time" readonly="1" />
+                <field name="timesheet_duration" widget="float_time" readonly="1" />
+                <field name="is_hatched" invisible="1" />
+            </field>
+        </field>
+    </record>
+
+    <record id="hr_work_entry_timesheet_validate_view_form" model="ir.ui.view">
+        <field name="name">hr.work.entry.form.with_timesheet_validate</field>
+        <field name="model">hr.work.entry</field>
+        <field name="inherit_id" ref="hr_work_entry_validate.hr_work_entry_view_form" />
+        <field name="arch" type="xml">
+            <field name="company_id" position="before">
+                <field name="timesheet_duration" widget="float_time" readonly="1" />
+            </field>
+        </field>
+    </record>
+
+    <record id="hr_work_entry_timesheet_validate_view_tree" model="ir.ui.view">
+        <field name="name">hr.work.entry.tree.with_timesheet_validate</field>
+        <field name="model">hr.work.entry</field>
+        <field name="inherit_id" ref="hr_work_entry_validate.hr_work_entry_view_tree" />
+        <field name="arch" type="xml">
+            <field name="duration" position="after">
+                <field name="timesheet_duration" widget="float_time" readonly="1" />
+            </field>
+        </field>
+    </record>
+
+    <record id="hr_work_entry_timesheet_validate_view_pivot" model="ir.ui.view">
+        <field name="name">hr.work.entry.pivot.with_timesheet_validate</field>
+        <field name="model">hr.work.entry</field>
+        <field
+            name="inherit_id"
+            ref="hr_work_entry_validate.hr_work_entry_view_pivot"
+        />
+        <field name="arch" type="xml">
+            <field name="duration" position="after">
+                <field name="timesheet_duration" widget="float_time" readonly="1" />
+            </field>
+        </field>
+    </record>
+
+</odoo>

@@ -1,5 +1,5 @@
 {
-    "name": "Work Entry with timesheets for weekends",
+    "name": "Work Entry with timesheets and validation",
     "version": "17.0.1.0.0",
     "development_status": "Alpha",
     "category": "Human Resources/Employees",
@@ -11,8 +11,9 @@
     "installable": True,
     "depends": [
         "hr_work_entry_timesheet",
+        "hr_work_entry_validate",
     ],
     "data": [
-        "data/hr_work_entry_type_data.xml",
+        "views/hr_work_entry_view.xml",
     ],
 }
