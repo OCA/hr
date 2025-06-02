@@ -25,7 +25,7 @@
             </form>
         </field>
     </record>
-    <record id="hr_appraisal_wizard_action" model="ir.actions.act_window">
+    <record id="hr_appraisal_request_wizard_action" model="ir.actions.act_window">
         <field name="name">Appraisal Request Confirmation</field>
         <field name="res_model">hr.appraisal.request.wizard</field>
         <field name="view_mode">form</field>

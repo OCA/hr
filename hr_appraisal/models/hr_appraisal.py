@@ -162,7 +162,8 @@ class HrAppraisal(models.Model):
 
                 # Lanza un error si el usuario no es gerente y el empleado no coincide con el usuario
                 elif not record.is_manager and record.employee_id.user_id != self.env.user.id:
-                    raise UserError(_("You can't change employees because you're not a manager and the employee doesn't match you."))
+                    raise UserError(_("You can't change employees because you're not a manager and "
+                                      "the employee doesn't match you."))
 
             elif self.state == '2_pending':
                 if self.is_manager and self.env.user.id in self.manager_ids.mapped('user_id').ids:

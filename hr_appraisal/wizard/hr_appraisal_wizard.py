@@ -32,7 +32,7 @@ class HrAppraisalRequestWizard(models.TransientModel):
     appraisal_id = fields.Many2one('hr.appraisal.employee', required=True)
     recipient_ids = fields.Many2many('res.partner', string='Recipients', required=True)
     user_body = fields.Html(string='User Contents')
-    subject= fields.Char(string='Subject')
+    subject= fields.Char()
     recipient_users = fields.Many2many('res.users', string='Recipients Users', store=False)
 
     @api.model
@@ -171,4 +171,3 @@ class HrAppraisalRequestWizard(models.TransientModel):
 
             if message:
                 message.write({'reply_to': self.env.user.email_formatted})
-
