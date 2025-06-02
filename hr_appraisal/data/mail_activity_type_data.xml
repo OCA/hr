@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="mail_act_hr_appraisal_employee_cfr" model="mail.activity.type">
+            <field name="name">CFR</field>
+            <field name="icon">fa-comments-o</field>
+            <field name="summary">Appraisals</field>
+            <field name="res_model">hr.appraisal.employee</field>
+        </record>
+    </data>
+</odoo>

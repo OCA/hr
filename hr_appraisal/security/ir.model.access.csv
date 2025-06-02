@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hr_appraisal_employee,hr_appraisal.hr_appraisal_employee,model_hr_appraisal_employee,,1,1,1,1
+access_hr_appraisal_employee_template,hr_appraisal.hr_appraisal_employee_template,model_hr_appraisal_employee_template,,1,1,1,1
+access_send_email_with_template, hr_appraisal.send_email_with_template,model_send_email_with_template,,1,1,1,1
+access_hr_appraisal_employee_employee,hr_appraisal.hr_employee,model_hr_appraisal_employee,base.group_user,1,1,1,0
