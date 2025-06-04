@@ -49,27 +49,27 @@ addon | version | maintainers | summary
 [hr_employee_medical_examination](hr_employee_medical_examination/) | 12.0.1.0.0 |  | Adds information about employee's medical examinations
 [hr_employee_partner_external](hr_employee_partner_external/) | 12.0.1.0.0 |  | Associate an external Partner to Employee
 [hr_employee_phone_extension](hr_employee_phone_extension/) | 12.0.1.0.0 |  | Employee Phone Extension
-[hr_employee_ppe](hr_employee_ppe/) | 12.0.1.1.1 | [![marcelsavegnago](https://github.com/marcelsavegnago.png?size=30px)](https://github.com/marcelsavegnago) [![eduaparicio](https://github.com/eduaparicio.png?size=30px)](https://github.com/eduaparicio) | Personal Protective Equipment (PPE) Management
+[hr_employee_ppe](hr_employee_ppe/) | 12.0.1.1.1 | <a href='https://github.com/marcelsavegnago'><img src='https://github.com/marcelsavegnago.png' width='32' height='32' style='border-radius:50%;' alt='marcelsavegnago'/></a> <a href='https://github.com/eduaparicio'><img src='https://github.com/eduaparicio.png' width='32' height='32' style='border-radius:50%;' alt='eduaparicio'/></a> | Personal Protective Equipment (PPE) Management
 [hr_employee_relative](hr_employee_relative/) | 12.0.1.1.0 |  | Allows storing information about employee's family
 [hr_employee_service](hr_employee_service/) | 12.0.1.0.1 |  | Employee service information & duration
 [hr_employee_service_contract](hr_employee_service_contract/) | 12.0.1.0.1 |  | Employee service information & duration based on employee's contracts
 [hr_employee_social_media](hr_employee_social_media/) | 12.0.1.0.0 |  | Employee Social Media
 [hr_employee_ssn](hr_employee_ssn/) | 12.0.1.0.0 |  | View/edit employee's SSN & SIN fields
-[hr_expense_advance_clearing](hr_expense_advance_clearing/) | 12.0.1.3.0 | [![kittiu](https://github.com/kittiu.png?size=30px)](https://github.com/kittiu) | Employee Advance and Clearing
+[hr_expense_advance_clearing](hr_expense_advance_clearing/) | 12.0.1.3.0 | <a href='https://github.com/kittiu'><img src='https://github.com/kittiu.png' width='32' height='32' style='border-radius:50%;' alt='kittiu'/></a> | Employee Advance and Clearing
 [hr_expense_advance_clearing_consolidation](hr_expense_advance_clearing_consolidation/) | 12.0.1.0.0 |  | HR Expense Advance Clearing Consolidation
 [hr_expense_advance_clearing_sequence](hr_expense_advance_clearing_sequence/) | 12.0.1.0.0 |  | HR Expense Advance Clearing Sequence
-[hr_expense_analytic_require](hr_expense_analytic_require/) | 12.0.1.0.0 | [![Khalid-SerpentCS](https://github.com/Khalid-SerpentCS.png?size=30px)](https://github.com/Khalid-SerpentCS) | This module allows you to make the analytic account on an expense a required field.
+[hr_expense_analytic_require](hr_expense_analytic_require/) | 12.0.1.0.0 | <a href='https://github.com/Khalid-SerpentCS'><img src='https://github.com/Khalid-SerpentCS.png' width='32' height='32' style='border-radius:50%;' alt='Khalid-SerpentCS'/></a> | This module allows you to make the analytic account on an expense a required field.
 [hr_expense_cancel](hr_expense_cancel/) | 12.0.1.0.2 |  | Hr expense cancel
 [hr_expense_invoice](hr_expense_invoice/) | 12.0.2.0.3 |  | Supplier invoices on HR expenses
-[hr_expense_journal](hr_expense_journal/) | 12.0.1.0.0 | [![dreispt](https://github.com/dreispt.png?size=30px)](https://github.com/dreispt) | Set the Journal for the payment type used to pay the expense
+[hr_expense_journal](hr_expense_journal/) | 12.0.1.0.0 | <a href='https://github.com/dreispt'><img src='https://github.com/dreispt.png' width='32' height='32' style='border-radius:50%;' alt='dreispt'/></a> | Set the Journal for the payment type used to pay the expense
 [hr_expense_payment_difference](hr_expense_payment_difference/) | 12.0.1.1.0 |  | Payment Difference on HR expenses
 [hr_expense_petty_cash](hr_expense_petty_cash/) | 12.0.1.2.0 |  | Petty Cash
 [hr_expense_petty_cash_sequence](hr_expense_petty_cash_sequence/) | 12.0.1.0.0 |  | HR Expense Petty Cash Sequence
 [hr_expense_portal](hr_expense_portal/) | 12.0.1.0.1 |  | Show current expense in a website.
-[hr_expense_receipt_require](hr_expense_receipt_require/) | 12.0.1.0.1 | [![Khalid-SerpentCS](https://github.com/Khalid-SerpentCS.png?size=30px)](https://github.com/Khalid-SerpentCS) | This module allows you to define expense products that requires a receipt to be submitted.
+[hr_expense_receipt_require](hr_expense_receipt_require/) | 12.0.1.0.1 | <a href='https://github.com/Khalid-SerpentCS'><img src='https://github.com/Khalid-SerpentCS.png' width='32' height='32' style='border-radius:50%;' alt='Khalid-SerpentCS'/></a> | This module allows you to define expense products that requires a receipt to be submitted.
 [hr_expense_sequence](hr_expense_sequence/) | 12.0.1.0.0 |  | HR expense sequence
-[hr_expense_tier_validation](hr_expense_tier_validation/) | 12.0.1.0.0 | [![ps-tubtim](https://github.com/ps-tubtim.png?size=30px)](https://github.com/ps-tubtim) | Expense Tier Validation
-[hr_expense_type](hr_expense_type/) | 12.0.1.0.0 | [![cubells](https://github.com/cubells.png?size=30px)](https://github.com/cubells) | Ability to add type in expenses.
+[hr_expense_tier_validation](hr_expense_tier_validation/) | 12.0.1.0.0 | <a href='https://github.com/ps-tubtim'><img src='https://github.com/ps-tubtim.png' width='32' height='32' style='border-radius:50%;' alt='ps-tubtim'/></a> | Expense Tier Validation
+[hr_expense_type](hr_expense_type/) | 12.0.1.0.0 | <a href='https://github.com/cubells'><img src='https://github.com/cubells.png' width='32' height='32' style='border-radius:50%;' alt='cubells'/></a> | Ability to add type in expenses.
 [hr_experience](hr_experience/) | 12.0.1.0.0 |  | Experience Management
 [hr_holidays_accrual_advanced](hr_holidays_accrual_advanced/) | 12.0.1.0.2 |  | Advanced accrual leaves allocation
 [hr_holidays_credit](hr_holidays_credit/) | 12.0.1.1.0 |  | Enable negative leave balance for employees
@@ -87,7 +87,7 @@ addon | version | maintainers | summary
 [hr_payslip_change_state](hr_payslip_change_state/) | 12.0.1.0.0 |  | Change the state of many payslips at a time
 [hr_period](hr_period/) | 12.0.1.0.1 |  | Add payroll periods
 [hr_personal_equipment_request](hr_personal_equipment_request/) | 12.0.1.0.0 |  | This addon allows to manage employee personal equipment
-[hr_recruitment_security](hr_recruitment_security/) | 12.0.1.0.0 | [![victoralmau](https://github.com/victoralmau.png?size=30px)](https://github.com/victoralmau) | See only your documents in recruitment
+[hr_recruitment_security](hr_recruitment_security/) | 12.0.1.0.0 | <a href='https://github.com/victoralmau'><img src='https://github.com/victoralmau.png' width='32' height='32' style='border-radius:50%;' alt='victoralmau'/></a> | See only your documents in recruitment
 [hr_skill](hr_skill/) | 12.0.1.2.0 |  | Manage your employee skills
 [hr_worked_days_from_timesheet](hr_worked_days_from_timesheet/) | 12.0.1.0.0 |  | Adds a button to import worked days from timesheet.
 [resource_hook](resource_hook/) | 12.0.1.0.2 |  | Extends the resource with hooks to standard methods.
