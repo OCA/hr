@@ -1,30 +1,31 @@
 # Copyright 2019 Creu Blanca
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo.tests.common import TransactionCase
+from odoo.addons.base.tests.common import BaseCommon
 
 
-class TestHrEmployeeMedicalExamination(TransactionCase):
-    def setUp(self):
-        super().setUp()
+class TestHrEmployeeMedicalExamination(BaseCommon):
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
 
-        self.department = self.env["hr.department"].create({"name": "Department"})
+        cls.department = cls.env["hr.department"].create({"name": "Department"})
 
-        self.job = self.env["hr.job"].create({"name": "Job"})
+        cls.job = cls.env["hr.job"].create({"name": "Job"})
 
-        self.employee1 = self.env["hr.employee"].create(
+        cls.employee1 = cls.env["hr.employee"].create(
             {
                 "name": "Employee 1",
-                "job_id": self.job.id,
-                "department_id": self.department.id,
+                "job_id": cls.job.id,
+                "department_id": cls.department.id,
             }
         )
 
-        self.examination = self.env["hr.employee.medical.examination"].create(
-            {"name": "Dummy Exam to test domain", "employee_id": self.employee1.id}
+        cls.examination = cls.env["hr.employee.medical.examination"].create(
+            {"name": "Dummy Exam to test domain", "employee_id": cls.employee1.id}
         )
 
-        self.wizard = self.env["wizard.generate.medical.examination"].create(
+        cls.wizard = cls.env["wizard.generate.medical.examination"].create(
             {"name": "Examination 2019"}
         )
 

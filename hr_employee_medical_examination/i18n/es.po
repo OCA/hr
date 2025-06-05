@@ -21,7 +21,7 @@ msgstr ""
 #: code:addons/hr_employee_medical_examination/wizards/wizard_generate_medical_examination.py:0
 #, python-format
 msgid "%(name)s on %(employee)s"
-msgstr "%(name)sen%(employee)s"
+msgstr "%(name)s en %(employee)s"
 
 #. module: hr_employee_medical_examination
 #: model_terms:ir.ui.view,arch_db:hr_employee_medical_examination.wizard_generate_medical_examination_form_view

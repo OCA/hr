@@ -23,7 +23,7 @@
                     class="oe_stat_button"
                     icon="fa-medkit"
                     type="action"
-                    attrs="{'invisible': [('can_see_examinations_button', '=', False)]}"
+                    invisible="not can_see_examinations_button"
                 >
                     <field
                         name="medical_examination_count"
