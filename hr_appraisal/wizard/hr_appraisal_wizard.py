@@ -3,8 +3,6 @@ from odoo import _
 from odoo import fields, models, api
 
 
-_logger = logging.getLogger(__name__)
-
 class HrAppraisalWizard(models.TransientModel):
     _name = 'hr.appraisal.wizard'
     _inherit = 'mail.thread'
@@ -18,7 +16,7 @@ class HrAppraisalWizard(models.TransientModel):
         record = self.env[self.res_model].browse(self.res_id)
         record.employee_feedback_published = True
         user_name = self.env.user.name
-         # Añadir un registro al tracking
+        # Add a record to the tracking history
         record.message_post(
             body=_("{user_name} decided, as Appraisal Officer, to publish the employee's feedback").format(user_name=user_name),
             subtype_xmlid="mail.mt_note"
@@ -44,13 +42,13 @@ class HrAppraisalRequestWizard(models.TransientModel):
             recipients_ids = self._get_recipients_ids(appraisal)
             recipients_users =  self._get_user_ids(appraisal)
 
-            # Si el usuario actual es un empleado en la ficha (perfil manager o empleado)
+            # If the current user is an employee on the record (manager or employee profile)
             if appraisal.env.user.employee_id == appraisal.employee_id:
                 template = self.env.ref('hr_appraisal.mail_template_appraisal_request_from_employee', False)
             else:
                 template = self.env.ref('hr_appraisal.mail_template_appraisal_request', False)
 
-            # Obtener el asunto de la plantilla
+            # Get the template subject
             subject= self.env['mail.template']._render_template(
                 template.subject, template.model, [self.id]
                 )[self.id]
@@ -61,6 +59,7 @@ class HrAppraisalRequestWizard(models.TransientModel):
                 'subject': subject,
                 'appraisal_id': appraisal.id,
             })
+
         return res
 
     def _get_user_ids(self, appraisal):
@@ -68,20 +67,18 @@ class HrAppraisalRequestWizard(models.TransientModel):
 
         appraisal = self.env['hr.appraisal.employee'].browse(self.env.context['default_appraisal_id'])
 
-        # Si el usuario actual es un empleado en la ficha (perfil manager o empleado)
+        # If the current user is an employee on the record (manager or employee profile)
         if appraisal.env.user.employee_id == appraisal.employee_id:
-            # Añadir el usuario de los manager_ids
             for manager in appraisal.manager_ids:
                 if manager.user_id:
                     user_ids.append(manager.user_id.id)
 
-         # Si el usuario actual es un manager y está en la lista de manager_user_ids, añadimos solo al empleado como usuario
+        # If the current user is a manager and is in the manager_user_ids list, we add only the employee as a user
         elif appraisal.is_manager == True and appraisal.env.user in appraisal.manager_user_ids and appraisal.employee_id.user_id:
-            # Añadir el usuario del employee_id
             user_ids.append(appraisal.employee_id.user_id.id)
-         # Si el usuario actual es un manager pero no está en la lista de manager_user_ids, añadimos a todos como destinatarios
+        # If the current user is a manager but is not in the manager_user_ids list, we add everyone as recipients
         elif appraisal.is_manager == True  and appraisal.employee_id.user_id:
-            # Añadir el usuario del employee_id y de los manager_ids
+            # Add the employee_id and manager_ids user
             user_ids.append(appraisal.employee_id.user_id.id)
 
             for manager in appraisal.manager_ids:
@@ -97,26 +94,23 @@ class HrAppraisalRequestWizard(models.TransientModel):
     def _get_recipients_ids(self, appraisal):
             mail_employees =[]
 
-            # Si el usuario actual es un empleado en la ficha (perfil manager o empleado)
             if appraisal.env.user.employee_id == appraisal.employee_id:
-                 # Añadir el correo electrónico de los manager_ids
                 for manager in appraisal.manager_ids:
                     if manager.work_email:
                         mail_employees.append(manager.work_email)
-            # Si el usuario actual es un manager y está en la lista de manager_user_ids, añadimos solo al empleado como destinatario
+
             elif appraisal.is_manager == True and appraisal.env.user in appraisal.manager_user_ids and appraisal.employee_id.work_email:
-                 # Añadir el correo electrónico del employee_id
                 mail_employees.append(appraisal.employee_id.work_email)
-            # Si el usuario actual es un manager pero no está en la lista de manager_user_ids, añadimos a todos como destinatarios
             elif appraisal.is_manager == True  and appraisal.employee_id.work_email:
                 mail_employees.append(appraisal.employee_id.work_email)
-                # Añadir el correo electrónico de los manager_ids
+
                 for manager in appraisal.manager_ids:
                     if manager.work_email:
                         mail_employees.append(manager.work_email)
 
             for_email = [("email", "in", mail_employees)]
             partners = self.env["res.partner"].search(for_email)
+
             if len(partners) > 0:
                 return partners
 
@@ -125,7 +119,7 @@ class HrAppraisalRequestWizard(models.TransientModel):
         self.ensure_one()
         appraisal = self.appraisal_id
 
-        # Si el usuario actual es un empleado en la ficha (perfil manager o empleado)
+        # If the current user is an employee on the record (manager or employee profile)
         if appraisal.env.user.employee_id == appraisal.employee_id:
             template = self.env.ref('hr_appraisal.mail_template_appraisal_request_from_employee', False)
         else:

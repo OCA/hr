@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-    <!--VISTAS FORM-->
+    <!--FORM-->
         <record id="hr_appraisal_template_form_view" model="ir.ui.view">
             <field name="name">hr.appraisal.template.form.view</field>
             <field name="model">hr.appraisal.employee.template</field>
@@ -49,12 +49,12 @@
         </record>
     </data>
 
-    <!--VISTAS TREE-->
+    <!--TREE-->
     <record model="ir.ui.view" id="hr_appraisal_template_tree_view">
         <field name="name">hr.appraisal.template.tree</field>
         <field name="model">hr.appraisal.employee.template</field>
         <field name="arch" type="xml">
-            <tree string="Appraisal Template">
+            <tree>
                 <field name="description"/>
                 <field name="company_id" groups="base.group_multi_company"/>
                 <field name="is_default" readonly="1"/>
@@ -69,7 +69,7 @@
         <field name="view_mode">tree,form</field>
     </record>
 
-    <!-- Menúitem en el menú de configuración -->
+    <!-- Configuration -->
     <menuitem id="menuitem_appraisal_template"
         name="Appraisal Templates"
         parent="hr_appraisal.menu_hr_appraisal_configuration"

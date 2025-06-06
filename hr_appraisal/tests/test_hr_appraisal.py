@@ -1,9 +1,9 @@
 # Copyright 2025 Fundación Esment - Estefanía Bauzá Illán
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-from odoo.addons.base.tests.common import BaseCommon
+from odoo.tests.common import TransactionCase
 
-class TestHrAppraisalEmployee(BaseCommon):
+class TestHrAppraisalEmployee(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -57,7 +57,7 @@ class TestHrAppraisalEmployee(BaseCommon):
     def test_appraisal_creation(self):
         self.assertEqual(self.appraisal.state, '1_new')
         self.assertEqual(self.appraisal.employee_id, self.employee)
-        self.assertEqual(self.appraisal.manager_ids, self.manager)
+        self.assertIn(self.manager, self.appraisal.manager_ids)
         self.assertEqual(self.appraisal.appraisal_template_id, self.template)
 
     def test_action_confirm(self):

@@ -4,8 +4,6 @@ import datetime
 from odoo import api, fields, models, _
 from odoo.exceptions import UserError
 
-_logger = logging.getLogger(__name__)
-
 class HrAppraisal(models.Model):
     _name = 'hr.appraisal.employee'
     _inherit = ['mail.thread', 'mail.activity.mixin']
@@ -57,7 +55,7 @@ class HrAppraisal(models.Model):
     @api.model
     def _default_employee_id(self):
         user = self.env.user
-        # Si el usuario no pertenece el grupo de manager de evaluación, entonces se obtiene el empleado asociado al usuario
+        # If the user does not belong to the evaluation manager group, then the employee associated with the user is obtained
         if not user.has_group('hr_appraisal.group_appraisal_manager'):
             employee = self.env['hr.employee'].search([('user_id', '=', user.id)], limit=1)
             return employee.id if employee else False
@@ -65,7 +63,7 @@ class HrAppraisal(models.Model):
 
     @api.depends('employee_id')
     def _compute_default_appraisal_template(self):
-        # Lógica para obtener la plantilla por defecto
+        # Logic to get the default template
         if self.employee_id and not self.appraisal_template_id:
             default_template = self.env['hr.appraisal.employee.template'].search([('is_default', '=', True)], limit=1)
             if default_template:
@@ -76,11 +74,11 @@ class HrAppraisal(models.Model):
     @api.depends_context('uid')
     @api.depends('employee_id', 'manager_ids')
     def _compute_manager_user(self):
-        # Lógica para calcular manager_user_ids
+        # Logic to calculate manager_user_ids
         user_ids = []
         for manager in self.manager_ids:
             if manager.user_id:
-                user_ids.append(manager.user_id.id) # Añadir el ID del usuario manager
+                user_ids.append(manager.user_id.id) # Add the manager user ID
         self.manager_user_ids = [(6, 0, user_ids)]
 
     @api.depends('appraisal_template_id')
@@ -92,7 +90,7 @@ class HrAppraisal(models.Model):
 
     @api.onchange('employee_id')
     def _onchange_employee_id(self):
-       # Lógica para calcular manager_ids
+       # Logic to calculate manager_ids
         if self.employee_id.parent_id:
             self.manager_ids = [(6, 0, [self.employee_id.parent_id.id])]
         else:
@@ -102,9 +100,9 @@ class HrAppraisal(models.Model):
     def create(self, vals):
         record = super(HrAppraisal, self).create(vals)
         if 'employee_feedback' in vals:
-            record.employee_feedback = vals["employee_feedback"] # Actualizar el valor de employee_feedback
+            record.employee_feedback = vals["employee_feedback"] # Update the value of employee_feedback
         if 'manager_feedback' in vals:
-            record.manager_feedback = vals["manager_feedback"] # Actualizar el valor de manager_feedback
+            record.manager_feedback = vals["manager_feedback"] # Update the value of manager_feedback
         if vals.get('state') and vals['state'] == '1_new':
             record.employee_id.sudo().write({
                     'last_appraisal_id': record.id,
@@ -118,13 +116,25 @@ class HrAppraisal(models.Model):
                     'last_appraisal_id': appraisal.id})
         if 'state' in vals and vals['state'] == '3_done':
             vals['date_close'] = datetime.date.today()
-            # Verificar y marcar actividades como "hechas"
+            # Check and mark activities as "done"
             for appraisal in self:
                 activities = appraisal.activity_ids.filtered(
                     lambda act: act.activity_type_id.id == self.env.ref('hr_appraisal.mail_act_hr_appraisal_employee_cfr').id
                 )
                 if activities:
-                    activities.action_feedback()  # Marca las actividades como "hechas"
+                    activities.action_feedback()
+
+        # Validation: only a manager can change employee_id, or the user himself can change it
+        if 'employee_id' in vals:
+            for record in self:
+                new_state = vals.get('state', record.state)
+                if new_state == '1_new':
+                    is_manager = self.env.user.has_group('hr_appraisal.group_appraisal_manager')
+                    employee = self.env['hr.employee'].browse(vals['employee_id'])
+                    if not is_manager and employee.user_id != self.env.user:
+                        raise UserError(_(
+                            "You can't change employees because you're not a manager and the employee doesn't match you."
+                        ))
 
         res = super(HrAppraisal, self).write(vals)
         return res
@@ -146,7 +156,6 @@ class HrAppraisal(models.Model):
     @api.depends('state', 'manager_ids')
     def _compute_can_see_employee_manager_publish(self):
         for record in self:
-            # _logger.info("_compute_can_see_employee_manager_publish: %s", self.state)
             if self.state == '1_new':
                 if self.is_manager and self.env.user.id in self.manager_ids.mapped('user_id').ids:
                     record.can_see_employee_publish = True
@@ -160,10 +169,9 @@ class HrAppraisal(models.Model):
                     record.can_see_employee_publish = False
                     record.can_see_manager_publish = False
 
-                # Lanza un error si el usuario no es gerente y el empleado no coincide con el usuario
                 elif not record.is_manager and record.employee_id.user_id != self.env.user.id:
-                    raise UserError(_("You can't change employees because you're not a manager and "
-                                      "the employee doesn't match you."))
+                    record.can_see_employee_publish = False
+                    record.can_see_manager_publish = False
 
             elif self.state == '2_pending':
                 if self.is_manager and self.env.user.id in self.manager_ids.mapped('user_id').ids:
@@ -192,11 +200,11 @@ class HrAppraisal(models.Model):
         self.employee_feedback_published = False
         self.manager_feedback_published = False
 
-        # Envío el email de confirmación al empleado
+        # Send the confirmation email to the employee
         if self.employee_id.work_email:
             self._send_confirmation_email(self.employee_id.user_id, self.employee_id.work_email)
 
-        # Creamos la actividad para el empleado si tiene usuario
+        # If the employee has a user, create an activity for him
         if self.employee_user_id.id:
             user_id = int(self.employee_user_id.id)
             self._create_activity_CFR(user_id)
@@ -204,11 +212,11 @@ class HrAppraisal(models.Model):
         for record in self:
 
             for manager in record.manager_ids:
-                #Envío el email de confirmación a los managers
+                # Send the confirmation email to the managers
                 if manager.work_email:
                     self._send_confirmation_email(manager.user_id, manager.work_email)
 
-                # Crear actividad para el manager si tiene usuario
+                # If the manager has a user, create an activity for him
                 if manager.user_id.id:
 
                     user_id = int(manager.user_id.id)
@@ -220,18 +228,18 @@ class HrAppraisal(models.Model):
         self.employee_feedback_published = True
         self.manager_feedback_published = True
 
-        # Envío el email de finalización al empleado
+        # Check if the employee has a user and an email
         if self.employee_id.work_email:
             self._send_completed_email(self.employee_id.user_id, self.employee_id.work_email)
 
         for record in self:
 
             for manager in record.manager_ids:
-                #Envío el email de finalización a los managers
+                # Check if the manager has a user and an email
                 if manager.work_email:
                     self._send_completed_email(manager.user_id, manager.work_email)
 
-        # Añadir un registro al tracking
+        # Add a record to the tracking
         self.message_post(
             body = _("The appraisal's status has been set to Done by {user_name}").format(user_name=self.env.user.name),
             subtype_xmlid="mail.mt_note"
@@ -242,7 +250,7 @@ class HrAppraisal(models.Model):
 
     def _send_confirmation_email(self, recipient_users, email):
 
-        # Lógica para enviar un correo electrónico de confirmación al empleado y otro al manager
+        # Logic to send a confirmation email to the employee and another to the manager
         if email:
 
             ctx = {
@@ -255,18 +263,18 @@ class HrAppraisal(models.Model):
                 email,
                 ctx
             )
-            # Desvincular el mensaje del chatter después de enviarlo
+            # Unlink the message from the chatter after sending it
             message = self.env['mail.message'].search([
                 ('model', '=', 'hr.appraisal.employee'),
                 ('res_id', '=', self.id)
             ], order="id desc", limit=1)
 
             if message:
-                message.write({'model': False, 'res_id': False})  # Desvincular del chatter sin eliminarlo
+                message.write({'model': False, 'res_id': False})
 
     def _send_completed_email(self, recipient_users, email):
 
-            # Lógica para enviar un correo electrónico de finalización al empleado y otro al manager
+            # Logic to send a completion email to the employee and another to the manager
             if email:
 
                 ctx = {
@@ -279,12 +287,9 @@ class HrAppraisal(models.Model):
                     email,
                     ctx
                 )
-                # Desvincular el mensaje del chatter después de enviarlo
-
-                # Obtener el ID del tipo de actividad con el xml_id "mail_act_hr_appraisal_employee_cfr"
+                # Unlink the message from the chatter after sending it
                 activity_type_id = self.env.ref('hr_appraisal.mail_act_hr_appraisal_employee_cfr').id
 
-                # Obtener el ID del subtipo "Activities" (en_US o es_ES)
                 subtype_activities = self.env['mail.message.subtype'].search([
                                         ('name', 'in', ['Activities', 'Actividades'])
                                     ], limit=1)
@@ -292,15 +297,15 @@ class HrAppraisal(models.Model):
                 message = self.env['mail.message'].search([
                     ('model', '=', 'hr.appraisal.employee'),
                     ('res_id', '=', self.id),
-                    ('mail_activity_type_id', '!=', activity_type_id), # Excluir el tipo de actividad específico
-                    ('subtype_id', '!=', subtype_activities.id),  # Excluir el subtipo "Activities"
+                    ('mail_activity_type_id', '!=', activity_type_id),
+                    ('subtype_id', '!=', subtype_activities.id),
                 ], order="id desc", limit=1)
 
                 if message:
                     message.write({'model': False, 'res_id': False})
 
     def _create_activity_CFR(self, user_id):
-        # Crea un nuevo registro en el modelo 'mail.activity' para cada manager con usuario
+        # Create a new record in the 'mail.activity' model for each manager with a user
         activity_type = self.env.ref('hr_appraisal.mail_act_hr_appraisal_employee_cfr', raise_if_not_found=False) or self.env['mail.activity.type']
 
         if activity_type:
@@ -371,11 +376,10 @@ class SendEmailWithTemplate(models.TransientModel):
 
         # Send email to a specific record
         template.with_context(lang=self.env.user.lang, **ctx).send_mail(
-            recipient_id,  # ID of the record to send email to
+            recipient_id,
             force_send=True,
             raise_exception=False,
             email_layout_xmlid="mail.mail_notification_light",
             email_values={'email_to': email ,'reply_to': self.env.user.email_formatted},
         )
         return True
-

@@ -46,6 +46,17 @@ After the appraisal is complete, and both the manager and employee have met to d
 
 Once the appraisal is marked as Done, the Mark as Done button disappears, and a Reopen button appears.
 
+6. Permissions and User Types
+To manage access permissions to the Appraisals app, go to **Settings > Users & Companies > Users** and select the desired user.
+
+In the **Access tab**, you will find the **Appraisal** Permissions section. The following user types are available:
+
+* **Employee**: Can access their own appraisals and complete self-appraisals.
+* **Manager**: Can view and manage the appraisals of employees under their supervision, as well as leave private notes and validate appraisals.
+* **Human resources officer**: Has full access to all appraisals and settings, and can manage templates, permissions, and all records.
+
+Make sure to assign the appropriate access type based on the user's role in the organization. Permissions determine what actions each user can perform within the Appraisals module.
+
 * Tip
 
 Modifications are not possible once the appraisal is marked as done.

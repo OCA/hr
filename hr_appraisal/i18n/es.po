@@ -386,7 +386,7 @@ msgid "Appraisal Request"
 msgstr "Solicitud de valoración"
 
 #. module: hr_appraisal
-#: model:ir.actions.act_window,name:hr_appraisal.hr_appraisal_wizard_action
+#: model:ir.actions.act_window,name:hr_appraisal.hr_appraisal_request_wizard_action
 msgid "Appraisal Request Confirmation"
 msgstr "Confirmación de solicitud de valoración"
 
@@ -459,6 +459,11 @@ msgid "CFR"
 msgstr "CFR"
 
 #. module: hr_appraisal
+#: model:ir.model.fields,field_description:hr_appraisal.field_hr_appraisal_request_wizard__can_edit_body
+msgid "Can Edit Body"
+msgstr ""
+
+#. module: hr_appraisal
 #: model:ir.model.fields,field_description:hr_appraisal.field_hr_appraisal_employee__can_see_employee_publish
 msgid "Can See Employee Publish"
 msgstr "Puede ver el empleado publicar"
@@ -513,6 +518,11 @@ msgstr "Confirmación"
 #: model:ir.model.fields.selection,name:hr_appraisal.selection__hr_appraisal_employee__state__2_pending
 msgid "Confirmed"
 msgstr "Confirmado"
+
+#. module: hr_appraisal
+#: model:ir.model.fields,field_description:hr_appraisal.field_hr_appraisal_request_wizard__body
+msgid "Contents"
+msgstr ""
 
 #. module: hr_appraisal
 #: model:ir.model.fields,field_description:hr_appraisal.field_hr_appraisal_employee__created_by

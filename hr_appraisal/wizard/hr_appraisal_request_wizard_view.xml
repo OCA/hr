@@ -33,3 +33,4 @@
         <field name="view_id" ref="hr_appraisal_request_wizard_view" />
     </record>
 </odoo>
+ 

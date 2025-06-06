@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<<?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
         <record id="hr_appraisal_form_view" model="ir.ui.view">
@@ -55,13 +55,11 @@
                                                     <span class="text-end" attrs="{'invisible': [('employee_feedback_published', '=', True)]}">Not Visible to Manager </span>
                                                     <span class="text-end" attrs="{'invisible': ['|', ('employee_feedback_published', '=', False), ('state', '=', '1_new')]}">Visible to Manager </span>
                                                     <span class="text-end" attrs="{'invisible': &quot;['|', ('employee_feedback_published', '=', False), ('state', '!=', '1_new')]&quot;}">Visible &amp; Editable by Manager </span>
-                                                    <!-- Botón cuando employee_feedback_published es False (no publicado) -->
                                                     <button class="btn btn-secondary" name="action_publish_employee_feedback" type="object" icon="fa-circle-o"
                                                         attrs="{'invisible': &quot;['|', ('employee_feedback_published', '=', True), '&amp;', ('state', '=', '1_new'), ('employee_user_id', '=', uid)]&quot;}">
                                                          <field name="employee_feedback_published" nolabel="1" invisible="1"/>
                                                     </button>
 
-                                                    <!-- Botón cuando employee_feedback_published es True (publicado) -->
                                                     <button class="btn btn-secondary" name="action_publish_employee_feedback" type="object" icon="fa-check-circle"
                                                         attrs="{'invisible': &quot;['|', ('employee_feedback_published', '=', False), '&amp;', ('state', '=', '1_new'), ('employee_user_id', '=', uid)]&quot;}">
                                                         <field name="employee_feedback_published" nolabel="1" invisible="1"/>
@@ -84,13 +82,11 @@
                                                 <div class="h-100" attrs="{'invisible': [('state', '=', '3_done')]}">
                                                     <span class="text-end" attrs="{'invisible': ['|', ('manager_feedback_published', '=', True), ('can_see_manager_publish', '=', False)]}">Not Visible to Employee </span>
                                                     <span class="text-end" attrs="{'invisible': ['|', ('manager_feedback_published', '=', False), ('can_see_manager_publish', '=', False)]}">Visible to Employee </span>
-                                                    <!-- Botón cuando manager_feedback_published es False (no publicado) -->
                                                      <button class="btn btn-secondary" t-att-style="'background-color: #e7e9ed; border-color: #e7e9ed; color: #66598f;'" name="action_publish_manager_feedback" type="object" icon="fa-circle-o"
                                                         attrs="{'invisible': ['|', ('manager_feedback_published', '=', True), ('can_see_manager_publish', '=', False)]}">
                                                          <field name="manager_feedback_published" nolabel="1" invisible="1"/>
                                                     </button>
 
-                                                    <!-- Botón cuando manager_feedback_published es True (publicado) -->
                                                     <button class="btn btn-secondary" t-att-style="'background-color: #e7e9ed; border-color: #e7e9ed; color: #66598f;'" name="action_publish_manager_feedback" type="object" icon="fa-check-circle"
                                                         attrs="{'invisible': ['|', ('manager_feedback_published', '=', False), ('can_see_manager_publish', '=', False)]}">
                                                         <field name="manager_feedback_published" nolabel="1" invisible="1"/>

@@ -3,8 +3,6 @@ import logging
 from odoo import api, fields, models, _
 from odoo.exceptions import UserError
 
-_logger = logging.getLogger(__name__)
-
 class HrAppraisalEmployeeBase(models.AbstractModel):
     _inherit = "hr.employee.base"
     _description = "Basic Employee"
@@ -28,7 +26,6 @@ class HrAppraisalEmployeeBase(models.AbstractModel):
                 }
         else:
             return {
-                # 'name': 'Last Appraisal',
                 'type': 'ir.actions.act_window',
                 'view_mode': 'form',
                 'res_model': 'hr.appraisal.employee',
@@ -48,11 +45,11 @@ class HrAppraisalEmployeeBase(models.AbstractModel):
                 elif len(valid_appraisals) == 0:
                     return False
                 else:
-                    # Ordenar por estado y fecha
+                    # Sort by status and date
                     sorted_appraisals = valid_appraisals.sorted(
                     key=lambda r: (state_priority[r.state], r.date_close), reverse=True)
 
-                    # Filtrar las evaluaciones que no están en estado 'done'
+                    # Filter out appraisals that are not in 'done' status
                     non_done_appraisals = sorted_appraisals.filtered(lambda r: r.state != '3_done')
 
                     return non_done_appraisals[0] if non_done_appraisals else sorted_appraisals[0]
