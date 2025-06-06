@@ -59,7 +59,7 @@ class HrAppraisalEmployeeBase(models.AbstractModel):
 class HrAppraisalEmployee(models.Model):
     _inherit = 'hr.employee'
 
-    appraisal_count = fields.Integer(string="Appraisal Count", compute='_compute_appraisal_count', store=True, groups="hr.group_hr_user")
+    appraisal_count = fields.Integer(compute='_compute_appraisal_count', store=True, groups="hr.group_hr_user")
     appraisal_ids = fields.One2many('hr.appraisal.employee', 'employee_id', string='Appraisal')
     last_appraisal_state = fields.Selection(related='last_appraisal_id.state', string='Status', readonly=True)
     ongoing_appraisal_count = fields.Integer(string="Ongoing Appraisal Count", compute='_compute_ongoing_appraisal_count', store=True, groups="hr.group_hr_user")

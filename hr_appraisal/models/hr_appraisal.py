@@ -133,7 +133,8 @@ class HrAppraisal(models.Model):
                     employee = self.env['hr.employee'].browse(vals['employee_id'])
                     if not is_manager and employee.user_id != self.env.user:
                         raise UserError(_(
-                            "You can't change employees because you're not a manager and the employee doesn't match you."
+                            "You can't change employees because you're not a manager "
+                            "and the employee doesn't match you."
                         ))
 
         res = super(HrAppraisal, self).write(vals)

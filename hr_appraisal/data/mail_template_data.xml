@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data noupdate="1">
+    <data>
         <record id="mail_template_appraisal_request" model="mail.template">
             <field name="name">HR: Manager appraisal request</field>
             <field name="model_id" ref="hr_appraisal.model_hr_appraisal_employee"/>

@@ -267,6 +267,7 @@ msgstr ""
 #: model:ir.ui.menu,name:hr_appraisal.menu_hr_appraisal
 #: model:ir.ui.menu,name:hr_appraisal.menu_hr_appraisal_root
 #: model_terms:ir.ui.view,arch_db:hr_appraisal.hr_appraisal_form_view
+#: model:mail.activity.type,summary:hr_appraisal.mail_act_hr_appraisal_employee_cfr
 msgid "Appraisals"
 msgstr ""
 
@@ -963,11 +964,6 @@ msgstr ""
 #. module: hr_appraisal
 #: model:mail.template,subject:hr_appraisal.mail_template_appraisal_confirmation
 msgid "{{object.employee_id.name}}: Appraisal Confirmed"
-msgstr ""
-
-#. module: hr_appraisal
-#: model:mail.activity.type,summary:hr_appraisal.mail_act_hr_appraisal_employee_cfr
-msgid "Appraisals"
 msgstr ""
 
 #. module: hr_appraisal

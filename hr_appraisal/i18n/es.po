@@ -433,6 +433,7 @@ msgstr "RR.HH.: evaluación completada"
 #: model:ir.ui.menu,name:hr_appraisal.menu_hr_appraisal
 #: model:ir.ui.menu,name:hr_appraisal.menu_hr_appraisal_root
 #: model_terms:ir.ui.view,arch_db:hr_appraisal.hr_appraisal_form_view
+#: model:mail.activity.type,summary:hr_appraisal.mail_act_hr_appraisal_employee_cfr
 msgid "Appraisals"
 msgstr "Valoración"
 
@@ -1142,11 +1143,6 @@ msgstr "{{ user.name or ''}} solicita una valoración"
 #: model:mail.template,subject:hr_appraisal.mail_template_appraisal_confirmation
 msgid "{{object.employee_id.name}}: Appraisal Confirmed"
 msgstr "{{ object.employee_id.name }}: Valoración confirmada"
-
-#. module: hr_appraisal
-#: model:mail.activity.type,summary:hr_appraisal.mail_act_hr_appraisal_employee_cfr
-msgid "Appraisals"
-msgstr "Valoraciones"
 
 #. module: hr_appraisal
 #. odoo-python
