@@ -17,13 +17,13 @@ Hr Contract Employee Calendar Planning
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fhr-lightgray.png?logo=github
-    :target: https://github.com/OCA/hr/tree/16.0/hr_contract_employee_calendar_planning
+    :target: https://github.com/OCA/hr/tree/18.0/hr_contract_employee_calendar_planning
     :alt: OCA/hr
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/hr-16-0/hr-16-0-hr_contract_employee_calendar_planning
+    :target: https://translation.odoo-community.org/projects/hr-18-0/hr-18-0-hr_contract_employee_calendar_planning
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runboat-Try%20me-875A7B.png
-    :target: https://runboat.odoo-community.org/builds?repo=OCA/hr&target_branch=16.0
+    :target: https://runboat.odoo-community.org/builds?repo=OCA/hr&target_branch=18.0
     :alt: Try me on Runboat
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
@@ -34,33 +34,40 @@ This module ensures a consistent working times history when using the
 There are 3 different data models which can relate to working time
 (resource.calendar) records:
 
-* Employees (hr.employee)
-* Contracts (hr.contract)
-* Resources (resource.resource) -> related to hr.employee through resource.mixin
+- Employees (hr.employee)
+- Contracts (hr.contract)
+- Resources (resource.resource) -> related to hr.employee through
+  resource.mixin
 
 The **hr_employee_calendar_planning** module adds the calendar_ids field
 to employees, which allows a more flexible working times configuration:
-Instead of selecting a single resource.calendar, multiple calendars can be
-combined into one auto-generated calendar.
+Instead of selecting a single resource.calendar, multiple calendars can
+be combined into one auto-generated calendar.
 
-However, contracts are not considered when creating auto-generated calendars.
-This can lead to unexpected behaviour, because the active contract calendar
-and the employee calendar can diverge (calendar mismatch). Additionally, when
-configuring a new contract, or changing the existing contract calendar,
-the employee calendar will be overwritten by the contract calendar.
+However, contracts are not considered when creating auto-generated
+calendars. This can lead to unexpected behaviour, because the active
+contract calendar and the employee calendar can diverge (calendar
+mismatch). Additionally, when configuring a new contract, or changing
+the existing contract calendar, the employee calendar will be
+overwritten by the contract calendar.
 
-To resolve this issue, this module migrates current and previous contract
-calendars into the calendar_ids and thus the auto-generated calendar.
-Additionally, changes to the employee calendar by contracts are prevented.
-The resource_calendar_id field is hidden in contract views, since all
-working times should be managed in the calendar_ids field for each employee.
-However, it is still possible to keep a meaningful contract history,
-e.g. for salary information.
+To resolve this issue, this module migrates current and previous
+contract calendars into the calendar_ids and thus the auto-generated
+calendar. Additionally, changes to the employee calendar by contracts
+are prevented. The resource_calendar_id field is hidden in contract
+views, since all working times should be managed in the calendar_ids
+field for each employee. However, it is still possible to keep a
+meaningful contract history, e.g. for salary information.
 
 **Table of contents**
 
 .. contents::
    :local:
+
+Usage
+=====
+
+
 
 Bug Tracker
 ===========
@@ -68,7 +75,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/hr/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/hr/issues/new?body=module:%20hr_contract_employee_calendar_planning%0Aversion:%2016.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/hr/issues/new?body=module:%20hr_contract_employee_calendar_planning%0Aversion:%2018.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -76,17 +83,17 @@ Credits
 =======
 
 Authors
-~~~~~~~
+-------
 
 * cibex
 
 Contributors
-~~~~~~~~~~~~
+------------
 
-* Jonas Buchholz <J.Buchholz@cibex.net>
+- Jonas Buchholz <J.Buchholz@cibex.net>
 
 Maintainers
-~~~~~~~~~~~
+-----------
 
 This module is maintained by the OCA.
 
@@ -98,6 +105,6 @@ OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
 
-This module is part of the `OCA/hr <https://github.com/OCA/hr/tree/16.0/hr_contract_employee_calendar_planning>`_ project on GitHub.
+This module is part of the `OCA/hr <https://github.com/OCA/hr/tree/18.0/hr_contract_employee_calendar_planning>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
