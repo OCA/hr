@@ -1,14 +1,11 @@
 import logging
 
-from odoo import SUPERUSER_ID, api
-
 _logger = logging.getLogger(__name__)
 
 
-def post_init_hook(cr, registry, employees=None):
+def post_init_hook(env, employees=None):
     """Migrate calendars from contracts to calendar_ids
     to have consistent work schedule history"""
-    env = api.Environment(cr, SUPERUSER_ID, {})
     if not employees:
         employees = env["hr.employee"].with_context(active_test=False).search([])
 
@@ -20,9 +17,18 @@ def post_init_hook(cr, registry, employees=None):
             # filter calendar_ids to check for overlaps with contracts
             # with the same work schedule
             cal_ids = employee.calendar_ids.filtered(
-                lambda x: x.calendar_id == contract.resource_calendar_id
-                and (not x.date_start or not date_end or x.date_start < date_end)
-                and (not x.date_end or not date_start or x.date_end > date_start)
+                lambda x, contract=contract: x.calendar_id
+                == contract.resource_calendar_id
+                and (
+                    not x.date_start
+                    or not contract.date_end
+                    or x.date_start < contract.date_end
+                )
+                and (
+                    not x.date_end
+                    or not contract.date_start
+                    or x.date_end > contract.date_start
+                )
             )
             if cal_ids:
                 _logger.info(f"{contract} is overlapping with {cal_ids}")
@@ -43,7 +49,8 @@ def post_init_hook(cr, registry, employees=None):
             else:
                 _logger.info(
                     f"adding new calendar_id for {contract.employee_id.name}: "
-                    f"{contract.resource_calendar_id.name} from {date_start} to {date_end}"
+                    f"{contract.resource_calendar_id.name} "
+                    f"from {date_start} to {date_end}"
                 )
                 contract_calendar_lines.append(
                     (
