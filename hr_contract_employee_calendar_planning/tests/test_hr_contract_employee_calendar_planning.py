@@ -19,7 +19,9 @@ class TestHrContractEmployeeCalendarPlanning(TestContractCommon):
         )
 
         # newly created contracts get the same calendar as the employee
-        self.employee.resource_calendar_id = self.env["resource.calendar"].browse([1])
+        self.employee.resource_calendar_id = self.env.ref(
+            "resource.resource_calendar_std"
+        )
         self.env["hr.contract"].create(
             {
                 "name": "contract1",
@@ -30,7 +32,9 @@ class TestHrContractEmployeeCalendarPlanning(TestContractCommon):
                 "date_end": datetime.strptime("2019-11-30", "%Y-%m-%d").date(),
             }
         )
-        self.employee.resource_calendar_id = self.env["resource.calendar"].browse([2])
+        self.employee.resource_calendar_id = self.env.ref(
+            "resource.resource_calendar_std_35h"
+        )
         self.env["hr.contract"].create(
             {
                 "name": "contract2",
@@ -68,7 +72,7 @@ class TestHrContractEmployeeCalendarPlanning(TestContractCommon):
             ),
         )
         # calendar migration from contracts
-        post_init_hook(self.env.cr, self.env.registry, self.employee)
+        post_init_hook(self.env, self.employee)
         self.assertEqual(
             8.0,
             self.employee.resource_calendar_id.get_work_hours_count(
@@ -78,9 +82,9 @@ class TestHrContractEmployeeCalendarPlanning(TestContractCommon):
         )
         self.assertTrue(calendar_ids.ids < self.employee.calendar_ids.ids)
 
-    def test_contract_create(self):
+    def test_contract_create_write(self):
         self.employee.resource_calendar_id = self.env["resource.calendar"].browse([1])
-        self.env["hr.contract"].create(
+        contract = self.env["hr.contract"].create(
             {
                 "name": "contract1",
                 "wage": 1,
@@ -88,6 +92,12 @@ class TestHrContractEmployeeCalendarPlanning(TestContractCommon):
                 "employee_id": self.employee.id,
                 "date_start": datetime.strptime("2018-11-30", "%Y-%m-%d").date(),
                 "date_end": datetime.strptime("2019-11-30", "%Y-%m-%d").date(),
+                "resource_calendar_id": self.env["resource.calendar"].browse([2]).id,
+            }
+        )
+        self.assertEqual(self.employee.resource_calendar_id.id, 1)
+        contract.write(
+            {
                 "resource_calendar_id": self.env["resource.calendar"].browse([2]).id,
             }
         )
