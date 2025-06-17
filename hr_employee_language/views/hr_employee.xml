@@ -8,14 +8,14 @@
             <notebook position="inside">
                 <page string="Languages" name="languages" groups="hr.group_hr_user">
                     <field name="language_ids" nolabel="1" colspan="4">
-                        <tree editable="bottom">
+                        <list editable="bottom">
                             <field name="name" />
                             <field name="description" />
                             <field name="can_read" />
                             <field name="can_write" />
                             <field name="can_speak" />
                             <field name="can_listen" />
-                        </tree>
+                        </list>
                     </field>
                 </page>
             </notebook>
