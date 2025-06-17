@@ -8,7 +8,9 @@ class HrEmployeeLanguage(models.Model):
     _name = "hr.employee.language"
     _description = "HR Employee Language"
 
-    name = fields.Selection(tools.scan_languages(), string="Language", required=True)
+    name = fields.Selection(
+        tools.misc.scan_languages(), string="Language", required=True
+    )
     description = fields.Char()
     employee_id = fields.Many2one("hr.employee", string="Employee", required=True)
     can_read = fields.Boolean(string="Read", default=True)
