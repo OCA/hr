@@ -37,7 +37,7 @@ class HrContract(models.Model):
         for contract in self:
             new_work_entry_dates = []
             for timesheet in timesheets.filtered(
-                lambda aal: aal.employee_id == contract.employee_id
+                lambda aal: aal.employee_id == contract.employee_id  # noqa: B023
             ):
                 if (
                     not timesheet._get_work_entry()
@@ -53,18 +53,16 @@ class HrContract(models.Model):
                         .astimezone(pytz.UTC)
                         .replace(tzinfo=None)
                     )
+                    if leave_entry_type:
+                        contract_name = f"{leave_entry_type.name}: "
+                    else:
+                        contract_name = ""
                     contract_vals += [
                         dict(
                             [
                                 (
                                     "name",
-                                    "%s%s"
-                                    % (
-                                        leave_entry_type.name + ": "
-                                        if leave_entry_type
-                                        else "",
-                                        contract.employee_id.name,
-                                    ),
+                                    f"{contract_name}{contract.employee_id.name}",
                                 ),
                                 ("date_start", date_start),
                                 ("date_stop", date_start + relativedelta(minutes=1)),

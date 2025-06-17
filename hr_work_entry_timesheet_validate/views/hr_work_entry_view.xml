@@ -2,7 +2,6 @@
 <!-- Copyright 2025- Le Filament (https://le-filament.com)
      License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
 <odoo>
-
     <record id="hr_work_entry_timesheet_validate_view_calendar" model="ir.ui.view">
         <field name="name">hr.work.entry.calendar.with_timesheet_validate</field>
         <field name="model">hr.work.entry</field>
@@ -54,5 +53,4 @@
             </field>
         </field>
     </record>
-
 </odoo>
