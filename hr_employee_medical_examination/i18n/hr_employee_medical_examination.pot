@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -232,12 +232,6 @@ msgid "Job"
 msgstr ""
 
 #. module: hr_employee_medical_examination
-#: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee_medical_examination____last_update
-#: model:ir.model.fields,field_description:hr_employee_medical_examination.field_wizard_generate_medical_examination____last_update
-msgid "Last Modified on"
-msgstr ""
-
-#. module: hr_employee_medical_examination
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee_medical_examination__write_uid
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_wizard_generate_medical_examination__write_uid
 msgid "Last Updated by"
@@ -247,11 +241,6 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee_medical_examination__write_date
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_wizard_generate_medical_examination__write_date
 msgid "Last Updated on"
-msgstr ""
-
-#. module: hr_employee_medical_examination
-#: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee_medical_examination__message_main_attachment_id
-msgid "Main Attachment"
 msgstr ""
 
 #. module: hr_employee_medical_examination
@@ -304,11 +293,6 @@ msgstr ""
 #. module: hr_employee_medical_examination
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee_medical_examination__name
 msgid "Name"
-msgstr ""
-
-#. module: hr_employee_medical_examination
-#: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee_medical_examination__activity_calendar_event_id
-msgid "Next Activity Calendar Event"
 msgstr ""
 
 #. module: hr_employee_medical_examination
@@ -406,16 +390,6 @@ msgstr ""
 #. module: hr_employee_medical_examination
 #: model:ir.ui.menu,name:hr_employee_medical_examination.hr_employee_medical_examination_all
 msgid "View Medical Examinations"
-msgstr ""
-
-#. module: hr_employee_medical_examination
-#: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee_medical_examination__website_message_ids
-msgid "Website Messages"
-msgstr ""
-
-#. module: hr_employee_medical_examination
-#: model:ir.model.fields,help:hr_employee_medical_examination.field_hr_employee_medical_examination__website_message_ids
-msgid "Website communication history"
 msgstr ""
 
 #. module: hr_employee_medical_examination
