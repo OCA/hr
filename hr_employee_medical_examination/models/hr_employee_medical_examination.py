@@ -27,7 +27,7 @@ class HrEmployeeMedicalExamination(models.Model):
         tracking=True,
     )
 
-    date = fields.Date(
+    date = fields.Datetime(
         string="Examination Date",
         tracking=True,
     )
