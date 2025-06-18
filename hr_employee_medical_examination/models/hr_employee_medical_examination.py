@@ -46,6 +46,11 @@ class HrEmployeeMedicalExamination(models.Model):
     year = fields.Char(default=lambda r: str(datetime.date.today().year))
 
     note = fields.Text(tracking=True)
+    address_id = fields.Many2one(
+        "res.partner",
+        tracking=True,
+        default=lambda self: self.env.company.partner_id.id,
+    )
 
     @api.onchange("date")
     def _onchange_date(self):
