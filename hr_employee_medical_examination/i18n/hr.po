@@ -13,14 +13,13 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 4.14.1\n"
 
 #. module: hr_employee_medical_examination
 #. odoo-python
 #: code:addons/hr_employee_medical_examination/wizards/wizard_generate_medical_examination.py:0
-#, python-format
 msgid "%(name)s on %(employee)s"
 msgstr ""
 
@@ -180,7 +179,6 @@ msgstr "Generiraj medicinski pregled"
 #: code:addons/hr_employee_medical_examination/wizards/wizard_generate_medical_examination.py:0
 #: model:ir.actions.act_window,name:hr_employee_medical_examination.wizard_generate_medical_examination_act_window
 #: model:ir.ui.menu,name:hr_employee_medical_examination.hr_employee_medical_examination_generate_wizard
-#, python-format
 msgid "Generate Medical Examinations"
 msgstr "Generiraj medicinske preglede"
 
@@ -236,12 +234,6 @@ msgid "Job"
 msgstr "Posao"
 
 #. module: hr_employee_medical_examination
-#: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee_medical_examination____last_update
-#: model:ir.model.fields,field_description:hr_employee_medical_examination.field_wizard_generate_medical_examination____last_update
-msgid "Last Modified on"
-msgstr "Zadnje modificirano"
-
-#. module: hr_employee_medical_examination
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee_medical_examination__write_uid
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_wizard_generate_medical_examination__write_uid
 msgid "Last Updated by"
@@ -252,11 +244,6 @@ msgstr "Zadnje ažurirano"
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_wizard_generate_medical_examination__write_date
 msgid "Last Updated on"
 msgstr ""
-
-#. module: hr_employee_medical_examination
-#: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee_medical_examination__message_main_attachment_id
-msgid "Main Attachment"
-msgstr "Glavni prilog"
 
 #. module: hr_employee_medical_examination
 #: model_terms:ir.ui.view,arch_db:hr_employee_medical_examination.hr_employee_medical_examination_form_view
@@ -308,11 +295,6 @@ msgstr ""
 #. module: hr_employee_medical_examination
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee_medical_examination__name
 msgid "Name"
-msgstr ""
-
-#. module: hr_employee_medical_examination
-#: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee_medical_examination__activity_calendar_event_id
-msgid "Next Activity Calendar Event"
 msgstr ""
 
 #. module: hr_employee_medical_examination
@@ -427,3 +409,9 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_wizard_generate_medical_examination__year
 msgid "Year"
 msgstr ""
+
+#~ msgid "Last Modified on"
+#~ msgstr "Zadnje modificirano"
+
+#~ msgid "Main Attachment"
+#~ msgstr "Glavni prilog"
