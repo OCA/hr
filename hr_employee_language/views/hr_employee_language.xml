@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!-- Language -->
+    <record id="view_hr_employee_language_tree" model="ir.ui.view">
+        <field name="name">hr.employee.language.tree</field>
+        <field name="model">hr.employee.language</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="employee_id" />
+                <field name="name" />
+                <field name="description" />
+                <field name="can_read" />
+                <field name="can_write" />
+                <field name="can_speak" />
+                <field name="can_listen" />
+            </tree>
+        </field>
+    </record>
+    <record id="view_hr_employee_language_form" model="ir.ui.view">
+        <field name="name">hr.employee.language.form</field>
+        <field name="model">hr.employee.language</field>
+        <field name="arch" type="xml">
+            <form string="Language">
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="description" />
+                        <field name="employee_id" />
+                        <field name="can_read" />
+                        <field name="can_write" />
+                        <field name="can_speak" />
+                        <field name="can_listen" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="view_hr_employee_language_search" model="ir.ui.view">
+        <field name="name">hr.employee.language.search</field>
+        <field name="model">hr.employee.language</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" />
+                <field name="employee_id" />
+                <filter
+                    string="Can Read"
+                    name="can_read"
+                    domain="[('can_read', '=', True)]"
+                    help="Can Read"
+                />
+                <filter
+                    string="Can Write"
+                    name="can_write"
+                    domain="[('can_write', '=', True)]"
+                    help="Can Write"
+                />
+                <filter
+                    string="Can Speak"
+                    name="can_speak"
+                    domain="[('can_speak', '=', True)]"
+                    help="Can Speak"
+                />
+                <filter
+                    string="Can Listen"
+                    name="can_listen"
+                    domain="[('can_listen', '=', True)]"
+                    help="Can Listen"
+                />
+                <group expand="0" name="group_by" string="Group By">
+                    <filter
+                        name="name"
+                        string="Language"
+                        context="{'group_by': 'name'}"
+                    />
+                    <filter
+                        name="employee_id"
+                        string="Employee"
+                        context="{'group_by' : 'employee_id'}"
+                    />
+                </group>
+            </search>
+        </field>
+    </record>
+    <record id="open_view_hr_employee_language_form" model="ir.actions.act_window">
+        <field name="name">Languages</field>
+        <field name="res_model">hr.employee.language</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_hr_employee_language_search" />
+    </record>
+    <menuitem
+        id="menu_open_view_hr_employee_language_form"
+        name="Languages"
+        parent="hr.menu_hr_root"
+        action="open_view_hr_employee_language_form"
+    />
+</odoo>
