@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!--
     Copyright 2021 Creu Blanca
-    License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
+    License AGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
 -->
 <odoo noupdate="1">
     <record id="tier_definition_personal_equipment_request" model="tier.definition">
