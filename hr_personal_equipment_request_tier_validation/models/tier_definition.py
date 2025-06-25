@@ -5,7 +5,6 @@ from odoo import api, models
 
 
 class TierDefinition(models.Model):
-
     _inherit = "tier.definition"
 
     @api.model

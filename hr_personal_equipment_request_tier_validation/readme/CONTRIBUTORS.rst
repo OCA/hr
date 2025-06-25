@@ -1,1 +1,0 @@
-* Creu Blanca

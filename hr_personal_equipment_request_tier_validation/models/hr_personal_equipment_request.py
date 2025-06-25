@@ -5,7 +5,6 @@ from odoo import models
 
 
 class HrPersonalEquipmentRequest(models.Model):
-
     _name = "hr.personal.equipment.request"
     _inherit = ["hr.personal.equipment.request", "tier.validation"]
     _tier_validation_manual_config = False
