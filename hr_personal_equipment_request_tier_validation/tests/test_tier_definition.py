@@ -1,14 +1,15 @@
 # Copyright 2024 Dixmit
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo.tests.common import TransactionCase
+from odoo.addons.base.tests.common import BaseCommon
 
 
-class TestTierDefinition(TransactionCase):
-    def setUp(self):
-        super().setUp()
+class TestTierDefinition(BaseCommon):
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
 
-        self.tier_definition = self.env["tier.definition"].create(
+        cls.tier_definition = cls.env["tier.definition"].create(
             {
                 "name": "Test Tier Definition",
             }
