@@ -1,0 +1,154 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* hr_contract_bonus
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-07-09 13:23+0000\n"
+"PO-Revision-Date: 2025-07-09 13:23+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hr_contract_bonus
+#: model:ir.model.fields,field_description:hr_contract_bonus.field_hr_contract_bonus__amount
+msgid "Bonus Amount"
+msgstr "Importe del bonus"
+
+#. module: hr_contract_bonus
+#: model:ir.model.fields,field_description:hr_contract_bonus.field_hr_contract_bonus__frequency
+msgid "Bonus Frequency"
+msgstr "Frecuencia del bonus"
+
+#. module: hr_contract_bonus
+#: model:ir.model.fields,field_description:hr_contract_bonus.field_hr_contract_bonus__type
+msgid "Bonus Type"
+msgstr "Tipo de bonus"
+
+#. module: hr_contract_bonus
+#: model:ir.model.fields,field_description:hr_contract_bonus.field_hr_contract__bonus_ids
+msgid "Bonuses"
+msgstr ""
+
+#. module: hr_contract_bonus
+#: model:ir.model,name:hr_contract_bonus.model_hr_contract
+msgid "Contract"
+msgstr "Contrato del empleado"
+
+#. module: hr_contract_bonus
+#: model:ir.model.fields,field_description:hr_contract_bonus.field_hr_contract_bonus__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: hr_contract_bonus
+#: model:ir.model.fields,field_description:hr_contract_bonus.field_hr_contract_bonus__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: hr_contract_bonus
+#: model:ir.model.fields,field_description:hr_contract_bonus.field_hr_contract_bonus__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: hr_contract_bonus
+#: model:ir.actions.act_window,name:hr_contract_bonus.action_hr_contract_bonus
+#: model:ir.ui.menu,name:hr_contract_bonus.menu_hr_contract_bonus
+msgid "Employee Bonuses"
+msgstr "Bonus para empleados"
+
+#. module: hr_contract_bonus
+#: model:ir.model,name:hr_contract_bonus.model_hr_contract_bonus
+msgid "Employee Contract Bonus"
+msgstr "Bonus por contrato de empleado"
+
+#. module: hr_contract_bonus
+#: model:ir.model.fields.selection,name:hr_contract_bonus.selection__hr_contract_bonus__type__fixed
+msgid "Fixed Amount"
+msgstr "Importe fijo"
+
+#. module: hr_contract_bonus
+#: model:ir.model.fields,help:hr_contract_bonus.field_hr_contract_bonus__frequency
+msgid "Frequency at which the bonus is applied to the employee's contract."
+msgstr "Frecuencia con la que se aplica el bonus al contrato del trabajador."
+
+#. module: hr_contract_bonus
+#: model:ir.model.fields,field_description:hr_contract_bonus.field_hr_contract_bonus__id
+msgid "ID"
+msgstr ""
+
+#. module: hr_contract_bonus
+#: model:ir.model.fields,field_description:hr_contract_bonus.field_hr_contract_bonus__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: hr_contract_bonus
+#: model:ir.model.fields,field_description:hr_contract_bonus.field_hr_contract_bonus__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: hr_contract_bonus
+#: model:ir.model.fields,help:hr_contract_bonus.field_hr_contract__bonus_ids
+msgid "List of bonuses that can be applied to the employee's contract."
+msgstr "Listado de bonus que se pueden aplicar al contrato del trabajador."
+
+#. module: hr_contract_bonus
+#: model:ir.model.fields.selection,name:hr_contract_bonus.selection__hr_contract_bonus__frequency__monthly
+msgid "Monthly"
+msgstr "Mensualmente"
+
+#. module: hr_contract_bonus
+#: model:ir.model.fields,field_description:hr_contract_bonus.field_hr_contract_bonus__name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: hr_contract_bonus
+#: model:ir.model.fields,help:hr_contract_bonus.field_hr_contract_bonus__name
+msgid "Name of the bonus to be applied to the employee's contract."
+msgstr "Nombre del bonus que se aplicará al contrato del trabajador."
+
+#. module: hr_contract_bonus
+#: model:ir.model.fields.selection,name:hr_contract_bonus.selection__hr_contract_bonus__type__percentage
+msgid "Percentage of Salary"
+msgstr "Porcentaje del salario"
+
+#. module: hr_contract_bonus
+#: model:ir.model.fields,help:hr_contract_bonus.field_hr_contract_bonus__amount
+msgid "The amount of the bonus to be applied to the employee's contract."
+msgstr "El importe del bonus que se aplicará al contrato del trabajador."
+
+#. module: hr_contract_bonus
+#: model:ir.model.fields,field_description:hr_contract_bonus.field_hr_contract__total_annual_wage_with_bonus
+msgid "Total annual wage with bonus"
+msgstr "Salario anual total con bonus"
+
+#. module: hr_contract_bonus
+#: model:ir.model.fields,field_description:hr_contract_bonus.field_hr_contract__total_annual_wage_without_bonus
+msgid "Total annual wage without bonus"
+msgstr "Salario anual total sin bonus"
+
+#. module: hr_contract_bonus
+#: model:ir.model.fields,help:hr_contract_bonus.field_hr_contract__total_annual_wage_without_bonus
+msgid "Total wage excluding the bonus applied to the employee's contract."
+msgstr ""
+"Salario total excluyendo el bonus aplicado al contrato del trabajador."
+
+#. module: hr_contract_bonus
+#: model:ir.model.fields,help:hr_contract_bonus.field_hr_contract__total_annual_wage_with_bonus
+msgid "Total wage including the bonus applied to the employee's contract."
+msgstr ""
+"Salario total incluyendo el bonus aplicado al contrato del trabajador."
+
+#. module: hr_contract_bonus
+#: model:ir.model.fields,help:hr_contract_bonus.field_hr_contract_bonus__type
+msgid "Type of bonus to be applied. Fixed amount or percentage of the salary."
+msgstr "Tipo de bonus a aplicar: Importe fijo o porcentaje del salario."
+
+#. module: hr_contract_bonus
+#: model:ir.model.fields.selection,name:hr_contract_bonus.selection__hr_contract_bonus__frequency__yearly
+msgid "Yearly"
+msgstr "Anualmente"

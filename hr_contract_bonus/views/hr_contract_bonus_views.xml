@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+  <!-- Copyright 2025 Antoni Marroig (APSL-Nagarro)<amarroig@apsl.net>
+       License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+
+  <record id="view_hr_contract_bonus_tree" model="ir.ui.view">
+    <field name="name">hr.contract.bonus.tree</field>
+    <field name="model">hr.contract.bonus</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="name" />
+        <field name="type" />
+        <field name="amount" />
+        <field name="frequency" />
+      </tree>
+    </field>
+  </record>
+
+  <record id="view_hr_contract_bonus_form" model="ir.ui.view">
+    <field name="name">hr.contract.bonus.form</field>
+    <field name="model">hr.contract.bonus</field>
+    <field name="arch" type="xml">
+      <form>
+        <sheet>
+          <group>
+            <field name="name" />
+            <field name="type" />
+            <field name="amount" />
+            <field name="frequency" />
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="action_hr_contract_bonus" model="ir.actions.act_window">
+    <field name="name">Employee Bonuses</field>
+    <field name="res_model">hr.contract.bonus</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+  <menuitem
+        id="menu_hr_contract_bonus"
+        name="Employee Bonuses"
+        action="action_hr_contract_bonus"
+        parent="hr_contract.menu_human_resources_configuration_contract"
+        sequence="999"
+    />
+
+</odoo>
