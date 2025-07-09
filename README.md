@@ -22,6 +22,7 @@ Available addons
 addon | version | maintainers | summary
 --- | --- | --- | ---
 [hr_announcement](hr_announcement/) | 17.0.1.0.0 |  | Announcement
+[hr_contract_bonus](hr_contract_bonus/) | 17.0.1.0.0 | <a href='https://github.com/peluko00'><img src='https://github.com/peluko00.png' width='32' height='32' style='border-radius:50%;' alt='peluko00'/></a> | Manage bonuses in employee contracts
 [hr_course](hr_course/) | 17.0.1.0.1 |  | This module allows your to manage employee's training courses
 [hr_department_code](hr_department_code/) | 17.0.1.0.0 |  | HR department code
 [hr_employee_age](hr_employee_age/) | 17.0.1.0.0 |  | Age field for employee
