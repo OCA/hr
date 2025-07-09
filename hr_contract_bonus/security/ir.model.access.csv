@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hr_contract_bonus_manager,hr.contract.bonus.manager,model_hr_contract_bonus,hr_contract.group_hr_contract_manager,1,1,1,1
+access_hr_contract_bonus_hr_employee_manager,hr.contract.bonus.hr.employee.manager,model_hr_contract_bonus,hr_contract.group_hr_contract_employee_manager,1,0,0,0

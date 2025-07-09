@@ -1,0 +1,16 @@
+<!-- Copyright 2025 APSL-Nagarro Antoni Marroig
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record model="ir.ui.view" id="view_hr_contract_view_form_inherit">
+        <field name="name">hr.contract.form.inherit</field>
+        <field name="model">hr.contract</field>
+        <field name="inherit_id" ref="hr_contract.hr_contract_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='wage']" position="after">
+                <field name="total_annual_wage_without_bonus" />
+                <field name="bonus_ids" widget="many2many_tags" />
+                <field name="total_annual_wage_with_bonus" />
+            </xpath>
+        </field>
+    </record>
+</odoo>
