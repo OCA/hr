@@ -6,255 +6,257 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2025-07-22 16:25+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.10.4\n"
 
 #. module: hr_maintenance_workspace
 #: model_terms:ir.ui.view,arch_db:hr_maintenance_workspace.maintenance_workspace_view_kanban
 msgid "<b>Employee Equipment Count:</b>"
-msgstr ""
+msgstr "<b>Conteggio dispositivi dipendente:</b>"
 
 #. module: hr_maintenance_workspace
 #: model_terms:ir.ui.view,arch_db:hr_maintenance_workspace.maintenance_workspace_view_kanban
 msgid "<b>Employees:</b>"
-msgstr ""
+msgstr "<b>Dipendenti:</b>"
 
 #. module: hr_maintenance_workspace
 #: model_terms:ir.ui.view,arch_db:hr_maintenance_workspace.maintenance_workspace_view_kanban
 msgid "<b>Equipments:</b>"
-msgstr ""
+msgstr "<b>Attrezzature:</b>"
 
 #. module: hr_maintenance_workspace
 #: model_terms:ir.ui.view,arch_db:hr_maintenance_workspace.maintenance_workspace_view_form
 msgid "<span class=\"o_stat_text\">Emplo. Equipments</span>"
-msgstr ""
+msgstr "<span class=\"o_stat_text\">Attrezzature dipendente</span>"
 
 #. module: hr_maintenance_workspace
 #: model:ir.model.fields,field_description:hr_maintenance_workspace.field_maintenance_workspace__message_needaction
 msgid "Action Needed"
-msgstr ""
+msgstr "Azione richiesta"
 
 #. module: hr_maintenance_workspace
 #: model:ir.model.fields,field_description:hr_maintenance_workspace.field_maintenance_workspace__message_attachment_count
 msgid "Attachment Count"
-msgstr ""
+msgstr "Conteggio allegati"
 
 #. module: hr_maintenance_workspace
 #: model:ir.model.fields,field_description:hr_maintenance_workspace.field_maintenance_workspace__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Creato da"
 
 #. module: hr_maintenance_workspace
 #: model:ir.model.fields,field_description:hr_maintenance_workspace.field_maintenance_workspace__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Creato il"
 
 #. module: hr_maintenance_workspace
 #: model_terms:ir.ui.view,arch_db:hr_maintenance_workspace.maintenance_equipment_view_form_inherit_hr
 #: model_terms:ir.ui.view,arch_db:hr_maintenance_workspace.maintenance_workspace_view_form
 msgid "Department"
-msgstr ""
+msgstr "Reparto"
 
 #. module: hr_maintenance_workspace
 #: model:ir.model.fields,field_description:hr_maintenance_workspace.field_maintenance_workspace__description
 msgid "Description"
-msgstr ""
+msgstr "Descrizione"
 
 #. module: hr_maintenance_workspace
 #: model:ir.model.fields,field_description:hr_maintenance_workspace.field_hr_employee__display_name
 #: model:ir.model.fields,field_description:hr_maintenance_workspace.field_maintenance_equipment__display_name
 #: model:ir.model.fields,field_description:hr_maintenance_workspace.field_maintenance_workspace__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nome visualizzato"
 
 #. module: hr_maintenance_workspace
 #: model:ir.model,name:hr_maintenance_workspace.model_hr_employee
 #: model_terms:ir.ui.view,arch_db:hr_maintenance_workspace.maintenance_equipment_view_form_inherit_hr
 #: model_terms:ir.ui.view,arch_db:hr_maintenance_workspace.maintenance_workspace_view_form
 msgid "Employee"
-msgstr ""
+msgstr "Dipendente"
 
 #. module: hr_maintenance_workspace
 #: model:ir.model.fields,field_description:hr_maintenance_workspace.field_maintenance_workspace__employee_equipment_count
 msgid "Employee Equipment Count"
-msgstr ""
+msgstr "Conteggio attrezzature dipendente"
 
 #. module: hr_maintenance_workspace
 #: model:ir.model.fields,field_description:hr_maintenance_workspace.field_maintenance_workspace__employee_count
 msgid "Employee count"
-msgstr ""
+msgstr "Conteggio dipendenti"
 
 #. module: hr_maintenance_workspace
 #: model:ir.model.fields,field_description:hr_maintenance_workspace.field_maintenance_workspace__employee_ids
 #: model_terms:ir.ui.view,arch_db:hr_maintenance_workspace.maintenance_workspace_view_form
 msgid "Employees"
-msgstr ""
+msgstr "Dipendenti"
 
 #. module: hr_maintenance_workspace
 #: model:ir.model.fields,field_description:hr_maintenance_workspace.field_maintenance_workspace__equipment_ids
 msgid "Equipment"
-msgstr ""
+msgstr "Attrezzatura"
 
 #. module: hr_maintenance_workspace
 #: model:ir.model.fields,field_description:hr_maintenance_workspace.field_maintenance_workspace__equipment_count
 msgid "Equipment Count"
-msgstr ""
+msgstr "Conteggio attrezzature"
 
 #. module: hr_maintenance_workspace
 #: model_terms:ir.ui.view,arch_db:hr_maintenance_workspace.maintenance_workspace_view_form
 msgid "Equipments"
-msgstr ""
+msgstr "Attrezzature"
 
 #. module: hr_maintenance_workspace
 #: model:ir.model.fields,field_description:hr_maintenance_workspace.field_maintenance_workspace__message_follower_ids
 msgid "Followers"
-msgstr ""
+msgstr "Seguito da"
 
 #. module: hr_maintenance_workspace
 #: model:ir.model.fields,field_description:hr_maintenance_workspace.field_maintenance_workspace__message_channel_ids
 msgid "Followers (Channels)"
-msgstr ""
+msgstr "Seguito da (canali)"
 
 #. module: hr_maintenance_workspace
 #: model:ir.model.fields,field_description:hr_maintenance_workspace.field_maintenance_workspace__message_partner_ids
 msgid "Followers (Partners)"
-msgstr ""
+msgstr "Seguito da (partner)"
 
 #. module: hr_maintenance_workspace
 #: model:ir.model.fields,field_description:hr_maintenance_workspace.field_hr_employee__id
 #: model:ir.model.fields,field_description:hr_maintenance_workspace.field_maintenance_equipment__id
 #: model:ir.model.fields,field_description:hr_maintenance_workspace.field_maintenance_workspace__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: hr_maintenance_workspace
 #: model:ir.model.fields,help:hr_maintenance_workspace.field_maintenance_workspace__message_needaction
 #: model:ir.model.fields,help:hr_maintenance_workspace.field_maintenance_workspace__message_unread
 msgid "If checked, new messages require your attention."
-msgstr ""
+msgstr "Se selezionata, nuovi messaggi richiedono attenzione."
 
 #. module: hr_maintenance_workspace
 #: model:ir.model.fields,help:hr_maintenance_workspace.field_maintenance_workspace__message_has_error
 msgid "If checked, some messages have a delivery error."
-msgstr ""
+msgstr "Se selezionata, alcuni messaggi hanno un errore di consegna."
 
 #. module: hr_maintenance_workspace
 #: model:ir.model.fields,field_description:hr_maintenance_workspace.field_maintenance_workspace__message_is_follower
 msgid "Is Follower"
-msgstr ""
+msgstr "Segue"
 
 #. module: hr_maintenance_workspace
 #: model:ir.model.fields,field_description:hr_maintenance_workspace.field_hr_employee____last_update
 #: model:ir.model.fields,field_description:hr_maintenance_workspace.field_maintenance_equipment____last_update
 #: model:ir.model.fields,field_description:hr_maintenance_workspace.field_maintenance_workspace____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Ultima modifica il"
 
 #. module: hr_maintenance_workspace
 #: model:ir.model.fields,field_description:hr_maintenance_workspace.field_maintenance_workspace__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Ultimo aggiornamento di"
 
 #. module: hr_maintenance_workspace
 #: model:ir.model.fields,field_description:hr_maintenance_workspace.field_maintenance_workspace__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Ultimo aggiornamento il"
 
 #. module: hr_maintenance_workspace
 #: model:ir.model.fields,field_description:hr_maintenance_workspace.field_maintenance_workspace__location
 #: model_terms:ir.ui.view,arch_db:hr_maintenance_workspace.maintenance_workspace_view_search
 msgid "Location"
-msgstr ""
+msgstr "Ubicazione"
 
 #. module: hr_maintenance_workspace
 #: model:ir.model.fields,field_description:hr_maintenance_workspace.field_maintenance_workspace__message_main_attachment_id
 msgid "Main Attachment"
-msgstr ""
+msgstr "Allegato principale"
 
 #. module: hr_maintenance_workspace
 #: model:ir.model,name:hr_maintenance_workspace.model_maintenance_equipment
 msgid "Maintenance Equipment"
-msgstr ""
+msgstr "Attrezzatura manutenzione"
 
 #. module: hr_maintenance_workspace
 #: model:ir.model.fields,field_description:hr_maintenance_workspace.field_maintenance_workspace__message_has_error
 msgid "Message Delivery error"
-msgstr ""
+msgstr "Errore di consegna messaggio"
 
 #. module: hr_maintenance_workspace
 #: model:ir.model.fields,field_description:hr_maintenance_workspace.field_maintenance_workspace__message_ids
 msgid "Messages"
-msgstr ""
+msgstr "Messaggi"
 
 #. module: hr_maintenance_workspace
 #: model:ir.model.fields,field_description:hr_maintenance_workspace.field_maintenance_workspace__name
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 #. module: hr_maintenance_workspace
 #: model:ir.model.fields,field_description:hr_maintenance_workspace.field_maintenance_workspace__message_needaction_counter
 msgid "Number of Actions"
-msgstr ""
+msgstr "Numero di azioni"
 
 #. module: hr_maintenance_workspace
 #: model:ir.model.fields,field_description:hr_maintenance_workspace.field_maintenance_workspace__message_has_error_counter
 msgid "Number of errors"
-msgstr ""
+msgstr "Numero di errori"
 
 #. module: hr_maintenance_workspace
 #: model:ir.model.fields,help:hr_maintenance_workspace.field_maintenance_workspace__message_needaction_counter
 msgid "Number of messages which requires an action"
-msgstr ""
+msgstr "Numero di messaggi che richiedono un'azione"
 
 #. module: hr_maintenance_workspace
 #: model:ir.model.fields,help:hr_maintenance_workspace.field_maintenance_workspace__message_has_error_counter
 msgid "Number of messages with delivery error"
-msgstr ""
+msgstr "Numero di messaggi con errore di consegna"
 
 #. module: hr_maintenance_workspace
 #: model:ir.model.fields,help:hr_maintenance_workspace.field_maintenance_workspace__message_unread_counter
 msgid "Number of unread messages"
-msgstr ""
+msgstr "Numero di messaggi non letti"
 
 #. module: hr_maintenance_workspace
 #: model:ir.model.fields.selection,name:hr_maintenance_workspace.selection__maintenance_equipment__equipment_assign_to__other
 msgid "Other"
-msgstr ""
+msgstr "Altro"
 
 #. module: hr_maintenance_workspace
 #: model_terms:ir.ui.view,arch_db:hr_maintenance_workspace.maintenance_workspace_view_form
 msgid "Owner"
-msgstr ""
+msgstr "Proprietario"
 
 #. module: hr_maintenance_workspace
 #: model:ir.model.fields,field_description:hr_maintenance_workspace.field_maintenance_workspace__message_unread
 msgid "Unread Messages"
-msgstr ""
+msgstr "Messaggi non letti"
 
 #. module: hr_maintenance_workspace
 #: model:ir.model.fields,field_description:hr_maintenance_workspace.field_maintenance_workspace__message_unread_counter
 msgid "Unread Messages Counter"
-msgstr ""
+msgstr "Contatore messaggi non letti"
 
 #. module: hr_maintenance_workspace
 #: model:ir.model.fields,field_description:hr_maintenance_workspace.field_maintenance_equipment__equipment_assign_to
 msgid "Used By"
-msgstr ""
+msgstr "Usata da"
 
 #. module: hr_maintenance_workspace
 #: model:ir.model.fields,field_description:hr_maintenance_workspace.field_maintenance_workspace__website_message_ids
 msgid "Website Messages"
-msgstr ""
+msgstr "Messaggi sito web"
 
 #. module: hr_maintenance_workspace
 #: model:ir.model.fields,help:hr_maintenance_workspace.field_maintenance_workspace__website_message_ids
 msgid "Website communication history"
-msgstr ""
+msgstr "Cronologia comunicazioni sito web"
 
 #. module: hr_maintenance_workspace
 #: model:ir.model,name:hr_maintenance_workspace.model_maintenance_workspace
@@ -265,12 +267,12 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:hr_maintenance_workspace.maintenance_equipment_view_tree_inherit_hr
 #: model_terms:ir.ui.view,arch_db:hr_maintenance_workspace.maintenance_workspace_view_form
 msgid "Workspace"
-msgstr ""
+msgstr "Spazio di lavoro"
 
 #. module: hr_maintenance_workspace
 #: model:ir.model.fields,field_description:hr_maintenance_workspace.field_hr_employee__workspace_count
 msgid "Workspace Count"
-msgstr ""
+msgstr "Conteggio spazio di lavoro"
 
 #. module: hr_maintenance_workspace
 #: code:addons/hr_maintenance_workspace/models/hr_employee.py:0
@@ -281,4 +283,4 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:hr_maintenance_workspace.maintenance_workspace_view_search
 #, python-format
 msgid "Workspaces"
-msgstr ""
+msgstr "Spazi di lavoro"
