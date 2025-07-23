@@ -19,13 +19,20 @@
             <field name="application_count" position="after">
                 <field name="to_recruit" />
             </field>
-            <xpath expr="//ul/li[1]" position="inside">
-                <span
-                    t-attf-class="{{ record.to_recruit.raw_value &gt; 0 ? 'to-recruit' : 'text-secondary' }}"
-                    groups="hr_recruitment.group_hr_recruitment_interviewer"
-                >
-                    <field name="to_recruit" /> To be recruited
-                </span>
+            <xpath
+                expr="//ul[contains(@class, 'o_job_activities')]/li[1]"
+                position="replace"
+            >
+                <li>
+                    <a
+                        name="edit_job"
+                        type="edit"
+                        t-attf-class="{{ record.to_recruit.raw_value &gt; 0 ? 'to-recruit' : 'text-secondary' }}"
+                    >
+                        <field name="to_recruit" modifiers="{'readonly': True}" />
+ To be recruited
+                    </a>
+                </li>
             </xpath>
         </field>
     </record>
