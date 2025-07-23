@@ -21,7 +21,7 @@
             </field>
             <xpath
                 expr="//ul[contains(@class, 'o_job_activities')]/li[1]"
-                position="replace"
+                position="inside"
             >
                 <li>
                     <a
