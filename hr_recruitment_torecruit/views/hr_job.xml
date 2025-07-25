@@ -19,9 +19,10 @@
             <field name="application_count" position="after">
                 <field name="to_recruit" />
             </field>
+
             <xpath
-                expr="//ul[contains(@class, 'o_job_activities')]/li[1]"
-                position="inside"
+                expr="//ul[contains(@class, 'o_job_activities')]/li[a/field[@name='no_of_recruitment']]"
+                position="before"
             >
                 <li>
                     <a
@@ -30,12 +31,20 @@
                         t-attf-class="{{ record.to_recruit.raw_value &gt; 0 ? 'to-recruit' : 'text-secondary' }}"
                     >
                         <field name="to_recruit" modifiers="{'readonly': True}" />
- To be recruited
+                    To be recruited
                     </a>
                 </li>
             </xpath>
+
+            <xpath
+                expr="//ul[contains(@class, 'o_job_activities')]/li[a/field[@name='no_of_recruitment']]"
+                position="attributes"
+            >
+                <attribute name="t-if">False</attribute>
+            </xpath>
         </field>
     </record>
+
 
     <record id="hr_job_view_tree_inherit_inherit_hr_recruitment" model="ir.ui.view">
         <field name="name">hr.job tree</field>
