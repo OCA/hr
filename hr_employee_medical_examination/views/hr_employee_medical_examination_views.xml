@@ -79,6 +79,25 @@
                 <field name="name" />
                 <field name="employee_id" />
                 <field name="state" />
+                <separator />
+                <filter
+                    invisible="1"
+                    string="Late Activities"
+                    name="activities_overdue"
+                    domain="[('my_activity_date_deadline', '&lt;', context_today().strftime('%Y-%m-%d'))]"
+                />
+                <filter
+                    invisible="1"
+                    string="Today Activities"
+                    name="activities_today"
+                    domain="[('my_activity_date_deadline', '=', context_today().strftime('%Y-%m-%d'))]"
+                />
+                <filter
+                    invisible="1"
+                    string="Future Activities"
+                    name="activities_upcoming_all"
+                    domain="[('my_activity_date_deadline', '&gt;', context_today().strftime('%Y-%m-%d'))]"
+                />
                 <group>
                     <filter
                         string="Passed"
@@ -113,13 +132,62 @@
             </tree>
         </field>
     </record>
+    <record model="ir.ui.view" id="hr_employee_medical_examination_kanban_view">
+        <field name="name">hr.employee.medical.examination.kanban</field>
+        <field name="model">hr.employee.medical.examination</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="state" />
+                <field name="id" />
+                <field name="employee_id" />
+                <field name="date" />
+                <field name="activity_ids" />
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click o_hr_kanban_record">
+                            <div class="oe_kanban_details">
+                                <div class="o_kanban_record_top">
+                                    <div class="o_kanban_record_headings">
+                                        <strong class="o_kanban_record_title">
+                                            <field name="name" />
+                                        </strong>
+                                        <span class="o_kanban_record_subtitle"><field
+                                                name="employee_id"
+                                            /></span>
+                                    </div>
+                                </div>
+                                <div class="o_kanban_record_bottom">
+                                    <div class="oe_kanban_bottom_left text-muted">
+                                        <span>
+                                            <t t-out="record.date.value" />
+                                        </span>
+                                        <field
+                                            name="activity_ids"
+                                            widget="kanban_activity"
+                                        />
+                                    </div>
+                                    <div class="oe_kanban_bottom_right">
+                                        <field
+                                            name="state"
+                                            widget="label_selection"
+                                            options="{'classes': {'pending': 'default', 'cancelled': 'default', 'rejected': 'default', 'done': 'success'}}"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
     <record
         model="ir.actions.act_window"
         id="hr_employee_medical_examination_act_window"
     >
         <field name="name">Employee Medical Examinations</field>
         <field name="res_model">hr.employee.medical.examination</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">tree,kanban,form</field>
     </record>
     <menuitem
         id="hr_employee_medical_examination_menu"
