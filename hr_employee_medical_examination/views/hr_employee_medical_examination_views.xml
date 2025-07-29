@@ -75,6 +75,25 @@
                 <field name="name" />
                 <field name="employee_id" />
                 <field name="state" />
+                <separator />
+                <filter
+                    invisible="1"
+                    string="Late Activities"
+                    name="activities_overdue"
+                    domain="[('my_activity_date_deadline', '&lt;', context_today().strftime('%Y-%m-%d'))]"
+                />
+                <filter
+                    invisible="1"
+                    string="Today Activities"
+                    name="activities_today"
+                    domain="[('my_activity_date_deadline', '=', context_today().strftime('%Y-%m-%d'))]"
+                />
+                <filter
+                    invisible="1"
+                    string="Future Activities"
+                    name="activities_upcoming_all"
+                    domain="[('my_activity_date_deadline', '&gt;', context_today().strftime('%Y-%m-%d'))]"
+                />
                 <group>
                     <filter
                         string="Passed"
@@ -109,13 +128,49 @@
             </list>
         </field>
     </record>
+    <record model="ir.ui.view" id="hr_employee_medical_examination_kanban_view">
+        <field name="name">hr.employee.medical.examination.kanban</field>
+        <field name="model">hr.employee.medical.examination</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <templates>
+                    <t t-name="card">
+                        <main>
+                            <div>
+                                <field class="fw-bold fs-5" name="name" />
+                            </div>
+                            <field name="employee_id" />
+                            <footer class="align-items-end">
+                                <div
+                                    class="d-flex flex-wrap gap-1 text-muted text-nowrap"
+                                >
+                                    <field name="date" />
+                                    <field
+                                        name="activity_ids"
+                                        widget="kanban_activity"
+                                        class="m-1 ms-2"
+                                    />
+                                </div>
+                                <field
+                                    name="state"
+                                    widget="label_selection"
+                                    options="{'classes': {'pending': 'info', 'cancelled': 'default', 'rejected': 'default', 'done': 'success'}}"
+                                    class="ms-auto"
+                                />
+                            </footer>
+                        </main>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
     <record
         model="ir.actions.act_window"
         id="hr_employee_medical_examination_act_window"
     >
         <field name="name">Employee Medical Examinations</field>
         <field name="res_model">hr.employee.medical.examination</field>
-        <field name="view_mode">list,form</field>
+        <field name="view_mode">list,kanban,form</field>
     </record>
     <menuitem
         id="hr_employee_medical_examination_menu"
