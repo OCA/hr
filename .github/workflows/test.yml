@@ -11,7 +11,7 @@ on:
 
 jobs:
   unreleased-deps:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, Linux]
     name: Detect unreleased dependencies
     steps:
       - uses: actions/checkout@v4
@@ -28,7 +28,7 @@ jobs:
               fi
           done
   test:
-    runs-on: ubuntu-22.04
+    runs-on: [self-hosted, Linux]
     container: ${{ matrix.container }}
     name: ${{ matrix.name }}
     strategy:

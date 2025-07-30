@@ -6,7 +6,7 @@ on:
 
 jobs:
   stale:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, Linux]
     steps:
       - name: Stale PRs and issues policy
         uses: actions/stale@v9
