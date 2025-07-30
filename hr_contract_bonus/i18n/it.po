@@ -6,146 +6,151 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2025-07-30 15:25+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.10.4\n"
 
 #. module: hr_contract_bonus
 #: model:ir.model.fields,field_description:hr_contract_bonus.field_hr_contract_bonus__amount
 msgid "Bonus Amount"
-msgstr ""
+msgstr "Valore bonus"
 
 #. module: hr_contract_bonus
 #: model:ir.model.fields,field_description:hr_contract_bonus.field_hr_contract_bonus__frequency
 msgid "Bonus Frequency"
-msgstr ""
+msgstr "Frequenza bonus"
 
 #. module: hr_contract_bonus
 #: model:ir.model.fields,field_description:hr_contract_bonus.field_hr_contract_bonus__type
 msgid "Bonus Type"
-msgstr ""
+msgstr "Tipo bonus"
 
 #. module: hr_contract_bonus
 #: model:ir.model.fields,field_description:hr_contract_bonus.field_hr_contract__bonus_ids
 msgid "Bonuses"
-msgstr ""
+msgstr "Bonus"
 
 #. module: hr_contract_bonus
 #: model:ir.model,name:hr_contract_bonus.model_hr_contract
 msgid "Contract"
-msgstr ""
+msgstr "Contratto"
 
 #. module: hr_contract_bonus
 #: model:ir.model.fields,field_description:hr_contract_bonus.field_hr_contract_bonus__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Creato da"
 
 #. module: hr_contract_bonus
 #: model:ir.model.fields,field_description:hr_contract_bonus.field_hr_contract_bonus__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Creato il"
 
 #. module: hr_contract_bonus
 #: model:ir.model.fields,field_description:hr_contract_bonus.field_hr_contract_bonus__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nome visualizzato"
 
 #. module: hr_contract_bonus
 #: model:ir.actions.act_window,name:hr_contract_bonus.action_hr_contract_bonus
 #: model:ir.ui.menu,name:hr_contract_bonus.menu_hr_contract_bonus
 msgid "Employee Bonuses"
-msgstr ""
+msgstr "Bonus dipendente"
 
 #. module: hr_contract_bonus
 #: model:ir.model,name:hr_contract_bonus.model_hr_contract_bonus
 msgid "Employee Contract Bonus"
-msgstr ""
+msgstr "Bonus contratto dipendente"
 
 #. module: hr_contract_bonus
 #: model:ir.model.fields.selection,name:hr_contract_bonus.selection__hr_contract_bonus__type__fixed
 msgid "Fixed Amount"
-msgstr ""
+msgstr "Importo fisso"
 
 #. module: hr_contract_bonus
 #: model:ir.model.fields,help:hr_contract_bonus.field_hr_contract_bonus__frequency
 msgid "Frequency at which the bonus is applied to the employee's contract."
-msgstr ""
+msgstr "Frequenza alla quale è applicato il bonus al contratto del dipendente."
 
 #. module: hr_contract_bonus
 #: model:ir.model.fields,field_description:hr_contract_bonus.field_hr_contract_bonus__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: hr_contract_bonus
 #: model:ir.model.fields,field_description:hr_contract_bonus.field_hr_contract_bonus__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Ultimo aggiornamento di"
 
 #. module: hr_contract_bonus
 #: model:ir.model.fields,field_description:hr_contract_bonus.field_hr_contract_bonus__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Ultimo aggiornamento il"
 
 #. module: hr_contract_bonus
 #: model:ir.model.fields,help:hr_contract_bonus.field_hr_contract__bonus_ids
 msgid "List of bonuses that can be applied to the employee's contract."
 msgstr ""
+"Elenco dei bonus che possono essere applicati al contratto del dipendente."
 
 #. module: hr_contract_bonus
 #: model:ir.model.fields.selection,name:hr_contract_bonus.selection__hr_contract_bonus__frequency__monthly
 msgid "Monthly"
-msgstr ""
+msgstr "Mensile"
 
 #. module: hr_contract_bonus
 #: model:ir.model.fields,field_description:hr_contract_bonus.field_hr_contract_bonus__name
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 #. module: hr_contract_bonus
 #: model:ir.model.fields,help:hr_contract_bonus.field_hr_contract_bonus__name
 msgid "Name of the bonus to be applied to the employee's contract."
-msgstr ""
+msgstr "Nome del bonus da applicare al contratto del dipendente."
 
 #. module: hr_contract_bonus
 #: model:ir.model.fields.selection,name:hr_contract_bonus.selection__hr_contract_bonus__type__percentage
 msgid "Percentage of Salary"
-msgstr ""
+msgstr "Percentuale dello stipendio"
 
 #. module: hr_contract_bonus
 #: model:ir.model.fields,help:hr_contract_bonus.field_hr_contract_bonus__amount
 msgid "The amount of the bonus to be applied to the employee's contract."
-msgstr ""
+msgstr "Il valore del bonus da applicare al contratto del dipendente."
 
 #. module: hr_contract_bonus
 #: model:ir.model.fields,field_description:hr_contract_bonus.field_hr_contract__total_annual_wage_with_bonus
 msgid "Total annual wage with bonus"
-msgstr ""
+msgstr "Retribuzione totale annua con bonus"
 
 #. module: hr_contract_bonus
 #: model:ir.model.fields,field_description:hr_contract_bonus.field_hr_contract__total_annual_wage_without_bonus
 msgid "Total annual wage without bonus"
-msgstr ""
+msgstr "Retribuzione totale annua senza bonus"
 
 #. module: hr_contract_bonus
 #: model:ir.model.fields,help:hr_contract_bonus.field_hr_contract__total_annual_wage_without_bonus
 msgid "Total wage excluding the bonus applied to the employee's contract."
 msgstr ""
+"Retribuzione totale escluso il bonus applicato al contratto del dipendente."
 
 #. module: hr_contract_bonus
 #: model:ir.model.fields,help:hr_contract_bonus.field_hr_contract__total_annual_wage_with_bonus
 msgid "Total wage including the bonus applied to the employee's contract."
 msgstr ""
+"Retribuzione totale incluso il bonus applicato al contratto del dipendente."
 
 #. module: hr_contract_bonus
 #: model:ir.model.fields,help:hr_contract_bonus.field_hr_contract_bonus__type
 msgid "Type of bonus to be applied. Fixed amount or percentage of the salary."
-msgstr ""
+msgstr "Tipo di bonus da applicare. Valore fisso o percentuale dello stipendio."
 
 #. module: hr_contract_bonus
 #: model:ir.model.fields.selection,name:hr_contract_bonus.selection__hr_contract_bonus__frequency__yearly
 msgid "Yearly"
-msgstr ""
+msgstr "Annuale"
