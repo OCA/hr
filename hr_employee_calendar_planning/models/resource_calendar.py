@@ -39,6 +39,7 @@ class ResourceCalendar(models.Model):
         for item in self.filtered("company_id"):
             total_items = self.env["hr.employee.calendar"].search_count(
                 [
+                    ("calendar_id", "=", item.id),
                     ("calendar_id.company_id", "=", item.company_id.id),
                     ("employee_id.company_id", "!=", item.company_id.id),
                     ("employee_id.company_id", "!=", False),
