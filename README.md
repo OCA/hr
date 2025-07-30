@@ -7,6 +7,8 @@
 
 <!-- /!\ do not modify above this line -->
 
+<!-- Test self-hosted runner configuration -->
+
 # hr
 
 hr
