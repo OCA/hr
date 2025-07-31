@@ -5,7 +5,7 @@ import random
 
 from odoo import Command, _, api, fields, models
 from odoo.exceptions import AccessError, UserError
-from odoo.tools import html_to_inner_content
+from odoo.tools.mail import html_to_inner_content
 from odoo.tools.misc import str2bool
 
 
@@ -250,7 +250,7 @@ class GovernanceCircle(models.Model):
             .get_param("hr_governance.only_manager_change_color")
         )
         for rec in self:
-            is_manager = self.env.user.user_has_groups(
+            is_manager = self.env.user.has_groups(
                 "hr_governance.governance_group_manager"
             )
             if only_manager_change_color and not is_manager:
@@ -390,7 +390,7 @@ class GovernanceCircle(models.Model):
         allowed_to_edit = (
             self.env.su
             or self.id in self.env.user.allowed_edit_governance_ids.ids
-            or self.env.user.user_has_groups("hr_governance.governance_group_manager")
+            or self.env.user.has_groups("hr_governance.governance_group_manager")
         )
         if not allowed_to_edit:
             if self.is_circle:
@@ -398,7 +398,7 @@ class GovernanceCircle(models.Model):
                     role["name"] for role in self.type_id._get_enable_edit_circle_role()
                 ]
                 names = ", ".join(editable_roles)
-                raise AccessError(_("Only %s can edit this Circle") % names)
+                raise AccessError(_("Only %s can edit this Circle", names))
             raise AccessError(_("You cannot edit this Role"))
 
         res = super().write(vals)

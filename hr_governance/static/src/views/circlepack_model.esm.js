@@ -1,5 +1,3 @@
-/** @odoo-module **/
-
 import {KeepLast} from "@web/core/utils/concurrency";
 import {Model} from "@web/model/model";
 

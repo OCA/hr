@@ -11,7 +11,7 @@
                 <div class="chart-splitter" t-on-mousedown="startResizing" />
                 <div class="form_wrapper" style="flex: 0 1 0%">
                     <View
-                        type="'formwrapper'"
+                        type="'form'"
                         resModel="'governance.circle'"
                         resId="state.activeResId"
                         t-key="state.activeResId"

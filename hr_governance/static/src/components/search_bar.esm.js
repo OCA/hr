@@ -1,5 +1,3 @@
-/** @odoo-module **/
-
 import {SearchBar} from "@web/search/search_bar/search_bar";
 
 export class Many2ManySearchBar extends SearchBar {

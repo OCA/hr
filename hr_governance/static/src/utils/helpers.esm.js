@@ -1,5 +1,3 @@
-/** @odoo-module **/
-
 // NOTE: add mechanism to handle circular references when traversing
 export function isEquals(o1, o2, o1Refs, o2Refs) {
     const _o1Refs = o1Refs || [];

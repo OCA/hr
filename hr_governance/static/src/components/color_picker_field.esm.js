@@ -1,5 +1,3 @@
-/** @odoo-module **/
-
 import {CirclePackingColorList} from "./circlepack_colorlist.esm";
 import {ColorPickerField} from "@web/views/fields/color_picker/color_picker_field";
 import {registry} from "@web/core/registry";

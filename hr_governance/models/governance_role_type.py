@@ -2,10 +2,8 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from odoo import api, fields, models
-from odoo.tools import (
-    append_content_to_html,
-    ormcache,
-)
+from odoo.tools import ormcache
+from odoo.tools.mail import append_content_to_html
 
 
 class GovernanceRoleType(models.Model):

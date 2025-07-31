@@ -1,5 +1,3 @@
-/** @odoo-module **/
-
 import {CirclePackController} from "./circlepack_controller.esm";
 import {CirclePackModel} from "./circlepack_model.esm";
 import {CirclePackRenderer} from "./circlepack_renderer.esm";

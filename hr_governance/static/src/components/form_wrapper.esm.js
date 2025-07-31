@@ -1,5 +1,3 @@
-/** @odoo-module **/
-
 import {markup, onMounted} from "@odoo/owl";
 import {DeleteRolesConfirmationDialog} from "./delete_roles_confirmation_dialog.esm";
 import {FormController} from "@web/views/form/form_controller";

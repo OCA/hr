@@ -1,5 +1,3 @@
-/** @odoo-module **/
-
 const COLORS = [
     "#FFFFFF",
     "#D0D1D3",

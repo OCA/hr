@@ -1,5 +1,3 @@
-/** @odoo-module **/
-
 import {
     Component,
     onMounted,
@@ -15,13 +13,13 @@ import {View} from "@web/views/view";
 import {getColor} from "../utils/color.esm";
 import {isEquals} from "../utils/helpers.esm";
 import {loadBundle} from "@web/core/assets";
+import {user} from "@web/core/user";
 
 export class CirclePackRenderer extends Component {
     static template = "hr_governance.CirclePackRenderer";
     static components = {View};
 
     setup() {
-        this.user = useService("user");
         this.orm = useService("orm");
         this.ui = useService("ui");
 
@@ -46,24 +44,24 @@ export class CirclePackRenderer extends Component {
                 await this.orm.call("governance.circle", "get_stripe_param"),
                 10
             );
-            this.isGovernanceAdmin = await this.user.hasGroup(
+            this.isGovernanceAdmin = await user.hasGroup(
                 "hr_governance.governance_group_manager"
             );
 
             this.state.allowed_edit_governance_ids =
-                this.user.context.allowed_edit_governance_ids;
+                user.context.allowed_edit_governance_ids;
         });
 
         onMounted(() => {
             this.firstload = true;
-            this.$container = $(this.containerRef.el);
-            this.$formview = $(this.containerRef.el?.querySelector(".form_wrapper"));
-            this.$splitter = $(this.containerRef.el?.querySelector(".chart-splitter"));
-            this.$chart = $(this.chartRef.el);
+            this.container = this.containerRef.el;
+            this.formview = this.container?.querySelector(".form_wrapper");
+            this.splitter = this.container?.querySelector(".chart-splitter");
+            this.chart = this.chartRef.el;
             this.searchResults = undefined;
             this.data = this.props.records;
             if (this.data) {
-                this.renderChart(this.$chart.width(), this.$chart.height());
+                this.renderChart(this.chart.offsetWidth, this.chart.offsetHeight);
             }
         });
 
@@ -87,7 +85,7 @@ export class CirclePackRenderer extends Component {
                             ? this.searchResults[0].id
                             : this.props.records.id;
 
-                    this.renderChart(this.$chart.width(), this.$chart.height());
+                    this.renderChart(this.chart.offsetWidth, this.chart.offsetHeight);
 
                     if (this.searchResults?.length > 0) {
                         this._applySearchResult();
@@ -132,12 +130,20 @@ export class CirclePackRenderer extends Component {
     async updateChart(focusNode) {
         const data = await this.env.model.keepLast.add(this.env.model._loadData({}));
         this.data = data;
-        this.renderChart(this.$chart.width(), this.$chart.height());
+        this.renderChart(this.chart.offsetWidth, this.chart.offsetHeight);
         // Maintain current zoom
         if (focusNode) {
-            this.zoomToNode(focusNode.data, this.$chart.width(), this.$chart.height());
+            this.zoomToNode(
+                focusNode.data,
+                this.chart.offsetWidth,
+                this.chart.offsetHeight
+            );
         } else {
-            this.zoomToNode(this.focus, this.$chart.width(), this.$chart.height());
+            this.zoomToNode(
+                this.focus,
+                this.chart.offsetWidth,
+                this.chart.offsetHeight
+            );
         }
 
         if (this.searchResults?.length > 0) {
@@ -370,20 +376,18 @@ export class CirclePackRenderer extends Component {
 
     onMouseMove = (e) => {
         if (!this.isResizing) return;
+        const containerRect = this.container.getBoundingClientRect();
         const offsetRight =
-            this.$container.width() - (e.clientX - this.$container.offset().left);
-        const chartWidth = Math.max(this.$container.width() - offsetRight, 1);
-        this.$chart.css({
-            width: chartWidth,
-            flex: "",
-        });
-        this.$formview.css({
-            width: offsetRight,
-            flex: "",
-        });
+            this.container.offsetWidth - (e.clientX - containerRect.left);
+        const chartWidth = Math.max(this.container.offsetWidth - offsetRight, 1);
+
+        this.chart.style.width = chartWidth + "px";
+        this.chart.style.flex = "";
+        this.formview.style.width = offsetRight + "px";
+        this.formview.style.flex = "";
 
         // Re-render
-        this.renderChart(this.$chart.width(), this.$chart.height());
+        this.renderChart(this.chart.offsetWidth, this.chart.offsetHeight);
         if (this.searchResults?.length > 0) {
             this._applySearchResult();
         }
@@ -419,27 +423,26 @@ export class CirclePackRenderer extends Component {
 
     onWindowResized(e) {
         if (this.firstload) {
-            this.renderChart(this.$container.width(), this.$chart.height());
+            this.renderChart(this.container.offsetWidth, this.chart.offsetHeight);
         } else {
+            const containerRect = this.container.getBoundingClientRect();
             const offsetRight =
-                this.$container.width() - (e.clientX - this.$container.offset().left);
-            const chartWidth = Math.max(this.$container.width() - offsetRight, 1);
-            this.$chart.css({
-                width: chartWidth,
-                flex: "",
-            });
-            this.$formview.css({
-                width: offsetRight,
-                flex: "",
-            });
+                this.container.offsetWidth - (e.clientX - containerRect.left);
+            const chartWidth = Math.max(this.container.offsetWidth - offsetRight, 1);
+
+            this.chart.style.width = chartWidth + "px";
+            this.chart.style.flex = "";
+            this.formview.style.width = offsetRight + "px";
+            this.formview.style.flex = "";
+
             // Re-render
-            this.renderChart(this.$chart.width(), this.$chart.height());
+            this.renderChart(this.chart.offsetWidth, this.chart.offsetHeight);
         }
         if (this.clickedNode) {
             this.zoomToNode(
                 this.clickedNode,
-                this.$chart.width(),
-                this.$chart.height()
+                this.chart.offsetWidth,
+                this.chart.offsetHeight
             );
         }
     }
@@ -516,15 +519,20 @@ export class CirclePackRenderer extends Component {
                     ev.stopPropagation();
                     if (this.firstload) {
                         this.firstload = false;
-                        this.$chart.css({width: "50%", flex: ""});
-                        this.$formview.css({width: "50%", flex: ""});
-                        this.renderChart(this.$chart.width(), this.$chart.height());
+                        this.chart.style.width = "50%";
+                        this.chart.style.flex = "";
+                        this.formview.style.width = "50%";
+                        this.formview.style.flex = "";
+                        this.renderChart(
+                            this.chart.offsetWidth,
+                            this.chart.offsetHeight
+                        );
                     }
                     this.focus = d.data;
                     this.zoomToNode(
                         d.children ? d.data : d.parent.data,
-                        this.$chart.width(),
-                        this.$chart.height()
+                        this.chart.offsetWidth,
+                        this.chart.offsetHeight
                     );
                     this.state.activeResId = d.data.id;
 

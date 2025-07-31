@@ -1,5 +1,3 @@
-/* @odoo-module */
-
 import {
     Many2ManyTagsAvatarUserField,
     many2ManyTagsAvatarUserField,

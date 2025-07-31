@@ -1,5 +1,3 @@
-/** @odoo-module */
-
 import {Component, useSubEnv} from "@odoo/owl";
 import {Layout} from "@web/search/layout";
 import {Many2ManySearchBar} from "../components/search_bar.esm";
