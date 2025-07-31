@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo noupdate="1">
-
     <record id="root" model="governance.circle" context="{'default_is_circle': True}">
         <field name="name">Root</field>
         <field name="is_root">True</field>
     </record>
-
 </odoo>

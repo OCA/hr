@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo noupdate="1">
-
     <record id="memory_gct" model="governance.role.type">
         <field name="name">Memory</field>
         <field name="type">structure</field>
@@ -27,6 +26,4 @@
 
 To take care of its members, ensuring that each one plays a role in line with his or her skills and motivation.</field>
     </record>
-
-
 </odoo>

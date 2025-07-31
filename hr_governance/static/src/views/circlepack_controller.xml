@@ -14,8 +14,7 @@
                 <t t-if="model.data">
                     <t t-component="props.Renderer" records="model.data" />
                 </t>
-                <t t-else="" t-call="web.NoContentHelper">
-              </t>
+                <t t-else="" t-call="web.NoContentHelper" />
             </Layout>
         </div>
     </t>

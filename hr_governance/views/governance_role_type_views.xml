@@ -38,8 +38,7 @@
                             <label for="authority" />
                             <field name="authority" />
                         </div>
-                        <group>
-                        </group>
+                        <group />
                     </group>
                 </sheet>
             </form>

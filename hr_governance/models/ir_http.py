@@ -9,7 +9,7 @@ class Http(models.AbstractModel):
 
     def session_info(self):
         session_info = super().session_info()
-        session_info["user_context"][
-            "allowed_edit_governance_ids"
-        ] = self.env.user.allowed_edit_governance_ids.ids
+        session_info["user_context"]["allowed_edit_governance_ids"] = (
+            self.env.user.allowed_edit_governance_ids.ids
+        )
         return session_info
