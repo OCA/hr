@@ -117,6 +117,11 @@ msgid "Employee"
 msgstr "Employé"
 
 #. module: hr_employee_medical_examination
+#: model:ir.model,name:hr_employee_medical_examination.model_hr_employee_medical_examination
+msgid "Employee Medical Examination"
+msgstr ""
+
+#. module: hr_employee_medical_examination
 #: model:ir.actions.act_window,name:hr_employee_medical_examination.hr_employee_medical_examination_act_window
 msgid "Employee Medical Examinations"
 msgstr "Examens médicaux des employés"
@@ -164,6 +169,11 @@ msgid "Font awesome icon e.g. fa-tasks"
 msgstr "Icône Font Awesome par ex. fa-tasks"
 
 #. module: hr_employee_medical_examination
+#: model_terms:ir.ui.view,arch_db:hr_employee_medical_examination.hr_employee_medical_examination_search_view
+msgid "Future Activities"
+msgstr ""
+
+#. module: hr_employee_medical_examination
 #: model_terms:ir.ui.view,arch_db:hr_employee_medical_examination.wizard_generate_medical_examination_form_view
 msgid "Generate"
 msgstr "Générer"
@@ -190,11 +200,6 @@ msgstr "Assistant de génération d’examen médical"
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee_medical_examination__has_message
 msgid "Has Message"
 msgstr "A un message"
-
-#. module: hr_employee_medical_examination
-#: model:ir.model,name:hr_employee_medical_examination.model_hr_employee_medical_examination
-msgid "Hr Employee Medical Examination"
-msgstr "Examen médical d’un employé"
 
 #. module: hr_employee_medical_examination
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee_medical_examination__id
@@ -243,6 +248,11 @@ msgstr "Dernière mise à jour par"
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_wizard_generate_medical_examination__write_date
 msgid "Last Updated on"
 msgstr "Dernière mise à jour le"
+
+#. module: hr_employee_medical_examination
+#: model_terms:ir.ui.view,arch_db:hr_employee_medical_examination.hr_employee_medical_examination_search_view
+msgid "Late Activities"
+msgstr ""
 
 #. module: hr_employee_medical_examination
 #: model_terms:ir.ui.view,arch_db:hr_employee_medical_examination.hr_employee_medical_examination_form_view
@@ -388,6 +398,11 @@ msgstr ""
 "Planifiée : activités futures."
 
 #. module: hr_employee_medical_examination
+#: model_terms:ir.ui.view,arch_db:hr_employee_medical_examination.hr_employee_medical_examination_search_view
+msgid "Today Activities"
+msgstr ""
+
+#. module: hr_employee_medical_examination
 #: model:ir.model.fields,help:hr_employee_medical_examination.field_hr_employee_medical_examination__activity_exception_decoration
 msgid "Type of the exception activity on record."
 msgstr "Type d’activité d’exception enregistrée."
@@ -412,6 +427,9 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_wizard_generate_medical_examination__year
 msgid "Year"
 msgstr "Année"
+
+#~ msgid "Hr Employee Medical Examination"
+#~ msgstr "Examen médical d’un employé"
 
 #~ msgid "Last Modified on"
 #~ msgstr "Dernière modification le"
