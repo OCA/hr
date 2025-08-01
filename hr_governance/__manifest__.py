@@ -11,13 +11,10 @@
         "hr",
         # oca/server-tools:
         "base_m2m_custom_field",
-        # oca/social:
-        "mail_activity_default_assignee",
     ],
     "data": [
         "data/role_type_data.xml",
         "data/ir_config_parameter_data.xml",
-        "data/mail_activity_type_data.xml",
         "data/governance_circle_data.xml",
         "security/governance_security.xml",
         "security/ir.model.access.csv",
