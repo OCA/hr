@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+Copyright (C) 2025 - Today: GRAP (https://www.grap.coop)
+@author: Quentin DUPONT
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<odoo>
+
+    <record id="view_hr_expense_product_uom_po_form" model="ir.ui.view">
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="hr_expense.product_product_expense_form_view" />
+        <field name="arch" type="xml">
+            <field name="uom_po_id" position="after">
+                <field name="uom_category_id" invisible="1" />
+            </field>
+            <field name="uom_po_id" position="attributes">
+                <attribute
+                    name="domain"
+                >[('category_id', '=', uom_category_id)]</attribute>
+            </field>
+        </field>
+    </record>
+
+</odoo>
