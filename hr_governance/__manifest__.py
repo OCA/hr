@@ -30,8 +30,9 @@
             "/hr_governance/static/lib/**/*",
         ],
         "web.assets_backend": [
-            "hr_governance/static/src/components/**/*",
-            "hr_governance/static/src/**/*",
+            "hr_governance/static/src/**/*.js",
+            "hr_governance/static/src/**/*.scss",
+            "hr_governance/static/src/**/*.xml",
         ],
     },
     "installable": True,

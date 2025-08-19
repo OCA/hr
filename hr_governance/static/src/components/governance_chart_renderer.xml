@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates>
+    <t t-name="hr_governance.GovernanceChartRenderer">
+        <div
+            class="o_governance_chart_container"
+            t-ref="chartContainer"
+            style="width: 100%; height: 100%;"
+        />
+    </t>
+</templates>

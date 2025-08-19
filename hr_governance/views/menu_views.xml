@@ -9,7 +9,7 @@
             name="Governance Chart"
             id="chart_menu"
             sequence="1"
-            action="hr_governance.governance_circle_action"
+            action="hr_governance.governance_chart_client_action"
         />
         <menuitem
             name="Roles"

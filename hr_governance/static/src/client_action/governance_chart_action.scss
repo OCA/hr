@@ -1,0 +1,144 @@
+.o_governance_chart_container {
+    height: 85vh;
+    .matched > circle,
+    .matched > polygon {
+        stroke: #000;
+        stroke-opacity: 1;
+        stroke-width: 4px;
+    }
+
+    .tooltip {
+        opacity: 1;
+        max-width: 320px;
+        white-space: nowrap;
+        font-size: 18px;
+        font-family: Arial;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    polygon {
+        cursor: pointer;
+        stroke: #000000;
+        stroke-opacity: 1;
+        transition-property: stroke-opacity, opacity;
+        transition-duration: 0.4s;
+    }
+
+    circle {
+        cursor: pointer;
+        opacity: 0.85;
+        transition-property: stroke-opacity, opacity;
+        transition-duration: 0.4s;
+    }
+
+    circle:hover.clicked {
+        stroke: #000;
+        stroke-opacity: 1;
+        opacity: 1;
+        transition-duration: 0.05s;
+    }
+
+    circle:hover {
+        stroke: #a9aaac;
+        stroke-opacity: 1;
+        opacity: 1;
+        transition-duration: 0.05s;
+    }
+
+    .clicked {
+        stroke: #000;
+        stroke-opacity: 1;
+        opacity: 1;
+        transition-duration: 0.05s;
+    }
+
+    .text-container div {
+        color: #374151;
+        font-size: 22px;
+        font-family: Arial;
+        font-weight: bold;
+        word-wrap: anywhere;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+    }
+}
+
+.o_cp_searchview {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.o_governance_main_layout {
+    display: flex;
+    flex-flow: row nowrap;
+    width: 100%;
+    height: 100%;
+    align-items: stretch;
+}
+
+.o_governance_chart_area {
+    height: 100%;
+    min-width: 200px;
+}
+
+.o_governance_splitter {
+    flex: 0 0 auto;
+    position: relative;
+    box-sizing: border-box;
+    width: 3px;
+    height: auto;
+    border-left-width: 1px;
+    border-left-style: solid;
+    border-left-color: black;
+    border-right-width: 1px;
+    border-right-style: solid;
+    border-right-color: black;
+    cursor: ew-resize;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    &:before {
+        content: "";
+        position: absolute;
+        z-index: 1;
+        top: 50%;
+        right: 100%;
+        height: 18px;
+        width: 2px;
+        margin-top: -9px;
+        border-left-color: black;
+        border-left-width: 1px;
+        border-left-style: solid;
+    }
+
+    &:after {
+        content: "";
+        position: absolute;
+        z-index: 1;
+        top: 50%;
+        left: 100%;
+        height: 18px;
+        width: 2px;
+        margin-top: -9px;
+        border-right-color: black;
+        border-right-width: 1px;
+        border-right-style: solid;
+    }
+}
+
+.o_governance_form_area {
+    overflow-x: auto;
+
+    .o_form_sheet_bg {
+        padding-left: inherit;
+        padding-right: inherit;
+    }
+}

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+  <t
+        t-inherit="web.FormView"
+        t-inherit-mode="primary"
+        t-name="hr_governance.GovernanceFormView"
+    >
+        <xpath
+            expr="//t[@t-set-slot='control-panel-create-button'][2]"
+            position="replace"
+        >
+            <t t-set-slot="control-panel-create-button">
+                <t t-if="canCreate">
+                    <button
+                        class="btn btn-outline-primary o_form_button_create"
+                        data-hotkey="c"
+                        t-att-data-type="'circle'"
+                        t-on-click.stop="create"
+                        type="button"
+                    >Create Circle</button>
+                    <button
+                        class="btn btn-outline-primary o_form_button_create"
+                        data-hotkey="c"
+                        t-att-data-type="'role'"
+                        t-on-click.stop="create"
+                        type="button"
+                    >Create Role</button>
+                </t>
+            </t>
+        </xpath>
+    </t>
+</templates>

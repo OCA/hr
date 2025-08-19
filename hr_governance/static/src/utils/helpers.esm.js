@@ -48,3 +48,29 @@ export function isEmpty(item) {
     }
     return false;
 }
+
+export function buildHierarchy(data) {
+    const dataMap = new Map(data.map((item) => [item.id, {...item, children: []}]));
+
+    let root = null;
+    const orphans = [];
+
+    data.forEach((item) => {
+        if (item.parent_id === false) {
+            root = dataMap.get(item.id);
+        } else {
+            const parent = dataMap.get(item.parent_id[0]);
+            if (parent) {
+                parent.children.push(dataMap.get(item.id));
+            } else {
+                orphans.push(item);
+            }
+        }
+    });
+
+    if (root && orphans.length > 0) {
+        root.children.push(...orphans);
+    }
+
+    return root;
+}

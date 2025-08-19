@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates>
+    <t t-name="hr_governance.GovernanceChartComponent">
+        <Many2ManySearchBar toggler="searchBarToggler" />
+        <div class="o_governance_chart_container o_content" t-ref="container">
+            <div class="o_governance_main_layout">
+                <div
+                    class="o_governance_chart_area"
+                    style="flex: 1 1 100%"
+                    t-ref="chartArea"
+                >
+                    <GovernanceChartRenderer t-props="chartRendererProps" />
+                </div>
+                <!-- Resizable Splitter -->
+                <Splitter
+                    t-if="state.activeResId"
+                    t-props="{ onResize: handleResize }"
+                />
+                <!-- Form Area -->
+                <div
+                    class="o_governance_form_area"
+                    style="flex: 0 1 0%"
+                    t-if="state.activeResId"
+                    t-ref="formArea"
+                >
+                    <View t-key="state.activeResId" t-props="formProps" />
+                </div>
+            </div>
+        </div>
+    </t>
+</templates>

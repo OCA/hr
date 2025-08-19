@@ -32,12 +32,6 @@
             </xpath>
         </field>
     </record>
-    <record id="governance_circle_view_circle_pack" model="ir.ui.view">
-        <field name="model">governance.circle</field>
-        <field name="arch" type="xml">
-            <circle_pack />
-        </field>
-    </record>
     <record id="governance_circle_view_tree" model="ir.ui.view">
         <field name="model">governance.circle</field>
         <field name="arch" type="xml">
@@ -49,7 +43,7 @@
     <record id="governance_circle_view_form" model="ir.ui.view">
         <field name="model">governance.circle</field>
         <field name="arch" type="xml">
-            <form string="Circle">
+            <form js_class="governance_form_view">
                 <sheet>
                     <span invisible="not is_circle">Circle</span>
                     <span invisible="is_circle">Role</span>
@@ -131,7 +125,12 @@
     <record id="governance_circle_action" model="ir.actions.act_window">
         <field name="name">Governance</field>
         <field name="res_model">governance.circle</field>
-        <field name="view_mode">circle_pack,form</field>
+        <field name="view_mode">form</field>
+    </record>
+
+    <record id="governance_chart_client_action" model="ir.actions.client">
+        <field name="name">Governance Chart</field>
+        <field name="tag">governance_chart_action</field>
     </record>
     <record id="governance_circle_normal_view_action" model="ir.actions.act_window">
         <field name="name">Governance</field>
