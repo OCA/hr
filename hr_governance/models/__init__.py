@@ -1,7 +1,5 @@
-from . import governance_authority
 from . import governance_circle
 from . import governance_circle_member
-from . import governance_expectation
 from . import governance_role_type
 from . import hr_employee
 from . import ir_http

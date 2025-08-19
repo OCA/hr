@@ -60,58 +60,6 @@ class GovernanceCircle(models.Model):
     )
     type_name = fields.Selection(related="type_id.type")
     is_steering_role = fields.Boolean(related="type_id.is_steering_role")
-    purpose = fields.Html(
-        compute="_compute_fields_from_type",
-        readonly=False,
-        store=True,
-        string="Raison d'être",
-    )
-    # technical fields to store input from user
-    user_input_purpose = fields.Text(compute="_compute_user_input_purpose", store=True)
-    track_purpose = fields.Text(
-        compute="_compute_tracking_fields",
-        tracking=True,
-        store=True,
-        string="Raison d'être",
-    )
-    authority = fields.Html(
-        compute="_compute_fields_from_type",
-        readonly=False,
-        store=True,
-        string="Domain of authority",
-    )
-    authority_ids = fields.Many2many(
-        comodel_name="governance.authority",
-    )
-    # technical fields to store input from user
-    user_input_authority = fields.Html(
-        compute="_compute_user_input_authority", store=True
-    )
-    track_authority = fields.Text(
-        compute="_compute_tracking_fields",
-        tracking=True,
-        store=True,
-        string="Domain of authority",
-    )
-    expectation_ids = fields.Many2many(
-        comodel_name="governance.expectation",
-    )
-    expectation = fields.Html(
-        compute="_compute_fields_from_type",
-        readonly=False,
-        store=True,
-        string="Expectations",
-    )
-    # technical fields to store input from user
-    user_input_expectation = fields.Text(
-        compute="_compute_user_input_expectation", store=True
-    )
-    track_expectation = fields.Text(
-        compute="_compute_tracking_fields",
-        tracking=True,
-        store=True,
-        string="Expectations",
-    )
     is_editable = fields.Boolean(compute="_compute_is_editable")
     is_addable = fields.Boolean(compute="_compute_is_addable")
     color = fields.Integer(
@@ -131,6 +79,47 @@ class GovernanceCircle(models.Model):
         default="circle",
     )
 
+    ##########################################################################
+    # Content fields
+    ##########################################################################
+    purpose = fields.Html(
+        compute="_compute_fields_from_type",
+        readonly=False,
+        store=True,
+        string="Raison d'être",
+    )
+    authority = fields.Html(
+        compute="_compute_fields_from_type",
+        readonly=False,
+        store=True,
+        string="Domain of authority",
+    )
+    expectation = fields.Html(
+        compute="_compute_fields_from_type",
+        readonly=False,
+        store=True,
+        string="Expectations",
+    )
+    # duplicate fields for tracking
+    purpose_tracking = fields.Text(
+        compute="_compute_tracking_fields",
+        store=True,
+        tracking=True,
+        string="Raison d'être",
+    )
+    authority_tracking = fields.Text(
+        compute="_compute_tracking_fields",
+        store=True,
+        tracking=True,
+        string="Domain of authority",
+    )
+    expectation_tracking = fields.Text(
+        compute="_compute_tracking_fields",
+        store=True,
+        tracking=True,
+        string="Expectations",
+    )
+
     _sql_constraints = [
         (
             "unique_circle_and_role",
@@ -139,12 +128,27 @@ class GovernanceCircle(models.Model):
         ),
     ]
 
+    @api.constrains("parent_id", "is_root")
+    def _check_parent_set(self):
+        for rec in self:
+            if not rec.is_root and not rec.parent_id:
+                raise UserError(_("Parent must be set"))
+
+    ##########################################################################
+    # Computed methods
+    ##########################################################################
     @api.depends("purpose", "authority", "expectation")
     def _compute_tracking_fields(self):
         for rec in self:
-            rec.track_purpose = html_to_inner_content(rec.purpose)
-            rec.track_authority = html_to_inner_content(rec.authority)
-            rec.track_expectation = html_to_inner_content(rec.expectation)
+            rec.purpose_tracking = (
+                html_to_inner_content(rec.purpose) if rec.purpose else ""
+            )
+            rec.authority_tracking = (
+                html_to_inner_content(rec.authority) if rec.authority else ""
+            )
+            rec.expectation_tracking = (
+                html_to_inner_content(rec.expectation) if rec.expectation else ""
+            )
 
     @api.depends("member_ids", "member_rel_ids")
     def _compute_assigned_user_ids(self):
@@ -155,38 +159,6 @@ class GovernanceCircle(models.Model):
                 rec.assigned_user_ids = rec.member_rel_ids.member_id.user_id
             else:
                 rec.assigned_user_ids = False
-
-    def _compute_user_input_field(self, field_name, template_field_name):
-        for rec in self:
-            if not rec.type_id or not getattr(rec, field_name):
-                setattr(rec, f"user_input_{field_name}", "")
-                continue
-            elif self.env.context.get("skip_update_user_input"):
-                continue
-            from_template = html_to_inner_content(
-                getattr(rec.type_id, template_field_name)
-            )
-            existing = html_to_inner_content(getattr(rec, field_name))
-            cleaned_existing = existing.replace(from_template, "")
-            setattr(rec, f"user_input_{field_name}", cleaned_existing)
-
-    @api.depends("purpose")
-    def _compute_user_input_purpose(self):
-        self._compute_user_input_field(
-            field_name="purpose", template_field_name="purpose"
-        )
-
-    @api.depends("expectation")
-    def _compute_user_input_expectation(self):
-        self._compute_user_input_field(
-            field_name="expectation", template_field_name="expectation"
-        )
-
-    @api.depends("authority")
-    def _compute_user_input_authority(self):
-        self._compute_user_input_field(
-            field_name="authority", template_field_name="authority"
-        )
 
     @api.depends("parent_id", "parent_id.suitable_type_ids")
     def _compute_suitable_type_ids(self):
@@ -212,24 +184,6 @@ class GovernanceCircle(models.Model):
                 lambda x: not x.is_circle and x.is_steering_role
             )
             rec.member_ids |= steering_roles.member_rel_ids.mapped("member_id")
-
-    @api.model
-    def get_greyscale_mode_param(self):
-        is_greyscale_mode_on = str2bool(
-            self.env["ir.config_parameter"]
-            .sudo()
-            .get_param("hr_governance.governance_check_grayscale")
-        )
-        return is_greyscale_mode_on
-
-    @api.model
-    def get_stripe_param(self):
-        is_stripe_all_roles = str2bool(
-            self.env["ir.config_parameter"]
-            .sudo()
-            .get_param("hr_governance.stripe_all_unassigned_roles")
-        )
-        return is_stripe_all_roles
 
     @api.depends("is_circle")
     def _compute_is_color_field_invisible(self):
@@ -260,15 +214,6 @@ class GovernanceCircle(models.Model):
                 if not is_greyscale_mode_on:
                     rec.is_color_field_invisible = False
 
-    @api.model
-    def _get_default_color(self):
-        """List of colors can be found in static/src/components/circlepack_colorlist.js
-        By default,
-            - a circle gets a random color (except white)
-            - a role gets White unless its type is assigned with color
-        """
-        return random.randint(2, 11)
-
     @api.depends("child_ids", "is_root")
     def _compute_is_circle(self):
         for rec in self:
@@ -298,13 +243,13 @@ class GovernanceCircle(models.Model):
                 if not rec.color:
                     rec.color = rec.type_id.color
 
-                if not rec.user_input_purpose:
+                if not rec.purpose:
                     rec.purpose = rec.type_id.purpose
 
-                if not rec.user_input_expectation:
+                if not rec.expectation:
                     rec.expectation = rec.type_id.expectation
 
-                if not rec.user_input_authority:
+                if not rec.authority:
                     rec.authority = rec.type_id.authority
 
     @api.depends("type_id.type")
@@ -330,11 +275,9 @@ class GovernanceCircle(models.Model):
         for rec in self:
             rec.member_count = len(rec.member_ids)
 
-    @api.constrains("parent_id", "is_root")
-    def _check_parent_set(self):
-        for rec in self:
-            if not rec.is_root and not rec.parent_id:
-                raise UserError(_("Parent must be set"))
+    ##########################################################################
+    # Main methods
+    ##########################################################################
 
     @api.model_create_multi
     def create(self, vals):
@@ -350,40 +293,12 @@ class GovernanceCircle(models.Model):
                 ]
                 val["child_ids"] = new_child_ids
 
-        records = super().create(vals)
-
-        return records
-
-    def _get_circle_and_role_fields(self):
-        return [
-            "name",
-            "member_ids",
-            "member_rel_ids",
-            "parent_id",
-            "member_count",
-            "id",
-            "color",
-            "is_circle",
-            "type_name",
-            "shape_type",
-        ]
-
-    # TODO: take advantage of hierarchy_read from native
-    @api.model
-    def get_hierarchy_data(self, domain):
-        """Used to populate circle packing chart"""
-        root = self.search([("parent_id", "=", False)], limit=1)
-        records = self.search(domain)
-        fields = self._get_circle_and_role_fields()
-        records |= root
-
-        result = records.read(fields)
-        return result
+        return super().create(vals)
 
     def write(self, vals):
         context = self.env.context
         forbidden_fields = self._get_forbidden_change_fields()
-        if forbidden_fields and not context.get("skip_update_user_input"):
+        if forbidden_fields and not context.get("skip_sanity_check"):
             self._sanity_check(forbidden_fields, vals)
 
         # Permission constraint
@@ -401,33 +316,44 @@ class GovernanceCircle(models.Model):
                 raise AccessError(_("Only %s can edit this Circle", names))
             raise AccessError(_("You cannot edit this Role"))
 
-        res = super().write(vals)
-        return res
+        return super().write(vals)
 
-    def _sanity_check(self, forbidden_fields, value_list):
-        """Sanity check for `write()`
-        Validate that values of fields imported from template role
-        are improperly modified
+    def unlink(self):
+        # Add roles to batch of records to delete
+        records = self._get_hierarchy_records(include_self=True)
+        # sorted to process child first
+        self = records.sorted(key=lambda x: x.id, reverse=True)
+        for rec in self:
+            if rec.member_rel_ids:
+                rec.member_rel_ids.unlink()
+        return super().unlink()
+
+    @api.model
+    def _get_default_color(self):
+        """List of colors can be found in static/src/components/circlepack_colorlist.js
+        By default,
+            - a circle gets a random color (except white)
+            - a role gets White unless its type is assigned with color
         """
-        errors = []
-        for field in forbidden_fields:
-            if field in value_list.keys():
-                field_name = self._fields[field].get_description(self.env)["string"]
-                if isinstance(self._fields[field], fields.Html):
-                    from_template = html_to_inner_content(getattr(self.type_id, field))
-                    existing = html_to_inner_content(value_list[field])
-                    error = from_template and from_template not in existing
-                    if error:
-                        errors.append(field_name)
+        return random.randint(2, 11)
 
-        if len(errors) > 0:
-            raise UserError(
-                _(
-                    "You can only add content at the end of %s created from a "
-                    "template.",
-                    ", ".join(errors),
-                )
-            )
+    @api.model
+    def get_greyscale_mode_param(self):
+        is_greyscale_mode_on = str2bool(
+            self.env["ir.config_parameter"]
+            .sudo()
+            .get_param("hr_governance.governance_check_grayscale")
+        )
+        return is_greyscale_mode_on
+
+    @api.model
+    def get_stripe_param(self):
+        is_stripe_all_roles = str2bool(
+            self.env["ir.config_parameter"]
+            .sudo()
+            .get_param("hr_governance.stripe_all_unassigned_roles")
+        )
+        return is_stripe_all_roles
 
     def _get_forbidden_change_fields(self):
         forbidden_keys = ["expectation", "authority", "purpose"]
@@ -456,16 +382,6 @@ class GovernanceCircle(models.Model):
         if not roles:
             return self.env["governance.circle"]
         return roles + roles._get_roles_recursively(reverse)
-
-    def unlink(self):
-        # Add roles to batch of records to delete
-        records = self._get_hierarchy_records(include_self=True)
-        # sorted to process child first
-        self = records.sorted(key=lambda x: x.id, reverse=True)
-        for rec in self:
-            if rec.member_rel_ids:
-                rec.member_rel_ids.unlink()
-        return super().unlink()
 
     @api.model
     def js_get_deleted_circle_info(self, circle_id):
@@ -577,3 +493,89 @@ class GovernanceCircle(models.Model):
                     [("is_circle", "=", False)]
                 )
         return editable_records - excluded_records
+
+    ##########################################################################
+    # Helpers
+    ##########################################################################
+
+    def _update_content(self, field_name, new_value, old_value):
+        self.ensure_one()
+        current_content = getattr(self, field_name) or ""
+        # extract plan text from html
+        current_content_plain = (
+            html_to_inner_content(current_content) if current_content else ""
+        )
+        old_content_plain = html_to_inner_content(old_value) if old_value else ""
+
+        user_input = ""
+        if current_content_plain and old_content_plain:
+            if current_content_plain.startswith(old_content_plain):
+                # Extract everything after the old template
+                user_input = current_content_plain[len(old_content_plain) :].strip()
+            else:
+                if old_content_plain in current_content_plain:
+                    template_pos = current_content_plain.find(old_content_plain)
+                    user_input = current_content_plain[
+                        template_pos + len(old_content_plain) :
+                    ].strip()
+                else:
+                    user_input = current_content_plain
+
+        user_input = user_input.strip()
+        if user_input:
+            # append it to the new template
+            new_content = new_value + "\n\n" + user_input
+        else:
+            new_content = new_value
+
+        self.with_context(skip_sanity_check=True).write({field_name: new_content})
+
+    def _sanity_check(self, forbidden_fields, value_list):
+        """Sanity check for `write()`
+        Validate that values of fields imported from template role
+        are improperly modified
+        """
+        errors = []
+        for field in forbidden_fields:
+            if field in value_list.keys():
+                field_name = self._fields[field].get_description(self.env)["string"]
+                if isinstance(self._fields[field], fields.Html):
+                    from_template = html_to_inner_content(getattr(self.type_id, field))
+                    existing = value_list[field] or ""
+                    if from_template and from_template not in existing:
+                        errors.append(field_name)
+
+        if len(errors) > 0:
+            raise UserError(
+                _(
+                    "You can only add content at the end of %s created from a "
+                    "template.",
+                    ", ".join(errors),
+                )
+            )
+
+    # TODO: take advantage of hierarchy_read from native
+    @api.model
+    def get_hierarchy_data(self, domain):
+        """Used to populate circle packing chart"""
+        root = self.search([("parent_id", "=", False)], limit=1)
+        records = self.search(domain)
+        fields = self._get_circle_and_role_fields()
+        records |= root
+
+        result = records.read(fields)
+        return result
+
+    def _get_circle_and_role_fields(self):
+        return [
+            "name",
+            "member_ids",
+            "member_rel_ids",
+            "parent_id",
+            "member_count",
+            "id",
+            "color",
+            "is_circle",
+            "type_name",
+            "shape_type",
+        ]

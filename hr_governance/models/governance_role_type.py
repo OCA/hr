@@ -3,7 +3,6 @@
 
 from odoo import api, fields, models
 from odoo.tools import ormcache
-from odoo.tools.mail import append_content_to_html
 
 
 class GovernanceRoleType(models.Model):
@@ -31,7 +30,6 @@ class GovernanceRoleType(models.Model):
         domain="[('is_circle', '=', True)]",
         help="This Role Type are only allowed in the Source Circle and its children",
     )
-
     enable_edit_circle = fields.Boolean(
         help="If checked, member of this Role type is allowed to modify Circle"
     )
@@ -55,51 +53,47 @@ class GovernanceRoleType(models.Model):
         self.env.registry.clear_cache()
         return records
 
-    def _update_governance_circle(self, field_name, template_value):
-        if not template_value:
+    def write(self, vals):
+        self._onchange_content_fields(vals)
+        return super().write(vals)
+
+    def unlink(self):
+        res = super().unlink()
+        self.env.registry.clear_cache()
+        return res
+
+    ##########################################################################
+    # Helpers
+    ##########################################################################
+
+    def _onchange_content_fields(self, vals):
+        content_fields = ["purpose", "expectation", "authority"]
+        changed_content_fields = [field for field in content_fields if field in vals]
+
+        if not changed_content_fields:
             return
-        roles = self.env["governance.circle"].search([("type_id", "=", self.id)])
-        for role in roles.with_context(skip_update_user_input=True):
-            user_input = getattr(role, f"user_input_{field_name}")
-            updated = append_content_to_html(
-                template_value, user_input, plaintext=False
-            )
-            role.write({field_name: updated})
+
+        old_values = {}
+        for field in changed_content_fields:
+            old_values[field] = getattr(self, field) or ""
+
+        for field in changed_content_fields:
+            new_value = vals.get(field, "")
+            old_value = old_values.get(field, "")
+            circles = self.env["governance.circle"].search([("type_id", "=", self.id)])
+            for circle in circles:
+                circle._update_content(field, new_value, old_value)
 
     @api.model
     @ormcache()
     def _get_structuring_role_vals(self):
+        """Get the default values when creating structure roles"""
         templates = self.env["governance.role.type"].search(
             [("type", "=", "structure")]
         )
         return [
             {"type_id": temp.id, **temp._required_role_fields()} for temp in templates
         ]
-
-    @api.model
-    @ormcache()
-    def _get_enable_edit_circle_role(self):
-        roles = self.env["governance.role.type"].search(
-            [("enable_edit_circle", "=", True)]
-        )
-        return [{"id": role.id, "name": role.name} for role in roles]
-
-    def write(self, vals):
-        res = super().write(vals)
-        if "purpose" in vals:
-            self._update_governance_circle("purpose", vals.get("purpose", ""))
-        if "expectation" in vals:
-            self._update_governance_circle("expectation", vals.get("expectation", ""))
-        if "authority" in vals:
-            self._update_governance_circle("authority", vals.get("authority", ""))
-        if any(field in vals for field in ["enable_edit_circle", "type"]):
-            self.env.registry.clear_cache()
-        return res
-
-    def unlink(self):
-        res = super().unlink()
-        self.env.registry.clear_cache()
-        return res
 
     def _required_role_fields(self):
         return {
@@ -109,3 +103,12 @@ class GovernanceRoleType(models.Model):
             "authority": self.authority,
             "expectation": self.expectation,
         }
+
+    @api.model
+    @ormcache()
+    def _get_enable_edit_circle_role(self):
+        """Get the role that its User edit circles"""
+        roles = self.env["governance.role.type"].search(
+            [("enable_edit_circle", "=", True)]
+        )
+        return [{"id": role.id, "name": role.name} for role in roles]
