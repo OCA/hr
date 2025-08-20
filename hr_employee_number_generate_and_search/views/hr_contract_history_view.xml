@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_employee_number_tree" model="ir.ui.view">
+        <field name="name">hr.contract.history.employee.number.tree</field>
+        <field name="model">hr.contract.history</field>
+        <field name="inherit_id" ref="hr_contract.hr_contract_history_view_list" />
+        <field name="arch" type="xml">
+            <field name="employee_id" position="after">
+                <field name="employee_number" invisible="1" />
+            </field>
+        </field>
+    </record>
+
+    <record id="employee_number_filter_view" model="ir.ui.view">
+        <field name="name">hr.contract.history.employee.number.filter</field>
+        <field name="model">hr.contract.history</field>
+        <field name="inherit_id" ref="hr_contract.hr_contract_history_view_search" />
+        <field name="arch" type="xml">
+            <field name="employee_id" position="after">
+                <field name="employee_number" />
+            </field>
+        </field>
+    </record>
+</odoo>
