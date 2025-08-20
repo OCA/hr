@@ -32,8 +32,7 @@
         <field name="name">Time off: Team manager time off same department</field>
         <field name="model_id" ref="hr_holidays.model_hr_leave" />
         <field name="domain_force">['|',
-                ('employee_id.department_id', 'in',[user.employee_ids.department_id.id]),
-                ('employee_ids.department_id', 'in',   [user.employee_ids.department_id.id])]
+                [(1, '=', 1)]
         </field>
         <field name="groups" eval="[(4, ref('hr_holidays.group_hr_holidays_user'))]" />
         <field name="perm_read" eval="True" />
