@@ -50,7 +50,7 @@ class Users(models.Model):
                 continue
 
             user_roles = governance_circle_model.search(
-                [("member_rel_ids.member_id.user_id", "=", user.id)]
+                [("role_assignment_ids.member_id.user_id", "=", user.id)]
             )
             if not user_roles:
                 user.allowed_edit_governance_ids = []

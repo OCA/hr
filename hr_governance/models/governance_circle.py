@@ -33,18 +33,17 @@ class GovernanceCircle(models.Model):
         "governance.circle",
         "parent_id",
     )
-    # assigned members for circle
-    member_ids = fields.Many2manyCustom(
-        "hr.employee",
-        "governance_circle_member_rel",
-        "circle_id",
-        "member_id",
-        create_table=False,
-        string="Members",
-        compute="_compute_member_ids",
+    # For roles:
+    role_assignment_ids = fields.One2many(
+        "governance.circle.member.rel", "circle_id", string="Role Assignments"
     )
-    # assigned members for role
-    member_rel_ids = fields.One2many("governance.circle.member.rel", "circle_id")
+    # For circles:
+    circle_member_ids = fields.Many2many(
+        "hr.employee",
+        string="Circle Members",
+        compute="_compute_circle_member_ids",
+        store=True,
+    )
     assigned_user_ids = fields.Many2many(
         "res.users", compute="_compute_assigned_user_ids", string="Assigned Users"
     )
@@ -150,15 +149,13 @@ class GovernanceCircle(models.Model):
                 html_to_inner_content(rec.expectation) if rec.expectation else ""
             )
 
-    @api.depends("member_ids", "member_rel_ids")
+    @api.depends("role_assignment_ids.member_id.user_id", "circle_member_ids.user_id")
     def _compute_assigned_user_ids(self):
         for rec in self:
-            if rec.member_ids:
-                rec.assigned_user_ids = rec.member_ids.user_id
-            elif rec.member_rel_ids:
-                rec.assigned_user_ids = rec.member_rel_ids.member_id.user_id
+            if rec.is_circle:
+                rec.assigned_user_ids = rec.circle_member_ids.user_id
             else:
-                rec.assigned_user_ids = False
+                rec.assigned_user_ids = rec.role_assignment_ids.member_id.user_id
 
     @api.depends("parent_id", "parent_id.suitable_type_ids")
     def _compute_suitable_type_ids(self):
@@ -173,17 +170,24 @@ class GovernanceCircle(models.Model):
             else:
                 rec.suitable_type_ids = [Command.clear()]
 
-    @api.depends("child_ids")
-    def _compute_member_ids(self):
-        for rec in self:
-            rec.member_ids = rec.child_ids.member_rel_ids.mapped("member_id")
-
-            # include member of steering roles of its subcircles
-            # only the next level, not the whole hiearchy
+    @api.depends(
+        "is_circle",
+        "child_ids.role_assignment_ids",
+        "child_ids.child_ids.role_assignment_ids",
+    )
+    def _compute_circle_member_ids(self):
+        for rec in self.filtered("is_circle"):
+            # Get members from direct child roles
+            members = rec.child_ids.role_assignment_ids.mapped("member_id")
+            # Include members of steering roles of its sub-circles
+            # (only the next level, not the whole hierarchy)
             steering_roles = rec.child_ids.child_ids.filtered(
-                lambda x: not x.is_circle and x.is_steering_role
+                lambda r: not r.is_circle and r.is_steering_role
             )
-            rec.member_ids |= steering_roles.member_rel_ids.mapped("member_id")
+            members |= steering_roles.role_assignment_ids.mapped("member_id")
+            rec.circle_member_ids = members
+        for rec in self.filtered(lambda c: not c.is_circle):
+            rec.circle_member_ids = False
 
     @api.depends("is_circle")
     def _compute_is_color_field_invisible(self):
@@ -257,7 +261,7 @@ class GovernanceCircle(models.Model):
         for rec in self:
             rec.is_editable = not rec.type_id or rec.type_id.type == "template"
 
-    @api.depends("is_circle")
+    @api.depends("is_circle", "role_assignment_ids")
     def _compute_is_addable(self):
         for rec in self:
             is_single_mode_on = str2bool(
@@ -266,14 +270,17 @@ class GovernanceCircle(models.Model):
                 .get_param("hr_governance.governance_single_assignee_mode")
             )
             if is_single_mode_on:
-                rec.is_addable = not rec.is_circle and not rec.member_ids
+                rec.is_addable = not rec.is_circle and not rec.role_assignment_ids
             else:
                 rec.is_addable = True
 
-    @api.depends("member_ids")
+    @api.depends("role_assignment_ids", "circle_member_ids")
     def _compute_member_count(self):
         for rec in self:
-            rec.member_count = len(rec.member_ids)
+            if rec.is_circle:
+                rec.member_count = len(rec.circle_member_ids)
+            else:
+                rec.member_count = len(rec.role_assignment_ids)
 
     ##########################################################################
     # Main methods
@@ -320,12 +327,15 @@ class GovernanceCircle(models.Model):
 
     def unlink(self):
         # Add roles to batch of records to delete
-        records = self._get_hierarchy_records(include_self=True)
+        records = self._get_descendants(include_self=True)
         # sorted to process child first
         self = records.sorted(key=lambda x: x.id, reverse=True)
         for rec in self:
-            if rec.member_rel_ids:
-                rec.member_rel_ids.unlink()
+            if rec.is_root:
+                raise UserError(_("Root Circle should not be deleted"))
+
+            if rec.role_assignment_ids:
+                rec.role_assignment_ids.unlink()
         return super().unlink()
 
     @api.model
@@ -360,7 +370,6 @@ class GovernanceCircle(models.Model):
         return forbidden_keys
 
     def _get_descendants(self, include_self=False):
-        """Return a recordset of all descendant circles and roles."""
         if not self:
             return self.env["governance.circle"]
         # This assumes a single record in self, which is how it's used.
@@ -379,7 +388,7 @@ class GovernanceCircle(models.Model):
                 {
                     "subcircles": len(children.filtered("is_circle").ids),
                     "roles": len(children.filtered(lambda x: not x.is_circle).ids),
-                    "employees": len(children.member_rel_ids.ids),
+                    "employees": len(children.role_assignment_ids.ids),
                 }
             )
         return result
@@ -393,7 +402,7 @@ class GovernanceCircle(models.Model):
                 [
                     ("parent_id", "=", self.id),
                     ("type_id.enable_edit_circle", "=", True),
-                    ("member_rel_ids", "!=", False),
+                    ("role_assignment_ids", "!=", False),
                 ],
             )
             > 0
@@ -412,7 +421,7 @@ class GovernanceCircle(models.Model):
                 [
                     ("parent_id", "=", self.id),
                     ("type_id", "=", steering_role.id),
-                    ("member_rel_ids", "!=", False),
+                    ("role_assignment_ids", "!=", False),
                 ],
             )
             > 0
@@ -432,7 +441,7 @@ class GovernanceCircle(models.Model):
         else:
             # if it's role, retrieve steering roles of encompassing circle
             steering |= self._get_descendants(include_self=True).filtered_domain(domain)
-        user_ids = steering.member_rel_ids.member_id.mapped("user_id").ids
+        user_ids = steering.role_assignment_ids.member_id.mapped("user_id").ids
         return user_ids if user_ids else []
 
     @api.model
@@ -476,8 +485,10 @@ class GovernanceCircle(models.Model):
         excluded_circles = self.env["governance.circle"]
 
         for circle in all_potential_circles:
-            is_member = user.id in circle.member_ids.user_id.ids
-            is_member_of_parent = user.id in circle.parent_id.member_ids.user_id.ids
+            is_member = user.id in circle.circle_member_ids.user_id.ids
+            is_member_of_parent = (
+                user.id in circle.parent_id.circle_member_ids.user_id.ids
+            )
 
             # Exclusion Rule: A circle is excluded if it has no permission role, but
             # a steering role is assigned (either in the circle itself, or in its
@@ -575,8 +586,8 @@ class GovernanceCircle(models.Model):
     def _get_circle_and_role_fields(self):
         return [
             "name",
-            "member_ids",
-            "member_rel_ids",
+            "circle_member_ids",
+            "role_assignment_ids",
             "parent_id",
             "member_count",
             "id",

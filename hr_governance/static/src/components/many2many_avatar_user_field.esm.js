@@ -24,7 +24,9 @@ export class ClickableMany2ManyTagsAvatarUserField extends Many2ManyTagsAvatarUs
                             [false, "list"],
                             [false, "form"],
                         ],
-                        domain: [["member_rel_ids", "ilike", record.data.display_name]],
+                        domain: [
+                            ["role_assignment_ids", "ilike", record.data.display_name],
+                        ],
                     });
                 }
             },

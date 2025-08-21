@@ -7,11 +7,8 @@ from odoo import fields, models
 class HrEmployee(models.Model):
     _inherit = "hr.employee"
 
-    circle_ids = fields.Many2manyCustom(
-        "governance.circle",
-        "governance_circle_member_rel",
+    governance_assignment_ids = fields.One2many(
+        "governance.circle.member.rel",
         "member_id",
-        "circle_id",
-        create_table=False,
-        string="Governance Circle",
+        string="Governance Assignments",
     )

@@ -301,7 +301,7 @@ export class GovernanceChartRenderer extends Component {
     _createStripedShape(currentNode, d, isHexagon) {
         const is_striped =
             !d.data.is_circle &&
-            !d.data.member_rel_ids?.length > 0 &&
+            !d.data.role_assignment_ids?.length > 0 &&
             (this.props.isStripeAllRoles || d.data.type_name === "structure");
         if (is_striped) {
             const shape = isHexagon

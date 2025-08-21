@@ -6,9 +6,13 @@
             <search>
                 <field name="name" />
                 <field
-                    name="member_ids"
+                    name="circle_member_ids"
                     string="Employee"
-                    filter_domain="[('member_rel_ids', 'ilike', self)]"
+                    filter_domain="[
+                        '|',
+                        ('role_assignment_ids.member_id', 'ilike', self),
+                        ('circle_member_ids', 'ilike', self)
+                    ]"
                 />
                 <field name="purpose" />
                 <field name="authority" />
@@ -54,9 +58,9 @@
                     </h1>
                     <group>
                         <div colspan="2" invisible="not is_circle">
-                            <label for="member_ids" />
+                            <label for="circle_member_ids" />
                             <field
-                                name="member_ids"
+                                name="circle_member_ids"
                                 widget="clickable_many2many_avatar_user"
                                 readonly="1"
                             />
@@ -66,7 +70,7 @@
                     <group invisible="is_circle">
                         <div colspan="2">
                             <field
-                                name="member_rel_ids"
+                                name="role_assignment_ids"
                                 nolabel="1"
                                 options="{'create': [('is_addable','=',True)]}"
                             >

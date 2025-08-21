@@ -45,14 +45,14 @@ class TestPermission(TestGovernanceCircle):
     def _assign_role(self, circle, role, user):
         """Assigns a role to a user within a specific circle."""
         target_role = circle.child_ids.filtered(lambda r: r.type_id == role)
-        target_role.member_rel_ids = [
+        target_role.role_assignment_ids = [
             Command.create({"member_id": user.employee_id.id})
         ]
 
     def _unassign_role(self, circle, role):
         """Unassigns a role from a circle."""
         target_role = circle.child_ids.filtered(lambda r: r.type_id == role)
-        target_role.member_rel_ids.unlink()
+        target_role.role_assignment_ids.unlink()
 
     def _assert_user_can_edit_circles(self, user, circles):
         """Asserts that the user has edit access to all given circles."""

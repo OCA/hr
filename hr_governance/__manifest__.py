@@ -7,11 +7,7 @@
     "license": "AGPL-3",
     "category": "Generic",
     "website": "https://github.com/OCA/hr",
-    "depends": [
-        "hr",
-        # oca/server-tools:
-        "base_m2m_custom_field",
-    ],
+    "depends": ["hr"],
     "data": [
         "data/role_type_data.xml",
         "data/ir_config_parameter_data.xml",
