@@ -51,6 +51,8 @@ export class GovernanceChartComponent extends Component {
             searchResults: [],
             chartDimensions: {width: 0, height: 0},
             allowed_edit_governance_ids: [],
+            preventCreate: false,
+            preventEdit: false,
         });
 
         this.containerRef = useRef("container");
@@ -72,6 +74,9 @@ export class GovernanceChartComponent extends Component {
             config.searchViewArch = searchView.arch;
             config.searchViewFields = result.fields;
             config.irFilters = searchView.irFilters;
+            this.isGovernanceAdmin = await user.hasGroup(
+                "hr_governance.governance_group_manager"
+            );
 
             await this.searchModel.load(config);
             await this.handleFullUpdate();
@@ -84,12 +89,6 @@ export class GovernanceChartComponent extends Component {
                 "governance.circle",
                 "get_stripe_param"
             );
-
-            this.isGovernanceAdmin = await user.hasGroup(
-                "hr_governance.governance_group_manager"
-            );
-            this.state.allowed_edit_governance_ids =
-                user.context.allowed_edit_governance_ids;
         });
 
         onMounted(() => {
@@ -130,9 +129,14 @@ export class GovernanceChartComponent extends Component {
         this.state.data = buildHierarchy(allData);
         await this.handleSearchUpdate();
 
+        this.state.activeResId = this.state.data?.id;
+
         const context = await rpc("/web/session/get_session_info");
         this.state.allowed_edit_governance_ids =
             context.user_context.allowed_edit_governance_ids;
+
+        this.state.preventCreate = this.shouldPreventAction();
+        this.state.preventEdit = this.shouldPreventAction();
     }
 
     async handleSearchUpdate() {
@@ -173,18 +177,10 @@ export class GovernanceChartComponent extends Component {
             resModel: "governance.circle",
             resId: this.state.activeResId,
             loadActionMenus: true,
-            preventCreate: this.preventCreate,
-            preventEdit: this.preventEdit,
+            preventCreate: this.state.preventCreate,
+            preventEdit: this.state.preventEdit,
             noBreadcrumbs: true,
         };
-    }
-
-    get preventCreate() {
-        return this.shouldPreventAction();
-    }
-
-    get preventEdit() {
-        return this.shouldPreventAction();
     }
 
     shouldPreventAction() {

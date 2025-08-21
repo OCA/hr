@@ -359,36 +359,22 @@ class GovernanceCircle(models.Model):
         forbidden_keys = ["expectation", "authority", "purpose"]
         return forbidden_keys
 
-    def _get_hierarchy_records(self, reverse=False, include_self=False):
-        """Return the hiearchy records in ``self`` based on reverse direction.
-
-        :param reverse: If True, returns parent records.
-        By default, return child records
-        """
-        result = self.browse(
-            set.union(
-                set(), *self._get_role_ids_per_circle_id(reverse=reverse).values()
-            )
-        )
-        if include_self:
-            return self | result
-        return result
-
-    def _get_role_ids_per_circle_id(self, reverse):
-        return {rec.id: rec._get_roles_recursively(reverse=reverse).ids for rec in self}
-
-    def _get_roles_recursively(self, reverse):
-        roles = self.parent_id if reverse else self.child_ids
-        if not roles:
+    def _get_descendants(self, include_self=False):
+        """Return a recordset of all descendant circles and roles."""
+        if not self:
             return self.env["governance.circle"]
-        return roles + roles._get_roles_recursively(reverse)
+        # This assumes a single record in self, which is how it's used.
+        domain = [("parent_path", "=like", self.parent_path + "%")]
+        if not include_self:
+            domain.append(("id", "!=", self.id))
+        return self.search(domain)
 
     @api.model
     def js_get_deleted_circle_info(self, circle_id):
         result = {}
         if circle_id:
             circle = self.browse(circle_id)
-            children = circle._get_hierarchy_records()
+            children = circle._get_descendants()
             result.update(
                 {
                     "subcircles": len(children.filtered("is_circle").ids),
@@ -399,6 +385,7 @@ class GovernanceCircle(models.Model):
         return result
 
     def _is_assigned(self):
+        """Check if the circle has a role with 'enable_edit_circle' that is assigned."""
         self.ensure_one()
         return (
             self.is_circle
@@ -413,6 +400,7 @@ class GovernanceCircle(models.Model):
         )
 
     def _is_assigned_w_steering(self):
+        """Check if the circle has a steering role that is assigned."""
         self.ensure_one()
         steering_role = self.env.ref(
             "hr_governance.steering_gct", raise_if_not_found=False
@@ -443,56 +431,74 @@ class GovernanceCircle(models.Model):
             steering |= self.child_ids.filtered_domain(domain)
         else:
             # if it's role, retrieve steering roles of encompassing circle
-            steering |= self._get_hierarchy_records(include_self=True).filtered_domain(
-                domain
-            )
+            steering |= self._get_descendants(include_self=True).filtered_domain(domain)
         user_ids = steering.member_rel_ids.member_id.mapped("user_id").ids
         return user_ids if user_ids else []
 
     @api.model
-    def _get_editable_records_from_steering(self, roles, lookup):
-        all_records = editable_records = excluded_records = self
-        for role in roles:
-            hierarchy_records = lookup.get(role.id, self)
-            all_records |= hierarchy_records
+    def _get_editable_circles_for_steering_roles(self, steering_roles, circles_lookup):
+        all_potential_circles = self.env["governance.circle"]
+        for role in steering_roles:
+            all_potential_circles |= circles_lookup.get(
+                role.id, self.env["governance.circle"]
+            )
 
-        for record in all_records:
-            if not record._is_assigned():
-                editable_records |= record | record.child_ids.filtered_domain(
-                    [("is_circle", "=", False)]
-                )
-                # exclude it when its parent is assigned
-                # only member belonging to parent is allowed
-                if record.parent_id in all_records and record.parent_id._is_assigned():
-                    excluded_records |= record | record.child_ids
-        return editable_records - excluded_records
+        editable_circles = self.env["governance.circle"]
+        excluded_circles = self.env["governance.circle"]
+
+        for circle in all_potential_circles:
+            # Circle is editable via steering role
+            # if it has no assigned permission role.
+            if not circle._is_assigned():
+                editable_circles |= circle
+                editable_circles |= circle.child_ids.filtered(lambda r: not r.is_circle)
+
+                # Exclude the circle if its parent is already managed by a
+                # permission role, as that takes precedence.
+                if (
+                    circle.parent_id in all_potential_circles
+                    and circle.parent_id._is_assigned()
+                ):
+                    excluded_circles |= circle | circle.child_ids
+        return editable_circles - excluded_circles
 
     @api.model
-    def _get_editable_records_from_roles(self, user_id, roles, lookup):
-        all_records = editable_records = excluded_records = self
-        for role in roles:
-            hierarchy_records = lookup.get(role.id, self)
-            all_records |= hierarchy_records
-
-        for record in all_records:
-            is_member = user_id in record.member_ids.mapped("user_id").ids
-            is_member_of_parent = (
-                user_id in record.parent_id.member_ids.mapped("user_id").ids
+    def _get_editable_circles_for_permission_roles(
+        self, user, permission_roles, circles_lookup
+    ):
+        all_potential_circles = self.env["governance.circle"]
+        for role in permission_roles:
+            all_potential_circles |= circles_lookup.get(
+                role.id, self.env["governance.circle"]
             )
-            if not record._is_assigned() and (
-                record._is_assigned_w_steering()
+
+        editable_circles = self.env["governance.circle"]
+        excluded_circles = self.env["governance.circle"]
+
+        for circle in all_potential_circles:
+            is_member = user.id in circle.member_ids.user_id.ids
+            is_member_of_parent = user.id in circle.parent_id.member_ids.user_id.ids
+
+            # Exclusion Rule: A circle is excluded if it has no permission role, but
+            # a steering role is assigned (either in the circle itself, or in its
+            # parent, and the user is not a member of the parent). This gives
+            # precedence to the steering role holders.
+            if not circle._is_assigned() and (
+                circle._is_assigned_w_steering()
                 or (
-                    record.parent_id._is_assigned_w_steering()
+                    circle.parent_id._is_assigned_w_steering()
                     and not is_member_of_parent
                 )
             ):
-                excluded_records |= record | record.child_ids
+                excluded_circles |= circle | circle.child_ids
 
-            elif (record._is_assigned() and is_member) or not record._is_assigned():
-                editable_records |= record | record.child_ids.filtered_domain(
-                    [("is_circle", "=", False)]
-                )
-        return editable_records - excluded_records
+            # Inclusion Rule: A circle is editable if it has an assigned permission
+            # role and the user is a member, OR if it has no assigned role at all
+            # (and was not excluded by the rule above).
+            elif (circle._is_assigned() and is_member) or not circle._is_assigned():
+                editable_circles |= circle
+                editable_circles |= circle.child_ids.filtered(lambda r: not r.is_circle)
+        return editable_circles - excluded_circles
 
     ##########################################################################
     # Helpers
