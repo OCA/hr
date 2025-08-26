@@ -320,7 +320,25 @@ class GovernanceCircle(models.Model):
                 raise AccessError(_("Only %s can edit this Circle", names))
             raise AccessError(_("You cannot edit this Role"))
 
-        return super().write(vals)
+        assigned_user_ids = self.mapped("assigned_user_ids")
+        res = super().write(vals)
+        notify_users = (
+            assigned_user_ids | self.mapped("assigned_user_ids") - self.env.user
+        )
+        if notify_users:
+            for user in notify_users:
+                user._bus_send(
+                    "circle_member_changed",
+                    {
+                        "type": "danger",
+                        "title": _("Warning"),
+                        "message": _(
+                            "The Governance structure has been updated."
+                            "Please refresh the page to view the latest changes."
+                        ),
+                    },
+                )
+        return res
 
     def unlink(self):
         # Add roles to batch of records to delete
