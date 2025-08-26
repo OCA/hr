@@ -57,7 +57,7 @@ class GovernanceCircle(models.Model):
     suitable_type_ids = fields.Many2many(
         "governance.role.type", compute="_compute_suitable_type_ids", recursive=True
     )
-    type_name = fields.Selection(related="type_id.type")
+    role_type_name = fields.Selection(related="type_id.type", string="Role Type Name")
     is_steering_role = fields.Boolean(related="type_id.is_steering_role")
     is_editable = fields.Boolean(compute="_compute_is_editable")
     is_addable = fields.Boolean(compute="_compute_is_addable")
@@ -85,19 +85,16 @@ class GovernanceCircle(models.Model):
         compute="_compute_fields_from_type",
         readonly=False,
         store=True,
-        string="Raison d'être",
     )
     authority = fields.Html(
         compute="_compute_fields_from_type",
         readonly=False,
         store=True,
-        string="Domain of authority",
     )
     expectation = fields.Html(
         compute="_compute_fields_from_type",
         readonly=False,
         store=True,
-        string="Expectations",
     )
     # duplicate fields for tracking
     purpose_tracking = fields.Text(
@@ -575,12 +572,10 @@ class GovernanceCircle(models.Model):
     @api.model
     def get_hierarchy_data(self, domain):
         """Used to populate circle packing chart"""
-        root = self.search([("parent_id", "=", False)], limit=1)
-        records = self.search(domain)
-        fields = self._get_circle_and_role_fields()
-        records |= root
-
-        result = records.read(fields)
+        final_domain = domain.extend([("is_root", "=", True)])
+        result = self.search_read(
+            final_domain, fields=self._get_circle_and_role_fields()
+        )
         return result
 
     def _get_circle_and_role_fields(self):
@@ -593,6 +588,6 @@ class GovernanceCircle(models.Model):
             "id",
             "color",
             "is_circle",
-            "type_name",
+            "role_type_name",
             "shape_type",
         ]

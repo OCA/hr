@@ -10,8 +10,8 @@ export class GovernanceChartRenderer extends Component {
         data: {type: Object, optional: true},
         dimensions: {type: Object, optional: true},
         searchResults: {type: Array, optional: true},
-        isGrayscaleMode: {type: Boolean, optional: true},
-        isStripeAllRoles: {type: Boolean, optional: true},
+        isGrayscaleMode: {type: Boolean, optional: false},
+        isStripeAllRoles: {type: Boolean, optional: false},
         onNodeClick: {type: Function, optional: true},
     };
 
@@ -302,7 +302,7 @@ export class GovernanceChartRenderer extends Component {
         const is_striped =
             !d.data.is_circle &&
             !d.data.role_assignment_ids?.length > 0 &&
-            (this.props.isStripeAllRoles || d.data.type_name === "structure");
+            (this.props.isStripeAllRoles || d.data.role_type_name === "structure");
         if (is_striped) {
             const shape = isHexagon
                 ? currentNode

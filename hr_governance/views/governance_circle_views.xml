@@ -6,17 +6,13 @@
             <search>
                 <field name="name" />
                 <field
+                    filter_domain="[                         '|',                         ('role_assignment_ids.member_id', 'ilike', self),                         ('circle_member_ids', 'ilike', self)                     ]"
                     name="circle_member_ids"
                     string="Employee"
-                    filter_domain="[
-                        '|',
-                        ('role_assignment_ids.member_id', 'ilike', self),
-                        ('circle_member_ids', 'ilike', self)
-                    ]"
                 />
-                <field name="purpose" />
-                <field name="authority" />
-                <field name="expectation" />
+                <field name="purpose" string="Raison d'être" />
+                <field name="authority" string="Domain of authority" />
+                <field name="expectation" string="Expectations" />
             </search>
         </field>
     </record>
@@ -27,10 +23,10 @@
             <xpath expr="//search" position="inside">
                 <searchpanel>
                     <field
+                        enable_counters="1"
+                        icon="fa-building"
                         name="parent_id"
                         string="Hierarchy"
-                        icon="fa-building"
-                        enable_counters="1"
                     />
                 </searchpanel>
             </xpath>
@@ -53,16 +49,16 @@
                     <span invisible="is_circle">Role</span>
                     <h1>
                         <field name="name" />
-                        <field name="is_addable" invisible="1" />
-                        <field name="is_circle" invisible="1" />
+                        <field invisible="1" name="is_addable" />
+                        <field invisible="1" name="is_circle" />
                     </h1>
                     <group>
                         <div colspan="2" invisible="not is_circle">
                             <label for="circle_member_ids" />
                             <field
                                 name="circle_member_ids"
-                                widget="clickable_many2many_avatar_user"
                                 readonly="1"
+                                widget="clickable_many2many_avatar_user"
                             />
                         </div>
                     </group>
@@ -83,41 +79,41 @@
                         </div>
                     </group>
                     <group>
-                        <field name="is_editable" invisible="1" />
+                        <field invisible="1" name="is_editable" />
                         <div colspan="2">
-                            <label for="purpose" />
+                            <label for="purpose" string="raison d'être" />
                             <field name="purpose" readonly="not is_editable" />
                         </div>
                         <div colspan="2">
-                            <label for="expectation" />
+                            <label for="expectation" string="Expectations" />
                             <field name="expectation" readonly="not is_editable" />
                         </div>
                         <div colspan="2">
-                            <label for="authority" />
+                            <label for="authority" string="Domain of authority" />
                             <field name="authority" readonly="not is_editable" />
                         </div>
                     </group>
                     <group>
                         <group>
-                            <field name="is_color_field_invisible" invisible="1" />
+                            <field invisible="1" name="is_color_field_invisible" />
                             <field
-                                name="color"
-                                widget="circlepack_color_picker"
                                 invisible="is_color_field_invisible"
+                                name="color"
                                 readonly="not is_editable"
+                                widget="circlepack_color_picker"
                             />
-                            <field name="child_ids" invisible="1" />
+                            <field invisible="1" name="child_ids" />
                         </group>
                         <group groups="hr_governance.governance_group_manager">
-                            <field name="suitable_type_ids" invisible="1" />
-                            <field name="type_id" invisible="is_circle" />
+                            <field invisible="1" name="suitable_type_ids" />
+                            <field invisible="is_circle" name="type_id" />
                         </group>
                         <group groups="hr_governance.governance_group_manager">
                             <field
                                 name="parent_id"
                                 options="{'no_open': True, 'no_create': True}"
                             />
-                            <field name="shape_type" invisible="is_circle" />
+                            <field invisible="is_circle" name="shape_type" />
                         </group>
                     </group>
                     <br />
@@ -131,7 +127,6 @@
         <field name="res_model">governance.circle</field>
         <field name="view_mode">form</field>
     </record>
-
     <record id="governance_chart_client_action" model="ir.actions.client">
         <field name="name">Governance Chart</field>
         <field name="tag">governance_chart_action</field>
