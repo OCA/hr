@@ -1,0 +1,88 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* hr_contract_renew
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hr_contract_renew
+#: model_terms:ir.ui.view,arch_db:hr_contract_renew.hr_contract_renew_view_form
+msgid "Cancel"
+msgstr ""
+
+#. module: hr_contract_renew
+#: model:ir.model.fields,field_description:hr_contract_renew.field_hr_contract_renew_wizard__contract_id
+msgid "Contract"
+msgstr ""
+
+#. module: hr_contract_renew
+#: model:ir.model.fields,field_description:hr_contract_renew.field_hr_contract_renew_wizard__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: hr_contract_renew
+#: model:ir.model.fields,field_description:hr_contract_renew.field_hr_contract_renew_wizard__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: hr_contract_renew
+#: model:ir.model.fields,field_description:hr_contract_renew.field_hr_contract_renew_wizard__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: hr_contract_renew
+#: model:ir.model.fields,field_description:hr_contract_renew.field_hr_contract_renew_wizard__date_end
+msgid "End Date"
+msgstr ""
+
+#. module: hr_contract_renew
+#. odoo-python
+#: code:addons/hr_contract_renew/wizards/hr_contract_renew_wizard.py:0
+msgid "Extend Contract for %s"
+msgstr ""
+
+#. module: hr_contract_renew
+#: model:ir.model,name:hr_contract_renew.model_hr_contract_renew_wizard
+msgid "HR Contract Renew Wizard"
+msgstr ""
+
+#. module: hr_contract_renew
+#: model:ir.model.fields,field_description:hr_contract_renew.field_hr_contract_renew_wizard__id
+msgid "ID"
+msgstr ""
+
+#. module: hr_contract_renew
+#: model:ir.model.fields,field_description:hr_contract_renew.field_hr_contract_renew_wizard__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: hr_contract_renew
+#: model:ir.model.fields,field_description:hr_contract_renew.field_hr_contract_renew_wizard__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: hr_contract_renew
+#. odoo-python
+#: code:addons/hr_contract_renew/wizards/hr_contract_renew_wizard.py:0
+msgid "New Contract"
+msgstr ""
+
+#. module: hr_contract_renew
+#: model_terms:ir.ui.view,arch_db:hr_contract_renew.hr_contract_renew_view_form
+msgid "Renew"
+msgstr ""
+
+#. module: hr_contract_renew
+#: model:ir.actions.act_window,name:hr_contract_renew.action_open_renew_contract_wizard
+#: model_terms:ir.ui.view,arch_db:hr_contract_renew.hr_contract_renew_view_form
+#: model_terms:ir.ui.view,arch_db:hr_contract_renew.hr_contract_view_form_inherit
+msgid "Renew Contract"
+msgstr ""
