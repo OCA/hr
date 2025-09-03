@@ -1,8 +1,9 @@
 [project]
 name = "odoo-addons-oca-hr"
-version = "18.0.20250725.0"
+version = "18.0.20250903.0"
 dependencies = [
     "odoo-addon-hr_contract_reference==18.0.*",
+    "odoo-addon-hr_contract_renew==18.0.*",
     "odoo-addon-hr_department_code==18.0.*",
     "odoo-addon-hr_employee_age==18.0.*",
     "odoo-addon-hr_employee_birthday_mail==18.0.*",
