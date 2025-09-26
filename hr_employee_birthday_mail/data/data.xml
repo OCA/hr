@@ -84,7 +84,7 @@
         <field name="model_id" ref="hr.model_hr_employee" />
         <field
             name="subject"
-        >🎉 Birthday Alert: It's {{ ctx['birthday_employee'] }}'s special day!</field>
+        >🎉 Birthday Alert: It's {{ ctx.get('birthday_employee', 'a colleague') }}'s special day!</field>
         <field name="email_from">{{ object.company_id.email }}</field>
         <field name="email_to">{{ object.work_email }}</field>
         <field name="body_html" type="html">
@@ -97,7 +97,7 @@
                     style="font-size:16px; text-align:center;"
                 >Something feels different today, right? There's an extra sparkle in the air and a spring in our steps. Wondering why?</p>
                 <p style="font-size:16px; text-align:center;">It's because it's <b>
-                    <t t-out="ctx['birthday_employee']" />
+                    <t t-out="ctx.get('birthday_employee', 'a colleague')" />
                 </b>'s birthday! 🎂</p>
                 <p
                     style="font-size:16px; text-align:center;"
@@ -105,17 +105,18 @@
             </div>
         </field>
     </record>
-
     <record id="email_template_coworkers_2" model="mail.template">
         <field name="name">Coworker's Birthday Email 2</field>
         <field name="model_id" ref="hr.model_hr_employee" />
-        <field name="subject">🎉 Cake Alert: {{ ctx['birthday_employee']}}</field>
+        <field
+            name="subject"
+        >🎉 Cake Alert: {{ ctx.get('birthday_employee', 'a colleague') }}</field>
         <field name="email_from">{{ object.company_id.email }}</field>
         <field name="email_to">{{ object.work_email }}</field>
         <field name="body_html" type="html">
             <div style="background-color:#f2f3f5; padding:20px;">
                 <h2 style="color:#4267b2; text-align:center;">🎉 Birthday Alert: <t
-                    t-out="ctx['birthday_employee']"
+                    t-out="ctx.get('birthday_employee', 'a colleague')"
                 /> is another year wiser! 🎉</h2>
                 <p style="font-size:16px; text-align:center;">Hey there, <t
                     t-out="object.name"
@@ -123,12 +124,14 @@
                 <p
                     style="font-size:16px; text-align:center;"
                 >Guess what? We're fortunate enough to have a birthday in our midst today! Yes, it's <b
-                ><t t-out="ctx['birthday_employee']" />'s</b> big day!</p>
+                ><t
+                    t-out="ctx.get('birthday_employee', 'a colleague')"
+                />'s</b> big day!</p>
                 <p
                     style="font-size:16px; text-align:center;"
                 >Take a moment, when you can, to send them your good wishes and contribute to a positive atmosphere today. Remember, even a simple 'Happy Birthday' can make someone's day!</p>
                 <p style="font-size:16px; text-align:center;">Let's all help make <t
-                    t-out="ctx['birthday_employee']"
+                    t-out="ctx.get('birthday_employee', 'a colleague')"
                 /> feel appreciated and valued on their special day! 🎈🎁</p>
                 <p
                     style="font-size:16px; text-align:center;"
@@ -142,7 +145,7 @@
         <field name="model_id" ref="hr.model_hr_employee" />
         <field
             name="subject"
-        >🎉 Time to Celebrate: {{ ctx['birthday_employee'] }}'s Birthday!</field>
+        >🎉 Time to Celebrate: {{ ctx.get('birthday_employee', 'a colleague') }}'s Birthday!</field>
         <field name="email_from">{{ object.company_id.email }}</field>
         <field name="email_to">{{ object.work_email }}</field>
         <field name="body_html" type="html">
@@ -150,7 +153,7 @@
                 <h2
                     style="color:#4267b2; text-align:center;"
                 >🎂 It's Time to Celebrate: <t
-                    t-out="ctx['birthday_employee']"
+                    t-out="ctx.get('birthday_employee', 'a colleague')"
                 />'s Birthday!</h2>
                 <p style="font-size:16px; text-align:center;">Hello, <t
                     t-out="object.name"
@@ -158,7 +161,7 @@
                 <p
                     style="font-size:16px; text-align:center;"
                 >Today, we're celebrating the birthday of a valued team member, <b>
-                    <t t-out="ctx['birthday_employee']" />
+                    <t t-out="ctx.get('birthday_employee', 'a colleague')" />
                 </b>. </p>
                 <p
                     style="font-size:16px; text-align:center;"
@@ -166,7 +169,7 @@
                 <p
                     style="font-size:16px; text-align:center;"
                 >Let's make this day memorable for <t
-                    t-out="ctx['birthday_employee']"
+                    t-out="ctx.get('birthday_employee', 'a colleague')"
                 />! 🎉🎁</p>
                 <p
                     style="font-size:16px; text-align:center;"
