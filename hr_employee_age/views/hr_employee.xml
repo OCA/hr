@@ -5,9 +5,12 @@
         <field name="model">hr.employee</field>
         <field name="inherit_id" ref="hr.view_employee_form" />
         <field name="arch" type="xml">
-            <field name="birthday" position="after">
+            <xpath
+                expr="//group[@name='hr_birth_group']/div[@name='div_km_home_work']"
+                position="after"
+            >
                 <field name="age" />
-            </field>
+            </xpath>
         </field>
     </record>
 </odoo>
