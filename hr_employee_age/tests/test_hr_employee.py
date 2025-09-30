@@ -9,7 +9,7 @@ class TestHrEmployee(BaseCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.employee_admin = cls.env.ref("hr.employee_admin")
+        cls.employee_admin = cls.quick_ref("hr.employee_admin")
         cls.employee_admin.write({"birthday": "1990-05-15"})
 
     @freeze_time("2024-05-15")
