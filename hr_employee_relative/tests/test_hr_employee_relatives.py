@@ -15,8 +15,8 @@ class TestHrEmployeeRelatives(common.TransactionCase):
         cls.Employee = cls.env["hr.employee"]
         cls.EmployeeRelative = cls.env["hr.employee.relative"]
         cls.relation_sibling = cls.env.ref("hr_employee_relative.relation_sibling")
-        cls.partner_1 = cls.env.ref("base.res_partner_1")
-        cls.partner_2 = cls.env.ref("base.res_partner_2")
+        cls.partner_1 = cls.env["res.partner"].create({"name": "Test Partner 1"})
+        cls.partner_2 = cls.env["res.partner"].create({"name": "Test Partner 2"})
 
     def create_relative(self, dob):
         employee = self.Employee.create(
