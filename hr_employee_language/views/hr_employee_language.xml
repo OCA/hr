@@ -66,7 +66,7 @@
                     domain="[('can_listen', '=', True)]"
                     help="Can Listen"
                 />
-                <group expand="0" name="group_by" string="Group By">
+                <group name="group_by">
                     <filter
                         name="name"
                         string="Language"
