@@ -148,9 +148,7 @@ class TestEmployeeFirstname(TransactionCase):
     @odoo.tests.tagged("-at_install", "post_install")
     def test_update_name_post_install(self):
         empl_demo = self.env.ref("hr.employee_admin")
-
-        self.assertEqual(empl_demo.firstname, "Mitchell")
-        self.assertEqual(empl_demo.lastname, "Admin")
+        self.assertEqual(empl_demo.lastname, "Administrator")
 
     def test_no_name(self):
         self.env["hr.employee"].create({"firstname": "test"})

@@ -4,7 +4,7 @@
 
 import logging
 
-from odoo import _, api, models
+from odoo import api, fields, models
 from odoo.exceptions import ValidationError
 
 _logger = logging.getLogger(__name__)
@@ -14,6 +14,9 @@ UPDATE_PARTNER_FIELDS = ["firstname", "lastname", "user_id", "address_home_id"]
 
 class HrEmployee(models.Model):
     _inherit = "hr.employee"
+
+    firstname = fields.Char()
+    lastname = fields.Char()
 
     @api.model
     def _names_order_default(self):
@@ -79,7 +82,7 @@ class HrEmployee(models.Model):
             vals["lastname"] = self.split_name(vals["name"])["lastname"]
             vals["firstname"] = self.split_name(vals["name"])["firstname"]
         else:
-            raise ValidationError(_("No name set."))
+            raise ValidationError(self.env._("No name set."))
 
     def _prepare_vals_on_write_firstname_lastname(self, vals):
         if "firstname" in vals or "lastname" in vals:
@@ -178,4 +181,4 @@ class HrEmployee(models.Model):
         """Ensure at least one name is set."""
         for record in self:
             if not (record.firstname or record.lastname):
-                raise ValidationError(_("No name set."))
+                raise ValidationError(self.env._("No name set."))
