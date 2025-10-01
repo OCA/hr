@@ -14,7 +14,6 @@ class ResCompany(models.Model):
             ("random", "Random"),
             ("sequence", "Sequence"),
         ],
-        string="Generation Method",
         default="random",
     )
     employee_id_random_digits = fields.Integer(

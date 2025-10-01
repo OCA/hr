@@ -7,7 +7,7 @@ import logging
 import random
 import string
 
-from odoo import _, api, fields, models
+from odoo import api, fields, models
 from odoo.exceptions import UserError
 
 _logger = logging.getLogger(__name__)
@@ -19,14 +19,10 @@ class HrEmployee(models.Model):
     _inherit = "hr.employee"
 
     identification_id = fields.Char(string="Identification No", copy=False)
-
-    _sql_constraints = [
-        (
-            "identification_id_uniq",
-            "unique(identification_id)",
-            "The Employee Number must be unique across the company(s).",
-        ),
-    ]
+    _identification_id_uniq = models.Constraint(
+        "unique (identification_id)",
+        "The Employee Number must be unique across the company(s).",
+    )
 
     @api.model
     def _generate_identification_id(self):
@@ -55,7 +51,9 @@ class HrEmployee(models.Model):
             return employee_id
 
         raise UserError(
-            _("Unable to generate unique Employee ID in %d steps.") % (steps,)
+            self.env._(
+                "Unable to generate unique Employee ID in %(steps)d steps.", steps=steps
+            )
         )
 
     @api.model_create_multi
