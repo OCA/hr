@@ -5,7 +5,7 @@
     "name": "Employee Medical Examination",
     "summary": """
         Adds information about employee's medical examinations""",
-    "version": "18.0.1.1.0",
+    "version": "19.0.1.0.0",
     "license": "AGPL-3",
     "author": "Creu Blanca, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/hr",
