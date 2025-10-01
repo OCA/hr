@@ -3,7 +3,7 @@
 
 from datetime import date
 
-from odoo import _, fields, models
+from odoo import fields, models
 
 
 class WizardGenerateMedicalExamination(models.TransientModel):
@@ -38,19 +38,20 @@ class WizardGenerateMedicalExamination(models.TransientModel):
         employees = self.env["hr.employee"].search(domain)
         self.employee_ids = employees
         action = {
-            "name": _("Generate Medical Examinations"),
+            "name": self.env._("Generate Medical Examinations"),
             "type": "ir.actions.act_window",
             "res_model": "wizard.generate.medical.examination",
             "view_mode": "form",
             "target": "new",
             "res_id": self.id,
-            "context": self._context,
+            "context": self.env.context,
         }
         return action
 
     def _create_examination_vals(self, employee):
+        message = self.env._("%(name)s on %(employee)s")
         return {
-            "name": _("%(name)s on %(employee)s")
+            "name": message
             % {
                 "name": self.name,
                 "employee": employee.name,
