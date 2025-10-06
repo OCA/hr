@@ -4,8 +4,8 @@
 from odoo import fields, models
 
 
-class User(models.Model):
-    _inherit = ["res.users"]
+class ResUsers(models.Model):
+    _inherit = "res.users"
 
     allow_birthday_wishes = fields.Boolean(
         related="employee_id.allow_birthday_wishes", readonly=False, related_sudo=False

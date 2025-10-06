@@ -25,13 +25,16 @@ class HrEmployee(models.Model):
     @api.model
     def _check_birthdays(self):
         today = fields.Date.today()
-        employees = self.env["hr.employee"].search([])
+        # employees = self.env["hr.employee"].search(
+        #     [("allow_birthday_wishes", "!=", False)]
+        # )
+        employees = self.env["hr.employee"].search(
+            [("allow_birthday_wishes", "!=", False), ("birthday", "!=", False)]
+        )
         for employee in employees:
             if (
-                employee.birthday
-                and employee.birthday.day == today.day
+                employee.birthday.day == today.day
                 and employee.birthday.month == today.month
-                and employee.allow_birthday_wishes
             ):
                 templates_data = self.env["ir.model.data"].search(
                     [
