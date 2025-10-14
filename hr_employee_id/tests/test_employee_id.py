@@ -11,7 +11,7 @@ from odoo.tests import common
 
 class TestEmployeeID(common.TransactionCase):
     def setUp(self):
-        super(TestEmployeeID, self).setUp()
+        super().setUp()
         self.employee_model = self.env["hr.employee"]
         self.company = self.env.ref("base.main_company")
         self.sequence = self.env.ref("hr_employee_id.seq_hr_employee_id")
