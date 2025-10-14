@@ -8,7 +8,7 @@
         check-in/check-out step""",
     'version': '12.0.1.0.1',
     'license': 'AGPL-3',
-    'author': 'Eficent Business and IT Consulting Services S.L.,'
+    'author': 'Eficent, '
               'Odoo Community Association (OCA)',
     'website': 'https://github.com/OCA/hr',
     'depends': [
