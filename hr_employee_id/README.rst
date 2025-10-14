@@ -66,7 +66,7 @@ formats.
 
 To configure the 'ID Generation Method', the '# of Digits' and the
 'Sequence', activate the developer mode and go to Employees ->
-Configuration -> Employee ID.
+Configuration -> Settings -> Employee Identifier
 
 Usage
 =====
@@ -113,6 +113,8 @@ Contributors
 - `CorporateHub <https://corporatehub.eu/>`__
 
   - Alexey Pelykh <alexey.pelykh@corphub.eu>
+
+- Chris Bergman <chris.bergman@codeforward.nl>
 
 Maintainers
 -----------
