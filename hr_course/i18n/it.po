@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2025-05-06 12:24+0000\n"
+"PO-Revision-Date: 2025-10-21 09:43+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -474,7 +474,7 @@ msgstr "Numero di messaggi con errore di consegna"
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__objective
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_form_view
 msgid "Objective"
-msgstr "Obbiettivo"
+msgstr "Obiettivo"
 
 #. module: hr_course
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_schedule_form_view
