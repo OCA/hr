@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-inherit="web.CalendarController" t-inherit-mode="extension">
+        <xpath expr="//h5" position="inside">
+            <t t-if="model.meta.scale === 'month'">
+                <button class="btn btn-secondary" t-on-click="validateWorkentries" title="Valide les prestations du mois en cours">Valider le mois</button>
+            </t>
+            <t t-elif="model.meta.scale === 'week'">
+                <button class="btn btn-secondary" t-on-click="validateWorkentries" title="Valide les prestations de la semaine en cours">Valider la semaine</button>
+            </t>
+        </xpath>
+    </t>
+</templates>

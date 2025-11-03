@@ -18,4 +18,10 @@
         "data/ir_actions_server_data.xml",
         "views/hr_work_entry_views.xml",
     ],
+    "assets": {
+        "web.assets_backend": [
+            "hr_work_entry_validate/static/src/views/**/*.js",
+            "hr_work_entry_validate/static/src/views/**/*.xml",
+        ],
+    },
 }
