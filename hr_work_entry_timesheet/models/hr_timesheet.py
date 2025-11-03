@@ -11,7 +11,7 @@ class AccountAnalyticLine(models.Model):
     def _get_work_entry(self):
         work_entries = self.env["hr.work.entry"]
         for timesheet in self.filtered(
-            lambda line: not line.project_id and line.employee_id
+            lambda line: line.project_id and line.employee_id
         ):
             work_entries += work_entries.search(
                 [
@@ -25,19 +25,28 @@ class AccountAnalyticLine(models.Model):
     @api.model_create_multi
     def create(self, vals_list):
         res = super().create(vals_list)
-        work_entries = res._get_work_entry()
+        timesheets = res.filtered("project_id")
+        if not timesheets:
+            return res
+        work_entries = timesheets._get_work_entry()
         if work_entries:
             work_entries._compute_timesheet_duration()
         return res
 
     def write(self, vals):
         res = super().write(vals)
-        if "unit_amount" in vals or "employee_id" in vals or "date" in vals:
+        if ("unit_amount" in vals or "employee_id" in vals or "date" in vals) and (
+            self.filtered("project_id") or "project_id" in vals
+        ):
             self._get_work_entry()._compute_timesheet_duration()
         return res
 
     def unlink(self):
-        work_entries = self._get_work_entry()
+        work_entries = self.env["hr.work.entry"]
+        timesheets = self.filtered("project_id")
+        if timesheets:
+            work_entries = timesheets._get_work_entry()
         res = super().unlink()
-        work_entries._compute_timesheet_duration()
+        if timesheets:
+            work_entries._compute_timesheet_duration()
         return res
