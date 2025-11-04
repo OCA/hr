@@ -4,26 +4,25 @@ import { useService } from "@web/core/utils/hooks";
 import { _t } from "@web/core/l10n/translation";
 
 patch(CalendarController.prototype, {
-  // just log this
   setup() {
     super.setup(...arguments);
     this.notification = useService("notification");
-    console.log(this);
+    // console.log(this);
   },
 
   // only display button if month or week
-  get displayButton() {
+  get workEntryDisplayButton() {
     return this.model.meta.scale == "week" || this.model.meta.scale == "month";
   },
 
   // tell if any record is still draft
-  get anyDraftWorkentry() {
-    return this.filteredRecords.length != 0;
+  get workEntryAnyDraft() {
+    return this.workEntryFilteredRecords.length != 0;
   },
 
   // get current draft records
-  get filteredRecords() {
-    return this.filterRecords(
+  get workEntryFilteredRecords() {
+    return this.workEntryFilterRecords(
       this.model.data.records,
       this.model.meta.scale,
       this.model.meta.date,
@@ -32,7 +31,7 @@ patch(CalendarController.prototype, {
   },
 
   // filter records based on current month / week and state
-  filterRecords(records, scale, date, state) {
+  workEntryFilterRecords(records, scale, date, state) {
     const start = date.startOf(scale);
     const stop = date.endOf(scale);
     // filter records
@@ -45,8 +44,8 @@ patch(CalendarController.prototype, {
   },
 
   // call action_validate on current records
-  async validateWorkentries() {
-    const record_ids = this.filteredRecords.map((r) => r.id);
+  async workEntryValidate() {
+    const record_ids = this.workEntryFilteredRecords.map((r) => r.id);
     console.log("Validating records", record_ids);
     const success = await this.orm.call("hr.work.entry", "action_validate", [
       record_ids,
