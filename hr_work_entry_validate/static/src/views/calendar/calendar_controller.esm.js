@@ -1,6 +1,7 @@
 import { patch } from "@web/core/utils/patch";
 import { CalendarController } from "@web/views/calendar/calendar_controller";
 import { useService } from "@web/core/utils/hooks";
+import { _t } from "@web/core/l10n/translation";
 
 patch(CalendarController.prototype, {
   // just log this
@@ -54,14 +55,14 @@ patch(CalendarController.prototype, {
       // refresh
       this.model.env.searchModel.search();
       // notify success
-      this.notification.add(`${record_ids.length} entrées validées`, {
+      this.notification.add(_t("%s work entries validated", record_ids.length), {
         title: "Ok",
         type: "success",
       });
     } else {
       // notify failure
-      this.notification.add("Les entrées n'ont pas pu être validées.", {
-        title: "Erreur",
+      this.notification.add(_t("Work entries could not be validated."), {
+        title: _t("Error"),
         type: "danger",
       });
     }

@@ -3,7 +3,7 @@
     <t t-inherit="web.CalendarController" t-inherit-mode="extension">
         <xpath expr="//h5" position="before">
             <t t-if="displayButton">
-                <button class="btn btn-primary ms-1" t-on-click="validateWorkentries" title="Valide les prestations de la période" t-att-disabled="!anyDraftWorkentry">Valider la période</button>
+                <button class="btn btn-primary ms-1" t-on-click="validateWorkentries" title="Validate period work entries" t-att-disabled="!anyDraftWorkentry">Validate period</button>
             </t>
         </xpath>
     </t>

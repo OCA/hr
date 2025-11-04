@@ -4,16 +4,22 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 17.0\n"
+"Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-27 10:00+0000\n"
-"PO-Revision-Date: 2025-05-27 10:00+0000\n"
+"POT-Creation-Date: 2025-11-04 14:09+0000\n"
+"PO-Revision-Date: 2025-11-04 14:09+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
+
+#. module: hr_work_entry_validate
+#. odoo-javascript
+#: code:addons/hr_work_entry_validate/static/src/views/calendar/calendar_controller.esm.js:0
+msgid "%s work entries validated"
+msgstr "%s entrées validées"
 
 #. module: hr_work_entry_validate
 #: model_terms:ir.ui.view,arch_db:hr_work_entry_validate.hr_work_entry_view_form
@@ -56,6 +62,12 @@ msgid "End"
 msgstr "Fin"
 
 #. module: hr_work_entry_validate
+#. odoo-javascript
+#: code:addons/hr_work_entry_validate/static/src/views/calendar/calendar_controller.esm.js:0
+msgid "Error"
+msgstr "Erreur"
+
+#. module: hr_work_entry_validate
 #: model:ir.model,name:hr_work_entry_validate.model_hr_work_entry
 msgid "HR Work Entry"
 msgstr "Prestation RH"
@@ -64,11 +76,6 @@ msgstr "Prestation RH"
 #: model:ir.ui.menu,name:hr_work_entry_validate.menu_my_work_entry
 msgid "My Work Entries"
 msgstr "Mes prestations"
-
-#. module: hr_work_entry_validate
-#: model_terms:ir.actions.act_window,help:hr_work_entry_validate.hr_work_entry_action
-msgid "No data to display"
-msgstr "Aucune donnée à afficher"
 
 #. module: hr_work_entry_validate
 #: model_terms:ir.ui.view,arch_db:hr_work_entry_validate.hr_work_entry_view_form
@@ -83,8 +90,6 @@ msgstr "Recherche de prestation"
 #. module: hr_work_entry_validate
 #. odoo-python
 #: code:addons/hr_work_entry_validate/models/hr_work_entry.py:0
-#: code:addons/hr_work_entry_validate/models/hr_work_entry.py:0
-#, python-format
 msgid ""
 "Some entries are in conflict and cannot be validated, please solve conflicts"
 " first."
@@ -103,18 +108,21 @@ msgid "This work entry cannot be validated. The work entry type is undefined."
 msgstr "Cette prestation ne peut pas être validée. Son type est inconnu."
 
 #. module: hr_work_entry_validate
-#: model_terms:ir.actions.act_window,help:hr_work_entry_validate.hr_work_entry_action
-msgid ""
-"Try to add some records, or make sure that there is no active filter in the "
-"search bar."
-msgstr ""
-"Essayez d'ajouter quelques entrées, ou assurez-vous qu'il n'y a pas de filtre actif "
-"dans la barre de recherche."
-
-#. module: hr_work_entry_validate
 #: model_terms:ir.ui.view,arch_db:hr_work_entry_validate.hr_work_entry_view_search
 msgid "Type"
-msgstr "Type"
+msgstr ""
+
+#. module: hr_work_entry_validate
+#. odoo-javascript
+#: code:addons/hr_work_entry_validate/static/src/views/calendar/calendar_controller.xml:0
+msgid "Validate period"
+msgstr "Valider la période"
+
+#. module: hr_work_entry_validate
+#. odoo-javascript
+#: code:addons/hr_work_entry_validate/static/src/views/calendar/calendar_controller.xml:0
+msgid "Validate period work entries"
+msgstr "Valider les entrées de la période en cours"
 
 #. module: hr_work_entry_validate
 #: model:ir.actions.server,name:hr_work_entry_validate.action_validate_work_entries
@@ -137,3 +145,9 @@ msgstr "Prestation"
 #: model_terms:ir.ui.view,arch_db:hr_work_entry_validate.hr_work_entry_view_form
 msgid "Work Entry Name"
 msgstr "Nom de la prestation"
+
+#. module: hr_work_entry_validate
+#. odoo-javascript
+#: code:addons/hr_work_entry_validate/static/src/views/calendar/calendar_controller.esm.js:0
+msgid "Work entries could not be validated."
+msgstr "Les entrées n'ont pas pu être validées."
