@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="hr_employee_ppe_report" model="ir.actions.report">
+        <field name="name">Receipt of Personal protection Equipment</field>
+        <field name="model">hr.personal.equipment.request</field>
+        <field name="report_type">qweb-pdf</field>
+        <field
+            name="report_name"
+        >hr_employee_ppe.hr_employee_ppe_report_template</field>
+        <field
+            name="report_file"
+        >hr_employee_ppe.hr_employee_ppe_report_template</field>
+        <field name="binding_model_id" eval="False" />
+        <field name="binding_type">report</field>
+    </record>
+</odoo>
