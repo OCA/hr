@@ -1,0 +1,465 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="hr_appraisal_form_view" model="ir.ui.view">
+        <field name="name">hr.appraisal.form.view</field>
+        <field name="model">hr.appraisal</field>
+        <field name="priority">1</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button
+                        name="action_confirm"
+                        string="Confirm"
+                        type="object"
+                        class="oe_highlight"
+                        attrs="{'invisible': &quot;['|', ('state','!=','1_new'), '&amp;', ('manager_user_ids', 'not in', uid), '&amp;', ('employee_user_id', '!=', uid), ('is_manager', '=', False)]&quot;}"
+                    />
+                    <button
+                        name="action_done"
+                        string="Mark as Done"
+                        type="object"
+                        class="oe_highlight"
+                        attrs="{'invisible': &quot;['|', ('state','!=','2_pending'), '&amp;', ('manager_user_ids', 'not in', uid), ('is_manager', '=', False)]&quot;}"
+                    />
+                    <button
+                        name="action_send_appraisal_request"
+                        string="Send by email"
+                        attrs="{'invisible': [('state', '!=', '1_new')]}"
+                        type="object"
+                    />
+                    <button
+                        name="action_back"
+                        string="Reopen"
+                        type="object"
+                        attrs="{'invisible': &quot;['|', '&amp;', ('state','!=','3_done'), ('state','!=','cancel'), '&amp;', ('manager_user_ids', 'not in', uid), ('is_manager', '=', False)]&quot;}"
+                    />
+                    <field
+                        name="state"
+                        widget="statusbar"
+                        statusbar_visible="1_new,2_pending,3_done"
+                        options="{'fold_field': 'fold'}"
+                    />
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button
+                            class="oe_stat_button"
+                            name="action_open_employee_appraisals"
+                            groups="hr.group_hr_user"
+                            icon="fa-th-large"
+                            type="object"
+                            attrs="{'invisible': ['|', ('employee_appraisal_count', '&lt;', 2), ('employee_id', '=', False)]}"
+                        >
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_value"><field
+                                        name="employee_appraisal_count"
+                                    /></span>
+                                <span class="o_stat_text">Appraisals</span>
+                            </div>
+                        </button>
+                    </div>
+                    <widget
+                        name="web_ribbon"
+                        title="Archived"
+                        bg_color="bg-danger"
+                        attrs="{'invisible': [('active', '=', True)]}"
+                    />
+                    <label for="employee_id" />
+                    <h1>
+                        <field
+                            name="employee_id"
+                            class="oe_inline"
+                            placeholder="Employee's Name"
+                            widget="many2one_avatar_employee"
+                        />
+                    </h1>
+                    <group>
+                        <group>
+                            <field
+                                name="manager_ids"
+                                widget="many2many_avatar_employee"
+                                attrs="{'readonly': &quot;['|',('state', '=', ('3_done')), '&amp;', ('state', '=', ('2_pending')),  '&amp;', ('manager_user_ids', 'not in', uid), ('is_manager', '=', False)]&quot;}"
+                            />
+                            <field
+                                name="date_close"
+                                attrs="{'readonly': [('state', '=', '3_done')]}"
+                            />
+                            <field
+                                name="appraisal_template_id"
+                                attrs="{'readonly': &quot;['|',('state','!=', ('1_new')), '&amp;', ('manager_user_ids', 'not in', uid), '&amp;', ('employee_user_id', '!=', uid), ('is_manager', '=', False)]&quot;}"
+                                options="{'no_edit': True, 'no_create': True}"
+                            />
+                            <field
+                                name="tag_ids"
+                                widget="many2many_tags"
+                                options="{'color_field': 'color'}"
+                                attrs="{'readonly': [('state', '=', '3_done')]}"
+                            />
+                        </group>
+                        <group>
+                            <field name="job_id" />
+                            <field name="department_id" />
+                            <field name="employee_user_id" invisible="1" />
+                            <field name="manager_user_ids" invisible="1" />
+                            <field name="state" invisible="1" />
+                            <field name="id" invisible="1" />
+                            <field name="company_id" invisible="1" />
+                            <field name="employee_domain_ids" invisible="1" />
+                            <field
+                                name="company_id"
+                                groups="base.group_multi_company"
+                                required="1"
+                            />
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Appraisal" name="appraisal">
+                            <div
+                                class="d-flex flex-column flex-md-row flex-wrap align-items-stretch"
+                                style="min-height: 20rem; margin: -16px var(--notebook-margin-x) !important;"
+                            >
+                                <div
+                                    class="col-11 col-md-6"
+                                    style="padding: 32px 16px;"
+                                >
+                                    <div class="row">
+                                        <div
+                                            class="col-11 d-flex justify-content-between"
+                                        >
+                                            <h3>Employee's Feedback</h3>
+                                            <div
+                                                class="h-100"
+                                                attrs="{'invisible': [('state', '=', '3_done')]}"
+                                            >
+                                                <span
+                                                    class="text-end"
+                                                    attrs="{'invisible': [('employee_feedback_published', '=', True)]}"
+                                                >Not Visible to Manager </span>
+                                                <span
+                                                    class="text-end"
+                                                    attrs="{'invisible': ['|', ('employee_feedback_published', '=', False), ('state', '=', '1_new')]}"
+                                                >Visible to Manager </span>
+                                                <span
+                                                    class="text-end"
+                                                    attrs="{'invisible': &quot;['|', ('employee_feedback_published', '=', False), ('state', '!=', '1_new')]&quot;}"
+                                                >Visible &amp; Editable by Manager </span>
+                                                <button
+                                                    class="btn btn-secondary"
+                                                    name="action_publish_employee_feedback"
+                                                    type="object"
+                                                    icon="fa-circle-o"
+                                                    attrs="{'invisible': &quot;['|', ('employee_feedback_published', '=', True), '&amp;', ('state', '=', '1_new'), ('employee_user_id', '=', uid)]&quot;}"
+                                                >
+                                                        <field
+                                                        name="employee_feedback_published"
+                                                        nolabel="1"
+                                                        invisible="1"
+                                                    />
+                                                </button>
+                                                <button
+                                                    class="btn btn-secondary"
+                                                    name="action_publish_employee_feedback"
+                                                    type="object"
+                                                    icon="fa-check-circle"
+                                                    attrs="{'invisible': &quot;['|', ('employee_feedback_published', '=', False), '&amp;', ('state', '=', '1_new'), ('employee_user_id', '=', uid)]&quot;}"
+                                                >
+                                                    <field
+                                                        name="employee_feedback_published"
+                                                        nolabel="1"
+                                                        invisible="1"
+                                                    />
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="col-11 position-relative"
+                                            style="height: 100%;"
+                                        >
+                                            <span
+                                                class="o_highlight"
+                                                style="width: 100%; text-align: center; text-align: center;"
+                                                attrs="{'invisible': ['|', '|', ('can_see_employee_publish', '=', True), ('employee_feedback_published', '=', True), ('employee_feedback_template', '=', False)]}"
+                                            >
+                                                <div
+                                                    style="font-size: 1.5em;"
+                                                >Self Assessment will show here</div>
+                                                <div
+                                                    style="font-size: 1.5em;"
+                                                >once published</div>
+                                            </span>
+                                            <field
+                                                name="employee_feedback"
+                                                type="html"
+                                                options="{'collaborative': true, 'resizable': false}"
+                                                placeholder="Employee feedback..."
+                                                attrs="{'invisible': ['&amp;', ('employee_feedback_published', '=', False), ('can_see_employee_publish', '=', False)], 'readonly': ['|', ('state', 'not in', ['1_new', '2_pending']), ('can_see_employee_publish', '=', False)]}"
+                                            />
+                                            <field
+                                                name="employee_feedback_template"
+                                                attrs="{'invisible': ['|', ('employee_feedback_published', '=', False), ('can_see_employee_publish', '=', False)]}"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div
+                                    class="col-11 col-md-6"
+                                    style="background-color: #e7e9ed; padding: 32px 16px;"
+                                >
+                                    <div class="row">
+                                        <div
+                                            class="col-11 d-flex justify-content-between"
+                                        >
+                                            <h3>Manager's Feedback</h3>
+                                            <div
+                                                class="h-100"
+                                                attrs="{'invisible': [('state', '=', '3_done')]}"
+                                            >
+                                                <span
+                                                    class="text-end"
+                                                    attrs="{'invisible': ['|', ('manager_feedback_published', '=', True), ('can_see_manager_publish', '=', False)]}"
+                                                >Not Visible to Employee </span>
+                                                <span
+                                                    class="text-end"
+                                                    attrs="{'invisible': ['|', ('manager_feedback_published', '=', False), ('can_see_manager_publish', '=', False)]}"
+                                                >Visible to Employee </span>
+                                                    <button
+                                                    class="btn btn-secondary"
+                                                    t-att-style="'background-color: #e7e9ed; border-color: #e7e9ed; color: #66598f;'"
+                                                    name="action_publish_manager_feedback"
+                                                    type="object"
+                                                    icon="fa-circle-o"
+                                                    attrs="{'invisible': ['|', ('manager_feedback_published', '=', True), ('can_see_manager_publish', '=', False)]}"
+                                                >
+                                                        <field
+                                                        name="manager_feedback_published"
+                                                        nolabel="1"
+                                                        invisible="1"
+                                                    />
+                                                </button>
+                                                <button
+                                                    class="btn btn-secondary"
+                                                    t-att-style="'background-color: #e7e9ed; border-color: #e7e9ed; color: #66598f;'"
+                                                    name="action_publish_manager_feedback"
+                                                    type="object"
+                                                    icon="fa-check-circle"
+                                                    attrs="{'invisible': ['|', ('manager_feedback_published', '=', False), ('can_see_manager_publish', '=', False)]}"
+                                                >
+                                                    <field
+                                                        name="manager_feedback_published"
+                                                        nolabel="1"
+                                                        invisible="1"
+                                                    />
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="col-11 position-relative"
+                                            style="height: 100%;"
+                                        >
+                                            <span
+                                                class="o_highlight"
+                                                style="width: 100%; text-align: center; text-align: center;"
+                                                attrs="{'invisible': ['|', '|', ('can_see_manager_publish', '=', True), ('manager_feedback_published', '=', True), ('manager_feedback_template', '=', False)]}"
+                                            >
+                                                <div
+                                                    style="font-size: 1.5em;"
+                                                >Manager Assessment will show here</div>
+                                                <div
+                                                    style="font-size: 1.5em;"
+                                                >once published</div>
+                                            </span>
+                                            <field
+                                                name="manager_feedback"
+                                                type="html"
+                                                options="{'collaborative': true, 'resizable': false}"
+                                                placeholder="Manager feedback..."
+                                                attrs="{'invisible': ['&amp;', ('manager_feedback_published', '=', False), ('can_see_manager_publish', '=', False)], 'readonly': ['|', ('state', 'not in', ['1_new', '2_pending']), ('can_see_manager_publish', '=', False)]}"
+                                            />
+                                            <field
+                                                name="manager_feedback_template"
+                                                attrs="{'invisible': ['|', ('manager_feedback_published', '=', False), ('can_see_manager_publish', '=', False)]}"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </page>
+                        <page
+                            string="Private Note"
+                            name="private_note"
+                            attrs="{'invisible': &quot;[('employee_user_id', '=', uid)]&quot;}"
+                        >
+                            <field
+                                name="note"
+                                attrs="{'readonly': &quot;['|', ('state', '=', '3_done'), '&amp;', ('manager_user_ids', 'not in', uid), ('is_manager', '=', False)]&quot;}"
+                                placeholder="Private note (only accessible to people set as managers)"
+                            />
+                        </page>
+                    </notebook>
+                    <field name="active" invisible="1" />
+                    <field name="is_manager" invisible="1" />
+                    <field name="can_see_employee_publish" invisible="1" />
+                    <field name="can_see_manager_publish" invisible="1" />
+                    <field name="employee_feedback_published" invisible="1" />
+                    <field name="manager_feedback_published" invisible="1" />
+                </sheet>
+                <div class="oe_chatter">
+                    <field
+                        name="message_follower_ids"
+                        widget="mail_followers"
+                        groups="base.group_user"
+                    />
+                    <field name="activity_ids" widget="mail_activity" />
+                    <field name="message_ids" widget="mail_thread" />
+                </div>
+            </form>
+        </field>
+    </record>
+    <record id="hr_appraisal_tree_view" model="ir.ui.view">
+        <field name="name">hr.appraisal.tree.view</field>
+        <field name="model">hr.appraisal</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="active" invisible="1" />
+                <field
+                    name="employee_id"
+                    string="Name"
+                    readonly="1"
+                    widget="many2one_avatar_employee"
+                />
+                <field name="department_id" />
+                <field name="create_date" widget="timeless_datetime" optional="hide" />
+                <field name="date_close" widget="remaining_days" />
+                <field
+                    name="state"
+                    widget="badge"
+                    readonly="1"
+                    attrs="{'invisible': [('state', '=', '1_new')]}"
+                    decoration-success="state == '2_pending'"
+                />
+                <field
+                    name="tag_ids"
+                    widget="many2many_tags"
+                    readonly="1"
+                    options="{'color_field': 'color'}"
+                />
+                <field
+                    name="company_id"
+                    readonly="1"
+                    optional="hide"
+                    groups="base.group_multi_company"
+                />
+            </tree>
+        </field>
+    </record>
+    <record id="hr_appraisal_search_view" model="ir.ui.view">
+        <field name="name">hr.appraisal.search.view</field>
+        <field name="model">hr.appraisal</field>
+        <field name="arch" type="xml">
+            <search>
+                <filter
+                    string="Archived"
+                    name="archived"
+                    domain="[('active', '=', False)]"
+                />
+            </search>
+        </field>
+    </record>
+    <record id="hr_appraisal_kanban_view" model="ir.ui.view">
+        <field name="name">hr.appraisal.kanban.view</field>
+        <field name="model">hr.appraisal</field>
+        <field name="arch" type="xml">
+            <kanban
+                default_group_by="state"
+                default_order="state, date_close desc"
+                quick_create="false"
+                class="o_hr_employee_kanban"
+                sample="1"
+            >
+            <field name="color" />
+            <field name="state" />
+            <field name="manager_ids" />
+            <templates>
+                <t t-name="kanban-box">
+                    <div
+                            t-attf-class="oe_kanban_color_#{kanban_getcolor(record.color.raw_value)} oe_kanban_card oe_kanban_global_click"
+                        >
+                        <div class="o_dropdown_kanban dropdown">
+                            <a
+                                    class="dropdown-toggle btn"
+                                    data-toggle="dropdown"
+                                    role="button"
+                                    href="#"
+                                >
+                                <span class="fa fa-bars fa-lg" title="dropdown" />
+                            </a>
+                            <ul
+                                    class="dropdown-menu"
+                                    role="menu"
+                                    aria-labelledby="dLabel"
+                                >
+                                <li><ul
+                                            class="oe_kanban_colorpicker"
+                                            data-field="color"
+                                        /></li>
+                            </ul>
+                        </div>
+                        <div class="oe_kanban_content">
+                            <div><field
+                                        name="employee_id"
+                                        class="fw-bolder fs-5"
+                                    /></div>
+                            <div><field name="department_id" /></div>
+                            <t
+                                    t-if="record.date_close.raw_value and record.date_close.raw_value &lt; (new Date())"
+                                    t-set="red"
+                                >oe_kanban_text_red</t>
+                                Date: <span t-attf-class="#{red}"><i><field
+                                            name="date_close"
+                                        /></i></span>
+                            <br />
+                            <div class="oe_clear">
+                            </div>
+                            <footer class="pt-0">
+                                <field name="activity_ids" widget="kanban_activity" />
+                                <field
+                                        name="tag_ids"
+                                        widget="many2many_tags"
+                                        options="{'color_field': 'color'}"
+                                    />
+                            </footer>
+                        </div>
+                        <div class="clearfix" />
+                    </div>
+                </t>
+            </templates>
+            </kanban>
+        </field>
+    </record>
+    <record id="hr_appraisal_action_form" model="ir.actions.act_window">
+        <field name="name">Appraisals</field>
+        <field name="res_model">hr.appraisal</field>
+        <field name="view_id" ref="hr_appraisal_search_view" />
+        <field name='view_mode'>kanban,tree,form</field>
+    </record>
+    <menuitem
+        name="Appraisals"
+        id="menu_hr_appraisal_root"
+        web_icon="hr_appraisal_oca,static/description/icon.png"
+        groups="hr_appraisal_oca.group_appraisal_user"
+    />
+    <menuitem
+        name="Appraisals"
+        id="menu_hr_appraisal"
+        parent="menu_hr_appraisal_root"
+        action="hr_appraisal_action_form"
+        groups="hr_appraisal_oca.group_appraisal_user"
+    />
+    <menuitem
+        name="Configuration"
+        id="menu_hr_appraisal_configuration"
+        parent="menu_hr_appraisal_root"
+        groups="hr_appraisal_oca.group_appraisal_hr_officer"
+        sequence="100"
+    />
+</odoo>

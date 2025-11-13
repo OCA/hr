@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_employee_form" model="ir.ui.view">
+        <field name="name">hr.employee.form.view</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form" />
+        <field name="arch" type="xml">
+            <div name="button_box" position="inside">
+                <field name="appraisal_count" invisible="1" />
+                <field name="ongoing_appraisal_count" invisible="1" />
+                <field name="last_appraisal_id" invisible="1" />
+                <field name="last_appraisal_state" invisible="1" />
+                <field name="can_open_last_appraisal" invisible="1" />
+                <button
+                    name="action_open_last_appraisal"
+                    class="oe_stat_button"
+                    icon="fa-th-large"
+                    attrs="{'invisible': [('can_open_last_appraisal', '=', False)]}"
+                    type="object"
+                >
+                    <div class="o_field_widget o_stat_info">
+                        <span
+                            class="o_stat_text"
+                            attrs="{'invisible':[('last_appraisal_state', '==', '3_done')]}"
+                        >
+                            Ongoing
+                        </span>
+                        <span
+                            class="o_stat_text"
+                            attrs="{'invisible':[('last_appraisal_state', '!=', '3_done')]}"
+                        >
+                            Latest
+                        </span>
+                        <span class="o_stat_text">
+                            Appraisal
+                        </span>
+                    </div>
+                </button>
+            </div>
+        </field>
+    </record>
+</odoo>

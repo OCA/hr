@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo noupdate="1">
+    <record id="mail_template_appraisal_request" model="mail.template">
+        <field name="name">HR: Manager appraisal request</field>
+        <field name="model_id" ref="hr_appraisal_oca.model_hr_appraisal" />
+        <field name="subject">Appraisal Requested</field>
+        <field name="email_from">{{user.email_formatted}}</field>
+        <field name="reply_to">{{user.email_formatted}}</field>
+        <field
+            name="description"
+        >Sent manually to the employee by the manager who wants to do an appraisal</field>
+        <field name="auto_delete" eval="True" />
+        <field name="body_html" type="html">
+            <div style="margin: 0px; padding: 0px;">
+                <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                    Dear
+                    <t t-if="object.employee_id.work_email">
+                        <t t-out="object.employee_id.name or ''" />,
+                    </t>
+                    <t t-foreach="object.manager_ids" t-as="manager">
+                        <t t-if="user.id not in object.manager_user_ids.ids">
+                            <t t-out="manager.name or ''" />,
+                        </t>
+                    </t>
+                    <br />
+                        An appraisal has been requested by <t
+                        t-out="user.name or ''"
+                    />.<br />
+                    <br />
+                    <t t-if="ctx.get('user_body')">
+                        <div
+                            style="margin: 16px 0px 16px 0px; padding: 8px 16px 8px 16px; background-color: #F1F1F1;"
+                        >
+                            <t t-out="ctx.get('user_body')"> </t>
+                        </div>
+                    </t>
+                    <t t-if="ctx.get('recipient_users')">
+                        <p
+                            style="margin: 16px 0px 16px 0px; padding: 8px 16px 8px 16px; text-align: center;"
+                        >
+                            <t
+                                t-set="link"
+                                t-value="'/mail/view?model=hr.appraisal&amp;res_id=%s' % object.id"
+                            />
+                            <a
+                                style="margin: auto; background-color:#875A7B; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px;"
+                                t-att-href="link"
+                            >View Appraisal</a>
+                        </p>
+                    </t>
+                    <br />
+                </p>
+            </div>
+        </field>
+    </record>
+    <record id="mail_template_appraisal_request_from_employee" model="mail.template">
+        <field name="name">HR: Employee Appraisal Request</field>
+        <field name="model_id" ref="hr_appraisal_oca.model_hr_appraisal" />
+        <field name="subject">{{ user.name or ''}} requests an Appraisal</field>
+        <field name="email_from">{{user.email_formatted}}</field>
+        <field name="reply_to">{{user.email_formatted}}</field>
+        <field
+            name="description"
+        >Sent manually to the manager by the employee who wants an appraisal</field>
+        <field name="auto_delete" eval="True" />
+        <field name="body_html" type="html">
+            <div style="margin: 0px; padding: 0px;">
+                <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                    Dear
+                    <t t-foreach="object.manager_ids" t-as="manager">
+                        <t t-if="manager.work_email">
+                            <t t-out="manager.name or ''" />,
+                        </t>
+                    </t>
+                    <br />
+                    <t t-out="user.name or ''" /> wishes an appraisal.<br />
+                    <br />
+                    <t t-if="ctx.get('user_body')">
+                        <div
+                            style="margin: 16px 0px 16px 0px; padding: 8px 16px 8px 16px; background-color: #F1F1F1;"
+                        >
+                            <t t-out="ctx.get('user_body')"> </t>
+                        </div>
+                    </t>
+                    <t t-if="ctx.get('recipient_users')">
+                        <p
+                            style="margin: 16px 0px 16px 0px; padding: 8px 16px 8px 16px; text-align: center;"
+                        >
+                            <t
+                                t-set="link"
+                                t-value="'/mail/view?model=hr.appraisal&amp;res_id=%s' % object.id"
+                            />
+                            <a
+                                style="margin: auto; background-color:#875A7B; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px;"
+                                t-att-href="link"
+                            >View Appraisal</a>
+                        </p>
+                    </t>
+                </p>
+            </div>
+        </field>
+    </record>
+    <record id="mail_template_appraisal_confirmation" model="mail.template">
+        <field name="name">HR: Appraisal Confirmation</field>
+        <field name="model_id" ref="hr_appraisal_oca.model_hr_appraisal" />
+        <field name="subject">{{object.employee_id.name}}: Appraisal Confirmed</field>
+        <field name="email_from">{{user.email_formatted}}</field>
+        <field
+            name="description"
+        >Sent automatically to both employee and manager when appraisal is confirmed</field>
+        <field name="auto_delete" eval="True" />
+        <field name="body_html" type="html">
+            <div style="margin: 0px; padding: 0px;">
+                <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                    An appraisal of <t
+                        t-out="object.employee_id.name or 'employee'"
+                    /> has been confirmed.<br />
+                    <br /><br />
+                    Please schedule an appraisal date together.
+                    <br /><br />
+                    <t t-if="ctx.get('recipient_users')">
+                        <p style="margin: 16px 0px 16px 0px; text-align: center;">
+                            <t
+                                t-set="link"
+                                t-value="'/mail/view?model=hr.appraisal&amp;res_id=%s' % object.id"
+                            />
+                            <a
+                                style="background-color:#875A7B; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px;"
+                                t-att-href="link"
+                            >View Appraisal</a>
+                        </p>
+                    </t>
+                </p>
+            </div>
+        </field>
+    </record>
+    <record id="mail_template_appraisal_completed" model="mail.template">
+        <field name="name">HR: Appraisal Completed</field>
+        <field name="model_id" ref="hr_appraisal_oca.model_hr_appraisal" />
+        <field name="subject">Your Appraisal has been completed</field>
+        <field name="email_from">{{user.email_formatted}}</field>
+        <field
+            name="description"
+        >Sent automatically to both employee and manager when appraisal is completed</field>
+        <field name="auto_delete" eval="True" />
+        <field name="body_html" type="html">
+            <div>
+                The appraisal's status has been set to <strong
+                    style="box-sizing:border-box;font-weight:bold;"
+                >Done</strong> by <t t-out="user.name or ''" />.<br />
+                <br />
+                <t t-if="ctx.get('recipient_users')">
+                    <p style="box-sizing:border-box;margin-top:24px;margin-bottom:16px">
+                        <t
+                            t-set="link"
+                            t-value="'/mail/view?model=hr.appraisal&amp;res_id=%s' % object.id"
+                        />
+                        <a
+                            style="box-sizing:border-box;text-decoration:none;color:#7c7bad;background-color:#875A7B;padding:10px; color:#fff; border-radius:5px;"
+                            t-att-href="link"
+                        >View Employee Appraisal</a>
+                    </p>
+                </t>
+            </div>
+        </field>
+    </record>
+</odoo>
