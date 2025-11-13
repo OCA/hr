@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="hr_appraisal_tag_form_view" model="ir.ui.view">
+        <field name="name">hr.appraisal.tag.form.view</field>
+        <field name="model">hr.appraisal.tag</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field
+                            name="name"
+                            placeholder="e.g. Remediation, Team, Improvement plan, Career change, ..."
+                        />
+                        <field name="color" invisible="1" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="hr_appraisal_tag_tree_view" model="ir.ui.view">
+        <field name="name">hr.appraisal.tag.tree.view</field>
+        <field name="model">hr.appraisal.tag</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+    <record id="hr_appraisal_tag_action_form" model="ir.actions.act_window">
+        <field name="name">Tags</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hr.appraisal.tag</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Add a new tag
+            </p>
+        </field>
+    </record>
+    <menuitem
+        id="menuitem_appraisal_tag"
+        name="Appraisal Tags"
+        parent="hr_appraisal_oca.menu_hr_appraisal_configuration"
+        action="hr_appraisal_tag_action_form"
+        sequence="56"
+    />
+ </odoo>

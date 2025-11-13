@@ -1,0 +1,10 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hr_appraisal_all,hr.appraisal all,model_hr_appraisal,,1,1,1,1
+access_hr_appraisal_template_all,hr.appraisal.template all,model_hr_appraisal_template,,1,1,1,1
+access_send_email_with_template_all,hr.appraisal.send_email_with_template all,model_send_email_with_template,,1,1,1,1
+access_hr_appraisal_user,hr.appraisal user,model_hr_appraisal,base.group_user,1,1,1,0
+access_hr_appraisal_tag_all,hr.appraisal.tag all,model_hr_appraisal_tag,,1,1,1,1
+access_hr_appraisal_wizard_user,hr.appraisal.wizard user,model_hr_appraisal_wizard,hr_appraisal_oca.group_appraisal_user,1,1,1,1
+access_hr_appraisal_wizard_hr_officer,hr.appraisal.wizard hr officer,model_hr_appraisal_wizard,hr_appraisal_oca.group_appraisal_hr_officer,1,1,1,1
+access_hr_appraisal_request_wizard_user,hr.appraisal.request.wizard user,model_hr_appraisal_request_wizard,hr_appraisal_oca.group_appraisal_user,1,1,1,1
+access_hr_appraisal_request_wizard_hr_officer,hr.appraisal.request.wizard hr officer,model_hr_appraisal_request_wizard,hr_appraisal_oca.group_appraisal_hr_officer,1,1,1,1
