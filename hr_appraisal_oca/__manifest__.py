@@ -6,7 +6,7 @@
     "category": "Human Resources/Employees",
     "website": "https://github.com/OCA/hr",
     "author": "Fundación Esment, Odoo Community Association (OCA)",
-    "maintainers": ["ebauza"],
+    "maintainers": ["ebauza", "pedrobaeza"],
     "images": ["static/description/banner.png"],
     "summary": "Module for managing employee appraisals",
     "license": "AGPL-3",
