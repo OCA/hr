@@ -1,0 +1,2 @@
+odoo-addon-hr_work_entry_timesheet @ git+https://github.com/OCA/hr.git@refs/pull/1523/head#subdirectory=hr_work_entry_timesheet
+odoo-addon-hr_work_entry_validate @ git+https://github.com/OCA/hr.git@refs/pull/1524/head#subdirectory=hr_work_entry_validate
