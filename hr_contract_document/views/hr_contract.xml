@@ -12,7 +12,7 @@
             <div name="button_box" position="inside">
                 <button
                     class="oe_stat_button"
-                    icon="fa-book"
+                    icon="fa-paperclip"
                     name="action_get_attachment_tree_view"
                     type="object"
                 >
@@ -23,7 +23,7 @@
                     />
                 </button>
             </div>
-            <xpath expr="//div[hasclass('oe_chatter')]" position="before">
+            <xpath expr="chatter" position="before">
                 <div class="o_attachment_preview" />
             </xpath>
         </field>
