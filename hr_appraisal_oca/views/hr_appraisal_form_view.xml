@@ -12,26 +12,26 @@
                         string="Confirm"
                         type="object"
                         class="oe_highlight"
-                        attrs="{'invisible': &quot;['|', ('state','!=','1_new'), '&amp;', ('manager_user_ids', 'not in', uid), '&amp;', ('employee_user_id', '!=', uid), ('is_manager', '=', False)]&quot;}"
+                        invisible="state != '1_new' or (manager_user_ids not in [uid] and employee_user_id != uid and not is_manager)"
                     />
                     <button
                         name="action_done"
                         string="Mark as Done"
                         type="object"
                         class="oe_highlight"
-                        attrs="{'invisible': &quot;['|', ('state','!=','2_pending'), '&amp;', ('manager_user_ids', 'not in', uid), ('is_manager', '=', False)]&quot;}"
+                        invisible="state != '2_pending' or (manager_user_ids not in [uid] and not is_manager)"
                     />
                     <button
                         name="action_send_appraisal_request"
                         string="Send by email"
-                        attrs="{'invisible': [('state', '!=', '1_new')]}"
+                        invisible="state != '1_new'"
                         type="object"
                     />
                     <button
                         name="action_back"
                         string="Reopen"
                         type="object"
-                        attrs="{'invisible': &quot;['|', '&amp;', ('state','!=','3_done'), ('state','!=','cancel'), '&amp;', ('manager_user_ids', 'not in', uid), ('is_manager', '=', False)]&quot;}"
+                        invisible="(state not in ['3_done', 'cancel']) or (manager_user_ids not in [uid] and not is_manager)"
                     />
                     <field
                         name="state"
@@ -48,7 +48,7 @@
                             groups="hr.group_hr_user"
                             icon="fa-th-large"
                             type="object"
-                            attrs="{'invisible': ['|', ('employee_appraisal_count', '&lt;', 2), ('employee_id', '=', False)]}"
+                            invisible="employee_appraisal_count &lt; 2 or not employee_id"
                         >
                             <div class="o_field_widget o_stat_info">
                                 <span class="o_stat_value">
@@ -62,7 +62,7 @@
                         name="web_ribbon"
                         title="Archived"
                         bg_color="bg-danger"
-                        attrs="{'invisible': [('active', '=', True)]}"
+                        invisible="active"
                     />
                     <label for="employee_id" />
                     <h1>
@@ -71,6 +71,7 @@
                             class="oe_inline"
                             placeholder="Employee's Name"
                             widget="many2one_avatar_employee"
+                            readonly="state != '1_new'"
                         />
                     </h1>
                     <group>
@@ -78,22 +79,19 @@
                             <field
                                 name="manager_ids"
                                 widget="many2many_avatar_employee"
-                                attrs="{'readonly': &quot;['|',('state', '=', ('3_done')), '&amp;', ('state', '=', ('2_pending')),  '&amp;', ('manager_user_ids', 'not in', uid), ('is_manager', '=', False)]&quot;}"
+                                readonly="state == '3_done' or (state == '2_pending' and manager_user_ids not in [uid] and not is_manager)"
                             />
-                            <field
-                                name="date_close"
-                                attrs="{'readonly': [('state', '=', '3_done')]}"
-                            />
+                            <field name="date_close" readonly="state == '3_done'" />
                             <field
                                 name="appraisal_template_id"
-                                attrs="{'readonly': &quot;['|',('state','!=', ('1_new')), '&amp;', ('manager_user_ids', 'not in', uid), '&amp;', ('employee_user_id', '!=', uid), ('is_manager', '=', False)]&quot;}"
+                                readonly="state != '1_new' or (manager_user_ids not in [uid] and employee_user_id != uid and not is_manager)"
                                 options="{'no_edit': True, 'no_create': True}"
                             />
                             <field
                                 name="tag_ids"
                                 widget="many2many_tags"
                                 options="{'color_field': 'color'}"
-                                attrs="{'readonly': [('state', '=', '3_done')]}"
+                                readonly="state == '3_done'"
                             />
                         </group>
                         <group>
@@ -129,26 +127,26 @@
                                             <h3>Employee's Feedback</h3>
                                             <div
                                                 class="h-100"
-                                                attrs="{'invisible': [('state', '=', '3_done')]}"
+                                                invisible="state == '3_done'"
                                             >
                                                 <span
                                                     class="text-end"
-                                                    attrs="{'invisible': [('employee_feedback_published', '=', True)]}"
+                                                    invisible="employee_feedback_published"
                                                 >Not Visible to Manager </span>
                                                 <span
                                                     class="text-end"
-                                                    attrs="{'invisible': ['|', ('employee_feedback_published', '=', False), ('state', '=', '1_new')]}"
+                                                    invisible="not employee_feedback_published or state == '1_new'"
                                                 >Visible to Manager </span>
                                                 <span
                                                     class="text-end"
-                                                    attrs="{'invisible': &quot;['|', ('employee_feedback_published', '=', False), ('state', '!=', '1_new')]&quot;}"
+                                                    invisible="not employee_feedback_published or state != '1_new'"
                                                 >Visible &amp; Editable by Manager </span>
                                                 <button
                                                     class="btn btn-secondary"
                                                     name="action_publish_employee_feedback"
                                                     type="object"
                                                     icon="fa-circle-o"
-                                                    attrs="{'invisible': &quot;['|', ('employee_feedback_published', '=', True), '&amp;', ('state', '=', '1_new'), ('employee_user_id', '=', uid)]&quot;}"
+                                                    invisible="employee_feedback_published or (state == '1_new' and employee_user_id == uid)"
                                                 >
                                                     <field
                                                         name="employee_feedback_published"
@@ -161,7 +159,7 @@
                                                     name="action_publish_employee_feedback"
                                                     type="object"
                                                     icon="fa-check-circle"
-                                                    attrs="{'invisible': &quot;['|', ('employee_feedback_published', '=', False), '&amp;', ('state', '=', '1_new'), ('employee_user_id', '=', uid)]&quot;}"
+                                                    invisible="not employee_feedback_published or (state == '1_new' and employee_user_id == uid)"
                                                 >
                                                     <field
                                                         name="employee_feedback_published"
@@ -178,7 +176,7 @@
                                             <span
                                                 class="o_highlight"
                                                 style="width: 100%; text-align: center; text-align: center;"
-                                                attrs="{'invisible': ['|', '|', ('can_see_employee_publish', '=', True), ('employee_feedback_published', '=', True), ('employee_feedback_template', '=', False)]}"
+                                                invisible="can_see_employee_publish or employee_feedback_published or not employee_feedback_template"
                                             >
                                                 <div
                                                     style="font-size: 1.5em;"
@@ -192,11 +190,12 @@
                                                 type="html"
                                                 options="{'collaborative': true, 'resizable': false}"
                                                 placeholder="Employee feedback..."
-                                                attrs="{'invisible': ['&amp;', ('employee_feedback_published', '=', False), ('can_see_employee_publish', '=', False)], 'readonly': ['|', ('state', 'not in', ['1_new', '2_pending']), ('can_see_employee_publish', '=', False)]}"
+                                                invisible="not employee_feedback_published and not can_see_employee_publish"
+                                                readonly="state not in ['1_new', '2_pending'] or not can_see_employee_publish"
                                             />
                                             <field
                                                 name="employee_feedback_template"
-                                                attrs="{'invisible': ['|', ('employee_feedback_published', '=', False), ('can_see_employee_publish', '=', False)]}"
+                                                invisible="not employee_feedback_published or not can_see_employee_publish"
                                             />
                                         </div>
                                     </div>
@@ -212,23 +211,23 @@
                                             <h3>Manager's Feedback</h3>
                                             <div
                                                 class="h-100"
-                                                attrs="{'invisible': [('state', '=', '3_done')]}"
+                                                invisible="state == '3_done'"
                                             >
                                                 <span
                                                     class="text-end"
-                                                    attrs="{'invisible': ['|', ('manager_feedback_published', '=', True), ('can_see_manager_publish', '=', False)]}"
+                                                    invisible="manager_feedback_published or not can_see_manager_publish"
                                                 >Not Visible to Employee </span>
                                                 <span
                                                     class="text-end"
-                                                    attrs="{'invisible': ['|', ('manager_feedback_published', '=', False), ('can_see_manager_publish', '=', False)]}"
+                                                    invisible="not manager_feedback_published or not can_see_manager_publish"
                                                 >Visible to Employee </span>
                                                 <button
                                                     class="btn btn-secondary"
-                                                    t-att-style="'background-color: #e7e9ed; border-color: #e7e9ed; color: #66598f;'"
+                                                    style="background-color: #e7e9ed; border-color: #e7e9ed; color: #66598f;"
                                                     name="action_publish_manager_feedback"
                                                     type="object"
                                                     icon="fa-circle-o"
-                                                    attrs="{'invisible': ['|', ('manager_feedback_published', '=', True), ('can_see_manager_publish', '=', False)]}"
+                                                    invisible="manager_feedback_published or not can_see_manager_publish"
                                                 >
                                                     <field
                                                         name="manager_feedback_published"
@@ -238,11 +237,11 @@
                                                 </button>
                                                 <button
                                                     class="btn btn-secondary"
-                                                    t-att-style="'background-color: #e7e9ed; border-color: #e7e9ed; color: #66598f;'"
+                                                    style="background-color: #e7e9ed; border-color: #e7e9ed; color: #66598f;"
                                                     name="action_publish_manager_feedback"
                                                     type="object"
                                                     icon="fa-check-circle"
-                                                    attrs="{'invisible': ['|', ('manager_feedback_published', '=', False), ('can_see_manager_publish', '=', False)]}"
+                                                    invisible="not manager_feedback_published or not can_see_manager_publish"
                                                 >
                                                     <field
                                                         name="manager_feedback_published"
@@ -259,7 +258,7 @@
                                             <span
                                                 class="o_highlight"
                                                 style="width: 100%; text-align: center; text-align: center;"
-                                                attrs="{'invisible': ['|', '|', ('can_see_manager_publish', '=', True), ('manager_feedback_published', '=', True), ('manager_feedback_template', '=', False)]}"
+                                                invisible="can_see_manager_publish or manager_feedback_published or not manager_feedback_template"
                                             >
                                                 <div
                                                     style="font-size: 1.5em;"
@@ -273,11 +272,12 @@
                                                 type="html"
                                                 options="{'collaborative': true, 'resizable': false}"
                                                 placeholder="Manager feedback..."
-                                                attrs="{'invisible': ['&amp;', ('manager_feedback_published', '=', False), ('can_see_manager_publish', '=', False)], 'readonly': ['|', ('state', 'not in', ['1_new', '2_pending']), ('can_see_manager_publish', '=', False)]}"
+                                                invisible="not manager_feedback_published and not can_see_manager_publish"
+                                                readonly="state not in ['1_new', '2_pending'] or not can_see_manager_publish"
                                             />
                                             <field
                                                 name="manager_feedback_template"
-                                                attrs="{'invisible': ['|', ('manager_feedback_published', '=', False), ('can_see_manager_publish', '=', False)]}"
+                                                invisible="not manager_feedback_published or not can_see_manager_publish"
                                             />
                                         </div>
                                     </div>
@@ -287,11 +287,11 @@
                         <page
                             string="Private Note"
                             name="private_note"
-                            attrs="{'invisible': &quot;[('employee_user_id', '=', uid)]&quot;}"
+                            invisible="employee_user_id == uid"
                         >
                             <field
                                 name="note"
-                                attrs="{'readonly': &quot;['|', ('state', '=', '3_done'), '&amp;', ('manager_user_ids', 'not in', uid), ('is_manager', '=', False)]&quot;}"
+                                readonly="state == '3_done' or (manager_user_ids not in [uid] and not is_manager)"
                                 placeholder="Private note (only accessible to people set as managers)"
                             />
                         </page>
@@ -303,23 +303,15 @@
                     <field name="employee_feedback_published" invisible="1" />
                     <field name="manager_feedback_published" invisible="1" />
                 </sheet>
-                <div class="oe_chatter">
-                    <field
-                        name="message_follower_ids"
-                        widget="mail_followers"
-                        groups="base.group_user"
-                    />
-                    <field name="activity_ids" widget="mail_activity" />
-                    <field name="message_ids" widget="mail_thread" />
-                </div>
+                <chatter />
             </form>
         </field>
     </record>
     <record id="hr_appraisal_tree_view" model="ir.ui.view">
-        <field name="name">hr.appraisal.tree.view</field>
+        <field name="name">hr.appraisal.list.view</field>
         <field name="model">hr.appraisal</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="active" invisible="1" />
                 <field
                     name="employee_id"
@@ -334,7 +326,7 @@
                     name="state"
                     widget="badge"
                     readonly="1"
-                    attrs="{'invisible': [('state', '=', '1_new')]}"
+                    invisible="state == '1_new'"
                     decoration-success="state == '2_pending'"
                 />
                 <field
@@ -349,7 +341,7 @@
                     optional="hide"
                     groups="base.group_multi_company"
                 />
-            </tree>
+            </list>
         </field>
     </record>
     <record id="hr_appraisal_search_view" model="ir.ui.view">
@@ -380,7 +372,7 @@
                 <field name="state" />
                 <field name="manager_ids" />
                 <templates>
-                    <t t-name="kanban-box">
+                    <t t-name="card">
                         <div
                             t-attf-class="oe_kanban_color_#{kanban_getcolor(record.color.raw_value)} oe_kanban_card oe_kanban_global_click"
                         >
@@ -399,32 +391,32 @@
                                     aria-labelledby="dLabel"
                                 >
                                     <li>
-                                        <ul
-                                            class="oe_kanban_colorpicker"
-                                            data-field="color"
+                                        <field
+                                            name="color"
+                                            widget="kanban_color_picker"
                                         />
                                     </li>
                                 </ul>
                             </div>
                             <div class="oe_kanban_content">
-                            <div>
+                                <div>
                                 <field name="employee_id" class="fw-bolder fs-5" />
                             </div>
-                            <div>
+                                <div>
                                 <field name="department_id" />
                             </div>
-                            <t
+                                <t
                                 t-if="record.date_close.raw_value and record.date_close.raw_value &lt; (new Date())"
                                 t-set="red"
                             >oe_kanban_text_red</t>
-                                Date: <span t-attf-class="#{red}">
+                                    Date: <span t-attf-class="#{red}">
                                 <i>
                                     <field name="date_close" />
                                 </i>
                             </span>
-                            <br />
-                            <div class="oe_clear" />
-                            <footer class="pt-0">
+                                <br />
+                                <div class="oe_clear" />
+                                <footer class="pt-0">
                                 <field name="activity_ids" widget="kanban_activity" />
                                 <field
                                     name="tag_ids"
@@ -432,7 +424,7 @@
                                     options="{'color_field': 'color'}"
                                 />
                             </footer>
-                        </div>
+                            </div>
                             <div class="clearfix" />
                         </div>
                     </t>
@@ -444,7 +436,7 @@
         <field name="name">Appraisals</field>
         <field name="res_model">hr.appraisal</field>
         <field name="view_id" ref="hr_appraisal_search_view" />
-        <field name='view_mode'>kanban,tree,form</field>
+        <field name='view_mode'>kanban,list,form</field>
     </record>
     <menuitem
         name="Appraisals"

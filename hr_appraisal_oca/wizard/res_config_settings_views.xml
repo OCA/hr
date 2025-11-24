@@ -8,33 +8,19 @@
         <field name="priority" eval="10" />
         <field name="inherit_id" ref="base.res_config_settings_view_form" />
         <field name="arch" type="xml">
-            <xpath expr="//div[hasclass('settings')]" position="inside">
-                <div
-                    class="app_settings_block"
-                    string="Appraisal Settings"
+            <xpath expr="//form" position="inside">
+                <app
                     data-string="Appraisal Settings"
-                    data-key="hr_appraisal_oca"
+                    string="Appraisal Settings"
+                    name="hr_appraisal_oca"
                     groups="hr_appraisal_oca.group_appraisal_hr_officer"
                 >
-                    <h2>Appraisal Feedback Templates</h2>
-                    <div class="row mt16 o_settings_container">
-                        <div class="col-12 col-lg-6 o_setting_box">
-                            <div class="o_setting_left_pane" />
-                            <div class="o_setting_right_pane">
-                                <label for="appraisal_default_template_id" />
-                                <div class="text-muted">
-                                    Set default appraisal template
-                                </div>
-                                <div class="mt16">
-                                    <field
-                                        name="appraisal_default_template_id"
-                                        class="oe_inline"
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    <block title="Appraisal Feedback Templates">
+                        <setting title="Set default appraisal template">
+                            <field name="appraisal_default_template_id" />
+                        </setting>
+                    </block>
+                </app>
             </xpath>
         </field>
     </record>

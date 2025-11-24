@@ -19,7 +19,6 @@ class HrAppraisal(models.Model):
         required=True,
         default=lambda self: self._default_employee_id(),
         readonly=True,
-        states={"1_new": [("readonly", False)]},
         domain="[('id', 'in', employee_domain_ids)]",
     )
     employee_domain_ids = fields.Many2many(
@@ -395,7 +394,7 @@ class HrAppraisal(models.Model):
         return {
             "name": _("Previous Appraisals"),
             "type": "ir.actions.act_window",
-            "view_mode": "tree,form",
+            "view_mode": "list,form",
             "res_model": "hr.appraisal",
             "domain": [("employee_id", "=", self.employee_id.id)],
             "context": dict(
