@@ -51,9 +51,9 @@
                             attrs="{'invisible': ['|', ('employee_appraisal_count', '&lt;', 2), ('employee_id', '=', False)]}"
                         >
                             <div class="o_field_widget o_stat_info">
-                                <span class="o_stat_value"><field
-                                        name="employee_appraisal_count"
-                                    /></span>
+                                <span class="o_stat_value">
+                                    <field name="employee_appraisal_count" />
+                                </span>
                                 <span class="o_stat_text">Appraisals</span>
                             </div>
                         </button>
@@ -150,7 +150,7 @@
                                                     icon="fa-circle-o"
                                                     attrs="{'invisible': &quot;['|', ('employee_feedback_published', '=', True), '&amp;', ('state', '=', '1_new'), ('employee_user_id', '=', uid)]&quot;}"
                                                 >
-                                                        <field
+                                                    <field
                                                         name="employee_feedback_published"
                                                         nolabel="1"
                                                         invisible="1"
@@ -222,7 +222,7 @@
                                                     class="text-end"
                                                     attrs="{'invisible': ['|', ('manager_feedback_published', '=', False), ('can_see_manager_publish', '=', False)]}"
                                                 >Visible to Employee </span>
-                                                    <button
+                                                <button
                                                     class="btn btn-secondary"
                                                     t-att-style="'background-color: #e7e9ed; border-color: #e7e9ed; color: #66598f;'"
                                                     name="action_publish_manager_feedback"
@@ -230,7 +230,7 @@
                                                     icon="fa-circle-o"
                                                     attrs="{'invisible': ['|', ('manager_feedback_published', '=', True), ('can_see_manager_publish', '=', False)]}"
                                                 >
-                                                        <field
+                                                    <field
                                                         name="manager_feedback_published"
                                                         nolabel="1"
                                                         invisible="1"
@@ -376,63 +376,67 @@
                 class="o_hr_employee_kanban"
                 sample="1"
             >
-            <field name="color" />
-            <field name="state" />
-            <field name="manager_ids" />
-            <templates>
-                <t t-name="kanban-box">
-                    <div
+                <field name="color" />
+                <field name="state" />
+                <field name="manager_ids" />
+                <templates>
+                    <t t-name="kanban-box">
+                        <div
                             t-attf-class="oe_kanban_color_#{kanban_getcolor(record.color.raw_value)} oe_kanban_card oe_kanban_global_click"
                         >
-                        <div class="o_dropdown_kanban dropdown">
-                            <a
+                            <div class="o_dropdown_kanban dropdown">
+                                <a
                                     class="dropdown-toggle btn"
                                     data-toggle="dropdown"
                                     role="button"
                                     href="#"
                                 >
-                                <span class="fa fa-bars fa-lg" title="dropdown" />
-                            </a>
-                            <ul
+                                    <span class="fa fa-bars fa-lg" title="dropdown" />
+                                </a>
+                                <ul
                                     class="dropdown-menu"
                                     role="menu"
                                     aria-labelledby="dLabel"
                                 >
-                                <li><ul
+                                    <li>
+                                        <ul
                                             class="oe_kanban_colorpicker"
                                             data-field="color"
-                                        /></li>
-                            </ul>
-                        </div>
-                        <div class="oe_kanban_content">
-                            <div><field
-                                        name="employee_id"
-                                        class="fw-bolder fs-5"
-                                    /></div>
-                            <div><field name="department_id" /></div>
-                            <t
-                                    t-if="record.date_close.raw_value and record.date_close.raw_value &lt; (new Date())"
-                                    t-set="red"
-                                >oe_kanban_text_red</t>
-                                Date: <span t-attf-class="#{red}"><i><field
-                                            name="date_close"
-                                        /></i></span>
-                            <br />
-                            <div class="oe_clear">
+                                        />
+                                    </li>
+                                </ul>
                             </div>
+                            <div class="oe_kanban_content">
+                            <div>
+                                <field name="employee_id" class="fw-bolder fs-5" />
+                            </div>
+                            <div>
+                                <field name="department_id" />
+                            </div>
+                            <t
+                                t-if="record.date_close.raw_value and record.date_close.raw_value &lt; (new Date())"
+                                t-set="red"
+                            >oe_kanban_text_red</t>
+                                Date: <span t-attf-class="#{red}">
+                                <i>
+                                    <field name="date_close" />
+                                </i>
+                            </span>
+                            <br />
+                            <div class="oe_clear" />
                             <footer class="pt-0">
                                 <field name="activity_ids" widget="kanban_activity" />
                                 <field
-                                        name="tag_ids"
-                                        widget="many2many_tags"
-                                        options="{'color_field': 'color'}"
-                                    />
+                                    name="tag_ids"
+                                    widget="many2many_tags"
+                                    options="{'color_field': 'color'}"
+                                />
                             </footer>
                         </div>
-                        <div class="clearfix" />
-                    </div>
-                </t>
-            </templates>
+                            <div class="clearfix" />
+                        </div>
+                    </t>
+                </templates>
             </kanban>
         </field>
     </record>
