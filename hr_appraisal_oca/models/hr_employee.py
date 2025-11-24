@@ -25,7 +25,7 @@ class HrEmployeeBase(models.AbstractModel):
             action.update(
                 {
                     "name": _("New and Pending Appraisals"),
-                    "view_mode": "tree,form",
+                    "view_mode": "list,form",
                     "domain": [
                         ("employee_id", "=", self.id),
                         ("state", "!=", "3_done"),

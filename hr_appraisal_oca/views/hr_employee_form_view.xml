@@ -15,19 +15,19 @@
                     name="action_open_last_appraisal"
                     class="oe_stat_button"
                     icon="fa-th-large"
-                    attrs="{'invisible': [('can_open_last_appraisal', '=', False)]}"
+                    invisible="not can_open_last_appraisal"
                     type="object"
                 >
                     <div class="o_field_widget o_stat_info">
                         <span
                             class="o_stat_text"
-                            attrs="{'invisible':[('last_appraisal_state', '==', '3_done')]}"
+                            invisible="last_appraisal_state == '3_done'"
                         >
                             Ongoing
                         </span>
                         <span
                             class="o_stat_text"
-                            attrs="{'invisible':[('last_appraisal_state', '!=', '3_done')]}"
+                            invisible="last_appraisal_state != '3_done'"
                         >
                             Latest
                         </span>

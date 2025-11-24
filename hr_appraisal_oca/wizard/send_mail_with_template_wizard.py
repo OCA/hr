@@ -15,12 +15,8 @@ class SendEmailWithTemplate(models.TransientModel):
                 )
             )
         template = template.with_context(**ctx)
-        subject = template._render_field("subject", [recipient_id], post_process=False)[
-            recipient_id
-        ]
-        body = template._render_field("body_html", [recipient_id], post_process=True)[
-            recipient_id
-        ]
+        subject = template._render_field("subject", [recipient_id])[recipient_id]
+        body = template._render_field("body_html", [recipient_id])[recipient_id]
         mail_values = {
             "email_from": self.env.user.email_formatted,
             "author_id": self.env.user.partner_id.id,
