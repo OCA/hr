@@ -48,7 +48,8 @@
     <record id="hr_appraisal_hr_officer_rule" model="ir.rule">
         <field name="name">Appraisals - HR Officer Full Access</field>
         <field name="model_id" ref="hr_appraisal_oca.model_hr_appraisal" />
-        <field name="domain_force">[(1, '=', 1)]</field> <!-- no restrictions -->
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <!-- no restrictions -->
         <field name="global" eval="False" />
         <field
             name="groups"
