@@ -20,14 +20,15 @@ msgstr ""
 "X-Generator: Weblate 4.3.2\n"
 
 #. module: hr_employee_firstname
-#: model:ir.model,name:hr_employee_firstname.model_hr_employee_base
-msgid "Basic Employee"
-msgstr "Normaler Mitarbeiter"
-
-#. module: hr_employee_firstname
 #: model:ir.model,name:hr_employee_firstname.model_res_config_settings
 msgid "Config Settings"
 msgstr "Konfigurationseinstellungen"
+
+#. module: hr_employee_firstname
+#: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee__display_name
+#: model:ir.model.fields,field_description:hr_employee_firstname.field_res_config_settings__display_name
+msgid "Display Name"
+msgstr "Anzeigename"
 
 #. module: hr_employee_firstname
 #: model:ir.model,name:hr_employee_firstname.model_hr_employee
@@ -42,15 +43,17 @@ msgstr "Reihenfolge der Namen"
 
 #. module: hr_employee_firstname
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee__firstname
-#: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_base__firstname
-#: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_public__firstname
 msgid "First name"
 msgstr "Vorname"
 
 #. module: hr_employee_firstname
+#: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee__id
+#: model:ir.model.fields,field_description:hr_employee_firstname.field_res_config_settings__id
+msgid "ID"
+msgstr "ID"
+
+#. module: hr_employee_firstname
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee__lastname
-#: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_base__lastname
-#: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_public__lastname
 msgid "Last name"
 msgstr "Nachname"
 
@@ -65,17 +68,14 @@ msgstr "Es wurde kein Name eingetragen."
 msgid "Order to compose employee fullname"
 msgstr "Reihenfolge für die Zusammensetzung des vollen Namens"
 
+#~ msgid "Basic Employee"
+#~ msgstr "Normaler Mitarbeiter"
+
 #~ msgid "Firstname"
 #~ msgstr "Vorname"
 
 #~ msgid "Lastname"
 #~ msgstr "Nachname"
-
-#~ msgid "Display Name"
-#~ msgstr "Anzeigename"
-
-#~ msgid "ID"
-#~ msgstr "ID"
 
 #~ msgid "Last Modified on"
 #~ msgstr "Zuletzt geändert am"
