@@ -1,0 +1,1086 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* hr_appraisal_oca
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hr_appraisal_oca
+#: model:mail.template,body_html:hr_appraisal_oca.mail_template_appraisal_confirmation
+msgid ""
+"<div style=\"margin: 0px; padding: 0px;\">\n"
+"                <p style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
+"                    An appraisal of <t t-out=\"object.employee_id.name or 'employee'\"></t> has been confirmed.<br>\n"
+"                    <br><br>\n"
+"                    Please schedule an appraisal date together.\n"
+"                    <br><br>\n"
+"                    <t t-if=\"ctx.get('recipient_users')\">\n"
+"                        <p style=\"margin: 16px 0px 16px 0px; text-align: center;\">\n"
+"                            <t t-set=\"link\" t-value=\"'/mail/view?model=hr.appraisal&amp;res_id=%s' % object.id\"></t>\n"
+"                            <a style=\"background-color:#875A7B; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px;\" t-att-href=\"link\">View Appraisal</a>\n"
+"                        </p>\n"
+"                    </t>\n"
+"                </p>\n"
+"            </div>\n"
+"        "
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:mail.template,body_html:hr_appraisal_oca.mail_template_appraisal_request_from_employee
+msgid ""
+"<div style=\"margin: 0px; padding: 0px;\">\n"
+"                <p style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
+"                    Dear\n"
+"                    <t t-foreach=\"object.manager_ids\" t-as=\"manager\">\n"
+"                        <t t-if=\"manager.work_email\">\n"
+"                            <t t-out=\"manager.name or ''\"></t>,\n"
+"                        </t>\n"
+"                    </t>\n"
+"                    <br>\n"
+"                    <t t-out=\"user.name or ''\"></t> wishes an appraisal.<br>\n"
+"                    <br>\n"
+"                    <t t-if=\"ctx.get('user_body')\">\n"
+"                        <div style=\"margin: 16px 0px 16px 0px; padding: 8px 16px 8px 16px; background-color: #F1F1F1;\">\n"
+"                            <t t-out=\"ctx.get('user_body')\"> </t>\n"
+"                        </div>\n"
+"                    </t>\n"
+"                    <t t-if=\"ctx.get('recipient_users')\">\n"
+"                        <p style=\"margin: 16px 0px 16px 0px; padding: 8px 16px 8px 16px; text-align: center;\">\n"
+"                            <t t-set=\"link\" t-value=\"'/mail/view?model=hr.appraisal&amp;res_id=%s' % object.id\"></t>\n"
+"                            <a style=\"margin: auto; background-color:#875A7B; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px;\" t-att-href=\"link\">View Appraisal</a>\n"
+"                        </p>\n"
+"                    </t>\n"
+"                </p>\n"
+"            </div>\n"
+"        "
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:mail.template,body_html:hr_appraisal_oca.mail_template_appraisal_request
+msgid ""
+"<div style=\"margin: 0px; padding: 0px;\">\n"
+"                <p style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
+"                    Dear\n"
+"                    <t t-if=\"object.employee_id.work_email\">\n"
+"                        <t t-out=\"object.employee_id.name or ''\"></t>,\n"
+"                    </t>\n"
+"                    <t t-foreach=\"object.manager_ids\" t-as=\"manager\">\n"
+"                        <t t-if=\"user.id not in object.manager_user_ids.ids\">\n"
+"                            <t t-out=\"manager.name or ''\"></t>,\n"
+"                        </t>\n"
+"                    </t>\n"
+"                    <br>\n"
+"                        An appraisal has been requested by <t t-out=\"user.name or ''\"></t>.<br>\n"
+"                    <br>\n"
+"                    <t t-if=\"ctx.get('user_body')\">\n"
+"                        <div style=\"margin: 16px 0px 16px 0px; padding: 8px 16px 8px 16px; background-color: #F1F1F1;\">\n"
+"                            <t t-out=\"ctx.get('user_body')\"> </t>\n"
+"                        </div>\n"
+"                    </t>\n"
+"                    <t t-if=\"ctx.get('recipient_users')\">\n"
+"                        <p style=\"margin: 16px 0px 16px 0px; padding: 8px 16px 8px 16px; text-align: center;\">\n"
+"                            <t t-set=\"link\" t-value=\"'/mail/view?model=hr.appraisal&amp;res_id=%s' % object.id\"></t>\n"
+"                            <a style=\"margin: auto; background-color:#875A7B; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px;\" t-att-href=\"link\">View Appraisal</a>\n"
+"                        </p>\n"
+"                    </t>\n"
+"                    <br>\n"
+"                </p>\n"
+"            </div>\n"
+"        "
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:mail.template,body_html:hr_appraisal_oca.mail_template_appraisal_completed
+msgid ""
+"<div>\n"
+"                The appraisal's status has been set to <strong style=\"box-sizing:border-box;font-weight:bold;\">Done</strong> by <t t-out=\"user.name or ''\"></t>.<br>\n"
+"                <br>\n"
+"                <t t-if=\"ctx.get('recipient_users')\">\n"
+"                    <p style=\"box-sizing:border-box;margin-top:24px;margin-bottom:16px\">\n"
+"                        <t t-set=\"link\" t-value=\"'/mail/view?model=hr.appraisal&amp;res_id=%s' % object.id\"></t>\n"
+"                        <a style=\"box-sizing:border-box;text-decoration:none;color:#7c7bad;background-color:#875A7B;padding:10px; color:#fff; border-radius:5px;\" t-att-href=\"link\">View Employee Appraisal</a>\n"
+"                    </p>\n"
+"                </t>\n"
+"            </div>\n"
+"        "
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_kanban_view
+msgid "<span class=\"fa fa-bars fa-lg\" title=\"dropdown\"/>"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.view_employee_form
+msgid ""
+"<span class=\"o_stat_text\" attrs=\"{'invisible':[('last_appraisal_state', '==', '3_done')]}\">\n"
+"                            Ongoing\n"
+"                        </span>\n"
+"                        <span class=\"o_stat_text\" attrs=\"{'invisible':[('last_appraisal_state', '!=', '3_done')]}\">\n"
+"                            Latest\n"
+"                        </span>\n"
+"                        <span class=\"o_stat_text\">\n"
+"                            Appraisal\n"
+"                        </span>"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_form_view
+msgid "<span class=\"o_stat_text\">Appraisals</span>"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_form_view
+msgid ""
+"<span class=\"text-end\" attrs=\"{'invisible': ['|', ('manager_feedback_published', '=', True), ('can_see_manager_publish', '=', False)]}\">Not Visible to Employee </span>\n"
+"                                                <span class=\"text-end\" attrs=\"{'invisible': ['|', ('manager_feedback_published', '=', False), ('can_see_manager_publish', '=', False)]}\">Visible to Employee </span>"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_form_view
+msgid ""
+"<span class=\"text-end\" attrs=\"{'invisible': [('employee_feedback_published', '=', True)]}\">Not Visible to Manager </span>\n"
+"                                                <span class=\"text-end\" attrs=\"{'invisible': ['|', ('employee_feedback_published', '=', False), ('state', '=', '1_new')]}\">Visible to Manager </span>\n"
+"                                                <span class=\"text-end\" attrs=\"{'invisible': &quot;['|', ('employee_feedback_published', '=', False), ('state', '!=', '1_new')]&quot;}\">Visible &amp; Editable by Manager </span>"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__message_needaction
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_wizard__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__active
+msgid "Active"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model_terms:ir.actions.act_window,help:hr_appraisal_oca.hr_appraisal_tag_action_form
+msgid "Add a new tag"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_employee__allowed_user_ids
+msgid "Allowed Users"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#. odoo-python
+#: code:addons/hr_appraisal_oca/wizard/send_mail_with_template_wizard.py:0
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_request_wizard__appraisal_id
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_employee__appraisal_ids
+#: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_form_view
+#, python-format
+msgid "Appraisal"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.actions.act_window,name:hr_appraisal_oca.hr_appraisal_wizard_action
+msgid "Appraisal Confirmation"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__employee_appraisal_count
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_employee__appraisal_count
+msgid "Appraisal Count"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__date_close
+msgid "Appraisal Date"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.res_config_settings_view_form
+msgid "Appraisal Feedback Templates"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#. odoo-python
+#: code:addons/hr_appraisal_oca/models/hr_appraisal.py:0
+#, python-format
+msgid "Appraisal Form to Fill"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#. odoo-python
+#: code:addons/hr_appraisal_oca/models/hr_appraisal.py:0
+#: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_request_wizard_view
+#, python-format
+msgid "Appraisal Request"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.actions.act_window,name:hr_appraisal_oca.hr_appraisal_request_wizard_action
+msgid "Appraisal Request Confirmation"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:mail.template,subject:hr_appraisal_oca.mail_template_appraisal_request
+#: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_request_wizard_view
+msgid "Appraisal Requested"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.res_config_settings_view_form
+msgid "Appraisal Settings"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model,name:hr_appraisal_oca.model_hr_appraisal_tag
+#: model:ir.ui.menu,name:hr_appraisal_oca.menuitem_appraisal_tag
+msgid "Appraisal Tags"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__appraisal_template_id
+msgid "Appraisal Template"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.actions.act_window,name:hr_appraisal_oca.hr_appraisal_template_action_form
+#: model:ir.ui.menu,name:hr_appraisal_oca.menuitem_appraisal_template
+msgid "Appraisal Templates"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.actions.act_window,name:hr_appraisal_oca.hr_appraisal_action_form
+#: model:ir.module.category,name:hr_appraisal_oca.module_category_hr_appraisal
+#: model:ir.ui.menu,name:hr_appraisal_oca.menu_hr_appraisal
+#: model:ir.ui.menu,name:hr_appraisal_oca.menu_hr_appraisal_root
+#: model:mail.activity.type,summary:hr_appraisal_oca.mail_act_hr_appraisal_cfr
+msgid "Appraisals"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_form_view
+#: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_search_view
+msgid "Archived"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__message_attachment_count
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_wizard__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model,name:hr_appraisal_oca.model_hr_employee_base
+msgid "Basic Employee"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:mail.activity.type,name:hr_appraisal_oca.mail_act_hr_appraisal_cfr
+msgid "CFR"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_request_wizard__can_edit_body
+msgid "Can Edit Body"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_employee__can_open_last_appraisal
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_employee_base__can_open_last_appraisal
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_employee_public__can_open_last_appraisal
+msgid "Can Open Last Appraisal"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__can_see_employee_publish
+msgid "Can See Employee Publish"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__can_see_manager_publish
+msgid "Can See Manager Publish"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_request_wizard_view
+#: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_wizard_form_view
+msgid "Cancel"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,help:hr_appraisal_oca.field_hr_appraisal__date_close
+msgid "Closing date of the current appraisal"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_tag__color
+msgid "Color"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__color
+msgid "Color Index"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__company_id
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_template__company_id
+msgid "Company"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model,name:hr_appraisal_oca.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.ui.menu,name:hr_appraisal_oca.menu_hr_appraisal_configuration
+msgid "Configuration"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_form_view
+msgid "Confirm"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#. odoo-python
+#: code:addons/hr_appraisal_oca/models/hr_appraisal.py:0
+#: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_wizard_form_view
+#, python-format
+msgid "Confirmation"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields.selection,name:hr_appraisal_oca.selection__hr_appraisal__state__2_pending
+msgid "Confirmed"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_request_wizard__body
+msgid "Contents"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__created_by
+msgid "Created By"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__create_uid
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_request_wizard__create_uid
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_tag__create_uid
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_template__create_uid
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_wizard__create_uid
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_send_email_with_template__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__create_date
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_request_wizard__create_date
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_tag__create_date
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_template__create_date
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_wizard__create_date
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_send_email_with_template__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_kanban_view
+msgid "Date:"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_res_config_settings__appraisal_default_template_id
+msgid "Default Appraisal Template"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,help:hr_appraisal_oca.field_res_config_settings__appraisal_default_template_id
+msgid "Default template used for appraisals"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__department_id
+msgid "Department"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_template__description
+#: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_template_form_view
+msgid "Description"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__display_name
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_request_wizard__display_name
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_tag__display_name
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_template__display_name
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_wizard__display_name
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_send_email_with_template__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields.selection,name:hr_appraisal_oca.selection__hr_appraisal__state__3_done
+msgid "Done"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model,name:hr_appraisal_oca.model_hr_employee
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__employee_id
+msgid "Employee"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model,name:hr_appraisal_oca.model_hr_appraisal
+msgid "Employee Appraisal"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__employee_domain_ids
+msgid "Employee Domain"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__employee_feedback
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_template__appraisal_employee_feedback_template
+#: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_template_form_view
+msgid "Employee Feedback"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__employee_feedback_published
+msgid "Employee Feedback Published"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__employee_feedback_template
+msgid "Employee Feedback Template"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__employee_user_id
+msgid "Employee User"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_form_view
+msgid "Employee feedback..."
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_form_view
+msgid "Employee's Feedback"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_form_view
+msgid "Employee's Name"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#. odoo-python
+#: code:addons/hr_appraisal_oca/models/hr_appraisal.py:0
+#, python-format
+msgid "Fill appraisal for %(employee)s "
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__message_follower_ids
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_wizard__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__message_partner_ids
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_wizard__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,help:hr_appraisal_oca.field_hr_appraisal__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_wizard__res_model
+msgid "HR Appraisal"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model,name:hr_appraisal_oca.model_hr_appraisal_template
+msgid "HR Appraisal Templates"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:res.groups,name:hr_appraisal_oca.group_appraisal_hr_officer
+msgid "HR Officer"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:mail.template,name:hr_appraisal_oca.mail_template_appraisal_completed
+msgid "HR: Appraisal Completed"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:mail.template,name:hr_appraisal_oca.mail_template_appraisal_confirmation
+msgid "HR: Appraisal Confirmation"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:mail.template,name:hr_appraisal_oca.mail_template_appraisal_request_from_employee
+msgid "HR: Employee Appraisal Request"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:mail.template,name:hr_appraisal_oca.mail_template_appraisal_request
+msgid "HR: Manager appraisal request"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__has_message
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_wizard__has_message
+msgid "Has Message"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.module.category,description:hr_appraisal_oca.module_category_hr_appraisal
+msgid "Helps to evaluate employees..."
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__id
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_request_wizard__id
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_tag__id
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_template__id
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_wizard__id
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_send_email_with_template__id
+msgid "ID"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,help:hr_appraisal_oca.field_hr_appraisal__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,help:hr_appraisal_oca.field_hr_appraisal__message_needaction
+#: model:ir.model.fields,help:hr_appraisal_oca.field_hr_appraisal_wizard__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,help:hr_appraisal_oca.field_hr_appraisal__message_has_error
+#: model:ir.model.fields,help:hr_appraisal_oca.field_hr_appraisal_wizard__message_has_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_template__is_default
+msgid "Is Default"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_request_wizard__is_mail_template_editor
+msgid "Is Editor"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__message_is_follower
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_wizard__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__is_manager
+msgid "Is Manager"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__job_id
+msgid "Job Position"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_request_wizard__lang
+msgid "Language"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_employee__last_appraisal_id
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_employee_base__last_appraisal_id
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_employee_public__last_appraisal_id
+msgid "Last Appraisal"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal____last_update
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_request_wizard____last_update
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_tag____last_update
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_template____last_update
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_wizard____last_update
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_send_email_with_template____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__write_uid
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_request_wizard__write_uid
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_tag__write_uid
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_template__write_uid
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_wizard__write_uid
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_send_email_with_template__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__write_date
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_request_wizard__write_date
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_tag__write_date
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_template__write_date
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_wizard__write_date
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_send_email_with_template__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_request_wizard__template_id
+msgid "Mail Template"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__message_main_attachment_id
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_wizard__message_main_attachment_id
+msgid "Main Attachment"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__manager_ids
+msgid "Manager"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_form_view
+msgid "Manager Assessment will show here"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__manager_feedback
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_template__appraisal_manager_feedback_template
+#: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_template_form_view
+msgid "Manager Feedback"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__manager_feedback_published
+msgid "Manager Feedback Published"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__manager_feedback_template
+msgid "Manager Feedback Template"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__manager_user_ids
+msgid "Manager Users"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_form_view
+msgid "Manager feedback..."
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_form_view
+msgid "Manager's Feedback"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_form_view
+msgid "Mark as Done"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__message_has_error
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_wizard__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__message_ids
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_wizard__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_tree_view
+msgid "Name"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#. odoo-python
+#: code:addons/hr_appraisal_oca/models/hr_employee.py:0
+#, python-format
+msgid "New and Pending Appraisals"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__message_needaction_counter
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_wizard__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__message_has_error_counter
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_wizard__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,help:hr_appraisal_oca.field_hr_appraisal__message_needaction_counter
+#: model:ir.model.fields,help:hr_appraisal_oca.field_hr_appraisal_wizard__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,help:hr_appraisal_oca.field_hr_appraisal__message_has_error_counter
+#: model:ir.model.fields,help:hr_appraisal_oca.field_hr_appraisal_wizard__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_wizard_form_view
+msgid "Ok"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_employee__ongoing_appraisal_count
+msgid "Ongoing Appraisal Count"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,help:hr_appraisal_oca.field_hr_appraisal_request_wizard__lang
+msgid ""
+"Optional translation language (ISO code) to select when sending out an "
+"email. If not set, the english version will be used. This should usually be "
+"a placeholder expression that provides the appropriate language, e.g. {{ "
+"object.partner_id.lang }}."
+msgstr ""
+
+#. module: hr_appraisal_oca
+#. odoo-python
+#: code:addons/hr_appraisal_oca/models/hr_appraisal.py:0
+#, python-format
+msgid "Previous Appraisals"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__note
+#: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_form_view
+msgid "Private Note"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_form_view
+msgid "Private note (only accessible to people set as managers)"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_request_wizard__recipient_ids
+msgid "Recipients"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_request_wizard__recipient_users
+msgid "Recipients Users"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,help:hr_appraisal_oca.field_hr_appraisal__employee_user_id
+msgid "Related user name for the resource to manage its access."
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_request_wizard__render_model
+msgid "Rendering Model"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_form_view
+msgid "Reopen"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model,name:hr_appraisal_oca.model_hr_appraisal_request_wizard
+msgid "Request an Appraisal"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_wizard__res_id
+msgid "Resource ID"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_form_view
+msgid "Self Assessment will show here"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_request_wizard_view
+msgid "Send"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_form_view
+msgid "Send by email"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model,name:hr_appraisal_oca.model_send_email_with_template
+msgid "Sending Email with Template"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:mail.template,description:hr_appraisal_oca.mail_template_appraisal_completed
+msgid ""
+"Sent automatically to both employee and manager when appraisal is completed"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:mail.template,description:hr_appraisal_oca.mail_template_appraisal_confirmation
+msgid ""
+"Sent automatically to both employee and manager when appraisal is confirmed"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:mail.template,description:hr_appraisal_oca.mail_template_appraisal_request
+msgid ""
+"Sent manually to the employee by the manager who wants to do an appraisal"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:mail.template,description:hr_appraisal_oca.mail_template_appraisal_request_from_employee
+msgid "Sent manually to the manager by the employee who wants an appraisal"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.res_config_settings_view_form
+msgid "Set default appraisal template"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.actions.act_window,name:hr_appraisal_oca.action_hr_appraisal_config_settings
+#: model:ir.ui.menu,name:hr_appraisal_oca.settings_menu_hr_appraisal_oca
+msgid "Settings"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__state
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_employee__last_appraisal_state
+msgid "Status"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,help:hr_appraisal_oca.field_hr_appraisal__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_request_wizard__subject
+msgid "Subject"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_tag__name
+msgid "Tag Name"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.constraint,message:hr_appraisal_oca.constraint_hr_appraisal_tag_name_uniq
+msgid "Tag name already exists !"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.actions.act_window,name:hr_appraisal_oca.hr_appraisal_tag_action_form
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__tag_ids
+msgid "Tags"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#. odoo-python
+#: code:addons/hr_appraisal_oca/wizard/send_mail_with_template_wizard.py:0
+#, python-format
+msgid "Template with XML ID {template_xml_id} not found."
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,help:hr_appraisal_oca.field_hr_appraisal__note
+msgid "The content of this note is not visible by the Employee."
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_wizard_form_view
+msgid ""
+"The employee's feedback will be published without their consent. Do you really want to publish it?\n"
+"                    This action will be logger in the chatter."
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields.selection,name:hr_appraisal_oca.selection__hr_appraisal__state__1_new
+msgid "To Confirm"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,help:hr_appraisal_oca.field_hr_appraisal__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_template_form_view
+msgid ""
+"Use this area to write the content that will be displayed for the Employee."
+"                                         You can use a lot of options with "
+"the html editor, accessible by pressing / on the keyboard."
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:res.groups,name:hr_appraisal_oca.group_appraisal_user
+msgid "User"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_request_wizard__user_body
+msgid "User Contents"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_template_form_view
+msgid "Visible to all"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__website_message_ids
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_wizard__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,help:hr_appraisal_oca.field_hr_appraisal__website_message_ids
+#: model:ir.model.fields,help:hr_appraisal_oca.field_hr_appraisal_wizard__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model,name:hr_appraisal_oca.model_hr_appraisal_wizard
+msgid "Wizard for feedback visibility confirmation to manager"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:mail.template,subject:hr_appraisal_oca.mail_template_appraisal_completed
+msgid "Your Appraisal has been completed"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_template_form_view
+msgid "e.g. Annual Appraisal"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_tag_form_view
+msgid "e.g. Remediation, Team, Improvement plan, Career change, ..."
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_kanban_view
+msgid "oe_kanban_text_red"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_form_view
+msgid "once published"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#. odoo-python
+#: code:addons/hr_appraisal_oca/wizard/hr_appraisal_wizard.py:0
+#, python-format
+msgid ""
+"{user_name} decided, as Appraisal Officer, to publish the employee's "
+"feedback"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:mail.template,subject:hr_appraisal_oca.mail_template_appraisal_request_from_employee
+msgid "{{ user.name or ''}} requests an Appraisal"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:mail.template,subject:hr_appraisal_oca.mail_template_appraisal_confirmation
+msgid "{{object.employee_id.name}}: Appraisal Confirmed"
+msgstr ""

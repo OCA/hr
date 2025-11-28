@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="hr_appraisal_request_wizard_view" model="ir.ui.view">
+        <field name="name">hr.appraisal.request.wizard.view</field>
+        <field name="model">hr.appraisal.request.wizard</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Appraisal Request">
+                <group>
+                    <field
+                        name="recipient_ids"
+                        widget="many2many_tags"
+                        options="{'no_quick_create': True}"
+                        context="{'show_email' : True, 'form_view_ref' : 'base.view_partner_simple_form'}"
+                    />
+                    <field name="subject" placeholder="Appraisal Requested" />
+                </group>
+                <div>
+                    <field name="user_body" nolabel="1" />
+                </div>
+                <footer>
+                    <button
+                        name="send_button"
+                        type="object"
+                        string="Send"
+                        class="btn-primary"
+                    />
+                    <button special="cancel" string="Cancel" class="btn-secondary" />
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="hr_appraisal_request_wizard_action" model="ir.actions.act_window">
+        <field name="name">Appraisal Request Confirmation</field>
+        <field name="res_model">hr.appraisal.request.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="view_id" ref="hr_appraisal_request_wizard_view" />
+    </record>
+</odoo>
