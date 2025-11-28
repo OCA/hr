@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -18,16 +18,16 @@ msgstr ""
 msgid ""
 "<div style=\"margin: 0px; padding: 0px;\">\n"
 "                <p style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
-"                    An appraisal of <t t-out=\"object.employee_id.name or 'employee'\"></t> has been confirmed.<br>\n"
-"                    <br><br>\n"
+"                    An appraisal of <t t-out=\"object.employee_id.name or 'employee'\"/> has been confirmed.<br/>\n"
+"                    <br/><br/>\n"
 "                    Please schedule an appraisal date together.\n"
-"                    <br><br>\n"
+"                    <br/><br/>\n"
 "                    <t t-if=\"ctx.get('recipient_users')\">\n"
-"                        <p style=\"margin: 16px 0px 16px 0px; text-align: center;\">\n"
-"                            <t t-set=\"link\" t-value=\"'/mail/view?model=hr.appraisal&amp;res_id=%s' % object.id\"></t>\n"
-"                            <a style=\"background-color:#875A7B; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px;\" t-att-href=\"link\">View Appraisal</a>\n"
-"                        </p>\n"
-"                    </t>\n"
+"                    <p style=\"margin: 16px 0px 16px 0px; text-align: center;\">\n"
+"                        <t t-set=\"link\" t-value=\"'/mail/view?model=hr.appraisal&amp;res_id=%s' % object.id\"/>\n"
+"                        <a style=\"background-color:#875A7B; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px;\" t-att-href=\"link\">View Appraisal</a>\n"
+"                    </p>\n"
+"                </t>\n"
 "                </p>\n"
 "            </div>\n"
 "        "
@@ -40,24 +40,24 @@ msgid ""
 "                <p style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
 "                    Dear\n"
 "                    <t t-foreach=\"object.manager_ids\" t-as=\"manager\">\n"
-"                        <t t-if=\"manager.work_email\">\n"
-"                            <t t-out=\"manager.name or ''\"></t>,\n"
+"                    <t t-if=\"manager.work_email\">\n"
+"                            <t t-out=\"manager.name or ''\"/>,\n"
 "                        </t>\n"
-"                    </t>\n"
-"                    <br>\n"
-"                    <t t-out=\"user.name or ''\"></t> wishes an appraisal.<br>\n"
-"                    <br>\n"
+"                </t>\n"
+"                    <br/>\n"
+"                    <t t-out=\"user.name or ''\"/> wishes an appraisal.<br/>\n"
+"                    <br/>\n"
 "                    <t t-if=\"ctx.get('user_body')\">\n"
-"                        <div style=\"margin: 16px 0px 16px 0px; padding: 8px 16px 8px 16px; background-color: #F1F1F1;\">\n"
-"                            <t t-out=\"ctx.get('user_body')\"> </t>\n"
-"                        </div>\n"
-"                    </t>\n"
+"                    <div style=\"margin: 16px 0px 16px 0px; padding: 8px 16px 8px 16px; background-color: #F1F1F1;\">\n"
+"                        <t t-out=\"ctx.get('user_body')\"/>\n"
+"                    </div>\n"
+"                </t>\n"
 "                    <t t-if=\"ctx.get('recipient_users')\">\n"
-"                        <p style=\"margin: 16px 0px 16px 0px; padding: 8px 16px 8px 16px; text-align: center;\">\n"
-"                            <t t-set=\"link\" t-value=\"'/mail/view?model=hr.appraisal&amp;res_id=%s' % object.id\"></t>\n"
-"                            <a style=\"margin: auto; background-color:#875A7B; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px;\" t-att-href=\"link\">View Appraisal</a>\n"
-"                        </p>\n"
-"                    </t>\n"
+"                    <p style=\"margin: 16px 0px 16px 0px; padding: 8px 16px 8px 16px; text-align: center;\">\n"
+"                        <t t-set=\"link\" t-value=\"'/mail/view?model=hr.appraisal&amp;res_id=%s' % object.id\"/>\n"
+"                        <a style=\"margin: auto; background-color:#875A7B; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px;\" t-att-href=\"link\">View Appraisal</a>\n"
+"                    </p>\n"
+"                </t>\n"
 "                </p>\n"
 "            </div>\n"
 "        "
@@ -70,28 +70,28 @@ msgid ""
 "                <p style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
 "                    Dear\n"
 "                    <t t-if=\"object.employee_id.work_email\">\n"
-"                        <t t-out=\"object.employee_id.name or ''\"></t>,\n"
+"                        <t t-out=\"object.employee_id.name or ''\"/>,\n"
 "                    </t>\n"
 "                    <t t-foreach=\"object.manager_ids\" t-as=\"manager\">\n"
-"                        <t t-if=\"user.id not in object.manager_user_ids.ids\">\n"
-"                            <t t-out=\"manager.name or ''\"></t>,\n"
+"                    <t t-if=\"user.id not in object.manager_user_ids.ids\">\n"
+"                            <t t-out=\"manager.name or ''\"/>,\n"
 "                        </t>\n"
-"                    </t>\n"
-"                    <br>\n"
-"                        An appraisal has been requested by <t t-out=\"user.name or ''\"></t>.<br>\n"
-"                    <br>\n"
+"                </t>\n"
+"                    <br/>\n"
+"                        An appraisal has been requested by <t t-out=\"user.name or ''\"/>.<br/>\n"
+"                    <br/>\n"
 "                    <t t-if=\"ctx.get('user_body')\">\n"
-"                        <div style=\"margin: 16px 0px 16px 0px; padding: 8px 16px 8px 16px; background-color: #F1F1F1;\">\n"
-"                            <t t-out=\"ctx.get('user_body')\"> </t>\n"
-"                        </div>\n"
-"                    </t>\n"
+"                    <div style=\"margin: 16px 0px 16px 0px; padding: 8px 16px 8px 16px; background-color: #F1F1F1;\">\n"
+"                        <t t-out=\"ctx.get('user_body')\"/>\n"
+"                    </div>\n"
+"                </t>\n"
 "                    <t t-if=\"ctx.get('recipient_users')\">\n"
-"                        <p style=\"margin: 16px 0px 16px 0px; padding: 8px 16px 8px 16px; text-align: center;\">\n"
-"                            <t t-set=\"link\" t-value=\"'/mail/view?model=hr.appraisal&amp;res_id=%s' % object.id\"></t>\n"
-"                            <a style=\"margin: auto; background-color:#875A7B; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px;\" t-att-href=\"link\">View Appraisal</a>\n"
-"                        </p>\n"
-"                    </t>\n"
-"                    <br>\n"
+"                    <p style=\"margin: 16px 0px 16px 0px; padding: 8px 16px 8px 16px; text-align: center;\">\n"
+"                        <t t-set=\"link\" t-value=\"'/mail/view?model=hr.appraisal&amp;res_id=%s' % object.id\"/>\n"
+"                        <a style=\"margin: auto; background-color:#875A7B; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px;\" t-att-href=\"link\">View Appraisal</a>\n"
+"                    </p>\n"
+"                </t>\n"
+"                    <br/>\n"
 "                </p>\n"
 "            </div>\n"
 "        "
@@ -101,14 +101,14 @@ msgstr ""
 #: model:mail.template,body_html:hr_appraisal_oca.mail_template_appraisal_completed
 msgid ""
 "<div>\n"
-"                The appraisal's status has been set to <strong style=\"box-sizing:border-box;font-weight:bold;\">Done</strong> by <t t-out=\"user.name or ''\"></t>.<br>\n"
-"                <br>\n"
+"                The appraisal's status has been set to <strong style=\"box-sizing:border-box;font-weight:bold;\">Done</strong> by <t t-out=\"user.name or ''\"/>.<br/>\n"
+"                <br/>\n"
 "                <t t-if=\"ctx.get('recipient_users')\">\n"
-"                    <p style=\"box-sizing:border-box;margin-top:24px;margin-bottom:16px\">\n"
-"                        <t t-set=\"link\" t-value=\"'/mail/view?model=hr.appraisal&amp;res_id=%s' % object.id\"></t>\n"
-"                        <a style=\"box-sizing:border-box;text-decoration:none;color:#7c7bad;background-color:#875A7B;padding:10px; color:#fff; border-radius:5px;\" t-att-href=\"link\">View Employee Appraisal</a>\n"
-"                    </p>\n"
-"                </t>\n"
+"                <p style=\"box-sizing:border-box;margin-top:24px;margin-bottom:16px\">\n"
+"                    <t t-set=\"link\" t-value=\"'/mail/view?model=hr.appraisal&amp;res_id=%s' % object.id\"/>\n"
+"                    <a style=\"box-sizing:border-box;text-decoration:none;color:#7c7bad;background-color:#875A7B;padding:10px; color:#fff; border-radius:5px;\" t-att-href=\"link\">View Employee Appraisal</a>\n"
+"                </p>\n"
+"            </t>\n"
 "            </div>\n"
 "        "
 msgstr ""
@@ -121,10 +121,10 @@ msgstr ""
 #. module: hr_appraisal_oca
 #: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.view_employee_form
 msgid ""
-"<span class=\"o_stat_text\" attrs=\"{'invisible':[('last_appraisal_state', '==', '3_done')]}\">\n"
+"<span class=\"o_stat_text\" invisible=\"last_appraisal_state == '3_done'\">\n"
 "                            Ongoing\n"
 "                        </span>\n"
-"                        <span class=\"o_stat_text\" attrs=\"{'invisible':[('last_appraisal_state', '!=', '3_done')]}\">\n"
+"                        <span class=\"o_stat_text\" invisible=\"last_appraisal_state != '3_done'\">\n"
 "                            Latest\n"
 "                        </span>\n"
 "                        <span class=\"o_stat_text\">\n"
@@ -140,16 +140,16 @@ msgstr ""
 #. module: hr_appraisal_oca
 #: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_form_view
 msgid ""
-"<span class=\"text-end\" attrs=\"{'invisible': ['|', ('manager_feedback_published', '=', True), ('can_see_manager_publish', '=', False)]}\">Not Visible to Employee </span>\n"
-"                                                <span class=\"text-end\" attrs=\"{'invisible': ['|', ('manager_feedback_published', '=', False), ('can_see_manager_publish', '=', False)]}\">Visible to Employee </span>"
+"<span class=\"text-end\" invisible=\"employee_feedback_published\">Not Visible to Manager </span>\n"
+"                                                <span class=\"text-end\" invisible=\"not employee_feedback_published or state == '1_new'\">Visible to Manager </span>\n"
+"                                                <span class=\"text-end\" invisible=\"not employee_feedback_published or state != '1_new'\">Visible &amp; Editable by Manager </span>"
 msgstr ""
 
 #. module: hr_appraisal_oca
 #: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_form_view
 msgid ""
-"<span class=\"text-end\" attrs=\"{'invisible': [('employee_feedback_published', '=', True)]}\">Not Visible to Manager </span>\n"
-"                                                <span class=\"text-end\" attrs=\"{'invisible': ['|', ('employee_feedback_published', '=', False), ('state', '=', '1_new')]}\">Visible to Manager </span>\n"
-"                                                <span class=\"text-end\" attrs=\"{'invisible': &quot;['|', ('employee_feedback_published', '=', False), ('state', '!=', '1_new')]&quot;}\">Visible &amp; Editable by Manager </span>"
+"<span class=\"text-end\" invisible=\"manager_feedback_published or not can_see_manager_publish\">Not Visible to Employee </span>\n"
+"                                                <span class=\"text-end\" invisible=\"not manager_feedback_published or not can_see_manager_publish\">Visible to Employee </span>"
 msgstr ""
 
 #. module: hr_appraisal_oca
@@ -199,7 +199,6 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_request_wizard__appraisal_id
 #: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_employee__appraisal_ids
 #: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_form_view
-#, python-format
 msgid "Appraisal"
 msgstr ""
 
@@ -227,7 +226,6 @@ msgstr ""
 #. module: hr_appraisal_oca
 #. odoo-python
 #: code:addons/hr_appraisal_oca/models/hr_appraisal.py:0
-#, python-format
 msgid "Appraisal Form to Fill"
 msgstr ""
 
@@ -235,7 +233,6 @@ msgstr ""
 #. odoo-python
 #: code:addons/hr_appraisal_oca/models/hr_appraisal.py:0
 #: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_request_wizard_view
-#, python-format
 msgid "Appraisal Request"
 msgstr ""
 
@@ -296,6 +293,11 @@ msgstr ""
 #. module: hr_appraisal_oca
 #: model:ir.model,name:hr_appraisal_oca.model_hr_employee_base
 msgid "Basic Employee"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_request_wizard__body_has_template_value
+msgid "Body content is the same as the template"
 msgstr ""
 
 #. module: hr_appraisal_oca
@@ -371,7 +373,6 @@ msgstr ""
 #. odoo-python
 #: code:addons/hr_appraisal_oca/models/hr_appraisal.py:0
 #: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_wizard_form_view
-#, python-format
 msgid "Confirmation"
 msgstr ""
 
@@ -507,7 +508,6 @@ msgstr ""
 #. module: hr_appraisal_oca
 #. odoo-python
 #: code:addons/hr_appraisal_oca/models/hr_appraisal.py:0
-#, python-format
 msgid "Fill appraisal for %(employee)s "
 msgstr ""
 
@@ -645,16 +645,6 @@ msgid "Last Appraisal"
 msgstr ""
 
 #. module: hr_appraisal_oca
-#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal____last_update
-#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_request_wizard____last_update
-#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_tag____last_update
-#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_template____last_update
-#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_wizard____last_update
-#: model:ir.model.fields,field_description:hr_appraisal_oca.field_send_email_with_template____last_update
-msgid "Last Modified on"
-msgstr ""
-
-#. module: hr_appraisal_oca
 #: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__write_uid
 #: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_request_wizard__write_uid
 #: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_tag__write_uid
@@ -677,12 +667,6 @@ msgstr ""
 #. module: hr_appraisal_oca
 #: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_request_wizard__template_id
 msgid "Mail Template"
-msgstr ""
-
-#. module: hr_appraisal_oca
-#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__message_main_attachment_id
-#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_wizard__message_main_attachment_id
-msgid "Main Attachment"
 msgstr ""
 
 #. module: hr_appraisal_oca
@@ -757,13 +741,7 @@ msgstr ""
 #. module: hr_appraisal_oca
 #. odoo-python
 #: code:addons/hr_appraisal_oca/models/hr_employee.py:0
-#, python-format
 msgid "New and Pending Appraisals"
-msgstr ""
-
-#. module: hr_appraisal_oca
-#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__activity_calendar_event_id
-msgid "Next Activity Calendar Event"
 msgstr ""
 
 #. module: hr_appraisal_oca
@@ -827,7 +805,6 @@ msgstr ""
 #. module: hr_appraisal_oca
 #. odoo-python
 #: code:addons/hr_appraisal_oca/models/hr_appraisal.py:0
-#, python-format
 msgid "Previous Appraisals"
 msgstr ""
 
@@ -850,11 +827,6 @@ msgstr ""
 #. module: hr_appraisal_oca
 #: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_request_wizard__recipient_users
 msgid "Recipients Users"
-msgstr ""
-
-#. module: hr_appraisal_oca
-#: model:ir.model.fields,help:hr_appraisal_oca.field_hr_appraisal__employee_user_id
-msgid "Related user name for the resource to manage its access."
 msgstr ""
 
 #. module: hr_appraisal_oca
@@ -975,7 +947,6 @@ msgstr ""
 #. module: hr_appraisal_oca
 #. odoo-python
 #: code:addons/hr_appraisal_oca/wizard/send_mail_with_template_wizard.py:0
-#, python-format
 msgid "Template with XML ID {template_xml_id} not found."
 msgstr ""
 
@@ -1069,7 +1040,6 @@ msgstr ""
 #. module: hr_appraisal_oca
 #. odoo-python
 #: code:addons/hr_appraisal_oca/wizard/hr_appraisal_wizard.py:0
-#, python-format
 msgid ""
 "{user_name} decided, as Appraisal Officer, to publish the employee's "
 "feedback"
