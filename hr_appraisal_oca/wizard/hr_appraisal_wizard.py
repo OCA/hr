@@ -2,6 +2,7 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 from odoo import _, api, fields, models
+from odoo.fields import Command
 
 
 class HrAppraisalWizard(models.TransientModel):
@@ -66,8 +67,8 @@ class HrAppraisalRequestWizard(models.TransientModel):
         )[self.id]
         res.update(
             {
-                "recipient_ids": recipients_ids.ids,
-                "recipient_users": recipients_users.ids or None,
+                "recipient_ids": [Command.set(recipients_ids.ids)],
+                "recipient_users": [Command.set(recipients_users.ids)] or None,
                 "subject": subject,
                 "appraisal_id": appraisal.id,
             }
@@ -134,7 +135,7 @@ class HrAppraisalRequestWizard(models.TransientModel):
             .with_context(**ctx)
             .create(
                 {
-                    "res_id": appraisal.id,
+                    "res_ids": appraisal.ids,
                     "model": "hr.appraisal",
                     "partner_ids": self.recipient_ids.ids,
                     "template_id": template.id,
@@ -143,12 +144,6 @@ class HrAppraisalRequestWizard(models.TransientModel):
                 }
             )
         )
-        update_values = composer._onchange_template_id(
-            template.id, "comment", "hr.appraisal", appraisal.id
-        ).get("value", {})
-        if update_values:
-            composer.write(update_values)
-        composer.write({"subject": self.subject})
         composer._action_send_mail()
         message = self.env["mail.message"].search(
             [("model", "=", "hr.appraisal"), ("res_id", "=", appraisal.id)],
