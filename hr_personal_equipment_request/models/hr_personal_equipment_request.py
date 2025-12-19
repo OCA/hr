@@ -38,8 +38,9 @@ class HrPersonalEquipmentRequest(models.Model):
     @api.depends("employee_id")
     def _compute_name(self):
         for rec in self:
-            rec.name = (
-                self.env._("Personal Equipment Request by %s") % rec.employee_id.name
+            rec.name = self.env._(
+                "Personal Equipment Request by %s",
+                rec.employee_id.name,
             )
 
     def accept_request(self):

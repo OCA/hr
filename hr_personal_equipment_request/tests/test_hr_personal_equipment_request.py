@@ -80,7 +80,10 @@ class TestHRPersonalEquipmentRequest(BaseCommon):
         self.assertTrue(self.personal_equipment_request.name)
         self.assertEqual(
             self.personal_equipment_request.name,
-            self.env._("Personal Equipment Request by %s") % "Employee Test",
+            self.env._(
+                "Personal Equipment Request by %s",
+                "Employee Test",
+            ),
         )
 
     def test_request_default_employee(self):
