@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-    <record id="hr_contract_view_tree" model="ir.ui.view">
-        <field name="name">hr.contract.tree</field>
-        <field name="model">hr.contract</field>
-        <field name="inherit_id" ref="hr_contract.hr_contract_view_tree" />
+    <record id="hr_version_view_list" model="ir.ui.view">
+        <field name="name">hr.version.list</field>
+        <field name="model">hr.version</field>
+        <field name="inherit_id" ref="hr.hr_version_list_view" />
         <field name="arch" type="xml">
             <field name="job_id" position="after">
                 <field name="professional_category_id" optional="show" />
             </field>
         </field>
     </record>
-    <record id="hr_contract_view_search" model="ir.ui.view">
-        <field name="name">hr.contract.search</field>
-        <field name="model">hr.contract</field>
-        <field name="inherit_id" ref="hr_contract.hr_contract_view_search" />
+
+    <record id="hr_version_view_search" model="ir.ui.view">
+        <field name="name">hr.version.search</field>
+        <field name="model">hr.version</field>
+        <field name="inherit_id" ref="hr.hr_version_search_view" />
         <field name="arch" type="xml">
             <field name="job_id" position="after">
                 <field name="professional_category_id" />
@@ -28,12 +29,24 @@
             </filter>
         </field>
     </record>
-    <record id="hr_contract_view_form" model="ir.ui.view">
-        <field name="name">hr.contract.form</field>
-        <field name="model">hr.contract</field>
-        <field name="inherit_id" ref="hr_contract.hr_contract_view_form" />
+
+    <record id="view_employee_form" model="ir.ui.view">
+        <field name="name">hr.employee.form</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form" />
         <field name="arch" type="xml">
-            <field name="department_id" position="after">
+            <field name="job_id" position="after">
+                <field name="professional_category_id" />
+            </field>
+        </field>
+    </record>
+
+    <record id="hr_contract_template_view_form" model="ir.ui.view">
+        <field name="name">hr.contract.template.form</field>
+        <field name="model">hr.version</field>
+        <field name="inherit_id" ref="hr.hr_contract_template_form_view" />
+        <field name="arch" type="xml">
+            <field name="job_id" position="after">
                 <field name="professional_category_id" />
             </field>
         </field>

@@ -4,8 +4,8 @@
 from odoo import fields, models
 
 
-class HrContract(models.Model):
-    _inherit = "hr.contract"
+class HrVersion(models.Model):
+    _inherit = "hr.version"
 
     professional_category_id = fields.Many2one(
         comodel_name="hr.professional.category", string="Professional Category"

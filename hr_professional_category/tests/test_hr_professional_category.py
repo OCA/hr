@@ -18,12 +18,11 @@ class TestHrProfessionalCategory(BaseCommon):
                 "name": "Test category",
             }
         )
-        cls.contract = cls.env["hr.contract"].create(
+        cls.contract = cls.employee.version_id
+        cls.contract.write(
             {
-                "name": "Test contract",
-                "employee_id": cls.employee.id,
                 "resource_calendar_id": cls.calendar.id,
-                "date_start": fields.date.today(),
+                "contract_date_start": fields.Date.today(),
                 "professional_category_id": cls.category.id,
                 "wage": 1,
             }
