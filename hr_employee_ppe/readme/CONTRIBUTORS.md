@@ -3,3 +3,5 @@
 - Joao Carassato \<<joao.carassato@escodoo.com.br>\>
 - Fernando Colus \<<fernando.colus@escodoo.com.br>\>
 - Alba Riera \<<alba.riera@creublanca.es>\>
+- [Heliconia Solutions Pvt. Ltd.](https://www.heliconia.io)
+  - Bhavesh Heliconia
