@@ -3,16 +3,19 @@
 
 from datetime import date, datetime, timedelta
 
+from odoo import Command
 from odoo.exceptions import ValidationError
-from odoo.tests import TransactionCase
+from odoo.tests.common import new_test_user
 
 from odoo.addons.base.models.ir_cron import _intervalTypes
+from odoo.addons.base.tests.common import BaseCommon
 
 
-class TestHREmployeePPE(TransactionCase):
-    def setUp(self):
-        super().setUp()
-        self.product_employee_ppe_expirable = self.env["product.template"].create(
+class TestHREmployeePPE(BaseCommon):
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        cls.product_employee_ppe_expirable = cls.env["product.template"].create(
             {
                 "name": "Product Test Employee PPE",
                 "is_personal_equipment": True,
@@ -23,7 +26,7 @@ class TestHREmployeePPE(TransactionCase):
                 "ppe_duration": 3,
             }
         )
-        self.product_employee_ppe_no_expirable = self.env["product.template"].create(
+        cls.product_employee_ppe_no_expirable = cls.env["product.template"].create(
             {
                 "name": "Product Test Employee No PPE",
                 "is_personal_equipment": True,
@@ -32,26 +35,17 @@ class TestHREmployeePPE(TransactionCase):
                 "expirable_ppe": False,
             }
         )
-        self.user = (
-            self.env["res.users"]
-            .sudo()
-            .create(
-                {
-                    "name": "Test User",
-                    "login": "user@test.com",
-                    "email": "user@test.com",
-                    "groups_id": [
-                        (4, self.env.ref("base.group_user").id),
-                        (4, self.env.ref("hr.group_hr_user").id),
-                    ],
-                }
-            )
+        cls.user = new_test_user(
+            cls.env,
+            name="Test User",
+            login="user@test.com",
+            groups="base.group_user,hr.group_hr_user",
         )
-        self.employee = self.env["hr.employee"].create(
-            {"name": "Employee Test", "user_id": self.user.id}
+        cls.employee = cls.env["hr.employee"].create(
+            {"name": "Employee Test", "user_id": cls.user.id}
         )
-        product_exp = self.product_employee_ppe_expirable.product_variant_id
-        product_no_exp = self.product_employee_ppe_no_expirable.product_variant_id
+        product_exp = cls.product_employee_ppe_expirable.product_variant_id
+        product_no_exp = cls.product_employee_ppe_no_expirable.product_variant_id
         lines = [
             {
                 "name": "Personal Equipment PPE Expirable",
@@ -65,19 +59,19 @@ class TestHREmployeePPE(TransactionCase):
             },
         ]
 
-        self.personal_equipment_request = (
-            self.env["hr.personal.equipment.request"]
-            .with_user(self.user.id)
+        cls.personal_equipment_request = (
+            cls.env["hr.personal.equipment.request"]
+            .with_user(cls.user.id)
             .create(
                 {
                     "name": "Personal Equipment Request Test",
-                    "line_ids": [(0, 0, line) for line in lines],
+                    "line_ids": [Command.create(line) for line in lines],
                 }
             )
         )
 
-        self.hr_employee_ppe_expirable = self.personal_equipment_request.line_ids[0]
-        self.hr_employee_ppe_no_expirable = self.personal_equipment_request.line_ids[1]
+        cls.hr_employee_ppe_expirable = cls.personal_equipment_request.line_ids[0]
+        cls.hr_employee_ppe_no_expirable = cls.personal_equipment_request.line_ids[1]
 
     def test_compute_fields(self):
         self.hr_employee_ppe_expirable._compute_fields()
@@ -167,7 +161,7 @@ class TestHREmployeePPE(TransactionCase):
             .create(
                 {
                     "name": "Personal Equipment Request Test",
-                    "line_ids": [(0, 0, line) for line in lines],
+                    "line_ids": [Command.create(line) for line in lines],
                 }
             )
         )
@@ -184,7 +178,9 @@ class TestHREmployeePPE(TransactionCase):
                 "quantity": 3,
             }
         )
-        personal_equipment_request["line_ids"] = [(0, 0, line) for line in lines]
+        personal_equipment_request["line_ids"] = [
+            Command.create(line) for line in lines
+        ]
         personal_equipment_request._compute_contains_ppe()
         self.assertTrue(personal_equipment_request.contains_ppe)
 
