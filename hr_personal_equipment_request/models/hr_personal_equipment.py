@@ -38,19 +38,32 @@ class HrPersonalEquipment(models.Model):
         comodel_name="hr.personal.equipment.request", required=True, ondelete="cascade"
     )
     quantity = fields.Integer(default=1)
-    product_uom_id = fields.Many2one("uom.uom", "Unit of Measure")
+    allowed_uom_ids = fields.Many2many(
+        comodel_name="uom.uom",
+        compute="_compute_allowed_uom_ids",
+    )
+    product_uom_id = fields.Many2one(
+        comodel_name="uom.uom",
+        string="Unit of Measure",
+        compute="_compute_product_uom_id",
+        store=True,
+        readonly=False,
+        precompute=True,
+        domain="[('id', 'in', allowed_uom_ids)]",
+    )
 
-    @api.onchange("product_id")
-    def _onchange_uom_id(self):
-        if self.product_id:
-            self.product_uom_id = self.product_id.uom_id
-        return {
-            "domain": {
-                "product_uom_id": [
-                    ("category_id", "=", self.product_uom_id.category_id.id)
-                ]
-            }
-        }
+    @api.depends("product_id", "product_id.uom_id", "product_id.uom_ids")
+    def _compute_allowed_uom_ids(self):
+        for rec in self:
+            rec.allowed_uom_ids = rec.product_id.uom_id | rec.product_id.uom_ids
+
+    @api.depends("product_id")
+    def _compute_product_uom_id(self):
+        for rec in self:
+            if rec.product_id:
+                rec.product_uom_id = rec.product_id.uom_id
+            else:
+                rec.product_uom_id = False
 
     @api.depends("product_id", "employee_id")
     def _compute_name(self):

@@ -61,6 +61,10 @@
                                 <list editable="bottom" name="equipment_lines">
                                     <field name="product_id" />
                                     <field name="quantity" />
+                                    <field
+                                        name="allowed_uom_ids"
+                                        column_invisible="True"
+                                    />
                                     <field name="product_uom_id" />
                                     <field
                                         name="start_date"
@@ -88,6 +92,7 @@
                                     <group name="equipment_lines_form">
                                         <field name="product_id" />
                                         <field name="quantity" />
+                                        <field name="allowed_uom_ids" invisible="1" />
                                         <field name="product_uom_id" />
                                         <field
                                             name="start_date"

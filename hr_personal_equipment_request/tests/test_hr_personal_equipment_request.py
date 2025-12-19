@@ -2,6 +2,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from odoo import Command
+from odoo.tests.common import new_test_user
 
 from odoo.addons.base.tests.common import BaseCommon
 
@@ -28,22 +29,11 @@ class TestHRPersonalEquipmentRequest(BaseCommon):
                 }
             ]
         )
-        cls.user = (
-            cls.env["res.users"]
-            .sudo()
-            .create(
-                [
-                    {
-                        "name": "Test User",
-                        "login": "user@test.com",
-                        "email": "user@test.com",
-                        "groups_id": [
-                            Command.link(cls.env.ref("base.group_user").id),
-                            Command.link(cls.env.ref("hr.group_hr_user").id),
-                        ],
-                    }
-                ]
-            )
+        cls.user = new_test_user(
+            cls.env,
+            name="Test User",
+            login="user@test.com",
+            groups="base.group_user,hr.group_hr_user",
         )
         cls.employee = cls.env["hr.employee"].create(
             [{"name": "Employee Test", "user_id": cls.user.id}]
@@ -114,12 +104,19 @@ class TestHRPersonalEquipmentRequest(BaseCommon):
         )
 
     def test_onchange_uom_id(self):
-        self.assertFalse(self.personal_equipment_request.line_ids[0].product_uom_id)
-        self.personal_equipment_request.line_ids[0]._onchange_uom_id()
-        self.assertTrue(self.personal_equipment_request.line_ids[0].product_uom_id)
+        line = self.personal_equipment_request.line_ids[0]
+        # Since it is a computed field, product_uom_id is already set on creation
+        self.assertTrue(line.product_uom_id)
         self.assertEqual(
-            self.personal_equipment_request.line_ids[0].product_uom_id,
+            line.product_uom_id,
             self.product_personal_equipment_1.uom_id,
+        )
+        # If we change the product, the UoM is recomputed
+        line.product_id = self.product_personal_equipment_2.product_variant_id
+        line._compute_product_uom_id()
+        self.assertEqual(
+            line.product_uom_id,
+            self.product_personal_equipment_2.uom_id,
         )
 
     def test_validate_allocation(self):
