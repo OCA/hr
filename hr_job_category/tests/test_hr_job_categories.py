@@ -13,7 +13,7 @@ class TestHrJobCategories(BaseCommon):
         cls.employee_categ_model = cls.env["hr.employee.category"]
         cls.user_model = cls.env["res.users"]
         cls.job_model = cls.env["hr.job"]
-        cls.contract_model = cls.env["hr.contract"]
+        cls.contract_model = cls.env["hr.version"]
 
         # Create a employee
         cls.employee_id_1 = cls.employee_model.create({"name": "Employee 1"})
@@ -37,7 +37,12 @@ class TestHrJobCategories(BaseCommon):
 
         # Create one contract
         cls.contract_id = cls.contract_model.create(
-            {"name": "Contract 1", "employee_id": cls.employee_id_1.id, "wage": 50000}
+            {
+                "name": "Contract 1",
+                "employee_id": cls.employee_id_1.id,
+                "wage": 50000,
+                "date_version": "2023-01-01",
+            }
         )
 
     def test_write_computes_with_normal_args(self):

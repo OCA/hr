@@ -3,7 +3,7 @@
 
 {
     "name": "HR Job Employee Categories",
-    "version": "18.0.1.0.0",
+    "version": "19.0.1.0.0",
     "category": "Generic Modules/Human Resources",
     "summary": "Adds tags to employee through contract and job position",
     "author": "Michael Telahun Makonnen <mmakonnen@gmail.com>, "
@@ -12,7 +12,7 @@
     "Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/hr",
     "license": "AGPL-3",
-    "depends": ["hr_contract"],
+    "depends": ["hr"],
     "data": ["views/hr_view.xml"],
     "installable": True,
 }
