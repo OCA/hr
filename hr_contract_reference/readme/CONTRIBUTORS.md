@@ -3,3 +3,5 @@
 - Denis Leemann \<<denis.leemann@camptocamp.com>\>
 - Serpent Consulting Services Pvt. Ltd. \<<support@serpentcs.com>\>
 - Nikul Chaudhary \<<nikulchaudhary2112@gmail.com>\>
+- [Heliconia Solutions Pvt. Ltd.](https://www.heliconia.io)
+  - Bhavesh Heliconia
