@@ -3,3 +3,5 @@
 - Fekete Mihai \<<feketemihai@gmail.com>\>
 - Nikul Chaudhary \<<nikulchaudhary2112@gmail.com>\>
 - Italo LOPES \<<italo.lopes@camptocamp.com>\>
+- [Heliconia Solutions Pvt. Ltd.](https://www.heliconia.io)
+  - Bhavesh Heliconia

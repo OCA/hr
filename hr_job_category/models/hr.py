@@ -20,8 +20,8 @@ class HRJob(models.Model):
     )
 
 
-class HRContract(models.Model):
-    _inherit = "hr.contract"
+class HRVersion(models.Model):
+    _inherit = "hr.version"
 
     def _remove_tags(self, job_id):
         if isinstance(job_id, int):
@@ -57,9 +57,9 @@ class HRContract(models.Model):
     @api.model_create_multi
     def create(self, vals_list):
         res = super().create(vals_list)
-        for vals in vals_list:
+        for record, vals in zip(res, vals_list, strict=False):
             if "job_id" in vals:
-                res._tag_employees(vals.get("job_id"))
+                record._tag_employees(vals.get("job_id"))
         return res
 
     def write(self, vals):
