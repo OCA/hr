@@ -10,7 +10,6 @@ class TestContractReference(TransactionCase):
         self.employee = self.env["hr.employee"].create({"name": "Emp"})
 
     def test_contract_reference(self):
-        contract = self.env["hr.contract"].create(
-            {"employee_id": self.employee.id, "wage": 1000}
-        )
+        contract = self.employee.version_id
+        contract.write({"wage": 1000})
         self.assertNotEqual(contract.name, "/")
