@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+SPDX-FileCopyrightText: 2026 Coop IT Easy SC
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+<odoo>
+    <record id="hr_work_entry_type_view_search" model="ir.ui.view">
+        <field name="name">hr.work.entry.type.view.search.inherit</field>
+        <field name="model">hr.work.entry.type</field>
+        <field name="inherit_id" ref="hr_work_entry.hr_work_entry_type_view_search" />
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="code" />
+                <field name="country_id" />
+            </field>
+        </field>
+    </record>
+
+    <record id="hr_work_entry_type_view_list" model="ir.ui.view">
+        <field name="name">hr.work.entry.type.list.inherit</field>
+        <field name="model">hr.work.entry.type</field>
+        <field name="inherit_id" ref="hr_work_entry.hr_work_entry_type_view_tree" />
+        <field name="arch" type="xml">
+            <xpath expr="/list" position="attributes">
+                <attribute name="multi_edit">1</attribute>
+                <attribute name="sample">1</attribute>
+            </xpath>
+            <field name="code" position="after">
+                <field name="external_code" />
+            </field>
+            <field name="color" position="after">
+                <field name="country_id" optional="hide" />
+            </field>
+        </field>
+    </record>
+
+    <record id="hr_work_entry_type_action" model="ir.actions.act_window">
+        <field name="name">Work Entry Types</field>
+        <field name="res_model">hr.work.entry.type</field>
+        <field name="path">work-entry-types</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_empty_folder">
+                No data to display
+            </p>
+            <p>
+                Try to add some records, or make sure that there is no active filter in the search bar.
+            </p>
+        </field>
+    </record>
+</odoo>
