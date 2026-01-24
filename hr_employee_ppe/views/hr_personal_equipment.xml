@@ -28,7 +28,6 @@
                 <field
                     name="is_ppe"
                     string="Is PPE"
-                    readonly="1"
                     attrs="{'invisible':[('is_ppe', '=', False)]}"
                 />
             </xpath>
@@ -36,7 +35,7 @@
                 <field
                     name="expire_ppe"
                     string="Expirable"
-                    attrs="{'invisible':[('is_ppe', '=', False)],'readonly': [('state', 'not in', ('draft','accepted'))]}"
+                    attrs="{'invisible':[('is_ppe', '=', False)]}"
                 />
             </xpath>
             <field name="expiry_date" position="attributes">
@@ -53,7 +52,6 @@
                     <field
                         name="indications"
                         attrs="{'invisible':[('is_ppe', '=', False)]}"
-                        readonly="1"
                     />
                 </group>
                 <group
