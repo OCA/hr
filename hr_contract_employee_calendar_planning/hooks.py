@@ -67,4 +67,7 @@ def post_init_hook(env, employees=None):
         employee.calendar_ids = contract_calendar_lines
 
         # set correct calendar in contract
-        employee.contract_id.resource_calendar_id = employee.resource_calendar_id
+        # Prevent the resource calendar of leaves to be updated by a write
+        employee.contract_id.with_context(
+            no_leave_resource_calendar_update=True
+        ).update({"resource_calendar_id": employee.resource_calendar_id.id})
