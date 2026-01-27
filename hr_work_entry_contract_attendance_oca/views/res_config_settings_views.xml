@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+SPDX-FileCopyrightText: 2026 Coop IT Easy SC
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="hr.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//block[@id='hr_contract']" position="after">
+                <block title="Work Entries" id="hr_work_entries">
+                    <setting
+                        company_dependent="1"
+                        string="Attendance Work Entry Type"
+                        id="attendance_hr_work_entry_type"
+                        help="Work entry type to use for work entries corresponding to an attendance."
+                    >
+                        <field name="attendance_hr_work_entry_type_id" required="1" />
+                    </setting>
+                </block>
+            </xpath>
+        </field>
+    </record>
+</odoo>

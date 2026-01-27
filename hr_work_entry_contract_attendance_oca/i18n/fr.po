@@ -1,0 +1,86 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* hr_work_entry_contract_attendance_oca
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+
+#. module: hr_work_entry_contract_attendance_oca
+#: model:ir.model.fields,help:hr_work_entry_contract_attendance_oca.field_hr_contract__work_entry_source
+msgid ""
+"\n"
+"        Defines the source for work entries generation\n"
+"\n"
+"        Working Schedule: Work entries will be generated from the working "
+"hours below.\n"
+"        Attendances: Work entries will be generated from the employee's "
+"attendances. (requires Attendance app)\n"
+"        Planning: Work entries will be generated from the employee's "
+"planning. (requires Planning app)\n"
+"    "
+msgstr ""
+
+#. module: hr_work_entry_contract_attendance_oca
+#: model:ir.model,name:hr_work_entry_contract_attendance_oca.model_hr_attendance
+#: model:ir.model.fields,field_description:hr_work_entry_contract_attendance_oca.field_hr_work_entry__attendance_id
+msgid "Attendance"
+msgstr "Présence"
+
+#. module: hr_work_entry_contract_attendance_oca
+#: model:ir.model.fields,field_description:hr_work_entry_contract_attendance_oca.field_res_company__attendance_hr_work_entry_type_id
+#: model:ir.model.fields,field_description:hr_work_entry_contract_attendance_oca.field_res_config_settings__attendance_hr_work_entry_type_id
+#: model_terms:ir.ui.view,arch_db:hr_work_entry_contract_attendance_oca.res_config_settings_view_form
+msgid "Attendance Work Entry Type"
+msgstr "Type de prestation pour les présences"
+
+#. module: hr_work_entry_contract_attendance_oca
+#: model:ir.model.fields.selection,name:hr_work_entry_contract_attendance_oca.selection__hr_contract__work_entry_source__attendance_oca
+msgid "Attendances"
+msgstr "Présences"
+
+#. module: hr_work_entry_contract_attendance_oca
+#: model:ir.model,name:hr_work_entry_contract_attendance_oca.model_res_company
+msgid "Companies"
+msgstr ""
+
+#. module: hr_work_entry_contract_attendance_oca
+#: model:ir.model,name:hr_work_entry_contract_attendance_oca.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
+
+#. module: hr_work_entry_contract_attendance_oca
+#: model:ir.model,name:hr_work_entry_contract_attendance_oca.model_hr_contract
+msgid "Employee Contract"
+msgstr ""
+
+#. module: hr_work_entry_contract_attendance_oca
+#: model:ir.model,name:hr_work_entry_contract_attendance_oca.model_hr_work_entry
+msgid "HR Work Entry"
+msgstr ""
+
+#. module: hr_work_entry_contract_attendance_oca
+#: model:ir.model.fields,field_description:hr_work_entry_contract_attendance_oca.field_hr_attendance__work_entry_ids
+#: model_terms:ir.ui.view,arch_db:hr_work_entry_contract_attendance_oca.res_config_settings_view_form
+msgid "Work Entries"
+msgstr "Prestations"
+
+#. module: hr_work_entry_contract_attendance_oca
+#: model:ir.model.fields,field_description:hr_work_entry_contract_attendance_oca.field_hr_contract__work_entry_source
+msgid "Work Entry Source"
+msgstr ""
+
+#. module: hr_work_entry_contract_attendance_oca
+#: model_terms:ir.ui.view,arch_db:hr_work_entry_contract_attendance_oca.res_config_settings_view_form
+msgid "Work entry type to use for work entries corresponding to an attendance."
+msgstr ""
+"Type de prestation à utiliser pour les prestations correspondant à une "
+"présence."
