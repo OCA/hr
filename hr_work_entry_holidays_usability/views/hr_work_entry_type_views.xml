@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+SPDX-FileCopyrightText: 2026 Coop IT Easy SC
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+<odoo>
+    <record id="hr_work_entry_type_view_search" model="ir.ui.view">
+        <field name="name">hr.work.entry.type.view.search.inherit</field>
+        <field name="model">hr.work.entry.type</field>
+        <field
+            name="inherit_id"
+            ref="hr_work_entry_usability.hr_work_entry_type_view_search"
+        />
+        <field name="arch" type="xml">
+            <field name="country_id" position="after">
+                <field name="leave_type_ids" />
+            </field>
+        </field>
+    </record>
+
+    <record id="hr_work_entry_type_view_list" model="ir.ui.view">
+        <field name="name">hr.work.entry.type.list.inherit</field>
+        <field name="model">hr.work.entry.type</field>
+        <field
+            name="inherit_id"
+            ref="hr_work_entry_usability.hr_work_entry_type_view_list"
+        />
+        <field name="arch" type="xml">
+            <field name="country_id" position="after">
+                <field name="leave_type_ids" optional="hide" widget="many2many_tags" />
+            </field>
+        </field>
+    </record>
+</odoo>

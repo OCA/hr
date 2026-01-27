@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+SPDX-FileCopyrightText: 2026 Coop IT Easy SC
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+<odoo>
+    <record id="hr_work_entry_view_calendar" model="ir.ui.view">
+        <field name="name">hr.work.entry.calendar.inherit</field>
+        <field name="model">hr.work.entry</field>
+        <field name="inherit_id" ref="hr_work_entry.hr_work_entry_view_calendar" />
+        <field name="arch" type="xml">
+            <xpath expr="/calendar/field[@name='employee_id']" position="after">
+                <field name="leave_id" invisible="not leave_id" />
+            </xpath>
+        </field>
+    </record>
+
+    <record id="hr_work_entry_view_form" model="ir.ui.view">
+        <field name="name">hr.work.entry.form.inherit</field>
+        <field name="model">hr.work.entry</field>
+        <field name="inherit_id" ref="hr_work_entry.hr_work_entry_view_form" />
+        <field name="arch" type="xml">
+            <field name="work_entry_type_id" position="after">
+                <field name="leave_id" readonly="1" invisible="not leave_id" />
+            </field>
+        </field>
+    </record>
+</odoo>
