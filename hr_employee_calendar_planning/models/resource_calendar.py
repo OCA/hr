@@ -2,7 +2,7 @@
 # Copyright 2021 Tecnativa - Víctor Martínez
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-from odoo import _, api, fields, models
+from odoo import api, fields, models
 from odoo.exceptions import ValidationError
 
 
@@ -16,23 +16,25 @@ class ResourceCalendar(models.Model):
     @api.constrains("active")
     def _check_active(self):
         for item in self:
-            total_items = self.env["hr.employee.calendar"].search_count(
-                [
+            if not item.active:
+                domain = [
                     ("calendar_id", "=", item.id),
                     "|",
                     ("date_end", "=", False),
-                    ("date_end", "<=", fields.Date.today()),
+                    ("date_end", ">=", fields.Date.today()),
                 ]
-            )
-            if total_items:
-                raise ValidationError(
-                    _(
-                        "%(item_name)s is used in %(total_items)s employee(s)."
-                        "You should change them first.",
-                        item_name=item.name,
-                        total_items=total_items,
+
+                total_items = self.env["hr.employee.calendar"].search_count(domain)
+
+                if total_items:
+                    raise ValidationError(
+                        self.env._(
+                            "%(item_name)s is used in %(total_items)s employee(s). "
+                            "You should change them first.",
+                            item_name=item.name,
+                            total_items=total_items,
+                        )
                     )
-                )
 
     @api.constrains("company_id")
     def _check_company_id(self):
@@ -47,9 +49,9 @@ class ResourceCalendar(models.Model):
             )
             if total_items:
                 raise ValidationError(
-                    _(
-                        "%(item_name)s is used in %(total_items)s employee(s)"
-                        " related to another company.",
+                    self.env._(
+                        "%(item_name)s is used in %(total_items)s employee(s) "
+                        "related to another company.",
                         item_name=item.name,
                         total_items=total_items,
                     )

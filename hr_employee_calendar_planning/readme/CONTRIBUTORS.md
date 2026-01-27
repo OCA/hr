@@ -9,3 +9,5 @@
 - [PeGon](https://www.pegon.ch):
   - Pedro Evaristo Gonzalez Sanchez \<<pedro.gonzalez@pegon.ch>\>
 - `Heliconia Solutions Pvt. Ltd. <https://www.heliconia.io>`_
+- [Studio73](https://www.studio73.es):
+  - Vicent Castells Donat \<<vicent@studio73.es>\>
