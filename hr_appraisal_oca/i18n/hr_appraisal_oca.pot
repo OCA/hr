@@ -114,11 +114,6 @@ msgid ""
 msgstr ""
 
 #. module: hr_appraisal_oca
-#: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_kanban_view
-msgid "<span class=\"fa fa-bars fa-lg\" title=\"dropdown\"/>"
-msgstr ""
-
-#. module: hr_appraisal_oca
 #: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.view_employee_form
 msgid ""
 "<span class=\"o_stat_text\" invisible=\"last_appraisal_state == '3_done'\">\n"
