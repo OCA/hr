@@ -367,37 +367,17 @@
                 quick_create="false"
                 class="o_hr_employee_kanban"
                 sample="1"
+                highlight_color="color"
             >
                 <field name="color" />
                 <field name="state" />
                 <field name="manager_ids" />
                 <templates>
+                    <t t-name="menu" groups="base.group_user">
+                        <field name="color" widget="kanban_color_picker" />
+                    </t>
                     <t t-name="card">
-                        <div
-                            t-attf-class="oe_kanban_color_#{kanban_getcolor(record.color.raw_value)} oe_kanban_card oe_kanban_global_click"
-                        >
-                            <div class="o_dropdown_kanban dropdown">
-                                <a
-                                    class="dropdown-toggle btn"
-                                    data-toggle="dropdown"
-                                    role="button"
-                                    href="#"
-                                >
-                                    <span class="fa fa-bars fa-lg" title="dropdown" />
-                                </a>
-                                <ul
-                                    class="dropdown-menu"
-                                    role="menu"
-                                    aria-labelledby="dLabel"
-                                >
-                                    <li>
-                                        <field
-                                            name="color"
-                                            widget="kanban_color_picker"
-                                        />
-                                    </li>
-                                </ul>
-                            </div>
+                        <div t-attf-class="oe_kanban_card">
                             <div class="oe_kanban_content">
                                 <div>
                                 <field name="employee_id" class="fw-bolder fs-5" />
@@ -414,9 +394,9 @@
                                     <field name="date_close" />
                                 </i>
                             </span>
-                                <br />
-                                <div class="oe_clear" />
-                                <footer class="pt-0">
+                            <br />
+                            <div class="oe_clear" />
+                            <footer class="pt-0">
                                 <field name="activity_ids" widget="kanban_activity" />
                                 <field
                                     name="tag_ids"
