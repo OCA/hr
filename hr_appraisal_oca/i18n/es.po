@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-18 10:58+0000\n"
-"PO-Revision-Date: 2025-11-12 13:58+0000\n"
-"Last-Translator: \n"
+"PO-Revision-Date: 2026-02-03 15:14+0000\n"
+"Last-Translator: Christian Ramos Tecnativa <christian.ramos@tecnativa.com>\n"
 "Language-Team: \n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.8\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: hr_appraisal_oca
 #: model:mail.template,body_html:hr_appraisal_oca.mail_template_appraisal_confirmation
@@ -41,6 +41,27 @@ msgid ""
 "            </div>\n"
 "        "
 msgstr ""
+"<div style=\"margin: 0px; padding: 0px;\">\n"
+"                <p style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
+"                    La evaluación de <t t-out=\"object.employee_id.name or "
+"'employee'\"/> ha sido confirmada.<br/>\n"
+"                    <br/><br/>\n"
+"                    Por favor, programen juntos una fecha para la "
+"evaluación.\n"
+"                    <br/><br/>\n"
+"                    <t t-if=\"ctx.get('recipient_users')\">\n"
+"                    <p style=\"margin: 16px 0px 16px 0px; text-align: "
+"center;\">\n"
+"                        <t t-set=\"link\" t-value=\"'/mail/"
+"view?model=hr.appraisal&amp;res_id=%s' % object.id\"/>\n"
+"                        <a style=\"background-color:#875A7B; padding: 8px "
+"16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px;\" t-"
+"att-href=\"link\">Ver evaluación</a>\n"
+"                    </p>\n"
+"                </t>\n"
+"                </p>\n"
+"            </div>\n"
+"        "
 
 #. module: hr_appraisal_oca
 #: model:mail.template,body_html:hr_appraisal_oca.mail_template_appraisal_request_from_employee
@@ -77,6 +98,37 @@ msgid ""
 "            </div>\n"
 "        "
 msgstr ""
+"<div style=\"margin: 0px; padding: 0px;\">\n"
+"                <p style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
+"                    Estimado(a)\n"
+"                    <t t-foreach=\"object.manager_ids\" t-as=\"manager\">\n"
+"                    <t t-if=\"manager.work_email\">\n"
+"                            <t t-out=\"manager.name or ''\"/>,\n"
+"                        </t>\n"
+"                </t>\n"
+"                    <br/>\n"
+"                    <t t-out=\"user.name or ''\"/> desea una evaluación.<br/>"
+"\n"
+"                    <br/>\n"
+"                    <t t-if=\"ctx.get('user_body')\">\n"
+"                    <div style=\"margin: 16px 0px 16px 0px; padding: 8px "
+"16px 8px 16px; background-color: #F1F1F1;\">\n"
+"                        <t t-out=\"ctx.get('user_body')\"/>\n"
+"                    </div>\n"
+"                </t>\n"
+"                    <t t-if=\"ctx.get('recipient_users')\">\n"
+"                    <p style=\"margin: 16px 0px 16px 0px; padding: 8px 16px "
+"8px 16px; text-align: center;\">\n"
+"                        <t t-set=\"link\" t-value=\"'/mail/"
+"view?model=hr.appraisal&amp;res_id=%s' % object.id\"/>\n"
+"                        <a style=\"margin: auto; background-color:#875A7B; "
+"padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-"
+"radius: 5px;\" t-att-href=\"link\">Ver evaluación</a>\n"
+"                    </p>\n"
+"                </t>\n"
+"                </p>\n"
+"            </div>\n"
+"        "
 
 #. module: hr_appraisal_oca
 #: model:mail.template,body_html:hr_appraisal_oca.mail_template_appraisal_request
@@ -117,6 +169,41 @@ msgid ""
 "            </div>\n"
 "        "
 msgstr ""
+"<div style=\"margin: 0px; padding: 0px;\">\n"
+"                <p style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
+"                    Estimado(a)\n"
+"                    <t t-if=\"object.employee_id.work_email\">\n"
+"                        <t t-out=\"object.employee_id.name or ''\"/>,\n"
+"                    </t>\n"
+"                    <t t-foreach=\"object.manager_ids\" t-as=\"manager\">\n"
+"                    <t t-if=\"user.id not in object.manager_user_ids.ids\">\n"
+"                            <t t-out=\"manager.name or ''\"/>,\n"
+"                        </t>\n"
+"                </t>\n"
+"                    <br/>\n"
+"                        Se ha solicitado una evaluación por <t t-"
+"out=\"user.name or ''\"/>.<br/>\n"
+"                    <br/>\n"
+"                    <t t-if=\"ctx.get('user_body')\">\n"
+"                    <div style=\"margin: 16px 0px 16px 0px; padding: 8px "
+"16px 8px 16px; background-color: #F1F1F1;\">\n"
+"                        <t t-out=\"ctx.get('user_body')\"/>\n"
+"                    </div>\n"
+"                </t>\n"
+"                    <t t-if=\"ctx.get('recipient_users')\">\n"
+"                    <p style=\"margin: 16px 0px 16px 0px; padding: 8px 16px "
+"8px 16px; text-align: center;\">\n"
+"                        <t t-set=\"link\" t-value=\"'/mail/"
+"view?model=hr.appraisal&amp;res_id=%s' % object.id\"/>\n"
+"                        <a style=\"margin: auto; background-color:#875A7B; "
+"padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-"
+"radius: 5px;\" t-att-href=\"link\">Ver evaluación</a>\n"
+"                    </p>\n"
+"                </t>\n"
+"                    <br/>\n"
+"                </p>\n"
+"            </div>\n"
+"        "
 
 #. module: hr_appraisal_oca
 #: model:mail.template,body_html:hr_appraisal_oca.mail_template_appraisal_completed
@@ -140,6 +227,24 @@ msgid ""
 "            </div>\n"
 "        "
 msgstr ""
+"<div>\n"
+"                El estado de la evaluación ha sido establecido como <strong "
+"style=\"box-sizing:border-box;font-weight:bold;\">Hecho</strong> por <t t-"
+"out=\"user.name or ''\"/>.<br/>\n"
+"                <br/>\n"
+"                <t t-if=\"ctx.get('recipient_users')\">\n"
+"                <p style=\"box-sizing:border-box;margin-top:24px;margin-"
+"bottom:16px\">\n"
+"                    <t t-set=\"link\" t-value=\"'/mail/"
+"view?model=hr.appraisal&amp;res_id=%s' % object.id\"/>\n"
+"                    <a style=\"box-sizing:border-box;text-"
+"decoration:none;color:#7c7bad;background-color:#875A7B;padding:10px; "
+"color:#fff; border-radius:5px;\" t-att-href=\"link\">Ver evaluación del "
+"empleado</a>\n"
+"                </p>\n"
+"            </t>\n"
+"            </div>\n"
+"        "
 
 #. module: hr_appraisal_oca
 #: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.view_employee_form
@@ -155,6 +260,16 @@ msgid ""
 "                            Appraisal\n"
 "                        </span>"
 msgstr ""
+"<span class=\"o_stat_text\">\n"
+"                            Valoración\n"
+"                        </span>\n"
+"<span class=\"o_stat_text\" invisible=\"last_appraisal_state == '3_done'\">\n"
+"                            En Proceso\n"
+"                        </span>\n"
+"                        <span class=\"o_stat_text\" "
+"invisible=\"last_appraisal_state != '3_done'\">\n"
+"                            Última\n"
+"                        </span>"
 
 #. module: hr_appraisal_oca
 #: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_form_view
@@ -173,6 +288,14 @@ msgid ""
 "invisible=\"not employee_feedback_published or state != '1_new'\">Visible "
 "&amp; Editable by Manager </span>"
 msgstr ""
+"<span class=\"text-end\" invisible=\"employee_feedback_published\">No "
+"visible para el gerente </span>\n"
+"                                                <span class=\"text-end\" "
+"invisible=\"not employee_feedback_published or state == '1_new'\">Visible "
+"para el gerente </span>\n"
+"                                                <span class=\"text-end\" "
+"invisible=\"not employee_feedback_published or state != '1_new'\">Visible y "
+"editable por el gerente </span>"
 
 #. module: hr_appraisal_oca
 #: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_form_view
@@ -183,6 +306,11 @@ msgid ""
 "invisible=\"not manager_feedback_published or not "
 "can_see_manager_publish\">Visible to Employee </span>"
 msgstr ""
+"<span class=\"text-end\" invisible=\"manager_feedback_published or not "
+"can_see_manager_publish\">No visible para el empleado </span>\n"
+"                                                <span class=\"text-end\" "
+"invisible=\"not manager_feedback_published or not can_see_manager_publish\">"
+"Visible para el empleado </span>"
 
 #. module: hr_appraisal_oca
 #: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__message_needaction
@@ -330,12 +458,12 @@ msgstr "Empleado Básico"
 #. module: hr_appraisal_oca
 #: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_request_wizard__body_has_template_value
 msgid "Body content is the same as the template"
-msgstr ""
+msgstr "El contenido del cuerpo es el mismo que el de la plantilla"
 
 #. module: hr_appraisal_oca
 #: model:mail.activity.type,name:hr_appraisal_oca.mail_act_hr_appraisal_cfr
 msgid "CFR"
-msgstr ""
+msgstr "CFR"
 
 #. module: hr_appraisal_oca
 #: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_request_wizard__can_edit_body
@@ -373,12 +501,12 @@ msgstr "Fecha de cierre de la valoración actual"
 #. module: hr_appraisal_oca
 #: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_tag__color
 msgid "Color"
-msgstr ""
+msgstr "Color"
 
 #. module: hr_appraisal_oca
 #: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__color
 msgid "Color Index"
-msgstr ""
+msgstr "Índice de color"
 
 #. module: hr_appraisal_oca
 #: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__company_id
@@ -389,7 +517,7 @@ msgstr "Compañía"
 #. module: hr_appraisal_oca
 #: model:ir.model,name:hr_appraisal_oca.model_res_config_settings
 msgid "Config Settings"
-msgstr ""
+msgstr "Ajustes"
 
 #. module: hr_appraisal_oca
 #: model:ir.ui.menu,name:hr_appraisal_oca.menu_hr_appraisal_configuration
@@ -808,7 +936,7 @@ msgstr "Número de errores"
 #: model:ir.model.fields,help:hr_appraisal_oca.field_hr_appraisal__message_needaction_counter
 #: model:ir.model.fields,help:hr_appraisal_oca.field_hr_appraisal_wizard__message_needaction_counter
 msgid "Number of messages requiring action"
-msgstr ""
+msgstr "Número de mensajes que requieren acción"
 
 #. module: hr_appraisal_oca
 #: model:ir.model.fields,help:hr_appraisal_oca.field_hr_appraisal__message_has_error_counter
@@ -819,7 +947,7 @@ msgstr "Número de mensajes con error de envío"
 #. module: hr_appraisal_oca
 #: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_wizard_form_view
 msgid "Ok"
-msgstr ""
+msgstr "Vale"
 
 #. module: hr_appraisal_oca
 #: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_employee__ongoing_appraisal_count
@@ -936,7 +1064,7 @@ msgstr ""
 #: model:mail.template,description:hr_appraisal_oca.mail_template_appraisal_request_from_employee
 msgid "Sent manually to the manager by the employee who wants an appraisal"
 msgstr ""
-"El empleado que desea una valoración se lo envía de forma manual al gerente "
+"El empleado que desea una valoración se lo envía de forma manual al gerente"
 
 #. module: hr_appraisal_oca
 #: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.res_config_settings_view_form
@@ -1097,7 +1225,7 @@ msgstr "una vez publicada"
 msgid ""
 "{user_name} decided, as Appraisal Officer, to publish the employee's feedback"
 msgstr ""
-"{user_name} decidió, como Evaluador, publicar los comentarios del empleado."
+"{user_name} decidió, como Evaluador, publicar los comentarios del empleado"
 
 #. module: hr_appraisal_oca
 #: model:mail.template,subject:hr_appraisal_oca.mail_template_appraisal_request_from_employee
