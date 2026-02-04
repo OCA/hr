@@ -1,0 +1,26 @@
+<odoo>
+    <record id="view_collective_agreement_official_publication_tree" model="ir.ui.view">
+        <field name="name">collective.agreement.official.publication.tree</field>
+        <field name="model">collective.agreement.official.publication</field>
+        <field name="arch" type="xml">
+            <list editable="bottom">
+                <field name="name" />
+            </list>
+        </field>
+    </record>
+    <record
+        id="action_collective_agreement_official_publication"
+        model="ir.actions.act_window"
+    >
+        <field name="name">Official Publications</field>
+        <field name="res_model">collective.agreement.official.publication</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <menuitem
+        id="menu_collective_agreement_official_publication"
+        name="Official Publications"
+        parent="menu_collective_agreement_root"
+        sequence="40"
+        action="action_collective_agreement_official_publication"
+    />
+</odoo>

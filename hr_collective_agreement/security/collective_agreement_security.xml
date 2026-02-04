@@ -1,0 +1,16 @@
+<odoo noupdate="1">
+    <record id="collective_agreement_rule_user_company" model="ir.rule">
+        <field name="name">Collective Agreement multi-company</field>
+        <field name="model_id" ref="model_collective_agreement" />
+        <field name="groups" eval="[(4, ref('base.group_user'))]" />
+        <field name="domain_force">
+            ['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]
+        </field>
+    </record>
+    <record id="collective_agreement_rule_partner_manager" model="ir.rule">
+        <field name="name">Collective Agreement manager</field>
+        <field name="model_id" ref="model_collective_agreement" />
+        <field name="groups" eval="[(4, ref('base.group_hr_manager'))]" />
+        <field name="domain_force">[(1, '=', 1)]</field>
+    </record>
+</odoo>

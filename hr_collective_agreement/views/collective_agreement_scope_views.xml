@@ -1,0 +1,23 @@
+<odoo>
+    <record id="view_collective_agreement_scope_tree" model="ir.ui.view">
+        <field name="name">collective.agreement.scope.tree</field>
+        <field name="model">collective.agreement.scope</field>
+        <field name="arch" type="xml">
+            <list editable="bottom">
+                <field name="name" />
+            </list>
+        </field>
+    </record>
+    <record id="action_collective_agreement_scope" model="ir.actions.act_window">
+        <field name="name">Scopes</field>
+        <field name="res_model">collective.agreement.scope</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <menuitem
+        id="menu_collective_agreement_scope"
+        name="Scopes"
+        parent="menu_collective_agreement_root"
+        sequence="30"
+        action="action_collective_agreement_scope"
+    />
+</odoo>
