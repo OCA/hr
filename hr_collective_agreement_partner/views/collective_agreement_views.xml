@@ -1,0 +1,52 @@
+<odoo>
+    <record id="view_collective_agreement_tree_partner" model="ir.ui.view">
+        <field name="name">collective.agreement.tree.partner</field>
+        <field name="model">collective.agreement</field>
+        <field name="arch" type="xml">
+            <list create="false" edit="false" delete="false">
+                <header>
+                    <button
+                        name="%(action_collective_agreement_assign_wizard)d"
+                        context="{'default_partner_id': context.get('default_partner_id')}"
+                        type="action"
+                        string="Assign Agreement"
+                        class="btn-primary"
+                        display="always"
+                    />
+                </header>
+                <field name="code" />
+                <field name="name" />
+                <field name="scope_id" />
+                <field name="publication_date" />
+                <field name="end_date" />
+                <field name="official_publication_id" />
+                <field
+                    name="state"
+                    widget="badge"
+                    decoration-muted="state == 'draft'"
+                    decoration-success="state == 'active'"
+                    decoration-info="state == 'finished'"
+                    decoration-danger="state == 'cancelled'"
+                />
+                <button
+                    name="action_unassign_from_partner"
+                    type="object"
+                    icon="fa-times"
+                    title="Unassign"
+                    context="{'partner_id': context.get('partner_id')}"
+                    confirm="Are you sure you want to remove this agreement from the partner?"
+                    groups="hr.group_hr_user"
+                />
+            </list>
+        </field>
+    </record>
+    <record id="action_partner_collective_agreements" model="ir.actions.act_window">
+        <field name="name">Collective Agreements</field>
+        <field name="res_model">collective.agreement</field>
+        <field name="view_mode">list</field>
+        <field
+            name="view_id"
+            ref="hr_collective_agreement_partner.view_collective_agreement_tree_partner"
+        />
+    </record>
+</odoo>

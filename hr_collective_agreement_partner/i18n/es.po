@@ -1,0 +1,123 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* hr_collective_agreement_partner
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-02-11 14:18+0000\n"
+"PO-Revision-Date: 2026-02-11 15:20+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.8\n"
+
+#. module: hr_collective_agreement_partner
+#: model_terms:ir.ui.view,arch_db:hr_collective_agreement_partner.view_collective_agreement_tree_partner
+msgid "Are you sure you want to remove this agreement from the partner?"
+msgstr "¿Está seguro de que desea eliminar este convenio del contacto?"
+
+#. module: hr_collective_agreement_partner
+#: model_terms:ir.ui.view,arch_db:hr_collective_agreement_partner.view_collective_agreement_assign_wizard
+msgid "Assign"
+msgstr "Asignar"
+
+#. module: hr_collective_agreement_partner
+#: model_terms:ir.ui.view,arch_db:hr_collective_agreement_partner.view_collective_agreement_tree_partner
+msgid "Assign Agreement"
+msgstr "Asignar convenio"
+
+#. module: hr_collective_agreement_partner
+#: model:ir.actions.act_window,name:hr_collective_agreement_partner.action_collective_agreement_assign_wizard
+#: model_terms:ir.ui.view,arch_db:hr_collective_agreement_partner.view_collective_agreement_assign_wizard
+msgid "Assign Collective Agreements"
+msgstr "Asignar convenios colectivos"
+
+#. module: hr_collective_agreement_partner
+#: model:ir.model,name:hr_collective_agreement_partner.model_collective_agreement_assign_wizard
+msgid "Assign Collective Agreements to Partner"
+msgstr "Asignar convenios colectivos"
+
+#. module: hr_collective_agreement_partner
+#: model:ir.model.fields,field_description:hr_collective_agreement_partner.field_collective_agreement_assign_wizard__agreement_ids
+msgid "Available Collective Agreements"
+msgstr "Convenios colectivos disponibles"
+
+#. module: hr_collective_agreement_partner
+#: model_terms:ir.ui.view,arch_db:hr_collective_agreement_partner.view_collective_agreement_assign_wizard
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: hr_collective_agreement_partner
+#: model:ir.model,name:hr_collective_agreement_partner.model_collective_agreement
+msgid "Collective Agreement"
+msgstr "Convenio colectivo"
+
+#. module: hr_collective_agreement_partner
+#: model:ir.actions.act_window,name:hr_collective_agreement_partner.action_partner_collective_agreements
+#: model:ir.model.fields,field_description:hr_collective_agreement_partner.field_res_partner__collective_agreement_ids
+#: model:ir.model.fields,field_description:hr_collective_agreement_partner.field_res_users__collective_agreement_ids
+#: model_terms:ir.ui.view,arch_db:hr_collective_agreement_partner.view_partner_form
+msgid "Collective Agreements"
+msgstr "Convenios colectivos"
+
+#. module: hr_collective_agreement_partner
+#: model:ir.model.fields,field_description:hr_collective_agreement_partner.field_res_partner__collective_agreement_count
+#: model:ir.model.fields,field_description:hr_collective_agreement_partner.field_res_users__collective_agreement_count
+msgid "Collective Agreements Count"
+msgstr "Convenios colectivos"
+
+#. module: hr_collective_agreement_partner
+#: model:ir.model,name:hr_collective_agreement_partner.model_res_partner
+msgid "Contact"
+msgstr "Contacto"
+
+#. module: hr_collective_agreement_partner
+#: model:ir.model.fields,field_description:hr_collective_agreement_partner.field_collective_agreement_assign_wizard__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: hr_collective_agreement_partner
+#: model:ir.model.fields,field_description:hr_collective_agreement_partner.field_collective_agreement_assign_wizard__create_date
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: hr_collective_agreement_partner
+#: model:ir.model.fields,field_description:hr_collective_agreement_partner.field_collective_agreement_assign_wizard__display_name
+msgid "Display Name"
+msgstr "Mostrar nombre"
+
+#. module: hr_collective_agreement_partner
+#: model_terms:ir.ui.view,arch_db:hr_collective_agreement_partner.view_res_partner_filter
+msgid "Has Collective Agreement"
+msgstr "Tiene convenido colectivo"
+
+#. module: hr_collective_agreement_partner
+#: model:ir.model.fields,field_description:hr_collective_agreement_partner.field_collective_agreement_assign_wizard__id
+msgid "ID"
+msgstr ""
+
+#. module: hr_collective_agreement_partner
+#: model:ir.model.fields,field_description:hr_collective_agreement_partner.field_collective_agreement_assign_wizard__write_uid
+msgid "Last Updated by"
+msgstr "Ultima actualización por"
+
+#. module: hr_collective_agreement_partner
+#: model:ir.model.fields,field_description:hr_collective_agreement_partner.field_collective_agreement_assign_wizard__write_date
+msgid "Last Updated on"
+msgstr "Última actualización en"
+
+#. module: hr_collective_agreement_partner
+#: model:ir.model.fields,field_description:hr_collective_agreement_partner.field_collective_agreement_assign_wizard__partner_id
+msgid "Partner"
+msgstr "Contacto"
+
+#. module: hr_collective_agreement_partner
+#: model_terms:ir.ui.view,arch_db:hr_collective_agreement_partner.view_collective_agreement_tree_partner
+msgid "Unassign"
+msgstr "Desasignar"

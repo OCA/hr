@@ -1,0 +1,34 @@
+<odoo>
+    <record id="view_partner_form" model="ir.ui.view">
+        <field name="name">res.partner.form - hr_collective_agreement_partner</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('oe_button_box')]" position="inside">
+                <button
+                    name="action_view_collective_agreements"
+                    type="object"
+                    class="oe_stat_button"
+                    icon="fa-file-text-o"
+                    string="Collective Agreements"
+                >
+                    <field name="collective_agreement_count" widget="statinfo" />
+                </button>
+            </xpath>
+        </field>
+    </record>
+    <record id="view_res_partner_filter" model="ir.ui.view">
+        <field name="name">res.partner.search - hr_collective_agreement_partner</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_res_partner_filter" />
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='group_by']" position="inside">
+                <filter
+                    string="Has Collective Agreement"
+                    name="has_collective_agreement"
+                    domain="[('collective_agreement_ids','!=',False)]"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>
