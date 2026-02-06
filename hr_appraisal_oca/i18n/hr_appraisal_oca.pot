@@ -4,8 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 18.0\n"
+"Project-Id-Version: Odoo Server 18.0-20251222\n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-02-04 07:42+0000\n"
+"PO-Revision-Date: 2026-02-04 07:42+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -18,14 +20,19 @@ msgstr ""
 msgid ""
 "<div style=\"margin: 0px; padding: 0px;\">\n"
 "                <p style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
-"                    An appraisal of <t t-out=\"object.employee_id.name or 'employee'\"/> has been confirmed.<br/>\n"
+"                    An appraisal of <t t-out=\"object.employee_id.name or "
+"'employee'\"/> has been confirmed.<br/>\n"
 "                    <br/><br/>\n"
 "                    Please schedule an appraisal date together.\n"
 "                    <br/><br/>\n"
 "                    <t t-if=\"ctx.get('recipient_users')\">\n"
-"                    <p style=\"margin: 16px 0px 16px 0px; text-align: center;\">\n"
-"                        <t t-set=\"link\" t-value=\"'/mail/view?model=hr.appraisal&amp;res_id=%s' % object.id\"/>\n"
-"                        <a style=\"background-color:#875A7B; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px;\" t-att-href=\"link\">View Appraisal</a>\n"
+"                    <p style=\"margin: 16px 0px 16px 0px; text-align: center;"
+"\">\n"
+"                        <t t-set=\"link\" t-value=\"'/mail/view?"
+"model=hr.appraisal&amp;res_id=%s' % object.id\"/>\n"
+"                        <a style=\"background-color:#875A7B; padding: 8px "
+"16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px;\" t-"
+"att-href=\"link\">View Appraisal</a>\n"
 "                    </p>\n"
 "                </t>\n"
 "                </p>\n"
@@ -45,17 +52,23 @@ msgid ""
 "                        </t>\n"
 "                </t>\n"
 "                    <br/>\n"
-"                    <t t-out=\"user.name or ''\"/> wishes an appraisal.<br/>\n"
+"                    <t t-out=\"user.name or ''\"/> wishes an appraisal.<br/"
+">\n"
 "                    <br/>\n"
 "                    <t t-if=\"ctx.get('user_body')\">\n"
-"                    <div style=\"margin: 16px 0px 16px 0px; padding: 8px 16px 8px 16px; background-color: #F1F1F1;\">\n"
+"                    <div style=\"margin: 16px 0px 16px 0px; padding: 8px "
+"16px 8px 16px; background-color: #F1F1F1;\">\n"
 "                        <t t-out=\"ctx.get('user_body')\"/>\n"
 "                    </div>\n"
 "                </t>\n"
 "                    <t t-if=\"ctx.get('recipient_users')\">\n"
-"                    <p style=\"margin: 16px 0px 16px 0px; padding: 8px 16px 8px 16px; text-align: center;\">\n"
-"                        <t t-set=\"link\" t-value=\"'/mail/view?model=hr.appraisal&amp;res_id=%s' % object.id\"/>\n"
-"                        <a style=\"margin: auto; background-color:#875A7B; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px;\" t-att-href=\"link\">View Appraisal</a>\n"
+"                    <p style=\"margin: 16px 0px 16px 0px; padding: 8px 16px "
+"8px 16px; text-align: center;\">\n"
+"                        <t t-set=\"link\" t-value=\"'/mail/view?"
+"model=hr.appraisal&amp;res_id=%s' % object.id\"/>\n"
+"                        <a style=\"margin: auto; background-color:#875A7B; "
+"padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-"
+"radius: 5px;\" t-att-href=\"link\">View Appraisal</a>\n"
 "                    </p>\n"
 "                </t>\n"
 "                </p>\n"
@@ -78,17 +91,23 @@ msgid ""
 "                        </t>\n"
 "                </t>\n"
 "                    <br/>\n"
-"                        An appraisal has been requested by <t t-out=\"user.name or ''\"/>.<br/>\n"
+"                        An appraisal has been requested by <t t-"
+"out=\"user.name or ''\"/>.<br/>\n"
 "                    <br/>\n"
 "                    <t t-if=\"ctx.get('user_body')\">\n"
-"                    <div style=\"margin: 16px 0px 16px 0px; padding: 8px 16px 8px 16px; background-color: #F1F1F1;\">\n"
+"                    <div style=\"margin: 16px 0px 16px 0px; padding: 8px "
+"16px 8px 16px; background-color: #F1F1F1;\">\n"
 "                        <t t-out=\"ctx.get('user_body')\"/>\n"
 "                    </div>\n"
 "                </t>\n"
 "                    <t t-if=\"ctx.get('recipient_users')\">\n"
-"                    <p style=\"margin: 16px 0px 16px 0px; padding: 8px 16px 8px 16px; text-align: center;\">\n"
-"                        <t t-set=\"link\" t-value=\"'/mail/view?model=hr.appraisal&amp;res_id=%s' % object.id\"/>\n"
-"                        <a style=\"margin: auto; background-color:#875A7B; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px;\" t-att-href=\"link\">View Appraisal</a>\n"
+"                    <p style=\"margin: 16px 0px 16px 0px; padding: 8px 16px "
+"8px 16px; text-align: center;\">\n"
+"                        <t t-set=\"link\" t-value=\"'/mail/view?"
+"model=hr.appraisal&amp;res_id=%s' % object.id\"/>\n"
+"                        <a style=\"margin: auto; background-color:#875A7B; "
+"padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-"
+"radius: 5px;\" t-att-href=\"link\">View Appraisal</a>\n"
 "                    </p>\n"
 "                </t>\n"
 "                    <br/>\n"
@@ -101,12 +120,19 @@ msgstr ""
 #: model:mail.template,body_html:hr_appraisal_oca.mail_template_appraisal_completed
 msgid ""
 "<div>\n"
-"                The appraisal's status has been set to <strong style=\"box-sizing:border-box;font-weight:bold;\">Done</strong> by <t t-out=\"user.name or ''\"/>.<br/>\n"
+"                The appraisal's status has been set to <strong style=\"box-"
+"sizing:border-box;font-weight:bold;\">Done</strong> by <t t-out=\"user.name "
+"or ''\"/>.<br/>\n"
 "                <br/>\n"
 "                <t t-if=\"ctx.get('recipient_users')\">\n"
-"                <p style=\"box-sizing:border-box;margin-top:24px;margin-bottom:16px\">\n"
-"                    <t t-set=\"link\" t-value=\"'/mail/view?model=hr.appraisal&amp;res_id=%s' % object.id\"/>\n"
-"                    <a style=\"box-sizing:border-box;text-decoration:none;color:#7c7bad;background-color:#875A7B;padding:10px; color:#fff; border-radius:5px;\" t-att-href=\"link\">View Employee Appraisal</a>\n"
+"                <p style=\"box-sizing:border-box;margin-top:24px;margin-"
+"bottom:16px\">\n"
+"                    <t t-set=\"link\" t-value=\"'/mail/view?"
+"model=hr.appraisal&amp;res_id=%s' % object.id\"/>\n"
+"                    <a style=\"box-sizing:border-box;text-"
+"decoration:none;color:#7c7bad;background-color:#875A7B;padding:10px; "
+"color:#fff; border-radius:5px;\" t-att-href=\"link\">View Employee "
+"Appraisal</a>\n"
 "                </p>\n"
 "            </t>\n"
 "            </div>\n"
@@ -119,7 +145,8 @@ msgid ""
 "<span class=\"o_stat_text\" invisible=\"last_appraisal_state == '3_done'\">\n"
 "                            Ongoing\n"
 "                        </span>\n"
-"                        <span class=\"o_stat_text\" invisible=\"last_appraisal_state != '3_done'\">\n"
+"                        <span class=\"o_stat_text\" "
+"invisible=\"last_appraisal_state != '3_done'\">\n"
 "                            Latest\n"
 "                        </span>\n"
 "                        <span class=\"o_stat_text\">\n"
@@ -135,16 +162,24 @@ msgstr ""
 #. module: hr_appraisal_oca
 #: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_form_view
 msgid ""
-"<span class=\"text-end\" invisible=\"employee_feedback_published\">Not Visible to Manager </span>\n"
-"                                                <span class=\"text-end\" invisible=\"not employee_feedback_published or state == '1_new'\">Visible to Manager </span>\n"
-"                                                <span class=\"text-end\" invisible=\"not employee_feedback_published or state != '1_new'\">Visible &amp; Editable by Manager </span>"
+"<span class=\"text-end\" invisible=\"employee_feedback_published\">Not "
+"Visible to Manager </span>\n"
+"                                                <span class=\"text-end\" "
+"invisible=\"not employee_feedback_published or state == '1_new'\">Visible to "
+"Manager </span>\n"
+"                                                <span class=\"text-end\" "
+"invisible=\"not employee_feedback_published or state != '1_new'\">Visible "
+"&amp; Editable by Manager </span>"
 msgstr ""
 
 #. module: hr_appraisal_oca
 #: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_form_view
 msgid ""
-"<span class=\"text-end\" invisible=\"manager_feedback_published or not can_see_manager_publish\">Not Visible to Employee </span>\n"
-"                                                <span class=\"text-end\" invisible=\"not manager_feedback_published or not can_see_manager_publish\">Visible to Employee </span>"
+"<span class=\"text-end\" invisible=\"manager_feedback_published or not "
+"can_see_manager_publish\">Not Visible to Employee </span>\n"
+"                                                <span class=\"text-end\" "
+"invisible=\"not manager_feedback_published or not "
+"can_see_manager_publish\">Visible to Employee </span>"
 msgstr ""
 
 #. module: hr_appraisal_oca
@@ -210,6 +245,7 @@ msgstr ""
 
 #. module: hr_appraisal_oca
 #: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__date_close
+#: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_search_view
 msgid "Appraisal Date"
 msgstr ""
 
@@ -373,6 +409,7 @@ msgstr ""
 
 #. module: hr_appraisal_oca
 #: model:ir.model.fields.selection,name:hr_appraisal_oca.selection__hr_appraisal__state__2_pending
+#: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_search_view
 msgid "Confirmed"
 msgstr ""
 
@@ -407,6 +444,11 @@ msgid "Created on"
 msgstr ""
 
 #. module: hr_appraisal_oca
+#: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_search_view
+msgid "Creation Date"
+msgstr ""
+
+#. module: hr_appraisal_oca
 #: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_kanban_view
 msgid "Date:"
 msgstr ""
@@ -423,6 +465,7 @@ msgstr ""
 
 #. module: hr_appraisal_oca
 #: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__department_id
+#: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_search_view
 msgid "Department"
 msgstr ""
 
@@ -444,12 +487,14 @@ msgstr ""
 
 #. module: hr_appraisal_oca
 #: model:ir.model.fields.selection,name:hr_appraisal_oca.selection__hr_appraisal__state__3_done
+#: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_search_view
 msgid "Done"
 msgstr ""
 
 #. module: hr_appraisal_oca
 #: model:ir.model,name:hr_appraisal_oca.model_hr_employee
 #: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__employee_id
+#: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_search_view
 msgid "Employee"
 msgstr ""
 
@@ -473,11 +518,6 @@ msgstr ""
 #. module: hr_appraisal_oca
 #: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__employee_feedback_published
 msgid "Employee Feedback Published"
-msgstr ""
-
-#. module: hr_appraisal_oca
-#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__employee_feedback_template
-msgid "Employee Feedback Template"
 msgstr ""
 
 #. module: hr_appraisal_oca
@@ -521,6 +561,11 @@ msgstr ""
 #. module: hr_appraisal_oca
 #: model:ir.model.fields,help:hr_appraisal_oca.field_hr_appraisal__activity_type_icon
 msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_search_view
+msgid "Group By"
 msgstr ""
 
 #. module: hr_appraisal_oca
@@ -623,6 +668,11 @@ msgid "Is Manager"
 msgstr ""
 
 #. module: hr_appraisal_oca
+#: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_search_view
+msgid "Job"
+msgstr ""
+
+#. module: hr_appraisal_oca
 #: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__job_id
 msgid "Job Position"
 msgstr ""
@@ -687,11 +737,6 @@ msgid "Manager Feedback Published"
 msgstr ""
 
 #. module: hr_appraisal_oca
-#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__manager_feedback_template
-msgid "Manager Feedback Template"
-msgstr ""
-
-#. module: hr_appraisal_oca
 #: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__manager_user_ids
 msgid "Manager Users"
 msgstr ""
@@ -726,6 +771,11 @@ msgstr ""
 #. module: hr_appraisal_oca
 #: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__my_activity_date_deadline
 msgid "My Activity Deadline"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_search_view
+msgid "My Appraisals"
 msgstr ""
 
 #. module: hr_appraisal_oca
@@ -793,8 +843,8 @@ msgstr ""
 msgid ""
 "Optional translation language (ISO code) to select when sending out an "
 "email. If not set, the english version will be used. This should usually be "
-"a placeholder expression that provides the appropriate language, e.g. {{ "
-"object.partner_id.lang }}."
+"a placeholder expression that provides the appropriate language, e.g. "
+"{{ object.partner_id.lang }}."
 msgstr ""
 
 #. module: hr_appraisal_oca
@@ -953,12 +1003,14 @@ msgstr ""
 #. module: hr_appraisal_oca
 #: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_wizard_form_view
 msgid ""
-"The employee's feedback will be published without their consent. Do you really want to publish it?\n"
+"The employee's feedback will be published without their consent. Do you "
+"really want to publish it?\n"
 "                    This action will be logger in the chatter."
 msgstr ""
 
 #. module: hr_appraisal_oca
 #: model:ir.model.fields.selection,name:hr_appraisal_oca.selection__hr_appraisal__state__1_new
+#: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_search_view
 msgid "To Confirm"
 msgstr ""
 
@@ -970,9 +1022,9 @@ msgstr ""
 #. module: hr_appraisal_oca
 #: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_template_form_view
 msgid ""
-"Use this area to write the content that will be displayed for the Employee."
-"                                         You can use a lot of options with "
-"the html editor, accessible by pressing / on the keyboard."
+"Use this area to write the content that will be displayed for the "
+"Employee.                                         You can use a lot of "
+"options with the html editor, accessible by pressing / on the keyboard."
 msgstr ""
 
 #. module: hr_appraisal_oca
@@ -1036,8 +1088,7 @@ msgstr ""
 #. odoo-python
 #: code:addons/hr_appraisal_oca/wizard/hr_appraisal_wizard.py:0
 msgid ""
-"{user_name} decided, as Appraisal Officer, to publish the employee's "
-"feedback"
+"{user_name} decided, as Appraisal Officer, to publish the employee's feedback"
 msgstr ""
 
 #. module: hr_appraisal_oca
