@@ -50,10 +50,10 @@ msgstr ""
 "evaluación.\n"
 "                    <br/><br/>\n"
 "                    <t t-if=\"ctx.get('recipient_users')\">\n"
-"                    <p style=\"margin: 16px 0px 16px 0px; text-align: "
-"center;\">\n"
-"                        <t t-set=\"link\" t-value=\"'/mail/"
-"view?model=hr.appraisal&amp;res_id=%s' % object.id\"/>\n"
+"                    <p style=\"margin: 16px 0px 16px 0px; text-align: center;"
+"\">\n"
+"                        <t t-set=\"link\" t-value=\"'/mail/view?"
+"model=hr.appraisal&amp;res_id=%s' % object.id\"/>\n"
 "                        <a style=\"background-color:#875A7B; padding: 8px "
 "16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px;\" t-"
 "att-href=\"link\">Ver evaluación</a>\n"
@@ -107,8 +107,8 @@ msgstr ""
 "                        </t>\n"
 "                </t>\n"
 "                    <br/>\n"
-"                    <t t-out=\"user.name or ''\"/> desea una evaluación.<br/>"
-"\n"
+"                    <t t-out=\"user.name or ''\"/> desea una evaluación.<br/"
+">\n"
 "                    <br/>\n"
 "                    <t t-if=\"ctx.get('user_body')\">\n"
 "                    <div style=\"margin: 16px 0px 16px 0px; padding: 8px "
@@ -119,8 +119,8 @@ msgstr ""
 "                    <t t-if=\"ctx.get('recipient_users')\">\n"
 "                    <p style=\"margin: 16px 0px 16px 0px; padding: 8px 16px "
 "8px 16px; text-align: center;\">\n"
-"                        <t t-set=\"link\" t-value=\"'/mail/"
-"view?model=hr.appraisal&amp;res_id=%s' % object.id\"/>\n"
+"                        <t t-set=\"link\" t-value=\"'/mail/view?"
+"model=hr.appraisal&amp;res_id=%s' % object.id\"/>\n"
 "                        <a style=\"margin: auto; background-color:#875A7B; "
 "padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-"
 "radius: 5px;\" t-att-href=\"link\">Ver evaluación</a>\n"
@@ -193,8 +193,8 @@ msgstr ""
 "                    <t t-if=\"ctx.get('recipient_users')\">\n"
 "                    <p style=\"margin: 16px 0px 16px 0px; padding: 8px 16px "
 "8px 16px; text-align: center;\">\n"
-"                        <t t-set=\"link\" t-value=\"'/mail/"
-"view?model=hr.appraisal&amp;res_id=%s' % object.id\"/>\n"
+"                        <t t-set=\"link\" t-value=\"'/mail/view?"
+"model=hr.appraisal&amp;res_id=%s' % object.id\"/>\n"
 "                        <a style=\"margin: auto; background-color:#875A7B; "
 "padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-"
 "radius: 5px;\" t-att-href=\"link\">Ver evaluación</a>\n"
@@ -235,8 +235,8 @@ msgstr ""
 "                <t t-if=\"ctx.get('recipient_users')\">\n"
 "                <p style=\"box-sizing:border-box;margin-top:24px;margin-"
 "bottom:16px\">\n"
-"                    <t t-set=\"link\" t-value=\"'/mail/"
-"view?model=hr.appraisal&amp;res_id=%s' % object.id\"/>\n"
+"                    <t t-set=\"link\" t-value=\"'/mail/view?"
+"model=hr.appraisal&amp;res_id=%s' % object.id\"/>\n"
 "                    <a style=\"box-sizing:border-box;text-"
 "decoration:none;color:#7c7bad;background-color:#875A7B;padding:10px; "
 "color:#fff; border-radius:5px;\" t-att-href=\"link\">Ver evaluación del "
@@ -309,8 +309,8 @@ msgstr ""
 "<span class=\"text-end\" invisible=\"manager_feedback_published or not "
 "can_see_manager_publish\">No visible para el empleado </span>\n"
 "                                                <span class=\"text-end\" "
-"invisible=\"not manager_feedback_published or not can_see_manager_publish\">"
-"Visible para el empleado </span>"
+"invisible=\"not manager_feedback_published or not "
+"can_see_manager_publish\">Visible para el empleado </span>"
 
 #. module: hr_appraisal_oca
 #: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__message_needaction
@@ -375,6 +375,7 @@ msgstr "Contador valoración"
 
 #. module: hr_appraisal_oca
 #: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__date_close
+#: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_search_view
 msgid "Appraisal Date"
 msgstr "Fecha de Evaluación"
 
@@ -538,6 +539,7 @@ msgstr "Confirmación"
 
 #. module: hr_appraisal_oca
 #: model:ir.model.fields.selection,name:hr_appraisal_oca.selection__hr_appraisal__state__2_pending
+#: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_search_view
 msgid "Confirmed"
 msgstr "Confirmado"
 
@@ -572,6 +574,11 @@ msgid "Created on"
 msgstr "Creado el"
 
 #. module: hr_appraisal_oca
+#: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_search_view
+msgid "Creation Date"
+msgstr "Fecha de creación"
+
+#. module: hr_appraisal_oca
 #: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_kanban_view
 msgid "Date:"
 msgstr "Fecha:"
@@ -588,6 +595,7 @@ msgstr "Plantilla predeterminada utilizada para las valoraciones"
 
 #. module: hr_appraisal_oca
 #: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__department_id
+#: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_search_view
 msgid "Department"
 msgstr "Departamento"
 
@@ -609,12 +617,14 @@ msgstr "Nombre mostrado"
 
 #. module: hr_appraisal_oca
 #: model:ir.model.fields.selection,name:hr_appraisal_oca.selection__hr_appraisal__state__3_done
+#: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_search_view
 msgid "Done"
 msgstr "Hecho"
 
 #. module: hr_appraisal_oca
 #: model:ir.model,name:hr_appraisal_oca.model_hr_employee
 #: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__employee_id
+#: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_search_view
 msgid "Employee"
 msgstr "Empleado"
 
@@ -633,17 +643,12 @@ msgstr "Dominio del empleado"
 #: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_template__appraisal_employee_feedback_template
 #: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_template_form_view
 msgid "Employee Feedback"
-msgstr "Retroalimentación del empleado"
+msgstr "Comentarios del empleado"
 
 #. module: hr_appraisal_oca
 #: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__employee_feedback_published
 msgid "Employee Feedback Published"
-msgstr "Retroalimentación del empleado publicada"
-
-#. module: hr_appraisal_oca
-#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__employee_feedback_template
-msgid "Employee Feedback Template"
-msgstr "Plantilla de retroalimentación del empleado"
+msgstr "Comentarios del empleado publicada"
 
 #. module: hr_appraisal_oca
 #: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__employee_user_id
@@ -653,12 +658,12 @@ msgstr "Usuario del empleado"
 #. module: hr_appraisal_oca
 #: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_form_view
 msgid "Employee feedback..."
-msgstr "Retroalimentación del empleado..."
+msgstr "Comentarios del empleado..."
 
 #. module: hr_appraisal_oca
 #: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_form_view
 msgid "Employee's Feedback"
-msgstr "Retroalimentación del empleado"
+msgstr "Comentarios del empleado"
 
 #. module: hr_appraisal_oca
 #: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_form_view
@@ -687,6 +692,11 @@ msgstr "Seguidores (Contactos)"
 #: model:ir.model.fields,help:hr_appraisal_oca.field_hr_appraisal__activity_type_icon
 msgid "Font awesome icon e.g. fa-tasks"
 msgstr "Icono de Font Awesome ej. fa-tasks"
+
+#. module: hr_appraisal_oca
+#: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_search_view
+msgid "Group By"
+msgstr "Agrupar por"
 
 #. module: hr_appraisal_oca
 #: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_wizard__res_model
@@ -789,6 +799,11 @@ msgid "Is Manager"
 msgstr "Es un gerente"
 
 #. module: hr_appraisal_oca
+#: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_search_view
+msgid "Job"
+msgstr "Puesto de trabajo"
+
+#. module: hr_appraisal_oca
 #: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__job_id
 msgid "Job Position"
 msgstr "Puesto de trabajo"
@@ -845,17 +860,12 @@ msgstr "La valoración del gerente aparecerá aquí"
 #: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_template__appraisal_manager_feedback_template
 #: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_template_form_view
 msgid "Manager Feedback"
-msgstr "Retroalimentación del gerente"
+msgstr "Comentarios del gerente"
 
 #. module: hr_appraisal_oca
 #: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__manager_feedback_published
 msgid "Manager Feedback Published"
-msgstr "Retroalimentación del gerente publicada"
-
-#. module: hr_appraisal_oca
-#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__manager_feedback_template
-msgid "Manager Feedback Template"
-msgstr "Plantilla de retroalimentación del gerente"
+msgstr "Comentrios del gerente publicados"
 
 #. module: hr_appraisal_oca
 #: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__manager_user_ids
@@ -865,12 +875,12 @@ msgstr "Usuarios gerentes"
 #. module: hr_appraisal_oca
 #: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_form_view
 msgid "Manager feedback..."
-msgstr "Retroalimentación del gerente..."
+msgstr "Comentarios del gerente..."
 
 #. module: hr_appraisal_oca
 #: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_form_view
 msgid "Manager's Feedback"
-msgstr "Retroalimentación del gerente"
+msgstr "Comentario del gerente"
 
 #. module: hr_appraisal_oca
 #: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_form_view
@@ -893,6 +903,11 @@ msgstr "Mensajes"
 #: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__my_activity_date_deadline
 msgid "My Activity Deadline"
 msgstr "Mi fecha límite de actividad"
+
+#. module: hr_appraisal_oca
+#: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_search_view
+msgid "My Appraisals"
+msgstr "Mis evaluaciones"
 
 #. module: hr_appraisal_oca
 #: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_tree_view
@@ -1135,12 +1150,13 @@ msgid ""
 "really want to publish it?\n"
 "                    This action will be logger in the chatter."
 msgstr ""
-"La retroalimentación del empleado se publicará sin su consentimiento. ¿En "
-"verdad desea publicarla?\n"
+"Los comentarios del empleado se publicarán sin su consentimiento. ¿En verdad "
+"desea publicarla?\n"
 "                    Esta acción se registrará en el chatter."
 
 #. module: hr_appraisal_oca
 #: model:ir.model.fields.selection,name:hr_appraisal_oca.selection__hr_appraisal__state__1_new
+#: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_search_view
 msgid "To Confirm"
 msgstr "A confirmar"
 

@@ -210,6 +210,7 @@ msgstr ""
 
 #. module: hr_appraisal_oca
 #: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__date_close
+#: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_search_view
 msgid "Appraisal Date"
 msgstr ""
 
@@ -373,6 +374,7 @@ msgstr ""
 
 #. module: hr_appraisal_oca
 #: model:ir.model.fields.selection,name:hr_appraisal_oca.selection__hr_appraisal__state__2_pending
+#: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_search_view
 msgid "Confirmed"
 msgstr ""
 
@@ -407,6 +409,11 @@ msgid "Created on"
 msgstr ""
 
 #. module: hr_appraisal_oca
+#: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_search_view
+msgid "Creation Date"
+msgstr ""
+
+#. module: hr_appraisal_oca
 #: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_kanban_view
 msgid "Date:"
 msgstr ""
@@ -423,6 +430,7 @@ msgstr ""
 
 #. module: hr_appraisal_oca
 #: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__department_id
+#: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_search_view
 msgid "Department"
 msgstr ""
 
@@ -444,12 +452,14 @@ msgstr ""
 
 #. module: hr_appraisal_oca
 #: model:ir.model.fields.selection,name:hr_appraisal_oca.selection__hr_appraisal__state__3_done
+#: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_search_view
 msgid "Done"
 msgstr ""
 
 #. module: hr_appraisal_oca
 #: model:ir.model,name:hr_appraisal_oca.model_hr_employee
 #: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__employee_id
+#: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_search_view
 msgid "Employee"
 msgstr ""
 
@@ -473,11 +483,6 @@ msgstr ""
 #. module: hr_appraisal_oca
 #: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__employee_feedback_published
 msgid "Employee Feedback Published"
-msgstr ""
-
-#. module: hr_appraisal_oca
-#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__employee_feedback_template
-msgid "Employee Feedback Template"
 msgstr ""
 
 #. module: hr_appraisal_oca
@@ -521,6 +526,11 @@ msgstr ""
 #. module: hr_appraisal_oca
 #: model:ir.model.fields,help:hr_appraisal_oca.field_hr_appraisal__activity_type_icon
 msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_search_view
+msgid "Group By"
 msgstr ""
 
 #. module: hr_appraisal_oca
@@ -623,6 +633,11 @@ msgid "Is Manager"
 msgstr ""
 
 #. module: hr_appraisal_oca
+#: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_search_view
+msgid "Job"
+msgstr ""
+
+#. module: hr_appraisal_oca
 #: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__job_id
 msgid "Job Position"
 msgstr ""
@@ -687,11 +702,6 @@ msgid "Manager Feedback Published"
 msgstr ""
 
 #. module: hr_appraisal_oca
-#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__manager_feedback_template
-msgid "Manager Feedback Template"
-msgstr ""
-
-#. module: hr_appraisal_oca
 #: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__manager_user_ids
 msgid "Manager Users"
 msgstr ""
@@ -726,6 +736,11 @@ msgstr ""
 #. module: hr_appraisal_oca
 #: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__my_activity_date_deadline
 msgid "My Activity Deadline"
+msgstr ""
+
+#. module: hr_appraisal_oca
+#: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_search_view
+msgid "My Appraisals"
 msgstr ""
 
 #. module: hr_appraisal_oca
@@ -959,6 +974,7 @@ msgstr ""
 
 #. module: hr_appraisal_oca
 #: model:ir.model.fields.selection,name:hr_appraisal_oca.selection__hr_appraisal__state__1_new
+#: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_search_view
 msgid "To Confirm"
 msgstr ""
 

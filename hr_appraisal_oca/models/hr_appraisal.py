@@ -45,7 +45,7 @@ class HrAppraisal(models.Model):
         "hr.job", string="Job Position", related="employee_id.job_id"
     )
     department_id = fields.Many2one(
-        "hr.department", "Department", compute="_compute_department"
+        "hr.department", string="Department", related="employee_id.department_id"
     )
     company_id = fields.Many2one(
         "res.company",
@@ -66,12 +66,8 @@ class HrAppraisal(models.Model):
         required=True,
         tracking=True,
     )
-    employee_feedback = fields.Html(
-        compute="_compute_employee_feedback", store=True, readonly=False
-    )
-    manager_feedback = fields.Html(
-        compute="_compute_manager_feedback", store=True, readonly=False
-    )
+    employee_feedback = fields.Html(readonly=False, copy=False)
+    manager_feedback = fields.Html(readonly=False, copy=False)
     employee_feedback_published = fields.Boolean(default=True, tracking=True)
     manager_feedback_published = fields.Boolean(default=True, tracking=True)
     can_see_employee_publish = fields.Boolean(
@@ -105,8 +101,6 @@ class HrAppraisal(models.Model):
     )
     tag_ids = fields.Many2many("hr.appraisal.tag", string="Tags")
     active = fields.Boolean(default=True)
-    employee_feedback_template = fields.Html(compute="_compute_feedback_templates")
-    manager_feedback_template = fields.Html(compute="_compute_feedback_templates")
 
     @api.model
     def default_get(self, fields_list):
@@ -125,6 +119,27 @@ class HrAppraisal(models.Model):
             )
             if default_template_id:
                 res["appraisal_template_id"] = default_template_id
+        tmpl_id = res.get("appraisal_template_id")
+        if tmpl_id:
+            data = (
+                self.env["hr.appraisal.template"]
+                .browse(tmpl_id)
+                .read(
+                    [
+                        "appraisal_employee_feedback_template",
+                        "appraisal_manager_feedback_template",
+                    ]
+                )
+            )
+            vals = data[0] if data else {}
+            if not res.get("employee_feedback"):
+                res["employee_feedback"] = (
+                    vals.get("appraisal_employee_feedback_template") or ""
+                )
+            if not res.get("manager_feedback"):
+                res["manager_feedback"] = (
+                    vals.get("appraisal_manager_feedback_template") or ""
+                )
         return res
 
     @api.model
@@ -189,31 +204,6 @@ class HrAppraisal(models.Model):
     def _compute_manager_user(self):
         self.manager_user_ids = [(6, 0, self.manager_ids.user_id.ids)]
 
-    @api.depends("appraisal_template_id")
-    def _compute_employee_feedback(self):
-        for appraisal in self.filtered(lambda a: a.state == "1_new"):
-            appraisal.employee_feedback = appraisal.employee_feedback_template
-
-    @api.depends("appraisal_template_id")
-    def _compute_manager_feedback(self):
-        for appraisal in self.filtered(lambda a: a.state == "1_new"):
-            appraisal.manager_feedback = appraisal.manager_feedback_template
-
-    @api.depends("appraisal_template_id")
-    def _compute_feedback_templates(self):
-        for appraisal in self:
-            template = appraisal.appraisal_template_id
-            appraisal.employee_feedback_template = (
-                template.appraisal_employee_feedback_template
-                if appraisal.appraisal_template_id
-                else False
-            )
-            appraisal.manager_feedback_template = (
-                template.appraisal_manager_feedback_template
-                if appraisal.appraisal_template_id
-                else False
-            )
-
     @api.depends("employee_id")
     def _compute_manager_ids(self):
         for record in self:
@@ -243,13 +233,16 @@ class HrAppraisal(models.Model):
                     activities.action_feedback()
         return super().write(vals)
 
-    @api.depends("employee_id")
-    def _compute_department(self):
-        for appraisal in self:
-            if appraisal.employee_id:
-                appraisal.department_id = appraisal.employee_id.department_id
-            else:
-                appraisal.department_id = False
+    @api.onchange("appraisal_template_id")
+    def _onchange_appraisal_template_id(self):
+        for rec in self:
+            if rec.state != "1_new":
+                continue
+            tmpl = rec.appraisal_template_id
+            if not tmpl:
+                continue
+            rec.employee_feedback = tmpl.appraisal_employee_feedback_template or ""
+            rec.manager_feedback = tmpl.appraisal_manager_feedback_template or ""
 
     @api.depends_context("uid")
     @api.depends("state", "employee_id")
