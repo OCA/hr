@@ -76,6 +76,7 @@ Contributors
 - Adrien Peiffer (ACSONE) <adrien.peiffer@acsone.eu>
 - Antonio Esposito (ONESTEIN BV) <a.esposito@onestein.nl>
 - Andrea Stirpe <a.stirpe@onestein.nl>
+- Vicent Castells <vicent@studio73.es>
 
 Maintainers
 -----------
