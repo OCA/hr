@@ -1,3 +1,5 @@
 - [Open Source Integrators](https://www.opensourceintegrators.com/)
   - Samuel Macias Oropeza \<smacias@opensourceintegrators.com\>
   - Maxime Chambreuil \<mchambreuil@opensourceintegrators.com\>
+- [Tecnativa](https://www.tecnativa.com):
+  - Pilar Vargas

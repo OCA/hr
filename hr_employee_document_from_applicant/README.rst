@@ -39,13 +39,13 @@ to the employee when the candidate is hired.
 Usage
 =====
 
-- Go to Recruitment
-- Create a job position and a candidate
-- Attach documents to the candidate
-- Move the candidate through the recruitment process until the "Create
-  employee" button appears to click on it
-- Go to the newly created employee: all the documents of the candidate
-  are available
+-  Go to Recruitment
+-  Create a job position and a candidate
+-  Attach documents to the candidate
+-  Move the candidate through the recruitment process until the "Create
+   employee" button appears to click on it
+-  Go to the newly created employee: all the documents of the candidate
+   are available
 
 Bug Tracker
 ===========
@@ -68,10 +68,14 @@ Authors
 Contributors
 ------------
 
-- `Open Source Integrators <https://www.opensourceintegrators.com/>`__
+-  `Open Source Integrators <https://www.opensourceintegrators.com/>`__
 
-  - Samuel Macias Oropeza <smacias@opensourceintegrators.com>
-  - Maxime Chambreuil <mchambreuil@opensourceintegrators.com>
+   -  Samuel Macias Oropeza <smacias@opensourceintegrators.com>
+   -  Maxime Chambreuil <mchambreuil@opensourceintegrators.com>
+
+-  `Tecnativa <https://www.tecnativa.com>`__:
+
+   -  Pilar Vargas
 
 Maintainers
 -----------
