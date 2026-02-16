@@ -302,6 +302,12 @@ msgid "Name"
 msgstr "Nombre"
 
 #. module: hr_personal_equipment_request
+#: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment__activity_calendar_event_id
+#: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment_request__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr "Próximo evento del calendario de actividades"
+
+#. module: hr_personal_equipment_request
 #: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment__activity_date_deadline
 #: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment_request__activity_date_deadline
 msgid "Next Activity Deadline"
@@ -461,8 +467,17 @@ msgstr "Valido"
 msgid "Validate"
 msgstr "Validar"
 
-#~ msgid "Next Activity Calendar Event"
-#~ msgstr "Próximo evento del calendario de actividades"
+#. module: hr_personal_equipment_request
+#: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment__website_message_ids
+#: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment_request__website_message_ids
+msgid "Website Messages"
+msgstr "Mensajes del sitio web"
+
+#. module: hr_personal_equipment_request
+#: model:ir.model.fields,help:hr_personal_equipment_request.field_hr_personal_equipment__website_message_ids
+#: model:ir.model.fields,help:hr_personal_equipment_request.field_hr_personal_equipment_request__website_message_ids
+msgid "Website communication history"
+msgstr "Historial de comunicaciones del sitio web"
 
 #~ msgid "SMS Delivery error"
 #~ msgstr "Error de envío del SMS"
@@ -493,9 +508,3 @@ msgstr "Validar"
 
 #~ msgid "Followers (Channels)"
 #~ msgstr "Seguidores (Canales)"
-
-#~ msgid "Website Messages"
-#~ msgstr "Mensajes del sitio web"
-
-#~ msgid "Website communication history"
-#~ msgstr "Historial de comunicaciones del sitio web"
