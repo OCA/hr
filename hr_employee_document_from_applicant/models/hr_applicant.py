@@ -23,7 +23,7 @@ class HrApplicant(models.Model):
                 )
             )
             for attachment in applicant_attachments:
-                attachment.write(
+                attachment.copy(
                     {
                         "res_model": "hr.employee",
                         "res_id": employee.id,
