@@ -419,6 +419,12 @@ msgid "Name"
 msgstr "Nome"
 
 #. module: hr_course
+#: model:ir.model.fields,field_description:hr_course.field_hr_course__activity_calendar_event_id
+#: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr ""
+
+#. module: hr_course
 #: model:ir.model.fields,field_description:hr_course.field_hr_course__activity_date_deadline
 #: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__activity_date_deadline
 msgid "Next Activity Deadline"
@@ -575,6 +581,18 @@ msgstr "Tipo di attività eccezione sul record."
 #: model:ir.model.fields.selection,name:hr_course.selection__hr_course_schedule__state__waiting_attendees
 msgid "Waiting attendees"
 msgstr "Partecipanti in attesa"
+
+#. module: hr_course
+#: model:ir.model.fields,field_description:hr_course.field_hr_course__website_message_ids
+#: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: hr_course
+#: model:ir.model.fields,help:hr_course.field_hr_course__website_message_ids
+#: model:ir.model.fields,help:hr_course.field_hr_course_schedule__website_message_ids
+msgid "Website communication history"
+msgstr ""
 
 #. module: hr_course
 #. odoo-python
