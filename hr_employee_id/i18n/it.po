@@ -27,17 +27,6 @@ msgid "# of Digits"
 msgstr "Numero di caratteri"
 
 #. module: hr_employee_id
-#: model_terms:ir.ui.view,arch_db:hr_employee_id.res_config_settings_view_form
-msgid ""
-"<span class=\"fa fa-lg fa-building-o\" title=\"Values set here are company-"
-"specific.\" role=\"img\" aria-label=\"Values set here are company-specific."
-"\" groups=\"base.group_multi_company\"/>"
-msgstr ""
-"<span class=\"fa fa-lg fa-building-o\" title=\"I valori impostati qui sono "
-"specifici per azienda.\" role=\"img\" aria-label=\"I valori impostati qui "
-"sono specifici per azienda.\" groups=\"base.group_multi_company\"/>"
-
-#. module: hr_employee_id
 #: model:ir.model,name:hr_employee_id.model_res_company
 msgid "Companies"
 msgstr "Aziende"
@@ -112,9 +101,23 @@ msgstr "La matricola dipendente deve essere univoca per le società."
 #. module: hr_employee_id
 #. odoo-python
 #: code:addons/hr_employee_id/models/hr_employee.py:0
-#, python-format
 msgid "Unable to generate unique Employee ID in %d steps."
 msgstr "Impossibile generare un ID dipendente univoco dopo %d prove."
+
+#. module: hr_employee_id
+#: model_terms:ir.ui.view,arch_db:hr_employee_id.res_config_settings_view_form
+msgid "Values set here are company-specific."
+msgstr ""
+
+#~ msgid ""
+#~ "<span class=\"fa fa-lg fa-building-o\" title=\"Values set here are "
+#~ "company-specific.\" role=\"img\" aria-label=\"Values set here are company-"
+#~ "specific.\" groups=\"base.group_multi_company\"/>"
+#~ msgstr ""
+#~ "<span class=\"fa fa-lg fa-building-o\" title=\"I valori impostati qui "
+#~ "sono specifici per azienda.\" role=\"img\" aria-label=\"I valori "
+#~ "impostati qui sono specifici per azienda.\" "
+#~ "groups=\"base.group_multi_company\"/>"
 
 #~ msgid ""
 #~ "<span>(*) This configuration is related to the company you're logged into."

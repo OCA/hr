@@ -11,8 +11,8 @@ msgstr ""
 "POT-Creation-Date: 2017-03-03 03:37+0000\n"
 "PO-Revision-Date: 2019-11-24 20:57+0000\n"
 "Last-Translator: Rodrigo Macedo <rmsolucoeseminformatic4@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) (https://www.transifex.com/oca/"
-"teams/23907/pt_BR/)\n"
+"Language-Team: Portuguese (Brazil) (https://www.transifex.com/oca/teams/"
+"23907/pt_BR/)\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,17 +25,6 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_employee_id.field_res_config_settings__employee_id_random_digits
 msgid "# of Digits"
 msgstr "# de Dígitos"
-
-#. module: hr_employee_id
-#: model_terms:ir.ui.view,arch_db:hr_employee_id.res_config_settings_view_form
-msgid ""
-"<span class=\"fa fa-lg fa-building-o\" title=\"Values set here are company-"
-"specific.\" role=\"img\" aria-label=\"Values set here are company-specific."
-"\" groups=\"base.group_multi_company\"/>"
-msgstr ""
-"<span class=\"fa fa-lg fa-building-o\" title=\"Defina os valores específicos "
-"da empresa aqui.\" role=\"img\" aria-label=\"Establece aquí los valores "
-"específicos de la compañía.\" groups=\"base.group_multi_company\"/>"
 
 #. module: hr_employee_id
 #: model:ir.model,name:hr_employee_id.model_res_company
@@ -110,9 +99,23 @@ msgstr "O número do funcionário deve ser exclusivo na(s) empresa(s)."
 #. module: hr_employee_id
 #. odoo-python
 #: code:addons/hr_employee_id/models/hr_employee.py:0
-#, python-format
 msgid "Unable to generate unique Employee ID in %d steps."
 msgstr "Não foi possível gerar o ID do funcionário exclusivo em %d etapas."
+
+#. module: hr_employee_id
+#: model_terms:ir.ui.view,arch_db:hr_employee_id.res_config_settings_view_form
+msgid "Values set here are company-specific."
+msgstr ""
+
+#~ msgid ""
+#~ "<span class=\"fa fa-lg fa-building-o\" title=\"Values set here are "
+#~ "company-specific.\" role=\"img\" aria-label=\"Values set here are company-"
+#~ "specific.\" groups=\"base.group_multi_company\"/>"
+#~ msgstr ""
+#~ "<span class=\"fa fa-lg fa-building-o\" title=\"Defina os valores "
+#~ "específicos da empresa aqui.\" role=\"img\" aria-label=\"Establece aquí "
+#~ "los valores específicos de la compañía.\" "
+#~ "groups=\"base.group_multi_company\"/>"
 
 #~ msgid "Created by"
 #~ msgstr "Criado por"

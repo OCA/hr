@@ -27,17 +27,6 @@ msgid "# of Digits"
 msgstr "# der Zeichen"
 
 #. module: hr_employee_id
-#: model_terms:ir.ui.view,arch_db:hr_employee_id.res_config_settings_view_form
-msgid ""
-"<span class=\"fa fa-lg fa-building-o\" title=\"Values set here are company-"
-"specific.\" role=\"img\" aria-label=\"Values set here are company-specific."
-"\" groups=\"base.group_multi_company\"/>"
-msgstr ""
-"<span class=\"fa fa-lg fa-building-o\" title=\"Die hier gesetzten Werte sind "
-"firmenspezifisch.\" role=\"img\" aria-label=\"Die hier gesetzten Werte sind "
-"firmenspezifisch.\" groups=\"base.group_multi_company\"/>"
-
-#. module: hr_employee_id
 #: model:ir.model,name:hr_employee_id.model_res_company
 msgid "Companies"
 msgstr "Unternehmen"
@@ -112,11 +101,24 @@ msgstr "Die Mitarbeiter-ID muss über alle Unternehmen hinweg eindeutig sein."
 #. module: hr_employee_id
 #. odoo-python
 #: code:addons/hr_employee_id/models/hr_employee.py:0
-#, python-format
 msgid "Unable to generate unique Employee ID in %d steps."
 msgstr ""
 "Es ist nicht möglich, eine eindeutige Mitarbeiter-ID in %d Schritten zu "
 "erzeugen."
+
+#. module: hr_employee_id
+#: model_terms:ir.ui.view,arch_db:hr_employee_id.res_config_settings_view_form
+msgid "Values set here are company-specific."
+msgstr ""
+
+#~ msgid ""
+#~ "<span class=\"fa fa-lg fa-building-o\" title=\"Values set here are "
+#~ "company-specific.\" role=\"img\" aria-label=\"Values set here are company-"
+#~ "specific.\" groups=\"base.group_multi_company\"/>"
+#~ msgstr ""
+#~ "<span class=\"fa fa-lg fa-building-o\" title=\"Die hier gesetzten Werte "
+#~ "sind firmenspezifisch.\" role=\"img\" aria-label=\"Die hier gesetzten "
+#~ "Werte sind firmenspezifisch.\" groups=\"base.group_multi_company\"/>"
 
 #~ msgid "Created by"
 #~ msgstr "Erstellt von"
