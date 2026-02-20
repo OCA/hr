@@ -18,6 +18,12 @@ msgstr ""
 "X-Generator: Poedit 3.8\n"
 
 #. module: hr_collective_agreement
+#. odoo-python
+#: code:addons/hr_collective_agreement/models/collective_agreement.py:0
+msgid "%s (copy)"
+msgstr ""
+
+#. module: hr_collective_agreement
 #: model_terms:ir.ui.view,arch_db:hr_collective_agreement.view_form_collective_agreement
 msgid "Activate"
 msgstr "Activar"
