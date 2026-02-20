@@ -1,0 +1,179 @@
+<odoo>
+    <record id="view_form_collective_agreement" model="ir.ui.view">
+        <field name="name">collective.agreement.form</field>
+        <field name="model">collective.agreement</field>
+        <field name="arch" type="xml">
+            <form string="Collective Agreement">
+                <header>
+                    <field
+                        name="state"
+                        widget="statusbar"
+                        statusbar_visible="draft,active,finished"
+                        groups="hr.group_hr_manager"
+                    />
+                    <button
+                        name="action_activate_agreement"
+                        type="object"
+                        string="Activate"
+                        class="btn-primary"
+                        invisible="state not in ('draft', 'finished')"
+                        groups="hr.group_hr_manager"
+                    />
+                    <button
+                        name="action_cancel"
+                        type="object"
+                        string="Cancel"
+                        class="btn-secondary"
+                        invisible="state in ('cancelled', 'finished') or partner_ids"
+                        groups="hr.group_hr_manager"
+                    />
+                    <button
+                        name="action_cancel"
+                        type="object"
+                        string="Cancel"
+                        class="btn-secondary"
+                        invisible="state in ('cancelled', 'finished') or not partner_ids"
+                        confirm="This agreement has linked partners. Do you want to cancel it anyway?"
+                        groups="hr.group_hr_manager"
+                    />
+                    <button
+                        name="action_draft"
+                        type="object"
+                        string="Reset to Draft"
+                        class="btn-secondary"
+                        invisible="state != 'cancelled'"
+                        groups="hr.group_hr_manager"
+                    />
+                    <button
+                        name="action_finish"
+                        type="object"
+                        string="Finish"
+                        class="btn-secondary"
+                        invisible="state != 'active'"
+                        confirm="The agreement validity period has not ended yet. Do you want to finish it anyway?"
+                        groups="hr.group_hr_manager"
+                    />
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="code" />
+                            <field name="name" />
+                            <field name="scope_id" />
+                            <field
+                                name="publication_date"
+                                widget="daterange"
+                                options="{'end_date_field': 'end_date'}"
+                            />
+                            <field name="end_date" invisible="1" />
+                            <field name="official_publication_id" />
+                            <field name="active" invisible="1" />
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Partners">
+                            <field
+                                name="partner_ids"
+                                context="{'default_company_id': company_id}"
+                            >
+                                <list>
+                                    <field name="name" />
+                                    <field name="vat" />
+                                    <field name="phone" />
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Observations">
+                            <field name="observations" />
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="view_list_collective_agreement" model="ir.ui.view">
+        <field name="name">collective.agreement.list</field>
+        <field name="model">collective.agreement</field>
+        <field name="arch" type="xml">
+            <list string="Collective Agreements">
+                <header>
+                    <button
+                        name="action_update_states"
+                        type="object"
+                        string="Update agreement states"
+                        class="btn-secondary"
+                        groups="hr.group_hr_manager"
+                        display="always"
+                    />
+                </header>
+                <field name="code" />
+                <field name="name" />
+                <field name="scope_id" />
+                <field name="publication_date" />
+                <field name="end_date" />
+                <field name="official_publication_id" />
+                <field
+                    name="state"
+                    widget="badge"
+                    decoration-muted="state == 'draft'"
+                    decoration-success="state == 'active'"
+                    decoration-info="state == 'finished'"
+                    decoration-danger="state == 'cancelled'"
+                />
+                <field name="active" column_invisible="1" />
+            </list>
+        </field>
+    </record>
+    <record id="view_collective_agreement_search" model="ir.ui.view">
+        <field name="name">collective.agreement.search</field>
+        <field name="model">collective.agreement</field>
+        <field name="arch" type="xml">
+            <search string="Collective Agreements">
+                <field
+                    name="name"
+                    string="Name or Code"
+                    filter_domain="['|', ('name', 'ilike', self), ('code', 'ilike', self)]"
+                />
+            </search>
+        </field>
+    </record>
+    <record id="action_collective_agreement_finish" model="ir.actions.server">
+        <field name="name">Finish</field>
+        <field name="model_id" ref="model_collective_agreement" />
+        <field name="binding_model_id" ref="model_collective_agreement" />
+        <field name="binding_view_types">list</field>
+        <field name="state">code</field>
+        <field name="code">
+            action = records.action_finish()
+        </field>
+    </record>
+    <record id="action_collective_agreement_cancel" model="ir.actions.server">
+        <field name="name">Cancel</field>
+        <field name="model_id" ref="model_collective_agreement" />
+        <field name="binding_model_id" ref="model_collective_agreement" />
+        <field name="binding_view_types">list</field>
+        <field name="state">code</field>
+        <field name="code">
+            action = records.action_cancel()
+        </field>
+    </record>
+    <menuitem
+        id="menu_collective_agreement_root"
+        name="Collective Agreements"
+        parent="hr.menu_human_resources_configuration"
+        sequence="20"
+        groups="hr.group_hr_user"
+    />
+    <record id="action_collective_agreement" model="ir.actions.act_window">
+        <field name="name">Collective Agreements</field>
+        <field name="res_model">collective.agreement</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <menuitem
+        id="menu_collective_agreement"
+        name="Collective Agreements"
+        parent="menu_collective_agreement_root"
+        sequence="10"
+        action="action_collective_agreement"
+    />
+</odoo>
