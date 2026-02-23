@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_collective_agreement_assign_wizard_user,collective.agreement.assign.wizard user,model_collective_agreement_assign_wizard,base.group_user,1,1,1,1
