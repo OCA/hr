@@ -1,9 +1,10 @@
 [project]
 name = "odoo-addons-oca-hr"
-version = "18.0.20260220.0"
+version = "18.0.20260223.0"
 dependencies = [
     "odoo-addon-hr_appraisal_oca==18.0.*",
     "odoo-addon-hr_collective_agreement==18.0.*",
+    "odoo-addon-hr_collective_agreement_partner==18.0.*",
     "odoo-addon-hr_contract_employee_calendar_planning==18.0.*",
     "odoo-addon-hr_contract_reference==18.0.*",
     "odoo-addon-hr_contract_renew==18.0.*",
