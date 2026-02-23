@@ -44,7 +44,7 @@ msgid "Assign Collective Agreements to Partner"
 msgstr "Assignar Convenis col·lectius"
 
 #. module: hr_collective_agreement_partner
-#: model:ir.model.fields,field_description:hr_collective_agreement_partner.field_collective_agreement_assign_wizard__agreement_ids
+#: model:ir.model.fields,field_description:hr_collective_agreement_partner.field_collective_agreement_assign_wizard__collective_agreement_ids
 msgid "Available Collective Agreements"
 msgstr "Convenis col·lectius disponibles"
 
