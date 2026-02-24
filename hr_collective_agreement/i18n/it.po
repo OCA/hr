@@ -6,62 +6,64 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2026-02-24 16:09+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: hr_collective_agreement
 #. odoo-python
 #: code:addons/hr_collective_agreement/models/collective_agreement.py:0
 msgid "%s (copy)"
-msgstr ""
+msgstr "%s (copia)"
 
 #. module: hr_collective_agreement
 #: model_terms:ir.ui.view,arch_db:hr_collective_agreement.view_form_collective_agreement
 msgid "Activate"
-msgstr ""
+msgstr "Attiva"
 
 #. module: hr_collective_agreement
 #: model:ir.model.fields,field_description:hr_collective_agreement.field_collective_agreement__active
 #: model:ir.model.fields.selection,name:hr_collective_agreement.selection__collective_agreement__state__active
 msgid "Active"
-msgstr ""
+msgstr "Attive"
 
 #. module: hr_collective_agreement
 #: model:ir.actions.server,name:hr_collective_agreement.action_collective_agreement_cancel
 #: model_terms:ir.ui.view,arch_db:hr_collective_agreement.view_form_collective_agreement
 msgid "Cancel"
-msgstr ""
+msgstr "Annulla"
 
 #. module: hr_collective_agreement
 #: model:ir.model.fields.selection,name:hr_collective_agreement.selection__collective_agreement__state__cancelled
 msgid "Cancelled"
-msgstr ""
+msgstr "Annullato"
 
 #. module: hr_collective_agreement
 #: model:ir.model.fields,field_description:hr_collective_agreement.field_collective_agreement__code
 msgid "Code"
-msgstr ""
+msgstr "Codice"
 
 #. module: hr_collective_agreement
 #: model:ir.model,name:hr_collective_agreement.model_collective_agreement
 #: model_terms:ir.ui.view,arch_db:hr_collective_agreement.view_form_collective_agreement
 msgid "Collective Agreement"
-msgstr ""
+msgstr "Contratto collettivo"
 
 #. module: hr_collective_agreement
 #: model:ir.model,name:hr_collective_agreement.model_collective_agreement_official_publication
 msgid "Collective Agreement Official Publication"
-msgstr ""
+msgstr "Pubblicazione ufficiale contratto collettivo"
 
 #. module: hr_collective_agreement
 #: model:ir.model,name:hr_collective_agreement.model_collective_agreement_scope
 msgid "Collective Agreement Scope"
-msgstr ""
+msgstr "Ambito contratto collettivo"
 
 #. module: hr_collective_agreement
 #: model:ir.actions.act_window,name:hr_collective_agreement.action_collective_agreement
@@ -70,136 +72,136 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:hr_collective_agreement.view_collective_agreement_search
 #: model_terms:ir.ui.view,arch_db:hr_collective_agreement.view_list_collective_agreement
 msgid "Collective Agreements"
-msgstr ""
+msgstr "Contratti collettivi"
 
 #. module: hr_collective_agreement
 #: model:ir.model.fields,field_description:hr_collective_agreement.field_collective_agreement__company_id
 msgid "Company"
-msgstr ""
+msgstr "Azienda"
 
 #. module: hr_collective_agreement
 #: model:ir.model.fields,field_description:hr_collective_agreement.field_collective_agreement__create_uid
 #: model:ir.model.fields,field_description:hr_collective_agreement.field_collective_agreement_official_publication__create_uid
 #: model:ir.model.fields,field_description:hr_collective_agreement.field_collective_agreement_scope__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Creato da"
 
 #. module: hr_collective_agreement
 #: model:ir.model.fields,field_description:hr_collective_agreement.field_collective_agreement__create_date
 #: model:ir.model.fields,field_description:hr_collective_agreement.field_collective_agreement_official_publication__create_date
 #: model:ir.model.fields,field_description:hr_collective_agreement.field_collective_agreement_scope__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Creato il"
 
 #. module: hr_collective_agreement
 #: model:ir.model.fields,field_description:hr_collective_agreement.field_collective_agreement__display_name
 #: model:ir.model.fields,field_description:hr_collective_agreement.field_collective_agreement_official_publication__display_name
 #: model:ir.model.fields,field_description:hr_collective_agreement.field_collective_agreement_scope__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nome visualizzato"
 
 #. module: hr_collective_agreement
 #: model:ir.model.fields.selection,name:hr_collective_agreement.selection__collective_agreement__state__draft
 msgid "Draft"
-msgstr ""
+msgstr "Bozza"
 
 #. module: hr_collective_agreement
 #: model:ir.model.fields,field_description:hr_collective_agreement.field_collective_agreement__end_date
 msgid "End Date"
-msgstr ""
+msgstr "Data fine"
 
 #. module: hr_collective_agreement
 #: model:ir.actions.server,name:hr_collective_agreement.action_collective_agreement_finish
 #: model_terms:ir.ui.view,arch_db:hr_collective_agreement.view_form_collective_agreement
 msgid "Finish"
-msgstr ""
+msgstr "Termina"
 
 #. module: hr_collective_agreement
 #: model:ir.model.fields.selection,name:hr_collective_agreement.selection__collective_agreement__state__finished
 msgid "Finished"
-msgstr ""
+msgstr "Terminato"
 
 #. module: hr_collective_agreement
 #: model:ir.model.fields,field_description:hr_collective_agreement.field_collective_agreement__id
 #: model:ir.model.fields,field_description:hr_collective_agreement.field_collective_agreement_official_publication__id
 #: model:ir.model.fields,field_description:hr_collective_agreement.field_collective_agreement_scope__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: hr_collective_agreement
 #: model:ir.model.fields,field_description:hr_collective_agreement.field_collective_agreement__write_uid
 #: model:ir.model.fields,field_description:hr_collective_agreement.field_collective_agreement_official_publication__write_uid
 #: model:ir.model.fields,field_description:hr_collective_agreement.field_collective_agreement_scope__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Ultimo aggiornamento di"
 
 #. module: hr_collective_agreement
 #: model:ir.model.fields,field_description:hr_collective_agreement.field_collective_agreement__write_date
 #: model:ir.model.fields,field_description:hr_collective_agreement.field_collective_agreement_official_publication__write_date
 #: model:ir.model.fields,field_description:hr_collective_agreement.field_collective_agreement_scope__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Ultimo aggiornamento il"
 
 #. module: hr_collective_agreement
 #: model:ir.model.fields,field_description:hr_collective_agreement.field_collective_agreement__name
 #: model:ir.model.fields,field_description:hr_collective_agreement.field_collective_agreement_official_publication__name
 #: model:ir.model.fields,field_description:hr_collective_agreement.field_collective_agreement_scope__name
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 #. module: hr_collective_agreement
 #: model_terms:ir.ui.view,arch_db:hr_collective_agreement.view_collective_agreement_search
 msgid "Name or Code"
-msgstr ""
+msgstr "Nome o codice"
 
 #. module: hr_collective_agreement
 #: model:ir.model.fields,field_description:hr_collective_agreement.field_collective_agreement__observations
 #: model_terms:ir.ui.view,arch_db:hr_collective_agreement.view_form_collective_agreement
 msgid "Observations"
-msgstr ""
+msgstr "Osservazioni"
 
 #. module: hr_collective_agreement
 #: model:ir.model.fields,field_description:hr_collective_agreement.field_collective_agreement__official_publication_id
 msgid "Official Publication"
-msgstr ""
+msgstr "Pubblicazione ufficiale"
 
 #. module: hr_collective_agreement
 #: model:ir.actions.act_window,name:hr_collective_agreement.action_collective_agreement_official_publication
 #: model:ir.ui.menu,name:hr_collective_agreement.menu_collective_agreement_official_publication
 msgid "Official Publications"
-msgstr ""
+msgstr "Pubblicazioni ufficiali"
 
 #. module: hr_collective_agreement
 #: model:ir.model.fields,field_description:hr_collective_agreement.field_collective_agreement__partner_ids
 #: model_terms:ir.ui.view,arch_db:hr_collective_agreement.view_form_collective_agreement
 msgid "Partners"
-msgstr ""
+msgstr "Partner"
 
 #. module: hr_collective_agreement
 #: model:ir.model.fields,field_description:hr_collective_agreement.field_collective_agreement__publication_date
 msgid "Publication Date"
-msgstr ""
+msgstr "Data pubblicazione"
 
 #. module: hr_collective_agreement
 #: model_terms:ir.ui.view,arch_db:hr_collective_agreement.view_form_collective_agreement
 msgid "Reset to Draft"
-msgstr ""
+msgstr "Reimposta a bozza"
 
 #. module: hr_collective_agreement
 #: model:ir.model.fields,field_description:hr_collective_agreement.field_collective_agreement__scope_id
 msgid "Scope"
-msgstr ""
+msgstr "Ambito"
 
 #. module: hr_collective_agreement
 #: model:ir.actions.act_window,name:hr_collective_agreement.action_collective_agreement_scope
 #: model:ir.ui.menu,name:hr_collective_agreement.menu_collective_agreement_scope
 msgid "Scopes"
-msgstr ""
+msgstr "Ambiti"
 
 #. module: hr_collective_agreement
 #: model:ir.model.fields,field_description:hr_collective_agreement.field_collective_agreement__state
 msgid "State"
-msgstr ""
+msgstr "Stato"
 
 #. module: hr_collective_agreement
 #: model_terms:ir.ui.view,arch_db:hr_collective_agreement.view_form_collective_agreement
@@ -207,11 +209,13 @@ msgid ""
 "The agreement validity period has not ended yet. Do you want to finish it "
 "anyway?"
 msgstr ""
+"Il periodo di validità del contratto non è ancora terminato. Si vuole "
+"terminarlo comunque?"
 
 #. module: hr_collective_agreement
 #: model:ir.model.constraint,message:hr_collective_agreement.constraint_collective_agreement_code_uniq
 msgid "The code must be unique"
-msgstr ""
+msgstr "Il codice deve essere univoco"
 
 #. module: hr_collective_agreement
 #. odoo-python
@@ -220,6 +224,8 @@ msgid ""
 "The collective agreements \"%s\" cannot be activated because their end date "
 "has already passed."
 msgstr ""
+"I contratti collettivi \"%s\" non possono essere attivati perché la loro "
+"data di scadenza è già trascorsa."
 
 #. module: hr_collective_agreement
 #. odoo-python
@@ -228,6 +234,8 @@ msgid ""
 "The collective agreements \"%s\" cannot be cancelled because they are "
 "already finished or cancelled."
 msgstr ""
+"I contratti collettivi \"%s\" non possono essere annullati perché sono già "
+"terminati o annullati."
 
 #. module: hr_collective_agreement
 #. odoo-python
@@ -236,30 +244,32 @@ msgid ""
 "The collective agreements \"%s\" cannot be finished because they are not in "
 "active state."
 msgstr ""
+"I contratti collettivi \"%s\" non possono essere completati perché non sono "
+"in stato attivo."
 
 #. module: hr_collective_agreement
 #. odoo-python
 #: code:addons/hr_collective_agreement/models/collective_agreement.py:0
 msgid "The end date cannot be earlier than the publication date."
-msgstr ""
+msgstr "La data di fine non può essere anteriore alla data di pubblicazione."
 
 #. module: hr_collective_agreement
 #: model:ir.model.constraint,message:hr_collective_agreement.constraint_collective_agreement_name_uniq
 msgid "The name must be unique"
-msgstr ""
+msgstr "Il nome deve essere univoco"
 
 #. module: hr_collective_agreement
 #: model:ir.model.constraint,message:hr_collective_agreement.constraint_collective_agreement_official_publication_name_uniq
 #: model:ir.model.constraint,message:hr_collective_agreement.constraint_collective_agreement_scope_name_uniq
 msgid "The name must be unique."
-msgstr ""
+msgstr "Il nome deve essere univoco."
 
 #. module: hr_collective_agreement
 #: model_terms:ir.ui.view,arch_db:hr_collective_agreement.view_form_collective_agreement
 msgid "This agreement has linked partners. Do you want to cancel it anyway?"
-msgstr ""
+msgstr "Questo accordo ha dei partner collegati. Si vuole annullarlo comunque?"
 
 #. module: hr_collective_agreement
 #: model_terms:ir.ui.view,arch_db:hr_collective_agreement.view_list_collective_agreement
 msgid "Update agreement states"
-msgstr ""
+msgstr "Aggiorna stati contratto"
