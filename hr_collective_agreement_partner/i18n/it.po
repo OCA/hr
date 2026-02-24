@@ -6,54 +6,56 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2026-02-24 16:09+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: hr_collective_agreement_partner
 #: model_terms:ir.ui.view,arch_db:hr_collective_agreement_partner.view_collective_agreement_tree_partner
 msgid "Are you sure you want to remove this agreement from the partner?"
-msgstr ""
+msgstr "Si è sicuri di voler rimuovere questo accordo dal partner?"
 
 #. module: hr_collective_agreement_partner
 #: model_terms:ir.ui.view,arch_db:hr_collective_agreement_partner.view_collective_agreement_assign_wizard
 msgid "Assign"
-msgstr ""
+msgstr "Assegna"
 
 #. module: hr_collective_agreement_partner
 #: model_terms:ir.ui.view,arch_db:hr_collective_agreement_partner.view_collective_agreement_tree_partner
 msgid "Assign Agreement"
-msgstr ""
+msgstr "Assegna contratto"
 
 #. module: hr_collective_agreement_partner
 #: model:ir.actions.act_window,name:hr_collective_agreement_partner.action_collective_agreement_assign_wizard
 #: model_terms:ir.ui.view,arch_db:hr_collective_agreement_partner.view_collective_agreement_assign_wizard
 msgid "Assign Collective Agreements"
-msgstr ""
+msgstr "Assegna contratto collettivo"
 
 #. module: hr_collective_agreement_partner
 #: model:ir.model,name:hr_collective_agreement_partner.model_collective_agreement_assign_wizard
 msgid "Assign Collective Agreements to Partner"
-msgstr ""
+msgstr "Assegna contratto collettivo al partner"
 
 #. module: hr_collective_agreement_partner
 #: model:ir.model.fields,field_description:hr_collective_agreement_partner.field_collective_agreement_assign_wizard__collective_agreement_ids
 msgid "Available Collective Agreements"
-msgstr ""
+msgstr "Contratti collettivi disponibili"
 
 #. module: hr_collective_agreement_partner
 #: model_terms:ir.ui.view,arch_db:hr_collective_agreement_partner.view_collective_agreement_assign_wizard
 msgid "Cancel"
-msgstr ""
+msgstr "Annulla"
 
 #. module: hr_collective_agreement_partner
 #: model:ir.model,name:hr_collective_agreement_partner.model_collective_agreement
 msgid "Collective Agreement"
-msgstr ""
+msgstr "Contratto collettivo"
 
 #. module: hr_collective_agreement_partner
 #: model:ir.actions.act_window,name:hr_collective_agreement_partner.action_partner_collective_agreements
@@ -61,60 +63,60 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_collective_agreement_partner.field_res_users__collective_agreement_ids
 #: model_terms:ir.ui.view,arch_db:hr_collective_agreement_partner.view_partner_form
 msgid "Collective Agreements"
-msgstr ""
+msgstr "Contratti collettivi"
 
 #. module: hr_collective_agreement_partner
 #: model:ir.model.fields,field_description:hr_collective_agreement_partner.field_res_partner__collective_agreement_count
 #: model:ir.model.fields,field_description:hr_collective_agreement_partner.field_res_users__collective_agreement_count
 msgid "Collective Agreements Count"
-msgstr ""
+msgstr "Conteggio contratti collettivi"
 
 #. module: hr_collective_agreement_partner
 #: model:ir.model,name:hr_collective_agreement_partner.model_res_partner
 msgid "Contact"
-msgstr ""
+msgstr "Contatto"
 
 #. module: hr_collective_agreement_partner
 #: model:ir.model.fields,field_description:hr_collective_agreement_partner.field_collective_agreement_assign_wizard__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Creato da"
 
 #. module: hr_collective_agreement_partner
 #: model:ir.model.fields,field_description:hr_collective_agreement_partner.field_collective_agreement_assign_wizard__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Creato il"
 
 #. module: hr_collective_agreement_partner
 #: model:ir.model.fields,field_description:hr_collective_agreement_partner.field_collective_agreement_assign_wizard__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nome visualizzato"
 
 #. module: hr_collective_agreement_partner
 #: model_terms:ir.ui.view,arch_db:hr_collective_agreement_partner.view_res_partner_filter
 msgid "Has Collective Agreement"
-msgstr ""
+msgstr "Ha contratto collettivo"
 
 #. module: hr_collective_agreement_partner
 #: model:ir.model.fields,field_description:hr_collective_agreement_partner.field_collective_agreement_assign_wizard__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: hr_collective_agreement_partner
 #: model:ir.model.fields,field_description:hr_collective_agreement_partner.field_collective_agreement_assign_wizard__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Ultimo aggiornamento di"
 
 #. module: hr_collective_agreement_partner
 #: model:ir.model.fields,field_description:hr_collective_agreement_partner.field_collective_agreement_assign_wizard__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Ultimo aggiornamento il"
 
 #. module: hr_collective_agreement_partner
 #: model:ir.model.fields,field_description:hr_collective_agreement_partner.field_collective_agreement_assign_wizard__partner_id
 msgid "Partner"
-msgstr ""
+msgstr "Partner"
 
 #. module: hr_collective_agreement_partner
 #: model_terms:ir.ui.view,arch_db:hr_collective_agreement_partner.view_collective_agreement_tree_partner
 msgid "Unassign"
-msgstr ""
+msgstr "Rimuovi"
