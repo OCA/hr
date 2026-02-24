@@ -1,1 +1,1 @@
-from . import contract
+from . import hr_version

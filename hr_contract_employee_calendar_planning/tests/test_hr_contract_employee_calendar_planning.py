@@ -18,29 +18,30 @@ class TestHrContractEmployeeCalendarPlanning(
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
+        cls.employee.calendar_ids.unlink()
         cls.employee.calendar_ids = [
             Command.create(
                 {"date_start": "2019-12-31", "calendar_id": cls.calendar1.id}
             ),
         ]
-        cls.contract_1 = cls.env["hr.contract"].create(
+        cls.contract_1 = cls.env["hr.version"].create(
             {
                 "name": "Test contract1",
                 "wage": 1,
-                "state": "close",
                 "employee_id": cls.employee.id,
-                "date_start": "2018-11-30",
-                "date_end": "2019-11-30",
+                "contract_date_start": "2018-11-30",
+                "contract_date_end": "2019-11-30",
+                "date_version": "2018-11-30",
                 "resource_calendar_id": cls.employee.resource_calendar_id.id,
             }
         )
-        cls.contract_2 = cls.env["hr.contract"].create(
+        cls.contract_2 = cls.env["hr.version"].create(
             {
                 "name": "Test contract2",
                 "wage": 1,
-                "state": "open",
                 "employee_id": cls.employee.id,
-                "date_start": "2019-12-01",
+                "contract_date_start": "2019-12-01",
+                "date_version": "2019-12-01",
                 "resource_calendar_id": cls.employee.resource_calendar_id.id,
             }
         )
@@ -70,11 +71,11 @@ class TestHrContractEmployeeCalendarPlanning(
         self.assertEqual(len(self.employee.calendar_ids), 1)
         # Force to incorrect calendar to contracts
         self.env.cr.execute(
-            f"UPDATE hr_contract SET resource_calendar_id = {self.calendar1.id} WHERE id = {self.contract_1.id}"  # noqa: E501
+            f"UPDATE hr_version SET resource_calendar_id = {self.calendar1.id} WHERE id = {self.contract_1.id}"  # noqa: E501
         )
         self.contract_1.invalidate_recordset(["resource_calendar_id"])
         self.env.cr.execute(
-            f"UPDATE hr_contract SET resource_calendar_id = {self.calendar2.id} WHERE id = {self.contract_2.id}"  # noqa: E501
+            f"UPDATE hr_version SET resource_calendar_id = {self.calendar2.id} WHERE id = {self.contract_2.id}"  # noqa: E501
         )
         self.contract_2.invalidate_recordset(["resource_calendar_id"])
         # calendar migration from contracts
@@ -92,7 +93,7 @@ class TestHrContractEmployeeCalendarPlanning(
         self.assertEqual(
             new_calendars.date_start, fields.Date.from_string("2019-12-01")
         )
-        self.assertFalse(new_calendars.date_end)
+        self.assertEqual(new_calendars.date_end, self.contract_2.date_end)
 
     @mute_logger("odoo.models.unlink")
     def test_calendar_migration_from_contracts_02(self):
@@ -103,11 +104,11 @@ class TestHrContractEmployeeCalendarPlanning(
         self.assertEqual(len(self.employee.calendar_ids), 1)
         # Force to incorrect calendar to contracts
         self.env.cr.execute(
-            f"UPDATE hr_contract SET resource_calendar_id = {self.calendar1.id} WHERE id = {self.contract_1.id}"  # noqa: E501
+            f"UPDATE hr_version SET resource_calendar_id = {self.calendar1.id} WHERE id = {self.contract_1.id}"  # noqa: E501
         )
         self.contract_1.invalidate_recordset(["resource_calendar_id"])
         self.env.cr.execute(
-            f"UPDATE hr_contract SET resource_calendar_id = {self.calendar2.id} WHERE id = {self.contract_2.id}"  # noqa: E501
+            f"UPDATE hr_version SET resource_calendar_id = {self.calendar2.id} WHERE id = {self.contract_2.id}"  # noqa: E501
         )
         self.contract_2.invalidate_recordset(["resource_calendar_id"])
         # calendar migration from contracts
@@ -136,22 +137,21 @@ class TestHrContractEmployeeCalendarPlanning(
         self.assertEqual(
             new_calendars_2.date_start, fields.Date.from_string("2019-12-01")
         )
-        self.assertFalse(new_calendars_2.date_end)
+        self.assertEqual(new_calendars_2.date_end, self.contract_2.date_end)
 
     def test_contract_create_write(self):
         self.contract_2.write(
             {
-                "state": "close",
-                "date_end": "2019-12-31",
+                "contract_date_end": "2019-12-31",
             }
         )
-        contract = self.env["hr.contract"].create(
+        contract = self.env["hr.version"].create(
             {
                 "name": "Test open contract",
                 "wage": 1,
-                "state": "open",
                 "employee_id": self.employee.id,
-                "date_start": "2020-01-01",
+                "contract_date_start": "2020-01-01",
+                "date_version": "2020-01-01",
                 "resource_calendar_id": self.calendar2.id,
             }
         )

@@ -1,1 +1,3 @@
 - Jonas Buchholz \<J.Buchholz@cibex.net\>
+- [Studio73](https://www.studio73.es/):
+- Vicent Castells \<<vicent@studio73.es>\>
