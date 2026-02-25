@@ -44,7 +44,7 @@ class Announcement(models.Model):
             ):
                 employee.user_id.unread_announcement_ids |= announcement
 
-    @api.model
+    @api.model_create_multi
     def create(self, vals_list):
         announcement = super().create(vals_list)
         if vals_list.get("employee_ids"):
