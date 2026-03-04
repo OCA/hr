@@ -1,6 +1,8 @@
 # Copyright 2021 Creu Blanca
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
+from uuid import uuid4
+
 from odoo.exceptions import UserError
 from odoo.tests import TransactionCase
 
@@ -162,14 +164,34 @@ class TestHRPersonalEquipment(TransactionCase):
         self.personal_equipment_request.line_ids[1]._compute_skip_procurement()
         self.assertTrue(self.personal_equipment_request.line_ids[1].skip_procurement)
 
+    def _create_lot_ids(self, product, quantity):
+        product.tracking = "serial"
+        lot_ids = []
+        for _qty in range(quantity):
+            serial_number = str(uuid4())
+            lot_id = self.env["stock.lot"].create(
+                {
+                    "name": f"Lots for tests {product.name} - {serial_number}",
+                    "product_id": product.product_variant_id.id,
+                }
+            )
+            lot_ids += lot_id
+        return lot_ids
+
     def test_compute_qty_delivered(self):
-        self.personal_equipment_request.accept_request()
         allocation = self.personal_equipment_request.line_ids[0]
+        lot_ids = self._create_lot_ids(
+            self.product_personal_equipment_1, allocation.quantity
+        )
+        self.personal_equipment_request.accept_request()
         move = allocation.move_ids[0]
+        move.lot_ids = [lot_id.id for lot_id in lot_ids]
         move.quantity_done = allocation.quantity
         picking = self.personal_equipment_request.picking_ids[0]
         picking._action_done()
         self.assertEqual(allocation.qty_delivered, allocation.quantity)
+        self.assertEqual(len(allocation.lot_ids), allocation.qty_delivered)
+        self.assertEqual(allocation.lot_ids, allocation.move_ids.lot_ids)
         self.assertEqual(allocation.state, "valid")
 
     def test_quantity_delivered_skip_procurement(self):
@@ -188,24 +210,32 @@ class TestHRPersonalEquipment(TransactionCase):
 
     def test_action_cancel_with_qty_delivered(self):
         allocation = self.personal_equipment_request.line_ids[0]
+        self._create_lot_ids(self.product_personal_equipment_1, allocation.quantity)
         self.personal_equipment_request.accept_request()
         self.assertEqual(allocation.state, "accepted")
         picking = self.personal_equipment_request.picking_ids[0]
         picking.action_cancel()
         self.assertEqual(allocation.qty_delivered, 0)
+        self.assertFalse(allocation.lot_ids)
         self.assertEqual(allocation.state, "cancelled")
 
     def test_action_cancel_without_qty_delivered(self):
         allocation = self.personal_equipment_request.line_ids[0]
+        lot_ids = self._create_lot_ids(
+            self.product_personal_equipment_1, allocation.quantity
+        )
         self.personal_equipment_request.accept_request()
         self.assertEqual(allocation.state, "accepted")
         move = allocation.move_ids[0]
+        move.lot_ids = [lot_ids[index].id for index in range(allocation.quantity - 1)]
         move.quantity_done = allocation.quantity - 1
         picking = self.personal_equipment_request.picking_ids[0]
         picking._action_done()
         back_order = self.personal_equipment_request.picking_ids[1]
         back_order.action_cancel()
         self.assertEqual(allocation.qty_delivered, allocation.quantity - 1)
+        self.assertEqual(len(allocation.lot_ids), allocation.qty_delivered)
+        self.assertEqual(allocation.lot_ids, allocation.move_ids.lot_ids)
         self.assertEqual(allocation.state, "valid")
 
     def test_action_view_pickings(self):
