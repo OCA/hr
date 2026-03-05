@@ -142,7 +142,7 @@
                                                     invisible="not employee_feedback_published or state != '1_new'"
                                                 >Visible &amp; Editable by Manager </span>
                                                 <button
-                                                    class="btn btn-secondary"
+                                                    class="btn btn-light"
                                                     name="action_publish_employee_feedback"
                                                     type="object"
                                                     icon="fa-circle-o"
@@ -155,7 +155,7 @@
                                                     />
                                                 </button>
                                                 <button
-                                                    class="btn btn-secondary"
+                                                    class="btn btn-light"
                                                     name="action_publish_employee_feedback"
                                                     type="object"
                                                     icon="fa-check-circle"
@@ -176,7 +176,7 @@
                                             <span
                                                 class="o_highlight"
                                                 style="width: 100%; text-align: center; text-align: center;"
-                                                invisible="can_see_employee_publish or employee_feedback_published or not employee_feedback_template"
+                                                invisible="can_see_employee_publish or employee_feedback_published or not appraisal_template_id"
                                             >
                                                 <div
                                                     style="font-size: 1.5em;"
@@ -187,15 +187,12 @@
                                             </span>
                                             <field
                                                 name="employee_feedback"
-                                                type="html"
-                                                options="{'collaborative': true, 'resizable': false}"
+                                                widget="html"
+                                                force_save="1"
+                                                options="{'collaborative': true, 'resizable': false, 'sanitize': true}"
                                                 placeholder="Employee feedback..."
                                                 invisible="not employee_feedback_published and not can_see_employee_publish"
                                                 readonly="state not in ['1_new', '2_pending'] or not can_see_employee_publish"
-                                            />
-                                            <field
-                                                name="employee_feedback_template"
-                                                invisible="not employee_feedback_published or not can_see_employee_publish"
                                             />
                                         </div>
                                     </div>
@@ -258,7 +255,7 @@
                                             <span
                                                 class="o_highlight"
                                                 style="width: 100%; text-align: center; text-align: center;"
-                                                invisible="can_see_manager_publish or manager_feedback_published or not manager_feedback_template"
+                                                invisible="can_see_manager_publish or manager_feedback_published or not appraisal_template_id"
                                             >
                                                 <div
                                                     style="font-size: 1.5em;"
@@ -269,15 +266,12 @@
                                             </span>
                                             <field
                                                 name="manager_feedback"
-                                                type="html"
-                                                options="{'collaborative': true, 'resizable': false}"
+                                                widget="html"
+                                                force_save="1"
+                                                options="{'collaborative': true, 'resizable': false,'sanitize': true}"
                                                 placeholder="Manager feedback..."
                                                 invisible="not manager_feedback_published and not can_see_manager_publish"
                                                 readonly="state not in ['1_new', '2_pending'] or not can_see_manager_publish"
-                                            />
-                                            <field
-                                                name="manager_feedback_template"
-                                                invisible="not manager_feedback_published or not can_see_manager_publish"
                                             />
                                         </div>
                                     </div>
@@ -349,11 +343,88 @@
         <field name="model">hr.appraisal</field>
         <field name="arch" type="xml">
             <search>
+                <field name="employee_id" />
+                <field name="department_id" />
+                <field name="job_id" />
                 <filter
                     string="Archived"
                     name="archived"
                     domain="[('active', '=', False)]"
                 />
+                <filter
+                    string="To Confirm"
+                    name="filter_to_confirm"
+                    domain="[('state', '=', '1_new')]"
+                />
+                <filter
+                    string="Confirmed"
+                    name="filter_confirmed"
+                    domain="[('state', '=', '2_pending')]"
+                />
+                <filter
+                    string="Done"
+                    name="filter_done"
+                    domain="[('state', '=', '3_done')]"
+                />
+                <separator />
+                <filter
+                    string="My Appraisals"
+                    name="my_appraisals"
+                    domain="[('employee_id.user_id', '=', uid)]"
+                />
+                <separator />
+                <filter
+                    string="Creation Date"
+                    name="filter_create_date"
+                    date="create_date"
+                />
+                <filter
+                    string="Appraisal Date"
+                    name="filter_date_close"
+                    date="date_close"
+                />
+                <separator />
+                <group expand="0" string="Group By">
+                    <filter
+                        string="Employee"
+                        name="employee"
+                        icon="fa-user"
+                        domain="[]"
+                        context="{'group_by': 'employee_id',
+                            'no_create': True,
+                            'no_quick_create': True,
+                            'no_create_edit': True
+                        }"
+                    />
+                    <filter
+                        string="Department"
+                        name="group_by_department_id"
+                        context="{'group_by': 'department_id',
+                            'no_create': True,
+                            'no_quick_create': True,
+                            'no_create_edit': True
+                        }"
+                    />
+                    <filter
+                        string="Job"
+                        name="groupby_job"
+                        context="{'group_by': 'job_id',
+                            'no_create': True,
+                            'no_quick_create': True,
+                            'no_create_edit': True
+                        }"
+                    />
+                    <filter name="groupby_state" context="{'group_by': 'state'}" />
+                    <filter
+                        string="Creation Date"
+                        name="groupby_create_date"
+                        context="{'group_by': 'create_date'}"
+                    />
+                    <filter
+                        name="groupby_date_close"
+                        context="{'group_by': 'date_close'}"
+                    />
+                </group>
             </search>
         </field>
     </record>
