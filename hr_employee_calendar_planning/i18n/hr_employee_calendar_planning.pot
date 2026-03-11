@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 18.0\n"
+"Project-Id-Version: Odoo Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -25,8 +25,8 @@ msgstr ""
 #. odoo-python
 #: code:addons/hr_employee_calendar_planning/models/resource_calendar.py:0
 msgid ""
-"%(item_name)s is used in %(total_items)s employee(s).You should change them "
-"first."
+"%(item_name)s is used in %(total_items)s employee(s). You should change them"
+" first."
 msgstr ""
 
 #. module: hr_employee_calendar_planning
@@ -71,7 +71,10 @@ msgid "Date end should be higher than date start"
 msgstr ""
 
 #. module: hr_employee_calendar_planning
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee__display_name
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__display_name
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_leave__display_name
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_resource_calendar__display_name
 msgid "Display Name"
 msgstr ""
 
@@ -98,7 +101,10 @@ msgid "End Date"
 msgstr ""
 
 #. module: hr_employee_calendar_planning
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee__id
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__id
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_leave__id
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_resource_calendar__id
 msgid "ID"
 msgstr ""
 
@@ -127,6 +133,18 @@ msgstr ""
 #. module: hr_employee_calendar_planning
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__date_start
 msgid "Start Date"
+msgstr ""
+
+#. module: hr_employee_calendar_planning
+#. odoo-python
+#: code:addons/hr_employee_calendar_planning/models/hr_employee.py:0
+msgid ""
+"The employee %s has already a calendar assigned that overalps this period"
+msgstr ""
+
+#. module: hr_employee_calendar_planning
+#: model:ir.model,name:hr_employee_calendar_planning.model_hr_leave
+msgid "Time Off"
 msgstr ""
 
 #. module: hr_employee_calendar_planning
