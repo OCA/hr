@@ -7,3 +7,4 @@
 - [Komit](https://komit-consulting.com):
   - Vang Nguyen Phu
 - Panca Putra Pakpahan \<<ppakpahan@solusiaglis.co.id>\>
+- Xavier Bol \<<xavierbol@ik.me>\>

@@ -5,9 +5,9 @@
         <field name="model">hr.employee</field>
         <field name="inherit_id" ref="hr.view_employee_form" />
         <field name="arch" type="xml">
-            <field name="birthday" position="after">
+            <label for="place_of_birth" position="before">
                 <field name="age" />
-            </field>
+            </label>
         </field>
     </record>
 </odoo>
