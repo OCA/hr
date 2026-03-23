@@ -8,7 +8,7 @@ from dateutil.relativedelta import relativedelta
 from psycopg2 import IntegrityError
 
 from odoo import exceptions, fields
-from odoo.tests import new_test_user
+from odoo.tests import freeze_time, new_test_user
 from odoo.tools import mute_logger
 
 from odoo.addons.base.tests.common import BaseCommon
@@ -513,6 +513,7 @@ class TestHrEmployeeCalendarPlanning(BaseCommon):
         planning_line.write({"calendar_id": self.calendar1.id})
         self.assertEqual(len(self.employee.resource_calendar_id.attendance_ids), 10)
 
+    @freeze_time("2026-03-23 10:00:00")
     def test_get_work_days_data_batch_with_planning(self):
         today_dt = fields.Datetime.now()
         start_dt = today_dt.replace(hour=0, minute=0, second=0)
