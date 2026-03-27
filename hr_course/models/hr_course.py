@@ -64,4 +64,7 @@ class HRCourseCategory(models.Model):
 
     name = fields.Char(string="Course category", required=True)
 
-    _sql_constraints = [("name_uniq", "unique (name)", "Category already exists !")]
+    _name_uniq = models.Constraint(
+        "unique(name)",
+        "Category already exists !",
+    )
