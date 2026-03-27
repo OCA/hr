@@ -13,7 +13,6 @@
                     class="oe_stat_button"
                 >
                     <field name="count_courses" widget="statinfo" string="Courses" />
-                    <field name='courses_ids' invisible="1" />
                 </button>
             </div>
         </field>

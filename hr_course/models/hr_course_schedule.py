@@ -1,6 +1,6 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import _, api, fields, models
+from odoo import api, fields, models
 from odoo.exceptions import ValidationError
 
 
@@ -60,7 +60,7 @@ class HrCourseSchedule(models.Model):
         self.ensure_one()
         if self.start_date and self.end_date and (self.start_date > self.end_date):
             raise ValidationError(
-                _("The start date cannot be later than the end date.")
+                self.env._("The start date cannot be later than the end date.")
             )
 
     def all_passed(self):
@@ -87,8 +87,8 @@ class HrCourseSchedule(models.Model):
             attendants += course_attendee._remove_from_course()
             deleted_attendees += f"- {course_attendee.employee_id.name} <br></br>"
         if deleted_attendees != "":
-            message = (
-                _("Employees removed from this course: <br></br>%s") % deleted_attendees
+            message = self.env._(
+                "Employees removed from this course: <br></br>%s", deleted_attendees
             )
             self.message_post(body=message)
         return {"state": "in_progress", "course_attendee_ids": attendants}
@@ -123,7 +123,7 @@ class HrCourseSchedule(models.Model):
                 lambda r: r.result == "pending" and r.active
             ):
                 raise ValidationError(
-                    _("You cannot complete the course with pending results")
+                    self.env._("You cannot complete the course with pending results")
                 )
             else:
                 record.write(record._validation2complete_values())
