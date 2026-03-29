@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="hr_wellness_check_wizard_view_form" model="ir.ui.view">
+        <field name="name">wellness.check.wizard.form</field>
+        <field name="model">wellness.check.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Daily Wellness Check-in">
+                <header>
+                    <button name="action_submit" string="Submit" type="object" class="btn-primary"/>
+                    <button name="action_skip" string="Skip" type="object" class="btn-secondary"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>How are you today?</h1>
+                    </div>
+                    <group>
+                        <field name="mood_score" string="Your Mood Today (1–10)"
+                               widget="integer"
+                               help="Rate your mood from 1 (very low) to 10 (excellent)"/>
+                    </group>
+                    <group>
+                        <field name="q1_label" invisible="1"/>
+                        <field name="q2_label" invisible="1"/>
+                        <field name="q3_label" invisible="1"/>
+
+                        <label for="q1_answer" string="Question 1" invisible="not q1_label"/>
+                        <div invisible="not q1_label">
+                           <p><field name="q1_label" readonly="1" nolabel="1" class="fw-bold"/></p>
+                           <field name="q1_answer" placeholder="Your thoughts..." nolabel="1"/>
+                        </div>
+
+                        <label for="q2_answer" string="Question 2" invisible="not q2_label"/>
+                        <div invisible="not q2_label">
+                           <p><field name="q2_label" readonly="1" nolabel="1" class="fw-bold"/></p>
+                           <field name="q2_answer" placeholder="Your thoughts..." nolabel="1"/>
+                        </div>
+
+                        <label for="q3_answer" string="Question 3" invisible="not q3_label"/>
+                        <div invisible="not q3_label">
+                           <p><field name="q3_label" readonly="1" nolabel="1" class="fw-bold"/></p>
+                           <field name="q3_answer" placeholder="Your thoughts..." nolabel="1"/>
+                        </div>
+                    </group>
+                </sheet>
+                <footer>
+                    <button name="action_submit" string="Send Response" type="object" class="btn-primary"/>
+                    <button name="action_skip" string="Maybe Later" type="object" class="btn-link"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_hr_wellness_check_wizard" model="ir.actions.act_window">
+        <field name="name">Daily Wellness Check-in</field>
+        <field name="res_model">wellness.check.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

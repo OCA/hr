@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="wellness_question_view_tree" model="ir.ui.view">
+        <field name="name">wellness.question.tree</field>
+        <field name="model">wellness.question</field>
+        <field name="arch" type="xml">
+            <list editable="bottom">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="active"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_wellness_question" model="ir.actions.act_window">
+        <field name="name">Wellness Questions</field>
+        <field name="res_model">wellness.question</field>
+        <field name="view_mode">list</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Configure your daily wellness questions here!
+            </p>
+            <p>
+                The first 3 active questions will be shown to employees.
+            </p>
+        </field>
+    </record>
+</odoo>

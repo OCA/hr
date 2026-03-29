@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_wellness_root" name="Wellness" sequence="90" web_icon="hr_wellness_check,static/description/icon.png"/>
+    <menuitem id="menu_wellness_dashboard" name="Dashboard" parent="menu_wellness_root" action="action_wellness_pulse_dashboard" sequence="10"/>
+    <menuitem id="menu_hr_wellness_checkin" name="My Daily Check-in" parent="menu_wellness_root" action="action_hr_wellness_check_wizard" sequence="15"/>
+    <menuitem id="menu_wellness_report" name="Reports" parent="menu_wellness_root" action="action_hr_wellness_check_report" sequence="20"/>
+    <menuitem id="menu_wellness_config" name="Configuration" parent="menu_wellness_root" sequence="100" groups="group_wellness_manager"/>
+    <menuitem id="menu_wellness_questions" name="Questions" parent="menu_wellness_config" action="action_wellness_question" sequence="10"/>
+</odoo>

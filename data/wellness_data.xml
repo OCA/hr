@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="wellness_question_1" model="wellness.question">
+        <field name="name">How are you feeling today?</field>
+        <field name="sequence">10</field>
+        <field name="active">True</field>
+    </record>
+    <record id="wellness_question_2" model="wellness.question">
+        <field name="name">What is the main reason for your current mood?</field>
+        <field name="sequence">20</field>
+        <field name="active">True</field>
+    </record>
+    <record id="wellness_question_3" model="wellness.question">
+        <field
+            name="name"
+        >Is there anything the company can do to help you feel better?</field>
+        <field name="sequence">30</field>
+        <field name="active">True</field>
+    </record>
+
+    <!-- Permanent Dashboard Singletons -->
+    <record id="wellness_dashboard_singleton" model="wellness.dashboard">
+        <!-- Fields are computed automatically, we just need the record to exist -->
+    </record>
+</odoo>

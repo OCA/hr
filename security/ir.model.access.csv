@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_wellness_question_manager,wellness_question,model_wellness_question,group_wellness_manager,1,1,1,1
+access_wellness_dashboard,wellness.dashboard,model_wellness_dashboard,base.group_user,1,1,1,0
+access_wellness_question_user,wellness.question.user,model_wellness_question,base.group_user,1,0,0,0
+access_hr_wellness_check_manager,wellness.check.manager,model_wellness_check,group_wellness_manager,1,1,1,1
+access_hr_wellness_check_user,wellness.check.user,model_wellness_check,base.group_user,1,0,1,0
+access_hr_wellness_check_wizard,access_hr_wellness_check_wizard,model_wellness_check_wizard,base.group_user,1,1,1,1

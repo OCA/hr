@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Graph View: Pie Chart for Sentiment (The Result) -->
+    <record id="hr_wellness_check_view_graph_pie" model="ir.ui.view">
+        <field name="name">wellness.check.graph.pie</field>
+        <field name="model">wellness.check</field>
+        <field name="arch" type="xml">
+            <graph string="Sentiment Analysis" type="pie" sample="1">
+                <field name="sentiment"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- Graph View: Line Chart for History Track (The Evolution) -->
+    <record id="hr_wellness_check_view_graph_line" model="ir.ui.view">
+        <field name="name">wellness.check.graph.line</field>
+        <field name="model">wellness.check</field>
+        <field name="arch" type="xml">
+            <graph string="History Track" type="line" sample="1">
+                <field name="date" interval="day"/>
+                <field name="mood_score" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- Pivot View: Analysis by Date -->
+    <record id="hr_wellness_check_view_pivot" model="ir.ui.view">
+        <field name="name">wellness.check.pivot</field>
+        <field name="model">wellness.check</field>
+        <field name="arch" type="xml">
+            <pivot string="Wellness Analysis" sample="1">
+                <field name="date" interval="day" type="row"/>
+                <field name="sentiment" type="col"/>
+                <field name="mood_score" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <!-- List View -->
+    <record id="hr_wellness_check_view_tree" model="ir.ui.view">
+        <field name="name">wellness.check.tree</field>
+        <field name="model">wellness.check</field>
+        <field name="arch" type="xml">
+            <list string="Wellness Responses" decoration-success="sentiment == 'happy'" decoration-warning="sentiment == 'neutral'" decoration-danger="sentiment == 'sad'">
+                <field name="date"/>
+                <field name="mood_score" string="Mood (1-10)"/>
+                <field name="sentiment" widget="badge" decoration-success="sentiment == 'happy'" decoration-warning="sentiment == 'neutral'" decoration-danger="sentiment == 'sad'"/>
+                <field name="analysis"/>
+                <field name="q1_answer" optional="show"/>
+                <field name="q2_answer" optional="hide"/>
+                <field name="q3_answer" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="hr_wellness_check_view_form" model="ir.ui.view">
+        <field name="name">wellness.check.form</field>
+        <field name="model">wellness.check</field>
+        <field name="arch" type="xml">
+            <form string="Wellness Check Details" duplicate="0" create="0">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>Anonymous Response - <field name="date" readonly="1"/></h1>
+                    </div>
+                    <group>
+                        <group name="sentiment" string="Evaluation">
+                            <field name="mood_score" string="Mood Score (1-10)" readonly="1"/>
+                            <field name="sentiment" widget="badge" decoration-success="sentiment == 'happy'" decoration-warning="sentiment == 'neutral'" decoration-danger="sentiment == 'sad'"/>
+                        </group>
+                        <group name="analysis" string="Automatic Analysis">
+                            <field name="analysis" readonly="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Answers" name="answers">
+                            <group>
+                                <field name="q1_answer" readonly="1"/>
+                                <field name="q2_answer" readonly="1"/>
+                                <field name="q3_answer" readonly="1"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_hr_wellness_check_report" model="ir.actions.act_window">
+        <field name="name">Wellness Dashboard</field>
+        <field name="res_model">wellness.check</field>
+        <field name="view_mode">graph,pivot,list,form</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Everything is looking great!
+          </p>
+          <p>
+            Insights will appear once employees start sharing their daily feedback.
+          </p>
+        </field>
+    </record>
+
+</odoo>

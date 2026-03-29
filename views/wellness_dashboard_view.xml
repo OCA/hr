@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Modern Kanban Dashboard for Wellness Pulse -->
+    <record id="hr_wellness_check_view_kanban_dashboard" model="ir.ui.view">
+        <field name="name">wellness.check.kanban.dashboard</field>
+        <field name="model">wellness.check</field>
+        <field name="arch" type="xml">
+            <kanban create="0" sample="1" class="o_wellness_dashboard_kanban">
+                <field name="mood_score"/>
+                <field name="sentiment"/>
+                <!-- No cards needed, our logic is in the dashboard header -->
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="o_kanban_record_top">
+                                <div class="o_kanban_record_headings">
+                                    <strong class="o_kanban_record_title"><field name="date"/></strong>
+                                </div>
+                                <span class="badge rounded-pill"><field name="sentiment"/></span>
+                            </div>
+                            <div class="o_kanban_record_bottom mt-2">
+                                <div class="oe_kanban_bottom_left">
+                                    <field name="mood_score" widget="priority"/>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Main Action: Defaulting to Graph and Pivot for a "True" Dashboard feel -->
+    <record id="action_hr_wellness_check_dashboard" model="ir.actions.act_window">
+        <field name="name">Wellness Dashboard</field>
+        <field name="res_model">wellness.check</field>
+        <field name="view_mode">graph,pivot,kanban,list,form</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Your Pulse Check is ready!
+          </p>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="module_hr_wellness_check_category" model="ir.module.category">
+        <field name="name">Wellness</field>
+        <field name="description">Wellness Management</field>
+        <field name="sequence">10</field>
+    </record>
+
+    <record id="group_wellness_manager" model="res.groups">
+        <field name="name">Wellness Manager</field>
+        <field name="category_id" ref="module_hr_wellness_check_category"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+</odoo>

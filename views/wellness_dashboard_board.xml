@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- 1. Form View for the Unified Management Dashboard (OCA Standard) -->
+    <record id="view_wellness_dashboard_form_snapshot" model="ir.ui.view">
+        <field name="name">wellness.dashboard.form.snapshot</field>
+        <field name="model">wellness.dashboard</field>
+        <field name="priority">1</field>
+        <field name="arch" type="xml">
+            <form create="0" edit="0" delete="0">
+                <sheet>
+                    <!-- KPI Cards Section -->
+                    <div style="display:flex; flex-wrap:wrap; gap:16px; width:100%; align-items:stretch; padding: 8px 0; margin-bottom: 24px;">
+
+                        <!-- Card 1: Engagement -->
+                        <div style="flex:1; min-width:180px;">
+                            <div style="background:#fff; border-radius:16px; border:1px solid #e5e7eb; box-shadow:0 1px 4px rgba(0,0,0,0.07); padding:24px; text-align:center; display:flex; flex-direction:column; justify-content:center; min-height:140px;">
+                                <div style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.08em; color:#9ca3af; font-weight:700; margin-bottom:8px;">Engagement</div>
+                                <div style="font-size:2.8rem; font-weight:800; color:#008080; line-height:1;">
+                                    <field name="participation_today" readonly="1"/>
+                                </div>
+                                <div style="font-size:0.75rem; color:#9ca3af; margin-top:6px;">Check-ins Today</div>
+                            </div>
+                        </div>
+
+                        <!-- Card 2: Pulse Sign -->
+                        <div style="flex:0.7; min-width:120px;">
+                            <div style="background:#fff; border-radius:16px; border:1px solid #e5e7eb; box-shadow:0 1px 4px rgba(0,0,0,0.07); padding:24px; text-align:center; display:flex; flex-direction:column; justify-content:center; min-height:140px;">
+                                <div style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.08em; color:#9ca3af; font-weight:700; margin-bottom:8px;">Pulse</div>
+                                <div style="font-size:3rem; font-weight:800; line-height:1;">
+                                    <field name="sign_today" widget="badge"
+                                           decoration-success="sign_today == '+'"
+                                           decoration-danger="sign_today == '-'"
+                                           decoration-info="sign_today == '='"
+                                           readonly="1"/>
+                                </div>
+                                <div style="font-size:0.75rem; color:#9ca3af; margin-top:6px;">Direction</div>
+                            </div>
+                        </div>
+
+                        <!-- Card 3: Average Mood -->
+                        <div style="flex:1; min-width:180px;">
+                            <div style="background:#fff; border-radius:16px; border:1px solid #e5e7eb; box-shadow:0 1px 4px rgba(0,0,0,0.07); padding:24px; text-align:center; display:flex; flex-direction:column; justify-content:center; min-height:140px;">
+                                <div style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.08em; color:#9ca3af; font-weight:700; margin-bottom:8px;">Avg Mood</div>
+                                <div style="font-size:2.8rem; font-weight:800; color:#008080; line-height:1;">
+                                    <field name="avg_mood_today" readonly="1"/>
+                                </div>
+                                <div style="font-size:0.75rem; color:#9ca3af; margin-top:6px;">Scale 1–10</div>
+                            </div>
+                        </div>
+
+                        <!-- Card 4: Sentiment Split -->
+                        <div style="flex:2; min-width:300px;">
+                            <div style="background:#fff; border-radius:16px; border:1px solid #e5e7eb; box-shadow:0 1px 4px rgba(0,0,0,0.07); padding:24px; display:flex; flex-direction:column; justify-content:center; min-height:140px;">
+                                <div style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.08em; color:#9ca3af; font-weight:700; margin-bottom:14px;">Sentiment Split</div>
+                                <div style="display:flex; gap:12px; text-align:center;">
+                                    <div style="flex:1; background:#f0fdf4; border-radius:10px; padding:12px 8px; border:1px solid #bbf7d0;">
+                                        <div style="font-size:1.6rem; font-weight:800; color:#16a34a; line-height:1;"><field name="happy_percent" readonly="1"/>%</div>
+                                        <div style="font-size:0.7rem; color:#9ca3af; margin-top:4px;">😊 Happy</div>
+                                    </div>
+                                    <div style="flex:1; background:#fffbeb; border-radius:10px; padding:12px 8px; border:1px solid #fde68a;">
+                                        <div style="font-size:1.6rem; font-weight:800; color:#b45309; line-height:1;"><field name="neutral_percent" readonly="1"/>%</div>
+                                        <div style="font-size:0.7rem; color:#9ca3af; margin-top:4px;">😐 Neutral</div>
+                                    </div>
+                                    <div style="flex:1; background:#fef2f2; border-radius:10px; padding:12px 8px; border:1px solid #fecaca;">
+                                        <div style="font-size:1.6rem; font-weight:800; color:#dc2626; line-height:1;"><field name="sad_percent" readonly="1"/>%</div>
+                                        <div style="font-size:0.7rem; color:#9ca3af; margin-top:4px;">😞 Sad</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- History Graph Section (Replacing board.board action) -->
+                    <div style="background:#fff; border-radius:16px; border:1px solid #e5e7eb; box-shadow:0 1px 4px rgba(0,0,0,0.07); padding:24px;">
+                        <h3 style="font-size:1.1rem; color:#374151; font-weight:700; margin-bottom:16px;">History Track: Team Evolution</h3>
+                        <field name="history_ids" widget="graph" groups="hr.group_hr_user"/>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Unified Dashboard Entry Action -->
+    <record id="action_wellness_pulse_dashboard" model="ir.actions.act_window">
+        <field name="name">Wellness Dashboard</field>
+        <field name="res_model">wellness.dashboard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_wellness_dashboard_form_snapshot"/>
+        <field name="res_id" ref="hr_wellness_check.wellness_dashboard_singleton"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Real-time pulse stats will appear here!</p>
+        </field>
+    </record>
+</odoo>
