@@ -40,6 +40,7 @@ addon | version | maintainers | summary
 [hr_employee_ssn](hr_employee_ssn/) | 17.0.1.0.0 |  | View/edit employee's SIN field
 [hr_job_category](hr_job_category/) | 17.0.1.0.1 |  | Adds tags to employee through contract and job position
 [hr_personal_equipment_request](hr_personal_equipment_request/) | 17.0.1.0.0 |  | This addon allows to manage employee personal equipment
+[hr_personal_equipment_request_tier_validation](hr_personal_equipment_request_tier_validation/) | 17.0.1.0.0 |  | Enables tier validation from hr.personal.equipment.request
 [hr_professional_category](hr_professional_category/) | 17.0.1.0.0 | <a href='https://github.com/victoralmau'><img src='https://github.com/victoralmau.png' width='32' height='32' style='border-radius:50%;' alt='victoralmau'/></a> | HR Professional Category
 [hr_study](hr_study/) | 17.0.1.0.0 | <a href='https://github.com/victoralmau'><img src='https://github.com/victoralmau.png' width='32' height='32' style='border-radius:50%;' alt='victoralmau'/></a> | Structured study field for employees
 [hr_work_entry_profile](hr_work_entry_profile/) | 17.0.1.0.0 |  | User can access their work entries from the profile view.
