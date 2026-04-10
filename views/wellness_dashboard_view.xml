@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <!-- Modern Kanban Dashboard for Wellness Pulse -->
-    <record id="wellness_check_view_kanban_dashboard" model="ir.ui.view">
+    <record id="hr_wellness_check_view_kanban_dashboard" model="ir.ui.view">
         <field name="name">wellness.check.kanban.dashboard</field>
         <field name="model">wellness.check</field>
         <field name="arch" type="xml">
@@ -31,7 +31,7 @@
     </record>
 
     <!-- Main Action: Defaulting to Graph and Pivot for a 'True' Dashboard feel -->
-    <record id="action_wellness_check_dashboard" model="ir.actions.act_window">
+    <record id="action_hr_wellness_check_dashboard" model="ir.actions.act_window">
         <field name="name">Wellness Dashboard</field>
         <field name="res_model">wellness.check</field>
         <field name="view_mode">graph,pivot,kanban,list,form</field>

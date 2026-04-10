@@ -1,5 +1,5 @@
 {
-    'name': 'WellnessCheck',
+    'name': 'HR Wellness Check',
     'version': '18.0.1.0.0',
     'summary': 'Empowering HR with Daily Wellness Insights',
     'description': 'A module for HR to track employee wellness through anonymous daily check-ins.',
@@ -13,8 +13,8 @@
         'security/security.xml',
         'security/ir.model.access.csv',
         'data/wellness_data.xml',
-        'wizard/wellness_check_wizard_views.xml',
-        'views/wellness_check_views.xml',
+        'wizard/hr_wellness_check_wizard_views.xml',
+        'views/hr_wellness_check_views.xml',
         'views/wellness_question_views.xml',
         'views/wellness_dashboard_board.xml',
         'views/wellness_menus.xml',

@@ -86,7 +86,7 @@
         <field name="res_model">wellness.dashboard</field>
         <field name="view_mode">form</field>
         <field name="view_id" ref="view_wellness_dashboard_form_snapshot"/>
-        <field name="res_id" ref="wellness_check.wellness_dashboard_singleton"/>
+        <field name="res_id" ref="hr_wellness_check.wellness_dashboard_singleton"/>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">Real-time pulse stats will appear here!</p>
         </field>

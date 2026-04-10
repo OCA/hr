@@ -69,7 +69,7 @@ class WellnessCheckWizard(models.Model):
             'mood_score': self.mood_score or 5,
         })
         # Record completion to stop daily popups
-        self.env.user.last_wellness_check_date = fields.Date.context_today(self)
+        self.env.user.last_hr_wellness_check_date = fields.Date.context_today(self)
         return {'type': 'ir.actions.act_window_close'}
 
     def action_skip(self):
@@ -77,5 +77,5 @@ class WellnessCheckWizard(models.Model):
         Dismisses the survey for the current day. 
         Marks the day as 'checked' but does not create a sentiment record.
         """
-        self.env.user.last_wellness_check_date = fields.Date.context_today(self)
+        self.env.user.last_hr_wellness_check_date = fields.Date.context_today(self)
         return {'type': 'ir.actions.act_window_close'}

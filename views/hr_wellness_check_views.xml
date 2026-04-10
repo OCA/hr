@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <!-- Graph View: Pie Chart for Sentiment (The Result) -->
-    <record id="wellness_check_view_graph_pie" model="ir.ui.view">
+    <record id="hr_wellness_check_view_graph_pie" model="ir.ui.view">
         <field name="name">wellness.check.graph.pie</field>
         <field name="model">wellness.check</field>
         <field name="arch" type="xml">
@@ -12,7 +12,7 @@
     </record>
 
     <!-- Graph View: Line Chart for History Track (The Evolution) -->
-    <record id="wellness_check_view_graph_line" model="ir.ui.view">
+    <record id="hr_wellness_check_view_graph_line" model="ir.ui.view">
         <field name="name">wellness.check.graph.line</field>
         <field name="model">wellness.check</field>
         <field name="arch" type="xml">
@@ -24,7 +24,7 @@
     </record>
 
     <!-- Pivot View: Analysis by Date -->
-    <record id="wellness_check_view_pivot" model="ir.ui.view">
+    <record id="hr_wellness_check_view_pivot" model="ir.ui.view">
         <field name="name">wellness.check.pivot</field>
         <field name="model">wellness.check</field>
         <field name="arch" type="xml">
@@ -37,7 +37,7 @@
     </record>
 
     <!-- List View -->
-    <record id="wellness_check_view_tree" model="ir.ui.view">
+    <record id="hr_wellness_check_view_tree" model="ir.ui.view">
         <field name="name">wellness.check.tree</field>
         <field name="model">wellness.check</field>
         <field name="arch" type="xml">
@@ -54,7 +54,7 @@
     </record>
 
     <!-- Form View -->
-    <record id="wellness_check_view_form" model="ir.ui.view">
+    <record id="hr_wellness_check_view_form" model="ir.ui.view">
         <field name="name">wellness.check.form</field>
         <field name="model">wellness.check</field>
         <field name="arch" type="xml">
@@ -87,7 +87,7 @@
     </record>
 
     <!-- Action -->
-    <record id="action_wellness_check_report" model="ir.actions.act_window">
+    <record id="action_hr_wellness_check_report" model="ir.actions.act_window">
         <field name="name">Wellness Dashboard</field>
         <field name="res_model">wellness.check</field>
         <field name="view_mode">graph,pivot,list,form</field>

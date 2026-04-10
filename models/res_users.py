@@ -10,7 +10,7 @@ class ResUsers(models.Model):
     """
     _inherit = 'res.users'
 
-    last_wellness_check_date = fields.Date(
+    last_hr_wellness_check_date = fields.Date(
         string='Last Wellness Check Date',
         help="The most recent date the user completed a sentiment check. Used to throttle daily popups."
     )
@@ -32,7 +32,7 @@ class ResUsers(models.Model):
         today = fields.Date.context_today(self)
         
         # Check if the prompt is required for the current session
-        if not self.env.user.last_wellness_check_date or self.env.user.last_wellness_check_date < today:
+        if not self.env.user.last_hr_wellness_check_date or self.env.user.last_hr_wellness_check_date < today:
             return True
             
         return False

@@ -52,4 +52,4 @@ class TestWellnessWizard(TransactionCase):
         self.assertEqual(check.q1_answer, 'Perfect balance!')
         
         # Verify the user's completion status is updated.
-        self.assertEqual(self.env.user.last_wellness_check_date, fields.Date.today())
+        self.assertEqual(self.env.user.last_hr_wellness_check_date, fields.Date.today())

@@ -1,1 +1,1 @@
-from . import wellness_check_wizard
+from . import hr_wellness_check_wizard

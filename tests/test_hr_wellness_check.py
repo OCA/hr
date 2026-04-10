@@ -35,10 +35,10 @@ class TestWellnessCheck(TransactionCase):
         # Initially, the user should be prompted
         self.assertTrue(self.test_user.with_user(self.test_user).check_wellness_prompt())
         
-        # After completing a check (simulated by updating last_wellness_check_date)
-        self.test_user.last_wellness_check_date = fields.Date.today()
+        # After completing a check (simulated by updating last_hr_wellness_check_date)
+        self.test_user.last_hr_wellness_check_date = fields.Date.today()
         self.assertFalse(self.test_user.with_user(self.test_user).check_wellness_prompt())
         
         # On a new day, they should be prompted again
-        self.test_user.last_wellness_check_date = fields.Date.subtract(fields.Date.today(), days=1)
+        self.test_user.last_hr_wellness_check_date = fields.Date.subtract(fields.Date.today(), days=1)
         self.assertTrue(self.test_user.with_user(self.test_user).check_wellness_prompt())

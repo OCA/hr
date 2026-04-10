@@ -27,7 +27,7 @@ class WellnessPulseTrigger extends Component {
                 if (shouldPrompt) {
                     // Trigger the wizard after a tiny delay to allow the dashboard to render first
                     setTimeout(() => {
-                        action.doAction("wellness_check.action_wellness_check_wizard");
+                        action.doAction("hr_wellness_check.action_hr_wellness_check_wizard");
                     }, 500);
                 }
             } catch (err) {
