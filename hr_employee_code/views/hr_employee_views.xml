@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 APSL-Nagarro, Paloma González-Ripoll Cano -->
+<!-- License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <record id="hr_employee_view_form" model="ir.ui.view">
+        <field name="name">hr.employee.view.form.employee.code</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='employee_type']" position="after">
+                <field name="employee_code"/>
+            </xpath>
+        </field>
+    </record>
+
+<record id="hr_employee_view_search" model="ir.ui.view">
+        <field name="name">hr.employee.view.search.employee.code</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//search/field[1]" position="before">
+                <field name="employee_code" string="Employee Code"/>
+            </xpath>
+            <xpath expr="//search/filter[1]" position="before">
+                <filter
+                    string="Employee Code"
+                    name="filter_has_employee_code"
+                    domain="[('employee_code', '!=', False)]"
+                />
+                <separator/>
+            </xpath>
+        </field>
+    </record>
+
+
+    <record id="hr_employee_view_tree" model="ir.ui.view">
+        <field name="name">hr.employee.view.tree.employee.code</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="employee_code" optional="hide"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
