@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-18 10:58+0000\n"
-"PO-Revision-Date: 2026-02-03 15:14+0000\n"
-"Last-Translator: Christian Ramos Tecnativa <christian.ramos@tecnativa.com>\n"
+"PO-Revision-Date: 2026-04-13 07:59+0000\n"
+"Last-Translator: Ed-Spain <eduamoros@gmail.com>\n"
 "Language-Team: \n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -977,6 +977,10 @@ msgid ""
 "a placeholder expression that provides the appropriate language, e.g. "
 "{{ object.partner_id.lang }}."
 msgstr ""
+"Idioma de traducción opcional (código ISO) para seleccionar al enviar un "
+"correo electrónico. Si no se establece, se usará la versión en inglés. "
+"Normalmente debe ser una expresión de marcador de posición que proporcione "
+"el idioma apropiado, p.ej. {{ object.partner_id.lang }}."
 
 #. module: hr_appraisal_oca
 #. odoo-python
@@ -1004,12 +1008,12 @@ msgstr "Destinatarios"
 #. module: hr_appraisal_oca
 #: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_request_wizard__recipient_users
 msgid "Recipients Users"
-msgstr ""
+msgstr "Usuarios destinatarios"
 
 #. module: hr_appraisal_oca
 #: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_request_wizard__render_model
 msgid "Rendering Model"
-msgstr ""
+msgstr "Modelo de renderizado"
 
 #. module: hr_appraisal_oca
 #: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_form_view
@@ -1024,7 +1028,7 @@ msgstr "Solicitar una valoración"
 #. module: hr_appraisal_oca
 #: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_wizard__res_id
 msgid "Resource ID"
-msgstr ""
+msgstr "ID de recurso"
 
 #. module: hr_appraisal_oca
 #: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__activity_user_id
@@ -1195,13 +1199,13 @@ msgstr "Visible a todos"
 #: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__website_message_ids
 #: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_wizard__website_message_ids
 msgid "Website Messages"
-msgstr ""
+msgstr "Mensajes del sitio web"
 
 #. module: hr_appraisal_oca
 #: model:ir.model.fields,help:hr_appraisal_oca.field_hr_appraisal__website_message_ids
 #: model:ir.model.fields,help:hr_appraisal_oca.field_hr_appraisal_wizard__website_message_ids
 msgid "Website communication history"
-msgstr ""
+msgstr "Historial de comunicación del sitio web"
 
 #. module: hr_appraisal_oca
 #: model:ir.model,name:hr_appraisal_oca.model_hr_appraisal_wizard
@@ -1223,12 +1227,12 @@ msgstr "p. ej. Valoración anual"
 #. module: hr_appraisal_oca
 #: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_tag_form_view
 msgid "e.g. Remediation, Team, Improvement plan, Career change, ..."
-msgstr ""
+msgstr "p.ej. Remediación, Equipo, Plan de mejora, Cambio de carrera, ..."
 
 #. module: hr_appraisal_oca
 #: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_kanban_view
 msgid "oe_kanban_text_red"
-msgstr ""
+msgstr "oe_kanban_text_red"
 
 #. module: hr_appraisal_oca
 #: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_form_view
