@@ -7,21 +7,21 @@ msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-02-12 10:54+0000\n"
-"PO-Revision-Date: 2026-02-12 11:57+0100\n"
-"Last-Translator: \n"
+"PO-Revision-Date: 2026-04-13 07:59+0000\n"
+"Last-Translator: Ed-Spain <eduamoros@gmail.com>\n"
 "Language-Team: \n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.8\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: hr_collective_agreement
 #. odoo-python
 #: code:addons/hr_collective_agreement/models/collective_agreement.py:0
 msgid "%s (copy)"
-msgstr ""
+msgstr "%s (copia)"
 
 #. module: hr_collective_agreement
 #: model_terms:ir.ui.view,arch_db:hr_collective_agreement.view_form_collective_agreement
@@ -127,7 +127,7 @@ msgstr "Finalizado"
 #: model:ir.model.fields,field_description:hr_collective_agreement.field_collective_agreement_official_publication__id
 #: model:ir.model.fields,field_description:hr_collective_agreement.field_collective_agreement_scope__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: hr_collective_agreement
 #: model:ir.model.fields,field_description:hr_collective_agreement.field_collective_agreement__write_uid
