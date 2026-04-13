@@ -1256,6 +1256,9 @@ msgstr "{{ user.name or ''}} richiede una valutazione"
 msgid "{{object.employee_id.name}}: Appraisal Confirmed"
 msgstr "{{object.employee_id.name}}: valutazione confermata"
 
+#~ msgid "Next Activity Calendar Event"
+#~ msgstr "Evento calendario attività successiva"
+
 #~ msgid "Employee Feedback Template"
 #~ msgstr "Modello opinione dipendente"
 
@@ -1567,9 +1570,6 @@ msgstr "{{object.employee_id.name}}: valutazione confermata"
 
 #~ msgid "Main Attachment"
 #~ msgstr "Allegato principale"
-
-#~ msgid "Next Activity Calendar Event"
-#~ msgstr "Evento calendario attività successiva"
 
 #~ msgid "Related user name for the resource to manage its access."
 #~ msgstr "Nome utente collegato alla risorsa per gestirne l'accesso."
