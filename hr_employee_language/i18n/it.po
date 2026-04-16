@@ -37,9 +37,19 @@ msgid "Arabic / الْعَرَبيّة"
 msgstr "Arabo / الْعَرَبيّة"
 
 #. module: hr_employee_language
+#: model:ir.model.fields.selection,name:hr_employee_language.selection__hr_employee_language__name__az_az
+msgid "Azerbaijani / Azərbaycanca"
+msgstr ""
+
+#. module: hr_employee_language
 #: model:ir.model.fields.selection,name:hr_employee_language.selection__hr_employee_language__name__eu_es
 msgid "Basque / Euskara"
 msgstr "Basco / Euskara"
+
+#. module: hr_employee_language
+#: model:ir.model.fields.selection,name:hr_employee_language.selection__hr_employee_language__name__be_by
+msgid "Belarusian / Беларуская мова"
+msgstr ""
 
 #. module: hr_employee_language
 #: model:ir.model.fields.selection,name:hr_employee_language.selection__hr_employee_language__name__bn_in
@@ -87,19 +97,19 @@ msgid "Catalan / Català"
 msgstr "Catalano / Català"
 
 #. module: hr_employee_language
-#: model:ir.model.fields.selection,name:hr_employee_language.selection__hr_employee_language__name__zh_hk
-msgid "Chinese (HK)"
-msgstr "Cinese (HK)"
+#: model:ir.model.fields.selection,name:hr_employee_language.selection__hr_employee_language__name__zh_cn
+msgid "Chinese, Simplified / 简体中文"
+msgstr ""
 
 #. module: hr_employee_language
-#: model:ir.model.fields.selection,name:hr_employee_language.selection__hr_employee_language__name__zh_cn
-msgid "Chinese (Simplified) / 简体中文"
-msgstr "Cinese (semplificato) / 简体中文"
+#: model:ir.model.fields.selection,name:hr_employee_language.selection__hr_employee_language__name__zh_hk
+msgid "Chinese, Traditional (HK) / 繁體中文 (香港)"
+msgstr ""
 
 #. module: hr_employee_language
 #: model:ir.model.fields.selection,name:hr_employee_language.selection__hr_employee_language__name__zh_tw
-msgid "Chinese (Traditional) / 正體字"
-msgstr "Cinese (tradizionale) / 正體字"
+msgid "Chinese, Traditional (TW) / 繁體中文 (台灣)"
+msgstr ""
 
 #. module: hr_employee_language
 #: model:ir.model.fields,field_description:hr_employee_language.field_hr_employee_language__create_uid
@@ -132,6 +142,7 @@ msgid "Description"
 msgstr "Descrizione"
 
 #. module: hr_employee_language
+#: model:ir.model.fields,field_description:hr_employee_language.field_hr_employee__display_name
 #: model:ir.model.fields,field_description:hr_employee_language.field_hr_employee_language__display_name
 msgid "Display Name"
 msgstr "Nome visualizzato"
@@ -164,6 +175,16 @@ msgid "English (CA)"
 msgstr "Inglese (CA)"
 
 #. module: hr_employee_language
+#: model:ir.model.fields.selection,name:hr_employee_language.selection__hr_employee_language__name__en_in
+msgid "English (IN)"
+msgstr ""
+
+#. module: hr_employee_language
+#: model:ir.model.fields.selection,name:hr_employee_language.selection__hr_employee_language__name__en_nz
+msgid "English (NZ)"
+msgstr ""
+
+#. module: hr_employee_language
 #: model:ir.model.fields.selection,name:hr_employee_language.selection__hr_employee_language__name__en_gb
 msgid "English (UK)"
 msgstr "Inglese (UK)"
@@ -177,11 +198,6 @@ msgstr "Inglese (US)"
 #: model:ir.model.fields.selection,name:hr_employee_language.selection__hr_employee_language__name__et_ee
 msgid "Estonian / Eesti keel"
 msgstr "Estone / Eesti keel"
-
-#. module: hr_employee_language
-#: model:ir.model.fields.selection,name:hr_employee_language.selection__hr_employee_language__name__fil_ph
-msgid "Filipino"
-msgstr "Filippino"
 
 #. module: hr_employee_language
 #: model:ir.model.fields.selection,name:hr_employee_language.selection__hr_employee_language__name__fi_fi
@@ -234,11 +250,6 @@ msgid "Greek / Ελληνικά"
 msgstr "Greco / Ελληνικά"
 
 #. module: hr_employee_language
-#: model_terms:ir.ui.view,arch_db:hr_employee_language.view_hr_employee_language_search
-msgid "Group By"
-msgstr "Raggruppa per"
-
-#. module: hr_employee_language
 #: model:ir.model.fields.selection,name:hr_employee_language.selection__hr_employee_language__name__gu_in
 msgid "Gujarati / ગુજરાતી"
 msgstr "Gujarati / ગુજરાતી"
@@ -250,8 +261,8 @@ msgstr "Lingua dipendente RU"
 
 #. module: hr_employee_language
 #: model:ir.model.fields.selection,name:hr_employee_language.selection__hr_employee_language__name__he_il
-msgid "Hebrew / עִבְרִי"
-msgstr "Ebraico / עִבְרִי"
+msgid "Hebrew / עברית"
+msgstr ""
 
 #. module: hr_employee_language
 #: model:ir.model.fields.selection,name:hr_employee_language.selection__hr_employee_language__name__hi_in
@@ -264,6 +275,7 @@ msgid "Hungarian / Magyar"
 msgstr "Ungherese / Magyar"
 
 #. module: hr_employee_language
+#: model:ir.model.fields,field_description:hr_employee_language.field_hr_employee__id
 #: model:ir.model.fields,field_description:hr_employee_language.field_hr_employee_language__id
 msgid "ID"
 msgstr "ID"
@@ -305,7 +317,6 @@ msgstr "Coreano (KR) / 한국어 (KR)"
 
 #. module: hr_employee_language
 #: model:ir.model.fields,field_description:hr_employee_language.field_hr_employee_language__name
-#: model_terms:ir.ui.view,arch_db:hr_employee_language.hr_employee_form
 #: model_terms:ir.ui.view,arch_db:hr_employee_language.view_hr_employee_language_form
 #: model_terms:ir.ui.view,arch_db:hr_employee_language.view_hr_employee_language_search
 msgid "Language"
@@ -316,7 +327,6 @@ msgstr "Lingua"
 #: model:ir.model.fields,field_description:hr_employee_language.field_hr_employee__language_ids
 #: model:ir.ui.menu,name:hr_employee_language.menu_open_view_hr_employee_language_form
 #: model_terms:ir.ui.view,arch_db:hr_employee_language.hr_employee_form
-#: model_terms:ir.ui.view,arch_db:hr_employee_language.view_hr_employee_language_tree
 msgid "Languages"
 msgstr "Lingue"
 
@@ -329,11 +339,6 @@ msgstr "Lingua di questo dipendente"
 #: model:ir.model.fields.selection,name:hr_employee_language.selection__hr_employee_language__name__lo_la
 msgid "Lao / ພາສາລາວ"
 msgstr "Lao / ພາສາລາວ"
-
-#. module: hr_employee_language
-#: model:ir.model.fields,field_description:hr_employee_language.field_hr_employee_language____last_update
-msgid "Last Modified on"
-msgstr "Ultima modifica il"
 
 #. module: hr_employee_language
 #: model:ir.model.fields,field_description:hr_employee_language.field_hr_employee_language__write_uid
@@ -371,6 +376,16 @@ msgid "Macedonian / македонски јазик"
 msgstr "Macedone / македонски јазик"
 
 #. module: hr_employee_language
+#: model:ir.model.fields.selection,name:hr_employee_language.selection__hr_employee_language__name__ms_my
+msgid "Malay / Bahasa Melayu"
+msgstr ""
+
+#. module: hr_employee_language
+#: model:ir.model.fields.selection,name:hr_employee_language.selection__hr_employee_language__name__ml_in
+msgid "Malayalam / മലയാളം"
+msgstr ""
+
+#. module: hr_employee_language
 #: model:ir.model.fields.selection,name:hr_employee_language.selection__hr_employee_language__name__mn_mn
 msgid "Mongolian / монгол"
 msgstr "Mongolo / монгол"
@@ -382,8 +397,8 @@ msgstr "Bokmal norvegese / Norsk bokmål"
 
 #. module: hr_employee_language
 #: model:ir.model.fields.selection,name:hr_employee_language.selection__hr_employee_language__name__fa_ir
-msgid "Persian / فارس"
-msgstr "Persiano / فارس"
+msgid "Persian / فارسی"
+msgstr ""
 
 #. module: hr_employee_language
 #: model:ir.model.fields.selection,name:hr_employee_language.selection__hr_employee_language__name__pl_pl
@@ -421,7 +436,7 @@ msgid "Russian / русский язык"
 msgstr "Russo / русский язык"
 
 #. module: hr_employee_language
-#: model:ir.model.fields.selection,name:hr_employee_language.selection__hr_employee_language__name__sr_rs
+#: model:ir.model.fields.selection,name:hr_employee_language.selection__hr_employee_language__name__sr@cyrl
 msgid "Serbian (Cyrillic) / српски"
 msgstr "Serbo (Cirillico) / српски"
 
@@ -481,6 +496,11 @@ msgid "Spanish (GT) / Español (GT)"
 msgstr "Spagnolo (GT) / Español (GT)"
 
 #. module: hr_employee_language
+#: model:ir.model.fields.selection,name:hr_employee_language.selection__hr_employee_language__name__es_419
+msgid "Spanish (Latin America) / Español (América Latina)"
+msgstr ""
+
+#. module: hr_employee_language
 #: model:ir.model.fields.selection,name:hr_employee_language.selection__hr_employee_language__name__es_mx
 msgid "Spanish (MX) / Español (MX)"
 msgstr "Spagnolo (MX) / Español (MX)"
@@ -521,6 +541,11 @@ msgid "Speak"
 msgstr "Parla"
 
 #. module: hr_employee_language
+#: model:ir.model.fields.selection,name:hr_employee_language.selection__hr_employee_language__name__sw
+msgid "Swahili / Kiswahili"
+msgstr ""
+
+#. module: hr_employee_language
 #: model:ir.model.fields.selection,name:hr_employee_language.selection__hr_employee_language__name__sv_se
 msgid "Swedish / Svenska"
 msgstr "Svedese / Svenska"
@@ -551,6 +576,11 @@ msgid "Ukrainian / українська"
 msgstr "Ucraino / українська"
 
 #. module: hr_employee_language
+#: model:ir.model.fields.selection,name:hr_employee_language.selection__hr_employee_language__name__uz_uz
+msgid "Uzbek / Oʻzbekcha"
+msgstr ""
+
+#. module: hr_employee_language
 #: model:ir.model.fields.selection,name:hr_employee_language.selection__hr_employee_language__name__vi_vn
 msgid "Vietnamese / Tiếng Việt"
 msgstr "Vietnamita / Tiếng Việt"
@@ -559,3 +589,27 @@ msgstr "Vietnamita / Tiếng Việt"
 #: model:ir.model.fields,field_description:hr_employee_language.field_hr_employee_language__can_write
 msgid "Write"
 msgstr "Scrivi"
+
+#~ msgid "Chinese (HK)"
+#~ msgstr "Cinese (HK)"
+
+#~ msgid "Chinese (Simplified) / 简体中文"
+#~ msgstr "Cinese (semplificato) / 简体中文"
+
+#~ msgid "Chinese (Traditional) / 正體字"
+#~ msgstr "Cinese (tradizionale) / 正體字"
+
+#~ msgid "Filipino"
+#~ msgstr "Filippino"
+
+#~ msgid "Group By"
+#~ msgstr "Raggruppa per"
+
+#~ msgid "Hebrew / עִבְרִי"
+#~ msgstr "Ebraico / עִבְרִי"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Ultima modifica il"
+
+#~ msgid "Persian / فارس"
+#~ msgstr "Persiano / فارس"
