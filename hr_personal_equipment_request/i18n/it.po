@@ -301,12 +301,6 @@ msgid "Name"
 msgstr "Nome"
 
 #. module: hr_personal_equipment_request
-#: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment__activity_calendar_event_id
-#: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment_request__activity_calendar_event_id
-msgid "Next Activity Calendar Event"
-msgstr "Evento calendario attività successiva"
-
-#. module: hr_personal_equipment_request
 #: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment__activity_date_deadline
 #: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment_request__activity_date_deadline
 msgid "Next Activity Deadline"
@@ -476,6 +470,9 @@ msgstr ""
 #: model:ir.model.fields,help:hr_personal_equipment_request.field_hr_personal_equipment_request__website_message_ids
 msgid "Website communication history"
 msgstr ""
+
+#~ msgid "Next Activity Calendar Event"
+#~ msgstr "Evento calendario attività successiva"
 
 #~ msgid "SMS Delivery error"
 #~ msgstr "Errore consegna SMS"
