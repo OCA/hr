@@ -20,15 +20,15 @@ msgstr ""
 "X-Generator: Weblate 5.15.2\n"
 
 #. module: hr_contract_reference
+#: model:ir.model,name:hr_contract_reference.model_hr_contract
+msgid "Contract"
+msgstr "Contrato"
+
+#. module: hr_contract_reference
 #: model:ir.model.fields,field_description:hr_contract_reference.field_hr_contract__name
 msgid "Contract Reference"
 msgstr "Referencia"
 
-#. module: hr_contract_reference
-#: model:ir.model,name:hr_contract_reference.model_hr_contract
 #, fuzzy
-msgid "Employee Contract"
-msgstr "Contrato"
-
-#~ msgid "Contract"
+#~ msgid "Employee Contract"
 #~ msgstr "Contrato"
