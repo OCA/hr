@@ -755,6 +755,11 @@ msgid "New and Pending Appraisals"
 msgstr ""
 
 #. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr ""
+
+#. module: hr_appraisal_oca
 #: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__activity_date_deadline
 msgid "Next Activity Deadline"
 msgstr ""
