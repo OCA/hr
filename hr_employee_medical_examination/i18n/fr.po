@@ -307,11 +307,6 @@ msgid "Name"
 msgstr "Nom"
 
 #. module: hr_employee_medical_examination
-#: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee_medical_examination__activity_calendar_event_id
-msgid "Next Activity Calendar Event"
-msgstr "Activité suivante de l’événement du calendrier"
-
-#. module: hr_employee_medical_examination
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee_medical_examination__activity_date_deadline
 msgid "Next Activity Deadline"
 msgstr "Échéance de l’activité suivante"
@@ -432,6 +427,9 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_wizard_generate_medical_examination__year
 msgid "Year"
 msgstr "Année"
+
+#~ msgid "Next Activity Calendar Event"
+#~ msgstr "Activité suivante de l’événement du calendrier"
 
 #~ msgid "Hr Employee Medical Examination"
 #~ msgstr "Examen médical d’un employé"

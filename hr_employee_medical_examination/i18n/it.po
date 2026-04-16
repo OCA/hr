@@ -307,11 +307,6 @@ msgid "Name"
 msgstr "Nome"
 
 #. module: hr_employee_medical_examination
-#: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee_medical_examination__activity_calendar_event_id
-msgid "Next Activity Calendar Event"
-msgstr "Evento calendario attività successiva"
-
-#. module: hr_employee_medical_examination
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee_medical_examination__activity_date_deadline
 msgid "Next Activity Deadline"
 msgstr "Scadenza prossima attività"
@@ -432,6 +427,9 @@ msgstr "Cronologia comunicazioni sito web"
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_wizard_generate_medical_examination__year
 msgid "Year"
 msgstr "Anno"
+
+#~ msgid "Next Activity Calendar Event"
+#~ msgstr "Evento calendario attività successiva"
 
 #~ msgid "Hr Employee Medical Examination"
 #~ msgstr "Visita medica dipendente RU"
