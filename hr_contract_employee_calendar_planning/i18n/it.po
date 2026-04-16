@@ -18,8 +18,8 @@ msgstr ""
 
 #. module: hr_contract_employee_calendar_planning
 #: model:ir.model,name:hr_contract_employee_calendar_planning.model_hr_contract
-msgid "Contract"
-msgstr "Contratto"
+msgid "Employee Contract"
+msgstr "Contratto dipendente"
 
-#~ msgid "Employee Contract"
-#~ msgstr "Contratto dipendente"
+#~ msgid "Contract"
+#~ msgstr "Contratto"
