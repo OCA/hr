@@ -307,6 +307,11 @@ msgid "Name"
 msgstr "Nombre"
 
 #. module: hr_employee_medical_examination
+#: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee_medical_examination__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr "Próximo evento del calendario de actividades"
+
+#. module: hr_employee_medical_examination
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee_medical_examination__activity_date_deadline
 msgid "Next Activity Deadline"
 msgstr "Fecha Límite para la Próxima Actividad"
@@ -436,9 +441,6 @@ msgstr "Año"
 
 #~ msgid "Main Attachment"
 #~ msgstr "Archivo adjunto principal"
-
-#~ msgid "Next Activity Calendar Event"
-#~ msgstr "Próximo evento del calendario de actividades"
 
 #~ msgid "SMS Delivery error"
 #~ msgstr "Error en la entrega de sms"
