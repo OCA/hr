@@ -70,7 +70,6 @@ msgstr "Aggiunge informazioni e assegnazione su attrezzatura individuale"
 #: model:ir.actions.act_window,name:hr_personal_equipment_request.hr_personal_equipment_act_window
 #: model:ir.ui.menu,name:hr_personal_equipment_request.hr_personal_equipment_allocations_menu
 #: model_terms:ir.ui.view,arch_db:hr_personal_equipment_request.hr_personal_equipment_request_form_view
-#, python-format
 msgid "Allocations"
 msgstr "Assegnazioni"
 
@@ -164,7 +163,6 @@ msgstr "Attrezzatura individuale dipendente"
 #: code:addons/hr_personal_equipment_request/models/hr_employee.py:0
 #: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_employee__equipment_request_ids
 #: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment__equipment_request_id
-#, python-format
 msgid "Equipment Request"
 msgstr "Richiesta attrezzatura"
 
@@ -373,7 +371,6 @@ msgstr "Richiesta Att. Ind."
 #: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment_request__line_ids
 #: model:ir.ui.menu,name:hr_personal_equipment_request.hr_personal_equipment_menu
 #: model_terms:ir.ui.view,arch_db:hr_personal_equipment_request.hr_personal_equipment_request_form_view
-#, python-format
 msgid "Personal Equipment"
 msgstr "Attrezzatura individuale"
 
@@ -392,7 +389,6 @@ msgstr "Richiesta attrezzatura individuale"
 #. odoo-python
 #: code:addons/hr_personal_equipment_request/models/hr_personal_equipment_request.py:0
 #: code:addons/hr_personal_equipment_request/tests/test_hr_personal_equipment_request.py:0
-#, python-format
 msgid "Personal Equipment Request by %s"
 msgstr "Richiesta attrezzatura individuale di %s"
 
@@ -468,6 +464,18 @@ msgstr "Valida"
 #: model_terms:ir.ui.view,arch_db:hr_personal_equipment_request.hr_personal_equipment_request_form_view
 msgid "Validate"
 msgstr "Approva"
+
+#. module: hr_personal_equipment_request
+#: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment__website_message_ids
+#: model:ir.model.fields,field_description:hr_personal_equipment_request.field_hr_personal_equipment_request__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: hr_personal_equipment_request
+#: model:ir.model.fields,help:hr_personal_equipment_request.field_hr_personal_equipment__website_message_ids
+#: model:ir.model.fields,help:hr_personal_equipment_request.field_hr_personal_equipment_request__website_message_ids
+msgid "Website communication history"
+msgstr ""
 
 #~ msgid "SMS Delivery error"
 #~ msgstr "Errore consegna SMS"
