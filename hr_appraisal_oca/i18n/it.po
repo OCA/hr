@@ -919,11 +919,6 @@ msgid "New and Pending Appraisals"
 msgstr "Valutazioni nuove e in sospeso"
 
 #. module: hr_appraisal_oca
-#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__activity_calendar_event_id
-msgid "Next Activity Calendar Event"
-msgstr "Evento calendario attività successiva"
-
-#. module: hr_appraisal_oca
 #: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__activity_date_deadline
 msgid "Next Activity Deadline"
 msgstr "Scadenza prossima attività"
@@ -1260,6 +1255,9 @@ msgstr "{{ user.name or ''}} richiede una valutazione"
 #: model:mail.template,subject:hr_appraisal_oca.mail_template_appraisal_confirmation
 msgid "{{object.employee_id.name}}: Appraisal Confirmed"
 msgstr "{{object.employee_id.name}}: valutazione confermata"
+
+#~ msgid "Next Activity Calendar Event"
+#~ msgstr "Evento calendario attività successiva"
 
 #~ msgid "Employee Feedback Template"
 #~ msgstr "Modello opinione dipendente"
