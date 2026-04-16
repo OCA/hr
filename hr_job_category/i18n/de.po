@@ -29,8 +29,8 @@ msgstr "Assoziierte Stichwörter"
 
 #. module: hr_job_category
 #: model:ir.model,name:hr_job_category.model_hr_contract
-msgid "Employee Contract"
-msgstr ""
+msgid "Contract"
+msgstr "Vertrag"
 
 #. module: hr_job_category
 #: model:ir.model,name:hr_job_category.model_hr_job
@@ -41,6 +41,3 @@ msgstr "Job-Position"
 #: model_terms:ir.ui.view,arch_db:hr_job_category.view_job_form
 msgid "e.g. Part Time"
 msgstr "z. B. Teilzeit"
-
-#~ msgid "Contract"
-#~ msgstr "Vertrag"
