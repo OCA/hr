@@ -15,8 +15,8 @@ UPDATE_PARTNER_FIELDS = ["firstname", "lastname", "user_id", "address_home_id"]
 class HrEmployee(models.Model):
     _inherit = "hr.employee"
 
-    firstname = fields.Char()
-    lastname = fields.Char()
+    firstname = fields.Char(groups="hr.group_hr_user")
+    lastname = fields.Char(groups="hr.group_hr_user")
 
     @api.model
     def _names_order_default(self):
