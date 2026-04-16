@@ -573,6 +573,11 @@ msgid "Ukrainian / українська"
 msgstr ""
 
 #. module: hr_employee_language
+#: model:ir.model.fields.selection,name:hr_employee_language.selection__hr_employee_language__name__uz_uz
+msgid "Uzbek / Oʻzbekcha"
+msgstr ""
+
+#. module: hr_employee_language
 #: model:ir.model.fields.selection,name:hr_employee_language.selection__hr_employee_language__name__vi_vn
 msgid "Vietnamese / Tiếng Việt"
 msgstr ""
