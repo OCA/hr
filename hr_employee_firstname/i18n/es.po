@@ -26,6 +26,7 @@ msgstr "Ajustes de Configuración"
 
 #. module: hr_employee_firstname
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee__display_name
+#: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_public__display_name
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_res_config_settings__display_name
 msgid "Display Name"
 msgstr ""
@@ -47,7 +48,13 @@ msgid "First name"
 msgstr "Nombre de pila"
 
 #. module: hr_employee_firstname
+#: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_public__firstname
+msgid "Firstname"
+msgstr "Nombre propio"
+
+#. module: hr_employee_firstname
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee__id
+#: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_public__id
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_res_config_settings__id
 msgid "ID"
 msgstr ""
@@ -56,6 +63,11 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee__lastname
 msgid "Last name"
 msgstr "Apellido"
+
+#. module: hr_employee_firstname
+#: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_public__lastname
+msgid "Lastname"
+msgstr "Apellidos"
 
 #. module: hr_employee_firstname
 #. odoo-python
@@ -68,11 +80,10 @@ msgstr "Sin nombre establecido."
 msgid "Order to compose employee fullname"
 msgstr "Orden para componer el nombre completo del empleado"
 
+#. module: hr_employee_firstname
+#: model:ir.model,name:hr_employee_firstname.model_hr_employee_public
+msgid "Public Employee"
+msgstr ""
+
 #~ msgid "Basic Employee"
 #~ msgstr "Empleado básico"
-
-#~ msgid "Firstname"
-#~ msgstr "Nombre propio"
-
-#~ msgid "Lastname"
-#~ msgstr "Apellidos"

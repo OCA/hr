@@ -27,6 +27,7 @@ msgstr ""
 
 #. module: hr_employee_firstname
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee__display_name
+#: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_public__display_name
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_res_config_settings__display_name
 msgid "Display Name"
 msgstr ""
@@ -48,7 +49,13 @@ msgid "First name"
 msgstr ""
 
 #. module: hr_employee_firstname
+#: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_public__firstname
+msgid "Firstname"
+msgstr "Ime"
+
+#. module: hr_employee_firstname
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee__id
+#: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_public__id
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_res_config_settings__id
 msgid "ID"
 msgstr ""
@@ -57,6 +64,11 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee__lastname
 msgid "Last name"
 msgstr ""
+
+#. module: hr_employee_firstname
+#: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_public__lastname
+msgid "Lastname"
+msgstr "Prezime"
 
 #. module: hr_employee_firstname
 #. odoo-python
@@ -69,8 +81,7 @@ msgstr "Ime nije postavljeno."
 msgid "Order to compose employee fullname"
 msgstr ""
 
-#~ msgid "Firstname"
-#~ msgstr "Ime"
-
-#~ msgid "Lastname"
-#~ msgstr "Prezime"
+#. module: hr_employee_firstname
+#: model:ir.model,name:hr_employee_firstname.model_hr_employee_public
+msgid "Public Employee"
+msgstr ""

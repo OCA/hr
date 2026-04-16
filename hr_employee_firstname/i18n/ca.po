@@ -23,6 +23,7 @@ msgstr ""
 
 #. module: hr_employee_firstname
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee__display_name
+#: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_public__display_name
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_res_config_settings__display_name
 msgid "Display Name"
 msgstr ""
@@ -44,7 +45,13 @@ msgid "First name"
 msgstr "Nom"
 
 #. module: hr_employee_firstname
+#: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_public__firstname
+msgid "Firstname"
+msgstr ""
+
+#. module: hr_employee_firstname
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee__id
+#: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_public__id
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_res_config_settings__id
 msgid "ID"
 msgstr ""
@@ -55,6 +62,11 @@ msgid "Last name"
 msgstr "Cognoms"
 
 #. module: hr_employee_firstname
+#: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_public__lastname
+msgid "Lastname"
+msgstr ""
+
+#. module: hr_employee_firstname
 #. odoo-python
 #: code:addons/hr_employee_firstname/models/hr_employee.py:0
 msgid "No name set."
@@ -63,6 +75,11 @@ msgstr "No s'ha definit cap nom."
 #. module: hr_employee_firstname
 #: model:ir.model.fields,help:hr_employee_firstname.field_res_config_settings__employee_names_order
 msgid "Order to compose employee fullname"
+msgstr ""
+
+#. module: hr_employee_firstname
+#: model:ir.model,name:hr_employee_firstname.model_hr_employee_public
+msgid "Public Employee"
 msgstr ""
 
 #~ msgid "Last Modified on"

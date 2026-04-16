@@ -26,6 +26,7 @@ msgstr "Impostazioni configurazione"
 
 #. module: hr_employee_firstname
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee__display_name
+#: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_public__display_name
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_res_config_settings__display_name
 msgid "Display Name"
 msgstr "Nome visualizzato"
@@ -47,7 +48,13 @@ msgid "First name"
 msgstr "Nome"
 
 #. module: hr_employee_firstname
+#: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_public__firstname
+msgid "Firstname"
+msgstr "Nome"
+
+#. module: hr_employee_firstname
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee__id
+#: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_public__id
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_res_config_settings__id
 msgid "ID"
 msgstr "ID"
@@ -55,6 +62,11 @@ msgstr "ID"
 #. module: hr_employee_firstname
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee__lastname
 msgid "Last name"
+msgstr "Cognome"
+
+#. module: hr_employee_firstname
+#: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_public__lastname
+msgid "Lastname"
 msgstr "Cognome"
 
 #. module: hr_employee_firstname
@@ -68,11 +80,10 @@ msgstr "Nome non impostato."
 msgid "Order to compose employee fullname"
 msgstr "Ordinamento per comporre il nome completo del dipendente"
 
+#. module: hr_employee_firstname
+#: model:ir.model,name:hr_employee_firstname.model_hr_employee_public
+msgid "Public Employee"
+msgstr ""
+
 #~ msgid "Basic Employee"
 #~ msgstr "Dipendente base"
-
-#~ msgid "Firstname"
-#~ msgstr "Nome"
-
-#~ msgid "Lastname"
-#~ msgstr "Cognome"
