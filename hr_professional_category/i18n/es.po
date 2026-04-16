@@ -44,6 +44,11 @@ msgid "Company"
 msgstr "Compañía"
 
 #. module: hr_professional_category
+#: model:ir.model,name:hr_professional_category.model_hr_contract
+msgid "Contract"
+msgstr "Contrato de empleado"
+
+#. module: hr_professional_category
 #: model:ir.model.fields,field_description:hr_professional_category.field_hr_professional_category__create_uid
 msgid "Created by"
 msgstr "Creado por"
@@ -57,11 +62,6 @@ msgstr "Creado el"
 #: model:ir.model.fields,field_description:hr_professional_category.field_hr_professional_category__display_name
 msgid "Display Name"
 msgstr "Nombre mostrado"
-
-#. module: hr_professional_category
-#: model:ir.model,name:hr_professional_category.model_hr_contract
-msgid "Employee Contract"
-msgstr ""
 
 #. module: hr_professional_category
 #: model:ir.model.fields,field_description:hr_professional_category.field_hr_professional_category__id
@@ -95,9 +95,6 @@ msgstr "Categorías profesionales"
 #: model_terms:ir.ui.view,arch_db:hr_professional_category.hr_contract_view_search
 msgid "Professional Category"
 msgstr "Categoría profesional"
-
-#~ msgid "Contract"
-#~ msgstr "Contrato de empleado"
 
 #~ msgid "Last Modified on"
 #~ msgstr "Última modificación el"
