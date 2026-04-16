@@ -20,7 +20,7 @@ msgstr ""
 
 #. module: hr_job_category
 #: model:ir.model,name:hr_job_category.model_hr_contract
-msgid "Contract"
+msgid "Employee Contract"
 msgstr ""
 
 #. module: hr_job_category
