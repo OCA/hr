@@ -28,9 +28,8 @@ msgstr "Povezane oznake"
 
 #. module: hr_job_category
 #: model:ir.model,name:hr_job_category.model_hr_contract
-#, fuzzy
-msgid "Contract"
-msgstr "Pogodba o zaposlitvi"
+msgid "Employee Contract"
+msgstr ""
 
 #. module: hr_job_category
 #: model:ir.model,name:hr_job_category.model_hr_job
@@ -41,3 +40,7 @@ msgstr "Delovno mesto"
 #: model_terms:ir.ui.view,arch_db:hr_job_category.view_job_form
 msgid "e.g. Part Time"
 msgstr "npr. Občasno"
+
+#, fuzzy
+#~ msgid "Contract"
+#~ msgstr "Pogodba o zaposlitvi"
