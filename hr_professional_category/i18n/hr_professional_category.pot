@@ -40,6 +40,11 @@ msgid "Company"
 msgstr ""
 
 #. module: hr_professional_category
+#: model:ir.model,name:hr_professional_category.model_hr_contract
+msgid "Contract"
+msgstr ""
+
+#. module: hr_professional_category
 #: model:ir.model.fields,field_description:hr_professional_category.field_hr_professional_category__create_uid
 msgid "Created by"
 msgstr ""
@@ -52,11 +57,6 @@ msgstr ""
 #. module: hr_professional_category
 #: model:ir.model.fields,field_description:hr_professional_category.field_hr_professional_category__display_name
 msgid "Display Name"
-msgstr ""
-
-#. module: hr_professional_category
-#: model:ir.model,name:hr_professional_category.model_hr_contract
-msgid "Employee Contract"
 msgstr ""
 
 #. module: hr_professional_category
