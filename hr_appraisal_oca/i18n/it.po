@@ -919,6 +919,11 @@ msgid "New and Pending Appraisals"
 msgstr "Valutazioni nuove e in sospeso"
 
 #. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr "Evento calendario attività successiva"
+
+#. module: hr_appraisal_oca
 #: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__activity_date_deadline
 msgid "Next Activity Deadline"
 msgstr "Scadenza prossima attività"
@@ -1567,9 +1572,6 @@ msgstr "{{object.employee_id.name}}: valutazione confermata"
 
 #~ msgid "Main Attachment"
 #~ msgstr "Allegato principale"
-
-#~ msgid "Next Activity Calendar Event"
-#~ msgstr "Evento calendario attività successiva"
 
 #~ msgid "Related user name for the resource to manage its access."
 #~ msgstr "Nome utente collegato alla risorsa per gestirne l'accesso."
