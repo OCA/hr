@@ -14,7 +14,7 @@ class HrEmployee(models.Model):
 
     firstname = fields.Char("First name")
     lastname = fields.Char("Last name")
-    lastname2 = fields.Char("Second last name")
+    lastname2 = fields.Char("Second last name2")
 
     @api.model
     def _get_name_lastnames(self, lastname, firstname, lastname2=None):
