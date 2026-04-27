@@ -44,12 +44,8 @@ msgstr "Reihenfolge der Namen"
 
 #. module: hr_employee_firstname
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee__firstname
-msgid "First name"
-msgstr "Vorname"
-
-#. module: hr_employee_firstname
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_public__firstname
-msgid "Firstname"
+msgid "First name"
 msgstr "Vorname"
 
 #. module: hr_employee_firstname
@@ -61,12 +57,8 @@ msgstr "ID"
 
 #. module: hr_employee_firstname
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee__lastname
-msgid "Last name"
-msgstr "Nachname"
-
-#. module: hr_employee_firstname
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_public__lastname
-msgid "Lastname"
+msgid "Last name"
 msgstr "Nachname"
 
 #. module: hr_employee_firstname
@@ -84,6 +76,12 @@ msgstr "Reihenfolge für die Zusammensetzung des vollen Namens"
 #: model:ir.model,name:hr_employee_firstname.model_hr_employee_public
 msgid "Public Employee"
 msgstr ""
+
+#~ msgid "Firstname"
+#~ msgstr "Vorname"
+
+#~ msgid "Lastname"
+#~ msgstr "Nachname"
 
 #~ msgid "Basic Employee"
 #~ msgstr "Normaler Mitarbeiter"

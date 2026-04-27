@@ -45,13 +45,9 @@ msgstr "Ordem de Nome dos Funcionários"
 
 #. module: hr_employee_firstname
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee__firstname
+#: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_public__firstname
 msgid "First name"
 msgstr "Nome"
-
-#. module: hr_employee_firstname
-#: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_public__firstname
-msgid "Firstname"
-msgstr "Primeiro nome"
 
 #. module: hr_employee_firstname
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee__id
@@ -62,13 +58,9 @@ msgstr ""
 
 #. module: hr_employee_firstname
 #: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee__lastname
+#: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_public__lastname
 msgid "Last name"
 msgstr "Sobrenome"
-
-#. module: hr_employee_firstname
-#: model:ir.model.fields,field_description:hr_employee_firstname.field_hr_employee_public__lastname
-msgid "Lastname"
-msgstr "Último nome"
 
 #. module: hr_employee_firstname
 #. odoo-python
@@ -85,6 +77,12 @@ msgstr ""
 #: model:ir.model,name:hr_employee_firstname.model_hr_employee_public
 msgid "Public Employee"
 msgstr ""
+
+#~ msgid "Firstname"
+#~ msgstr "Primeiro nome"
+
+#~ msgid "Lastname"
+#~ msgstr "Último nome"
 
 #~ msgid "Basic Employee"
 #~ msgstr "Funcionário Básico"
