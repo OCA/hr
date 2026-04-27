@@ -17,9 +17,10 @@ msgstr ""
 "X-Generator: Weblate 4.3.2\n"
 
 #. module: hr_employee_second_lastname
-#: model:ir.model,name:hr_employee_second_lastname.model_hr_employee_base
-msgid "Basic Employee"
-msgstr "Funcionário Basico"
+#: model:ir.model.fields,field_description:hr_employee_second_lastname.field_hr_employee__display_name
+#: model:ir.model.fields,field_description:hr_employee_second_lastname.field_hr_employee_public__display_name
+msgid "Display Name"
+msgstr "Nome de Exibição"
 
 #. module: hr_employee_second_lastname
 #: model:ir.model,name:hr_employee_second_lastname.model_hr_employee
@@ -28,30 +29,33 @@ msgstr "Funcionário"
 
 #. module: hr_employee_second_lastname
 #: model:ir.model.fields,field_description:hr_employee_second_lastname.field_hr_employee__firstname
-#: model:ir.model.fields,field_description:hr_employee_second_lastname.field_hr_employee_base__firstname
-#: model:ir.model.fields,field_description:hr_employee_second_lastname.field_hr_employee_public__firstname
 msgid "First name"
 msgstr "Nome"
 
 #. module: hr_employee_second_lastname
+#: model:ir.model.fields,field_description:hr_employee_second_lastname.field_hr_employee__id
+#: model:ir.model.fields,field_description:hr_employee_second_lastname.field_hr_employee_public__id
+msgid "ID"
+msgstr "ID"
+
+#. module: hr_employee_second_lastname
 #: model:ir.model.fields,field_description:hr_employee_second_lastname.field_hr_employee__lastname
-#: model:ir.model.fields,field_description:hr_employee_second_lastname.field_hr_employee_base__lastname
-#: model:ir.model.fields,field_description:hr_employee_second_lastname.field_hr_employee_public__lastname
 msgid "Last name"
 msgstr "Sobrenome"
 
 #. module: hr_employee_second_lastname
+#: model:ir.model,name:hr_employee_second_lastname.model_hr_employee_public
+msgid "Public Employee"
+msgstr ""
+
+#. module: hr_employee_second_lastname
 #: model:ir.model.fields,field_description:hr_employee_second_lastname.field_hr_employee__lastname2
-#: model:ir.model.fields,field_description:hr_employee_second_lastname.field_hr_employee_base__lastname2
 #: model:ir.model.fields,field_description:hr_employee_second_lastname.field_hr_employee_public__lastname2
 msgid "Second last name"
 msgstr "Segundo sobrenome"
 
-#~ msgid "Display Name"
-#~ msgstr "Nome de Exibição"
-
-#~ msgid "ID"
-#~ msgstr "ID"
+#~ msgid "Basic Employee"
+#~ msgstr "Funcionário Basico"
 
 #~ msgid "Last Modified on"
 #~ msgstr "Última Modificação em"
