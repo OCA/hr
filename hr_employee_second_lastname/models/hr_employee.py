@@ -75,7 +75,6 @@ class HrEmployee(models.Model):
     def _update_partner_firstname(self):
         for employee in self:
             partners = employee.mapped("user_id.partner_id")
-            partners |= employee.mapped("address_home_id")
             partners.write(
                 {
                     "firstname": employee.firstname,
