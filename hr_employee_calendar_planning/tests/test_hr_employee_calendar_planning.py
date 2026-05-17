@@ -5,6 +5,7 @@
 import unittest
 
 from dateutil.relativedelta import relativedelta
+from freezegun import freeze_time
 from psycopg2 import IntegrityError
 
 from odoo import exceptions, fields
@@ -513,6 +514,7 @@ class TestHrEmployeeCalendarPlanning(BaseCommon):
         planning_line.write({"calendar_id": self.calendar1.id})
         self.assertEqual(len(self.employee.resource_calendar_id.attendance_ids), 10)
 
+    @freeze_time("2026-05-18")
     def test_get_work_days_data_batch_with_planning(self):
         today_dt = fields.Datetime.now()
         start_dt = today_dt.replace(hour=0, minute=0, second=0)
