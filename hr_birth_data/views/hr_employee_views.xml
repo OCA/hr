@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 Forgeflow S.L.
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html). -->
+<odoo>
+    <record id="hr_employee_birth_data_form" model="ir.ui.view">
+        <field name="name">hr.employee.birth_data.form</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//label[@for='place_of_birth']" position="before">
+                <label for="birth_hour" string="Birth Time" />
+                <div class="o_row">
+                    <field
+                        name="birth_hour"
+                        widget="float_time"
+                        class="o_hr_narrow_field"
+                    />
+                    <field name="birth_hour_known" readonly="birth_hour != 0" />
+                    <label for="birth_hour_known" />
+                </div>
+                <label for="birth_latitude" string="Birth Coordinates (lat / lon)" />
+                <div class="o_row">
+                    <field
+                        name="birth_latitude"
+                        nolabel="1"
+                        placeholder="Lat (e.g. 41.38)"
+                        class="o_hr_narrow_field"
+                    />
+                    <field
+                        name="birth_longitude"
+                        nolabel="1"
+                        placeholder="Lon (e.g. 2.18)"
+                        class="o_hr_narrow_field"
+                    />
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
