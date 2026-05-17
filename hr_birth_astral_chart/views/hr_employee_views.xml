@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 Forgeflow S.L.
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html). -->
+<odoo>
+    <record id="hr_employee_birth_astral_chart_form" model="ir.ui.view">
+        <field name="name">hr.employee.birth_astral_chart.form</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='personal_information']" position="after">
+                <page
+                    string="Astral Chart"
+                    name="astral_chart"
+                    groups="hr.group_hr_user"
+                >
+                    <!-- Warning: no birthday set -->
+                    <div class="alert alert-warning" role="alert" invisible="birthday">
+                        <i class="fa fa-warning me-1" />
+                        Please enter a <strong>date of birth</strong> to generate
+                        the birth chart.
+                    </div>
+
+                    <div invisible="not birthday">
+                        <!-- Summary badges -->
+                        <div class="d-flex flex-wrap gap-3 mb-4">
+                            <div
+                                class="card text-center px-3 py-2"
+                                style="min-width:160px"
+                            >
+                                <div
+                                    class="text-uppercase text-muted fw-semibold"
+                                    style="font-size:11px;letter-spacing:1px"
+                                >Sun Sign</div>
+                                <div class="fs-5 fw-bold">
+                                    <field name="birth_chart_sun_sign" readonly="1" />
+                                </div>
+                            </div>
+                            <div
+                                class="card text-center px-3 py-2"
+                                style="min-width:160px"
+                            >
+                                <div
+                                    class="text-uppercase text-muted fw-semibold"
+                                    style="font-size:11px;letter-spacing:1px"
+                                >Moon Sign</div>
+                                <div class="fs-5 fw-bold">
+                                    <field name="birth_chart_moon_sign" readonly="1" />
+                                </div>
+                            </div>
+                            <div
+                                class="card text-center px-3 py-2"
+                                style="min-width:160px"
+                            >
+                                <div
+                                    class="text-uppercase text-muted fw-semibold"
+                                    style="font-size:11px;letter-spacing:1px"
+                                >Ascendant</div>
+                                <div class="fs-5 fw-bold">
+                                    <field
+                                        name="birth_chart_rising_sign"
+                                        readonly="1"
+                                    />
+                                </div>
+                            </div>
+                            <div
+                                class="card px-3 py-2 d-flex align-items-center justify-content-center text-warning-emphasis bg-warning-subtle border-warning-subtle"
+                                style="min-width:200px;font-size:12px"
+                                invisible="birth_location_known"
+                            >
+                                <i class="fa fa-info-circle me-1" />
+                                Add birth time and coordinates to compute the
+                                Ascendant and Houses
+                            </div>
+                        </div>
+
+                        <!-- Chart wheel + planet table -->
+                        <div class="d-flex flex-wrap gap-4 align-items-start">
+                            <div style="flex:0 0 auto">
+                                <field
+                                    name="birth_chart_svg"
+                                    widget="html"
+                                    readonly="1"
+                                    style="display:block;width:520px;height:520px"
+                                />
+                            </div>
+                            <div style="flex:1 1 300px">
+                                <h5 class="text-warning mb-2">Planetary Positions</h5>
+                                <field
+                                    name="birth_chart_planets_json"
+                                    widget="birth_chart_table"
+                                    readonly="1"
+                                />
+                                <div class="mt-3" invisible="not birth_location_known">
+                                    <h5 class="text-warning mb-2">Houses</h5>
+                                    <field
+                                        name="birth_chart_houses_html"
+                                        widget="html"
+                                        readonly="1"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Interpretation -->
+                        <div class="card mt-4">
+                            <div class="card-body">
+                                <h5 class="card-title text-warning">
+                                    Chart Interpretation
+                                </h5>
+                                <field
+                                    name="birth_chart_interpretation"
+                                    widget="html"
+                                    readonly="1"
+                                />
+                            </div>
+                        </div>
+
+                        <!-- Current Transits -->
+                        <div class="card mt-4">
+                            <div class="card-body">
+                                <h5 class="card-title text-info">
+                                    Current Transits:
+                                    <span
+                                    class="text-muted fw-normal"
+                                    style="font-size:13px"
+                                >how today's sky influences your natal chart</span>
+                                </h5>
+                                <div class="d-flex flex-wrap gap-4 align-items-start">
+                                    <div style="flex:0 0 auto">
+                                        <field
+                                            name="birth_chart_transit_svg"
+                                            widget="html"
+                                            readonly="1"
+                                            style="display:block;width:560px;height:560px"
+                                        />
+                                    </div>
+                                    <div style="flex:1 1 300px">
+                                        <h5 class="text-info mb-2">
+                                            Transit Positions
+                                        </h5>
+                                        <field
+                                            name="birth_chart_transit_json"
+                                            widget="birth_chart_table"
+                                            readonly="1"
+                                        />
+                                        <field
+                                            name="birth_chart_transit_aspects"
+                                            widget="html"
+                                            readonly="1"
+                                        />
+                                    </div>
+                                </div>
+                                <div class="mt-3">
+                                    <field
+                                        name="birth_chart_transit_interpretation"
+                                        widget="html"
+                                        readonly="1"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>
