@@ -6,80 +6,84 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2026-05-23 09:46+0000\n"
+"Last-Translator: Pablo Castelo <pablocv@gmx.es>\n"
 "Language-Team: none\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: hr_employee_service
 #: model_terms:ir.ui.view,arch_db:hr_employee_service.view_employee_form_inherit_extension
 msgid "<span class=\"ml8 mr8\">month(s)</span>"
-msgstr ""
+msgstr "<span class=\"ml8 mr8\">mes(é)</span>"
 
 #. module: hr_employee_service
 #: model_terms:ir.ui.view,arch_db:hr_employee_service.view_employee_form_inherit_extension
 msgid "<span class=\"ml8 mr8\">year(s)</span>"
-msgstr ""
+msgstr "<span class=\"ml8 mr8\">ano(s)</span>"
 
 #. module: hr_employee_service
 #: model_terms:ir.ui.view,arch_db:hr_employee_service.view_employee_form_inherit_extension
 msgid "<span class=\"ml8\">day(s)</span>"
-msgstr ""
+msgstr "<span class=\"ml8\">día(s)</span>"
 
 #. module: hr_employee_service
 #: model:ir.model,name:hr_employee_service.model_hr_employee
 msgid "Employee"
-msgstr ""
+msgstr "Empregado"
 
 #. module: hr_employee_service
 #: model:ir.model.fields,field_description:hr_employee_service.field_hr_employee__service_hire_date
 msgid "Hire Date"
-msgstr ""
+msgstr "Data de Contratación"
 
 #. module: hr_employee_service
 #: model:ir.model.fields,help:hr_employee_service.field_hr_employee__service_hire_date
 msgid ""
 "Hire date is normally the date an employee completes new hire paperwork"
 msgstr ""
+"A data de contratación é normalmente a data na que o empregado completa a "
+"papelada de contratación"
 
 #. module: hr_employee_service
 #: model:ir.model.fields,field_description:hr_employee_service.field_hr_employee__service_duration
 #: model_terms:ir.ui.view,arch_db:hr_employee_service.view_employee_form_inherit_extension
 msgid "Service Duration"
-msgstr ""
+msgstr "Antigüedad"
 
 #. module: hr_employee_service
 #: model:ir.model.fields,field_description:hr_employee_service.field_hr_employee__service_duration_days
 msgid "Service Duration (days)"
-msgstr ""
+msgstr "Antigüedad (días)"
 
 #. module: hr_employee_service
 #: model:ir.model.fields,field_description:hr_employee_service.field_hr_employee__service_duration_months
 msgid "Service Duration (months)"
-msgstr ""
+msgstr "Antigüedad (meses)"
 
 #. module: hr_employee_service
 #: model:ir.model.fields,field_description:hr_employee_service.field_hr_employee__service_duration_years
 msgid "Service Duration (years)"
-msgstr ""
+msgstr "Antigüedad (anos)"
 
 #. module: hr_employee_service
 #: model_terms:ir.ui.view,arch_db:hr_employee_service.view_employee_form_inherit_extension
 msgid "Service Information"
-msgstr ""
+msgstr "Información da Antigüedad"
 
 #. module: hr_employee_service
 #: model:ir.model.fields,help:hr_employee_service.field_hr_employee__service_duration
 msgid "Service duration in days"
-msgstr ""
+msgstr "Antigüedad en días"
 
 #. module: hr_employee_service
 #: model:ir.model.fields,field_description:hr_employee_service.field_hr_employee__service_start_date
 msgid "Start Date"
-msgstr ""
+msgstr "Data de Inicio"
 
 #. module: hr_employee_service
 #: model:ir.model.fields,help:hr_employee_service.field_hr_employee__service_start_date
@@ -87,11 +91,13 @@ msgid ""
 "Start date is the first day the employee actually works and this date is "
 "used for accrual leave allocations calculation"
 msgstr ""
+"A data de inicio é o primeiro día que o empregado realmente traballa e esta "
+"data utilízase para o cálculo das asignacións de vacacións devindicadas"
 
 #. module: hr_employee_service
 #: model:ir.model.fields,field_description:hr_employee_service.field_hr_employee__service_termination_date
 msgid "Termination Date"
-msgstr ""
+msgstr "Data de finalización"
 
 #. module: hr_employee_service
 #: model:ir.model.fields,help:hr_employee_service.field_hr_employee__service_termination_date
@@ -99,3 +105,5 @@ msgid ""
 "Termination date is the last day the employee actually works and this date "
 "is used for accrual leave allocations calculation"
 msgstr ""
+"A data de finalización é o último día que o empregado realmente traballa e "
+"esta data utilízase para o cálculo das asignacións de vacacións devindicadas"
