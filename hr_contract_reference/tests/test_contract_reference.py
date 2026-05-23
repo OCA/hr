@@ -6,7 +6,7 @@ from odoo.tests.common import TransactionCase
 
 class TestContractReference(TransactionCase):
     def setUp(self):
-        super(TestContractReference, self).setUp()
+        super().setUp()
         self.employee = self.env["hr.employee"].create({"name": "Emp"})
 
     def test_contract_reference(self):
