@@ -6,23 +6,25 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2026-05-23 09:46+0000\n"
+"Last-Translator: Pablo Castelo <pablocv@gmx.es>\n"
 "Language-Team: none\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: hr_branch
 #: model:ir.model.fields,field_description:hr_branch.field_hr_department__branch_id
 msgid "Branch"
-msgstr ""
+msgstr "Sucursal"
 
 #. module: hr_branch
 #: model:ir.model,name:hr_branch.model_hr_department
 msgid "Department"
-msgstr ""
+msgstr "Departamento"
 
 #. module: hr_branch
 #: model:ir.model.fields,help:hr_branch.field_hr_department__branch_id
@@ -30,3 +32,5 @@ msgid ""
 "Indicate the department branch, to ensure that the employees are assigned "
 "correctly"
 msgstr ""
+"Indique a sucursal do departamento, para asegurarse que o empregado é "
+"asignado correctamente"
