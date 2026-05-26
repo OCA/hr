@@ -103,12 +103,26 @@ class TestEmployeeSecondLastname(TransactionCase):
         self.assertEqual(employee_without_name, self.employee_model)
 
     def test_change_name(self):
+        is_partner_lastname_installed = (
+            self.employee_model._is_partner_firstname_installed()
+        )
+        work_contact = self.employee1_id.work_contact_id
+        if is_partner_lastname_installed:
+            self.assertEqual(self.employee1_id.firstname, work_contact.firstname)
+            self.assertEqual(self.employee1_id.lastname, work_contact.lastname)
+            self.assertEqual(self.employee1_id.lastname2, work_contact.lastname2)
         self.employee1_id.write({"name": "Pedro Martinez Torres"})
         self.employee1_id.invalidate_recordset()
 
         self.assertEqual(self.employee1_id.firstname, "Pedro")
         self.assertEqual(self.employee1_id.lastname, "Martinez")
         self.assertEqual(self.employee1_id.lastname2, "Torres")
+
+        if is_partner_lastname_installed:
+            work_contact.invalidate_recordset(["firstname", "lastname", "lastname2"])
+            self.assertEqual(work_contact.firstname, "Pedro")
+            self.assertEqual(work_contact.lastname, "Martinez")
+            self.assertEqual(work_contact.lastname2, "Torres")
 
     def test_change_name_with_space(self):
         self.employee1_id.write({"name": "  Jean-Pierre Carnaud-Eyck"})
