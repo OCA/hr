@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!-- Inherited employee public form view -->
+    <record id="hr_employee_public_view_form" model="ir.ui.view">
+        <field name="name">view.employee.public.form</field>
+        <field name="model">hr.employee.public</field>
+        <field name="inherit_id" ref="hr.hr_employee_public_view_form" />
+        <field name="arch" type="xml">
+            <div id="o_work_employee_main" position="inside">
+                <group string="Internal Contact">
+                    <field name="internal_number" />
+                    <field name="short_number" />
+                </group>
+            </div>
+        </field>
+    </record>
+</odoo>
