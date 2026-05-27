@@ -132,11 +132,26 @@ class TestHrEmployeeService(common.TransactionCase):
         employee = self.SudoEmployee.create(
             {
                 "name": "Employee #9",
-                "service_hire_date": (self.today - relativedelta(years=1)),
-                "service_start_date": (self.today - relativedelta(years=1)),
+                "service_hire_date": self.today - relativedelta(years=1),
+                "service_start_date": self.today - relativedelta(years=1),
             }
         )
+
+        result = employee.get_service_duration_from_date(None)
+        self.assertEqual(result, {"years": 0, "months": 0, "days": 0})
+
+        employee.service_start_date = False
+        result = employee.get_service_duration_from_date(self.today)
+        self.assertEqual(result, {"years": 0, "months": 0, "days": 0})
+
+        employee.service_start_date = self.today - relativedelta(years=1)
+
         search_date = self.today - relativedelta(months=10)
         result = employee.get_service_duration_from_date(search_date)
         self.assertEqual(result["years"], 0)
         self.assertEqual(result["months"], 2)
+        self.assertEqual(result["days"], result["days"])
+
+        search_date = self.today - relativedelta(years=2)
+        result = employee.get_service_duration_from_date(search_date)
+        self.assertEqual(result, {"years": 0, "months": 0, "days": 0})
