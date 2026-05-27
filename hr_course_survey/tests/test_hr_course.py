@@ -8,7 +8,7 @@ from odoo.addons.survey.tests import common
 
 class TestHrCourse(common.TestSurveyCommon):
     def setUp(self):
-        super(TestHrCourse, self).setUp()
+        super().setUp()
         self.survey = (
             self.env["survey.survey"]
             .with_user(self.survey_manager)
@@ -98,7 +98,7 @@ class TestHrCourse(common.TestSurveyCommon):
             self.question,
             answer,
             self.question.suggested_answer_ids.filtered(
-                lambda l: l.value == "Choice1"
+                lambda ans: ans.value == "Choice1"
             ).id,
             answer_type="suggestion",
             answer_fname="suggested_answer_id",
@@ -115,7 +115,7 @@ class TestHrCourse(common.TestSurveyCommon):
             self.question,
             answer,
             self.question.suggested_answer_ids.filtered(
-                lambda l: l.value == "Choice0"
+                lambda ans: ans.value == "Choice0"
             ).id,
             answer_type="suggestion",
             answer_fname="suggested_answer_id",
@@ -144,7 +144,7 @@ class TestHrCourse(common.TestSurveyCommon):
             self.question,
             answer,
             self.question.suggested_answer_ids.filtered(
-                lambda l: l.value == "Choice1"
+                lambda ans: ans.value == "Choice1"
             ).id,
             answer_type="suggestion",
             answer_fname="suggested_answer_id",
@@ -161,7 +161,7 @@ class TestHrCourse(common.TestSurveyCommon):
             self.question,
             answer,
             self.question.suggested_answer_ids.filtered(
-                lambda l: l.value == "Choice0"
+                lambda ans: ans.value == "Choice0"
             ).id,
             answer_type="suggestion",
             answer_fname="suggested_answer_id",

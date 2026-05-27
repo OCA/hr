@@ -10,7 +10,6 @@ _logger = logging.getLogger(__name__)
 
 
 class HrCourseAttendee(models.Model):
-
     _inherit = "hr.course.attendee"
 
     survey_answer_id = fields.Many2one("survey.user_input", readonly=True)
@@ -34,14 +33,14 @@ class HrCourseAttendee(models.Model):
                 template.subject,
                 "survey.user_input",
                 [self.survey_answer_id.id],
-                post_process=True,
+                options={"post_process": True},
             )
         )[self.survey_answer_id.id]
         body = self.env["mail.template"]._render_template(
             template.body_html,
             "survey.user_input",
             [self.survey_answer_id.id],
-            post_process=True,
+            options={"post_process": True},
         )[self.survey_answer_id.id]
         # post the message
         mail_values = {
