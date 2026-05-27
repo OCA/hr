@@ -65,8 +65,8 @@ Authors
 Contributors
 ------------
 
--  Luis Escobar <lescobar@vauxoo.com>
--  Hugo Adan <hugo@vauxoo.com>
+- Luis Escobar <lescobar@vauxoo.com>
+- Hugo Adan <hugo@vauxoo.com>
 
 Maintainers
 -----------

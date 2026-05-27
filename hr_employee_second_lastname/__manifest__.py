@@ -8,7 +8,7 @@
     "license": "AGPL-3",
     "category": "Human Resources",
     "summary": "Split Name in First Name, Father's Last Name and Mother's Last Name",
-    "depends": ["hr_employee_firstname"],
+    "depends": ["hr_employee_firstname", "partner_second_lastname"],
     "data": ["views/hr_views.xml"],
     "post_init_hook": "post_init_hook",
     "demo": [],
