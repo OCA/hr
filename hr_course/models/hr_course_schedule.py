@@ -9,6 +9,7 @@ class HrCourseSchedule(models.Model):
     _description = "Course Schedule"
     _inherit = ["mail.thread", "mail.activity.mixin"]
     name = fields.Char(required=True, tracking=True)
+    code = fields.Char(string="Reference", copy=False, index="btree_not_null")
     course_id = fields.Many2one("hr.course", string="Course", required=True)
 
     start_date = fields.Date(
@@ -53,6 +54,43 @@ class HrCourseSchedule(models.Model):
         "hr.course.attendee", inverse_name="course_schedule_id"
     )
     note = fields.Text()
+
+    _sql_constraints = [
+        (
+            "hr_course_schedule_code_uniq",
+            "unique (code)",
+            "The reference must be unique!",
+        ),
+    ]
+
+    @api.depends("code", "name")
+    def _compute_display_name(self):
+        for record in self:
+            if record.code and record.name:
+                record.display_name = f"[{record.code}] {record.name}"
+            elif record.name:
+                record.display_name = record.name
+            else:
+                record.display_name = record.code or ""
+
+    @api.model
+    def name_search(self, name, args=None, operator="ilike", limit=100):
+        args = args or []
+        recs = self.search([("code", operator, name)] + args, limit=limit)
+        if not recs.ids:
+            return super().name_search(
+                name=name, args=args, operator=operator, limit=limit
+            )
+        return [(r.id, r.display_name) for r in recs]
+
+    @api.model_create_multi
+    def create(self, vals_list):
+        for vals in vals_list:
+            if not vals.get("code"):
+                vals["code"] = (
+                    self.env["ir.sequence"].next_by_code("hr.course.schedule") or ""
+                )
+        return super().create(vals_list)
 
     @api.constrains("start_date", "end_date")
     def _check_start_end_dates(self):

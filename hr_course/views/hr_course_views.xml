@@ -15,6 +15,7 @@
                     </div>
                     <group>
                         <group>
+                            <field name="code" />
                             <field name="category_id" />
                             <field name="permanence" />
                             <field name="permanence_time" invisible="not permanence" />
@@ -65,6 +66,7 @@
         <field name="model">hr.course</field>
         <field name="arch" type="xml">
             <tree>
+                <field name="code" optional="show" />
                 <field name="name" />
                 <field name="category_id" />
                 <field name="content" />

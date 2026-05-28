@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2024 Miquel Rosell
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo noupdate="1">
+    <record id="seq_hr_course" model="ir.sequence">
+        <field name="name">Course</field>
+        <field name="code">hr.course</field>
+        <field name="prefix">C</field>
+        <field name="padding">5</field>
+        <field name="company_id" eval="False" />
+    </record>
+
+    <record id="seq_hr_course_schedule" model="ir.sequence">
+        <field name="name">Course Schedule</field>
+        <field name="code">hr.course.schedule</field>
+        <field name="prefix">CS</field>
+        <field name="padding">5</field>
+        <field name="company_id" eval="False" />
+    </record>
+</odoo>

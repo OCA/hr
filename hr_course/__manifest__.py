@@ -13,6 +13,7 @@
     "data": [
         "security/course_security.xml",
         "security/ir.model.access.csv",
+        "data/hr_course_sequence.xml",
         "views/hr_course_category_views.xml",
         "views/hr_course_views.xml",
         "views/hr_course_schedule_views.xml",
