@@ -44,12 +44,12 @@ class Announcement(models.Model):
             ):
                 employee.user_id.unread_announcement_ids |= announcement
 
-    @api.model
-    def create(self, vals):
-        announcement = super().create(vals)
-        if vals.get("employee_ids"):
-            announcement._update_read_unread_announcements()
-        return announcement
+    @api.model_create_multi
+    def create(self, vals_list):
+        announcements = super().create(vals_list)
+        if any(vals.get("employee_ids") for vals in vals_list):
+            announcements._update_read_unread_announcements()
+        return announcements
 
     def write(self, vals):
         res = super().write(vals)
