@@ -1,7 +1,3 @@
-.. image:: https://odoo-community.org/readme-banner-image
-   :target: https://odoo-community.org/get-involved?utm_source=readme
-   :alt: Odoo Community Association
-
 =============
 Appraisal Oca
 =============
@@ -17,7 +13,7 @@ Appraisal Oca
 .. |badge1| image:: https://img.shields.io/badge/maturity-Beta-yellow.png
     :target: https://odoo-community.org/page/development-status
     :alt: Beta
-.. |badge2| image:: https://img.shields.io/badge/license-AGPL--3-blue.png
+.. |badge2| image:: https://img.shields.io/badge/licence-AGPL--3-blue.png
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fhr-lightgray.png?logo=github
@@ -147,6 +143,22 @@ click Restore.
 
 Archiving does not delete the record; you can archive or restore
 appraisals at any time.
+
+8. Email notifications in the appraisal workflow are configurable per
+appraisal.
+
+By default, email notifications are enabled. When the appraisal is
+confirmed, an email is sent to the employee and the assigned managers.
+Similarly, when the appraisal is marked as Done, completion emails are
+sent.
+
+If the **Send email notifications** option is disabled on the appraisal
+record, no automatic emails will be sent during confirmation or
+completion. All other workflow actions, such as state changes and
+activity creation, remain unchanged.
+
+This allows disabling notifications for specific appraisals without
+affecting the standard behavior for others.
 
 - Tip
 

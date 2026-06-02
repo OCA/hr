@@ -101,6 +101,11 @@ class HrAppraisal(models.Model):
     )
     tag_ids = fields.Many2many("hr.appraisal.tag", string="Tags")
     active = fields.Boolean(default=True)
+    send_email_notifications = fields.Boolean(
+        string="Send email notifications",
+        default=True,
+        help="If unchecked, no automatic emails will be sent in the evaluation flow.",
+    )
 
     @api.model
     def default_get(self, fields_list):
@@ -141,6 +146,14 @@ class HrAppraisal(models.Model):
                     vals.get("appraisal_manager_feedback_template") or ""
                 )
         return res
+
+    def _can_send_appraisal_email(self):
+        self.ensure_one()
+        # Permite sobreescribir por contexto en acciones puntuales:
+        # context['send_email_notifications'] = True/False
+        return self.env.context.get(
+            "send_email_notifications", self.send_email_notifications
+        )
 
     @api.model
     def _default_employee_id(self):
@@ -354,6 +367,9 @@ class HrAppraisal(models.Model):
         self.state = "1_new"
 
     def _send_email(self, recipient_users, template, email):
+        # Si está desactivado, no enviar correo (pero el resto del flujo sigue)
+        if not self._can_send_appraisal_email():
+            return
         if not email or not recipient_users:
             return
         ctx = {"recipient_users": recipient_users}

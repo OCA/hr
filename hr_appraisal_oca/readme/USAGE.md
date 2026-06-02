@@ -85,6 +85,19 @@ To restore an appraisal, open it (with the Archived filter active) and click Res
 
 Archiving does not delete the record; you can archive or restore appraisals at any time.
 
+8\. Email notifications in the appraisal workflow are configurable per appraisal.
+
+By default, email notifications are enabled. When the appraisal is confirmed,
+an email is sent to the employee and the assigned managers. Similarly, when
+the appraisal is marked as Done, completion emails are sent.
+
+If the **Send email notifications** option is disabled on the appraisal record,
+no automatic emails will be sent during confirmation or completion. All other
+workflow actions, such as state changes and activity creation, remain unchanged.
+
+This allows disabling notifications for specific appraisals without affecting
+the standard behavior for others.
+
 - Tip
 
 Modifications are not possible once the appraisal is marked as done.

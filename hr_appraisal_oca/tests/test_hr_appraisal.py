@@ -1,6 +1,8 @@
 # Copyright 2025 Fundación Esment - Estefanía Bauzá Illán
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
+from unittest.mock import patch
+
 from markupsafe import Markup
 
 from odoo.tests import new_test_user
@@ -118,3 +120,47 @@ class TestHrAppraisalEmployee(BaseCommon):
             self.appraisal.manager_feedback,
             Markup(self.template.appraisal_manager_feedback_template),
         )
+
+    def test_action_confirm_sends_notifications_when_enabled(self):
+        appraisal = self.appraisal.with_user(self.user_manager)
+        appraisal.write({"send_email_notifications": True})
+        with patch.object(
+            type(self.env["send.email.with.template"]),
+            "send_email_with_template",
+            autospec=True,
+        ) as mocked_send:
+            appraisal.action_confirm()
+        self.assertEqual(mocked_send.call_count, 2)
+
+    def test_action_confirm_does_not_send_notifications_when_disabled(self):
+        appraisal = self.appraisal.with_user(self.user_manager)
+        appraisal.write({"send_email_notifications": False})
+        with patch.object(
+            type(self.env["send.email.with.template"]),
+            "send_email_with_template",
+            autospec=True,
+        ) as mocked_send:
+            appraisal.action_confirm()
+        self.assertEqual(mocked_send.call_count, 0)
+
+    def test_action_done_does_not_send_notifications_when_disabled(self):
+        appraisal = self.appraisal.with_user(self.user_manager)
+        appraisal.write({"send_email_notifications": False})
+        with patch.object(
+            type(self.env["send.email.with.template"]),
+            "send_email_with_template",
+            autospec=True,
+        ) as mocked_send:
+            appraisal.action_done()
+        self.assertEqual(mocked_send.call_count, 0)
+
+    def test_context_can_override_send_email_notifications(self):
+        appraisal = self.appraisal.with_user(self.user_manager)
+        appraisal.write({"send_email_notifications": False})
+        with patch.object(
+            type(self.env["send.email.with.template"]),
+            "send_email_with_template",
+            autospec=True,
+        ) as mocked_send:
+            appraisal.with_context(send_email_notifications=True).action_confirm()
+        self.assertEqual(mocked_send.call_count, 2)

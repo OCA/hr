@@ -102,6 +102,12 @@
                             <field name="state" invisible="1" />
                             <field name="id" invisible="1" />
                             <field name="company_id" invisible="1" />
+                            <field
+                                name="send_email_notifications"
+                                widget="boolean_toggle"
+                                invisible="employee_user_id == uid"
+                                readonly="state == '3_done'"
+                            />
                             <field name="employee_domain_ids" invisible="1" />
                             <field
                                 name="company_id"

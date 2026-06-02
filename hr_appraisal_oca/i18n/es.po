@@ -778,6 +778,11 @@ msgid "If checked, some messages have a delivery error."
 msgstr "Si se encuentra seleccionado, algunos mensajes tienen error de envío."
 
 #. module: hr_appraisal_oca
+#: model:ir.model.fields,help:hr_appraisal_oca.field_hr_appraisal__send_email_notifications
+msgid "If unchecked, no automatic emails will be sent in the evaluation flow."
+msgstr "Si esta casilla no está marcada, no se enviarán correos electrónicos automáticos durante el proceso de valoración."
+
+#. module: hr_appraisal_oca
 #: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_template__is_default
 msgid "Is Default"
 msgstr "Por defecto"
@@ -1049,6 +1054,11 @@ msgstr "Enviar"
 #: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_form_view
 msgid "Send by email"
 msgstr "Enviar por correo electrónico"
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__send_email_notifications
+msgid "Send email notifications"
+msgstr "Enviar notificaciones"
 
 #. module: hr_appraisal_oca
 #: model:ir.model,name:hr_appraisal_oca.model_send_email_with_template
