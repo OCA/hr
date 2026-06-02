@@ -7,7 +7,7 @@ from odoo import fields, models
 class HrEmployeeBase(models.AbstractModel):
     """Enhance the features of the employee using Number details."""
 
-    _inherit = "hr.employee.base"
+    _inherit = "hr.employee"
 
     internal_number = fields.Char(help="Internal phone number.")
     short_number = fields.Char(help="Short phone number.")
