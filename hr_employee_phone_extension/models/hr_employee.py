@@ -4,8 +4,10 @@
 from odoo import fields, models
 
 
-class HrEmployeePublic(models.AbstractModel):
-    _inherit = "hr.employee.public"
+class HrEmployee(models.Model):
+    """Enhance the features of the employee using Number details."""
 
-    internal_number = fields.Char(related="employee_id.internal_number", readonly=True)
-    short_number = fields.Char(related="employee_id.short_number", readonly=True)
+    _inherit = "hr.employee"
+
+    internal_number = fields.Char(help="Internal phone number.")
+    short_number = fields.Char(help="Short phone number.")
