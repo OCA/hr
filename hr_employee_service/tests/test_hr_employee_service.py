@@ -13,6 +13,7 @@ from odoo.tests import common
 class TestHrEmployeeService(common.TransactionCase):
     def setUp(self):
         super().setUp()
+        self.env = self.env(context=dict(self.env.context, tracking_disable=True))
 
         self.today = fields.Date.today()
         self.now = fields.Datetime.now()
