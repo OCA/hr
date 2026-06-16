@@ -9,15 +9,16 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-11-28 01:43+0000\n"
-"PO-Revision-Date: 2017-11-28 01:43+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
+"PO-Revision-Date: 2026-06-16 19:46+0000\n"
+"Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
 "Language-Team: Slovenian (https://www.transifex.com/oca/teams/23907/sl/)\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
-"n%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: hr_employee_id
 #: model:ir.model.fields,field_description:hr_employee_id.field_res_company__employee_id_random_digits
@@ -33,7 +34,7 @@ msgstr "Družbe"
 #. module: hr_employee_id
 #: model:ir.model,name:hr_employee_id.model_res_config_settings
 msgid "Config Settings"
-msgstr ""
+msgstr "Nastavitve"
 
 #. module: hr_employee_id
 #: model:ir.model,name:hr_employee_id.model_hr_employee
@@ -42,42 +43,38 @@ msgstr "Kader"
 
 #. module: hr_employee_id
 #: model_terms:ir.ui.view,arch_db:hr_employee_id.res_config_settings_view_form
-#, fuzzy
 msgid "Employee Identifier"
-msgstr "ID kadra"
+msgstr "ID zaposlenega"
 
 #. module: hr_employee_id
 #: model:ir.model.fields,field_description:hr_employee_id.field_res_company__employee_id_gen_method
 #: model:ir.model.fields,field_description:hr_employee_id.field_res_config_settings__employee_id_gen_method
-#, fuzzy
 msgid "Generation Method"
-msgstr "Metoda ustvarjanja ID"
+msgstr "Metoda ustvarjanja"
 
 #. module: hr_employee_id
 #: model:ir.model.fields,field_description:hr_employee_id.field_hr_employee__identification_id
 #: model_terms:ir.ui.view,arch_db:hr_employee_id.view_employee_form
 msgid "Identification No"
-msgstr ""
+msgstr "Identifikacijska št."
 
 #. module: hr_employee_id
 #: model:ir.model.fields,field_description:hr_employee_id.field_res_company__employee_id_sequence
 #: model:ir.model.fields,field_description:hr_employee_id.field_res_config_settings__employee_id_sequence
 msgid "Identifier Sequence"
-msgstr ""
+msgstr "Zaporedje identifikatorjev"
 
 #. module: hr_employee_id
 #: model:ir.model.fields,help:hr_employee_id.field_res_company__employee_id_random_digits
 #: model:ir.model.fields,help:hr_employee_id.field_res_config_settings__employee_id_random_digits
-#, fuzzy
 msgid "Number of digits in employee identifier"
-msgstr "Število znakov, ki sestavlja ID"
+msgstr "Število znakov, ki sestavljajo ID zaposlenega"
 
 #. module: hr_employee_id
 #: model:ir.model.fields,help:hr_employee_id.field_res_company__employee_id_sequence
 #: model:ir.model.fields,help:hr_employee_id.field_res_config_settings__employee_id_sequence
-#, fuzzy
 msgid "Pattern to be used for employee identifier generation"
-msgstr "Vzorec uporabljen za ustvarjanje ID"
+msgstr "Vzorec uporabljen za ustvarjanje ID zaposlenega"
 
 #. module: hr_employee_id
 #: model:ir.model.fields.selection,name:hr_employee_id.selection__res_company__employee_id_gen_method__random
@@ -88,6 +85,8 @@ msgstr "Naključno"
 #: model_terms:ir.ui.view,arch_db:hr_employee_id.res_config_settings_view_form
 msgid "Select &amp; configure default employee identifier generation scheme"
 msgstr ""
+"Izberite in nastavite privzeti sistem za ustvarjanje identifikatorjev "
+"zaposlenih"
 
 #. module: hr_employee_id
 #: model:ir.model.fields.selection,name:hr_employee_id.selection__res_company__employee_id_gen_method__sequence
@@ -104,11 +103,13 @@ msgstr "Številka kadra mora biti unikatna v sklopu družbe (družb)."
 #: code:addons/hr_employee_id/models/hr_employee.py:0
 msgid "Unable to generate unique Employee ID in %d steps."
 msgstr ""
+"V %d korakih ni bilo mogoče ustvariti edinstvene identifikacijske številke "
+"zaposlenega."
 
 #. module: hr_employee_id
 #: model_terms:ir.ui.view,arch_db:hr_employee_id.res_config_settings_view_form
 msgid "Values set here are company-specific."
-msgstr ""
+msgstr "Vrednosti, nastavljene tukaj, so specifične za družbo."
 
 #~ msgid "Created by"
 #~ msgstr "Ustvaril"
