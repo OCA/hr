@@ -8,26 +8,27 @@ msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-08-18 13:10+0000\n"
-"PO-Revision-Date: 2015-08-01 15:45+0000\n"
-"Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>\n"
+"PO-Revision-Date: 2026-06-16 19:46+0000\n"
+"Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
 "Language-Team: Slovenian (http://www.transifex.com/oca/OCA-hr-8-0/language/"
 "sl/)\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
-"n%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: hr_contract_reference
 #: model:ir.model,name:hr_contract_reference.model_hr_contract
 msgid "Contract"
-msgstr ""
+msgstr "Pogodba"
 
 #. module: hr_contract_reference
 #: model:ir.model.fields,field_description:hr_contract_reference.field_hr_contract__name
 msgid "Contract Reference"
-msgstr ""
+msgstr "Sklic pogodbe"
 
 #, fuzzy
 #~ msgid "Employee Contract"
