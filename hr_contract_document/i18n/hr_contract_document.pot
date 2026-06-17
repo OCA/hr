@@ -1,0 +1,50 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* hr_contract_document
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hr_contract_document
+#: model_terms:ir.ui.view,arch_db:hr_contract_document.ir_attachment_view_search
+msgid "Content"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract__documents_count
+msgid "Document Count"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract__document_ids
+#: model_terms:ir.ui.view,arch_db:hr_contract_document.hr_contract_view_form
+msgid "Documents"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model,name:hr_contract_document.model_hr_contract
+msgid "Employee Contract"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract__id
+msgid "ID"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract____last_update
+msgid "Last Modified on"
+msgstr ""
