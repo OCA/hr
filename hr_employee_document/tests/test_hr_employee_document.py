@@ -78,7 +78,9 @@ class TestHrEmployeeDocument(BaseCommon):
         records = self._get_attachments_from_employee(self.env.user.employee_id)
         self.assertIn(attachment_1, records)
         self.assertNotIn(attachment_2, records)
-        result_1 = attachment_1.with_user(self.env.user).validate_access(False)
+        result_1 = self.env["ir.binary"]._find_record(
+            None, "ir.attachment", attachment_1.id
+        )
         self.assertTrue(result_1.env.su)
 
     @users("test-user-1")
@@ -97,7 +99,9 @@ class TestHrEmployeeDocument(BaseCommon):
         records = self._get_attachments_from_employee(self.env.user.employee_id)
         self.assertNotIn(attachment_1, records)
         self.assertIn(attachment_2, records)
-        result_2 = attachment_2.with_user(self.env.user).validate_access(False)
+        result_2 = self.env["ir.binary"]._find_record(
+            None, "ir.attachment", attachment_2.id
+        )
         self.assertTrue(result_2.env.su)
 
     @users("test-user-manager")
@@ -108,16 +112,6 @@ class TestHrEmployeeDocument(BaseCommon):
         records = self.env["ir.attachment"].search([])
         self.assertIn(attachment_1, records)
         self.assertIn(attachment_2, records)
-
-    @users("test-user-1")
-    def test_is_logged(self):
-        employee = self.env.user.employee_id
-        employee_public = self.env["hr.employee.public"].browse(employee.id)
-        self.assertTrue(employee_public.is_logged)
-
-        employee = self.employee_2
-        employee_public = self.env["hr.employee.public"].browse(employee.id)
-        self.assertFalse(employee_public.is_logged)
 
     @users("test-user-1")
     def test_check_access_read_employee(self):

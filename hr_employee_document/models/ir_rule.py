@@ -2,7 +2,7 @@
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
 from odoo import api, models, tools
-from odoo.osv import expression
+from odoo.fields import Domain
 from odoo.tools import config
 
 
@@ -31,6 +31,5 @@ class IrRule(models.Model):
             and not user.has_group("hr.group_hr_manager")
             and self.env.context.get("search_attachments_from_hr_employee")
         ):
-            extra_domain = [[("id", "in", user.employee_ids.ids)]]
-            res = expression.AND(extra_domain + [res])
+            res = Domain.AND([Domain("id", "in", user.employee_ids.ids), res])
         return res
