@@ -20,9 +20,9 @@
                     <field name="document_count" widget="statinfo" string="Documents" />
                 </button>
             </div>
-            <xpath expr="//chatter" position="before">
-                <div class="o_attachment_preview" />
-            </xpath>
+            <chatter position="attributes">
+                <attribute name="reload_on_attachment">True</attribute>
+            </chatter>
         </field>
     </record>
     <record id="ir_attachment_view_search" model="ir.ui.view">

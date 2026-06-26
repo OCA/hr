@@ -7,17 +7,11 @@ from odoo import models
 class IrAttachment(models.Model):
     _inherit = "ir.attachment"
 
-    def validate_access(self, access_token):
-        """It is important to override this method so that employee attachments
-        can be previewed
-        """
-        res = super().validate_access(access_token)
-        record_sudo = res.sudo()
+    def _can_return_content(self, field_name=None, access_token=None):
         if (
-            res
-            and record_sudo.res_model == "hr.employee"
-            and record_sudo.res_id
-            and record_sudo.res_id in self.env.user.employee_ids.ids
+            self.res_model == "hr.employee"
+            and self.res_id
+            and self.res_id in self.env.user.employee_ids.ids
         ):
-            res = record_sudo
-        return res
+            return True
+        return super()._can_return_content(field_name, access_token)
