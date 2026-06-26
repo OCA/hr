@@ -11,7 +11,6 @@
             </xpath>
         </field>
     </record>
-
     <record model="ir.ui.view" id="hr_contract_employee_calendar_history_form">
         <field name="name">hr.contract.employee.calendar.planning.history.form</field>
         <field name="model">hr.contract.history</field>
