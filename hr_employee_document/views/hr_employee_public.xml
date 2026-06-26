@@ -9,7 +9,7 @@
         <field name="model">hr.employee.public</field>
         <field name="inherit_id" ref="hr.hr_employee_public_view_form" />
         <field name="arch" type="xml">
-            <field name="user_id" position="after">
+            <field name="parent_id" position="after">
                 <field name="is_logged" invisible="1" />
             </field>
             <div name="button_box" position="inside">

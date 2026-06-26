@@ -2,12 +2,14 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from odoo import fields, models
+from odoo.fields import Domain
 
 
 class HrEmployeePublic(models.Model):
     _inherit = "hr.employee.public"
 
     is_logged = fields.Boolean(compute="_compute_is_logged", store=False)
+    document_count = fields.Integer(related="employee_id.document_count")
 
     def _compute_is_logged(self):
         self.is_logged = False
@@ -22,10 +24,12 @@ class HrEmployeePublic(models.Model):
             "default_res_id": self.env.user.employee_id.id,
             "search_attachments_from_hr_employee": True,
         }
-        action["domain"] = [
-            ("res_model", "=", "hr.employee"),
-            ("res_id", "=", self.env.user.employee_id.id),
-        ]
+        action["domain"] = Domain(
+            [
+                ("res_model", "=", "hr.employee"),
+                ("res_id", "=", self.env.user.employee_id.id),
+            ]
+        )
         action["search_view_id"] = (
             self.env.ref("hr_employee_document.ir_attachment_view_search").id,
         )

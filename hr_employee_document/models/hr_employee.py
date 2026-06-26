@@ -3,10 +3,11 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from odoo import api, fields, models
+from odoo.fields import Domain
 
 
-class HrEmployeeBase(models.AbstractModel):
-    _inherit = "hr.employee.base"
+class HrEmployee(models.Model):
+    _inherit = "hr.employee"
 
     document_count = fields.Integer(
         compute="_compute_document_count",
@@ -15,7 +16,7 @@ class HrEmployeeBase(models.AbstractModel):
     def _compute_document_count(self):
         self.document_count = 0
         results = self.env["ir.attachment"]._read_group(
-            [("res_model", "=", "hr.employee"), ("res_id", "in", self.ids)],
+            Domain([("res_model", "=", "hr.employee"), ("res_id", "in", self.ids)]),
             groupby=["res_id"],
             aggregates=["__count"],
         )
@@ -47,7 +48,9 @@ class HrEmployeeBase(models.AbstractModel):
             "default_res_id": self.ids[0],
             "search_attachments_from_hr_employee": True,
         }
-        action["domain"] = [("res_model", "=", self._name), ("res_id", "in", self.ids)]
+        action["domain"] = Domain(
+            [("res_model", "=", self._name), ("res_id", "in", self.ids)]
+        )
         action["search_view_id"] = (
             self.env.ref("hr_employee_document.ir_attachment_view_search").id,
         )
