@@ -3,11 +3,15 @@ import logging
 _logger = logging.getLogger(__name__)
 
 
+<<<<<<< HEAD
 def post_init_hook(env, employees=None):
     """Migrate calendars from contracts to calendar_ids
+=======
+def post_init_hook(env):
+    """Migrate calendars from versions to calendar_ids
+>>>>>>> 9c7c04cf ([IMP] hr_contract_employee_calendar_planning: Improve tests)
     to have consistent work schedule history"""
-    if not employees:
-        employees = env["hr.employee"].with_context(active_test=False).search([])
+    employees = env["hr.employee"].with_context(active_test=False).search([])
 
     for employee in employees.filtered("contract_ids"):
         contract_calendar_lines = []
