@@ -1,14 +1,14 @@
 import logging
 
+from odoo import Command
+
 _logger = logging.getLogger(__name__)
 
 
-def post_init_hook(env, employees=None):
+def post_init_hook(env):
     """Migrate calendars from contracts to calendar_ids
     to have consistent work schedule history"""
-    if not employees:
-        employees = env["hr.employee"].with_context(active_test=False).search([])
-
+    employees = env["hr.employee"].with_context(active_test=False).search([])
     for employee in employees.filtered("contract_ids"):
         contract_calendar_lines = []
         for contract in employee.contract_ids.sorted("date_start"):
@@ -53,9 +53,7 @@ def post_init_hook(env, employees=None):
                     f"from {date_start} to {date_end}"
                 )
                 contract_calendar_lines.append(
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "date_start": date_start,
                             "date_end": date_end,
@@ -65,6 +63,5 @@ def post_init_hook(env, employees=None):
                 )
 
         employee.calendar_ids = contract_calendar_lines
-
         # set correct calendar in contract
         employee.contract_id.resource_calendar_id = employee.resource_calendar_id

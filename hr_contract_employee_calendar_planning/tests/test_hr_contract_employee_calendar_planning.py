@@ -1,113 +1,160 @@
-from datetime import datetime
+# Copyright 2026 Tecnativa - Víctor Martínez
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-from odoo.addons.hr_contract.tests.common import TestContractCommon
+
+from odoo import Command, fields
+from odoo.tools import mute_logger
+
+from odoo.addons.hr_employee_calendar_planning.tests import (
+    test_hr_employee_calendar_planning,
+)
 
 from ..hooks import post_init_hook
 
 
-class TestHrContractEmployeeCalendarPlanning(TestContractCommon):
-    def test_calendar_migration_from_contracts(self):
-        self.env = self.env(
-            context=dict(
-                self.env.context,
-                mail_create_nolog=True,
-                mail_create_nosubscribe=True,
-                mail_notrack=True,
-                no_reset_password=True,
-                tracking_disable=True,
-            )
-        )
-
-        # newly created contracts get the same calendar as the employee
-        self.employee.resource_calendar_id = self.env.ref(
-            "resource.resource_calendar_std"
-        )
-        self.env["hr.contract"].create(
+class TestHrContractEmployeeCalendarPlanning(
+    test_hr_employee_calendar_planning.TestHrEmployeeCalendarPlanningCommon
+):
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        cls.employee.calendar_ids = [
+            Command.create(
+                {"date_start": "2019-12-31", "calendar_id": cls.calendar1.id}
+            ),
+        ]
+        cls.contract_1 = cls.env["hr.contract"].create(
             {
-                "name": "contract1",
+                "name": "Test contract1",
                 "wage": 1,
                 "state": "close",
-                "employee_id": self.employee.id,
-                "date_start": datetime.strptime("2018-11-30", "%Y-%m-%d").date(),
-                "date_end": datetime.strptime("2019-11-30", "%Y-%m-%d").date(),
+                "employee_id": cls.employee.id,
+                "date_start": "2018-11-30",
+                "date_end": "2019-11-30",
+                "resource_calendar_id": cls.employee.resource_calendar_id.id,
             }
         )
-        self.employee.resource_calendar_id = self.env.ref(
-            "resource.resource_calendar_std_35h"
-        )
-        self.env["hr.contract"].create(
+        cls.contract_2 = cls.env["hr.contract"].create(
             {
-                "name": "contract2",
+                "name": "Test contract2",
+                "wage": 1,
+                "state": "open",
+                "employee_id": cls.employee.id,
+                "date_start": "2019-12-01",
+                "resource_calendar_id": cls.employee.resource_calendar_id.id,
+            }
+        )
+
+    @mute_logger("odoo.models.unlink")
+    def test_change_employee_calendar(self):
+        old_calendar = self.employee.resource_calendar_id
+        self.employee.calendar_ids.filtered(
+            lambda x: x.calendar_id == self.calendar1
+        ).write({"date_end": "2019-12-31"})
+        self.employee.calendar_ids = [
+            Command.create(
+                {"date_start": "2020-01-01", "calendar_id": self.calendar2.id}
+            ),
+        ]
+        self.assertEqual(self.contract_1.resource_calendar_id, old_calendar)
+        self.assertEqual(
+            self.contract_2.resource_calendar_id, self.employee.resource_calendar_id
+        )
+
+    @mute_logger("odoo.models.unlink")
+    def test_calendar_migration_from_contracts_01(self):
+        # date_start from contract1 to avoid overlapping log
+        self.employee.calendar_ids.filtered(
+            lambda x: x.calendar_id == self.calendar1
+        ).write({"date_start": "2018-11-30"})
+        self.assertEqual(len(self.employee.calendar_ids), 1)
+        # Force to incorrect calendar to contracts
+        self.env.cr.execute(
+            f"UPDATE hr_contract SET resource_calendar_id = {self.calendar1.id} WHERE id = {self.contract_1.id}"  # noqa: E501
+        )
+        self.env.cr.execute(
+            f"UPDATE hr_contract SET resource_calendar_id = {self.calendar2.id} WHERE id = {self.contract_2.id}"  # noqa: E501
+        )
+        # calendar migration from contracts
+        old_calendars = self.employee.calendar_ids
+        post_init_hook(self.env)
+        self.assertEqual(len(self.employee.calendar_ids), 2)
+        self.assertEqual(old_calendars.calendar_id, self.calendar1)
+        self.assertEqual(
+            old_calendars.date_start, fields.Date.from_string("2018-11-30")
+        )
+        self.assertEqual(old_calendars.date_end, fields.Date.from_string("2019-11-30"))
+        new_calendars = self.employee.calendar_ids - old_calendars
+        self.assertEqual(len(new_calendars), 1)
+        self.assertEqual(new_calendars.calendar_id, self.calendar2)
+        self.assertEqual(
+            new_calendars.date_start, fields.Date.from_string("2019-12-01")
+        )
+        self.assertFalse(new_calendars.date_end)
+
+    @mute_logger("odoo.models.unlink")
+    def test_calendar_migration_from_contracts_02(self):
+        # set calendar to before contract dates
+        self.employee.calendar_ids.filtered(
+            lambda x: x.calendar_id == self.calendar1
+        ).write({"date_start": False, "date_end": "2018-11-29"})
+        self.assertEqual(len(self.employee.calendar_ids), 1)
+        # Force to incorrect calendar to contracts
+        self.env.cr.execute(
+            f"UPDATE hr_contract SET resource_calendar_id = {self.calendar1.id} WHERE id = {self.contract_1.id}"  # noqa: E501
+        )
+        self.env.cr.execute(
+            f"UPDATE hr_contract SET resource_calendar_id = {self.calendar2.id} WHERE id = {self.contract_2.id}"  # noqa: E501
+        )
+        # calendar migration from contracts
+        old_calendars = self.employee.calendar_ids
+        post_init_hook(self.env)
+        self.assertEqual(len(self.employee.calendar_ids), 3)
+        self.assertEqual(old_calendars.calendar_id, self.calendar1)
+        self.assertFalse(old_calendars.date_start)
+        self.assertEqual(old_calendars.date_end, fields.Date.from_string("2018-11-29"))
+        new_calendars = self.employee.calendar_ids - old_calendars
+        self.assertEqual(len(new_calendars), 2)
+        new_calendars_1 = new_calendars.filtered(
+            lambda x: x.calendar_id == self.calendar1
+        )
+        self.assertEqual(len(new_calendars_1), 1)
+        self.assertEqual(
+            new_calendars_1.date_start, fields.Date.from_string("2018-11-30")
+        )
+        self.assertEqual(
+            new_calendars_1.date_end, fields.Date.from_string("2019-11-30")
+        )
+        new_calendars_2 = new_calendars.filtered(
+            lambda x: x.calendar_id == self.calendar2
+        )
+        self.assertEqual(len(new_calendars_2), 1)
+        self.assertEqual(
+            new_calendars_2.date_start, fields.Date.from_string("2019-12-01")
+        )
+        self.assertFalse(new_calendars_2.date_end)
+
+    def test_contract_create_write(self):
+        self.contract_2.write(
+            {
+                "state": "close",
+                "date_end": "2019-12-31",
+            }
+        )
+        contract = self.env["hr.contract"].create(
+            {
+                "name": "Test open contract",
                 "wage": 1,
                 "state": "open",
                 "employee_id": self.employee.id,
-                "date_start": datetime.strptime("2019-12-01", "%Y-%m-%d").date(),
-                "date_end": datetime.strptime("2020-11-30", "%Y-%m-%d").date(),
+                "date_start": "2020-01-01",
+                "resource_calendar_id": self.calendar2.id,
             }
         )
-        self.employee.calendar_ids.unlink()
-        calendar_ids = self.env["hr.employee.calendar"].create(
-            [
-                {
-                    "date_start": False,
-                    "date_end": datetime.strptime("2020-11-30", "%Y-%m-%d").date(),
-                    "calendar_id": 2,
-                    "employee_id": self.employee.id,
-                },
-                {
-                    "date_start": datetime.strptime("2020-12-01", "%Y-%m-%d").date(),
-                    "date_end": False,
-                    "calendar_id": 1,
-                    "employee_id": self.employee.id,
-                },
-            ]
-        )
-        start_dt = datetime(2019, 1, 1, 0, 0, 0)
-        end_dt = datetime(2019, 1, 2, 0, 0, 0)
-        self.assertEqual(
-            7.0,
-            self.employee.resource_calendar_id.get_work_hours_count(
-                start_dt=start_dt,
-                end_dt=end_dt,
-            ),
-        )
-        # calendar migration from contracts
-        post_init_hook(self.env, self.employee)
-        self.assertEqual(
-            8.0,
-            self.employee.resource_calendar_id.get_work_hours_count(
-                start_dt=start_dt,
-                end_dt=end_dt,
-            ),
-        )
-        self.assertTrue(calendar_ids.ids < self.employee.calendar_ids.ids)
-
-    def test_contract_create_write(self):
-        self.employee.resource_calendar_id = self.env["resource.calendar"].browse([1])
-        contract = self.env["hr.contract"].create(
-            {
-                "name": "contract1",
-                "wage": 1,
-                "state": "close",
-                "employee_id": self.employee.id,
-                "date_start": datetime.strptime("2018-11-30", "%Y-%m-%d").date(),
-                "date_end": datetime.strptime("2019-11-30", "%Y-%m-%d").date(),
-                "resource_calendar_id": self.env["resource.calendar"].browse([2]).id,
-            }
-        )
-        self.assertEqual(self.employee.resource_calendar_id.id, 1)
-        contract.write(
-            {
-                "resource_calendar_id": self.env["resource.calendar"].browse([2]).id,
-            }
-        )
-        self.assertEqual(self.employee.resource_calendar_id.id, 1)
+        self.assertNotEqual(self.employee.resource_calendar_id, self.calendar2)
+        contract.write({"resource_calendar_id": self.calendar2.id})
+        self.assertNotEqual(self.employee.resource_calendar_id, self.calendar2)
 
     def test_contract_write(self):
-        self.employee.resource_calendar_id = self.env["resource.calendar"].browse([1])
-        self.env["hr.contract"].write(
-            {
-                "resource_calendar_id": 2,
-            }
-        )
-        self.assertEqual(self.employee.resource_calendar_id.id, 1)
+        self.contract_2.write({"resource_calendar_id": self.calendar2.id})
+        self.assertNotEqual(self.employee.resource_calendar_id, self.calendar2)
