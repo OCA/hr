@@ -1,7 +1,3 @@
-.. image:: https://odoo-community.org/readme-banner-image
-   :target: https://odoo-community.org/get-involved?utm_source=readme
-   :alt: Odoo Community Association
-
 =============
 Appraisal Oca
 =============
@@ -17,7 +13,7 @@ Appraisal Oca
 .. |badge1| image:: https://img.shields.io/badge/maturity-Beta-yellow.png
     :target: https://odoo-community.org/page/development-status
     :alt: Beta
-.. |badge2| image:: https://img.shields.io/badge/license-AGPL--3-blue.png
+.. |badge2| image:: https://img.shields.io/badge/licence-AGPL--3-blue.png
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fhr-lightgray.png?logo=github
@@ -69,10 +65,30 @@ categorize the appraisal.
 Once the form is complete, click the Confirm button to confirm the
 appraisal request.
 
-Once confirmed, the employee receives an email stating that an appraisal
-was requested, and is then prompted to schedule an appraisal date. The
-next steps require the employee to fill out the self-assessment, after
-which the manager completes their assessment.
+Visibility control
+------------------
+
+Appraisals include a visibility option that allows restricting access to
+managers only.
+
+- **Visible to all**: standard behavior. The employee and assigned
+  managers can access the appraisal.
+- **Visible to managers**: the appraisal is only visible to the assigned
+  managers and HR officers.
+
+When the visibility is set to **Visible to managers**:
+
+- The employee cannot see the appraisal in any view (kanban, list or
+  form).
+- No activities are created for the employee.
+- No automatic notifications are sent to the employee.
+
+This allows creating confidential appraisals visible only to managers.
+
+Once confirmed, the employee may receive an email depending on the
+visibility configuration and is then prompted to schedule an appraisal
+date. The next steps require the employee to fill out the
+self-assessment, after which the manager completes their assessment.
 
 The status changes to Confirmed, and the Employee’s Feedback section of
 the Appraisal tab is grayed out. The information in that section only

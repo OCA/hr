@@ -15,9 +15,26 @@ appraisal. \* Appraisal Tags: Add any relevant tags to categorize the appraisal.
 
 Once the form is complete, click the Confirm button to confirm the appraisal request.
 
-Once confirmed, the employee receives an email stating that an appraisal was requested,
-and is then prompted to schedule an appraisal date. The next steps require the employee
-to fill out the self-assessment, after which the manager completes their assessment.
+Visibility control
+------------------
+
+Appraisals include a visibility option that allows restricting access to managers only.
+
+- **Visible to all**: standard behavior. The employee and assigned managers can access the appraisal.
+- **Visible to managers**: the appraisal is only visible to the assigned managers and HR officers.
+
+When the visibility is set to **Visible to managers**:
+
+- The employee cannot see the appraisal in any view (kanban, list or form).
+- No activities are created for the employee.
+- No automatic notifications are sent to the employee.
+
+This allows creating confidential appraisals visible only to managers.
+
+Once confirmed, the employee may receive an email depending on the visibility configuration
+and is then prompted to schedule an appraisal date.
+The next steps require the employee to fill out the self-assessment, after which the manager
+completes their assessment.
 
 The status changes to Confirmed, and the Employee’s Feedback section of the Appraisal
 tab is grayed out. The information in that section only appears after the
