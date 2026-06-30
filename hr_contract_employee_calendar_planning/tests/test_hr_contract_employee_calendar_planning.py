@@ -13,7 +13,7 @@ from ..hooks import post_init_hook
 
 
 class TestHrContractEmployeeCalendarPlanning(
-    test_hr_employee_calendar_planning.TestHrEmployeeCalendarPlanningCommon
+    test_hr_employee_calendar_planning.TestHrEmployeeCalendarPlanning
 ):
     @classmethod
     def setUpClass(cls):
@@ -72,9 +72,11 @@ class TestHrContractEmployeeCalendarPlanning(
         self.env.cr.execute(
             f"UPDATE hr_contract SET resource_calendar_id = {self.calendar1.id} WHERE id = {self.contract_1.id}"  # noqa: E501
         )
+        self.contract_1.invalidate_recordset(["resource_calendar_id"])
         self.env.cr.execute(
             f"UPDATE hr_contract SET resource_calendar_id = {self.calendar2.id} WHERE id = {self.contract_2.id}"  # noqa: E501
         )
+        self.contract_2.invalidate_recordset(["resource_calendar_id"])
         # calendar migration from contracts
         old_calendars = self.employee.calendar_ids
         post_init_hook(self.env)
@@ -103,9 +105,11 @@ class TestHrContractEmployeeCalendarPlanning(
         self.env.cr.execute(
             f"UPDATE hr_contract SET resource_calendar_id = {self.calendar1.id} WHERE id = {self.contract_1.id}"  # noqa: E501
         )
+        self.contract_1.invalidate_recordset(["resource_calendar_id"])
         self.env.cr.execute(
             f"UPDATE hr_contract SET resource_calendar_id = {self.calendar2.id} WHERE id = {self.contract_2.id}"  # noqa: E501
         )
+        self.contract_2.invalidate_recordset(["resource_calendar_id"])
         # calendar migration from contracts
         old_calendars = self.employee.calendar_ids
         post_init_hook(self.env)
