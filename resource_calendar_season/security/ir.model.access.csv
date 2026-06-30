@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_resource_calendar_season_user,resource.calendar.season user,model_resource_calendar_season,base.group_user,1,0,0,0
+access_resource_calendar_season_manager,resource.calendar.season manager,model_resource_calendar_season,base.group_system,1,1,1,1
