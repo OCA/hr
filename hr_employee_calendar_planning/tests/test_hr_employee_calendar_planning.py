@@ -2,7 +2,7 @@
 # Copyright 2021-2025 Tecnativa - Víctor Martínez
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-from odoo import exceptions, fields
+from odoo import Command, exceptions, fields
 from odoo.tests import new_test_user
 from odoo.tools import mute_logger
 
@@ -11,7 +11,7 @@ from odoo.addons.base.tests.common import BaseCommon
 from ..hooks import post_init_hook
 
 
-class TestHrEmployeeCalendarPlanning(BaseCommon):
+class TestHrEmployeeCalendarPlanningCommon(BaseCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -24,9 +24,7 @@ class TestHrEmployeeCalendarPlanning(BaseCommon):
         )
         for day in range(5):  # From monday to friday
             cls.calendar1.attendance_ids = [
-                (
-                    0,
-                    0,
+                Command.create(
                     {
                         "name": "Attendance",
                         "dayofweek": str(day),
@@ -34,9 +32,7 @@ class TestHrEmployeeCalendarPlanning(BaseCommon):
                         "hour_to": "12",
                     },
                 ),
-                (
-                    0,
-                    0,
+                Command.create(
                     {
                         "name": "Attendance",
                         "dayofweek": str(day),
@@ -46,9 +42,7 @@ class TestHrEmployeeCalendarPlanning(BaseCommon):
                 ),
             ]
             cls.calendar2.attendance_ids = [
-                (
-                    0,
-                    0,
+                Command.create(
                     {
                         "name": "Attendance",
                         "dayofweek": str(day),
@@ -89,12 +83,16 @@ class TestHrEmployeeCalendarPlanning(BaseCommon):
             }
         )
         cls.calendar1.global_leave_ids = [
-            (6, 0, [cls.global_leave1.id, cls.global_leave2.id])
+            Command.set([cls.global_leave1.id, cls.global_leave2.id])
         ]
-        cls.calendar2.global_leave_ids = [(6, 0, [cls.global_leave3.id])]
+        cls.calendar2.global_leave_ids = [Command.set(cls.global_leave3.ids)]
         # By default a calendar_ids is set, we remove it to better clarify the tests.
-        cls.employee.write({"calendar_ids": [(2, cls.employee.calendar_ids.id)]})
+        cls.employee.write(
+            {"calendar_ids": [Command.delete(cls.employee.calendar_ids.id)]}
+        )
 
+
+class TestHrEmployeeCalendarPlanning(TestHrEmployeeCalendarPlanningCommon):
     @mute_logger("odoo.models.unlink")
     def test_calendar_planning(self):
         self.employee.calendar_ids = [
