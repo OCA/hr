@@ -80,16 +80,35 @@ class TestHrAppraisalEmployee(BaseCommon):
         self.assertEqual(self.appraisal.appraisal_template_id, self.template)
         self.assertIn(self.tag, self.appraisal.tag_ids)
 
-    def test_action_confirm(self):
+    def test_action_confirm_visibility_all(self):
         appraisal = self.appraisal.with_user(self.user_manager)
+        appraisal.visibility = "all"
         appraisal.action_confirm()
         self.assertEqual(appraisal.state, "2_pending")
         self.assertFalse(appraisal.employee_feedback_published)
         self.assertFalse(appraisal.manager_feedback_published)
         self.assertEqual(len(appraisal.activity_ids), 2)
 
+    def test_action_confirm_visibility_manager(self):
+        appraisal = self.appraisal.with_user(self.user_manager)
+        appraisal.visibility = "manager"
+        appraisal.action_confirm()
+        self.assertEqual(appraisal.state, "2_pending")
+        self.assertEqual(len(appraisal.activity_ids), 1)
+        activity = appraisal.activity_ids[0]
+        self.assertEqual(activity.user_id, self.user_manager)
+
     def test_action_done(self):
         appraisal = self.appraisal.with_user(self.user_manager)
+        appraisal.action_confirm()
+        appraisal.action_done()
+        self.assertEqual(appraisal.state, "3_done")
+        self.assertTrue(appraisal.employee_feedback_published)
+        self.assertTrue(appraisal.manager_feedback_published)
+
+    def test_action_done_visibility_manager(self):
+        appraisal = self.appraisal.with_user(self.user_manager)
+        appraisal.visibility = "manager"
         appraisal.action_confirm()
         appraisal.action_done()
         self.assertEqual(appraisal.state, "3_done")

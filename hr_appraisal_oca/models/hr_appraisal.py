@@ -102,6 +102,23 @@ class HrAppraisal(models.Model):
     tag_ids = fields.Many2many("hr.appraisal.tag", string="Tags")
     active = fields.Boolean(default=True)
 
+    visibility = fields.Selection(
+        selection=[
+            ("all", "Visible to all"),
+            ("manager", "Visible to managers"),
+        ],
+        default="all",
+        required=True,
+        help=(
+            "If set to 'Visible to managers', the appraisal is only visible "
+            "to managers and HR officers."
+        ),
+    )
+
+    def _is_visible_to_employee(self):
+        self.ensure_one()
+        return self.visibility == "all"
+
     @api.model
     def default_get(self, fields_list):
         """Set default template and initialize feedback fields.
@@ -308,18 +325,21 @@ class HrAppraisal(models.Model):
         - Sends confirmation emails to the employee and managers.
         - Creates CFR activities for the employee and managers
             if they have associated users.
+        - If the appraisal is only visible to managers, the employee
+            is not notified and no employee activity is created.
         """
         self.state = "2_pending"
         self.employee_feedback_published = False
         self.manager_feedback_published = False
         template = "hr_appraisal_oca.mail_template_appraisal_confirmation"
-        if self.employee_id.work_email:
-            self._send_email(
-                self.employee_id.user_id, template, self.employee_id.work_email
-            )
-        if self.employee_user_id.id:
-            user_id = int(self.employee_user_id.id)
-            self._create_activity_cfr(user_id)
+        if self._is_visible_to_employee():
+            if self.employee_id.work_email:
+                self._send_email(
+                    self.employee_id.user_id, template, self.employee_id.work_email
+                )
+            if self.employee_user_id.id:
+                user_id = int(self.employee_user_id.id)
+                self._create_activity_cfr(user_id)
         for record in self:
             for manager in record.manager_ids:
                 if manager.work_email:
@@ -333,15 +353,14 @@ class HrAppraisal(models.Model):
         Mark the appraisal as done, publish feedback flags, send completion emails,
         and log the status change.
 
-        - Sets state to 'done' and marks feedback as published.
-        - Sends completion emails to the employee and all managers with valid emails.
-        - Posts a message indicating the appraisal was completed by the current user.
+        - Sends completion email to employee only if visible.
+        - Managers are always notified.
         """
         self.state = "3_done"
         self.employee_feedback_published = True
         self.manager_feedback_published = True
         template = "hr_appraisal_oca.mail_template_appraisal_completed"
-        if self.employee_id.work_email:
+        if self._is_visible_to_employee() and self.employee_id.work_email:
             self._send_email(
                 self.employee_id.user_id, template, self.employee_id.work_email
             )

@@ -778,6 +778,13 @@ msgid "If checked, some messages have a delivery error."
 msgstr "Si se encuentra seleccionado, algunos mensajes tienen error de envío."
 
 #. module: hr_appraisal_oca
+#: model:ir.model.fields,help:hr_appraisal_oca.field_hr_appraisal__visibility
+msgid ""
+"If set to 'Visible to managers', the appraisal is only visible to managers "
+"and HR officers."
+msgstr ""
+
+#. module: hr_appraisal_oca
 #: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_template__is_default
 msgid "Is Default"
 msgstr "Por defecto"
@@ -1191,9 +1198,20 @@ msgid "User Contents"
 msgstr "Contenidos del usuario"
 
 #. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__visibility
+msgid "Visibility"
+msgstr "Visibilidad"
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields.selection,name:hr_appraisal_oca.selection__hr_appraisal__visibility__all
 #: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_template_form_view
 msgid "Visible to all"
-msgstr "Visible a todos"
+msgstr "Visible para todos"
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields.selection,name:hr_appraisal_oca.selection__hr_appraisal__visibility__manager
+msgid "Visible to managers"
+msgstr "Visible para gerentes"
 
 #. module: hr_appraisal_oca
 #: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__website_message_ids
@@ -1256,6 +1274,15 @@ msgstr "{{ user.name or ''}} solicita una valoración"
 #: model:mail.template,subject:hr_appraisal_oca.mail_template_appraisal_confirmation
 msgid "{{object.employee_id.name}}: Appraisal Confirmed"
 msgstr "{{ object.employee_id.name }}: Valoración confirmada"
+
+#~ msgid ""
+#~ "Controls who can see this appraisal:\n"
+#~ "- Visible to all: standard behavior\n"
+#~ "- Visible to managers: only managers and HR officers"
+#~ msgstr ""
+#~ "Controla quién puede ver esta evaluación:\n"
+#~ "- Visible para todos: comportamiento estándar\n"
+#~ "- Visible para los gerentes: solo gerentes y responsables de RRHH"
 
 #~ msgid "Next Activity Calendar Event"
 #~ msgstr "Siguiente evento en el calendario de actividades."

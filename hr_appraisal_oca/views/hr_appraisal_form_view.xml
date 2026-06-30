@@ -108,6 +108,11 @@
                                 groups="base.group_multi_company"
                                 required="1"
                             />
+                            <field
+                                name="visibility"
+                                invisible="employee_user_id == uid"
+                                readonly="state == '3_done' or (manager_user_ids not in [uid] and not is_manager)"
+                            />
                         </group>
                     </group>
                     <notebook>
