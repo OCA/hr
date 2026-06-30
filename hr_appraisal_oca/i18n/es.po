@@ -409,6 +409,22 @@ msgid "Appraisal Requested"
 msgstr "Valoración Solicitada"
 
 #. module: hr_appraisal_oca
+#: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__visibility
+msgid "Visibility"
+msgstr "Visibilidad"
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields.selection,name:hr_appraisal_oca.selection__hr_appraisal__visibility__all
+#: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_template_form_view
+msgid "Visible to all"
+msgstr "Visible para todos"
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields.selection,name:hr_appraisal_oca.selection__hr_appraisal__visibility__manager
+msgid "Visible to managers"
+msgstr "Visible para gerentes"
+
+#. module: hr_appraisal_oca
 #: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.res_config_settings_view_form
 msgid "Appraisal Settings"
 msgstr "Valoraciones"
@@ -547,6 +563,17 @@ msgstr "Confirmado"
 #: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_request_wizard__body
 msgid "Contents"
 msgstr "Contenidos"
+
+#. module: hr_appraisal_oca
+#: model:ir.model.fields,help:hr_appraisal_oca.field_hr_appraisal__visibility
+msgid ""
+"Controls who can see this appraisal:\n"
+"- Visible to all: standard behavior\n"
+"- Visible to managers: only managers and HR officers"
+msgstr ""
+"Controla quién puede ver esta evaluación:\n"
+"- Visible para todos: comportamiento estándar\n"
+"- Visible para los gerentes: solo gerentes y responsables de RRHH"
 
 #. module: hr_appraisal_oca
 #: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__created_by
@@ -1189,11 +1216,6 @@ msgstr "Usuario"
 #: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_request_wizard__user_body
 msgid "User Contents"
 msgstr "Contenidos del usuario"
-
-#. module: hr_appraisal_oca
-#: model_terms:ir.ui.view,arch_db:hr_appraisal_oca.hr_appraisal_template_form_view
-msgid "Visible to all"
-msgstr "Visible a todos"
 
 #. module: hr_appraisal_oca
 #: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__website_message_ids
