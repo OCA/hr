@@ -116,6 +116,13 @@ msgid "Comment"
 msgstr ""
 
 #. module: hr_course
+#: model:ir.model.fields,field_description:hr_course.field_hr_course__company_id
+#: model:ir.model.fields,field_description:hr_course.field_hr_course_attendee__company_id
+#: model:ir.model.fields,field_description:hr_course.field_hr_course_schedule__company_id
+msgid "Company"
+msgstr ""
+
+#. module: hr_course
 #: model_terms:ir.ui.view,arch_db:hr_course.hr_course_schedule_form_view
 msgid "Complete Course"
 msgstr ""

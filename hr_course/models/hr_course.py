@@ -26,6 +26,13 @@ class HRCourseAttendee(models.Model):
         default="pending",
     )
     active = fields.Boolean(default=True, readonly=True)
+    company_id = fields.Many2one(
+        "res.company",
+        string="Company",
+        related="course_schedule_id.company_id",
+        store=True,
+        readonly=True,
+    )
 
     def _remove_from_course(self):
         return [(1, self.id, {"active": False})]
@@ -39,6 +46,9 @@ class HrCourse(models.Model):
     name = fields.Char(required=True, tracking=True)
     category_id = fields.Many2one(
         "hr.course.category", string="Category", required=True
+    )
+    company_id = fields.Many2one(
+        "res.company", string="Company", default=lambda self: self.env.company
     )
 
     permanence = fields.Boolean(string="Has Permanence", default=False, tracking=True)
