@@ -32,4 +32,25 @@
         <field name="groups" eval="[(4, ref('hr.group_hr_manager'))]" />
         <field name="global" eval="False" />
     </record>
+    <record model="ir.rule" id="hr_course_rule_company">
+        <field name="name">HR Course Multi-Company</field>
+        <field name="model_id" ref="model_hr_course" />
+        <field
+            name="domain_force"
+        >['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+    </record>
+    <record model="ir.rule" id="hr_course_schedule_rule_company">
+        <field name="name">HR Course Schedule Multi-Company</field>
+        <field name="model_id" ref="model_hr_course_schedule" />
+        <field
+            name="domain_force"
+        >['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+    </record>
+    <record model="ir.rule" id="hr_course_attendee_rule_company">
+        <field name="name">HR Course Attendee Multi-Company</field>
+        <field name="model_id" ref="model_hr_course_attendee" />
+        <field
+            name="domain_force"
+        >['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+    </record>
 </odoo>
