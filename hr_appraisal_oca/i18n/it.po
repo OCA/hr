@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-03-09 14:45+0000\n"
+"PO-Revision-Date: 2026-07-01 11:46+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -781,6 +781,8 @@ msgid ""
 "If set to 'Visible to managers', the appraisal is only visible to managers "
 "and HR officers."
 msgstr ""
+"Se impostata su \"Visibile ai responsabili\", la valutazione sarà visibile "
+"solo ai responsabili e agli addetti alle risorse umane."
 
 #. module: hr_appraisal_oca
 #: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal_template__is_default
@@ -1197,7 +1199,7 @@ msgstr "Contenuti utente"
 #. module: hr_appraisal_oca
 #: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__visibility
 msgid "Visibility"
-msgstr ""
+msgstr "Visibilità"
 
 #. module: hr_appraisal_oca
 #: model:ir.model.fields.selection,name:hr_appraisal_oca.selection__hr_appraisal__visibility__all
@@ -1208,7 +1210,7 @@ msgstr "Visibile a tutti"
 #. module: hr_appraisal_oca
 #: model:ir.model.fields.selection,name:hr_appraisal_oca.selection__hr_appraisal__visibility__manager
 msgid "Visible to managers"
-msgstr ""
+msgstr "Visibile ai responsabili"
 
 #. module: hr_appraisal_oca
 #: model:ir.model.fields,field_description:hr_appraisal_oca.field_hr_appraisal__website_message_ids
