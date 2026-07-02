@@ -15,7 +15,6 @@
                     </div>
                     <group>
                         <group>
-                            <field name="company_id" invisible="1" />
                             <field name="category_id" />
                             <field name="permanence" />
                             <field name="permanence_time" invisible="not permanence" />
