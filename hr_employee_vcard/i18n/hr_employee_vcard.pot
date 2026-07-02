@@ -1,0 +1,325 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* hr_employee_vcard
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hr_employee_vcard
+#: model:ir.actions.report,print_report_name:hr_employee_vcard.action_report_vcard
+msgid "'vCard - %s' % (object.name or '')"
+msgstr ""
+
+#. module: hr_employee_vcard
+#: model:ir.model.fields,field_description:hr_employee_vcard.field_hr_employee_vcard_wizard__vcard_layout_background
+#: model:ir.model.fields,field_description:hr_employee_vcard.field_res_company__vcard_layout_background
+#: model:ir.model.fields,field_description:hr_employee_vcard.field_res_config_settings__vcard_layout_background
+msgid "Background"
+msgstr ""
+
+#. module: hr_employee_vcard
+#: model:ir.model.fields,field_description:hr_employee_vcard.field_hr_employee_vcard_wizard__vcard_layout_background_image
+#: model:ir.model.fields,field_description:hr_employee_vcard.field_res_company__vcard_layout_background_image
+#: model:ir.model.fields,field_description:hr_employee_vcard.field_res_config_settings__vcard_layout_background_image
+msgid "Background Image"
+msgstr ""
+
+#. module: hr_employee_vcard
+#: model:ir.model.fields.selection,name:hr_employee_vcard.selection__res_company__vcard_layout_background__blank
+msgid "Blank"
+msgstr ""
+
+#. module: hr_employee_vcard
+#: model_terms:ir.ui.view,arch_db:hr_employee_vcard.res_config_settings_view_form
+msgid "Choose the layout used for vCard reports."
+msgstr ""
+
+#. module: hr_employee_vcard
+#: model:ir.model,name:hr_employee_vcard.model_res_company
+msgid "Companies"
+msgstr ""
+
+#. module: hr_employee_vcard
+#: model:ir.model.fields,field_description:hr_employee_vcard.field_hr_employee_vcard_wizard__company_id
+msgid "Company"
+msgstr ""
+
+#. module: hr_employee_vcard
+#: model:hr.employee.vcard.field,name:hr_employee_vcard.hr_employee_vcard_field_company_name
+#: model:ir.model.fields.selection,name:hr_employee_vcard.selection__hr_employee_vcard_field__field_name__company_name
+msgid "Company Name"
+msgstr ""
+
+#. module: hr_employee_vcard
+#: model:ir.model,name:hr_employee_vcard.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
+
+#. module: hr_employee_vcard
+#: model_terms:ir.ui.view,arch_db:hr_employee_vcard.res_config_settings_view_form
+msgid "Configure vCard Layout"
+msgstr ""
+
+#. module: hr_employee_vcard
+#: model:ir.actions.act_window,name:hr_employee_vcard.action_hr_employee_vcard_wizard
+#: model_terms:ir.ui.view,arch_db:hr_employee_vcard.hr_employee_vcard_wizard_view_form
+msgid "Configure your vCard Layout"
+msgstr ""
+
+#. module: hr_employee_vcard
+#: model:ir.model.fields,field_description:hr_employee_vcard.field_hr_employee_vcard_field__create_uid
+#: model:ir.model.fields,field_description:hr_employee_vcard.field_hr_employee_vcard_layout__create_uid
+#: model:ir.model.fields,field_description:hr_employee_vcard.field_hr_employee_vcard_wizard__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: hr_employee_vcard
+#: model:ir.model.fields,field_description:hr_employee_vcard.field_hr_employee_vcard_field__create_date
+#: model:ir.model.fields,field_description:hr_employee_vcard.field_hr_employee_vcard_layout__create_date
+#: model:ir.model.fields,field_description:hr_employee_vcard.field_hr_employee_vcard_wizard__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: hr_employee_vcard
+#: model:ir.model.fields.selection,name:hr_employee_vcard.selection__res_company__vcard_layout_background__custom
+msgid "Custom"
+msgstr ""
+
+#. module: hr_employee_vcard
+#: model:ir.model.fields.selection,name:hr_employee_vcard.selection__res_company__vcard_layout_background__demo-logo
+msgid "Demo Logo"
+msgstr ""
+
+#. module: hr_employee_vcard
+#: model_terms:ir.ui.view,arch_db:hr_employee_vcard.hr_employee_vcard_wizard_view_form
+msgid "Discard"
+msgstr ""
+
+#. module: hr_employee_vcard
+#: model:ir.model.fields,field_description:hr_employee_vcard.field_hr_employee_vcard_field__display_name
+#: model:ir.model.fields,field_description:hr_employee_vcard.field_hr_employee_vcard_layout__display_name
+#: model:ir.model.fields,field_description:hr_employee_vcard.field_hr_employee_vcard_wizard__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: hr_employee_vcard
+#: model:ir.model,name:hr_employee_vcard.model_hr_employee
+msgid "Employee"
+msgstr ""
+
+#. module: hr_employee_vcard
+#: model_terms:ir.ui.view,arch_db:hr_employee_vcard.res_config_settings_view_form
+msgid "Employee vCard"
+msgstr ""
+
+#. module: hr_employee_vcard
+#: model:ir.model,name:hr_employee_vcard.model_hr_employee_vcard_field
+msgid "Employee vCard Field"
+msgstr ""
+
+#. module: hr_employee_vcard
+#: model:ir.model,name:hr_employee_vcard.model_hr_employee_vcard_layout
+msgid "Employee vCard Layout"
+msgstr ""
+
+#. module: hr_employee_vcard
+#: model:ir.model,name:hr_employee_vcard.model_hr_employee_vcard_wizard
+msgid "Employee vCard Wizard"
+msgstr ""
+
+#. module: hr_employee_vcard
+#: model:ir.model.fields,field_description:hr_employee_vcard.field_hr_employee_vcard_field__field_name
+msgid "Field Name"
+msgstr ""
+
+#. module: hr_employee_vcard
+#: model:ir.model.fields,field_description:hr_employee_vcard.field_hr_employee_vcard_wizard__vcard_layout_field_ids
+#: model:ir.model.fields,field_description:hr_employee_vcard.field_res_company__vcard_layout_field_ids
+#: model:ir.model.fields,field_description:hr_employee_vcard.field_res_config_settings__vcard_layout_field_ids
+msgid "Fields"
+msgstr ""
+
+#. module: hr_employee_vcard
+#: model:ir.model.fields.selection,name:hr_employee_vcard.selection__res_company__vcard_layout_font__fira-mono
+msgid "Fira Mono"
+msgstr ""
+
+#. module: hr_employee_vcard
+#: model:ir.actions.server,name:hr_employee_vcard.action_generate_employee_vcard
+msgid "Generate vCard"
+msgstr ""
+
+#. module: hr_employee_vcard
+#: model:ir.model.fields,field_description:hr_employee_vcard.field_hr_employee_vcard_field__id
+#: model:ir.model.fields,field_description:hr_employee_vcard.field_hr_employee_vcard_layout__id
+#: model:ir.model.fields,field_description:hr_employee_vcard.field_hr_employee_vcard_wizard__id
+msgid "ID"
+msgstr ""
+
+#. module: hr_employee_vcard
+#: model:hr.employee.vcard.field,name:hr_employee_vcard.hr_employee_vcard_field_job_title
+#: model:ir.model.fields.selection,name:hr_employee_vcard.selection__hr_employee_vcard_field__field_name__job_title
+msgid "Job Title"
+msgstr ""
+
+#. module: hr_employee_vcard
+#: model:ir.model.fields,field_description:hr_employee_vcard.field_hr_employee_vcard_field__write_uid
+#: model:ir.model.fields,field_description:hr_employee_vcard.field_hr_employee_vcard_layout__write_uid
+#: model:ir.model.fields,field_description:hr_employee_vcard.field_hr_employee_vcard_wizard__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: hr_employee_vcard
+#: model:ir.model.fields,field_description:hr_employee_vcard.field_hr_employee_vcard_field__write_date
+#: model:ir.model.fields,field_description:hr_employee_vcard.field_hr_employee_vcard_layout__write_date
+#: model:ir.model.fields,field_description:hr_employee_vcard.field_hr_employee_vcard_wizard__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: hr_employee_vcard
+#: model:ir.model.fields.selection,name:hr_employee_vcard.selection__res_company__vcard_layout_font__lato
+msgid "Lato"
+msgstr ""
+
+#. module: hr_employee_vcard
+#: model:ir.model.fields,field_description:hr_employee_vcard.field_hr_employee_vcard_wizard__vcard_layout_id
+#: model:ir.model.fields,field_description:hr_employee_vcard.field_res_company__vcard_layout_id
+#: model:ir.model.fields,field_description:hr_employee_vcard.field_res_config_settings__vcard_layout_id
+#: model_terms:ir.ui.view,arch_db:hr_employee_vcard.res_config_settings_view_form
+msgid "Layout"
+msgstr ""
+
+#. module: hr_employee_vcard
+#: model:hr.employee.vcard.field,name:hr_employee_vcard.hr_employee_vcard_field_logo
+#: model:ir.model.fields.selection,name:hr_employee_vcard.selection__hr_employee_vcard_field__field_name__logo
+msgid "Logo"
+msgstr ""
+
+#. module: hr_employee_vcard
+#: model:ir.model.fields.selection,name:hr_employee_vcard.selection__res_company__vcard_layout_font__montserrat
+msgid "Montserrat"
+msgstr ""
+
+#. module: hr_employee_vcard
+#: model:hr.employee.vcard.field,name:hr_employee_vcard.hr_employee_vcard_field_name
+#: model:ir.model.fields,field_description:hr_employee_vcard.field_hr_employee_vcard_field__name
+#: model:ir.model.fields,field_description:hr_employee_vcard.field_hr_employee_vcard_layout__name
+#: model:ir.model.fields.selection,name:hr_employee_vcard.selection__hr_employee_vcard_field__field_name__name
+msgid "Name"
+msgstr ""
+
+#. module: hr_employee_vcard
+#: model:ir.model.fields.selection,name:hr_employee_vcard.selection__res_company__vcard_layout_font__open-sans
+msgid "Open Sans"
+msgstr ""
+
+#. module: hr_employee_vcard
+#: model:ir.model.fields.selection,name:hr_employee_vcard.selection__res_company__vcard_layout_font__oswald
+msgid "Oswald"
+msgstr ""
+
+#. module: hr_employee_vcard
+#: model_terms:ir.ui.view,arch_db:hr_employee_vcard.res_config_settings_view_form
+msgid "Preview vCard"
+msgstr ""
+
+#. module: hr_employee_vcard
+#: model:hr.employee.vcard.field,name:hr_employee_vcard.hr_employee_vcard_field_qr
+#: model:ir.model.fields.selection,name:hr_employee_vcard.selection__hr_employee_vcard_field__field_name__qr
+msgid "QR"
+msgstr ""
+
+#. module: hr_employee_vcard
+#: model:ir.model.fields.selection,name:hr_employee_vcard.selection__res_company__vcard_layout_font__raleway
+msgid "Raleway"
+msgstr ""
+
+#. module: hr_employee_vcard
+#: model:ir.model.fields.selection,name:hr_employee_vcard.selection__res_company__vcard_layout_font__roboto
+msgid "Roboto"
+msgstr ""
+
+#. module: hr_employee_vcard
+#: model_terms:ir.ui.view,arch_db:hr_employee_vcard.hr_employee_vcard_wizard_view_form
+msgid "Save"
+msgstr ""
+
+#. module: hr_employee_vcard
+#: model:ir.model.fields,field_description:hr_employee_vcard.field_hr_employee_vcard_field__sequence
+#: model:ir.model.fields,field_description:hr_employee_vcard.field_hr_employee_vcard_layout__sequence
+msgid "Sequence"
+msgstr ""
+
+#. module: hr_employee_vcard
+#: model:ir.model.fields.selection,name:hr_employee_vcard.selection__res_company__vcard_layout_font__tajawal
+msgid "Tajawal"
+msgstr ""
+
+#. module: hr_employee_vcard
+#: model:ir.model.fields,field_description:hr_employee_vcard.field_hr_employee_vcard_wizard__vcard_layout_font
+#: model:ir.model.fields,field_description:hr_employee_vcard.field_res_company__vcard_layout_font
+#: model:ir.model.fields,field_description:hr_employee_vcard.field_res_config_settings__vcard_layout_font
+msgid "Text"
+msgstr ""
+
+#. module: hr_employee_vcard
+#: model:ir.model.fields,field_description:hr_employee_vcard.field_hr_employee_vcard_wizard__vcard_layout_preview
+msgid "Vcard Layout Preview"
+msgstr ""
+
+#. module: hr_employee_vcard
+#: model:hr.employee.vcard.field,name:hr_employee_vcard.hr_employee_vcard_field_website
+#: model:ir.model.fields.selection,name:hr_employee_vcard.selection__hr_employee_vcard_field__field_name__website
+msgid "Website"
+msgstr ""
+
+#. module: hr_employee_vcard
+#: model:hr.employee.vcard.field,name:hr_employee_vcard.hr_employee_vcard_field_work_email
+#: model:ir.model.fields.selection,name:hr_employee_vcard.selection__hr_employee_vcard_field__field_name__work_email
+msgid "Work Email"
+msgstr ""
+
+#. module: hr_employee_vcard
+#: model:hr.employee.vcard.field,name:hr_employee_vcard.hr_employee_vcard_field_work_phone
+#: model:ir.model.fields.selection,name:hr_employee_vcard.selection__hr_employee_vcard_field__field_name__work_phone
+msgid "Work Phone"
+msgstr ""
+
+#. module: hr_employee_vcard
+#: model:ir.actions.report,name:hr_employee_vcard.action_report_vcard
+msgid "vCard"
+msgstr ""
+
+#. module: hr_employee_vcard
+#: model:ir.model.fields,field_description:hr_employee_vcard.field_hr_employee__vcard_qr
+msgid "vCard ID"
+msgstr ""
+
+#. module: hr_employee_vcard
+#: model_terms:ir.ui.view,arch_db:hr_employee_vcard.res_config_settings_view_form
+msgid "vCard Layout"
+msgstr ""
+
+#. module: hr_employee_vcard
+#: model:ir.actions.report,name:hr_employee_vcard.action_report_vcard_preview
+msgid "vCard Preview"
+msgstr ""
+
+#. module: hr_employee_vcard
+#: model:ir.model,name:hr_employee_vcard.model_hr_employee_vcard_mixin
+msgid "vCard Rendering Mixin"
+msgstr ""
+
+#. module: hr_employee_vcard
+#: model:ir.model.fields,field_description:hr_employee_vcard.field_hr_employee_vcard_layout__view_id
+#: model:ir.model.fields,field_description:hr_employee_vcard.field_res_config_settings__vcard_layout_view_id
+msgid "vCard View"
+msgstr ""
