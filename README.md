@@ -30,6 +30,7 @@ addon | version | maintainers | summary
 [hr_contract_renew](hr_contract_renew/) | 18.0.1.0.0 |  | Generate a new contract using an existing contract as a base
 [hr_course](hr_course/) | 18.0.1.0.0 |  | This module allows your to manage employee's training courses
 [hr_department_code](hr_department_code/) | 18.0.1.0.0 |  | HR department code
+[hr_department_deputy](hr_department_deputy/) | 18.0.1.0.0 | <a href='https://github.com/Saran440'><img src='https://github.com/Saran440.png' width='32' height='32' style='border-radius:50%;' alt='Saran440'/></a> | HR Department Deputy
 [hr_employee_age](hr_employee_age/) | 18.0.1.0.0 |  | Age field for employee
 [hr_employee_bank_restrict](hr_employee_bank_restrict/) | 18.0.1.0.0 | <a href='https://github.com/EmilioPascual'><img src='https://github.com/EmilioPascual.png' width='32' height='32' style='border-radius:50%;' alt='EmilioPascual'/></a> <a href='https://github.com/rafaelbn'><img src='https://github.com/rafaelbn.png' width='32' height='32' style='border-radius:50%;' alt='rafaelbn'/></a> | Restrict employee bank account in employee partner
 [hr_employee_birthday_mail](hr_employee_birthday_mail/) | 18.0.1.0.0 |  | Automating birthday mail messages and fostering for a positive work environment.
