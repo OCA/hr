@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+hr_employee_vcard.access_hr_employee_vcard_layout,access_hr_employee_vcard_layout,hr_employee_vcard.model_hr_employee_vcard_layout,base.group_user,1,1,1,1
+hr_employee_vcard.access_hr_employee_vcard_wizard,access_hr_employee_vcard_wizard,hr_employee_vcard.model_hr_employee_vcard_wizard,base.group_user,1,1,1,1
+hr_employee_vcard.access_hr_employee_vcard_field,access_hr_employee_vcard_field,hr_employee_vcard.model_hr_employee_vcard_field,base.group_user,1,1,1,1

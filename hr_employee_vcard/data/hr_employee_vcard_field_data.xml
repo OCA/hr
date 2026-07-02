@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="hr_employee_vcard_field_logo" model="hr.employee.vcard.field">
+        <field name="name">Logo</field>
+        <field name="sequence">10</field>
+        <field name="field_name">logo</field>
+    </record>
+
+    <record id="hr_employee_vcard_field_name" model="hr.employee.vcard.field">
+        <field name="name">Name</field>
+        <field name="sequence">15</field>
+        <field name="field_name">name</field>
+    </record>
+
+    <record id="hr_employee_vcard_field_job_title" model="hr.employee.vcard.field">
+        <field name="name">Job Title</field>
+        <field name="sequence">20</field>
+        <field name="field_name">job_title</field>
+    </record>
+
+    <record id="hr_employee_vcard_field_work_email" model="hr.employee.vcard.field">
+        <field name="name">Work Email</field>
+        <field name="sequence">25</field>
+        <field name="field_name">work_email</field>
+    </record>
+
+    <record id="hr_employee_vcard_field_work_phone" model="hr.employee.vcard.field">
+        <field name="name">Work Phone</field>
+        <field name="sequence">30</field>
+        <field name="field_name">work_phone</field>
+    </record>
+
+    <record id="hr_employee_vcard_field_company_name" model="hr.employee.vcard.field">
+        <field name="name">Company Name</field>
+        <field name="sequence">35</field>
+        <field name="field_name">company_name</field>
+    </record>
+
+    <record id="hr_employee_vcard_field_website" model="hr.employee.vcard.field">
+        <field name="name">Website</field>
+        <field name="sequence">40</field>
+        <field name="field_name">website</field>
+    </record>
+
+    <record id="hr_employee_vcard_field_qr" model="hr.employee.vcard.field">
+        <field name="name">QR</field>
+        <field name="sequence">45</field>
+        <field name="field_name">qr</field>
+    </record>
+</odoo>
