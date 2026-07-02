@@ -85,7 +85,6 @@
                     </div>
                     <group>
                         <group>
-                            <field name="company_id" invisible="1" />
                             <field name="course_id" />
                             <field
                                 name="cost"
