@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-05-23 17:46+0000\n"
-"Last-Translator: Pablo Castelo <pablocv@gmx.es>\n"
+"PO-Revision-Date: 2026-07-05 21:46+0000\n"
+"Last-Translator: Cándido Martínez <candido@supermercadoscooperativos.com>\n"
 "Language-Team: none\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
@@ -120,7 +120,7 @@ msgstr "Empregado"
 #. module: hr_employee_medical_examination
 #: model:ir.model,name:hr_employee_medical_examination.model_hr_employee_medical_examination
 msgid "Employee Medical Examination"
-msgstr ""
+msgstr "Recoñecemento médico para empregados"
 
 #. module: hr_employee_medical_examination
 #: model:ir.actions.act_window,name:hr_employee_medical_examination.hr_employee_medical_examination_act_window
@@ -172,7 +172,7 @@ msgstr "Icona de fonte impresionante, por exemplo fa-tasks"
 #. module: hr_employee_medical_examination
 #: model_terms:ir.ui.view,arch_db:hr_employee_medical_examination.hr_employee_medical_examination_search_view
 msgid "Future Activities"
-msgstr ""
+msgstr "Actividades futuras"
 
 #. module: hr_employee_medical_examination
 #: model_terms:ir.ui.view,arch_db:hr_employee_medical_examination.wizard_generate_medical_examination_form_view
@@ -260,7 +260,7 @@ msgstr "Última Actualización en"
 #. module: hr_employee_medical_examination
 #: model_terms:ir.ui.view,arch_db:hr_employee_medical_examination.hr_employee_medical_examination_search_view
 msgid "Late Activities"
-msgstr ""
+msgstr "Actividades tardías"
 
 #. module: hr_employee_medical_examination
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee_medical_examination__message_main_attachment_id
@@ -418,7 +418,7 @@ msgstr ""
 #. module: hr_employee_medical_examination
 #: model_terms:ir.ui.view,arch_db:hr_employee_medical_examination.hr_employee_medical_examination_search_view
 msgid "Today Activities"
-msgstr ""
+msgstr "Actividades de hoxe"
 
 #. module: hr_employee_medical_examination
 #: model:ir.model.fields,help:hr_employee_medical_examination.field_hr_employee_medical_examination__activity_exception_decoration
