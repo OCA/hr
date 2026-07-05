@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-05-23 17:46+0000\n"
-"Last-Translator: Pablo Castelo <pablocv@gmx.es>\n"
+"PO-Revision-Date: 2026-07-05 21:46+0000\n"
+"Last-Translator: Cándido Martínez <candido@supermercadoscooperativos.com>\n"
 "Language-Team: none\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
@@ -19,17 +19,17 @@ msgstr ""
 #. module: hr_employee_service
 #: model_terms:ir.ui.view,arch_db:hr_employee_service.view_employee_form_inherit_extension
 msgid "<span>day(s)</span>"
-msgstr ""
+msgstr "<span>día(s)</span>"
 
 #. module: hr_employee_service
 #: model_terms:ir.ui.view,arch_db:hr_employee_service.view_employee_form_inherit_extension
 msgid "<span>month(s)</span>"
-msgstr ""
+msgstr "<span>mes(s)</span>"
 
 #. module: hr_employee_service
 #: model_terms:ir.ui.view,arch_db:hr_employee_service.view_employee_form_inherit_extension
 msgid "<span>year(s)</span>"
-msgstr ""
+msgstr "<span>ano(s)</span>"
 
 #. module: hr_employee_service
 #: model:ir.model,name:hr_employee_service.model_hr_employee
