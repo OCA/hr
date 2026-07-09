@@ -2,11 +2,11 @@ To use this module, you need to:
 
 ·Create a Survey: Surveys
 
-·Create a Course: Employees -> Courses
+·Create a Course: Employees -\> Courses
 
 ·Add the Survey to the Course (Examination Survey field)
 
-·Create a Training Schedule: Employees -> Courses Schedule
+·Create a Training Schedule: Employees -\> Courses Schedule
 
 ·Assign attendees to continue
 

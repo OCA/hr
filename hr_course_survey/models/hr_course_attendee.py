@@ -10,7 +10,6 @@ _logger = logging.getLogger(__name__)
 
 
 class HrCourseAttendee(models.Model):
-
     _inherit = "hr.course.attendee"
 
     survey_answer_id = fields.Many2one("survey.user_input", readonly=True)

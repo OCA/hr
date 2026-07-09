@@ -5,7 +5,6 @@ from odoo import fields, models
 
 
 class SurveyUserInput(models.Model):
-
     _inherit = "survey.user_input"
 
     hr_course_attendee_ids = fields.One2many(

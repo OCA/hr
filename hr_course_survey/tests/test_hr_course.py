@@ -8,7 +8,7 @@ from odoo.addons.survey.tests import common
 
 class TestHrCourse(common.TestSurveyCommon):
     def setUp(self):
-        super(TestHrCourse, self).setUp()
+        super().setUp()
         self.survey = (
             self.env["survey.survey"]
             .with_user(self.survey_manager)

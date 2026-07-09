@@ -5,7 +5,6 @@ from odoo import fields, models
 
 
 class HrCourse(models.Model):
-
     _inherit = "hr.course"
 
     examination_survey_id = fields.Many2one(
