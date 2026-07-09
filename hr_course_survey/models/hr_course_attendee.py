@@ -1,12 +1,9 @@
 # Copyright 2021 Creu Blanca
+# Copyright 2026 NuoBiT Solutions - Deniz Gallo <dgallo@nuobit.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-import logging
-
-from odoo import _, fields, models, tools
+from odoo import _, fields, models
 from odoo.exceptions import ValidationError
-
-_logger = logging.getLogger(__name__)
 
 
 class HrCourseAttendee(models.Model):
@@ -20,31 +17,21 @@ class HrCourseAttendee(models.Model):
             vals["user"] = self.employee_id.user_id
         else:
             vals["partner"] = (
-                self.employee_id.address_id or self.employee_id.address_home_id
+                self.employee_id.address_id or self.employee_id.work_contact_id
             )
         return vals
 
     def _notify_survey(self):
         template = self.env.ref("hr_course_survey.mail_template_user_input_invite")
-        subject = (
-            self.env["mail.template"]
-            .with_context(safe=True)
-            ._render_template(
-                template.subject,
-                "survey.user_input",
-                [self.survey_answer_id.id],
-                post_process=True,
-            )
+        subject = template._render_field(
+            "subject", [self.survey_answer_id.id], compute_lang=True
         )[self.survey_answer_id.id]
-        body = self.env["mail.template"]._render_template(
-            template.body_html,
-            "survey.user_input",
-            [self.survey_answer_id.id],
-            post_process=True,
+        body = template._render_field(
+            "body_html", [self.survey_answer_id.id], compute_lang=True
         )[self.survey_answer_id.id]
         # post the message
         mail_values = {
-            "email_from": tools.formataddr((self.env.user.name, self.env.user.email)),
+            "email_from": self.env.user.email_formatted,
             "author_id": self.env.user.partner_id.id,
             "model": None,
             "res_id": None,

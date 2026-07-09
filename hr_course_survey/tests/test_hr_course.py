@@ -1,4 +1,5 @@
 # Copyright 2019 Creu Blanca
+# Copyright 2026 NuoBiT Solutions - Deniz Gallo <dgallo@nuobit.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from odoo.exceptions import ValidationError
@@ -98,7 +99,7 @@ class TestHrCourse(common.TestSurveyCommon):
             self.question,
             answer,
             self.question.suggested_answer_ids.filtered(
-                lambda l: l.value == "Choice1"
+                lambda x: x.value == "Choice1"
             ).id,
             answer_type="suggestion",
             answer_fname="suggested_answer_id",
@@ -115,7 +116,7 @@ class TestHrCourse(common.TestSurveyCommon):
             self.question,
             answer,
             self.question.suggested_answer_ids.filtered(
-                lambda l: l.value == "Choice0"
+                lambda x: x.value == "Choice0"
             ).id,
             answer_type="suggestion",
             answer_fname="suggested_answer_id",
@@ -144,7 +145,7 @@ class TestHrCourse(common.TestSurveyCommon):
             self.question,
             answer,
             self.question.suggested_answer_ids.filtered(
-                lambda l: l.value == "Choice1"
+                lambda x: x.value == "Choice1"
             ).id,
             answer_type="suggestion",
             answer_fname="suggested_answer_id",
@@ -161,7 +162,7 @@ class TestHrCourse(common.TestSurveyCommon):
             self.question,
             answer,
             self.question.suggested_answer_ids.filtered(
-                lambda l: l.value == "Choice0"
+                lambda x: x.value == "Choice0"
             ).id,
             answer_type="suggestion",
             answer_fname="suggested_answer_id",

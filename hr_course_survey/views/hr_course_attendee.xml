@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!-- Copyright 2021 Creu Blanca
+     Copyright 2026 NuoBiT Solutions - Deniz Gallo <dgallo@nuobit.com>
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
 <odoo>
     <record model="ir.ui.view" id="hr_course_attendee_tree_view">
@@ -10,7 +11,7 @@
             <field name="result" position="after">
                 <field
                     name="survey_answer_id"
-                    attrs="{'invisible': [('survey_answer_id', '=', False)]}"
+                    invisible="not survey_answer_id"
                     groups="hr.group_hr_manager"
                 />
                 <button
@@ -18,7 +19,8 @@
                     string="Retry"
                     type="object"
                     icon="fa-repeat text-success"
-                    attrs="{'column_invisible': [('parent.state', 'not in', ('in_validation'))], 'invisible': ['|', ('result', '!=', 'failed'), ('survey_answer_id', '=', False)]}"
+                    column_invisible="parent.state != 'in_validation'"
+                    invisible="result != 'failed' or not survey_answer_id"
                     groups="hr.group_hr_manager"
                 />
             </field>

@@ -76,6 +76,9 @@ Contributors
 
 - Enric Tobella <etobella@creublanca.es>
 - Olga Marco <olga.marco@creublanca.es>
+- `NuoBiT <https://www.nuobit.com>`__:
+
+  - Deniz Gallo dgallo@nuobit.com
 
 Maintainers
 -----------

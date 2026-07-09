@@ -1,2 +1,4 @@
 - Enric Tobella \<etobella@creublanca.es\>
 - Olga Marco \<olga.marco@creublanca.es\>
+- [NuoBiT](https://www.nuobit.com):
+  - Deniz Gallo <dgallo@nuobit.com>
