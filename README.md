@@ -26,6 +26,7 @@ addon | version | maintainers | summary
 [hr_course](hr_course/) | 17.0.1.0.1 |  | This module allows your to manage employee's training courses
 [hr_department_code](hr_department_code/) | 17.0.1.0.0 |  | HR department code
 [hr_employee_age](hr_employee_age/) | 17.0.1.0.0 |  | Age field for employee
+[hr_employee_birthday_calendar_reminder](hr_employee_birthday_calendar_reminder/) | 17.0.0.1.0 | <a href='https://github.com/Katulos'><img src='https://github.com/Katulos.png' width='32' height='32' style='border-radius:50%;' alt='Katulos'/></a> | HR Employee Birthday Calendar Reminder
 [hr_employee_calendar_planning](hr_employee_calendar_planning/) | 17.0.1.0.4 | <a href='https://github.com/victoralmau'><img src='https://github.com/victoralmau.png' width='32' height='32' style='border-radius:50%;' alt='victoralmau'/></a> <a href='https://github.com/pedrobaeza'><img src='https://github.com/pedrobaeza.png' width='32' height='32' style='border-radius:50%;' alt='pedrobaeza'/></a> | Employee Calendar Planning
 [hr_employee_document](hr_employee_document/) | 17.0.1.0.1 |  | Documents attached to the employee profile
 [hr_employee_document_from_applicant](hr_employee_document_from_applicant/) | 17.0.1.0.0 | <a href='https://github.com/ursais'><img src='https://github.com/ursais.png' width='32' height='32' style='border-radius:50%;' alt='ursais'/></a> | HR Employee Document from Applicant
