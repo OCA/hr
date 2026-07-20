@@ -44,16 +44,26 @@ class HrPersonalEquipment(models.Model):
         "move_ids.scrapped",
         "move_ids.product_uom_qty",
         "move_ids.product_uom",
+        "equipment_request_id.picking_ids.move_ids.scrapped",
+        "equipment_request_id.picking_ids.move_ids.state",
     )
     def _compute_qty_delivered(self):
         for line in self:
             qty = 0.0
-            for move in line.move_ids.filtered(
-                lambda r: r.state == "done" and line.product_id == r.product_id
-            ):
-                qty += move.product_uom._compute_quantity(
-                    move.product_uom_qty, line.product_uom_id
-                )
+            dest_location = line.location_id
+            moves = line.move_ids.filtered(
+                lambda move: move.state == "done" and move.product_id == line.product_id
+            ) + line.equipment_request_id.picking_ids.move_ids.filtered(
+                lambda move: move.scrapped
+                and move.state == "done"
+                and move.product_id == line.product_id
+            )
+            for move in moves:
+                moved_qty = move.quantity_done
+                if move.location_dest_id == dest_location:
+                    qty += moved_qty
+                elif move.location_id == dest_location:
+                    qty -= moved_qty
             line.qty_delivered = qty
 
     @api.depends(
