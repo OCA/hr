@@ -23,20 +23,8 @@ class HrContract(models.Model):
         return self.env["hr.attendance"].search(
             [
                 ("employee_id", "=", self.employee_id.id),
-                "|",
-                # attendances fully contained in the interval
-                "&",
-                ("check_in", ">=", start_dt),
-                ("check_out", "<=", end_dt),
-                "|",
-                # attendances overlapping the start of the interval
-                "&",
-                ("check_in", "<", start_dt),
-                ("check_out", ">", start_dt),
-                # attendances overlapping the end of the interval
-                "&",
                 ("check_in", "<", end_dt),
-                ("check_out", ">", end_dt),
+                ("check_out", ">", start_dt),
             ]
         )
 
