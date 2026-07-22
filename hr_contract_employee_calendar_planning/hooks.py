@@ -12,6 +12,8 @@ def post_init_hook(env):
     for employee in employees.filtered("contract_ids"):
         contract_calendar_lines = []
         for contract in employee.contract_ids.sorted("date_start"):
+            if contract.resource_calendar_id == employee.resource_calendar_id:
+                continue
             date_start = contract.date_start
             date_end = contract.date_end
             # filter calendar_ids to check for overlaps with contracts
