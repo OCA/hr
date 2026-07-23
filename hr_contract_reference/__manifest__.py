@@ -2,7 +2,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 {
     "name": "HR Contract Reference",
-    "version": "16.0.1.0.1",
+    "version": "17.0.1.0.0",
     "category": "Generic Modules/Human Resources",
     "author": "Michael Telahun Makonnen, "
     "Fekete Mihai (Forest and Biomass Services Romania), "
@@ -10,6 +10,9 @@
     "website": "https://github.com/OCA/hr",
     "license": "AGPL-3",
     "depends": ["hr_contract"],
-    "data": ["data/hr_contract_sequence.xml"],
+    "data": [
+        "data/hr_contract_sequence.xml",
+        "views/hr_contract_views.xml",
+    ],
     "installable": True,
 }
