@@ -9,16 +9,17 @@ msgstr ""
 "Project-Id-Version: hr (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-11-30 19:07+0000\n"
-"PO-Revision-Date: 2017-11-28 21:13+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
+"PO-Revision-Date: 2026-07-23 07:46+0000\n"
+"Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
 "Language-Team: Slovenian (http://www.transifex.com/oca/OCA-hr-8-0/language/"
 "sl/)\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,property_account_payable:0
@@ -94,7 +95,7 @@ msgstr "Poslovni subjekt"
 #. module: hr_recruitment_partner
 #: field:hr.applicant,ref_companies:0
 msgid "Companies that refers to partner"
-msgstr "Družbe vezane na partnerja"
+msgstr "Družbe, ki so povezane s partnerjem"
 
 #. module: hr_recruitment_partner
 #: field:hr.applicant,contact_address:0
