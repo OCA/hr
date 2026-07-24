@@ -4,37 +4,26 @@
 from dateutil.relativedelta import relativedelta
 
 from odoo import fields
-from odoo.tests import common
+from odoo.tests import common, tagged
 
 
+@tagged("post_install", "-at_install")
 class TestHrEmployeeService(common.TransactionCase):
-    def setUp(self):
-        super().setUp()
-
-        self.today = fields.Date.today()
-        self.now = fields.Datetime.now()
-        self.Employee = self.env["hr.employee"]
-        self.SudoEmployee = self.Employee.sudo()
-        self.Contract = self.env["hr.contract"]
-        self.SudoContract = self.Contract.sudo()
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        cls.today = fields.Date.today()
+        cls.Employee = cls.env["hr.employee"]
+        cls.SudoEmployee = cls.Employee.sudo()
 
     def test_1(self):
         employee = self.SudoEmployee.create(
             {
                 "name": "Employee #1",
-                "contract_ids": [
-                    (
-                        0,
-                        0,
-                        {
-                            "name": "Employee #1 Contract #1",
-                            "wage": 5000.0,
-                            "state": "close",
-                            "date_start": self.today - relativedelta(years=3),
-                            "date_end": self.today - relativedelta(years=1),
-                        },
-                    )
-                ],
+                "date_version": self.today - relativedelta(years=3),
+                "wage": 5000.0,
+                "contract_date_start": self.today - relativedelta(years=3),
+                "contract_date_end": self.today - relativedelta(years=1),
             }
         )
 
@@ -49,18 +38,9 @@ class TestHrEmployeeService(common.TransactionCase):
         employee = self.SudoEmployee.create(
             {
                 "name": "Employee #2",
-                "contract_ids": [
-                    (
-                        0,
-                        0,
-                        {
-                            "name": "Employee #2 Contract #1",
-                            "wage": 5000.0,
-                            "state": "open",
-                            "date_start": self.today - relativedelta(years=3),
-                        },
-                    )
-                ],
+                "date_version": self.today - relativedelta(years=3),
+                "wage": 5000.0,
+                "contract_date_start": self.today - relativedelta(years=3),
             }
         )
 
@@ -73,29 +53,18 @@ class TestHrEmployeeService(common.TransactionCase):
         employee = self.SudoEmployee.create(
             {
                 "name": "Employee #3",
-                "contract_ids": [
-                    (
-                        0,
-                        0,
-                        {
-                            "name": "Employee #3 Contract #1",
-                            "wage": 5000.0,
-                            "state": "close",
-                            "date_start": self.today - relativedelta(years=5),
-                            "date_end": self.today - relativedelta(years=1),
-                        },
-                    ),
-                    (
-                        0,
-                        0,
-                        {
-                            "name": "Employee #3 Contract #2",
-                            "wage": 5000.0,
-                            "state": "open",
-                            "date_start": self.today - relativedelta(months=6),
-                        },
-                    ),
-                ],
+                "date_version": self.today - relativedelta(years=5),
+                "wage": 5000.0,
+                "contract_date_start": self.today - relativedelta(years=5),
+                "contract_date_end": self.today - relativedelta(years=1),
+            }
+        )
+        employee.create_version(
+            {
+                "date_version": self.today - relativedelta(months=6),
+                "wage": 5000.0,
+                "contract_date_start": self.today - relativedelta(months=6),
+                "contract_date_end": False,
             }
         )
 
@@ -108,29 +77,18 @@ class TestHrEmployeeService(common.TransactionCase):
         employee = self.SudoEmployee.create(
             {
                 "name": "Employee #4",
-                "contract_ids": [
-                    (
-                        0,
-                        0,
-                        {
-                            "name": "Employee #4 Contract #1",
-                            "wage": 5000.0,
-                            "state": "close",
-                            "date_start": self.today - relativedelta(years=5),
-                            "date_end": self.today - relativedelta(years=1),
-                        },
-                    ),
-                    (
-                        0,
-                        0,
-                        {
-                            "name": "Employee #4 Contract #2",
-                            "wage": 5000.0,
-                            "state": "close",
-                            "date_start": self.today - relativedelta(months=6),
-                        },
-                    ),
-                ],
+                "date_version": self.today - relativedelta(years=5),
+                "wage": 5000.0,
+                "contract_date_start": self.today - relativedelta(years=5),
+                "contract_date_end": self.today - relativedelta(years=1),
+            }
+        )
+        employee.create_version(
+            {
+                "date_version": self.today - relativedelta(months=6),
+                "wage": 5000.0,
+                "contract_date_start": self.today - relativedelta(months=6),
+                "contract_date_end": False,
             }
         )
 

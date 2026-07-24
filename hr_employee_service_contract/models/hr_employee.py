@@ -7,8 +7,9 @@ from odoo import api, fields, models
 class HrEmployee(models.Model):
     _inherit = "hr.employee"
 
+    # In Odoo 19, hr.contract was replaced by hr.version (contract dates live there).
     first_contract_id = fields.Many2one(
-        "hr.contract",
+        "hr.version",
         compute="_compute_first_contract_id",
         store=True,
         prefetch=False,
@@ -16,7 +17,7 @@ class HrEmployee(models.Model):
         help="First contract of the employee",
     )
     last_contract_id = fields.Many2one(
-        "hr.contract",
+        "hr.version",
         compute="_compute_last_contract_id",
         store=True,
         prefetch=False,
@@ -26,45 +27,62 @@ class HrEmployee(models.Model):
     service_start_date = fields.Date(
         string="Start Date",
         readonly=True,
-        related="first_contract_id.date_start",
+        related="first_contract_id.contract_date_start",
         prefetch=False,
     )
     service_termination_date = fields.Date(
         string="Termination Date",
         readonly=True,
-        related="last_contract_id.date_end",
+        related="last_contract_id.contract_date_end",
         prefetch=False,
     )
 
-    @api.depends("contract_ids", "contract_ids.state", "contract_ids.date_start")
+    @api.depends(
+        "version_ids",
+        "version_ids.contract_date_start",
+    )
     def _compute_first_contract_id(self):
-        Contract = self.env["hr.contract"]
+        Version = self.env["hr.version"]
         for employee in self:
-            employee.first_contract_id = Contract.search(
-                employee._get_contract_filter(), order="date_start asc", limit=1
+            employee.first_contract_id = Version.search(
+                employee._get_contract_filter(),
+                order="contract_date_start asc",
+                limit=1,
             )
 
-    @api.depends("contract_ids", "contract_ids.state", "contract_ids.date_end")
+    @api.depends(
+        "version_ids",
+        "version_ids.contract_date_end",
+        "version_ids.contract_date_start",
+    )
     def _compute_last_contract_id(self):
-        Contract = self.env["hr.contract"]
+        Version = self.env["hr.version"]
         for employee in self:
-            employee.last_contract_id = Contract.search(
-                employee._get_contract_filter(), order="date_end desc", limit=1
+            # Open-ended contracts (no end date) sort first with DESC in PostgreSQL
+            # (NULLS FIRST), matching former "open"/"close without end" behaviour.
+            employee.last_contract_id = Version.search(
+                employee._get_contract_filter(),
+                order="contract_date_end desc",
+                limit=1,
             )
 
     @api.onchange("service_hire_date")
     def _onchange_service_hire_date(self):  # pragma: no cover
-        # Do nothing
+        # Do nothing — service dates come from contracts/versions.
         pass
 
     def _get_contract_filter(self):
         self.ensure_one()
-
         return [
             ("employee_id", "=", self.id),
-            ("state", "in", self._get_service_contract_states()),
-        ]
+            ("contract_date_start", "!=", False),
+        ] + self._get_service_contract_domain()
 
     @api.model
-    def _get_service_contract_states(self):
-        return ["open", "pending", "close"]
+    def _get_service_contract_domain(self):
+        """Extension hook for extra domain on versions counted as contracts.
+
+        Replaces ``_get_service_contract_states`` from previous versions: contract
+        states (open/pending/close) no longer exist on ``hr.version``.
+        """
+        return []
