@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="hr_professional_category_01" model="hr.professional.category">
+        <field name="code">1</field>
+        <field name="name">Engineer</field>
+    </record>
+    <record id="hr_professional_category_02" model="hr.professional.category">
+        <field name="code">2</field>
+        <field name="name">Administrative</field>
+    </record>
+</odoo>

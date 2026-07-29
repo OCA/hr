@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hr_professional_category,hr.professional.category,model_hr_professional_category,hr.group_hr_user,1,0,0,0
+access_hr_professional_category_manager,hr.professional.category,model_hr_professional_category,hr.group_hr_manager,1,1,1,1
