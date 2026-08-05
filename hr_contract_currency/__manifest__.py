@@ -4,13 +4,13 @@
 
 {
     "name": "HR Contract Currency",
-    "version": "14.0.1.0.0",
+    "version": "19.0.1.0.0",
     "category": "Human Resources",
     "website": "https://github.com/OCA/hr",
     "author": "CorporateHub, Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "installable": True,
     "summary": "Employee's contract currency",
-    "depends": ["hr_contract"],
-    "data": ["views/hr_contract.xml"],
+    "depends": ["hr"],
+    "data": ["views/hr_version.xml"],
 }

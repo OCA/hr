@@ -9,9 +9,9 @@ from odoo.tests import common
 class TestHrContractCurrency(common.TransactionCase):
     def setUp(self):
         super().setUp()
-
+        self.env = self.env(context=dict(self.env.context, default_state="draft"))
         self.today = fields.Date.today()
-        self.Contract = self.env["hr.contract"]
+        self.Contract = self.env["hr.version"]
 
     def test_1(self):
         contract = self.Contract.create(
@@ -27,7 +27,10 @@ class TestHrContractCurrency(common.TransactionCase):
 
     def test_2(self):
         my_company = self.env["res.company"].create(
-            {"name": "My Company", "currency_id": self.env.ref("base.CHF").id}
+            {
+                "name": "My Test CHF Company",
+                "currency_id": self.env.ref("base.CHF").id,
+            }
         )
         contract = self.Contract.create(
             {
