@@ -21,6 +21,7 @@ Available addons
 ----------------
 addon | version | maintainers | summary
 --- | --- | --- | ---
+[hr_accident](hr_accident/) | 17.0.1.0.0 |  | Register and track employee accidents
 [hr_announcement](hr_announcement/) | 17.0.1.0.0 |  | Announcement
 [hr_contract_bonus](hr_contract_bonus/) | 17.0.1.0.0 | <a href='https://github.com/peluko00'><img src='https://github.com/peluko00.png' width='32' height='32' style='border-radius:50%;' alt='peluko00'/></a> | Manage bonuses in employee contracts
 [hr_course](hr_course/) | 17.0.1.0.1 |  | This module allows your to manage employee's training courses
