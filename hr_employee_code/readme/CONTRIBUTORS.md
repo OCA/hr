@@ -1,0 +1,2 @@
+- [APSL-Nagarro](https://www.apsl.tech):
+  - Paloma González-Ripoll Cano \<<paloma.gonzalez@nagarro.net>\>
