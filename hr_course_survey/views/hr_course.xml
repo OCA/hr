@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2021 Creu Blanca
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record model="ir.ui.view" id="hr_course_form_view">
+        <field name="name">hr.course.form (in hr_course_survey)</field>
+        <field name="model">hr.course</field>
+        <field name="inherit_id" ref="hr_course.hr_course_form_view" />
+        <field name="arch" type="xml">
+            <field name="category_id" position="after">
+                <field name="examination_survey_id" />
+            </field>
+        </field>
+    </record>
+</odoo>
