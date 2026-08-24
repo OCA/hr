@@ -2,7 +2,7 @@
 # Copyright 2023 Tecnativa - Víctor Martínez
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import api, fields, models
+from odoo import fields, models
 
 
 class HrEmployeeBase(models.AbstractModel):
@@ -13,7 +13,6 @@ class HrEmployeeBase(models.AbstractModel):
     )
 
     def _compute_document_count(self):
-        self.document_count = 0
         results = self.env["ir.attachment"]._read_group(
             [("res_model", "=", "hr.employee"), ("res_id", "in", self.ids)],
             groupby=["res_id"],
@@ -23,12 +22,11 @@ class HrEmployeeBase(models.AbstractModel):
         for record in self:
             record.document_count = count_dict.get(record.id, 0)
 
-    @api.model
-    def check_access(self, operation):
+    def _check_access(self, operation):
         """Return access to the hr.employee model if we pass a specific context,
         is a trick to list the attachments related to an employee."""
         if (
-            not self.env.is_superuser()
+            not self.env.su
             and not self.env.user.has_group("hr.group_hr_user")
             and operation == "read"
             and self._name == "hr.employee"
@@ -37,17 +35,18 @@ class HrEmployeeBase(models.AbstractModel):
                 self.env.context.get("search_attachments_from_hr_employee")
                 or self in self.env.user.employee_ids
             ):
-                return True
-        return super().check_access(operation=operation)
+                return None
+        return super()._check_access(operation=operation)
 
     def action_get_attachment_tree_view(self):
+        self.ensure_one()
         action = self.env["ir.actions.act_window"]._for_xml_id("base.action_attachment")
         action["context"] = {
             "default_res_model": self._name,
-            "default_res_id": self.ids[0],
+            "default_res_id": self.id,
             "search_attachments_from_hr_employee": True,
         }
-        action["domain"] = [("res_model", "=", self._name), ("res_id", "in", self.ids)]
+        action["domain"] = [("res_model", "=", self._name), ("res_id", "=", self.id)]
         action["search_view_id"] = (
             self.env.ref("hr_employee_document.ir_attachment_view_search").id,
         )

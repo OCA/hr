@@ -14,16 +14,6 @@ class TestHrEmployeeDocument(BaseCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.env = cls.env(
-            context=dict(
-                cls.env.context,
-                mail_create_nolog=True,
-                mail_create_nosubscribe=True,
-                mail_notrack=True,
-                no_reset_password=True,
-                tracking_disable=True,
-            )
-        )
         cls.user_1 = new_test_user(cls.env, login="test-user-1")
         cls.user_2 = new_test_user(cls.env, login="test-user-2")
         new_test_user(cls.env, login="test-user-manager", groups="hr.group_hr_user")
@@ -46,7 +36,6 @@ class TestHrEmployeeDocument(BaseCommon):
                         "res_id": employee_id.id,
                         "datas": base64.b64encode(b"My attachment"),
                         "name": "doc.txt",
-                        "public": True,
                     }
                 ]
             )
@@ -89,6 +78,16 @@ class TestHrEmployeeDocument(BaseCommon):
         records = self._get_attachments_from_employee(self.env.user.employee_id)
         self.assertIn(attachment_1, records)
         self.assertNotIn(attachment_2, records)
+        result_1 = attachment_1.with_user(self.env.user).validate_access(False)
+        self.assertTrue(result_1.env.su)
+
+    @users("test-user-1")
+    def test_attachments_access_user_1_web_search_read(self):
+        self._create_attachment(self.employee_1)
+        action = self.employee_1.action_get_attachment_tree_view()
+        model = self.env["ir.attachment"].with_context(**action["context"])
+        res = model.web_search_read(action["domain"], {"name": {}})
+        self.assertEqual(res["length"], 1)
 
     @users("test-user-2")
     def test_attachments_access_user_2(self):
@@ -98,6 +97,8 @@ class TestHrEmployeeDocument(BaseCommon):
         records = self._get_attachments_from_employee(self.env.user.employee_id)
         self.assertNotIn(attachment_1, records)
         self.assertIn(attachment_2, records)
+        result_2 = attachment_2.with_user(self.env.user).validate_access(False)
+        self.assertTrue(result_2.env.su)
 
     @users("test-user-manager")
     def test_attachments_access_user_manager(self):
@@ -124,24 +125,23 @@ class TestHrEmployeeDocument(BaseCommon):
             [("user_id", "=", self.env.user.id)], limit=1
         )
         self.assertTrue(employee, "Employee record for test-user-1 should exist")
-
         employee_with_context = employee.with_context(
             search_attachments_from_hr_employee=True
         )
         self.assertEqual(
             employee_with_context._name, "hr.employee", "Model should be hr.employee"
         )
-        self.assertTrue(
+        self.assertEqual(
             employee_with_context.check_access("read"),
+            None,
             "Non-HR user should have read access with "
             "search_attachments_from_hr_employee context",
         )
-
-        self.assertTrue(
+        self.assertEqual(
             employee.check_access("read"),
+            None,
             "Non-HR user should have read access to their own employee record",
         )
-
         other_employee = self.employee_2
         access = other_employee.check_access("read")
         self.assertFalse(
