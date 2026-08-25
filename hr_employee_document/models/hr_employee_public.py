@@ -8,6 +8,7 @@ class HrEmployeePublic(models.Model):
     _inherit = "hr.employee.public"
 
     is_logged = fields.Boolean(compute="_compute_is_logged", store=False)
+    document_count = fields.Integer(compute_sudo=True)
 
     def _compute_is_logged(self):
         self.is_logged = False
@@ -16,17 +17,4 @@ class HrEmployeePublic(models.Model):
                 record.is_logged = True
 
     def action_get_attachment_tree_view(self):
-        action = self.env["ir.actions.act_window"]._for_xml_id("base.action_attachment")
-        action["context"] = {
-            "default_res_model": "hr.employee",
-            "default_res_id": self.env.user.employee_id.id,
-            "search_attachments_from_hr_employee": True,
-        }
-        action["domain"] = [
-            ("res_model", "=", "hr.employee"),
-            ("res_id", "=", self.env.user.employee_id.id),
-        ]
-        action["search_view_id"] = (
-            self.env.ref("hr_employee_document.ir_attachment_view_search").id,
-        )
-        return action
+        return self.employee_id.action_get_attachment_tree_view()
