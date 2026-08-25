@@ -17,6 +17,11 @@ msgstr ""
 "X-Generator: Weblate 4.17\n"
 
 #. module: hr_employee_document
+#: model:ir.model,name:hr_employee_document.model_ir_attachment
+msgid "Attachment"
+msgstr ""
+
+#. module: hr_employee_document
 #: model:ir.model,name:hr_employee_document.model_hr_employee_base
 msgid "Basic Employee"
 msgstr "Dipendente base"
