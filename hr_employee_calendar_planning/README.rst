@@ -1,7 +1,3 @@
-.. image:: https://odoo-community.org/readme-banner-image
-   :target: https://odoo-community.org/get-involved?utm_source=readme
-   :alt: Odoo Community Association
-
 ==========================
 Employee Calendar Planning
 ==========================
@@ -17,7 +13,7 @@ Employee Calendar Planning
 .. |badge1| image:: https://img.shields.io/badge/maturity-Beta-yellow.png
     :target: https://odoo-community.org/page/development-status
     :alt: Beta
-.. |badge2| image:: https://img.shields.io/badge/license-AGPL--3-blue.png
+.. |badge2| image:: https://img.shields.io/badge/licence-AGPL--3-blue.png
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fhr-lightgray.png?logo=github
@@ -62,18 +58,18 @@ Configuration
 2. Open or create a new one.
 3. On the "Work Information" tab, fill the section "Working Hours" with:
 
-   - Starting date (optional).
-   - Ending date (optional).
-   - Working time to apply during that date interval.
+   -  Starting date (optional).
+   -  Ending date (optional).
+   -  Working time to apply during that date interval.
 
 Known issues / Roadmap
 ======================
 
-- Add a wizard for generating next year calendar planning based on
-  current one in batch.
-- Add constraint for avoiding planning lines overlapping.
-- Avoid the regeneration of whole private calendars each time a change
-  is detected.
+-  Add a wizard for generating next year calendar planning based on
+   current one in batch.
+-  Add constraint for avoiding planning lines overlapping.
+-  Avoid the regeneration of whole private calendars each time a change
+   is detected.
 
 Bug Tracker
 ===========
@@ -96,25 +92,25 @@ Authors
 Contributors
 ------------
 
-- `Tecnativa <https://www.tecnativa.com>`__:
+-  `Tecnativa <https://www.tecnativa.com>`__:
 
-  - Pedro M. Baeza
-  - Víctor Martínez
+   -  Pedro M. Baeza
+   -  Víctor Martínez
 
-- `Creu Blanca <https://www.creu-blanca.es/>`__:
+-  `Creu Blanca <https://www.creu-blanca.es/>`__:
 
-  - Jaime Arroyo
+   -  Jaime Arroyo
 
-- `ForgeFlow <https://www.forgeflow.com/>`__:
+-  `ForgeFlow <https://www.forgeflow.com/>`__:
 
-  - Jordi Ballester Alomar (jordi.ballester@forgeflow.com)
-  - Nattapong W. <aphon61bank@gmail.com>
+   -  Jordi Ballester Alomar (jordi.ballester@forgeflow.com)
+   -  Nattapong W. <aphon61bank@gmail.com>
 
-- `PeGon <https://www.pegon.ch>`__:
+-  `PeGon <https://www.pegon.ch>`__:
 
-  - Pedro Evaristo Gonzalez Sanchez <pedro.gonzalez@pegon.ch>
+   -  Pedro Evaristo Gonzalez Sanchez <pedro.gonzalez@pegon.ch>
 
-- ``Heliconia Solutions Pvt. Ltd. <https://www.heliconia.io>``\ \_
+-  ``Heliconia Solutions Pvt. Ltd. <https://www.heliconia.io>``\ \_
 
 Maintainers
 -----------

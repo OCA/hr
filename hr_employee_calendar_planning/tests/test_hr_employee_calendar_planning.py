@@ -1,6 +1,11 @@
 # Copyright 2019 Tecnativa - Pedro M. Baeza
-# Copyright 2021-2025 Tecnativa - Víctor Martínez
+# Copyright 2021-2026 Tecnativa - Víctor Martínez
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+
+
+from datetime import datetime, time
+
+import pytz
 
 from odoo import Command, exceptions, fields
 from odoo.tests import new_test_user
@@ -96,8 +101,12 @@ class TestHrEmployeeCalendarPlanning(TestHrEmployeeCalendarPlanningCommon):
     @mute_logger("odoo.models.unlink")
     def test_calendar_planning(self):
         self.employee.calendar_ids = [
-            (0, 0, {"date_end": "2019-12-31", "calendar_id": self.calendar1.id}),
-            (0, 0, {"date_start": "2020-01-01", "calendar_id": self.calendar2.id}),
+            Command.create(
+                {"date_end": "2019-12-31", "calendar_id": self.calendar1.id}
+            ),
+            Command.create(
+                {"date_start": "2020-01-01", "calendar_id": self.calendar2.id}
+            ),
         ]
         self.assertTrue(self.employee.resource_calendar_id)
         calendar = self.employee.resource_calendar_id
@@ -347,6 +356,90 @@ class TestHrEmployeeCalendarPlanning(TestHrEmployeeCalendarPlanningCommon):
         self.assertEqual(len(items_week_0), 20 + 20)
         items_week_1 = items_without_sections.filtered(lambda x: x.week_type == "1")
         self.assertEqual(len(items_week_0), len(items_week_1))
+
+    @mute_logger("odoo.models.unlink")
+    def test_calendar_planning_flexible_hours(self):
+        self.calendar1.write(
+            {
+                "stored_flexible_hours": True,
+                "stored_full_time_required_hours": 40,
+                "stored_hours_per_day": 8,
+            }
+        )
+        self.calendar2.write(
+            {
+                "stored_flexible_hours": True,
+                "stored_full_time_required_hours": 20,
+                "stored_hours_per_day": 4,
+            }
+        )
+        self.employee.calendar_ids = [
+            (0, 0, {"date_end": "2019-12-31", "calendar_id": self.calendar1.id}),
+            (0, 0, {"date_start": "2020-01-01", "calendar_id": self.calendar2.id}),
+        ]
+        calendar = self.employee.resource_calendar_id
+        self.assertFalse(calendar.flexible_hours)
+        self.assertEqual(calendar.full_time_required_hours, 0)
+        calendar_with_ctx_1 = calendar.with_context(
+            flexible_hours_from_date=fields.Date.to_date("2019-01-01"),
+            flexible_hours_to_date=fields.Date.to_date("2019-12-31"),
+        )
+        self.assertTrue(calendar_with_ctx_1.flexible_hours)
+        self.assertEqual(calendar_with_ctx_1.full_time_required_hours, 40)
+        calendar_with_ctx_2 = calendar.with_context(
+            flexible_hours_from_date=fields.Date.to_date("2020-01-01"),
+            flexible_hours_to_date=fields.Date.to_date("2020-12-31"),
+        )
+        self.assertTrue(calendar_with_ctx_2.flexible_hours)
+        self.assertEqual(calendar_with_ctx_2.full_time_required_hours, 20)
+        # test work_days
+        tz = self.employee.resource_id.calendar_id.tz
+        date_2019 = fields.Date.to_date("2019-01-01")
+        res_2019 = self.employee._get_work_days_data_batch(
+            datetime.combine(date_2019, time(0, 0, 0, 0, tzinfo=pytz.timezone(tz))),
+            datetime.combine(
+                date_2019, time(23, 59, 59, 99999, tzinfo=pytz.timezone(tz))
+            ),
+        )
+        self.assertEqual(res_2019[self.employee.id]["hours"], 8.0)
+        date_2020 = fields.Date.to_date("2020-01-01")
+        res_2020 = self.employee._get_work_days_data_batch(
+            datetime.combine(date_2020, time(0, 0, 0, 0, tzinfo=pytz.timezone(tz))),
+            datetime.combine(
+                date_2020, time(23, 59, 59, 99999, tzinfo=pytz.timezone(tz))
+            ),
+        )
+        self.assertEqual(res_2020[self.employee.id]["hours"], 4.0)
+        # unusual_days
+        res_2019 = calendar._get_unusual_days(
+            datetime.combine(date_2019, time(0, 0, 0, 0, tzinfo=pytz.timezone(tz))),
+            datetime.combine(
+                date_2019, time(23, 59, 59, 99999, tzinfo=pytz.timezone(tz))
+            ),
+        )
+        self.assertFalse(res_2019["2019-01-01"])
+        res_2020 = calendar._get_unusual_days(
+            datetime.combine(date_2020, time(0, 0, 0, 0, tzinfo=pytz.timezone(tz))),
+            datetime.combine(
+                date_2020, time(23, 59, 59, 99999, tzinfo=pytz.timezone(tz))
+            ),
+        )
+        self.assertFalse(res_2020["2020-01-01"])
+        # list_work_time_per_day
+        res_2019 = self.employee._list_work_time_per_day(
+            datetime.combine(date_2019, time(0, 0, 0, 0, tzinfo=pytz.timezone(tz))),
+            datetime.combine(
+                date_2019, time(23, 59, 59, 99999, tzinfo=pytz.timezone(tz))
+            ),
+        )
+        self.assertEqual(res_2019[self.employee.id][0][1], 8.0)
+        res_2020 = self.employee._list_work_time_per_day(
+            datetime.combine(date_2020, time(0, 0, 0, 0, tzinfo=pytz.timezone(tz))),
+            datetime.combine(
+                date_2020, time(23, 59, 59, 99999, tzinfo=pytz.timezone(tz))
+            ),
+        )
+        self.assertEqual(res_2020[self.employee.id][0][1], 4.0)
 
     def test_post_install_hook(self):
         self.employee.resource_calendar_id = self.calendar1.id

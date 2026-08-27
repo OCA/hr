@@ -48,6 +48,16 @@ class HrEmployee(models.Model):
         copy=True,
     )
 
+    def _get_planning_calendars(self, from_date, to_date):
+        self.ensure_one()
+        # We need to use sudo to avoid the error  odoo.exceptions.AccessError:
+        # The fields “calendar_ids”, which you are trying to read, are not
+        # available for employee public profiles.
+        return self.sudo().calendar_ids.filtered(
+            lambda x: (not x.date_start or (from_date and x.date_start <= from_date))
+            and (not x.date_end or (to_date and x.date_end >= to_date))
+        )
+
     @api.model
     def default_get(self, fields):
         """Set calendar_ids default value to cover all use cases."""
