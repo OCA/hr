@@ -171,3 +171,54 @@ class TestEmployeeSecondLastname(TransactionCase):
         self.employee1_id.invalidate_recordset()
 
         self.assertEqual(self.employee1_id.name, "Lopez Gonzalez, Manuel")
+
+    def test_change_lastname_with_set_last_first_comma2(self):
+        self.env["ir.config_parameter"].sudo().set_param(
+            "employee_names_order", "last_first_comma2"
+        )
+        self.employee1_id.write({"lastname": "Lopez"})
+        self.employee1_id.invalidate_recordset()
+
+        self.assertEqual(self.employee1_id.name, "Lopez, Manuel Gonzalez")
+
+    def test_change_name_with_set_last_first_comma2(self):
+        self.env["ir.config_parameter"].sudo().set_param(
+            "employee_names_order", "last_first_comma2"
+        )
+        self.employee1_id.write({"name": "Martinez, Pedro Torres"})
+        self.employee1_id.invalidate_recordset()
+
+        self.assertEqual(self.employee1_id.firstname, "Pedro")
+        self.assertEqual(self.employee1_id.lastname, "Martinez")
+        self.assertEqual(self.employee1_id.lastname2, "Torres")
+
+    def test_change_name_with_set_last_first_comma2_no_lastname2(self):
+        self.env["ir.config_parameter"].sudo().set_param(
+            "employee_names_order", "last_first_comma2"
+        )
+        self.employee1_id.write({"name": "Martinez, Pedro"})
+        self.employee1_id.invalidate_recordset()
+
+        self.assertEqual(self.employee1_id.firstname, "Pedro")
+        self.assertEqual(self.employee1_id.lastname, "Martinez")
+        self.assertEqual(self.employee1_id.lastname2, False)
+
+    def test_change_name_with_set_last_first_comma2_only_lastname(self):
+        self.env["ir.config_parameter"].sudo().set_param(
+            "employee_names_order", "last_first_comma2"
+        )
+        self.employee1_id.write({"name": "Martinez"})
+        self.employee1_id.invalidate_recordset()
+
+        self.assertEqual(self.employee1_id.lastname, "Martinez")
+
+    def test_change_name_with_set_last_first_comma2_extra_spaces(self):
+        self.env["ir.config_parameter"].sudo().set_param(
+            "employee_names_order", "last_first_comma2"
+        )
+        self.employee1_id.write({"name": "  Martinez  ,  Pedro   Torres  "})
+        self.employee1_id.invalidate_recordset()
+
+        self.assertEqual(self.employee1_id.firstname, "Pedro")
+        self.assertEqual(self.employee1_id.lastname, "Martinez")
+        self.assertEqual(self.employee1_id.lastname2, "Torres")
