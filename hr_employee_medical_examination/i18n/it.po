@@ -100,6 +100,7 @@ msgid "Department"
 msgstr "Reparto"
 
 #. module: hr_employee_medical_examination
+#: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee__display_name
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee_medical_examination__display_name
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_wizard_generate_medical_examination__display_name
 msgid "Display Name"
@@ -202,6 +203,7 @@ msgid "Has Message"
 msgstr "Ha un messaggio"
 
 #. module: hr_employee_medical_examination
+#: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee__id
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_hr_employee_medical_examination__id
 #: model:ir.model.fields,field_description:hr_employee_medical_examination.field_wizard_generate_medical_examination__id
 msgid "ID"
