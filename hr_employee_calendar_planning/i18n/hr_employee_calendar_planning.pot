@@ -73,7 +73,6 @@ msgstr ""
 #. module: hr_employee_calendar_planning
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee__display_name
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__display_name
-#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_leave__display_name
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_resource_calendar__display_name
 msgid "Display Name"
 msgstr ""
@@ -103,7 +102,6 @@ msgstr ""
 #. module: hr_employee_calendar_planning
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee__id
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__id
-#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_leave__id
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_resource_calendar__id
 msgid "ID"
 msgstr ""
@@ -140,11 +138,6 @@ msgstr ""
 #: code:addons/hr_employee_calendar_planning/models/hr_employee.py:0
 msgid ""
 "The employee %s has already a calendar assigned that overalps this period"
-msgstr ""
-
-#. module: hr_employee_calendar_planning
-#: model:ir.model,name:hr_employee_calendar_planning.model_hr_leave
-msgid "Time Off"
 msgstr ""
 
 #. module: hr_employee_calendar_planning
