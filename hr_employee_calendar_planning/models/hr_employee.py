@@ -70,7 +70,7 @@ class HrEmployee(models.Model):
     def _regenerate_calendar(self):
         self.ensure_one()
         vals_list = []
-        today = fields.Date.today()
+        today = fields.Date.context_today(self)
         active_planning = self._get_planning_calendars(today, today)
         if active_planning:
             planning_to_use = active_planning[:1]
@@ -167,7 +167,7 @@ class HrEmployee(models.Model):
     def copy_global_leaves(self):
         self.ensure_one()
         leave_ids = []
-        today = fields.Date.today()
+        today = fields.Date.context_today(self)
         active_planning = self._get_planning_calendars(today, today)
         if not active_planning and self.calendar_ids:
             active_planning = self.calendar_ids.sorted(

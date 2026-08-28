@@ -191,7 +191,7 @@ class ResourceCalendar(models.Model):
                     ("calendar_id", "=", item.id),
                     "|",
                     ("date_end", "=", False),
-                    ("date_end", ">=", fields.Date.today()),
+                    ("date_end", ">=", fields.Date.context_today(self)),
                 ]
 
                 total_items = self.env["hr.employee.calendar"].search_count(domain)
