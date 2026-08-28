@@ -129,8 +129,6 @@ class TestHrEmployeeCalendarPlanning(BaseCommon):
                 ),
             ]
 
-        cls.employee = cls.env["hr.employee"].create({"name": "Test Employee Leave"})
-
     @mute_logger("odoo.models.unlink")
     def test_calendar_planning(self):
         today = fields.Date.today()
@@ -370,89 +368,6 @@ class TestHrEmployeeCalendarPlanning(BaseCommon):
             ]
         )
         self.assertEqual(len(employees), 2)
-
-    def test_onchange_update_visual_hours(self):
-        today = fields.Date.today()
-        self.employee.calendar_ids = [(5, 0, 0)]
-        self.employee.calendar_ids = [
-            (
-                0,
-                0,
-                {
-                    "date_start": today - relativedelta(months=2),
-                    "date_end": today - relativedelta(days=1),
-                    "calendar_id": self.calendar1.id,
-                },
-            ),
-            (0, 0, {"date_start": today, "calendar_id": self.calendar2.id}),
-        ]
-        past_date = today - relativedelta(days=5)
-        if past_date.weekday() > 4:
-            past_date = past_date - relativedelta(days=past_date.weekday())
-
-        leave_memory = self.env["hr.leave"].new(
-            {
-                "employee_id": self.employee.id,
-                "request_date_from": past_date,
-                "request_date_to": past_date,
-                "request_hour_from": 0.0,
-                "request_hour_to": 0.0,
-            }
-        )
-
-        leave_memory._onchange_update_visual_hours()
-        self.assertEqual(leave_memory.request_hour_from, 8.0)
-        self.assertEqual(leave_memory.request_hour_to, 17.0)
-        current_date = today
-        if current_date.weekday() > 4:
-            current_date = current_date + relativedelta(days=2)
-
-        leave_memory.request_date_from = current_date
-        leave_memory.request_date_to = current_date
-
-        leave_memory._onchange_update_visual_hours()
-        self.assertEqual(leave_memory.request_hour_from, 7.0)
-        self.assertEqual(leave_memory.request_hour_to, 14.0)
-        leave_empty_to = self.env["hr.leave"].new(
-            {
-                "employee_id": self.employee.id,
-                "request_date_from": current_date,
-                "request_date_to": False,
-                "request_hour_from": 0.0,
-                "request_hour_to": 0.0,
-            }
-        )
-        leave_empty_to._onchange_update_visual_hours()
-        self.assertEqual(leave_empty_to.request_hour_from, 7.0)
-        self.assertEqual(leave_empty_to.request_hour_to, 14.0)
-        sunday = current_date + relativedelta(weekday=6)
-
-        leave_sunday = self.env["hr.leave"].new(
-            {
-                "employee_id": self.employee.id,
-                "request_date_from": sunday,
-                "request_date_to": sunday,
-                "request_hour_from": 99.0,
-                "request_hour_to": 99.0,
-            }
-        )
-
-        leave_sunday._onchange_update_visual_hours()
-        self.assertEqual(leave_sunday.request_hour_from, 99.0)
-        no_plan_date = today - relativedelta(years=1)
-
-        leave_no_plan = self.env["hr.leave"].new(
-            {
-                "employee_id": self.employee.id,
-                "request_date_from": no_plan_date,
-                "request_date_to": no_plan_date,
-                "request_hour_from": 55.0,
-                "request_hour_to": 55.0,
-            }
-        )
-
-        leave_no_plan._onchange_update_visual_hours()
-        self.assertEqual(leave_no_plan.request_hour_from, 55.0)
 
     def test_calendar_write_regenerates(self):
         self.employee.calendar_ids = [(5, 0, 0)]
