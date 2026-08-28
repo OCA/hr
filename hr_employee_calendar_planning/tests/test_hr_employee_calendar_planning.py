@@ -234,6 +234,7 @@ class TestHrEmployeeCalendarPlanning(BaseCommon):
         self.calendar1.write({"active": False})
         self.assertFalse(self.calendar1.active)
 
+    @mute_logger("odoo.models.unlink")
     def test_resource_calendar_constraint_company_id(self):
         main_company = self.env.ref("base.main_company")
         self.calendar1.company_id = main_company
@@ -369,6 +370,7 @@ class TestHrEmployeeCalendarPlanning(BaseCommon):
         )
         self.assertEqual(len(employees), 2)
 
+    @mute_logger("odoo.models.unlink")
     def test_calendar_write_regenerates(self):
         self.employee.calendar_ids = [(5, 0, 0)]
         self.employee.calendar_ids = [(0, 0, {"calendar_id": self.calendar1.id})]
@@ -430,6 +432,7 @@ class TestHrEmployeeCalendarPlanning(BaseCommon):
         self.assertEqual(len(self.employee.resource_calendar_id.attendance_ids), 10)
 
     @freeze_time("2026-05-18")
+    @mute_logger("odoo.models.unlink")
     def test_get_work_days_data_batch_with_planning(self):
         today_dt = fields.Datetime.now()
         start_dt = today_dt.replace(hour=0, minute=0, second=0)
