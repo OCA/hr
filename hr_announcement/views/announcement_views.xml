@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="announcement_management_view_form" model="ir.ui.view">
+        <field name="model">announcement</field>
+        <field name="inherit_id" ref="announcement.announcement_management_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='user_group_ids']" position="after">
+                <field
+                    name="employee_ids"
+                    options="{'no_create': True}"
+                    widget="many2many_tags"
+                    invisible="announcement_type != 'employee'"
+                    required="announcement_type == 'employee'"
+                />
+                <field
+                    name="department_ids"
+                    options="{'no_create': True}"
+                    widget="many2many_tags"
+                    invisible="announcement_type != 'department'"
+                    required="announcement_type == 'department'"
+                />
+                <field
+                    name="position_ids"
+                    options="{'no_create': True}"
+                    widget="many2many_tags"
+                    invisible="announcement_type != 'job_position'"
+                    required="announcement_type == 'job_position'"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>
