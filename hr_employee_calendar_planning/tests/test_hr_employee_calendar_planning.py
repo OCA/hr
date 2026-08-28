@@ -1,14 +1,16 @@
 # Copyright 2019 Tecnativa - Pedro M. Baeza
-# Copyright 2021-2025 Tecnativa - Víctor Martínez
+# Copyright 2021-2026 Tecnativa - Víctor Martínez
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 import unittest
+from datetime import datetime, time
 
+import pytz
 from dateutil.relativedelta import relativedelta
 from freezegun import freeze_time
 from psycopg2 import IntegrityError
 
-from odoo import exceptions, fields
+from odoo import Command, exceptions, fields
 from odoo.tests import new_test_user
 from odoo.tools import mute_logger
 
@@ -131,7 +133,7 @@ class TestHrEmployeeCalendarPlanning(BaseCommon):
 
     @mute_logger("odoo.models.unlink")
     def test_calendar_planning(self):
-        today = fields.Date.today()
+        today = fields.Date.context_today(self)
         self.employee.calendar_ids = [(5, 0, 0)]
         self.employee.calendar_ids = [
             (
@@ -180,7 +182,7 @@ class TestHrEmployeeCalendarPlanning(BaseCommon):
     @mute_logger("odoo.models.unlink")
     def test_calendar_planning_two_weeks(self):
         self.calendar1.switch_calendar_type()
-        today = fields.Date.today()
+        today = fields.Date.context_today(self)
         self.employee.calendar_ids = [(5, 0, 0)]
         self.employee.calendar_ids = [
             (
@@ -205,8 +207,97 @@ class TestHrEmployeeCalendarPlanning(BaseCommon):
         self.assertEqual(len(sections), 2)
 
     @mute_logger("odoo.models.unlink")
+    def test_calendar_planning_flexible_hours(self):
+        self.calendar1.write(
+            {
+                "schedule_type": "flexible",
+                "stored_hours_per_day": 8,
+            }
+        )
+        self.calendar1.stored_full_time_required_hours = 40
+        self.assertTrue(self.calendar1.stored_flexible_hours)
+        self.calendar2.write(
+            {
+                "schedule_type": "flexible",
+                "stored_hours_per_day": 4,
+            }
+        )
+        self.calendar2.stored_full_time_required_hours = 20
+        self.assertTrue(self.calendar2.stored_flexible_hours)
+        self.employee.calendar_ids = [Command.clear()]
+        self.employee.calendar_ids = [
+            Command.create(
+                {"date_end": "2019-12-31", "calendar_id": self.calendar1.id}
+            ),
+            Command.create(
+                {"date_start": "2020-01-01", "calendar_id": self.calendar2.id}
+            ),
+        ]
+        calendar = self.employee.resource_calendar_id
+        self.assertFalse(calendar.flexible_hours)
+        calendar_with_ctx_1 = calendar.with_context(
+            flexible_hours_from_date=fields.Date.to_date("2019-01-01"),
+            flexible_hours_to_date=fields.Date.to_date("2019-12-31"),
+        )
+        self.assertTrue(calendar_with_ctx_1.flexible_hours)
+        self.assertEqual(calendar_with_ctx_1.full_time_required_hours, 40)
+        calendar_with_ctx_2 = calendar.with_context(
+            flexible_hours_from_date=fields.Date.to_date("2020-01-01"),
+            flexible_hours_to_date=fields.Date.to_date("2020-12-31"),
+        )
+        self.assertTrue(calendar_with_ctx_2.flexible_hours)
+        self.assertEqual(calendar_with_ctx_2.full_time_required_hours, 20)
+        # test work_days
+        tz = self.employee.resource_id.calendar_id.tz
+        date_2019 = fields.Date.to_date("2019-01-01")
+        tz_obj = pytz.timezone(tz)
+        from_datetime_2019 = (
+            tz_obj.localize(datetime.combine(date_2019, time.min))
+            .astimezone(pytz.UTC)
+            .replace(tzinfo=None)
+        )
+        to_datetime_2019 = (
+            tz_obj.localize(datetime.combine(date_2019, time.max))
+            .astimezone(pytz.UTC)
+            .replace(tzinfo=None)
+        )
+        res_2019 = self.employee._get_work_days_data_batch(
+            from_datetime_2019, to_datetime_2019
+        )
+        self.assertEqual(res_2019[self.employee.id]["hours"], 8.0)
+        date_2020 = fields.Date.to_date("2020-01-01")
+        from_datetime_2020 = (
+            tz_obj.localize(datetime.combine(date_2020, time.min))
+            .astimezone(pytz.UTC)
+            .replace(tzinfo=None)
+        )
+        to_datetime_2020 = (
+            tz_obj.localize(datetime.combine(date_2020, time.max))
+            .astimezone(pytz.UTC)
+            .replace(tzinfo=None)
+        )
+        res_2020 = self.employee._get_work_days_data_batch(
+            from_datetime_2020, to_datetime_2020
+        )
+        self.assertEqual(res_2020[self.employee.id]["hours"], 4.0)
+        # unusual_days
+        res_2019 = calendar._get_unusual_days(from_datetime_2019, to_datetime_2019)
+        self.assertFalse(res_2019["2019-01-01"])
+        res_2020 = calendar._get_unusual_days(from_datetime_2020, to_datetime_2020)
+        self.assertFalse(res_2020["2020-01-01"])
+        # list_work_time_per_day
+        res_2019 = self.employee._list_work_time_per_day(
+            from_datetime_2019, to_datetime_2019
+        )
+        self.assertEqual(res_2019[self.employee.id][0][1], 8.0)
+        res_2020 = self.employee._list_work_time_per_day(
+            from_datetime_2020, to_datetime_2020
+        )
+        self.assertEqual(res_2020[self.employee.id][0][1], 4.0)
+
+    @mute_logger("odoo.models.unlink")
     def test_resource_calendar_constraint(self):
-        today = fields.Date.today()
+        today = fields.Date.context_today(self)
         self.employee.calendar_ids = [(5, 0, 0)]
         self.employee.calendar_ids = [
             (
@@ -234,6 +325,7 @@ class TestHrEmployeeCalendarPlanning(BaseCommon):
         self.calendar1.write({"active": False})
         self.assertFalse(self.calendar1.active)
 
+    @mute_logger("odoo.models.unlink")
     def test_resource_calendar_constraint_company_id(self):
         main_company = self.env.ref("base.main_company")
         self.calendar1.company_id = main_company
@@ -254,7 +346,7 @@ class TestHrEmployeeCalendarPlanning(BaseCommon):
                         0,
                         0,
                         {
-                            "date_start": fields.Date.today(),
+                            "date_start": fields.Date.context_today(self),
                             "calendar_id": self.calendar2.id,
                         },
                     ),
@@ -265,7 +357,7 @@ class TestHrEmployeeCalendarPlanning(BaseCommon):
 
     @mute_logger("odoo.models.unlink")
     def test_copy_global_leaves(self):
-        today = fields.Date.today()
+        today = fields.Date.context_today(self)
         self.employee.calendar_ids = [(5, 0, 0)]
         self.employee.calendar_ids = [
             (
@@ -369,6 +461,7 @@ class TestHrEmployeeCalendarPlanning(BaseCommon):
         )
         self.assertEqual(len(employees), 2)
 
+    @mute_logger("odoo.models.unlink")
     def test_calendar_write_regenerates(self):
         self.employee.calendar_ids = [(5, 0, 0)]
         self.employee.calendar_ids = [(0, 0, {"calendar_id": self.calendar1.id})]
@@ -400,7 +493,7 @@ class TestHrEmployeeCalendarPlanning(BaseCommon):
 
     @mute_logger("odoo.models.unlink")
     def test_planning_gap(self):
-        today = fields.Date.today()
+        today = fields.Date.context_today(self)
         self.employee.calendar_ids = [(5, 0, 0)]
         self.employee.calendar_ids = [
             (
@@ -419,7 +512,7 @@ class TestHrEmployeeCalendarPlanning(BaseCommon):
 
     @mute_logger("odoo.models.unlink")
     def test_write_planning_dates(self):
-        today = fields.Date.today()
+        today = fields.Date.context_today(self)
         self.employee.calendar_ids = [(5, 0, 0)]
         self.employee.calendar_ids = [
             (0, 0, {"date_start": today, "calendar_id": self.calendar2.id})
@@ -430,6 +523,7 @@ class TestHrEmployeeCalendarPlanning(BaseCommon):
         self.assertEqual(len(self.employee.resource_calendar_id.attendance_ids), 10)
 
     @freeze_time("2026-05-18")
+    @mute_logger("odoo.models.unlink")
     def test_get_work_days_data_batch_with_planning(self):
         today_dt = fields.Datetime.now()
         start_dt = today_dt.replace(hour=0, minute=0, second=0)
