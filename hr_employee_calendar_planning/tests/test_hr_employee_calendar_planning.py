@@ -624,3 +624,40 @@ class TestHrEmployeeCalendarPlanning(BaseCommon):
             7.0,
             "Debe calcular 7h usando la planificación histórica, no 8h del default",
         )
+
+    @mute_logger("odoo.models.unlink")
+    def test_hr_leave_get_hours_for_dates(self):
+        self.employee.calendar_ids = [Command.clear()]
+        self.employee.calendar_ids = [
+            Command.create(
+                {
+                    "date_start": "2025-01-01",
+                    "date_end": "2025-12-31",
+                    "calendar_id": self.calendar1.id,
+                },
+            ),
+            Command.create(
+                {"date_start": "2026-01-01", "calendar_id": self.calendar2.id}
+            ),
+        ]
+        calendar = self.employee.resource_calendar_id
+        self.assertEqual(
+            calendar._get_hours_for_date(fields.Date.from_string("2025-01-01")),
+            (8.0, 17.0),
+        )
+        self.assertEqual(
+            calendar._get_hours_for_date(fields.Date.from_string("2026-01-01")),
+            (7.0, 14.0),
+        )
+        self.assertEqual(
+            calendar._get_hours_for_date(fields.Date.from_string("2025-12-28")),
+            (8.0, 17.0),
+        )
+        self.assertEqual(
+            calendar._get_hours_for_date(fields.Date.from_string("2026-01-04")),
+            (7.0, 14.0),
+        )
+        self.assertEqual(
+            calendar._get_hours_for_date(fields.Date.from_string("2024-12-30")),
+            (7.0, 14.0),
+        )

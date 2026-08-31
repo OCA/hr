@@ -274,3 +274,14 @@ class ResourceCalendar(models.Model):
             flexible_hours_to_date=end_dt.date(),
         )
         return super()._get_unusual_days(start_dt, end_dt, company_id)
+
+    def _get_hours_for_date(self, target_date, day_period=None):
+        # This method is used in hr.leave to get the start and end hours; if it is
+        # auto-generated, we determine the appropriate resource.calendar to return
+        # the "correct" hours (from that calendar).
+        if self.auto_generate and self.employee_ids:
+            employee = self.employee_ids[:1]
+            calendars = employee._get_planning_calendars(target_date, target_date)
+            if calendars:
+                self = calendars[:1].calendar_id
+        return super()._get_hours_for_date(target_date, day_period)
