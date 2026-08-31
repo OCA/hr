@@ -509,6 +509,7 @@ class TestHrEmployeeCalendarPlanning(TestHrEmployeeCalendarPlanningCommon):
         with self.assertRaises(exceptions.ValidationError):
             self.calendar1.company_id = company2
 
+    @mute_logger("odoo.models.unlink")
     def test_employee_with_calendar_ids(self):
         employee = self.env["hr.employee"].create(
             {
@@ -559,14 +560,20 @@ class TestHrEmployeeCalendarPlanning(TestHrEmployeeCalendarPlanningCommon):
             self.employee.resource_calendar_id, employee2.resource_calendar_id
         )
 
+    @mute_logger("odoo.models.unlink")
     def test_user_action_create_employee(self):
         user = new_test_user(self.env, login="test-user")
+        calendar_model = self.env["resource.calendar"].with_context(active_test=False)
+        total_resources = calendar_model.search_count([])
         user.action_create_employee()
         self.assertIn(
             user.company_id.resource_calendar_id,
             user.employee_id.mapped("calendar_ids.calendar_id"),
         )
+        total_resources_now = calendar_model.search_count([])
+        self.assertEqual(total_resources_now - total_resources, 1)
 
+    @mute_logger("odoo.models.unlink")
     def test_create_employee_multi(self):
         employees = self.env["hr.employee"].create(
             [
