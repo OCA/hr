@@ -37,6 +37,7 @@ class HrCourse(models.Model):
     _inherit = ["mail.thread", "mail.activity.mixin"]
 
     name = fields.Char(required=True, tracking=True)
+    code = fields.Char(string="Reference", copy=False, index="btree_not_null")
     category_id = fields.Many2one(
         "hr.course.category", string="Category", required=True
     )
@@ -52,6 +53,37 @@ class HrCourse(models.Model):
     course_schedule_ids = fields.One2many(
         "hr.course.schedule", inverse_name="course_id"
     )
+
+    _sql_constraints = [
+        ("hr_course_code_uniq", "unique (code)", "The reference must be unique!"),
+    ]
+
+    @api.depends("code", "name")
+    def _compute_display_name(self):
+        for record in self:
+            if record.code and record.name:
+                record.display_name = f"[{record.code}] {record.name}"
+            elif record.name:
+                record.display_name = record.name
+            else:
+                record.display_name = record.code or ""
+
+    @api.model
+    def name_search(self, name, args=None, operator="ilike", limit=100):
+        args = args or []
+        recs = self.search([("code", operator, name)] + args, limit=limit)
+        if not recs.ids:
+            return super().name_search(
+                name=name, args=args, operator=operator, limit=limit
+            )
+        return [(r.id, r.display_name) for r in recs]
+
+    @api.model_create_multi
+    def create(self, vals_list):
+        for vals in vals_list:
+            if not vals.get("code"):
+                vals["code"] = self.env["ir.sequence"].next_by_code("hr.course") or ""
+        return super().create(vals_list)
 
     @api.onchange("permanence")
     def _onchange_permanence(self):
