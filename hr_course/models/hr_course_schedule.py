@@ -22,6 +22,9 @@ class HrCourseSchedule(models.Model):
         string="Currency",
         default=lambda self: self.env.user.company_id.currency_id,
     )
+    company_id = fields.Many2one(
+        "res.company", string="Company", default=lambda self: self.env.company
+    )
     cost = fields.Monetary(string="Course Cost", required=True, tracking=True)
     authorized_by = fields.Many2one(
         comodel_name="hr.employee",
