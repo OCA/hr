@@ -2,10 +2,9 @@
 # Copyright 2022-2023 Tecnativa - Víctor Martínez
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-from odoo import api, fields, models
+from odoo import api, fields, models, modules
 from odoo.exceptions import UserError
 from odoo.fields import Command, Domain
-from odoo.tools import config
 
 SECTION_LINES = [
     Command.create(
@@ -232,10 +231,15 @@ class HrEmployee(models.Model):
     @api.model_create_multi
     def create(self, vals_list):
         res = super().create(vals_list)
+        if (
+            modules.module.current_test
+            and not modules.module.current_test.test_module
+            == "hr_employee_calendar_planning"
+        ):
+            return res
         # Avoid creating an employee without calendars
         if (
             not self.env.context.get("skip_employee_calendars_required")
-            and not config["test_enable"]
             and not self.env.context.get("install_mode")
             and res.filtered(lambda x: not x.calendar_ids)
         ):
