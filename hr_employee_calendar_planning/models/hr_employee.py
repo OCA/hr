@@ -107,22 +107,18 @@ class HrEmployee(models.Model):
                     vals_list.append((0, 0, data))
         # Autogenerate
         if not self.resource_id.calendar_id.auto_generate:
-            self.resource_id.calendar_id = (
-                self.env["resource.calendar"]
-                .create(
-                    {
-                        "active": False,
-                        "company_id": self.company_id.id,
-                        "auto_generate": True,
-                        "name": _("Auto generated calendar for employee")
-                        + f" {self.name}",
-                        "attendance_ids": vals_list,
-                        "two_weeks_calendar": two_weeks,
-                        "tz": self.tz,  # take employee timezone as default
-                    }
-                )
-                .id
+            calendar = self.env["resource.calendar"].create(
+                {
+                    "active": False,
+                    "company_id": self.company_id.id,
+                    "auto_generate": True,
+                    "name": _("Auto generated calendar for employee") + f" {self.name}",
+                    "attendance_ids": vals_list,
+                    "two_weeks_calendar": two_weeks,
+                    "tz": self.tz,  # take employee timezone as default
+                }
             )
+            self.resource_calendar_id = self.resource_id.calendar_id = calendar
         else:
             self.resource_calendar_id.attendance_ids = vals_list
         # Set the hours per day to the last (top date end) calendar line to apply
