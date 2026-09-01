@@ -441,6 +441,49 @@ class TestHrEmployeeCalendarPlanning(TestHrEmployeeCalendarPlanningCommon):
         )
         self.assertEqual(res_2020[self.employee.id][0][1], 4.0)
 
+    def test_search_flexible_hours(self):
+        self.calendar1.write(
+            {
+                "stored_flexible_hours": False,
+                "stored_full_time_required_hours": 40,
+                "stored_hours_per_day": 8,
+            }
+        )
+        self.calendar2.write(
+            {
+                "stored_flexible_hours": True,
+                "stored_full_time_required_hours": 20,
+                "stored_hours_per_day": 4,
+            }
+        )
+
+        calendars = self.env["resource.calendar"].search(
+            [
+                ("id", "in", (self.calendar1 | self.calendar2).ids),
+                ("flexible_hours", "=", False),
+            ]
+        )
+
+        self.assertEqual(calendars, self.calendar1)
+
+        calendars = self.env["resource.calendar"].search(
+            [
+                ("id", "in", (self.calendar1 | self.calendar2).ids),
+                ("full_time_required_hours", "=", 40),
+            ]
+        )
+
+        self.assertEqual(calendars, self.calendar1)
+
+        calendars = self.env["resource.calendar"].search(
+            [
+                ("id", "in", (self.calendar1 | self.calendar2).ids),
+                ("hours_per_day", "=", 8),
+            ]
+        )
+
+        self.assertEqual(calendars, self.calendar1)
+
     def test_post_install_hook(self):
         self.employee.resource_calendar_id = self.calendar1.id
         post_init_hook(self.env, self.employee)
