@@ -38,6 +38,48 @@ SECTION_LINES = [
 ]
 
 
+class HrEmployeeBase(models.AbstractModel):
+    _inherit = "hr.employee.base"
+
+    stored_is_flexible = fields.Boolean(
+        compute="_compute_stored_is_flexible", store=True
+    )
+    is_flexible = fields.Boolean(
+        store=False, search="_search_is_flexible", compute_sudo=True
+    )
+    is_fully_flexible = fields.Boolean(compute="_compute_is_fully_flexible")
+
+    def _search_is_flexible(self, operator, value):
+        return [("stored_is_flexible", operator, value)]
+
+    @api.depends("resource_calendar_id.flexible_hours")
+    def _compute_stored_is_flexible(self):
+        """This method is the same as _compute_is_flexible() in the hr module."""
+        for employee in self:
+            employee.stored_is_flexible = (
+                employee.is_fully_flexible
+                or employee.resource_calendar_id.flexible_hours
+            )
+
+    @api.depends("resource_calendar_id")
+    def _compute_is_fully_flexible(self):
+        """This method is the same as _compute_is_flexible() in the hr module."""
+        for employee in self:
+            employee.is_fully_flexible = not employee.resource_calendar_id
+
+    @api.depends_context(
+        "flexible_hours_from_date",
+        "flexible_hours_to_date",
+    )
+    def _compute_is_flexible(self):
+        res = super()._compute_is_flexible()
+        for item in self:
+            item.is_flexible = (
+                item.stored_is_flexible or item.resource_calendar_id.flexible_hours
+            )
+        return res
+
+
 class HrEmployee(models.Model):
     _inherit = "hr.employee"
 
