@@ -48,6 +48,13 @@ class HrEmployee(models.Model):
         copy=True,
     )
 
+    @api.depends_context(
+        "flexible_hours_from_date",
+        "flexible_hours_to_date",
+    )
+    def _compute_is_flexible(self):
+        return super()._compute_is_flexible()
+
     def _get_planning_calendars(self, from_date, to_date):
         self.ensure_one()
         # We need to use sudo to avoid the error  odoo.exceptions.AccessError:
