@@ -89,6 +89,84 @@
                     readonly="1"
                 />
             </xpath>
+            <xpath expr="(//label[@for='hours_per_week'])[1]" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="(//label[@for='hours_per_week'])[1]" position="after">
+                <label for="stored_hours_per_week" string="Total" />
+            </xpath>
+            <xpath expr="(//field[@name='hours_per_week'])[1]" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="(//field[@name='hours_per_week'])[1]" position="after">
+                <field
+                    name="stored_hours_per_week"
+                    nolabel="1"
+                    style="width: 6ch;"
+                    widget="float_time"
+                    readonly="not stored_flexible_hours or auto_generate"
+                />
+            </xpath>
+            <xpath expr="(//label[@for='hours_per_week'])[2]" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="(//label[@for='hours_per_week'])[2]" position="after">
+                <label for="stored_hours_per_week" string="Total" />
+            </xpath>
+            <xpath expr="(//field[@name='hours_per_week'])[2]" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="(//field[@name='hours_per_week'])[2]" position="after">
+                <field
+                    name="stored_hours_per_week"
+                    nolabel="1"
+                    style="width: 6ch;"
+                    widget="float_time"
+                    readonly="1"
+                />
+            </xpath>
+            <xpath expr="(//label[@for='hours_per_week'])[3]" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="(//label[@for='hours_per_week'])[3]" position="after">
+                <label for="stored_hours_per_week" string="Total" />
+            </xpath>
+            <xpath expr="(//field[@name='hours_per_week'])[3]" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="(//field[@name='hours_per_week'])[3]" position="after">
+                <field
+                    name="hours_per_week"
+                    nolabel="1"
+                    style="width: 6ch;"
+                    widget="float_time"
+                />
+                <field
+                    name="stored_hours_per_week"
+                    nolabel="1"
+                    style="width: 6ch;"
+                    widget="float_time"
+                    readonly="1"
+                />
+            </xpath>
+            <xpath expr="(//label[@for='hours_per_week'])[4]" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="(//label[@for='hours_per_week'])[4]" position="after">
+                <label for="stored_hours_per_week" string="Total" />
+            </xpath>
+            <xpath expr="(//field[@name='hours_per_week'])[4]" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="(//field[@name='hours_per_week'])[4]" position="after">
+                <field
+                    name="stored_hours_per_week"
+                    nolabel="1"
+                    style="width: 6ch;"
+                    widget="float_time"
+                    readonly="1"
+                />
+            </xpath>
             <xpath expr="//page[@name='working_hours']" position="attributes">
                 <attribute
                     name="invisible"
