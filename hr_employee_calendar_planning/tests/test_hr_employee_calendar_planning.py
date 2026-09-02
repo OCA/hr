@@ -223,6 +223,7 @@ class TestHrEmployeeCalendarPlanning(BaseCommon):
             {
                 "schedule_type": "flexible",
                 "stored_hours_per_day": 8,
+                "hours_per_week": 40,
             }
         )
         self.calendar1.stored_full_time_required_hours = 40
@@ -231,6 +232,7 @@ class TestHrEmployeeCalendarPlanning(BaseCommon):
             {
                 "schedule_type": "flexible",
                 "stored_hours_per_day": 4,
+                "hours_per_week": 20,
             }
         )
         self.calendar2.stored_full_time_required_hours = 20

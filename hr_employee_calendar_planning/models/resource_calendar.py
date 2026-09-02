@@ -53,6 +53,7 @@ class ResourceCalendar(models.Model):
     flexible_hours = fields.Boolean(store=False)
     full_time_required_hours = fields.Float(store=False)
     hours_per_day = fields.Float(store=False)
+    hours_per_week = fields.Float(recursive=True)
 
     @api.depends("schedule_type")
     def _compute_stored_flexible_hours(self):
@@ -183,6 +184,30 @@ class ResourceCalendar(models.Model):
             item.hours_per_day = hours
         return res
 
+    @api.depends(
+        "auto_generate",
+        "flexible_hours",
+        "employee_ids.calendar_ids",
+        "employee_ids.calendar_ids.calendar_id.hours_per_week",
+    )
+    @api.depends_context(
+        "flexible_hours_from_date",
+        "flexible_hours_to_date",
+    )
+    def _compute_hours_per_week(self):
+        _self = self.filtered(lambda x: x.auto_generate)
+        for item in _self:
+            from_date = self.env.context.get("flexible_hours_from_date")
+            to_date = self.env.context.get("flexible_hours_to_date")
+            employee = item.employee_ids[:1]
+            hours = 0
+            if (from_date or to_date) and employee:
+                calendars = employee._get_planning_calendars(from_date, to_date)
+                if calendars:
+                    hours = calendars[:1].calendar_id.hours_per_week
+            item.hours_per_week = hours
+        return super(ResourceCalendar, (self - _self))._compute_hours_per_week()
+
     @api.constrains("active")
     def _check_active(self):
         for item in self:
@@ -257,6 +282,9 @@ class ResourceCalendar(models.Model):
             if resources
             else None
         )
+        resources.mapped("calendar_id").filtered(
+            lambda x: x.auto_generate
+        )._compute_flexible_hours()
         return super()._attendance_intervals_batch(
             start_dt=start_dt,
             end_dt=end_dt,
