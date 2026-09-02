@@ -143,7 +143,9 @@ class HrEmployee(models.Model):
         domain=None,
     ):
         # Override function that change the calendar depending on date
-        if len(self) == 1 and self.calendar_ids:
+        if calendar and len(self) == 1 and self.calendar_ids:
+            if from_datetime.tzinfo:
+                from_datetime = from_datetime.replace(tzinfo=None)
             from_dt_tz = fields.Datetime.context_timestamp(self, from_datetime)
             check_date = from_dt_tz.date()
             planned_line = self._get_planning_calendars(check_date, check_date)
