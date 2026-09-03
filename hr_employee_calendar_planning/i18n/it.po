@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-11-30 15:37+0000\n"
+"PO-Revision-Date: 2026-09-03 11:46+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: hr_employee_calendar_planning
 #. odoo-python
@@ -33,6 +33,8 @@ msgid ""
 "%(item_name)s is used in %(total_items)s employee(s). You should change them "
 "first."
 msgstr ""
+"L'elemento %(item_name)s è utilizzato in %(total_items)s dipendenti. Bisogna "
+"prima modificarli."
 
 #. module: hr_employee_calendar_planning
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_resource_calendar__active
@@ -53,7 +55,7 @@ msgstr "Calendario auto generato per dipendente"
 #. module: hr_employee_calendar_planning
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_resource_calendar__hours_per_day
 msgid "Average Hour per Day"
-msgstr ""
+msgstr "Ore medie per giorno"
 
 #. module: hr_employee_calendar_planning
 #: model:ir.model.fields,help:hr_employee_calendar_planning.field_resource_calendar__hours_per_day
@@ -61,6 +63,7 @@ msgstr ""
 msgid ""
 "Average hours per day a resource is supposed to work with this calendar."
 msgstr ""
+"Ore medie per giorno che si suppone lavori una risorsa con questo calendario."
 
 #. module: hr_employee_calendar_planning
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee__calendar_ids
@@ -121,13 +124,13 @@ msgstr "Data fine"
 #. module: hr_employee_calendar_planning
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_resource_calendar__flexible_hours
 msgid "Flexible Hours"
-msgstr ""
+msgstr "Ore flessibili"
 
 #. module: hr_employee_calendar_planning
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_resource_calendar__full_time_required_hours
 #: model_terms:ir.ui.view,arch_db:hr_employee_calendar_planning.resource_calendar_form
 msgid "Full Time Equivalent"
-msgstr ""
+msgstr "Equivalente a tempo pieno"
 
 #. module: hr_employee_calendar_planning
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee__id
@@ -162,11 +165,13 @@ msgstr "Ultimo aggiornamento il"
 msgid ""
 "Number of hours to work on the company schedule to be considered as fulltime."
 msgstr ""
+"Numero di ore da lavorare nel calendario aziendale per essere considerato a "
+"tempo pieno."
 
 #. module: hr_employee_calendar_planning
 #: model:ir.model,name:hr_employee_calendar_planning.model_resource_mixin
 msgid "Resource Mixin"
-msgstr ""
+msgstr "Mixin risorsa"
 
 #. module: hr_employee_calendar_planning
 #: model:ir.model,name:hr_employee_calendar_planning.model_resource_calendar
@@ -181,17 +186,17 @@ msgstr "Data inizio"
 #. module: hr_employee_calendar_planning
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_resource_calendar__stored_flexible_hours
 msgid "Stored Flexible Hours"
-msgstr ""
+msgstr "Ore flessibili salvate"
 
 #. module: hr_employee_calendar_planning
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_resource_calendar__stored_full_time_required_hours
 msgid "Stored Full Time Required Hours"
-msgstr ""
+msgstr "Ore richieste a tempo pieno salvate"
 
 #. module: hr_employee_calendar_planning
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_resource_calendar__stored_hours_per_day
 msgid "Stored Hours Per Day"
-msgstr ""
+msgstr "Ore salvate per giorno"
 
 #. module: hr_employee_calendar_planning
 #. odoo-python
@@ -199,6 +204,8 @@ msgstr ""
 msgid ""
 "The employee %s has already a calendar assigned that overalps this period"
 msgstr ""
+"Il dipendente %s ha già un calendario assegnato che si sovrappone a questo "
+"periodo"
 
 #. module: hr_employee_calendar_planning
 #: model:ir.model.fields,help:hr_employee_calendar_planning.field_resource_calendar__flexible_hours
@@ -207,6 +214,8 @@ msgid ""
 "When enabled, it will allow employees to work flexibly, without relying on "
 "the company's working schedule (working hours)."
 msgstr ""
+"Quando abilitata, consentirà ai dipendenti di lavorare in modo flessibile, "
+"senza vincoli con il calendario di lavoro aziendale (ore di lavoro)."
 
 #. module: hr_employee_calendar_planning
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__calendar_id
