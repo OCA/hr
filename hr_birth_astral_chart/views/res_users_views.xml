@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 Forgeflow S.L.
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html). -->
+<odoo>
+    <record id="res_users_view_form_preferences_astral" model="ir.ui.view">
+        <field name="name">res.users.preferences.form.astral</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form_simple_modif" />
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='other_preferences']" position="inside">
+                <field name="astral_daily_horoscope" readonly="0" />
+            </xpath>
+        </field>
+    </record>
+</odoo>
