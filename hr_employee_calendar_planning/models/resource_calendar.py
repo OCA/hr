@@ -45,11 +45,28 @@ class ResourceCalendar(models.Model):
     )
     flexible_hours = fields.Boolean(
         compute="_compute_flexible_hours",
+        search="_search_flexible_hours",
     )
     full_time_required_hours = fields.Float(
         compute="_compute_full_time_required_hours",
+        search="_search_full_time_required_hours",
     )
-    hours_per_day = fields.Float(store=False)
+    hours_per_day = fields.Float(store=False, search="_search_hours_per_day")
+
+    def _search_flexible_hours(self, operator, value):
+        """Search the persisted value used by the computed field.
+
+        ``flexible_hours`` can depend on the planning dates in the context, so
+        it cannot be stored. Domains still need to be able to use the field,
+        for example the domain on Helpdesk teams' working hours.
+        """
+        return [("stored_flexible_hours", operator, value)]
+
+    def _search_full_time_required_hours(self, operator, value):
+        return [("stored_full_time_required_hours", operator, value)]
+
+    def _search_hours_per_day(self, operator, value):
+        return [("stored_hours_per_day", operator, value)]
 
     @api.depends(
         "auto_generate",
