@@ -413,6 +413,7 @@ class TestHrEmployeeCalendarPlanning(BaseCommon):
         with self.assertRaises(exceptions.ValidationError):
             self.calendar1.company_id = company2
 
+    @mute_logger("odoo.models.unlink")
     def test_employee_with_calendar_ids(self):
         employee = self.env["hr.employee"].create(
             {
@@ -522,12 +523,18 @@ class TestHrEmployeeCalendarPlanning(BaseCommon):
             with self.assertRaises(unittest.SkipTest):
                 self.test_employee_copy()
 
+    @mute_logger("odoo.models.unlink")
     def test_user_action_create_employee(self):
         user = new_test_user(self.env, login="test-user-cal")
+        calendar_model = self.env["resource.calendar"].with_context(active_test=False)
+        total_resources = calendar_model.search_count([])
         user.action_create_employee()
         self.assertTrue(user.employee_id)
         self.assertTrue(user.employee_id.calendar_ids)
+        total_resources_now = calendar_model.search_count([])
+        self.assertEqual(total_resources_now - total_resources, 1)
 
+    @mute_logger("odoo.models.unlink")
     def test_create_employee_multi(self):
         employees = self.env["hr.employee"].create(
             [
