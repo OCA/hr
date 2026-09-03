@@ -20,6 +20,9 @@ class TestHrEmployeeCalendarPlanningCommon(BaseCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
+        cls.env = cls.env(
+            context=dict(cls.env.context, test_hr_employee_calendar_planning=True)
+        )
         resource_calendar = cls.env["resource.calendar"]
         cls.calendar1 = resource_calendar.create(
             {"name": "Test calendar 1", "attendance_ids": []}
