@@ -24,3 +24,15 @@ class HrEmployeeLanguage(models.Model):
     can_write = fields.Boolean(string="Write", default=True)
     can_speak = fields.Boolean(string="Speak", default=True)
     can_listen = fields.Boolean(string="Listen", default=True)
+
+    def name_get(self):
+        """
+        redefine record name to show languages name instead languages code
+        """
+        res = []
+        for record in self.env["hr.employee.language"].search([]):
+            lang = self.env["res.lang"].search(
+                [("code", "=", record.name), ("active", "in", (True, False))], limit=1
+            )
+            res.append((record.id, lang.name if lang else record.name))
+        return res

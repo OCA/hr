@@ -144,6 +144,8 @@ repos:
     rev: 3.3.2
     hooks:
       - id: setuptools-odoo-make-default
+        additional_dependencies:
+          - "setuptools<75"
       - id: setuptools-odoo-get-requirements
         args:
           - --output
