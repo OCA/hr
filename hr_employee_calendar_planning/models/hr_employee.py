@@ -183,10 +183,14 @@ class HrEmployee(models.Model):
     @api.model_create_multi
     def create(self, vals_list):
         res = super().create(vals_list)
+        test_condition = not config["test_enable"] or self.env.context.get(
+            "test_hr_employee_calendar_planning"
+        )
+        if not test_condition:
+            return res
         # Avoid creating an employee without calendars
         if (
             not self.env.context.get("skip_employee_calendars_required")
-            and not config["test_enable"]
             and not self.env.context.get("install_mode")
             and res.filtered(lambda x: not x.calendar_ids)
         ):
