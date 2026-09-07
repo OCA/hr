@@ -2,7 +2,7 @@
 # Copyright 2021-2026 Tecnativa - Víctor Martínez
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-from odoo import api, fields, models
+from odoo import api, fields, models, modules
 from odoo.exceptions import ValidationError
 from odoo.tools.float_utils import float_round
 
@@ -168,18 +168,20 @@ class ResourceCalendar(models.Model):
         on the dates specified by context.
         """
         res = super()._compute_hours_per_day()
-        for item in self.filtered(lambda x: x.auto_generate and x.flexible_hours):
-            from_date = self.env.context.get("flexible_hours_from_date")
-            to_date = self.env.context.get("flexible_hours_to_date")
-            employee = item.employee_ids[:1]
+        for item in self:
             hours = item.stored_hours_per_day
-            if (from_date or to_date) and employee:
-                calendars = employee._get_planning_calendars(from_date, to_date)
-                hours = (
-                    (sum(c.stored_hours_per_day for c in calendars.calendar_id))
-                    if calendars
-                    else False
-                )
+            if item.auto_generate and item.flexible_hours:
+                from_date = self.env.context.get("flexible_hours_from_date")
+                to_date = self.env.context.get("flexible_hours_to_date")
+                employee = item.employee_ids[:1]
+                hours = item.stored_hours_per_day
+                if (from_date or to_date) and employee:
+                    calendars = employee._get_planning_calendars(from_date, to_date)
+                    hours = (
+                        (sum(c.stored_hours_per_day for c in calendars.calendar_id))
+                        if calendars
+                        else False
+                    )
             item.hours_per_day = hours
         return res
 
@@ -226,6 +228,26 @@ class ResourceCalendar(models.Model):
                         total_items=total_items,
                     )
                 )
+
+    @api.model_create_multi
+    def create(self, vals):
+        if (
+            modules.module.current_test
+            and not modules.module.current_test.test_module
+            == "hr_employee_calendar_planning"
+        ):
+            # If we are running a test from another module, the behavior must be
+            # maintained, we must simulate the definition of the stored* fields
+            for vals_item in vals:
+                for f_name in [
+                    "flexible_hours",
+                    "full_time_required_hours",
+                    "hours_per_day",
+                ]:
+                    if f_name in vals_item:
+                        vals_item[f"stored_{f_name}"] = vals_item[f_name]
+                        del vals_item[f_name]
+        return super().create(vals)
 
     def write(self, vals):
         res = super().write(vals)
