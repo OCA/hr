@@ -58,6 +58,8 @@ class HrEmployee(models.Model):
     def default_get(self, fields):
         """Set calendar_ids default value to cover all use cases."""
         vals = super().default_get(fields)
+        if not self._test_module_hr_attendance_employee_calendar_planning():
+            return vals
         if "calendar_ids" in fields and not vals.get("calendar_ids"):
             vals["calendar_ids"] = [
                 Command.create(

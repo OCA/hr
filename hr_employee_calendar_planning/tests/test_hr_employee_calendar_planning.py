@@ -19,7 +19,7 @@ from odoo.addons.base.tests.common import BaseCommon
 from ..hooks import post_init_hook
 
 
-class TestHrEmployeeCalendarPlanning(BaseCommon):
+class TestHrEmployeeCalendarPlanningCommon(BaseCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -142,6 +142,8 @@ class TestHrEmployeeCalendarPlanning(BaseCommon):
                 ),
             ]
 
+
+class TestHrEmployeeCalendarPlanning(TestHrEmployeeCalendarPlanningCommon):
     @mute_logger("odoo.models.unlink")
     def test_calendar_planning(self):
         today = fields.Date.context_today(self)
