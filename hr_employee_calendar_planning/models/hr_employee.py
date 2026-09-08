@@ -62,6 +62,11 @@ class HrEmployee(models.Model):
     def default_get(self, fields):
         """Set calendar_ids default value to cover all use cases."""
         vals = super().default_get(fields)
+        test_condition = not config["test_enable"] or self.env.context.get(
+            "test_hr_employee_calendar_planning"
+        )
+        if not test_condition:
+            return vals
         if "calendar_ids" in fields and not vals.get("calendar_ids"):
             vals["calendar_ids"] = [
                 (0, 0, {"calendar_id": self.env.company.resource_calendar_id.id}),
