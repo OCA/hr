@@ -229,13 +229,17 @@ class ResourceCalendar(models.Model):
                     )
                 )
 
+    def _test_module_hr_attendance_employee_calendar_planning(self):
+        """Similar to what was explained in the hr.employee method itself."""
+        return (
+            modules.module.current_test
+            and modules.module.current_test.test_module
+            == "hr_employee_calendar_planning"
+        )
+
     @api.model_create_multi
     def create(self, vals):
-        if (
-            modules.module.current_test
-            and not modules.module.current_test.test_module
-            == "hr_employee_calendar_planning"
-        ):
+        if not self._test_module_hr_attendance_employee_calendar_planning():
             # If we are running a test from another module, the behavior must be
             # maintained, we must simulate the definition of the stored* fields
             for vals_item in vals:

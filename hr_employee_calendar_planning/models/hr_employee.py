@@ -228,14 +228,31 @@ class HrEmployee(models.Model):
         new.filtered("calendar_ids").regenerate_calendar()
         return new
 
+    def _test_module_hr_attendance_employee_calendar_planning(self):
+        """This method indicates whether the module currently being executed is the
+        one of interest for performing various actions.
+        Generally, only the `hr_employee_calendar_planning` module will be checked,
+        but if, for example, there is another module that depends on it (such as
+        `hr_attendance_employee_calendar_planning`), that other module will need to
+        override this method to add the specific condition for that test.
+        Example:
+        condition = super()._test_module_hr_attendance_employee_calendar_planning()
+        return condition or (
+            modules.module.current_test
+            and modules.module.current_test.test_module
+            == "hr_attendance_employee_calendar_planning"
+        )
+        """
+        return (
+            modules.module.current_test
+            and modules.module.current_test.test_module
+            == "hr_employee_calendar_planning"
+        )
+
     @api.model_create_multi
     def create(self, vals_list):
         res = super().create(vals_list)
-        if (
-            modules.module.current_test
-            and not modules.module.current_test.test_module
-            == "hr_employee_calendar_planning"
-        ):
+        if not self._test_module_hr_attendance_employee_calendar_planning():
             return res
         # Avoid creating an employee without calendars
         if (
