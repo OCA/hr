@@ -25,6 +25,11 @@
             </xpath>
             <xpath expr="//tree/field[@name='state']" position="before">
                 <field name="qty_delivered" />
+                <field
+                    name="lot_ids"
+                    widget="many2many_tags"
+                    attrs="{'column_invisible': [('parent.state', '!=', 'accepted')]}"
+                />
                 <field name="location_id" invisible="1" />
                 <field name="procurement_group_id" invisible="1" />
             </xpath>
