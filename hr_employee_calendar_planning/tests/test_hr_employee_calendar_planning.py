@@ -19,7 +19,7 @@ from odoo.addons.base.tests.common import BaseCommon
 from ..hooks import post_init_hook
 
 
-class TestHrEmployeeCalendarPlanning(BaseCommon):
+class TestHrEmployeeCalendarPlanningCommon(BaseCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -142,6 +142,8 @@ class TestHrEmployeeCalendarPlanning(BaseCommon):
                 ),
             ]
 
+
+class TestHrEmployeeCalendarPlanning(TestHrEmployeeCalendarPlanningCommon):
     @mute_logger("odoo.models.unlink")
     def test_calendar_planning(self):
         today = fields.Date.context_today(self)
@@ -223,6 +225,7 @@ class TestHrEmployeeCalendarPlanning(BaseCommon):
             {
                 "schedule_type": "flexible",
                 "stored_hours_per_day": 8,
+                "stored_hours_per_week": 40,
             }
         )
         self.calendar1.stored_full_time_required_hours = 40
@@ -231,6 +234,7 @@ class TestHrEmployeeCalendarPlanning(BaseCommon):
             {
                 "schedule_type": "flexible",
                 "stored_hours_per_day": 4,
+                "stored_hours_per_week": 20,
             }
         )
         self.calendar2.stored_full_time_required_hours = 20

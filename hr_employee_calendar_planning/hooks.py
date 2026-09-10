@@ -24,10 +24,17 @@ def pre_init_hook(env):
     )
     env.cr.execute(
         """
+        ALTER TABLE resource_calendar
+        ADD COLUMN IF NOT EXISTS stored_hours_per_week double precision
+        """,
+    )
+    env.cr.execute(
+        """
         UPDATE resource_calendar
         SET stored_flexible_hours = flexible_hours,
             stored_full_time_required_hours = full_time_required_hours,
-            stored_hours_per_day = hours_per_day
+            stored_hours_per_day = hours_per_day,
+            stored_hours_per_week = hours_per_week
         """,
     )
 

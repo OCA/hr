@@ -4,7 +4,7 @@
 
 from odoo import api, fields, models, modules
 from odoo.exceptions import ValidationError
-from odoo.tools.float_utils import float_round
+from odoo.tools.float_utils import float_compare, float_round
 
 
 class ResourceCalendar(models.Model):
@@ -25,6 +25,7 @@ class ResourceCalendar(models.Model):
     # - stored_full_time_required_hours: This field will behave the same as the
     # full_time_required_hours field
     # - stored_hours_per_day: This will behave the same as the hours_per_day field
+    # - stored_hours_per_week: This will behave the same as the hours_per_week field
     # The flexible_hour and full_time_required_hours fields are converted to compute
     # fields with store=False to ensure the correct stored_* field is used, except
     # when the calendar is auto_generated and dates are passed via context; in that
@@ -48,11 +49,41 @@ class ResourceCalendar(models.Model):
         readonly=False,
         help="Average hours per day a resource is supposed to work with this calendar.",
     )
+    stored_hours_per_week = fields.Float(
+        compute="_compute_stored_hours_per_week",
+        store=True,
+        readonly=False,
+    )
     # We set the field to store=False; we want it to be computed whenever that data
     # needs to be accessed.
     flexible_hours = fields.Boolean(store=False)
     full_time_required_hours = fields.Float(store=False)
     hours_per_day = fields.Float(store=False)
+    hours_per_week = fields.Float(store=False)
+
+    @api.depends("stored_hours_per_week", "stored_full_time_required_hours")
+    def _compute_work_time_rate(self):
+        # Same behavior as _compute_work_time_rate() method but with stored fields.
+        _res = super()._compute_work_time_rate()
+        for calendar in self:
+            if calendar.stored_full_time_required_hours:
+                calendar.work_time_rate = (
+                    calendar.stored_hours_per_week
+                    / calendar.stored_full_time_required_hours
+                    * 100
+                )
+            else:
+                calendar.work_time_rate = 100
+
+            calendar.is_fulltime = (
+                float_compare(
+                    calendar.stored_full_time_required_hours,
+                    calendar.stored_hours_per_week,
+                    3,
+                )
+                == 0
+            )
+        return _res
 
     @api.depends("schedule_type")
     def _compute_stored_flexible_hours(self):
@@ -125,14 +156,16 @@ class ResourceCalendar(models.Model):
                     )
             item.full_time_required_hours = hours
 
-    @api.depends("hours_per_week", "company_id.resource_calendar_id.hours_per_week")
+    @api.depends(
+        "stored_hours_per_week", "company_id.resource_calendar_id.stored_hours_per_week"
+    )
     def _compute_stored_full_time_required_hours(self):
         """This method is the same as _compute_full_time_required_hours()
         in the resource module.
         """
         for calendar in self.filtered("company_id"):
             calendar.stored_full_time_required_hours = (
-                calendar.company_id.resource_calendar_id.hours_per_week
+                calendar.company_id.resource_calendar_id.stored_hours_per_week
             )
 
     @api.depends(
@@ -149,6 +182,22 @@ class ResourceCalendar(models.Model):
         for calendar in self.filtered(lambda c: not c.flexible_hours):
             calendar.stored_hours_per_day = float_round(
                 calendar._get_hours_per_day(), precision_digits=2
+            )
+
+    @api.depends(
+        "attendance_ids",
+        "attendance_ids.hour_from",
+        "attendance_ids.hour_to",
+        "two_weeks_calendar",
+        "flexible_hours",
+    )
+    def _compute_stored_hours_per_week(self):
+        """This method is the same as _compute_hours_per_week() in the resource
+        module.
+        """
+        for calendar in self.filtered(lambda c: not c.flexible_hours):
+            calendar.stored_hours_per_week = float_round(
+                calendar._get_hours_per_week(), precision_digits=2
             )
 
     @api.depends(
@@ -183,6 +232,35 @@ class ResourceCalendar(models.Model):
                         else False
                     )
             item.hours_per_day = hours
+        return res
+
+    @api.depends(
+        "auto_generate",
+        "flexible_hours",
+        "employee_ids.calendar_ids",
+        "employee_ids.calendar_ids.calendar_id.stored_flexible_hours",
+        "employee_ids.calendar_ids.calendar_id.stored_hours_per_week",
+    )
+    @api.depends_context(
+        "flexible_hours_from_date",
+        "flexible_hours_to_date",
+    )
+    def _compute_hours_per_week(self):
+        res = super()._compute_hours_per_week()
+        for item in self:
+            hours = item.stored_hours_per_week
+            if item.auto_generate and item.flexible_hours:
+                from_date = self.env.context.get("flexible_hours_from_date")
+                to_date = self.env.context.get("flexible_hours_to_date")
+                employee = item.employee_ids[:1]
+                if (from_date or to_date) and employee:
+                    calendars = employee._get_planning_calendars(from_date, to_date)
+                    hours = (
+                        (sum(c.stored_hours_per_week for c in calendars.calendar_id))
+                        if calendars
+                        else False
+                    )
+            item.hours_per_week = hours
         return res
 
     @api.constrains("active")
@@ -231,7 +309,7 @@ class ResourceCalendar(models.Model):
 
     def _test_module_hr_attendance_employee_calendar_planning(self):
         """Similar to what was explained in the hr.employee method itself."""
-        return (
+        return not modules.module.current_test or (
             modules.module.current_test
             and modules.module.current_test.test_module
             == "hr_employee_calendar_planning"
@@ -247,6 +325,7 @@ class ResourceCalendar(models.Model):
                     "flexible_hours",
                     "full_time_required_hours",
                     "hours_per_day",
+                    "hours_per_week",
                 ]:
                     if f_name in vals_item:
                         vals_item[f"stored_{f_name}"] = vals_item[f_name]
