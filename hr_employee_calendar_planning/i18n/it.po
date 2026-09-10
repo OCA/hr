@@ -66,6 +66,11 @@ msgstr ""
 "Ore medie per giorno che si suppone lavori una risorsa con questo calendario."
 
 #. module: hr_employee_calendar_planning
+#: model_terms:ir.ui.view,arch_db:hr_employee_calendar_planning.resource_calendar_form
+msgid "Avg"
+msgstr ""
+
+#. module: hr_employee_calendar_planning
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee__calendar_ids
 msgid "Calendar planning"
 msgstr "Pianificazione calendario"
@@ -133,6 +138,11 @@ msgid "Full Time Equivalent"
 msgstr "Equivalente a tempo pieno"
 
 #. module: hr_employee_calendar_planning
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_resource_calendar__hours_per_week
+msgid "Hours per Week"
+msgstr ""
+
+#. module: hr_employee_calendar_planning
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee__id
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__id
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_resource_calendar__id
@@ -169,6 +179,11 @@ msgstr ""
 "tempo pieno."
 
 #. module: hr_employee_calendar_planning
+#: model_terms:ir.ui.view,arch_db:hr_employee_calendar_planning.resource_calendar_form
+msgid "Required Full Time"
+msgstr ""
+
+#. module: hr_employee_calendar_planning
 #: model:ir.model,name:hr_employee_calendar_planning.model_resource_mixin
 msgid "Resource Mixin"
 msgstr "Mixin risorsa"
@@ -199,6 +214,11 @@ msgid "Stored Hours Per Day"
 msgstr "Ore salvate per giorno"
 
 #. module: hr_employee_calendar_planning
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_resource_calendar__stored_hours_per_week
+msgid "Stored Hours Per Week"
+msgstr ""
+
+#. module: hr_employee_calendar_planning
 #. odoo-python
 #: code:addons/hr_employee_calendar_planning/models/hr_employee.py:0
 msgid ""
@@ -206,6 +226,11 @@ msgid ""
 msgstr ""
 "Il dipendente %s ha già un calendario assegnato che si sovrappone a questo "
 "periodo"
+
+#. module: hr_employee_calendar_planning
+#: model_terms:ir.ui.view,arch_db:hr_employee_calendar_planning.resource_calendar_form
+msgid "Total"
+msgstr ""
 
 #. module: hr_employee_calendar_planning
 #: model:ir.model.fields,help:hr_employee_calendar_planning.field_resource_calendar__flexible_hours
