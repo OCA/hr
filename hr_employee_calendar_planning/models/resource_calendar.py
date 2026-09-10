@@ -4,7 +4,7 @@
 
 from odoo import api, fields, models, modules
 from odoo.exceptions import ValidationError
-from odoo.tools.float_utils import float_round
+from odoo.tools.float_utils import float_compare, float_round
 
 
 class ResourceCalendar(models.Model):
@@ -60,6 +60,30 @@ class ResourceCalendar(models.Model):
     full_time_required_hours = fields.Float(store=False)
     hours_per_day = fields.Float(store=False)
     hours_per_week = fields.Float(store=False)
+
+    @api.depends("stored_hours_per_week", "stored_full_time_required_hours")
+    def _compute_work_time_rate(self):
+        # Same behavior as _compute_work_time_rate() method but with stored fields.
+        _res = super()._compute_work_time_rate()
+        for calendar in self:
+            if calendar.stored_full_time_required_hours:
+                calendar.work_time_rate = (
+                    calendar.stored_hours_per_week
+                    / calendar.stored_full_time_required_hours
+                    * 100
+                )
+            else:
+                calendar.work_time_rate = 100
+
+            calendar.is_fulltime = (
+                float_compare(
+                    calendar.stored_full_time_required_hours,
+                    calendar.stored_hours_per_week,
+                    3,
+                )
+                == 0
+            )
+        return _res
 
     @api.depends("schedule_type")
     def _compute_stored_flexible_hours(self):
@@ -132,14 +156,16 @@ class ResourceCalendar(models.Model):
                     )
             item.full_time_required_hours = hours
 
-    @api.depends("hours_per_week", "company_id.resource_calendar_id.hours_per_week")
+    @api.depends(
+        "stored_hours_per_week", "company_id.resource_calendar_id.stored_hours_per_week"
+    )
     def _compute_stored_full_time_required_hours(self):
         """This method is the same as _compute_full_time_required_hours()
         in the resource module.
         """
         for calendar in self.filtered("company_id"):
             calendar.stored_full_time_required_hours = (
-                calendar.company_id.resource_calendar_id.hours_per_week
+                calendar.company_id.resource_calendar_id.stored_hours_per_week
             )
 
     @api.depends(
