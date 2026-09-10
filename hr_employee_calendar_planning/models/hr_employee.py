@@ -237,13 +237,14 @@ class HrEmployee(models.Model):
         override this method to add the specific condition for that test.
         Example:
         condition = super()._test_module_hr_attendance_employee_calendar_planning()
-        return condition or (
+        condition_extra = not modules.module.current_test or (
             modules.module.current_test
             and modules.module.current_test.test_module
             == "hr_attendance_employee_calendar_planning"
         )
+        return condition or condition_extra
         """
-        return (
+        return not modules.module.current_test or (
             modules.module.current_test
             and modules.module.current_test.test_module
             == "hr_employee_calendar_planning"

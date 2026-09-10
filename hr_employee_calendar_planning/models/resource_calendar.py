@@ -283,7 +283,7 @@ class ResourceCalendar(models.Model):
 
     def _test_module_hr_attendance_employee_calendar_planning(self):
         """Similar to what was explained in the hr.employee method itself."""
-        return (
+        return not modules.module.current_test or (
             modules.module.current_test
             and modules.module.current_test.test_module
             == "hr_employee_calendar_planning"
