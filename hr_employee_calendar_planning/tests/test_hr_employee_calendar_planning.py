@@ -88,8 +88,8 @@ class TestHrEmployeeCalendarPlanningCommon(BaseCommon):
             {
                 "name": "Global Leave 2",
                 "calendar_id": cls.calendar1.id,
-                "date_from": now,  # Justo ahora
-                "date_to": now + relativedelta(hours=4),
+                "date_from": now + relativedelta(days=1),
+                "date_to": now + relativedelta(days=2),
             }
         )
         cls.global_leave3 = cls.env["resource.calendar.leaves"].create(
