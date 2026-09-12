@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-07-22 05:46+0000\n"
+"PO-Revision-Date: 2026-09-12 07:46+0000\n"
 "Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -20,7 +20,7 @@ msgstr ""
 #. module: hr_employee_document
 #: model:ir.model,name:hr_employee_document.model_ir_attachment
 msgid "Attachment"
-msgstr ""
+msgstr "Priponka"
 
 #. module: hr_employee_document
 #: model:ir.model,name:hr_employee_document.model_hr_employee_base
