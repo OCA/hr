@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-09-03 11:46+0000\n"
+"PO-Revision-Date: 2026-09-14 17:46+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -68,7 +68,7 @@ msgstr ""
 #. module: hr_employee_calendar_planning
 #: model_terms:ir.ui.view,arch_db:hr_employee_calendar_planning.resource_calendar_form
 msgid "Avg"
-msgstr ""
+msgstr "Media"
 
 #. module: hr_employee_calendar_planning
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee__calendar_ids
@@ -140,7 +140,7 @@ msgstr "Equivalente a tempo pieno"
 #. module: hr_employee_calendar_planning
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_resource_calendar__hours_per_week
 msgid "Hours per Week"
-msgstr ""
+msgstr "Ore per settimana"
 
 #. module: hr_employee_calendar_planning
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee__id
@@ -181,7 +181,7 @@ msgstr ""
 #. module: hr_employee_calendar_planning
 #: model_terms:ir.ui.view,arch_db:hr_employee_calendar_planning.resource_calendar_form
 msgid "Required Full Time"
-msgstr ""
+msgstr "Tempo pieno richiesto"
 
 #. module: hr_employee_calendar_planning
 #: model:ir.model,name:hr_employee_calendar_planning.model_resource_mixin
@@ -216,7 +216,7 @@ msgstr "Ore salvate per giorno"
 #. module: hr_employee_calendar_planning
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_resource_calendar__stored_hours_per_week
 msgid "Stored Hours Per Week"
-msgstr ""
+msgstr "Ore allocate per settimana"
 
 #. module: hr_employee_calendar_planning
 #. odoo-python
@@ -230,7 +230,7 @@ msgstr ""
 #. module: hr_employee_calendar_planning
 #: model_terms:ir.ui.view,arch_db:hr_employee_calendar_planning.resource_calendar_form
 msgid "Total"
-msgstr ""
+msgstr "Totale"
 
 #. module: hr_employee_calendar_planning
 #: model:ir.model.fields,help:hr_employee_calendar_planning.field_resource_calendar__flexible_hours
