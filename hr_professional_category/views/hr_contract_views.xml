@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="hr_version_view_list" model="ir.ui.view">
+        <field name="name">hr.version.list</field>
+        <field name="model">hr.version</field>
+        <field name="inherit_id" ref="hr.hr_version_list_view" />
+        <field name="arch" type="xml">
+            <field name="job_id" position="after">
+                <field name="professional_category_id" optional="show" />
+            </field>
+        </field>
+    </record>
+
+    <record id="hr_version_view_search" model="ir.ui.view">
+        <field name="name">hr.version.search</field>
+        <field name="model">hr.version</field>
+        <field name="inherit_id" ref="hr.hr_version_search_view" />
+        <field name="arch" type="xml">
+            <field name="job_id" position="after">
+                <field name="professional_category_id" />
+            </field>
+            <filter name="group_by_job" position="after">
+                <filter
+                    string="Professional Category"
+                    name="group_by_professional_category_id"
+                    domain="[]"
+                    context="{'group_by': 'professional_category_id'}"
+                />
+            </filter>
+        </field>
+    </record>
+
+    <record id="view_employee_form" model="ir.ui.view">
+        <field name="name">hr.employee.form</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form" />
+        <field name="arch" type="xml">
+            <field name="job_id" position="after">
+                <field name="professional_category_id" />
+            </field>
+        </field>
+    </record>
+
+    <record id="hr_contract_template_view_form" model="ir.ui.view">
+        <field name="name">hr.contract.template.form</field>
+        <field name="model">hr.version</field>
+        <field name="inherit_id" ref="hr.hr_contract_template_form_view" />
+        <field name="arch" type="xml">
+            <field name="job_id" position="after">
+                <field name="professional_category_id" />
+            </field>
+        </field>
+    </record>
+</odoo>
