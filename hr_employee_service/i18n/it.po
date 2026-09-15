@@ -1,0 +1,109 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* hr_employee_service
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2024-05-30 13:37+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
+
+#. module: hr_employee_service
+#: model_terms:ir.ui.view,arch_db:hr_employee_service.view_employee_form_inherit_extension
+msgid "<span>day(s)</span>"
+msgstr "<span>giorno(i)</span>"
+
+#. module: hr_employee_service
+#: model_terms:ir.ui.view,arch_db:hr_employee_service.view_employee_form_inherit_extension
+msgid "<span>month(s)</span>"
+msgstr "<span>mese(i)</span>"
+
+#. module: hr_employee_service
+#: model_terms:ir.ui.view,arch_db:hr_employee_service.view_employee_form_inherit_extension
+msgid "<span>year(s)</span>"
+msgstr "<span>anno(i)</span>"
+
+#. module: hr_employee_service
+#: model:ir.model,name:hr_employee_service.model_hr_employee
+msgid "Employee"
+msgstr "Dipendente"
+
+#. module: hr_employee_service
+#: model:ir.model.fields,field_description:hr_employee_service.field_hr_employee__service_hire_date
+msgid "Hire Date"
+msgstr "Data assunzione"
+
+#. module: hr_employee_service
+#: model:ir.model.fields,help:hr_employee_service.field_hr_employee__service_hire_date
+msgid ""
+"Hire date is normally the date an employee completes new hire paperwork"
+msgstr ""
+"La data assunzione è normalmente la data in cui il dipendete completa il "
+"modulo per la nuova assunzione"
+
+#. module: hr_employee_service
+#: model:ir.model.fields,field_description:hr_employee_service.field_hr_employee__service_duration
+#: model_terms:ir.ui.view,arch_db:hr_employee_service.view_employee_form_inherit_extension
+msgid "Service Duration"
+msgstr "Durata servizio"
+
+#. module: hr_employee_service
+#: model:ir.model.fields,field_description:hr_employee_service.field_hr_employee__service_duration_days
+msgid "Service Duration (days)"
+msgstr "Durata servizio (giorni)"
+
+#. module: hr_employee_service
+#: model:ir.model.fields,field_description:hr_employee_service.field_hr_employee__service_duration_months
+msgid "Service Duration (months)"
+msgstr "Durata servizio (mesi)"
+
+#. module: hr_employee_service
+#: model:ir.model.fields,field_description:hr_employee_service.field_hr_employee__service_duration_years
+msgid "Service Duration (years)"
+msgstr "Durata servizio (anni)"
+
+#. module: hr_employee_service
+#: model_terms:ir.ui.view,arch_db:hr_employee_service.view_employee_form_inherit_extension
+msgid "Service Information"
+msgstr "Informazione servizio"
+
+#. module: hr_employee_service
+#: model:ir.model.fields,help:hr_employee_service.field_hr_employee__service_duration
+msgid "Service duration in days"
+msgstr "Durata servizio in giorni"
+
+#. module: hr_employee_service
+#: model:ir.model.fields,field_description:hr_employee_service.field_hr_employee__service_start_date
+msgid "Start Date"
+msgstr "Data inizio"
+
+#. module: hr_employee_service
+#: model:ir.model.fields,help:hr_employee_service.field_hr_employee__service_start_date
+msgid ""
+"Start date is the first day the employee actually works and this date is "
+"used for accrual leave allocations calculation"
+msgstr ""
+"La data inizio è il primo giorno in cui il dipendente ha effettivamente "
+"lavorato e questa data è utilizzata per il calcolo preciso delle ferie"
+
+#. module: hr_employee_service
+#: model:ir.model.fields,field_description:hr_employee_service.field_hr_employee__service_termination_date
+msgid "Termination Date"
+msgstr "Data termine"
+
+#. module: hr_employee_service
+#: model:ir.model.fields,help:hr_employee_service.field_hr_employee__service_termination_date
+msgid ""
+"Termination date is the last day the employee actually works and this date "
+"is used for accrual leave allocations calculation"
+msgstr ""
+"La data risoluzione è l'ultimo giorno in cui il dipendente ha effettivamente "
+"lavorato e questa data è utilizzata per il calcolo preciso delle ferie"
