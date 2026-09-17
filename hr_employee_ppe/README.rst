@@ -1,3 +1,7 @@
+.. image:: https://odoo-community.org/readme-banner-image
+   :target: https://odoo-community.org/get-involved?utm_source=readme
+   :alt: Odoo Community Association
+
 ==============================================
 Personal Protective Equipment (PPE) Management
 ==============================================
@@ -13,7 +17,7 @@ Personal Protective Equipment (PPE) Management
 .. |badge1| image:: https://img.shields.io/badge/maturity-Beta-yellow.png
     :target: https://odoo-community.org/page/development-status
     :alt: Beta
-.. |badge2| image:: https://img.shields.io/badge/licence-AGPL--3-blue.png
+.. |badge2| image:: https://img.shields.io/badge/license-AGPL--3-blue.png
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fhr-lightgray.png?logo=github
@@ -33,6 +37,17 @@ A product can be marked as ppe and additional information as duration and indica
 If ppe products are selected in a equipment request, a button to print a receipt of PPE will appear.
 In addition, a chron will check every day if an allocation has been expired.
 
+Equipment can also carry the certificate of approval issued by the competent
+authority, with the date that certificate expires. The certificate belongs to
+the equipment, not to a delivery, so it is recorded on the product; handing
+over equipment whose certificate has expired is refused.
+
+The certificate number and its expiry date are copied onto the allocation when
+the request is accepted, and are not changed afterwards. A safety inspection
+asks which certificate was valid on the day a given worker received a given
+piece of equipment, so renewing a certificate must not rewrite deliveries
+already made. Both appear on the printed receipt.
+
 **Table of contents**
 
 .. contents::
@@ -42,6 +57,28 @@ Installation
 ============
 
 To install this module, you need to have HR module installed or it will be requested during installation.
+
+Usage
+=====
+
+To record the certificate of approval of an equipment:
+
+#. Go to *Inventory > Products* and open a product marked as PPE.
+#. Fill *PPE Certification Number* and *PPE Certification Expiry Date* in the
+   *Employee PPE* section. A warning appears on the product once that date has
+   passed.
+
+*PPE Certification Expiry Date* is the expiry of the certificate itself, which
+is the same for every unit of the product. It is not *PPE Duration*, which is
+how long one worker may use the equipment before it is replaced.
+
+When a personal equipment request is accepted, the certificate number and its
+expiry date are copied from the product onto each allocation and stay as they
+were on that day, so past deliveries keep the certificate they were made
+under. A value typed on the allocation before acceptance is kept as is.
+
+Accepting a request that includes equipment whose certificate has already
+expired is refused: renew the certificate on the product first.
 
 Bug Tracker
 ===========
@@ -69,6 +106,7 @@ Contributors
 * Joao Carassato <joao.carassato@escodoo.com.br>
 * Fernando Colus <fernando.colus@escodoo.com.br>
 * Alba Riera <alba.riera@creublanca.es>
+* Marcos Mendez <m@pop.coop>
 
 Other credits
 ~~~~~~~~~~~~~
