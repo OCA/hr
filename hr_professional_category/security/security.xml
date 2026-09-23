@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="rule_multi_company_hr_professional_category" model="ir.rule">
+        <field name="name">Hr Professional Category multi-company</field>
+        <field name="model_id" ref="model_hr_professional_category" />
+        <field name="global" eval="True" />
+        <field name="domain_force">[('company_id', 'in', [False] + company_ids)]</field>
+    </record>
+</odoo>
