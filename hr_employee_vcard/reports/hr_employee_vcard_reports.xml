@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="action_report_vcard" model="ir.actions.report">
+        <field name="name">vCard</field>
+        <field name="model">hr.employee</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">hr_employee_vcard.report_vcard</field>
+        <field name="report_file">hr_employee_vcard.report_vcard</field>
+        <field name="print_report_name">'vCard - %s' % (object.name or '')</field>
+        <field name="binding_model_id" ref="hr.model_hr_employee" />
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="report_vcard">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <div
+                    class="article"
+                    t-att-data-oe-model="doc._name"
+                    t-att-data-oe-id="doc.id"
+                >
+                    <div class="page">
+                        <t t-set="card" t-value="doc._get_vcard_card_data()" />
+                        <t t-set="vcard_layout_id" t-value="card['vcard_layout_id']" />
+                        <t t-set="front_lines" t-value="card['front_lines']" />
+                        <t t-set="back_lines" t-value="card['back_lines']" />
+                        <t t-set="font_family" t-value="card['font_family']" />
+                        <t
+                            t-set="background_style"
+                            t-value="card['background_style']"
+                        />
+                        <t t-call="hr_employee_vcard.hr_employee_vcard_layout" />
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+
+    <record id="action_report_vcard_preview" model="ir.actions.report">
+        <field name="name">vCard Preview</field>
+        <field name="model">res.company</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">hr_employee_vcard.report_vcard_preview</field>
+        <field name="report_file">hr_employee_vcard.report_vcard_preview</field>
+    </record>
+
+    <template id="report_vcard_preview">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <div
+                    class="article"
+                    t-att-data-oe-model="doc._name"
+                    t-att-data-oe-id="doc.id"
+                >
+                    <div class="page">
+                        <t
+                            t-set="card"
+                            t-value="doc._get_vcard_card_data(doc._get_vcard_preview_values())"
+                        />
+                        <t t-set="vcard_layout_id" t-value="card['vcard_layout_id']" />
+                        <t t-set="front_lines" t-value="card['front_lines']" />
+                        <t t-set="back_lines" t-value="card['back_lines']" />
+                        <t t-set="font_family" t-value="card['font_family']" />
+                        <t
+                            t-set="background_style"
+                            t-value="card['background_style']"
+                        />
+                        <t t-call="hr_employee_vcard.hr_employee_vcard_layout" />
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>
