@@ -4,7 +4,7 @@
 from odoo import fields, models
 
 
-class ProcurementGroup(models.Model):
-    _inherit = "procurement.group"
+class StockReferenceInherit(models.Model):
+    _inherit = "stock.reference"
 
     equipment_request_id = fields.Many2one("hr.personal.equipment.request")
