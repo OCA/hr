@@ -2,6 +2,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from odoo.exceptions import UserError
+from odoo.fields import Command
 from odoo.tests import TransactionCase
 
 
@@ -57,10 +58,10 @@ class TestHRPersonalEquipment(TransactionCase):
                     "name": "Test User",
                     "login": "user@test.com",
                     "email": "user@test.com",
-                    "groups_id": [
-                        (4, cls.env.ref("base.group_user").id),
-                        (4, cls.env.ref("hr.group_hr_user").id),
-                        (4, cls.env.ref("stock.group_stock_manager").id),
+                    "group_ids": [
+                        Command.link(cls.env.ref("base.group_user").id),
+                        Command.link(cls.env.ref("hr.group_hr_user").id),
+                        Command.link(cls.env.ref("stock.group_stock_manager").id),
                     ],
                 }
             )
@@ -72,7 +73,7 @@ class TestHRPersonalEquipment(TransactionCase):
             {
                 "name": "Product Test Personal Equipment",
                 "is_personal_equipment": True,
-                "route_ids": [(6, 0, cls.route.ids)],
+                "route_ids": [Command.set(cls.route.ids)],
                 "qty_available": 100,
                 "type": "consu",
                 "uom_id": cls.env.ref("uom.product_uom_unit").id,
@@ -107,7 +108,7 @@ class TestHRPersonalEquipment(TransactionCase):
             .create(
                 {
                     "name": "Personal Equipment Request Test",
-                    "line_ids": [(0, 0, line) for line in lines],
+                    "line_ids": [Command.create(line) for line in lines],
                     "location_id": cls.location_employee.id,
                 }
             )
@@ -130,8 +131,8 @@ class TestHRPersonalEquipment(TransactionCase):
 
     def test_get_procurement_group_with_group_set(self):
         self.assertEqual(self.personal_equipment_request.state, "draft")
-        procurement_group_id = self.env["procurement.group"].create(
-            {"move_type": "direct"}
+        procurement_group_id = self.env["stock.reference"].create(
+            {"name": "Existing equipment reference"}
         )
         self.personal_equipment_request.procurement_group_id = procurement_group_id.id
         self.assertTrue(self.personal_equipment_request.procurement_group_id)
@@ -148,11 +149,21 @@ class TestHRPersonalEquipment(TransactionCase):
             self.personal_equipment_request.procurement_group_id.id,
             procurement_group_id.id,
         )
+        self.assertIn(
+            procurement_group_id,
+            self.personal_equipment_request.line_ids[0].move_ids.reference_ids,
+        )
 
     def test_compute_picking_count(self):
         self.assertEqual(self.personal_equipment_request.picking_count, 0)
         self.personal_equipment_request.accept_request()
         self.assertEqual(self.personal_equipment_request.picking_count, 1)
+        picking = self.personal_equipment_request.picking_ids
+        self.assertEqual(picking.equipment_request_id, self.personal_equipment_request)
+        self.assertIn(
+            self.personal_equipment_request.procurement_group_id,
+            picking.reference_ids,
+        )
 
     # hr.personal.equipment
 
