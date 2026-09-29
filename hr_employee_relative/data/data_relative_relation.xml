@@ -1,32 +1,32 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <odoo noupdate="1">
     <!--
           Copyright (C) 2018 Brainbean Apps (https://brainbeanapps.com)
           License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
         -->
     <!-- hr.employee.relative.relation -->
-    <record model="hr.employee.relative.relation" id="relation_spouse">
+    <record id="relation_spouse" model="hr.employee.relative.relation">
         <field name="name">Spouse</field>
     </record>
-    <record model="hr.employee.relative.relation" id="relation_significant_other">
+    <record id="relation_significant_other" model="hr.employee.relative.relation">
         <field name="name">Significant Other</field>
     </record>
-    <record model="hr.employee.relative.relation" id="relation_child">
+    <record id="relation_child" model="hr.employee.relative.relation">
         <field name="name">Child</field>
     </record>
-    <record model="hr.employee.relative.relation" id="relation_parent">
+    <record id="relation_parent" model="hr.employee.relative.relation">
         <field name="name">Parent</field>
     </record>
-    <record model="hr.employee.relative.relation" id="relation_sibling">
+    <record id="relation_sibling" model="hr.employee.relative.relation">
         <field name="name">Sibling</field>
     </record>
-    <record model="hr.employee.relative.relation" id="relation_cousin">
+    <record id="relation_cousin" model="hr.employee.relative.relation">
         <field name="name">Cousin</field>
     </record>
-    <record model="hr.employee.relative.relation" id="relation_grandparent">
+    <record id="relation_grandparent" model="hr.employee.relative.relation">
         <field name="name">Grandparent</field>
     </record>
-    <record model="hr.employee.relative.relation" id="relation_grandchild">
+    <record id="relation_grandchild" model="hr.employee.relative.relation">
         <field name="name">Grandchild</field>
     </record>
 </odoo>
