@@ -4,7 +4,7 @@
 
 {
     "name": "HR Employee Relatives",
-    "version": "19.0.1.0.0",
+    "version": "20.0.1.0.0",
     "category": "Human Resources",
     "website": "https://github.com/OCA/hr",
     "author": "CorporateHub, Odoo Community Association (OCA)",
@@ -16,7 +16,7 @@
     "external_dependencies": {"python": ["python-dateutil"]},
     "data": [
         "data/data_relative_relation.xml",
-        "security/ir.model.access.csv",
+        "security/ir.access.csv",
         "views/hr_employee.xml",
         "views/hr_employee_relative.xml",
     ],

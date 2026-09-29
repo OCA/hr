@@ -1,8 +1,6 @@
 # Copyright (C) 2018 Brainbean Apps (https://brainbeanapps.com)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from datetime import datetime
-
 from dateutil.relativedelta import relativedelta
 
 from odoo import api, fields, models
@@ -36,7 +34,7 @@ class HrEmployeeRelative(models.Model):
     def _compute_age(self):
         for record in self:
             if record.date_of_birth:
-                age = relativedelta(datetime.now(), record.date_of_birth)
+                age = relativedelta(fields.Date.today(), record.date_of_birth)
                 record.age_year = age.years
                 record.age_month = age.months
                 record.age_day = age.days

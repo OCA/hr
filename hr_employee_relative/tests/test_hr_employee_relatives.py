@@ -1,10 +1,9 @@
 # Copyright (C) 2018 Brainbean Apps (https://brainbeanapps.com)
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
-from datetime import datetime
-
 from dateutil.relativedelta import relativedelta
 
+from odoo import fields
 from odoo.tests import Form, common
 
 
@@ -39,10 +38,10 @@ class TestHrEmployeeRelatives(common.TransactionCase):
         return self.EmployeeRelative.browse(employee.relative_ids[0].id)
 
     def test_age_calculation_with_dob(self):
-        dob = datetime.now() + relativedelta(years=-42, months=-3, days=-15)
+        dob = fields.Date.today() + relativedelta(years=-42, months=-3, days=-15)
         relative = self.create_relative(dob)
 
-        expected_age = relativedelta(datetime.now(), dob)
+        expected_age = relativedelta(fields.Date.today(), dob)
 
         self.assertEqual(relative.age_year, expected_age.years)
         self.assertEqual(relative.age_month, expected_age.months)

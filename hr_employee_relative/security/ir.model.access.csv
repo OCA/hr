@@ -1,5 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_hr_employee_relative_employee,hr.employee.relative,model_hr_employee_relative,base.group_user,1,0,0,0
-access_hr_employee_relative_user,hr.employee.relative,model_hr_employee_relative,hr.group_hr_manager,1,1,1,1
-access_hr_employee_relative_relation_employee,hr.employee.relative.relation,model_hr_employee_relative_relation,base.group_user,1,0,0,0
-access_hr_employee_relative_relation_user,hr.employee.relative.relation,model_hr_employee_relative_relation,hr.group_hr_manager,1,1,1,1
