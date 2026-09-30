@@ -68,6 +68,11 @@ msgstr ""
 "Promedio de horas al día que un recurso debe trabajar con este calendario."
 
 #. module: hr_employee_calendar_planning
+#: model:ir.model,name:hr_employee_calendar_planning.model_hr_employee_base
+msgid "Basic Employee"
+msgstr ""
+
+#. module: hr_employee_calendar_planning
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee__calendar_ids
 msgid "Calendar planning"
 msgstr "Plan de Horario"
@@ -151,6 +156,20 @@ msgstr ""
 "trabajo sin eliminarlo."
 
 #. module: hr_employee_calendar_planning
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee__is_flexible
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_base__is_flexible
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_public__is_flexible
+msgid "Is Flexible"
+msgstr ""
+
+#. module: hr_employee_calendar_planning
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee__is_fully_flexible
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_base__is_fully_flexible
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_public__is_fully_flexible
+msgid "Is Fully Flexible"
+msgstr ""
+
+#. module: hr_employee_calendar_planning
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__write_uid
 msgid "Last Updated by"
 msgstr "Última modificación por"
@@ -200,6 +219,13 @@ msgid "Stored Hours Per Day"
 msgstr "Horas al día (almacenado)"
 
 #. module: hr_employee_calendar_planning
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee__stored_is_flexible
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_base__stored_is_flexible
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_public__stored_is_flexible
+msgid "Stored Is Flexible"
+msgstr ""
+
+#. module: hr_employee_calendar_planning
 #: model:ir.model.fields,help:hr_employee_calendar_planning.field_resource_calendar__flexible_hours
 #: model:ir.model.fields,help:hr_employee_calendar_planning.field_resource_calendar__stored_flexible_hours
 msgid ""
@@ -207,8 +233,8 @@ msgid ""
 "the company's working schedule (working hours)."
 msgstr ""
 "Cuando esta opción está habilitada, los empleados pueden trabajar de forma "
-"flexible sin depender del calendario laboral de la compañía (horario laboral)"
-"."
+"flexible sin depender del calendario laboral de la compañía (horario "
+"laboral)."
 
 #. module: hr_employee_calendar_planning
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__calendar_id
