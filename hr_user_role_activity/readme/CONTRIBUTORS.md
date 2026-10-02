@@ -1,0 +1,3 @@
+- [Glueckkanja](https://www.glueckkanja.com/):
+  - Christopher Rogos
+  - Mohamed Osman
