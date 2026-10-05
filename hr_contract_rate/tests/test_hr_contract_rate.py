@@ -119,6 +119,8 @@ class TestHrContractRate(common.TransactionCase):
         self.assertEqual(contract.amount, 2500.0)
         self.assertEqual(contract.amount_period, "month")
         self.assertEqual(contract.wage, 2500.0)
+        self.assertEqual(contract.approximate_wage, 0.0)
+        self.assertTrue(contract.is_wage_accurate)
 
     def test_write_wage_skip_inverse(self):
         contract = self._create_contract(amount=50.0, amount_period="hour")

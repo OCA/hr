@@ -138,3 +138,8 @@ class HrContract(models.Model):
                 contract.amount = contract.wage
             if contract.amount_period != "month":
                 contract.amount_period = "month"
+            # The fields computed together with the wage are protected from
+            # recomputation while it is being written: refresh them here.
+            wage, is_wage_accurate = contract._get_wage_from_amount()
+            contract.is_wage_accurate = is_wage_accurate
+            contract.approximate_wage = 0.0 if is_wage_accurate else wage
