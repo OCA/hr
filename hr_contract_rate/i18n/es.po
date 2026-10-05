@@ -18,7 +18,6 @@ msgstr ""
 
 #. module: hr_contract_rate
 #: model:ir.model.fields,field_description:hr_contract_rate.field_hr_contract__amount
-#: model_terms:ir.ui.view,arch_db:hr_contract_rate.hr_contract_view_form
 msgid "Amount"
 msgstr "Importe"
 
@@ -106,6 +105,11 @@ msgstr "Periodo de duración del contrato del empleado"
 #: model:ir.model.fields.selection,name:hr_contract_rate.selection__hr_contract__amount_period__quarter
 msgid "Quarter"
 msgstr "Trimestre"
+
+#. module: hr_contract_rate
+#: model_terms:ir.ui.view,arch_db:hr_contract_rate.hr_contract_view_form
+msgid "Rate"
+msgstr "Tarifa"
 
 #. module: hr_contract_rate
 #: model_terms:ir.ui.view,arch_db:hr_contract_rate.hr_contract_view_form

@@ -1,2 +1,3 @@
 - [CorporateHub](https://corporatehub.eu/)
   - Alexey Pelykh \<alexey.pelykh@corphub.eu\>
+- Nimarosa \<<https://github.com/nimarosa>\>

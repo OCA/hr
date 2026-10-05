@@ -49,11 +49,22 @@ calculation for the contract.
 Usage
 =====
 
-Since hourly, daily, and weekly rates are not tranformable to monthly
+On the contract form, the *Wage* box becomes a *Rate*: an amount and the
+period it is quoted in.
+
+Since hourly, daily, and weekly rates are not transformable to monthly
 wage with precision, ``wage`` is being set to zero in these cases. An
 extra ``approximate_wage`` field is added to store approximately
-computed average monthly wage. It's also important to review payroll
-calculation rules.
+computed average monthly wage, using the number of work hours, days or
+weeks per month set on the contract. It's also important to review
+payroll calculation rules.
+
+Writing ``wage`` directly keeps working: it stores a monthly amount.
+Modules that write ``wage`` as a by-product and must not reset the rate
+can pass ``hr_contract_inverse_wage_skip`` in the context.
+
+When the module is installed on a database that already has contracts,
+their current wage is kept as a monthly amount.
 
 This module is based on different approach than
 ``hr_contract_hourly_rate`` use.
@@ -83,6 +94,8 @@ Contributors
 
   - Alexey Pelykh <alexey.pelykh@corphub.eu>
 
+- Nimarosa <https://github.com/nimarosa>
+
 Maintainers
 -----------
 
@@ -95,6 +108,14 @@ This module is maintained by the OCA.
 OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
+
+.. |maintainer-nimarosa| image:: https://github.com/nimarosa.png?size=40px
+    :target: https://github.com/nimarosa
+    :alt: nimarosa
+
+Current `maintainer <https://odoo-community.org/page/maintainer-role>`__:
+
+|maintainer-nimarosa| 
 
 This module is part of the `OCA/hr <https://github.com/OCA/hr/tree/18.0/hr_contract_rate>`_ project on GitHub.
 

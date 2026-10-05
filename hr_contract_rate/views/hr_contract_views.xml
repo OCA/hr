@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    Copyright 2020 Brainbean Apps (https://brainbeanapps.com)
+    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
+-->
+<odoo>
+    <record id="hr_contract_view_form" model="ir.ui.view">
+        <field name="name">hr.contract.view.form</field>
+        <field name="model">hr.contract</field>
+        <field name="inherit_id" ref="hr_contract.hr_contract_view_form" />
+        <!-- Replacing a node has to run after the plain extensions. -->
+        <field name="priority">99</field>
+        <field name="arch" type="xml">
+            <!-- The wage is derived now, so the salary box asks for the rate. -->
+            <xpath expr="//label[@for='wage']" position="attributes">
+                <attribute name="for">amount</attribute>
+                <attribute name="string">Rate</attribute>
+            </xpath>
+            <!--
+                Amount and period on one line. A plain flex row instead of
+                core's `o_row mw-50`: `o_row` gives every child an equal share
+                and `mw-50` caps the row at half the cell, which squeezes the
+                amount under the period dropdown. The widths are set in
+                static/src/scss/hr_contract_rate.scss.
+            -->
+            <xpath expr="//div[@name='wage']" position="replace">
+                <div
+                    class="o_hr_contract_rate d-flex align-items-baseline gap-2"
+                    name="wage"
+                >
+                    <field name="amount" nolabel="1" />
+                    <span>/</span>
+                    <field name="amount_period" class="w-auto" nolabel="1" />
+                    <!-- Kept (hidden) so views extending it still resolve. -->
+                    <field name="wage" invisible="1" />
+                </div>
+            </xpath>
+            <xpath expr="//group[@name='salary']" position="inside">
+                <field name="is_wage_accurate" invisible="1" />
+                <field
+                    name="approximate_wage"
+                    readonly="1"
+                    invisible="is_wage_accurate"
+                />
+                <field
+                    name="work_hours_per_month"
+                    invisible="amount_period != 'hour'"
+                />
+                <field name="work_days_per_month" invisible="amount_period != 'day'" />
+                <field
+                    name="work_weeks_per_month"
+                    invisible="amount_period != 'week'"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>

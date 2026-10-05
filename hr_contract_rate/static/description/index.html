@@ -397,11 +397,19 @@ calculation for the contract.</p>
 </div>
 <div class="section" id="usage">
 <h1><a class="toc-backref" href="#toc-entry-1">Usage</a></h1>
-<p>Since hourly, daily, and weekly rates are not tranformable to monthly
+<p>On the contract form, the <em>Wage</em> box becomes a <em>Rate</em>: an amount and the
+period it is quoted in.</p>
+<p>Since hourly, daily, and weekly rates are not transformable to monthly
 wage with precision, <tt class="docutils literal">wage</tt> is being set to zero in these cases. An
 extra <tt class="docutils literal">approximate_wage</tt> field is added to store approximately
-computed average monthly wage. It’s also important to review payroll
-calculation rules.</p>
+computed average monthly wage, using the number of work hours, days or
+weeks per month set on the contract. It’s also important to review
+payroll calculation rules.</p>
+<p>Writing <tt class="docutils literal">wage</tt> directly keeps working: it stores a monthly amount.
+Modules that write <tt class="docutils literal">wage</tt> as a by-product and must not reset the rate
+can pass <tt class="docutils literal">hr_contract_inverse_wage_skip</tt> in the context.</p>
+<p>When the module is installed on a database that already has contracts,
+their current wage is kept as a monthly amount.</p>
 <p>This module is based on different approach than
 <tt class="docutils literal">hr_contract_hourly_rate</tt> use.</p>
 </div>
@@ -428,6 +436,7 @@ If you spotted it first, help us to smash it by providing a detailed and welcome
 <li>Alexey Pelykh &lt;<a class="reference external" href="mailto:alexey.pelykh&#64;corphub.eu">alexey.pelykh&#64;corphub.eu</a>&gt;</li>
 </ul>
 </li>
+<li>Nimarosa &lt;<a class="reference external" href="https://github.com/nimarosa">https://github.com/nimarosa</a>&gt;</li>
 </ul>
 </div>
 <div class="section" id="maintainers">
@@ -439,6 +448,8 @@ If you spotted it first, help us to smash it by providing a detailed and welcome
 <p>OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.</p>
+<p>Current <a class="reference external" href="https://odoo-community.org/page/maintainer-role">maintainer</a>:</p>
+<p><a class="reference external image-reference" href="https://github.com/nimarosa"><img alt="nimarosa" src="https://github.com/nimarosa.png?size=40px" /></a></p>
 <p>This module is part of the <a class="reference external" href="https://github.com/OCA/hr/tree/18.0/hr_contract_rate">OCA/hr</a> project on GitHub.</p>
 <p>You are welcome to contribute. To learn how please visit <a class="reference external" href="https://odoo-community.org/page/Contribute">https://odoo-community.org/page/Contribute</a>.</p>
 </div>
