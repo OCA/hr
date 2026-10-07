@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_employee_form_portal_user" model="ir.ui.view">
+        <field name="name">hr.employee.form.portal.user</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form" />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//page[@name='hr_settings']//group[@name='user']"
+                position="inside"
+            >
+                <button
+                    name="action_grant_portal_access"
+                    type="object"
+                    string="Grant Portal Access"
+                    invisible="user_id"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>
