@@ -1,7 +1,7 @@
 from freezegun import freeze_time
 
 from odoo import fields
-from odoo.tests.common import TransactionCase, tagged
+from odoo.tests.common import TransactionCase, new_test_user, tagged
 
 ACTIVITY_XMLID = "base_user_role_activity.mail_activity_role_expire"
 
@@ -11,34 +11,30 @@ class TestRoleManager(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
+        cls.env = cls.env(context=dict(cls.env.context, tracking_disable=True))
         cls.company_a = cls.env["res.company"].create({"name": "Company A"})
         cls.company_b = cls.env["res.company"].create({"name": "Company B"})
 
-        cls.manager_user_a = cls.env["res.users"].create(
-            {
-                "name": "Manager A",
-                "login": "manager_a_role_activity",
-                "company_id": cls.company_a.id,
-                "company_ids": [fields.Command.set([cls.company_a.id])],
-            }
+        cls.manager_user_a = new_test_user(
+            cls.env,
+            login="manager_a_role_activity",
+            name="Manager A",
+            company_id=cls.company_a.id,
+            company_ids=[fields.Command.set([cls.company_a.id])],
         )
-        cls.manager_user_b = cls.env["res.users"].create(
-            {
-                "name": "Manager B",
-                "login": "manager_b_role_activity",
-                "company_id": cls.company_b.id,
-                "company_ids": [fields.Command.set([cls.company_b.id])],
-            }
+        cls.manager_user_b = new_test_user(
+            cls.env,
+            login="manager_b_role_activity",
+            name="Manager B",
+            company_id=cls.company_b.id,
+            company_ids=[fields.Command.set([cls.company_b.id])],
         )
-        cls.user = cls.env["res.users"].create(
-            {
-                "name": "Employee User",
-                "login": "employee_user_role_activity",
-                "company_id": cls.company_a.id,
-                "company_ids": [
-                    fields.Command.set([cls.company_a.id, cls.company_b.id])
-                ],
-            }
+        cls.user = new_test_user(
+            cls.env,
+            login="employee_user_role_activity",
+            name="Employee User",
+            company_id=cls.company_a.id,
+            company_ids=[fields.Command.set([cls.company_a.id, cls.company_b.id])],
         )
         cls.manager_employee_a = cls.env["hr.employee"].create(
             {
@@ -117,8 +113,8 @@ class TestRoleManager(TransactionCase):
     @freeze_time("2025-01-15")
     def test_no_manager_falls_back_to_user(self):
         """Without an employee record the activity stays with the user."""
-        standalone_user = self.env["res.users"].create(
-            {"name": "Standalone User", "login": "standalone_role_activity"}
+        standalone_user = new_test_user(
+            self.env, login="standalone_role_activity", name="Standalone User"
         )
         self.env["res.users.role.line"].create(
             {
