@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="hr_contract_view_form" model="ir.ui.view">
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='wage']" position='after'>
+                <label for="currency_id" />
+                <div class="o_row" name="contract_currency">
+                    <field
+                        name="currency_id"
+                        class="oe_inline o_hr_narrow_field"
+                        nolabel="1"
+                        groups="base.group_multi_currency"
+                    />
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
