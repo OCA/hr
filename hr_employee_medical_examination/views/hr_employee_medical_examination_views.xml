@@ -54,6 +54,7 @@
                         </group>
                         <group>
                             <field name="result" />
+                            <field name="address_id" context="{'show_address': 1}" />
                         </group>
                     </group>
                     <div>
