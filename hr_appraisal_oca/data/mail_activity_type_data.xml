@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <odoo noupdate="1">
     <record id="mail_act_hr_appraisal_cfr" model="mail.activity.type">
         <field name="name">CFR</field>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <odoo noupdate="1">
     <record id="mail_template_appraisal_request" model="mail.template">
         <field name="name">HR: Manager appraisal request</field>

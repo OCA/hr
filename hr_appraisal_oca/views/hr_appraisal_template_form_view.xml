@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
     <record id="hr_appraisal_template_form_view" model="ir.ui.view">
         <field name="name">hr.appraisal.template.form.view</field>
         <field name="model">hr.appraisal.template</field>
-        <field name="priority">1</field>
+        <field name="priority" eval="1" />
         <field name="arch" type="xml">
             <form>
                 <sheet>
@@ -79,7 +79,7 @@
             </form>
         </field>
     </record>
-    <record model="ir.ui.view" id="hr_appraisal_template_tree_view">
+    <record id="hr_appraisal_template_tree_view" model="ir.ui.view">
         <field name="name">hr.appraisal.template.list.view</field>
         <field name="model">hr.appraisal.template</field>
         <field name="arch" type="xml">

@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
     <record id="hr_appraisal_form_view" model="ir.ui.view">
         <field name="name">hr.appraisal.form.view</field>
         <field name="model">hr.appraisal</field>
-        <field name="priority">1</field>
+        <field name="priority" eval="1" />
         <field name="arch" type="xml">
             <form>
                 <header>
@@ -495,21 +495,21 @@
         <field name='view_mode'>kanban,list,form</field>
     </record>
     <menuitem
-        name="Appraisals"
         id="menu_hr_appraisal_root"
+        name="Appraisals"
         web_icon="hr_appraisal_oca,static/description/icon.png"
         groups="hr_appraisal_oca.group_appraisal_user"
     />
     <menuitem
-        name="Appraisals"
         id="menu_hr_appraisal"
+        name="Appraisals"
         parent="menu_hr_appraisal_root"
         action="hr_appraisal_action_form"
         groups="hr_appraisal_oca.group_appraisal_user"
     />
     <menuitem
-        name="Configuration"
         id="menu_hr_appraisal_configuration"
+        name="Configuration"
         parent="menu_hr_appraisal_root"
         groups="hr_appraisal_oca.group_appraisal_hr_officer"
         sequence="100"
