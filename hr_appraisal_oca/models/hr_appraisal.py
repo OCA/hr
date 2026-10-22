@@ -1,21 +1,18 @@
 # Copyright 2025 Fundacion Esment - Estefanía Bauzá
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-import datetime
-
-from odoo import _, api, fields, models
+from odoo import Command, api, fields, models
 
 
 class HrAppraisal(models.Model):
     _name = "hr.appraisal"
-    _inherit = ["mail.thread", "mail.activity.mixin"]
+    _inherit = ("mail.thread", "mail.activity.mixin")
     _rec_name = "employee_id"
     _description = "Employee Appraisal"
     _order = "state desc, date_close, id desc"
 
     employee_id = fields.Many2one(
         "hr.employee",
-        string="Employee",
         required=True,
         default=lambda self: self._default_employee_id(),
         readonly=True,
@@ -30,7 +27,6 @@ class HrAppraisal(models.Model):
         "hr_appraisal_managers_rel",
         "hr_appraisal_id",
         compute="_compute_manager_ids",
-        inverse="_inverse_manager_ids",
         domain="[('id', '!=', employee_id)]",
         check_company=True,
         required=True,
@@ -55,7 +51,6 @@ class HrAppraisal(models.Model):
     )
     appraisal_template_id = fields.Many2one(
         "hr.appraisal.template",
-        string="Appraisal Template",
         check_company=True,
     )
     state = fields.Selection(
@@ -129,10 +124,10 @@ class HrAppraisal(models.Model):
         """
         res = super().default_get(fields_list)
         if not res.get("appraisal_template_id"):
-            default_template_id = int(
+            default_template_id = (
                 self.env["ir.config_parameter"]
                 .sudo()
-                .get_param("hr_appraisal_oca.default_appraisal_template_id", 0)
+                .get_int("hr_appraisal_oca.default_appraisal_template_id", 0)
             )
             if default_template_id:
                 res["appraisal_template_id"] = default_template_id
@@ -204,7 +199,8 @@ class HrAppraisal(models.Model):
         Employee = self.env["hr.employee"]
         user = self.env.user
         if user.has_group("hr_appraisal_oca.group_appraisal_hr_officer"):
-            allowed = Employee.search([])
+            # The selector must include every employee accessible to the officer.
+            allowed = Employee.search([])  # pylint: disable=no-search-all
         else:
             employee, subordinates = self._get_current_employee_and_subordinates()
             if employee:
@@ -219,24 +215,19 @@ class HrAppraisal(models.Model):
 
     @api.depends("employee_id", "manager_ids")
     def _compute_manager_user(self):
-        self.manager_user_ids = [(6, 0, self.manager_ids.user_id.ids)]
+        for record in self:
+            record.manager_user_ids = [Command.set(record.manager_ids.user_id.ids)]
 
     @api.depends("employee_id")
     def _compute_manager_ids(self):
         for record in self:
-            if record.employee_id.parent_id:
-                record.manager_ids = record.employee_id.parent_id
-            else:
-                record.manager_ids = False
-
-    def _inverse_manager_ids(self):
-        pass
+            record.manager_ids = [Command.set(record.employee_id.parent_id.ids)]
 
     def write(self, vals):
         close_appraisal = vals.get("state") == "3_done"
         appraisal_activity_ref = None
         if close_appraisal:
-            vals["date_close"] = datetime.date.today()
+            vals["date_close"] = fields.Date.today()
             appraisal_activity_ref = self.env.ref(
                 "hr_appraisal_oca.mail_act_hr_appraisal_cfr"
             )
@@ -262,22 +253,14 @@ class HrAppraisal(models.Model):
             rec.manager_feedback = tmpl.appraisal_manager_feedback_template or ""
 
     @api.depends_context("uid")
-    @api.depends("state", "employee_id")
+    @api.depends("employee_user_id", "manager_ids.user_id")
     def _compute_is_manager(self):
         """Compute if the current user is a manager for this record."""
         user = self.env.user
         is_hr_officer = user.has_group("hr_appraisal_oca.group_appraisal_hr_officer")
-        employee = user.employee_ids[:1]
-        is_manager_user = False
-        if employee:
-            is_manager_user = bool(
-                self.env["hr.employee"].search_count([("parent_id", "=", employee.id)])
-            )
         for record in self:
-            record.is_manager = (
-                False
-                if record.employee_user_id.id == user.id
-                else is_hr_officer or is_manager_user
+            record.is_manager = user != record.employee_user_id and (
+                is_hr_officer or user in record.manager_ids.user_id
             )
 
     def _visibility_role(self, rec, user_emp, uid):
@@ -395,8 +378,8 @@ class HrAppraisal(models.Model):
             self.activity_schedule(
                 "hr_appraisal_oca.mail_act_hr_appraisal_cfr",
                 date_deadline=self.date_close,
-                summary=_("Appraisal Form to Fill"),
-                note=_(
+                summary=self.env._("Appraisal Form to Fill"),
+                note=self.env._(
                     "Fill appraisal for %(employee)s ", employee=self.employee_id.name
                 ),
                 user_id=user_id,
@@ -404,7 +387,7 @@ class HrAppraisal(models.Model):
 
     def action_open_employee_appraisals(self):
         return {
-            "name": _("Previous Appraisals"),
+            "name": self.env._("Previous Appraisals"),
             "type": "ir.actions.act_window",
             "view_mode": "list,form",
             "res_model": "hr.appraisal",
@@ -424,7 +407,7 @@ class HrAppraisal(models.Model):
             view_id = self.env.ref("hr_appraisal_oca.hr_appraisal_wizard_form_view").id
             view_item = [(view_id, "form")]
             return {
-                "name": _("Confirmation"),
+                "name": self.env._("Confirmation"),
                 "view_type": "form",
                 "view_mode": "form",
                 "view_id": view_id,
@@ -450,6 +433,6 @@ class HrAppraisal(models.Model):
                 "view_mode": "form",
                 "res_model": "hr.appraisal.request.wizard",
                 "target": "new",
-                "name": _("Appraisal Request"),
+                "name": self.env._("Appraisal Request"),
                 "context": {"default_appraisal_id": self.id},
             }

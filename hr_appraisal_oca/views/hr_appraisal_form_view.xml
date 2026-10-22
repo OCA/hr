@@ -389,7 +389,7 @@
                     date="date_close"
                 />
                 <separator />
-                <group expand="0" string="Group By">
+                <group>
                     <filter
                         string="Employee"
                         name="employee"
@@ -491,7 +491,7 @@
     <record id="hr_appraisal_action_form" model="ir.actions.act_window">
         <field name="name">Appraisals</field>
         <field name="res_model">hr.appraisal</field>
-        <field name="view_id" ref="hr_appraisal_search_view" />
+        <field name="search_view_id" ref="hr_appraisal_search_view" />
         <field name='view_mode'>kanban,list,form</field>
     </record>
     <menuitem

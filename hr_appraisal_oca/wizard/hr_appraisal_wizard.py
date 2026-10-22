@@ -1,7 +1,7 @@
 # Copyright 2025 Fundacion Esment - Estefanía Bauzá
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-from odoo import _, api, fields, models
+from odoo import api, fields, models
 from odoo.fields import Command
 
 
@@ -18,10 +18,11 @@ class HrAppraisalWizard(models.TransientModel):
         self.ensure_one()
         record = self.env[self.res_model].browse(self.res_id)
         record.employee_feedback_published = True
-        message = _(
-            "{user_name} decided, as Appraisal Officer, "
-            "to publish the employee's feedback"
-        ).format(user_name=self.env.user.name)
+        message = self.env._(
+            "%(user_name)s decided, as Appraisal Officer, "
+            "to publish the employee's feedback",
+            user_name=self.env.user.name,
+        )
         record.message_post(
             body=message,
             subtype_xmlid="mail.mt_note",
@@ -68,7 +69,7 @@ class HrAppraisalRequestWizard(models.TransientModel):
         res.update(
             {
                 "recipient_ids": [Command.set(recipients_ids.ids)],
-                "recipient_users": [Command.set(recipients_users.ids)] or None,
+                "recipient_users": [Command.set(recipients_users.ids)],
                 "subject": subject,
                 "appraisal_id": appraisal.id,
             }

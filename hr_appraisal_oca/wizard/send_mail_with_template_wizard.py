@@ -1,4 +1,4 @@
-from odoo import _, api, models
+from odoo import api, models
 
 
 class SendEmailWithTemplate(models.TransientModel):
@@ -10,8 +10,9 @@ class SendEmailWithTemplate(models.TransientModel):
         template = self.env.ref(template_xml_id)
         if not template:
             raise ValueError(
-                _("Template with XML ID {template_xml_id} not found.").format(
-                    template_xml_id=template_xml_id
+                self.env._(
+                    "Template with XML ID %(template_xml_id)s not found.",
+                    template_xml_id=template_xml_id,
                 )
             )
         template = template.with_context(**ctx)
@@ -32,7 +33,12 @@ class SendEmailWithTemplate(models.TransientModel):
             "model_description": self.env["ir.model"]._get("hr.appraisal").display_name,
             "message": self.env["mail.message"]
             .sudo()
-            .new(dict(body=mail_values["body_html"], record_name=_("Appraisal"))),
+            .new(
+                {
+                    "body": mail_values["body_html"],
+                    "record_name": self.env._("Appraisal"),
+                }
+            ),
             "company": self.env.company,
         }
         body = self.env["ir.qweb"]._render(

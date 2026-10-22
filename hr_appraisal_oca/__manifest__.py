@@ -2,7 +2,7 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 {
     "name": "Appraisal Oca",
-    "version": "18.0.1.2.0",
+    "version": "20.0.1.0.0",
     "category": "Human Resources/Employees",
     "website": "https://github.com/OCA/hr",
     "author": "Fundación Esment, Odoo Community Association (OCA)",
@@ -14,7 +14,7 @@
     "installable": True,
     "data": [
         "security/hr_appraisal_security.xml",
-        "security/ir.model.access.csv",
+        "security/ir.access.csv",
         "data/mail_template_data.xml",
         "data/mail_activity_type_data.xml",
         "views/hr_appraisal_form_view.xml",

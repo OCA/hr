@@ -3,12 +3,15 @@
 
 from markupsafe import Markup
 
+from odoo import Command
 from odoo.tests import new_test_user
 
 from odoo.addons.base.tests.common import BaseCommon
 
 
 class TestHrAppraisalEmployee(BaseCommon):
+    _test_user_groups = ("base.group_user", "hr.group_hr_user")
+
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -21,6 +24,7 @@ class TestHrAppraisalEmployee(BaseCommon):
             cls.env,
             login="manager@example.com",
             email="manager@example.com",
+            groups="hr.group_hr_user,hr_appraisal_oca.group_appraisal_user",
         )
         cls.employee_user = cls.User.create(
             {
@@ -54,7 +58,7 @@ class TestHrAppraisalEmployee(BaseCommon):
                 "appraisal_manager_feedback_template": "<p>Manager Feedback</p>",
             }
         )
-        cls.env["ir.config_parameter"].sudo().set_param(
+        cls.env["ir.config_parameter"].sudo().set_int(
             "hr_appraisal_oca.default_appraisal_template_id", cls.template.id
         )
         cls.tag = cls.Tag.create(
@@ -66,7 +70,7 @@ class TestHrAppraisalEmployee(BaseCommon):
         cls.appraisal = cls.Appraisal.create(
             {
                 "employee_id": cls.employee.id,
-                "manager_ids": [(6, 0, [cls.manager.id])],
+                "manager_ids": [Command.link(cls.manager.id)],
                 "date_close": "2025-12-31",
                 "state": "1_new",
                 "tag_ids": [(6, 0, [cls.tag.id])],
@@ -136,4 +140,111 @@ class TestHrAppraisalEmployee(BaseCommon):
         self.assertEqual(
             self.appraisal.manager_feedback,
             Markup(self.template.appraisal_manager_feedback_template),
+        )
+
+    def test_manager_permissions_follow_hierarchy(self):
+        replacement = new_test_user(self.env, login="replacement@example.com")
+        self.assertIn(self.user_manager, self.employee.allowed_user_ids)
+        self.manager.user_id = replacement
+        self.assertNotIn(self.user_manager, self.employee.allowed_user_ids)
+        self.assertIn(replacement, self.employee.allowed_user_ids)
+        director = self.Employee.create(
+            {"name": "Director", "user_id": self.user_manager.id}
+        )
+        self.manager.parent_id = director
+        self.assertIn(self.user_manager, self.employee.allowed_user_ids)
+        self.manager.parent_id = False
+        self.assertNotIn(self.user_manager, self.employee.allowed_user_ids)
+
+    def test_search_last_appraisal(self):
+        latest = self.appraisal.copy()
+        self.assertEqual(self.employee.last_appraisal_id, latest)
+        self.assertNotIn(
+            self.employee,
+            self.Employee.search([("last_appraisal_id", "=", self.appraisal.id)]),
+        )
+        self.assertIn(
+            self.employee,
+            self.Employee.search([("last_appraisal_id", "=", latest.id)]),
+        )
+        self.assertNotIn(
+            self.employee,
+            self.Employee.search([("last_appraisal_id", "=", False)]),
+        )
+        self.assertIn(
+            self.manager,
+            self.Employee.search([("last_appraisal_id", "=", False)]),
+        )
+        self.assertIn(
+            self.employee,
+            self.Employee.search([("last_appraisal_id", "!=", False)]),
+        )
+        self.assertNotIn(
+            self.employee,
+            self.Employee.search([("last_appraisal_id", "!=", latest.id)]),
+        )
+
+    def test_open_ongoing_before_latest_completed(self):
+        latest = self.appraisal.copy({"state": "3_done"})
+        self.assertEqual(self.employee.last_appraisal_id, latest)
+        action = self.employee.action_open_last_appraisal()
+        self.assertEqual(action["res_id"], self.appraisal.id)
+        second = self.appraisal.copy()
+        action = self.employee.action_open_last_appraisal()
+        self.assertEqual(action["view_mode"], "list,form")
+        self.assertEqual(
+            set(self.Appraisal.search(action["domain"]).ids),
+            {self.appraisal.id, second.id},
+        )
+
+    def test_assigned_manager_can_open_appraisal(self):
+        assigned_user = new_test_user(
+            self.env,
+            login="assigned@example.com",
+            groups="hr_appraisal_oca.group_appraisal_user,hr.group_hr_user",
+        )
+        assigned_manager = self.Employee.create(
+            {"name": "Assigned manager", "user_id": assigned_user.id}
+        )
+        self.appraisal.manager_ids = assigned_manager
+        employee = self.employee.with_user(assigned_user)
+        self.assertTrue(employee.can_open_last_appraisal)
+        self.assertEqual(
+            employee.action_open_last_appraisal()["res_id"], self.appraisal.id
+        )
+
+    def test_last_appraisal_uses_creation_date_before_id(self):
+        newer_id = self.appraisal.copy()
+        # Odoo does not allow changing audit dates through write().
+        newer_id.flush_recordset()
+        self.env.cr.execute(
+            "UPDATE hr_appraisal SET create_date = %s WHERE id = %s",
+            ["2000-01-01 00:00:00", newer_id.id],
+        )
+        newer_id.invalidate_recordset(["create_date"])
+        newer_id.modified(["create_date"])
+        self.assertEqual(self.employee.last_appraisal_id, self.appraisal)
+        self.assertIn(
+            self.employee,
+            self.Employee.search([("last_appraisal_id", "=", self.appraisal.id)]),
+        )
+        self.assertNotIn(
+            self.employee,
+            self.Employee.search([("last_appraisal_id", "=", newer_id.id)]),
+        )
+
+    def test_last_appraisal_respects_access_rules(self):
+        self.employee_user.sudo().group_ids |= self.env.ref(
+            "hr_appraisal_oca.group_appraisal_user"
+        ) | self.env.ref("hr.group_hr_user")
+        hidden = self.appraisal.copy({"visibility": "manager"})
+        employee = self.employee.with_user(self.employee_user)
+        self.assertEqual(employee.last_appraisal_id, self.appraisal)
+        self.assertIn(
+            employee,
+            employee.search([("last_appraisal_id", "=", self.appraisal.id)]),
+        )
+        self.assertNotIn(
+            employee,
+            employee.search([("last_appraisal_id", "=", hidden.id)]),
         )
