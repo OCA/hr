@@ -33,6 +33,24 @@
                         string="PPE Interval Type"
                         attrs="{'invisible': [('expirable_ppe', '=', False)], 'required': [('expirable_ppe', '!=', False)]}"
                     />
+                    <field
+                        name="ppe_certification"
+                        attrs="{'invisible': [('is_ppe', '=', False)]}"
+                    />
+                    <field
+                        name="ppe_certification_expiry_date"
+                        attrs="{'invisible': [('is_ppe', '=', False)]}"
+                    />
+                    <field name="ppe_certification_expired" invisible="1" />
+                    <div
+                        class="alert alert-warning"
+                        role="alert"
+                        colspan="2"
+                        attrs="{'invisible': [('ppe_certification_expired', '=', False)]}"
+                    >
+                        The certificate of approval of this equipment has
+                        expired. It can no longer be handed over to a worker.
+                    </div>
                 </group>
             </page>
         </field>

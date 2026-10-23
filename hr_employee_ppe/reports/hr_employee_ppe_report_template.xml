@@ -31,6 +31,9 @@
                                             <th>
                                            Indications
                                        </th>
+                                            <th>
+                                           Certification
+                                       </th>
                                         </tr>
                                         <tr
                                             t-foreach="doc.line_ids"
@@ -45,6 +48,19 @@
                                             </td>
                                             <td>
                                                 <t t-out="line.indications" />
+                                            </td>
+                                            <td>
+                                                <t t-out="line.certification" />
+                                                <t
+                                                    t-if="line.certification_expiry_date"
+                                                >
+                                                    <br />
+                                                    <span>Valid until </span>
+                                                    <t
+                                                        t-out="line.certification_expiry_date"
+                                                        t-options="{'widget': 'date'}"
+                                                    />
+                                                </t>
                                             </td>
                                         </tr>
                                     </t>

@@ -201,3 +201,120 @@ class TestHREmployeePPE(TransactionCase):
             action["context"]["active_ids"][0], self.personal_equipment_request.id
         )
         self.assertEqual(action["report_type"], "qweb-pdf")
+
+
+class TestHREmployeePPECertification(TransactionCase):
+    """The certificate of approval belongs to the equipment, the allocation
+    records which certificate the worker was actually handed."""
+
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        cls.product = cls.env["product.template"].create(
+            {
+                "name": "Helmet",
+                "is_personal_equipment": True,
+                "is_ppe": True,
+                "ppe_certification": "CA-12345",
+                "ppe_certification_expiry_date": date.today() + timedelta(days=365),
+            }
+        )
+        cls.employee = cls.env["hr.employee"].create({"name": "Worker Test"})
+
+    def _create_request(self, product=None):
+        return self.env["hr.personal.equipment.request"].create(
+            {
+                "employee_id": self.employee.id,
+                "line_ids": [
+                    (
+                        0,
+                        0,
+                        {
+                            "product_id": (
+                                product or self.product
+                            ).product_variant_id.id,
+                            "quantity": 1,
+                        },
+                    )
+                ],
+            }
+        )
+
+    def test_certificate_is_copied_on_acceptance(self):
+        request = self._create_request()
+        allocation = request.line_ids
+
+        self.assertFalse(allocation.certification)
+        request.accept_request()
+
+        self.assertEqual(allocation.certification, "CA-12345")
+        self.assertEqual(
+            allocation.certification_expiry_date,
+            self.product.ppe_certification_expiry_date,
+        )
+
+    def test_renewing_the_product_certificate_does_not_rewrite_past_deliveries(self):
+        """The whole point of freezing: an inspection asks which certificate
+        was valid on the delivery date."""
+        request = self._create_request()
+        allocation = request.line_ids
+        request.accept_request()
+
+        self.product.write(
+            {
+                "ppe_certification": "CA-99999",
+                "ppe_certification_expiry_date": date.today() + timedelta(days=730),
+            }
+        )
+
+        self.assertEqual(allocation.certification, "CA-12345")
+        self.assertNotEqual(
+            allocation.certification_expiry_date,
+            self.product.ppe_certification_expiry_date,
+        )
+
+    def test_manually_entered_certificate_is_kept(self):
+        request = self._create_request()
+        allocation = request.line_ids
+        allocation.certification = "CA-MANUAL"
+
+        request.accept_request()
+
+        self.assertEqual(allocation.certification, "CA-MANUAL")
+
+    def test_expired_certificate_blocks_the_delivery(self):
+        self.product.ppe_certification_expiry_date = date.today() - timedelta(days=1)
+        request = self._create_request()
+
+        with self.assertRaises(ValidationError):
+            request.accept_request()
+
+    def test_certificate_without_expiry_date_does_not_block(self):
+        self.product.ppe_certification_expiry_date = False
+        request = self._create_request()
+
+        request.accept_request()
+
+        self.assertEqual(request.line_ids.certification, "CA-12345")
+
+    def test_non_ppe_product_is_untouched(self):
+        plain = self.env["product.template"].create(
+            {
+                "name": "Laptop",
+                "is_personal_equipment": True,
+                "is_ppe": False,
+                "ppe_certification": "SHOULD-NOT-BE-COPIED",
+            }
+        )
+        request = self._create_request(product=plain)
+
+        request.accept_request()
+
+        self.assertFalse(request.line_ids.certification)
+
+    def test_product_flags_the_expired_certificate(self):
+        self.assertFalse(self.product.ppe_certification_expired)
+
+        self.product.ppe_certification_expiry_date = date.today() - timedelta(days=1)
+
+        self.assertTrue(self.product.ppe_certification_expired)
