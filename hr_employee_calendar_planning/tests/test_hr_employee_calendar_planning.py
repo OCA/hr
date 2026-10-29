@@ -3,7 +3,7 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 import unittest
-from datetime import datetime, time
+from datetime import date, datetime, time
 
 import pytz
 from dateutil.relativedelta import relativedelta
@@ -513,9 +513,10 @@ class TestHrEmployeeCalendarPlanning(TestHrEmployeeCalendarPlanningCommon):
             leave.name for leave in self.employee.resource_calendar_id.global_leave_ids
         }
 
-        self.assertIn("Global Leave 1", generated_leaves_1)
-        self.assertIn("Global Leave 2", generated_leaves_1)
-        self.assertNotIn("Global Leave 3", generated_leaves_1)
+        # The global leaves of every planning line are copied within its dates
+        self.assertEqual(
+            generated_leaves_1, {"Global Leave 1", "Global Leave 2", "Global Leave 3"}
+        )
         self.employee.calendar_ids.unlink()
         self.employee.calendar_ids = [
             (
@@ -540,8 +541,7 @@ class TestHrEmployeeCalendarPlanning(TestHrEmployeeCalendarPlanningCommon):
         generated_leaves_2 = {
             leave.name for leave in self.employee.resource_calendar_id.global_leave_ids
         }
-        self.assertIn("Global Leave 3", generated_leaves_2)
-        self.assertNotIn("Global Leave 1", generated_leaves_2)
+        self.assertEqual(generated_leaves_2, {"Global Leave 1", "Global Leave 3"})
 
     @mute_logger("odoo.models.unlink", "odoo.sql_db")
     def test_employee_copy(self):
@@ -683,6 +683,109 @@ class TestHrEmployeeCalendarPlanning(TestHrEmployeeCalendarPlanningCommon):
             obtained_hours,
             7.0,
             "Debe calcular 7h usando la planificación histórica, no 8h del default",
+        )
+
+    @freeze_time("2026-10-29")
+    @mute_logger("odoo.models.unlink")
+    def test_attendance_intervals_by_planning_dates(self):
+        # Avoid the global leaves relative to the current date
+        (self.global_leave1 | self.global_leave2 | self.global_leave3).unlink()
+        self.employee.tz = "UTC"
+        self.env["resource.calendar.leaves"].create(
+            {
+                "name": "Summer holiday",
+                "calendar_id": self.calendar2.id,
+                "date_from": "2026-07-24 00:00:00",
+                "date_to": "2026-07-24 23:59:59",
+            }
+        )
+        self.calendar1.attendance_ids = [
+            Command.create(
+                {
+                    "name": "Lunch",
+                    "dayofweek": "0",
+                    "hour_from": 12,
+                    "hour_to": 13,
+                    "day_period": "lunch",
+                }
+            )
+        ]
+        self.employee.calendar_ids = [Command.clear()]
+        self.employee.calendar_ids = [
+            Command.create(
+                {
+                    "date_start": "2026-01-01",
+                    "date_end": "2026-06-14",
+                    "calendar_id": self.calendar1.id,
+                }
+            ),
+            Command.create(
+                {
+                    "date_start": "2026-06-15",
+                    "date_end": "2026-09-15",
+                    "calendar_id": self.calendar2.id,
+                }
+            ),
+            Command.create(
+                {"date_start": "2026-09-16", "calendar_id": self.calendar1.id}
+            ),
+        ]
+
+        def get_hours(day, lunch=False):
+            intervals = self.employee._employee_attendance_intervals(
+                pytz.utc.localize(datetime.combine(day, time.min)),
+                pytz.utc.localize(datetime.combine(day, time.max)),
+                lunch=lunch,
+            )
+            return [(start.hour, stop.hour) for start, stop, _att in intervals]
+
+        # Each day uses the calendar of its planning line, not today's one
+        self.assertEqual(get_hours(date(2026, 7, 6)), [(7, 14)])
+        self.assertEqual(get_hours(date(2026, 7, 6), lunch=True), [])
+        self.assertEqual(get_hours(date(2026, 10, 5)), [(8, 12), (13, 17)])
+        self.assertEqual(get_hours(date(2026, 10, 5), lunch=True), [(12, 13)])
+        # As the first version in core, the first line also applies before its start
+        self.assertEqual(get_hours(date(2025, 3, 3)), [(8, 12), (13, 17)])
+        # Also for archived employees
+        self.employee.active = False
+        self.assertEqual(get_hours(date(2026, 7, 6)), [(7, 14)])
+        self.employee.active = True
+        # A month split between two planning lines: 10 days x 8h + 12 days x 7h
+        data = self.employee._get_work_days_data_batch(
+            datetime(2026, 6, 1), datetime(2026, 6, 30, 23, 59, 59)
+        )
+        self.assertEqual(data[self.employee.id]["hours"], 164)
+        # The global leaves of a planning line which is not the current one apply
+        data = self.employee._get_work_days_data_batch(
+            datetime(2026, 7, 24), datetime(2026, 7, 24, 23, 59, 59)
+        )
+        self.assertEqual(data[self.employee.id]["hours"], 0)
+
+    @freeze_time("2026-10-29")
+    @mute_logger("odoo.models.unlink")
+    def test_attendance_intervals_planning_dates_employee_tz(self):
+        self.employee.calendar_ids = [Command.clear()]
+        self.employee.calendar_ids = [
+            Command.create(
+                {"date_end": "2026-06-15", "calendar_id": self.calendar1.id}
+            ),
+            Command.create(
+                {"date_start": "2026-06-16", "calendar_id": self.calendar2.id}
+            ),
+        ]
+        self.employee.resource_calendar_id.tz = "UTC"
+        self.employee.tz = "America/Los_Angeles"
+        tz = pytz.timezone(self.employee.tz)
+        # Without timezone, the last day of a planning line is the employee's day
+        resource = self.employee.resource_id
+        intervals = self.employee.resource_calendar_id._attendance_intervals_batch(
+            tz.localize(datetime(2026, 6, 15)),
+            tz.localize(datetime(2026, 6, 15, 23, 59, 59)),
+            resources=resource,
+        )[resource.id]
+        self.assertEqual(
+            [(start.hour, stop.hour) for start, stop, _att in intervals],
+            [(8, 12), (13, 17)],
         )
 
     @mute_logger("odoo.models.unlink")
