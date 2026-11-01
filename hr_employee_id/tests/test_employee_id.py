@@ -6,7 +6,7 @@
 from unittest.mock import patch
 
 from odoo.exceptions import UserError
-from odoo.tests import common
+from odoo.tests import Form, common
 
 
 class TestEmployeeID(common.TransactionCase):
@@ -180,3 +180,19 @@ class TestEmployeeID(common.TransactionCase):
         ):
             with self.assertRaises(UserError):
                 self.employee_model.create({"name": "Second Employee"})
+
+    def test_multi_company_generation(self):
+        """IDs and settings follow the selected company, not the user's
+        default company."""
+        company2 = self.env["res.company"].create(
+            {"name": "Company 2", "employee_id_random_digits": 8}
+        )
+        self.env.user.company_ids += company2
+        employee = self.employee_model.with_company(company2).create(
+            {"name": "Employee", "company_id": company2.id}
+        )
+        self.assertEqual(len(employee.identification_id), 8)
+        settings = Form(self.env["res.config.settings"].with_company(company2))
+        self.assertEqual(settings.employee_id_random_digits, 8)
+        settings.save().execute()
+        self.assertEqual(company2.employee_id_random_digits, 8)

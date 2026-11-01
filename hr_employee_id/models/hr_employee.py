@@ -28,10 +28,9 @@ class HrEmployee(models.Model):
         ),
     ]
 
-    @api.model
     def _generate_identification_id(self):
         """Generate a random employee identification number"""
-        company = self.env.user.company_id
+        company = self.company_id or self.env.company
 
         steps = 0
         for _retry in range(50):
