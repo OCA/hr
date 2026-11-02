@@ -118,14 +118,13 @@ class HrCourseSchedule(models.Model):
 
     def validation2complete(self):
         for record in self:
-            if self.course_attendee_ids.filtered(
+            if record.course_attendee_ids.filtered(
                 lambda r: r.result == "pending" and r.active
             ):
                 raise ValidationError(
                     _("You cannot complete the course with pending results")
                 )
-            else:
-                record.write(record._validation2complete_values())
+            record.write(record._validation2complete_values())
 
     def back2draft(self):
         for record in self:
