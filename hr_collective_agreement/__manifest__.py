@@ -11,6 +11,7 @@
     "depends": ["hr_contract"],
     "data": [
         "security/ir.model.access.csv",
+        "security/collective_agreement_security.xml",
         "views/collective_agreement_views.xml",
         "views/collective_agreement_scope_views.xml",
         "views/collective_agreement_publication_views.xml",
