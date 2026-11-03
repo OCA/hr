@@ -3,7 +3,7 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 import unittest
-from datetime import datetime, time
+from datetime import date, datetime, time
 
 import pytz
 from dateutil.relativedelta import relativedelta
@@ -684,6 +684,74 @@ class TestHrEmployeeCalendarPlanning(TestHrEmployeeCalendarPlanningCommon):
             7.0,
             "Debe calcular 7h usando la planificación histórica, no 8h del default",
         )
+
+    @mute_logger("odoo.models.unlink")
+    def test_plan_calendar_wizard(self):
+        self.employee.calendar_ids = [Command.clear()]
+        self.employee.calendar_ids = [
+            Command.create({"calendar_id": self.calendar1.id})
+        ]
+        employee2 = self.env["hr.employee"].create(
+            {
+                "name": "Test employee 2",
+                "calendar_ids": [
+                    Command.create(
+                        {
+                            "date_start": "2026-01-01",
+                            "date_end": "2026-07-31",
+                            "calendar_id": self.calendar1.id,
+                        }
+                    ),
+                    Command.create(
+                        {
+                            "date_start": "2026-08-01",
+                            "calendar_id": self.calendar_morning.id,
+                        }
+                    ),
+                ],
+            }
+        )
+
+        def get_planning(employee):
+            return [
+                (str(line.date_start or ""), str(line.date_end or ""), line.calendar_id)
+                for line in employee.calendar_ids.sorted(
+                    lambda line: line.date_start or date.min
+                )
+            ]
+
+        def plan(employees, date_start, date_end):
+            self.env["hr.employee.calendar.wizard"].with_context(
+                active_ids=employees.ids
+            ).create(
+                {
+                    "calendar_id": self.calendar2.id,
+                    "date_start": date_start,
+                    "date_end": date_end,
+                }
+            ).action_apply()
+
+        plan(self.employee | employee2, "2026-06-15", "2026-09-15")
+        # The line covering the period is split
+        self.assertEqual(
+            get_planning(self.employee),
+            [
+                ("", "2026-06-14", self.calendar1),
+                ("2026-06-15", "2026-09-15", self.calendar2),
+                ("2026-09-16", "", self.calendar1),
+            ],
+        )
+        # The overlapping lines are cut
+        self.assertEqual(
+            get_planning(employee2),
+            [
+                ("2026-01-01", "2026-06-14", self.calendar1),
+                ("2026-06-15", "2026-09-15", self.calendar2),
+                ("2026-09-16", "", self.calendar_morning),
+            ],
+        )
+        with self.assertRaises(exceptions.ValidationError):
+            plan(employee2, "2026-09-15", "2026-09-01")
 
     @mute_logger("odoo.models.unlink")
     def test_hr_leave_get_hours_for_dates(self):

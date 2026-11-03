@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 Tecnativa - Juan Carlos Oñate
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="hr_employee_calendar_wizard_view_form" model="ir.ui.view">
+        <field name="model">hr.employee.calendar.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="employee_ids" widget="many2many_tags" />
+                    <field name="calendar_id" />
+                    <field name="date_start" />
+                    <field name="date_end" />
+                </group>
+                <footer>
+                    <button
+                        name="action_apply"
+                        string="Apply"
+                        type="object"
+                        class="btn-primary"
+                    />
+                    <button string="Cancel" class="btn-secondary" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="hr_employee_calendar_wizard_action" model="ir.actions.act_window">
+        <field name="name">Plan Working Time</field>
+        <field name="res_model">hr.employee.calendar.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="hr.model_hr_employee" />
+        <field name="binding_view_types">list</field>
+        <field name="group_ids" eval="[(4, ref('hr.group_hr_user'))]" />
+    </record>
+</odoo>
