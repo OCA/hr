@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!-- Copyright 2019 Creu Blanca
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
 <odoo>
@@ -11,7 +11,7 @@
                 'default_employee_id': active_id,
             }</field>
     </record>
-    <record model="ir.ui.view" id="view_employee_form">
+    <record id="view_employee_form" model="ir.ui.view">
         <field name="name">hr.employee.form (in hr_employee_medical_examination)</field>
         <field name="model">hr.employee</field>
         <field name="inherit_id" ref="hr.view_employee_form" />

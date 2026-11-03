@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!-- Copyright 2019 Creu Blanca
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
 <odoo>
-    <record model="ir.ui.view" id="wizard_generate_medical_examination_form_view">
+    <record id="wizard_generate_medical_examination_form_view" model="ir.ui.view">
         <field
             name="name"
         >wizard.generate.medical.examination.form (in hr_employee_medical_examination)</field>
@@ -61,8 +61,8 @@
         </field>
     </record>
     <record
-        model="ir.actions.act_window"
         id="wizard_generate_medical_examination_act_window"
+        model="ir.actions.act_window"
     >
         <field name="name">Generate Medical Examinations</field>
         <field name="res_model">wizard.generate.medical.examination</field>
