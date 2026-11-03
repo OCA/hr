@@ -21,7 +21,7 @@
                 <button
                     name="%(act_medical_examination_employee)d"
                     class="oe_stat_button"
-                    icon="fa-medkit"
+                    icon="medical_services"
                     type="action"
                     invisible="not can_see_examinations_button"
                 >

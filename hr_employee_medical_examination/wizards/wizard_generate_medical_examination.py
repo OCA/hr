@@ -1,7 +1,7 @@
 # Copyright 2019 Creu Blanca
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from datetime import date
+from datetime import datetime
 
 from odoo import fields, models
 
@@ -12,17 +12,15 @@ class WizardGenerateMedicalExamination(models.TransientModel):
 
     name = fields.Char(required=True, string="Examination Name")
     year = fields.Char(
-        default=lambda r: str(date.today().year),
+        default=lambda r: str(datetime.now().astimezone().date().year),
     )
 
     employee_ids = fields.Many2many(comodel_name="hr.employee", string="Employees")
     department_id = fields.Many2one(
         comodel_name="hr.department",
-        string="Department",
     )
     job_id = fields.Many2one(
         comodel_name="hr.job",
-        string="Job",
     )
 
     def _prepare_employee_domain(self):
