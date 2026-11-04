@@ -4,7 +4,7 @@
 {
     "name": "Employee external Partner",
     "summary": "Associate an external Partner to Employee",
-    "version": "19.0.1.0.0",
+    "version": "20.0.1.0.0",
     "category": "Human Resources",
     "author": "Stefano Consolaro Associazione PNLUG - Gruppo Odoo, "
     "Odoo Community Association (OCA)",

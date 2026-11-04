@@ -4,7 +4,7 @@
 from odoo import fields, models
 
 
-class EmployeePartner(models.Model):
+class HrEmployee(models.Model):
     """
     Add administrative Partner reference to Employee
     """
