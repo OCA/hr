@@ -17,10 +17,10 @@
             </div>
         </field>
     </record>
-    <record model="ir.ui.view" id="hr_course_attendee_tree_employee_view">
+    <record id="hr_course_attendee_tree_employee_view" model="ir.ui.view">
         <field name="name">hr.course.attendee.tree.employee</field>
         <field name="model">hr.course.attendee</field>
-        <field name="priority">100</field>
+        <field name="priority" eval="100" />
         <field name="arch" type="xml">
             <list
                 create="false"

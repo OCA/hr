@@ -13,7 +13,6 @@ class HrEmployee(models.Model):
     courses_ids = fields.One2many(
         "hr.course.attendee",
         "employee_id",
-        string="Courses",
         readonly=True,
         groups="hr.group_hr_user",
     )

@@ -10,7 +10,7 @@ class HrCourseSchedule(models.Model):
     _inherit = "mail.thread"
 
     name = fields.Char(required=True, tracking=True)
-    course_id = fields.Many2one("hr.course", string="Course", required=True)
+    course_id = fields.Many2one("hr.course", required=True)
 
     start_date = fields.Date(
         tracking=True,
@@ -20,7 +20,6 @@ class HrCourseSchedule(models.Model):
     )
     currency_id = fields.Many2one(
         "res.currency",
-        string="Currency",
         default=lambda self: self.env.user.company_id.currency_id,
     )
     cost = fields.Monetary(string="Course Cost", required=True, tracking=True)
@@ -46,7 +45,7 @@ class HrCourseSchedule(models.Model):
 
     comment = fields.Text()
     training_company_id = fields.Many2one("res.partner", string="Training company")
-    instructor_ids = fields.Many2many("res.partner", string="Instructor")
+    instructor_ids = fields.Many2many("res.partner")
     place = fields.Char()
 
     attendant_ids = fields.Many2many("hr.employee")
