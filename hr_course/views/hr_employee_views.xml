@@ -9,7 +9,7 @@
                 <button
                     name="action_view_course"
                     type="object"
-                    icon="fa-graduation-cap"
+                    icon="school"
                     class="oe_stat_button"
                 >
                     <field name="count_courses" widget="statinfo" string="Courses" />

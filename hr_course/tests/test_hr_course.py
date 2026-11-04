@@ -7,6 +7,8 @@ from odoo.addons.base.tests.common import BaseCommon
 
 
 class TestHrCourse(BaseCommon):
+    _test_user_groups = ("hr.group_hr_manager",)
+
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
