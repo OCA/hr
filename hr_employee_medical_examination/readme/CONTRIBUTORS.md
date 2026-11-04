@@ -1,0 +1,4 @@
+- Jaime Arroyo \<<jaime.arroyo@creublanca.es>\>
+- Nattapong W. \<<aphon61bank@gmail.com>\>
+- [Studio73](https://www.studio73.es):
+  - Pablo Cortés
