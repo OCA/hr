@@ -2,7 +2,7 @@
 # Copyright 2023 Tecnativa - Víctor Martínez
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import fields, models
+from odoo import api, fields, models
 from odoo.fields import Domain
 
 
@@ -23,21 +23,22 @@ class HrEmployee(models.Model):
         for record in self:
             record.document_count = count_dict.get(record.id, 0)
 
-    def _check_access(self, operation):
-        """Return access to the hr.employee model if we pass a specific context,
-        is a trick to list the attachments related to an employee."""
+    @api.model
+    def _access_domain(self, operation: str) -> Domain:
+        domain = super()._access_domain(operation)
         if (
-            not self.env.su
+            operation == "read"
+            and not self.env.su
             and not self.env.user.has_group("hr.group_hr_user")
-            and operation == "read"
-            and self._name == "hr.employee"
             and (
                 self.env.context.get("search_attachments_from_hr_employee")
-                or self in self.env.user.employee_ids
+                or self.env.user.employee_ids
             )
         ):
-            return None
-        return super()._check_access(operation=operation)
+            domain = Domain.OR(
+                [domain, Domain("id", "in", self.env.user.employee_ids.ids)]
+            )
+        return domain
 
     def action_get_attachment_tree_view(self):
         self.ensure_one()
@@ -51,7 +52,8 @@ class HrEmployee(models.Model):
         action["domain"] = Domain(
             [("res_model", "=", self._name), ("res_id", "=", self.id)]
         )
-        action["search_view_id"] = (
+        action["search_view_id"] = [
             self.env.ref("hr_employee_document.ir_attachment_view_search").id,
-        )
+            "search",
+        ]
         return action

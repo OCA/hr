@@ -2,8 +2,7 @@
 # Copyright 2021-2022 Tecnativa - Víctor Martínez
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 
-import base64
-
+from odoo.exceptions import AccessError
 from odoo.tests import new_test_user
 from odoo.tests.common import users
 
@@ -34,7 +33,7 @@ class TestHrEmployeeDocument(BaseCommon):
                     {
                         "res_model": employee_id._name,
                         "res_id": employee_id.id,
-                        "datas": base64.b64encode(b"My attachment"),
+                        "raw": b"My attachment",
                         "name": "doc.txt",
                     }
                 ]
@@ -136,18 +135,25 @@ class TestHrEmployeeDocument(BaseCommon):
             None,
             "Non-HR user should have read access to their own employee record",
         )
+        self.assertTrue(employee_with_context.has_access("read"))
+        self.assertTrue(employee.has_access("read"))
         other_employee = self.employee_2
-        access = other_employee.check_access("read")
         self.assertFalse(
-            access,
+            other_employee.has_access("read"),
             "Non-HR user should not have read access to another employee's record",
         )
+        with self.assertRaises(AccessError):
+            other_employee.check_access("read")
 
     @users("test-user-1")
     def test_compute_domain_coverage(self):
         domain = (
-            self.env["ir.rule"]
+            self.env["hr.employee"]
             .with_context(search_attachments_from_hr_employee=True)
-            ._compute_domain("hr.employee")
+            ._access_domain("read")
         )
         self.assertIsNotNone(domain)
+        self.assertIn(self.employee_1.id, self.env["hr.employee"].search(domain).ids)
+        self.assertNotIn(self.employee_2.id, self.env["hr.employee"].search(domain).ids)
+        self.assertIn(self.employee_1.id, self.env["hr.employee"].search(domain).ids)
+        self.assertNotIn(self.employee_2.id, self.env["hr.employee"].search(domain).ids)
