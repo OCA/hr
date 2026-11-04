@@ -1,35 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo noupdate="1">
-    <record id="hr_employee_course_rule" model="ir.rule">
+    <record id="hr_employee_course_rule" model="ir.access">
         <field name="name">hr.employee.course.rule</field>
         <field name="model_id" ref="model_hr_course_schedule" />
-        <field
-            name="domain_force"
-        >[('attendant_ids', 'in', user.employee_ids.ids)]</field>
-        <field name="groups" eval="[(4, ref('base.group_user'))]" />
-        <field name="global" eval="False" />
+        <field name="group_id" ref="base.group_user" />
+        <field name="operation">r</field>
+        <field name="domain">[('attendant_ids', 'in', user.employee_ids.ids)]</field>
     </record>
-    <record id="hr_employee_course_manager_rule" model="ir.rule">
-        <field name="name">hr.employee.course.rule</field>
+    <record id="hr_employee_course_manager_rule" model="ir.access">
+        <field name="name">hr.employee.course.manager.rule</field>
         <field name="model_id" ref="model_hr_course_schedule" />
-        <field name="domain_force">[(1, '=', 1)]</field>
-        <field name="groups" eval="[(4, ref('hr.group_hr_manager'))]" />
-        <field name="global" eval="False" />
+        <field name="group_id" ref="hr.group_hr_manager" />
+        <field name="operation">crud</field>
+        <field name="domain">[(1, '=', 1)]</field>
     </record>
-    <record id="hr_employee_course_attendee_rule" model="ir.rule">
+    <record id="hr_employee_course_attendee_rule" model="ir.access">
         <field name="name">hr.employee.attendee.course.rule</field>
         <field name="model_id" ref="model_hr_course_attendee" />
-        <field
-            name="domain_force"
-        >[('employee_id', 'in', user.employee_ids.ids)]</field>
-        <field name="groups" eval="[(4, ref('base.group_user'))]" />
-        <field name="global" eval="False" />
+        <field name="group_id" ref="base.group_user" />
+        <field name="operation">r</field>
+        <field name="domain">[('employee_id', 'in', user.employee_ids.ids)]</field>
     </record>
-    <record id="hr_employee_course_attendee_manager_rule" model="ir.rule">
-        <field name="name">hr.employee.attendee.course.rule</field>
+    <record id="hr_employee_course_attendee_manager_rule" model="ir.access">
+        <field name="name">hr.employee.attendee.course.manager.rule</field>
         <field name="model_id" ref="model_hr_course_attendee" />
-        <field name="domain_force">[(1, '=', 1)]</field>
-        <field name="groups" eval="[(4, ref('hr.group_hr_manager'))]" />
-        <field name="global" eval="False" />
+        <field name="group_id" ref="hr.group_hr_manager" />
+        <field name="operation">crud</field>
+        <field name="domain">[(1, '=', 1)]</field>
     </record>
 </odoo>
