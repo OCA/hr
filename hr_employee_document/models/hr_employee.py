@@ -31,12 +31,12 @@ class HrEmployee(models.Model):
             and not self.env.user.has_group("hr.group_hr_user")
             and operation == "read"
             and self._name == "hr.employee"
-        ):
-            if (
+            and (
                 self.env.context.get("search_attachments_from_hr_employee")
                 or self in self.env.user.employee_ids
-            ):
-                return None
+            )
+        ):
+            return None
         return super()._check_access(operation=operation)
 
     def action_get_attachment_tree_view(self):
