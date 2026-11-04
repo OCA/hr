@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <odoo noupdate="1">
-    <record model="ir.rule" id="hr_employee_course_rule">
+    <record id="hr_employee_course_rule" model="ir.rule">
         <field name="name">hr.employee.course.rule</field>
         <field name="model_id" ref="model_hr_course_schedule" />
         <field
@@ -9,14 +9,14 @@
         <field name="groups" eval="[(4, ref('base.group_user'))]" />
         <field name="global" eval="False" />
     </record>
-    <record model="ir.rule" id="hr_employee_course_manager_rule">
+    <record id="hr_employee_course_manager_rule" model="ir.rule">
         <field name="name">hr.employee.course.rule</field>
         <field name="model_id" ref="model_hr_course_schedule" />
         <field name="domain_force">[(1, '=', 1)]</field>
         <field name="groups" eval="[(4, ref('hr.group_hr_manager'))]" />
         <field name="global" eval="False" />
     </record>
-    <record model="ir.rule" id="hr_employee_course_attendee_rule">
+    <record id="hr_employee_course_attendee_rule" model="ir.rule">
         <field name="name">hr.employee.attendee.course.rule</field>
         <field name="model_id" ref="model_hr_course_attendee" />
         <field
@@ -25,7 +25,7 @@
         <field name="groups" eval="[(4, ref('base.group_user'))]" />
         <field name="global" eval="False" />
     </record>
-    <record model="ir.rule" id="hr_employee_course_attendee_manager_rule">
+    <record id="hr_employee_course_attendee_manager_rule" model="ir.rule">
         <field name="name">hr.employee.attendee.course.rule</field>
         <field name="model_id" ref="model_hr_course_attendee" />
         <field name="domain_force">[(1, '=', 1)]</field>
