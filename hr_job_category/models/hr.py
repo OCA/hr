@@ -3,7 +3,7 @@
 
 import logging
 
-from odoo import api, fields, models
+from odoo import Command, api, fields, models
 
 _logger = logging.getLogger(__name__)
 
@@ -34,7 +34,8 @@ class HRVersion(models.Model):
                 employee.category_ids,
             )
             tags_to_remove = [
-                (3, tag.id) for tag in job.category_ids & employee.category_ids
+                Command.unlink(tag.id)
+                for tag in job.category_ids & employee.category_ids
             ]
             if tags_to_remove:
                 employee.write({"category_ids": tags_to_remove})
@@ -45,11 +46,12 @@ class HRVersion(models.Model):
         else:
             job = job_id
         _logger.debug(
-            "Adding employee tags if job tags doesn't exist: %s", job.category_ids
+            "Adding employee tags if job tags doesn't exist: %s",
+            job.category_ids,
         )
         for employee in self.mapped("employee_id"):
             tags_to_add = [
-                (4, tag.id) for tag in job.category_ids - employee.category_ids
+                Command.link(tag.id) for tag in job.category_ids - employee.category_ids
             ]
             if tags_to_add:
                 employee.write({"category_ids": tags_to_add})
@@ -84,7 +86,7 @@ class HRVersion(models.Model):
                 job_id = prev_data.get(contract.id)
                 if job_id:
                     contract._remove_tags(job_id)
-                self._tag_employees(contract.job_id)
+                contract._tag_employees(contract.job_id)
         return res
 
     def unlink(self):
