@@ -1,0 +1,5 @@
+id,name,model_id,group_id/id,operation,domain
+access_hr_personal_equipment_officer,hr.personal.equipment.officer,hr.personal.equipment,hr.group_hr_user,crud,
+access_hr_personal_equipment_user,hr.personal.equipment.user,hr.personal.equipment,base.group_user,crud,
+access_hr_personal_equipment_request_officer,hr.personal.equipment.request.officer,hr.personal.equipment.request,hr.group_hr_user,cru,
+access_hr_personal_equipment_request_user,hr.personal.equipment.request.user,hr.personal.equipment.request,base.group_user,cru,
