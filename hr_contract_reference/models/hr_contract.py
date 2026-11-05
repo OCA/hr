@@ -14,6 +14,8 @@ class HrVersion(models.Model):
     @api.model_create_multi
     def create(self, vals_list):
         for vals in vals_list:
-            if vals.get("name", "/") == "/":
-                vals["name"] = self.env["ir.sequence"].next_by_code("contract.ref")
+            if not vals.get("name") or vals["name"] == "/":
+                vals["name"] = (
+                    self.env["ir.sequence"].next_by_code("contract.ref") or "/"
+                )
         return super().create(vals_list)
