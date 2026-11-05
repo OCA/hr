@@ -4,6 +4,7 @@
 from typing import ClassVar
 
 from odoo import api, fields, models
+from odoo.fields import Domain
 
 
 class HrPersonalEquipmentRequest(models.Model):
@@ -32,6 +33,13 @@ class HrPersonalEquipmentRequest(models.Model):
     )
 
     observations = fields.Text()
+
+    @api.model
+    def _access_domain(self, operation: str) -> Domain:
+        domain = super()._access_domain(operation)
+        if not self.env.user.has_group("hr.group_hr_user"):
+            domain &= Domain([("employee_id", "in", self.env.user.employee_ids.ids)])
+        return domain
 
     def _default_employee_id(self):
         return self.env.user.employee_ids[:1]

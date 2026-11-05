@@ -4,7 +4,7 @@
 from typing import ClassVar
 
 from odoo import api, fields, models
-from odoo.fields import Date
+from odoo.fields import Date, Domain
 
 
 class HrPersonalEquipment(models.Model):
@@ -53,6 +53,23 @@ class HrPersonalEquipment(models.Model):
         precompute=True,
         domain="[('id', 'in', allowed_uom_ids)]",
     )
+
+    @api.model
+    def _access_domain(self, operation: str) -> Domain:
+        domain = super()._access_domain(operation)
+        if not self.env.user.has_group("hr.group_hr_user"):
+            domain &= Domain(
+                [
+                    (
+                        "equipment_request_id.employee_id",
+                        "in",
+                        self.env.user.employee_ids.ids,
+                    ),
+                ],
+            )
+        if operation == "unlink":
+            domain &= Domain([("state", "=", "draft")])
+        return domain
 
     @api.depends("product_id", "product_id.uom_id", "product_id.uom_ids")
     def _compute_allowed_uom_ids(self):
