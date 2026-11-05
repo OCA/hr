@@ -3,8 +3,7 @@
 
 {
     "name": "Hr Personal Equipment Request",
-    "summary": """
-        This addon allows to manage employee personal equipment""",
+    "summary": "This addon allows to manage employee personal equipment",
     "version": "19.0.1.0.0",
     "license": "AGPL-3",
     "author": "Creu Blanca, Odoo Community Association (OCA)",

@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!-- Copyright 2021 Creu Blanca
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
 <odoo>
-    <record model="ir.ui.view" id="hr_personal_equipment_form_view">
+    <record id="hr_personal_equipment_form_view" model="ir.ui.view">
         <field
             name="name"
         >hr.personal.equipment.form (in hr_personal_equipment_request)</field>
@@ -68,7 +68,7 @@
             </form>
         </field>
     </record>
-    <record model="ir.ui.view" id="hr_personal_equipment_list_view">
+    <record id="hr_personal_equipment_list_view" model="ir.ui.view">
         <field
             name="name"
         >hr.personal.equipment.list (in hr_personal_equipment_request)</field>
@@ -92,7 +92,7 @@
             </list>
         </field>
     </record>
-    <record model="ir.ui.view" id="hr_personal_equipment_search_view">
+    <record id="hr_personal_equipment_search_view" model="ir.ui.view">
         <field
             name="name"
         >hr.personal.equipment.search (in hr_personal_equipment_request)</field>
@@ -143,19 +143,19 @@
             </search>
         </field>
     </record>
-    <record model="ir.actions.act_window" id="hr_personal_equipment_act_window">
+    <record id="hr_personal_equipment_act_window" model="ir.actions.act_window">
         <field name="name">Allocations</field>
         <field name="res_model">hr.personal.equipment</field>
         <field name="view_mode">list,form</field>
         <field name="domain">[]</field>
         <field name="context">{'search_default_filter_valid_state':1}</field>
     </record>
-    <record model="ir.ui.menu" id="hr_personal_equipment_menu">
+    <record id="hr_personal_equipment_menu" model="ir.ui.menu">
         <field name="name">Personal Equipment</field>
         <field name="parent_id" ref="hr.menu_hr_root" />
         <field name="sequence" eval="16" />
     </record>
-    <record model="ir.ui.menu" id="hr_personal_equipment_allocations_menu">
+    <record id="hr_personal_equipment_allocations_menu" model="ir.ui.menu">
         <field name="name">Allocations</field>
         <field name="parent_id" ref="hr_personal_equipment_menu" />
         <field name="action" ref="hr_personal_equipment_act_window" />
