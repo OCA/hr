@@ -37,6 +37,18 @@ def pre_init_hook(env):
             stored_hours_per_week = hours_per_week
         """,
     )
+    env.cr.execute(
+        """
+        ALTER TABLE hr_version
+        ADD COLUMN IF NOT EXISTS stored_is_flexible BOOL
+        """,
+    )
+    env.cr.execute(
+        """
+        UPDATE hr_version
+        SET stored_is_flexible = is_flexible
+        """,
+    )
 
 
 def post_init_hook(env, employees=None):
