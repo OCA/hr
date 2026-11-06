@@ -16,9 +16,7 @@ class HrCourseAttendee(models.Model):
         if self.employee_id.user_id:
             vals["user"] = self.employee_id.user_id
         else:
-            vals["partner"] = (
-                self.employee_id.address_id or self.employee_id.work_contact_id
-            )
+            vals["partner"] = self.employee_id.work_contact_id
         return vals
 
     def _notify_survey(self):

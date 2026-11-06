@@ -95,6 +95,7 @@ class TestHrCourse(common.TestSurveyCommon):
             self.course_schedule.course_attendee_ids.resend_survey()
         answer = self.course_schedule.course_attendee_ids.survey_answer_id
         self.assertTrue(answer.hr_course_attendee_ids)
+        self.assertEqual(answer.partner_id, self.employee1.work_contact_id)
         self._add_answer_line(
             self.question,
             answer,
