@@ -1,6 +1,7 @@
 - [Tecnativa](https://www.tecnativa.com):
   - Pedro M. Baeza
   - Víctor Martínez
+  - Juan Carlos Oñate
 - [Creu Blanca](https://www.creu-blanca.es/):
   - Jaime Arroyo
 - [ForgeFlow](https://www.forgeflow.com/):
