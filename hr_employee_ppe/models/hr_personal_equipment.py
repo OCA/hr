@@ -1,8 +1,6 @@
 # Copyright 2020 Escodoo
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from datetime import date
-
 from odoo import api, fields, models
 from odoo.exceptions import ValidationError
 
@@ -11,7 +9,7 @@ from odoo.addons.base.models.ir_cron import _intervalTypes
 
 class HrPersonalEquipment(models.Model):
     _name = "hr.personal.equipment"
-    _inherit = ["hr.personal.equipment"]
+    _inherit = "hr.personal.equipment"
 
     is_ppe = fields.Boolean()
     indications = fields.Text(
@@ -43,7 +41,7 @@ class HrPersonalEquipment(models.Model):
         if self.start_date:
             start_date = self.start_date
         else:
-            start_date = date.today()
+            start_date = fields.Date.today()
         if not self.expiry_date and self.product_id.expirable_ppe:
             res["expiry_date"] = start_date + _intervalTypes[
                 self.product_id.ppe_interval_type
@@ -68,7 +66,7 @@ class HrPersonalEquipment(models.Model):
     def _check_dates(self):
         for record in self:
             if record.expire_ppe:
-                start_date = record.start_date if record.start_date else date.today()
+                start_date = record.start_date or fields.Date.today()
                 if record.expiry_date < start_date:
                     raise ValidationError(
                         self.env._("End date cannot occur earlier than start date.")

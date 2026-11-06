@@ -6,7 +6,7 @@ from odoo import fields, models
 
 class ProductTemplate(models.Model):
     _name = "product.template"
-    _inherit = ["product.template"]
+    _inherit = "product.template"
 
     is_ppe = fields.Boolean(default=False)
     indications = fields.Text(

@@ -1,9 +1,9 @@
 # Copyright 2020 - TODAY, Marcel Savegnago - Escodoo
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl
 
-from datetime import date, datetime, timedelta
+from datetime import datetime, timedelta, timezone
 
-from odoo import Command
+from odoo import Command, fields
 from odoo.exceptions import ValidationError
 from odoo.tests.common import new_test_user
 
@@ -101,7 +101,7 @@ class TestHREmployeePPE(BaseCommon):
         self.hr_employee_ppe_expirable.validate_allocation()
         self.assertEqual(
             self.hr_employee_ppe_expirable.expiry_date,
-            date.today()
+            fields.Date.today()
             + _intervalTypes[self.product_employee_ppe_expirable.ppe_interval_type](
                 self.product_employee_ppe_expirable.ppe_duration
             ),
@@ -117,7 +117,7 @@ class TestHREmployeePPE(BaseCommon):
 
     def test_cron_ppe_expiry_verification_no_expired_product(self):
         self.hr_employee_ppe_expirable.expiry_date = (
-            datetime.now() + timedelta(days=1)
+            datetime.now(tz=timezone.utc) + timedelta(days=1)
         ).strftime("%Y-%m-%d")
         self.hr_employee_ppe_expirable.validate_allocation()
         self.assertEqual(self.hr_employee_ppe_expirable.state, "valid")
