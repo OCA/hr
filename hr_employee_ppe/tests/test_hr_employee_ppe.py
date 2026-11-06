@@ -12,6 +12,8 @@ from odoo.addons.base.tests.common import BaseCommon
 
 
 class TestHREmployeePPE(BaseCommon):
+    _test_user_groups = None
+
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -65,6 +67,7 @@ class TestHREmployeePPE(BaseCommon):
             .create(
                 {
                     "name": "Personal Equipment Request Test",
+                    "employee_id": cls.employee.id,
                     "line_ids": [Command.create(line) for line in lines],
                 }
             )
