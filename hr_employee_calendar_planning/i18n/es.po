@@ -97,6 +97,7 @@ msgstr "La fecha de fin debe ser mayor que la de inicio"
 #. module: hr_employee_calendar_planning
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee__display_name
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__display_name
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_version__display_name
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_resource_calendar__display_name
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_resource_mixin__display_name
 msgid "Display Name"
@@ -144,6 +145,7 @@ msgstr "Horas a la semana"
 #. module: hr_employee_calendar_planning
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee__id
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__id
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_version__id
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_resource_calendar__id
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_resource_mixin__id
 msgid "ID"
@@ -157,6 +159,18 @@ msgid ""
 msgstr ""
 "Si el campo activo se establece en falso, le permitirá ocultar el tiempo de "
 "trabajo sin eliminarlo."
+
+#. module: hr_employee_calendar_planning
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee__is_flexible
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_version__is_flexible
+msgid "Is Flexible"
+msgstr ""
+
+#. module: hr_employee_calendar_planning
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee__is_fully_flexible
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_version__is_fully_flexible
+msgid "Is Fully Flexible"
+msgstr ""
 
 #. module: hr_employee_calendar_planning
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__write_uid
@@ -218,6 +232,12 @@ msgid "Stored Hours Per Week"
 msgstr "Horas a la semana (almacenado)"
 
 #. module: hr_employee_calendar_planning
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee__stored_is_flexible
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_version__stored_is_flexible
+msgid "Stored Is Flexible"
+msgstr ""
+
+#. module: hr_employee_calendar_planning
 #. odoo-python
 #: code:addons/hr_employee_calendar_planning/models/hr_employee.py:0
 msgid ""
@@ -228,6 +248,11 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:hr_employee_calendar_planning.resource_calendar_form
 msgid "Total"
 msgstr "Total"
+
+#. module: hr_employee_calendar_planning
+#: model:ir.model,name:hr_employee_calendar_planning.model_hr_version
+msgid "Version"
+msgstr ""
 
 #. module: hr_employee_calendar_planning
 #: model:ir.model.fields,help:hr_employee_calendar_planning.field_resource_calendar__flexible_hours
