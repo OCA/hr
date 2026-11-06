@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-09-14 17:46+0000\n"
+"PO-Revision-Date: 2026-11-06 09:46+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -165,13 +165,13 @@ msgstr ""
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee__is_flexible
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_version__is_flexible
 msgid "Is Flexible"
-msgstr ""
+msgstr "È flessibile"
 
 #. module: hr_employee_calendar_planning
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee__is_fully_flexible
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_version__is_fully_flexible
 msgid "Is Fully Flexible"
-msgstr ""
+msgstr "È completamente flessibile"
 
 #. module: hr_employee_calendar_planning
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__write_uid
@@ -236,7 +236,7 @@ msgstr "Ore allocate per settimana"
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee__stored_is_flexible
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_version__stored_is_flexible
 msgid "Stored Is Flexible"
-msgstr ""
+msgstr "L'accumulo è flessibile"
 
 #. module: hr_employee_calendar_planning
 #. odoo-python
@@ -255,7 +255,7 @@ msgstr "Totale"
 #. module: hr_employee_calendar_planning
 #: model:ir.model,name:hr_employee_calendar_planning.model_hr_version
 msgid "Version"
-msgstr ""
+msgstr "Versione"
 
 #. module: hr_employee_calendar_planning
 #: model:ir.model.fields,help:hr_employee_calendar_planning.field_resource_calendar__flexible_hours
