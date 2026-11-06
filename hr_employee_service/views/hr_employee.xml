@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!--
+      Copyright (C) 2018 Brainbean Apps (https://brainbeanapps.com)
+      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+    -->
+    <record id="view_employee_form_inherit_extension" model="ir.ui.view">
+        <field name="name">view.employee.form.inherit.extension</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='hr_settings']/group" position="inside">
+                <group
+                    name="service_information"
+                    groups="hr.group_hr_user"
+                    string="Service Information"
+                >
+                    <field name="service_hire_date" />
+                    <field name="service_start_date" />
+                    <field name="service_termination_date" invisible="active" />
+                    <field name="service_duration" invisible="1" />
+                    <label for="service_duration" string="Service Duration" />
+                    <div class="o_row" name="div_service_duration">
+                        <field name="service_duration_years" nolabel="1" />
+                        <span>year(s)</span>
+                        <field name="service_duration_months" nolabel="1" />
+                        <span>month(s)</span>
+                        <field name="service_duration_days" nolabel="1" />
+                        <span>day(s)</span>
+                    </div>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>
