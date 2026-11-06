@@ -33,6 +33,7 @@ addon | version | maintainers | summary
 [hr_employee_partner_external](hr_employee_partner_external/) | 19.0.1.0.0 |  | Associate an external Partner to Employee
 [hr_employee_relative](hr_employee_relative/) | 19.0.1.0.0 |  | Allows storing information about employee's family
 [hr_employee_second_lastname](hr_employee_second_lastname/) | 19.0.1.0.1 | <a href='https://github.com/luisg123v'><img src='https://github.com/luisg123v.png' width='32' height='32' style='border-radius:50%;' alt='luisg123v'/></a> | Split Name in First Name, Father's Last Name and Mother's Last Name
+[hr_job_category](hr_job_category/) | 19.0.1.0.0 |  | Adds tags to employee through contract and job position
 
 [//]: # (end addons)
 

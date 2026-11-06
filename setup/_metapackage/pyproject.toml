@@ -1,6 +1,6 @@
 [project]
 name = "odoo-addons-oca-hr"
-version = "19.0.20261105.0"
+version = "19.0.20261106.0"
 dependencies = [
     "odoo-addon-hr_contract_reference==19.0.*",
     "odoo-addon-hr_course==19.0.*",
@@ -14,6 +14,7 @@ dependencies = [
     "odoo-addon-hr_employee_partner_external==19.0.*",
     "odoo-addon-hr_employee_relative==19.0.*",
     "odoo-addon-hr_employee_second_lastname==19.0.*",
+    "odoo-addon-hr_job_category==19.0.*",
 ]
 classifiers=[
     "Programming Language :: Python",
