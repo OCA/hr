@@ -1,0 +1,1 @@
+odoo-addon-hr_personal_equipment_request @ git+https://github.com/OCA/hr.git@refs/pull/1530/head#subdirectory=hr_personal_equipment_request
