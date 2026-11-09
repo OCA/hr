@@ -39,7 +39,6 @@ class HrEmployeeMedicalExamination(models.Model):
 
     employee_id = fields.Many2one(
         "hr.employee",
-        string="Employee",
         required=True,
         tracking=True,
     )

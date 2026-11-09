@@ -279,7 +279,7 @@ class HrEmployeeCalendar(models.Model):
     date_start = fields.Date(string="Start Date")
     date_end = fields.Date(string="End Date")
     employee_id = fields.Many2one(
-        comodel_name="hr.employee", string="Employee", required=True, ondelete="cascade"
+        comodel_name="hr.employee", required=True, ondelete="cascade"
     )
     company_id = fields.Many2one(related="employee_id.company_id")
     calendar_id = fields.Many2one(
