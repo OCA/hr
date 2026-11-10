@@ -4,7 +4,7 @@
 
 import odoo
 from odoo.exceptions import ValidationError
-from odoo.tests.common import TransactionCase
+from odoo.tests.common import TransactionCase, new_test_user
 from odoo.tools.misc import submap
 
 
@@ -158,6 +158,15 @@ class TestEmployeeFirstname(TransactionCase):
         self.env["hr.employee"].create({"name": "test"})
         with self.assertRaises(ValidationError):
             self.env["hr.employee"].create({})
+
+    def test_create_from_user(self):
+        user = new_test_user(
+            self.env, login="employee-firstname-user", name="Jean-Pierre Carnaud"
+        )
+        employee = self.env["hr.employee"].create({"user_id": user.id})
+        self.assertEqual(employee.name, "Jean-Pierre Carnaud")
+        self.assertEqual(employee.firstname, "Jean-Pierre")
+        self.assertEqual(employee.lastname, "Carnaud")
 
     def test_no_firstname_and_lastname(self):
         with self.assertRaises(ValidationError):
