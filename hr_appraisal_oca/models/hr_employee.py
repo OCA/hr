@@ -63,7 +63,9 @@ class HrEmployeeBase(models.AbstractModel):
         is_hr_officer = user.has_group("hr_appraisal_oca.group_appraisal_hr_officer")
         for employee in self:
             is_self = employee.user_id and employee.user_id.id == user.id
-            allowed = is_hr_officer or user in employee.allowed_user_ids or is_self
+            allowed = (
+                is_hr_officer or user in employee.sudo().allowed_user_ids or is_self
+            )
             employee.can_open_last_appraisal = bool(
                 allowed and employee.last_appraisal_id
             )
@@ -77,9 +79,16 @@ class HrEmployee(models.Model):
         store=True,
         groups="hr.group_hr_user",
     )
-    appraisal_ids = fields.One2many("hr.appraisal", "employee_id", string="Appraisal")
+    appraisal_ids = fields.One2many(
+        "hr.appraisal",
+        "employee_id",
+        string="Appraisal",
+        groups="hr.group_hr_user",
+    )
     last_appraisal_state = fields.Selection(
-        related="last_appraisal_id.state", string="Status"
+        related="last_appraisal_id.state",
+        string="Status",
+        groups="hr.group_hr_user",
     )
     ongoing_appraisal_count = fields.Integer(
         compute="_compute_ongoing_appraisal_count",
@@ -94,6 +103,7 @@ class HrEmployee(models.Model):
         string="Allowed Users",
         compute="_compute_allowed_user_ids",
         store=True,
+        groups="hr.group_hr_user",
     )
 
     @api.depends("parent_id")
