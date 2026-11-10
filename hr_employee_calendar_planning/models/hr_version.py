@@ -7,7 +7,7 @@ class HrVersion(models.Model):
     _inherit = "hr.version"
 
     stored_is_flexible = fields.Boolean(
-        compute="_compute_stored_is_flexible", store=True
+        compute="_compute_stored_is_flexible", store=True, groups="hr.group_hr_user"
     )
     is_flexible = fields.Boolean(
         store=False, search="_search_is_flexible", compute_sudo=True
