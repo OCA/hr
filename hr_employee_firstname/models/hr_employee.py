@@ -73,6 +73,11 @@ class HrEmployee(models.Model):
         return res
 
     def _prepare_vals_on_create_firstname_lastname(self, vals):
+        if not any(
+            vals.get(fname) for fname in ("firstname", "lastname", "name")
+        ) and vals.get("user_id"):
+            # Like core create(), take the name of the linked user
+            vals["name"] = self.env["res.users"].browse(vals["user_id"]).name
         if vals.get("firstname") or vals.get("lastname"):
             vals["name"] = self._get_name(vals.get("lastname"), vals.get("firstname"))
         elif vals.get("name"):
