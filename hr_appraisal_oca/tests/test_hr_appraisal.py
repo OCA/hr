@@ -137,3 +137,9 @@ class TestHrAppraisalEmployee(BaseCommon):
             self.appraisal.manager_feedback,
             Markup(self.template.appraisal_manager_feedback_template),
         )
+
+    def test_read_employees_internal_user(self):
+        """Employees can be read by internal users without explicit fields"""
+        user = new_test_user(self.env, login="test-appraisal-internal")
+        employees = self.env["hr.employee"].with_user(user).search([])
+        self.assertTrue(employees.read([]))
