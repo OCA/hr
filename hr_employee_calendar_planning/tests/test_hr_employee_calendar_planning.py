@@ -721,3 +721,10 @@ class TestHrEmployeeCalendarPlanning(TestHrEmployeeCalendarPlanningCommon):
             calendar._get_hours_for_date(fields.Date.from_string("2024-12-30")),
             (7.0, 14.0),
         )
+
+    def test_read_employees_internal_user(self):
+        """Employees can be read by internal users without explicit fields"""
+        user = new_test_user(self.env, login="test-calendar-planning-internal")
+        user.action_create_employee()
+        employee = user.employee_id.with_user(user)
+        self.assertTrue(employee.read([]))
