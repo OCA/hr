@@ -28,9 +28,14 @@
                     class="o_hr_contract_rate d-flex align-items-baseline gap-2"
                     name="wage"
                 >
-                    <field name="amount" nolabel="1" />
+                    <field name="amount" nolabel="1" required="1" />
                     <span>/</span>
-                    <field name="amount_period" class="w-auto" nolabel="1" />
+                    <field
+                        name="amount_period"
+                        class="w-auto"
+                        nolabel="1"
+                        required="1"
+                    />
                     <!-- Kept (hidden) so views extending it still resolve. -->
                     <field name="wage" invisible="1" />
                 </div>
