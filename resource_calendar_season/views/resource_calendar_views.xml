@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="resource_calendar_form" model="ir.ui.view">
+        <field name="name">resource.calendar.form - resource_calendar_season</field>
+        <field name="model">resource.calendar</field>
+        <field name="inherit_id" ref="resource.resource_calendar_form" />
+        <field name="arch" type="xml">
+            <field name="hours_per_day" position="before">
+                <field name="is_seasonal" />
+            </field>
+            <xpath expr="//page[@name='working_hours']" position="attributes">
+                <attribute name="invisible">is_seasonal</attribute>
+            </xpath>
+            <xpath expr="//notebook" position="inside">
+                <page string="Seasons" name="seasons" invisible="not is_seasonal">
+                    <group>
+                        <field
+                            name="default_calendar_id"
+                            required="is_seasonal"
+                            options="{'no_create': True}"
+                        />
+                    </group>
+                    <field name="season_ids">
+                        <tree editable="bottom">
+                            <field name="sequence" widget="handle" />
+                            <field name="name" />
+                            <field name="month_from" />
+                            <field name="month_to" />
+                            <field
+                                name="season_calendar_id"
+                                options="{'no_create': True}"
+                            />
+                        </tree>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>
