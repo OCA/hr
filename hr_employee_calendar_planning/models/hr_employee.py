@@ -142,47 +142,10 @@ class HrEmployee(models.Model):
             self.resource_id.calendar_id.hours_per_day = current_calendar.hours_per_day
             self.copy_global_leaves()
 
-    def _get_work_days_data_batch(
-        self,
-        from_datetime,
-        to_datetime,
-        compute_leaves=True,
-        calendar=None,
-        domain=None,
-    ):
-        # Override function that change the calendar depending on date
-        if len(self) == 1 and self.calendar_ids:
-            from_dt_tz = fields.Datetime.context_timestamp(self, from_datetime)
-            check_date = from_dt_tz.date()
-            planned_line = self._get_planning_calendars(check_date, check_date)
-            if planned_line:
-                best_line = sorted(
-                    planned_line,
-                    key=lambda c: (c.date_end - c.date_start).days
-                    if c.date_start and c.date_end
-                    else 9999,
-                )[0]
-                calendar = best_line.calendar_id
-        res = super()._get_work_days_data_batch(
-            from_datetime,
-            to_datetime,
-            compute_leaves=compute_leaves,
-            calendar=calendar,
-            domain=domain,
-        )
-        return res
-
     def copy_global_leaves(self):
         self.ensure_one()
         leave_ids = []
-        today = fields.Date.context_today(self)
-        active_planning = self._get_planning_calendars(today, today)
-        if not active_planning and self.calendar_ids:
-            active_planning = self.calendar_ids.sorted(
-                key=lambda r: r.date_end or r.date_start, reverse=True
-            )[:1]
-
-        for calendar in active_planning:
+        for calendar in self.calendar_ids:
             global_leaves = calendar.calendar_id.global_leave_ids
             if calendar.date_start:
                 global_leaves = global_leaves.filtered(

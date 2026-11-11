@@ -2,6 +2,10 @@
 # Copyright 2021-2026 Tecnativa - Víctor Martínez
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
+from datetime import date, datetime, time
+
+from pytz import timezone
+
 from odoo import api, fields, models, modules
 from odoo.exceptions import ValidationError
 from odoo.tools.float_utils import float_compare, float_round
@@ -376,6 +380,41 @@ class ResourceCalendar(models.Model):
     def _attendance_intervals_batch(
         self, start_dt, end_dt, resources=None, domain=None, tz=None, lunch=False
     ):
+        employee = self.sudo().with_context(active_test=False).employee_ids[:1]
+        if self.auto_generate and employee.calendar_ids:
+            # The auto generated calendar only has the attendances of the current
+            # planning line, so use the calendar of each line within its dates.
+            # The first line also applies before its start, like the first version
+            # of the employee does in core (`hr.employee._get_version`).
+            tz_dates = tz or timezone(employee.tz or self.tz)
+            lines = employee.calendar_ids.sorted(lambda x: x.date_start or date.min)
+            result = {}
+            for line in lines:
+                line_start = (
+                    line != lines[0]
+                    and line.date_start
+                    and tz_dates.localize(datetime.combine(line.date_start, time.min))
+                )
+                line_end = line.date_end and tz_dates.localize(
+                    datetime.combine(line.date_end, time.max)
+                )
+                line_result = line.calendar_id.with_env(
+                    self.env
+                )._attendance_intervals_batch(
+                    max(start_dt, line_start or start_dt),
+                    min(end_dt, line_end or end_dt),
+                    resources=resources,
+                    domain=domain,
+                    tz=tz,
+                    lunch=lunch,
+                )
+                for resource_id, intervals in line_result.items():
+                    result[resource_id] = (
+                        result[resource_id] | intervals
+                        if resource_id in result
+                        else intervals
+                    )
+            return result
         # It is important to define the appropriate context keys so that the value is
         # as expected.
         flexible_hours_from_date = start_dt.date()
