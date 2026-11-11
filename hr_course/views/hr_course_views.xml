@@ -18,6 +18,11 @@
                             <field name="category_id" />
                             <field name="permanence" />
                             <field name="permanence_time" invisible="not permanence" />
+                            <field
+                                name="company_id"
+                                groups="base.group_multi_company"
+                                options="{'no_create': True}"
+                            />
                         </group>
                     </group>
                     <notebook>
@@ -69,6 +74,11 @@
                 <field name="category_id" />
                 <field name="content" />
                 <field name="objective" />
+                <field
+                    name="company_id"
+                    optional="hide"
+                    groups="base.group_multi_company"
+                />
             </tree>
         </field>
     </record>
