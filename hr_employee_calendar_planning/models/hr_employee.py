@@ -2,6 +2,8 @@
 # Copyright 2022-2023 Tecnativa - Víctor Martínez
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
+from datetime import timedelta
+
 from odoo import api, fields, models, modules
 from odoo.exceptions import UserError
 from odoo.fields import Command, Domain
@@ -221,6 +223,39 @@ class HrEmployee(models.Model):
     def regenerate_calendar(self):
         for item in self:
             item._regenerate_calendar()
+
+    def _plan_calendar(self, calendar, date_start, date_end):
+        """Plan the working time between both dates, cutting the planning lines
+        that overlap them. A line covering the whole period is split, so the
+        employee recovers its working time after the period."""
+        self.ensure_one()
+        vals_list = [
+            {
+                "employee_id": self.id,
+                "date_start": date_start,
+                "date_end": date_end,
+                "calendar_id": calendar.id,
+            }
+        ]
+        for line in self.calendar_ids:
+            if (line.date_end and line.date_end < date_start) or (
+                line.date_start and line.date_start > date_end
+            ):
+                continue
+            if not line.date_end or line.date_end > date_end:
+                vals_list.append(
+                    {
+                        "employee_id": self.id,
+                        "date_start": date_end + timedelta(days=1),
+                        "date_end": line.date_end,
+                        "calendar_id": line.calendar_id.id,
+                    }
+                )
+            if not line.date_start or line.date_start < date_start:
+                line.date_end = date_start - timedelta(days=1)
+            else:
+                line.unlink()
+        return self.env["hr.employee.calendar"].create(vals_list)
 
     def copy(self, default=None):
         self.ensure_one()
