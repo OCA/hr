@@ -24,6 +24,9 @@ class WizardGenerateMedicalExamination(models.TransientModel):
         comodel_name="hr.job",
         string="Job",
     )
+    address_id = fields.Many2one(
+        "res.partner", default=lambda self: self.env.company.partner_id.id
+    )
 
     def _prepare_employee_domain(self):
         res = []
@@ -57,6 +60,7 @@ class WizardGenerateMedicalExamination(models.TransientModel):
             },
             "employee_id": employee.id,
             "year": self.year,
+            "address_id": self.address_id.id,
         }
 
     def create_medical_examinations(self):
