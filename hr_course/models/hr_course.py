@@ -37,9 +37,7 @@ class HrCourse(models.Model):
     _inherit = "mail.thread"
 
     name = fields.Char(required=True, tracking=True)
-    category_id = fields.Many2one(
-        "hr.course.category", string="Category", required=True
-    )
+    category_id = fields.Many2one("hr.course.category", required=True)
 
     permanence = fields.Boolean(string="Has Permanence", default=False, tracking=True)
     permanence_time = fields.Char(tracking=True)

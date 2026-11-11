@@ -18,11 +18,9 @@ class WizardGenerateMedicalExamination(models.TransientModel):
     employee_ids = fields.Many2many(comodel_name="hr.employee", string="Employees")
     department_id = fields.Many2one(
         comodel_name="hr.department",
-        string="Department",
     )
     job_id = fields.Many2one(
         comodel_name="hr.job",
-        string="Job",
     )
 
     def _prepare_employee_domain(self):
