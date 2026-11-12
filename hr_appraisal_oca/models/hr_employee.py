@@ -63,9 +63,11 @@ class HrEmployeeBase(models.AbstractModel):
         is_hr_officer = user.has_group("hr_appraisal_oca.group_appraisal_hr_officer")
         for employee in self:
             is_self = employee.user_id and employee.user_id.id == user.id
-            allowed = (
-                is_hr_officer or user in employee.sudo().allowed_user_ids or is_self
+            # allowed_user_ids is only on hr.employee, not on hr.employee.public
+            allowed_users = (
+                self.env["hr.employee"].sudo().browse(employee.id).allowed_user_ids
             )
+            allowed = is_hr_officer or user in allowed_users or is_self
             employee.can_open_last_appraisal = bool(
                 allowed and employee.last_appraisal_id
             )
