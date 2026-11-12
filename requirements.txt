@@ -1,2 +1,4 @@
 # generated from manifests external_dependencies
+pyswisseph
 python-dateutil
+timezonefinder
