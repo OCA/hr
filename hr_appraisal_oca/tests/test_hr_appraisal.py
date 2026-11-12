@@ -3,6 +3,7 @@
 
 from markupsafe import Markup
 
+from odoo.exceptions import AccessError
 from odoo.tests import new_test_user
 
 from odoo.addons.base.tests.common import BaseCommon
@@ -141,5 +142,33 @@ class TestHrAppraisalEmployee(BaseCommon):
     def test_read_employees_internal_user(self):
         """Employees can be read by internal users without explicit fields"""
         user = new_test_user(self.env, login="test-appraisal-internal")
-        employees = self.env["hr.employee"].with_user(user).search([])
-        self.assertTrue(employees.read([]))
+        user.action_create_employee()
+        employee = user.employee_id.with_user(user)
+        employee_public = (
+            self.env["hr.employee.public"].with_user(user).browse(employee.id)
+        )
+        self.assertEqual(employee_public._name, "hr.employee.public")
+        self.assertNotIn("appraisal_count", employee_public._fields)
+        self.assertNotIn("appraisal_ids", employee_public._fields)
+        self.assertNotIn("last_appraisal_state", employee_public._fields)
+        self.assertNotIn("ongoing_appraisal_count", employee_public._fields)
+        self.assertNotIn("allowed_user_ids", employee_public._fields)
+        field_names = [
+            "appraisal_count",
+            "appraisal_ids",
+            "last_appraisal_state",
+            "ongoing_appraisal_count",
+            "allowed_user_ids",
+        ]
+        with self.assertRaisesRegex(
+            AccessError,
+            'You do not have enough rights to access the fields "appraisal_count,appraisal_ids,last_appraisal_state,ongoing_appraisal_count,allowed_user_ids" on Employee',  # noqa: E501
+        ):
+            self.assertTrue(employee.read(field_names))
+        # user with the hr.group_hr_user permission can access the fields
+        hr_user = new_test_user(
+            self.env, login="test-group_hr_user", groups="hr.group_hr_user"
+        )
+        employee = user.employee_id.with_user(hr_user)
+        self.assertEqual(employee._name, "hr.employee")
+        self.assertTrue(employee.read(field_names))
