@@ -17,6 +17,7 @@
                     icon="fa-th-large"
                     invisible="not can_open_last_appraisal"
                     type="object"
+                    groups="hr.group_hr_user"
                 >
                     <div class="o_field_widget o_stat_info">
                         <span

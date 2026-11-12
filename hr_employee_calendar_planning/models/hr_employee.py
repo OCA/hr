@@ -88,6 +88,7 @@ class HrEmployee(models.Model):
         inverse_name="employee_id",
         string="Calendar planning",
         copy=True,
+        groups="hr.group_hr_user",
     )
 
     def _get_planning_calendars(self, from_date, to_date):
