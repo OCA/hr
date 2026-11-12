@@ -23,6 +23,16 @@ class HrEmployee(models.Model):
                 names.append(lastname)
             if lastname2:
                 names.append(lastname2)
+        elif order == "last_first_comma2":
+            # Format: "Lastname, Firstname SecondLastname"
+            if lastname:
+                names.append(lastname)
+            if names and (firstname or lastname2):
+                names[0] = names[0] + ","
+            if firstname:
+                names.append(firstname)
+            if lastname2:
+                names.append(lastname2)
         else:
             if lastname:
                 names.append(lastname)
@@ -97,6 +107,21 @@ class HrEmployee(models.Model):
             return result
 
         order = self._get_names_order()
+
+        if order == "last_first_comma2":
+            # Expected input: "Lastname, Firstname SecondLastname"
+            # Split on comma first to isolate lastname from the rest.
+            clean = self._get_whitespace_cleaned_name(name, comma=True)
+            parts = clean.split(",", 1)
+            result["lastname"] = parts[0].strip() or False
+            if len(parts) > 1:
+                rest = parts[1].strip()
+                rest_parts = rest.split(" ", 1)
+                result["firstname"] = rest_parts[0] or False
+                if len(rest_parts) > 1:
+                    result["lastname2"] = rest_parts[1] or False
+            return result
+
         result.update(super()._get_inverse_name(name))
 
         if order in ("first_last", "last_first_comma"):
