@@ -13,6 +13,7 @@
                     type="object"
                     icon="fa-hand-o-up"
                     invisible="equipment_request_count == 0"
+                    groups="hr.group_hr_user"
                 >
                     <field
                         name="equipment_request_count"
@@ -25,6 +26,7 @@
                     type="object"
                     icon="fa-briefcase"
                     invisible="personal_equipment_count == 0"
+                    groups="hr.group_hr_user"
                 >
                     <field
                         name="personal_equipment_count"
