@@ -8,6 +8,7 @@ from datetime import datetime, time
 import pytz
 
 from odoo import Command, exceptions, fields
+from odoo.exceptions import AccessError
 from odoo.tests import new_test_user
 from odoo.tools import mute_logger
 
@@ -629,9 +630,26 @@ class TestHrEmployeeCalendarPlanning(TestHrEmployeeCalendarPlanningCommon):
         )
         self.assertEqual(len(employees), 2)
 
-    def test_read_employees_internal_user(self):
+    @mute_logger("odoo.models.unlink")
+    def test_read_employees_fields(self):
         """Employees can be read by internal users without explicit fields"""
         user = new_test_user(self.env, login="test-calendar-planning-internal")
         user.action_create_employee()
         employee = user.employee_id.with_user(user)
-        self.assertTrue(employee.read([]))
+        employee_public = (
+            self.env["hr.employee.public"].with_user(user).browse(employee.id)
+        )
+        self.assertEqual(employee_public._name, "hr.employee.public")
+        self.assertNotIn("calendar_ids", employee_public._fields)
+        with self.assertRaisesRegex(
+            AccessError,
+            'You do not have enough rights to access the fields "calendar_ids" on Employee',  # noqa: E501
+        ):
+            self.assertTrue(employee.read(["calendar_ids"]))
+        # user with the hr.group_hr_user permission can access the field
+        hr_user = new_test_user(
+            self.env, login="test-group_hr_user", groups="hr.group_hr_user"
+        )
+        employee = user.employee_id.with_user(hr_user)
+        self.assertEqual(employee._name, "hr.employee")
+        self.assertTrue(employee.read(["calendar_ids"]))
