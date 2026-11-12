@@ -5,7 +5,7 @@ from datetime import timedelta
 
 from odoo import fields
 from odoo.exceptions import ValidationError
-from odoo.tests.common import TransactionCase
+from odoo.tests.common import TransactionCase, new_test_user
 
 
 class TestCollectiveAgreement(TransactionCase):
@@ -153,3 +153,27 @@ class TestCollectiveAgreement(TransactionCase):
         self.env["collective.agreement"].action_update_states()
         draft_agreement.invalidate_recordset()
         self.assertEqual(draft_agreement.state, "active")
+
+    def test_multi_company_rule(self):
+        other_company = self.env["res.company"].create({"name": "Other Company"})
+        other_agreement = self.env["collective.agreement"].create(
+            {
+                "code": "AG003",
+                "name": "Agreement Other Company",
+                "scope_id": self.scope.id,
+                "publication_date": fields.Date.today(),
+                "official_publication_id": self.official_pub.id,
+                "company_id": other_company.id,
+            }
+        )
+        for groups in ("base.group_user", "hr.group_hr_manager"):
+            user = new_test_user(
+                self.env,
+                login=f"other_company_{groups}",
+                groups=groups,
+                company_id=other_company.id,
+                company_ids=[(6, 0, other_company.ids)],
+            )
+            agreements = self.env["collective.agreement"].with_user(user).search([])
+            self.assertNotIn(self.agreement, agreements)
+            self.assertIn(other_agreement, agreements)
