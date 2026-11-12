@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="hr_employee_vcard_layout_modern" model="hr.employee.vcard.layout">
+        <field name="name">Modern</field>
+        <field name="sequence">5</field>
+        <field
+            name="view_id"
+            ref="hr_employee_vcard.hr_employee_vcard_template_modern"
+        />
+    </record>
+
+    <record id="hr_employee_vcard_layout_minimal" model="hr.employee.vcard.layout">
+        <field name="name">Minimal</field>
+        <field name="sequence">10</field>
+        <field
+            name="view_id"
+            ref="hr_employee_vcard.hr_employee_vcard_template_minimal"
+        />
+    </record>
+
+    <record id="hr_employee_vcard_layout_classic" model="hr.employee.vcard.layout">
+        <field name="name">Classic</field>
+        <field name="sequence">15</field>
+        <field
+            name="view_id"
+            ref="hr_employee_vcard.hr_employee_vcard_template_classic"
+        />
+    </record>
+</odoo>

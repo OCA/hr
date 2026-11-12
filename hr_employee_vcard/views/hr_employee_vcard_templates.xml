@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="hr_employee_vcard_preview">
+        <t t-call="web.html_preview_container">
+            <t t-call="hr_employee_vcard.hr_employee_vcard_layout" />
+        </t>
+    </template>
+
+    <template id="hr_employee_vcard_layout">
+        <t t-if="vcard_layout_id" t-call="{{vcard_layout_id.view_id.sudo().key}}" />
+        <t t-else="" t-call="hr_employee_vcard.hr_employee_vcard_template_modern" />
+    </template>
+
+    <template id="hr_employee_vcard_lines">
+        <t t-foreach="face_lines or []" t-as="line">
+            <div
+                t-attf-class="o_hr_employee_vcard_line o_hr_employee_vcard_line_#{line['type']}"
+            >
+                <img
+                    t-if="line['kind'] == 'image'"
+                    t-att-src="line['value']"
+                    t-att-alt="line['type']"
+                    t-attf-class="o_hr_employee_vcard_img o_hr_employee_vcard_#{line['type']}"
+                />
+                <t t-elif="line.get('icon')">
+                    <span class="o_hr_employee_vcard_icon">
+                        <i t-attf-class="fa #{line['icon']}" />
+                    </span>
+                    <span class="o_hr_employee_vcard_value" t-esc="line['value']" />
+                </t>
+                <span t-else="" t-esc="line['value']" />
+            </div>
+        </t>
+    </template>
+
+    <template id="hr_employee_vcard_base">
+        <div
+            t-attf-class="o_hr_employee_vcard #{layout_class or ''}"
+            t-attf-style="font-family:#{font_family or 'inherit'};"
+        >
+            <div
+                class="o_hr_employee_vcard_face o_hr_employee_vcard_front"
+                t-attf-style="#{background_style or ''}"
+            >
+                <div class="o_hr_employee_vcard_content">
+                    <t t-call="hr_employee_vcard.hr_employee_vcard_lines">
+                        <t t-set="face_lines" t-value="front_lines" />
+                    </t>
+                </div>
+            </div>
+            <div class="o_hr_employee_vcard_face o_hr_employee_vcard_back">
+                <div class="o_hr_employee_vcard_content">
+                    <t t-call="hr_employee_vcard.hr_employee_vcard_lines">
+                        <t t-set="face_lines" t-value="back_lines" />
+                    </t>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="hr_employee_vcard_template_modern">
+        <t t-set="layout_class" t-value="'o_hr_employee_vcard_modern'" />
+        <t t-call="hr_employee_vcard.hr_employee_vcard_base" />
+    </template>
+
+    <template id="hr_employee_vcard_template_minimal">
+        <t t-set="layout_class" t-value="'o_hr_employee_vcard_minimal'" />
+        <t t-call="hr_employee_vcard.hr_employee_vcard_base" />
+    </template>
+
+    <template id="hr_employee_vcard_template_classic">
+        <t t-set="layout_class" t-value="'o_hr_employee_vcard_classic'" />
+        <t t-call="hr_employee_vcard.hr_employee_vcard_base" />
+    </template>
+</odoo>
