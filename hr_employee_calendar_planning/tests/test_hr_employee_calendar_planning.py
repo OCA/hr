@@ -630,8 +630,11 @@ class TestHrEmployeeCalendarPlanning(TestHrEmployeeCalendarPlanningCommon):
         self.assertEqual(len(employees), 2)
 
     def test_read_employees_internal_user(self):
-        """Employees can be read by internal users without explicit fields"""
+        """Calendar planning is not among the employee fields an internal user
+        reads without explicit fields, as it is not on hr.employee.public"""
         user = new_test_user(self.env, login="test-calendar-planning-internal")
         user.action_create_employee()
         employee = user.employee_id.with_user(user)
-        self.assertTrue(employee.read([]))
+        self.assertNotIn(
+            "calendar_ids", employee.check_field_access_rights("read", None)
+        )
