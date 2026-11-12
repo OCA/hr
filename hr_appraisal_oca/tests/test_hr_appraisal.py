@@ -143,3 +143,10 @@ class TestHrAppraisalEmployee(BaseCommon):
         user = new_test_user(self.env, login="test-appraisal-internal")
         employees = self.env["hr.employee"].with_user(user).search([])
         self.assertTrue(employees.read([]))
+
+    def test_read_public_employees(self):
+        """The public profiles of the employees can be read with all fields"""
+        user = new_test_user(self.env, login="test-appraisal-public")
+        user.action_create_employee()
+        employees = self.env["hr.employee.public"].with_user(user).search([])
+        self.assertTrue(employees.read([]))
