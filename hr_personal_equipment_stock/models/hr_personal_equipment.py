@@ -30,28 +30,79 @@ class HrPersonalEquipment(models.Model):
         "stock.move", "personal_equipment_id", string="Stock Moves"
     )
     skip_procurement = fields.Boolean(compute="_compute_skip_procurement")
+    lot_ids = fields.Many2many(
+        "stock.lot", compute="_compute_lot_ids", string="Serial Numbers"
+    )
 
     @api.depends("state", "product_id", "product_id.type")
     def _compute_skip_procurement(self):
         for record in self:
             record.skip_procurement = record._skip_procurement()
 
+    def _filter_allocation_moves(self, allocation):
+        return allocation.move_ids.filtered(
+            lambda move, allocation=allocation: move.state == "done"
+            and move.product_id == allocation.product_id
+        ) | allocation.equipment_request_id.picking_ids.move_ids.filtered(
+            lambda move, allocation=allocation: move.scrapped
+            and move.state == "done"
+            and move.product_id == allocation.product_id
+            and (
+                move.lot_ids in allocation.move_ids.lot_ids
+                if allocation.move_ids.lot_ids
+                else True
+            )
+        )
+
     @api.depends(
         "move_ids.state",
         "move_ids.scrapped",
         "move_ids.product_uom_qty",
         "move_ids.product_uom",
+        "equipment_request_id.picking_ids.move_ids.scrapped",
+        "equipment_request_id.picking_ids.move_ids.state",
     )
     def _compute_qty_delivered(self):
         for line in self:
             qty = 0.0
-            for move in line.move_ids.filtered(
-                lambda r: r.state == "done" and line.product_id == r.product_id
-            ):
-                qty += move.product_uom._compute_quantity(
+            dest_location = line.location_id
+            moves = self._filter_allocation_moves(line)
+            for move in moves:
+                moved_qty = move.product_uom._compute_quantity(
                     move.product_uom_qty, line.product_uom_id
                 )
+                if move.location_dest_id == dest_location:
+                    qty += moved_qty
+                elif move.location_id == dest_location:
+                    qty -= moved_qty
             line.qty_delivered = qty
+
+    @api.depends(
+        "move_ids.lot_ids",
+        "equipment_request_id.picking_ids.move_ids.scrapped",
+        "equipment_request_id.picking_ids.move_ids.state",
+    )
+    def _compute_lot_ids(self):
+        for line in self:
+            qty_by_lot = {}
+            dest_location = line.location_id
+            moves = self._filter_allocation_moves(line)
+            for move in moves:
+                for move_line in move.move_line_ids:
+                    lot = move_line.lot_id
+                    if lot not in qty_by_lot:
+                        qty_by_lot[lot] = 0
+                    moved_qty = move_line.qty_done
+                    if move.location_dest_id == dest_location:
+                        qty_by_lot[lot] += moved_qty
+                    elif move.location_id == dest_location:
+                        qty_by_lot[lot] -= moved_qty
+
+            lots = self.env["stock.lot"].browse()
+            for lot, moved in qty_by_lot.items():
+                if moved > 0:
+                    lots |= lot
+            line.lot_ids = lots
 
     def _skip_procurement(self):
         return self.product_id.type not in ("consu", "product")
