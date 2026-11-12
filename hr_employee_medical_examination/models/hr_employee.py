@@ -10,14 +10,17 @@ class HrEmployee(models.Model):
     medical_examination_ids = fields.One2many(
         comodel_name="hr.employee.medical.examination",
         inverse_name="employee_id",
+        groups="hr.group_hr_user",
     )
 
     medical_examination_count = fields.Integer(
         compute="_compute_medical_examination_count",
+        groups="hr.group_hr_user",
     )
 
     can_see_examinations_button = fields.Boolean(
         compute="_compute_can_see_examinations_button",
+        groups="hr.group_hr_user",
     )
 
     @api.depends("medical_examination_ids")
