@@ -1,0 +1,5 @@
+- [CorporateHub](https://corporatehub.eu/)
+  - Alexey Pelykh \<<alexey.pelykh@corphub.eu>\>
+- Kranokporn Th.\<<kranokpornt@ecosoft.co.th>\>
+- [Pesol](https://www.pesol.es):
+  - Jonathan Oscategui Taza \<<info@pesol.es>\>
