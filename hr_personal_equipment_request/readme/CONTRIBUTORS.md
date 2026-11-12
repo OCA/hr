@@ -2,3 +2,5 @@
 - [APSL](https://apsl.tech):
   - Antoni Marroig  \<<amarroig@apsl.net>\>
 - `Heliconia Solutions Pvt. Ltd. <https://www.heliconia.io>`_
+- [PyTech](https://www.pytech.it):
+  - Simone Rubino \<<simone.rubino@pytech.it>\>
