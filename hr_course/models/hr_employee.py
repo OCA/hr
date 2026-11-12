@@ -5,13 +5,16 @@ class HrEmployee(models.Model):
     _inherit = "hr.employee"
 
     count_courses = fields.Integer(
-        "Number of courses", compute="_compute_count_courses"
+        "Number of courses",
+        compute="_compute_count_courses",
+        groups="hr.group_hr_user",
     )
 
     courses_ids = fields.One2many(
         "hr.course.attendee",
         "employee_id",
         readonly=True,
+        groups="hr.group_hr_user",
     )
 
     @api.depends("courses_ids")
