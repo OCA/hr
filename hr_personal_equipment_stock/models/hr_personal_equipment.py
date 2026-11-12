@@ -38,6 +38,25 @@ class HrPersonalEquipment(models.Model):
         for record in self:
             record.skip_procurement = record._skip_procurement()
 
+    def _filter_allocation_moves(self):
+        # Using moves linked with pickings to filter as all allocation
+        # related moves including scrapped are available in it
+        return self.equipment_request_id.picking_ids.move_ids.filtered(
+            lambda move: move.state == "done"
+            and move.product_id == self.product_id
+            # Move lots needs to be verified
+            # for use case such as two
+            # allocations of same product used
+            # in same PPE request. If not, qty_delivered
+            # results in negative value when any one
+            # of the move is scrapped
+            and (
+                [lot for lot in move.lot_ids if lot in self.move_ids.lot_ids]
+                if self.move_ids.lot_ids
+                else True
+            )
+        )
+
     @api.depends(
         "move_ids.state",
         "move_ids.scrapped",
@@ -50,19 +69,7 @@ class HrPersonalEquipment(models.Model):
         for line in self:
             qty = 0.0
             dest_location = line.location_id
-            moves = line.move_ids.filtered(
-                lambda move, line=line: move.state == "done"
-                and move.product_id == line.product_id
-            ) | line.equipment_request_id.picking_ids.move_ids.filtered(
-                lambda move, line=line: move.scrapped
-                and move.state == "done"
-                and move.product_id == line.product_id
-                and (
-                    move.lot_ids in line.move_ids.lot_ids
-                    if line.move_ids.lot_ids
-                    else True
-                )
-            )
+            moves = line._filter_allocation_moves()
             for move in moves:
                 moved_qty = move.product_uom._compute_quantity(
                     move.product_uom_qty, line.product_uom_id
@@ -82,19 +89,7 @@ class HrPersonalEquipment(models.Model):
         for line in self:
             qty_by_lot = {}
             dest_location = line.location_id
-            moves = line.move_ids.filtered(
-                lambda move, line=line: move.state == "done"
-                and move.product_id == line.product_id
-            ) | line.equipment_request_id.picking_ids.move_ids.filtered(
-                lambda move, line=line: move.scrapped
-                and move.state == "done"
-                and move.product_id == line.product_id
-                and (
-                    move.lot_ids in line.move_ids.lot_ids
-                    if line.move_ids.lot_ids
-                    else True
-                )
-            )
+            moves = line._filter_allocation_moves()
             for move in moves:
                 for move_line in move.move_line_ids:
                     lot = move_line.lot_id
