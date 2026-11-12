@@ -172,3 +172,10 @@ class TestHrAppraisalEmployee(BaseCommon):
         employee = user.employee_id.with_user(hr_user)
         self.assertEqual(employee._name, "hr.employee")
         self.assertTrue(employee.read(field_names))
+
+    def test_read_public_employees(self):
+        """The appraisal button field can be read on the public profiles"""
+        user = new_test_user(self.env, login="test-appraisal-public")
+        user.action_create_employee()
+        employees = self.env["hr.employee.public"].with_user(user).search([])
+        self.assertTrue(employees.read(["can_open_last_appraisal"]))
