@@ -244,6 +244,45 @@ class TestHRPersonalEquipment(TransactionCase):
         self.assertNotIn(lot_ids[0], allocation.lot_ids)
         self.assertEqual(allocation.qty_delivered, 2)
 
+    def test_compute_qty_delivered_and_lot_ids_multi_allocation(self):
+        # verify computation of qty_delivered and lot_ids
+        # for use case where two allocations with same
+        # product used in the same PPE request
+        allocation1 = self.personal_equipment_request.line_ids[0]
+        allocation2 = self.personal_equipment_request.line_ids[1]
+        self.personal_equipment_request.update({"line_ids": [(3, allocation2.id)]})
+        allocation2 = self.env["hr.personal.equipment"].create(
+            {
+                "name": "Personal Equipment 2",
+                "product_id": self.product_personal_equipment_1.product_variant_id.id,
+                "quantity": 2,
+                "product_uom_id": self.env.ref("uom.product_uom_unit").id,
+                "equipment_request_id": self.personal_equipment_request.id,
+            }
+        )
+        lot_ids = []
+        for allocation in (allocation1, allocation2):
+            lots = tuple(
+                self._create_lot_ids(
+                    self.product_personal_equipment_1, allocation.quantity
+                )
+            )
+            lot_ids.append(lots)
+        self.personal_equipment_request.accept_request()
+        for index, allocation in enumerate((allocation1, allocation2)):
+            move = allocation.move_ids[0]
+            move.picked = True
+            allocation_lot_ids = lot_ids[index]
+            move.lot_ids = [lot_id.id for lot_id in allocation_lot_ids]
+            move.quantity = allocation.quantity
+        picking = self.personal_equipment_request.picking_ids[0]
+        picking._action_done()
+        for allocation in (allocation1, allocation2):
+            self.assertEqual(allocation.qty_delivered, allocation.quantity)
+            self.assertEqual(len(allocation.lot_ids), allocation.qty_delivered)
+            self.assertEqual(allocation.lot_ids, allocation.move_ids.lot_ids)
+            self.assertEqual(allocation.state, "valid")
+
     def test_compute_qty_delivered_without_lot_ids(self):
         allocation = self.personal_equipment_request.line_ids[0]
         self.personal_equipment_request.accept_request()
