@@ -10,4 +10,5 @@ class HrEmployee(models.Model):
     relative_ids = fields.One2many(
         comodel_name="hr.employee.relative",
         inverse_name="employee_id",
+        groups="hr.group_hr_user",
     )
