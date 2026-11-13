@@ -1,0 +1,18 @@
+// Amount and period on one line of the contract form
+// (views/hr_contract_views.xml). The monetary input cannot size itself to its
+// value, so it gets a width that fits a nine-digit amount and the period
+// dropdown follows right after it.
+.o_form_view .o_hr_contract_rate {
+    > .o_field_monetary {
+        flex: 0 1 12rem;
+        min-width: 0;
+        // Read-only: plain text, there is no input to reserve room for.
+        &.o_readonly_modifier {
+            flex: 0 0 auto;
+            width: auto;
+        }
+    }
+    > .o_field_selection {
+        flex: 0 0 auto;
+    }
+}

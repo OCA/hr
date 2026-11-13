@@ -1,0 +1,151 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* hr_contract_rate
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2021-03-19 15:46+0000\n"
+"Last-Translator: Sandrine (ACSONE) <sandrine.ravet@acsone.eu>\n"
+"Language-Team: none\n"
+"Language: fr_FR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.3.2\n"
+
+#. module: hr_contract_rate
+#: model:ir.model.fields,field_description:hr_contract_rate.field_hr_contract__amount
+#: model_terms:ir.ui.view,arch_db:hr_contract_rate.hr_contract_view_form
+msgid "Amount"
+msgstr "Salaire"
+
+#. module: hr_contract_rate
+#: model:ir.model.fields.selection,name:hr_contract_rate.selection__hr_contract__amount_period__day
+msgid "Day"
+msgstr "Jour"
+
+#. module: hr_contract_rate
+#: model:ir.model.fields,field_description:hr_contract_rate.field_hr_contract__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: hr_contract_rate
+#: model:ir.model,name:hr_contract_rate.model_hr_contract
+msgid "Employee Contract"
+msgstr ""
+
+#. module: hr_contract_rate
+#: model:ir.model.fields,help:hr_contract_rate.field_hr_contract__amount
+msgid "Employee's contract amount per period"
+msgstr ""
+
+#. module: hr_contract_rate
+#: model:ir.model.fields,help:hr_contract_rate.field_hr_contract__approximate_wage
+msgid "Employee's monthly gross wage (approximate)"
+msgstr ""
+
+#. module: hr_contract_rate
+#: model:ir.model.fields,help:hr_contract_rate.field_hr_contract__wage
+msgid "Employee's monthly gross wage."
+msgstr ""
+
+#. module: hr_contract_rate
+#: model:ir.model.fields.selection,name:hr_contract_rate.selection__hr_contract__amount_period__hour
+msgid "Hour"
+msgstr "Heure"
+
+#. module: hr_contract_rate
+#: model:ir.model.fields,help:hr_contract_rate.field_hr_contract__work_days_per_month
+msgid "How many work days there is in an average month"
+msgstr ""
+
+#. module: hr_contract_rate
+#: model:ir.model.fields,help:hr_contract_rate.field_hr_contract__work_hours_per_month
+msgid "How many work hours there is in an average month"
+msgstr ""
+
+#. module: hr_contract_rate
+#: model:ir.model.fields,help:hr_contract_rate.field_hr_contract__work_weeks_per_month
+msgid "How many work weeks there is in an average month"
+msgstr ""
+
+#. module: hr_contract_rate
+#: model:ir.model.fields,field_description:hr_contract_rate.field_hr_contract__id
+msgid "ID"
+msgstr ""
+
+#. module: hr_contract_rate
+#: model:ir.model.fields,field_description:hr_contract_rate.field_hr_contract__is_wage_accurate
+msgid "Is Wage Accurate"
+msgstr ""
+
+#. module: hr_contract_rate
+#: model:ir.model.fields,field_description:hr_contract_rate.field_hr_contract____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: hr_contract_rate
+#: model:ir.model.fields.selection,name:hr_contract_rate.selection__hr_contract__amount_period__month
+msgid "Month"
+msgstr "Mois"
+
+#. module: hr_contract_rate
+#: model:ir.model.fields,field_description:hr_contract_rate.field_hr_contract__amount_period
+msgid "Period of Amount"
+msgstr "Périodicité"
+
+#. module: hr_contract_rate
+#: model:ir.model.fields,help:hr_contract_rate.field_hr_contract__amount_period
+msgid "Period of employee's contract amount"
+msgstr ""
+
+#. module: hr_contract_rate
+#: model:ir.model.fields.selection,name:hr_contract_rate.selection__hr_contract__amount_period__quarter
+msgid "Quarter"
+msgstr "Trimestre"
+
+#. module: hr_contract_rate
+#: model_terms:ir.ui.view,arch_db:hr_contract_rate.hr_contract_view_form
+msgid "Salary and Advantages"
+msgstr "Salaire et avantages"
+
+#. module: hr_contract_rate
+#: model:ir.model.fields,field_description:hr_contract_rate.field_hr_contract__wage
+msgid "Wage"
+msgstr "Salaire"
+
+#. module: hr_contract_rate
+#: model:ir.model.fields,field_description:hr_contract_rate.field_hr_contract__approximate_wage
+msgid "Wage (approximate)"
+msgstr ""
+
+#. module: hr_contract_rate
+#: model:ir.model.fields.selection,name:hr_contract_rate.selection__hr_contract__amount_period__week
+msgid "Week"
+msgstr "Semaine"
+
+#. module: hr_contract_rate
+#: model:ir.model.fields,field_description:hr_contract_rate.field_hr_contract__work_days_per_month
+msgid "Work days (per month)"
+msgstr ""
+
+#. module: hr_contract_rate
+#: model:ir.model.fields,field_description:hr_contract_rate.field_hr_contract__work_hours_per_month
+msgid "Work hours (per month)"
+msgstr ""
+
+#. module: hr_contract_rate
+#: model:ir.model.fields,field_description:hr_contract_rate.field_hr_contract__work_weeks_per_month
+msgid "Work weeks (per month)"
+msgstr ""
+
+#. module: hr_contract_rate
+#: model:ir.model.fields.selection,name:hr_contract_rate.selection__hr_contract__amount_period__year
+msgid "Year"
+msgstr "Année"
+
+#~ msgid "Contract"
+#~ msgstr "Contrat"
