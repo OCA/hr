@@ -14,6 +14,7 @@ class HrEmployee(models.Model):
         prefetch=False,
         string="First Contract",
         help="First contract of the employee",
+        groups="hr.group_hr_user",
     )
     last_contract_id = fields.Many2one(
         "hr.contract",
@@ -22,6 +23,7 @@ class HrEmployee(models.Model):
         prefetch=False,
         string="Last Contract",
         help="Last contract of the employee",
+        groups="hr.group_hr_user",
     )
     service_start_date = fields.Date(
         string="Start Date",

@@ -10,20 +10,24 @@ class HrEmployee(models.Model):
     equipment_request_ids = fields.One2many(
         comodel_name="hr.personal.equipment.request",
         inverse_name="employee_id",
+        groups="hr.group_hr_user",
     )
 
     personal_equipment_ids = fields.One2many(
         comodel_name="hr.personal.equipment",
         inverse_name="employee_id",
         domain=[("state", "not in", ["draft", "cancelled"])],
+        groups="hr.group_hr_user",
     )
 
     equipment_request_count = fields.Integer(
         compute="_compute_equipment_request_count",
+        groups="hr.group_hr_user",
     )
 
     personal_equipment_count = fields.Integer(
-        compute="_compute_personal_equipment_count"
+        compute="_compute_personal_equipment_count",
+        groups="hr.group_hr_user",
     )
 
     def _compute_equipment_request_count(self):
