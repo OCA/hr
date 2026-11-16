@@ -17,7 +17,7 @@
                         confirm="Are you sure you want to validate this personal equipment allocation?"
                         class="oe_highlight"
                         states="accepted"
-                        groups="hr.group_hr_user"
+                        groups="hr_personal_equipment_request.personal_equipment_group_officer"
                     />
                     <button
                         type="object"
@@ -25,7 +25,7 @@
                         name="expire_allocation"
                         confirm="Are you sure you want to expire this personal equipment allocation?"
                         states="valid"
-                        groups="hr.group_hr_user"
+                        groups="hr_personal_equipment_request.personal_equipment_group_officer"
                     />
                     <field
                         name="state"
@@ -39,7 +39,7 @@
                         <field
                             name="employee_id"
                             attrs="{'readonly': [('state', '!=', 'draft')]}"
-                            groups="hr.group_hr_user"
+                            groups="hr_personal_equipment_request.personal_equipment_group_officer"
                         />
                         <field
                             name="product_id"
@@ -94,7 +94,10 @@
             >
                 <field name="name" invisible="1" />
                 <field name="product_id" />
-                <field name="employee_id" groups="hr.group_hr_user" />
+                <field
+                    name="employee_id"
+                    groups="hr_personal_equipment_request.personal_equipment_group_officer"
+                />
                 <field name="quantity" />
                 <field name="product_uom_id" />
                 <field name="start_date" />
@@ -112,7 +115,10 @@
             <search>
                 <field name="name" />
                 <field name="state" />
-                <field name="employee_id" groups="hr.group_hr_user" />
+                <field
+                    name="employee_id"
+                    groups="hr_personal_equipment_request.personal_equipment_group_officer"
+                />
                 <field name="product_id" />
                 <group expand="0" name="group_by" string="Group By">
                     <filter
