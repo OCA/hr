@@ -35,6 +35,7 @@ addon | version | maintainers | summary
 [hr_employee_relative](hr_employee_relative/) | 19.0.1.0.0 |  | Allows storing information about employee's family
 [hr_employee_second_lastname](hr_employee_second_lastname/) | 19.0.1.0.1 | <a href='https://github.com/luisg123v'><img src='https://github.com/luisg123v.png' width='32' height='32' style='border-radius:50%;' alt='luisg123v'/></a> | Split Name in First Name, Father's Last Name and Mother's Last Name
 [hr_job_category](hr_job_category/) | 19.0.1.0.0 |  | Adds tags to employee through contract and job position
+[hr_user_role_activity](hr_user_role_activity/) | 19.0.1.0.0 | <a href='https://github.com/CRogos'><img src='https://github.com/CRogos.png' width='32' height='32' style='border-radius:50%;' alt='CRogos'/></a> <a href='https://github.com/MohamedOsman7'><img src='https://github.com/MohamedOsman7.png' width='32' height='32' style='border-radius:50%;' alt='MohamedOsman7'/></a> | Assign user role expiration reminders to the employee's manager
 
 [//]: # (end addons)
 
