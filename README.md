@@ -52,6 +52,7 @@ addon | version | maintainers | summary
 [hr_personal_equipment_request](hr_personal_equipment_request/) | 18.0.1.0.0 |  | This addon allows to manage employee personal equipment
 [hr_personal_equipment_stock](hr_personal_equipment_stock/) | 18.0.1.0.0 |  | This addon allows to integrate hr_personal_equipment_request with stock
 [hr_professional_category](hr_professional_category/) | 18.0.1.0.0 | <a href='https://github.com/victoralmau'><img src='https://github.com/victoralmau.png' width='32' height='32' style='border-radius:50%;' alt='victoralmau'/></a> | HR Professional Category
+[hr_user_role_activity](hr_user_role_activity/) | 18.0.1.0.0 | <a href='https://github.com/CRogos'><img src='https://github.com/CRogos.png' width='32' height='32' style='border-radius:50%;' alt='CRogos'/></a> <a href='https://github.com/MohamedOsman7'><img src='https://github.com/MohamedOsman7.png' width='32' height='32' style='border-radius:50%;' alt='MohamedOsman7'/></a> | Assign user role expiration reminders to the employee's manager
 
 [//]: # (end addons)
 
