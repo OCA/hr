@@ -33,7 +33,12 @@ class TestHRPersonalEquipmentRequest(TransactionCase):
                     "email": "user@test.com",
                     "groups_id": [
                         (4, cls.env.ref("base.group_user").id),
-                        (4, cls.env.ref("hr.group_hr_user").id),
+                        (
+                            4,
+                            cls.env.ref(
+                                "hr_personal_equipment_request.personal_equipment_group_officer"
+                            ).id,
+                        ),
                     ],
                 }
             )
