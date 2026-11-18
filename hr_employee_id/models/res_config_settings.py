@@ -27,7 +27,7 @@ class ResConfigSettings(models.TransientModel):
     )
 
     def _default_id_gen_method(self):
-        gen_method = self.env.user.company_id.employee_id_gen_method
+        gen_method = self.env.company.employee_id_gen_method
         if not gen_method:
             gen_method = self.env["res.company"].default_get(
                 ["employee_id_gen_method"]
@@ -35,7 +35,7 @@ class ResConfigSettings(models.TransientModel):
         return gen_method
 
     def _default_id_random_digits(self):
-        digits = self.env.user.company_id.employee_id_random_digits
+        digits = self.env.company.employee_id_random_digits
         if not digits:
             digits = self.env["res.company"].default_get(["employee_id_random_digits"])[
                 "employee_id_random_digits"
@@ -43,7 +43,7 @@ class ResConfigSettings(models.TransientModel):
         return digits
 
     def _default_id_sequence(self):
-        sequence = self.env.user.company_id.employee_id_sequence
+        sequence = self.env.company.employee_id_sequence
         if not sequence:
             sequence = self.env.ref("hr_employee_id.seq_hr_employee_id")
         return sequence and sequence.id or False
