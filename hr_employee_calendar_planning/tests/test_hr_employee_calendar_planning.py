@@ -11,6 +11,7 @@ from freezegun import freeze_time
 from psycopg2 import IntegrityError
 
 from odoo import Command, exceptions, fields
+from odoo.exceptions import AccessError
 from odoo.tests import new_test_user
 from odoo.tools import mute_logger
 
@@ -721,3 +722,24 @@ class TestHrEmployeeCalendarPlanning(TestHrEmployeeCalendarPlanningCommon):
             calendar._get_hours_for_date(fields.Date.from_string("2024-12-30")),
             (7.0, 14.0),
         )
+
+    @mute_logger("odoo.models.unlink")
+    def test_read_employees_fields(self):
+        """Employees can be read by internal users without explicit fields"""
+        user = new_test_user(self.env, login="test-calendar-planning-internal")
+        user.action_create_employee()
+        employee = user.employee_id.with_user(user)
+        employee_public = (
+            self.env["hr.employee.public"].with_user(user).browse(employee.id)
+        )
+        self.assertEqual(employee_public._name, "hr.employee.public")
+        self.assertNotIn("calendar_ids", employee_public._fields)
+        with self.assertRaisesRegex(AccessError, "calendar_ids"):
+            self.assertTrue(employee.read(["calendar_ids"]))
+        # user with the hr.group_hr_user permission can access the field
+        hr_user = new_test_user(
+            self.env, login="test-group_hr_user", groups="hr.group_hr_user"
+        )
+        employee = user.employee_id.with_user(hr_user)
+        self.assertEqual(employee._name, "hr.employee")
+        self.assertTrue(employee.read(["calendar_ids"]))
