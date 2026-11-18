@@ -36,6 +36,7 @@ class HrEmployee(models.Model):
             "Termination date is the last day the employee actually works and"
             " this date is used for accrual leave allocations calculation"
         ),
+        groups="hr.group_hr_user",
     )
     service_duration = fields.Integer(
         groups="hr.group_hr_user",

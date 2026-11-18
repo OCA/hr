@@ -12,4 +12,5 @@ class HrEmployee(models.Model):
         "employee_id",
         string="Languages",
         help="Languages of this employee",
+        groups="hr.group_hr_user",
     )
