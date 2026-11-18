@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="hr_employee_vcard_wizard_view_form" model="ir.ui.view">
+        <field name="name">hr.employee.vcard.wizard.view.form</field>
+        <field name="model">hr.employee.vcard.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Configure your vCard Layout">
+                <field name="company_id" invisible="1" />
+                <sheet>
+                    <group>
+                        <group class="o_hr_employee_vcard_layout">
+                            <field
+                                name="vcard_layout_id"
+                                widget="selection_badge"
+                                options="{'no_create': True}"
+                            />
+                            <field name="vcard_layout_background" />
+                            <field
+                                name="vcard_layout_background_image"
+                                options="{'accepted_file_extensions': 'image/*'}"
+                                required="vcard_layout_background == 'custom'"
+                                invisible="vcard_layout_background != 'custom'"
+                            />
+                            <field name="vcard_layout_font" />
+                            <field
+                                name="vcard_layout_field_ids"
+                                widget="many2many_tags"
+                            />
+                        </group>
+                        <div class="o_preview">
+                            <field
+                                name="vcard_layout_preview"
+                                widget="iframe_wrapper"
+                                class="preview_document_layout d-flex justify-content-center mb-0"
+                            />
+                        </div>
+                    </group>
+                </sheet>
+                <footer>
+                    <button
+                        string="Save"
+                        special="save"
+                        close="1"
+                        class="btn-primary"
+                        data-hotkey="q"
+                    />
+                    <button string="Discard" special="cancel" data-hotkey="x" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_hr_employee_vcard_wizard" model="ir.actions.act_window">
+        <field name="name">Configure your vCard Layout</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hr.employee.vcard.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>
