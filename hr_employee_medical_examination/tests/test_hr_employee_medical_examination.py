@@ -31,7 +31,14 @@ class TestHrEmployeeMedicalExamination(BaseCommon):
 
     def test_hr_employee_medical_examination(self):
         self.assertFalse(self.wizard.employee_ids)
-        self.wizard.write({"job_id": self.job.id, "department_id": self.department.id})
+        self.assertEqual(self.wizard.address_id, self.env.company.partner_id)
+        self.wizard.write(
+            {
+                "job_id": self.job.id,
+                "department_id": self.department.id,
+                "address_id": False,
+            }
+        )
         self.wizard.populate()
         self.assertEqual(len(self.wizard.employee_ids), 1)
         result = self.wizard.create_medical_examinations()
@@ -44,6 +51,7 @@ class TestHrEmployeeMedicalExamination(BaseCommon):
         self.assertEqual(examination.name, "Examination 2019 on Employee 1")
         self.assertEqual(self.employee1.medical_examination_count, 2)
         self.assertTrue(self.employee1.can_see_examinations_button)
+        self.assertFalse(examination.address_id)
         examination.write({"date": "2018-05-05"})
         examination._onchange_date()
         self.assertEqual(examination.year, "2018")

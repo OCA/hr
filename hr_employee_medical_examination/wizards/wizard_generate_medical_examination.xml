@@ -12,6 +12,7 @@
                 <group>
                     <group>
                         <field name="name" />
+                        <field name="address_id" context="{'show_address': 1}" />
                     </group>
                     <group>
                         <field name="year" />
