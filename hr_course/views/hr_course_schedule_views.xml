@@ -133,7 +133,8 @@
                             <field
                                 name="course_attendee_ids"
                                 widget="one2many_list"
-                                invisible="state not in ['in_validation']"
+                                invisible="state not in ['in_progress','in_validation','completed']"
+                                readonly="state != 'in_validation'"
                             />
                         </page>
                         <page

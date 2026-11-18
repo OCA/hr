@@ -75,3 +75,31 @@ class TestHrCourse(common.TransactionCase):
         )
         self.course_schedule_id.validation2complete()
         self.assertEqual(self.course_schedule_id.state, "completed")
+
+    def test_validation2complete_multi_record(self):
+        self.course_schedule_id.draft2waiting()
+        self.course_schedule_id.attendant_ids = [(6, 0, [self.employee1.id])]
+        self.course_schedule_id.waiting2inprogress()
+        self.course_schedule_id.inprogress2validation()
+        self.course_schedule_id.all_passed()
+
+        course_schedule_2 = self.env["hr.course.schedule"].create(
+            {
+                "name": "Convocatory 2",
+                "course_id": self.course_id.id,
+                "cost": 100,
+                "authorized_by": self.employee1.id,
+            }
+        )
+        course_schedule_2.draft2waiting()
+        course_schedule_2.attendant_ids = [(6, 0, [self.employee2.id])]
+        course_schedule_2.waiting2inprogress()
+        course_schedule_2.inprogress2validation()
+
+        with self.assertRaises(ValidationError):
+            (self.course_schedule_id | course_schedule_2).validation2complete()
+
+        course_schedule_2.all_passed()
+        (self.course_schedule_id | course_schedule_2).validation2complete()
+        self.assertEqual(self.course_schedule_id.state, "completed")
+        self.assertEqual(course_schedule_2.state, "completed")
