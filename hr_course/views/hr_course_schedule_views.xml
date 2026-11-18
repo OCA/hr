@@ -167,14 +167,18 @@
         <field name="name">hr.course.schedule.tree</field>
         <field name="model">hr.course.schedule</field>
         <field name="arch" type="xml">
-            <tree
-                decoration-success="state=='completed'"
-                decoration-muted="state=='cancelled'"
-            >
+            <tree>
                 <field name="name" />
                 <field name="start_date" />
                 <field name="end_date" />
-                <field name="state" />
+                <field
+                    name="state"
+                    widget="badge"
+                    decoration-info="state == 'draft'"
+                    decoration-warning="state in ('waiting_attendees', 'in_progress', 'in_validation')"
+                    decoration-success="state == 'completed'"
+                    decoration-muted="state == 'cancelled'"
+                />
             </tree>
         </field>
     </record>
