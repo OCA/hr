@@ -20,14 +20,58 @@ class HrPersonalEquipment(models.Model):
     )
     expire_ppe = fields.Boolean(help="True if the PPE expires")
     certification = fields.Char(
-        string="Certification Number", help="Certification Number"
+        string="Certification Number",
+        help="Certificate of approval the equipment was handed over under. "
+        "Copied from the product when the request is accepted and kept "
+        "unchanged afterwards: an inspection asks which certificate was valid "
+        "on the delivery date, so renewing the product's certificate must not "
+        "rewrite deliveries already made.",
+    )
+    certification_expiry_date = fields.Date(
+        help="Expiry date of the certificate of approval the equipment was "
+        "handed over under. Frozen at delivery, like the certificate number.",
     )
     issued_by = fields.Many2one(comodel_name="res.users")
 
     def _accept_request_vals(self):
         res = super()._accept_request_vals()
         res["issued_by"] = self.env.user.id
+        res.update(self._ppe_certification_vals())
         return res
+
+    def _ppe_certification_vals(self):
+        """Freeze the product's certificate of approval on the allocation.
+
+        Read from the product at acceptance instead of a related field: the
+        allocation is the record of a delivery to a named worker on a given
+        date, and a related field would rewrite every past delivery as soon as
+        the certificate is renewed.
+        """
+        self.ensure_one()
+        if not self.product_id.is_ppe:
+            return {}
+        return {
+            "certification": self.certification or self.product_id.ppe_certification,
+            "certification_expiry_date": (
+                self.certification_expiry_date
+                or self.product_id.ppe_certification_expiry_date
+            ),
+        }
+
+    def _check_certification_valid(self):
+        """Refuse to hand over equipment whose certificate has expired."""
+        today = fields.Date.context_today(self)
+        for record in self:
+            expiry = record.product_id.ppe_certification_expiry_date
+            if record.product_id.is_ppe and expiry and expiry < today:
+                raise ValidationError(
+                    _(
+                        "The certificate of approval of %(product)s expired on "
+                        "%(expiry)s. Expired equipment cannot be handed over; "
+                        "renew the certificate on the product first."
+                    )
+                    % {"product": record.product_id.display_name, "expiry": expiry}
+                )
 
     @api.onchange("product_id")
     def _compute_fields(self):
@@ -55,6 +99,10 @@ class HrPersonalEquipment(models.Model):
         res = super().validate_allocation()
         self._check_dates()
         return res
+
+    def _accept_request(self):
+        self._check_certification_valid()
+        return super()._accept_request()
 
     @api.model
     def cron_ppe_expiry_verification(self, date_ref=None):

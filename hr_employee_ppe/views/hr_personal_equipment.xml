@@ -69,6 +69,10 @@
                         name="certification"
                         attrs="{'invisible':[('is_ppe', '=', False)],'readonly': [('state', 'not in', ('draft','accepted'))]}"
                     />
+                    <field
+                        name="certification_expiry_date"
+                        attrs="{'invisible':[('is_ppe', '=', False)],'readonly': [('state', 'not in', ('draft','accepted'))]}"
+                    />
                 </group>
             </xpath>
         </field>
@@ -98,6 +102,10 @@
                 <attribute name="groups">base.group_user</attribute>
             </field>
             <field name="certification" position="attributes">
+                <attribute name="readonly">True</attribute>
+                <attribute name="groups">base.group_user</attribute>
+            </field>
+            <field name="certification_expiry_date" position="attributes">
                 <attribute name="readonly">True</attribute>
                 <attribute name="groups">base.group_user</attribute>
             </field>
