@@ -39,7 +39,11 @@ class TestHRPersonalEquipmentRequest(BaseCommon):
                         "email": "user@test.com",
                         "groups_id": [
                             Command.link(cls.env.ref("base.group_user").id),
-                            Command.link(cls.env.ref("hr.group_hr_user").id),
+                            Command.link(
+                                cls.env.ref(
+                                    "hr_personal_equipment_request.personal_equipment_group_officer"
+                                ).id
+                            ),
                         ],
                     }
                 ]
