@@ -131,6 +131,29 @@ class HrEmployee(models.Model):
                     "tz": self.tz,
                 }
             )
+            if "leave_manager_id" in self._fields:
+                # The time off and leaves on the calendar being copied keep their
+                # duration, so they are moved to the new one beforehand by SQL, as
+                # Odoo would compute them again and validate them again when the
+                # version changes (new meetings, messages and timesheets), and
+                # writing them would also do it. The ones on another calendar are
+                # left to Odoo.
+                leaves = self.version_id._get_leaves().filtered(
+                    lambda leave: leave.resource_calendar_id == current_calendar
+                    and self.version_id in leave._get_overlapping_contracts()
+                )
+                if leaves:
+                    self.env.cr.execute(
+                        "UPDATE hr_leave SET resource_calendar_id = %s WHERE id IN %s",
+                        (calendar.id, tuple(leaves.ids)),
+                    )
+                self.env.cr.execute(
+                    "UPDATE resource_calendar_leaves SET calendar_id = %s"
+                    " WHERE resource_id = %s AND calendar_id = %s",
+                    (calendar.id, self.resource_id.id, current_calendar.id),
+                )
+                self.env["hr.leave"].invalidate_model(["resource_calendar_id"])
+                self.env["resource.calendar.leaves"].invalidate_model(["calendar_id"])
             # We define only self.version_id.resource_calendar_id because the
             # _inverse_resource_calendar_id() method in hr.version defines
             # employee.resource_id.calendar_id

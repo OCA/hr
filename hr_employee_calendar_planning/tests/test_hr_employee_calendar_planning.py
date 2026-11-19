@@ -12,7 +12,7 @@ from psycopg2 import IntegrityError
 
 from odoo import Command, exceptions, fields
 from odoo.exceptions import AccessError
-from odoo.tests import new_test_user
+from odoo.tests import new_test_user, tagged
 from odoo.tools import mute_logger
 
 from odoo.addons.base.tests.common import BaseCommon
@@ -743,3 +743,97 @@ class TestHrEmployeeCalendarPlanning(TestHrEmployeeCalendarPlanningCommon):
         employee = user.employee_id.with_user(hr_user)
         self.assertEqual(employee._name, "hr.employee")
         self.assertTrue(employee.read(["calendar_ids"]))
+
+
+@tagged("post_install", "-at_install")
+class TestHrEmployeeCalendarPlanningTimeOff(TestHrEmployeeCalendarPlanningCommon):
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        cls.employee.version_id.write(
+            {
+                "date_version": "2024-01-01",
+                "contract_date_start": "2024-01-01",
+                "resource_calendar_id": cls.calendar2.id,
+            }
+        )
+
+    def _create_leave(self, leave_type, date_from, date_to):
+        return self.env["hr.leave"].create(
+            {
+                "employee_id": self.employee.id,
+                "holiday_status_id": leave_type.id,
+                "request_date_from": date_from,
+                "request_date_to": date_to,
+            }
+        )
+
+    @mute_logger("odoo.models.unlink")
+    def test_time_off_kept(self):
+        if "leave_manager_id" not in self.employee._fields:
+            self.skipTest("hr_holidays is not installed")
+        leave_type = self.env["hr.leave.type"].create(
+            {"name": "Test", "leave_validation_type": "no_validation"}
+        )
+        allocation = self.env["hr.leave.allocation"].create(
+            {
+                "name": "Test",
+                "employee_id": self.employee.id,
+                "holiday_status_id": leave_type.id,
+                "number_of_days": 9,
+                "date_from": "2024-01-01",
+            }
+        )
+        allocation.action_approve()
+        # A new version with the same calendar and a time off across both
+        self.employee.create_version(
+            {"date_version": "2024-03-01", "resource_calendar_id": self.calendar2.id}
+        )
+        leaves = (
+            self._create_leave(leave_type, "2024-02-26", "2024-03-01")
+            + self._create_leave(leave_type, "2024-03-04", "2024-03-05")
+            + self._create_leave(leave_type, "2025-03-03", "2025-03-04")
+        )
+        # As they can come from a migration: an allocation starting after a time
+        # off, so validating it again fails, and hours set by hand
+        self.env.cr.execute(
+            "UPDATE hr_leave_allocation SET date_from = '2025-01-01' WHERE id = %s",
+            (allocation.id,),
+        )
+        self.env.cr.execute(
+            "UPDATE hr_leave SET number_of_hours = 1.5 WHERE id = %s", (leaves[2].id,)
+        )
+        self.env.invalidate_all()
+        hours = leaves.mapped("number_of_hours")
+        meetings = leaves.meeting_id
+        messages = leaves.message_ids
+        post_init_hook(self.env, self.employee)
+        # They are moved to the generated calendar without validating them again
+        self.assertEqual(
+            leaves.resource_calendar_id, self.employee.resource_calendar_id
+        )
+        self.assertEqual(leaves.mapped("state"), ["validate"] * 3)
+        self.assertEqual(leaves.mapped("number_of_hours"), hours)
+        self.assertEqual(leaves.meeting_id, meetings)
+        self.assertEqual(leaves.message_ids, messages)
+
+    @mute_logger("odoo.models.unlink")
+    def test_time_off_other_calendar(self):
+        if "leave_manager_id" not in self.employee._fields:
+            self.skipTest("hr_holidays is not installed")
+        leave_type = self.env["hr.leave.type"].create(
+            {
+                "name": "Test",
+                "requires_allocation": False,
+                "leave_validation_type": "no_validation",
+            }
+        )
+        leave = self._create_leave(leave_type, "2026-12-01", "2026-12-02")
+        hours = leave.number_of_hours
+        # A first planning line with another calendar: Odoo computes it again
+        self.employee.calendar_ids = [
+            Command.create({"calendar_id": self.calendar1.id})
+        ]
+        self.assertEqual(leave.resource_calendar_id, self.employee.resource_calendar_id)
+        self.assertNotEqual(leave.number_of_hours, hours)
+        self.assertEqual(leave.number_of_hours, leave._get_durations()[leave.id][1])
