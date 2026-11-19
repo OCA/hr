@@ -100,6 +100,7 @@ Contributors
 
   - Pedro M. Baeza
   - Víctor Martínez
+  - Juan Carlos Oñate
 
 - `Creu Blanca <https://www.creu-blanca.es/>`__:
 
