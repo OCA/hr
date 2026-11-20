@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!-- Show the notification preference on portal users that are employees;
+         it stays hidden for pure portal users. -->
+    <record id="view_users_form_portal_employee" model="ir.ui.view">
+        <field name="name">res.users.form.portal.employee</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="mail.view_users_form_mail" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='notification_type']" position="before">
+                <!-- Required in the view for the invisible expression below. -->
+                <field name="employee_ids" invisible="1" />
+            </xpath>
+            <xpath expr="//field[@name='notification_type']" position="attributes">
+                <attribute name="invisible">share and not employee_ids</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_users_search_portal_employee" model="ir.ui.view">
+        <field name="name">res.users.search.portal.employee</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_search" />
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='filter_share']" position="after">
+                <filter
+                    name="filter_employee_share"
+                    string="Employee Portal"
+                    domain="[('share', '=', True), ('employee_ids', '!=', False)]"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>

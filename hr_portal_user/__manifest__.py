@@ -1,0 +1,15 @@
+{
+    "name": "Employee Portal User",
+    "summary": "Give employees a portal user without email notifications",
+    "version": "19.0.1.0.0",
+    "category": "Human Resources",
+    "website": "https://github.com/OCA/hr",
+    "author": "Gray Matter Logic, Odoo Community Association (OCA)",
+    "maintainers": ["dreispt"],
+    "license": "LGPL-3",
+    "depends": ["hr", "portal"],
+    "data": ["views/hr_employee_views.xml", "views/res_users_views.xml"],
+    "post_init_hook": "post_init_hook",
+    "uninstall_hook": "uninstall_hook",
+    "installable": True,
+}
