@@ -1,0 +1,72 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* hr_employee_service_contract
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2026-06-17 12:00+0000\n"
+"Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
+"Language-Team: none\n"
+"Language: sl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 5.15.2\n"
+
+#. module: hr_employee_service_contract
+#: model:ir.model,name:hr_employee_service_contract.model_hr_employee
+msgid "Employee"
+msgstr "Kader"
+
+#. module: hr_employee_service_contract
+#: model:ir.model.fields,field_description:hr_employee_service_contract.field_hr_employee__first_contract_id
+msgid "First Contract"
+msgstr "Prva pogodba"
+
+#. module: hr_employee_service_contract
+#: model:ir.model.fields,help:hr_employee_service_contract.field_hr_employee__first_contract_id
+msgid "First contract of the employee"
+msgstr "Prva pogodba delojemalca"
+
+#. module: hr_employee_service_contract
+#: model:ir.model.fields,field_description:hr_employee_service_contract.field_hr_employee__last_contract_id
+msgid "Last Contract"
+msgstr "Zadnja pogodba"
+
+#. module: hr_employee_service_contract
+#: model:ir.model.fields,help:hr_employee_service_contract.field_hr_employee__last_contract_id
+msgid "Last contract of the employee"
+msgstr "Zadnja pogodba delojemalca"
+
+#. module: hr_employee_service_contract
+#: model:ir.model.fields,field_description:hr_employee_service_contract.field_hr_employee__service_start_date
+msgid "Start Date"
+msgstr "Začetni datum"
+
+#. module: hr_employee_service_contract
+#: model:ir.model.fields,help:hr_employee_service_contract.field_hr_employee__service_start_date
+msgid ""
+"Start date is the first day the employee actually works and this date is "
+"used for accrual leave allocations calculation"
+msgstr ""
+"Začetni datum je prvi dan, ko zaposleni dejansko začne delati, in ta datum "
+"se uporablja za izračun dodeljenih dni dopusta, ki se natečejo"
+
+#. module: hr_employee_service_contract
+#: model:ir.model.fields,field_description:hr_employee_service_contract.field_hr_employee__service_termination_date
+msgid "Termination Date"
+msgstr "Datum prenehanja"
+
+#. module: hr_employee_service_contract
+#: model:ir.model.fields,help:hr_employee_service_contract.field_hr_employee__service_termination_date
+msgid ""
+"Termination date is the last day the employee actually works and this date "
+"is used for accrual leave allocations calculation"
+msgstr ""
+"Datum prenehanja delovnega razmerja je zadnji dan, ko zaposleni dejansko "
+"dela, in ta datum se uporablja za izračun dodeljenih dni dopusta, ki se "
+"natečejo"
