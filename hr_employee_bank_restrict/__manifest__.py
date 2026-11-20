@@ -4,7 +4,7 @@
 {
     "name": "Employee bank restrict",
     "summary": "Restrict employee bank account in employee partner",
-    "version": "18.0.1.0.0",
+    "version": "20.0.1.0.0",
     "development_status": "Alpha",
     "category": "Human Resources/Employees",
     "website": "https://github.com/OCA/hr",
@@ -13,7 +13,6 @@
     "license": "LGPL-3",
     "application": False,
     "installable": True,
-    "autoinstall": True,
     "depends": [
         "hr",
         "account",
