@@ -1,0 +1,56 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* hr_employee_phone_extension
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2021-12-17 17:39+0000\n"
+"Last-Translator: Pedro Castro Silva <pedrocs@exo.pt>\n"
+"Language-Team: none\n"
+"Language: pt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.3.2\n"
+
+#. module: hr_employee_phone_extension
+#: model:ir.model,name:hr_employee_phone_extension.model_hr_employee_base
+msgid "Basic Employee"
+msgstr ""
+
+#. module: hr_employee_phone_extension
+#: model_terms:ir.ui.view,arch_db:hr_employee_phone_extension.hr_employee_public_view_form
+#: model_terms:ir.ui.view,arch_db:hr_employee_phone_extension.view_employee_form
+msgid "Internal Contact"
+msgstr "Contacto Interno"
+
+#. module: hr_employee_phone_extension
+#: model:ir.model.fields,field_description:hr_employee_phone_extension.field_hr_employee__internal_number
+#: model:ir.model.fields,field_description:hr_employee_phone_extension.field_hr_employee_base__internal_number
+#: model:ir.model.fields,field_description:hr_employee_phone_extension.field_hr_employee_public__internal_number
+msgid "Internal Number"
+msgstr "Número Interno"
+
+#. module: hr_employee_phone_extension
+#: model:ir.model.fields,help:hr_employee_phone_extension.field_hr_employee__internal_number
+#: model:ir.model.fields,help:hr_employee_phone_extension.field_hr_employee_base__internal_number
+#: model:ir.model.fields,help:hr_employee_phone_extension.field_hr_employee_public__internal_number
+msgid "Internal phone number."
+msgstr "Número de telefone interno."
+
+#. module: hr_employee_phone_extension
+#: model:ir.model.fields,field_description:hr_employee_phone_extension.field_hr_employee__short_number
+#: model:ir.model.fields,field_description:hr_employee_phone_extension.field_hr_employee_base__short_number
+#: model:ir.model.fields,field_description:hr_employee_phone_extension.field_hr_employee_public__short_number
+msgid "Short Number"
+msgstr "Número curto"
+
+#. module: hr_employee_phone_extension
+#: model:ir.model.fields,help:hr_employee_phone_extension.field_hr_employee__short_number
+#: model:ir.model.fields,help:hr_employee_phone_extension.field_hr_employee_base__short_number
+#: model:ir.model.fields,help:hr_employee_phone_extension.field_hr_employee_public__short_number
+msgid "Short phone number."
+msgstr "Forma curta do número de telefone."
