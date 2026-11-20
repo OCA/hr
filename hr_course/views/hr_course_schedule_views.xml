@@ -95,15 +95,27 @@
                                 name="currency_id"
                                 groups="base.group_multi_currency"
                             />
-                            <field name="authorized_by" readonly="state !='draft'" />
+                            <field
+                                name="authorized_by"
+                                readonly="state !='draft'"
+                                force_save="1"
+                            />
                             <field name="training_company_id" />
                             <field name="instructor_ids" widget="many2many_tags" />
                             <field name="place" />
                             <field name="comment" />
                         </group>
                         <group>
-                            <field name="start_date" readonly="state !='draft'" />
-                            <field name="end_date" readonly="state !='draft'" />
+                            <field
+                                name="start_date"
+                                readonly="state !='draft'"
+                                force_save="1"
+                            />
+                            <field
+                                name="end_date"
+                                readonly="state !='draft'"
+                                force_save="1"
+                            />
                         </group>
                     </group>
                     <notebook>
@@ -114,6 +126,7 @@
                             <field
                                 name="attendant_ids"
                                 readonly="state not in ['waiting_attendees']"
+                                force_save="1"
                             />
                         </page>
                         <page
