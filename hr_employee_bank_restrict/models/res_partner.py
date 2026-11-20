@@ -14,11 +14,7 @@ class ResPartner(models.Model):
             bool: True if the partner is linked to an employee via work_contact_id.
         """
         self.ensure_one()
-        return (
-            self.env["hr.employee"]
-            .sudo()
-            .search_count([("work_contact_id", "=", self.id)])
-        )
+        return bool(self.sudo().employee_ids)
 
     def _check_can_view_bank_accounts(self):
         """Check if the current user can view bank accounts in this partner.
@@ -34,11 +30,9 @@ class ResPartner(models.Model):
         if not self._is_employee_contact():
             return True
         user = self.env.user
-        if user.has_group("account.group_account_user"):
-            return True
-        if user.has_group("account.group_account_manager"):
-            return True
-        return False
+        return user.has_group("account.group_account_user") or user.has_group(
+            "account.group_account_manager"
+        )
 
     can_view_bank_accounts = fields.Boolean(
         compute="_compute_can_view_bank_accounts",

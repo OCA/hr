@@ -2,10 +2,13 @@
 
 from odoo.tests import new_test_user
 
-from odoo.addons.base.tests.common import TransactionCase
+from odoo.addons.base.tests.common import BaseCommon
 
 
-class TestResPartnerBankRestrict(TransactionCase):
+class TestResPartnerBankRestrict(BaseCommon):
+    # Tests switch users explicitly with with_user()
+    _test_user_groups = None
+
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -21,12 +24,6 @@ class TestResPartnerBankRestrict(TransactionCase):
                 "email": "regular@test.com",
             }
         )
-        cls.bank = cls.env["res.bank"].create(
-            {
-                "name": "Test Bank",
-                "bic": "TESTBANK",
-            }
-        )
         cls.employee = cls.env["hr.employee"].create(
             {
                 "name": "Test Employee",
@@ -36,15 +33,15 @@ class TestResPartnerBankRestrict(TransactionCase):
         cls.bank_account_employee = cls.env["res.partner.bank"].create(
             {
                 "partner_id": cls.partner_employee.id,
-                "acc_number": "ES123456789012345678",
-                "bank_id": cls.bank.id,
+                "account_number": "ES123456789012345678",
+                "bank_name": "Test Bank",
             }
         )
         cls.bank_account_regular = cls.env["res.partner.bank"].create(
             {
                 "partner_id": cls.partner_regular.id,
-                "acc_number": "ES987654321098765432",
-                "bank_id": cls.bank.id,
+                "account_number": "ES987654321098765432",
+                "bank_name": "Test Bank",
             }
         )
         cls.user_account_manager = new_test_user(
@@ -116,3 +113,36 @@ class TestResPartnerBankRestrict(TransactionCase):
                         user
                     )._check_can_view_bank_accounts()
                 )
+
+    def test_compute_can_view_bank_accounts(self):
+        """Test the computed field follows the current user."""
+        for user in self.not_restrict_users:
+            with self.subTest(user=user):
+                self.assertTrue(
+                    self.partner_employee.with_user(user).can_view_bank_accounts
+                )
+        for user in self.restrict_users:
+            with self.subTest(user=user):
+                self.assertFalse(
+                    self.partner_employee.with_user(user).can_view_bank_accounts
+                )
+
+    def test_archived_employee_contact_is_not_restricted(self):
+        """Test contacts of archived employees are no longer restricted."""
+        self.employee.action_archive()
+        self.assertFalse(self.partner_employee._is_employee_contact())
+        self.assertTrue(
+            self.partner_employee.with_user(
+                self.user_account_invoice
+            ).can_view_bank_accounts
+        )
+
+    def test_partner_form_hides_bank_accounts(self):
+        """Test the partner form hides bank accounts with the computed field."""
+        arch = (
+            self.env["res.partner"]
+            .with_user(self.user_account_invoice)
+            .get_view(view_type="form")["arch"]
+        )
+        self.assertIn('name="bank_ids"', arch)
+        self.assertIn("can_view_bank_accounts", arch)

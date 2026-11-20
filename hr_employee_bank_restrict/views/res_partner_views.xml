@@ -5,7 +5,7 @@
     <record id="view_partner_form_inherit_bank_restrict" model="ir.ui.view">
         <field name="name">res.partner.form.bank.restrict</field>
         <field name="model">res.partner</field>
-        <field name="inherit_id" ref="base.view_partner_form" />
+        <field name="inherit_id" ref="account.view_partner_property_form" />
         <field name="arch" type="xml">
             <xpath expr="//field[@name='bank_ids']" position="attributes">
                 <attribute name="invisible">not can_view_bank_accounts</attribute>
