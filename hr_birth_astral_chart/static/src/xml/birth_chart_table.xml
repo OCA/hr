@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<templates xml:space="preserve">
+
+    <t t-name="hr_birth_astral_chart.BirthChartTable">
+        <table class="table table-sm table-hover mb-0">
+            <thead>
+                <tr class="text-muted" style="font-size:12px">
+                    <th>Planet</th>
+                    <th>Sign</th>
+                    <th>Position</th>
+                    <th>House</th>
+                </tr>
+            </thead>
+            <tbody>
+                <t t-foreach="rows" t-as="row" t-key="row.key">
+                    <tr>
+                        <td class="py-1">
+                            <span style="font-size:15px">
+                                <t t-esc="row.symbol" />
+                            </span>
+                            <span class="ms-1" style="font-size:12px">
+                                <t t-esc="row.name" />
+                            </span>
+                        </td>
+                        <td class="py-1">
+                            <span
+                                t-attf-style="color:#{signColor(row.sign_index)};font-size:15px;"
+                            >
+                                <t t-esc="row.sign_symbol" />
+                            </span>
+                            <span class="ms-1">
+                                <t t-esc="row.sign" />
+                            </span>
+                        </td>
+                        <td class="py-1 font-monospace">
+                            <t t-esc="row.position" />
+                        </td>
+                        <td class="py-1">
+                            <t t-if="row.house">House <t t-esc="row.house" /></t>
+                            <t t-else="">—</t>
+                        </td>
+                    </tr>
+                </t>
+            </tbody>
+        </table>
+    </t>
+
+</templates>
