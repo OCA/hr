@@ -1,0 +1,389 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* hr_employee_birthday_mail
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2023-08-04 12:10+0000\n"
+"Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
+"Language-Team: none\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
+
+#. module: hr_employee_birthday_mail
+#: model:mail.template,body_html:hr_employee_birthday_mail.email_template_birthday_1
+msgid ""
+"<div style=\"background-color:#f2f3f5; padding:20px;\">\n"
+"                    <h2 style=\"color:#4267b2; text-align:center;\">Happy "
+"Birthday, <t t-out=\"object.name\"></t>!</h2>\n"
+"                    <p style=\"font-size:16px; text-align:center;\">Another "
+"trip around the sun, and you don't look a day older! We wish you a fantastic "
+"day full of joy and surprises. May this year bring you closer to your dreams "
+"and bless you with abundance and joy. 🎉</p>\n"
+"                    <p style=\"font-size:16px; text-align:center;"
+"\">Remember, you're not getting older, you're gaining more experience. And "
+"with each passing year, you become a more valuable member of our team. "
+"Here's to an amazing birthday and a year filled with adventure! 🥳</p>\n"
+"                    <p style=\"font-size:16px; text-align:center;\">Cheers "
+"to you on your special day, <t t-out=\"object.name\"></t>!</p>\n"
+"                </div>\n"
+"            "
+msgstr ""
+"<div style=\"background-color:#f2f3f5; padding:20px;\">\n"
+"                    <h2 style=\"color:#4267b2; text-align:center;\">Feliz "
+"cumpleaños, <t t-out=\"object.name\"></t>!</h2>\n"
+"                    <p style=\"font-size:16px; text-align:center;\">Otra "
+"vuelta al sol, ¡y no pareces ni un día más viejo! Te deseamos un día "
+"fantástico lleno de alegría y sorpresas. Que este año te acerque a tus "
+"sueños y te bendiga con abundancia y disfrute . 🎉</p>\n"
+"                    <p style=\"font-size:16px; text-align:center;\">Recuerda "
+"que no envejeces, sino que adquieres más experiencia. Y con cada año que "
+"pasa, te conviertes en un miembro más valioso de nuestro equipo. ¡Brindo por "
+"un cumpleaños increíble y un año lleno de aventuras! 🥳</p>\n"
+"                    <p style=\"font-size:16px; text-align:center;\">Salud en "
+"tu día especial, <t t-out=\"object.name\"></t>!</p>\n"
+"                </div>\n"
+"            "
+
+#. module: hr_employee_birthday_mail
+#: model:mail.template,body_html:hr_employee_birthday_mail.email_template_birthday_3
+msgid ""
+"<div style=\"background-color:#f2f3f5; padding:20px;\">\n"
+"                    <h2 style=\"color:#4267b2; text-align:center;\">🎂 Hey "
+"there, <t t-out=\"object.name\"></t>! It's Your Special Day! 🎂</h2>\n"
+"                    <p style=\"font-size:16px; text-align:center;"
+"\">Birthdays are nature's way of telling us to eat more cake and ice cream. "
+"And, as it happens to be your birthday, we feel you deserve to have as much "
+"as you want!</p>\n"
+"                    <p style=\"font-size:16px; text-align:center;\">Today, "
+"we're not just celebrating your birthday. We're celebrating you: the "
+"invaluable part of our team, the cheer-bringer, the problem-solver, the ray "
+"of sunshine in the office.</p>\n"
+"                    <p style=\"font-size:16px; text-align:center;\">On this "
+"day, we hope you enjoy all the wonderful things life has to offer and spend "
+"it doing what you love the most. Remember, today is about you and only you. "
+"Make sure you enjoy it to the fullest!</p>\n"
+"                    <p style=\"font-size:16px; text-align:center;\">So sit "
+"back, relax, and let the good vibes roll. Happy Birthday, <t t-out=\"object."
+"name\"></t>! We hope this day brings you nothing but joy and happiness. 🥳🎉"
+"</p>\n"
+"                </div>\n"
+"            "
+msgstr ""
+"<div style=\"background-color:#f2f3f5; padding:20px;\">\n"
+"                                                   <h2 style=\"color:"
+"#4267b2; text-align:center;\">🎂 ¡Hola, <t t-out=\"object.name\"></t>! ¡Es "
+"tu día especial! 🎂</h2>\n"
+"                                                   <p style=\"font-"
+"size:16px; text-align:center;\">Cumplir años es la forma que tiene la "
+"naturaleza de decirnos que comamos más tarta y helado. Y, como es tu "
+"cumpleaños, creemos que te mereces comer todo lo que quieras.</p>\n"
+"                                                  <p style=\"font-size:16px; "
+"text-align:center;\">Hoy no sólo celebramos tu cumpleaños. Te estamos "
+"celebrando a ti: la parte inestimable de nuestro equipo, la que anima, la "
+"que resuelve problemas, el rayo de sol de la oficina.</p> \n"
+"                                                   <p style=\"font-"
+"size:16px; text-align:center;\">En este día, esperamos que disfrutes de "
+"todas las cosas maravillosas que te ofrece la vida y que lo pases haciendo "
+"lo que más te gusta. Recuerda que el día de hoy es para ti y sólo para ti. "
+"Asegúrate de disfrutarlo al máximo.</p>\n"
+"                                                   <p style=\"font-"
+"size:16px; text-align:center;\">Así que siéntate, relájate y déjate llevar "
+"por el buen rollo. ¡Feliz cumpleaños, <t t-out=\"object.name\"></t>! "
+"Esperamos que este día no te traiga más que alegría y felicidad. 🥳🎉</p>\n"
+"                </div>\n"
+"            "
+
+#. module: hr_employee_birthday_mail
+#: model:mail.template,body_html:hr_employee_birthday_mail.email_template_coworkers_3
+msgid ""
+"<div style=\"background-color:#f2f3f5; padding:20px;\">\n"
+"                    <h2 style=\"color:#4267b2; text-align:center;\">🎂 It's "
+"Time to Celebrate: <t t-out=\"ctx['birthday_employee']\"></t>'s Birthday!</"
+"h2>\n"
+"                    <p style=\"font-size:16px; text-align:center;\">Hello, "
+"<t t-out=\"object.name\"></t>!</p>\n"
+"                    <p style=\"font-size:16px; text-align:center;\">Today, "
+"we're celebrating the birthday of a valued team member, <b><t t-"
+"out=\"ctx['birthday_employee']\"></t></b>. </p>\n"
+"                    <p style=\"font-size:16px; text-align:center;\">This day "
+"is a special one, and we encourage you to reach out and wish them a 'Happy "
+"Birthday'. A small gesture can make a big difference! </p>\n"
+"                    <p style=\"font-size:16px; text-align:center;\">Let's "
+"make this day memorable for <t t-out=\"ctx['birthday_employee']\"></t>! 🎉🎁"
+"</p>\n"
+"                    <p style=\"font-size:16px; text-align:center;"
+"\">Remember, our team is our greatest strength. Thanks for contributing to "
+"this wonderful work environment!</p>\n"
+"                </div>\n"
+"            "
+msgstr ""
+"<div style=\"background-color:#f2f3f5; padding:20px;\">\n"
+"                    <h2 style=\"color:#4267b2; text-align:center;\">🎂 Es "
+"tiempo para celebrar: <t t-out=\"ctx['birthday_employee']\"></t>'s "
+"Cumpleaños!</h2>\n"
+"                    <p style=\"font-size:16px; text-align:center;\">Hola, <t "
+"t-out=\"object.name\"></t>!</p>\n"
+"                    <p style=\"font-size:16px; text-align:center;\">Hoy "
+"celebramos el cumpleaños de un valioso miembro del equipo, <b><t t-"
+"out=\"ctx['birthday_employee']\"></t></b>. </p>\n"
+"                    <p style=\"font-size:16px; text-align:center;\">Este día "
+"es especial, y te animamos a que te acerques a ellos y les desees un \"Feliz "
+"Cumpleaños\". ¡Un pequeño gesto puede marcar una gran diferencia! </p>\n"
+"                    <p style=\"font-size:16px; text-align:center;\">Hagamos "
+"que este día sea memorable para> <t t-out=\"ctx['birthday_employee']\"></t>! "
+"🎉🎁</p>\n"
+"                    <p style=\"font-size:16px; text-align:center;"
+"\">Recuerda, nuestro equipo es nuestra mayor fuerza. ¡Gracias por contribuir "
+"a este maravilloso entorno de trabajo! </p>\n"
+"                </div>\n"
+"            "
+
+#. module: hr_employee_birthday_mail
+#: model:mail.template,body_html:hr_employee_birthday_mail.email_template_coworkers_1
+msgid ""
+"<div style=\"background-color:#f2f3f5; padding:20px;\">\n"
+"                    <h2 style=\"color:#4267b2; text-align:center;\">🎉 "
+"Birthday Alert 🎉</h2>\n"
+"                    <p style=\"font-size:16px; text-align:center;\">Hi <t t-"
+"out=\"object.name\"></t>,</p>\n"
+"                    <p style=\"font-size:16px; text-align:center;"
+"\">Something feels different today, right? There's an extra sparkle in the "
+"air and a spring in our steps. Wondering why?</p>\n"
+"                    <p style=\"font-size:16px; text-align:center;\">It's "
+"because it's <b><t t-out=\"ctx['birthday_employee']\"></t></b>'s birthday! 🎂"
+"</p>\n"
+"                    <p style=\"font-size:16px; text-align:center;\">So, "
+"let's crank up the joy and celebration in the office today. Don't forget to "
+"wish them a happy birthday and make this day even more special for them! 🎈🎁"
+"</p>\n"
+"                </div>\n"
+"            "
+msgstr ""
+"<div style=\"background-color:#f2f3f5; padding:20px;\">\n"
+"                    <h2 style=\"color:#4267b2; text-align:center;\">🎉 "
+"Alerta de cumpleaños 🎉</h2>\n"
+"                    <p style=\"font-size:16px; text-align:center;\">Hola <t "
+"t-out=\"object.name\"></t>,</p>\n"
+"                    <p style=\"font-size:16px; text-align:center;\">Algo se "
+"siente diferente hoy, ¿verdad? Hay un brillo extra en el aire y un resorte "
+"en nuestros pasos. ¿Por qué? </p>\n"
+"                    <p style=\"font-size:16px; text-align:center;\">Es "
+"porque son los cumpleaños de <b><t t-out=\"ctx['birthday_employee']\"></t></"
+"b>'s ! 🎂</p>\n"
+"                    <p style=\"font-size:16px; text-align:center;\">Así que, "
+"hoy, vamos a dar rienda suelta a la alegría y a la celebración en la "
+"oficina. No olvides desearles un feliz cumpleaños y hacer que este día sea "
+"aún más especial para ellos. 🎈🎁</p>\n"
+"                </div>\n"
+"            "
+
+#. module: hr_employee_birthday_mail
+#: model:mail.template,body_html:hr_employee_birthday_mail.email_template_coworkers_2
+msgid ""
+"<div style=\"background-color:#f2f3f5; padding:20px;\">\n"
+"                    <h2 style=\"color:#4267b2; text-align:center;\">🎉 "
+"Birthday Alert: <t t-out=\"ctx['birthday_employee']\"></t> is another year "
+"wiser! 🎉</h2>\n"
+"                    <p style=\"font-size:16px; text-align:center;\">Hey "
+"there, <t t-out=\"object.name\"></t>,</p>\n"
+"                    <p style=\"font-size:16px; text-align:center;\">Guess "
+"what? We're fortunate enough to have a birthday in our midst today! Yes, "
+"it's <b><t t-out=\"ctx['birthday_employee']\"></t>'s</b> big day!</p>\n"
+"                    <p style=\"font-size:16px; text-align:center;\">Take a "
+"moment, when you can, to send them your good wishes and contribute to a "
+"positive atmosphere today. Remember, even a simple 'Happy Birthday' can make "
+"someone's day!</p>\n"
+"                    <p style=\"font-size:16px; text-align:center;\">Let's "
+"all help make <t t-out=\"ctx['birthday_employee']\"></t> feel appreciated "
+"and valued on their special day! 🎈🎁</p>\n"
+"                    <p style=\"font-size:16px; text-align:center;\">Thank "
+"you for your continuous effort in making our workplace a supportive and "
+"friendly environment!</p>\n"
+"                </div>\n"
+"            "
+msgstr ""
+"<div style=\"background-color:#f2f3f5; padding:20px;\">\n"
+"                    <h2 style=\"color:#4267b2; text-align:center;\">🎉 "
+"Alerta de cumpleaños: <t t-out=\"ctx['birthday_employee']\"></t> es otro "
+"desea del año! 🎉</h2>\n"
+"                    <p style=\"font-size:16px; text-align:center;\">Hola, <t "
+"t-out=\"object.name\"></t>,</p>\n"
+"                    <p style=\"font-size:16px; text-align:center;"
+"\">¿Adivináis qué? Hoy tenemos la suerte de celebrar un cumpleaños. Si, es "
+"el gran día de<b><t t-out=\"ctx['birthday_employee']\"></t>'s</b> !</p>\n"
+"                    <p style=\"font-size:16px; text-align:center;\">Tómese "
+"un momento, cuando pueda, para enviarles sus buenos deseos y contribuir hoy "
+"a crear un ambiente positivo. ¡Recuerda que un simple \"Feliz cumpleaños\" "
+"puede alegrarle el día a alguien!</p>\n"
+"                    <p style=\"font-size:16px; text-align:center;\">Ayuden "
+"todos a hacer <t t-out=\"ctx['birthday_employee']\"></t> sentirse valorado y "
+"apreciado en su día ! 🎈🎁</p>\n"
+"                    <p style=\"font-size:16px; text-align:center;\">¡Gracias "
+"por vuestro esfuerzo continuo para hacer de nuestro lugar de trabajo un "
+"entorno solidario y agradable!\"</p>\n"
+"                </div>\n"
+"            "
+
+#. module: hr_employee_birthday_mail
+#: model:mail.template,body_html:hr_employee_birthday_mail.email_template_birthday_2
+msgid ""
+"<div style=\"background-color:#f2f3f5; padding:20px;\">\n"
+"                    <h2 style=\"color:#4267b2; text-align:center;\">🎉 Let's "
+"Celebrate, <t t-out=\"object.name\"></t>! 🎉</h2>\n"
+"                    <p style=\"font-size:16px; text-align:center;\">Today, "
+"we celebrate not just any birthday, but YOUR birthday: a day when a truly "
+"exceptional person came into this world.</p>\n"
+"                    <p style=\"font-size:16px; text-align:center;\">Age is "
+"just a number, and the wrinkles are merely where the smiles have been. "
+"Remember, you're not getting older, you're just becoming a classic!</p>\n"
+"                    <p style=\"font-size:16px; text-align:center;\">Your "
+"birthday is a special milestone on this journey of life, and we're thrilled "
+"to share it with you. Today is about celebrating all that you are and all "
+"that you will be.</p>\n"
+"                    <p style=\"font-size:16px; text-align:center;\">So "
+"here's to you, <t t-out=\"object.name\"></t>! Wishing you an abundance of "
+"fun, joy and cake on your special day. Have an unforgettable birthday! 🥳🎈</"
+"p>\n"
+"                </div>\n"
+"            "
+msgstr ""
+"<div style=\"background-color:#f2f3f5; padding:20px;\">\n"
+"                    <h2 style=\"color:#4267b2; text-align:center;\">🎉 Vamos "
+"a celebrar, <t t-out=\"object.name\"></t>! 🎉</h2>\n"
+"                    <p style=\"font-size:16px; text-align:center;\">Hoy no "
+"celebramos un cumpleaños cualquiera, sino TU cumpleaños: el día en que vino "
+"al mundo una persona verdaderamente excepcional..</p>\n"
+"                    <p style=\"font-size:16px; text-align:center;\">La edad "
+"es sólo un número, y las arrugas están simplemente donde han estado las "
+"sonrisas. Recuerda que no envejeces, ¡solo te conviertes en un clásico!</p>\n"
+"                    <p style=\"font-size:16px; text-align:center;\">Tu "
+"cumpleaños es un hito especial en este viaje de la vida, y estamos "
+"encantados de compartirlo contigo. Hoy celebramos todo lo que eres y todo lo "
+"que serás,</p>\n"
+"                    <p style=\"font-size:16px; text-align:center;\">Así que "
+"por ti, <t t-out=\"object.name\"></t>!Te deseamos mucha diversión, alegría y "
+"tarta en tu día especial. ¡ Que pases un cumpleaños inolvidable! 🥳🎈</p>\n"
+"                </div>\n"
+"            "
+
+#. module: hr_employee_birthday_mail
+#: model:ir.model.fields,field_description:hr_employee_birthday_mail.field_hr_employee__allow_birthday_wishes
+#: model:ir.model.fields,field_description:hr_employee_birthday_mail.field_res_users__allow_birthday_wishes
+msgid "Allow Birthday Wishes"
+msgstr "Permitir deseos de cumpleaños"
+
+#. module: hr_employee_birthday_mail
+#: model:mail.template,name:hr_employee_birthday_mail.email_template_birthday_1
+msgid "Birthday Email 1"
+msgstr "Correo electrónico de cumpleaños 1"
+
+#. module: hr_employee_birthday_mail
+#: model:mail.template,name:hr_employee_birthday_mail.email_template_birthday_2
+msgid "Birthday Email 2"
+msgstr "Correo electrónico de cumpleaños 2"
+
+#. module: hr_employee_birthday_mail
+#: model:mail.template,name:hr_employee_birthday_mail.email_template_birthday_3
+msgid "Birthday Email 3"
+msgstr "Correo electrónico de cumpleaños 3"
+
+#. module: hr_employee_birthday_mail
+#: model_terms:ir.ui.view,arch_db:hr_employee_birthday_mail.view_employee_form_inherit_birthday_notifications
+msgid "Birthdays Notifications"
+msgstr "Notificaciones de cumpleaños"
+
+#. module: hr_employee_birthday_mail
+#: model:ir.actions.server,name:hr_employee_birthday_mail.ir_cron_check_employee_birthdays_ir_actions_server
+#: model:ir.cron,cron_name:hr_employee_birthday_mail.ir_cron_check_employee_birthdays
+msgid "Check Employee Birthdays"
+msgstr "Comprobar los cumpleaños de los empleados"
+
+#. module: hr_employee_birthday_mail
+#: model:ir.model.fields,help:hr_employee_birthday_mail.field_hr_employee__allow_birthday_wishes
+#: model:ir.model.fields,help:hr_employee_birthday_mail.field_res_users__allow_birthday_wishes
+msgid ""
+"Check this box if you want to allow birthday wishes from our company and "
+"allow the others to be notified of your birthday."
+msgstr ""
+"Marque esta casilla si desea permitir que nuestra empresa le envíe "
+"felicitaciones de cumpleaños y que se notifique su cumpleaños a los demás."
+
+#. module: hr_employee_birthday_mail
+#: model:ir.model.fields,help:hr_employee_birthday_mail.field_hr_employee__notify_others_birthday
+#: model:ir.model.fields,help:hr_employee_birthday_mail.field_res_users__notify_others_birthday
+msgid ""
+"Check this box if you want to be notified about other coworkers' birthdays."
+msgstr ""
+"Marque esta casilla si desea que se le notifiquen los cumpleaños de otros "
+"compañeros de trabajo."
+
+#. module: hr_employee_birthday_mail
+#: model:mail.template,name:hr_employee_birthday_mail.email_template_coworkers_1
+msgid "Coworker's Birthday Email 1"
+msgstr "Cumpleaños de un compañero de trabajo Correo electrónico 1"
+
+#. module: hr_employee_birthday_mail
+#: model:mail.template,name:hr_employee_birthday_mail.email_template_coworkers_2
+msgid "Coworker's Birthday Email 2"
+msgstr "Cumpleaños de un compañero de trabajo Correo electrónico 2"
+
+#. module: hr_employee_birthday_mail
+#: model:mail.template,name:hr_employee_birthday_mail.email_template_coworkers_3
+msgid "Coworker's Birthday Email 3"
+msgstr "Cumpleaños de un compañero de trabajo Correo electrónico 3"
+
+#. module: hr_employee_birthday_mail
+#: model:ir.model,name:hr_employee_birthday_mail.model_hr_employee
+msgid "Employee"
+msgstr "Empleado/a"
+
+#. module: hr_employee_birthday_mail
+#: model:ir.model.fields,field_description:hr_employee_birthday_mail.field_hr_employee__notify_others_birthday
+#: model:ir.model.fields,field_description:hr_employee_birthday_mail.field_res_users__notify_others_birthday
+msgid "Notify Others Birthday"
+msgstr "Notificar el cumpleaños a otros"
+
+#. module: hr_employee_birthday_mail
+#: model:ir.model,name:hr_employee_birthday_mail.model_res_users
+msgid "User"
+msgstr ""
+
+#. module: hr_employee_birthday_mail
+#: model:mail.template,subject:hr_employee_birthday_mail.email_template_birthday_2
+msgid "🎂 Celebrating You Today, {{ object.name }}!"
+msgstr "🎂 ¡Hoy te celebramos, {{ object.name }}!"
+
+#. module: hr_employee_birthday_mail
+#: model:mail.template,subject:hr_employee_birthday_mail.email_template_birthday_1
+msgid "🎂 Happy Birthday, {{ object.name }}!"
+msgstr "🎂 Feliz cumpleaños, {{ object.name }}!"
+
+#. module: hr_employee_birthday_mail
+#: model:mail.template,subject:hr_employee_birthday_mail.email_template_birthday_3
+msgid "🎂 {{ object.name }}!, It's Your Day!"
+msgstr "¡🎂 {{ object.name }}!, ¡Es tu día!"
+
+#. module: hr_employee_birthday_mail
+#: model:mail.template,subject:hr_employee_birthday_mail.email_template_coworkers_1
+msgid "🎉 Birthday Alert: It's {{ ctx['birthday_employee'] }}'s special day!"
+msgstr ""
+"🎉 Alerta de cumpleaños: ¡Es el día especial de "
+"{{ ctx['birthday_employee'] }}!"
+
+#. module: hr_employee_birthday_mail
+#: model:mail.template,subject:hr_employee_birthday_mail.email_template_coworkers_2
+msgid "🎉 Cake Alert: {{ ctx['birthday_employee']}}"
+msgstr "🎉 Alerta de pastel: {{ ctx['birthday_employee']}}"
+
+#. module: hr_employee_birthday_mail
+#: model:mail.template,subject:hr_employee_birthday_mail.email_template_coworkers_3
+msgid "🎉 Time to Celebrate: {{ ctx['birthday_employee'] }}'s Birthday!"
+msgstr ""
+"🎉 Tiempo para celebrar el cumpleaños de: {{ ctx['birthday_employee'] }}!"
