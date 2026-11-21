@@ -191,6 +191,11 @@ msgid "Resource Working Time"
 msgstr "Horaire de travail de la ressource"
 
 #. module: hr_employee_calendar_planning
+#: model:ir.model,name:hr_employee_calendar_planning.model_resource_resource
+msgid "Resources"
+msgstr ""
+
+#. module: hr_employee_calendar_planning
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__date_start
 msgid "Start Date"
 msgstr "Date de début"
