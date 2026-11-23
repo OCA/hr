@@ -1,7 +1,3 @@
-.. image:: https://odoo-community.org/readme-banner-image
-   :target: https://odoo-community.org/get-involved?utm_source=readme
-   :alt: Odoo Community Association
-
 =============================
 Hr Personal Equipment Request
 =============================
@@ -17,7 +13,7 @@ Hr Personal Equipment Request
 .. |badge1| image:: https://img.shields.io/badge/maturity-Beta-yellow.png
     :target: https://odoo-community.org/page/development-status
     :alt: Beta
-.. |badge2| image:: https://img.shields.io/badge/license-AGPL--3-blue.png
+.. |badge2| image:: https://img.shields.io/badge/licence-AGPL--3-blue.png
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fhr-lightgray.png?logo=github
@@ -35,6 +31,10 @@ Hr Personal Equipment Request
 This module allows to create a personal equipment request and manage
 allocation of employee personal equipment.
 
+A dedicated user group "Personal Equipment Officer" is created. Users of
+the new group are able to manage Personal Equipments and their Requests
+without accessing employee's personal information.
+
 **Table of contents**
 
 .. contents::
@@ -44,25 +44,34 @@ Usage
 =====
 
 First, products which can be requested by employees should be marked as
-employee personal equipment. 1. Go to *Products* (In *Inventory* App for
-example). 2. Select a product. 3. Mark the *Is Employee Personal
-Equipment* flag.(An additional page appears which serves as a hook if
-additional fields are needed).
+employee personal equipment.
+
+1. Go to *Products* (In *Inventory* App for example).
+2. Select a product.
+3. Mark the *Is Employee Personal Equipment* flag.(An additional page
+   appears which serves as a hook if additional fields are needed).
 
 To create a personal equipment request, a common user should follow the
-next steps: 1. Go to menu *Employees -> Personal Equipment-> Employee
-Personal Equipment Request* 2. Current employee is set as default. (An
-Hr Officer can change the employee if needed). 3. At *Personal
-Equipment* select the equipments you want to request. 4. Add
-"Observations" at *Observations* if desired.
+next steps:
 
-Then, an HR Manager should: 1. If everything is correct, "Accept" the
-request. 2. Finally, when the equipment is given to the employee, the
-allocation should be validated. This can be done in two ways: a) Click
-the allocation in the equipment request that you want to validate, the
-form view will be opened, and click "Validate". b) Go to *Employees ->
-Personal Equipment-> Allocations*. Select the corresponding allocation
-and click "Validate".
+1. Go to menu *Employees -> Personal Equipment-> Employee Personal
+   Equipment Request*
+2. Current employee is set as default. (An Hr Officer can change the
+   employee if needed).
+3. At *Personal Equipment* select the equipments you want to request.
+4. Add "Observations" at *Observations* if desired.
+
+Then, a Personal Equipment Officer should:
+
+1. If everything is correct, "Accept" the request.
+
+2. Finally, when the equipment is given to the employee, the allocation
+   should be validated. This can be done in two ways:
+
+   - Click the allocation in the equipment request that you want to
+     validate, the form view will be opened, and click "Validate".
+   - Go to *Employees -> Personal Equipment-> Allocations*. Select the
+     corresponding allocation and click "Validate".
 
 A common user can only see its own allocations. The HR Officer can see
 all of them.
@@ -97,6 +106,9 @@ Contributors
   - Antoni Marroig <amarroig@apsl.net>
 
 - ``Heliconia Solutions Pvt. Ltd. <https://www.heliconia.io>``\ \_
+- `PyTech <https://www.pytech.it>`__:
+
+  - Simone Rubino <simone.rubino@pytech.it>
 
 Maintainers
 -----------
