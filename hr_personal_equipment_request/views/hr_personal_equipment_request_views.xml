@@ -17,7 +17,7 @@
                         confirm="Are you sure you want to accept this personal equipment request?"
                         class="oe_highlight"
                         states="draft"
-                        groups="hr.group_hr_user"
+                        groups="hr_personal_equipment_request.personal_equipment_group_officer"
                     />
                     <button
                         type="object"
@@ -49,7 +49,7 @@
                         <field
                             name="employee_id"
                             attrs="{'readonly': [('state', '!=', 'draft')]}"
-                            groups="hr.group_hr_user"
+                            groups="hr_personal_equipment_request.personal_equipment_group_officer"
                         />
                     </group>
                     <notebook>
@@ -65,7 +65,7 @@
                                     <field name="product_uom_id" />
                                     <field
                                         name="start_date"
-                                        groups="hr.group_hr_user"
+                                        groups="hr_personal_equipment_request.personal_equipment_group_officer"
                                     />
                                     <field name="state" readonly="1" />
                                     <field name="equipment_request_id" invisible="1" />
@@ -80,7 +80,7 @@
                                             confirm="Are you sure you want to validate this personal equipment allocation?"
                                             class="oe_highlight"
                                             states="accepted"
-                                            groups="hr.group_hr_user"
+                                            groups="hr_personal_equipment_request.personal_equipment_group_officer"
                                         />
                                     </header>
                                     <group name="equipment_lines_form">
@@ -89,7 +89,7 @@
                                         <field name="product_uom_id" />
                                         <field
                                             name="start_date"
-                                            groups="hr.group_hr_user"
+                                            groups="hr_personal_equipment_request.personal_equipment_group_officer"
                                         />
                                         <field
                                             name="state"
@@ -104,7 +104,7 @@
                         <page
                             name="observations"
                             string="Observations"
-                            groups="hr.group_hr_user"
+                            groups="hr_personal_equipment_request.personal_equipment_group_officer"
                         >
                             <field
                                 name="observations"
@@ -128,7 +128,10 @@
         <field name="model">hr.personal.equipment.request</field>
         <field name="arch" type="xml">
             <search>
-                <field name="employee_id" groups="hr.group_hr_user" />
+                <field
+                    name="employee_id"
+                    groups="hr_personal_equipment_request.personal_equipment_group_officer"
+                />
                 <filter
                     string="In Draft"
                     name="filter_draft_state"
@@ -153,7 +156,10 @@
                 decoration-muted="state=='cancelled'"
             >
                 <field name="name" />
-                <field name="employee_id" groups="hr.group_hr_user" />
+                <field
+                    name="employee_id"
+                    groups="hr_personal_equipment_request.personal_equipment_group_officer"
+                />
                 <field name="create_date" />
                 <field name="state" />
             </tree>
