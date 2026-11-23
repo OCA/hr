@@ -28,7 +28,7 @@
                 <field name="contains_ppe" invisible="1" string="Contains PPE" />
             </xpath>
             <xpath expr="//notebook//field[@name='product_id']" position="after">
-                <field name="is_ppe" string="Is PPE" />
+                <field name="is_ppe" string="Is PPE" force_save="1" />
                 <field name="indications" invisible="1" />
             </xpath>
             <xpath expr="//notebook//field[@name='start_date']" position="after">
