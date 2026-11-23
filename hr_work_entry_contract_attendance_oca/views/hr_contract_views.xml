@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+SPDX-FileCopyrightText: 2026 Coop IT Easy SC
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+<odoo>
+    <record id="hr_contract_view_form_inherit_work_entry" model="ir.ui.view">
+        <field name="name">hr.contract.view.form.inherit.work.entry</field>
+        <field name="model">hr.contract</field>
+        <field
+            name="inherit_id"
+            ref="hr_work_entry_contract.hr_contract_view_form_inherit_work_entry"
+        />
+        <field name="arch" type="xml">
+            <!-- make the work_entry_source field visible -->
+            <field name="work_entry_source" position="attributes">
+                <attribute name="invisible" />
+            </field>
+        </field>
+    </record>
+</odoo>
