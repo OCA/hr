@@ -52,7 +52,11 @@
                     string="PPE Indications"
                     invisible="not is_ppe"
                 >
-                    <field name="indications" invisible="not is_ppe" readonly="1" />
+                    <field
+                        name="indications"
+                        invisible="not is_ppe"
+                        readonly="state not in ['draft','accepted']"
+                    />
                 </group>
                 <group string="Certification Information" invisible="not is_ppe">
                     <field name="issued_by" invisible="not is_ppe" readonly="1" />
@@ -73,10 +77,6 @@
             ref="hr_employee_ppe.hr_personal_equipment_form_view"
         />
         <field name="arch" type="xml">
-            <field name="expire_ppe" position="attributes">
-                <attribute name="readonly">True</attribute>
-                <attribute name="groups">base.group_user</attribute>
-            </field>
             <field name="expire_ppe" position="attributes">
                 <attribute name="readonly">True</attribute>
                 <attribute name="groups">base.group_user</attribute>
