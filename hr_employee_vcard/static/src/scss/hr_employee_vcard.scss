@@ -1,0 +1,181 @@
+$o-vcard-width: 8.5cm;
+$o-vcard-height: 5.4cm;
+$o-vcard-radius: 0.25cm;
+
+$o-vcard-primary: #714b67;
+$o-vcard-dark: #1f2b3a;
+$o-vcard-text: #212529;
+$o-vcard-muted: #8a8a8a;
+$o-vcard-border: #e0e0e0;
+
+.o_hr_employee_vcard {
+    text-align: center;
+
+    .o_hr_employee_vcard_face {
+        width: $o-vcard-width;
+        height: $o-vcard-height;
+        margin: 0 auto 0.4cm auto;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        position: relative;
+        overflow: hidden;
+        border-radius: $o-vcard-radius;
+        background-color: #ffffff;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        display: table;
+    }
+
+    .o_hr_employee_vcard_content {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+        padding: 0.45cm;
+    }
+
+    .o_hr_employee_vcard_line {
+        margin: 0 0 0.1cm 0;
+        line-height: 1.2;
+        word-wrap: break-word;
+    }
+
+    .o_hr_employee_vcard_img {
+        display: block;
+        margin: 0 auto;
+    }
+
+    .o_hr_employee_vcard_logo {
+        max-width: 3.4cm;
+        max-height: 1.3cm;
+        margin-bottom: 0.15cm;
+    }
+
+    .o_hr_employee_vcard_line_name {
+        font-size: 15px;
+        font-weight: bold;
+    }
+
+    .o_hr_employee_vcard_line_job_title {
+        font-size: 10px;
+        text-transform: uppercase;
+        letter-spacing: 0.05cm;
+        color: $o-vcard-muted;
+    }
+
+    .o_hr_employee_vcard_line_company_name {
+        font-size: 13px;
+        font-weight: bold;
+    }
+
+    .o_hr_employee_vcard_line_work_email,
+    .o_hr_employee_vcard_line_work_phone,
+    .o_hr_employee_vcard_line_website {
+        font-size: 10px;
+    }
+
+    .o_hr_employee_vcard_icon {
+        display: inline-block;
+        width: 0.5cm;
+        height: 0.5cm;
+        line-height: 0.5cm;
+        margin-right: 0.15cm;
+        border-radius: 50%;
+        background-color: $o-vcard-primary;
+        color: #ffffff;
+        font-size: 8px;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    .o_hr_employee_vcard_value {
+        vertical-align: middle;
+    }
+
+    .o_hr_employee_vcard_back .o_hr_employee_vcard_content {
+        text-align: left;
+        padding-right: 2.2cm;
+    }
+
+    .o_hr_employee_vcard_back .o_hr_employee_vcard_line_qr {
+        position: absolute;
+        top: 50%;
+        right: 0.5cm;
+        width: 1.7cm;
+        margin: -0.85cm 0 0 0;
+    }
+
+    .o_hr_employee_vcard_qr {
+        max-width: 1.7cm;
+        max-height: 1.7cm;
+    }
+}
+
+.o_hr_employee_vcard_modern {
+    .o_hr_employee_vcard_face {
+        background-color: $o-vcard-dark;
+        color: #ffffff;
+    }
+
+    .o_hr_employee_vcard_line_company_name {
+        color: #ffffff;
+    }
+
+    .o_hr_employee_vcard_line_job_title {
+        color: $o-vcard-primary;
+    }
+
+    .o_hr_employee_vcard_line_name {
+        display: inline-block;
+        padding-bottom: 0.08cm;
+        border-bottom: 0.05cm solid $o-vcard-primary;
+    }
+
+    .o_hr_employee_vcard_qr {
+        background-color: #ffffff;
+        padding: 0.1cm;
+        border-radius: 0.1cm;
+    }
+}
+
+.o_hr_employee_vcard_minimal {
+    .o_hr_employee_vcard_face {
+        border: 1px solid $o-vcard-border;
+    }
+
+    .o_hr_employee_vcard_line_name {
+        font-weight: normal;
+        letter-spacing: 0.03cm;
+    }
+
+    .o_hr_employee_vcard_line_company_name {
+        font-weight: normal;
+        color: $o-vcard-muted;
+    }
+
+    .o_hr_employee_vcard_icon {
+        width: auto;
+        height: auto;
+        line-height: 1;
+        margin-right: 0.12cm;
+        background-color: transparent;
+        color: $o-vcard-primary;
+        font-size: 10px;
+    }
+}
+
+.o_hr_employee_vcard_classic {
+    .o_hr_employee_vcard_face {
+        border: 1px solid $o-vcard-border;
+        border-left: 0.25cm solid $o-vcard-primary;
+    }
+
+    .o_hr_employee_vcard_line_company_name {
+        color: $o-vcard-primary;
+    }
+
+    .o_hr_employee_vcard_back .o_hr_employee_vcard_line_name {
+        padding-bottom: 0.1cm;
+        border-bottom: 1px solid $o-vcard-border;
+    }
+}
