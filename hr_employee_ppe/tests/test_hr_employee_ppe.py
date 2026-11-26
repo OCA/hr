@@ -80,7 +80,6 @@ class TestHREmployeePPE(TransactionCase):
         self.hr_employee_ppe_no_expirable = self.personal_equipment_request.line_ids[1]
 
     def test_compute_fields(self):
-        self.hr_employee_ppe_expirable._compute_fields()
         self.assertTrue(self.hr_employee_ppe_expirable.is_ppe)
         self.assertTrue(self.hr_employee_ppe_expirable.expire_ppe)
         self.assertEqual(
@@ -137,10 +136,9 @@ class TestHREmployeePPE(TransactionCase):
         self.assertNotEqual(self.hr_employee_ppe_no_expirable.state, "expired")
 
     def test_check_dates(self):
+        self.hr_employee_ppe_expirable.start_date = "2020-01-01"
+        self.hr_employee_ppe_expirable.expiry_date = "2019-12-31"
         with self.assertRaises(ValidationError):
-            self.hr_employee_ppe_expirable.start_date = "2020-01-01"
-            self.hr_employee_ppe_expirable.expiry_date = "2019-12-31"
-            self.hr_employee_ppe_expirable._compute_fields()
             self.hr_employee_ppe_expirable.validate_allocation()
 
     def test_compute_contains_ppe(self):
