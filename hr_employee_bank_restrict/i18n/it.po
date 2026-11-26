@@ -1,0 +1,28 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* hr_employee_bank_restrict
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2026-04-21 10:20+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.15.2\n"
+
+#. module: hr_employee_bank_restrict
+#: model:ir.model.fields,field_description:hr_employee_bank_restrict.field_res_partner__can_view_bank_accounts
+#: model:ir.model.fields,field_description:hr_employee_bank_restrict.field_res_users__can_view_bank_accounts
+msgid "Can View Bank Accounts"
+msgstr "Può vedere i conti bancari"
+
+#. module: hr_employee_bank_restrict
+#: model:ir.model,name:hr_employee_bank_restrict.model_res_partner
+msgid "Contact"
+msgstr "Contatto"
