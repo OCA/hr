@@ -42,6 +42,11 @@ msgid "Active"
 msgstr "Attiva"
 
 #. module: hr_employee_calendar_planning
+#: model_terms:ir.ui.view,arch_db:hr_employee_calendar_planning.hr_employee_calendar_wizard_view_form
+msgid "Apply"
+msgstr ""
+
+#. module: hr_employee_calendar_planning
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_resource_calendar__auto_generate
 msgid "Auto Generate"
 msgstr "Auto generata"
@@ -76,21 +81,30 @@ msgid "Calendar planning"
 msgstr "Pianificazione calendario"
 
 #. module: hr_employee_calendar_planning
+#: model_terms:ir.ui.view,arch_db:hr_employee_calendar_planning.hr_employee_calendar_wizard_view_form
+msgid "Cancel"
+msgstr ""
+
+#. module: hr_employee_calendar_planning
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__company_id
 msgid "Company"
 msgstr "Azienda"
 
 #. module: hr_employee_calendar_planning
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__create_uid
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar_wizard__create_uid
 msgid "Created by"
 msgstr "Creato da"
 
 #. module: hr_employee_calendar_planning
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__create_date
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar_wizard__create_date
 msgid "Created on"
 msgstr "Creato il"
 
 #. module: hr_employee_calendar_planning
+#. odoo-python
+#: code:addons/hr_employee_calendar_planning/wizards/hr_employee_calendar_wizard.py:0
 #: model:ir.model.constraint,message:hr_employee_calendar_planning.constraint_hr_employee_calendar_date_consistency
 msgid "Date end should be higher than date start"
 msgstr "La data fine deve essere successiva alla data inizio"
@@ -98,6 +112,7 @@ msgstr "La data fine deve essere successiva alla data inizio"
 #. module: hr_employee_calendar_planning
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee__display_name
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__display_name
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar_wizard__display_name
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_version__display_name
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_resource_calendar__display_name
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_resource_mixin__display_name
@@ -123,7 +138,13 @@ msgid "Employee Calendars"
 msgstr "Calendari dipendente"
 
 #. module: hr_employee_calendar_planning
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar_wizard__employee_ids
+msgid "Employees"
+msgstr ""
+
+#. module: hr_employee_calendar_planning
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__date_end
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar_wizard__date_end
 msgid "End Date"
 msgstr "Data fine"
 
@@ -146,6 +167,7 @@ msgstr "Ore per settimana"
 #. module: hr_employee_calendar_planning
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee__id
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__id
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar_wizard__id
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_version__id
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_resource_calendar__id
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_resource_mixin__id
@@ -175,11 +197,13 @@ msgstr "È completamente flessibile"
 
 #. module: hr_employee_calendar_planning
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__write_uid
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar_wizard__write_uid
 msgid "Last Updated by"
 msgstr "Ultimo aggiornamento di"
 
 #. module: hr_employee_calendar_planning
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__write_date
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar_wizard__write_date
 msgid "Last Updated on"
 msgstr "Ultimo aggiornamento il"
 
@@ -191,6 +215,16 @@ msgid ""
 msgstr ""
 "Numero di ore da lavorare nel calendario aziendale per essere considerato a "
 "tempo pieno."
+
+#. module: hr_employee_calendar_planning
+#: model:ir.actions.act_window,name:hr_employee_calendar_planning.hr_employee_calendar_wizard_action
+msgid "Plan Working Time"
+msgstr ""
+
+#. module: hr_employee_calendar_planning
+#: model:ir.model,name:hr_employee_calendar_planning.model_hr_employee_calendar_wizard
+msgid "Plan a working time for several employees"
+msgstr ""
 
 #. module: hr_employee_calendar_planning
 #: model_terms:ir.ui.view,arch_db:hr_employee_calendar_planning.resource_calendar_form
@@ -209,6 +243,7 @@ msgstr "Orario lavoro risorsa"
 
 #. module: hr_employee_calendar_planning
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__date_start
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar_wizard__date_start
 msgid "Start Date"
 msgstr "Data inizio"
 
@@ -269,6 +304,7 @@ msgstr ""
 
 #. module: hr_employee_calendar_planning
 #: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar__calendar_id
+#: model:ir.model.fields,field_description:hr_employee_calendar_planning.field_hr_employee_calendar_wizard__calendar_id
 msgid "Working Time"
 msgstr "Orario lavoro"
 
