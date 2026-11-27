@@ -13,6 +13,7 @@
         "security/ir.model.access.csv",
         "views/hr_employee_views.xml",
         "views/resource_calendar_views.xml",
+        "wizards/hr_employee_calendar_wizard_views.xml",
     ],
     "pre_init_hook": "pre_init_hook",
     "post_init_hook": "post_init_hook",
